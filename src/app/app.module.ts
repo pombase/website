@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
+import { FrontComponent } from './front/front.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GeneDetailsComponent
+    GeneDetailsComponent,
+    FrontComponent
   ],
   imports: [
     BrowserModule,
