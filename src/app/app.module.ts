@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { FrontComponent } from './front/front.component';
+import { PombaseAPIService } from './pombase-api.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { FrontComponent } from './front/front.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PombaseAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
