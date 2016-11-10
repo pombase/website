@@ -1,0 +1,10 @@
+#header-row {
+  background: #b8c7b8 url(assets/header-background.png) center right no-repeat;
+  height: 121px;
+}
+
+#header-content, #content {
+  min-width: 780px;
+  max-width: 1320px;
+  margin: 0 auto;
+}

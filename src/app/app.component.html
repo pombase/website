@@ -1,11 +1,19 @@
-<h1>
-  {{title}}
-</h1>
+<div id="header-row">
+<div id="header-content">
+<div id="logo">
+  <a routerLink="/front" routerLinkActive="active" title="Home"><img src="assets/pombase-logo.png" alt="pombase.org" /></a>
+</div>
+<span id="slogan">The scientific resource for fission yeast</span>
+</div>
+</div>
+
+<div id="content">
 
 <nav>
   <a routerLink="/front" routerLinkActive="active">Front</a>
   <a routerLink="/gene/SPCC1739.11c" routerLinkActive="active">Gene cdc11</a>
 </nav>
 
-
 <router-outlet></router-outlet>
+
+</div>
