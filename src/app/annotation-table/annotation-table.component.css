@@ -1,0 +1,24 @@
+.annotation-table table {
+  width: 100%;
+}
+
+fieldset.annotation-table, fieldset.annotation-table legend {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #707070;
+  background-color: #F9F9F9;
+}
+
+fieldset.annotation-table {
+  margin: 15px 0;
+  padding: 10px;
+}
+
+fieldset.annotation-table legend {
+  padding: 5px;
+  display: block;
+  font-size: 120%;
+  width: auto;
+}
