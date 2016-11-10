@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { GeneDetails } from '../gene-details/gene-details';
-import { PombaseAPIService } from '../pombase-api.service';
+import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-gene-details',
