@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { FrontComponent } from './front/front.component';
 import { PombaseAPIService } from './pombase-api.service';
+import { AnnotationTableComponent } from './annotation-table/annotation-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GeneDetailsComponent,
-    FrontComponent
+    FrontComponent,
+    AnnotationTableComponent
   ],
   imports: [
     BrowserModule,

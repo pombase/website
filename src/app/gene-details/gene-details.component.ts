@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
@@ -10,6 +10,7 @@ import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 })
 export class GeneDetailsComponent implements OnInit {
   @Input() geneDetails: GeneDetails;
+  annotationTypeNames: Array<string>;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }
@@ -20,7 +21,7 @@ export class GeneDetailsComponent implements OnInit {
         let uniquename = params['uniquename'];
         this.pombaseApiService.getGene(uniquename)
               .then(geneDetails => {
-                  console.log("here");
+                  this.annotationTypeNames = Object.keys(geneDetails.annotations);
                   this.geneDetails = geneDetails
               });
       };

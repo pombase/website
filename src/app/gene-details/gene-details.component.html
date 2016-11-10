@@ -2,7 +2,15 @@
   gene-details works!
 
   <div *ngIf="geneDetails">
-    {{geneDetails.uniquename}}
-    {{geneDetails.name}}
+    <div>Systematic ID: {{geneDetails.uniquename}}</div>
+    <div>Name: {{geneDetails.name}}</div>
+
+    <div>
+    Annotations:
+
+    <app-annotation-table *ngFor="let annotationTypeName of annotationTypeNames"
+                          [annotationTypeName]="annotationTypeName"
+                          [annotationTable]="geneDetails.annotations[annotationTypeName]"></app-annotation-table>
+    </div>
   </div>
 </div>

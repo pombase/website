@@ -1,0 +1,19 @@
+<div>
+  {{annotationTypeName}}
+
+  <table *ngIf="annotationTable.length > 0">
+    <thead>
+      <tr>
+        <th>Evidence</th>
+        <th>Term ID</th>
+        <th>Term name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let annotation of annotationTable">
+        <td>{{annotation.evidence}}</td>
+        <td>{{annotation.term.termid}}</td>
+        <td>{{annotation.term.name}}</td>
+      </tr>
+  </table>
+</div>
