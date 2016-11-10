@@ -3,6 +3,10 @@
   height: 121px;
 }
 
+#slogan {
+  color: white;
+}
+
 #header-content, #content {
   min-width: 780px;
   max-width: 1320px;
