@@ -1,6 +1,7 @@
 #gene-summary {
   border: 0;
   border-top: 0;
+  font-size: 120%;
 }
 
 table#gene-summary {
@@ -9,4 +10,8 @@ table#gene-summary {
 
 #gene-summary .label {
   font-weight: bold;
+}
+
+#gene-details .gene-name-and-id {
+  font-size: 150%;
 }

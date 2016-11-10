@@ -1,10 +1,12 @@
 <div>
-  <div *ngIf="geneDetails">
+  <div id="gene-details" *ngIf="geneDetails">
+    <div class="gene-name-and-id">
     <div *ngIf="geneDetails.name">
       {{geneDetails.name}} ({{geneDetails.uniquename}})
     </div>
     <div *ngIf="!geneDetails.name">
       {{geneDetails.uniquename}}
+    </div>
     </div>
 
     <hr style="clear: both" />
@@ -18,25 +20,25 @@
           <td>...</td>
         </tr>
         <tr>
-          <td>Systematic ID</td>
+          <td class="label">Systematic ID</td>
           <td>{{geneDetails.uniquename}}</td>
-          <td>Feature Type</td>
+          <td class="label">Feature Type</td>
           <td>...</td>
         </tr>
         <tr>
-          <td>Synonyms</td>
+          <td class="label">Synonyms</td>
           <td>...</td>
-          <td>Name description</td>
+          <td class="label">Name description</td>
           <td>S. Pombe Centromere</td>
         </tr>
         <tr>
-          <td>Product</td>
+          <td class="label">Product</td>
           <td>...</td>
-          <td>Product size</td>
+          <td class="label">Product size</td>
           <td>...aa, ...kDa</td>
         </tr>
         <tr>
-          <td>Genomic location</td>
+          <td class="label">Genomic location</td>
           <td colspan="3">...</td>
         </tr>
       </tbody>
