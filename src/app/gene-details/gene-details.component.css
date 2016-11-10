@@ -4,14 +4,6 @@
   font-size: 120%;
 }
 
-table#gene-summary {
+#gene-summary table {
   width: 100%;
-}
-
-#gene-summary .label {
-  font-weight: bold;
-}
-
-#gene-details .gene-name-and-id {
-  font-size: 150%;
 }

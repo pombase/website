@@ -1,3 +1,17 @@
 .citation {
   font-style: italic;
 }
+
+.details-page-name-and-id {
+  font-size: 160%;
+  font-weight: bold;
+}
+
+.details-page-summary .label {
+  font-weight: bold;
+}
+
+.details-page-summary table td {
+  vertical-align: top;
+  padding: 0 5px 5px 0;
+}

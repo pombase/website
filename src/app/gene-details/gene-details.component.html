@@ -1,6 +1,6 @@
 <div>
   <div id="gene-details" *ngIf="geneDetails">
-    <div class="gene-name-and-id">
+    <div class="details-page-name-and-id">
     <div *ngIf="geneDetails.name">
       {{geneDetails.name}} ({{geneDetails.uniquename}})
     </div>
@@ -11,7 +11,8 @@
 
     <hr style="clear: both" />
 
-    <table id="gene-summary">
+    <div id="gene-summary" class="details-page-summary">
+    <table>
       <tbody>
         <tr>
           <td class="label">Gene standard name</td>
@@ -43,6 +44,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
 
     <hr style="clear: both" />
 
