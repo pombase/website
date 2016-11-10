@@ -15,7 +15,6 @@ export class PombaseAPIService {
     return Promise.reject(error.message || error);
   }
 
-//    private apiUrl = 'http://localhost:4200/api/v1/dataset/latest';
   private apiUrl = 'http://pombase2.aska.gen.nz/api/v1/dataset/latest';
 
   getGene(uniquename: string) : Promise<GeneDetails> {
