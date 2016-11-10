@@ -1,0 +1,12 @@
+#gene-summary {
+  border: 0;
+  border-top: 0;
+}
+
+table#gene-summary {
+  width: 100%;
+}
+
+#gene-summary .label {
+  font-weight: bold;
+}

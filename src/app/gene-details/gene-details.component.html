@@ -2,8 +2,49 @@
   gene-details works!
 
   <div *ngIf="geneDetails">
-    <div>Systematic ID: {{geneDetails.uniquename}}</div>
-    <div>Name: {{geneDetails.name}}</div>
+    <div *ngIf="geneDetails.name">
+      {{geneDetails.name}} ({{geneDetails.uniquename}})
+    </div>
+    <div *ngIf="!geneDetails.name">
+      {{geneDetails.uniquename}}
+    </div>
+
+    <hr style="clear: both" />
+
+    <table id="gene-summary">
+      <tbody>
+        <tr>
+          <td class="label">Gene standard name</td>
+          <td>{{geneDetails.name}}</td>
+          <td class="label">Characterisation status</td>
+          <td>...</td>
+        </tr>
+        <tr>
+          <td>Systematic ID</td>
+          <td>{{geneDetails.uniquename}}</td>
+          <td>Feature Type</td>
+          <td>...</td>
+        </tr>
+        <tr>
+          <td>Synonyms</td>
+          <td>...</td>
+          <td>Name description</td>
+          <td>S. Pombe Centromere</td>
+        </tr>
+        <tr>
+          <td>Product</td>
+          <td>...</td>
+          <td>Product size</td>
+          <td>...aa, ...kDa</td>
+        </tr>
+        <tr>
+          <td>Genomic location</td>
+          <td colspan="3">...</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr style="clear: both" />
 
     <div>
     Annotations:
