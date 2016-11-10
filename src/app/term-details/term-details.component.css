@@ -1,0 +1,24 @@
+#term-summary {
+  font-size: 120%;
+}
+
+#term-summary-termid {
+  font-size: 150%;
+}
+
+#term-summary .label {
+  font-weight: bold;
+}
+
+#term-summary .term-name {
+  font-weight: 500;
+}
+
+#term-summary table td {
+  vertical-align: top;
+  padding: 5px;
+}
+
+td.label {
+/*  border-right: 2px solid black; */
+}

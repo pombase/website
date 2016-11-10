@@ -1,12 +1,27 @@
-<div>
+<div id="term-details">
   <div *ngIf="termDetails">
-    {{termDetails.termid}} <span class="term-name">{{termDetails.name}}</span>
+    <div id="term-details-termid">
+      {{termDetails.termid}}
+    </div>
+
+    <hr style="clear: both" />
+
+    <div id="term-summary">
+      <table>
+        <tr>
+          <td class="label">Name</td>
+          <td class="term-name">{{termDetails.name}}</td>
+        </tr>
+        <tr>
+          <td class="label">Definition</td>
+          <td>{{termDetails.definition}}</td>
+        </tr>
+      </table>
+    </div>
 
     <hr style="clear: both" />
 
     <div>
-    Annotations:
-
     <app-term-annotation-table [annotationTable]="termDetails.annotations"></app-term-annotation-table>
     </div>
   </div>
