@@ -9,13 +9,17 @@
         <th>Evidence</th>
         <th>Term ID</th>
         <th>Term name</th>
+        <th>Reference</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let annotation of annotationTable">
-        <td>{{annotation.evidence}}</td>
-        <td>{{annotation.term.termid}}</td>
+    <tbody *ngFor="let annotation of annotationTable">
+      <tr>
         <td>{{annotation.term.name}}</td>
+        <td>{{annotation.term.termid}}</td>
+        <td>{{annotation.evidence}}</td>
+        <td><span *ngIf="annotation.publication">{{annotation.publication.uniquename}}
+            <span class="citation">{{annotation.publication.citation}}</span></span></td>
       </tr>
+    </tbody>
   </table>
 </fieldset>
