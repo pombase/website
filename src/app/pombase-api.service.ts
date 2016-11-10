@@ -5,6 +5,12 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
+export interface Metadata {
+  db_creation_datetime: Date,
+  gene_count: number,
+  term_count: number,
+}
+
 export interface TermShort {
   termid: string,
   name: string,
@@ -70,6 +76,13 @@ export class PombaseAPIService {
     return this.http.get(this.apiUrl + '/data/term/' + termid)
       .toPromise()
       .then(response => response.json() as TermDetails)
+      .catch(this.handleError);
+  }
+
+  getMetadata() : Promise<Metadata> {
+    return this.http.get(this.apiUrl + '/data/metadata')
+      .toPromise()
+      .then(response => response.json() as Metadata)
       .catch(this.handleError);
   }
 }
