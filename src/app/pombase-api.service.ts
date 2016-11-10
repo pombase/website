@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
-export interface Metadata {
-  db_creation_datetime: Date,
-  gene_count: number,
-  term_count: number,
+export class Metadata {
+  db_creation_datetime: Date;
+  gene_count: number;
+  term_count: number;
 }
 
 export interface TermShort {
