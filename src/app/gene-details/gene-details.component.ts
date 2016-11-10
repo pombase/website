@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';

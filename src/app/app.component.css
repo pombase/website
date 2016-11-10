@@ -16,3 +16,7 @@
 .citation {
   font-style: italic;
 }
+
+.term-name {
+  font-weight: bold;
+}

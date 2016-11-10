@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
-export interface Term {
+export interface TermShort {
   termid: string,
   name: string,
   is_obsolete: boolean,
@@ -20,21 +20,32 @@ export interface Publication {
 export interface Annotation {
   publication: Publication,
   evidence: string,
-  term: Term,
+  term: TermShort,
+  gene: GeneShort,
 }
 
 export interface Annotations {
   [type_name: string]: Array<Annotation>
 }
 
+export class GeneShort {
+  uniquename: string;
+  name: string;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
   annotations: Annotations;
-  constructor (geneData: any) {
-    this.uniquename = geneData.uniquename;
-    this.name = geneData.name;
-  }
+}
+
+export class TermDetails {
+  definition: string;
+  termid: string;
+  cv_name: string;
+  name: string;
+  is_obsolete: false;
+  annotations: Annotations;
 }
 
 @Injectable()
@@ -52,6 +63,13 @@ export class PombaseAPIService {
     return this.http.get(this.apiUrl + '/data/gene/' + uniquename)
       .toPromise()
       .then(response => response.json() as GeneDetails)
+      .catch(this.handleError);
+  }
+
+  getTerm(termid: string) : Promise<TermDetails> {
+    return this.http.get(this.apiUrl + '/data/term/' + termid)
+      .toPromise()
+      .then(response => response.json() as TermDetails)
       .catch(this.handleError);
   }
 }

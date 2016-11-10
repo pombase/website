@@ -1,0 +1,33 @@
+<fieldset *ngIf="annotationTable.length > 0" class="annotation-table">
+  <legend>
+    Annotations
+  </legend>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Evidence</th>
+        <th>Reference</th>
+        <th>Gene</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let annotation of annotationTable">
+      <tr>
+        <td>{{annotation.evidence}}</td>
+        <td><span *ngIf="annotation.publication">{{annotation.publication.uniquename}}
+            <span class="citation">{{annotation.publication.citation}}</span></span></td>
+        <td>
+          <a routerLink="/gene/{{annotation.gene.uniquename}}"
+             routerLinkActive="active">
+            <div *ngIf="annotation.gene.name">
+              {{annotation.gene.name}} ({{annotation.gene.uniquename}})
+            </div>
+            <div *ngIf="!annotation.gene.name">
+              {{annotation.gene.uniquename}}
+            </div>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

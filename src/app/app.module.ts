@@ -6,16 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
+import { TermDetailsComponent } from './term-details/term-details.component';
 import { FrontComponent } from './front/front.component';
 import { PombaseAPIService } from './pombase-api.service';
-import { AnnotationTableComponent } from './annotation-table/annotation-table.component';
+import { GeneAnnotationTableComponent } from './gene-annotation-table/gene-annotation-table.component';
+import { TermAnnotationTableComponent } from './term-annotation-table/term-annotation-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GeneDetailsComponent,
     FrontComponent,
-    AnnotationTableComponent
+    TermDetailsComponent,
+    GeneAnnotationTableComponent,
+    TermAnnotationTableComponent,
   ],
   imports: [
     BrowserModule,

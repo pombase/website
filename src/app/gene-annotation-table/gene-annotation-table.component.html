@@ -1,21 +1,22 @@
 <fieldset *ngIf="annotationTable.length > 0" class="annotation-table">
   <legend>
-    {{annotationTypeName}}
+    <span *ngIf="annotationTypeName">{{annotationTypeName}}</span>
+    <span *ngIf="!annotationTypeName">Annotations</span>
   </legend>
 
   <table>
     <thead>
       <tr>
-        <th>Evidence</th>
-        <th>Term ID</th>
         <th>Term name</th>
+        <th>Term ID</th>
+        <th>Evidence</th>
         <th>Reference</th>
       </tr>
     </thead>
     <tbody *ngFor="let annotation of annotationTable">
       <tr>
         <td>{{annotation.term.name}}</td>
-        <td>{{annotation.term.termid}}</td>
+        <td><a routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a></td>
         <td>{{annotation.evidence}}</td>
         <td><span *ngIf="annotation.publication">{{annotation.publication.uniquename}}
             <span class="citation">{{annotation.publication.citation}}</span></span></td>
