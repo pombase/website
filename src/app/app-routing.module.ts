@@ -7,6 +7,7 @@ import { FrontComponent } from './front/front.component';
 
 const routes: Routes = [
     { path: 'gene/:uniquename', component: GeneDetailsComponent },
+    { path: 'spombe/result/:uniquename', component: GeneDetailsComponent },
     { path: 'term/:termid', component: TermDetailsComponent },
     { path: '', redirectTo: '/front', pathMatch: 'full' },
     { path: 'front', component: FrontComponent },
