@@ -39,6 +39,12 @@ export class GeneShort {
   name: string;
 }
 
+export class GeneSummary {
+  uniquename: string;
+  name: string;
+  synonyms: Array<string>;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
@@ -83,6 +89,13 @@ export class PombaseAPIService {
     return this.http.get(this.apiUrl + '/data/metadata')
       .toPromise()
       .then(response => response.json() as Metadata)
+      .catch(this.handleError);
+  }
+
+  getGeneSummaries() : Promise<Array<GeneSummary>> {
+    return this.http.get(this.apiUrl + '/data/gene_summaries')
+      .toPromise()
+      .then(response => response.json() as Array<GeneSummary>)
       .catch(this.handleError);
   }
 }

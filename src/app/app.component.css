@@ -14,6 +14,13 @@
   font-size: 80%;
 }
 
-#logo-and-slogan {
+#logo-and-slogan, #header-search-box {
   padding-top: 10px;
+  width: 49%;
+  float: left;
+}
+
+#header-search-box {
+  text-align: right;
+  margin-top: 20px;
 }

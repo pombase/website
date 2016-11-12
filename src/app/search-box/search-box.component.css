@@ -1,0 +1,12 @@
+.search-box {
+  width: 40%;
+  padding: 5px;
+  font-size: 110%;
+  color: #55595c;
+  background-color: #fff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+}

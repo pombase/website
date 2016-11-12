@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
+import { TypeaheadModule } from 'ng2-bootstrap/ng2-bootstrap';
+
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
@@ -11,6 +13,7 @@ import { FrontComponent } from './front/front.component';
 import { PombaseAPIService } from './pombase-api.service';
 import { GeneAnnotationTableComponent } from './gene-annotation-table/gene-annotation-table.component';
 import { TermAnnotationTableComponent } from './term-annotation-table/term-annotation-table.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,14 @@ import { TermAnnotationTableComponent } from './term-annotation-table/term-annot
     TermDetailsComponent,
     GeneAnnotationTableComponent,
     TermAnnotationTableComponent,
+    SearchBoxComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TypeaheadModule,
   ],
   providers: [PombaseAPIService],
   bootstrap: [AppComponent]
