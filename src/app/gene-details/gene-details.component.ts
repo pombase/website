@@ -16,6 +16,20 @@ export class GeneDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }
 
+  makeSynonymsDisplay(synonyms: Array<SynonymDetails>): string {
+    return synonyms.map((synonym) => {
+      if (synonym.synonym_type == 'exact') {
+        return synonym.name;
+      } else {
+        let synonym_type = synonym.synonym_type;
+        if (synonym_type == 'obsolete_name') {
+          synonym_type = 'obsolete';
+        }
+        return synonym.name + " (" + synonym_type + ")";
+      }
+    }).join(", ");
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -24,10 +38,7 @@ export class GeneDetailsComponent implements OnInit {
           .then(geneDetails => {
             this.annotationTypeNames = Object.keys(geneDetails.annotations);
             this.geneDetails = geneDetails;
-            this.synonymsDisplay =
-              geneDetails.synonyms.map((synonym) => {
-                return synonym.name + " (" + synonym.synonym_type + ")";
-              }).join(", ");
+            this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
           });
       };
     });
