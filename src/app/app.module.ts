@@ -14,6 +14,7 @@ import { PombaseAPIService } from './pombase-api.service';
 import { GeneAnnotationTableComponent } from './gene-annotation-table/gene-annotation-table.component';
 import { TermAnnotationTableComponent } from './term-annotation-table/term-annotation-table.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import { GetFocusDirective } from './get-focus.directive';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     GeneAnnotationTableComponent,
     TermAnnotationTableComponent,
     SearchBoxComponent,
+    GetFocusDirective,
   ],
   imports: [
     BrowserModule,
