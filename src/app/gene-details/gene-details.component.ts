@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
+import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-gene-details',
@@ -10,6 +10,7 @@ import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 })
 export class GeneDetailsComponent implements OnInit {
   @Input() geneDetails: GeneDetails;
+  synonymsDisplay: string = "";
   annotationTypeNames: Array<string>;
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -20,10 +21,14 @@ export class GeneDetailsComponent implements OnInit {
       if (params['uniquename'] !== undefined) {
         let uniquename = params['uniquename'];
         this.pombaseApiService.getGene(uniquename)
-              .then(geneDetails => {
-                  this.annotationTypeNames = Object.keys(geneDetails.annotations);
-                  this.geneDetails = geneDetails
-              });
+          .then(geneDetails => {
+            this.annotationTypeNames = Object.keys(geneDetails.annotations);
+            this.geneDetails = geneDetails;
+            this.synonymsDisplay =
+              geneDetails.synonyms.map((synonym) => {
+                return synonym.name + " (" + synonym.synonym_type + ")";
+              }).join(", ");
+          });
       };
     });
   }

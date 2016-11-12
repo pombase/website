@@ -45,10 +45,16 @@ export class GeneSummary {
   synonyms: Array<string>;
 }
 
+export interface SynonymDetails {
+  name: string,
+  synonym_type: string,
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
   feature_type: string;
+  synonyms: Array<SynonymDetails>;
   annotations: Annotations;
 }
 
