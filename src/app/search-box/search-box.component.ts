@@ -41,10 +41,10 @@ export class SearchBoxComponent implements OnInit {
           });
         });
         this.geneSummaries.sort(function (a, b) {
-          if (a < b) {
+          if ((a.name || a.uniquename) < (b.name || b.uniquename)) {
             return -1;
           }
-          if (a > b) {
+          if ((a.name || a.uniquename) > (b.name || b.uniquename)) {
             return 1;
           }
           return 0;
