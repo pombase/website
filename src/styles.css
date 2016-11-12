@@ -9,9 +9,40 @@
 
 .details-page-summary .details-label {
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .details-page-summary table td {
   vertical-align: top;
-  padding: 0 5px 5px 0;
+  padding: 0 10px 5px 0;
+}
+
+.annotation-table table {
+  width: 100%;
+}
+
+.annotation-table, .annotation-table legend {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #707070;
+  background-color: #F9F9F9;
+}
+
+.annotation-table {
+  margin: 15px 0;
+  padding: 10px;
+}
+
+.annotation-table table td {
+  vertical-align: top;
+  padding: 0 10px 5px 0;
+}
+
+.annotation-table legend {
+  padding: 5px;
+  display: block;
+  font-size: 120%;
+  width: auto;
 }
