@@ -48,6 +48,7 @@ export class GeneSummary {
 export class GeneDetails {
   uniquename: string;
   name: string;
+  feature_type: string;
   annotations: Annotations;
 }
 
