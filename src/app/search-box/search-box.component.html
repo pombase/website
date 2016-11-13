@@ -1,6 +1,6 @@
 <template #searchBoxTemplate let-model="item" let-index="index">
-  <span *ngIf="model.name">{{model.name}} ({{model.uniquename}})</span>
-  <span *ngIf="!model.name">{{model.uniquename}}</span>
+  <span *ngIf="model.name"><strong>{{model.name}}</strong> ({{model.uniquename}})</span>
+  <span *ngIf="!model.name"><strong>{{model.uniquename}}</strong></span>
 </template>
 <input #searchBox
        appGetFocus
