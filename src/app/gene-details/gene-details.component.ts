@@ -3,6 +3,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { SynonymDetails, GeneDetails, ChromosomeLocation, PombaseAPIService } from '../pombase-api.service';
 
+import { getGenePageConfig, GenePageConfig } from '../config';
+
 @Component({
   selector: 'app-gene-details',
   templateUrl: './gene-details.component.html',
@@ -13,6 +15,7 @@ export class GeneDetailsComponent implements OnInit {
   synonymsDisplay: string = "";
   displayLocation: string = "";
   annotationTypeNames: Array<string>;
+  config: GenePageConfig = getGenePageConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }
