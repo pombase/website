@@ -54,6 +54,7 @@ export class GeneDetails {
   uniquename: string;
   name: string;
   feature_type: string;
+  characterisation_status: string;
   synonyms: Array<SynonymDetails>;
   annotations: Annotations;
 }
