@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
+import { SynonymDetails, GeneDetails, ChromosomeLocation, PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-gene-details',
@@ -11,10 +11,34 @@ import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.s
 export class GeneDetailsComponent implements OnInit {
   @Input() geneDetails: GeneDetails;
   synonymsDisplay: string = "";
+  displayLocation: string = "";
   annotationTypeNames: Array<string>;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }
+
+  makeDisplayLocation(location: ChromosomeLocation): string {
+    let chromosome_name = location.chromosome_name;
+    let matches = chromosome_name.match(/chromosome_(\d+)/);
+    if (matches) {
+      chromosome_name = "Chromosome ";
+      for (let i = 0; i < +matches[1]; i++) {
+        chromosome_name += "I";
+      }
+    } else {
+      if (chromosome_name == "mating_type_region") {
+        chromosome_name = "Mating type region";
+      }
+    }
+    let ret = chromosome_name + ", ";
+    if (location.strand == "reverse") {
+      ret += location.end_pos + "-" + location.start_pos;
+    } else {
+      ret += location.start_pos + "-" + location.end_pos;
+    }
+    ret += " (" + (location.end_pos - location.start_pos) + "nt)";
+    return ret;
+  }
 
   makeSynonymsDisplay(synonyms: Array<SynonymDetails>): string {
     return synonyms.map((synonym) => {
@@ -39,6 +63,7 @@ export class GeneDetailsComponent implements OnInit {
             this.annotationTypeNames = Object.keys(geneDetails.annotations);
             this.geneDetails = geneDetails;
             this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
+            this.displayLocation = this.makeDisplayLocation(geneDetails.location);
           });
       };
     });

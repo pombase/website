@@ -34,6 +34,13 @@ export interface Annotations {
   [type_name: string]: Array<Annotation>
 }
 
+export interface ChromosomeLocation {
+  chromosome_name: string,
+  start_pos: number,
+  end_pos: number,
+  strand: string,
+}
+
 export class GeneShort {
   uniquename: string;
   name: string;
@@ -55,6 +62,8 @@ export class GeneDetails {
   name: string;
   feature_type: string;
   characterisation_status: string;
+  location: ChromosomeLocation;
+  cds_location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
   annotations: Annotations;
 }
