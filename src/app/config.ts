@@ -58,6 +58,9 @@ let _config: GenePageConfig = {
     paralogs: {
       displayName: "Paralogs",
     },
+    subunit_composition: {
+      displayName: "Subunit Composition",
+    },
   },
   getAnnotationType:
   function(annotationTypeName: string): AnnotationType {
