@@ -47,7 +47,6 @@ export interface InteractionAnnotations {
 
 export interface OrthologAnnotation {
   publication: Publication,
-  gene: GeneShort,
   other_gene: GeneShort,
 }
 
