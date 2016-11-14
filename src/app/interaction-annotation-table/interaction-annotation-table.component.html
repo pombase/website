@@ -6,16 +6,18 @@
   <table>
     <thead>
       <tr>
+        <th>Gene</th>
+        <th>Product</th>
         <th>Evidence</th>
-        <th>Interactor</th>
         <th>Reference</th>
       </tr>
     </thead>
     <tbody *ngFor="let annotation of annotationTable">
       <tr>
-        <td>{{annotation.evidence}}</td>
         <td><a routerLink="/gene/{{annotation.interactor.uniquename}}"
         routerLinkActive="active">{{annotation.interactor.name ? annotation.interactor.name + "(" + annotation.interactor.uniquename + ")" : annotation.interactor.uniquename }}</a></td>
+        <td>{{annotation.interactor.product}}</td>
+        <td>{{annotation.evidence}}</td>
         <td><span *ngIf="annotation.publication">{{annotation.publication.uniquename}}
             <span class="citation">{{annotation.publication.citation}}</span></span></td>
       </tr>
