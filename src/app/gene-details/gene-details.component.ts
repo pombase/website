@@ -15,6 +15,7 @@ export class GeneDetailsComponent implements OnInit {
   synonymsDisplay: string = "";
   displayLocation: string = "";
   annotationTypeNames: Array<string>;
+  interactionAnnotationTypeNames: Array<string>;
   config: GenePageConfig = getGenePageConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -64,6 +65,7 @@ export class GeneDetailsComponent implements OnInit {
         this.pombaseApiService.getGene(uniquename)
           .then(geneDetails => {
             this.annotationTypeNames = Object.keys(geneDetails.annotations);
+            this.interactionAnnotationTypeNames = Object.keys(geneDetails.interaction_annotations);
             this.geneDetails = geneDetails;
             this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
             this.displayLocation = this.makeDisplayLocation(geneDetails.location);

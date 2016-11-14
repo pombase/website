@@ -15,6 +15,7 @@ import { GeneAnnotationTableComponent } from './gene-annotation-table/gene-annot
 import { TermAnnotationTableComponent } from './term-annotation-table/term-annotation-table.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { GetFocusDirective } from './get-focus.directive';
+import { InteractionAnnotationTableComponent } from './interaction-annotation-table/interaction-annotation-table.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { GetFocusDirective } from './get-focus.directive';
     TermAnnotationTableComponent,
     SearchBoxComponent,
     GetFocusDirective,
+    InteractionAnnotationTableComponent,
   ],
   imports: [
     BrowserModule,

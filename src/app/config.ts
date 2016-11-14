@@ -46,6 +46,12 @@ let _config: GenePageConfig = {
     complementation: {
       displayName: "Complementation"
     },
+    interacts_genetically: {
+      displayName: "Genetic interaction",
+    },
+    interacts_physically: {
+      displayName: "Physical interaction",
+    }
   },
   getAnnotationType:
   function(annotationTypeName: string): AnnotationType {

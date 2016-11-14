@@ -54,5 +54,10 @@
                                [annotationTypeName]="annotationTypeName"
                                [annotationTable]="geneDetails.annotations[annotationTypeName]"></app-gene-annotation-table>
     </div>
+    <div>
+    <app-interaction-annotation-table *ngFor="let annotationTypeName of interactionAnnotationTypeNames"
+                                      [annotationTypeName]="annotationTypeName"
+                                      [annotationTable]="geneDetails.interaction_annotations[annotationTypeName]"></app-interaction-annotation-table>
+    </div>
   </div>
 </div>

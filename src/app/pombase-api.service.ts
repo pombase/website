@@ -34,6 +34,17 @@ export interface Annotations {
   [type_name: string]: Array<Annotation>
 }
 
+export interface InteractionAnnotation {
+  publication: Publication,
+  evidence: string,
+  gene: GeneShort,
+  other_gene: GeneShort,
+}
+
+export interface InteractionAnnotations {
+  [type_name: string]: Array<InteractionAnnotation>
+}
+
 export interface ChromosomeLocation {
   chromosome_name: string,
   start_pos: number,
@@ -66,6 +77,7 @@ export class GeneDetails {
   cds_location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
   annotations: Annotations;
+  interaction_annotations: InteractionAnnotations;
 }
 
 export class TermDetails {
