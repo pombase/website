@@ -1,0 +1,21 @@
+<fieldset *ngIf="annotationTable.length > 0" class="annotation-table">
+  <legend>
+    {{annotationTypeDisplayName}}
+  </legend>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Gene</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let annotation of annotationTable">
+      <tr>
+        <td><a routerLink="/gene/{{annotation.paralog.uniquename}}"
+        routerLinkActive="active">{{annotation.paralog.name ? annotation.paralog.name + " (" + annotation.paralog.uniquename + ")" : annotation.paralog.uniquename }}</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

@@ -38,7 +38,7 @@ export interface InteractionAnnotation {
   publication: Publication,
   evidence: string,
   gene: GeneShort,
-  other_gene: GeneShort,
+  interactor: GeneShort,
 }
 
 export interface InteractionAnnotations {
@@ -47,7 +47,12 @@ export interface InteractionAnnotations {
 
 export interface OrthologAnnotation {
   publication: Publication,
-  other_gene: GeneShort,
+  ortholog: GeneShort,
+}
+
+export interface ParalogAnnotation {
+  publication: Publication,
+  paralog: GeneShort,
 }
 
 export interface ChromosomeLocation {
@@ -84,6 +89,7 @@ export class GeneDetails {
   annotations: Annotations;
   interaction_annotations: InteractionAnnotations;
   ortholog_annotations: Array<OrthologAnnotation>;
+  paralog_annotations: Array<ParalogAnnotation>;
 }
 
 export class TermDetails {

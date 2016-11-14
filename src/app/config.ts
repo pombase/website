@@ -55,6 +55,9 @@ let _config: GenePageConfig = {
     orthologs: {
       displayName: "Orthologs",
     },
+    paralogs: {
+      displayName: "Paralogs",
+    },
   },
   getAnnotationType:
   function(annotationTypeName: string): AnnotationType {

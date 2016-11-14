@@ -17,6 +17,7 @@ import { SearchBoxComponent } from './search-box/search-box.component';
 import { GetFocusDirective } from './get-focus.directive';
 import { InteractionAnnotationTableComponent } from './interaction-annotation-table/interaction-annotation-table.component';
 import { OrthologAnnotationTableComponent } from './ortholog-annotation-table/ortholog-annotation-table.component';
+import { ParalogAnnotationTableComponent } from './paralog-annotation-table/paralog-annotation-table.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { OrthologAnnotationTableComponent } from './ortholog-annotation-table/or
     GetFocusDirective,
     InteractionAnnotationTableComponent,
     OrthologAnnotationTableComponent,
+    ParalogAnnotationTableComponent,
   ],
   imports: [
     BrowserModule,
