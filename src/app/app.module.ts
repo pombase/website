@@ -16,6 +16,7 @@ import { TermAnnotationTableComponent } from './term-annotation-table/term-annot
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { GetFocusDirective } from './get-focus.directive';
 import { InteractionAnnotationTableComponent } from './interaction-annotation-table/interaction-annotation-table.component';
+import { OrthologAnnotationTableComponent } from './ortholog-annotation-table/ortholog-annotation-table.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { InteractionAnnotationTableComponent } from './interaction-annotation-ta
     SearchBoxComponent,
     GetFocusDirective,
     InteractionAnnotationTableComponent,
+    OrthologAnnotationTableComponent,
   ],
   imports: [
     BrowserModule,

@@ -45,6 +45,12 @@ export interface InteractionAnnotations {
   [type_name: string]: Array<InteractionAnnotation>
 }
 
+export interface OrthologAnnotation {
+  publication: Publication,
+  gene: GeneShort,
+  other_gene: GeneShort,
+}
+
 export interface ChromosomeLocation {
   chromosome_name: string,
   start_pos: number,
@@ -78,6 +84,7 @@ export class GeneDetails {
   synonyms: Array<SynonymDetails>;
   annotations: Annotations;
   interaction_annotations: InteractionAnnotations;
+  ortholog_annotations: Array<OrthologAnnotation>;
 }
 
 export class TermDetails {

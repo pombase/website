@@ -51,7 +51,10 @@ let _config: GenePageConfig = {
     },
     interacts_physically: {
       displayName: "Physical interaction",
-    }
+    },
+    orthologs: {
+      displayName: "Orthologs",
+    },
   },
   getAnnotationType:
   function(annotationTypeName: string): AnnotationType {
