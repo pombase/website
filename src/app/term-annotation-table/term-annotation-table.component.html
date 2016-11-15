@@ -3,6 +3,10 @@
     Annotations
   </legend>
 
+  <div style="font-weight: bold; padding: 5px 0 5px 0; font-size: 120%;" *ngIf="truncatedTable.length != annotationTable.length">
+    Note: showing only {{maxRows}} of {{annotationTable.length}} annotations.
+  </div>
+
   <table>
     <thead>
       <tr>
@@ -14,8 +18,11 @@
     <tbody *ngFor="let annotation of annotationTable">
       <tr>
         <td>{{annotation.evidence}}</td>
-        <td><span *ngIf="annotation.reference">{{annotation.reference.uniquename}}
-            <span class="citation">{{annotation.reference.citation}}</span></span></td>
+        <td>
+          <span *ngIf="annotation.reference">
+            <app-reference-short [reference]="annotation.reference"></app-reference-short>
+          </span>
+        </td>
         <td>
           <a routerLink="/gene/{{annotation.gene.uniquename}}"
              routerLinkActive="active">

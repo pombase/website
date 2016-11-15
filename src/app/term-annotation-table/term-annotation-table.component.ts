@@ -10,6 +10,12 @@ import { Annotation } from '../pombase-api.service';
 export class TermAnnotationTableComponent implements OnInit {
   @Input() annotationTable: Array<Annotation>;
 
+  maxRows = 50;
+
+  truncatedTable: Array<Annotation> = [];
+
   ngOnInit() {
+    // FIXME
+    this.truncatedTable = this.annotationTable.slice(0, this.maxRows);
   }
 }
