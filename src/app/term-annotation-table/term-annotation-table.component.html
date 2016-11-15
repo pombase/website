@@ -14,8 +14,8 @@
     <tbody *ngFor="let annotation of annotationTable">
       <tr>
         <td>{{annotation.evidence}}</td>
-        <td><span *ngIf="annotation.publication">{{annotation.publication.uniquename}}
-            <span class="citation">{{annotation.publication.citation}}</span></span></td>
+        <td><span *ngIf="annotation.reference">{{annotation.reference.uniquename}}
+            <span class="citation">{{annotation.reference.citation}}</span></span></td>
         <td>
           <a routerLink="/gene/{{annotation.gene.uniquename}}"
              routerLinkActive="active">

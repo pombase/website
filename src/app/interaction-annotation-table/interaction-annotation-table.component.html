@@ -19,8 +19,8 @@
         <td>{{annotation.interactor.product}}</td>
         <td>{{annotation.evidence}}</td>
         <td>
-          <span *ngIf="annotation.publication">
-            <app-publication-short [publication]="annotation.publication"></app-publication-short>
+          <span *ngIf="annotation.reference">
+            <app-reference-short [reference]="annotation.reference"></app-reference-short>
           </span>
         </td>
       </tr>
