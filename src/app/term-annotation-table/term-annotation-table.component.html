@@ -18,15 +18,7 @@
     <tbody *ngFor="let annotation of annotationTable">
       <tr>
         <td>
-          <a routerLink="/gene/{{annotation.gene.uniquename}}"
-             routerLinkActive="active">
-            <div *ngIf="annotation.gene.name">
-              {{annotation.gene.name}} ({{annotation.gene.uniquename}})
-            </div>
-            <div *ngIf="!annotation.gene.name">
-              {{annotation.gene.uniquename}}
-            </div>
-          </a>
+          <app-gene-link [gene]="annotation.gene"></app-gene-link>
         </td>
         <td>{{annotation.evidence}}</td>
         <td>

@@ -21,6 +21,7 @@ import { OrthologAnnotationTableComponent } from './ortholog-annotation-table/or
 import { ParalogAnnotationTableComponent } from './paralog-annotation-table/paralog-annotation-table.component';
 import { ReferenceShortComponent } from './reference-short/reference-short.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
+import { GeneLinkComponent } from './gene-link/gene-link.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ReferenceDetailsComponent } from './reference-details/reference-details
     ParalogAnnotationTableComponent,
     ReferenceShortComponent,
     ReferenceDetailsComponent,
+    GeneLinkComponent,
   ],
   imports: [
     BrowserModule,
