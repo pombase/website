@@ -27,4 +27,12 @@
       </tbody>
     </table>
   </div>
+
+  <hr style="clear: both" />
+
+  <div>
+    <app-reference-annotation-table *ngFor="let annotationTypeName of annotationTypeNames"
+                                    [annotationTypeName]="annotationTypeName"
+                                    [annotationTable]="refDetails.annotations[annotationTypeName]"></app-reference-annotation-table>
+  </div>
 </div>

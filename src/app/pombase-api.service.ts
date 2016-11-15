@@ -111,6 +111,7 @@ export class ReferenceDetails {
   authors_abbrev: string;
   pubmed_publication_date: string;
   publication_year: string;
+  annotations: Annotations;
 }
 
 @Injectable()

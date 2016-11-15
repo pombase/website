@@ -13,6 +13,7 @@ import { FrontComponent } from './front/front.component';
 import { PombaseAPIService } from './pombase-api.service';
 import { GeneAnnotationTableComponent } from './gene-annotation-table/gene-annotation-table.component';
 import { TermAnnotationTableComponent } from './term-annotation-table/term-annotation-table.component';
+import { ReferenceAnnotationTableComponent } from './reference-annotation-table/reference-annotation-table.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { GetFocusDirective } from './get-focus.directive';
 import { InteractionAnnotationTableComponent } from './interaction-annotation-table/interaction-annotation-table.component';
@@ -29,6 +30,7 @@ import { ReferenceDetailsComponent } from './reference-details/reference-details
     TermDetailsComponent,
     GeneAnnotationTableComponent,
     TermAnnotationTableComponent,
+    ReferenceAnnotationTableComponent,
     SearchBoxComponent,
     GetFocusDirective,
     InteractionAnnotationTableComponent,
