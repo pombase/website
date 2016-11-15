@@ -10,19 +10,13 @@
   <table>
     <thead>
       <tr>
+        <th>Gene</th>
         <th>Evidence</th>
         <th>Reference</th>
-        <th>Gene</th>
       </tr>
     </thead>
     <tbody *ngFor="let annotation of annotationTable">
       <tr>
-        <td>{{annotation.evidence}}</td>
-        <td>
-          <span *ngIf="annotation.reference">
-            <app-reference-short [reference]="annotation.reference"></app-reference-short>
-          </span>
-        </td>
         <td>
           <a routerLink="/gene/{{annotation.gene.uniquename}}"
              routerLinkActive="active">
@@ -33,6 +27,12 @@
               {{annotation.gene.uniquename}}
             </div>
           </a>
+        </td>
+        <td>{{annotation.evidence}}</td>
+        <td>
+          <span *ngIf="annotation.reference">
+            <app-reference-short [reference]="annotation.reference"></app-reference-short>
+          </span>
         </td>
       </tr>
     </tbody>
