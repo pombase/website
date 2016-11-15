@@ -11,6 +11,7 @@
   <table>
     <thead>
       <tr>
+        <th>Gene</th>
         <th>Term name</th>
         <th>Term ID</th>
         <th>Evidence</th>
@@ -19,6 +20,18 @@
     </thead>
     <tbody *ngFor="let annotation of truncatedTable">
       <tr>
+        <td>
+          <a routerLink="/gene/{{annotation.gene.uniquename}}"
+             routerLinkActive="active">
+            <div *ngIf="annotation.gene.name">
+              {{annotation.gene.name}} ({{annotation.gene.uniquename}})
+            </div>
+            <div *ngIf="!annotation.gene.name">
+              {{annotation.gene.uniquename}}
+            </div>
+          </a>
+        </td>
+        <td>{{annotation.term.name}}</td>
         <td>{{annotation.term.name}}</td>
         <td><a routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a></td>
         <td>{{annotation.evidence}}</td>
