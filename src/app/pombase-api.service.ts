@@ -17,14 +17,16 @@ export interface TermShort {
   is_obsolete: boolean,
 }
 
-export interface Publication {
+export interface PublicationShort {
   title: string,
   uniquename: string,
   citation: string,
+  authors_abbrev: string,
+  publication_year: string,
 }
 
 export interface Annotation {
-  publication: Publication,
+  publication: PublicationShort,
   evidence: string,
   term: TermShort,
   gene: GeneShort,
@@ -35,7 +37,7 @@ export interface Annotations {
 }
 
 export interface InteractionAnnotation {
-  publication: Publication,
+  publication: PublicationShort,
   evidence: string,
   gene: GeneShort,
   interactor: GeneShort,
@@ -46,12 +48,12 @@ export interface InteractionAnnotations {
 }
 
 export interface OrthologAnnotation {
-  publication: Publication,
+  publication: PublicationShort,
   ortholog: GeneShort,
 }
 
 export interface ParalogAnnotation {
-  publication: Publication,
+  publication: PublicationShort,
   paralog: GeneShort,
 }
 

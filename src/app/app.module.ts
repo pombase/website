@@ -18,6 +18,7 @@ import { GetFocusDirective } from './get-focus.directive';
 import { InteractionAnnotationTableComponent } from './interaction-annotation-table/interaction-annotation-table.component';
 import { OrthologAnnotationTableComponent } from './ortholog-annotation-table/ortholog-annotation-table.component';
 import { ParalogAnnotationTableComponent } from './paralog-annotation-table/paralog-annotation-table.component';
+import { PublicationShortComponent } from './publication-short/publication-short.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ParalogAnnotationTableComponent } from './paralog-annotation-table/para
     InteractionAnnotationTableComponent,
     OrthologAnnotationTableComponent,
     ParalogAnnotationTableComponent,
+    PublicationShortComponent,
   ],
   imports: [
     BrowserModule,

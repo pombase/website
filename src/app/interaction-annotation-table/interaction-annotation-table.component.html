@@ -18,8 +18,11 @@
         routerLinkActive="active">{{annotation.interactor.name ? annotation.interactor.name + "(" + annotation.interactor.uniquename + ")" : annotation.interactor.uniquename }}</a></td>
         <td>{{annotation.interactor.product}}</td>
         <td>{{annotation.evidence}}</td>
-        <td><span *ngIf="annotation.publication">{{annotation.publication.uniquename}}
-            <span class="citation">{{annotation.publication.citation}}</span></span></td>
+        <td>
+          <span *ngIf="annotation.publication">
+            <app-publication-short [publication]="annotation.publication"></app-publication-short>
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -18,8 +18,11 @@
         <td>{{annotation.term.name}}</td>
         <td><a routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a></td>
         <td>{{annotation.evidence}}</td>
-        <td><span *ngIf="annotation.publication">{{annotation.publication.uniquename}}
-            <span class="citation">{{annotation.publication.citation}}</span></span></td>
+        <td>
+          <span *ngIf="annotation.publication">
+            <app-publication-short [publication]="annotation.publication"></app-publication-short>
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>
