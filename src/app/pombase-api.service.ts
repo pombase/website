@@ -103,6 +103,16 @@ export class TermDetails {
   annotations: Annotations;
 }
 
+export class ReferenceDetails {
+  uniquename: string;
+  title: string;
+  citation: string;
+  authors: string;
+  authors_abbrev: string;
+  pubmed_publication_date: string;
+  publication_year: string;
+}
+
 @Injectable()
 export class PombaseAPIService {
   constructor (private http: Http) {}
@@ -125,6 +135,13 @@ export class PombaseAPIService {
     return this.http.get(this.apiUrl + '/data/term/' + termid)
       .toPromise()
       .then(response => response.json() as TermDetails)
+      .catch(this.handleError);
+  }
+
+  getReference(uniquename: string) : Promise<ReferenceDetails> {
+    return this.http.get(this.apiUrl + '/data/reference/' + uniquename)
+      .toPromise()
+      .then(response => response.json() as ReferenceDetails)
       .catch(this.handleError);
   }
 

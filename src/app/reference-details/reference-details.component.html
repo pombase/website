@@ -1,0 +1,30 @@
+<div id="reference-details" *ngIf="refDetails">
+  <div class="details-page-name-and-id">
+    <span class="reference-title" *ngIf="refDetails.title">
+      {{refDetails.title}}
+    </span>
+  </div>
+
+  <hr style="clear: both" />
+
+  <div id="reference-summary" class="details-page-summary">
+    <table>
+      <tbody>
+        <tr>
+          <td class="details-label">ID</td>
+          <td>{{refDetails.uniquename}}</td>
+        </tr>
+        <tr *ngIf="refDetails.uniquename.startsWith('PMID:')">
+          <td class="details-label">Citation</td>
+          <td>{{refDetails.citation}}</td>
+          <td class="details-label">Publication date</td>
+          <td>{{refDetails.pubmed_publication_date}}
+        </tr>
+        <tr *ngIf="refDetails.uniquename.startsWith('PMID:')">
+          <td class="details-label">Authors</td>
+          <td>{{refDetails.authors}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

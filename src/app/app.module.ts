@@ -19,6 +19,7 @@ import { InteractionAnnotationTableComponent } from './interaction-annotation-ta
 import { OrthologAnnotationTableComponent } from './ortholog-annotation-table/ortholog-annotation-table.component';
 import { ParalogAnnotationTableComponent } from './paralog-annotation-table/paralog-annotation-table.component';
 import { ReferenceShortComponent } from './reference-short/reference-short.component';
+import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ReferenceShortComponent } from './reference-short/reference-short.compo
     OrthologAnnotationTableComponent,
     ParalogAnnotationTableComponent,
     ReferenceShortComponent,
+    ReferenceDetailsComponent,
   ],
   imports: [
     BrowserModule,

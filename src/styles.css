@@ -7,6 +7,15 @@
   font-weight: bold;
 }
 
+.details-page-summary {
+  font-size: 120%;
+  border: 0;
+}
+
+.details-page-summary table {
+  width: 100%;
+}
+
 .details-page-summary .details-label {
   font-weight: bold;
   white-space: nowrap;

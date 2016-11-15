@@ -1,14 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ReferenceShort } from '../pombase-api.service';
-
 @Component({
   selector: 'app-reference-short',
   templateUrl: './reference-short.component.html',
   styleUrls: ['./reference-short.component.css']
 })
 export class ReferenceShortComponent implements OnInit {
-  @Input() reference: ReferenceShort;
+  @Input() reference: /*ReferenceShort*/ any;
 
   displayString = "";
 
