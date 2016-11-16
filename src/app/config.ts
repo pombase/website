@@ -61,6 +61,9 @@ let _config: GenePageConfig = {
     subunit_composition: {
       displayName: "Subunit Composition",
     },
+    misc: {
+      displayName: "Miscellaneous",
+    }
   },
   getAnnotationType:
   function(annotationTypeName: string): AnnotationType {
