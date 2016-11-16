@@ -15,7 +15,6 @@
         <th>Term name</th>
         <th>Term ID</th>
         <th>Evidence</th>
-        <th>Reference</th>
       </tr>
     </thead>
     <tbody *ngFor="let annotation of truncatedTable">
@@ -24,14 +23,8 @@
           <app-gene-link [gene]="annotation.gene"></app-gene-link>
         </td>
         <td>{{annotation.term.name}}</td>
-        <td>{{annotation.term.name}}</td>
         <td><a routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a></td>
         <td>{{annotation.evidence}}</td>
-        <td>
-          <span *ngIf="annotation.reference">
-            <app-reference-short [reference]="annotation.reference"></app-reference-short>
-          </span>
-        </td>
       </tr>
     </tbody>
   </table>
