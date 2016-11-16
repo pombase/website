@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 import { Annotation } from '../pombase-api.service';
 
@@ -9,7 +9,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
   templateUrl: './annotation-table.component.html',
   styleUrls: ['./annotation-table.component.css']
 })
-export class AnnotationTableComponent implements OnInit {
+export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
   @Input() annotationTable: Array<Annotation>;
@@ -37,7 +37,9 @@ export class AnnotationTableComponent implements OnInit {
     for (let columnName of this.hideColumns) {
       this.hideColumn[columnName] = true;
     }
+  }
 
+  ngOnChanges(changes: SimpleChanges) {
     // FIXME
     this.truncatedTable = this.annotationTable.slice(0, this.maxRows);
   }
