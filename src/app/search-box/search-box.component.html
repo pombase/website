@@ -3,7 +3,6 @@
   <span *ngIf="!model.name"><strong>{{model.uniquename}}</strong></span>
 </template>
 <input #searchBox
-       appGetFocus
        *ngIf="geneSummaries.length > 0"
        placeholder="search ..."
        [(ngModel)]="selectedGene"
