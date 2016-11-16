@@ -12,8 +12,10 @@
     <thead>
       <tr>
         <th *ngIf="!hideColumn['gene']">Gene</th>
-        <th *ngIf="!hideColumn['term']">Term name</th>
         <th *ngIf="!hideColumn['term']">Term ID</th>
+        <th *ngIf="!hideColumn['term']">Term name</th>
+        <th *ngIf="!hideColumn['term']">Count</th>
+        <th *ngIf="!hideColumn['extension']">Extension</th>
         <th *ngIf="!hideColumn['evidence']">Evidence</th>
         <th *ngIf="!hideColumn['reference']">Reference</th>
       </tr>
@@ -23,8 +25,19 @@
         <td *ngIf="!hideColumn['gene']">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
-        <td *ngIf="!hideColumn['term']"><span *ngIf="annotation.term">{{annotation.term.name}}</span></td>
-        <td *ngIf="!hideColumn['term']"><a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a></td>
+        <td *ngIf="!hideColumn['term']">
+          <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a>
+        </td>
+        <td *ngIf="!hideColumn['term']">
+          <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.name}}</a>
+        </td>
+        <td *ngIf="!hideColumn['term']">
+          <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.use_count}}</a>
+        </td>
+        <td *ngIf="!hideColumn['extension']">
+          <app-extension-display *ngIf="annotation.extension"
+                                 [extension]="annotation.extension"></app-extension-display>
+        </td>
         <td *ngIf="!hideColumn['evidence']">{{annotation.evidence}}</td>
         <td *ngIf="!hideColumn['reference']">
           <app-reference-short *ngIf="annotation.reference"

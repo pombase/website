@@ -20,6 +20,7 @@ import { ParalogAnnotationTableComponent } from './paralog-annotation-table/para
 import { ReferenceShortComponent } from './reference-short/reference-short.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
 import { GeneLinkComponent } from './gene-link/gene-link.component';
+import { ExtensionDisplayComponent } from './extension-display/extension-display.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { GeneLinkComponent } from './gene-link/gene-link.component';
     ReferenceShortComponent,
     ReferenceDetailsComponent,
     GeneLinkComponent,
+    ExtensionDisplayComponent,
   ],
   imports: [
     BrowserModule,
