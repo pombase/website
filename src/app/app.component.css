@@ -8,7 +8,7 @@
 }
 
 #header-content, #content {
-  min-width: 780px;
+  min-width: 600px;
   max-width: 1320px;
   margin: 0 auto;
 }
