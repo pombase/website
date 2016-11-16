@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { getGenePageConfig, GenePageConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 import { ReferenceDetails, PombaseAPIService } from '../pombase-api.service';
 
@@ -15,7 +15,7 @@ export class ReferenceDetailsComponent implements OnInit {
 
   annotationTypeNames: Array<string>;
   interactionAnnotationTypeNames: Array<string>;
-  config: GenePageConfig = getGenePageConfig();
+  config: AnnotationTableConfig = getAnnotationTableConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }

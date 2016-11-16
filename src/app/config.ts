@@ -6,12 +6,12 @@ export interface AnnotationTypes {
     [annotationTypeName: string]: AnnotationType;
 }
 
-export interface GenePageConfig {
+export interface AnnotationTableConfig {
     annotationTypes: AnnotationTypes;
     getAnnotationType(annotationTypeName: string): AnnotationType;
 }
 
-let _config: GenePageConfig = {
+let _config: AnnotationTableConfig = {
   annotationTypes: {
     molecular_function: {
       displayName: "GO molecular function",
@@ -74,6 +74,6 @@ let _config: GenePageConfig = {
   },
 }
 
-export function getGenePageConfig(): GenePageConfig {
+export function getAnnotationTableConfig(): AnnotationTableConfig {
   return _config;
 }

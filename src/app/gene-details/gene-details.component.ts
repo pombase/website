@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { SynonymDetails, GeneDetails, ChromosomeLocation, PombaseAPIService } from '../pombase-api.service';
 
-import { getGenePageConfig, GenePageConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 @Component({
   selector: 'app-gene-details',
@@ -17,7 +17,7 @@ export class GeneDetailsComponent implements OnInit {
   displayLocation: string = "";
   annotationTypeNames: Array<string>;
   interactionAnnotationTypeNames: Array<string>;
-  config: GenePageConfig = getGenePageConfig();
+  config: AnnotationTableConfig = getAnnotationTableConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }

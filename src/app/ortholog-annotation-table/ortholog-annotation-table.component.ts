@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { OrthologAnnotation } from '../pombase-api.service';
 
-import { getGenePageConfig, GenePageConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 @Component({
   selector: 'app-ortholog-annotation-table',
@@ -13,7 +13,7 @@ export class OrthologAnnotationTableComponent implements OnInit {
 
   @Input() annotationTable: Array<OrthologAnnotation>;
 
-  config: GenePageConfig = getGenePageConfig();
+  config: AnnotationTableConfig = getAnnotationTableConfig();
 
   annotationTypeDisplayName = null;
 

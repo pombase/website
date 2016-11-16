@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { InteractionAnnotation } from '../pombase-api.service';
 
-import { getGenePageConfig, GenePageConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 @Component({
   selector: 'app-interaction-annotation-table',
@@ -13,7 +13,7 @@ export class InteractionAnnotationTableComponent implements OnInit {
   @Input() annotationTypeName: string;
   @Input() annotationTable: Array<InteractionAnnotation>;
 
-  config: GenePageConfig = getGenePageConfig();
+  config: AnnotationTableConfig = getAnnotationTableConfig();
 
   annotationTypeDisplayName = null;
 

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Annotation } from '../pombase-api.service';
 
-import { getGenePageConfig, GenePageConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 @Component({
   selector: 'app-annotation-table',
@@ -16,7 +16,7 @@ export class AnnotationTableComponent implements OnInit {
 
   maxRows = 50;
   truncatedTable: Array<Annotation> = [];
-  config: GenePageConfig = getGenePageConfig();
+  config: AnnotationTableConfig = getAnnotationTableConfig();
   annotationTypeDisplayName = null;
   hideColumn = {};
 
@@ -35,7 +35,6 @@ export class AnnotationTableComponent implements OnInit {
     }
 
     for (let columnName of this.hideColumns) {
-      console.log(columnName);
       this.hideColumn[columnName] = true;
     }
 

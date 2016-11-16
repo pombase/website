@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { ParalogAnnotation } from '../pombase-api.service';
 
-import { getGenePageConfig, GenePageConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 @Component({
   selector: 'app-paralog-annotation-table',
@@ -13,7 +13,7 @@ export class ParalogAnnotationTableComponent implements OnInit {
 
   @Input() annotationTable: Array<ParalogAnnotation>;
 
-  config: GenePageConfig = getGenePageConfig();
+  config: AnnotationTableConfig = getAnnotationTableConfig();
 
   annotationTypeDisplayName = null;
 
