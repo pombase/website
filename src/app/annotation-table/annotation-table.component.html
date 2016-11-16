@@ -1,0 +1,36 @@
+<fieldset *ngIf="annotationTable.length > 0" class="annotation-table">
+  <legend>
+    <span *ngIf="annotationTypeName">{{annotationTypeDisplayName}}</span>
+    <span *ngIf="!annotationTypeName">Annotations</span>
+  </legend>
+
+  <div style="font-weight: bold; padding: 5px 0 5px 0; font-size: 120%;" *ngIf="truncatedTable.length != annotationTable.length">
+    Note: showing only {{maxRows}} of {{annotationTable.length}} annotations.
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th *ngIf="!hideColumn['gene']">Gene</th>
+        <th *ngIf="!hideColumn['term']">Term name</th>
+        <th *ngIf="!hideColumn['term']">Term ID</th>
+        <th *ngIf="!hideColumn['evidence']">Evidence</th>
+        <th *ngIf="!hideColumn['reference']">Reference</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let annotation of truncatedTable">
+      <tr>
+        <td *ngIf="!hideColumn['gene']">
+          <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
+        </td>
+        <td *ngIf="!hideColumn['term']"><span *ngIf="annotation.term">{{annotation.term.name}}</span></td>
+        <td *ngIf="!hideColumn['term']"><a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a></td>
+        <td *ngIf="!hideColumn['evidence']">{{annotation.evidence}}</td>
+        <td *ngIf="!hideColumn['reference']">
+          <app-reference-short *ngIf="annotation.reference"
+                               [reference]="annotation.reference"></app-reference-short>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

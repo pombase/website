@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { GeneAnnotationTableComponent } from './gene-annotation-table.component';
+import { AnnotationTableComponent } from './annotation-table.component';
 
-describe('GeneAnnotationTableComponent', () => {
-  let component: GeneAnnotationTableComponent;
-  let fixture: ComponentFixture<GeneAnnotationTableComponent>;
+describe('AnnotationTableComponent', () => {
+  let component: AnnotationTableComponent;
+  let fixture: ComponentFixture<AnnotationTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GeneAnnotationTableComponent ]
+      declarations: [ AnnotationTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GeneAnnotationTableComponent);
+    fixture = TestBed.createComponent(AnnotationTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

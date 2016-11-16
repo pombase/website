@@ -50,9 +50,10 @@
 
     <div>
 
-    <app-gene-annotation-table *ngFor="let annotationTypeName of annotationTypeNames"
-                               [annotationTypeName]="annotationTypeName"
-                               [annotationTable]="geneDetails.annotations[annotationTypeName]"></app-gene-annotation-table>
+    <app-annotation-table *ngFor="let annotationTypeName of annotationTypeNames"
+                          [annotationTypeName]="annotationTypeName"
+                          [hideColumns]="['gene']"
+                          [annotationTable]="geneDetails.annotations[annotationTypeName]"></app-annotation-table>
     </div>
     <div>
     <app-interaction-annotation-table *ngFor="let annotationTypeName of interactionAnnotationTypeNames"

@@ -22,7 +22,9 @@
     <hr style="clear: both" />
 
     <div>
-    <app-term-annotation-table [annotationTable]="termDetails.annotations"></app-term-annotation-table>
+      <app-annotation-table [hideColumns]="['term']"
+                            [annotationTypeName]="'Annotations'"
+                            [annotationTable]="termDetails.annotations"></app-annotation-table>
     </div>
   </div>
 </div>

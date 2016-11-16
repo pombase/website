@@ -11,9 +11,7 @@ import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
 import { FrontComponent } from './front/front.component';
 import { PombaseAPIService } from './pombase-api.service';
-import { GeneAnnotationTableComponent } from './gene-annotation-table/gene-annotation-table.component';
-import { TermAnnotationTableComponent } from './term-annotation-table/term-annotation-table.component';
-import { ReferenceAnnotationTableComponent } from './reference-annotation-table/reference-annotation-table.component';
+import { AnnotationTableComponent } from './annotation-table/annotation-table.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { GetFocusDirective } from './get-focus.directive';
 import { InteractionAnnotationTableComponent } from './interaction-annotation-table/interaction-annotation-table.component';
@@ -29,9 +27,7 @@ import { GeneLinkComponent } from './gene-link/gene-link.component';
     GeneDetailsComponent,
     FrontComponent,
     TermDetailsComponent,
-    GeneAnnotationTableComponent,
-    TermAnnotationTableComponent,
-    ReferenceAnnotationTableComponent,
+    AnnotationTableComponent,
     SearchBoxComponent,
     GetFocusDirective,
     InteractionAnnotationTableComponent,
