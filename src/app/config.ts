@@ -1,8 +1,8 @@
-interface AnnotationType {
+export interface AnnotationType {
     displayName: string;
 }
 
-interface AnnotationTypes {
+export interface AnnotationTypes {
     [annotationTypeName: string]: AnnotationType;
 }
 

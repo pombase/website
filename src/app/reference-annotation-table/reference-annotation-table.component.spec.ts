@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ReferenceAnnotationComponent } from './reference-annotation.component';
+import { ReferenceAnnotationTableComponent } from './reference-annotation-table.component';
 
-describe('ReferenceAnnotationComponent', () => {
-  let component: ReferenceAnnotationComponent;
-  let fixture: ComponentFixture<ReferenceAnnotationComponent>;
+describe('ReferenceAnnotationTableComponent', () => {
+  let component: ReferenceAnnotationTableComponent;
+  let fixture: ComponentFixture<ReferenceAnnotationTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReferenceAnnotationComponent ]
+      declarations: [ ReferenceAnnotationTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReferenceAnnotationComponent);
+    fixture = TestBed.createComponent(ReferenceAnnotationTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
