@@ -63,6 +63,9 @@ let _config: GenePageConfig = {
     },
     misc: {
       displayName: "Miscellaneous",
+    },
+    sequence: {
+      displayName: "Sequence",
     }
   },
   getAnnotationType:
