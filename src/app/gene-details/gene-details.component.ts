@@ -12,6 +12,7 @@ import { getGenePageConfig, GenePageConfig } from '../config';
 })
 export class GeneDetailsComponent implements OnInit {
   @Input() geneDetails: GeneDetails;
+
   synonymsDisplay: string = "";
   displayLocation: string = "";
   annotationTypeNames: Array<string>;
@@ -62,9 +63,23 @@ export class GeneDetailsComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
         let uniquename = params['uniquename'];
+        let annotationCmp = (a, b) => {
+          let aDisplayName =
+            this.config.annotationTypes[a] ? this.config.annotationTypes[a].displayName : a;
+          let bDisplayName =
+            this.config.annotationTypes[b] ? this.config.annotationTypes[b].displayName : b;
+          if (aDisplayName < bDisplayName) {
+            return -1;
+          }
+          if (aDisplayName > bDisplayName) {
+            return 1;
+          }
+          return 0;
+        };
         this.pombaseApiService.getGene(uniquename)
           .then(geneDetails => {
             this.annotationTypeNames = Object.keys(geneDetails.annotations);
+            this.annotationTypeNames.sort(annotationCmp);
             this.interactionAnnotationTypeNames = Object.keys(geneDetails.interaction_annotations);
             this.geneDetails = geneDetails;
             this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
