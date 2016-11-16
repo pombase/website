@@ -112,6 +112,9 @@ export class ReferenceDetails {
   pubmed_publication_date: string;
   publication_year: string;
   annotations: Annotations;
+  interaction_annotations: InteractionAnnotations;
+  ortholog_annotations: Array<OrthologAnnotation>;
+  paralog_annotations: Array<ParalogAnnotation>;
 }
 
 @Injectable()

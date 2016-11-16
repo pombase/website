@@ -35,4 +35,16 @@
                                     [annotationTypeName]="annotationTypeName"
                                     [annotationTable]="refDetails.annotations[annotationTypeName]"></app-reference-annotation-table>
   </div>
+  <div>
+    <app-interaction-annotation-table *ngFor="let annotationTypeName of interactionAnnotationTypeNames"
+                                      [annotationTypeName]="annotationTypeName"
+                                      [annotationTable]="refDetails.interaction_annotations[annotationTypeName]"></app-interaction-annotation-table>
+  </div>
+  <div>
+    <app-ortholog-annotation-table [annotationTable]="refDetails.ortholog_annotations"></app-ortholog-annotation-table>
+  </div>
+  <div>
+    <app-paralog-annotation-table [annotationTable]="refDetails.paralog_annotations"></app-paralog-annotation-table>
+  </div>
+
 </div>

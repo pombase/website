@@ -12,6 +12,7 @@ export class ReferenceDetailsComponent implements OnInit {
   @Input() refDetails: ReferenceDetails;
 
   annotationTypeNames: Array<string>;
+  interactionAnnotationTypeNames: Array<string>;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }
@@ -24,6 +25,7 @@ export class ReferenceDetailsComponent implements OnInit {
           .then(refDetails => {
             this.refDetails = refDetails;
             this.annotationTypeNames = Object.keys(refDetails.annotations);
+            this.interactionAnnotationTypeNames = Object.keys(refDetails.interaction_annotations);
           });
       };
     });
