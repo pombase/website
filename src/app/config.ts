@@ -6,7 +6,8 @@ export interface AppConfig {
 }
 
 export interface AnnotationType {
-    displayName: string;
+  displayName: string;
+  extraColumns?: Array<string>;
 }
 
 export interface AnnotationTypes {
@@ -34,6 +35,7 @@ let _config: AnnotationTableConfig = {
     },
     fission_yeast_phenotype: {
       displayName: "Phenotype",
+      extraColumns: ["genotype"],
     },
     post_translational_modification: {
       displayName: "Protein modification",

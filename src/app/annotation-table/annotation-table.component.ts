@@ -17,21 +17,28 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   maxRows = 50;
   truncatedTable: Array<Annotation> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
+  typeConfig: any;
+  showGenotypes = false;
   annotationTypeDisplayName = null;
   hideColumn = {};
 
   constructor() { }
 
   ngOnInit() {
-    let typeConfig = null;
+    this.typeConfig = null;
     if (this.annotationTypeName) {
-      typeConfig = this.config.annotationTypes[this.annotationTypeName];
+      this.typeConfig = this.config.annotationTypes[this.annotationTypeName];
     }
-    if (typeConfig && typeConfig.displayName) {
+    if (this.typeConfig && this.typeConfig.displayName) {
       this.annotationTypeDisplayName =
         this.config.annotationTypes[this.annotationTypeName].displayName;
     } else {
       this.annotationTypeDisplayName = this.annotationTypeName;
+    }
+
+    if (this.typeConfig && this.typeConfig.extraColumns &&
+        this.typeConfig.extraColumns.includes('genotype')) {
+      this.showGenotypes = true;
     }
 
     for (let columnName of this.hideColumns) {

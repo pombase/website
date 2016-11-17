@@ -25,11 +25,22 @@ export interface ReferenceShort {
   publication_year: string,
 }
 
+
+export interface Allele {
+  gene_uniquename: string,
+  uniquename: string,
+  name: string,
+}
+
+export interface GenotypeShort {
+  alleles: Array<Allele>,
+}
 export interface Annotation {
   reference: ReferenceShort,
   evidence: string,
   term: TermShort,
   gene: GeneShort,
+  genotype: GenotypeShort,
 }
 
 export interface Annotations {

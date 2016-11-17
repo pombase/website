@@ -21,6 +21,7 @@ import { ReferenceShortComponent } from './reference-short/reference-short.compo
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
 import { GeneLinkComponent } from './gene-link/gene-link.component';
 import { ExtensionDisplayComponent } from './extension-display/extension-display.component';
+import { GenotypeLinkComponent } from './genotype-link/genotype-link.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ExtensionDisplayComponent } from './extension-display/extension-display
     ReferenceDetailsComponent,
     GeneLinkComponent,
     ExtensionDisplayComponent,
+    GenotypeLinkComponent,
   ],
   imports: [
     BrowserModule,
