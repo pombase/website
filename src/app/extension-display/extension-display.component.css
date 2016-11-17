@@ -1,3 +1,8 @@
+.extension-display {
+  font-size: 95%;
+}
+
 .extension-part {
   display: block;
+  padding-left: 10px;
 }

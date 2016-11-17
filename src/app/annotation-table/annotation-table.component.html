@@ -15,7 +15,6 @@
         <th *ngIf="!hideColumn['term']">Term ID</th>
         <th *ngIf="!hideColumn['term']">Term name</th>
         <th *ngIf="!hideColumn['term']">Count</th>
-        <th *ngIf="!hideColumn['extension']">Extension</th>
         <th *ngIf="!hideColumn['evidence']">Evidence</th>
         <th *ngIf="!hideColumn['reference']">Reference</th>
       </tr>
@@ -29,14 +28,16 @@
           <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a>
         </td>
         <td *ngIf="!hideColumn['term']">
-          <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.name}}</a>
+          <div>
+            <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.name}}</a>
+          </div>
+          <div *ngIf="!hideColumn['extension']">
+            <app-extension-display *ngIf="annotation.extension"
+                                   [extension]="annotation.extension"></app-extension-display>
+          </div>
         </td>
         <td *ngIf="!hideColumn['term']">
           <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.use_count}}</a>
-        </td>
-        <td *ngIf="!hideColumn['extension']">
-          <app-extension-display *ngIf="annotation.extension"
-                                 [extension]="annotation.extension"></app-extension-display>
         </td>
         <td *ngIf="!hideColumn['evidence']">{{annotation.evidence}}</td>
         <td *ngIf="!hideColumn['reference']">
