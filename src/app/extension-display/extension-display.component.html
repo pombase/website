@@ -1,5 +1,5 @@
 <span class="extension-display">
-  <span *ngFor="let extPart of extension">
+  <span class="extension-part" *ngFor="let extPart of extension">
     <span *ngIf="extPart.ext_range['term']">
       {{extPart.rel_type_name}} <a routerLink="/term/{{extPart.ext_range.term.termid}}" routerLinkActive="active">{{extPart.ext_range.term.name}}</a>
     </span>
