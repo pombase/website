@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GeneLinkComponent implements OnInit {
   @Input() gene: /* GeneShort */ any;
+  @Input() long: boolean = true;
 
   displayString = "";
 
@@ -14,7 +15,10 @@ export class GeneLinkComponent implements OnInit {
 
   ngOnInit() {
     if (this.gene.name) {
-      this.displayString = this.gene.name + " (" + this.gene.uniquename + ")";
+      this.displayString = this.gene.name;
+      if (this.long) {
+          this.displayString += " (" + this.gene.uniquename + ")";
+      }
     } else {
       this.displayString = this.gene.uniquename;
     }
