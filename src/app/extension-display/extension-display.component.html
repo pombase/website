@@ -1,13 +1,14 @@
 <span class="extension-display">
   <span *ngFor="let extPart of extension">
-    <span *ngIf="extPart.range_type == 'term'">
-      {{extPart.rel_type_name}} (<a routerLink="/term/{{extPart.ext_range}}" routerLinkActive="active">{{extPart.ext_range}}</a>)
+    <span *ngIf="extPart.ext_range['term']">
+      {{extPart.rel_type_name}} <a routerLink="/term/{{extPart.ext_range.term.termid}}" routerLinkActive="active">{{extPart.ext_range.term.name}}</a>
     </span>
-    <span *ngIf="extPart.range_type == 'gene'">
-      {{extPart.rel_type_name}} (<a routerLink="/gene/{{extPart.ext_range}}" routerLinkActive="active">{{extPart.ext_range}}</a>)
-    </span>
-    <span *ngIf="extPart.range_type != 'gene' && extPart.range_type != 'term'">
-      {{extPart.rel_type_name}} ({{extPart.ext_range}})
+    <span *ngIf="extPart.ext_range['gene']">
+      {{extPart.rel_type_name}} <app-gene-link *ngIf="extPart.ext_range.gene"
+                                               [long]="false" [gene]="extPart.ext_range.gene"></app-gene-link></span>
+    <span *ngIf="extPart.ext_range['misc']">
+      {{extPart.rel_type_name}}
+      <strong>{{extPart.ext_range.misc}}<span *ngIf="extPart.rel_type_name == 'has_penetrance' || extPart.rel_type_name == 'has_expressivity'">%</span></strong>
     </span>
   </span>
 </span>
