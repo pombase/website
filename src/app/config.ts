@@ -1,3 +1,10 @@
+export interface AppConfig {
+  organism: {
+    genus: string,
+    species: string,
+  }
+}
+
 export interface AnnotationType {
     displayName: string;
 }
@@ -74,6 +81,17 @@ let _config: AnnotationTableConfig = {
   },
 }
 
+let _appConfig: AppConfig = {
+  organism: {
+    genus: 'Schizosaccharomyces',
+    species: 'pombe',
+  }
+};
+
 export function getAnnotationTableConfig(): AnnotationTableConfig {
   return _config;
+}
+
+export function getAppConfig(): AppConfig {
+  return _appConfig;
 }

@@ -1,12 +1,15 @@
 <div>
   <div id="gene-details" *ngIf="geneDetails">
     <div class="details-page-name-and-id">
-    <div *ngIf="geneDetails.name">
+    <span *ngIf="geneDetails.organism.genus != appConfig.organism.genus || geneDetails.organism.species != appConfig.organism.species">
+      {{geneDetails.organism.genus}} {{geneDetails.organism.species}}
+    </span>
+    <span *ngIf="geneDetails.name">
       {{geneDetails.name}} ({{geneDetails.uniquename}})
-    </div>
-    <div *ngIf="!geneDetails.name">
+    </span>
+    <span *ngIf="!geneDetails.name">
       {{geneDetails.uniquename}}
-    </div>
+    </span>
     </div>
 
     <hr style="clear: both" />
