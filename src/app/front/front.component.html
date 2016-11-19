@@ -1,4 +1,7 @@
-<div *ngIf="metadata">Database created: {{metadata.db_creation_datetime}}</div>
+<div *ngIf="metadata">
+  <div>Database created: {{metadata.db_creation_datetime}}</div>
+  <div>{{metadata.export_prog_name}} v{{metadata.export_prog_version}}</div>
+</div>
 
 
 TEST gene:
