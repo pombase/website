@@ -18,20 +18,20 @@ export class TermDetailsComponent implements OnInit {
 
   collectAnnotations(annotationsMap: any) {
     this.annotations = [];
-    for (let depthRel of Object.keys(annotationsMap)) {
-      let thisDepthAnnotations = annotationsMap[depthRel];
-      if (depthRel == "direct") {
-        this.annotations = this.annotations.concat(thisDepthAnnotations);
+    for (let distRel of Object.keys(annotationsMap)) {
+      let thisDistAnnotations = annotationsMap[distRel];
+      if (distRel == "direct") {
+        this.annotations = this.annotations.concat(thisDistAnnotations);
       } else {
-        let [relName, depth] = depthRel.split("::");
-        let annotationsWithDepthRel =
-        thisDepthAnnotations
+        let [relName, dist] = distRel.split("::");
+        let annotationsWithDistRel =
+        thisDistAnnotations
           .map((annotation) =>
                Object.assign({
                  descRelName: relName,
-                 descDepth: depth,
+                 descDist: dist,
                }, annotation));
-        this.annotations = this.annotations.concat(annotationsWithDepthRel);
+        this.annotations = this.annotations.concat(annotationsWithDistRel);
       }
     }
   }

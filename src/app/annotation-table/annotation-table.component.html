@@ -14,7 +14,7 @@
     <thead>
       <tr>
         <th *ngIf="!hideColumn['descRelName']">Descendant relation</th>
-        <th *ngIf="!hideColumn['descDepth']">Depth</th>
+        <th *ngIf="!hideColumn['descDist']">Distance</th>
         <th *ngIf="!hideColumn['gene']">Gene</th>
         <th *ngIf="!hideColumn['term']">Term ID</th>
         <th *ngIf="!hideColumn['term']">Term name</th>
@@ -27,7 +27,7 @@
     <tbody *ngFor="let annotation of truncatedTable">
       <tr>
         <td *ngIf="!hideColumn['descRelName']">{{annotation.descRelName}}</td>
-        <td *ngIf="!hideColumn['descDepth']">{{annotation.descDepth}}</td>
+        <td *ngIf="!hideColumn['descDist']">{{annotation.descDist}}</td>
         <td *ngIf="!hideColumn['gene']">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>

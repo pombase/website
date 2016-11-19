@@ -36,7 +36,7 @@ export interface GenotypeShort {
   alleles: Array<Allele>,
 }
 export interface Annotation {
-  descDepth: number,
+  descDist: number,
   descRelName: string,
   reference?: ReferenceShort,
   evidence?: string,
