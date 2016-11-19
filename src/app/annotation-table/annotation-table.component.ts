@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-
 import { Annotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
@@ -14,7 +13,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() hideColumns: Array<string>;
   @Input() annotationTable: Array<Annotation>;
 
-  maxRows = 50;
+  maxRows = 2000;
   truncatedTable: Array<Annotation> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: any;

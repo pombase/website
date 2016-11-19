@@ -17,14 +17,18 @@
           <td>{{termDetails.definition}}</td>
         </tr>
       </table>
+
+      <div style="margin-top: 10px;">
+        Annotations to this term or its descendants: {{annotations.length}}
+      </div>
     </div>
 
     <hr style="clear: both" />
 
     <div>
-      <app-annotation-table [hideColumns]="['term']"
+      <app-annotation-table [hideColumns]="[]"
                             [annotationTypeName]="'Annotations'"
-                            [annotationTable]="termDetails.annotations"></app-annotation-table>
+                            [annotationTable]="annotations"></app-annotation-table>
     </div>
   </div>
 </div>

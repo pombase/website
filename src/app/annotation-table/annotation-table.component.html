@@ -4,13 +4,17 @@
     <span *ngIf="!annotationTypeName">Annotations</span>
   </legend>
 
-  <div style="font-weight: bold; padding: 5px 0 5px 0; font-size: 120%;" *ngIf="truncatedTable.length != annotationTable.length">
-    Note: showing only {{maxRows}} of {{annotationTable.length}} annotations.
+  <div style="font-weight: bold; padding: 5px 0 5px 0; font-size: 120%;">
+    <div *ngIf="truncatedTable.length != annotationTable.length">
+      Note: showing only {{maxRows}} of {{annotationTable.length}} annotations.
+    </div>
   </div>
 
   <table>
     <thead>
       <tr>
+        <th *ngIf="!hideColumn['descRelName']">Descendant relation</th>
+        <th *ngIf="!hideColumn['descDepth']">Depth</th>
         <th *ngIf="!hideColumn['gene']">Gene</th>
         <th *ngIf="!hideColumn['term']">Term ID</th>
         <th *ngIf="!hideColumn['term']">Term name</th>
@@ -22,6 +26,8 @@
     </thead>
     <tbody *ngFor="let annotation of truncatedTable">
       <tr>
+        <td *ngIf="!hideColumn['descRelName']">{{annotation.descRelName}}</td>
+        <td *ngIf="!hideColumn['descDepth']">{{annotation.descDepth}}</td>
         <td *ngIf="!hideColumn['gene']">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
