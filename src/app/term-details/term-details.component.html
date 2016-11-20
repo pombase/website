@@ -13,7 +13,7 @@
           <td class="term-name">{{termDetails.name}}</td>
         </tr>
         <tr>
-          <td class="details-label">Definition</td>
+          <td *ngIf="termDetails.definition" class="details-label">Definition</td>
           <td>{{termDetails.definition}}</td>
         </tr>
       </table>
