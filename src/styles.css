@@ -44,7 +44,7 @@
   padding: 10px;
 }
 
-.annotation-table table td, .genes-table table td {
+.annotation-table td, .genes-table td, .annotation-table th, .genes-table th {
   vertical-align: top;
   padding: 0 10px 5px 0;
 }
