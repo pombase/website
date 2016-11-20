@@ -21,8 +21,10 @@
 
     <hr style="clear: both" />
 
-    <a routerLink="/term_genes/{{termDetails.termid}}"
-       routerLinkActive="active">View genes annotated with this term ...</a>
+    <div class="term-page-view-change">
+      <a routerLink="/term_genes/{{termDetails.termid}}"
+         routerLinkActive="active">View genes annotated with this term ...</a>
+    </div>
 
     <div>
       <app-annotation-table [hideColumns]="[]"
