@@ -1,7 +1,9 @@
 <div>
-  <div *ngFor="let allele of genotype.alleles">
-    <div>name: {{allele.name}}</div>
-    <div>uniquename: {{allele.uniquename}}</div>
-    <div>gene: {{allele.gene_uniquename}}</div>
+  <strong>{{genotype.name}}</strong> <span style="color: #555">{{genotype.uniquename}}</span>
+  <i>{{genotype.background}}</i>
+  <div style="margin-left: 10px;" *ngFor="let allele of genotype.alleles">
+    <div>{{allele.name}}({{allele.description}}) - {{allele.uniquename}}</div>
+    <div style="margin-left: 5px;">type: {{allele.allele_type}}</div>
+    <div style="margin-left: 5px;">{{allele.gene_uniquename}}</div>
   </div>
 </div>

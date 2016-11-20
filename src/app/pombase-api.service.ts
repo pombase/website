@@ -30,6 +30,15 @@ export interface Allele {
   gene_uniquename: string,
   uniquename: string,
   name: string,
+  allele_type: string,
+  description: string,
+}
+
+export interface GenotypeShort {
+  uniquename: string,
+  name: string,
+  background: string,
+  alleles: Array<Allele>,
 }
 
 export interface GenotypeShort {
