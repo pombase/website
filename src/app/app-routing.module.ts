@@ -8,11 +8,31 @@ import { ReferenceDetailsComponent } from './reference-details/reference-details
 import { FrontComponent } from './front/front.component';
 
 const routes: Routes = [
-    { path: 'gene/:uniquename', component: GeneDetailsComponent },
-    { path: 'spombe/result/:uniquename', component: GeneDetailsComponent },
-    { path: 'term/:termid', component: TermDetailsComponent },
-    { path: 'term_genes/:termid', component: TermGenesViewComponent },
-    { path: 'reference/:uniquename', component: ReferenceDetailsComponent },
+  { path: 'gene/:uniquename', component: GeneDetailsComponent,
+    data: {
+      title: 'Gene'
+    }
+  },
+  { path: 'spombe/result/:uniquename', component: GeneDetailsComponent,
+    data: {
+      title: 'Gene'
+    }
+  },
+  { path: 'term/:termid', component: TermDetailsComponent,
+    data: {
+      title: 'Term'
+    }
+  },
+  { path: 'term_genes/:termid', component: TermGenesViewComponent,
+    data: {
+      title: 'Term'
+    }
+  },
+  { path: 'reference/:uniquename', component: ReferenceDetailsComponent,
+    data: {
+      title: 'Reference'
+    }
+  },
     { path: 'front', redirectTo: '/', pathMatch: 'full' },
     { path: '', component: FrontComponent },
 ];
