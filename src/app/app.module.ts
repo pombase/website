@@ -22,6 +22,8 @@ import { ReferenceDetailsComponent } from './reference-details/reference-details
 import { GeneLinkComponent } from './gene-link/gene-link.component';
 import { ExtensionDisplayComponent } from './extension-display/extension-display.component';
 import { GenotypeLinkComponent } from './genotype-link/genotype-link.component';
+import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
+import { GenesTableComponent } from './genes-table/genes-table.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { GenotypeLinkComponent } from './genotype-link/genotype-link.component';
     GeneLinkComponent,
     ExtensionDisplayComponent,
     GenotypeLinkComponent,
+    TermGenesViewComponent,
+    GenesTableComponent,
   ],
   imports: [
     BrowserModule,

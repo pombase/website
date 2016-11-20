@@ -1,0 +1,22 @@
+<fieldset *ngIf="genes.length > 0" class="genes-table">
+  <legend>
+    <span>{{legend}}</span>
+  </legend>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Gene</th>
+        <th>Product</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let gene of genes">
+      <tr>
+        <td>
+          <app-gene-link [gene]="gene"></app-gene-link>
+        </td>
+        <td>{{gene.product}}</td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

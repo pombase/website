@@ -44,7 +44,7 @@
           </div>
         </td>
         <td *ngIf="!hideColumn['term']">
-          <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.gene_count}}</a>
+          <a *ngIf="annotation.term" routerLink="/term_genes/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.gene_count}}</a>
         </td>
         <td *ngIf="showGenotypes">
           <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
