@@ -11,6 +11,7 @@
   min-width: 600px;
   max-width: 1320px;
   margin: 0 auto;
+  padding-top: 15px;
 }
 
 #logo-and-slogan, #header-search-box {
