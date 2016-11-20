@@ -1,3 +1,8 @@
 .annotation-table table th, .annotation-table table th {
   padding-right: 10px;
 }
+
+.not-annotation {
+  color: #A00000;
+  font-weight: bold;
+}

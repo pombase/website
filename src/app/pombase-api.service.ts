@@ -43,6 +43,7 @@ export interface Annotation {
   term?: TermShort,
   gene?: GeneShort,
   genotype?: GenotypeShort,
+  is_not: boolean,
 }
 
 export interface Annotations {

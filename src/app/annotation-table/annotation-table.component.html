@@ -36,6 +36,7 @@
         </td>
         <td *ngIf="!hideColumn['term']">
           <div>
+            <span *ngIf="annotation.is_not" class="not-annotation">NOT</span>
             <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.name}}</a>
           </div>
           <div *ngIf="!hideColumn['extension']">
