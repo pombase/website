@@ -20,11 +20,9 @@ export interface AnnotationTableConfig {
 }
 
 let goColumnsToShow =
-  ["desc-rel-name", "desc-dist", "gene", "term", "gene_count", "evidence",
-   "with-from", "reference"];
+  ["desc-rel", "gene", "term", "gene_count", "evidence", "with-from", "reference"];
 let defaultColumnsToShow =
-  ["desc-rel-name", "desc-dist", "gene", "term", "gene_count",
-   "evidence", "reference"];
+  ["desc-rel", "gene", "term", "gene_count", "evidence", "reference"];
 let defaultInteractionToShow =
   ["interactor", "gene-product", "evidence", "reference"];
 
@@ -44,12 +42,12 @@ let _config: AnnotationTableConfig = {
     },
     "PSI-MOD": {
       displayName: "Modification",
-      columnsToShow: ["desc-rel-name", "desc-dist", "gene", "term", "gene_count",
+      columnsToShow: ["desc-rel", "gene", "term", "gene_count",
                       "evidence", "residue", "reference"],
     },
     fission_yeast_phenotype: {
       displayName: "Phenotype",
-      columnsToShow: ["desc-rel-name", "desc-dist", "gene", "genotype", "term", "gene_count",
+      columnsToShow: ["desc-rel", "gene", "genotype", "term", "gene_count",
                       "evidence", "conditions", "reference"],
     },
     gene_ex: {

@@ -10,13 +10,14 @@
       <th>Expression</th>
     </thead>
     <tbody>
-      <tr *ngFor="let allele of displayAlleles">
-        <td><app-gene-link [gene]="allele.gene"></app-gene-link></td>
+      <tr *ngFor="let expressedAllele of displayAlleles">
+        <td><app-gene-link [gene]="expressedAllele.gene"></app-gene-link></td>
         <td>
-          <div>{{allele.name}}(<span [innerHTML]="allele.description"></span>)</div>
-          <div style="color: grey;">{{allele.uniquename}}</div>
+          <div>{{expressedAllele.name}}(<span [innerHTML]="expressedAllele.description"></span>)</div>
+          <div style="color: grey;">{{expressedAllele.uniquename}}</div>
         </td>
-        <td>type: {{allele.allele_type}}</td>
+        <td>{{expressedAllele.allele_type}}</td>
+        <td>{{expressedAllele.expression}}</td>
       </tr>
     </tbody>
   </table>

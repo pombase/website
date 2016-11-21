@@ -33,7 +33,7 @@
   <div>
     <app-annotation-table *ngFor="let annotationTypeName of annotationTypeNames"
                           [annotationTypeName]="annotationTypeName"
-                          [hideColumns]="['reference', 'desc-dist', 'desc-rel-name']"
+                          [hideColumns]="['reference', 'desc-rel']"
                           [annotationTable]="refDetails.annotations[annotationTypeName]"></app-annotation-table>
   </div>
   <div>

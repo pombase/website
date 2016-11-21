@@ -14,15 +14,16 @@ export class GenotypeLinkComponent implements OnInit {
 
   ngOnInit() {
     this.displayAlleles =
-      this.genotype.alleles
-      .map((allele) => {
-        let alleleCopy = Object.assign({}, allele);
-        if (allele.description) {
-          alleleCopy.description = allele.description.replace(/,/g , ',&#8203;');
+      this.genotype.expressed_alleles
+      .map((expressedAllele) => {
+        let expressedAlleleCopy = Object.assign({expression: expressedAllele.expression},
+                                                expressedAllele.allele);
+        if (expressedAllele.allele.description) {
+          expressedAlleleCopy.description = expressedAllele.allele.description.replace(/,/g , ',&#8203;');
         } else {
-          alleleCopy.description = '';
+          expressedAlleleCopy.description = '';
         }
-        return alleleCopy;
+        return expressedAlleleCopy;
       });
   }
 }

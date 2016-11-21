@@ -13,22 +13,20 @@
   <table>
     <thead>
       <tr>
-        <th *ngIf="showColumn['desc-rel-name']"style="width: 10%">Descendant relation</th>
-        <th *ngIf="showColumn['desc-dist']"style="width: 5%">Distance</th>
+        <th *ngIf="showColumn['desc-rel']">Rel+dist</th>
         <th *ngIf="showColumn['gene']">Gene</th>
-        <th *ngIf="showColumn['term']" style="width: 10%">Term ID</th>
-        <th *ngIf="showColumn['term']" style="width: 40%">Term name</th>
-        <th *ngIf="showColumn['gene_count']" style="width: 8%">Other genes</th>
-        <th *ngIf="showColumn['genotype']" style="width: 40%">Genotype</th>
+        <th *ngIf="showColumn['term']">Term ID</th>
+        <th *ngIf="showColumn['term']">Term name</th>
+        <th *ngIf="showColumn['gene_count']">Other genes</th>
+        <th *ngIf="showColumn['genotype']">Genotype</th>
         <th *ngIf="showColumn['evidence']">Evidence</th>
-        <th *ngIf="showColumn['conditions']" style="width: 10%">Conditions</th>
-        <th *ngIf="showColumn['reference']" style="width: 12%">Reference</th>
+        <th *ngIf="showColumn['conditions']">Conditions</th>
+        <th *ngIf="showColumn['reference']">Reference</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let annotation of truncatedTable">
-        <td *ngIf="showColumn['desc-rel-name']">{{annotation.descRelName}}</td>
-        <td *ngIf="showColumn['desc-dist']">{{annotation.descDist}}</td>
+        <td *ngIf="showColumn['desc-rel']"><span *ngIf="annotation.descRelName">{{annotation.descRelName}} - dist: {{annotation.descDist}}</span></td>
         <td *ngIf="showColumn['gene']">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
@@ -40,9 +38,8 @@
             <span *ngIf="annotation.is_not" class="not-annotation">NOT</span>
             <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.name}}</a>
           </div>
-          <div *ngIf="showColumn['extension']">
-            <app-extension-display *ngIf="annotation.extension"
-                                   [extension]="annotation.extension"></app-extension-display>
+          <div *ngIf="annotation.extension">
+            <app-extension-display [extension]="annotation.extension"></app-extension-display>
           </div>
         </td>
         <td *ngIf="showColumn['gene_count']">
