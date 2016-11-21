@@ -7,7 +7,7 @@ export interface AppConfig {
 
 export interface AnnotationType {
   displayName: string;
-  extraColumns?: Array<string>;
+  columnsToShow: Array<string>;
 }
 
 export interface AnnotationTypes {
@@ -19,67 +19,87 @@ export interface AnnotationTableConfig {
     getAnnotationType(annotationTypeName: string): AnnotationType;
 }
 
+let goColumnsToShow =
+  ["desc-rel-name", "desc-dist", "gene", "term", "gene_count", "evidence",
+   "with-from", "reference"];
+let defaultColumnsToShow =
+  ["desc-rel-name", "desc-dist", "gene", "term", "gene_count",
+   "evidence", "reference"];
+let defaultInteractionToShow =
+  ["interactor", "gene-product", "evidence", "reference"];
+
 let _config: AnnotationTableConfig = {
   annotationTypes: {
     molecular_function: {
       displayName: "GO molecular function",
-    },
+      columnsToShow: goColumnsToShow,
+   },
     biological_process: {
       displayName: "GO biological process",
+      columnsToShow: goColumnsToShow,
     },
     cellular_component: {
       displayName: "GO cellular component",
+      columnsToShow: goColumnsToShow,
     },
     "PSI-MOD": {
       displayName: "Modification",
+      columnsToShow: ["desc-rel-name", "desc-dist", "gene", "term", "gene_count",
+                      "evidence", "residue", "reference"],
     },
     fission_yeast_phenotype: {
       displayName: "Phenotype",
-      extraColumns: ["genotype"],
-    },
-    post_translational_modification: {
-      displayName: "Protein modification",
-    },
-    genetic_interaction: {
-      displayName: "Genetic interaction",
-    },
-    physical_interaction: {
-      displayName: "Physical interaction",
+      columnsToShow: ["desc-rel-name", "desc-dist", "gene", "genotype", "term", "gene_count",
+                      "evidence", "conditions", "reference"],
     },
     gene_ex: {
       displayName: "Gene expression",
+      columnsToShow: defaultColumnsToShow,
     },
     species_dist: {
-      displayName: "Taxonomic conservation"
+      displayName: "Taxonomic conservation",
+      columnsToShow: defaultColumnsToShow.concat("gene_count"),
     },
     complementation: {
-      displayName: "Complementation"
+      displayName: "Complementation",
+      columnsToShow: defaultColumnsToShow,
     },
     interacts_genetically: {
       displayName: "Genetic interaction",
+      columnsToShow: defaultInteractionToShow,
     },
     interacts_physically: {
       displayName: "Physical interaction",
+      columnsToShow: defaultInteractionToShow,
     },
     orthologs: {
       displayName: "Orthologs",
+      columnsToShow: ["species", "ortholog", "description"]
     },
     paralogs: {
       displayName: "Paralogs",
+      columnsToShow: ["ortholog", "description"]
     },
     subunit_composition: {
       displayName: "Subunit Composition",
+      columnsToShow: defaultColumnsToShow,
     },
     misc: {
       displayName: "Miscellaneous",
+      columnsToShow: defaultColumnsToShow,
     },
     sequence: {
       displayName: "Sequence",
+      columnsToShow: defaultColumnsToShow,
+    },
+    _DEFAULT_: {
+      displayName: null,
+      columnsToShow: defaultColumnsToShow,
     }
   },
   getAnnotationType:
   function(annotationTypeName: string): AnnotationType {
-    return _config.annotationTypes[annotationTypeName];
+    return _config.annotationTypes[annotationTypeName] || _config.annotationTypes['_DEFAULT_'];
   },
 }
 

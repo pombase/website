@@ -11,6 +11,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
+  @Input() columnsToShow: Array<string>;
   @Input() annotationTable: Array<Annotation>;
 
   maxRows = 2000;
@@ -20,28 +21,24 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   showGenotypes = false;
   annotationTypeDisplayName = null;
   hideColumn = {};
+  showColumn = {};
 
   constructor() { }
 
   ngOnInit() {
-    this.typeConfig = null;
-    if (this.annotationTypeName) {
-      this.typeConfig = this.config.annotationTypes[this.annotationTypeName];
-    }
-    if (this.typeConfig && this.typeConfig.displayName) {
-      this.annotationTypeDisplayName =
-        this.config.annotationTypes[this.annotationTypeName].displayName;
+    this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
+    if (this.typeConfig.displayName) {
+      this.annotationTypeDisplayName = this.typeConfig.displayName;
     } else {
       this.annotationTypeDisplayName = this.annotationTypeName;
     }
 
-    if (this.typeConfig && this.typeConfig.extraColumns &&
-        this.typeConfig.extraColumns.includes('genotype')) {
-      this.showGenotypes = true;
+    for (let columnName of this.typeConfig.columnsToShow) {
+      this.showColumn[columnName] = true;
     }
 
     for (let columnName of this.hideColumns) {
-      this.hideColumn[columnName] = true;
+      this.showColumn[columnName] = false;
     }
   }
 

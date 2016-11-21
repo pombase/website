@@ -13,51 +13,51 @@
   <table>
     <thead>
       <tr>
-        <th *ngIf="!hideColumn['descRelName']"style="width: 10%">Descendant relation</th>
-        <th *ngIf="!hideColumn['descDist']"style="width: 5%">Distance</th>
-        <th *ngIf="!hideColumn['gene']">Gene</th>
-        <th *ngIf="!hideColumn['term']" style="width: 10%">Term ID</th>
-        <th *ngIf="!hideColumn['term']">Term name</th>
-        <th *ngIf="!hideColumn['gene_count']" style="width: 8%">Other genes</th>
-        <th *ngIf="showGenotypes" style="width: 40%">Genotype</th>
-        <th *ngIf="!hideColumn['evidence']">Evidence</th>
-        <th *ngIf="!hideColumn['conditions']" style="width: 10%">Conditions</th>
-        <th *ngIf="!hideColumn['reference']" style="width: 12%">Reference</th>
+        <th *ngIf="showColumn['desc-rel-name']"style="width: 10%">Descendant relation</th>
+        <th *ngIf="showColumn['desc-dist']"style="width: 5%">Distance</th>
+        <th *ngIf="showColumn['gene']">Gene</th>
+        <th *ngIf="showColumn['term']" style="width: 10%">Term ID</th>
+        <th *ngIf="showColumn['term']" style="width: 40%">Term name</th>
+        <th *ngIf="showColumn['gene_count']" style="width: 8%">Other genes</th>
+        <th *ngIf="showColumn['genotype']" style="width: 40%">Genotype</th>
+        <th *ngIf="showColumn['evidence']">Evidence</th>
+        <th *ngIf="showColumn['conditions']" style="width: 10%">Conditions</th>
+        <th *ngIf="showColumn['reference']" style="width: 12%">Reference</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let annotation of truncatedTable">
-        <td *ngIf="!hideColumn['descRelName']">{{annotation.descRelName}}</td>
-        <td *ngIf="!hideColumn['descDist']">{{annotation.descDist}}</td>
-        <td *ngIf="!hideColumn['gene']">
+        <td *ngIf="showColumn['desc-rel-name']">{{annotation.descRelName}}</td>
+        <td *ngIf="showColumn['desc-dist']">{{annotation.descDist}}</td>
+        <td *ngIf="showColumn['gene']">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
-        <td *ngIf="!hideColumn['term']">
+        <td *ngIf="showColumn['term']">
           <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a>
         </td>
-        <td *ngIf="!hideColumn['term']">
+        <td *ngIf="showColumn['term']">
           <div>
             <span *ngIf="annotation.is_not" class="not-annotation">NOT</span>
             <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.name}}</a>
           </div>
-          <div *ngIf="!hideColumn['extension']">
+          <div *ngIf="showColumn['extension']">
             <app-extension-display *ngIf="annotation.extension"
                                    [extension]="annotation.extension"></app-extension-display>
           </div>
         </td>
-        <td *ngIf="!hideColumn['gene_count']">
+        <td *ngIf="showColumn['gene_count']">
           <a *ngIf="annotation.term" routerLink="/term_genes/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.gene_count}}</a>
         </td>
-        <td *ngIf="showGenotypes">
+        <td *ngIf="showColumn['genotype']">
           <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
         </td>
-        <td *ngIf="!hideColumn['evidence']">{{annotation.evidence}}</td>
-        <td *ngIf="!hideColumn['conditions']">
+        <td *ngIf="showColumn['evidence']">{{annotation.evidence}}</td>
+        <td *ngIf="showColumn['conditions']">
           <div *ngFor="let condition of annotation.conditions">
             <a routerLink="/term/{{condition.termid}}" routerLinkActive="active">{{condition.name}}</a>
           </div>
         </td>
-        <td *ngIf="!hideColumn['reference']">
+        <td *ngIf="showColumn['reference']">
           <app-reference-short *ngIf="annotation.reference"
                                [reference]="annotation.reference"></app-reference-short>
         </td>
