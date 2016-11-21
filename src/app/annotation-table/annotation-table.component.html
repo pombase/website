@@ -18,7 +18,7 @@
         <th *ngIf="!hideColumn['gene']">Gene</th>
         <th *ngIf="!hideColumn['term']">Term ID</th>
         <th *ngIf="!hideColumn['term']">Term name</th>
-        <th *ngIf="!hideColumn['term']">Other genes</th>
+        <th *ngIf="!hideColumn['gene_count']">Other genes</th>
         <th *ngIf="showGenotypes">Genotype</th>
         <th *ngIf="!hideColumn['evidence']">Evidence</th>
         <th *ngIf="!hideColumn['reference']">Reference</th>
@@ -44,7 +44,7 @@
                                    [extension]="annotation.extension"></app-extension-display>
           </div>
         </td>
-        <td *ngIf="!hideColumn['term']">
+        <td *ngIf="!hideColumn['gene_count']">
           <a *ngIf="annotation.term" routerLink="/term_genes/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.gene_count}}</a>
         </td>
         <td *ngIf="showGenotypes">

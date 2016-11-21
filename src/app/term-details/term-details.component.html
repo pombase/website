@@ -27,7 +27,7 @@
     </div>
 
     <div>
-      <app-annotation-table [hideColumns]="[]"
+      <app-annotation-table [hideColumns]="['gene_count']"
                             [annotationTypeName]="'Annotations for ' + termDetails.termid + ' or its descendants: ' + annotations.length"
                             [annotationTable]="annotations"></app-annotation-table>
     </div>
