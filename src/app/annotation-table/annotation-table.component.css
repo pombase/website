@@ -1,8 +1,16 @@
-.annotation-table table th, .annotation-table table th {
+.annotation-table table th, .annotation-table table td {
   padding-right: 10px;
 }
 
 .not-annotation {
   color: #A00000;
   font-weight: bold;
+}
+
+.annotation-table table {
+  table-layout: fixed;
+}
+
+.annotation-table table {
+  table-layout: fixed;
 }

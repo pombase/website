@@ -9,10 +9,10 @@
       <th>Expression</th>
     </thead>
     <tbody>
-      <tr *ngFor="let allele of genotype.alleles">
+      <tr *ngFor="let allele of displayAlleles">
         <td><app-gene-link [gene]="allele.gene"></app-gene-link></td>
         <td>
-          <div>{{allele.name}}({{allele.description}})</div>
+          <div>{{allele.name}}(<span [innerHTML]="allele.description"></span>)</div>
           <div style="color: grey;">{{allele.uniquename}}</div>
         </td>
         <td>type: {{allele.allele_type}}</td>
