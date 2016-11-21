@@ -28,7 +28,7 @@
 
     <div>
       <app-annotation-table [hideColumns]="[]"
-                            [annotationTypeName]="'Annotations for this term or its descendants: ' + annotations.length"
+                            [annotationTypeName]="'Annotations for ' + termDetails.termid + ' or its descendants: ' + annotations.length"
                             [annotationTable]="annotations"></app-annotation-table>
     </div>
   </div>
