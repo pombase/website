@@ -1,9 +1,22 @@
 <div>
   <strong>{{genotype.name}}</strong> <span style="color: #555">{{genotype.uniquename}}</span>
   <i>{{genotype.background}}</i>
-  <div style="margin-left: 10px;" *ngFor="let allele of genotype.alleles">
-    <div>{{allele.name}}({{allele.description}}) - {{allele.uniquename}}</div>
-    <div style="margin-left: 5px;">type: {{allele.allele_type}}</div>
-    <div style="margin-left: 5px;">{{allele.gene_uniquename}}</div>
-  </div>
+  <table style="margin-left: 10px; border-top: 1.5px solid grey;">
+    <thead>
+      <th>Gene</th>
+      <th>Allele</th>
+      <th>Type</th>
+      <th>Expression</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let allele of genotype.alleles">
+        <td><app-gene-link [gene]="allele.gene"></app-gene-link></td>
+        <td>
+          <div>{{allele.name}}({{allele.description}})</div>
+          <div style="color: grey;">{{allele.uniquename}}</div>
+        </td>
+        <td>type: {{allele.allele_type}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
