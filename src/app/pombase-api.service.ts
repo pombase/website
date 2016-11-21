@@ -49,6 +49,7 @@ export interface Annotation {
   descRelName: string,
   reference?: ReferenceShort,
   evidence?: string,
+  conditions: Array<TermShort>,
   term?: TermShort,
   gene?: GeneShort,
   genotype?: GenotypeShort,

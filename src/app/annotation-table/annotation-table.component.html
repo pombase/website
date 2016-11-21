@@ -21,7 +21,7 @@
         <th *ngIf="!hideColumn['gene_count']">Other genes</th>
         <th *ngIf="showGenotypes">Genotype</th>
         <th *ngIf="!hideColumn['evidence']">Evidence</th>
-        <th *ngIf="!hideColumn['condition']">Condition</th>
+        <th *ngIf="!hideColumn['conditions']">Conditions</th>
         <th *ngIf="!hideColumn['reference']">Reference</th>
       </tr>
     </thead>
@@ -52,8 +52,10 @@
           <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
         </td>
         <td *ngIf="!hideColumn['evidence']">{{annotation.evidence}}</td>
-        <td *ngIf="!hideColumn['condition']">
-            <a *ngIf="annotation.condition" routerLink="/term/{{annotation.condition.termid}}" routerLinkActive="active">{{annotation.condition.name}}</a>
+        <td *ngIf="!hideColumn['conditions']">
+          <div *ngFor="let condition of annotation.conditions">
+            <a routerLink="/term/{{condition.termid}}" routerLinkActive="active">{{condition.name}}</a>
+          </div>
         </td>
         <td *ngIf="!hideColumn['reference']">
           <app-reference-short *ngIf="annotation.reference"
