@@ -13,16 +13,16 @@
   <table>
     <thead>
       <tr>
-        <th *ngIf="!hideColumn['descRelName']">Descendant relation</th>
-        <th *ngIf="!hideColumn['descDist']">Distance</th>
+        <th *ngIf="!hideColumn['descRelName']"style="width: 10%">Descendant relation</th>
+        <th *ngIf="!hideColumn['descDist']"style="width: 5%">Distance</th>
         <th *ngIf="!hideColumn['gene']">Gene</th>
-        <th *ngIf="!hideColumn['term']">Term ID</th>
+        <th *ngIf="!hideColumn['term']" style="width: 10%">Term ID</th>
         <th *ngIf="!hideColumn['term']">Term name</th>
-        <th *ngIf="!hideColumn['gene_count']">Other genes</th>
-        <th *ngIf="showGenotypes">Genotype</th>
+        <th *ngIf="!hideColumn['gene_count']" style="width: 8%">Other genes</th>
+        <th *ngIf="showGenotypes" style="width: 40%">Genotype</th>
         <th *ngIf="!hideColumn['evidence']">Evidence</th>
-        <th *ngIf="!hideColumn['conditions']">Conditions</th>
-        <th *ngIf="!hideColumn['reference']">Reference</th>
+        <th *ngIf="!hideColumn['conditions']" style="width: 10%">Conditions</th>
+        <th *ngIf="!hideColumn['reference']" style="width: 12%">Reference</th>
       </tr>
     </thead>
     <tbody>
