@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { TypeaheadModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
@@ -51,6 +52,7 @@ import { GenesTableComponent } from './genes-table/genes-table.component';
     HttpModule,
     AppRoutingModule,
     TypeaheadModule,
+    PaginationModule,
   ],
   providers: [PombaseAPIService],
   bootstrap: [AppComponent]

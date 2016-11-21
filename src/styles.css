@@ -59,3 +59,11 @@
 .term-page-view-change {
   font-size: 120%;
 }
+
+/* override Bootstrap */
+fieldset legend, ul.pagination {
+  margin: 5px 0;
+}
+html body hr {
+  margin: 15px 0;
+}
