@@ -11,8 +11,8 @@
         <th>Description</th>
       </tr>
     </thead>
-    <tbody *ngFor="let annotation of annotationTable">
-      <tr>
+    <tbody>
+      <tr *ngFor="let annotation of annotationTable">
         <td>{{annotation.ortholog_organism.genus}} {{annotation.ortholog_organism.species}}</td>
         <td><a routerLink="/gene/{{annotation.ortholog.uniquename}}"
         routerLinkActive="active">{{annotation.ortholog.name ? annotation.ortholog.name + " (" + annotation.ortholog.uniquename + ")" : annotation.ortholog.uniquename }}</a></td>

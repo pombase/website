@@ -10,8 +10,8 @@
         <th>Description</th>
       </tr>
     </thead>
-    <tbody *ngFor="let annotation of annotationTable">
-      <tr>
+    <tbody>
+      <tr *ngFor="let annotation of annotationTable">
         <td><a routerLink="/gene/{{annotation.paralog.uniquename}}"
         routerLinkActive="active">{{annotation.paralog.name ? annotation.paralog.name + " (" + annotation.paralog.uniquename + ")" : annotation.paralog.uniquename }}</a></td>
         <td></td>

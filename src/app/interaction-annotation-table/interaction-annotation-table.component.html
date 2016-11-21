@@ -12,8 +12,8 @@
         <th>Reference</th>
       </tr>
     </thead>
-    <tbody *ngFor="let annotation of annotationTable">
-      <tr>
+    <tbody>
+      <tr *ngFor="let annotation of annotationTable">
         <td><a routerLink="/gene/{{annotation.interactor.uniquename}}"
         routerLinkActive="active">{{annotation.interactor.name ? annotation.interactor.name + "(" + annotation.interactor.uniquename + ")" : annotation.interactor.uniquename }}</a></td>
         <td>{{annotation.interactor.product}}</td>

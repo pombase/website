@@ -10,8 +10,8 @@
         <th>Product</th>
       </tr>
     </thead>
-    <tbody *ngFor="let gene of genes">
-      <tr>
+    <tbody>
+      <tr *ngFor="let gene of genes">
         <td>
           <app-gene-link [gene]="gene"></app-gene-link>
         </td>

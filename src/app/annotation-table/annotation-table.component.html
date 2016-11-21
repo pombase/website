@@ -24,8 +24,8 @@
         <th *ngIf="!hideColumn['reference']">Reference</th>
       </tr>
     </thead>
-    <tbody *ngFor="let annotation of truncatedTable">
-      <tr>
+    <tbody>
+      <tr *ngFor="let annotation of truncatedTable">
         <td *ngIf="!hideColumn['descRelName']">{{annotation.descRelName}}</td>
         <td *ngIf="!hideColumn['descDist']">{{annotation.descDist}}</td>
         <td *ngIf="!hideColumn['gene']">
