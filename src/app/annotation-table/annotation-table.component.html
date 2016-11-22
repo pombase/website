@@ -27,17 +27,21 @@
     </thead>
     <tbody>
       <tr *ngFor="let annotation of truncatedTable">
-        <td *ngIf="showColumn['desc-rel']"><span *ngIf="annotation.descRelName">{{annotation.descRelName}} - dist: {{annotation.descDist}}</span></td>
+        <td *ngIf="showColumn['desc-rel']">
+          <span *ngIf="annotation.descRelName">{{annotation.descRelName}}
+            <span style="color: grey">{{annotation.descDist}}</span>
+          </span>
+        </td>
         <td *ngIf="showColumn['gene']">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
         <td *ngIf="showColumn['term']">
-          <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a>
+          <a *ngIf="annotation.term" routerLink="/term_genes/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a>
         </td>
         <td *ngIf="showColumn['term']">
           <div>
             <span *ngIf="annotation.is_not" class="not-annotation">NOT</span>
-            <a *ngIf="annotation.term" routerLink="/term/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.name}}</a>
+            <a *ngIf="annotation.term" routerLink="/term_genes/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.name}}</a>
           </div>
           <div *ngIf="annotation.extension">
             <app-extension-display [extension]="annotation.extension"></app-extension-display>
