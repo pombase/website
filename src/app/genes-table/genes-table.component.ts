@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class GenesTableComponent {
   @Input() legend: string;
-  @Input() genes: Array<any>;
+  @Input() genes: Array<any> = [];
 
   constructor() { }
 }
