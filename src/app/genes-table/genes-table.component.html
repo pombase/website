@@ -3,20 +3,6 @@
     <span>{{legend}}</span>
   </legend>
 
-  <div *ngIf="showPagination">
-    <span style="float: right;">
-      <button class="btn btn-primary btn-sm" (click)="showAll()">Show all</button>
-    </span>
-    <pagination [totalItems]="genes.length"
-                [(ngModel)]="currentPage"
-                [maxSize]="6"
-                [boundaryLinks]="true"
-                [rotate]="false"
-                [itemsPerPage]="itemsPerPage"
-                (pageChanged)="onPageChange($event)"
-                (numPages)="numPages = $event"></pagination>
-  </div>
-
   <table>
     <thead>
       <tr>
@@ -25,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let gene of thisPageGenes">
+      <tr *ngFor="let gene of genes">
         <td>
           <app-gene-link [gene]="gene"></app-gene-link>
         </td>
