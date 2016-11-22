@@ -1,4 +1,6 @@
 <div id="term-details">
+  <app-loading-spinner *ngIf="!termDetails"></app-loading-spinner>
+
   <div *ngIf="termDetails">
     <div class="details-page-name-and-id">
       {{termDetails.termid}}

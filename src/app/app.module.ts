@@ -25,6 +25,7 @@ import { ExtensionDisplayComponent } from './extension-display/extension-display
 import { GenotypeLinkComponent } from './genotype-link/genotype-link.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
 import { GenesTableComponent } from './genes-table/genes-table.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { GenesTableComponent } from './genes-table/genes-table.component';
     GenotypeLinkComponent,
     TermGenesViewComponent,
     GenesTableComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,

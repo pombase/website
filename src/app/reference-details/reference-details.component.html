@@ -1,4 +1,6 @@
-<div id="reference-details" *ngIf="refDetails">
+<div id="reference-details">
+  <app-loading-spinner *ngIf="!refDetails"></app-loading-spinner>
+<div *ngIf="refDetails">
   <div class="details-page-name-and-id">
     <span class="reference-title" *ngIf="refDetails.title">
       {{refDetails.title}}
@@ -48,4 +50,5 @@
     <app-paralog-annotation-table [annotationTable]="refDetails.paralog_annotations"></app-paralog-annotation-table>
   </div>
 
+</div>
 </div>

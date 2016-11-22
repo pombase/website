@@ -1,4 +1,5 @@
 <div>
+  <app-loading-spinner *ngIf="!geneDetails"></app-loading-spinner>
   <div id="gene-details" *ngIf="geneDetails">
     <div class="details-page-name-and-id">
     <span *ngIf="geneDetails.organism.genus != appConfig.organism.genus || geneDetails.organism.species != appConfig.organism.species">
