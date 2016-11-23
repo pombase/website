@@ -2,3 +2,8 @@
   color: #A00000;
   font-weight: bold;
 }
+
+.table-control {
+  padding: 0 0 10px 0;
+  font-size: 120%;
+}

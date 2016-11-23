@@ -18,12 +18,16 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   truncatedTable: Array<Annotation> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: any;
-  showGenotypes = false;
+  showGenotypeDetails = false;
   annotationTypeDisplayName = null;
   hideColumn = {};
   showColumn = {};
 
   constructor() { }
+
+  trackById(index: number, item: any) {
+    return item.id;
+  }
 
   ngOnInit() {
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);

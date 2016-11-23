@@ -1,8 +1,8 @@
-<div>
+<div class="genotype-link">
   <strong>{{genotype.name}}</strong>
   <span style="color: grey;">{{genotype.uniquename}}</span>
   <i>{{genotype.background}}</i>
-  <table style="margin-left: 10px; border-top: 1.5px solid grey;">
+  <table *ngIf="showDetails">
     <thead>
       <th>Gene</th>
       <th>Allele</th>

@@ -10,6 +10,16 @@
     </div>
   </div>
 
+  <div class="table-control" *ngIf="showColumn['genotype']">
+    <input id="genotype-details-toggle"
+           type="checkbox"
+           name="show-genotype-details" ngDefaultControl
+           [(ngModel)]="showGenotypeDetails" btnCheckbox />
+    <label for="genotype-details-toggle">
+      <span class="label-content">Genotype details</span>
+    </label>
+  </div>
+
   <table>
     <thead>
       <tr>
@@ -26,7 +36,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let annotation of truncatedTable">
+      <tr *ngFor="let annotation of truncatedTable;trackBy:trackById">
         <td *ngIf="showColumn['desc-rel']">
           <span *ngIf="annotation.descRelName">{{annotation.descRelName}}
             <span style="color: grey">{{annotation.descDist}}</span>
@@ -51,7 +61,8 @@
           <a *ngIf="annotation.term" routerLink="/term_genes/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.gene_count}}</a>
         </td>
         <td *ngIf="showColumn['genotype']">
-          <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
+          <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"
+                             [showDetails]="showGenotypeDetails"></app-genotype-link>
         </td>
         <td *ngIf="showColumn['evidence']">{{annotation.evidence}}</td>
         <td *ngIf="showColumn['with']">{{annotation.with}}</td>

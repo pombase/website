@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GenotypeLinkComponent implements OnInit {
   @Input() genotype: /* GenotypeShort */ any;
+  @Input() showDetails: boolean;
 
   displayAlleles: Array<any> = [];
 
