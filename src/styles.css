@@ -81,3 +81,7 @@ html body hr {
 #loading-spinner-text {
   font-size: 120%;
 }
+
+ul {
+  padding-left: 25px;
+}
