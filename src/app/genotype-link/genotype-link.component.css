@@ -5,6 +5,8 @@
 
 .genotype-short-summary .genotype-uniquename {
   color: #88a;
+}
+.genotype-short-summary a {
   cursor: pointer;
 }
 
