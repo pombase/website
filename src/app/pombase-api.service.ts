@@ -50,9 +50,13 @@ export interface Annotation {
   reference?: ReferenceShort,
   evidence?: string,
   conditions: Array<TermShort>,
+  with?: string,
+  residue?: string,
+  qualifiers: Array<TermShort>,
   term?: TermShort,
   gene?: GeneShort,
   genotype?: GenotypeShort,
+  extension: Array<any>,
   is_not: boolean,
 }
 

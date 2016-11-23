@@ -20,9 +20,9 @@ export interface AnnotationTableConfig {
 }
 
 let goColumnsToShow =
-  ["desc-rel", "gene", "term", "gene_count", "evidence", "with", "reference"];
+  ["desc-rel", "gene", "term", "gene_count", "evidence", "with", "qualifiers", "reference"];
 let defaultColumnsToShow =
-  ["desc-rel", "gene", "term", "gene_count", "evidence", "reference"];
+  ["desc-rel", "gene", "term", "gene_count", "evidence", "qualifiers", "reference"];
 let defaultInteractionToShow =
   ["interactor", "gene-product", "evidence", "reference"];
 
@@ -52,7 +52,7 @@ let _config: AnnotationTableConfig = {
     },
     gene_ex: {
       displayName: "Gene expression",
-      columnsToShow: ["desc-rel", "gene", "term", "evidence", "reference"],
+      columnsToShow: ["desc-rel", "gene", "term", "evidence", "qualifiers", "reference"],
     },
     species_dist: {
       displayName: "Taxonomic conservation",

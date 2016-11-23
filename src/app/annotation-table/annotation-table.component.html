@@ -23,7 +23,7 @@
   <table>
     <thead>
       <tr>
-        <th *ngIf="showColumn['desc-rel']">Rel+dist</th>
+        <th *ngIf="showColumn['desc-rel']">Dist+rel</th>
         <th *ngIf="showColumn['gene']">Gene</th>
         <th *ngIf="showColumn['term']">Term ID</th>
         <th *ngIf="showColumn['term']">Term name</th>
@@ -32,14 +32,17 @@
         <th *ngIf="showColumn['evidence']">Evidence</th>
         <th *ngIf="showColumn['with']">With</th>
         <th *ngIf="showColumn['conditions']">Conditions</th>
+        <th *ngIf="showColumn['qualifiers']">Qualifiers</th>
+        <th *ngIf="showColumn['residue']">Residue</th>
         <th *ngIf="showColumn['reference']">Reference</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let annotation of truncatedTable;trackBy:trackById">
         <td *ngIf="showColumn['desc-rel']">
-          <span *ngIf="annotation.descRelName">{{annotation.descRelName}}
+          <span style="whitespace: nowrap" *ngIf="annotation.descRelName">
             <span style="color: grey">{{annotation.descDist}}</span>
+            {{annotation.descRelName}}
           </span>
         </td>
         <td *ngIf="showColumn['gene']">
@@ -67,10 +70,26 @@
         <td *ngIf="showColumn['evidence']">{{annotation.evidence}}</td>
         <td *ngIf="showColumn['with']">{{annotation.with}}</td>
         <td *ngIf="showColumn['conditions']">
-          <div *ngFor="let condition of annotation.conditions">
-            <a routerLink="/term/{{condition.termid}}" routerLinkActive="active">{{condition.name}}</a>
+          <div *ngIf="annotation.conditions.length == 1">
+            <a routerLink="/term/{{annotation.conditions[0].termid}}" routerLinkActive="active">{{annotation.conditions[0].name}}</a>
           </div>
+          <ul *ngIf="annotation.conditions.length > 1">
+            <li *ngFor="let condition of annotation.conditions">
+              <a routerLink="/term/{{condition.termid}}" routerLinkActive="active">{{condition.name}}</a>
+            </li>
+          </ul>
         </td>
+        <td *ngIf="showColumn['qualifiers']">
+          <div *ngIf="annotation.qualifiers.length == 1">
+            {{annotation.qualifiers[0]}}
+          </div>
+          <ul *ngIf="annotation.qualifiers.length > 1">
+            <li *ngFor="let qualifier of annotation.qualifiers">
+              {{qualifier}}
+            </li>
+          </ul>
+        </td>
+        <td *ngIf="showColumn['residue']">{{annotation.residue}}</td>
         <td *ngIf="showColumn['reference']">
           <app-reference-short *ngIf="annotation.reference"
                                [reference]="annotation.reference"></app-reference-short>
