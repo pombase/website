@@ -1,8 +1,16 @@
 <div class="genotype-link">
-  <strong>{{genotype.name}}</strong>
-  <span style="color: grey;">{{genotype.uniquename}}</span>
-  <i>{{genotype.background}}</i>
-  <table *ngIf="showDetails">
+  <div *ngIf="!showDetails" class="genotype-short-summary">
+    <a (click)="show()">
+      <strong>{{genotype.name}}</strong>
+      <span class="genotype-uniquename">{{genotype.uniquename}}</span>
+      <i>{{genotype.background}}</i>
+    </a>
+  </div>
+  <div *ngIf="showDetails" class="genotype-full">
+    <strong>{{genotype.name}}</strong>
+    <span class="genotype-uniquename">{{genotype.uniquename}}</span>
+    <i>{{genotype.background}}</i>
+  <table>
     <thead>
       <th>Gene</th>
       <th>Allele</th>
@@ -21,4 +29,5 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>

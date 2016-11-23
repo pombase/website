@@ -2,3 +2,12 @@
   margin-left: 10px;
   border-top: 1.5px solid grey;
 }
+
+.genotype-short-summary .genotype-uniquename {
+  color: #88a;
+  cursor: pointer;
+}
+
+genotype-full .genotype-uniquename {
+  color: grey;
+}

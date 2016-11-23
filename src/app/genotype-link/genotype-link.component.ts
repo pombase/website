@@ -27,4 +27,8 @@ export class GenotypeLinkComponent implements OnInit {
         return expressedAlleleCopy;
       });
   }
+
+  show() {
+    this.showDetails = true;
+  }
 }
