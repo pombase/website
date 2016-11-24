@@ -52,7 +52,7 @@ let _config: AnnotationTableConfig = {
     },
     gene_ex: {
       displayName: "Gene expression",
-      columnsToShow: ["desc-rel", "gene", "term", "evidence", "qualifiers", "reference"],
+      columnsToShow: ["gene-ex", "term", "extension", "evidence", "conditions", "gene-ex-scale", "reference"],
     },
     species_dist: {
       displayName: "Taxonomic conservation",
