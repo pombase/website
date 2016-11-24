@@ -23,7 +23,7 @@
   <table>
     <thead>
       <tr>
-        <th *ngIf="showColumn['desc-rel']">Dist+rel</th>
+        <th *ngIf="showColumn['desc-rel']">Relation</th>
         <th *ngIf="showColumn['gene']">Gene</th>
         <th *ngIf="showColumn['term']">Term ID</th>
         <th *ngIf="showColumn['term']">Term name</th>
@@ -40,9 +40,8 @@
     <tbody>
       <tr *ngFor="let annotation of truncatedTable;trackBy:trackById">
         <td *ngIf="showColumn['desc-rel']">
-          <span style="whitespace: nowrap" *ngIf="annotation.descRelName">
-            <span style="color: grey">{{annotation.descDist}}</span>
-            {{annotation.descRelName}}
+          <span *ngIf="annotation.descRelNames">
+            {{annotation.descRelNames}}
           </span>
         </td>
         <td *ngIf="showColumn['gene']">

@@ -21,7 +21,7 @@ export class TermDetailsComponent implements OnInit {
       relAnnotations
       .map((relAnnotation) =>
            Object.assign({
-             descRelNames: relAnnotation.relNames,
+             descRelNames: relAnnotation.rel_names,
            }, relAnnotation.annotation));
   }
 
