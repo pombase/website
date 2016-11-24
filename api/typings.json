@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "body-parser": "registry:npm/body-parser#1.15.2+20160810230825"
+  },
+  "globalDependencies": {
+    "node": "registry:dt/node#6.0.0+20160807145350"
+  }
+}
