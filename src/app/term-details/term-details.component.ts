@@ -16,24 +16,13 @@ export class TermDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }
 
-  collectAnnotations(annotationsMap: any) {
-    this.annotations = [];
-    for (let distRel of Object.keys(annotationsMap)) {
-      let thisDistAnnotations = annotationsMap[distRel];
-      if (distRel == "direct") {
-        this.annotations = this.annotations.concat(thisDistAnnotations);
-      } else {
-        let [relName, dist] = distRel.split("::");
-        let annotationsWithDistRel =
-        thisDistAnnotations
-          .map((annotation) =>
-               Object.assign({
-                 descRelName: relName,
-                 descDist: dist,
-               }, annotation));
-        this.annotations = this.annotations.concat(annotationsWithDistRel);
-      }
-    }
+  collectAnnotations(relAnnotations: any) {
+    this.annotations =
+      relAnnotations
+      .map((relAnnotation) =>
+           Object.assign({
+             descRelNames: relAnnotation.relNames,
+           }, relAnnotation.annotation));
   }
 
   ngOnInit() {
