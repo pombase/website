@@ -154,7 +154,7 @@ export class PombaseAPIService {
     return Promise.reject(error.message || error);
   }
 
-  private apiUrl = 'http://pombase2.aska.gen.nz/api/v1/dataset/latest';
+  private apiUrl = 'http://pombase2.bioinformatics.nz/api/v1/dataset/latest';
 
   getGene(uniquename: string) : Promise<GeneDetails> {
     return this.http.get(this.apiUrl + '/data/gene/' + uniquename)
