@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "tslint": "^3.5",
-    "typescript": "^1.8"
+    "typescript": "^1.8.10"
   },
   "engines": {
     "node": ">=6.0.0"
