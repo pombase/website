@@ -105,7 +105,7 @@ export class GeneSummary {
 
 export interface SynonymDetails {
   name: string,
-  synonym_type: string,
+  type: string,
 }
 
 export class GeneDetails {

@@ -49,10 +49,10 @@ export class GeneDetailsComponent implements OnInit {
 
   makeSynonymsDisplay(synonyms: Array<SynonymDetails>): string {
     return synonyms.map((synonym) => {
-      if (synonym.synonym_type == 'exact') {
+      if (synonym.type == 'exact') {
         return synonym.name;
       } else {
-        let synonym_type = synonym.synonym_type;
+        let synonym_type = synonym.type;
         if (synonym_type == 'obsolete_name') {
           synonym_type = 'obsolete';
         }
