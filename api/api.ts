@@ -10,11 +10,6 @@ if (process.argv.length != 3) {
   process.exit(1);
 }
 
-let directory = process.argv[2];
-
-let searchMapsJSON = fs.readFileSync(directory + "/search_api_maps.json", "utf8");
-let searchMaps = JSON.parse(searchMapsJSON);
-
 let app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,9 +17,45 @@ app.use(bodyParser.json());
 
 let port = normalizePort(process.env.POMBASE_API_PORT || '4001');
 
+let directory = process.argv[2];
+
+let searchMapsJSON = fs.readFileSync(directory + "/search_api_maps.json", "utf8");
+let searchMaps = JSON.parse(searchMapsJSON);
+
+let termsByID = {};
+
+let lunr = require('lunr');
+
+var indices = {};
+
+for (let termSummary of searchMaps.term_summaries) {
+  termsByID[termSummary.termid] = termSummary;
+}
+
+for (let termSummary of searchMaps.term_summaries) {
+  let cvName = termSummary.cv_name;
+
+  if (!indices[cvName]) {
+    indices[cvName] =
+      lunr(function () {
+        this.field('name')
+        this.ref('termid')
+      })
+  }
+
+  let index = indices[cvName];
+
+  index.add({
+    name: termSummary.name,
+    termid: termSummary.termid,
+  });
+}
+
 // pass maps to route handlers
 app.use(function(req: Request, res: Response, next: Function) {
   res.locals.searchMaps = searchMaps;
+  res.locals.indices = indices;
+  res.locals.termsByID = termsByID;
   next();
 });
 

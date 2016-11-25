@@ -9,20 +9,30 @@ router.get('/gene/by_termid/:termid', function(req: Request, res: Response, next
   res.json({ matches: searchMaps.termid_genes[req.params['termid']] });
 });
 
-router.get('/gene/by_term_name_exact/:termName', function(req: Request, res: Response, next: Function) {
+router.get('/term/by_name/exact/:termName', function(req: Request, res: Response, next: Function) {
   let searchMaps = res.locals.searchMaps;
   res.json({ matches: searchMaps.term_name_genes[req.params['termName']] });
 });
 
-router.get('/gene/by_term_name_fuzzy/:termName', function(req: Request, res: Response, next: Function) {
-  let searchMaps = res.locals.searchMaps;
-  let matches: any = { };
-  for (let thisTermName of Object.keys(searchMaps.term_name_genes)) {
-    if (thisTermName.includes(req.params['termName'])) {
-      matches[thisTermName] = searchMaps.term_name_genes[thisTermName];
-    }
-  }
-  res.json({ matches: matches });
+router.get('/term/by_name/fuzzy/:cvName/:queryText',
+           function(req: Request, res: Response, next: Function) {
+  let indices = res.locals.indices;
+  let termsByID = res.locals.termsByID;
+
+  let index = indices[req.params['cvName']];
+
+  let matches = index.search(req.params['queryText']).slice(0, 20);
+
+  let retVal = matches.map(
+    (match) => {
+      let term = termsByID[match.ref];
+      return {
+        termid: term.termid,
+        name: term.name,
+      }
+    });
+
+  res.json(retVal);
 });
 
 module.exports = router;
