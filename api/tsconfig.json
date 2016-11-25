@@ -6,7 +6,9 @@
     "noImplicitAny": true,
     "outDir": "lib"
   },
-  "filesGlob": [
-    "!./node_modules/**/*.ts"
+  "files": [
+    "./typings/index.d.ts",
+    "./routes/index.ts",
+    "./api.ts"
   ]
 }
