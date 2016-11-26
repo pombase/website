@@ -2,6 +2,7 @@ import * as bodyParser from "body-parser";
 import * as express from "express";
 import {Request, Response} from "express";
 import * as path from "path";
+import * as indexMaker from "./indexMaker";
 
 import fs = require('fs');
 
@@ -22,39 +23,18 @@ let directory = process.argv[2];
 let searchMapsJSON = fs.readFileSync(directory + "/search_api_maps.json", "utf8");
 let searchMaps = JSON.parse(searchMapsJSON);
 
-let termsByID = {};
+let termsByID: any = {};
 
-let lunr = require('lunr');
-
-var indices = {};
+var allIndices: any = indexMaker.makeAll(searchMaps);
 
 for (let termSummary of searchMaps.term_summaries) {
   termsByID[termSummary.termid] = termSummary;
 }
 
-for (let termSummary of searchMaps.term_summaries) {
-  let cvName = termSummary.cv_name;
-
-  if (!indices[cvName]) {
-    indices[cvName] =
-      lunr(function () {
-        this.field('name')
-        this.ref('termid')
-      })
-  }
-
-  let index = indices[cvName];
-
-  index.add({
-    name: termSummary.name,
-    termid: termSummary.termid,
-  });
-}
-
 // pass maps to route handlers
 app.use(function(req: Request, res: Response, next: Function) {
   res.locals.searchMaps = searchMaps;
-  res.locals.indices = indices;
+  res.locals.indices = allIndices;
   res.locals.termsByID = termsByID;
   next();
 });

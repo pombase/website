@@ -7,8 +7,8 @@
     "outDir": "lib"
   },
   "files": [
-    "./typings/index.d.ts",
     "./routes/index.ts",
-    "./api.ts"
+    "./api.ts",
+    "./indexMaker.ts"
   ]
 }
