@@ -1,0 +1,12 @@
+<template #termNameCompleteTemplate let-model="item" let-index="index">
+  <span>{{model.name}} ({{model.termid}})</span>
+</template>
+<input #termNameCompleteBox
+       placeholder="start typing ..."
+       [(ngModel)]="selectedTerm"
+       [typeahead]="dataSource"
+       [typeaheadMinLength]="2"
+       [typeaheadItemTemplate]="termNameCompleteTemplate"
+       [typeaheadOptionField]="'name'"
+       (typeaheadOnSelect)="typeaheadOnSelect($event)"
+       class="form-control search-box">

@@ -5,6 +5,7 @@ import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
+import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { FrontComponent } from './front/front.component';
 
 const routes: Routes = [
@@ -31,6 +32,11 @@ const routes: Routes = [
   { path: 'reference/:uniquename', component: ReferenceDetailsComponent,
     data: {
       title: 'Reference'
+    }
+  },
+  { path: 'query_builder', component: QueryBuilderComponent,
+    data: {
+      title: 'Query builder'
     }
   },
     { path: 'front', redirectTo: '/', pathMatch: 'full' },

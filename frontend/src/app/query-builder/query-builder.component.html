@@ -1,0 +1,6 @@
+<div>
+  <app-term-name-complete (termMatched)="termMatched($event)"
+                          [cvName]="molecular_function"></app-term-name-complete>
+
+  <div *ngIf="matchedTerm">{{matchedTerm.name}} ({{matchedTerm.termid}})</div>
+</div>

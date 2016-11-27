@@ -26,6 +26,8 @@ import { GenotypeLinkComponent } from './genotype-link/genotype-link.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
 import { GenesTableComponent } from './genes-table/genes-table.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { TermNameCompleteComponent } from './term-name-complete/term-name-complete.component';
+import { QueryBuilderComponent } from './query-builder/query-builder.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     TermGenesViewComponent,
     GenesTableComponent,
     LoadingSpinnerComponent,
+    TermNameCompleteComponent,
+    QueryBuilderComponent,
   ],
   imports: [
     BrowserModule,

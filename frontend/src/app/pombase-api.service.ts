@@ -145,6 +145,11 @@ export class ReferenceDetails {
   paralog_annotations: Array<ParalogAnnotation>;
 }
 
+export class TermShort {
+  name: string;
+  term_id: string;
+}
+
 @Injectable()
 export class PombaseAPIService {
   constructor (private http: Http) {}
@@ -189,5 +194,11 @@ export class PombaseAPIService {
       .toPromise()
       .then(response => response.json() as Array<GeneSummary>)
       .catch(this.handleError);
+  }
+
+  getTermByNameFuzzy(cvName: string, token: string) : Observable<TermShort[]> {
+    let url = this.apiUrl + '/search/term/by_name/fuzzy/biological_process/' + token;
+    return this.http.get(url)
+      .map((res:Response) => res.json());
   }
 }
