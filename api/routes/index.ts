@@ -5,34 +5,22 @@ let router = express.Router();
 
 
 router.get('/gene/by_termid/:termid', function(req: Request, res: Response, next: Function) {
-  let searchMaps = res.locals.searchMaps;
-  res.json({ matches: searchMaps.termid_genes[req.params['termid']] });
-});
-
-router.get('/term/by_name/exact/:termName', function(req: Request, res: Response, next: Function) {
-  let searchMaps = res.locals.searchMaps;
-  res.json({ matches: searchMaps.term_name_genes[req.params['termName']] });
+  let qh = res.locals.queryHandler;
+  res.json({ matches: qh.genesByTermid(req.params['termid']) });
 });
 
 router.get('/term/by_name/fuzzy/:cvName/:queryText',
            function(req: Request, res: Response, next: Function) {
-  let indices = res.locals.indices;
-  let termsByID = res.locals.termsByID;
+             let qh = res.locals.queryHandler;
+             let retVal = qh.genesByTermNameFuzzy(req.params['cvName'],
+                                                  req.params['queryText']);
+             res.json(retVal);
+           });
 
-  let index = indices[req.params['cvName']];
-
-  let matches = index.search(req.params['queryText']).slice(0, 20);
-
-  let retVal = matches.map(
-    (match) => {
-      let term = termsByID[match.ref];
-      return {
-        termid: term.termid,
-        name: term.name,
-      }
-    });
-
-  res.json(retVal);
+router.post('/qb/execute', function(req: Request, res: Response, next: Function) {
+  let qh = res.locals.queryHandler;
+  let query = req.body.query;
+  res.json(qh.jsonQuery(query));
 });
 
 module.exports = router;
