@@ -20,7 +20,7 @@ router.get('/term/by_name/fuzzy/:cvName/:queryText',
 router.post('/qb/execute', function(req: Request, res: Response, next: Function) {
   let qh = res.locals.queryHandler;
   let query = req.body.query;
-  res.json(qh.jsonQuery(query));
+  res.json(qh.geneQuery(query));
 });
 
 module.exports = router;

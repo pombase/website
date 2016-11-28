@@ -1,12 +1,18 @@
 let lunr = require('lunr');
 import fs = require('fs');
 
+import {
+  GeneQuery, GeneQueryPart, GeneSummary, PomBaseResults, GeneUniquename,
+  GeneByTerm, QueryResultHeader, QueryResultRow, QueryResultElement,
+} from './common/pombase-query';
+
 export class Indices {
   [cvName: string]: any;
 }
 
 export class QueryHandler {
   private termsByID: any = {};
+  private genesByUniquename: any = {};
   private allIndices: Indices;
   private searchMaps: {
     "term_summaries": any,
@@ -22,6 +28,9 @@ export class QueryHandler {
 
     for (let termSummary of this.searchMaps.term_summaries) {
       this.termsByID[termSummary.termid] = termSummary;
+    }
+    for (let geneSummary of this.searchMaps.gene_summaries) {
+      this.genesByUniquename[geneSummary.uniquename] = geneSummary;
     }
   }
 
@@ -69,9 +78,37 @@ export class QueryHandler {
     return this.searchMaps.termid_genes[termid];
   }
 
-  jsonQuery(query: any) {
-    return {
-      genes: ['a1', 'a2']
+  private getGenesOfPart(part: GeneQueryPart): GeneUniquename[] {
+    if (part instanceof GeneByTerm) {
+      let termid = part.termid;
+      return this.searchMaps.termid_genes[termid];
+    } else {
+      console.log("in getGenesOfPart() - unknown query part type");
     }
+  }
+
+  geneQuery(query: GeneQuery): PomBaseResults {
+    let parts = query.getQueryParts();
+    if (parts.length == 0) {
+      return new PomBaseResults(new QueryResultHeader(["Systematic ID"]), []);
+    }
+
+    let geneUniquenames: string[] = this.getGenesOfPart(parts.shift());
+
+    for (let queryPart of parts) {
+      let newGenes = this.getGenesOfPart(queryPart);
+    }
+
+    let header = new QueryResultHeader(["Gene systematic ID"]);
+    let rows =
+      geneUniquenames.map((geneUniquename) => {
+        let geneSummary = this.genesByUniquename[geneUniquename];
+        let rowParts =
+          [new QueryResultElement(geneUniquename),
+           new QueryResultElement(geneSummary.name)];
+        return new QueryResultRow(rowParts);
+      });
+
+    return new PomBaseResults(header, rows);
   }
 }

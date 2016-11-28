@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
-import { TermShort, GeneQuery } from './common/pombase-query';
+import { TermShort, GeneSummary, GeneQuery, PomBaseResults } from './common/pombase-query';
 
 export class Metadata {
   db_creation_datetime: Date;
@@ -93,12 +93,6 @@ export class GeneShort {
   name: string;
 }
 
-export class GeneSummary {
-  uniquename: string;
-  name: string;
-  synonyms: Array<string>;
-}
-
 export interface SynonymDetails {
   name: string,
   type: string,
@@ -141,22 +135,6 @@ export class ReferenceDetails {
   paralog_annotations: Array<ParalogAnnotation>;
 }
 
-export class QueryResultHeader {
-  name: string;
-}
-
-export class QueryResultElement {
-  val: string;
-}
-
-export class QueryResultRow {
-  vals: QueryResultElement[];
-}
-
-export class PomBaseResults {
-  headers: QueryResultHeader[];
-  rows: QueryResultRow[];
-}
 
 function makeResults(res: number): PomBaseResults {
   return new PomBaseResults();
