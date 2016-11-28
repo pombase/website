@@ -5,16 +5,12 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
+import { TermShort, GeneQuery } from './common/pombase-query';
+
 export class Metadata {
   db_creation_datetime: Date;
   gene_count: number;
   term_count: number;
-}
-
-export interface TermShort {
-  termid: string,
-  name: string,
-  is_obsolete: boolean,
 }
 
 export interface ReferenceShort {
@@ -145,13 +141,32 @@ export class ReferenceDetails {
   paralog_annotations: Array<ParalogAnnotation>;
 }
 
-export class TermShort {
+export class QueryResultHeader {
   name: string;
-  term_id: string;
+}
+
+export class QueryResultElement {
+  val: string;
+}
+
+export class QueryResultRow {
+  vals: QueryResultElement[];
+}
+
+export class PomBaseResults {
+  headers: QueryResultHeader[];
+  rows: QueryResultRow[];
+}
+
+function makeResults(res: number): PomBaseResults {
+  return new PomBaseResults();
 }
 
 @Injectable()
 export class PombaseAPIService {
+
+  private apiUrl = 'http://pombase2.bioinformatics.nz/api/v1/dataset/latest';
+
   constructor (private http: Http) {}
 
   private handleError(error: any): Promise<any> {
@@ -159,46 +174,51 @@ export class PombaseAPIService {
     return Promise.reject(error.message || error);
   }
 
-  private apiUrl = 'http://pombase2.bioinformatics.nz/api/v1/dataset/latest';
-
-  getGene(uniquename: string) : Promise<GeneDetails> {
+  getGene(uniquename: string): Promise<GeneDetails> {
     return this.http.get(this.apiUrl + '/data/gene/' + uniquename)
       .toPromise()
       .then(response => response.json() as GeneDetails)
       .catch(this.handleError);
   }
 
-  getTerm(termid: string) : Promise<TermDetails> {
+  getTerm(termid: string): Promise<TermDetails> {
     return this.http.get(this.apiUrl + '/data/term/' + termid)
       .toPromise()
       .then(response => response.json() as TermDetails)
       .catch(this.handleError);
   }
 
-  getReference(uniquename: string) : Promise<ReferenceDetails> {
+  getReference(uniquename: string): Promise<ReferenceDetails> {
     return this.http.get(this.apiUrl + '/data/reference/' + uniquename)
       .toPromise()
       .then(response => response.json() as ReferenceDetails)
       .catch(this.handleError);
   }
 
-  getMetadata() : Promise<Metadata> {
+  getMetadata(): Promise<Metadata> {
     return this.http.get(this.apiUrl + '/data/metadata')
       .toPromise()
       .then(response => response.json() as Metadata)
       .catch(this.handleError);
   }
 
-  getGeneSummaries() : Promise<Array<GeneSummary>> {
+  getGeneSummaries(): Promise<Array<GeneSummary>> {
     return this.http.get(this.apiUrl + '/data/gene_summaries')
       .toPromise()
       .then(response => response.json() as Array<GeneSummary>)
       .catch(this.handleError);
   }
 
-  getTermByNameFuzzy(cvName: string, token: string) : Observable<TermShort[]> {
-    let url = this.apiUrl + '/search/term/by_name/fuzzy/biological_process/' + token;
+  getTermByNameFuzzy(cvName: string, queryText: string): Observable<TermShort[]> {
+    let url = this.apiUrl + '/search/term/by_name/fuzzy/' + cvName + '/' + queryText;
     return this.http.get(url)
-      .map((res:Response) => res.json());
+      .map((res: Response) => res.json());
+  }
+
+  postQuery(query: GeneQuery): Observable<PomBaseResults> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.apiUrl + '/search/gene_query', { query }, options)
+    .map((res) => { console.log(res); return makeResults(res.json()); });
   }
 }

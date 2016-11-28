@@ -1,0 +1,7 @@
+<div>
+  <div *ngFor="let cvName of cvNames">
+    <span>{{cvName}}:</span>
+    <app-term-name-complete [cvName]="cvName"
+                            (termMatched)="termMatched($event)"></app-term-name-complete>
+  </div>
+</div>

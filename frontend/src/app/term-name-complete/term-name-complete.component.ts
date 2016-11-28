@@ -1,9 +1,11 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { PombaseAPIService, TermShort } from '../pombase-api.service';
+import { PombaseAPIService } from '../pombase-api.service';
 import { TypeaheadMatch } from 'ng2-bootstrap/components/typeahead/typeahead-match.class';
 import { Http, URLSearchParams, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+
+import { TermShort } from '../common/pombase-query.ts';
 
 @Component({
   selector: 'app-term-name-complete',
@@ -14,7 +16,6 @@ export class TermNameCompleteComponent implements OnInit {
   @Input() cvName: string;
   @Output() termMatched = new EventEmitter();
   dataSource: Observable<TermShort[]>;
-
 
   public selectedTerm: string = '';
 
@@ -33,6 +34,5 @@ export class TermNameCompleteComponent implements OnInit {
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
     this.termMatched.emit(e.item);
-    console.log('Selected value: ', e.value);
   }
 }

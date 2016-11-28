@@ -28,6 +28,7 @@ import { GenesTableComponent } from './genes-table/genes-table.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TermNameCompleteComponent } from './term-name-complete/term-name-complete.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
+import { QueryPartComponent } from './query-part/query-part.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { QueryBuilderComponent } from './query-builder/query-builder.component';
     LoadingSpinnerComponent,
     TermNameCompleteComponent,
     QueryBuilderComponent,
+    QueryPartComponent,
   ],
   imports: [
     BrowserModule,

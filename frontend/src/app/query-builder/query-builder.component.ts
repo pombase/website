@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TermShort } from '../pombase-api.service';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { TermShort, GeneQuery, GeneQueryPart } from '../common/pombase-query';
 
 @Component({
   selector: 'app-query-builder',
@@ -7,14 +8,18 @@ import { TermShort } from '../pombase-api.service';
   styleUrls: ['./query-builder.component.css']
 })
 export class QueryBuilderComponent implements OnInit {
-  matchedTerm: TermShort;
+//  @Input() query: GeneQuery;
+
+  query: GeneQuery = new GeneQuery();
+  parts: GeneQueryPart[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.parts = this.query.getQueryParts();
   }
 
-  termMatched(term: TermShort) {
-    this.matchedTerm = term;
+  partChanged(part: GeneQueryPart) {
+    this.parts.push(part);
   }
 }
