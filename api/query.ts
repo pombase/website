@@ -60,13 +60,12 @@ export class QueryHandler {
   }
 
   genesByTermNameFuzzy(cvName:string, queryText: string) {
-    let termsByID = this.termsByID;
     let index = this.allIndices[cvName];
     let matches = index.search(queryText).slice(0, 20);
 
     return matches.map(
       (match: any) => {
-        let term = termsByID[match.ref];
+        let term = this.termsByID[match.ref];
         return {
           termid: term.termid,
           name: term.name,
