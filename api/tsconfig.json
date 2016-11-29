@@ -6,9 +6,10 @@
     "noImplicitAny": true,
     "outDir": "lib"
   },
-  "files": [
+  "include": [
     "./routes/index.ts",
     "./api.ts",
-    "./indexMaker.ts"
+    "./query.ts",
+    "./tests/test_query.ts"
   ]
 }

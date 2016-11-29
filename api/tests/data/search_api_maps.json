@@ -1,0 +1,1250 @@
+{
+  "term_summaries": [
+  ],
+  "gene_summaries": [
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 718869,
+        "start_pos": 717851,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPCC18B5.02c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 6331,
+        "start_pos": 5726,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPAC212.10"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 2110528,
+        "start_pos": 2109181,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "wtf22",
+      "uniquename": "SPCC576.16c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 4346170,
+        "start_pos": 4344572,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPAC23D3.05c"
+    },
+    {
+      "feature_type": "gene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 11556,
+        "start_pos": 11027,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPNCRNA.70"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 59105,
+        "start_pos": 58277,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPAC977.13c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 1500664,
+        "start_pos": 1497980,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "SPCC584.07c"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPCC188.10c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 1647396,
+        "start_pos": 1646645,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPCC663.07c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 2092234,
+        "start_pos": 2091892,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [
+        {
+          "type": "obsolete_name",
+          "name": "SPBC18E5.14"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBC18E5.15"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 220283,
+        "start_pos": 219185,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "meu9"
+        },
+        {
+          "type": "exact",
+          "name": "SPCC548.02"
+        },
+        {
+          "type": "obsolete_name",
+          "name": "wtf11-pseudo"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "wtf3",
+      "uniquename": "SPCC548.02c"
+    },
+    {
+      "feature_type": "gene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 2748180,
+        "start_pos": 2746667,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "bub2"
+        }
+      ],
+      "product": "two-component GAP Cdc16",
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "cdc16",
+      "uniquename": "SPAC6F6.08c"
+    },
+    {
+      "feature_type": "gene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 1478103,
+        "start_pos": 1475494,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "pbp1"
+        }
+      ],
+      "product": "protein phosphatase PP2A regulatory subunit B-56 Par1",
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "par1",
+      "uniquename": "SPCC188.02"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 5066231,
+        "start_pos": 5063258,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "wtf1",
+      "uniquename": "SPAC2E12.05"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 1727116,
+        "start_pos": 1726173,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "SPCC191.12c"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPCC1450.01c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 593575,
+        "start_pos": 593188,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "SPBC1706.02"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "wtf2",
+      "uniquename": "SPBC1706.02c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 4515379,
+        "start_pos": 4515203,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBCPT2R1.05c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 1268452,
+        "start_pos": 1268093,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "SPBC3D6.01"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBC31A8.02"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 21015,
+        "start_pos": 20824,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPAC212.05c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 9274,
+        "start_pos": 7619,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPAC212.09c"
+    },
+    {
+      "feature_type": "gene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 1861332,
+        "start_pos": 1859004,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "csc1"
+        }
+      ],
+      "product": "SIP/FAR complex FHA domain subunit Far10/Csc1",
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "far10",
+      "uniquename": "SPBC3H7.13"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 4526884,
+        "start_pos": 4526225,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBCPT2R1.10"
+    },
+    {
+      "feature_type": "gene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 4225824,
+        "start_pos": 4223778,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "product": "Rho family GTPase Rho1",
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "rho1",
+      "uniquename": "SPAC1F7.04"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 2182504,
+        "start_pos": 2181204,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "wtf24",
+      "uniquename": "SPCC830.02"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 2955377,
+        "start_pos": 2954983,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPAPB24D3.05c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 4524970,
+        "start_pos": 4523274,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBCPT2R1.07c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 1340098,
+        "start_pos": 1338711,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "SPCC338.19"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPCC132.05c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 73390,
+        "start_pos": 72081,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "SPAPB21E7.08"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBPB21E7.08"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 33393,
+        "start_pos": 32624,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPCP20C8.03"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 68852,
+        "start_pos": 68355,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "SPAPB21E7.06"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBPB21E7.06"
+    },
+    {
+      "feature_type": "gene",
+      "synonyms": [],
+      "organism": {
+        "species": "cerevisiae",
+        "genus": "Saccharomyces"
+      },
+      "name": "NUD1",
+      "uniquename": "YOR373W"
+    },
+    {
+      "feature_type": "gene",
+      "synonyms": [],
+      "organism": {
+        "species": "sapiens",
+        "genus": "Homo"
+      },
+      "name": "CNTRL",
+      "uniquename": "ENSG00000119397"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 89029,
+        "start_pos": 87727,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBPB10D8.03"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 34780,
+        "start_pos": 33231,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [
+        {
+          "type": "exact",
+          "name": "SPAC1348.11"
+        }
+      ],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBC1348.11"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 4520391,
+        "start_pos": 4519772,
+        "chromosome_name": "chromosome_2"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPBCPT2R1.06c"
+    },
+    {
+      "feature_type": "gene",
+      "location": {
+        "strand": "reverse",
+        "end_pos": 2052636,
+        "start_pos": 2049130,
+        "chromosome_name": "chromosome_3"
+      },
+      "synonyms": [],
+      "product": "SIN component scaffold protein, centriolin ortholog Cdc11",
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "name": "cdc11",
+      "uniquename": "SPCC1739.11c"
+    },
+    {
+      "feature_type": "pseudogene",
+      "location": {
+        "strand": "forward",
+        "end_pos": 14555,
+        "start_pos": 13665,
+        "chromosome_name": "chromosome_1"
+      },
+      "synonyms": [],
+      "organism": {
+        "species": "pombe",
+        "genus": "Schizosaccharomyces"
+      },
+      "uniquename": "SPAC212.07c"
+    }
+  ],
+  "term_name_genes": {
+    "Pp2A Rts1 homolog": [
+      "SPCC188.02"
+    ],
+    "negative regulation of barrier septum assembly": [
+      "SPAC6F6.08c"
+    ],
+    "ubiquitinylated lysine": [
+      "SPBC3H7.13"
+    ],
+    "functionally complements S. cerevisiae RTS1": [
+      "SPCC188.02"
+    ],
+    "conserved in eukaryotes only": [
+      "SPCC1739.11c",
+      "SPCC188.02",
+      "SPAC1F7.04",
+      "SPBC3H7.13"
+    ],
+    "RNA level": [
+      "SPCC188.02",
+      "SPCC548.02c",
+      "SPBC1348.11",
+      "SPNCRNA.70",
+      "SPCC1450.01c",
+      "SPAC212.05c",
+      "SPCC18B5.02c",
+      "SPAC23D3.05c",
+      "SPAC977.13c",
+      "SPAC212.09c",
+      "SPBC1706.02c",
+      "SPBC18E5.15",
+      "SPBC3H7.13",
+      "SPBCPT2R1.07c",
+      "SPBPB10D8.03",
+      "SPBPB21E7.08",
+      "SPBC31A8.02",
+      "SPBCPT2R1.10",
+      "SPCC1739.11c",
+      "SPAC1F7.04",
+      "SPAC212.10",
+      "SPAPB24D3.05c",
+      "SPAC2E12.05",
+      "SPBPB21E7.06",
+      "SPAC6F6.08c",
+      "SPCC576.16c",
+      "SPCC830.02",
+      "SPBCPT2R1.05c",
+      "SPCC188.10c",
+      "SPCP20C8.03",
+      "SPBCPT2R1.06c",
+      "SPCC132.05c",
+      "SPCC663.07c",
+      "SPAC212.07c"
+    ],
+    "regulation of alpha-glucan biosynthetic process": [
+      "SPAC1F7.04"
+    ],
+    "asymmetric protein localization to old mitotic spindle pole body": [
+      "SPBC3H7.13"
+    ],
+    "positive regulation of cyclin-dependent protein serine/threonine kinase activity": [
+      "SPAC6F6.08c"
+    ],
+    "cytosol": [
+      "SPBC3H7.13",
+      "SPAC1F7.04",
+      "SPAC6F6.08c",
+      "SPCC188.02"
+    ],
+    "O-phospho-L-threonine": [
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "functionally complemented by human B'd": [
+      "SPCC188.02"
+    ],
+    "protein phosphatase type 2A complex": [
+      "SPCC188.02"
+    ],
+    "phosphorylated residue": [
+      "SPCC1739.11c",
+      "SPCC188.02",
+      "SPBC3H7.13"
+    ],
+    "no detectable long open reading frame": [
+      "SPNCRNA.70"
+    ],
+    "mitotic spindle pole body": [
+      "SPCC1739.11c",
+      "SPAC6F6.08c",
+      "SPCC188.02",
+      "SPBC3H7.13"
+    ],
+    "cell tip": [
+      "SPBC3H7.13",
+      "SPAC1F7.04"
+    ],
+    "GTPase activity": [
+      "SPAC1F7.04"
+    ],
+    "conserved in metazoa": [
+      "SPBC3H7.13",
+      "SPAC1F7.04",
+      "SPCC188.02",
+      "SPCC1739.11c"
+    ],
+    "Rho family": [
+      "SPAC1F7.04"
+    ],
+    "cut": [
+      "SPCC1739.11c",
+      "SPAC6F6.08c",
+      "SPBC3H7.13"
+    ],
+    "no initiator methionine": [
+      "SPBC31A8.02"
+    ],
+    "regulation of barrier septum assembly": [
+      "SPAC1F7.04"
+    ],
+    "cell division site": [
+      "SPCC188.02",
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "conserved in eukaryotes": [
+      "SPAC1F7.04",
+      "SPCC188.02",
+      "SPCC1739.11c",
+      "SPAC6F6.08c",
+      "SPBC3H7.13"
+    ],
+    "regulation of actin cortical patch localization": [
+      "SPAC1F7.04"
+    ],
+    "barrier septum assembly": [
+      "SPCC1739.11c"
+    ],
+    "O-phosphorylated residue": [
+      "SPCC188.02",
+      "SPBC3H7.13",
+      "SPCC1739.11c"
+    ],
+    "barrier septum": [
+      "SPAC1F7.04"
+    ],
+    "wtf element": [
+      "SPCC548.02c",
+      "SPAC2E12.05",
+      "SPBC1706.02c",
+      "SPCC830.02",
+      "SPCC576.16c"
+    ],
+    "regulation of endocytosis": [
+      "SPAC1F7.04"
+    ],
+    "possible horizontal transfer": [
+      "SPAPB24D3.05c"
+    ],
+    "protein phosphatase type 2A regulator activity": [
+      "SPCC188.02"
+    ],
+    "cellular protein localization": [
+      "SPCC1739.11c"
+    ],
+    "protein complex scaffold": [
+      "SPCC1739.11c"
+    ],
+    "multiseptate vegetative cell": [
+      "SPCC1739.11c",
+      "SPBC3H7.13",
+      "SPAC6F6.08c"
+    ],
+    "Rho protein signal transduction": [
+      "SPAC1F7.04"
+    ],
+    "conserved in fungi": [
+      "SPBC3H7.13",
+      "SPCC188.02",
+      "SPAC1F7.04",
+      "SPAC6F6.08c",
+      "SPCC1739.11c"
+    ],
+    "protein level": [
+      "SPCC1739.11c",
+      "SPAC6F6.08c",
+      "SPBC3H7.13",
+      "SPBCPT2R1.07c",
+      "SPAC1F7.04",
+      "SPCC188.02",
+      "SPBCPT2R1.10"
+    ],
+    "actomyosin contractile ring": [
+      "SPCC188.02"
+    ],
+    "nucleus": [
+      "SPAC1F7.04",
+      "SPBC3H7.13",
+      "SPCC1739.11c",
+      "SPAC6F6.08c"
+    ],
+    "farnesylated residue": [
+      "SPAC1F7.04"
+    ],
+    "Meiotic Expression Upregulated": [
+      "SPCC548.02c"
+    ],
+    "mitotic cytokinesis": [
+      "SPCC1739.11c"
+    ],
+    "Component of SIP Complex": [
+      "SPBC3H7.13"
+    ],
+    "negative regulation of septation initiation signaling": [
+      "SPCC188.02",
+      "SPAC6F6.08c",
+      "SPBC3H7.13"
+    ],
+    "regulation of actin cytoskeleton organization": [
+      "SPAC1F7.04"
+    ],
+    "decreased cell population growth at high temperature": [
+      "SPAC6F6.08c",
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "positive regulation of (1->3)-beta-D-glucan biosynthetic process": [
+      "SPAC1F7.04"
+    ],
+    "regulation of establishment or maintenance of cell polarity regulating cell shape": [
+      "SPAC1F7.04"
+    ],
+    "O4'-phospho-L-tyrosine": [
+      "SPCC188.02",
+      "SPCC1739.11c"
+    ],
+    "extrinsic component of cytoplasmic side of plasma membrane": [
+      "SPAC1F7.04"
+    ],
+    "viable vegetative cell population": [
+      "SPCC1739.11c",
+      "SPCC188.02"
+    ],
+    "predominantly single copy (one to one)": [
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "establishment or maintenance of actin cytoskeleton polarity": [
+      "SPAC1F7.04"
+    ],
+    "GTP binding": [
+      "SPAC1F7.04"
+    ],
+    "O-phospho-L-serine": [
+      "SPBC3H7.13",
+      "SPCC188.02",
+      "SPCC1739.11c",
+      "SPAC6F6.08c"
+    ],
+    "conserved in vertebrates": [
+      "SPAC1F7.04",
+      "SPCC188.02",
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "GTPase activator activity": [
+      "SPAC6F6.08c"
+    ],
+    "FAR/SIN/STRIPAK complex": [
+      "SPBC3H7.13"
+    ],
+    "cancer": [
+      "SPCC1739.11c"
+    ],
+    "septation initiation signaling": [
+      "SPCC1739.11c"
+    ],
+    "site of polarized growth": [
+      "SPAC1F7.04"
+    ],
+    "regulation of cell wall (1->3)-beta-D-glucan biosynthetic process": [
+      "SPAC1F7.04"
+    ],
+    "frameshifted": [
+      "SPBCPT2R1.07c",
+      "SPBCPT2R1.06c",
+      "SPAC977.13c",
+      "SPCP20C8.03",
+      "SPCC18B5.02c"
+    ],
+    "cytoplasm": [
+      "SPCC1739.11c",
+      "SPCC188.02"
+    ],
+    "leucine-rich repeat protein": [
+      "SPCC1739.11c"
+    ],
+    "protein binding": [
+      "SPAC1F7.04",
+      "SPAC6F6.08c",
+      "SPCC1739.11c"
+    ],
+    "regulation of fungal-type cell wall biogenesis": [
+      "SPAC1F7.04"
+    ],
+    "appears to be truncated": [
+      "SPAC212.10"
+    ],
+    "conserved in fungi only": [
+      "SPAC6F6.08c"
+    ]
+  },
+  "termid_genes": {
+    "GO:0044732": [
+      "SPBC3H7.13",
+      "SPCC188.02",
+      "SPCC1739.11c",
+      "SPAC6F6.08c"
+    ],
+    "GO:0031028": [
+      "SPCC1739.11c"
+    ],
+    "PBO:0000122": [
+      "SPCC548.02c"
+    ],
+    "GO:0008601": [
+      "SPCC188.02"
+    ],
+    "GO:0005515": [
+      "SPAC1F7.04",
+      "SPCC1739.11c",
+      "SPAC6F6.08c"
+    ],
+    "FYPO:0002060": [
+      "SPCC188.02",
+      "SPCC1739.11c"
+    ],
+    "PBO:0000060": [
+      "SPAC212.10"
+    ],
+    "PBO:0011065": [
+      "SPAC6F6.08c",
+      "SPBC3H7.13",
+      "SPCC188.02",
+      "SPAC1F7.04",
+      "SPCC1739.11c"
+    ],
+    "GO:0031030": [
+      "SPAC6F6.08c",
+      "SPBC3H7.13",
+      "SPCC188.02"
+    ],
+    "GO:0007266": [
+      "SPAC1F7.04"
+    ],
+    "MOD:00437": [
+      "SPAC1F7.04"
+    ],
+    "GO:0005525": [
+      "SPAC1F7.04"
+    ],
+    "GO:0000917": [
+      "SPCC1739.11c"
+    ],
+    "FYPO:0003165": [
+      "SPCC1739.11c",
+      "SPAC6F6.08c",
+      "SPBC3H7.13"
+    ],
+    "MOD:00047": [
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "FYPO:0000082": [
+      "SPBC3H7.13",
+      "SPAC6F6.08c",
+      "SPCC1739.11c"
+    ],
+    "PBO:0011063": [
+      "SPAC6F6.08c"
+    ],
+    "GO:0030100": [
+      "SPAC1F7.04"
+    ],
+    "PBO:0000741": [
+      "SPAC1F7.04"
+    ],
+    "GO:0032947": [
+      "SPCC1739.11c"
+    ],
+    "PBO:0001527": [
+      "SPCC1739.11c"
+    ],
+    "GO:0060635": [
+      "SPAC1F7.04"
+    ],
+    "PBO:0003550": [
+      "SPBC31A8.02"
+    ],
+    "GO:0010974": [
+      "SPAC6F6.08c"
+    ],
+    "PBO:0002829": [
+      "SPCC830.02",
+      "SPAC2E12.05",
+      "SPCC576.16c",
+      "SPCC548.02c",
+      "SPBC1706.02c"
+    ],
+    "GO:0032955": [
+      "SPAC1F7.04"
+    ],
+    "GO:0000281": [
+      "SPCC1739.11c"
+    ],
+    "PBO:0000108": [
+      "SPBCPT2R1.07c",
+      "SPCC18B5.02c",
+      "SPBCPT2R1.06c",
+      "SPAC977.13c",
+      "SPCP20C8.03"
+    ],
+    "GO:0051286": [
+      "SPAC1F7.04",
+      "SPBC3H7.13"
+    ],
+    "PBO:0017584": [
+      "SPCC188.02"
+    ],
+    "GO:0005829": [
+      "SPAC1F7.04",
+      "SPBC3H7.13",
+      "SPAC6F6.08c",
+      "SPCC188.02"
+    ],
+    "PBO:0006222": [
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "GO:0030427": [
+      "SPAC1F7.04"
+    ],
+    "PBO:0011071": [
+      "SPCC1739.11c",
+      "SPBC3H7.13",
+      "SPCC188.02",
+      "SPAC1F7.04"
+    ],
+    "GO:0090443": [
+      "SPBC3H7.13"
+    ],
+    "GO:2000769": [
+      "SPAC1F7.04"
+    ],
+    "GO:0090334": [
+      "SPAC1F7.04"
+    ],
+    "GO:0034613": [
+      "SPCC1739.11c"
+    ],
+    "PBO:0012252": [
+      "SPBC3H7.13"
+    ],
+    "MOD:00046": [
+      "SPCC188.02",
+      "SPAC6F6.08c",
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "MOD:01455": [
+      "SPCC1739.11c",
+      "SPBC3H7.13",
+      "SPCC188.02"
+    ],
+    "MOD:01148": [
+      "SPBC3H7.13"
+    ],
+    "GO:0032949": [
+      "SPAC1F7.04"
+    ],
+    "GO:0005096": [
+      "SPAC6F6.08c"
+    ],
+    "GO:0003924": [
+      "SPAC1F7.04"
+    ],
+    "GO:0000935": [
+      "SPAC1F7.04"
+    ],
+    "GO:0045737": [
+      "SPAC6F6.08c"
+    ],
+    "FYPO:0000118": [
+      "SPBC3H7.13",
+      "SPAC6F6.08c",
+      "SPCC1739.11c"
+    ],
+    "PBO:0006310": [
+      "SPCC188.02",
+      "SPBCPT2R1.10",
+      "SPCC1739.11c",
+      "SPBC3H7.13",
+      "SPAC6F6.08c",
+      "SPBCPT2R1.07c",
+      "SPAC1F7.04"
+    ],
+    "PBO:0000085": [
+      "SPAPB24D3.05c"
+    ],
+    "GO:0032956": [
+      "SPAC1F7.04"
+    ],
+    "PBO:0011070": [
+      "SPAC1F7.04",
+      "SPCC1739.11c",
+      "SPCC188.02",
+      "SPBC3H7.13"
+    ],
+    "PBO:0011963": [
+      "SPBC3H7.13",
+      "SPBCPT2R1.10",
+      "SPCC663.07c",
+      "SPAC212.09c",
+      "SPAC977.13c",
+      "SPBPB21E7.08",
+      "SPCC132.05c",
+      "SPCC1450.01c",
+      "SPCC576.16c",
+      "SPCC830.02",
+      "SPBC1348.11",
+      "SPCC188.10c",
+      "SPBC18E5.15",
+      "SPBPB10D8.03",
+      "SPCC18B5.02c",
+      "SPBCPT2R1.06c",
+      "SPBPB21E7.06",
+      "SPAC6F6.08c",
+      "SPBC1706.02c",
+      "SPAC212.10",
+      "SPAC23D3.05c",
+      "SPAC212.07c",
+      "SPCC188.02",
+      "SPBCPT2R1.05c",
+      "SPAC212.05c",
+      "SPAC2E12.05",
+      "SPCP20C8.03",
+      "SPNCRNA.70",
+      "SPAPB24D3.05c",
+      "SPBC31A8.02",
+      "SPBCPT2R1.07c",
+      "SPAC1F7.04",
+      "SPCC1739.11c",
+      "SPCC548.02c"
+    ],
+    "PBO:0011064": [
+      "SPCC188.02",
+      "SPAC1F7.04",
+      "SPCC1739.11c",
+      "SPAC6F6.08c",
+      "SPBC3H7.13"
+    ],
+    "GO:0005826": [
+      "SPCC188.02"
+    ],
+    "GO:0032153": [
+      "SPCC188.02",
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "GO:0030950": [
+      "SPAC1F7.04"
+    ],
+    "GO:0000159": [
+      "SPCC188.02"
+    ],
+    "GO:0032995": [
+      "SPAC1F7.04"
+    ],
+    "PBO:0018177": [
+      "SPCC188.02"
+    ],
+    "MOD:00696": [
+      "SPCC188.02",
+      "SPCC1739.11c",
+      "SPBC3H7.13"
+    ],
+    "PBO:0000239": [
+      "SPCC1739.11c"
+    ],
+    "MOD:00048": [
+      "SPCC1739.11c",
+      "SPCC188.02"
+    ],
+    "GO:0061509": [
+      "SPBC3H7.13"
+    ],
+    "GO:0005634": [
+      "SPBC3H7.13",
+      "SPAC1F7.04",
+      "SPAC6F6.08c",
+      "SPCC1739.11c"
+    ],
+    "PBO:0017583": [
+      "SPCC188.02"
+    ],
+    "GO:0031234": [
+      "SPAC1F7.04"
+    ],
+    "PBO:0011069": [
+      "SPBC3H7.13",
+      "SPCC188.02",
+      "SPCC1739.11c",
+      "SPAC1F7.04"
+    ],
+    "PBO:0000063": [
+      "SPNCRNA.70"
+    ],
+    "GO:0005737": [
+      "SPCC1739.11c",
+      "SPCC188.02"
+    ],
+    "GO:0060583": [
+      "SPAC1F7.04"
+    ]
+  }
+}

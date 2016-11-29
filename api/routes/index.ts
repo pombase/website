@@ -1,4 +1,6 @@
-import {Request, Response} from "express";
+import { Request, Response } from "express";
+import { text, ParsedAsText } from 'body-parser';
+import { GeneQuery } from "../common/pombase-query";
 
 let express = require('express');
 let router = express.Router();
@@ -17,9 +19,9 @@ router.get('/term/by_name/fuzzy/:cvName/:queryText',
              res.json(retVal);
            });
 
-router.post('/qb/execute', function(req: Request, res: Response, next: Function) {
+router.post('/qb/execute', function(req: Request & ParsedAsText, res: Response, next: Function) {
   let qh = res.locals.queryHandler;
-  let query = req.body.query;
+  let query = new GeneQuery(JSON.parse(req.body));
   res.json(qh.geneQuery(query));
 });
 

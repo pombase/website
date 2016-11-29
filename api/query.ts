@@ -65,7 +65,7 @@ export class QueryHandler {
     let matches = index.search(queryText).slice(0, 20);
 
     return matches.map(
-      (match) => {
+      (match: any) => {
         let term = termsByID[match.ref];
         return {
           termid: term.termid,

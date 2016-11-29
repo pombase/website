@@ -17,9 +17,9 @@ export class PomBaseResults {
 }
 
 export interface TermShort {
-  termid: string,
-  name: string,
-  is_obsolete: boolean,
+  termid: string;
+  name: string;
+  is_obsolete: boolean;
 }
 
 export class GeneSummary {
@@ -36,7 +36,7 @@ export enum QueryPartOperator {
 export type GeneUniquename = string;
 export type Termid = string;
 
-export interface GeneQueryPart { }
+export class GeneQueryPart { }
 
 export class GeneByTerm implements GeneQueryPart {
   public operator: QueryPartOperator;
