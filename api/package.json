@@ -14,7 +14,7 @@
     "start": "tsc --project . --outDir ./lib & node lib/api.js",
     "serve": "node lib/api.js",
     "nodemon": "nodemon lib/api.js",
-    "test": "npm compile && ./node_modules/mocha/bin/mocha tests/"
+    "test": "npm run compile && ./node_modules/mocha/bin/mocha lib/tests/"
   },
   "dependencies": {
     "@types/body-parser": "0.0.33",
