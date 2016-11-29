@@ -14,78 +14,78 @@ export class Metadata {
 }
 
 export interface ReferenceShort {
-  title: string,
-  uniquename: string,
-  citation: string,
-  authors_abbrev: string,
-  publication_year: string,
+  title: string;
+  uniquename: string;
+  citation: string;
+  authors_abbrev: string;
+  publication_year: string;
 }
 
 
 export interface Allele {
-  gene_uniquename: string,
-  uniquename: string,
-  name: string,
-  allele_type: string,
-  description: string,
+  gene_uniquename: string;
+  uniquename: string;
+  name: string;
+  allele_type: string;
+  description: string;
 }
 
 export interface GenotypeShort {
-  uniquename: string,
-  name: string,
-  background: string,
-  alleles: Array<Allele>,
+  uniquename: string;
+  name: string;
+  background: string;
+  alleles: Array<Allele>;
 }
 
 export interface GenotypeShort {
-  alleles: Array<Allele>,
+  alleles: Array<Allele>;
 }
 export interface Annotation {
-  descDist: number,
-  descRelName: string,
-  reference?: ReferenceShort,
-  evidence?: string,
-  conditions: Array<TermShort>,
-  with?: string,
-  residue?: string,
-  qualifiers: Array<TermShort>,
-  term?: TermShort,
-  gene?: GeneShort,
-  genotype?: GenotypeShort,
-  extension: Array<any>,
-  is_not: boolean,
+  descDist: number;
+  descRelName: string;
+  reference?: ReferenceShort;
+  evidence?: string;
+  conditions: Array<TermShort>;
+  with?: string;
+  residue?: string;
+  qualifiers: Array<TermShort>;
+  term?: TermShort;
+  gene?: GeneShort;
+  genotype?: GenotypeShort;
+  extension: Array<any>;
+  is_not: boolean;
 }
 
 export interface Annotations {
-  [type_name: string]: Array<Annotation>
+  [type_name: string]: Array<Annotation>;
 }
 
 export interface InteractionAnnotation {
-  reference: ReferenceShort,
-  evidence: string,
-  gene: GeneShort,
-  interactor: GeneShort,
+  reference: ReferenceShort;
+  evidence: string;
+  gene: GeneShort;
+  interactor: GeneShort;
 }
 
 export interface InteractionAnnotations {
-  [type_name: string]: Array<InteractionAnnotation>
+  [type_name: string]: Array<InteractionAnnotation>;
 }
 
 export interface OrthologAnnotation {
-  reference: ReferenceShort,
-  ortholog: GeneShort,
+  reference: ReferenceShort;
+  ortholog: GeneShort;
 }
 
 export interface ParalogAnnotation {
-  reference: ReferenceShort,
-  paralog: GeneShort,
+  reference: ReferenceShort;
+  paralog: GeneShort;
 }
 
 export interface ChromosomeLocation {
-  chromosome_name: string,
-  start_pos: number,
-  end_pos: number,
-  strand: string,
+  chromosome_name: string;
+  start_pos: number;
+  end_pos: number;
+  strand: string;
 }
 
 export class GeneShort {
@@ -94,8 +94,8 @@ export class GeneShort {
 }
 
 export interface SynonymDetails {
-  name: string,
-  type: string,
+  name: string;
+  type: string;
 }
 
 export class GeneDetails {
