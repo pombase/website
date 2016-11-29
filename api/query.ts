@@ -77,7 +77,7 @@ export class QueryHandler {
     return this.searchMaps.termid_genes[termid];
   }
 
-  private getGenesOfPart(part: GeneQueryPart): GeneUniquename[] {
+  getGenesOfPart(part: GeneQueryPart): GeneUniquename[] {
     if (part instanceof GeneByTerm) {
       let termid = part.termid;
       return this.searchMaps.termid_genes[termid];

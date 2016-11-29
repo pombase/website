@@ -1,5 +1,47 @@
 {
   "term_summaries": [
+    {
+      "is_obsolete": false,
+      "termid": "GO:0044425",
+      "cv_name": "cellular_component",
+      "name": "membrane part"
+    },
+    {
+      "is_obsolete": false,
+      "termid": "GO:0071407",
+      "cv_name": "biological_process",
+      "name": "cellular response to organic cyclic compound"
+    },
+    {
+      "is_obsolete": false,
+      "termid": "GO:0043229",
+      "cv_name": "cellular_component",
+      "name": "intracellular organelle"
+    },
+    {
+      "is_obsolete": false,
+      "termid": "GO:0032949",
+      "cv_name": "biological_process",
+      "name": "regulation of alpha-glucan biosynthetic process"
+    },
+    {
+      "is_obsolete": false,
+      "termid": "GO:0060274",
+      "cv_name": "biological_process",
+      "name": "maintenance of stationary phase"
+    },
+    {
+      "is_obsolete": false,
+      "termid": "GO:1902412",
+      "cv_name": "biological_process",
+      "name": "regulation of mitotic cytokinesis"
+    },
+    {
+      "is_obsolete": false,
+      "termid": "GO:0031328",
+      "cv_name": "biological_process",
+      "name": "positive regulation of cellular biosynthetic process"
+    }
   ],
   "gene_summaries": [
     {
