@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { text, ParsedAsText } from 'body-parser';
-import { GeneQuery } from "../common/pombase-query";
+import { GeneQuery } from "../../common/pombase-query";
 
 let express = require('express');
 let router = express.Router();

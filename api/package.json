@@ -11,10 +11,10 @@
   "scripts": {
     "compile": "tsc --project . --outDir ./lib",
     "compile:watch": "tsc -w --project . --outDir ./lib",
-    "start": "tsc --project . --outDir ./lib & node lib/api.js",
+    "start": "tsc --project . --outDir ./lib & node lib/api/api.js",
     "serve": "node lib/api.js",
-    "nodemon": "nodemon lib/api.js",
-    "test": "npm run compile && ./node_modules/mocha/bin/mocha lib/tests/"
+    "nodemon": "nodemon lib/api/api.js",
+    "test": "npm run compile && ./node_modules/mocha/bin/mocha lib/api/tests/"
   },
   "dependencies": {
     "@types/body-parser": "0.0.33",

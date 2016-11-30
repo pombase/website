@@ -22,7 +22,7 @@ export function setIntersection<T>(a: Set<T>, b: Set<T>): Set<T> {
 import {
   GeneQuery, GeneQueryNode, GeneBoolNode, GeneSummary, PomBaseResults, GeneUniquename,
   GeneByTerm, QueryResultHeader, QueryResultRow, QueryResultElement,
-} from './common/pombase-query';
+} from '../common/pombase-query';
 
 export class Indices {
   [cvName: string]: any;

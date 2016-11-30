@@ -10,6 +10,7 @@
     "./routes/index.ts",
     "./api.ts",
     "./query.ts",
-    "./tests/test_query.ts"
+    "./tests/test_query.ts",
+    "./typings/index.d.ts"
   ]
 }

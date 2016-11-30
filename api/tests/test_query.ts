@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 
 import { QueryHandler, setUnion, setIntersection } from '../query';
 import { TermShort, GeneQuery, QueryResultRow, QueryResultHeader,
-         QueryResultElement, GeneByTerm, QueryNodeOperator } from '../common/pombase-query';
+         QueryResultElement, GeneByTerm, QueryNodeOperator } from '../../common/pombase-query';
 
 var assert = require('assert');
 
