@@ -3,7 +3,7 @@ import 'mocha';
 var expect = require('chai').expect;
 
 import { QueryHandler, setUnion, setIntersection } from '../query';
-import { TermShort, GeneQuery, QueryResultRow, QueryResultHeader,
+import { TermShort, GeneQuery,
          GeneByTerm, QueryNodeOperator } from '../../common/pombase-query';
 
 var assert = require('assert');
@@ -78,10 +78,9 @@ describe('QueryHandler', function() {
         "termid": "GO:0005515",
       });
       let res = qh.geneQuery(query);
-      expect(res.headers.names).to.have.members(['Gene systematic ID', 'Gene name']);
+      expect(res.header.names).to.have.members(['Gene systematic ID', 'Gene name']);
       expect(res.rows.length).to.equal(3);
-      expect(res.rows.map((row: QueryResultRow) => row.elems[0]))
-        .to.have.members(genesOfGo0005515);
+      expect(res.rows.map((row: string[]) => row[0])).to.have.members(genesOfGo0005515);
     });
 
     it('should return 1 match from boolean query', function() {
@@ -100,9 +99,9 @@ describe('QueryHandler', function() {
         ],
       });
       let res = qh.geneQuery(query);
-      expect(res.headers.names).to.have.members(['Gene systematic ID', 'Gene name']);
+      expect(res.header.names).to.have.members(['Gene systematic ID', 'Gene name']);
       expect(res.rows.length).to.equal(1);
-      expect(res.rows.map((row: QueryResultRow) => row.elems[0]))
+      expect(res.rows.map((row: string[]) => row[0]))
         .to.have.members(['SPCC1739.11c']);
     });
   });

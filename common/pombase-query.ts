@@ -2,14 +2,10 @@ export class QueryResultHeader {
   constructor(public names: string[]) { }
 }
 
-export class QueryResultRow {
-  constructor(public elems: string[]) { }
-}
-
 export class PomBaseResults {
   constructor(
-    public headers: QueryResultHeader,
-    public rows: QueryResultRow[]) { }
+    public header: QueryResultHeader,
+    public rows: string[][]) { }
 }
 
 export interface TermShort {
