@@ -96,7 +96,6 @@ export class QueryHandler {
   }
 
   processBoolNode(boolNode: GeneBoolNode): GeneUniquename[] {
-    console.log("processBoolNode()");
     let parts = boolNode.getParts();
     let returnSet = new Set(this.processNode(parts.shift()));
     for (let part of parts) {
@@ -118,7 +117,6 @@ export class QueryHandler {
   }
 
   processNode(node: GeneQueryNode): GeneUniquename[] {
-    console.log(node);
     if (node instanceof GeneByTerm) {
       let termid = node.termid;
       return this.searchMaps.termid_genes[termid];
