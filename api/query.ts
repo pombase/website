@@ -21,7 +21,7 @@ export function setIntersection<T>(a: Set<T>, b: Set<T>): Set<T> {
 
 import {
   GeneQuery, GeneQueryNode, GeneBoolNode, GeneSummary, PomBaseResults, GeneUniquename,
-  GeneByTerm, QueryResultHeader, QueryResultRow, QueryResultElement,
+  GeneByTerm, QueryResultHeader, QueryResultRow,
 } from '../common/pombase-query';
 
 export class Indices {
@@ -118,9 +118,7 @@ export class QueryHandler {
     let rows =
       geneUniquenames.map((geneUniquename: GeneUniquename) => {
         let geneSummary = this.genesByUniquename[geneUniquename];
-        let rowParts =
-          [new QueryResultElement(geneUniquename),
-           new QueryResultElement(geneSummary.name)];
+        let rowParts = [geneUniquename, geneSummary.name];
         return new QueryResultRow(rowParts);
       });
 

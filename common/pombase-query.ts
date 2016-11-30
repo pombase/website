@@ -2,12 +2,8 @@ export class QueryResultHeader {
   constructor(public names: string[]) { }
 }
 
-export class QueryResultElement {
-  constructor(public value: string) { }
-}
-
 export class QueryResultRow {
-  constructor(public elems: QueryResultElement[]) { }
+  constructor(public elems: string[]) { }
 }
 
 export class PomBaseResults {
