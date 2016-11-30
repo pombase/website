@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { TermShort, GeneQuery, GeneQueryPart } from '../common/pombase-query';
+import { TermShort, GeneQuery, GeneQueryNode, GeneBoolNode,
+         PomBaseResults } from '../common/pombase-query';
+import { PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-query-builder',
@@ -9,17 +10,23 @@ import { TermShort, GeneQuery, GeneQueryPart } from '../common/pombase-query';
 })
 export class QueryBuilderComponent implements OnInit {
 //  @Input() query: GeneQuery;
+  topNode: GeneBoolNode = new GeneBoolNode('and', []);
+  query: GeneQuery = new GeneQuery(this.topNode);
+  results: PomBaseResults = undefined;
 
-  query: GeneQuery = new GeneQuery();
-  parts: GeneQueryPart[] = [];
-
-  constructor() { }
+  constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
-    this.parts = this.query.getQueryParts();
+
   }
 
-  partChanged(part: GeneQueryPart) {
-    this.parts.push(part);
+  doQuery() {
+    this.pombaseApiService.postQuery(this.query)
+      .subscribe((results) => this.results = results);
+  }
+
+  newNode(part: GeneQueryNode) {
+    this.topNode.getParts().push(part);
+    this.doQuery();
   }
 }

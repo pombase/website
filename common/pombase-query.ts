@@ -9,7 +9,7 @@ export class PomBaseResults {
 }
 
 export interface TermShort {
-  termid: string;
+  termid: Termid;
   name: string;
   is_obsolete: boolean;
 }
@@ -28,14 +28,16 @@ export enum QueryNodeOperator {
 export type GeneUniquename = string;
 export type Termid = string;
 
-export class GeneQueryNode { }
+export abstract class GeneQueryNode {
+  public abstract toObject(): Object;
+}
 
-export class GeneBoolNode {
+export class GeneBoolNode extends GeneQueryNode {
   private operator: QueryNodeOperator;
 
   constructor(operator: string,
               public parts: GeneQueryNode[]) {
-
+    super();
     if (operator.toLowerCase() == "and") {
       this.operator = QueryNodeOperator.And;
     } else {
@@ -54,10 +56,25 @@ export class GeneBoolNode {
   getParts(): GeneQueryNode[] {
     return this.parts;
   }
+
+  toObject(): Object {
+    return {
+      "type": "bool",
+      "operator": QueryNodeOperator[this.operator],
+      "parts": this.getParts().map((part: GeneQueryNode) => part.toObject()),
+    };
+  }
 }
 
 export class GeneByTerm implements GeneQueryNode {
   constructor(public termid: Termid) { };
+
+  toObject(): Object {
+    return {
+      "type": "term",
+      "termid": this.termid,
+    };
+  }
 }
 
 export class GeneQuery {
@@ -77,14 +94,22 @@ export class GeneQuery {
     }
   }
 
-  constructor(parsedJson: Object) {
-    if (typeof(parsedJson) == 'string') {
-      throw new Error("GeneQuery constructor needs an Object not a string");
+  constructor(arg: Object) {
+    if (arg instanceof GeneQueryNode) {
+      this.queryTopNode = arg;
+    } else {
+      if (typeof(arg) == 'string') {
+        throw new Error("GeneQuery constructor needs an Object not a string");
+      }
+      this.queryTopNode = this.makeNode(arg);
     }
-    this.queryTopNode = this.makeNode(parsedJson);
   }
 
   public getTopNode(): GeneQueryNode {
     return this.queryTopNode;
+  }
+
+  public toJSON(): string {
+    return JSON.stringify(this.getTopNode().toObject());
   }
 }

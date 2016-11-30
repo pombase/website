@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { GeneSummary, PombaseAPIService } from '../pombase-api.service';
+import { GeneSummary } from '../common/pombase-query';
+import { PombaseAPIService } from '../pombase-api.service';
 
 import { TypeaheadMatch } from 'ng2-bootstrap/components/typeahead/typeahead-match.class';
 

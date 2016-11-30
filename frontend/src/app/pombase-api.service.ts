@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
-import { TermShort, GeneSummary, GeneQuery, PomBaseResults } from './common/pombase-query';
+import { TermShort, GeneSummary, GeneQuery, PomBaseResults,
+         QueryResultHeader } from './common/pombase-query';
 
 export class Metadata {
   db_creation_datetime: Date;
@@ -136,8 +137,9 @@ export class ReferenceDetails {
 }
 
 
-function makeResults(res: number): PomBaseResults {
-  return new PomBaseResults();
+function makeResults(resultsObject: any): PomBaseResults {
+  let header = new QueryResultHeader(resultsObject.header.names);
+  return new PomBaseResults(header, resultsObject.rows);
 }
 
 @Injectable()
@@ -196,7 +198,7 @@ export class PombaseAPIService {
   postQuery(query: GeneQuery): Observable<PomBaseResults> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + '/search/gene_query', { query }, options)
-    .map((res) => { console.log(res); return makeResults(res.json()); });
+    return this.http.post(this.apiUrl + '/search/qb/execute', query.toJSON(), options)
+      .map((res) => { console.log(res); return makeResults(res.json()); });
   }
 }
