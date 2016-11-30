@@ -62,6 +62,7 @@ export class QueryHandler {
         indices[cvName] =
           lunr(function () {
             this.field('name')
+            this.field('termid')
             this.ref('termid')
           })
       }
