@@ -5,6 +5,7 @@
        placeholder="start typing ..."
        [(ngModel)]="selectedTerm"
        [typeahead]="dataSource"
+       [typeaheadWaitMs]="400"
        [typeaheadMinLength]="2"
        [typeaheadItemTemplate]="termNameCompleteTemplate"
        [typeaheadOptionField]="'name'"

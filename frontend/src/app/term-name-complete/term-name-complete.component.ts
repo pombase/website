@@ -4,6 +4,9 @@ import { PombaseAPIService } from '../pombase-api.service';
 import { TypeaheadMatch } from 'ng2-bootstrap/components/typeahead/typeahead-match.class';
 import { Http, URLSearchParams, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/distinctUntilChanged";
+import 'rxjs/add/operator/switchMap';
 
 import { TermShort } from '../common/pombase-query.ts';
 
@@ -20,13 +23,12 @@ export class TermNameCompleteComponent implements OnInit {
   public selectedTerm: string = '';
 
   constructor(private pombaseApiService: PombaseAPIService) {
-    this.dataSource = Observable.create((observer:any) => {
-      observer.next(this.selectedTerm);
-    })
-      .debounceTime(500)
-      .mergeMap((token:string) =>
-                pombaseApiService
-                .getTermByNameFuzzy(this.cvName, token));
+    this.dataSource =
+      Observable.create((observer:any) => {
+        observer.next(this.selectedTerm);
+      })
+      .switchMap((token:string) =>
+                 pombaseApiService.getTermByNameFuzzy(this.cvName, token));
   };
 
   ngOnInit() {
