@@ -16,6 +16,7 @@ export class GeneDetailsComponent implements OnInit {
 
   synonymsDisplay: string = "";
   displayLocation: string = "";
+  shortChromosomeName: string = "";
   annotationTypeNames: Array<string>;
   interactionAnnotationTypeNames: Array<string>;
   config: AnnotationTableConfig = getAnnotationTableConfig();
@@ -27,11 +28,13 @@ export class GeneDetailsComponent implements OnInit {
   makeDisplayLocation(location: ChromosomeLocation): string {
     let chromosome_name = location.chromosome_name;
     let matches = chromosome_name.match(/chromosome_(\d+)/);
+    this.shortChromosomeName = "";
     if (matches) {
       chromosome_name = "Chromosome ";
       for (let i = 0; i < +matches[1]; i++) {
-        chromosome_name += "I";
+        this.shortChromosomeName += "I";
       }
+      chromosome_name += this.shortChromosomeName;
     } else {
       if (chromosome_name == "mating_type_region") {
         chromosome_name = "Mating type region";

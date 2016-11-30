@@ -1,2 +1,7 @@
 #gene-summary {
 }
+
+#gene-details .chromosome-region-view {
+  width: 800px;
+  margin: 0 auto;
+}
