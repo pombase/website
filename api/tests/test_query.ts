@@ -84,19 +84,26 @@ describe('QueryHandler', function() {
         .to.have.members(genesOfGo0005515);
     });
 
-//    it('should return X matches', function() {
-//      let query = new GeneQuery({
-//        "type": "AND",
-//        "parts": [
-//          {
-//            "type": "term",
-//            "termid": "GO:0005515",
-//          }
-//        ],
-//      });
-//      let res = qh.geneQuery(query);
-//      console.log(res);
-//      expect(res).to.have.members(genesOfGo0005515);
-//    });
+    it('should return 1 match from boolean query', function() {
+      let query = new GeneQuery({
+        "type": "bool",
+        "operator": "and",
+        "parts": [
+          {
+            "type": "term",
+            "termid": "GO:0005515"
+          },
+          {
+            "type": "term",
+            "termid": "FYPO:0002060"
+          }
+        ],
+      });
+      let res = qh.geneQuery(query);
+      expect(res.headers.names).to.have.members(['Gene systematic ID', 'Gene name']);
+      expect(res.rows.length).to.equal(1);
+      expect(res.rows.map((row: QueryResultRow) => row.elems[0]))
+        .to.have.members(['SPCC1739.11c']);
+    });
   });
 });
