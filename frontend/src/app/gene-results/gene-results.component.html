@@ -1,0 +1,16 @@
+<div>
+  <table *ngIf="results">
+    <thead>
+      <th *ngFor="let columnTitle of results.header.names">
+        {{columnTitle}}
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of results.rows">
+        <td *ngFor="let el of row">
+          {{el}}
+        </td>
+      </tr>
+    </tbody>
+  </table>  
+</div>

@@ -1,5 +1,7 @@
 <div>
   <app-query-node (newNode)="newNode($event)"></app-query-node>
-  {{query}}
-  {{results}}
+
+  <a (click)="resetQuery()">Clear query ...</a>
+
+  <app-gene-results [results]="results"></app-gene-results>
 </div>

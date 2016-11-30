@@ -10,11 +10,19 @@ import { PombaseAPIService } from '../pombase-api.service';
 })
 export class QueryBuilderComponent implements OnInit {
 //  @Input() query: GeneQuery;
-  topNode: GeneBoolNode = new GeneBoolNode('and', []);
-  query: GeneQuery = new GeneQuery(this.topNode);
+  topNode: GeneBoolNode;
+  query: GeneQuery;
   results: PomBaseResults = undefined;
 
-  constructor(private pombaseApiService: PombaseAPIService) { }
+  resetQuery() {
+    this.topNode = new GeneBoolNode('and', []);
+    this.query = new GeneQuery(this.topNode);
+    this.results = undefined;
+  }
+
+  constructor(private pombaseApiService: PombaseAPIService) {
+    this.resetQuery();
+  }
 
   ngOnInit() {
 

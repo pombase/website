@@ -29,6 +29,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { TermNameCompleteComponent } from './term-name-complete/term-name-complete.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { QueryNodeComponent } from './query-node/query-node.component';
+import { GeneResultsComponent } from './gene-results/gene-results.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { QueryNodeComponent } from './query-node/query-node.component';
     TermNameCompleteComponent,
     QueryBuilderComponent,
     QueryNodeComponent,
+    GeneResultsComponent,
   ],
   imports: [
     BrowserModule,
