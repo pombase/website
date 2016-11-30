@@ -21,7 +21,7 @@ export function setIntersection<T>(a: Set<T>, b: Set<T>): Set<T> {
 
 import {
   GeneQuery, GeneQueryNode, GeneBoolNode, GeneSummary, PomBaseResults, GeneUniquename,
-  GeneByTerm, QueryResultHeader, QueryResultRow,
+  GeneByTerm, QueryResultHeader, QueryResultRow, QueryNodeOperator,
 } from '../common/pombase-query';
 
 export class Indices {
@@ -95,19 +95,39 @@ export class QueryHandler {
     return this.searchMaps.termid_genes[termid];
   }
 
-  processBoolNode(boolNode: GeneBoolNode) {
-    for (let node of boolNode.getChildNodes()) {
-      let newGenes = this.processNode(node);
+  processBoolNode(boolNode: GeneBoolNode): GeneUniquename[] {
+    console.log("processBoolNode()");
+    let parts = boolNode.getParts();
+    let returnSet = new Set(this.processNode(parts.shift()));
+    for (let part of parts) {
+      let newGenes = new Set(this.processNode(part));
+
+      if (boolNode.getOperator() == QueryNodeOperator.And) {
+        returnSet = setIntersection(returnSet, newGenes);
+      } else {
+        if (boolNode.getOperator() == QueryNodeOperator.Or) {
+          returnSet = setUnion(returnSet, newGenes);
+        } else {
+          throw new Error("unknown bool node operator: " + boolNode.getOperator());
+        }
+      }
     }
 
+
+    return Array.from(returnSet)
   }
 
   processNode(node: GeneQueryNode): GeneUniquename[] {
+    console.log(node);
     if (node instanceof GeneByTerm) {
       let termid = node.termid;
       return this.searchMaps.termid_genes[termid];
     } else {
-      console.log("in getGenesOfPart() - unknown query part type");
+      if (node instanceof GeneBoolNode) {
+        return this.processBoolNode(node);
+      } else {
+        throw new Error("in getGenesOfPart() - unknown query part type");
+      }
     }
   }
 

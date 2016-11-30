@@ -35,16 +35,28 @@ export type Termid = string;
 export class GeneQueryNode { }
 
 export class GeneBoolNode {
-  constructor(public operator: QueryNodeOperator,
-              public childNodes: GeneQueryNode[]) {
+  private operator: QueryNodeOperator;
+
+  constructor(operator: string,
+              public parts: GeneQueryNode[]) {
+
+    if (operator.toLowerCase() == "and") {
+      this.operator = QueryNodeOperator.And;
+    } else {
+      if (operator.toLowerCase() == "or") {
+        this.operator = QueryNodeOperator.Or;
+      } else {
+        throw new Error("unknown operator: " + operator);
+      }
+    }
   }
 
   getOperator(): QueryNodeOperator {
     return this.operator;
   }
 
-  getChildNodes(): GeneQueryNode[] {
-    return this.childNodes;
+  getParts(): GeneQueryNode[] {
+    return this.parts;
   }
 }
 
@@ -56,10 +68,16 @@ export class GeneQuery {
   private queryTopNode: GeneQueryNode;
 
   private makeNode(parsedJson: any): GeneQueryNode {
-    if (parsedJson['type'] == 'term') {
+    let nodeType = parsedJson['type'];
+    if (nodeType == 'term') {
       return new GeneByTerm(parsedJson.termid);
     } else {
-      throw new Error("Unknown type: " + parsedJson['type']);
+      if (nodeType == 'bool') {
+        return new GeneBoolNode(parsedJson['operator'],
+                                parsedJson.parts.map((json: any) => this.makeNode(json)));
+      } else {
+        throw new Error("Unknown type: " + nodeType);
+      }
     }
   }
 
