@@ -21,7 +21,7 @@ router.get('/term/by_name/fuzzy/:cvName/:queryText',
 
 router.post('/qb/execute', function(req: Request & ParsedAsText, res: Response, next: Function) {
   let qh = res.locals.queryHandler;
-  let query = new GeneQuery(JSON.parse(req.body));
+  let query = new GeneQuery(req.body);
   res.json(qh.geneQuery(query));
 });
 
