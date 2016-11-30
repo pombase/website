@@ -3,11 +3,11 @@ export class QueryResultHeader {
 }
 
 export class QueryResultElement {
-  constructor(public val: string) { }
+  constructor(public value: string) { }
 }
 
 export class QueryResultRow {
-  constructor(public vals: QueryResultElement[]) { }
+  constructor(public elems: QueryResultElement[]) { }
 }
 
 export class PomBaseResults {
@@ -28,7 +28,7 @@ export class GeneSummary {
   synonyms: Array<string>;
 }
 
-export enum QueryPartOperator {
+export enum QueryNodeOperator {
   And,
   Or
 }
@@ -36,25 +36,45 @@ export enum QueryPartOperator {
 export type GeneUniquename = string;
 export type Termid = string;
 
-export class GeneQueryPart { }
+export class GeneQueryNode { }
 
-export class GeneByTerm implements GeneQueryPart {
-  public operator: QueryPartOperator;
+export class GeneBoolNode {
+  constructor(public operator: QueryNodeOperator,
+              public childNodes: GeneQueryNode[]) {
+  }
 
-  constructor(public termid: Termid,
-              operator: QueryPartOperator) {
-    this.operator = operator;
-  };
+  getOperator(): QueryNodeOperator {
+    return this.operator;
+  }
+
+  getChildNodes(): GeneQueryNode[] {
+    return this.childNodes;
+  }
+}
+
+export class GeneByTerm implements GeneQueryNode {
+  constructor(public termid: Termid) { };
 }
 
 export class GeneQuery {
-  private queryParts: GeneQueryPart[] = [];
+  private queryTopNode: GeneQueryNode;
 
-  constructor(parsedJson: any) {
-    console.log(parsedJson);
+  private makeNode(parsedJson: any): GeneQueryNode {
+    if (parsedJson['type'] == 'term') {
+      return new GeneByTerm(parsedJson.termid);
+    } else {
+      throw new Error("Unknown type: " + parsedJson['type']);
+    }
   }
 
-  public getQueryParts(): GeneQueryPart[] {
-    return this.queryParts;
+  constructor(parsedJson: Object) {
+    if (typeof(parsedJson) == 'string') {
+      throw new Error("GeneQuery constructor needs an Object not a string");
+    }
+    this.queryTopNode = this.makeNode(parsedJson);
+  }
+
+  public getTopNode(): GeneQueryNode {
+    return this.queryTopNode;
   }
 }

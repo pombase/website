@@ -2,10 +2,47 @@ import 'mocha';
 
 var expect = require('chai').expect;
 
-import { QueryHandler } from '../query';
-import { TermShort, GeneByTerm, QueryPartOperator } from '../common/pombase-query';
+import { QueryHandler, setUnion, setIntersection } from '../query';
+import { TermShort, GeneQuery, QueryResultRow, QueryResultHeader,
+         QueryResultElement, GeneByTerm, QueryNodeOperator } from '../common/pombase-query';
 
 var assert = require('assert');
+
+describe('setUnion', function() {
+  it('is union', function() {
+    expect(Array.from(setUnion(new Set([1,2,3]), new Set([2,3,4]))))
+      .to.have.members([1,2,3,4]);
+  })
+})
+
+describe('setIntersection', function() {
+  it('is intersection', function() {
+    expect(Array.from(setIntersection(new Set([1,2,3]), new Set([2,3,4]))))
+      .to.have.members([2,3]);
+  })
+})
+
+describe('GeneQuery', function() {
+  it('should create a GeneQuery from an object', function() {
+    expect(function() {
+      let geneQuery = new GeneQuery('{"type": "term", "termid": "GO:0005515"}');
+    }).to.throw('GeneQuery constructor needs an Object not a string');
+  });
+});
+
+describe('GeneQuery', function() {
+  it('should create a GeneQuery from an object', function() {
+    let geneQuery = new GeneQuery({"type": "term", "termid": "GO:0005515"});
+    let topNode = geneQuery.getTopNode();
+    if (topNode instanceof GeneByTerm) {
+      expect(topNode.termid).to.equal("GO:0005515");
+    } else {
+      console.log(geneQuery);
+      console.log(topNode);
+      throw new Error("node is not a GeneByTerm");
+    }
+  });
+});
 
 describe('QueryHandler', function() {
   var qh = new QueryHandler('./tests/data');
@@ -27,10 +64,39 @@ describe('QueryHandler', function() {
   });
 
   describe('#getGenesOfPart()', function() {
-    it('should return no matches', function() {
-      let part = new GeneByTerm('GO:0005515', QueryPartOperator.And);
-      let res = qh.getGenesOfPart(part);
+    it('should return 3 matching genes', function() {
+      let node = new GeneByTerm('GO:0005515');
+      let res = qh.processNode(node);
       expect(res).to.have.members(genesOfGo0005515);
     });
+  });
+
+  describe('#geneQuery()', function() {
+    it('should return 3 matching genes', function() {
+      let query = new GeneQuery({
+        "type": "term",
+        "termid": "GO:0005515",
+      });
+      let res = qh.geneQuery(query);
+      expect(res.headers.names).to.have.members(['Gene systematic ID', 'Gene name']);
+      expect(res.rows.length).to.equal(3);
+      expect(res.rows.map((row: QueryResultRow) => row.elems[0].value))
+        .to.have.members(genesOfGo0005515);
+    });
+
+//    it('should return X matches', function() {
+//      let query = new GeneQuery({
+//        "type": "AND",
+//        "parts": [
+//          {
+//            "type": "term",
+//            "termid": "GO:0005515",
+//          }
+//        ],
+//      });
+//      let res = qh.geneQuery(query);
+//      console.log(res);
+//      expect(res).to.have.members(genesOfGo0005515);
+//    });
   });
 });

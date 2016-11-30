@@ -1,8 +1,26 @@
 let lunr = require('lunr');
 import fs = require('fs');
 
+export function setUnion<T>(a: Set<T>, b: Set<T>): Set<T> {
+  var union = new Set(a);
+  for (var elem of b) {
+    union.add(elem);
+  }
+  return union;
+}
+
+export function setIntersection<T>(a: Set<T>, b: Set<T>): Set<T> {
+  var intersection = new Set();
+  for (var elem of b) {
+    if (a.has(elem)) {
+      intersection.add(elem);
+    }
+  }
+  return intersection;
+}
+
 import {
-  GeneQuery, GeneQueryPart, GeneSummary, PomBaseResults, GeneUniquename,
+  GeneQuery, GeneQueryNode, GeneBoolNode, GeneSummary, PomBaseResults, GeneUniquename,
   GeneByTerm, QueryResultHeader, QueryResultRow, QueryResultElement,
 } from './common/pombase-query';
 
@@ -77,9 +95,16 @@ export class QueryHandler {
     return this.searchMaps.termid_genes[termid];
   }
 
-  getGenesOfPart(part: GeneQueryPart): GeneUniquename[] {
-    if (part instanceof GeneByTerm) {
-      let termid = part.termid;
+  processBoolNode(boolNode: GeneBoolNode) {
+    for (let node of boolNode.getChildNodes()) {
+      let newGenes = this.processNode(node);
+    }
+
+  }
+
+  processNode(node: GeneQueryNode): GeneUniquename[] {
+    if (node instanceof GeneByTerm) {
+      let termid = node.termid;
       return this.searchMaps.termid_genes[termid];
     } else {
       console.log("in getGenesOfPart() - unknown query part type");
@@ -87,20 +112,11 @@ export class QueryHandler {
   }
 
   geneQuery(query: GeneQuery): PomBaseResults {
-    let parts = query.getQueryParts();
-    if (parts.length == 0) {
-      return new PomBaseResults(new QueryResultHeader(["Systematic ID"]), []);
-    }
-
-    let geneUniquenames: string[] = this.getGenesOfPart(parts.shift());
-
-    for (let queryPart of parts) {
-      let newGenes = this.getGenesOfPart(queryPart);
-    }
-
-    let header = new QueryResultHeader(["Gene systematic ID"]);
+    let topNode = query.getTopNode();
+    let geneUniquenames: string[] = this.processNode(topNode);
+    let header = new QueryResultHeader(["Gene systematic ID", "Gene name"]);
     let rows =
-      geneUniquenames.map((geneUniquename) => {
+      geneUniquenames.map((geneUniquename: GeneUniquename) => {
         let geneSummary = this.genesByUniquename[geneUniquename];
         let rowParts =
           [new QueryResultElement(geneUniquename),
