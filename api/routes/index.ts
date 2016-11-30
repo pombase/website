@@ -11,11 +11,16 @@ router.get('/gene/by_termid/:termid', function(req: Request, res: Response, next
   res.json({ matches: qh.genesByTermid(req.params['termid']) });
 });
 
-router.get('/term/by_name/fuzzy/:cvName/:queryText',
+router.get('/term/by_name/fuzzy/:cvName?/:queryText?',
            function(req: Request, res: Response, next: Function) {
-             let qh = res.locals.queryHandler;
-             let retVal = qh.genesByTermNameFuzzy(req.params['cvName'],
-                                                  req.params['queryText']);
+             let retVal;
+             if (!req.params['cvName'] || !req.params['queryText']) {
+               retVal = [];
+             } else {
+               let qh = res.locals.queryHandler;
+               retVal = qh.genesByTermNameFuzzy(req.params['cvName'],
+                                                    req.params['queryText']);
+             }
              res.json(retVal);
            });
 
