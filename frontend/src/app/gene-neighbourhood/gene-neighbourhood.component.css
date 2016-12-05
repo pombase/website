@@ -1,0 +1,12 @@
+.gene-neighbourhood {
+  padding: 10px 0 10px 0;
+  text-align: center;
+}
+
+.gene-neighbourhood-focus-gene {
+  font-weight: bold;
+}
+
+.gene-neighbourhood-genes {
+  padding: 0 5px 0 5px;
+}

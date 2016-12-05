@@ -1,0 +1,12 @@
+<div class="gene-neighbourhood">
+  <div class="gene-neighbourhood-inner">
+    <span class="gene-neighbourhood-genes" *ngFor="let gene of neighbourhood">
+      <app-gene-link *ngIf="gene.uniquename != focusGeneUniquename"
+                     [long]="false" [gene]="gene"></app-gene-link>
+      <span class="gene-neighbourhood-focus-gene"
+            *ngIf="gene.uniquename == focusGeneUniquename">
+        {{focusGeneName || focusGeneUniquename}}
+      </span>
+    </span>
+  </div>
+</div>

@@ -54,6 +54,10 @@
     <div class="chromosome-region-view">
       <img src="http://www.pombase.org/sites/pombase.org/files/ensembl/img_cache/{{shortChromosomeName}}/{{geneDetails.uniquename}}_gene.png" />
     </div>
+
+    <app-gene-neighbourhood [focusGeneUniquename]="geneDetails.uniquename"
+                            [neighbourhood]="geneDetails.gene_neighbourhood"></app-gene-neighbourhood>
+
     <hr style="clear: both" />
 
     <div>

@@ -38,6 +38,14 @@ export class GeneDetailsComponent implements OnInit {
     } else {
       if (chromosome_name == "mating_type_region") {
         chromosome_name = "Mating type region";
+        this.shortChromosomeName = "MTR";
+      } else {
+        if (chromosome_name == "MISPCG") {
+          chromosome_name = "Mitochondria";
+          this.shortChromosomeName = "MT";
+        } else {
+          this.shortChromosomeName = chromosome_name;
+        }
       }
     }
     let ret = chromosome_name + ", ";
