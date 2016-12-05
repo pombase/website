@@ -1,6 +1,7 @@
 .gene-neighbourhood {
   padding: 10px 0 10px 0;
   text-align: center;
+  white-space: nowrap;
 }
 
 .gene-neighbourhood-focus-gene {
