@@ -1,2 +1,3 @@
-<a routerLink="/gene/{{gene.uniquename}}"
-   routerLinkActive="active"><span class="gene-link">{{displayString}}</span></a>
+<a routerLink="/gene/{{gene.uniquename}}" routerLinkActive="active" [attr.title]="linkTitle">
+  <span class="gene-link">{{displayString}}</span>
+</a>

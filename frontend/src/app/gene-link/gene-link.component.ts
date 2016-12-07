@@ -10,17 +10,24 @@ export class GeneLinkComponent implements OnInit {
   @Input() long: boolean = true;
 
   displayString = "";
+  linkTitle = "";
 
   constructor() { }
 
   ngOnInit() {
     if (this.gene.name) {
       this.displayString = this.gene.name;
+      this.linkTitle = this.displayString + " (" + this.gene.uniquename + ")";;
       if (this.long) {
-          this.displayString += " (" + this.gene.uniquename + ")";
+          this.displayString = this.linkTitle
       }
     } else {
       this.displayString = this.gene.uniquename;
+      this.linkTitle = this.displayString;
+    }
+
+    if (this.gene.product) {
+      this.linkTitle += " - " + this.gene.product;
     }
   }
 }
