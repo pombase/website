@@ -19,7 +19,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let expressedAllele of displayAlleles">
-        <td><app-gene-link [gene]="expressedAllele.gene"></app-gene-link></td>
+        <td><app-gene-link [long]="false" [gene]="expressedAllele.gene"></app-gene-link></td>
         <td>
           <div>{{expressedAllele.name}}(<span [innerHTML]="expressedAllele.description"></span>)</div>
           <div style="color: grey;">{{expressedAllele.uniquename}}</div>
