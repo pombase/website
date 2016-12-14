@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let annotation of annotationTable">
-        <td><app-gene-link [gene]="annotation.interactor"></app-gene-link></td>
+        <td><app-gene-link [long]="false" [gene]="annotation.interactor"></app-gene-link></td>
         <td>{{annotation.interactor.product}}</td>
         <td>{{annotation.evidence}}</td>
         <td>
