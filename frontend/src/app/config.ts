@@ -2,7 +2,10 @@ export interface AppConfig {
   organism: {
     genus: string,
     species: string,
-  }
+  };
+
+  // return true iff the genus and species match the configured organism
+  isConfigOrganism(genus: string, species: string): boolean;
 }
 
 export interface AnnotationType {
@@ -105,6 +108,10 @@ let _appConfig: AppConfig = {
   organism: {
     genus: 'Schizosaccharomyces',
     species: 'pombe',
+  },
+
+  isConfigOrganism(genus: string, species: string): boolean {
+    return genus == this.organism.genus && species == this.organism.species;
   }
 };
 

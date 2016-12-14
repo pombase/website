@@ -2,7 +2,7 @@
   <app-loading-spinner *ngIf="!geneDetails"></app-loading-spinner>
   <div id="gene-details" *ngIf="geneDetails">
     <div class="details-page-name-and-id">
-    <span *ngIf="geneDetails.organism.genus != appConfig.organism.genus || geneDetails.organism.species != appConfig.organism.species">
+    <span *ngIf="!appConfig.isConfigOrganism(geneDetails.organism.genus, geneDetails.organism.species)">
       {{geneDetails.organism.genus}} {{geneDetails.organism.species}}
     </span>
     <span *ngIf="geneDetails.name">
@@ -51,9 +51,11 @@
     </div>
 
     <hr style="clear: both" />
-    <div class="chromosome-region-view">
+    <div class="chromosome-region-view"
+         *ngIf="appConfig.isConfigOrganism(geneDetails.organism.genus, geneDetails.organism.species)">
       <img src="http://www.pombase.org/sites/pombase.org/files/ensembl/img_cache/{{shortChromosomeName}}/{{geneDetails.uniquename}}_gene.png" />
     </div>
+
 
     <app-gene-neighbourhood [focusGeneUniquename]="geneDetails.uniquename"
                             [focusGeneName]="geneDetails.name"
