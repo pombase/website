@@ -74,7 +74,7 @@
                              [showDetails]="showGenotypeDetails"></app-genotype-link>
         </td>
         <td *ngIf="showColumn['evidence']">{{annotation.evidence}}</td>
-        <td *ngIf="showColumn['with']">{{annotation.with}}</td>
+        <td *ngIf="showColumn['with']"><app-gene-link *ngIf="annotation.with" [long]="false" [gene]="annotation.with"></app-gene-link>
         <td *ngIf="showColumn['conditions']">
           <li *ngFor="let condition of annotation.conditions">
             <a routerLink="/term/{{condition.termid}}" routerLinkActive="active">{{condition.name}}</a>
