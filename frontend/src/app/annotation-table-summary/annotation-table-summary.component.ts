@@ -13,7 +13,7 @@ export class AnnotationTableSummaryComponent implements OnInit {
 
   annotationTypeDisplayName = null;
 
-  extensionSummaries = null;
+  extensionSummariesByTerm = {};
 
   constructor() { }
 
@@ -22,16 +22,18 @@ export class AnnotationTableSummaryComponent implements OnInit {
   }
 
   makeExtensionSummaries() {
-//    this.extensionSummaries =
-//      this.annotationTable.map(annotation => annotation.extension);
-  }
-
-  getExtensionSummaries() {
-    if (!this.extensionSummaries) {
-      this.makeExtensionSummaries();
+    for (let term_annotation of this.annotationTable) {
+      let termid = term_annotation.term.termid;
+      let thisTermExtensions =
+        term_annotation.annotations.map(annotation => annotation.extension)
+        .filter(extension => extension && extension.length > 0);
+      if (thisTermExtensions.length > 0) {
+        this.extensionSummariesByTerm[termid] = thisTermExtensions;
+      }
     }
   }
 
   ngOnInit() {
+    this.makeExtensionSummaries();
   }
 }

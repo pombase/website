@@ -16,6 +16,13 @@
              title="{{termAnnotation.term.gene_count}} genes are annotationed with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
         </td>
       </tr>
+      <tr *ngIf="extensionSummariesByTerm[termAnnotation.term.termid]">
+        <td>
+          <app-extension-display
+             *ngFor="let extSumm of extensionSummariesByTerm[termAnnotation.term.termid]"
+             [extension]="extSumm"></app-extension-display>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

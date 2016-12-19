@@ -22,23 +22,12 @@ export class AnnotationTableComponent implements OnInit {
   hideColumn = {};
   showColumn = {};
   termNameColSpan = 0;
-  extensionSummaries = null;
+  extensionSummaries = {};
 
   constructor() { }
 
   trackByTermId(index: number, item: any) {
     return item.term.termid;
-  }
-
-  makeExtensionSummaries() {
-//    this.extensionSummaries =
-//      this.annotationTable.map(annotation => annotation.extension);
-  }
-
-  getExtensionSummaries() {
-    if (!this.extensionSummaries) {
-      this.makeExtensionSummaries();
-    }
   }
 
   ngOnInit() {

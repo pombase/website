@@ -73,7 +73,6 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.annotationTypeNames = this.config.annotationTypeOrder;
     this.interactionAnnotationTypeNames = ["interacts_physically", "interacts_genetically"];
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -83,6 +82,9 @@ export class GeneDetailsComponent implements OnInit {
             this.geneDetails = geneDetails;
             this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
             this.displayLocation = this.makeDisplayLocation(geneDetails.location);
+            this.annotationTypeNames =
+              this.config.annotationTypeOrder.filter(
+                annotationTypeName => geneDetails.cv_annotations[annotationTypeName]);
           });
       };
     });
