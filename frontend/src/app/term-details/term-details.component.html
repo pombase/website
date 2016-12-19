@@ -30,8 +30,8 @@
 
     <div>
       <app-annotation-table [hideColumns]="['gene_count']"
-                            [annotationTypeName]="'Annotations for ' + termDetails.termid + ' or its descendants: ' + annotations.length"
-                            [annotationTable]="annotations"></app-annotation-table>
+                            [annotationTypeName]="'Annotations for ' + termDetails.termid + ' and its descendants'"
+                            [annotationTable]="termDetails.rel_annotations"></app-annotation-table>
     </div>
   </div>
 </div>

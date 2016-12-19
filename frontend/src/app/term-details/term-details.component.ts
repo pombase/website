@@ -11,19 +11,8 @@ import { TermDetails, Annotation, PombaseAPIService } from '../pombase-api.servi
 export class TermDetailsComponent implements OnInit {
   @Input() termDetails: TermDetails;
 
-  annotations: Array<Annotation> = [];
-
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }
-
-  collectAnnotations(relAnnotations: any) {
-    this.annotations =
-      relAnnotations
-      .map((relAnnotation) =>
-           Object.assign({
-             descRelNames: relAnnotation.rel_names,
-           }, relAnnotation.annotation));
-  }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
@@ -32,7 +21,6 @@ export class TermDetailsComponent implements OnInit {
         this.pombaseApiService.getTerm(termid)
               .then(termDetails => {
                 this.termDetails = termDetails;
-                this.collectAnnotations(termDetails.rel_annotations);
               });
       };
     });
