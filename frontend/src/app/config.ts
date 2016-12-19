@@ -18,6 +18,7 @@ export interface AnnotationTypes {
 }
 
 export interface AnnotationTableConfig {
+    annotationTypeOrder: Array<string>;
     annotationTypes: AnnotationTypes;
     getAnnotationType(annotationTypeName: string): AnnotationType;
 }
@@ -30,11 +31,25 @@ let defaultInteractionToShow =
   ["interactor", "gene-product", "evidence", "reference"];
 
 let _config: AnnotationTableConfig = {
+  annotationTypeOrder: [
+    "molecular_function",
+    "biological_process",
+    "cellular_component",
+    "fission_yeast_phenotype",
+    "PomBase family or domain",
+    "PSI-MOD",
+    "gene_ex",
+    "species_dist",
+    "complementation",
+    "taxonomic_conservation",
+//    "subunit_composition",
+//    "misc",
+  ],
   annotationTypes: {
     molecular_function: {
       displayName: "GO molecular function",
       columnsToShow: goColumnsToShow,
-   },
+    },
     biological_process: {
       displayName: "GO biological process",
       columnsToShow: goColumnsToShow,

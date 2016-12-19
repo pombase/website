@@ -73,27 +73,13 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.annotationTypeNames = this.config.annotationTypeOrder;
+    this.interactionAnnotationTypeNames = ["interacts_physically", "interacts_genetically"];
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
         let uniquename = params['uniquename'];
-        let annotationCmp = (a, b) => {
-          let aDisplayName =
-            this.config.annotationTypes[a] ? this.config.annotationTypes[a].displayName : a;
-          let bDisplayName =
-            this.config.annotationTypes[b] ? this.config.annotationTypes[b].displayName : b;
-          if (aDisplayName < bDisplayName) {
-            return -1;
-          }
-          if (aDisplayName > bDisplayName) {
-            return 1;
-          }
-          return 0;
-        };
         this.pombaseApiService.getGene(uniquename)
           .then(geneDetails => {
-            this.annotationTypeNames = Object.keys(geneDetails.cv_annotations);
-            this.annotationTypeNames.sort(annotationCmp);
-            this.interactionAnnotationTypeNames = Object.keys(geneDetails.interaction_annotations);
             this.geneDetails = geneDetails;
             this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
             this.displayLocation = this.makeDisplayLocation(geneDetails.location);

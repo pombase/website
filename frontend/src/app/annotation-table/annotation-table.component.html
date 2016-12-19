@@ -1,4 +1,4 @@
-<fieldset *ngIf="annotationTable.length > 0" class="annotation-table">
+<fieldset *ngIf="annotationTable?.length > 0" class="annotation-table">
   <legend>
     <span *ngIf="annotationTypeName">{{annotationTypeDisplayName}}</span>
     <span *ngIf="!annotationTypeName">Annotations</span>
