@@ -50,15 +50,23 @@ export interface Annotation {
   with?: string;
   residue?: string;
   qualifiers: Array<TermShort>;
-  term?: TermShort;
   gene?: GeneShort;
   genotype?: GenotypeShort;
   extension: Array<any>;
   is_not: boolean;
 }
+export interface TermAnnotation {
+  term: TermShort,
+  annotations: Array<Annotation>,
+}
+export interface RelAnnotation {
+  term: TermShort,
+  rel_names: Array<string>,
+  annotations: Array<Annotation>,
+}
 
-export interface Annotations {
-  [type_name: string]: Array<Annotation>;
+export interface CvAnnotations {
+  [type_name: string]: Array<TermAnnotation>;
 }
 
 export interface InteractionAnnotation {
@@ -107,7 +115,7 @@ export class GeneDetails {
   location: ChromosomeLocation;
   cds_location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
-  annotations: Annotations;
+  cv_annotations: CvAnnotations;
   interaction_annotations: InteractionAnnotations;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
@@ -119,7 +127,7 @@ export class TermDetails {
   cv_name: string;
   name: string;
   is_obsolete: false;
-  annotations: Annotations;
+  rel_annotations: RelAnnotation;
 }
 
 export class ReferenceDetails {
@@ -130,7 +138,7 @@ export class ReferenceDetails {
   authors_abbrev: string;
   pubmed_publication_date: string;
   publication_year: string;
-  annotations: Annotations;
+  cv_annotations: CvAnnotations;
   interaction_annotations: InteractionAnnotations;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
@@ -145,7 +153,7 @@ function makeResults(resultsObject: any): PomBaseResults {
 @Injectable()
 export class PombaseAPIService {
 
-  private apiUrl = 'http://pombase2.bioinformatics.nz/api/v1/dataset/latest';
+  private apiUrl = 'http://pombase2-api.bioinformatics.nz/api/v1/dataset/latest';
 
   constructor (private http: Http) {}
 

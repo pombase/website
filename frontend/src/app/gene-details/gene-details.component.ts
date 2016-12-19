@@ -91,7 +91,7 @@ export class GeneDetailsComponent implements OnInit {
         };
         this.pombaseApiService.getGene(uniquename)
           .then(geneDetails => {
-            this.annotationTypeNames = Object.keys(geneDetails.annotations);
+            this.annotationTypeNames = Object.keys(geneDetails.cv_annotations);
             this.annotationTypeNames.sort(annotationCmp);
             this.interactionAnnotationTypeNames = Object.keys(geneDetails.interaction_annotations);
             this.geneDetails = geneDetails;

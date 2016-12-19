@@ -40,7 +40,7 @@ export class ReferenceDetailsComponent implements OnInit {
         this.pombaseApiService.getReference(uniquename)
           .then(refDetails => {
             this.refDetails = refDetails;
-            this.annotationTypeNames = Object.keys(refDetails.annotations);
+            this.annotationTypeNames = Object.keys(refDetails.cv_annotations);
             this.annotationTypeNames.sort(annotationCmp);
             this.interactionAnnotationTypeNames = Object.keys(refDetails.interaction_annotations);
           });

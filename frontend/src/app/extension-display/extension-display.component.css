@@ -6,3 +6,7 @@
   display: block;
   padding-left: 10px;
 }
+
+.extension-rel-name {
+  font-weight: bold;
+}

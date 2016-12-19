@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Annotation } from '../pombase-api.service';
+import { TermAnnotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
@@ -8,25 +8,24 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
   templateUrl: './annotation-table.component.html',
   styleUrls: ['./annotation-table.component.css']
 })
-export class AnnotationTableComponent implements OnInit, OnChanges {
+export class AnnotationTableComponent implements OnInit {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
   @Input() columnsToShow: Array<string>;
-  @Input() annotationTable: Array<Annotation>;
+  @Input() annotationTable: Array<TermAnnotation>;
 
-  maxRows = 2000;
-  truncatedTable: Array<Annotation> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: any;
   showGenotypeDetails = false;
   annotationTypeDisplayName = null;
   hideColumn = {};
   showColumn = {};
+  termNameColSpan = 0;
 
   constructor() { }
 
-  trackById(index: number, item: any) {
-    return item.id;
+  trackByTermId(index: number, item: any) {
+    return item.term.termid;
   }
 
   ngOnInit() {
@@ -44,10 +43,11 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
     for (let columnName of this.hideColumns) {
       this.showColumn[columnName] = false;
     }
-  }
 
-  ngOnChanges(changes: SimpleChanges) {
-    // FIXME
-    this.truncatedTable = this.annotationTable.slice(0, this.maxRows);
+    for (let columnName of Object.keys(this.showColumn)) {
+      if (this.showColumn[columnName]) {
+        this.termNameColSpan++;
+      }
+    }
   }
 }

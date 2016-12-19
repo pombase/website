@@ -32,7 +32,7 @@ export class TermDetailsComponent implements OnInit {
         this.pombaseApiService.getTerm(termid)
               .then(termDetails => {
                 this.termDetails = termDetails;
-                this.collectAnnotations(termDetails.annotations);
+                this.collectAnnotations(termDetails.rel_annotations);
               });
       };
     });

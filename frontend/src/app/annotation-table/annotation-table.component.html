@@ -4,12 +4,6 @@
     <span *ngIf="!annotationTypeName">Annotations</span>
   </legend>
 
-  <div style="font-weight: bold; padding: 5px 0 5px 0; font-size: 120%;">
-    <div *ngIf="truncatedTable.length != annotationTable.length">
-      Note: showing only {{maxRows}} of {{annotationTable.length}} annotations.
-    </div>
-  </div>
-
   <div class="table-control" *ngIf="showColumn['genotype']">
     <input id="genotype-details-toggle"
            type="checkbox"
@@ -23,12 +17,11 @@
   <table>
     <thead>
       <tr>
+        <th>Term ID</th>
+        <th>Term name</th>
         <th *ngIf="showColumn['gene-ex']">Molecules per cell (average)</th>
         <th *ngIf="showColumn['desc-rel']">Relation</th>
         <th *ngIf="showColumn['gene']">Gene</th>
-        <th *ngIf="showColumn['term']">Term ID</th>
-        <th *ngIf="showColumn['term']">Term name</th>
-        <th *ngIf="showColumn['gene_count']">Other genes</th>
         <th *ngIf="showColumn['genotype']">Genotype</th>
         <th *ngIf="showColumn['evidence']">Evidence</th>
         <th *ngIf="showColumn['with']">With</th>
@@ -37,10 +30,23 @@
         <th *ngIf="showColumn['qualifiers']">Qualifiers</th>
         <th *ngIf="showColumn['residue']">Residue</th>
         <th *ngIf="showColumn['reference']">Reference</th>
+        <th *ngIf="showColumn['gene-count']">Count</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let annotation of truncatedTable;trackBy:trackById">
+    <tbody *ngFor="let termAnnotation of annotationTable;trackBy:trackByTermId">
+      <tr class="term-annotation-top">
+        <td [attr.rowspan]="termAnnotation.annotations.length + 1">
+          <a routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.termid}}</a>
+        </td>
+        <td [attr.colspan]="termNameColSpan">
+          <a routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.name}}</a>
+        </td>
+        <td *ngIf="showColumn['gene-count']"
+            [attr.rowspan]="termAnnotation.annotations.length + 1">
+          <a routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active" title="{{termAnnotation.term.gene_count}} genes are annotationed with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
+        </td>
+      </tr>
+      <tr class="term-annotation" *ngFor="let annotation of termAnnotation.annotations; let i = index">
         <td *ngIf="showColumn['gene-ex']">
           <div *ngIf="annotation.gene_ex_props">
             {{annotation.gene_ex_props.avg_copies_per_cell}}
@@ -54,20 +60,11 @@
         <td *ngIf="showColumn['gene']">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
-        <td *ngIf="showColumn['term']">
-          <a *ngIf="annotation.term" routerLink="/term_genes/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.termid}}</a>
-        </td>
-        <td *ngIf="showColumn['term']">
-          <div>
-            <span *ngIf="annotation.is_not" class="not-annotation">NOT</span>
-            <a *ngIf="annotation.term" routerLink="/term_genes/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.name}}</a>
-          </div>
+        <td>
+          <span *ngIf="annotation.is_not" class="not-annotation">NOT</span>
           <div *ngIf="annotation.extension">
             <app-extension-display [extension]="annotation.extension"></app-extension-display>
           </div>
-        </td>
-        <td *ngIf="showColumn['gene_count']">
-          <a *ngIf="annotation.term" routerLink="/term_genes/{{annotation.term.termid}}" routerLinkActive="active">{{annotation.term.gene_count}}</a>
         </td>
         <td *ngIf="showColumn['genotype']">
           <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"

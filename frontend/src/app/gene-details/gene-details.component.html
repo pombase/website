@@ -68,7 +68,7 @@
     <app-annotation-table *ngFor="let annotationTypeName of annotationTypeNames"
                           [annotationTypeName]="annotationTypeName"
                           [hideColumns]="['gene', 'desc-rel']"
-                          [annotationTable]="geneDetails.annotations[annotationTypeName]"></app-annotation-table>
+                          [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
     </div>
     <div>
     <app-interaction-annotation-table *ngFor="let annotationTypeName of interactionAnnotationTypeNames"
