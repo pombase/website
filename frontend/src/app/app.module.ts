@@ -31,6 +31,8 @@ import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { QueryNodeComponent } from './query-node/query-node.component';
 import { GeneResultsComponent } from './gene-results/gene-results.component';
 import { GeneNeighbourhoodComponent } from './gene-neighbourhood/gene-neighbourhood.component';
+import { AnnotationTableSummaryComponent } from './annotation-table-summary/annotation-table-summary.component';
+import { AnnotationTableFullComponent } from './annotation-table-full/annotation-table-full.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { GeneNeighbourhoodComponent } from './gene-neighbourhood/gene-neighbourh
     QueryNodeComponent,
     GeneResultsComponent,
     GeneNeighbourhoodComponent,
+    AnnotationTableSummaryComponent,
+    AnnotationTableFullComponent,
   ],
   imports: [
     BrowserModule,

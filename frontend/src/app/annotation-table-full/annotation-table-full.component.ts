@@ -1,14 +1,14 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TermAnnotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 @Component({
-  selector: 'app-annotation-table',
-  templateUrl: './annotation-table.component.html',
-  styleUrls: ['./annotation-table.component.css']
+  selector: 'app-annotation-table-full',
+  templateUrl: './annotation-table-full.component.html',
+  styleUrls: ['./annotation-table-full.component.css']
 })
-export class AnnotationTableComponent implements OnInit {
+export class AnnotationTableFullComponent implements OnInit {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
   @Input() columnsToShow: Array<string>;
@@ -16,9 +16,7 @@ export class AnnotationTableComponent implements OnInit {
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: any;
-  showDetails = false;
   showGenotypeDetails = false;
-  annotationTypeDisplayName = null;
   hideColumn = {};
   showColumn = {};
   termNameColSpan = 0;
@@ -43,11 +41,6 @@ export class AnnotationTableComponent implements OnInit {
 
   ngOnInit() {
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
-    if (this.typeConfig.displayName) {
-      this.annotationTypeDisplayName = this.typeConfig.displayName;
-    } else {
-      this.annotationTypeDisplayName = this.annotationTypeName;
-    }
 
     for (let columnName of this.typeConfig.columnsToShow) {
       this.showColumn[columnName] = true;

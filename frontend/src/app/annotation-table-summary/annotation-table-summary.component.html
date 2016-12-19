@@ -1,0 +1,21 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Term name</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let termAnnotation of annotationTable;trackBy:trackByTermId">
+      <tr class="term-annotation-top">
+        <td>
+          <a routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.name}}</a>
+        </td>
+        <td>
+          <a routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active"
+             title="{{termAnnotation.term.gene_count}} genes are annotationed with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
