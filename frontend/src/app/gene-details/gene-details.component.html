@@ -34,7 +34,11 @@
           <td class="details-label">Synonyms</td>
           <td>{{synonymsDisplay}}</td>
           <td class="details-label">Name description</td>
-          <td>...</td>
+          <td>
+            <span *ngFor="let nameDesc of geneDetails.name_descriptions; let i = index">
+              {{nameDesc}}<span *ngIf="i < geneDetails.name_descriptions.length - 1">,<br/></span>
+            </span>
+          </td>
         </tr>
         <tr>
           <td class="details-label">Product</td>
