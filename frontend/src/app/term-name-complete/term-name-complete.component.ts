@@ -8,7 +8,7 @@ import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/distinctUntilChanged";
 import 'rxjs/add/operator/switchMap';
 
-import { TermShort } from '../common/pombase-query.ts';
+import { TermShort } from '../common/pombase-query';
 
 @Component({
   selector: 'app-term-name-complete',
