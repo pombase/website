@@ -34,6 +34,8 @@ export class AnnotationTableSummaryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.makeExtensionSummaries();
+    if (this.annotationTable) {
+      this.makeExtensionSummaries();
+    }
   }
 }
