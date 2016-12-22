@@ -2,3 +2,8 @@
   padding: 0 0 10px 0;
   font-size: 120%;
 }
+
+.annotation-sub-table-name {
+  font-size: 130%;
+  font-weight: bold;
+}
