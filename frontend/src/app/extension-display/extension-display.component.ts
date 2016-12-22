@@ -8,13 +8,24 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ExtensionDisplayComponent implements OnInit {
   @Input() extension = [];
 
-  displayString = "";
+  displayExtension = [];
 
   constructor() { }
 
   ngOnInit() {
-    this.displayString =
-      this.extension.map((part) => part.rel_type_name + "(" + part.ext_range + ")").join(", ");
-  }
+    this.displayExtension =
+      this.extension.map(ext => {
+        let newRange = [];
+        if (ext.ext_range instanceof Array) {
+          newRange = ext.ext_range;
+        } else {
+          newRange = [ext.ext_range];
+        }
 
+        return {
+          relTypeName: ext.rel_type_name,
+          extRange: newRange,
+        }
+      });
+  }
 }

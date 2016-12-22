@@ -21,6 +21,44 @@ export class AnnotationTableSummaryComponent implements OnInit {
     return item.term.termid;
   }
 
+  compactExtensions(extensions: Array<any>) {
+    console.log(extensions);
+    let compacted = [];
+    for (let ext of extensions) {
+      if (ext.length > 1) {
+        compacted.push(ext.map(part =>
+                               {
+                                 return {
+                                   rel_type_name: part.rel_type_name,
+                                   ext_range: [part.ext_range]
+                                 };
+                               }
+                              )
+                      );
+      } else {
+        let updateExt = null;
+        for (let existing of compacted) {
+          if (existing.length == 1 &&
+              existing[0].rel_type_name == ext[0].rel_type_name) {
+            updateExt = existing;
+          }
+        }
+        if (!updateExt) {
+          updateExt = [
+            {
+            rel_type_name: ext[0].rel_type_name,
+            ext_range: [],
+            }
+          ];
+          compacted.push(updateExt);
+        }
+
+        updateExt[0].ext_range.push(ext[0].ext_range);
+      }
+    }
+    return compacted;
+  }
+
   makeExtensionSummaries() {
     for (let term_annotation of this.annotationTable) {
       let termid = term_annotation.term.termid;
@@ -28,7 +66,7 @@ export class AnnotationTableSummaryComponent implements OnInit {
         term_annotation.annotations.map(annotation => annotation.extension)
         .filter(extension => extension && extension.length > 0);
       if (thisTermExtensions.length > 0) {
-        this.extensionSummariesByTerm[termid] = thisTermExtensions;
+        this.extensionSummariesByTerm[termid] = this.compactExtensions(thisTermExtensions);
       }
     }
   }
