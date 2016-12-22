@@ -81,7 +81,7 @@ let _config: AnnotationTableConfig = {
         },
         {
           termid: "FYPO:0000003",
-          displayName: "Cell population phenotype",
+          displayName: "Population phenotype",
         },
       ],
     },
