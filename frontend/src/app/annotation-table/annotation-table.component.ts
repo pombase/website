@@ -16,7 +16,8 @@ export class AnnotationTableComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: any;
   annotationTypeDisplayName = null;
-  splitDataList = [];
+  splitDataList = {};
+  splitByParents = [];
 
   constructor() { }
 
@@ -28,10 +29,23 @@ export class AnnotationTableComponent implements OnInit {
       this.annotationTypeDisplayName = this.annotationTypeName;
     }
 
-    this.splitDataList = [
-      {
-        subTable: this.annotationTable,
+    if (this.typeConfig.splitByParents) {
+      this.splitByParents = this.typeConfig.splitByParents;
+
+      for (let splitByConfig of this.splitByParents) {
+        let splitByTermId = splitByConfig.termid;
+        for (let termAnnotation of this.annotationTable) {
+          let interestingParents = termAnnotation.term.interesting_parents;
+
+          if (interestingParents &&
+              interestingParents.indexOf(splitByTermId) >= 0) {
+            if (!this.splitDataList[splitByTermId]) {
+              this.splitDataList[splitByTermId] = [];
+            }
+            this.splitDataList[splitByTermId].push(termAnnotation);
+          }
+        }
       }
-    ];
+    }
   }
 }

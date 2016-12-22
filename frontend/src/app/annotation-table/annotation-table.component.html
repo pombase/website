@@ -4,11 +4,21 @@
     <span *ngIf="!annotationTypeName">Annotations</span>
   </legend>
 
-  <div *ngFor="let splitData of splitDataList">
+  <div *ngIf="splitByParents.length == 0">
     <app-annotation-sub-table
        [annotationTypeName]="annotationTypeName"
        [hideColumns]="hideColumns"
-       [annotationTable]="splitData.subTable">
+       [annotationTable]="annotationTable">
     </app-annotation-sub-table>
+  </div>
+  <div *ngIf="splitByParents.length != 0">
+    <div *ngFor="let conf of splitByParents">
+      <div class="annotation-sub-table-name">{{conf.displayName}}</div>
+      <app-annotation-sub-table
+         [annotationTypeName]="annotationTypeName"
+         [hideColumns]="hideColumns"
+         [annotationTable]="splitDataList[conf.termid]">
+      </app-annotation-sub-table>
+    </div>
   </div>
 </fieldset>

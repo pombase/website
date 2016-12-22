@@ -11,6 +11,7 @@ export class PomBaseResults {
 export interface TermShort {
   termid: Termid;
   name: string;
+  interesting_parents: Array<string>;
   is_obsolete: boolean;
 }
 

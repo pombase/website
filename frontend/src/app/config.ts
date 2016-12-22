@@ -10,6 +10,7 @@ export interface AppConfig {
 
 export interface AnnotationType {
   displayName: string;
+  splitByParents?: Array<any>;
   columnsToShow: Array<string>;
 }
 
@@ -73,6 +74,16 @@ let _config: AnnotationTableConfig = {
       displayName: "Phenotype",
       columnsToShow: ["desc-rel", "gene", "genotype",
                       "evidence", "conditions", "reference", "gene-count"],
+      splitByParents: [
+        {
+          termid: "FYPO:0000002",
+          displayName: "Cell phenotype",
+        },
+        {
+          termid: "FYPO:0000003",
+          displayName: "Cell population phenotype",
+        },
+      ],
     },
     gene_ex: {
       displayName: "Gene expression",
