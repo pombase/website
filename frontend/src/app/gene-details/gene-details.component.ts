@@ -17,8 +17,7 @@ export class GeneDetailsComponent implements OnInit {
   synonymsDisplay: string = "";
   displayLocation: string = "";
   shortChromosomeName: string = "";
-  annotationTypeNames: Array<string>;
-  interactionAnnotationTypeNames: Array<string>;
+  annotationTypeNames: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
 
@@ -73,7 +72,6 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.interactionAnnotationTypeNames = ["interacts_physically", "interacts_genetically"];
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
         let uniquename = params['uniquename'];
@@ -82,9 +80,7 @@ export class GeneDetailsComponent implements OnInit {
             this.geneDetails = geneDetails;
             this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
             this.displayLocation = this.makeDisplayLocation(geneDetails.location);
-            this.annotationTypeNames =
-              this.config.annotationTypeOrder.filter(
-                annotationTypeName => geneDetails.cv_annotations[annotationTypeName]);
+            this.annotationTypeNames = this.config.annotationTypeOrder;
           });
       };
     });

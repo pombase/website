@@ -67,23 +67,24 @@
 
     <hr style="clear: both" />
 
-    <div>
+    <div *ngFor="let annotationTypeName of annotationTypeNames">
 
-    <app-annotation-table *ngFor="let annotationTypeName of annotationTypeNames"
-                          [annotationTypeName]="annotationTypeName"
-                          [hideColumns]="['gene', 'desc-rel']"
-                          [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
-    </div>
-    <div>
-    <app-interaction-annotation-table *ngFor="let annotationTypeName of interactionAnnotationTypeNames"
+      <app-annotation-table *ngIf="geneDetails.cv_annotations[annotationTypeName]"
+                            [annotationTypeName]="annotationTypeName"
+                            [hideColumns]="['gene', 'desc-rel']"
+                            [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+
+      <app-interaction-annotation-table *ngIf="annotationTypeName == 'interacts_physically'"
                                       [annotationTypeName]="annotationTypeName"
-                                      [annotationTable]="geneDetails.interaction_annotations[annotationTypeName]"></app-interaction-annotation-table>
-    </div>
-    <div>
-    <app-ortholog-annotation-table [annotationTable]="geneDetails.ortholog_annotations"></app-ortholog-annotation-table>
-    </div>
-    <div>
-    <app-paralog-annotation-table [annotationTable]="geneDetails.paralog_annotations"></app-paralog-annotation-table>
+                                      [annotationTable]="geneDetails.interaction_annotations['interacts_physically']"></app-interaction-annotation-table>
+      <app-interaction-annotation-table *ngIf="annotationTypeName == 'interacts_genetically'"
+                                      [annotationTypeName]="annotationTypeName"
+                                      [annotationTable]="geneDetails.interaction_annotations['interacts_genetically']"></app-interaction-annotation-table>
+
+      <app-ortholog-annotation-table *ngIf="annotationTypeName == 'orthologs'"
+                                     [annotationTable]="geneDetails.ortholog_annotations"></app-ortholog-annotation-table>
+      <app-paralog-annotation-table *ngIf="annotationTypeName == 'paralogs'"
+                                    [annotationTable]="geneDetails.paralog_annotations"></app-paralog-annotation-table>
     </div>
   </div>
 </div>
