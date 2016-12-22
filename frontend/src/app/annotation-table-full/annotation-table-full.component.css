@@ -22,3 +22,7 @@
   padding: 3px;
   color: white;
 }
+
+ul.conditions li {
+  list-style-type: none;
+}

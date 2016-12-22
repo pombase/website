@@ -68,9 +68,11 @@
         <td *ngIf="showColumn['evidence']">{{annotation.evidence}}</td>
         <td *ngIf="showColumn['with']"><app-gene-link *ngIf="annotation.with" [long]="false" [gene]="annotation.with"></app-gene-link>
         <td *ngIf="showColumn['conditions']">
+          <ul class="conditions">
           <li *ngFor="let condition of annotation.conditions">
             <a routerLink="/term/{{condition.termid}}" routerLinkActive="active">{{condition.name}}</a>
           </li>
+          </ul>
         </td>
         <td *ngIf="showColumn['gene-ex-scale']">
           <span *ngIf="annotation.gene_ex_props">{{annotation.gene_ex_props.scale}}</span>
