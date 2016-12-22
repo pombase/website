@@ -33,6 +33,7 @@ import { GeneResultsComponent } from './gene-results/gene-results.component';
 import { GeneNeighbourhoodComponent } from './gene-neighbourhood/gene-neighbourhood.component';
 import { AnnotationTableSummaryComponent } from './annotation-table-summary/annotation-table-summary.component';
 import { AnnotationTableFullComponent } from './annotation-table-full/annotation-table-full.component';
+import { AnnotationSubTableComponent } from './annotation-sub-table/annotation-sub-table.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AnnotationTableFullComponent } from './annotation-table-full/annotation
     GeneNeighbourhoodComponent,
     AnnotationTableSummaryComponent,
     AnnotationTableFullComponent,
+    AnnotationSubTableComponent,
   ],
   imports: [
     BrowserModule,

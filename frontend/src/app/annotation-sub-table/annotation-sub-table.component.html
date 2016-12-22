@@ -1,0 +1,27 @@
+<div>
+  <div *ngIf="subTableName">
+    {{subTableName}}
+  </div>
+
+  <div class="table-control">
+    <input id="details-toggle"
+           type="checkbox"
+           name="details-toggle" ngDefaultControl
+           [(ngModel)]="showDetails"
+           btnCheckbox />
+    <label for="details-toggle">
+      <span class="label-content">Show details</span>
+    </label>
+  </div>
+
+  <app-annotation-table-summary
+     *ngIf="!showDetails"
+     [annotationTable]="annotationTable"></app-annotation-table-summary>
+  
+  <app-annotation-table-full
+     *ngIf="showDetails"
+     [annotationTypeName]="annotationTypeName"
+     [hideColumns]="hideColumns"
+     [annotationTable]="annotationTable"></app-annotation-table-full>
+
+</div>

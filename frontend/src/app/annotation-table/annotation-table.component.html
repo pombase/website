@@ -4,26 +4,11 @@
     <span *ngIf="!annotationTypeName">Annotations</span>
   </legend>
 
-  <div class="table-control">
-    <input id="details-toggle"
-           type="checkbox"
-           name="details-toggle" ngDefaultControl
-           [(ngModel)]="showDetails"
-           btnCheckbox />
-    <label for="details-toggle">
-      <span class="label-content">Show details</span>
-    </label>
+  <div *ngFor="let splitData of splitDataList">
+    <app-annotation-sub-table
+       [annotationTypeName]="annotationTypeName"
+       [hideColumns]="hideColumns"
+       [annotationTable]="splitData.subTable">
+    </app-annotation-sub-table>
   </div>
-
-  <app-annotation-table-summary
-     *ngIf="!showDetails"
-     [annotationTable]="annotationTable"></app-annotation-table-summary>
-
-  <app-annotation-table-full
-     *ngIf="showDetails"
-     [annotationTypeName]="annotationTypeName"
-     [hideColumns]="hideColumns"
-     [columnsToShow]="columnsToShow"
-     [annotationTable]="annotationTable"></app-annotation-table-full>
-
 </fieldset>

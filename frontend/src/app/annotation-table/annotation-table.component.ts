@@ -11,24 +11,14 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 export class AnnotationTableComponent implements OnInit {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
-  @Input() columnsToShow: Array<string>;
   @Input() annotationTable: Array<TermAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: any;
-  showDetails = false;
-  showGenotypeDetails = false;
   annotationTypeDisplayName = null;
-  hideColumn = {};
-  showColumn = {};
-  termNameColSpan = 0;
-  extensionSummaries = {};
+  splitDataList = [];
 
   constructor() { }
-
-  trackByTermId(index: number, item: any) {
-    return item.term.termid;
-  }
 
   ngOnInit() {
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
@@ -38,18 +28,10 @@ export class AnnotationTableComponent implements OnInit {
       this.annotationTypeDisplayName = this.annotationTypeName;
     }
 
-    for (let columnName of this.typeConfig.columnsToShow) {
-      this.showColumn[columnName] = true;
-    }
-
-    for (let columnName of this.hideColumns) {
-      this.showColumn[columnName] = false;
-    }
-
-    for (let columnName of Object.keys(this.showColumn)) {
-      if (this.showColumn[columnName]) {
-        this.termNameColSpan++;
+    this.splitDataList = [
+      {
+        subTable: this.annotationTable,
       }
-    }
+    ];
   }
 }

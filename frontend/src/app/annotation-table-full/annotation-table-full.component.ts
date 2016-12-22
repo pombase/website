@@ -11,11 +11,9 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 export class AnnotationTableFullComponent implements OnInit {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
-  @Input() columnsToShow: Array<string>;
   @Input() annotationTable: Array<TermAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
-  typeConfig: any;
   showGenotypeDetails = false;
   hideColumn = {};
   showColumn = {};
@@ -28,9 +26,9 @@ export class AnnotationTableFullComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
+    let typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
-    for (let columnName of this.typeConfig.columnsToShow) {
+    for (let columnName of typeConfig.columnsToShow) {
       this.showColumn[columnName] = true;
     }
 
