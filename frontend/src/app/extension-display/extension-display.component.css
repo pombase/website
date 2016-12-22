@@ -1,10 +1,10 @@
 .extension-display {
   font-size: 95%;
+  display: block;
+  padding-left: 10px;
 }
 
 .extension-part {
-  display: block;
-  padding-left: 10px;
 }
 
 .extension-rel-name {
