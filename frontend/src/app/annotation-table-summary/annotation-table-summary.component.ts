@@ -21,6 +21,29 @@ export class AnnotationTableSummaryComponent implements OnInit {
     return item.term.termid;
   }
 
+  containsRange(extRanges: Array<any>, ext: any) {
+    for (let testExt of extRanges) {
+      if (testExt.relTypeName == ext.relTypeName) {
+        if (testExt.term && ext.term &&
+            testExt.term.termid == ext.term.termid) {
+          return true;
+        } else {
+          if (testExt.gene && ext.gene &&
+              testExt.gene.uniquename == ext.gene.uniquename) {
+            return true;
+          } else {
+            if (testExt.misc && ext.misc &&
+                testExt.misc == ext.misc) {
+              return true;
+            }
+          }
+        }
+      }
+    }
+
+    return false;
+  }
+
   compactExtensions(extensions: Array<any>) {
     console.log(extensions);
     let compacted = [];
@@ -53,7 +76,9 @@ export class AnnotationTableSummaryComponent implements OnInit {
           compacted.push(updateExt);
         }
 
-        updateExt[0].ext_range.push(ext[0].ext_range);
+        if (!this.containsRange(updateExt[0].ext_range, ext[0].ext_range)) {
+          updateExt[0].ext_range.push(ext[0].ext_range);
+        }
       }
     }
     return compacted;
