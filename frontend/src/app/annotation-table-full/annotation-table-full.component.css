@@ -16,7 +16,8 @@
   font-size: 120%;
 }
 
-.rel-termid {
+.rel-name {
+  border-radius: 3px;
   background-color: #666;
   border: 1px solid #444;
   padding: 3px;

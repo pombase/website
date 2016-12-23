@@ -1,3 +1,21 @@
 .term-annotation-top, .term-annotation td {
   border-top: 1px solid #C0C0C0;
 }
+
+.rel-and-termid {
+  white-space: nowrap;
+}
+
+.rel-icon {
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.rel-name {
+  border-radius: 3px;
+  background-color: #666;
+  border: 1px solid #444;
+  padding: 3px;
+  color: white;
+}
+
