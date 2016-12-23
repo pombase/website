@@ -45,7 +45,6 @@ export class AnnotationTableSummaryComponent implements OnInit {
   }
 
   compactExtensions(extensions: Array<any>) {
-    console.log(extensions);
     let compacted = [];
     for (let ext of extensions) {
       if (ext.length > 1) {

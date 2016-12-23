@@ -37,8 +37,6 @@ describe('GeneQuery', function() {
     if (topNode instanceof GeneByTerm) {
       expect(topNode.termid).to.equal("GO:0005515");
     } else {
-      console.log(geneQuery);
-      console.log(topNode);
       throw new Error("node is not a GeneByTerm");
     }
   });

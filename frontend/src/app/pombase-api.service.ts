@@ -207,6 +207,6 @@ export class PombaseAPIService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + '/search/qb/execute', query.toJSON(), options)
-      .map((res) => { console.log(res); return makeResults(res.json()); });
+      .map((res) => { return makeResults(res.json()); });
   }
 }
