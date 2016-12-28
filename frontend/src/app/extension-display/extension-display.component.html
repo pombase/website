@@ -12,7 +12,7 @@
       </span>
 
       <span *ngIf="range.misc">
-        <strong>{{range.misc}}<span *ngIf="extPart.relTypeName == 'has_penetrance' || extPart.relTypeName == 'has_expressivity'">%</span></strong><span *ngIf="i < extPart.extRange.length - 1">,</span>
+        <span>{{range.misc}}<span *ngIf="extPart.relTypeName == 'has_penetrance' || extPart.relTypeName == 'has_expressivity'">%</span></span><span *ngIf="i < extPart.extRange.length - 1">,</span>
       </span>
     </span>
   </span>
