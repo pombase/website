@@ -1,9 +1,9 @@
-<div>
+<div class="annotation-summary-table">
   <table>
     <thead>
       <tr>
         <th>Term name</th>
-        <th>Count</th>
+        <th class="count-column">Count</th>
       </tr>
     </thead>
     <tbody *ngFor="let termAnnotation of annotationTable;trackBy:trackByTermId">
@@ -17,13 +17,13 @@
                routerLinkActive="active">{{termAnnotation.term.name}}</a>
           </span>
         </td>
-        <td>
+        <td class="count-column">
           <a routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active"
              title="{{termAnnotation.term.gene_count}} genes are annotationed with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
         </td>
       </tr>
       <tr *ngIf="extensionSummariesByTerm[termAnnotation.term.termid]">
-        <td>
+        <td colspan="2">
           <app-extension-display
              *ngFor="let extSumm of extensionSummariesByTerm[termAnnotation.term.termid]"
              [extension]="extSumm"></app-extension-display>
