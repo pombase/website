@@ -42,8 +42,8 @@ let _config: AnnotationTableConfig = {
     "PSI-MOD",
     "gene_ex",
     "misc",
-    "interacts_physically",
-    "interacts_genetically",
+    "physical_interactions",
+    "genetic_interactions",
     "orthologs",
     "paralogs",
     "species_dist",
@@ -97,11 +97,11 @@ let _config: AnnotationTableConfig = {
       displayName: "Complementation",
       columnsToShow: defaultColumnsToShow,
     },
-    interacts_genetically: {
+    genetic_interactions: {
       displayName: "Genetic interaction",
       columnsToShow: defaultInteractionToShow,
     },
-    interacts_physically: {
+    physical_interactions: {
       displayName: "Physical interaction",
       columnsToShow: defaultInteractionToShow,
     },

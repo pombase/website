@@ -39,9 +39,12 @@
                           [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
   </div>
   <div>
-    <app-interaction-annotation-table *ngFor="let annotationTypeName of interactionAnnotationTypeNames"
-                                      [annotationTypeName]="annotationTypeName"
-                                      [annotationTable]="refDetails.interaction_annotations[annotationTypeName]"></app-interaction-annotation-table>
+    <app-interaction-annotation-table [annotationTypeName]="'physical_interactions'"
+                                      [annotationTable]="refDetails.physical_interactions"></app-interaction-annotation-table>
+  </div>
+  <div>
+    <app-interaction-annotation-table [annotationTypeName]="'genetic_interactions'"
+                                      [annotationTable]="refDetails.genetic_interactions"></app-interaction-annotation-table>
   </div>
   <div>
     <app-ortholog-annotation-table [annotationTable]="refDetails.ortholog_annotations"></app-ortholog-annotation-table>

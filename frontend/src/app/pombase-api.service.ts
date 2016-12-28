@@ -45,12 +45,14 @@ export interface Annotation {
   descDist: number;
   descRelName: string;
   reference?: ReferenceShort;
+  reference_uniquename?: string;
   evidence?: string;
   conditions: Array<TermShort>;
   with?: string;
   residue?: string;
   qualifiers: Array<TermShort>;
   gene?: GeneShort;
+  gene_uniquename?: string;
   genotype?: GenotypeShort;
   extension: Array<any>;
   is_not: boolean;
@@ -71,9 +73,12 @@ export interface CvAnnotations {
 
 export interface InteractionAnnotation {
   reference: ReferenceShort;
+  reference_uniquename: string;
   evidence: string;
   gene: GeneShort;
+  gene_uniquename: string;
   interactor: GeneShort;
+  interactor_uniquename: string;
 }
 
 export interface InteractionAnnotations {
@@ -82,12 +87,16 @@ export interface InteractionAnnotations {
 
 export interface OrthologAnnotation {
   reference: ReferenceShort;
+  reference_uniquename: string;
   ortholog: GeneShort;
+  ortholog_uniquename: string;
 }
 
 export interface ParalogAnnotation {
   reference: ReferenceShort;
+  reference_uniquename: string;
   paralog: GeneShort;
+  paralog_uniquename: string;
 }
 
 export interface ChromosomeLocation {
@@ -153,7 +162,7 @@ function makeResults(resultsObject: any): PomBaseResults {
 @Injectable()
 export class PombaseAPIService {
 
-  private apiUrl = 'http://pombase2.bioinformatics.nz/api/v1/dataset/latest';
+  private apiUrl = 'http://pombase2-api.bioinformatics.nz/api/v1/dataset/latest';
 
   constructor (private http: Http) {}
 
@@ -162,24 +171,114 @@ export class PombaseAPIService {
     return Promise.reject(error.message || error);
   }
 
+  processTermAnnotations(termAnnotations: Array<TermAnnotation>,
+                         genesByUniquename: any, referencesByUniquename?: any) {
+    for (let termAnnotation of termAnnotations) {
+      for (let annotation of termAnnotation.annotations) {
+        annotation.gene = genesByUniquename[annotation.gene_uniquename];
+        if (referencesByUniquename) {
+          annotation.reference = referencesByUniquename[annotation.reference_uniquename];
+        }
+      }
+    }
+  }
+
+  processInteractions(interactions: Array<InteractionAnnotation>,
+                      genesByUniquename: any, referencesByUniquename?: any) {
+    for (let annotation of interactions) {
+      annotation.gene = genesByUniquename[annotation.gene_uniquename];
+      annotation.interactor = genesByUniquename[annotation.interactor_uniquename];
+      if (referencesByUniquename) {
+        annotation.reference = referencesByUniquename[annotation.reference_uniquename];
+      }
+    }
+  }
+
+  processOrthologs(orthologs: Array<OrthologAnnotation>,
+                   genesByUniquename: any, referencesByUniquename?: any) {
+    for (let annotation of orthologs) {
+      annotation.ortholog = genesByUniquename[annotation.ortholog_uniquename];
+      if (referencesByUniquename) {
+        annotation.reference = referencesByUniquename[annotation.reference_uniquename];
+      }
+    }
+  }
+
+  processParalogs(paralogs: Array<ParalogAnnotation>,
+                  genesByUniquename: any, referencesByUniquename?: any) {
+    for (let annotation of paralogs) {
+      annotation.paralog = genesByUniquename[annotation.paralog_uniquename];
+      if (referencesByUniquename) {
+        annotation.reference = referencesByUniquename[annotation.reference_uniquename];
+      }
+    }
+  }
+
+  processGeneResponse(response: Response): GeneDetails {
+    let json = response.json();
+
+    let genesByUniquename = json.genes_by_uniquename;
+    let referencesByUniquename = json.references_by_uniquename;
+
+    for (let cvName of Object.keys(json.cv_annotations)) {
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, referencesByUniquename);
+    }
+    this.processInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
+    this.processInteractions(json.genetic_interactions, genesByUniquename, referencesByUniquename);
+    this.processOrthologs(json.ortholog_annotations, genesByUniquename, referencesByUniquename);
+    this.processParalogs(json.paralog_annotations, genesByUniquename, referencesByUniquename);
+
+    return json as GeneDetails;
+  }
+
   getGene(uniquename: string): Promise<GeneDetails> {
     return this.http.get(this.apiUrl + '/data/gene/' + uniquename)
       .toPromise()
-      .then(response => response.json() as GeneDetails)
+      .then(response => this.processGeneResponse(response))
       .catch(this.handleError);
+  }
+
+  processTermResponse(response: Response): TermDetails {
+    let json = response.json();
+
+    let genesByUniquename = json.genes_by_uniquename;
+    let referencesByUniquename = json.references_by_uniquename;
+
+    this.processTermAnnotations(json.rel_annotations, genesByUniquename, referencesByUniquename);
+
+    json.genes = Object.keys(genesByUniquename).map((key) => genesByUniquename[key]);
+
+    return json as TermDetails;
   }
 
   getTerm(termid: string): Promise<TermDetails> {
     return this.http.get(this.apiUrl + '/data/term/' + termid)
       .toPromise()
-      .then(response => response.json() as TermDetails)
+      .then(response => this.processTermResponse(response))
       .catch(this.handleError);
+  }
+
+  processReferenceResponse(response: Response): ReferenceDetails {
+    let json = response.json();
+
+    let genesByUniquename = json.genes_by_uniquename;
+    let referencesByUniquename = json.references_by_uniquename;
+
+    for (let cvName of Object.keys(json.cv_annotations)) {
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename);
+    }
+    this.processInteractions(json.physical_interactions, genesByUniquename);
+    this.processInteractions(json.genetic_interactions, genesByUniquename);
+    this.processOrthologs(json.ortholog_annotations, genesByUniquename);
+    this.processParalogs(json.paralog_annotations, genesByUniquename);
+
+    return json as ReferenceDetails;
   }
 
   getReference(uniquename: string): Promise<ReferenceDetails> {
     return this.http.get(this.apiUrl + '/data/reference/' + uniquename)
       .toPromise()
-      .then(response => response.json() as ReferenceDetails)
+      .then(response => this.processReferenceResponse(response))
       .catch(this.handleError);
   }
 

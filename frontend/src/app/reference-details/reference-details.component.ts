@@ -14,7 +14,6 @@ export class ReferenceDetailsComponent implements OnInit {
   @Input() refDetails: ReferenceDetails;
 
   annotationTypeNames: Array<string>;
-  interactionAnnotationTypeNames: Array<string>;
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -42,7 +41,6 @@ export class ReferenceDetailsComponent implements OnInit {
             this.refDetails = refDetails;
             this.annotationTypeNames = Object.keys(refDetails.cv_annotations);
             this.annotationTypeNames.sort(annotationCmp);
-            this.interactionAnnotationTypeNames = Object.keys(refDetails.interaction_annotations);
           });
       };
     });

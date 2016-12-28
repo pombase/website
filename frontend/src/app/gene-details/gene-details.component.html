@@ -74,12 +74,12 @@
                             [hideColumns]="['gene', 'desc-rel']"
                             [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
 
-      <app-interaction-annotation-table *ngIf="annotationTypeName == 'interacts_physically'"
+      <app-interaction-annotation-table *ngIf="annotationTypeName == 'physical_interactions'"
                                       [annotationTypeName]="annotationTypeName"
-                                      [annotationTable]="geneDetails.interaction_annotations['interacts_physically']"></app-interaction-annotation-table>
-      <app-interaction-annotation-table *ngIf="annotationTypeName == 'interacts_genetically'"
+                                      [annotationTable]="geneDetails.physical_interactions"></app-interaction-annotation-table>
+      <app-interaction-annotation-table *ngIf="annotationTypeName == 'genetic_interactions'"
                                       [annotationTypeName]="annotationTypeName"
-                                      [annotationTable]="geneDetails.interaction_annotations['interacts_genetically']"></app-interaction-annotation-table>
+                                      [annotationTable]="geneDetails.genetic_interactions"></app-interaction-annotation-table>
 
       <app-ortholog-annotation-table *ngIf="annotationTypeName == 'orthologs'"
                                      [annotationTable]="geneDetails.ortholog_annotations"></app-ortholog-annotation-table>
