@@ -4,12 +4,12 @@
   </div>
 
   <div class="table-control">
-    <input id="details-toggle"
+    <input [attr.id]="'details-toggle-' + annotationTypeName"
            type="checkbox"
            name="details-toggle" ngDefaultControl
            [(ngModel)]="showDetails"
            btnCheckbox />
-    <label for="details-toggle">
+    <label [attr.for]="'details-toggle-' + annotationTypeName">
       <span class="label-content">Show details</span>
     </label>
   </div>
