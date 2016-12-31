@@ -16,6 +16,8 @@ export class ReferenceDetailsComponent implements OnInit {
 
   annotationTypeNames: Array<string>;
   config: AnnotationTableConfig = getAnnotationTableConfig();
+  isPubMedRef = false;
+  pubMedId = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute) { }
@@ -28,6 +30,12 @@ export class ReferenceDetailsComponent implements OnInit {
           .then(refDetails => {
             this.refDetails = refDetails;
             this.annotationTypeNames = this.config.annotationTypeOrder;
+            let re = /(PMID):(\d+)/i;
+            let matches = refDetails.uniquename.match(re);
+            if (matches) {
+              this.isPubMedRef = true;
+              this.pubMedId = matches[2];
+            }
           });
       };
     });

@@ -16,15 +16,23 @@
           <td class="details-label">ID</td>
           <td>{{refDetails.uniquename}}</td>
         </tr>
-        <tr *ngIf="refDetails.uniquename.startsWith('PMID:')">
+        <tr *ngIf="isPubMedRef">
           <td class="details-label">Citation</td>
           <td>{{refDetails.citation}}</td>
           <td class="details-label">Publication date</td>
           <td>{{refDetails.pubmed_publication_date}}
         </tr>
-        <tr *ngIf="refDetails.uniquename.startsWith('PMID:')">
+        <tr *ngIf="isPubMedRef">
           <td class="details-label">Authors</td>
           <td>{{refDetails.authors}}</td>
+        </tr>
+        <tr *ngIf="isPubMedRef">
+          <td class="details-label">Links</td>
+          <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/{{pubMedId}}">{{refDetails.uniquename}}</a></td>
+        </tr>
+        <tr *ngIf="refDetails.abstract">
+          <td class="details-label">Abstract</td>
+          <td colspan="3"><span class="abstract">{{refDetails.abstract}}</span></td>
         </tr>
       </tbody>
     </table>
