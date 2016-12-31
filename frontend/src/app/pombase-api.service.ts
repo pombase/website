@@ -47,7 +47,7 @@ export interface Annotation {
   reference?: ReferenceShort;
   reference_uniquename?: string;
   evidence?: string;
-  conditions: Array<TermShort>;
+  conditions: Array<TermShort|string>;
   with?: string;
   residue?: string;
   qualifiers: Array<TermShort>;
@@ -172,12 +172,30 @@ export class PombaseAPIService {
   }
 
   processTermAnnotations(termAnnotations: Array<TermAnnotation>,
-                         genesByUniquename: any, referencesByUniquename?: any) {
+                         genesByUniquename: any, referencesByUniquename?: any,
+                         termsByTermId?: any) {
     for (let termAnnotation of termAnnotations) {
       for (let annotation of termAnnotation.annotations) {
         annotation.gene = genesByUniquename[annotation.gene_uniquename];
         if (referencesByUniquename) {
           annotation.reference = referencesByUniquename[annotation.reference_uniquename];
+        }
+
+        if (annotation.conditions) {
+          annotation.conditions =
+            annotation.conditions.map((termid: string) => termsByTermId[termid] as TermShort);
+        }
+
+        if (annotation.extension) {
+          annotation.extension.map((extPart) => {
+            if (extPart.ext_range.termid) {
+              extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
+            } else {
+              if (extPart.ext_range.gene_uniquename) {
+                extPart.ext_range.gene = genesByUniquename[extPart.ext_range.gene_uniquename];
+              }
+            }
+          });
         }
       }
     }
@@ -219,9 +237,11 @@ export class PombaseAPIService {
 
     let genesByUniquename = json.genes_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
+    let termsByTermId = json.terms_by_termid;
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, referencesByUniquename);
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, referencesByUniquename,
+                                  termsByTermId);
     }
     this.processInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
     this.processInteractions(json.genetic_interactions, genesByUniquename, referencesByUniquename);
@@ -243,8 +263,10 @@ export class PombaseAPIService {
 
     let genesByUniquename = json.genes_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
+    let termsByTermId = json.terms_by_termid;
 
-    this.processTermAnnotations(json.rel_annotations, genesByUniquename, referencesByUniquename);
+    this.processTermAnnotations(json.rel_annotations, genesByUniquename, referencesByUniquename,
+                                termsByTermId);
 
     json.genes = Object.keys(genesByUniquename).map((key) => genesByUniquename[key]);
 
@@ -263,9 +285,11 @@ export class PombaseAPIService {
 
     let genesByUniquename = json.genes_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
+    let termsByTermId = json.terms_by_termid;
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename);
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, null,
+                                  termsByTermId);
     }
     this.processInteractions(json.physical_interactions, genesByUniquename);
     this.processInteractions(json.genetic_interactions, genesByUniquename);
