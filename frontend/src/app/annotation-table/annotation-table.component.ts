@@ -22,6 +22,10 @@ export class AnnotationTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.annotationTable) {
+      return;
+    }
+
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
     if (this.typeConfig.displayName) {
       this.annotationTypeDisplayName = this.typeConfig.displayName;
