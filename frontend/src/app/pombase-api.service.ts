@@ -22,9 +22,14 @@ export interface ReferenceShort {
   publication_year: string;
 }
 
+export interface ExpressedAllele {
+  allele: AlleleShort;
+  expression: string;
+}
 
-export interface Allele {
-  gene_uniquename: string;
+export interface AlleleShort {
+  gene_uniquename?: string;
+  gene?: GeneShort;
   uniquename: string;
   name: string;
   allele_type: string;
@@ -35,12 +40,9 @@ export interface GenotypeShort {
   uniquename: string;
   name: string;
   background: string;
-  alleles: Array<Allele>;
+  expressed_alleles: Array<ExpressedAllele>;
 }
 
-export interface GenotypeShort {
-  alleles: Array<Allele>;
-}
 export interface Annotation {
   descDist: number;
   descRelName: string;
@@ -196,6 +198,12 @@ export class PombaseAPIService {
               }
             }
           });
+          if (annotation.genotype) {
+            annotation.genotype.expressed_alleles.map((expressed_allele) => {
+              expressed_allele.allele.gene =
+                genesByUniquename[expressed_allele.allele.gene_uniquename];
+            });
+          }
         }
       }
     }
