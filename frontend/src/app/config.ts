@@ -38,6 +38,7 @@ let _config: AnnotationTableConfig = {
     "cellular_component",
     "fission_yeast_phenotype",
     "complementation",
+    "target_of",
     "PomBase family or domain",
     "PSI-MOD",
     "gene_ex",

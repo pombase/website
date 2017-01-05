@@ -1,0 +1,33 @@
+<fieldset *ngIf="annotationTable?.length > 0" class="annotation-table">
+  <legend>
+    Target of
+  </legend>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Ontology</th>
+        <th>Relationship</th>
+        <th>Gene</th>
+        <th>Product</th>
+        <th>Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let annotation of annotationTable">
+        <td>{{annotation.ontology_name}}</td>
+        <td>{{annotation.ext_rel_display_name}}</td>
+        <td>
+          <app-gene-link [gene]="annotation.gene"></app-gene-link>
+        </td>
+        <td>
+          {{annotation.gene.product}}
+        </td>
+        <td>
+          <app-reference-short *ngIf="annotation.reference"
+                               [reference]="annotation.reference"></app-reference-short>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

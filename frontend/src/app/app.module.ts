@@ -34,6 +34,7 @@ import { GeneNeighbourhoodComponent } from './gene-neighbourhood/gene-neighbourh
 import { AnnotationTableSummaryComponent } from './annotation-table-summary/annotation-table-summary.component';
 import { AnnotationTableFullComponent } from './annotation-table-full/annotation-table-full.component';
 import { AnnotationSubTableComponent } from './annotation-sub-table/annotation-sub-table.component';
+import { TargetOfAnnotationTableComponent } from './target-of-annotation-table/target-of-annotation-table.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AnnotationSubTableComponent } from './annotation-sub-table/annotation-s
     AnnotationTableSummaryComponent,
     AnnotationTableFullComponent,
     AnnotationSubTableComponent,
+    TargetOfAnnotationTableComponent,
   ],
   imports: [
     BrowserModule,

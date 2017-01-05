@@ -102,6 +102,15 @@ export interface ParalogAnnotation {
   paralog_uniquename: string;
 }
 
+export interface TargetOfAnnotation {
+  ontology_name: string;
+  ext_rel_display_name: string;
+  reference: ReferenceShort;
+  reference_uniquename: string;
+  gene: GeneShort;
+  gene_uniquename: string;
+}
+
 export interface ChromosomeLocation {
   chromosome_name: string;
   start_pos: number;
@@ -249,6 +258,16 @@ export class PombaseAPIService {
     }
   }
 
+  processTargetOf(targetOfAnnotations: Array<TargetOfAnnotation>,
+                  genesByUniquename: any, referencesByUniquename: any) {
+    for (let annotation of targetOfAnnotations) {
+      annotation.gene = genesByUniquename[annotation.gene_uniquename];
+      if (annotation.reference_uniquename) {
+        annotation.reference = referencesByUniquename[annotation.reference_uniquename];
+      }
+    }
+  }
+
   processGeneResponse(response: Response): GeneDetails {
     let json = response.json();
 
@@ -267,6 +286,7 @@ export class PombaseAPIService {
     this.processInteractions(json.genetic_interactions, genesByUniquename, referencesByUniquename);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename, referencesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename, referencesByUniquename);
+    this.processTargetOf(json.target_of_annotations, genesByUniquename, referencesByUniquename);
 
     return json as GeneDetails;
   }

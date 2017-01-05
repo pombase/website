@@ -85,6 +85,8 @@
                                      [annotationTable]="geneDetails.ortholog_annotations"></app-ortholog-annotation-table>
       <app-paralog-annotation-table *ngIf="annotationTypeName == 'paralogs'"
                                     [annotationTable]="geneDetails.paralog_annotations"></app-paralog-annotation-table>
+      <app-target-of-annotation-table *ngIf="annotationTypeName == 'target_of'"
+                                      [annotationTable]="geneDetails.target_of_annotations"></app-target-of-annotation-table>
     </div>
   </div>
 </div>
