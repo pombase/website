@@ -165,7 +165,7 @@ function makeResults(resultsObject: any): PomBaseResults {
 @Injectable()
 export class PombaseAPIService {
 
-  private apiUrl = 'http://pombase2-api.bioinformatics.nz/api/v1/dataset/latest';
+  private apiUrl = 'http://pombase2.bioinformatics.nz/api/v1/dataset/latest';
 
   constructor (private http: Http) {}
 
