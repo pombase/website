@@ -52,6 +52,7 @@ export class AnnotationTableSummaryComponent implements OnInit {
                                {
                                  return {
                                    rel_type_name: part.rel_type_name,
+                                   rel_type_display_name: part.rel_type_display_name,
                                    ext_range: [part.ext_range]
                                  };
                                }
@@ -61,7 +62,7 @@ export class AnnotationTableSummaryComponent implements OnInit {
         let updateExt = null;
         for (let existing of compacted) {
           if (existing.length == 1 &&
-              existing[0].rel_type_name == ext[0].rel_type_name) {
+              existing[0].rel_type_display_name == ext[0].rel_type_display_name) {
             updateExt = existing;
           }
         }
@@ -69,6 +70,7 @@ export class AnnotationTableSummaryComponent implements OnInit {
           updateExt = [
             {
             rel_type_name: ext[0].rel_type_name,
+            rel_type_display_name: ext[0].rel_type_display_name,
             ext_range: [],
             }
           ];

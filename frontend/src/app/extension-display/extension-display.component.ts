@@ -23,7 +23,7 @@ export class ExtensionDisplayComponent implements OnInit {
         }
 
         return {
-          relTypeName: ext.rel_type_name,
+          relTypeName: ext.rel_type_display_name || ext.rel_type_name,
           extRange: newRange,
         }
       });
