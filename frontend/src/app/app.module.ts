@@ -35,6 +35,7 @@ import { AnnotationTableSummaryComponent } from './annotation-table-summary/anno
 import { AnnotationTableFullComponent } from './annotation-table-full/annotation-table-full.component';
 import { AnnotationSubTableComponent } from './annotation-sub-table/annotation-sub-table.component';
 import { TargetOfAnnotationTableComponent } from './target-of-annotation-table/target-of-annotation-table.component';
+import { GeneReferencesTableComponent } from './gene-references-table/gene-references-table.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { TargetOfAnnotationTableComponent } from './target-of-annotation-table/t
     AnnotationTableFullComponent,
     AnnotationSubTableComponent,
     TargetOfAnnotationTableComponent,
+    GeneReferencesTableComponent,
   ],
   imports: [
     BrowserModule,

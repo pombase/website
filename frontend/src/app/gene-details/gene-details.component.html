@@ -88,5 +88,7 @@
       <app-target-of-annotation-table *ngIf="annotationTypeName == 'target_of'"
                                       [annotationTable]="geneDetails.target_of_annotations"></app-target-of-annotation-table>
     </div>
+
+    <app-gene-references-table [references]="geneDetails.references"></app-gene-references-table>
   </div>
 </div>

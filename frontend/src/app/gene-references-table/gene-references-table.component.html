@@ -1,0 +1,36 @@
+<fieldset *ngIf="references?.length > 0" class="annotation-table">
+  <legend>
+    Literature
+  </legend>
+  <table>
+    <thead>
+      <tr>
+        <th>Publication</th>
+        <th>Links</th>
+        <th>Gene count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reference of references">
+        <td>
+          <div class="pub-title">
+            {{reference.title}}
+          </div>
+          <div>
+            <span class="pub-authors">
+              {{reference.authors_abbrev}}
+            </span>
+            <span class="pub-citation">
+              {{reference.citation}}
+            </span>
+          </div>
+        </td>
+        <td>
+          <a routerLink="/reference/{{reference.uniquename}}" routerLinkActive="active">{{reference.uniquename}}</a>
+        </td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

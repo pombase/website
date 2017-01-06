@@ -140,6 +140,8 @@ export class GeneDetails {
   interaction_annotations: InteractionAnnotations;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
+  target_of_annotations: Array<TargetOfAnnotation>;
+  references: Array<ReferenceShort>;
 }
 
 export class TermDetails {
@@ -268,6 +270,10 @@ export class PombaseAPIService {
     }
   }
 
+  processGeneReferences(referencesByUniquename: any) {
+    return Object.keys(referencesByUniquename).map((key) => referencesByUniquename[key]);
+  }
+
   processGeneResponse(response: Response): GeneDetails {
     let json = response.json();
 
@@ -287,6 +293,8 @@ export class PombaseAPIService {
     this.processOrthologs(json.ortholog_annotations, genesByUniquename, referencesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename, referencesByUniquename);
     this.processTargetOf(json.target_of_annotations, genesByUniquename, referencesByUniquename);
+
+    json.references = this.processGeneReferences(referencesByUniquename);
 
     return json as GeneDetails;
   }
