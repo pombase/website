@@ -6,7 +6,6 @@
     <thead>
       <tr>
         <th>Publication</th>
-        <th>Links</th>
         <th>Gene count</th>
       </tr>
     </thead>
@@ -23,10 +22,12 @@
             <span class="pub-citation">
               {{reference.citation}}
             </span>
+            <span *ngIf="reference.pubmed_id">
+              <a class="pub-link" href="http://europepmc.org/abstract/MED/{{reference.pubmed_id}}">Europe PMC</a>
+              |
+              <a class="pub-link" href="http://www.ncbi.nlm.nih.gov/pubmed?term={{reference.pubmed_id}}">PubMed</a>
+            </span>
           </div>
-        </td>
-        <td>
-          <a routerLink="/reference/{{reference.uniquename}}" routerLinkActive="active">{{reference.uniquename}}</a>
         </td>
         <td>
         </td>
