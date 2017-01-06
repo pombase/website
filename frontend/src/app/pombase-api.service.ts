@@ -17,6 +17,7 @@ export class Metadata {
 export interface ReferenceShort {
   title: string;
   uniquename: string;
+  pubmed_id?: string;
   citation: string;
   authors_abbrev: string;
   publication_year: string;
@@ -271,7 +272,17 @@ export class PombaseAPIService {
   }
 
   processGeneReferences(referencesByUniquename: any) {
-    return Object.keys(referencesByUniquename).map((key) => referencesByUniquename[key]);
+    let processOneReference = function(reference: ReferenceShort) {
+      let re = /(PMID):(\d+)/i;
+      let matches = reference.uniquename.match(re);
+      if (matches) {
+        reference.pubmed_id = matches[2];
+      }
+      return reference;
+    };
+
+    return Object.keys(referencesByUniquename)
+      .map((key) => processOneReference(referencesByUniquename[key]));
   }
 
   processGeneResponse(response: Response): GeneDetails {
