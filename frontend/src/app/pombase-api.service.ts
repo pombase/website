@@ -281,10 +281,12 @@ export class PombaseAPIService {
       if (uniquenameMatches) {
         reference.pubmed_id = uniquenameMatches[1];
       }
-      let citationMatches = reference.citation.match(citationRE);
-      if (citationMatches) {
-        reference.journal = citationMatches[1];
-        reference.citation_date_pages = citationMatches[2];
+      if (reference.citation) {
+        let citationMatches = reference.citation.match(citationRE);
+        if (citationMatches) {
+          reference.journal = citationMatches[1];
+          reference.citation_date_pages = citationMatches[2];
+        }
       }
       return reference;
     };
