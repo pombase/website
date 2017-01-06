@@ -19,6 +19,8 @@ export interface ReferenceShort {
   uniquename: string;
   pubmed_id?: string;
   citation: string;
+  journal?: string;
+  citation_date_pages?: string;
   authors_abbrev: string;
   publication_year: string;
 }
@@ -272,11 +274,17 @@ export class PombaseAPIService {
   }
 
   processGeneReferences(referencesByUniquename: any) {
+    let uniquenameRE = /PMID:(\d+)/i;
+    let citationRE = /^(.*?) (\d\d\d\d .*)/i;
     let processOneReference = function(reference: ReferenceShort) {
-      let re = /(PMID):(\d+)/i;
-      let matches = reference.uniquename.match(re);
-      if (matches) {
-        reference.pubmed_id = matches[2];
+      let uniquenameMatches = reference.uniquename.match(uniquenameRE);
+      if (uniquenameMatches) {
+        reference.pubmed_id = uniquenameMatches[1];
+      }
+      let citationMatches = reference.citation.match(citationRE);
+      if (citationMatches) {
+        reference.journal = citationMatches[1];
+        reference.citation_date_pages = citationMatches[2];
       }
       return reference;
     };
