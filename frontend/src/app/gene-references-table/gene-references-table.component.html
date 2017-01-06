@@ -17,10 +17,20 @@
           </div>
           <div>
             <span class="pub-authors">
-              {{reference.authors_abbrev}}
+              {{reference.authors}}
             </span>
-            <span class="pub-citation">
-              {{reference.citation}}
+            <span *ngIf="!reference.journal">
+              <span class="pub-citation">
+                {{reference.citation}}
+              </span>
+            </span>
+            <span *ngIf="reference.journal">
+              <span class="pub-journal">
+                {{reference.journal}}
+              </span>
+              <span class="pub-citation-date-pages">
+                {{reference.citation_date_pages}}
+              </span>
             </span>
             <span *ngIf="reference.pubmed_id">
               <a class="pub-link" href="http://europepmc.org/abstract/MED/{{reference.pubmed_id}}">Europe PMC</a>

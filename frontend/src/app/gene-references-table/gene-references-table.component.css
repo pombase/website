@@ -3,5 +3,9 @@ th {
 }
 
 .pub-title {
-  font-weight: 600;
+  font-weight: bold;
+}
+
+.pub-journal, .pub-citation {
+  font-style: italic;
 }
