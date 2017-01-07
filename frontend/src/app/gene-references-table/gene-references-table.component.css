@@ -9,3 +9,23 @@ th {
 .pub-journal, .pub-citation {
   font-style: italic;
 }
+
+.references .sort-buttons {
+  padding: 0 0 10px 0;
+}
+
+.references .sort-buttons span {
+  font-weight: bold;
+}
+
+.references tr {
+  padding: 5px 0 5px 0;
+}
+
+.references td {
+  padding-right: 20px;
+}
+
+a {
+  cursor: pointer;
+}

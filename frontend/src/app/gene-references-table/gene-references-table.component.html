@@ -1,16 +1,29 @@
-<fieldset *ngIf="references?.length > 0" class="annotation-table">
+<fieldset *ngIf="references?.length > 0" class="annotation-table references">
   <legend>
     Literature
   </legend>
+  <div class="sort-buttons">
+    Sort by:
+    <span *ngIf="orderByField == '+authors'">Authors</span>
+    <a *ngIf="orderByField != '+authors'" (click)="setOrderBy('+authors')">Authors</a> |
+    Year:
+    <span *ngIf="orderByField == '+publication_year'">Ascending</span>
+    <a *ngIf="orderByField != '+publication_year'" (click)="setOrderBy('+publication_year')">Ascending</a> /
+    <span *ngIf="orderByField == '-publication_year'">Descending</span>
+    <a *ngIf="orderByField != '-publication_year'" (click)="setOrderBy('-publication_year')">Descending</a> |
+    <span *ngIf="orderByField == '+gene_count'">Gene count</span>
+    <a *ngIf="orderByField != '+gene_count'" (click)="setOrderBy('+gene_count')">Gene count</a>
+  </div>
   <table>
     <thead>
       <tr>
-        <th>Publication</th>
-        <th>Gene count</th>
+        <th>Details</th>
+        <th *ngIf="orderByField == '+publication_year' || orderByField == '-publication_year'">Year</th>
+        <th>Genes</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let reference of references">
+      <tr *ngFor="let reference of references | referenceOrderBy: orderByField">
         <td>
           <div class="pub-title">
             {{reference.title}}
@@ -38,6 +51,9 @@
               <a class="pub-link" href="http://www.ncbi.nlm.nih.gov/pubmed?term={{reference.pubmed_id}}">PubMed</a>
             </span>
           </div>
+        </td>
+        <td *ngIf="orderByField == '+publication_year' || orderByField == '-publication_year'">
+          {{reference.publication_year}}
         </td>
         <td>
           {{reference.gene_count}}

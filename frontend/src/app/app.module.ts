@@ -36,6 +36,7 @@ import { AnnotationTableFullComponent } from './annotation-table-full/annotation
 import { AnnotationSubTableComponent } from './annotation-sub-table/annotation-sub-table.component';
 import { TargetOfAnnotationTableComponent } from './target-of-annotation-table/target-of-annotation-table.component';
 import { GeneReferencesTableComponent } from './gene-references-table/gene-references-table.component';
+import { ReferenceOrderByPipe } from './reference-order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { GeneReferencesTableComponent } from './gene-references-table/gene-refer
     AnnotationSubTableComponent,
     TargetOfAnnotationTableComponent,
     GeneReferencesTableComponent,
+    ReferenceOrderByPipe,
   ],
   imports: [
     BrowserModule,

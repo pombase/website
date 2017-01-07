@@ -9,6 +9,12 @@ import { ReferenceShort } from '../pombase-api.service';
 export class GeneReferencesTableComponent implements OnInit {
   @Input() references: Array<ReferenceShort>;
 
+  orderByField = '+authors';
+
+  setOrderBy(field: string) {
+    this.orderByField = field;
+  }
+
   constructor() { }
 
   ngOnInit() {
