@@ -7,12 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ReferenceShortComponent implements OnInit {
   @Input() reference: /*ReferenceShort*/ any;
+  @Input() linkText?: string;
 
   displayString = "";
 
   constructor() { }
 
   ngOnInit() {
+    if (this.linkText) {
+      this.displayString = this.linkText;
+      return;
+    }
     if (this.reference.authors_abbrev) {
       this.displayString = this.reference.authors_abbrev;
     } else {

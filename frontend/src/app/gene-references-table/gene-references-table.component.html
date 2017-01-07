@@ -45,11 +45,7 @@
                 {{reference.citation_date_pages}}
               </span>
             </span>
-            <span *ngIf="reference.pubmed_id">
-              <a class="pub-link" href="http://europepmc.org/abstract/MED/{{reference.pubmed_id}}">Europe PMC</a>
-              |
-              <a class="pub-link" href="http://www.ncbi.nlm.nih.gov/pubmed?term={{reference.pubmed_id}}">PubMed</a>
-            </span>
+            <app-reference-short [reference]="reference" [linkText]="'Details'"></app-reference-short>
           </div>
         </td>
         <td *ngIf="orderByField == '+publication_year' || orderByField == '-publication_year'">

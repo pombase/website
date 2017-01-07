@@ -28,7 +28,11 @@
         </tr>
         <tr *ngIf="isPubMedRef">
           <td class="details-label">Links</td>
-          <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/{{pubMedId}}">PubMed</a></td>
+          <td>
+            <a class="pub-link" href="http://europepmc.org/abstract/MED/{{pubMedId}}">Europe PMC</a>
+              |
+            <a class="pub-link" href="http://www.ncbi.nlm.nih.gov/pubmed?term={{pubMedId}}">PubMed</a>
+          </td>
         </tr>
         <tr *ngIf="refDetails.abstract">
           <td class="details-label">Abstract</td>
