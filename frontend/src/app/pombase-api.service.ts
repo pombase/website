@@ -292,6 +292,7 @@ export class PombaseAPIService {
     };
 
     return Object.keys(referencesByUniquename)
+      .filter((uniquename) => uniquename.match(/^PMID:/))
       .map((key) => processOneReference(referencesByUniquename[key]));
   }
 
