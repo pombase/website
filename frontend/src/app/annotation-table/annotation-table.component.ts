@@ -8,7 +8,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
   templateUrl: './annotation-table.component.html',
   styleUrls: ['./annotation-table.component.css']
 })
-export class AnnotationTableComponent implements OnInit {
+export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
   @Input() annotationTable: Array<TermAnnotation>;
@@ -21,20 +21,10 @@ export class AnnotationTableComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    if (!this.annotationTable) {
-      return;
-    }
-
-    this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
-    if (this.typeConfig.displayName) {
-      this.annotationTypeDisplayName = this.typeConfig.displayName;
-    } else {
-      this.annotationTypeDisplayName = this.annotationTypeName;
-    }
-
-    if (this.typeConfig.splitByParents) {
+  maybeDoSplit() {
+    if (this.typeConfig && this.typeConfig.splitByParents) {
       this.splitByParents = this.typeConfig.splitByParents;
+      this.splitDataList = {};
 
       for (let splitByConfig of this.splitByParents) {
         let splitByTermId = splitByConfig.termid;
@@ -51,5 +41,24 @@ export class AnnotationTableComponent implements OnInit {
         }
       }
     }
+  }
+
+  ngOnInit() {
+    if (!this.annotationTable) {
+      return;
+    }
+
+    this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
+    if (this.typeConfig.displayName) {
+      this.annotationTypeDisplayName = this.typeConfig.displayName;
+    } else {
+      this.annotationTypeDisplayName = this.annotationTypeName;
+    }
+
+    this.maybeDoSplit();
+  }
+
+  ngOnChanges() {
+    this.maybeDoSplit();
   }
 }
