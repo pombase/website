@@ -151,6 +151,7 @@ let _appConfig: AppConfig = {
 
   linkoutConfig: {
     pro: "http://www.proconsortium.org/cgi-bin/pro/entry_pro?id=",
+    pfam: "http://pfam.xfam.org/family/",
   },
 
   isConfigOrganism(genus: string, species: string): boolean {

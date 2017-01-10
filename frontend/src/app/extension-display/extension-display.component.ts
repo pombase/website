@@ -15,6 +15,16 @@ export class ExtensionDisplayComponent implements OnInit {
 
   constructor() { }
 
+  accessionOfID(identifier) {
+    let matches = identifier.match(/^([^:]+):(.*)/);
+
+    if (matches) {
+      return matches[2];
+    } else {
+      return identifier;
+    }
+  }
+
   ngOnInit() {
     this.linkoutConfig = getAppConfig().linkoutConfig;
 
