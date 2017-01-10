@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { getAppConfig, LinkoutConfig } from '../config';
+
 @Component({
   selector: 'app-extension-display',
   templateUrl: './extension-display.component.html',
@@ -9,10 +11,13 @@ export class ExtensionDisplayComponent implements OnInit {
   @Input() extension = [];
 
   displayExtension = [];
+  linkoutConfig: LinkoutConfig = {};
 
   constructor() { }
 
   ngOnInit() {
+    this.linkoutConfig = getAppConfig().linkoutConfig;
+
     this.displayExtension =
       this.extension.map(ext => {
         let newRange = [];

@@ -14,6 +14,10 @@
       <span *ngIf="range.misc">
         <span>{{range.misc}}<span *ngIf="extPart.relTypeName == 'has_penetrance' || extPart.relTypeName == 'has_expressivity'">%</span></span><span *ngIf="i < extPart.extRange.length - 1">,</span>
       </span>
+
+      <span *ngIf="range.gene_product">
+        <a [attr.href]="linkoutConfig['pro'] + range.gene_product">{{range.gene_product}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
+      </span>
     </span>
   </span>
 </span>

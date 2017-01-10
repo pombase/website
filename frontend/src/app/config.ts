@@ -1,8 +1,14 @@
+export interface LinkoutConfig {
+  [name: string]: string;
+}
+
 export interface AppConfig {
   organism: {
     genus: string,
     species: string,
   };
+
+  linkoutConfig: LinkoutConfig;
 
   // return true iff the genus and species match the configured organism
   isConfigOrganism(genus: string, species: string): boolean;
@@ -141,6 +147,10 @@ let _appConfig: AppConfig = {
   organism: {
     genus: 'Schizosaccharomyces',
     species: 'pombe',
+  },
+
+  linkoutConfig: {
+    pro: "http://www.proconsortium.org/cgi-bin/pro/entry_pro?id=",
   },
 
   isConfigOrganism(genus: string, species: string): boolean {
