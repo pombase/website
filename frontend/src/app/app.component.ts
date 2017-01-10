@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
       .subscribe((event) => {
-        let title = event['title'] ? 'Pombase - ' + event['title'] : 'PomBase';
+        let title = event['title'] ? 'PomBase - ' + event['title'] : 'PomBase';
         this.titleService.setTitle(title);
       });
   }

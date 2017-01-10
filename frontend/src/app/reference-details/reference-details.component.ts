@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AppConfig } from '../config';
@@ -20,7 +21,24 @@ export class ReferenceDetailsComponent implements OnInit {
   pubMedId = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private titleService: Title
+             ) { }
+
+  setPageTitle(): void {
+    let title = this.titleService.getTitle();
+    let displayName;
+    if (this.refDetails) {
+      displayName =
+        this.refDetails.uniquename;
+      if (this.refDetails.title) {
+        displayName += " - " + this.refDetails.title;
+      }
+    } else {
+      displayName = "UNKNOWN";
+    }
+    this.titleService.setTitle(title + " - " + displayName);
+  }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
@@ -36,6 +54,7 @@ export class ReferenceDetailsComponent implements OnInit {
               this.isPubMedRef = true;
               this.pubMedId = matches[2];
             }
+            this.setPageTitle();
           });
       };
     });

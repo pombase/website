@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { SynonymDetails, GeneDetails, ChromosomeLocation, PombaseAPIService } from '../pombase-api.service';
 
@@ -22,7 +23,9 @@ export class GeneDetailsComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private titleService: Title
+             ) { }
 
   makeDisplayLocation(location: ChromosomeLocation): string {
     let chromosome_name = location.chromosome_name;
@@ -71,6 +74,23 @@ export class GeneDetailsComponent implements OnInit {
     }).join(", ");
   }
 
+  displayNameLong(): string {
+    if (this.geneDetails) {
+      if (this.geneDetails.name) {
+        return this.geneDetails.name + " (" + this.geneDetails.uniquename + ")";
+      } else {
+        this.geneDetails.uniquename;
+      }
+    } else {
+      return "UNKNOWN";
+    }
+  }
+
+  setPageTitle(): void {
+    let title = this.titleService.getTitle();
+    this.titleService.setTitle(title + " - " + this.displayNameLong());
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -81,6 +101,7 @@ export class GeneDetailsComponent implements OnInit {
             this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
             this.displayLocation = this.makeDisplayLocation(geneDetails.location);
             this.annotationTypeNames = this.config.annotationTypeOrder;
+            this.setPageTitle();
           });
       };
     });
