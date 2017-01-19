@@ -214,7 +214,7 @@ let _appConfig: AppConfig = {
     },
     IBD: {
       long: "Inferred from Biological aspect of Descendant",
-      link: "http://www.geneontology.org/page/ibd-inferred-biological-aspect-descendant",
+      link: "http://www.geneontology.org/page/ibd-inferred-biological-aspect-descendent",
     },
     IKR: {
       long: "Inferred from Key Residues",
@@ -234,7 +234,7 @@ let _appConfig: AppConfig = {
     },
     IC: {
       long: "Inferred by Curator",
-      link: "http://www.geneontology.org/page/ic-inferred-by-curator",
+      link: "http://www.geneontology.org/page/ic-inferred-curator",
     },
     ND: {
       long: "No biological Data available",
@@ -242,7 +242,7 @@ let _appConfig: AppConfig = {
     },
     IEA: {
       long: "Inferred from Electronic Annotation",
-      link: "http://www.geneontology.org/page/iea-inferred-electronic-annotation",
+      link: "http://www.geneontology.org/page/automatically-assigned-evidence-codes",
     },
     NR: {
       long: "Not Recorded",
