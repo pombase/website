@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { TermAnnotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
@@ -8,7 +8,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
   templateUrl: './annotation-sub-table.component.html',
   styleUrls: ['./annotation-sub-table.component.css']
 })
-export class AnnotationSubTableComponent implements OnInit {
+export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
   @Input() annotationTable: Array<TermAnnotation>;
@@ -20,5 +20,10 @@ export class AnnotationSubTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    // reset when gene changes
+    this.showDetails = false;
   }
 }
