@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TermAnnotation } from '../pombase-api.service';
 
-import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig,
+         getAppConfig } from '../config';
 
 @Component({
   selector: 'app-annotation-table-full',

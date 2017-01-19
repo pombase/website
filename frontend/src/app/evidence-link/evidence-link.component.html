@@ -1,0 +1,8 @@
+<span>
+  <span *ngIf="link">
+    <a [attr.title]="title" [attr.href]="link">{{displayName}}</a>
+  </span>
+  <span *ngIf="!link">
+    {{displayName}}
+  </span>
+</span>

@@ -2,6 +2,13 @@ export interface LinkoutConfig {
   [name: string]: string;
 }
 
+export interface EvidenceConfig {
+  [name: string]: {
+    long?: string;
+    link?: string;
+  };
+}
+
 export interface AppConfig {
   organism: {
     genus: string,
@@ -9,6 +16,8 @@ export interface AppConfig {
   };
 
   linkoutConfig: LinkoutConfig;
+
+  evidenceTypes: EvidenceConfig;
 
   // return true iff the genus and species match the configured organism
   isConfigOrganism(genus: string, species: string): boolean;
@@ -152,6 +161,100 @@ let _appConfig: AppConfig = {
   linkoutConfig: {
     pro: "http://www.proconsortium.org/cgi-bin/pro/entry_pro?id=",
     pfam: "http://pfam.xfam.org/family/",
+  },
+
+  evidenceTypes: {
+    IMP: {
+      long: "Inferred from Mutant Phenotype",
+      link: "http://www.geneontology.org/page/imp-inferred-mutant-phenotype",
+    },
+    IDA: {
+      long: "Inferred from Direct Assay",
+      link: "http://www.geneontology.org/page/ida-inferred-direct-assay",
+    },
+    IGI: {
+      long: "Inferred from Genetic Interaction",
+      link: "http://www.geneontology.org/page/igi-inferred-genetic-interaction",
+    },
+    IPI: {
+      long: "Inferred from Physical Interaction",
+      link: "http://www.geneontology.org/page/ipi-inferred-physical-interaction",
+    },
+    EXP: {
+      long: "Inferred from Experiment",
+      link: "http://www.geneontology.org/page/exp-inferred-experiment",
+    },
+    IEP: {
+      long: "Inferred from Expression Pattern",
+      link: "http://www.geneontology.org/page/iep-inferred-expression-pattern",
+    },
+    ISS: {
+      long: "Inferred from Sequence or Structural Similarity",
+      link: "http://www.geneontology.org/page/iss-inferred-sequence-or-structural-similarity",
+    },
+    ISO: {
+      long: "Inferred from Sequence Orthology",
+      link: "http://www.geneontology.org/page/iso-inferred-sequence-orthology",
+    },
+    ISA: {
+      long: "Inferred from Sequence Alignment",
+      link: "http://www.geneontology.org/page/isa-inferred-sequence-alignment",
+    },
+    ISM: {
+      long: "Inferred from Sequence Model",
+      link: "http://www.geneontology.org/page/ism-inferred-sequence-model",
+    },
+    IGC: {
+      long: "Inferred from Genomic Context",
+      link: "http://www.geneontology.org/page/igc-inferred-genomic-context",
+    },
+    IBA: {
+      long: "Inferred from Biological aspect of Ancestor",
+      link: "http://www.geneontology.org/page/iba-inferred-biological-aspect-ancestor",
+    },
+    IBD: {
+      long: "Inferred from Biological aspect of Descendant",
+      link: "http://www.geneontology.org/page/ibd-inferred-biological-aspect-descendant",
+    },
+    IKR: {
+      long: "Inferred from Key Residues",
+      link: "http://www.geneontology.org/page/ikr-inferred-key-residues",
+    },
+    IRD: {
+      long: "Inferred from Rapid Divergence",
+      link: "http://www.geneontology.org/page/ird-inferred-rapid-divergence",
+    },
+    RCA: {
+      long: "inferred from Reviewed Computational Analysis",
+      link: "http://www.geneontology.org/page/rca-inferred-reviewed-computational-analysis",
+    },
+    NAS: {
+      long: "Non-traceable Author Statement",
+      link: "http://www.geneontology.org/page/nas-non-traceable-author-statement",
+    },
+    IC: {
+      long: "Inferred by Curator",
+      link: "http://www.geneontology.org/page/ic-inferred-by-curator",
+    },
+    ND: {
+      long: "No biological Data available",
+      link: "http://www.geneontology.org/page/nd-no-biological-data-available",
+    },
+    IEA: {
+      long: "Inferred from Electronic Annotation",
+      link: "http://www.geneontology.org/page/iea-inferred-electronic-annotation",
+    },
+    NR: {
+      long: "Not Recorded",
+      link: "http://www.geneontology.org/page/nr-not-recorded",
+    },
+    TAS: {
+      long: "Traceable Author Statement",
+      link: "http://www.geneontology.org/page/tas-traceable-author-statement",
+    },
+    UNK: {
+      long: "Unknown",
+    },
   },
 
   isConfigOrganism(genus: string, species: string): boolean {
