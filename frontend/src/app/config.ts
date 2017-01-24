@@ -40,7 +40,7 @@ export interface AnnotationTableConfig {
 }
 
 let goColumnsToShow =
-  ["desc-rel", "gene", "evidence", "with", "qualifiers", "reference", "gene-count"];
+  ["desc-rel", "gene", "evidence", "with", "reference", "gene-count"];
 let defaultColumnsToShow =
   ["desc-rel", "gene", "evidence", "qualifiers", "reference", "gene-count"];
 let defaultInteractionToShow =
@@ -56,7 +56,8 @@ let _config: AnnotationTableConfig = {
     "target_of",
     "PomBase family or domain",
     "PSI-MOD",
-    "gene_ex",
+    "qualitative_gene_expression",
+    "quantitative_gene_expression",
     "misc",
     "physical_interactions",
     "genetic_interactions",
@@ -101,8 +102,12 @@ let _config: AnnotationTableConfig = {
         },
       ],
     },
-    gene_ex: {
-      displayName: "Gene expression",
+    qualitative_gene_expression: {
+      displayName: "Qualitative gene expression",
+      columnsToShow: ["extension", "qualifiers", "evidence", "reference"],
+    },
+    quantitative_gene_expression: {
+      displayName: "Quantitative gene expression",
       columnsToShow: ["gene-ex", "extension", "evidence", "conditions", "gene-ex-scale", "reference"],
     },
     species_dist: {
