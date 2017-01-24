@@ -1,0 +1,49 @@
+<fieldset *ngIf="annotationTable?.length > 0" class="annotation-table">
+  <legend>
+    Qualitative gene expression
+  </legend>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Molecules per cell (average)</th>
+        <th>Extension</th>
+        <th>Condition</th>
+        <th>Scale</th>
+        <th>Evidence</th>
+        <th>Reference</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let termAnnotation of annotationTable ; trackBy:trackByTermId">
+      <tr class="term-annotation"
+          *ngFor="let annotation of termAnnotation.annotations ; let i = index">
+        <td><span  *ngIf="i==0">{{termAnnotation.term.name}}</span></td>
+        <td *ngIf="annotation.gene_ex_props">{{annotation.gene_ex_props.avg_copies_per_cell}}</td>
+        <td>
+          {{annotation.qualifiers}}<app-extension-display
+                                      *ngIf="annotation.extension"
+                                      [extension]="annotation.extension"></app-extension-display>
+        </td>
+        <td>
+          <div class="conditions">
+            <div *ngFor="let condition of annotation.conditions ; let i = index">
+              <a routerLink="/term/{{condition.termid}}"
+              routerLinkActive="active">{{condition.name}}</a><span *ngIf="i < annotation.conditions.length - 1">,</span>
+            </div>
+          </div>
+        </td>
+        <td>
+          <span *ngIf="annotation.gene_ex_props">{{annotation.gene_ex_props.scale}}</span>
+        </td>
+        <td>
+          <app-evidence-link *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
+        </td>
+        <td>
+          <app-reference-short *ngIf="annotation.reference"
+                               [reference]="annotation.reference"></app-reference-short>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

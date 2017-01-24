@@ -69,10 +69,18 @@
 
     <div *ngFor="let annotationTypeName of annotationTypeNames">
 
-      <app-annotation-table *ngIf="geneDetails.cv_annotations[annotationTypeName]"
-                            [annotationTypeName]="annotationTypeName"
-                            [hideColumns]="['gene', 'desc-rel']"
-                            [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+      <div *ngIf="geneDetails.cv_annotations[annotationTypeName]">
+        <app-qual-gene-ex-table *ngIf="annotationTypeName == 'qualitative_gene_expression'"
+                                 [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-qual-gene-ex-table>
+
+        <app-quant-gene-ex-table *ngIf="annotationTypeName == 'quantitative_gene_expression'"
+                                 [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-quant-gene-ex-table>
+
+        <app-annotation-table *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
+                              [annotationTypeName]="annotationTypeName"
+                              [hideColumns]="['gene', 'desc-rel']"
+                              [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+      </div>
 
       <app-interaction-annotation-table *ngIf="annotationTypeName == 'physical_interactions'"
                                       [annotationTypeName]="annotationTypeName"

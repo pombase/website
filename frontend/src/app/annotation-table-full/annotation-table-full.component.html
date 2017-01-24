@@ -14,13 +14,11 @@
       <tr>
         <th>Term ID</th>
         <th>Term name</th>
-        <th *ngIf="showColumn['gene-ex']">Molecules per cell (average)</th>
         <th *ngIf="showColumn['gene']">Gene</th>
         <th *ngIf="showColumn['genotype']">Genotype</th>
         <th *ngIf="showColumn['evidence']">Evidence</th>
         <th *ngIf="showColumn['with']">With</th>
         <th *ngIf="showColumn['conditions']">Conditions</th>
-        <th *ngIf="showColumn['gene-ex-scale']">Scale</th>
         <th *ngIf="showColumn['qualifiers']">Qualifiers</th>
         <th *ngIf="showColumn['residue']">Residue</th>
         <th *ngIf="showColumn['reference']">Reference</th>
@@ -49,13 +47,8 @@
       <tr class="term-annotation"
           *ngFor="let annotation of termAnnotation.annotations ; let i = index">
         <td>
-          <div *ngIf="annotation.extension">
+          <div *ngIf="annotation.extension" class="extension">
             <app-extension-display [extension]="annotation.extension"></app-extension-display>
-          </div>
-        </td>
-        <td *ngIf="showColumn['gene-ex']">
-          <div *ngIf="annotation.gene_ex_props">
-            {{annotation.gene_ex_props.avg_copies_per_cell}}
           </div>
         </td>
         <td *ngIf="showColumn['gene']">
@@ -73,9 +66,6 @@
             <a routerLink="/term/{{condition.termid}}" routerLinkActive="active">{{condition.name}}</a>
           </li>
           </ul>
-        </td>
-        <td *ngIf="showColumn['gene-ex-scale']">
-          <span *ngIf="annotation.gene_ex_props">{{annotation.gene_ex_props.scale}}</span>
         </td>
         <td *ngIf="showColumn['qualifiers']">
           <div *ngIf="annotation.qualifiers">

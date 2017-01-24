@@ -27,3 +27,8 @@
 ul.conditions li {
   list-style-type: none;
 }
+
+.extension {
+  display: block;
+  padding-left: 20px;
+}

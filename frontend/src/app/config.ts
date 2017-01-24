@@ -26,7 +26,7 @@ export interface AppConfig {
 export interface AnnotationType {
   displayName: string;
   splitByParents?: Array<any>;
-  columnsToShow: Array<string>;
+  columnsToShow?: Array<string>;
 }
 
 export interface AnnotationTypes {
@@ -104,11 +104,9 @@ let _config: AnnotationTableConfig = {
     },
     qualitative_gene_expression: {
       displayName: "Qualitative gene expression",
-      columnsToShow: ["extension", "qualifiers", "evidence", "reference"],
     },
     quantitative_gene_expression: {
       displayName: "Quantitative gene expression",
-      columnsToShow: ["gene-ex", "extension", "evidence", "conditions", "gene-ex-scale", "reference"],
     },
     species_dist: {
       displayName: "Taxonomic conservation",

@@ -25,7 +25,7 @@
       </tr>
       <tr *ngIf="extensionSummariesByTerm[termAnnotation.term.termid]">
         <td colspan="2">
-          <app-extension-display
+          <app-extension-display class="extension"
              *ngFor="let extSumm of extensionSummariesByTerm[termAnnotation.term.termid]"
              [extension]="extSumm"></app-extension-display>
         </td>

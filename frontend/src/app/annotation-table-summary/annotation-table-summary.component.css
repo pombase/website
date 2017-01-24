@@ -27,3 +27,8 @@
   color: #A00000;
   font-weight: bold;
 }
+
+.extension {
+  display: block;
+  padding-left: 20px;
+}

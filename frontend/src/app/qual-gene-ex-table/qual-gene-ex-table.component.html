@@ -1,0 +1,34 @@
+<fieldset *ngIf="annotationTable?.length > 0" class="annotation-table">
+  <legend>
+    Quantitative gene expression
+  </legend>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Level</th>
+        <th>Evidence</th>
+        <th>Reference</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let termAnnotation of annotationTable ; trackBy:trackByTermId">
+      <tr class="term-annotation"
+          *ngFor="let annotation of termAnnotation.annotations ; let i = index">
+        <td><span *ngIf="i==0">{{termAnnotation.term.name}}</span></td>
+        <td>
+          {{annotation.qualifiers}}<app-extension-display
+                                      *ngIf="annotation.extension"
+                                      [extension]="annotation.extension"></app-extension-display>
+        </td>
+        <td>
+          <app-evidence-link *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
+        </td>
+        <td>
+          <app-reference-short *ngIf="annotation.reference"
+                               [reference]="annotation.reference"></app-reference-short>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
