@@ -49,6 +49,10 @@
   padding: 0 10px 5px 0;
 }
 
+.annotation-table th {
+  white-space: nowrap;
+}
+
 .annotation-table legend, .genes-table legend {
   padding: 5px;
   display: block;
