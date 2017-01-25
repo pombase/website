@@ -72,7 +72,15 @@
                              [showDetails]="showGenotypeDetails"></app-genotype-link>
         </td>
         <td *ngIf="showColumn['evidence']"><app-evidence-link *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link></td>
-        <td *ngIf="showColumn['with']"><app-gene-link *ngIf="annotation.with" [long]="false" [gene]="annotation.with"></app-gene-link>
+        <td *ngIf="showColumn['with']">
+          <span *ngIf="annotation.with">
+            <app-gene-link *ngIf="annotation.with.gene" [long]="false"
+                           [gene]="annotation.with.gene">
+            </app-gene-link>
+            <span *ngIf="annotation.with.identifier">
+              {{annotation.with.identifier}}
+            </span>
+          </span>
         <td *ngIf="showColumn['conditions']">
           <ul class="conditions">
           <li *ngFor="let condition of annotation.conditions">
