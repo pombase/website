@@ -47,6 +47,12 @@ export interface GenotypeShort {
   expressed_alleles: Array<ExpressedAllele>;
 }
 
+export interface ExtPart {
+  rel_type_display_name?: string;
+  rel_type_name: string;
+  ext_range: any
+}
+
 export interface Annotation {
   descDist: number;
   descRelName: string;
@@ -60,7 +66,7 @@ export interface Annotation {
   gene?: GeneShort;
   gene_uniquename?: string;
   genotype?: GenotypeShort;
-  extension: Array<any>;
+  extension: Array<ExtPart>;
   is_not: boolean;
 }
 export interface TermAnnotation {
