@@ -9,7 +9,7 @@ export class PomBaseResults {
 }
 
 export interface TermShort {
-  termid: Termid;
+  termid: TermId;
   name: string;
   interesting_parents: Array<string>;
   is_obsolete: boolean;
@@ -27,7 +27,7 @@ export enum QueryNodeOperator {
 }
 
 export type GeneUniquename = string;
-export type Termid = string;
+export type TermId = string;
 
 export abstract class GeneQueryNode {
   public abstract toObject(): Object;
@@ -68,7 +68,7 @@ export class GeneBoolNode extends GeneQueryNode {
 }
 
 export class GeneByTerm implements GeneQueryNode {
-  constructor(public termid: Termid) { };
+  constructor(public termid: TermId) { };
 
   toObject(): Object {
     return {

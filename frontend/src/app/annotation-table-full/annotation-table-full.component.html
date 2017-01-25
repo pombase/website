@@ -26,7 +26,7 @@
       </tr>
     </thead>
     <tbody *ngFor="let termAnnotation of annotationTable;trackBy:trackByTermId">
-      <tr class="term-annotation-top">
+      <tr *ngIf="!compactFirstRows[termAnnotation.term.termid]" class="term-annotation-top">
         <td [attr.rowspan]="termAnnotation.annotations.length + 1">
           <span class="rel-and-termid">
             <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
@@ -46,9 +46,22 @@
       </tr>
       <tr class="term-annotation"
           *ngFor="let annotation of termAnnotation.annotations ; let i = index">
+        <td *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0"
+            [attr.rowspan]="termAnnotation.annotations.length">
+          <span class="rel-and-termid">
+            <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
+            <span *ngIf="termAnnotation.rel_names?.length > 0">
+              <span class="rel-icon">&#8593;</span><span class="rel-name">{{termAnnotation.rel_names}}</span>
+            </span>
+            <a routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.termid}}</a>
+          </span>
+        </td>
         <td>
           <div *ngIf="annotation.extension" class="extension">
             <app-extension-display [extension]="annotation.extension"></app-extension-display>
+          </div>
+          <div *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0">
+            <a routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.name}}</a>
           </div>
         </td>
         <td *ngIf="showColumn['gene']">
@@ -76,6 +89,10 @@
         <td *ngIf="showColumn['reference']">
           <app-reference-short *ngIf="annotation.reference"
                                [reference]="annotation.reference"></app-reference-short>
+        </td>
+        <td *ngIf="compactFirstRows[termAnnotation.term.termid] && showColumn['gene-count'] && i == 0"
+            [attr.rowspan]="termAnnotation.annotations.length">
+          <a routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active" title="{{termAnnotation.term.gene_count}} genes are annotationed with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
         </td>
       </tr>
     </tbody>

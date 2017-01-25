@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { TermAnnotation } from '../pombase-api.service';
+import { TermId } from '../common/pombase-query';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig } from '../config';
@@ -9,7 +10,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
   templateUrl: './annotation-table-full.component.html',
   styleUrls: ['./annotation-table-full.component.css']
 })
-export class AnnotationTableFullComponent implements OnInit {
+export class AnnotationTableFullComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
   @Input() annotationTable: Array<TermAnnotation>;
@@ -19,6 +20,7 @@ export class AnnotationTableFullComponent implements OnInit {
   hideColumn = {};
   showColumn = {};
   termNameColSpan = 0;
+  compactFirstRows = {};
 
   constructor() { }
 
@@ -40,6 +42,16 @@ export class AnnotationTableFullComponent implements OnInit {
     for (let columnName of Object.keys(this.showColumn)) {
       if (this.showColumn[columnName]) {
         this.termNameColSpan++;
+      }
+    }
+  }
+
+  ngOnChanges() {
+    if (this.annotationTable && this.annotationTable.length > 0) {
+      for (let termAnnotation of this.annotationTable) {
+        this.compactFirstRows[termAnnotation.term.termid] =
+          !termAnnotation.annotations[0].extension ||
+          termAnnotation.annotations[0].extension.length == 0;
       }
     }
   }
