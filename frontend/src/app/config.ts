@@ -30,13 +30,13 @@ export interface AnnotationType {
 }
 
 export interface AnnotationTypes {
-    [annotationTypeName: string]: AnnotationType;
+  [annotationTypeName: string]: AnnotationType;
 }
 
 export interface AnnotationTableConfig {
-    annotationTypeOrder: Array<string>;
-    annotationTypes: AnnotationTypes;
-    getAnnotationType(annotationTypeName: string): AnnotationType;
+  annotationTypeOrder: Array<string>;
+  annotationTypes: AnnotationTypes;
+  getAnnotationType(annotationTypeName: string): AnnotationType;
 }
 
 let goColumnsToShow =
