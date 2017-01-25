@@ -91,7 +91,9 @@ let _config: AnnotationTableConfig = {
        "in_presence_of",
        "removed_by",
        "removed_during",
-       "absent_during"]
+       "absent_during",
+       "has_expressivity",
+       "has_penetrance"]
       // any others (e.g. coincident_with)
     ],
     alwaysLast: ["happens_during", "exists_during"],
