@@ -33,8 +33,14 @@ export interface AnnotationTypes {
   [annotationTypeName: string]: AnnotationType;
 }
 
+export interface ExtensionConfig {
+  extensionOrder: Array<Array<string>>;
+  alwaysLast: Array<string>;
+}
+
 export interface AnnotationTableConfig {
   annotationTypeOrder: Array<string>;
+  extensions: ExtensionConfig;
   annotationTypes: AnnotationTypes;
   getAnnotationType(annotationTypeName: string): AnnotationType;
 }
@@ -69,6 +75,27 @@ let _config: AnnotationTableConfig = {
     "warning",
     "subunit_composition",
   ],
+  extensions: {
+    extensionOrder: [
+      ["directly_positively_regulates",
+       "has_direct_input",
+       "has_input",
+       "has_regulation_target",
+       "binds"],
+      ["involved_in"],
+      ["occurs_at",
+       "occurs_in"],
+      ["added_by",
+       "added_during",
+       "present_during",
+       "in_presence_of",
+       "removed_by",
+       "removed_during",
+       "absent_during"]
+      // any others (e.g. coincident_with)
+    ],
+    alwaysLast: ["happens_during", "exists_during"],
+  },
   annotationTypes: {
     molecular_function: {
       displayName: "GO molecular function",

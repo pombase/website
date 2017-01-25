@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { getAppConfig, LinkoutConfig } from '../config';
+import { ExtPart } from '../pombase-api.service';
+import { getAnnotationTableConfig, AnnotationTableConfig,
+         getAppConfig, LinkoutConfig } from '../config';
 
 @Component({
   selector: 'app-extension-display',
@@ -12,6 +14,7 @@ export class ExtensionDisplayComponent implements OnInit {
 
   displayExtension = [];
   linkoutConfig: LinkoutConfig = {};
+  config: AnnotationTableConfig = getAnnotationTableConfig();
 
   constructor() { }
 
@@ -28,8 +31,33 @@ export class ExtensionDisplayComponent implements OnInit {
   ngOnInit() {
     this.linkoutConfig = getAppConfig().linkoutConfig;
 
+    let extensionCopy: Array<ExtPart> = this.extension.slice();
+
+    let sortedExtension: Array<ExtPart> = [];
+
+    let extensionConfig = this.config.extensions;
+
+    for (let confExtGroup of extensionConfig.extensionOrder) {
+      for (let confExtRelName of confExtGroup) {
+        for (let i = extensionCopy.length - 1; i >= 0; i--) {
+          if (extensionCopy[i].rel_type_name == confExtRelName) {
+            sortedExtension.push(extensionCopy.splice(i, 1)[0]);
+          }
+        }
+      }
+    }
+
+    for (let i = extensionCopy.length - 1; i >= 0; i--) {
+      if (extensionConfig.alwaysLast.indexOf(extensionCopy[i].rel_type_name) == -1) {
+        sortedExtension.push(extensionCopy.splice(i, 1)[0]);
+      }
+    }
+
+    // add the alwaysLast parts
+    sortedExtension = sortedExtension.concat(extensionCopy);
+
     this.displayExtension =
-      this.extension.map(ext => {
+      sortedExtension.map(ext => {
         let newRange = [];
         if (ext.ext_range instanceof Array) {
           newRange = ext.ext_range;
