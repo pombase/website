@@ -11,3 +11,11 @@
   border-radius: .25rem;
   display: inline;
 }
+.search-info {
+  padding: 5px;
+  color: #e63535;
+  background-color: #fff;
+  background-image: none;
+  border-radius: .25rem;
+  font-weight: bold;
+}

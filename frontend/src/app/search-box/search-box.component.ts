@@ -14,6 +14,7 @@ import { TypeaheadMatch } from 'ng2-bootstrap/components/typeahead/typeahead-mat
 })
 export class SearchBoxComponent implements OnInit {
   public selectedGene: string = '';
+  noResults = true;
 
   @Input() geneSummaries: Array<any> = [];
 
@@ -56,5 +57,17 @@ export class SearchBoxComponent implements OnInit {
   public typeaheadOnSelect(e: TypeaheadMatch): void {
     this.router.navigate(['/gene', e.item.uniquename]);
     this.selectedGene = '';
+  }
+
+  public typeaheadNoResults(e: boolean) {
+    this.noResults = e;
+  }
+
+  getVisibility(): string {
+    if (this.noResults && this.selectedGene.length > 0) {
+      return "visible";
+    } else {
+      return "hidden";
+    }
   }
 }

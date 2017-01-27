@@ -11,4 +11,8 @@
        [typeaheadItemTemplate]="searchBoxTemplate"
        [typeaheadOptionField]="'searchData'"
        (typeaheadOnSelect)="typeaheadOnSelect($event)"
+       (typeaheadNoResults)="typeaheadNoResults($event)"
        class="form-control search-box">
+<span class="search-info" [style.visibility]="getVisibility()">
+  No matching genes
+</span>
