@@ -122,12 +122,12 @@ let _config: AnnotationTableConfig = {
                       "evidence", "conditions", "reference", "gene-count"],
       splitByParents: [
         {
-          termid: "FYPO:0000002",
-          displayName: "Cell phenotype",
-        },
-        {
           termid: "FYPO:0000003",
           displayName: "Population phenotype",
+        },
+        {
+          termid: "FYPO:0000002",
+          displayName: "Cell phenotype",
         },
       ],
     },
