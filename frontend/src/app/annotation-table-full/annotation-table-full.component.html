@@ -71,8 +71,9 @@
                              [showDetails]="showGenotypeDetails"></app-genotype-link>
         </td>
         <td class="with" *ngIf="showColumn['evidence']"><app-evidence-link *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
-          <span *ngIf="annotation.with">
-            with
+          <span *ngIf="annotation.with || annotation.from">
+            <span *ngIf="annotation.with">with</span>
+            <span *ngIf="annotation.from">from</span>
             <app-gene-link *ngIf="annotation.with.gene" [long]="false"
                            [gene]="annotation.with.gene">
             </app-gene-link>
