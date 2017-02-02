@@ -41,6 +41,7 @@ import { GeneShortOrderByPipe } from './gene-short-order-by.pipe';
 import { EvidenceLinkComponent } from './evidence-link/evidence-link.component';
 import { QuantGeneExTableComponent } from './quant-gene-ex-table/quant-gene-ex-table.component';
 import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-table.component';
+import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-tabl
     EvidenceLinkComponent,
     QuantGeneExTableComponent,
     QualGeneExTableComponent,
+    WithOrFromLinkComponent,
   ],
   imports: [
     BrowserModule,
