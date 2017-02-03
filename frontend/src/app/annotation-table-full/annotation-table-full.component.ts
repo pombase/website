@@ -47,6 +47,8 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    this.showGenotypeDetails = false;
+
     if (this.annotationTable && this.annotationTable.length > 0) {
       for (let termAnnotation of this.annotationTable) {
         this.compactFirstRows[termAnnotation.term.termid] =
