@@ -359,6 +359,12 @@ export class PombaseAPIService {
                                   referencesByUniquename, termsByTermId);
     }
 
+    json.expressed_alleles.map((expressed_allele) => {
+      expressed_allele.allele = allelesByUniquename[expressed_allele.allele_uniquename];
+      expressed_allele.allele.gene =
+        genesByUniquename[expressed_allele.allele.gene_uniquename];
+    });
+
     return json as GenotypeDetails;
   }
 

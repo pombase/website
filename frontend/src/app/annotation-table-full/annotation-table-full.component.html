@@ -1,14 +1,4 @@
 <div>
-  <div class="table-control" *ngIf="showColumn['genotype']">
-    <input id="genotype-details-toggle"
-           type="checkbox"
-           name="show-genotype-details" ngDefaultControl
-           [(ngModel)]="showGenotypeDetails" btnCheckbox />
-    <label for="genotype-details-toggle">
-      <span class="label-content">Genotype details</span>
-    </label>
-  </div>
-
   <table>
     <thead>
       <tr>
@@ -67,8 +57,7 @@
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
         <td *ngIf="showColumn['genotype']">
-          <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"
-                             [showDetails]="showGenotypeDetails"></app-genotype-link>
+          <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
         </td>
         <td class="with" *ngIf="showColumn['evidence']">
           <app-evidence-link *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>

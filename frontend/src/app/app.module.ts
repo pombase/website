@@ -42,6 +42,7 @@ import { EvidenceLinkComponent } from './evidence-link/evidence-link.component';
 import { QuantGeneExTableComponent } from './quant-gene-ex-table/quant-gene-ex-table.component';
 import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-table.component';
 import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.component';
+import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.c
     QuantGeneExTableComponent,
     QualGeneExTableComponent,
     WithOrFromLinkComponent,
+    GenotypeDetailsComponent,
   ],
   imports: [
     BrowserModule,

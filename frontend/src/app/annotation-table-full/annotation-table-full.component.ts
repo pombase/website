@@ -16,7 +16,6 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
-  showGenotypeDetails = false;
   hideColumn = {};
   showColumn = {};
   termNameColSpan = 0;
@@ -47,8 +46,6 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.showGenotypeDetails = false;
-
     if (this.annotationTable && this.annotationTable.length > 0) {
       for (let termAnnotation of this.annotationTable) {
         this.compactFirstRows[termAnnotation.term.termid] =

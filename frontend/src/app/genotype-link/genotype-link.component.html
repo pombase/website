@@ -1,33 +1,7 @@
 <div class="genotype-link">
-  <div *ngIf="!showDetails" class="genotype-short-summary">
-    <a (click)="show()">
-      <strong>{{genotype.name}}</strong>
-      <span class="genotype-uniquename">{{genotype.uniquename}}</span>
-      <i>{{genotype.background}}</i>
-    </a>
-  </div>
-  <div *ngIf="showDetails" class="genotype-full">
-    <strong>{{genotype.name}}</strong>
-    <span class="genotype-uniquename">{{genotype.uniquename}}</span>
-    <i>{{genotype.background}}</i>
-  <table>
-    <thead>
-      <th>Gene</th>
-      <th>Allele</th>
-      <th>Type</th>
-      <th>Expression</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let expressedAllele of displayAlleles">
-        <td><app-gene-link [long]="false" [gene]="expressedAllele.gene"></app-gene-link></td>
-        <td>
-          <div>{{expressedAllele.name}}(<span [innerHTML]="expressedAllele.description"></span>)</div>
-          <div style="color: grey;">{{expressedAllele.uniquename}}</div>
-        </td>
-        <td>{{expressedAllele.allele_type}}</td>
-        <td>{{expressedAllele.expression}}</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+  <strong>{{genotype.name}}</strong>
+  <span class="genotype-uniquename">
+    <a routerLink="/genotype/{{genotype.uniquename}}" routerLinkActive="active" [attr.title]="linkTitle">{{genotype.uniquename}}</a>
+  </span>
+  <i>{{genotype.background}}</i>
 </div>

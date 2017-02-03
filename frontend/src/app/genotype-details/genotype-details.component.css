@@ -1,0 +1,11 @@
+.genotype-details-page-summary {
+  padding-bottom: 15px;
+}
+
+.expressed-alleles {
+  font-size: 120%;
+}
+
+.expressed-alleles td {
+  padding-right: 20px;
+}

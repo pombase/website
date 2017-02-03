@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
+import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
@@ -12,6 +13,11 @@ const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
     data: {
       title: 'Gene'
+    }
+  },
+  { path: 'genotype/:uniquename', component: GenotypeDetailsComponent,
+    data: {
+      title: 'Genotype'
     }
   },
   { path: 'spombe/result/:uniquename', component: GeneDetailsComponent,

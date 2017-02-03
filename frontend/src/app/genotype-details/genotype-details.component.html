@@ -1,0 +1,52 @@
+<div>
+  <app-loading-spinner *ngIf="!genotypeDetails"></app-loading-spinner>
+  <div id="genotype-details" *ngIf="genotypeDetails">
+    <div class="details-page-name-and-id">
+    <span *ngIf="genotypeDetails.name">
+      {{genotypeDetails.name}} ({{genotypeDetails.uniquename}})
+    </span>
+    <span *ngIf="!genotypeDetails.name">
+      {{genotypeDetails.uniquename}}
+    </span>
+    </div>
+
+    <hr style="clear: both" />
+
+    <div *ngIf="genotypeDetails.background"
+         id="genotype-summary" class="details-page-summary genotype-details-page-summary">
+      <span *ngIf="genotypeDetails.background">
+        <span class="details-label">Background</span>
+        {{genotypeDetails.background}}
+      </span>
+    </div>
+
+    <table class="expressed-alleles">
+      <thead>
+        <th>Gene</th>
+        <th>Allele</th>
+        <th>Type</th>
+        <th>Expression</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expressedAllele of displayAlleles">
+          <td><app-gene-link [long]="false" [gene]="expressedAllele.gene"></app-gene-link></td>
+          <td>
+            <div>{{expressedAllele.name}}(<span [innerHTML]="expressedAllele.description"></span>)</div>
+            <div style="color: grey;">{{expressedAllele.uniquename}}</div>
+          </td>
+          <td>{{expressedAllele.allele_type}}</td>
+          <td>{{expressedAllele.expression}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngFor="let annotationTypeName of annotationTypeNames">
+
+      <div *ngIf="genotypeDetails.cv_annotations[annotationTypeName]">
+        <app-annotation-table [annotationTypeName]="annotationTypeName"
+                              [hideColumns]="['genotype', 'desc-rel']"
+                              [annotationTable]="genotypeDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+      </div>
+    </div>
+  </div>
+</div>

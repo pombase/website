@@ -1,15 +1,6 @@
-.genotype-link table {
-  margin-left: 10px;
-  border-top: 1.5px solid grey;
-}
-
 .genotype-short-summary .genotype-uniquename {
   color: #88a;
 }
 .genotype-short-summary a {
   cursor: pointer;
-}
-
-genotype-full .genotype-uniquename {
-  color: grey;
 }
