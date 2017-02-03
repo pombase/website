@@ -322,6 +322,7 @@ export class PombaseAPIService {
     this.processParalogs(json.paralog_annotations, genesByUniquename, referencesByUniquename);
     this.processTargetOf(json.target_of_annotations, genesByUniquename, referencesByUniquename);
 
+    // for displaying the references section on the gene page
     json.references = this.processGeneReferences(referencesByUniquename);
 
     return json as GeneDetails;
