@@ -153,6 +153,15 @@ export class GeneDetails {
   references: Array<ReferenceShort>;
 }
 
+export class GenotypeDetails {
+  uniquename: string;
+  name: string;
+  background: string;
+  expressed_alleles: Array<ExpressedAllele>;
+  synonyms: Array<SynonymDetails>;
+  cv_annotations: CvAnnotations;
+}
+
 export class TermDetails {
   definition: string;
   termid: string;
@@ -332,6 +341,31 @@ export class PombaseAPIService {
     return this.http.get(this.apiUrl + '/data/gene/' + uniquename)
       .toPromise()
       .then(response => this.processGeneResponse(response))
+      .catch(this.handleError);
+  }
+
+  processGenotypeResponse(response: Response): GenotypeDetails {
+    let json = response.json();
+
+    let genesByUniquename = json.genes_by_uniquename;
+    let allelesByUniquename = json.alleles_by_uniquename;
+    let referencesByUniquename = json.references_by_uniquename;
+    let termsByTermId = json.terms_by_termid;
+
+    this.processAlleleMap(allelesByUniquename, genesByUniquename);
+
+    for (let cvName of Object.keys(json.cv_annotations)) {
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, allelesByUniquename,
+                                  referencesByUniquename, termsByTermId);
+    }
+
+    return json as GenotypeDetails;
+  }
+
+  getGenotype(uniquename: string): Promise<GenotypeDetails> {
+    return this.http.get(this.apiUrl + '/data/genotype/' + uniquename)
+      .toPromise()
+      .then(response => this.processGenotypeResponse(response))
       .catch(this.handleError);
   }
 
