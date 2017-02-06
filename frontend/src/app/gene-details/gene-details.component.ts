@@ -79,7 +79,7 @@ export class GeneDetailsComponent implements OnInit {
       if (this.geneDetails.name) {
         return this.geneDetails.name + " (" + this.geneDetails.uniquename + ")";
       } else {
-        this.geneDetails.uniquename;
+        return this.geneDetails.uniquename;
       }
     } else {
       return "UNKNOWN";
