@@ -13,13 +13,15 @@
   </div>
   <div *ngIf="splitByParents.length != 0">
     <div *ngFor="let conf of splitByParents; let i = index">
-      <br *ngIf="i != 0"/>
-      <div class="annotation-sub-table-name">{{conf.displayName}}</div>
-      <app-annotation-sub-table
-         [annotationTypeName]="annotationTypeName"
-         [hideColumns]="hideColumns"
-         [annotationTable]="splitDataList[conf.termid]">
-      </app-annotation-sub-table>
+      <div *ngIf="splitDataList[conf.termid] && splitDataList[conf.termid].length > 0">
+        <br *ngIf="i != 0"/>
+        <div class="annotation-sub-table-name">{{conf.displayName}}</div>
+        <app-annotation-sub-table
+           [annotationTypeName]="annotationTypeName"
+           [hideColumns]="hideColumns"
+           [annotationTable]="splitDataList[conf.termid]">
+        </app-annotation-sub-table>
+      </div>
     </div>
   </div>
 </fieldset>
