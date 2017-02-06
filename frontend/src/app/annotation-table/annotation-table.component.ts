@@ -9,6 +9,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
   styleUrls: ['./annotation-table.component.css']
 })
 export class AnnotationTableComponent implements OnInit, OnChanges {
+  @Input() tableDisplayName?: string = null;
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
   @Input() annotationTable: Array<TermAnnotation>;
@@ -49,10 +50,13 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
     }
 
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
-    if (this.typeConfig.displayName) {
-      this.annotationTypeDisplayName = this.typeConfig.displayName;
-    } else {
-      this.annotationTypeDisplayName = this.annotationTypeName;
+
+    if (this.tableDisplayName == null) {
+      if (this.typeConfig.displayName) {
+        this.tableDisplayName = this.typeConfig.displayName;
+      } else {
+        this.tableDisplayName = this.annotationTypeName;
+      }
     }
 
     this.maybeDoSplit();

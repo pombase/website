@@ -34,8 +34,10 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
       this.showColumn[columnName] = true;
     }
 
-    for (let columnName of this.hideColumns) {
-      this.showColumn[columnName] = false;
+    if (this.hideColumns) {
+      for (let columnName of this.hideColumns) {
+        this.showColumn[columnName] = false;
+      }
     }
 
     for (let columnName of Object.keys(this.showColumn)) {
