@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { Util } from '../util';
+
 @Component({
   selector: 'app-genotype-link',
   templateUrl: './genotype-link.component.html',
@@ -7,6 +9,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GenotypeLinkComponent implements OnInit {
   @Input() genotype: /* GenotypeShort */ any;
+
+  displayNameLong(): string {
+    return Util.displayNameLong(this.genotype);
+  }
 
   constructor() { }
 

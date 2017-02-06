@@ -1,7 +1,3 @@
 <div class="genotype-link">
-  <strong>{{genotype.name}}</strong>
-  <span class="genotype-uniquename">
-    <a routerLink="/genotype/{{genotype.uniquename}}" routerLinkActive="active" [attr.title]="linkTitle">{{genotype.uniquename}}</a>
-  </span>
-  <i>{{genotype.background}}</i>
+  <a routerLink="/genotype/{{genotype.uniquename}}" routerLinkActive="active" [attr.title]="linkTitle">{{displayNameLong()}}</a>
 </div>
