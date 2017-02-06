@@ -118,7 +118,7 @@ let _config: AnnotationTableConfig = {
     },
     fission_yeast_phenotype: {
       displayName: "Phenotype",
-      columnsToShow: ["desc-rel", "gene", "genotype",
+      columnsToShow: ["desc-rel",
                       "evidence", "conditions", "reference", "gene-count"],
       splitByParents: [
         {
