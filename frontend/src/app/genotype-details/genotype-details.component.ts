@@ -2,7 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { GenotypeDetails, PombaseAPIService } from '../pombase-api.service';
+import { Util } from '../util';
+
+import { GenotypeDetails, AlleleShort, PombaseAPIService } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AppConfig } from '../config';
@@ -26,26 +28,11 @@ export class GenotypeDetailsComponent implements OnInit {
              ) { }
 
   displayNameLong(): string {
-    if (this.genotypeDetails) {
-      return this.genotypeDetails.name || this.genotypeDetails.uniquename;
-    } else {
-      return "UNKNOWN";
-    }
+    return Util.displayNameLong(this.genotypeDetails);
   }
 
-  setDisplayAlleles(): void {
-    this.displayAlleles =
-      this.genotypeDetails.expressed_alleles
-      .map((expressedAllele) => {
-        let expressedAlleleCopy = Object.assign({expression: expressedAllele.expression},
-                                                expressedAllele.allele);
-        if (expressedAllele.allele.description) {
-          expressedAlleleCopy.description = expressedAllele.allele.description.replace(/,/g , ',&#8203;');
-        } else {
-          expressedAlleleCopy.description = '';
-        }
-        return expressedAlleleCopy;
-      });
+  alleleDisplayName(allele: AlleleShort): string {
+    return Util.alleleDisplayName(allele);
   }
 
   setPageTitle(): void {
@@ -61,7 +48,6 @@ export class GenotypeDetailsComponent implements OnInit {
           .then(genotypeDetails => {
             this.genotypeDetails = genotypeDetails;
             this.annotationTypeNames = this.config.annotationTypeOrder;
-            this.setDisplayAlleles();
             this.setPageTitle();
           });
       };

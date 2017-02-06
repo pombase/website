@@ -2,13 +2,13 @@
   <app-loading-spinner *ngIf="!genotypeDetails"></app-loading-spinner>
   <div id="genotype-details" *ngIf="genotypeDetails">
     <div class="details-page-name-and-id">
-    <span *ngIf="genotypeDetails.name">
-      {{genotypeDetails.name}} ({{genotypeDetails.uniquename}})
-    </span>
-    <span *ngIf="!genotypeDetails.name">
-      {{genotypeDetails.uniquename}}
-    </span>
+      <div *ngIf="genotypeDetails.name">
+        name: {{genotypeDetails.name}}
+      </div>
+
+      {{displayNameLong()}}
     </div>
+
 
     <hr style="clear: both" />
 
@@ -28,12 +28,12 @@
         <th>Expression</th>
       </thead>
       <tbody>
-        <tr *ngFor="let expressedAllele of displayAlleles">
-          <td><app-gene-link [long]="false" [gene]="expressedAllele.gene"></app-gene-link></td>
+        <tr *ngFor="let expressedAllele of genotypeDetails.expressed_alleles">
+          <td><app-gene-link [long]="false" [gene]="expressedAllele.allele.gene"></app-gene-link></td>
           <td>
-            <div>{{expressedAllele.name}}(<span [innerHTML]="expressedAllele.description"></span>)</div>
+            <span [innerHTML]="alleleDisplayName(expressedAllele.allele)"></span>
           </td>
-          <td>{{expressedAllele.allele_type}}</td>
+          <td>{{expressedAllele.allele.allele_type}}</td>
           <td>{{expressedAllele.expression}}</td>
         </tr>
       </tbody>
