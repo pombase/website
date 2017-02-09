@@ -48,7 +48,6 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
     }
     if (this.annotationTable && this.annotationTable.length > 0) {
       for (let termAnnotation of this.annotationTable) {
-        console.log(!!this.showColumn['extension']);
         this.compactFirstRows[termAnnotation.term.termid] =
           !this.showColumn['extension'] ||
           !termAnnotation.annotations[0].extension ||
