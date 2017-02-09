@@ -21,13 +21,10 @@ export class Util {
 
     if (alleleType == 'deletion' && name.match(/delta$/) ||
         alleleType.match(/^wild[\s_]?type$/) && name.match(/\+$/)) {
-      let normalisedDescription = description;
-      normalisedDescription.replace(/[\s_]+/, '');
-      let normalisedAlleleType = alleleType;
-      normalisedAlleleType.replace(/[\s_]+/, '');
-      if (description &&
-          normalisedDescription != normalisedAlleleType) {
-        return `$name${description}`;
+      let normalisedDescription = description.replace(/[\s_]+/, '');
+      let normalisedAlleleType = alleleType.replace(/[\s_]+/, '');
+      if (description && normalisedDescription != normalisedAlleleType) {
+        return `${name}(${description})`;
       } else {
         return name;
       }
