@@ -23,7 +23,7 @@
              routerLink="/term_genes/{{termAnnotation.term.termid}}" routerLinkActive="active"
              title="{{termAnnotation.term.gene_count}} genes are annotationed with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
           <a *ngIf="termAnnotation.term.genotype_count > 0"
-             routerLink="/term_gen/{{termAnnotation.term.termid}}" routerLinkActive="active"
+             routerLink="/term_gene/{{termAnnotation.term.termid}}" routerLinkActive="active"
              title="{{termAnnotation.term.genotype_count}} genotypes are annotationed with {{termAnnotation.term.termid}}">{{termAnnotation.term.genotype_count}}</a>
         </td>
       </tr>

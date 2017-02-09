@@ -46,9 +46,9 @@ export interface AnnotationTableConfig {
 }
 
 let goColumnsToShow =
-  ["desc-rel", "gene", "evidence", "reference", "gene-count"];
+  ["desc-rel", "gene", "evidence", "reference", "count", "extension"];
 let defaultColumnsToShow =
-  ["desc-rel", "gene", "evidence", "qualifiers", "reference", "gene-count"];
+  ["desc-rel", "gene", "evidence", "qualifiers", "reference", "count", "extension"];
 let defaultInteractionToShow =
   ["interactor", "gene-product", "evidence", "reference"];
 
@@ -114,12 +114,12 @@ let _config: AnnotationTableConfig = {
     "PSI-MOD": {
       displayName: "Modification",
       columnsToShow: ["desc-rel", "gene",
-                      "evidence", "residue", "reference", "gene-count"],
+                      "evidence", "residue", "reference", "count", "extensions"],
     },
     fission_yeast_phenotype: {
       displayName: "Phenotype",
       columnsToShow: ["desc-rel", "genotype",
-                      "evidence", "conditions", "reference", "gene-count"],
+                      "evidence", "conditions", "reference", "count", "extensions"],
       splitByParents: [
         {
           termid: "FYPO:0000003",
@@ -139,7 +139,7 @@ let _config: AnnotationTableConfig = {
     },
     species_dist: {
       displayName: "Taxonomic conservation",
-      columnsToShow: defaultColumnsToShow.concat("gene-count"),
+      columnsToShow: defaultColumnsToShow,
     },
     complementation: {
       displayName: "Complementation",
