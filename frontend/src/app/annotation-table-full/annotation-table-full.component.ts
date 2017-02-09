@@ -13,6 +13,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
 export class AnnotationTableFullComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
+  @Input() geneInFirstColumn?: boolean = false;
   @Input() annotationTable: Array<TermAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
@@ -46,6 +47,11 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
         this.termNameColSpan++;
       }
     }
+
+    if (this.geneInFirstColumn) {
+      this.termNameColSpan -= 1;
+    }
+
     if (this.annotationTable && this.annotationTable.length > 0) {
       for (let termAnnotation of this.annotationTable) {
         this.compactFirstRows[termAnnotation.term.termid] =

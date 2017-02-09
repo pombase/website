@@ -19,6 +19,7 @@
        *ngIf="showGeneInSummary"
        [annotationTypeName]="annotationTypeName"
        [hideColumns]="summaryHideColumns"
+       [geneInFirstColumn]="geneInFirstColumn"
        [annotationTable]="annotationTable"></app-annotation-table-full>
 
     <app-annotation-table-summary
@@ -30,6 +31,7 @@
      *ngIf="showDetails"
      [annotationTypeName]="annotationTypeName"
      [hideColumns]="hideColumns"
+     [geneInFirstColumn]="geneInFirstColumn"
      [annotationTable]="annotationTable"></app-annotation-table-full>
 
 </div>

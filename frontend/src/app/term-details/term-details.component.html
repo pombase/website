@@ -27,6 +27,7 @@
       <app-annotation-table [tableDisplayName]="'Annotations for ' + termDetails.termid + ' and its descendants'"
                             [annotationTypeName]="termDetails.cv_name"
                             [showGeneInSummary]="true"
+                            [geneInFirstColumn]="true"
                             [annotationTable]="termDetails.rel_annotations"></app-annotation-table>
     </div>
   </div>

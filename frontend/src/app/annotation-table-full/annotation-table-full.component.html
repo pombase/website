@@ -2,9 +2,10 @@
   <table>
     <thead>
       <tr>
+        <th *ngIf="showColumn['gene'] && geneInFirstColumn">Gene</th>
         <th>Term ID</th>
         <th>Term name</th>
-        <th *ngIf="showColumn['gene']">Gene</th>
+        <th *ngIf="showColumn['gene'] && !geneInFirstColumn">Gene</th>
         <th *ngIf="showColumn['genotype']">Genotype</th>
         <th *ngIf="showColumn['evidence']">Evidence</th>
         <th *ngIf="showColumn['conditions']">Conditions</th>
@@ -16,6 +17,8 @@
     </thead>
     <tbody *ngFor="let termAnnotation of annotationTable;trackBy:trackByTermId">
       <tr *ngIf="!compactFirstRows[termAnnotation.term.termid]" class="term-annotation-top">
+        <td *ngIf="geneInFirstColumn">
+        </td>
         <td [attr.rowspan]="termAnnotation.annotations.length + 1">
           <span class="rel-and-termid">
             <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
@@ -38,6 +41,9 @@
       </tr>
       <tr class="term-annotation"
           *ngFor="let annotation of termAnnotation.annotations ; let i = index">
+        <td *ngIf="showColumn['gene'] && geneInFirstColumn">
+          <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
+        </td>
         <td *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
           <span class="rel-and-termid">
@@ -56,7 +62,7 @@
             <a routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.name}}</a>
           </div>
         </td>
-        <td *ngIf="showColumn['gene']">
+        <td *ngIf="showColumn['gene'] && !geneInFirstColumn">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
         <td *ngIf="showColumn['genotype']">
