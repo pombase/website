@@ -3,7 +3,11 @@
 }
 
 .details-page-name-and-id {
-  font-size: 150%;
+  font-size: 130%;
+}
+
+.details-page-name-and-id .name {
+  font-size: 110%;
   font-weight: bold;
 }
 

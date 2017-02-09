@@ -2,8 +2,8 @@
   <app-loading-spinner *ngIf="!genotypeDetails"></app-loading-spinner>
   <div id="genotype-details" *ngIf="genotypeDetails">
     <div class="details-page-name-and-id">
-      <div *ngIf="genotypeDetails.name">
-        name: <span [innerHTML]="genotypeDetails.name"></span>
+      <div class="name" *ngIf="genotypeDetails.name">
+        <span [innerHTML]="genotypeDetails.name"></span>
       </div>
 
       <span [innerHTML]="displayNameLong()"></span>
