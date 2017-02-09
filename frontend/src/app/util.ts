@@ -16,10 +16,11 @@ export class Util {
 
   static alleleDisplayName(allele: AlleleShort): string {
     let name = allele.name || 'unnamed';
+    name = name.replace(/delta$/, '&Delta;');
     let description = allele.description || '';
     let alleleType = allele.allele_type || 'unknown';
 
-    if (alleleType == 'deletion' && name.match(/delta$/) ||
+    if (alleleType == 'deletion' && name.match(/(delta|&Delta;)$/) ||
         alleleType.match(/^wild[\s_]?type$/) && name.match(/\+$/)) {
       let normalisedDescription = description.replace(/[\s_]+/, '');
       let normalisedAlleleType = alleleType.replace(/[\s_]+/, '');
