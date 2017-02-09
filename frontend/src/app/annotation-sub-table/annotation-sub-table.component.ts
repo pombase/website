@@ -11,15 +11,18 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
+  @Input() showGeneInSummary?: boolean;
   @Input() annotationTable: Array<TermAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
   showDetails = false;
+  summaryHideColumns: Array<string> = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.summaryHideColumns = ["evidence", "reference", "extension", "conditions"].concat(this.hideColumns);
   }
 
   ngOnChanges() {

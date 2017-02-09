@@ -49,7 +49,7 @@
           </span>
         </td>
         <td>
-          <div *ngIf="annotation.extension" class="extension">
+          <div *ngIf="showColumn['extension'] && annotation.extension" class="extension">
             <app-extension-display [extension]="annotation.extension"></app-extension-display>
           </div>
           <div *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0">

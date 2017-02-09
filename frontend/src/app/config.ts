@@ -114,12 +114,12 @@ let _config: AnnotationTableConfig = {
     "PSI-MOD": {
       displayName: "Modification",
       columnsToShow: ["desc-rel", "gene",
-                      "evidence", "residue", "reference", "count", "extensions"],
+                      "evidence", "residue", "reference", "count", "extension"],
     },
     fission_yeast_phenotype: {
       displayName: "Phenotype",
       columnsToShow: ["desc-rel", "genotype",
-                      "evidence", "conditions", "reference", "count", "extensions"],
+                      "evidence", "conditions", "reference", "count", "extension"],
       splitByParents: [
         {
           termid: "FYPO:0000003",

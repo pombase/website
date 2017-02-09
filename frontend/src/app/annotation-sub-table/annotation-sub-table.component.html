@@ -14,9 +14,17 @@
     </label>
   </div>
 
-  <app-annotation-table-summary
-     *ngIf="!showDetails"
-     [annotationTable]="annotationTable"></app-annotation-table-summary>
+  <div *ngIf="!showDetails">
+    <app-annotation-table-full
+       *ngIf="showGeneInSummary"
+       [annotationTypeName]="annotationTypeName"
+       [hideColumns]="summaryHideColumns"
+       [annotationTable]="annotationTable"></app-annotation-table-full>
+
+    <app-annotation-table-summary
+       *ngIf="!showGeneInSummary"
+       [annotationTable]="annotationTable"></app-annotation-table-summary>
+  </div>
 
   <app-annotation-table-full
      *ngIf="showDetails"

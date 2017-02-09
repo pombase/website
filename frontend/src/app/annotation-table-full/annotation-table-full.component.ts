@@ -20,6 +20,7 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
   showColumn = {};
   termNameColSpan = -1;
   compactFirstRows = {};
+  showExtensions = false;
 
   constructor() { }
 
@@ -27,7 +28,7 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
     return item.term.termid;
   }
 
-  ngOnInit() {
+  init() {
     let typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
     for (let columnName of typeConfig.columnsToShow) {
@@ -45,15 +46,21 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
         this.termNameColSpan++;
       }
     }
-  }
-
-  ngOnChanges() {
     if (this.annotationTable && this.annotationTable.length > 0) {
       for (let termAnnotation of this.annotationTable) {
+        console.log(!!this.showColumn['extension']);
         this.compactFirstRows[termAnnotation.term.termid] =
+          !this.showColumn['extension'] ||
           !termAnnotation.annotations[0].extension ||
           termAnnotation.annotations[0].extension.length == 0;
       }
     }
+  }
+
+  ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.init();
   }
 }
