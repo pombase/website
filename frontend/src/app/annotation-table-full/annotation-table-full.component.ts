@@ -18,7 +18,7 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   hideColumn = {};
   showColumn = {};
-  termNameColSpan = 0;
+  termNameColSpan = -1;
   compactFirstRows = {};
 
   constructor() { }
