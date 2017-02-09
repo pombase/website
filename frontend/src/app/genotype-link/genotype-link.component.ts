@@ -11,7 +11,7 @@ export class GenotypeLinkComponent implements OnInit {
   @Input() genotype: /* GenotypeShort */ any;
 
   displayNameLong(): string {
-    return Util.displayNameLong(this.genotype);
+    return Util.displayNameLong(this.genotype).replace(/,/g, ',&#8201;');
   }
 
   constructor() { }

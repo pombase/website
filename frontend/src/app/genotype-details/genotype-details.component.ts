@@ -32,7 +32,7 @@ export class GenotypeDetailsComponent implements OnInit {
   }
 
   alleleDisplayName(allele: AlleleShort): string {
-    return Util.alleleDisplayName(allele);
+    return Util.alleleDisplayName(allele).replace(/,/g, ',&#8201;');
   }
 
   setPageTitle(): void {
