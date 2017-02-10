@@ -21,6 +21,7 @@ export class GenotypeDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
   displayAlleles: Array<any> = [];
+  displayName: string = '';
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -31,13 +32,17 @@ export class GenotypeDetailsComponent implements OnInit {
     return Util.displayNameLong(this.genotypeDetails);
   }
 
+  setDisplayName(): void {
+    this.displayName = this.displayNameLong();
+  }
+
   alleleDisplayName(allele: AlleleShort): string {
     return Util.alleleDisplayName(allele).replace(/,/g, ',&#8201;');
   }
 
   setPageTitle(): void {
     let title = this.titleService.getTitle();
-    this.titleService.setTitle(title + " - " + this.displayNameLong());
+    this.titleService.setTitle(title + " - " + this.displayName);
   }
 
   ngOnInit() {
@@ -47,6 +52,7 @@ export class GenotypeDetailsComponent implements OnInit {
         this.pombaseApiService.getGenotype(uniquename)
           .then(genotypeDetails => {
             this.genotypeDetails = genotypeDetails;
+            this.setDisplayName();
             this.annotationTypeNames = this.config.annotationTypeOrder;
             this.setPageTitle();
           });
