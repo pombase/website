@@ -2,11 +2,12 @@
   <table>
     <thead>
       <tr>
-        <th *ngIf="showColumn['gene'] && geneInFirstColumn">Gene</th>
+        <th *ngIf="showColumn['gene'] && featureInFirstColumn">Gene</th>
+        <th *ngIf="showColumn['genotype'] && featureInFirstColumn">Genotype</th>
         <th>Term ID</th>
         <th>Term name</th>
-        <th *ngIf="showColumn['gene'] && !geneInFirstColumn">Gene</th>
-        <th *ngIf="showColumn['genotype']">Genotype</th>
+        <th *ngIf="showColumn['gene'] && !featureInFirstColumn">Gene</th>
+        <th *ngIf="showColumn['genotype'] && !featureInFirstColumn">Genotype</th>
         <th *ngIf="showColumn['evidence']">Evidence</th>
         <th *ngIf="showColumn['conditions']">Conditions</th>
         <th *ngIf="showColumn['qualifiers']">Qualifiers</th>
@@ -17,7 +18,7 @@
     </thead>
     <tbody *ngFor="let termAnnotation of annotationTable;trackBy:trackByTermId">
       <tr *ngIf="!compactFirstRows[termAnnotation.term.termid]" class="term-annotation-top">
-        <td *ngIf="geneInFirstColumn">
+        <td *ngIf="featureInFirstColumn">
         </td>
         <td [attr.rowspan]="termAnnotation.annotations.length + 1">
           <span class="rel-and-termid">
@@ -41,8 +42,11 @@
       </tr>
       <tr class="term-annotation"
           *ngFor="let annotation of termAnnotation.annotations ; let i = index">
-        <td *ngIf="showColumn['gene'] && geneInFirstColumn">
+        <td *ngIf="showColumn['gene'] && featureInFirstColumn">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
+        </td>
+        <td *ngIf="showColumn['genotype'] && featureInFirstColumn">
+          <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
         </td>
         <td *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
@@ -62,10 +66,10 @@
             <a routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.name}}</a>
           </div>
         </td>
-        <td *ngIf="showColumn['gene'] && !geneInFirstColumn">
+        <td *ngIf="showColumn['gene'] && !featureInFirstColumn">
           <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
-        <td *ngIf="showColumn['genotype']">
+        <td *ngIf="showColumn['genotype'] && !featureInFirstColumn">
           <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
         </td>
         <td class="with" *ngIf="showColumn['evidence']">

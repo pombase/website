@@ -12,8 +12,8 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() tableDisplayName?: string = null;
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
-  @Input() showGeneInSummary?: boolean = false;
-  @Input() geneInFirstColumn?: boolean = false;
+  @Input() showFeatureInSummary?: boolean = false;
+  @Input() featureInFirstColumn?: boolean = false;
   @Input() annotationTable: Array<TermAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
