@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { TermShort, GeneSummary, GeneQuery, PomBaseResults,
          QueryResultHeader } from './common/pombase-query';
+import { Util } from './util';
 
 export class Metadata {
   db_creation_datetime: Date;
@@ -43,6 +44,7 @@ export interface AlleleShort {
 export interface GenotypeShort {
   uniquename: string;
   name: string;
+  displayNameLong?: string;
   background: string;
   expressed_alleles: Array<ExpressedAllele>;
 }
@@ -248,6 +250,7 @@ export class PombaseAPIService {
               expressed_allele.allele.gene =
                 genesByUniquename[expressed_allele.allele.gene_uniquename];
             });
+            annotation.genotype.displayNameLong = Util.displayNameLong(annotation.genotype);
           }
         }
       }

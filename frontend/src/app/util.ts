@@ -1,8 +1,8 @@
-import { GenotypeDetails, AlleleShort } from './pombase-api.service';
+import { GenotypeDetails, GenotypeShort, AlleleShort } from './pombase-api.service';
 
 export class Util {
 
-  static displayNameLong(genotypeDetails: GenotypeDetails): string {
+  static displayNameLong(genotypeDetails: GenotypeDetails|GenotypeShort): string {
     if (genotypeDetails) {
       return genotypeDetails.expressed_alleles
         .map((expressedAllele) => {
