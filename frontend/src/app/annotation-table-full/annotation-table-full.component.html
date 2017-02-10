@@ -43,7 +43,7 @@
       <tr class="term-annotation"
           *ngFor="let annotation of termAnnotation.annotations ; let i = index">
         <td *ngIf="showColumn['gene'] && featureInFirstColumn">
-          <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
+          <app-gene-link *ngIf="annotation.gene" [long]="false" [gene]="annotation.gene"></app-gene-link>
         </td>
         <td *ngIf="showColumn['genotype'] && featureInFirstColumn">
           <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
