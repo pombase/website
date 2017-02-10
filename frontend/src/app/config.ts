@@ -46,7 +46,7 @@ export interface AnnotationTableConfig {
 }
 
 let goColumnsToShow =
-  ["desc-rel", "gene", "evidence", "reference", "count", "extension"];
+  ["desc-rel", "gene", "evidence", "qualifiers", "reference", "count", "extension"];
 let defaultColumnsToShow =
   ["desc-rel", "gene", "evidence", "qualifiers", "reference", "count", "extension"];
 let defaultInteractionToShow =
