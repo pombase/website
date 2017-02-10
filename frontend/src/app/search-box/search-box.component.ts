@@ -35,22 +35,31 @@ export class SearchBoxComponent implements OnInit {
             });
           }
         });
+        this.geneSummaries.sort(function (a, b) {
+          if (a.name) {
+            if (b.name) {
+              return a.name.localeCompare(b.name);
+            } else {
+              return -1
+            }
+          } else {
+            if (b.name) {
+              return 1
+            } else {
+              return a.uniquename.localeCompare(b.uniquename);
+            }
+          }
+        });
+        let uniquenameSummaries = [];
         summaries.forEach((data) => {
-          this.geneSummaries.push({
+          uniquenameSummaries.push({
             searchData: data.uniquename,
             uniquename: data.uniquename,
             name: data.name
           });
         });
-        this.geneSummaries.sort(function (a, b) {
-          if ((a.name || a.uniquename) < (b.name || b.uniquename)) {
-            return -1;
-          }
-          if ((a.name || a.uniquename) > (b.name || b.uniquename)) {
-            return 1;
-          }
-          return 0;
-        });
+
+        this.geneSummaries = this.geneSummaries.concat(uniquenameSummaries);
       });
   }
 
