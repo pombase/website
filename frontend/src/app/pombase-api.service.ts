@@ -254,6 +254,30 @@ export class PombaseAPIService {
           }
         }
       }
+
+      termAnnotation.annotations.sort((a: Annotation, b: Annotation) => {
+        if (a.genotype && b.genotype) {
+          return a.genotype.displayNameLong.localeCompare(b.genotype.displayNameLong);
+        } else {
+          if (a.gene && b.gene) {
+            if (a.gene.name) {
+              if (b.gene.name) {
+                return a.gene.name.localeCompare(b.gene.name);
+              } else {
+                return -1;
+              }
+            } else {
+              if (b.gene.name) {
+                return 1;
+              } else {
+                return a.gene.uniquename.localeCompare(b.gene.uniquename);
+              }
+            }
+          } else {
+            return 0;
+          }
+        }
+      })
     }
   }
 
