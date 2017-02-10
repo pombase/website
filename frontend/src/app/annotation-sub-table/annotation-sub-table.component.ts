@@ -23,7 +23,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
-    this.summaryHideColumns = ["evidence", "reference", "extension", "conditions"].concat(this.hideColumns);
+    this.summaryHideColumns = ["evidence", "reference", "extension",
+                               "qualifiers", "conditions"].concat(this.hideColumns);
   }
 
   ngOnChanges() {
