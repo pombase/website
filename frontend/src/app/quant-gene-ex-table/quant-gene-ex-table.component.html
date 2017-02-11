@@ -3,16 +3,27 @@
     Quantitative gene expression
   </legend>
 
+  <div class="table-control">
+    <input [attr.id]="'qualitative-details-toggle'"
+           type="checkbox"
+           name="details-toggle" ngDefaultControl
+           [(ngModel)]="showDetails"
+           btnCheckbox />
+    <label [attr.for]="'qualitative-details-toggle'">
+      <span class="label-content">Show details</span>
+    </label>
+  </div>
+
   <table>
     <thead>
       <tr>
         <th>Description</th>
         <th>Molecules/cell (avg.)</th>
         <th>Extension</th>
-        <th>Condition</th>
-        <th>Scale</th>
-        <th>Evidence</th>
-        <th>Reference</th>
+        <th *ngIf="showDetails">Condition</th>
+        <th *ngIf="showDetails">Scale</th>
+        <th *ngIf="showDetails">Evidence</th>
+        <th *ngIf="showDetails">Reference</th>
       </tr>
     </thead>
     <tbody *ngFor="let termAnnotation of annotationTable ; trackBy:trackByTermId">
@@ -25,7 +36,7 @@
                                       *ngIf="annotation.extension"
                                       [extension]="annotation.extension"></app-extension-display>
         </td>
-        <td>
+        <td *ngIf="showDetails">
           <div class="conditions">
             <div *ngFor="let condition of annotation.conditions ; let i = index">
               <a routerLink="/term/{{condition.termid}}"
@@ -33,13 +44,13 @@
             </div>
           </div>
         </td>
-        <td>
+        <td *ngIf="showDetails">
           <span *ngIf="annotation.gene_ex_props">{{annotation.gene_ex_props.scale}}</span>
         </td>
-        <td>
+        <td *ngIf="showDetails">
           <app-evidence-link *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
         </td>
-        <td>
+        <td *ngIf="showDetails">
           <app-reference-short *ngIf="annotation.reference"
                                [reference]="annotation.reference"></app-reference-short>
         </td>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { TermAnnotation } from '../pombase-api.service';
 
@@ -7,8 +7,10 @@ import { TermAnnotation } from '../pombase-api.service';
   templateUrl: './qual-gene-ex-table.component.html',
   styleUrls: ['./qual-gene-ex-table.component.css']
 })
-export class QualGeneExTableComponent implements OnInit {
+export class QualGeneExTableComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
+
+  showDetails = false;
 
   trackByTermId(index: number, item: any) {
     return item.term.termid;
@@ -17,5 +19,9 @@ export class QualGeneExTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.showDetails = false;
   }
 }
