@@ -16,6 +16,7 @@ export class GeneDetailsComponent implements OnInit {
   @Input() geneDetails: GeneDetails;
 
   synonymsDisplay: string = "";
+  displayFeatureType: string = "";
   displayLocation: string = "";
   shortChromosomeName: string = "";
   annotationTypeNames: Array<string> = [];
@@ -60,6 +61,10 @@ export class GeneDetailsComponent implements OnInit {
     return ret;
   }
 
+  makeDisplayFeatureType(rawFeatureType: string): string {
+    return rawFeatureType.replace(/^mRNA\s+/, '');
+  }
+
   makeSynonymsDisplay(synonyms: Array<SynonymDetails>): string {
     return synonyms.map((synonym) => {
       if (synonym.type == 'exact') {
@@ -100,6 +105,7 @@ export class GeneDetailsComponent implements OnInit {
             this.geneDetails = geneDetails;
             this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
             this.displayLocation = this.makeDisplayLocation(geneDetails.location);
+            this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
             this.annotationTypeNames = this.config.annotationTypeOrder;
             this.setPageTitle();
           });
