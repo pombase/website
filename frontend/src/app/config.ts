@@ -57,7 +57,8 @@ let _config: AnnotationTableConfig = {
     "molecular_function",
     "biological_process",
     "cellular_component",
-    "fission_yeast_phenotype",
+    "single_allele_phenotype",
+    "multi_allele_phenotype",
     "complementation",
     "target_of",
     "PomBase family or domain",
@@ -116,8 +117,23 @@ let _config: AnnotationTableConfig = {
       columnsToShow: ["desc-rel", "gene",
                       "evidence", "residue", "reference", "count", "extension"],
     },
-    fission_yeast_phenotype: {
-      displayName: "Phenotype",
+    single_allele_phenotype: {
+      displayName: "Single allele phenotype",
+      columnsToShow: ["desc-rel", "genotype",
+                      "evidence", "conditions", "reference", "count", "extension"],
+      splitByParents: [
+        {
+          termid: "FYPO:0000003",
+          displayName: "Population phenotype",
+        },
+        {
+          termid: "FYPO:0000002",
+          displayName: "Cell phenotype",
+        },
+      ],
+    },
+    multi_allele_phenotype: {
+      displayName: "Multi allele phenotype",
       columnsToShow: ["desc-rel", "genotype",
                       "evidence", "conditions", "reference", "count", "extension"],
       splitByParents: [
