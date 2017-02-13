@@ -5,6 +5,7 @@
 .details-page-name-and-id {
   font-weight: bold;
   font-size: 130%;
+  margin-bottom: 30px;
 }
 
 .details-page-name-and-id .name {
