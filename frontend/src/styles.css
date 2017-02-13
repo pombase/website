@@ -3,12 +3,12 @@
 }
 
 .details-page-name-and-id {
+  font-weight: bold;
   font-size: 130%;
 }
 
 .details-page-name-and-id .name {
   font-size: 110%;
-  font-weight: bold;
 }
 
 .details-page-summary {
