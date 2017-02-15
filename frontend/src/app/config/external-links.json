@@ -15,6 +15,7 @@
    "UniPathway" : "http://www.grenoble.prabi.fr/obiwarehouse/unipathway/upa?upid=[example_id]",
    "UniProtKB" : "http://www.uniprot.org/uniprot/[example_id]",
    "UniProtKB-KW" : "http://www.uniprot.org/keywords/[example_id]",
+   "UniProtKB-SubCell" : "http://www.uniprot.org/locations/[example_id]",
    "WB" : "http://www.wormbase.org/db/gene/gene?name=[example_id]",
    "dictyBase" : "http://dictybase.org/gene/[example_id]"
 }
