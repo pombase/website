@@ -2,6 +2,7 @@
    "AGI_LocusCode" : "http://arabidopsis.org/servlets/TairObject?type=locus&name=[example_id]",
    "EC" : "http://www.expasy.org/enzyme/[example_id]",
    "ECOGENE" : "http://www.ecogene.org/geneInfo.php?eg_id=[example_id]",
+   "ENSEMBL" : "http://www.ensembl.org/id/[example_id]",
    "FB" : "http://flybase.org/reports/[example_id].html",
    "InterPro" : "http://www.ebi.ac.uk/interpro/entry/[example_id]",
    "MGI" : "http://www.informatics.jax.org/accession/[example_id]",

@@ -341,7 +341,7 @@ export function getExternalLink(idWithPrefix: string): string {
 }
 
 let organismPrefix = {
-  "Homo_sapiens": "Ensembl",
+  "Homo_sapiens": "ENSEMBL",
   "Saccharomyces_cerevisiae": "SGD",
 };
 
