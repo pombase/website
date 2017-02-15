@@ -320,11 +320,21 @@ export function getAppConfig(): AppConfig {
   return _appConfig;
 }
 
-export function getExternalLink(abbreviation: string, id: string): string {
-  let linkTemplate = externalLinksConfig[abbreviation];
+export function getExternalLinkWithPrefix(prefix: string, id: string): string {
+  let linkTemplate = externalLinksConfig[prefix];
 
   if (linkTemplate) {
     return linkTemplate.replace(/\[example_id\]/, id);
+  } else {
+    return null;
+  }
+}
+
+export function getExternalLink(idWithPrefix: string): string {
+  let matches = idWithPrefix.match(/^([^:]+):(.*)/);
+  
+  if (matches) {
+    return getExternalLinkWithPrefix(matches[1], matches[2]);
   } else {
     return null;
   }

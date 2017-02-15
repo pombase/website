@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { ExtPart } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, LinkoutConfig, getExternalLink } from '../config';
+         getAppConfig, LinkoutConfig, getExternalLink,
+         getExternalLinkWithPrefix } from '../config';
 
 @Component({
   selector: 'app-extension-display',
@@ -18,18 +19,12 @@ export class ExtensionDisplayComponent implements OnInit {
 
   constructor() { }
 
-  getLinkWithPrefix(abbreviation: string, id: string): string {
-    return getExternalLink(abbreviation, id);
+  getLinkWithPrefix(prefix: string, id: string): string {
+    return getExternalLinkWithPrefix(prefix, id);
   }
 
   getLink(idWithPrefix: string): string {
-    let matches = idWithPrefix.match(/^([^:]+):(.*)/);
-
-    if (matches) {
-      return getExternalLink(matches[1], matches[2]);
-    } else {
-      return '';
-    }
+    return getExternalLink(idWithPrefix);
   }
 
   ngOnInit() {
