@@ -339,3 +339,13 @@ export function getExternalLink(idWithPrefix: string): string {
     return null;
   }
 }
+
+let organismPrefix = {
+  "Homo_sapiens": "Ensembl",
+  "Saccharomyces_cerevisiae": "SGD",
+};
+
+export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, id: string)
+  : string {
+    return getExternalLinkWithPrefix(organismPrefix[organismGenus + "_" + organismSpecies], id);
+}

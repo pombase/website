@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { OrthologAnnotation } from '../pombase-api.service';
 
-import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig,
+         getOrganismExternalLink } from '../config';
 
 @Component({
   selector: 'app-ortholog-annotation-table',
@@ -14,8 +15,11 @@ export class OrthologAnnotationTableComponent implements OnInit {
   @Input() annotationTable: Array<OrthologAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
-
   annotationTypeDisplayName = null;
+
+  getLink(organism: any, uniquename: string): string {
+    return getOrganismExternalLink(organism.genus, organism.species, uniquename);
+  }
 
   constructor() { }
 
