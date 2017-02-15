@@ -16,11 +16,11 @@
       </span>
 
       <span *ngIf="range.gene_product">
-        <a [attr.href]="linkoutConfig['pro'] + range.gene_product">{{range.gene_product}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
+        <a [attr.href]="range.gene_product.link">{{range.gene_product.id}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
       </span>
 
       <span *ngIf="range.domain">
-        <a [attr.href]="linkoutConfig['pfam'] + accessionOfID(range.domain)">{{range.domain}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
+        <a [attr.href]="range.domain.link">{{range.domain.id}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
       </span>
     </span>
   </span>

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { ExtPart } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, LinkoutConfig } from '../config';
+         getAppConfig, LinkoutConfig, getExternalLink } from '../config';
 
 @Component({
   selector: 'app-extension-display',
@@ -18,13 +18,17 @@ export class ExtensionDisplayComponent implements OnInit {
 
   constructor() { }
 
-  accessionOfID(identifier) {
-    let matches = identifier.match(/^([^:]+):(.*)/);
+  getLinkWithPrefix(abbreviation: string, id: string): string {
+    return getExternalLink(abbreviation, id);
+  }
+
+  getLink(idWithPrefix: string): string {
+    let matches = idWithPrefix.match(/^([^:]+):(.*)/);
 
     if (matches) {
-      return matches[2];
+      return getExternalLink(matches[1], matches[2]);
     } else {
-      return identifier;
+      return '';
     }
   }
 
@@ -32,9 +36,7 @@ export class ExtensionDisplayComponent implements OnInit {
     this.linkoutConfig = getAppConfig().linkoutConfig;
 
     let extensionCopy: Array<ExtPart> = this.extension.slice();
-
     let sortedExtension: Array<ExtPart> = [];
-
     let extensionConfig = this.config.extensions;
 
     for (let confExtGroup of extensionConfig.extensionOrder) {
@@ -64,6 +66,24 @@ export class ExtensionDisplayComponent implements OnInit {
         } else {
           newRange = [ext.ext_range];
         }
+
+        newRange.map(rangePart => {
+          if (rangePart.gene_product) {
+            let id = rangePart.gene_product;
+            rangePart.gene_product = {
+              id: id,
+              link: this.getLink(id),
+            }
+          } else {
+            if (rangePart.domain) {
+              let id = rangePart.domain;
+              rangePart.domain = {
+                id: id,
+                link: this.getLink(id),
+              }
+            }
+          }
+        });
 
         return {
           relTypeName: ext.rel_type_display_name || ext.rel_type_name,

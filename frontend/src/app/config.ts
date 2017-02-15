@@ -1,3 +1,5 @@
+import externalLinksConfig from './config/external-links.json';
+
 export interface LinkoutConfig {
   [name: string]: string;
 }
@@ -316,4 +318,14 @@ export function getAnnotationTableConfig(): AnnotationTableConfig {
 
 export function getAppConfig(): AppConfig {
   return _appConfig;
+}
+
+export function getExternalLink(abbreviation: string, id: string): string {
+  let linkTemplate = externalLinksConfig[abbreviation];
+
+  if (linkTemplate) {
+    return linkTemplate.replace(/\[example_id\]/, id);
+  } else {
+    return null;
+  }
 }
