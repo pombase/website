@@ -27,6 +27,6 @@ while (<$fh>) {
   }
 }
 
-print to_json( \%result, { pretty => 1 } );
+print to_json( \%result, { canonical => 1, pretty => 1 } );
 
 print "\n";
