@@ -62,20 +62,26 @@ export class ExtensionDisplayComponent implements OnInit {
           newRange = [ext.ext_range];
         }
 
-        newRange.map(rangePart => {
+        newRange = newRange.map(rangePart => {
           if (rangePart.gene_product) {
             let id = rangePart.gene_product;
-            rangePart.gene_product = {
-              id: id,
-              link: this.getLink(id),
+            return {
+              gene_product: {
+                id: id,
+                link: this.getLink(id),
+              }
             }
           } else {
             if (rangePart.domain) {
               let id = rangePart.domain;
-              rangePart.domain = {
-                id: id,
-                link: this.getLink(id),
+              return {
+                domain: {
+                  id: id,
+                  link: this.getLink(id),
+                }
               }
+            } else {
+              return rangePart;
             }
           }
         });
