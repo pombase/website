@@ -42,6 +42,7 @@ import { QuantGeneExTableComponent } from './quant-gene-ex-table/quant-gene-ex-t
 import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-table.component';
 import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
+import { ScrollTo } from 'ng2-scroll-to';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { GenotypeDetailsComponent } from './genotype-details/genotype-details.co
     AppRoutingModule,
     TypeaheadModule,
     PaginationModule,
+    ScrollTo,
   ],
   providers: [PombaseAPIService],
   bootstrap: [AppComponent]
