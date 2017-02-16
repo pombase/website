@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { PombaseAPIService } from '../pombase-api.service';
-import { TypeaheadMatch } from 'ng2-bootstrap/components/typeahead/typeahead-match.class';
+import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
 import { Http, URLSearchParams, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import "rxjs/add/operator/debounceTime";
