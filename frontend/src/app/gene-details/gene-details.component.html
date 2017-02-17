@@ -88,20 +88,26 @@
       </div>
 
       <app-interaction-annotation-table *ngIf="annotationTypeName == 'physical_interactions'"
+                                        id="{{annotationTypeName}}"
                                       [annotationTypeName]="annotationTypeName"
                                       [annotationTable]="geneDetails.physical_interactions"></app-interaction-annotation-table>
       <app-interaction-annotation-table *ngIf="annotationTypeName == 'genetic_interactions'"
+                                        id="{{annotationTypeName}}"
                                       [annotationTypeName]="annotationTypeName"
                                       [annotationTable]="geneDetails.genetic_interactions"></app-interaction-annotation-table>
 
       <app-ortholog-annotation-table *ngIf="annotationTypeName == 'orthologs'"
+                                     id="{{annotationTypeName}}"
                                      [annotationTable]="geneDetails.ortholog_annotations"></app-ortholog-annotation-table>
       <app-paralog-annotation-table *ngIf="annotationTypeName == 'paralogs'"
+                                    id="{{annotationTypeName}}"
                                     [annotationTable]="geneDetails.paralog_annotations"></app-paralog-annotation-table>
       <app-target-of-annotation-table *ngIf="annotationTypeName == 'target_of'"
+                                      id="{{annotationTypeName}}"
                                       [annotationTable]="geneDetails.target_of_annotations"></app-target-of-annotation-table>
     </div>
 
-    <app-gene-references-table [references]="geneDetails.references"></app-gene-references-table>
+    <app-gene-references-table id="literature"
+                               [references]="geneDetails.references"></app-gene-references-table>
   </div>
 </div>
