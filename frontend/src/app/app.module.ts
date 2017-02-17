@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
-import { TypeaheadModule } from 'ng2-bootstrap/ng2-bootstrap';
-import { PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { TypeaheadModule, PaginationModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
@@ -42,7 +41,6 @@ import { QuantGeneExTableComponent } from './quant-gene-ex-table/quant-gene-ex-t
 import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-table.component';
 import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
-import { ScrollTo } from 'ng2-scroll-to';
 
 @NgModule({
   declarations: [
@@ -86,9 +84,8 @@ import { ScrollTo } from 'ng2-scroll-to';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    TypeaheadModule,
-    PaginationModule,
-    ScrollTo,
+    TypeaheadModule.forRoot(),
+    PaginationModule.forRoot(),
   ],
   providers: [PombaseAPIService],
   bootstrap: [AppComponent]
