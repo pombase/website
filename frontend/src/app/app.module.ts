@@ -96,6 +96,6 @@ import { GenePageMenuComponent } from './gene-page-menu/gene-page-menu.component
 })
 export class AppModule {
   constructor() {
-    PageScrollConfig.defaultDuration = 300;
+    PageScrollConfig.defaultDuration = 200;
   }
 }
