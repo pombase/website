@@ -73,7 +73,6 @@ let _config: AnnotationTableConfig = {
     "orthologs",
     "paralogs",
     "species_dist",
-    "taxonomic_conservation",
     "disease_associated",
     "warning",
     "subunit_composition",
@@ -163,6 +162,9 @@ let _config: AnnotationTableConfig = {
       displayName: "Complementation",
       columnsToShow: defaultColumnsToShow,
     },
+    target_of: {
+      displayName: "Target of",
+    },
     genetic_interactions: {
       displayName: "Genetic interaction",
       columnsToShow: defaultInteractionToShow,
@@ -190,6 +192,9 @@ let _config: AnnotationTableConfig = {
     sequence: {
       displayName: "Sequence",
       columnsToShow: defaultColumnsToShow,
+    },
+    warning: {
+      displayName: "Warnings",
     },
     _DEFAULT_: {
       displayName: null,

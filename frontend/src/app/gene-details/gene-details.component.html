@@ -1,5 +1,10 @@
 <div>
   <app-loading-spinner *ngIf="!geneDetails"></app-loading-spinner>
+
+  <div id="gene-details-menu">
+    <app-gene-page-menu *ngIf="geneDetails" [geneDetails]="geneDetails"></app-gene-page-menu>
+  </div>
+
   <div id="gene-details" *ngIf="geneDetails">
     <div class="details-page-name-and-id">
     <span *ngIf="!appConfig.isConfigOrganism(geneDetails.organism.genus, geneDetails.organism.species)">
@@ -69,7 +74,7 @@
 
     <div *ngFor="let annotationTypeName of annotationTypeNames">
 
-      <div *ngIf="geneDetails.cv_annotations[annotationTypeName]">
+      <div id="{{annotationTypeName}}" *ngIf="geneDetails.cv_annotations[annotationTypeName]">
         <app-qual-gene-ex-table *ngIf="annotationTypeName == 'qualitative_gene_expression'"
                                  [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-qual-gene-ex-table>
 
