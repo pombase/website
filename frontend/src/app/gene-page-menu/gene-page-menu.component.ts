@@ -25,7 +25,7 @@ export class GenePageMenuComponent implements OnInit, OnChanges {
     this.window.scrollTo(0,0);
   }
 
-  constructor(@Inject('Window') private window: Window) { }
+  constructor(@Inject('Window') private window: any) { }
 
   ngOnInit() {
   }

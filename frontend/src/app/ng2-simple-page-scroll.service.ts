@@ -21,7 +21,6 @@
 // SOFTWARE.
 
 import {Injectable, Inject} from '@angular/core';
-import {DOCUMENT} from '@angular/platform-browser';
 import {SimplePageScrollConfig} from './ng2-simple-page-scroll-config';
 
 export declare type TargetElement = HTMLElement | string;
@@ -29,10 +28,10 @@ export declare type TargetElement = HTMLElement | string;
 @Injectable()
 export class SimplePageScrollService {
 
-    private document: Document;
+    private document: any;
     private body: HTMLBodyElement;
 
-    public constructor(@Inject(DOCUMENT) document: Document) {
+    public constructor(@Inject('Document') document: any) {
         this.document = document;
         this.body = <HTMLBodyElement>document.body;
     }

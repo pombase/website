@@ -45,6 +45,13 @@ import { Ng2SimplePageScrollModule } from './ng2-simple-page-scroll.module';
 import { SimplePageScrollConfig } from './ng2-simple-page-scroll-config';
 import { GenePageMenuComponent } from './gene-page-menu/gene-page-menu.component';
 
+export function documentFactory() {
+    return document;
+}
+export function windowFactory() {
+    return window;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +100,10 @@ import { GenePageMenuComponent } from './gene-page-menu/gene-page-menu.component
     Ng2SimplePageScrollModule.forRoot()
   ],
   providers: [PombaseAPIService,
-              { provide: 'Window', useValue: window }],
+              { provide: 'Window', useValue: window },
+              { provide: 'Document', useFactory: documentFactory },
+              { provide: 'Window', useFactory: windowFactory },
+             ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
