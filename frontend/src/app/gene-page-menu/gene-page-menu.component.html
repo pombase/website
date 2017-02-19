@@ -1,9 +1,6 @@
 <div id="gene-page-menu">
   <div class="menu-item menu-header">
-    {{geneDetails.name || geneDetails.uniquename}}
-  </div>
-  <div class="menu-item">
-    <a (click)="scrollToPageTop()">Summary</a>
+    <a (click)="scrollToPageTop()"><b>{{geneDetails.name || geneDetails.uniquename}}</b> Summary</a>
   </div>
   <div class="menu-item"
        *ngFor="let menuItem of menuItems">

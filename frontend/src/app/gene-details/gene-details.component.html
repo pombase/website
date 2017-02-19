@@ -1,7 +1,7 @@
 <div>
   <app-loading-spinner *ngIf="!geneDetails"></app-loading-spinner>
-
-  <div id="gene-details-menu">
+  <div id="gene-details-menu"
+       [ngClass]="{'menu-pos-fixed': menuPositionFixed, 'menu-pos-absolute': !menuPositionFixed}">
     <app-gene-page-menu *ngIf="geneDetails" [geneDetails]="geneDetails"></app-gene-page-menu>
   </div>
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges,
-         Inject } from '@angular/core';
+         Inject, HostListener } from '@angular/core';
 
 import { GeneDetails } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig} from '../config';

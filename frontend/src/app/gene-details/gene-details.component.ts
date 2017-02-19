@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,
+         Inject, HostListener } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -23,10 +24,23 @@ export class GeneDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
 
+  menuPositionFixed = false;
+
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
-              private titleService: Title
+              private titleService: Title,
+              @Inject('Window') private window: any
              ) { }
+
+  @HostListener('window:scroll', ['$event'])
+  doSomething(event) {
+    console.log(document.body.scrollTop);
+    if (document.body.scrollTop > 115) {
+      this.menuPositionFixed = true;
+    } else {
+      this.menuPositionFixed = false;
+    }
+  }
 
   makeDisplayLocation(location: ChromosomeLocation): string {
     let chromosome_name = location.chromosome_name;

@@ -5,10 +5,17 @@
   width: auto;
 }
 #gene-details-menu {
-  position: fixed;
   width: 150px;
-  top: 150px;
   left: 10px;
+}
+
+.menu-pos-fixed {
+  position: fixed;
+  top: 10px;
+}
+.menu-pos-absolute {
+  position: absolute;
+  top: 130px;
 }
 
 #gene-summary {
