@@ -2,11 +2,14 @@
   <div class="menu-item menu-header">
     {{geneDetails.name || geneDetails.uniquename}}
   </div>
+  <div class="menu-item">
+    <a (click)="scrollToPageTop()">Summary</a>
+  </div>
   <div class="menu-item"
        *ngFor="let menuItem of menuItems">
-    <a pageScroll href="#{{menuItem.id}}">{{menuItem.displayName}}</a>
+    <a simplePageScroll href="#{{menuItem.id}}">{{menuItem.displayName}}</a>
   </div>
   <div class="menu-item">
-    <a pageScroll href="#literature">Literature</a>
+    <a simplePageScroll href="#literature">Literature</a>
   </div>
 </div>

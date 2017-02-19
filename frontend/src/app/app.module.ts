@@ -41,7 +41,8 @@ import { QuantGeneExTableComponent } from './quant-gene-ex-table/quant-gene-ex-t
 import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-table.component';
 import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
-import { Ng2PageScrollModule, PageScrollConfig } from 'ng2-page-scroll';
+import { Ng2SimplePageScrollModule } from './ng2-simple-page-scroll.module';
+import { SimplePageScrollConfig } from './ng2-simple-page-scroll-config';
 import { GenePageMenuComponent } from './gene-page-menu/gene-page-menu.component';
 
 @NgModule({
@@ -89,13 +90,14 @@ import { GenePageMenuComponent } from './gene-page-menu/gene-page-menu.component
     AppRoutingModule,
     TypeaheadModule.forRoot(),
     PaginationModule.forRoot(),
-    Ng2PageScrollModule.forRoot()
+    Ng2SimplePageScrollModule.forRoot()
   ],
-  providers: [PombaseAPIService],
+  providers: [PombaseAPIService,
+              { provide: 'Window', useValue: window }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor() {
-    PageScrollConfig.defaultDuration = 200;
+    SimplePageScrollConfig.defaultScrollOffset = 115;
   }
 }

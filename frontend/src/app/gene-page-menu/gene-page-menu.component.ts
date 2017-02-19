@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges,
+         Inject } from '@angular/core';
 
 import { GeneDetails } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig} from '../config';
@@ -20,7 +21,11 @@ export class GenePageMenuComponent implements OnInit, OnChanges {
   menuItems: Array<MenuItem> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
-  constructor() { }
+  scrollToPageTop(): void {
+    this.window.scrollTo(0,0);
+  }
+
+  constructor(@Inject('Window') private window: Window) { }
 
   ngOnInit() {
   }
