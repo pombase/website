@@ -149,7 +149,8 @@ export class GeneDetails {
   cds_location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;
-  interaction_annotations: InteractionAnnotations;
+  physical_interactions: Array<InteractionAnnotation>;
+  genetic_interactions: Array<InteractionAnnotation>;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
   target_of_annotations: Array<TargetOfAnnotation>;
