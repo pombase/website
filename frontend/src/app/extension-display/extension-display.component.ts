@@ -27,10 +27,6 @@ export class ExtensionDisplayComponent implements OnInit {
     return getExternalLink(idWithPrefix);
   }
 
-  displayIdOf(idWithPrefix: string): string {
-    return idWithPrefix.replace(/.*:/, '');
-  }
-
   ngOnInit() {
     this.linkoutConfig = getAppConfig().linkoutConfig;
 
