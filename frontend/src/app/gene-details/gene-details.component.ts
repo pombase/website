@@ -34,9 +34,12 @@ export class GeneDetailsComponent implements OnInit {
              ) { }
 
   @HostListener('window:scroll', ['$event'])
-  doSomething(event) {
-    console.log(document.body.scrollTop);
-    if (document.body.scrollTop > 115) {
+  scrollEvent(event) {
+    // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
+    let scrollingElement = document.scrollingElement || document.documentElement;
+
+    console.log(scrollingElement.scrollTop);
+    if (scrollingElement.scrollTop > 115) {
       this.menuPositionFixed = true;
     } else {
       this.menuPositionFixed = false;
