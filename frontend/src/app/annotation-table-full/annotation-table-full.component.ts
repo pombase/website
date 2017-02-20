@@ -29,6 +29,18 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
     return item.term.termid;
   }
 
+  hasQualifiers(): boolean {
+    for (let termAnnotation of this.annotationTable) {
+      for (let annotation of termAnnotation.annotations) {
+        if (annotation['qualifiers'] && annotation['qualifiers'].length > 0) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
   init() {
     let typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
@@ -40,6 +52,10 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
       for (let columnName of this.hideColumns) {
         this.showColumn[columnName] = false;
       }
+    }
+
+    if (!this.hasQualifiers()) {
+      this.showColumn['qualifiers'] = false;
     }
 
     for (let columnName of Object.keys(this.showColumn)) {
