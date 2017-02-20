@@ -17,6 +17,10 @@ export class WithOrFromLinkComponent implements OnInit {
 
   constructor() { }
 
+  displayIdOf(idWithPrefix: string): string {
+    return idWithPrefix.replace(/.*:/, '');
+  }
+
   ngOnInit() {
     this.gene = this.withOrFrom.gene;
     this.term = this.withOrFrom.term;

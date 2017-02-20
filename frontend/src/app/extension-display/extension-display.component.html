@@ -16,11 +16,13 @@
       </span>
 
       <span *ngIf="range.gene_product">
-        <a [attr.href]="range.gene_product.link">{{range.gene_product.id}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
+        <a title="{{range.gene_product.id}}"
+           [attr.href]="range.gene_product.link">{{displayIdOf(range.gene_product.id)}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
       </span>
 
       <span *ngIf="range.domain">
-        <a [attr.href]="range.domain.link">{{range.domain.id}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
+        <a title="{{range.domain.id}}"
+           [attr.href]="range.domain.link">{{displayIdOf(range.domain.id)}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
       </span>
     </span>
   </span>
