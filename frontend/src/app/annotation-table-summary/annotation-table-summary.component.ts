@@ -51,11 +51,7 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
 
   containsExtension(compactExtensions: Array<any>, ext: any): boolean {
     for (let compactExt of compactExtensions) {
-      console.log("checking "  +this.extensionAsString(compactExt) + " vs ");
-      console.log(this.extensionAsString(ext));
-
       if (this.extensionAsString(compactExt) == this.extensionAsString(ext)) {
-        console.log("TRUE");
         return true;
       }
     }

@@ -38,7 +38,6 @@ export class GeneDetailsComponent implements OnInit {
     // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
     let scrollingElement = document.scrollingElement || document.documentElement;
 
-    console.log(scrollingElement.scrollTop);
     if (scrollingElement.scrollTop > 115) {
       this.menuPositionFixed = true;
     } else {
