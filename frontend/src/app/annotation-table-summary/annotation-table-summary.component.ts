@@ -44,20 +44,41 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
     return false;
   }
 
+  extensionAsString(ext: any): string {
+    // a dirty hack:
+    return JSON.stringify(ext);
+  }
+
+  containsExtension(compactExtensions: Array<any>, ext: any): boolean {
+    for (let compactExt of compactExtensions) {
+      console.log("checking "  +this.extensionAsString(compactExt) + " vs ");
+      console.log(this.extensionAsString(ext));
+
+      if (this.extensionAsString(compactExt) == this.extensionAsString(ext)) {
+        console.log("TRUE");
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   compactExtensions(extensions: Array<any>) {
     let compacted = [];
     for (let ext of extensions) {
       if (ext.length > 1) {
-        compacted.push(ext.map(part =>
-                               {
-                                 return {
-                                   rel_type_name: part.rel_type_name,
-                                   rel_type_display_name: part.rel_type_display_name,
-                                   ext_range: [part.ext_range]
-                                 };
-                               }
-                              )
-                      );
+        let tidyExt = ext.map(part =>
+                              {
+                                return {
+                                  rel_type_name: part.rel_type_name,
+                                  rel_type_display_name: part.rel_type_display_name,
+                                  ext_range: [part.ext_range]
+                                };
+                                 }
+                             );
+        if (!this.containsExtension(compacted, tidyExt)) {
+          compacted.push(tidyExt);
+        }
       } else {
         let updateExt = null;
         for (let existing of compacted) {
