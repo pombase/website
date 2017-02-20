@@ -162,6 +162,10 @@ let _config: AnnotationTableConfig = {
       displayName: "Complementation",
       columnsToShow: defaultColumnsToShow,
     },
+    "PomBase family or domain": {
+      displayName: "Protein features",
+      columnsToShow: defaultColumnsToShow,
+    },
     target_of: {
       displayName: "Target of",
     },
