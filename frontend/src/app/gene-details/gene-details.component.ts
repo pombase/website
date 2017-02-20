@@ -21,6 +21,7 @@ export class GeneDetailsComponent implements OnInit {
   displayLocation: string = "";
   shortChromosomeName: string = "";
   annotationTypeNames: Array<string> = [];
+  visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
 
@@ -110,6 +111,52 @@ export class GeneDetailsComponent implements OnInit {
     this.titleService.setTitle(title + " - " + this.displayNameLong());
   }
 
+  setVisibleSections(): void {
+    this.visibleSections = [];
+
+    for (let annotationTypeName of this.annotationTypeNames) {
+      if (this.geneDetails.cv_annotations[annotationTypeName] &&
+          this.geneDetails.cv_annotations[annotationTypeName].length > 0) {
+        this.visibleSections.push(annotationTypeName);
+      }
+
+      if (annotationTypeName == 'physical_interactions') {
+        if (this.geneDetails.physical_interactions &&
+            this.geneDetails.physical_interactions.length > 0) {
+          this.visibleSections.push(annotationTypeName);
+        }
+      }
+
+      if (annotationTypeName == 'genetic_interactions') {
+        if (this.geneDetails.genetic_interactions &&
+            this.geneDetails.genetic_interactions.length > 0) {
+          this.visibleSections.push(annotationTypeName);
+        }
+      }
+
+      if (annotationTypeName == 'orthologs') {
+        if (this.geneDetails.ortholog_annotations &&
+            this.geneDetails.ortholog_annotations.length > 0) {
+          this.visibleSections.push(annotationTypeName);
+        }
+      }
+
+      if (annotationTypeName == 'paralogs') {
+        if (this.geneDetails.paralog_annotations &&
+            this.geneDetails.paralog_annotations.length > 0) {
+          this.visibleSections.push(annotationTypeName);
+        }
+      }
+
+      if (annotationTypeName == 'target_of') {
+        if (this.geneDetails.target_of_annotations &&
+            this.geneDetails.target_of_annotations.length > 0) {
+          this.visibleSections.push(annotationTypeName);
+        }
+      }
+    }
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -122,6 +169,7 @@ export class GeneDetailsComponent implements OnInit {
             this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
             this.annotationTypeNames = this.config.annotationTypeOrder;
             this.setPageTitle();
+            this.setVisibleSections();
           });
       };
     });

@@ -16,8 +16,8 @@ interface MenuItem {
 })
 export class GenePageMenuComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
+  @Input() visibleSections: Array<string> = [];
 
-  annotationTypeNames: Array<string> = [];
   menuItems: Array<MenuItem> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
@@ -31,16 +31,17 @@ export class GenePageMenuComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.annotationTypeNames = this.config.annotationTypeOrder;
-    if (this.geneDetails) {
+    if (this.visibleSections) {
       this.menuItems =
-        this.annotationTypeNames.map(typeName => {
+        this.visibleSections.map(typeName => {
           let typeConfig = this.config.getAnnotationType(typeName);
           return {
             id: typeName,
             displayName: typeConfig.displayName || typeName,
           }
         });
+    } else {
+      this.menuItems = [];
     }
   }
 }
