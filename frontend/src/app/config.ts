@@ -121,7 +121,7 @@ let _config: AnnotationTableConfig = {
     single_allele_phenotype: {
       displayName: "Single allele phenotype",
       columnsToShow: ["desc-rel", "genotype",
-                      "evidence", "conditions", "reference", "count", "extension"],
+                      "evidence", "conditions", "reference", "extension"],
       splitByParents: [
         {
           termid: "FYPO:0000003",
@@ -136,7 +136,7 @@ let _config: AnnotationTableConfig = {
     multi_allele_phenotype: {
       displayName: "Multi allele phenotype",
       columnsToShow: ["desc-rel", "genotype",
-                      "evidence", "conditions", "reference", "count", "extension"],
+                      "evidence", "conditions", "reference", "extension"],
       splitByParents: [
         {
           termid: "FYPO:0000003",
