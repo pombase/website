@@ -81,7 +81,24 @@ export class ExtensionDisplayComponent implements OnInit {
                 }
               }
             } else {
-              return rangePart;
+              if (rangePart.misc) {
+                let value = rangePart.misc;
+                let link = null;
+                if (ext.rel_type_name == 'has_penetrance' ||
+                    ext.rel_type_name == 'has_expressivity') {
+                  value += "%";
+                } else {
+                  link = this.getLink(value);
+                }
+                return {
+                  misc: {
+                    value: value,
+                    link: link,
+                  }
+                };
+              } else {
+                return rangePart;
+              }
             }
           }
         });

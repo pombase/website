@@ -12,7 +12,7 @@
       </span>
 
       <span *ngIf="range.misc">
-        <span>{{range.misc}}<span *ngIf="extPart.relTypeName == 'has_penetrance' || extPart.relTypeName == 'has_expressivity'">%</span></span><span *ngIf="i < extPart.extRange.length - 1">,</span>
+        <a *ngIf="range.misc.link" [attr.href]="range.misc.link">{{range.misc.value}}</a><span *ngIf="!range.misc.link">{{range.misc.value}}</span><span *ngIf="i < extPart.extRange.length - 1">,</span>
       </span>
 
       <span *ngIf="range.gene_product">
