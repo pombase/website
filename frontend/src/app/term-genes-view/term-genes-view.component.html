@@ -1,6 +1,6 @@
 <div id="term-details">
   <app-loading-spinner *ngIf="!termDetails"></app-loading-spinner>
- 
+
   <div *ngIf="termDetails">
     <div class="details-page-name-and-id">
       {{termDetails.termid}}
@@ -15,7 +15,7 @@
           <td class="term-name">{{termDetails.name}}</td>
         </tr>
         <tr>
-          <td *ngIf="termDetails.definition" class="details-label">Definition</td>
+          <td class="details-label">Definition</td>
           <td>{{termDetails.definition}}</td>
         </tr>
       </table>
@@ -24,16 +24,13 @@
     <hr style="clear: both" />
 
     <div class="term-page-view-change">
-      <a routerLink="/term_genes/{{termDetails.termid}}"
-         routerLinkActive="active">View genes annotated with this term ...</a>
+      <a routerLink="/term/{{termDetails.termid}}"
+         routerLinkActive="active">View all annotations for this term ...</a>
     </div>
 
     <div>
-      <app-annotation-table [tableDisplayName]="'Annotations for ' + termDetails.termid + ' and its descendants'"
-                            [annotationTypeName]="termDetails.cv_name"
-                            [showFeatureInSummary]="true"
-                            [featureInFirstColumn]="true"
-                            [annotationTable]="termDetails.rel_annotations"></app-annotation-table>
+      <app-genes-table [legend]="'Genes annotated with ' + termDetails.termid + ' or its descendants: ' + termDetails.genes.length"
+                       [genes]="termDetails.genes"></app-genes-table>
     </div>
   </div>
 </div>

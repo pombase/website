@@ -36,8 +36,6 @@
             [attr.rowspan]="termAnnotation.annotations.length + 1">
           <a *ngIf="termAnnotation.term.genotype_count == 0" routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active"
              title="{{termAnnotation.term.gene_count}} genes are annotated with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
-          <a *ngIf="termAnnotation.term.genotype_count > 0" routerLink="/term_genotypes/{{termAnnotation.term.termid}}" routerLinkActive="active"
-             title="{{termAnnotation.term.genotype_count}} genotypes are annotated with {{termAnnotation.term.termid}}">{{termAnnotation.term.genotype_count}}</a>
         </td>
       </tr>
       <tr class="term-annotation"
@@ -98,8 +96,6 @@
             [attr.rowspan]="termAnnotation.annotations.length">
           <a *ngIf="termAnnotation.term.genotype_count == 0" routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active"
              title="{{termAnnotation.term.gene_count}} genes are annotated with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
-          <a *ngIf="termAnnotation.term.genotype_count > 0" routerLink="/term_genotypes/{{termAnnotation.term.termid}}" routerLinkActive="active"
-             title="{{termAnnotation.term.genotype_count}} genotypes are annotated with {{termAnnotation.term.termid}}">{{termAnnotation.term.genotype_count}}</a>
         </td>
       </tr>
     </tbody>
