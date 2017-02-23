@@ -3,17 +3,11 @@
  
   <div *ngIf="termDetails">
     <div class="details-page-name-and-id">
-      {{termDetails.termid}}
+      {{termDetails.termid}} - {{termDetails.name}}
     </div>
-
-    <hr style="clear: both" />
 
     <div id="term-summary" class="details-page-summary">
       <table>
-        <tr>
-          <td class="details-label">Name</td>
-          <td class="term-name">{{termDetails.name}}</td>
-        </tr>
         <tr>
           <td *ngIf="termDetails.definition" class="details-label">Definition</td>
           <td>{{termDetails.definition}}</td>

@@ -3,11 +3,7 @@
 
   <div *ngIf="termDetails">
     <div class="details-page-name-and-id">
-      Genes from single-allele genotypes annotated with {{termDetails.termid}}
-    </div>
-
-    <div class="details-page-summary">
-      {{termDetails.name}}
+      {{termDetails.termid}} - {{termDetails.name}}
     </div>
 
     <hr style="clear: both" />
