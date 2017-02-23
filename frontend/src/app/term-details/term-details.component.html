@@ -23,7 +23,7 @@
 
     <hr style="clear: both" />
 
-    <div class="term-page-view-change">
+    <div *ngIf="annotationFeatureType == 'gene'" class="term-page-view-change">
       <a routerLink="/term_genes/{{termDetails.termid}}"
          routerLinkActive="active">View genes annotated with this term ...</a>
     </div>

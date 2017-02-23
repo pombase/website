@@ -170,6 +170,7 @@ export class TermDetails {
   definition: string;
   termid: string;
   cv_name: string;
+  annotation_feature_type: string;
   name: string;
   is_obsolete: false;
   rel_annotations: RelAnnotation;

@@ -4,6 +4,8 @@ import { Title } from '@angular/platform-browser';
 
 import { TermDetails, Annotation, PombaseAPIService } from '../pombase-api.service';
 
+import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+
 @Component({
   selector: 'app-term-details',
   templateUrl: './term-details.component.html',
@@ -11,6 +13,8 @@ import { TermDetails, Annotation, PombaseAPIService } from '../pombase-api.servi
 })
 export class TermDetailsComponent implements OnInit {
   @Input() termDetails: TermDetails;
+
+  annotationFeatureType = '';
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -36,6 +40,7 @@ export class TermDetailsComponent implements OnInit {
               .then(termDetails => {
                 this.termDetails = termDetails;
                 this.setPageTitle();
+                this.annotationFeatureType = termDetails.annotation_feature_type;
               });
       };
     });
