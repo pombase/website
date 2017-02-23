@@ -42,8 +42,8 @@ import { QuantGeneExTableComponent } from './quant-gene-ex-table/quant-gene-ex-t
 import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-table.component';
 import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
-import { Ng2SimplePageScrollModule } from './ng2-simple-page-scroll.module';
-import { SimplePageScrollConfig } from './ng2-simple-page-scroll-config';
+import { Ng2SimplePageScrollModule } from './ng2-simple-page-scroll/ng2-simple-page-scroll.module';
+import { SimplePageScrollConfig } from './ng2-simple-page-scroll/ng2-simple-page-scroll-config';
 import { GenePageMenuComponent } from './gene-page-menu/gene-page-menu.component';
 
 export function documentFactory() {
