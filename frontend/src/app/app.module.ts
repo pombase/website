@@ -47,6 +47,7 @@ import { SimplePageScrollConfig } from './ng2-simple-page-scroll/ng2-simple-page
 import { GenePageMenuComponent } from './gene-page-menu/gene-page-menu.component';
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
 import { GenotypesTableComponent } from './genotypes-table/genotypes-table.component';
+import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotypes-view/term-single-gene-genotypes-view.component';
 
 export function documentFactory() {
     return document;
@@ -95,6 +96,7 @@ export function windowFactory() {
     GenePageMenuComponent,
     TermGenotypesViewComponent,
     GenotypesTableComponent,
+    TermSingleGeneGenotypesViewComponent,
   ],
   imports: [
     BrowserModule,

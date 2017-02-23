@@ -1,0 +1,25 @@
+<div id="term-single-gene-genotypes-view">
+  <app-loading-spinner *ngIf="!termDetails"></app-loading-spinner>
+
+  <div *ngIf="termDetails">
+    <div class="details-page-name-and-id">
+      Genes from single-allele genotypes annotated with {{termDetails.termid}}
+    </div>
+
+    <div class="details-page-summary">
+      {{termDetails.name}}
+    </div>
+
+    <hr style="clear: both" />
+
+    <div class="term-page-view-change">
+      <a routerLink="/term/{{termDetails.termid}}"
+         routerLinkActive="active">View all annotations for this term ...</a>
+    </div>
+
+    <div>
+      <app-genes-table [legend]="'Single allele genotypes annotated with ' + termDetails.termid + ' or its descendants: ' + singleAlleleGenotypeGenes.length"
+                       [genes]="singleAlleleGenotypeGenes"></app-genes-table>
+    </div>
+  </div>
+</div>

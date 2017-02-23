@@ -28,6 +28,11 @@
          routerLinkActive="active">View genes annotated with this term ...</a>
     </div>
 
+    <div *ngIf="annotationFeatureType == 'genotype'" class="term-page-view-change">
+      <a routerLink="/term_single_allele_genotype_genes/{{termDetails.termid}}"
+         routerLinkActive="active">Genes from single-allele genotypes associated with this term ...</a>
+    </div>
+
     <div>
       <app-annotation-table [tableDisplayName]="'Annotations for ' + termDetails.termid + ' and its descendants'"
                             [annotationTypeName]="termDetails.cv_name"

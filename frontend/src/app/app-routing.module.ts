@@ -6,6 +6,7 @@ import { GenotypeDetailsComponent } from './genotype-details/genotype-details.co
 import { TermDetailsComponent } from './term-details/term-details.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
+import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotypes-view/term-single-gene-genotypes-view.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { FrontComponent } from './front/front.component';
@@ -39,6 +40,11 @@ const routes: Routes = [
   { path: 'term_genotypes/:termid', component: TermGenotypesViewComponent,
     data: {
       title: 'Term genotypes'
+    }
+  },
+  { path: 'term_single_allele_genotype_genes/:termid', component: TermSingleGeneGenotypesViewComponent,
+    data: {
+      title: 'Term single allele genotype genes'
     }
   },
   { path: 'reference/:uniquename', component: ReferenceDetailsComponent,
