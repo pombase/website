@@ -174,6 +174,8 @@ export class TermDetails {
   name: string;
   is_obsolete: false;
   rel_annotations: RelAnnotation;
+  single_allele_genotype_uniquenames: Array<string>;
+  single_allele_genotypes: Array<GenotypeShort>;
 }
 
 export class ReferenceDetails {
@@ -426,6 +428,12 @@ export class PombaseAPIService {
 
     this.processTermAnnotations(json.rel_annotations, genesByUniquename, genotypesByUniquename,
                                 allelesByUniquename, referencesByUniquename, termsByTermId);
+
+    json.single_allele_genotypes = [];
+
+    for (let genotypeUniquename of json.single_allele_genotype_uniquenames) {
+      json.single_allele_genotypes.push(genotypesByUniquename[genotypeUniquename])
+    }
 
     json.genes = Object.keys(genesByUniquename).map((key) => genesByUniquename[key]);
 

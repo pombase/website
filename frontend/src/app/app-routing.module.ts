@@ -5,6 +5,7 @@ import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
+import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { FrontComponent } from './front/front.component';
@@ -32,7 +33,12 @@ const routes: Routes = [
   },
   { path: 'term_genes/:termid', component: TermGenesViewComponent,
     data: {
-      title: 'Term'
+      title: 'Term genes'
+    }
+  },
+  { path: 'term_genotypes/:termid', component: TermGenotypesViewComponent,
+    data: {
+      title: 'Term genotypes'
     }
   },
   { path: 'reference/:uniquename', component: ReferenceDetailsComponent,

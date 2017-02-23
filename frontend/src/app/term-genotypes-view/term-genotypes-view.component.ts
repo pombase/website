@@ -5,11 +5,11 @@ import { Title } from '@angular/platform-browser';
 import { TermDetails, PombaseAPIService } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-term-genes-view',
-  templateUrl: './term-genes-view.component.html',
-  styleUrls: ['./term-genes-view.component.css']
+  selector: 'app-term-genotypes-view',
+  templateUrl: './term-genotypes-view.component.html',
+  styleUrls: ['./term-genotypes-view.component.css']
 })
-export class TermGenesViewComponent implements OnInit {
+export class TermGenotypesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -21,7 +21,8 @@ export class TermGenesViewComponent implements OnInit {
     let title = this.titleService.getTitle();
     let displayName;
     if (this.termDetails) {
-      displayName = this.termDetails.termid + " - " + this.termDetails.name;
+      displayName = this.termDetails.termid + " - " + this.termDetails.name +
+        "single allele genotypes";
     } else {
       displayName = "UNKNOWN";
     }
@@ -40,4 +41,5 @@ export class TermGenesViewComponent implements OnInit {
       };
     });
   }
+
 }

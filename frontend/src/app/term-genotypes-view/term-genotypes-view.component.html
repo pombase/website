@@ -1,9 +1,9 @@
-<div id="term-gene-view">
+<div id="term-genotype-view">
   <app-loading-spinner *ngIf="!termDetails"></app-loading-spinner>
 
   <div *ngIf="termDetails">
     <div class="details-page-name-and-id">
-      Genes annotated with {{termDetails.termid}}
+      Single allele genotypes annotated with {{termDetails.termid}}
     </div>
 
     <div class="details-page-summary">
@@ -18,8 +18,8 @@
     </div>
 
     <div>
-      <app-genes-table [legend]="'Genes annotated with ' + termDetails.termid + ' or its descendants: ' + termDetails.genes.length"
-                       [genes]="termDetails.genes"></app-genes-table>
+      <app-genotypes-table [legend]="'Single allele genotypes annotated with ' + termDetails.termid + ' or its descendants: ' + termDetails.single_allele_genotype_uniquenames.length"
+                           [genotypes]="termDetails.single_allele_genotypes"></app-genotypes-table>
     </div>
   </div>
 </div>

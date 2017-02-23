@@ -1,0 +1,28 @@
+<div>
+  <app-loading-spinner *ngIf="genotypes.length == 0"></app-loading-spinner>
+
+  <fieldset *ngIf="genotypes.length > 0" class="genotypes-table">
+    <legend>
+      <span>{{legend}}</span>
+    </legend>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Gene</th>
+          <th>Product</th>
+          <th>Allele</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let genotype of genotypes">
+          <td>
+            <app-gene-link [gene]="genotype.expressed_alleles[0].allele.gene"></app-gene-link>
+          </td>
+          <td>{{genotype.expressed_alleles[0].allele.gene.product}}</td>
+          <td><app-genotype-link [genotype]="genotype"></app-genotype-link></td>
+        </tr>
+      </tbody>
+    </table>
+  </fieldset>
+</div>

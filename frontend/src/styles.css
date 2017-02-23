@@ -39,7 +39,7 @@ a {
   width: 100%;
 }
 
-.annotation-table, .annotation-table legend, .genes-table, .genes-table legend {
+.annotation-table, .annotation-table legend, .genes-table, .genes-table legend, .genotypes-table, .genotypes-table legend {
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
@@ -48,12 +48,12 @@ a {
   background-color: #F9F9F9;
 }
 
-.annotation-table, .genes-table {
+.annotation-table, .genes-table, .genotypes-table {
   margin: 15px 0;
   padding: 10px;
 }
 
-.annotation-table td, .genes-table td, .annotation-table th, .genes-table th {
+.annotation-table td, .genes-table td, .genotypes-table td, .annotation-table th, .genes-table th, .genotypes-table th {
   vertical-align: top;
   padding: 0 10px 5px 0;
 }
@@ -62,7 +62,7 @@ a {
   white-space: nowrap;
 }
 
-.annotation-table legend, .genes-table legend {
+.annotation-table legend, .genes-table legend, .genotypes-table legend {
   padding: 5px;
   display: block;
   font-size: 120%;
