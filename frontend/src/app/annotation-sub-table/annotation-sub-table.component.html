@@ -15,15 +15,8 @@
   </div>
 
   <div *ngIf="!showDetails">
-    <app-annotation-table-full
-       *ngIf="showFeatureInSummary"
-       [annotationTypeName]="annotationTypeName"
-       [hideColumns]="summaryHideColumns"
-       [featureInFirstColumn]="featureInFirstColumn"
-       [annotationTable]="annotationTable"></app-annotation-table-full>
-
     <app-annotation-table-summary
-       *ngIf="!showFeatureInSummary"
+       [showFeaturesInSummary]="showFeaturesInSummary"
        [annotationTable]="annotationTable"></app-annotation-table-summary>
   </div>
 

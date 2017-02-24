@@ -28,7 +28,7 @@
   font-weight: bold;
 }
 
-.extension {
+.summary-extension, .summary-genes {
   display: block;
   padding-left: 20px;
 }

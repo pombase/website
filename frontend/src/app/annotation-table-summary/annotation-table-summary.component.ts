@@ -10,10 +10,11 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 })
 export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
+  @Input() showFeaturesInSummary = false;
 
   annotationTypeDisplayName = null;
-
   extensionSummariesByTerm = {};
+  geneSummariesByTerm = {};
 
   constructor() { }
 
@@ -106,10 +107,10 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
     this.extensionSummariesByTerm = {};
 
     if (this.annotationTable) {
-      for (let term_annotation of this.annotationTable) {
-        let termid = term_annotation.term.termid;
+      for (let termAnnotation of this.annotationTable) {
+        let termid = termAnnotation.term.termid;
         let thisTermExtensions =
-          term_annotation.annotations.map(annotation => annotation.extension)
+          termAnnotation.annotations.map(annotation => annotation.extension)
           .filter(extension => extension && extension.length > 0);
         if (thisTermExtensions.length > 0) {
           this.extensionSummariesByTerm[termid] = this.compactExtensions(thisTermExtensions);
@@ -118,11 +119,38 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
     }
   }
 
+  makeGeneSummaries(): void {
+    this.geneSummariesByTerm = {};
+
+    if (this.annotationTable) {
+      for (let termAnnotation of this.annotationTable) {
+        let seenGenesMap = {};
+        for (let annotation of termAnnotation.annotations) {
+          if (annotation.genotype &&
+              annotation.genotype.expressed_alleles.length == 1) {
+            seenGenesMap[annotation.gene_uniquename] =
+              annotation.genotype.expressed_alleles[0].allele.gene;
+          }
+        }
+
+        let seenGenes =
+          Object.keys(seenGenesMap).map((key) => {
+            return seenGenesMap[key];
+          });
+
+        if (seenGenes.length > 0) {
+          this.geneSummariesByTerm[termAnnotation.term.termid] = seenGenes;
+        }
+      }
+    }
+  }
+
   ngOnChanges() {
     this.makeExtensionSummaries();
+    this.makeGeneSummaries();
   }
 
   ngOnInit() {
-    this.makeExtensionSummaries();
+    this.ngOnChanges();
   }
 }

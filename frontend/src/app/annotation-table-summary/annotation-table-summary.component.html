@@ -18,9 +18,18 @@
           </span>
         </td>
       </tr>
+      <tr *ngIf="geneSummariesByTerm[termAnnotation.term.termid]">
+        <td colspan="2">
+          <span class="summary-genes">
+            <span *ngFor="let gene of geneSummariesByTerm[termAnnotation.term.termid] | geneShortOrderBy; let lastGene = last">
+              <app-gene-link [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene">, </span>
+            </span>
+          </span>
+        </td>
+      </tr>
       <tr *ngIf="extensionSummariesByTerm[termAnnotation.term.termid]">
         <td colspan="2">
-          <app-extension-display class="extension"
+          <app-extension-display class="summary-extension"
              *ngFor="let extSumm of extensionSummariesByTerm[termAnnotation.term.termid]"
              [extension]="extSumm"></app-extension-display>
         </td>

@@ -12,7 +12,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() tableDisplayName?: string = null;
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
-  @Input() showFeatureInSummary?: boolean = false;
+  @Input() showFeaturesInSummary?: boolean = false;
   @Input() featureInFirstColumn?: boolean = false;
   @Input() annotationTable: Array<TermAnnotation>;
 

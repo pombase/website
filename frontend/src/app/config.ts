@@ -29,6 +29,7 @@ export interface AnnotationType {
   displayName: string;
   splitByParents?: Array<any>;
   columnsToShow?: Array<string>;
+  showFeaturesInSummary?: boolean;
 }
 
 export interface AnnotationTypes {
@@ -122,6 +123,7 @@ let _config: AnnotationTableConfig = {
       displayName: "Single allele phenotype",
       columnsToShow: ["desc-rel", "genotype",
                       "evidence", "conditions", "reference", "extension"],
+      showFeaturesInSummary: true,
       splitByParents: [
         {
           termid: "FYPO:0000003",
@@ -137,6 +139,7 @@ let _config: AnnotationTableConfig = {
       displayName: "Multi allele phenotype",
       columnsToShow: ["desc-rel", "genotype",
                       "evidence", "conditions", "reference", "extension"],
+      showFeaturesInSummary: true,
       splitByParents: [
         {
           termid: "FYPO:0000003",

@@ -11,7 +11,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
-  @Input() showFeatureInSummary?: boolean;
+  @Input() showFeaturesInSummary?: boolean;
   @Input() featureInFirstColumn?: boolean = false;
   @Input() annotationTable: Array<TermAnnotation>;
 
@@ -30,5 +30,6 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   ngOnChanges() {
     // reset when gene changes
     this.showDetails = false;
+    let typeConfig = this.config.getAnnotationType(this.annotationTypeName);
   }
 }
