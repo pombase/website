@@ -40,22 +40,24 @@
         <tr>
           <td class="details-label">Synonyms</td>
           <td>{{synonymsDisplay}}</td>
-          <td class="details-label">Name description</td>
-          <td>
-            <span *ngFor="let nameDesc of geneDetails.name_descriptions; let i = index">
-              {{nameDesc}}<span *ngIf="i < geneDetails.name_descriptions.length - 1">,<br/></span>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td class="details-label">Product</td>
-          <td>{{geneDetails.product}}</td>
           <td class="details-label">Product size</td>
           <td>...aa, ...kDa</td>
         </tr>
         <tr>
+          <td class="details-label">Product</td>
+          <td>{{geneDetails.product}}</td>
+        </tr>
+        <tr>
           <td class="details-label">Genomic location</td>
           <td colspan="3">{{displayLocation}}</td>
+        </tr>
+        <tr *ngIf="geneDetails.name_descriptions.length > 0">
+          <td class="details-label">Name description</td>
+          <td colspan="3">
+            <span *ngFor="let nameDesc of geneDetails.name_descriptions; let i = index">
+              {{nameDesc}}<span *ngIf="i < geneDetails.name_descriptions.length - 1">,<br/></span>
+            </span>
+          </td>
         </tr>
       </tbody>
     </table>
