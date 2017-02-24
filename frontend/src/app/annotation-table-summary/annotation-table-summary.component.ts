@@ -9,12 +9,15 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
   styleUrls: ['./annotation-table-summary.component.css']
 })
 export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
+  @Input() annotationTypeName: string;
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() showFeaturesInSummary = false;
 
+  config: AnnotationTableConfig = getAnnotationTableConfig();
   annotationTypeDisplayName = null;
   extensionSummariesByTerm = {};
   geneSummariesByTerm = {};
+  extensionsToHide = [];
 
   constructor() { }
 
@@ -63,16 +66,25 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
   compactExtensions(extensions: Array<any>) {
     let compacted = [];
     for (let ext of extensions) {
-      if (ext.length > 1) {
-        let tidyExt = ext.map(part =>
-                              {
-                                return {
-                                  rel_type_name: part.rel_type_name,
-                                  rel_type_display_name: part.rel_type_display_name,
-                                  ext_range: [part.ext_range]
-                                };
-                                 }
-                             );
+      let filteredExt =
+        ext.filter(part => {
+          return this.extensionsToHide.indexOf(part.rel_type_name) == -1;
+        });
+
+      if (filteredExt.length == 0) {
+        continue;
+      }
+
+      if (filteredExt.length > 1) {
+        let tidyExt = filteredExt.map(part =>
+                                      {
+                                        return {
+                                          rel_type_name: part.rel_type_name,
+                                          rel_type_display_name: part.rel_type_display_name,
+                                          ext_range: [part.ext_range]
+                                        };
+                                      }
+                                     );
         if (!this.containsExtension(compacted, tidyExt)) {
           compacted.push(tidyExt);
         }
@@ -80,22 +92,22 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
         let updateExt = null;
         for (let existing of compacted) {
           if (existing.length == 1 &&
-              existing[0].rel_type_display_name == ext[0].rel_type_display_name) {
+              existing[0].rel_type_display_name == filteredExt[0].rel_type_display_name) {
             updateExt = existing;
           }
         }
         if (!updateExt) {
           updateExt = [
             {
-            rel_type_name: ext[0].rel_type_name,
-            rel_type_display_name: ext[0].rel_type_display_name,
+            rel_type_name: filteredExt[0].rel_type_name,
+            rel_type_display_name: filteredExt[0].rel_type_display_name,
             ext_range: [],
             }
           ];
           compacted.push(updateExt);
         }
 
-        if (!this.containsRange(updateExt[0].ext_range, ext[0].ext_range)) {
+        if (!this.containsRange(updateExt[0].ext_range, filteredExt[0].ext_range)) {
           updateExt[0].ext_range.push(ext[0].ext_range);
         }
       }
@@ -109,11 +121,11 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
     if (this.annotationTable) {
       for (let termAnnotation of this.annotationTable) {
         let termid = termAnnotation.term.termid;
-        let thisTermExtensions =
+        let thisTermExtensionParts =
           termAnnotation.annotations.map(annotation => annotation.extension)
-          .filter(extension => extension && extension.length > 0);
-        if (thisTermExtensions.length > 0) {
-          this.extensionSummariesByTerm[termid] = this.compactExtensions(thisTermExtensions);
+          .filter(extension => extension && extension.length > 0)
+        if (thisTermExtensionParts.length > 0) {
+          this.extensionSummariesByTerm[termid] = this.compactExtensions(thisTermExtensionParts);
         }
       }
     }
@@ -146,6 +158,12 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    let typeConfig = this.config.getAnnotationType(this.annotationTypeName);
+
+    if (typeConfig.summary && typeConfig.summary.extensionsToHide) {
+      this.extensionsToHide = typeConfig.summary.extensionsToHide;
+    }
+
     this.makeExtensionSummaries();
     this.makeGeneSummaries();
   }

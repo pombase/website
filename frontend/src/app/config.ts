@@ -25,11 +25,16 @@ export interface AppConfig {
   isConfigOrganism(genus: string, species: string): boolean;
 }
 
+export interface AnnotationSummaryConf {
+  extensionsToHide: Array<string>,
+}
+
 export interface AnnotationType {
   displayName: string;
   splitByParents?: Array<any>;
   columnsToShow?: Array<string>;
   showFeaturesInSummary?: boolean;
+  summary?: AnnotationSummaryConf;
 }
 
 export interface AnnotationTypes {
@@ -124,6 +129,9 @@ let _config: AnnotationTableConfig = {
       columnsToShow: ["desc-rel", "genotype",
                       "evidence", "conditions", "reference", "extension"],
       showFeaturesInSummary: true,
+      summary: {
+        extensionsToHide: ['has_penetrance', 'has_expressivity'],
+      },
       splitByParents: [
         {
           termid: "FYPO:0000003",
@@ -140,6 +148,9 @@ let _config: AnnotationTableConfig = {
       columnsToShow: ["desc-rel", "genotype",
                       "evidence", "conditions", "reference", "extension"],
       showFeaturesInSummary: true,
+      summary: {
+        extensionsToHide: ['has_penetrance', 'has_expressivity'],
+      },
       splitByParents: [
         {
           termid: "FYPO:0000003",
