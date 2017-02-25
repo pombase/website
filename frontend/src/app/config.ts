@@ -213,6 +213,7 @@ let _config: AnnotationTableConfig = {
     },
     warning: {
       displayName: 'Warnings',
+      columnsToShow: defaultColumnsToShow,
     },
     _DEFAULT_: {
       displayName: null,
