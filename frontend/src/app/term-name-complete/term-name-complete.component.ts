@@ -1,11 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { PombaseAPIService } from '../pombase-api.service';
 import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
-import { Http, URLSearchParams, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/distinctUntilChanged";
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
 import { TermShort } from '../common/pombase-query';
@@ -20,14 +18,14 @@ export class TermNameCompleteComponent implements OnInit {
   @Output() termMatched = new EventEmitter();
   dataSource: Observable<TermShort[]>;
 
-  public selectedTerm: string = '';
+  public selectedTerm = '';
 
   constructor(private pombaseApiService: PombaseAPIService) {
     this.dataSource =
-      Observable.create((observer:any) => {
+      Observable.create((observer: any) => {
         observer.next(this.selectedTerm);
       })
-      .switchMap((token:string) =>
+      .switchMap((token: string) =>
                  pombaseApiService.getTermByNameFuzzy(this.cvName, token));
   };
 

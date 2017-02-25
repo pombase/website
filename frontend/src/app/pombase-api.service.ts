@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
@@ -52,7 +53,7 @@ export interface GenotypeShort {
 export interface ExtPart {
   rel_type_display_name?: string;
   rel_type_name: string;
-  ext_range: any
+  ext_range: any;
 }
 
 export interface Annotation {
@@ -73,13 +74,13 @@ export interface Annotation {
   is_not: boolean;
 }
 export interface TermAnnotation {
-  term: TermShort,
-  annotations: Array<Annotation>,
+  term: TermShort;
+  annotations: Array<Annotation>;
 }
 export interface RelAnnotation {
-  term: TermShort,
-  rel_names: Array<string>,
-  annotations: Array<Annotation>,
+  term: TermShort;
+  rel_names: Array<string>;
+  annotations: Array<Annotation>;
 }
 
 export interface CvAnnotations {
@@ -281,7 +282,7 @@ export class PombaseAPIService {
             return 0;
           }
         }
-      })
+      });
     }
   }
 
@@ -432,7 +433,7 @@ export class PombaseAPIService {
     json.single_allele_genotypes = [];
 
     for (let genotypeUniquename of json.single_allele_genotype_uniquenames) {
-      json.single_allele_genotypes.push(genotypesByUniquename[genotypeUniquename])
+      json.single_allele_genotypes.push(genotypesByUniquename[genotypeUniquename]);
     }
 
     json.genes = Object.keys(genesByUniquename).map((key) => genesByUniquename[key]);
@@ -453,7 +454,6 @@ export class PombaseAPIService {
     let genesByUniquename = json.genes_by_uniquename;
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
-    let referencesByUniquename = json.references_by_uniquename;
     let termsByTermId = json.terms_by_termid;
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);

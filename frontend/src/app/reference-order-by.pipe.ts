@@ -13,7 +13,7 @@ export class ReferenceOrderByPipe implements PipeTransform {
       field = matches[2];
     }
     references.sort((a: any, b: any) => {
-      if (sortDirection != '+') {
+      if (sortDirection !== '+') {
         [b, a] = [a, b];
       }
       if (a[field] < b[field]) {
