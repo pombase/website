@@ -109,7 +109,7 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
         }
 
         if (!this.containsRange(updateExt[0].ext_range, filteredExt[0].ext_range)) {
-          updateExt[0].ext_range.push(ext[0].ext_range);
+          updateExt[0].ext_range.push(filteredExt[0].ext_range);
         }
       }
     }

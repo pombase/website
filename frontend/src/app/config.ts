@@ -108,6 +108,9 @@ let _config: AnnotationTableConfig = {
   annotationTypes: {
     molecular_function: {
       displayName: 'GO molecular function',
+      summary: {
+        extensionsToHide: ['active_form', 'has_penetrance', 'has_expressivity'],
+      },
       columnsToShow: goColumnsToShow,
     },
     biological_process: {
