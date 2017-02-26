@@ -23,8 +23,13 @@
     </div>
 
     <div *ngIf="annotationFeatureType == 'genotype'" class="term-page-view-change">
-      <a routerLink="/term_single_allele_genotype_genes/{{termDetails.termid}}"
-         routerLinkActive="active">Genes from single-allele genotypes associated with this term ...</a>
+      <div>
+        <a routerLink="/term_genotypes/{{termDetails.termid}}">Single-allele genotypes associated with this term ...</a>
+      </div>
+      <div>
+        <a routerLink="/term_single_allele_genotype_genes/{{termDetails.termid}}"
+           routerLinkActive="active">Genes from single-allele genotypes associated with this term ...</a>
+      </div>
     </div>
 
     <div>
