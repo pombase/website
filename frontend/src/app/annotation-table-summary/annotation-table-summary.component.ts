@@ -18,6 +18,7 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
   extensionSummariesByTerm = {};
   geneSummariesByTerm = {};
   extensionsToHide = [];
+  showGenes = false;
 
   constructor() { }
 
@@ -164,8 +165,12 @@ export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
       this.extensionsToHide = typeConfig.summary.extensionsToHide;
     }
 
+    if (this.showFeaturesInSummary) {
+      this.showGenes = true;
+      this.makeGeneSummaries();
+    }
+
     this.makeExtensionSummaries();
-    this.makeGeneSummaries();
   }
 
   ngOnInit() {

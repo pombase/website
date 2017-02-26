@@ -33,7 +33,6 @@ export interface AnnotationType {
   displayName: string;
   splitByParents?: Array<any>;
   columnsToShow?: Array<string>;
-  showFeaturesInSummary?: boolean;
   summary?: AnnotationSummaryConf;
 }
 
@@ -128,7 +127,6 @@ let _config: AnnotationTableConfig = {
       displayName: 'Single allele phenotype',
       columnsToShow: ['desc-rel', 'genotype',
                       'evidence', 'conditions', 'reference', 'extension'],
-      showFeaturesInSummary: true,
       summary: {
         extensionsToHide: ['has_penetrance', 'has_expressivity'],
       },
@@ -147,7 +145,6 @@ let _config: AnnotationTableConfig = {
       displayName: 'Multi allele phenotype',
       columnsToShow: ['desc-rel', 'genotype',
                       'evidence', 'conditions', 'reference', 'extension'],
-      showFeaturesInSummary: true,
       summary: {
         extensionsToHide: ['has_penetrance', 'has_expressivity'],
       },

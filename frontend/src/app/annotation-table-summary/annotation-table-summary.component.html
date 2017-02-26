@@ -18,7 +18,7 @@
           </span>
         </td>
       </tr>
-      <tr *ngIf="geneSummariesByTerm[termAnnotation.term.termid]">
+      <tr *ngIf="showGenes && geneSummariesByTerm[termAnnotation.term.termid]">
         <td colspan="2">
           <span class="summary-genes">
             <span *ngFor="let gene of geneSummariesByTerm[termAnnotation.term.termid] | geneShortOrderBy; let lastGene = last">
