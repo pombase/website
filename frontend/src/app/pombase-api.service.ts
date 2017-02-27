@@ -167,10 +167,17 @@ export class GenotypeDetails {
   cv_annotations: CvAnnotations;
 }
 
+export interface TermAndRelation {
+  termid: string;
+  term_name: string;
+  relation_name: string;
+}
+
 export class TermDetails {
   definition: string;
   termid: string;
   cv_name: string;
+  direct_ancestors: Array<TermAndRelation>;
   annotation_feature_type: string;
   name: string;
   is_obsolete: false;

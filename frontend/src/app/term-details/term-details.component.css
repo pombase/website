@@ -1,0 +1,9 @@
+.term-details table {
+  width: 55% !important;
+}
+
+.term-ancestors {
+  float: right;
+  width: 40%;
+  font-size: 90%;
+}
