@@ -32,6 +32,7 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
             ontologyLabel: ontologyLabel,
             ext_rel_display_name: annotation.ext_rel_display_name,
             gene: annotation.gene,
+            genotype: annotation.genotype,
             reference: annotation.reference,
           };
         })

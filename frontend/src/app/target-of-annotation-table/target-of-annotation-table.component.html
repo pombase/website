@@ -18,7 +18,10 @@
         <td>{{annotation.ontologyLabel}}</td>
         <td>{{annotation.ext_rel_display_name}}</td>
         <td>
-          <app-gene-link *ngIf="annotation.gene" [long]="false" [gene]="annotation.gene"></app-gene-link>
+          <app-gene-link *ngIf="annotation.gene"
+                         [long]="false" [gene]="annotation.gene"></app-gene-link>
+          <app-genotype-link *ngIf="annotation.genotype"
+                             [genotype]="annotation.genotype"></app-genotype-link>
         </td>
         <td>
           <span *ngIf="annotation.gene">{{annotation.gene.product}}</span>
