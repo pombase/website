@@ -1,5 +1,9 @@
 import externalLinksConfig from './config/external-links.json';
 
+export interface TermPageConfig {
+  ancestorRelNames: Array<string>;
+}
+
 export interface LinkoutConfig {
   [name: string]: string;
 }
@@ -16,6 +20,8 @@ export interface AppConfig {
     genus: string,
     species: string,
   };
+
+  termPageConfig: TermPageConfig;
 
   linkoutConfig: LinkoutConfig;
 
@@ -230,6 +236,10 @@ let _appConfig: AppConfig = {
   organism: {
     genus: 'Schizosaccharomyces',
     species: 'pombe',
+  },
+
+  termPageConfig: {
+    ancestorRelNames: ['is_a', 'part_of', 'regulates', 'output_of'],
   },
 
   linkoutConfig: {
