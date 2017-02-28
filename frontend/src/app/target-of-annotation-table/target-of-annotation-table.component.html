@@ -9,7 +9,6 @@
         <th>Ontology</th>
         <th>Relationship</th>
         <th>Gene/genotype</th>
-        <th></th>
         <th>Reference</th>
       </tr>
     </thead>
@@ -22,9 +21,7 @@
                          [long]="false" [gene]="annotation.gene"></app-gene-link>
           <app-genotype-link *ngIf="annotation.genotype"
                              [genotype]="annotation.genotype"></app-genotype-link>
-        </td>
-        <td>
-          <span *ngIf="annotation.gene">{{annotation.gene.product}}</span>
+          &nbsp; <span *ngIf="annotation.gene">{{annotation.gene.product}}</span>
         </td>
         <td>
           <app-reference-short *ngIf="annotation.reference"
