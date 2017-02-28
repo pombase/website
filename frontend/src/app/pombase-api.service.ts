@@ -183,7 +183,7 @@ export class TermDetails {
   annotation_feature_type: string;
   name: string;
   is_obsolete: false;
-  rel_annotations: RelAnnotation;
+  rel_annotations: Array<RelAnnotation>;
   single_allele_genotype_uniquenames: Array<string>;
   single_allele_genotypes: Array<GenotypeShort>;
 }
