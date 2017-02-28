@@ -14,8 +14,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let annotation of annotationTable">
-        <td>{{annotation.ontology_name}}</td>
+      <tr *ngFor="let annotation of displayTable">
+        <td>{{annotation.ontologyLabel}}</td>
         <td>{{annotation.ext_rel_display_name}}</td>
         <td>
           <app-gene-link [long]="false" [gene]="annotation.gene"></app-gene-link>

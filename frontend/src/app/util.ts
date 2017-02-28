@@ -1,6 +1,23 @@
-import { GenotypeDetails, GenotypeShort, AlleleShort } from './pombase-api.service';
+import { GenotypeDetails, GenotypeShort, GeneShort,
+         AlleleShort } from './pombase-api.service';
 
 export class Util {
+
+  static geneCompare(gene1: GeneShort, gene2: GeneShort): number {
+    if (gene1.name) {
+      if (gene2.name) {
+        return gene1.name.localeCompare(gene2.name);
+      } else {
+        return -1;
+      }
+    } else {
+      if (gene2.name) {
+        return 1;
+      } else {
+        return gene1.uniquename.localeCompare(gene2.uniquename);
+      }
+    }
+  }
 
   static displayNameLong(genotypeDetails: GenotypeDetails|GenotypeShort): string {
     if (genotypeDetails) {

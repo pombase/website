@@ -40,6 +40,9 @@ export interface AnnotationType {
   splitByParents?: Array<any>;
   columnsToShow?: Array<string>;
   summary?: AnnotationSummaryConf;
+  miscConfig?: {
+    [key: string]: any;
+  };
 }
 
 export interface AnnotationTypes {
@@ -188,6 +191,15 @@ let _config: AnnotationTableConfig = {
     },
     target_of: {
       displayName: 'Target of',
+      miscConfig: {
+        ontologyLabels: {
+          molecular_function: 'GO',
+          biological_process: 'GO',
+          cellular_component: 'GO',
+          single_allele_phenotype: 'FYPO',
+          multi_allele_phenotype: 'FYPO',
+        }
+      }
     },
     genetic_interactions: {
       displayName: 'Genetic interaction',
