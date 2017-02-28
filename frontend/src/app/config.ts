@@ -196,6 +196,7 @@ let _config: AnnotationTableConfig = {
           molecular_function: 'GO',
           biological_process: 'GO',
           cellular_component: 'GO',
+          fission_yeast_phenotype: 'FYPO',
           single_allele_phenotype: 'FYPO',
           multi_allele_phenotype: 'FYPO',
         }
