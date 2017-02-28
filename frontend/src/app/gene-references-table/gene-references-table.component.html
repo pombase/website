@@ -11,8 +11,8 @@
     <a *ngIf="orderByField != '+publication_year'" (click)="setOrderBy('+publication_year')">Ascending</a> /
     <span *ngIf="orderByField == '-publication_year'">Descending</span>
     <a *ngIf="orderByField != '-publication_year'" (click)="setOrderBy('-publication_year')">Descending</a> |
-    <span *ngIf="orderByField == '+gene_count'">Gene count</span>
-    <a *ngIf="orderByField != '+gene_count'" (click)="setOrderBy('+gene_count')">Gene count</a>
+    <span *ngIf="orderByField == '+gene_count'">Publication gene count</span>
+    <a *ngIf="orderByField != '+gene_count'" (click)="setOrderBy('+gene_count')">Publication gene count</a>
   </div>
   <table>
     <thead>
