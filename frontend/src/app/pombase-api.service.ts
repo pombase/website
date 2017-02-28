@@ -421,7 +421,7 @@ export class PombaseAPIService {
     let termsByTermId = json.terms_by_termid;
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
-    this.processExpressedAlleles(allelesByUniquename, genesByUniquename, json.expressed_allele);
+    this.processExpressedAlleles(allelesByUniquename, genesByUniquename, json.expressed_alleles);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
