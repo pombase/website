@@ -2,8 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 import { ReferenceDetails, PombaseAPIService } from '../pombase-api.service';
 

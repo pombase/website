@@ -23,7 +23,6 @@ export class GeneDetailsComponent implements OnInit {
   annotationTypeNames: Array<string> = [];
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
-  appConfig: AppConfig = getAppConfig();
 
   menuPositionFixed = false;
 
