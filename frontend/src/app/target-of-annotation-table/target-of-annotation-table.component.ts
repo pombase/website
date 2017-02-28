@@ -38,7 +38,7 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
       this.displayTable
         .sort((o1, o2) => {
           let labelCompare =
-            o1.ontologyLabel.localeCompare(o2.ontologyLabel);
+            o2.ontologyLabel.localeCompare(o1.ontologyLabel);
 
           if (labelCompare == 0) {
             if (o1.gene && o2.gene) {
