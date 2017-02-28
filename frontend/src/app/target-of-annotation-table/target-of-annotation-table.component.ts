@@ -45,7 +45,11 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
             if (o1.gene && o2.gene) {
               return Util.geneCompare(o1.gene, o2.gene);
             } else {
-              return 0;
+              if (o1.genotype && o2.genotype) {
+                return Util.genotypeCompare(o1.genotype, o2.genotype);
+              } else {
+                return 0;
+              }
             }
           } else {
             return labelCompare;

@@ -19,6 +19,10 @@ export class Util {
     }
   }
 
+  static genotypeCompare(genotype1: GenotypeShort, genotype2: GenotypeShort): number {
+    return genotype1.displayNameLong.localeCompare(genotype2.displayNameLong);
+  }
+
   static displayNameLong(genotypeDetails: GenotypeDetails|GenotypeShort): string {
     if (genotypeDetails) {
       return genotypeDetails.expressed_alleles
