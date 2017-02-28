@@ -41,7 +41,11 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
             o1.ontologyLabel.localeCompare(o2.ontologyLabel);
 
           if (labelCompare == 0) {
-            return Util.geneCompare(o1.gene, o2.gene);
+            if (o1.gene && o2.gene) {
+              return Util.geneCompare(o1.gene, o2.gene);
+            } else {
+              return 0;
+            }
           } else {
             return labelCompare;
           }
