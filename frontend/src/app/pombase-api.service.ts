@@ -71,16 +71,12 @@ export interface Annotation {
   genotype?: GenotypeShort;
   genotype_uniquename: string;
   extension: Array<ExtPart>;
-  is_not: boolean;
 }
 export interface TermAnnotation {
   term: TermShort;
+  is_not: boolean;
   annotations: Array<Annotation>;
-}
-export interface RelAnnotation {
-  term: TermShort;
-  rel_names: Array<string>;
-  annotations: Array<Annotation>;
+  rel_names?: Array<string>;
 }
 
 export interface CvAnnotations {
@@ -183,7 +179,7 @@ export class TermDetails {
   annotation_feature_type: string;
   name: string;
   is_obsolete: false;
-  rel_annotations: Array<RelAnnotation>;
+  rel_annotations: Array<TermAnnotation>;
   single_allele_genotype_uniquenames: Array<string>;
   single_allele_genotypes: Array<GenotypeShort>;
 }
