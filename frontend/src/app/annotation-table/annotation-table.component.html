@@ -8,9 +8,9 @@
     <app-annotation-sub-table
        [annotationTypeName]="annotationTypeName"
        [hideColumns]="hideColumns"
-       [showFeaturesInSummary]="showFeaturesInSummary"
        [featureInFirstColumn]="featureInFirstColumn"
-       [annotationTable]="annotationTable">
+       [annotationTable]="annotationTable"
+       [summaries]="summaries">
     </app-annotation-sub-table>
   </div>
   <div *ngIf="splitByParents.length != 0">
@@ -21,9 +21,9 @@
         <app-annotation-sub-table
            [annotationTypeName]="annotationTypeName"
            [hideColumns]="hideColumns"
-           [showFeaturesInSummary]="showFeaturesInSummary"
            [featureInFirstColumn]="featureInFirstColumn"
-           [annotationTable]="splitDataList[conf.termid]">
+           [annotationTable]="splitDataList[conf.termid]"
+           [summaries]="splitSummaryList[conf.termid]">
         </app-annotation-sub-table>
       </div>
     </div>

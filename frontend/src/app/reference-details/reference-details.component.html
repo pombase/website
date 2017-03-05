@@ -48,7 +48,6 @@
     <app-annotation-table *ngFor="let annotationTypeName of annotationTypeNames"
                           [annotationTypeName]="annotationTypeName"
                           [hideColumns]="['reference', 'desc-rel']"
-                          [showFeaturesInSummary]="true"
                           [featureInFirstColumn]="true"
                           [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
   </div>

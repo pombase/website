@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { TermAnnotation } from '../pombase-api.service';
+import { TermAnnotation, TermSummary } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
@@ -11,20 +11,17 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
-  @Input() showFeaturesInSummary?: boolean;
   @Input() featureInFirstColumn? = false;
   @Input() annotationTable: Array<TermAnnotation>;
+  @Input() summaries: Array<TermSummary>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
   showDetails = false;
-  summaryHideColumns: Array<string> = [];
 
   constructor() { }
 
   ngOnInit() {
-    this.summaryHideColumns = ['evidence', 'reference', 'extension',
-                               'qualifiers', 'conditions'].concat(this.hideColumns);
   }
 
   ngOnChanges() {

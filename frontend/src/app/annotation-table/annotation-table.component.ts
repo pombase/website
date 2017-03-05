@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { TermAnnotation } from '../pombase-api.service';
+import { TermAnnotation, TermSummary } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
@@ -12,14 +12,15 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() tableDisplayName?: string = null;
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
-  @Input() showFeaturesInSummary?: boolean = false;
   @Input() featureInFirstColumn?: boolean = false;
   @Input() annotationTable: Array<TermAnnotation>;
+  @Input() summaries: Array<TermSummary>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: any;
   annotationTypeDisplayName = null;
   splitDataList = {};
+  splitSummaryList = {};
   splitByParents = [];
 
   constructor() { }
@@ -28,6 +29,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
     if (this.typeConfig && this.typeConfig.splitByParents) {
       this.splitByParents = this.typeConfig.splitByParents;
       this.splitDataList = {};
+      this.splitSummaryList = {};
 
       for (let splitByConfig of this.splitByParents) {
         let splitByTermId = splitByConfig.termid;
@@ -40,6 +42,17 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
               this.splitDataList[splitByTermId] = [];
             }
             this.splitDataList[splitByTermId].push(termAnnotation);
+          }
+        }
+        for (let summary of this.summaries) {
+          let interestingParents = summary.term.interesting_parents;
+
+          if (interestingParents &&
+              interestingParents.indexOf(splitByTermId) >= 0) {
+            if (!this.splitSummaryList[splitByTermId]) {
+              this.splitSummaryList[splitByTermId] = [];
+            }
+            this.splitSummaryList[splitByTermId].push(summary);
           }
         }
       }

@@ -89,7 +89,8 @@
                               *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
                               [annotationTypeName]="annotationTypeName"
                               [hideColumns]="['gene', 'desc-rel']"
-                              [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+                              [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"
+                              [summaries]="geneDetails.cv_summaries[annotationTypeName]"></app-annotation-table>
       </div>
 
       <app-interaction-annotation-table *ngIf="annotationTypeName == 'physical_interactions'"

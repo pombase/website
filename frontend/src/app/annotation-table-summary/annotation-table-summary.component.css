@@ -28,7 +28,11 @@
   font-weight: bold;
 }
 
-.summary-extension, .summary-genes {
-  display: block;
+.summary-extension {
+  width: 95%;
+}
+
+.summary-feature {
+  width: 5%;
   padding-left: 20px;
 }
