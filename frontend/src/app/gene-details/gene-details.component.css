@@ -25,3 +25,8 @@
   width: 800px;
   margin: 0 auto;
 }
+
+#gene-details .chromosome-region-view img {
+  width: 70%;
+  height: auto;
+}
