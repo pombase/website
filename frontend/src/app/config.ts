@@ -32,7 +32,6 @@ export interface AppConfig {
 }
 
 export interface AnnotationSummaryConf {
-  extensionsToHide: Array<string>;
 }
 
 export interface AnnotationType {
@@ -117,9 +116,6 @@ let _config: AnnotationTableConfig = {
   annotationTypes: {
     molecular_function: {
       displayName: 'GO molecular function',
-      summary: {
-        extensionsToHide: ['active_form', 'has_penetrance', 'has_expressivity'],
-      },
       columnsToShow: goColumnsToShow,
     },
     biological_process: {
@@ -140,7 +136,6 @@ let _config: AnnotationTableConfig = {
       columnsToShow: ['desc-rel', 'genotype',
                       'evidence', 'conditions', 'reference', 'extension'],
       summary: {
-        extensionsToHide: ['has_penetrance', 'has_expressivity'],
       },
       splitByParents: [
         {
@@ -158,7 +153,6 @@ let _config: AnnotationTableConfig = {
       columnsToShow: ['desc-rel', 'genotype',
                       'evidence', 'conditions', 'reference', 'extension'],
       summary: {
-        extensionsToHide: ['has_penetrance', 'has_expressivity'],
       },
       splitByParents: [
         {
