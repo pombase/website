@@ -35,11 +35,15 @@ export class GeneDetailsComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   scrollEvent(event) {
-    // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
-    let scrollingElement = document.scrollingElement || document.documentElement;
+    if (typeof(document) !== 'undefined') {
+      // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
+      let scrollingElement = document.scrollingElement || document.documentElement;
 
-    if (scrollingElement.scrollTop > 115) {
-      this.menuPositionFixed = true;
+      if (scrollingElement.scrollTop > 115) {
+        this.menuPositionFixed = true;
+      } else {
+        this.menuPositionFixed = false;
+      }
     } else {
       this.menuPositionFixed = false;
     }
