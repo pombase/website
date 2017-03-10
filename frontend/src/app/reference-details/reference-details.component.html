@@ -49,7 +49,8 @@
                           [annotationTypeName]="annotationTypeName"
                           [hideColumns]="['reference', 'desc-rel']"
                           [featureInFirstColumn]="true"
-                          [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+                          [annotationTable]="refDetails.cv_annotations[annotationTypeName]"
+                          [summaries]="refDetails.cv_summaries[annotationTypeName]"></app-annotation-table>
   </div>
   <div>
     <app-interaction-annotation-table [annotationTypeName]="'physical_interactions'"
