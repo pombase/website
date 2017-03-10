@@ -4,25 +4,35 @@
     <span *ngFor="let range of extPart.extRange; let i = index">
 
       <span *ngIf="range.term">
-        <a routerLink="/term/{{range.term.termid}}" routerLinkActive="active">{{range.term.name}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
+        <a routerLink="/term/{{range.term.termid}}" routerLinkActive="active">{{range.term.name}}</a>
       </span>
 
       <span *ngIf="range.gene">
-        <app-gene-link  [long]="false" [gene]="range.gene"></app-gene-link><span *ngIf="i < extPart.extRange.length - 1">,</span>
+        <app-gene-link  [long]="false" [gene]="range.gene"></app-gene-link>
+      </span>
+
+      <span *ngIf="range.summaryGenes">
+        <span *ngFor="let summ of range.summaryGenes; let lastSumm = last">
+          <span *ngFor="let gene of summ; let lastGene = last">
+            <app-gene-link  [long]="false" [gene]="gene"></app-gene-link>
+            <span *ngIf="!lastGene"> and </span>
+          </span>
+          <span *ngIf="!lastSumm">,</span>
+        </span>
       </span>
 
       <span *ngIf="range.misc">
-        <a *ngIf="range.misc.link" [attr.href]="range.misc.link">{{range.misc.value}}</a><span *ngIf="!range.misc.link">{{range.misc.value}}</span><span *ngIf="i < extPart.extRange.length - 1">,</span>
+        <a *ngIf="range.misc.link" [attr.href]="range.misc.link">{{range.misc.value}}</a><span *ngIf="!range.misc.link">{{range.misc.value}}</span>
       </span>
 
       <span *ngIf="range.gene_product">
         <a title="{{range.gene_product.id}}"
-           [attr.href]="range.gene_product.link">{{range.gene_product.id}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
+           [attr.href]="range.gene_product.link">{{range.gene_product.id}}</a>
       </span>
 
       <span *ngIf="range.domain">
         <a title="{{range.domain.id}}"
-           [attr.href]="range.domain.link">{{range.domain.id}}</a><span *ngIf="i < extPart.extRange.length - 1">,</span>
+           [attr.href]="range.domain.link">{{range.domain.id}}</a>
       </span>
     </span>
   </span>
