@@ -20,7 +20,7 @@
 }
 
 .count-column {
-  width: 5%;
+  width: 20%;
 }
 
 .not-annotation {
@@ -29,7 +29,8 @@
 }
 
 .summary-extension {
-  width: 95%;
+  width: 80%;
+  padding-left: 20px;
 }
 
 .summary-feature {
