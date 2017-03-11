@@ -1,10 +1,6 @@
 #header-row {
-  background: #b8c7b8 url(../assets/header-background.png) right no-repeat;
+  background: #bdc4e0 url(../assets/header-background.jpg) right no-repeat;
   height: 115px;
-}
-
-#slogan {
-  color: white;
 }
 
 #header-content, #content {
