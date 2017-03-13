@@ -289,6 +289,13 @@ export class PombaseAPIService {
           return a.genotype.displayNameLong.localeCompare(b.genotype.displayNameLong);
         } else {
           if (a.genes.length > 0 && b.genes.length > 0) {
+            if (!a.extension && b.extension) {
+              return -1;
+            } else {
+              if (a.extension && !b.extension) {
+                return 1;
+              }
+            }
             if (a.genes[0].name) {
               if (b.genes[0].name) {
                 return a.genes[0].name.localeCompare(b.genes[0].name);
