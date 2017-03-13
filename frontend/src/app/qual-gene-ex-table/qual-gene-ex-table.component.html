@@ -33,7 +33,7 @@
                                       [extension]="annotation.extension"></app-extension-display>
         </td>
         <td *ngIf="showDetails">
-          <app-evidence-link *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
+          <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
         </td>
         <td *ngIf="showDetails">
           <app-reference-short *ngIf="annotation.reference"

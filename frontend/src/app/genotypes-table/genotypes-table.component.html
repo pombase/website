@@ -17,10 +17,10 @@
       <tbody>
         <tr *ngFor="let genotype of genotypes">
           <td>
-            <app-gene-link [gene]="genotype.expressed_alleles[0].allele.gene"></app-gene-link>
+            <app-gene-link class="app-link" [gene]="genotype.expressed_alleles[0].allele.gene"></app-gene-link>
           </td>
           <td>{{genotype.expressed_alleles[0].allele.gene.product}}</td>
-          <td><app-genotype-link [genotype]="genotype"></app-genotype-link></td>
+          <td><app-genotype-link class="app-link" [genotype]="genotype"></app-genotype-link></td>
         </tr>
       </tbody>
     </table>

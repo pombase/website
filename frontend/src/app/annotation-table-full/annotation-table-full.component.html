@@ -41,10 +41,10 @@
       <tr class="term-annotation"
           *ngFor="let annotation of termAnnotation.annotations ; let i = index">
         <td *ngIf="showColumn['gene'] && featureInFirstColumn">
-          <app-gene-link *ngIf="annotation.gene" [long]="false" [gene]="annotation.gene"></app-gene-link>
+          <app-gene-link class="app-link" *ngIf="annotation.gene" [long]="false" [gene]="annotation.gene"></app-gene-link>
         </td>
         <td *ngIf="showColumn['genotype'] && featureInFirstColumn">
-          <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
+          <app-genotype-link class="app-link" *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
         </td>
         <td *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
@@ -65,13 +65,13 @@
           </div>
         </td>
         <td *ngIf="showColumn['gene'] && !featureInFirstColumn">
-          <app-gene-link *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
+          <app-gene-link class="app-link" *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
         <td *ngIf="showColumn['genotype'] && !featureInFirstColumn">
-          <app-genotype-link *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
+          <app-genotype-link class="app-link" *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
         </td>
         <td class="with" *ngIf="showColumn['evidence']">
-          <app-evidence-link *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
+          <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
           <span *ngIf="annotation.with">with<app-with-or-from-link [withOrFrom]="annotation.with"></app-with-or-from-link></span>
           <span *ngIf="annotation.from">from<app-with-or-from-link [withOrFrom]="annotation.from"></app-with-or-from-link></span>
         </td>

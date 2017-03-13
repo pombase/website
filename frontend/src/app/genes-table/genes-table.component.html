@@ -15,7 +15,7 @@
     <tbody>
       <tr *ngFor="let gene of genes | geneShortOrderBy">
         <td>
-          <app-gene-link [gene]="gene"></app-gene-link>
+          <app-gene-link class="app-link" [gene]="gene"></app-gene-link>
         </td>
         <td>{{gene.product}}</td>
       </tr>

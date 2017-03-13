@@ -98,3 +98,7 @@ html body hr {
 ul {
   padding-left: 25px;
 }
+
+.app-link {
+  display: inline-block;
+}
