@@ -84,8 +84,8 @@ export interface CvAnnotations {
 }
 
 export interface TermSummaryRow {
-  gene_uniquename: string;
-  gene: GeneShort;
+  gene_uniquenames: Array<string>;
+  genes: Array<GeneShort>;
   genotype_uniquename?: string;
   genotype: GenotypeShort;
   extension: Array<ExtPart>;
@@ -242,8 +242,13 @@ export class PombaseAPIService {
                        allelesByUniquename: any, termsByTermId: any) {
     for (let termSummary of termSummaries) {
       for (let row of termSummary.rows) {
-        if (row.gene_uniquename) {
-          row.gene = genesByUniquename[row.gene_uniquename];
+        if (row.gene_uniquenames) {
+          row.genes =
+            row.gene_uniquenames.map(gene_uniquename => {
+              return genesByUniquename[gene_uniquename];
+            });
+        } else {
+          row.genes = [];
         }
         if (row.extension) {
           row.extension.map((extPart) => {
@@ -283,18 +288,18 @@ export class PombaseAPIService {
         if (a.genotype && b.genotype) {
           return a.genotype.displayNameLong.localeCompare(b.genotype.displayNameLong);
         } else {
-          if (a.gene && b.gene) {
-            if (a.gene.name) {
-              if (b.gene.name) {
-                return a.gene.name.localeCompare(b.gene.name);
+          if (a.genes.length > 0 && b.genes.length > 0) {
+            if (a.genes[0].name) {
+              if (b.genes[0].name) {
+                return a.genes[0].name.localeCompare(b.genes[0].name);
               } else {
                 return -1;
               }
             } else {
-              if (b.gene.name) {
+              if (b.genes[0].name) {
                 return 1;
               } else {
-                return a.gene.uniquename.localeCompare(b.gene.uniquename);
+                return a.genes[0].uniquename.localeCompare(b.genes[0].uniquename);
               }
             }
           } else {
