@@ -19,7 +19,8 @@
         </td>
       </tr>
       <tr class="summary-row" *ngFor="let row of summary.rows">
-        <td class="summary-feature" *ngIf="row.genes.length > 0">
+        <td class="summary-feature" *ngIf="row.genes.length > 0"
+            [attr.colspan]="row.extension ? 1 : 2">
           <span *ngFor="let gene of row.genes; let lastGene = last">
             <app-gene-link [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene">,</span>
           </span>
