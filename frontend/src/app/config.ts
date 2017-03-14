@@ -93,6 +93,7 @@ let _config: AnnotationTableConfig = {
   extensions: {
     extensionOrder: [
       ['directly_positively_regulates',
+       'directly_negatively_regulates',
        'has_direct_input',
        'has_input',
        'has_regulation_target',
