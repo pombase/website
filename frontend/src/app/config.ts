@@ -66,6 +66,8 @@ let defaultColumnsToShow =
   ['desc-rel', 'gene', 'evidence', 'qualifiers', 'reference', 'count', 'extension'];
 let defaultInteractionToShow =
   ['interactor', 'gene-product', 'evidence', 'reference'];
+let phenotypeColumnsToShow =
+  ['desc-rel', 'genotype', 'evidence', 'conditions', 'reference', 'extension'];
 
 let _config: AnnotationTableConfig = {
   annotationTypeOrder: [
@@ -132,10 +134,13 @@ let _config: AnnotationTableConfig = {
       columnsToShow: ['desc-rel', 'gene',
                       'evidence', 'residue', 'reference', 'count', 'extension'],
     },
+    fission_yeast_phenotype: {
+      displayName: "Phenotype",
+      columnsToShow: phenotypeColumnsToShow,
+    },
     single_allele_phenotype: {
       displayName: 'Single allele phenotype',
-      columnsToShow: ['desc-rel', 'genotype',
-                      'evidence', 'conditions', 'reference', 'extension'],
+      columnsToShow: phenotypeColumnsToShow,
       summary: {
       },
       splitByParents: [
@@ -151,8 +156,7 @@ let _config: AnnotationTableConfig = {
     },
     multi_allele_phenotype: {
       displayName: 'Multi allele phenotype',
-      columnsToShow: ['desc-rel', 'genotype',
-                      'evidence', 'conditions', 'reference', 'extension'],
+      columnsToShow: phenotypeColumnsToShow,
       summary: {
       },
       splitByParents: [
