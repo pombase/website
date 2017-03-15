@@ -13,7 +13,7 @@
 
       <span *ngIf="range.summaryGenes">
         <span *ngFor="let summ of range.summaryGenes; let lastSumm = last">
-          <span *ngFor="let gene of summ; let lastGene = last"><app-gene-link class="app-link" [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene"> and </span></span><span *ngIf="!lastSumm">,</span>
+          <span class="summary-gene-and-comma"><span *ngFor="let gene of summ; let lastGene = last"><app-gene-link class="app-link" [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene"> and </span></span><span *ngIf="!lastSumm">,</span></span>
         </span>
       </span>
 

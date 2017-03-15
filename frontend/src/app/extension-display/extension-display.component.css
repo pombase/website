@@ -8,3 +8,7 @@
 .extension-rel-name {
   font-weight: bold;
 }
+
+.summary-gene-and-comma {
+  white-space: nowrap;
+}
