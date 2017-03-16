@@ -286,7 +286,16 @@ export class PombaseAPIService {
 
       termSummary.rows.sort((a: TermSummaryRow, b: TermSummaryRow) => {
         if (a.genotype && b.genotype) {
-          return a.genotype.displayNameLong.localeCompare(b.genotype.displayNameLong);
+          if (a.genotype.expressed_alleles.length < b.genotype.expressed_alleles.length) {
+            return -1;
+          } else {
+            if (a.genotype.expressed_alleles.length > b.genotype.expressed_alleles.length) {
+              return 1;
+            } else {
+              let cmp = a.genotype.displayNameLong.localeCompare(b.genotype.displayNameLong);
+              return cmp;
+            }
+          }
         } else {
           if (a.genes.length > 0 && b.genes.length > 0) {
             if (!a.extension && b.extension) {
@@ -361,7 +370,16 @@ export class PombaseAPIService {
 
       termAnnotation.annotations.sort((a: Annotation, b: Annotation) => {
         if (a.genotype && b.genotype) {
-          return a.genotype.displayNameLong.localeCompare(b.genotype.displayNameLong);
+          if (a.genotype.expressed_alleles.length < b.genotype.expressed_alleles.length) {
+            return -1;
+          } else {
+            if (a.genotype.expressed_alleles.length > b.genotype.expressed_alleles.length) {
+              return 1;
+            } else {
+              let cmp = a.genotype.displayNameLong.localeCompare(b.genotype.displayNameLong);
+              return cmp;
+            }
+          }
         } else {
           if (a.gene && b.gene) {
             if (a.gene.name) {
