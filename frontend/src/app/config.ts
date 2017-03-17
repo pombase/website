@@ -178,7 +178,7 @@ let _config: AnnotationTableConfig = {
     },
     species_dist: {
       displayName: 'Taxonomic conservation',
-      columnsToShow:   ['desc-rel', 'gene', 'count'],
+      columnsToShow: ['desc-rel', 'gene', 'count'],
     },
     complementation: {
       displayName: 'Complementation',
@@ -392,5 +392,5 @@ let organismPrefix = {
 };
 
 export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, id: string): string {
-    return getExternalLinkWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
+  return getExternalLinkWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
 }
