@@ -96,12 +96,12 @@
       <app-interaction-annotation-table *ngIf="annotationTypeName == 'physical_interactions'"
                                         id="{{annotationTypeName}}"
                                       [annotationTypeName]="annotationTypeName"
-                                      [hideColumns]="['gene', 'gene-product']"
+                                      [currentGene]="geneDetails"
                                       [annotationTable]="geneDetails.physical_interactions"></app-interaction-annotation-table>
       <app-interaction-annotation-table *ngIf="annotationTypeName == 'genetic_interactions'"
                                         id="{{annotationTypeName}}"
                                       [annotationTypeName]="annotationTypeName"
-                                      [hideColumns]="['gene', 'gene-product']"
+                                      [currentGene]="geneDetails"
                                       [annotationTable]="geneDetails.genetic_interactions"></app-interaction-annotation-table>
 
       <app-ortholog-annotation-table *ngIf="annotationTypeName == 'orthologs'"
