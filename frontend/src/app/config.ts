@@ -178,7 +178,7 @@ let _config: AnnotationTableConfig = {
     },
     species_dist: {
       displayName: 'Taxonomic conservation',
-      columnsToShow: defaultColumnsToShow,
+      columnsToShow:   ['desc-rel', 'gene', 'count'],
     },
     complementation: {
       displayName: 'Complementation',
