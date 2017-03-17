@@ -6,18 +6,26 @@
   <table>
     <thead>
       <tr>
-        <th>Gene</th>
-        <th>Product</th>
+        <th *ngIf="!hideColumn['gene']">Gene</th>
+        <th *ngIf="!hideColumn['gene-product']">Product</th>
+        <th>Interactor gene</th>
+        <th>Interactor product</th>
         <th>Evidence</th>
-        <th>Reference</th>
+        <th *ngIf="!hideColumn['reference']">Reference</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let annotation of annotationTable">
-        <td><app-gene-link class="app-link" [long]="false" [gene]="annotation.interactor"></app-gene-link></td>
+        <td *ngIf="!hideColumn['gene']">
+          <app-gene-link class="app-link" [long]="false" [gene]="annotation.gene"></app-gene-link>
+        </td>
+        <td *ngIf="!hideColumn['gene-product']">{{annotation.gene.product}}</td>
+        <td>
+          <app-gene-link class="app-link" [long]="false" [gene]="annotation.interactor"></app-gene-link>
+        </td>
         <td>{{annotation.interactor.product}}</td>
         <td>{{annotation.evidence}}</td>
-        <td>
+        <td *ngIf="!hideColumn['reference']">
           <span *ngIf="annotation.reference">
             <app-reference-short [reference]="annotation.reference"></app-reference-short>
           </span>

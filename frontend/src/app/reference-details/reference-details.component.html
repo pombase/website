@@ -54,10 +54,12 @@
   </div>
   <div>
     <app-interaction-annotation-table [annotationTypeName]="'physical_interactions'"
+                                      [hideColumns]="['reference']"
                                       [annotationTable]="refDetails.physical_interactions"></app-interaction-annotation-table>
   </div>
   <div>
     <app-interaction-annotation-table [annotationTypeName]="'genetic_interactions'"
+                                      [hideColumns]="['reference']"
                                       [annotationTable]="refDetails.genetic_interactions"></app-interaction-annotation-table>
   </div>
   <div>

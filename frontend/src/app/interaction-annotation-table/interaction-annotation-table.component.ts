@@ -11,15 +11,20 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 })
 export class InteractionAnnotationTableComponent implements OnInit {
   @Input() annotationTypeName: string;
+  @Input() hideColumns: Array<string>;
   @Input() annotationTable: Array<InteractionAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
   annotationTypeDisplayName = null;
+  hideColumn = {};
 
   constructor() { }
 
   ngOnInit() {
+    this.hideColumns.map(col => {
+      this.hideColumn[col] = true;
+    });
     let typeConfig = this.config.annotationTypes[this.annotationTypeName];
     if (typeConfig && typeConfig.displayName) {
       this.annotationTypeDisplayName =

@@ -65,7 +65,7 @@ let goColumnsToShow =
 let defaultColumnsToShow =
   ['desc-rel', 'gene', 'evidence', 'qualifiers', 'reference', 'count', 'extension'];
 let defaultInteractionToShow =
-  ['interactor', 'gene-product', 'evidence', 'reference'];
+  ['gene', 'gene-product', 'interactor', 'interactor-product', 'evidence', 'reference'];
 let phenotypeColumnsToShow =
   ['desc-rel', 'genotype', 'evidence', 'conditions', 'reference', 'extension'];
 
