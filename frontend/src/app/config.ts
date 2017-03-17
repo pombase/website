@@ -53,10 +53,18 @@ export interface ExtensionConfig {
   alwaysLast: Array<string>;
 }
 
+export interface InteractionDirectionalLabels {
+  bait: string,
+  prey: string,
+}
+
 export interface AnnotationTableConfig {
   annotationTypeOrder: Array<string>;
   extensions: ExtensionConfig;
   annotationTypes: AnnotationTypes;
+  interactionDirectionalLabels: {
+    [evidence: string]: InteractionDirectionalLabels,
+  },
   getAnnotationType(annotationTypeName: string): AnnotationType;
 }
 
@@ -237,6 +245,116 @@ let _config: AnnotationTableConfig = {
       displayName: null,
       columnsToShow: defaultColumnsToShow,
     }
+  },
+  interactionDirectionalLabels: {
+    'Co-crystal Structure': {
+      bait: 'co-crystallizes with',
+      prey: 'co-crystallizes with',
+    },
+    'Co-fractionation': {
+      bait: 'co-fractionates with',
+      prey: 'co-fractionates with',
+    },
+    'Co-localization': {
+      bait: 'would be co-localizes with',
+      prey: 'would be co-localizes with',
+    },
+    'Co-purification': {
+      bait: 'co-purifies with',
+      prey: 'co-purifies with',
+    },
+    'Reconstituted Complex': {
+      bait: 'forms complex with',
+      prey: 'forms complex with',
+    },
+    'Affinity Capture-Luminescence': {
+      bait: 'affinity captures',
+      prey: 'affinity captured by',
+    },
+    'Affinity Capture-MS': {
+      bait: 'affinity captures',
+      prey: 'affinity captured by',
+    },
+    'Affinity Capture-RNA': {
+      bait: 'affinity captures',
+      prey: 'affinity captured by',
+    },
+    'Affinity Capture-Western': {
+      bait: 'affinity captures',
+      prey: 'affinity captured by',
+    },
+    'Biochemical Activity': {
+      bait: 'would be modifies',
+      prey: 'would be modified by',
+    },
+    'Far Western': {
+      bait: 'captures',
+      prey: 'captured by',
+    },
+    'FRET': {
+      bait: 'fluorescence resonance energy donor to',
+      prey: 'fluorescence resonance energy acceptor from',
+    },
+    'PCA': {
+      bait: 'interacts with',
+      prey: 'interacts with',
+    },
+    'Protein-peptide': {
+      bait: 'binds to peptide',
+      prey: '(peptide) binds to protein',
+    },
+    'Protein-RNA': {
+      bait: 'binds to RNA',
+      prey: 'binds to protein',
+    },
+    'Two-hybrid': {
+      bait: 'binds activation domain construct with',
+      prey: 'binds DNA-binding domain construct with',
+    },
+    'Negative Genetic': {
+      bait: 'negative genetic interaction with',
+      prey: 'negative genetic interaction with',
+    },
+    'Positive Genetic': {
+      bait: 'positive genetic interaction with',
+      prey: 'positive genetic interaction with',
+    },
+    'Synthetic Growth Defect': {
+      bait: 'synthetic growth defect with',
+      prey: 'synthetic growth defect with',
+    },
+    'Synthetic Haploinsufficiency': {
+      bait: 'synthetic haploinsufficient with',
+      prey: 'synthetic haploinsufficient with',
+    },
+    'Synthetic Lethality': {
+      bait: 'synthetic lethal with',
+      prey: 'synthetic lethal with',
+    },
+    'Synthetic Rescue': {
+      bait: 'synthetically rescued by',
+      prey: 'synthetically rescues',
+    },
+    'Dosage Growth Defect': {
+      bait: 'growth defect in presence of overexpressed',
+      prey: 'overexpression causes growth defect to',
+    },
+    'Dosage Lethality': {
+      bait: 'inviable in presence of overexpressed',
+      prey: 'overexpression lethal to',
+    },
+    'Dosage Rescue': {
+      bait: 'rescued by overexpression of',
+      prey: 'overexpression rescues',
+    },
+    'Phenotypic Enhancement': {
+      bait: 'phenotype enhanced by',
+      prey: 'enhances phenotype of',
+    },
+    'Phenotypic Suppression': {
+      bait: 'rescued by',
+      prey: 'rescues',
+    },
   },
   getAnnotationType:
   function(annotationTypeName: string): AnnotationType {

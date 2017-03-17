@@ -6,17 +6,18 @@
   <table>
     <thead>
       <tr>
+        <th></th>
         <th *ngIf="!currentGene">Gene</th>
         <th *ngIf="!currentGene">Product</th>
         <th>Interactor gene</th>
         <th>Interactor product</th>
-        <th>Label</th>
         <th>Evidence</th>
         <th *ngIf="!hideColumn['reference']">Reference</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let annotation of displayTable">
+        <td>{{annotation.displayLabel}}</td>
         <td *ngIf="!currentGene">
           <app-gene-link class="app-link" [long]="false" [gene]="annotation.gene"></app-gene-link>
         </td>
@@ -25,7 +26,6 @@
           <app-gene-link class="app-link" [long]="false" [gene]="annotation.interactor"></app-gene-link>
         </td>
         <td>{{annotation.interactor.product}}</td>
-        <td>{{annotation.displayLabel}}</td>
         <td>{{annotation.evidence}}</td>
         <td *ngIf="!hideColumn['reference']">
           <span *ngIf="annotation.reference">

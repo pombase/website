@@ -45,22 +45,24 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
             interactor: annotation.interactor,
             reference: annotation.reference,
             evidence: annotation.evidence,
-            displayLabel: null,
+            displayLabel: '',
           };
 
+          let labelConfig = this.config.interactionDirectionalLabels[annotation.evidence];
+
+          if (!labelConfig) {
+            return displayAnnotation;
+          }
+
+          displayAnnotation.displayLabel = labelConfig.bait;
+
           if (this.currentGene) {
-            if (this.currentGene.uniquename == annotation.gene.uniquename) {
-              // current gene is the bait
-              displayAnnotation.displayLabel = 'bait';
-            } else {
-              // current is prey
-              displayAnnotation.displayLabel = 'prey';
+            if (this.currentGene.uniquename != annotation.gene.uniquename) {
+              // current gene is the prey
+              displayAnnotation.displayLabel = labelConfig.prey;
               [displayAnnotation.gene, displayAnnotation.interactor] =
                 [displayAnnotation.interactor, displayAnnotation.gene];
             }
-          } else {
-            // reference details page:
-            displayAnnotation.displayLabel = 'bait';
           }
 
           return displayAnnotation;
