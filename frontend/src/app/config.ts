@@ -49,8 +49,6 @@ export interface AnnotationTypes {
 }
 
 export interface ExtensionConfig {
-  extensionOrder: Array<Array<string>>;
-  alwaysLast: Array<string>;
 }
 
 export interface InteractionDirectionalLabels {
@@ -101,28 +99,6 @@ let _config: AnnotationTableConfig = {
     'subunit_composition',
   ],
   extensions: {
-    extensionOrder: [
-      ['directly_positively_regulates',
-       'directly_negatively_regulates',
-       'has_direct_input',
-       'has_input',
-       'has_regulation_target',
-       'binds'],
-      ['involved_in'],
-      ['occurs_at',
-       'occurs_in'],
-      ['added_by',
-       'added_during',
-       'present_during',
-       'in_presence_of',
-       'removed_by',
-       'removed_during',
-       'absent_during',
-       'has_expressivity',
-       'has_penetrance']
-      // any others (e.g. coincident_with)
-    ],
-    alwaysLast: ['happens_during', 'exists_during'],
   },
   annotationTypes: {
     molecular_function: {
