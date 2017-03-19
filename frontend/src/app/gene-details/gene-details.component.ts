@@ -83,7 +83,11 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   makeDisplayFeatureType(rawFeatureType: string): string {
-    return rawFeatureType.replace(/^mRNA\s+/, '');
+    if (rawFeatureType == "mRNA gene") {
+      return "protein coding";
+    } else {
+      return rawFeatureType;
+    }
   }
 
   makeSynonymsDisplay(synonyms: Array<SynonymDetails>): string {
