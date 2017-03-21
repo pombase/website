@@ -283,46 +283,6 @@ export class PombaseAPIService {
           }
         }
       }
-
-      termSummary.rows.sort((a: TermSummaryRow, b: TermSummaryRow) => {
-        if (a.genotype && b.genotype) {
-          if (a.genotype.expressed_alleles.length < b.genotype.expressed_alleles.length) {
-            return -1;
-          } else {
-            if (a.genotype.expressed_alleles.length > b.genotype.expressed_alleles.length) {
-              return 1;
-            } else {
-              let cmp = a.genotype.displayNameLong.localeCompare(b.genotype.displayNameLong);
-              return cmp;
-            }
-          }
-        } else {
-          if (a.genes.length > 0 && b.genes.length > 0) {
-            if (!a.extension && b.extension) {
-              return -1;
-            } else {
-              if (a.extension && !b.extension) {
-                return 1;
-              }
-            }
-            if (a.genes[0].name) {
-              if (b.genes[0].name) {
-                return a.genes[0].name.localeCompare(b.genes[0].name);
-              } else {
-                return -1;
-              }
-            } else {
-              if (b.genes[0].name) {
-                return 1;
-              } else {
-                return a.genes[0].uniquename.localeCompare(b.genes[0].uniquename);
-              }
-            }
-          } else {
-            return 0;
-          }
-        }
-      });
     }
   }
 
@@ -367,39 +327,6 @@ export class PombaseAPIService {
           }
         }
       }
-
-      termAnnotation.annotations.sort((a: Annotation, b: Annotation) => {
-        if (a.genotype && b.genotype) {
-          if (a.genotype.expressed_alleles.length < b.genotype.expressed_alleles.length) {
-            return -1;
-          } else {
-            if (a.genotype.expressed_alleles.length > b.genotype.expressed_alleles.length) {
-              return 1;
-            } else {
-              let cmp = a.genotype.displayNameLong.localeCompare(b.genotype.displayNameLong);
-              return cmp;
-            }
-          }
-        } else {
-          if (a.gene && b.gene) {
-            if (a.gene.name) {
-              if (b.gene.name) {
-                return a.gene.name.localeCompare(b.gene.name);
-              } else {
-                return -1;
-              }
-            } else {
-              if (b.gene.name) {
-                return 1;
-              } else {
-                return a.gene.uniquename.localeCompare(b.gene.uniquename);
-              }
-            }
-          } else {
-            return 0;
-          }
-        }
-      });
     }
   }
 
