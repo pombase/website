@@ -22,11 +22,14 @@
         <td class="summary-feature" *ngIf="row.genes.length > 0"
             [attr.colspan]="row.extension ? 1 : 2">
           <span *ngFor="let gene of row.genes; let lastGene = last">
-            <app-gene-link class="app-link" [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene">,</span>
+            <app-gene-link class="app-link" [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene">, </span>
           </span>
         </td>
-        <td class="summary-feature" *ngIf="row.genotype">
-          <app-genotype-link class="app-link" [genotype]="row.genotype"></app-genotype-link>
+        <td class="summary-feature" *ngIf="row.genotypes?.length > 0"
+            [attr.colspan]="row.extension ? 1 : 2">
+          <span *ngFor="let genotype of row.genotypes; let lastGenotype = last">
+            <app-genotype-link class="app-link" [genotype]="genotype"></app-genotype-link><span *ngIf="!lastGenotype">, &nbsp;</span>
+          </span>
         </td>
         <td class="summary-extension" *ngIf="row.extension">
           <app-extension-display [extension]="row.extension"></app-extension-display>

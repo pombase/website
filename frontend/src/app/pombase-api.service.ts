@@ -42,12 +42,20 @@ export interface AlleleShort {
   description: string;
 }
 
+export interface AlleleMap {
+  [uniquename: string]: AlleleShort;
+}
+
 export interface GenotypeShort {
   uniquename: string;
   name: string;
   displayNameLong?: string;
   background: string;
   expressed_alleles: Array<ExpressedAllele>;
+}
+
+export interface GenotypeMap {
+  [uniquename: string]: GenotypeShort;
 }
 
 export interface ExtPart {
@@ -86,8 +94,8 @@ export interface CvAnnotations {
 export interface TermSummaryRow {
   gene_uniquenames: Array<string>;
   genes: Array<GeneShort>;
-  genotype_uniquename?: string;
-  genotype: GenotypeShort;
+  genotype_uniquenames: Array<string>;
+  genotypes: Array<GenotypeShort>;
   extension: Array<ExtPart>;
 }
 
@@ -146,6 +154,10 @@ export interface ChromosomeLocation {
 export class GeneShort {
   uniquename: string;
   name: string;
+}
+
+export interface GeneMap {
+  [uniquename: string]: GeneShort;
 }
 
 export interface SynonymDetails {
@@ -271,24 +283,23 @@ export class PombaseAPIService {
             }
           });
         }
-        if (genotypesByUniquename && row.genotype_uniquename) {
-          row.genotype = genotypesByUniquename[row.genotype_uniquename];
-          if (row.genotype) {
-            row.genotype.expressed_alleles.map((expressed_allele) => {
-              expressed_allele.allele = allelesByUniquename[expressed_allele.allele_uniquename];
-              expressed_allele.allele.gene =
-                genesByUniquename[expressed_allele.allele.gene_uniquename];
+
+        if (genotypesByUniquename && row.genotype_uniquenames) {
+          row.genotypes =
+            row.genotype_uniquenames.map(genotypeUniquename => {
+              let genotype = genotypesByUniquename[genotypeUniquename];
+              this.processExpressedAlleles(allelesByUniquename, genesByUniquename, genotype.expressed_alleles);
+              genotype.displayNameLong = Util.displayNameLong(genotype);
+              return genotype;
             });
-            row.genotype.displayNameLong = Util.displayNameLong(row.genotype);
-          }
         }
       }
     }
   }
 
   processTermAnnotations(termAnnotations: Array<TermAnnotation>,
-                         genesByUniquename: any, genotypesByUniquename: any,
-                         allelesByUniquename: any,
+                         genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
+                         allelesByUniquename: AlleleMap,
                          referencesByUniquename?: any, termsByTermId?: any) {
     for (let termAnnotation of termAnnotations) {
       for (let annotation of termAnnotation.annotations) {
