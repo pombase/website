@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GenotypeLinkComponent implements OnInit {
   @Input() genotype: /* GenotypeShort */ any;
 
+  isShortDisplayName = false;
+
   displayNameLong(): string {
     return this.genotype.displayNameLong.replace(/,/g, ',&#8201;');
   }
@@ -15,5 +17,6 @@ export class GenotypeLinkComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.isShortDisplayName = this.genotype.displayNameLong.length < 50;
   }
 }

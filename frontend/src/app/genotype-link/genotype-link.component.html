@@ -1,4 +1,4 @@
-<span class="genotype-link">
+<span [class.short-genotype-link]="isShortDisplayName">
   <a routerLink="/genotype/{{genotype.uniquename}}"
      routerLinkActive="active" [attr.title]="linkTitle"><span [innerHTML]="displayNameLong()"></span></a>
 </span>

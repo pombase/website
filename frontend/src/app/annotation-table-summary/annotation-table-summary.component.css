@@ -29,10 +29,11 @@
 }
 
 .summary-extension {
+  width: 90%;
   padding-left: 20px;
 }
 
 .summary-feature {
-  width: 5%;
+  width: 10%;
   padding-left: 20px;
 }
