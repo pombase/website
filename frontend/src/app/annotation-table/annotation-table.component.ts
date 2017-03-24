@@ -73,6 +73,8 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
         this.tableDisplayName = this.annotationTypeName;
       }
     }
+
+    this.maybeDoSplit();
   }
 
   ngOnChanges() {
