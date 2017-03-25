@@ -242,7 +242,7 @@ export class PombaseAPIService {
     return Promise.reject(error.message || error);
   }
 
-  processAlleleMap(allelesByUniquename: any, genesByUniquename: any) {
+  processAlleleMap(allelesByUniquename: AlleleMap, genesByUniquename: GeneMap) {
     for (let alleleUniquename of Object.keys(allelesByUniquename)) {
       let allele = allelesByUniquename[alleleUniquename];
       allele.gene = genesByUniquename[allele.gene_uniquename];
@@ -250,8 +250,9 @@ export class PombaseAPIService {
   }
 
   processTermSummaries(termSummaries: Array<TermSummary>,
-                       genesByUniquename: any, genotypesByUniquename: any,
-                       allelesByUniquename: any, termsByTermId: any) {
+                       genesByUniquename: GeneMap,
+                       genotypesByUniquename: GenotypeMap,
+                       allelesByUniquename: AlleleMap, termsByTermId: any) {
     for (let termSummary of termSummaries) {
       for (let row of termSummary.rows) {
         if (row.gene_uniquenames) {
@@ -342,7 +343,7 @@ export class PombaseAPIService {
   }
 
   processInteractions(interactions: Array<InteractionAnnotation>,
-                      genesByUniquename: any, referencesByUniquename?: any) {
+                      genesByUniquename: GeneMap, referencesByUniquename?: any) {
     for (let annotation of interactions) {
       annotation.gene = genesByUniquename[annotation.gene_uniquename];
       annotation.interactor = genesByUniquename[annotation.interactor_uniquename];
@@ -353,7 +354,7 @@ export class PombaseAPIService {
   }
 
   processOrthologs(orthologs: Array<OrthologAnnotation>,
-                   genesByUniquename: any, referencesByUniquename?: any) {
+                   genesByUniquename: GeneMap, referencesByUniquename?: any) {
     for (let annotation of orthologs) {
       annotation.ortholog = genesByUniquename[annotation.ortholog_uniquename];
       if (referencesByUniquename) {
@@ -363,7 +364,7 @@ export class PombaseAPIService {
   }
 
   processParalogs(paralogs: Array<ParalogAnnotation>,
-                  genesByUniquename: any, referencesByUniquename?: any) {
+                  genesByUniquename: GeneMap, referencesByUniquename?: any) {
     for (let annotation of paralogs) {
       annotation.paralog = genesByUniquename[annotation.paralog_uniquename];
       if (referencesByUniquename) {
@@ -373,8 +374,8 @@ export class PombaseAPIService {
   }
 
   processTargetOf(targetOfAnnotations: Array<TargetOfAnnotation>,
-                  genesByUniquename: any, genotypesByUniquename: any,
-                  allelesByUniquename: any, referencesByUniquename: any) {
+                  genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
+                  allelesByUniquename: AlleleMap, referencesByUniquename: any) {
     for (let annotation of targetOfAnnotations) {
       if (annotation.gene_uniquename) {
         annotation.gene = genesByUniquename[annotation.gene_uniquename];
