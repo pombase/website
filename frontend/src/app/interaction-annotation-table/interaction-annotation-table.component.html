@@ -26,8 +26,8 @@
           <app-gene-link class="app-link" [long]="false" [gene]="annotation.interactor"></app-gene-link>
         </td>
         <td>{{annotation.interactor.product}}</td>
-        <td>{{annotation.evidence}}</td>
-        <td *ngIf="!hideColumn['reference']">
+        <td class="interaction-evidence">{{annotation.evidence}}</td>
+        <td class="interaction-reference" *ngIf="!hideColumn['reference']">
           <span *ngIf="annotation.reference">
             <app-reference-short [reference]="annotation.reference"></app-reference-short>
           </span>
