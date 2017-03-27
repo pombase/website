@@ -337,7 +337,7 @@ let _appConfig: AppConfig = {
   },
 
   termPageConfig: {
-    ancestorRelNames: ['is_a', 'part_of'],
+    ancestorRelNames: ['is_a', 'part_of', 'regulates'],
   },
 
   linkoutConfig: {
