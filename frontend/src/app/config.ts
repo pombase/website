@@ -31,14 +31,10 @@ export interface AppConfig {
   isConfigOrganism(genus: string, species: string): boolean;
 }
 
-export interface AnnotationSummaryConf {
-}
-
 export interface AnnotationType {
   displayName: string;
   splitByParents?: Array<any>;
   columnsToShow?: Array<string>;
-  summary?: AnnotationSummaryConf;
   miscConfig?: {
     [key: string]: any;
   };
@@ -115,7 +111,7 @@ let _config: AnnotationTableConfig = {
     },
     'PSI-MOD': {
       displayName: 'Modification',
-      columnsToShow: ['desc-rel', 'gene',
+      columnsToShow: ['desc-rel', 'gene', 'genotype',
                       'evidence', 'residue', 'reference', 'count', 'extension'],
     },
     fission_yeast_phenotype: {
@@ -125,8 +121,6 @@ let _config: AnnotationTableConfig = {
     single_allele_phenotype: {
       displayName: 'Single allele phenotype',
       columnsToShow: phenotypeColumnsToShow,
-      summary: {
-      },
       splitByParents: [
         {
           termid: 'FYPO:0000003',
@@ -141,8 +135,6 @@ let _config: AnnotationTableConfig = {
     multi_allele_phenotype: {
       displayName: 'Multi allele phenotype',
       columnsToShow: phenotypeColumnsToShow,
-      summary: {
-      },
       splitByParents: [
         {
           termid: 'FYPO:0000003',
