@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { GeneShort } from '../pombase-api.service';
 
 @Component({
   selector: 'app-genes-table',
@@ -7,7 +8,13 @@ import { Component, Input } from '@angular/core';
 })
 export class GenesTableComponent {
   @Input() legend: string;
-  @Input() genes: Array<any> = [];
+  @Input() genes: Array<GeneShort> = [];
+
+  orderByField = 'gene';
+
+  setOrderBy(field: string) {
+    this.orderByField = field;
+  }
 
   constructor() { }
 }

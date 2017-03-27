@@ -8,12 +8,20 @@
   <table>
     <thead>
       <tr>
-        <th>Gene</th>
-        <th>Product</th>
+        <th>
+          <a *ngIf="orderByField != 'gene'" (click)="setOrderBy('gene')"
+             title="Click to sort">Gene</a>
+          <span *ngIf="orderByField == 'gene'">Gene</span>
+        </th>
+        <th>
+          <a *ngIf="orderByField != 'product'" (click)="setOrderBy('product')"
+             title="Click to sort">Product</a>
+          <span *ngIf="orderByField == 'product'">Gene</span>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let gene of genes | geneShortOrderBy">
+      <tr *ngFor="let gene of genes | geneShortOrderBy: orderByField">
         <td>
           <app-gene-link class="app-link" [gene]="gene"></app-gene-link>
         </td>

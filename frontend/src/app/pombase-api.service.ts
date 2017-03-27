@@ -154,6 +154,7 @@ export interface ChromosomeLocation {
 export class GeneShort {
   uniquename: string;
   name: string;
+  product?: string;
 }
 
 export interface GeneMap {

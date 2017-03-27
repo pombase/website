@@ -5,35 +5,45 @@ import { GeneShort } from './pombase-api.service';
   name: 'geneShortOrderBy'
 })
 export class GeneShortOrderByPipe implements PipeTransform {
-  transform(genes: Array<GeneShort>, args?: any): any {
-    genes.sort(function (a, b) {
-      if (a.name && b.name) {
-        if (a.name < b.name) {
-          return -1;
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
-        return 0;
+  compareGene(a: GeneShort, b: GeneShort) {
+    if (a.name && b.name) {
+      return a.name.localeCompare(b.name);
+    } else {
+      if (a.name) {
+        return -1;
       } else {
-        if (a.name) {
-          return -1;
+        if (b.name) {
+          return 1;
         } else {
-          if (b.name) {
-            return 1;
-          } else {
-            if (a.uniquename < b.uniquename) {
-              return -1;
-            }
-            if (a.uniquename > b.uniquename) {
-              return 1;
-            }
-            return 0;
-          }
+          return a.uniquename.localeCompare(b.uniquename);
         }
       }
-    });
+    }
+  }
 
-    return genes
+  compareProduct(a: GeneShort, b: GeneShort) {
+    if (a.product) {
+      if (b.product) {
+        return a.product.localeCompare(b.product);
+      } else {
+        return -1;
+      }
+    } else {
+      if (b.product) {
+        return 1;
+      } else {
+        return this.compareGene(a, b);
+      }
+    }
+  }
+
+  transform(genes: Array<GeneShort>, field: string): any {
+    if (field == 'gene' || field == '+gene') {
+      genes.sort(this.compareGene);
+    } else {
+      genes.sort(this.compareProduct);
+    }
+
+    return genes;
   }
 }
