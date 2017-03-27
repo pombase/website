@@ -1,12 +1,11 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { TermDetails, TermAndRelation, Annotation,
          PombaseAPIService } from '../pombase-api.service';
 
-import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig } from '../config';
+import { getAnnotationTableConfig, getAppConfig, AnnotationType } from '../config';
 
 @Component({
   selector: 'app-term-details',
@@ -18,11 +17,12 @@ export class TermDetailsComponent implements OnInit {
 
   annotationFeatureType = '';
   filteredAncestors: Array<TermAndRelation> = [];
+  typeConfig: AnnotationType = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
-              private titleService: Title
-             ) { }
+              private titleService: Title,
+              private router: Router) { }
 
   filterAncestors(): void {
     let termPageConfig = getAppConfig().termPageConfig;
@@ -51,6 +51,11 @@ export class TermDetailsComponent implements OnInit {
         this.pombaseApiService.getTerm(termid)
               .then(termDetails => {
                 this.termDetails = termDetails;
+                this.typeConfig =
+                  getAnnotationTableConfig().getAnnotationType(termDetails.cv_name);
+                if (this.typeConfig && this.typeConfig.hideTermDetails) {
+                  this.router.navigate(['/term_genes', termid]);
+                }
                 this.setPageTitle();
                 this.annotationFeatureType = termDetails.annotation_feature_type;
                 this.filterAncestors();

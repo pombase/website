@@ -8,7 +8,7 @@
 
     <hr style="clear: both" />
 
-    <div class="term-page-view-change">
+    <div *ngIf="showAllAnnotationsLink" class="term-page-view-change">
       <a routerLink="/term/{{termDetails.termid}}"
          routerLinkActive="active">View all annotations for this term ...</a>
     </div>

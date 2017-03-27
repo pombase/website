@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Util } from '../util';
 
 import { TermDetails, PombaseAPIService } from '../pombase-api.service';
+import { getAnnotationTableConfig } from '../config';
 
 @Component({
   selector: 'app-term-genes-view',
@@ -14,6 +15,7 @@ export class TermGenesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;
 
   genes = [];
+  showAllAnnotationsLink = true;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -55,6 +57,11 @@ export class TermGenesViewComponent implements OnInit {
         this.pombaseApiService.getTerm(termid)
               .then(termDetails => {
                 this.termDetails = termDetails;
+                let typeConfig =
+                  getAnnotationTableConfig().getAnnotationType(termDetails.cv_name);
+                if (typeConfig && typeConfig.hideTermDetails) {
+                  this.showAllAnnotationsLink = false;
+                }
                 this.setPageTitle();
                 this.collectGenes();
               });

@@ -35,6 +35,7 @@ export interface AnnotationType {
   displayName: string;
   splitByParents?: Array<any>;
   columnsToShow?: Array<string>;
+  hideTermDetails?: boolean;
   miscConfig?: {
     [key: string]: any;
   };
@@ -155,6 +156,7 @@ let _config: AnnotationTableConfig = {
     species_dist: {
       displayName: 'Taxonomic conservation',
       columnsToShow: ['desc-rel', 'gene', 'count'],
+      hideTermDetails: true,
     },
     complementation: {
       displayName: 'Complementation',
