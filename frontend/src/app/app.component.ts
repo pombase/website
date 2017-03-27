@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { environment } from '../environments/environment';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +15,13 @@ import 'rxjs/add/operator/mergeMap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  googleAnalyticsID = environment.googleAnalyticsID;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private titleService: Title
-  ) { }
+    private titleService: Title,
+    private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) { }
 
   ngOnInit() {
     this.router.events

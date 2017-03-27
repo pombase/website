@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
@@ -62,7 +64,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+            Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])],
   exports: [RouterModule],
   providers: []
 })
