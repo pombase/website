@@ -2,8 +2,10 @@
   width: 55% !important;
 }
 
-.term-ancestors {
-  float: right;
-  width: 40%;
-  font-size: 90%;
+.term-parent-column {
+  width: 35%;
+}
+
+.term-parent-rel {
+  padding-right: 4px;
 }

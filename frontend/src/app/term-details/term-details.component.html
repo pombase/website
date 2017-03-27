@@ -10,14 +10,14 @@
       <table>
         <tr>
           <td *ngIf="termDetails.definition" class="details-label">Definition</td>
-          <td *ngIf="filteredAncestors.length > 0" colspan="2">Ancestors</td>
+          <td *ngIf="filteredAncestors.length > 0" class="details-label">Parents</td>
         </tr>
-        <tr *ngFor="let ancestorDetails of filteredAncestors; let firstRow = first">
+        <tr *ngFor="let parentDetails of filteredAncestors; let firstRow = first">
           <td *ngIf="firstRow" [attr.rowspan]="filteredAncestors.length">{{termDetails.definition}}</td>
-          <td class="details-label">{{ancestorDetails.relation_name}}</td>
-          <td>
-            <a routerLink="/term/{{ancestorDetails.termid}}"
-               routerLinkActive="active">{{ancestorDetails.term_name}}</a>
+          <td class="term-parent-column">
+            <span class="details-label term-parent-rel">{{parentDetails.relation_name}}</span>
+            <a routerLink="/term/{{parentDetails.termid}}"
+               routerLinkActive="active">{{parentDetails.term_name}}</a>
           </td>
         </tr>
       </table>
