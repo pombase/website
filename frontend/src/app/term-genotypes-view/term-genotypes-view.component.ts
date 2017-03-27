@@ -22,7 +22,7 @@ export class TermGenotypesViewComponent implements OnInit {
     let displayName;
     if (this.termDetails) {
       displayName = this.termDetails.termid + " - " + this.termDetails.name +
-        "single allele genotypes";
+        "single-allele genotypes";
     } else {
       displayName = "UNKNOWN";
     }

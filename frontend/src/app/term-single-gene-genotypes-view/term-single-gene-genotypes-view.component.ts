@@ -25,7 +25,7 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
     let displayName;
     if (this.termDetails) {
       displayName = this.termDetails.termid + " - " + this.termDetails.name +
-        " - genes from single allele genotypes";
+        " - genes from-single allele genotypes";
     } else {
       displayName = "UNKNOWN";
     }

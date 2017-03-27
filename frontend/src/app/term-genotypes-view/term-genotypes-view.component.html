@@ -3,7 +3,7 @@
 
   <div *ngIf="termDetails">
     <div class="details-page-name-and-id">
-      Single allele genotypes annotated with {{termDetails.termid}}
+      Single-allele genotypes annotated with {{termDetails.termid}}
     </div>
 
     <div class="details-page-summary">
@@ -18,7 +18,7 @@
     </div>
 
     <div>
-      <app-genotypes-table [legend]="'Single allele genotypes annotated with ' + termDetails.termid + ' or its descendants: ' + termDetails.single_allele_genotype_uniquenames.length"
+      <app-genotypes-table [legend]="'Single-allele genotypes annotated with ' + termDetails.termid + ' or its descendants: ' + termDetails.single_allele_genotype_uniquenames.length"
                            [genotypes]="termDetails.single_allele_genotypes"></app-genotypes-table>
     </div>
   </div>

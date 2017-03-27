@@ -44,7 +44,7 @@ const routes: Routes = [
   },
   { path: 'term_single_allele_genotype_genes/:termid', component: TermSingleGeneGenotypesViewComponent,
     data: {
-      title: 'Term single allele genotype genes'
+      title: 'Genes from single-allele genotypes'
     }
   },
   { path: 'reference/:uniquename', component: ReferenceDetailsComponent,
