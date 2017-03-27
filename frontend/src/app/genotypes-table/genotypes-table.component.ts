@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GenotypeShort } from '../pombase-api.service';
 
 @Component({
   selector: 'app-genotypes-table',
@@ -7,7 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GenotypesTableComponent implements OnInit {
   @Input() legend: string;
-  @Input() genotypes: Array<any> = [];
+  @Input() genotypes: Array<GenotypeShort> = [];
+
+  orderByField = 'gene';
+
+  setOrderBy(field: string) {
+    this.orderByField = field;
+  }
 
   constructor() { }
 

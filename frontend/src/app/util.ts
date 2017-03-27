@@ -19,6 +19,22 @@ export class Util {
     }
   }
 
+  static geneProductCompare(gene1: GeneShort, gene2: GeneShort) {
+    if (gene1.product) {
+      if (gene2.product) {
+        return gene1.product.localeCompare(gene2.product);
+      } else {
+        return -1;
+      }
+    } else {
+      if (gene2.product) {
+        return 1;
+      } else {
+        return this.geneCompare(gene1, gene2);
+      }
+    }
+  }
+
   static genotypeCompare(genotype1: GenotypeShort, genotype2: GenotypeShort): number {
     return genotype1.displayNameLong.localeCompare(genotype2.displayNameLong);
   }

@@ -48,6 +48,7 @@ import { GenePageMenuComponent } from './gene-page-menu/gene-page-menu.component
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
 import { GenotypesTableComponent } from './genotypes-table/genotypes-table.component';
 import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotypes-view/term-single-gene-genotypes-view.component';
+import { GenotypeOrderByPipe } from './genotype-order-by.pipe';
 
 export function documentFactory() {
     return document;
@@ -97,6 +98,7 @@ export function windowFactory() {
     TermGenotypesViewComponent,
     GenotypesTableComponent,
     TermSingleGeneGenotypesViewComponent,
+    GenotypeOrderByPipe,
   ],
   imports: [
     BrowserModule,
