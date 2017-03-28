@@ -226,8 +226,8 @@ let _config: AnnotationTableConfig = {
       prey: 'co-fractionates with',
     },
     'Co-localization': {
-      bait: 'would be co-localizes with',
-      prey: 'would be co-localizes with',
+      bait: 'co-localizes with',
+      prey: 'co-localizes with',
     },
     'Co-purification': {
       bait: 'co-purifies with',
@@ -254,8 +254,8 @@ let _config: AnnotationTableConfig = {
       prey: 'affinity captured by',
     },
     'Biochemical Activity': {
-      bait: 'would be modifies',
-      prey: 'would be modified by',
+      bait: 'modifies',
+      prey: 'modified by',
     },
     'Far Western': {
       bait: 'captures',
@@ -270,8 +270,8 @@ let _config: AnnotationTableConfig = {
       prey: 'interacts with',
     },
     'Protein-peptide': {
-      bait: 'binds to peptide',
-      prey: '(peptide) binds to protein',
+      bait: 'binds to peptide derived from',
+      prey: 'peptide from this protein binds to',
     },
     'Protein-RNA': {
       bait: 'binds to RNA',
