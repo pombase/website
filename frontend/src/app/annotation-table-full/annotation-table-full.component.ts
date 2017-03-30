@@ -44,7 +44,7 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
   init() {
     let typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
-    for (let columnName of typeConfig.columnsToShow) {
+    for (let columnName of typeConfig.columns_to_show) {
       this.showColumn[columnName] = true;
     }
 

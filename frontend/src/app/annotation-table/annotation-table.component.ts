@@ -21,17 +21,17 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   annotationTypeDisplayName = null;
   splitDataList = {};
   splitSummaryList = {};
-  splitByParents = [];
+  split_by_parents = [];
 
   constructor() { }
 
   maybeDoSplit() {
-    if (this.typeConfig && this.typeConfig.splitByParents) {
-      this.splitByParents = this.typeConfig.splitByParents;
+    if (this.typeConfig && this.typeConfig.split_by_parents) {
+      this.split_by_parents = this.typeConfig.split_by_parents;
       this.splitDataList = {};
       this.splitSummaryList = {};
 
-      for (let splitByConfig of this.splitByParents) {
+      for (let splitByConfig of this.split_by_parents) {
         let splitByTermId = splitByConfig.termid;
         for (let termAnnotation of this.annotationTable) {
           let interestingParents = termAnnotation.term.interesting_parents;
@@ -67,8 +67,8 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
     if (this.tableDisplayName == null) {
-      if (this.typeConfig.displayName) {
-        this.tableDisplayName = this.typeConfig.displayName;
+      if (this.typeConfig.display_name) {
+        this.tableDisplayName = this.typeConfig.display_name;
       } else {
         this.tableDisplayName = this.annotationTypeName;
       }

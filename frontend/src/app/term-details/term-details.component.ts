@@ -53,7 +53,7 @@ export class TermDetailsComponent implements OnInit {
                 this.termDetails = termDetails;
                 this.typeConfig =
                   getAnnotationTableConfig().getAnnotationType(termDetails.cv_name);
-                if (this.typeConfig && this.typeConfig.hideTermDetails) {
+                if (this.typeConfig && this.typeConfig.hide_term_details) {
                   this.router.navigate(['/term_genes', termid]);
                 }
                 this.setPageTitle();

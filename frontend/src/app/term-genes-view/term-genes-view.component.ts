@@ -59,7 +59,7 @@ export class TermGenesViewComponent implements OnInit {
                 this.termDetails = termDetails;
                 let typeConfig =
                   getAnnotationTableConfig().getAnnotationType(termDetails.cv_name);
-                if (typeConfig && typeConfig.hideTermDetails) {
+                if (typeConfig && typeConfig.hide_term_details) {
                   this.showAllAnnotationsLink = false;
                 }
                 this.setPageTitle();

@@ -37,7 +37,7 @@ export class GenePageMenuComponent implements OnInit, OnChanges {
           let typeConfig = this.config.getAnnotationType(typeName);
           return {
             id: typeName,
-            displayName: typeConfig.displayName || typeName,
+            displayName: typeConfig.display_name || typeName,
           }
         });
     } else {

@@ -1,4 +1,5 @@
 import externalLinksConfig from './config/external-links.json';
+import pombaseConfig from '../../pombase_v2_config.json';
 
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
@@ -31,12 +32,28 @@ export interface AppConfig {
   isConfigOrganism(genus: string, species: string): boolean;
 }
 
+export interface TermFilterDivision {
+  display_name: string;
+  ancestors: Array<string>;
+}
+
+export interface TermFilter {
+  display_name: string,
+  divisions: Array<TermFilterDivision>,
+}
+
+export interface FilterConfig {
+  term?: TermFilter;
+}
+
+
 export interface AnnotationType {
-  displayName: string;
-  splitByParents?: Array<any>;
-  columnsToShow?: Array<string>;
-  hideTermDetails?: boolean;
-  miscConfig?: {
+  display_name: string;
+  split_by_parents?: Array<any>;
+  columns_to_show?: Array<string>;
+  hide_term_details?: boolean;
+  filters: Array<FilterConfig>;
+  misc_config?: {
     [key: string]: any;
   };
 }
@@ -63,16 +80,8 @@ export interface AnnotationTableConfig {
   getAnnotationType(annotationTypeName: string): AnnotationType;
 }
 
-let goColumnsToShow =
-  ['desc-rel', 'gene', 'evidence', 'qualifiers', 'reference', 'count', 'extension'];
-let defaultColumnsToShow =
-  ['desc-rel', 'gene', 'evidence', 'qualifiers', 'reference', 'count', 'extension'];
-let defaultInteractionToShow =
-  ['gene', 'gene-product', 'interactor', 'interactor-product', 'evidence', 'reference'];
-let phenotypeColumnsToShow =
-  ['desc-rel', 'genotype', 'evidence', 'conditions', 'reference', 'extension'];
-
 let _config: AnnotationTableConfig = {
+  annotationTypes: pombaseConfig.cv_config,
   annotationTypeOrder: [
     'molecular_function',
     'biological_process',
@@ -96,125 +105,6 @@ let _config: AnnotationTableConfig = {
     'subunit_composition',
   ],
   extensions: {
-  },
-  annotationTypes: {
-    molecular_function: {
-      displayName: 'GO molecular function',
-      columnsToShow: goColumnsToShow,
-    },
-    biological_process: {
-      displayName: 'GO biological process',
-      columnsToShow: goColumnsToShow,
-    },
-    cellular_component: {
-      displayName: 'GO cellular component',
-      columnsToShow: goColumnsToShow,
-    },
-    'PSI-MOD': {
-      displayName: 'Modification',
-      columnsToShow: ['desc-rel', 'gene', 'genotype',
-                      'evidence', 'residue', 'reference', 'count', 'extension'],
-    },
-    fission_yeast_phenotype: {
-      displayName: "Phenotype",
-      columnsToShow: phenotypeColumnsToShow,
-    },
-    single_allele_phenotype: {
-      displayName: 'Single allele phenotype',
-      columnsToShow: phenotypeColumnsToShow,
-      splitByParents: [
-        {
-          termid: 'FYPO:0000003',
-          displayName: 'Population phenotype',
-        },
-        {
-          termid: 'FYPO:0000002',
-          displayName: 'Cell phenotype',
-        },
-      ],
-    },
-    multi_allele_phenotype: {
-      displayName: 'Multi allele phenotype',
-      columnsToShow: phenotypeColumnsToShow,
-      splitByParents: [
-        {
-          termid: 'FYPO:0000003',
-          displayName: 'Population phenotype',
-        },
-        {
-          termid: 'FYPO:0000002',
-          displayName: 'Cell phenotype',
-        },
-      ],
-    },
-    qualitative_gene_expression: {
-      displayName: 'Qualitative gene expression',
-    },
-    quantitative_gene_expression: {
-      displayName: 'Quantitative gene expression',
-    },
-    species_dist: {
-      displayName: 'Taxonomic conservation',
-      columnsToShow: ['desc-rel', 'gene', 'count'],
-      hideTermDetails: true,
-    },
-    complementation: {
-      displayName: 'Complementation',
-      columnsToShow: defaultColumnsToShow,
-    },
-    'PomBase family or domain': {
-      displayName: 'Protein features',
-      columnsToShow: defaultColumnsToShow,
-    },
-    target_of: {
-      displayName: 'Target of',
-      miscConfig: {
-        ontologyLabels: {
-          molecular_function: 'GO',
-          biological_process: 'GO',
-          cellular_component: 'GO',
-          fission_yeast_phenotype: 'FYPO',
-          single_allele_phenotype: 'FYPO',
-          multi_allele_phenotype: 'FYPO',
-        }
-      }
-    },
-    genetic_interactions: {
-      displayName: 'Genetic interaction',
-      columnsToShow: defaultInteractionToShow,
-    },
-    physical_interactions: {
-      displayName: 'Physical interaction',
-      columnsToShow: defaultInteractionToShow,
-    },
-    orthologs: {
-      displayName: 'Orthologs',
-      columnsToShow: ['species', 'ortholog', 'description']
-    },
-    paralogs: {
-      displayName: 'Paralogs',
-      columnsToShow: ['ortholog', 'description']
-    },
-    subunit_composition: {
-      displayName: 'Subunit Composition',
-      columnsToShow: defaultColumnsToShow,
-    },
-    misc: {
-      displayName: 'Miscellaneous',
-      columnsToShow: defaultColumnsToShow,
-    },
-    sequence: {
-      displayName: 'Sequence',
-      columnsToShow: defaultColumnsToShow,
-    },
-    warning: {
-      displayName: 'Warnings',
-      columnsToShow: defaultColumnsToShow,
-    },
-    _DEFAULT_: {
-      displayName: null,
-      columnsToShow: defaultColumnsToShow,
-    }
   },
   interactionDirectionalLabels: {
     'Co-crystal Structure': {

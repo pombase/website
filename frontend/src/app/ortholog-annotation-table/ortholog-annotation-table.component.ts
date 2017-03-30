@@ -25,6 +25,6 @@ export class OrthologAnnotationTableComponent implements OnInit {
 
   ngOnInit() {
     let typeConfig = this.config.annotationTypes['orthologs'];
-    this.annotationTypeDisplayName = typeConfig.displayName;
+    this.annotationTypeDisplayName = typeConfig.display_name;
   }
 }

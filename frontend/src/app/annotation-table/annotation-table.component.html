@@ -4,7 +4,7 @@
     <span *ngIf="!annotationTypeName">Annotations</span>
   </legend>
 
-  <div *ngIf="splitByParents.length == 0">
+  <div *ngIf="split_by_parents.length == 0">
     <app-annotation-sub-table
        [annotationTypeName]="annotationTypeName"
        [hideColumns]="hideColumns"
@@ -13,11 +13,11 @@
        [summaries]="summaries">
     </app-annotation-sub-table>
   </div>
-  <div *ngIf="splitByParents.length != 0">
-    <div *ngFor="let conf of splitByParents; let i = index">
+  <div *ngIf="split_by_parents.length != 0">
+    <div *ngFor="let conf of split_by_parents; let i = index">
       <div *ngIf="splitDataList[conf.termid] && splitDataList[conf.termid].length > 0">
         <br *ngIf="i != 0"/>
-        <div class="annotation-sub-table-name">{{conf.displayName}}</div>
+        <div class="annotation-sub-table-name">{{conf.display_name}}</div>
         <app-annotation-sub-table
            [annotationTypeName]="annotationTypeName"
            [hideColumns]="hideColumns"

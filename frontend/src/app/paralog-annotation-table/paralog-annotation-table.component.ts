@@ -21,6 +21,6 @@ export class ParalogAnnotationTableComponent implements OnInit {
 
   ngOnInit() {
     let typeConfig = this.config.annotationTypes['paralogs'];
-    this.annotationTypeDisplayName = typeConfig.displayName;
+    this.annotationTypeDisplayName = typeConfig.display_name;
   }
 }

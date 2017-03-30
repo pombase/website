@@ -28,9 +28,9 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
     });
 
     let typeConfig = this.config.annotationTypes[this.annotationTypeName];
-    if (typeConfig && typeConfig.displayName) {
+    if (typeConfig && typeConfig.display_name) {
       this.annotationTypeDisplayName =
-        this.config.annotationTypes[this.annotationTypeName].displayName;
+        this.config.annotationTypes[this.annotationTypeName].display_name;
     } else {
       this.annotationTypeDisplayName = this.annotationTypeName;
     }

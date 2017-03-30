@@ -22,7 +22,7 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
   makeDisplayTable(): void {
     if (this.annotationTable) {
       let typeConfig = this.config.getAnnotationType('target_of');
-      let ontologyLabels = typeConfig.miscConfig['ontologyLabels'];
+      let ontologyLabels = typeConfig.misc_config['ontologyLabels'];
 
       this.displayTable =
         this.annotationTable.map(annotation => {
