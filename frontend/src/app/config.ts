@@ -49,6 +49,7 @@ export interface FilterConfig {
 
 export interface AnnotationType {
   display_name: string;
+  inherits_from?: string;
   split_by_parents?: Array<any>;
   columns_to_show?: Array<string>;
   hide_term_details?: boolean;
@@ -221,6 +222,22 @@ let _config: AnnotationTableConfig = {
     return _config.annotationTypes[annotationTypeName] || _config.annotationTypes['_DEFAULT_'];
   },
 };
+
+for (let configName of Object.keys(_config.annotationTypes)) {
+  let thisConfig = _config.annotationTypes[configName];
+  if (thisConfig.inherits_from != null) {
+    let parentConfig = _config.annotationTypes[thisConfig.inherits_from];
+
+    if (!parentConfig) {
+      throw new Error("No such configuration " + thisConfig.inherits_from +
+                      " to inherit from in config for: " + configName);
+    }
+
+    let newConfig = {};
+    Object.assign(newConfig, parentConfig, thisConfig);
+    Object.assign(thisConfig, newConfig);
+  }
+}
 
 let _appConfig: AppConfig = {
   organism: {
