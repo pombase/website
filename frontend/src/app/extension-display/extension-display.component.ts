@@ -49,7 +49,7 @@ export class ExtensionDisplayComponent implements OnInit {
                 id: id,
                 link: this.getLink(id),
               }
-            }
+            };
           } else {
             if (rangePart.domain) {
               let id = rangePart.domain;
@@ -58,14 +58,14 @@ export class ExtensionDisplayComponent implements OnInit {
                   id: id,
                   link: this.getLink(id),
                 }
-              }
+              };
             } else {
               if (rangePart.misc) {
                 let value = rangePart.misc;
                 let link = null;
-                if (ext.rel_type_name == 'has_penetrance' ||
-                    ext.rel_type_name == 'has_expressivity') {
-                  value += "%";
+                if (ext.rel_type_name === 'has_penetrance' ||
+                    ext.rel_type_name === 'has_expressivity') {
+                  value += '%';
                 } else {
                   link = this.getLink(value);
                 }
@@ -85,7 +85,7 @@ export class ExtensionDisplayComponent implements OnInit {
         return {
           relTypeName: ext.rel_type_display_name || ext.rel_type_name,
           extRange: newRange,
-        }
+        };
       });
   }
 }

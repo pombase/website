@@ -8,7 +8,7 @@ import { AnnotationFilter } from './filtering/annotation-filter';
   pure: false
 })
 export class AnnotationTableFilterPipe implements PipeTransform {
-  transform(annotationTable: AnnotationTable, filter?: AnnotationFilter): AnnotationTable {
+  transform(annotationTable: AnnotationTable, filter?: AnnotationFilter): any {
     if (filter) {
       return filter.filter(annotationTable);
     }

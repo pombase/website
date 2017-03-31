@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { TermShort, GeneQuery, GeneQueryNode, GeneBoolNode,
-         PomBaseResults } from '../common/pombase-query';
+import { Component, OnInit } from '@angular/core';
+import { GeneQuery, GeneQueryNode, GeneBoolNode, PomBaseResults } from '../common/pombase-query';
 import { PombaseAPIService } from '../pombase-api.service';
 
 @Component({

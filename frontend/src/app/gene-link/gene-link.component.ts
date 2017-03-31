@@ -7,19 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GeneLinkComponent implements OnInit {
   @Input() gene: /* GeneShort */ any;
-  @Input() long: boolean = true;
+  @Input() long = true;
 
-  displayString = "";
-  linkTitle = "";
+  displayString = '';
+  linkTitle = '';
 
   constructor() { }
 
   ngOnInit() {
     if (this.gene.name) {
       this.displayString = this.gene.name;
-      this.linkTitle = this.displayString + " (" + this.gene.uniquename + ")";;
+      this.linkTitle = this.displayString + ' (' + this.gene.uniquename + ')'; ;
       if (this.long) {
-          this.displayString = this.linkTitle
+          this.displayString = this.linkTitle;
       }
     } else {
       this.displayString = this.gene.uniquename;
@@ -27,7 +27,7 @@ export class GeneLinkComponent implements OnInit {
     }
 
     if (this.gene.product) {
-      this.linkTitle += " - " + this.gene.product;
+      this.linkTitle += ' - ' + this.gene.product;
     }
   }
 }

@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges,
-         Inject, HostListener } from '@angular/core';
+import { Component, OnInit, Input, OnChanges,
+         Inject } from '@angular/core';
 
 import { GeneDetails } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig} from '../config';
 
 interface MenuItem {
-  id: string,
-  displayName: string,
+  id: string;
+  displayName: string;
 }
 
 @Component({
@@ -22,7 +22,7 @@ export class GenePageMenuComponent implements OnInit, OnChanges {
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
   scrollToPageTop(): void {
-    this.window.scrollTo(0,0);
+    this.window.scrollTo(0, 0);
   }
 
   constructor(@Inject('Window') private window: any) { }
@@ -38,7 +38,7 @@ export class GenePageMenuComponent implements OnInit, OnChanges {
           return {
             id: typeName,
             displayName: typeConfig.display_name || typeName,
-          }
+          };
         });
     } else {
       this.menuItems = [];

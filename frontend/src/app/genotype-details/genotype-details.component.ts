@@ -6,8 +6,7 @@ import { Util } from '../util';
 
 import { GenotypeDetails, AlleleShort, PombaseAPIService } from '../pombase-api.service';
 
-import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 @Component({
   selector: 'app-genotype-details',
@@ -20,7 +19,7 @@ export class GenotypeDetailsComponent implements OnInit {
   annotationTypeNames: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   displayAlleles: Array<any> = [];
-  displayName: string = '';
+  displayName = '';
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -41,7 +40,7 @@ export class GenotypeDetailsComponent implements OnInit {
 
   setPageTitle(): void {
     let title = this.titleService.getTitle();
-    this.titleService.setTitle(title + " - " + this.displayName);
+    this.titleService.setTitle(title + ' - ' + this.displayName);
   }
 
   ngOnInit() {

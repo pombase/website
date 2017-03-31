@@ -26,11 +26,11 @@ export class TermGenesViewComponent implements OnInit {
     let title = this.titleService.getTitle();
     let displayName;
     if (this.termDetails) {
-      displayName = this.termDetails.termid + " - " + this.termDetails.name;
+      displayName = this.termDetails.termid + ' - ' + this.termDetails.name;
     } else {
-      displayName = "UNKNOWN";
+      displayName = 'UNKNOWN';
     }
-    this.titleService.setTitle(title + " - " + displayName);
+    this.titleService.setTitle(title + ' - ' + displayName);
   }
 
   collectGenes(): void {

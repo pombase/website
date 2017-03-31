@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { InteractionAnnotation, GeneShort } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
@@ -57,7 +57,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
           displayAnnotation.displayLabel = labelConfig.bait;
 
           if (this.currentGene) {
-            if (this.currentGene.uniquename != annotation.gene.uniquename) {
+            if (this.currentGene.uniquename !== annotation.gene.uniquename) {
               // current gene is the prey
               displayAnnotation.displayLabel = labelConfig.prey;
               [displayAnnotation.gene, displayAnnotation.interactor] =

@@ -233,8 +233,8 @@ for (let configName of Object.keys(_config.annotationTypes)) {
     let parentConfig = _config.annotationTypes[thisConfig.inherits_from];
 
     if (!parentConfig) {
-      throw new Error("No such configuration " + thisConfig.inherits_from +
-                      " to inherit from in config for: " + configName);
+      throw new Error('No such configuration ' + thisConfig.inherits_from +
+                      ' to inherit from in config for: ' + configName);
     }
 
     let newConfig = {};

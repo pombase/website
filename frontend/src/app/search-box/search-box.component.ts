@@ -1,8 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
-
-import { GeneSummary } from '../common/pombase-query';
 import { PombaseAPIService } from '../pombase-api.service';
 
 import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
@@ -13,7 +10,7 @@ import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent implements OnInit {
-  public selectedGene: string = '';
+  public selectedGene = '';
   noResults = true;
 
   @Input() geneSummaries: Array<any> = [];
@@ -40,11 +37,11 @@ export class SearchBoxComponent implements OnInit {
             if (b.name) {
               return a.name.localeCompare(b.name);
             } else {
-              return -1
+              return -1;
             }
           } else {
             if (b.name) {
-              return 1
+              return 1;
             } else {
               return a.uniquename.localeCompare(b.uniquename);
             }
@@ -74,9 +71,9 @@ export class SearchBoxComponent implements OnInit {
 
   getVisibility(): string {
     if (this.noResults && this.selectedGene.length > 0) {
-      return "visible";
+      return 'visible';
     } else {
-      return "hidden";
+      return 'hidden';
     }
   }
 }

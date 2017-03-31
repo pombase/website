@@ -11,7 +11,7 @@ export class AnnotationTermFilter implements AnnotationFilter {
       for (let termId of this.termIds) {
         if (annotation.term.interesting_parents) {
           for (let interestingAncestor of annotation.term.interesting_parents) {
-            if (interestingAncestor == termId) {
+            if (interestingAncestor === termId) {
               retTable.push(annotation);
               break ANNOTATION;
             }

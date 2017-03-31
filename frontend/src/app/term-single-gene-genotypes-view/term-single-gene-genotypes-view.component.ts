@@ -24,12 +24,12 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
     let title = this.titleService.getTitle();
     let displayName;
     if (this.termDetails) {
-      displayName = this.termDetails.termid + " - " + this.termDetails.name +
-        " - genes from-single allele genotypes";
+      displayName = this.termDetails.termid + ' - ' + this.termDetails.name +
+        ' - genes from-single allele genotypes';
     } else {
-      displayName = "UNKNOWN";
+      displayName = 'UNKNOWN';
     }
-    this.titleService.setTitle(title + " - " + displayName);
+    this.titleService.setTitle(title + ' - ' + displayName);
   }
 
   setGenes(): void {

@@ -281,7 +281,7 @@ export class PombaseAPIService {
                     .map(part => {
                       return part.map(gene_uniquename => {
                         return genesByUniquename[gene_uniquename];
-                      })
+                      });
                     });
                 }
               }

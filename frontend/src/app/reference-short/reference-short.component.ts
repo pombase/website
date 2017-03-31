@@ -9,7 +9,7 @@ export class ReferenceShortComponent implements OnInit {
   @Input() reference: /*ReferenceShort*/ any;
   @Input() linkText?: string;
 
-  displayString = "";
+  displayString = '';
 
   constructor() { }
 
@@ -24,9 +24,9 @@ export class ReferenceShortComponent implements OnInit {
       this.displayString = this.reference.uniquename;
     }
     if (this.reference.publication_year) {
-      this.displayString += " (" + this.reference.publication_year + ")";
+      this.displayString += ' (' + this.reference.publication_year + ')';
     } else {
-      if (this.displayString != this.reference.uniquename) {
+      if (this.displayString !== this.reference.uniquename) {
         this.displayString = this.reference.uniquename;
       }
     }

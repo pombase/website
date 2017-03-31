@@ -31,12 +31,12 @@ export class ReferenceDetailsComponent implements OnInit {
       displayName =
         this.refDetails.uniquename;
       if (this.refDetails.title) {
-        displayName += " - " + this.refDetails.title;
+        displayName += ' - ' + this.refDetails.title;
       }
     } else {
-      displayName = "UNKNOWN";
+      displayName = 'UNKNOWN';
     }
-    this.titleService.setTitle(title + " - " + displayName);
+    this.titleService.setTitle(title + ' - ' + displayName);
   }
 
   ngOnInit() {

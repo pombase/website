@@ -35,13 +35,13 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
             genotype: annotation.genotype,
             reference: annotation.reference,
           };
-        })
+        });
       this.displayTable
         .sort((o1, o2) => {
           let labelCompare =
             o2.ontologyLabel.localeCompare(o1.ontologyLabel);
 
-          if (labelCompare == 0) {
+          if (labelCompare === 0) {
             if (o1.gene && o2.gene) {
               return Util.geneCompare(o1.gene, o2.gene);
             } else {

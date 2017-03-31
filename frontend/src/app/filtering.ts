@@ -5,7 +5,7 @@ export class AnnotationFilterCombiner implements AnnotationFilter {
   constructor(private filters: Array<AnnotationFilter>) { }
 
   filter(annotationTable: AnnotationTable): AnnotationTable {
-    let retTable: AnnotationTable =
+    let retTable: any =
       this.filters[0].filter(annotationTable);
 
     for (let filter of this.filters.slice(1)) {

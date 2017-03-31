@@ -9,9 +9,9 @@ import { getAppConfig, AppConfig, LinkoutConfig } from '../config';
 export class EvidenceLinkComponent implements OnInit {
   @Input() evidence: string;
 
-  displayName: string = "[unknown]";
-  title: string = "[unknown]";
-  link: string = null;
+  displayName = '[unknown]';
+  title = '[unknown]';
+  link = null;
   appConfig: AppConfig = getAppConfig();
   linkoutConfig: LinkoutConfig = {};
 

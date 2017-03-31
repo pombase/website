@@ -16,10 +16,10 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
 export class GeneDetailsComponent implements OnInit {
   @Input() geneDetails: GeneDetails;
 
-  synonymsDisplay: string = "";
-  displayFeatureType: string = "";
-  displayLocation: string = "";
-  shortChromosomeName: string = "";
+  synonymsDisplay = '';
+  displayFeatureType = '';
+  displayLocation = '';
+  shortChromosomeName = '';
   annotationTypeNames: Array<string> = [];
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
@@ -52,39 +52,39 @@ export class GeneDetailsComponent implements OnInit {
   makeDisplayLocation(location: ChromosomeLocation): string {
     let chromosome_name = location.chromosome_name;
     let matches = chromosome_name.match(/chromosome_(\d+)/);
-    this.shortChromosomeName = "";
+    this.shortChromosomeName = '';
     if (matches) {
-      chromosome_name = "Chromosome ";
+      chromosome_name = 'Chromosome ';
       for (let i = 0; i < +matches[1]; i++) {
-        this.shortChromosomeName += "I";
+        this.shortChromosomeName += 'I';
       }
       chromosome_name += this.shortChromosomeName;
     } else {
-      if (chromosome_name == "mating_type_region") {
-        chromosome_name = "Mating type region";
-        this.shortChromosomeName = "MTR";
+      if (chromosome_name === 'mating_type_region') {
+        chromosome_name = 'Mating type region';
+        this.shortChromosomeName = 'MTR';
       } else {
-        if (chromosome_name == "MISPCG") {
-          chromosome_name = "Mitochondria";
-          this.shortChromosomeName = "MT";
+        if (chromosome_name === 'MISPCG') {
+          chromosome_name = 'Mitochondria';
+          this.shortChromosomeName = 'MT';
         } else {
           this.shortChromosomeName = chromosome_name;
         }
       }
     }
-    let ret = chromosome_name + ", ";
-    if (location.strand == "reverse") {
-      ret += location.end_pos + "-" + location.start_pos;
+    let ret = chromosome_name + ', ';
+    if (location.strand === 'reverse') {
+      ret += location.end_pos + '-' + location.start_pos;
     } else {
-      ret += location.start_pos + "-" + location.end_pos;
+      ret += location.start_pos + '-' + location.end_pos;
     }
-    ret += " (" + (location.end_pos - location.start_pos) + "nt)";
+    ret += ' (' + (location.end_pos - location.start_pos) + 'nt)';
     return ret;
   }
 
   makeDisplayFeatureType(rawFeatureType: string): string {
-    if (rawFeatureType == "mRNA gene") {
-      return "protein coding";
+    if (rawFeatureType === 'mRNA gene') {
+      return 'protein coding';
     } else {
       return rawFeatureType;
     }
@@ -92,33 +92,33 @@ export class GeneDetailsComponent implements OnInit {
 
   makeSynonymsDisplay(synonyms: Array<SynonymDetails>): string {
     return synonyms.map((synonym) => {
-      if (synonym.type == 'exact') {
+      if (synonym.type === 'exact') {
         return synonym.name;
       } else {
         let synonym_type = synonym.type;
-        if (synonym_type == 'obsolete_name') {
+        if (synonym_type === 'obsolete_name') {
           synonym_type = 'obsolete';
         }
-        return synonym.name + " (" + synonym_type + ")";
+        return synonym.name + ' (' + synonym_type + ')';
       }
-    }).join(", ");
+    }).join(', ');
   }
 
   displayNameLong(): string {
     if (this.geneDetails) {
       if (this.geneDetails.name) {
-        return this.geneDetails.name + " (" + this.geneDetails.uniquename + ")";
+        return this.geneDetails.name + ' (' + this.geneDetails.uniquename + ')';
       } else {
         return this.geneDetails.uniquename;
       }
     } else {
-      return "UNKNOWN";
+      return 'UNKNOWN';
     }
   }
 
   setPageTitle(): void {
     let title = this.titleService.getTitle();
-    this.titleService.setTitle(title + " - " + this.displayNameLong());
+    this.titleService.setTitle(title + ' - ' + this.displayNameLong());
   }
 
   setVisibleSections(): void {
@@ -130,35 +130,35 @@ export class GeneDetailsComponent implements OnInit {
         this.visibleSections.push(annotationTypeName);
       }
 
-      if (annotationTypeName == 'physical_interactions') {
+      if (annotationTypeName === 'physical_interactions') {
         if (this.geneDetails.physical_interactions &&
             this.geneDetails.physical_interactions.length > 0) {
           this.visibleSections.push(annotationTypeName);
         }
       }
 
-      if (annotationTypeName == 'genetic_interactions') {
+      if (annotationTypeName === 'genetic_interactions') {
         if (this.geneDetails.genetic_interactions &&
             this.geneDetails.genetic_interactions.length > 0) {
           this.visibleSections.push(annotationTypeName);
         }
       }
 
-      if (annotationTypeName == 'orthologs') {
+      if (annotationTypeName === 'orthologs') {
         if (this.geneDetails.ortholog_annotations &&
             this.geneDetails.ortholog_annotations.length > 0) {
           this.visibleSections.push(annotationTypeName);
         }
       }
 
-      if (annotationTypeName == 'paralogs') {
+      if (annotationTypeName === 'paralogs') {
         if (this.geneDetails.paralog_annotations &&
             this.geneDetails.paralog_annotations.length > 0) {
           this.visibleSections.push(annotationTypeName);
         }
       }
 
-      if (annotationTypeName == 'target_of') {
+      if (annotationTypeName === 'target_of') {
         if (this.geneDetails.target_of_annotations &&
             this.geneDetails.target_of_annotations.length > 0) {
           this.visibleSections.push(annotationTypeName);

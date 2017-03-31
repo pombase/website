@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { TermAnnotation } from '../pombase-api.service';
-import { FilterConfig, TermFilterCategory } from '../config';
+import { FilterConfig } from '../config';
 import { AnnotationFilterCombiner } from '../filtering';
 import { AnnotationFilter } from '../filtering/annotation-filter';
 

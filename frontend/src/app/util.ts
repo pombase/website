@@ -45,9 +45,9 @@ export class Util {
         .map((expressedAllele) => {
           return this.alleleDisplayName(expressedAllele.allele);
         })
-        .join(" ");
+        .join(' ');
     } else {
-      return "UNKNOWN";
+      return 'UNKNOWN';
     }
   }
 
@@ -57,11 +57,11 @@ export class Util {
     let description = allele.description || '';
     let alleleType = allele.allele_type || 'unknown';
 
-    if (alleleType == 'deletion' && name.match(/(delta|&Delta;)$/) ||
+    if (alleleType === 'deletion' && name.match(/(delta|&Delta;)$/) ||
         alleleType.match(/^wild[\s_]?type$/) && name.match(/\+$/)) {
       let normalisedDescription = description.replace(/[\s_]+/, '');
       let normalisedAlleleType = alleleType.replace(/[\s_]+/, '');
-      if (description && normalisedDescription != normalisedAlleleType) {
+      if (description && normalisedDescription !== normalisedAlleleType) {
         return `${name}(${description})`;
       } else {
         return name;

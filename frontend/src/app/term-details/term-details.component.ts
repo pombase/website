@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { TermDetails, TermAndRelation, Annotation,
-         PombaseAPIService } from '../pombase-api.service';
+import { TermDetails, TermAndRelation, PombaseAPIService } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, getAppConfig, AnnotationType } from '../config';
 
@@ -29,7 +28,7 @@ export class TermDetailsComponent implements OnInit {
 
     this.filteredAncestors =
       this.termDetails.direct_ancestors.filter(termAndRel => {
-        return termPageConfig.ancestorRelNames.indexOf(termAndRel.relation_name) != -1;
+        return termPageConfig.ancestorRelNames.indexOf(termAndRel.relation_name) !== -1;
       });
   }
 
@@ -37,11 +36,11 @@ export class TermDetailsComponent implements OnInit {
     let title = this.titleService.getTitle();
     let displayName;
     if (this.termDetails) {
-      displayName = this.termDetails.termid + " - " + this.termDetails.name;
+      displayName = this.termDetails.termid + ' - ' + this.termDetails.name;
     } else {
-      displayName = "UNKNOWN";
+      displayName = 'UNKNOWN';
     }
-    this.titleService.setTitle(title + " - " + displayName);
+    this.titleService.setTitle(title + ' - ' + displayName);
   }
 
   ngOnInit() {

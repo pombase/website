@@ -39,13 +39,13 @@ export class GeneBoolNode extends GeneQueryNode {
   constructor(operator: string,
               public parts: GeneQueryNode[]) {
     super();
-    if (operator.toLowerCase() == "and") {
+    if (operator.toLowerCase() === 'and') {
       this.operator = QueryNodeOperator.And;
     } else {
-      if (operator.toLowerCase() == "or") {
+      if (operator.toLowerCase() === 'or') {
         this.operator = QueryNodeOperator.Or;
       } else {
-        throw new Error("unknown operator: " + operator);
+        throw new Error('unknown operator: ' + operator);
       }
     }
   }
@@ -60,9 +60,9 @@ export class GeneBoolNode extends GeneQueryNode {
 
   toObject(): Object {
     return {
-      "type": "bool",
-      "operator": QueryNodeOperator[this.operator],
-      "parts": this.getParts().map((part: GeneQueryNode) => part.toObject()),
+      'type': 'bool',
+      'operator': QueryNodeOperator[this.operator],
+      'parts': this.getParts().map((part: GeneQueryNode) => part.toObject()),
     };
   }
 }
@@ -72,8 +72,8 @@ export class GeneByTerm implements GeneQueryNode {
 
   toObject(): Object {
     return {
-      "type": "term",
-      "termid": this.termid,
+      'type': 'term',
+      'termid': this.termid,
     };
   }
 }
@@ -83,14 +83,14 @@ export class GeneQuery {
 
   private makeNode(parsedJson: any): GeneQueryNode {
     let nodeType = parsedJson['type'];
-    if (nodeType == 'term') {
+    if (nodeType === 'term') {
       return new GeneByTerm(parsedJson.termid);
     } else {
-      if (nodeType == 'bool') {
+      if (nodeType === 'bool') {
         return new GeneBoolNode(parsedJson['operator'],
                                 parsedJson.parts.map((json: any) => this.makeNode(json)));
       } else {
-        throw new Error("Unknown type: " + nodeType);
+        throw new Error('Unknown type: ' + nodeType);
       }
     }
   }
@@ -99,8 +99,8 @@ export class GeneQuery {
     if (arg instanceof GeneQueryNode) {
       this.queryTopNode = arg;
     } else {
-      if (typeof(arg) == 'string') {
-        throw new Error("GeneQuery constructor needs an Object not a string");
+      if (typeof(arg) === 'string') {
+        throw new Error('GeneQuery constructor needs an Object not a string');
       }
       this.queryTopNode = this.makeNode(arg);
     }
