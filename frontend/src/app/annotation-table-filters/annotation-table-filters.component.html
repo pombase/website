@@ -2,6 +2,7 @@
   Filters: 
   <span *ngFor="let config of filterConfig">
     <app-annotation-table-term-filter *ngIf="config.term" [config]="config.term"
+                                      [annotationTable]="annotationTable"
                                       (filterChange)="filterChanged($event)">
     </app-annotation-table-term-filter>
   </span>

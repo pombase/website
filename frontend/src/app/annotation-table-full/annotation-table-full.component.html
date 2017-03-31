@@ -16,7 +16,7 @@
         <th *ngIf="showColumn['count']">Count</th>
       </tr>
     </thead>
-    <tbody *ngFor="let termAnnotation of annotationTable | annotationTableFilter:filter;trackBy:trackByTermId">
+    <tbody *ngFor="let termAnnotation of annotationTable; trackBy:trackByTermId">
       <tr *ngIf="!compactFirstRows[termAnnotation.term.termid]" class="term-annotation-top">
         <td *ngIf="featureInFirstColumn">
         </td>

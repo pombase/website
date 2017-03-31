@@ -5,7 +5,7 @@
         <th>Term name</th>
       </tr>
     </thead>
-    <tbody *ngFor="let summary of summaries | annotationTableFilter:filter;trackBy:trackByTermId">
+    <tbody *ngFor="let summary of summaries; trackBy:trackByTermId">
       <tr class="term-annotation-top">
         <td colspan="2">
           <span class="rel-and-termid">

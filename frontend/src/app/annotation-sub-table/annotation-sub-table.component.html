@@ -3,6 +3,13 @@
     {{subTableName}}
   </div>
 
+  <div class="filter-controls">
+    <app-annotation-table-filters *ngIf="filterConfig" [filterConfig]="filterConfig"
+                                  [annotationTable]="annotationTable"
+                                  (filterChange)="updateCurrentFilter($event)">>
+    </app-annotation-table-filters>
+  </div>
+
   <div class="table-control">
     <input [attr.id]="'details-toggle-' + annotationTypeName"
            type="checkbox"
@@ -13,22 +20,28 @@
       <span class="label-content">Show details</span>
     </label>
 
-    <app-annotation-table-filters *ngIf="filterConfig" [filterConfig]="filterConfig"
-                                  (filterChange)="updateCurrentFilter($event)">>
-    </app-annotation-table-filters>
   </div>
 
   <div *ngIf="!showDetails">
-    <app-annotation-table-summary
-       [annotationTypeName]="annotationTypeName" [filter]="filter"
-       [summaries]="summaries"></app-annotation-table-summary>
+    <app-annotation-table-summary *ngIf="filteredSummaries.length != 0"
+       [annotationTypeName]="annotationTypeName"
+       [summaries]="filteredSummaries"></app-annotation-table-summary>
+
+    <span class="no-annotations" *ngIf="filteredSummaries.length == 0">
+      (No annotations after filtering)
+    </span>
   </div>
 
+  <div *ngIf="showDetails">
   <app-annotation-table-full
-     *ngIf="showDetails" [filter]="filter"
+     *ngIf="filteredTable.length != 0"
+     [filter]="filter"
      [annotationTypeName]="annotationTypeName"
      [hideColumns]="hideColumns"
      [featureInFirstColumn]="featureInFirstColumn"
-     [annotationTable]="annotationTable"></app-annotation-table-full>
-
+     [annotationTable]="filteredTable"></app-annotation-table-full>
+  <span class="no-annotations" *ngIf="filteredTable.length == 0">
+    (No annotations after filtering)
+  </span>
+  </div>
 </div>

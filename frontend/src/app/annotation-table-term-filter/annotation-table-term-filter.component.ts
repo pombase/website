@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
+import { TermAnnotation } from '../pombase-api.service';
 import { TermFilterConfig, TermFilterCategory } from '../config';
 import { AnnotationFilter } from '../filtering/annotation-filter';
 import { AnnotationTermFilter } from '../filtering/annotation-term-filter';
@@ -9,7 +10,8 @@ import { AnnotationTermFilter } from '../filtering/annotation-term-filter';
   templateUrl: './annotation-table-term-filter.component.html',
   styleUrls: ['./annotation-table-term-filter.component.css']
 })
-export class AnnotationTableTermFilterComponent implements OnInit {
+export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
+  @Input() annotationTable: Array<TermAnnotation>;
   @Input() config: TermFilterConfig;
   @Output() filterChange = new EventEmitter<AnnotationFilter>();
 
@@ -29,5 +31,9 @@ export class AnnotationTableTermFilterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.selectedCategory = null;
   }
 }

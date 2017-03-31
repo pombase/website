@@ -3,6 +3,7 @@ import { TermAnnotation, TermSummary } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          FilterConfig } from '../config';
+import { AnnotationTable } from '../pombase-api.service';
 import { AnnotationFilter } from '../filtering/annotation-filter';
 
 @Component({
@@ -20,12 +21,19 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;
   filterConfig: Array<FilterConfig> = null;
-  filter: AnnotationFilter = null;
+  filteredTable: AnnotationTable = [];
+  filteredSummaries: Array<TermSummary> = [];
 
   showDetails = false;
 
   updateCurrentFilter(filter: AnnotationFilter) {
-    this.filter = filter;
+    if (filter) {
+      this.filteredTable = filter.filter(this.annotationTable) as Array<TermAnnotation>;
+      this.filteredSummaries = filter.filter(this.summaries) as Array<TermSummary>;
+    } else {
+      this.filteredTable = this.annotationTable;
+      this.filteredSummaries = this.summaries;
+    }
   }
 
   constructor() { }
@@ -38,5 +46,6 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   ngOnChanges() {
     // reset when gene changes
     this.showDetails = false;
+    this.updateCurrentFilter(null);
   }
 }
