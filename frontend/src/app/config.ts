@@ -32,18 +32,23 @@ export interface AppConfig {
   isConfigOrganism(genus: string, species: string): boolean;
 }
 
-export interface TermFilterCategory {
-  display_name: string;
-  ancestors: Array<string>;
+export interface TermFilterCategoryAncestor {
+  rel_name: string;
+  termid: string;
 }
 
-export interface TermFilter {
-  display_name: string,
-  categories: Array<TermFilterCategory>,
+export interface TermFilterCategory {
+  display_name: string;
+  ancestors: Array<TermFilterCategoryAncestor>;
+}
+
+export interface TermFilterConfig {
+  display_name: string;
+  categories: Array<TermFilterCategory>;
 }
 
 export interface FilterConfig {
-  term?: TermFilter;
+  term?: TermFilterConfig;
 }
 
 export interface AnnotationType {
@@ -66,8 +71,8 @@ export interface ExtensionConfig {
 }
 
 export interface InteractionDirectionalLabels {
-  bait: string,
-  prey: string,
+  bait: string;
+  prey: string;
 }
 
 export interface AnnotationTableConfig {
@@ -76,7 +81,7 @@ export interface AnnotationTableConfig {
   annotationTypes: AnnotationTypes;
   interactionDirectionalLabels: {
     [evidence: string]: InteractionDirectionalLabels,
-  },
+  };
   getAnnotationType(annotationTypeName: string): AnnotationType;
 }
 

@@ -1,0 +1,9 @@
+<span>
+  {{config.display_name}}
+
+  <select [(ngModel)]="selectedCategory" (ngModelChange)="setCategory($event)">
+    <option *ngFor = "let category of config.categories" [ngValue]="category">
+      {{category.display_name}}
+    </option>
+  </select>
+</span>

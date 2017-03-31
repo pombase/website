@@ -49,6 +49,9 @@ import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes
 import { GenotypesTableComponent } from './genotypes-table/genotypes-table.component';
 import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotypes-view/term-single-gene-genotypes-view.component';
 import { GenotypeOrderByPipe } from './genotype-order-by.pipe';
+import { AnnotationTableFiltersComponent } from './annotation-table-filters/annotation-table-filters.component';
+import { AnnotationTableTermFilterComponent } from './annotation-table-term-filter/annotation-table-term-filter.component';
+import { AnnotationTableFilterPipe } from './annotation-table-filter.pipe';
 
 export function documentFactory() {
     return document;
@@ -99,6 +102,9 @@ export function windowFactory() {
     GenotypesTableComponent,
     TermSingleGeneGenotypesViewComponent,
     GenotypeOrderByPipe,
+    AnnotationTableFiltersComponent,
+    AnnotationTableTermFilterComponent,
+    AnnotationTableFilterPipe,
   ],
   imports: [
     BrowserModule,

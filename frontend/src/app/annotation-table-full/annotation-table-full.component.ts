@@ -2,8 +2,9 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { TermAnnotation } from '../pombase-api.service';
 import { TermId } from '../common/pombase-query';
 
-import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
+         getAppConfig, FilterConfig } from '../config';
+import { AnnotationFilter } from '../filtering/annotation-filter';
 
 @Component({
   selector: 'app-annotation-table-full',
@@ -12,11 +13,14 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
 })
 export class AnnotationTableFullComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
+  @Input() filter: AnnotationFilter = null;
   @Input() hideColumns: Array<string>;
   @Input() featureInFirstColumn?: boolean = false;
   @Input() annotationTable: Array<TermAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
+  typeConfig: AnnotationType;
+  filterConfig: Array<FilterConfig> = null;
   hideColumn = {};
   showColumn = {};
   termNameColSpan = -1;
@@ -79,6 +83,8 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
+    this.filterConfig = this.typeConfig.filters;
   }
 
   ngOnChanges() {

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { TermAnnotation, TermSummary } from '../pombase-api.service';
 
-import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType } from '../config';
 
 @Component({
   selector: 'app-annotation-table',
@@ -17,7 +17,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() summaries: Array<TermSummary>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
-  typeConfig: any;
+  typeConfig: AnnotationType;
   annotationTypeDisplayName = null;
   splitDataList = {};
   splitSummaryList = {};

@@ -12,16 +12,20 @@
     <label [attr.for]="'details-toggle-' + annotationTypeName">
       <span class="label-content">Show details</span>
     </label>
+
+    <app-annotation-table-filters *ngIf="filterConfig" [filterConfig]="filterConfig"
+                                  (filterChange)="updateCurrentFilter($event)">>
+    </app-annotation-table-filters>
   </div>
 
   <div *ngIf="!showDetails">
     <app-annotation-table-summary
-       [annotationTypeName]="annotationTypeName"
+       [annotationTypeName]="annotationTypeName" [filter]="filter"
        [summaries]="summaries"></app-annotation-table-summary>
   </div>
 
   <app-annotation-table-full
-     *ngIf="showDetails"
+     *ngIf="showDetails" [filter]="filter"
      [annotationTypeName]="annotationTypeName"
      [hideColumns]="hideColumns"
      [featureInFirstColumn]="featureInFirstColumn"

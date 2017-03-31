@@ -85,10 +85,13 @@ export interface TermAnnotation {
   is_not: boolean;
   annotations: Array<Annotation>;
   rel_names?: Array<string>;
+  interesting_parents?: Array<string>;
 }
 
+export type AnnotationTable = Array<TermAnnotation>;
+
 export interface CvAnnotations {
-  [type_name: string]: Array<TermAnnotation>;
+  [type_name: string]: AnnotationTable;
 }
 
 export interface TermSummaryRow {

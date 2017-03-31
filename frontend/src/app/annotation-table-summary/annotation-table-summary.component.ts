@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { TermSummary } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { AnnotationFilter } from '../filtering/annotation-filter';
 
 @Component({
   selector: 'app-annotation-table-summary',
@@ -10,6 +11,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 })
 export class AnnotationTableSummaryComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
+  @Input() filter: AnnotationFilter = null;
   @Input() summaries: Array<TermSummary>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
