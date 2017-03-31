@@ -32,20 +32,19 @@ export interface AppConfig {
   isConfigOrganism(genus: string, species: string): boolean;
 }
 
-export interface TermFilterDivision {
+export interface TermFilterCategory {
   display_name: string;
   ancestors: Array<string>;
 }
 
 export interface TermFilter {
   display_name: string,
-  divisions: Array<TermFilterDivision>,
+  categories: Array<TermFilterCategory>,
 }
 
 export interface FilterConfig {
   term?: TermFilter;
 }
-
 
 export interface AnnotationType {
   display_name: string;
