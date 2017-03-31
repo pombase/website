@@ -16,8 +16,14 @@ export class AnnotationTableTermFilterComponent implements OnInit {
   selectedCategory: any = null;
 
   setCategory(event: TermFilterCategory): void {
-    let termids = event.ancestors.map(ancestor => ancestor.termid);
-    this.filterChange.emit(new AnnotationTermFilter(termids));
+    let termids = null;
+
+    if (event) {
+      termids = event.ancestors.map(ancestor => ancestor.termid);
+      this.filterChange.emit(new AnnotationTermFilter(termids));
+    } else {
+      this.filterChange.emit(null);
+    }
   }
 
   constructor() { }

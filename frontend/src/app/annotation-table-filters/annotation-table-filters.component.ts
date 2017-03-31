@@ -16,7 +16,11 @@ export class AnnotationTableFiltersComponent implements OnInit {
   @Output() filterChange = new EventEmitter<AnnotationFilter>();
 
   filterChanged(event: AnnotationFilter) {
-    this.filterChange.emit(new AnnotationFilterCombiner([event]));
+    if (event) {
+      this.filterChange.emit(new AnnotationFilterCombiner([event]));
+    } else {
+      this.filterChange.emit(null);
+    }
   }
 
   constructor() { }
