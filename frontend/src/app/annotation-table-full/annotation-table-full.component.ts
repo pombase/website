@@ -23,7 +23,6 @@ export class AnnotationTableFullComponent implements OnInit, OnChanges {
   showColumn = {};
   termNameColSpan = -1;
   compactFirstRows = {};
-  showExtensions = false;
 
   constructor() { }
 
