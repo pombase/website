@@ -32,14 +32,9 @@ export interface AppConfig {
   isConfigOrganism(genus: string, species: string): boolean;
 }
 
-export interface TermFilterCategoryAncestor {
-  rel_name: string;
-  termid: string;
-}
-
 export interface TermFilterCategory {
   display_name: string;
-  ancestors: Array<TermFilterCategoryAncestor>;
+  ancestors: Array<string>;
 }
 
 export interface TermFilterConfig {
