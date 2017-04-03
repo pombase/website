@@ -6,42 +6,172 @@
   <div class="filter-controls">
     <app-annotation-table-filters *ngIf="filterConfig" [filterConfig]="filterConfig"
                                   [annotationTable]="annotationTable"
-                                  (filterChange)="updateCurrentFilter($event)">>
+                                  (filterChange)="updateCurrentFilter($event)">
     </app-annotation-table-filters>
   </div>
 
-  <div class="table-control">
-    <input [attr.id]="'details-toggle-' + annotationTypeName"
-           type="checkbox"
-           name="details-toggle" ngDefaultControl
-           [(ngModel)]="showDetails"
-           btnCheckbox />
-    <label [attr.for]="'details-toggle-' + annotationTypeName">
-      <span class="label-content">Show details</span>
-    </label>
-
+  <div class="view-controls">
+    <a *ngIf="currentView != 'details'" (click)="allDetailsView()">Show details ...</a> 
+    <a *ngIf="currentView == 'details'" (click)="allSummaryView()">Show summary ...</a>
   </div>
 
-  <div *ngIf="!showDetails">
-    <app-annotation-table-summary *ngIf="filteredSummaries.length != 0"
-       [annotationTypeName]="annotationTypeName"
-       [summaries]="filteredSummaries"></app-annotation-table-summary>
+  <table>
+    <thead>
+      <tr *ngIf="currentView == 'details'">
+        <th>&nbsp;</th>
+        <th *ngIf="showColumn['gene'] && featureInFirstColumn">Gene</th>
+        <th *ngIf="showColumn['genotype'] && featureInFirstColumn">Genotype</th>
+        <th>Term ID</th>
+        <th>Term name</th>
+        <th *ngIf="showColumn['gene'] && !featureInFirstColumn">Gene</th>
+        <th *ngIf="showColumn['genotype'] && !featureInFirstColumn">Genotype</th>
+        <th *ngIf="showColumn['evidence']">Evidence</th>
+        <th *ngIf="showColumn['conditions']">Conditions</th>
+        <th *ngIf="showColumn['qualifiers']">Qualifiers</th>
+        <th *ngIf="showColumn['residue']">Residue</th>
+        <th *ngIf="showColumn['reference']">Reference</th>
+        <th *ngIf="showColumn['count']">Count</th>
+      </tr>
+    </thead>
 
-    <span class="no-annotations" *ngIf="filteredSummaries.length == 0">
-      (No annotations after filtering)
-    </span>
-  </div>
+    <tbody *ngFor="let termAnnotation of filteredTable; trackBy:trackByTermId">
+      <tr *ngIf="detailsView[termAnnotation.term.termid] && !compactFirstRows[termAnnotation.term.termid]" class="term-annotation-top">
+        <td style="width: 2em" [attr.rowspan]="termAnnotation.annotations.length + 1">
+          <a (click)="toggleDetails(termAnnotation.term.termid)">
+            <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
+            <span class="collapse-icon" *ngIf="!detailsView[termAnnotation.term.termid]">+</span>
+          </a>
+        </td>
+        <td *ngIf="featureInFirstColumn">
+        </td>
+        <td [attr.rowspan]="termAnnotation.annotations.length + 1">
+          <span class="rel-and-termid">
+            <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
+            <span *ngIf='termAnnotation.rel_names?.length > 0'>
+              <span class='rel-icon'>&#8593;</span><span class="rel-name">{{termAnnotation.rel_names}}</span>
+            </span>
+            <a routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.termid}}</a>
+          </span>
+        </td>
+        <td [attr.colspan]="termNameColSpan">
+          <a routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.name}}</a>
+        </td>
+        <td *ngIf="showColumn['count']"
+            [attr.rowspan]="termAnnotation.annotations.length + 1">
+          <a *ngIf="termAnnotation.term.genotype_count == 0" routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active"
+             title="{{termAnnotation.term.gene_count}} genes are annotated with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
+        </td>
+      </tr>
 
-  <div *ngIf="showDetails">
-  <app-annotation-table-full
-     *ngIf="filteredTable.length != 0"
-     [filter]="filter"
-     [annotationTypeName]="annotationTypeName"
-     [hideColumns]="hideColumns"
-     [featureInFirstColumn]="featureInFirstColumn"
-     [annotationTable]="filteredTable"></app-annotation-table-full>
+      <tr class="term-annotation"
+          *ngFor="let annotation of detailsView[termAnnotation.term.termid] ? termAnnotation.annotations : [] ; let i = index">
+        <td  *ngIf="i == 0 && compactFirstRows[termAnnotation.term.termid]" style="width: 2em"
+             [attr.rowspan]="termAnnotation.annotations.length">
+          <a (click)="toggleDetails(termAnnotation.term.termid)">
+            <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
+            <span class="collapse-icon" *ngIf="!detailsView[termAnnotation.term.termid]">+</span>
+          </a>
+        </td>
+        <td *ngIf="showColumn['gene'] && featureInFirstColumn">
+          <app-gene-link class="app-link" *ngIf="annotation.gene" [long]="false" [gene]="annotation.gene"></app-gene-link>
+        </td>
+        <td *ngIf="showColumn['genotype'] && featureInFirstColumn">
+          <app-genotype-link class="app-link" *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
+        </td>
+        <td *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0"
+            [attr.rowspan]="termAnnotation.annotations.length">
+          <span class="rel-and-termid">
+            <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
+            <span *ngIf='termAnnotation.rel_names?.length > 0'>
+              <span class="rel-icon">&#8593;</span><span class="rel-name">{{termAnnotation.rel_names}}</span>
+            </span>
+            <a routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.termid}}</a>
+          </span>
+        </td>
+        <td>
+          <div *ngIf="showColumn['extension'] && annotation.extension" class="extension">
+            <app-extension-display [extension]="annotation.extension"></app-extension-display>
+          </div>
+          <div *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0">
+            <a routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.name}}</a>
+          </div>
+        </td>
+        <td *ngIf="showColumn['gene'] && !featureInFirstColumn">
+          <app-gene-link class="app-link" *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
+        </td>
+        <td *ngIf="showColumn['genotype'] && !featureInFirstColumn">
+          <app-genotype-link class="app-link" *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
+        </td>
+        <td class="with" *ngIf="showColumn['evidence']">
+          <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
+          <span *ngIf="annotation.with">with<app-with-or-from-link [withOrFrom]="annotation.with"></app-with-or-from-link></span>
+          <span *ngIf="annotation.from">from<app-with-or-from-link [withOrFrom]="annotation.from"></app-with-or-from-link></span>
+        </td>
+        <td *ngIf="showColumn['conditions']">
+          <ul class="conditions">
+          <li *ngFor="let condition of annotation.conditions">
+            <a routerLink="/term/{{condition.termid}}" routerLinkActive="active">{{condition.name}}</a>
+          </li>
+          </ul>
+        </td>
+        <td *ngIf="showColumn['qualifiers']">
+          <div *ngIf="annotation.qualifiers">
+            {{annotation.qualifiers}}
+          </div>
+        </td>
+        <td *ngIf="showColumn['residue']">{{annotation.residue}}</td>
+        <td *ngIf="showColumn['reference']">
+          <app-reference-short *ngIf="annotation.reference"
+                               [reference]="annotation.reference"></app-reference-short>
+        </td>
+        <td *ngIf="compactFirstRows[termAnnotation.term.termid] && showColumn['count'] && i == 0"
+            [attr.rowspan]="termAnnotation.annotations.length">
+          <a *ngIf="termAnnotation.term.genotype_count == 0" routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active"
+             title="{{termAnnotation.term.gene_count}} genes are annotated with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
+        </td>
+      </tr>
+
+      <tr *ngIf="!detailsView[termAnnotation.term.termid] && termAnnotation.summary" class="term-annotation-top">
+        <td style="width: 2em">
+          <a (click)="toggleDetails(termAnnotation.term.termid)">
+            <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
+            <span class="collapse-icon" *ngIf="!detailsView[termAnnotation.term.termid]">+</span>
+          </a>
+        </td>
+
+        <td [attr.colspan]="termNameColSpan">
+          <span class="rel-and-termid">
+            <span *ngIf="termAnnotation.summary.is_not" class="not-annotation">NOT</span>
+            <span *ngIf="termAnnotation.summary.rel_names?.length > 0">
+              <span class="rel-icon">&#8593;</span><span class="rel-name">{{summary.rel_names}}</span>
+            </span>
+            <a routerLink="/term/{{termAnnotation.term.termid}}"
+               routerLinkActive="active">{{termAnnotation.term.name}}</a>
+          </span>
+        </td>
+      </tr>
+
+      <tr class="summary-row" *ngFor="let row of detailsView[termAnnotation.term.termid] || !termAnnotation.summary ? [] : termAnnotation.summary">
+        <td>
+        </td>
+        <td class="summary-feature" [attr.colspan]="termNameColSpan">
+          <span *ngIf="row.genes?.length > 0">
+            <app-gene-link *ngFor="let gene of row.genes; let lastGene = last"
+                           class="app-link" [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene">, </span>
+          </span>
+          <span *ngIf="row.genotypes?.length > 0">
+            <app-genotype-link *ngFor="let genotype of row.genotypes; let lastGenotype = last"
+                               class="app-link" [genotype]="genotype"></app-genotype-link><span *ngIf="!lastGenotype">, &nbsp;</span>
+          </span>
+          <app-extension-display *ngIf="row.extension" [extension]="row.extension"></app-extension-display>
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
   <span class="no-annotations" *ngIf="filteredTable.length == 0">
     (No annotations after filtering)
   </span>
-  </div>
 </div>

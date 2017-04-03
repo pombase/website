@@ -30,8 +30,6 @@ import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { QueryNodeComponent } from './query-node/query-node.component';
 import { GeneResultsComponent } from './gene-results/gene-results.component';
 import { GeneNeighbourhoodComponent } from './gene-neighbourhood/gene-neighbourhood.component';
-import { AnnotationTableSummaryComponent } from './annotation-table-summary/annotation-table-summary.component';
-import { AnnotationTableFullComponent } from './annotation-table-full/annotation-table-full.component';
 import { AnnotationSubTableComponent } from './annotation-sub-table/annotation-sub-table.component';
 import { TargetOfAnnotationTableComponent } from './target-of-annotation-table/target-of-annotation-table.component';
 import { GeneReferencesTableComponent } from './gene-references-table/gene-references-table.component';
@@ -85,8 +83,6 @@ export function windowFactory() {
     QueryNodeComponent,
     GeneResultsComponent,
     GeneNeighbourhoodComponent,
-    AnnotationTableSummaryComponent,
-    AnnotationTableFullComponent,
     AnnotationSubTableComponent,
     TargetOfAnnotationTableComponent,
     GeneReferencesTableComponent,

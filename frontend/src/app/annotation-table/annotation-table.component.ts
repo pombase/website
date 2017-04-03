@@ -14,7 +14,6 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() hideColumns: Array<string>;
   @Input() featureInFirstColumn? = false;
   @Input() annotationTable: Array<TermAnnotation>;
-  @Input() summaries: Array<TermSummary>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;
@@ -42,17 +41,6 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
               this.splitDataList[splitByTermId] = [];
             }
             this.splitDataList[splitByTermId].push(termAnnotation);
-          }
-        }
-        for (let summary of this.summaries) {
-          let interestingParents = summary.term.interesting_parents;
-
-          if (interestingParents &&
-              interestingParents.indexOf(splitByTermId) >= 0) {
-            if (!this.splitSummaryList[splitByTermId]) {
-              this.splitSummaryList[splitByTermId] = [];
-            }
-            this.splitSummaryList[splitByTermId].push(summary);
           }
         }
       }

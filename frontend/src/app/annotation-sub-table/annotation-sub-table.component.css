@@ -2,7 +2,59 @@
   float: right;
 }
 
+.view-control, .filter-controls {
+  margin-bottom: 0.5em;
+}
+
 .no-annotations {
   padding-left: 20px;
   font-size: 110%;
+}
+
+.not-annotation {
+  color: #A00000;
+  font-weight: bold;
+}
+
+.term-annotation-top, .term-annotation td {
+  border-top: 1px solid #C0C0C0;
+}
+
+.rel-and-termid {
+  white-space: nowrap;
+}
+
+.rel-icon {
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.rel-name {
+  border-radius: 3px;
+  background-color: #666;
+  border: 1px solid #444;
+  padding: 3px;
+  color: white;
+}
+
+ul.conditions li {
+  list-style-type: none;
+}
+
+.extension {
+  display: block;
+  padding-left: 20px;
+}
+
+.count-column {
+  width: 20%;
+}
+
+.not-annotation {
+  color: #A00000;
+  font-weight: bold;
+}
+
+.summary-feature {
+  padding-left: 20px;
 }

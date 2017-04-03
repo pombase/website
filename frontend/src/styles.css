@@ -102,3 +102,12 @@ ul {
 .app-link {
   display: inline-block;
 }
+
+.collapse-icon {
+  border: 1px solid #707070;
+  background-color: #FFFFFF;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  font-family: mono;
+  text-decoration: none;
+}

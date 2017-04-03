@@ -84,6 +84,7 @@ export interface TermAnnotation {
   term: TermShort;
   is_not: boolean;
   annotations: Array<Annotation>;
+  summary: Array<TermSummaryRow>;
   rel_names?: Array<string>;
   interesting_parents?: Array<string>;
 }
@@ -100,12 +101,6 @@ export interface TermSummaryRow {
   genotype_uniquenames: Array<string>;
   genotypes: Array<GenotypeShort>;
   extension: Array<ExtPart>;
-}
-
-export interface TermSummary {
-  term: TermShort;
-  is_not: boolean;
-  rows: Array<TermSummaryRow>;
 }
 
 export interface InteractionAnnotation {
@@ -253,55 +248,6 @@ export class PombaseAPIService {
     }
   }
 
-  processTermSummaries(termSummaries: Array<TermSummary>,
-                       genesByUniquename: GeneMap,
-                       genotypesByUniquename: GenotypeMap,
-                       allelesByUniquename: AlleleMap, termsByTermId: any) {
-    for (let termSummary of termSummaries) {
-      for (let row of termSummary.rows) {
-        if (row.gene_uniquenames) {
-          row.genes =
-            row.gene_uniquenames.map(gene_uniquename => {
-              return genesByUniquename[gene_uniquename];
-            });
-        } else {
-          row.genes = [];
-        }
-        if (row.extension) {
-          row.extension.map((extPart) => {
-            if (extPart.ext_range.termid) {
-              extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
-            } else {
-              if (extPart.ext_range.gene_uniquename) {
-                extPart.ext_range.gene = genesByUniquename[extPart.ext_range.gene_uniquename];
-              } else {
-                if (extPart.ext_range.sumary_gene_uniquenames) {
-                  extPart.ext_range.summaryGenes =
-                    extPart.ext_range.sumary_gene_uniquenames
-                    .map(part => {
-                      return part.map(gene_uniquename => {
-                        return genesByUniquename[gene_uniquename];
-                      });
-                    });
-                }
-              }
-            }
-          });
-        }
-
-        if (genotypesByUniquename && row.genotype_uniquenames) {
-          row.genotypes =
-            row.genotype_uniquenames.map(genotypeUniquename => {
-              let genotype = genotypesByUniquename[genotypeUniquename];
-              this.processExpressedAlleles(allelesByUniquename, genesByUniquename, genotype.expressed_alleles);
-              genotype.displayNameLong = Util.displayNameLong(genotype);
-              return genotype;
-            });
-        }
-      }
-    }
-  }
-
   processTermAnnotations(termAnnotations: Array<TermAnnotation>,
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                          allelesByUniquename: AlleleMap,
@@ -342,6 +288,51 @@ export class PombaseAPIService {
             annotation.genotype.displayNameLong = Util.displayNameLong(annotation.genotype);
           }
         }
+      }
+
+      if (termAnnotation.summary) {
+
+      for (let row of termAnnotation.summary) {
+        if (row.gene_uniquenames) {
+          row.genes =
+            row.gene_uniquenames.map(gene_uniquename => {
+              return genesByUniquename[gene_uniquename];
+            });
+        } else {
+          row.genes = [];
+        }
+        if (row.extension) {
+          row.extension.map((extPart) => {
+            if (extPart.ext_range.termid) {
+              extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
+            } else {
+              if (extPart.ext_range.gene_uniquename) {
+                extPart.ext_range.gene = genesByUniquename[extPart.ext_range.gene_uniquename];
+              } else {
+                if (extPart.ext_range.sumary_gene_uniquenames) {
+                  extPart.ext_range.summaryGenes =
+                    extPart.ext_range.sumary_gene_uniquenames
+                    .map(part => {
+                      return part.map(gene_uniquename => {
+                        return genesByUniquename[gene_uniquename];
+                      });
+                    });
+                }
+              }
+            }
+          });
+        }
+
+        if (genotypesByUniquename && row.genotype_uniquenames) {
+          row.genotypes =
+            row.genotype_uniquenames.map(genotypeUniquename => {
+              let genotype = genotypesByUniquename[genotypeUniquename];
+              this.processExpressedAlleles(allelesByUniquename, genesByUniquename, genotype.expressed_alleles);
+              genotype.displayNameLong = Util.displayNameLong(genotype);
+              return genotype;
+            });
+        }
+      }
       }
     }
   }
@@ -434,11 +425,6 @@ export class PombaseAPIService {
                                   allelesByUniquename, referencesByUniquename, termsByTermId);
     }
 
-    for (let cvName of Object.keys(json.cv_summaries)) {
-      this.processTermSummaries(json.cv_summaries[cvName], genesByUniquename, genotypesByUniquename,
-                                allelesByUniquename, termsByTermId);
-    }
-
     this.processInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
     this.processInteractions(json.genetic_interactions, genesByUniquename, referencesByUniquename);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename, referencesByUniquename);
@@ -485,11 +471,6 @@ export class PombaseAPIService {
                                   allelesByUniquename, referencesByUniquename, termsByTermId);
     }
 
-    for (let cvName of Object.keys(json.cv_summaries)) {
-      this.processTermSummaries(json.cv_summaries[cvName], genesByUniquename, genotypesByUniquename,
-                                allelesByUniquename, termsByTermId);
-    }
-
     return json as GenotypeDetails;
   }
 
@@ -513,9 +494,6 @@ export class PombaseAPIService {
 
     this.processTermAnnotations(json.rel_annotations, genesByUniquename, genotypesByUniquename,
                                 allelesByUniquename, referencesByUniquename, termsByTermId);
-
-    this.processTermSummaries(json.rel_summaries, genesByUniquename, genotypesByUniquename,
-                              allelesByUniquename, termsByTermId);
 
     json.single_allele_genotypes = [];
 
@@ -550,10 +528,6 @@ export class PombaseAPIService {
                                   allelesByUniquename, null, termsByTermId);
     }
 
-    for (let cvName of Object.keys(json.cv_summaries)) {
-      this.processTermSummaries(json.cv_summaries[cvName], genesByUniquename, genotypesByUniquename,
-                                allelesByUniquename, termsByTermId);
-    }
 
     this.processInteractions(json.physical_interactions, genesByUniquename);
     this.processInteractions(json.genetic_interactions, genesByUniquename);

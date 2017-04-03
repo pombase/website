@@ -44,8 +44,7 @@
       <div *ngIf="genotypeDetails.cv_annotations[annotationTypeName]">
         <app-annotation-table [annotationTypeName]="annotationTypeName"
                               [hideColumns]="['genotype', 'desc-rel']"
-                              [annotationTable]="genotypeDetails.cv_annotations[annotationTypeName]"
-                              [summaries]="genotypeDetails.cv_summaries[annotationTypeName]"></app-annotation-table>
+                              [annotationTable]="genotypeDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
       </div>
     </div>
   </div>
