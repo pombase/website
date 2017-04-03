@@ -156,12 +156,14 @@
         </td>
         <td class="summary-feature" [attr.colspan]="termNameColSpan">
           <span *ngIf="row.genes?.length > 0">
-            <app-gene-link *ngFor="let gene of row.genes; let lastGene = last"
-                           class="app-link" [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene">, </span>
+            <span *ngFor="let gene of row.genes; let lastGene = last">
+              <app-gene-link class="app-link" [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene">, </span>
+            </span>
           </span>
           <span *ngIf="row.genotypes?.length > 0">
-            <app-genotype-link *ngFor="let genotype of row.genotypes; let lastGenotype = last"
-                               class="app-link" [genotype]="genotype"></app-genotype-link><span *ngIf="!lastGenotype">, &nbsp;</span>
+            <span *ngFor="let genotype of row.genotypes; let lastGenotype = last">
+              <app-genotype-link class="app-link" [genotype]="genotype"></app-genotype-link><span *ngIf="!lastGenotype">, &nbsp;</span>
+            </span>
           </span>
           <app-extension-display *ngIf="row.extension" [extension]="row.extension"></app-extension-display>
         </td>
