@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { TermAnnotation, TermSummary } from '../pombase-api.service';
+import { TermAnnotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType } from '../config';
 

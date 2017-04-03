@@ -27,7 +27,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   termNameColSpan = -1;
   compactFirstRows = {};
   detailsView: {[key: string]: boolean} = {};
-  currentView = "summary";
+  currentView = 'summary';
 
   updateCurrentFilter(filter: AnnotationFilter) {
     if (filter) {
@@ -42,7 +42,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   toggleDetails(termid: string) {
     this.detailsView[termid] = !this.detailsView[termid];
 
-    let seenSummarised: boolean = false;
+    let seenSummarised = false;
 
     for (let termAnnotation of this.annotationTable) {
       if (termAnnotation.summary) {
@@ -53,21 +53,21 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     if (seenSummarised) {
-      this.currentView = "summary";
+      this.currentView = 'summary';
     } else {
-      this.currentView = "details";
+      this.currentView = 'details';
     }
   }
 
   allDetailsView() {
-    this.currentView = "details";
+    this.currentView = 'details';
     for (let termAnnotation of this.annotationTable) {
       this.detailsView[termAnnotation.term.termid] = true;
     }
   }
 
   allSummaryView() {
-    this.currentView = "summary";
+    this.currentView = 'summary';
     for (let termAnnotation of this.annotationTable) {
       this.detailsView[termAnnotation.term.termid] = false;
     }

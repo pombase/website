@@ -47,7 +47,7 @@
         <td [attr.rowspan]="termAnnotation.annotations.length + 1">
           <span class="rel-and-termid">
             <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
-            <span *ngIf='termAnnotation.rel_names?.length > 0'>
+            <span *ngIf="termAnnotation.rel_names?.length > 0">
               <span class='rel-icon'>&#8593;</span><span class="rel-name">{{termAnnotation.rel_names}}</span>
             </span>
             <a routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.termid}}</a>
@@ -82,7 +82,7 @@
             [attr.rowspan]="termAnnotation.annotations.length">
           <span class="rel-and-termid">
             <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
-            <span *ngIf='termAnnotation.rel_names?.length > 0'>
+            <span *ngIf="termAnnotation.rel_names?.length > 0">
               <span class="rel-icon">&#8593;</span><span class="rel-name">{{termAnnotation.rel_names}}</span>
             </span>
             <a routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active">{{termAnnotation.term.termid}}</a>
