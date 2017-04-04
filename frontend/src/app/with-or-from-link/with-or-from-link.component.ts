@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { getExternalLink } from '../config';
+import { getGoXrf } from '../config';
 
 @Component({
   selector: 'app-with-or-from-link',
@@ -27,7 +27,7 @@ export class WithOrFromLinkComponent implements OnInit {
 
     if (this.withOrFrom.identifier) {
       this.identifier = this.withOrFrom.identifier;
-      this.link = getExternalLink(this.withOrFrom.identifier);
+      this.link = getGoXrf(this.withOrFrom.identifier);
     }
   }
 }

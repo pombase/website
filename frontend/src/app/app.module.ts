@@ -50,6 +50,7 @@ import { GenotypeOrderByPipe } from './genotype-order-by.pipe';
 import { AnnotationTableFiltersComponent } from './annotation-table-filters/annotation-table-filters.component';
 import { AnnotationTableTermFilterComponent } from './annotation-table-term-filter/annotation-table-term-filter.component';
 import { AnnotationTableFilterPipe } from './annotation-table-filter.pipe';
+import { GeneExternalReferencesComponent } from './gene-external-references/gene-external-references.component';
 
 export function documentFactory() {
     return document;
@@ -101,6 +102,7 @@ export function windowFactory() {
     AnnotationTableFiltersComponent,
     AnnotationTableTermFilterComponent,
     AnnotationTableFilterPipe,
+    GeneExternalReferencesComponent,
   ],
   imports: [
     BrowserModule,

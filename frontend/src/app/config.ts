@@ -1,4 +1,4 @@
-import externalLinksConfig from './config/external-links.json';
+import goXrfConfig from './config/go-xrf-abbr-external-links.json';
 import pombaseConfig from '../../pombase_v2_config.json';
 
 export interface TermPageConfig {
@@ -27,6 +27,8 @@ export interface AppConfig {
   linkoutConfig: LinkoutConfig;
 
   evidenceTypes: EvidenceConfig;
+
+  externalGeneReferences: Array<ExternalGeneReference>;
 
   // return true iff the genus and species match the configured organism
   isConfigOrganism(genus: string, species: string): boolean;
@@ -68,6 +70,14 @@ export interface ExtensionConfig {
 export interface InteractionDirectionalLabels {
   bait: string;
   prey: string;
+}
+
+export interface ExternalGeneReference {
+  ref_type: string;
+  name: string;
+  description: string;
+  go_xrf_abbrev?: string;
+  url?: string;
 }
 
 export interface AnnotationTableConfig {
@@ -346,6 +356,7 @@ let _appConfig: AppConfig = {
       long: 'Unknown',
     },
   },
+  externalGeneReferences: pombaseConfig.external_gene_references,
 
   isConfigOrganism(genus: string, species: string): boolean {
     return genus === this.organism.genus && species === this.organism.species;
@@ -360,8 +371,8 @@ export function getAppConfig(): AppConfig {
   return _appConfig;
 }
 
-export function getExternalLinkWithPrefix(prefix: string, id: string): string {
-  let linkTemplate = externalLinksConfig[prefix];
+export function getGoXrfWithPrefix(prefix: string, id: string): string {
+  let linkTemplate = goXrfConfig[prefix];
 
   if (linkTemplate) {
     return linkTemplate.replace(/\[example_id\]/, id);
@@ -370,11 +381,11 @@ export function getExternalLinkWithPrefix(prefix: string, id: string): string {
   }
 }
 
-export function getExternalLink(idWithPrefix: string): string {
+export function getGoXrf(idWithPrefix: string): string {
   let matches = idWithPrefix.match(/^([^:]+):(.*)/);
 
   if (matches) {
-    return getExternalLinkWithPrefix(matches[1], matches[2]);
+    return getGoXrfWithPrefix(matches[1], matches[2]);
   } else {
     return null;
   }
@@ -386,5 +397,5 @@ let organismPrefix = {
 };
 
 export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, id: string): string {
-  return getExternalLinkWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
+  return getGoXrfWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
 }

@@ -114,6 +114,9 @@
                                       [annotationTable]="geneDetails.target_of_annotations"></app-target-of-annotation-table>
     </div>
 
+    <app-gene-external-references id="external-refs"
+                                  [geneDetails]="geneDetails"></app-gene-external-references>
+
     <app-gene-references-table id="literature"
                                [references]="geneDetails.references"></app-gene-references-table>
   </div>

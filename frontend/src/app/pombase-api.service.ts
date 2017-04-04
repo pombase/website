@@ -167,6 +167,9 @@ export class GeneDetails {
   uniquename: string;
   name: string;
   feature_type: string;
+  product?: string;
+  uniprot_identifier?: string;
+  orfeome_identifier: string;
   characterisation_status: string;
   location: ChromosomeLocation;
   cds_location: ChromosomeLocation;
