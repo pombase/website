@@ -124,6 +124,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
           termAnnotation.annotations[0].extension.length === 0;
       }
     }
+
+    this.allSummaryView();
   }
 
   ngOnInit() {
