@@ -111,3 +111,12 @@ ul {
   font-family: mono;
   text-decoration: none;
 }
+
+select[selected], option {
+  font-weight: bold;
+}
+
+select option:disabled {
+  color: #999;
+  font-weight: normal;
+}

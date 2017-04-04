@@ -86,7 +86,6 @@ export interface TermAnnotation {
   annotations: Array<Annotation>;
   summary: Array<TermSummaryRow>;
   rel_names?: Array<string>;
-  interesting_parents?: Array<string>;
 }
 
 export type AnnotationTable = Array<TermAnnotation>;
