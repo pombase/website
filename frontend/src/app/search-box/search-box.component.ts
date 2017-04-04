@@ -18,6 +18,19 @@ export class SearchBoxComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private router: Router) { }
 
+  maybeSynonymMatch(model: any): string {
+    if (this.selectedGene) {
+      if (model.name && model.name.indexOf(this.selectedGene) != -1 ||
+          model.uniquename.indexOf(this.selectedGene) != -1) {
+        return '';
+      } else {
+        return 'synonym: ' + model.searchData;
+      }
+    } else {
+      return '';
+    }
+  }
+
   ngOnInit() {
     this.pombaseApiService.getGeneSummaries()
       .then(summaries => {
@@ -57,6 +70,19 @@ export class SearchBoxComponent implements OnInit {
         });
 
         this.geneSummaries = this.geneSummaries.concat(uniquenameSummaries);
+
+        let synonymSummaries = [];
+        summaries.forEach((data) => {
+          data.synonyms.forEach((synonym) => {
+            synonymSummaries.push({
+              searchData: synonym,
+              uniquename: data.uniquename,
+              name: data.name
+            });
+          });
+        });
+
+        this.geneSummaries = this.geneSummaries.concat(synonymSummaries);
       });
   }
 

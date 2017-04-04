@@ -19,3 +19,6 @@
   border-radius: .25rem;
   font-weight: bold;
 }
+.synonym-match {
+  color: #888;
+}
