@@ -6,6 +6,7 @@
    "FB" : "http://flybase.org/reports/[example_id].html",
    "InterPro" : "http://www.ebi.ac.uk/interpro/entry/[example_id]",
    "MGI" : "http://www.informatics.jax.org/accession/[example_id]",
+   "ModBase" : "http://salilab.org/modbase/searchbyid?databaseID=[example_id]",
    "PANTHER" : "http://www.pantherdb.org/panther/lookupId.jsp?id=[example_id]",
    "PDB" : "http://www.rcsb.org/pdb/cgi/explore.cgi?pdbId=[example_id]",
    "PR" : "http://purl.obolibrary.org/obo/PR_[example_id]",
