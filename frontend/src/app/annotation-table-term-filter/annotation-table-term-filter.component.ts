@@ -38,6 +38,11 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.selectedCategory = null;
+
     this.choiceData = [];
 
     let seenAncestors = {};
@@ -64,9 +69,5 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
                                       active, category.ancestors);
       this.choiceData.push(selectData);
     }
-  }
-
-  ngOnChanges() {
-    this.selectedCategory = null;
   }
 }
