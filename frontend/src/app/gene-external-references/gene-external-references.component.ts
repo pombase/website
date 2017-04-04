@@ -36,27 +36,24 @@ export class GeneExternalReferencesComponent implements OnChanges {
   makeUrl(extRefConf: ExternalGeneReference): Array<string> {
     let component = this;
     let url = extRefConf.url;
+    let fieldName = extRefConf.field_name;
     if (url) {
-      let matches = url.match(/<<(uniquename|name|uniprot_identifier|orfeome_identifier|NCBI_ALL_IDS)>>/);
-      if (matches) {
-        let fieldName = matches[1];
-        if (fieldName === 'NCBI_ALL_IDS') {
-          return [this.geneDetails.name || this.geneDetails.uniquename,
-                  url.replace(/<<NCBI_ALL_IDS>>/, this.getAllIds().join('+OR+'))]
+      if (fieldName === 'NCBI_ALL_IDS') {
+        return [this.geneDetails.name || this.geneDetails.uniquename,
+                url.replace(/<<IDENTIFIER>>/, this.getAllIds().join('+OR+'))]
+      } else {
+        let fieldValue = this.geneDetails[fieldName];
+        if (fieldValue) {
+          return [fieldValue, url.replace('<<IDENTIFIER>>', fieldValue)];
         } else {
-          let fieldName = matches[1];
-          let identifier = this.geneDetails[fieldName];
-          if (identifier) {
-            return [identifier, url.replace(`<<${fieldName}>>`, identifier)];
-          } else {
-            return [];
-          }
+          return [];
         }
       }
     } else {
       let go_xrf_abbrev = extRefConf.go_xrf_abbrev;
       if (go_xrf_abbrev) {
-        return [];
+        let fieldValue = this.geneDetails[fieldName];
+        return [fieldValue, getGoXrfWithPrefix(go_xrf_abbrev, fieldValue)];
       } else {
         return [];
       }

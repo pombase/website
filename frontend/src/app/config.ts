@@ -76,6 +76,7 @@ export interface ExternalGeneReference {
   ref_type: string;
   name: string;
   description: string;
+  field_name: string;
   go_xrf_abbrev?: string;
   url?: string;
 }
