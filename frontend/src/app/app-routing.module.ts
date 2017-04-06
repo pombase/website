@@ -10,6 +10,7 @@ import { TermGenesViewComponent } from './term-genes-view/term-genes-view.compon
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
 import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotypes-view/term-single-gene-genotypes-view.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
+import { DocsComponent } from './docs/docs.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { FrontComponent } from './front/front.component';
 
@@ -53,6 +54,12 @@ const routes: Routes = [
     data: {
       title: 'Reference'
     }
+  },
+  { path: 'community', 
+    data: {
+      title: 'Community'
+    },
+    children: [ { path: '**', data: { docsParent: 'community' }, component: DocsComponent } ]
   },
   { path: 'query_builder', component: QueryBuilderComponent,
     data: {

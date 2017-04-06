@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^2.4.0",
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
+    "angular2-markdown": "^1.5.1",
     "angulartics2": "^1.6.4",
     "bootstrap3": "^3.3.5",
     "core-js": "^2.4.1",

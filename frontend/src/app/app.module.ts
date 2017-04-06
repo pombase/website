@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { TypeaheadModule, PaginationModule } from 'ng2-bootstrap';
+import { MarkdownModule } from 'angular2-markdown';
 
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
@@ -51,6 +52,7 @@ import { AnnotationTableFiltersComponent } from './annotation-table-filters/anno
 import { AnnotationTableTermFilterComponent } from './annotation-table-term-filter/annotation-table-term-filter.component';
 import { AnnotationTableFilterPipe } from './annotation-table-filter.pipe';
 import { GeneExternalReferencesComponent } from './gene-external-references/gene-external-references.component';
+import { DocsComponent } from './docs/docs.component';
 
 export function documentFactory() {
     return document;
@@ -103,6 +105,7 @@ export function windowFactory() {
     AnnotationTableTermFilterComponent,
     AnnotationTableFilterPipe,
     GeneExternalReferencesComponent,
+    DocsComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,7 +114,8 @@ export function windowFactory() {
     AppRoutingModule,
     TypeaheadModule.forRoot(),
     PaginationModule.forRoot(),
-    Ng2SimplePageScrollModule.forRoot()
+    Ng2SimplePageScrollModule.forRoot(),
+    MarkdownModule.forRoot(),
   ],
   providers: [PombaseAPIService,
               { provide: 'Window', useValue: window },
