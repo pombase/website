@@ -1,4 +1,4 @@
-- [Community curation](fission-yeast-community-curation-project)
+- [Community curation](community/fission-yeast-community-curation-project)
 - External Resources
 - Curation Pilot Project
 - News
