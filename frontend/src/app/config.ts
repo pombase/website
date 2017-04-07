@@ -1,4 +1,5 @@
 import goXrfConfig from './config/go-xrf-abbr-external-links.json';
+import docConfig from './config/doc-config.json';
 import pombaseConfig from '../../pombase_v2_config.json';
 
 export interface TermPageConfig {
@@ -29,6 +30,7 @@ export interface AppConfig {
   evidenceTypes: EvidenceConfig;
 
   externalGeneReferences: Array<ExternalGeneReference>;
+  documentation: Array<string>;
 
   // return true iff the genus and species match the configured organism
   isConfigOrganism(genus: string, species: string): boolean;
@@ -358,6 +360,7 @@ let _appConfig: AppConfig = {
     },
   },
   externalGeneReferences: pombaseConfig.external_gene_references,
+  documentation: docConfig,
 
   isConfigOrganism(genus: string, species: string): boolean {
     return genus === this.organism.genus && species === this.organism.species;

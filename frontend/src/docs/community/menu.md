@@ -1,7 +1,7 @@
-- [Community curation](community/fission-yeast-community-curation-project)
+- [Curation](community/fission-yeast-community-curation-project)
 - External Resources
 - Curation Pilot Project
 - News
 - Events
 - Jobs
-- Mailing Lists
+- [Mailing lists](community/mailing-lists)

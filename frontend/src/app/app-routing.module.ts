@@ -55,11 +55,17 @@ const routes: Routes = [
       title: 'Reference'
     }
   },
-  { path: 'community', 
+  { path: 'community',
     data: {
       title: 'Community'
     },
     children: [ { path: '**', data: { docsParent: 'community' }, component: DocsComponent } ]
+  },
+  { path: 'about',
+    data: {
+      title: 'About'
+    },
+    children: [ { path: '**', data: { docsParent: 'about' }, component: DocsComponent } ]
   },
   { path: 'query_builder', component: QueryBuilderComponent,
     data: {

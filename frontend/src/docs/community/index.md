@@ -1,7 +1,7 @@
 # Fission Yeast Community
 
-- Community Curation Project
-- Mailing lists
+- [Community curation project](community/fission-yeast-community-curation-project)
+- [Mailing lists](community/mailing-lists)
 - Listings on pombase.org
   - Events - List or Calendar
   - News Archive

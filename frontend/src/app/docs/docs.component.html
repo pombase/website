@@ -1,10 +1,96 @@
-<div>
+<div class="docs">
+<div *ngIf="section == 'about'">
   <div class="docs-menu">
-    <markdown [path]="menupath">
-    </markdown>
+<h3 id="about"><a routerLink="/about" routerLinkActive="active">About</a></h3>
+<ul>
+<li>Contacts</li>
+<li>Citing PomBase</li>
+<li>Help</li>
+<li>Resource Metrics</li>
+</ul>
+
   </div>
-  <div class="docs-content">
-    <markdown [path]="docpath">
-    </markdown>
+  <div *ngIf="pageName == 'index'" class="docs-content">
+<h1 id="about-pombase">About PomBase</h1>
+<p>PomBase is a new model organism database that provides organization of and access to scientific data for the fission yeast Schizosaccharomyces pombe. PomBase supports genomic sequence and features, genome-wide datasets and manual literature curation.</p>
+<p>PomBase also provides a community hub for researchers, providing genome statistics, a community curation interface, news, events, documentation and mailing lists.</p>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">FAQ</td>
+<td align="left">Frequently Asked Questions</td>
+</tr>
+<tr class="even">
+<td align="left">Documentation</td>
+<td align="left">Documentation</td>
+</tr>
+<tr class="odd">
+<td align="left">Data versions</td>
+<td align="left">Versions of internal and external data loaded into current and past Pombase releases</td>
+</tr>
+<tr class="even">
+<td align="left">Contact PomBase</td>
+<td align="left">How to contact staff or submit data</td>
+</tr>
+<tr class="odd">
+<td align="left">Citing PomBase</td>
+<td align="left">How to cite fission yeast genome data</td>
+</tr>
+<tr class="even">
+<td align="left">Staff</td>
+<td align="left">PomBase staff members</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Funding: PomBase is funded by the Wellcome Trust [104967/Z/14/Z].</p>
+
   </div>
+</div>
+<div *ngIf="section == 'community'">
+  <div class="docs-menu">
+<h3 id="community"><a routerLink="/community" routerLinkActive="active">Community</a></h3>
+<ul>
+<li><a routerLink="/community/fission-yeast-community-curation-project" routerLinkActive="active">Curation</a></li>
+<li>External Resources</li>
+<li>Curation Pilot Project</li>
+<li>News</li>
+<li>Events</li>
+<li>Jobs</li>
+<li><a routerLink="/community/mailing-lists" routerLinkActive="active">Mailing lists</a></li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'fission-yeast-community-curation-project'" class="docs-content">
+<h1 id="the-fission-yeast-community-curation-project">The Fission Yeast Community Curation Project</h1>
+<p>Comprehensive manual curation of the S. pombe literature is a primary goal of the PomBase project, and among the most important activities of the curation staff. Increasing numbers of new publications, and a large backlog of older papers, however, mean that complete literature curation will require input from the research community as well as the efforts of dedicated professional curators.</p>
+<p>The PomBase Community Curation system enables researchers to contribute annotations directly to PomBase based on their publications using Canto, a web-based tool that allows both curators and researchers to create annotations. Canto supports GO, phenotype, interaction, and modification annotations, and can be configured for use with other ontologies as the need arises. Annotations made in the community curation system will be prioritized for inclusion in PomBase and will therefore also be more rapidly disseminated to other databases (e.g. GenBank/ENA/DDBJ, UniProtKB, BioGRID and GO), making data from annotated papers widely visible.</p>
+<p><strong>How to contribute</strong>: For newly published papers, PomBase curators email authors inviting them to participate, with specific instructions and links. Lab members are also welcome to evaluate existing annotations and create new annotations from past publications — use the PubMed ID search on the <a routerLink="/https://curation.pombase.org/pombe" routerLinkActive="active">main PomBase Canto page</a>. Anyone can also try the <a routerLink="/https://curation.pombase.org/demo" routerLinkActive="active">demo version of Canto</a>.</p>
+<p><strong>Progress and attribution</strong>: <a routerLink="/https://curation.pombase.org/pombe/stats/annotation" routerLinkActive="active">Curation statistics</a> track S. pombe papers curated in Canto by PomBase and community curators, and the annotations obtained. Canto will soon allow contributors to register <a routerLink="/http://orcid.org/" routerLinkActive="active">ORCID</a> identifiers in the system, which will support more formalised attribution of community contributions to PomBase, and thereby enable researchers to cite community curation in institutional reports, funding applications, etc. To supplement the existing permanent publication-centred links in Canto, we are currently investigating possible ways to link to external resources such as ORCID or OpenRIF via ORCID IDs.</p>
+<p>For a bit of historical perspective, you can browse the results of the <a routerLink="/http://www.pombase.org/community/fission-yeast-community-curation-pilot-project" routerLinkActive="active">Community Curation Pilot Project</a> that took place in 2009.</p>
+
+  </div>
+  <div *ngIf="pageName == 'index'" class="docs-content">
+<h1 id="fission-yeast-community">Fission Yeast Community</h1>
+<ul>
+<li><a routerLink="/community/fission-yeast-community-curation-project" routerLinkActive="active">Community curation project</a></li>
+<li><a routerLink="/community/mailing-lists" routerLinkActive="active">Mailing lists</a></li>
+<li>Listings on pombase.org</li>
+<li>Events - List or Calendar</li>
+<li>News Archive</li>
+<li><p>Jobs</p></li>
+<li><p>Fission Yeast Internet Resources (External)</p></li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'mailing-lists'" class="docs-content">
+<h1 id="mailing-lists">Mailing Lists</h1>
+<p>Mailing lists of interest to the S. pombe community</p>
+<hr />
+<p><a routerLink="/about/pombe-mailing-list" routerLinkActive="active">Pombelist</a></p>
+<p>Fission yeast community mailing list - follow link for further information, including how to subscribe. (Note: this list has moved. Please update your records!)</p>
+
+  </div>
+</div>
 </div>
