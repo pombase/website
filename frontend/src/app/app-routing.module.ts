@@ -67,6 +67,12 @@ const routes: Routes = [
     },
     children: [ { path: '**', data: { docsParent: 'about' }, component: DocsComponent } ]
   },
+  { path: 'status',
+    data: {
+      title: 'Status'
+    },
+    children: [ { path: '**', data: { docsParent: 'status' }, component: DocsComponent } ]
+  },
   { path: 'query_builder', component: QueryBuilderComponent,
     data: {
       title: 'Query builder'
