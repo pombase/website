@@ -1,1 +1,1 @@
-- [Gene coordinate changes](gene-coordinate-changes)
+- [Gene coordinate changes](status/gene-coordinate-changes)
