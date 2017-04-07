@@ -54,7 +54,7 @@ my $doc_config_file = "../app/config/doc-config.json";
 open my $doc_config, '>', $doc_config_file
   or die "can't open $doc_config_file: $!\n";
 
-print $doc_config to_json( [keys %sections], { canonical => 1, pretty => 1 } );
+print $doc_config to_json( [sort keys %sections], { canonical => 1, pretty => 1 } );
 
 close $doc_config;
 
