@@ -62,7 +62,7 @@ sub markdown {
 
   my $html = "";
 
-  pandoc -f => 'markdown', -t => 'html', { in => \$md, out => \$html };
+  pandoc '--columns' => 1000, -f => 'markdown', -t => 'html', { in => \$md, out => \$html };
 
   return $html;
 }

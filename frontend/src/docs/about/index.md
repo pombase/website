@@ -11,7 +11,8 @@ documentation and mailing lists.
 
 ------------------------------------
 
-|-|-|
+|                 |                                                                                          |
+|-----------------+------------------------------------------------------------------------------------------|
 | FAQ             | 	Frequently Asked Questions                                                           |
 | Documentation   | 	Documentation                                                                        |
 | Data versions   | 	Versions of internal and external data loaded into current and past Pombase releases |
