@@ -4,8 +4,7 @@ use strict;
 use warnings;
 
 use JSON -support_by_pp;
-use IPC::Open3;
-
+use Pandoc;
 
 my %sections = ();
 
@@ -61,20 +60,9 @@ close $doc_config;
 sub markdown {
   my $md = shift;
 
-  my($wtr, $rdr, $err);
-
-  open3($wtr, $rdr, $err, "pandoc -f markdown -t html");
-
-  print $wtr $md;
-  close $wtr;
-
   my $html = "";
 
-  while (my $line = <$rdr>) {
-    $html .= $line;
-  }
-
-  close $rdr;
+  pandoc -f => 'markdown', -t => 'html', { in => \$md, out => \$html };
 
   return $html;
 }
