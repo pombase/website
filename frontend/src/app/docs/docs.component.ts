@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-docs',
@@ -16,14 +16,13 @@ export class DocsComponent implements OnInit {
 
   ngOnInit(): void {
     this.section = this.route.snapshot.data['docsParent'];
-    let parts = this.route.snapshot.url;
 
     this.route.url.forEach((parts) => {
-      if (parts.length == 0) {
+      if (parts.length === 0) {
         this.pageName = 'index';
       } else {
         this.pageName = parts[0].toString();
       }
-    })
+    });
   }
 }
