@@ -89,6 +89,8 @@ sub contents_for_template {
 
   while (my $line = <$file>) {
     $line =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/e;
+    $line =~ s/,([^ ])/,&#8203;$1/g;
+    $line =~ s|(\d\d\d\d-\d\d-\d\d)|<span class="no-break">$1</span>|g;
     $ret .= $line;
   }
 

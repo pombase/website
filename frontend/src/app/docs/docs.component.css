@@ -12,3 +12,16 @@
   float: left;
   margin: 0 0 0 2em;
 }
+
+.docs-content table {
+  width: 100%;
+}
+
+.docs-content td {
+  padding: 4px;
+  min-width: 5em;
+}
+
+.docs-content td .no-break {
+  white-space: nowrap;
+}
