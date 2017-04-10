@@ -46,8 +46,19 @@ export interface TermFilterConfig {
   categories: Array<TermFilterCategory>;
 }
 
+export interface EvidenceFilterCategory {
+  display_name: string;
+  evidence_codes: Array<string>;
+}
+
+export interface EvidenceFilterConfig {
+  display_name: string;
+  categories: Array<EvidenceFilterCategory>;
+}
+
 export interface FilterConfig {
   term?: TermFilterConfig;
+  evidence?: EvidenceFilterConfig;
 }
 
 export interface AnnotationType {

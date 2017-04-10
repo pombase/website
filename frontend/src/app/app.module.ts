@@ -53,6 +53,7 @@ import { AnnotationTableTermFilterComponent } from './annotation-table-term-filt
 import { AnnotationTableFilterPipe } from './annotation-table-filter.pipe';
 import { GeneExternalReferencesComponent } from './gene-external-references/gene-external-references.component';
 import { DocsComponent } from './docs/docs.component';
+import { AnnotationTableEvidenceFilterComponent } from './annotation-table-evidence-filter/annotation-table-evidence-filter.component';
 
 export function documentFactory() {
     return document;
@@ -106,6 +107,7 @@ export function windowFactory() {
     AnnotationTableFilterPipe,
     GeneExternalReferencesComponent,
     DocsComponent,
+    AnnotationTableEvidenceFilterComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,5 +5,10 @@
                                       [annotationTable]="annotationTable"
                                       (filterChange)="filterChanged($event)">
     </app-annotation-table-term-filter>
+
+    <app-annotation-table-evidence-filter *ngIf="config.evidence" [config]="config.evidence"
+                                          [annotationTable]="annotationTable"
+                                          (filterChange)="filterChanged($event)">
+    </app-annotation-table-evidence-filter>
   </span>
 </div>

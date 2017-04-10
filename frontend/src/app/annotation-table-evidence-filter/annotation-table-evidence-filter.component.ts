@@ -1,26 +1,26 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 import { TermAnnotation } from '../pombase-api.service';
-import { TermFilterConfig } from '../config';
+import { EvidenceFilterConfig } from '../config';
 import { AnnotationFilter } from '../filtering/annotation-filter';
-import { AnnotationTermFilter } from '../filtering/annotation-term-filter';
+import { AnnotationEvidenceFilter } from '../filtering/annotation-evidence-filter';
 
 class SelectData {
   constructor(public displayName: string,
               // set to true iff there is annotation in the table that has one of these
-              // ancestors
+              // evidence codes
               public active: boolean,
-              public ancestors: Array<string>) { }
+              public evidenceCodes: Array<string>) { }
 }
 
 @Component({
-  selector: 'app-annotation-table-term-filter',
-  templateUrl: './annotation-table-term-filter.component.html',
-  styleUrls: ['./annotation-table-term-filter.component.css']
+  selector: 'app-annotation-table-evidence-filter',
+  templateUrl: './annotation-table-evidence-filter.component.html',
+  styleUrls: ['./annotation-table-evidence-filter.component.css']
 })
-export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
+export class AnnotationTableEvidenceFilterComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
-  @Input() config: TermFilterConfig;
+  @Input() config: EvidenceFilterConfig;
   @Output() filterChange = new EventEmitter<AnnotationFilter>();
 
   selectedCategory: any = null;
@@ -29,7 +29,7 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
 
   setCategory(event: SelectData): void {
     if (event) {
-      this.filterChange.emit(new AnnotationTermFilter(event.ancestors));
+      this.filterChange.emit(new AnnotationEvidenceFilter(event.evidenceCodes));
     } else {
       this.filterChange.emit(null);
     }
@@ -45,12 +45,16 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
 
     this.choiceData = [];
 
-    let seenAncestors = {};
+    let seenEvidence = {};
 
     for (let termAnnotation of this.annotationTable) {
-      if (termAnnotation.term.interesting_parents) {
-        for (let ancestor of termAnnotation.term.interesting_parents) {
-          seenAncestors[ancestor] = true;
+      for (let annotation of termAnnotation.annotations) {
+        for (let configCategory of this.config.categories) {
+          for (let configEvidenceCode of configCategory.evidence_codes) {
+            if (annotation.evidence === configEvidenceCode) {
+              seenEvidence[configEvidenceCode] = true;
+            }
+          }
         }
       }
     }
@@ -58,15 +62,15 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
     for (let category of this.config.categories) {
       let active = false;
 
-      for (let ancestor of category.ancestors) {
-        if (seenAncestors[ancestor]) {
+      for (let evidence_code of category.evidence_codes) {
+        if (seenEvidence[evidence_code]) {
           active = true;
           break;
         }
       }
 
       let selectData = new SelectData(category.display_name,
-                                      active, category.ancestors);
+                                      active, category.evidence_codes);
       this.choiceData.push(selectData);
     }
   }
