@@ -18,15 +18,27 @@ export class AnnotationTableFiltersComponent implements OnInit {
   @Input() currentViewState: TableViewState;
   @Output() filterChange = new EventEmitter<AnnotationFilter>();
 
-  filters = ['evidence'];
-
   tableViewState = TableViewState;
+
+  currentFilters = {};
 
   filterChanged(filterType: string, event: AnnotationFilter) {
     if (event) {
-      this.filterChange.emit(new AnnotationFilterCombiner([event]));
+      this.currentFilters[filterType] = event;
     } else {
+      delete this.currentFilters[filterType];
+    }
+
+    let eventsToEmit = [];
+
+    for (let filterName of Object.keys(this.currentFilters)) {
+      eventsToEmit.push(this.currentFilters[filterName]);
+    }
+
+    if (eventsToEmit.length === 0) {
       this.filterChange.emit(null);
+    } else {
+      this.filterChange.emit(new AnnotationFilterCombiner(eventsToEmit));
     }
   }
 
