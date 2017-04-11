@@ -2,7 +2,15 @@ import { AnnotationTable } from '../pombase-api.service';
 import { AnnotationFilter } from './annotation-filter';
 
 export class AnnotationEvidenceFilter implements AnnotationFilter {
-  constructor(private evidenceCodes: Array<string>) { }
+  evidenceCodes = [];
+
+  constructor(private evidenceCodesArg: Array<string>) {
+    for (let code of this.evidenceCodesArg) {
+      let lcCode = code.toLowerCase();
+      this.evidenceCodes.push(lcCode);
+      this.evidenceCodes.push(lcCode + ' evidence');
+    }
+  }
 
   filter(annotationTable: AnnotationTable): AnnotationTable {
     let retTable = [] as AnnotationTable;
@@ -13,7 +21,7 @@ export class AnnotationEvidenceFilter implements AnnotationFilter {
 
       for (let annotation of termAnnotation.annotations) { 
         if (annotation.evidence &&
-            this.evidenceCodes.indexOf(annotation.evidence) != -1) {
+            this.evidenceCodes.indexOf(annotation.evidence.toLowerCase()) != -1) {
           retAnnotation.annotations.push(annotation);
         }
       }
