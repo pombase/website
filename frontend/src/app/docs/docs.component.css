@@ -22,6 +22,10 @@
   min-width: 5em;
 }
 
+.docs-content thead th {
+  border-bottom: 3px solid #ccc;
+}
+
 .docs-content td .no-break {
   white-space: nowrap;
 }
