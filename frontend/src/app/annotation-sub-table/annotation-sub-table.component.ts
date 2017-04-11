@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 import { TermAnnotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          FilterConfig } from '../config';
 import { AnnotationTable } from '../pombase-api.service';
 import { AnnotationFilter } from '../filtering/annotation-filter';
+import { TableViewState } from '../pombase-types';
 
 @Component({
   selector: 'app-annotation-sub-table',
@@ -16,6 +17,9 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() hideColumns: Array<string>;
   @Input() featureInFirstColumn? = false;
   @Input() annotationTable: Array<TermAnnotation>;
+  @Output() tableViewChangeEmitter = new EventEmitter<TableViewState>();
+
+  tableViewState = TableViewState;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;
@@ -27,7 +31,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   termNameColSpan = -1;
   compactFirstRows = {};
   detailsView: {[key: string]: boolean} = {};
-  currentView = 'summary';
+  currentViewState = TableViewState.Summary;
 
   updateCurrentFilter(filter: AnnotationFilter) {
     if (filter) {
@@ -53,24 +57,28 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     if (seenSummarised) {
-      this.currentView = 'summary';
+      this.currentViewState = TableViewState.Summary;
     } else {
-      this.currentView = 'details';
+      this.currentViewState = TableViewState.Details;
     }
+
+    this.tableViewChangeEmitter.emit(this.currentViewState);
   }
 
   allDetailsView() {
-    this.currentView = 'details';
+    this.currentViewState = TableViewState.Details;
     for (let termAnnotation of this.annotationTable) {
       this.detailsView[termAnnotation.term.termid] = true;
     }
+    this.tableViewChangeEmitter.emit(this.currentViewState);
   }
 
   allSummaryView() {
-    this.currentView = 'summary';
+    this.currentViewState = TableViewState.Summary;
     for (let termAnnotation of this.annotationTable) {
       this.detailsView[termAnnotation.term.termid] = false;
     }
+    this.tableViewChangeEmitter.emit(this.currentViewState);
   }
 
   trackByTermId(index: number, item: any) {

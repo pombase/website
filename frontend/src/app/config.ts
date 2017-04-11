@@ -41,24 +41,16 @@ export interface TermFilterCategory {
   ancestors: Array<string>;
 }
 
-export interface TermFilterConfig {
-  display_name: string;
-  categories: Array<TermFilterCategory>;
-}
-
 export interface EvidenceFilterCategory {
   display_name: string;
   evidence_codes: Array<string>;
 }
 
-export interface EvidenceFilterConfig {
-  display_name: string;
-  categories: Array<EvidenceFilterCategory>;
-}
-
 export interface FilterConfig {
-  term?: TermFilterConfig;
-  evidence?: EvidenceFilterConfig;
+  display_name: string;
+  detailed_view_only: boolean;
+  term_categories?: Array<TermFilterCategory>;
+  evidence_categories?: Array<EvidenceFilterCategory>;
 }
 
 export interface AnnotationType {

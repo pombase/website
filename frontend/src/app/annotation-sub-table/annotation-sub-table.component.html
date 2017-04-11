@@ -6,18 +6,19 @@
   <div class="filter-controls">
     <app-annotation-table-filters *ngIf="filterConfig" [filterConfig]="filterConfig"
                                   [annotationTable]="annotationTable"
+                                  [currentViewState]="currentViewState"
                                   (filterChange)="updateCurrentFilter($event)">
     </app-annotation-table-filters>
   </div>
 
   <div class="view-controls">
-    <a *ngIf="currentView != 'details'" (click)="allDetailsView()">Show details ...</a> 
-    <a *ngIf="currentView == 'details'" (click)="allSummaryView()">Show summary ...</a>
+    <a *ngIf="currentViewState != tableViewState.Details" (click)="allDetailsView()">Show details ...</a> 
+    <a *ngIf="currentViewState == tableViewState.Details" (click)="allSummaryView()">Show summary ...</a>
   </div>
 
   <table>
     <thead>
-      <tr *ngIf="currentView == 'details'">
+      <tr *ngIf="currentViewState == tableViewState.Details">
         <th>&nbsp;</th>
         <th *ngIf="showColumn['gene'] && featureInFirstColumn">Gene</th>
         <th *ngIf="showColumn['genotype'] && featureInFirstColumn">Genotype</th>

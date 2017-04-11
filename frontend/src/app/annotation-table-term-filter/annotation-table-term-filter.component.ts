@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 import { TermAnnotation } from '../pombase-api.service';
-import { TermFilterConfig } from '../config';
+import { FilterConfig } from '../config';
 import { AnnotationFilter } from '../filtering/annotation-filter';
 import { AnnotationTermFilter } from '../filtering/annotation-term-filter';
 
@@ -20,7 +20,7 @@ class SelectData {
 })
 export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
-  @Input() config: TermFilterConfig;
+  @Input() config: FilterConfig;
   @Output() filterChange = new EventEmitter<AnnotationFilter>();
 
   selectedCategory: any = null;
@@ -55,7 +55,7 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
       }
     }
 
-    for (let category of this.config.categories) {
+    for (let category of this.config.term_categories) {
       let active = false;
 
       for (let ancestor of category.ancestors) {
