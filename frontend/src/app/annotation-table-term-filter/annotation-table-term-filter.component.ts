@@ -27,6 +27,11 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
 
   choiceData: Array<SelectData> = [];
 
+  reset(): void {
+    this.selectedCategory = null;
+    this.setCategory(null);
+  }
+
   setCategory(event: SelectData): void {
     if (event) {
       this.filterChange.emit(new AnnotationTermFilter(event.ancestors));
