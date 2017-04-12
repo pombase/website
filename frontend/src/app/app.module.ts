@@ -54,6 +54,7 @@ import { AnnotationTableFilterPipe } from './annotation-table-filter.pipe';
 import { GeneExternalReferencesComponent } from './gene-external-references/gene-external-references.component';
 import { DocsComponent } from './docs/docs.component';
 import { AnnotationTableEvidenceFilterComponent } from './annotation-table-evidence-filter/annotation-table-evidence-filter.component';
+import { GenotypeAlleleSummaryComponent } from './genotype-allele-summary/genotype-allele-summary.component';
 
 export function documentFactory() {
     return document;
@@ -108,6 +109,7 @@ export function windowFactory() {
     GeneExternalReferencesComponent,
     DocsComponent,
     AnnotationTableEvidenceFilterComponent,
+    GenotypeAlleleSummaryComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 
 import { Util } from '../util';
 
-import { GenotypeDetails, AlleleShort, PombaseAPIService } from '../pombase-api.service';
+import { GenotypeDetails, PombaseAPIService } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
@@ -32,10 +32,6 @@ export class GenotypeDetailsComponent implements OnInit {
 
   setDisplayName(): void {
     this.displayName = this.displayNameLong();
-  }
-
-  alleleDisplayName(allele: AlleleShort): string {
-    return Util.alleleDisplayName(allele).replace(/,/g, ',&#8201;');
   }
 
   setPageTitle(): void {
