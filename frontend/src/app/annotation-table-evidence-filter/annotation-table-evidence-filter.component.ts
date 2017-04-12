@@ -81,5 +81,9 @@ export class AnnotationTableEvidenceFilterComponent implements OnInit, OnChanges
                                       active, category.evidence_codes);
       this.choiceData.push(selectData);
     }
+
+    this.choiceData.sort((a,b) => {
+      return a.displayName.localeCompare(b.displayName);
+    });
   }
 }
