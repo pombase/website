@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter,
-         ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { TermAnnotation } from '../pombase-api.service';
 import { FilterConfig } from '../config';

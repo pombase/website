@@ -19,9 +19,9 @@ export class AnnotationEvidenceFilter implements AnnotationFilter {
       let retAnnotation = Object.assign({}, termAnnotation);
       retAnnotation.annotations = [];
 
-      for (let annotation of termAnnotation.annotations) { 
+      for (let annotation of termAnnotation.annotations) {
         if (annotation.evidence &&
-            this.evidenceCodes.indexOf(annotation.evidence.toLowerCase()) != -1) {
+            this.evidenceCodes.indexOf(annotation.evidence.toLowerCase()) !== -1) {
           retAnnotation.annotations.push(annotation);
         }
       }
