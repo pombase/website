@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Util } from '../util';
-import { GenotypeDetails, AlleleShort } from '../pombase-api.service';
+import { GenotypeDetails, GenotypeShort, AlleleShort } from '../pombase-api.service';
 
 @Component({
   selector: 'app-genotype-allele-summary',
@@ -9,7 +9,7 @@ import { GenotypeDetails, AlleleShort } from '../pombase-api.service';
   styleUrls: ['./genotype-allele-summary.component.css']
 })
 export class GenotypeAlleleSummaryComponent implements OnInit {
-  @Input() genotypeDetails: GenotypeDetails;
+  @Input() genotype: GenotypeDetails|GenotypeShort;
 
   constructor() { }
 

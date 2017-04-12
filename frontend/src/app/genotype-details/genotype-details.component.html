@@ -21,12 +21,11 @@
     </div>
 
     <div>
-      <app-genotype-allele-summary [genotypeDetails]="genotypeDetails">
+      <app-genotype-allele-summary [genotype]="genotypeDetails">
       </app-genotype-allele-summary>
     </div>
 
     <div *ngFor="let annotationTypeName of annotationTypeNames">
-
       <div *ngIf="genotypeDetails.cv_annotations[annotationTypeName]">
         <app-annotation-table [annotationTypeName]="annotationTypeName"
                               [hideColumns]="['genotype', 'desc-rel']"

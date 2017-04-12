@@ -120,3 +120,7 @@ select option:disabled {
   color: #999;
   font-weight: normal;
 }
+
+.popover {
+  max-width: 60em !important;
+}

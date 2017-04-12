@@ -6,7 +6,7 @@
     <th>Expression</th>
   </thead>
   <tbody>
-    <tr *ngFor="let expressedAllele of genotypeDetails.expressed_alleles">
+    <tr *ngFor="let expressedAllele of genotype.expressed_alleles">
       <td><app-gene-link class="app-link" [long]="false" [gene]="expressedAllele.allele.gene"></app-gene-link></td>
       <td>
         <span [innerHTML]="alleleDisplayName(expressedAllele.allele)"></span>

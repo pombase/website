@@ -1,4 +1,13 @@
 <span [class.short-genotype-link]="isShortDisplayName">
-  <a routerLink="/genotype/{{genotype.uniquename}}"
-     routerLinkActive="active" [attr.title]="linkTitle"><span [innerHTML]="displayNameLong()"></span></a>
+  <template #allelesPopover>
+    <app-genotype-allele-summary class="link-allele-summary" [genotype]="genotype">
+    </app-genotype-allele-summary>
+  </template>
+  <a [popover]="allelesPopover"
+     triggers="mouseenter:mouseleave"
+     placement="right"
+     routerLink="/genotype/{{genotype.uniquename}}"
+     routerLinkActive="active" [attr.title]="linkTitle">
+    <span [innerHTML]="displayNameLong()"></span>
+  </a>
 </span>

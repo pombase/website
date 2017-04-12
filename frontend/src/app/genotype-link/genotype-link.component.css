@@ -1,3 +1,7 @@
 .short-genotype-link {
   white-space: nowrap;
 }
+
+.link-allele-summary table {
+  width: 100%;
+}
