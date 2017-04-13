@@ -6,14 +6,26 @@
   <table>
     <thead>
       <tr>
-        <th>Species</th>
-        <th>Gene</th>
+        <th *ngIf="!currentGene">Gene</th>
+        <th *ngIf="!currentGene">Product</th>
+        <th>Ortholog species</th>
+        <th>Ortholog gene</th>
+        <th *ngIf="!hideColumn['reference']">Reference</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let annotation of annotationTable">
+        <td *ngIf="!currentGene">
+          <app-gene-link class="app-link" [long]="false" [gene]="annotation.gene"></app-gene-link>
+        </td>
+        <td *ngIf="!currentGene">{{annotation.gene.product}}</td>
         <td>{{annotation.ortholog_organism.genus}} {{annotation.ortholog_organism.species}}</td>
         <td><a href="{{getLink(annotation.ortholog_organism, annotation.ortholog.uniquename)}}">{{annotation.ortholog.name ? annotation.ortholog.name + " (" + annotation.ortholog.uniquename + ")" : annotation.ortholog.uniquename }}</a></td>
+        <td class="ortholog-reference" *ngIf="!hideColumn['reference']">
+          <span *ngIf="annotation.reference">
+            <app-reference-short [reference]="annotation.reference"></app-reference-short>
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>

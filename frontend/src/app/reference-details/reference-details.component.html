@@ -62,7 +62,8 @@
                                       [annotationTable]="refDetails.genetic_interactions"></app-interaction-annotation-table>
   </div>
   <div>
-    <app-ortholog-annotation-table [annotationTable]="refDetails.ortholog_annotations"></app-ortholog-annotation-table>
+    <app-ortholog-annotation-table [hideColumns]="['reference']"
+                                   [annotationTable]="refDetails.ortholog_annotations"></app-ortholog-annotation-table>
   </div>
   <div>
     <app-paralog-annotation-table [annotationTable]="refDetails.paralog_annotations"></app-paralog-annotation-table>

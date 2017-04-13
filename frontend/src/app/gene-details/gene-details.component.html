@@ -105,6 +105,7 @@
 
       <app-ortholog-annotation-table *ngIf="annotationTypeName == 'orthologs'"
                                      id="{{annotationTypeName}}"
+                                     [currentGene]="geneDetails"
                                      [annotationTable]="geneDetails.ortholog_annotations"></app-ortholog-annotation-table>
       <app-paralog-annotation-table *ngIf="annotationTypeName == 'paralogs'"
                                     id="{{annotationTypeName}}"

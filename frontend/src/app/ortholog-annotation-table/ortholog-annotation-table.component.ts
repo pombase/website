@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { OrthologAnnotation } from '../pombase-api.service';
-
+import { OrthologAnnotation, GeneShort } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getOrganismExternalLink } from '../config';
 
@@ -11,11 +9,13 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
   styleUrls: ['./ortholog-annotation-table.component.css']
 })
 export class OrthologAnnotationTableComponent implements OnInit {
-
+  @Input() currentGene: GeneShort = null;
+  @Input() hideColumns: Array<string> = [];
   @Input() annotationTable: Array<OrthologAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   annotationTypeDisplayName = null;
+  hideColumn = {};
 
   getLink(organism: any, uniquename: string): string {
     return getOrganismExternalLink(organism.genus, organism.species, uniquename);
@@ -26,5 +26,9 @@ export class OrthologAnnotationTableComponent implements OnInit {
   ngOnInit() {
     let typeConfig = this.config.annotationTypes['orthologs'];
     this.annotationTypeDisplayName = typeConfig.display_name;
+
+    this.hideColumns.map(col => {
+      this.hideColumn[col] = true;
+    });
   }
 }

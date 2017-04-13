@@ -117,6 +117,8 @@ export interface InteractionAnnotations {
 }
 
 export interface OrthologAnnotation {
+  gene: GeneShort;
+  gene_uniquename: string;
   reference: ReferenceShort;
   reference_uniquename: string;
   ortholog: GeneShort;
@@ -353,6 +355,7 @@ export class PombaseAPIService {
   processOrthologs(orthologs: Array<OrthologAnnotation>,
                    genesByUniquename: GeneMap, referencesByUniquename?: any) {
     for (let annotation of orthologs) {
+      annotation.gene = genesByUniquename[annotation.gene_uniquename];
       annotation.ortholog = genesByUniquename[annotation.ortholog_uniquename];
       if (referencesByUniquename) {
         annotation.reference = referencesByUniquename[annotation.reference_uniquename];
