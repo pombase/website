@@ -41,11 +41,16 @@
     </div>
 
     <div>
-      <app-annotation-table [tableDisplayName]="'Annotations for ' + termDetails.termid + ' and its descendants'"
-                            [annotationTypeName]="termDetails.cv_name"
-                            [featureInFirstColumn]="true"
-                            [annotationTable]="termDetails.rel_annotations">
-      </app-annotation-table>
+    <div *ngFor="let annotationTypeName of annotationTypeNames">
+
+      <div *ngIf="termDetails.cv_annotations[annotationTypeName]">
+        <app-annotation-table id="{{annotationTypeName}}"
+                              *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
+                              [tableDisplayName]="annotationTypeName + ' annotations for ' + termDetails.termid + ' and its descendants'"
+                              [annotationTypeName]="termDetails.cv_name"
+                              [featureInFirstColumn]="true"
+                              [annotationTable]="termDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+      </div>
     </div>
   </div>
 </div>

@@ -208,7 +208,7 @@ export class TermDetails {
   annotation_feature_type: string;
   name: string;
   is_obsolete: false;
-  rel_annotations: Array<TermAnnotation>;
+  cv_annotations: CvAnnotations;
   single_allele_genotype_uniquenames: Array<string>;
   single_allele_genotypes: Array<GenotypeShort>;
 }
@@ -497,8 +497,10 @@ export class PombaseAPIService {
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
-    this.processTermAnnotations(json.rel_annotations, genesByUniquename, genotypesByUniquename,
-                                allelesByUniquename, referencesByUniquename, termsByTermId);
+    for (let cvName of Object.keys(json.cv_annotations)) {
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+                                  allelesByUniquename, referencesByUniquename, termsByTermId);
+    }
 
     json.single_allele_genotypes = [];
 

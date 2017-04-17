@@ -4,7 +4,8 @@ import { Title } from '@angular/platform-browser';
 
 import { TermDetails, TermAndRelation, PombaseAPIService } from '../pombase-api.service';
 
-import { getAnnotationTableConfig, getAppConfig, AnnotationType } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig,
+         getAppConfig, AnnotationType } from '../config';
 
 @Component({
   selector: 'app-term-details',
@@ -17,6 +18,8 @@ export class TermDetailsComponent implements OnInit {
   annotationFeatureType = '';
   filteredAncestors: Array<TermAndRelation> = [];
   typeConfig: AnnotationType = null;
+  annotationTypeNames: Array<string> = [];
+  config: AnnotationTableConfig = getAnnotationTableConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -57,6 +60,7 @@ export class TermDetailsComponent implements OnInit {
                 }
                 this.setPageTitle();
                 this.annotationFeatureType = termDetails.annotation_feature_type;
+                this.annotationTypeNames = this.config.annotationTypeOrder;
                 this.filterAncestors();
               });
       };
