@@ -74,8 +74,7 @@ export interface Annotation {
   with?: string;
   residue?: string;
   qualifiers: Array<TermShort>;
-  gene?: GeneShort;
-  gene_uniquename?: string;
+  genes: Array<GeneShort>|Array<string>;
   genotype?: GenotypeShort;
   genotype_uniquename: string;
   extension: Array<ExtPart>;
@@ -258,9 +257,10 @@ export class PombaseAPIService {
                          referencesByUniquename?: any, termsByTermId?: any) {
     for (let termAnnotation of termAnnotations) {
       for (let annotation of termAnnotation.annotations) {
-        if (annotation.gene_uniquename) {
-          annotation.gene = genesByUniquename[annotation.gene_uniquename];
-        }
+        annotation.genes =
+          (annotation.genes as Array<string>).map((gene_uniquename: string) => {
+            return genesByUniquename[gene_uniquename];
+          }) as Array<GeneShort>;
         if (referencesByUniquename) {
           annotation.reference = referencesByUniquename[annotation.reference_uniquename];
         }

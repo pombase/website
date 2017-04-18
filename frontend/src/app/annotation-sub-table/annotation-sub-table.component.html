@@ -74,7 +74,10 @@
           </a>
         </td>
         <td *ngIf="showColumn['gene'] && featureInFirstColumn">
-          <app-gene-link class="app-link" *ngIf="annotation.gene" [long]="false" [gene]="annotation.gene"></app-gene-link>
+          <span *ngFor="let gene of annotation.genes">
+            <app-gene-link 
+              class="app-link" [long]="false" [gene]="gene"></app-gene-link>
+          </span>
         </td>
         <td *ngIf="showColumn['genotype'] && featureInFirstColumn">
           <app-genotype-link class="app-link" *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
