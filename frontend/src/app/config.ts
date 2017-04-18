@@ -104,6 +104,7 @@ let _config: AnnotationTableConfig = {
     'cellular_component',
     'single_allele_phenotype',
     'multi_allele_phenotype',
+    'phenotype_condition',
     'complementation',
     'target_of',
     'PomBase family or domain',
