@@ -54,13 +54,16 @@ export class AnnotationTableEvidenceFilterComponent implements OnInit, OnChanges
 
     for (let termAnnotation of this.annotationTable) {
       for (let annotation of termAnnotation.annotations) {
-        let lcEvidence = annotation.evidence.toLowerCase();
-        for (let configCategory of this.config.evidence_categories) {
-          for (let configEvidenceCode of configCategory.evidence_codes) {
-            let lcConfigEvidenceCode = configEvidenceCode.toLowerCase();
-            if (lcEvidence === lcConfigEvidenceCode ||
-                lcEvidence === lcConfigEvidenceCode + ' evidence') {
-              seenEvidence[configEvidenceCode] = true;
+        let evidence = annotation.evidence;
+        if (evidence) {
+          let lcEvidence = evidence.toLowerCase();
+          for (let configCategory of this.config.evidence_categories) {
+            for (let configEvidenceCode of configCategory.evidence_codes) {
+              let lcConfigEvidenceCode = configEvidenceCode.toLowerCase();
+              if (lcEvidence === lcConfigEvidenceCode ||
+                  lcEvidence === lcConfigEvidenceCode + ' evidence') {
+                seenEvidence[configEvidenceCode] = true;
+              }
             }
           }
         }
