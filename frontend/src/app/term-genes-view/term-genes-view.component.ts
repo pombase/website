@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Util } from '../util';
 
-import { TermDetails, PombaseAPIService } from '../pombase-api.service';
+import { TermDetails, PombaseAPIService, GeneShort } from '../pombase-api.service';
 import { getAnnotationTableConfig } from '../config';
 
 @Component({
@@ -38,10 +38,12 @@ export class TermGenesViewComponent implements OnInit {
     let geneMap = {};
 
     for (let cvName of Object.keys(this.termDetails.cv_annotations)) {
-      let termAnnotations = this.termDetails[cvName];
+      let termAnnotations = this.termDetails.cv_annotations[cvName];
       for (let termAnnotation of termAnnotations) {
         for (let annotation of termAnnotation.annotations) {
-          geneMap[annotation.gene.uniquename] = annotation.gene;
+          for (let gene of annotation.genes) {
+            geneMap[(gene as GeneShort).uniquename] = gene;
+          }
         }
       }
     }
