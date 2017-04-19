@@ -1,8 +1,4 @@
 <div>
-  <div *ngIf="subTableName">
-    {{subTableName}}
-  </div>
-
   <div class="filter-controls">
     <app-annotation-table-filters *ngIf="filterConfig" [filterConfig]="filterConfig"
                                   [annotationTable]="annotationTable"

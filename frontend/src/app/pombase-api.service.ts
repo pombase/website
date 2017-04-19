@@ -12,6 +12,8 @@ import { Util } from './util';
 
 export class Metadata {
   db_creation_datetime: Date;
+  export_prog_name: string;
+  export_prog_version: string;
   gene_count: number;
   term_count: number;
 }
