@@ -46,7 +46,7 @@
       <div *ngIf="termDetails.cv_annotations[annotationTypeName]">
         <app-annotation-table id="{{annotationTypeName}}"
                               *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
-                              [tableDisplayName]="annotationTypeName + ' annotations for ' + termDetails.termid + ' and its descendants'"
+                              [tableDisplayName]="config.annotationTypes[annotationTypeName].display_name + ' annotations for ' + termDetails.termid + ' and its descendants'"
                               [annotationTypeName]="termDetails.cv_name"
                               [featureInFirstColumn]="true"
                               [annotationTable]="termDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
