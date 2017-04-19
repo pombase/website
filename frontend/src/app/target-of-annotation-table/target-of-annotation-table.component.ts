@@ -31,7 +31,7 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
           return {
             ontologyLabel: ontologyLabel,
             ext_rel_display_name: annotation.ext_rel_display_name,
-            gene: annotation.gene,
+            genes: annotation.genes,
             genotype: annotation.genotype,
             reference: annotation.reference,
           };
@@ -42,8 +42,8 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
             o2.ontologyLabel.localeCompare(o1.ontologyLabel);
 
           if (labelCompare === 0) {
-            if (o1.gene && o2.gene) {
-              return Util.geneCompare(o1.gene, o2.gene);
+            if (o1.genes.length > 0 && o2.genes.length > 0) {
+              return Util.geneCompare(o1.genes[0], o2.genes[0]);
             } else {
               if (o1.genotype && o2.genotype) {
                 return Util.genotypeCompare(o1.genotype, o2.genotype);
