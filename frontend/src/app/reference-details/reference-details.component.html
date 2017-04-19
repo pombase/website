@@ -45,11 +45,13 @@
   </div>
 
   <div>
-    <app-annotation-table *ngFor="let annotationTypeName of annotationTypeNames"
-                          [annotationTypeName]="annotationTypeName"
-                          [hideColumns]="['reference', 'desc-rel']"
-                          [featureInFirstColumn]="true"
-                          [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+    <span *ngFor="let annotationTypeName of annotationTypeNames">
+      <app-annotation-table *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
+                            [annotationTypeName]="annotationTypeName"
+                            [hideColumns]="['reference', 'desc-rel']"
+                            [featureInFirstColumn]="true"
+                            [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+    </span>
   </div>
   <div>
     <app-interaction-annotation-table [annotationTypeName]="'physical_interactions'"
