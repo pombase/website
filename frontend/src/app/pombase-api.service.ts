@@ -67,16 +67,14 @@ export interface ExtPart {
 export interface Annotation {
   descDist: number;
   descRelName: string;
-  reference?: ReferenceShort;
-  reference_uniquename?: string;
+  reference: string|ReferenceShort;
   evidence?: string;
   conditions: Array<TermShort|string>;
   with?: string;
   residue?: string;
   qualifiers: Array<TermShort>;
   genes: Array<GeneShort>|Array<string>;
-  genotype?: GenotypeShort;
-  genotype_uniquename: string;
+  genotype: string|GenotypeShort;
   extension: Array<ExtPart>;
 }
 export interface TermAnnotation {
@@ -262,7 +260,7 @@ export class PombaseAPIService {
             return genesByUniquename[gene_uniquename];
           }) as Array<GeneShort>;
         if (referencesByUniquename) {
-          annotation.reference = referencesByUniquename[annotation.reference_uniquename];
+          annotation.reference = referencesByUniquename[annotation.reference as string];
         }
 
         if (annotation.conditions) {
@@ -281,8 +279,8 @@ export class PombaseAPIService {
             }
           });
         }
-        if (genotypesByUniquename && annotation.genotype_uniquename) {
-          annotation.genotype = genotypesByUniquename[annotation.genotype_uniquename];
+        if (genotypesByUniquename && annotation.genotype) {
+          annotation.genotype = genotypesByUniquename[annotation.genotype as string];
           if (annotation.genotype) {
             annotation.genotype.expressed_alleles.map((expressed_allele) => {
               expressed_allele.allele = allelesByUniquename[expressed_allele.allele_uniquename];
