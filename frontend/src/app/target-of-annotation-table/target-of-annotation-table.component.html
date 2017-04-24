@@ -3,22 +3,27 @@
     Target of
   </legend>
 
+  <div class="view-controls">
+    <a *ngIf="currentViewState != TableViewState.Details" (click)="showDetails()">Show details ...</a>
+    <a *ngIf="currentViewState == TableViewState.Details" (click)="showSummary()">Show summary ...</a>
+  </div>
+
   <table>
     <thead>
       <tr>
         <th>Ontology</th>
         <th>Relationship</th>
         <th>Gene/genotype</th>
-        <th>Reference</th>
+        <th *ngIf="currentViewState == TableViewState.Details">Reference</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="currentViewState == TableViewState.Details">
       <tr *ngFor="let annotation of displayTable">
         <td>{{annotation.ontologyLabel}}</td>
         <td>{{annotation.ext_rel_display_name}}</td>
         <td>
-          <span *ngFor="let gene of annotation.genes">
-            <app-gene-link class="app-link"
+          <span *ngIf="!annotation.genotype">
+            <app-gene-link *ngFor="let gene of annotation.genes" class="app-link"
                            [long]="false" [gene]="gene"></app-gene-link>
           </span>
           <app-genotype-link class="app-link" *ngIf="annotation.genotype"
@@ -28,6 +33,18 @@
         <td>
           <app-reference-short *ngIf="annotation.reference"
                                [reference]="annotation.reference"></app-reference-short>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="currentViewState == TableViewState.Summary">
+      <tr *ngFor="let annotation of summaryTable">
+        <td>{{annotation.ontologyLabel}}</td>
+        <td>{{annotation.ext_rel_display_name}}</td>
+        <td>
+          <span *ngFor="let gene of annotation.genes">
+            <app-gene-link class="app-link"
+                           [long]="false" [gene]="gene"></app-gene-link>
+          </span>
         </td>
       </tr>
     </tbody>
