@@ -8,13 +8,13 @@
   </div>
 
   <div class="view-controls">
-    <a *ngIf="currentViewState != tableViewState.Details" (click)="allDetailsView()">Show details ...</a> 
-    <a *ngIf="currentViewState == tableViewState.Details" (click)="allSummaryView()">Show summary ...</a>
+    <a *ngIf="currentViewState != TableViewState.Details" (click)="allDetailsView()">Show details ...</a> 
+    <a *ngIf="currentViewState == TableViewState.Details" (click)="allSummaryView()">Show summary ...</a>
   </div>
 
   <table>
     <thead>
-      <tr *ngIf="currentViewState == tableViewState.Details">
+      <tr *ngIf="currentViewState == TableViewState.Details">
         <th>&nbsp;</th>
         <th *ngIf="showColumn['gene'] && featureInFirstColumn">Gene</th>
         <th *ngIf="showColumn['genotype'] && featureInFirstColumn">Genotype</th>

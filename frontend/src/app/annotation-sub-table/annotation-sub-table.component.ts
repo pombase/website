@@ -19,7 +19,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
   @Output() tableViewChangeEmitter = new EventEmitter<TableViewState>();
 
-  tableViewState = TableViewState;
+  // copy to the component for use in template
+  TableViewState = TableViewState;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;
