@@ -39,6 +39,11 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
       let typeConfig = this.config.getAnnotationType('target_of');
       let ontologyLabels = typeConfig.misc_config['ontologyLabels'];
 
+      let genesToString =
+        (genes) => {
+          return genes.map((gene) => gene.uniquename).join(' ');
+        };
+
       this.displayTable = [];
       this.summaryTable = [];
 
@@ -59,14 +64,17 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
           o2.ontologyLabel.localeCompare(o1.ontologyLabel);
 
         if (labelCompare === 0) {
-          if (o1.genes.length > 0 && o2.genes.length > 0) {
-            return Util.geneCompare(o1.genes[0], o2.genes[0]);
-          } else {
-            if (o1.genotype && o2.genotype) {
-              return Util.genotypeCompare(o1.genotype, o2.genotype);
+          let geneCompare = Util.geneCompare(o1.genes[0], o2.genes[0]);
+          if (geneCompare === 0) {
+            let allGenesCompare =
+              genesToString(o1.genes).localeCompare(genesToString(o2.genes));
+            if (allGenesCompare === 0) {
+              return o1.ext_rel_display_name.localeCompare(o2.ext_rel_display_name);
             } else {
-              return 0;
+              return allGenesCompare;
             }
+          } else {
+            return geneCompare;
           }
         } else {
           return labelCompare;
@@ -86,11 +94,6 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
           this.summaryTable.push(summaryRow);
         } else {
           let prevSummaryRow = this.summaryTable[this.summaryTable.length - 1];
-
-          let genesToString =
-            (genes) => {
-              return genes.map((gene) => gene.uniquename).join(' ');
-            };
 
           if (prevSummaryRow['ontologyLabel'] !== summaryRow['ontologyLabel'] ||
               prevSummaryRow['ext_rel_display_name'] !== summaryRow['ext_rel_display_name'] ||
