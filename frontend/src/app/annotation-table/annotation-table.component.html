@@ -8,6 +8,10 @@
                                   [geneDetails]="geneDetails">
   </app-deletion-viability-summary>
 
+  <app-go-slim-summary *ngIf="geneDetails && annotationTypeName == 'biological_process'"
+                       [geneDetails]="geneDetails">
+  </app-go-slim-summary>
+
   <div *ngIf="split_by_parents.length == 0">
     <app-annotation-sub-table
        [annotationTypeName]="annotationTypeName"

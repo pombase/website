@@ -1,0 +1,6 @@
+<div class="go-slim-summary">
+  <div class="heading"> Slim Terms</div>
+  <span *ngFor="let termAndName of geneSlims">
+    <a routerLink="/term_genes/{{termAndName.termid}}" routerLinkActive="active">{{termAndName.name}}</a>
+  </span>
+</div>

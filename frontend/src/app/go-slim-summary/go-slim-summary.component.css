@@ -1,0 +1,22 @@
+.go-slim-summary {
+  padding: 0 5px 5px 5px;
+  border: 1px solid #707070;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #FFFFEE;
+  font-size: 90%;
+  line-height: 2em;
+}
+
+.go-slim-summary a {
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  margin: 0 0 0 0.5em;
+  border: 1px solid #707070;
+  border-radius: 2.5px 2.5px 2.5px 2.5px;
+  background-color: #F9F9F9;
+  white-space: nowrap;
+}
+
+.go-slim-summary .heading {
+  font-weight: bold;
+  padding: 2px;
+}

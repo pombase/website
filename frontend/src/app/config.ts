@@ -17,6 +17,11 @@ export interface EvidenceConfig {
   };
 }
 
+export interface TermAndName {
+  name: string;
+  termid: string;
+}
+
 export interface AppConfig {
   organism: {
     genus: string,
@@ -24,12 +29,10 @@ export interface AppConfig {
   };
 
   termPageConfig: TermPageConfig;
-
   linkoutConfig: LinkoutConfig;
-
   evidenceTypes: EvidenceConfig;
-
   externalGeneReferences: Array<ExternalGeneReference>;
+  goSlimTerms: Array<TermAndName>;
   documentation: Array<string>;
 
   // return true iff the genus and species match the configured organism
@@ -364,6 +367,7 @@ let _appConfig: AppConfig = {
     },
   },
   externalGeneReferences: pombaseConfig.external_gene_references,
+  goSlimTerms: pombaseConfig.go_slim_terms,
   documentation: docConfig,
 
   isConfigOrganism(genus: string, species: string): boolean {
