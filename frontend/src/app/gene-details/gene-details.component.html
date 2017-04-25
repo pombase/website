@@ -88,6 +88,7 @@
         <app-annotation-table id="{{annotationTypeName}}"
                               *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
                               [annotationTypeName]="annotationTypeName"
+                              [geneDetails]="geneDetails"
                               [hideColumns]="['gene', 'desc-rel']"
                               [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
       </div>

@@ -4,6 +4,10 @@
     <span *ngIf="!annotationTypeName">Annotations</span>
   </legend>
 
+  <app-deletion-viability-summary *ngIf="geneDetails && annotationTypeName == 'single_allele_phenotype'"
+                                  [geneDetails]="geneDetails">
+  </app-deletion-viability-summary>
+
   <div *ngIf="split_by_parents.length == 0">
     <app-annotation-sub-table
        [annotationTypeName]="annotationTypeName"

@@ -168,6 +168,7 @@ export class GeneDetails {
   name: string;
   feature_type: string;
   product?: string;
+  deletion_viability?: string;
   uniprot_identifier?: string;
   orfeome_identifier: string;
   characterisation_status: string;

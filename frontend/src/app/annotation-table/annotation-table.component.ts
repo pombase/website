@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { TermAnnotation } from '../pombase-api.service';
+import { TermAnnotation, GeneDetails } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType } from '../config';
 
@@ -14,6 +14,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() hideColumns: Array<string>;
   @Input() featureInFirstColumn? = false;
   @Input() annotationTable: Array<TermAnnotation>;
+  @Input() geneDetails?: GeneDetails = null;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;

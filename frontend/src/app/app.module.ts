@@ -55,6 +55,7 @@ import { GeneExternalReferencesComponent } from './gene-external-references/gene
 import { DocsComponent } from './docs/docs.component';
 import { AnnotationTableEvidenceFilterComponent } from './annotation-table-evidence-filter/annotation-table-evidence-filter.component';
 import { GenotypeAlleleSummaryComponent } from './genotype-allele-summary/genotype-allele-summary.component';
+import { DeletionViabilitySummaryComponent } from './deletion-viability-summary/deletion-viability-summary.component';
 
 export function documentFactory() {
     return document;
@@ -110,6 +111,7 @@ export function windowFactory() {
     DocsComponent,
     AnnotationTableEvidenceFilterComponent,
     GenotypeAlleleSummaryComponent,
+    DeletionViabilitySummaryComponent,
   ],
   imports: [
     BrowserModule,
