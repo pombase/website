@@ -14,6 +14,7 @@
         <th>Ontology</th>
         <th>Relationship</th>
         <th>Gene/genotype</th>
+        <th *ngIf="currentViewState == TableViewState.Summary">Product</th>
         <th *ngIf="currentViewState == TableViewState.Details">Reference</th>
       </tr>
     </thead>
@@ -44,6 +45,11 @@
           <span *ngFor="let gene of annotation.genes">
             <app-gene-link class="app-link"
                            [long]="false" [gene]="gene"></app-gene-link>
+          </span>
+        </td>
+        <td>
+          <span *ngFor="let gene of annotation.genes">
+            {{gene.product}}
           </span>
         </td>
       </tr>
