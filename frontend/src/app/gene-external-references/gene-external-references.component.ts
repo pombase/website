@@ -1,6 +1,6 @@
 import { Component, OnChanges, Input } from '@angular/core';
 
-import { getAppConfig, AppConfig, ExternalGeneReference,
+import { getAppConfig, ExternalGeneReference,
          getGoXrfWithPrefix } from '../config';
 import { GeneDetails } from '../pombase-api.service';
 
@@ -34,13 +34,12 @@ export class GeneExternalReferencesComponent implements OnChanges {
   }
 
   makeUrl(extRefConf: ExternalGeneReference): Array<string> {
-    let component = this;
     let url = extRefConf.url;
     let fieldName = extRefConf.field_name;
     if (url) {
       if (fieldName === 'NCBI_ALL_IDS') {
         return [this.geneDetails.name || this.geneDetails.uniquename,
-                url.replace(/<<IDENTIFIER>>/, this.getAllIds().join('+OR+'))]
+                url.replace(/<<IDENTIFIER>>/, this.getAllIds().join('+OR+'))];
       } else {
         let fieldValue = this.geneDetails[fieldName];
         if (fieldValue) {
