@@ -33,6 +33,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   compactFirstRows = {};
   detailsView: {[key: string]: boolean} = {};
   currentViewState = TableViewState.Summary;
+  tableIsFiltered = false;
 
   updateCurrentFilter(filter: AnnotationFilter) {
     if (filter) {
@@ -40,6 +41,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     } else {
       this.filteredTable = this.annotationTable;
     }
+
+    this.tableIsFiltered = !!filter;
   }
 
   constructor() { }
@@ -135,7 +138,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     this.allSummaryView();
-  }
+  }v
 
   ngOnInit() {
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);

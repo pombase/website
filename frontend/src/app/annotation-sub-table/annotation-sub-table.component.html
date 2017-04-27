@@ -1,4 +1,9 @@
 <div>
+  <div class="view-controls">
+    <a *ngIf="currentViewState != TableViewState.Details" (click)="allDetailsView()">Show details ...</a> 
+    <a *ngIf="currentViewState == TableViewState.Details" (click)="allSummaryView()">Show summary ...</a>
+  </div>
+
   <div class="filter-controls">
     <app-annotation-table-filters *ngIf="filterConfig" [filterConfig]="filterConfig"
                                   [annotationTable]="annotationTable"
@@ -7,9 +12,13 @@
     </app-annotation-table-filters>
   </div>
 
-  <div class="view-controls">
-    <a *ngIf="currentViewState != TableViewState.Details" (click)="allDetailsView()">Show details ...</a> 
-    <a *ngIf="currentViewState == TableViewState.Details" (click)="allSummaryView()">Show summary ...</a>
+  <div *ngIf="tableIsFiltered" class="filter-count">
+    <span *ngIf="filteredTable.length == annotationTable.length">
+      Showing all annotations
+    </span>
+    <span *ngIf="filteredTable.length != annotationTable.length">
+      Showing {{filteredTable.length}} of {{annotationTable.length}} annotations
+    </span>
   </div>
 
   <table>

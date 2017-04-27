@@ -7,7 +7,7 @@
                                       (filterChange)="filterChanged('term', $event)">
     </app-annotation-table-term-filter>
 
-    <span *ngIf="currentViewState == tableViewState.Details">
+    <span *ngIf="currentViewState == tableViewState.Details" class="filter-control">
       <app-annotation-table-evidence-filter *ngIf="config.filter_name == 'evidence'"
                                             [config]="config"
                                             [annotationTable]="annotationTable"
