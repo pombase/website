@@ -24,6 +24,7 @@ export class GeneDetailsComponent implements OnInit {
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
+  apiError = null;
 
   menuPositionFixed = false;
 
@@ -180,6 +181,9 @@ export class GeneDetailsComponent implements OnInit {
             this.annotationTypeNames = this.config.annotationTypeOrder;
             this.setPageTitle();
             this.setVisibleSections();
+          })
+          .catch(error => {
+            this.apiError = error;
           });
       };
     });

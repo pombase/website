@@ -20,6 +20,7 @@ export class GenotypeDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   displayAlleles: Array<any> = [];
   displayName = '';
+  apiError = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -49,6 +50,9 @@ export class GenotypeDetailsComponent implements OnInit {
             this.setDisplayName();
             this.annotationTypeNames = this.config.annotationTypeOrder;
             this.setPageTitle();
+          })
+          .catch(error => {
+            this.apiError = error;
           });
       };
     });

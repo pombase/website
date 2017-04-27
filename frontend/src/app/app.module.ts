@@ -58,6 +58,7 @@ import { GenotypeAlleleSummaryComponent } from './genotype-allele-summary/genoty
 import { DeletionViabilitySummaryComponent } from './deletion-viability-summary/deletion-viability-summary.component';
 import { GoSlimSummaryComponent } from './go-slim-summary/go-slim-summary.component';
 import { ExternalLinkComponent } from './external-link/external-link.component';
+import { ApiErrorDisplayComponent } from './api-error-display/api-error-display.component';
 
 export function documentFactory() {
     return document;
@@ -116,6 +117,7 @@ export function windowFactory() {
     DeletionViabilitySummaryComponent,
     GoSlimSummaryComponent,
     ExternalLinkComponent,
+    ApiErrorDisplayComponent,
   ],
   imports: [
     BrowserModule,

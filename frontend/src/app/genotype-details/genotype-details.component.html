@@ -1,5 +1,6 @@
 <div>
-  <app-loading-spinner *ngIf="!genotypeDetails"></app-loading-spinner>
+  <app-loading-spinner *ngIf="!genotypeDetails && !apiError"></app-loading-spinner>
+  <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
   <div id="genotype-details" *ngIf="genotypeDetails">
     <div class="details-page-name-and-id">
       <div class="name" *ngIf="genotypeDetails.name">

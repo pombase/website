@@ -1,5 +1,7 @@
 <div id="reference-details">
-  <app-loading-spinner *ngIf="!refDetails"></app-loading-spinner>
+  <app-loading-spinner *ngIf="!refDetails && !apiError"></app-loading-spinner>
+  <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
+
 <div *ngIf="refDetails">
   <div class="details-page-name-and-id">
     <span class="reference-title" *ngIf="refDetails.title">

@@ -20,6 +20,7 @@ export class TermDetailsComponent implements OnInit {
   typeConfig: AnnotationType = null;
   annotationTypeNames: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
+  apiError = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -66,6 +67,9 @@ export class TermDetailsComponent implements OnInit {
                 this.annotationFeatureType = termDetails.annotation_feature_type;
                 this.annotationTypeNames = this.config.annotationTypeOrder;
                 this.filterAncestors();
+              })
+              .catch(error => {
+                this.apiError = error;
               });
       };
     });

@@ -18,6 +18,7 @@ export class ReferenceDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   isPubMedRef = false;
   pubMedId = null;
+  apiError = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -54,6 +55,9 @@ export class ReferenceDetailsComponent implements OnInit {
               this.pubMedId = matches[2];
             }
             this.setPageTitle();
+          })
+          .catch(error => {
+            this.apiError = error;
           });
       };
     });

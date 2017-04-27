@@ -1,5 +1,6 @@
 <div id="term-gene-view">
-  <app-loading-spinner *ngIf="!termDetails"></app-loading-spinner>
+  <app-loading-spinner *ngIf="!termDetails && !apiError"></app-loading-spinner>
+  <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
   <div *ngIf="termDetails">
     <div class="details-page-name-and-id">

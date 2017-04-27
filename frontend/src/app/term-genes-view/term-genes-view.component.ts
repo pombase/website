@@ -17,6 +17,7 @@ export class TermGenesViewComponent implements OnInit {
 
   genes = [];
   showAllAnnotationsLink = true;
+  apiError = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -74,6 +75,9 @@ export class TermGenesViewComponent implements OnInit {
                 }
                 this.setPageTitle();
                 this.collectGenes();
+              })
+              .catch(error => {
+                this.apiError = error;
               });
       };
     });
