@@ -4,7 +4,8 @@ import { Title } from '@angular/platform-browser';
 import { Util } from '../util';
 
 import { TermDetails, PombaseAPIService, GeneShort } from '../pombase-api.service';
-import { getAnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, getAppConfig } from '../config';
+
 
 @Component({
   selector: 'app-term-genes-view',
@@ -21,6 +22,10 @@ export class TermGenesViewComponent implements OnInit {
               private route: ActivatedRoute,
               private titleService: Title
              ) { }
+
+  isInSubset(subsetName: string): boolean {
+    return getAppConfig().isInSubset(this.termDetails.termid, subsetName);
+  }
 
   setPageTitle(): void {
     let title = this.titleService.getTitle();

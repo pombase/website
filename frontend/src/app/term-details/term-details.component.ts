@@ -35,6 +35,10 @@ export class TermDetailsComponent implements OnInit {
       });
   }
 
+  isInSubset(subsetName: string): boolean {
+    return getAppConfig().isInSubset(this.termDetails.termid, subsetName);
+  }
+
   setPageTitle(): void {
     let title = this.titleService.getTitle();
     let displayName;

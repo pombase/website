@@ -22,6 +22,10 @@ export interface TermAndName {
   termid: string;
 }
 
+export interface ExternalLinks {
+  [name: string]: string;
+}
+
 export interface AppConfig {
   organism: {
     genus: string,
@@ -33,10 +37,14 @@ export interface AppConfig {
   evidenceTypes: EvidenceConfig;
   externalGeneReferences: Array<ExternalGeneReference>;
   goSlimTerms: Array<TermAndName>;
+  miscExternalLinks: ExternalLinks;
   documentation: Array<string>;
 
   // return true iff the genus and species match the configured organism
   isConfigOrganism(genus: string, species: string): boolean;
+
+  getLinkUrl(linkConfigKey: string, identifier: string): string;
+  isInSubset(termid: string, subsetName: string): boolean;
 }
 
 export interface TermFilterCategory {
@@ -368,10 +376,31 @@ let _appConfig: AppConfig = {
   },
   externalGeneReferences: pombaseConfig.external_gene_references,
   goSlimTerms: pombaseConfig.go_slim_terms,
+  miscExternalLinks: pombaseConfig.misc_external_links,
   documentation: docConfig,
 
   isConfigOrganism(genus: string, species: string): boolean {
     return genus === this.organism.genus && species === this.organism.species;
+  },
+
+  getLinkUrl(linkConfigKey: string, identifier: string): string {
+    let configUrl = this.miscExternalLinks[linkConfigKey];
+    if (configUrl) {
+      return configUrl.replace('<<IDENTIFIER>>', identifier);
+    } else {
+      return null;
+    }
+  },
+
+  isInSubset(termid: string, subsetName: string): boolean {
+    if (subsetName === 'goslim_pombe') {
+      for (let termAndName of this.goSlimTerms) {
+        if (termAndName.termid === termid) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 };
 

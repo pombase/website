@@ -6,6 +6,14 @@
       {{termDetails.termid}} - {{termDetails.name}}
     </div>
 
+    <div class="external-links">
+      <app-external-link *ngIf="isInSubset('goslim_pombe')"
+                         [identifierForLink]="termDetails.termid"
+                         [linkName]="'View the esyN network'"
+                         [linkConfigKey]="'esyn'">
+      </app-external-link>
+    </div>
+
     <hr style="clear: both" />
 
     <div *ngIf="showAllAnnotationsLink" class="term-page-view-change">
