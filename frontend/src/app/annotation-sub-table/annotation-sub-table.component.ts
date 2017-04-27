@@ -34,10 +34,13 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   detailsView: {[key: string]: boolean} = {};
   currentViewState = TableViewState.Summary;
   tableIsFiltered = false;
+  filteredAnnotationCount = 0;
+  annotationCount = 0;
 
   updateCurrentFilter(filter: AnnotationFilter) {
     if (filter) {
-      this.filteredTable = filter.filter(this.annotationTable);
+      [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
+        filter.filter(this.annotationTable);
     } else {
       this.filteredTable = this.annotationTable;
     }
@@ -138,7 +141,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     this.allSummaryView();
-  }v
+  }
 
   ngOnInit() {
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);

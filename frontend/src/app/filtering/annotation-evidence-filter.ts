@@ -12,10 +12,13 @@ export class AnnotationEvidenceFilter implements AnnotationFilter {
     }
   }
 
-  filter(annotationTable: AnnotationTable): AnnotationTable {
+  filter(annotationTable: AnnotationTable): [AnnotationTable, number, number] {
     let retTable = [] as AnnotationTable;
+    let annotationCount = 0;
+    let filteredAnnotationCount = 0;
 
     for (let termAnnotation of annotationTable) {
+      annotationCount += termAnnotation.annotations.length;
       let retAnnotation = Object.assign({}, termAnnotation);
       retAnnotation.annotations = [];
 
@@ -28,9 +31,10 @@ export class AnnotationEvidenceFilter implements AnnotationFilter {
 
       if (retAnnotation.annotations.length > 0) {
         retTable.push(retAnnotation);
+        filteredAnnotationCount += retAnnotation.annotations.length;
       }
     }
 
-    return retTable;
+    return [retTable, annotationCount, filteredAnnotationCount];
   }
 }
