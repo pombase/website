@@ -2,6 +2,8 @@
   <app-loading-spinner *ngIf="!genotypeDetails && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
   <div id="genotype-details" *ngIf="genotypeDetails">
+    <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
+                       [subject]="'Comment or problem report'"></app-contact-email>
     <div class="details-page-name-and-id">
       <div class="name" *ngIf="genotypeDetails.name">
         <span [innerHTML]="genotypeDetails.name"></span>

@@ -124,3 +124,9 @@ select option:disabled {
 .popover {
   max-width: 60em !important;
 }
+
+.contact-email {
+  float: right;
+  padding-right: 2em;
+  font-size: 120%;
+}
