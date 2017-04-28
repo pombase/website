@@ -59,6 +59,7 @@ import { DeletionViabilitySummaryComponent } from './deletion-viability-summary/
 import { GoSlimSummaryComponent } from './go-slim-summary/go-slim-summary.component';
 import { ExternalLinkComponent } from './external-link/external-link.component';
 import { ApiErrorDisplayComponent } from './api-error-display/api-error-display.component';
+import { ContactEmailComponent } from './contact-email/contact-email.component';
 
 export function documentFactory() {
     return document;
@@ -118,6 +119,7 @@ export function windowFactory() {
     GoSlimSummaryComponent,
     ExternalLinkComponent,
     ApiErrorDisplayComponent,
+    ContactEmailComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,12 @@
   left: 10px;
 }
 
+.contact-email {
+  float: right;
+  padding-right: 2em;
+  font-size: 120%;
+}
+
 .menu-pos-fixed {
   position: fixed;
   top: 10px;

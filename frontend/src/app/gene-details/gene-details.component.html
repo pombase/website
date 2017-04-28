@@ -9,6 +9,8 @@
   </div>
 
   <div id="gene-details" *ngIf="geneDetails">
+    <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
+                       [subject]="'Comment or problem report for ' + displayNameLong()"></app-contact-email>
     <div class="details-page-name-and-id">
     <span *ngIf="!appConfig.isConfigOrganism(geneDetails.organism.genus, geneDetails.organism.species)">
       {{geneDetails.organism.genus}} {{geneDetails.organism.species}}
