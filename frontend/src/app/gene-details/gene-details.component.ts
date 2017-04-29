@@ -92,17 +92,15 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   makeSynonymsDisplay(synonyms: Array<SynonymDetails>): string {
-    return synonyms.map((synonym) => {
-      if (synonym.type === 'exact') {
-        return synonym.name;
-      } else {
-        let synonym_type = synonym.type;
-        if (synonym_type === 'obsolete_name') {
-          synonym_type = 'obsolete';
+    return synonyms
+      .filter((synonym) => synonym.type !== 'obsolete_name')
+      .map((synonym) => {
+        if (synonym.type === 'exact') {
+          return synonym.name;
+        } else {
+          return synonym.name + ' (' + synonym.type + ')';
         }
-        return synonym.name + ' (' + synonym_type + ')';
-      }
-    }).join(', ');
+      }).join(', ');
   }
 
   displayNameLong(): string {
