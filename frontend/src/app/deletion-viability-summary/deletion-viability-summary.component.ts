@@ -24,7 +24,11 @@ export class DeletionViabilitySummaryComponent implements OnInit {
 
   getDisplayViability(): string {
     let viabilityClass = this.getViabilityClass();
-    return viabilityClass.charAt(0).toUpperCase() + viabilityClass.slice(1);;
+    if (viabilityClass == 'depends') {
+      return "Depends on conditions";
+    } else {
+      return viabilityClass.charAt(0).toUpperCase() + viabilityClass.slice(1);;
+    }
   }
 
   constructor() { }
