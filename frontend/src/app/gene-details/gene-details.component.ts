@@ -166,6 +166,10 @@ export class GeneDetailsComponent implements OnInit {
     }
   }
 
+  scrollToPageTop(): void {
+    this.window.scrollTo(0, 0);
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -179,6 +183,7 @@ export class GeneDetailsComponent implements OnInit {
             this.annotationTypeNames = this.config.annotationTypeOrder;
             this.setPageTitle();
             this.setVisibleSections();
+            this.scrollToPageTop();
           })
           .catch(error => {
             this.apiError = error;

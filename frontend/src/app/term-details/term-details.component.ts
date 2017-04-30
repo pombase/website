@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -25,7 +25,9 @@ export class TermDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
-              private router: Router) { }
+              private router: Router,
+              @Inject('Window') private window: any
+             ) { }
 
   filterAncestors(): void {
     let termPageConfig = getAppConfig().termPageConfig;
@@ -51,6 +53,10 @@ export class TermDetailsComponent implements OnInit {
     this.titleService.setTitle(title + ' - ' + displayName);
   }
 
+  scrollToPageTop(): void {
+    this.window.scrollTo(0, 0);
+  }
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['termid'] !== undefined) {
@@ -67,6 +73,7 @@ export class TermDetailsComponent implements OnInit {
                 this.annotationFeatureType = termDetails.annotation_feature_type;
                 this.annotationTypeNames = this.config.annotationTypeOrder;
                 this.filterAncestors();
+                this.scrollToPageTop();
               })
               .catch(error => {
                 this.apiError = error;
