@@ -16,7 +16,7 @@
           <td *ngIf="filteredAncestors.length > 0" class="details-label">Parents</td>
         </tr>
         <tr *ngFor="let parentDetails of filteredAncestors; let firstRow = first">
-          <td *ngIf="firstRow" [attr.rowspan]="filteredAncestors.length">{{termDetails.definition}}</td>
+          <td *ngIf="firstRow" [attr.rowspan]="filteredAncestors.length + 1">{{termDetails.definition}}</td>
           <td class="term-parent-column">
             <span class="details-label term-parent-rel">{{parentDetails.relation_name}}</span>
             <a routerLink="/term/{{parentDetails.termid}}"
