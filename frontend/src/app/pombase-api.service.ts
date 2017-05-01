@@ -163,11 +163,25 @@ export interface SynonymDetails {
   type: string;
 }
 
+export interface ProteinDetails {
+  uniquename: String;
+  sequence: String;
+  molecular_weight: number;
+}
+
+export interface TranscriptDetails {
+  uniquename: String;
+  sequence: String;
+  transcript_type: String;
+  protein?: ProteinDetails;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
   feature_type: string;
   product?: string;
+  transcripts: Array<TranscriptDetails>;
   deletion_viability?: string;
   uniprot_identifier?: string;
   orfeome_identifier: string;
@@ -421,6 +435,10 @@ export class PombaseAPIService {
 
   processGeneResponse(response: Response): GeneDetails {
     let json = response.json();
+
+    if (!json['transcripts']) {
+      json['transcripts'] = [];
+    }
 
     let genesByUniquename = json.genes_by_uniquename;
     let genotypesByUniquename = json.genotypes_by_uniquename;

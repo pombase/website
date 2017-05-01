@@ -25,6 +25,7 @@ export class GeneDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
   apiError = null;
+  productSize = '';
 
   menuPositionFixed = false;
 
@@ -170,6 +171,18 @@ export class GeneDetailsComponent implements OnInit {
     this.window.scrollTo(0, 0);
   }
 
+  setProductSize(): void {
+    for (let transcript of this.geneDetails.transcripts) {
+      let protein = transcript.protein;
+      if (protein) {
+        this.productSize =
+          protein.sequence.length + ' aa, ' + protein.molecular_weight + 'kDa';
+      } else {
+        this.productSize = transcript.sequence.length + ' nt';
+      }
+    }
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -184,6 +197,7 @@ export class GeneDetailsComponent implements OnInit {
             this.setPageTitle();
             this.setVisibleSections();
             this.scrollToPageTop();
+            this.setProductSize();
           })
           .catch(error => {
             this.apiError = error;
