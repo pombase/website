@@ -1,7 +1,6 @@
 #gene-details {
-  position: absolute;
   right: 0;
-  left: 175px;
+  padding-left: 175px;
   width: auto;
 }
 #gene-details-menu {
@@ -29,4 +28,21 @@
 #gene-details .chromosome-region-view img {
   width: 80%;
   height: auto;
+}
+
+.gene-details-name-id {
+  text-align: center;
+  font-size: 140%;
+}
+
+.name-id {
+  font-weight: bold;
+}
+
+.details-page-summary td {
+  padding-right: 30px;
+}
+
+#gene-summary table {
+  margin: 0 auto;
 }

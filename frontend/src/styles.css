@@ -1,3 +1,7 @@
+content {
+  min-width: 1000px;
+}
+
 a {
   cursor: pointer;
 }
@@ -21,10 +25,6 @@ a {
   border: 0;
 }
 
-.details-page-summary table {
-  width: 100%;
-}
-
 .details-page-summary .details-label {
   font-weight: bold;
   white-space: nowrap;
@@ -32,7 +32,7 @@ a {
 
 .details-page-summary table td {
   vertical-align: top;
-  padding: 0 10px 5px 0;
+  padding: 0 40px 5px 0;
 }
 
 .annotation-table table {

@@ -12,15 +12,17 @@
     <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
                        [subject]="'Comment or problem report for ' + displayNameLong()"></app-contact-email>
     <div class="details-page-name-and-id">
+    <div class="gene-details-name-id">
     <span *ngIf="!appConfig.isConfigOrganism(geneDetails.organism.genus, geneDetails.organism.species)">
-      {{geneDetails.organism.genus}} {{geneDetails.organism.species}}
+      <span class="name-id">{{geneDetails.organism.genus}} {{geneDetails.organism.species}}</span>
     </span>
     <span *ngIf="geneDetails.name">
-      {{geneDetails.name}} ({{geneDetails.uniquename}})
+      Gene standard name: <span class="name-id">{{geneDetails.name}}</span>
     </span>
     <span *ngIf="!geneDetails.name">
-      {{geneDetails.uniquename}}
+      Gene systematic name: <span class="name-id">{{geneDetails.uniquename}}</span>
     </span>
+    </div>
     </div>
 
     <hr style="clear: both" />
@@ -29,8 +31,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="details-label">Gene standard name</td>
-          <td>{{geneDetails.name}}</td>
+          <td class="details-label">Product</td>
+          <td>{{geneDetails.product}}</td>
           <td class="details-label">Characterisation status</td>
           <td>{{geneDetails.characterisation_status}}</td>
         </tr>
@@ -41,26 +43,20 @@
           <td>{{displayFeatureType}}</td>
         </tr>
         <tr>
-          <td class="details-label">Synonyms</td>
-          <td>{{synonymsDisplay}}</td>
+          <td class="details-label">Genomic location</td>
+          <td>{{displayLocation}}</td>
           <td class="details-label">Product size</td>
           <td>...aa, ...kDa</td>
         </tr>
-        <tr>
-          <td class="details-label">Product</td>
-          <td colspan="3">{{geneDetails.product}}</td>
-        </tr>
-        <tr>
-          <td class="details-label">Genomic location</td>
-          <td colspan="3">{{displayLocation}}</td>
-        </tr>
-        <tr *ngIf="geneDetails.name_descriptions.length > 0">
-          <td class="details-label">Name description</td>
-          <td colspan="3">
+        <tr *ngIf="geneDetails.name_descriptions.length > 0 || synonymsDisplay.length > 0">
+          <td class="details-label"><span *ngIf="geneDetails.name_descriptions.length > 0">Name description</span></td>
+          <td>
             <span *ngFor="let nameDesc of geneDetails.name_descriptions; let i = index">
               {{nameDesc}}<span *ngIf="i < geneDetails.name_descriptions.length - 1">,<br/></span>
             </span>
           </td>
+          <td *ngIf="synonymsDisplay.length > 0" class="details-label">Synonyms</td>
+          <td *ngIf="synonymsDisplay.length > 0">{{synonymsDisplay}}</td>
         </tr>
       </tbody>
     </table>
