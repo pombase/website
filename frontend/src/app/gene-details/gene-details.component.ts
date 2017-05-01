@@ -178,7 +178,7 @@ export class GeneDetailsComponent implements OnInit {
         let protein_sequence = protein.sequence;
         let protein_sequence_length = protein_sequence.length;
         let weight = Math.round(protein.molecular_weight / 10) / 100.0;
-        if (protein_sequence.endsWith("*")) {
+        if (protein_sequence.endsWith('*')) {
           protein_sequence_length--;
         }
         this.productSize = protein_sequence_length + ' aa, ' + weight + ' kDa';
