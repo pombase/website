@@ -175,8 +175,13 @@ export class GeneDetailsComponent implements OnInit {
     for (let transcript of this.geneDetails.transcripts) {
       let protein = transcript.protein;
       if (protein) {
-        this.productSize =
-          protein.sequence.length + ' aa, ' + protein.molecular_weight + 'kDa';
+        let protein_sequence = protein.sequence;
+        let protein_sequence_length = protein_sequence.length;
+        let weight = Math.round(protein.molecular_weight / 10) / 100.0;
+        if (protein_sequence.endsWith("*")) {
+          protein_sequence_length--;
+        }
+        this.productSize = protein_sequence_length + ' aa, ' + weight + ' kDa';
       } else {
         this.productSize = transcript.sequence.length + ' nt';
       }
