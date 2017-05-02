@@ -1,0 +1,24 @@
+<div>
+  <table class="go-slim-table">
+    <thead>
+      <th>Name</th>
+      <th>Term</th>
+      <th>Physical network interaction</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let termAndName of goSlimTerms">
+        <td>{{termAndName.name}}</td>
+        <td>
+          <a routerLink="/term_genes/{{termAndName.termid}}" routerLinkActive="active">{{termAndName.termid}}</a>
+        </td>
+        <td>
+          <app-external-link [identifierForLink]="termAndName.termid"
+                             [linkName]="'esyN'"
+                             [linkConfigKey]="'esyn'"
+                             [iconImage]="'esyn_icon.png'">
+          </app-external-link>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,2 @@
+- [Fission Yeast Phenotype Ontology](browse-curation/fission-yeast-phenotype-ontology)
+- [GO slim terms](browse-curation/fission-yeast-go-slim-terms)

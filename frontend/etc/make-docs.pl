@@ -9,7 +9,7 @@ use Pandoc;
 my %sections = ();
 
 for my $file (sort @ARGV) {
-  if (my ($path, $name) = $file =~ m|(?:\./)?([\w/]+)/(.*)\.md|) {
+  if (my ($path, $name) = $file =~ m|(?:\./)?([\w\-/]+)/(.*)\.md|) {
     $sections{$path}->{$name} = $file;
   }
 }
@@ -72,7 +72,11 @@ sub angular_link {
   my $title = shift;
   my $path = shift;
 
-  return qq|<a routerLink="/$path" routerLinkActive="active">$title</a>|;
+  if ($path =~ /^https?:/) {
+    return qq|<a href="$path">$title</a>|;
+  } else {
+    return qq|<a routerLink="/$path" routerLinkActive="active">$title</a>|;
+  }
 }
 
 sub contents_for_template {
