@@ -1,4 +1,31 @@
 <div>
+Welcome to the new PomBase website. Although it's still under
+development, nightly data updates are working and several new features
+are now available:
+
+<ul>
+  <li>Publication pages</li>
+  <li>Genotype pages</li>
+  <li>Improved gene pages with reduced redundancy in annotation summary views </li>
+  <li>Improved ontology term pages showing annotated descendant terms and links to ancestor terms</li>
+</ul>
+
+Over the next few months we plan to add:
+
+<ul>
+<li>Improved query interface</li>
+<li>JBrowse genome browser</li>
+<li>Protein feature viewer</li>
+<li>Network viewer</li>
+</ul>
+
+Please tell us what you think of the new look and function of the
+PomBase pages, and what you'd most like to see next.
+<app-contact-email [linkName]="'Contact curators ...'"
+                   [subject]="'Comment on the new PomBase'"></app-contact-email>
+</div>
+
+<div>
   <div>Database created: {{metadata?.db_creation_datetime}}</div>
   <div>{{metadata?.export_prog_name}} v{{metadata?.export_prog_version}}</div>
 </div>
