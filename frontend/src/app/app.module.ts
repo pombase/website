@@ -143,6 +143,5 @@ export function windowFactory() {
 })
 export class AppModule {
   constructor() {
-    SimplePageScrollConfig.defaultScrollOffset = 115;
   }
 }
