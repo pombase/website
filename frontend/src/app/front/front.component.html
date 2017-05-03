@@ -1,3 +1,9 @@
+<div class="introduction">
+<div class="metadata">
+  <div>Database created: {{metadata?.db_creation_datetime}}</div>
+  <div>{{metadata?.export_prog_name}} v{{metadata?.export_prog_version}}</div>
+</div>
+
 <div>
 Welcome to the new PomBase website. Although it's still under
 development, nightly data updates are working and several new features
@@ -24,10 +30,6 @@ PomBase pages, and what you'd most like to see next.
 <app-contact-email [linkName]="'Contact curators ...'"
                    [subject]="'Comment on the new PomBase'"></app-contact-email>
 </div>
-
-<div>
-  <div>Database created: {{metadata?.db_creation_datetime}}</div>
-  <div>{{metadata?.export_prog_name}} v{{metadata?.export_prog_version}}</div>
 </div>
 
 <hr style="clear: both" />
