@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -12,9 +12,17 @@ export class DocsComponent implements OnInit {
   pageName: string = null;
 
   constructor(private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              @Inject('Window') private window: any
+             ) { }
+
+  scrollToPageTop(): void {
+    this.window.scrollTo(0, 0);
+  }
 
   ngOnInit(): void {
+    this.scrollToPageTop();
+
     this.section = this.route.snapshot.data['docsParent'];
 
     this.route.url.forEach((parts) => {
