@@ -1,10 +1,7 @@
 <div class="introduction">
-<div class="metadata">
-  <div>Database created: {{metadata?.db_creation_datetime}}</div>
-  <div>{{metadata?.export_prog_name}} v{{metadata?.export_prog_version}}</div>
-</div>
+<div class="row">
 
-<div>
+<div class="col">
 Welcome to the new PomBase website. Although it's still under
 development, nightly data updates are working and several new features
 are now available:
@@ -28,15 +25,21 @@ Over the next few months we plan to add:
 
 Please tell us what you think of the new look and function of the
 PomBase pages, and what you'd most like to see next.
+
 <app-contact-email [linkName]="'Contact curators ...'"
                    [subject]="'Comment on the new PomBase'"></app-contact-email>
+</div>
+
+<div class="col">
+  <img [attr.src]="'assets/' + rightImageName" />
+</div>
 </div>
 </div>
 
 <hr style="clear: both" />
 
-<div class="row">
-  <div class="col-md-2">
+<div>
+  <div class="eg-list">
     Example genes:
     <ul>
       <li><a routerLink="/gene/SPBC11B10.09">cdc2</a></li>
@@ -45,7 +48,7 @@ PomBase pages, and what you'd most like to see next.
       <li><a routerLink="/gene/SPAC24B11.06c">sty1</a></li>
     </ul>
   </div>
-  <div class="col-md-3">
+  <div class="eg-list">
     Example GO terms:
     <ul>
       <li><a routerLink="/term/GO:0006260">DNA replication (GO slim process)</a></li>
@@ -54,7 +57,7 @@ PomBase pages, and what you'd most like to see next.
       <li><a routerLink="/term/GO:0004674">protein serine/threonine kinase activity (GO molecular function)</a></li>
     </ul>
   </div>
-  <div class="col-md-3">
+  <div class="eg-list">
     Example phenotype terms:
     <ul>
       <li><a routerLink="/term/FYPO:0000032">abnormal cytokinesis</a></li>
@@ -62,7 +65,7 @@ PomBase pages, and what you'd most like to see next.
       <li><a routerLink="/term/FYPO:0000134">branched, elongated, multiseptate cell</a></li>
     </ul>
   </div>
-  <div class="col-md-2">
+  <div class="eg-list">
     Example publications:
     <ul>
       <li><a routerLink="/reference/PMID:27005325">Pluskal T et al. (2016)</a></li>
@@ -72,7 +75,7 @@ PomBase pages, and what you'd most like to see next.
       <li><a routerLink="/reference/PMID:25987607">Yukawa M et al. (2015)</a></li>
     </ul>
   </div>
-  <div class="col-md-2">
+  <div class="eg-list">
     Docs:
     <ul>
       <li><a routerLink="/about" routerLinkActive="active">About</a></li>
@@ -85,3 +88,7 @@ PomBase pages, and what you'd most like to see next.
   </div>
 </div>
 
+<div class="metadata">
+  <div>Database created: {{metadata?.db_creation_datetime}}</div>
+  <div>{{metadata?.export_prog_name}} v{{metadata?.export_prog_version}}</div>
+</div>
