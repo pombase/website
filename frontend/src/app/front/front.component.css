@@ -14,3 +14,10 @@
   vertical-align: top;
   padding: 1em 2em 1em 2em;
 }
+
+@media (max-width: 1200px) {
+  .rotating-image img {
+    width: 95%;
+    height: auto;
+  }
+}
