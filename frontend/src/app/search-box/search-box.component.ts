@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { PombaseAPIService } from '../pombase-api.service';
 
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
+import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
 
 @Component({
   selector: 'app-search-box',

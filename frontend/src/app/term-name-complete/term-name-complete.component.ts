@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { PombaseAPIService } from '../pombase-api.service';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
+import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
