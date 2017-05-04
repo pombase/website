@@ -1,5 +1,8 @@
 <div class="go-slim-summary">
-  <div><span class="heading">Biological process overview (GO slim)</span> <a href="http://www.pombase.org/browse-curation/fission-yeast-go-slim-terms">[help]</a></div>
+  <div>
+    <span class="heading">Biological process overview (GO slim)</span>
+    <a routerLink="/browse-curation/fission-yeast-go-slim-terms">[help]</a>
+  </div>
   <span class="go-slim-links" *ngFor="let termAndName of geneSlims">
     <a routerLink="/term_genes/{{termAndName.termid}}" routerLinkActive="active">{{termAndName.name}}</a>
   </span>
