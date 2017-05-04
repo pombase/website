@@ -8,3 +8,11 @@
   padding: 3px;
   font-size: 80%;
 }
+
+.menu-item a {
+  color: #014c8c;
+}
+
+.menu-item a:hover {
+  text-decoration: underline;
+}
