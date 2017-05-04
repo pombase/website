@@ -23,8 +23,10 @@ Over the next few months we plan to add:
 <li>Network viewer</li>
 </ul>
 
+<div>
 Please tell us what you think of the new look and function of the
 PomBase pages, and what you'd most like to see next.
+</div>
 
 <app-contact-email [linkName]="'Contact curators ...'"
                    [subject]="'Comment on the new PomBase'"></app-contact-email>
@@ -39,6 +41,17 @@ PomBase pages, and what you'd most like to see next.
 <hr style="clear: both" />
 
 <div>
+  <div class="eg-list">
+    Docs:
+    <ul>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <li><a routerLink="/status" routerLinkActive="active">Genome status</a></li>
+      <li><a routerLink="/community" routerLinkActive="active">Community docs</a></li>
+      <li><a routerLink="/browse-curation" routerLinkActive="active">Browsing and searching</a></li>
+      <li><a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim terms</a></li>
+      <li><a href="https://curation.pombase.org/pombe/stats/annotation">Curation statistics</a></li>
+    </ul>
+  </div>
   <div class="eg-list">
     Example genes:
     <ul>
@@ -73,17 +86,6 @@ PomBase pages, and what you'd most like to see next.
       <li><a routerLink="/reference/PMID:25795664">Sánchez A et al. (2015)</a></li>
       <li><a routerLink="/reference/PMID:25688133">Willet AH et al. (2015)</a></li>
       <li><a routerLink="/reference/PMID:25987607">Yukawa M et al. (2015)</a></li>
-    </ul>
-  </div>
-  <div class="eg-list">
-    Docs:
-    <ul>
-      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-      <li><a routerLink="/status" routerLinkActive="active">Genome status</a></li>
-      <li><a routerLink="/community" routerLinkActive="active">Community docs</a></li>
-      <li><a routerLink="/browse-curation" routerLinkActive="active">Browsing and searching</a></li>
-      <li><a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim terms</a></li>
-      <li><a href="https://curation.pombase.org/pombe/stats/annotation">Curation statistics</a></li>
     </ul>
   </div>
 </div>
