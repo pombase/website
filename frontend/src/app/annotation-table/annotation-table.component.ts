@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { TermAnnotation, GeneDetails } from '../pombase-api.service';
 
-import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
+         SplitByParentsConfig } from '../config';
 
 @Component({
   selector: 'app-annotation-table',
@@ -21,7 +22,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   annotationTypeDisplayName = null;
   splitDataList = {};
   splitSummaryList = {};
-  split_by_parents = [];
+  split_by_parents: Array<SplitByParentsConfig> = [];
 
   constructor() { }
 
@@ -32,16 +33,17 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
       this.splitSummaryList = {};
 
       for (let splitByConfig of this.split_by_parents) {
-        let splitByTermId = splitByConfig.termid;
-        for (let termAnnotation of this.annotationTable) {
-          let interestingParents = termAnnotation.term.interesting_parents;
+        for (let splitByTermId of splitByConfig.termids) {
+          for (let termAnnotation of this.annotationTable) {
+            let interestingParents = termAnnotation.term.interesting_parents;
 
-          if (interestingParents &&
-              interestingParents.indexOf(splitByTermId) >= 0) {
-            if (!this.splitDataList[splitByTermId]) {
-              this.splitDataList[splitByTermId] = [];
+            if (interestingParents &&
+                interestingParents.indexOf(splitByTermId) >= 0) {
+              if (!this.splitDataList[splitByConfig.display_name]) {
+                this.splitDataList[splitByConfig.display_name] = [];
+              }
+              this.splitDataList[splitByConfig.display_name].push(termAnnotation);
             }
-            this.splitDataList[splitByTermId].push(termAnnotation);
           }
         }
       }

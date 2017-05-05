@@ -22,14 +22,14 @@
   </div>
   <div *ngIf="split_by_parents.length != 0">
     <div *ngFor="let conf of split_by_parents; let i = index">
-      <div *ngIf="splitDataList[conf.termid] && splitDataList[conf.termid].length > 0">
+      <div *ngIf="splitDataList[conf.display_name] && splitDataList[conf.display_name].length > 0">
         <br *ngIf="i != 0"/>
         <div class="annotation-sub-table-name">{{conf.display_name}}</div>
         <app-annotation-sub-table
            [annotationTypeName]="annotationTypeName"
            [hideColumns]="hideColumns"
            [featureInFirstColumn]="featureInFirstColumn"
-           [annotationTable]="splitDataList[conf.termid]">
+           [annotationTable]="splitDataList[conf.display_name]">
         </app-annotation-sub-table>
       </div>
     </div>

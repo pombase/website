@@ -64,10 +64,15 @@ export interface FilterConfig {
   evidence_categories?: Array<EvidenceFilterCategory>;
 }
 
+export interface SplitByParentsConfig {
+  termids: Array<string>;
+  display_name: string;
+}
+
 export interface AnnotationType {
   display_name: string;
   inherits_from?: string;
-  split_by_parents?: Array<any>;
+  split_by_parents?: Array<SplitByParentsConfig>;
   columns_to_show?: Array<string>;
   hide_term_details?: boolean;
   filters: Array<FilterConfig>;
