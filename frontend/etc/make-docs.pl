@@ -88,7 +88,9 @@ sub contents_for_template {
   my $ret = "";
 
   if ($path =~ m|(.*)/menu$|) {
-    $ret = "### " . angular_link(ucfirst $1, $1) . "\n";
+    my $section = $1;
+    my $menu_title = (ucfirst $section) =~ s/-/ /gr;
+    $ret = "### " . angular_link($menu_title, $section) . "\n";
   }
 
   while (my $line = <$file>) {
