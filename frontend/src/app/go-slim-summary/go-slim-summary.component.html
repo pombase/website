@@ -1,7 +1,6 @@
 <div class="go-slim-summary">
   <div>
-    <span class="heading">Biological process overview (GO slim)</span>
-    <a routerLink="/browse-curation/fission-yeast-go-slim-terms">[help]</a>
+    <a class="heading" routerLink="/browse-curation/fission-yeast-go-slim-terms">Biological process overview (GO slim)</a>
   </div>
   <span class="go-slim-links" *ngFor="let termAndName of geneSlims">
     <a routerLink="/term_genes/{{termAndName.termid}}" routerLinkActive="active">{{termAndName.name}}</a>
