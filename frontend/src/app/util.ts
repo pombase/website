@@ -53,7 +53,7 @@ export class Util {
 
   static alleleDisplayName(allele: AlleleShort): string {
     let name = allele.name || 'unnamed';
-    name = name.replace(/delta$/, '&Delta;');
+    name = name.replace(/delta$/, 'Δ');
     let description = allele.description || '';
     let alleleType = allele.allele_type || 'unknown';
 
