@@ -1,3 +1,7 @@
+.sub-table {
+  padding-bottom: 0.4em;
+}
+
 .filter-controls {
   float: right;
   font-size: 90%;
