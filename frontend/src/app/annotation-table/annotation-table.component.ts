@@ -34,15 +34,26 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
 
       for (let splitByConfig of this.split_by_parents) {
         for (let splitByTermId of splitByConfig.termids) {
+          let notFlag = false;
+
+          if (splitByTermId.startsWith('NOT ')) {
+            notFlag = true;
+            splitByTermId = splitByTermId.substr(4);
+          }
+
           for (let termAnnotation of this.annotationTable) {
             let interestingParents = termAnnotation.term.interesting_parents;
 
-            if (interestingParents &&
-                interestingParents.indexOf(splitByTermId) >= 0) {
-              if (!this.splitDataList[splitByConfig.display_name]) {
-                this.splitDataList[splitByConfig.display_name] = [];
+            if (interestingParents) {
+              let hasInterestingParent = (interestingParents.indexOf(splitByTermId) !== -1);
+
+              if (notFlag && !hasInterestingParent ||
+                  !notFlag && hasInterestingParent) {
+                if (!this.splitDataList[splitByConfig.config_name]) {
+                  this.splitDataList[splitByConfig.config_name] = [];
+                }
+                this.splitDataList[splitByConfig.config_name].push(termAnnotation);
               }
-              this.splitDataList[splitByConfig.display_name].push(termAnnotation);
             }
           }
         }

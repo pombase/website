@@ -65,6 +65,7 @@ export interface FilterConfig {
 }
 
 export interface SplitByParentsConfig {
+  config_name: string;
   termids: Array<string>;
   display_name: string;
 }
