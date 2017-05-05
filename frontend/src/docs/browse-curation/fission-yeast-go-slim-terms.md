@@ -26,7 +26,3 @@ the total annotated genes.
 
 <app-go-slim-table></app-go-slim-table>
 
-
-- Proteins with a biological process annotation not covered by the slim (gene count: 214)
-- Proteins with no GO slim or biological process annotation (gene count: 795)
-
