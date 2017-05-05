@@ -57,7 +57,7 @@ export class Util {
     let description = allele.description || '';
     let alleleType = allele.allele_type || 'unknown';
 
-    if (alleleType === 'deletion' && name.match(/(delta|&Delta;)$/) ||
+    if (alleleType === 'deletion' && name.match(/(Δ|delta|&Delta;)$/) ||
         alleleType.match(/^wild[\s_]?type$/) && name.match(/\+$/)) {
       let normalisedDescription = description.replace(/[\s_]+/, '');
       let normalisedAlleleType = alleleType.replace(/[\s_]+/, '');
