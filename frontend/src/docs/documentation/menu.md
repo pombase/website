@@ -1,0 +1,15 @@
+ - Gene pages
+     -   [Basic Information](documentation/gene-page-basic-information)
+     -   [Gene Ontology](documentation/gene-page-gene-ontology)
+     -   [Phenotypes](documentation/gene-page-phenotypes)
+     -   [Target Of](documentation/gene-page-target)
+     -   [Protein Features](documentation/gene-page-protein-features)
+     -   [Modifications](documentation/gene-page-modifications)
+     -   [Gene Expression](documentation/gene-page-gene-expression)
+     -   [Species Distribution](documentation/taxonomic-conservation)
+     -   [Ortholog Curation](documentation/orthologs)
+     -   [Genetic and Physical Interactions](documentation/genetic-and-physical-interactions)
+     -   [External References](documentation/gene-page-external-references)
+     -   [Literature](documentation/gene-page-literature)
+ -   [Simple Search](documentation/simple-search-documentation)
+

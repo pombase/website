@@ -11,15 +11,15 @@ documentation and mailing lists.
 
 ------------------------------------
 
-|                 |                                                                                          |
-|-----------------+------------------------------------------------------------------------------------------|
-| FAQ             | 	Frequently Asked Questions                                                           |
-| Documentation   | 	Documentation                                                                        |
-| Data versions   | 	Versions of internal and external data loaded into current and past Pombase releases |
-| Contact PomBase | 	How to contact staff or submit data                                                  |
-| Citing PomBase  | 	How to cite fission yeast genome data                                                |
-| Staff           | 	PomBase staff members                                                                |
+|                                        |                                                                                       |
+|----------------------------------------+---------------------------------------------------------------------------------------|
+| [FAQ](http://www.pombase.org/faq)      | 	Old Frequently Asked Questions                                                       |
+| [Documentation](documentation)         | 	Documentation                                                                        |
+| [Data versions](about/version-history) | 	Versions of internal and external data loaded into current and past Pombase releases |
+| [Contact PomBase](about/contacts)      | 	How to contact staff or submit data                                                  |
+| [Citing PomBase](about/citing-pombase) | 	How to cite fission yeast genome data                                                |
+| [Staff](about/pombase-staff)           | 	PomBase staff members                                                                |
 
 ------------------------------------
 
-Funding: PomBase is funded by the Wellcome Trust [104967/Z/14/Z].
+Funding: PomBase is funded by the Wellcome Trust \[104967/Z/14/Z\].
