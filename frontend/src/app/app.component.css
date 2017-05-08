@@ -24,4 +24,6 @@
 
 #footer {
   text-align: center;
+  clear: both;
+  padding: 30px 10px 30px 10px;
 }
