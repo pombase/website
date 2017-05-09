@@ -5,9 +5,7 @@ and quantitative information about the level and timing of the gene's
 expression.
 
 \
-![gene page expression
-section](/sites/pombase.org/files/images/gene_page_expression.png "Gene Page: Gene Expression"){width="672"
-height="600"}
+![gene page expression section](assets/gene_page_expression.png "Gene Page: Gene Expression"){width="672" height="600"}
 
 1.  Qualitative descriptions are drawn from a small internal controlled
     vocabulary, with supporting extensions. Each description links to a

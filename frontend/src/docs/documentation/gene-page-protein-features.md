@@ -4,10 +4,7 @@ Gene pages for protein-coding genes have a section describing protein
 features. Also see the
 [Modifications](/documentation/gene-page-modifications) documentation.
 
-![gene page protein
-features](/sites/pombase.org/files/images/gene_page_protein_features.png "Protein features"){width="595"
-height="600"}\
-\
+![gene page protein features](assets/gene_page_protein_features.png  "Protein features"){width="595" height="600"}
 
 1.  The graphical view is a static graphic from the PomBase Genome
     Browser, and shows the positions of domains and other features.
@@ -28,9 +25,7 @@ height="600"}\
 
 **[]{#families}Protein Families and Domains**
 
-![gene page protein
-domains](/sites/pombase.org/files/images/gene_page_protein_domains.png "Protein families and domains"){width="800"
-height="276"}
+![gene page protein domains](assets/gene_page_protein_domains.png "Protein families and domains"){width="800" height="276"}
 
 a.  Feature ID of this family or domain in the originating database.
     Where feasible, the ID links to the source database. Databases

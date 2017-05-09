@@ -3,9 +3,7 @@
 At the top of each gene page is a set of basic information about the
 gene:
 
-![top of gene
-page](/sites/pombase.org/files/images/basic_info_gene_page.png "Gene page basic information"){width="800"
-height="548"}
+![top of gene page](assets/basic_info_gene_page.png  "Gene page basic information"){width="800" height="548"}
 
 1.  See the [Gene Name Registry](/submit-data/gene-name-registry) for
     more information about *S. pombe* gene names. Synonyms include all

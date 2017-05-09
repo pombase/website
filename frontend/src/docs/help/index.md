@@ -1,0 +1,7 @@
+# Help
+
+### [Old Frequently Asked Questions (FAQ)](http://www.pombase.org/faq)
+
+### [PomBase Documentation](documentation)
+
+### [Contact Curators](about/contacts)

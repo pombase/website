@@ -31,9 +31,7 @@ Summary view shows just the essentials; each unique combination of gene,
 FYPO term, allele(s) and extension(s) is shown once. For single-allele
 phenotypes, the display includes:
 
-![gene page phenotype
-annotations](/sites/pombase.org/files/images/single_fypo_gene_page_summary.png "single-allele FYPO summary on gene page"){width="800"
-height="417"}
+![gene page phenotype annotations](assets/single_fypo_gene_page_summary.png "Single-allele FYPO summary on gene page"){width="800" height="417"}
 
 1.  The FYPO term name, which links to a page with additional
     information, including the term definition, any synonyms,
@@ -78,9 +76,7 @@ separate entries for repeat determinations of a given
 gene/term/allele/extension combination (if supported by more than one
 line of evidence and/or reported in more than one paper):
 
-![gene page phenotype
-annotations](/sites/pombase.org/files/images/single_fypo_gene_page_full.png "single-allele FYPO full view on gene page"){width="800"
-height="476"}
+![gene page phenotype annotations](assets/single_fypo_gene_page_full.png "Single-allele FYPO full view on gene page"){width="800" height="476"}
 
 1.  The unique ID and name for a term in the phenotype ontology. The ID
     links to a page with additional information, including the term
@@ -135,9 +131,7 @@ one gene connected with almost every multi-allele phenotype.
 
 The multi-allele Summary shows FYPO terms and genotype descriptions:
 
-![multi-allele FYPO summary view on gene
-page](/sites/pombase.org/files/resize/images/multi_fypo_gene_page_summary-800x180.png){width="800"
-height="180"}
+![multi-allele FYPO summary view on gene page](assets/multi_fypo_gene_page_summary-800x180.png){width="800" height="180"}
 
 1.  The FYPO term name, which links to a page with additional
     information, including the term definition, any synonyms,
@@ -149,9 +143,7 @@ height="180"}
 
 The Full view includes more details:
 
-![multi-allele FYPO full view on gene
-page](/sites/pombase.org/files/resize/images/multi_fypo_gene_page_full-800x292.png){width="800"
-height="292"}
+![multi-allele FYPO full view on gene page](assets/multi_fypo_gene_page_full-800x292.png){width="800" height="292"}
 
 1.  The unique ID and name for a term in the phenotype ontology. The ID
     links to a page with additional information, including the term

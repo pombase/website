@@ -4,9 +4,7 @@ For each ontology term loaded into PomBase, a page summarizes essential
 details about the term, and lists genes annotated to it or its
 descendants:
 
-![ontology term
-page](/sites/pombase.org/files/images/ontology_term_page.png){width="800"
-height="488"}
+![ontology term page](assets/ontology_term_page.png){width="800" height="488"}
 
 1.  Ontology term details. The term's name and, where applicable, ID,
     definition and synonyms are shown.

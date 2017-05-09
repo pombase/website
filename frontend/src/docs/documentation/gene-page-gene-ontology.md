@@ -28,9 +28,7 @@ details and supporting data. The Summary view shows just the essentials;
 each unique combination of gene, GO term, and extension(s) is shown
 once:
 
-![summary gene page GO
-annotations](/sites/pombase.org/files/images/go_gene_page_summary.png){width="784"
-height="600"}
+![summary gene page GO annotations](assets/go_gene_page_summary.png){width="784" height="600"}
 
 **\
 **
@@ -56,9 +54,7 @@ determinations of a given gene/term/extension combination (if supported
 by more than one line of evidence and/or reported in more than one
 paper):
 
-![full gene page GO
-annotations](/sites/pombase.org/files/images/go_gene_page_full.png){width="781"
-height="600"}
+![full gene page GO annotations](assets/go_gene_page_full.png){width="781" height="600"}
 
 **\
 **

@@ -62,7 +62,8 @@ sub markdown {
 
   my $html = "";
 
-  pandoc '--columns' => 1000, -f => 'markdown-markdown_in_html_blocks', -t => 'html', { in => \$md, out => \$html };
+  pandoc '--columns' => 1000, -f => 'markdown-markdown_in_html_blocks+link_attributes',
+    -t => 'html', { in => \$md, out => \$html };
 
   return $html;
 }
@@ -71,6 +72,10 @@ sub markdown {
 sub angular_link {
   my $title = shift;
   my $path = shift;
+
+  if ($path =~ /\.png($|\s)/) {
+    return "[$title]($path)";
+  }
 
   if ($path =~ /^https?:/) {
     return qq|<a href="$path">$title</a>|;

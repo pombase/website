@@ -15,9 +15,7 @@ sequence features.
 
 Summary view:
 
-![summary gene page modification ontology
-annotation](/sites/pombase.org/files/images/gene_page_modification_summary.png "Protein modifications"){width="800"
-height="413"}
+![summary gene page modification ontology annotation](assets/gene_page_modification_summary.png "Protein modifications"){width="800" height="413"}
 
 1.  Ontology (PSI-MOD or SO)
 2.  Name of the ontology term
@@ -31,9 +29,7 @@ height="413"}
 
 Full view:
 
-![full gene page modification ontology
-annotation](/sites/pombase.org/files/images/gene_page_modification_full.png "Protein modifications"){width="800"
-height="559"}
+![full gene page modification ontology annotation](assets/gene_page_modification_full.png "Protein modifications"){width="800" height="559"}
 
 1.  Ontology (PSI-MOD or SO)
 2.  Name and ID of the ontology term
