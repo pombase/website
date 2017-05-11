@@ -20,8 +20,7 @@
           <td class="details-label">Authors</td>
           <td>{{refDetails.authors}}</td>
           <td *ngIf="cantoCommunityCuratorName">
-            Community curated in <a href="http://curation.pombase.org">Canto <img src="/assets/canto_icon.png"/></a>
-            by {{cantoCommunityCuratorName}}
+            <a href="http://curation.pombase.org"><img src="/assets/canto_icon.png"/></a> Community curation provided by {{cantoCommunityCuratorName}}
           </td>
         </tr>
         <tr *ngIf="isPubMedRef">
