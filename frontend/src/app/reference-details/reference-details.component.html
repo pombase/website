@@ -12,12 +12,17 @@
     </span>
   </div>
 
+
   <div id="reference-summary" class="details-page-summary">
     <table>
       <tbody>
         <tr *ngIf="isPubMedRef">
           <td class="details-label">Authors</td>
           <td>{{refDetails.authors}}</td>
+          <td *ngIf="cantoCommunityCuratorName">
+            Curated by {{cantoCommunityCuratorName}} in
+            <a href="http://curation.pombase.org">Canto <img src="/assets/canto_icon.png"/></a>
+          </td>
         </tr>
         <tr *ngIf="isPubMedRef">
           <td class="details-label">Citation</td>

@@ -19,6 +19,7 @@ export class ReferenceDetailsComponent implements OnInit {
   isPubMedRef = false;
   pubMedId = null;
   apiError = null;
+  cantoCommunityCuratorName = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -40,6 +41,14 @@ export class ReferenceDetailsComponent implements OnInit {
     this.titleService.setTitle(title + ' - ' + displayName);
   }
 
+  setCantoFields(): void {
+    if (this.refDetails.canto_curator_role &&
+        this.refDetails.canto_curator_role === 'community' &&
+        this.refDetails.canto_curator_name) {
+      this.cantoCommunityCuratorName = this.refDetails.canto_curator_name;
+    }
+  }
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -55,6 +64,7 @@ export class ReferenceDetailsComponent implements OnInit {
               this.pubMedId = matches[2];
             }
             this.setPageTitle();
+            this.setCantoFields();
           })
           .catch(error => {
             this.apiError = error;
