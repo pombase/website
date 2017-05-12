@@ -1,5 +1,10 @@
 # Gene Page: Gene Ontology
 
+<div style="color: red">
+  Note: because of changes in this preview, many of the screenshots in
+  this documentation are out of date.
+</div>
+
 PomBase uses the [Gene Ontology](http://www.geneontology.org/) (GO) to
 describe the biological context of genes.
 

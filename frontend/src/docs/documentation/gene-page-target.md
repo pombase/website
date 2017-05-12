@@ -1,5 +1,10 @@
 # Gene Page: Target Of
 
+<div style="color: red">
+  Note: because of changes in this preview, many of the screenshots in
+  this documentation are out of date.
+</div>
+
 The Target Of section describes genes that affect the gene of
 interest. Genes listed under "Target Of" may include upstream regulators
 or enzymes that modify the product of the gene of interest. For example,

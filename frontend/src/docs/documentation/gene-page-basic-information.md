@@ -1,5 +1,10 @@
 # Gene page basic information
 
+<div style="color: red">
+  Note: because of changes in this preview, many of the screenshots in
+  this documentation are out of date.
+</div>
+
 At the top of each gene page is a set of basic information about the
 gene:
 

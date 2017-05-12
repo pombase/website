@@ -1,5 +1,10 @@
 # Ortholog curation
 
+<div style="color: red">
+  Note: because of changes in this preview, many of the screenshots in
+  this documentation are out of date.
+</div>
+
 The "Manually curated orthologous groups" section of a gene page lists
 any orthologous genes in budding yeast (*Saccharomyces cerevisiae*) or
 human (*Homo sapiens*) that have been assessed and recorded manually by

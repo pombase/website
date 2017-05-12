@@ -1,5 +1,10 @@
 # Taxonomic Conservation
 
+<div style="color: red">
+  Note: because of changes in this preview, many of the screenshots in
+  this documentation are out of date.
+</div>
+
 The Taxonomic Conservation section provides classifiers of taxon
 distribution (at the domain/kingdom level) of the product of a
 protein-coding gene, which are assigned manually. The classifiers come

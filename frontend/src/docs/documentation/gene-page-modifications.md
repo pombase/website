@@ -1,5 +1,10 @@
 # Modifications
 
+<div style="color: red">
+  Note: because of changes in this preview, many of the screenshots in
+  this documentation are out of date.
+</div>
+
 The Modifications section lists protein modifications that have been
 manually curated for protein-coding genes. PomBase will add RNA
 modifications to this section in the future, when relevant data are
