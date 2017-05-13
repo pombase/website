@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
 import { Observable } from 'rxjs/Rx';
-
 import 'rxjs/add/operator/toPromise';
 
 import { TermShort, GeneSummary, GeneQuery, PomBaseResults,
          QueryResultHeader } from './common/pombase-query';
 import { Util } from './util';
+import { getReleaseConfig } from './config';
 
 export class Metadata {
   db_creation_datetime: Date;
@@ -253,7 +251,7 @@ function makeResults(resultsObject: any): PomBaseResults {
 @Injectable()
 export class PombaseAPIService {
 
-  private apiUrl = 'http://pombase2.bioinformatics.nz/api/v1/dataset/latest';
+  private apiUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest';
 
   constructor (private http: Http) {}
 

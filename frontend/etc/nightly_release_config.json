@@ -1,0 +1,5 @@
+{
+  "baseUrl": "http://pombase-preview.babraham.ac.uk",
+  "analyticsId": "UA-98997285-1",
+  "rsyncDest": "babraham-pombase:www-testing"
+}

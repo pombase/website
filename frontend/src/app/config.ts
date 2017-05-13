@@ -1,6 +1,7 @@
 import goXrfConfig from './config/go-xrf-abbr-external-links.json';
 import docConfig from './config/doc-config.json';
 import pombaseConfig from '../../pombase_v2_config.json';
+import releaseConfig from '../../release_config.json';
 
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
@@ -445,4 +446,8 @@ let organismPrefix = {
 
 export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, id: string): string {
   return getGoXrfWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
+}
+
+export function getReleaseConfig(): any {
+  return releaseConfig;
 }
