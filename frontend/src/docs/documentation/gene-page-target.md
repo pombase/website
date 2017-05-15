@@ -14,8 +14,8 @@ substrate of, and regulated by, the kinase Wee1 and the phosphatase
 Cdc25 (among others).
 
 Target Of data are derived by taking the reciprocal of [ontology
-annotation extensions](/faqs/what-annotation-extension) (using [GO
-annotation extensions](/documentation/gene-page-gene-ontology#ann_ext)
+annotation extensions](http://www.pombase.org/faqs/what-annotation-extension) (using [GO
+annotation extensions](documentation/gene-page-gene-ontology#ann_ext)
 at present; soon to be extended to include
 [phenotype](/documentation/gene-page-phenotypes) annotation extensions).
 The table includes:

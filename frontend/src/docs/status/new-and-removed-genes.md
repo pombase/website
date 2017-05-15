@@ -647,7 +647,7 @@
   <td>November 2015</td>
  </tr>
  <tr>
-  <td><a routerLink="/gene/SPAC110.06"> routerLinkActive="active" [attr.title]="'SPAC110.06'"><span class="gene-link">SPAC110.06</span></a></td>
+  <td><a routerLink="/gene/SPAC110.06" routerLinkActive="active" [attr.title]="'SPAC110.06'"><span class="gene-link">SPAC110.06</span></a></td>
   <td>F1F0 ATPase synthase peripheral stalk assembly factor Ina17 (predicted) (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26494834">PMID:26494834</a>)</td>
   <td>November 2015</td>
  </tr>

@@ -22,11 +22,11 @@ Gene Characterisation Status Descriptions
 **Experimentally characterised:** Completely or partially characterised
 in a small scale experiment, with some published information about the
 biological role (corresponding to any of the [fission yeast GO
-slim](/browse-curation/fission-yeast-go-slim-terms) biological process
+slim](browse-curation/fission-yeast-go-slim-terms) biological process
 terms)
 
 **Role inferred from homology:** A biological role (as above, a [fission
-yeast GO slim](/browse-curation/fission-yeast-go-slim-terms) term) is
+yeast GO slim](browse-curation/fission-yeast-go-slim-terms) term) is
 inferred from homology to an experimentally characterised gene product
 
 **Conserved protein (unknown biological role):** Conserved outside the
@@ -45,6 +45,6 @@ species); nothing known about biological role
 **Dubious:** Unlikely to be protein coding
 
 Note: You can retrieve current lists of genes with each characterisation
-status using the [Advanced Search](/spombe/query/builder). Select the
+status using the [Advanced Search](http://www.pombase.org/spombe/query/builder). Select the
 Annotation Status filter, then choose a status from the pulldown menu,
 and submit.

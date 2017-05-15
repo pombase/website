@@ -1,11 +1,7 @@
 # Fission Yeast Community
 
 - [Community curation project](community/fission-yeast-community-curation-project)
+- [Curation pilot project](community/fission-yeast-community-curation-pilot-project)
 - [Mailing lists](community/mailing-lists)
-- Listings on pombase.org
-  - Events - List or Calendar
-  - News Archive
-  - Jobs
-
-- Fission Yeast Internet Resources (External)
+- [External resources](community/internet-resources)
 

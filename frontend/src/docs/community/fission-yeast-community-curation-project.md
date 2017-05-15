@@ -41,5 +41,5 @@ data from annotated papers widely visible.
   via ORCID IDs.
 
 For a bit of historical perspective, you can browse the results of the
-[Community Curation Pilot Project](http://www.pombase.org/community/fission-yeast-community-curation-pilot-project)
+[Community Curation Pilot Project](community/fission-yeast-community-curation-pilot-project)
 that took place in 2009.

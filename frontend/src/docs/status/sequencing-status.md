@@ -44,10 +44,10 @@ Chromosome 3
 \* pers comm. Randy Hyppa and Gerry Smith.\
 \*\* pers comm. Chad Ellermeier and Gerry Smith.
 
-### [Centromere clone information](centromeres)
+### [Centromere clone information](status/centromeres)
 
-### [Telomere clone information](telomeres)
+### [Telomere clone information](status/telomeres)
 
-### [Mating type region information](/status/mating-type-region)
+### [Mating type region information](status/mating-type-region)
 
-### [Ribosomal DNA information (FAQ)](/faqs/are-there-any-rdna-repeat-sequences-pombase)
+### [Ribosomal DNA information (FAQ)](http://www.pombase.org/faqs/are-there-any-rdna-repeat-sequences-pombase)

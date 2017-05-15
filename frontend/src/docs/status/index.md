@@ -4,7 +4,7 @@
 |-------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------|
 | [Genome Statistics](status/statistics)                                              | Latest information on the status of the genome                                                                      |
 | [Sequencing Status](status/sequencing-status)                                       | Contig size, gap status and progress, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
-| [Sequence Updates](status/sequence-updates)                                         | Changes to the genome sequence since 07/03.                                                                         |
+| [Sequence Updates](status/sequencing-updates)                                       | Changes to the genome sequence since 07/03.                                                                         |
 | [Sequence Updates Pending](status/sequence-updates-pending)                         | Pending changes, mainly from the Broad Institute, some supported by data from other sources                         |
 | [Gene Coordinate Changes](status/gene-coordinate-changes)                           | Changes to coordinates of individual genes since publication                                                        |
 | [New and Removed Genes](status/new-and-removed-genes)                               | Genes identified or removed since publication                                                                       |

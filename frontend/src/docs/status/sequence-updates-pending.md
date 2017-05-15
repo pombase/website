@@ -1,0 +1,243 @@
+# Pending sequence updates
+
+Individual sequence updates
+---------------------------
+
+-   Chromosome III: The reference sequence is missing 4 bp -- GATC to be
+    inserted after reference position 17744235. Pers. comm. Nathan Lee
+    (S. Grewal lab), reported 2014-03-31.
+
+Sequence discrepancies from the Broad
+-------------------------------------
+
+As part of a technology development project, the Broad Institute
+generated 200-fold sequence coverage of the genome of *S. pombe* strain
+972 using Illumina (Solexa) technology. This deep coverage was used to
+identify discrepancies between the Illumina read data and the current
+reference assembly of 972, employing a polymorphism discovery algorithm
+written specifically for Illumina data, and tuned to have a very low
+false positive call rate. 190 sequence discrepancies were observed, all
+but two of which were either single base insertions, deletions or
+substitutions. These discrepancies could be due to sequence errors in
+the reference 972 assembly, sequence polymorphisms between the two
+isolates of 972 sequenced, or systematic errors in the Illumina data or
+analysis. Of the 190 discrepancies, 25 occur in homopolymer runs of at
+least 7 nucleotides, which are both more likely to produce sequencing
+errors and inter-strain polymorphisms, and 39 are clustered within 10
+nucleotides of another discrepancy, which is more common in cases of
+mis-alignment of the Illumina reads. Excluding these sites, the
+discrepancy rate is about 1 in 100,000, which is close to the estimated
+error rate in published reference sequence.
+
+The data listed here were updated in August 2008; the original
+coordinates were based on an older assembly and did not match the
+current assembly of the right arm of Chromosome I. One discrepancy is a
+known artifact. At nucleotide 1774235 of Chromosome III there is an
+insertion of GACT caused by an assembly glitch in the published
+reference, which will be corrected in future releases. In addition,
+there are several clusters of discrepancies which are suspicious. These
+discrepancies will be investigated and the discrepancy list updated as
+appropriate. Beyond that analysis, no validation of other discrepancies
+is currently planned. However, we welcome any validation efforts by
+members of the community. If you generate any data pertinent to these
+discrepancies, or if you have any comments about them, please contact
+[Nick Rhind](mailto:nick.rhind@umassmed.edu) or [Valerie
+Wood](mailto:val@sanger.ac.uk). These data can be cited as follows:
+"Data were generated at the Broad Institute. Chad Nusbaum, personal
+communication."
+
+The data can be downloaded as an Excel spreadsheet from the [PomBase ftp
+site](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/972_discrepancies_from_Broad.xls).
+
+  Chromosome   Location   Left                   Sample   Reference   Right                  Clustered?   Homopolymer   Confirmed in
+  ------------ ---------- ---------------------- -------- ----------- ---------------------- ------------ ------------- -----------------------------------------------------------------------------------------------------------------------------------------------
+  I            94353      GTGACAATTGAATTTTTTTT   T                    AAATGTTTCTATATTGTTAA   No           X              
+  I            101872     GAGGACGGGCGTTGGCGGAG   G                    CAACAGCCTTACCCCAGTCA   No                         [PMID:16823372](http://www.ncbi.nlm.nih.gov/pubmed/16823372)
+  I            470379     TGTGATAGACAAAAAAAGAC            C           GTTAAAAGAACCTAAACGAA   No                          
+  I            470390     AAAAAAGACCGTTAAAAGAA            C           CTAAACGAATTGTAATCAGA   No                          
+  I            482738     AGCTATTCGATCCACCGCAG   G                    TTTGTCTGATTTGTTGCCCT   No                          
+  I            523602     ACAATGATACTTACTCCACA   A        G           CGATTCCATTTTCCAAAGAC   No                          
+  I            523882     GTTTCAGCCATTGAAAGATA   A        G           CGATCGTTCTCAGACAAAGA   No                          
+  I            527155     AATCATGGATTTAATACATA   A        C           CTTTTAGTTTGTATGTGATA   No                          
+  I            554538     GAAGATTTATTTTTTTTTTT   T                    GGAATTTATTCTGCTCGGCC   No           X              
+  I            670033     AGAGATTATTATTAAGATCA   A                    CCTAAATATCGTAACGTACG   No                          
+  I            682996     ATAAAACTACTATACTTCCC            C           GCTGGAGCTTCGGTAGGCCG   No                         [PMID:16823372](http://www.ncbi.nlm.nih.gov/pubmed/16823372)
+  I            759333     TGTTCACAGTTTTTCCCAAA   T        G           TTGCTTTTTCTTTTGGCTTA   No                          
+  I            862963     ATTAAATTCTCGAAGTTGCT   TT       G           ATTTTCCAAATCAATTCATG   No                          
+  I            1048646    ACGGAAAAGAAAAAAAAAAA   A                    TCCGCGTTCAGTAGAAGTCA   No           X              
+  I            1274804    GTACTTGAAATTATTTTTTA   A                    TAAAGTGAGAACGCCCAGTT   No                          
+  I            1424708    GTGCTTCATCAGTGACAACC            A           TTTAGAATGGATCTGTATGT   No                          
+  I            1625094    ATCAAATAGTCGATGCCTCC   C                    AGCATCTCAATCTTCAATTC   No                          
+  I            1783457    ACTCTGGGTTCTTCTTATGT   T        C           TGGGACGGTCTTCGGCATAA   No                          
+  I            1936298    ACTCTTAAATTTTAGGAAAA   A                    GACGCTCTTTTATAGTAAGG   No                          
+  I            1952317    TATATGTACGTACATATTTT   T                    GCGCACCAGTTAGTTTGCGA   No                          
+  I            1999191    TTTACCGCTTGACTGTGACC   C        G           TACGACCTAACAATTTATTA   No                         [PMID:18088324](http://www.ncbi.nlm.nih.gov/pubmed/18088324)
+  I            2104090    AAACTGTTGTAAAAAAATTA   T        G           ATTATCGGTGTATTTATTTA   No                          
+  I            2104096    TTGTAAAAAAATTAGATTAT   A        C           GGTGTATTTATTTATATTAG   Yes - 6                     
+  I            2154492    AATTTGTTAAAAAAGGAGTA   A                    GTTTACCTCTCGCTTTATGC   No                          
+  I            2288241    TCTTCATTGTTATTGTTACG            G           ATTCGTCACCCAGTGAAGAT   No                          
+  I            2343704    TGCAAACTCTTTGATCACGA   A                    GTCTACATAATTCTTGAACC   No                          
+  I            2421577    AGCTAAATATAAGAAAAAAC            C           GAGAATTATAAGCAAACGTT   No                          
+  I            2499159    AAAACATCAATTTTTTTTTT            T           GACAGTAATTATACTAGAAT   No           X             [PMID:16823372](http://www.ncbi.nlm.nih.gov/pubmed/16823372)
+  I            2506043    AAATAGTGTCACATTGTTTT   A        T           ATATTAAGTATTTTTAATCG   No                          
+  I            2507463    TTAGGTGTTAAACATAAATA   A                    CTTACGTTTTCATACGCGCA   No                          
+  I            2588024    AAAGAACAGCAAAAAACAAA   A                    GATAATGACAGAAAAAATAT   No                          
+  I            2588072    CTGAGAAAGTTGACAAAAAA   A                    TTTTTGGCGAAAGAAAGAAA   No           X              
+  I            2594264    TAATTTTTAATGAATACTCT   T                    AGGCTTCCTTAAATGTTTTT   No                          
+  I            2594326    TTAAAGCAGTGTCTTATTAA   A                    CATTGTAAACATCAAAAAGC   No                          
+  I            2594351    TAAACATCAAAAAGCTTCAT   A                    AACAGATGTAAGAAATTAAT   No                          
+  I            2594393    AATTAACTTGTGAAGACATT   T                    CGATGTGATTAAAGTATGAA   No                          
+  I            2605763    TGTAAAAAGCATTTGAAATT   A        T           AAAAAGAAAAAACAAAAAAA   No                          
+  I            2605862    AACGTACTGAGGATATCGTT            T           ACCCCTTGCAGAAATATAGA   No                          
+  I            2607673    ATCCATGTCTGTAATATTTT   T                    GGTTATTAATAAATTGAAAT   No                          
+  I            2683903    CAAATATCATCAGTGCGATC            C           AACAGCGGTATTTGTCTGAG   No                          
+  I            2759872    TATCTTCCCACCGTCGTTTC   C                    TATCGGTAGCATATCCGATT   No                          
+  I            3111507    TGCGTTTTCTGTCTGTTGTG   G        A           ATGTCTCGCCTGGACTTCTT   No                          
+  I            3115840    ACAGATAAAGAGAGAAAAGT   A        C           CAAGCGTTTAAGCACCGAAG   No                          
+  I            3119298    AAAATCTTATTGATTGAAAT   A        G           CAATGCTTCGTAAACAATAC   No                          
+  I            3125119    TGCCAAACTCTTTTCTTCAT   T                    ATGTTCTGTTGTGCCAAAGA   No                          
+  I            3178496    TAACTGGCAAATCGGCTCTT   T                    CCCATAAGTAGACGATGATC   No                          
+  I            3179237    TGCTAAAATACAGTTAGTTA   C        G           TACTTGCTCACTTATATTTG   No                          
+  I            3197530    AATACTGCTGGAAATACAGG   G                    TTTGGTTCGCAAGGTACTGG   No                         [DDJB:LC043101](http://getentry.ddbj.nig.ac.jp/getentry/na/LC043101/?format=flatfile&filetype=html&trace=true&show_suppressed=false&limit=10)
+  I            3450130    TTATTATTCCCAGGCACGGG            T           AAGTTCCAAAAATCGAATAT   No                          
+  I            3460320    TTTACAAAGTCGGACAATCC   C                    TGGCGGCGGTGTTCTAAAAA   No                          
+  I            3538415    TAAAGTATCGGAATTACATT   T                    CGTCAAACCAGCGTTTATGA   No                          
+  I            3538428    TTACATTCGTCAAACCAGCG   T                    TTTATGATAAAAGATCATCC   No                          
+  I            3538436    GTCAAACCAGCGTTTATGAT   A                    AAAAGATCATCCTATTCTAA   Yes - 8                     
+  I            3538448    TTTATGATAAAAGATCATCC   T                    TATTCTAATTTTGCTATCGA   No                          
+  I            3538450    TATGATAAAAGATCATCCTA   T                    TTCTAATTTTGCTATCGATA   Yes - 2                     
+  I            3538454    ATAAAAGATCATCCTATTCT   A                    AATTTTGCTATCGATAGCCC   Yes - 4                     
+  I            3538456    AAAAGATCATCCTATTCTAA   T                    TTTTGCTATCGATAGCCCTT   Yes - 2                     
+  I            3583105    TTATAAATTTATAAATGATA   A        G           AAATAAAGTGCAAGAAGAAT   No                          
+  I            3665610    CTAGATTTAACTTTGCAACG   C                    TTTCGCAATCGGTGAACAGC   No                          
+  I            3730377    TGCAACAATTCATTTTTTTT   T                    ACCTAATTTGTTTTCGACAA   No           X              
+  I            3855791    GGCATTTTTCACGTACAGGT            T           AGTCGAAACATTATTAAATA   No                          
+  I            4055068    ATTTAAAAAAAAAAAAAAAA   A                    TTATAAGACATACCCTTTCG   No           X              
+  I            4276903    TAGAATGTTTTTTTTTTTTT   T                    GAGAATATTATTCACACGCC   No           X              
+  I            4304172    TCAAACCTATAAACAGGAAA   A                    GATAAACGAAAATAGAATTA   No                          
+  I            4374343    AGGCTAAGTCTAGGTTGTAG            G           AAAAATCGTTTAGTCTGTAT   No                          
+  I            4375420    GTCTGAAGACTTTACCTTCT   T        A           TCTTTTGTGCTCCTATCAAA   No                          
+  I            4407495    TCTCGTATAAGTTCATCCTG   G                    CGAAGCCGTTGTAGCCTATT   No                          
+  I            4410193    ATCGACACAGATCGCGGCGG            G           AAGAAAAAGCAACTGAAGAT   No                         [PMID:17035632](http://www.ncbi.nlm.nih.gov/pubmed/17035632)
+  I            4431859    ATCGAAACTACGTTGTGAAA   A                    TAACTTAGCAAATATATGGT   No                          
+  I            4431868    ACGTTGTGAAATAACTTAGC   A                    AAATATATGGTAAATAACAC   Yes - 9                     
+  I            4442713    TGGAAGCTGATTTTTTGTTA   A        G           TATGTCGTAAGTTACTGTGT   No                          
+  I            4455162    TAACTAGAAAAAAAAAAAAA   A                    CCAAAGATAAAAAATGAAGT   No           X              
+  I            4721884    AGTAGGAGTAGAAAAAAAAA   A                    TTTTCAGCGCCTCGTCTCCT   No           X              
+  I            4764269    TTTGAAAAAAAAAAAAAAAA   A                    TTTCTACATTTCTTTCTTTA   No           X              
+  I            4919602    GTTTTTTGGGTAAAGATCTA   G        A           AGGGTATATTGCTTTTTTAA   No                          
+  I            5142628    CTGAGGAAGACGTTCCGAAG   G                    TAAAGTGGAAAACGTTAGAG   No                          
+  I            5148423    AATAAAACAGTAAAAAAAAA            A           GATAAAAAGCTGAACAGTAT   No           X              
+  I            5173097    CACAGATAGCTTTTTTTTTT   T                    AACAGGTACTTTATACATGG   No           X              
+  I            5368264    AGTATAGTTGGTCTCCCTCC            C           ATATACGGTTTGGATAAGTT   No                          
+  I            5368273    GGTCTCCCTCCCATATACGG   T                    TTTGGATAAGTTTCGCCTTG   Yes - 9                     
+  I            5400079    TACATTTTAGGATCAGCTCA   T        C           AAGTGTCCCTTTTTACAAGA   No                          
+  II           37049      ATTAATAATATATTTGCTCA   T        A           CCTAGATTTAAAGAATTTAG   No                          
+  II           128007     TCAGAGCAGTCAATAAAAAA            A           TAAAAAATCGAACAAAGGAA   No           X              
+  II           146086     GCCCTCGCTTGTTCCCCCCC            C           TTATCTTACGAGTATATAGC   No           X              
+  II           266717     ATTCATGAGATTCGTACACG   C        A           CCTTACCAAGTCTTGCCAGA   No                          
+  II           266779     TGTTAGGGGTGATATGGGTT   A        T           CGTTTTATCTGGGATCAAGG   No                          
+  II           276538     GACTTTAATTTATTCATGGA   T        A           CCTGAAGCTGCTCAAACTGC   No                          
+  II           685727     ATCTCGCTGCTCAAATGTCA   A        G           ATGCTGATTTTGGCTCCAAT   No                          
+  II           699950     TTTCTTTGAATTTTTTGTTT   G        T           GTATTTTAAATTTATTATCT   No                          
+  II           699951     TTCTTTGAATTTTTTGTTTT   T        G           TATTTTAAATTTATTATCTT   Yes - 1                     
+  II           699960     TTTTTTGTTTTGTATTTTAA   T        A           TTTATTATCTTCCTGTCTTT   Yes - 9                     
+  II           700010     CCTCTATTTTTACAGATTTA            A           CAAGTTTTCAACTTCGAAAC   No                          
+  II           700018     TTTACAGATTTAACAAGTTT   A        T           CAACTTCGAAACCCTAGAAA   Yes - 8                     
+  II           700019     TTACAGATTTAACAAGTTTT   T        C           AACTTCGAAACCCTAGAAAT   Yes - 1                     
+  II           700020     TACAGATTTAACAAGTTTTC   C        A           ACTTCGAAACCCTAGAAATT   Yes - 1                     
+  II           700023     AGATTTAACAAGTTTTCAAC   A        T           TCGAAACCCTAGAAATTTTC   Yes - 3                     
+  II           700027     TTAACAAGTTTTCAACTTCG   T        A           AACCCTAGAAATTTTCATAT   Yes - 4                     
+  II           700112     CTTTATCAAAAGTTATCATT   T        A           AATTGCCCTGCAACCGATAT   No                          
+  II           869805     CTCTTCCAAGTCGGGTTCAT   C        G           ATGCACTAATGAATTGTAGA   No                          
+  II           879032     ACTAGAGAAAGAAAAAAAGT   A        T           ACAGTGGCTGATATTACAAT   No                          
+  II           888600     AAGAAAACTTTTGGTTATAC            C           GAAACTTTGTGTGAAATGTA   No                          
+  II           903106     AGCACAAACAATTCGAACTG   T                    GTGCTAACATCTAATAAAGA   No                          
+  II           923542     TTTAAAAAAATGACAGACGA   A        C           TTAAACTATGTTTTGAAATT   No                          
+  II           943553     AGCAAAGAATGAAGCCCTTA   A        C           ATTTTTGGATAGTTTTAAGA   No                          
+  II           953200     GTCGTTTCGAAGTTTTAGAA   G        A           ATGAAAAAAATTGGGCGTCT   No                          
+  II           967093     GAATTTCCCTTGACTTTTGA   G        A           GGAAGCCATATCTTCGAGTT   No                          
+  II           1155902    CTTGCAAAAACAAAAATATA   A        T           ATCCTTTTTTCTGCTGTAAA   No                          
+  II           1159677    TGAGTTTATTCATGAATTGC   C        G           CGAAAATGAGGGTCCATCCG   No                          
+  II           1159693    TTGCGCGAAAATGAGGGTCC   T        A           TCCGTTCTCTACGATTCTGG   No                          
+  II           1163155    GTATATAAGTAAATAAAAAT            T           AGTATGCTTCTGGTCAACTA   No                          
+  II           1308626    GTTCGGCGAAGGTTTTTTTT            T           GCATTGATCAACAGGTGATG   No           X              
+  II           1672858    GCTTCCGTTTATATACGCGT   T        C           GGACATATAACAATGAACTG   No                          
+  II           1673001    GATGCTCCACCACCTGAAAC   C        G           TTGATGCGTTCATTAGAGTT   No                          
+  II           1678692    TTTGCATTGGCAGCGACGTT   A        T           GTATTTGCCGGCAAGCCCAA   No                          
+  II           1683323    CATTATGGTTGGAAATGATG   G        T           AAACACCGTATACTTAGCTG   No                          
+  II           1697123    AGACTTGTTAATCATGTTAG   T        C           ACCTATGCTTTAATATAATT   No                          
+  II           1716317    TACCGAGAAAACTTTCGTCA   G        A           ATTTTATGGGCCTAATAATA   No                          
+  II           1716319    CCGAGAAAACTTTCGTCAAA   G        T           TTTATGGGCCTAATAATAAT   Yes - 2                     
+  II           1716325    AAACTTTCGTCAAATTTTAT   T        G           GGCCTAATAATAATCTTATG   Yes - 6                     
+  II           1784825    GGCCACATGTCATACATTGA   A        G           TACGACTGCAAAGTTGACCT   No                          
+  II           1849776    TGTCAGAATCATTGTCGAGG   A        G           TTTTGCATATCTCGTAAGCA   No                          
+  II           1861420    GAAAAGCATAAGAAGTTAAT            G           TACATAAAAGCACTTTAAAT   No                          
+  II           1867805    AAAGTACTTATTTTTTTTTT   T                    ACGAATAAAATGTAAAAAAA   No           X              
+  II           1873781    GTGGTTTGTAATATTCCTAA   A                    CCACCCCATTTTTTTCTGGC   No                          
+  II           1877305    ACAGCCCGATTTTTTTTTTT   T                    GTCTCAGTAATTCAAGAGAC   No           X              
+  II           1941966    GATTCACATACCGAAGCGGA   T                    GAAAATTAATAAATCAGAGT   No                          
+  II           1941982    CGGAGAAAATTAATAAATCA   T                    GAGTTTTAACTCAAAGGAAG   No                          
+  II           1948954    CGGCGTTGAAGCGATCTTGA            A           GCGGCCTGGAGTGCGCGAGT   No                          
+  II           1950052    ATGTCGGCATTGCCAGAAGG   G                    TTTTTGCTAGAGGCATAGCT   No                          
+  II           1955509    TTCCTTAAAAAAAAAAAAAA   A                    GAAAGAAAATGAAAACTCAA   No           X              
+  II           1960392    AATTAAATTGTCTAAACGTA   G                    TTCGTTGCTCAAGCTTCCTT   No                          
+  II           1962418    TAAGAGAGAAAACTCGGTGT   A        T           TATTGGAAAAGTGGTACTAA   No                          
+  II           1962438    TTATTGGAAAAGTGGTACTA   G        A           CAAGTGTGGGAAGTATGTTT   No                          
+  II           1962457    AACAAGTGTGGGAAGTATGT   A        T           TGACAGATTCATTACATTAG   No                          
+  II           1987097    AGCTTCGCATAGACATATAC   A        C           AACGGAACGAATGACACCTG   No                          
+  II           1987101    TCGCATAGACATATACCAAC            G           GAACGAATGACACCTGGCAG   Yes - 4                    [PMID:16823372](http://www.ncbi.nlm.nih.gov/pubmed/16823372)
+  II           1987117    CAACGGAACGAATGACACCT            G           GCAGTGAAAATTCCCTTTAT   No                          
+  II           2044928    AATTGACTTATCTATTAATT   T        A           ACTTGATTTTTGTTTGTTAG   No                          
+  II           2049893    GAAACTAGCTCATTATGATT            T           GAAGTTTGTGCCAGATAAAA   No                         [PMID:16823372](http://www.ncbi.nlm.nih.gov/pubmed/16823372)
+  II           2053517    AGTGATTTTCTCAAAAAGGC   C                    TCTGCTACCCGTCATATTGT   No                         [PMID:16823372](http://www.ncbi.nlm.nih.gov/pubmed/16823372)
+  II           2108180    GTAAGATAATAAAGCATAAT   A                    CCAATCTTCTTTGTTTGAAG   No                         [PMID:16823372](http://www.ncbi.nlm.nih.gov/pubmed/16823372)
+  II           2187407    CATTTTTCTTGGTGGGAAGG   A                    CATCAAAAAAATCCCCCTGG   No                          
+  II           2219929    AATTGACTGTTTGGCTGTAT   T                    GGTGATATGCTGAAAGCGAA   No                          
+  II           2228774    AAGACAAGATAAATAATAAG   G        T           TGGAAAAGTATATACCTCTG   No                          
+  II           2228776    GACAAGATAAATAATAAGTT   T        G           GAAAAGTATATACCTCTGTT   Yes - 2                     
+  II           2264919    ATAATAAAAACATTTATTTA   C        A           GTTTTATTTTTGAACTTCTA   No                          
+  II           2293304    ATTTATCACAACGAAAAAAA            A           CTCGTATCACTATAATTTTT   No           X              
+  II           2436579    ACCTTGCAGCCAACTACTTC   G        C           TCACCAATTACAACTTCTGC   No                          
+  II           2444542    GAATAATGCTTCCTACATTG   C        T           TACCGCCTATTTAATTACAA   No                          
+  II           2592434    CCTAAACATAAAAAAAAAAA   A                    CTTACAATCAATGTATATGG   No           X              
+  II           2676335    TTTTACCGGTTCTAAAATAT   T        C           CCAAAGACCTGAAACCCCCA   No                          
+  II           2709415    CGTAGCACAAGGCCGAGAGC   C                    TCTTCTCATAGTGGCTCTTT   No                         pers. comm. D. Bitton
+  II           2788933    ATATTTTGCTGGATTAAAGC   G                    AAATAACTTTTGCGTCAAAC   No                          
+  II           2798041    ACATTCATGGATGAAGACCT            T           GGGAACATGGGAAGGCCTAG   No                          
+  II           2798514    ATTCAGATGTCATGTTCAAA            G           AAAAAGATAGACTATCCTAT   No                          
+  II           2811496    CAGAAAGTACAAAGCAATCA            A           TACAAGAAGAAGAGAATATC   No                          
+  II           2938969    AGGCAACTTTTTTTTTTTTT   T                    AAGGGTTGTAGTATTGTTTA   No           X              
+  II           3006136    GTATTCTATACCTTGGGCAG   T        A           TTCTTCAAGCAATTTGGTCA   No                          
+  II           3040333    ACTCTAGATCTCCGTCTCCG   G                    CTGCACGCCCTATTTCTCGC   No                         [PMID:16823372](http://www.ncbi.nlm.nih.gov/pubmed/16823372)
+  II           3619004    CAACCGAGAAGTCCCGGTAG   G                    TTGCGTCTTTGTATATAAAG   No                          
+  II           3838114    AGACCTCAAAAAAAAAAAAA            A           GCGAAATGCTAACTTCAAAA   No           X              
+  II           4122325    ATCGCTGTTAATGGTGCACA   C        T           ATCCACAACGTGATTGGAAC   No                          
+  II           4254961    TGGCCGGGTTATTCACAAGA            A           TACCTTTTATCCAGCTTGAC   No                          
+  II           4400665    CAAATTAAACAATCCAAACC   C        A           TAAATCGTCACCAGTACTAG   No                          
+  III          227729     TTTCGTGTTCACGAGGAAGA   T        A           CGTTGTTTTTGCACATAATG   No                          
+  III          240810     TGACCATACCATTGGGATGA   A        G           CCTTACTCTTGATTAGCTCG   No                          
+  III          284656     AGTATAACTAGCGCAGTAGG   A        C           AAAACAGAAGATTGTATGAG   No                          
+  III          719956     GTTTAATATATTTAATAAAC            C           TATTTTATTCTATGTCGAGA   No                          
+  III          719970     ATAAACCTATTTTATTCTAT   T        G           TCGAGAGAAGATTGAGATGA   No                          
+  III          719973     AACCTATTTTATTCTATGTC            G           AGAGAAGATTGAGATGATTA   Yes - 3                     
+  III          719975     CCTATTTTATTCTATGTCGA   A        G           AGAAGATTGAGATGATTAAT   Yes - 2                     
+  III          719977     TATTTTATTCTATGTCGAGA   A        G           AAGATTGAGATGATTAATCA   Yes - 2                     
+  III          719978     ATTTTATTCTATGTCGAGAG   T        A           AGATTGAGATGATTAATCAT   Yes - 1                     
+  III          719980     TTTATTCTATGTCGAGAGAA   T        G           ATTGAGATGATTAATCATTC   Yes - 2                     
+  III          719984     TTCTATGTCGAGAGAAGATT   T        G           AGATGATTAATCATTCCCTC   Yes - 4                     
+  III          719986     CTATGTCGAGAGAAGATTGA   T        G           ATGATTAATCATTCCCTCTA   Yes - 2                     
+  III          719987     TATGTCGAGAGAAGATTGAG   T        A           TGATTAATCATTCCCTCTAT   Yes - 1                     
+  III          719989     TGTCGAGAGAAGATTGAGAT   T        G           ATTAATCATTCCCTCTATCT   Yes - 2                     
+  III          719990     GTCGAGAGAAGATTGAGATG   T        A           TTAATCATTCCCTCTATCTA   Yes - 1                     
+  III          720000     GATTGAGATGATTAATCATT   T        C           CCTCTATCTATTGATTGTTT   No                          
+  III          720696     TCCACAATTTTTTTTTTTTT   T                    ACCATCTCCTTTAAATCAAA   No           X              
+  III          867874     CTTTATTTTACTTTTTTTTT            T           ATATTTTTTAAAATATATTC   No           X              
+  III          1016312    TAACAATGAAATAACGAAGC   C                    TTCAGTATAATTAGTTCTAT   No                          
+  III          1168327    TCATAGCCTTTTATTACTAT   C        T           TGGGAAGTCAATTTTTAGTA   No                          
+  III          1374937    AGGTTGTTATGTTTCAGACT   T        A           TGATCATTACGGTGATACTG   No                          
+  III          1685491    GGCCACCACCAAGAAGAAAA   A                    CCAAAGAAAAAGAACAGTCA   No                          
+  III          1756401    AAACCTTTGATGAAAGTTTA            A           TAAAGCTGCCAATGTATATA   No                          
+  III          1765400    TAAATTGCCGTATTATATTG   T        G           TACTATAACGAAATAATTGC   No                          
+  III          1774235    AACATCTTCCAAGTTCTCAT   GATC                 CTTTAAAGATTCCTCAAGGT   No                         [PMID:16823372](http://www.ncbi.nlm.nih.gov/pubmed/16823372)
+  III          2381978    AATTTGATGTCTTAAATTTG   T        G           TGGTTTGCTTGAAGGCATAT   No                          

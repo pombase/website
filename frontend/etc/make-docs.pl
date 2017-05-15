@@ -73,7 +73,7 @@ sub angular_link {
   my $title = shift;
   my $path = shift;
 
-  if ($path =~ /\.png($|\s)/) {
+  if ($path =~ /\.(?:png|gif)($|\s)/) {
     return "[$title]($path)";
   }
 
@@ -99,7 +99,7 @@ sub contents_for_template {
   }
 
   while (my $line = <$file>) {
-    $line =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/e;
+    $line =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
     $line =~ s/,([^ ])/,&#8203;$1/g;
     $line =~ s|(\d\d\d\d-\d\d-\d\d)|<span class="no-break">$1</span>|g;
     $ret .= $line;
