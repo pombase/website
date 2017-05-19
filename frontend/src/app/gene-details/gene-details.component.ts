@@ -26,6 +26,8 @@ export class GeneDetailsComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();
   apiError = null;
   productSize = '';
+  ensemblImageUrl = null;
+  ensemblImage = new Image();
 
   menuPositionFixed = false;
 
@@ -207,6 +209,10 @@ export class GeneDetailsComponent implements OnInit {
           .catch(error => {
             this.apiError = error;
           });
+        // prefetch the image
+        this.ensemblImageUrl =
+          `http://preview.pombase.org/browser_images/${uniquename}_gene.png`;
+        this.ensemblImage.src = this.ensemblImageUrl;
       };
     });
   }
