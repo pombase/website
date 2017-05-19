@@ -65,6 +65,11 @@ PomBase pages, and what you'd most like to see next.
     </ul>
   </div>
   <div class="eg-list">
+    Recently approved community curation
+    <app-reference-short-list *ngIf="recentCommunityCurationPubs"
+                              [references]="recentCommunityCurationPubs"></app-reference-short-list>
+  </div>
+  <div class="eg-list">
     PomBase 2017 infographic
     <div>
       <a href="http://pombase-preview.babraham.ac.uk/media/pombase-2017-infographic.png">

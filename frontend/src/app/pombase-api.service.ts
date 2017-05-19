@@ -16,6 +16,12 @@ export class Metadata {
   term_count: number;
 }
 
+export class RecentReferences {
+  pubmed: Array<ReferenceShort>;
+  admin_curated: Array<ReferenceShort>;
+  community_curated: Array<ReferenceShort>;
+}
+
 export interface ReferenceShort {
   title: string;
   uniquename: string;
@@ -580,6 +586,13 @@ export class PombaseAPIService {
     return this.http.get(this.apiUrl + '/data/metadata')
       .toPromise()
       .then(response => response.json() as Metadata)
+      .catch(this.handleError);
+  }
+
+  getRecentReferences(): Promise<RecentReferences> {
+    return this.http.get(this.apiUrl + '/data/recent_references')
+      .toPromise()
+      .then(response => response.json() as RecentReferences)
       .catch(this.handleError);
   }
 

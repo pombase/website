@@ -12,6 +12,7 @@ export class FrontComponent implements OnInit {
 
   imageNames = ['Slide1.png', 'Slide2.png', 'Slide3.png'];
   rightImageName = this.imageNames[0];
+  recentCommunityCurationPubs = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
@@ -20,6 +21,10 @@ export class FrontComponent implements OnInit {
     this.pombaseApiService.getMetadata()
       .then(metadata => {
         this.metadata = metadata;
+      });
+    this.pombaseApiService.getRecentReferences()
+      .then(recentReferences => {
+        this.recentCommunityCurationPubs = recentReferences.community_curated.splice(0, 8);
       });
   }
 }

@@ -61,6 +61,7 @@ import { ExternalLinkComponent } from './external-link/external-link.component';
 import { ApiErrorDisplayComponent } from './api-error-display/api-error-display.component';
 import { ContactEmailComponent } from './contact-email/contact-email.component';
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
+import { ReferenceShortListComponent } from './reference-short-list/reference-short-list.component';
 
 export function documentFactory() {
     return document;
@@ -122,6 +123,7 @@ export function windowFactory() {
     ApiErrorDisplayComponent,
     ContactEmailComponent,
     GoSlimTableComponent,
+    ReferenceShortListComponent,
   ],
   imports: [
     BrowserModule,
