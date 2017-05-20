@@ -64,7 +64,7 @@ export class GeneDetailsComponent implements OnInit {
     } else {
       ret += location.start_pos + '-' + location.end_pos;
     }
-    ret += ' (' + (location.end_pos - location.start_pos) + 'nt)';
+    ret += ' (' + (location.end_pos - location.start_pos + 1) + 'nt)';
     return ret;
   }
 
