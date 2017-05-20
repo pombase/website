@@ -27,6 +27,10 @@ export interface ExternalLinks {
   [name: string]: string;
 }
 
+export interface ChromosomeConfig {
+  display_name: string;
+}
+
 export interface AppConfig {
   organism: {
     genus: string,
@@ -39,6 +43,9 @@ export interface AppConfig {
   externalGeneReferences: Array<ExternalGeneReference>;
   goSlimTerms: Array<TermAndName>;
   miscExternalLinks: ExternalLinks;
+  chromosomes: {
+    [identifier: string]: ChromosomeConfig;
+  };
   documentation: Array<string>;
 
   // return true iff the genus and species match the configured organism
@@ -384,6 +391,7 @@ let _appConfig: AppConfig = {
   externalGeneReferences: pombaseConfig.external_gene_references,
   goSlimTerms: pombaseConfig.go_slim_terms,
   miscExternalLinks: pombaseConfig.misc_external_links,
+  chromosomes: pombaseConfig.chromosomes,
   documentation: docConfig,
 
   isConfigOrganism(genus: string, species: string): boolean {

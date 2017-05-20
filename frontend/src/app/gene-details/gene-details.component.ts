@@ -19,7 +19,6 @@ export class GeneDetailsComponent implements OnInit {
   synonymsDisplay = '';
   displayFeatureType = '';
   displayLocation = '';
-  shortChromosomeName = '';
   annotationTypeNames: Array<string> = [];
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
@@ -54,29 +53,12 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   makeDisplayLocation(location: ChromosomeLocation): string {
-    let chromosome_name = location.chromosome_name;
-    let matches = chromosome_name.match(/chromosome_(\d+)/);
-    this.shortChromosomeName = '';
-    if (matches) {
-      chromosome_name = 'Chromosome ';
-      for (let i = 0; i < +matches[1]; i++) {
-        this.shortChromosomeName += 'I';
-      }
-      chromosome_name += this.shortChromosomeName;
-    } else {
-      if (chromosome_name === 'mating_type_region') {
-        chromosome_name = 'Mating type region';
-        this.shortChromosomeName = 'MTR';
-      } else {
-        if (chromosome_name === 'MISPCG') {
-          chromosome_name = 'Mitochondria';
-          this.shortChromosomeName = 'MT';
-        } else {
-          this.shortChromosomeName = chromosome_name;
-        }
-      }
-    }
-    let ret = chromosome_name + ', ';
+    let chromosomeName = location.chromosome_name;
+    let chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
+
+    let displayName = chromosomeConfig.display_name || chromosomeName;
+
+    let ret = displayName + ', ';
     if (location.strand === 'reverse') {
       ret += location.end_pos + '-' + location.start_pos;
     } else {
