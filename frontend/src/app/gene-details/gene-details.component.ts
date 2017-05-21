@@ -53,7 +53,7 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   makeDisplayLocation(location: ChromosomeLocation): string {
-    let chromosomeName = location.chromosome_name;
+    let chromosomeName = location.chromosome.name;
     let chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
 
     let displayName = chromosomeConfig.display_name || chromosomeName;

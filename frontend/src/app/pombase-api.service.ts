@@ -6,7 +6,8 @@ import 'rxjs/add/operator/toPromise';
 import { TermShort, GeneSummary, GeneQuery, PomBaseResults,
          QueryResultHeader } from './common/pombase-query';
 import { Util } from './util';
-import { getReleaseConfig } from './config';
+import { Seq } from './seq';
+import { getReleaseConfig, getAppConfig } from './config';
 
 export class Metadata {
   db_creation_datetime: Date;
@@ -145,8 +146,14 @@ export interface TargetOfAnnotation {
   genotype_uniquename: string;
 }
 
+export interface ChromosomeShort {
+  name: string;
+  length: number;
+  ena_identifier: string;
+}
+
 export interface ChromosomeLocation {
-  chromosome_name: string;
+  chromosome: ChromosomeShort;
   start_pos: number;
   end_pos: number;
   strand: string;
@@ -258,6 +265,10 @@ function makeResults(resultsObject: any): PomBaseResults {
 export class PombaseAPIService {
 
   private apiUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest';
+
+  seqPromises: {
+    [chrName: string]: Array<Promise<Seq>>;
+  } = {};
 
   constructor (private http: Http) {}
 
@@ -601,6 +612,37 @@ export class PombaseAPIService {
       .toPromise()
       .then(response => response.json() as Array<GeneSummary>)
       .catch(this.handleError);
+  }
+
+  getChunkPromise(chromosomeName: string, chunkId: number): Promise<Seq> {
+    let chunkSize = getAppConfig().apiSeqChunkSize;
+    return this.http.get(this.apiUrl + '/data/chromosome/' + chromosomeName +
+                         '/sequence/' + chunkSize + '/chunk_' + chunkId)
+      .toPromise()
+      .then(response => new Seq(response.text()))
+      .catch(this.handleError);
+  }
+
+  getChrSubSequence(chromosome: ChromosomeShort, start: number, end: number): Promise<string> {
+    let chunkSize = getAppConfig().apiSeqChunkSize;
+    let startChunk = Math.floor((start - 1) / chunkSize);
+    let endChunk = Math.floor((end - 1) / chunkSize);
+
+    let promises = [];
+
+    for (let chunkId = startChunk; chunkId < endChunk + 1; chunkId++) {
+      promises[chunkId - startChunk] = this.getChunkPromise(chromosome.name, chunkId);
+    }
+
+    return Promise.all(promises)
+      .then(values => {
+        let chunksResidues = values.map(seq => seq.residues).join('');
+
+        let startInChunk = start - 1 - startChunk * chunkSize;
+        let endInChunk = end - startChunk * chunkSize;
+
+        return chunksResidues.slice(startInChunk, endInChunk);
+      });
   }
 
   getTermByNameFuzzy(cvName: string, queryText: string): Observable<TermShort[]> {

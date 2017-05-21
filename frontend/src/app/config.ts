@@ -36,7 +36,7 @@ export interface AppConfig {
     genus: string,
     species: string,
   };
-
+  apiSeqChunkSize: number;
   termPageConfig: TermPageConfig;
   linkoutConfig: LinkoutConfig;
   evidenceTypes: EvidenceConfig;
@@ -285,7 +285,7 @@ let _appConfig: AppConfig = {
     genus: 'Schizosaccharomyces',
     species: 'pombe',
   },
-
+  apiSeqChunkSize: pombaseConfig.api_seq_chunk_size,
   termPageConfig: {
     ancestorRelNames: ['is_a', 'part_of', 'regulates'],
   },
