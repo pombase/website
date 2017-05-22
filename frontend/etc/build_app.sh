@@ -45,6 +45,9 @@ etc/make-link-js.pl /var/pomcur/sources/go-svn/doc/GO.xrf_abbs $ABBREVS > src/ap
 
 (cd src/docs; ../../etc/make-docs.pl `find ./ -name '*.md'` > ../app/docs/docs.component.html)
 
-ng build --env=prod --target=production
+if [ $rsync_dest != 'NONE' ]
+then
+    ng build --env=prod --target=production
 
-rsync --exclude '*~' -cavPHS dist/ $rsync_dest/
+    rsync --exclude '*~' -cavPHS dist/ $rsync_dest/
+fi
