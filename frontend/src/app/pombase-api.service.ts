@@ -180,10 +180,18 @@ export interface ProteinDetails {
   molecular_weight: number;
 }
 
+export interface FeatureShort {
+  feature_type: string;
+  uniquename: string;
+  location: ChromosomeLocation;
+  residues: string;
+}
+
 export interface TranscriptDetails {
-  uniquename: String;
-  sequence: String;
-  transcript_type: String;
+  uniquename: string;
+  parts: Array<FeatureShort>;
+  sequence: string;
+  transcript_type: string;
   protein?: ProteinDetails;
 }
 
@@ -455,8 +463,17 @@ export class PombaseAPIService {
   processGeneResponse(response: Response): GeneDetails {
     let json = response.json();
 
-    if (!json['transcripts']) {
-      json['transcripts'] = [];
+    if (json.transcripts) {
+      for (let transcript of json.transcript) {
+        transcript.sequence = '';
+        for (let part of transcript.parts) {
+          if (part.feature_type === 'exon') {
+            transcript.sequence += part.residues;
+          }
+        }
+      }
+    } else {
+      json.transcripts = [];
     }
 
     let genesByUniquename = json.genes_by_uniquename;
