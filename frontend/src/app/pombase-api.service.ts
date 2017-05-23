@@ -279,8 +279,8 @@ export class PombaseAPIService {
 
   private apiUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest';
 
-  seqPromises: {
-    [chrName: string]: Array<Promise<Seq>>;
+  chunkPromises: {
+    [key: string]: Promise<Seq>;
   } = {};
 
   constructor (private http: Http) {}
@@ -637,12 +637,21 @@ export class PombaseAPIService {
   }
 
   getChunkPromise(chromosomeName: string, chunkId: number): Promise<Seq> {
+    let key = chromosomeName + '-' + chunkId;
+
+    if (this.chunkPromises[key]) {
+      return this.chunkPromises[key];
+    }
+
     let chunkSize = getAppConfig().apiSeqChunkSize;
-    return this.http.get(this.apiUrl + '/data/chromosome/' + chromosomeName +
-                         '/sequence/' + chunkSize + '/chunk_' + chunkId)
+    let chunkPromise =
+      this.http.get(this.apiUrl + '/data/chromosome/' + chromosomeName +
+                    '/sequence/' + chunkSize + '/chunk_' + chunkId)
       .toPromise()
       .then(response => new Seq(response.text()))
       .catch(this.handleError);
+    this.chunkPromises[key] = chunkPromise;
+    return chunkPromise;
   }
 
   getChrSubSequence(chromosome: ChromosomeShort, start: number, end: number,

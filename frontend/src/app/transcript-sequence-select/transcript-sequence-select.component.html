@@ -52,9 +52,14 @@
           <button (click)="download()">Download sequence</button>
         </div>
         <div class="sequence">
-          <pre>
+          <pre *ngIf="sequence">
+>{{sequenceHeader}}
 {{sequence}}
           </pre>
+          <div *ngIf="sequence != null && sequence == ''">
+            (No sequence selected)
+          </div>
+          <app-loading-spinner *ngIf="sequence == null"></app-loading-spinner>
         </div>
       </div>
       <a *ngIf="!sequenceVisible" (click)="showSequence()">Show sequence ...</a>

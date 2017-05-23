@@ -99,7 +99,7 @@ export class Util {
 
     return seq.split('').reverse().map(base => {
       return base.replace(/([agct])/i, function ($0) {
-        return lookup[$0];
+        return lookup[$0] || 'N';
       });
     }).join('');
   }

@@ -15,6 +15,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   sequenceVisible = false;
   sequence = '';
+  sequenceDescription = '';
+  sequenceHeader = '';
   hasTranscripts = false;
 
   showTranslation = false;
@@ -32,8 +34,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.hasTranscripts = transcripts.length > 0;
 
     if (this.hasTranscripts) {
-      let sequence = '';
-
       if (this.upstreamBases < 0) {
         this.upstreamBases = 0;
       }
@@ -43,8 +43,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       }
 
       if (this.showTranslation) {
-        sequence = transcripts[0].protein.sequence;
+        this.sequence = Util.splitSequenceString(transcripts[0].protein.sequence);
       } else {
+        this.sequence = null;
+
         let geneLocation = this.geneDetails.location;
         let strand;
         if (geneLocation.strand === 'forward') {
@@ -79,7 +81,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
         Promise.all([upstreamPromise, downstreamPromise])
           .then((values) => {
-            sequence += values[0];
+            let sequence = values[0];
             for (let part of transcripts[0].parts) {
               if (part.feature_type === 'exon' && this.includeExons ||
                   part.feature_type === 'intron' && this.includeIntrons ||
@@ -92,22 +94,17 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
             this.sequence = Util.splitSequenceString(sequence);
           })
-          .catch(() => { this.sequence = ''; });
+          .catch((e) => {
+            this.sequence = '';
+          });
       }
     }
   }
 
   download() {
-    let fileName = this.geneDetails.uniquename;
-    if (this.showTranslation) {
-      fileName += '-peptide-sequence';
-    } else {
-      fileName += '-transcript-sequence';
-    }
-
-    fileName += '.fasta';
-
-    saveAs(new Blob([this.sequence], { type: 'text' }), fileName);
+    let fileName = this.sequenceDescription + '.fasta';
+    saveAs(new Blob([this.sequenceHeader + '\n' + this.sequence],
+                    { type: 'text' }), fileName);
   }
 
   showSequence() {
@@ -119,6 +116,14 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   ngOnChanges() {
+    this.sequenceDescription = this.geneDetails.uniquename;
+    if (this.showTranslation) {
+      this.sequenceDescription += '-peptide-sequence';
+    } else {
+      this.sequenceDescription += '-transcript-sequence';
+    }
+    this.sequenceHeader = this.sequenceDescription;
+
     this.updateSequence();
   }
 }

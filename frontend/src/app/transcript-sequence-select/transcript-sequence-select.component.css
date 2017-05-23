@@ -4,6 +4,10 @@
   vertical-align: top;
 }
 
+.sequence pre {
+  max-height: 800px;
+}
+
 .exon {
 
 }
