@@ -9,6 +9,11 @@ import { Util } from './util';
 import { Seq } from './seq';
 import { getReleaseConfig, getAppConfig } from './config';
 
+export enum Strand {
+  Forward,
+  Reverse,
+}
+
 export class Metadata {
   db_creation_datetime: Date;
   export_prog_name: string;
@@ -640,7 +645,8 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
-  getChrSubSequence(chromosome: ChromosomeShort, start: number, end: number): Promise<string> {
+  getChrSubSequence(chromosome: ChromosomeShort, start: number, end: number,
+                    strand: Strand): Promise<string> {
     let chunkSize = getAppConfig().apiSeqChunkSize;
     let startChunk = Math.floor((start - 1) / chunkSize);
     let endChunk = Math.floor((end - 1) / chunkSize);
@@ -658,7 +664,12 @@ export class PombaseAPIService {
         let startInChunk = start - 1 - startChunk * chunkSize;
         let endInChunk = end - startChunk * chunkSize;
 
-        return chunksResidues.slice(startInChunk, endInChunk);
+        let retResidues = chunksResidues.slice(startInChunk, endInChunk);
+        if (strand === Strand.Reverse) {
+          return Util.reverseComplement(retResidues);
+        } else {
+          return retResidues;
+        }
       });
   }
 

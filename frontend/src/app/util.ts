@@ -93,4 +93,14 @@ export class Util {
   static splitSequenceString(seq: string): string {
     return seq.replace(/(.{60})/g, '$1\n');
   }
+
+  static reverseComplement(seq: string): string {
+    let lookup = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'};
+
+    return seq.split('').reverse().map(base => {
+      return base.replace(/([agct])/i, function ($0) {
+        return lookup[$0];
+      });
+    }).join('');
+  }
 }
