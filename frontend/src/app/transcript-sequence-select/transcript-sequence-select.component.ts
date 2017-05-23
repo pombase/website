@@ -35,14 +35,14 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       if (this.showTranslation) {
         sequence = transcripts[0].protein.sequence;
       } else {
-      for (let part of transcripts[0].parts) {
-        if (part.feature_type === 'exon' && this.includeExons ||
-            part.feature_type === 'intron' && this.includeIntrons ||
-            part.feature_type === 'five_prime_utr' && this.include5PrimeUtr ||
-            part.feature_type === 'three_prime_utr' && this.include3PrimeUtr) {
-          sequence += part.residues;
+        for (let part of transcripts[0].parts) {
+          if (part.feature_type === 'exon' && this.includeExons ||
+              part.feature_type === 'intron' && this.includeIntrons ||
+              part.feature_type === 'five_prime_utr' && this.include5PrimeUtr ||
+              part.feature_type === 'three_prime_utr' && this.include3PrimeUtr) {
+            sequence += part.residues;
+          }
         }
-      }
       }
 
       this.sequence = Util.splitSequenceString(sequence);
