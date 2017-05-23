@@ -1,0 +1,41 @@
+<fieldset class="annotation-table external-references">
+  <legend>
+    Sequence
+  </legend>
+  <div>
+    <div *ngIf="hasTranscripts">
+      <div *ngIf="sequenceVisible">
+        <div class="controls">
+          <a (click)="hideSequence()">Hide sequence ...</a>
+          <br/>
+          <input id="include-exons" type="checkbox" [(ngModel)]="includeExons"
+                 (ngModelChange)="updateSequence()"/>
+          <label for="include-exons">Include exons</label>
+          <br/>
+          <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
+                 (ngModelChange)="updateSequence()"/>
+          <label for="include-introns">Include introns</label>
+          <br/>
+          <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
+                 (ngModelChange)="updateSequence()"/>
+          <label for="include-5-prime">Include 5'UTR</label>
+          <br/>
+          <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
+                 (ngModelChange)="updateSequence()"/>
+          <label for="include-3-prime">Include 3'UTR</label>
+          <br/>
+          <button (click)="download()">Download sequence</button>
+        </div>
+        <div class="sequence">
+          <pre>
+{{sequence}}
+          </pre>
+        </div>
+      </div>
+      <a *ngIf="!sequenceVisible" (click)="showSequence()">Show sequence ...</a>
+    </div>
+    <div *ngIf="!hasTranscripts">
+      This gene has no transcripts available
+    </div>
+  </div>
+</fieldset>

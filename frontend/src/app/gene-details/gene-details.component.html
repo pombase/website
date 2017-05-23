@@ -119,6 +119,9 @@
                                       [annotationTable]="geneDetails.target_of_annotations"></app-target-of-annotation-table>
     </div>
 
+    <app-transcript-sequence-select id="transcript-sequence"
+                                    [geneDetails]="geneDetails"></app-transcript-sequence-select>
+
     <app-gene-external-references id="external-refs"
                                   [geneDetails]="geneDetails"></app-gene-external-references>
 

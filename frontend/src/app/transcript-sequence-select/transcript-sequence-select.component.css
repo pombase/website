@@ -1,0 +1,5 @@
+.controls, .sequence {
+  width: 40%;
+  display: inline-block;
+  vertical-align: top;
+}

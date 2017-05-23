@@ -90,4 +90,7 @@ export class Util {
     return `${name}(${description})`;
   }
 
+  static splitSequenceString(seq: string): string {
+    return seq.replace(/(.{60})/g, '$1\n');
+  }
 }

@@ -62,6 +62,7 @@ import { ApiErrorDisplayComponent } from './api-error-display/api-error-display.
 import { ContactEmailComponent } from './contact-email/contact-email.component';
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ReferenceShortListComponent } from './reference-short-list/reference-short-list.component';
+import { TranscriptSequenceSelectComponent } from './transcript-sequence-select/transcript-sequence-select.component';
 
 export function documentFactory() {
     return document;
@@ -124,6 +125,7 @@ export function windowFactory() {
     ContactEmailComponent,
     GoSlimTableComponent,
     ReferenceShortListComponent,
+    TranscriptSequenceSelectComponent,
   ],
   imports: [
     BrowserModule,
