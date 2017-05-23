@@ -464,7 +464,7 @@ export class PombaseAPIService {
     let json = response.json();
 
     if (json.transcripts) {
-      for (let transcript of json.transcript) {
+      for (let transcript of json.transcripts) {
         transcript.sequence = '';
         for (let part of transcript.parts) {
           if (part.feature_type === 'exon') {
