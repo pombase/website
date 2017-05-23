@@ -16,21 +16,21 @@
           <div *ngIf="showTranslation">
           </div>
           <div *ngIf="!showTranslation">
-          <input id="include-exons" type="checkbox" [(ngModel)]="includeExons"
-                 (ngModelChange)="updateSequence()"/>
-          <label for="include-exons">Include exons</label>
-          <br/>
-          <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
-                 (ngModelChange)="updateSequence()"/>
-          <label for="include-introns">Include introns</label>
-          <br/>
-          <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
-                 (ngModelChange)="updateSequence()"/>
-          <label for="include-5-prime">Include 5'UTR</label>
-          <br/>
-          <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
-                 (ngModelChange)="updateSequence()"/>
-          <label for="include-3-prime">Include 3'UTR</label>
+            <input id="include-exons" type="checkbox" [(ngModel)]="includeExons"
+                   (ngModelChange)="updateSequence()"/>
+            <label for="include-exons">Include exons</label>
+            <br/>
+            <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
+                   (ngModelChange)="updateSequence()"/>
+            <label for="include-introns">Include introns</label>
+            <br/>
+            <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
+                   (ngModelChange)="updateSequence()"/>
+            <label for="include-5-prime">Include 5'UTR</label>
+            <br/>
+            <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
+                   (ngModelChange)="updateSequence()"/>
+            <label for="include-3-prime">Include 3'UTR</label>
           </div>
           <br/>
 
