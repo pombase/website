@@ -1,7 +1,14 @@
 .controls, .sequence {
-  width: 40%;
   display: inline-block;
   vertical-align: top;
+}
+
+.controls {
+  width: 40%;
+}
+
+.sequence {
+  width: 59%;
 }
 
 .sequence pre {
