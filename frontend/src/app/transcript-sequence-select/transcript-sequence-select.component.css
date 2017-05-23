@@ -3,3 +3,15 @@
   display: inline-block;
   vertical-align: top;
 }
+
+.exon {
+
+}
+
+.intron {
+  background-color: #ddf;
+}
+
+.utr {
+  background-color: #ccc;
+}
