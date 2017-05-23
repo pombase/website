@@ -175,8 +175,8 @@ export interface SynonymDetails {
 }
 
 export interface ProteinDetails {
-  uniquename: String;
-  sequence: String;
+  uniquename: string;
+  sequence: string;
   molecular_weight: number;
 }
 

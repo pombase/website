@@ -17,6 +17,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   sequence = '';
   hasTranscripts = false;
 
+  showTranslation = false;
   includeExons = true;
   includeIntrons = false;
   include5PrimeUtr = false;
@@ -31,6 +32,9 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     if (this.hasTranscripts) {
       let sequence = '';
 
+      if (this.showTranslation) {
+        sequence = transcripts[0].protein.sequence;
+      } else {
       for (let part of transcripts[0].parts) {
         if (part.feature_type === 'exon' && this.includeExons ||
             part.feature_type === 'intron' && this.includeIntrons ||
@@ -38,6 +42,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
             part.feature_type === 'three_prime_utr' && this.include3PrimeUtr) {
           sequence += part.residues;
         }
+      }
       }
 
       this.sequence = Util.splitSequenceString(sequence);
@@ -47,8 +52,16 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   download() {
-    saveAs(new Blob([this.sequence], { type: 'text' }),
-           this.geneDetails.uniquename + '-transcript-sequence.fasta');
+    let fileName = this.geneDetails.uniquename;
+    if (this.showTranslation) {
+      fileName += '-peptide-sequence';
+    } else {
+      fileName += '-transcript-sequence';
+    }
+
+    fileName += '.fasta';
+
+    saveAs(new Blob([this.sequence], { type: 'text' }), fileName);
   }
 
   showSequence() {

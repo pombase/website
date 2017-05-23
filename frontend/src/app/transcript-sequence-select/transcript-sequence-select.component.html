@@ -8,6 +8,14 @@
         <div class="controls">
           <a (click)="hideSequence()">Hide sequence ...</a>
           <br/>
+          <input id="show-translation" type="checkbox" [(ngModel)]="showTranslation"
+                 (ngModelChange)="updateSequence()"/>
+          <label for="show-translation">Show translation</label>
+          <br/>
+          <br/>
+          <div *ngIf="showTranslation">
+          </div>
+          <div *ngIf="!showTranslation">
           <input id="include-exons" type="checkbox" [(ngModel)]="includeExons"
                  (ngModelChange)="updateSequence()"/>
           <label for="include-exons">Include exons</label>
@@ -23,7 +31,9 @@
           <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
                  (ngModelChange)="updateSequence()"/>
           <label for="include-3-prime">Include 3'UTR</label>
+          </div>
           <br/>
+
           <button (click)="download()">Download sequence</button>
         </div>
         <div class="sequence">
