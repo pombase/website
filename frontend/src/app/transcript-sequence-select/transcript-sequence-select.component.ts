@@ -27,7 +27,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   upstreamBases = 0;
   downstreamBases = 0;
 
-  constructor(private pombaseApiService: PombaseAPIService) { }
+  constructor(private apiService: PombaseAPIService) { }
 
   updateHeader(sequence: string) {
     this.sequenceHeader = this.sequenceDescription;
@@ -98,7 +98,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
              [geneStart - this.upstreamBases, geneStart - 1] :
              [geneEnd + 1, geneEnd + this.upstreamBases];
           upstreamPromise =
-            this.pombaseApiService.getChrSubSequence(chrName, upstreamStart, upstreamEnd,
+            this.apiService.getChrSubSequence(chrName, upstreamStart, upstreamEnd,
                                                      strand);
         } else {
           upstreamPromise = Promise.resolve('');
@@ -109,7 +109,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
              [geneEnd + 1, geneEnd + this.downstreamBases] :
              [geneStart - this.downstreamBases, geneStart - 1];
           downstreamPromise =
-            this.pombaseApiService.getChrSubSequence(chrName, downstreamStart, downstreamEnd,
+            this.apiService.getChrSubSequence(chrName, downstreamStart, downstreamEnd,
                                                      strand);
         } else {
           downstreamPromise = Promise.resolve('');
@@ -155,7 +155,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   prefetch() {
     let geneLocation = this.geneDetails.location;
-    let chrName = geneLocation.chromosome;
     let strand;
     if (geneLocation.strand === 'forward') {
       strand = Strand.Forward;
@@ -163,8 +162,9 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       strand = Strand.Reverse;
     }
 
-    this.pombaseApiService.getChrSubSequence(chrName, geneLocation.start_pos - 2000,
-                                             geneLocation.end_pos + 2000, strand);
+    this.apiService.getChrSubSequence(geneLocation.chromosome,
+                                      geneLocation.start_pos - 2000,
+                                      geneLocation.end_pos + 2000, strand);
   }
 
   ngOnChanges() {
