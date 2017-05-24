@@ -32,5 +32,5 @@ Submit Data
 Receive Project Updates
 -----------------------
 
--   Subscribe to [Pombelist](about/pombe-mailing-list) to receive
+-   Subscribe to [Pombelist](http://listserver.ebi.ac.uk/mailman/listinfo/pombelist) to receive
     annotation and data updates
