@@ -29,11 +29,42 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
+  updateHeader(sequence: string) {
+    this.sequenceHeader = this.sequenceDescription;
+
+    if (sequence) {
+      this.sequenceHeader += ' length:' + sequence.length;
+
+      if (!this.showTranslation) {
+        let partsFlags = [];
+        if (this.include5PrimeUtr) {
+          partsFlags.push('5\'UTR');
+        }
+        if (this.includeExons) {
+          partsFlags.push('exons');
+        }
+        if (this.includeIntrons) {
+          partsFlags.push('introns');
+        }
+        if (this.include3PrimeUtr) {
+          partsFlags.push('3\'UTR');
+        }
+        if (partsFlags.length > 0) {
+          this.sequenceHeader += ' includes:' + partsFlags.join('+');
+        }
+        this.sequenceHeader +=
+          (this.upstreamBases > 0 ? ' upstream:' + this.upstreamBases : '') +
+          (this.downstreamBases > 0 ? ' downstream:' + this.downstreamBases : '');
+      }
+    }
+  }
+
   updateSequence() {
     let transcripts = this.geneDetails.transcripts;
     this.hasTranscripts = transcripts.length > 0;
 
     if (this.hasTranscripts) {
+      this.sequenceHeader = this.sequenceDescription;
       if (this.upstreamBases < 0) {
         this.upstreamBases = 0;
       }
@@ -43,6 +74,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       }
 
       if (this.showTranslation) {
+        this.updateHeader(this.sequence);
         this.sequence = Util.splitSequenceString(transcripts[0].protein.sequence);
       } else {
         this.sequence = null;
@@ -96,6 +128,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
             }
             sequence += values[1];
 
+            this.updateHeader(sequence);
+
             this.sequence = Util.splitSequenceString(sequence);
           })
           .catch((e) => {
@@ -129,7 +163,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     } else {
       this.sequenceDescription += '-transcript-sequence';
     }
-    this.sequenceHeader = this.sequenceDescription;
 
     this.updateSequence();
   }
