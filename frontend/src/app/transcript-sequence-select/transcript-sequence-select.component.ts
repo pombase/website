@@ -153,9 +153,25 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.sequenceVisible = false;
   }
 
+  prefetch() {
+    let geneLocation = this.geneDetails.location;
+    let chrName = geneLocation.chromosome;
+    let strand;
+    if (geneLocation.strand === 'forward') {
+      strand = Strand.Forward;
+    } else {
+      strand = Strand.Reverse;
+    }
+
+    this.pombaseApiService.getChrSubSequence(chrName, geneLocation.start_pos - 2000,
+                                             geneLocation.end_pos + 2000, strand);
+  }
+
   ngOnChanges() {
     this.upstreamBases = 0;
     this.downstreamBases = 0;
+
+    this.prefetch();
 
     this.sequenceDescription = this.geneDetails.uniquename;
     if (this.showTranslation) {
