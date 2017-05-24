@@ -61,8 +61,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         let downstreamPromise;
 
         if (this.upstreamBases > 0) {
-          let upstreamStart = geneStart - this.upstreamBases;
-          let upstreamEnd = geneStart - 1;
+          let [upstreamStart, upstreamEnd] =
+            strand === Strand.Forward ?
+             [geneStart - this.upstreamBases, geneStart - 1] :
+             [geneEnd + 1, geneEnd + this.upstreamBases];
           upstreamPromise =
             this.pombaseApiService.getChrSubSequence(chrName, upstreamStart, upstreamEnd,
                                                      strand);
@@ -70,8 +72,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
           upstreamPromise = Promise.resolve('');
         }
         if (this.downstreamBases > 0) {
-          let downstreamStart = geneEnd + 1;
-          let downstreamEnd = geneEnd + this.downstreamBases;
+          let [downstreamStart, downstreamEnd] =
+            strand === Strand.Forward ?
+             [geneEnd + 1, geneEnd + this.downstreamBases] :
+             [geneStart - this.downstreamBases, geneStart - 1];
           downstreamPromise =
             this.pombaseApiService.getChrSubSequence(chrName, downstreamStart, downstreamEnd,
                                                      strand);
