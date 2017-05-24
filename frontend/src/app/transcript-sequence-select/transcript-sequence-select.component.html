@@ -17,10 +17,10 @@
           </div>
           <div *ngIf="!showTranslation">
             <div>
-              Include:
-              <input id="upstream-bases" type="number" [(ngModel)]="upstreamBases"
-                     (ngModelChange)="updateSequence()"/>
-              <label for="upstream-bases">Bases upstream of UTR</label>
+              Include
+              <input class="flanking-bases" id="upstream-bases" type="number"
+                     [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
+              bases upstream of UTR
             </div>
 
             <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
@@ -41,10 +41,10 @@
             <label for="include-3-prime">Include 3'UTR</label>
 
             <div>
-              Include:
-              <input id="downstream-bases" type="number" [(ngModel)]="downstreamBases"
-                     (ngModelChange)="updateSequence()"/>
-              <label for="downstream-bases">Bases downstream of UTR </label>
+              Include
+              <input class="flanking-bases" id="downstream-bases" type="number"
+                     [(ngModel)]="downstreamBases" (ngModelChange)="updateSequence()"/>
+              bases downstream of UTR
             </div>
           </div>
           <br/>

@@ -26,3 +26,7 @@
 .utr {
   background-color: #ccc;
 }
+
+.controls .flanking-bases {
+  width: 6em;
+}
