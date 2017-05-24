@@ -657,6 +657,18 @@ export class PombaseAPIService {
   getChrSubSequence(chromosome: ChromosomeShort, start: number, end: number,
                     strand: Strand): Promise<string> {
     let chunkSize = getAppConfig().apiSeqChunkSize;
+
+    if (start < 1) {
+      start = 0;
+    }
+    if (end > chromosome.length) {
+      end = chromosome.length;
+    }
+
+    if (start > end) {
+      return Promise.resolve('');
+    }
+
     let startChunk = Math.floor((start - 1) / chunkSize);
     let endChunk = Math.floor((end - 1) / chunkSize);
 
