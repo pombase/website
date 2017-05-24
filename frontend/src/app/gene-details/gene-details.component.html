@@ -69,7 +69,12 @@
     <hr style="clear: both" />
     <div class="chromosome-region-view"
          *ngIf="appConfig.isConfigOrganism(geneDetails.organism.genus, geneDetails.organism.species)">
-      <img *ngIf="ensemblImageUrl" src="{{ensemblImageUrl}}" />
+      <div *ngIf="ensemblImageUrl">
+        <a href="http://fungi.ensembl.org/Schizosaccharomyces_pombe/Gene/Summary?g={{geneDetails.uniquename}}">
+           <img src="{{ensemblImageUrl}}" />
+           <div class="ensembl-link-label">View in Ensembl Genome browser ...</div>
+        </a>
+      </div>
     </div>
 
 

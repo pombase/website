@@ -45,3 +45,8 @@
 #gene-summary table {
   margin: 0 auto;
 }
+
+.ensembl-link-label {
+  font-size: 90%;
+  text-align: center;
+}
