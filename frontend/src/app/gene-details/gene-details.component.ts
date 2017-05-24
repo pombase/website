@@ -176,25 +176,30 @@ export class GeneDetailsComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
         let uniquename = params['uniquename'];
-        this.pombaseApiService.getGene(uniquename)
-          .then(geneDetails => {
-            this.geneDetails = geneDetails;
-            this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
-            this.displayLocation = this.makeDisplayLocation(geneDetails.location);
-            this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
-            this.annotationTypeNames = this.config.annotationTypeOrder;
-            this.setPageTitle();
-            this.setVisibleSections();
-            this.scrollToPageTop();
-            this.setProductSize();
-          })
-          .catch(error => {
-            this.apiError = error;
-          });
-        // prefetch the image
+
+        // (slightly) prefetch the image
         this.ensemblImageUrl =
           `http://preview.pombase.org/browser_images/${uniquename}_gene.png`;
         this.ensemblImage.src = this.ensemblImageUrl;
+
+        // delete api call so image request is first
+        setTimeout(() => {
+          this.pombaseApiService.getGene(uniquename)
+            .then(geneDetails => {
+              this.geneDetails = geneDetails;
+              this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
+              this.displayLocation = this.makeDisplayLocation(geneDetails.location);
+              this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
+              this.annotationTypeNames = this.config.annotationTypeOrder;
+              this.setPageTitle();
+              this.setVisibleSections();
+              this.scrollToPageTop();
+              this.setProductSize();
+            })
+            .catch(error => {
+              this.apiError = error;
+            });
+        }, 1);
       };
     });
   }
