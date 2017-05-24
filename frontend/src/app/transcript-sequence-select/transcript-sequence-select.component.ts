@@ -120,6 +120,9 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   ngOnChanges() {
+    this.upstreamBases = 0;
+    this.downstreamBases = 0;
+
     this.sequenceDescription = this.geneDetails.uniquename;
     if (this.showTranslation) {
       this.sequenceDescription += '-peptide-sequence';
