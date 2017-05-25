@@ -1,11 +1,27 @@
-#gene-details {
-  right: 0;
-  padding-left: 175px;
-  width: auto;
+@media (min-width: 800px) {
+  #gene-details {
+    right: 0;
+    padding-left: 175px;
+    width: auto;
+  }
+  #gene-details-menu {
+    width: 150px;
+    left: 10px;
+  }
+  #gene-details-menu .gene-details-menu-title {
+    display: none;
+  }
 }
-#gene-details-menu {
-  width: 150px;
-  left: 10px;
+
+@media (max-width: 799px) {
+  #gene-details-menu {
+    position: inherit;
+    width: 30%;
+    padding: 0.5em;
+  }
+  #gene-details-menu .gene-details-menu-title {
+    display: block;
+  }
 }
 
 .menu-pos-fixed {
@@ -21,8 +37,19 @@
 }
 
 #gene-details .chromosome-region-view {
-  width: 800px;
   margin: 0 auto;
+}
+
+@media (max-width: 799px) {
+  #gene-details .chromosome-region-view {
+    width: 100%;
+  }
+}
+
+@media (min-width: 800px) {
+  #gene-details .chromosome-region-view {
+    width: 800px;
+  }
 }
 
 #gene-details .chromosome-region-view img {

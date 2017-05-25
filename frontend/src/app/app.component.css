@@ -8,9 +8,17 @@
   padding-left: 20px;
 }
 
+#logo {
+  white-space: nowrap;
+}
+
 #logo-and-slogan, #header-search-box {
   width: 49%;
   float: left;
+}
+
+#header-search-box {
+  z-index: 1000;
 }
 
 #header-search-box {

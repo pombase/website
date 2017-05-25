@@ -14,6 +14,7 @@
     <span *ngIf="orderByField == '+gene_count'">Publication gene count</span>
     <a *ngIf="orderByField != '+gene_count'" (click)="setOrderBy('+gene_count')">Publication gene count</a>
   </div>
+  <div class="annotation-table-container">
   <table>
     <thead>
       <tr>
@@ -57,4 +58,5 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </fieldset>

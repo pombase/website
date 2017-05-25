@@ -1,3 +1,5 @@
-.interaction-directional-label, .interaction-reference, .interaction-evidence {
-  white-space: nowrap;
+@media (min-width: 1000px) {
+  .interaction-directional-label, .interaction-reference, .interaction-evidence {
+    white-space: nowrap;
+  }
 }

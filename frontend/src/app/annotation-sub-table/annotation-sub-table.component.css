@@ -31,8 +31,10 @@
   border-top: 1px solid #C0C0C0;
 }
 
-.rel-and-termid {
-  white-space: nowrap;
+@media (min-width: 1000px) {
+  .rel-and-termid {
+    white-space: nowrap;
+  }
 }
 
 .rel-icon {
