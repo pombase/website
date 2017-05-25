@@ -13,6 +13,5 @@ export class ReferenceShortListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.references);
   }
 }
