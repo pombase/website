@@ -636,14 +636,13 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
-  getChunkPromise(chromosomeName: string, chunkId: number): Promise<Seq> {
-    let key = chromosomeName + '-' + chunkId;
+  getChunkPromise(chromosomeName: string, chunkSize: number, chunkId: number): Promise<Seq> {
+    let key = chromosomeName + '-' + chunkSize + '-' + chunkId;
 
     if (this.chunkPromises[key]) {
       return this.chunkPromises[key];
     }
 
-    let chunkSize = getAppConfig().apiSeqChunkSize;
     let chunkPromise =
       this.http.get(this.apiUrl + '/data/chromosome/' + chromosomeName +
                     '/sequence/' + chunkSize + '/chunk_' + chunkId)
@@ -654,12 +653,11 @@ export class PombaseAPIService {
     return chunkPromise;
   }
 
-  getChrSubSequence(chromosome: ChromosomeShort, start: number, end: number,
-                    strand: Strand): Promise<string> {
-    let chunkSize = getAppConfig().apiSeqChunkSize;
+  getChrSubSequence(chromosome: ChromosomeShort, start: number, end: number, strand: Strand): Promise<string> {
+    let chunkSizes = getAppConfig().apiSeqChunkSizes;
 
     if (start < 1) {
-      start = 0;
+      start = 1;
     }
     if (end > chromosome.length) {
       end = chromosome.length;
@@ -669,13 +667,25 @@ export class PombaseAPIService {
       return Promise.resolve('');
     }
 
+    let subSeqLength = end - start + 1;
+
+    let chunkSize;
+
+    // use big chunks for big sub sequences
+    if (subSeqLength > (chunkSizes.smallest + chunkSizes.largest) / 3) {
+      chunkSize = chunkSizes.largest;
+    } else {
+      chunkSize = chunkSizes.smallest;
+    }
+
     let startChunk = Math.floor((start - 1) / chunkSize);
     let endChunk = Math.floor((end - 1) / chunkSize);
 
     let promises = [];
 
     for (let chunkId = startChunk; chunkId < endChunk + 1; chunkId++) {
-      promises[chunkId - startChunk] = this.getChunkPromise(chromosome.name, chunkId);
+      promises[chunkId - startChunk] =
+        this.getChunkPromise(chromosome.name, chunkSize, chunkId);
     }
 
     return Promise.all(promises)
