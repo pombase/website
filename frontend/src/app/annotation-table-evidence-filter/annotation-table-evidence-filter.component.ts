@@ -85,7 +85,7 @@ export class AnnotationTableEvidenceFilterComponent implements OnInit, OnChanges
       this.choiceData.push(selectData);
     }
 
-    this.choiceData.sort((a,b) => {
+    this.choiceData.sort((a, b) => {
       return a.displayName.localeCompare(b.displayName);
     });
   }

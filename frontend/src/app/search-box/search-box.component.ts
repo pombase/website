@@ -20,8 +20,8 @@ export class SearchBoxComponent implements OnInit {
 
   maybeSynonymMatch(model: any): string {
     if (this.selectedGene) {
-      if (model.name && model.name.indexOf(this.selectedGene) != -1 ||
-          model.uniquename.indexOf(this.selectedGene) != -1) {
+      if (model.name && model.name.indexOf(this.selectedGene) !== -1 ||
+          model.uniquename.indexOf(this.selectedGene) !== -1) {
         return '';
       } else {
         return 'synonym: ' + model.searchData;
