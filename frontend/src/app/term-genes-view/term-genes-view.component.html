@@ -8,12 +8,17 @@
     </div>
 
     <div class="external-links">
-      <app-external-link *ngIf="isInSubset('goslim_pombe')"
-                         [identifierForLink]="termDetails.termid"
+      <div *ngIf="isInSubset('goslim_pombe')">
+        <div>
+This term is part of the
+<a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">biological process overview</a> (GO slim).
+        </div>
+      <app-external-link [identifierForLink]="termDetails.termid"
                          [linkName]="'View the esyN network'"
                          [linkConfigKey]="'esyn'"
                          [iconImage]="'esyn_icon.png'">
       </app-external-link>
+      </div>
     </div>
 
     <hr style="clear: both" />
