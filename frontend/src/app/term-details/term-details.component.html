@@ -26,14 +26,10 @@
       </table>
     </div>
 
-    <div id="term-details-menu" class="details-page-menu"
-         [ngClass]="{'menu-pos-fixed': menuPositionFixed, 'menu-pos-absolute': !menuPositionFixed}">
-      <div class="details-menu-title">
-        Menu:
-      </div>
-      <app-term-page-menu *ngIf="termDetails"
-                          [termDetails]="termDetails"
-                          [visibleSections]="visibleSections"></app-term-page-menu>
+    <div id="term-details-menu">
+      <app-details-page-menu *ngIf="termDetails"
+                             [title]="termDetails.termid"
+                             [visibleSections]="visibleSections"></app-details-page-menu>
     </div>
 
     <div class="external-links">

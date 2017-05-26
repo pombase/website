@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { GenePageMenuComponent } from './gene-page-menu.component';
+import { DetailsPageMenuComponent } from './details-page-menu.component';
 
-describe('GenePageMenuComponent', () => {
-  let component: GenePageMenuComponent;
-  let fixture: ComponentFixture<GenePageMenuComponent>;
+describe('DetailsPageMenuComponent', () => {
+  let component: DetailsPageMenuComponent;
+  let fixture: ComponentFixture<DetailsPageMenuComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GenePageMenuComponent ]
+      declarations: [ DetailsPageMenuComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GenePageMenuComponent);
+    fixture = TestBed.createComponent(DetailsPageMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

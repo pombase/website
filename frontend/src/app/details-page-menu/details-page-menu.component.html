@@ -1,0 +1,13 @@
+<div class="details-page-menu"
+     [ngClass]="{'menu-pos-fixed': menuPositionFixed, 'menu-pos-absolute': !menuPositionFixed}">
+  <div class="details-menu-title">
+    Menu:
+  </div>
+  <div class="menu-item menu-header">
+    <a (click)="scrollToPageTop()">{{title}}</a>
+  </div>
+  <div class="menu-item"
+       *ngFor="let menuItem of menuItems">
+    <a simplePageScroll href="#{{menuItem.id}}">{{menuItem.displayName}}</a>
+  </div>
+</div>

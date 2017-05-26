@@ -59,14 +59,11 @@
     </table>
     </div>
 
-    <div id="gene-details-menu" class="details-page-menu"
-         [ngClass]="{'menu-pos-fixed': menuPositionFixed, 'menu-pos-absolute': !menuPositionFixed}">
-      <div class="details-menu-title">
-        Menu:
-      </div>
-      <app-gene-page-menu *ngIf="geneDetails"
-                          [geneDetails]="geneDetails"
-                          [visibleSections]="visibleSections"></app-gene-page-menu>
+    <div id="gene-details-menu">
+      <app-details-page-menu *ngIf="geneDetails"
+                             [title]="(geneDetails.name || geneDetails.uniquename) + ' summary'"
+                             [extraSections]="extraMenuSections"
+                             [visibleSections]="visibleSections"></app-details-page-menu>
     </div>
 
     <hr style="clear: both" />

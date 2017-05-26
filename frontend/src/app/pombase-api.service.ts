@@ -263,7 +263,8 @@ export class ReferenceDetails {
   canto_session_submitted_date: string;
   publication_year: string;
   cv_annotations: CvAnnotations;
-  interaction_annotations: InteractionAnnotations;
+  physical_interactions: Array<InteractionAnnotation>;
+  genetic_interactions: Array<InteractionAnnotation>;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
 }

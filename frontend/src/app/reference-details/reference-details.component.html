@@ -1,8 +1,8 @@
-<div id="reference-details">
+<div>
   <app-loading-spinner *ngIf="!refDetails && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
-<div *ngIf="refDetails">
+<div id="reference-details" class="details-page" *ngIf="refDetails">
   <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
                      [subject]="'Comment or problem report'"></app-contact-email>
 
@@ -11,7 +11,6 @@
       {{refDetails.title}}
     </span>
   </div>
-
 
   <div id="reference-summary" class="details-page-summary">
     <table>
@@ -47,6 +46,11 @@
     </table>
   </div>
 
+  <div id="reference-details-menu">
+    <app-details-page-menu [title]="refDetails.uniquename"
+                           [visibleSections]="visibleSections"></app-details-page-menu>
+  </div>
+
   <hr style="clear: both" />
 
   <div class="annotations-section-header">
@@ -55,7 +59,8 @@
 
   <div>
     <span *ngFor="let annotationTypeName of annotationTypeNames">
-      <app-annotation-table *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
+      <app-annotation-table  id="{{annotationTypeName}}"
+                             *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
                             [annotationTypeName]="annotationTypeName"
                             [hideColumns]="['reference', 'desc-rel']"
                             [featureInFirstColumn]="true"

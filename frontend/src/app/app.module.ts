@@ -42,7 +42,7 @@ import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-tabl
 import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { Ng2SimplePageScrollModule } from './ng2-simple-page-scroll/ng2-simple-page-scroll.module';
-import { GenePageMenuComponent } from './gene-page-menu/gene-page-menu.component';
+import { DetailsPageMenuComponent } from './details-page-menu/details-page-menu.component';
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
 import { GenotypesTableComponent } from './genotypes-table/genotypes-table.component';
 import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotypes-view/term-single-gene-genotypes-view.component';
@@ -62,7 +62,6 @@ import { ContactEmailComponent } from './contact-email/contact-email.component';
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ReferenceShortListComponent } from './reference-short-list/reference-short-list.component';
 import { TranscriptSequenceSelectComponent } from './transcript-sequence-select/transcript-sequence-select.component';
-import { TermPageMenuComponent } from './term-page-menu/term-page-menu.component';
 
 export function documentFactory() {
     return document;
@@ -106,7 +105,7 @@ export function windowFactory() {
     QualGeneExTableComponent,
     WithOrFromLinkComponent,
     GenotypeDetailsComponent,
-    GenePageMenuComponent,
+    DetailsPageMenuComponent,
     TermGenotypesViewComponent,
     GenotypesTableComponent,
     TermSingleGeneGenotypesViewComponent,
@@ -126,7 +125,6 @@ export function windowFactory() {
     GoSlimTableComponent,
     ReferenceShortListComponent,
     TranscriptSequenceSelectComponent,
-    TermPageMenuComponent,
   ],
   imports: [
     BrowserModule,

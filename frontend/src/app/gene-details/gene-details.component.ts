@@ -1,5 +1,5 @@
 import { Component, OnInit, Input,
-         Inject, HostListener } from '@angular/core';
+         Inject } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -27,30 +27,26 @@ export class GeneDetailsComponent implements OnInit {
   productSize = '';
   ensemblImageUrl = null;
   ensemblImage = new Image();
-
-  menuPositionFixed = false;
+  extraMenuSections = [
+    {
+      id: 'transcript-sequence',
+      displayName: 'Sequence',
+    },
+    {
+      id: 'external-refs',
+      displayName: 'External references',
+    },
+    {
+      id: 'literature',
+      displayName: 'Literature',
+    }
+  ];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
               @Inject('Window') private window: any
              ) { }
-
-  @HostListener('window:scroll', ['$event'])
-  scrollEvent(event) {
-    if (typeof(document) !== 'undefined') {
-      // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
-      let scrollingElement = document.scrollingElement || document.documentElement;
-
-      if (scrollingElement.scrollTop > 115) {
-        this.menuPositionFixed = true;
-      } else {
-        this.menuPositionFixed = false;
-      }
-    } else {
-      this.menuPositionFixed = false;
-    }
-  }
 
   makeDisplayLocation(location: ChromosomeLocation): string {
     let chromosomeName = location.chromosome.name;
