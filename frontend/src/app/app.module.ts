@@ -62,6 +62,7 @@ import { ContactEmailComponent } from './contact-email/contact-email.component';
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ReferenceShortListComponent } from './reference-short-list/reference-short-list.component';
 import { TranscriptSequenceSelectComponent } from './transcript-sequence-select/transcript-sequence-select.component';
+import { TermPageMenuComponent } from './term-page-menu/term-page-menu.component';
 
 export function documentFactory() {
     return document;
@@ -125,6 +126,7 @@ export function windowFactory() {
     GoSlimTableComponent,
     ReferenceShortListComponent,
     TranscriptSequenceSelectComponent,
+    TermPageMenuComponent,
   ],
   imports: [
     BrowserModule,

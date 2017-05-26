@@ -1,8 +1,8 @@
-<div id="term-details">
+<div>
   <app-loading-spinner *ngIf="!termDetails && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
  
-  <div *ngIf="termDetails">
+  <div id="term-details" class="details-page" *ngIf="termDetails">
     <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
                        [subject]="'Comment or problem report'"></app-contact-email>
     <div class="details-page-name-and-id">
@@ -24,6 +24,16 @@
           </td>
         </tr>
       </table>
+    </div>
+
+    <div id="term-details-menu" class="details-page-menu"
+         [ngClass]="{'menu-pos-fixed': menuPositionFixed, 'menu-pos-absolute': !menuPositionFixed}">
+      <div class="details-menu-title">
+        Menu:
+      </div>
+      <app-term-page-menu *ngIf="termDetails"
+                          [termDetails]="termDetails"
+                          [visibleSections]="visibleSections"></app-term-page-menu>
     </div>
 
     <div class="external-links">

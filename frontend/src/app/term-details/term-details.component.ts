@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject,
+         HostListener } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -21,6 +22,9 @@ export class TermDetailsComponent implements OnInit {
   annotationTypeNames: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   apiError = null;
+  visibleSections: Array<string> = [];
+
+  menuPositionFixed = false;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -28,6 +32,22 @@ export class TermDetailsComponent implements OnInit {
               private router: Router,
               @Inject('Window') private window: any
              ) { }
+
+  @HostListener('window:scroll', ['$event'])
+  scrollEvent(event) {
+    if (typeof(document) !== 'undefined') {
+      // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
+      let scrollingElement = document.scrollingElement || document.documentElement;
+
+      if (scrollingElement.scrollTop > 115) {
+        this.menuPositionFixed = true;
+      } else {
+        this.menuPositionFixed = false;
+      }
+    } else {
+      this.menuPositionFixed = false;
+    }
+  }
 
   filterAncestors(): void {
     let termPageConfig = getAppConfig().termPageConfig;
@@ -57,6 +77,17 @@ export class TermDetailsComponent implements OnInit {
     this.window.scrollTo(0, 0);
   }
 
+  setVisibleSections(): void {
+    this.visibleSections = [];
+
+    for (let annotationTypeName of this.annotationTypeNames) {
+      if (this.termDetails.cv_annotations[annotationTypeName] &&
+          this.termDetails.cv_annotations[annotationTypeName].length > 0) {
+        this.visibleSections.push(annotationTypeName);
+      }
+    }
+  }
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['termid'] !== undefined) {
@@ -73,6 +104,7 @@ export class TermDetailsComponent implements OnInit {
                 this.annotationFeatureType = termDetails.annotation_feature_type;
                 this.annotationTypeNames = this.config.annotationTypeOrder;
                 this.filterAncestors();
+                this.setVisibleSections();
                 this.scrollToPageTop();
               })
               .catch(error => {

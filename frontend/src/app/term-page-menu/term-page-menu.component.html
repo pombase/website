@@ -1,0 +1,9 @@
+<div id="term-page-menu">
+  <div class="menu-item menu-header">
+    <a (click)="scrollToPageTop()"><b>{{termDetails.termid}}</b></a>
+  </div>
+  <div class="menu-item"
+       *ngFor="let menuItem of menuItems">
+    <a simplePageScroll href="#{{menuItem.id}}">{{menuItem.displayName}}</a>
+  </div>
+</div>

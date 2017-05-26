@@ -1,7 +1,7 @@
 <div>
   <app-loading-spinner *ngIf="!geneDetails && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
-  <div id="gene-details" *ngIf="geneDetails">
+  <div id="gene-details" class="details-page" *ngIf="geneDetails">
     <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
                        [subject]="'Comment or problem report for ' + displayNameLong()"></app-contact-email>
     <div class="details-page-name-and-id">
@@ -59,9 +59,9 @@
     </table>
     </div>
 
-    <div id="gene-details-menu"
+    <div id="gene-details-menu" class="details-page-menu"
          [ngClass]="{'menu-pos-fixed': menuPositionFixed, 'menu-pos-absolute': !menuPositionFixed}">
-      <div class="gene-details-menu-title">
+      <div class="details-menu-title">
         Menu:
       </div>
       <app-gene-page-menu *ngIf="geneDetails"

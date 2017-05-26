@@ -1,38 +1,3 @@
-@media (min-width: 800px) {
-  #gene-details {
-    right: 0;
-    padding-left: 175px;
-    width: auto;
-  }
-  #gene-details-menu {
-    width: 150px;
-    left: 10px;
-  }
-  #gene-details-menu .gene-details-menu-title {
-    display: none;
-  }
-}
-
-@media (max-width: 799px) {
-  #gene-details-menu {
-    position: inherit;
-    width: 30%;
-    padding: 0.5em;
-  }
-  #gene-details-menu .gene-details-menu-title {
-    display: block;
-  }
-}
-
-.menu-pos-fixed {
-  position: fixed;
-  top: 10px;
-}
-.menu-pos-absolute {
-  position: absolute;
-  top: 130px;
-}
-
 #gene-summary {
 }
 
