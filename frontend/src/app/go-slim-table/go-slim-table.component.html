@@ -9,7 +9,7 @@
       <tr *ngFor="let termAndName of goSlimTerms">
         <td>{{termAndName.name}}</td>
         <td>
-          <a routerLink="/term_genes/{{termAndName.termid}}" routerLinkActive="active">{{termAndName.termid}}</a>
+          <a routerLink="/term/{{termAndName.termid}}" routerLinkActive="active">{{termAndName.termid}}</a>
         </td>
         <td>
           <app-external-link [identifierForLink]="termAndName.termid"
