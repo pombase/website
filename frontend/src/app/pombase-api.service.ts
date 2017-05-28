@@ -360,14 +360,22 @@ export class PombaseAPIService {
               if (extPart.ext_range.gene_uniquename) {
                 extPart.ext_range.gene = genesByUniquename[extPart.ext_range.gene_uniquename];
               } else {
-                if (extPart.ext_range.sumary_gene_uniquenames) {
+                if (extPart.ext_range.summary_gene_uniquenames) {
                   extPart.ext_range.summaryGenes =
-                    extPart.ext_range.sumary_gene_uniquenames
+                    extPart.ext_range.summary_gene_uniquenames
                     .map(part => {
                       return part.map(gene_uniquename => {
                         return genesByUniquename[gene_uniquename];
                       });
                     });
+                } else {
+                  if (extPart.ext_range.summary_termids) {
+                    extPart.ext_range.summaryTerms =
+                      extPart.ext_range.summary_termids
+                      .map(termid => {
+                        return termsByTermId[termid];
+                      });
+                  }
                 }
               }
             }

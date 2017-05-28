@@ -7,6 +7,10 @@
         <a routerLink="/term/{{range.term.termid}}" routerLinkActive="active">{{range.term.name}}</a>
       </span>
 
+      <span *ngIf="range.summaryTerms">
+        <span class="summary-term-and-comma"><span *ngFor="let term of range.summaryTerms; let lastTerm = last"> <a routerLink="/term/{{term.termid}}" routerLinkActive="active">{{term.name}}</a><span *ngIf="!lastTerm">,</span></span></span>
+      </span>
+
       <span *ngIf="range.gene">
         <app-gene-link class="app-link" [long]="false" [gene]="range.gene"></app-gene-link>
       </span>
