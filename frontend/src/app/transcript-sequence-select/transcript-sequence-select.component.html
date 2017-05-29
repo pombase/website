@@ -6,7 +6,7 @@
     <div *ngIf="hasTranscripts">
       <div *ngIf="sequenceVisible">
         <div class="controls">
-          <a (click)="hideSequence()">Hide sequence ...</a>
+          <a class="sequence-toggle" (click)="hideSequence()">Hide sequence ...</a>
           <br/>
           <input id="show-translation" type="checkbox" [(ngModel)]="showTranslation"
                  (ngModelChange)="updateSequence()"/>
@@ -62,7 +62,7 @@
           <app-loading-spinner *ngIf="sequence == null"></app-loading-spinner>
         </div>
       </div>
-      <a *ngIf="!sequenceVisible" (click)="showSequence()">Show sequence ...</a>
+      <a class="sequence-toggle" *ngIf="!sequenceVisible" (click)="showSequence()">Show sequence ...</a>
     </div>
     <div *ngIf="!hasTranscripts">
       This gene has no transcripts available

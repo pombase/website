@@ -13,7 +13,7 @@ import { Util } from '../util';
 export class TranscriptSequenceSelectComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;
 
-  sequenceVisible = false;
+  sequenceVisible = true;
   sequence = '';
   sequenceDescription = '';
   sequenceHeader = '';

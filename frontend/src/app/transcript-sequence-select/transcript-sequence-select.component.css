@@ -30,3 +30,7 @@
 .controls .flanking-bases {
   width: 6em;
 }
+
+.sequence-toggle {
+  padding: 0.1em 0 0.5em 0;
+}
