@@ -516,8 +516,14 @@ export class PombaseAPIService {
     return json as GeneDetails;
   }
 
+  getWithRetry(url: string): Observable<Response> {
+    return this.http.get(url)
+      .retryWhen(error => error.delay(5000))
+      .timeout(30000);
+  }
+
   getGene(uniquename: string): Promise<GeneDetails> {
-    return this.http.get(this.apiUrl + '/data/gene/' + uniquename)
+    return this.getWithRetry(this.apiUrl + '/data/gene/' + uniquename)
       .toPromise()
       .then(response => this.processGeneResponse(response))
       .catch(this.handleError);
@@ -553,7 +559,7 @@ export class PombaseAPIService {
   }
 
   getGenotype(uniquename: string): Promise<GenotypeDetails> {
-    return this.http.get(this.apiUrl + '/data/genotype/' + uniquename)
+    return this.getWithRetry(this.apiUrl + '/data/genotype/' + uniquename)
       .toPromise()
       .then(response => this.processGenotypeResponse(response))
       .catch(this.handleError);
@@ -587,7 +593,7 @@ export class PombaseAPIService {
   }
 
   getTerm(termid: string): Promise<TermDetails> {
-    return this.http.get(this.apiUrl + '/data/term/' + termid)
+    return this.getWithRetry(this.apiUrl + '/data/term/' + termid)
       .toPromise()
       .then(response => this.processTermResponse(response))
       .catch(this.handleError);
@@ -618,28 +624,28 @@ export class PombaseAPIService {
   }
 
   getReference(uniquename: string): Promise<ReferenceDetails> {
-    return this.http.get(this.apiUrl + '/data/reference/' + uniquename)
+    return this.getWithRetry(this.apiUrl + '/data/reference/' + uniquename)
       .toPromise()
       .then(response => this.processReferenceResponse(response))
       .catch(this.handleError);
   }
 
   getMetadata(): Promise<Metadata> {
-    return this.http.get(this.apiUrl + '/data/metadata')
+    return this.getWithRetry(this.apiUrl + '/data/metadata')
       .toPromise()
       .then(response => response.json() as Metadata)
       .catch(this.handleError);
   }
 
   getRecentReferences(): Promise<RecentReferences> {
-    return this.http.get(this.apiUrl + '/data/recent_references')
+    return this.getWithRetry(this.apiUrl + '/data/recent_references')
       .toPromise()
       .then(response => response.json() as RecentReferences)
       .catch(this.handleError);
   }
 
   getGeneSummaries(): Promise<Array<GeneSummary>> {
-    return this.http.get(this.apiUrl + '/data/gene_summaries')
+    return this.getWithRetry(this.apiUrl + '/data/gene_summaries')
       .toPromise()
       .then(response => response.json() as Array<GeneSummary>)
       .catch(this.handleError);
@@ -653,7 +659,7 @@ export class PombaseAPIService {
     }
 
     let chunkPromise =
-      this.http.get(this.apiUrl + '/data/chromosome/' + chromosomeName +
+      this.getWithRetry(this.apiUrl + '/data/chromosome/' + chromosomeName +
                     '/sequence/' + chunkSize + '/chunk_' + chunkId)
       .toPromise()
       .then(response => new Seq(response.text()))
@@ -715,7 +721,7 @@ export class PombaseAPIService {
 
   getTermByNameFuzzy(cvName: string, queryText: string): Observable<TermShort[]> {
     let url = this.apiUrl + '/search/term/by_name/fuzzy/' + cvName + '/' + queryText;
-    return this.http.get(url)
+    return this.getWithRetry(url)
       .map((res: Response) => res.json());
   }
 
