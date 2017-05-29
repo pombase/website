@@ -34,5 +34,9 @@
       </div>
     </div>
   </div>
+
+  <app-protein-properties *ngIf="geneDetails?.transcripts[0]?.protein && annotationTypeName == 'PomBase family or domain'"
+                          [proteinDetails]="geneDetails.transcripts[0].protein">
+  </app-protein-properties>
   </div>
 </fieldset>

@@ -101,6 +101,12 @@
                               [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
       </div>
 
+      <app-protein-features id="{{annotationTypeName}}"
+                            *ngIf="annotationTypeName == 'protein_features' && (proteinDetails || proteinFeaturesTable?.length > 0)"
+                            [proteinDetails]="proteinDetails"
+                            [annotationTable]="proteinFeaturesTable"></app-protein-features>
+
+
       <app-interaction-annotation-table *ngIf="annotationTypeName == 'physical_interactions'"
                                         id="{{annotationTypeName}}"
                                       [annotationTypeName]="annotationTypeName"

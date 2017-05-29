@@ -25,6 +25,8 @@ export class GeneDetailsComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();
   apiError = null;
   productSize = '';
+  proteinDetails = null;
+  proteinFeaturesTable = null;
   ensemblImageUrl = null;
   ensemblImage = new Image();
   extraMenuSections = [
@@ -110,6 +112,11 @@ export class GeneDetailsComponent implements OnInit {
         this.visibleSections.push(annotationTypeName);
       }
 
+      if (annotationTypeName === 'protein_features' &&
+          this.geneDetails.feature_type === 'mRNA gene') {
+        this.visibleSections.push(annotationTypeName);
+      }
+
       if (annotationTypeName === 'physical_interactions') {
         if (this.geneDetails.physical_interactions &&
             this.geneDetails.physical_interactions.length > 0) {
@@ -191,6 +198,13 @@ export class GeneDetailsComponent implements OnInit {
               this.setVisibleSections();
               this.scrollToPageTop();
               this.setProductSize();
+              if (this.geneDetails.transcripts.length > 0) {
+                this.proteinDetails = this.geneDetails.transcripts[0].protein;
+              }
+              if (geneDetails.cv_annotations['PomBase family or domain']) {
+                this.proteinFeaturesTable =
+                  geneDetails.cv_annotations['PomBase family or domain'];
+              }
             })
             .catch(error => {
               this.apiError = error;

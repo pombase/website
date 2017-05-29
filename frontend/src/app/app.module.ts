@@ -62,6 +62,8 @@ import { ContactEmailComponent } from './contact-email/contact-email.component';
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ReferenceShortListComponent } from './reference-short-list/reference-short-list.component';
 import { TranscriptSequenceSelectComponent } from './transcript-sequence-select/transcript-sequence-select.component';
+import { ProteinPropertiesComponent } from './protein-properties/protein-properties.component';
+import { ProteinFeaturesComponent } from './protein-features/protein-features.component';
 
 export function documentFactory() {
     return document;
@@ -125,6 +127,8 @@ export function windowFactory() {
     GoSlimTableComponent,
     ReferenceShortListComponent,
     TranscriptSequenceSelectComponent,
+    ProteinPropertiesComponent,
+    ProteinFeaturesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+<fieldset class="annotation-table">
+  <legend>
+    Protein features
+  </legend>
+
+  <div class="content">
+    <app-annotation-sub-table
+      *ngIf="annotationTable && annotationTable.length > 0"
+      [annotationTypeName]="'PomBase family or domain'"
+      [annotationTable]="annotationTable"
+      [hideColumns]="['gene', 'desc-rel']">
+    </app-annotation-sub-table>
+  </div>
+
+  <div *ngIf="proteinDetails">
+    <div class="annotation-sub-table-name">
+      Protein properties
+    </div>
+    <app-protein-properties [proteinDetails]="proteinDetails">
+    </app-protein-properties>
+  </div>
+</fieldset>
