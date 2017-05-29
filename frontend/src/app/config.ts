@@ -127,29 +127,7 @@ export interface AnnotationTableConfig {
 
 let _config: AnnotationTableConfig = {
   annotationTypes: pombaseConfig.cv_config,
-  annotationTypeOrder: [
-    'molecular_function',
-    'biological_process',
-    'cellular_component',
-    'single_allele_phenotype',
-    'multi_allele_phenotype',
-    'phenotype_condition',
-    'complementation',
-    'target_of',
-    'PomBase family or domain',
-    'PSI-MOD',
-    'qualitative_gene_expression',
-    'quantitative_gene_expression',
-    'misc',
-    'physical_interactions',
-    'genetic_interactions',
-    'orthologs',
-    'paralogs',
-    'species_dist',
-    'disease_associated',
-    'warning',
-    'subunit_composition',
-  ],
+  annotationTypeOrder: pombaseConfig.annotation_type_order,
   extensions: {
   },
   interactionDirectionalLabels: {
