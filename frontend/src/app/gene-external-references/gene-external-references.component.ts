@@ -66,6 +66,11 @@ export class GeneExternalReferencesComponent implements OnChanges {
 
     for (let extRefConf of this.appConfig.externalGeneReferences) {
       let link = this.makeUrl(extRefConf);
+      let confFeatureTypes = extRefConf.feature_types;
+      if (confFeatureTypes.indexOf('ALL') === -1 &&
+          extRefConf.feature_types.indexOf(this.geneDetails.feature_type) === -1) {
+        continue;
+      }
       if (link.length > 0) {
         let row = {
           refType: extRefConf.ref_type,

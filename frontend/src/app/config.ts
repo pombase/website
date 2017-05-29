@@ -108,6 +108,7 @@ export interface InteractionDirectionalLabels {
 
 export interface ExternalGeneReference {
   ref_type: string;
+  feature_types: Array<string>;
   name: string;
   description: string;
   field_name: string;
