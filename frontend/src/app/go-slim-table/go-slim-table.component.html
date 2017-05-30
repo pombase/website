@@ -33,12 +33,12 @@
     <div id="non-slim-total">Genes not covered by the slim
     ({{nonSlimWithBP.elements.length + nonSlimWithoutBP.elements.length}} in total):</div>
     <div>
-      Genes with a process annotation, but not in any of the
+      Gene products with a biological process annotation, but not in any of the
       categories above:
       <a routerLink="/gene_subset/non_go_slim_with_bp_annotation"
          routerLinkActive="active">{{nonSlimWithBP.elements.length}}</a>
     </div>
-    <div>Genes with no biological process annotation:
+    <div>Gene products with no biological process annotation:
       <a routerLink="/gene_subset/non_go_slim_without_bp_annotation"
          routerLinkActive="active">{{nonSlimWithoutBP.elements.length}}</a>
     </div>
