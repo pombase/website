@@ -27,23 +27,23 @@ export class GeneSubsetViewComponent implements OnInit {
 
   ngOnInit() {
     this.pombaseApiService.getGeneSubsets()
-          .then(subsets => {
-            this.route.params.forEach((params: Params) => {
-              if (params['subsetName'] !== undefined) {
-                let subsetName = params['subsetName'];
-                this.subset = subsets[subsetName];
-                if (!this.subset) {
-                  this.apiError = {
-                    status: 404,
-                    message: 'no such subset: ' + subsetName,
-                  };
-                }
-                this.setPageTitle();
-              }
-            });
-          })
-          .catch(error => {
-            this.apiError = error;
-          });
+      .then(subsets => {
+        this.route.params.forEach((params: Params) => {
+          if (params['subsetName'] !== undefined) {
+            let subsetName = params['subsetName'];
+            this.subset = subsets[subsetName];
+            if (!this.subset) {
+              this.apiError = {
+                status: 404,
+                message: 'no such subset: ' + subsetName,
+              };
+            }
+            this.setPageTitle();
+          }
+        });
+      })
+      .catch(error => {
+        this.apiError = error;
+      });
   }
 }
