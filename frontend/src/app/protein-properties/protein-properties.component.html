@@ -1,6 +1,7 @@
-<div>
-  <div *ngFor="let propName of propNames">
-    <span class="prop-name">{{propDisplayNames[propName]}}</span> {{proteinDetails[propName]}}
-  </div>
-</div>
+<table class="protein-properties">
+  <tr *ngFor="let propName of propNames">
+    <td class="prop-name">{{propDisplayNames[propName]}}</td>
+    <td>{{proteinDetails[propName]}}</td>
+  </tr>
+</table>
 

@@ -1,3 +1,7 @@
 .prop-name {
   font-weight: bold;
 }
+
+table.protein-properties {
+  width: auto;
+}
