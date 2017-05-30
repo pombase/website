@@ -12,7 +12,7 @@ export class GoSlimSummaryComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
 
   subsetPromise: Promise<TermSubsets> = null;
-  geneSlimTerms = [];
+  geneSlimTerms = null;
 
   getAllAncestors(): Set<string> {
     let ret = new Set();
@@ -52,7 +52,6 @@ export class GoSlimSummaryComponent implements OnInit, OnChanges {
             subsets['bp_goslim_pombe'].elements.filter((termAndName) => {
               return allAncestors.has(termAndName.termid);
             });
-          console.log(this.geneSlimTerms);
         }
       });
   }
