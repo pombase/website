@@ -10,6 +10,8 @@ import { PombaseAPIService } from '../pombase-api.service';
 export class GoSlimTableComponent implements OnInit {
 
   goSlimSubset = null;
+  nonSlimWithBP = null;
+  nonSlimWithoutBP = null;
   apiError = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
@@ -20,5 +22,13 @@ export class GoSlimTableComponent implements OnInit {
       .catch(error => {
         this.apiError = error;
       });
- }
+    this.pombaseApiService.getGeneSubsets()
+      .then(subsets => {
+        this.nonSlimWithBP = subsets['non_go_slim_with_bp_annotation'];
+        this.nonSlimWithoutBP = subsets['non_go_slim_without_bp_annotation'];
+      })
+      .catch(error => {
+        this.apiError = error;
+      });
+  }
 }

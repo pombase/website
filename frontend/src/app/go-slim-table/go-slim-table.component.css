@@ -4,3 +4,11 @@
 td, th {
   padding: 2px 8px 2px 8px;
 }
+
+#non-slim-genes {
+  padding: 1em 0 1em 0;
+}
+
+#non-slim-total  {
+  font-weight: bold;
+}
