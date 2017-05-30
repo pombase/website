@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { getAppConfig, TermAndName } from '../config';
+import { PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-go-slim-table',
@@ -9,10 +9,16 @@ import { getAppConfig, TermAndName } from '../config';
 })
 export class GoSlimTableComponent implements OnInit {
 
-  goSlimTerms: Array<TermAndName> = getAppConfig().goSlimTerms;
+  goSlimSubset = null;
+  apiError = null;
 
-  constructor() { }
+  constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
-  }
+    this.pombaseApiService.getTermSubsets()
+      .then(subsets => this.goSlimSubset = subsets['bp_goslim_pombe'])
+      .catch(error => {
+        this.apiError = error;
+      });
+ }
 }

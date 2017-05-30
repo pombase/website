@@ -269,6 +269,29 @@ export class ReferenceDetails {
   paralog_annotations: Array<ParalogAnnotation>;
 }
 
+export interface TermSubsetElement {
+  name: string;
+  termid: string;
+  gene_count: number;
+}
+
+export interface TermSubsetDetails {
+  name: string;
+  elements: Array<TermSubsetElement>;
+}
+
+export interface TermSubsets {
+  [subsetName: string]: TermSubsetDetails;
+}
+
+export interface GeneSubsetDetails {
+  name: string;
+  elements: Array<GeneShort>;
+}
+
+export interface GeneSubsets {
+  [subsetName: string]: GeneSubsetDetails;
+}
 
 function makeResults(resultsObject: any): PomBaseResults {
   let header = new QueryResultHeader(resultsObject.header.names);
@@ -648,6 +671,20 @@ export class PombaseAPIService {
     return this.getWithRetry(this.apiUrl + '/data/gene_summaries')
       .toPromise()
       .then(response => response.json() as Array<GeneSummary>)
+      .catch(this.handleError);
+  }
+
+  getTermSubsets(): Promise<TermSubsets> {
+    return this.getWithRetry(this.apiUrl + '/data/term_subsets')
+      .toPromise()
+      .then(response => response.json() as TermSubsets)
+      .catch(this.handleError);
+  }
+
+  getGeneSubsets(): Promise<GeneSubsets> {
+    return this.getWithRetry(this.apiUrl + '/data/gene_subsets')
+      .toPromise()
+      .then(response => response.json() as GeneSubsets)
       .catch(this.handleError);
   }
 

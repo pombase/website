@@ -3,8 +3,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Util } from '../util';
 
-import { TermDetails, PombaseAPIService, GeneShort } from '../pombase-api.service';
-import { getAnnotationTableConfig, getAppConfig } from '../config';
+import { TermDetails, PombaseAPIService, GeneShort,
+         TermSubsets } from '../pombase-api.service';
+import { getAnnotationTableConfig } from '../config';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class TermGenesViewComponent implements OnInit {
   genes = [];
   showAllAnnotationsLink = true;
   apiError = null;
+  subsets: TermSubsets = {};
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -25,7 +27,16 @@ export class TermGenesViewComponent implements OnInit {
              ) { }
 
   isInSubset(subsetName: string): boolean {
-    return getAppConfig().isInSubset(this.termDetails.termid, subsetName);
+    if (!this.subsets[subsetName]) {
+      return false;
+    }
+    for (let element of this.subsets[subsetName].elements) {
+      if (element.termid === this.termDetails.termid) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   setPageTitle(): void {
@@ -62,6 +73,9 @@ export class TermGenesViewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.pombaseApiService.getTermSubsets()
+      .then((termSubsets) => this.subsets = termSubsets);
+
     this.route.params.forEach((params: Params) => {
       if (params['termid'] !== undefined) {
         let termid = params['termid'];

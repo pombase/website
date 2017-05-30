@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
-import { getAppConfig, TermAndName } from '../config';
-import { GeneDetails } from '../pombase-api.service';
+import { getAppConfig } from '../config';
+import { GeneDetails, TermSubsets, PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-go-slim-summary',
@@ -11,9 +11,8 @@ import { GeneDetails } from '../pombase-api.service';
 export class GoSlimSummaryComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
 
-  goSlimTerms: Array<TermAndName> = getAppConfig().goSlimTerms;
-
-  geneSlims = null;
+  subsetPromise: Promise<TermSubsets> = null;
+  geneSlimTerms = [];
 
   getAllAncestors(): Set<string> {
     let ret = new Set();
@@ -37,20 +36,24 @@ export class GoSlimSummaryComponent implements OnInit, OnChanges {
     return ret;
   }
 
-  getGeneSlims(): Array<TermAndName> {
-    let allAncestors = this.getAllAncestors();
-
-    return this.goSlimTerms.filter((termAndName) => {
-      return allAncestors.has(termAndName.termid);
-    });
+  constructor(private pombaseApiService: PombaseAPIService) {
+    this.subsetPromise = this.pombaseApiService.getTermSubsets();
   }
-
-  constructor() { }
 
   ngOnInit() {
   }
 
   ngOnChanges() {
-    this.geneSlims = this.getGeneSlims();
+    this.subsetPromise
+      .then((subsets) => {
+        if (this.geneDetails) {
+          let allAncestors = this.getAllAncestors();
+          this.geneSlimTerms =
+            subsets['bp_goslim_pombe'].elements.filter((termAndName) => {
+              return allAncestors.has(termAndName.termid);
+            });
+          console.log(this.geneSlimTerms);
+        }
+      });
   }
 }

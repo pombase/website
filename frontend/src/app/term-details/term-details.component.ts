@@ -3,7 +3,8 @@ import { Component, OnInit, Input, Inject,
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { TermDetails, TermAndRelation, PombaseAPIService } from '../pombase-api.service';
+import { TermDetails, TermAndRelation, PombaseAPIService,
+         TermSubsets } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AnnotationType } from '../config';
@@ -25,6 +26,8 @@ export class TermDetailsComponent implements OnInit {
   visibleSections: Array<string> = [];
 
   menuPositionFixed = false;
+
+  subsets: TermSubsets = {};
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -59,7 +62,16 @@ export class TermDetailsComponent implements OnInit {
   }
 
   isInSubset(subsetName: string): boolean {
-    return getAppConfig().isInSubset(this.termDetails.termid, subsetName);
+    if (!this.subsets[subsetName]) {
+      return false;
+    }
+    for (let element of this.subsets[subsetName].elements) {
+      if (element.termid === this.termDetails.termid) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   setPageTitle(): void {
@@ -89,6 +101,9 @@ export class TermDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.pombaseApiService.getTermSubsets()
+      .then((termSubsets) => this.subsets = termSubsets);
+
     this.route.params.forEach((params: Params) => {
       if (params['termid'] !== undefined) {
         let termid = params['termid'];

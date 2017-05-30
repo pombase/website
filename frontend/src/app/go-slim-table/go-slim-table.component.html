@@ -1,18 +1,25 @@
 <div>
-  <table class="go-slim-table">
+  <app-loading-spinner *ngIf="!goSlimSubset && !apiError"></app-loading-spinner>
+  <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
+
+  <table *ngIf="goSlimSubset" class="go-slim-table">
     <thead>
       <th>Name</th>
       <th>Term</th>
+      <th>Genes</th>
       <th>Physical network interaction</th>
     </thead>
     <tbody>
-      <tr *ngFor="let termAndName of goSlimTerms">
-        <td>{{termAndName.name}}</td>
+      <tr *ngFor="let element of goSlimSubset.elements">
+        <td>{{element.name}}</td>
         <td>
-          <a routerLink="/term/{{termAndName.termid}}" routerLinkActive="active">{{termAndName.termid}}</a>
+          <a routerLink="/term/{{element.termid}}" routerLinkActive="active">{{element.termid}}</a>
         </td>
         <td>
-          <app-external-link [identifierForLink]="termAndName.termid"
+          <a routerLink="/term_genes6/{{element.termid}}" routerLinkActive="active">{{element.gene_count}}</a>
+        </td>
+        <td>
+          <app-external-link [identifierForLink]="element.termid"
                              [linkName]="'esyN'"
                              [linkConfigKey]="'esyn'"
                              [iconImage]="'esyn_icon.png'">

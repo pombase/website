@@ -18,11 +18,6 @@ export interface EvidenceConfig {
   };
 }
 
-export interface TermAndName {
-  name: string;
-  termid: string;
-}
-
 export interface ExternalLinks {
   [name: string]: string;
 }
@@ -45,7 +40,6 @@ export interface AppConfig {
   linkoutConfig: LinkoutConfig;
   evidenceTypes: EvidenceConfig;
   externalGeneReferences: Array<ExternalGeneReference>;
-  goSlimTerms: Array<TermAndName>;
   miscExternalLinks: ExternalLinks;
   chromosomes: {
     [identifier: string]: ChromosomeConfig;
@@ -56,7 +50,6 @@ export interface AppConfig {
   isConfigOrganism(genus: string, species: string): boolean;
 
   getLinkUrl(linkConfigKey: string, identifier: string): string;
-  isInSubset(termid: string, subsetName: string): boolean;
 }
 
 export interface TermFilterCategory {
@@ -376,7 +369,6 @@ let _appConfig: AppConfig = {
     },
   },
   externalGeneReferences: pombaseConfig.external_gene_references,
-  goSlimTerms: pombaseConfig.go_slim_terms,
   miscExternalLinks: pombaseConfig.misc_external_links,
   chromosomes: pombaseConfig.chromosomes,
   documentation: docConfig,
@@ -393,17 +385,6 @@ let _appConfig: AppConfig = {
       return null;
     }
   },
-
-  isInSubset(termid: string, subsetName: string): boolean {
-    if (subsetName === 'goslim_pombe') {
-      for (let termAndName of this.goSlimTerms) {
-        if (termAndName.termid === termid) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
 };
 
 export function getAnnotationTableConfig(): AnnotationTableConfig {
