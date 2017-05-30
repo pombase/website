@@ -141,7 +141,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   download() {
     let fileName = this.sequenceDescription + '.fasta';
-    saveAs(new Blob([this.sequenceHeader + '\n' + this.sequence],
+    saveAs(new Blob(['>' + this.sequenceHeader + '\n' + this.sequence],
                     { type: 'text' }), fileName);
   }
 
