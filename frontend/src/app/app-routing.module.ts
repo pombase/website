@@ -7,6 +7,7 @@ import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
+import { GeneSubsetViewComponent } from './gene-subset-view/gene-subset-view.component';
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
 import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotypes-view/term-single-gene-genotypes-view.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
@@ -18,6 +19,11 @@ const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
     data: {
       title: 'Gene'
+    }
+  },
+  { path: 'gene_subset/:subsetName', component: GeneSubsetViewComponent,
+    data: {
+      title: 'Gene subset'
     }
   },
   { path: 'genotype/:uniquename', component: GenotypeDetailsComponent,

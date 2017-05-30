@@ -64,6 +64,7 @@ import { ReferenceShortListComponent } from './reference-short-list/reference-sh
 import { TranscriptSequenceSelectComponent } from './transcript-sequence-select/transcript-sequence-select.component';
 import { ProteinPropertiesComponent } from './protein-properties/protein-properties.component';
 import { ProteinFeaturesComponent } from './protein-features/protein-features.component';
+import { GeneSubsetViewComponent } from './gene-subset-view/gene-subset-view.component';
 
 export function documentFactory() {
     return document;
@@ -129,6 +130,7 @@ export function windowFactory() {
     TranscriptSequenceSelectComponent,
     ProteinPropertiesComponent,
     ProteinFeaturesComponent,
+    GeneSubsetViewComponent,
   ],
   imports: [
     BrowserModule,

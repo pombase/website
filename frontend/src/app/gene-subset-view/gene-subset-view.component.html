@@ -1,0 +1,8 @@
+<div>
+  <app-loading-spinner *ngIf="!subset && !apiError"></app-loading-spinner>
+  <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
+
+  <app-genes-table *ngIf="subset"
+                   [legend]="subset.name"
+                   [genes]="subset.elements"></app-genes-table>
+</div>
