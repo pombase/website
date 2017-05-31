@@ -1,0 +1,13 @@
+.characterisation-status {
+  padding: 0.5em;
+  font-size: 110%;
+}
+
+.characterisation-status th, td {
+  padding: 0.2em 2em 0.2em 0.2em;
+}
+
+.characterisation-status thead tr {
+  background-color: #eee;
+  border-bottom: 2px solid #ccc;
+}

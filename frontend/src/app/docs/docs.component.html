@@ -2305,57 +2305,15 @@ Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam</p>
   </div>
   <div *ngIf="pageName == 'gene-characterisation'" class="docs-content">
 <h1 id="gene-characterisation">Gene characterisation</h1>
-<table>
-<thead>
-<tr class="header">
-<th align="left"><strong>Gene Status Overview</strong></th>
-<th align="left">Annotated</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Experimentally characterised (or published)</td>
-<td align="left"><a href="http://www.pombase.org/spombe/related/PBO:0000001">2235</a></td>
-</tr>
-<tr class="even">
-<td align="left">Role inferred from homology</td>
-<td align="left"><a href="http://www.pombase.org/spombe/related/PBO:0000002">1996</a></td>
-</tr>
-<tr class="odd">
-<td align="left">Conserved protein (unknown biological role)</td>
-<td align="left"><a href="http://www.pombase.org/spombe/related/PBO:0000003">511</a></td>
-</tr>
-<tr class="even">
-<td align="left"><em>Schizosaccharomyces</em> specific protein, uncharacterised</td>
-<td align="left"><a href="http://www.pombase.org/spombe/related/PBO:0017406">180</a></td>
-</tr>
-<tr class="odd">
-<td align="left"><em>S. pombe</em> specific protein, uncharacterised</td>
-<td align="left"><a href="http://www.pombase.org/spombe/related/PBO:0017405">145</a></td>
-</tr>
-<tr class="even">
-<td align="left">Dubious</td>
-<td align="left"><a href="http://www.pombase.org/spombe/related/PBO:0000006">54</a></td>
-</tr>
-<tr class="odd">
-<td align="left">Transposon</td>
-<td align="left"><a href="http://www.pombase.org/spombe/related/PBO:0000007">13</a></td>
-</tr>
-<tr class="even">
-<td align="left">Total</td>
-<td align="left">5144</td>
-</tr>
-</tbody>
-</table>
-<p>The table is updated with every PomBase data release.<strong><br />
-</strong></p>
+<p><app-characterisation-status-table></app-characterisation-status-table></p>
+<p>The table is updated with every PomBase data release.</p>
 <hr />
 <h2 id="gene-characterisation-status-descriptions">Gene Characterisation Status Descriptions</h2>
 <p><strong>Experimentally characterised:</strong> Completely or partially characterised in a small scale experiment, with some published information about the biological role (corresponding to any of the <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO slim</a> biological process terms)</p>
 <p><strong>Role inferred from homology:</strong> A biological role (as above, a <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO slim</a> term) is inferred from homology to an experimentally characterised gene product</p>
-<p><strong>Conserved protein (unknown biological role):</strong> Conserved outside the <em>Schizosaccharomyces</em>, but nothing known about the biological role in any organism</p>
-<p><strong><em>Schizosaccharomyces</em> </strong>specific protein, uncharacterised<strong>:</strong> Unpublished and found only in fission yeast (<em>S. pombe</em>, <em>S. octosporus,​ </em>S. japonicus, S. cryophilus**); nothing known about biological role. May be single copy or a member of a multi-member family.</p>
-<p>*****S. pombe<em> <strong>specific protein, uncharacterised:</strong> Unpublished and found only in </em>S. pombe <em>(not detected in other </em>Schizosaccharomyces* species); nothing known about biological role</p>
+<p><strong>Conserved protein (unknown biological role):</strong> Conserved outside the <i>Schizosaccharomyces</i>,​ but nothing known about the biological role in any organism</p>
+<p><strong><i>Schizosaccharomyces</i> specific protein, uncharacterised:</strong> Unpublished and found only in fission yeast (<i>S. pombe</i>, <i>S. octosporus</i>,​ <i>S. japonicus</i>, <i>S. cryophilus</i>); nothing known about biological role. May be single copy or a member of a multi-member family.</p>
+<p><strong><i>S. pombe</i> specific protein, uncharacterised:</strong> Unpublished and found only in <i>S. pombe </i>(not detected in other <i>Schizosaccharomyces</i> species); nothing known about biological role</p>
 <p><strong>Dubious:</strong> Unlikely to be protein coding</p>
 <p>Note: You can retrieve current lists of genes with each characterisation status using the <a href="http://www.pombase.org/spombe/query/builder">Advanced Search</a>. Select the Annotation Status filter, then choose a status from the pulldown menu,​ and submit.</p>
 

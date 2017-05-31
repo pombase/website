@@ -1,0 +1,25 @@
+<div class="characterisation-status">
+  <app-loading-spinner *ngIf="!characterisationSubsets && !apiError"></app-loading-spinner>
+  <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
+
+  <table *ngIf="characterisationSubsets">
+    <thead>
+      <tr>
+        <th>Gene status overview</th>
+        <th>Annotated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let subset of characterisationSubsets">
+        <td>{{subset.displayName}}</td>
+        <td>
+          <a routerLink="/gene_subset/{{subset.name}}">{{subset.geneCount}}</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>{{total}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

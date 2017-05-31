@@ -16,6 +16,9 @@
         <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GOslim</a>
         categories: {{subset.elements.length}}
       </div>
+      <div *ngIf="subsetDisplayName">
+        {{subsetDisplayName}}
+      </div>
     </div>
 
     <app-genes-table [legend]="''"

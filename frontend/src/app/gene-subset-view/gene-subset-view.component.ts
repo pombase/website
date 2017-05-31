@@ -11,6 +11,7 @@ import { GeneSubsetDetails, PombaseAPIService } from '../pombase-api.service';
 })
 export class GeneSubsetViewComponent implements OnInit {
   subset: GeneSubsetDetails = null;
+  subsetDisplayName = null;
   apiError = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -32,7 +33,14 @@ export class GeneSubsetViewComponent implements OnInit {
           if (params['subsetName'] !== undefined) {
             let subsetName = params['subsetName'];
             this.subset = subsets[subsetName];
-            if (!this.subset) {
+            if (this.subset) {
+              let matchResults = this.subset.name.match(/characterisation_status:(.*)/);
+              if (matchResults) {
+                this.subsetDisplayName =
+                  'Genes with characterisation status "' + matchResults[1] +
+                  '": ' + this.subset.elements.length;
+              }
+            } else {
               this.apiError = {
                 status: 404,
                 message: 'no such subset: ' + subsetName,

@@ -1,18 +1,8 @@
 # Gene characterisation
 
-  **Gene Status Overview**                                  Annotated
-  --------------------------------------------------------- -------------------------------------
-  Experimentally characterised (or published)               [2235](http://www.pombase.org/spombe/related/PBO:0000001)
-  Role inferred from homology                               [1996](http://www.pombase.org/spombe/related/PBO:0000002)
-  Conserved protein (unknown biological role)               [511](http://www.pombase.org/spombe/related/PBO:0000003)
-  *Schizosaccharomyces* specific protein, uncharacterised   [180](http://www.pombase.org/spombe/related/PBO:0017406)
-  *S. pombe* specific protein, uncharacterised              [145](http://www.pombase.org/spombe/related/PBO:0017405)
-  Dubious                                                   [54](http://www.pombase.org/spombe/related/PBO:0000006)
-  Transposon                                                [13](http://www.pombase.org/spombe/related/PBO:0000007)
-  Total                                                     5144
+<app-characterisation-status-table></app-characterisation-status-table>
 
-The table is updated with every PomBase data release.**\
-**
+The table is updated with every PomBase data release.
 
 ------------------------------------------------------------------------
 
@@ -29,17 +19,16 @@ terms)
 yeast GO slim](browse-curation/fission-yeast-go-slim-terms) term) is
 inferred from homology to an experimentally characterised gene product
 
-**Conserved protein (unknown biological role):** Conserved outside the
-*Schizosaccharomyces*, but nothing known about the biological role in
-any organism
+**Conserved protein (unknown biological role):** Conserved outside the <i>Schizosaccharomyces</i>,
+but nothing known about the biological role in any organism
 
-***Schizosaccharomyces* **specific protein, uncharacterised**:**
-Unpublished and found only in fission yeast (*S. pombe*, *S. octosporus,
-*S. japonicus, S. cryophilus**); nothing known about biological role.
+**<i>Schizosaccharomyces</i> specific protein, uncharacterised:**
+Unpublished and found only in fission yeast (<i>S. pombe</i>, <i>S. octosporus</i>,
+<i>S. japonicus</i>, <i>S. cryophilus</i>); nothing known about biological role.
 May be single copy or a member of a multi-member family.
 
-*****S. pombe* **specific protein, uncharacterised:** Unpublished and
-found only in *S. pombe *(not detected in other *Schizosaccharomyces*
+**<i>S. pombe</i> specific protein, uncharacterised:** Unpublished and
+found only in <i>S. pombe </i>(not detected in other <i>Schizosaccharomyces</i>
 species); nothing known about biological role
 
 **Dubious:** Unlikely to be protein coding
