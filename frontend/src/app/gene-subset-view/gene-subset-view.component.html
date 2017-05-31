@@ -2,7 +2,23 @@
   <app-loading-spinner *ngIf="!subset && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
-  <app-genes-table *ngIf="subset"
-                   [legend]="subset.name"
-                   [genes]="subset.elements"></app-genes-table>
+  <div *ngIf="subset">
+    <div class="details-page-name-and-id">
+      <div *ngIf="subset.name == 'non_go_slim_with_bp_annotation'">
+        Gene products with a biological process annotation, not covered
+        any of the PomBase
+        <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GOslim</a>
+        categories: {{subset.elements.length}}
+      </div>
+      <div *ngIf="subset.name == 'non_go_slim_without_bp_annotation'">
+        Gene products without a biological process annotation, not covered
+        any of the PomBase
+        <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GOslim</a>
+        categories: {{subset.elements.length}}
+      </div>
+    </div>
+
+    <app-genes-table [legend]="''"
+                     [genes]="subset.elements"></app-genes-table>
+  </div>
 </div>
