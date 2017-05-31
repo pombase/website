@@ -286,7 +286,7 @@ export interface TermSubsets {
 
 export interface GeneSubsetDetails {
   name: string;
-  elements: Array<GeneShort>;
+  elements: Array<string>|Array<GeneShort>;
 }
 
 export interface GeneSubsets {
@@ -674,6 +674,17 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
+  getGeneSummariesByUniquename(): Promise<{[uniquename: string]: GeneSummary}> {
+    return this.getGeneSummaries()
+      .then(geneSummaries => {
+        let retMap = {};
+        for (let summ of geneSummaries) {
+          retMap[summ['uniquename']] = summ;
+        }
+        return retMap;
+      });
+  }
+
   getTermSubsets(): Promise<TermSubsets> {
     return this.getWithRetry(this.apiUrl + '/data/term_subsets')
       .toPromise()
@@ -681,10 +692,24 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
+  addGeneShortToSubset(subsets: GeneSubsets): Promise<GeneSubsets> {
+    return this.getGeneSummariesByUniquename()
+      .then((geneSummaries) => {
+        for (let subsetName of Object.keys(subsets)) {
+          let subset = subsets[subsetName];
+          subset.elements =
+            (subset.elements as Array<string>)
+            .map((uniquename) => geneSummaries[uniquename]);
+        }
+        return subsets;
+      });
+  }
+
   getGeneSubsets(): Promise<GeneSubsets> {
     return this.getWithRetry(this.apiUrl + '/data/gene_subsets')
       .toPromise()
       .then(response => response.json() as GeneSubsets)
+      .then(subset => this.addGeneShortToSubset(subset))
       .catch(this.handleError);
   }
 
