@@ -1,8 +1,8 @@
 # About PomBase
 
-PomBase is a new model organism database that provides organization of
+PomBase is a model organism database that provides organization of
 and access to scientific data for the fission yeast
-Schizosaccharomyces pombe. PomBase supports genomic sequence and
+*Schizosaccharomyces pombe*. PomBase supports genomic sequence and
 features, genome-wide datasets and manual literature curation.
 
 PomBase also provides a community hub for researchers, providing
