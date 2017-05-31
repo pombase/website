@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GeneShort } from '../pombase-api.service';
 
 @Component({
@@ -6,15 +6,22 @@ import { GeneShort } from '../pombase-api.service';
   templateUrl: './genes-table.component.html',
   styleUrls: ['./genes-table.component.css']
 })
-export class GenesTableComponent {
+export class GenesTableComponent implements OnInit {
   @Input() legend: string;
   @Input() genes: Array<GeneShort> = [];
 
   orderByField = 'gene';
+  showLengend = false;
+
+  constructor() { }
 
   setOrderBy(field: string) {
     this.orderByField = field;
   }
 
-  constructor() { }
+  ngOnInit() {
+    if (this.legend) {
+      this.showLengend = true;
+    }
+  }
 }

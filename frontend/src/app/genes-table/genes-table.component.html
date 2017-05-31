@@ -1,7 +1,7 @@
 <div>
   <app-loading-spinner *ngIf="genes.length == 0"></app-loading-spinner>
 <fieldset *ngIf="genes.length > 0" class="genes-table">
-  <legend>
+  <legend *ngIf="showLengend">
     <span>{{legend}}</span>
   </legend>
 
