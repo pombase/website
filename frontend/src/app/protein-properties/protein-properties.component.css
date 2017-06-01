@@ -5,3 +5,7 @@
 table.protein-properties {
   width: auto;
 }
+
+.protein-properties {
+  border-top: 2px solid #ddd;
+}

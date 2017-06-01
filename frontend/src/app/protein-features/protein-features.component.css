@@ -11,3 +11,11 @@
 .ensembl-link-label {
   font-size: 110%;
 }
+
+.protein-feature-title {
+  font-weight: bold;
+}
+
+.properties-table {
+  padding: 0.4em 0.2em 0 0.5em;
+}

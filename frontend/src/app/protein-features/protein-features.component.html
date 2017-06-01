@@ -4,15 +4,19 @@
   </legend>
 
 <div class="annotation-table-container">
-  <div class="ensembl-peptide-view"
-       *ngIf="appConfig.isConfigOrganism(organism.genus, organism.species)">
-    <div class="ensembl-image" *ngIf="ensemblImageUrl">
+  <div *ngIf="ensemblImageUrl && appConfig.isConfigOrganism(organism.genus, organism.species)">
+    <div class="protein-feature-title">
+      Graphical view
+    </div>
+    <div class="ensembl-peptide-view">
+    <div class="ensembl-image">
       <a href="{{ensemblBrowserUrl}}">
         <img src="{{ensemblImageUrl}}" />
         <div class="ensembl-link-label">
           View in Ensembl browser ...
         </div>
       </a>
+    </div>
     </div>
   </div>
 
@@ -26,11 +30,13 @@
   </div>
 
   <div *ngIf="proteinDetails">
-    <div class="annotation-sub-table-name">
+    <div class="protein-feature-title">
       Protein properties
     </div>
+    <div class="properties-table">
     <app-protein-properties [proteinDetails]="proteinDetails">
     </app-protein-properties>
+    </div>
   </div>
 </div>
 </fieldset>
