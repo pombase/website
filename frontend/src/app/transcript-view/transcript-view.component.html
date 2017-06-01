@@ -1,0 +1,23 @@
+<fieldset class="annotation-table">
+  <legend>
+    Transcript
+  </legend>
+
+  <div class="annotation-table-container">
+    <div *ngFor="let transcript of transcripts">
+      <div class="transcript-view-title">
+        Graphical view
+      </div>
+      <div class="ensembl-transcript-view">
+        <div class="ensembl-image">
+          <a href="{{transcript.ensemblBrowserUrl}}">
+            <img src="{{transcript.ensemblImageUrl}}" />
+            <div class="ensembl-link-label">
+              View in Ensembl browser ...
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>

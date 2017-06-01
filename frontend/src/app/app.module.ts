@@ -66,6 +66,7 @@ import { ProteinPropertiesComponent } from './protein-properties/protein-propert
 import { ProteinFeaturesComponent } from './protein-features/protein-features.component';
 import { GeneSubsetViewComponent } from './gene-subset-view/gene-subset-view.component';
 import { CharacterisationStatusTableComponent } from './characterisation-status-table/characterisation-status-table.component';
+import { TranscriptViewComponent } from './transcript-view/transcript-view.component';
 
 export function documentFactory() {
     return document;
@@ -133,6 +134,7 @@ export function windowFactory() {
     ProteinFeaturesComponent,
     GeneSubsetViewComponent,
     CharacterisationStatusTableComponent,
+    TranscriptViewComponent,
   ],
   imports: [
     BrowserModule,
