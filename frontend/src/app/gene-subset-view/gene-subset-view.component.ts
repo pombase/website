@@ -34,7 +34,7 @@ export class GeneSubsetViewComponent implements OnInit {
             let subsetName = params['subsetName'];
             this.subset = subsets[subsetName];
             if (this.subset) {
-              let matchResults = this.subset.name.match(/characterisation_status:(.*)/);
+              let matchResults = this.subset.display_name.match(/characterisation_status:(.*)/);
               if (matchResults) {
                 this.subsetDisplayName =
                   'Genes with characterisation status "' + matchResults[1] +

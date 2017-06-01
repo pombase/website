@@ -28,7 +28,7 @@ export class CharacterisationStatusTableComponent implements OnInit {
 
         for (let subsetName of subsetNames) {
           let subset = subsets[subsetName];
-          let matchResults = subset.name.match(/characterisation_status:(.*)/);
+          let matchResults = subset.display_name.match(/characterisation_status:(.*)/);
           if (matchResults) {
             this.characterisationSubsets.push({
               name: subset.name,

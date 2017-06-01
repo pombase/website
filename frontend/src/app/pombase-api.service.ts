@@ -286,6 +286,7 @@ export interface TermSubsets {
 
 export interface GeneSubsetDetails {
   name: string;
+  display_name: string;
   elements: Array<string>|Array<GeneShort>;
 }
 
