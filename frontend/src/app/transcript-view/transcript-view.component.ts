@@ -23,7 +23,7 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
       let ensemblImageUrl =
         `http://preview.pombase.org/browser_images/${detail.uniquename}_trans.png`;
       let ensemblBrowserUrl =
-        `http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Transcript/Summary?t=${detail.uniquename}`;
+        `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/Summary?t=${detail.uniquename}`;
       this.transcripts.push({
         ensemblImageUrl: ensemblImageUrl,
         ensemblBrowserUrl: ensemblBrowserUrl,

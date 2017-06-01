@@ -28,6 +28,6 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
     this.ensemblImageUrl =
       `http://preview.pombase.org/browser_images/${this.transcriptUniquename}_pep.png`;
     this.ensemblBrowserUrl =
-      `http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptUniquename}`;
+      `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptUniquename}`;
   }
 }
