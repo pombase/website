@@ -27,6 +27,7 @@
     <div *ngFor="let annotationTypeName of annotationTypeNames">
       <div *ngIf="genotypeDetails.cv_annotations[annotationTypeName]">
         <app-annotation-table [annotationTypeName]="annotationTypeName"
+                              [scope]="'genotype'"
                               [tableDisplayName]="'Annotations for this genotype'"
                               [hideColumns]="['genotype', 'desc-rel']"
                               [annotationTable]="genotypeDetails.cv_annotations[annotationTypeName]"></app-annotation-table>

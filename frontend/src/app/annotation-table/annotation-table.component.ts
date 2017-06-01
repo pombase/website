@@ -16,6 +16,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() featureInFirstColumn? = false;
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() geneDetails?: GeneDetails = null;
+  @Input() scope: string; // "gene", "term", "reference" ...
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;

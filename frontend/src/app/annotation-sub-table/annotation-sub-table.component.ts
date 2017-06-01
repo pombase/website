@@ -17,6 +17,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() hideColumns: Array<string>;
   @Input() featureInFirstColumn? = false;
   @Input() annotationTable: Array<TermAnnotation>;
+  @Input() scope: string;
   @Output() tableViewChangeEmitter = new EventEmitter<TableViewState>();
 
   // copy to the component for use in template

@@ -61,6 +61,7 @@
     <span *ngFor="let annotationTypeName of annotationTypeNames">
       <app-annotation-table  id="{{annotationTypeName}}"
                              *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
+                            [scope]="'reference'"
                             [annotationTypeName]="annotationTypeName"
                             [hideColumns]="['reference', 'desc-rel']"
                             [featureInFirstColumn]="true"

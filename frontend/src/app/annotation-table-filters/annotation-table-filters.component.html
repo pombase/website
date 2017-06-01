@@ -1,18 +1,16 @@
 <div>
-  Filters: 
-  <span *ngFor="let config of filterConfig">
+  <span *ngIf="scopeFilterConfig.length > 0" class="filters-header">Filters:</span>
+  <span class="filter-control" *ngFor="let config of scopeFilterConfig">
     <app-annotation-table-term-filter *ngIf="config.filter_name == 'term'"
                                       [config]="config"
                                       [annotationTable]="annotationTable"
                                       (filterChange)="filterChanged('term', $event)">
     </app-annotation-table-term-filter>
 
-    <span *ngIf="currentViewState == tableViewState.Details" class="filter-control">
       <app-annotation-table-evidence-filter *ngIf="config.filter_name == 'evidence'"
                                             [config]="config"
                                             [annotationTable]="annotationTable"
                                             (filterChange)="filterChanged('evidence', $event)">
       </app-annotation-table-evidence-filter>
-    </span>
   </span>
 </div>

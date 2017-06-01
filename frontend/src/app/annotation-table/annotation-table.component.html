@@ -16,6 +16,7 @@
   <div *ngIf="split_by_parents.length == 0">
     <app-annotation-sub-table
        [annotationTypeName]="annotationTypeName"
+       [scope]="scope"
        [hideColumns]="hideColumns"
        [featureInFirstColumn]="featureInFirstColumn"
        [annotationTable]="annotationTable">
@@ -27,6 +28,7 @@
         <div *ngIf="conf.display_name" class="annotation-sub-table-name">{{conf.display_name}}</div>
         <app-annotation-sub-table
            [annotationTypeName]="annotationTypeName"
+           [scope]="scope"
            [hideColumns]="hideColumns"
            [featureInFirstColumn]="featureInFirstColumn"
            [annotationTable]="splitDataList[conf.config_name]">

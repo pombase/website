@@ -63,8 +63,10 @@ export interface EvidenceFilterCategory {
 }
 
 export interface FilterConfig {
+  filter_name: string;
   display_name: string;
   detailed_view_only: boolean;
+  scope: Array<string>;
   term_categories?: Array<TermFilterCategory>;
   evidence_categories?: Array<EvidenceFilterCategory>;
 }

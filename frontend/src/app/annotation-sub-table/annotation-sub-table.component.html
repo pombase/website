@@ -5,7 +5,9 @@
   </div>
 
   <div class="filter-controls">
-    <app-annotation-table-filters *ngIf="filterConfig" [filterConfig]="filterConfig"
+    <app-annotation-table-filters *ngIf="filterConfig"
+                                  [filterConfig]="filterConfig"
+                                  [scope]="scope"
                                   [annotationTable]="annotationTable"
                                   [currentViewState]="currentViewState"
                                   (filterChange)="updateCurrentFilter($event)">

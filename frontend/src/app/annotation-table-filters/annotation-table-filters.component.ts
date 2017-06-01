@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges,
+         EventEmitter } from '@angular/core';
 
 import { TermAnnotation } from '../pombase-api.service';
 import { FilterConfig } from '../config';
@@ -11,15 +12,16 @@ import { TableViewState } from '../pombase-types';
   templateUrl: './annotation-table-filters.component.html',
   styleUrls: ['./annotation-table-filters.component.css']
 })
-export class AnnotationTableFiltersComponent implements OnInit {
+export class AnnotationTableFiltersComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() filterConfig: Array<FilterConfig>;
   @Input() currentViewState: TableViewState;
+  @Input() scope: string; // "gene", "term", "reference" ...
   @Output() filterChange = new EventEmitter<AnnotationFilter>();
 
   tableViewState = TableViewState;
-
   currentFilters = {};
+  scopeFilterConfig = [];
 
   filterChanged(filterType: string, event: AnnotationFilter) {
     if (event) {
@@ -44,5 +46,14 @@ export class AnnotationTableFiltersComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.scopeFilterConfig =
+      this.filterConfig.filter(conf => {
+        return conf.scope.indexOf(this.scope) !== -1 &&
+          (this.currentViewState === TableViewState.Details ||
+           conf.filter_name !== 'evidence');
+      });
   }
 }

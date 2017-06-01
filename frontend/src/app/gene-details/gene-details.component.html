@@ -95,6 +95,7 @@
 
         <app-annotation-table id="{{annotationTypeName}}"
                               *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
+                              [scope]="'gene'"
                               [annotationTypeName]="annotationTypeName"
                               [geneDetails]="geneDetails"
                               [hideColumns]="['gene', 'desc-rel']"

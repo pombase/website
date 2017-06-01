@@ -69,6 +69,7 @@ This term is part of the
       <div *ngIf="termDetails.cv_annotations[annotationTypeName]">
         <app-annotation-table id="{{annotationTypeName}}"
                               *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
+                              [scope]="'term'"
                               [tableDisplayName]="config.annotationTypes[annotationTypeName].display_name + ' annotations for ' + termDetails.termid + ' and its descendants'"
                               [annotationTypeName]="termDetails.cv_name"
                               [featureInFirstColumn]="true"
