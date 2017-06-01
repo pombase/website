@@ -3,6 +3,19 @@
     Protein features
   </legend>
 
+<div class="annotation-table-container">
+  <div class="ensembl-peptide-view"
+       *ngIf="appConfig.isConfigOrganism(organism.genus, organism.species)">
+    <div class="ensembl-image" *ngIf="ensemblImageUrl">
+      <a href="{{ensemblBrowserUrl}}">
+        <img src="{{ensemblImageUrl}}" />
+        <div class="ensembl-link-label">
+          View in Ensembl browser ...
+        </div>
+      </a>
+    </div>
+  </div>
+
   <div class="content">
     <app-annotation-sub-table
       *ngIf="annotationTable && annotationTable.length > 0"
@@ -19,4 +32,5 @@
     <app-protein-properties [proteinDetails]="proteinDetails">
     </app-protein-properties>
   </div>
+</div>
 </fieldset>

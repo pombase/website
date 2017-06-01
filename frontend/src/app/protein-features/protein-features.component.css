@@ -1,0 +1,13 @@
+.ensembl-peptide-view {
+  width: 100%;
+  text-align: center;
+}
+
+.ensembl-image {
+  display: inline-block;
+  padding: 0.5em;
+}
+
+.ensembl-link-label {
+  font-size: 110%;
+}

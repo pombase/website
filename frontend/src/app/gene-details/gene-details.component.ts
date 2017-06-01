@@ -24,6 +24,7 @@ export class GeneDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
   apiError = null;
+  transcriptDetails = null;
   productSize = '';
   proteinDetails = null;
   proteinFeaturesTable = null;
@@ -199,7 +200,8 @@ export class GeneDetailsComponent implements OnInit {
               this.scrollToPageTop();
               this.setProductSize();
               if (this.geneDetails.transcripts.length > 0) {
-                this.proteinDetails = this.geneDetails.transcripts[0].protein;
+                this.transcriptDetails = this.geneDetails.transcripts[0];
+                this.proteinDetails = this.transcriptDetails.protein;
               }
               if (geneDetails.cv_annotations['PomBase family or domain']) {
                 this.proteinFeaturesTable =

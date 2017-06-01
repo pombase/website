@@ -72,7 +72,7 @@
       <div *ngIf="ensemblImageUrl">
         <a href="http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?db=core;g={{geneDetails.uniquename}}">
            <img src="{{ensemblImageUrl}}" />
-           <div class="ensembl-link-label">View in Ensembl Genome browser ...</div>
+           <div class="ensembl-link-label">View in Ensembl genome browser ...</div>
         </a>
       </div>
     </div>
@@ -104,6 +104,8 @@
 
       <app-protein-features id="{{annotationTypeName}}"
                             *ngIf="annotationTypeName == 'protein_features' && (proteinDetails || proteinFeaturesTable?.length > 0)"
+                            [organism]="geneDetails.organism"
+                            [transcriptUniquename]="transcriptDetails.uniquename"
                             [proteinDetails]="proteinDetails"
                             [annotationTable]="proteinFeaturesTable"></app-protein-features>
 

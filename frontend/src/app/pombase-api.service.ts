@@ -200,11 +200,17 @@ export interface TranscriptDetails {
   protein?: ProteinDetails;
 }
 
+export interface Organism {
+  genus: string;
+  species: string;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
   feature_type: string;
   product?: string;
+  organism: Organism;
   transcripts: Array<TranscriptDetails>;
   deletion_viability?: string;
   uniprot_identifier?: string;
