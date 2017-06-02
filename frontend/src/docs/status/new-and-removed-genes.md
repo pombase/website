@@ -656,6 +656,46 @@
   <td>intergenic RNA nc-tgp1 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=25428589">PMID:25428589</a>)</td>
   <td>January 2017</td>
  </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1701" routerLinkActive="active" [attr.title]="'SPNCRNA.1701'"><span class="gene-link">SPNCRNA.1701</span></a></td>
+  <td>name prl101; synonym prl1 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1702" routerLinkActive="active" [attr.title]="'SPNCRNA.1702'"><span class="gene-link">SPNCRNA.1702</span></a></td>
+  <td>name prl104; synonym prl4 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1703" routerLinkActive="active" [attr.title]="'SPNCRNA.1703'"><span class="gene-link">SPNCRNA.1703</span></a></td>
+  <td>name prl105; synonym prl5 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1704" routerLinkActive="active" [attr.title]="'SPNCRNA.1704'"><span class="gene-link">SPNCRNA.1704</span></a></td>
+  <td>name prl107; synonym prl7 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1705" routerLinkActive="active" [attr.title]="'SPNCRNA.1705'"><span class="gene-link">SPNCRNA.1705</span></a></td>
+  <td>name prl108; synonym prl8 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1706" routerLinkActive="active" [attr.title]="'SPNCRNA.1706'"><span class="gene-link">SPNCRNA.1706</span></a></td>
+  <td>name prl106; synonym prl6 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1707" routerLinkActive="active" [attr.title]="'SPNCRNA.1707'"><span class="gene-link">SPNCRNA.1707</span></a></td>
+  <td>name prl102; synonym prl2 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1708" routerLinkActive="active" [attr.title]="'SPNCRNA.1708'"><span class="gene-link">SPNCRNA.1708</span></a></td>
+  <td>name prl103; synonym prl3 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
  </tbody>
 </table>
 
