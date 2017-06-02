@@ -10,4 +10,4 @@
 - [Gene characterisation](status/gene-characterisation)
 - [Gene characterisation history](status/gene-characterisation-statistics-history)
 - [Priority unstudied genes](status/priority-unstudied-genes)
-- [Unmapped genes](status/unmapped-genes)
+- [Unmapped genes](status/unmapped_genes)
