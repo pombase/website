@@ -11,6 +11,7 @@
 | [Gene Characterisation](status/gene-characterisation)                               | Current counts of protein coding gene status, as published in small scale experiments                               |
 | [Historical Gene Characterisation](status/gene-characterisation-statistics-history) | Changes in gene characterisation statistics over time                                                               |
 | [Priority Unstudied Genes](status/priority-unstudied-genes)                         | Unstudied nuclear genes conserved 1:1 in human                                                                      |
+| [Unmapped Genes](status/unmapped_genes)                                             | List of genes identified genetically but not cloned or physically mapped                                            |
 
 Note: Many older *S. pombe* sequence submissions to the DNA databases
 (International Nucleotide Sequence Database Collaboration databases,
