@@ -7,11 +7,12 @@
       <div *ngIf="sequenceVisible">
         <div class="controls">
           <a class="sequence-toggle" (click)="hideSequence()">Hide sequence ...</a>
+          <div *ngIf="featureIsTranslatable">
           <br/>
           <input id="show-translation" type="checkbox" [(ngModel)]="showTranslation"
                  (ngModelChange)="updateSequence()"/>
           <label for="show-translation">Show translation</label>
-          <br/>
+          </div>
           <br/>
           <div *ngIf="showTranslation">
           </div>
@@ -20,14 +21,16 @@
               Include
               <input class="flanking-bases" id="upstream-bases" type="number"
                      [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
-              bases upstream of UTR
+              bases upstream <span *ngIf="featureIsTranslatable">of UTR</span>
             </div>
 
+            <div *ngIf="featureIsTranslatable">
             <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-5-prime">Include 5'UTR</label>
 
             <br/>
+            </div>
             <input id="include-exons" type="checkbox" [(ngModel)]="includeExons"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-exons">Include exons</label>
@@ -36,15 +39,16 @@
                    (ngModelChange)="updateSequence()"/>
             <label for="include-introns">Include introns</label>
             <br/>
+            <div *ngIf="featureIsTranslatable">
             <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-3-prime">Include 3'UTR</label>
-
+            </div>
             <div>
               Include
               <input class="flanking-bases" id="downstream-bases" type="number"
                      [(ngModel)]="downstreamBases" (ngModelChange)="updateSequence()"/>
-              bases downstream of UTR
+              bases downstream <span *ngIf="featureIsTranslatable">of UTR</span>
             </div>
           </div>
           <br/>

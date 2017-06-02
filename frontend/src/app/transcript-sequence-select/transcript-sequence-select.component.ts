@@ -19,6 +19,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   sequenceHeader = '';
   hasTranscripts = false;
 
+  featureIsTranslatable = false;
   showTranslation = false;
   includeExons = true;
   includeIntrons = false;
@@ -170,6 +171,13 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   ngOnChanges() {
     this.upstreamBases = 0;
     this.downstreamBases = 0;
+
+    this.featureIsTranslatable = this.geneDetails.feature_type === 'mRNA gene';
+    this.showTranslation = false;
+    this.includeExons = true;
+    this.includeIntrons = false;
+    this.include5PrimeUtr = false;
+    this.include3PrimeUtr = false;
 
     this.prefetch();
 
