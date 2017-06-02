@@ -4,41 +4,40 @@
 These points will help you understand GO slims, and highlight some
 features of the fission yeast slim terms and annotations.
 
-1.  The GO slim annotation counts do NOT correspond to a gene product
-    count. Although each total gives the number of gene products
-    annotated to a term, the total number of annotations to slim terms
-    will not equal the number of gene products in the genome because
-    many gene products are annotated to multiple terms. It is therefore
-    not meaningful to sum the numbers and present GO slim data as a pie
-    chart, because the fraction of the total for each term represents
-    the froction of total annotations rather than the fraction of gene
-    products annotated.
+1.  Note that the counts in the "Genes" column of the GO slim table are
+    not additive, because many gene products are annotated to multiple
+    terms.
 2.  It not possible to create a slim with no overlaps between terms.
-    Although this slim has been defined to include biologically
+    Although the *S. pombe* slim has been defined to include biologically
     informative terms, and minimise overlaps between terms, large
     overlaps cannot be entirely avoided. For example, most of the gene
     products annotated to *signal transduction* are also annotated other
     terms in the slim.
-3.  It is difficult to define a slim which includes all annotated gene
+3.  As a consequence of points 1 and 2, GO slim annotation summaries
+    should not be presented using pie charts. Although a pie chart could
+    show the fraction of total annotations for any slim term, it can too
+    easily be mistaken for the fraction of total annotated gene products,
+    which is not the same.
+4.  It is difficult to define a slim which includes all annotated gene
     products without including terms with very small numbers of
     annotations (for example, the cell aging branch has very few
     annotations), or very high level terms which are not particularly
     biologically informative (e.g. cellular process). Because we have
     opted not to include such terms, some gene products are annotated to
     process terms but do not appear in the slim annotation set.
-4.  Bear in mind that both proteins and RNAs can be annotated to GO
+5.  Bear in mind that both proteins and RNAs can be annotated to GO
     terms. If you are working only with proteins you will need to make
     adjustments for this. For example, many tRNAs and rRNAs are
     annotated to cytoplasmic translation, and are therefore included in
     the slim set.
-5.  There is a difference between "unknown" and "unannotated". All
+6.  There is a difference between "unknown" and "unannotated". All
     fission yeast and budding yeast gene products have been assessed and
     are classed as "unknown" for biological process if no biological
     process information is found (experimental or inferred). If you are
     making comparisons with other organisms, remember that it is
     possible that not all gene products have been assessed and that the
     "unknown" set is underestimated.
-6.  The default S. pombe slim includes all evidence codes for fission
+7.  The default S. pombe slim includes all evidence codes for fission
     yeast. The evidence code **IEA** (inferred from electronic
     annotation) is often considered to be less accurate than other
     evidence codes, but it is very useful for increasing the coverage of
@@ -51,7 +50,7 @@ features of the fission yeast slim terms and annotations.
     biological process annotations as of September 2011), and have a low
     rate of false positives. We therefore recommend that you include
     them.
-7.  If you are making comparisons with budding yeast (or other
+8.  If you are making comparisons with budding yeast (or other
     organisms), you should consider excluding the evidence code **RCA**.
     This evidence code is used for functional predictions, and has a
     very high rate of false positives (for example, including RCA for
