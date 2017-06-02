@@ -954,6 +954,11 @@
   <td>2014-07-04</td>
  </tr>
  <tr>
+  <td>SPAC823.02</td>
+  <td>deleted; replaced by SPAC823.17 at same locus, but in different frame&nbsp;(<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>)</td>
+  <td>2014-07-04</td>
+ </tr>
+ <tr>
   <td>SPNCRNA.252</td>
   <td>changed to LTR</td>
   <td>2015-01-22</td>
