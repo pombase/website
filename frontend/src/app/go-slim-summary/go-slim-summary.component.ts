@@ -23,6 +23,10 @@ export class GoSlimSummaryComponent implements OnInit, OnChanges {
       for (let term_annotations of biological_process) {
         let term = term_annotations.term;
 
+        if (term_annotations.is_not) {
+          continue;
+        }
+
         ret.add(term.termid);
 
         if (term.interesting_parents) {
