@@ -42,6 +42,10 @@
   border-bottom: 3px solid #ccc;
 }
 
+.docs-content th, .docs-content td {
+  padding-right: 0.7em;
+}
+
 .docs-content td .no-break {
   white-space: nowrap;
 }
