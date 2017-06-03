@@ -109,7 +109,7 @@
       <app-protein-features id="{{annotationTypeName}}"
                             *ngIf="annotationTypeName == 'protein_features' && (proteinDetails || proteinFeaturesTable?.length > 0)"
                             [organism]="geneDetails.organism"
-                            [transcriptUniquename]="transcriptDetails.uniquename"
+                            [transcriptUniquename]="transcriptDetails?.uniquename"
                             [proteinDetails]="proteinDetails"
                             [annotationTable]="proteinFeaturesTable"></app-protein-features>
 

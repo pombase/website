@@ -25,9 +25,14 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.ensemblImageUrl =
-      `http://preview.pombase.org/browser_images/${this.transcriptUniquename}_pep.png`;
-    this.ensemblBrowserUrl =
-      `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptUniquename}`;
+    if (this.transcriptUniquename) {
+      this.ensemblImageUrl =
+        `http://preview.pombase.org/browser_images/${this.transcriptUniquename}_pep.png`;
+      this.ensemblBrowserUrl =
+        `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptUniquename}`;
+    } else {
+      this.ensemblImageUrl = null;
+      this.ensemblBrowserUrl = null;
+    }
   }
 }

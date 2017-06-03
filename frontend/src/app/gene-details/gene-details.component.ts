@@ -203,10 +203,15 @@ export class GeneDetailsComponent implements OnInit {
               if (this.geneDetails.transcripts.length > 0) {
                 this.transcriptDetails = this.geneDetails.transcripts[0];
                 this.proteinDetails = this.transcriptDetails.protein;
+              } else {
+                this.transcriptDetails = null;
+                this.proteinDetails = null;
               }
               if (geneDetails.cv_annotations['PomBase family or domain']) {
                 this.proteinFeaturesTable =
                   geneDetails.cv_annotations['PomBase family or domain'];
+              } else {
+                this.proteinFeaturesTable = null;
               }
             })
             .catch(error => {
