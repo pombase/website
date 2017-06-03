@@ -560,8 +560,9 @@ United Kingdom</p>
 <p><strong>General GO Slim hints</strong></p>
 <p>These points will help you understand GO slims, and highlight some features of the fission yeast slim terms and annotations.</p>
 <ol style="list-style-type: decimal">
-<li>The GO slim annotation counts do NOT correspond to a gene product count. Although each total gives the number of gene products annotated to a term, the total number of annotations to slim terms will not equal the number of gene products in the genome because many gene products are annotated to multiple terms. It is therefore not meaningful to sum the numbers and present GO slim data as a pie chart, because the fraction of the total for each term represents the froction of total annotations rather than the fraction of gene products annotated.</li>
-<li>It not possible to create a slim with no overlaps between terms. Although this slim has been defined to include biologically informative terms, and minimise overlaps between terms, large overlaps cannot be entirely avoided. For example, most of the gene products annotated to <em>signal transduction</em> are also annotated other terms in the slim.</li>
+<li>Note that the counts in the &quot;Genes&quot; column of the GO slim table are not additive, because many gene products are annotated to multiple terms.</li>
+<li>It not possible to create a slim with no overlaps between terms. Although the <em>S. pombe</em> slim has been defined to include biologically informative terms, and minimise overlaps between terms, large overlaps cannot be entirely avoided. For example, most of the gene products annotated to <em>signal transduction</em> are also annotated other terms in the slim.</li>
+<li>As a consequence of points 1 and 2, GO slim annotation summaries should not be presented using pie charts. Although a pie chart could show the fraction of total annotations for any slim term, it can too easily be mistaken for the fraction of total annotated gene products,​ which is not the same.</li>
 <li>It is difficult to define a slim which includes all annotated gene products without including terms with very small numbers of annotations (for example, the cell aging branch has very few annotations), or very high level terms which are not particularly biologically informative (e.g. cellular process). Because we have opted not to include such terms, some gene products are annotated to process terms but do not appear in the slim annotation set.</li>
 <li>Bear in mind that both proteins and RNAs can be annotated to GO terms. If you are working only with proteins you will need to make adjustments for this. For example, many tRNAs and rRNAs are annotated to cytoplasmic translation, and are therefore included in the slim set.</li>
 <li>There is a difference between &quot;unknown&quot; and &quot;unannotated&quot;. All fission yeast and budding yeast gene products have been assessed and are classed as &quot;unknown&quot; for biological process if no biological process information is found (experimental or inferred). If you are making comparisons with other organisms, remember that it is possible that not all gene products have been assessed and that the &quot;unknown&quot; set is underestimated.</li>
@@ -2273,6 +2274,7 @@ Where available, annotation extensions are displayed underneath the ontology ter
 <li><a routerLink="/status/gene-characterisation" routerLinkActive="active">Gene characterisation</a></li>
 <li><a routerLink="/status/gene-characterisation-statistics-history" routerLinkActive="active">Gene characterisation history</a></li>
 <li><a routerLink="/status/priority-unstudied-genes" routerLinkActive="active">Priority unstudied genes</a></li>
+<li><a routerLink="/status/unmapped_genes" routerLinkActive="active">Unmapped genes</a></li>
 </ul>
 
   </div>
@@ -2336,6 +2338,17 @@ Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam</p>
   </tr>
  </thead>
  <tbody>
+  <tr>
+  <td><span class="no-break">2016-09-12</span></td>
+  <td>2227</td>
+  <td>2034</td>
+  <td>503</td>
+  <td>190</td>
+  <td>149</td>
+  <td>55</td>
+  <td>13</td>
+  <td>5171</td>
+ </tr>
  <tr>
   <td><span class="no-break">2015-01-19</span></td>
   <td>2154</td>
@@ -4655,6 +4668,10 @@ Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam</p>
 <td><a routerLink="/status/priority-unstudied-genes" routerLinkActive="active">Priority Unstudied Genes</a></td>
 <td>Unstudied nuclear genes conserved 1:1 in human</td>
 </tr>
+<tr class="even">
+<td><a routerLink="/status/unmapped_genes" routerLinkActive="active">Unmapped Genes</a></td>
+<td>List of genes identified genetically but not cloned or physically mapped</td>
+</tr>
 </tbody>
 </table>
 <p>Note: Many older <em>S. pombe</em> sequence submissions to the DNA databases (International Nucleotide Sequence Database Collaboration databases,​ i.e. ENA, GenBank, DDBJ) contain one or more errors, and we do not have the resources to maintain past sequences or flag every error in PomBase.</p>
@@ -5323,6 +5340,46 @@ Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam</p>
   <td>intergenic RNA nc-tgp1 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=25428589">PMID:25428589</a>)</td>
   <td>January 2017</td>
  </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1701" routerLinkActive="active" [attr.title]="'SPNCRNA.1701'"><span class="gene-link">SPNCRNA.1701</span></a></td>
+  <td>name prl101; synonym prl1 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1702" routerLinkActive="active" [attr.title]="'SPNCRNA.1702'"><span class="gene-link">SPNCRNA.1702</span></a></td>
+  <td>name prl104; synonym prl4 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1703" routerLinkActive="active" [attr.title]="'SPNCRNA.1703'"><span class="gene-link">SPNCRNA.1703</span></a></td>
+  <td>name prl105; synonym prl5 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1704" routerLinkActive="active" [attr.title]="'SPNCRNA.1704'"><span class="gene-link">SPNCRNA.1704</span></a></td>
+  <td>name prl107; synonym prl7 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1705" routerLinkActive="active" [attr.title]="'SPNCRNA.1705'"><span class="gene-link">SPNCRNA.1705</span></a></td>
+  <td>name prl108; synonym prl8 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1706" routerLinkActive="active" [attr.title]="'SPNCRNA.1706'"><span class="gene-link">SPNCRNA.1706</span></a></td>
+  <td>name prl106; synonym prl6 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1707" routerLinkActive="active" [attr.title]="'SPNCRNA.1707'"><span class="gene-link">SPNCRNA.1707</span></a></td>
+  <td>name prl102; synonym prl2 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/gene/SPNCRNA.1708" routerLinkActive="active" [attr.title]="'SPNCRNA.1708'"><span class="gene-link">SPNCRNA.1708</span></a></td>
+  <td>name prl103; synonym prl3 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
+  <td>January 2017</td>
+ </tr>
  </tbody>
 </table>
 <h3 id="genes-removed-since-publication">Genes Removed Since Publication</h3>
@@ -5615,6 +5672,11 @@ Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam</p>
  <tr>
   <td>SPBC713.13</td>
   <td>deleted; ID added as synonym to SPBC713.14c&nbsp;(<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>)</td>
+  <td><span class="no-break">2014-07-04</span></td>
+ </tr>
+ <tr>
+  <td>SPAC823.02</td>
+  <td>deleted; replaced by SPAC823.17 at same locus, but in different frame&nbsp;(<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>)</td>
   <td><span class="no-break">2014-07-04</span></td>
  </tr>
  <tr>
@@ -8435,6 +8497,315 @@ Joined contigs p4C9 and c977</p>
 </table>
 <p><strong>Table notes:</strong><br />
 &quot;Terminal&quot; refers to the position adjacent to the vector sequences of pMLC12 where the blunt end (SmaI end) ligated to the telomeric sequences. &quot;Internal&quot; means that an <em>S. pombe</em> sequence intervenes between the telomere and vector sequences.</p>
+
+  </div>
+  <div *ngIf="pageName == 'unmapped_genes'" class="docs-content">
+<h1 id="unmapped-genes">Unmapped genes</h1>
+<h3 id="genetic-loci-not-cloned-or-physically-mapped">Genetic loci not cloned or physically mapped</h3>
+<table>
+ <thead>
+  <tr>
+   <th>Locus name</th>
+   <th>Publication(s)</th>
+   <th>Allelic with</th>
+  </tr>
+ </thead>
+ <tbody>
+ <tr>
+  <td>all2</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ani1</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ani2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=732808">PMID:732808</a></td>
+  <td>cyh4, tri3</td>
+ </tr>
+ <tr>
+  <td>anr1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1394510">PMID:1394510</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>anr2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1394510">PMID:1394510</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>anr3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1394510">PMID:1394510</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>anr4</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1394510">PMID:1394510</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>aro3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=4211223">PMID:4211223</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ben2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7003311">PMID:7003311</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ben3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7003311">PMID:7003311</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>can2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18357653">PMID:18357653</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>chr1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=12746851">PMID:12746851</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=15114862">PMID:15114862</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cps2</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cps4</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cps6</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cps7</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cps9</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cps10</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7882425">PMID:7882425</a></td>
+  <td>&nbsp;</td>
+ <tr>
+  <td>cps11</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cps13</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cps14</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ <tr>
+  <td>crm2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=2647765">PMID:2647765</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cyh1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=607151">PMID:607151</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cyh2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1068110">PMID:1068110</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cyh3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1068110">PMID:1068110</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>cyh4</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1068110">PMID:1068110</a></td>
+  <td>ani2, tri3</td>
+ </tr>
+ <tr>
+  <td>glu1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7903653">PMID:7903653</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>gps1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7663020">PMID:7663020</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>gps2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7663020">PMID:7663020</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>gps3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7663020">PMID:7663020</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>gps4</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7663020">PMID:7663020</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>git4</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=2157626">PMID:2157626</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>hsp1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7500954">PMID:7500954</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>hyd1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=23712692">PMID:23712692</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ird11</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=22095476">PMID:22095476</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=22173629">PMID:22173629</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=25117315">PMID:25117315</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mcs3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=11085271">PMID:11085271</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=2474475">PMID:2474475</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=15509866">PMID:15509866</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mcs5</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=2474475">PMID:2474475</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mis2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7865880">PMID:7865880</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mis7</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7865880">PMID:7865880</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mis8</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7865880">PMID:7865880</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mis9</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7865880">PMID:7865880</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>pet1g</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ptp1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1644270">PMID:1644270</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8082169">PMID:8082169</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8887563">PMID:8887563</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=12058079">PMID:12058079</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ptp2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1644270">PMID:1644270</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8082169">PMID:8082169</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ral4</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=3071741">PMID:3071741</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>scr1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9535817">PMID:9535817</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>scr2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9535817">PMID:9535817</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>SLrsm1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21046351">PMID:21046351</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>SLrsm2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21046351">PMID:21046351</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>SLrsm3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21046351">PMID:21046351</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>SP331</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7937765">PMID:7937765</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ste15</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8575018">PMID:8575018</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>tnr1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7961415">PMID:7961415</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1644306">PMID:1644306</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>tnr2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7961415">PMID:7961415</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1644306">PMID:1644306</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>tri3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=732808">PMID:732808</a></td>
+  <td>ani2, cyh4</td>
+ </tr>
+ <tr>
+  <td>tri4</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=732808">PMID:732808</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>tri5</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=732808">PMID:732808</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>trs1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1769544">PMID:1769544</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>wtr2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8913338">PMID:8913338</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=15338055">PMID:15338055</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ </tbody>
+</table>
 
   </div>
 </div>
