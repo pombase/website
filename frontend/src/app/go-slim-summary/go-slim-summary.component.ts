@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
-import { getAppConfig } from '../config';
 import { GeneDetails, TermSubsets, PombaseAPIService } from '../pombase-api.service';
 
 @Component({
