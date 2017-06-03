@@ -2,6 +2,9 @@
   <legend>
     Literature
   </legend>
+  <div *ngIf="pubmedSearchUrl" class="pubmed-search">
+    <a href="{{pubmedSearchUrl}}">Search PubMed for {{pubmedSearchGeneLabel}}</a>
+  </div>
   <div class="sort-buttons">
     Sort by:
     <span *ngIf="orderByField == '+authors'">Authors</span>

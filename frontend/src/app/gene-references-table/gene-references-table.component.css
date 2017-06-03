@@ -29,3 +29,7 @@ th {
 a {
   cursor: pointer;
 }
+
+.pubmed-search {
+  padding: 0 0 0.4em 0;
+}
