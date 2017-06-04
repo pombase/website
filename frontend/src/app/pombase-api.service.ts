@@ -205,6 +205,23 @@ export interface Organism {
   species: string;
 }
 
+export interface InterProMatchLocation {
+  start: number;
+  end: number;
+  score: number;
+}
+
+export interface InterProMatch {
+  id: string;
+  dbname: string;
+  name: string;
+  evidence: string;
+  interpro_id: string;
+  interpro_name: string;
+  interpro_type: string;
+  locations: Array<InterProMatchLocation>;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
@@ -214,6 +231,7 @@ export class GeneDetails {
   transcripts: Array<TranscriptDetails>;
   deletion_viability?: string;
   uniprot_identifier?: string;
+  interpro_matches: Array<InterProMatch>;
   orfeome_identifier: string;
   characterisation_status: string;
   location: ChromosomeLocation;

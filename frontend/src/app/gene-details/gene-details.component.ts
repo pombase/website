@@ -24,10 +24,8 @@ export class GeneDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
   apiError = null;
-  transcriptDetails = null;
+  showProteinFeatures = false;
   productSize = '';
-  proteinDetails = null;
-  proteinFeaturesTable = null;
   ensemblImageUrl = null;
   ensemblImage = new Image();
   extraMenuSections = [
@@ -113,7 +111,7 @@ export class GeneDetailsComponent implements OnInit {
         this.visibleSections.push(annotationTypeName);
       }
 
-      if ((annotationTypeName === 'protein_features' ||
+      if ((annotationTypeName === 'protein_features' && this.showProteinFeatures ||
            annotationTypeName === 'transcript_view') &&
           this.geneDetails.feature_type === 'mRNA gene') {
         this.visibleSections.push(annotationTypeName);
@@ -197,22 +195,14 @@ export class GeneDetailsComponent implements OnInit {
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
               this.annotationTypeNames = this.config.annotationTypeOrder;
               this.setPageTitle();
-              this.setVisibleSections();
               this.scrollToPageTop();
               this.setProductSize();
-              if (this.geneDetails.transcripts.length > 0) {
-                this.transcriptDetails = this.geneDetails.transcripts[0];
-                this.proteinDetails = this.transcriptDetails.protein;
-              } else {
-                this.transcriptDetails = null;
-                this.proteinDetails = null;
-              }
-              if (geneDetails.cv_annotations['PomBase family or domain']) {
-                this.proteinFeaturesTable =
-                  geneDetails.cv_annotations['PomBase family or domain'];
-              } else {
-                this.proteinFeaturesTable = null;
-              }
+              this.showProteinFeatures =
+                this.geneDetails.transcripts && this.geneDetails.transcripts.length > 0 &&
+                !!this.geneDetails.transcripts[0].protein ||
+                this.geneDetails.interpro_matches.length > 0 ||
+                !!this.geneDetails.cv_annotations['PomBase family or domain'];
+              this.setVisibleSections();
             })
             .catch(error => {
               this.apiError = error;

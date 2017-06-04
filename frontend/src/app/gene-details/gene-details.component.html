@@ -107,11 +107,8 @@
                            [transcriptDetails]="geneDetails.transcripts"></app-transcript-view>
 
       <app-protein-features id="{{annotationTypeName}}"
-                            *ngIf="annotationTypeName == 'protein_features' && (proteinDetails || proteinFeaturesTable?.length > 0)"
-                            [organism]="geneDetails.organism"
-                            [transcriptUniquename]="transcriptDetails?.uniquename"
-                            [proteinDetails]="proteinDetails"
-                            [annotationTable]="proteinFeaturesTable"></app-protein-features>
+                            *ngIf="annotationTypeName == 'protein_features' && showProteinFeatures"
+                            [geneDetails]="geneDetails"></app-protein-features>
 
 
       <app-interaction-annotation-table *ngIf="annotationTypeName == 'physical_interactions'"

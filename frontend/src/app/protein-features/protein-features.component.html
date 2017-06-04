@@ -4,7 +4,7 @@
   </legend>
 
 <div class="annotation-table-container">
-  <div *ngIf="ensemblImageUrl && appConfig.isConfigOrganism(organism.genus, organism.species)">
+  <div *ngIf="ensemblImageUrl">
     <div class="protein-feature-title">
       Graphical view
     </div>
@@ -18,6 +18,16 @@
       </a>
     </div>
     </div>
+  </div>
+
+  <app-interpro-matches *ngIf="geneDetails.interpro_matches.length > 0"
+                        [geneDisplayName]="geneDetails.name || geneDetails.uniquename"
+                        [uniprotIdentifier]="geneDetails.uniprot_identifier"
+                        [matches]="geneDetails.interpro_matches">
+  </app-interpro-matches>
+
+  <div *ngIf="geneDetails.uniprot_identifier" class="pfam-structure">
+    Domain organization at <a href="http://pfam.xfam.org/protein/{{geneDetails.uniprot_identifier}}">Pfam ...</a>
   </div>
 
   <div class="content">

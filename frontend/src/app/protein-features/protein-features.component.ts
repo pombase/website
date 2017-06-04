@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { AnnotationTable, ProteinDetails, Organism } from '../pombase-api.service';
+import { GeneDetails, AnnotationTable, ProteinDetails, Organism,
+         InterProMatch } from '../pombase-api.service';
 
 import { getAppConfig } from '../config';
 
@@ -10,14 +11,15 @@ import { getAppConfig } from '../config';
   styleUrls: ['./protein-features.component.css']
 })
 export class ProteinFeaturesComponent implements OnInit, OnChanges {
-  @Input() annotationTable: AnnotationTable;
-  @Input() transcriptUniquename: string;
-  @Input() organism: Organism;
-  @Input() proteinDetails: ProteinDetails;
+  @Input() geneDetails: GeneDetails;
 
   appConfig = getAppConfig();
+  annotationTable = null;
   ensemblImageUrl = null;
   ensemblBrowserUrl = null;
+  transcriptDetails = null;
+  proteinDetails = null;
+  proteinFeaturesTable = null;
 
   constructor() { }
 
@@ -25,11 +27,26 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    if (this.transcriptUniquename) {
+    if (this.geneDetails.transcripts.length > 0) {
+      this.transcriptDetails = this.geneDetails.transcripts[0];
+      this.proteinDetails = this.transcriptDetails.protein;
+    } else {
+      this.transcriptDetails = null;
+      this.proteinDetails = null;
+    }
+
+    if (this.geneDetails.cv_annotations['PomBase family or domain']) {
+      this.proteinFeaturesTable =
+        this.geneDetails.cv_annotations['PomBase family or domain'];
+    } else {
+      this.proteinFeaturesTable = null;
+    }
+
+    if (this.transcriptDetails.uniquename) {
       this.ensemblImageUrl =
-        `http://preview.pombase.org/browser_images/${this.transcriptUniquename}_pep.png`;
+        `http://preview.pombase.org/browser_images/${this.transcriptDetails.uniquename}_pep.png`;
       this.ensemblBrowserUrl =
-        `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptUniquename}`;
+        `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptDetails.uniquename}`;
     } else {
       this.ensemblImageUrl = null;
       this.ensemblBrowserUrl = null;

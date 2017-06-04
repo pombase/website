@@ -1,0 +1,46 @@
+<div *ngIf="matches" class="interpro-matches">
+  <div class="interpro-matches-title">
+Protein families and domains
+  </div>
+
+  <table>
+    <tr *ngFor="let match of matches">
+      <td>
+        {{match.id}}
+      </td>
+      <td>
+        {{match.dbname}}
+      </td>
+      <td>
+        {{match.name}}
+      </td>
+      <td>
+        {{match.evidence}}
+      </td>
+      <td>
+        {{match.interpro_id}}
+      </td>
+      <td>
+        {{match.interpro_name}}
+      </td>
+      <td>
+        {{match.interpro_type}}
+      </td>
+      <td>
+        <div *ngFor="let loc of match.locations">
+          {{loc.start}}
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let loc of match.locations">
+          {{loc.end}}
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <a *ngIf="uniprotIdentifier"
+     href="https://www.ebi.ac.uk/interpro/protein/{{uniprotIdentifier}}">
+    Detailed domain information for {{geneDisplayName}} at InterPro ...
+  </a>
+</div>

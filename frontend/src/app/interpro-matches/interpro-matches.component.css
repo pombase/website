@@ -1,0 +1,11 @@
+.interpro-matches table {
+  margin: 1%;
+}
+
+.interpro-matches {
+  margin: 0em 0 1em 0;
+}
+
+.interpro-matches-title {
+  font-weight: bold;
+}
