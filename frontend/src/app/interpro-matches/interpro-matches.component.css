@@ -4,8 +4,13 @@
 
 .interpro-matches {
   margin: 0em 0 1em 0;
+  width: 95%;
 }
 
 .interpro-matches-title {
+  font-weight: bold;
+}
+
+.interpro-matches table th {
   font-weight: bold;
 }

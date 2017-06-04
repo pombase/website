@@ -3,10 +3,22 @@
 Protein families and domains
   </div>
 
-  <table>
-    <tr *ngFor="let match of matches">
+  <table *ngIf="displayMatches.length > 0">
+    <thead>
+      <tr>
+        <th>Match ID</th>
+        <th>DB name</th>
+        <th>Match name</th>
+        <th>InterPro ID</th>
+        <th>InterPro name</th>
+        <th>Start</th>
+        <th>End</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let match of displayMatches">
       <td>
-        {{match.id}}
+        <span *ngIf="!match.dbEntryUrl">{{match.id}}</span>
+        <a *ngIf="match.dbEntryUrl" href="{{match.dbEntryUrl}}">{{match.id}}</a>
       </td>
       <td>
         {{match.dbname}}
@@ -15,16 +27,11 @@ Protein families and domains
         {{match.name}}
       </td>
       <td>
-        {{match.evidence}}
-      </td>
-      <td>
-        {{match.interpro_id}}
+        <span *ngIf="!match.interProEntryUrl">{{match.interpro_id}}</span>
+        <a *ngIf="match.interProEntryUrl" href="{{match.interProEntryUrl}}">{{match.interpro_id}}</a>
       </td>
       <td>
         {{match.interpro_name}}
-      </td>
-      <td>
-        {{match.interpro_type}}
       </td>
       <td>
         <div *ngFor="let loc of match.locations">
@@ -39,8 +46,9 @@ Protein families and domains
     </tr>
   </table>
 
+  Detailed domain information for {{geneDisplayName}} at
   <a *ngIf="uniprotIdentifier"
      href="https://www.ebi.ac.uk/interpro/protein/{{uniprotIdentifier}}">
-    Detailed domain information for {{geneDisplayName}} at InterPro ...
+    InterPro ...
   </a>
 </div>
