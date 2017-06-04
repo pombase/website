@@ -399,19 +399,19 @@ export function getAppConfig(): AppConfig {
 
 let xrfConfig = null;
 
-let extraXrfConfig = {
-  TIGRFAMs: 'http://search.jcvi.org/search?p&q=[example_id]',
-  SSF: 'http://supfam.cs.bris.ac.uk/SUPERFAMILY/cgi-bin/scop.cgi?ipid=SSF[example_id]',
-  SMART: 'http://smart.embl-heidelberg.de/smart/do_annotation.pl?DOMAIN=[example_id]',
-  PROFILE: "http://www.expasy.ch/cgi-bin/prosite-search-ac?[example_id]",
+// aliases that aren't in GO.xrf_abbs
+let xrfConfigAliases = {
+  TIGRFAMs: 'JCVI_TIGRFAMS',
+  SSF: 'SUPERFAMILY',
+  PROFILE: 'Prosite',
 };
 
 function getXrfConfig(): { [key: string]: string } {
   if (!xrfConfig) {
     xrfConfig = Object.assign({}, goXrfConfig);
 
-    for (let key of Object.keys(extraXrfConfig)) {
-      xrfConfig[key] = extraXrfConfig[key];
+    for (let key of Object.keys(xrfConfigAliases)) {
+      xrfConfig[key] = xrfConfig[xrfConfigAliases[key]];
     }
 
     let keys = Object.keys(xrfConfig);
