@@ -23,18 +23,20 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.displayMatches =
       this.matches.map(match => {
+        let newId = match.id;
         let interProEntryUrl = null;
         if (match.interpro_id) {
           interProEntryUrl = getGoXrfWithPrefix('InterPro', match.interpro_id);
         }
         let dbEntryUrl = null;
-        if (match.dbname === 'GENE3D') {
-          let gene3DId = match.id.replace(/^G3DSA:/, '');
-          dbEntryUrl = `http://www.cathdb.info/version/latest/superfamily/${gene3DId}`;
+        if (match.dbname === 'MOBIDBLT') {
+          newId = newId + ':' + this.uniprotIdentifier;
+          dbEntryUrl = `http://mobidb.bio.unipd.it/entries/${this.uniprotIdentifier}`;
         } else {
           dbEntryUrl = getGoXrfWithPrefix(match.dbname, match.id);
         }
         let newMatch = Object.assign({}, match);
+        newMatch['id'] = newId;
         newMatch['interProEntryUrl'] = interProEntryUrl;
         newMatch['dbEntryUrl'] = dbEntryUrl;
         return newMatch;
