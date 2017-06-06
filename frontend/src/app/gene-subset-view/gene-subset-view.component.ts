@@ -39,6 +39,13 @@ export class GeneSubsetViewComponent implements OnInit {
                 this.subsetDisplayName =
                   'Genes with characterisation status "' + matchResults[1] +
                   '": ' + this.subset.elements.length;
+              } else {
+                let interproMatchResults = this.subset.name.match(/interpro:(.*)/);
+                if (interproMatchResults) {
+                  this.subsetDisplayName =
+                    'Genes matching ' + interproMatchResults[1] +
+                    ' "' + this.subset.display_name + '": ' + this.subset.elements.length;
+                }
               }
             } else {
               this.apiError = {

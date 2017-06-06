@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { InterProMatch } from '../pombase-api.service';
+import { PombaseAPIService, InterProMatch } from '../pombase-api.service';
 import { getGoXrfWithPrefix } from '../config';
 
 @Component({
@@ -14,14 +14,15 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
   @Input() matches: Array<InterProMatch> = null;
 
   displayMatches = [];
+  apiError = null;
 
-  constructor() { }
+  constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
   }
 
   ngOnChanges() {
-    this.displayMatches =
+    let displayMatches =
       this.matches.map(match => {
         let newId = match.id;
         let interProEntryUrl = null;
@@ -40,6 +41,24 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
         newMatch['interProEntryUrl'] = interProEntryUrl;
         newMatch['dbEntryUrl'] = dbEntryUrl;
         return newMatch;
+      });
+
+    this.displayMatches = displayMatches;
+
+    this.pombaseApiService.getGeneSubsets()
+      .then(subsets => {
+        for (let match of displayMatches) {
+          match['geneCount'] = '';
+          if (match.interpro_id) {
+            let subset = subsets['interpro:' + match.interpro_id];
+            if (subset) {
+              match['geneCount'] = subset.elements.length;
+            }
+          }
+        }
+      })
+      .catch(error => {
+        this.apiError = error;
       });
   }
 }

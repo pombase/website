@@ -13,6 +13,7 @@ Protein families and domains
         <th>InterPro name</th>
         <th>Start</th>
         <th>End</th>
+        <th>Count</th>
       </tr>
     </thead>
     <tr *ngFor="let match of displayMatches">
@@ -42,6 +43,10 @@ Protein families and domains
         <div *ngFor="let loc of match.locations">
           {{loc.end}}
         </div>
+      </td>
+      <td>
+        <a *ngIf="match.geneCount" title="View all {{match.interpro_id}} ({{match.interpro_name}}) genes"
+           routerLink="/gene_subset/interpro:{{match.interpro_id}}">{{match.geneCount}}</a>
       </td>
     </tr>
   </table>
