@@ -19,11 +19,11 @@ export class ExtensionDisplayComponent implements OnInit {
   constructor() { }
 
   getLinkWithPrefix(prefix: string, id: string): string {
-    return getXrfWithPrefix(prefix, id);
+    return getXrfWithPrefix(prefix, id).url;
   }
 
   getLink(idWithPrefix: string): string {
-    return getXrf(idWithPrefix);
+    return getXrf(idWithPrefix).url;
   }
 
   ngOnInit() {

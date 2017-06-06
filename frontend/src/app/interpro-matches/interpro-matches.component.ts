@@ -27,19 +27,24 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
         let newId = match.id;
         let interProEntryUrl = null;
         if (match.interpro_id) {
-          interProEntryUrl = getXrfWithPrefix('InterPro', match.interpro_id);
+          let result = getXrfWithPrefix('InterPro', match.interpro_id);
+          interProEntryUrl = result.url;
         }
+        let dbDisplayName = null;
         let dbEntryUrl = null;
         if (match.dbname === 'MOBIDBLT') {
           newId = newId + ':' + this.uniprotIdentifier;
           dbEntryUrl = `http://mobidb.bio.unipd.it/entries/${this.uniprotIdentifier}`;
         } else {
-          dbEntryUrl = getXrfWithPrefix(match.dbname, match.id);
+          let result = getXrfWithPrefix(match.dbname, match.id);
+          dbDisplayName = result.displayName;
+          dbEntryUrl = result.url;
         }
         let newMatch = Object.assign({}, match);
         newMatch['id'] = newId;
         newMatch['interProEntryUrl'] = interProEntryUrl;
         newMatch['dbEntryUrl'] = dbEntryUrl;
+        newMatch['dbDisplayName'] = dbDisplayName || match.dbname;
         return newMatch;
       });
 

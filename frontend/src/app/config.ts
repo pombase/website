@@ -397,7 +397,12 @@ export function getAppConfig(): AppConfig {
   return _appConfig;
 }
 
-let xrfConfig = null;
+interface XrfConfig {
+  name: string;
+  urlSyntax: string;
+}
+
+let xrfConfig: { [key: string]: XrfConfig } = null;
 
 // aliases that aren't in GO.xrf_abbs
 let xrfConfigAliases = {
@@ -406,9 +411,21 @@ let xrfConfigAliases = {
   PROFILE: 'Prosite',
 };
 
-function getXrfConfig(): { [key: string]: string } {
+export interface XrfDetails {
+  displayName: string;
+  url: string;
+}
+
+function getXrfConfig(): { [key: string]: XrfConfig } {
   if (!xrfConfig) {
-    xrfConfig = Object.assign({}, goXrfConfig);
+    xrfConfig = {} as { [key: string]: XrfConfig };
+
+    for (let key of Object.keys(goXrfConfig)) {
+      xrfConfig[key] = {
+        name: key,
+        urlSyntax: goXrfConfig[key],
+      };
+    }
 
     for (let key of Object.keys(xrfConfigAliases)) {
       xrfConfig[key] = xrfConfig[xrfConfigAliases[key]];
@@ -425,17 +442,21 @@ function getXrfConfig(): { [key: string]: string } {
   return xrfConfig;
 }
 
-export function getXrfWithPrefix(prefix: string, id: string): string {
-  let linkTemplate = getXrfConfig()[prefix];
+export function getXrfWithPrefix(prefix: string, id: string): XrfDetails {
+  let xrfDetail = getXrfConfig()[prefix];
+  let linkTemplate = xrfDetail.urlSyntax;
 
   if (linkTemplate) {
-    return linkTemplate.replace(/\[example_id\]/, id);
+    return {
+      displayName: xrfDetail.name,
+      url: linkTemplate.replace(/\[example_id\]/, id),
+    };
   } else {
     return null;
   }
 }
 
-export function getXrf(idWithPrefix: string): string {
+export function getXrf(idWithPrefix: string): XrfDetails {
   let matches = idWithPrefix.match(/^([^:]+):(.*)/);
 
   if (matches) {
@@ -451,7 +472,12 @@ let organismPrefix = {
 };
 
 export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, id: string): string {
-  return getXrfWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
+  let result = getXrfWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
+  if (result) {
+    return result.url;
+  } else {
+    return null;
+  }
 }
 
 export function getReleaseConfig(): any {
