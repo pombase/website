@@ -425,7 +425,7 @@ function getXrfConfig(): { [key: string]: string } {
   return xrfConfig;
 }
 
-export function getGoXrfWithPrefix(prefix: string, id: string): string {
+export function getXrfWithPrefix(prefix: string, id: string): string {
   let linkTemplate = getXrfConfig()[prefix];
 
   if (linkTemplate) {
@@ -435,11 +435,11 @@ export function getGoXrfWithPrefix(prefix: string, id: string): string {
   }
 }
 
-export function getGoXrf(idWithPrefix: string): string {
+export function getXrf(idWithPrefix: string): string {
   let matches = idWithPrefix.match(/^([^:]+):(.*)/);
 
   if (matches) {
-    return getGoXrfWithPrefix(matches[1], matches[2]);
+    return getXrfWithPrefix(matches[1], matches[2]);
   } else {
     return null;
   }
@@ -451,7 +451,7 @@ let organismPrefix = {
 };
 
 export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, id: string): string {
-  return getGoXrfWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
+  return getXrfWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
 }
 
 export function getReleaseConfig(): any {

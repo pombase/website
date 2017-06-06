@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { ExtPart } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, LinkoutConfig, getGoXrf, getGoXrfWithPrefix } from '../config';
+         getAppConfig, LinkoutConfig, getXrf, getXrfWithPrefix } from '../config';
 
 @Component({
   selector: 'app-extension-display',
@@ -19,11 +19,11 @@ export class ExtensionDisplayComponent implements OnInit {
   constructor() { }
 
   getLinkWithPrefix(prefix: string, id: string): string {
-    return getGoXrfWithPrefix(prefix, id);
+    return getXrfWithPrefix(prefix, id);
   }
 
   getLink(idWithPrefix: string): string {
-    return getGoXrf(idWithPrefix);
+    return getXrf(idWithPrefix);
   }
 
   ngOnInit() {

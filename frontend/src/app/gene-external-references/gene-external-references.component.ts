@@ -1,7 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 
 import { getAppConfig, ExternalGeneReference,
-         getGoXrfWithPrefix } from '../config';
+         getXrfWithPrefix } from '../config';
 import { GeneDetails } from '../pombase-api.service';
 
 @Component({
@@ -52,7 +52,7 @@ export class GeneExternalReferencesComponent implements OnChanges {
       let go_xrf_abbrev = extRefConf.go_xrf_abbrev;
       if (go_xrf_abbrev) {
         let fieldValue = this.geneDetails[fieldName];
-        return [fieldValue, getGoXrfWithPrefix(go_xrf_abbrev, fieldValue)];
+        return [fieldValue, getXrfWithPrefix(go_xrf_abbrev, fieldValue)];
       } else {
         return [];
       }

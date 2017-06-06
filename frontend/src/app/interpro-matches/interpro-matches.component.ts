@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { PombaseAPIService, InterProMatch } from '../pombase-api.service';
-import { getGoXrfWithPrefix } from '../config';
+import { getXrfWithPrefix } from '../config';
 
 @Component({
   selector: 'app-interpro-matches',
@@ -27,14 +27,14 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
         let newId = match.id;
         let interProEntryUrl = null;
         if (match.interpro_id) {
-          interProEntryUrl = getGoXrfWithPrefix('InterPro', match.interpro_id);
+          interProEntryUrl = getXrfWithPrefix('InterPro', match.interpro_id);
         }
         let dbEntryUrl = null;
         if (match.dbname === 'MOBIDBLT') {
           newId = newId + ':' + this.uniprotIdentifier;
           dbEntryUrl = `http://mobidb.bio.unipd.it/entries/${this.uniprotIdentifier}`;
         } else {
-          dbEntryUrl = getGoXrfWithPrefix(match.dbname, match.id);
+          dbEntryUrl = getXrfWithPrefix(match.dbname, match.id);
         }
         let newMatch = Object.assign({}, match);
         newMatch['id'] = newId;
