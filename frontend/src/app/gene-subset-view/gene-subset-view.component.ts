@@ -42,9 +42,11 @@ export class GeneSubsetViewComponent implements OnInit {
               } else {
                 let interproMatchResults = this.subset.name.match(/interpro:(.*)/);
                 if (interproMatchResults) {
-                  this.subsetDisplayName =
-                    'Genes matching ' + interproMatchResults[1] +
-                    ' "' + this.subset.display_name + '": ' + this.subset.elements.length;
+                  this.subsetDisplayName = 'Genes matching ' + interproMatchResults[1];
+                  if (interproMatchResults[1].indexOf(this.subset.display_name) === -1) {
+                    this.subsetDisplayName += ' "' + this.subset.display_name + '"';
+                  }
+                  this.subsetDisplayName += ': ' + this.subset.elements.length;
                 }
               }
             } else {

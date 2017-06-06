@@ -19,18 +19,20 @@ Protein families and domains
     <tr *ngFor="let match of displayMatches">
       <td>
         <span *ngIf="!match.dbEntryUrl">{{match.id}}</span>
-        <a *ngIf="match.dbEntryUrl" href="{{match.dbEntryUrl}}">{{match.id}}</a>
+        <a *ngIf="match.dbEntryUrl" title="View {{match.id}} at {{match.dbDisplayName}}"
+           href="{{match.dbEntryUrl}}">{{match.id}}</a>
       </td>
       <td>
         <span *ngIf="!match.dbWebsite" title="{{match.dbDescription}}">{{match.dbDisplayName}}</span>
-        <a *ngIf="match.dbWebsite" href="{{match.dbWebsite}}" title="{{match.dbDescription}}">{{match.dbDisplayName}}</a>
+        <a *ngIf="match.dbWebsite" href="{{match.dbWebsite}}" title="Visit {{match.dbDescription}}">{{match.dbDisplayName}}</a>
       </td>
       <td>
         {{match.name}}
       </td>
       <td>
         <span *ngIf="!match.interProEntryUrl">{{match.interpro_id}}</span>
-        <a *ngIf="match.interProEntryUrl" href="{{match.interProEntryUrl}}">{{match.interpro_id}}</a>
+        <a *ngIf="match.interProEntryUrl" title="View {{match.interpro_id}} at InterPro"
+           href="{{match.interProEntryUrl}}">{{match.interpro_id}}</a>
       </td>
       <td>
         {{match.interpro_name}}
@@ -46,8 +48,8 @@ Protein families and domains
         </div>
       </td>
       <td>
-        <a *ngIf="match.geneCount" title="View all {{match.interpro_id}} ({{match.interpro_name}}) genes"
-           routerLink="/gene_subset/interpro:{{match.interpro_id}}">{{match.geneCount}}</a>
+        <a *ngIf="match.geneCount" title="{{match.countLinkTitle}}"
+           routerLink="{{match.countLinkUrl}}">{{match.geneCount}}</a>
       </td>
     </tr>
   </table>

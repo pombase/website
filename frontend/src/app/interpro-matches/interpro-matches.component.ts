@@ -53,10 +53,27 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
       .then(subsets => {
         for (let match of displayMatches) {
           match['geneCount'] = '';
+          match['countLinkTitle'] = '';
+          match['countLinkUrl'] = '';
           if (match.interpro_id) {
-            let subset = subsets['interpro:' + match.interpro_id];
+            let subsetId = 'interpro:' + match.interpro_id;
+            let subset = subsets[subsetId];
             if (subset) {
               match['geneCount'] = subset.elements.length;
+              match['countLinkTitle'] = `View all ${match.interpro_id} (${match.interpro_name}) genes`;
+              match['countLinkUrl'] = `/gene_subset/${subsetId}`;
+            }
+          } else {
+            let subsetId = 'interpro:' + match.dbname + ':' + match.id;
+            let subset = subsets[subsetId];
+            if (subset) {
+              match['geneCount'] = subset.elements.length;
+              if (match.id === match.name) {
+                match['countLinkTitle'] = `View all ${match.id} genes`;
+              } else {
+                match['countLinkTitle'] = `View all ${match.id} (${match.name}) genes`;
+              }
+              match['countLinkUrl'] = `/gene_subset/${subsetId}`;
             }
           }
         }
