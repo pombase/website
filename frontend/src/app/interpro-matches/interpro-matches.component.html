@@ -22,7 +22,8 @@ Protein families and domains
         <a *ngIf="match.dbEntryUrl" href="{{match.dbEntryUrl}}">{{match.id}}</a>
       </td>
       <td>
-        {{match.dbDisplayName}}
+        <span *ngIf="!match.dbWebsite" title="{{match.dbDescription}}">{{match.dbDisplayName}}</span>
+        <a *ngIf="match.dbWebsite" href="{{match.dbWebsite}}" title="{{match.dbDescription}}">{{match.dbDisplayName}}</a>
       </td>
       <td>
         {{match.name}}

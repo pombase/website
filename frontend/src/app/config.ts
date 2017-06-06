@@ -1,4 +1,4 @@
-import goXrfConfig from './config/go-xrf-abbr-external-links.json';
+import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
 import docConfig from './config/doc-config.json';
 import pombaseConfig from '../../pombase_v2_config.json';
 import releaseConfig from '../../release_config.json';
@@ -398,9 +398,13 @@ export function getAppConfig(): AppConfig {
 }
 
 interface XrfConfig {
-  name: string;
+  displayName: string;
+  description: string;
   urlSyntax: string;
+  website: string;
 }
+
+type XrfConfigMap = { [key: string]: XrfConfig };
 
 let xrfConfig: { [key: string]: XrfConfig } = null;
 
@@ -413,17 +417,23 @@ let xrfConfigAliases = {
 
 export interface XrfDetails {
   displayName: string;
+  description: string;
   url: string;
+  website: string;
 }
 
 function getXrfConfig(): { [key: string]: XrfConfig } {
   if (!xrfConfig) {
     xrfConfig = {} as { [key: string]: XrfConfig };
 
-    for (let key of Object.keys(goXrfConfig)) {
+    
+    for (let key of Object.keys(goXrfConfigMap)) {
+      let goXrfDetail = goXrfConfigMap[key];
       xrfConfig[key] = {
-        name: key,
-        urlSyntax: goXrfConfig[key],
+        displayName: goXrfDetail.name,
+        description: goXrfDetail.description,
+        urlSyntax: goXrfDetail.url_syntax,
+        website: goXrfDetail.website,
       };
     }
 
@@ -448,8 +458,10 @@ export function getXrfWithPrefix(prefix: string, id: string): XrfDetails {
 
   if (linkTemplate) {
     return {
-      displayName: xrfDetail.name,
+      displayName: xrfDetail.displayName,
+      description: xrfDetail.description,
       url: linkTemplate.replace(/\[example_id\]/, id),
+      website: xrfDetail.website,
     };
   } else {
     return null;
