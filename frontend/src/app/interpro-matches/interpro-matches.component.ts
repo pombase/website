@@ -60,6 +60,8 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
             }
           }
         }
+
+        this.displayMatches.sort((a, b) => (a.geneCount || 0) - (b.geneCount || 0));
       })
       .catch(error => {
         this.apiError = error;
