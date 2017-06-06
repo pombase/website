@@ -270,6 +270,46 @@
   <td>&nbsp;</td>
  </tr>
  <tr>
+  <td>sts2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1899230">PMID:1899230</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>sts3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1899230">PMID:1899230</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>sts4</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1899230">PMID:1899230</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>sts7</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1899230">PMID:1899230</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>sts8</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1899230">PMID:1899230</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>sts9</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1899230">PMID:1899230</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>sts10</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1899230">PMID:1899230</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>sts11</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1899230">PMID:1899230</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
   <td>tnr1</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7961415">PMID:7961415</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1644306">PMID:1644306</a></td>
   <td>&nbsp;</td>
