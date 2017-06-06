@@ -413,6 +413,16 @@ let xrfConfigAliases = {
   TIGRFAMs: 'JCVI_TIGRFAMS',
   SSF: 'SUPERFAMILY',
   PROFILE: 'Prosite',
+  MOBIDBLT: 'MOBIDB',
+};
+
+let xrfExtraConfigMap = {
+  'MOBIDB': {
+    displayName: 'MobiDB',
+    description: 'MobiDB',
+    urlSyntax: 'http://mobidb.bio.unipd.it/entries/[example_id]',
+    website: 'http://mobidb.bio.unipd.it',
+  },
 };
 
 export interface XrfDetails {
@@ -426,7 +436,6 @@ function getXrfConfig(): { [key: string]: XrfConfig } {
   if (!xrfConfig) {
     xrfConfig = {} as { [key: string]: XrfConfig };
 
-    
     for (let key of Object.keys(goXrfConfigMap)) {
       let goXrfDetail = goXrfConfigMap[key];
       xrfConfig[key] = {
@@ -435,6 +444,10 @@ function getXrfConfig(): { [key: string]: XrfConfig } {
         urlSyntax: goXrfDetail.url_syntax,
         website: goXrfDetail.website,
       };
+    }
+
+    for (let key of Object.keys(xrfExtraConfigMap)) {
+      xrfConfig[key] = xrfExtraConfigMap[key];
     }
 
     for (let key of Object.keys(xrfConfigAliases)) {

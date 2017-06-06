@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { PombaseAPIService, InterProMatch } from '../pombase-api.service';
-import { getXrfWithPrefix } from '../config';
+import { getXrfWithPrefix, XrfDetails } from '../config';
 
 @Component({
   selector: 'app-interpro-matches',
@@ -30,30 +30,20 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
           let result = getXrfWithPrefix('InterPro', match.interpro_id);
           interProEntryUrl = result.url;
         }
-        let dbDisplayName = null;
-        let dbEntryUrl = null;
-        let dbDescription = null;
-        let dbWebsite = null;
+        let xrfResult: XrfDetails;
         if (match.dbname === 'MOBIDBLT') {
           newId = newId + ':' + this.uniprotIdentifier;
-          dbEntryUrl = `http://mobidb.bio.unipd.it/entries/${this.uniprotIdentifier}`;
-          dbDisplayName = 'MobiDB';
-          dbDescription = 'MobiDB';
-          dbWebsite = 'http://mobidb.bio.unipd.it';
+          xrfResult = getXrfWithPrefix(match.dbname, this.uniprotIdentifier);
         } else {
-          let result = getXrfWithPrefix(match.dbname, match.id);
-          dbDisplayName = result.displayName;
-          dbEntryUrl = result.url;
-          dbDescription = result.description;
-          dbWebsite = result.website;
+          xrfResult = getXrfWithPrefix(match.dbname, match.id);
         }
         let newMatch = Object.assign({}, match);
         newMatch['id'] = newId;
         newMatch['interProEntryUrl'] = interProEntryUrl;
-        newMatch['dbEntryUrl'] = dbEntryUrl;
-        newMatch['dbDisplayName'] = dbDisplayName || match.dbname;
-        newMatch['dbDescription'] = dbDescription || newMatch['dbDisplayName'];
-        newMatch['dbWebsite'] = dbWebsite;
+        newMatch['dbEntryUrl'] = xrfResult.url;
+        newMatch['dbDisplayName'] = xrfResult.displayName || match.dbname;
+        newMatch['dbDescription'] = xrfResult.description || newMatch['dbDisplayName'];
+        newMatch['dbWebsite'] = xrfResult.website;
         return newMatch;
       });
 
