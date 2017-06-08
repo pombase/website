@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PombaseAPIService } from '../pombase-api.service';
+import { PombaseAPIService, TermSubsetDetails } from '../pombase-api.service';
 
 @Component({
   selector: 'app-go-slim-table',
@@ -9,7 +9,7 @@ import { PombaseAPIService } from '../pombase-api.service';
 })
 export class GoSlimTableComponent implements OnInit {
 
-  goSlimSubset = null;
+  goSlimSubset: TermSubsetDetails = null;
   nonSlimWithBP = null;
   nonSlimWithoutBP = null;
   apiError = null;
@@ -18,7 +18,10 @@ export class GoSlimTableComponent implements OnInit {
 
   ngOnInit() {
     this.pombaseApiService.getTermSubsets()
-      .then(subsets => this.goSlimSubset = subsets['bp_goslim_pombe'])
+      .then(subsets => {
+        this.goSlimSubset = Object.assign({}, subsets['bp_goslim_pombe']);
+        this.goSlimSubset.elements.sort((a, b) => a.name.localeCompare(b.name));
+      })
       .catch(error => {
         this.apiError = error;
       });
