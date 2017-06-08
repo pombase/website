@@ -1,2 +1,3 @@
 - [Fission Yeast Phenotype Ontology](browse-curation/fission-yeast-phenotype-ontology)
 - [GO slim terms](browse-curation/fission-yeast-go-slim-terms)
+- [Drugs with known targets](browse-curation/drugs-known-pombe-targets)
