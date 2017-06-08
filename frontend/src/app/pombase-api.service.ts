@@ -187,7 +187,6 @@ export interface ProteinDetails {
   average_residue_weight: number;
   charge_at_ph7: number;
   isoelectric_point: number;
-  codon_adaptation_index: number;
 }
 
 export interface FeatureShort {

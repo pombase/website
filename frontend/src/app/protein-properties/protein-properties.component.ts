@@ -16,7 +16,6 @@ export class ProteinPropertiesComponent implements OnInit, OnChanges {
       average_residue_weight: 'Average residue weight',
       charge_at_ph7: 'Charge at pH 7',
       isoelectric_point: 'Isoelectric point',
-      codon_adaptation_index: 'Codon adaptation index',
     };
 
   propNames = Object.keys(this.propDisplayNames);
