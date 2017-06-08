@@ -183,6 +183,11 @@ export interface ProteinDetails {
   uniquename: string;
   sequence: string;
   molecular_weight: number;
+  number_of_residues: number;
+  average_residue_weight: number;
+  charge_at_ph7: number;
+  isoelectric_point: number;
+  codon_adaptation_index: number;
 }
 
 export interface FeatureShort {
@@ -532,6 +537,16 @@ export class PombaseAPIService {
           if (part.feature_type === 'exon') {
             transcript.sequence += part.residues;
           }
+        }
+        if (transcript.protein) {
+          let proteinSequence = transcript.protein.sequence;
+          let proteinSequenceLength = proteinSequence.length;
+
+          if (proteinSequence.endsWith('*')) {
+            proteinSequenceLength--;
+          }
+
+          transcript.protein.number_of_residues = proteinSequenceLength;
         }
       }
     } else {
