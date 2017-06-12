@@ -22,3 +22,11 @@
 .synonym-match {
 /*  font-weight: 200; */
 }
+
+.product-match {
+  display: block;
+  font-weight: 200;
+  padding-left: 0.5em;
+  font-size: 95%;
+}
+

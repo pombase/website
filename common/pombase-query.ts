@@ -19,6 +19,7 @@ export class GeneSummary {
   uniquename: string;
   name: string;
   synonyms: Array<string>;
+  product: string;
 }
 
 export enum QueryNodeOperator {

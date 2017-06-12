@@ -1,7 +1,10 @@
 <template #searchBoxTemplate let-model="item" let-index="index">
+  <div>
   <span *ngIf="model.name"><strong>{{model.name}}</strong> ({{model.uniquename}})</span>
   <span *ngIf="!model.name"><strong>{{model.uniquename}}</strong></span>
   <span class="synonym-match">{{maybeSynonymMatch(model)}}</span>
+  </div>
+  <div class="product-match">{{maybeProductMatch(model)}}</div>
 </template>
 <input #searchBox
        *ngIf="geneSummaries.length > 0"
@@ -14,6 +17,7 @@
        [typeaheadOptionField]="'searchData'"
        (typeaheadOnSelect)="typeaheadOnSelect($event)"
        (typeaheadNoResults)="typeaheadNoResults($event)"
+       typeaheadOptionsLimit="15"
        class="form-control search-box">
 <span class="search-info" [style.visibility]="getVisibility()">
   No matching genes

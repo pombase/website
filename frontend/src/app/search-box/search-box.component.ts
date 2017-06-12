@@ -4,6 +4,14 @@ import { PombaseAPIService } from '../pombase-api.service';
 
 import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
 
+interface Model {
+  searchData: string;
+  name: string;
+  uniquename: string;
+  synonyms: Array<string>;
+  product: string;
+}
+
 @Component({
   selector: 'app-search-box',
   templateUrl: './search-box.component.html',
@@ -13,18 +21,33 @@ export class SearchBoxComponent implements OnInit {
   public selectedGene = '';
   noResults = true;
 
-  @Input() geneSummaries: Array<any> = [];
+  @Input() geneSummaries: Array<Model> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private router: Router) { }
 
-  maybeSynonymMatch(model: any): string {
+  maybeSynonymMatch(model: Model): string {
+    if (this.selectedGene) {
+      if ((model.name && model.name.indexOf(this.selectedGene) === -1 ||
+           model.uniquename.indexOf(this.selectedGene) === -1)  &&
+          model.synonyms.find((syn) => { return syn.startsWith(model.searchData); })) {
+        return 'synonym: ' + model.searchData;
+      } else {
+        return '';
+      }
+    } else {
+      return '';
+    }
+  }
+
+  maybeProductMatch(model: Model): string {
     if (this.selectedGene) {
       if (model.name && model.name.indexOf(this.selectedGene) !== -1 ||
-          model.uniquename.indexOf(this.selectedGene) !== -1) {
+          model.uniquename.indexOf(this.selectedGene) !== -1 ||
+          model.synonyms.find((syn) => { return syn.startsWith(model.searchData); } )) {
         return '';
       } else {
-        return 'synonym: ' + model.searchData;
+        return model.product;
       }
     } else {
       return '';
@@ -35,37 +58,45 @@ export class SearchBoxComponent implements OnInit {
     this.pombaseApiService.getGeneSummaries()
       .then(summaries => {
         this.geneSummaries = [];
-        // add uniquename and name to the search
         summaries.forEach((data) => {
           if (data.name) {
             this.geneSummaries.push({
               searchData: data.name,
               uniquename: data.uniquename,
-              name: data.name
+              synonyms: data.synonyms,
+              name: data.name,
+              product: data.product,
             });
           }
         });
-        this.geneSummaries.sort(function (a, b) {
-          if (a.name) {
-            if (b.name) {
-              return a.name.localeCompare(b.name);
+
+        let summaryCmp =
+          (a, b) => {
+            if (a.name) {
+              if (b.name) {
+                return a.name.localeCompare(b.name);
+              } else {
+                return -1;
+              }
             } else {
-              return -1;
+              if (b.name) {
+                return 1;
+              } else {
+                return a.uniquename.localeCompare(b.uniquename);
+              }
             }
-          } else {
-            if (b.name) {
-              return 1;
-            } else {
-              return a.uniquename.localeCompare(b.uniquename);
-            }
-          }
-        });
+          };
+
+        this.geneSummaries.sort(summaryCmp);
+
         let uniquenameSummaries = [];
         summaries.forEach((data) => {
           uniquenameSummaries.push({
             searchData: data.uniquename,
             uniquename: data.uniquename,
-            name: data.name
+            synonyms: data.synonyms,
+            name: data.name,
+            product: data.product,
           });
         });
 
@@ -77,12 +108,30 @@ export class SearchBoxComponent implements OnInit {
             synonymSummaries.push({
               searchData: synonym,
               uniquename: data.uniquename,
-              name: data.name
+              synonyms: data.synonyms,
+              name: data.name,
+              product: data.product,
             });
           });
         });
 
         this.geneSummaries = this.geneSummaries.concat(synonymSummaries);
+
+        let productSummaries = [];
+        summaries.forEach((data) => {
+          if (data.product) {
+            productSummaries.push({
+              searchData: data.product,
+              uniquename: data.uniquename,
+              synonyms: data.synonyms,
+              name: data.name,
+              product: data.product,
+            });
+          }
+        });
+        productSummaries.sort(summaryCmp);
+
+        this.geneSummaries = this.geneSummaries.concat(productSummaries);
       });
   }
 
