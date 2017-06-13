@@ -1,6 +1,6 @@
-<template #termNameCompleteTemplate let-model="item" let-index="index">
+<ng-template #termNameCompleteTemplate let-model="item" let-index="index">
   <span>{{model.name}} ({{model.termid}})</span>
-</template>
+</ng-template>
 <input #termNameCompleteBox
        placeholder="start typing ..."
        [(ngModel)]="selectedTerm"

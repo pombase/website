@@ -1,16 +1,15 @@
-<template #searchBoxTemplate let-model="item" let-index="index">
+<ng-template #searchBoxTemplate let-model="item" let-index="index">
   <div>
   <span *ngIf="model.name"><strong>{{model.name}}</strong> ({{model.uniquename}})</span>
   <span *ngIf="!model.name"><strong>{{model.uniquename}}</strong></span>
   <span class="synonym-match">{{maybeSynonymMatch(model)}}</span>
   </div>
   <div class="product-match">{{maybeProductMatch(model)}}</div>
-</template>
+</ng-template>
 <input #searchBox
        *ngIf="geneSummaries.length > 0"
        placeholder="search ..."
-       [(ngModel)]="selectedGene
-"
+       [(ngModel)]="selectedGene"
        [typeahead]="geneSummaries"
        [typeaheadMinLength]="2"
        [typeaheadItemTemplate]="searchBoxTemplate"

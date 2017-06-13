@@ -1,9 +1,9 @@
 <span [class.short-genotype-link]="isShortDisplayName">
-  <template #allelesPopover>
+  <ng-template #allelesPopover>
     <span *ngIf="genotype.background">Background: {{genotype.background}}</span>
     <app-genotype-allele-summary class="link-allele-summary" [genotype]="genotype">
     </app-genotype-allele-summary>
-  </template>
+  </ng-template>
   <a [popover]="allelesPopover"
      triggers="mouseenter:mouseleave"
      placement="bottom"
