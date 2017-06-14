@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://pombase2.bioinformatics.nz",
   "analyticsId": "UA-96170383-1",
+  "release": "true",
   "rsyncDest": "oliver0:/var/www/www-pombase2"
 }

@@ -1,5 +1,6 @@
 {
-  "baseUrl": "http://pombase2-test-api.bioinformatics.nz",
-  "analyticsId": "UA-96170383-1",
-  "rsyncDest": "NONE"
+  "baseUrl": "http://localhost",
+  "analyticsId": "NONE",
+  "release": "false",
+  "rsyncDest": "/var/www/html/"
 }

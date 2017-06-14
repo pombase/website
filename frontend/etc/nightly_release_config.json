@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://preview.pombase.org",
   "analyticsId": "UA-98997285-1",
+  "release": "true",
   "rsyncDest": "babraham-pombase:www-testing"
 }

@@ -36,6 +36,7 @@ fi
 export base_url=`jq -r .baseUrl release_config.json`
 export analytics_id=`jq -r .analyticsId release_config.json`
 export rsync_dest=`jq -r .rsyncDest release_config.json`
+export release=`jq -r .release release_config.json`
 
 perl -pne 's/<<APP_BASE_URL>>/$ENV{"base_url"}/; s/<<GOOGLE_ANALYTICS_ID>>/$ENV{"analytics_id"}/; ' src/index.html.template > src/index.html
 
@@ -45,9 +46,13 @@ etc/make-link-js.pl /var/pomcur/sources/go-svn/doc/GO.xrf_abbs $ABBREVS > src/ap
 
 (cd src/docs; ../../etc/make-docs.pl `find ./ -name '*.md'` > ../app/docs/docs.component.html)
 
-if [ $rsync_dest != 'NONE' ]
+if [ x$release == x'true' ]
 then
-    ng build --env=prod --target=production
-
-    rsync --exclude '*~' -cavPHS dist/ $rsync_dest/
+    ng build --env=prod --target=production || exit 1
+else
+    ng build || exit 1
 fi
+
+echo deploying ...
+
+rsync --exclude '*~' -cavPHS dist/ $rsync_dest/
