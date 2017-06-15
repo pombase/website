@@ -177,25 +177,25 @@
   </tbody>
 </table>
 
-### Mitochondrial Transcript Breakdown
+### Mitochondrial transcript breakdown
 
-  Feature Type             Count   GC Content (%)   Mean Length (bp)
+  Feature type             Count   GC content (%)   Mean length (bp)
   ------------------------ ------- ---------------- ------------------
   rRNA                     2       31.97            2,122.00
   mRNA (protein\_coding)   11      29.39            1,393.00
   tRNA                     25      38.75            74.52
 
 \
-### Telomeric Located Contig Transcript Breakdown
+### Telomeric located contig transcript breakdown
 
-  Feature Type             Count   GC Content (%)   Mean Length (bp)
+  Feature type             Count   GC content (%)   Mean length (bp)
   ------------------------ ------- ---------------- ------------------
   mRNA (protein\_coding)   5       38.46            1,428.00
 
 \
-### Mating Type Region
+### Mating type region
 
-  Feature Type             Count   GC Content (%)   Mean Length (bp)
+  Feature type             Count   GC content (%)   Mean length (bp)
   ------------------------ ------- ---------------- ------------------
   mRNA (protein\_coding)   4       35.94            395.75
 
