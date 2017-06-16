@@ -59,6 +59,14 @@
 
   <div>
     <span *ngFor="let annotationTypeName of annotationTypeNames">
+      <app-qual-gene-ex-table id="{{annotationTypeName}}" *ngIf="annotationTypeName == 'qualitative_gene_expression'"
+                              [hideColumns]="['reference']"
+                              [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-qual-gene-ex-table>
+
+      <app-quant-gene-ex-table id="{{annotationTypeName}}" *ngIf="annotationTypeName == 'quantitative_gene_expression'"
+                               [hideColumns]="['reference']"
+                               [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-quant-gene-ex-table>
+
       <app-annotation-table  id="{{annotationTypeName}}"
                              *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
                             [scope]="'reference'"

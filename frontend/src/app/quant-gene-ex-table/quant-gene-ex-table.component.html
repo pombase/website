@@ -18,18 +18,24 @@
     <thead>
       <tr>
         <th>Description</th>
+        <th *ngIf="showGene">Gene</th>
         <th>Molecules/cell (avg.)</th>
         <th>Extension</th>
         <th *ngIf="showDetails">Condition</th>
         <th *ngIf="showDetails">Scale</th>
         <th *ngIf="showDetails">Evidence</th>
-        <th *ngIf="showDetails">Reference</th>
+        <th *ngIf="showDetails && showReference">Reference</th>
       </tr>
     </thead>
     <tbody *ngFor="let termAnnotation of annotationTable ; trackBy:trackByTermId">
       <tr class="term-annotation"
           *ngFor="let annotation of termAnnotation.annotations ; let i = index">
         <td><span  *ngIf="i==0">{{termAnnotation.term.name}}</span></td>
+        <td *ngIf="showGene">
+          <span *ngFor="let gene of annotation.genes">
+            <app-gene-link class="app-link" [long]="false" [gene]="gene"></app-gene-link>
+          </span>
+        </td>
         <td *ngIf="annotation.gene_ex_props">{{annotation.gene_ex_props.avg_copies_per_cell}}</td>
         <td>
           {{annotation.qualifiers}}<app-extension-display
@@ -50,7 +56,7 @@
         <td *ngIf="showDetails">
           <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
         </td>
-        <td *ngIf="showDetails">
+        <td *ngIf="showDetails && showReference">
           <app-reference-short *ngIf="annotation.reference"
                                [reference]="annotation.reference"></app-reference-short>
         </td>

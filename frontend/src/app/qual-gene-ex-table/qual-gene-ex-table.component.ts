@@ -9,8 +9,11 @@ import { TermAnnotation } from '../pombase-api.service';
 })
 export class QualGeneExTableComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
+  @Input() hideColumns: Array<string>;
 
   showDetails = false;
+  showGene = false;
+  showReference = false;
 
   trackByTermId(index: number, item: any) {
     return item.term.termid;
@@ -23,5 +26,7 @@ export class QualGeneExTableComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.showDetails = false;
+    this.showGene = this.hideColumns.indexOf('gene') === -1;
+    this.showReference = this.hideColumns.indexOf('reference') === -1;
   }
 }
