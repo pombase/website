@@ -80,6 +80,7 @@ sub angular_link {
   if ($path =~ /^https?:/) {
     return qq|<a href="$path">$title</a>|;
   } else {
+    $path =~ s|^/+||;
     return qq|<a routerLink="/$path" routerLinkActive="active">$title</a>|;
   }
 }

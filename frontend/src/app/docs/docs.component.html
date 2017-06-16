@@ -2033,7 +2033,7 @@ United Kingdom</p>
 <p class="caption">top of gene page</p>
 </div>
 <ol style="list-style-type: decimal">
-<li>See the <a routerLink="//submit-data/gene-name-registry" routerLinkActive="active">Gene Name Registry</a> for more information about <em>S. pombe</em> gene names. Synonyms include all names other than the standard name that have been published for a gene, and thus are not guaranteed to be unique.</li>
+<li>See the <a routerLink="/submit-data/gene-name-registry" routerLinkActive="active">Gene Name Registry</a> for more information about <em>S. pombe</em> gene names. Synonyms include all names other than the standard name that have been published for a gene, and thus are not guaranteed to be unique.</li>
 <li>Free text description of the gene product</li>
 <li>Chromosome coordinates for the gene. For protein-coding genes, the first set of numbers indicate the gene start, end, and length including the default UTRs chosen by PomBase curators (see <a href="http://www.pombase.org/faqs/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s">this FAQ</a> for more information). The &quot;CDS&quot; numbers give the start, end, and length excluding UTRs but including introns (other than introns located entirely within UTRs).</li>
 <li>Category describing how well-studied a gene is; see the <a href="/status/gene-characterisation">Gene Characterisation</a> page for details</li>
@@ -2098,7 +2098,7 @@ United Kingdom</p>
 <li>Biological Process (BP) — a series of functions with a common goal such as <em>MAPK cascade</em> or <em>cytokinesis</em></li>
 <li>Cellular component (CC) — the location where the gene product can be found, and what complexes it is part of, for instance <em>nucleus</em> or <em>fatty acid synthase complex</em></li>
 </ol>
-<p>A gene product may be <a href="http://www.geneontology.org/GO.contents.doc.shtml#annotation">annotated</a> to several GO terms from each of the three ontologies; <a routerLink="//spombe/result/SPBC19C7.03" routerLinkActive="active">cyr1</a>, for instance, is annotated to adenylate cyclase activity, magnesium ion binding and protein binding (MFs), it acts in cAMP biosynthesis and positively regulates protein import into nucleus (BPs), and is found in the plasma membrane (CC).</p>
+<p>A gene product may be <a href="http://www.geneontology.org/GO.contents.doc.shtml#annotation">annotated</a> to several GO terms from each of the three ontologies; <a routerLink="/spombe/result/SPBC19C7.03" routerLinkActive="active">cyr1</a>, for instance, is annotated to adenylate cyclase activity, magnesium ion binding and protein binding (MFs), it acts in cAMP biosynthesis and positively regulates protein import into nucleus (BPs), and is found in the plasma membrane (CC).</p>
 <p>The GO annotation display on PomBase gene pages includes ontology term details and supporting data. The Summary view shows just the essentials; each unique combination of gene, GO term, and extension(s) is shown once:</p>
 <div class="figure">
 <img src="assets/go_gene_page_summary.png" alt="summary gene page GO annotations" width="784" height="600" />
@@ -2110,7 +2110,7 @@ United Kingdom</p>
 <li>The GO term name, which links to a page with additional information,​ including the term definition, any synonyms, <a href="#go_str">relationships to other GO terms</a>, and a list of genes annotated to the term.</li>
 <li>Link to a page with term details and a list of genes annotated to the term and its is_a and part_of descendants (see the GO documentation on <a href="http://www.geneontology.org/GO.ontology.structure.shtml">Ontology Structure</a> and <a href="http://www.geneontology.org/GO.ontology.relations.shtml">Ontology Relations</a> for more information).</li>
 <li>GO annotations may have <a routerLink="/#ann_ext" routerLinkActive="active">extensions</a> to capture any of several types of additional detail. <em>S. pombe</em> genes link to PomBase gene pages.</li>
-<li><a routerLink="//browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim</a> terms applicable to the gene.</li>
+<li><a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim</a> terms applicable to the gene.</li>
 </ol>
 <p>The Full view shows more details, including separate entries for repeat determinations of a given gene/term/extension combination (if supported by more than one line of evidence and/or reported in more than one paper):</p>
 <div class="figure">
@@ -2126,7 +2126,7 @@ United Kingdom</p>
 <li>The paper from which the annotation comes.</li>
 <li>Link to a page with term details and a list of genes annotated to the term and its is_a and part_of descendants (see the GO documentation on <a href="http://www.geneontology.org/GO.ontology.structure.shtml">Ontology Structure</a> and <a href="http://www.geneontology.org/GO.ontology.relations.shtml">Ontology Relations</a> for more information).</li>
 <li>GO annotations may have <a routerLink="/#ann_ext" routerLinkActive="active">extensions</a> to capture any of several types of additional detail. <em>S. pombe</em> genes link to PomBase gene pages.</li>
-<li><a routerLink="//browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim</a> terms applicable to the gene.</li>
+<li><a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim</a> terms applicable to the gene.</li>
 </ol>
 <p><strong>Term ID and name</strong></p>
 <p>Annotations are made to the definition of a term, not the term name itself, so we recommend users always read the term definition. The definition of a term can be found by clicking the term ID. This page will also supply a list of all genes annotated to the specific term.</p>
@@ -2138,12 +2138,12 @@ United Kingdom</p>
 <p>Another source of annotations come from computational methods. Please note that all computational annotations are based on predictions. In cases where a sequence model has been used to annotate genes, but the genes annotated based on the model have not been manually checked, the <a href="http://www.geneontology.org/GO.evidence.shtml#iea">IEA</a> (Inferred from Electronic Annotation) evidence code is assigned. If the annotations have been manually checked other evidence codes may be used, for instance <a href="http://www.geneontology.org/GO.evidence.shtml#iso">ISO</a> (Inferred from Sequence Orthology) or <a href="http://www.geneontology.org/GO.evidence.shtml#ism">ISM</a> (Inferred from Sequence Model). PomBase uses ISO to cross-reference to the roles of known <em>S. cerevisiae</em> genes, and uses ISM when domains present in a gene product can give clues to its biological role.</p>
 <p>For some types of evidence, such as sequence comparisons or interaction data, it is important to note what gene or gene product was used in the comparison or detected in the interaction. In these cases the <a href="http://www.geneontology.org/GO.format.gaf-2_0.shtml#with_from">With/From column</a> provides more information regarding the source of the information.</p>
 <p><strong><span id="ann_ext"></span>Annotation extensions</strong></p>
-<p>Where available, annotation extensions are displayed underneath the GO term name. The extensions provide additional specificity to the annotation by linking the term to another ontology term or a gene product via a relationship. Examples include specifying substrates of molecular functions or specifying the cellular localization during a process (for instance, <a routerLink="//spombe/result/SPBC106.10" routerLinkActive="active">pka1</a> has protein serine/threonine kinase activity and has the substrates <a routerLink="//spombe/result/SPBC119.04" routerLinkActive="active">mei3</a> and <a routerLink="//spombe/result/SPAC6F12.02" routerLinkActive="active">rst2</a>. It is a cellular component of the nucleus during nitrogen starvation, but part of the cytoplasm during glucose starvation).</p>
-<p>The GO Consortium provides further information on annotation extensions in its <a href="http://geneontology.org/page/annotation-extension">annotation documentation</a>,​ including the <a href="http://www.geneontology.org/GO.format.gaf-2_0.shtml#annotation_ext">file format guide</a>,​ on a <a href="http://wiki.geneontology.org/index.php/Annotation_Extension">wiki page</a>, and in a <a href="http://www.biomedcentral.com/1471-2105/15/155/abstract">publication</a>. PomBase converts many extension names to more human-friendly text, as described <a routerLink="//documentation/gene-page-annotation-extension-relation-display" routerLinkActive="active">here</a>.</p>
+<p>Where available, annotation extensions are displayed underneath the GO term name. The extensions provide additional specificity to the annotation by linking the term to another ontology term or a gene product via a relationship. Examples include specifying substrates of molecular functions or specifying the cellular localization during a process (for instance, <a routerLink="/spombe/result/SPBC106.10" routerLinkActive="active">pka1</a> has protein serine/threonine kinase activity and has the substrates <a routerLink="/spombe/result/SPBC119.04" routerLinkActive="active">mei3</a> and <a routerLink="/spombe/result/SPAC6F12.02" routerLinkActive="active">rst2</a>. It is a cellular component of the nucleus during nitrogen starvation, but part of the cytoplasm during glucose starvation).</p>
+<p>The GO Consortium provides further information on annotation extensions in its <a href="http://geneontology.org/page/annotation-extension">annotation documentation</a>,​ including the <a href="http://www.geneontology.org/GO.format.gaf-2_0.shtml#annotation_ext">file format guide</a>,​ on a <a href="http://wiki.geneontology.org/index.php/Annotation_Extension">wiki page</a>, and in a <a href="http://www.biomedcentral.com/1471-2105/15/155/abstract">publication</a>. PomBase converts many extension names to more human-friendly text, as described <a routerLink="/documentation/gene-page-annotation-extension-relation-display" routerLinkActive="active">here</a>.</p>
 <p>If an extension mentions another <em>S. pombe</em> gene, the extension data will also be displayed as an annotation in the &quot;<a href="/documentation/gene-page-target">Target Of</a>&quot; section of the page for that gene.</p>
 <p><strong>Finding other genes annotated to a specific GO term</strong></p>
 <p>From a gene page, all <em>S. pombe</em>genes annotated to a term (or its children) can be found by clicking on a term ID.</p>
-<p>Additionally, the <a routerLink="//spombe/query/builder" routerLinkActive="active">advanced search</a> (or ‘query builder’) can be used to search for all genes annotated to a particular GO term (see the <a href="/documentation/advanced-search-documentation">advanced search documentation</a> for more information). To find annotations to specific GO terms in organisms other than <em>S. pombe</em> we recommend using <a href="http://amigo.geneontology.org">AmiGO</a> or <a href="http://www.ebi.ac.uk/QuickGO">QuickGO</a>.</p>
+<p>Additionally, the <a routerLink="/spombe/query/builder" routerLinkActive="active">advanced search</a> (or ‘query builder’) can be used to search for all genes annotated to a particular GO term (see the <a href="/documentation/advanced-search-documentation">advanced search documentation</a> for more information). To find annotations to specific GO terms in organisms other than <em>S. pombe</em> we recommend using <a href="http://amigo.geneontology.org">AmiGO</a> or <a href="http://www.ebi.ac.uk/QuickGO">QuickGO</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'gene-page-literature'" class="docs-content">
@@ -2262,14 +2262,14 @@ Where available, annotation extensions are displayed underneath the ontology ter
 <div style="color: red">
 <p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
 </div>
-<p>Gene pages for protein-coding genes have a section describing protein features. Also see the <a routerLink="//documentation/gene-page-modifications" routerLinkActive="active">Modifications</a> documentation.</p>
+<p>Gene pages for protein-coding genes have a section describing protein features. Also see the <a routerLink="/documentation/gene-page-modifications" routerLinkActive="active">Modifications</a> documentation.</p>
 <div class="figure">
 <img src="assets/gene_page_protein_features.png" title="Protein features" alt="gene page protein features" width="595" height="600" />
 <p class="caption">gene page protein features</p>
 </div>
 <ol style="list-style-type: decimal">
 <li>The graphical view is a static graphic from the PomBase Genome Browser, and shows the positions of domains and other features. Below the graphic is a link to the Genome Browser's protein view.</li>
-<li>The table of protein families and domains is described in more detail <a routerLink="//documentation/gene-page-protein-features#families" routerLinkActive="active">below</a>.</li>
+<li>The table of protein families and domains is described in more detail <a routerLink="/documentation/gene-page-protein-features#families" routerLinkActive="active">below</a>.</li>
 <li>This section provides manual curation that ensures that large protein families (e.g. the WD family) include all known members. These manual annotations are provided because many families in protein family databases are rebuilt during the release cycle to include new sequences, and as a result gene products are sometimes lost or gained from protein families, and false negatives are common. This section is also used to capture published subfamily members which may be collected into a single family in protein family databases.</li>
 <li>Any motifs or features annotated using Sequence Ontology (SO) terms.</li>
 <li>Table of the protein's physical properties</li>
@@ -2289,7 +2289,7 @@ Where available, annotation extensions are displayed underneath the ontology ter
 <li>Link to the Pfam entry for the protein, which shows domain organization</li>
 <li>Table of manually curated data indicating membership in a protein family or sub-family. Includes an ID and name for an internal PomBase ontology term, a reference (where available), and a link to other genes annotated to the same family.</li>
 </ol>
-<p>Note that some of the listed features (e.g. transmembrane domains from TMHMM) are predictions. Consult the contributing databases for further information, or <a routerLink="//feedback" routerLinkActive="active">contact the PomBase curators</a> if you notice any problems with annotated or predicted features.</p>
+<p>Note that some of the listed features (e.g. transmembrane domains from TMHMM) are predictions. Consult the contributing databases for further information, or <a routerLink="/feedback" routerLinkActive="active">contact the PomBase curators</a> if you notice any problems with annotated or predicted features.</p>
 
   </div>
   <div *ngIf="pageName == 'gene-page-target'" class="docs-content">
@@ -2297,8 +2297,8 @@ Where available, annotation extensions are displayed underneath the ontology ter
 <div style="color: red">
 <p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
 </div>
-<p>The Target Of section describes genes that affect the gene of interest. Genes listed under &quot;Target Of&quot; may include upstream regulators or enzymes that modify the product of the gene of interest. For example,​ the &quot;Target Of&quot; annotations for <a routerLink="//spombe/result/SPBC11B10.09#recipext" routerLinkActive="active">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others).</p>
-<p>Target Of data are derived by taking the reciprocal of <a href="http://www.pombase.org/faqs/what-annotation-extension">ontology annotation extensions</a> (using <a href="documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a> at present; soon to be extended to include <a routerLink="//documentation/gene-page-phenotypes" routerLinkActive="active">phenotype</a> annotation extensions). The table includes:</p>
+<p>The Target Of section describes genes that affect the gene of interest. Genes listed under &quot;Target Of&quot; may include upstream regulators or enzymes that modify the product of the gene of interest. For example,​ the &quot;Target Of&quot; annotations for <a routerLink="/spombe/result/SPBC11B10.09#recipext" routerLinkActive="active">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others).</p>
+<p>Target Of data are derived by taking the reciprocal of <a href="http://www.pombase.org/faqs/what-annotation-extension">ontology annotation extensions</a> (using <a href="documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a> at present; soon to be extended to include <a routerLink="/documentation/gene-page-phenotypes" routerLinkActive="active">phenotype</a> annotation extensions). The table includes:</p>
 <ul>
 <li>Relationship: indicates how the genes are connected. The relationship is the reciprocal of the relation used in the originating annotation extension, as noted in the <a href="/documentation/gene-page-annotation-extension-relation-display">Annotation Extension Relation Display documentation</a>.</li>
 <li>Gene: the gene whose product affects the gene of interest.</li>
@@ -2329,7 +2329,7 @@ Where available, annotation extensions are displayed underneath the ontology ter
 <p>The PomBase High Confidence Physical Interaction Network (HCPIN) is a collection of physical interaction data based on three subsets Gene Ontology (GO) annotations:</p>
 <ol style="list-style-type: decimal">
 <li>Manually curated protein binding annotations. PomBase curators annotate genes to the GO &quot;protein binding&quot; molecular function term (GO:0005515) when proteins are shown experimentally to interact in a pairwise, and presumably direct, manner, often by more than one method</li>
-<li>Targets or substrates of biochemical activity (e.g. protein kinases or phosphatases, protein methyltransferases, ubiquitin-protein ligases). When one protein is shown experimentally to modify another, a GO molecular function annotation represents the activity,​ and the target(s) can be captured using <a href="/documentation/gene-page-gene-ontology#ann_ext">annotation extensions</a>. For example, <a routerLink="//spombe/result/SPBC11B10.09" routerLinkActive="active">Cdc2</a> phosphorylates <a routerLink="//spombe/result/SPBC146.03c" routerLinkActive="active">Cut3</a>, so it is annotated to 'protein serine/threonine kinase activity' with the extension 'has substrate cut3'.</li>
+<li>Targets or substrates of biochemical activity (e.g. protein kinases or phosphatases, protein methyltransferases, ubiquitin-protein ligases). When one protein is shown experimentally to modify another, a GO molecular function annotation represents the activity,​ and the target(s) can be captured using <a href="/documentation/gene-page-gene-ontology#ann_ext">annotation extensions</a>. For example, <a routerLink="/spombe/result/SPBC11B10.09" routerLinkActive="active">Cdc2</a> phosphorylates <a routerLink="/spombe/result/SPBC146.03c" routerLinkActive="active">Cut3</a>, so it is annotated to 'protein serine/threonine kinase activity' with the extension 'has substrate cut3'.</li>
 <li>GO protein complex annotations. The HCPIN set includes both annotations supported directly by fission yeast experiments and those inferred from an experimentally characterised ortholog.</li>
 </ol>
 <p>The data can be downloaded in tab-delimited format from the <a href="/downloads/datasets">Download Datasets</a> page.</p>
@@ -2385,7 +2385,7 @@ Where available, annotation extensions are displayed underneath the ontology ter
 <p>For data that can be connected with sequence features or coordinates,​ and displayed as tracks in the genome browser, see the <a href="faqs/what-file-formats-can-i-use-submit-high-throughput-data">data format FAQ</a> and further details linked there.</p>
 <p><strong>Linking to and from PomBase</strong></p>
 <ul>
-<li>Linking to PomBase: To link to any PomBase gene page, use the systematic ID for the gene in a URL with the syntax http://www.pombase.org/gene/[systematic ID]. For example,​ <a routerLink="//gene/SPBC11B10.09" routerLinkActive="active">http://www.pombase.org/gene/SPBC11B10.09</a> links to the gene page for <a routerLink="/spombe/result/SPBC11B10.09" routerLinkActive="active">cdc2</a>.</li>
+<li>Linking to PomBase: To link to any PomBase gene page, use the systematic ID for the gene in a URL with the syntax http://www.pombase.org/gene/[systematic ID]. For example,​ <a routerLink="/gene/SPBC11B10.09" routerLinkActive="active">http://www.pombase.org/gene/SPBC11B10.09</a> links to the gene page for <a routerLink="/spombe/result/SPBC11B10.09" routerLinkActive="active">cdc2</a>.</li>
 <li>Linking from PomBase to external resources: We can provide links from PomBase gene pages to gene- or gene product-specific <em>S. pombe</em> data for any resource that uses URLs with PomBase systematic IDs . Please contact the PomBase Curators for more information.</li>
 </ul>
 <h2 id="comparative-genomics">Comparative Genomics</h2>
@@ -2411,7 +2411,7 @@ Where available, annotation extensions are displayed underneath the ontology ter
 <li>Link to the Advanced Search with the gene list (see 4 below) loaded into the Gene ID filter.</li>
 <li>List of genes annotated to the term or its descendants.</li>
 </ol>
-<p>Ontology term pages are available for <a href="http://geneontology.org/">GO</a>,​ <a routerLink="//browse-curation/fission-yeast-phenotype-ontology" routerLinkActive="active">FYPO</a>,​ <a href="http://sequenceontology.org/">SO</a>,​ <a href="http://www.psidev.info/MOD">PSI-MOD</a> and <a href="http://dev.pombase.org/faqs/what-pbo-option-advanced-search">PBO</a>. The internal ontology we use for phenotype experimental conditions, PECO,​ has minimal term pages with term names and IDs.</p>
+<p>Ontology term pages are available for <a href="http://geneontology.org/">GO</a>,​ <a routerLink="/browse-curation/fission-yeast-phenotype-ontology" routerLinkActive="active">FYPO</a>,​ <a href="http://sequenceontology.org/">SO</a>,​ <a href="http://www.psidev.info/MOD">PSI-MOD</a> and <a href="http://dev.pombase.org/faqs/what-pbo-option-advanced-search">PBO</a>. The internal ontology we use for phenotype experimental conditions, PECO,​ has minimal term pages with term names and IDs.</p>
 
   </div>
   <div *ngIf="pageName == 'orthologs'" class="docs-content">
@@ -2430,8 +2430,8 @@ Where available, annotation extensions are displayed underneath the ontology ter
 <p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
 </div>
 <p>&quot;GO slims&quot; are subsets of the Gene Ontology (GO) that provide a broad overview of annotation distribution. Slims can offer a useful overview of a genome or the results of a large-scale experiment. For more information on GO slims, please see PomBase <a href="/browse-curation/fission-yeast-go-slimming-tips">GO Slimming Tips</a> and the <a href="http://www.geneontology.org/GO.slims.shtml">GO Slim Guide</a> at the Gene Ontology website.</p>
-<p>The <a routerLink="//browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO slim term set</a> constructed for fission yeast provides almost complete coverage of gene products annotated to biological process terms. This slim set is a good starting point for users who wish to identify terms of biological interest to create a &quot;custom slim&quot;, or to become familiar with the genome contents.</p>
-<p>In the GO slim <a routerLink="//browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">table</a>, GO IDs link to the QuickGO browser, where you can explore the ontology and annotations further. The annotation totals include annotations to the slim term and to descendants following the <em>is_a</em>, <em>part_of,​ regulates, positively_regulates,​</em>and <em>negatively_regulates</em> relationships, and link to gene lists.</p>
+<p>The <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO slim term set</a> constructed for fission yeast provides almost complete coverage of gene products annotated to biological process terms. This slim set is a good starting point for users who wish to identify terms of biological interest to create a &quot;custom slim&quot;, or to become familiar with the genome contents.</p>
+<p>In the GO slim <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">table</a>, GO IDs link to the QuickGO browser, where you can explore the ontology and annotations further. The annotation totals include annotations to the slim term and to descendants following the <em>is_a</em>, <em>part_of,​ regulates, positively_regulates,​</em>and <em>negatively_regulates</em> relationships, and link to gene lists.</p>
 
   </div>
   <div *ngIf="pageName == 'simple-search-documentation'" class="docs-content">
@@ -4669,7 +4669,7 @@ Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam</p>
 <td><span class="no-break">2015-10-13</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPAC29A4.23" routerLinkActive="active">SPAC29A4.23</a></td>
+<td><a routerLink="/gene/SPAC29A4.23" routerLinkActive="active">SPAC29A4.23</a></td>
 <td></td>
 <td>Frameshifted; intron/exon boundary changes; coordinates changed to join(5139024..5139190,​5139192..5139424,​5139427..5139575)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26494834">PMID:26494834</a></td>
@@ -4690,182 +4690,182 @@ Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam</p>
 <td><span class="no-break">2016-04-19</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPAC3A12.04c" routerLinkActive="active">SPAC3A12.04c</a></td>
+<td><a routerLink="/gene/SPAC3A12.04c" routerLinkActive="active">SPAC3A12.04c</a></td>
 <td>rpp1</td>
 <td>Frameshifted by Chr_I:1424708!CA→C; coordinates changed from complement(join(1424697..1425161,​1425231..1425329,​1425372..1425430,​1425478..1425562)) to complement(join(1424660..1424708,​1424710..1425161,​1425231..1425329,​1425372..1425430,​1425478..1425562))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPAP27G11.10c" routerLinkActive="active">SPAP27G11.10c</a></td>
+<td><a routerLink="/gene/SPAP27G11.10c" routerLinkActive="active">SPAP27G11.10c</a></td>
 <td>nup184</td>
 <td>Frameshifted by Chr_I:1625092!T→TC; coordinates changed from complement(join(1625076..1629753,​1629825..1629841)) to complement(join(1624885..1625092,​1625092..1629753,​1629825..1629841))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPAC17G8.01c" routerLinkActive="active">SPAC17G8.01c</a></td>
+<td><a routerLink="/gene/SPAC17G8.01c" routerLinkActive="active">SPAC17G8.01c</a></td>
 <td>trl1</td>
 <td>Frameshifted by Chr_I:2343703!G→GA; coordinates changed from complement(join(2341346..2343706,​2343754..2343756)) to complement(join(2341346..2343703,​2343703..2343756))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPAC22F3.11c" routerLinkActive="active">SPAC22F3.11c</a></td>
+<td><a routerLink="/gene/SPAC22F3.11c" routerLinkActive="active">SPAC22F3.11c</a></td>
 <td>snu23</td>
 <td>Frameshifted by Chr_I:682993!TC-&gt;T; coordinates changed to join(682874..682996,​682998..683109,​683160..683446)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPAC823.04" routerLinkActive="active">SPAC823.04</a></td>
+<td><a routerLink="/gene/SPAC823.04" routerLinkActive="active">SPAC823.04</a></td>
 <td>rrp36</td>
 <td>Frameshifted by Chr_I:2588066!C→CA and Chr_I:2588021!C→CA; coordinates changed from join(2587729..2587897,​2587952..2588028,​2588031..2588143,​2588182..2588620) to join(2587729..2587897,​2587952..2588025,​2588025..2588066,​2588066..2588620)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPAC688.08" routerLinkActive="active">SPAC688.08</a></td>
+<td><a routerLink="/gene/SPAC688.08" routerLinkActive="active">SPAC688.08</a></td>
 <td>srb8</td>
 <td>Frameshifted by Chr_I:3125118!A→AT; coordinates changed from join(3123163..3125057,​3125099..3126310,​3126356..3126653) to join(3123163..3125118,​3125118..3126310,​3126356..3126653)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPAC1486.05" routerLinkActive="active">SPAC1486.05</a></td>
+<td><a routerLink="/gene/SPAC1486.05" routerLinkActive="active">SPAC1486.05</a></td>
 <td>nup189</td>
 <td>Frameshifted by Chr_I:3197528!A→AG; coordinates changed from join(3197028..3197529,​3197529..3202450) to join(3197028..3197529,​3197529..3202450)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPAC3A11.09" routerLinkActive="active">SPAC3A11.09</a></td>
+<td><a routerLink="/gene/SPAC3A11.09" routerLinkActive="active">SPAC3A11.09</a></td>
 <td>sod22</td>
 <td>Frameshifted by Chr_I:3450130!GT→G; coordinates changed from complement(join(3450114..3452269,​3452485..3452608)) to complement(join(3450056..3450130,​3450132..3452269,​3452485..3452608))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPAC1071.01c" routerLinkActive="active">SPAC1071.01c</a></td>
+<td><a routerLink="/gene/SPAC1071.01c" routerLinkActive="active">SPAC1071.01c</a></td>
 <td>pta1</td>
 <td>Frameshifted by Chr_I:3855790!GT→G; coordinates changed from complement(3855780..3857792) to complement(join(3855626..3855790,​3855792..3857792))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPAC29E6.03c" routerLinkActive="active">SPAC29E6.03c</a></td>
+<td><a routerLink="/gene/SPAC29E6.03c" routerLinkActive="active">SPAC29E6.03c</a></td>
 <td>uso1</td>
 <td>Frameshifted by Chr_I:4407494!T→TG; coordinates changed from complement(join(4405990..4407375,​4407447..4409096,​4409171..4409338)) to complement(join(4405990..4407494,​4407494..4409096,​4409171..4409338))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPAC29E6.04" routerLinkActive="active">SPAC29E6.04</a></td>
+<td><a routerLink="/gene/SPAC29E6.04" routerLinkActive="active">SPAC29E6.04</a></td>
 <td>nnf1</td>
 <td>Frameshifted by Chr_I:4410191!CG→C; coordinates changed from join(4409773..4410192, 4410194..4410391) to join(4409773..4410190,​4410192..4410391)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPAC29A4.03c" routerLinkActive="active">SPAC29A4.03c</a></td>
+<td><a routerLink="/gene/SPAC29A4.03c" routerLinkActive="active">SPAC29A4.03c</a></td>
 <td>mrps9</td>
 <td>Frameshifted by Chr_I:5142627!A→AG; coordinates changed from join(5142407..5142628,​5142631..5143224) to join(5142407..5142626,​5142626..5143224)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPBC16E9.16c" routerLinkActive="active">SPBC16E9.16c</a></td>
+<td><a routerLink="/gene/SPBC16E9.16c" routerLinkActive="active">SPBC16E9.16c</a></td>
 <td>lsd90</td>
 <td>Frameshifted by Chr_II:1948953!GA→G and Chr_II:1950050!A→AG; coordinates changed from complement(join(1947985..1948953,​1948955..1950050,​1950053..1950255)) to complement(join(1947985..1948952,​1948954..1950048,​1950048..1950255))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPBC1E8.03c" routerLinkActive="active">SPBC1E8.03c</a></td>
+<td><a routerLink="/gene/SPBC1E8.03c" routerLinkActive="active">SPBC1E8.03c</a></td>
 <td></td>
 <td>Frameshifted by Chr_II:1960392!A→AG; coordinates changed from complement(1960384..1961817) to complement(join(1960166..1960392,​1960392..1961817))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPBC1A4.06c" routerLinkActive="active">SPBC1A4.06c</a></td>
+<td><a routerLink="/gene/SPBC1A4.06c" routerLinkActive="active">SPBC1A4.06c</a></td>
 <td>tam41</td>
 <td>Frameshifted by Chr_II:1987101!CG→C and Chr_II:1987117!TG→T; coordinates changed from complement(join(1987044..1987099,​1987102..1987675,​1987737..1988015,​1988081..1988353)) to complement(join(1987044..1987100,​1987102..1987117,​1987119..1987675,​1987737..1988015,​1988081..1988353))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPBC29A3.08" routerLinkActive="active">SPBC29A3.08</a></td>
+<td><a routerLink="/gene/SPBC29A3.08" routerLinkActive="active">SPBC29A3.08</a></td>
 <td>pof4</td>
 <td>Frameshifted by Chr_II:2053516!G→GC; coordinates changed from join(2053033..2053517,​2053519..2053600) to join(2053033..2053517,​2053517..2053823)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPBC23G7.06c" routerLinkActive="active">SPBC23G7.06c</a></td>
+<td><a routerLink="/gene/SPBC23G7.06c" routerLinkActive="active">SPBC23G7.06c</a></td>
 <td></td>
 <td>Frameshifted by Chr_II:2108180!T→TA; coordinates changed from complement(join(2106448..2108178,​2108181..2108786)) to complement(join(2106448..2108180,​2108180..2108786))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPBC14C8.09c" routerLinkActive="active">SPBC14C8.09c</a></td>
+<td><a routerLink="/gene/SPBC14C8.09c" routerLinkActive="active">SPBC14C8.09c</a></td>
 <td></td>
 <td>Frameshifted by Chr_II:2219928!A→AT; coordinates changed from complement(join(2219430..2219934,​2219937..2220322)) to complement(join(2219430..2219928,​2219928..2220322))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPBC4F6.10" routerLinkActive="active">SPBC4F6.10</a></td>
+<td><a routerLink="/gene/SPBC4F6.10" routerLinkActive="active">SPBC4F6.10</a></td>
 <td>vps901</td>
 <td>Frameshifted by Chr_II:2709414!G→GC; coordinates changed from join(2708076..2709415,​2709418..2709793) to join(2708076..2709414,​2709414..2709793)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPBC32F12.08c" routerLinkActive="active">SPBC32F12.08c</a></td>
+<td><a routerLink="/gene/SPBC32F12.08c" routerLinkActive="active">SPBC32F12.08c</a></td>
 <td>duo1</td>
 <td>Frameshifted by Chr_II:2798040!CT→C; coordinates changed from complement(2798007..2798507) to complement(join(2797652..2798040,​2798042..2798507))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPBC13E7.01" routerLinkActive="active">SPBC13E7.01</a></td>
+<td><a routerLink="/gene/SPBC13E7.01" routerLinkActive="active">SPBC13E7.01</a></td>
 <td>cwf22</td>
 <td>Frameshifted by Chr_II:3040332!C→CG; coordinates changed from join(3037988..3040331,​3040334..3040650) to join(3037988..3040332,​3040332..3040650)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPBC16D10.10" routerLinkActive="active">SPBC16D10.10</a></td>
+<td><a routerLink="/gene/SPBC16D10.10" routerLinkActive="active">SPBC16D10.10</a></td>
 <td>tad2</td>
 <td>Frameshifted by Chr_II:3619003!A→AG; coordinates changed from join(3618117..3618179,​3618228..3618617,​3618658..3618702,​3618747..3618918,​3618956..3619071,​3619113..3619321,​3619366..3619540) to join(3618117..3618179,​3618228..3618617,​3618658..3618702,​3618747..3618920,​3618968..3619003,​3619003..3619071,​3619113..3619321,​3619366..3619540)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPAC12B10.09" routerLinkActive="active">SPAC12B10.09</a></td>
+<td><a routerLink="/gene/SPAC12B10.09" routerLinkActive="active">SPAC12B10.09</a></td>
 <td>pet801</td>
 <td>Coordinates changed from join(4588250..4588510,​4588567..4588723,​4588869..4589323,​4589410..4589574) to join(4588487..4588510,​4588567..4588723,​4588869..4589323,​4589410..4589574)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-04</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPAC3A11.06" routerLinkActive="active">SPAC3A11.06</a></td>
+<td><a routerLink="/gene/SPAC3A11.06" routerLinkActive="active">SPAC3A11.06</a></td>
 <td>mvp1</td>
 <td>Frameshifted by Chr_I:3460318!T→T; coordinates changed from complement(join(3459233..3459436,​3459492..3459665,​3459705..3459897,​3459941..3460185,​3460234..3460364,​3460425..3460442,​3460508..3460560,​3460642..3461263,​3461323..3461583,​3461766..3461859)) to complement(join(3459233..3459436,​3459492..3459665,​3459705..3459897,​3459941..3460185,​3460234..3460318,​3460318..3460372,​3460425..3460442,​3460508..3460560,​3460642..3461263,​3461323..3461583,​3461766..3461859))</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-06</span></td>
 </tr>
 <tr class="odd">
-<td><a routerLink="//gene/SPBC530.13" routerLinkActive="active">SPBC530.13</a></td>
+<td><a routerLink="/gene/SPBC530.13" routerLinkActive="active">SPBC530.13</a></td>
 <td>lsc1</td>
 <td>Frameshifted by Chr_II:825012!G→A; coordinates changed from join(824374..824534,​824579..824660,​824874..825011,​825065..825188,​825245..825747) to join(824374..824534,​824579..824660,​824874..824999,​825065..825188,​825245..825747)</td>
 <td><a href="http://www.ncbi.nlm.nih.gov/pubmed/26615217">PMID:26615217</a> and pers. comm. Li-Lin Du</td>
 <td><span class="no-break">2017-04-17</span></td>
 </tr>
 <tr class="even">
-<td><a routerLink="//gene/SPSNORNA.41" routerLinkActive="active">SPSNORNA.41</a></td>
+<td><a routerLink="/gene/SPSNORNA.41" routerLinkActive="active">SPSNORNA.41</a></td>
 <td>snR46</td>
 <td>Switched from + strand to - strand</td>
 <td>pers. comm. Francois Bachand</td>
@@ -8312,7 +8312,7 @@ Joined contigs p4C9 and c977</p>
 (<strong>Note:</strong> that the chromosomes previously made available from the ftp site had 1000 Ns in the gaps)</p>
 <h3 id="jun-2008-197-potential-sequence-discrepancies-from-the-broad-institute">Jun 2008 197 potential sequence discrepancies from the Broad Institute</h3>
 <p><strong>PENDING <span class="no-break">2008-08-26</span></strong></p>
-<p>Generated as part of a technology development project, using Illumina (Solexa) technology the Broad Institute generated &gt;200-fold sequence coverage of the genome of S. pombe strain 972. These data identified 197 potential discrepancies. The discrepancy rate is about 1 in 100,​000,​ which is close to the estimated error rate in published reference sequence. Further information and data <a routerLink="//status/sequence-updates-pending" routerLinkActive="active">here</a></p>
+<p>Generated as part of a technology development project, using Illumina (Solexa) technology the Broad Institute generated &gt;200-fold sequence coverage of the genome of S. pombe strain 972. These data identified 197 potential discrepancies. The discrepancy rate is about 1 in 100,​000,​ which is close to the estimated error rate in published reference sequence. Further information and data <a routerLink="/status/sequence-updates-pending" routerLinkActive="active">here</a></p>
 <h3 id="jun-2008-gatc-in-overlap-c1450-and-c1442-affects-spcc1442.04c">Jun 2008 GATC in overlap c1450 and c1442 affects SPCC1442.04c</h3>
 <p><strong>PENDING <span class="no-break">2008-08-26</span></strong></p>
 <p>There are 4 bases missing from this sequence AACATCTTCCAAGTTCTCAT GATC CTTTAAAGATTCCTCAAGGT, which will change the C-terminal region slightly. This will be fixed in the next round of corrections</p>
