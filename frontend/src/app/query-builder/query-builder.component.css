@@ -1,0 +1,18 @@
+.query-node-add, .query-history {
+  clear: left;
+  float: left;
+  width: 49%;
+}
+
+.query-results {
+  float: right;
+  width: 49%;
+}
+
+.query-title {
+  font-weight: bold;
+}
+
+.query-clear {
+  padding-left: 0.5em;
+}

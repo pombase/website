@@ -76,6 +76,10 @@ export class TermIdNode extends GeneQueryNode {
       'termid': this.termid,
     };
   }
+
+  toString(): string {
+    return `term: ${this.termid}`;
+  }
 }
 
 export class GeneQuery {
@@ -114,5 +118,9 @@ export class GeneQuery {
     return JSON.stringify({
       "constraints": this.getTopNode().toObject(),
     })
+  }
+
+  public toString(): string {
+    return this.getTopNode().toString();
   }
 }

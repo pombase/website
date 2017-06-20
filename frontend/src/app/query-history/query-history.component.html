@@ -1,0 +1,9 @@
+<div class="query-history">
+  <table>
+    <tr *ngFor="let query of history">
+      <td>
+        <a (click)="queryClick(query)">{{query.toString()}}</a>
+      </td>
+    </tr>
+  </table>
+</div>

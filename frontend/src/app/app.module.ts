@@ -68,6 +68,7 @@ import { GeneSubsetViewComponent } from './gene-subset-view/gene-subset-view.com
 import { CharacterisationStatusTableComponent } from './characterisation-status-table/characterisation-status-table.component';
 import { TranscriptViewComponent } from './transcript-view/transcript-view.component';
 import { InterproMatchesComponent } from './interpro-matches/interpro-matches.component';
+import { QueryHistoryComponent } from './query-history/query-history.component';
 
 export function documentFactory() {
     return document;
@@ -137,6 +138,7 @@ export function windowFactory() {
     CharacterisationStatusTableComponent,
     TranscriptViewComponent,
     InterproMatchesComponent,
+    QueryHistoryComponent,
   ],
   imports: [
     BrowserModule,

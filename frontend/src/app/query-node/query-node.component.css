@@ -1,8 +1,4 @@
-.query-node-title {
-  font-weight: bold;
-}
-
-.query-node-content {
+.query-node {
   background-color: #eef;
   margin: 1em;
   padding: 0.3em;

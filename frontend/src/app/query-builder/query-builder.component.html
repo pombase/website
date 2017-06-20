@@ -1,9 +1,16 @@
 <div>
-  <app-query-node (newNode)="newNode($event)"></app-query-node>
-
-  <a (click)="resetQuery()">Clear query ...</a>
-
-  <hr/>
-
-  <app-gene-results [results]="results"></app-gene-results>
+  <div class="query-results">
+    <app-gene-results [results]="results"></app-gene-results>
+  </div>
+  <div class="query-node-add">
+    <div>
+      <span class="query-title">Query</span>
+      <a class="query-clear" (click)="resetQuery()">Clear ...</a>
+    </div>
+    <app-query-node (newNode)="newNode($event)"></app-query-node>
+  </div>
+  <div class="query-history">
+    <span class="query-title">History</span>
+    <app-query-history [history]="history" (selectQuery)="selectQuery($event)"></app-query-history>
+  </div>
 </div>

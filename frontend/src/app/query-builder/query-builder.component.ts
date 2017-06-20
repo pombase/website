@@ -10,6 +10,7 @@ import { PombaseAPIService } from '../pombase-api.service';
 export class QueryBuilderComponent implements OnInit {
   query: GeneQuery;
   results: QueryResult = null;
+  history = [];
 
   resetQuery() {
     this.query = null;
@@ -24,13 +25,23 @@ export class QueryBuilderComponent implements OnInit {
 
   }
 
-  doQuery() {
+  doQuery(saveToHistory: boolean) {
     this.pombaseApiService.postQuery(this.query)
-      .subscribe((results) => this.results = results);
+      .subscribe((results) => {
+        if (saveToHistory) {
+          this.history.push(this.query);
+        }
+        this.results = results;
+      });
+  }
+
+  selectQuery(query: GeneQuery) {
+    this.query = query;
+    this.doQuery(false);
   }
 
   newNode(part: GeneQueryNode) {
     this.query = new GeneQuery(part);
-    this.doQuery();
+    this.doQuery(true);
   }
 }

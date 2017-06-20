@@ -1,6 +1,5 @@
 <div class="query-node">
-  <div class="query-node-title">Query</div>
-  <div class="query-node-content" *ngFor="let cvName of cvNames">
+  <div *ngFor="let cvName of cvNames">
     <span>{{cvName}}:</span>
     <app-term-name-complete [cvName]="cvName"
                             (termMatched)="termMatched($event)"></app-term-name-complete>
