@@ -61,8 +61,21 @@ export class GeneBoolNode extends GeneQueryNode {
 
   toObject(): Object {
     let ret = {};
-    ret[QueryNodeOperator[this.operator]] = this.getParts().map((part: GeneQueryNode) => part.toObject());
+    ret[QueryNodeOperator[this.operator].toLowerCase()] =
+      this.getParts().map((part: GeneQueryNode) => part.toObject());
     return ret;
+  }
+
+  opString(): string {
+    if (this.operator == QueryNodeOperator.And) {
+      return 'INTERSECT';
+    } else {
+      return 'UNION';
+    }
+  }
+
+  toString(): string {
+    return '(' + this.getParts().join(' ' + this.opString() + ' ') + ')';
   }
 }
 
@@ -78,7 +91,7 @@ export class TermNode extends GeneQueryNode {
   }
 
   toString(): string {
-    return `term: ${this.term.name} (${this.term.termid})`;
+    return `${this.term.name} ${this.term.termid}`;
   }
 }
 

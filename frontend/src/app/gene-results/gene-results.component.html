@@ -1,9 +1,14 @@
-<div *ngIf="displayResults">
-  <div *ngIf="displayResults.length == 0">
-    (No results)
+<div>
+  <div *ngIf="!displayResults">
+    Loading ...
   </div>
-  <app-genes-table *ngIf="displayResults.length > 0"
-                   [genes]="displayResults" [legend]="legend"></app-genes-table>
+  <div *ngIf="displayResults">
+    <div *ngIf="displayResults.length == 0">
+      (No results)
+    </div>
+    <app-genes-table *ngIf="displayResults.length > 0"
+                     [genes]="displayResults" [legend]="legend"></app-genes-table>
+  </div>
 </div>
 
 

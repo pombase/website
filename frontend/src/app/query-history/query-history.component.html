@@ -1,7 +1,18 @@
 <div class="query-history">
+  <div *ngIf="history.length >= 2">
+    <div *ngIf="getSelectedQueries().length < 2">
+      <button disabled title="Select two or more queries">Union <img src="assets/disabled_operator_or.png"/></button>
+      <button disabled title="Select two or more queries">Intersect <img src="assets/disabled_operator_and.png"/></button>
+    </div>
+    <div *ngIf="getSelectedQueries().length >= 2">
+      <button (click)="orAction()">Union <img src="assets/operator_or.png"/></button>
+      <button (click)="andAction()">Intersect <img src="assets/operator_and.png"/></button>
+    </div>
+  </div>
   <table>
-    <tr *ngFor="let query of history">
+    <tr *ngFor="let query of history; let i = index">
       <td>
+        <input [(ngModel)]="selected[i]" type="checkbox"/>
         <a (click)="queryClick(query)">{{query.toString()}}</a>
       </td>
     </tr>
