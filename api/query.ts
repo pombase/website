@@ -20,8 +20,8 @@ export function setIntersection<T>(a: Set<T>, b: Set<T>): Set<T> {
 }
 
 import {
-  GeneQuery, GeneQueryNode, GeneBoolNode, GeneSummary, PomBaseResults, GeneUniquename,
-  GeneByTerm, QueryResultHeader, QueryNodeOperator,
+  GeneQuery, GeneQueryNode, GeneBoolNode, GeneSummary, QueryResult, GeneUniquename,
+  ResultRow, TermIdNode, QueryNodeOperator,
 } from '../common/pombase-query';
 
 export class Indices {
@@ -118,7 +118,7 @@ export class QueryHandler {
   }
 
   processNode(node: GeneQueryNode): GeneUniquename[] {
-    if (node instanceof GeneByTerm) {
+    if (node instanceof TermIdNode) {
       let termid = node.termid;
       return this.searchMaps.termid_genes[termid];
     } else {
@@ -130,16 +130,15 @@ export class QueryHandler {
     }
   }
 
-  geneQuery(query: GeneQuery): PomBaseResults {
+  geneQuery(query: GeneQuery): QueryResult {
     let topNode = query.getTopNode();
     let geneUniquenames: string[] = this.processNode(topNode);
-    let header = new QueryResultHeader(["Gene systematic ID", "Gene name"]);
-    let rows =
+    let rows: ResultRow[] =
       geneUniquenames.map((geneUniquename: GeneUniquename) => {
         let geneSummary = this.genesByUniquename[geneUniquename];
-        return [geneUniquename, geneSummary.name];
+        return { gene_uniquename: geneUniquename };
       });
 
-    return new PomBaseResults(header, rows);
+    return new QueryResult('Ok', rows);
   }
 }

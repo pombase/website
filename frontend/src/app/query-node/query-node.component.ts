@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { TermShort, GeneByTerm, GeneQueryNode } from '../common/pombase-query';
+import { TermShort, TermIdNode, GeneQueryNode } from '../common/pombase-query';
 
 @Component({
   selector: 'app-query-node',
@@ -11,8 +11,7 @@ export class QueryNodeComponent implements OnInit {
   @Input() node: GeneQueryNode;
   @Output() newNode = new EventEmitter<GeneQueryNode>();
 
-  cvNames = ['molecular_function', 'biological_process', 'cellular_component',
-             'fission_yeast_phenotype'];
+  cvNames = ['go', 'fypo'];
 
   constructor() { }
 
@@ -20,7 +19,7 @@ export class QueryNodeComponent implements OnInit {
   }
 
   termMatched(term: TermShort) {
-    let part = new GeneByTerm(term.termid);
+    let part = new TermIdNode(term.termid);
     this.newNode.emit(part);
   }
 }

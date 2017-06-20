@@ -3,8 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 
-import { TermShort, GeneSummary, GeneQuery, PomBaseResults,
-         QueryResultHeader } from './common/pombase-query';
+import { TermShort, GeneSummary, GeneQuery, QueryResult } from './common/pombase-query';
 import { Util } from './util';
 import { Seq } from './seq';
 import { getReleaseConfig, getAppConfig } from './config';
@@ -322,9 +321,8 @@ export interface GeneSubsets {
   [subsetName: string]: GeneSubsetDetails;
 }
 
-function makeResults(resultsObject: any): PomBaseResults {
-  let header = new QueryResultHeader(resultsObject.header.names);
-  return new PomBaseResults(header, resultsObject.rows);
+function makeResults(resultsObject: any): QueryResult {
+  return new QueryResult('OK', resultsObject.rows);
 }
 
 @Injectable()
@@ -821,15 +819,31 @@ export class PombaseAPIService {
   }
 
   getTermByNameFuzzy(cvName: string, queryText: string): Observable<TermShort[]> {
-    let url = this.apiUrl + '/search/term/by_name/fuzzy/' + cvName + '/' + queryText;
+    let lookupUrl = getAppConfig().ontologyTermLookup[cvName];
+    queryText = queryText.trim();
+    if (queryText.length === 0) {
+      return Observable.from([]);
+    }
+
+    let url = lookupUrl + queryText;
     return this.getWithRetry(url)
-      .map((res: Response) => res.json());
+      .map((res: Response) => {
+        let terms = res.json();
+        return terms.map((term) => {
+          return {
+            termid: term['id'],
+            name: term['name'],
+            interesting_parents: [],
+            is_obsolete: term['is_obsolete'] === 1,
+          };
+        });
+      });
   }
 
-  postQuery(query: GeneQuery): Observable<PomBaseResults> {
+  postQuery(query: GeneQuery): Observable<QueryResult> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + '/search/qb/execute', query.toJSON(), options)
+    return this.http.post(this.apiUrl + '/query', query.toJSON(), options)
       .map((res) => { return makeResults(res.json()); });
   }
 }

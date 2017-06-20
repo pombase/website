@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneQuery, GeneQueryNode, GeneBoolNode, PomBaseResults } from '../common/pombase-query';
+import { GeneQuery, GeneQueryNode, QueryResult } from '../common/pombase-query';
 import { PombaseAPIService } from '../pombase-api.service';
 
 @Component({
@@ -8,15 +8,12 @@ import { PombaseAPIService } from '../pombase-api.service';
   styleUrls: ['./query-builder.component.css']
 })
 export class QueryBuilderComponent implements OnInit {
-//  @Input() query: GeneQuery;
-  topNode: GeneBoolNode;
   query: GeneQuery;
-  results: PomBaseResults = undefined;
+  results: QueryResult = null;
 
   resetQuery() {
-    this.topNode = new GeneBoolNode('and', []);
-    this.query = new GeneQuery(this.topNode);
-    this.results = undefined;
+    this.query = null;
+    this.results = null;
   }
 
   constructor(private pombaseApiService: PombaseAPIService) {
@@ -33,7 +30,7 @@ export class QueryBuilderComponent implements OnInit {
   }
 
   newNode(part: GeneQueryNode) {
-    this.topNode.getParts().push(part);
+    this.query = new GeneQuery(part);
     this.doQuery();
   }
 }

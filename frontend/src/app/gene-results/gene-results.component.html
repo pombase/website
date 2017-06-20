@@ -1,16 +1,10 @@
-<div>
-  <table *ngIf="results">
-    <thead>
-      <th *ngFor="let columnTitle of results.header.names">
-        {{columnTitle}}
-      </th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let row of results.rows">
-        <td *ngFor="let el of row">
-          {{el}}
-        </td>
-      </tr>
-    </tbody>
-  </table>  
+<div *ngIf="displayResults">
+  <div *ngIf="displayResults.length == 0">
+    (No results)
+  </div>
+  <app-genes-table *ngIf="displayResults.length > 0"
+                   [genes]="displayResults" [legend]="legend"></app-genes-table>
 </div>
+
+
+

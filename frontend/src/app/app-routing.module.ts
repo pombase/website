@@ -97,7 +97,7 @@ const routes: Routes = [
     },
     children: [ { path: '**', data: { docsParent: 'browse-curation' }, component: DocsComponent } ]
   },
-  { path: 'query_builder', component: QueryBuilderComponent,
+  { path: 'query', component: QueryBuilderComponent,
     data: {
       title: 'Query builder'
     }

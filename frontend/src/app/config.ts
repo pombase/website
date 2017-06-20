@@ -36,6 +36,7 @@ export interface AppConfig {
     smallest: number;
     largest: number;
   };
+  ontologyTermLookup: { [cvName: string]: string },
   termPageConfig: TermPageConfig;
   linkoutConfig: LinkoutConfig;
   evidenceTypes: EvidenceConfig;
@@ -270,6 +271,11 @@ let _appConfig: AppConfig = {
   },
   termPageConfig: {
     ancestorRelNames: ['is_a', 'part_of', 'regulates'],
+  },
+
+  ontologyTermLookup: {
+    "go": 'https://curation.pombase.org/pombe/ws/lookup/ontology/%5BGO:0005575%7CGO:0003674%7CGO:0008150%5D?def=1&term=',
+    "fypo": 'https://curation.pombase.org/pombe/ws/lookup/ontology/fission_yeast_phenotype?def=1&term=',
   },
 
   linkoutConfig: {

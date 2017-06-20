@@ -1,3 +1,6 @@
-td, th {
-  padding: 10px;
+.query-builder-results td, .query-builder-results th {
+  padding: 4px;
+}
+
+.gene-results-content {
 }

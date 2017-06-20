@@ -1,11 +1,11 @@
-export class QueryResultHeader {
-  constructor(public names: string[]) { }
+export interface ResultRow {
+  gene_uniquename: string;
 }
 
-export class PomBaseResults {
+export class QueryResult {
   constructor(
-    public header: QueryResultHeader,
-    public rows: string[][]) { }
+    public status: string,
+    public rows: ResultRow[]) { }
 }
 
 export interface TermShort {
@@ -60,20 +60,19 @@ export class GeneBoolNode extends GeneQueryNode {
   }
 
   toObject(): Object {
-    return {
-      'type': 'bool',
-      'operator': QueryNodeOperator[this.operator],
-      'parts': this.getParts().map((part: GeneQueryNode) => part.toObject()),
-    };
+    let ret = {};
+    ret[QueryNodeOperator[this.operator]] = this.getParts().map((part: GeneQueryNode) => part.toObject());
+    return ret;
   }
 }
 
-export class GeneByTerm implements GeneQueryNode {
-  constructor(public termid: TermId) { };
+export class TermIdNode extends GeneQueryNode {
+  constructor(public termid: TermId) {
+    super()
+  };
 
   toObject(): Object {
     return {
-      'type': 'term',
       'termid': this.termid,
     };
   }
@@ -85,7 +84,7 @@ export class GeneQuery {
   private makeNode(parsedJson: any): GeneQueryNode {
     let nodeType = parsedJson['type'];
     if (nodeType === 'term') {
-      return new GeneByTerm(parsedJson.termid);
+      return new TermIdNode(parsedJson.termid);
     } else {
       if (nodeType === 'bool') {
         return new GeneBoolNode(parsedJson['operator'],
@@ -112,6 +111,8 @@ export class GeneQuery {
   }
 
   public toJSON(): string {
-    return JSON.stringify(this.getTopNode().toObject());
+    return JSON.stringify({
+      "constraints": this.getTopNode().toObject(),
+    })
   }
 }
