@@ -16,3 +16,7 @@
 .query-clear {
   padding-left: 0.5em;
 }
+
+.query-running-spinner {
+  padding: 3em;
+}

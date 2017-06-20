@@ -1,6 +1,9 @@
 <div>
   <div class="query-results">
-    <app-gene-results [results]="results"></app-gene-results>
+    <div *ngIf="!results && showLoading" class="query-running-spinner">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <app-gene-results *ngIf="results" [results]="results"></app-gene-results>
   </div>
   <div class="query-node-add">
     <div>
