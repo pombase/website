@@ -66,19 +66,19 @@ export class GeneBoolNode extends GeneQueryNode {
   }
 }
 
-export class TermIdNode extends GeneQueryNode {
-  constructor(public termid: TermId) {
+export class TermNode extends GeneQueryNode {
+  constructor(public term: TermShort) {
     super()
   };
 
   toObject(): Object {
     return {
-      'termid': this.termid,
+      'termid': this.term.termid,
     };
   }
 
   toString(): string {
-    return `term: ${this.termid}`;
+    return `term: ${this.term.name} (${this.term.termid})`;
   }
 }
 
@@ -88,7 +88,7 @@ export class GeneQuery {
   private makeNode(parsedJson: any): GeneQueryNode {
     let nodeType = parsedJson['type'];
     if (nodeType === 'term') {
-      return new TermIdNode(parsedJson.termid);
+      return new TermNode(parsedJson.termid);
     } else {
       if (nodeType === 'bool') {
         return new GeneBoolNode(parsedJson['operator'],

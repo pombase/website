@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 
 import { QueryHandler, setUnion, setIntersection } from '../query';
 import { TermShort, GeneQuery,
-         TermIdNode, QueryNodeOperator } from '../../common/pombase-query';
+         TermNode, QueryNodeOperator } from '../../common/pombase-query';
 
 var assert = require('assert');
 
@@ -34,10 +34,10 @@ describe('GeneQuery', function() {
   it('should create a GeneQuery from an object', function() {
     let geneQuery = new GeneQuery({"type": "term", "termid": "GO:0005515"});
     let topNode = geneQuery.getTopNode();
-    if (topNode instanceof TermIdNode) {
-      expect(topNode.termid).to.equal("GO:0005515");
+    if (topNode instanceof TermNode) {
+      expect(topNode.term.termid).to.equal("GO:0005515");
     } else {
-      throw new Error("node is not a TermIdNode");
+      throw new Error("node is not a TermNode");
     }
   });
 });
@@ -63,7 +63,10 @@ describe('QueryHandler', function() {
 
   describe('#getGenesOfPart()', function() {
     it('should return 3 matching genes', function() {
-      let node = new TermIdNode('GO:0005515');
+      let term = { name: 'protein binding', termid: 'GO:0005515',
+                   interesting_parents: [], is_obsolete: false
+                 } as TermShort;
+      let node = new TermNode(term);
       let res = qh.processNode(node);
       expect(res).to.have.members(genesOfGo0005515);
     });

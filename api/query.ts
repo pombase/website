@@ -21,7 +21,7 @@ export function setIntersection<T>(a: Set<T>, b: Set<T>): Set<T> {
 
 import {
   GeneQuery, GeneQueryNode, GeneBoolNode, GeneSummary, QueryResult, GeneUniquename,
-  ResultRow, TermIdNode, QueryNodeOperator,
+  ResultRow, TermNode, QueryNodeOperator,
 } from '../common/pombase-query';
 
 export class Indices {
@@ -118,8 +118,8 @@ export class QueryHandler {
   }
 
   processNode(node: GeneQueryNode): GeneUniquename[] {
-    if (node instanceof TermIdNode) {
-      let termid = node.termid;
+    if (node instanceof TermNode) {
+      let termid = node.term.termid;
       return this.searchMaps.termid_genes[termid];
     } else {
       if (node instanceof GeneBoolNode) {
