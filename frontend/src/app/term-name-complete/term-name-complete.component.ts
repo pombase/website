@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 import { PombaseAPIService } from '../pombase-api.service';
 import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
 import { Observable } from 'rxjs/Rx';
@@ -13,8 +13,9 @@ import { TermShort } from '../common/pombase-query';
   templateUrl: './term-name-complete.component.html',
   styleUrls: ['./term-name-complete.component.css']
 })
-export class TermNameCompleteComponent implements OnInit {
+export class TermNameCompleteComponent implements OnInit, OnChanges {
   @Input() cvName: string;
+  @Input() placeholder = 'start typing ...';
   @Output() termMatched = new EventEmitter();
   dataSource: Observable<TermShort[]>;
 
@@ -30,6 +31,10 @@ export class TermNameCompleteComponent implements OnInit {
   };
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.selectedTerm = '';
   }
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {

@@ -274,8 +274,10 @@ let _appConfig: AppConfig = {
   },
 
   ontologyTermLookup: {
-    "go": 'https://curation.pombase.org/pombe/ws/lookup/ontology/%5BGO:0005575%7CGO:0003674%7CGO:0008150%5D?def=1&term=',
-    "fypo": 'https://curation.pombase.org/pombe/ws/lookup/ontology/fission_yeast_phenotype?def=1&term=',
+    'GO': 'https://curation.pombase.org/pombe/ws/lookup/ontology/%5BGO:0005575%7CGO:0003674%7CGO:0008150%5D?def=1&term=',
+    'FYPO': 'https://curation.pombase.org/pombe/ws/lookup/ontology/fission_yeast_phenotype?def=1&term=',
+    'PSI-MOD': 'https://curation.pombase.org/pombe/ws/lookup/ontology/post_translational_modification?def=1&term=',
+    'SO-protein': 'https://curation.pombase.org/pombe/ws/lookup/ontology/[SO:0000839]?def=1&term=',
   },
 
   linkoutConfig: {

@@ -1,7 +1,24 @@
 <div class="query-node">
-  <div *ngFor="let cvName of cvNames">
-    <span>{{cvName}}:</span>
-    <app-term-name-complete [cvName]="cvName"
-                            (termMatched)="termMatched($event)"></app-term-name-complete>
+  <div class="node-buttons">
+    <div [ngClass]="{'node-selected-button': !activeNodeConf}"
+         (click)="clearQuery()" class="node-button">
+      New query
+    </div>
+    <div [ngClass]="{'node-selected-button': activeNodeConf && conf.id == activeNodeConf.id}"
+         (click)="clickNode(conf.id)" class="node-button" *ngFor="let conf of nodeConf">
+      {{upperCaseIntial(conf.displayName)}}
+    </div>
+  </div>
+  <div class="node-components">
+    <div *ngIf="!activeNodeConf">
+      (Choose a starting point)
+    </div>
+    <div *ngIf="activeNodeConf">
+      <div *ngIf="activeNodeConf.nodeType == 'ontology'">
+        <app-term-name-complete [cvName]="activeNodeConf.ontologyName"
+                                [placeholder]="'Start typing a ' + activeNodeConf.displayName + ' term name or ID ...'"
+                                (termMatched)="termMatched($event)"></app-term-name-complete>
+      </div>
+    </div>
   </div>
 </div>

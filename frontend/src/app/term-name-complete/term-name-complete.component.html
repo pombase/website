@@ -2,7 +2,7 @@
   <span>{{model.name}} ({{model.termid}})</span>
 </ng-template>
 <input #termNameCompleteBox
-       placeholder="start typing ..."
+       placeholder="{{placeholder}}"
        [(ngModel)]="selectedTerm"
        [typeahead]="dataSource"
        [typeaheadWaitMs]="400"
@@ -10,4 +10,4 @@
        [typeaheadItemTemplate]="termNameCompleteTemplate"
        [typeaheadOptionField]="'name'"
        (typeaheadOnSelect)="typeaheadOnSelect($event)"
-       class="form-control search-box" style="width: 30%; display: inline;">
+       class="form-control search-box" style="display: inline;">

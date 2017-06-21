@@ -1,5 +1,41 @@
 .query-node {
-  background-color: #eef;
   margin: 1em;
   padding: 0.3em;
+  position: relative;
+  height: 12em;
+  width: 95%;
+}
+
+.node-buttons {
+  background-color: #e8e8f8;
+  width: 25%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.node-button {
+  color: #00a;
+  height: 1.5em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.node-selected-button {
+  background-color: #ddf;
+}
+
+.node-button:hover {
+  text-decoration: underline;
+}
+
+.node-components {
+  float: left;
+  background-color: #ddf;
+  width: 75%;
+  min-height: 10em;
+  padding: 0.6em;
+  position: absolute;
+  left: 25%;
+  top: 0;
 }

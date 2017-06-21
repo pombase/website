@@ -8,9 +8,8 @@
   <div class="query-node-add">
     <div>
       <span class="query-title">Query</span>
-      <a class="query-clear" (click)="resetQuery()">Clear ...</a>
     </div>
-    <app-query-node (newNode)="newNode($event)"></app-query-node>
+    <app-query-node (nodeEvent)="nodeEvent($event)"></app-query-node>
   </div>
   <div *ngIf="history.length > 0" class="query-history">
     <span class="query-title">History</span>

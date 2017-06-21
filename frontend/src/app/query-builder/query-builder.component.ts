@@ -60,8 +60,13 @@ export class QueryBuilderComponent implements OnInit {
     this.doQuery(false);
   }
 
-  newNode(part: GeneQueryNode) {
-    this.query = new GeneQuery(part);
-    this.doQuery(true);
+  nodeEvent(part: GeneQueryNode) {
+    if (part) {
+      this.query = new GeneQuery(part);
+      this.doQuery(true);
+    } else {
+      this.query = null;
+      this.results = null;
+    }
   }
 }
