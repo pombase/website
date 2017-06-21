@@ -235,11 +235,6 @@
   <td>&nbsp;</td>
  </tr>
  <tr>
-  <td>scr1</td>
-  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9535817">PMID:9535817</a></td>
-  <td>&nbsp;</td>
- </tr>
- <tr>
   <td>scr2</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9535817">PMID:9535817</a></td>
   <td>&nbsp;</td>
