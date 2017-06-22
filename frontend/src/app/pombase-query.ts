@@ -67,7 +67,7 @@ export class GeneBoolNode extends GeneQueryNode {
   }
 
   opString(): string {
-    if (this.operator == QueryNodeOperator.And) {
+    if (this.operator === QueryNodeOperator.And) {
       return 'INTERSECT';
     } else {
       return 'UNION';
@@ -79,9 +79,29 @@ export class GeneBoolNode extends GeneQueryNode {
   }
 }
 
+export class GeneListNode extends GeneQueryNode {
+  constructor(public genes: Array<GeneUniquename>) {
+    super();
+  };
+
+  toObject(): Object {
+    return {
+      'genelist': this.genes,
+    };
+  }
+
+  toString(): string {
+    let s = this.genes.slice(0, 10).join(' ');
+    if (this.genes.length > 10) {
+      s += ' ...';
+    }
+    return `[${s}]`;
+  }
+}
+
 export class TermNode extends GeneQueryNode {
   constructor(public term: TermShort) {
-    super()
+    super();
   };
 
   toObject(): Object {
@@ -129,8 +149,8 @@ export class GeneQuery {
 
   public toJSON(): string {
     return JSON.stringify({
-      "constraints": this.getTopNode().toObject(),
-    })
+      'constraints': this.getTopNode().toObject(),
+    });
   }
 
   public toString(): string {

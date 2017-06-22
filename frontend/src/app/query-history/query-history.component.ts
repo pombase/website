@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 import { GeneQuery, GeneBoolNode,
-         GeneQueryNode } from '../common/pombase-query';
+         GeneQueryNode } from '../pombase-query';
 
 @Component({
   selector: 'app-query-history',

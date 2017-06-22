@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { QueryResult } from '../common/pombase-query';
+import { QueryResult } from '../pombase-query';
 import { PombaseAPIService } from '../pombase-api.service';
 
 @Component({

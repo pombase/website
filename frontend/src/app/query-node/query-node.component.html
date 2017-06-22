@@ -19,6 +19,9 @@
                                 [placeholder]="'Start typing a ' + activeNodeConf.displayName + ' term name or ID ...'"
                                 (termMatched)="termMatched($event)"></app-term-name-complete>
       </div>
+      <div *ngIf="activeNodeConf.id == 'genelist'">
+        <app-gene-list-lookup (genesFound)="genesFound($event)"></app-gene-list-lookup>
+      </div>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 
-import { TermShort, GeneSummary, GeneQuery, QueryResult } from './common/pombase-query';
+import { TermShort, GeneSummary, GeneQuery, QueryResult } from './pombase-query';
 import { Util } from './util';
 import { Seq } from './seq';
 import { getReleaseConfig, getAppConfig } from './config';

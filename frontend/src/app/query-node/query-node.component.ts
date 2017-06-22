@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { TermShort, TermNode, GeneQueryNode } from '../common/pombase-query';
+import { TermShort, GeneListNode, TermNode,
+         GeneQueryNode, GeneUniquename } from '../pombase-query';
 
 @Component({
   selector: 'app-query-node',
@@ -37,6 +38,11 @@ export class QueryNodeComponent implements OnInit {
       nodeType: 'ontology',
       ontologyName: 'SO-protein',
     },
+    {
+      id: 'genelist',
+      displayName: 'Gene filter',
+      nodeType: 'genelist',
+    },
   ];
 
   activeNodeConf = null;
@@ -69,6 +75,11 @@ export class QueryNodeComponent implements OnInit {
 
   termMatched(term: TermShort) {
     let part = new TermNode(term);
+    this.nodeEvent.emit(part);
+  }
+
+  genesFound(genes: Array<GeneUniquename>) {
+    let part = new GeneListNode(genes);
     this.nodeEvent.emit(part);
   }
 }

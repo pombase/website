@@ -69,6 +69,7 @@ import { CharacterisationStatusTableComponent } from './characterisation-status-
 import { TranscriptViewComponent } from './transcript-view/transcript-view.component';
 import { InterproMatchesComponent } from './interpro-matches/interpro-matches.component';
 import { QueryHistoryComponent } from './query-history/query-history.component';
+import { GeneListLookupComponent } from './gene-list-lookup/gene-list-lookup.component';
 
 export function documentFactory() {
     return document;
@@ -139,6 +140,7 @@ export function windowFactory() {
     TranscriptViewComponent,
     InterproMatchesComponent,
     QueryHistoryComponent,
+    GeneListLookupComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneQuery, GeneQueryNode, QueryResult } from '../common/pombase-query';
+import { GeneQuery, GeneQueryNode, QueryResult } from '../pombase-query';
 import { PombaseAPIService } from '../pombase-api.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 
