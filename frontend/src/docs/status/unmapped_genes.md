@@ -13,12 +13,12 @@
  <tbody>
  <tr>
   <td>all1</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=xxxxx">PMID:xxxxx</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>all2</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=xxxxx">PMID:xxxxx</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
