@@ -1,4 +1,4 @@
-# Gene characterisation
+# Protein-coding gene characterisation
 
 <app-characterisation-status-table></app-characterisation-status-table>
 
@@ -6,8 +6,8 @@ The table is updated with every PomBase data release.
 
 ------------------------------------------------------------------------
 
-Gene Characterisation Status Descriptions
------------------------------------------
+Protein-coding Gene Characterisation Status Descriptions
+--------------------------------------------------------
 
 **Experimentally characterised:** Completely or partially characterised
 in a small scale experiment, with some published information about the
