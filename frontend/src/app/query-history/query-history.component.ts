@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, DoCheck, Input, Output, EventEmitter } from '@angular/core';
 
 import { GeneQuery, GeneBoolNode,
          GeneQueryNode } from '../pombase-query';
@@ -8,12 +8,14 @@ import { GeneQuery, GeneBoolNode,
   templateUrl: './query-history.component.html',
   styleUrls: ['./query-history.component.css']
 })
-export class QueryHistoryComponent implements OnInit, OnChanges {
+export class QueryHistoryComponent implements OnInit, DoCheck {
   @Input() history: Array<GeneQuery>;
   @Output() gotoQuery = new EventEmitter<GeneQuery>();
   @Output() newQuery = new EventEmitter<GeneQuery>();
 
   selected = {};
+  // used for change detection
+  prevHistoryLength = -1;
 
   constructor() { }
 
@@ -33,14 +35,9 @@ export class QueryHistoryComponent implements OnInit, OnChanges {
     this.newQuery.emit(newQuery);
   }
 
-  orAction() {
-    let orQuery = new GeneBoolNode('or', this.getSelectedQueries());
-    this.emitNewQuery(new GeneQuery(orQuery));
-  }
-
-  andAction() {
-    let andQuery = new GeneBoolNode('and', this.getSelectedQueries());
-    this.emitNewQuery(new GeneQuery(andQuery));
+  action(op: string) {
+    let query = new GeneBoolNode(op, this.getSelectedQueries());
+    this.emitNewQuery(new GeneQuery(query));
   }
 
   queryClick(query: GeneQuery) {
@@ -50,7 +47,10 @@ export class QueryHistoryComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  ngOnChanges() {
-    this.selected = {};
+  ngDoCheck() {
+    if (this.prevHistoryLength !== this.history.length) {
+      this.selected = {};
+      this.prevHistoryLength = this.history.length;
+    }
   }
 }

@@ -24,7 +24,8 @@ export class GeneSummary {
 
 export enum QueryNodeOperator {
   And,
-  Or
+  Or,
+  Not,
 }
 
 export type GeneUniquename = string;
@@ -46,7 +47,14 @@ export class GeneBoolNode extends GeneQueryNode {
       if (operator.toLowerCase() === 'or') {
         this.operator = QueryNodeOperator.Or;
       } else {
-        throw new Error('unknown operator: ' + operator);
+        if (operator.toLowerCase() === 'not') {
+          if (parts.length !== 2) {
+            console.log("A NOT query must have 2 parts");
+          }
+          this.operator = QueryNodeOperator.Not;
+        } else {
+          throw new Error('unknown operator: ' + operator);
+        }
       }
     }
   }
@@ -70,7 +78,11 @@ export class GeneBoolNode extends GeneQueryNode {
     if (this.operator === QueryNodeOperator.And) {
       return 'INTERSECT';
     } else {
-      return 'UNION';
+      if (this.operator === QueryNodeOperator.Or) {
+        return 'UNION';
+      } else {
+        return 'BUT_NOT';
+      }
     }
   }
 
