@@ -26,11 +26,17 @@ export interface ChromosomeConfig {
   display_name: string;
 }
 
+export interface QueryNodeTermConfig {
+  name: string;
+  termid: string;
+}
+
 export interface QueryNodeConfig {
   id: string;
   displayName: string;
   nodeType: string;
   ontologyName?: string;
+  terms?: Array<QueryNodeTermConfig>;
 }
 
 export interface QueryBuilderConfig {
@@ -421,6 +427,69 @@ let _appConfig: AppConfig = {
         displayName: 'protein feature',
         nodeType: 'ontology',
         ontologyName: 'SO-protein',
+      },
+      {
+        id: 'conserved-in',
+        displayName: 'conserved in ...',
+        nodeType: 'small-ontology',
+        terms: [
+          {
+            'name': 'Schizosaccharomyces pombe specific',
+            'termid': 'PBO:0016878'
+          },
+          {
+            'name': 'Schizosaccharomyces specific',
+            'termid': 'PBO:0016885'
+          },
+          {
+            'name': 'conserved in archaea',
+            'termid': 'PBO:0011072'
+          },
+          {
+            'name': 'conserved in bacteria',
+            'termid': 'PBO:0011067'
+          },
+          {
+            'name': 'conserved in eukaryotes',
+            'termid': 'PBO:0011065'
+          },
+          {
+            'name': 'conserved in eukaryotes only',
+            'termid': 'PBO:0011071'
+          },
+          {
+            'name': 'conserved in fungi',
+            'termid': 'PBO:0011064'
+          },
+          {
+            'name': 'conserved in fungi only',
+            'termid': 'PBO:0011063'
+          },
+          {
+            'name': 'conserved in metazoa',
+            'termid': 'PBO:0011069'
+          },
+          {
+            'name': 'conserved in vertebrates',
+            'termid': 'PBO:0011070'
+          },
+          {
+            'name': 'faster evolving duplicate',
+            'termid': 'PBO:0009798'
+          },
+          {
+            'name': 'no apparent S. cerevisiae ortholog',
+            'termid': 'PBO:0000055'
+          },
+          {
+            'name': 'orthologs cannot be distinguished',
+            'termid': 'PBO:0000110'
+          },
+          {
+            'name': 'predominantly single copy (one to one)',
+            'termid': 'PBO:0006222'
+          },
+        ],
       },
       {
         id: 'genelist',
