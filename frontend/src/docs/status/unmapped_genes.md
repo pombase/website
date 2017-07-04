@@ -13,7 +13,7 @@
  <tbody>
  <tr>
   <td>ala1</td>
-  <td>&nbsp;</a></td>
+  <td>&nbsp;</td>
   <td>&nbsp;</td>
  </tr>
  <tr>
