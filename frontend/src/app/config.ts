@@ -429,8 +429,8 @@ let _appConfig: AppConfig = {
         ontologyName: 'SO-protein',
       },
       {
-        id: 'conserved-in',
-        displayName: 'conserved in ...',
+        id: 'taxon-distribution',
+        displayName: 'taxon distribution',
         nodeType: 'small-ontology',
         terms: [
           {
