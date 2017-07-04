@@ -36,7 +36,7 @@ export interface AppConfig {
     smallest: number;
     largest: number;
   };
-  ontologyTermLookup: { [cvName: string]: string },
+  ontologyTermLookup: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
   linkoutConfig: LinkoutConfig;
   evidenceTypes: EvidenceConfig;
