@@ -3,6 +3,8 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { TermShort, GeneListNode, TermNode,
          GeneQueryNode, GeneUniquename } from '../pombase-query';
 
+import { getAppConfig } from '../config';
+
 @Component({
   selector: 'app-query-node',
   templateUrl: './query-node.component.html',
@@ -13,37 +15,7 @@ export class QueryNodeComponent implements OnInit {
   @Input() isActive: boolean;
   @Output() nodeEvent = new EventEmitter<GeneQueryNode>();
 
-  nodeConf = [
-    {
-      id: 'GO',
-      displayName: 'GO',
-      nodeType: 'ontology',
-      ontologyName: 'GO',
-    },
-    {
-      id: 'FYPO',
-      displayName: 'phenotype',
-      nodeType: 'ontology',
-      ontologyName: 'FYPO',
-    },
-    {
-      id: 'PSI-MOD',
-      displayName: 'protein modification',
-      nodeType: 'ontology',
-      ontologyName: 'PSI-MOD',
-    },
-    {
-      id: 'SO-protein',
-      displayName: 'protein feature',
-      nodeType: 'ontology',
-      ontologyName: 'SO-protein',
-    },
-    {
-      id: 'genelist',
-      displayName: 'Gene filter',
-      nodeType: 'genelist',
-    },
-  ];
+  nodeTypes = getAppConfig().queryBuilder.nodeTypes;
 
   activeNodeConf = null;
 
@@ -63,7 +35,7 @@ export class QueryNodeComponent implements OnInit {
 
   clickNode(confId: string) {
     if (!this.activeNodeConf || confId !== this.activeNodeConf.id) {
-      for (let conf of this.nodeConf) {
+      for (let conf of this.nodeTypes) {
         if (confId === conf.id) {
           this.activeNodeConf = conf;
         }

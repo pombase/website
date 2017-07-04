@@ -26,6 +26,17 @@ export interface ChromosomeConfig {
   display_name: string;
 }
 
+export interface QueryNodeConfig {
+  id: string;
+  displayName: string;
+  nodeType: string;
+  ontologyName?: string;
+}
+
+export interface QueryBuilderConfig {
+  nodeTypes: Array<QueryNodeConfig>;
+}
+
 export interface AppConfig {
   organism: {
     genus: string,
@@ -46,6 +57,8 @@ export interface AppConfig {
     [identifier: string]: ChromosomeConfig;
   };
   documentation: Array<string>;
+
+  queryBuilder: QueryBuilderConfig;
 
   // return true iff the genus and species match the configured organism
   isConfigOrganism(genus: string, species: string): boolean;
@@ -382,6 +395,40 @@ let _appConfig: AppConfig = {
   miscExternalLinks: pombaseConfig.misc_external_links,
   chromosomes: pombaseConfig.chromosomes,
   documentation: docConfig,
+
+  queryBuilder: {
+    nodeTypes: [
+      {
+        id: 'GO',
+        displayName: 'GO',
+        nodeType: 'ontology',
+        ontologyName: 'GO',
+      },
+      {
+        id: 'FYPO',
+        displayName: 'phenotype',
+        nodeType: 'ontology',
+        ontologyName: 'FYPO',
+      },
+      {
+        id: 'PSI-MOD',
+        displayName: 'protein modification',
+        nodeType: 'ontology',
+        ontologyName: 'PSI-MOD',
+      },
+      {
+        id: 'SO-protein',
+        displayName: 'protein feature',
+        nodeType: 'ontology',
+        ontologyName: 'SO-protein',
+      },
+      {
+        id: 'genelist',
+        displayName: 'Gene filter',
+        nodeType: 'genelist',
+      },
+    ],
+  },
 
   isConfigOrganism(genus: string, species: string): boolean {
     return genus === this.organism.genus && species === this.organism.species;
