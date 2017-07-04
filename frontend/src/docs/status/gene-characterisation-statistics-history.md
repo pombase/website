@@ -1,4 +1,4 @@
-# Gene characterisation statistics history
+# Protein-coding gene characterisation statistics history
 
 **History of characterisation status using current status descriptions
 (introduced with PomBase Chado release 46, August 2014):**
