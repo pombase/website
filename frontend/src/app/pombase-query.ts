@@ -127,6 +127,27 @@ export class TermNode extends GeneQueryNode {
   }
 }
 
+export class SubsetNode extends GeneQueryNode {
+  constructor(public subsetName: string,
+              public subsetDisplayName: string) {
+    super();
+  };
+
+  toObject(): Object {
+    return {
+      'subset': this.subsetName,
+    };
+  }
+
+  toString(): string {
+    if (this.subsetDisplayName !== this.subsetName) {
+      return `${this.subsetDisplayName} ${this.subsetName}`;
+    } else {
+      return this.subsetDisplayName;
+    }
+  }
+}
+
 export class GeneQuery {
   private queryTopNode: GeneQueryNode;
 

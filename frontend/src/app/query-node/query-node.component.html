@@ -1,38 +1,54 @@
 <div class="query-node">
   <div class="node-buttons">
-    <div [ngClass]="{'node-selected-button': !activeNodeConf}"
+    <div [ngClass]="{'node-selected-button': !activeConf}"
          (click)="clearQuery()" class="node-button">
       New query
     </div>
-    <div [ngClass]="{'node-selected-button': activeNodeConf && conf.id == activeNodeConf.id}"
+    <div [ngClass]="{'node-selected-button': activeConf && conf.id == activeConf.id}"
          (click)="clickNode(conf.id)" class="node-button" *ngFor="let conf of nodeTypes">
       {{upperCaseIntial(conf.displayName)}}
     </div>
   </div>
   <div class="node-components">
-    <div *ngIf="!activeNodeConf">
+    <div *ngIf="!activeConf">
       (Choose a starting point)
     </div>
-    <div *ngIf="activeNodeConf">
+    <div *ngIf="activeConf">
 
-      <div *ngIf="activeNodeConf.nodeType == 'ontology'">
-        <app-term-name-complete [cvName]="activeNodeConf.ontologyName"
-                                [placeholder]="'Start typing a ' + activeNodeConf.displayName + ' term name or ID ...'"
+      <div *ngIf="activeConf.nodeType == 'ontology'">
+        <app-term-name-complete [cvName]="activeConf.ontologyName"
+                                [placeholder]="'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
                                 (termMatched)="termMatched($event)"></app-term-name-complete>
       </div>
 
-      <div *ngIf="activeNodeConf.id == 'genelist'">
+      <div *ngIf="activeConf.id == 'genelist'">
         <app-gene-list-lookup (genesFound)="genesFound($event)"></app-gene-list-lookup>
       </div>
 
-      <div *ngIf="activeNodeConf.nodeType == 'small-ontology'">
+      <div *ngIf="activeConf.nodeType == 'small-ontology'">
         <select [(ngModel)]="selectedSmallOntologyTerm"
                 (ngModelChange)="smallOntologyChange($event)">
           <option [ngValue]="null">Choose ...</option>
-          <option *ngFor = "let term of smallOntologyTerms" [ngValue]="term">
+          <option *ngFor = "let term of activeConf.terms" [ngValue]="term">
             {{term.name}}
           </option>
         </select>
+      </div>
+
+      <div *ngIf="activeConf.nodeType == 'subset-select'">
+        <select [(ngModel)]="selectedSubset"
+                (ngModelChange)="subsetChange($event)">
+          <option [ngValue]="null">Choose ...</option>
+          <option *ngFor = "let subset of activeConf.subsets" [ngValue]="subset">
+            {{removePrefix(subset.displayName)}}
+          </option>
+        </select>
+      </div>
+
+      <div *ngIf="activeConf.nodeType == 'subset-input'">
+        <input type="text" [(ngModel)]="subsetName" />
+        <button [disabled]="!subsetName || subsetName.trim().length == 0"
+                (click)="subsetInputSearch($event)">Search</button>
       </div>
 
     </div>

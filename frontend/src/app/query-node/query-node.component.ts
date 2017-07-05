@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { TermShort, GeneListNode, TermNode,
+import { TermShort, GeneListNode, TermNode, SubsetNode,
          GeneQueryNode, GeneUniquename } from '../pombase-query';
 
-import { getAppConfig } from '../config';
+import { getAppConfig, QueryNodeConfig } from '../config';
 
 @Component({
   selector: 'app-query-node',
@@ -16,9 +16,10 @@ export class QueryNodeComponent implements OnInit {
   @Output() nodeEvent = new EventEmitter<GeneQueryNode>();
 
   nodeTypes = getAppConfig().queryBuilder.nodeTypes;
-  activeNodeConf = null;
-  smallOntologyTerms = [];
+  activeConf: QueryNodeConfig = null;
   selectedSmallOntologyTerm = null;
+  selectedSubset = null;
+  subsetName = '';
 
   constructor() { }
 
@@ -30,23 +31,26 @@ export class QueryNodeComponent implements OnInit {
     return s.charAt(0).toUpperCase() + s.slice(1);
   }
 
+  removePrefix(s: string): string {
+    let firstColon = s.indexOf(':');
+    return s.slice(firstColon + 1);
+  }
+
   clearQuery(): void {
-    this.smallOntologyTerms = [];
     this.selectedSmallOntologyTerm = null;
-    this.activeNodeConf = null;
+    this.selectedSubset = null;
+    this.subsetName = '';
+    this.activeConf = null;
     // clear the current query and results
     this.nodeEvent.emit(null);
   }
 
   clickNode(confId: string) {
-    if (!this.activeNodeConf || confId !== this.activeNodeConf.id) {
+    if (!this.activeConf || confId !== this.activeConf.id) {
       this.clearQuery();
       for (let conf of this.nodeTypes) {
         if (confId === conf.id) {
-          this.activeNodeConf = conf;
-          if (conf.nodeType === 'small-ontology') {
-            this.smallOntologyTerms = conf.terms;
-          }
+          this.activeConf = conf;
         }
       }
     }
@@ -71,6 +75,27 @@ export class QueryNodeComponent implements OnInit {
         is_obsolete: false,
       } as TermShort;
       let part = new TermNode(termShort);
+      this.nodeEvent.emit(part);
+    }
+  }
+
+  subsetChange(): void {
+    if (this.selectedSubset) {
+      let part = new SubsetNode(this.selectedSubset.name, this.selectedSubset.displayName);
+      this.nodeEvent.emit(part);
+    }
+  }
+
+  subsetInputSearch(): void {
+    let trimmedSubsetName = this.subsetName.trim();
+    if (trimmedSubsetName.length > 0) {
+      let longName;
+      if (this.activeConf.subsetPrefix) {
+        longName = this.activeConf.subsetPrefix + ':' + trimmedSubsetName;
+      } else {
+        longName = trimmedSubsetName;
+      }
+      let part = new SubsetNode(longName, longName);
       this.nodeEvent.emit(part);
     }
   }

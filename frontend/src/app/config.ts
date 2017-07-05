@@ -31,12 +31,19 @@ export interface QueryNodeTermConfig {
   termid: string;
 }
 
+export interface QueryNodeSubsetConfig {
+  name: string;
+  displayName: string;
+}
+
 export interface QueryNodeConfig {
   id: string;
   displayName: string;
   nodeType: string;
   ontologyName?: string;
+  subsetPrefix?: string;
   terms?: Array<QueryNodeTermConfig>;
+  subsets?: Array<QueryNodeSubsetConfig>;
 }
 
 export interface QueryBuilderConfig {
@@ -490,6 +497,53 @@ let _appConfig: AppConfig = {
             'termid': 'PBO:0006222'
           },
         ],
+      },
+      {
+        id: 'interpro',
+        displayName: 'InterPro ID',
+        nodeType: 'subset-input',
+        subsetPrefix: 'interpro',
+      },
+      {
+        id: 'all-domains',
+        displayName: 'All domain IDs',
+        nodeType: 'subset-input',
+        subsetPrefix: null,
+      },
+      {
+        id: 'annotation-status',
+        displayName: 'Annotation status',
+        nodeType: 'subset-select',
+        subsets: [
+          {
+            name: 'characterisation_status_published',
+            displayName: 'characterisation_status:published',
+          },
+          {
+            name: 'characterisation_status_transposon',
+            displayName: 'characterisation_status:transposon',
+          },
+          {
+            name: 'characterisation_status_dubious',
+            displayName: 'characterisation_status:dubious',
+          },
+          {
+            name: 'characterisation_status_Schizosaccharomyces_specific_protein_uncharacterized',
+            displayName: 'characterisation_status:Schizosaccharomyces specific protein, uncharacterized',
+          },
+          {
+            name: 'characterisation_status_Schizosaccharomyces_pombe_specific_protein_uncharacterized',
+            displayName: 'characterisation_status:Schizosaccharomyces pombe specific protein, uncharacterized',
+          },
+          {
+            name: 'characterisation_status_biological_role_inferred',
+            displayName: 'characterisation_status:biological role inferred',
+          },
+          {
+            name: 'characterisation_status_conserved_unknown',
+            displayName: 'characterisation_status:conserved unknown',
+          },
+        ]
       },
       {
         id: 'genelist',
