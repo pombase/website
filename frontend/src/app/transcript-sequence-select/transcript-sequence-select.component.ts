@@ -21,7 +21,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   featureIsTranslatable = false;
   showTranslation = false;
-  includeExons = true;
   includeIntrons = false;
   include5PrimeUtr = false;
   include3PrimeUtr = false;
@@ -41,9 +40,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         if (this.include5PrimeUtr) {
           partsFlags.push('5\'UTR');
         }
-        if (this.includeExons) {
-          partsFlags.push('exons');
-        }
+        partsFlags.push('exons');
         if (this.includeIntrons) {
           partsFlags.push('introns');
         }
@@ -120,7 +117,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
           .then((values) => {
             let sequence = values[0];
             for (let part of transcripts[0].parts) {
-              if (part.feature_type === 'exon' && this.includeExons ||
+              if (part.feature_type === 'exon' ||
                   part.feature_type === 'intron' && this.includeIntrons ||
                   part.feature_type === 'five_prime_utr' && this.include5PrimeUtr ||
                   part.feature_type === 'three_prime_utr' && this.include3PrimeUtr) {
@@ -174,7 +171,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
     this.featureIsTranslatable = this.geneDetails.feature_type === 'mRNA gene';
     this.showTranslation = false;
-    this.includeExons = true;
     this.includeIntrons = false;
     this.include5PrimeUtr = false;
     this.include3PrimeUtr = false;

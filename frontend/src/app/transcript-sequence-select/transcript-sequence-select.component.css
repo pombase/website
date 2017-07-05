@@ -15,6 +15,10 @@
   max-height: 800px;
 }
 
+.exon-title {
+  font-weight: bold;
+}
+
 .exon {
 
 }
@@ -28,6 +32,10 @@
 }
 
 .controls .flanking-bases {
+  margin-left: 1em;
+}
+
+.controls .flanking-bases input {
   width: 6em;
 }
 

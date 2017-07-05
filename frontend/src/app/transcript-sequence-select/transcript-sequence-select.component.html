@@ -17,24 +17,19 @@
           <div *ngIf="showTranslation">
           </div>
           <div *ngIf="!showTranslation">
-            <div>
-              Include
-              <input class="flanking-bases" id="upstream-bases" type="number"
-                     [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
-              bases upstream <span *ngIf="featureIsTranslatable">of UTR</span>
-            </div>
-
+            <div class="exon-title">CDS sequence and:</div>
             <div *ngIf="featureIsTranslatable">
             <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-5-prime">Include 5'UTR</label>
-
+            <div *ngIf="include5PrimeUtr" class="flanking-bases">
+              Include
+              <input id="upstream-bases" type="number"
+                     [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
+              bases upstream <span *ngIf="featureIsTranslatable">of UTR</span>
+            </div>
             <br/>
             </div>
-            <input id="include-exons" type="checkbox" [(ngModel)]="includeExons"
-                   (ngModelChange)="updateSequence()"/>
-            <label for="include-exons">Include exons</label>
-            <br/>
             <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-introns">Include introns</label>
@@ -43,12 +38,12 @@
             <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-3-prime">Include 3'UTR</label>
-            </div>
-            <div>
+            <div *ngIf="include3PrimeUtr" class="flanking-bases">
               Include
-              <input class="flanking-bases" id="downstream-bases" type="number"
+              <input id="downstream-bases" type="number"
                      [(ngModel)]="downstreamBases" (ngModelChange)="updateSequence()"/>
               bases downstream <span *ngIf="featureIsTranslatable">of UTR</span>
+            </div>
             </div>
           </div>
           <br/>
