@@ -23,6 +23,12 @@
       "url_syntax" : "http://www.ecogene.org/geneInfo.php?eg_id=[example_id]",
       "website" : "http://www.ecogene.org/"
    },
+   "EMBL" : {
+      "description" : "EMBL Nucleotide Sequence Database",
+      "name" : "EMBL",
+      "url_syntax" : "http://www.ebi.ac.uk/cgi-bin/emblfetch?style=html&Submit=Go&id=[example_id]",
+      "website" : "http://www.ebi.ac.uk/embl/"
+   },
    "ENSEMBL" : {
       "description" : "Ensembl database of automatically annotated genomic data",
       "name" : "ENSEMBL",
@@ -34,6 +40,12 @@
       "name" : "FB",
       "url_syntax" : "http://flybase.org/reports/[example_id].html",
       "website" : "http://flybase.org/"
+   },
+   "GEO" : {
+      "description" : "NCBI Gene Expression Omnibus",
+      "name" : "GEO",
+      "url_syntax" : "http://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=[example_id]",
+      "website" : "http://www.ncbi.nlm.nih.gov/geo/"
    },
    "Gene3D" : {
       "description" : "Domain Architecture Classification",
