@@ -11,6 +11,7 @@ export class QueryResult {
 export interface TermShort {
   termid: TermId;
   name: string;
+  definition?: string;
   interesting_parents: Array<string>;
   is_obsolete: boolean;
 }

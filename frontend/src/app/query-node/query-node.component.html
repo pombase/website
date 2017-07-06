@@ -19,6 +19,8 @@
         <app-term-name-complete [cvName]="activeConf.ontologyName"
                                 [placeholder]="'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
                                 (termMatched)="termMatched($event)"></app-term-name-complete>
+
+        <div class="term-definition" *ngIf="selectedTerm?.definition">{{selectedTerm.definition}}</div>
       </div>
 
       <div *ngIf="activeConf.id == 'genelist'">
@@ -26,7 +28,7 @@
       </div>
 
       <div *ngIf="activeConf.nodeType == 'small-ontology'">
-        <select [(ngModel)]="selectedSmallOntologyTerm"
+        <select [(ngModel)]="selectedTerm"
                 (ngModelChange)="smallOntologyChange($event)">
           <option [ngValue]="null">Choose ...</option>
           <option *ngFor = "let term of activeConf.terms" [ngValue]="term">

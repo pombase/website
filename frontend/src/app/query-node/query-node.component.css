@@ -39,3 +39,8 @@
   left: 25%;
   top: 0;
 }
+
+.term-definition {
+  margin: 0.4em;
+  font-size: 80%;
+}

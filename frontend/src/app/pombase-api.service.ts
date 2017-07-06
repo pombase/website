@@ -833,6 +833,7 @@ export class PombaseAPIService {
           return {
             termid: term['id'],
             name: term['name'],
+            definition: term['definition'],
             interesting_parents: [],
             is_obsolete: term['is_obsolete'] === 1,
           };

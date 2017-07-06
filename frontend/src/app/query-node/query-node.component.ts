@@ -17,7 +17,7 @@ export class QueryNodeComponent implements OnInit {
 
   nodeTypes = getAppConfig().queryBuilder.nodeTypes;
   activeConf: QueryNodeConfig = null;
-  selectedSmallOntologyTerm = null;
+  selectedTerm = null;
   selectedSubset = null;
   subsetName = '';
 
@@ -37,7 +37,7 @@ export class QueryNodeComponent implements OnInit {
   }
 
   clearQuery(): void {
-    this.selectedSmallOntologyTerm = null;
+    this.selectedTerm = null;
     this.selectedSubset = null;
     this.subsetName = '';
     this.activeConf = null;
@@ -58,6 +58,7 @@ export class QueryNodeComponent implements OnInit {
 
   termMatched(term: TermShort) {
     let part = new TermNode(term);
+    this.selectedTerm = term;
     this.nodeEvent.emit(part);
   }
 
@@ -67,10 +68,10 @@ export class QueryNodeComponent implements OnInit {
   }
 
   smallOntologyChange(): void {
-    if (this.selectedSmallOntologyTerm) {
+    if (this.selectedTerm) {
       let termShort = {
-        name: this.selectedSmallOntologyTerm.name,
-        termid: this.selectedSmallOntologyTerm.termid,
+        name: this.selectedTerm.name,
+        termid: this.selectedTerm.termid,
         interesting_parents: [],
         is_obsolete: false,
       } as TermShort;
