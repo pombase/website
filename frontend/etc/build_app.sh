@@ -40,7 +40,7 @@ export release=`jq -r .release release_config.json`
 
 perl -pne 's/<<APP_BASE_URL>>/$ENV{"base_url"}/; s/<<GOOGLE_ANALYTICS_ID>>/$ENV{"analytics_id"}/; ' src/index.html.template > src/index.html
 
-ABBREVS="ENSEMBL PANTHER HAMAP Gene3D CDD SO SGD PR RGD MGI EC Pfam PANTHER UniProtKB UniProtKB-SubCell UniPathway FB InterPro ECOGENE UniProtKB-KW PDB WB AGI_LocusCode dictyBase ModBase ProDom PIRSF PRINTS PRODOM Prosite SFLD SMART JCVI_TIGRFAMS SUPERFAMILY"
+ABBREVS="ENSEMBL EMBL DDJB PANTHER HAMAP Gene3D CDD SO SGD PR RGD MGI EC Pfam PANTHER UniProtKB UniProtKB-SubCell UniPathway FB InterPro ECOGENE UniProtKB-KW PDB WB AGI_LocusCode dictyBase ModBase ProDom PIRSF PRINTS PRODOM Prosite SFLD SMART JCVI_TIGRFAMS SUPERFAMILY GEO"
 
 etc/make-link-js.pl /var/pomcur/sources/go-svn/doc/GO.xrf_abbs $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
 
