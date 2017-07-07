@@ -436,8 +436,14 @@ let _appConfig: AppConfig = {
         ontologyName: 'SO-protein',
       },
       {
-        id: 'taxon-distribution',
-        displayName: 'taxon distribution',
+        id: 'all-domains',
+        displayName: 'Protein domain',
+        nodeType: 'subset-input',
+        subsetPrefix: null,
+      },
+      {
+        id: 'taxonomic-conservation',
+        displayName: 'taxonomic conservation',
         nodeType: 'small-ontology',
         terms: [
           {
@@ -499,20 +505,8 @@ let _appConfig: AppConfig = {
         ],
       },
       {
-        id: 'interpro',
-        displayName: 'InterPro ID',
-        nodeType: 'subset-input',
-        subsetPrefix: 'interpro',
-      },
-      {
-        id: 'all-domains',
-        displayName: 'All domain IDs',
-        nodeType: 'subset-input',
-        subsetPrefix: null,
-      },
-      {
-        id: 'annotation-status',
-        displayName: 'Annotation status',
+        id: 'characterisation-status',
+        displayName: 'characterisation status',
         nodeType: 'subset-select',
         subsets: [
           {
