@@ -8,7 +8,7 @@
 
 .node-buttons {
   background-color: #e8e8f8;
-  width: 25%;
+  width: 12em;
   position: absolute;
   left: 0;
   top: 0;
@@ -36,7 +36,7 @@
   min-height: 16em;
   padding: 0.6em;
   position: absolute;
-  left: 25%;
+  left: 12em;
   top: 0;
 }
 
