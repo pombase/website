@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GeneShort } from '../pombase-api.service';
+
+import { saveAs } from 'file-saver';
+
+import { GeneShort, PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-genes-table',
@@ -13,10 +16,41 @@ export class GenesTableComponent implements OnInit {
   orderByField = 'gene';
   showLengend = false;
 
-  constructor() { }
+  constructor(private pombaseApiService: PombaseAPIService) { }
 
   setOrderBy(field: string) {
     this.orderByField = field;
+  }
+
+  rowsAsTSV(rows: Array<Array<string>>): string {
+    return rows.map((row) => row.join('\t')).join('\n');
+  }
+
+  private doDownload(rows) {
+    let fileName = 'gene_list.tsv';
+    let blob = new Blob([this.rowsAsTSV(rows)], { type: 'text' });
+    saveAs(blob, fileName);
+  }
+
+  downloadDetails() {
+    this.pombaseApiService.getGeneSummariesByUniquename()
+      .then((geneSummaries) => {
+        let rows = this.genes.map((gene) => {
+          let geneSummary = geneSummaries[gene.uniquename];
+          return [geneSummary.uniquename, geneSummary.name || '',
+                  geneSummary.synonyms.join(','), geneSummary.feature_type,
+                  geneSummary.location.start_pos, geneSummary.location.end_pos,
+                  geneSummary.location.strand];
+        });
+        this.doDownload(rows);
+      });
+  }
+
+  download() {
+    let rows = this.genes.map((gene) => {
+      return [gene.uniquename];
+    });
+    this.doDownload(rows);
   }
 
   ngOnInit() {

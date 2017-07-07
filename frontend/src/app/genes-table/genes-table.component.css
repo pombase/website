@@ -1,3 +1,14 @@
 .genes-table table th, .genes-table table th {
   padding-right: 20px;
 }
+
+.download-links {
+  float: right;
+  height: 0.9em;
+  position: relative;
+  top: -0.6em;
+}
+
+.genes-table table {
+  clear: both;
+}

@@ -1,6 +1,13 @@
 <div>
   <app-loading-spinner *ngIf="genes.length == 0"></app-loading-spinner>
 <fieldset *ngIf="genes.length > 0" class="genes-table">
+
+  <div class="download-links">
+    Download:
+    <button (click)="download()">Systematic IDs</button>
+    <button (click)="downloadDetails()">Details</button>
+  </div>
+
   <legend *ngIf="showLengend">
     <span>{{legend}}</span>
   </legend>

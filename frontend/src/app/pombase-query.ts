@@ -16,13 +16,6 @@ export interface TermShort {
   is_obsolete: boolean;
 }
 
-export class GeneSummary {
-  uniquename: string;
-  name: string;
-  synonyms: Array<string>;
-  product: string;
-}
-
 export enum QueryNodeOperator {
   And,
   Or,

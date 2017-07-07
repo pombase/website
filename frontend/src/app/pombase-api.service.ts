@@ -3,7 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 
-import { TermShort, GeneSummary, GeneQuery, QueryResult } from './pombase-query';
+import { TermShort, GeneQuery, QueryResult } from './pombase-query';
 import { Util } from './util';
 import { Seq } from './seq';
 import { getReleaseConfig, getAppConfig } from './config';
@@ -161,6 +161,16 @@ export interface ChromosomeLocation {
   start_pos: number;
   end_pos: number;
   strand: string;
+}
+
+export interface GeneSummary {
+  uniquename: string;
+  name: string;
+  organism: Organism;
+  product?: string;
+  synonyms: Array<string>;
+  location?: ChromosomeLocation;
+  feature_type: string;
 }
 
 export class GeneShort {
