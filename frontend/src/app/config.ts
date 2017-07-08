@@ -442,6 +442,41 @@ let _appConfig: AppConfig = {
         subsetPrefix: null,
       },
       {
+        id: 'product-type',
+        displayName: 'product type',
+        nodeType: 'subset-select',
+        subsets: [
+          {
+            'name': 'feature_type_pseudogene',
+            'displayName': 'feature_type:pseudogene',
+          },
+          {
+            'name': 'feature_type_mRNA_gene',
+            'displayName': 'feature_type:protein',
+          },
+          {
+            'name': 'feature_type_tRNA_gene',
+            'displayName': 'feature_type:tRNA',
+          },
+          {
+            'name': 'feature_type_ncRNA_gene',
+            'displayName': 'feature_type:ncRNA',
+          },
+          {
+            'name': 'feature_type_snoRNA_gene',
+            'displayName': 'feature_type:snoRNA',
+          },
+          {
+            'name': 'feature_type_snRNA_gene',
+            'displayName': 'feature_type:snRNA',
+          },
+          {
+            'name': 'feature_type_rRNA_gene',
+            'displayName': 'feature_type:rRNA',
+          }
+        ]
+      },
+      {
         id: 'taxonomic-conservation',
         displayName: 'taxonomic conservation',
         nodeType: 'small-ontology',
