@@ -574,6 +574,16 @@ let _appConfig: AppConfig = {
           },
         ]
       },
+//      {
+//        id: 'protein-size',
+//        displayName: 'protein size',
+//        nodeType: 'float-range',
+//      },
+//      {
+//        id: 'protein-length',
+//        displayName: 'protein length',
+//        nodeType: 'coord-range',
+//      },
       {
         id: 'genelist',
         displayName: 'Gene filter',

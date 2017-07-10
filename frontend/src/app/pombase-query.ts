@@ -142,6 +142,25 @@ export class SubsetNode extends GeneQueryNode {
   }
 }
 
+export class RangeNode extends GeneQueryNode {
+  constructor(public rangeStart: number, public rangeEnd: number) {
+    super();
+  };
+
+  toObject(): Object {
+    return {
+      range: {
+        start: this.rangeStart,
+        end: this.rangeEnd,
+      }
+    };
+  }
+
+  toString(): string {
+    return this.rangeStart + '..' + this.rangeEnd;
+  }
+}
+
 export class GeneQuery {
   private queryTopNode: GeneQueryNode;
 

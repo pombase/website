@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { TermShort, GeneListNode, TermNode, SubsetNode,
+import { TermShort, GeneListNode, TermNode, SubsetNode, RangeNode,
          GeneQueryNode, GeneUniquename } from '../pombase-query';
 
 import { getAppConfig, QueryNodeConfig } from '../config';
@@ -20,6 +20,8 @@ export class QueryNodeComponent implements OnInit {
   selectedTerm = null;
   selectedSubset = null;
   subsetName = '';
+  rangeStart: number = null;
+  rangeEnd: number = null;
 
   constructor() { }
 
@@ -99,5 +101,16 @@ export class QueryNodeComponent implements OnInit {
       let part = new SubsetNode(longName, longName);
       this.nodeEvent.emit(part);
     }
+  }
+
+  validRange(): boolean {
+    return typeof(this.rangeStart) !== 'undefined' &&
+      typeof(this.rangeEnd) !== 'undefined' &&
+      this.rangeStart < this.rangeEnd;
+  }
+
+  rangeSearch(): void {
+    let part = new RangeNode(this.rangeStart, this.rangeEnd);
+    this.nodeEvent.emit(part);
   }
 }

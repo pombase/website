@@ -53,6 +53,24 @@
                 (click)="subsetInputSearch($event)">Search</button>
       </div>
 
+      <div *ngIf="activeConf.nodeType == 'float-range'"
+           class="range float-range">
+        <input type="number" [(ngModel)]="rangeStart" min="0" step="0.01"
+               placeholder="min ..."/>
+        <input type="number" [(ngModel)]="rangeEnd" min="0" step="0.01"
+               placeholder="max ..."/>
+        <button [disabled]="!validRange()" (click)="rangeSearch($event)">Search</button>
+      </div>
+
+      <div *ngIf="activeConf.nodeType == 'coord-range'"
+           class="range coord-range">
+        <input type="number" [(ngModel)]="rangeStart" min="1" step="1"
+               placeholder="start ..."/>
+        <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
+               placeholder="end ..."/>
+        <button [disabled]="!validRange()" (click)="rangeSearch($event)">Search</button>
+      </div>
+
     </div>
   </div>
 </div>

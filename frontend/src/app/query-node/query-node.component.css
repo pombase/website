@@ -44,3 +44,7 @@
   margin: 0.4em;
   font-size: 80%;
 }
+
+.range input {
+  width: 8em;
+}
