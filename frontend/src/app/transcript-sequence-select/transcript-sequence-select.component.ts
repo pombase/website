@@ -19,6 +19,11 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   sequenceHeader = '';
   hasTranscripts = false;
 
+  geneStart = null;
+  geneEnd = null;
+  cdsStart = null;
+  cdsEnd = null;
+
   featureIsTranslatable = false;
   showTranslation = false;
   includeIntrons = false;
@@ -79,22 +84,43 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
         let geneLocation = this.geneDetails.location;
         let strand;
+        let coordStart;
+        let coordEnd;
         if (geneLocation.strand === 'forward') {
           strand = Strand.Forward;
+          if (this.include5PrimeUtr) {
+            coordStart = this.geneStart;
+          } else {
+            coordStart = this.cdsStart;
+          }
+          if (this.include3PrimeUtr) {
+            coordEnd = this.geneEnd;
+          } else {
+            coordEnd = this.cdsEnd;
+          }
         } else {
           strand = Strand.Reverse;
+          if (this.include5PrimeUtr) {
+            coordEnd = this.geneEnd;
+          } else {
+            coordEnd = this.cdsEnd;
+          }
+          if (this.include3PrimeUtr) {
+            coordStart = this.geneStart;
+          } else {
+            coordStart = this.cdsStart;
+          }
         }
         let chrName = geneLocation.chromosome;
-        let geneStart = geneLocation.start_pos;
-        let geneEnd = geneLocation.end_pos;
+
         let upstreamPromise;
         let downstreamPromise;
 
         if (this.upstreamBases > 0) {
           let [upstreamStart, upstreamEnd] =
             strand === Strand.Forward ?
-             [geneStart - this.upstreamBases, geneStart - 1] :
-             [geneEnd + 1, geneEnd + this.upstreamBases];
+             [coordStart - this.upstreamBases, coordStart - 1] :
+             [coordEnd + 1, coordEnd + this.upstreamBases];
           upstreamPromise =
             this.apiService.getChrSubSequence(chrName, upstreamStart, upstreamEnd,
                                                      strand);
@@ -104,8 +130,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         if (this.downstreamBases > 0) {
           let [downstreamStart, downstreamEnd] =
             strand === Strand.Forward ?
-             [geneEnd + 1, geneEnd + this.downstreamBases] :
-             [geneStart - this.downstreamBases, geneStart - 1];
+             [coordEnd + 1, coordEnd + this.downstreamBases] :
+             [coordStart - this.downstreamBases, coordStart - 1];
           downstreamPromise =
             this.apiService.getChrSubSequence(chrName, downstreamStart, downstreamEnd,
                                                      strand);
@@ -118,9 +144,13 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
             let sequence = values[0];
             for (let part of transcripts[0].parts) {
               if (part.feature_type === 'exon' ||
-                  part.feature_type === 'intron' && this.includeIntrons ||
-                  part.feature_type === 'five_prime_utr' && this.include5PrimeUtr ||
-                  part.feature_type === 'three_prime_utr' && this.include3PrimeUtr) {
+                  this.includeIntrons && part.feature_type === 'cds_intron' ||
+                  this.include5PrimeUtr &&
+                  (part.feature_type === 'five_prime_utr' ||
+                   this.includeIntrons && part.feature_type === 'five_prime_utr_intron') ||
+                  this.include3PrimeUtr &&
+                  (part.feature_type === 'three_prime_utr' ||
+                   this.includeIntrons && part.feature_type === 'three_prime_utr_intron')) {
                 sequence += part.residues;
               }
             }
@@ -174,6 +204,31 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.includeIntrons = false;
     this.include5PrimeUtr = false;
     this.include3PrimeUtr = false;
+    this.geneStart = null;
+    this.geneEnd = null;
+    this.cdsStart = null;
+    this.cdsEnd = null;
+
+    let transcripts = this.geneDetails.transcripts;
+
+    if (transcripts) {
+      for (let part of transcripts[0].parts) {
+        if (part.feature_type === 'exon') {
+          if (!this.cdsStart || this.cdsStart > part.location.start_pos) {
+            this.cdsStart = part.location.start_pos;
+          }
+          if (!this.cdsEnd || this.cdsEnd < part.location.end_pos) {
+            this.cdsEnd = part.location.end_pos;
+          }
+        }
+        if (!this.geneStart || this.geneStart > part.location.start_pos) {
+          this.geneStart = part.location.start_pos;
+        }
+        if (!this.geneEnd || this.geneEnd < part.location.end_pos) {
+          this.geneEnd = part.location.end_pos;
+        }
+      }
+    }
 
     this.prefetch();
 

@@ -22,11 +22,11 @@
             <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-5-prime">Include 5'UTR</label>
-            <div *ngIf="include5PrimeUtr" class="flanking-bases">
+            <div class="flanking-bases">
               Include
-              <input id="upstream-bases" type="number"
+              <input id="upstream-bases" type="number" min="0"
                      [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
-              bases upstream <span *ngIf="featureIsTranslatable">of UTR</span>
+              bases upstream <span *ngIf="featureIsTranslatable && include5PrimeUtr">of UTR</span>
             </div>
             <br/>
             </div>
@@ -38,11 +38,11 @@
             <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-3-prime">Include 3'UTR</label>
-            <div *ngIf="include3PrimeUtr" class="flanking-bases">
+            <div class="flanking-bases">
               Include
-              <input id="downstream-bases" type="number"
+              <input id="downstream-bases" type="number" min="0"
                      [(ngModel)]="downstreamBases" (ngModelChange)="updateSequence()"/>
-              bases downstream <span *ngIf="featureIsTranslatable">of UTR</span>
+              bases downstream <span *ngIf="featureIsTranslatable && include3PrimeUtr">of UTR</span>
             </div>
             </div>
           </div>
