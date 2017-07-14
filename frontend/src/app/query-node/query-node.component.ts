@@ -26,7 +26,6 @@ export class QueryNodeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.nodeTypes);
   }
 
   upperCaseIntial(s): string {
