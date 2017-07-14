@@ -50,11 +50,15 @@ export interface QueryBuilderConfig {
   nodeTypes: Array<QueryNodeConfig>;
 }
 
+export interface ConfigOrganism {
+  taxonid: number;
+  genus: string;
+  species: string;
+}
+
 export interface AppConfig {
-  organism: {
-    genus: string,
-    species: string,
-  };
+  load_organism_taxonid: number;
+  organisms: Array<ConfigOrganism>;
   apiSeqChunkSizes: {
     all: Array<number>;
     smallest: number;
@@ -74,7 +78,9 @@ export interface AppConfig {
   queryBuilder: QueryBuilderConfig;
 
   // return true iff the genus and species match the configured organism
-  isConfigOrganism(genus: string, species: string): boolean;
+  isConfigOrganism(taxon: number): boolean;
+
+  getOrganismByTaxonid(taxonid: number): ConfigOrganism;
 
   getLinkUrl(linkConfigKey: string, identifier: string): string;
 }
@@ -286,10 +292,8 @@ for (let configName of Object.keys(_config.annotationTypes)) {
 }
 
 let _appConfig: AppConfig = {
-  organism: {
-    genus: 'Schizosaccharomyces',
-    species: 'pombe',
-  },
+  load_organism_taxonid: pombaseConfig.load_organism_taxonid,
+  organisms: pombaseConfig.organisms,
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
     smallest: Math.min(...pombaseConfig.api_seq_chunk_sizes),
@@ -598,8 +602,18 @@ let _appConfig: AppConfig = {
     ],
   },
 
-  isConfigOrganism(genus: string, species: string): boolean {
-    return genus === this.organism.genus && species === this.organism.species;
+  isConfigOrganism(taxonid: number): boolean {
+    return taxonid = this.load_organism_taxonid;
+  },
+
+  getOrganismByTaxonid(taxonid: number): ConfigOrganism {
+    let retOrganism = null;
+    this.organisms.map((organism) => {
+      if (organism.taxonid === taxonid) {
+        retOrganism = organism;
+      }
+    });
+    return retOrganism;
   },
 
   getLinkUrl(linkConfigKey: string, identifier: string): string {

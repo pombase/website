@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import { TermShort, GeneQuery, QueryResult } from './pombase-query';
 import { Util } from './util';
 import { Seq } from './seq';
-import { getReleaseConfig, getAppConfig } from './config';
+import { getReleaseConfig, getAppConfig, ConfigOrganism } from './config';
 
 export enum Strand {
   Forward,
@@ -131,6 +131,8 @@ export interface OrthologAnnotation {
   reference_uniquename: string;
   ortholog: GeneShort;
   ortholog_uniquename: string;
+  ortholog_taxonid: number;
+  ortholog_organism: ConfigOrganism;
 }
 
 export interface ParalogAnnotation {
@@ -163,12 +165,18 @@ export interface ChromosomeLocation {
   strand: string;
 }
 
+export interface IdAndOrganism {
+  identifier: String;
+  taxonid: number;
+}
+
 export interface GeneSummary {
   uniquename: string;
   name: string;
-  organism: Organism;
+  taxonid: number;
   product?: string;
   synonyms: Array<string>;
+  orthologs: Array<IdAndOrganism>;
   location?: ChromosomeLocation;
   feature_type: string;
 }
@@ -213,11 +221,6 @@ export interface TranscriptDetails {
   protein?: ProteinDetails;
 }
 
-export interface Organism {
-  genus: string;
-  species: string;
-}
-
 export interface InterProMatchLocation {
   start: number;
   end: number;
@@ -240,7 +243,7 @@ export class GeneDetails {
   name: string;
   feature_type: string;
   product?: string;
-  organism: Organism;
+  taxonid: number;
   transcripts: Array<TranscriptDetails>;
   deletion_viability?: string;
   uniprot_identifier?: string;
@@ -472,6 +475,8 @@ export class PombaseAPIService {
     for (let annotation of orthologs) {
       annotation.gene = genesByUniquename[annotation.gene_uniquename];
       annotation.ortholog = genesByUniquename[annotation.ortholog_uniquename];
+      annotation.ortholog_organism =
+        getAppConfig().getOrganismByTaxonid(annotation.ortholog_taxonid);
       if (referencesByUniquename) {
         annotation.reference = referencesByUniquename[annotation.reference_uniquename];
       }

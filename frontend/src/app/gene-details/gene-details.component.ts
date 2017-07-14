@@ -26,6 +26,7 @@ export class GeneDetailsComponent implements OnInit {
   apiError = null;
   showProteinFeatures = false;
   productSize = '';
+  organism = null;
   ensemblImageUrl = null;
   ensemblImage = new Image();
   extraMenuSections = [
@@ -199,6 +200,7 @@ export class GeneDetailsComponent implements OnInit {
                 this.geneDetails.interpro_matches.length > 0 ||
                 !!this.geneDetails.cv_annotations['PomBase family or domain'];
               this.setVisibleSections();
+              this.organism = this.appConfig.getOrganismByTaxonid(geneDetails.taxonid);
             })
             .catch(error => {
               this.apiError = error;

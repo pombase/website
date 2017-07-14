@@ -6,8 +6,8 @@
                        [subject]="'Comment or problem report for ' + displayNameLong()"></app-contact-email>
     <div class="details-page-name-and-id">
     <div class="gene-details-name-id">
-    <span *ngIf="!appConfig.isConfigOrganism(geneDetails.organism.genus, geneDetails.organism.species)">
-      <span class="name-id">{{geneDetails.organism.genus}} {{geneDetails.organism.species}}</span>
+    <span *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">
+      <span class="name-id">{{organism.genus}} {{organism.species}}</span>
     </span>
     <span *ngIf="geneDetails.name">
       <span class="name-id">{{geneDetails.name}}</span>
@@ -68,7 +68,7 @@
 
     <hr style="clear: both" />
     <div class="chromosome-region-view"
-         *ngIf="appConfig.isConfigOrganism(geneDetails.organism.genus, geneDetails.organism.species)">
+         *ngIf="appConfig.isConfigOrganism(geneDetails.taxonid)">
       <div *ngIf="ensemblImageUrl">
         <a href="http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?db=core;g={{geneDetails.uniquename}}">
            <img src="{{ensemblImageUrl}}" />
@@ -105,7 +105,7 @@
       </div>
 
       <app-transcript-view id="{{annotationTypeName}}"
-                           *ngIf="annotationTypeName == 'transcript_view' && geneDetails?.transcripts.length > 0 && appConfig.isConfigOrganism(geneDetails.organism.genus, geneDetails.organism.species)"
+                           *ngIf="annotationTypeName == 'transcript_view' && geneDetails?.transcripts.length > 0 && appConfig.isConfigOrganism(geneDetails.taxonid)"
                            [transcriptDetails]="geneDetails.transcripts"></app-transcript-view>
 
       <app-protein-features id="{{annotationTypeName}}"
