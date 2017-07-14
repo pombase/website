@@ -23,7 +23,7 @@
         <div class="term-definition" *ngIf="selectedTerm?.definition">{{selectedTerm.definition}}</div>
       </div>
 
-      <div *ngIf="activeConf.id == 'genelist'">
+      <div *ngIf="activeConf.id == 'gene_list'">
         <app-gene-list-lookup (genesFound)="genesFound($event)"></app-gene-list-lookup>
       </div>
 
@@ -59,16 +59,16 @@
                placeholder="min ..."/>
         <input type="number" [(ngModel)]="rangeEnd" min="0" step="0.01"
                placeholder="max ..."/>
-        <button [disabled]="!validRange()" (click)="rangeSearch($event)">Search</button>
+        <button [disabled]="!validRange()" (click)="floatRangeSearch($event)">Search</button>
       </div>
 
-      <div *ngIf="activeConf.nodeType == 'coord-range'"
+      <div *ngIf="activeConf.nodeType == 'int-range'"
            class="range coord-range">
         <input type="number" [(ngModel)]="rangeStart" min="1" step="1"
                placeholder="start ..."/>
         <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
                placeholder="end ..."/>
-        <button [disabled]="!validRange()" (click)="rangeSearch($event)">Search</button>
+        <button [disabled]="!validRange()" (click)="intRangeSearch($event)">Search</button>
       </div>
 
     </div>

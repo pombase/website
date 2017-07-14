@@ -430,19 +430,19 @@ let _appConfig: AppConfig = {
         ontologyName: 'PSI-MOD',
       },
       {
-        id: 'SO-protein',
+        id: 'SO_protein',
         displayName: 'protein feature',
         nodeType: 'ontology',
         ontologyName: 'SO-protein',
       },
       {
-        id: 'all-domains',
+        id: 'all_domains',
         displayName: 'Protein domain',
         nodeType: 'subset-input',
         subsetPrefix: null,
       },
       {
-        id: 'product-type',
+        id: 'product_type',
         displayName: 'product type',
         nodeType: 'subset-select',
         subsets: [
@@ -477,7 +477,7 @@ let _appConfig: AppConfig = {
         ]
       },
       {
-        id: 'taxonomic-conservation',
+        id: 'taxonomic_conservation',
         displayName: 'taxonomic conservation',
         nodeType: 'small-ontology',
         terms: [
@@ -540,7 +540,7 @@ let _appConfig: AppConfig = {
         ],
       },
       {
-        id: 'characterisation-status',
+        id: 'characterisation_status',
         displayName: 'characterisation status',
         nodeType: 'subset-select',
         subsets: [
@@ -574,20 +574,26 @@ let _appConfig: AppConfig = {
           },
         ]
       },
-//      {
-//        id: 'protein-size',
-//        displayName: 'protein size',
-//        nodeType: 'float-range',
-//      },
-//      {
-//        id: 'protein-length',
-//        displayName: 'protein length',
-//        nodeType: 'coord-range',
-//      },
       {
-        id: 'genelist',
+        id: 'protein_mol_weight',
+        displayName: 'protein mol. weight',
+        nodeType: 'float-range',
+      },
+      {
+        id: 'protein_length',
+        displayName: 'protein length',
+        nodeType: 'int-range',
+      },
+// ignore until we can select the chromosome too:
+//       {
+//         id: 'genome_range_contains',
+//         displayName: 'Genome position',
+//         nodeType: 'int-range',
+//       },
+      {
+        id: 'gene_list',
         displayName: 'Gene filter',
-        nodeType: 'genelist',
+        nodeType: 'gene-list',
       },
     ],
   },

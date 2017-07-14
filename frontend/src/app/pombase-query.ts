@@ -92,7 +92,7 @@ export class GeneListNode extends GeneQueryNode {
 
   toObject(): Object {
     return {
-      'genelist': this.genes,
+      'gene_list': this.genes,
     };
   }
 
@@ -142,22 +142,44 @@ export class SubsetNode extends GeneQueryNode {
   }
 }
 
-export class RangeNode extends GeneQueryNode {
-  constructor(public rangeStart: number, public rangeEnd: number) {
+export class IntRangeNode extends GeneQueryNode {
+  constructor(public rangeType: string,
+              public rangeStart: number, public rangeEnd: number) {
     super();
   };
 
   toObject(): Object {
     return {
-      range: {
-        start: this.rangeStart,
-        end: this.rangeEnd,
-      }
+      int_range: [this.rangeType,
+        Math.floor(this.rangeStart),
+        Math.floor(this.rangeEnd),
+      ]
     };
   }
 
   toString(): string {
-    return this.rangeStart + '..' + this.rangeEnd;
+    return this.rangeType + '(' + this.rangeStart + '..' + this.rangeEnd + ')';
+  }
+}
+
+export class FloatRangeNode extends GeneQueryNode {
+  constructor(public rangeType: string,
+              public rangeStart: number, public rangeEnd: number) {
+    super();
+  };
+
+  toObject(): Object {
+    return {
+      float_range: [
+        this.rangeType,
+        this.rangeStart,
+        this.rangeEnd,
+      ]
+    };
+  }
+
+  toString(): string {
+    return this.rangeType + '(' + this.rangeStart + '..' + this.rangeEnd + ')';
   }
 }
 
