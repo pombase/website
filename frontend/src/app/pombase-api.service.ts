@@ -166,7 +166,7 @@ export interface ChromosomeLocation {
 }
 
 export interface IdAndOrganism {
-  identifier: String;
+  identifier: string;
   taxonid: number;
 }
 

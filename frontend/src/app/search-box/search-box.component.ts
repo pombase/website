@@ -1,15 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PombaseAPIService } from '../pombase-api.service';
+import { PombaseAPIService, GeneSummary } from '../pombase-api.service';
 
 import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
 
-interface Model {
+interface Model extends GeneSummary {
   searchData: string;
-  name: string;
-  uniquename: string;
-  synonyms: Array<string>;
-  product: string;
 }
 
 @Component({
@@ -18,40 +14,53 @@ interface Model {
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent implements OnInit {
-  public selectedGene = '';
+  public fieldValue = '';
   noResults = true;
 
-  @Input() geneSummaries: Array<Model> = [];
+  lastMatchIdentifier = '';
+
+  geneSummaries: Array<Model> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private router: Router) { }
 
-  maybeSynonymMatch(model: Model): string {
-    if (this.selectedGene) {
-      if ((model.name && model.name.indexOf(this.selectedGene) === -1 ||
-           model.uniquename.indexOf(this.selectedGene) === -1)  &&
-          model.synonyms.find((syn) => { return syn.startsWith(model.searchData); })) {
-        return 'synonym: ' + model.searchData;
-      } else {
-        return '';
-      }
-    } else {
-      return '';
-    }
-  }
+  matchType(modelValue: Model): string {
+    this.lastMatchIdentifier = null;
 
-  maybeProductMatch(model: Model): string {
-    if (this.selectedGene) {
-      if (model.name && model.name.indexOf(this.selectedGene) !== -1 ||
-          model.uniquename.indexOf(this.selectedGene) !== -1 ||
-          model.synonyms.find((syn) => { return syn.startsWith(model.searchData); } )) {
-        return '';
-      } else {
-        return model.product;
+    if (this.fieldValue) {
+      let value = this.fieldValue.trim();
+
+      if (modelValue.name && modelValue.name.indexOf(value) !== -1) {
+        return 'name';
       }
-    } else {
-      return '';
+      if (modelValue.uniquename.indexOf(value) !== -1) {
+        return 'uniquename';
+      }
+      if (modelValue.synonyms.find((syn) => {
+        if (syn.indexOf(value) !== -1) {
+          this.lastMatchIdentifier = syn;
+          return true;
+        } else {
+          return false;
+        }
+      })) {
+        return 'synonym';
+      }
+      if (modelValue.product && modelValue.product.indexOf(value) !== -1) {
+        return 'product';
+      }
+      if (modelValue.orthologs.find((orth) => {
+        if (orth.identifier.indexOf(value) !== -1) {
+          this.lastMatchIdentifier = orth.identifier;
+          return true;
+        } else {
+          return false;
+        }
+      })) {
+        return 'ortholog';
+      }
     }
+    return 'none';
   }
 
   ngOnInit() {
@@ -62,10 +71,7 @@ export class SearchBoxComponent implements OnInit {
           if (data.name) {
             this.geneSummaries.push({
               searchData: data.name,
-              uniquename: data.uniquename,
-              synonyms: data.synonyms,
-              name: data.name,
-              product: data.product,
+              ...data,
             });
           }
         });
@@ -93,10 +99,7 @@ export class SearchBoxComponent implements OnInit {
         summaries.forEach((data) => {
           uniquenameSummaries.push({
             searchData: data.uniquename,
-            uniquename: data.uniquename,
-            synonyms: data.synonyms,
-            name: data.name,
-            product: data.product,
+            ...data
           });
         });
 
@@ -107,26 +110,34 @@ export class SearchBoxComponent implements OnInit {
           data.synonyms.forEach((synonym) => {
             synonymSummaries.push({
               searchData: synonym,
-              uniquename: data.uniquename,
-              synonyms: data.synonyms,
-              name: data.name,
-              product: data.product,
+              ...data
             });
           });
         });
 
         this.geneSummaries = this.geneSummaries.concat(synonymSummaries);
 
+        let orthologSummaries = [];
+        summaries.forEach((data) => {
+          data.orthologs.forEach((ortholog) => {
+            orthologSummaries.push({
+              searchData: ortholog.identifier,
+              ...data
+            });
+          });
+        });
+
+        this.geneSummaries = this.geneSummaries.concat(orthologSummaries);
+
         let productSummaries = [];
         summaries.forEach((data) => {
           if (data.product) {
-            productSummaries.push({
-              searchData: data.product,
-              uniquename: data.uniquename,
-              synonyms: data.synonyms,
-              name: data.name,
-              product: data.product,
-            });
+            if (!data.name || data.product.toLowerCase().indexOf(data.name) === -1) {
+              productSummaries.push({
+                searchData: data.product,
+                  ...data
+              });
+            }
           }
         });
         productSummaries.sort(summaryCmp);
@@ -137,7 +148,7 @@ export class SearchBoxComponent implements OnInit {
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
     this.router.navigate(['/gene', e.item.uniquename]);
-    this.selectedGene = '';
+    this.fieldValue = '';
   }
 
   public typeaheadNoResults(e: boolean) {
@@ -145,7 +156,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   getVisibility(): string {
-    if (this.noResults && this.selectedGene.length > 0) {
+    if (this.noResults && this.fieldValue.length > 0) {
       return 'visible';
     } else {
       return 'hidden';

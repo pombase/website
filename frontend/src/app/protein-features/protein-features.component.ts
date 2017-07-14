@@ -1,7 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { GeneDetails, AnnotationTable, ProteinDetails, Organism,
-         InterProMatch } from '../pombase-api.service';
+import { GeneDetails } from '../pombase-api.service';
 
 import { getAppConfig } from '../config';
 
