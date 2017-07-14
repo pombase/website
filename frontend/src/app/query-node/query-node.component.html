@@ -65,9 +65,9 @@
       <div *ngIf="activeConf.nodeType == 'int-range'"
            class="range coord-range">
         <input type="number" [(ngModel)]="rangeStart" min="1" step="1"
-               placeholder="start ..."/>
+               placeholder="min ..."/>
         <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
-               placeholder="end ..."/>
+               placeholder="max ..."/>
         <button [disabled]="!validRange()" (click)="intRangeSearch($event)">Search</button>
       </div>
 
