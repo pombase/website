@@ -28,16 +28,16 @@ export class SearchBoxComponent implements OnInit {
     this.lastMatchIdentifier = null;
 
     if (this.fieldValue) {
-      let value = this.fieldValue.trim();
+      let value = this.fieldValue.trim().toLowerCase();
 
-      if (modelValue.name && modelValue.name.indexOf(value) !== -1) {
+      if (modelValue.name && modelValue.name.toLowerCase().indexOf(value) !== -1) {
         return 'name';
       }
       if (modelValue.uniquename.indexOf(value) !== -1) {
         return 'uniquename';
       }
       if (modelValue.synonyms.find((syn) => {
-        if (syn.indexOf(value) !== -1) {
+        if (syn.toLowerCase().indexOf(value) !== -1) {
           this.lastMatchIdentifier = syn;
           return true;
         } else {
@@ -46,11 +46,11 @@ export class SearchBoxComponent implements OnInit {
       })) {
         return 'synonym';
       }
-      if (modelValue.product && modelValue.product.indexOf(value) !== -1) {
+      if (modelValue.product && modelValue.product.toLowerCase().indexOf(value) !== -1) {
         return 'product';
       }
       if (modelValue.orthologs.find((orth) => {
-        if (orth.identifier.indexOf(value) !== -1) {
+        if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
           this.lastMatchIdentifier = orth.identifier;
           return true;
         } else {
@@ -70,7 +70,7 @@ export class SearchBoxComponent implements OnInit {
         summaries.forEach((data) => {
           if (data.name) {
             this.geneSummaries.push({
-              searchData: data.name,
+              searchData: data.name.toLowerCase(),
               ...data,
             });
           }
@@ -98,7 +98,7 @@ export class SearchBoxComponent implements OnInit {
         let uniquenameSummaries = [];
         summaries.forEach((data) => {
           uniquenameSummaries.push({
-            searchData: data.uniquename,
+            searchData: data.uniquename.toLowerCase(),
             ...data
           });
         });
@@ -109,7 +109,7 @@ export class SearchBoxComponent implements OnInit {
         summaries.forEach((data) => {
           data.synonyms.forEach((synonym) => {
             synonymSummaries.push({
-              searchData: synonym,
+              searchData: synonym.toLowerCase(),
               ...data
             });
           });
@@ -121,7 +121,7 @@ export class SearchBoxComponent implements OnInit {
         summaries.forEach((data) => {
           data.orthologs.forEach((ortholog) => {
             orthologSummaries.push({
-              searchData: ortholog.identifier,
+              searchData: ortholog.identifier.toLowerCase(),
               ...data
             });
           });
@@ -132,12 +132,10 @@ export class SearchBoxComponent implements OnInit {
         let productSummaries = [];
         summaries.forEach((data) => {
           if (data.product) {
-            if (!data.name || data.product.toLowerCase().indexOf(data.name) === -1) {
-              productSummaries.push({
-                searchData: data.product,
-                  ...data
-              });
-            }
+            productSummaries.push({
+              searchData: data.product.toLowerCase(),
+                ...data
+            });
           }
         });
         productSummaries.sort(summaryCmp);
