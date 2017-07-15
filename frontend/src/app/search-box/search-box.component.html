@@ -17,6 +17,7 @@
        [typeaheadMinLength]="2"
        [typeaheadItemTemplate]="searchBoxTemplate"
        [typeaheadOptionField]="'searchData'"
+       [typeaheadSingleWords]="false"
        (typeaheadOnSelect)="typeaheadOnSelect($event)"
        (typeaheadNoResults)="typeaheadNoResults($event)"
        typeaheadOptionsLimit="15"
