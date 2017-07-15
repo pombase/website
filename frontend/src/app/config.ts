@@ -562,11 +562,11 @@ let _appConfig: AppConfig = {
           },
           {
             name: 'characterisation_status_Schizosaccharomyces_specific_protein_uncharacterized',
-            displayName: 'characterisation_status:Schizosaccharomyces specific protein, uncharacterized',
+            displayName: 'characterisation_status:Schizo. specific protein, uncharacterized',
           },
           {
             name: 'characterisation_status_Schizosaccharomyces_pombe_specific_protein_uncharacterized',
-            displayName: 'characterisation_status:Schizosaccharomyces pombe specific protein, uncharacterized',
+            displayName: 'characterisation_status:S. pombe specific protein, uncharacterized',
           },
           {
             name: 'characterisation_status_biological_role_inferred',
