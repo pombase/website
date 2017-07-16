@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+
 import { PombaseAPIService, GeneSummary } from '../pombase-api.service';
 
 import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
 
 interface Model extends GeneSummary {
   searchData: string;
+}
+
+class DisplayModel {
+  constructor(public uniquename: string,
+              public name: string,
+              public otherDetails: string) { }
 }
 
 @Component({
@@ -15,66 +24,75 @@ interface Model extends GeneSummary {
 })
 export class SearchBoxComponent implements OnInit {
   public fieldValue = '';
+  dataSource: Observable<any>;
   noResults = true;
 
   lastMatchIdentifier = '';
 
-  geneSummaries: Array<Model> = [];
+  geneSummaries: Array<GeneSummary> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
-              private router: Router) { }
-
-  matchType(modelValue: Model): string {
-    this.lastMatchIdentifier = null;
-
-    if (this.fieldValue) {
+              private router: Router) {
+    this.dataSource = Observable
+      .create((observer: any) => {
+        // Runs on every search
+        observer.next(this.fieldValue);
+      })
+      .mergeMap((token: string) => this.summariesAsObservable(token));
+  }
+ 
+  fieldValueMatches(geneSumm: GeneSummary, fieldValue: string): DisplayModel {
+    if (fieldValue) {
       let value = this.fieldValue.trim().toLowerCase();
 
-      if (modelValue.name && modelValue.name.toLowerCase().indexOf(value) !== -1) {
-        return 'name';
+      if (value.length === 0) {
+        return null;
       }
-      if (modelValue.uniquename.indexOf(value) !== -1) {
-        return 'uniquename';
+
+      if (geneSumm.uniquename.indexOf(value) !== -1 ||
+          geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1) {
+        return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
       }
-      if (modelValue.synonyms.find((syn) => {
+      for (let syn of geneSumm.synonyms) {
         if (syn.toLowerCase().indexOf(value) !== -1) {
-          this.lastMatchIdentifier = syn;
-          return true;
-        } else {
-          return false;
+          return new DisplayModel(geneSumm.uniquename, geneSumm.name, 'synonym: ' + syn);
         }
-      })) {
-        return 'synonym';
       }
-      if (modelValue.product && modelValue.product.toLowerCase().indexOf(value) !== -1) {
-        return 'product';
+      if (geneSumm.product && geneSumm.product.toLowerCase().indexOf(value) !== -1) {
+        return new DisplayModel(geneSumm.uniquename, geneSumm.name,
+                                'product: ' + geneSumm.product);
       }
-      if (modelValue.orthologs.find((orth) => {
+      for (let orth of geneSumm.orthologs) {
         if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
-          this.lastMatchIdentifier = orth.identifier;
-          return true;
-        } else {
-          return false;
+          return new DisplayModel(geneSumm.uniquename, geneSumm.name,
+                                  'ortholog: ' + orth.identifier);
         }
-      })) {
-        return 'ortholog';
       }
     }
-    return 'none';
+
+    return null;
+  }
+
+
+  summariesAsObservable(token: string): Observable<any> {
+    if (this.geneSummaries) {
+      let filteredSummaries = [];
+      for (let geneSumm of this.geneSummaries) {
+        let matchSummary = this.fieldValueMatches(geneSumm, token);
+        if (matchSummary && filteredSummaries.length < 20) {
+          filteredSummaries.push(matchSummary);
+        }
+      }
+      return Observable.of(filteredSummaries);
+    } else {
+      return Observable.of([]);
+    }
   }
 
   ngOnInit() {
     this.pombaseApiService.getGeneSummaries()
       .then(summaries => {
-        this.geneSummaries = [];
-        summaries.forEach((data) => {
-          if (data.name) {
-            this.geneSummaries.push({
-              searchData: data.name.toLowerCase(),
-              ...data,
-            });
-          }
-        });
+        this.geneSummaries = summaries;
 
         let summaryCmp =
           (a, b) => {
@@ -94,53 +112,6 @@ export class SearchBoxComponent implements OnInit {
           };
 
         this.geneSummaries.sort(summaryCmp);
-
-        let uniquenameSummaries = [];
-        summaries.forEach((data) => {
-          uniquenameSummaries.push({
-            searchData: data.uniquename.toLowerCase(),
-            ...data
-          });
-        });
-
-        this.geneSummaries = this.geneSummaries.concat(uniquenameSummaries);
-
-        let synonymSummaries = [];
-        summaries.forEach((data) => {
-          data.synonyms.forEach((synonym) => {
-            synonymSummaries.push({
-              searchData: synonym.toLowerCase(),
-              ...data
-            });
-          });
-        });
-
-        this.geneSummaries = this.geneSummaries.concat(synonymSummaries);
-
-        let orthologSummaries = [];
-        summaries.forEach((data) => {
-          data.orthologs.forEach((ortholog) => {
-            orthologSummaries.push({
-              searchData: ortholog.identifier.toLowerCase(),
-              ...data
-            });
-          });
-        });
-
-        this.geneSummaries = this.geneSummaries.concat(orthologSummaries);
-
-        let productSummaries = [];
-        summaries.forEach((data) => {
-          if (data.product) {
-            productSummaries.push({
-              searchData: data.product.toLowerCase(),
-                ...data
-            });
-          }
-        });
-        productSummaries.sort(summaryCmp);
-
-        this.geneSummaries = this.geneSummaries.concat(productSummaries);
       });
   }
 

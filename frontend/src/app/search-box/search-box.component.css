@@ -23,7 +23,7 @@
 /*  font-weight: 200; */
 }
 
-.product-match, .synonym-match, .ortholog-match {
+.match-extra {
   display: block;
   font-weight: 200;
   padding-left: 0.5em;

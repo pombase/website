@@ -2,21 +2,16 @@
   <div>
   <span *ngIf="model.name"><strong>{{model.name}}</strong> ({{model.uniquename}})</span>
   <span *ngIf="!model.name"><strong>{{model.uniquename}}</strong></span>
-  <div [ngSwitch]="matchType(model)">
-    <div *ngSwitchCase="'synonym'" class="synonym-match">synonym: {{lastMatchIdentifier}}</div>
-    <div *ngSwitchCase="'product'" class="product-match">product: {{model.product}}</div>
-    <div *ngSwitchCase="'ortholog'" class="ortholog-match">ortholog: {{lastMatchIdentifier}}</div>
-  </div>
+  <div *ngIf="model.otherDetails" class="match-extra">{{model.otherDetails}}</div>
   </div>
 </ng-template>
 <input #searchBox
        *ngIf="geneSummaries.length > 0"
        placeholder="search ..."
        [(ngModel)]="fieldValue"
-       [typeahead]="geneSummaries"
+       [typeahead]="dataSource"
        [typeaheadMinLength]="2"
        [typeaheadItemTemplate]="searchBoxTemplate"
-       [typeaheadOptionField]="'searchData'"
        [typeaheadSingleWords]="false"
        (typeaheadOnSelect)="typeaheadOnSelect($event)"
        (typeaheadNoResults)="typeaheadNoResults($event)"
