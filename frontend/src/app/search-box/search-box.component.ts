@@ -40,50 +40,85 @@ export class SearchBoxComponent implements OnInit {
       })
       .mergeMap((token: string) => this.summariesAsObservable(token));
   }
- 
-  fieldValueMatches(geneSumm: GeneSummary, fieldValue: string): DisplayModel {
-    if (fieldValue) {
-      let value = this.fieldValue.trim().toLowerCase();
 
-      if (value.length === 0) {
-        return null;
-      }
+  identifierMatch(geneSumm: GeneSummary, value: string): DisplayModel {
+    if (geneSumm.uniquename.toLowerCase().indexOf(value) !== -1 ||
+        geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1) {
+      return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
+    } else {
+      return null;
+    }
+  }
 
-      if (geneSumm.uniquename.indexOf(value) !== -1 ||
-          geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1) {
-        return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
-      }
-      for (let syn of geneSumm.synonyms) {
-        if (syn.toLowerCase().indexOf(value) !== -1) {
-          return new DisplayModel(geneSumm.uniquename, geneSumm.name, 'synonym: ' + syn);
-        }
-      }
-      if (geneSumm.product && geneSumm.product.toLowerCase().indexOf(value) !== -1) {
-        return new DisplayModel(geneSumm.uniquename, geneSumm.name,
-                                'product: ' + geneSumm.product);
-      }
-      for (let orth of geneSumm.orthologs) {
-        if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
-          return new DisplayModel(geneSumm.uniquename, geneSumm.name,
-                                  'ortholog: ' + orth.identifier);
-        }
+  synonymMatch(geneSumm: GeneSummary, value: string): DisplayModel {
+    for (let syn of geneSumm.synonyms) {
+      if (syn.toLowerCase().indexOf(value) !== -1) {
+        return new DisplayModel(geneSumm.uniquename, geneSumm.name, 'synonym: ' + syn);
       }
     }
-
     return null;
   }
 
-
-  summariesAsObservable(token: string): Observable<any> {
-    if (this.geneSummaries) {
-      let filteredSummaries = [];
-      for (let geneSumm of this.geneSummaries) {
-        let matchSummary = this.fieldValueMatches(geneSumm, token);
-        if (matchSummary && filteredSummaries.length < 20) {
-          filteredSummaries.push(matchSummary);
-        }
+  orthologMatch(geneSumm: GeneSummary, value: string): DisplayModel {
+    for (let orth of geneSumm.orthologs) {
+      if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
+        return new DisplayModel(geneSumm.uniquename, geneSumm.name,
+                                'ortholog: ' + orth.identifier);
       }
-      return Observable.of(filteredSummaries);
+    }
+    return null;
+  }
+
+  productMatch(geneSumm: GeneSummary, value: string): DisplayModel {
+    if (geneSumm.product && geneSumm.product.toLowerCase().indexOf(value) !== -1) {
+      return new DisplayModel(geneSumm.uniquename, geneSumm.name,
+                              'product: ' + geneSumm.product);
+    } else {
+      return null;
+    }
+  }
+
+  containsMatch(matches: Array<DisplayModel>, match: DisplayModel): boolean {
+    return matches.findIndex((element) => element.uniquename === match.uniquename) !== -1;
+  }
+
+  summariesAsObservable(fieldValue: string): Observable<any> {
+    if (this.geneSummaries) {
+      let value = this.fieldValue.trim().toLowerCase();
+
+      if (value.length > 0) {
+        let filteredSummaries = [];
+        for (let geneSumm of this.geneSummaries) {
+          let match = this.identifierMatch(geneSumm, value);
+          if (match && filteredSummaries.length < 20) {
+            filteredSummaries.push(match);
+          }
+        }
+        for (let geneSumm of this.geneSummaries) {
+          let match = this.synonymMatch(geneSumm, value);
+          if (match && filteredSummaries.length < 20 &&
+              !this.containsMatch(filteredSummaries, match)) {
+            filteredSummaries.push(match);
+          }
+        }
+        for (let geneSumm of this.geneSummaries) {
+          let match = this.orthologMatch(geneSumm, value);
+          if (match && filteredSummaries.length < 20 &&
+              !this.containsMatch(filteredSummaries, match)) {
+            filteredSummaries.push(match);
+          }
+        }
+        for (let geneSumm of this.geneSummaries) {
+          let match = this.productMatch(geneSumm, value);
+          if (match && filteredSummaries.length < 20 &&
+              !this.containsMatch(filteredSummaries, match)) {
+            filteredSummaries.push(match);
+          }
+        }
+        return Observable.of(filteredSummaries);
+      } else {
+        return Observable.of([]);
+      }
     } else {
       return Observable.of([]);
     }
