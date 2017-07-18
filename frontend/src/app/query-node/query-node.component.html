@@ -49,7 +49,8 @@
 
       <div *ngIf="activeConf.nodeType == 'subset-input'">
         <input type="text" [(ngModel)]="subsetName" />
-        <button [disabled]="!subsetName || subsetName.trim().length == 0"
+        <button type="button" class="btn btn-primary"
+                [disabled]="!subsetName || subsetName.trim().length == 0"
                 (click)="subsetInputSearch($event)">Search</button>
       </div>
 
@@ -59,7 +60,9 @@
                placeholder="min ..."/>
         <input type="number" [(ngModel)]="rangeEnd" min="0" step="0.01"
                placeholder="max ..."/>
-        <button [disabled]="!validRange()" (click)="floatRangeSearch($event)">Search</button>
+        <button type="button" class="btn btn-primary"
+                [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'" 
+                [disabled]="!validRange()" (click)="floatRangeSearch($event)">Search</button>
       </div>
 
       <div *ngIf="activeConf.nodeType == 'int-range'"
@@ -68,7 +71,9 @@
                placeholder="min ..."/>
         <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
                placeholder="max ..."/>
-        <button [disabled]="!validRange()" (click)="intRangeSearch($event)">Search</button>
+        <button type="button" class="btn btn-primary"
+                [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'" 
+                [disabled]="!validRange()" (click)="intRangeSearch($event)">Search</button>
       </div>
 
     </div>

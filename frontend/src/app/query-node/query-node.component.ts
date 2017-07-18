@@ -41,6 +41,8 @@ export class QueryNodeComponent implements OnInit {
     this.selectedTerm = null;
     this.selectedSubset = null;
     this.subsetName = '';
+    this.rangeStart = null;
+    this.rangeEnd = null;
     this.activeConf = null;
     // clear the current query and results
     this.nodeEvent.emit(null);
@@ -103,9 +105,11 @@ export class QueryNodeComponent implements OnInit {
   }
 
   validRange(): boolean {
-    return typeof(this.rangeStart) !== 'undefined' &&
-      typeof(this.rangeEnd) !== 'undefined' &&
-      this.rangeStart < this.rangeEnd;
+    return (this.rangeStart !== null ||
+            this.rangeEnd !== null) &&
+      (this.rangeStart === null ||
+       this.rangeEnd === null ||
+       this.rangeStart <= this.rangeEnd);
   }
 
   intRangeSearch(): void {

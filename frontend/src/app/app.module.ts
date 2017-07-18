@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { TypeaheadModule, PaginationModule, PopoverModule } from 'ng2-bootstrap';
+import { ButtonsModule } from 'ng2-bootstrap/buttons';
 import { MarkdownModule } from 'angular2-markdown';
 
 import { AppComponent } from './app.component';
@@ -149,6 +150,7 @@ export function windowFactory() {
     AppRoutingModule,
     TypeaheadModule.forRoot(),
     PaginationModule.forRoot(),
+    ButtonsModule.forRoot(),
     PopoverModule.forRoot(),
     Ng2SimplePageScrollModule.forRoot(),
     MarkdownModule.forRoot(),
