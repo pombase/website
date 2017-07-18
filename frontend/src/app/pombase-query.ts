@@ -134,10 +134,10 @@ export class SubsetNode extends GeneQueryNode {
   }
 
   toString(): string {
-    if (this.subsetDisplayName !== this.subsetName) {
-      return `${this.subsetDisplayName} ${this.subsetName}`;
-    } else {
+    if (this.subsetDisplayName) {
       return this.subsetDisplayName;
+    } else {
+      return this.subsetName;
     }
   }
 }
