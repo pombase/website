@@ -42,6 +42,8 @@ perl -pne 's/<<APP_BASE_URL>>/$ENV{"base_url"}/; s/<<GOOGLE_ANALYTICS_ID>>/$ENV{
 
 ABBREVS="ENSEMBL EMBL DDJB PANTHER HAMAP Gene3D CDD SO SGD PR RGD MGI EC Pfam PANTHER UniProtKB UniProtKB-SubCell UniPathway FB InterPro ECOGENE UniProtKB-KW PDB WB AGI_LocusCode dictyBase ModBase ProDom PIRSF PRINTS PRODOM Prosite SFLD SMART JCVI_TIGRFAMS SUPERFAMILY GEO"
 
+(cd /var/pomcur/sources/go-svn/; svn update)
+
 etc/make-link-js.pl /var/pomcur/sources/go-svn/doc/GO.xrf_abbs $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
 
 (cd src/docs; ../../etc/make-docs.pl `find ./ -name '*.md'` > ../app/docs/docs.component.html)
