@@ -52,7 +52,7 @@ export class GeneExternalReferencesComponent implements OnChanges {
       let go_xrf_abbrev = extRefConf.go_xrf_abbrev;
       if (go_xrf_abbrev) {
         let fieldValue = this.geneDetails[fieldName];
-        return [fieldValue, getXrfWithPrefix(go_xrf_abbrev, fieldValue)];
+        return [fieldValue, getXrfWithPrefix(go_xrf_abbrev, fieldValue).url];
       } else {
         return [];
       }
