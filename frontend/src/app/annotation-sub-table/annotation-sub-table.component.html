@@ -115,8 +115,16 @@
         </td>
         <td class="with" *ngIf="showColumn['evidence']">
           <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
-          <span *ngIf="annotation.with">with<app-with-or-from-link [withOrFrom]="annotation.with"></app-with-or-from-link></span>
-          <span *ngIf="annotation.from">from<app-with-or-from-link [withOrFrom]="annotation.from"></app-with-or-from-link></span>
+          <span *ngIf="annotation.withs && annotation.withs.length > 0">with
+            <span *ngFor="let withVal of annotation.withs; let lastWith = last">
+              <app-with-or-from-link [withOrFrom]="withVal"></app-with-or-from-link><span *ngIf="!lastWith">, </span>
+            </span>
+          </span>
+          <span *ngIf="annotation.froms && annotation.froms.length > 0">from
+            <span *ngFor="let fromVal of annotation.froms; let lastFrom = last">
+              <app-with-or-from-link [withOrFrom]="fromVal"></app-with-or-from-link><span *ngIf="!lastFrom">, </span>
+            </span>
+          </span>
         </td>
         <td *ngIf="showColumn['conditions']">
           <ul class="conditions">

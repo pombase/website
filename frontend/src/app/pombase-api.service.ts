@@ -81,7 +81,8 @@ export interface Annotation {
   reference: string|ReferenceShort;
   evidence?: string;
   conditions: Array<TermShort|string>;
-  with?: string;
+  withs: Array<any>;
+  froms: Array<any>;
   residue?: string;
   qualifiers: Array<TermShort>;
   genes: Array<GeneShort>|Array<string>;
