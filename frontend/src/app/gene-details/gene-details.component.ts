@@ -164,7 +164,7 @@ export class GeneDetailsComponent implements OnInit {
       let protein = transcript.protein;
       if (protein) {
         let proteinSequenceLength = protein.number_of_residues;
-        let weight = Math.round(protein.molecular_weight / 10) / 100.0;
+        let weight = Math.round(protein.molecular_weight * 100) / 100.0;
         this.productSize = proteinSequenceLength + ' aa, ' + weight + ' kDa';
       } else {
         this.productSize = transcript.sequence.length + ' nt';
