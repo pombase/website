@@ -99,7 +99,7 @@ const routes: Routes = [
   },
   { path: 'query', component: QueryBuilderComponent,
     data: {
-      title: 'Query builder'
+      title: 'Advanced search'
     }
   },
     { path: 'front', redirectTo: '/', pathMatch: 'full' },
