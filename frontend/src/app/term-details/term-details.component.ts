@@ -121,6 +121,7 @@ export class TermDetailsComponent implements OnInit {
                 this.filterAncestors();
                 this.setVisibleSections();
                 this.scrollToPageTop();
+                this.apiError = null;
               })
               .catch(error => {
                 this.apiError = error;

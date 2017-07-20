@@ -107,6 +107,7 @@ export class ReferenceDetailsComponent implements OnInit {
             this.setPageTitle();
             this.setCantoFields();
             this.setVisibleSections();
+            this.apiError = null;
           })
           .catch(error => {
             this.apiError = error;

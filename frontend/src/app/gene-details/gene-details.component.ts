@@ -201,6 +201,7 @@ export class GeneDetailsComponent implements OnInit {
                 !!this.geneDetails.cv_annotations['PomBase family or domain'];
               this.setVisibleSections();
               this.organism = this.appConfig.getOrganismByTaxonid(geneDetails.taxonid);
+              this.apiError = null;
             })
             .catch(error => {
               this.apiError = error;

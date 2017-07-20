@@ -50,6 +50,7 @@ export class GenotypeDetailsComponent implements OnInit {
             this.setDisplayName();
             this.annotationTypeNames = this.config.annotationTypeOrder;
             this.setPageTitle();
+            this.apiError = null;
           })
           .catch(error => {
             this.apiError = error;
