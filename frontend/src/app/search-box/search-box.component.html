@@ -8,6 +8,7 @@
 <input #searchBox
        *ngIf="geneSummaries.length > 0"
        placeholder="search ..."
+       (keyup.enter)="enterPressed($event)"
        [(ngModel)]="fieldValue"
        [typeahead]="dataSource"
        [typeaheadMinLength]="2"

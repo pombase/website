@@ -159,6 +159,19 @@ export class SearchBoxComponent implements OnInit {
     this.noResults = e;
   }
 
+  enterPressed(e: any) {
+    let trimmedValue = this.fieldValue.trim();
+    if (trimmedValue.match(/^(PMID|GO_REF):/)) {
+      this.fieldValue = '';
+      this.router.navigate(['/reference', trimmedValue]);
+    } else {
+      if (trimmedValue.match(/^[a-zA-Z_]+:\d\d\d+$/)) {
+        this.fieldValue = '';
+        this.router.navigate(['/term', trimmedValue]);
+      }
+    }
+  }
+
   getVisibility(): string {
     if (this.noResults && this.fieldValue.length > 0) {
       return 'visible';
