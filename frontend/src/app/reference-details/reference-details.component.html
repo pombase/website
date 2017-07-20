@@ -2,7 +2,7 @@
   <app-loading-spinner *ngIf="!refDetails && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
-<div id="reference-details" class="details-page" *ngIf="refDetails">
+<div id="reference-details" class="details-page" *ngIf="refDetails && !apiError">
   <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
                      [subject]="'Comment or problem report'"></app-contact-email>
 
