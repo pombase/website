@@ -159,13 +159,21 @@ export class SearchBoxComponent implements OnInit {
     this.noResults = e;
   }
 
+  matchesReference(value: string): boolean {
+    return value.match(/^\s*(PMID|GO_REF):\d\d\d+\s*$/) != null;
+  }
+
+  matchesTerm(value: string): boolean {
+    return value.match(/^\s*[a-zA-Z_]+:\d\d\d+\s*$/) != null;
+  }
+
   enterPressed(e: any) {
     let trimmedValue = this.fieldValue.trim();
-    if (trimmedValue.match(/^(PMID|GO_REF):/)) {
+    if (this.matchesReference(trimmedValue)) {
       this.fieldValue = '';
       this.router.navigate(['/reference', trimmedValue]);
     } else {
-      if (trimmedValue.match(/^[a-zA-Z_]+:\d\d\d+$/)) {
+      if (this.matchesTerm(trimmedValue)) {
         this.fieldValue = '';
         this.router.navigate(['/term', trimmedValue]);
       }
