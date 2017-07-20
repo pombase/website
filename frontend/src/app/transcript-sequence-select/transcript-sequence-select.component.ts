@@ -38,9 +38,12 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.sequenceHeader = this.sequenceDescription;
 
     if (sequence) {
-      this.sequenceHeader += ' length:' + sequence.length;
+      if (this.showTranslation) {
+        this.sequenceHeader += ' length:' +
+          this.geneDetails.transcripts[0].protein.number_of_residues;
+      } else {
+        this.sequenceHeader += ' length:' + sequence.length;
 
-      if (!this.showTranslation) {
         let partsFlags = [];
         if (this.include5PrimeUtr) {
           partsFlags.push('5\'UTR');
@@ -66,6 +69,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     let transcripts = this.geneDetails.transcripts;
     this.hasTranscripts = transcripts.length > 0;
 
+    this.sequenceDescription = this.geneDetails.uniquename;
+
     if (this.hasTranscripts) {
       this.sequenceHeader = this.sequenceDescription;
       if (this.upstreamBases < 0) {
@@ -77,9 +82,11 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       }
 
       if (this.showTranslation) {
+        this.sequenceDescription += '-peptide-sequence';
         this.updateHeader(this.sequence);
         this.sequence = Util.splitSequenceString(transcripts[0].protein.sequence);
       } else {
+        this.sequenceDescription += '-transcript-sequence';
         this.sequence = null;
 
         let geneLocation = this.geneDetails.location;
@@ -231,13 +238,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     }
 
     this.prefetch();
-
-    this.sequenceDescription = this.geneDetails.uniquename;
-    if (this.showTranslation) {
-      this.sequenceDescription += '-peptide-sequence';
-    } else {
-      this.sequenceDescription += '-transcript-sequence';
-    }
 
     this.updateSequence();
   }
