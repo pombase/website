@@ -160,7 +160,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   matchesReference(value: string): boolean {
-    return value.match(/^\s*(PMID|GO_REF):\d\d\d+\s*$/) != null;
+    return value.match(/^\s*(?:(PMID|GO_REF):)?\d\d\d+\s*$/) != null;
   }
 
   matchesTerm(value: string): boolean {
@@ -170,8 +170,12 @@ export class SearchBoxComponent implements OnInit {
   enterPressed(e: any) {
     let trimmedValue = this.fieldValue.trim();
     if (this.matchesReference(trimmedValue)) {
+      let pmid = this.fieldValue;
+      if (!pmid.startsWith('PMID:')) {
+        pmid = 'PMID:' + pmid;
+      }
       this.fieldValue = '';
-      this.router.navigate(['/reference', trimmedValue]);
+      this.router.navigate(['/reference', pmid]);
     } else {
       if (this.matchesTerm(trimmedValue)) {
         this.fieldValue = '';
