@@ -318,6 +318,7 @@ export interface TermSubsetElement {
 
 export interface TermSubsetDetails {
   name: string;
+  total_gene_count: number;
   elements: Array<TermSubsetElement>;
 }
 

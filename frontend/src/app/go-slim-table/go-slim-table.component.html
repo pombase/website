@@ -2,7 +2,8 @@
   <app-loading-spinner *ngIf="!goSlimSubset && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
-  <table *ngIf="goSlimSubset" class="go-slim-table">
+  <div *ngIf="goSlimSubset">
+  <table class="go-slim-table">
     <thead>
       <th>Name</th>
       <th>Term</th>
@@ -29,8 +30,20 @@
     </tbody>
   </table>
 
+  <div id="slim-gene-totals">
+    <div id="slim-gene-totals-header">
+      Total slimmed gene products (protein and ncRNA): {{goSlimSubset.total_gene_count}}
+    </div>
+
+    Note that the counts in the "Genes" column are not additive,
+    because many gene products are annotated to more than one term in
+    the GO slim.
+  </div>
+  
+  </div>
+
   <div *ngIf="nonSlimWithBP" id="non-slim-genes">
-    <div id="non-slim-total">Genes not covered by the slim
+    <div id="non-slim-total">Protein coding genes not covered by the slim
     ({{nonSlimWithBP.elements.length + nonSlimWithoutBP.elements.length}} in total):</div>
     <div>
       Gene products with biological process annotation, but not in any of the

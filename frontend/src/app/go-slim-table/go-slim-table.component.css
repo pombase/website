@@ -9,6 +9,10 @@ td, th {
   padding: 1em 0 1em 0;
 }
 
-#non-slim-total  {
+#non-slim-total, #slim-gene-totals-header {
   font-weight: bold;
+}
+
+#slim-gene-totals {
+  margin: 2em 0 0.5em 0;
 }
