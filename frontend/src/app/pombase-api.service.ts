@@ -595,7 +595,13 @@ export class PombaseAPIService {
 
   getWithRetry(url: string): Observable<Response> {
     return this.http.get(url)
-      .retryWhen(error => error.delay(5000))
+      .retryWhen((errors) => {
+        return errors
+          .mergeMap((error) =>
+                    (error.status === 404) ? Observable.throw(error) : Observable.of(error))
+          .delay(2000)
+          .take(3);
+      })
       .timeout(30000);
   }
 

@@ -1,8 +1,7 @@
 <div class="api-error">
   <span *ngIf="error.status == 404">
-    Sorry, page not found.  Please click one of the links above or go
-    to the <a routerLink="/" routerLinkActive="active"
-    title="Home">main page</a>.
+    Sorry, page not found.  Please go to the <a routerLink="/"
+    routerLinkActive="active" title="Home">PomBase front page</a>.
   </span>
   <span *ngIf="error.status != 404">
     Internal error.  Please try reloading or go to
