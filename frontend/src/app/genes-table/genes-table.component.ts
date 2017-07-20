@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { saveAs } from 'file-saver';
 
-import { GeneShort, PombaseAPIService } from '../pombase-api.service';
+import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-genes-table',
@@ -32,16 +32,29 @@ export class GenesTableComponent implements OnInit {
     saveAs(blob, fileName);
   }
 
+  displayFeatureType(geneSummary: GeneSummary): string {
+    if (geneSummary.feature_type === 'mRNA gene') {
+      return 'protein coding';
+    } else {
+      return geneSummary.feature_type;
+    }
+  }
+
   downloadDetails() {
     this.pombaseApiService.getGeneSummariesByUniquename()
       .then((geneSummaries) => {
-        let rows = this.genes.map((gene) => {
+        let rows: Array<Array<string>> =
+          [['Systematic ID', 'Name', 'Synonyms', 'Feature type',
+            'Start position', 'End position', 'Strand']];
+        for (let gene of this.genes) {
           let geneSummary = geneSummaries[gene.uniquename];
-          return [geneSummary.uniquename, geneSummary.name || '',
-                  geneSummary.synonyms.join(','), geneSummary.feature_type,
-                  geneSummary.location.start_pos, geneSummary.location.end_pos,
-                  geneSummary.location.strand];
-        });
+          rows.push([geneSummary.uniquename, geneSummary.name || '',
+                     geneSummary.synonyms.join(','),
+                     this.displayFeatureType(geneSummary),
+                     String(geneSummary.location.start_pos),
+                     String(geneSummary.location.end_pos),
+                     geneSummary.location.strand]);
+        }
         this.doDownload(rows);
       });
   }
