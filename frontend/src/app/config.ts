@@ -704,18 +704,21 @@ function getXrfConfig(): { [key: string]: XrfConfig } {
 
 export function getXrfWithPrefix(prefix: string, id: string): XrfDetails {
   let xrfDetail = getXrfConfig()[prefix];
-  let linkTemplate = xrfDetail.urlSyntax;
 
-  if (linkTemplate) {
-    return {
-      displayName: xrfDetail.displayName,
-      description: xrfDetail.description,
-      url: linkTemplate.replace(/\[example_id\]/, id),
-      website: xrfDetail.website,
-    };
-  } else {
-    return null;
+  if (xrfDetail) {
+    let linkTemplate = xrfDetail.urlSyntax;
+
+    if (linkTemplate) {
+      return {
+        displayName: xrfDetail.displayName,
+        description: xrfDetail.description,
+        url: linkTemplate.replace(/\[example_id\]/, id),
+        website: xrfDetail.website,
+      };
+    }
   }
+
+  return null;
 }
 
 export function getXrf(idWithPrefix: string): XrfDetails {
