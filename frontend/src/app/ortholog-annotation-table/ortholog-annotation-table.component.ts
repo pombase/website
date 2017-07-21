@@ -17,8 +17,8 @@ export class OrthologAnnotationTableComponent implements OnInit {
   annotationTypeDisplayName = null;
   hideColumn = {};
 
-  getLink(organism: any, uniquename: string): string {
-    return getOrganismExternalLink(organism.genus, organism.species, uniquename);
+  getLink(organism: any, uniquename: string, name: string): string {
+    return getOrganismExternalLink(organism.genus, organism.species, uniquename, name);
   }
 
   constructor() { }

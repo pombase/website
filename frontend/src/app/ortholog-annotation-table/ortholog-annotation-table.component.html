@@ -21,7 +21,11 @@
         </td>
         <td *ngIf="!currentGene">{{annotation.gene.product}}</td>
         <td>{{annotation.ortholog_organism.genus}} {{annotation.ortholog_organism.species}}</td>
-        <td><a href="{{getLink(annotation.ortholog_organism, annotation.ortholog.uniquename)}}">{{annotation.ortholog.name ? annotation.ortholog.name + " (" + annotation.ortholog.uniquename + ")" : annotation.ortholog.uniquename }}</a></td>
+        <td>
+          <a href="{{getLink(annotation.ortholog_organism, annotation.ortholog.uniquename, annotation.ortholog.name)}}">
+            {{annotation.ortholog.name ? annotation.ortholog.name + " (" + annotation.ortholog.uniquename + ")" : annotation.ortholog.uniquename }}
+          </a>
+        </td>
         <td class="ortholog-reference" *ngIf="!hideColumn['reference']">
           <span *ngIf="annotation.reference">
             <app-reference-short [reference]="annotation.reference"></app-reference-short>

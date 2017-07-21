@@ -639,6 +639,7 @@ interface XrfConfig {
   description: string;
   urlSyntax: string;
   website: string;
+  fieldName?: string;
 }
 
 type XrfConfigMap = { [key: string]: XrfConfig };
@@ -659,6 +660,14 @@ let xrfExtraConfigMap = {
     description: 'MobiDB',
     urlSyntax: 'http://mobidb.bio.unipd.it/entries/[example_id]',
     website: 'http://mobidb.bio.unipd.it',
+    fieldName: 'uniquename',
+  },
+  'HGNC-symbol': {
+    displayName: 'HGNC',
+    description: 'HGNC',
+    urlSyntax: 'http://www.genenames.org/cgi-bin/gene_symbol_report?match=[example_id]',
+    website: 'http://www.genenames.org',
+    fieldName: 'name',
   },
 };
 
@@ -732,17 +741,26 @@ export function getXrf(idWithPrefix: string): XrfDetails {
 }
 
 let organismPrefix = {
-  'Homo_sapiens': 'ENSEMBL',
+  'Homo_sapiens': 'HGNC-symbol',
   'Saccharomyces_cerevisiae': 'SGD',
 };
 
-export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, id: string): string {
-  let result = getXrfWithPrefix(organismPrefix[organismGenus + '_' + organismSpecies], id);
-  if (result) {
-    return result.url;
-  } else {
-    return null;
+export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, uniquename: string, name: string): string {
+  let xrfOrgConfig = getXrfConfig()[organismPrefix[organismGenus + '_' + organismSpecies]];
+
+  if (xrfOrgConfig) {
+    let linkTemplate = xrfOrgConfig.urlSyntax;
+
+    if (linkTemplate) {
+      if (!xrfOrgConfig.fieldName || xrfOrgConfig.displayName === 'uniquename') {
+        return linkTemplate.replace(/\[example_id\]/, uniquename);
+      } else {
+        return linkTemplate.replace(/\[example_id\]/, name);
+      }
+    }
   }
+
+  return null;
 }
 
 export function getReleaseConfig(): any {
