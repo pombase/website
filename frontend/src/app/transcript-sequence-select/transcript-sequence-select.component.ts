@@ -14,6 +14,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;
 
   sequenceVisible = true;
+  rawSequence = '';
   sequence = '';
   sequenceDescription = '';
   sequenceHeader = '';
@@ -84,9 +85,11 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       if (this.showTranslation) {
         this.sequenceDescription += '-peptide-sequence';
         this.updateHeader(this.sequence);
-        this.sequence = Util.splitSequenceString(transcripts[0].protein.sequence);
+        this.rawSequence = transcripts[0].protein.sequence;
+        this.sequence = Util.splitSequenceString(this.rawSequence);
       } else {
         this.sequenceDescription += '-transcript-sequence';
+        this.rawSequence = '';
         this.sequence = null;
 
         let geneLocation = this.geneDetails.location;
@@ -165,9 +168,11 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
             this.updateHeader(sequence);
 
-            this.sequence = Util.splitSequenceString(sequence);
+            this.rawSequence = sequence;
+            this.sequence = Util.splitSequenceString(this.rawSequence);
           })
           .catch((e) => {
+            this.rawSequence = '';
             this.sequence = '';
           });
       }
