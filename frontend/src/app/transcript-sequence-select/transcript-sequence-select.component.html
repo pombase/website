@@ -48,13 +48,13 @@
           </div>
           <br/>
 
-          <button (click)="download()">Download sequence</button>
+          <button class="btn btn-primary" (click)="download()">Download sequence</button>
 
           <form id="ens-blast-gene" name="BLASTGenomicSequence" #form
                 action="http://genomebrowser.pombase.org/Multi/blastview{{showTranslation?'?query=peptide;database=peptide':''}}" method="POST">
             <input value="{{rawSequence}}" name="query_sequence" type="hidden">
             <input value="Schizosaccharomyces_pombe" name="species" type="hidden">
-            <button type="submit" (click)="form.submit()">Ensembl {{showTranslation ? 'Protein' : 'DNA'}} BLAST</button>
+            <button class="btn btn-primary" type="submit" (click)="form.submit()">Ensembl {{showTranslation ? 'Protein' : 'DNA'}} BLAST</button>
           </form>
 
         </div>
