@@ -211,7 +211,9 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.upstreamBases = 0;
     this.downstreamBases = 0;
 
-    this.featureIsTranslatable = this.geneDetails.feature_type === 'mRNA gene';
+    this.featureIsTranslatable =
+      this.geneDetails.feature_type === 'mRNA gene' ||
+      this.geneDetails.feature_type.startsWith('protein'); // future proofing
     this.showTranslation = false;
     this.includeIntrons = false;
     this.include5PrimeUtr = false;

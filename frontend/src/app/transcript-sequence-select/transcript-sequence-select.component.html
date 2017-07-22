@@ -17,7 +17,12 @@
           <div *ngIf="showTranslation">
           </div>
           <div *ngIf="!showTranslation">
-            <div class="exon-title">CDS sequence and:</div>
+            <div *ngIf="featureIsTranslatable" class="seq-title">
+              CDS sequence and:
+            </div>
+            <div *ngIf="!featureIsTranslatable" class="seq-title">
+              Gene sequence:
+            </div>
             <div *ngIf="featureIsTranslatable">
             <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
