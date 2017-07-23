@@ -38,6 +38,16 @@
             <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-introns">Include introns</label>
+            <div class="utr-intron-warning" *ngIf="includeIntrons && (include5PrimeUtr && fivePrimeIntronCount > 0 || include3PrimeUtr && threePrimeIntronCount > 0)">
+              <div *ngIf="include5PrimeUtr">
+                <div *ngIf="fivePrimeIntronCount == 1">(Includes one 5'UTR intron)</div>
+                <div *ngIf="fivePrimeIntronCount > 1">(Includes {{fivePrimeIntronCount}} introns in the 5'UTR)</div>
+              </div>
+              <div *ngIf="include3PrimeUtr">
+                <div *ngIf="threePrimeIntronCount == 1">(Includes one 3'UTR intron)</div>
+                <div *ngIf="threePrimeIntronCount > 1">(Includes {{threePrimeIntronCount}} introns in the 3'UTR)</div>
+              </div>
+            </div>
             <br/>
             <div *ngIf="featureIsTranslatable">
             <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"

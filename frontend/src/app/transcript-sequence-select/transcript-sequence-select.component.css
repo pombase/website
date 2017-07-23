@@ -48,3 +48,8 @@
   display: inline;
   padding-left: 2em;
 }
+
+.utr-intron-warning {
+  font-size: 95%;
+  margin-left: 1em;
+}
