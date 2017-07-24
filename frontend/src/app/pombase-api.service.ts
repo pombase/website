@@ -587,6 +587,10 @@ export class PombaseAPIService {
     this.processTargetOf(json.target_of_annotations, genesByUniquename, genotypesByUniquename,
                          allelesByUniquename, referencesByUniquename);
 
+    if (!json['interpro_matches']) {
+      json['interpro_matches'] = []
+    }
+
     // for displaying the references section on the gene page
     json.references = this.processGeneReferences(referencesByUniquename);
 

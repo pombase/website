@@ -300,14 +300,19 @@ for (let configName of Object.keys(_config.annotationTypes)) {
 
 function replaceExampleId(urlSyntax:string, idWithPrefix: string) {
   let matches = idWithPrefix.match(/^([^:]+):(.*)/);
-  let prefix = matches[1];
-  let id = matches[2];
 
-  if (urlSyntax.indexOf(prefix + ':[example_id]') === -1) {
-    return urlSyntax.replace('[example_id]', idWithPrefix);
-  } else {
+  if (matches) {
+    let prefix = matches[1];
+    let id = matches[2];
+
+    if (urlSyntax.indexOf(prefix + ':[example_id]') === -1) {
+      return urlSyntax.replace('[example_id]', idWithPrefix);
+    }
+
     return urlSyntax.replace('[example_id]', id);
   }
+
+  return urlSyntax.replace('[example_id]', idWithPrefix);
 }
 
 let _appConfig: AppConfig = {

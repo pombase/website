@@ -44,18 +44,20 @@ export class GeneExternalReferencesComponent implements OnChanges {
         let fieldValue = this.geneDetails[fieldName];
         if (fieldValue) {
           return [fieldValue, url.replace('<<IDENTIFIER>>', fieldValue)];
-        } else {
-          return [];
         }
+
+        return [];
       }
     } else {
       let go_xrf_abbrev = extRefConf.go_xrf_abbrev;
       if (go_xrf_abbrev) {
         let fieldValue = this.geneDetails[fieldName];
-        return [fieldValue, getXrfWithPrefix(go_xrf_abbrev, fieldValue).url];
-      } else {
-        return [];
+        if (fieldValue) {
+          return [fieldValue, getXrfWithPrefix(go_xrf_abbrev, fieldValue).url];
+        }
       }
+
+      return [];
     }
   }
 
