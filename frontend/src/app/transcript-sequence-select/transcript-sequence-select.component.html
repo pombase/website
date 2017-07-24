@@ -7,15 +7,13 @@
       <div *ngIf="sequenceVisible">
         <div class="controls">
           <a class="sequence-toggle" (click)="hideSequence()">Hide sequence ...</a>
+
           <div *ngIf="featureIsTranslatable">
-          <br/>
           <input id="show-translation" type="checkbox" [(ngModel)]="showTranslation"
                  (ngModelChange)="updateSequence()"/>
           <label for="show-translation">Show translation</label>
           </div>
-          <br/>
-          <div *ngIf="showTranslation">
-          </div>
+
           <div *ngIf="!showTranslation">
             <div *ngIf="featureIsTranslatable" class="seq-title">
               CDS sequence and:
@@ -23,7 +21,8 @@
             <div *ngIf="!featureIsTranslatable" class="seq-title">
               Gene sequence:
             </div>
-            <div *ngIf="featureIsTranslatable">
+
+            <div class="checkbox-section" *ngIf="featureIsTranslatable">
             <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-5-prime">Include 5'UTR</label>
@@ -33,8 +32,9 @@
                      [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
               bases upstream <span *ngIf="featureIsTranslatable && include5PrimeUtr">of UTR</span>
             </div>
-            <br/>
             </div>
+
+            <div class="checkbox-section">
             <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-introns">Include introns</label>
@@ -48,8 +48,9 @@
                 <div *ngIf="threePrimeIntronCount > 1">(Includes {{threePrimeIntronCount}} introns in the 3'UTR)</div>
               </div>
             </div>
-            <br/>
-            <div *ngIf="featureIsTranslatable">
+            </div>
+
+            <div class="checkbox-section" *ngIf="featureIsTranslatable">
             <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-3-prime">Include 3'UTR</label>
@@ -61,8 +62,8 @@
             </div>
             </div>
           </div>
-          <br/>
 
+          <div class="sequence-actions">
           <button class="btn btn-primary" (click)="download()">Download sequence</button>
 
           <form id="ens-blast-gene" name="BLASTGenomicSequence" #form
@@ -71,7 +72,7 @@
             <input value="Schizosaccharomyces_pombe" name="species" type="hidden">
             <button class="btn btn-primary" type="submit" (click)="form.submit()">Ensembl {{showTranslation ? 'Protein' : 'DNA'}} BLAST</button>
           </form>
-
+          </div>
         </div>
         <div class="sequence">
           <pre *ngIf="sequence">

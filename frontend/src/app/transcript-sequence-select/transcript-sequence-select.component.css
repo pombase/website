@@ -53,3 +53,11 @@
   font-size: 95%;
   margin-left: 1em;
 }
+
+.checkbox-section {
+  padding: 0 0 0.4em 0;
+}
+
+.sequence-actions {
+  padding: 2em 0 0.5em 0;
+}
