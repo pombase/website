@@ -13,7 +13,6 @@ import { Util } from '../util';
 export class TranscriptSequenceSelectComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;
 
-  sequenceVisible = true;
   rawSequence = '';
   sequence = '';
   sequenceDescription = '';
@@ -188,14 +187,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     let fileName = this.sequenceDescription + '.fasta';
     saveAs(new Blob(['>' + this.sequenceHeader + '\n' + this.sequence],
                     { type: 'text' }), fileName);
-  }
-
-  showSequence() {
-    this.sequenceVisible = true;
-  }
-
-  hideSequence() {
-    this.sequenceVisible = false;
   }
 
   prefetch() {
