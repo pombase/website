@@ -34,7 +34,7 @@
             </div>
             </div>
 
-            <div class="checkbox-section">
+            <div class="checkbox-section" *ngIf="cdsIntronCount > 0 || fivePrimeIntronCount > 0 || threePrimeIntronCount > 0">
             <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
                    (ngModelChange)="updateSequence()"/>
             <label for="include-introns">Include introns</label>
