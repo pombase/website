@@ -67,12 +67,6 @@
           <div class="sequence-actions">
           <button class="btn btn-primary" (click)="download()">Download sequence</button>
 
-          <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensform
-                action="http://fungi.ensembl.org/Multi/Tools/Blast{{showTranslation?'?query=peptide;database=peptide':''}}" method="POST">
-            <input value="{{rawSequence}}" name="query_sequence" type="hidden">
-            <button class="btn btn-primary" type="submit" (click)="ensform.submit()">Ensembl {{showTranslation ? 'Protein' : 'DNA'}} BLAST</button>
-          </form>
-
           <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbiform
                 action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="POST">
             <input name="QUERY" value="{{'>' + sequenceHeader + '\n' + sequence}}" type="hidden">
@@ -80,6 +74,13 @@
             <input name="PAGE_TYPE" value="BlastSearch" type="hidden">
             <button class="btn btn-primary" type="submit" (click)="ncbiform.submit()">NCBI {{showTranslation?'BLASTP':'BLASTN'}}</button>
           </form>
+
+          <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensform
+                action="http://fungi.ensembl.org/Multi/Tools/Blast{{showTranslation?'?query=peptide;database=peptide':''}}" method="POST">
+            <input value="{{rawSequence}}" name="query_sequence" type="hidden">
+            <button class="btn btn-primary" type="submit" (click)="ensform.submit()">Ensembl {{showTranslation ? 'Protein' : 'DNA'}} BLAST</button>
+          </form>
+
           </div>
         </div>
         <div class="sequence">
