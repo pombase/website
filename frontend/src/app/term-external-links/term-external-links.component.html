@@ -1,8 +1,10 @@
-<span>
-  <span *ngIf="linkConfigKeys.length > 0">External links:</span>
-  <span *ngFor="let configKey of linkConfigKeys">
+<span class="external-links">
+  <span class="ext-links-title" *ngIf="linkConfigKeys.length > 0">External links:</span>
+  <span *ngFor="let configKey of linkConfigKeys; let lastConf = last">
     <app-external-link [identifier]="termId"
+                       [linkText]="configKey"
                        [linkConfigKey]="configKey">
     </app-external-link>
+    <span class="link-sep" *ngIf="!lastConf">|</span>
   </span>
 </span>
