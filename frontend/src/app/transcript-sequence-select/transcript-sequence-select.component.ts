@@ -22,6 +22,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   fivePrimeIntronCount = 0;
   threePrimeIntronCount = 0;
   cdsIntronCount = 0;
+  has5PrimeUtr = false;
+  has3PrimeUtr = false;
 
   geneStart = null;
   geneEnd = null;
@@ -224,6 +226,9 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.fivePrimeIntronCount = 0;
     this.threePrimeIntronCount = 0;
     this.cdsIntronCount = 0;
+    this.has5PrimeUtr = false;
+    this.has3PrimeUtr = false;
+
     this.geneStart = null;
     this.geneEnd = null;
     this.cdsStart = null;
@@ -241,6 +246,12 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         }
         if (part.feature_type === 'cds_intron') {
           this.cdsIntronCount++;
+        }
+        if (part.feature_type === 'five_prime_utr') {
+          this.has5PrimeUtr = true;
+        }
+        if (part.feature_type === 'three_prime_utr') {
+          this.has3PrimeUtr = true;
         }
 
         if (part.feature_type === 'exon') {
