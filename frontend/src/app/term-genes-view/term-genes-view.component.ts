@@ -5,7 +5,7 @@ import { Util } from '../util';
 
 import { TermDetails, PombaseAPIService, GeneShort,
          TermSubsets } from '../pombase-api.service';
-import { getAnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationType } from '../config';
 
 
 @Component({
@@ -16,6 +16,7 @@ import { getAnnotationTableConfig } from '../config';
 export class TermGenesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;
 
+  typeConfig: AnnotationType = null;
   genes = [];
   showAllAnnotationsLink = true;
   apiError = null;
@@ -82,9 +83,9 @@ export class TermGenesViewComponent implements OnInit {
         this.pombaseApiService.getTerm(termid)
               .then(termDetails => {
                 this.termDetails = termDetails;
-                let typeConfig =
+                this.typeConfig =
                   getAnnotationTableConfig().getAnnotationType(termDetails.cv_name);
-                if (typeConfig && typeConfig.hide_term_details) {
+                if (this.typeConfig && this.typeConfig.hide_term_details) {
                   this.showAllAnnotationsLink = false;
                 }
                 this.setPageTitle();

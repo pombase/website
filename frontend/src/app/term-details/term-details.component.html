@@ -38,12 +38,15 @@
 This term is part of the
 <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">biological process overview</a> (GO slim).
         </div>
-      <app-external-link [identifierForLink]="termDetails.termid"
-                         [linkName]="'View the esyN network'"
+      <app-external-link [identifier]="termDetails.termid"
+                         [linkText]="'View the esyN network'"
                          [linkConfigKey]="'esyn'"
                          [iconImage]="'esyn_icon.png'">
       </app-external-link>
       </div>
+
+      External links: <app-term-external-links [typeConfig]="typeConfig" [termId]="termDetails.termid">
+      </app-term-external-links>
     </div>
 
     <hr style="clear: both" />

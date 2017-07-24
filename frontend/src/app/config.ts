@@ -69,6 +69,7 @@ export interface AppConfig {
   linkoutConfig: LinkoutConfig;
   evidenceTypes: EvidenceConfig;
   externalGeneReferences: Array<ExternalGeneReference>;
+  externalTermReferences: Array<ExternalTermReference>;
   miscExternalLinks: ExternalLinks;
   chromosomes: {
     [identifier: string]: ChromosomeConfig;
@@ -82,7 +83,7 @@ export interface AppConfig {
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
 
-  getLinkUrl(linkConfigKey: string, identifier: string): string;
+  getExternalTermLink(dbName: string, termId: string): { url: string, displayName: string };
 }
 
 export interface TermFilterCategory {
@@ -117,6 +118,7 @@ export interface AnnotationType {
   columns_to_show?: Array<string>;
   hide_term_details?: boolean;
   filters: Array<FilterConfig>;
+  external_db_link_keys?: Array<string>;
   misc_config?: {
     [key: string]: any;
   };
@@ -142,6 +144,11 @@ export interface ExternalGeneReference {
   field_name: string;
   go_xrf_abbrev?: string;
   url?: string;
+}
+
+export interface ExternalTermReference {
+  name: string;
+  url?: string; // needed when DB isn't in GO.xrf_abbs
 }
 
 export interface AnnotationTableConfig {
@@ -291,6 +298,18 @@ for (let configName of Object.keys(_config.annotationTypes)) {
   }
 }
 
+function replaceExampleId(urlSyntax:string, idWithPrefix: string) {
+  let matches = idWithPrefix.match(/^([^:]+):(.*)/);
+  let prefix = matches[1];
+  let id = matches[2];
+
+  if (urlSyntax.indexOf(prefix + ':[example_id]') === -1) {
+    return urlSyntax.replace('[example_id]', idWithPrefix);
+  } else {
+    return urlSyntax.replace('[example_id]', id);
+  }
+}
+
 let _appConfig: AppConfig = {
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
   organisms: pombaseConfig.organisms,
@@ -409,6 +428,7 @@ let _appConfig: AppConfig = {
     },
   },
   externalGeneReferences: pombaseConfig.external_gene_references,
+  externalTermReferences: pombaseConfig.external_term_references,
   miscExternalLinks: pombaseConfig.misc_external_links,
   chromosomes: pombaseConfig.chromosomes,
   documentation: docConfig,
@@ -616,13 +636,37 @@ let _appConfig: AppConfig = {
     return retOrganism;
   },
 
-  getLinkUrl(linkConfigKey: string, identifier: string): string {
-    let configUrl = this.miscExternalLinks[linkConfigKey];
-    if (configUrl) {
-      return configUrl.replace('<<IDENTIFIER>>', identifier);
-    } else {
-      return null;
+  getExternalTermLink(configKey: string, termId: string): { url: string, displayName: string } {
+    let confs = this.externalTermReferences;
+
+    for (let conf of confs) {
+      if (conf.name === configKey) {
+        let matches = termId.match(/^([^:]+):(.*)/);
+
+        if (matches) {
+          let url =
+            replaceExampleId(conf.url.replace('[conf_db_prefix]', matches[1]), termId);
+          return { url: url, displayName: configKey };
+        } else {
+          return null;
+        }
+      }
     }
+
+    let xrfDetails = getXrfConfig()[configKey];
+
+    if (xrfDetails) {
+      return { url: replaceExampleId(xrfDetails.urlSyntax, termId),
+               displayName: xrfDetails.displayName };
+    }
+
+    let configUrl = this.miscExternalLinks[configKey];
+    if (configUrl) {
+      return { url: configUrl.replace('<<IDENTIFIER>>', termId),
+               displayName: configKey };
+    }
+
+    return null;
   },
 };
 
@@ -652,6 +696,7 @@ let xrfConfigAliases = {
   SSF: 'SUPERFAMILY',
   PROFILE: 'Prosite',
   MOBIDBLT: 'MOBIDB',
+  AmiGO: 'GO',
 };
 
 let xrfExtraConfigMap = {
@@ -669,6 +714,12 @@ let xrfExtraConfigMap = {
     website: 'http://www.genenames.org',
     fieldName: 'name',
   },
+  'QuickGO': {
+    displayName: 'QuickGO',
+    description: 'QuickGO',
+    urlSyntax: 'http://www.ebi.ac.uk/QuickGO/GTerm?id=[example_id]',
+    website: 'http://www.ebi.ac.uk/QuickGO/',
+  }
 };
 
 export interface XrfDetails {
@@ -721,7 +772,7 @@ export function getXrfWithPrefix(prefix: string, id: string): XrfDetails {
       return {
         displayName: xrfDetail.displayName,
         description: xrfDetail.description,
-        url: linkTemplate.replace(/\[example_id\]/, id),
+        url: replaceExampleId(linkTemplate, id),
         website: xrfDetail.website,
       };
     }
@@ -753,9 +804,9 @@ export function getOrganismExternalLink(organismGenus: string, organismSpecies: 
 
     if (linkTemplate) {
       if (!xrfOrgConfig.fieldName || xrfOrgConfig.displayName === 'uniquename') {
-        return linkTemplate.replace(/\[example_id\]/, uniquename);
+        return linkTemplate.replace('[example_id]', uniquename);
       } else {
-        return linkTemplate.replace(/\[example_id\]/, name);
+        return linkTemplate.replace('[example_id]', name);
       }
     }
   }

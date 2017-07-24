@@ -47,6 +47,12 @@
       "url_syntax" : "http://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=[example_id]",
       "website" : "http://www.ncbi.nlm.nih.gov/geo/"
    },
+   "GO" : {
+      "description" : "Gene Ontology Database",
+      "name" : "GO",
+      "url_syntax" : "http://amigo.geneontology.org/amigo/term/GO:[example_id]",
+      "website" : "http://amigo.geneontology.org/"
+   },
    "Gene3D" : {
       "description" : "Domain Architecture Classification",
       "name" : "Gene3D",

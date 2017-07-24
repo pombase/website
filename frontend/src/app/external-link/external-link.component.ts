@@ -8,8 +8,8 @@ import { getAppConfig } from '../config';
   styleUrls: ['./external-link.component.css']
 })
 export class ExternalLinkComponent implements OnInit {
-  @Input() identifierForLink: string;
-  @Input() linkName: string;
+  @Input() identifier: string;
+  @Input() linkText: string = null;
   @Input() linkConfigKey: string;
   @Input() iconImage: string = null;
 
@@ -22,6 +22,13 @@ export class ExternalLinkComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.linkUrl = getAppConfig().getLinkUrl(this.linkConfigKey, this.identifierForLink);
+    let xrfDetails =
+      getAppConfig().getExternalTermLink(this.linkConfigKey, this.identifier);
+    if (xrfDetails) {
+      if (!this.linkText) {
+        this.linkText = xrfDetails.displayName;
+      }
+      this.linkUrl = xrfDetails.url;
+    }
   }
 }
