@@ -1,6 +1,7 @@
 #header-row {
   background: #bbc3de url(../assets/header-background.jpg) right no-repeat;
   height: 115px;
+  position: relative;
 }
 
 #header-content, #content {
@@ -23,7 +24,7 @@
 
 #header-search-box {
   text-align: right;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 #content {
@@ -34,4 +35,31 @@
   text-align: center;
   clear: both;
   padding: 30px 10px 30px 10px;
+}
+
+.dropdown-toggle {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  background-color: rgba(100, 110, 145, 0.8);
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  font-size: 120%;
+}
+
+#header-navbar {
+  position: absolute;
+  bottom: 0px;
+  right: 20em;
+}
+
+.dropdown-menu {
+  margin: 0;
+}
+
+.dropdown:hover .dropdown-menu: {
+/*   display: block;*/
 }
