@@ -142,12 +142,26 @@ export class SubsetNode extends GeneQueryNode {
   }
 }
 
-export class IntRangeNode extends GeneQueryNode {
+function rangeToString(rangeNode: RangeNode) {
+  if (!rangeNode.rangeEnd) {
+    return rangeNode.rangeType + '(>' + rangeNode.rangeStart + ')';
+  } else {
+    if (!rangeNode.rangeStart) {
+      return rangeNode.rangeType + '(<' + rangeNode.rangeEnd + ')';
+    } else {
+      return rangeNode.rangeType + '(' + rangeNode.rangeStart + '..' + rangeNode.rangeEnd + ')';
+    }
+  }
+}
+
+export abstract class RangeNode extends GeneQueryNode {
   constructor(public rangeType: string,
               public rangeStart: number, public rangeEnd: number) {
     super();
   };
+}
 
+export class IntRangeNode extends RangeNode {
   toObject(): Object {
     return {
       int_range: [this.rangeType,
@@ -158,16 +172,11 @@ export class IntRangeNode extends GeneQueryNode {
   }
 
   toString(): string {
-    return this.rangeType + '(' + this.rangeStart + '..' + this.rangeEnd + ')';
+    return rangeToString(this);
   }
 }
 
-export class FloatRangeNode extends GeneQueryNode {
-  constructor(public rangeType: string,
-              public rangeStart: number, public rangeEnd: number) {
-    super();
-  };
-
+export class FloatRangeNode extends RangeNode {
   toObject(): Object {
     return {
       float_range: [
@@ -179,7 +188,7 @@ export class FloatRangeNode extends GeneQueryNode {
   }
 
   toString(): string {
-    return this.rangeType + '(' + this.rangeStart + '..' + this.rangeEnd + ')';
+    return rangeToString(this);
   }
 }
 
