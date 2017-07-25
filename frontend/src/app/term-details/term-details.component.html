@@ -47,6 +47,12 @@ This term is part of the
 
       <app-term-external-links [typeConfig]="typeConfig" [termId]="termDetails.termid">
       </app-term-external-links>
+      <span class="term-actions">
+        <span class="title">Actions: </span>
+        <a routerLink="/query/from/term_subset/{{termDetails.termid}}/{{termDetails.name}}">
+          Send to query builder...
+        </a>
+      </span>
     </div>
 
     <hr style="clear: both" />
