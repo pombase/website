@@ -8,12 +8,12 @@ export class QueryResult {
     public rows: ResultRow[]) { }
 }
 
-export interface TermShort {
-  termid: TermId;
-  name: string;
-  definition?: string;
-  interesting_parents: Array<string>;
-  is_obsolete: boolean;
+export class TermShort {
+  constructor(public termid: TermId,
+              public name: string,
+              public definition: string,
+              public interesting_parents: Array<string>,
+              public is_obsolete: boolean) { }
 }
 
 export enum QueryNodeOperator {

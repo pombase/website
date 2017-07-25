@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneQuery, GeneQueryNode, QueryResult } from '../pombase-query';
+import { ActivatedRoute, Params } from '@angular/router';
+import { GeneQuery, GeneQueryNode, QueryResult, TermShort, TermNode } from '../pombase-query';
 import { PombaseAPIService } from '../pombase-api.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 
@@ -20,12 +21,35 @@ export class QueryBuilderComponent implements OnInit {
     this.results = null;
   }
 
-  constructor(private pombaseApiService: PombaseAPIService) {
+  constructor(private pombaseApiService: PombaseAPIService,
+              private route: ActivatedRoute,
+             ) {
     this.resetQuery();
   }
 
   ngOnInit() {
+    this.route.params.forEach((params: Params) => {
+      let fromType = params['type'];
+      let termId = params['id'];
+      let termName = params['name'];
+      if (fromType && termId && termName) {
+        this.processFromRoute(fromType, termId, termName);
+      };
+    });
+  }
 
+  processFromRoute(fromType: string, termId: string, termName: string) {
+    let newQuery = null;
+
+    if (fromType === 'term_subset') {
+      let term = new TermShort(termId, termName, null, [], false);
+      let topNode = new TermNode(term);
+      newQuery = new GeneQuery(topNode);
+    }
+
+    if (newQuery) {
+      this.newQuery(newQuery);
+    }
   }
 
   saveToHistory(query: GeneQuery) {

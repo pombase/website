@@ -102,6 +102,11 @@ const routes: Routes = [
       title: 'Advanced search'
     }
   },
+  { path: 'query/from/:type/:id/:name', component: QueryBuilderComponent,
+    data: {
+      title: 'Advanced search'
+    }
+  },
     { path: 'front', redirectTo: '/', pathMatch: 'full' },
     { path: '', component: FrontComponent },
 ];
