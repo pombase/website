@@ -1,5 +1,6 @@
 <div class="query-history">
-  <div *ngIf="history.length >= 2">
+  <span class="title">History</span>
+  <div class="content" *ngIf="history.length >= 2">
     <span *ngIf="getSelectedQueries().length < 2">
       <button class="btn btn-primary" disabled title="Select two or more queries to union">Union <img src="assets/disabled_operator_or.png"/></button>
       <button class="btn btn-primary" disabled title="Select two or more queries to intersect">Intersect <img src="assets/disabled_operator_and.png"/></button>

@@ -9,19 +9,10 @@
   width: 49%;
 }
 
-.query-title {
-  font-weight: bold;
-}
-
 .query-clear {
   padding-left: 0.5em;
 }
 
 .query-running-spinner {
   padding: 3em;
-}
-
-.query-history-content {
-  margin: 1em;
-  padding: 0.3em;
 }

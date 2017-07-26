@@ -12,6 +12,8 @@ function makeResults(resultsObject: any): QueryResult {
 export class QueryService {
   private apiUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest';
 
+  private history: Array<GeneQuery> = [];
+
   constructor(private http: Http) { }
 
   postQuery(query: GeneQuery): Observable<QueryResult> {
@@ -21,4 +23,11 @@ export class QueryService {
       .map((res) => { return makeResults(res.json()); });
   }
 
+  saveToHistory(query: GeneQuery) {
+    this.history.unshift(query);
+  }
+
+  getHistory(): Observable<GeneQuery[]> {
+    return Observable.of(this.history);
+  }
 }

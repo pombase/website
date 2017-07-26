@@ -11,11 +11,8 @@
     </div>
     <app-query-node (nodeEvent)="nodeEvent($event)"></app-query-node>
   </div>
-  <div *ngIf="history.length > 0" class="query-history">
-    <span class="query-title">History</span>
-    <div class="query-history-content">
-      <app-query-history [history]="history" (newQuery)="newQuery($event)"
-                         (gotoQuery)="gotoQuery($event)"></app-query-history>
-    </div>
+  <div class="query-history">
+    <app-query-history (newQuery)="newQuery($event)"
+                       (gotoQuery)="gotoQuery($event)"></app-query-history>
   </div>
 </div>

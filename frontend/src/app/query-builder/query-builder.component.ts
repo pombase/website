@@ -12,7 +12,6 @@ import { TimerObservable } from 'rxjs/observable/TimerObservable';
 export class QueryBuilderComponent implements OnInit {
   query: GeneQuery;
   results: QueryResult = null;
-  history = [];
   timerSubscription = null;
   showLoading = false;
 
@@ -52,10 +51,6 @@ export class QueryBuilderComponent implements OnInit {
     }
   }
 
-  saveToHistory(query: GeneQuery) {
-    this.history.unshift(query);
-  }
-
   doQuery(saveToHistory: boolean) {
     this.results = null;
     this.showLoading = false;
@@ -66,7 +61,7 @@ export class QueryBuilderComponent implements OnInit {
     this.queryService.postQuery(this.query)
       .subscribe((results) => {
         if (saveToHistory) {
-          this.saveToHistory(this.query);
+          this.queryService.saveToHistory(this.query);
         }
         this.results = results;
         this.timerSubscription.unsubscribe();
