@@ -1,0 +1,29 @@
+.dropdown-toggle {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  background-color: rgba(100, 110, 145, 0);
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  font-size: 120%;
+  margin: 0.16em;
+}
+
+#header-navbar {
+  position: absolute;
+  bottom: 0px;
+  right: 0em;
+  background-color: rgba(100, 110, 145, 0.7);
+  padding: 0 0.8em 0 0.8em;
+}
+
+.dropdown-menu {
+  margin: 0;
+}
+
+.dropdown:hover .dropdown-menu: {
+/*   display: block;*/
+}

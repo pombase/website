@@ -1,0 +1,146 @@
+<div id="header-navbar">
+  <span class="dropdown btn-group" dropdown>
+    <button dropdownToggle class="btn dropdown-toggle">
+      Search <span class="caret"></span>
+    </button>
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <a routerLink="/" routerLinkActive="active" class="dropdown-item">
+          Simple
+        </a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/query" routerLinkActive="active" class="dropdown-item">
+          Advanced
+        </a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/" routerLinkActive="active" class="dropdown-item">
+          Motif
+        </a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/" routerLinkActive="active" class="dropdown-item">
+          Gene list
+        </a>
+      </li>
+    </ul>
+  </span>
+
+  <span class="dropdown btn-group" dropdown>
+    <button dropdownToggle class="btn dropdown-toggle">
+      Submit <span class="caret"></span>
+    </button>
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <a href="https://curation.pombase.org/pombe/" class="dropdown-item">Curate a paper</a></li>
+    </ul>
+  </span>
+
+  <span class="dropdown btn-group" dropdown>
+    <button dropdownToggle class="btn dropdown-toggle">
+      Download <span class="caret"></span>
+    </button>
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <a routerLink="/" routerLinkActive="active"
+        class="dropdown-item">[To do]</a></li>
+    </ul>
+  </span>
+
+  <span class="dropdown btn-group" dropdown>
+    <button dropdownToggle class="btn dropdown-toggle">
+      Genome status <span class="caret"></span>
+    </button>
+
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <a routerLink="/status/statistics" routerLinkActive="active" class="dropdown-item">Genome Statistics</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/status/sequencing-status" routerLinkActive="active" class="dropdown-item">Sequencing Status</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/status/sequencing-updates" routerLinkActive="active" class="dropdown-item">Sequence Updates</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/status/gene-coordinate-changes" routerLinkActive="active" class="dropdown-item">Gene Coordinate Changes</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/status/new-and-removed-genes" routerLinkActive="active" class="dropdown-item">New and Removed Genes</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/status/gene-characterisation" routerLinkActive="active" class="dropdown-item">Gene Characterisation</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/status/priority-unstudied-genes" routerLinkActive="active" class="dropdown-item">Priority Unstudied Genes</a>
+      </li>
+    </ul>
+  </span>
+
+  <span class="dropdown btn-group" dropdown>
+    <button dropdownToggle class="btn dropdown-toggle">
+      Community <span class="caret"></span>
+    </button>
+
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <a routerLink="/community" routerLinkActive="active" class="dropdown-item">Fission yeast community</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/community/fission-yeast-community-curation-project" routerLinkActive="active" class="dropdown-item">Community curation project</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/community/fission-yeast-community-curation-pilot-project" routerLinkActive="active" class="dropdown-item">Curation pilot project</a>
+      </li>
+      <li role="menuitem">
+        <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist" class="dropdown-item">Mailing list</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/community/internet-resources" routerLinkActive="active" class="dropdown-item">External resources</a>
+      </li>
+    </ul>
+  </span>
+
+  <span class="dropdown btn-group" dropdown>
+    <button dropdownToggle class="btn dropdown-toggle">
+      About <span class="caret"></span>
+    </button>
+
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <a routerLink="/about" routerLinkActive="active" class="dropdown-item">About PomBase</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/about/pombase-staff" routerLinkActive="active" class="dropdown-item">Staff</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/about/resource-metrics" routerLinkActive="active" class="dropdown-item">Resource Metrics</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/about/contacts" routerLinkActive="active" class="dropdown-item">Contacts</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/about/citing-pombase" routerLinkActive="active" class="dropdown-item">Citing PomBase</a>
+      </li>
+    </ul>
+  </span>
+
+  <span class="dropdown btn-group" dropdown placement="bottom right">
+    <button dropdownToggle class="btn dropdown-toggle">
+      Help <span class="caret"></span>
+    </button>
+
+    <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+      <li role="menuitem">
+        <a routerLink="/documentation" routerLinkActive="active" class="dropdown-item">Documentation</a>
+      </li>
+      <li role="menuitem">
+        <a href="http://www.pombase.org/faq" class="dropdown-item">Old Frequently Asked Questions (FAQ)</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/about/contacts" routerLinkActive="active" class="dropdown-item">Contact curators</a>
+      </li>
+    </ul>
+  </span>
+</div>
