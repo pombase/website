@@ -1,30 +1,10 @@
 <div>
   <app-loading-spinner *ngIf="!termDetails && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
- 
+
   <div id="term-details" class="details-page" *ngIf="termDetails">
     <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
                        [subject]="'Comment or problem report'"></app-contact-email>
-    <div class="details-page-name-and-id">
-      {{termDetails.termid}} - {{termDetails.name}}
-    </div>
-
-    <div id="term-summary" class="details-page-summary">
-      <table>
-        <tr>
-          <td *ngIf="termDetails.definition" class="details-label">Definition</td>
-          <td *ngIf="filteredAncestors.length > 0" class="details-label">Parents</td>
-        </tr>
-        <tr *ngFor="let parentDetails of filteredAncestors; let firstRow = first">
-          <td *ngIf="firstRow" [attr.rowspan]="filteredAncestors.length + 1">{{termDetails.definition}}</td>
-          <td class="term-parent-column">
-            <span class="details-label term-parent-rel">{{parentDetails.relation_name}}</span>
-            <a routerLink="/term/{{parentDetails.termid}}"
-               routerLinkActive="active">{{parentDetails.term_name}}</a>
-          </td>
-        </tr>
-      </table>
-    </div>
 
     <div id="term-details-menu">
       <app-details-page-menu *ngIf="termDetails"
@@ -32,22 +12,7 @@
                              [visibleSections]="visibleSections"></app-details-page-menu>
     </div>
 
-    <div class="external-links">
-      <div *ngIf="isInSubset('bp_goslim_pombe')">
-        <div>
-This term is part of the
-<a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">biological process overview</a> (GO slim).
-        </div>
-      <app-external-link [identifier]="termDetails.termid"
-                         [linkText]="'View the esyN network'"
-                         [linkConfigKey]="'esyn'"
-                         [iconImage]="'esyn_icon.png'">
-      </app-external-link>
-      </div>
-
-      <app-term-external-links [typeConfig]="typeConfig" [termId]="termDetails.termid">
-      </app-term-external-links>
-    </div>
+    <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
     <hr style="clear: both" />
 

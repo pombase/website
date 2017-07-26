@@ -3,11 +3,10 @@ import { Component, OnInit, Input, Inject,
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { TermDetails, TermAndRelation, PombaseAPIService,
-         TermSubsets } from '../pombase-api.service';
+import { TermDetails, PombaseAPIService, TermSubsets } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AnnotationType } from '../config';
+         AnnotationType } from '../config';
 
 @Component({
   selector: 'app-term-details',
@@ -18,7 +17,6 @@ export class TermDetailsComponent implements OnInit {
   @Input() termDetails: TermDetails;
 
   annotationFeatureType = '';
-  filteredAncestors: Array<TermAndRelation> = [];
   typeConfig: AnnotationType = null;
   annotationTypeNames: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
@@ -52,28 +50,6 @@ export class TermDetailsComponent implements OnInit {
     }
   }
 
-  filterAncestors(): void {
-    let termPageConfig = getAppConfig().termPageConfig;
-
-    this.filteredAncestors =
-      this.termDetails.direct_ancestors.filter(termAndRel => {
-        return termPageConfig.ancestorRelNames.indexOf(termAndRel.relation_name) !== -1;
-      });
-  }
-
-  isInSubset(subsetName: string): boolean {
-    if (!this.subsets[subsetName]) {
-      return false;
-    }
-    for (let element of this.subsets[subsetName].elements) {
-      if (element.termid === this.termDetails.termid) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
   setPageTitle(): void {
     let title = this.titleService.getTitle();
     let displayName;
@@ -101,9 +77,6 @@ export class TermDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pombaseApiService.getTermSubsets()
-      .then((termSubsets) => this.subsets = termSubsets);
-
     this.route.params.forEach((params: Params) => {
       if (params['termid'] !== undefined) {
         let termid = params['termid'];
@@ -118,7 +91,6 @@ export class TermDetailsComponent implements OnInit {
                 this.setPageTitle();
                 this.annotationFeatureType = termDetails.annotation_feature_type;
                 this.annotationTypeNames = this.config.annotationTypeOrder;
-                this.filterAncestors();
                 this.setVisibleSections();
                 this.scrollToPageTop();
                 this.apiError = null;

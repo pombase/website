@@ -3,32 +3,16 @@
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
   <div *ngIf="termDetails && !apiError">
-    <div class="details-page-name-and-id">
-      {{termDetails.termid}} - {{termDetails.name}}
-    </div>
+    <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
+                       [subject]="'Comment or problem report'"></app-contact-email>
 
-    <div class="external-links">
-      <div *ngIf="isInSubset('bp_goslim_pombe')">
-        <div>
-This term is part of the
-<a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">biological process overview</a> (GO slim).
-        </div>
-      <app-external-link [identifier]="termDetails.termid"
-                         [linkText]="'View the esyN network'"
-                         [linkConfigKey]="'esyn'"
-                         [iconImage]="'esyn_icon.png'">
-      </app-external-link>
-      </div>
+    <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
-      <app-term-external-links [typeConfig]="typeConfig" [termId]="termDetails.termid">
-      </app-term-external-links>
-
-      <span class="term-actions">
-        <span class="title">Actions: </span>
-        <a routerLink="/query/from/term_subset/{{termDetails.termid}}/{{termDetails.name}}">
-          Use these genes in query...
-        </a>
-      </span>
+    <div class="term-actions">
+      <span class="title">Actions: </span>
+      <a routerLink="/query/from/term_subset/{{termDetails.termid}}/{{termDetails.name}}">
+        Use these genes in query...
+      </a>
     </div>
 
     <hr style="clear: both" />

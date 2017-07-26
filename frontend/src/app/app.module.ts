@@ -74,6 +74,7 @@ import { InterproMatchesComponent } from './interpro-matches/interpro-matches.co
 import { QueryHistoryComponent } from './query-history/query-history.component';
 import { GeneListLookupComponent } from './gene-list-lookup/gene-list-lookup.component';
 import { TermExternalLinksComponent } from './term-external-links/term-external-links.component';
+import { TermPageSummaryComponent } from './term-page-summary/term-page-summary.component';
 
 export function documentFactory() {
     return document;
@@ -146,6 +147,7 @@ export function windowFactory() {
     QueryHistoryComponent,
     GeneListLookupComponent,
     TermExternalLinksComponent,
+    TermPageSummaryComponent,
   ],
   imports: [
     BrowserModule,
