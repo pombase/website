@@ -621,7 +621,7 @@ let _appConfig: AppConfig = {
 //       },
       {
         id: 'gene_list',
-        displayName: 'Gene filter',
+        displayName: 'Gene IDs',
         nodeType: 'gene-list',
       },
     ],
