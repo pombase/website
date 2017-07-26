@@ -1,3 +1,11 @@
 .external-links div {
   padding: 0.5em 0 0.5em 0;
 }
+
+.term-actions {
+  padding: 0 1em 0 2em;
+}
+
+.term-actions .title {
+  font-weight: bold;
+}
