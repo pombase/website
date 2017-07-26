@@ -12,3 +12,11 @@
 .genes-table table {
   clear: both;
 }
+
+.description {
+  padding-bottom: 1em;
+}
+
+.links-title {
+  font-weight: bold;
+}

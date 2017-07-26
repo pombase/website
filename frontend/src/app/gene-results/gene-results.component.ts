@@ -9,6 +9,7 @@ import { PombaseAPIService } from '../pombase-api.service';
 })
 export class GeneResultsComponent implements OnInit, OnChanges {
   @Input() results: QueryResult;
+  @Input() description: string;
 
   displayResults = null;
   legend = null;

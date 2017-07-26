@@ -11,6 +11,7 @@ import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.servic
 })
 export class GenesTableComponent implements OnInit {
   @Input() legend: string;
+  @Input() description = '';
   @Input() genes: Array<GeneShort> = [];
 
   orderByField = 'gene';

@@ -12,12 +12,14 @@ import { TimerObservable } from 'rxjs/observable/TimerObservable';
 export class QueryBuilderComponent implements OnInit {
   query: GeneQuery;
   results: QueryResult = null;
+  resultsDescription = '';
   timerSubscription = null;
   showLoading = false;
 
   resetQuery() {
     this.query = null;
     this.results = null;
+    this.resultsDescription = '';
   }
 
   constructor(private queryService: QueryService,
@@ -64,6 +66,7 @@ export class QueryBuilderComponent implements OnInit {
           this.queryService.saveToHistory(this.query);
         }
         this.results = results;
+        this.resultsDescription = 'Results for: ' + this.query.toString();
         this.timerSubscription.unsubscribe();
         this.showLoading = false;
       });
@@ -86,6 +89,7 @@ export class QueryBuilderComponent implements OnInit {
     } else {
       this.query = null;
       this.results = null;
+      this.resultsDescription = '';
     }
   }
 }

@@ -3,7 +3,7 @@
 <fieldset *ngIf="genes.length > 0" class="genes-table">
 
   <div class="download-links">
-    Download:
+    <span class="links-title">Download:</span>
     <button class="btn btn-primary" (click)="download()">Systematic IDs</button>
     <button class="btn btn-primary" (click)="downloadDetails()">Details</button>
   </div>
@@ -11,6 +11,10 @@
   <legend *ngIf="showLengend">
     <span>{{legend}}</span>
   </legend>
+
+  <div *ngIf="description" class="description">
+    {{description}}
+  </div>
 
   <table>
     <thead>
