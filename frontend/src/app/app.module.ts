@@ -14,6 +14,7 @@ import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
 import { FrontComponent } from './front/front.component';
 import { PombaseAPIService } from './pombase-api.service';
+import { QueryService } from './query.service';
 import { AnnotationTableComponent } from './annotation-table/annotation-table.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { GetFocusDirective } from './get-focus.directive';
@@ -163,6 +164,7 @@ export function windowFactory() {
               { provide: 'Window', useValue: window },
               { provide: 'Document', useFactory: documentFactory },
               { provide: 'Window', useFactory: windowFactory },
+              QueryService,
              ],
   bootstrap: [AppComponent]
 })

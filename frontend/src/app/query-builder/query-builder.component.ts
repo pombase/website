@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GeneQuery, GeneQueryNode, QueryResult, TermShort, TermNode } from '../pombase-query';
-import { PombaseAPIService } from '../pombase-api.service';
+import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 
 @Component({
@@ -21,7 +21,7 @@ export class QueryBuilderComponent implements OnInit {
     this.results = null;
   }
 
-  constructor(private pombaseApiService: PombaseAPIService,
+  constructor(private queryService: QueryService,
               private route: ActivatedRoute,
              ) {
     this.resetQuery();
@@ -63,7 +63,7 @@ export class QueryBuilderComponent implements OnInit {
     this.timerSubscription = timer.subscribe(t => {
       this.showLoading = true;
     });
-    this.pombaseApiService.postQuery(this.query)
+    this.queryService.postQuery(this.query)
       .subscribe((results) => {
         if (saveToHistory) {
           this.saveToHistory(this.query);

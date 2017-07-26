@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 
-import { TermShort, GeneQuery, QueryResult } from './pombase-query';
+import { TermShort } from './pombase-query';
 import { Util } from './util';
 import { Seq } from './seq';
 import { getReleaseConfig, getAppConfig, ConfigOrganism } from './config';
@@ -336,10 +336,6 @@ export interface GeneSubsets {
   [subsetName: string]: GeneSubsetDetails;
 }
 
-function makeResults(resultsObject: any): QueryResult {
-  return new QueryResult('OK', resultsObject.rows);
-}
-
 @Injectable()
 export class PombaseAPIService {
 
@@ -588,7 +584,7 @@ export class PombaseAPIService {
                          allelesByUniquename, referencesByUniquename);
 
     if (!json['interpro_matches']) {
-      json['interpro_matches'] = []
+      json['interpro_matches'] = [];
     }
 
     // for displaying the references section on the gene page
@@ -866,12 +862,5 @@ export class PombaseAPIService {
           };
         });
       });
-  }
-
-  postQuery(query: GeneQuery): Observable<QueryResult> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + '/query', query.toJSON(), options)
-      .map((res) => { return makeResults(res.json()); });
   }
 }
