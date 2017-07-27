@@ -60,13 +60,14 @@ export class QueryBuilderComponent implements OnInit {
     this.timerSubscription = timer.subscribe(t => {
       this.showLoading = true;
     });
+    let queryAsString = this.query.toString();
+    if (saveToHistory) {
+      this.queryService.saveToHistory(this.query);
+    }
     this.queryService.postQuery(this.query)
       .subscribe((results) => {
-        if (saveToHistory) {
-          this.queryService.saveToHistory(this.query);
-        }
         this.results = results;
-        this.resultsDescription = 'Results for: ' + this.query.toString();
+        this.resultsDescription = 'Results for: ' + queryAsString;
         this.timerSubscription.unsubscribe();
         this.showLoading = false;
       });
