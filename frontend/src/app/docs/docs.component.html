@@ -61,9 +61,12 @@ EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees in vert
 <p><a href="http://genome.cshlp.org/content/19/2/327.long">Full text at Genome Research</a></p>
 
   </div>
-  <div *ngIf="pageName == 'contacts'" class="docs-content">
-<h1 id="contacts">Contacts</h1>
-<h2 id="contact-pombase-staff">Contact PomBase Staff</h2>
+  <div *ngIf="pageName == 'index'" class="docs-content">
+<h1 id="about-pombase">About PomBase</h1>
+<p>PomBase is a model organism database that provides organization of and access to scientific data for the fission yeast <em>Schizosaccharomyces pombe</em>. PomBase supports genomic sequence and features, genome-wide datasets and manual literature curation.</p>
+<p>PomBase also provides a community hub for researchers, providing genome statistics, a community curation interface, news, events,​ documentation and mailing lists.</p>
+<hr />
+<h2 id="contact-pombase-staff">Contact PomBase staff</h2>
 <p>Email: <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">helpdesk@pombase.org</a></p>
 <p>Post:</p>
 <p><span>PomBase</span><br />
@@ -80,62 +83,30 @@ United Kingdom</p>
 <li>To submit sequence-linked data, use the <a href="submit-data/data-submission-form">HTP data submission form</a></li>
 <li>To submit large sets of phenotype data, use the <a href="submit-data/phenotype-data-submission-form">phenotype data submission form</a></li>
 </ul>
-<h2 id="receive-project-updates">Receive Project Updates</h2>
-<ul>
-<li>Subscribe to <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">Pombelist</a> to receive annotation and data updates</li>
-</ul>
-
-  </div>
-  <div *ngIf="pageName == 'index'" class="docs-content">
-<h1 id="about-pombase">About PomBase</h1>
-<p>PomBase is a model organism database that provides organization of and access to scientific data for the fission yeast <em>Schizosaccharomyces pombe</em>. PomBase supports genomic sequence and features, genome-wide datasets and manual literature curation.</p>
-<p>PomBase also provides a community hub for researchers, providing genome statistics, a community curation interface, news, events,​ documentation and mailing lists.</p>
+<h2 id="data-versions">Data versions</h2>
+<p>Versions of internal and external data loaded into current and past Pombase releases.</p>
+<p><a routerLink="/about/version-history" routerLinkActive="active">Version history</a></p>
+<h2 id="receive-project-updates">Receive project updates</h2>
+<p>Subscribe to <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">Pombelist</a> to receive annotation and data updates</p>
 <hr />
-<table>
-<tbody>
-<tr class="odd">
-<td><a href="http://www.pombase.org/faq">FAQ</a></td>
-<td>Old Frequently Asked Questions</td>
-</tr>
-<tr class="even">
-<td><a routerLink="/documentation" routerLinkActive="active">Documentation</a></td>
-<td>Documentation</td>
-</tr>
-<tr class="odd">
-<td><a routerLink="/about/version-history" routerLinkActive="active">Data versions</a></td>
-<td>Versions of internal and external data loaded into current and past Pombase releases</td>
-</tr>
-<tr class="even">
-<td><a routerLink="/about/contacts" routerLinkActive="active">Contact PomBase</a></td>
-<td>How to contact staff or submit data</td>
-</tr>
-<tr class="odd">
-<td><a routerLink="/about/citing-pombase" routerLinkActive="active">Citing PomBase</a></td>
-<td>How to cite fission yeast genome data</td>
-</tr>
-<tr class="even">
-<td><a routerLink="/about/pombase-staff" routerLinkActive="active">Staff</a></td>
-<td>PomBase staff members</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p>Funding: PomBase is funded by the Wellcome Trust [104967/Z/14/Z].</p>
-
-  </div>
-  <div *ngIf="pageName == 'pombase-staff'" class="docs-content">
-<h2 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h2>
+<h2 id="pombase-staff">PomBase staff</h2>
+<h3 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h3>
 <ul>
 <li>Val Wood (Curator &amp; co-PI)</li>
 <li><span>Midori</span> Harris (Curator)</li>
 <li>Kim Rutherford (Programmer)</li>
 <li>Steve Oliver (PI)</li>
 </ul>
-<h2 id="university-college-london"><a href="http://www.ucl.ac.uk/">University College London</a></h2>
+<h3 id="university-college-london"><a href="http://www.ucl.ac.uk/">University College London</a></h3>
 <ul>
 <li>Antonia Lock (Curator)</li>
 <li>Jürg Bähler (co-PI)</li>
 </ul>
+<hr />
+<p>Funding: PomBase is funded by the Wellcome Trust [104967/Z/14/Z].</p>
+
+  </div>
+  <div *ngIf="pageName == 'pombase-staff'" class="docs-content">
 <h2 id="contact-us">Contact us</h2>
 <p>Email: <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">helpdesk@pombase.org</a></p>
 <p>Post:</p>
