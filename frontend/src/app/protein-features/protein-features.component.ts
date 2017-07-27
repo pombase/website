@@ -13,7 +13,6 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
 
   appConfig = getAppConfig();
-  annotationTable = null;
   ensemblImageUrl = null;
   ensemblBrowserUrl = null;
   transcriptDetails = null;
@@ -41,7 +40,7 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       this.proteinFeaturesTable = null;
     }
 
-    if (this.transcriptDetails.uniquename) {
+    if (this.transcriptDetails && this.transcriptDetails.uniquename) {
       this.ensemblImageUrl =
         `http://preview.pombase.org/browser_images/${this.transcriptDetails.uniquename}_pep.png`;
       this.ensemblBrowserUrl =
