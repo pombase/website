@@ -192,8 +192,11 @@ export class FloatRangeNode extends RangeNode {
   }
 }
 
+let nextQueryId = 0;
+
 export class GeneQuery {
   private queryTopNode: GeneQueryNode;
+  private queryId: number;
 
   private makeNode(parsedJson: any): GeneQueryNode {
     let nodeType = parsedJson['type'];
@@ -210,6 +213,7 @@ export class GeneQuery {
   }
 
   constructor(arg: Object) {
+    this.queryId = nextQueryId++;
     if (arg instanceof GeneQueryNode) {
       this.queryTopNode = arg;
     } else {
@@ -218,6 +222,10 @@ export class GeneQuery {
       }
       this.queryTopNode = this.makeNode(arg);
     }
+  }
+
+  public getQueryId(): number {
+    return this.queryId;
   }
 
   public getTopNode(): GeneQueryNode {
