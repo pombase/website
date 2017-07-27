@@ -66,10 +66,9 @@ export class QueryHistoryComponent implements OnInit {
     this.historyItems = this.toHistoryItems(this.queryService.getHistory());
     this.histSubscription =
       this.queryService.getHistoryChanges()
-      .subscribe((history) => {
-        console.log(history);
-        this.historyItems = this.toHistoryItems(history);
-      });
+        .subscribe((history) => {
+          this.historyItems = this.toHistoryItems(history);
+        });
   }
 
   ngOnDestroy(): void {
