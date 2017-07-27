@@ -1,8 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { QueryService } from '../query.service';
-import { GeneQuery, GeneBoolNode,
-         GeneQueryNode } from '../pombase-query';
+import { GeneQuery, GeneBoolNode } from '../pombase-query';
+
+class HistoryItem {
+  query: GeneQuery;
+  checked: boolean;
+}
 
 @Component({
   selector: 'app-query-history',
@@ -13,42 +17,62 @@ export class QueryHistoryComponent implements OnInit {
   @Output() gotoQuery = new EventEmitter<GeneQuery>();
   @Output() newQuery = new EventEmitter<GeneQuery>();
 
-  selected = {};
-  history = [];
+  historyItems: Array<HistoryItem> = [];
+  histSubscription = null;
 
   constructor(private queryService: QueryService) { }
 
-  getSelectedQueries(): Array<GeneQueryNode> {
+  getSelectedQueries(): Array<GeneQuery> {
     let ret = [];
-    if (this.history) {
-      for (let i of Object.keys(this.selected)) {
-        if (this.selected[i]) {
-          ret.push(this.history[i].getTopNode());
-        }
+    for (let histItem of this.historyItems) {
+      if (histItem.checked) {
+        ret.push(histItem.query);
       }
     }
-
     return ret;
   }
 
   emitNewQuery(newQuery: GeneQuery) {
-    this.selected = {};
+    this.historyItems.map((histItem) => histItem.checked = false);
     this.newQuery.emit(newQuery);
   }
 
   action(op: string) {
-    let query = new GeneBoolNode(op, this.getSelectedQueries());
+    let selectedQueryNodes =
+      this.getSelectedQueries().map((query) => query.getTopNode());
+    let query = new GeneBoolNode(op, selectedQueryNodes);
     this.emitNewQuery(new GeneQuery(query));
   }
 
-  queryClick(query: GeneQuery) {
-    this.gotoQuery.emit(query);
+  deleteQueries() {
+    let selected = this.getSelectedQueries();
+    this.queryService.removeFromHistory(...selected);
+  }
+
+  queryClick(histItem: HistoryItem) {
+    this.gotoQuery.emit(histItem.query);
+  }
+
+  private toHistoryItems(history: Array<GeneQuery>): Array<HistoryItem> {
+    return history.map((histQuery) => {
+      return {
+        query: histQuery,
+        checked: false,
+      };
+    });
   }
 
   ngOnInit() {
-    this.queryService.getHistory()
+    this.historyItems = this.toHistoryItems(this.queryService.getHistory());
+    this.histSubscription =
+      this.queryService.getHistoryChanges()
       .subscribe((history) => {
-        this.history = history;
+        console.log(history);
+        this.historyItems = this.toHistoryItems(history);
       });
+  }
+
+  ngOnDestroy(): void {
+    this.histSubscription.unsubscribe();
   }
 }

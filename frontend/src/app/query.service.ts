@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs/Rx';
 import { GeneQuery, QueryResult } from './pombase-query';
 import { getReleaseConfig } from './config';
 
@@ -14,7 +14,10 @@ export class QueryService {
 
   private history: Array<GeneQuery> = [];
 
-  constructor(private http: Http) { }
+  private subject: Subject<Array<GeneQuery>> = new Subject();
+
+  constructor(private http: Http) {
+  }
 
   postQuery(query: GeneQuery): Observable<QueryResult> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -25,9 +28,22 @@ export class QueryService {
 
   saveToHistory(query: GeneQuery) {
     this.history.unshift(query);
+    this.subject.next(this.history);
   }
 
-  getHistory(): Observable<GeneQuery[]> {
-    return Observable.of(this.history);
+  getHistory(): Array<GeneQuery> {
+    return this.history;
+  }
+
+  getHistoryChanges(): Subject<Array<GeneQuery>> {
+    return this.subject;
+  }
+
+  removeFromHistory(...queries: Array<GeneQuery>) {
+    this.history =
+      this.history.filter((histQuery: GeneQuery) => {
+        return queries.indexOf(histQuery) === -1;
+      });
+    this.subject.next(this.history);
   }
 }

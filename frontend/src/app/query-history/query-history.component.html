@@ -1,6 +1,8 @@
-<div class="query-history">
+<div class="query-history" *ngIf="historyItems.length > 0">
   <span class="title">History</span>
-  <div class="content" *ngIf="history.length >= 2">
+
+  <div class="content">
+    <span class="op-buttons">
     <span *ngIf="getSelectedQueries().length < 2">
       <button class="btn btn-primary" disabled title="Select two or more queries to union">Union <img src="assets/disabled_operator_or.png"/></button>
       <button class="btn btn-primary" disabled title="Select two or more queries to intersect">Intersect <img src="assets/disabled_operator_and.png"/></button>
@@ -15,13 +17,18 @@
     <span *ngIf="getSelectedQueries().length == 2">
       <button class="btn btn-primary" (click)="action('not')">Subtract <img src="assets/operator_not.png"/></button>
     </span>
-  </div>
+    </span>
+
+    <span>
+      <button class="btn btn-primary delete-queries" (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
+    </span>
   <table>
-    <tr *ngFor="let query of history; let i = index">
+    <tr *ngFor="let histItem of historyItems">
       <td>
-        <input [(ngModel)]="selected[i]" type="checkbox"/>
-        <a (click)="queryClick(query)">{{query.toString()}}</a>
+        <input [(ngModel)]="histItem.checked" type="checkbox"/>
+        <a (click)="queryClick(histItem)">{{histItem.query.toString()}}</a>
       </td>
     </tr>
   </table>
+  </div>
 </div>

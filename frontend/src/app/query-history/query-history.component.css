@@ -1,8 +1,18 @@
-.query-history .content {
-  margin: 1em;
-  padding: 0.3em;
-}
-
 .query-history .title {
   font-weight: bold;
+}
+
+.query-history .buttons {
+  margin: 1em 0;
+}
+
+.op-buttons {
+  padding-right: 2em;
+}
+
+.fake-img {
+  width: 1px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
 }
