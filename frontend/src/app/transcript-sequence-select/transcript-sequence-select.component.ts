@@ -227,7 +227,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
     let transcripts = this.geneDetails.transcripts;
 
-    if (transcripts) {
+    if (transcripts && transcripts.length > 0) {
       for (let part of transcripts[0].parts) {
         if (part.feature_type === 'five_prime_utr_intron') {
           this.fivePrimeIntronCount++;
