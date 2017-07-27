@@ -1,5 +1,8 @@
 <div class="gene-list-lookup">
   <textarea rows="10" [(ngModel)]="inputText"></textarea>
+  Read from file: <input type="file" (change)="readFile($event)">
 
-  <button class="btn btn-primary" (click)="lookup()">Lookup</button>
+  <div class="buttons">
+    <button class="btn btn-primary" (click)="lookup()">Lookup</button>
+  </div>
 </div>
