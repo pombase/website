@@ -40,9 +40,11 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   submit() {
     if (this.selectedTerm) {
       let singleOrMulti =
+        this.isPhenotypeNode ?
         (this.singleAllele ?
          (this.multiAllele ? TermAlleleSingleOrMulti.Both : TermAlleleSingleOrMulti.Single) :
-         TermAlleleSingleOrMulti.Multi);
+         TermAlleleSingleOrMulti.Multi) :
+      null;
 
       this.newTermNode.emit(new TermNode(this.selectedTerm, singleOrMulti));
     }
