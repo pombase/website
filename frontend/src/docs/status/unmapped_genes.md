@@ -62,6 +62,11 @@
   <td>&nbsp;</td>
  </tr>
  <tr>
+  <td>ban1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8187760">PMID:8187760</a></td>
+  <td>&nbsp;</td>
+ </tr>
+  <tr>
   <td>ben2</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7003311">PMID:7003311</a></td>
   <td>&nbsp;</td>
@@ -222,6 +227,11 @@
  <tr>
   <td>mis9</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7865880">PMID:7865880</a></td>
+  <td>&nbsp;</td>
+ </tr>
+  <tr>
+  <td>orb1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8187760">PMID:8187760</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
