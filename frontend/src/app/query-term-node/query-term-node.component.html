@@ -1,7 +1,23 @@
-<app-term-name-complete [cvName]="cvName"
+<app-term-name-complete [cvName]="termNodeConfig.ontologyName"
                         [placeholder]="placeholder"
                         (termMatched)="termMatched($event)"></app-term-name-complete>
 
 <div class="term-definition" *ngIf="selectedTerm?.definition">{{selectedTerm.definition}}</div>
 
+<div *ngIf="isPhenotypeNode">
+  <div class="single-or-multi-allele">
+    Include Genes from:
+    <input id="single-allele" type="checkbox" [(ngModel)]="singleAllele"
+           title="Include genes from single-allele geneotypes"
+           (ngModelChange)="singleMultiChange()"/>
+    <label for="single-allele">Single-allele genotypes</label>
+    <input id="multi-allele" type="checkbox" [(ngModel)]="multiAllele"
+           title="Include genes from multi-allele geneotypes"
+           (ngModelChange)="singleMultiChange()"/>
+    <label for="multi-allele">multi-allele geneotypes</label>
+  </div>
+</div>
 
+<div class="buttons">
+  <button [disabled]="!isValid()" class="btn btn-primary" (click)="submit()">Submit</button>
+</div>

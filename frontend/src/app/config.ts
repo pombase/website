@@ -41,6 +41,7 @@ export interface QueryNodeConfig {
   displayName: string;
   nodeType: string;
   ontologyName?: string;
+  annotationFeatureType?: string;
   subsetPrefix?: string;
   terms?: Array<QueryNodeTermConfig>;
   subsets?: Array<QueryNodeSubsetConfig>;
@@ -451,6 +452,7 @@ let _appConfig: AppConfig = {
         displayName: 'phenotype',
         nodeType: 'ontology',
         ontologyName: 'FYPO',
+        annotationFeatureType: 'genotype',
       },
       {
         id: 'PSI-MOD',

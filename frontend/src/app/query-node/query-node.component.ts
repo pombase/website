@@ -77,7 +77,7 @@ export class QueryNodeComponent implements OnInit {
         interesting_parents: [],
         is_obsolete: false,
       } as TermShort;
-      let part = new TermNode(termShort);
+      let part = new TermNode(termShort, null);
       this.nodeEvent.emit(part);
     }
   }

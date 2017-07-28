@@ -2,3 +2,11 @@
   margin: 0.4em;
   font-size: 80%;
 }
+
+.single-or-multi-allele {
+  margin: 0.5em 0.2em 0.5em 0.2em;
+}
+
+.buttons {
+  padding: 1.5em 0 0.5em 0;
+}

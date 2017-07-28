@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { GeneQuery, GeneQueryNode, QueryResult, TermShort, TermNode } from '../pombase-query';
+import { GeneQuery, GeneQueryNode, QueryResult, TermShort, TermNode,
+         TermAlleleSingleOrMulti } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 
@@ -44,7 +45,7 @@ export class QueryBuilderComponent implements OnInit {
 
     if (fromType === 'term_subset') {
       let term = new TermShort(termId, termName, null, [], false);
-      let topNode = new TermNode(term);
+      let topNode = new TermNode(term, null);
       newQuery = new GeneQuery(topNode);
     }
 
