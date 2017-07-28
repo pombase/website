@@ -80,7 +80,6 @@
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8522609">PMID:8522609</a></td>
   <td>&nbsp;</td>
  </tr>
- </tr>
   <tr>
   <td>ben2</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7003311">PMID:7003311</a></td>
