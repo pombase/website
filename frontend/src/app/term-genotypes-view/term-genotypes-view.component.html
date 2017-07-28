@@ -2,13 +2,11 @@
   <app-loading-spinner *ngIf="!termDetails"></app-loading-spinner>
 
   <div *ngIf="termDetails">
-    <div class="details-page-name-and-id">
-      Single-allele genotypes annotated with {{termDetails.termid}}
-    </div>
+    <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
+                       [subject]="'Comment or problem report'"></app-contact-email>
 
-    <div class="details-page-summary">
-      {{termDetails.name}}
-    </div>
+
+    <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
     <hr style="clear: both" />
 
