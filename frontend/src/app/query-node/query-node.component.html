@@ -16,11 +16,9 @@
     <div *ngIf="activeConf">
 
       <div *ngIf="activeConf.nodeType == 'ontology'">
-        <app-term-name-complete [cvName]="activeConf.ontologyName"
-                                [placeholder]="'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
-                                (termMatched)="termMatched($event)"></app-term-name-complete>
-
-        <div class="term-definition" *ngIf="selectedTerm?.definition">{{selectedTerm.definition}}</div>
+        <app-query-term-node [cvName]="activeConf.ontologyName"
+                             [placeholder]="'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
+                             (newTermNode)="newTermNode($event)"></app-query-term-node>
       </div>
 
       <div *ngIf="activeConf.id == 'gene_list'">

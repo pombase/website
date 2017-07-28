@@ -106,9 +106,13 @@ export class GeneListNode extends GeneQueryNode {
 }
 
 export class TermNode extends GeneQueryNode {
-  constructor(public term: TermShort) {
+  constructor(private term: TermShort) {
     super();
   };
+
+  getTerm(): TermShort {
+    return this.term;
+  }
 
   toObject(): Object {
     return {

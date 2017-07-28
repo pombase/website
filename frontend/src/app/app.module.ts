@@ -76,6 +76,7 @@ import { GeneListLookupComponent } from './gene-list-lookup/gene-list-lookup.com
 import { TermExternalLinksComponent } from './term-external-links/term-external-links.component';
 import { TermPageSummaryComponent } from './term-page-summary/term-page-summary.component';
 import { MainNavBarComponent } from './main-nav-bar/main-nav-bar.component';
+import { QueryTermNodeComponent } from './query-term-node/query-term-node.component';
 
 export function documentFactory() {
     return document;
@@ -150,6 +151,7 @@ export function windowFactory() {
     TermExternalLinksComponent,
     TermPageSummaryComponent,
     MainNavBarComponent,
+    QueryTermNodeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,7 @@
+<app-term-name-complete [cvName]="cvName"
+                        [placeholder]="placeholder"
+                        (termMatched)="termMatched($event)"></app-term-name-complete>
+
+<div class="term-definition" *ngIf="selectedTerm?.definition">{{selectedTerm.definition}}</div>
+
+

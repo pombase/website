@@ -59,10 +59,9 @@ export class QueryNodeComponent implements OnInit {
     }
   }
 
-  termMatched(term: TermShort) {
-    let part = new TermNode(term);
-    this.selectedTerm = term;
-    this.nodeEvent.emit(part);
+  newTermNode(newNode: TermNode) {
+    this.selectedTerm = newNode.getTerm();
+    this.nodeEvent.emit(newNode);
   }
 
   genesFound(genes: Array<GeneUniquename>) {
