@@ -63,8 +63,23 @@
  </tr>
  <tr>
   <td>ban1</td>
-  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8187760">PMID:8187760</a></td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8187760">PMID:8187760</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8522609">PMID:8522609</a></td>
   <td>&nbsp;</td>
+ <tr>
+  <td>ban2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8522609">PMID:8522609</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ban3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8522609">PMID:8522609</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ban4</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8522609">PMID:8522609</a></td>
+  <td>&nbsp;</td>
+ </tr>
  </tr>
   <tr>
   <td>ben2</td>
@@ -190,6 +205,16 @@
   <td>&nbsp;</td>
  </tr>
  <tr>
+  <td>hus3</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1427071">PMID:1427071</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>hus4</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1427071">PMID:1427071</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
   <td>hyd1</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=23712692">PMID:23712692</a></td>
   <td>&nbsp;</td>
@@ -235,8 +260,58 @@
   <td>&nbsp;</td>
  </tr>
  <tr>
+  <td>orb8</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8522609">PMID:8522609</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>orb9</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8522609">PMID:8522609</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>orb10</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8522609">PMID:8522609</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>orb12</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8522609">PMID:8522609</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
   <td>pet1g</td>
   <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>pld6</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=10924454">PMID:10924454</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>pld8</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=10924454">PMID:10924454</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>pld9</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=10924454">PMID:10924454</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>pld10</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=10924454">PMID:10924454</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>pld11</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=10924454">PMID:10924454</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>pld12</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=10924454">PMID:10924454</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
@@ -330,6 +405,16 @@
   <td>&nbsp;</td>
  </tr>
  <tr>
+  <td>ste2</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1934121">PMID:1934121</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ste10</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1934121">PMID:1934121</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
   <td>ste15</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8575018">PMID:8575018</a></td>
   <td>&nbsp;</td>
@@ -411,4 +496,3 @@
  </tr>
  </tbody>
 </table>
-
