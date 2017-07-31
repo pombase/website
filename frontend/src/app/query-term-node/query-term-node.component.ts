@@ -54,6 +54,9 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    this.selectedTerm = null;
+    this.singleAllele = true;
+    this.multiAllele = false;
     this.isPhenotypeNode =
       this.termNodeConfig.annotationFeatureType &&
       this.termNodeConfig.annotationFeatureType === 'genotype';
