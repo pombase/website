@@ -45,7 +45,7 @@ export class QueryBuilderComponent implements OnInit {
 
     if (fromType === 'term_subset') {
       let term = new TermShort(termId, termName, null, [], false);
-      let topNode = new TermNode(term, null);
+      let topNode = new TermNode(term, null, null);
       newQuery = new GeneQuery(topNode);
     }
 

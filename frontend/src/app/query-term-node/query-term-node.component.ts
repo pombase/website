@@ -17,6 +17,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   isPhenotypeNode = false;
   singleAllele = true;
   multiAllele = false;
+  expression = null;
 
   constructor() { }
 
@@ -46,7 +47,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
          TermAlleleSingleOrMulti.Multi) :
       null;
 
-      this.newTermNode.emit(new TermNode(this.selectedTerm, singleOrMulti));
+      this.newTermNode.emit(new TermNode(this.selectedTerm, singleOrMulti, this.expression));
     }
   }
 
@@ -60,5 +61,10 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
     this.isPhenotypeNode =
       this.termNodeConfig.annotationFeatureType &&
       this.termNodeConfig.annotationFeatureType === 'genotype';
+    if (this.isPhenotypeNode) {
+      this.expression = 'any';
+    } else {
+      this.expression = null;
+    }
   }
 }

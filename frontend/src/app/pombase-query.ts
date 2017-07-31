@@ -113,7 +113,8 @@ export enum TermAlleleSingleOrMulti {
 
 export class TermNode extends GeneQueryNode {
   constructor(private term: TermShort,
-              private singleOrMultiAllele: TermAlleleSingleOrMulti) {
+              private singleOrMultiAllele: TermAlleleSingleOrMulti,
+              private expression: string) {
     super();
   };
 
@@ -131,7 +132,7 @@ export class TermNode extends GeneQueryNode {
       this.singleOrMultiAllele.toString().toLowerCase() :
       null;
 
-    return { termid: [this.term.termid, singleOrMultiAllele] }
+    return { termid: [this.term.termid, singleOrMultiAllele, this.expression] }
   }
 
   toString(): string {
@@ -221,7 +222,7 @@ export class GeneQuery {
     if (nodeType === 'term') {
       let singleOrMulti =
         parsedJson.singleOrMultiAllele as TermAlleleSingleOrMulti;
-      return new TermNode(parsedJson.termid, singleOrMulti);
+      return new TermNode(parsedJson.termid, singleOrMulti, parsedJson.expression);
     } else {
       if (nodeType === 'bool') {
         return new GeneBoolNode(parsedJson['operator'],

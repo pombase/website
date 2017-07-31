@@ -16,6 +16,16 @@
            (ngModelChange)="singleMultiChange()"/>
     <label for="multi-allele">multi-allele geneotypes</label>
   </div>
+
+  <div *ngIf="!multiAllele" class="expression">
+    Expression level:
+    <input id="expression-any" type="radio" [(ngModel)]="expression" name="expression" value="any"/>
+    <label for="expression-any">Any</label>
+    <input id="expression-null" type="radio" [(ngModel)]="expression" name="expression" value="null"/>
+    <label for="expression-null">Null</label>
+    <input id="expression-wt-over" type="radio" [(ngModel)]="expression" name="expression" value="wt-overexpressed"/>
+    <label for="expression-wt-over">Wild type + overexpression</label>
+  </div>
 </div>
 
 <div class="buttons">
