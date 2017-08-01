@@ -8,13 +8,13 @@
   <div class="single-or-multi-allele">
     Include genes from:
     <input id="single-allele" type="checkbox" [(ngModel)]="singleAllele"
-           title="Include genes from single-allele geneotypes"
+           title="Include genes from single-allele genotypes"
            (ngModelChange)="singleMultiChange()"/>
     <label for="single-allele">Single-allele genotypes</label>
     <input id="multi-allele" type="checkbox" [(ngModel)]="multiAllele"
-           title="Include genes from multi-allele geneotypes"
+           title="Include genes from multi-allele genotypes"
            (ngModelChange)="singleMultiChange()"/>
-    <label for="multi-allele">multi-allele geneotypes</label>
+    <label for="multi-allele">multi-allele</label>
   </div>
 
   <div *ngIf="!multiAllele" class="expression">
