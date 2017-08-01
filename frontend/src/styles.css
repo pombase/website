@@ -206,3 +206,7 @@ select option:disabled {
   font-weight: bold;
   padding: 0 0 0.4em 0;
 }
+
+.no-wrap-span {
+  display: inline-block;
+}
