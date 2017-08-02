@@ -184,8 +184,8 @@ export class IntRangeNode extends RangeNode {
   toObject(): Object {
     return {
       int_range: [this.rangeType,
-        Math.floor(this.rangeStart),
-        Math.floor(this.rangeEnd),
+                  this.rangeStart != null ? Math.floor(this.rangeStart) : null,
+                  this.rangeEnd != null ? Math.floor(this.rangeEnd) : null,
       ]
     };
   }
