@@ -21,7 +21,11 @@
 }
 
 .pfam-structure {
-  margin: 0 0 1em 0;
+  margin: 0.6em 0 1em 0;
+}
+
+.tm-domains {
+  margin: 0.6em 0 0.6em 0;
 }
 
 .pombase-annotation {

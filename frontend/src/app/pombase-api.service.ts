@@ -249,6 +249,7 @@ export class GeneDetails {
   deletion_viability?: string;
   uniprot_identifier?: string;
   interpro_matches: Array<InterProMatch>;
+  tm_domain_coords: Array<Array<number>>;
   orfeome_identifier: string;
   characterisation_status: string;
   location: ChromosomeLocation;

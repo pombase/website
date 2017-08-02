@@ -30,6 +30,18 @@
     Domain organization at <a href="http://pfam.xfam.org/protein/{{geneDetails.uniprot_identifier}}">Pfam ...</a>
   </div>
 
+  <div class="tm-domains">
+    <div *ngIf="geneDetails.tm_domain_coords.length == 0" class="protein-feature-title">
+      No predicted trans-membrane domains
+    </div>
+    <div *ngIf="geneDetails.tm_domain_coords.length > 0">
+      <div class="protein-feature-title">Coordinates of predicted trans-membrane domains: </div>
+      <span *ngFor="let coordPair of geneDetails.tm_domain_coords; let lastPair = last">
+        {{coordPair[0]}}..{{coordPair[1]}}<span *ngIf="!lastPair">,</span>
+      </span>
+    </div>
+  </div>
+
   <div *ngIf="proteinFeaturesTable && proteinFeaturesTable.length > 0" class="pombase-annotation">
     <div class="protein-feature-title">
       Families and domain annotated by PomBase
