@@ -615,6 +615,11 @@ let _appConfig: AppConfig = {
         displayName: 'protein length',
         nodeType: 'int-range',
       },
+      {
+        id: 'tm_domain_count',
+        displayName: 'Number of TM domains',
+        nodeType: 'int-range',
+      },
 // ignore until we can select the chromosome too:
 //       {
 //         id: 'genome_range_contains',
