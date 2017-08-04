@@ -132,7 +132,7 @@ export class TermNode extends GeneQueryNode {
       this.singleOrMultiAllele.toString().toLowerCase() :
       null;
 
-    return { termid: [this.term.termid, singleOrMultiAllele, this.expression] }
+    return { termid: [this.term.termid, this.term.definition, singleOrMultiAllele, this.expression] }
   }
 
   toString(): string {
