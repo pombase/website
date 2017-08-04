@@ -85,6 +85,15 @@ export class SearchBoxComponent implements OnInit {
     }
   }
 
+  uniprotIdMatch(geneSumm: GeneSummary, value: string): DisplayModel {
+    if (geneSumm.uniprot_identifier && geneSumm.uniprot_identifier.toLowerCase().indexOf(value) !== -1) {
+      return new DisplayModel(geneSumm.uniquename, geneSumm.name,
+                              'UniProt ID: ' + geneSumm.uniprot_identifier);
+    } else {
+      return null;
+    }
+  }
+
   containsMatch(matches: Array<DisplayModel>, match: DisplayModel): boolean {
     return matches.findIndex((element) => element.uniquename === match.uniquename) !== -1;
   }
@@ -123,6 +132,13 @@ export class SearchBoxComponent implements OnInit {
         }
         for (let geneSumm of this.geneSummaries) {
           let match = this.productMatch(geneSumm, value);
+          if (match && filteredSummaries.length < 20 &&
+              !this.containsMatch(filteredSummaries, match)) {
+            filteredSummaries.push(match);
+          }
+        }
+        for (let geneSumm of this.geneSummaries) {
+          let match = this.uniprotIdMatch(geneSumm, value);
           if (match && filteredSummaries.length < 20 &&
               !this.containsMatch(filteredSummaries, match)) {
             filteredSummaries.push(match);

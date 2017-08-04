@@ -176,6 +176,7 @@ export interface GeneSummary {
   name: string;
   taxonid: number;
   product?: string;
+  uniprot_identifier?: string;
   synonyms: Array<string>;
   orthologs: Array<IdAndOrganism>;
   location?: ChromosomeLocation;
