@@ -34,6 +34,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
       this.splitSummaryList = {};
 
       for (let splitByConfig of this.split_by_parents) {
+        let seenTerms: {[termid: string]: boolean} = {};
         for (let splitByTermId of splitByConfig.termids) {
           let notFlag = false;
 
@@ -51,7 +52,10 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
               if (!this.splitDataList[splitByConfig.config_name]) {
                 this.splitDataList[splitByConfig.config_name] = [];
               }
-              this.splitDataList[splitByConfig.config_name].push(termAnnotation);
+              if (!seenTerms[termAnnotation.term.termid]) {
+                this.splitDataList[splitByConfig.config_name].push(termAnnotation);
+                seenTerms[termAnnotation.term.termid] = true;
+              }
             }
           }
         }
