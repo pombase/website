@@ -775,7 +775,7 @@ function getXrfConfig(): { [key: string]: XrfConfig } {
 }
 
 export function getXrfWithPrefix(prefix: string, id: string): XrfDetails {
-  let xrfDetail = getXrfConfig()[prefix];
+  let xrfDetail = getXrfConfig()[prefix.toLowerCase()];
 
   if (xrfDetail) {
     let linkTemplate = xrfDetail.urlSyntax;
