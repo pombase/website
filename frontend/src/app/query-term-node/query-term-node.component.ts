@@ -13,7 +13,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   @Input() placeholder: string;
   @Output() newTermNode = new EventEmitter();
 
-  selectedTerm = null;
+  selectedTerm: TermShort = null;
   isPhenotypeNode = false;
   singleAllele = true;
   multiAllele = false;
@@ -47,7 +47,9 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
          TermAlleleSingleOrMulti.Multi) :
       null;
 
-      this.newTermNode.emit(new TermNode(this.selectedTerm, singleOrMulti, this.expression));
+      this.newTermNode.emit(new TermNode(this.selectedTerm.termid, this.selectedTerm.name,
+                                         this.selectedTerm.definition, singleOrMulti,
+                                         this.expression));
     }
   }
 

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { TermShort, GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
+import { GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
          GeneQueryNode, GeneUniquename } from '../pombase-query';
 
 import { getAppConfig, QueryNodeConfig } from '../config';
@@ -71,13 +71,8 @@ export class QueryNodeComponent implements OnInit {
 
   smallOntologyChange(): void {
     if (this.selectedTerm) {
-      let termShort = {
-        name: this.selectedTerm.name,
-        termid: this.selectedTerm.termid,
-        interesting_parents: [],
-        is_obsolete: false,
-      } as TermShort;
-      let part = new TermNode(termShort, null, null);
+      let part = new TermNode(this.selectedTerm.termid, this.selectedTerm.name,
+                              this.selectedTerm.definition, null, null);
       this.nodeEvent.emit(part);
     }
   }

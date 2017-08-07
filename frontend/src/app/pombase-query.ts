@@ -92,7 +92,9 @@ export class GeneListNode extends GeneQueryNode {
 
   toObject(): Object {
     return {
-      'gene_list': this.genes,
+      gene_list: {
+        ids: this.genes,
+      }
     };
   }
 
@@ -112,14 +114,17 @@ export enum TermAlleleSingleOrMulti {
 }
 
 export class TermNode extends GeneQueryNode {
-  constructor(private term: TermShort,
+  constructor(private termid: string,
+              private termName: string,
+              private definition: string,
               private singleOrMultiAllele: TermAlleleSingleOrMulti,
               private expression: string) {
     super();
   };
 
   getTerm(): TermShort {
-    return this.term;
+    return new TermShort(this.termid, this.termName, this.definition,
+                         [], false);
   }
 
   getSingleOrMulti(): TermAlleleSingleOrMulti {
@@ -132,11 +137,18 @@ export class TermNode extends GeneQueryNode {
       this.singleOrMultiAllele.toString().toLowerCase() :
       null;
 
-    return { termid: [this.term.termid, this.term.definition, singleOrMultiAllele, this.expression] }
+    return {
+      term: {
+        termid: this.termid,
+        name: this.termName,
+        single_or_multi_allele: singleOrMultiAllele,
+        expression: this.expression
+      }
+    };
   }
 
   toString(): string {
-    return `${this.term.name} ${this.term.termid}`;
+    return `${this.termName} ${this.termid}`;
   }
 }
 
@@ -148,7 +160,7 @@ export class SubsetNode extends GeneQueryNode {
 
   toObject(): Object {
     return {
-      'subset': this.subsetName,
+      'subset': { subset_name: this.subsetName },
     };
   }
 
@@ -183,10 +195,11 @@ export abstract class RangeNode extends GeneQueryNode {
 export class IntRangeNode extends RangeNode {
   toObject(): Object {
     return {
-      int_range: [this.rangeType,
-                  this.rangeStart != null ? Math.floor(this.rangeStart) : null,
-                  this.rangeEnd != null ? Math.floor(this.rangeEnd) : null,
-      ]
+      int_range: {
+        range_type: this.rangeType,
+        start: this.rangeStart != null ? Math.floor(this.rangeStart) : null,
+        end: this.rangeEnd != null ? Math.floor(this.rangeEnd) : null,
+      }
     };
   }
 
@@ -198,11 +211,11 @@ export class IntRangeNode extends RangeNode {
 export class FloatRangeNode extends RangeNode {
   toObject(): Object {
     return {
-      float_range: [
-        this.rangeType,
-        this.rangeStart,
-        this.rangeEnd,
-      ]
+      float_range: {
+        range_type: this.rangeType,
+        start: this.rangeStart,
+        end: this.rangeEnd,
+      }
     };
   }
 
@@ -221,8 +234,9 @@ export class GeneQuery {
     let nodeType = parsedJson['type'];
     if (nodeType === 'term') {
       let singleOrMulti =
-        parsedJson.singleOrMultiAllele as TermAlleleSingleOrMulti;
-      return new TermNode(parsedJson.termid, singleOrMulti, parsedJson.expression);
+        parsedJson['single_or_multi_allele'] as TermAlleleSingleOrMulti;
+      return new TermNode(parsedJson['termid'], parsedJson['name'],
+                          parsedJson['definition'], singleOrMulti, parsedJson.expression);
     } else {
       if (nodeType === 'bool') {
         return new GeneBoolNode(parsedJson['operator'],
