@@ -276,10 +276,14 @@ export class GeneQuery {
     return this.queryTopNode;
   }
 
-  public toJSON(): string {
-    return JSON.stringify({
+  public toObject(): any {
+    return {
       'constraints': this.getTopNode().toObject(),
-    });
+    }
+  }
+
+  public toJSON(): string {
+    return JSON.stringify(this.toObject());
   }
 
   public toString(): string {

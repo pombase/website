@@ -8,6 +8,8 @@ function makeResults(resultsObject: any): QueryResult {
   return new QueryResult('OK', resultsObject.rows);
 }
 
+const localStorageKey = 'pombase-query-build-history-v1';
+
 @Injectable()
 export class QueryService {
   private apiUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest';
@@ -17,6 +19,10 @@ export class QueryService {
   private subject: Subject<Array<GeneQuery>> = new Subject();
 
   constructor(private http: Http) {
+    let savedHistoryString = localStorage.getItem(localStorageKey);
+    if (savedHistoryString) {
+      this.history = JSON.parse(savedHistoryString).map((o) => new GeneQuery(o.constraints));
+    }
   }
 
   private postRaw(query: GeneQuery): Observable<Response> {
@@ -47,6 +53,8 @@ export class QueryService {
   saveToHistory(query: GeneQuery) {
     this.history.unshift(query);
     this.subject.next(this.history);
+    let historyObjects = this.history.map((q) => q.toObject());
+    localStorage.setItem(localStorageKey, JSON.stringify(historyObjects));
   }
 
   getHistory(): Array<GeneQuery> {
