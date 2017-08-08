@@ -35,7 +35,8 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
           newId = newId + ':' + this.uniprotIdentifier;
           xrfResult = getXrfWithPrefix(match.dbname, this.uniprotIdentifier);
         } else {
-          xrfResult = getXrfWithPrefix(match.dbname, match.id);
+          const id = match.id.replace(/G3DSA:/, '');
+          xrfResult = getXrfWithPrefix(match.dbname, id);
         }
         let newMatch = Object.assign({}, match);
         newMatch['id'] = newId;
