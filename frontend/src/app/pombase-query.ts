@@ -261,6 +261,8 @@ export class GeneQuery {
     case 'float_range':
       return new FloatRangeNode(val['range_type'], val['start'], val['end']);
 
+    case 'gene_list':
+      return new GeneListNode(val['ids']);
     }
 
     throw new Error('Unknown type: ' + nodeType);
