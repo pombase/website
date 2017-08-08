@@ -237,20 +237,30 @@ export class GeneQuery {
     }
     const nodeType = keys[0];
     const val = parsedJson[nodeType];
-    if (nodeType === 'term') {
+
+    switch(nodeType) {
+
+    case 'term':
       let singleOrMulti =
         val['single_or_multi_allele'] as TermAlleleSingleOrMulti;
       return new TermNode(val['termid'], val['name'],
                           val['definition'], singleOrMulti, val.expression);
-    } else {
-      if (nodeType === 'or' || nodeType === 'and' || nodeType === 'not') {
-        const parts = (val as Array<GeneQueryNode>).map((json: any) => this.makeNode(json));
-        return new GeneBoolNode(nodeType, parts);
-      } else {
-        if (nodeType === 'subset') {
-          return new SubsetNode(val['subset_name'], null);
-        }
-      }
+
+    case 'or':
+    case 'and':
+    case 'not':
+      const parts = (val as Array<GeneQueryNode>).map((json: any) => this.makeNode(json));
+      return new GeneBoolNode(nodeType, parts);
+
+    case 'subset':
+      return new SubsetNode(val['subset_name'], null);
+
+    case 'int_range':
+      return new IntRangeNode(val['range_type'], val['start'], val['end']);
+
+    case 'float_range':
+      return new FloatRangeNode(val['range_type'], val['start'], val['end']);
+
     }
 
     throw new Error('Unknown type: ' + nodeType);
