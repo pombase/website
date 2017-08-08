@@ -43,7 +43,7 @@ export class GeneBoolNode extends GeneQueryNode {
       } else {
         if (operator.toLowerCase() === 'not') {
           if (parts.length !== 2) {
-            console.log("A NOT query must have 2 parts");
+            console.log('A NOT query must have 2 parts');
           }
           this.operator = QueryNodeOperator.Not;
         } else {
