@@ -21,7 +21,15 @@ export class QueryService {
   constructor(private http: Http) {
     let savedHistoryString = localStorage.getItem(localStorageKey);
     if (savedHistoryString) {
-      this.history = JSON.parse(savedHistoryString).map((o) => new GeneQuery(o.constraints));
+      this.history = [];
+
+      for (let o of JSON.parse(savedHistoryString)) {
+        try {
+          this.history.push(new GeneQuery(o.constraints));
+        } catch (e) {
+          console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
+        }
+      };
     }
   }
 
