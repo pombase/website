@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 import { QueryService } from '../query.service';
 
@@ -7,17 +7,22 @@ import { QueryService } from '../query.service';
   templateUrl: './query-link.component.html',
   styleUrls: ['./query-link.component.css']
 })
-export class QueryLinkComponent implements OnInit {
+export class QueryLinkComponent implements OnInit, OnDestroy {
   @Input() predefinedQueryName;
 
   linkText = ' ';
+  subscription = null;
 
   constructor(private queryService: QueryService) { }
 
   ngOnInit() {
-    this.queryService.postPredefinedQueryCount(this.predefinedQueryName)
+    this.subscription = this.queryService.postPredefinedQueryCount(this.predefinedQueryName)
       .subscribe((results) => {
         this.linkText = String(results);
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

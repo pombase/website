@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GeneQuery, GeneQueryNode, QueryResult, TermNode } from '../pombase-query';
 import { QueryService } from '../query.service';
@@ -10,7 +10,7 @@ import { getAppConfig } from '../config';
   templateUrl: './query-builder.component.html',
   styleUrls: ['./query-builder.component.css']
 })
-export class QueryBuilderComponent implements OnInit {
+export class QueryBuilderComponent implements OnInit, OnDestroy {
   query: GeneQuery;
   results: QueryResult = null;
   resultsDescription = '';
@@ -74,6 +74,7 @@ export class QueryBuilderComponent implements OnInit {
         this.results = results;
         this.resultsDescription = 'Results for: ' + queryAsString;
         this.timerSubscription.unsubscribe();
+        this.timerSubscription = null;
         this.showLoading = false;
       });
   }
@@ -96,6 +97,12 @@ export class QueryBuilderComponent implements OnInit {
       this.query = null;
       this.results = null;
       this.resultsDescription = '';
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
     }
   }
 }

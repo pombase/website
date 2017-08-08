@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 import { QueryService } from '../query.service';
 import { GeneQuery, GeneBoolNode } from '../pombase-query';
@@ -13,7 +13,7 @@ class HistoryItem {
   templateUrl: './query-history.component.html',
   styleUrls: ['./query-history.component.css']
 })
-export class QueryHistoryComponent implements OnInit {
+export class QueryHistoryComponent implements OnInit, OnDestroy {
   @Output() gotoQuery = new EventEmitter<GeneQuery>();
   @Output() newQuery = new EventEmitter<GeneQuery>();
 
