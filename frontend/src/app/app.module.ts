@@ -77,6 +77,8 @@ import { TermExternalLinksComponent } from './term-external-links/term-external-
 import { TermPageSummaryComponent } from './term-page-summary/term-page-summary.component';
 import { MainNavBarComponent } from './main-nav-bar/main-nav-bar.component';
 import { QueryTermNodeComponent } from './query-term-node/query-term-node.component';
+import { QueryLinkComponent } from './query-link/query-link.component';
+import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 
 export function documentFactory() {
     return document;
@@ -152,6 +154,8 @@ export function windowFactory() {
     TermPageSummaryComponent,
     MainNavBarComponent,
     QueryTermNodeComponent,
+    QueryLinkComponent,
+    PredefinedQueryResultsComponent,
   ],
   imports: [
     BrowserModule,

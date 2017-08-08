@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable, Subject } from 'rxjs/Rx';
 import { GeneQuery, QueryResult } from './pombase-query';
-import { getReleaseConfig } from './config';
+import { getAppConfig, getReleaseConfig } from './config';
 
 function makeResults(resultsObject: any): QueryResult {
   return new QueryResult('OK', resultsObject.rows);
@@ -19,11 +19,29 @@ export class QueryService {
   constructor(private http: Http) {
   }
 
-  postQuery(query: GeneQuery): Observable<QueryResult> {
+  private postRaw(query: GeneQuery): Observable<Response> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + '/query', query.toJSON(), options)
+    return this.http.post(this.apiUrl + '/query', query.toJSON(), options);
+  }
+
+  postQuery(query: GeneQuery): Observable<QueryResult> {
+    return this.postRaw(query)
       .map((res) => { return makeResults(res.json()); });
+  }
+  postQueryCount(query: GeneQuery): Observable<number> {
+    return this.postRaw(query)
+      .map((res) => { return res.json().rows.length; });
+  }
+
+  postPredefinedQuery(queryName: string): Observable<QueryResult> {
+    const query = getAppConfig().getPredefinedQuery(queryName);
+    return this.postQuery(query);
+  }
+
+  postPredefinedQueryCount(queryName: string): Observable<number> {
+    const query = getAppConfig().getPredefinedQuery(queryName);
+    return this.postQueryCount(query);
   }
 
   saveToHistory(query: GeneQuery) {

@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { GeneQuery, GeneQueryNode, QueryResult, TermNode } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
+import { getAppConfig } from '../config';
 
 @Component({
   selector: 'app-query-builder',
@@ -30,12 +31,17 @@ export class QueryBuilderComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
-      let fromType = params['type'];
-      let termId = params['id'];
-      let termName = params['name'];
-      if (fromType && termId && termName) {
-        this.processFromRoute(fromType, termId, termName);
-      };
+      if (params['predefinedQueryName']) {
+        const query = getAppConfig().getPredefinedQuery(params['predefinedQueryName']);
+        this.newQuery(query);
+      } else {
+        let fromType = params['type'];
+        let termId = params['id'];
+        let termName = params['name'];
+        if (fromType && termId && termName) {
+          this.processFromRoute(fromType, termId, termName);
+        };
+      }
     });
   }
 

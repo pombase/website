@@ -3,6 +3,8 @@ import docConfig from './config/doc-config.json';
 import pombaseConfig from '../../pombase_v2_config.json';
 import releaseConfig from '../../release_config.json';
 
+import { GeneQuery } from './pombase-query';
+
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
 }
@@ -65,6 +67,7 @@ export interface AppConfig {
     smallest: number;
     largest: number;
   };
+  predefinedQueries: { [key: string]: any },
   ontologyTermLookup: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
   linkoutConfig: LinkoutConfig;
@@ -81,6 +84,8 @@ export interface AppConfig {
 
   // return true iff the genus and species match the configured organism
   isConfigOrganism(taxon: number): boolean;
+
+  getPredefinedQuery(queryName: string): GeneQuery;
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
 
@@ -324,6 +329,7 @@ let _appConfig: AppConfig = {
     smallest: Math.min(...pombaseConfig.api_seq_chunk_sizes),
     largest: Math.max(...pombaseConfig.api_seq_chunk_sizes)
   },
+  predefinedQueries: pombaseConfig.predefined_queries,
   termPageConfig: {
     ancestorRelNames: ['is_a', 'part_of', 'regulates'],
   },
@@ -646,6 +652,11 @@ let _appConfig: AppConfig = {
       }
     });
     return retOrganism;
+  },
+
+  getPredefinedQuery(queryName: string): GeneQuery {
+    const queryObj = getAppConfig().predefinedQueries[queryName];
+    return new GeneQuery(queryObj.constraints);
   },
 
   getExternalTermLink(configKey: string, termId: string): { url: string, displayName: string } {

@@ -231,20 +231,29 @@ export class GeneQuery {
   private queryId: number;
 
   private makeNode(parsedJson: any): GeneQueryNode {
-    let nodeType = parsedJson['type'];
+    const keys = Object.keys(parsedJson);
+    if (keys.length != 1) {
+      throw new Error('parsedJson doesn\'t have exactly one key' + parsedJson);
+    }
+    const nodeType = keys[0];
+    const val = parsedJson[nodeType];
     if (nodeType === 'term') {
       let singleOrMulti =
-        parsedJson['single_or_multi_allele'] as TermAlleleSingleOrMulti;
-      return new TermNode(parsedJson['termid'], parsedJson['name'],
-                          parsedJson['definition'], singleOrMulti, parsedJson.expression);
+        val['single_or_multi_allele'] as TermAlleleSingleOrMulti;
+      return new TermNode(val['termid'], val['name'],
+                          val['definition'], singleOrMulti, val.expression);
     } else {
-      if (nodeType === 'bool') {
-        return new GeneBoolNode(parsedJson['operator'],
-                                parsedJson.parts.map((json: any) => this.makeNode(json)));
+      if (nodeType === 'or' || nodeType === 'and' || nodeType === 'not') {
+        const parts = (val as Array<GeneQueryNode>).map((json: any) => this.makeNode(json));
+        return new GeneBoolNode(nodeType, parts);
       } else {
-        throw new Error('Unknown type: ' + nodeType);
+        if (nodeType === 'subset') {
+          return new SubsetNode(val['subset_name'], null);
+        }
       }
     }
+
+    throw new Error('Unknown type: ' + nodeType);
   }
 
   constructor(arg: Object) {
