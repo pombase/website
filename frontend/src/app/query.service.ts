@@ -19,17 +19,21 @@ export class QueryService {
   private subject: Subject<Array<GeneQuery>> = new Subject();
 
   constructor(private http: Http) {
-    let savedHistoryString = localStorage.getItem(localStorageKey);
-    if (savedHistoryString) {
-      this.history = [];
+    try {
+      let savedHistoryString = localStorage.getItem(localStorageKey);
+      if (savedHistoryString) {
+        this.history = [];
 
-      for (let o of JSON.parse(savedHistoryString)) {
-        try {
-          this.history.push(new GeneQuery(o.constraints));
-        } catch (e) {
-          console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
-        }
-      };
+        for (let o of JSON.parse(savedHistoryString)) {
+          try {
+            this.history.push(new GeneQuery(o.constraints));
+          } catch (e) {
+            console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
+          }
+        };
+      }
+    } catch (e) {
+      console.log('failed to deserialise history: ' + e.message);
     }
   }
 
