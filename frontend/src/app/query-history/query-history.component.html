@@ -20,7 +20,7 @@
     </span>
 
     <span>
-      <button class="btn btn-primary delete-queries" (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
+      <button [disabled]="getSelectedQueries().length == 0" class="btn btn-primary delete-queries" (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
     </span>
   <table>
     <tr *ngFor="let histItem of historyItems">
