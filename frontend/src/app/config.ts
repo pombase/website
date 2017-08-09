@@ -122,6 +122,7 @@ export interface AnnotationType {
   inherits_from?: string;
   split_by_parents?: Array<SplitByParentsConfig>;
   columns_to_show?: Array<string>;
+  details_only?: boolean;
   hide_term_details?: boolean;
   filters: Array<FilterConfig>;
   external_db_link_keys?: Array<string>;

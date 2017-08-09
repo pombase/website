@@ -1,5 +1,5 @@
 <div class="sub-table">
-  <div class="view-controls">
+  <div *ngIf="!detailsOnly" class="view-controls">
     <a *ngIf="currentViewState != TableViewState.Details" (click)="allDetailsView()">Show details ...</a> 
     <a *ngIf="currentViewState == TableViewState.Details" (click)="allSummaryView()">Show summary ...</a>
   </div>
@@ -45,7 +45,7 @@
     <tbody *ngFor="let termAnnotation of filteredTable; trackBy:trackByTermId">
       <tr *ngIf="detailsView[termAnnotation.term.termid] && !compactFirstRows[termAnnotation.term.termid]" class="term-annotation-top">
         <td style="width: 2em" [attr.rowspan]="termAnnotation.annotations.length + 1">
-          <a (click)="toggleDetails(termAnnotation.term.termid)">
+          <a *ngIf="!detailsOnly" (click)="toggleDetails(termAnnotation.term.termid)">
             <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
             <span class="collapse-icon" *ngIf="!detailsView[termAnnotation.term.termid]">+</span>
           </a>
@@ -75,7 +75,7 @@
           *ngFor="let annotation of detailsView[termAnnotation.term.termid] ? termAnnotation.annotations : [] ; let i = index">
         <td  *ngIf="i == 0 && compactFirstRows[termAnnotation.term.termid]" style="width: 2em"
              [attr.rowspan]="termAnnotation.annotations.length">
-          <a (click)="toggleDetails(termAnnotation.term.termid)">
+          <a *ngIf= "!detailsOnly" (click)="toggleDetails(termAnnotation.term.termid)">
             <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
             <span class="collapse-icon" *ngIf="!detailsView[termAnnotation.term.termid]">+</span>
           </a>
