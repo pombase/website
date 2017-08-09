@@ -62,11 +62,15 @@ export class QueryService {
     return this.postQueryCount(query);
   }
 
+  private saveHistory() {
+    let historyObjects = this.history.map((q) => q.toObject());
+    localStorage.setItem(localStorageKey, JSON.stringify(historyObjects));
+  }
+
   saveToHistory(query: GeneQuery) {
     this.history.unshift(query);
     this.subject.next(this.history);
-    let historyObjects = this.history.map((q) => q.toObject());
-    localStorage.setItem(localStorageKey, JSON.stringify(historyObjects));
+    this.saveHistory();
   }
 
   getHistory(): Array<GeneQuery> {
@@ -83,5 +87,6 @@ export class QueryService {
         return queries.indexOf(histQuery) === -1;
       });
     this.subject.next(this.history);
+    this.saveHistory();
   }
 }
