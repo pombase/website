@@ -27,6 +27,7 @@ export type TermId = string;
 
 export abstract class GeneQueryNode {
   public abstract toObject(): Object;
+  public abstract equals(obj: GeneQueryNode): boolean;
 }
 
 export class GeneBoolNode extends GeneQueryNode {
@@ -35,6 +36,7 @@ export class GeneBoolNode extends GeneQueryNode {
   constructor(operator: string,
               public parts: GeneQueryNode[]) {
     super();
+
     if (operator.toLowerCase() === 'and') {
       this.operator = QueryNodeOperator.And;
     } else {
@@ -51,6 +53,15 @@ export class GeneBoolNode extends GeneQueryNode {
         }
       }
     }
+  }
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof GeneBoolNode) {
+      return this.operator === obj.operator &&
+        this.parts.length === obj.parts.length &&
+        this.parts.every((v, i) => v.equals(obj.parts[i]));
+    }
+    return false;
   }
 
   getOperator(): QueryNodeOperator {
@@ -86,22 +97,28 @@ export class GeneBoolNode extends GeneQueryNode {
 }
 
 export class GeneListNode extends GeneQueryNode {
-  constructor(public genes: Array<GeneUniquename>) {
+  constructor(public ids: Array<GeneUniquename>) {
     super();
-    this.genes = this.genes.sort();
+    this.ids = this.ids.sort();
   };
 
   toObject(): Object {
     return {
-      gene_list: {
-        ids: this.genes,
-      }
+      gene_list: this,
     };
   }
 
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof GeneListNode) {
+      return this.ids.length === obj.ids.length &&
+        this.ids.every((v,i) => v === obj.ids[i]);
+    }
+    return false;
+  }
+
   toString(): string {
-    let s = this.genes.slice(0, 10).join(' ');
-    if (this.genes.length > 10) {
+    let s = this.ids.slice(0, 10).join(' ');
+    if (this.ids.length > 10) {
       s += ' ...';
     }
     return `[${s}]`;
@@ -122,6 +139,15 @@ export class TermNode extends GeneQueryNode {
               private expression: string) {
     super();
   };
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof TermNode) {
+      return this.termid === obj.termid &&
+        this.singleOrMultiAllele === obj.singleOrMultiAllele &&
+        this.expression === obj.expression;
+    }
+    return false;
+  }
 
   getTerm(): TermShort {
     return new TermShort(this.termid, this.termName, this.definition,
@@ -196,6 +222,13 @@ export class SubsetNode extends GeneQueryNode {
     super();
   };
 
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof SubsetNode) {
+      return this.subsetName === obj.subsetName;
+    }
+    return false;
+  }
+
   toObject(): Object {
     return {
       'subset': { subset_name: this.subsetName },
@@ -228,6 +261,13 @@ export abstract class RangeNode extends GeneQueryNode {
               public rangeStart: number, public rangeEnd: number) {
     super();
   };
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof RangeNode) {
+      return this.toString() === obj.toString();
+    }
+    return false;
+  }
 }
 
 export class IntRangeNode extends RangeNode {
