@@ -185,11 +185,15 @@ export class TermNode extends GeneQueryNode {
       this.singleOrMultiAllele == TermAlleleSingleOrMulti.Single ?
       this.expression :
       null;
+    const singleOrMultiAllele =
+      this.singleOrMultiAllele ?
+      this.singleOrMultiAllele.toString().toLowerCase() :
+      null;
     return {
       term: {
         termid: this.termid,
         name: this.termName,
-        single_or_multi_allele: this.singleOrMultiString(),
+        single_or_multi_allele: singleOrMultiAllele,
         expression: expression,
       }
     };
