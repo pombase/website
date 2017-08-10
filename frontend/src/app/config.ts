@@ -629,6 +629,11 @@ let _appConfig: AppConfig = {
         displayName: 'Number of TM domains',
         nodeType: 'int-range',
       },
+      {
+        id: 'exon_count',
+        displayName: 'Number coding exons',
+        nodeType: 'int-range',
+      },
 // ignore until we can select the chromosome too:
 //       {
 //         id: 'genome_range_contains',
