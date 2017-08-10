@@ -16,3 +16,7 @@
 .query-running-spinner {
   padding: 3em;
 }
+
+.query-title {
+  font-weight: bold;
+}
