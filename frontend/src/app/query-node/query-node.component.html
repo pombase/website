@@ -46,7 +46,8 @@
       </div>
 
       <div *ngIf="activeConf.nodeType == 'subset-input'">
-        <input type="text" [(ngModel)]="subsetName" />
+        <input type="text" [(ngModel)]="subsetName" size="30"
+               [placeholder]="activeConf.placeholder || ''" />
         <button type="button" class="btn btn-primary"
                 [disabled]="!subsetName || subsetName.trim().length == 0"
                 (click)="subsetInputSearch($event)">Search</button>

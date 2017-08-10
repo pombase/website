@@ -47,6 +47,7 @@ export interface QueryNodeConfig {
   subsetPrefix?: string;
   terms?: Array<QueryNodeTermConfig>;
   subsets?: Array<QueryNodeSubsetConfig>;
+  placeholder?: string;
 }
 
 export interface QueryBuilderConfig {
@@ -478,6 +479,7 @@ let _appConfig: AppConfig = {
         displayName: 'Protein domain',
         nodeType: 'subset-input',
         subsetPrefix: null,
+        placeholder: 'eg. PF02373 or IPR001138',
       },
       {
         id: 'product_type',
