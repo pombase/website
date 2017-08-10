@@ -631,7 +631,7 @@ let _appConfig: AppConfig = {
       },
       {
         id: 'exon_count',
-        displayName: 'Number coding exons',
+        displayName: 'Coding exons',
         nodeType: 'int-range',
       },
 // ignore until we can select the chromosome too:
