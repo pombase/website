@@ -88,6 +88,7 @@ export class GeneBoolNode extends GeneQueryNode {
 export class GeneListNode extends GeneQueryNode {
   constructor(public genes: Array<GeneUniquename>) {
     super();
+    this.genes = this.genes.sort();
   };
 
   toObject(): Object {
