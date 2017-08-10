@@ -131,24 +131,61 @@ export class TermNode extends GeneQueryNode {
     return this.singleOrMultiAllele;
   }
 
-  toObject(): Object {
-    let singleOrMultiAllele =
-      this.singleOrMultiAllele ?
-      this.singleOrMultiAllele.toString().toLowerCase() :
-      null;
+  private singleOrMultiString(): string {
+    if (this.singleOrMultiAllele) {
+      if (this.singleOrMultiAllele === TermAlleleSingleOrMulti.Both) {
+        return 'single and multi';
+      }
+      return this.singleOrMultiAllele.toString().toLowerCase()
+    }
+    return null;
+  }
 
+  private expressionString(): string {
+    if (this.expression) {
+      switch (this.expression) {
+      case 'wt-overexpressed':
+        return 'Overexpressed wild-type';
+      case 'null':
+        return 'Null expression';
+      }
+    }
+    return null;
+  }
+
+  toObject(): Object {
+    const expression =
+      this.singleOrMultiAllele == TermAlleleSingleOrMulti.Single ?
+      this.expression :
+      null;
     return {
       term: {
         termid: this.termid,
         name: this.termName,
-        single_or_multi_allele: singleOrMultiAllele,
-        expression: this.expression
+        single_or_multi_allele: this.singleOrMultiString(),
+        expression: expression,
       }
     };
   }
 
   toString(): string {
-    return `${this.termName} ${this.termid}`;
+    let ret = this.termName + ' (' + this.termid + ')';
+    const singleOrMultiString = this.singleOrMultiString();
+    const expressionString = this.expressionString();
+    if (singleOrMultiString || expressionString) {
+      ret += ' [';
+      if (this.singleOrMultiAllele == TermAlleleSingleOrMulti.Single && expressionString) {
+        ret += expressionString;
+        if (singleOrMultiString) {
+          ret += ' - '
+        }
+      }
+      if (singleOrMultiString) {
+        ret += singleOrMultiString + ' allele genotypes';
+      }
+      ret += ']'
+    }
+    return ret;
   }
 }
 
