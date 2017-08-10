@@ -10,13 +10,13 @@
     <span class="no-wrap-span">
     <input id="single-allele" type="checkbox" [(ngModel)]="singleAllele"
            title="Include genes from single-allele genotypes"
-           (ngModelChange)="singleMultiChange()"/>
+           (ngModelChange)="singleMultiChange('single')"/>
     <label for="single-allele">Single-allele genotypes</label>
     </span>
     <span class="no-wrap-span">
     <input id="multi-allele" type="checkbox" [(ngModel)]="multiAllele"
            title="Include genes from multi-allele genotypes"
-           (ngModelChange)="singleMultiChange()"/>
+           (ngModelChange)="singleMultiChange('multi')"/>
     <label for="multi-allele">Multi-allele</label>
     </span>
   </div>
@@ -39,5 +39,6 @@
 </div>
 
 <div class="buttons">
-  <button [disabled]="!isValid()" class="btn btn-primary" (click)="submit()">Submit</button>
+  <button [disabled]="!isValid()" [attr.title]="submitTitle()"
+          class="btn btn-primary" (click)="submit()">Submit</button>
 </div>

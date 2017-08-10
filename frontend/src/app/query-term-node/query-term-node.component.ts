@@ -21,21 +21,29 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  singleMultiChange() {
-    if (!this.singleAllele) {
+  singleMultiChange(buttonType: string) {
+    if (buttonType === 'single' && !this.multiAllele) {
       this.multiAllele = true;
     }
-    if (!this.multiAllele) {
+    if (buttonType === 'multi' && !this.singleAllele) {
       this.singleAllele = true;
     }
 
     if (this.multiAllele) {
-      this.expression = null;
+      this.expression = 'any';
     }
   }
 
   termMatched(term: TermShort) {
     this.selectedTerm = term;
+  }
+
+  submitTitle(): string {
+    if (this.selectedTerm) {
+      return '';
+    } else {
+      return 'Start typing to select a term';
+    }
   }
 
   isValid(): boolean {
