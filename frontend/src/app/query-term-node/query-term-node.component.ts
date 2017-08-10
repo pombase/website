@@ -28,6 +28,10 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
     if (!this.multiAllele) {
       this.singleAllele = true;
     }
+
+    if (this.multiAllele) {
+      this.expression = null;
+    }
   }
 
   termMatched(term: TermShort) {
