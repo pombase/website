@@ -307,6 +307,8 @@ let nextQueryId = 0;
 export class GeneQuery {
   private queryTopNode: GeneQueryNode;
   private queryId: number;
+  private name: string;
+  private stringQuery: string;
 
   private makeNode(parsedJson: any): GeneQueryNode {
     const keys = Object.keys(parsedJson);
@@ -356,6 +358,13 @@ export class GeneQuery {
       }
       this.queryTopNode = this.makeNode(arg);
     }
+
+    this.name = null;
+    this.stringQuery = this.getTopNode().toString();
+  }
+
+  public equals(query: GeneQuery): boolean {
+    return this.toString() == query.toString();
   }
 
   public getQueryId(): number {
@@ -377,6 +386,6 @@ export class GeneQuery {
   }
 
   public toString(): string {
-    return this.getTopNode().toString();
+    return this.stringQuery;
   }
 }

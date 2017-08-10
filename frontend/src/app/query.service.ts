@@ -15,7 +15,6 @@ export class QueryService {
   private apiUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest';
 
   private history: Array<GeneQuery> = [];
-
   private subject: Subject<Array<GeneQuery>> = new Subject();
 
   constructor(private http: Http) {
@@ -67,7 +66,14 @@ export class QueryService {
     localStorage.setItem(localStorageKey, JSON.stringify(historyObjects));
   }
 
+  private deleteExisting(query: GeneQuery) {
+    this.history = this.history.filter(histQuery => {
+      return !histQuery.equals(query);
+    });
+  }
+
   saveToHistory(query: GeneQuery) {
+    this.deleteExisting(query);
     this.history.unshift(query);
     this.subject.next(this.history);
     this.saveHistory();
