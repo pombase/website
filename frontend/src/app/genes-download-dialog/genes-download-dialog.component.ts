@@ -29,7 +29,11 @@ export class GenesDownloadDialogComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               public bsModalRef: BsModalRef) {}
 
-  rowsAsTSV(rows: Array<Array<string>>): string {
+  selectAll() {
+    this.fieldNames.map(name => this.fields[name] = true);
+  }
+
+  private rowsAsTSV(rows: Array<Array<string>>): string {
     return rows.map((row) => row.join('\t')).join('\n');
   }
 
@@ -39,7 +43,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     saveAs(blob, fileName);
   }
 
-  displayFeatureType(geneSummary: GeneSummary): string {
+  private displayFeatureType(geneSummary: GeneSummary): string {
     if (geneSummary.feature_type === 'mRNA gene') {
       return 'protein coding';
     } else {
