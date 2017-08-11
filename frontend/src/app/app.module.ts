@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
-import { TypeaheadModule, PaginationModule, PopoverModule } from 'ng2-bootstrap';
-import { ButtonsModule } from 'ng2-bootstrap/buttons';
-import { BsDropdownModule } from 'ng2-bootstrap/dropdown';
+import { TypeaheadModule, PaginationModule, PopoverModule } from 'ngx-bootstrap';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { MarkdownModule } from 'angular2-markdown';
 
 import { AppComponent } from './app.component';

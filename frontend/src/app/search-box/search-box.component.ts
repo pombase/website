@@ -5,7 +5,7 @@ import 'rxjs/add/observable/of';
 
 import { PombaseAPIService, GeneSummary } from '../pombase-api.service';
 
-import { TypeaheadMatch } from 'ng2-bootstrap/typeahead/typeahead-match.class';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 
 interface Model extends GeneSummary {
   searchData: string;
