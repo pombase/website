@@ -133,21 +133,21 @@ export class SearchBoxComponent implements OnInit {
         for (let geneSumm of this.geneSummaries) {
           let match = this.nameExactMatch(geneSumm, value);
           if (match) {
-            console.log("nameExactMatch() match: " + JSON.stringify(match));
+            console.log('nameExactMatch() match: ' + JSON.stringify(match));
             filteredSummaries.push(match);
           }
         }
         for (let geneSumm of this.geneSummaries) {
           let match = this.synonymExactMatch(geneSumm, value);
           if (match) {
-            console.log("synonymExactMatch() match: " + JSON.stringify(match));
+            console.log('synonymExactMatch() match: ' + JSON.stringify(match));
             filteredSummaries.push(match);
           }
         }
         for (let geneSumm of this.geneSummaries) {
           let match = this.orthologExactMatch(geneSumm, value);
           if (match) {
-            console.log("orth match: " + JSON.stringify(match));
+            console.log('orth match: ' + JSON.stringify(match));
             filteredSummaries.push(match);
           }
         }
