@@ -1,0 +1,39 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Download options</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Download systematic ID and:
+    <div>
+        <input id="name" type="checkbox" [(ngModel)]="fields['Name']"/>
+        <label for="name">Name</label>
+    </div>
+    <div>
+        <input id="name" type="checkbox" [(ngModel)]="fields['Synonyms']"/>
+        <label for="name">Synonyms</label>
+    </div>
+    <div>
+        <input id="name" type="checkbox" [(ngModel)]="fields['Feature type']"/>
+        <label for="name">Feature type</label>
+    </div>
+    <div>
+        <input id="name" type="checkbox" [(ngModel)]="fields['Start position']"/>
+        <label for="name">Start position</label>
+    </div>
+    <div>
+        <input id="name" type="checkbox" [(ngModel)]="fields['End position']"/>
+        <label for="name">End position</label>
+    </div>
+    <div>
+        <input id="name" type="checkbox" [(ngModel)]="fields['Strand']"/>
+        <label for="name">Strand</label>
+    </div>
+    <a (click)="selectAll()">Select all ...</a>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="download()">Download</button>
+  </div>
+</div>

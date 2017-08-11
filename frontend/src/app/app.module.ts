@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TypeaheadModule, PaginationModule, PopoverModule } from 'ngx-bootstrap';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { MarkdownModule } from 'angular2-markdown';
 
 import { AppComponent } from './app.component';
@@ -79,6 +80,7 @@ import { MainNavBarComponent } from './main-nav-bar/main-nav-bar.component';
 import { QueryTermNodeComponent } from './query-term-node/query-term-node.component';
 import { QueryLinkComponent } from './query-link/query-link.component';
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
+import { GenesDownloadDialogComponent } from './genes-download-dialog/genes-download-dialog.component';
 
 export function documentFactory() {
     return document;
@@ -156,6 +158,7 @@ export function windowFactory() {
     QueryTermNodeComponent,
     QueryLinkComponent,
     PredefinedQueryResultsComponent,
+    GenesDownloadDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -169,7 +172,9 @@ export function windowFactory() {
     PopoverModule.forRoot(),
     Ng2SimplePageScrollModule.forRoot(),
     MarkdownModule.forRoot(),
+    ModalModule.forRoot(),
   ],
+  entryComponents: [GenesDownloadDialogComponent],
   providers: [PombaseAPIService,
               { provide: 'Window', useValue: window },
               { provide: 'Document', useFactory: documentFactory },
