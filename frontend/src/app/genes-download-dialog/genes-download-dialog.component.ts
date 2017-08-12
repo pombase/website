@@ -13,14 +13,15 @@ import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.servic
 export class GenesDownloadDialogComponent implements OnInit {
   public genes: Array<GeneShort>;
 
-  private fieldNames = ['Systematic ID', 'Name', 'Product', 'Synonyms', 'Feature type',
-                        'Start position', 'End position', 'Strand'];
+  fieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
+                'Synonyms', 'Feature type', 'Start position', 'End position', 'Strand'];
   fields = {'Systematic ID': true};
   fieldValGenerators = {
     'Systematic ID': g => g.uniquename,
     'Name': g => g.name || '',
     'Synonyms': g => g.synonyms.join(','),
-    'Product': g => g.product,
+    'Product description': g => g.product,
+    'UniProt ID': g => g.uniprot_identifier,
     'Feature type': g => this.displayFeatureType(g),
     'Start position': g => String(g.location.start_pos),
     'End position': g => String(g.location.end_pos),
@@ -50,6 +51,15 @@ export class GenesDownloadDialogComponent implements OnInit {
     } else {
       return geneSummary.feature_type;
     }
+  }
+
+  isValid() {
+    for (let fieldName of this.fieldNames) {
+      if (this.fields[fieldName]) {
+        return true;
+      }
+    }
+    return false;
   }
 
   download() {

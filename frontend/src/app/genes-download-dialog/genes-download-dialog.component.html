@@ -6,38 +6,15 @@
     </button>
   </div>
   <div class="modal-body">
-    Download systematic ID and:
-    <div>
-        <input id="name" type="checkbox" [(ngModel)]="fields['Name']"/>
-        <label for="name">Name</label>
-    </div>
-    <div>
-        <input id="name" type="checkbox" [(ngModel)]="fields['Synonyms']"/>
-        <label for="name">Synonyms</label>
-    </div>
-    <div>
-        <input id="name" type="checkbox" [(ngModel)]="fields['Product']"/>
-        <label for="name">Product</label>
-    </div>
-    <div>
-        <input id="name" type="checkbox" [(ngModel)]="fields['Feature type']"/>
-        <label for="name">Feature type</label>
-    </div>
-    <div>
-        <input id="name" type="checkbox" [(ngModel)]="fields['Start position']"/>
-        <label for="name">Start position</label>
-    </div>
-    <div>
-        <input id="name" type="checkbox" [(ngModel)]="fields['End position']"/>
-        <label for="name">End position</label>
-    </div>
-    <div>
-        <input id="name" type="checkbox" [(ngModel)]="fields['Strand']"/>
-        <label for="name">Strand</label>
+    <div *ngFor="let fieldName of fieldNames">
+      <input  id="name" type="checkbox" [(ngModel)]="fields[fieldName]"/>
+      <label for="name">{{fieldName}}</label>
     </div>
     <a (click)="selectAll()">Select all ...</a>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="download()">Download</button>
+    <button type="button" class="btn btn-default" [disabled]="!isValid()"
+            [attr.title]="isValid() ? 'Start download' : 'Select at least one column to download'"
+            (click)="download()">Download</button>
   </div>
 </div>
