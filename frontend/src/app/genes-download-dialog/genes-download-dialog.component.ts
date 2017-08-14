@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 
 import { saveAs } from 'file-saver';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import { TabsetComponent } from 'ngx-bootstrap';
+
+import { GeneQuery, GeneListNode, QueryOutputOptions, FormatUtils,
+         FormatTypes } from '../pombase-query';
+import { QueryService } from '../query.service';
 
 import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.service';
 
@@ -11,6 +16,8 @@ import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.servic
   styleUrls: ['./genes-download-dialog.component.css']
 })
 export class GenesDownloadDialogComponent implements OnInit {
+  @ViewChild('downloadTabs') staticTabs: TabsetComponent;
+
   public genes: Array<GeneShort>;
 
   fieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
@@ -29,7 +36,16 @@ export class GenesDownloadDialogComponent implements OnInit {
   };
 
   constructor(private pombaseApiService: PombaseAPIService,
+              private queryService: QueryService,
               public bsModalRef: BsModalRef) {}
+
+  private currentTab(): string {
+    if (this.staticTabs.tabs[0].active) {
+      return 'delimited';
+    } else {
+      return 'sequence';
+    }
+  }
 
   selectAll() {
     this.fieldNames.map(name => this.fields[name] = true);
@@ -78,7 +94,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     return this.fieldNames.filter((name) => this.fields[name]);
   }
 
-  download() {
+  private downloadDelimited() {
     const selectedFields = this.selectedFieldNames();
 
     this.pombaseApiService.getGeneSummariesByUniquename()
@@ -94,6 +110,28 @@ export class GenesDownloadDialogComponent implements OnInit {
         }
         this.doDownload(rows);
       });
+  }
+
+  private downloadSequence() {
+    const geneUniquenames = this.genes.map(g => g.uniquename);
+    const query = new GeneQuery(new GeneListNode(geneUniquenames));
+    const outputOptions = new QueryOutputOptions(['gene_uniquename'], 'protein');
+    this.queryService.postQuery(query, outputOptions)
+      .subscribe((results) => {
+        const fileName = 'sequence.fasta';
+        const formattedSequence =
+          FormatUtils.formatQueryResults(results, FormatTypes.FASTA);
+        const blob = new Blob([formattedSequence], { type: 'text' });
+        saveAs(blob, fileName);
+      });
+  }
+
+  download() {
+    if (this.currentTab() === 'delimited') {
+      this.downloadDelimited();
+    } else {
+      this.downloadSequence();
+    }
 
     this.bsModalRef.hide();
   }

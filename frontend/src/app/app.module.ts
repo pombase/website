@@ -8,6 +8,8 @@ import { TypeaheadModule, PaginationModule, PopoverModule } from 'ngx-bootstrap'
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 import { MarkdownModule } from 'angular2-markdown';
 
 import { AppComponent } from './app.component';
@@ -169,6 +171,7 @@ export function windowFactory() {
     PaginationModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
     PopoverModule.forRoot(),
     Ng2SimplePageScrollModule.forRoot(),
     MarkdownModule.forRoot(),

@@ -6,13 +6,24 @@
     </button>
   </div>
   <div class="modal-body">
+    <tabset #downloadTabs>
+      <tab heading="Tab delimited">
     <div *ngFor="let fieldName of fieldNames">
       <input  id="name" type="checkbox" [(ngModel)]="fields[fieldName]"
               (ngModelChange)="fieldChange(fieldName)"/>
       <label for="name">{{fieldName}}</label>
     </div>
-    <a (click)="selectAll()">Select all ...</a>
-  </div>
+    <a (click)="selectAll()">Select all ...</a> 
+
+      </tab>
+      <tab heading="Sequence">
+        <input id="protein" type="radio" [(ngModel)]="seqType" value="protein"/>
+        <label for="protein">Protein</label>
+        <input id="nucleotide" type="radio" [(ngModel)]="seqType" value="nucleotide"/>
+        <label for="nucleotide">Protein</label>
+      </tab>
+    </tabset>
+ </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" [disabled]="!isValid()"
             [attr.title]="isValid() ? 'Start download' : 'Select at least one column to download'"

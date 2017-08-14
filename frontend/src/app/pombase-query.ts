@@ -1,11 +1,33 @@
+import { Util } from './util';
+
 export interface ResultRow {
   gene_uniquename: string;
+  sequence?: string;
 }
 
 export class QueryResult {
   constructor(
     public status: string,
     public rows: ResultRow[]) { }
+}
+
+export enum FormatTypes {
+  FASTA,
+}
+
+export class FormatUtils {
+  public static formatQueryResults(results: QueryResult, format: FormatTypes) {
+    let ret = '';
+    for (const row of results.rows) {
+      if (format === FormatTypes.FASTA) {
+        ret += '>' + row.gene_uniquename + '\n';
+        ret += Util.splitSequenceString(row.sequence);
+        ret += '\n';
+      }
+    }
+
+    return ret;
+  }
 }
 
 export class TermShort {
