@@ -19,6 +19,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   @ViewChild('downloadTabs') staticTabs: TabsetComponent;
 
   public genes: Array<GeneShort>;
+  public seqType = 'protein';
 
   fieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
                 'Synonyms', 'Feature type', 'Start position', 'End position', 'Strand'];
