@@ -35,6 +35,18 @@ export class GenesDownloadDialogComponent implements OnInit {
     this.fieldNames.map(name => this.fields[name] = true);
   }
 
+  fieldChange(fieldName) {
+    const selectedFields = this.selectedFieldNames();
+
+    if (selectedFields.length === 0) {
+      if (fieldName === 'Systematic ID') {
+        this.fields['Name'] = true;
+      } else {
+        this.fields['Systematic ID'] = true;
+      }
+    }
+  }
+
   private rowsAsTSV(rows: Array<Array<string>>): string {
     return rows.map((row) => row.join('\t')).join('\n');
   }
@@ -62,17 +74,20 @@ export class GenesDownloadDialogComponent implements OnInit {
     return false;
   }
 
+  private selectedFieldNames(): Array<string> {
+    return this.fieldNames.filter((name) => this.fields[name]);
+  }
+
   download() {
-    const selectedFieldNames =
-      this.fieldNames.filter((name) => this.fields[name]);
+    const selectedFields = this.selectedFieldNames();
 
     this.pombaseApiService.getGeneSummariesByUniquename()
       .then((geneSummaries) => {
-        let rows: Array<Array<string>> = [selectedFieldNames];
+        let rows: Array<Array<string>> = [selectedFields];
         for (const gene of this.genes) {
           const geneSummary = geneSummaries[gene.uniquename];
           let row = [];
-          for (const fieldName of selectedFieldNames) {
+          for (const fieldName of selectedFields) {
             row.push(this.fieldValGenerators[fieldName](geneSummary));
           }
           rows.push(row);

@@ -7,7 +7,8 @@
   </div>
   <div class="modal-body">
     <div *ngFor="let fieldName of fieldNames">
-      <input  id="name" type="checkbox" [(ngModel)]="fields[fieldName]"/>
+      <input  id="name" type="checkbox" [(ngModel)]="fields[fieldName]"
+              (ngModelChange)="fieldChange(fieldName)"/>
       <label for="name">{{fieldName}}</label>
     </div>
     <a (click)="selectAll()">Select all ...</a>
