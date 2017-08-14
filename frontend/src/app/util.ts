@@ -91,7 +91,7 @@ export class Util {
   }
 
   static splitSequenceString(seq: string): string {
-    return seq.replace(/(.{60})/g, '$1\n');
+    return seq.replace(/(.{60})(?=.)/g, '$1\n');
   }
 
   static reverseComplement(seq: string): string {
