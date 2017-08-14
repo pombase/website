@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { GeneQuery, GeneQueryNode, QueryResult, TermNode } from '../pombase-query';
+import { GeneQuery, GeneQueryNode, QueryResult, TermNode,
+         QueryOutputOptions } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { getAppConfig } from '../config';
@@ -69,7 +70,8 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     if (saveToHistory) {
       this.queryService.saveToHistory(this.query);
     }
-    this.queryService.postQuery(this.query)
+    const outputOptions = new QueryOutputOptions(['gene_uniquename'], 'none');
+    this.queryService.postQuery(this.query, outputOptions)
       .subscribe((results) => {
         this.results = results;
         this.resultsDescription = 'Results for: ' + queryAsString;
