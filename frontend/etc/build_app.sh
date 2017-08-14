@@ -40,7 +40,7 @@ export release=`jq -r .release release_config.json`
 
 perl -pne 's/<<APP_BASE_URL>>/$ENV{"base_url"}/; s/<<GOOGLE_ANALYTICS_ID>>/$ENV{"analytics_id"}/; ' src/index.html.template > src/index.html
 
-ABBREVS="AGI_LocusCode CDD DDJB EC ECOGENE EMBL ENSEMBL FB GEO GO Gene3D HAMAP InterPro JCVI_TIGRFAMS MGI ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam ProDom Prosite QuickGO RGD SFLD SGD SMART SO SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB dictyBase"
+ABBREVS="AGI_LocusCode CDD DDJB EC ECOGENE EMBL ENSEMBL FB GEO GO Gene3D HAMAP InterPro iPTMnet JCVI_TIGRFAMS MGI ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam ProDom Prosite QuickGO RGD SFLD SGD SMART SO SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB dictyBase"
 
 (cd /var/pomcur/sources/go-svn/; svn update)
 
