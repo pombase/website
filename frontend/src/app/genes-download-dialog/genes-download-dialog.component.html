@@ -23,7 +23,25 @@
         </div>
         <div>
           <input id="nucleotide" type="radio" [(ngModel)]="seqType" value="nucleotide"/>
-          <label for="nucleotide">Protein</label>
+          <label for="nucleotide">Nucleotide</label>
+          <div *ngIf="seqType == 'nucleotide'" class="nucleotide-options">
+            <div class="title">
+              CDS sequence and:
+            </div>
+
+            <div>
+              <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"/>
+              <label for="include-5-prime">Include 5'UTR</label>
+            </div>
+            <div>
+              <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"/>
+              <label for="include-introns">Include introns</label>
+            </div>
+            <div>
+              <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"/>
+              <label for="include-3-prime">Include 3'UTR</label>
+            </div>
+          </div>
         </div>
       </tab>
     </tabset>

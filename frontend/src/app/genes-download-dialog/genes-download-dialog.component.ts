@@ -20,6 +20,9 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   public genes: Array<GeneShort>;
   public seqType = 'protein';
+  public includeIntrons = false;
+  public include5PrimeUtr = false;
+  public include3PrimeUtr = false;
 
   fieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
                 'Synonyms', 'Feature type', 'Start position', 'End position', 'Strand'];
@@ -113,10 +116,25 @@ export class GenesDownloadDialogComponent implements OnInit {
       });
   }
 
+  private seqDownloadOptions(): any {
+    if (this.seqType === 'protein') {
+      return 'protein';
+    } else {
+      return {
+        nucleotide: {
+          include_introns: this.includeIntrons,
+          include_5_prime_utr: this.include5PrimeUtr,
+          include_3_prime_utr: this.include3PrimeUtr,
+        },
+      };
+    }
+  }
+
   private downloadSequence() {
     const geneUniquenames = this.genes.map(g => g.uniquename);
     const query = new GeneQuery(new GeneListNode(geneUniquenames));
-    const outputOptions = new QueryOutputOptions(['gene_uniquename'], 'protein');
+    let seqOptions = this.seqDownloadOptions();
+    const outputOptions = new QueryOutputOptions(['gene_uniquename'], seqOptions);
     this.queryService.postQuery(query, outputOptions)
       .subscribe((results) => {
         const fileName = 'sequence.fasta';
