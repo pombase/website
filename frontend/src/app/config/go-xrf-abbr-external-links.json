@@ -208,6 +208,12 @@
       "name" : "dictyBase",
       "url_syntax" : "http://dictybase.org/gene/[example_id]",
       "website" : "http://dictybase.org"
+   },
+   "iPTMnet" : {
+      "description" : "iPTMnet protein post-translational modification database",
+      "name" : "iPTMnet",
+      "url_syntax" : "http://annotation.dbi.udel.edu/iptmnet/entry/[example_id]/",
+      "website" : "http://annotation.dbi.udel.edu/iptmnet/"
    }
 }
 
