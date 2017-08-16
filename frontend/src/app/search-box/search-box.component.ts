@@ -49,7 +49,9 @@ export class SearchBoxComponent implements OnInit {
   }
 
   nameMatch(geneSumm: GeneSummary, value: string): DisplayModel {
-    if (geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1) {
+    if (geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1 &&
+        (geneSumm.name.indexOf('-antisense-') === -1 ||
+         value.indexOf('antisense') !== -1)) { // See #409
       return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
     } else {
       return null;
@@ -58,6 +60,16 @@ export class SearchBoxComponent implements OnInit {
 
   identifierMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     if (geneSumm.uniquename.toLowerCase().indexOf(value) !== -1) {
+      return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
+    } else {
+      return null;
+    }
+  }
+
+  antisenseNameMatch(geneSumm: GeneSummary, value: string): DisplayModel {
+    if (geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1 &&
+        geneSumm.name.indexOf('-antisense-') !== -1 &&
+        value.indexOf('antisense') === -1) { // See #409
       return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
     } else {
       return null;
@@ -164,6 +176,13 @@ export class SearchBoxComponent implements OnInit {
             if (match && filteredSummaries.length < 20) {
               filteredSummaries.push(match);
             }
+          }
+        }
+        for (let geneSumm of this.geneSummaries) {
+          let match = this.antisenseNameMatch(geneSumm, value);
+          if (match && filteredSummaries.length < 20 &&
+              !this.containsMatch(filteredSummaries, match)) {
+            filteredSummaries.push(match);
           }
         }
         if (filteredSummaries.length < 20) {
