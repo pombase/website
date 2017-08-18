@@ -1,8 +1,8 @@
 .deletion-viability-status {
   position: relative;
   padding: 5px;
-  border: 1px solid #707070;
-  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #bbb;
+  border-radius: 2px;
 }
 
 .inviable {

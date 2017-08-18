@@ -46,11 +46,10 @@ a {
 }
 
 .annotation-table, .annotation-table legend, .genes-table, .genes-table legend, .genotypes-table, .genotypes-table legend {
-  border-radius: 5px;
+  border-radius: 2px;
   border-style: solid;
   border-width: 1px;
-  border-radius: 5px;
-  border-color: #707070;
+  border-color: #bbb;
   background-color: #F9F9F9;
 }
 
