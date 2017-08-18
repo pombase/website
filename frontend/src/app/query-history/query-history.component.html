@@ -1,32 +1,34 @@
-<div class="query-history" *ngIf="historyItems.length > 0">
+<div class="query-history" *ngIf="historyEntries.length > 0">
   <span class="title">History</span>
 
   <div class="content">
     <span class="op-buttons">
-    <span *ngIf="getSelectedQueries().length < 2">
+    <span *ngIf="getSelectedEntries().length < 2">
       <button class="btn btn-primary" disabled title="Select two or more queries to union">Union <img src="assets/disabled_operator_or.png"/></button>
       <button class="btn btn-primary" disabled title="Select two or more queries to intersect">Intersect <img src="assets/disabled_operator_and.png"/></button>
     </span>
-    <span *ngIf="getSelectedQueries().length >= 2">
+    <span *ngIf="getSelectedEntries().length >= 2">
       <button class="btn btn-primary" (click)="action('or')">Union <img src="assets/operator_or.png"/></button>
       <button class="btn btn-primary" (click)="action('and')">Intersect <img src="assets/operator_and.png"/></button>
     </span>
-    <span *ngIf="getSelectedQueries().length != 2">
+    <span *ngIf="getSelectedEntries().length != 2">
       <button class="btn btn-primary" disabled title="Select two query for subtract">Subtract <img src="assets/disabled_operator_not.png"/></button>
     </span>
-    <span *ngIf="getSelectedQueries().length == 2">
+    <span *ngIf="getSelectedEntries().length == 2">
       <button class="btn btn-primary" (click)="action('not')">Subtract <img src="assets/operator_not.png"/></button>
     </span>
     </span>
 
     <span>
-      <button [disabled]="getSelectedQueries().length == 0" class="btn btn-primary delete-queries" (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
+      <button [disabled]="getSelectedEntries().length == 0" class="btn btn-primary delete-queries" (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
     </span>
-  <table>
-    <tr *ngFor="let histItem of historyItems">
+  <table class="history-table">
+    <tr *ngFor="let histEntry of historyEntries">
       <td>
-        <input [(ngModel)]="histItem.checked" type="checkbox"/>
-        <a (click)="queryClick(histItem)">{{histItem.query.toString()}}</a>
+        <input [(ngModel)]="histEntry.checked" type="checkbox"/>
+      </td>
+      <td>
+        <a (click)="queryClick(histEntry)">{{histEntry.getQuery().toString()}}</a>
       </td>
     </tr>
   </table>

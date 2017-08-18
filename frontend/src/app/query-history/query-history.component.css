@@ -16,3 +16,7 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+.history-table td {
+  vertical-align: top;
+}

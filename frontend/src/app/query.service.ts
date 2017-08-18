@@ -10,12 +10,32 @@ function makeResults(resultsObject: any): QueryResult {
 
 const localStorageKey = 'pombase-query-build-history-v1';
 
+export class HistoryEntry {
+  checked = false;
+
+  constructor(private query: GeneQuery, private resultCount: number) {};
+
+  getQuery(): GeneQuery {
+    return this.query;
+  }
+
+  getResultCount(): number {
+    return this.resultCount;
+  }
+
+  toObject(): Object {
+    let o = this.query.toObject();
+    o.resultCount = this.resultCount;
+    return o;
+  }
+}
+
 @Injectable()
 export class QueryService {
   private apiUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest';
 
-  private history: Array<GeneQuery> = [];
-  private subject: Subject<Array<GeneQuery>> = new Subject();
+  private history: Array<HistoryEntry> = [];
+  private subject: Subject<Array<HistoryEntry>> = new Subject();
 
   constructor(private http: Http) {
     try {
@@ -25,7 +45,9 @@ export class QueryService {
 
         for (let o of JSON.parse(savedHistoryString)) {
           try {
-            this.history.push(new GeneQuery(o.constraints));
+            const query = new GeneQuery(o.constraints);
+            const entry = new HistoryEntry(query, o.resultCount);
+            this.history.push(entry);
           } catch (e) {
             console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
           }
@@ -64,35 +86,37 @@ export class QueryService {
   }
 
   private saveHistory() {
-    let historyObjects = this.history.map((q) => q.toObject());
+    let historyObjects = this.history.map((e) => e.toObject());
     localStorage.setItem(localStorageKey, JSON.stringify(historyObjects));
   }
 
   private deleteExisting(query: GeneQuery) {
-    this.history = this.history.filter(histQuery => {
-      return !histQuery.equals(query);
+    this.history = this.history.filter(histEntry => {
+      return !histEntry.getQuery().equals(query);
     });
   }
 
-  saveToHistory(query: GeneQuery) {
+  saveToHistory(query: GeneQuery, resultCount: number) {
     this.deleteExisting(query);
-    this.history.unshift(query);
+    const entry = new HistoryEntry(query, resultCount);
+    this.history.unshift(entry);
     this.subject.next(this.history);
     this.saveHistory();
   }
 
-  getHistory(): Array<GeneQuery> {
+  getHistory(): Array<HistoryEntry> {
     return this.history;
   }
 
-  getHistoryChanges(): Subject<Array<GeneQuery>> {
+  getHistoryChanges(): Subject<Array<HistoryEntry>> {
     return this.subject;
   }
 
-  removeFromHistory(...queries: Array<GeneQuery>) {
+  removeFromHistory(...entries: Array<HistoryEntry>) {
+    let removeQueries = entries.map(e => e.getQuery());
     this.history =
-      this.history.filter((histQuery: GeneQuery) => {
-        return queries.indexOf(histQuery) === -1;
+      this.history.filter((entry: HistoryEntry) => {
+        return removeQueries.indexOf(entry.getQuery()) === -1;
       });
     this.subject.next(this.history);
     this.saveHistory();

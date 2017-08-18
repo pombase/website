@@ -67,12 +67,13 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
       this.showLoading = true;
     });
     let queryAsString = this.query.toString();
-    if (saveToHistory) {
-      this.queryService.saveToHistory(this.query);
-    }
+
+    const thisQuery = this.query;
+
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], 'none');
     this.queryService.postQuery(this.query, outputOptions)
       .subscribe((results) => {
+        this.queryService.saveToHistory(thisQuery, results.rows.length);
         this.results = results;
         this.resultsDescription = 'Results for: ' + queryAsString;
         this.timerSubscription.unsubscribe();
