@@ -20,7 +20,11 @@ export class HistoryEntry {
   }
 
   getResultCount(): number {
-    return this.resultCount;
+    if (this.resultCount === undefined || this.resultCount === null) {
+      return null;
+    } else {
+      return this.resultCount;
+    }
   }
 
   toObject(): Object {

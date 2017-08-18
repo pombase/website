@@ -1,4 +1,4 @@
-.query-node-add, .query-history {
+.query-node-add {
   clear: left;
   float: left;
   width: 49%;
@@ -7,6 +7,12 @@
 .query-results {
   float: right;
   width: 49%;
+  height: 24em;
+  overflow-y: scroll;
+}
+
+.query-history {
+  clear: both;
 }
 
 .query-clear {

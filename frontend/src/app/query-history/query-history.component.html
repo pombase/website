@@ -23,14 +23,31 @@
       <button [disabled]="getSelectedEntries().length == 0" class="btn btn-primary delete-queries" (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
     </span>
   <table class="history-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Query</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
     <tr *ngFor="let histEntry of historyEntries">
       <td>
         <input [(ngModel)]="histEntry.checked" type="checkbox"/>
       </td>
       <td>
-        <a (click)="queryClick(histEntry)">{{histEntry.getQuery().toString()}}</a>
+        {{histEntry.getQuery().toString()}}
+      </td>
+      <td class="result-count">
+        <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== null">
+          {{histEntry.getResultCount()}}
+        </a>
+        <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() === null">
+          Results ...
+        </a>
       </td>
     </tr>
+    </tbody>
   </table>
   </div>
 </div>
