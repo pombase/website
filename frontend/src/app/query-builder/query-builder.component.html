@@ -1,11 +1,8 @@
 <div>
-  <div class="query-results">
-    <div *ngIf="!results && showLoading" class="query-running-spinner">
-      <app-loading-spinner></app-loading-spinner>
-    </div>
-    <app-gene-results *ngIf="results" [description]="resultsDescription"
-                      [results]="results"></app-gene-results>
+  <div *ngIf="!results && showLoading" class="query-running-spinner">
+    <app-loading-spinner></app-loading-spinner>
   </div>
+  <div *ngIf="!results">
   <div class="query-node-add">
     <div>
       <span class="query-title">Query</span>
@@ -13,7 +10,13 @@
     <app-query-node (nodeEvent)="nodeEvent($event)"></app-query-node>
   </div>
   <div class="query-history">
-    <app-query-history (newQuery)="newQuery($event)"
-                       (gotoQuery)="gotoQuery($event)"></app-query-history>
+    <app-query-history (gotoResults)="gotoResults($event)"></app-query-history>
+  </div>
+  </div>
+  <div *ngIf="results">
+    <button class="btn btn-primary" title="Back to query builder"
+            (click)="resetQuery()">&lt;- Back</button>
+    <app-gene-results [description]="resultsDescription"
+                      [results]="results"></app-gene-results>
   </div>
 </div>

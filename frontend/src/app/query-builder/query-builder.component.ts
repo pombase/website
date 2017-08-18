@@ -34,7 +34,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     this.route.params.forEach((params: Params) => {
       if (params['predefinedQueryName']) {
         const query = getAppConfig().getPredefinedQuery(params['predefinedQueryName']);
-        this.newQuery(query);
+        this.gotoResults(query);
       } else {
         let fromType = params['type'];
         let termId = params['id'];
@@ -55,11 +55,12 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     }
 
     if (newQuery) {
-      this.newQuery(newQuery);
+      this.gotoResults(newQuery);
     }
   }
 
-  doQuery(saveToHistory: boolean) {
+  gotoResults(query: GeneQuery) {
+    this.query = query;
     this.results = null;
     this.showLoading = false;
     let timer = TimerObservable.create(400);
@@ -82,24 +83,17 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
       });
   }
 
-  newQuery(newQuery: GeneQuery) {
-    this.query = newQuery;
-    this.doQuery(true);
-  }
-
-  gotoQuery(query: GeneQuery) {
-    this.query = query;
-    this.doQuery(false);
+  saveQuery(query: GeneQuery) {
+    this.queryService.postQueryCount(query)
+      .subscribe((count) => {
+        this.queryService.saveToHistory(query, count);
+      });
   }
 
   nodeEvent(part: GeneQueryNode) {
     if (part) {
-      this.query = new GeneQuery(part);
-      this.doQuery(true);
-    } else {
-      this.query = null;
-      this.results = null;
-      this.resultsDescription = '';
+      const query = new GeneQuery(part);
+      this.saveQuery(query);
     }
   }
 

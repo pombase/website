@@ -9,8 +9,7 @@ import { GeneQuery, GeneBoolNode } from '../pombase-query';
   styleUrls: ['./query-history.component.css']
 })
 export class QueryHistoryComponent implements OnInit, OnDestroy {
-  @Output() gotoQuery = new EventEmitter<GeneQuery>();
-  @Output() newQuery = new EventEmitter<GeneQuery>();
+  @Output() gotoResults = new EventEmitter<GeneQuery>();
 
   historyEntries: Array<HistoryEntry> = [];
   histSubscription = null;
@@ -23,7 +22,7 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
 
   emitNewQuery(newQuery: GeneQuery) {
     this.historyEntries.map((histEntry) => histEntry.checked = false);
-    this.newQuery.emit(newQuery);
+    this.gotoResults.emit(newQuery);
   }
 
   action(op: string) {
@@ -39,7 +38,7 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   }
 
   queryClick(histEntry: HistoryEntry) {
-    this.gotoQuery.emit(histEntry.getQuery());
+    this.gotoResults.emit(histEntry.getQuery());
   }
 
   ngOnInit() {
