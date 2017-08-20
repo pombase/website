@@ -57,4 +57,7 @@ fi
 
 echo deploying ...
 
-rsync --exclude '*~' -cavPHS dist/ $rsync_dest/
+if [ $rsync_dest != null ]
+then
+  rsync --exclude '*~' -cavPHS dist/ $rsync_dest/
+fi
