@@ -44,7 +44,9 @@ perl -pne 's/<<APP_BASE_URL>>/$ENV{"base_url"}/; s/<<GOOGLE_ANALYTICS_ID>>/$ENV{
 
 if [ x$release == x'true' ]
 then
-    ng build --env=prod --target=production || exit 1
+    echo building ...
+    ng build --env=prod --target=production --progress=false || exit 1
+    echo done
 else
     exit  # run ng serve instead
 fi
