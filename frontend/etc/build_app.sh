@@ -6,6 +6,7 @@ set -eu
 set -o pipefail
 
 release_env=$1
+go_xrfs_abbs=$2
 
 if [ x"$release_env" = x ]
 then
@@ -42,9 +43,7 @@ perl -pne 's/<<APP_BASE_URL>>/$ENV{"base_url"}/; s/<<GOOGLE_ANALYTICS_ID>>/$ENV{
 
 ABBREVS="AGI_LocusCode CDD DDJB EC ECOGENE EMBL ENSEMBL FB GEO GO Gene3D HAMAP InterPro iPTMnet JCVI_TIGRFAMS MGI ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam ProDom Prosite QuickGO RGD SFLD SGD SMART SO SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB dictyBase"
 
-(cd /var/pomcur/sources/go-svn/; svn update)
-
-etc/make-link-js.pl /var/pomcur/sources/go-svn/doc/GO.xrf_abbs $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
+etc/make-link-js.pl $go_xrfs_abbs $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
 
 (cd src/docs; ../../etc/make-docs.pl `find ./ -name '*.md'` > ../app/docs/docs.component.html)
 
@@ -52,12 +51,11 @@ if [ x$release == x'true' ]
 then
     ng build --env=prod --target=production || exit 1
 else
-    ng build || exit 1
+    exit  # run ng serve instead
 fi
-
-echo deploying ...
 
 if [ $rsync_dest != null ]
 then
-  rsync --exclude '*~' -cavPHS dist/ $rsync_dest/
+    echo deploying ...
+    rsync --exclude '*~' -cavPHS dist/ $rsync_dest/
 fi
