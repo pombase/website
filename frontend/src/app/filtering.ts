@@ -5,13 +5,13 @@ export class AnnotationFilterCombiner implements AnnotationFilter {
   constructor(private filters: Array<AnnotationFilter>) { }
 
   filter(annotationTable: AnnotationTable): [AnnotationTable, number, number] {
-    let retTable: any =
+    let filterResult: [AnnotationTable, number, number] =
       this.filters[0].filter(annotationTable);
 
     for (let filter of this.filters.slice(1)) {
-      retTable = filter.filter(retTable);
+      filterResult = filter.filter(filterResult[0]);
     }
 
-    return retTable;
+    return filterResult;
   }
 }
