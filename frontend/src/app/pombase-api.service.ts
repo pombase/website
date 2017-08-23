@@ -842,27 +842,4 @@ export class PombaseAPIService {
         }
       });
   }
-
-  getTermByNameFuzzy(cvName: string, queryText: string): Observable<TermShort[]> {
-    let lookupUrl = getAppConfig().ontologyTermLookup[cvName];
-    queryText = queryText.trim();
-    if (queryText.length === 0) {
-      return Observable.from([]);
-    }
-
-    let url = lookupUrl + queryText;
-    return this.getWithRetry(url)
-      .map((res: Response) => {
-        let terms = res.json();
-        return terms.map((term) => {
-          return {
-            termid: term['id'],
-            name: term['name'],
-            definition: term['definition'],
-            interesting_parents: [],
-            is_obsolete: term['is_obsolete'] === 1,
-          };
-        });
-      });
-  }
 }

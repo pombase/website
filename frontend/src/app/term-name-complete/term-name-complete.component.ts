@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
-import { PombaseAPIService } from '../pombase-api.service';
+import { CompleteService } from '../complete.service';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/debounceTime';
@@ -21,13 +21,13 @@ export class TermNameCompleteComponent implements OnInit, OnChanges {
 
   public selectedTerm = '';
 
-  constructor(private pombaseApiService: PombaseAPIService) {
+  constructor(private completeService: CompleteService) {
     this.dataSource =
       Observable.create((observer: any) => {
         observer.next(this.selectedTerm);
       })
       .switchMap((token: string) =>
-                 pombaseApiService.getTermByNameFuzzy(this.cvName, token));
+                 completeService.completeTermName(this.cvName, token));
   };
 
   ngOnInit() {

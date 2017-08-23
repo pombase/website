@@ -68,8 +68,8 @@ export interface AppConfig {
     smallest: number;
     largest: number;
   };
-  predefinedQueries: { [key: string]: any },
-  ontologyTermLookup: { [cvName: string]: string };
+  predefinedQueries: { [key: string]: any };
+  cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
   linkoutConfig: LinkoutConfig;
   evidenceTypes: EvidenceConfig;
@@ -336,11 +336,11 @@ let _appConfig: AppConfig = {
     ancestorRelNames: ['is_a', 'part_of', 'regulates'],
   },
 
-  ontologyTermLookup: {
-    'GO': 'https://curation.pombase.org/pombe/ws/lookup/ontology/%5BGO:0005575%7CGO:0003674%7CGO:0008150%5D?def=1&term=',
-    'FYPO': 'https://curation.pombase.org/pombe/ws/lookup/ontology/fission_yeast_phenotype?def=1&term=',
-    'PSI-MOD': 'https://curation.pombase.org/pombe/ws/lookup/ontology/post_translational_modification?def=1&term=',
-    'SO-protein': 'https://curation.pombase.org/pombe/ws/lookup/ontology/[SO:0000839]?def=1&term=',
+  cvNameMap: {
+    'GO': '(molecular_function OR biological_process OR cellular_component)',
+    'FYPO': 'fission_yeast_phenotype',
+    'PSI-MOD': 'post_translational_modification',
+    'SO-protein': 'sequence',
   },
 
   linkoutConfig: {

@@ -18,6 +18,7 @@ import { TermDetailsComponent } from './term-details/term-details.component';
 import { FrontComponent } from './front/front.component';
 import { PombaseAPIService } from './pombase-api.service';
 import { QueryService } from './query.service';
+import { CompleteService } from './complete.service';
 import { AnnotationTableComponent } from './annotation-table/annotation-table.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { GetFocusDirective } from './get-focus.directive';
@@ -183,6 +184,7 @@ export function windowFactory() {
               { provide: 'Document', useFactory: documentFactory },
               { provide: 'Window', useFactory: windowFactory },
               QueryService,
+              CompleteService,
              ],
   bootstrap: [AppComponent]
 })
