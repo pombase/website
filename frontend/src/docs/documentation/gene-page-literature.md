@@ -8,16 +8,15 @@
 The Literature section of a gene page lists the papers that have curated
 data for the gene or its product.
 
-At the top of the section, there are links to search PubMed or UK PMC
-for any papers on the gene. This may retrieve papers not on the gene
-page Literature list, if there are papers not yet curated (or spurious
+At the top of the section, there is a link to search PubMed for any
+papers on the gene. This may retrieve papers not on the gene page
+Literature list, if there are papers not yet curated (or spurious
 matches to the search criteria).
 
-For each paper, the full citation is shown, and links to the paper's
-record in PubMed and Europe PMC are provided. At present, the list is
-sorted alphabetically by first author.
+For each paper, the full citation and the number of genes curated from
+the paper are shown, and a "Details" link goes to the [publication
+page](/documentation/publication_page.md).
 
-If you reach the Literature section by clicking a reference link
-elsewhere on the gene page, the selected reference will be highlighted
-by a coloured background.
+By default, the list is sorted alphabetically by first author. Use the
+"Sort by" links to change the order.
 
