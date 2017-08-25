@@ -53,7 +53,7 @@ or removes a modification, specifying modified residues, or specifying
 that the modification is observed during a phase or process.  For
 example, Lys4 (shown above) is phosphorylated on a serine residue
 during M phase of the mitotic cell cycle. Likewise,
-[Cdc2](http://preview.pombase.org/gene/SPBC11B10.09) is phosphorylated
+[Cdc2](/gene/SPBC11B10.09) is phosphorylated
 during G2, and phosphorylated on Tyrosine 15 by Wee1; it is
 phosphorylated during G2 but not M phase of the mitotic cell cycle;
 other extensions are also available for Cdc2.
