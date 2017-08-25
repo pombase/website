@@ -601,10 +601,10 @@ export class PombaseAPIService {
         return errors
           .mergeMap((error) =>
                     (error.status === 404) ? Observable.throw(error) : Observable.of(error))
-          .delay(2000)
-          .take(3);
+          .delay(10000)
+          .take(5);
       })
-      .timeout(30000);
+      .timeout(60000);
   }
 
   getGene(uniquename: string): Promise<GeneDetails> {
