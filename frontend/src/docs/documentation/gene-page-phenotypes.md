@@ -32,85 +32,107 @@ multi-allele phenotypes, i.e. phenotypes associated with double mutants,
 triple mutants, etc, and the relevant genotype details.
 
 Each table includes ontology term details and supporting data. The
-Summary view shows just the essentials; each unique combination of gene,
-FYPO term, allele(s) and extension(s) is shown once. For single-allele
-phenotypes, the display includes:
+summary view shows just the essentials: The list of terms is filtered,
+using the ontology structure, so that it shows only the most specific
+terms used to annotate a genotype, and each unique combination of
+gene, FYPO term, allele(s) and extension(s) is shown once. For
+single-allele phenotypes, the display includes:
 
-![gene page phenotype annotations](assets/single_fypo_gene_page_summary.png "Single-allele FYPO summary on gene page"){width="800" height="417"}
+![gene page phenotype annotations](assets/single_fypo_gene_page_summary.png "Single-allele FYPO summary on gene page"){width="800"}
 
-1.  The FYPO term name, which links to a page with additional
+1.  The FYPO term name, which links to a page with additional
     information, including the term definition, any synonyms,
-    relationships to other FYPO terms, and a list of genes annotated to
-    the term.
-2.  Allele details, including a name (if one is used in the literature)
-    and description (where known). The column is headed "Genotypes" for
-    consistency between the single- and multi-allele displays. Mouse
-    over the allele name to show the allele type, which indicates
-    whether partial deletions or altered residues refer to amino acids
-    or nucleotides. If you can provide a description for any allele
-    shown as "unknown", please [contact the PomBase
+    relationships to other FYPO terms, and annotations to the term or
+    its descendants. (See the [ontology term page
+    documentation](/documentation/ontology-term-page) for more.)
+2.  Allele details, including a name (if one is used in the
+    literature) and description (where known). Mouse over the allele
+    name to show the allele type, which indicates whether partial
+    deletions or altered residues refer to amino acids or nucleotides,
+    and expression level. If you can provide a description for any
+    allele shown as "unknown", please [contact the PomBase
     curators](mailto:helpdesk@pombase.org).
-3.  Link to a page with term details and a list of genes annotated to
-    the term and its *is\_a* and *part\_of* descendants (the GO
-    documentation on [Ontology
-    Structure](http://www.geneontology.org/GO.ontology.structure.shtml)
-    and [Ontology
-    Relations](http://www.geneontology.org/GO.ontology.relations.shtml)
-    has some useful information on this topic).
-4.  Phenotype annotations may have extensions to capture expressivity
+3.  Phenotype annotations may have extensions to capture expressivity
     (the extent to which a phenotype is expressed; for PomBase
     annotations expressivity extensions are often used to capture
-    information about phenotype severity) or penetrance (proportion of a
-    population that shows the phenotype), or to document which gene or
-    protein used in an assay for level, localisation, etc. *S. pombe*
-    genes link to PomBase gene pages. Expressivity and penetrance use
-    the relations *has\_expressivity* and *has\_penetrance*
-    respectively, and can have values such as "high", "medium", or "low"
-    (numerical values may be added in the future if and when the need
-    arises). A gene or gene product used in an assay is stored using the
-    appropriate PomBase systematic ID and the relation *assayed\_using*;
-    the relation is converted to *affecting* in the gene page display.
-    If a mutation affects an activity that modifies another gene
-    product, extensions may capture the affected enzyme, the affected
-    substrate, or both. The relation *assayed\_enzyme* is displayed as
-    *affecting activity of* on gene pages, and *assayed\_substrate* is
-    shown as *affecting substrate*.
+    information about phenotype severity) or penetrance (proportion of
+    a population that shows the phenotype), or to document which gene
+    or protein used in an assay for level, localisation,
+    etc. *S. pombe* genes link to PomBase gene pages. Expressivity and
+    penetrance use the relations *has\_expressivity* and
+    *has\_penetrance* respectively, and can have values such as
+    "high", "medium", or "low".  Penetrance can also use numerical
+    values. A gene or gene product used in an assay is stored using
+    the appropriate PomBase systematic ID and the relation
+    *assayed\_using*; the relation is converted to *affecting* in the
+    gene page display.  If a mutation affects an activity that
+    modifies another gene product, extensions may capture the affected
+    enzyme, the affected substrate, or both. The relation
+    *assayed\_enzyme* is displayed as *affecting activity of* on gene
+    pages, and *assayed\_substrate* is shown as *affecting substrate*.
+  
+4.  The phenotype display can be filtered to show subsets of the total
+    set of annotations. The term filter, available in the summary or
+    detailed view, lists several broad phenotypic categories derived
+    from high-level FYPO terms:
 
-The Full single-allele phenotype view shows more details, including
+![FYPO term filter](assets/fypo_term_filter_pulldown.png "FYPO annotation term filter"){width="160"}
+
+    Choose one to restrict the annotation display to terms in the
+    selected branch of FYPO. When term filtering is active, a message
+    appears to indicate that not all annotations are shown:
+
+![filtering message](assets/fypo_showing_n_annotations.png "filtered annotation display message"){width="600"}
+
+    Change the selection back to "No filter" to see annotations to all terms.
+
+The detailed single-allele phenotype view shows annotations to all
+FYPO terms, and includes more details for each annotation. It shows
 separate entries for repeat determinations of a given
 gene/term/allele/extension combination (if supported by more than one
-line of evidence and/or reported in more than one paper):
+line of evidence and/or reported in more than one paper), and
+annotations to terms:
 
-![gene page phenotype annotations](assets/single_fypo_gene_page_full.png "Single-allele FYPO full view on gene page"){width="800" height="476"}
+![gene page phenotype annotations](assets/single_fypo_gene_page_full.png "Single-allele FYPO detailed view on gene page"){width="800"}
 
-1.  The unique ID and name for a term in the phenotype ontology. The ID
-    links to a page with additional information, including the term
-    definition, any synonyms, relationships to other FYPO terms, and a
-    list of genes annotated to the term.
-2.  A brief descriptor for the type of evidence that supports the
+1.  The unique ID and name for a term in the phenotype ontology. The
+    ID links to a page with additional information, including the term
+    definition, any synonyms, relationships to other FYPO terms, and
+    annotations to the term or its descendants. (See the [ontology
+    term page documentation](/documentation/ontology-term-page) for
+    more.)
+2.  Allele details, including a name (if one is used in the
+    literature) and description (where known). The column is headed
+    "Genotypes" for consistency between the single- and multi-allele
+    displays. Each genotype name links to a page with full details
+    (type, description, and expression) for its allele(s), links to
+    gene pages, and a list of all phenotype annotations for the
+    genotype. If you can provide a description for any allele shown as
+    "unknown", please [contact the PomBase
+    curators](mailto:helpdesk@pombase.org).
+3.  Mouse over the allele name to show the allele type, which
+    indicates whether partial deletions or altered residues refer to
+    amino acids or nucleotides, and expression level.
+4.  The phenotype display can be filtered to show subsets of the total
+    set of annotations. The term filter, available in the summary or
+    detailed view, lists several broad phenotypic categories derived
+    from high-level FYPO terms. Choose one to restrict the annotation
+    display to terms in the selected branch of FYPO. Change the
+    selection back to "No filter" to see annotations to all terms. In
+    the detailed view, evidence can also be filtered by choosing an
+    evidence description from a pulldown. Change the selection back to
+    "No filter" to see annotations using any evidence type. Term and
+    evidence filters can be combined (note that some term/evidence
+    combinations have no matching annotations). When either term or
+    evidence filtering is active, a message appears to indicate that
+    not all annotations are shown.
+5.  A brief descriptor for the type of evidence that supports the
     annotation. The evidence categories come from the [Evidence
-    Ontology](http://www.evidenceontology.org/) (ECO). The evidence text
-    may be nested under the term name to save space.
-3.  Allele details, including a name (if one is used in the literature)
-    and description (where known). Mouse over the allele name to show
-    the allele type, which indicates whether partial deletions or
-    altered residues refer to amino acids or nucleotides. If you can
-    provide a description for any allele shown as "unknown", please
-    [contact the PomBase curators](mailto:helpdesk@pombase.org).
-4.  Where available, the expression level of the allele in the
-    experiment is shown here. Both allele and expression details are
-    subheadings under "Genotype", again for consistency.
-5.  Information about experimental conditions, such as temperature, type
+    Ontology](http://www.evidenceontology.org/) (ECO).
+6.  Information about experimental conditions, such as temperature, type
     of medium used, etc. Descriptions come from a small ontology
     maintained by PomBase curators.
-6.  The paper from which the annotation comes.
-7.  Link to a page with term details and a list of genes annotated to
-    the term and its *is\_a* and *part\_of* descendants (the GO
-    documentation on [Ontology
-    Structure](http://www.geneontology.org/GO.ontology.structure.shtml)
-    and [Ontology
-    Relations](http://www.geneontology.org/GO.ontology.relations.shtml)
-    has some useful information on this topic).
+7.  The paper from which the annotation comes.
 8.  Phenotype annotations may have extensions to capture expressivity
     (the extent to which a phenotype is expressed; for PomBase
     annotations expressivity extensions are often used to capture
@@ -130,45 +152,37 @@ line of evidence and/or reported in more than one paper):
     *affecting activity of* on gene pages, and *assayed\_substrate* is
     shown as *affecting substrate*.
 
-Similar displays are used for multi-allele phenotypes. The "Count"
-column is omitted to avoid complications arising from having more than
-one gene connected with almost every multi-allele phenotype.
+Similar displays are used for multi-allele phenotypes. Unless
+otherwise noted below, all items are as described above for
+single-allele phenotype displays.
 
-The multi-allele Summary shows FYPO terms and genotype descriptions:
+The multi-allele summary shows FYPO terms and genotype descriptions:
 
-![multi-allele FYPO summary view on gene page](assets/multi_fypo_gene_page_summary-800x180.png){width="800" height="180"}
+![multi-allele FYPO summary view on gene page](assets/multi_fypo_gene_page_summary.png){width="800"}
 
-1.  The FYPO term name, which links to a page with additional
-    information, including the term definition, any synonyms,
-    relationships to other FYPO terms, and a list of genes annotated to
-    the term.
+1.  The FYPO term name, which links to the page for the term.
 2.  Genotype details, including a name (if one is used in the
-    literature) and descriptions for the relevant alleles (where known).
-    Mouse over any allele name to show the allele type.
+    literature) and descriptions for the relevant alleles (where
+    known). Mouse over any genotype name to show more allele details,
+    or click to go to the genotype detail page. Multiple genotypes
+    annotated to the same term are separated by commas.
+3.  Display filter for FYPO terms.
 
-The Full view includes more details:
+The detailed view includes:
 
-![multi-allele FYPO full view on gene page](assets/multi_fypo_gene_page_full-800x292.png){width="800" height="292"}
+![multi-allele FYPO full view on gene page](assets/multi_fypo_gene_page_full.png){width="800"}
 
-1.  The unique ID and name for a term in the phenotype ontology. The ID
-    links to a page with additional information, including the term
-    definition, any synonyms, relationships to other FYPO terms, and a
-    list of genes annotated to the term.
-2.  A brief descriptor for the type of evidence that supports the
-    annotation. The evidence categories come from the [Evidence
-    Ontology](http://www.evidenceontology.org/) (ECO). The evidence text
-    may be nested under the term name to save space.
-3.  Each gene included in the genotype description is listed on one line
-    per allele present (some genotypes include two or more different
-    alleles of the same gene), and linked to its gene page.
-4.  Allele descriptions are shown essentially as in the single-allele
-    display, including the mouse-over that shows the allele type.
-5.  Where available, the expression level of the allele in cells with
-    the genotype is shown here. Gene, allele and expression details are
-    subheadings under "Genotype".
-6.  Information about experimental conditions, such as temperature, type
-    of medium used, etc.
-7.  The paper from which the annotation comes.
+1.  The unique ID and name for a term in the phenotype ontology, with
+    links to the FYPO term page.
+2.  Genotype details, including a name (if one is used in the
+    literature) and descriptions for the relevant alleles (where
+    known). Mouse over any genotype name to show more allele details,
+    or click to go to the genotype detail page. Multiple genotypes
+    annotated to the same term are listed one per line.
+3.  Display filter for FYPO terms and evidence (see above).
+4.  Evidence description (see above).
+5.  Experimental conditions (see above).
+6.  The paper from which the annotation comes.
 
 Annotation extensions are also included in the multi-allele Summary and
 Full views (although none are included for the annotations in the above
