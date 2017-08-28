@@ -8,10 +8,14 @@ export class AnnotationFilterCombiner implements AnnotationFilter {
     let filterResult: [AnnotationTable, number, number] =
       this.filters[0].filter(annotationTable);
 
+    let totalAnnotationCount = filterResult[1];
+
     for (let filter of this.filters.slice(1)) {
       filterResult = filter.filter(filterResult[0]);
     }
 
-    return filterResult;
+    let [filteredTable, _, filteredAnnotationCount] = filterResult;
+
+    return [filteredTable, totalAnnotationCount, filteredAnnotationCount];
   }
 }
