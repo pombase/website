@@ -475,6 +475,12 @@ let _appConfig: AppConfig = {
         ontologyName: 'SO-protein',
       },
       {
+        id: 'disease_associated',
+        displayName: 'protein feature',
+        nodeType: 'ontology',
+        ontologyName: 'disease_associated',
+      },
+      {
         id: 'all_domains',
         displayName: 'Protein domain',
         nodeType: 'subset-input',

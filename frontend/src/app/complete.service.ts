@@ -16,7 +16,7 @@ export class CompleteService {
   constructor(private http: Http) { }
 
   completeTermName(cvName: string, queryText: string): Observable<SolrTermSummary[]> {
-    const serverCvName = getAppConfig().cvNameMap[cvName];
+    const serverCvName = getAppConfig().cvNameMap[cvName] || cvName;
 
     queryText = queryText.trim();
     if (queryText.length === 0) {
