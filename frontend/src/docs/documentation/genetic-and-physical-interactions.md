@@ -16,11 +16,11 @@ The first column (with no header) describes the interaction. The text
 reflects the type of evidence listed in the Evidence column and, where
 applicable, the directionality of the interaction.
 
-**Gene:** The gene that interacts with the gene of interest, linked to
-its gene page
+**Interacting gene:** The gene that interacts with the gene of
+interest, linked to its gene page
 
-**Product:** The description of the interacting gene's product, from its
-gene page
+**Interacting product:** The description of the interacting gene's
+product, from its gene page
 
 **Evidence:** The type of genetic interaction observed, or the type of
 experiment performed to detect a physical interaction. The evidence
