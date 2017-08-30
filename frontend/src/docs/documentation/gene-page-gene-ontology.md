@@ -69,7 +69,7 @@ supported by more than one line of evidence and/or reported in more
 than one paper), and annotations to terms hidden in the summary view:
 
 
-![full gene page GO annotations](assets/go_gene_page_full.png){width="781" height="600"}
+![full gene page GO annotations](assets/go_gene_page_full.png){width="800"}
 
 **\
 **
