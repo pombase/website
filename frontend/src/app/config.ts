@@ -476,7 +476,7 @@ let _appConfig: AppConfig = {
       },
       {
         id: 'disease_associated',
-        displayName: 'protein feature',
+        displayName: 'disease',
         nodeType: 'ontology',
         ontologyName: 'disease_associated',
       },
