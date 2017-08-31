@@ -91,7 +91,7 @@ FYPO terms, and includes more details for each annotation. It shows
 separate entries for repeat determinations of a given
 gene/term/allele/extension combination (if supported by more than one
 line of evidence and/or reported in more than one paper), and
-annotations to terms:
+annotations to terms hidden in the summary view:
 
 ![gene page phenotype annotations](assets/single_fypo_gene_page_full.png "Single-allele FYPO detailed view on gene page"){width="800"}
 
