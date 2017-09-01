@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GeneQuery, GeneQueryNode, QueryResult, TermNode,
-         QueryOutputOptions } from '../pombase-query';
+         QueryOutputOptions, TermAlleleSingleOrMulti} from '../pombase-query';
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { getAppConfig } from '../config';
@@ -50,7 +50,8 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     let newQuery = null;
 
     if (fromType === 'term_subset') {
-      let constraints = new TermNode(termId, termName, null, null, null);
+      let constraints = new TermNode(termId, termName, null,
+                                     TermAlleleSingleOrMulti.Single, null);
       newQuery = new GeneQuery(constraints);
     }
 
