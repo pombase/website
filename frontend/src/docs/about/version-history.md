@@ -1,6 +1,6 @@
 # PomBase data version history
 
-**Current: 2016-10-21**
+#### Current: 2016-10-21 ####
 
 | Dataset                         | Version                                                     |
 |---------------------------------+-------------------------------------------------------------|
@@ -11,7 +11,7 @@
 | InterPro                        | InterProScan5(5.14-53.0 23 July 2015)                       |
 | Manually Curated Ortholog table | pombe/cerevisiae: 2.21 (2014-08-31); pombe/human 2015-08-13 |
 
-**Past PomBase Releases**
+#### Past PomBase Releases ####
 
 <table border="1">
  <tbody>
@@ -349,14 +349,14 @@
 </table>
 
 
-**Brief explanations**
-|                                 |                                                                                                                                         |
-|---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------|
-| Item                            | Description                                                                                                                             |
-| INSDC                           | Accession of the current *S. pombe* sequence in the International Nucleotide Sequence Data Collaboration (ENA, GenBank, DDBJ) databases |
-| Gene Build                      | Version of gene feature annotation                                                                                                      |
-| Ensembl Software Release        | Versions of ensembl (e!) and Ensembl Genomes (EG) data and software used to build PomBase                                               |
-| Annotation Version              | Version of curated PomBase annotations (sequence features, ontology annotations, etc.)                                                  |
-| GO GAF                          | Date on which GO annotation data were retrieved from the GO repository                                                                  |
-| InterPro                        | Date and version of InterProScan used to find matches to InterPro entries                                                               |
-| Manually Curated Ortholog table | Date and version of the manually curated sets of pombe/cerevisiae (and, where included, pombe/human) orthologs                          |
+#### Brief explanations ####
+
+Item                            | Description                                                                                                                             
+--------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------
+INSDC                           | Accession of the current *S. pombe* sequence in the International Nucleotide Sequence Data Collaboration (ENA, GenBank, DDBJ) databases 
+Gene Build                      | Version of gene feature annotation                                                                                                      
+Ensembl Software Release        | Versions of ensembl (e!) and Ensembl Genomes (EG) data and software used to build PomBase                                               
+Annotation Version              | Version of curated PomBase annotations (sequence features, ontology annotations, etc.)                                                  
+GO GAF                          | Date on which GO annotation data were retrieved from the GO repository                                                                  
+InterPro                        | Date and version of InterProScan used to find matches to InterPro entries                                                               
+Manually Curated Ortholog table | Date and version of the manually curated sets of pombe/cerevisiae (and, where included, pombe/human) orthologs                          
