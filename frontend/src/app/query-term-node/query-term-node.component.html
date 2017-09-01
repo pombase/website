@@ -7,34 +7,38 @@
 <div *ngIf="isPhenotypeNode">
   <div class="allele-filter single-or-multi-allele">
     Include genes from:
-    <span class="no-wrap-span">
+    <div class="ontology-options">
+    <div>
     <input id="single-allele" type="checkbox" [(ngModel)]="singleAllele"
            title="Include genes from single-allele genotypes"
            (ngModelChange)="singleMultiChange('single')"/>
     <label for="single-allele">Single-allele genotypes</label>
-    </span>
-    <span class="no-wrap-span">
+    </div>
+    <div>
     <input id="multi-allele" type="checkbox" [(ngModel)]="multiAllele"
            title="Include genes from multi-allele genotypes"
            (ngModelChange)="singleMultiChange('multi')"/>
     <label for="multi-allele">Multi-allele</label>
-    </span>
+    </div>
+    </div>
   </div>
 
   <div *ngIf="!multiAllele" class="allele-filter expression">
     Expression level:
-    <span class="no-wrap-span">
+    <div class="ontology-options">
+    <div>
     <input id="expression-any" type="radio" [(ngModel)]="expression" name="expression" value="any"/>
     <label for="expression-any">Any</label>
-    </span>
-    <span class="no-wrap-span">
+    </div>
+    <div>
     <input id="expression-null" type="radio" [(ngModel)]="expression" name="expression" value="null"/>
     <label for="expression-null">Null</label>
-    </span>
-    <span class="no-wrap-span">
+    </div>
+    <div>
     <input id="expression-wt-over" type="radio" [(ngModel)]="expression" name="expression" value="wt-overexpressed"/>
     <label for="expression-wt-over">Overexpressed wild type</label>
-    </span>
+    </div>
+    </div>
   </div>
 </div>
 

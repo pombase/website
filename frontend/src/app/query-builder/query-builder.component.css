@@ -1,11 +1,9 @@
 .query-node-add {
-  clear: left;
-  float: left;
-  width: 49%;
+  max-width: 900px;
+  width: 95%;
 }
 
 .query-history {
-  clear: both;
 }
 
 .query-clear {

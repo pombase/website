@@ -1,17 +1,15 @@
 .query-node {
   margin: 1em;
-  padding: 0.3em;
-  position: relative;
-  height: 21em;
-  width: 95%;
+  display: flex;
 }
 
 .node-buttons {
   background-color: #e8e8f8;
   width: 12em;
-  position: absolute;
   left: 0;
   top: 0;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .node-button {
@@ -30,14 +28,12 @@
 }
 
 .node-components {
-  float: left;
   background-color: #ddf;
-  width: 75%;
+  width: 100%;
   min-height: 16em;
   padding: 0.6em;
-  position: absolute;
-  left: 12em;
-  top: 0;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .range input {

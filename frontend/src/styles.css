@@ -208,4 +208,5 @@ select option:disabled {
 
 .no-wrap-span {
   display: inline-block;
+  white-space: nowrap;
 }
