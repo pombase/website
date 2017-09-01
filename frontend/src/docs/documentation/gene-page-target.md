@@ -1,4 +1,4 @@
-# Gene Page: Target Of
+# Gene Page: Target of
 
 <div style="color: red">
   Note: because of changes in this preview, many of the screenshots in
@@ -26,7 +26,7 @@ extensions). The table includes:
 -   Relationship: indicates how the genes are connected. The
     relationship is the reciprocal of the relation used in the
     originating annotation extension, as noted in the [Annotation
-    Extension Relation Display
+    extension relation display
     documentation](/documentation/gene-page-annotation-extension-relation-display).
 -   Gene: the gene whose product affects the gene of interest.
 -   Product: the targeting gene's product description.
