@@ -94,11 +94,11 @@ than one paper), and annotations to terms hidden in the summary view:
 5.  The paper from which the annotation comes.
 6.  The number of genes annotated to the term, linked to an ontology
     term page as described above.
-6.  GO annotations may have [extensions](#ann_ext) to capture any of
-    several types of additional detail. *S. pombe* genes link to PomBase
-    gene pages.
 7.  [GO Slim](/browse-curation/fission-yeast-go-slim-terms) terms
     applicable to the gene.
+8.  GO annotations may have [extensions](#ann_ext) to capture any of
+    several types of additional detail. *S. pombe* genes link to PomBase
+    gene pages.
 
 **Term ID and name**
 
