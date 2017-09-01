@@ -100,12 +100,19 @@ export class QueryService {
     });
   }
 
-  saveToHistory(query: GeneQuery, resultCount: number) {
+  saveToHistoryWithCount(query: GeneQuery, count: number) {
     this.deleteExisting(query);
-    const entry = new HistoryEntry(query, resultCount);
+    const entry = new HistoryEntry(query, count);
     this.history.unshift(entry);
     this.subject.next(this.history);
     this.saveHistory();
+  }
+
+  saveToHistory(query: GeneQuery) {
+    this.postQueryCount(query)
+      .subscribe((count) => {
+        this.saveToHistoryWithCount(query, count);
+      });
   }
 
   getHistory(): Array<HistoryEntry> {

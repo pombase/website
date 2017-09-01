@@ -34,7 +34,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     this.route.params.forEach((params: Params) => {
       if (params['predefinedQueryName']) {
         const query = getAppConfig().getPredefinedQuery(params['predefinedQueryName']);
-        this.gotoResults(query);
+        this.saveQuery(query);
       } else {
         let fromType = params['type'];
         let termId = params['id'];
@@ -55,7 +55,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     }
 
     if (newQuery) {
-      this.gotoResults(newQuery);
+      this.saveQuery(newQuery);
     }
   }
 
@@ -74,7 +74,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], 'none');
     this.queryService.postQuery(this.query, outputOptions)
       .subscribe((results) => {
-        this.queryService.saveToHistory(thisQuery, results.rows.length);
+        this.queryService.saveToHistoryWithCount(thisQuery, results.rows.length);
         this.results = results;
         this.resultsDescription = 'Results for: ' + queryAsString;
         this.timerSubscription.unsubscribe();
@@ -84,10 +84,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
   }
 
   saveQuery(query: GeneQuery) {
-    this.queryService.postQueryCount(query)
-      .subscribe((count) => {
-        this.queryService.saveToHistory(query, count);
-      });
+    this.queryService.saveToHistory(query);
   }
 
   nodeEvent(part: GeneQueryNode) {

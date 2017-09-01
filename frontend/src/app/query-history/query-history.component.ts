@@ -20,16 +20,12 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     return this.historyEntries.filter(e => e.checked);
   }
 
-  emitNewQuery(newQuery: GeneQuery) {
-    this.historyEntries.map((histEntry) => histEntry.checked = false);
-    this.gotoResults.emit(newQuery);
-  }
-
   action(op: string) {
     let selectedQueryNodes =
       this.getSelectedEntries().map(e => e.getQuery().getTopNode());
-    let query = new GeneBoolNode(op, selectedQueryNodes);
-    this.emitNewQuery(new GeneQuery(query));
+    let node = new GeneBoolNode(op, selectedQueryNodes);
+    this.historyEntries.map((histEntry) => histEntry.checked = false);
+    this.queryService.saveToHistory(new GeneQuery(node));
   }
 
   deleteQueries() {
