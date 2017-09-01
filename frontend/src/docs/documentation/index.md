@@ -5,44 +5,44 @@
   this documentation are out of date.
 </div>
 
-## []{#DocsGenePage}Gene Pages ##
+### []{#DocsGenePage}Gene Pages ###
 
 -   [Basic Information](documentation/gene-page-basic-information)
 -   [Gene Ontology](documentation/gene-page-gene-ontology)
 -   [Phenotypes](documentation/gene-page-phenotypes)
--   [Target Of](documentation/gene-page-target)
+-   [Target of](documentation/gene-page-target)
 -   [Transcript](documentation/gene-page-transcript)
--   [Protein Features](documentation/gene-page-protein-features)
+-   [Protein features](documentation/gene-page-protein-features)
 -   [Modifications](documentation/gene-page-modifications)
 -   [Sequence](documentation/gene-page-sequence)
--   [Gene Expression](documentation/gene-page-gene-expression)
--   [Taxonomic Conservation](documentation/taxonomic-conservation)
+-   [Gene expression](documentation/gene-page-gene-expression)
+-   [Taxonomic conservation](documentation/taxonomic-conservation)
 -   [Orthologs](documentation/orthologs)
 -   [Interactions](documentation/genetic-and-physical-interactions)
 -   [External
-    References](documentation/gene-page-external-references)
+    references](documentation/gene-page-external-references)
 -   [Literature](documentation/gene-page-literature)
 
-## []{#DocsSearch}Searching ##
+### []{#DocsSearch}Searching ###
 
 -   [Simple Search](documentation/simple-search-documentation)
 -   [Advanced Search](documentation/advanced-search-documentation)
 
-## Other PomBase Pages ##
+### Other PomBase Pages ###
 
 -   GO Slim
     [Documentation](documentation/pombase-go-slim-documentation)
-    and [Usage Tips](browse-curation/fission-yeast-go-slimming-tips)
--   [Fission Yeast Phenotype Ontology (FYPO) Page](browse-curation/fission-yeast-phenotype-ontology)
+    and [Usage tips](browse-curation/fission-yeast-go-slimming-tips)
+-   [Fission Yeast Phenotype Ontology (FYPO) page](browse-curation/fission-yeast-phenotype-ontology)
 -   [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
 -   [Data versions](about/version-history)
--   [Ontology Term Pages](documentation/ontology-term-page)
+-   [Ontology term pages](documentation/ontology-term-page)
 
-## How to Cite PomBase ##
+### How to Cite PomBase ###
 
 -   See the [Citing PomBase](about/citing-pombase) page
 
-## File Formats for Data Submission ##
+### File Formats for Data Submission ###
 
 PomBase accepts batch submissions of certain types of data that appear
 on PomBase gene pages. For these data types, we use dedicated
@@ -58,7 +58,7 @@ and displayed as tracks in the genome browser, see the [data format
 FAQ](faqs/what-file-formats-can-i-use-submit-high-throughput-data)
 and further details linked there.
 
-## Linking to and from PomBase ##
+### Linking to and from PomBase ###
 
 -   Linking to PomBase: To link to any PomBase gene page, use the
     systematic ID for the gene in a URL with the syntax
@@ -71,13 +71,13 @@ and further details linked there.
     Please contact the PomBase Curators for more information.
 
 
-## Comparative Genomics ##
+### Comparative Genomics ###
 
 We plan to add specific documentation about comparative genomics using
 *S. pombe* here. In the meantime, you can look at the documentation for
 [Ensembl Compara](http://genomebrowser.pombase.org/info/docs/compara/index.html).
 
-## More information ... ##
+### More information ... ###
 
 For help with anything in PomBase not covered here, you can
 <app-contact-email class="contact-email" [linkName]="'contact the
