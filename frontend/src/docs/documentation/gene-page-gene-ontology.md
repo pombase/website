@@ -189,7 +189,7 @@ and in a
 [publication](http://www.biomedcentral.com/1471-2105/15/155/abstract).
 PomBase converts many extension names to more human-friendly text, as
 described
-[here](/documentation/gene-page-annotation-extension-relation-display).
+[here](/documentation/annotation-extension-relation-display).
 
 If an extension mentions another *S. pombe* gene, the extension data
 will also be displayed as an annotation in the "[Target

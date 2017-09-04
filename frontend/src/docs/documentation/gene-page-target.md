@@ -27,7 +27,7 @@ extensions). The table includes:
     relationship is the reciprocal of the relation used in the
     originating annotation extension, as noted in the [Annotation
     extension relation display
-    documentation](/documentation/gene-page-annotation-extension-relation-display).
+    documentation](/documentation/annotation-extension-relation-display).
 -   Gene: the gene whose product affects the gene of interest.
 -   Product: the targeting gene's product description.
 -   Reference (hidden in "summary" view): the source of the annotation.
