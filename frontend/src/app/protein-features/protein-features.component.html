@@ -53,6 +53,17 @@
     </app-annotation-sub-table>
   </div>
 
+  <div *ngIf="proteinFeaturesTable && proteinFeaturesTable.length > 0" class="pombase-annotation">
+    <div class="protein-feature-title">
+      Protein sequence features
+    </div>
+    <app-annotation-sub-table
+      [annotationTypeName]="'sequence'"
+      [annotationTable]="soAnnotationTable"
+      [hideColumns]="['gene', 'desc-rel']">
+    </app-annotation-sub-table>
+  </div>
+
   <div *ngIf="proteinDetails">
     <div class="protein-feature-title">
       Protein properties

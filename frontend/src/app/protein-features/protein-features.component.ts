@@ -18,6 +18,7 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   transcriptDetails = null;
   proteinDetails = null;
   proteinFeaturesTable = null;
+  soAnnotationTable = null;
 
   constructor() { }
 
@@ -38,6 +39,13 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
         this.geneDetails.cv_annotations['PomBase family or domain'];
     } else {
       this.proteinFeaturesTable = null;
+    }
+
+    if (this.geneDetails.cv_annotations['sequence']) {
+      this.soAnnotationTable =
+        this.geneDetails.cv_annotations['sequence'];
+    } else {
+      this.soAnnotationTable = null;
     }
 
     if (this.transcriptDetails && this.transcriptDetails.uniquename) {
