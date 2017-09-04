@@ -17,10 +17,17 @@
   height: 1.5em;
   cursor: pointer;
   white-space: nowrap;
+  padding: 0.1em 0.3em 0.1em 0.2em;
+  font-size: 90%;
+  border-right: 1px solid #bbc;
 }
 
 .node-selected-button {
   background-color: #ddf;
+  border-left: 1px solid #bbc;
+  border-top: 1px solid #bbc;
+  border-bottom: 1px solid #bbc;
+  border-right: 1px solid #ddf;
 }
 
 .node-button:hover {
@@ -34,6 +41,9 @@
   padding: 0.6em;
   display: inline-block;
   vertical-align: top;
+  border-right: 1px solid #bbc;
+  border-top: 1px solid #bbc;
+  border-bottom: 1px solid #bbc;
 }
 
 .range input {
