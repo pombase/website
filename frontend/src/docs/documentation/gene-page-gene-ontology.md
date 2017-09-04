@@ -38,9 +38,6 @@ extension(s) is shown once:
 
 ![summary gene page GO annotations](assets/go_gene_page_summary.png){width="600"}
 
-**\
-**
-
 1.  The GO term name, which links to a page with additional
     information, including the term definition, any synonyms,
     [relationships to other GO terms](#go_str), and annotations to the
@@ -71,8 +68,6 @@ than one paper), and annotations to terms hidden in the summary view:
 
 ![full gene page GO annotations](assets/go_gene_page_full.png){width="800"}
 
-**\
-**
 
 1.  The unique [ID and name](#id) for a GO term, linked to an ontology
     term page as described above.
@@ -100,14 +95,14 @@ than one paper), and annotations to terms hidden in the summary view:
     several types of additional detail. *S. pombe* genes link to PomBase
     gene pages.
 
-**Term ID and name**
+#### Term ID and name ####
 
 Annotations are made to the definition of a term, not the term name
 itself, so we recommend that users always read the term
 definition. The definition of a term can be found on the ontology term
 page linked to the term name and ID.
 
-[]{#go_str}**GO Structure**
+#### GO Structure {#go_str} ####
 
 GO is structured in a hierarchal order with less specific terms being
 parents of more specific child terms. A child term may have multiple
@@ -133,7 +128,7 @@ For more information on relationships in GO, see the [GO Ontology
 Relations](http://geneontology.org/page/ontology-relations)
 documentation.
 
-**[]{#evid}Evidence codes**
+#### Evidence codes {#evid} ####
 
 In PomBase, every annotation is supported by a reference that states
 where the annotation comes from, and an evidence code that describes
@@ -170,7 +165,7 @@ cases the [With/From
 column](http://geneontology.org/page/go-annotation-file-gaf-format-20/)
 provides more information regarding the source of the information.
 
-**[]{#ann_ext}Annotation extensions**
+#### Annotation extensions {#ann_ext} ####
 
 Where available, annotation extensions are displayed underneath the GO
 term name. The extensions provide additional specificity to the
@@ -201,7 +196,7 @@ will also be displayed as an annotation in the "[Target
 of](/documentation/gene-page-target)" section of the page for that
 gene.
 
-**Finding other genes annotated to a specific GO term**
+#### Finding other genes annotated to a specific GO term ####
 
 From a gene page, all *S. pombe* genes annotated to a term (or its
 children) can be found by clicking on a term name or ID to reach the
