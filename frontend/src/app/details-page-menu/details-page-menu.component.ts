@@ -48,6 +48,10 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
+  private upperCaseIntial(s): string {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
   ngOnChanges() {
     if (this.visibleSections) {
       this.menuItems =
@@ -55,7 +59,7 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
           let typeConfig = this.config.getAnnotationType(typeName);
           return {
             id: typeName,
-            displayName: typeConfig.display_name || typeName,
+            displayName: typeConfig.display_name || this.upperCaseIntial(typeName),
           };
         });
       this.menuItems.push(...this.extraSections);

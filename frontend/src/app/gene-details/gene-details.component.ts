@@ -44,6 +44,8 @@ export class GeneDetailsComponent implements OnInit {
     }
   ];
 
+  miscAnnotationTypeNames = ['cat_act', 'ex_tools', 'genome_org', 'misc'];
+
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
@@ -103,6 +105,16 @@ export class GeneDetailsComponent implements OnInit {
     this.titleService.setTitle(title + ' - ' + this.displayNameLong());
   }
 
+  hasMiscAnnotations(): boolean {
+    for (let annotationTypeName of this.miscAnnotationTypeNames) {
+      if (this.geneDetails.cv_annotations[annotationTypeName] &&
+          this.geneDetails.cv_annotations[annotationTypeName].length > 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   setVisibleSections(): void {
     this.visibleSections = [];
 
@@ -149,6 +161,12 @@ export class GeneDetailsComponent implements OnInit {
       if (annotationTypeName === 'target_of') {
         if (this.geneDetails.target_of_annotations &&
             this.geneDetails.target_of_annotations.length > 0) {
+          this.visibleSections.push(annotationTypeName);
+        }
+      }
+
+      if (annotationTypeName === 'miscellaneous') {
+        if (this.hasMiscAnnotations()) {
           this.visibleSections.push(annotationTypeName);
         }
       }

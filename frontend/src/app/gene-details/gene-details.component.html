@@ -104,6 +104,11 @@
                               [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
       </div>
 
+      <app-misc-annotation-table id="{{annotationTypeName}}"
+                                 *ngIf="annotationTypeName == 'miscellaneous'"
+                                 [annotationTypeNames]="miscAnnotationTypeNames"
+                                 [geneDetails]="geneDetails"></app-misc-annotation-table>
+
       <app-transcript-view id="{{annotationTypeName}}"
                            *ngIf="annotationTypeName == 'transcript_view' && geneDetails?.transcripts.length > 0 && appConfig.isConfigOrganism(geneDetails.taxonid)"
                            [transcriptDetails]="geneDetails.transcripts"></app-transcript-view>

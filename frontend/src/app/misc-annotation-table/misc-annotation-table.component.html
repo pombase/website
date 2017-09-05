@@ -1,0 +1,17 @@
+<fieldset class="annotation-table">
+  <legend>
+    <span>Miscellaneous</span>
+  </legend>
+  <div *ngFor="let annotationTypeName of annotationTypeNames">
+    <div *ngIf="geneDetails.cv_annotations[annotationTypeName]">
+      <div class="title">
+        {{typeConfigs[annotationTypeName].display_name || annotationTypeName}}
+      </div>
+      <app-annotation-sub-table
+        [annotationTypeName]="annotationTypeName"
+        [annotationTable]="geneDetails.cv_annotations[annotationTypeName]"
+        [hideColumns]="['gene', 'desc-rel']">
+      </app-annotation-sub-table>
+    </div>
+  </div>
+</fieldset>

@@ -84,6 +84,7 @@ import { QueryTermNodeComponent } from './query-term-node/query-term-node.compon
 import { QueryLinkComponent } from './query-link/query-link.component';
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 import { GenesDownloadDialogComponent } from './genes-download-dialog/genes-download-dialog.component';
+import { MiscAnnotationTableComponent } from './misc-annotation-table/misc-annotation-table.component';
 
 export function documentFactory() {
     return document;
@@ -162,6 +163,7 @@ export function windowFactory() {
     QueryLinkComponent,
     PredefinedQueryResultsComponent,
     GenesDownloadDialogComponent,
+    MiscAnnotationTableComponent,
   ],
   imports: [
     BrowserModule,
