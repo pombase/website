@@ -102,7 +102,7 @@ itself, so we recommend that users always read the term
 definition. The definition of a term can be found on the ontology term
 page linked to the term name and ID.
 
-#### GO Structure {#go_str} ####
+#### GO Structure #### {#go_str}
 
 GO is structured in a hierarchal order with less specific terms being
 parents of more specific child terms. A child term may have multiple
@@ -128,7 +128,7 @@ For more information on relationships in GO, see the [GO Ontology
 Relations](http://geneontology.org/page/ontology-relations)
 documentation.
 
-#### Evidence codes {#evid} ####
+#### Evidence codes #### {#evid}
 
 In PomBase, every annotation is supported by a reference that states
 where the annotation comes from, and an evidence code that describes
@@ -165,7 +165,7 @@ cases the [With/From
 column](http://geneontology.org/page/go-annotation-file-gaf-format-20/)
 provides more information regarding the source of the information.
 
-#### Annotation extensions {#ann_ext} ####
+#### Annotation extensions #### {#ann_ext}
 
 Where available, annotation extensions are displayed underneath the GO
 term name. The extensions provide additional specificity to the

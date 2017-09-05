@@ -62,7 +62,7 @@ sub markdown {
 
   my $html = "";
 
-  pandoc '--columns' => 1000, -f => 'markdown-markdown_in_html_blocks+link_attributes',
+  pandoc '--columns' => 1000, -f => 'markdown-markdown_in_html_blocks+link_attributes+auto_identifiers+implicit_header_references+header_attributes',
     -t => 'html', { in => \$md, out => \$html };
 
   return $html;
