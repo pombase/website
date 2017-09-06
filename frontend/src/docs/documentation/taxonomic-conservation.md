@@ -11,6 +11,13 @@ product of a protein-coding gene. The classifiers come from a small
 controlled vocabulary maintained by PomBase curators. All applicable
 terms are assigned to a protein.
 
+For each annotation, the summary view shows a text description, which
+corresponds to an entry in the internal
+[http://www.pombase.org/faqs/what-pbo-option-advanced-search](PBO)
+term set. The detailed view adds the PBO ID and a count that links to
+the [ontology term page](/documentation/ontology-term-page) for the
+description.
+
 ### Taxonomic conservation terms ###
 
 -   These terms identify the taxonomic groups in which gene product
