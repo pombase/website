@@ -1,4 +1,4 @@
-# Modifications
+# Gene Page: Modifications
 
 <div style="color: red">
   Note: because of changes in this preview, many of the screenshots in

@@ -1,4 +1,4 @@
-# Gene page basic information
+# Gene Page: Basic Information
 
 <div style="color: red">
   Note: because of changes in this preview, many of the screenshots in

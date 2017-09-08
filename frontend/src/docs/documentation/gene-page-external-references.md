@@ -1,4 +1,4 @@
-# External references
+# Gene Page: External References
 
 <div style="color: red">
   Note: because of changes in this preview, many of the screenshots in

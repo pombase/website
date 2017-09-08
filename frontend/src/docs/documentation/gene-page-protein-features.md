@@ -1,4 +1,4 @@
-# Gene page: protein features
+# Gene Page: Protein Features
 
 <div style="color: red">
   Note: because of changes in this preview, many of the screenshots in
