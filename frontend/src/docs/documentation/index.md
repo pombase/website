@@ -5,7 +5,7 @@
   this documentation are out of date.
 </div>
 
-### []{#DocsGenePage}Gene Pages ###
+### Gene Pages ### {#DocsGenePage}
 
 -   [Basic Information](documentation/gene-page-basic-information)
 -   [Gene Ontology](documentation/gene-page-gene-ontology)
@@ -23,7 +23,7 @@
     references](documentation/gene-page-external-references)
 -   [Literature](documentation/gene-page-literature)
 
-### []{#DocsSearch}Searching ###
+### Searching ### {#DocsSearch}
 
 -   [Simple Search](documentation/simple-search-documentation)
 -   [Advanced Search](documentation/advanced-search-documentation)
@@ -33,10 +33,11 @@
 -   GO Slim
     [Documentation](documentation/pombase-go-slim-documentation)
     and [Usage tips](browse-curation/fission-yeast-go-slimming-tips)
+-   [Ontology term pages](documentation/ontology-term-page)
+-   [Publication pages](documentation/publication-page)
 -   [Fission Yeast Phenotype Ontology (FYPO) page](browse-curation/fission-yeast-phenotype-ontology)
 -   [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
 -   [Data versions](about/version-history)
--   [Ontology term pages](documentation/ontology-term-page)
 
 ### How to Cite PomBase ###
 
@@ -48,10 +49,10 @@ PomBase accepts batch submissions of certain types of data that appear
 on PomBase gene pages. For these data types, we use dedicated
 PomBase-specific formats:
 
--   [Phenotypes](submit-data/phenotype-data-bulk-upload-format)
--   [Modifications](submit-data/modification-bulk-upload-file-format)
--   [Qualitative gene expression](submit-data/qualitative-gene-expression-bulk-upload-file-format)
--   [Quantitative gene expression](submit-data/quantitative-gene-expression-bulk-upload-file-format)
+-   [Phenotypes](documentation/phenotype-data-bulk-upload-format)
+-   [Modifications](documentation/modification-bulk-upload-file-format)
+-   [Qualitative gene expression](documentation/qualitative-gene-expression-bulk-upload-file-format)
+-   [Quantitative gene expression](documentation/quantitative-gene-expression-bulk-upload-file-format)
 
 For data that can be connected with sequence features or coordinates,
 and displayed as tracks in the genome browser, see the [data format
