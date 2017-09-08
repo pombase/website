@@ -11,7 +11,7 @@ manually curated, using terms from the
 genes. PomBase will add RNA modifications to this section in the
 future, when relevant data are curated.
 
-**Ontology Annotations for Protein Features**
+#### Ontology Annotations for Protein Features ####
 
 The summary view shows only the names of the most specific terms used to annotate the gene:
 
@@ -44,19 +44,20 @@ The detailed view shows more information for each annotation, and may display ad
     includes basic information about the ontology term, and a link to
     send the gene list to the advanced search.
 
-**[]{#ann_ext}Annotation extensions**\ Where available, annotation
-extensions are displayed underneath the ontology term name. The
-extensions provide additional specificity to the annotation, often by
-linking the term to another ontology term or a gene product via a
-relationship. Examples include specifying the gene product that adds
-or removes a modification, specifying modified residues, or specifying
-that the modification is observed during a phase or process.  For
-example, Lys4 (shown above) is phosphorylated on a serine residue
-during M phase of the mitotic cell cycle. Likewise,
-[Cdc2](/gene/SPBC11B10.09) is phosphorylated
-during G2, and phosphorylated on Tyrosine 15 by Wee1; it is
-phosphorylated during G2 but not M phase of the mitotic cell cycle;
-other extensions are also available for Cdc2.
+#### Annotation extensions #### {#ann_ext}
+
+Where available, annotation extensions are displayed underneath the
+ontology term name. The extensions provide additional specificity to
+the annotation, often by linking the term to another ontology term or
+a gene product via a relationship. Examples include specifying the
+gene product that adds or removes a modification, specifying modified
+residues, or specifying that the modification is observed during a
+phase or process.  For example, Lys4 (shown above) is phosphorylated
+on a serine residue during M phase of the mitotic cell
+cycle. Likewise, [Cdc2](/gene/SPBC11B10.09) is phosphorylated during
+G2, and phosphorylated on Tyrosine 15 by Wee1; it is phosphorylated
+during G2 but not M phase of the mitotic cell cycle; other extensions
+are also available for Cdc2.
 
 The annotation extension field can also be used to indicate modification
 site occupancy, for experiments that measure the proportion of copies of
