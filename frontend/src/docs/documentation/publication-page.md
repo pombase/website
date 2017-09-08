@@ -1,10 +1,5 @@
 # Publication pages
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 For each publication loaded into PomBase, a page summarizes essential
 details about paper, and shows any annotations that cite it.
 

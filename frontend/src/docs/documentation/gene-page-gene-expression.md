@@ -1,10 +1,5 @@
 Gene Page: Gene Expression
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 The Gene Expression section of a gene page displays curated
 qualitative and quantitative information about the level and timing of
 the gene's expression. In each subsection, a simple summary appears by

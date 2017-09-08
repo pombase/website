@@ -1,11 +1,5 @@
 # Gene Page: Sequence
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
-
 The Sequence section of a gene page provides a widget to download DNA
 sequences for any gene, and amino acid sequences for protein-coding
 genes, as well as links to send sequences to BLAST. For protein-coding

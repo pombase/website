@@ -1,10 +1,4 @@
-
 # Ontology term pages
-
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
 
 For each ontology term loaded into PomBase, a page summarizes
 essential details about the term, and shows any annotations to it or

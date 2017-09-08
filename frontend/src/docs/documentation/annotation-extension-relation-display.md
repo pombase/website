@@ -1,10 +1,5 @@
 # Annotation Extension Relation Display
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 Annotation extensions are used to provide additional specificity for
 annotations to GO, FYPO, and protein modification annotations. Each
 extension consists of a relation and another "entity", which may be a

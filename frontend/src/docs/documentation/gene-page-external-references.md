@@ -1,10 +1,5 @@
 # Gene Page: External References
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 The External References section of a gene page provides links to
 information on a gene or its product in each of several external
 databases. For each database, a category, the name and a brief

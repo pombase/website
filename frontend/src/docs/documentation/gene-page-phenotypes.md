@@ -1,10 +1,5 @@
 # Gene Page: Phenotypes
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 PomBase defines a phenotype as an observable characteristic, or set of
 characteristics, of an organism that results from the interaction of
 its genotype with a given environment. In PomBase, phenotypes are

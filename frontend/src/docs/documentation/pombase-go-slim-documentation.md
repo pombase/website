@@ -1,10 +1,5 @@
 # GO Slims - Gene Ontology subsets
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 "GO slims" are subsets of the Gene Ontology (GO) that provide a broad
 overview of annotation distribution. Slims can offer a useful overview
 of a genome or the results of a large-scale experiment. For more

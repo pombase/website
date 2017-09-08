@@ -1,10 +1,5 @@
 # High Confidence Physical Interaction Network (HCPIN)
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 The PomBase High Confidence Physical Interaction Network (HCPIN) is a
 collection of physical interaction data based on three subsets Gene
 Ontology (GO) annotations:

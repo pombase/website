@@ -1,10 +1,5 @@
 # Gene Page: Literature
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 The Literature section of a gene page lists the papers that have curated
 data for the gene or its product.
 

@@ -1,10 +1,5 @@
 # PomBase Web Site Help & Documentation
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 ### Gene Pages ### {#DocsGenePage}
 
 -   [Basic Information](documentation/gene-page-basic-information)

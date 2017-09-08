@@ -1,10 +1,5 @@
 # Gene Page: Modifications
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 The Modifications section lists protein modifications that have been
 manually curated, using terms from the
 [PSI-MOD](http://www.psidev.info/MOD) ontology, for protein-coding

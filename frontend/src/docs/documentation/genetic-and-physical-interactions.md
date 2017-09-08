@@ -1,10 +1,5 @@
 # Genetic and Physical Interactions
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 The Interactions section of a gene page displays genetic and physical
 interactions for a gene (or its product), in
 [BioGRID](http://thebiogrid.org/) format. All interactions are curated

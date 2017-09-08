@@ -1,10 +1,5 @@
 # Genotype pages
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 Genotype pages are analogous to gene pages, but 
 
 ![genotype page](assets/genotype_page.png){width="800"}

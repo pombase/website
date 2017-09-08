@@ -1,10 +1,5 @@
 # Gene Page: Protein Features
 
-<div style="color: red">
-  Note: because of changes in this preview, many of the screenshots in
-  this documentation are out of date.
-</div>
-
 Gene pages for protein-coding genes have a section describing protein
 features. Also see the
 [Modifications](/documentation/gene-page-modifications) documentation.
