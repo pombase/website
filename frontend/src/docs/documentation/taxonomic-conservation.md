@@ -33,10 +33,10 @@ description.
     -   conserved in fungi only
     -   conserved in eukaryotes only
 -   Other terms
-    -   Schizosaccharomyces specific - indicates that a gene product is
+    -   *Schizosaccharomyces* specific - indicates that a gene product is
         only identified in the genus *Schizosaccharomyces* at present,
         but is present in more than one species in this genus
-    -   Schizosaccharomyces pombe specific - indicates that a gene
+    -   *Schizosaccharomyces pombe* specific - indicates that a gene
         product is identified only in *S. pombe*, not in any other
         species even in the *Schizosaccharomyces* genus
     -   no apparent *S. cerevisiae* ortholog - indicates a gene product

@@ -6,30 +6,31 @@
 </div>
 
 PomBase defines a phenotype as an observable characteristic, or set of
-characteristics, of an organism that results from the interaction of its
-genotype with a given environment. In PomBase, phenotypes are annotated
-using terms from the Fission Yeast Phenotype Ontology (FYPO). FYPO uses
-several existing ontologies from the [Open Biological and Biomedical
-Ontologies](http://obofoundry.org/) (OBO) collection to construct formal
-definitions. Basic documentation for FYPO is available at the [OBO
-Foundry](http://obofoundry.org/cgi-bin/detail.cgi?id=fypo), and further
+characteristics, of an organism that results from the interaction of
+its genotype with a given environment. In PomBase, phenotypes are
+annotated using terms from the Fission Yeast Phenotype Ontology
+(FYPO). FYPO uses several existing ontologies from the [Open
+Biological and Biomedical Ontologies](http://obofoundry.org/) (OBO)
+collection to construct formal definitions. Basic documentation for
+FYPO is available at the [OBO
+Foundry](http://obofoundry.org/ontology/fypo.html), and further
 information is available on the [PomBase
 wiki](http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology).
 
 In the phenotype annotation display on PomBase gene pages, the first
 item shown is a brief summary indicating whether cells with a null
 (deletion) allele of the gene are viable or inviable, or either
-depending on experimental conditions. Next, single-allele phenotypes are
-shown in two tables. The first table lists phenotypes observed at the
-population level, such as viability in culture, and the second shows
-cell-level phenotypes. Note that the viable/inviable population terms
-describe whether a gene is essential or not, and see the wiki [FYPO
-Content and
+depending on experimental conditions. Next, single-allele phenotypes
+are shown in two tables. The first table lists phenotypes observed at
+the population level, such as viability in culture, and the second
+shows cell-level phenotypes. Note that the viable/inviable population
+terms describe whether a gene is essential or not, and see the wiki
+[FYPO Content and
 Structure](http://curation.pombase.org/pombase-trac/wiki/FYPOContentStructure)
 documentation for more information on cell and population phenotypes.
 Finally, two more tables list population-level and cell-level
-multi-allele phenotypes, i.e. phenotypes associated with double mutants,
-triple mutants, etc, and the relevant genotype details.
+multi-allele phenotypes, i.e. phenotypes associated with double
+mutants, triple mutants, etc, and the relevant genotype details.
 
 Each table includes ontology term details and supporting data. The
 summary view shows just the essentials: The list of terms is filtered,

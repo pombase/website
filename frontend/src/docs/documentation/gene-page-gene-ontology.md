@@ -9,7 +9,7 @@ PomBase uses the [Gene Ontology](http://www.geneontology.org/) (GO) to
 describe the biological context of genes.
 
 GO consists of three distinct
-[ontologies](http://www.geneontology.org/GO.contents.doc.shtml#ontology)
+[ontologies](http://www.geneontology.org/page/ontology-documentation)
 (or sets of vocabularies) that describe a gene's:
 
 1.  Molecular Function (MF) — single-step activities such as *kinase
@@ -21,12 +21,12 @@ GO consists of three distinct
     *fatty acid synthase complex*
 
 A gene product may be
-[annotated](http://www.geneontology.org/GO.contents.doc.shtml#annotation)
-to several GO terms from each of the three ontologies;
-[cyr1](/gene/SPBC19C7.03), for instance, is annotated to
-adenylate cyclase activity, magnesium ion binding and protein binding
-(MFs), it acts in cAMP biosynthesis and negatively regulates
-conjugation (BPs), and is found in the plasma membrane (CC).
+[annotated](http://www.geneontology.org/page/annotation) to several GO
+terms from each of the three ontologies; [cyr1](/gene/SPBC19C7.03),
+for instance, is annotated to adenylate cyclase activity, magnesium
+ion binding and protein binding (MFs), it acts in cAMP biosynthesis
+and negatively regulates conjugation (BPs), and is found in the plasma
+membrane (CC).
 
 Each table includes ontology term details and supporting data. The The
 GO annotation display on PomBase gene pages includes ontology term
@@ -95,7 +95,7 @@ than one paper), and annotations to terms hidden in the summary view:
     several types of additional detail. *S. pombe* genes link to PomBase
     gene pages.
 
-#### Term ID and name ####
+#### Term ID and name #### {#id}
 
 Annotations are made to the definition of a term, not the term name
 itself, so we recommend that users always read the term

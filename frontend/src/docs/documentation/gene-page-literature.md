@@ -15,7 +15,7 @@ matches to the search criteria).
 
 For each paper, the full citation and the number of genes curated from
 the paper are shown, and a "Details" link goes to the [publication
-page](/documentation/publication_page.md).
+page](/documentation/publication-page.md).
 
 By default, the list is sorted alphabetically by first author. Use the
 "Sort by" links to change the order.

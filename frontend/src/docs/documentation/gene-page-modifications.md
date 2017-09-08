@@ -34,8 +34,8 @@ The detailed view shows more information for each annotation, and may display ad
 4.  An abbreviation (code) or brief description for the type of
     evidence that supports the annotation. Modification annotations
     use some of the
-    [codes](http://www.geneontology.org/GO.evidence.shtml) defined by
-    the GO Consortium, plus a small subset of the [Evidence
+    [codes](http://www.geneontology.org/page/guide-go-evidence-codes)
+    defined by the GO Consortium, plus a small subset of the [Evidence
     Ontology](http://www.evidenceontology.org/) (ECO).
 5.  The residue(s) modified (where available)
 6.  The published source of the annotation (where available)

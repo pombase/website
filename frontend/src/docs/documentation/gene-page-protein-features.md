@@ -15,7 +15,7 @@ features. Also see the
     Browser, and shows the positions of domains and other features.
     Below the graphic is a link to the Genome Browser's protein view.
 2.  The table of protein families and domains is described in more
-    detail [below](#families).
+    detail below.
 3.  This section provides manual curation that ensures that large
     protein families (e.g. the WD family) include all known members.
     These manual annotations are provided because many families in
@@ -28,7 +28,7 @@ features. Also see the
 4.  Any motifs or features annotated using Sequence Ontology (SO) terms.
 5.  Table of the protein's physical properties
 
-#### Protein Families and Domains #### {#families}
+#### Protein Families and Domains ####
 
 ![gene page protein domains](assets/gene_page_protein_domains.png "Protein families and domains"){width="800"}
 
@@ -56,5 +56,5 @@ i.  Transmembrane domain coordinates, where applicable
 
 Note that some of the listed features (e.g. transmembrane domains from
 TMHMM) are predictions. Consult the contributing databases for further
-information, or [contact the PomBase curators](/feedback) if you notice
+information, or [contact the PomBase curators](mailto:helpdesk@pombase.org) if you notice
 any problems with annotated or predicted features.
