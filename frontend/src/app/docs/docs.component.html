@@ -2250,6 +2250,27 @@ United Kingdom</p>
 </table>
 
   </div>
+  <div *ngIf="pageName == 'controlled_curation'" class="docs-content">
+<h1 id="pombase-controlled-curation">PomBase Controlled Curation</h1>
+<p>Gene and publication pages include manually curated annotations of several types that cannot be represented using available ontologies.</p>
+<p>For each annotation, the summary view shows a text description, which corresponds to an entry in the internal <a routerLink="/PBO" routerLinkActive="active">http://www.pombase.org/faqs/what-pbo-option-advanced-search</a> term set. The detailed view adds the PBO ID, evidence (if available),​ reference, and count. The count links to the <a href="/documentation/ontology-term-page">ontology term page</a> for the description.</p>
+<p>Links in the left-hand navigation menu include:</p>
+<ul>
+<li><p><strong>Complementation</strong> - Indicates that an <em>S. pombe</em> gene complements,​ or is complemented by, a gene from another species</p></li>
+<li><p><strong>Disease association</strong> - Indicates that the gene's human ortholog has been implicated in disease</p></li>
+<li><p><strong>Miscellaneous</strong></p></li>
+<li><p><strong>Warnings</strong> - Alerts to changes or anomalies that can affect interpretation of experimental results, such as changes to the sequence or feature annotation</p></li>
+</ul>
+<p>In the Miscellaneous category, annotations fall under one of these sub-headings:</p>
+<ul>
+<li><p><strong>Catalytic activity attributes:</strong> Features of a gene product's catalytic activity, such as K<sub>M</sub>, k<sub>cat</sub>,​ substrate specificity</p></li>
+<li><p><strong>Experimental tools:</strong> Indicates that the gene or its product is used as an experimental tool (e.g. reporter gene construct,​ selectable marker, antibody)</p></li>
+<li><p><strong>Genome organization:</strong> Attributes of the genomic region around the gene, e.g. duplications, repeats, alternative transcripts</p></li>
+<li><p><strong>Miscellaneous functional group:</strong> Function-related descriptions that are not covered by GO molecular function or biological process annotations</p></li>
+<li><p><strong>Comment:</strong> Experimental observations and other notes that do not fit into ontologies or any of the above controlled curation categories; truly miscellaneous but interesting information</p></li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'gene-page-basic-information'" class="docs-content">
 <h1 id="gene-page-basic-information">Gene page basic information</h1>
 <div style="color: red">
@@ -2391,7 +2412,7 @@ United Kingdom</p>
 <p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
 </div>
 <p>The Modifications section lists protein modifications that have been manually curated, using terms from the <a href="http://www.psidev.info/MOD">PSI-MOD</a> ontology, for protein-coding genes. PomBase will add RNA modifications to this section in the future, when relevant data are curated.</p>
-<p><strong>Ontology Annotations for Protein Features</strong></p>
+<h4 id="ontology-annotations-for-protein-features">Ontology Annotations for Protein Features</h4>
 <p>The summary view shows only the names of the most specific terms used to annotate the gene:</p>
 <div class="figure">
 <img src="assets/gene_page_modification_summary.png" title="Protein modifications" alt="summary gene page modification ontology annotation" width="250" />
@@ -2411,7 +2432,8 @@ United Kingdom</p>
 <li>The published source of the annotation (where available)</li>
 <li>The total number of genes annotated to this term or any of its descendants, linked to a list of those genes. The gene list page includes basic information about the ontology term, and a link to send the gene list to the advanced search.</li>
 </ol>
-<p><strong><span id="ann_ext"></span>Annotation extensions</strong> Where available, annotation extensions are displayed underneath the ontology term name. The extensions provide additional specificity to the annotation, often by linking the term to another ontology term or a gene product via a relationship. Examples include specifying the gene product that adds or removes a modification, specifying modified residues, or specifying that the modification is observed during a phase or process. For example, Lys4 (shown above) is phosphorylated on a serine residue during M phase of the mitotic cell cycle. Likewise,​ <a routerLink="/gene/SPBC11B10.09" routerLinkActive="active">Cdc2</a> is phosphorylated during G2, and phosphorylated on Tyrosine 15 by Wee1; it is phosphorylated during G2 but not M phase of the mitotic cell cycle; other extensions are also available for Cdc2.</p>
+<h4 id="ann_ext">Annotation extensions</h4>
+<p>Where available, annotation extensions are displayed underneath the ontology term name. The extensions provide additional specificity to the annotation, often by linking the term to another ontology term or a gene product via a relationship. Examples include specifying the gene product that adds or removes a modification, specifying modified residues, or specifying that the modification is observed during a phase or process. For example, Lys4 (shown above) is phosphorylated on a serine residue during M phase of the mitotic cell cycle. Likewise, <a routerLink="/gene/SPBC11B10.09" routerLinkActive="active">Cdc2</a> is phosphorylated during G2, and phosphorylated on Tyrosine 15 by Wee1; it is phosphorylated during G2 but not M phase of the mitotic cell cycle; other extensions are also available for Cdc2.</p>
 <p>The annotation extension field can also be used to indicate modification site occupancy, for experiments that measure the proportion of copies of the protein (or RNA) that have the modification.</p>
 <p>Note: unlike GO annotations, for modification annotations extensions are not considered for display filtering. Annotations to less specific terms are hidden in the summary view whether they have extensions or not.</p>
 
@@ -2496,30 +2518,33 @@ appears to indicate that not all annotations are shown:</code></pre>
 </div>
 <p>Gene pages for protein-coding genes have a section describing protein features. Also see the <a routerLink="/documentation/gene-page-modifications" routerLinkActive="active">Modifications</a> documentation.</p>
 <div class="figure">
-<img src="assets/gene_page_protein_features.png" title="Protein features" alt="gene page protein features" width="595" height="600" />
+<img src="assets/gene_page_protein_features.png" title="Protein features" alt="gene page protein features" width="800" />
 <p class="caption">gene page protein features</p>
 </div>
 <ol style="list-style-type: decimal">
 <li>The graphical view is a static graphic from the PomBase Genome Browser, and shows the positions of domains and other features. Below the graphic is a link to the Genome Browser's protein view.</li>
-<li>The table of protein families and domains is described in more detail <a routerLink="/documentation/gene-page-protein-features#families" routerLinkActive="active">below</a>.</li>
+<li>The table of protein families and domains is described in more detail <a routerLink="/#families" routerLinkActive="active">below</a>.</li>
 <li>This section provides manual curation that ensures that large protein families (e.g. the WD family) include all known members. These manual annotations are provided because many families in protein family databases are rebuilt during the release cycle to include new sequences, and as a result gene products are sometimes lost or gained from protein families, and false negatives are common. This section is also used to capture published subfamily members which may be collected into a single family in protein family databases.</li>
 <li>Any motifs or features annotated using Sequence Ontology (SO) terms.</li>
 <li>Table of the protein's physical properties</li>
 </ol>
-<p><strong><span id="families"></span>Protein Families and Domains</strong></p>
+<h4 id="families">Protein Families and Domains</h4>
 <div class="figure">
-<img src="assets/gene_page_protein_domains.png" title="Protein families and domains" alt="gene page protein domains" width="800" height="276" />
+<img src="assets/gene_page_protein_domains.png" title="Protein families and domains" alt="gene page protein domains" width="800" />
 <p class="caption">gene page protein domains</p>
 </div>
 <ol style="list-style-type: lower-alpha">
 <li>Feature ID of this family or domain in the originating database. Where feasible, the ID links to the source database. Databases include Pfam, SMART, Prosite, Gene3D, SUPERFAMILY, TMHMM and Panther.</li>
 <li>Source database name</li>
+<li>Name of the matching feature in the contributing database</li>
 <li>ID of the <a href="http://www.ebi.ac.uk/interpro/">InterPro</a> entry that includes the feature. InterPro classifies proteins into families using predictive models provided by several different databases that make up the InterPro consortium. InterPro is useful for assessing the species distribution of a particular family or domains.</li>
-<li>The description of the domain from the contributing database</li>
+<li>The description of the domain in InterPro, from the contributing database</li>
 <li>Start and end coordinates, showing the location of the feature within the protein</li>
 <li>Link to a list of other fission yeast proteins which are members of the family or have the domain</li>
+<li>Link to the InterPro entry for the feature<br />
+</li>
 <li>Link to the Pfam entry for the protein, which shows domain organization</li>
-<li>Table of manually curated data indicating membership in a protein family or sub-family. Includes an ID and name for an internal PomBase ontology term, a reference (where available), and a link to other genes annotated to the same family.</li>
+<li>Transmembrane domain coordinates, where applicable</li>
 </ol>
 <p>Note that some of the listed features (e.g. transmembrane domains from TMHMM) are predictions. Consult the contributing databases for further information, or <a routerLink="/feedback" routerLinkActive="active">contact the PomBase curators</a> if you notice any problems with annotated or predicted features.</p>
 
@@ -2668,9 +2693,9 @@ curators.'"  [subject]="'Comment or problem report
 <li>The term's immediate parent(s), linked to the corresponding ontology term page(s).</li>
 <li>Links to external browsers are available for some ontologies. GO,​ FYPO and PSI-MOD terms have links to <a href="http://bioportal.bioontology.org/">BioPortal</a>, and GO term pages also link to <a href="http://amigo.geneontology.org/amigo">AmiGO</a> and <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a>. SO IDs link to <a href="http://sequenceontology.org/browser/obob.cgi">MISO</a>.</li>
 <li>Link to a page that lists genes annotated to the term or its descendants. From the linked page, the gene list can be sent to the advanced search for use in queries.</li>
-<li>In the annotation summary view, the term of interest is listed first, followed by any descendant term that has direct annotations. For each term, genes (or genotypes) are listed in a compact display, with separate lines only for unique combinations of gene, term, and extension. As in the gene page summary display,​ most details are hidden.</li>
+<li>In the annotation summary view, the term of interest is listed first, followed by any descendant term that has direct annotations. For each term, genes (or genotypes) are listed in a compact display, with separate lines only for unique combinations of gene, term, and extension. As in the <a href="/documentation/index#DocsGenePage">gene page summary display</a>, most details are hidden.</li>
 </ol>
-<p>As on gene pages, a more detailed annotation display is available:</p>
+<p>As on gene pages, a <a href="documentation/index#DocsGenePage">more detailed annotation display</a> is available:</p>
 <div class="figure">
 <img src="assets/ontology_term_page_detail.png" alt="ontology term page" width="800" />
 <p class="caption">ontology term page</p>
@@ -2714,6 +2739,30 @@ curators.'"  [subject]="'Comment or problem report
 <p>In the GO slim <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">table</a>, GO IDs link to the QuickGO browser, where you can explore the ontology and annotations further. The annotation totals include annotations to the slim term and to descendants following the <em>is_a</em>, <em>part_of,​ regulates, positively_regulates,​</em>and <em>negatively_regulates</em> relationships, and link to gene lists.</p>
 
   </div>
+  <div *ngIf="pageName == 'publication-page'" class="docs-content">
+<h1 id="publication-pages">Publication pages</h1>
+<div style="color: red">
+<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
+</div>
+<p>For each publication loaded into PomBase, a page summarizes essential details about paper, and shows any annotations that cite it.</p>
+<div class="figure">
+<img src="assets/publication_page_top.png" alt="publication page top details" width="800" />
+<p class="caption">publication page top details</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Publication details, including links to <a href="https://www.ncbi.nlm.nih.gov/pubmed/">PubMed</a> and <a href="http://europepmc.org/">EuropePMC</a></li>
+<li>Any community curators who have contributed annotations via Canto are acknowledged.</li>
+<li>Summary views are identical to those on <a href="/documentation/index#DocsGenePage">gene pages</a>.</li>
+<li>In detailed views annotations are displayed as on <a href="/documentation/index#DocsGenePage">gene pages</a>, except that a column for the annotated gene is included and the Reference column is omitted.</li>
+<li>Term and evidence filtering are available for phenotype annotations as described in the <a href="documentation/gene-page-phenotypes">gene page documentation</a>.</li>
+</ol>
+<p>Like gene pages, publication pages include annotations of all types,​ with summary and detailed views available for most types:</p>
+<div class="figure">
+<img src="assets/publication_page_overview.png" alt="publication page" width="800" />
+<p class="caption">publication page</p>
+</div>
+
+  </div>
   <div *ngIf="pageName == 'simple-search-documentation'" class="docs-content">
 <h1 id="simple-search">Simple search</h1>
 <div style="color: red">
@@ -2730,6 +2779,7 @@ curators.'"  [subject]="'Comment or problem report
 <p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
 </div>
 <p>The Taxonomic conservation section provides manually assigned classifiers of taxon distribution (at the domain/kingdom level) of the product of a protein-coding gene. The classifiers come from a small controlled vocabulary maintained by PomBase curators. All applicable terms are assigned to a protein.</p>
+<p>For each annotation, the summary view shows a text description, which corresponds to an entry in the internal <a routerLink="/PBO" routerLinkActive="active">http://www.pombase.org/faqs/what-pbo-option-advanced-search</a> term set. The detailed view adds the PBO ID and a count that links to the <a routerLink="/documentation/ontology-term-page" routerLinkActive="active">ontology term page</a> for the description.</p>
 <h3 id="taxonomic-conservation-terms">Taxonomic conservation terms</h3>
 <ul>
 <li>These terms identify the taxonomic groups in which gene product ortholog(s) have been identified:
