@@ -16,6 +16,15 @@ export class QueryNodeComponent implements OnInit {
   @Output() nodeEvent = new EventEmitter<GeneQueryNode>();
 
   nodeTypes = getAppConfig().queryBuilder.nodeTypes;
+  cannedQueryDetails =
+    getAppConfig().cannedQueryIds.map(id => {
+      const queryId = 'canned_query:' + id;
+      return {
+        name: getAppConfig().getPredefinedQuery(queryId).getName(),
+        queryId: queryId,
+      };
+    });
+
   activeConf: QueryNodeConfig = null;
   selectedTerm = null;
   selectedSubset = null;
@@ -116,5 +125,10 @@ export class QueryNodeComponent implements OnInit {
     let part = new FloatRangeNode(this.activeConf.id,
                                   this.rangeStart, this.rangeEnd);
     this.nodeEvent.emit(part);
+  }
+
+  selectPredefinedQuery(predefinedQueryId: string): void {
+    const query = getAppConfig().getPredefinedQuery(predefinedQueryId);
+    this.nodeEvent.emit(query.getTopNode());
   }
 }

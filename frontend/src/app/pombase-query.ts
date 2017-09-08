@@ -388,6 +388,7 @@ export class GeneQuery {
   }
 
   constructor(arg: Object) {
+    this.name = null;
     this.queryId = nextQueryId++;
     if (arg instanceof GeneQueryNode) {
       this.queryTopNode = arg;
@@ -395,10 +396,14 @@ export class GeneQuery {
       if (typeof(arg) === 'string') {
         throw new Error('GeneQuery constructor needs an Object not a string');
       }
-      this.queryTopNode = this.makeNode(arg);
+      if (arg['constraints']) {
+        this.queryTopNode = this.makeNode(arg['constraints']);
+        this.name = arg['name'];
+      } else {
+        this.queryTopNode = this.makeNode(arg);
+      }
     }
 
-    this.name = null;
     this.stringQuery = this.getTopNode().toString();
   }
 
@@ -417,7 +422,11 @@ export class GeneQuery {
   public toObject(): any {
     return {
       'constraints': this.getTopNode().toObject(),
-    }
+    };
+  }
+
+  public getName(): string {
+    return this.name;
   }
 
   public toPostJSON(outputOptions: QueryOutputOptions): string {

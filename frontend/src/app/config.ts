@@ -68,7 +68,8 @@ export interface AppConfig {
     smallest: number;
     largest: number;
   };
-  predefinedQueries: { [key: string]: any };
+  predefinedQueries: { [key: string]: GeneQuery };
+  cannedQueryIds: Array<string>;
   cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
   linkoutConfig: LinkoutConfig;
@@ -332,6 +333,7 @@ let _appConfig: AppConfig = {
     largest: Math.max(...pombaseConfig.api_seq_chunk_sizes)
   },
   predefinedQueries: pombaseConfig.predefined_queries,
+  cannedQueryIds: pombaseConfig.canned_query_ids,
   termPageConfig: {
     ancestorRelNames: ['is_a', 'part_of', 'regulates'],
   },
@@ -621,6 +623,11 @@ let _appConfig: AppConfig = {
         ]
       },
       {
+        id: 'canned_queries',
+        displayName: 'Canned queries',
+        nodeType: 'canned-queries',
+      },
+      {
         id: 'protein_mol_weight',
         displayName: 'protein mol. weight',
         nodeType: 'float-range',
@@ -668,9 +675,8 @@ let _appConfig: AppConfig = {
     return retOrganism;
   },
 
-  getPredefinedQuery(queryName: string): GeneQuery {
-    const queryObj = getAppConfig().predefinedQueries[queryName];
-    return new GeneQuery(queryObj.constraints);
+  getPredefinedQuery(queryId: string): GeneQuery {
+    return new GeneQuery(getAppConfig().predefinedQueries[queryId]);
   },
 
   getExternalTermLink(configKey: string, termId: string): { url: string, displayName: string } {

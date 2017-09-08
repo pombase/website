@@ -45,6 +45,12 @@
         </select>
       </div>
 
+      <div *ngIf="activeConf.nodeType == 'canned-queries'">
+        <div *ngFor="let cannedQueryDetail of cannedQueryDetails">
+          <a (click)="selectPredefinedQuery(cannedQueryDetail.queryId)">{{cannedQueryDetail.name}}</a>
+        </div>
+      </div>
+
       <div *ngIf="activeConf.nodeType == 'subset-input'">
         <input type="text" [(ngModel)]="subsetName" size="30"
                [placeholder]="activeConf.placeholder || ''" />
