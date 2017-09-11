@@ -10,8 +10,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
-import { MarkdownModule } from 'angular2-markdown';
-
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
@@ -177,7 +175,6 @@ export function windowFactory() {
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
     Ng2SimplePageScrollModule.forRoot(),
-    MarkdownModule.forRoot(),
     ModalModule.forRoot(),
   ],
   entryComponents: [GenesDownloadDialogComponent],
