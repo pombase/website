@@ -2801,6 +2801,27 @@ curators.'"  [subject]="'Comment or problem report
 
   </div>
 </div>
+<div *ngIf="section == 'news'">
+  <div class="docs-menu">
+<h3 id="news"><a routerLink="/news" routerLinkActive="active">News</a></h3>
+<ul>
+<li><a routerLink="/newsfeed/new-pombase" routerLinkActive="active">New PomBase</a></li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == '2017-06-02-new-pombase'" class="docs-content">
+<h1 id="new-pombase">New PomBase</h1>
+<p>A new version of the PomBase website is under development, and will be released when it includes all features available in the current version (and many new ones). You can follow its progress via announcements on <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">pombelist</a>,​ and try out the <a href="http://preview.pombase.org/">preview</a> site.</p>
+
+  </div>
+  <div *ngIf="pageName == 'index'" class="docs-content">
+<h1 id="news">News</h1>
+<ul>
+<li><a routerLink="/newsfeed/new-pombase" routerLinkActive="active">New PomBase</a></li>
+</ul>
+
+  </div>
+</div>
 <div *ngIf="section == 'status'">
   <div class="docs-menu">
 <h3 id="status"><a routerLink="/status" routerLinkActive="active">Status</a></h3>
