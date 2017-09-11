@@ -3,7 +3,6 @@
   <div class="docs-menu">
 <h3 id="about"><a routerLink="/about" routerLinkActive="active">About</a></h3>
 <ul>
-<li><a routerLink="/about/contacts" routerLinkActive="active">Contacts</a></li>
 <li><a routerLink="/about/citing-pombase" routerLinkActive="active">Citing PomBase</a></li>
 <li><a routerLink="/help" routerLinkActive="active">Help</a></li>
 <li><a routerLink="/about/resource-metrics" routerLinkActive="active">Resource Metrics</a></li>
@@ -867,7 +866,6 @@ United Kingdom</p>
 <h3 id="community"><a routerLink="/community" routerLinkActive="active">Community</a></h3>
 <ul>
 <li><a routerLink="/community/fission-yeast-community-curation-project" routerLinkActive="active">Community curation project</a></li>
-<li><a routerLink="/community/fission-yeast-community-curation-pilot-project" routerLinkActive="active">Curation pilot project</a></li>
 <li><a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">Mailing list</a></li>
 <li><a routerLink="/community/internet-resources" routerLinkActive="active">External resources</a></li>
 </ul>
@@ -1919,8 +1917,7 @@ United Kingdom</p>
   <div *ngIf="pageName == 'index'" class="docs-content">
 <h1 id="fission-yeast-community">Fission Yeast Community</h1>
 <ul>
-<li><a routerLink="/community/fission-yeast-community-curation-project" routerLinkActive="active">Community curation project</a></li>
-<li><a routerLink="/community/fission-yeast-community-curation-pilot-project" routerLinkActive="active">Curation pilot project</a></li>
+<li><a routerLink="/community/fission-yeast-community-curation-project" routerLinkActive="active">Community curation project</a>, including the old <a routerLink="/community/fission-yeast-community-curation-pilot-project" routerLinkActive="active">pilot project</a></li>
 <li><a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">Mailing list</a></li>
 <li><a routerLink="/community/internet-resources" routerLinkActive="active">External resources</a></li>
 </ul>
@@ -2014,28 +2011,35 @@ United Kingdom</p>
 <ul>
 <li>Gene pages
 <ul>
-<li><a routerLink="/documentation/gene-page-basic-information" routerLinkActive="active">Basic Information</a></li>
+<li><a routerLink="/documentation/gene-page-basic-information" routerLinkActive="active">Basic information</a></li>
 <li><a routerLink="/documentation/gene-page-gene-ontology" routerLinkActive="active">Gene Ontology</a></li>
 <li><a routerLink="/documentation/gene-page-phenotypes" routerLinkActive="active">Phenotypes</a></li>
-<li><a routerLink="/documentation/gene-page-target" routerLinkActive="active">Target Of</a></li>
-<li><a routerLink="/documentation/gene-page-protein-features" routerLinkActive="active">Protein Features</a></li>
+<li><a routerLink="/documentation/gene-page-target" routerLinkActive="active">Target of</a></li>
+<li><a routerLink="/documentation/gene-page-protein-features" routerLinkActive="active">Protein features</a></li>
 <li><a routerLink="/documentation/gene-page-modifications" routerLinkActive="active">Modifications</a></li>
-<li><a routerLink="/documentation/gene-page-gene-expression" routerLinkActive="active">Gene Expression</a></li>
-<li><a routerLink="/documentation/taxonomic-conservation" routerLinkActive="active">Species Distribution</a></li>
-<li><a routerLink="/documentation/orthologs" routerLinkActive="active">Ortholog Curation</a></li>
-<li><a routerLink="/documentation/genetic-and-physical-interactions" routerLinkActive="active">Genetic and Physical Interactions</a></li>
-<li><a routerLink="/documentation/gene-page-external-references" routerLinkActive="active">External References</a></li>
+<li><a routerLink="/documentation/gene-page-gene-expression" routerLinkActive="active">Gene expression</a></li>
+<li><a routerLink="/documentation/genetic-and-physical-interactions" routerLinkActive="active">Genetic and physical interactions</a></li>
+<li><a routerLink="/documentation/orthologs" routerLinkActive="active">Ortholog curation</a></li>
+<li><a routerLink="/documentation/taxonomic-conservation" routerLinkActive="active">Taxonomic conservation</a></li>
+<li><a routerLink="/documentation/gene-page-sequence" routerLinkActive="active">Sequence</a></li>
+<li><a routerLink="/documentation/controlled_curation" routerLinkActive="active">Controlled curation</a></li>
+<li><a routerLink="/documentation/gene-page-external-references" routerLinkActive="active">External references</a></li>
 <li><a routerLink="/documentation/gene-page-literature" routerLinkActive="active">Literature</a></li>
 </ul></li>
-<li><a routerLink="/documentation/simple-search-documentation" routerLinkActive="active">Simple Search</a></li>
+<li><a routerLink="/documentation/simple-search-documentation" routerLinkActive="active">Simple search</a></li>
+<li><a routerLink="/documentation/advanced-search" routerLinkActive="active">Advanced search</a></li>
+<li>Data submission fgile formats
+<ul>
+<li><a routerLink="/documentation/phenotype-data-bulk-upload-format" routerLinkActive="active">Phenotype data</a></li>
+<li><a routerLink="/documentation/modification-data-bulk-upload-format" routerLinkActive="active">Modification data</a></li>
+<li><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format" routerLinkActive="active">Qualitative gene expression data</a></li>
+<li><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format" routerLinkActive="active">Quantitative gene expression data</a></li>
+</ul></li>
 </ul>
 
   </div>
   <div *ngIf="pageName == 'annotation-extension-relation-display'" class="docs-content">
 <h1 id="annotation-extension-relation-display">Annotation Extension Relation Display</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>Annotation extensions are used to provide additional specificity for annotations to GO, FYPO, and protein modification annotations. Each extension consists of a relation and another &quot;entity&quot;, which may be a gene in PomBase or another database, or another ontology term. (The <a href="http://wiki.geneontology.org/index.php/Annotation_Extension">GO Consortium wiki page on annotation extensions</a> contains useful information on relations.) Because some relations have unwieldy names, the PomBase gene page display substitutes more readable text.</p>
 <p>This table shows the underlying relation name and corresponding display text for the affected relations, and the reciprocal relation displayed in &quot;Target of&quot; annotations (derived from extension data):</p>
 <table>
@@ -2272,10 +2276,7 @@ United Kingdom</p>
 
   </div>
   <div *ngIf="pageName == 'gene-page-basic-information'" class="docs-content">
-<h1 id="gene-page-basic-information">Gene page basic information</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
+<h1 id="gene-page-basic-information">Gene Page: Basic Information</h1>
 <p>At the top of each gene page is a set of basic information about the gene:</p>
 <div class="figure">
 <img src="assets/basic_info_gene_page.png" title="Gene page basic information" alt="top of gene page" width="800" />
@@ -2296,19 +2297,13 @@ United Kingdom</p>
 
   </div>
   <div *ngIf="pageName == 'gene-page-external-references'" class="docs-content">
-<h1 id="external-references">External references</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
+<h1 id="gene-page-external-references">Gene Page: External References</h1>
 <p>The External References section of a gene page provides links to information on a gene or its product in each of several external databases. For each database, a category, the name and a brief description are shown, and the identifier used by the database is displayed and linked.</p>
 <p>The resources linked in this section cover a wide range of databases and data tyeps. Because all are external, PomBase staff cannot provide assistance with any of the resources other than problems with the actual links.</p>
 
   </div>
   <div *ngIf="pageName == 'gene-page-gene-expression'" class="docs-content">
 <p>Gene Page: Gene Expression</p>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>The Gene Expression section of a gene page displays curated qualitative and quantitative information about the level and timing of the gene's expression. In each subsection, a simple summary appears by default (see explanations below the detail view illustration):</p>
 <p><br />
 <img src="assets/gene_page_expression_summary.png" title="Gene Page: Gene Expression Summary" alt="gene page expression section, summary view" width="800" /></p>
@@ -2340,17 +2335,14 @@ United Kingdom</p>
   </div>
   <div *ngIf="pageName == 'gene-page-gene-ontology'" class="docs-content">
 <h1 id="gene-page-gene-ontology">Gene Page: Gene Ontology</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>PomBase uses the <a href="http://www.geneontology.org/">Gene Ontology</a> (GO) to describe the biological context of genes.</p>
-<p>GO consists of three distinct <a href="http://www.geneontology.org/GO.contents.doc.shtml#ontology">ontologies</a> (or sets of vocabularies) that describe a gene's:</p>
+<p>GO consists of three distinct <a href="http://www.geneontology.org/page/ontology-documentation">ontologies</a> (or sets of vocabularies) that describe a gene's:</p>
 <ol style="list-style-type: decimal">
 <li>Molecular Function (MF) — single-step activities such as <em>kinase activity</em> or <em>transporter activity</em></li>
 <li>Biological Process (BP) — a series of functions with a common goal such as <em>MAPK cascade</em> or <em>cytokinesis</em></li>
 <li>Cellular component (CC) — the location where the gene product can be found, and what complexes it is part of, for instance <em>nucleus</em> or <em>fatty acid synthase complex</em></li>
 </ol>
-<p>A gene product may be <a href="http://www.geneontology.org/GO.contents.doc.shtml#annotation">annotated</a> to several GO terms from each of the three ontologies; <a routerLink="/gene/SPBC19C7.03" routerLinkActive="active">cyr1</a>, for instance, is annotated to adenylate cyclase activity, magnesium ion binding and protein binding (MFs), it acts in cAMP biosynthesis and negatively regulates conjugation (BPs), and is found in the plasma membrane (CC).</p>
+<p>A gene product may be <a href="http://www.geneontology.org/page/annotation">annotated</a> to several GO terms from each of the three ontologies; <a routerLink="/gene/SPBC19C7.03" routerLinkActive="active">cyr1</a>,​ for instance, is annotated to adenylate cyclase activity, magnesium ion binding and protein binding (MFs), it acts in cAMP biosynthesis and negatively regulates conjugation (BPs), and is found in the plasma membrane (CC).</p>
 <p>Each table includes ontology term details and supporting data. The The GO annotation display on PomBase gene pages includes ontology term details and supporting data. The summary view shows just the essentials: The list of terms is filtered, using the ontology structure, so that it shows only the most specific terms used to annotate a genotype, and each unique combination of gene, GO term, and extension(s) is shown once:</p>
 <div class="figure">
 <img src="assets/go_gene_page_summary.png" alt="summary gene page GO annotations" width="600" />
@@ -2377,7 +2369,7 @@ United Kingdom</p>
 <li><a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim</a> terms applicable to the gene.</li>
 <li><p>GO annotations may have <a routerLink="/#ann_ext" routerLinkActive="active">extensions</a> to capture any of several types of additional detail. <em>S. pombe</em> genes link to PomBase gene pages.</p></li>
 </ol>
-<h4 id="term-id-and-name">Term ID and name</h4>
+<h4 id="id">Term ID and name</h4>
 <p>Annotations are made to the definition of a term, not the term name itself, so we recommend that users always read the term definition. The definition of a term can be found on the ontology term page linked to the term name and ID.</p>
 <h4 id="go_str">GO Structure</h4>
 <p>GO is structured in a hierarchal order with less specific terms being parents of more specific child terms. A child term may have multiple parents and multiple children; the BP <em>mitotic sister chromatid segregation</em>, for instance, has child terms representing each part of the segregation process (sister chromatid cohesion, separation, etc.) as well as parent terms connecting it to both the mitotic cell cycle and chromosome segregation. Crucially, whenever an annotation is made to a term, the gene product is automatically annotated to all the parent terms. The ancestry of a term can be viewed in browsers such as AmiGO or QuickGO, accessible via links on the ontology term page. For more information, see the <a href="http://geneontology.org/page/ontology-structure">GO Ontology Structure</a> documentation.</p>
@@ -2396,21 +2388,15 @@ United Kingdom</p>
 
   </div>
   <div *ngIf="pageName == 'gene-page-literature'" class="docs-content">
-<h1 id="gene-page-literature">Gene page literature</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
+<h1 id="gene-page-literature">Gene Page: Literature</h1>
 <p>The Literature section of a gene page lists the papers that have curated data for the gene or its product.</p>
 <p>At the top of the section, there is a link to search PubMed for any papers on the gene. This may retrieve papers not on the gene page Literature list, if there are papers not yet curated (or spurious matches to the search criteria).</p>
-<p>For each paper, the full citation and the number of genes curated from the paper are shown, and a &quot;Details&quot; link goes to the <a href="/documentation/publication_page.md">publication page</a>.</p>
+<p>For each paper, the full citation and the number of genes curated from the paper are shown, and a &quot;Details&quot; link goes to the <a href="/documentation/publication-page.md">publication page</a>.</p>
 <p>By default, the list is sorted alphabetically by first author. Use the &quot;Sort by&quot; links to change the order.</p>
 
   </div>
   <div *ngIf="pageName == 'gene-page-modifications'" class="docs-content">
-<h1 id="modifications">Modifications</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
+<h1 id="gene-page-modifications">Gene Page: Modifications</h1>
 <p>The Modifications section lists protein modifications that have been manually curated, using terms from the <a href="http://www.psidev.info/MOD">PSI-MOD</a> ontology, for protein-coding genes. PomBase will add RNA modifications to this section in the future, when relevant data are curated.</p>
 <h4 id="ontology-annotations-for-protein-features">Ontology Annotations for Protein Features</h4>
 <p>The summary view shows only the names of the most specific terms used to annotate the gene:</p>
@@ -2427,7 +2413,7 @@ United Kingdom</p>
 <li>Name and ID of the ontology term</li>
 <li>Modification annotations may have <a routerLink="/#ann_ext" routerLinkActive="active">extensions</a> to capture any of several types of additional detail. <em>S. pombe</em> genes link to PomBase gene pages, and GO term names link to PomBase ontology term summary pages.</li>
 <li>The summary view is filtered, using the ontology structure, so that it shows only the most specific terms used to annotate a gene. Modification annotations curated for a gene using less specific terms (&quot;superclasses&quot; or &quot;ancestors&quot; in the ontology) appear only in the detailed view.</li>
-<li>An abbreviation (code) or brief description for the type of evidence that supports the annotation. Modification annotations use some of the <a href="http://www.geneontology.org/GO.evidence.shtml">codes</a> defined by the GO Consortium, plus a small subset of the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</li>
+<li>An abbreviation (code) or brief description for the type of evidence that supports the annotation. Modification annotations use some of the <a href="http://www.geneontology.org/page/guide-go-evidence-codes">codes</a> defined by the GO Consortium, plus a small subset of the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</li>
 <li>The residue(s) modified (where available)</li>
 <li>The published source of the annotation (where available)</li>
 <li>The total number of genes annotated to this term or any of its descendants, linked to a list of those genes. The gene list page includes basic information about the ontology term, and a link to send the gene list to the advanced search.</li>
@@ -2440,11 +2426,8 @@ United Kingdom</p>
   </div>
   <div *ngIf="pageName == 'gene-page-phenotypes'" class="docs-content">
 <h1 id="gene-page-phenotypes">Gene Page: Phenotypes</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
-<p>PomBase defines a phenotype as an observable characteristic, or set of characteristics, of an organism that results from the interaction of its genotype with a given environment. In PomBase, phenotypes are annotated using terms from the Fission Yeast Phenotype Ontology (FYPO). FYPO uses several existing ontologies from the <a href="http://obofoundry.org/">Open Biological and Biomedical Ontologies</a> (OBO) collection to construct formal definitions. Basic documentation for FYPO is available at the <a href="http://obofoundry.org/cgi-bin/detail.cgi?id=fypo">OBO Foundry</a>, and further information is available on the <a href="http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology">PomBase wiki</a>.</p>
-<p>In the phenotype annotation display on PomBase gene pages, the first item shown is a brief summary indicating whether cells with a null (deletion) allele of the gene are viable or inviable, or either depending on experimental conditions. Next, single-allele phenotypes are shown in two tables. The first table lists phenotypes observed at the population level, such as viability in culture, and the second shows cell-level phenotypes. Note that the viable/inviable population terms describe whether a gene is essential or not, and see the wiki <a href="http://curation.pombase.org/pombase-trac/wiki/FYPOContentStructure">FYPO Content and Structure</a> documentation for more information on cell and population phenotypes. Finally, two more tables list population-level and cell-level multi-allele phenotypes, i.e. phenotypes associated with double mutants,​ triple mutants, etc, and the relevant genotype details.</p>
+<p>PomBase defines a phenotype as an observable characteristic, or set of characteristics, of an organism that results from the interaction of its genotype with a given environment. In PomBase, phenotypes are annotated using terms from the Fission Yeast Phenotype Ontology (FYPO). FYPO uses several existing ontologies from the <a href="http://obofoundry.org/">Open Biological and Biomedical Ontologies</a> (OBO) collection to construct formal definitions. Basic documentation for FYPO is available at the <a href="http://obofoundry.org/ontology/fypo.html">OBO Foundry</a>, and further information is available on the <a href="http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology">PomBase wiki</a>.</p>
+<p>In the phenotype annotation display on PomBase gene pages, the first item shown is a brief summary indicating whether cells with a null (deletion) allele of the gene are viable or inviable, or either depending on experimental conditions. Next, single-allele phenotypes are shown in two tables. The first table lists phenotypes observed at the population level, such as viability in culture, and the second shows cell-level phenotypes. Note that the viable/inviable population terms describe whether a gene is essential or not, and see the wiki <a href="http://curation.pombase.org/pombase-trac/wiki/FYPOContentStructure">FYPO Content and Structure</a> documentation for more information on cell and population phenotypes. Finally, two more tables list population-level and cell-level multi-allele phenotypes, i.e. phenotypes associated with double mutants, triple mutants, etc, and the relevant genotype details.</p>
 <p>Each table includes ontology term details and supporting data. The summary view shows just the essentials: The list of terms is filtered,​ using the ontology structure, so that it shows only the most specific terms used to annotate a genotype, and each unique combination of gene, FYPO term, allele(s) and extension(s) is shown once. For single-allele phenotypes, the display includes:</p>
 <div class="figure">
 <img src="assets/single_fypo_gene_page_summary.png" title="Single-allele FYPO summary on gene page" alt="gene page phenotype annotations" width="800" />
@@ -2512,10 +2495,7 @@ appears to indicate that not all annotations are shown:</code></pre>
 
   </div>
   <div *ngIf="pageName == 'gene-page-protein-features'" class="docs-content">
-<h1 id="gene-page-protein-features">Gene page: protein features</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
+<h1 id="gene-page-protein-features">Gene Page: Protein Features</h1>
 <p>Gene pages for protein-coding genes have a section describing protein features. Also see the <a routerLink="/documentation/gene-page-modifications" routerLinkActive="active">Modifications</a> documentation.</p>
 <div class="figure">
 <img src="assets/gene_page_protein_features.png" title="Protein features" alt="gene page protein features" width="800" />
@@ -2523,12 +2503,12 @@ appears to indicate that not all annotations are shown:</code></pre>
 </div>
 <ol style="list-style-type: decimal">
 <li>The graphical view is a static graphic from the PomBase Genome Browser, and shows the positions of domains and other features. Below the graphic is a link to the Genome Browser's protein view.</li>
-<li>The table of protein families and domains is described in more detail <a routerLink="/#families" routerLinkActive="active">below</a>.</li>
+<li>The table of protein families and domains is described in more detail below.</li>
 <li>This section provides manual curation that ensures that large protein families (e.g. the WD family) include all known members. These manual annotations are provided because many families in protein family databases are rebuilt during the release cycle to include new sequences, and as a result gene products are sometimes lost or gained from protein families, and false negatives are common. This section is also used to capture published subfamily members which may be collected into a single family in protein family databases.</li>
 <li>Any motifs or features annotated using Sequence Ontology (SO) terms.</li>
 <li>Table of the protein's physical properties</li>
 </ol>
-<h4 id="families">Protein Families and Domains</h4>
+<h4 id="protein-families-and-domains">Protein Families and Domains</h4>
 <div class="figure">
 <img src="assets/gene_page_protein_domains.png" title="Protein families and domains" alt="gene page protein domains" width="800" />
 <p class="caption">gene page protein domains</p>
@@ -2546,14 +2526,32 @@ appears to indicate that not all annotations are shown:</code></pre>
 <li>Link to the Pfam entry for the protein, which shows domain organization</li>
 <li>Transmembrane domain coordinates, where applicable</li>
 </ol>
-<p>Note that some of the listed features (e.g. transmembrane domains from TMHMM) are predictions. Consult the contributing databases for further information, or <a routerLink="/feedback" routerLinkActive="active">contact the PomBase curators</a> if you notice any problems with annotated or predicted features.</p>
+<p>Note that some of the listed features (e.g. transmembrane domains from TMHMM) are predictions. Consult the contributing databases for further information, or <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">contact the PomBase curators</a> if you notice any problems with annotated or predicted features.</p>
+
+  </div>
+  <div *ngIf="pageName == 'gene-page-sequence'" class="docs-content">
+<h1 id="gene-page-sequence">Gene Page: Sequence</h1>
+<p>The Sequence section of a gene page provides a widget to download DNA sequences for any gene, and amino acid sequences for protein-coding genes, as well as links to send sequences to BLAST. For protein-coding genes, the DNA sequence of the coding exon(s) is displayed by default.</p>
+<div class="figure">
+<img src="assets/gene_page_sequence.png" alt="DNA sequence section" width="800" />
+<p class="caption">DNA sequence section</p>
+</div>
+<ol style="list-style-type: decimal">
+<li><p>Toggle to show the amino acid sequence (not available for non-coding RNA genes).</p></li>
+<li><p>Controls to add UTRs, introns, or flanking sequences to the displayed sequence. For upstream or downstream sequence, use the up/down control to increment by one base, or type or paste a number in the box.</p></li>
+<li><p>The sequence header indicates what is included.</p></li>
+<li><p>Link to save the displayed sequence to a file.</p></li>
+<li><p>Links to send the displayed sequence to BLAST at <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI</a> or <a href="http://fungi.ensembl.org/Multi/Tools/Blast?db=core">Ensembl</a>. DNA sequences link to BLASTN by default.</p></li>
+</ol>
+<p>When the &quot;Show translation&quot; option is selected, irrelevant controls are hidden and BLASTP links are shown:</p>
+<div class="figure">
+<img src="assets/gene_page_sequence_translated.png" alt="sequence section showing translation" width="800" />
+<p class="caption">sequence section showing translation</p>
+</div>
 
   </div>
   <div *ngIf="pageName == 'gene-page-target'" class="docs-content">
 <h1 id="gene-page-target-of">Gene Page: Target of</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>The &quot;Target of&quot; section describes genes that affect the gene of interest. Genes listed under &quot;Target of&quot; may include upstream regulators or enzymes that modify the product of the gene of interest. For example, the &quot;Target of&quot; annotations for <a routerLink="/gene/SPBC11B10.09" routerLinkActive="active">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others).</p>
 <p>Target of data are derived by taking the reciprocal of <a href="http://www.pombase.org/faqs/what-annotation-extension">ontology annotation extensions</a> (using <a href="documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a> and <a routerLink="/documentation/gene-page-phenotypes" routerLinkActive="active">phenotype</a> annotation extensions). The table includes:</p>
 <ul>
@@ -2567,9 +2565,6 @@ appears to indicate that not all annotations are shown:</code></pre>
   </div>
   <div *ngIf="pageName == 'genetic-and-physical-interactions'" class="docs-content">
 <h1 id="genetic-and-physical-interactions">Genetic and Physical Interactions</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>The Interactions section of a gene page displays genetic and physical interactions for a gene (or its product), in <a href="http://thebiogrid.org/">BioGRID</a> format. All interactions are curated manually by PomBase or BioGRID curators.</p>
 <p>Each table has five columns:</p>
 <p>The first column (with no header) describes the interaction. The text reflects the type of evidence listed in the Evidence column and, where applicable, the directionality of the interaction.</p>
@@ -2581,9 +2576,6 @@ appears to indicate that not all annotations are shown:</code></pre>
   </div>
   <div *ngIf="pageName == 'genotype-page'" class="docs-content">
 <h1 id="genotype-pages">Genotype pages</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>Genotype pages are analogous to gene pages, but</p>
 <div class="figure">
 <img src="assets/genotype_page.png" alt="genotype page" width="800" />
@@ -2604,9 +2596,6 @@ appears to indicate that not all annotations are shown:</code></pre>
   </div>
   <div *ngIf="pageName == 'high-confidence-physical-interaction-network'" class="docs-content">
 <h1 id="high-confidence-physical-interaction-network-hcpin">High Confidence Physical Interaction Network (HCPIN)</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>The PomBase High Confidence Physical Interaction Network (HCPIN) is a collection of physical interaction data based on three subsets Gene Ontology (GO) annotations:</p>
 <ol style="list-style-type: decimal">
 <li>Manually curated protein binding annotations. PomBase curators annotate genes to the GO &quot;protein binding&quot; molecular function term (GO:0005515) when proteins are shown experimentally to interact in a pairwise, and presumably direct, manner, often by more than one method</li>
@@ -2618,10 +2607,7 @@ appears to indicate that not all annotations are shown:</code></pre>
   </div>
   <div *ngIf="pageName == 'index'" class="docs-content">
 <h1 id="pombase-web-site-help-documentation">PomBase Web Site Help &amp; Documentation</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
-<h3 id="gene-pages"><span id="DocsGenePage"></span>Gene Pages</h3>
+<h3 id="DocsGenePage">Gene Pages</h3>
 <ul>
 <li><a routerLink="/documentation/gene-page-basic-information" routerLinkActive="active">Basic Information</a></li>
 <li><a routerLink="/documentation/gene-page-gene-ontology" routerLinkActive="active">Gene Ontology</a></li>
@@ -2638,7 +2624,7 @@ appears to indicate that not all annotations are shown:</code></pre>
 <li><a href="documentation/gene-page-external-references">External references</a></li>
 <li><a routerLink="/documentation/gene-page-literature" routerLinkActive="active">Literature</a></li>
 </ul>
-<h3 id="searching"><span id="DocsSearch"></span>Searching</h3>
+<h3 id="DocsSearch">Searching</h3>
 <ul>
 <li><a routerLink="/documentation/simple-search-documentation" routerLinkActive="active">Simple Search</a></li>
 <li><a routerLink="/documentation/advanced-search-documentation" routerLinkActive="active">Advanced Search</a></li>
@@ -2646,10 +2632,11 @@ appears to indicate that not all annotations are shown:</code></pre>
 <h3 id="other-pombase-pages">Other PomBase Pages</h3>
 <ul>
 <li>GO Slim <a routerLink="/documentation/pombase-go-slim-documentation" routerLinkActive="active">Documentation</a> and <a routerLink="/browse-curation/fission-yeast-go-slimming-tips" routerLinkActive="active">Usage tips</a></li>
+<li><a routerLink="/documentation/ontology-term-page" routerLinkActive="active">Ontology term pages</a></li>
+<li><a routerLink="/documentation/publication-page" routerLinkActive="active">Publication pages</a></li>
 <li><a routerLink="/browse-curation/fission-yeast-phenotype-ontology" routerLinkActive="active">Fission Yeast Phenotype Ontology (FYPO) page</a></li>
 <li><a routerLink="/documentation/high-confidence-physical-interaction-network" routerLinkActive="active">High Confidence Physical Interaction Network (HCPIN)</a></li>
 <li><a routerLink="/about/version-history" routerLinkActive="active">Data versions</a></li>
-<li><a routerLink="/documentation/ontology-term-page" routerLinkActive="active">Ontology term pages</a></li>
 </ul>
 <h3 id="how-to-cite-pombase">How to Cite PomBase</h3>
 <ul>
@@ -2658,10 +2645,10 @@ appears to indicate that not all annotations are shown:</code></pre>
 <h3 id="file-formats-for-data-submission">File Formats for Data Submission</h3>
 <p>PomBase accepts batch submissions of certain types of data that appear on PomBase gene pages. For these data types, we use dedicated PomBase-specific formats:</p>
 <ul>
-<li><a routerLink="/submit-data/phenotype-data-bulk-upload-format" routerLinkActive="active">Phenotypes</a></li>
-<li><a routerLink="/submit-data/modification-bulk-upload-file-format" routerLinkActive="active">Modifications</a></li>
-<li><a routerLink="/submit-data/qualitative-gene-expression-bulk-upload-file-format" routerLinkActive="active">Qualitative gene expression</a></li>
-<li><a routerLink="/submit-data/quantitative-gene-expression-bulk-upload-file-format" routerLinkActive="active">Quantitative gene expression</a></li>
+<li><a routerLink="/documentation/phenotype-data-bulk-upload-format" routerLinkActive="active">Phenotypes</a></li>
+<li><a routerLink="/documentation/modification-bulk-upload-file-format" routerLinkActive="active">Modifications</a></li>
+<li><a routerLink="/documentation/qualitative-gene-expression-bulk-upload-file-format" routerLinkActive="active">Qualitative gene expression</a></li>
+<li><a routerLink="/documentation/quantitative-gene-expression-bulk-upload-file-format" routerLinkActive="active">Quantitative gene expression</a></li>
 </ul>
 <p>For data that can be connected with sequence features or coordinates,​ and displayed as tracks in the genome browser, see the <a href="faqs/what-file-formats-can-i-use-submit-high-throughput-data">data format FAQ</a> and further details linked there.</p>
 <h3 id="linking-to-and-from-pombase">Linking to and from PomBase</h3>
@@ -2679,10 +2666,7 @@ curators.'"  [subject]="'Comment or problem report
   </div>
   <div *ngIf="pageName == 'ontology-term-page'" class="docs-content">
 <h1 id="ontology-term-pages">Ontology term pages</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
-<p>For each ontology term loaded into PomBase, a page summarizes essential details about the term, and shows any annotations to it or its descendants via <em>is_a</em>, <em>part_of</em>, and the <em>regulates</em> relations (the GO documentation on <a href="http://www.geneontology.org/GO.ontology.structure.shtml">Ontology Structure</a> and <a href="http://www.geneontology.org/GO.ontology.relations.shtml">Ontology Relations</a> has some useful information on this topic). For FYPO terms only, the has_part relation is also used.</p>
+<p>For each ontology term loaded into PomBase, a page summarizes essential details about the term, and shows any annotations to it or its descendants via <em>is_a</em>, <em>part_of</em>, and the <em>regulates</em> relations (the GO documentation on <a href="http://geneontology.org/page/ontology-structure">Ontology Structure</a> and <a href="http://geneontology.org/page/ontology-relations">Ontology Relations</a> has some useful information on this topic). For FYPO terms only, the has_part relation is also used.</p>
 <p>The main illustrations use a GO term page. Note that not all ontology terms have all of the depicted features.</p>
 <div class="figure">
 <img src="assets/ontology_term_page_summary.png" alt="ontology term page" width="800" />
@@ -2721,9 +2705,6 @@ curators.'"  [subject]="'Comment or problem report
   </div>
   <div *ngIf="pageName == 'orthologs'" class="docs-content">
 <h1 id="ortholog-curation">Ortholog curation</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>The &quot;Orthologs&quot; section of a gene page lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases.</p>
 <p>Ortholog prediction: The source of the ortholog prediction may vary. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>,​ <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>,​ <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches that are uniformly one-to one across species; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase's approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
 <p>For species other than budding yeast and human, we provide links to Compara to display orthologs from fungi or from all species. for further information, see the <a href="http://www.pombase.org/faqs/how-can-i-find-s-pombe-orthologs-species-other-human-and-s-cerevisiae">FAQ on orthologs in additional species</a>.</p>
@@ -2731,9 +2712,6 @@ curators.'"  [subject]="'Comment or problem report
   </div>
   <div *ngIf="pageName == 'pombase-go-slim-documentation'" class="docs-content">
 <h1 id="go-slims---gene-ontology-subsets">GO Slims - Gene Ontology subsets</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>&quot;GO slims&quot; are subsets of the Gene Ontology (GO) that provide a broad overview of annotation distribution. Slims can offer a useful overview of a genome or the results of a large-scale experiment. For more information on GO slims, please see PomBase <a href="/browse-curation/fission-yeast-go-slimming-tips">GO Slimming Tips</a> and the <a href="http://www.geneontology.org/GO.slims.shtml">GO Slim Guide</a> at the Gene Ontology website.</p>
 <p>The <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO slim term set</a> constructed for fission yeast provides almost complete coverage of gene products annotated to biological process terms. This slim set is a good starting point for users who wish to identify terms of biological interest to create a &quot;custom slim&quot;, or to become familiar with the genome contents.</p>
 <p>In the GO slim <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">table</a>, GO IDs link to the QuickGO browser, where you can explore the ontology and annotations further. The annotation totals include annotations to the slim term and to descendants following the <em>is_a</em>, <em>part_of,​ regulates, positively_regulates,​</em>and <em>negatively_regulates</em> relationships, and link to gene lists.</p>
@@ -2741,9 +2719,6 @@ curators.'"  [subject]="'Comment or problem report
   </div>
   <div *ngIf="pageName == 'publication-page'" class="docs-content">
 <h1 id="publication-pages">Publication pages</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>For each publication loaded into PomBase, a page summarizes essential details about paper, and shows any annotations that cite it.</p>
 <div class="figure">
 <img src="assets/publication_page_top.png" alt="publication page top details" width="800" />
@@ -2765,9 +2740,6 @@ curators.'"  [subject]="'Comment or problem report
   </div>
   <div *ngIf="pageName == 'simple-search-documentation'" class="docs-content">
 <h1 id="simple-search">Simple search</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>The simple search is available via the search box in the header on every PomBase page.</p>
 <p>It searches gene names (standard names and synonyms), systematic IDs,​ and gene product descriptions for fission yeast genes. Human and budding yeast orthologs can also be searched by standard gene name and ORF name, respectively.</p>
 <p>Start typing to see a pulldown of autocomplete matches, then choose one, or if there is a single match simply hit return, to go to the matching gene page.</p>
@@ -2775,9 +2747,6 @@ curators.'"  [subject]="'Comment or problem report
   </div>
   <div *ngIf="pageName == 'taxonomic-conservation'" class="docs-content">
 <h1 id="taxonomic-conservation">Taxonomic Conservation</h1>
-<div style="color: red">
-<p>Note: because of changes in this preview, many of the screenshots in this documentation are out of date.</p>
-</div>
 <p>The Taxonomic conservation section provides manually assigned classifiers of taxon distribution (at the domain/kingdom level) of the product of a protein-coding gene. The classifiers come from a small controlled vocabulary maintained by PomBase curators. All applicable terms are assigned to a protein.</p>
 <p>For each annotation, the summary view shows a text description, which corresponds to an entry in the internal <a routerLink="/PBO" routerLinkActive="active">http://www.pombase.org/faqs/what-pbo-option-advanced-search</a> term set. The detailed view adds the PBO ID and a count that links to the <a routerLink="/documentation/ontology-term-page" routerLinkActive="active">ontology term page</a> for the description.</p>
 <h3 id="taxonomic-conservation-terms">Taxonomic conservation terms</h3>
@@ -2798,8 +2767,8 @@ curators.'"  [subject]="'Comment or problem report
 </ul></li>
 <li>Other terms
 <ul>
-<li>Schizosaccharomyces specific - indicates that a gene product is only identified in the genus <em>Schizosaccharomyces</em> at present,​ but is present in more than one species in this genus</li>
-<li>Schizosaccharomyces pombe specific - indicates that a gene product is identified only in <em>S. pombe</em>, not in any other species even in the <em>Schizosaccharomyces</em> genus</li>
+<li><em>Schizosaccharomyces</em> specific - indicates that a gene product is only identified in the genus <em>Schizosaccharomyces</em> at present,​ but is present in more than one species in this genus</li>
+<li><em>Schizosaccharomyces pombe</em> specific - indicates that a gene product is identified only in <em>S. pombe</em>, not in any other species even in the <em>Schizosaccharomyces</em> genus</li>
 <li>no apparent <em>S. cerevisiae</em> ortholog - indicates a gene product which is conserved at least outside the <em>Schizosaccharomyces</em> but is absent from <em>S. cerevisiae</em></li>
 <li>faster evolving duplicate - indicates that the copy of a gene product which has duplicated after the divergence of <em>Schizosaccharomyces</em> from other yeasts is evolving faster than its duplicate partner (judged because the fission yeast duplicate is more closely related to the orthologs in other species, but is the best hit of this gene product)</li>
 <li>predominantly single copy (one to one) - the gene product is conserved largely one-to one across species with minor exceptions (for example, frequently duplicated in the vertebrate lineage)</li>
