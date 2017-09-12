@@ -263,9 +263,9 @@ export class SubsetNode extends GeneQueryNode {
 
   toString(): string {
     if (this.subsetDisplayName) {
-      return this.subsetDisplayName;
+      return 'subset: ' + this.subsetDisplayName;
     } else {
-      return this.subsetName;
+      return 'subset: ' + this.subsetName;
     }
   }
 }
