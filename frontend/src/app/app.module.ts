@@ -83,6 +83,7 @@ import { QueryLinkComponent } from './query-link/query-link.component';
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 import { GenesDownloadDialogComponent } from './genes-download-dialog/genes-download-dialog.component';
 import { MiscAnnotationTableComponent } from './misc-annotation-table/misc-annotation-table.component';
+import { QueryDetailsDialogComponent } from './query-details-dialog/query-details-dialog.component';
 
 export function documentFactory() {
     return document;
@@ -162,6 +163,7 @@ export function windowFactory() {
     PredefinedQueryResultsComponent,
     GenesDownloadDialogComponent,
     MiscAnnotationTableComponent,
+    QueryDetailsDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -177,7 +179,7 @@ export function windowFactory() {
     Ng2SimplePageScrollModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  entryComponents: [GenesDownloadDialogComponent],
+  entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent],
   providers: [PombaseAPIService,
               { provide: 'Window', useValue: window },
               { provide: 'Document', useFactory: documentFactory },

@@ -1,7 +1,10 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 
+import { BsModalService } from 'ngx-bootstrap/modal';
+
 import { QueryService, HistoryEntry } from '../query.service';
 import { GeneQuery, GeneBoolNode } from '../pombase-query';
+import { QueryDetailsDialogComponent } from '../query-details-dialog/query-details-dialog.component';
 
 @Component({
   selector: 'app-query-history',
@@ -13,8 +16,10 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
 
   historyEntries: Array<HistoryEntry> = [];
   histSubscription = null;
+  detailsModalRef = null;
 
-  constructor(private queryService: QueryService) { }
+  constructor(private modalService: BsModalService,
+              private queryService: QueryService) { }
 
   getSelectedEntries(): Array<HistoryEntry> {
     return this.historyEntries.filter(e => e.checked);
@@ -35,6 +40,11 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
 
   queryClick(histEntry: HistoryEntry) {
     this.gotoResults.emit(histEntry.getQuery());
+  }
+
+  showQueryDetails(histEntry: HistoryEntry) {
+    this.detailsModalRef = this.modalService.show(QueryDetailsDialogComponent);
+    this.detailsModalRef.content.query = histEntry.getQuery();
   }
 
   ngOnInit() {

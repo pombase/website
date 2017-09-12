@@ -1,0 +1,19 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Query details</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="query" class="modal-body">
+    <div class="query-name" *ngIf="query.getName()">{{query.getName()}}</div>
+    <div>
+      {{query.toPostJSON()}}
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default"
+            title="Close dialog"
+            (click)="bsModalRef.hide()">Close</button>
+  </div>
+</div>

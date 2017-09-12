@@ -36,7 +36,7 @@
         <input [(ngModel)]="histEntry.checked" type="checkbox"/>
       </td>
       <td>
-        {{histEntry.getQuery().toString()}}
+        <span (dblclick)="showQueryDetails(histEntry)">{{histEntry.getQuery().toString()}}</span>
       </td>
       <td class="result-count">
         <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== null">
