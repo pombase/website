@@ -63,6 +63,11 @@ export class QueryService {
             console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
           }
         };
+
+        let timer = TimerObservable.create(0.2);
+        const subscription = timer.subscribe(t => {
+          this.setAllCounts();
+        });
       }
     } catch (e) {
       console.log('failed to deserialise history: ' + e.message);
