@@ -472,6 +472,13 @@ let _appConfig: AppConfig = {
         ontologyName: 'PSI-MOD',
       },
       {
+        id: 'all_domains',
+        displayName: 'protein domain',
+        nodeType: 'subset-input',
+        subsetPrefix: null,
+        placeholder: 'eg. PF02373 or IPR001138',
+      },
+      {
         id: 'SO_protein',
         displayName: 'protein feature',
         nodeType: 'ontology',
@@ -482,13 +489,6 @@ let _appConfig: AppConfig = {
         displayName: 'disease',
         nodeType: 'ontology',
         ontologyName: 'disease_associated',
-      },
-      {
-        id: 'all_domains',
-        displayName: 'Protein domain',
-        nodeType: 'subset-input',
-        subsetPrefix: null,
-        placeholder: 'eg. PF02373 or IPR001138',
       },
       {
         id: 'product_type',
