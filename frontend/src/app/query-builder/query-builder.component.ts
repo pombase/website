@@ -50,8 +50,13 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     let newQuery = null;
 
     if (fromType === 'term_subset') {
-      let constraints = new TermNode(termId, termName, null,
-                                     TermAlleleSingleOrMulti.Single, null);
+      let singleOrMulti = null;
+      const matches = termId.match(/^([^:]+):/);
+      if (matches && getAppConfig().phenotypeIdPrefixes.indexOf(matches[1]) !== -1) {
+        // only set singleOrMulti if the termid is from a phenotype CV
+        singleOrMulti = TermAlleleSingleOrMulti.Single;
+      }
+      let constraints = new TermNode(termId, termName, null, singleOrMulti, null);
       newQuery = new GeneQuery(constraints);
     }
 

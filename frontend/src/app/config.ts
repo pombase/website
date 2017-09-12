@@ -72,6 +72,7 @@ export interface AppConfig {
   cannedQueryIds: Array<string>;
   cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
+  phenotypeIdPrefixes: Array<string>;
   linkoutConfig: LinkoutConfig;
   evidenceTypes: EvidenceConfig;
   externalGeneReferences: Array<ExternalGeneReference>;
@@ -338,7 +339,7 @@ let _appConfig: AppConfig = {
   termPageConfig: {
     ancestorRelNames: ['is_a', 'part_of', 'regulates'],
   },
-
+  phenotypeIdPrefixes: pombaseConfig.phenotype_id_prefixes,
   cvNameMap: {
     'GO': '(molecular_function OR biological_process OR cellular_component)',
     'FYPO': 'fission_yeast_phenotype',
