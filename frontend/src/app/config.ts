@@ -125,6 +125,7 @@ export interface AnnotationType {
   split_by_parents?: Array<SplitByParentsConfig>;
   columns_to_show?: Array<string>;
   details_only?: boolean;
+  no_gene_details_section?: boolean;
   hide_term_details?: boolean;
   filters: Array<FilterConfig>;
   external_db_link_keys?: Array<string>;

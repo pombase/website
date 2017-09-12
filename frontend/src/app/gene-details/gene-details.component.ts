@@ -190,6 +190,10 @@ export class GeneDetailsComponent implements OnInit {
     }
   }
 
+  private isGeneDetailPageType(typeName: string): boolean {
+    return !this.config.getAnnotationType(typeName).no_gene_details_section;
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -208,7 +212,9 @@ export class GeneDetailsComponent implements OnInit {
               this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
               this.displayLocation = this.makeDisplayLocation(geneDetails.location);
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
-              this.annotationTypeNames = this.config.annotationTypeOrder;
+              this.annotationTypeNames =
+                this.config.annotationTypeOrder
+                .filter(typeName => this.isGeneDetailPageType(typeName));
               this.setPageTitle();
               this.scrollToPageTop();
               this.setProductSize();
