@@ -47,6 +47,10 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.detailsModalRef.content.query = histEntry.getQuery();
   }
 
+  setAllCounts() {
+    this.queryService.setAllCounts();
+  }
+
   ngOnInit() {
     this.historyEntries = this.queryService.getHistory();
     this.histSubscription =

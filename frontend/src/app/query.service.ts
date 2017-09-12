@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable, Subject } from 'rxjs/Rx';
+import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { GeneQuery, QueryResult, QueryOutputOptions } from './pombase-query';
 import { getAppConfig, getReleaseConfig } from './config';
 
@@ -31,6 +32,10 @@ export class HistoryEntry {
     let o = this.query.toObject();
     o.resultCount = this.resultCount;
     return o;
+  }
+
+  setCount(resultCount: number) {
+    this.resultCount = resultCount;
   }
 }
 
@@ -133,5 +138,24 @@ export class QueryService {
       });
     this.subject.next(this.history);
     this.saveHistory();
+  }
+
+  setAllCounts() {
+    const countUpdater =
+      (histEntry: HistoryEntry, delay: number) => {
+        const query = histEntry.getQuery();
+
+        let timer = TimerObservable.create(delay);
+        const subscription = timer.subscribe(t => {
+          this.postQueryCount(query)
+            .subscribe((count) => {
+              histEntry.setCount(count);
+              subscription.unsubscribe();
+            });
+        });
+      };
+    for (let i = 0; i < this.history.length; i++) {
+      countUpdater(this.history[i], i*100);
+    }
   }
 }
