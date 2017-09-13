@@ -105,7 +105,7 @@
       </div>
 
       <app-misc-annotation-table id="{{annotationTypeName}}"
-                                 *ngIf="annotationTypeName == 'miscellaneous'"
+                                 *ngIf="annotationTypeName == 'miscellaneous' && hasMiscAnnotations()"
                                  [annotationTypeNames]="miscAnnotationTypeNames"
                                  [geneDetails]="geneDetails"></app-misc-annotation-table>
 
