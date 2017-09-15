@@ -1,5 +1,6 @@
+# PomBase GO Slim Usage Tips
 
-**General GO Slim hints**
+=== General GO Slim hints ===
 
 These points will help you understand GO slims, and highlight some
 features of the fission yeast slim terms and annotations.
@@ -57,7 +58,7 @@ features of the fission yeast slim terms and annotations.
     budding yeast hugely will greatly and artificially inflate the
     number of annotations to translation).
 
-**Creating a user-defined slim**
+=== Creating a user-defined slim ===
 
 1.  You can create your own slim, or retrieve slim annotations for a
     gene set, using online slimming tools such as the

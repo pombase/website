@@ -17,7 +17,7 @@ Further information is available from:
 - [PomBase HCPIN documentation](documentation/high-confidence-physical-interaction-network)
 - [esyN documentation](http://www.esyn.org/tutorial.html)
 - [PomBase tips for using GO slim terms and annotations](browse-curation/fission-yeast-go-slimming-tips)
-- [GO Slim Guide at the Gene Ontology website](http://www.geneontology.org/GO.slims.shtml)
+- [GO Slim Guide at the Gene Ontology website](http://geneontology.org/page/go-slim-and-subset-guide)
 
 Note that both proteins and RNAs can be annotated to GO terms, and the
 tables on this page include annotated RNAs. For some GO terms, notably
