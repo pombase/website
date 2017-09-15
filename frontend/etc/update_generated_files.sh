@@ -11,4 +11,4 @@ ABBREVS="AGI_LocusCode CDD DDJB EC ECOGENE EMBL ENSEMBL FB GEO GO Gene3D HAMAP I
 
 etc/make-link-js.pl $go_xrfs_abbs $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
 
-(cd src/docs; ../../etc/make-docs.pl `find ./ -name '*.md'` > ../app/docs/docs.component.html)
+(cd src/docs; ../../etc/make-docs.pl ../app/recent-news/recent-news.component.html `find ./ -name '*.md'` > ../app/docs/docs.component.html)

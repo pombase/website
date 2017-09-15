@@ -6,6 +6,10 @@ use warnings;
 use JSON -support_by_pp;
 use Pandoc;
 
+my $recent_news_file_name = shift;
+open my $recent_news_file, '>', $recent_news_file_name
+  or die "can't open $recent_news_file_name for writing\n";
+
 my %sections = ();
 
 for my $file (sort @ARGV) {
@@ -29,20 +33,7 @@ for my $path (keys %sections) {
 print qq|<div class="docs">\n|;
 
 for my $path (sort keys %sections) {
-  my $data = $sections{$path};
-
-  print qq|<div *ngIf="section == '$path'">\n|;
-  print qq|  <div class="docs-menu">\n|;
-  print markdown(contents_for_template("$path/menu", $data->{menu})), "\n";
-  print qq|  </div>\n|;
-
-  for my $page_name (sort keys %$data) {
-    next if $page_name eq "menu";
-    print qq|  <div *ngIf="pageName == '$page_name'" class="docs-content">\n|;
-    print markdown(contents_for_template("$path/$page_name", $data->{$page_name})), "\n";
-    print qq|  </div>\n|;
-  }
-  print qq|</div>\n|;
+  process_path($path);
 }
 
 print "</div>\n";
@@ -56,6 +47,50 @@ open my $doc_config, '>', $doc_config_file
 print $doc_config to_json( [sort keys %sections], { canonical => 1, pretty => 1 } );
 
 close $doc_config;
+
+close $recent_news_file;
+
+sub process_path {
+  my $path = shift;
+
+  my $data = $sections{$path};
+
+  print qq|<div *ngIf="section == '$path'">\n|;
+  print qq|  <div class="docs-menu">\n|;
+  print markdown(contents_for_template("$path/menu", $data->{menu})), "\n";
+  print qq|  </div>\n|;
+
+  my @news_pages = ();
+
+  for my $page_name (sort keys %$data) {
+    next if $page_name eq "menu";
+    print qq|  <div *ngIf="pageName == '$page_name'" class="docs-content">\n|;
+    print markdown(contents_for_template("$path/$page_name", $data->{$page_name})), "\n";
+    print qq|  </div>\n|;
+
+    if ($path eq 'news' && $page_name =~ /^\d+-\d+-\d+/) {
+      push @news_pages, $page_name;
+    }
+  }
+  print qq|</div>\n|;
+
+  if ($path eq 'news') {
+    my @news_summary = ();
+    if (@news_pages > 5) {
+      @news_summary = (reverse @news_pages)[0..5];
+    } else {
+      @news_summary = reverse @news_pages;
+    }
+
+    print $recent_news_file qq|<div class="recent-news">\n|;
+    for my $page_name (@news_summary) {
+      print $recent_news_file markdown(contents_for_template("news/$page_name", $data->{$page_name})), "\n";
+    }
+    print $recent_news_file qq|
+<div id="archive-link"><a routerLink="/news/">News archive"</a></div>\n</div>\n
+|;
+  }
+}
 
 sub markdown {
   my $md = shift;

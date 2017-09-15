@@ -1,3 +1,3 @@
 # News
 
-- [New PomBase](newsfeed/new-pombase)
+- [New PomBase](news/new-pombase)

@@ -38,3 +38,9 @@
 #pombase-contacts {
   margin: 0.2em 0 0 0;
 }
+
+.recent-news {
+  height: 20em;
+  overflow-y: auto;
+  font-size: 80%;
+}
