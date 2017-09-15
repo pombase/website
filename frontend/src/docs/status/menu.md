@@ -8,6 +8,5 @@
 - [Gene coordinate changes](status/gene-coordinate-changes)
 - [New and removed genes](status/new-and-removed-genes)
 - [Gene characterisation](status/gene-characterisation)
-- [Gene characterisation history](status/gene-characterisation-statistics-history)
 - [Priority unstudied genes](status/priority-unstudied-genes)
 - [Unmapped genes](status/unmapped_genes)
