@@ -82,12 +82,12 @@ sub process_path {
       @news_summary = reverse @news_pages;
     }
 
-    print $recent_news_file qq|<div class="recent-news">\n|;
+    print $recent_news_file qq|<div class="recent-news"><div class="recent-news-header">Recent news</div>\n|;
     for my $page_name (@news_summary) {
       print $recent_news_file markdown(contents_for_template("news/$page_name", $data->{$page_name})), "\n";
     }
     print $recent_news_file qq|
-<div id="archive-link"><a routerLink="/news/">News archive"</a></div>\n</div>\n
+<div id="archive-link"><a routerLink="/news/">News archive</a></div>\n</div>\n
 |;
   }
 }
