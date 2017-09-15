@@ -1,3 +1,1 @@
-# News
-
-- [New PomBase](news/new-pombase)
+# News archive

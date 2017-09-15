@@ -41,6 +41,10 @@
 
 .recent-news {
   height: 20em;
+  width: 30em;
   overflow-y: auto;
+}
+
+.recent-news > div {
   font-size: 80%;
 }

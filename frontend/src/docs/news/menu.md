@@ -1,1 +1,0 @@
-- [New PomBase](news/new-pombase)
