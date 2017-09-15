@@ -1,7 +1,7 @@
 # Protein-coding gene characterisation statistics history
 
-**History of characterisation status using current status descriptions
-(introduced with PomBase Chado release 46, August 2014):**
+==== History of characterisation status using current status descriptions ====
+===== (introduced with PomBase Chado release 46, August 2014): =====
 
 <table>
  <thead>
@@ -18,6 +18,17 @@
   </tr>
  </thead>
  <tbody>
+  <tr>
+  <td>2017-01-30</td>
+  <td>2235</td>
+  <td>1996</td>
+  <td>511</td>
+  <td>180</td>
+  <td>145</td>
+  <td>54</td>
+  <td>13</td>
+  <td>5171</td>
+ </tr>
   <tr>
   <td>2016-09-12</td>
   <td>2227</td>
@@ -54,8 +65,8 @@
  </tbody>
 </table>
 
-**History of characterisation status using previous status
-descriptions:**
+==== History of characterisation status using previous status
+descriptions: ====
 
 <table>
  <thead>
