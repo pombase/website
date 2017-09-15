@@ -1,0 +1,35 @@
+# Is the S. pombe transcriptome available in FASTA format?
+<!-- pombase_categories: Datasets,Sequence Retrieval,Tools and Resources -->
+
+There is no single [ transcriptome]{data-scayt_word="transcriptome"
+data-scaytid="1"}sequence file available from
+[PomBase]{data-scayt_word="PomBase" data-scaytid="2"}at present. Several
+transcriptomic data sets are available as
+[tracks](/faqs/how-can-i-show-or-hide-tracks-genome-browser)in the
+PomBase [genome
+browser](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Info/Index).
+The GFF3 genome feature files available from the [Genome
+Datasets](/downloads/genome-datasets)page include the coordinates of the
+[annotated full-length transcript
+features](%20/faqs/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s).
+
+The bioinformatically inclined can also use the Ensembl Genomes REST API
+to retrieve transcript feature coordinates. The [FAQ on programmatic
+access to
+PomBase](/faqs/there-any-programmatic-access-pombase-data)provides an
+introduction to using the API, some pombe-specific examples, and links
+to additional documentation.
+
+-   For transcript coordinates, first retrieve all stable IDs using this
+    URL:
+    -   http://rest.ensemblgenomes.org/lookup/genome/schizosaccharomyces\_pombe?content-type=application/json
+-   For each ID in the list, retrieve details via URLs in this format:
+    -   http://rest.ensemblgenomes.org/lookup/id/SPBC11B10.09?content-type=application/json;expand=1;
+-   Use your preferred scripting method to iterate through the ID list
+    and parse the desired coordinates from the data obtained via the
+    second URL.
+
+The Broad Institute has [archived genomic data
+files](http://www.broadinstitute.org/ftp/pub/annotation/fungi/schizosaccharomyces/)for
+the *Schizosaccharomyces*species, including transcript files.
+
