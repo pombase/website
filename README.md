@@ -1,1 +1,1 @@
-Front end and back end code for PomBase v2.
+Front end code for PomBase v2.
