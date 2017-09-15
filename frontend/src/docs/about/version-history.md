@@ -1,15 +1,8 @@
 # PomBase data version history
 
-#### Current: 2016-10-21 ####
-
-| Dataset                         | Version                                                     |
-|---------------------------------+-------------------------------------------------------------|
-| INSDC                           | ASM294v2                                                    |
-| Gene Build                      | 2.1                                                         |
-| Annotation Version              | 61                                                          |
-| GO GAF                          | 2016-10-21                                                  |
-| InterPro                        | InterProScan5(5.14-53.0 23 July 2015)                       |
-| Manually Curated Ortholog table | pombe/cerevisiae: 2.21 (2014-08-31); pombe/human 2015-08-13 |
+This table records versions of software, annotations, etc. used in the
+numbered releases of Pombase made between September 2012 and January
+2017.
 
 #### Past PomBase Releases ####
 
@@ -24,6 +17,26 @@
   <td>GO GAF</td>
   <td>InterPro</td>
   <td>Manually Curated Ortholog table</td>
+ </tr>
+ <tr>
+  <td>2017-01-30</td>
+  <td>ASM294v2</td>
+  <td>2.1</td>
+  <td><span>e!84, EG30</span></td>
+  <td>62</td>
+  <td>2017-03-17</td>
+  <td><span>InterProScan5 (5.14-53.0 23 July 2015)</span></td>
+  <td>pombe/cerevisiae: 2.21 (2014-08-31); pombe/human 2015-08-13</td>
+ </tr>
+ <tr>
+  <td>2016-10-21</td>
+  <td>ASM294v2</td>
+  <td>2.1</td>
+  <td><span>e!84, EG30</span></td>
+  <td>61</td>
+  <td>2016-10-21</td>
+  <td><span>InterProScan5 (5.14-53.0 23 July 2015)</span></td>
+  <td>pombe/cerevisiae: 2.21 (2014-08-31); pombe/human 2015-08-13</td>
  </tr>
  <tr>
   <td>2016-06-01</td>
