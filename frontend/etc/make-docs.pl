@@ -23,7 +23,7 @@ for my $file (sort @ARGV) {
 for my $path (keys %sections) {
   my $data = $sections{$path};
 
-  next if $path eq 'news';  # menu and index are generated
+  next if $path eq 'news' or $path eq 'faq';  # menu and index are generated
 
   if (!$data->{index}) {
     die "no index for section: $path\n";
@@ -156,6 +156,8 @@ sub contents_for_template {
       }
     }
   } else {
+    if ($path =~ m[^faq/(menu|index)]) {
+    } else {
     open my $file, '<', $file_name or die "can't open $file_name: $!\n";
 
     while (my $line = <$file>) {
@@ -166,6 +168,7 @@ sub contents_for_template {
     }
 
     close $file;
+  }
   }
 
   return $ret;
