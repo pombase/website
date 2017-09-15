@@ -158,17 +158,17 @@ sub contents_for_template {
   } else {
     if ($path =~ m[^faq/(menu|index)]) {
     } else {
-    open my $file, '<', $file_name or die "can't open $file_name: $!\n";
+      open my $file, '<', $file_name or die "can't open $file_name: $!\n";
 
-    while (my $line = <$file>) {
-      $line =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
-      $line =~ s/,([^ ])/,&#8203;$1/g;
-      $line =~ s|(\d\d\d\d-\d\d-\d\d)|<span class="no-break">$1</span>|g;
-      $ret .= $line;
+      while (my $line = <$file>) {
+        $line =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
+        $line =~ s/,([^ ])/,&#8203;$1/g;
+        $line =~ s|(\d\d\d\d-\d\d-\d\d)|<span class="no-break">$1</span>|g;
+        $ret .= $line;
+      }
+
+      close $file;
     }
-
-    close $file;
-  }
   }
 
   return $ret;
