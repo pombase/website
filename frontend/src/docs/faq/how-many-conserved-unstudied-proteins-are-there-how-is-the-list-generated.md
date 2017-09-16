@@ -2,12 +2,10 @@
 <!-- pombase_categories: Genome Statistics and Lists -->
 
 As genes are annotated, each is assigned a status, as described on the
-[Gene [ Characterisation]{data-scayt_word="Characterisation"
-data-scaytid="1"}](status/gene-characterisation)page. Taxonomic
+[Gene Characterisation](status/gene-characterisation)page. Taxonomic
 conservation of a gene is assigned manually on a case-by-case basis,
 taking into account multiple criteria. Additional information is
-available from [ PomBase]{data-scayt_word="PomBase"
-data-scaytid="3"}curators upon request.
+available from PomBase curators upon request.
 
 Genes listed on the [Priority Unstudied
 Genes](status/priority-unstudied-genes)page are those that have

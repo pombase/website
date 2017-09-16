@@ -7,9 +7,7 @@ in other
 species](/faqs/how-can-i-find-s-pombe-orthologs-species-other-human-and-s-cerevisiae).
 
 For a full set of orthologous genes in *S. pombe*, *S. cryophilus*, *S.
-japonicus*and *S. octosporus*, see Table S12, columns AD-AG, in
-[Rhind]{data-scayt_word="Rhind" data-scaytid="5"} *et al.*Comparative
-functional genomics of the fission yeasts ( [[
-PMID]{data-scayt_word="PMID"
-data-scaytid="6"}:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).
+japonicus*and *S. octosporus*, see Table S12, columns AD-AG, in Rhind
+*et al.*Comparative functional genomics of the fission yeasts (
+[PMID:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).
 

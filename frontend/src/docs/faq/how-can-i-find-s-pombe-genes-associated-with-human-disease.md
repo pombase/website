@@ -9,10 +9,10 @@ To do the query manually:
 
 1.  Go to the Advanced Search ( <http://www.pombase.org/spombe/query>).
 2.  Find the term:
-    a.  Select the 'PBO Term Name' filter, start typing 'disease
+    1.  Select the 'PBO Term Name' filter, start typing 'disease
         associated', and choose 'disease\_associated' from the
         autocomplete options; **or**
-    b.  Select the 'PBO ID' filter and enter 'PBO:5000000'.
+    2.  Select the 'PBO ID' filter and enter 'PBO:5000000'.
 3.  Submit the query.
 
 You can also type all or part of specific disease name (e.g. 'cancer')

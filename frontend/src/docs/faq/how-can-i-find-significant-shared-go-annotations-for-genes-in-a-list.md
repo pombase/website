@@ -4,15 +4,14 @@
 GO term enrichment identifies GO terms that are significantly
 overrepresented (or underrepresented) among a set of genes.\
 \
-At present [PomBase]{data-scayt_word="PomBase" data-scaytid="1"}does not
-have its own GO enrichment tool. We recommend using the [Generic GO Term
-Finder at Princeton](http://go.princeton.edu/cgi-bin/GOTermFinder),
-because it offers a simple interface and up-to-date ontology and
-annotation data, including the current
-[PomBase]{data-scayt_word="PomBase" data-scaytid="2"}GO annotation
-dataset (you can upload your own backgound set, GO annotation file, or
-both). You can also use the GO Term Finder to retrieve all annotations
-for your gene list by setting the p-value to 1.
+At present PomBase does not have its own GO enrichment tool. We
+recommend using the [Generic GO Term Finder at
+Princeton](http://go.princeton.edu/cgi-bin/GOTermFinder), because it
+offers a simple interface and up-to-date ontology and annotation data,
+including the current PomBase GO annotation dataset (you can upload your
+own backgound set, GO annotation file, or both). You can also use the GO
+Term Finder to retrieve all annotations for your gene list by setting
+the p-value to 1.
 
 Before you perform an enrichment analysis, we recommend that you use the
 accompanying "slimming" tool, [GO Term

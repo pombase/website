@@ -69,7 +69,7 @@ they are not only free to be copied, modified and (when possible)
 re-published, but we also actively encourage any collaborative effort to
 build and improve these biological networks.
 
-[]{#esynref} ^1^esyN reference: Bean DM, Heimbach J, Ficorella L,
+^1^esyN reference: Bean DM, Heimbach J, Ficorella L,
 Micklem G, Oliver SG, Favrin G. 2014. esyN: network building, sharing
 and publishing. *PLoS One*. 2014 Sep 2; **9(9)**:e106035. doi:
 [10.1371/journal.pone.0106035](http://dx.doi.org/10.1371/journal.pone.0106035).

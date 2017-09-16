@@ -14,10 +14,9 @@ OR\
 *Schizosaccharomyces*species gene IDs with the IDs of orthologous *S.
 pombe*genes. For ortholog IDs, see the [FAQ on
 *Schizosaccharomyces*orthologs](/faqs/how-can-i-find-orthologs-between-s-pombe-and-other-schizosaccharomyces-species),
-and use the indicated table from [Rhind]{data-scayt_word="Rhind"
-data-scaytid="5"} *et al.*Comparative functional genomics of the fission
-yeasts ( [[ PMID]{data-scayt_word="PMID"
-data-scaytid="6"}:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).\
+and use the indicated table from Rhind *et al.*Comparative functional
+genomics of the fission yeasts (
+[PMID:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).\
 \
 In either case, you can then proceed as described in the [FAQ on *S.
 pombe*GO

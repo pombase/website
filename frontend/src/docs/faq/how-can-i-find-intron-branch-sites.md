@@ -1,9 +1,8 @@
 # How can I find intron branch sites?
 <!-- pombase_categories: Datasets,Querying/Searching,Sequence Retrieval -->
 
-A dataset of [intron]{data-scayt_word="intron" data-scaytid="1"}branch
-sites is available as a track in the Genome Browser. The data were
-published in:
+A dataset of intron branch sites is available as a track in the Genome
+Browser. The data were published in:
 
 Bitton DA, Rallis C, Jeffares DC, Smith GC, Chen YY, Codlin S, Marguerat
 S, Bähler J. LaSSO, a strategy for genome-wide mapping of intronic

@@ -10,23 +10,23 @@ the Genome Browser.
     FAQ](/faqs/how-can-i-show-or-hide-tracks-genome-browser). Select the
     data type "Comparative Genomics".
 2.  Display syntenic regions as follows:
-    a.  Go to your region of interest in the browser (e.g. follow the
+    1.  Go to your region of interest in the browser (e.g. follow the
         link from a gene page or [use sequence
         coordinates](/faqs/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser)).
         Make sure the "Location" tab is selected in the horizontal set
         of tabs along the top.
-    b.  In the left-hand menu, find the "Comparative Genomics" heading,
+    2.  In the left-hand menu, find the "Comparative Genomics" heading,
         and click on "Region Comparison".
-    c.  To select a species for comparison, go to the bottom of the
+    3.  To select a species for comparison, go to the bottom of the
         left-hand menu, and click the "Select species or regions" link
         (it may appear to be subtly blinking; we apologise for this
         anomaly).
-    d.  In the popup, click the "+" beside any species in the
+    4.  In the popup, click the "+" beside any species in the
         "Unselected species or regions" list to move it to the "Selected
         species or regions" list. Note: "lastz" is the nucleotide
         alignment algorithm used. Close the popup - click the tick/check
         mark in the upper right corner, or click outside the popup.
-    e.  Synteny views will now be visible in the bottom-most graphical
+    5.  Synteny views will now be visible in the bottom-most graphical
         display (scroll down if necessary). For any region in the *S.
         pombe*genome, pink tracks show the region in the second genome
         with the best nucleotide alignment. Green bands connect the

@@ -97,6 +97,12 @@ const routes: Routes = [
     },
     children: [ { path: '**', data: { docsParent: 'news' }, component: DocsComponent } ]
   },
+  { path: 'faq',
+    data: {
+      title: 'FAQ'
+    },
+    children: [ { path: '**', data: { docsParent: 'faq' }, component: DocsComponent } ]
+  },
   { path: 'browse-curation',
     data: {
       title: 'Curation'

@@ -34,6 +34,63 @@ for my $path (keys %sections) {
   }
 }
 
+my %faq_questions = ();
+
+my $data = $sections{faq};
+
+my %faq_data = ();
+
+sub make_id_from_heading {
+  my $heading = shift;
+
+  (my $id = lc $heading) =~ s/\W+/-/g;
+  $id =~ s/-+$//;
+
+  return $id;
+}
+
+while (my ($id, $file_name) = each %{$sections{faq}}) {
+  if ($id eq 'index') {
+    next;
+  }
+
+  open my $fh, '<', $file_name or die "can't open $file_name";
+  my $heading = undef;
+  my @categories = ();
+  my $contents = "";
+  while (defined (my $line = <$fh>)) {
+    $contents .= $line;
+    if ($line =~ /^#\s*(.*)/) {
+      $heading = $1;
+    } else {
+      if ($line =~ /<!-- pombase_categories:\s*(.*?)\s*-->/) {
+        @categories = split /,/, $1;
+      }
+    }
+  }
+
+  my $id = make_id_from_heading($heading);
+  for my $category (@categories) {
+    push @{$faq_data{$category}}, { id => $id, heading => $heading };
+  }
+
+  $faq_questions{$id} = { contents => $contents,
+                          categories => \@categories };
+
+  close $fh;
+}
+
+while (my ($category_name, $questions) = each %faq_data) {
+  @{$faq_data{$category_name}} =
+    sort {
+      $a->{heading} cmp $b->{heading};
+    } @{$faq_data{$category_name}};
+}
+
+$faq_data{index} = './faq/index.md';
+
+$sections{faq} = \%faq_data;
+
 print qq|<div class="docs">\n|;
 
 for my $path (sort keys %sections) {
@@ -54,6 +111,28 @@ close $doc_config;
 
 close $recent_news_file;
 
+sub get_all_faq_parts {
+  my $faq_questions = shift;
+
+  my $ret = "";
+
+  while (my ($id, $details) = each %$faq_questions) {
+    my $contents = $details->{contents};
+    my @categories = @{$details->{categories}};
+
+    my $categories_condition =
+      join " || ", map {
+        "pageName == '" . make_id_from_heading($_) . "'";
+      } @categories;
+
+    $ret .= qq|<div *ngIf="$categories_condition">\n|;
+    $ret .= markdown($contents);
+    $ret .= "</div>\n";
+  }
+
+  return $ret;
+}
+
 sub process_path {
   my $path = shift;
 
@@ -63,13 +142,14 @@ sub process_path {
   print qq|  <div class="docs-menu">\n|;
   print markdown(contents_for_template("$path/menu", $data->{menu})), "\n";
   print qq|  </div>\n|;
+  print qq|  <div class="docs-content">\n|;
 
   my @news_pages = ();
 
   for my $page_name (sort keys %$data) {
     next if $page_name eq "menu";
     (my $no_date_page_name = $page_name) =~ s/^$date_re-(.*)/$1/;
-    print qq|  <div *ngIf="pageName == '$no_date_page_name'" class="docs-content">\n|;
+    print qq|  <div *ngIf="pageName == '$no_date_page_name'">\n|;
     print markdown(contents_for_template("$path/$page_name", $data->{$page_name})), "\n";
     print qq|  </div>\n|;
 
@@ -77,6 +157,12 @@ sub process_path {
       push @news_pages, $page_name;
     }
   }
+
+  if ($path eq 'faq') {
+    print get_all_faq_parts(\%faq_questions);
+  }
+
+  print qq|  </div>\n|;
   print qq|</div>\n|;
 
   if ($path eq 'news') {
@@ -129,7 +215,7 @@ sub angular_link {
 
 sub contents_for_template {
   my $path = shift;
-  my $file_name = shift;
+  my $details = shift;  # could be a file name
 
   my $ret = "";
 
@@ -156,9 +242,19 @@ sub contents_for_template {
       }
     }
   } else {
-    if ($path =~ m[^faq/(menu|index)]) {
+    if ($path =~ m[^faq/menu]) {
+      my @categories = sort keys %{$sections{faq}};
+
+      for my $category (@categories) {
+        next if $category eq 'index';
+        my $category_id = make_id_from_heading($category);
+        $ret .= " - " . angular_link($category, "faq/$category_id") . "\n";
+      }
     } else {
-      open my $file, '<', $file_name or die "can't open $file_name: $!\n";
+      if (ref $details) {
+
+      } else {
+      open my $file, '<', $details or die "can't open $details: $!\n";
 
       while (my $line = <$file>) {
         $line =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
@@ -168,6 +264,7 @@ sub contents_for_template {
       }
 
       close $file;
+      }
     }
   }
 

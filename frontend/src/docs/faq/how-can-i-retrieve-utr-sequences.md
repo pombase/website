@@ -2,16 +2,14 @@
 <!-- pombase_categories: Datasets,Querying/Searching,Sequence Retrieval -->
 
 Transcript start and end coordinates from all sources will be available
-as individual data tracks in the [ Ensembl]{data-scayt_word="Ensembl"
-data-scaytid="1"}genome browser in the near future, which will allow you
-to view, evaluate and download them. We also provide downloadable
-[[UTR]{data-scayt_word="UTR" data-scaytid="2"}data
-sets](/downloads/utr)that are updated periodically.\
+as individual data tracks in the Ensembl genome browser in the near
+future, which will allow you to view, evaluate and download them. We
+also provide downloadable [UTR data sets](/downloads/utr)that are
+updated periodically.\
 \
 Also see the [precedence
 criteria](/faqs/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s)used
-to choose default [UTR]{data-scayt_word="UTR" data-scaytid="3"}features
-to display on gene pages.
+to choose default UTR features to display on gene pages.
 
 To retrieve UTRs for a specified list of genes, see the FAQ on
 [downloading sequences for multiple

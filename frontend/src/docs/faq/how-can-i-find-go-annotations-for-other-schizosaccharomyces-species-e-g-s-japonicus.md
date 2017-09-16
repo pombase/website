@@ -31,34 +31,18 @@ pombe*IDs with the IDs of orthologous genes from the other
 *Schizosaccharomyces*species of interest. For ortholog IDs, see the [FAQ
 on
 *Schizosaccharomyces*orthologs](/faqs/how-can-i-find-orthologs-between-s-pombe-and-other-schizosaccharomyces-species),
-and use the indicated table from [Rhind]{data-scayt_word="Rhind"
-data-scaytid="5"} *et al.*Comparative functional genomics of the fission
-yeasts ( [[ PMID]{data-scayt_word="PMID"
-data-scaytid="6"}:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).
+and use the indicated table from Rhind *et al.*Comparative functional
+genomics of the fission yeasts (
+[PMID:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).
 
-[ [ [ [Note that some genes are present in ]{}
-]{style="font-size: small;"} ]{style="font-family: Arial,sans-serif;"}
-]{style="color: #000000;"} [ [ [ [ *S. japonicus* ]{}
-]{style="font-size: small;"} ]{style="font-family: Arial,sans-serif;"}
-]{style="color: #000000;"} [ [ [ [, ]{} ]{style="font-size: small;"}
-]{style="font-family: Arial,sans-serif;"} ]{style="color: #000000;"} [ [
-[ [ *S. octosporus* ]{} ]{style="font-size: small;"}
-]{style="font-family: Arial,sans-serif;"} ]{style="color: #000000;"} [ [
-[ [ or ]{} ]{style="font-size: small;"}
-]{style="font-family: Arial,sans-serif;"} ]{style="color: #000000;"} [ [
-[ [ *S. cryophilus* ]{} ]{style="font-size: small;"}
-]{style="font-family: Arial,sans-serif;"} ]{style="color: #000000;"} [ [
-[ [but absent from]{} ]{style="font-size: small;"}
-]{style="font-family: Arial,sans-serif;"} ]{style="color: #000000;"} [ [
-[ [ *S. pombe* ]{} ]{style="font-size: small;"}
-]{style="font-family: Arial,sans-serif;"} ]{style="color: #000000;"} [ [
-[ [. For some of these gene products, GO annotations can be transferred
-from other species. If you wish to include annotations for these genes
-in your analysis you will need to use this option, and extend your GAF
-with the relevant annotation lines (contact the
+Note that some genes are present in  *S. japonicus*,  *S.
+octosporus* or  *S. cryophilus*but absent from *S. pombe* [ [ [ [. For
+some of these gene products, GO annotations can be transferred from
+other species. If you wish to include annotations for these genes in
+your analysis you will need to use this option, and extend your GAF with
+the relevant annotation lines (contact the
 [Helpdesk](mailto:helpdesk@pombase.org)if you need assistance).\
-]{} ]{style="font-size: small;"}
-]{style="font-family: Arial,sans-serif;"} ]{style="color: #000000;"}
+]{} ]{} ]{} ]{}
 
 Combining all approaches gives the best coverage possible at present.
 You can use a "GO Slim" tool such as Princeton's GO Term Mapper to see

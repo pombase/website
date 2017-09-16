@@ -8,14 +8,12 @@ documentation](/documentation/gene-page-modifications)describes the
 display.
 
 To retrieve all genes whose products have a given modification, use the
-PSI-MOD filter in the Advanced Search. In the "Select Filter"
-[pulldown]{data-scayt_word="pulldown" data-scaytid="2"}, if you know the
-ID (for example, "phosphorylated residue" is MOD:00696) choose "PSI-MOD
-ID", and then type or paste the ID into the box. Otherwise, choose
-"PSI-MOD Term Name" and start typing; the [
-autocomplete]{data-scayt_word="autocomplete" data-scaytid="7"}feature
-will suggest terms. Choose one, and click the Submit button to run the
-search. See the [Advanced Search
+PSI-MOD filter in the Advanced Search. In the "Select Filter" pulldown,
+if you know the ID (for example, "phosphorylated residue" is MOD:00696)
+choose "PSI-MOD ID", and then type or paste the ID into the box.
+Otherwise, choose "PSI-MOD Term Name" and start typing; the autocomplete
+feature will suggest terms. Choose one, and click the Submit button to
+run the search. See the [Advanced Search
 documentation](/documentation/advanced-search-documentation)for more
 information, including how [ontology searches retrieve
 annotations](/documentation/advanced-search-documentation#filt)to

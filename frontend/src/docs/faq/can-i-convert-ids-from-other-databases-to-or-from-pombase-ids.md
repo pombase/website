@@ -13,12 +13,10 @@ Mapping](/downloads/data-mappings)page and by FTP from
 
 For other *Schizosaccharomyces*species ( *S. japonicus, S. octosporus,
 S. cryophilus*), the PICR service converts between UniProtKB accessions
-and the identifiers used in [Rhind]{data-scayt_word="Rhind"
-data-scaytid="5"} *et al.*Comparative functional genomics of the fission
-yeasts ( [[ PMID]{data-scayt_word="PMID"
-data-scaytid="6"}:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)),
-but with one caveat: the IDs used by PICR, UniProtKB, and QuickGO
-contain underscores, whereas those in  [Rhind]{data-scayt_word="Rhind"
-data-scaytid="5"} *et al.*do not (e.g. SJAG\_00455 versus SJAG00455).
-The IDs with underscores are correct.
+and the identifiers used in Rhind *et al.*Comparative functional
+genomics of the fission yeasts (
+[PMID:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)), but
+with one caveat: the IDs used by PICR, UniProtKB, and QuickGO contain
+underscores, whereas those in Rhind *et al.*do not (e.g. SJAG\_00455
+versus SJAG00455). The IDs with underscores are correct.
 

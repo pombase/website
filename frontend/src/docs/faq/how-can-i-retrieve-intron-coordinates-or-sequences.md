@@ -1,24 +1,17 @@
 # How can I retrieve intron coordinates or sequences?
 <!-- pombase_categories: Querying/Searching,Sequence Retrieval -->
 
-Downloadable [ intron]{data-scayt_word="intron"
-data-scaytid="1"}datasets are available in FASTA format from the [Intron
-Data](/downloads/intron-data)page.
+Downloadable intron datasets are available in FASTA format from the
+[Intron Data](/downloads/intron-data)page.
 
-You can also find genes with [ introns]{data-scayt_word="introns"
-data-scaytid="2"}using the [ PomBase]{data-scayt_word="PomBase"
-data-scaytid="3"}Advanced Search. To find all genes with introns, search
-for genes with a specified number of [exons]{data-scayt_word="exons"
-data-scaytid="11"}, and use the range 2 (i.e. at least one
-[intron]{data-scayt_word="intron" data-scaytid="6"}) to 20 (more than
-the maximum known, 16 [introns]{data-scayt_word="introns"
-data-scaytid="7"}). You can also restrict the search to protein-coding
-genes. Note that the [ PomBase]{data-scayt_word="PomBase"
-data-scaytid="9"}count includes [introns]{data-scayt_word="introns"
-data-scaytid="8"}in [UTRs]{data-scayt_word="UTRs" data-scaytid="16"}.
+You can also find genes with introns using the PomBase Advanced Search.
+To find all genes with introns, search for genes with a specified number
+of exons, and use the range 2 (i.e. at least one intron) to 20 (more
+than the maximum known, 16 introns). You can also restrict the search to
+protein-coding genes. Note that the PomBase count includes introns in
+UTRs.
 
-Instructions for searching [ PomBase]{data-scayt_word="PomBase"
-data-scaytid="18"}
+Instructions for searching PomBase
 
 1.  Go to the Advanced Search -
     http://www.pombase.org/spombe/query/builder

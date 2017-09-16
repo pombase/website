@@ -12,10 +12,8 @@ Datasets](/downloads/genome-datasets#sequences)page). To generate a
 restriction map:
 
 1.  Create a new entry using the "Create" menu item "New Entry"
-2.  Toggle off the main annotation by un-checking the [
-    chromsome]{data-scayt_word="chromsome" data-scaytid="3"}
-    [contig]{data-scayt_word="contig" data-scaytid="4"}file (this will
-    make your new file "no name" the active entry).
+2.  Toggle off the main annotation by un-checking the chromsome contig
+    file (this will make your new file "no name" the active entry).
 3.  Save your new file with your preferred name.
 4.  Use the Create menu option "Mark From Pattern" to create features
     for any restriction patterns of interest and save them into your

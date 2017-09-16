@@ -286,7 +286,6 @@ sub category_fix {
     if ($category_title_map{$category}) {
       my $index = first_index {$_ eq $title} @{$category_title_map{$category}};
       $index = 999 if $index == -1;
-#      push @new_categories, $category . ":$index";
       push @new_categories, $category;
     }
   }
@@ -310,6 +309,11 @@ while (my $cols = $csv->getline($fh)) {
   $out_file_name =~ s/-+$//;
 
   open my $tmp, '>', '/tmp/tmp.xml' or die;
+
+  $body =~ s/data-\w+="[^"]+"//g;
+  $body =~ s/\b(style|width|height)="[^"]+"//g;
+  $body =~ s|<span\s*>((?:<em>)?[^<]+(?:</em>)?)</span>|$1|g for 1..5;
+
   print $tmp $body;
   close $tmp;
 
@@ -322,7 +326,7 @@ while (my $cols = $csv->getline($fh)) {
     close $tidy_pipe;
   }
 
-  open my $out, '>', "/tmp/faq/$out_file_name.md" or die;
+  open my $out, '>', "$ENV{HOME}/pombase-www-new/frontend/src/docs/faq/$out_file_name.md" or die;
   print $out "# $title\n";
   print $out "<!-- pombase_categories: $categories -->\n\n";
   print $out "$tidied\n";

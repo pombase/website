@@ -1,22 +1,19 @@
 # Are there any rDNA repeat sequences in PomBase?
 <!-- pombase_categories: Genome Browser,Locating Genomic Regions,Sequence Retrieval -->
 
-The reference genome sequence excludes most of the ribosomal DNA (
-[rDNA]{data-scayt_word="rDNA" data-scaytid="42"}) repeats, which are
-present in two tandem arrays on chromosome III. These arrays are
-estimated to be 1225 kb and 240 kb in size for the sequenced strain (972
-h-). The reference sequence includes two partial and one complete
-representative [ rDNA]{data-scayt_word="rDNA" data-scaytid="50"}repeats:
+The reference genome sequence excludes most of the ribosomal DNA (rDNA)
+repeats, which are present in two tandem arrays on chromosome III. These
+arrays are estimated to be 1225 kb and 240 kb in size for the sequenced
+strain (972 h-). The reference sequence includes two partial and one
+complete representative rDNA repeats:
 
 -   At the left-hand end a partial repeat contains
     [SPRRNA.42](http://www.pombase.org/spombe/result/SPRRNA.42)(partial
-    [18S]{data-scayt_word="18S" data-scaytid="2"}gene)
+    18S gene)
 -   A complete repeat contains
-    [SPRRNA.47](http://www.pombase.org/spombe/result/SPRRNA.47)(
-    [28S]{data-scayt_word="28S" data-scaytid="4"}),
+    [SPRRNA.47](http://www.pombase.org/spombe/result/SPRRNA.47)(28S),
     [SPRRNA.50](http://www.pombase.org/spombe/result/SPRRNA.50)(5.8S),
-    and [SPRRNA.43](http://www.pombase.org/spombe/result/SPRRNA.43)(
-    [18S]{data-scayt_word="18S" data-scaytid="3"})
+    and [SPRRNA.43](http://www.pombase.org/spombe/result/SPRRNA.43)(18S)
 -   A partial repeat at the right-hand end contains
     [SPRRNA.45](http://www.pombase.org/spombe/result/SPRRNA.45)
 

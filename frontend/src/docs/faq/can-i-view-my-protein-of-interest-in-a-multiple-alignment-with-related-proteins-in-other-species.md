@@ -12,10 +12,10 @@ You can use Compara via the genome browser to see multiple alignments:
 3.  You should see a "collapsed" gene tree highlighting your fission
     yeast gene of interest. From here you can click on any node to see a
     menu of options:
-    a.  Expand or collapes specific sub-nodes of the tree, or expand the
+    1.  Expand or collapes specific sub-nodes of the tree, or expand the
         tree fully
-    b.  View the alignment in FASTA format
-    c.  Launch the jalview multiple alignment viewer to see the full
+    2.  View the alignment in FASTA format
+    3.  Launch the jalview multiple alignment viewer to see the full
         alignment and colour by residue conservation, hydrophobicity,
         etc.
 

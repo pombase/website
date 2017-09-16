@@ -17,8 +17,7 @@ NOT Annotation Status dubious\
 NOT Annotation Status transposon
 
 ![query for protein coding
-genes](/sites/pombase.org/files/images/protein_coding_gene_query.png){width="800"
-height="289"}
+genes](/sites/pombase.org/files/images/protein_coding_gene_query.png)
 
 You can also perform the query in separate steps:
 

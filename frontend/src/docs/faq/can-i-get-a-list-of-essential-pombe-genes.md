@@ -22,9 +22,8 @@ and one of three values: "viable", "inviable" or "condition-dependent".
     select the "FYPO ID" filter and type or paste the ID, FYPO:0002061.
     Set the Allele Expression pulldown to "Null Expression" and submit
     the query. The results include all genes that showed inviable
-    phenotypes in the [HTP]{data-scayt_word="HTP"
-    data-scaytid="7"}deletion project as well some manually annotated
-    genes. Do the same for viable (FYPO:0002060).
+    phenotypes in the HTP deletion project as well some manually
+    annotated genes. Do the same for viable (FYPO:0002060).
 -   For some deletion mutants, viability depends on experimental
     conditions, which cannot yet be queried in PomBase. These genes are
     annotated to both viable (FYPO:0002060) and inviable (FYPO:0002061)

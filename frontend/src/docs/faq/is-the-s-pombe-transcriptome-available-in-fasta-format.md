@@ -1,10 +1,8 @@
 # Is the S. pombe transcriptome available in FASTA format?
 <!-- pombase_categories: Datasets,Sequence Retrieval,Tools and Resources -->
 
-There is no single [ transcriptome]{data-scayt_word="transcriptome"
-data-scaytid="1"}sequence file available from
-[PomBase]{data-scayt_word="PomBase" data-scaytid="2"}at present. Several
-transcriptomic data sets are available as
+There is no single transcriptome sequence file available from PomBase at
+present. Several transcriptomic data sets are available as
 [tracks](/faqs/how-can-i-show-or-hide-tracks-genome-browser)in the
 PomBase [genome
 browser](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Info/Index).

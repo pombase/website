@@ -1,16 +1,14 @@
 # What does the "characterisation status" mean for a gene?
 <!-- pombase_categories: Genome Statistics and Lists -->
 
-Each gene is assigned exactly one [
-characterisation]{data-scayt_word="characterisation"
-data-scaytid="1"}status that reflects how much is known about the gene,
-whether it is conserved, etc. Specific status descriptions:
+Each gene is assigned exactly one characterisation status that reflects
+how much is known about the gene, whether it is conserved, etc. Specific
+status descriptions:
 
--   **Experimentally [ characterised]{data-scayt_word="characterised"
-    data-scaytid="2"}:**Completely or partially [
-    characterised]{data-scayt_word="characterised" data-scaytid="5"}in a
-    small scale experiment, with some published information about the
-    biological role (corresponding to any of the [fission yeast GO
+-   **Experimentally characterised:**Completely or partially
+    characterised in a small scale experiment, with some published
+    information about the biological role (corresponding to any of the
+    [fission yeast GO
     slim](/browse-curation/fission-yeast-go-slim-terms)biological
     process terms)
 -   **Role inferred from homology:**A biological role (as above, a
