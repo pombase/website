@@ -60,7 +60,7 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
   my $contents = "";
   while (defined (my $line = <$fh>)) {
     $contents .= $line;
-    if ($line =~ /^#\s*(.*)/) {
+    if (!$heading && $line =~ /^#\s*(.*)/) {
       $heading = $1;
     } else {
       if ($line =~ /<!-- pombase_categories:\s*(.*?)\s*-->/) {
