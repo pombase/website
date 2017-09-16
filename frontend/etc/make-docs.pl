@@ -222,6 +222,7 @@ sub contents_for_template {
   if ($path =~ m|(.*)/menu$|) {
     my $section = $1;
     my $menu_title = (ucfirst $section) =~ s/-/ /gr;
+    $menu_title = 'FAQ' if $menu_title =~ /faq/i;
     $ret = "### " . angular_link($menu_title, $section) . "\n";
   }
 
