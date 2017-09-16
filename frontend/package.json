@@ -14,7 +14,6 @@
   "dependencies": {
     "@angular/common": "^4.4.0-RC.0",
     "@angular/compiler": "^4.4.0-RC.0",
-    "@angular/compiler-cli": "^4.4.0-RC.0",
     "@angular/core": "^4.4.0-RC.0",
     "@angular/forms": "^4.4.0-RC.0",
     "@angular/http": "^4.4.0-RC.0",
@@ -30,7 +29,6 @@
     "ngx-bootstrap": "^1.9.3",
     "rxjs": "^5.1.0",
     "ts-helpers": "^1.1.1",
-    "typescript": "^2.3.1",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
