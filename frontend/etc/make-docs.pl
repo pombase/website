@@ -74,6 +74,8 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
     push @{$faq_data{$category}}, { id => $id, heading => $heading };
   }
 
+  $contents =~ s/^#/###/gm;
+
   $faq_questions{$id} = { contents => $contents,
                           categories => \@categories };
 
