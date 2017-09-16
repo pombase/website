@@ -116,7 +116,10 @@ sub get_all_faq_parts {
 
   my $ret = "";
 
-  while (my ($id, $details) = each %$faq_questions) {
+  my @ids = sort keys %$faq_questions;
+
+  for my $id (@ids) {
+    my $details = $faq_questions->{$id};
     my $contents = $details->{contents};
     my @categories = @{$details->{categories}};
 
