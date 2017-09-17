@@ -255,7 +255,7 @@ sub contents_for_template {
         while (defined (my $line = <$this_file>)) {
           if ($line !~ /^\s*$/) {
             if ($line =~ /^#+\s*(.*?)\s*$/) {
-              $ret .= " - [$1](news/$file_name_sect_id)\n";
+              $ret .= ' - ' . angular_link($1, "/news/$file_name_sect_id") . "\n";
             }
           }
         }
