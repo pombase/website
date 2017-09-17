@@ -15,6 +15,7 @@ import { getAnnotationTableConfig, AnnotationType } from '../config';
 })
 export class TermGenesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;
+  queryBuilderRouterLink: string;
 
   typeConfig: AnnotationType = null;
   genes = [];
@@ -90,6 +91,8 @@ export class TermGenesViewComponent implements OnInit {
                 }
                 this.setPageTitle();
                 this.collectGenes();
+                this. queryBuilderRouterLink = "/query/from/term_subset/" +
+                  termDetails.termid + '/' + encodeURIComponent(termDetails.name);
               })
               .catch(error => {
                 this.apiError = error;

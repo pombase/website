@@ -46,7 +46,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     });
   }
 
-  processFromRoute(fromType: string, termId: string, termName: string) {
+  processFromRoute(fromType: string, termId: string, encodedTermName: string) {
     let newQuery = null;
 
     if (fromType === 'term_subset') {
@@ -56,7 +56,8 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
         // only set singleOrMulti if the termid is from a phenotype CV
         singleOrMulti = TermAlleleSingleOrMulti.Single;
       }
-      let constraints = new TermNode(termId, termName, null, singleOrMulti, null);
+      const termName = decodeURIComponent(encodedTermName);
+      const constraints = new TermNode(termId, termName, null, singleOrMulti, null);
       newQuery = new GeneQuery(constraints);
     }
 
