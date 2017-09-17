@@ -1,5 +1,10 @@
 #!/usr/bin/env perl
 
+# run as:
+#  (cd frontend/src/docs; perl ../../etc/make-docs.pl \
+#  ../app/recent-news/recent-news.component.html \
+#  `find ./ -name '*.md'` > ../app/docs/docs.component.html)
+
 use strict;
 use warnings;
 
@@ -153,6 +158,7 @@ sub process_path {
 
   for my $page_name (sort keys %$data) {
     next if $page_name eq "menu";
+    next if ref $data->{$page_name};
     (my $no_date_page_name = $page_name) =~ s/^$date_re-(.*)/$1/;
     print qq|  <div *ngIf="pageName == '$no_date_page_name'">\n|;
     print markdown(contents_for_template("$path/$page_name", $data->{$page_name})), "\n";
@@ -258,7 +264,7 @@ sub contents_for_template {
       }
     } else {
       if (ref $details) {
-
+        # add faq menu here
       } else {
       open my $file, '<', $details or die "can't open $details: $!\n";
 
