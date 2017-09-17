@@ -160,8 +160,6 @@ sub process_path {
   my @news_pages = ();
 
   for my $page_name (sort keys %$data) {
-    warn "$page_name\n";
-
     next if $page_name eq "menu";
     (my $no_date_page_name = $page_name) =~ s/^$date_re-(.*)/$1/;
     print qq|  <div *ngIf="pageName == '$no_date_page_name'">\n|;
