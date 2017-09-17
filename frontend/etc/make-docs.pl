@@ -40,6 +40,7 @@ for my $path (keys %sections) {
 }
 
 my %faq_questions = ();
+my %faq_category_names = ();
 
 my $data = $sections{faq};
 
@@ -75,8 +76,10 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
   }
 
   my $id = make_id_from_heading($heading);
-  for my $category (@categories) {
-    push @{$faq_data{$category}}, { id => $id, heading => $heading };
+  for my $category_name (@categories) {
+    my $category_id = make_id_from_heading($category_name);
+    $faq_category_names{$category_id} = $category_name;
+    push @{$faq_data{$category_id}}, { id => $id, heading => $heading };
   }
 
   $contents =~ s/^#/###/gm;
@@ -157,11 +160,19 @@ sub process_path {
   my @news_pages = ();
 
   for my $page_name (sort keys %$data) {
+    warn "$page_name\n";
+
     next if $page_name eq "menu";
-    next if ref $data->{$page_name};
     (my $no_date_page_name = $page_name) =~ s/^$date_re-(.*)/$1/;
     print qq|  <div *ngIf="pageName == '$no_date_page_name'">\n|;
-    print markdown(contents_for_template("$path/$page_name", $data->{$page_name})), "\n";
+    if (ref $data->{$page_name}) {
+      my $category_id = $page_name;
+      # faq:
+      my $category_name = $faq_category_names{$category_id};
+      print markdown("## $category_name"), "\n";;
+    } else {
+      print markdown(contents_for_template("$path/$page_name", $data->{$page_name})), "\n";
+    }
     print qq|  </div>\n|;
 
     if ($path eq 'news' && $page_name =~ /^$date_re/) {
@@ -257,10 +268,10 @@ sub contents_for_template {
     if ($path =~ m[^faq/menu]) {
       my @categories = sort keys %{$sections{faq}};
 
-      for my $category (@categories) {
-        next if $category eq 'index';
-        my $category_id = make_id_from_heading($category);
-        $ret .= " - " . angular_link($category, "faq/$category_id") . "\n";
+      for my $category_id (@categories) {
+        next if $category_id eq 'index';
+        my $category_name = $faq_category_names{$category_id};
+        $ret .= " - " . angular_link($category_name, "faq/$category_id") . "\n";
       }
     } else {
       if (ref $details) {

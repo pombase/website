@@ -2797,9 +2797,53 @@ curators.'"  [subject]="'Comment or problem report
 
   </div>
   <div class="docs-content">
+  <div *ngIf="pageName == 'data-submission-and-formats'">
+<h2 id="data-submission-and-formats">Data Submission and Formats</h2>
+
+  </div>
+  <div *ngIf="pageName == 'datasets'">
+<h2 id="datasets">Datasets</h2>
+
+  </div>
+  <div *ngIf="pageName == 'gene-page'">
+<h2 id="gene-page">Gene Page</h2>
+
+  </div>
+  <div *ngIf="pageName == 'genome-browser'">
+<h2 id="genome-browser">Genome Browser</h2>
+
+  </div>
+  <div *ngIf="pageName == 'genome-statistics-and-lists'">
+<h2 id="genome-statistics-and-lists">Genome Statistics and Lists</h2>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h1 id="frequently-asked-questions">Frequently asked questions</h1>
 <p>Please contact the help desk if you have other questions.</p>
+
+  </div>
+  <div *ngIf="pageName == 'locating-genomic-regions'">
+<h2 id="locating-genomic-regions">Locating Genomic Regions</h2>
+
+  </div>
+  <div *ngIf="pageName == 'orthology'">
+<h2 id="orthology">Orthology</h2>
+
+  </div>
+  <div *ngIf="pageName == 'querying-searching'">
+<h2 id="queryingsearching">Querying/Searching</h2>
+
+  </div>
+  <div *ngIf="pageName == 'sequence-retrieval'">
+<h2 id="sequence-retrieval">Sequence Retrieval</h2>
+
+  </div>
+  <div *ngIf="pageName == 'tools-and-resources'">
+<h2 id="tools-and-resources">Tools and Resources</h2>
+
+  </div>
+  <div *ngIf="pageName == 'using-ontologies'">
+<h2 id="using-ontologies">Using Ontologies</h2>
 
   </div>
 <div *ngIf="pageName == 'genome-browser' || pageName == 'locating-genomic-regions' || pageName == 'sequence-retrieval'">
