@@ -9,10 +9,17 @@
   color: grey;
 }
 
-.eg-list {
+.front-page-list {
   display: inline-block;
   vertical-align: top;
   padding: 0.5em 1em 0.5em 1em;
+}
+
+.front-page-list-title {
+  font-size: 110%;
+  border-bottom: 0.1em solid #bbb;
+  margin-bottom: 0.5em;
+  display: inline-block;
 }
 
 @media (max-width: 1200px) {
