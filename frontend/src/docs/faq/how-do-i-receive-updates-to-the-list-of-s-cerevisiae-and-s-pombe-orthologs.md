@@ -3,7 +3,7 @@
 
 The current version of the manually curated list of orthologs and
 orthologous groups identified between fission and budding yeast is
-available for download from the [
+available for download from the
 [Orthologs](/downloads/manually-curated-orthologs)page (linked from the
-[Datasets](/downloads/datasets)page)]{}.
+[Datasets](/downloads/datasets)page).
 
