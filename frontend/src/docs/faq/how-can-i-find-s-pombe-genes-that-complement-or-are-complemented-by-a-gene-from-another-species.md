@@ -13,7 +13,7 @@ To search for complementation annotations, use one of the "PBO" filters
 in the [Advanced Search](/spombe/query/builder)(see the
 [documentation](/documentation/advanced-search-documentation)for help
 with searching). The complementation descriptions are stored as entries
-in the [PBO](/faqs/what-pbo-option-advanced-search)internal ontology, so
+in the [PBO](/faq/what-pbo-option-advanced-search)internal ontology, so
 a search for PBO term names that match "complements" or "complemented
 by" will retrieve genes with complementation data curated. The most
 general term, "complementation" (PBO:2000000) retrieves all genes that

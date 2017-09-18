@@ -5,7 +5,7 @@ The best way to find genes that have any effect on a process, we
 recommend searching for both GO and FYPO terms relevant to the process.\
 \
 As described in the [FAQ on GO and FYPO
-annotations](/faqs/why-are-some-genes-abnormal-phenotype-annotated-corresponding-go-process-while-others-are-not),
+annotations](/faq/why-are-some-genes-abnormal-phenotype-annotated-corresponding-go-process-while-others-are-not),
 PomBase curators annotate all genes with phenotypes that affect a
 process, whereas GO annotations are restricted to genes whose products
 act directly in a process or its regulation. By querying for genes

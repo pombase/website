@@ -5,7 +5,7 @@ Go to the Advanced Search - http://www.pombase.org/spombe/query/builder\
 Under "Select Filter" choose "Genes By Type", then choose "snoRNA".
 Click "Submit". You can download the resulting list of genes or the
 genomic sequences. Also see the [FAQ on retrieving sequence
-coordinates](/faqs/how-can-i-retrieve-sequence-coordinates-all-features-particular-type).
+coordinates](/faq/how-can-i-retrieve-sequence-coordinates-all-features-particular-type).
 
 Note that there are likely a number of snoRNAs that have not yet been
 identified and annotated in *S. pombe*; we hope to investigate further

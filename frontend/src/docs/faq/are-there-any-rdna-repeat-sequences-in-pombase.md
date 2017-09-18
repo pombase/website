@@ -21,10 +21,10 @@ The complete repeat sequence coordinates are [Chromosome
 3:5542-13722](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=III%3A5542-13722)(note
 that the reverse strand is transcribed). The link goes to the PomBase
 Genome Browser, where you can view and
-[download](/faqs/how-can-i-retrieve-sequence-region-using-sequence-coordinates)the
+[download](/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates)the
 sequence. Because the reverse strand is transcribed, you may want to
 choose "-1" in the location settings.
 
 Also see the FAQ on [finding rRNA
-genes](/faqs/how-can-i-find-rrna-genes).
+genes](/faq/how-can-i-find-rrna-genes).
 

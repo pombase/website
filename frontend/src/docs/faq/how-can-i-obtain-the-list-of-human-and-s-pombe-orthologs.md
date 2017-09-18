@@ -8,9 +8,9 @@ available for download from the [
 [Datasets](/downloads/datasets)page)]{}.
 
 Also see the FAQs on  [finding genes conserved in
-human](/faqs/how-can-i-find-all-s-pombe-genes-are-conserved-human),
+human](/faq/how-can-i-find-all-s-pombe-genes-are-conserved-human),
 [finding disease gene
-orthologs](/faqs/how-can-i-find-s-pombe-genes-associated-human-disease),
+orthologs](/faq/how-can-i-find-s-pombe-genes-associated-human-disease),
 and [finding the ortholog of a specific
-gene](/faqs/how-can-i-find-s-pombe-orthologs-human-gene).
+gene](/faq/how-can-i-find-s-pombe-orthologs-human-gene).
 

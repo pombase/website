@@ -15,7 +15,7 @@ linked to one of these terms):
     [QuickGO](http://www.ebi.ac.uk/QuickGO/GTerm?id=GO:0003700)or
     [AmiGO](http://amigo.geneontology.org/amigo/term/GO:0003700))
 
-[Annotation extensions](/faqs/what-annotation-extension)are used to
+[Annotation extensions](/faq/what-annotation-extension)are used to
 capture two types of "target" data (where available):
 
 -   Annotations to GO:0000976 (or a descendant) may have extensions that

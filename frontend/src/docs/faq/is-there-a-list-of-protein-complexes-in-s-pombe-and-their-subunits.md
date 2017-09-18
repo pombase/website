@@ -15,5 +15,5 @@ well as GO:0042729. Additional notes are available in a README file:
 <ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Complexes/README>
 
 Also see the [FAQ on
-localization](/faqs/how-can-i-find-protein-localization-data).
+localization](/faq/how-can-i-find-protein-localization-data).
 

@@ -3,7 +3,7 @@
 
 *S. pombe*genes whose human orthologs have been implicated in disease
 are annotated with terms from the internal
-[PBO](/faqs/what-pbo-option-advanced-search)vocabulary. To retrieve all
+[PBO](/faq/what-pbo-option-advanced-search)vocabulary. To retrieve all
 of these genes, you can use the most general "disease associated" term.
 To do the query manually:
 
@@ -18,11 +18,11 @@ To do the query manually:
 You can also type all or part of specific disease name (e.g. 'cancer')
 into the 'PBO Term Name' filter to see if any matches come up in the
 autocomplete suggestions. Also see the FAQs on [finding genes conserved
-in human](/faqs/how-can-i-find-all-s-pombe-genes-are-conserved-human),
+in human](/faq/how-can-i-find-all-s-pombe-genes-are-conserved-human),
 [finding the ortholog of a specific
-gene](/faqs/how-can-i-find-s-pombe-orthologs-human-gene), and on
+gene](/faq/how-can-i-find-s-pombe-orthologs-human-gene), and on
 [downloading the full set of curated
-orthologs](/faqs/how-can-i-obtain-list-human-and-s-pombe-orthologs).
+orthologs](/faq/how-can-i-obtain-list-human-and-s-pombe-orthologs).
 
 Example queries:
 

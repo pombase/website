@@ -4,7 +4,7 @@
 At present, there isn't a good way to retrieve flanking sequences for
 multiple genes in bulk directly from PomBase. (You can download coding
 sequences via the Advanced Search, or [flanking sequences for individual
-genes](/faqs/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences)via
+genes](/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences)via
 the gene page Sequence section.) We hope to add a more convenient option
 in the near future, but in the meantime, we recommend using the Ensembl
 Genomes Biomart query:

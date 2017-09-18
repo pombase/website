@@ -15,8 +15,8 @@ vertebrates" taxonomic distribution.
 You can also use the [Advanced
 Search](http://www.pombase.org/spombe/query/builder)to find conserved
 unstudied genes as described in the FAQs on [characterisation
-status](/faqs/what-does-characterisation-status-mean-gene)and [taxonomic
-conservation](/faqs/can-i-search-genes-based-conservation-different-taxa).
+status](/faq/what-does-characterisation-status-mean-gene)and [taxonomic
+conservation](/faq/can-i-search-genes-based-conservation-different-taxa).
 Start by searching for Annotation Status "conserved unknown", and refine
 the search by adding a Conserved in ... filter if you wish.
 

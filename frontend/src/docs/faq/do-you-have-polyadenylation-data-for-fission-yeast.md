@@ -17,5 +17,5 @@ To display the data:
     the corner.
 
 [Further help with configuring browser
-tracks](/faqs/how-can-i-show-or-hide-tracks-genome-browser)is available.
+tracks](/faq/how-can-i-show-or-hide-tracks-genome-browser)is available.
 

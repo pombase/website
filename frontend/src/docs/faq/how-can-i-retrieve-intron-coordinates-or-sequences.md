@@ -26,7 +26,7 @@ Instructions for searching PomBase
     we plan to offer additional download options, including coordinates,
     in the future. In the meantime, see the [FAQ on finding sequence
     features in a
-    region](/faqs/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates).
+    region](/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates).
 
 Query link: [protein-coding genes with 2-20
 exons](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%228%22,%22query_1%22:%222%22,%22query_2%22:%2220%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%229%22,%22query%22:%22protein_coding%22%7D%7D,%22filter_count%22:%222%22%7D%5D)\

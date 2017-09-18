@@ -9,7 +9,7 @@ structures in Schizosaccharomyces pombe with DeepCAGE. RNA Biol.
 promoter track is listed under the Regulatory Elements menu, and is best
 viewed using the "Labels" track style, which labels promoter features
 using the associated gene IDs (see the [browser configuration
-FAQ](/faqs/how-can-i-show-or-hide-tracks-genome-browser)for more
+FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser)for more
 information).\
 \
 We will add new tracks for any more promoter data sets that are
@@ -21,7 +21,7 @@ displayed on a genome browser track, "PomBase Annotated Promoter
 is activated in the default configuration. To search the manually
 curated promoters, we suggest that you use Artemis. Follow the
 instructions in [this
-FAQ](/faqs/there-equivalent-artemis-java-applet-pombase), and search for
+FAQ](/faq/there-equivalent-artemis-java-applet-pombase), and search for
 features with "Key" = "promoter".\
 \
 

@@ -17,9 +17,9 @@ curated ortholog(s), so please check the gene pages carefully,
 especially if your search retrieves more than one result.
 
 Also see the FAQs on on [finding genes conserved in
-human](/faqs/how-can-i-find-all-s-pombe-genes-are-conserved-human),
+human](/faq/how-can-i-find-all-s-pombe-genes-are-conserved-human),
 [finding disease gene
-orthologs](/faqs/how-can-i-find-s-pombe-genes-associated-human-disease),
+orthologs](/faq/how-can-i-find-s-pombe-genes-associated-human-disease),
 and on [downloading the full set of curated
-orthologs](/faqs/how-can-i-obtain-list-human-and-s-pombe-orthologs).
+orthologs](/faq/how-can-i-obtain-list-human-and-s-pombe-orthologs).
 

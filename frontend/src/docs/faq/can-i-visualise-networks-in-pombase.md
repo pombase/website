@@ -6,7 +6,7 @@ To visualise interaction networks for S. pombe genes, PomBase links to
 web-based tool for building, sharing, and viewing network data developed
 by Dan Bean and Giorgio Favrin in the [Cambridge Systems Biology
 Centre](http://www.sysbiol.cam.ac.uk), University of Cambridge, UK
-[^1^](/faqs/can-i-visualise-networks-pombase#esynref).
+[^1^](/faq/can-i-visualise-networks-pombase#esynref).
 
 On gene pages, we have links to gene-specific interaction networks in
 esyN in the table headers of the Interactions sections:

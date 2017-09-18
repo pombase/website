@@ -3,18 +3,18 @@
 
 There is no single transcriptome sequence file available from PomBase at
 present. Several transcriptomic data sets are available as
-[tracks](/faqs/how-can-i-show-or-hide-tracks-genome-browser)in the
+[tracks](/faq/how-can-i-show-or-hide-tracks-genome-browser)in the
 PomBase [genome
 browser](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Info/Index).
 The GFF3 genome feature files available from the [Genome
 Datasets](/downloads/genome-datasets)page include the coordinates of the
 [annotated full-length transcript
-features](%20/faqs/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s).
+features](%20/faq/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s).
 
 The bioinformatically inclined can also use the Ensembl Genomes REST API
 to retrieve transcript feature coordinates. The [FAQ on programmatic
 access to
-PomBase](/faqs/there-any-programmatic-access-pombase-data)provides an
+PomBase](/faq/there-any-programmatic-access-pombase-data)provides an
 introduction to using the API, some pombe-specific examples, and links
 to additional documentation.
 

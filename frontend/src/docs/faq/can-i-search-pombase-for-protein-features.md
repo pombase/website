@@ -17,9 +17,9 @@ in the [Advanced Search](/spombe/query/builder)(see the
 with searching).
 
 Also see the FAQs on [transmembrane
-domains](/faqs/how-can-i-find-proteins-have-transmembrane-domains)and
+domains](/faq/how-can-i-find-proteins-have-transmembrane-domains)and
 [protein
-families](/faqs/how-can-i-find-all-s-pombe-proteins-particular-protein-family),
+families](/faq/how-can-i-find-all-s-pombe-proteins-particular-protein-family),
 and the section of the search documentation on using Protein Filters.
 
 Example query: [nuclear localization signal

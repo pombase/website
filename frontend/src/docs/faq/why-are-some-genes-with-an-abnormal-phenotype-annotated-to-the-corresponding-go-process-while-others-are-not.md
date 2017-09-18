@@ -37,5 +37,5 @@ network, greatly reducing the usefulness and precision of GO
 annotations.\
 \
 Also see the [FAQ on finding genes that affect a
-process](faqs/how-can-i-identify-all-genes-affect-process).
+process](/faq/how-can-i-identify-all-genes-affect-process).
 

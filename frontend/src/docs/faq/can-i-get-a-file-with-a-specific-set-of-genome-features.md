@@ -12,6 +12,6 @@ The EMBL format files also contain all annotated features.\
 Another option for extracting all annotated features (or if you need to
 specify which feature types to include) is to use the Ensembl API. See
 the FAQ " [Can I access PomBase via an
-API?](/faqs/can-i-access-pombase-api){.active}" for more information on
+API?](/faq/can-i-access-pombase-api){.active}" for more information on
 using the API.
 

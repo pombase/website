@@ -16,5 +16,5 @@ cerevisiae*. To find systematic names of *S. cerevisiae*genes, you can
 search [SGD](http://www.yeastgenome.org).
 
 Also see the [FAQ on downloading the full set of
-orthologs](/faqs/how-do-i-receive-updates-list-s-cerevisiae-and-s-pombe-orthologs).
+orthologs](/faq/how-do-i-receive-updates-list-s-cerevisiae-and-s-pombe-orthologs).
 

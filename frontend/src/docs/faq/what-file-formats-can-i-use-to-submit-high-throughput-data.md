@@ -17,40 +17,40 @@ File format
 
 Recommended for
 
-[BAM](/faqs/what-bam-format)
+[BAM](/faq/what-bam-format)
 
 sequence alignments, especially from high-throughput experiments
 
-[BED](/faqs/what-bed-format)
+[BED](/faq/what-bed-format)
 
 sequence features with coordinates
 
-[bedGraph](/faqs/what-bedgraph-format)
+[bedGraph](/faq/what-bedgraph-format)
 
 values attached to genome locations/regions
 
-[bigBed](/faqs/what-bigbed-format)
+[bigBed](/faq/what-bigbed-format)
 
 sequence features with coordinates
 
-[bigWig](/faqs/what-bigwig-format)
+[bigWig](/faq/what-bigwig-format)
 
 values attached to genome locations/regions
 
-[GFF3](/faqs/what-gff3)
+[GFF3](/faq/what-gff3)
 
 sequence features with coordinates
 
-[PSL](/faqs/what-psl-format)
+[PSL](/faq/what-psl-format)
 
 sequence alignments
 
-[VCF](/faqs/what-vcf)
+[VCF](/faq/what-vcf)
 
 structural variations, such as SNPs, insertions, deletions, or copy
 number variants
 
-[WIG](/faqs/what-wig-format)
+[WIG](/faq/what-wig-format)
 
 values attached to genome locations/regions
 

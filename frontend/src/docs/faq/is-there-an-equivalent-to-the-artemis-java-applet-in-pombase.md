@@ -20,16 +20,16 @@ e.g.:
 
 -   Find features by name or ID
 -   Find all features of a given type (e.g. see the " [can I find
-    transposons](/faqs/how-can-i-find-transposons-s-pombe-genome)" FAQ)
+    transposons](/faq/how-can-i-find-transposons-s-pombe-genome)" FAQ)
 -   Find matches to a specific nucleotide sequence (e.g. see the "
     [restriction enzyme
-    map](/faqs/can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase)"
+    map](/faq/can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase)"
     FAQ)
 -   View the nucleotide or amino acid sequence of a region or feature
 -   Export selected sequences
 
 See the [Artemis
-FAQ](/faqs/there-equivalent-artemis-java-applet-pombase)and the [Artemis
+FAQ](/faq/there-equivalent-artemis-java-applet-pombase)and the [Artemis
 manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf)(pdf;
 Sanger site) for additional information.
 

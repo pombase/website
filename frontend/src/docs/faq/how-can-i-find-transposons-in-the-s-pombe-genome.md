@@ -21,7 +21,7 @@ Query link:
 Lone LTRs are also annotated as sequence features. They cannot yet be
 retrieved by the simple or advanced searches, but they can be displayed
 on a [track in the Ensembl
-browser](/faqs/how-can-i-show-or-hide-tracks-genome-browser)(under
+browser](/faq/how-can-i-show-or-hide-tracks-genome-browser)(under
 "Repeats").\
 \
 Finally, if you wish to install Artemis (available from
@@ -34,7 +34,7 @@ Datasets](/downloads/genome-datasets#sequences)page). To see LTRs,
 2.  In the pulldown that pops up, choose "LTR".
 
 See the [Artemis
-FAQ](/faqs/there-equivalent-artemis-java-applet-pombase)and the [Artemis
+FAQ](/faq/there-equivalent-artemis-java-applet-pombase)and the [Artemis
 manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf)(pdf;
 Sanger site) for additional information.
 
