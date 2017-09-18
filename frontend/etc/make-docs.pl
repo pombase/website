@@ -138,8 +138,15 @@ sub get_all_faq_parts {
         "pageName == '" . make_id_from_heading($_) . "'";
       } @categories;
 
+    my @split_contents = split /\n/, $contents;
+    $contents = join "\n", map {
+      my $line = $_;
+      process_line(\$line);
+      $line;
+    } @split_contents;
+
     $ret .= qq|<div *ngIf="$categories_condition">\n|;
-    $ret .= markdown($contents);
+    $ret .= markdown($contents) . "\n";
     $ret .= "</div>\n";
   }
 
@@ -233,6 +240,15 @@ sub angular_link {
   }
 }
 
+sub process_line {
+  my $line_ref = shift;
+  $$line_ref =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
+  if ($$line_ref !~ /<!--.*-->/) {
+#    $$line_ref =~ s/,([^ ])/,&#8203;$1/g;
+    $$line_ref =~ s|(\d\d\d\d-\d\d-\d\d)|<span class="no-break">$1</span>|g;
+  }
+}
+
 sub contents_for_template {
   my $path = shift;
   my $details = shift;  # could be a file name
@@ -278,9 +294,7 @@ sub contents_for_template {
       open my $file, '<', $details or die "can't open $details: $!\n";
 
       while (my $line = <$file>) {
-        $line =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
-        $line =~ s/,([^ ])/,&#8203;$1/g;
-        $line =~ s|(\d\d\d\d-\d\d-\d\d)|<span class="no-break">$1</span>|g;
+        process_line(\$line);
         $ret .= $line;
       }
 
