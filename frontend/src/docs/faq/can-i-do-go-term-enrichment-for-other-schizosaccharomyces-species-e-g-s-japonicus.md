@@ -16,10 +16,10 @@ and use the indicated table from Rhind *et al.*Comparative functional
 genomics of the fission yeasts (
 [PMID:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).\
 \
-In either case, you can then proceed as described in the [FAQ on *S. pombe*GO enrichment](/faq/how-can-i-find-significant-shared-go-annotations-genes-in-a-list).
+In either case, you can then proceed as described in the [FAQ on *S. pombe*GO enrichment](/faq/how-can-i-find-significant-shared-go-annotations-genes-list).
 For the first option, use the Princeton GO Term Finder or another
 enrichment tool that allows you to use your own GAF, and include the GO
-Slim analysis using GO Term Mapper as recommended in the [FAQ on enrichment in *S. pombe*](/faq/how-can-i-find-significant-shared-go-annotations-genes-in-a-list).\
+Slim analysis using GO Term Mapper as recommended in the [FAQ on enrichment in *S. pombe*](/faq/how-can-i-find-significant-shared-go-annotations-genes-list).\
 \
 
 

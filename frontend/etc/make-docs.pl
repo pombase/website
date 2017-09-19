@@ -52,6 +52,9 @@ sub make_id_from_heading {
   (my $id = lc $heading) =~ s/[^A-Za-z\._]+/-/g;
   $id =~ s/-+$//;
 
+  $id =~ s/-(with|the|at|from|to|the|of|that|is|for|an|a|in)-/-/g for 1..5;
+  $id =~ s/^(are|is)-//;
+
   return $id;
 }
 
@@ -139,6 +142,11 @@ sub get_all_faq_parts {
       } (@categories, $id);
 
     my @split_contents = split /\n/, $contents;
+    (my $sect_id = $split_contents[0]) =~ s/^#+\s*(.*?)\??$/make_id_from_heading($1)/e;
+
+    chomp $split_contents[0];
+    $split_contents[0] .= " {#$sect_id}\n";
+
     $contents = join "\n", map {
       my $line = $_;
       process_line(\$line);

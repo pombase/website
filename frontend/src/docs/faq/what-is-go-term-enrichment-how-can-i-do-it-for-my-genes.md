@@ -7,5 +7,5 @@ for the genes. Finding GO terms that are shared by genes in your list
 can help you find out what they have in common biologically.\
 \
 PomBase does not have its own GO enrichment tool, but we recommend one,
-and provide a bit more information, in the [FAQ on GO term enrichment](/faq/how-can-i-find-significant-shared-go-annotations-genes-in-a-list).
+and provide a bit more information, in the [FAQ on GO term enrichment](/faq/how-can-i-find-significant-shared-go-annotations-genes-list).
 
