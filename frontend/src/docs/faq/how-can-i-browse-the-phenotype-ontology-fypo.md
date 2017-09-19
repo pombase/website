@@ -10,7 +10,7 @@ NCBO BioPortal - search on the [BioPortal home page](http://bioportal.bioontolog
 [FYPO terms page](http://bioportal.bioontology.org/ontologies/FYPO/?p=classes). For
 assistance, see the "User Interface" part of the [BioPortal Help](http://bioportal.bioontology.org/help).\
 \
-EBI's Ontology Lookup Service (OLS) - search on the [OLS home page](http://www.ebi.ac.uk/ontology-lookup/)or go to the [FYPO page](http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=FYPO). Help
+EBI's Ontology Lookup Service (OLS) - search on the [OLS home page](http://www.ebi.ac.uk/ontology-lookup/) or go to the [FYPO page](http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=FYPO). Help
 is provided on each page.\
 \
 

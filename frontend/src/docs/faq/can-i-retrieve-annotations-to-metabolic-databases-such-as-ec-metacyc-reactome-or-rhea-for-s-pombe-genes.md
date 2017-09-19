@@ -7,13 +7,13 @@ with mappings between GO terms and entries in the various
 metabolism-oriented databases.\
 \
 For example, many GO molecular function (MF) terms representing
-enzymatic activities are mapped to the corresponding [Enzyme Commission](http://www.chem.qmul.ac.uk/iubmb/enzyme/)(EC) number for the
+enzymatic activities are mapped to the corresponding [Enzyme Commission](http://www.chem.qmul.ac.uk/iubmb/enzyme/) (EC) number for the
 reaction, and some are also mapped to entries from 
-[KEGG](http://www.genome.jp/kegg/)or from the
-[Rhea](http://www.rhea-db.org/home)database of annotated chemical
+[KEGG](http://www.genome.jp/kegg/) or from the
+[Rhea](http://www.rhea-db.org/home) database of annotated chemical
 reactions. GO MF and biological process (BP) terms may be annotated to
-reactions or pathways, respectively, in [MetaCyc](http://metacyc.org/)or
+reactions or pathways, respectively, in [MetaCyc](http://metacyc.org/) or
 [Reactome](http://www.reactome.org/).\
 \
-A complete list, with descriptions and links, is available on the [GO Consortium's Download Mappings](http://geneontology.org/page/download-mappings)page.
+A complete list, with descriptions and links, is available on the [GO Consortium's Download Mappings](http://geneontology.org/page/download-mappings) page.
 

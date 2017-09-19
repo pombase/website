@@ -2,7 +2,7 @@
 <!-- pombase_categories: Tools and Resources -->
 
 To visualise interaction networks for S. pombe genes, PomBase links to
-[esyN](http://www.esyn.org/)from gene pages and GO slim terms. esyN is a
+[esyN](http://www.esyn.org/) from gene pages and GO slim terms. esyN is a
 web-based tool for building, sharing, and viewing network data developed
 by Dan Bean and Giorgio Favrin in the [Cambridge Systems Biology Centre](http://www.sysbiol.cam.ac.uk), University of Cambridge, UK
 [^1^](/faq/can-i-visualise-networks-pombase#esynref).
@@ -14,12 +14,12 @@ esyN in the table headers of the Interactions sections:
     on the gene and curated in BioGRID
 -   The Physical interactions section has links to two datasets:
     -   All physical interactions curated in BioGRID for the gene
-    -   Interactions for the gene in the PomBase [High Confidence         Physical Interaction Network         (HCPIN)](/documentation/high-confidence-physical-interaction-network)
+    -   Interactions for the gene in the PomBase [High Confidence         Physical Interaction Network         (HCPIN)](/documentation/high-confidence-physical-interaction-network) 
 
 For example, the Genetic Interactions header for cdc2 links to
 <http://www.esyn.org/builder.php?type=Graph&query=SPBC11B10.09&organism=4896&interactionType=genetic&source=biogrid>
 
-We also have esyN links on the [GO Slim page](/browse-curation/fission-yeast-go-slim-terms)and on ontology term
+We also have esyN links on the [GO Slim page](/browse-curation/fission-yeast-go-slim-terms) and on ontology term
 pages for GO Slim biological process terms. Each GO Slim term links to
 the HCPIN physical interaction network in esyN. For\
 example, the GO Slim page and the ontology term page for "regulation of
@@ -70,5 +70,5 @@ Micklem G, Oliver SG, Favrin G. 2014. esyN: network building, sharing
 and publishing. *PLoS One*. 2014 Sep 2; **9(9)**:e106035. doi:
 [10.1371/journal.pone.0106035](http://dx.doi.org/10.1371/journal.pone.0106035).
 eCollection 2014.
-[PMID:25181461](http://www.ncbi.nlm.nih.gov/pubmed/?term=25181461)
+[PMID:25181461](http://www.ncbi.nlm.nih.gov/pubmed/?term=25181461) 
 

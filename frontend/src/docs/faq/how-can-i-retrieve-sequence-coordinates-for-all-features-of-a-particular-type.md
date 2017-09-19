@@ -3,7 +3,7 @@
 
 Available options:
 
-1.  Download one of the files available via the [Genome     Datasets](/downloads/genome-datasets)page. The GFF3 files contain
+1.  Download one of the files available via the [Genome     Datasets](/downloads/genome-datasets) page. The GFF3 files contain
     coordinates, whereas the EMBL- and GenBank-format files contain both
     coordinates and sequence data. You can then parse the files for the
     feature type you need. For example, to find all non-coding RNAs,
@@ -25,5 +25,5 @@ Available options:
     IDs (bear in mind that Ensembl idiosyncratically uses "biotype" to
     mean feature type).
 
-Example advanced search query: [snoRNA genes](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%229%22,%22query%22:%22snoRNA%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
+Example advanced search query: [snoRNA genes](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%229%22,%22query%22:%22snoRNA%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
 

@@ -8,7 +8,7 @@ structures in Schizosaccharomyces pombe with DeepCAGE. RNA Biol.
 [PMID:25747261](http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261). The
 promoter track is listed under the Regulatory Elements menu, and is best
 viewed using the "Labels" track style, which labels promoter features
-using the associated gene IDs (see the [browser configuration FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser)for more
+using the associated gene IDs (see the [browser configuration FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser) for more
 information).\
 \
 We will add new tracks for any more promoter data sets that are

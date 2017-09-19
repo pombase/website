@@ -3,7 +3,7 @@
 
 *S. pombe*genes whose human orthologs have been implicated in disease
 are annotated with terms from the internal
-[PBO](/faq/what-pbo-option-advanced-search)vocabulary. To retrieve all
+[PBO](/faq/what-pbo-option-advanced-search) vocabulary. To retrieve all
 of these genes, you can use the most general "disease associated" term.
 To do the query manually:
 
@@ -23,7 +23,7 @@ autocomplete suggestions. Also see the FAQs on [finding genes conserved in human
 
 Example queries:
 
--   [disease\_associated     (PBO:5000000)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:5000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
--   [cancer     (PBO:0000239)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0000239%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
+-   [disease\_associated     (PBO:5000000)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:5000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
+-   [cancer     (PBO:0000239)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0000239%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
 
 

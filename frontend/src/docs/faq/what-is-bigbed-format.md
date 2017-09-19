@@ -6,6 +6,6 @@ BigBed is a binary file format that is created by conversion from
 display in a genome browser track.\
 \
 BigBed format is described at the [UCSC Genome Bioinformatics web site](http://genome.ucsc.edu/goldenPath/help/bigBed.html), and the
-[Broad Institute file format guide](http://www.broadinstitute.org/software/igv/bigbed)provides
+[Broad Institute file format guide](http://www.broadinstitute.org/software/igv/bigbed) provides
 additional information.
 

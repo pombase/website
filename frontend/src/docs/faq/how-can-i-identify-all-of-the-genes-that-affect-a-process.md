@@ -21,5 +21,5 @@ respiration)". For any process, you can try using more specific or less
 specific terms to retrieve the results that best fit your expectations
 and needs.
 
-Example query: [genes annotated to 'abnormal cellular respiration' (FYPO:0000078) or 'cellular respiration' (GO:0045333)](/spombe/query/builder?filter=37&value=%5B%7B%22operator%22:%22OR%22,%22param%22:%7B%22set_1%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0045333%22%7D%7D,%22filter_count%22:%221%22%7D,%22set_2%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0000078%22,%22query_2%22:%22all_alleles%22%7D%7D,%22filter_count%22:%221%22%7D%7D%7D%5D)
+Example query: [genes annotated to 'abnormal cellular respiration' (FYPO:0000078) or 'cellular respiration' (GO:0045333)](/spombe/query/builder?filter=37&value=%5B%7B%22operator%22:%22OR%22,%22param%22:%7B%22set_1%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0045333%22%7D%7D,%22filter_count%22:%221%22%7D,%22set_2%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0000078%22,%22query_2%22:%22all_alleles%22%7D%7D,%22filter_count%22:%221%22%7D%7D%7D%5D) 
 

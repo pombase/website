@@ -6,7 +6,7 @@ described in the [Manually Curated Orthologs documentation](/documentation/ortho
 
 To find *S. pombe*orthologs for a human gene, you can search for the
 standard human gene name in the Simple Search (go to
-[http://www.pombase.org/search/ensembl](/search/ensembl)or use the
+[http://www.pombase.org/search/ensembl](/search/ensembl) or use the
 search box in the page header). For example, searching for human
 *ABTB1*will retrieve the *S. pombe*gene *btb1*. To find standard human
 gene names, you can search [HGNC](http://www.genenames.org/). Note that

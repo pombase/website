@@ -1,7 +1,7 @@
 # Is there any programmatic access to PomBase data?
 <!-- pombase_categories: Tools and Resources -->
 
-Yes: the [Ensembl Genomes REST API Endpoints](http://rest.ensemblgenomes.org/)page provides a REST-ful
+Yes: the [Ensembl Genomes REST API Endpoints](http://rest.ensemblgenomes.org/) page provides a REST-ful
 interface allows language-independent programmatic access to all genomes
 accessible through Ensembl Genomes, including the same
 *Schizosaccharomyces pombe* genome data available in PomBase. The REST
@@ -17,7 +17,7 @@ In addition, the interface also provides access to the Variant Effect
 Predictor tool and a tool for mapping genomic coordinates between
 different versions of genome assemblies.
 
-The [user guide](https://github.com/Ensembl/ensembl-rest/wiki)provides
+The [user guide](https://github.com/Ensembl/ensembl-rest/wiki) provides
 comprehensive descriptions of interface functionality, plus examples
 using a variety of languages and interfaces. The following URLs are
 examples specific to *S. pombe*:

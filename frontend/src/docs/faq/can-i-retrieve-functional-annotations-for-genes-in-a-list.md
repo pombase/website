@@ -7,9 +7,9 @@ how many specific topics you are interested in:
 
 -   For a small number of specific GO terms (e.g. localization to the
     nucleus or cytoplasm, or a role in signaling or DNA metabolism), you
-    can import your gene list into the [Advanced     Search](/spombe/query/builder)and then combine it with a query for
+    can import your gene list into the [Advanced     Search](/spombe/query/builder) and then combine it with a query for
     each term of interest (use the "Systematic IDs" filter for your
-    list, and then the Term name or GO ID filter; see the [search     documentation](/documentation/advanced-search-documentation)for more
+    list, and then the Term name or GO ID filter; see the [search     documentation](/documentation/advanced-search-documentation) for more
     information).
 -   If you are interested in many GO terms, or if you do not know in
     advance which terms may be relevant, we recommend that you use a "GO
@@ -25,6 +25,6 @@ Consortium documentation linked there, for more information. (These
 approaches also make it easier to maintain and update your data than
 storing individual GO annotations locally.)\
 \
-Also see the [FAQ on GO term enrichment](/faq/how-can-i-find-significant-shared-go-annotations-genes-in-a-list)and
-the [PomBase GO Slim](/browse-curation/fission-yeast-go-slim-terms)page.
+Also see the [FAQ on GO term enrichment](/faq/how-can-i-find-significant-shared-go-annotations-genes-in-a-list) and
+the [PomBase GO Slim](/browse-curation/fission-yeast-go-slim-terms) page.
 

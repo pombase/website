@@ -6,7 +6,7 @@ described in the [Orthologs documentation](/documentation/orthologs).
 
 To find *S. pombe*orthologs for a budding yeast gene, you can search for
 the systematic name (ORF name) of the *S. cerevisiae*gene in the Simple
-Search (go to [http://www.pombase.org/search/ensembl](/search/ensembl)or
+Search (go to [http://www.pombase.org/search/ensembl](/search/ensembl) or
 use the search box in the page header). For example, *S. cerevisiae
 LRP1*has the systematic name YHR081W, and a search on this in PomBase
 will retrieve the *S. pombe*gene *cti1*. Note that only systematic names

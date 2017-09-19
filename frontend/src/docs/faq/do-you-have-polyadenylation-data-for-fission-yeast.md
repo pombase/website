@@ -4,7 +4,7 @@
 PomBase offers two ways to find polyadenylation sites and usage:
 
 Each gene page has a link in the External References section to the
-[Pomb(A)](http://www.pomba.co.uk/POMBA/)database of polyadenylation
+[Pomb(A)](http://www.pomba.co.uk/POMBA/) database of polyadenylation
 signal and cleavage sites.
 
 Fission yeast polyadenylation data are available in the genome browser.
@@ -16,5 +16,5 @@ To display the data:
     window. Select the tracks you want to show, then click the "tick" in
     the corner.
 
-[Further help with configuring browser tracks](/faq/how-can-i-show-or-hide-tracks-genome-browser)is available.
+[Further help with configuring browser tracks](/faq/how-can-i-show-or-hide-tracks-genome-browser) is available.
 
