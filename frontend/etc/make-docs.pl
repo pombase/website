@@ -49,7 +49,7 @@ my %faq_data = ();
 sub make_id_from_heading {
   my $heading = shift;
 
-  (my $id = lc $heading) =~ s/\W+/-/g;
+  (my $id = lc $heading) =~ s/[^A-Za-z\._]+/-/g;
   $id =~ s/-+$//;
 
   return $id;
@@ -136,7 +136,7 @@ sub get_all_faq_parts {
     my $categories_condition =
       join " || ", map {
         "pageName == '" . make_id_from_heading($_) . "'";
-      } @categories;
+      } (@categories, $id);
 
     my @split_contents = split /\n/, $contents;
     $contents = join "\n", map {

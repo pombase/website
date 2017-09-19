@@ -5,8 +5,7 @@ GO term enrichment identifies GO terms that are significantly
 overrepresented (or underrepresented) among a set of genes.\
 \
 At present PomBase does not have its own GO enrichment tool. We
-recommend using the [Generic GO Term Finder at
-Princeton](http://go.princeton.edu/cgi-bin/GOTermFinder), because it
+recommend using the [Generic GO Term Finder at Princeton](http://go.princeton.edu/cgi-bin/GOTermFinder), because it
 offers a simple interface and up-to-date ontology and annotation data,
 including the current PomBase GO annotation dataset (you can upload your
 own backgound set, GO annotation file, or both). You can also use the GO
@@ -14,11 +13,9 @@ Term Finder to retrieve all annotations for your gene list by setting
 the p-value to 1.
 
 Before you perform an enrichment analysis, we recommend that you use the
-accompanying "slimming" tool, [GO Term
-Mapper](http://go.princeton.edu/cgi-bin/GOTermMapper), which is useful
+accompanying "slimming" tool, [GO Term Mapper](http://go.princeton.edu/cgi-bin/GOTermMapper), which is useful
 for a broad overview of the annotation set (for more information, see
-the [Fission Yeast GO slim
-terms](/browse-curation/fission-yeast-go-slim-terms)page and
+the [Fission Yeast GO slim terms](/browse-curation/fission-yeast-go-slim-terms)page and
 [FAQ](/faq/how-can-i-use-go-slims-s-pombe)). GO Term Mapper is
 especially useful if you use your own GAF for the enrichment, because it
 will show:
@@ -28,9 +25,7 @@ will show:
 -   Genes in your list that have annotations but do not map to the slim
 -   Genes in your list that have no annotations
 
-A few other enrichment tools are described on the GO Consortium's [GO
-Enrichment
-Analysis](http://geneontology.org/page/go-enrichment-analysis)page. If
+A few other enrichment tools are described on the GO Consortium's [GO Enrichment Analysis](http://geneontology.org/page/go-enrichment-analysis)page. If
 you choose one of these, we recommend that you only use an enrichment
 tool that allows you to upload a background set representing the genes
 used in your experiment. Even if you regard the whole genome as the

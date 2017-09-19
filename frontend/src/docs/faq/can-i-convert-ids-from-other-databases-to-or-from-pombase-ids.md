@@ -7,8 +7,7 @@ can convert between UniProtKB, RefSeq, Ensembl Genomes (including *S.
 pombe*systematic IDs) and many other common database IDs.
 
 For UniProt IDs, we provide a static mapping file of PomBase systematic
-IDs and UniProtKB accessions, available on the [Data
-Mapping](/downloads/data-mappings)page and by FTP from
+IDs and UniProtKB accessions, available on the [Data Mapping](/downloads/data-mappings)page and by FTP from
 <ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/PomBase2UniProt.tsv>.
 
 For other *Schizosaccharomyces*species ( *S. japonicus, S. octosporus,

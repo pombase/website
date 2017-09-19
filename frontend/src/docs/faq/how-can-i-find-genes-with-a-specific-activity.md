@@ -14,14 +14,10 @@ and start typing; the autocomplete feature will suggest terms. Choose
 one, and click the Submit button to run the search. You can download the
 list in plain text or a few other formats from the query results page.
 You can try using more specific or less specific terms to retrieve the
-results that best fit your expectations and needs. See the [Advanced
-Search documentation](/documentation/advanced-search-documentation)and
-the [Gene Page GO
-documentation](/documentation/gene-page-gene-ontology)for more
-information, including how [ontology searches retrieve
-annotations](/documentation/advanced-search-documentation#filt)to
+results that best fit your expectations and needs. See the [Advanced Search documentation](/documentation/advanced-search-documentation)and
+the [Gene Page GO documentation](/documentation/gene-page-gene-ontology)for more
+information, including how [ontology searches retrieve annotations](/documentation/advanced-search-documentation#filt)to
 general terms.
 
-Example query: [phosphoprotein phosphatase activity
-(GO:0004721)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0004721%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
+Example query: [phosphoprotein phosphatase activity (GO:0004721)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0004721%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
 

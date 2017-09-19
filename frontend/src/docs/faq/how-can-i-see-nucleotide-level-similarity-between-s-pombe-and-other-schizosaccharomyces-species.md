@@ -6,13 +6,11 @@ pombe*and *S. japonicus*, *S. octosporus*, or *S. cryophilus*. Both use
 the Genome Browser.
 
 1.  To view nucleotide similarity data tracks in the browser, follow the
-    usual steps as described in the [data track
-    FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser). Select the
+    usual steps as described in the [data track     FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser). Select the
     data type "Comparative Genomics".
 2.  Display syntenic regions as follows:
     1.  Go to your region of interest in the browser (e.g. follow the
-        link from a gene page or [use sequence
-        coordinates](/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser)).
+        link from a gene page or [use sequence         coordinates](/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser)).
         Make sure the "Location" tab is selected in the horizontal set
         of tabs along the top.
     2.  In the left-hand menu, find the "Comparative Genomics" heading,

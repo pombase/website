@@ -36,6 +36,5 @@ obscure the genes that actually are part of the cell cycle regulatory
 network, greatly reducing the usefulness and precision of GO
 annotations.\
 \
-Also see the [FAQ on finding genes that affect a
-process](/faq/how-can-i-identify-all-genes-affect-process).
+Also see the [FAQ on finding genes that affect a process](/faq/how-can-i-identify-all-genes-affect-process).
 

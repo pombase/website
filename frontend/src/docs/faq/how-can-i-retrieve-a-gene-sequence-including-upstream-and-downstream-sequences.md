@@ -27,6 +27,5 @@ display the data, depending on which format you select.
 
 To retrieve flanking regions for more than one gene at a time, at
 present you must use the Ensembl Genomes Biomart query, as described in
-[this
-FAQ](/faq/can-i-download-sequences-many-genes-once-including-flanking-regions).
+[this FAQ](/faq/can-i-download-sequences-many-genes-once-including-flanking-regions).
 

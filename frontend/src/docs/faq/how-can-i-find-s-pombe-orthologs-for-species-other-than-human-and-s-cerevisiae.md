@@ -31,8 +31,7 @@ by collapsing individual sub-trees (step 4) before you generate your
 alignment.
 
 Information about how the Compara trees are generated, homology types,
-and species is available from the [Ensembl comparative genomics
-documentation](http://ensemblgenomes.org/info/data/comparative_genomics).
+and species is available from the [Ensembl comparative genomics documentation](http://ensemblgenomes.org/info/data/comparative_genomics).
 
 **\
 **

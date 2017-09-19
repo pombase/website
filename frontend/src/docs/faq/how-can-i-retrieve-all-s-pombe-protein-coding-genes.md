@@ -16,8 +16,7 @@ Genes By Type protein coding\
 NOT Annotation Status dubious\
 NOT Annotation Status transposon
 
-![query for protein coding
-genes](/sites/pombase.org/files/images/protein_coding_gene_query.png)
+![query for protein coding genes](/sites/pombase.org/files/images/protein_coding_gene_query.png)
 
 You can also perform the query in separate steps:
 
@@ -30,10 +29,8 @@ You can also perform the query in separate steps:
 5.  Also in Query Management, select query 1 and query 4, and follow the
     instructions to combine them with NOT.
 
-See the [Advanced Search
-documentation](/documentation/advanced-search-documentation)for more
+See the [Advanced Search documentation](/documentation/advanced-search-documentation)for more
 information on performing the search described here.
 
-Query link: [Protein-coding genes (excluding 'dubious' and 'transposon'
-status)](/spombe/query/builder?filter=37&value=%5B%7B)
+Query link: [Protein-coding genes (excluding 'dubious' and 'transposon' status)](/spombe/query/builder?filter=37&value=%5B%7B)
 

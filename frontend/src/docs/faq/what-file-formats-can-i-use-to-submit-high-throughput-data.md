@@ -3,11 +3,8 @@
 
 At present, PomBase can host any types of data that can be connected
 with sequence features or coordinates, and can display the data as
-tracks in the genome browser. We [accept
-data](/submit-data/data-submission-form)in any of several formats,
-listed on the genome browser documentation page on [Adding Custom Tracks
-to
-Ensembl](http://genomebrowser.pombase.org/info/website/upload/index.html#formats).
+tracks in the genome browser. We [accept data](/submit-data/data-submission-form)in any of several formats,
+listed on the genome browser documentation page on [Adding Custom Tracks to Ensembl](http://genomebrowser.pombase.org/info/website/upload/index.html#formats).
 To choose a file format for your data, consult the table below and the
 linked FAQs. Please consult the helpdesk if you need further assistance.
 [consult the helpdesk](mailto:helpdesk@pombase.org)if you need further
@@ -72,27 +69,21 @@ Phenotypes
 
 Modifications
 
-[modification file
-format](/submit-data/modification-bulk-upload-file-format)
+[modification file format](/submit-data/modification-bulk-upload-file-format)
 
-[submit modification
-data](/submit-data/modification-data-submission-form)
+[submit modification data](/submit-data/modification-data-submission-form)
 
 Qualitative gene expression
 
-[qualitative gene expression file
-format](/submit-data/qualitative-gene-expression-bulk-upload-file-format)
+[qualitative gene expression file format](/submit-data/qualitative-gene-expression-bulk-upload-file-format)
 
-[submit qualitative gene expression
-data](/submit-data/qualitative-gene-expression-data-submission-form)
+[submit qualitative gene expression data](/submit-data/qualitative-gene-expression-data-submission-form)
 
 Quantitative gene expression
 
-[quantitative gene expression file
-format](/submit-data/quantitative-gene-expression-bulk-upload-file-format)
+[quantitative gene expression file format](/submit-data/quantitative-gene-expression-bulk-upload-file-format)
 
-[submit quantitative gene expression
-data](/submit-data/quantitative-gene-expression-data-submission-form)
+[submit quantitative gene expression data](/submit-data/quantitative-gene-expression-data-submission-form)
 
  
 

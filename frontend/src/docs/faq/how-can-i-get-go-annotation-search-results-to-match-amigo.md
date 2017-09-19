@@ -12,9 +12,7 @@ have child terms connected by *regulates*links. For example, a search
 for "cytokinesis" in AmiGO will include genes annotated to "regulation
 of cytokinesis", whereas a search in PomBase will not. To include
 regulation, and have results that match AmiGO, you must search for both
-terms -- see [instructions
-here](/faq/how-can-i-search-genes-involved-both-go-process-and-regulation-process).\
+terms -- see [instructions here](/faq/how-can-i-search-genes-involved-both-go-process-and-regulation-process).\
 \
-For more information on *regulates*, see the [GO Ontology Relations
-documentation](http://www.geneontology.org/GO.ontology.relations.shtml).
+For more information on *regulates*, see the [GO Ontology Relations documentation](http://www.geneontology.org/GO.ontology.relations.shtml).
 

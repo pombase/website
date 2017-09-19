@@ -1,8 +1,7 @@
 # Is there any programmatic access to PomBase data?
 <!-- pombase_categories: Tools and Resources -->
 
-Yes: the [Ensembl Genomes REST API
-Endpoints](http://rest.ensemblgenomes.org/)page provides a REST-ful
+Yes: the [Ensembl Genomes REST API Endpoints](http://rest.ensemblgenomes.org/)page provides a REST-ful
 interface allows language-independent programmatic access to all genomes
 accessible through Ensembl Genomes, including the same
 *Schizosaccharomyces pombe* genome data available in PomBase. The REST

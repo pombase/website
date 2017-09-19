@@ -11,7 +11,6 @@ lariats and branch points using RNA-seq. *Genome Res.*2014 Jul;
 [PMID:24709818](http://www.ncbi.nlm.nih.gov/pubmed/?term=24709818);
 [DOI:10.1101/gr.166819.113](http://dx.doi.org/10.1101/gr.166819.113))
 
-To view this data track, follow the instructions in the [track
-configuration FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser),
+To view this data track, follow the instructions in the [track configuration FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser),
 and select the Intron Branch Point track.
 

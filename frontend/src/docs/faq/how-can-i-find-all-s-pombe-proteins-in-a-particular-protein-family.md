@@ -4,8 +4,7 @@
 There are various ways you can find protein family members.
 
 1.  If you know the Pfam, PRINTs, PROSITE, or InterPro accession for the
-    family or domain you want, you can use the [Advanced
-    Search](http://www.pombase.org/spombe/query/builder)(http://www.pombase.org/spombe/query/builder).
+    family or domain you want, you can use the [Advanced     Search](http://www.pombase.org/spombe/query/builder)(http://www.pombase.org/spombe/query/builder).
     Go to the New Query tab, choose "Proteins That Have Specific Protein
     Domains" in the "Select Filter" pulldown, enter the accession, and
     submit.
@@ -31,6 +30,5 @@ future, we plan to add the ability to search the full text of gene
 pages, which will provide another option for finding protein family
 information.
 
-Example query: [Proteins matching "ATPase, AAA-type, core"
-(Pfam:PF00004)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%224%22,%22query_1%22:%22pfam_pf%22,%22query_2%22:%22PF00004%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
+Example query: [Proteins matching "ATPase, AAA-type, core" (Pfam:PF00004)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%224%22,%22query_1%22:%22pfam_pf%22,%22query_2%22:%22PF00004%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
 

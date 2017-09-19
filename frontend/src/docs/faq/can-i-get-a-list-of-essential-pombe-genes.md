@@ -10,8 +10,7 @@ cell population" (FYPO:0002060) represent non-essential genes.
 
 **Downloadable summary**
 
-A [set of "viability summary"
-data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/FYPOviability.tsv),
+A [set of "viability summary" data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/FYPOviability.tsv),
 as shown at the top of the FYPO table on each gene page, is available as
 a downloadable file. The file has two columns: the gene systematic ID
 and one of three values: "viable", "inviable" or "condition-dependent".
@@ -30,8 +29,7 @@ and one of three values: "viable", "inviable" or "condition-dependent".
     at once. To find them, use the "AND" operator in the Query
     Management panel (this search can also be set up all at once in the
     New Query panel).
--   See the [Advanced Search
-    documentation](/documentation/advanced-search-documentation)for more
+-   See the [Advanced Search     documentation](/documentation/advanced-search-documentation)for more
     information on performing the searches described here.
 
 **A brief note about FYPO terms**
@@ -46,11 +44,8 @@ caveats about alleles and conditions still apply.
 
 **Query links**
 
--   [Null alleles annotated to "inviable vegetative cell population"
-    (FYPO:0002061)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
--   [Null alleles annotated to "viable vegetative cell population"
-    (FYPO:0002060)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
--   [Null alleles annotated to both FYPO:0002061 and
-    FYPO:0002060](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%222%22%7D%5D)
+-   [Null alleles annotated to "inviable vegetative cell population"     (FYPO:0002061)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
+-   [Null alleles annotated to "viable vegetative cell population"     (FYPO:0002060)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
+-   [Null alleles annotated to both FYPO:0002061 and     FYPO:0002060](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%222%22%7D%5D)
 
 

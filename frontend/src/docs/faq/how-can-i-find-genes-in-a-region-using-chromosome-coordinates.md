@@ -32,14 +32,10 @@ To do a single query:
 3.  Select the 'Genes On Chromosome...' filter. Choose a chromosome from
     the pulldown. Click 'Submit' to execute the entire query.
 
-See the [Advanced Search
-documentation](/documentation/advanced-search-documentation)for more
+See the [Advanced Search documentation](/documentation/advanced-search-documentation)for more
 information on setting up complex queries.
 
-To find all features (not only genes), use the Genome Browser [as
-described
-here](/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates).
+To find all features (not only genes), use the Genome Browser [as described here](/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates).
 
-Example query: [Genes between coordinates 1000000-2000000 on chromosome
-2](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2210%22,%22query%22:%22II%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2215%22,%22query_1%22:%221000000%22,%22query_2%22:%222000000%22%7D%7D,%22filter_count%22:%222%22%7D%5D)
+Example query: [Genes between coordinates 1000000-2000000 on chromosome 2](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2210%22,%22query%22:%22II%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2215%22,%22query_1%22:%221000000%22,%22query_2%22:%222000000%22%7D%7D,%22filter_count%22:%222%22%7D%5D)
 
