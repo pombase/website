@@ -16,11 +16,11 @@ status descriptions:
 -   **Conserved protein (unknown biological role)**: Conserved outside
     the *Schizosaccharomyces*, but nothing known about the biological
     role in any organism
--   **_Schizosaccharomyces_ specific protein, uncharacterised**:
+-   ***Schizosaccharomyces* specific protein, uncharacterised**:
     Unpublished and found only in fission yeast (*S. pombe*, *S. octosporus*, *S. japonicus*, *S. cryophilus*);
     nothing known about biological role. May be single copy or a member
     of a multi-member family.
--   **_S. pombe_ specific protein, uncharacterised**:
+-   ***S. pombe* specific protein, uncharacterised**:
     Unpublished and found only in *S. pombe* (not
     detected in other *Schizosaccharomyces* species); nothing known
     about biological role
