@@ -4,7 +4,7 @@
 Generic Feature Format Version 3 (GFF3) is a tab-delimited text file
 format used to represent genomic sequence features.
 
-PomBase produces a GFF3 [file of *S. pombe*sequence features](ftp://ftp.ensemblgenomes.org/pub/fungi/current/gff3/schizosaccharomyces_pombe/),
+PomBase produces a GFF3 [file of *S. pombe* sequence features](ftp://ftp.ensemblgenomes.org/pub/fungi/current/gff3/schizosaccharomyces_pombe/),
 and accepts high-throughput data submissions in this format.
 
 The [file format specification](http://www.sequenceontology.org/resources/gff3.html) is

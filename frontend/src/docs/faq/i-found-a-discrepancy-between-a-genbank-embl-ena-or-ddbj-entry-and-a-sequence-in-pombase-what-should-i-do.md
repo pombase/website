@@ -7,7 +7,7 @@ the gene pages and in the genome browser. Although there are some
 sequence updates still pending, the genome sequence is more accurate
 than individual gene sequences that predate the genome.\
 \
-Many older *S. pombe*sequence submissions to the DNA databases
+Many older *S. pombe* sequence submissions to the DNA databases
 (International Nucleotide Sequence Database Collaboration databases,
 i.e. ENA, GenBank, DDBJ) contain one or more errors (sometimes with an
 error rate as high as 20%), and we do not have the resources to maintain

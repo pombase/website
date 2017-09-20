@@ -2,18 +2,18 @@
 <!-- pombase_categories: Genome Statistics and Lists,Querying/Searching -->
 
 Orphan genes are generally defined as genes without homologs in other
-organisms. In PomBase, genes conserved in the *Schizosaccharomyces*genus
+organisms. In PomBase, genes conserved in the *Schizosaccharomyces* genus
 are distinguished from genes conserved only in *S. pombe*.\
 \
 To retrieve either set of genes, use the "Conserved in" filter in the
 Advanced Search. Choose "Schizosaccharomyces specific" for genes found
-in more than one *Schizosaccharomyces*species, or "Schizosaccharomyces
+in more than one *Schizosaccharomyces* species, or "Schizosaccharomyces
 pombe specific" for genes found only in *S. pombe*. See the [Advanced Search documentation](/documentation/advanced-search-documentation) for
 help with performing searches.
 
 Historical note: Prior to August 2014, PomBase and its predecessor
 GeneDB referred to single-copy genes conserved within, but not outside,
-the *Schizosaccharomyces*genus as "sequence orphans". See the [Gene Characterisation Statistics History](/status/gene-characterisation-statistics-history) page for more
+the *Schizosaccharomyces* genus as "sequence orphans". See the [Gene Characterisation Statistics History](/status/gene-characterisation-statistics-history) page for more
 details (note that the gene characterisation classifications reflect
 whether a gene has been studied experimentally as well as the extent of
 its conservation).

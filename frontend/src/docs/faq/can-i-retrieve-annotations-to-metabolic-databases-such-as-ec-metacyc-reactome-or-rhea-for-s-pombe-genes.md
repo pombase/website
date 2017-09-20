@@ -1,7 +1,7 @@
 # Can I retrieve annotations to metabolic databases such as EC, MetaCyc, Reactome, or Rhea for S. pombe genes?
 <!-- pombase_categories: Querying/Searching,Using Ontologies -->
 
-The best way to find metabolism-related annotations for *S. pombe*genes
+The best way to find metabolism-related annotations for *S. pombe* genes
 is to use the GO annotation data available from PomBase in combination
 with mappings between GO terms and entries in the various
 metabolism-oriented databases.\

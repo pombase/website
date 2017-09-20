@@ -19,7 +19,7 @@ how many specific topics you are interested in:
 
 Both the Advanced Search and term enrichment tools take advantage of the
 hierarchical structure of GO, such that annotations to specific terms
-are propagated to "ancestor" terms via *is\_a*and *part\_of*relations.
+are propagated to "ancestor" terms via *is\_a* and *part\_of* relations.
 See the [PomBase GO documentation](/documentation/gene-page-gene-ontology), and the GO
 Consortium documentation linked there, for more information. (These
 approaches also make it easier to maintain and update your data than

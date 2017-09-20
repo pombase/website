@@ -6,7 +6,7 @@ PomBase web site. (As of May 2013, we are investigating the possibility
 of adding an Artemis applet to PomBase, and will update this FAQ
 accordingly when it becomes available.)\
 \
-If you want to browse the *S. pombe*genome in the Artemis environment,
+If you want to browse the *S. pombe* genome in the Artemis environment,
 it is fairly easy to download and run locally:
 
 -   Artemis is available from

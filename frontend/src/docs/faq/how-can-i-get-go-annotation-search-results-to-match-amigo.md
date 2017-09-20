@@ -6,9 +6,9 @@ search retrieves gene products annotated to a GO term and to any of its
 child terms, following all relationships in the ontology, including
 *regulates*.\
 \
-The PomBase GO search excludes *regulates*relationships by default, so
+The PomBase GO search excludes *regulates* relationships by default, so
 annotation totals will differ from those in AmiGO for any terms that
-have child terms connected by *regulates*links. For example, a search
+have child terms connected by *regulates* links. For example, a search
 for "cytokinesis" in AmiGO will include genes annotated to "regulation
 of cytokinesis", whereas a search in PomBase will not. To include
 regulation, and have results that match AmiGO, you must search for both

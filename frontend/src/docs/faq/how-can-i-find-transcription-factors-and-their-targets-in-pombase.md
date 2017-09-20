@@ -45,7 +45,7 @@ annotation dataset. For the latter:
 4.  Contact the [Helpdesk](mailto:helpdesk@pombase.org)  if you have any
     problems or questions.
 
-Finally, note that not all *S. pombe*transcription factors have been
+Finally, note that not all *S. pombe* transcription factors have been
 extensively characterised with respect to target genes, and for those
 that have, target curation in PomBase may be incomplete. You may
 therefore wish to query for transcription factors that have been have

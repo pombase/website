@@ -3,7 +3,7 @@
 
 You can retrieve sequences from a gene page or in the Genome Browser.
 
-**On the gene page:**Scroll down or click the quick link to the Sequence
+**On the gene page**: Scroll down or click the quick link to the Sequence
 section of the page, where there is a set of pre-set one-click options
 and a Custom option. For protein-coding genes, there are pre-set options
 to retrieve the coding sequence (CDS), CDS + UTRs, CDS + UTRs + introns,
@@ -17,7 +17,7 @@ include UTRs and introns, and how much upstream and downstream sequence
 to include. Click the Download button to see the sequence. You can save
 by copying and pasting from the browser.
 
-**To use the Genome Browser:**Click the "View in Genome Browser" link
+**To use the Genome Browser**: Click the "View in Genome Browser" link
 under the map graphic on a gene page, or go directly to the Genome
 Browser via the Tools menu, and search for a gene name or systematic ID.
 Click Export Data (a button on the left hand side). Select the number of

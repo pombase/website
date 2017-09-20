@@ -2,7 +2,7 @@
 <!-- pombase_categories: Orthology,Querying/Searching,Tools and Resources -->
 
 PomBase offers two ways to view nucleotide-level similarity between *S.
-pombe*and *S. japonicus*, *S. octosporus*, or *S. cryophilus*. Both use
+pombe* and *S. japonicus*, *S. octosporus*, or *S. cryophilus*. Both use
 the Genome Browser.
 
 1.  To view nucleotide similarity data tracks in the browser, follow the
@@ -26,7 +26,7 @@ the Genome Browser.
         mark in the upper right corner, or click outside the popup.
     5.  Synteny views will now be visible in the bottom-most graphical
         display (scroll down if necessary). For any region in the *S.
-        pombe*genome, pink tracks show the region in the second genome
+        pombe* genome, pink tracks show the region in the second genome
         with the best nucleotide alignment. Green bands connect the
         best-aligned regions to highlight synteny.
 

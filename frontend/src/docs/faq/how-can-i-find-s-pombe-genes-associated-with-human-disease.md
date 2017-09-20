@@ -1,7 +1,7 @@
 # How can I find S. pombe genes associated with human disease?
 <!-- pombase_categories: Orthology,Querying/Searching -->
 
-*S. pombe*genes whose human orthologs have been implicated in disease
+*S. pombe* genes whose human orthologs have been implicated in disease
 are annotated with terms from the internal
 [PBO](/faq/what-pbo-option-advanced-search) vocabulary. To retrieve all
 of these genes, you can use the most general "disease associated" term.

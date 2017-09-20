@@ -13,10 +13,10 @@ suggest phenotypes. Choose one, and click the Submit button to run the
 search. You can download the list in plain text or a few other formats
 from the query results page.
 
-Note that the FYPO search retrieves annotations by following the *is\_a,
-part\_of, output\_of, has\_output,*and *has\_part*relationships in the
+Note that the FYPO search retrieves annotations by following the *is\_a*,
+*part\_of*, *output\_of*, *has\_output*, and *has\_part* relationships in the
 ontology. For example, FYPO includes the relation "inviable swollen
-elongated cell with enlarged nucleus" (FYPO:0002083) *has\_part*"swollen
+elongated cell with enlarged nucleus" (FYPO:0002083) *has\_part* "swollen
 cell" (FYPO:0000025). Genes annotated to FYPO:0002083 will therefore be
 retrieved in a search for FYPO:0000025. See the [Advanced Search documentation](/documentation/advanced-search-documentation) for more
 information.

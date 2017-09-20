@@ -13,7 +13,7 @@ proteins (or functional RNAs) with a particular localization, use the
 annotated to the relevant GO Cellular Component term(s).
 
 Pombase GO Cellular Component annotations include data from the
-whole-genome localization study ( [Matsuyama *et al.*2006](http://www.ncbi.nlm.nih.gov/pubmed/16823372)) as well as
+whole-genome localization study ( [Matsuyama *et al.* 2006](http://www.ncbi.nlm.nih.gov/pubmed/16823372)) as well as
 manually curated data from papers on small-scale experiments, and
 inferences from ortholog annotations. Macromolecular complex annotations
 are also available in a file (see

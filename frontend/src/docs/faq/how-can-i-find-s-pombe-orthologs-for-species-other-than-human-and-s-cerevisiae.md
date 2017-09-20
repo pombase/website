@@ -41,10 +41,10 @@ and species is available from the [Ensembl comparative genomics documentation](h
 From any gene page, follow the link to YOGY under External References.
 
 YOGY is a web-based resource for retrieving orthologous proteins from
-ten eukaryotic organisms and one prokaryote: *Homo sapiens, Mus
-musculus, Rattus norvegicus, Arabidopsis thaliana, Dictyostelium
-discoideum, Drosophila melanogaster, Caenorhabditis elegans, Plasmodium
-falciparum, Escherichia coli, Schizosaccharomyces pombe*, and
+ten eukaryotic organisms and one prokaryote: *Homo sapiens*, *Mus
+musculus*, *Rattus norvegicus*, *Arabidopsis thaliana*, *Dictyostelium
+discoideum*, *Drosophila melanogaster*, *Caenorhabditis elegans*, *Plasmodium
+falciparum*, *Escherichia coli*, *Schizosaccharomyces pombe*, and
 *Saccharomyces cerevisiae*. Using a gene or protein identifier from any
 of these organisms as a query, this database provides comprehensive,
 combined information on orthologs in other species using data from five

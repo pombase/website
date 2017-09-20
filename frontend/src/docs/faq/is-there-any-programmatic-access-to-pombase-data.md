@@ -4,7 +4,7 @@
 Yes: the [Ensembl Genomes REST API Endpoints](http://rest.ensemblgenomes.org/) page provides a REST-ful
 interface allows language-independent programmatic access to all genomes
 accessible through Ensembl Genomes, including the same
-*Schizosaccharomyces pombe* genome data available in PomBase. The REST
+*Schizosaccharomyces pombe* genome data available in PomBase. The REST
 interface provides data in a variety of formats including GFF3, FASTA
 and JSON. Data types accessible via this interface include:
 

@@ -18,7 +18,7 @@ Genomes Biomart query:
 5.  Expand the section “GENE” by clicking the + sign
 6.  In the drop-down menu in the section “ID list limit” select “PomBase
     Gene ID(s)”. (This will automatically tick the "ID list limit box.)
-    In the box underneath, type or paste a list of *S. pombe*gene names
+    In the box underneath, type or paste a list of *S. pombe* gene names
     or systematic IDs.
 7.  In the left-hand menu, click on the header “Attributes”.
 8.  Click the “Sequences” button, and expand the “SEQUENCES” section.

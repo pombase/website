@@ -23,5 +23,5 @@ to additional documentation.
     second URL.
 
 The Broad Institute has [archived genomic data files](http://www.broadinstitute.org/ftp/pub/annotation/fungi/schizosaccharomyces/) for
-the *Schizosaccharomyces*species, including transcript files.
+the *Schizosaccharomyces* species, including transcript files.
 
