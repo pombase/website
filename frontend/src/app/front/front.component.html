@@ -14,11 +14,15 @@
 
 <div id="top-row" class="row">
 
-<div class="col-sm-5 rotating-image">
-  <img [attr.src]="'assets/' + rotatingImageName" />
-</div>
-
 <div class="col-sm-4">
+  <span class="front-page-list-title">Welcome to PomBase</span>
+  <div>
+PomBase is a comprehensive database for the fission yeast
+Schizosaccharomyces pombe, providing structural and functional
+annotation, literature curation and access to large-scale data
+sets
+  </div>
+
   <span class="front-page-list-title">Explore</span>
   <ul>
     <li>
@@ -41,6 +45,10 @@
                             [references]="recentCommunityCurationPubs"></app-reference-short-list>
 </div>
 
+<div class="col-sm-4 rotating-image">
+  <img [attr.src]="'assets/' + rotatingImageName" />
+</div>
+
 </div>
 
 <div class="row">
@@ -52,40 +60,6 @@
 
 <div class="col-sm-1">
 <!-- empty -->
-</div>
-
-<div class="col-sm-6">
-
-<span class="front-page-list-title">Welcome to the new PomBase website</span>
-
-<div>
-Although it's still under
-development, nightly data updates are working and several new features
-are now available:
-
-<ul>
-  <li>Publication pages</li>
-  <li>Genotype pages</li>
-  <li>Improved gene pages with reduced redundancy in annotation summary views </li>
-  <li>Improved ontology term pages showing annotated descendant terms and links to ancestor terms</li>
-  <li>Phenotypic "grouping" filters on gene pages and phenotype ontology term pages</li>
-</ul>
-
-Over the next few months we plan to add:
-
-<ul>
-<li>Improved query interface</li>
-<li>JBrowse genome browser</li>
-<li>Protein feature viewer</li>
-<li>Network viewer</li>
-</ul>
-
-<div>
-Please tell us what you think of the new look and function of the
-PomBase pages, and what you'd most like to see next.
-</div>
-
-</div>
 </div>
 
 </div>
