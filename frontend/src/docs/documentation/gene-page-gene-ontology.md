@@ -17,14 +17,15 @@ GO consists of three distinct
 
 A gene product may be
 [annotated](http://www.geneontology.org/page/annotation) to several GO
-terms from each of the three ontologies; [cyr1](/gene/SPBC19C7.03),
-for instance, is annotated to adenylate cyclase activity, magnesium
-ion binding and protein binding (MFs), it acts in cAMP biosynthesis
-and negatively regulates conjugation (BPs), and is found in the plasma
-membrane (CC).
+terms from each of the three ontologies; [mcm3](/gene/SPCC1682.02c),
+for instance, is annotated to ATP-dependent DNA helicase activity, ATP
+binding, and DNA replication origin binding (MFs), it acts in mitotic
+DNA replication initiation and negatively regulates the MCM helicase
+activity (BPs), and is found locations including the replication fork
+and the pre-replicative complex (CC).
 
-Each table includes ontology term details and supporting data. The The
-GO annotation display on PomBase gene pages includes ontology term
+Each table includes ontology term details and supporting data. The GO
+annotation display on PomBase gene pages includes ontology term
 details and supporting data. The summary view shows just the
 essentials: The list of terms is filtered, using the ontology
 structure, so that it shows only the most specific terms used to
@@ -48,11 +49,6 @@ extension(s) is shown once:
 3.  GO annotations may have [extensions](#ann_ext) to capture any of
     several types of additional detail. *S. pombe* genes link to PomBase
     gene pages, and ontology term names link to ontology term pages.
-
-The detailed view shows more, including separate entries for repeat
-determinations of a given gene/term/extension combination (if supported
-by more than one line of evidence and/or reported in more than one
-paper):
 
 The detailed view shows annotations to all GO terms, and includes more
 details for each annotation. It shows separate entries for repeat
