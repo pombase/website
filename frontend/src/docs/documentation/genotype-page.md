@@ -1,6 +1,8 @@
 # Genotype pages
 
-Genotype pages are analogous to gene pages, but 
+Genotype pages are analogous to gene pages, but decribe the alleles 
+that make up a genotype, and show phenotypes associated with the 
+genotype.
 
 ![genotype page](assets/genotype_page.png){width="800"}
 
