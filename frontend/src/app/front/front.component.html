@@ -29,6 +29,9 @@
     <li>
       <a routerLink="/browse-curation/fission-yeast-go-slim-terms" class="dropdown-item">GO slim overview</a>
     </li>
+    <li>
+      <a href="http://preview.pombase.org/media/pombase-2017-infographic.png">Pombe 2017 infographic</a>
+    </li>
   </ul>
 </div>
 
@@ -88,43 +91,6 @@ PomBase pages, and what you'd most like to see next.
 </div>
 
 <hr style="clear: both" />
-
-<div>
-  <div class="front-page-list">
-    <span class="front-page-list-title">PomBase 2017 infographic</span>
-    <div>
-      <a href="http://preview.pombase.org/media/pombase-2017-infographic.png">
-        <img src="http://preview.pombase.org/media/pombase-2017-infographic-small.png" />
-      </a>
-    </div>
-  </div>
-  <div class="front-page-list">
-    <span class="front-page-list-title">Improved gene pages (examples)</span>
-    <ul>
-      <li><a routerLink="/gene/SPBC11B10.09">cdc2</a></li>
-      <li><a routerLink="/gene/SPAC2F7.03c">pom1</a></li>
-      <li><a routerLink="/gene/SPCC18B5.03">wee1</a></li>
-      <li><a routerLink="/gene/SPAC24B11.06c">sty1</a></li>
-    </ul>
-  </div>
-  <div class="front-page-list">
-    <span class="front-page-list-title">Improved term pages - GO terms (examples)</span>
-    <ul>
-      <li><a routerLink="/term/GO:0006260">DNA replication (GO slim process)</a></li>
-      <li><a routerLink="/term/GO:0000070">mitotic sister chromatid segregation (GO slim process)</a></li>
-      <li><a routerLink="/term/GO:0006399">tRNA metabolic process (GO slim process)</a></li>
-      <li><a routerLink="/term/GO:0004674">protein serine/threonine kinase activity (GO molecular function)</a></li>
-    </ul>
-  </div>
-  <div class="front-page-list">
-    <span class="front-page-list-title">Improved term pages - phenotypes (examples)</span>
-    <ul>
-      <li><a routerLink="/term/FYPO:0000032">abnormal cytokinesis</a></li>
-      <li><a routerLink="/term/FYPO:0000059">abnormal mitotic cell cycle</a></li>
-      <li><a routerLink="/term/FYPO:0000134">branched, elongated, multiseptate cell</a></li>
-    </ul>
-  </div>
-</div>
 
 <div class="metadata" *ngIf="metadata">
   <div>Database created: {{metadata?.db_creation_datetime}}</div>
