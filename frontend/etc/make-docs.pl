@@ -204,8 +204,8 @@ sub process_path {
 
   if ($path eq 'news') {
     my @news_summary = ();
-    if (@news_pages > 5) {
-      @news_summary = (reverse @news_pages)[0..5];
+    if (@news_pages > 3) {
+      @news_summary = (reverse @news_pages)[0..3];
     } else {
       @news_summary = reverse @news_pages;
     }
@@ -213,7 +213,7 @@ sub process_path {
     print $recent_news_file qq|<div class="recent-news">\n|;
     for my $page_name (@news_summary) {
       my $contents = contents_for_template("news/$page_name", $data->{$page_name});
-      $contents =~ s/^#/##/gm;
+      $contents =~ s/^#/###/gm;
       print $recent_news_file markdown($contents), "\n";
     }
     print $recent_news_file qq|
