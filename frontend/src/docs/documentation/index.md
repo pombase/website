@@ -30,6 +30,7 @@
     and [Usage tips](browse-curation/fission-yeast-go-slimming-tips)
 -   [Ontology term pages](documentation/ontology-term-page)
 -   [Publication pages](documentation/publication-page)
+-   [Genotype pages](documentation/genotype-page)
 -   [Fission Yeast Phenotype Ontology (FYPO) page](browse-curation/fission-yeast-phenotype-ontology)
 -   [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
 -   [Data versions](about/version-history)

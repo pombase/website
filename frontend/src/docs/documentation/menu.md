@@ -13,9 +13,14 @@
      -   [Controlled curation](documentation/controlled_curation)
      -   [External references](documentation/gene-page-external-references)
      -   [Literature](documentation/gene-page-literature)
+ -   [GO Slim](documentation/pombase-go-slim-documentation)
+ -   [Ontology term pages](documentation/ontology-term-page)
+ -   [Publication pages](documentation/publication-page)
+ -   [Genotype pages](documentation/genotype-page)
+ -   [Fission Yeast Phenotype Ontology](browse-curation/fission-yeast-phenotype-ontology)
  -   [Simple search](documentation/simple-search-documentation)
  -   [Advanced search](documentation/advanced-search)
- -   Data submission fgile formats
+ -   Data submission file formats
      -   [Phenotype data](documentation/phenotype-data-bulk-upload-format)
      -   [Modification data](documentation/modification-data-bulk-upload-format)
      -   [Qualitative gene expression data](documentation/qualitative-gene-expression-data-bulk-upload-format)
