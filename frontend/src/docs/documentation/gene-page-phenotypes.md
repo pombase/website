@@ -74,13 +74,14 @@ single-allele phenotypes, the display includes:
 
 ![FYPO term filter](assets/fypo_term_filter_pulldown.png "FYPO annotation term filter"){width="160"}
 
-    Choose one to restrict the annotation display to terms in the
-    selected branch of FYPO. When term filtering is active, a message
-    appears to indicate that not all annotations are shown:
+Choose one to restrict the annotation display to terms in the selected
+branch of FYPO. When term filtering is active, a message appears to
+indicate that not all annotations are shown:
 
 ![filtering message](assets/fypo_showing_n_annotations.png "filtered annotation display message"){width="600"}
 
-    Change the selection back to "No filter" to see annotations to all terms.
+Change the selection back to "No filter" to see annotations to all
+terms.
 
 The detailed single-allele phenotype view shows annotations to all
 FYPO terms, and includes more details for each annotation. It shows
