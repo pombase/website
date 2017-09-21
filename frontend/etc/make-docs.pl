@@ -257,6 +257,40 @@ sub process_line {
   }
 }
 
+sub all_news_items {
+  my @items = ();
+  opendir my $dh, 'news';
+  while (my $dir_file_name = readdir($dh)) {
+    if ($dir_file_name =~ /^($date_re)-(.*)\.md$/) {
+      my $news_date = $1;
+      my $title = undef;
+      my $id = undef;
+      my $contents = '';
+      open my $this_file, '<', "news/$dir_file_name" or die "can't open $dir_file_name\n";
+      while (defined (my $line = <$this_file>)) {
+        if (!defined $title && $line =~ /^#+\s*(.*?)\s*$/) {
+          $title = $1;
+          $id = make_id_from_heading($title);
+        } else {
+          $contents .= $line;
+        }
+      }
+      close $this_file;
+
+      push @items, {
+        title => $title,
+        id => $id,
+        contents => $contents,
+        date => $news_date
+      };
+    }
+  }
+
+  return sort {
+    $a->{date} cmp $b->{date};
+  } @items;
+}
+
 sub contents_for_template {
   my $path = shift;
   my $details = shift;  # could be a file name
@@ -270,20 +304,19 @@ sub contents_for_template {
     $ret = "### " . angular_link($menu_title, $section) . "\n";
   }
 
-  if ($path eq 'news/menu') {
-    opendir my $dh, 'news';
-    while(my $dir_file_name = readdir($dh)) {
-      if ($dir_file_name =~ /^$date_re-(.*)\.md$/) {
-        my $file_name_sect_id = $1;
-        open my $this_file, '<', "news/$dir_file_name" or die "can't open $dir_file_name\n";
-        while (defined (my $line = <$this_file>)) {
-          if ($line !~ /^\s*$/) {
-            if ($line =~ /^#+\s*(.*?)\s*$/) {
-              $ret .= ' - ' . angular_link($1, "/news/$file_name_sect_id") . "\n";
-            }
-          }
-        }
-        close $this_file;
+  if ($path =~ m[^news/(index|menu)$]) {
+    my @all_news_items = all_news_items();
+
+    if ($path eq 'news/menu') {
+      for my $item (@all_news_items) {
+        $ret .= ' - <a href="#' . $item->{id} . '">' . $item->{title} . "</a>\n";
+      }
+    } else {
+      my @rev_items = reverse @all_news_items;
+      for my $item (@rev_items) {
+        $ret .= '### ' . $item->{title} . ' {#' . $item->{id} . "}\n\n";
+        $ret .= '*' . $item->{date} . "*\n";
+        $ret .= $item->{contents} . "\n";;
       }
     }
   } else {
