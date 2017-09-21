@@ -1,3 +1,4 @@
+<div class="front-container">
 <div id="pombase-contacts">
 <app-contact-email [linkName]="'Contact curators ...'"
                    [subject]="'Comment on the new PomBase'"></app-contact-email>
@@ -15,8 +16,8 @@
 <div id="top-row" class="row">
 
 <div class="col-sm-6">
-  <span class="front-page-list-title">Welcome to PomBase</span>
-  <div class="sect-content">
+  <span class="front-page-list-title welcome-title">Welcome to PomBase</span>
+  <div class="sect-content welcome-content">
 PomBase is a comprehensive database for the fission yeast
 Schizosaccharomyces pombe, providing structural and functional
 annotation, literature curation and access to large-scale data
@@ -24,26 +25,25 @@ sets
   </div>
 
   <div class="front-page-box">
-  <span>Explore annotation</span>
+  <span class="front-page-list-title">Explore annotation</span>
   <div class="sect-content">
-  <ul>
-    <li><a routerLink="/gene/SPCC18B5.03">Example gene page</a></li>
-    <li><a routerLink="/term/GO:0000070">Example term page</a></li>
-    <li><a routerLink="/reference/PMID:27984725">Example publication page</a></li>
-    <li>
-      <a routerLink="/query" routerLinkActive="active" class="dropdown-item">
+    <div>
+      <a routerLink="/query" routerLinkActive="active">
         Advanced search
       </a>
-    </li>
-    <li>
-      <a routerLink="/browse-curation/fission-yeast-go-slim-terms" class="dropdown-item">GO slim overview</a>
-    </li>
-  </ul>
+    </div>
+    <div>
+      <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO
+      biological process overview</a>
+    </div>
+    <div><a routerLink="/gene/SPCC18B5.03">Example gene page</a></div>
+    <div><a routerLink="/term/GO:0000070">Example term page</a></div>
+    <div><a routerLink="/reference/PMID:27984725">Example publication page</a></div>
   </div>
   </div>
 </div>
 
-<div class="col-sm-4 rotating-image">
+<div class="col-sm-6 rotating-image">
   <img [attr.src]="'assets/' + rotatingImageName" />
 </div>
 
@@ -63,7 +63,7 @@ sets
 </div>
 
 </div>
-
+</div>
 <hr style="clear: both" />
 
 <div class="metadata" *ngIf="metadata">

@@ -1,3 +1,7 @@
+.front-container {
+  padding: 0 1em 0 1em;
+}
+
 .metadata {
   float: right;
   padding: 0 0.5em 0 0.5em;
@@ -12,21 +16,32 @@
 
 .front-page-list-title {
   font-size: 110%;
-  border-bottom: 0.1em solid #bbb;
   margin-bottom: 0.5em;
   display: inline-block;
+  font-weight: bold;
+}
+
+.welcome-title {
+  font-size: 140%;
+}
+
+.welcome-content {
+  font-size: 110%;
 }
 
 .front-page-box {
-  border: 1.5px solid #157;
-  background-color: #efe;
+/*  border: 1.5px solid #157; */
+  background-color: #edffdf;
   display: inline-block;
-  padding: 0.4em;
-  width: 20em;
+  padding: 0.4em 0.8em 0.4em 0.8em;
+  margin: 2em 0.4em 0 3em;
+  border-radius: 0.4em;
+}
+
+.sect-content li {
 }
 
 .sect-content {
-  margin-bottom: 1em;
 }
 
 .rotating-image img {
