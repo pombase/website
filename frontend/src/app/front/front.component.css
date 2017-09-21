@@ -17,6 +17,18 @@
   display: inline-block;
 }
 
+.front-page-box {
+  border: 1.5px solid #157;
+  background-color: #efe;
+  display: inline-block;
+  padding: 0.4em;
+  width: 20em;
+}
+
+.sect-content {
+  margin-bottom: 1em;
+}
+
 .rotating-image img {
   width: 95%;
   height: auto;
@@ -46,8 +58,6 @@
 }
 
 .recent-news {
-  height: 25em;
-  overflow-y: auto;
 }
 
 .recent-news > div {
