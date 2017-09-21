@@ -17,11 +17,10 @@
   display: inline-block;
 }
 
-@media (max-width: 1200px) {
-  .rotating-image img {
-    width: 95%;
-    height: auto;
-  }
+.rotating-image img {
+  width: 95%;
+  height: auto;
+  margin-bottom: 1em;
 }
 
 .social {
@@ -39,6 +38,11 @@
 
 #pombase-contacts {
   margin: 0.2em 0 0 0;
+  float: right;
+}
+
+#top-row {
+  clear: both;
 }
 
 .recent-news {

@@ -1,4 +1,18 @@
-<div class="row">
+<div id="pombase-contacts">
+<app-contact-email [linkName]="'Contact curators ...'"
+                   [subject]="'Comment on the new PomBase'"></app-contact-email>
+
+<span class="social">
+  <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist"><img title="PomBase mailing list" src="assets/pombe_email_icon.png"/></a>
+  <a href="https://twitter.com/PomBase"><img title="@PomBase on Twitter" src="assets/twitter_icon.png"/></a>
+  <a href="https://www.facebook.com/pombase"><img title="@PomBase on Facebook" src="assets/facebook_icon.png"/></a>
+  <a href="https://github.com/pombase"><img title="PomBase on GitHub" src="assets/github_icon.png"/></a>
+  <a href="https://plus.google.com/+PombaseOrg"><img title="PomBase on Google+" src="assets/google_plus_icon.png"/></a>
+  <a href="https://www.linkedin.com/groups/5122686"><img title="PomBase on LinkedIn" src="assets/linkedin_icon.png"/></a>
+</span>
+</div>
+
+<div id="top-row" class="row">
 
 <div class="col-sm-5 rotating-image">
   <img [attr.src]="'assets/' + rotatingImageName" />
@@ -6,7 +20,16 @@
 
 <div class="col-sm-3">
   <span class="front-page-list-title">Explore</span>
-
+  <ul>
+    <li>
+      <a routerLink="/query" routerLinkActive="active" class="dropdown-item">
+        Advanced search
+      </a>
+    </li>
+    <li>
+      <a routerLink="/browse-curation/fission-yeast-go-slim-terms" class="dropdown-item">GO slim overview</a>
+    </li>
+  </ul>
 </div>
 
 <div class="col-sm-3">
@@ -57,20 +80,6 @@ Over the next few months we plan to add:
 <div>
 Please tell us what you think of the new look and function of the
 PomBase pages, and what you'd most like to see next.
-</div>
-
-<div id="pombase-contacts">
-<app-contact-email [linkName]="'Contact curators ...'"
-                   [subject]="'Comment on the new PomBase'"></app-contact-email>
-
-<div class="social">
-  <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist"><img title="PomBase mailing list" src="assets/pombe_email_icon.png"/></a>
-  <a href="https://twitter.com/PomBase"><img title="@PomBase on Twitter" src="assets/twitter_icon.png"/></a>
-  <a href="https://www.facebook.com/pombase"><img title="@PomBase on Facebook" src="assets/facebook_icon.png"/></a>
-  <a href="https://github.com/pombase"><img title="PomBase on GitHub" src="assets/github_icon.png"/></a>
-  <a href="https://plus.google.com/+PombaseOrg"><img title="PomBase on Google+" src="assets/google_plus_icon.png"/></a>
-  <a href="https://www.linkedin.com/groups/5122686"><img title="PomBase on LinkedIn" src="assets/linkedin_icon.png"/></a>
-</div>
 </div>
 
 </div>
