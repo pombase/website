@@ -50,10 +50,12 @@ sub make_id_from_heading {
   my $heading = shift;
 
   (my $id = lc $heading) =~ s/[^A-Za-z\._]+/-/g;
-  $id =~ s/-+$//;
 
   $id =~ s/-(with|the|at|from|to|the|of|that|is|for|an|a|in)-/-/g for 1..5;
   $id =~ s/^(are|is)-//;
+
+  $id =~ s/-+$//;
+  $id =~ s/^-+//;
 
   return $id;
 }
@@ -309,7 +311,7 @@ sub contents_for_template {
 
     if ($path eq 'news/menu') {
       for my $item (@all_news_items) {
-        $ret .= ' - <a href="#' . $item->{id} . '">' . $item->{title} . "</a>\n";
+        $ret .= ' - <a simplePageScroll href="#' . $item->{id} . '">' . $item->{title} . "</a>\n";
       }
     } else {
       my @rev_items = reverse @all_news_items;
