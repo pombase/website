@@ -1,8 +1,3 @@
-.introduction {
-  padding: 1.2em 0.6em 0.6em 0.6em;
-  font-size: 110%;
-}
-
 .metadata {
   float: right;
   padding: 0 0.5em 0 0.5em;
@@ -47,8 +42,7 @@
 }
 
 .recent-news {
-  height: 20em;
-  width: 30em;
+  height: 25em;
   overflow-y: auto;
 }
 

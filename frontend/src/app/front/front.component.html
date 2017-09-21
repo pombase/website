@@ -1,8 +1,39 @@
-<div class="introduction">
 <div class="row">
 
+<div class="col-sm-5 rotating-image">
+  <img [attr.src]="'assets/' + rotatingImageName" />
+</div>
+
+<div class="col-sm-3">
+  <span class="front-page-list-title">Explore</span>
+
+</div>
+
+<div class="col-sm-3">
+  <span class="front-page-list-title">Recent community curation</span>
+  <app-reference-short-list *ngIf="recentCommunityCurationPubs"
+                            [references]="recentCommunityCurationPubs"></app-reference-short-list>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-sm-4 recent-news">
+  <span class="front-page-list-title">Recent news</span>
+  <app-recent-news></app-recent-news>
+</div>
+
+<div class="col-sm-1">
+<!-- empty -->
+</div>
+
 <div class="col-sm-6">
-Welcome to the new PomBase website. Although it's still under
+
+<span class="front-page-list-title">Welcome to the new PomBase website</span>
+
+<div>
+Although it's still under
 development, nightly data updates are working and several new features
 are now available:
 
@@ -41,27 +72,15 @@ PomBase pages, and what you'd most like to see next.
   <a href="https://www.linkedin.com/groups/5122686"><img title="PomBase on LinkedIn" src="assets/linkedin_icon.png"/></a>
 </div>
 </div>
-</div>
-
-<div class="col-sm-5 rotating-image">
-  <img [attr.src]="'assets/' + rightImageName" />
-</div>
 
 </div>
+</div>
+
 </div>
 
 <hr style="clear: both" />
 
 <div>
-  <div class="front-page-list recent-news">
-    <span class="front-page-list-title">Recent news</span>
-    <app-recent-news></app-recent-news>
-  </div>
-  <div class="front-page-list">
-    <span class="front-page-list-title">Recent community curation</span>
-    <app-reference-short-list *ngIf="recentCommunityCurationPubs"
-                              [references]="recentCommunityCurationPubs"></app-reference-short-list>
-  </div>
   <div class="front-page-list">
     <span class="front-page-list-title">PomBase 2017 infographic</span>
     <div>

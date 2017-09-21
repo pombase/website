@@ -11,13 +11,13 @@ export class FrontComponent implements OnInit {
   @Input() metadata: Metadata;
 
   imageNames = ['Slide1.png', 'Slide2.png', 'Slide3.png'];
-  rightImageName = this.imageNames[0];
+  rotatingImageName = this.imageNames[0];
   recentCommunityCurationPubs = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
-    this.rightImageName = this.imageNames[Math.floor(Math.random() * this.imageNames.length)];
+    this.rotatingImageName = this.imageNames[Math.floor(Math.random() * this.imageNames.length)];
     this.pombaseApiService.getMetadata()
       .then(metadata => {
         this.metadata = metadata;
