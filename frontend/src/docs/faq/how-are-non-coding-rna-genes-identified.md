@@ -1,5 +1,5 @@
 # How are non-coding RNA genes identified?
-<!-- pombase_categories: Genome Statistics and Lists -->
+<!-- pombase_categories: Genome statistics and lists -->
 
 Most non-coding RNAs in PomBase are based on transcriptome data, either
 from Jürg Bähler's lab (Solexa/deep sequencing;

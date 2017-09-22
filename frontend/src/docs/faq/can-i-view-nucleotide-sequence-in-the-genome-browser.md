@@ -1,5 +1,5 @@
 # Can I view nucleotide sequence in the genome browser?
-<!-- pombase_categories: Genome Browser,Locating Genomic Regions,Querying/Searching,Sequence Retrieval,Tools and Resources -->
+<!-- pombase_categories: Genome browser,Tools and resources -->
 
 Yes. First, make sure sequence display is "on":
 
