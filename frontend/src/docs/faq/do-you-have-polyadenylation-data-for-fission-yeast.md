@@ -1,11 +1,7 @@
 # Do you have polyadenylation data for fission yeast?
-<!-- pombase_categories: Datasets,Querying/Searching -->
+<!-- pombase_categories: Finding data -->
 
 PomBase offers two ways to find polyadenylation sites and usage:
-
-Each gene page has a link in the External References section to the
-[Pomb(A)](http://www.pomba.co.uk/POMBA/) database of polyadenylation
-signal and cleavage sites.
 
 Fission yeast polyadenylation data are available in the genome browser.
 To display the data:

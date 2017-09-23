@@ -1,14 +1,15 @@
 # Can I generate a comprehensive restriction enzyme map of the genome in PomBase?
-<!-- pombase_categories: Tools and Resources -->
+<!-- pombase_categories: Tools and resources -->
 
-No, but this can be done within Artemis.\
-\
+No, but this can be done within Artemis.
+
 Install Artemis (available from
-<http://www.sanger.ac.uk/resources/software/artemis/>).\
-\
-You can then read in the EMBL format chromosome contig files of sequence
-and annotation (available from the [Genome Datasets](/downloads/genome-datasets#sequences) page). To generate a
-restriction map:
+http://www.sanger.ac.uk/science/tools/artemis).
+
+You can then read in the EMBL format chromosome contig files of
+sequence and annotation (available from the 
+[Genome datasets](/downloads/genome-datasets#sequences) page). To
+generate a restriction map:
 
 1.  Create a new entry using the "Create" menu item "New Entry"
 2.  Toggle off the main annotation by un-checking the chromsome contig
@@ -18,8 +19,8 @@ restriction map:
     for any restriction patterns of interest and save them into your
     file.
 5.  You can add "color" labels to distinguish the different restriction
-    sites. See the [Artemis     FAQ](/faq/there-equivalent-artemis-java-applet-pombase) and the
-    [Artemis     manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf) (pdf;
+    sites. See the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase) and the
+    [Artemis manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf) (pdf;
     Sanger site) for additional information.
 
 

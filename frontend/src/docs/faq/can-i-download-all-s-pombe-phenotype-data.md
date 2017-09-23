@@ -1,5 +1,5 @@
 # Can I download all S. pombe phenotype data?
-<!-- pombase_categories: Datasets,Querying/Searching,Using Ontologies -->
+<!-- pombase_categories: Finding data,Using ontologies -->
 
 Yes, the [Phenotype annotations](/downloads/phenotype-annotations) page
 offers two options, a complete phenotype annotation file and a

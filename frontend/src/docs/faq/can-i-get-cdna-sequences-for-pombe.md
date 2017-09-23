@@ -1,5 +1,6 @@
 # Can I get cDNA sequences for pombe?
-<!-- pombase_categories: Datasets,Querying/Searching,Sequence Retrieval -->
+<!-- pombase_categories: Finding data -->
 
-A file of cDNA sequences in FASTA format is available on the [Genome Datasets](/downloads/genome-datasets) page.
+A file of cDNA sequences in FASTA format is available on the
+[Genome datasets](/downloads/genome-datasets) page.
 

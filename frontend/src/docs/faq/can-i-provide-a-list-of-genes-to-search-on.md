@@ -1,23 +1,12 @@
 # Can I provide a list of genes to search on?
-<!-- pombase_categories: Querying/Searching -->
+<!-- pombase_categories: Finding data -->
 
-Yes. In the Advanced Search, the Gene Systematic IDs and Gene Names
-filters both accept lists. You can type or paste lists of IDs/names into
-the box, separated by commas or with one ID or name per line.\
-\
-At present, there is a fixed set of data retrieved when you execute the
-search. We plan to offer more flexible options in the near future.
-Later, we also hope to allow you to upload a file containing your gene
-list.\
-\
-For convenience, there is a direct link to a search page pre-configured
-to accept a list of systematic IDs available in the Find menu, on the
-Find page, and here:
 
-[http://www.pombase.org/spombe/query/builder?filter=12](/spombe/query/builder?filter=12) 
-
-Once you have done a search for your genes, the list of results will be
-available in the Query Management section of the Advanced Search,
-allowing you to combine the list with other lists or with additional
-search criteria.
-
+Yes, you can type or paste systematic IDs into the "Gene filter" query
+in the [advanced search](/query). IDs can be separated by spaces,
+commas, or newlines. Click "Lookup" to retrieve the results. At
+present you can use the list in the query history to combine with
+other queries, or download a fixed set of details (systematic ID, gene
+name (if any), feature type, coordinates, and strand). We plan to
+offer more flexible options in the near future, and to allow you to
+upload a file with your gene list.
