@@ -3,6 +3,8 @@ import { Component, OnInit, Input,
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
+import { MetaService } from '@ngx-meta/core';
+
 import { SynonymDetails, GeneDetails, ChromosomeLocation, PombaseAPIService } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
@@ -49,6 +51,7 @@ export class GeneDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
+              private readonly meta: MetaService,
               @Inject('Window') private window: any
              ) { }
 
@@ -90,10 +93,15 @@ export class GeneDetailsComponent implements OnInit {
 
   displayNameLong(): string {
     if (this.geneDetails) {
+      let nameId = '';
       if (this.geneDetails.name) {
-        return this.geneDetails.name + ' (' + this.geneDetails.uniquename + ')';
+        nameId = this.geneDetails.name + ' (' + this.geneDetails.uniquename + ')';
       } else {
-        return this.geneDetails.uniquename;
+        nameId = this.geneDetails.uniquename;
+      }
+
+      if (this.geneDetails.product) {
+        return nameId + ' - ' + this.geneDetails.product;
       }
     } else {
       return 'UNKNOWN';
@@ -101,8 +109,9 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle();
-    this.titleService.setTitle(title + ' - ' + this.displayNameLong());
+    let title = 'Gene - ' + this.displayNameLong();
+    this.titleService.setTitle(title);
+    this.meta.setTitle(title);
   }
 
   hasMiscAnnotations(): boolean {

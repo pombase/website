@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
+import { MetaService } from '@ngx-meta/core';
+
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 import { ReferenceDetails, PombaseAPIService } from '../pombase-api.service';
@@ -24,22 +26,22 @@ export class ReferenceDetailsComponent implements OnInit {
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
-              private titleService: Title
+              private titleService: Title,
+              private readonly meta: MetaService,
              ) { }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle();
-    let displayName;
+    let title = 'Reference - ';
     if (this.refDetails) {
-      displayName =
-        this.refDetails.uniquename;
+      title += this.refDetails.uniquename;
       if (this.refDetails.title) {
-        displayName += ' - ' + this.refDetails.title;
+        title += ' - ' + this.refDetails.title;
       }
     } else {
-      displayName = 'UNKNOWN';
+      title = 'UNKNOWN';
     }
-    this.titleService.setTitle(title + ' - ' + displayName);
+    this.titleService.setTitle(title);
+    this.meta.setTitle(title);
   }
 
   setCantoFields(): void {

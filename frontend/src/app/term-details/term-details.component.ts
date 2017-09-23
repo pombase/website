@@ -3,6 +3,8 @@ import { Component, OnInit, Input, Inject,
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
+import { MetaService } from '@ngx-meta/core';
+
 import { TermDetails, PombaseAPIService, TermSubsets } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
@@ -31,6 +33,7 @@ export class TermDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private titleService: Title,
               private router: Router,
+              private readonly meta: MetaService,
               @Inject('Window') private window: any
              ) { }
 
@@ -51,14 +54,14 @@ export class TermDetailsComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle();
-    let displayName;
+    let title = 'Ontology term - ';
     if (this.termDetails) {
-      displayName = this.termDetails.termid + ' - ' + this.termDetails.name;
+      title += this.termDetails.termid + ' - ' + this.termDetails.name;
     } else {
-      displayName = 'UNKNOWN';
+      title += 'UNKNOWN';
     }
-    this.titleService.setTitle(title + ' - ' + displayName);
+    this.titleService.setTitle(title);
+    this.meta.setTitle(title);
   }
 
   scrollToPageTop(): void {

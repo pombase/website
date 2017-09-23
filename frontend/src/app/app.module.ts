@@ -10,6 +10,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
+import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
+
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
@@ -91,6 +93,18 @@ export function documentFactory() {
 }
 export function windowFactory() {
     return window;
+}
+
+export function metaFactory(): MetaLoader {
+  return new MetaStaticLoader({
+    pageTitlePositioning: PageTitlePositioning.AppendPageTitle,
+    pageTitleSeparator: ' - ',
+    applicationName: 'PomBase',
+    defaults: {
+      title: 'PomBase, the S. pombe genome database',
+      description: 'PomBase is a comprehensive database for the fission yeast Schizosaccharomyces pombe, providing structural and functional annotation, literature curation and access to large-scale data sets',
+    }
+  });
 }
 
 @NgModule({
@@ -180,6 +194,10 @@ export function windowFactory() {
     PopoverModule.forRoot(),
     Ng2SimplePageScrollModule.forRoot(),
     ModalModule.forRoot(),
+    MetaModule.forRoot({
+      provide: MetaLoader,
+      useFactory: (metaFactory),
+    }),
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent],
   providers: [PombaseAPIService,

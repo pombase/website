@@ -124,8 +124,13 @@ const routes: Routes = [
       title: 'Advanced search'
     }
   },
-    { path: 'front', redirectTo: '/', pathMatch: 'full' },
-    { path: '', component: FrontComponent },
+  { path: 'front', redirectTo: '/', pathMatch: 'full' },
+  {
+    path: '', component: FrontComponent,
+    data: {
+      title: 'The S. pombe genome database'
+    }
+  },
 ];
 
 @NgModule({
