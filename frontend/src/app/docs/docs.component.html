@@ -2019,9 +2019,14 @@ United Kingdom</p>
 <li><a routerLink="/documentation/gene-page-external-references" routerLinkActive="active">External references</a></li>
 <li><a routerLink="/documentation/gene-page-literature" routerLinkActive="active">Literature</a></li>
 </ul></li>
+<li><a routerLink="/documentation/pombase-go-slim-documentation" routerLinkActive="active">GO Slim</a></li>
+<li><a routerLink="/documentation/ontology-term-page" routerLinkActive="active">Ontology term pages</a></li>
+<li><a routerLink="/documentation/publication-page" routerLinkActive="active">Publication pages</a></li>
+<li><a routerLink="/documentation/genotype-page" routerLinkActive="active">Genotype pages</a></li>
+<li><a routerLink="/browse-curation/fission-yeast-phenotype-ontology" routerLinkActive="active">Fission Yeast Phenotype Ontology</a></li>
 <li><a routerLink="/documentation/simple-search-documentation" routerLinkActive="active">Simple search</a></li>
 <li><a routerLink="/documentation/advanced-search" routerLinkActive="active">Advanced search</a></li>
-<li>Data submission fgile formats
+<li>Data submission file formats
 <ul>
 <li><a routerLink="/documentation/phenotype-data-bulk-upload-format" routerLinkActive="active">Phenotype data</a></li>
 <li><a routerLink="/documentation/modification-data-bulk-upload-format" routerLinkActive="active">Modification data</a></li>
@@ -2336,8 +2341,8 @@ United Kingdom</p>
 <li>Biological Process (BP) — a series of functions with a common goal such as <em>MAPK cascade</em> or <em>cytokinesis</em></li>
 <li>Cellular component (CC) — the location where the gene product can be found, and what complexes it is part of, for instance <em>nucleus</em> or <em>fatty acid synthase complex</em></li>
 </ol>
-<p>A gene product may be <a href="http://www.geneontology.org/page/annotation">annotated</a> to several GO terms from each of the three ontologies; <a routerLink="/gene/SPBC19C7.03" routerLinkActive="active">cyr1</a>, for instance, is annotated to adenylate cyclase activity, magnesium ion binding and protein binding (MFs), it acts in cAMP biosynthesis and negatively regulates conjugation (BPs), and is found in the plasma membrane (CC).</p>
-<p>Each table includes ontology term details and supporting data. The The GO annotation display on PomBase gene pages includes ontology term details and supporting data. The summary view shows just the essentials: The list of terms is filtered, using the ontology structure, so that it shows only the most specific terms used to annotate a genotype, and each unique combination of gene, GO term, and extension(s) is shown once:</p>
+<p>A gene product may be <a href="http://www.geneontology.org/page/annotation">annotated</a> to several GO terms from each of the three ontologies; <a routerLink="/gene/SPCC1682.02c" routerLinkActive="active">mcm3</a>, for instance, is annotated to ATP-dependent DNA helicase activity, ATP binding, and DNA replication origin binding (MFs), it acts in mitotic DNA replication initiation and negatively regulates the MCM helicase activity (BPs), and is found locations including the replication fork and the pre-replicative complex (CC).</p>
+<p>Each table includes ontology term details and supporting data. The GO annotation display on PomBase gene pages includes ontology term details and supporting data. The summary view shows just the essentials: The list of terms is filtered, using the ontology structure, so that it shows only the most specific terms used to annotate a genotype, and each unique combination of gene, GO term, and extension(s) is shown once:</p>
 <div class="figure">
 <img src="assets/go_gene_page_summary.png" alt="summary gene page GO annotations" width="600" />
 <p class="caption">summary gene page GO annotations</p>
@@ -2347,7 +2352,6 @@ United Kingdom</p>
 <li><a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim</a> terms applicable to the gene.</li>
 <li>GO annotations may have <a routerLink="/#ann_ext" routerLinkActive="active">extensions</a> to capture any of several types of additional detail. <em>S. pombe</em> genes link to PomBase gene pages, and ontology term names link to ontology term pages.</li>
 </ol>
-<p>The detailed view shows more, including separate entries for repeat determinations of a given gene/term/extension combination (if supported by more than one line of evidence and/or reported in more than one paper):</p>
 <p>The detailed view shows annotations to all GO terms, and includes more details for each annotation. It shows separate entries for repeat determinations of a given gene/term/extension combination (if supported by more than one line of evidence and/or reported in more than one paper), and annotations to terms hidden in the summary view:</p>
 <div class="figure">
 <img src="assets/go_gene_page_full.png" alt="full gene page GO annotations" width="800" />
@@ -2437,14 +2441,12 @@ United Kingdom</p>
 <img src="assets/fypo_term_filter_pulldown.png" title="FYPO annotation term filter" alt="FYPO term filter" width="160" />
 <p class="caption">FYPO term filter</p>
 </div>
-<pre><code>Choose one to restrict the annotation display to terms in the
-selected branch of FYPO. When term filtering is active, a message
-appears to indicate that not all annotations are shown:</code></pre>
+<p>Choose one to restrict the annotation display to terms in the selected branch of FYPO. When term filtering is active, a message appears to indicate that not all annotations are shown:</p>
 <div class="figure">
 <img src="assets/fypo_showing_n_annotations.png" title="filtered annotation display message" alt="filtering message" width="600" />
 <p class="caption">filtering message</p>
 </div>
-<pre><code>Change the selection back to &quot;No filter&quot; to see annotations to all terms.</code></pre>
+<p>Change the selection back to &quot;No filter&quot; to see annotations to all terms.</p>
 <p>The detailed single-allele phenotype view shows annotations to all FYPO terms, and includes more details for each annotation. It shows separate entries for repeat determinations of a given gene/term/allele/extension combination (if supported by more than one line of evidence and/or reported in more than one paper), and annotations to terms hidden in the summary view:</p>
 <div class="figure">
 <img src="assets/single_fypo_gene_page_full.png" title="Single-allele FYPO detailed view on gene page" alt="gene page phenotype annotations" width="800" />
@@ -2570,7 +2572,7 @@ appears to indicate that not all annotations are shown:</code></pre>
   </div>
   <div *ngIf="pageName == 'genotype-page'">
 <h1 id="genotype-pages">Genotype pages</h1>
-<p>Genotype pages are analogous to gene pages, but</p>
+<p>Genotype pages are analogous to gene pages, but describe the alleles that make up a genotype, and show phenotypes associated with the genotype.</p>
 <div class="figure">
 <img src="assets/genotype_page.png" alt="genotype page" width="800" />
 <p class="caption">genotype page</p>
@@ -2628,6 +2630,7 @@ appears to indicate that not all annotations are shown:</code></pre>
 <li>GO Slim <a routerLink="/documentation/pombase-go-slim-documentation" routerLinkActive="active">Documentation</a> and <a routerLink="/browse-curation/fission-yeast-go-slimming-tips" routerLinkActive="active">Usage tips</a></li>
 <li><a routerLink="/documentation/ontology-term-page" routerLinkActive="active">Ontology term pages</a></li>
 <li><a routerLink="/documentation/publication-page" routerLinkActive="active">Publication pages</a></li>
+<li><a routerLink="/documentation/genotype-page" routerLinkActive="active">Genotype pages</a></li>
 <li><a routerLink="/browse-curation/fission-yeast-phenotype-ontology" routerLinkActive="active">Fission Yeast Phenotype Ontology (FYPO) page</a></li>
 <li><a routerLink="/documentation/high-confidence-physical-interaction-network" routerLinkActive="active">High Confidence Physical Interaction Network (HCPIN)</a></li>
 <li><a routerLink="/about/version-history" routerLinkActive="active">Data versions</a></li>
@@ -2784,14 +2787,15 @@ curators.'"  [subject]="'Comment or problem report
 <ul>
 <li><a routerLink="/faq/data-submission-and-formats" routerLinkActive="active">Data Submission and Formats</a></li>
 <li><a routerLink="/faq/datasets" routerLinkActive="active">Datasets</a></li>
+<li><a routerLink="/faq/finding-data" routerLinkActive="active">Finding data</a></li>
 <li><a routerLink="/faq/gene-page" routerLinkActive="active">Gene Page</a></li>
-<li><a routerLink="/faq/genome-browser" routerLinkActive="active">Genome Browser</a></li>
+<li><a routerLink="/faq/genome-browser" routerLinkActive="active">Genome browser</a></li>
 <li><a routerLink="/faq/genome-statistics-and-lists" routerLinkActive="active">Genome Statistics and Lists</a></li>
 <li><a routerLink="/faq/locating-genomic-regions" routerLinkActive="active">Locating Genomic Regions</a></li>
 <li><a routerLink="/faq/orthology" routerLinkActive="active">Orthology</a></li>
 <li><a routerLink="/faq/querying-searching" routerLinkActive="active">Querying/Searching</a></li>
 <li><a routerLink="/faq/sequence-retrieval" routerLinkActive="active">Sequence Retrieval</a></li>
-<li><a routerLink="/faq/tools-and-resources" routerLinkActive="active">Tools and Resources</a></li>
+<li><a routerLink="/faq/tools-and-resources" routerLinkActive="active">Tools and resources</a></li>
 <li><a routerLink="/faq/using-ontologies" routerLinkActive="active">Using Ontologies</a></li>
 </ul>
 
@@ -2805,12 +2809,16 @@ curators.'"  [subject]="'Comment or problem report
 <h2 id="datasets">Datasets</h2>
 
   </div>
+  <div *ngIf="pageName == 'finding-data'">
+<h2 id="finding-data">Finding data</h2>
+
+  </div>
   <div *ngIf="pageName == 'gene-page'">
 <h2 id="gene-page">Gene Page</h2>
 
   </div>
   <div *ngIf="pageName == 'genome-browser'">
-<h2 id="genome-browser">Genome Browser</h2>
+<h2 id="genome-browser">Genome browser</h2>
 
   </div>
   <div *ngIf="pageName == 'genome-statistics-and-lists'">
@@ -2819,7 +2827,8 @@ curators.'"  [subject]="'Comment or problem report
   </div>
   <div *ngIf="pageName == 'index'">
 <h1 id="frequently-asked-questions">Frequently asked questions</h1>
-<p>Please contact the help desk if you have other questions.</p>
+<p>Welcome to the PomBase FAQ. Choose a link in the left-hand menu to see the questions and answers in that category.</p>
+<p>If you can't find the information you need here or in the PomBase documentation, please contact the helpdesk.</p>
 
   </div>
   <div *ngIf="pageName == 'locating-genomic-regions'">
@@ -2839,7 +2848,7 @@ curators.'"  [subject]="'Comment or problem report
 
   </div>
   <div *ngIf="pageName == 'tools-and-resources'">
-<h2 id="tools-and-resources">Tools and Resources</h2>
+<h2 id="tools-and-resources">Tools and resources</h2>
 
   </div>
   <div *ngIf="pageName == 'using-ontologies'">
@@ -2848,127 +2857,121 @@ curators.'"  [subject]="'Comment or problem report
   </div>
 <div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-api'">
 <h3 id="can-i-access-pombase-via-api">Can I access PomBase via an API?</h3>
-<!-- pombase_categories: Tools and Resources -->
-<p>Yes, the Ensembl API can be used with PomBase, as documented here:<br />
-<br />
-1. <a href="http://genomebrowser.pombase.org/info/docs/api/api_installation.html">Ensembl Perl API installation instructions</a> 2. <a href="http://www.ensembl.org/info/docs/Doxygen/core-api/index.html">Ensembl core database API documentation</a> 3. <a href="http://genomebrowser.pombase.org/info/docs/api/core/core_tutorial.html">Tutorial for using the API with the core database</a> - Includes examples about connecting to the database, retrieving chromosomes, genes, transcript and translations along with the corresponding xrefs.</p>
-<p>We will add examples for common API uses soon.</p>
+<!-- pombase_categories: Tools and resources -->
+<p>Yes, the Ensembl API can be used with PomBase, as documented here:</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://genomebrowser.pombase.org/info/docs/api/api_installation.html">Ensembl Perl API installation instructions</a></li>
+<li><a href="http://www.ensembl.org/info/docs/Doxygen/core-api/index.html">Ensembl core database API documentation</a></li>
+<li><a href="http://genomebrowser.pombase.org/info/docs/api/core/core_tutorial.html">Tutorial for using the API with the core database</a> - Includes examples about connecting to the database, retrieving chromosomes, genes, transcript and translations along with the corresponding xrefs.</li>
+</ol>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-sql'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-sql'">
 <h3 id="can-i-access-pombase-via-sql">Can I access PomBase via SQL?</h3>
-<!-- pombase_categories: Querying/Searching,Tools and Resources -->
-<p>You can use the <a href="http://ensemblgenomes.org/info/access/mysql">Ensembl Genomes (EG) MySQL database access</a> to query <em>S. pombe</em> data. Note, however, that there is often a time lag in updating EG, so it may not have data as up-to-date as on the PomBase web site. MySQL dumps of EG data, including <em>Schizosaccharomyces</em> species, are available from <a routerLink="/ftp://ftp.ensemblgenomes.org/pub/current/fungi/mysql/" routerLinkActive="active">EG's FTP site</a>. (We plan to provide MySQL dumps for PomBase releases soon.)<br />
-<br />
-For Chado, we do not have a publicly accessible PostgresQL server. Instead, you can download <a routerLink="/downloads/chado-database-dumps" routerLinkActive="active">Chado database dumps</a> to query locally.</p>
+<!-- pombase_categories: Finding data,Tools and resources -->
+<p>PomBase does not have a publicly accessible SQL query server, but <a routerLink="/downloads/chado-database-dumps" routerLinkActive="active">Chado database dumps</a> (PostgresQL) are available to download and query locally.</p>
+<p>The <a href="http://ensemblgenomes.org/info/access/mysql">Ensembl Genomes (EG) MySQL database</a> server does provide access to query <em>S. pombe</em> data. Note, however, that EG is updated much less frequently than PomBase, so EG data will rarely be as up-to-date as the PomBase web site.</p>
+<p>MySQL dumps of EG data, including <em>Schizosaccharomyces</em> species, are available from <a routerLink="/ftp://ftp.ensemblgenomes.org/pub/current/fungi/mysql/" routerLinkActive="active">EG's FTP site</a>.</p>
 
 </div>
 <div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-convert-file-gff-gtf'">
 <h3 id="can-i-convert-file-gff-gtf">Can I convert a file from GFF to GTF?</h3>
-<!-- pombase_categories: Tools and Resources -->
+<!-- pombase_categories: Tools and resources -->
 <p>PomBase does not offer a GFF-to-GTF converter. There is a perl script on SEQanswers, which uses the module Bio::Tools::GFF from the BioPerl library, available from http://seqanswers.com/forums/showpost.php?p=22529&amp;postcount=4</p>
 
 </div>
 <div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-convert-file-gtf-gff'">
 <h3 id="can-i-convert-file-gtf-gff">Can I convert a file from GTF to GFF3?</h3>
-<!-- pombase_categories: Tools and Resources -->
+<!-- pombase_categories: Tools and resources -->
 <p>PomBase does not offer a converter. The Sequence Ontology site has a conversion script that can be used via a web form (at http://www.sequenceontology.org/cgi-bin/converter.cgi) or checked out from their CVS repository.</p>
 
 </div>
 <div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-convert-ids-other-databases-or-pombase-ids'">
 <h3 id="can-i-convert-ids-other-databases-or-pombase-ids">Can I convert IDs from other databases to or from PomBase IDs?</h3>
-<!-- pombase_categories: Tools and Resources -->
-<p>PomBase does not have its own tool for ID conversion. We suggest you try the EBI's PICR web service ( <a href="http://www.ebi.ac.uk/Tools/picr/" class="uri">http://www.ebi.ac.uk/Tools/picr/</a>), which can convert between UniProtKB, RefSeq, Ensembl Genomes (including <em>S. pombe</em> systematic IDs) and many other common database IDs.</p>
+<!-- pombase_categories: Tools and resources -->
+<p>PomBase does not have its own tool for ID conversion. We suggest you try the EBI's PICR web service ( <a href="http://www.ebi.ac.uk/Tools/picr/" class="uri">http://www.ebi.ac.uk/Tools/picr/</a>), which can convert between UniProtKB, RefSeq, Ensembl Genomes (including <em>S. pombe</em> systematic IDs), and many other common database IDs.</p>
 <p>For UniProt IDs, we provide a static mapping file of PomBase systematic IDs and UniProtKB accessions, available on the <a routerLink="/downloads/data-mappings" routerLinkActive="active">Data Mapping</a> page and by FTP from <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/PomBase2UniProt.tsv" class="uri">ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/PomBase2UniProt.tsv</a>.</p>
-<p>For other <em>Schizosaccharomyces</em> species ( <em>S. japonicus</em>, <em>S. octosporus</em>, <em>S. cryophilus</em>), the PICR service converts between UniProtKB accessions and the identifiers used in Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts ( <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>), but with one caveat: the IDs used by PICR, UniProtKB, and QuickGO contain underscores, whereas those in Rhind <em>et al.</em> do not (e.g. SJAG_00455 versus SJAG00455). The IDs with underscores are correct.</p>
+<p>For other <em>Schizosaccharomyces</em> species (<em>S. japonicus</em>, <em>S. octosporus</em>, <em>S. cryophilus</em>), the PICR service converts between UniProtKB accessions and the identifiers used in Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>), but with one caveat: the IDs used by PICR, UniProtKB, and QuickGO contain underscores, whereas those in Rhind <em>et al.</em> do not (e.g. SJAG_00455 versus SJAG00455). The IDs with underscores are correct.</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-do-enrichment-analysis-using-phenotypes'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-do-enrichment-analysis-using-phenotypes'">
 <h3 id="can-i-do-enrichment-analysis-using-phenotypes">Can I do an enrichment analysis using phenotypes?</h3>
-<!-- pombase_categories: Querying/Searching,Tools and Resources,Using Ontologies -->
+<!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>A small number of enrichment tools use phenotype data. See the <a routerLink="/faq/how-can-i-find-significant-shared-fypo-annotations-genes-list" routerLinkActive="active">FAQ on FYPO term enrichment</a>.</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus'">
 <h3 id="can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus">Can I do GO term enrichment for other Schizosaccharomyces species (e.g. S. japonicus)?</h3>
-<!-- pombase_categories: Querying/Searching,Tools and Resources,Using Ontologies -->
-There are two possible approaches:<br />
-<br />
-1. Retrieve a set of GO annotations in GAF format for <em>S. japonicus</em>, <em>S. octosporus</em> or <em>S. cryophilus</em>, as described in the <a routerLink="/faq/how-can-i-find-go-annotations-for-other-schizosaccharomyces-species-e.g.-s.-japonicus" routerLinkActive="active">relevant FAQ</a>. Use the GO annotation dataset and your gene list for enrichment.<br />
-<br />
-OR<br />
-<br />
-2. In your gene list of interest, substitute the <em>Schizosaccharomyces</em> species gene IDs with the IDs of orthologous <em>S. pombe</em> genes. For ortholog IDs, see the <a routerLink="/faq/how-can-i-find-orthologs-between-s-pombe-and-other-schizosaccharomyces-species" routerLinkActive="active">FAQ on <em>Schizosaccharomyces</em> orthologs</a>, and use the indicated table from Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts ( <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>).<br />
-<br />
-In either case, you can then proceed as described in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list" routerLinkActive="active">FAQ on <em>S. pombe</em> GO enrichment</a>. For the first option, use the Princeton GO Term Finder or another enrichment tool that allows you to use your own GAF, and include the GO Slim analysis using GO Term Mapper as recommended in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list" routerLinkActive="active">FAQ on enrichment in <em>S. pombe</em></a>.<br />
-<br />
-
+<!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
+<p>There are two possible approaches:</p>
+<ol style="list-style-type: decimal">
+<li>Retrieve a set of GO annotations in GAF format for <em>S. japonicus</em>, <em>S. octosporus</em> or <em>S. cryophilus</em>, as described in the <a routerLink="/faq/how-can-i-find-go-annotations-for-other-schizosaccharomyces-species-e-g-s-japonicus" routerLinkActive="active">relevant FAQ</a>. Use the GO annotation dataset and your gene list for enrichment.</li>
+</ol>
+<p>OR</p>
+<ol start="2" style="list-style-type: decimal">
+<li>In your gene list of interest, substitute the <em>Schizosaccharomyces</em> species gene IDs with the IDs of orthologous <em>S. pombe</em> genes. For ortholog IDs, see the <a routerLink="/faq/how-can-i-find-orthologs-between-s-pombe-and-other-schizosaccharomyces-species" routerLinkActive="active">FAQ on <em>Schizosaccharomyces</em> orthologs</a>, and use the indicated table from Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>).</li>
+</ol>
+<p>In either case, you can then proceed as described in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list" routerLinkActive="active">FAQ on <em>S. pombe</em> GO enrichment</a>. For the first option, use the Princeton GO Term Finder or another enrichment tool that allows you to use your own GAF, and include the GO Slim analysis using GO Term Mapper as recommended in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list" routerLinkActive="active">FAQ on enrichment in <em>S. pombe</em></a>.</p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'can-i-download-all-s.-pombe-phenotype-data'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-download-all-s.-pombe-phenotype-data'">
 <h3 id="can-i-download-all-s.-pombe-phenotype-data">Can I download all S. pombe phenotype data?</h3>
-<!-- pombase_categories: Datasets,Querying/Searching,Using Ontologies -->
+<!-- pombase_categories: Finding data,Using ontologies -->
 <p>Yes, the <a routerLink="/downloads/phenotype-annotations" routerLinkActive="active">Phenotype annotations</a> page offers two options, a complete phenotype annotation file and a &quot;viability summary&quot; for deletion mutants. At present, the full file contains all manually curated single mutant phenotypes, and is in the same format as PomBase uses for bulk phenotype data submissions (see the <a routerLink="/faq/what-file-formats-can-i-use-submit-high-throughput-data" routerLinkActive="active">file formats FAQ</a>). Further information on the viability summary is available in the <a routerLink="/faq/can-i-get-list-essential-pombe-genes" routerLinkActive="active">essential genes FAQ</a>.</p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-download-interaction-data-used-by-esyn'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-download-interaction-data-used-by-esyn'">
 <h3 id="can-i-download-interaction-data-used-by-esyn">Can I download the interaction data used by esyN?</h3>
-<!-- pombase_categories: Datasets,Genome Statistics and Lists -->
+<!-- pombase_categories: Finding data,Genome statistics and lists -->
 <p>The <em>S. pombe</em> networks in <a href="http://www.esyn.org/">esyN</a> use the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network" routerLinkActive="active">High Confidence Physical Interaction Network</a> (HCPIN) data. The data can be downloaded in tab-delimited format from the <a routerLink="/downloads/datasets" routerLinkActive="active">Download Datasets</a> page, which links to an FTP directory with two files. One contains physical interaction data, and the other contains GO substrate data. Each file lists two gene systematic IDs and a reference identifier (usually a PubMed ID).</p>
 
 </div>
-<div *ngIf="pageName == 'sequence-retrieval' || pageName == 'can-i-download-sequence-whole-chromosome'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'can-i-download-sequence-whole-chromosome'">
 <h3 id="can-i-download-sequence-whole-chromosome">Can I download the sequence for a whole chromosome?</h3>
-<!-- pombase_categories: Sequence Retrieval -->
-<p>Yes, sequence and feature annotations data files are available for each chromosome on the <a routerLink="/downloads/genome-datasets" routerLinkActive="active">Genome Datasets</a> page (FTP download).</p>
+<!-- pombase_categories: Finding data -->
+<p>Yes, sequence and feature annotations data files are available for each chromosome on the <a routerLink="/downloads/genome-datasets" routerLinkActive="active">Genome datasets</a> page (FTP download).</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'sequence-retrieval' || pageName == 'can-i-download-sequences-many-genes-once-including-flanking-regions'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'can-i-download-sequences-many-genes-once-including-flanking-regions'">
 <h3 id="can-i-download-sequences-many-genes-once-including-flanking-regions">Can I download sequences for many genes at once, including flanking regions?</h3>
-<!-- pombase_categories: Querying/Searching,Sequence Retrieval -->
+<!-- pombase_categories: Finding data -->
 <p>At present, there isn't a good way to retrieve flanking sequences for multiple genes in bulk directly from PomBase. (You can download coding sequences via the Advanced Search, or <a routerLink="/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences" routerLinkActive="active">flanking sequences for individual genes</a> via the gene page Sequence section.) We hope to add a more convenient option in the near future, but in the meantime, we recommend using the Ensembl Genomes Biomart query:</p>
 <ol style="list-style-type: decimal">
 <li>Go to <a href="http://fungi.ensembl.org/biomart/martview/" class="uri">http://fungi.ensembl.org/biomart/martview/</a></li>
-<li>Select the database “Ensembl Fungi Genes” from the &quot;CHOOSE DATABASE&quot; drop-down menu.</li>
-<li>Select “Schizosaccharomyces pombe genes” from the &quot;CHOOSE DATASET&quot; drop-down menu. Additional options will appear in the left-hand sidebar.</li>
-<li>In the left-hand menu, click on the header “Filters”.</li>
-<li>Expand the section “GENE” by clicking the + sign</li>
-<li>In the drop-down menu in the section “ID list limit” select “PomBase Gene ID(s)”. (This will automatically tick the &quot;ID list limit box.) In the box underneath, type or paste a list of <em>S. pombe</em> gene names or systematic IDs.</li>
-<li>In the left-hand menu, click on the header “Attributes”.</li>
-<li>Click the “Sequences” button, and expand the “SEQUENCES” section.</li>
+<li>Select the database &quot;Ensembl Fungi Genes&quot; from the &quot;CHOOSE DATABASE&quot; drop-down menu.</li>
+<li>Select &quot;Schizosaccharomyces pombe genes&quot; from the &quot;CHOOSE DATASET&quot; drop-down menu. Additional options will appear in the left-hand sidebar.</li>
+<li>In the left-hand menu, click on the header &quot;Filters&quot;.</li>
+<li>Expand the section &quot;GENE&quot; by clicking the + sign</li>
+<li>In the drop-down menu in the section &quot;Limit to genes (external references)&quot; select &quot;PomBase Gene ID(s)&quot;. (This will automatically tick the &quot;Limit to genes&quot; box.) In the box underneath, type or paste a list of <em>S. pombe</em> gene names or systematic IDs.</li>
+<li>In the left-hand menu, click on the header &quot;Attributes&quot;.</li>
+<li>Click the &quot;Sequences&quot; button, and expand the &quot;SEQUENCES&quot; section.</li>
 <li>Click a button to select which sequences you want. In the cartoon, red or black highlighting indicates what each option retrieves. Key: |---, 5' flanking region; leftmost box, 5' UTR; inner boxes, coding exons; rightmost box, 3' UTR; ---|, 3' flanking region; ^, introns.</li>
 <li>To include flanking regions, tick one or both of the &quot;Upstream flank&quot; and &quot;Downstream flank&quot; boxes, and enter the length you want. (Note: the &quot;flank&quot; options in the button selections retrieve ONLY flanking squence, and will only retrieve 3' or 5' in any given query, not both.)</li>
 <li>When you have specified what you want, find the &quot;Results&quot; button in the header and click it. You will be able to view or download the results, or have them emailed to you.</li>
 </ol>
 
 </div>
-<div *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'querying-searching' || pageName == 'can-i-find-all-unconserved-orphan-genes-fission-yeast'">
+<div *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'can-i-find-all-unconserved-orphan-genes-fission-yeast'">
 <h3 id="can-i-find-all-unconserved-orphan-genes-fission-yeast">Can I find all of the unconserved (orphan) genes in fission yeast?</h3>
-<!-- pombase_categories: Genome Statistics and Lists,Querying/Searching -->
-<p>Orphan genes are generally defined as genes without homologs in other organisms. In PomBase, genes conserved in the <em>Schizosaccharomyces</em> genus are distinguished from genes conserved only in <em>S. pombe</em>.<br />
-<br />
-To retrieve either set of genes, use the &quot;Conserved in&quot; filter in the Advanced Search. Choose &quot;Schizosaccharomyces specific&quot; for genes found in more than one <em>Schizosaccharomyces</em> species, or &quot;Schizosaccharomyces pombe specific&quot; for genes found only in <em>S. pombe</em>. See the <a routerLink="/documentation/advanced-search-documentation" routerLinkActive="active">Advanced Search documentation</a> for help with performing searches.</p>
-<p>Historical note: Prior to August 2014, PomBase and its predecessor GeneDB referred to single-copy genes conserved within, but not outside, the <em>Schizosaccharomyces</em> genus as &quot;sequence orphans&quot;. See the <a routerLink="/status/gene-characterisation-statistics-history" routerLinkActive="active">Gene Characterisation Statistics History</a> page for more details (note that the gene characterisation classifications reflect whether a gene has been studied experimentally as well as the extent of its conservation).</p>
+<!-- pombase_categories: Genome statistics and lists,Finding data -->
+<p>Orphan genes are generally defined as genes without homologs in other organisms. In PomBase, protein-coding genes conserved in the <em>Schizosaccharomyces</em> genus are distinguished from genes conserved only in <em>S. pombe</em>.</p>
+<p>To retrieve either set of genes, use the &quot;Taxonomic conservation&quot; query in the <a routerLink="/query" routerLinkActive="active">Advanced Search</a>. Choose &quot;Schizosaccharomyces specific&quot; for genes found in more than one <em>Schizosaccharomyces</em> species, or &quot;Schizosaccharomyces pombe specific&quot; for genes found only in <em>S. pombe.</em> See the <a routerLink="/documentation/advanced-search" routerLinkActive="active">Advanced Search documentation</a> for help with performing searches.</p>
+<p>Historical note: Prior to August 2014, PomBase and its predecessor GeneDB referred to single-copy genes conserved within, but not outside, the <em>Schizosaccharomyces</em> genus as &quot;sequence orphans&quot;. See the <a routerLink="/status/gene-characterisation-statistics-history" routerLinkActive="active">Gene characterisation statistics history</a> page for more details (note that the gene characterisation classifications reflect whether a gene has been studied experimentally as well as the extent of its conservation).</p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'querying-searching' || pageName == 'can-i-find-promoters-pombase'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'can-i-find-promoters-pombase'">
 <h3 id="can-i-find-promoters-pombase">Can I find promoters in PomBase?</h3>
-<!-- pombase_categories: Datasets,Querying/Searching -->
-The PomBase genome browser includes a data track of core promoter locations from Li et al. (2015) Genome-wide analysis of core promoter structures in Schizosaccharomyces pombe with DeepCAGE. RNA Biol. 12:525-37. <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261">PMID:25747261</a>. The promoter track is listed under the Regulatory Elements menu, and is best viewed using the &quot;Labels&quot; track style, which labels promoter features using the associated gene IDs (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser" routerLinkActive="active">browser configuration FAQ</a> for more information).<br />
-<br />
-We will add new tracks for any more promoter data sets that are submitted to us.<br />
-<br />
-There are very few manually curated promoters in PomBase, which are displayed on a genome browser track, &quot;PomBase Annotated Promoter (SO:0000167)&quot;. This track is under the Sequence and assembly menu, and is activated in the default configuration. To search the manually curated promoters, we suggest that you use Artemis. Follow the instructions in <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase" routerLinkActive="active">this FAQ</a>, and search for features with &quot;Key&quot; = &quot;promoter&quot;.<br />
-<br />
-
+<!-- pombase_categories: Finding data -->
+<p>The PomBase genome browser includes a data track of core promoter locations from Li <em>et al.</em> (2015) Genome-wide analysis of core promoter structures in <em>Schizosaccharomyces pombe</em> with DeepCAGE. RNA Biol. 12:525-37 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261">PMID:25747261</a>). The promoter track is listed under the Transcription Starts Site menu, and is best viewed using the &quot;Labels&quot; track style, which labels promoter features using the associated gene IDs (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser" routerLinkActive="active">browser configuration FAQ</a> for more information).</p>
+<p>We will add new tracks for any more promoter data sets that are submitted to us.</p>
+<p>There are very few manually curated promoters in PomBase, which are displayed on a genome browser track, &quot;PomBase Annotated Promoter (SO:0000167)&quot;. This track is under the Sequence and assembly menu, and is activated in the default configuration. To search the manually curated promoters, we suggest that you use Artemis. Follow the instructions in <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase" routerLinkActive="active">this FAQ</a>, and search for features with &quot;Key&quot; = &quot;promoter&quot;.</p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'querying-searching' || pageName == 'sequence-retrieval' || pageName == 'can-i-find-replication-origins-pombase'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'can-i-find-replication-origins-pombase'">
 <h3 id="can-i-find-replication-origins-pombase">Can I find replication origins in PomBase?</h3>
-<!-- pombase_categories: Datasets,Querying/Searching,Sequence Retrieval -->
-<p>Replication origin coordinates are not yet include in PomBase. We hope to obtain comprehensive origin data in the genome browser in the future, but we rely on user submissions to set priorities for adding data tracks to the browser.<br />
-<br />
-Until replication origins are available in PomBase, we suggest that you use the data collated by Conrad Nieduszynski in S. pombe OriDB:</p>
+<!-- pombase_categories: Finding data -->
+<p>Replication origin coordinates are not yet included in PomBase. We hope to obtain comprehensive origin data in the genome browser in the future, but we rely on user submissions to set priorities for adding data tracks to the browser.</p>
+<p>Until replication origins are available in PomBase, we suggest that you use the data collated by Conrad Nieduszynski in <em>S. pombe</em> OriDB:</p>
 <ul>
 <li>Home page: http://pombe.oridb.org/index.php</li>
 <li>Search: http://pombe.oridb.org/search.php?chr=all&amp;confirmed=true&amp;likely=true&amp;dubious=true&amp;name=</li>
@@ -2977,12 +2980,10 @@ Until replication origins are available in PomBase, we suggest that you use the 
 </div>
 <div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase'">
 <h3 id="can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase">Can I generate a comprehensive restriction enzyme map of the genome in PomBase?</h3>
-<!-- pombase_categories: Tools and Resources -->
-<p>No, but this can be done within Artemis.<br />
-<br />
-Install Artemis (available from <a href="http://www.sanger.ac.uk/resources/software/artemis/" class="uri">http://www.sanger.ac.uk/resources/software/artemis/</a>).<br />
-<br />
-You can then read in the EMBL format chromosome contig files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets#sequences" routerLinkActive="active">Genome Datasets</a> page). To generate a restriction map:</p>
+<!-- pombase_categories: Tools and resources -->
+<p>No, but this can be done within Artemis.</p>
+<p>Install Artemis (available from http://www.sanger.ac.uk/science/tools/artemis).</p>
+<p>You can then read in the EMBL format chromosome contig files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets#sequences" routerLinkActive="active">Genome datasets</a> page). To generate a restriction map:</p>
 <ol style="list-style-type: decimal">
 <li>Create a new entry using the &quot;Create&quot; menu item &quot;New Entry&quot;</li>
 <li>Toggle off the main annotation by un-checking the chromsome contig file (this will make your new file &quot;no name&quot; the active entry).</li>
@@ -2992,49 +2993,46 @@ You can then read in the EMBL format chromosome contig files of sequence and an
 </ol>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'querying-searching' || pageName == 'sequence-retrieval' || pageName == 'can-i-get-cdna-sequences-pombe'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'can-i-get-cdna-sequences-pombe'">
 <h3 id="can-i-get-cdna-sequences-pombe">Can I get cDNA sequences for pombe?</h3>
-<!-- pombase_categories: Datasets,Querying/Searching,Sequence Retrieval -->
-<p>A file of cDNA sequences in FASTA format is available on the <a routerLink="/downloads/genome-datasets" routerLinkActive="active">Genome Datasets</a> page.</p>
+<!-- pombase_categories: Finding data -->
+<p>A file of cDNA sequences in FASTA format is available on the <a routerLink="/downloads/genome-datasets" routerLinkActive="active">Genome datasets</a> page.</p>
 
 </div>
-<div *ngIf="pageName == 'sequence-retrieval' || pageName == 'tools-and-resources' || pageName == 'can-i-get-file-specific-set-genome-features'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-get-file-specific-set-genome-features'">
 <h3 id="can-i-get-file-specific-set-genome-features">Can I get a file with a specific set of genome features?</h3>
-<!-- pombase_categories: Sequence Retrieval,Tools and Resources -->
-<p>The genomic GTF file available on the <a routerLink="/downloads/genome-datasets" routerLinkActive="active">Genome Datasets</a> page includes all gene features. We plan to replace this with a GFF file in the future, and will add all other annotated genome features (such as repeats) to the file at that time.<br />
-<br />
-The EMBL format files also contain all annotated features.<br />
-<br />
-Another option for extracting all annotated features (or if you need to specify which feature types to include) is to use the Ensembl API. See the FAQ &quot; <a routerLink="/faq/can-i-access-pombase-api" routerLinkActive="active">Can I access PomBase via an API?</a> &quot; for more information on using the API.</p>
+<!-- pombase_categories: Finding data,Tools and resources -->
+<p>The genomic GFF3 file available on the <a routerLink="/downloads/genome-datasets" routerLinkActive="active">Genome datasets</a> page includes all gene features, but not LTRs or other repeats. The files in EMBL and GenBank formats contain all annotated sequence features.</p>
+<p>Another option for extracting all annotated features (or if you need to specify which feature types to include) is to use the Ensembl API. See the FAQ &quot;<a routerLink="/faq/can-i-access-pombase-via-an-api" routerLinkActive="active">Can I access PomBase via an API?</a>&quot; for more information on using the API.</p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'genome-statistics-and-lists' || pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'can-i-get-list-essential-pombe-genes'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'can-i-get-list-essential-pombe-genes'">
 <h3 id="can-i-get-list-essential-pombe-genes">Can I get a list of essential pombe genes?</h3>
-<!-- pombase_categories: Datasets,Genome Statistics and Lists,Querying/Searching,Using Ontologies -->
+<!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
 <p>If an essential gene is deleted, the cell cannot survive under normal laboratory conditions. A search for deletion alleles annotated to the Fission Yeast Phenotype Ontology term &quot;inviable vegetative cell population&quot; (FYPO:0002061) would therefore identify essential fission yeast genes. Similarly, deletion alleles annotated to &quot;viable vegetative cell population&quot; (FYPO:0002060) represent non-essential genes.</p>
 <p><strong>Downloadable summary</strong></p>
 <p>A <a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/FYPOviability.tsv" routerLinkActive="active">set of &quot;viability summary&quot; data</a>, as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: &quot;viable&quot;, &quot;inviable&quot; or &quot;condition-dependent&quot;.</p>
 <p><strong>Querying</strong></p>
 <ul>
-<li>To find genes annotated to &quot;inviable vegetative cell population&quot;, select the &quot;FYPO ID&quot; filter and type or paste the ID, FYPO:0002061. Set the Allele Expression pulldown to &quot;Null Expression&quot; and submit the query. The results include all genes that showed inviable phenotypes in the HTP deletion project as well some manually annotated genes. Do the same for viable (FYPO:0002060).</li>
-<li>For some deletion mutants, viability depends on experimental conditions, which cannot yet be queried in PomBase. These genes are annotated to both viable (FYPO:0002060) and inviable (FYPO:0002061) at once. To find them, use the &quot;AND&quot; operator in the Query Management panel (this search can also be set up all at once in the New Query panel).</li>
-<li>See the <a routerLink="/documentation/advanced-search-documentation" routerLinkActive="active">Advanced Search documentation</a> for more information on performing the searches described here.</li>
+<li>To find genes annotated to &quot;inviable vegetative cell population&quot;, select the &quot;phenotype&quot; query and type or paste the ID, FYPO:0002061. Select the &quot;Null&quot; option for &quot;Expresion level&quot; and submit the query. The results include all genes that showed inviable phenotypes in the HTP deletion project as well some manually annotated genes. Do the same for viable (FYPO:0002060).</li>
+<li><p>For some deletion mutants, viability depends on experimental conditions, which cannot yet be queried in PomBase. These genes are annotated to both viable (FYPO:0002060) and inviable (FYPO:0002061) at once. To find them, do both searches above, then click the boxes beside both in the query history table and click the &quot;Intersect&quot; button (equivalent to the &quot;AND&quot; operator).</p></li>
+<li><p>See the <a routerLink="/documentation/advanced-search" routerLinkActive="active">advanced search documentation</a> for more information on performing the searches described here.</p></li>
 </ul>
 <p><strong>A brief note about FYPO terms</strong></p>
 <p>At present, there are very few null mutants annotated as inviable in life cycle stages other than vegetative growth, and &quot;inviable vegetative cell population&quot; best fits the most common usage of &quot;essential gene&quot;. If you do want to include other stages (such as &quot;inviable spore&quot;), you can use the very generic term &quot;inviable cell population&quot; (FYPO:0002059) or &quot;viable cell population&quot; (FYPO:0002058) in your query. All of the caveats about alleles and conditions still apply.</p>
-<p><strong>Query links</strong></p>
-<ul>
-<li><a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Null alleles annotated to &quot;inviable vegetative cell population&quot; (FYPO:0002061)</a></li>
-<li><a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Null alleles annotated to &quot;viable vegetative cell population&quot; (FYPO:0002060)</a></li>
-<li><a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%222%22%7D%5D" routerLinkActive="active">Null alleles annotated to both FYPO:0002061 and FYPO:0002060</a></li>
-</ul>
+<!--
+**Query links**
+
+-   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Null alleles annotated to "inviable vegetative cell population"     (FYPO:0002061)</a> 
+-   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Null alleles annotated to "viable vegetative cell population"     (FYPO:0002060)</a> 
+-   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%222%22%7D%5D" routerLinkActive="active">Null alleles annotated to both FYPO:0002061 and     FYPO:0002060</a> 
+-->
 
 </div>
 <div *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe'">
 <h3 id="can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe">Can I get a list of systematic IDs, primary names, synonyms and gene products in S. pombe?</h3>
-<!-- pombase_categories: Genome Statistics and Lists -->
-<p>Yes: From the <a routerLink="/downloads/data-mappings" routerLinkActive="active">Data Mapping</a> page, retrieve this file:<br />
-ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.tsv</p>
+<!-- pombase_categories: Genome statistics and Lists -->
+<p>Yes: From the <a routerLink="/downloads/data-mappings" routerLinkActive="active">Data Mapping</a> page, retrieve this file: ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.tsv</p>
 
 </div>
 <div *ngIf="pageName == 'gene-page' || pageName == 'can-i-hide-quick-links-box'">
@@ -3043,97 +3041,87 @@ ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.tsv</p>
 <p>Yes, the Quick Links menu can be expanded and collapsed by clicking the &quot;Quick Links&quot; text in its header.</p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'tools-and-resources' || pageName == 'can-i-obtain-dump-all-curated-data-pombase'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-obtain-dump-all-curated-data-pombase'">
 <h3 id="can-i-obtain-dump-all-curated-data-pombase">Can I obtain a dump of all curated data in PomBase?</h3>
-<!-- pombase_categories: Datasets,Tools and Resources -->
-<p>Data that appear on gene pages -- sequence feature annotations, ontology annotations, etc. -- are stored in a database that uses the <a href="http://gmod.org/wiki/Chado">Chado</a> schema. Dumps from the Chado database for each PomBase release are available via the <a routerLink="/downloads" routerLinkActive="active">Downloads</a> page.</p>
+<!-- pombase_categories: Finding data,Tools and resources -->
+<p>Data that appear on gene pages -- sequence feature annotations, ontology annotations, etc. -- are stored in a database that uses the <a href="http://gmod.org/wiki/Chado">Chado</a> schema. Monthly snapshots of the PomBase Chado database are available via the <a routerLink="/downloads" routerLinkActive="active">Downloads</a> page.</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'can-i-provide-list-genes-search-on'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'can-i-provide-list-genes-search-on'">
 <h3 id="can-i-provide-list-genes-search-on">Can I provide a list of genes to search on?</h3>
-<!-- pombase_categories: Querying/Searching -->
-<p>Yes. In the Advanced Search, the Gene Systematic IDs and Gene Names filters both accept lists. You can type or paste lists of IDs/names into the box, separated by commas or with one ID or name per line.<br />
-<br />
-At present, there is a fixed set of data retrieved when you execute the search. We plan to offer more flexible options in the near future. Later, we also hope to allow you to upload a file containing your gene list.<br />
-<br />
-For convenience, there is a direct link to a search page pre-configured to accept a list of systematic IDs available in the Find menu, on the Find page, and here:</p>
-<p><a routerLink="/spombe/query/builder?filter=12" routerLinkActive="active">http://www.pombase.org/spombe/query/builder?filter=12</a></p>
-<p>Once you have done a search for your genes, the list of results will be available in the Query Management section of the Advanced Search, allowing you to combine the list with other lists or with additional search criteria.</p>
+<!-- pombase_categories: Finding data -->
+<p>Yes, you can type or paste systematic IDs into the &quot;Gene filter&quot; query in the <a routerLink="/query" routerLinkActive="active">advanced search</a>. IDs can be separated by spaces, commas, or newlines. Click &quot;Lookup&quot; to retrieve the results. At present you can use the list in the query history to combine with other queries, or download a fixed set of details (systematic ID, gene name (if any), feature type, coordinates, and strand). We plan to offer more flexible options in the near future, and to allow you to upload a file with your gene list.</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes'">
 <h3 id="can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes">Can I retrieve annotations to metabolic databases such as EC, MetaCyc, Reactome, or Rhea for S. pombe genes?</h3>
-<!-- pombase_categories: Querying/Searching,Using Ontologies -->
-<p>The best way to find metabolism-related annotations for <em>S. pombe</em> genes is to use the GO annotation data available from PomBase in combination with mappings between GO terms and entries in the various metabolism-oriented databases.<br />
-<br />
-For example, many GO molecular function (MF) terms representing enzymatic activities are mapped to the corresponding <a href="http://www.chem.qmul.ac.uk/iubmb/enzyme/">Enzyme Commission</a> (EC) number for the reaction, and some are also mapped to entries from  <a href="http://www.genome.jp/kegg/">KEGG</a> or from the <a href="http://www.rhea-db.org/home">Rhea</a> database of annotated chemical reactions. GO MF and biological process (BP) terms may be annotated to reactions or pathways, respectively, in <a href="http://metacyc.org/">MetaCyc</a> or <a href="http://www.reactome.org/">Reactome</a>.<br />
-<br />
-A complete list, with descriptions and links, is available on the <a href="http://geneontology.org/page/download-mappings">GO Consortium's Download Mappings</a> page.</p>
+<!-- pombase_categories: Finding data,Using ontologies -->
+<p>The best way to find metabolism-related annotations for <em>S. pombe</em> genes is to use the GO annotation data available from PomBase in combination with mappings between GO terms and entries in the various metabolism-oriented databases.</p>
+<p>For example, many GO molecular function (MF) terms representing enzymatic activities are mapped to the corresponding <a href="http://www.chem.qmul.ac.uk/iubmb/enzyme/">Enzyme Commission</a> (EC) number for the reaction, and some are also mapped to entries from <a href="http://www.genome.jp/kegg/">KEGG</a> or from the <a href="http://www.rhea-db.org/home">Rhea</a> database of annotated chemical reactions. GO MF and biological process (BP) terms may be annotated to reactions or pathways, respectively, in <a href="http://metacyc.org/">MetaCyc</a> or <a href="http://www.reactome.org/">Reactome</a>.</p>
+<p>A complete list, with descriptions and links, is available on the <a href="http://geneontology.org/page/download-mappings">GO Consortium's Download Mappings</a> page.</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-functional-annotations-genes-list'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-functional-annotations-genes-list'">
 <h3 id="can-i-retrieve-functional-annotations-genes-list">Can I retrieve functional annotations for genes in a list?</h3>
-<!-- pombase_categories: Querying/Searching,Tools and Resources,Using Ontologies -->
+<!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>You can find the GO annotations for your genes corresponding to functional roles and localizations. Our recommended approach depends on how many specific topics you are interested in:</p>
 <ul>
-<li>For a small number of specific GO terms (e.g. localization to the nucleus or cytoplasm, or a role in signaling or DNA metabolism), you can import your gene list into the <a routerLink="/spombe/query/builder" routerLinkActive="active">Advanced Search</a> and then combine it with a query for each term of interest (use the &quot;Systematic IDs&quot; filter for your list, and then the Term name or GO ID filter; see the <a routerLink="/documentation/advanced-search-documentation" routerLinkActive="active">search documentation</a> for more information).</li>
-<li>If you are interested in many GO terms, or if you do not know in advance which terms may be relevant, we recommend that you use a &quot;GO term enrichment&quot; tool. Such tools are typically used to find terms overrepresented for a gene list, but can be used to retrieve all GO annotations if the p-value threshold is set artificially high.</li>
+<li><p>For a small number of specific GO terms (e.g. localization to the nucleus or cytoplasm, or a role in signaling or DNA metabolism), you can use the <a routerLink="/query" routerLinkActive="active">advanced search</a>. Paste your gene list into the &quot;Gene IDs&quot; query, and then combine it with a GO query for each term of interest (see the <a routerLink="/documentation/advanced-search" routerLinkActive="active">search documentation</a> for more information).</p></li>
+<li><p>If you are interested in many GO terms, or if you do not know in advance which terms may be relevant, we recommend that you use a &quot;GO term enrichment&quot; tool. Such tools are typically used to find terms overrepresented for a gene list, but can be used to retrieve all GO annotations if the p-value threshold is set artificially high.</p></li>
 </ul>
-<p>Both the Advanced Search and term enrichment tools take advantage of the hierarchical structure of GO, such that annotations to specific terms are propagated to &quot;ancestor&quot; terms via <em>is_a</em> and <em>part_of</em> relations. See the <a routerLink="/documentation/gene-page-gene-ontology" routerLinkActive="active">PomBase GO documentation</a>, and the GO Consortium documentation linked there, for more information. (These approaches also make it easier to maintain and update your data than storing individual GO annotations locally.)<br />
-<br />
-Also see the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list" routerLinkActive="active">FAQ on GO term enrichment</a> and the <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">PomBase GO Slim</a> page.</p>
+<p>Both the Advanced Search and term enrichment tools take advantage of the hierarchical structure of GO, such that annotations to specific terms are propagated to &quot;ancestor&quot; terms via <em>is_a</em> and <em>part_of</em> relations. See the <a routerLink="/documentation/gene-page-gene-ontology" routerLinkActive="active">PomBase GO documentation</a>, and the GO Consortium documentation linked there, for more information. (These approaches also make it easier to maintain and update your data than storing individual GO annotations locally.)</p>
+<p>Also see the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list" routerLinkActive="active">FAQ on GO term enrichment</a> and the <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">PomBase GO Slim</a> page.</p>
 
 </div>
-<div *ngIf="pageName == 'sequence-retrieval' || pageName == 'tools-and-resources' || pageName == 'can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence'">
 <h3 id="can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence">Can I retrieve the sequence for any of the cosmids used to build the S. pombe genome sequence?</h3>
-<!-- pombase_categories: Sequence Retrieval,Tools and Resources -->
-<p>Although old cosmid sequences used in the reference assembly are not available in PomBase directly, they are all stored in the International Nucleotide Sequence Database Collaboration database (ENA, GenBank, DDBJ) archives. For ease of searching, PomBase curators recommend finding the accession, e.g. AL137130,  for a cosmid, and using GenBank to retrieve the sequence:<br />
-<br />
-Go to <a href="http://www.ncbi.nlm.nih.gov/nucleotide/" class="uri">http://www.ncbi.nlm.nih.gov/nucleotide/</a>(or choose &quot;Nucleotide&quot; in the search pull-down menu on any NCBI search page). Enter the accession. The resulting page will inform you that the sequence has been replaced by one of the whole-chromosome entries, but offers links to both the current chromosome entry and the obsolete contig entry.</p>
+<!-- pombase_categories: Finding data,Tools and resources -->
+<p>Although old cosmid sequences used in the reference assembly are not available in PomBase directly, they are all stored in the International Nucleotide Sequence Database Collaboration database (ENA, GenBank, DDBJ) archives. For ease of searching, PomBase curators recommend finding the accession, e.g. AL137130, for a cosmid, and using GenBank to retrieve the sequence:</p>
+<p>Go to http://www.ncbi.nlm.nih.gov/nucleotide/ (or choose &quot;Nucleotide&quot; in the search pull-down menu on any NCBI search page). Enter the accession. The resulting page will inform you that the sequence has been replaced by one of the whole-chromosome entries, but offers links to both the current chromosome entry and the obsolete contig entry.</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'can-i-search-gene-list-and-retrieve-results-same-order-as-input-list'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'can-i-search-gene-list-and-retrieve-results-same-order-as-input-list'">
 <h3 id="can-i-search-gene-list-and-retrieve-results-same-order-as-input-list">Can I search for a gene list and retrieve results in the same order as in the input list?</h3>
-<!-- pombase_categories: Querying/Searching -->
-<p>At present this is not possible; all advanced search results are ordered alphabetically by systematic ID.</p>
-<p>As a workaround, we suggest that you download the results using the TSV link, and import them into a spreadsheet. You can then combine the results with other data in the spreadsheet, and use the spreadsheet software to sort on any column.</p>
+<!-- pombase_categories: Finding data -->
+<p>At present this is not possible; all advanced search results are ordered alphabetically by gene name, or by systematic ID for unnamed genes, by default. Click the &quot;Product&quot; column header to sort alphabetically by product description. We plan to add an option to preserve input order soon.</p>
+<p>In the meantime, we suggest that you download the results using the &quot;Details&quot; link, and import them into a spreadsheet. You can then combine the results with other data in the spreadsheet, and use the spreadsheet software to sort on any column.</p>
 
 </div>
-<div *ngIf="pageName == 'orthology' || pageName == 'querying-searching' || pageName == 'can-i-search-genes-based-on-conservation-different-taxa'">
+<div *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'can-i-search-genes-based-on-conservation-different-taxa'">
 <h3 id="can-i-search-genes-based-on-conservation-different-taxa">Can I search for genes based on conservation in different taxa?</h3>
-<!-- pombase_categories: Orthology,Querying/Searching -->
-<p>Yes: In the Advanced Search (http://www.pombase.org/spombe/query/builder), choose the &quot;Conserved in ...&quot; filter option. Then choose one of the descriptions, and submit.</p>
-<p>Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2226%22,%22query%22:%22PBO:0011070%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Genes conserved in vertebrates</a></p>
+<!-- pombase_categories: Orthology,Finding data -->
+<p>Yes, use the &quot;Taxonomic conservation&quot; query in the <a routerLink="/query" routerLinkActive="active">advanced search</a>.</p>
+<!--
+Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2226%22,%22query%22:%22PBO:0011070%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Genes conserved in vertebrates</a> 
+-->
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'can-i-search-pombase-protein-features'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-search-pombase-protein-features'">
 <h3 id="can-i-search-pombase-protein-features">Can I search PomBase for protein features?</h3>
-<!-- pombase_categories: Querying/Searching,Using Ontologies -->
-<p>A selection of protein sequence motifs and features have been manually curated using terms  from the <a href="http://sequenceontology.org/">Sequence Ontology</a> (SO). For example, <a routerLink="/spombe/result/SPAC15A10.03c" routerLinkActive="active">Rad54</a> has a KEN box (a motif recognized by the anaphase-promoting complex; SO:0001807), and <a routerLink="/spombe/result/SPAC31A2.11c" routerLinkActive="active">Cuf1</a> and <a routerLink="/spombe/result/SPAC1D4.10" routerLinkActive="active">Trz1</a> have nuclear localization signals (NLS; SO:0001528). These annotations are included in the Protein Features section of the gene page.<br />
-<br />
-To search for these features, use one of the &quot;Sequence Ontology&quot; filters in the <a routerLink="/spombe/query/builder" routerLinkActive="active">Advanced Search</a> (see the <a routerLink="/documentation/advanced-search-documentation" routerLinkActive="active">documentation</a> for help with searching).</p>
-<p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-proteins-have-transmembrane-domains" routerLinkActive="active">transmembrane domains</a> and <a routerLink="/faq/how-can-i-find-all-s-pombe-proteins-particular-protein-family" routerLinkActive="active">protein families</a>, and the section of the search documentation on using Protein Filters.</p>
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2229%22,%22query%22:%22SO:0001528%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">nuclear localization signal (SO:0001528)</a><br />
-<br />
-
+<!-- pombase_categories: Finding data,Using ontologies -->
+<p>A selection of protein sequence motifs and features have been manually curated using terms from the <a href="http://sequenceontology.org/">Sequence Ontology</a> (SO). For example, <a routerLink="/gene/SPAC15A10.03c" routerLinkActive="active">Rad54</a> has a KEN box (a motif recognized by the anaphase-promoting complex; SO:0001807), and <a routerLink="/gene/SPAC31A2.11c" routerLinkActive="active">Cuf1</a> and <a routerLink="/gene/SPAC1D4.10" routerLinkActive="active">Trz1</a> have nuclear localization signals (NLS; SO:0001528). These annotations are included in the Protein Features section of the gene page.</p>
+<p>To search for these features, use the &quot;Protein feature&quot; query in the <a routerLink="/query" routerLinkActive="active">advanced search</a> (enter a SO ID or description; see the <a routerLink="/documentation/advanced-search" routerLinkActive="active">documentation</a> for help with searching).</p>
+<p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-proteins-have-transmembrane-domains" routerLinkActive="active">transmembrane domains</a> and <a routerLink="/faq/how-can-i-find-all-s-pombe-proteins-in-a-particular-protein-family" routerLinkActive="active">protein families</a>, and the section of the search documentation on protein feature and protein domain queries.</p>
+<!--
+Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2229%22,%22query%22:%22SO:0001528%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">nuclear localization signal (SO:0001528)</a> 
+-->
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-search-short-sequences'">
+<div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-search-short-sequences'">
 <h3 id="can-i-use-blast-search-short-sequences">Can I use BLAST to search for short sequences?</h3>
-<!-- pombase_categories: Querying/Searching,Tools and Resources -->
-<p>Yes, you can search for short nucleotide sequences, such as primers or other oligomers, in the PomBase BLAST. For sequences less than 20 nt long, however, you may need to change the search sensitivity from &quot;Normal&quot; to &quot;Short sequences&quot; using the pulldown menu at the bottom of the query form.</p>
+<!-- pombase_categories: Tools and resources -->
+<p>Yes, you can search for short nucleotide sequences, such We recommend NCBI BLAST, where you can search for short nucleotide sequences, such as primers or other oligomers (PomBase does not maintain its own BLAST server).</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'can-i-use-wild-card-beginning-search-string'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'can-i-use-wild-card-beginning-search-string'">
 <h3 id="can-i-use-wild-card-beginning-search-string">Can I use a wild card at the beginning of a search string?</h3>
-<!-- pombase_categories: Querying/Searching -->
-<p>Yes, you can now use * as a wild card anywhere a search string. You must have at least three characters (letters, numbers, etc.) in addition to the wild card.</p>
-<p>(Previously, wild cards did not work at the beginning of a search string, but PomBase now uses a different search technology that supports wild cards anywhere.)</p>
+<!-- pombase_categories: Finding data -->
+<p>The simple search finds search strings anywhere in IDs, gene names, and product descriptions. It does not require any wildcard character, and shows autocomplete suggestions as you type.</p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'genome-browser' || pageName == 'can-i-view-my-data-privately-genome-browser'">
+<div *ngIf="pageName == 'genome-browser' || pageName == 'can-i-view-my-data-privately-genome-browser'">
 <h3 id="can-i-view-my-data-privately-genome-browser">Can I view my data privately in the genome browser?</h3>
-<!-- pombase_categories: Datasets,Genome Browser -->
+<!-- pombase_categories: Genome browser -->
 <p>Yes, if you have locally stored data that you want to see in the context of the genome browser, you can add it as a custom track. The <a href="http://genomebrowser.pombase.org/info/website/upload/index.html">Ensembl documentation on adding custom tracks</a> describes supported file formats, options for uploading or linking your data, and instructions on using the web interface to configure your tracks.</p>
 
 </div>
@@ -3155,9 +3143,9 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <p>Information about how the Compara trees are generated, homology types, and species are available here: <a href="http://fungi.ensembl.org/info/genome/compara/homology_method.html" class="uri">http://fungi.ensembl.org/info/genome/compara/homology_method.html</a></p>
 
 </div>
-<div *ngIf="pageName == 'genome-browser' || pageName == 'locating-genomic-regions' || pageName == 'querying-searching' || pageName == 'sequence-retrieval' || pageName == 'tools-and-resources' || pageName == 'can-i-view-nucleotide-sequence-genome-browser'">
+<div *ngIf="pageName == 'genome-browser' || pageName == 'tools-and-resources' || pageName == 'can-i-view-nucleotide-sequence-genome-browser'">
 <h3 id="can-i-view-nucleotide-sequence-genome-browser">Can I view nucleotide sequence in the genome browser?</h3>
-<!-- pombase_categories: Genome Browser,Locating Genomic Regions,Querying/Searching,Sequence Retrieval,Tools and Resources -->
+<!-- pombase_categories: Genome browser,Tools and resources -->
 <p>Yes. First, make sure sequence display is &quot;on&quot;:</p>
 <ol style="list-style-type: decimal">
 <li>From the Location tab click on the &quot;Configure this Page&quot;</li>
@@ -3169,65 +3157,59 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <p>At any zoom level, use the arrows flanking the zoom slider to scroll along the sequence.</p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'genome-browser' || pageName == 'can-i-view-variation-data-pombase'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'genome-browser' || pageName == 'can-i-view-variation-data-pombase'">
 <h3 id="can-i-view-variation-data-pombase">Can I view variation data in PomBase?</h3>
-<!-- pombase_categories: Datasets,Genome Browser -->
-<p>The genome browser includes variation data from natural <em>S. pombe</em> isolates, published in:<br />
-<br />
-Jeffares DC <em>et al.</em> 2015. The genomic and phenotypic diversity of Schizosaccharomyces pombe. <em>Nat Genet.</em> <strong>47(3):</strong>235-241. doi: <a href="http://dx.doi.org/10.1038/ng.3215">10.1038/ng.3215</a> <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25665008">PMID:25665008</a><br />
-<br />
-To view the variation data, enable one or more of the tracks under &quot;Variation&quot;. <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser" routerLinkActive="active">Help</a> is available for enabling tracks.<br />
-<br />
-Insertions/deletions (indels) and SNPs can be enabled as separate tracks, or &quot;Sequence variants (all sources)&quot; displays both types on a single track. Clicking on any variation feature in the track brings up a small pop-up box with a summary and link to further details about the variation.<br />
-<br />
-A Variscan track showing variation diversity along the sequence is also available.<br />
-<br />
-Ensembl provides a <a href="http://test.genomebrowser.pombase.org/info/website/tutorials/Ensembl_variation_quick_reference_card.pdf">quick reference card</a> with more information on the browser interface for variations.</p>
+<!-- pombase_categories: Finding data,Genome browser -->
+<p>The genome browser includes variation data from natural <em>S. pombe</em> isolates, published in:</p>
+<p>Jeffares DC <em>et al.</em> 2015. The genomic and phenotypic diversity of Schizosaccharomyces pombe. <em>Nat Genet.</em> <strong>47(3):</strong>235-241. doi: <a href="http://dx.doi.org/10.1038/ng.3215">10.1038/ng.3215</a> <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25665008">PMID:25665008</a></p>
+<p>To view the variation data, enable one or more of the tracks under &quot;Variation&quot;. <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser" routerLinkActive="active">Help</a> is available for enabling tracks.</p>
+<p>Insertions/deletions (indels) and SNPs can be enabled as separate tracks, or &quot;Sequence variants (all sources)&quot; displays both types on a single track. Clicking on any variation feature in the track brings up a small pop-up box with a summary and link to further details about the variation.</p>
+<p>A Variscan track showing variation diversity along the sequence is also available.</p>
+<p>Ensembl provides a <a href="http://test.genomebrowser.pombase.org/info/website/tutorials/Ensembl_variation_quick_reference_card.pdf">quick reference card</a> with more information on the browser interface for variations.</p>
 
 </div>
 <div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-visualise-networks-pombase'">
 <h3 id="can-i-visualise-networks-pombase">Can I visualise networks in PomBase?</h3>
-<!-- pombase_categories: Tools and Resources -->
-<p>To visualise interaction networks for S. pombe genes, PomBase links to <a href="http://www.esyn.org/">esyN</a> from gene pages and GO slim terms. esyN is a web-based tool for building, sharing, and viewing network data developed by Dan Bean and Giorgio Favrin in the <a href="http://www.sysbiol.cam.ac.uk">Cambridge Systems Biology Centre</a>, University of Cambridge, UK <a routerLink="/faq/can-i-visualise-networks-pombase#esynref" routerLinkActive="active"><sup>1</sup></a>.</p>
-<p>On gene pages, we have links to gene-specific interaction networks in esyN in the table headers of the Interactions sections:</p>
-<ul>
-<li>The Genetic Interactions section links to all interactions centred on the gene and curated in BioGRID</li>
-<li>The Physical interactions section has links to two datasets:
-<ul>
-<li>All physical interactions curated in BioGRID for the gene</li>
-<li>Interactions for the gene in the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network" routerLinkActive="active">High Confidence Physical Interaction Network (HCPIN)</a></li>
-</ul></li>
-</ul>
-<p>For example, the Genetic Interactions header for cdc2 links to <a href="http://www.esyn.org/builder.php?type=Graph&amp;query=SPBC11B10.09&amp;organism=4896&amp;interactionType=genetic&amp;source=biogrid" class="uri">http://www.esyn.org/builder.php?type=Graph&amp;query=SPBC11B10.09&amp;organism=4896&amp;interactionType=genetic&amp;source=biogrid</a></p>
-<p>We also have esyN links on the <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim page</a> and on ontology term pages for GO Slim biological process terms. Each GO Slim term links to the HCPIN physical interaction network in esyN. For<br />
-example, the GO Slim page and the ontology term page for &quot;regulation of mitotic cell cycle&quot; ( <a routerLink="/spombe/related/GO:0007346" routerLinkActive="active">GO:0007346</a>) link to <a href="http://www.esyn.org//builder.php?type=Graph&amp;term=GO:0007346&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false" class="uri">http://www.esyn.org//builder.php?type=Graph&amp;term=GO:0007346&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false</a></p>
+<!-- pombase_categories: Tools and resources -->
+<p>This is an area of active development at PomBase. At present, PomBase links GO slim terms to the web-based network tool <a href="http://www.esyn.org/">esyN</a> <sup>1</sup>: on the <a routerLink="/browse-curation/fission-yeast-go-slim-terms" routerLinkActive="active">GO Slim page</a> and on ontology term pages for GO Slim biological process terms, each GO Slim term links to the <a routerLink="/documentation/high-confidence-physical-interaction-network" routerLinkActive="active">HCPIN physical interaction network</a> in esyN. For example, the GO Slim page and the ontology term page for &quot;regulation of mitotic cell cycle phase transition&quot; (<a routerLink="/term/GO:1901990" routerLinkActive="active">GO:1901990</a>) link to http://www.esyn.org//builder.php?type=Graph&amp;term=GO:1901990&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false .</p>
+<p>We plan to provide gene-centred network displays on gene pages in the near future.</p>
+<!--
+On gene pages, we have links to gene-specific interaction networks in
+esyN in the table headers of the Interactions sections:
+
+-   The Genetic Interactions section links to all interactions centred
+    on the gene and curated in BioGRID
+-   The Physical interactions section has links to two datasets:
+    -   All physical interactions curated in BioGRID for the gene
+    -   Interactions for the gene in the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network" routerLinkActive="active">High Confidence         Physical Interaction Network         (HCPIN)</a> 
+
+For example, the Genetic Interactions header for cdc2 links to
+<http://www.esyn.org/builder.php?type=Graph&query=SPBC11B10.09&organism=4896&interactionType=genetic&source=biogrid>
+
+-->
 <p>Using the esyN network display:</p>
 <ul>
 <li>A brief simulation is used to position the nodes initially. This layout can often be improved by continuing the simulation: click &quot;Layouts&quot; in the left-hand panel, then click &quot;Force-Directed (improve)&quot;. Repeat until you like the network arrangement.</li>
 <li>You can extend any network in esyN:</li>
 </ul>
-<blockquote>
 <ol style="list-style-type: decimal">
 <li>Click on a node in the display.</li>
 <li>Click &quot;Extend Network&quot; in the right-hand bar.</li>
 <li>In the Advanced Tools box under the network display, first click &quot;Get Interactions&quot;.</li>
 <li>In the table that appears, click &quot;Add&quot; buttons to add individual interactions, or click &quot;Add all&quot;.</li>
 </ol>
-</blockquote>
-<p><br />
-You can also use EsyN to:<br />
-Visualize interactions for a user-defined list of genes. To do this, visit <a href="http://www.esyn.org/builder.php" class="uri">http://www.esyn.org/builder.php</a>, click on the &quot;Network from list&quot; option in the left-hand panel, and follow the instructions in the pop-up.</p>
-<p>Build your own network -- either an Interactome graph or a Petri net -- from scratch (see the tutorial at <a href="http://www.esyn.org/tutorial.html" class="uri">http://www.esyn.org/tutorial.html</a>). In both cases you can use the Advanced Tools to retrieve the interactions for a number of model organisms from several databases (see <a href="http://www.esyn.org/builder.php?type=Graph#interactions" class="uri">http://www.esyn.org/builder.php?type=Graph#interactions</a>).</p>
+<p>You can also use EsyN to:</p>
+<p>Visualize interactions for a user-defined list of genes. To do this, visit http://www.esyn.org/builder.php?type=Graph, click on the &quot;Network from list&quot; option in the left-hand panel, and follow the instructions in the pop-up.</p>
+<p>Build your own network -- either an Interactome graph or a Petri net -- from scratch (see the tutorial at http://www.esyn.org/tutorial.html). In both cases you can use the Advanced Tools to retrieve the interactions for a number of model organisms from several databases (see http://www.esyn.org/builder.php?type=Graph#interactions).</p>
 <p>Save and share your networks. By logging in via the &quot;My esyN&quot; link (at the top of every esyN page), any user can save, share privately with collaborators, or publish any network.</p>
-<p>Browse, view and modify, previously published, models (both graphs and Petri nets) at <a href="http://www.esyn.org/browse.php" class="uri">http://www.esyn.org/browse.php</a>. We describe these networks are &quot;public&quot; in the sense of the open source movement, so that they are not only free to be copied, modified and (when possible) re-published, but we also actively encourage any collaborative effort to build and improve these biological networks.</p>
+<p>Browse, view and modify, previously published, models (both graphs and Petri nets) at http://www.esyn.org/browse.php. We describe these networks are &quot;public&quot; in the sense of the open source movement, so that they are not only free to be copied, modified and (when possible) re-published, but we also actively encourage any collaborative effort to build and improve these biological networks.</p>
 <p><sup>1</sup>esyN reference: Bean DM, Heimbach J, Ficorella L, Micklem G, Oliver SG, Favrin G. 2014. esyN: network building, sharing and publishing. <em>PLoS One</em>. 2014 Sep 2; <strong>9(9)</strong>:e106035. doi: <a href="http://dx.doi.org/10.1371/journal.pone.0106035">10.1371/journal.pone.0106035</a>. eCollection 2014. <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25181461">PMID:25181461</a></p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'querying-searching' || pageName == 'do-you-have-polyadenylation-data-fission-yeast'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'do-you-have-polyadenylation-data-fission-yeast'">
 <h3 id="do-you-have-polyadenylation-data-fission-yeast">Do you have polyadenylation data for fission yeast?</h3>
-<!-- pombase_categories: Datasets,Querying/Searching -->
+<!-- pombase_categories: Finding data -->
 <p>PomBase offers two ways to find polyadenylation sites and usage:</p>
-<p>Each gene page has a link in the External References section to the <a href="http://www.pomba.co.uk/POMBA/">Pomb(A)</a> database of polyadenylation signal and cleavage sites.</p>
 <p>Fission yeast polyadenylation data are available in the genome browser. To display the data:</p>
 <ol style="list-style-type: decimal">
 <li>From any gene page, click the &quot;View in Genome Browser&quot; link.</li>
@@ -3239,136 +3221,198 @@ Visualize interactions for a user-defined list of genes. To do this, visit <a hr
 </div>
 <div *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'how-are-non-coding-rna-genes-identified'">
 <h3 id="how-are-non-coding-rna-genes-identified">How are non-coding RNA genes identified?</h3>
-<!-- pombase_categories: Genome Statistics and Lists -->
+<!-- pombase_categories: Genome statistics and lists -->
 <p>Most non-coding RNAs in PomBase are based on transcriptome data, either from Jürg Bähler's lab (Solexa/deep sequencing; <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18488015">PMID:18488015</a>) or Nick Rhind's lab (RNA sequencing; <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>). For any ncRNA, the source should be linked as a publication in the &quot;Literature&quot; section at the bottom of the PomBase gene page. To get an idea of the transcription in a region, you can look at the Bähler Lab Transcriptome Viewer, which is linked from most gene pages, e.g. <a href="http://www.bahlerlab.info/cgi-bin/pombetv/pombetv?condition=13&genename=SPNCRNA.200&action=display">SPNCRNA.200</a>. Unfortunately some genes, such as SPNCRNA.1115, post-date the viewer and therefore do not have entries, but you can look at transcription in this region by accessing a neighboring gene.</p>
 
 </div>
 <div *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'how-are-pombase-systematic-ids-determined'">
 <h3 id="how-are-pombase-systematic-ids-determined">How are PomBase systematic IDs determined?</h3>
-<!-- pombase_categories: Genome Statistics and Lists -->
+<!-- pombase_categories: Genome statistics and lists -->
 <p>Systematic IDs follow patterns based on the feature type, and in some cases the chromosome, as shown in the table below.</p>
 <p>Open reading frame (ORF) IDs also indicate which cosmid or plasmid they were found on in genome sequencing. In most cases, ORF IDs that end with a digit indicate that the ORF is on the forward (Watson) strand, and an ORF with an ID that ends with 'c' is on the reverse (Crick) stand. There are a few exceptions, however, because some cosmids were moved and their orientation reversed late in the sequence assembly procedure</p>
 <p>IDs with '.1' appended are transcript IDs; the dot-and-digit IDs follow Ensembl's standard. At present, PomBase has only one transcript annotated for any given feature, but in the future when alternative transcripts are annotated the digit will be incremented (.2, .3, etc.).</p>
 <p><strong>Systematic ID patterns</strong></p>
-<p>ID pattern</p>
-<p>Description</p>
-<p>SPAC*</p>
-<p>features, usually ORFs, on chromosome 1, sequenced on cosmids</p>
-<p>SPBC*</p>
-<p>features, usually ORFs, on chromosome 2, sequenced on cosmids</p>
-<p>SPCC*</p>
-<p>features, usually ORFs, on chromosome 3, sequenced on cosmids</p>
-<p>SPAP*</p>
-<p>features, usually ORFs, on chromosome 1, sequenced on plasmids</p>
-<p>SPBP*</p>
-<p>features, usually ORFs, on chromosome 2, sequenced on plasmids</p>
-<p>SBCP*</p>
-<p>features, usually ORFs, on chromosome 3, sequenced on plasmids</p>
-<p>SPATRNA*</p>
-<p>tRNA genes on chromosome 1</p>
-<p>SPBTRNA*</p>
-<p>tRNA genes on chromosome 2</p>
-<p>SPCTRNA*</p>
-<p>tRNA genes on chromosome 3</p>
-<p>SPLTRA*</p>
-<p>LTRs on chromosome 1</p>
-<p>SPLTRB*</p>
-<p>LTRs on chromosome 2</p>
-<p>SPLTRC*</p>
-<p>LTRs on chromosome 3</p>
-<p>SPNCRNA*</p>
-<p>non-coding RNA genes (no chromosome info in ID)</p>
-<p>SPRPTA.*</p>
-<p>repeats (other than LTRs or centromeric repeats) on chromosome 1</p>
-<p>SPRPTB.*</p>
-<p>repeats (other than LTRs or centromeric repeats) on chromosome 2</p>
-<p>SPRPTC.*</p>
-<p>repeats (other than LTRs or centromeric repeats) on chromosome 3</p>
-<p>SPRPTCENA*</p>
-<p>centromeric repeats on chromosome 1</p>
-<p>SPRPTCENB*</p>
-<p>centromeric repeats on chromosome 2</p>
-<p>SPRPTCENC*</p>
-<p>centromeric repeats on chromosome 3</p>
-<p>SPRRNA*</p>
-<p>rRNA genes (no chromosome info in ID)</p>
-<p>SPSNORNA*</p>
-<p>snoRNA genes (no chromosome info in ID)</p>
-<p>SPSNRNA*</p>
-<p>snRNA genes (no chromosome info in ID)</p>
-<p>SPTF*</p>
-<p>transposons (no chromosome info in ID)</p>
-<p>SPMTR*</p>
-<p>features on the separately sequenced mating type region contig</p>
-<p>SPMIT*</p>
-<p>features on the mitochondrial chromosome</p>
-<p>SPMITTRNA*</p>
-<p>subset of SPMIT*; tRNA genes on mitochondrial chromosome</p>
-<p>SPNUMT*</p>
-<p>NUMTs (nuclear mitochondrial pseudogenes) (no chromosome info in ID)</p>
+<table>
+<thead>
+<tr class="header">
+<th>ID pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SPAC*</td>
+<td>features, usually ORFs, on chromosome 1, sequenced on cosmids</td>
+</tr>
+<tr class="even">
+<td>SPBC*</td>
+<td>features, usually ORFs, on chromosome 2, sequenced on cosmids</td>
+</tr>
+<tr class="odd">
+<td>SPCC*</td>
+<td>features, usually ORFs, on chromosome 3, sequenced on cosmids</td>
+</tr>
+<tr class="even">
+<td>SPAP*</td>
+<td>features, usually ORFs, on chromosome 1, sequenced on plasmids</td>
+</tr>
+<tr class="odd">
+<td>SPBP*</td>
+<td>features, usually ORFs, on chromosome 2, sequenced on plasmids</td>
+</tr>
+<tr class="even">
+<td>SBCP*</td>
+<td>features, usually ORFs, on chromosome 3, sequenced on plasmids</td>
+</tr>
+<tr class="odd">
+<td>SPATRNA*</td>
+<td>tRNA genes on chromosome 1</td>
+</tr>
+<tr class="even">
+<td>SPBTRNA*</td>
+<td>tRNA genes on chromosome 2</td>
+</tr>
+<tr class="odd">
+<td>SPCTRNA*</td>
+<td>tRNA genes on chromosome 3</td>
+</tr>
+<tr class="even">
+<td>SPLTRA*</td>
+<td>LTRs on chromosome 1</td>
+</tr>
+<tr class="odd">
+<td>SPLTRB*</td>
+<td>LTRs on chromosome 2</td>
+</tr>
+<tr class="even">
+<td>SPLTRC*</td>
+<td>LTRs on chromosome 3</td>
+</tr>
+<tr class="odd">
+<td>SPNCRNA*</td>
+<td>non-coding RNA genes (no chromosome info in ID)</td>
+</tr>
+<tr class="even">
+<td>SPRPTA.*</td>
+<td>repeats (other than LTRs or centromeric repeats) on chromosome 1</td>
+</tr>
+<tr class="odd">
+<td>SPRPTB.*</td>
+<td>repeats (other than LTRs or centromeric repeats) on chromosome 2</td>
+</tr>
+<tr class="even">
+<td>SPRPTC.*</td>
+<td>repeats (other than LTRs or centromeric repeats) on chromosome 3</td>
+</tr>
+<tr class="odd">
+<td>SPRPTCENA*</td>
+<td>centromeric repeats on chromosome 1</td>
+</tr>
+<tr class="even">
+<td>SPRPTCENB*</td>
+<td>centromeric repeats on chromosome 2</td>
+</tr>
+<tr class="odd">
+<td>SPRPTCENC*</td>
+<td>centromeric repeats on chromosome 3</td>
+</tr>
+<tr class="even">
+<td>SPRRNA*</td>
+<td>rRNA genes (no chromosome info in ID)</td>
+</tr>
+<tr class="odd">
+<td>SPSNORNA*</td>
+<td>snoRNA genes (no chromosome info in ID)</td>
+</tr>
+<tr class="even">
+<td>SPSNRNA*</td>
+<td>snRNA genes (no chromosome info in ID)</td>
+</tr>
+<tr class="odd">
+<td>SPTF*</td>
+<td>transposons (no chromosome info in ID)</td>
+</tr>
+<tr class="even">
+<td>SPMTR*</td>
+<td>features on the separately sequenced mating type region contig</td>
+</tr>
+<tr class="odd">
+<td>SPMIT*</td>
+<td>features on the mitochondrial chromosome</td>
+</tr>
+<tr class="even">
+<td>SPMITTRNA*</td>
+<td>subset of SPMIT*; tRNA genes on mitochondrial chromosome</td>
+</tr>
+<tr class="odd">
+<td>SPNUMT*</td>
+<td>NUMTs (nuclear mitochondrial pseudogenes) (no chromosome info in ID)</td>
+</tr>
+</tbody>
+</table>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'genome-statistics-and-lists' || pageName == 'sequence-retrieval' || pageName == 'how-are-sequence-feature-types-defined-pombase'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'how-are-sequence-feature-types-defined-pombase'">
 <h3 id="how-are-sequence-feature-types-defined-pombase">How are sequence feature types defined in PomBase?</h3>
-<!-- pombase_categories: Datasets,Genome Statistics and Lists,Sequence Retrieval -->
-<p>S. pombe genome features were originally annotated using <a href="http://www.sanger.ac.uk/resources/software/artemis/">Artemis</a>. As noted in the manual (ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf - see p. 9), Artemis draws from a list of feature keys that is documented at EBI: ftp://ftp.ebi.ac.uk/pub/databases/embl/doc/FT_current.html#7.2<br />
-<br />
-In the genome sequence data files, features are defined using Sequence Ontology terms. Gene pages use a selection of human-friendly text descriptions for feature types. (Further details will be available here soon.)</p>
+<!-- pombase_categories: Finding data,Genome statistics and lists -->
+<p>S. pombe genome features were originally annotated using <a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis</a>. As noted in the manual (ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf - see p. 9), Artemis draws from a list of feature keys that is documented at EBI: ftp://ftp.ebi.ac.uk/pub/databases/embl/doc/FT_current.html#7.2<br />
+In the genome sequence data files, features are defined using <a href="http://sequenceontology.org/">Sequence Ontology</a> terms. Gene pages use a selection of human-friendly text descriptions for feature types.</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-browse-phenotype-ontology-fypo'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-browse-phenotype-ontology-fypo'">
 <h3 id="how-can-i-browse-phenotype-ontology-fypo">How can I browse the phenotype ontology (FYPO)?</h3>
-<!-- pombase_categories: Querying/Searching,Tools and Resources,Using Ontologies -->
-In the future, we plan to make Fission Yeast Phenotype Ontology (FYPO) terms and annotations available in a browser analogous to AmiGO or QuickGO. Until such a browser becomes available, FYPO is accessible in these external resources:<br />
-<br />
-NCBO BioPortal - search on the <a href="http://bioportal.bioontology.org/">BioPortal home page</a>, go to the <a href="http://bioportal.bioontology.org/ontologies/FYPO">FYPO summary page</a>, or go to the <a href="http://bioportal.bioontology.org/ontologies/FYPO/?p=classes">FYPO terms page</a>. For assistance, see the &quot;User Interface&quot; part of the <a href="http://bioportal.bioontology.org/help">BioPortal Help</a>.<br />
-<br />
-EBI's Ontology Lookup Service (OLS) - search on the <a href="http://www.ebi.ac.uk/ontology-lookup/">OLS home page</a> or go to the <a href="http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=FYPO">FYPO page</a>. Help is provided on each page.<br />
-<br />
-
+<!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
+<p>In the future, we plan to make Fission Yeast Phenotype Ontology (FYPO) terms and annotations available in a browser analogous to AmiGO or QuickGO. Until such a browser becomes available, FYPO is accessible in these external resources:</p>
+<p>NCBO BioPortal - search on the <a href="http://bioportal.bioontology.org/">BioPortal home page</a>, go to the <a href="http://bioportal.bioontology.org/ontologies/FYPO">FYPO summary page</a>, or go to the <a href="http://bioportal.bioontology.org/ontologies/FYPO/?p=classes&conceptid=root">FYPO terms page</a>. For assistance, see the &quot;User Interface&quot; part of the <a href="http://bioportal.bioontology.org/help">BioPortal Help</a>.</p>
+<p>EBI's Ontology Lookup Service (OLS) - search on the <a href="http://www.ebi.ac.uk/ontology-lookup/">OLS home page</a> or go to the <a href="http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=FYPO">FYPO page</a>. Help is provided on each page.</p>
 
 </div>
-<div *ngIf="pageName == 'genome-browser' || pageName == 'locating-genomic-regions' || pageName == 'querying-searching' || pageName == 'sequence-retrieval' || pageName == 'how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser'">
+<div *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser'">
 <h3 id="how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">How can I display a sequence region using sequence coordinates in the genome browser?</h3>
-<!-- pombase_categories: Genome Browser,Locating Genomic Regions,Querying/Searching,Sequence Retrieval -->
-<p>Go to the Genome Browser (in the Tools menu), and enter coordinates in the 'Search for:' box. The format is 'I:100000..200000' or 'I:100000-200000' (i.e. use Roman numerals to specify the chromosome, and don't include the word &quot;chromosome&quot;; use either '..' or '-' between the start and end coordinates.)</p>
+<!-- pombase_categories: Genome browser,Finding data -->
+<p>Go to the <a href="http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Info/Index">genome browser</a>, and enter coordinates in the 'Search for:' box. The format is 'I:100000..200000' or 'I:100000-200000' (i.e. use Roman numerals to specify the chromosome, and don't include the word &quot;chromosome&quot;; use either '..' or '-' between the start and end coordinates.)</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-all-genes-have-given-mutant-phenotype'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-all-genes-have-given-mutant-phenotype'">
 <h3 id="how-can-i-find-all-genes-have-given-mutant-phenotype">How can I find all of the genes that have a given mutant phenotype?</h3>
-<!-- pombase_categories: Querying/Searching,Using Ontologies -->
-<p>You can search for genes annotated to a Fission Yeast Phenotype Ontology term in the Advanced Search (http://www.pombase.org/spombe/query/builder or go to the Find tab and click &quot;Advanced Search&quot;).</p>
-<p>In the &quot;Select Filter&quot; pulldown, if you know the ID (for example, &quot;inviable cell&quot; is FYPO:0000049, and &quot;elongated cell&quot; is FYPO:0000017) choose &quot;FYPO ID&quot;, and then type or paste the ID into the box. Otherwise, choose &quot;FYPO Term Name&quot; and start typing; the autocomplete feature will suggest phenotypes. Choose one, and click the Submit button to run the search. You can download the list in plain text or a few other formats from the query results page.</p>
-<p>Note that the FYPO search retrieves annotations by following the <em>is_a</em>, <em>part_of</em>, <em>output_of</em>, <em>has_output</em>, and <em>has_part</em> relationships in the ontology. For example, FYPO includes the relation &quot;inviable swollen elongated cell with enlarged nucleus&quot; (FYPO:0002083) <em>has_part</em> &quot;swollen cell&quot; (FYPO:0000025). Genes annotated to FYPO:0002083 will therefore be retrieved in a search for FYPO:0000025. See the <a routerLink="/documentation/advanced-search-documentation" routerLinkActive="active">Advanced Search documentation</a> for more information.</p>
-<p>Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0000017%22,%22query_2%22:%22all_alleles%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Genes annotated to &quot;elongated cell&quot; (FYPO:0000017), all alleles</a></p>
+<!-- pombase_categories: Finding data,Using ontologies -->
+<p>You can search for genes annotated to a Fission Yeast Phenotype Ontology term in the <a routerLink="/query" routerLinkActive="active">advanced search</a>. In the &quot;Phenotype&quot; query, if you know the ID (for example, &quot;inviable cell&quot; is FYPO:0000049, and &quot;elongated cell&quot; is FYPO:0000017) you can type or paste the ID into the box. Otherwise, start typing a term name or description; the autocomplete feature will suggest phenotypes. Choose one to retrieve annotated genes.</p>
+<p>Note that the FYPO search retrieves annotations by following the <em>is_a</em>, <em>part_of</em>, <em>output_of</em>, <em>has_output</em>, and <em>has_part</em> relationships in the ontology. For example, FYPO includes the relation &quot;inviable swollen elongated cell with enlarged nucleus&quot; (FYPO:0002083) <em>has_part</em> &quot;swollen cell&quot; (FYPO:0000025). Genes annotated to FYPO:0002083 will therefore be retrieved in a search for FYPO:0000025. See the <a routerLink="/documentation/advanced-search" routerLinkActive="active">advanced search documentation</a> for more information.</p>
+<!--
+Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0000017%22,%22query_2%22:%22all_alleles%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Genes annotated to "elongated cell" (FYPO:0000017), all alleles</a> 
+
+-->
 <p>Also see the FAQ on <a routerLink="/faq/can-i-get-list-essential-pombe-genes" routerLinkActive="active">finding essential genes</a>.</p>
 
 </div>
-<div *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'querying-searching' || pageName == 'how-can-i-find-all-s.-pombe-genes-are-conserved-human'">
+<div *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'how-can-i-find-all-s.-pombe-genes-are-conserved-human'">
 <h3 id="how-can-i-find-all-s.-pombe-genes-are-conserved-human">How can I find all S. pombe genes that are conserved in human?</h3>
-<!-- pombase_categories: Genome Statistics and Lists,Orthology,Querying/Searching -->
-<p>Almost all genes that are conserved between fission yeast and human are also conserved in other vertebrates (there are two exceptions, genes encoding amino acid biosynthesis proteins that have become pseudogenes in human). To retreive these genes, go to the Advanced Search (http://www.pombase.org/spombe/query/builder), and choose the &quot;Conserved in ...&quot; filter option. Then choose the description &quot;Conserved in vertebrates&quot;, and submit.</p>
-<p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-s-pombe-genes-associated-human-disease" routerLinkActive="active">finding disease gene orthologs</a>, <a routerLink="/faq/how-can-i-find-s-pombe-orthologs-human-gene" routerLinkActive="active">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-list-human-and-s-pombe-orthologs" routerLinkActive="active">downloading the full set of curated orthologs</a>.</p>
-<p>Query link: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2226%22,%22query%22:%22PBO:0011070%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Genes conserved in vertebrates</a></p>
+<!-- pombase_categories: Genome statistics and lists,Orthology -->
+<p>Almost all genes that are conserved between fission yeast and human are also conserved in other vertebrates (there are two exceptions, both of which are genes encoding amino acid biosynthesis proteins that have become pseudogenes in human). To retreive these genes, go to the <a routerLink="/query" routerLinkActive="active">advanced search</a>, click the &quot;Taxonomic conservation&quot; query option, and choose the description &quot;Conserved in vertebrates&quot;.</p>
+<p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-s-pombe-genes-associated-with-human-disease" routerLinkActive="active">finding disease gene orthologs</a>, <a routerLink="/faq/how-can-i-find-s-pombe-ortholog-s-of-a-human-gene" routerLinkActive="active">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-the-list-of-human-and-s-pombe-orthologs" routerLinkActive="active">downloading the full set of curated orthologs</a>.</p>
+<!--
+Query link: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2226%22,%22query%22:%22PBO:0011070%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Genes conserved in vertebrates</a> 
+-->
 
 </div>
-<div *ngIf="pageName == 'orthology' || pageName == 'querying-searching' || pageName == 'how-can-i-find-all-s.-pombe-proteins-particular-protein-family'">
+<div *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-s.-pombe-proteins-particular-protein-family'">
 <h3 id="how-can-i-find-all-s.-pombe-proteins-particular-protein-family">How can I find all S. pombe proteins in a particular protein family?</h3>
-<!-- pombase_categories: Orthology,Querying/Searching -->
+<!-- pombase_categories: Orthology,Finding data -->
 <p>There are various ways you can find protein family members.</p>
 <ol style="list-style-type: decimal">
-<li>If you know the Pfam, PRINTs, PROSITE, or InterPro accession for the family or domain you want, you can use the <a href="http://www.pombase.org/spombe/query/builder">Advanced Search</a> (http://www.pombase.org/spombe/query/builder). Go to the New Query tab, choose &quot;Proteins That Have Specific Protein Domains&quot; in the &quot;Select Filter&quot; pulldown, enter the accession, and submit.</li>
+<li>If you know the Pfam, PRINTs, PROSITE, or InterPro accession for the family or domain you want, you can use the <a routerLink="/query" routerLinkActive="active">advanced search</a>). Click &quot;Protein domain&quot; and then enter the accession.</li>
 <li>If you don't have an accession, but do know any member of the family, go directly to its gene page. In the &quot;Protein Features&quot; section of the gene page there is a table of protein domains and families, which includes a link to a list of all family members in S. pombe.</li>
-<li>If you know neither accessions nor family members, you can search for keywords in the <a href="http://www.ebi.ac.uk/interpro/">InterPro</a> database (http://www.ebi.ac.uk/interpro/), which combines signatures from a number of member databases, including Pfam. Record the accession number(s) of the family, and use them in the PomBase advanced search as described in item 1 above. (If necessary, you can use Query Management to combine the results of several queries.)</li>
+<li>If you know neither accessions nor family members, you can search for keywords in the <a href="http://www.ebi.ac.uk/interpro/">InterPro</a> database, which combines signatures from a number of member databases, including Pfam. Record the accession number(s) of the family, and use them in the PomBase advanced search as described in item 1 above. (If necessary, you can use the query history to combine the results of several queries.)</li>
 </ol>
-<p>You can also try a keyword search in the PomBase advanced search, but this is much less reliable, because a keyword search may retrieve some proteins that don't have the domain or aren't family members due to coincidentally matching words in gene product descriptions. In the future, we plan to add the ability to search the full text of gene pages, which will provide another option for finding protein family information.</p>
-<p>Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%224%22,%22query_1%22:%22pfam_pf%22,%22query_2%22:%22PF00004%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Proteins matching &quot;ATPase, AAA-type, core&quot; (Pfam:PF00004)</a></p>
+<!--
+Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%224%22,%22query_1%22:%22pfam_pf%22,%22query_2%22:%22PF00004%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Proteins matching "ATPase, AAA-type, core" (Pfam:PF00004)</a> 
+-->
 
 </div>
-<div *ngIf="pageName == 'genome-browser' || pageName == 'querying-searching' || pageName == 'sequence-retrieval' || pageName == 'how-can-i-find-all-sequence-features-region-using-chromosome-coordinates'">
+<div *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-sequence-features-region-using-chromosome-coordinates'">
 <h3 id="how-can-i-find-all-sequence-features-region-using-chromosome-coordinates">How can I find all sequence features in a region using chromosome coordinates?</h3>
-<!-- pombase_categories: Genome Browser,Querying/Searching,Sequence Retrieval -->
-<p>You can do this in the Genome Browser (from a gene page or the Tools menu). First, <a routerLink="/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser" routerLinkActive="active">enter the coordinates</a>, then click the Export Data button on the left-hand side. In the Output pulldown (topmost in the popup window) choose one of the formats under the &quot;Feature File&quot; header. Then follow the remaining steps to <a routerLink="/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates" routerLinkActive="active">retrieve the sequence features</a> -- add flanking sequences, select options for your selected output format, etc.</p>
+<!-- pombase_categories: Genome browser,Finding data -->
+<p>You can do this in the genome browser (from a gene page or the Tools menu). First, <a routerLink="/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser" routerLinkActive="active">enter the coordinates</a>, then click the Export Data button on the left-hand side. In the Output pulldown (topmost in the popup window) choose one of the formats under the &quot;Feature File&quot; header. Then follow the remaining steps to <a routerLink="/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates" routerLinkActive="active">retrieve the sequence features</a> -- add flanking sequences, select options for your selected output format, etc.</p>
 
 </div>
 <div *ngIf="pageName == 'querying-searching' || pageName == 'how-can-i-find-genes-region-using-chromosome-coordinates'">
@@ -3396,96 +3440,98 @@ EBI's Ontology Lookup Service (OLS) - search on the <a href="http://www.ebi.ac.u
 <p>Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2210%22,%22query%22:%22II%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2215%22,%22query_1%22:%221000000%22,%22query_2%22:%222000000%22%7D%7D,%22filter_count%22:%222%22%7D%5D" routerLinkActive="active">Genes between coordinates 1000000-2000000 on chromosome 2</a></p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-genes-specific-activity'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-genes-specific-activity'">
 <h3 id="how-can-i-find-genes-specific-activity">How can I find genes with a specific activity?</h3>
-<!-- pombase_categories: Querying/Searching,Using Ontologies -->
-<p>PomBase uses Gene Ontology (GO) molecular function terms to capture the activities -- including enzymatic activities, binding, transporters, etc. -- of gene products. You can therefore use the GO filters in the Advanced Search to retrieve genes whose products have a given activity.</p>
-<p>In the &quot;Select Filter&quot; pulldown, if you know the ID (for example, &quot;histone acetyltransferase activity&quot; is GO:0004402, and &quot;calcium ion transmembrane transporter activity&quot; is GO:0015085) choose &quot;GO ID&quot;, and then type or paste the ID into the box. Otherwise, choose &quot;GO Term Name&quot; and start typing; the autocomplete feature will suggest terms. Choose one, and click the Submit button to run the search. You can download the list in plain text or a few other formats from the query results page. You can try using more specific or less specific terms to retrieve the results that best fit your expectations and needs. See the <a routerLink="/documentation/advanced-search-documentation" routerLinkActive="active">Advanced Search documentation</a> and the <a routerLink="/documentation/gene-page-gene-ontology" routerLinkActive="active">Gene Page GO documentation</a> for more information, including how <a routerLink="/documentation/advanced-search-documentation#filt" routerLinkActive="active">ontology searches retrieve annotations</a> to general terms.</p>
-<p>Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0004721%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">phosphoprotein phosphatase activity (GO:0004721)</a></p>
+<!-- pombase_categories: Finding data,Using ontologies -->
+<p>PomBase uses Gene Ontology (GO) molecular function terms to capture the activities -- including enzymatic activities, binding, transporters, etc. -- of gene products. You can therefore use the GO term query in the <a routerLink="/query" routerLinkActive="active">advanced search</a> to retrieve genes whose products have a given activity.</p>
+<p>In the &quot;GO&quot; query, if you know the ID (for example, &quot;histone acetyltransferase activity&quot; is GO:0004402, and &quot;calcium ion transmembrane transporter activity&quot; is GO:0015085), type or paste it into the box. Otherwise, and start typing a name or description; the autocomplete feature will suggest terms. Choose one to retrieve annotated genes. You can try using more specific or less specific terms to retrieve the results that best fit your expectations and needs. See the <a routerLink="/documentation/advaced-search" routerLinkActive="active">advanced search documentation</a> and the <a routerLink="/documentation/gene-page-gene-ontology" routerLinkActive="active">Gene Page GO documentation</a> for more information, including how [ontology searches retrieve annotations] to general terms.</p>
+<!--
+Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0004721%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">phosphoprotein phosphatase activity (GO:0004721)</a> 
+-->
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus'">
 <h3 id="how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus">How can I find GO annotations for other Schizosaccharomyces species (e.g. S. japonicus)?</h3>
-<!-- pombase_categories: Datasets,Querying/Searching,Using Ontologies -->
-<p>For the sequenced strains of <em>S. japonicus</em>, <em>S. octosporus</em> and <em>S. cryophilus</em>, the Ensembl group has generated GO annotation data sets for protein-coding genes by transferring experiment-based annotations from <em>S. pombe</em> orthologs. You can use the <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a> browser to retrieve the data for each species -- follow the &quot;Search and Filter GO annotation sets&quot; link, then click &quot;Filter&quot; to set a taxon filter for the taxon ID:<br />
-<br />
-<em>S. japonicus</em> (strain yFS275) - 402676<br />
-<em>S. octosporus</em> (strain yFS286) - 483514<br />
-<em>S. cryophilus</em> (strain OY26) - 653667<br />
-<br />
-Because these automated annotations are inferred only from experimentally-derived <em>S. pombe</em> annotations, coverage will not be complete.</p>
+<!-- pombase_categories: Finding data,Using ontologies -->
+<p>For the sequenced strains of <em>S. japonicus</em>, <em>S. octosporus</em> and <em>S. cryophilus</em>, the Ensembl group has generated GO annotation data sets for protein-coding genes by transferring experiment-based annotations from <em>S. pombe</em> orthologs. You can use the <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a> browser to retrieve the data for each species -- follow the &quot;Search and Filter GO annotation sets&quot; link, then click &quot;Filter&quot; to set a taxon filter for the taxon ID:</p>
+<ul>
+<li><em>S. japonicus</em> (strain yFS275): 402676</li>
+<li><em>S. octosporus</em> (strain yFS286): 483514</li>
+<li><em>S. cryophilus</em> (strain OY26): 653667</li>
+</ul>
+<p>Because these automated annotations are inferred only from experimentally-derived <em>S. pombe</em> annotations, coverage will not be complete.</p>
 <p>Note that the GAF downloaded from QuickGO uses UniProtKB accessions in the gene product ID column (column 2). To use the GAF in any further analysis, such as term enrichment, you will have to convert the accessions to systematic IDs. See the <a routerLink="/faq/can-i-convert-ids-other-databases-or-pombase-ids" routerLinkActive="active">FAQ on ID mapping</a> for hints.</p>
-<p>One feasible approach to improve annotation coverage is to download the <em>S. pombe</em> GO annotations (see the <a routerLink="/downloads/go-associations" routerLinkActive="active">GO Associations download</a> page), and then substitute the <em>S. pombe</em> IDs with the IDs of orthologous genes from the other <em>Schizosaccharomyces</em> species of interest. For ortholog IDs, see the <a routerLink="/faq/how-can-i-find-orthologs-between-s-pombe-and-other-schizosaccharomyces-species" routerLinkActive="active">FAQ on <em>Schizosaccharomyces</em>orthologs</a>, and use the indicated table from Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts ( <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>).</p>
-<p>Note that some genes are present in  <em>S. japonicus</em>, <em>S. octosporus</em> or <em>S. cryophilus</em> but absent from <em>S. pombe</em>. For some of these gene products, GO annotations can be transferred from other species. If you wish to include annotations for these genes in your analysis you will need to use this option, and extend your GAF with the relevant annotation lines (contact the <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">Helpdesk</a> if you need assistance). Combining all approaches gives the best coverage possible at present. You can use a &quot;GO Slim&quot; tool such as Princeton's GO Term Mapper to see if there are any gaps in coverage, as described in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list" routerLinkActive="active">FAQ on enrichment in <em>S. pombe</em></a>. Also see the FAQs on GO term enrichment in <a routerLink="/faq/can-i-do-go-term-enrichment-other-schizosaccharomyces-species-eg-s-japonicus" routerLinkActive="active">other <em>Schizosaccharomyces</em> species</a>.</p>
+<p>One feasible approach to improve annotation coverage is to download the <em>S. pombe</em> GO annotations (see the <a routerLink="/downloads/go-associations" routerLinkActive="active">GO Associations download</a></p>
+<p>page), and then substitute the <em>S. pombe</em> IDs with the IDs of orthologous genes from the other <em>Schizosaccharomyces</em> species of interest. For ortholog IDs, see the <a routerLink="/faq/how-can-i-find-orthologs-between-s-pombe-and-other-schizosaccharomyces-species" routerLinkActive="active">FAQ on <em>Schizosaccharomyces</em> orthologs</a>, and use the indicated table from Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>).</p>
+<p>Note that some genes are present in <em>S. japonicus</em>, <em>S. octosporus</em> or <em>S. cryophilus</em> but absent from <em>S. pombe</em>. For some of these gene products, GO annotations can be transferred from other species. If you wish to include annotations for these genes in your analysis you will need to use this option, and extend your GAF with the relevant annotation lines (contact the <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">Helpdesk</a> if you need assistance). Combining all approaches gives the best coverage possible at present. You can use a &quot;GO Slim&quot; tool such as Princeton's GO Term Mapper to see if there are any gaps in coverage, as described in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list" routerLinkActive="active">FAQ on enrichment in <em>S. pombe</em></a>. Also see the FAQs on GO term enrichment in <a routerLink="/faq/can-i-do-go-term-enrichment-for-other-schizosaccharomyces-species-e-g-s-japonicus" routerLinkActive="active">other <em>Schizosaccharomyces</em> species</a>.</p>
 
 </div>
-<div *ngIf="pageName == 'datasets' || pageName == 'querying-searching' || pageName == 'sequence-retrieval' || pageName == 'how-can-i-find-intron-branch-sites'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-intron-branch-sites'">
 <h3 id="how-can-i-find-intron-branch-sites">How can I find intron branch sites?</h3>
-<!-- pombase_categories: Datasets,Querying/Searching,Sequence Retrieval -->
-<p>A dataset of intron branch sites is available as a track in the Genome Browser. The data were published in:</p>
-<p>Bitton DA, Rallis C, Jeffares DC, Smith GC, Chen YY, Codlin S, Marguerat S, Bähler J. LaSSO, a strategy for genome-wide mapping of intronic lariats and branch points using RNA-seq. <em>Genome Res.</em> 2014 Jul; <strong>24(7)</strong>:1169-79. ( <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">PMID:24709818</a>; <a href="http://dx.doi.org/10.1101/gr.166819.113">DOI:10.1101/gr.166819.113</a>)</p>
+<!-- pombase_categories: Finding data -->
+<p>A dataset of intron branch sites is available as a track in the genome browser. The data were published in:</p>
+<p>Bitton DA, Rallis C, Jeffares DC, Smith GC, Chen YY, Codlin S, Marguerat S, Bähler J. LaSSO, a strategy for genome-wide mapping of intronic lariats and branch points using RNA-seq. <em>Genome Res.</em> 2014 Jul; <strong>24(7)</strong>:1169-79. (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">PMID:24709818</a>; <a href="http://dx.doi.org/10.1101/gr.166819.113">DOI:10.1101/gr.166819.113</a>)</p>
 <p>To view this data track, follow the instructions in the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser" routerLinkActive="active">track configuration FAQ</a>, and select the Intron Branch Point track.</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-modifications-my-protein-interest'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-modifications-my-protein-interest'">
 <h3 id="how-can-i-find-modifications-my-protein-interest">How can I find modifications for my protein of interest?</h3>
-<!-- pombase_categories: Querying/Searching,Using Ontologies -->
-<p>Protein modifications (where curated) are included in the Modifications section on gene pages. (We plan to include RNA modifications later.) The <a routerLink="/documentation/gene-page-modifications" routerLinkActive="active">Gene Page modifications documentation</a> describes the display.</p>
-<p>To retrieve all genes whose products have a given modification, use the PSI-MOD filter in the Advanced Search. In the &quot;Select Filter&quot; pulldown, if you know the ID (for example, &quot;phosphorylated residue&quot; is MOD:00696) choose &quot;PSI-MOD ID&quot;, and then type or paste the ID into the box. Otherwise, choose &quot;PSI-MOD Term Name&quot; and start typing; the autocomplete feature will suggest terms. Choose one, and click the Submit button to run the search. See the <a routerLink="/documentation/advanced-search-documentation" routerLinkActive="active">Advanced Search documentation</a> for more information, including how <a routerLink="/documentation/advanced-search-documentation#filt" routerLinkActive="active">ontology searches retrieve annotations</a> to general terms.</p>
-<p>We are aware that protein modification curation is relatively incomplete. If you know of any protein modifications that are missing from the gene pages or the search results, please <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">notify the PomBase curators</a>.</p>
-<p>Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2220%22,%22query%22:%22MOD:00696%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">phosphorylated residue (MOD:00696)</a></p>
+<!-- pombase_categories: Finding data,Using ontologies -->
+<p>Protein modifications (where curated) are included in the Modifications section on gene pages. (We plan to include RNA modifications later.) The <a routerLink="/documentation/gene-page-modifications" routerLinkActive="active">gene page modifications documentation</a> describes the display.</p>
+<p>To retrieve all genes whose products have a given modification, use the &quot;Protein modifications&quot; query in the [Advanced Search]. If you know the ID (for example, &quot;phosphorylated residue&quot; is MOD:00696), type or paste it into the box. Otherwise, start typing a name or description; the autocomplete feature will suggest terms. Choose one to retrieve annotated genes. See the <a routerLink="/documentation/advanced-search" routerLinkActive="active">advanced search documentation</a> for more information, including how ontology searches retrieve annotations to general terms.</p>
+<!--
+Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2220%22,%22query%22:%22MOD:00696%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">phosphorylated residue (MOD:00696)</a> 
+-->
 
 </div>
-<div *ngIf="pageName == 'orthology' || pageName == 'querying-searching' || pageName == 'how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species'">
+<div *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species'">
 <h3 id="how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species">How can I find orthologs between S. pombe and other Schizosaccharomyces species?</h3>
-<!-- pombase_categories: Orthology,Querying/Searching -->
-<p>On a gene-by-gene basis, you can use the link to &quot;View orthologs in other fungal species with Compara&quot; as described in the <a routerLink="/faq/how-can-i-find-s-pombe-orthologs-species-other-human-and-s-cerevisiae" routerLinkActive="active">FAQ on orthologs in other species</a>.</p>
-<p>For a full set of orthologous genes in <em>S. pombe</em>, <em>S. cryophilus</em>, <em>S.japonicus</em> and <em>S. octosporus</em>, see Table S12, columns AD-AG, in Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts ( <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>).</p>
+<!-- pombase_categories: Orthology,Finding data -->
+<p>On a gene-by-gene basis, you can use the Ensembl genome browser link to reach Fungal Compara as described in the <a routerLink="/faq/how-can-i-find-s-pombe-orthologs-species-other-human-and-s-cerevisiae" routerLinkActive="active">FAQ on orthologs in other species</a>.</p>
+<p>For a full set of orthologous genes in <em>S. pombe</em>, <em>S. cryophilus</em>, <em>S.japonicus</em> and <em>S. octosporus</em>, see Table S12, columns AD-AG, in Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>).</p>
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-protein-localization-data'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-protein-localization-data'">
 <h3 id="how-can-i-find-protein-localization-data">How can I find protein localization data?</h3>
-<!-- pombase_categories: Querying/Searching,Using Ontologies -->
-<p>Gene Ontology (GO) cellular component annotations capture the localizations of gene products to subcellular structures such as organelles or complexes. GO Cellular Component annotations are displayed on PomBase gene pages as described in the <a routerLink="/documentation/gene-page-gene-ontology" routerLinkActive="active">PomBase GO documentation</a>. The GO Consortium provides <a href="http://geneontology.org/page/cellular-component-ontology-guidelines">documentation</a> that describes what the Cellular Component ontology includes. To search for proteins (or functional RNAs) with a particular localization, use the <a routerLink="/documentation/advanced-search-documentation" routerLinkActive="active">Gene Ontology filter in the Advanced Search</a> to find genes annotated to the relevant GO Cellular Component term(s).</p>
-<p>Pombase GO Cellular Component annotations include data from the whole-genome localization study ( <a href="http://www.ncbi.nlm.nih.gov/pubmed/16823372">Matsuyama <em>et al.</em> 2006</a>) as well as manually curated data from papers on small-scale experiments, and inferences from ortholog annotations. Macromolecular complex annotations are also available in a file (see <a routerLink="/faq/there-list-protein-complexes-s-pombe-and-their-subunits" routerLinkActive="active">FAQ</a>).</p>
-<p>Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0005634%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">nucleus (GO:0005634)</a></p>
+<!-- pombase_categories: Finding data,Using ontologies -->
+<p>Gene Ontology (GO) cellular component annotations capture the localizations of gene products to subcellular structures such as organelles or complexes. GO Cellular Component annotations are displayed on PomBase gene pages as described in the <a routerLink="/documentation/gene-page-gene-ontology" routerLinkActive="active">PomBase GO documentation</a>. The GO Consortium provides <a href="http://geneontology.org/page/cellular-component-ontology-guidelines">documentation</a> that describes what the Cellular Component ontology includes. To search for proteins (or functional RNAs) with a particular localization, use the GO query in the <a routerLink="/query" routerLinkActive="active">advanced search</a> to find genes annotated to the relevant GO Cellular Component term(s).</p>
+<p>Pombase GO Cellular Component annotations include data from the whole-genome localization study (Matsuyama et al. 2006) as well as manually curated data from papers on small-scale experiments, and inferences from ortholog annotations. Macromolecular complex annotations are also available in a file (see <a routerLink="/faq/is-there-a-list-of-protein-complexes-in-s-pombe-and-their-subunits" routerLinkActive="active">FAQ</a>).</p>
+<!--
+Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0005634%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">nucleus (GO:0005634)</a>
+-->
 
 </div>
-<div *ngIf="pageName == 'querying-searching' || pageName == 'how-can-i-find-proteins-have-transmembrane-domains'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-proteins-have-transmembrane-domains'">
 <h3 id="how-can-i-find-proteins-have-transmembrane-domains">How can I find proteins that have transmembrane domains?</h3>
-<!-- pombase_categories: Querying/Searching -->
-<p>In the Advanced Search (http://www.pombase.org/spombe/query/builder), choose &quot;Transmembrane Domains&quot; under the &quot;Protein Filters&quot; heading in the &quot;Select Filter&quot; pulldown. Enter the minimum and maximum number of domains (use the same number as minimum and maximum to retrieve proteins with, e.g. exactly 7 transmembrane domains), and submit.</p>
-<p>Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%226%22,%22query_1%22:%227%22,%22query_2%22:%227%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Genes whose products have 7 transmembrane domains</a></p>
+<!-- pombase_categories: Finding data -->
+<p>In the <a routerLink="/query" routerLinkActive="active">advanced search</a>, use the &quot;Number of TM domains&quot; query. Enter the minimum and maximum number of domains (use the same number as minimum and maximum to retrieve proteins with, e.g. exactly 7 transmembrane domains).</p>
+<!--
+Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%226%22,%22query_1%22:%227%22,%22query_2%22:%227%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">Genes whose products have 7 transmembrane domains</a> 
+-->
 
 </div>
 <div *ngIf="pageName == 'querying-searching' || pageName == 'sequence-retrieval' || pageName == 'how-can-i-find-rrna-genes'">
 <h3 id="how-can-i-find-rrna-genes">How can I find rRNA genes?</h3>
 <!-- pombase_categories: Querying/Searching,Sequence Retrieval -->
-<p>Go to the Advanced Search - http://www.pombase.org/spombe/query/builder<br />
-Under &quot;Select Filter&quot; choose &quot;Genes By Type&quot;, then choose &quot;rRNA&quot;. Click &quot;Submit&quot;. You can download the resulting list of genes or the genomic sequences. Also see the <a routerLink="/faq/how-can-i-retrieve-sequence-coordinates-all-features-particular-type" routerLinkActive="active">FAQ on retrieving sequence coordinates</a>.</p>
-<p>Also see the FAQ on <a routerLink="/faq/are-there-any-rdna-repeat-sequences-pombase" routerLinkActive="active">rDNA sequences</a>.</p>
-<p>Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%229%22,%22query%22:%22rRNA%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">rRNA genes</a></p>
+<p>In the <a routerLink="/query" routerLinkActive="active">advanced search</a>, click &quot;Product type&quot;, then select &quot;rRNA&quot; from the pulldown.</p>
+<p>Also see the FAQ on <a routerLink="/faq/are-there-any-rdna-repeat-sequences-in-pombase" routerLinkActive="active">rDNA sequences</a>.</p>
+<!--
+Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%229%22,%22query%22:%22rRNA%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">rRNA genes</a> 
+-->
 
 </div>
-<div *ngIf="pageName == 'orthology' || pageName == 'querying-searching' || pageName == 'how-can-i-find-s.-pombe-genes-associated-human-disease'">
+<div *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-s.-pombe-genes-associated-human-disease'">
 <h3 id="how-can-i-find-s.-pombe-genes-associated-human-disease">How can I find S. pombe genes associated with human disease?</h3>
-<!-- pombase_categories: Orthology,Querying/Searching -->
-<p><em>S. pombe</em> genes whose human orthologs have been implicated in disease are annotated with terms from the internal <a routerLink="/faq/what-pbo-option-advanced-search" routerLinkActive="active">PBO</a> vocabulary. To retrieve all of these genes, you can use the most general &quot;disease associated&quot; term. To do the query manually:</p>
-<ol style="list-style-type: decimal">
-<li>Go to the Advanced Search ( <a href="http://www.pombase.org/spombe/query" class="uri">http://www.pombase.org/spombe/query</a>).</li>
-<li>Find the term:
-<ol style="list-style-type: decimal">
-<li>Select the 'PBO Term Name' filter, start typing 'disease associated', and choose 'disease_associated' from the autocomplete options; <strong>or</strong></li>
-<li>Select the 'PBO ID' filter and enter 'PBO:5000000'.</li>
-</ol></li>
-<li>Submit the query.</li>
-</ol>
-<p>You can also type all or part of specific disease name (e.g. 'cancer') into the 'PBO Term Name' filter to see if any matches come up in the autocomplete suggestions. Also see the FAQs on <a routerLink="/faq/how-can-i-find-all-s-pombe-genes-are-conserved-human" routerLinkActive="active">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s-pombe-orthologs-human-gene" routerLinkActive="active">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-list-human-and-s-pombe-orthologs" routerLinkActive="active">downloading the full set of curated orthologs</a>.</p>
-<p>Example queries:</p>
-<ul>
-<li><a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:5000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">disease_associated (PBO:5000000)</a></li>
-<li><a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0000239%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">cancer (PBO:0000239)</a></li>
-</ul>
+<!-- pombase_categories: Orthology,Finding data -->
+<p>S. pombe genes whose human orthologs have been implicated in disease are annotated with terms from the internal PBO vocabulary. To retrieve all of these genes, you can use the most general &quot;disease associated&quot; term in a query. In the <a routerLink="/query" routerLinkActive="active">advanced search</a>, select &quot;Disease&quot;. You can either start typing 'disease associated', and choose 'disease_associated' from the autocomplete options, or enter the ID 'PBO:5000000'.</p>
+<p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-all-s-pombe-genes-that-are-conserved-in-human" routerLinkActive="active">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s-pombe-ortholog-s-of-a-human-gene" routerLinkActive="active">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-the-list-of-human-and-s-pombe-orthologs" routerLinkActive="active">downloading the full set of curated orthologs</a>.</p>
+<!--
+Example queries:
+
+-   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:5000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">disease\_associated     (PBO:5000000)</a> 
+-   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0000239%22%7D%7D,%22filter_count%22:%221%22%7D%5D" routerLinkActive="active">cancer     (PBO:0000239)</a> 
+
+-->
 
 </div>
 <div *ngIf="pageName == 'querying-searching' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species'">
@@ -3949,14 +3995,14 @@ Many older <em>S. pombe</em> sequence submissions to the DNA databases (Internat
 </ul>
 
 </div>
-<div *ngIf="pageName == 'genome-browser' || pageName == 'locating-genomic-regions' || pageName == 'sequence-retrieval' || pageName == 'there-any-rdna-repeat-sequences-pombase'">
+<div *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'there-any-rdna-repeat-sequences-pombase'">
 <h3 id="there-any-rdna-repeat-sequences-pombase">Are there any rDNA repeat sequences in PomBase?</h3>
-<!-- pombase_categories: Genome Browser,Locating Genomic Regions,Sequence Retrieval -->
+<!-- pombase_categories: Genome browser,Finding data -->
 <p>The reference genome sequence excludes most of the ribosomal DNA (rDNA) repeats, which are present in two tandem arrays on chromosome III. These arrays are estimated to be 1225 kb and 240 kb in size for the sequenced strain (972 h-). The reference sequence includes two partial and one complete representative rDNA repeats:</p>
 <ul>
-<li>At the left-hand end a partial repeat contains <a href="http://www.pombase.org/spombe/result/SPRRNA.42">SPRRNA.42</a> (partial 18S gene)</li>
-<li>A complete repeat contains <a href="http://www.pombase.org/spombe/result/SPRRNA.47">SPRRNA.47</a> (28S), <a href="http://www.pombase.org/spombe/result/SPRRNA.50">SPRRNA.50</a> (5.8S), and <a href="http://www.pombase.org/spombe/result/SPRRNA.43">SPRRNA.43</a> (18S)</li>
-<li>A partial repeat at the right-hand end contains <a href="http://www.pombase.org/spombe/result/SPRRNA.45">SPRRNA.45</a></li>
+<li>At the left-hand end a partial repeat contains <a routerLink="/gene/SPRRNA.42" routerLinkActive="active">SPRRNA.42</a> (partial 18S gene)</li>
+<li>A complete repeat contains <a routerLink="/gene/SPRRNA.47" routerLinkActive="active">SPRRNA.47</a> (28S), <a routerLink="/gene/SPRRNA.50" routerLinkActive="active">SPRRNA.50</a> (5.8S), and <a routerLink="/gene/SPRRNA.43" routerLinkActive="active">SPRRNA.43</a> (18S)</li>
+<li>A partial repeat at the right-hand end contains <a routerLink="/gene/SPRRNA.45" routerLinkActive="active">SPRRNA.45</a></li>
 </ul>
 <p>The complete repeat sequence coordinates are <a href="http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=III%3A5542-13722">Chromosome 3:5542-13722</a> (note that the reverse strand is transcribed). The link goes to the PomBase Genome Browser, where you can view and <a routerLink="/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates" routerLinkActive="active">download</a> the sequence. Because the reverse strand is transcribed, you may want to choose &quot;-1&quot; in the location settings.</p>
 <p>Also see the FAQ on <a routerLink="/faq/how-can-i-find-rrna-genes" routerLinkActive="active">finding rRNA genes</a>.</p>
