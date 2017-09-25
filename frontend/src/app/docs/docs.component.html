@@ -69,12 +69,12 @@ EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees in vert
 <h2 id="contact-pombase-staff">Contact PomBase staff</h2>
 <p>Email: <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">helpdesk@pombase.org</a></p>
 <p>Post:</p>
-<p><span>PomBase</span><br />
+<p>PomBase<br />
 Department of Biochemistry<br />
 University of Cambridge<br />
 80 Tennis Court Road<br />
 Cambridge<br />
-<span>CB2</span> <span>1GA</span><br />
+CB2 1GA<br />
 United Kingdom</p>
 <h2 id="submit-data">Submit Data</h2>
 <ul>
@@ -93,7 +93,7 @@ United Kingdom</p>
 <h3 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h3>
 <ul>
 <li>Val Wood (Curator &amp; co-PI)</li>
-<li><span>Midori</span> Harris (Curator)</li>
+<li>Midori Harris (Curator)</li>
 <li>Kim Rutherford (Programmer)</li>
 <li>Steve Oliver (PI)</li>
 </ul>
@@ -1998,6 +1998,396 @@ United Kingdom</p>
   </div>
   </div>
 </div>
+<div *ngIf="section == 'datasets'">
+  <div class="docs-menu">
+<h3 id="datasets"><a routerLink="/datasets" routerLinkActive="active">Datasets</a></h3>
+<ul>
+<li><a routerLink="/downloads/genome-datasets" routerLinkActive="active">Genome Datasets</a></li>
+<li><a routerLink="/downloads/cds-coordinates" routerLinkActive="active">CDS Coordinates</a></li>
+<li><a routerLink="/downloads/protein-datasets" routerLinkActive="active">Protein Datasets</a></li>
+<li><a routerLink="/downloads/go-associations" routerLinkActive="active">GO Associations</a></li>
+<li><a routerLink="/downloads/intron-data" routerLinkActive="active">Intron Data</a></li>
+<li><a routerLink="/downloads/data-mappings" routerLinkActive="active">Data Mappings</a></li>
+<li><a routerLink="/downloads/utr" routerLinkActive="active">UTRs</a></li>
+</ul>
+
+  </div>
+  <div class="docs-content">
+  <div *ngIf="pageName == 'cds-coordinates'">
+<h3 id="cds-coordinates-1">CDS coordinates</h3>
+<p><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/CDS_Coordinates/" routerLinkActive="active">Directory</a></p>
+<ul>
+<li>CDS coordinates (start and stop only; one line per gene)
+<ul>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/CDS_Coordinates/chromosome1.cds.coords">Chromosome 1</a></li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/CDS_Coordinates/chromosome2.cds.coords">Chromosome 2</a></li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/CDS_Coordinates/chromosome3.cds.coords">Chromosome 3</a></li>
+</ul></li>
+<li>CDS exon coordinates (one line per exon)
+<ul>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Exon_Coordinates/chromosome1.exon.coords">Chromosome 1</a></li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Exon_Coordinates/chromosome2.exon.coords">Chromosome 2</a></li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Exon_Coordinates/chromosome3.exon.coords">Chromosome 3</a></li>
+</ul></li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'data-mappings'">
+<p><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/">Mapping file directory</a></p>
+<p><strong>Gene Product to UniProt Accession Number</strong></p>
+<ul>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/PomBase2UniProt.tsv" routerLinkActive="active">PomBase2UniProt.tsv</a> tab-delimited file of systematic identifier mapped to UniProt Accession Number</li>
+</ul>
+<h3 id="all-gene-names">All Gene Names</h3>
+<ul>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/allNames.tsv" routerLinkActive="active">allNames.tsv</a> tab-delimited file of systematic name, primary name (empty if not assigned), followed by all synonyms</li>
+</ul>
+<h3 id="systematic-id-to-gene-product">Systematic ID to Gene Product</h3>
+<p>Files include systematic name, primary name (empty if not assigned), synonyms (empty if not assigned), followed by gene product description</p>
+<ul>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.tsv" routerLinkActive="active">sysID2product.tsv</a> - protein-coding genes</li>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.rna.tsv" routerLinkActive="active">sysID2product.rna.tsv</a> - non-coding RNA genes</li>
+</ul>
+<p>Note: A tab-delimited file of systematic identifiers mapped to EC numbers was previously maintained, but has not been updated since March 2012. The most recent version of the <a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/OLD/gp2EC.txt" routerLinkActive="active">gp2EC.txt</a> file is available in the FTP archive, but because it is out of date it may contain errors or omissions.</p>
+
+  </div>
+  <div *ngIf="pageName == 'datasets'">
+<h2 id="datasets">Datasets</h2>
+<p>Links in the table go to web pages, except where &quot;ftp&quot; indicates that they go directly to ftp site directories. Note that the ftp subdirectories are organised slightly differently from the links on this page. If you have rouble finding anything, please ask the <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">helpdesk</a>.</p>
+<table style="width: 100%;">
+ <tbody>
+ <tr>
+  <td><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/">ftp site</a></td>
+  <td><em>S. pombe</em> ftp site root directory</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/datasets/genome-datasets" routerLinkActive="active">DNA sequence and feature datasets</a></td>
+  <td>GFF files of sequence feature coordinates; files with genome sequence (FASTA), features (GFF), or both (EMBL, GenBank, enriched EMBL for Artemis), plus others (UTR, CDS, links to other files at Ensembl Genomes)</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/datasets/cds-coordinates" routerLinkActive="active">CDS coordinates</a></td>
+  <td>Chromosomal coordinates of protein coding sequences - CDS only, or exons</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/datasets/protein-datasets" routerLinkActive="active">Protein datasets</a></td>
+  <td>Protein sequence FASTA database, peptide features, properties, etc.</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/datasets/go-associations" routerLinkActive="active">GO annotations</a></td>
+  <td>Gene ontology annotation files</td>
+ </tr>
+ <tr>
+  <td><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Complexes/">Macromolecular complexes</a></td>
+  <td>Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes; ftp)</td>
+ </tr>
+ <tr>
+  <td><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/exports/">HCPIN datasets</a></td>
+  <td>Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets (ftp)</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/datasets/phenotype-annotations" routerLinkActive="active">Phenotype annotations</a></td>
+  <td>FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary</td>
+ </tr>
+ <tr>
+  <td><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/modifications/">Modifications</a></td>
+  <td>Protein modification data file (RNA modifications to be added in future; ftp)</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/datasets/intron-data" routerLinkActive="active">Intron data</a></td>
+  <td>Intron sequence and data</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/datasets/data-mappings" routerLinkActive="active">Data mappings</a></td>
+  <td>Mappings of CDS (protein coding sequence) by systematic ID to gene names or UniProt accession numbers</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/downloads/manually-curated-orthologs" routerLinkActive="active">Orthologs</a></td>
+  <td>Manually curated ortholog sets for human and <em>S. cerevisiae</em></td>
+ </tr>
+ <tr>
+  <td><a routerLink="/status/telomeres" routerLinkActive="active">Telomeres</a></td>
+  <td>Telomeric sequence</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/status/centromeres" routerLinkActive="active">Centromeres</a></td>
+  <td>Centromeric sequence and maps</td>
+ </tr>
+ <tr>
+  <td><a routerLink="/status/mating-type-region" routerLinkActive="active">Mating Type Region</a></td>
+  <td>Links to genome browser for 972 h- (chromosome 2 coordinates) and h+ (mating region contig)</td>
+ </tr>
+ <tr>
+  <td><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Cosmid_assembly_data">Cosmid assembly data</a><a href="/status/mating-type-region"></a></td>
+  <td>Chromosome tiling paths from genome sequence assembly</td>
+ </tr>
+ </tbody>
+</table>
+
+  </div>
+  <div *ngIf="pageName == 'genome-datasets'">
+<p>Note that most of the datasets available here are compressed (.gz), and can be uncompressed by utilities available in all common operating systems.</p>
+<h2 id="genome-feature-annotations"><span id="features"></span>Genome Feature Annotations</h2>
+<p>Each link below goes to a directory within the PomBase FTP site, in which there is one file for the whole genome, plus individual files for each chromosome. Choose the file(s) you need and click to download.</p>
+<h3 id="feature-coordinates-only">Feature coordinates only</h3>
+<ul>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/gff3/">GFF3 format - feature coordinates</a></li>
+</ul>
+<h3 id="feature-coordinates-and-sequence-data">Feature coordinates and sequence data</h3>
+<ul>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/embl/">EMBL format</a></li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/genbank/">GenBank format</a></li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_contigs/">Chromosome contigs</a> in enriched EMBL-based format for loading into <a href="http://www.sanger.ac.uk/resources/software/artemis/">Artemis</a></li>
+</ul>
+<h2 id="sequence-datasets-fasta-format"><span id="sequences"></span>Sequence Datasets (FASTA format)</h2>
+<p>These files contain only DNA sequence data and headers.</p>
+<ul>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/fasta/" routerLinkActive="active">Chromosomes</a> - link to FTP site</li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/fasta/">Coding sequences (CDS)</a> - link to FTP site</li>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/fasta/" routerLinkActive="active">cDNA</a> - link to FTP site</li>
+<li><a routerLink="/downloads/utr" routerLinkActive="active">UTRs</a></li>
+</ul>
+<p>You can also browse the files available from the <a href="ftp://ftp.ensemblgenomes.org/pub/current/fungi/">Ensembl Genomes FTP site</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == 'go-associations'">
+<p><a href="ftp://ftp.geneontology.org/pub/go/gene-associations/gene_association.pombase.gz"><em>S. pombe</em> GO annotations</a> (link downloads gzipped file from the GO repository) include annotations made by manual literature curation, annotations inferred from keyword mappings based on curated descriptions, and annotations shared by the UniProt <a href="http://www.ebi.ac.uk/GOA">GOA</a> team. The file is tab-delimited text, so it can be opened in a spreadsheet application or parsed with a script; the <a href="http://geneontology.org/page/go-annotation-file-gaf-format-20">format</a> is described on the GO website.</p>
+<p>Also see the list of protein complexes in the FTP directory (<a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Complexes/" class="uri">ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Complexes/</a>), which uses GO macromolecular complex terms and IDs.</p>
+<p>Previous versions of the <em>S. pombe</em> GO annotation file can be retrieved from the <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Gene_ontology/OLD/">PomBase FTP archive</a> or via the GO CVSweb interface (<a href="http://cvsweb.geneontology.org/cgi-bin/cvsweb.cgi/go/gene-associations/gene_association.pombase.gz">PomBase</a> files and the very old <a href="http://cvsweb.geneontology.org/cgi-bin/cvsweb.cgi/go/gene-associations/gene_association.GeneDB_Spombe.gz">GeneDB</a> files are at separate locations on the GO site).</p>
+<p>To cite the fission yeast GO data, please see <a routerLink="/about/citing-pombase" routerLinkActive="active">Citing PomBase</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == 'index'">
+<h1 id="pombase-datasets">PomBase datasets</h1>
+<ul>
+<li><a routerLink="/downloads/genome-datasets" routerLinkActive="active">Genome Datasets</a></li>
+<li><a routerLink="/downloads/cds-coordinates" routerLinkActive="active">CDS Coordinates</a></li>
+<li><a routerLink="/downloads/protein-datasets" routerLinkActive="active">Protein Datasets</a></li>
+<li><a routerLink="/downloads/go-associations" routerLinkActive="active">GO Associations</a></li>
+<li><a routerLink="/downloads/intron-data" routerLinkActive="active">Intron Data</a></li>
+<li><a routerLink="/downloads/data-mappings" routerLinkActive="active">Data Mappings</a></li>
+<li><a routerLink="/downloads/utr" routerLinkActive="active">UTRs</a></li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'intron-data'">
+<p>Downloadable intron datasets are available in FASTA format from the <a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/FASTA/" routerLinkActive="active">PomBase FTP site</a>.</p>
+<p>Note that you can also use the Advanced Search to find all genes containing introns, as described in the <a href="http://www.pombase.org/faqs/how-can-i-retrieve-intron-coordinates-or-sequences">FAQ on introns</a>.</p>
+<hr />
+<p>We also provide access to archived <a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Intron_Data/OLD/" routerLinkActive="active">Intron Data</a>. Please note that this set of intron data reflect the dataset at the time of publication of the <em>S. pombe</em> genome sequence, and does not include any new introns, or changes to introns, since then. The intron data archive includes:</p>
+<ul>
+<li>List of all <em>S. pombe</em> intron-containing genes</li>
+<li>List of all <em>S. pombe</em> genes with exon numbers</li>
+<li><em>S. pombe</em> intron sequences in FASTA format (donor sequence and final 35 bases of acceptor)</li>
+<li>All introns with branch site aligned</li>
+<li>Donor frequency</li>
+<li>Branch frequency</li>
+<li>A README file is available with additional descriptions of file contents</li>
+</ul>
+<p>Also see the <a routerLink="/faqs/how-can-i-retrieve-intron-coordinates-or-sequences" routerLinkActive="active">FAQ on how to retrieve intron coordinates and sequences</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == 'phenotype-annotations'">
+<h2 id="full-phenotype-annotations">Full phenotype annotations</h2>
+<p><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz" routerLinkActive="active">Phenotype annotations</a> (link downloads gzipped file from PomBase ftp) for alleles of <em>S. pombe</em> genes are manually curated from the literature using Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file contains annotations for single allele phenotypes (single mutants) only.</p>
+<p>The file is in a version of the PomBase phenotype data bulk annotation format (PHAF), detailed below. This format in nearly identical to the one that can be used to submit phenotype annotations to PomBase in bulk, as described on the <a routerLink="/submit-data/phenotype-data-bulk-upload-format" routerLinkActive="active">Phenotype Data Bulk Upload Format</a> page, with the addition of the Database column.</p>
+<p>Propagating phenotype annotations: Note that the file contains only direct annotations to FYPO terms. It does not include annotations that can be inferred by propagating between terms within the ontology. To make full use of the FYPO annotation data, we strongly recommend also using the ontology structure and inferred annotations. Please contact the <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">PomBase helpdesk</a> if you need assistance.</p>
+<h2 id="viability-summary">Viability summary</h2>
+<p>A <a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/FYPOviability.tsv" routerLinkActive="active">set of &quot;viability summary&quot; data</a>, as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: &quot;viable&quot;, &quot;inviable&quot; or &quot;condition-dependent&quot;.</p>
+<p>To cite the fission yeast phenotype data (complete or viability summary), please see <a routerLink="/about/citing-pombase" routerLinkActive="active">Citing PomBase</a>.</p>
+<h2 id="phaf-download-format">PHAF download format</h2>
+<p>A column marked &quot;mandatory&quot; will always have an entry; non-mandatory columns may be empty.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Column</th>
+<th align="left">Contents</th>
+<th align="left">Example</th>
+<th align="left">Mandatory?</th>
+<th align="left">Multiple entries allowed?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">Database</td>
+<td align="left">PomBase</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">Gene systematic ID</td>
+<td align="left">SPBC11B10.09</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">FYPO ID</td>
+<td align="left">FYPO:0000001</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">Allele description</td>
+<td align="left">G146D Yes</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">Expression</td>
+<td align="left">endogenous Yes</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">Parental strain</td>
+<td align="left">975 h+</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left">Strain name (background)</td>
+<td align="left">SP286</td>
+<td align="left">No</td>
+<td align="left">No</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left">Genotype description</td>
+<td align="left">h+ ura4-D18 leu1-32 ade6-M210</td>
+<td align="left">No</td>
+<td align="left">No</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="left">Gene name</td>
+<td align="left">cdc2</td>
+<td align="left">No</td>
+<td align="left">No</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">Allele name</td>
+<td align="left">cdc2-1w</td>
+<td align="left">No</td>
+<td align="left">No</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="left">Allele synonym</td>
+<td align="left">cdc2-1W</td>
+<td align="left">No</td>
+<td align="left">Yes</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="left">Allele type</td>
+<td align="left">amino acid mutation</td>
+<td align="left">No</td>
+<td align="left">No</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="left">Evidence</td>
+<td align="left">ECO:0000000</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="left">Condition</td>
+<td align="left">at high temperature</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="left">Penetrance</td>
+<td align="left">85%</td>
+<td align="left">No</td>
+<td align="left">No</td>
+</tr>
+<tr class="even">
+<td align="left">16</td>
+<td align="left">Expressivity</td>
+<td align="left">medium</td>
+<td align="left">No</td>
+<td align="left">No</td>
+</tr>
+<tr class="odd">
+<td align="left">17</td>
+<td align="left">Extension</td>
+<td align="left">assayed_using(PomBase:SPBC582.03)</td>
+<td align="left">No</td>
+<td align="left">Yes</td>
+</tr>
+<tr class="even">
+<td align="left">18</td>
+<td align="left">Reference</td>
+<td align="left">PMID:23697806</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr class="odd">
+<td align="left">19</td>
+<td align="left">taxon</td>
+<td align="left">taxon:4896</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="left">Date</td>
+<td align="left">20120101</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notes">Notes:</h2>
+<ol style="list-style-type: decimal">
+<li>The database that produced the file -- included to facilitate data sharing with other databases. Obviously always PomBase for this file.</li>
+<li>Gene systematic ID should be self-explanatory.</li>
+<li>To use the FYPO IDs, see the <a href="/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the <a href="/faqs/how-can-i-browse-phenotype-ontology-fypo">FAQ on browsing FYPO</a>. If you can't find a term you need, email the <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">Helpdesk</a> for assistance; we can add new FYPO terms as needed.</li>
+<li>The allele description specifically describes the change; see the table at the bottom of the the <a href="/submit-data/phenotype-data-bulk-upload-format">Phenotype Data Bulk Upload Format</a> page.</li>
+<li>The Expression column contains one of these values: 'overexpression', 'knockdown', 'endogenous', 'null', 'not specified'. Deletions should always have 'null' expression.</li>
+<li>The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but &quot;unknown&quot; is allowed.</li>
+<li>The Strain name (background) column is used for a lab's in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain.</li>
+<li>The Genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, it does not repeat the allele of interest (from column 4 or 10) in the genotype column.</li>
+<li>Gene names are optional for upload, but are included where available in the download.</li>
+<li>Allele names are optional for upload, but are included where available in the download. Column 10 lists the preferred allele name, and any alternative names are in column 11.</li>
+<li>See note 10 above. Multiple entries are separated with pipes (|).</li>
+<li>Allowed allele types, example descriptions, etc. are shown in the table at the bottom of the the <a href="/submit-data/phenotype-data-bulk-upload-format">Phenotype Data Bulk Upload Format</a> page.</li>
+<li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). Please contact the <a routerLink="/mailto:helpdesk@pombase.org" routerLinkActive="active">Helpdesk</a> if you need assistance using these IDs</li>
+<li>Similarly, Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,).</li>
+<li>Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full).</li>
+<li>Expressivity captures information about phenotype severity, using the FYPO_EXT ontology described in note 15.</li>
+<li>The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype &quot;decreased protein kinase activity&quot; with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions  if they combine to form a &quot;compound&quot; extension (e.g. two or more genes assayed together).</li>
+<li>The Reference column has the publication's PubMed ID (PMID).</li>
+<li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although an NCBI taxon ID for a specific <em>S. pombe</em> strain would be allowed.</li>
+<li>The date is the date on which the annotations are created.</li>
+</ol>
+
+  </div>
+  <div *ngIf="pageName == 'protein-datasets'">
+<p><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/FASTA/">Protein dataset in FASTA format</a> (parent directory; use the pep.fa.gz file)<br />
+<a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data">Other protein data</a> (parent directory; contains README with release notes)</p>
+<ul>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data/PeptideStats.tsv" routerLinkActive="active">PeptideStats</a> - Predicted molecular weight (kDa), predicted pI, charge, length (residues), codon adaptation index (CAI)</li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.tsv">Product list</a> Systematic ID and product</li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data/aa_composition.tsv">Amino acid composition</a></li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data/Protein_Features.tsv">Protein features</a>, such as domains and family assignments</li>
+<li><a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data/pombase.modifications.gz">Protein modification</a> annotations</li>
+</ul>
+
+  </div>
+  </div>
+</div>
 <div *ngIf="section == 'documentation'">
   <div class="docs-menu">
 <h3 id="documentation"><a routerLink="/documentation" routerLinkActive="active">Documentation</a></h3>
@@ -2781,6 +3171,159 @@ curators.'"  [subject]="'Comment or problem report
   </div>
   </div>
 </div>
+<div *ngIf="section == 'documents'">
+  <div class="docs-menu">
+<h3 id="documents"><a routerLink="/documents" routerLinkActive="active">Documents</a></h3>
+<ul>
+<li><a routerLink="/documents/pombe2015" routerLinkActive="active">pombe2015</a></li>
+<li><a routerLink="/documents/pombe2013" routerLinkActive="active">pombe2013</a></li>
+<li><a routerLink="/documents/pombe2011" routerLinkActive="active">pombe2011</a></li>
+</ul>
+
+  </div>
+  <div class="docs-content">
+  <div *ngIf="pageName == 'index'">
+<h2 id="conferences-and-workshops">Conferences and Workshops</h2>
+<h3 id="international-fission-yeast-meeting-series">International Fission Yeast Meeting series</h3>
+<p><a routerLink="/documents/pombe2015" routerLinkActive="active">pombe2015</a> Kobe, Japan 21-25 June 2015</p>
+<p><a routerLink="/documents/pombe2013" routerLinkActive="active">pombe2013</a> London, UK 24-29 June 2013</p>
+<p><a routerLink="/documents/pombe2011" routerLinkActive="active">pombe2011</a> Boston, MA, USA 25-30 June 2011</p>
+<h3 id="other-conferences-and-workshops">Other Conferences and Workshops</h3>
+<ul>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/EMBO_workshop/" routerLinkActive="active">2009 EMBO Workshop</a>, Manchester, UK (FTP directory)</li>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/" routerLinkActive="active">Computing workshops, 2006 &amp; 2007</a>, various dates and locations (FTP directory)</li>
+<li><a routerLink="/sites/pombase.org/files/documents/fission_yeast_computing_workshop_man_mar2006.ppt" routerLinkActive="active">2006 Fission yeast genome analysis workshop</a>, Hinxton, UK - course manual</li>
+<li><a routerLink="/sites/pombase.org/files/documents/wellcome_euro_yeast_27_2_06.pdf" routerLinkActive="active">2006 European fission yeast meeting</a>, Hinxton, UK - abstracts</li>
+</ul>
+<h2 id="other-documents">Other documents</h2>
+<ul>
+<li><a routerLink="/sites/pombase.org/files/documents/2013_pombase_survey_summary.pdf" routerLinkActive="active">2013 PomBase user survey results</a> (PDF)</li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'pombe2011'">
+<h1 id="pombe2011---6th-international-fission-yeast-meeting">pombe2011 - 6th International Fission Yeast Meeting</h1>
+<p>Boston, MA, USA, 25-30 June 2011</p>
+<h2 id="pombase-posters">PomBase Posters</h2>
+<ul>
+<li>P50: Phenotypes in PomBase and Beyond</li>
+<li>P96: <a routerLink="/sites/pombase.org/files/documents/pombe2011_pombase.pdf" routerLinkActive="active">PomBase.org</a></li>
+<li>P159: PomBase Communty Curation: A fast track to capture expert knowledge</li>
+</ul>
+<p>PomBase is funded by the <a href="http://www.wellcome.ac.uk/">Wellcome Trust</a> and is run by a consortium comprising the <a href="http://www.cam.ac.uk/">University of Cambridge</a>, the <a href="http://www.ebi.ac.uk/">European Bioinformatics Institute</a> and <a href="http://www.ucl.ac.uk/">University College London</a>.</p>
+<p>Site maintained by the <a href="http://www.ebi.ac.uk/">EMBL-EBI</a> | <a href="http://www.ebi.ac.uk/Information/termsofuse.html">Terms of Use</a> | <a href="http://www.ebi.ac.uk/Information/privacy.html">Privacy</a> | <a href="http://www.ebi.ac.uk/Information/e-directive.html">Cookies</a></p>
+
+  </div>
+  <div *ngIf="pageName == 'pombe2013'">
+<h1 id="pombe2013---seventh-interational-fission-yeast-meeting">pombe2013 - Seventh Interational Fission Yeast Meeting</h1>
+<p>London, UK, 24-29 June 2013</p>
+<h2 id="abstracts">Abstracts</h2>
+<ul>
+<li><a href="/sites/pombase.org/files/documents/pombe2013_abstractbook-final2.pdf">Abstract book</a> (PDF)</li>
+</ul>
+<h2 id="pombase-presentations">PomBase presentations</h2>
+<h3 id="talks">Talks</h3>
+<ul>
+<li>Tuesday Lunchtime: Paper Curation - Midori Harris and Antonia Lock</li>
+<li>Thursday Lunchtime: PomBase Gene Pages and the Genome Browser - Val Wood and Mark McDowall</li>
+</ul>
+<h3 id="posters">Posters</h3>
+<ul>
+<li>219: A configurable tool for community literature curation</li>
+<li>220: <a routerLink="/sites/pombase.org/files/documents/poster.pdf" routerLinkActive="active">PomBase.org</a></li>
+<li>221: Phenotype curation in PomBase</li>
+<li>222: Using Gene Ontology biological process co-annotation for ontology and annotation quality control</li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'pombe2015'">
+<h1 id="pombe2015---eighth-international-fission-yeast-meeting">pombe2015 - Eighth International Fission Yeast Meeting</h1>
+<p>Kobe, Japan, 21-26 June 2015</p>
+<h2 id="pombase-presentations">PomBase presentations</h2>
+<h3 id="talks">Talks</h3>
+<ul>
+<li>PomBase Workshop
+<ul>
+<li><a href="/sites/pombase.org/files/documents/workshop_pombase_tour_vw2015.pdf">How to get more from PomBase</a> - a brief tour of PomBase gene pages, curated data types, querying, tools, and external links</li>
+<li><a href="/sites/pombase.org/files/documents/pombe2015_usinggenomebrowser_web.pdf">Using the PomBase Ensembl Browser</a> - a demo of the PomBase genome browser features and functions</li>
+<li><a href="/sites/pombase.org/files/documents/pombe2015_curation_workshop_mah.pdf">Community curation using Canto</a> - how to create, edit and submit annotations based on published experiments</li>
+</ul></li>
+<li>81: Hidden in plain sight: The eukaryotically conserved unstudied proteins and a framework for their classification and characterisation</li>
+<li>82: <a href="http://dev.pombase.org/sites/pombase.org/files/documents/multi_allele_pombe2015.pdf">Curating multi-allele phenotypes in PomBase</a></li>
+</ul>
+<h3 id="posters">Posters</h3>
+<ul>
+<li>33: Putting it all together with fission yeast: Data connections within and beyond PomBase</li>
+<li>73: <a routerLink="/sites/pombase.org/files/documents/poster_final.pdf" routerLinkActive="active">Using the PomBase Genome Browser</a></li>
+</ul>
+
+  </div>
+  </div>
+</div>
+<div *ngIf="section == 'downloads'">
+  <div class="docs-menu">
+<h3 id="downloads"><a routerLink="/downloads" routerLinkActive="active">Downloads</a></h3>
+<ul>
+<li><a routerLink="/datasets" routerLinkActive="active">Datasets</a></li>
+<li><a routerLink="/documents" routerLinkActive="active">Documents</a></li>
+<li><a routerLink="/downloads/chado-database-dumps" routerLinkActive="active">Chado Database Dumps</a></li>
+</ul>
+
+  </div>
+  <div class="docs-content">
+  <div *ngIf="pageName == 'chado-database-dumps'">
+<h2 id="chado-database-dumps">Chado database dumps</h2>
+<p>For each PomBase release, there is a data dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database available for <a href="http://curation.pombase.org/dumps/releases/">download</a>. Release numbers in the file names correspond to the &quot;Annotation Version&quot; numbers in the <a routerLink="/about/version-history" routerLinkActive="active">Data Versions</a> table.</p>
+
+  </div>
+  <div *ngIf="pageName == 'index'">
+<h2 id="downloads" class="title block-title">Downloads</h2>
+<ul>
+<li><a routerLink="/datasets" routerLinkActive="active">Datasets</a></li>
+<li><a routerLink="/documents" routerLinkActive="active">Documents</a></li>
+<li><a routerLink="/downloads/chado-database-dumps" routerLinkActive="active">Chado Database Dumps</a></li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'manually-curated-orthologs'">
+<h2 id="manually-curated-ortholog-sets">Manually curated ortholog sets</h2>
+<ul>
+<li>Human: <a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/orthologs/human-orthologs.txt.gz" routerLinkActive="active">human-orthologs.txt.gz</a> (gzipped file; curation information in <a routerLink="/faqs/how-can-i-find-s-pombe-orthologs-human-gene" routerLinkActive="active">FAQ</a> and <a routerLink="/documentation/orthologs" routerLinkActive="active">documentation</a>)</li>
+<li><em>S. cerevisiae</em> <a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/orthologs/cerevisiae-orthologs.txt" routerLinkActive="active">cerevisiae-orthologs.txt</a> (curation information in <a routerLink="/faqs/how-can-i-search-s-cerevisiae-orthologshomologs-s-pombe-gene" routerLinkActive="active">FAQ</a> and <a routerLink="/documentation/orthologs" routerLinkActive="active">documentation</a>)</li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'utr'">
+<h2 id="available-utr-datasets">Available UTR datasets</h2>
+<ul>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/UTR/5UTR.fa.gz" routerLinkActive="active">5' UTR</a></li>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/UTR/3UTR.fa.gz" routerLinkActive="active">3' UTR</a></li>
+<li><a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/UTR/" routerLinkActive="active">Parent directory link</a></li>
+</ul>
+<p>These datasets contain the default UTR features, determined by PomBase curators as described in <a href="/faqs/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s">this FAQ</a>.</p>
+<p>The headers are set out like so:</p>
+<pre style="margin-left: 40px;"><code>&gt;SPCC338.13|1351474|1354474|-1|cog4|III|protein_coding|Golgi transport complex subunit Cog4 (predicted)
+ ^          ^       ^       ^  ^    ^   ^              ^
+ |          |       |       |  |    |   |              \_ Description
+ |          |       |       |  |    |   |
+ |          |       |       |  |    |   \_ Feature type
+ |          |       |       |  |    |
+ |          |       |       |  |    \_ Chromosome
+ |          |       |       |  |
+ |          |       |       |  \_ Gene Name  
+ |          |       |       |
+ |          |       |       \_ Strand
+ |          |       |
+ |          |       \_ Gene End
+ |          |     
+ |          \_ Gene Start
+ |
+ \_ Systematic_ID</code></pre>
+<p>The UTR files are updated with each PomBase data update. Old versions are <a routerLink="/ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/UTRs/" routerLinkActive="active">archived</a>.</p>
+
+  </div>
+  </div>
+</div>
 <div *ngIf="section == 'faq'">
   <div class="docs-menu">
 <h3 id="faq"><a routerLink="/faq" routerLinkActive="active">FAQ</a></h3>
@@ -2796,7 +3339,7 @@ curators.'"  [subject]="'Comment or problem report
 <li><a routerLink="/faq/querying-searching" routerLinkActive="active">Querying/Searching</a></li>
 <li><a routerLink="/faq/sequence-retrieval" routerLinkActive="active">Sequence Retrieval</a></li>
 <li><a routerLink="/faq/tools-and-resources" routerLinkActive="active">Tools and resources</a></li>
-<li><a routerLink="/faq/using-ontologies" routerLinkActive="active">Using Ontologies</a></li>
+<li><a routerLink="/faq/using-ontologies" routerLinkActive="active">Using ontologies</a></li>
 </ul>
 
   </div>
@@ -2852,7 +3395,7 @@ curators.'"  [subject]="'Comment or problem report
 
   </div>
   <div *ngIf="pageName == 'using-ontologies'">
-<h2 id="using-ontologies">Using Ontologies</h2>
+<h2 id="using-ontologies">Using ontologies</h2>
 
   </div>
 <div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-api'">
@@ -5642,8 +6185,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   <div class="docs-content">
   <div *ngIf="pageName == 'centromeres'">
 <h1 id="centromeres">Centromeres</h1>
-<p>At present, each <span>centromere</span> is annotated as a single sequence feature in <span>PomBase</span>, which can be viewed in and downloaded from the <span>Ensembl</span> genome browser.</p>
-<p>Chromosome coordinates (links to <span>Ensembl</span> genome browser):</p>
+<p>At present, each centromere is annotated as a single sequence feature in PomBase, which can be viewed in and downloaded from the Ensembl genome browser.</p>
+<p>Chromosome coordinates (links to Ensembl genome browser):</p>
 <ul>
 <li>CEN 1: <a href="http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=I%3A3753687-3789421;site=ensemblunit">I:3753687-3789421</a></li>
 <li>CEN 2: <a href="http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=II%3A1602264-1644747;site=ensemblunit">II:1602264-1644747</a></li>
@@ -10023,8 +10566,8 @@ Joined contigs p4C9 and c977</p>
   </div>
   <div *ngIf="pageName == 'telomeres'">
 <h1 id="telomeres">Telomeres</h1>
-<p>The fission yeast complete genome sequence currently stops short of the <span>telomeric</span> repeats. See the <a href="status/sequencing-status">Sequencing Status</a> page for the current assembly status.</p>
-<p>The most proximal anchored <span>cosmids</span> to each <span>telomere</span> are (links to genome browser):</p>
+<p>The fission yeast complete genome sequence currently stops short of the telomeric repeats. See the <a href="status/sequencing-status">Sequencing Status</a> page for the current assembly status.</p>
+<p>The most proximal anchored cosmids to each telomere are (links to genome browser):</p>
 <ul>
 <li>Chromosome I left c212 (coordinates <a href="http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=I%3A1-29663;site=ensemblunit">1-29663</a>)</li>
 <li>Cromosome I right c750 (<a href="http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=I%3A5554844-5579133;site=ensemblunit">5554844-5579133</a>)</li>

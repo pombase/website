@@ -91,6 +91,25 @@
 
   <span class="dropdown btn-group" dropdown>
     <button dropdownToggle class="btn dropdown-toggle">
+      Downloads <span class="caret"></span>
+    </button>
+
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <a routerLink="/datasets" class="dropdown-item">Datasets</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/documents" class="dropdown-item">Documents</a>
+      </li>
+      <li role="menuitem">
+        <a routerLink="/downloads/chado-database-dumps"
+        class="dropdown-item">Chado database dumpes</a>
+      </li>
+    </ul>
+  </span>
+
+  <span class="dropdown btn-group" dropdown>
+    <button dropdownToggle class="btn dropdown-toggle">
       Community <span class="caret"></span>
     </button>
 

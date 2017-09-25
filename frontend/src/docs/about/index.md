@@ -18,12 +18,12 @@ Email: [helpdesk@pombase.org](mailto:helpdesk@pombase.org)
 
 Post:
 
-[PomBase]{}\
+PomBase\
 Department of Biochemistry\
 University of Cambridge\
 80 Tennis Court Road\
 Cambridge\
-[CB2]{} [1GA]{}\
+CB2 1GA\
 United Kingdom
 
 Submit Data
@@ -62,7 +62,7 @@ PomBase staff
 ### [University of Cambridge](http://www.cam.ac.uk/)
 
 -   Val Wood (Curator & co-PI)
--   [Midori]{} Harris (Curator)
+-   Midori Harris (Curator)
 -   Kim Rutherford (Programmer)
 -   Steve Oliver (PI)
 

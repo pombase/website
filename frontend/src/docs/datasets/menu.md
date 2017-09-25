@@ -1,0 +1,7 @@
+ - [Genome Datasets](/downloads/genome-datasets)
+ - [CDS Coordinates](/downloads/cds-coordinates)
+ - [Protein Datasets](/downloads/protein-datasets)
+ - [GO Associations](/downloads/go-associations)
+ - [Intron Data](/downloads/intron-data)
+ - [Data Mappings](/downloads/data-mappings)
+ - [UTRs](/downloads/utr)

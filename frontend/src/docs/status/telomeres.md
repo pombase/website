@@ -1,10 +1,10 @@
 # Telomeres
 
 The fission yeast complete genome sequence currently stops short of the
-[telomeric]{} repeats. See the [Sequencing
+telomeric repeats. See the [Sequencing
 Status](status/sequencing-status) page for the current assembly status.
 
-The most proximal anchored [cosmids]{} to each [telomere]{} are (links
+The most proximal anchored cosmids to each telomere are (links
 to genome browser):
 
 -   Chromosome I left c212 (coordinates

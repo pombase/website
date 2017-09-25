@@ -1,10 +1,10 @@
 # Centromeres
 
-At present, each [centromere]{} is annotated as a single sequence
-feature in [PomBase]{}, which can be viewed in and downloaded from the
-[Ensembl]{} genome browser.
+At present, each centromere is annotated as a single sequence
+feature in PomBase, which can be viewed in and downloaded from the
+Ensembl genome browser.
 
-Chromosome coordinates (links to [Ensembl]{} genome browser):
+Chromosome coordinates (links to Ensembl genome browser):
 
 -   CEN 1: [I:3753687-3789421](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=I%3A3753687-3789421;site=ensemblunit)
 -   CEN 2: [II:1602264-1644747](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=II%3A1602264-1644747;site=ensemblunit)

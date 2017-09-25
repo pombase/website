@@ -91,6 +91,24 @@ const routes: Routes = [
     },
     children: [ { path: '**', data: { docsParent: 'documentation' }, component: DocsComponent } ]
   },
+  { path: 'datasets',
+    data: {
+      title: 'Datasets'
+    },
+    children: [ { path: '**', data: { docsParent: 'datasets' }, component: DocsComponent } ]
+  },
+  { path: 'downloads',
+    data: {
+      title: 'Downloads'
+    },
+    children: [ { path: '**', data: { docsParent: 'downloads' }, component: DocsComponent } ]
+  },
+  { path: 'documents',
+    data: {
+      title: 'Documents'
+    },
+    children: [ { path: '**', data: { docsParent: 'documents' }, component: DocsComponent } ]
+  },
   { path: 'news',
     data: {
       title: 'News'
