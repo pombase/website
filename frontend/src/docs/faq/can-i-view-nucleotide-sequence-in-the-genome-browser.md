@@ -8,7 +8,7 @@ Yes. First, make sure sequence display is "on":
     assembly"
 3.  If the box next to "Sequence" is blank, click it
 
-(also see the [FAQ on configuring tracks](/faq/how-can-i-show-or-hide-tracks-genome-browser)).
+(also see the [FAQ on configuring tracks](/faq/how-can-i-show-or-hide-tracks-in-the-genome-browser)).
 
 The Location tab shows two graphics. Between the two images there is a
 slider that controls the zoom. Click the '+' or drag the vertical bar to

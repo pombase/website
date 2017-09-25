@@ -1,9 +1,11 @@
 # How can I retrieve the sequence of a region using sequence coordinates?
-<!-- pombase_categories: Genome Browser,Sequence Retrieval -->
+<!-- pombase_categories: Genome browser,Finding data -->
 
-Go to the Genome Browser (in the Tools menu), and find the region of
-interest by searching for a gene name, a systematic ID, or a set of
-coordinates. Then click the Export Data button on the left-hand side.
+Go to the [Genome Browser](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Info/Index) 
+(or click the "View in Ensembl genome browser ..." link on any gene
+page), and find the region of interest by searching for a gene name, a
+systematic ID, or a set of coordinates. Then click the Export Data
+button on the left-hand side.
 
 Select the number of bases up- and downstream (even if you have searched
 using coordinates, you can add flanking sequence to what you download),

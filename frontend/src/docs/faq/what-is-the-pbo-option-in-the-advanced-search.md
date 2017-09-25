@@ -1,9 +1,9 @@
 # What is the "PBO" option in the Advanced Search?
-<!-- pombase_categories: Querying/Searching,Using Ontologies -->
+<!-- pombase_categories: Finding data,Using ontologies -->
 
 PBO is an internal set of terms used for various PomBase annotations
 that do not fit into any of the other ontologies in use. PBO IDs and
-term names can be queried in the Advanced search, and are most useful if
+term names can be queried in the advanced search, and are most useful if
 you have noted a term or ID from a gene page. Examples include
 complementation annotations (e.g. cdc2 'functionally complemented by H.
 sapiens CDK1' PBO:0012584), disease association, and "miscellaneous"

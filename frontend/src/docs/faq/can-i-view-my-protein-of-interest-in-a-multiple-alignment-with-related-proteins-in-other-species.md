@@ -1,5 +1,5 @@
 # Can I view my protein of interest in a multiple alignment with related proteins in other species?
-<!-- pombase_categories: Orthology,Tools and Resources -->
+<!-- pombase_categories: Orthology,Tools and resources -->
 
 You can use Compara via the genome browser to see multiple alignments:
 

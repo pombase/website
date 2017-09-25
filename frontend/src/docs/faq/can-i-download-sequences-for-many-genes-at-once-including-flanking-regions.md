@@ -1,13 +1,20 @@
 # Can I download sequences for many genes at once, including flanking regions? 
 <!-- pombase_categories: Finding data -->
 
-At present, there isn't a good way to retrieve flanking sequences for
-multiple genes in bulk directly from PomBase. (You can download coding
-sequences via the Advanced Search, or 
-[flanking sequences for individual genes](/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences)
-via the gene page Sequence section.) We hope to add a more convenient
-option in the near future, but in the meantime, we recommend using the
-Ensembl Genomes Biomart query:
+If you only need coding sequence, introns, and/or curated UTRs, 
+use the [advanced search](/query) to find the set of genes you want
+(see the [documentation](/documentation/advanced-search) as needed).
+
+Click on a count in the query history to see the results, with a
+button for "Download" options including coordinates and sequence. In
+the popup, click on the Sequence tab, select Nucleotide, then tick
+boxes to add any of: 5' UTR, introns, 3' UTR.
+
+At present, there isn't a good way to retrieve user-specified amounts
+of flanking sequence for multiple genes in bulk directly from
+PomBase. We hope to add a more convenient option in the near future,
+but in the meantime, we recommend using the Ensembl Genomes Biomart
+query:
 
 1.  Go to <http://fungi.ensembl.org/biomart/martview/>
 2.  Select the database "Ensembl Fungi Genes" from the "CHOOSE DATABASE"

@@ -1,5 +1,5 @@
 # Why are some genes annotated to both viable and inviable phenotypes?
-<!-- pombase_categories: Gene Page,Using Ontologies -->
+<!-- pombase_categories: Gene page,Using ontologies -->
 
 One gene can be correctly annotated to both a "viable" term and an
 "inviable" term from FYPO, under certain circumstances:
@@ -31,7 +31,7 @@ to both viable and inviable terms is probably an error (either one of
 the terms is wrong, or there are missing or incorrect details for the
 alleles and/or conditions). Please let us know via the
 [helpdesk](mailto:helpdesk@pombase.org) if you notice any potential
-errors.\
-\
+errors.
+
 
 

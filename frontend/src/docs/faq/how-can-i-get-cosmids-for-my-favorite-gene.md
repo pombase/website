@@ -1,6 +1,6 @@
 # How can I get cosmids for my favorite gene?
-<!-- pombase_categories: Tools and Resources -->
+<!-- pombase_categories: Tools and resources -->
 
-Clones included in the final sequence are available from
-<archives@sanger.ac.uk>
+Please enquire with the Sanger Institute [archives@sanger.ac.uk](mailto:archives@sanger.ac.uk) about
+clones included in the final genome sequence.
 

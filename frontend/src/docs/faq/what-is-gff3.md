@@ -1,5 +1,5 @@
 # What is GFF3?
-<!-- pombase_categories: Data Submission and Formats -->
+<!-- pombase_categories: Data submission and formats -->
 
 Generic Feature Format Version 3 (GFF3) is a tab-delimited text file
 format used to represent genomic sequence features.

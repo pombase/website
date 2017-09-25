@@ -1,5 +1,5 @@
 # How can I get GO annotation search results to match AmiGO?
-<!-- pombase_categories: Querying/Searching,Using Ontologies -->
+<!-- pombase_categories: Querying/Searching,Using ontologies -->
 
 In [AmiGO](http://amigo.geneontology.org/), the "term association"
 search retrieves gene products annotated to a GO term and to any of its

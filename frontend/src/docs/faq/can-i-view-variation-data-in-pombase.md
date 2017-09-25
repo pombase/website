@@ -11,7 +11,7 @@ Schizosaccharomyces pombe. *Nat Genet.* **47(3):**235-241. doi:
 
 To view the variation data, enable one or more of the tracks under
 "Variation".
-[Help](/faq/how-can-i-show-or-hide-tracks-genome-browser) is available
+[Help](/faq/how-can-i-show-or-hide-tracks-in-the-genome-browser) is available
 for enabling tracks.
 
 Insertions/deletions (indels) and SNPs can be enabled as separate

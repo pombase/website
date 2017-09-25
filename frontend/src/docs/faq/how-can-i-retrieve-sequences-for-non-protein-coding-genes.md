@@ -1,10 +1,12 @@
 # How can I retrieve sequences for non-protein-coding genes?
-<!-- pombase_categories: Datasets,Querying/Searching,Sequence Retrieval -->
+<!-- pombase_categories: Finding data -->
 
-At present, if you need sequences for all tRNAs, rRNAs, other ncRNAs,
-etc. we recommend using the Advanced Search and results download as
-described in the [FAQ on retrieving sequence coordinates for all features of a particular type](/faq/how-can-i-retrieve-sequence-coordinates-all-features-particular-type).
+A file of all non-coding RNA gene sequences is available on the 
+[Genome Feature Annotations page](/downloads/genome-datasets).
 
-Downloadable FASTA sequence datasets will be added to the PomBase FTP
-site in the near future.
+If you need sequences for all genes of a single type (tRNAs, rRNAs,
+other ncRNAs, etc.) we recommend using the [advanced search](/query)
+and results download as described in the 
+[FAQ on retrieving sequence coordinates for all features of a particular type](/faq/how-can-i-retrieve-sequence-coordinates-for-all-features-of-a-particular-type).
+
 

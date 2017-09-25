@@ -1,5 +1,5 @@
 # Why are GO annotations different between PomBase and UniProt/GOA?
-<!-- pombase_categories: Querying/Searching,Using Ontologies -->
+<!-- pombase_categories: Finding data,Using ontologies -->
 
 The GO annotations available from PomBase (gene pages, advanced search,
 etc.) and the GO Consortium site (AmiGO; GO downloads) differ from those
@@ -14,12 +14,7 @@ reasons:
     to a few weeks behind.
 3.  Filtering - PomBase does not include automated annotations that are
     redundant with manual annotations (contact the
-    [Helpdesk](mailto:helpdesk@pombase.org) for further details). The GO
+    [helpdesk](mailto:helpdesk@pombase.org) for further details). The GO
     Consortium site uses the same filtered annotation dataset as
     PomBase, whereas the UniProt GOA site includes the automated
     annotations.
-
-\
-\
-
-

@@ -1,5 +1,5 @@
 # What is WIG format?
-<!-- pombase_categories: Data Submission and Formats -->
+<!-- pombase_categories: Data submission and formats -->
 
 Wiggle (WIG) is a file format for display of continuous-value data in a
 genome browser track.
