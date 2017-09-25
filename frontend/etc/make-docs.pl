@@ -242,7 +242,7 @@ sub angular_link {
     return "[$title]($path)";
   }
 
-  if ($path =~ /^https?:/) {
+  if ($path =~ /^(https?|ftp):/) {
     return qq|<a href="$path">$title</a>|;
   } else {
     $path =~ s|^/+||;
