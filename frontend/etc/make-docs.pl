@@ -246,7 +246,7 @@ sub angular_link {
     return qq|<a href="$path">$title</a>|;
   } else {
     $path =~ s|^/+||;
-    return qq|<a routerLink="/$path" routerLinkActive="active">$title</a>|;
+    return qq|<a routerLink="/$path">$title</a>|;
   }
 }
 
