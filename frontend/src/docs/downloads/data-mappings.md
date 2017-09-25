@@ -1,6 +1,4 @@
-
-[Mapping file
-directory](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/)
+[Mapping file directory](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/)
 
 **Gene Product to UniProt Accession Number**
 

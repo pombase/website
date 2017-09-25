@@ -1,4 +1,4 @@
-### CDS coordinates {#cds-coordinates-1}
+### CDS coordinates
 
 [Directory](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/CDS_Coordinates/)
 
