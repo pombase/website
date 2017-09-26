@@ -1,4 +1,4 @@
-# How can I find all S. pombe proteins in a particular protein family?
+# How can I find all *S. pombe* proteins in a particular protein family?
 <!-- pombase_categories: Orthology,Finding data -->
 
 There are various ways you can find protein family members.

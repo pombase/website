@@ -22,5 +22,5 @@ Example query: [Genes annotated to "elongated cell" (FYPO:0000017), all alleles]
 
 -->
 
-Also see the FAQ on [finding essential genes](/faq/can-i-get-list-essential-pombe-genes).
+Also see the FAQ on [finding essential genes](/faq/can-i-get-a-list-of-essential-pombe-genes).
 

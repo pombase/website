@@ -1,4 +1,4 @@
-# Can I retrieve the sequence for any of the cosmids used to build the S. pombe genome sequence?
+# Can I retrieve the sequence for any of the cosmids used to build the *S. pombe* genome sequence?
 <!-- pombase_categories: Finding data,Tools and resources -->
 
 Although old cosmid sequences used in the reference assembly are not

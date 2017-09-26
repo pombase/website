@@ -2,11 +2,11 @@
 <!-- pombase_categories: Genome browser,Finding data -->
 
 You can do this in the genome browser (from a gene page or the Tools
-menu). First, [enter the coordinates](/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser),
+menu). First, [enter the coordinates](/faq/how-can-i-display-a-sequence-region-using-sequence-coordinates-in-the-genome-browser),
 then click the Export Data button on the left-hand side. In the Output
 pulldown (topmost in the popup window) choose one of the formats under
 the "Feature File" header. Then follow the remaining steps to 
-[retrieve the sequence features](/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates) --
+[retrieve the sequence features](/faq/how-can-i-retrieve-the-sequence-of-a-region-using-sequence-coordinates) --
 add flanking sequences, select options for your selected output format,
 etc.
 

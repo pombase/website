@@ -1,4 +1,4 @@
-# Is the S. pombe transcriptome available in FASTA format?
+# Is the *S. pombe* transcriptome available in FASTA format?
 <!-- pombase_categories: Finding data,Tools and resources -->
 
 There is no single transcriptome sequence file available from PomBase at

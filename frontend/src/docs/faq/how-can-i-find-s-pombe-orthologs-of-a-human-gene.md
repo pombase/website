@@ -1,4 +1,4 @@
-# How can I find S. pombe ortholog(s) of a human gene?
+# How can I find *S. pombe* ortholog(s) of a human gene?
 <!-- pombase_categories: Orthology,Finding data -->
 
 In PomBase, human orthologs are curated for *S. pombe* genes as

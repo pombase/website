@@ -1,4 +1,4 @@
-# How do I receive updates to the list of S. cerevisiae and S. pombe orthologs?
+# How do I receive updates to the list of *S. cerevisiae* and *S. pombe* orthologs?
 <!-- pombase_categories: Genome statistics and lists,Orthology -->
 
 The current version of the manually curated list of orthologs and

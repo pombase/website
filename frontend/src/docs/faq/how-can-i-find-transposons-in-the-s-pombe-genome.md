@@ -1,4 +1,4 @@
-# How can I find transposons in the S. pombe genome?
+# How can I find transposons in the *S. pombe* genome?
 <!-- pombase_categories: Finding data,Tools and resources -->
 
 In the [advanced search](/query), click "Characterisation status",

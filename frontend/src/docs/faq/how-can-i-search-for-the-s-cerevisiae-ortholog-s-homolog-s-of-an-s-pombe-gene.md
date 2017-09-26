@@ -1,4 +1,4 @@
-# How can I search for the S. cerevisiae ortholog(s)/homolog(s) of an S. pombe gene?
+# How can I search for the *S. cerevisiae* ortholog(s)/homolog(s) of an *S. pombe* gene?
 <!-- pombase_categories: Orthology,Finding data -->
 
 In PomBase, *S. cerevisiae* orthologs are curated for *S. pombe* genes as

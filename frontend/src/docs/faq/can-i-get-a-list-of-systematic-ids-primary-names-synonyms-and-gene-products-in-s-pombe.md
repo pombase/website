@@ -1,4 +1,4 @@
-# Can I get a list of systematic IDs, primary names, synonyms and gene products in S. pombe?
+# Can I get a list of systematic IDs, primary names, synonyms and gene products in *S. pombe*?
 <!-- pombase_categories: Genome statistics and Lists -->
 
 Yes: From the [Data Mapping](/downloads/data-mappings) page, retrieve

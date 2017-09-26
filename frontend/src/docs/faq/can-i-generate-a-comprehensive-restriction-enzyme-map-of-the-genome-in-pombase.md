@@ -8,7 +8,7 @@ http://www.sanger.ac.uk/science/tools/artemis).
 
 You can then read in the EMBL format chromosome contig files of
 sequence and annotation (available from the 
-[Genome datasets](/downloads/genome-datasets#sequences) page). To
+[Genome datasets](/downloads/genome-datasets) page). To
 generate a restriction map:
 
 1.  Create a new entry using the "Create" menu item "New Entry"
@@ -19,7 +19,7 @@ generate a restriction map:
     for any restriction patterns of interest and save them into your
     file.
 5.  You can add "color" labels to distinguish the different restriction
-    sites. See the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase) and the
+    sites. See the [Artemis FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) and the
     [Artemis manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf) (pdf;
     Sanger site) for additional information.
 

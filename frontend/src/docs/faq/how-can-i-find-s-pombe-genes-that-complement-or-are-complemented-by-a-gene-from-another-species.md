@@ -1,4 +1,4 @@
-# How can I find S. pombe genes that complement or are complemented by a gene from another species?
+# How can I find *S. pombe* genes that complement or are complemented by a gene from another species?
 <!-- pombase_categories: Finding data,Using ontologies -->
 
 If there is complementation data available for an *S. pombe* gene, it
@@ -9,16 +9,15 @@ example, [*ura3*](/spombe/result/SPAC57A10.12c) can be complemented by
 itself complements human
 [DHODH](http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=HGNC:2867).
 
-<!--
-To search for complementation annotations, use one of the "PBO" filters
-in the [advanced search](/query) (see the
-[documentation](/documentation/advanced-search) for help
-with searching). The complementation descriptions are stored as entries
-in the [PBO](/faq/what-pbo-option-advanced-search) internal ontology, so
-a search for PBO term names that match "complements" or "complemented
-by" will retrieve genes with complementation data curated. The most
-general term, "complementation" (PBO:2000000) retrieves all genes that
-have any complementation annotation.
+<!-- To search for complementation annotations, use one of the "PBO"
+filters in the [advanced search](/query) (see the
+[documentation](/documentation/advanced-search) for help with
+searching). The complementation descriptions are stored as entries in
+the PBO internal ontology, so a search for PBO term names that match
+"complements" or "complemented by" will retrieve genes with
+complementation data curated. The most general term, "complementation"
+(PBO:2000000) retrieves all genes that have any complementation
+annotation.
 
 Example queries:
 

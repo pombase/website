@@ -1,4 +1,4 @@
-# How can I find all S. pombe genes that are conserved in human?
+# How can I find all *S. pombe* genes that are conserved in human?
 <!-- pombase_categories: Genome statistics and lists,Orthology -->
 
 Almost all genes that are conserved between fission yeast and human
