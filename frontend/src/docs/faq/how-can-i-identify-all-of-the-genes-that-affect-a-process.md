@@ -1,4 +1,4 @@
-gg# How can I identify all of the genes that affect a process?
+# How can I identify all of the genes that affect a process?
 <!-- pombase_categories: Finding data,Using ontologies -->
 
 The best way to find genes that have any effect on a process, we
