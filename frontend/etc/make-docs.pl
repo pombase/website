@@ -7,6 +7,7 @@
 
 use strict;
 use warnings;
+use Carp;
 
 use JSON -support_by_pp;
 use Pandoc;
@@ -49,6 +50,10 @@ my %faq_data = ();
 sub make_id_from_heading {
   my $heading = shift;
 
+  if (!$heading) {
+    croak "no heading";
+  }
+
   (my $id = lc $heading) =~ s/[^A-Za-z\._]+/-/g;
 
   $id =~ s/-(with|the|at|from|to|the|of|that|is|for|an|a|in)-/-/g for 1..5;
@@ -78,6 +83,10 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
         @categories = split /,/, $1;
       }
     }
+  }
+
+  if (!$heading) {
+    croak "no heading in $file_name";
   }
 
   my $id = make_id_from_heading($heading);
