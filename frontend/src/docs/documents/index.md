@@ -3,6 +3,12 @@ Conferences and Workshops
 
 ### International Fission Yeast Meeting series
 
+<!--
+[pombe2017](documents/pombe2017)
+Banff, Alberta, Canada
+14-19 May 2017
+-->
+
 [pombe2015](documents/pombe2015)
 Kobe, Japan
 21-25 June 2015
@@ -17,17 +23,20 @@ Boston, MA, USA
 
 ### Other Conferences and Workshops
 
--   [2009 EMBO Workshop](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/EMBO_workshop/),
+-   [2009 EMBO Workshop](ftp://ftp.pombase.org/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/EMBO_workshop/),
     Manchester, UK (FTP directory)
--   [Computing workshops, 2006 & 2007](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/),
+-   [Computing workshops, 2006 & 2007](ftp://ftp.pombase.org/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/),
     various dates and locations (FTP directory)
--   [2006 Fission yeast genome analysis workshop](/sites/pombase.org/files/documents/fission_yeast_computing_workshop_man_mar2006.ppt),
-    Hinxton, UK - course manual
--   [2006 European fission yeast meeting](/sites/pombase.org/files/documents/wellcome_euro_yeast_27_2_06.pdf),
-    Hinxton, UK - abstracts
+-   [2006 Fission yeast genome analysis workshop](ftp://ftp.pombase.org/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/Fission_yeast_computing_workshop_man_Mar2006.ppt),
+    Hinxton, UK - course manual (file at FTP site)
+-   [2006 European fission yeast meeting](ftp://ftp.pombase.org/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/Pombe_meeting_abstract_books/Wellcome_Euro_Yeast_27_2_06.pdf),
+    Hinxton, UK - abstracts (file at FTP site)
 
 Other documents
 ---------------
 
+<!--
+-   [2017 PomBase infographic]() (PDF)
+-->
 -   [2013 PomBase user survey results](/sites/pombase.org/files/documents/2013_pombase_survey_summary.pdf) (PDF)
 
