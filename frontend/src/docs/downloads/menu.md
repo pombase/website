@@ -1,3 +1,3 @@
  - [Datasets](datasets)
  - [Documents](documents)
- - [Chado Database Dumps](downloads/chado-database-dumps)
+ - [Chado database dumps](downloads/chado-database-dumps)
