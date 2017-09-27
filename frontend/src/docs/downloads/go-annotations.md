@@ -1,21 +1,21 @@
-[*S. pombe* GO
-annotations](ftp://ftp.geneontology.org/pub/go/gene-associations/gene_association.pombase.gz)
-(link downloads gzipped file from the GO repository) include annotations
+### GO annotations
+
+*S. pombe* GO annotations are available from the [PomBase FTP site](ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/gene_association.pombase.gz)
+or from the [GO repository](ftp://ftp.geneontology.org/pub/go/gene-associations/gene_association.pombase.gz)
+(either link downloads a gzipped file). They include annotations
 made by manual literature curation, annotations inferred from keyword
 mappings based on curated descriptions, and annotations shared by the
 UniProt [GOA](http://www.ebi.ac.uk/GOA) team. The file is tab-delimited
 text, so it can be opened in a spreadsheet application or parsed with a
-script; the
-[format](http://geneontology.org/page/go-annotation-file-gaf-format-20)
+script; the [format](http://geneontology.org/page/go-annotation-file-gaf-format-21)
 is described on the GO website.
 
-Also see the list of protein complexes in the FTP directory
-(<ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Complexes/>), which
-uses GO macromolecular complex terms and IDs.
+Also see the [list of protein complexes](ftp://ftp.pombase.org/pombe/annotations/GO_complexes/) 
+in the FTP directory, which uses GO macromolecular complex terms and
+IDs.
 
 Previous versions of the *S. pombe* GO annotation file can be retrieved
-from the [PomBase FTP
-archive](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Gene_ontology/OLD/)
+from the [PomBase FTP archive](ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/OLD/)
 or via the GO CVSweb interface
 ([PomBase](http://cvsweb.geneontology.org/cgi-bin/cvsweb.cgi/go/gene-associations/gene_association.pombase.gz)
 files and the very old

@@ -1,25 +1,28 @@
-[Mapping file directory](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/)
+### PomBase name and identifier mappings
 
-**Gene Product to UniProt Accession Number**
+These files are available in the [names and IDs directory](ftp://ftp.pombase.org/pombe/names_and_identifiers/)
 
--   [PomBase2UniProt.tsv](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/PomBase2UniProt.tsv)
-    tab-delimited file of systematic identifier mapped to UniProt
-    Accession Number
+#### Systematic ID to UniProt accession number
 
-### All Gene Names
+-   [PomBase2UniProt.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/PomBase2UniProt.tsv)
+    tab-delimited file with the PomBase systematic identifier for each
+    protein-conding gene mapped to the corresponding UniProt accession
+    number
 
--   [allNames.tsv](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/allNames.tsv)
-    tab-delimited file of systematic name, primary name (empty if not
-    assigned), followed by all synonyms
+#### Gene names
 
-### Systematic ID to Gene Product
+-   [allNames.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/allNames.tsv)
+    tab-delimited file of systematic ID, primary gene name (where
+    assigned), and all synonyms for each gene
 
-Files include systematic name, primary name (empty if not assigned),
-synonyms (empty if not assigned), followed by gene product description
+#### Systematic ID to gene product
 
--   [sysID2product.tsv](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.tsv) -
+Files include systematic name, primary name (where assigned),
+synonyms (where assigned), and gene product description
+
+-   [sysID2product.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/sysID2product.tsv)
     protein-coding genes
--   [sysID2product.rna.tsv](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.rna.tsv) -
+-   [sysID2product.rna.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/sysID2product.rna.tsv)
     non-coding RNA genes
 
 Note: A tab-delimited file of systematic identifiers mapped to EC

@@ -1,13 +1,15 @@
+### Introns
+
 Downloadable intron datasets are available in FASTA format from the
 [PomBase FTP site](ftp://ftp.ebi.ac.uk/pub/databases/pombase/FASTA/).
 
 Note that you can also use the Advanced Search to find all genes
-containing introns, as described in the [FAQ on
-introns](http://www.pombase.org/faqs/how-can-i-retrieve-intron-coordinates-or-sequences).
+containing introns, as described in the 
+[FAQ on introns](http://www.pombase.org/faqs/how-can-i-retrieve-intron-coordinates-or-sequences).
 
-----
+##### Legacy intron data
 
-We also provide access to archived [Intron Data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Intron_Data/OLD/).
+We also provide access to archived [intron data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Intron_Data/OLD/).
 Please note that this set of intron data reflect the dataset at the
 time of publication of the *S. pombe* genome sequence, and does not
 include any new introns, or changes to introns, since then. The
@@ -22,5 +24,3 @@ intron data archive includes:
 -   Branch frequency
 -   A README file is available with additional descriptions of file
     contents
-
-Also see the [FAQ on how to retrieve intron coordinates and sequences](/faqs/how-can-i-retrieve-intron-coordinates-or-sequences).

@@ -1,23 +1,19 @@
+### Protein datasets
 
-[Protein dataset in FASTA
-format](ftp://ftp.ebi.ac.uk/pub/databases/pombase/FASTA/) (parent
-directory; use the pep.fa.gz file)\
-[Other protein
-data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data)
-(parent directory; contains README with release notes)
+The full [protein dataset](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/pep.fa.gz)
+is available in FASTA format (link downloads gzipped file from PomBase ftp).
 
--   [PeptideStats](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data/PeptideStats.tsv) -
+The [protein data FTP directory](ftp://ftp.pombase.org/pombe/Protein_data/) 
+contains assorted data (see the README for file formats):
+
+-   [PeptideStats.tsv](ftp://ftp.pombase.org/pombe/Protein_data/PeptideStats.tsv) - 
     Predicted molecular weight (kDa), predicted pI, charge, length
     (residues), codon adaptation index (CAI)
--   [Product
-    list](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.tsv)
-    Systematic ID and product
--   [Amino acid
-    composition](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data/aa_composition.tsv)
--   [Protein
-    features](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data/Protein_Features.tsv),
-    such as domains and family assignments
--   [Protein
-    modification](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Protein_data/pombase.modifications.gz)
-    annotations
+-   [aa_composition.tsv](ftp://ftp.pombase.org/pombe/Protein_data/aa_composition.tsv) - 
+    Amino acid composition
+-   [Protein_Features.tsv](ftp://ftp.pombase.org/pombe/Protein_data/Protein_Features.tsv) - 
+    Protein features such as domains and family assignments
+
+Also see the [protein modification annotations](ftp://ftp.pombase.org/pombe/annotations/modifications/) directory.
+    
 

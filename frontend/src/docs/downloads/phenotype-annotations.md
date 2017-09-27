@@ -1,17 +1,18 @@
 
-## Full phenotype annotations
+### Phenotype annotations
 
-[Phenotype annotations](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz) (link
-downloads gzipped file from PomBase ftp) for alleles of *S. pombe* genes
-are manually curated from the literature using Fission Yeast Phenotype
-Ontology (FYPO) terms. Note: this file contains annotations for single
-allele phenotypes (single mutants) only.
+[Phenotype annotations](ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/FYPOviability.tsv)
+(link downloads gzipped file from PomBase ftp) for alleles of
+*S. pombe* genes are manually curated from the literature using
+Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file
+contains annotations for single allele phenotypes (single mutants)
+only.
 
 The file is in a version of the PomBase phenotype data bulk annotation
 format (PHAF), detailed below. This format in nearly identical to the
 one that can be used to submit phenotype annotations to PomBase in bulk,
-as described on the [Phenotype Data Bulk Upload Format](/submit-data/phenotype-data-bulk-upload-format) page, with the
-addition of the Database column.
+as described on the [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
+page, with the addition of the Database column.
 
 Propagating phenotype annotations: Note that the file contains only
 direct annotations to FYPO terms. It does not include annotations that
@@ -21,9 +22,9 @@ using the ontology structure and inferred annotations. Please contact
 the [PomBase helpdesk](mailto:helpdesk@pombase.org) if you need
 assistance.
 
-## Viability summary
+### Viability summary
 
-A [set of "viability summary" data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/FYPOviability.tsv),
+A [set of "viability summary" data](ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/FYPOviability.tsv)
 as shown at the top of the FYPO table on each gene page, is available as
 a downloadable file. The file has two columns: the gene systematic ID
 and one of three values: "viable", "inviable" or "condition-dependent".
@@ -31,65 +32,60 @@ and one of three values: "viable", "inviable" or "condition-dependent".
 To cite the fission yeast phenotype data (complete or viability
 summary), please see [Citing PomBase](/about/citing-pombase).
 
-## PHAF download format
+### PHAF download format
 
 A column marked "mandatory" will always have an entry; non-mandatory
 columns may be empty.
 
-  Column   Contents                   Example                              Mandatory?   Multiple entries allowed?
-  -------- -------------------------- ------------------------------------ ------------ ---------------------------
-  1        Database                   PomBase                              Yes          No
-  2        Gene systematic ID         SPBC11B10.09                         Yes          No
-  3        FYPO ID                    FYPO:0000001                         Yes          No
-  4        Allele description         G146D                            Yes          No
-  5        Expression                 endogenous                       Yes          No
-  6        Parental strain            975 h+                               Yes          No
-  7        Strain name (background)   SP286                                No           No
-  8        Genotype description       h+ ura4-D18 leu1-32 ade6-M210        No           No
-  9        Gene name                  cdc2                                 No           No
-  10       Allele name                cdc2-1w                              No           No
-  11       Allele synonym             cdc2-1W                              No           Yes
-  12       Allele type                amino acid mutation                  No           No
-  13       Evidence                   ECO:0000000                          Yes          No
-  14       Condition                  at high temperature                  Yes          Yes
-  15       Penetrance                 85%                                  No           No
-  16       Expressivity               medium                               No           No
-  17       Extension                  assayed\_using(PomBase:SPBC582.03)   No           Yes
-  18       Reference                  PMID:23697806                        Yes          No
-  19       taxon                      taxon:4896                           Yes          No
-  20       Date                       20120101                             Yes          No
+Column | Contents | Example | Mandatory? | Multiple entries allowed?
+-------|----------|---------|------------|--------------------------
+2 | Gene systematic ID | SPBC11B10.09 | Yes | No
+3 | FYPO ID | FYPO:0000001 | Yes | No
+4 | Allele description | G146D | Yes | No
+5 | Expression | overexpression | Yes | No
+6 | Parental strain | 975 h+ | Yes | No
+7 | Background strain name | SP286 | No | No
+8 | Background genotype description | h+ ura4-D18 leu1-32 ade6-M210 | No | No
+9 | Gene name | cdc2 | No | No
+10 | Allele name | cdc2-1w | No | No
+11 | Allele synonym | wee2-1 | No | Yes
+12 | Allele type | amino acid mutation | Yes | No
+13 | Evidence | ECO:0000336 | Yes | No
+14 | Condition | at high temperature | Yes | Yes
+15 | Penetrance | 85% | No | No
+16 | Expressivity | medium | No | No
+17 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
+18 | Reference | PMID:23697806 | Yes | No
+19 | taxon | taxon:4896 | Yes | No
+20 | Date | 20120101 | Yes | No
 
-## Notes:
+**Notes:**
 
 1.  The database that produced the file -- included to facilitate data
     sharing with other databases. Obviously always PomBase for this
     file.
-2.  Gene systematic ID should be self-explanatory.
-3.  To use the FYPO IDs, see the [FYPO summary
-    page](/browse-curation/fission-yeast-phenotype-ontology) and the
-    [FAQ on browsing
-    FYPO](/faqs/how-can-i-browse-phenotype-ontology-fypo). If you can't
-    find a term you need, email the
-    [Helpdesk](mailto:helpdesk@pombase.org) for assistance; we can add
-    new FYPO terms as needed.
+2.  The systematic ID for each gene.
+3.  To use the FYPO IDs, see the [FYPO summary page](/browse-curation/fission-yeast-phenotype-ontology) 
+    and the
+    [FAQ on browsing FYPO](/faqs/how-can-i-browse-the-phenotype-ontology-fypo).
 4.  The allele description specifically describes the change; see the
-    table at the bottom of the the [Phenotype Data Bulk Upload
-    Format](/submit-data/phenotype-data-bulk-upload-format) page.
+    [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
+    for details on allele types and descriptions.
 5.  The Expression column contains one of these values:
     'overexpression', 'knockdown', 'endogenous', 'null', 'not
-    specified'. Deletions should always have 'null' expression.
+    specified'. Deletions always have 'null' expression.
 6.  The Parental strain column is for the parental strain designation,
     such as 972 h-, 975 h+, etc. This column must be filled in, but
     "unknown" is allowed.
-7.  The Strain name (background) column is used for a lab's in-house
+7.  The Background strain name column is used for a lab's in-house
     name/ID/designation for the background strain (i.e. the derivative
-    of the parental strain that has selectable marker alleles etc.). The
-    description in the Genotype column should match this background
-    strain.
-8.  The Genotype description column is for alleles in the background,
-    such as selectable markers; these details are optional. To avoid
-    redundancy, it does not repeat the allele of interest (from column 4
-    or 10) in the genotype column.
+    of the parental strain that has selectable marker alleles
+    etc.). The description in the Genotype column should match this
+    background strain.
+8.  The Background genotype description column is for alleles in the
+    background, such as selectable markers; these details are
+    optional. To avoid redundancy, it does not repeat the allele of
+    interest (from column 4 or 10) in the genotype column.
 9.  Gene names are optional for upload, but are included where available
     in the download.
 10. Allele names are optional for upload, but are included where
@@ -97,8 +93,9 @@ columns may be empty.
     name, and any alternative names are in column 11.
 11. See note 10 above. Multiple entries are separated with pipes (|).
 12. Allowed allele types, example descriptions, etc. are shown in the
-    table at the bottom of the the [Phenotype Data Bulk Upload
-    Format](/submit-data/phenotype-data-bulk-upload-format) page.
+    table at the bottom of the 
+    [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
+    page.
 13. For the Evidence column, we use a small selection from the [Evidence
     Ontology](http://www.evidenceontology.org/) (ECO). Please contact
     the [Helpdesk](mailto:helpdesk@pombase.org) if you need assistance
@@ -109,7 +106,7 @@ columns may be empty.
     applies at the same time (e.g. high temperature, minimal medium),
     and are separated with commas (,).
 15. Penetrance describes the proportion of a population that shows a
-    cell-level phenotype. Penetrance data are represented as percents or
+    cell-level phenotype. Penetrance data are represented as percents or
     entries from the in-house FYPO\_EXT ontology (FYPO\_EXT:0000001 =
     high; FYPO\_EXT:0000002 = medium; FYPO\_EXT:0000003 = low;
     FYPO\_EXT:0000004 = full).
@@ -121,7 +118,7 @@ columns may be empty.
     allele is annotated to the phenotype "decreased protein kinase
     activity" with the ID for gene B in an extension. In the
     downloadable file, an annotation can have multiple comma-separated
-    extensions  if they combine to form a "compound" extension (e.g. two
+    extensions if they combine to form a "compound" extension (e.g. two
     or more genes assayed together).
 18. The Reference column has the publication's PubMed ID (PMID).
 19. The taxon will usually be 4896 (the NCBI taxon ID for
