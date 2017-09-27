@@ -316,14 +316,14 @@ sub contents_for_template {
   }
 
   if ($path =~ m[^news/(index|menu)$]) {
-    my @all_news_items = all_news_items();
+    my @all_news_items = reverse all_news_items();
 
     if ($path eq 'news/menu') {
       for my $item (@all_news_items) {
         $ret .= ' - <a simplePageScroll href="#' . $item->{id} . '">' . $item->{title} . "</a>\n";
       }
     } else {
-      my @rev_items = reverse @all_news_items;
+      my @rev_items = @all_news_items;
       for my $item (@rev_items) {
         $ret .= '### ' . $item->{title} . ' {#' . $item->{id} . "}\n\n";
         $ret .= '*' . $item->{date} . "*\n";
