@@ -28,5 +28,5 @@ Annotation type|Description
 [Modifications](ftp://ftp.pombase.org/pombe/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future; ftp)
 [Orthologs](ftp://ftp.pombase.org/pombe/orthologs/)|Manually curated ortholog sets for [human](how-can-i-find-s-pombe-orthologs-of-a-human-gene) and [*S. cerevisiae*](how-can-i-search-for-the-s-cerevisiae-ortholog-s-homolog-s-of-an-s-pombe-gene); also see [documentation](/documentation/orthologs) (ftp)
 
-#### [Gene names and IDs](downloads/data-mappings) ####
+#### [Gene names and IDs](downloads/names-and-identifiers) ####
 Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers
