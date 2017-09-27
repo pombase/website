@@ -1,8 +1,8 @@
-# Telomeres
+## Telomeres
 
 The fission yeast complete genome sequence currently stops short of the
-telomeric repeats. See the [Sequencing
-Status](status/sequencing-status) page for the current assembly status.
+telomeric repeats. See the [Sequencing Status](status/sequencing-status) 
+page for the current assembly status.
 
 The most proximal anchored cosmids to each telomere are (links
 to genome browser):
@@ -21,15 +21,15 @@ to genome browser):
 
 Details of all clones used for the assembly, and their order, length and
 overlap details is provided in a set of
-[spreadsheets](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Cosmid_assembly_data/)
-available from the *S. pombe* FTP site.
+[spreadsheets](ftp://ftp.pombase.org/pombe/Archived_directories/Cosmid_assembly_data/)
+available from the PomBase FTP site.
 
 A contig extending the left arm of Chromosome II was sequenced by
 Sasaki *et al.*
 ([PMID:18727152](http://www.ncbi.nlm.nih.gov/pubmed?term=18727152))
 and will be attached to the assembly in the next round of sequence
 changes. In the meantime, the contig can be viewed in the
-[PomBase Genome Browser](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?g=SPBC460.01c;r=AB325691:1479-3197;t=SPBC460.01c.1).
+[PomBase genome browser](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?g=SPBC460.01c;r=AB325691:1479-3197;t=SPBC460.01c.1).
 
 A set of [small insert clones](ftp://ftp.sanger.ac.uk/pub/yeast/sequences/pombe/telomeres/)
 (FTP link; also see table) from a telomere plasmid library has been
@@ -39,19 +39,19 @@ assigned to a chromosome at present.
 Clones included in the final sequence are available from the Wellcome
 Trust Sanger Institute; send email to <archives@sanger.ac.uk>
 
-  Plasmid          Size of insert       Location of telomeric     sequence   Comments                                                                                 Vector       Laboratory    Funded by   Stage
-  ---------------- -------------------- ------------------------------------ ---------------------------------------------------------------------------------------- ------------ ------------- ----------- ----------
-  pNSU28           approx     1kb                                            Lies in pNSU21                                                                           pUC19        Hinxton       EC          finished
-  pNSU31           approx     1kb                                            Lies in pNSU21                                                                           pUC19        Hinxton       EC          finished
-  pNSU68           423 bp               Internal                             Contains 195bp     of telomeric     DNA and 123bp     from the rDNA    .                 pMLC28       Hinxton       EC          finished
-  pNSU71           15 kb                Terminal                                                                                                                      pMLC28       Hinxton       EC          finished
-  pNSU64    ^\*^   6.9 kb               Terminal                                                                                                                      pMLC28       Hinxton       EC          finished
-  pNSU70           7.1 kb                                                                                                                                             pMLC28       Hinxton       EC          finished
-  pNSU77    ^\*^   12 kb                Internal                             Fusion between telomere     sequences (7.1kb) and rDNA     sequences (4.9kb)             pMLC28       Hinxton       EC          finished
-  pNSU21           7.9 kb               Terminal                             pNSU21     and pNSU65     were isolated from the first and second library respectively   pMLC28       Hinxton       EC          finished
-  pNSU65           8.1 kb               Terminal                             pNSU21     and pNSU65     were isolated from the first and second library respectively   pMLC28       Hinxton       EC          finished
+Plasmid|Size of insert|Location of telomeric sequence|Comments|Vector|Laboratory|Funded by|Stage
+-------|--------------|------------------------------|--------|------|----------|---------|-----
+pNSU28|approx 1kb| |Lies in pNSU21|pUC19|Hinxton|EC|finished
+pNSU31|approx 1kb| |Lies in pNSU21|pUC19|Hinxton|EC|finished
+pNSU68|423 bp|Internal|Contains 195 bp of telomeric DNA and 123 bp from the rDNA|pMLC28|Hinxton|EC|finished
+pNSU71|15 kb|Terminal| |pMLC28|Hinxton|EC|finished
+pNSU64^\*^|6.9 kb|Terminal| |pMLC28|Hinxton|EC|finished
+pNSU70|7.1 kb| |pMLC28|Hinxton|EC|finished
+pNSU77^\*^|12 kb|Internal|Fusion between telomere sequences (7.1kb) and rDNA sequences (4.9kb)|pMLC28|Hinxton|EC|finished
+pNSU21|7.9 kb|Terminal|pNSU21 and pNSU65 were isolated from the first and second library respectively pMLC28|Hinxton|EC|finished
+pNSU65|8.1 kb|Terminal|pNSU21 and pNSU65 were isolated from the first and second library respectively pMLC28|Hinxton|EC|finished
 
-**Table notes:**\
+**Table notes:**
 "Terminal" refers to the position adjacent to the vector sequences of
 pMLC12 where the blunt end (SmaI end) ligated to the
 telomeric sequences. "Internal" means that an *S. pombe*
