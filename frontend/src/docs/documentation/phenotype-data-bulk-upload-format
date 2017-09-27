@@ -1,4 +1,4 @@
-# Phenotype Data Bulk Upload Format
+# Phenotype data bulk upload format
 
 PomBase welcomes submissions of published large-scale phenotype data
 sets. We have devised a tab-delimited text file format for bulk
@@ -25,7 +25,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 13 | Condition | at high temperature | Yes | Yes
 14 | Penetrance | 85% | No | No
 15 | Expressivity | medium | No | No
-16 | Extension | assayed_using(PomBase:SPBC582.03) | No | Yes
+16 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
 17 | Reference | PMID:23697806 | Yes | No
 18 | taxon | taxon:4896 | Yes | No
 19 | Date | 20120101 | Yes | No

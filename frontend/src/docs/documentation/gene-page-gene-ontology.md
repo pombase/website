@@ -153,7 +153,7 @@ For some types of evidence, such as sequence comparisons or
 interaction data, it is important to note what gene or gene product
 was used in the comparison or detected in the interaction. In these
 cases the [With/From
-column](http://geneontology.org/page/go-annotation-file-gaf-format-20/)
+column](http://geneontology.org/page/go-annotation-file-gaf-format-21/)
 provides more information regarding the source of the information.
 
 #### Annotation extensions #### {#ann_ext}
@@ -173,7 +173,7 @@ The GO Consortium provides further information on annotation
 extensions in its [annotation
 documentation](http://geneontology.org/page/annotation-extension),
 including the [file format
-guide](http://geneontology.org/page/go-annotation-file-gaf-format-20/),
+guide](http://geneontology.org/page/go-annotation-file-gaf-format-21/),
 on a [wiki
 page](http://wiki.geneontology.org/index.php/Annotation_Extension),
 and in a
