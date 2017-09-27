@@ -1,4 +1,4 @@
 - [Citing PomBase](about/citing-pombase)
 - [Help](help)
-- [Resource Metrics](about/resource-metrics)
+- [Resource metrics](about/resource-metrics)
 

@@ -4,7 +4,7 @@
     - [Mating type region](status/mating-type-region)
     - [Telomeres](status/telomeres)
 - [Sequence updates](status/sequencing-updates)
-- [Sequence Updates Pending](status/sequence-updates-pending)
+- [Sequence updates pending](status/sequence-updates-pending)
 - [Gene coordinate changes](status/gene-coordinate-changes)
 - [New and removed genes](status/new-and-removed-genes)
 - [Gene characterisation](status/gene-characterisation)
