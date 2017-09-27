@@ -1,4 +1,4 @@
-# Drugs with known *S. pombe* targets
+### Drugs with known *S. pombe* targets
 
 This table lists drugs that affect *S. pombe*, and summarizes what is
 known about their targets or mechanisms of action.
