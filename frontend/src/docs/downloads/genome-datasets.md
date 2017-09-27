@@ -1,43 +1,65 @@
+## Genome sequence and features
+
+Links below go to web pages or directly to directories within the
+PomBase FTP site. When you reach the FTP site, choose the file(s) you
+need and click to download.
+
 Note that most of the datasets available here are compressed (.gz), and
 can be uncompressed by utilities available in all common operating
 systems.
 
-[]{#features}Genome Feature Annotations
----------------------------------------
+### Genome sequence
 
-Each link below goes to a directory within the PomBase FTP site, in
-which there is one file for the whole genome, plus individual files for
-each chromosome. Choose the file(s) you need and click to download.
+The current [genome sequence](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/fasta/) (ftp)
+is available in FASTA format. The linked directory contains a file for
+the whole genome sequence as well as separate files for each
+chromosome.
 
-### Feature coordinates only
+#### Feature coordinates only
 
--   [GFF3 format - feature
-    coordinates](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/gff3/)
+These files contain coordinates, but no sequence data:
 
-### Feature coordinates and sequence data
+-   [GFF3 format](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/gff3/) (ftp)
+    files contain coordinates for features of all types.
+-   [CDS coordinates](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/CDS_Coordinates/) (ftp) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
+-   [Exon coordinates](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/Exon_Coordinates/) (ftp) are in the same tab-delimited file format as CDS coordinates.
 
--   [EMBL
-    format](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/embl/)
--   [GenBank
-    format](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/genbank/)
--   [Chromosome
-    contigs](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_contigs/)
+#### Feature coordinates and sequence data
+
+-   [Chromosome contigs](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/) (ftp)
     in enriched EMBL-based format for loading into
     [Artemis](http://www.sanger.ac.uk/resources/software/artemis/)
+-   Older files in [EMBL format](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/OLD/20170906/embl/)
+    and [GenBank format](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/OLD/20170906/genbank/)
+    are available, and reflect the current genome sequence, with feature annotations from January 2017 (ftp).
 
-[]{#sequences}Sequence Datasets (FASTA format)
-----------------------------------------------
+<!-- put this between the two existing lines above:
+-   [Manually curated LTRs]() in GFF3 format
+-->
 
-These files contain only DNA sequence data and headers.
+#### Feature sequences
 
--   [Chromosomes](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/fasta/) -
-    link to FTP site
--   [Coding sequences
-    (CDS)](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/fasta/) -
-    link to FTP site
--   [cDNA](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Chromosome_Dumps/fasta/) -
-    link to FTP site
--   [UTRs](/downloads/utr)
+[Sequences in FASTA format](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/) for:
 
-You can also browse the files available from the [Ensembl Genomes FTP
+-   Coding sequences (CDS)
+-   CDS + introns
+-   CDS + introns + UTRs
+-   Introns
+-   5' and 3' UTRs
+-   Peptide sequences
+-   Non-coding RNA genes
+
+#### Genomic regions
+
+Region|Description
+------|-----------
+[Telomeres](status/telomeres)|Telomeric sequence
+[Centromeres](status/centromeres)|Centromeric sequence and maps
+[Mating Type Region](status/mating-type-region)|Links to genome browser for 972 h- (chromosome 2 coordinates) and h+ (mating region contig)
+
+#### Other data
+
+-   Additional information and historical data are available for [introns](downloads/intron-data)
+-   [Cosmid sequences](ftp://ftp.pombase.org/pombe/Archived_directories/Cosmid_sequences/) and [Chromosome tiling paths from genome sequence assembly](ftp://ftp.pombase.org/pombe/Archived_directories/Cosmid_assembly_data/)
+-   You can also browse the files available from the [Ensembl Genomes FTP
 site](ftp://ftp.ensemblgenomes.org/pub/current/fungi/).
