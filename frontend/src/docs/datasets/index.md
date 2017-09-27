@@ -30,3 +30,8 @@ Annotation type|Description
 
 #### [Gene names and IDs](downloads/names-and-identifiers) ####
 Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers
+
+#### Curated inventories
+
+-   [DNA binding sites](/browse-curation/dna-binding-sites.md)
+-   [Drug targets](/browse-curation/drugs-known-pombe-targets.md)
