@@ -1,7 +1,7 @@
 # Can I get a list of systematic IDs, primary names, synonyms and gene products in *S. pombe*?
 <!-- pombase_categories: Genome statistics and Lists -->
 
-Yes: From the [Data Mapping](/downloads/data-mappings) page, retrieve
+Yes: From the [Data Mapping](/downloads/names-and-identifiers) page, retrieve
 this file:
 ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.tsv
 
