@@ -20,7 +20,7 @@ on a [track in the Ensembl browser](/faq/how-can-i-show-or-hide-tracks-in-the-ge
 Finally, if you wish to install Artemis (available from
 http://www.sanger.ac.uk/science/tools/artemis), you can use it to view
 LTRs in more detail. Read in the EMBL format files of sequence and
-annotation (available from the [Genome Feature Annotations](/downloads/genome-datasets) page). To see LTRs,
+annotation (available from the [Genome sequences](/downloads/genome-datasets) page). To see LTRs,
 
 1.  In the Select menu, choose "By Key".
 2.  In the pulldown that pops up, choose "LTR".

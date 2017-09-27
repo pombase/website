@@ -11,7 +11,7 @@ it is fairly easy to download and run locally:
 
 -   Artemis is available from
     http://www.sanger.ac.uk/science/tools/artemis
--   Read in the chromosome contig files available from the [Genome feature annotations](/downloads/genome-datasets) page. (You can read
+-   Read in the chromosome contig files available from the [Genome sequences](/downloads/genome-datasets) page. (You can read
     in one or more files in a session.)
 
 Once you have loaded the file(s), you can do many different things,
