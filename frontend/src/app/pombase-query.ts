@@ -147,10 +147,10 @@ export class GeneListNode extends GeneQueryNode {
   }
 }
 
-export enum TermAlleleSingleOrMulti {
-  Single = 'single',
-  Multi = 'multi',
-  Both = 'both',
+export const enum TermAlleleSingleOrMulti {
+  Single,
+  Multi,
+  Both,
 }
 
 export class TermNode extends GeneQueryNode {
@@ -182,10 +182,18 @@ export class TermNode extends GeneQueryNode {
 
   private singleOrMultiString(): string {
     if (this.singleOrMultiAllele) {
-      if (this.singleOrMultiAllele === TermAlleleSingleOrMulti.Both) {
+      const alleleValue = this.singleOrMultiAllele.valueOf();
+      if (alleleValue === TermAlleleSingleOrMulti.Both) {
         return 'single and multi';
+      } else {
+        if (alleleValue === TermAlleleSingleOrMulti.Single.valueOf()) {
+          return 'single';
+        } else {
+          if (alleleValue === TermAlleleSingleOrMulti.Multi) {
+            return 'multi';
+          }
+        }
       }
-      return this.singleOrMultiAllele.toString().toLowerCase()
     }
     return null;
   }
