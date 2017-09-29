@@ -183,8 +183,6 @@ sub process_path {
   print qq|  </div>\n|;
   print qq|  <div class="docs-content">\n|;
 
-  my @news_pages = ();
-
   for my $page_name (sort keys %$data) {
     next if $page_name eq "menu";
     (my $no_date_page_name = $page_name) =~ s/^$date_re-(.*)/$1/;
@@ -198,10 +196,6 @@ sub process_path {
       print markdown(contents_for_template("$path/$page_name", $data->{$page_name})), "\n";
     }
     print qq|  </div>\n|;
-
-    if ($path eq 'news' && $page_name =~ /^$date_re/) {
-      push @news_pages, $page_name;
-    }
   }
 
   if ($path eq 'faq') {
@@ -212,18 +206,22 @@ sub process_path {
   print qq|</div>\n|;
 
   if ($path eq 'news') {
+    my @all_news_items = all_news_items();
     my @news_summary = ();
-    if (@news_pages > 3) {
-      @news_summary = (reverse @news_pages)[0..3];
+    if (@all_news_items > 3) {
+      @news_summary = (@all_news_items)[0..3];
     } else {
-      @news_summary = reverse @news_pages;
+      warn "warning: less than 4 news items";
+      @news_summary = @all_news_items;
     }
 
     print $recent_news_file qq|<div class="recent-news">\n|;
-    for my $page_name (@news_summary) {
-      my $contents = contents_for_template("news/$page_name", $data->{$page_name});
-      $contents =~ s/^#/###/gm;
-      print $recent_news_file markdown($contents), "\n";
+    for my $item (@news_summary) {
+      my $md = '';
+      $md .= '#### ' . $item->{title} . "\n\n";
+      $md .= '*' . $item->{date} . "*\n";
+      $md .= $item->{contents} . "\n";
+      print $recent_news_file markdown($md), "\n";
     }
     print $recent_news_file qq|
 <div id="archive-link"><a routerLink="/news/">News archive</a></div>\n</div>\n
@@ -298,7 +296,7 @@ sub all_news_items {
   }
 
   return sort {
-    $a->{date} cmp $b->{date};
+    $b->{date} cmp $a->{date};  # reverse sort
   } @items;
 }
 
@@ -316,7 +314,7 @@ sub contents_for_template {
   }
 
   if ($path =~ m[^news/(index|menu)$]) {
-    my @all_news_items = reverse all_news_items();
+    my @all_news_items = all_news_items();
 
     if ($path eq 'news/menu') {
       for my $item (@all_news_items) {
