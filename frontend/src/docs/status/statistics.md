@@ -1,4 +1,4 @@
-# Genome statistics
+## Genome statistics
 
 ### Genome Structure and Organisation
 

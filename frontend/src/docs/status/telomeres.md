@@ -1,4 +1,4 @@
-## Telomeres
+### Telomeres
 
 The fission yeast complete genome sequence currently stops short of the
 telomeric repeats. See the [Sequencing Status](status/sequencing-status) 
