@@ -1,16 +1,14 @@
-Gene Page: Gene Expression
+## Gene page: Gene expression
 
-The Gene Expression section of a gene page displays curated
+The Gene expression section of a gene page displays curated
 qualitative and quantitative information about the level and timing of
 the gene's expression. In each subsection, a simple summary appears by
 default (see explanations below the detail view illustration):
 
-\
 ![gene page expression section, summary view](assets/gene_page_expression_summary.png "Gene Page: Gene Expression Summary"){width="800"}
 
 Click "Show details" to reveal additional information:
 
-\
 ![gene page expression section, detail view](assets/gene_page_expression_details.png "Gene Page: Gene Expression Details"){width="800"}
 
 1.  Qualitative descriptions are drawn from a small internal controlled
@@ -23,8 +21,8 @@ Click "Show details" to reveal additional information:
         particular process or phase (using GO terms) or in the presence of a
         particular chemical (using ChEBI terms).
     -   d\) A brief descriptor for the type of evidence that supports the
-        annotation. The evidence categories come from the [Evidence
-        Ontology](http://www.evidenceontology.org/) (ECO).
+        annotation. The evidence categories come from the 
+        [Evidence Ontology](http://www.evidenceontology.org/) (ECO).
     -   e\) The paper from which the annotation comes.
 2.  Quantitative data include the number of RNA or protein molecules
     measured per cell, and may optionally include a copy number range.
@@ -43,8 +41,8 @@ Click "Show details" to reveal additional information:
     -   i\) Whether the experiment was done at the level of a single cell or a
         population of cells.
     -   j\) A brief descriptor for the type of evidence that supports the
-        annotation. The evidence categories come from the [Evidence
-        Ontology](http://www.evidenceontology.org/) (ECO). If a more specific
+        annotation. The evidence categories come from the 
+        [Evidence Ontology](http://www.evidenceontology.org/) (ECO). If a more specific
         description is not available, the general term "experimental evidence"
         is shown.
     -   k\) The paper from which the annotation comes.
@@ -56,6 +54,5 @@ details at present. We therefore recommend consulting the papers cited
 for the data before comparing or combining data from different
 publications.
 
-Several of the [External
-References](/documentation/gene-page-external-references) also link to
-gene expression data.
+Several of the [External References](/documentation/gene-page-external-references) 
+also link to gene expression data.

@@ -1,4 +1,4 @@
-# Publication pages
+## Publication pages
 
 For each publication loaded into PomBase, a page summarizes essential
 details about paper, and shows any annotations that cite it.
@@ -10,15 +10,13 @@ details about paper, and shows any annotations that cite it.
     [EuropePMC](http://europepmc.org/)
 2.  Any community curators who have contributed annotations via Canto
     are acknowledged.
-3.  Summary views are identical to those on [gene
-    pages](/documentation/index#DocsGenePage).
-4.  In detailed views annotations are displayed as on [gene
-    pages](/documentation/index#DocsGenePage), except that a column
-    for the annotated gene is included and the Reference column is
-    omitted.
+3.  Summary views are identical to those on [gene pages](/documentation/index#DocsGenePage).
+4.  In detailed views annotations are displayed as on [gene pages](/documentation/index#DocsGenePage), 
+    except that a column for the annotated gene is included and the
+    Reference column is omitted.
+
 5.  Term and evidence filtering are available for phenotype
-    annotations as described in the [gene page
-    documentation](documentation/gene-page-phenotypes).
+    annotations as described in the [gene page documentation](documentation/gene-page-phenotypes).
 
 Like gene pages, publication pages include annotations of all types,
 with summary and detailed views available for most types:

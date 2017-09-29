@@ -1,4 +1,4 @@
-# High Confidence Physical Interaction Network (HCPIN)
+## High Confidence Physical Interaction Network (HCPIN)
 
 The PomBase High Confidence Physical Interaction Network (HCPIN) is a
 collection of physical interaction data based on three subsets Gene
@@ -13,8 +13,8 @@ Ontology (GO) annotations:
     or phosphatases, protein methyltransferases, ubiquitin-protein
     ligases). When one protein is shown experimentally to modify
     another, a GO molecular function annotation represents the activity,
-    and the target(s) can be captured using [annotation
-    extensions](/documentation/gene-page-gene-ontology#ann_ext). For
+    and the target(s) can be captured using 
+    [annotation extensions](/documentation/gene-page-gene-ontology#ann_ext). For
     example, [Cdc2](/gene/SPBC11B10.09) phosphorylates
     [Cut3](/gene/SPBC146.03c), so it is annotated to 'protein
     serine/threonine kinase activity' with the extension 'has substrate

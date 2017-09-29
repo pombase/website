@@ -10,7 +10,7 @@
      -   [Ortholog curation](documentation/orthologs)
      -   [Taxonomic conservation](documentation/taxonomic-conservation)
      -   [Sequence](documentation/gene-page-sequence)
-     -   [Controlled curation](documentation/controlled_curation)
+     -   [Controlled curation](documentation/controlled-curation)
      -   [External references](documentation/gene-page-external-references)
      -   [Literature](documentation/gene-page-literature)
  -   [GO Slim](documentation/pombase-go-slim-documentation)

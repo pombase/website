@@ -1,4 +1,4 @@
-# Gene Page: Gene Ontology
+## Gene page: Gene Ontology
 
 PomBase uses the [Gene Ontology](http://www.geneontology.org/) (GO) to
 describe the biological context of genes.
@@ -37,12 +37,9 @@ extension(s) is shown once:
 1.  The GO term name, which links to a page with additional
     information, including the term definition, any synonyms,
     [relationships to other GO terms](#go_str), and annotations to the
-    term or its descendants. (See the PomBase [ontology term page
-    documentation](/documentation/ontology-term-page) and the GO
-    documentation on [Ontology
-    Structure](http://geneontology.org/page/ontology-structure) and
-    [Ontology
-    Relations](http://geneontology.org/page/ontology-relations) for
+    term or its descendants. (See the PomBase [ontology term page documentation](/documentation/ontology-term-page) and the GO
+    documentation on [Ontology Structure](http://geneontology.org/page/ontology-structure) and
+    [Ontology Relations](http://geneontology.org/page/ontology-relations) for
     more information.)
 2.  [GO Slim](/browse-curation/fission-yeast-go-slim-terms) terms
     applicable to the gene.
@@ -64,18 +61,15 @@ than one paper), and annotations to terms hidden in the summary view:
     term page as described above.
 2.  An abbreviation (code) for the type of [evidence](#evid) that
     supports the annotation. The evidence categories come from the set
-    of [evidence
-    codes](http://geneontology.org/page/guide-go-evidence-codes)
+    of [evidence codes](http://geneontology.org/page/guide-go-evidence-codes)
     defined by the GO Consortium.
 
 3.  An additional ontology term or identifier that provides supporting
     details for annotations using certain evidence codes (see below
-    and [GO
-    documentation](http://geneontology.org/page/go-annotation-file-format-20)).
+    and [GO documentation](http://geneontology.org/page/go-annotation-file-format-20)).
 4.  An optional qualifier that modifies the connection between the
-    gene product and the GO term. Entries come from [GO's set of
-    allowed
-    qualifiers](http://geneontology.org/page/go-annotation-conventions#qual)
+    gene product and the GO term. Entries come from 
+    [GO's set of allowed qualifiers](http://geneontology.org/page/go-annotation-conventions#qual)
     or internal PomBase usage.
 5.  The paper from which the annotation comes.
 6.  The number of genes annotated to the term, linked to an ontology
@@ -105,8 +99,7 @@ and chromosome segregation.  Crucially, whenever an annotation is made
 to a term, the gene product is automatically annotated to all the
 parent terms. The ancestry of a term can be viewed in browsers such as
 AmiGO or QuickGO, accessible via links on the ontology term page. For
-more information, see the [GO Ontology
-Structure](http://geneontology.org/page/ontology-structure)
+more information, see the [GO Ontology Structure](http://geneontology.org/page/ontology-structure)
 documentation.
 
 Multiple relationships exist to describe the links within the
@@ -115,8 +108,8 @@ term, where the child is a more specific type of the parent, or a
 *part\_of* relationship where the child makes up a part of the parent.
 For instance, the mitochondrion *is\_a* intracellular organelle and is
 part\_of a cell. Additionally, GO also include regulatory relationships.
-For more information on relationships in GO, see the [GO Ontology
-Relations](http://geneontology.org/page/ontology-relations)
+For more information on relationships in GO, see the 
+[GO Ontology Relations](http://geneontology.org/page/ontology-relations)
 documentation.
 
 #### Evidence codes #### {#evid}
@@ -130,8 +123,7 @@ reference and citing experimental evidence such as
 (Inferred from Direct Assay) or
 [IMP](http://geneontology.org/page/imp-inferred-mutant-phenotype)
 (Inferred from Mutant Phenotype). Further information on evidence
-codes is available in the [GO Evidence
-Codes](http://geneontology.org/page/guide-go-evidence-codes)
+codes is available in the [GO Evidence Codes](http://geneontology.org/page/guide-go-evidence-codes)
 documentation.
 
 Another source of annotations come from computational methods. Please
@@ -152,8 +144,7 @@ present in a gene product can give clues to its biological role.
 For some types of evidence, such as sequence comparisons or
 interaction data, it is important to note what gene or gene product
 was used in the comparison or detected in the interaction. In these
-cases the [With/From
-column](http://geneontology.org/page/go-annotation-file-gaf-format-21/)
+cases the [With/From column](http://geneontology.org/page/go-annotation-file-gaf-format-21/)
 provides more information regarding the source of the information.
 
 #### Annotation extensions #### {#ann_ext}
@@ -170,22 +161,17 @@ cellular component of the nucleus during nitrogen starvation, but
 found in the vacuole during glucose starvation).
 
 The GO Consortium provides further information on annotation
-extensions in its [annotation
-documentation](http://geneontology.org/page/annotation-extension),
-including the [file format
-guide](http://geneontology.org/page/go-annotation-file-gaf-format-21/),
-on a [wiki
-page](http://wiki.geneontology.org/index.php/Annotation_Extension),
+extensions in its [annotation documentation](http://geneontology.org/page/annotation-extension),
+including the [file format guide](http://geneontology.org/page/go-annotation-file-gaf-format-21/),
+on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension),
 and in a
 [publication](http://www.biomedcentral.com/1471-2105/15/155/abstract).
 PomBase converts many extension names to more human-friendly text, as
-described
-[here](/documentation/annotation-extension-relation-display).
+described [here](/documentation/annotation-extension-relation-display).
 
 If an extension mentions another *S. pombe* gene, the extension data
-will also be displayed as an annotation in the "[Target
-of](/documentation/gene-page-target)" section of the page for that
-gene.
+will also be displayed as an annotation in the "[Target of](/documentation/gene-page-target)" 
+section of the page for that gene.
 
 #### Finding other genes annotated to a specific GO term ####
 
@@ -194,9 +180,8 @@ children) can be found by clicking on a term name or ID to reach the
 ontology term page.
 
 Additionally, the [advanced search](/query) can be used to search for
-all genes annotated to a particular GO term (see the [advanced search
-documentation](/documentation/advanced-search-documentation) for more
-information). To find annotations to specific GO terms in organisms
+all genes annotated to a particular GO term (see the [advanced search documentation](/documentation/advanced-search) 
+for more information). To find annotations to specific GO terms in organisms
 other than *S. pombe* we recommend using
 [AmiGO](http://amigo.geneontology.org) or
 [QuickGO](http://www.ebi.ac.uk/QuickGO).

@@ -1,10 +1,10 @@
-# Gene Page: Protein Features
+## Gene page: Protein features
 
 Gene pages for protein-coding genes have a section describing protein
 features. Also see the
 [Modifications](/documentation/gene-page-modifications) documentation.
 
-![gene page protein features](assets/gene_page_protein_features.png  "Protein features"){width="800"}
+![gene page protein features](assets/gene_page_protein_features.png){width="800"}
 
 1.  The graphical view is a static graphic from the PomBase Genome
     Browser, and shows the positions of domains and other features.
@@ -20,12 +20,13 @@ features. Also see the
     common. This section is also used to capture published subfamily
     members which may be collected into a single family in protein
     family databases.
-4.  Any motifs or features annotated using Sequence Ontology (SO) terms.
+4.  Any motifs or features annotated using [Sequence Ontology](http://sequenceontology.org/)
+    (SO) terms.
 5.  Table of the protein's physical properties
 
 #### Protein Families and Domains ####
 
-![gene page protein domains](assets/gene_page_protein_domains.png "Protein families and domains"){width="800"}
+![gene page protein domains](assets/gene_page_protein_domains.png){width="800"}
 
 a.  Feature ID of this family or domain in the originating database.
     Where feasible, the ID links to the source database. Databases

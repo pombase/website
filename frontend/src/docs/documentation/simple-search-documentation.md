@@ -1,4 +1,4 @@
-# Simple search
+## Simple search
 
 The simple search is available via the search box in the header on every
 PomBase page.

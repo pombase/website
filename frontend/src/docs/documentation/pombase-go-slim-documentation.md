@@ -1,10 +1,9 @@
-# GO Slims - Gene Ontology subsets
+## GO Slims - Gene Ontology subsets
 
 "GO slims" are subsets of the Gene Ontology (GO) that provide a broad
 overview of annotation distribution. Slims can offer a useful overview
 of a genome or the results of a large-scale experiment. For more
-information on GO slims, please see PomBase [GO Slimming
-Tips](/browse-curation/fission-yeast-go-slimming-tips) and the [GO Slim
+information on GO slims, please see PomBase [GO Slimming Tips](/browse-curation/fission-yeast-go-slimming-tips) and the [GO Slim
 Guide](http://www.geneontology.org/GO.slims.shtml) at the Gene Ontology
 website.
 
@@ -17,7 +16,7 @@ genome contents.
 
 In the GO slim [table](/browse-curation/fission-yeast-go-slim-terms), GO
 IDs link to the QuickGO browser, where you can explore the ontology and
-annotations further. The annotation totals include annotations to the
+annotations further. The annotation totals include annotations to the
 slim term and to descendants following the *is\_a*, *part\_of,
 regulates, positively\_regulates,*and *negatively\_regulates*
 relationships, and link to gene lists.
