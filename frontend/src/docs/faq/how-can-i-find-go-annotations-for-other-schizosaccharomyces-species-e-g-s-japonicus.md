@@ -21,7 +21,7 @@ Note that the GAF downloaded from QuickGO uses UniProtKB accessions in
 the gene product ID column (column 2). To use the GAF in any further
 analysis, such as term enrichment, you will have to convert the
 accessions to systematic IDs. See the 
-[FAQ on ID mapping](/faq/can-i-convert-ids-from-other-databases-to-or-from-pombase-ids)
+[FAQ on ID mapping](/faq/can-i-convert-ids-other-databases-or-pombase-ids)
 for hints.
 
 One feasible approach to improve annotation coverage is to download the
@@ -30,7 +30,7 @@ One feasible approach to improve annotation coverage is to download the
 page), and then substitute the *S. pombe* IDs with the IDs of
 orthologous genes from the other *Schizosaccharomyces* species of
 interest. For ortholog IDs, see the 
-[FAQ on *Schizosaccharomyces* orthologs](/faq/how-can-i-find-orthologs-between-s-pombe-and-other-schizosaccharomyces-species),
+[FAQ on *Schizosaccharomyces* orthologs](/faq/how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species),
 and use the indicated table from Rhind *et al.* Comparative functional
 genomics of the fission yeasts ([PMID:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).
 
@@ -43,6 +43,6 @@ annotation lines (contact the [Helpdesk](mailto:helpdesk@pombase.org)
 if you need assistance). Combining all approaches gives the best
 coverage possible at present. You can use a "GO Slim" tool such as
 Princeton's GO Term Mapper to see if there are any gaps in coverage,
-as described in the [FAQ on enrichment in *S. pombe*](/faq/how-can-i-find-significant-shared-go-annotations-for-genes-in-a-list).
-Also see the FAQs on GO term enrichment in [other *Schizosaccharomyces* species](/faq/can-i-do-go-term-enrichment-for-other-schizosaccharomyces-species-e-g-s-japonicus).
+as described in the [FAQ on enrichment in *S. pombe*](/faq/how-can-i-find-significant-shared-go-annotations-genes-list).
+Also see the FAQs on GO term enrichment in [other *Schizosaccharomyces* species](/faq/can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus).
 

@@ -7,6 +7,6 @@ A file of all non-coding RNA gene sequences is available on the
 If you need sequences for all genes of a single type (tRNAs, rRNAs,
 other ncRNAs, etc.) we recommend using the [advanced search](/query)
 and results download as described in the 
-[FAQ on retrieving sequence coordinates for all features of a particular type](/faq/how-can-i-retrieve-sequence-coordinates-for-all-features-of-a-particular-type).
+[FAQ on retrieving sequence coordinates for all features of a particular type](/faq/how-can-i-retrieve-sequence-coordinates-all-features-particular-type).
 
 

@@ -1,5 +1,5 @@
 # How can I retrieve all *S. pombe* protein-coding genes?
-<!-- pombase_categories: Datasets,Genome statistics and lists,Querying/Searching -->
+<!-- pombase_categories: Finding data,Genome statistics and lists -->
 
 
 

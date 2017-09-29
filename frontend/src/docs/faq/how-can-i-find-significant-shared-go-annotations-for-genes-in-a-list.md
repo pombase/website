@@ -1,5 +1,5 @@
 # How can I find significant shared GO annotations for genes in a list?
-<!-- pombase_categories: Tools and resources,Using ontologies -->
+<!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 
 GO term enrichment identifies GO terms that are significantly
 overrepresented (or underrepresented) among a set of genes.
@@ -18,7 +18,7 @@ accompanying "slimming" tool,
 [GO Term Mapper](http://go.princeton.edu/cgi-bin/GOTermMapper), 
 which is useful for a broad overview of the annotation set (for more
 information, gsee the [Fission Yeast GO slim terms](/browse-curation/fission-yeast-go-slim-terms) 
-page and [FAQ](/faq/how-can-i-use-go-slims-with-s-pombe)). GO Term Mapper is
+page and [FAQ](/faq/how-can-i-use-go-slims-s.-pombe)). GO Term Mapper is
 especially useful if you use your own GAF for the enrichment, because
 it will show:
 
