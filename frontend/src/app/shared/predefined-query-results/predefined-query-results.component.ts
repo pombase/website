@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
-import { QueryService } from '../query.service';
-import { QueryOutputOptions } from "../pombase-query";
+import { QueryService } from '../../query.service';
+import { QueryOutputOptions } from "../../pombase-query";
 
 @Component({
   selector: 'app-predefined-query-results',

@@ -3,7 +3,7 @@ import { Component, OnChanges, Input } from '@angular/core';
 import { saveAs } from 'file-saver';
 
 import { GeneDetails, PombaseAPIService, Strand } from '../pombase-api.service';
-import { Util } from '../util';
+import { Util } from '../shared/util';
 
 @Component({
   selector: 'app-transcript-sequence-select',

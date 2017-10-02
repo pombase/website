@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PombaseAPIService, TermSubsetDetails } from '../pombase-api.service';
+import { PombaseAPIService, TermSubsetDetails } from '../../pombase-api.service';
 
 @Component({
   selector: 'app-go-slim-table',

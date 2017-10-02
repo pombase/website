@@ -11,7 +11,6 @@ import { GeneSubsetViewComponent } from './gene-subset-view/gene-subset-view.com
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
 import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotypes-view/term-single-gene-genotypes-view.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
-import { DocsComponent } from './docs/docs.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { FrontComponent } from './front/front.component';
 
@@ -62,70 +61,37 @@ const routes: Routes = [
     }
   },
   { path: 'community',
-    data: {
-      title: 'Community'
-    },
-    children: [ { path: '**', data: { docsParent: 'community' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'about',
-    data: {
-      title: 'About'
-    },
-    children: [ { path: '**', data: { docsParent: 'about' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'help',
-    data: {
-      title: 'Help'
-    },
-    children: [ { path: '**', data: { docsParent: 'help' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'status',
-    data: {
-      title: 'Status'
-    },
-    children: [ { path: '**', data: { docsParent: 'status' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'documentation',
-    data: {
-      title: 'Documentation'
-    },
-    children: [ { path: '**', data: { docsParent: 'documentation' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'datasets',
-    data: {
-      title: 'Datasets'
-    },
-    children: [ { path: '**', data: { docsParent: 'datasets' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'downloads',
-    data: {
-      title: 'Downloads'
-    },
-    children: [ { path: '**', data: { docsParent: 'downloads' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'documents',
-    data: {
-      title: 'Documents'
-    },
-    children: [ { path: '**', data: { docsParent: 'documents' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'news',
-    data: {
-      title: 'News'
-    },
-    children: [ { path: '**', data: { docsParent: 'news' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'faq',
-    data: {
-      title: 'FAQ'
-    },
-    children: [ { path: '**', data: { docsParent: 'faq' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'browse-curation',
-    data: {
-      title: 'Curation'
-    },
-    children: [ { path: '**', data: { docsParent: 'browse-curation' }, component: DocsComponent } ]
+    loadChildren: './documentation/documentation.module#DocumentationModule',
   },
   { path: 'query', component: QueryBuilderComponent,
     data: {

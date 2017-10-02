@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 import { TargetOfAnnotation, GeneShort } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
-import { Util } from '../util';
+import { Util } from '../shared/util';
 import { TableViewState } from '../pombase-types';
 
 @Component({

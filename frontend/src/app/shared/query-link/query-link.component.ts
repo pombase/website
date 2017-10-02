@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
-import { QueryService } from '../query.service';
+import { QueryService } from '../../query.service';
 
 @Component({
   selector: 'app-query-link',

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 
 import { TermShort } from './pombase-query';
-import { Util } from './util';
+import { Util } from './shared/util';
 import { Seq } from './seq';
 import { getReleaseConfig, getAppConfig, ConfigOrganism } from './config';
 

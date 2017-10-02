@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { GeneShort } from './pombase-api.service';
+import { GeneShort } from '../pombase-api.service';
 import { Util } from './util';
 
 @Pipe({

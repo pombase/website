@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 
-import { GeneShort } from '../pombase-api.service';
-import { GenesDownloadDialogComponent } from '../genes-download-dialog/genes-download-dialog.component';
+import { GeneShort } from '../../pombase-api.service';
+import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 
 @Component({
   selector: 'app-genes-table',

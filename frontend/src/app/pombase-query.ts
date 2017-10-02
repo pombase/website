@@ -1,4 +1,4 @@
-import { Util } from './util';
+import { Util } from './shared/util';
 
 export interface ResultRow {
   gene_uniquename: string;
