@@ -1,6 +1,6 @@
  - [Datasets](datasets)
    - [Genome datasets](/downloads/genome-datasets)
-   - [Annotation datasets]/downloads/genome-datasets#Annotation_datasets)
+   - [Annotation datasets](/downloads/genome-datasets#Annotation_datasets)
      - [GO annotations](downloads/go-annotations)
      - [Phenotype annotations](downloads/phenotype-annotations)
      - [Modifications](ftp://ftp.pombase.org/pombe/annotations/modifications/)
