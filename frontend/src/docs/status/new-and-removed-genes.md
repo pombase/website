@@ -1,6 +1,6 @@
-# New and removed genes
+### New and removed genes
 
-### New Genes Since Publication
+#### New genes since publication
 
 <table>
  <thead>
@@ -700,7 +700,7 @@
 </table>
 
 
-### Genes Removed Since Publication
+#### Genes removed since publication
 
 <table>
  <tbody>

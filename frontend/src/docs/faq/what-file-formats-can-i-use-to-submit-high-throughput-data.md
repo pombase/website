@@ -11,15 +11,15 @@ assistance.
 
 File format | Recommended for
 ------------|----------------
-[BAM](/faq/what-is-bam-format) | sequence alignments, especially from high-throughput experiments
-[BED](/faq/what-is-bed-format) | sequence features with coordinates
-[bedGraph](/faq/what-is-bedgraph-format) | values attached to genome locations/regions
+[BAM](/faq/what-bam-format) | sequence alignments, especially from high-throughput experiments
+[BED](/faq/what-bed-format) | sequence features with coordinates
+[bedGraph](/faq/what-bedgraph-format) | values attached to genome locations/regions
 [bigBed](/faq/what-is-bigbed-format) | sequence features with coordinates
-[bigWig](/faq/what-is-bigwig-format) | values attached to genome locations/regions
+[bigWig](/faq/what-bigwig-format) | values attached to genome locations/regions
 [GFF3](/faq/what-is-gff3) | sequence features with coordinates
-[PSL](/faq/what-is-psl-format) | sequence alignments
-[VCF](/faq/what-is-vcf) | structural variations, such as SNPs, insertions, deletions, or copy number variants
-[WIG](/faq/what-is-wig-format) | values attached to genome locations/regions
+[PSL](/faq/what-psl-format) | sequence alignments
+[VCF](/faq/what-vcf) | structural variations, such as SNPs, insertions, deletions, or copy number variants
+[WIG](/faq/what-wig-format) | values attached to genome locations/regions
 
 We can also accept batch submissions of certain types of data that
 appear on PomBase gene pages. For these data types, we use dedicated

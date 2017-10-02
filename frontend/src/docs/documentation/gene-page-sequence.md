@@ -1,4 +1,4 @@
-# Gene Page: Sequence
+## Gene page: Sequence
 
 The Sequence section of a gene page provides a widget to download DNA
 sequences for any gene, and amino acid sequences for protein-coding

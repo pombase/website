@@ -1,4 +1,4 @@
-# Gene Page: Basic Information
+## Gene page: Basic information
 
 At the top of each gene page is a set of basic information about the
 gene:
@@ -12,15 +12,15 @@ gene:
 2.  Free text description of the gene product
 3.  Chromosome coordinates for the gene. For protein-coding genes, the
     first set of numbers indicate the gene start, end, and length
-    including the default UTRs chosen by PomBase curators (see [this
-    FAQ](http://www.pombase.org/faqs/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s)
+    including the default UTRs chosen by PomBase curators 
+    (see [this FAQ](http://www.pombase.org/faqs/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s)
     for more information). The "CDS" numbers give the start, end, and
     length excluding UTRs but including introns (other than introns
     located entirely within UTRs).
 4.  What the three-letter acronym stands for; where available, name
     descriptions are provided for synonyms as well as primary names.
-5.  Category describing how well-studied a gene is; see the [Gene
-    Characterisation](/status/gene-characterisation) page for details
+5.  Category describing how well-studied a gene is; see the 
+    [Gene Characterisation](/status/gene-characterisation) page for details
 6.  Indicates whether a gene encodes protein, specifies a non-coding
     RNA, or is a pseudogene
 7.  The size of the mature gene product. For protein-coding genes, the

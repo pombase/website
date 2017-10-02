@@ -9,7 +9,7 @@ submission route depends on the data type:
     etc.), please use the [data submission form for HTP sequence-linked data](/submit-data/data-submission-form).
 -   Several types of data associated with genes can be displayed on gene
     pages. PomBase has developed bulk upload formats for phenotype,
-    modification, and gene expression data -- see the [FAQ on file formats](/faq/what-file-formats-can-i-use-to-submit-high-throughput-data) 
+    modification, and gene expression data -- see the [FAQ on file formats](/faq/what-file-formats-can-i-use-submit-high-throughput-data) 
     for links to the file format descriptions and data submission forms.
 
 If you have any other type of large-scale data -- or if you have

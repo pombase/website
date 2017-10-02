@@ -1,4 +1,4 @@
-# Gene Page: Modifications
+## Gene page: Modifications
 
 The Modifications section lists protein modifications that have been
 manually curated, using terms from the
@@ -30,8 +30,8 @@ The detailed view shows more information for each annotation, and may display ad
     evidence that supports the annotation. Modification annotations
     use some of the
     [codes](http://www.geneontology.org/page/guide-go-evidence-codes)
-    defined by the GO Consortium, plus a small subset of the [Evidence
-    Ontology](http://www.evidenceontology.org/) (ECO).
+    defined by the GO Consortium, plus a small subset of the 
+    [Evidence Ontology](http://www.evidenceontology.org/) (ECO).
 5.  The residue(s) modified (where available)
 6.  The published source of the annotation (where available)
 7.  The total number of genes annotated to this term or any of its

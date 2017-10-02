@@ -2,26 +2,25 @@
 
 ### Gene Pages ### {#DocsGenePage}
 
--   [Basic Information](documentation/gene-page-basic-information)
+-   [Basic information](documentation/gene-page-basic-information)
 -   [Gene Ontology](documentation/gene-page-gene-ontology)
 -   [Phenotypes](documentation/gene-page-phenotypes)
 -   [Target of](documentation/gene-page-target)
--   [Transcript](documentation/gene-page-transcript)
 -   [Protein features](documentation/gene-page-protein-features)
 -   [Modifications](documentation/gene-page-modifications)
--   [Sequence](documentation/gene-page-sequence)
 -   [Gene expression](documentation/gene-page-gene-expression)
--   [Taxonomic conservation](documentation/taxonomic-conservation)
--   [Orthologs](documentation/orthologs)
 -   [Interactions](documentation/genetic-and-physical-interactions)
--   [External
-    references](documentation/gene-page-external-references)
+-   [Orthologs](documentation/orthologs)
+-   [Sequence](documentation/gene-page-sequence)
+-   [Taxonomic conservation](documentation/taxonomic-conservation)
+-   [Controlled curation](documentation/controlled-curation)
+-   [External references](documentation/gene-page-external-references)
 -   [Literature](documentation/gene-page-literature)
 
 ### Searching ### {#DocsSearch}
 
--   [Simple Search](documentation/simple-search-documentation)
--   [Advanced Search](documentation/advanced-search-documentation)
+-   [Simple search](documentation/simple-search-documentation)
+-   [Advanced search](documentation/advanced-search)
 
 ### Other PomBase Pages ###
 
@@ -46,9 +45,9 @@ on PomBase gene pages. For these data types, we use dedicated
 PomBase-specific formats:
 
 -   [Phenotypes](documentation/phenotype-data-bulk-upload-format)
--   [Modifications](documentation/modification-bulk-upload-file-format)
--   [Qualitative gene expression](documentation/qualitative-gene-expression-bulk-upload-file-format)
--   [Quantitative gene expression](documentation/quantitative-gene-expression-bulk-upload-file-format)
+-   [Modifications](documentation/modification-data-bulk-upload-file-format)
+-   [Qualitative gene expression](documentation/qualitative-gene-expression-data-bulk-upload-file-format)
+-   [Quantitative gene expression](documentation/quantitative-gene-expression-data-bulk-upload-file-format)
 
 For data that can be connected with sequence features or coordinates,
 and displayed as tracks in the genome browser, see the [data format
@@ -77,6 +76,4 @@ We plan to add specific documentation about comparative genomics using
 ### More information ... ###
 
 For help with anything in PomBase not covered here, you can
-<app-contact-email class="contact-email" [linkName]="'contact the
-curators.'"  [subject]="'Comment or problem report
-...'"></app-contact-email>
+[contact the curators](helpdesk@pombase.org).

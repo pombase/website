@@ -1,4 +1,4 @@
-# Genetic and Physical Interactions
+## Genetic and physical interactions
 
 The Interactions section of a gene page displays genetic and physical
 interactions for a gene (or its product), in
@@ -20,8 +20,7 @@ product, from its gene page
 **Evidence:** The type of genetic interaction observed, or the type of
 experiment performed to detect a physical interaction. The evidence
 categories come from BioGRID, and are described on their [Experimental
-Evidence
-Codes](http://wiki.thebiogrid.org/doku.php/experimental_systems)
+Evidence Codes](http://wiki.thebiogrid.org/doku.php/experimental_systems)
 documentation page.
 
 **Reference:** The paper cited to support the interaction

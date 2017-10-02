@@ -15,7 +15,7 @@ non-orthologous *-S. pombe* gene as well as the actual curated
 ortholog(s), so please check the gene pages carefully, especially if
 your search retrieves more than one result.
 
-Also see the FAQs on on [finding genes conserved in human](/faq/how-can-i-find-all-s-pombe-genes-that-are-conserved-in-human),
-[finding disease gene orthologs](/faq/how-can-i-find-s-pombe-genes-associated-with-human-disease),
-and on [downloading the full set of curated orthologs](/faq/how-can-i-obtain-the-list-of-human-and-s-pombe-orthologs).
+Also see the FAQs on on [finding genes conserved in human](/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human),
+[finding disease gene orthologs](/faq/how-can-i-find-s.-pombe-genes-associated-human-disease),
+and on [downloading the full set of curated orthologs](/faq/how-can-i-obtain-the-list-human-and-s.-pombe-orthologs).
 

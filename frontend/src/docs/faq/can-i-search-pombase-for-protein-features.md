@@ -14,8 +14,8 @@ To search for these features, use the "Protein feature" query in the
 [documentation](/documentation/advanced-search) for help with
 searching).
 
-Also see the FAQs on [transmembrane domains](/faq/how-can-i-find-proteins-that-have-transmembrane-domains) and
-[protein families](/faq/how-can-i-find-all-s-pombe-proteins-in-a-particular-protein-family),
+Also see the FAQs on [transmembrane domains](/faq/how-can-i-find-proteins-have-transmembrane-domains) and
+[protein families](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family),
 and the section of the search documentation on protein feature and protein domain queries.
 
 <!--

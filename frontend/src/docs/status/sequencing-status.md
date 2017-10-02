@@ -1,12 +1,11 @@
-# Sequencing status 
+### Sequencing status 
 
 Note: Many older *S. pombe* sequence submissions to the DNA databases
 (International Nucleotide Sequence Database Collaboration databases,
 i.e. ENA, GenBank, DDBJ) contain one or more errors, and we do not have
 the resources to maintain past sequences or flag every error in PomBase.
 
-Chromosome 1
-------------
+#### Chromosome 1
 
   Contig Name   Region                              Size
   ------------- ----------------------------------- ----------------
@@ -18,8 +17,7 @@ Chromosome 1
 
  
 
-Chromosome 2
-------------
+#### Chromosome 2
 
   Contig Name   Region                                                Size
   ------------- ----------------------------------------------------- --------------
@@ -32,8 +30,7 @@ Chromosome 2
 
  
 
-Chromosome 3
-------------
+#### Chromosome 3
 
   Contig Name   Region                           Size
   ------------- -------------------------------- ------------------
@@ -41,13 +38,13 @@ Chromosome 3
                 Gap                              25.3kb ± 6kb\*\*
   c1676         right arm from centromeric gap   1,369,435 bp
 
-\* pers comm. Randy Hyppa and Gerry Smith.\
+\* pers comm. Randy Hyppa and Gerry Smith.
 \*\* pers comm. Chad Ellermeier and Gerry Smith.
 
-### [Centromere clone information](status/centromeres)
+#### [Centromere clone information](status/centromeres)
 
-### [Telomere clone information](status/telomeres)
+#### [Telomere clone information](status/telomeres)
 
-### [Mating type region information](status/mating-type-region)
+#### [Mating type region information](status/mating-type-region)
 
-### [Ribosomal DNA information (FAQ)](http://www.pombase.org/faqs/are-there-any-rdna-repeat-sequences-pombase)
+#### [Ribosomal DNA information (FAQ)](faq/are-there-any-rdna-repeat-sequences-pombase)

@@ -13,8 +13,8 @@ vertebrates" taxonomic distribution.
 
 You can also use the [advanced search](/query) to find conserved
 unstudied genes as described in the FAQs on 
-[characterisation status](/faq/what-does-the-characterisation-status-mean-for-a-gene) and 
-[taxonomic conservation](/faq/can-i-search-for-genes-based-on-conservation-in-different-taxa).
+[characterisation status](/faq/what-does-characterisation-status-mean-gene) and 
+[taxonomic conservation](/faq/can-i-search-genes-based-on-conservation-different-taxa).
 Start by searching for Characterisation status "conserved unknown", and refine
 the search by adding a Taxonomic conservation query if you wish.
 
