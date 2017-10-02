@@ -181,7 +181,7 @@ export class TermNode extends GeneQueryNode {
   }
 
   private singleOrMultiString(): string {
-    if (this.singleOrMultiAllele) {
+    if (this.singleOrMultiAllele !== null) {
       const alleleValue = this.singleOrMultiAllele.valueOf();
       if (alleleValue === TermAlleleSingleOrMulti.Both) {
         return 'single and multi';
@@ -210,15 +210,25 @@ export class TermNode extends GeneQueryNode {
     return null;
   }
 
+  private singleOrMultiAlleleForObject(): string {
+    const valAsString = this.singleOrMultiString();
+    if (valAsString) {
+      if (valAsString === 'single and multi') {
+        return 'both';
+      } else {
+        return valAsString;
+      }
+    } else {
+      return null;
+    }
+  }
+
   toObject(): Object {
     const expression =
       this.singleOrMultiAllele == TermAlleleSingleOrMulti.Single ?
       this.expression :
       null;
-    const singleOrMultiAllele =
-      this.singleOrMultiAllele ?
-      this.singleOrMultiAllele.toString().toLowerCase() :
-      null;
+    const singleOrMultiAllele = this.singleOrMultiAlleleForObject();
     return {
       term: {
         termid: this.termid,
