@@ -1,16 +1,14 @@
-# Gene Page: Phenotypes
+## Gene page: Phenotypes
 
 PomBase defines a phenotype as an observable characteristic, or set of
 characteristics, of an organism that results from the interaction of
 its genotype with a given environment. In PomBase, phenotypes are
 annotated using terms from the Fission Yeast Phenotype Ontology
-(FYPO). FYPO uses several existing ontologies from the [Open
-Biological and Biomedical Ontologies](http://obofoundry.org/) (OBO)
+(FYPO). FYPO uses several existing ontologies from the 
+[Open Biological and Biomedical Ontologies](http://obofoundry.org/) (OBO)
 collection to construct formal definitions. Basic documentation for
-FYPO is available at the [OBO
-Foundry](http://obofoundry.org/ontology/fypo.html), and further
-information is available on the [PomBase
-wiki](http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology).
+FYPO is available at the [OBO Foundry](http://obofoundry.org/ontology/fypo.html), and further
+information is available on the [PomBase wiki](http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology).
 
 In the phenotype annotation display on PomBase gene pages, the first
 item shown is a brief summary indicating whether cells with a null
@@ -20,8 +18,7 @@ are shown in two tables. The first table lists phenotypes observed at
 the population level, such as viability in culture, and the second
 shows cell-level phenotypes. Note that the viable/inviable population
 terms describe whether a gene is essential or not, and see the wiki
-[FYPO Content and
-Structure](http://curation.pombase.org/pombase-trac/wiki/FYPOContentStructure)
+[FYPO Content and Structure](http://curation.pombase.org/pombase-trac/wiki/FYPOContentStructure)
 documentation for more information on cell and population phenotypes.
 Finally, two more tables list population-level and cell-level
 multi-allele phenotypes, i.e. phenotypes associated with double
@@ -34,20 +31,18 @@ terms used to annotate a genotype, and each unique combination of
 gene, FYPO term, allele(s) and extension(s) is shown once. For
 single-allele phenotypes, the display includes:
 
-![gene page phenotype annotations](assets/single_fypo_gene_page_summary.png "Single-allele FYPO summary on gene page"){width="800"}
+![single-allele FYPO summary on gene page](assets/single_fypo_gene_page_summary.png){width="800"}
 
 1.  The FYPO term name, which links to a page with additional
     information, including the term definition, any synonyms,
     relationships to other FYPO terms, and annotations to the term or
-    its descendants. (See the [ontology term page
-    documentation](/documentation/ontology-term-page) for more.)
+    its descendants. (See the [ontology term page documentation](/documentation/ontology-term-page) for more.)
 2.  Allele details, including a name (if one is used in the
     literature) and description (where known). Mouse over the allele
     name to show the allele type, which indicates whether partial
     deletions or altered residues refer to amino acids or nucleotides,
     and expression level. If you can provide a description for any
-    allele shown as "unknown", please [contact the PomBase
-    curators](mailto:helpdesk@pombase.org).
+    allele shown as "unknown", please [contact the PomBase curators](mailto:helpdesk@pombase.org).
 3.  Phenotype annotations may have extensions to capture expressivity
     (the extent to which a phenotype is expressed; for PomBase
     annotations expressivity extensions are often used to capture
@@ -72,13 +67,13 @@ single-allele phenotypes, the display includes:
     detailed view, lists several broad phenotypic categories derived
     from high-level FYPO terms:
 
-![FYPO term filter](assets/fypo_term_filter_pulldown.png "FYPO annotation term filter"){width="160"}
+![FYPO annotation term filter](assets/fypo_term_filter_pulldown.png){width="160"}
 
 Choose one to restrict the annotation display to terms in the selected
 branch of FYPO. When term filtering is active, a message appears to
 indicate that not all annotations are shown:
 
-![filtering message](assets/fypo_showing_n_annotations.png "filtered annotation display message"){width="600"}
+![filtered annotation display message](assets/fypo_showing_n_annotations.png){width="600"}
 
 Change the selection back to "No filter" to see annotations to all
 terms.
@@ -90,13 +85,12 @@ gene/term/allele/extension combination (if supported by more than one
 line of evidence and/or reported in more than one paper), and
 annotations to terms hidden in the summary view:
 
-![gene page phenotype annotations](assets/single_fypo_gene_page_full.png "Single-allele FYPO detailed view on gene page"){width="800"}
+![Single-allele FYPO detailed view on gene page](assets/single_fypo_gene_page_full.png){width="800"}
 
 1.  The unique ID and name for a term in the phenotype ontology. The
     ID links to a page with additional information, including the term
     definition, any synonyms, relationships to other FYPO terms, and
-    annotations to the term or its descendants. (See the [ontology
-    term page documentation](/documentation/ontology-term-page) for
+    annotations to the term or its descendants. (See the [ontology term page documentation](/documentation/ontology-term-page) for
     more.)
 2.  Allele details, including a name (if one is used in the
     literature) and description (where known). The column is headed
@@ -105,8 +99,7 @@ annotations to terms hidden in the summary view:
     (type, description, and expression) for its allele(s), links to
     gene pages, and a list of all phenotype annotations for the
     genotype. If you can provide a description for any allele shown as
-    "unknown", please [contact the PomBase
-    curators](mailto:helpdesk@pombase.org).
+    "unknown", please [contact the PomBase curators](mailto:helpdesk@pombase.org).
 3.  Mouse over the allele name to show the allele type, which
     indicates whether partial deletions or altered residues refer to
     amino acids or nucleotides, and expression level.
@@ -124,8 +117,7 @@ annotations to terms hidden in the summary view:
     evidence filtering is active, a message appears to indicate that
     not all annotations are shown.
 5.  A brief descriptor for the type of evidence that supports the
-    annotation. The evidence categories come from the [Evidence
-    Ontology](http://www.evidenceontology.org/) (ECO).
+    annotation. The evidence categories come from the [Evidence Ontology](http://www.evidenceontology.org/) (ECO).
 6.  Information about experimental conditions, such as temperature, type
     of medium used, etc. Descriptions come from a small ontology
     maintained by PomBase curators.
@@ -185,6 +177,5 @@ Annotation extensions are also included in the multi-allele Summary and
 Full views (although none are included for the annotations in the above
 illustrations), using the same display as for single-allele phenotypes.
 
-Also see the [Advanced Search
-documentation](/documentation/advanced-search-documentation) for
+Also see the [Advanced search documentation](/documentation/advanced-search) for
 information on finding genes annotated to phenotype terms.

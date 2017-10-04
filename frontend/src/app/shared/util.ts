@@ -1,5 +1,5 @@
 import { GenotypeDetails, GenotypeShort, GeneShort,
-         AlleleShort } from './pombase-api.service';
+         AlleleShort } from '../pombase-api.service';
 
 export class Util {
 

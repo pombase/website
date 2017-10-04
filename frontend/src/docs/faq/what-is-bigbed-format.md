@@ -2,7 +2,7 @@
 <!-- pombase_categories: Data submission and formats -->
 
 BigBed is a binary file format that is created by conversion from
-[BED](/faq/what-is-bed-format), and thus stores similar types of data for
+[BED](/faq/what-bed-format), and thus stores similar types of data for
 display in a genome browser track.
 
 BigBed format is described at the [UCSC Genome Bioinformatics web site](http://genome.ucsc.edu/goldenPath/help/bigBed.html), and the

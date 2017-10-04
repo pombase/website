@@ -1,6 +1,6 @@
-# Unmapped genes
+### Unmapped genes
 
-### Genetic loci not cloned or physically mapped
+#### Genetic loci not cloned or physically mapped
 
 <table>
  <thead>

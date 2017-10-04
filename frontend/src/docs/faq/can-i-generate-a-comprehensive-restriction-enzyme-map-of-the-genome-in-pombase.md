@@ -19,7 +19,7 @@ generate a restriction map:
     for any restriction patterns of interest and save them into your
     file.
 5.  You can add "color" labels to distinguish the different restriction
-    sites. See the [Artemis FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) and the
+    sites. See the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-in-md) and the
     [Artemis manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf) (pdf;
     Sanger site) for additional information.
 

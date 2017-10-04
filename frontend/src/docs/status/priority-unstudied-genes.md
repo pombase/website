@@ -1,4 +1,4 @@
-# Priority unstudied genes
+### Priority unstudied genes
 
 Fission yeast genes are classed as "unknown" if there is no information
 about the broad cellular role (biological process) in which it

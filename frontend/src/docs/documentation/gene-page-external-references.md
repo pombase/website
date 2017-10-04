@@ -1,6 +1,6 @@
-# Gene Page: External References
+## Gene page: External references
 
-The External References section of a gene page provides links to
+The External references section of a gene page provides links to
 information on a gene or its product in each of several external
 databases. For each database, a category, the name and a brief
 description are shown, and the identifier used by the database is

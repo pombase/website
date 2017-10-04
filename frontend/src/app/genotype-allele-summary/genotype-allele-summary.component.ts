@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Util } from '../util';
+import { Util } from '../shared/util';
 import { GenotypeDetails, GenotypeShort, AlleleShort } from '../pombase-api.service';
 
 @Component({

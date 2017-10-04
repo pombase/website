@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PombaseAPIService } from '../pombase-api.service';
+import { PombaseAPIService } from '../../pombase-api.service';
 
 @Component({
   selector: 'app-characterisation-status-table',

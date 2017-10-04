@@ -296,7 +296,7 @@ sub all_news_items {
   }
 
   return sort {
-    $a->{date} cmp $b->{date};
+    $b->{date} cmp $a->{date};  # reverse sort
   } @items;
 }
 

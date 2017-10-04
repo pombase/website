@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { Util } from '../util';
+import { Util } from '../shared/util';
 
 import { GenotypeDetails, PombaseAPIService } from '../pombase-api.service';
 

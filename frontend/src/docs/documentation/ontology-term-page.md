@@ -1,10 +1,9 @@
-# Ontology term pages
+## Ontology term pages
 
 For each ontology term loaded into PomBase, a page summarizes
 essential details about the term, and shows any annotations to it or
 its descendants via *is\_a*, *part\_of*, and the *regulates* relations
-(the GO documentation on [Ontology
-Structure](http://geneontology.org/page/ontology-structure) and
+(the GO documentation on [Ontology Structure](http://geneontology.org/page/ontology-structure) and
 [Ontology Relations](http://geneontology.org/page/ontology-relations)
 has some useful information on this topic). For FYPO terms only, the
 has_part relation is also used.
@@ -30,12 +29,11 @@ terms have all of the depicted features.
     first, followed by any descendant term that has direct
     annotations. For each term, genes (or genotypes) are listed in a
     compact display, with separate lines only for unique combinations
-    of gene, term, and extension. As in the [gene page summary
-    display](/documentation/index#DocsGenePage), most details are
-    hidden.
+    of gene, term, and extension. As in the [gene page summary display](/documentation/index#DocsGenePage), 
+    most details are hidden.
 
-As on gene pages, a [more detailed annotation
-display](documentation/index#DocsGenePage) is available:
+As on gene pages, a [more detailed annotation display](documentation/index#DocsGenePage) 
+is available:
 
 ![ontology term page](assets/ontology_term_page_detail.png){width="800"}
 
@@ -64,12 +62,11 @@ FYPO term pages have a few distinctive features:
     multi-allele sections, as on gene pages.
 3.  Annotated genotypes (rather than genes) are listed for each term.
 4.  In the detailed view, evidence filtering is available as described
-    in the [gene page
-    documentation](documentation/gene-page-phenotypes).
+    in the [gene page documentation](documentation/gene-page-phenotypes).
 
 Ontology term pages are available for [GO](http://geneontology.org/),
 [FYPO](/browse-curation/fission-yeast-phenotype-ontology),
 [SO](http://sequenceontology.org/),
-[PSI-MOD](http://www.psidev.info/MOD),
-[PBO](/faqs/what-pbo-option-advanced-search), and PECO, the internal
-ontology we use for phenotype experimental conditions.
+[PSI-MOD](http://www.psidev.info/MOD), the internal PBO description
+collection, and PECO, the internal ontology we use for phenotype
+experimental conditions.

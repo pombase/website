@@ -12,6 +12,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
 
+import { SharedModule } from './shared/shared.module';
+
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
@@ -27,22 +29,17 @@ import { OrthologAnnotationTableComponent } from './ortholog-annotation-table/or
 import { ParalogAnnotationTableComponent } from './paralog-annotation-table/paralog-annotation-table.component';
 import { ReferenceShortComponent } from './reference-short/reference-short.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
-import { GeneLinkComponent } from './gene-link/gene-link.component';
 import { ExtensionDisplayComponent } from './extension-display/extension-display.component';
 import { GenotypeLinkComponent } from './genotype-link/genotype-link.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
-import { GenesTableComponent } from './genes-table/genes-table.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TermNameCompleteComponent } from './term-name-complete/term-name-complete.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { QueryNodeComponent } from './query-node/query-node.component';
-import { GeneResultsComponent } from './gene-results/gene-results.component';
 import { GeneNeighbourhoodComponent } from './gene-neighbourhood/gene-neighbourhood.component';
 import { AnnotationSubTableComponent } from './annotation-sub-table/annotation-sub-table.component';
 import { TargetOfAnnotationTableComponent } from './target-of-annotation-table/target-of-annotation-table.component';
 import { GeneReferencesTableComponent } from './gene-references-table/gene-references-table.component';
 import { ReferenceOrderByPipe } from './reference-order-by.pipe';
-import { GeneShortOrderByPipe } from './gene-short-order-by.pipe';
 import { EvidenceLinkComponent } from './evidence-link/evidence-link.component';
 import { QuantGeneExTableComponent } from './quant-gene-ex-table/quant-gene-ex-table.component';
 import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-table.component';
@@ -58,21 +55,15 @@ import { AnnotationTableFiltersComponent } from './annotation-table-filters/anno
 import { AnnotationTableTermFilterComponent } from './annotation-table-term-filter/annotation-table-term-filter.component';
 import { AnnotationTableFilterPipe } from './annotation-table-filter.pipe';
 import { GeneExternalReferencesComponent } from './gene-external-references/gene-external-references.component';
-import { DocsComponent } from './docs/docs.component';
 import { AnnotationTableEvidenceFilterComponent } from './annotation-table-evidence-filter/annotation-table-evidence-filter.component';
 import { GenotypeAlleleSummaryComponent } from './genotype-allele-summary/genotype-allele-summary.component';
 import { DeletionViabilitySummaryComponent } from './deletion-viability-summary/deletion-viability-summary.component';
 import { GoSlimSummaryComponent } from './go-slim-summary/go-slim-summary.component';
-import { ExternalLinkComponent } from './external-link/external-link.component';
-import { ApiErrorDisplayComponent } from './api-error-display/api-error-display.component';
-import { ContactEmailComponent } from './contact-email/contact-email.component';
-import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ReferenceShortListComponent } from './reference-short-list/reference-short-list.component';
 import { TranscriptSequenceSelectComponent } from './transcript-sequence-select/transcript-sequence-select.component';
 import { ProteinPropertiesComponent } from './protein-properties/protein-properties.component';
 import { ProteinFeaturesComponent } from './protein-features/protein-features.component';
 import { GeneSubsetViewComponent } from './gene-subset-view/gene-subset-view.component';
-import { CharacterisationStatusTableComponent } from './characterisation-status-table/characterisation-status-table.component';
 import { TranscriptViewComponent } from './transcript-view/transcript-view.component';
 import { InterproMatchesComponent } from './interpro-matches/interpro-matches.component';
 import { QueryHistoryComponent } from './query-history/query-history.component';
@@ -81,8 +72,6 @@ import { TermExternalLinksComponent } from './term-external-links/term-external-
 import { TermPageSummaryComponent } from './term-page-summary/term-page-summary.component';
 import { MainNavBarComponent } from './main-nav-bar/main-nav-bar.component';
 import { QueryTermNodeComponent } from './query-term-node/query-term-node.component';
-import { QueryLinkComponent } from './query-link/query-link.component';
-import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 import { GenesDownloadDialogComponent } from './genes-download-dialog/genes-download-dialog.component';
 import { MiscAnnotationTableComponent } from './misc-annotation-table/misc-annotation-table.component';
 import { QueryDetailsDialogComponent } from './query-details-dialog/query-details-dialog.component';
@@ -121,22 +110,17 @@ export function metaFactory(): MetaLoader {
     ParalogAnnotationTableComponent,
     ReferenceShortComponent,
     ReferenceDetailsComponent,
-    GeneLinkComponent,
     ExtensionDisplayComponent,
     GenotypeLinkComponent,
     TermGenesViewComponent,
-    GenesTableComponent,
-    LoadingSpinnerComponent,
     TermNameCompleteComponent,
     QueryBuilderComponent,
     QueryNodeComponent,
-    GeneResultsComponent,
     GeneNeighbourhoodComponent,
     AnnotationSubTableComponent,
     TargetOfAnnotationTableComponent,
     GeneReferencesTableComponent,
     ReferenceOrderByPipe,
-    GeneShortOrderByPipe,
     EvidenceLinkComponent,
     QuantGeneExTableComponent,
     QualGeneExTableComponent,
@@ -151,21 +135,15 @@ export function metaFactory(): MetaLoader {
     AnnotationTableTermFilterComponent,
     AnnotationTableFilterPipe,
     GeneExternalReferencesComponent,
-    DocsComponent,
     AnnotationTableEvidenceFilterComponent,
     GenotypeAlleleSummaryComponent,
     DeletionViabilitySummaryComponent,
     GoSlimSummaryComponent,
-    ExternalLinkComponent,
-    ApiErrorDisplayComponent,
-    ContactEmailComponent,
-    GoSlimTableComponent,
     ReferenceShortListComponent,
     TranscriptSequenceSelectComponent,
     ProteinPropertiesComponent,
     ProteinFeaturesComponent,
     GeneSubsetViewComponent,
-    CharacterisationStatusTableComponent,
     TranscriptViewComponent,
     InterproMatchesComponent,
     QueryHistoryComponent,
@@ -174,8 +152,6 @@ export function metaFactory(): MetaLoader {
     TermPageSummaryComponent,
     MainNavBarComponent,
     QueryTermNodeComponent,
-    QueryLinkComponent,
-    PredefinedQueryResultsComponent,
     GenesDownloadDialogComponent,
     MiscAnnotationTableComponent,
     QueryDetailsDialogComponent,
@@ -198,6 +174,7 @@ export function metaFactory(): MetaLoader {
       provide: MetaLoader,
       useFactory: (metaFactory),
     }),
+    SharedModule,
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent],
   providers: [PombaseAPIService,

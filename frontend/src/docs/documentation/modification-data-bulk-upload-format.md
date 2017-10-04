@@ -1,4 +1,4 @@
-# Modification data bulk upload format
+## Modification data bulk upload format
 
 PomBase welcomes submissions of published large-scale modification
 data sets. We have devised a tab-delimited text file format for bulk
@@ -22,8 +22,8 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 
 At present we accept protein modification data, using PSI-MOD IDs in
 the Ontology ID column. We plan to accept RNA modification data in the
-future. More information is available in the [gene page modifications
-documentation](documentation/gene-page-modifications).
+future. More information is available in the 
+[gene page modifications documentation](documentation/gene-page-modifications).
 
 Use one line per modified position (multiple entries are allowed only
 in the Extension column).
@@ -37,8 +37,7 @@ File columns:
     in column 2 (see gene pages or the file of all gene names from the
     dataset download page.
 3.  For help finding suitable ontology (PSI-MOD) terms to describe
-    your phenotypes, see the [Canto protein modification
-    documentation](https://curation.pombase.org/pombe/docs/modification_annotation). If
+    your phenotypes, see the [Canto protein modification documentation](https://curation.pombase.org/pombe/docs/modification_annotation). If
     you can't find a term you need, email the
     [helpdesk](mailto:helpdesk@pombase.org) for assistance; we can
     advise you, and request new terms as needed.
@@ -79,8 +78,7 @@ File columns:
 Annotation extensions can be used to provide additional information,
 such as a gene whose product adds or removes a modification, a process
 or cell cycle phase during which a modification is present, or
-modification site occupancy (see the [gene page modifications
-documentation](documentation/gene-page-modifications) for more
+modification site occupancy (see the [gene page modifications documentation](documentation/gene-page-modifications) for more
 information). Each annotation extension consists of a relation and
 either an identifier or a number.
 

@@ -1,4 +1,4 @@
-# Phenotype data bulk upload format
+## Phenotype data bulk upload format
 
 PomBase welcomes submissions of published large-scale phenotype data
 sets. We have devised a tab-delimited text file format for bulk
@@ -40,10 +40,8 @@ blank in the rest of the rows.
     systematic IDs on gene pages, or refer to the file of all gene
     names from the dataset download page.
 2.  For help finding suitable ontology (FYPO) terms to describe your
-    phenotypes, see the [FYPO summary
-    page](browse-curation/fission-yeast-phenotype-ontology) and the
-    [FAQ on browsing
-    FYPO](faqs/how-can-i-browse-phenotype-ontology-fypo). If you can't
+    phenotypes, see the [FYPO summary page](browse-curation/fission-yeast-phenotype-ontology) and the
+    [FAQ on browsing FYPO](faqs/how-can-i-browse-phenotype-ontology-fypo). If you can't
     find a term you need, email the
     [helpdesk](mailto:helpdesk@pombase.org) for assistance; we can add
     new FYPO terms as needed.
@@ -118,9 +116,8 @@ blank in the rest of the rows.
 **Details for allele types and descriptions:**
 
 General note: Nucleotide and amino acid positions should reflect the
-current sequence data in PomBase. Please refer to the [Gene Coordinate
-Changes](status/gene-coordinate-changes) page to ensure that your
-residue position entries are up to date.
+current sequence data in PomBase. Please refer to the [Gene Coordinate Changes](status/gene-coordinate-changes) 
+page to ensure that your residue position entries are up to date.
 
 For protein-coding genes, number nucleotide residues from 1 starting
 with the A of the initiator ATG.

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { getAppConfig } from '../config';
+import { getAppConfig } from '../../config';
 
 @Component({
   selector: 'app-external-link',

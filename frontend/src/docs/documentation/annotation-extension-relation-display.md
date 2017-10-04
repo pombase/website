@@ -1,11 +1,10 @@
-# Annotation Extension Relation Display
+## Annotation extension relation display
 
 Annotation extensions are used to provide additional specificity for
 annotations to GO, FYPO, and protein modification annotations. Each
 extension consists of a relation and another "entity", which may be a
 gene in PomBase or another database, or another ontology term. (The
-[GO Consortium wiki page on annotation
-extensions](http://wiki.geneontology.org/index.php/Annotation_Extension)
+[GO Consortium wiki page on annotation extensions](http://wiki.geneontology.org/index.php/Annotation_Extension)
 contains useful information on relations.) Because some relations have
 unwieldy names, the PomBase gene page display substitutes more
 readable text.

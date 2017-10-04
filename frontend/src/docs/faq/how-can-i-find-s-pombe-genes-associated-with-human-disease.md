@@ -2,7 +2,7 @@
 <!-- pombase_categories: Orthology,Finding data -->
 
 
-S. pombe genes whose human orthologs have been implicated in disease
+*S. pombe* genes whose human orthologs have been implicated in disease
 are annotated with terms from the internal PBO vocabulary. To retrieve
 all of these genes, you can use the most general "disease associated"
 term in a query. In the [advanced search](/query), select
@@ -10,9 +10,9 @@ term in a query. In the [advanced search](/query), select
 choose 'disease_associated' from the autocomplete options, or enter
 the ID 'PBO:5000000'.
 
-Also see the FAQs on [finding genes conserved in human](/faq/how-can-i-find-all-s-pombe-genes-that-are-conserved-in-human),
+Also see the FAQs on [finding genes conserved in human](/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human),
 [finding the ortholog of a specific gene](/faq/how-can-i-find-s-pombe-ortholog-s-of-a-human-gene), and on
-[downloading the full set of curated orthologs](/faq/how-can-i-obtain-the-list-of-human-and-s-pombe-orthologs).
+[downloading the full set of curated orthologs](/faq/how-can-i-obtain-the-list-human-and-s.-pombe-orthologs).
 
 
 <!--

@@ -1,11 +1,9 @@
-# Protein-coding gene characterisation
+### Protein-coding gene characterisation
 
 <app-characterisation-status-table></app-characterisation-status-table>
 
-------------------------------------------------------------------------
 
-Protein-coding Gene Characterisation Status Descriptions
---------------------------------------------------------
+Protein-coding gene characterisation status descriptions
 
 **Published:** Completely or partially characterised
 in a small scale experiment, with some published information about the
@@ -34,8 +32,7 @@ species); nothing known about biological role
 **Transposon:** A predicted or experimentally verified transposable element.
 
 Note: You can retrieve current lists of genes with each
-characterisation status using the [Advanced Search](/query). Select
-the Characterisation Status filter, then choose a status from the
-pulldown menu, and submit. A set of [historical
-data](/status/gene-characterisation-statistics-history) recorded at
-various intervals is available.
+characterisation status using the [advanced search](/query). Select
+the Characterisation status query, then choose a status from the
+pulldown menu, and submit. A set of [historical data](/status/gene-characterisation-statistics-history) 
+recorded at various intervals is available.

@@ -3,7 +3,7 @@
 
 We recommend using only the genome sequence, either from PomBase
 [downloadable files](/downloads/genome-datasets) or from the 
-[sequence retrieval tools](/faq/how-can-i-retrieve-a-gene-sequence-including-upstream-and-downstream-sequences) on
+[sequence retrieval tools](/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences) on
 the gene pages and in the genome browser. Although there are some
 sequence updates still pending, the genome sequence is more accurate
 than individual gene sequences that predate the genome.

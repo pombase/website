@@ -1,4 +1,4 @@
-# Taxonomic Conservation
+## Taxonomic conservation
 
 The Taxonomic conservation section provides manually assigned
 classifiers of taxon distribution (at the domain/kingdom level) of the
@@ -7,8 +7,8 @@ controlled vocabulary maintained by PomBase curators. All applicable
 terms are assigned to a protein.
 
 For each annotation, the summary view shows a text description, which
-corresponds to an entry in the internal
-[http://www.pombase.org/faqs/what-pbo-option-advanced-search](PBO)
+corresponds to an entry in the internal PBO
+<!-- [PBO](http://www.pombase.org/faqs/what-pbo-option-advanced-search) -->
 term set. The detailed view adds the PBO ID and a count that links to
 the [ontology term page](/documentation/ontology-term-page) for the
 description.

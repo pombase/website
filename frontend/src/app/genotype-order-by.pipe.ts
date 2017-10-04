@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { GenotypeShort } from './pombase-api.service';
-import { Util } from './util';
+import { Util } from './shared/util';
 
 @Pipe({
   name: 'genotypeOrderBy'

@@ -1,4 +1,4 @@
-# Genotype pages
+## Genotype pages
 
 Genotype pages are analogous to gene pages, but describe the alleles 
 that make up a genotype, and show phenotypes associated with the 
