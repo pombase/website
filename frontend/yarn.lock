@@ -161,6 +161,12 @@
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
+"@ngx-meta/core@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@ngx-meta/core/-/core-4.0.1.tgz#b035febeeb92876920480f70719fcf953dc0245f"
+  dependencies:
+    tslib "~1.7.1"
+
 "@schematics/angular@~0.0.30":
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.0.33.tgz#bc0b28356af46fe9ec64495588ee61503fd34ce5"
@@ -5241,7 +5247,7 @@ tsickle@^0.21.0:
     source-map "^0.5.6"
     source-map-support "^0.4.2"
 
-tslib@^1.7.1:
+tslib@^1.7.1, tslib@~1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
 
