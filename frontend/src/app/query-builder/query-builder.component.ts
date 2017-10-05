@@ -41,9 +41,18 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
         let termName = params['name'];
         if (fromType && termId && termName) {
           this.processFromRoute(fromType, termId, termName);
-        };
+        } else {
+          const json = params['json'];
+          this.fromJson(json);
+        }
       }
     });
+  }
+
+  private fromJson(json: string) {
+    const obj = JSON.parse(json);
+    const query = new GeneQuery(obj);
+    this.queryService.saveToHistory(query);
   }
 
   processFromRoute(fromType: string, termId: string, encodedTermName: string) {
