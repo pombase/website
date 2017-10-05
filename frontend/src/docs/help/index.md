@@ -1,6 +1,6 @@
 # Help
 
-### [Old Frequently Asked Questions (FAQ)](http://www.pombase.org/faq)
+### [Frequently Asked Questions (FAQ)](faq)
 
 ### [PomBase Documentation](documentation)
 
