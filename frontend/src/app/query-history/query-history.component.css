@@ -36,3 +36,16 @@ td.result-count {
   margin: 1em;
   max-width: 1200px;
 }
+
+.history-table td.row-actions {
+  border: 0px solid white;
+  color: white;
+}
+
+.row-actions a {
+  color: white;
+}
+
+.row-actions a:hover {
+  color: black;
+}

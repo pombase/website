@@ -36,15 +36,18 @@
         <input [(ngModel)]="histEntry.checked" type="checkbox"/>
       </td>
       <td>
-        <span (dblclick)="showQueryDetails(histEntry)">{{histEntry.getQuery().toString()}}</span>
+        {{histEntry.getQuery().toString()}}
       </td>
       <td class="result-count">
         <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== null">
           {{histEntry.getResultCount()}}
         </a>
         <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() === null">
-          Results ...
+          [Results]
         </a>
+      </td>
+      <td class="row-actions">
+        <a *ngIf="histEntry.getResultCount() !== null" (click)="showQueryDetails(histEntry)">...</a>
       </td>
     </tr>
     </tbody>
