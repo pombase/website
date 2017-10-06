@@ -339,7 +339,7 @@ function replaceExampleId(urlSyntax:string, idWithPrefix: string) {
 function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
   let ret = [];
 
-  const urlRe = new RegExp('^\w+://');
+  const urlRe = new RegExp('^\\w+://.*');
 
   for (let i = 0; i < configs.length; i++) {
     const conf = configs[i];

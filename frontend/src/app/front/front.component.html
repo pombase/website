@@ -13,9 +13,7 @@
 </span>
 </div>
 
-<div id="top-row" class="row">
-
-<div class="col-sm-6">
+<div class="welcome">
   <span class="front-page-list-title welcome-title">Welcome to PomBase</span>
   <div class="sect-content welcome-content">
 PomBase is a comprehensive database for the fission yeast
@@ -23,47 +21,60 @@ Schizosaccharomyces pombe, providing structural and functional
 annotation, literature curation and access to large-scale data
 sets
   </div>
+</div>
 
-  <div class="front-page-box">
-  <span class="front-page-list-title">Explore annotation</span>
-  <div class="sect-content">
-    <div>
-      <a routerLink="/query" routerLinkActive="active">
-        Advanced search
-      </a>
-    </div>
-    <div>
+<div class="quick-links">
+  <span class="quick-links-group">
+    <span>
+      <a routerLink="/about" routerLinkActive="active" class="dropdown-item">About</a>
+    </span>
+    &#x25CF;
+    <span>
+      <a routerLink="/query" routerLinkActive="active">Advanced search</a>
+    </span>
+    &#x25CF;
+    <span>
       <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO
-      biological process overview</a>
-    </div>
-    <div><a routerLink="/gene/SPCC18B5.03">Example gene page</a></div>
-    <div><a routerLink="/term/GO:0000070">Example term page</a></div>
-    <div><a routerLink="/reference/PMID:27984725">Example publication page</a></div>
+        process overview</a>
+    </span>
+  </span>
+
+  <span class="quick-links-group">
+    <span>Examples:</span>
+    <span><a routerLink="/gene/SPCC18B5.03">Gene</a></span>
+    &#x25CF;
+    <span><a routerLink="/term/GO:0000070">Term</a></span>
+    &#x25CF;
+    <span><a routerLink="/reference/PMID:27984725">Publication</a></span>
+  </span>
+</div>
+
+
+<div class="panel-container">
+<div class="front-panels">
+  <div class="front-panel-row">
+  <div class="front-panel">
+    <app-front-panel [conf]="spotlightConf"></app-front-panel>
+  </div>
+  <div class="front-panel">
+    <span class="front-page-list-title">Recent community curation</span>
+    <app-reference-short-list *ngIf="recentCommunityCurationPubs"
+                              [references]="recentCommunityCurationPubs"></app-reference-short-list>
+  </div>
+  <div class="front-panel">
+    <app-front-panel [conf]="exploreConf"></app-front-panel>
   </div>
   </div>
 </div>
-
-<div class="col-sm-6 rotating-image">
-  <img [attr.src]="'assets/' + rotatingImageName" />
 </div>
 
-</div>
-
-<div class="row">
-
-<div class="col-sm-4 recent-news">
   <span class="front-page-list-title">Recent news</span>
   <app-recent-news></app-recent-news>
-</div>
-
-<div class="col-sm-4">
-  <span class="front-page-list-title">Recent community curation</span>
-  <app-reference-short-list *ngIf="recentCommunityCurationPubs"
-                            [references]="recentCommunityCurationPubs"></app-reference-short-list>
-</div>
 
 </div>
-</div>
+
+
+
 <hr style="clear: both" />
 
 <div class="metadata" *ngIf="metadata">

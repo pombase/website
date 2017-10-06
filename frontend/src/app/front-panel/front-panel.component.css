@@ -1,0 +1,19 @@
+.front-panel {
+  background-color: white;
+}
+
+.panel-contents {
+  padding: 0.3em;
+  width: 240px;
+}
+
+.sub-heading {
+  font-weight: bold;
+}
+
+.panel-desc {
+  position: absolute;
+  background-color: rgba(250,250,250,0.7);
+  font-weight: bold;
+  font-size: 110%;
+}

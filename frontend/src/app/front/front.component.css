@@ -1,5 +1,7 @@
 .front-container {
   padding: 0 1em 0 1em;
+  margin: 0 auto;
+  max-width: 1400px;
 }
 
 .metadata {
@@ -19,6 +21,10 @@
   margin-bottom: 0.5em;
   display: inline-block;
   font-weight: bold;
+}
+
+.welcome {
+
 }
 
 .welcome-title {
@@ -77,4 +83,49 @@
 
 .recent-news > div {
   font-size: 80%;
+}
+
+@media (min-width: 800px) {
+  .panel-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .front-panels {
+    display: table;
+    border-spacing: 2em;
+  }
+  
+  .front-panel-row {
+    display: table-row;
+  }
+
+  .front-panel {
+    display: table-cell;
+  }
+}
+
+@media (max-width: 799px) {
+  .front-panel {
+    display: inline-block;
+    margin: 0.5em;
+  }
+}
+
+.front-panel {
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.80);
+  vertical-align: top;
+  min-width: 240px;
+  min-height: 10em;
+}
+
+.quick-links {
+  display: flex;
+  justify-content: center;
+  font-size: 120%;
+}
+
+.quick-links-group {
+  margin: 1em 1em 0 1em;
 }

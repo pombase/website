@@ -1,0 +1,14 @@
+<div class="front-panel">
+  <div class="panel-desc">{{panelDescription}}</div>
+  <img class="head-img" src="{{conf.head_image}}" />
+  <div class="panel-contents">
+    <div class="sub-heading">{{conf.title}}</div>
+    <app-front-panel-content [panelId]="conf.internalId"></app-front-panel-content>
+    <a *ngIf="conf.internalLink" routerLink="{{conf.internalLink}}">
+      {{conf.link_label}}
+    </a>
+    <a *ngIf="conf.externalLink" href="{{conf.externalLink}}">
+      {{conf.link_label}}
+    </a>
+  </div>
+</div>

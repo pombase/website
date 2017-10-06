@@ -77,6 +77,7 @@ import { MiscAnnotationTableComponent } from './misc-annotation-table/misc-annot
 import { QueryDetailsDialogComponent } from './query-details-dialog/query-details-dialog.component';
 import { RecentNewsComponent } from './recent-news/recent-news.component';
 import { FrontPanelContentComponent } from './front-panel-content/front-panel-content.component';
+import { FrontPanelComponent } from './front-panel/front-panel.component';
 
 export function documentFactory() {
     return document;
@@ -158,6 +159,7 @@ export function metaFactory(): MetaLoader {
     QueryDetailsDialogComponent,
     RecentNewsComponent,
     FrontPanelContentComponent,
+    FrontPanelComponent,
   ],
   imports: [
     BrowserModule,
