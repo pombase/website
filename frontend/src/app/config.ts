@@ -60,9 +60,19 @@ export interface ConfigOrganism {
   species: string;
 }
 
+export interface PanelConfig {
+  title?: string;
+  panel_type: string;
+  internalId: number;
+  link?: string;
+  internalLink?: string;
+  externalLink?: string;
+}
+
 export interface AppConfig {
   load_organism_taxonid: number;
   organisms: Array<ConfigOrganism>;
+  frontPagePanels: Array<PanelConfig>;
   apiSeqChunkSizes: {
     all: Array<number>;
     smallest: number;
@@ -326,9 +336,35 @@ function replaceExampleId(urlSyntax:string, idWithPrefix: string) {
   return urlSyntax.replace('[example_id]', idWithPrefix);
 }
 
+function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
+  let ret = [];
+
+  const urlRe = new RegExp('^\w+://');
+
+  for (let i = 0; i < configs.length; i++) {
+    const conf = configs[i];
+
+    let retConfig = Object.assign({}, conf);
+    retConfig.internalId = i;
+
+    if (retConfig.link) {
+      if (urlRe.test(retConfig.link)) {
+        retConfig.externalLink = retConfig.link;
+      } else {
+        retConfig.internalLink = retConfig.link;
+      }
+    }
+
+    ret.push(retConfig);
+  }
+
+  return ret;
+}
+
 let _appConfig: AppConfig = {
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
   organisms: pombaseConfig.organisms,
+  frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
     smallest: Math.min(...pombaseConfig.api_seq_chunk_sizes),

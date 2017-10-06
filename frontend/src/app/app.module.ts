@@ -76,6 +76,7 @@ import { GenesDownloadDialogComponent } from './genes-download-dialog/genes-down
 import { MiscAnnotationTableComponent } from './misc-annotation-table/misc-annotation-table.component';
 import { QueryDetailsDialogComponent } from './query-details-dialog/query-details-dialog.component';
 import { RecentNewsComponent } from './recent-news/recent-news.component';
+import { FrontPanelContentComponent } from './front-panel-content/front-panel-content.component';
 
 export function documentFactory() {
     return document;
@@ -156,6 +157,7 @@ export function metaFactory(): MetaLoader {
     MiscAnnotationTableComponent,
     QueryDetailsDialogComponent,
     RecentNewsComponent,
+    FrontPanelContentComponent,
   ],
   imports: [
     BrowserModule,
