@@ -290,8 +290,7 @@ sub process_path {
     print $recent_news_fh qq|<div class="recent-news">\n|;
     for my $item (@news_summary) {
       my $md = '';
-      $md .= '#### ' . $item->{title} . "\n\n";
-      $md .= '*' . $item->{date} . "*\n";
+      $md .= '#### ' . $item->{title} . ' *' . $item->{date} . "*\n";
       $md .= $item->{contents} . "\n";
       print $recent_news_fh markdown($md), "\n";
     }
