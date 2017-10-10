@@ -280,17 +280,17 @@ sub process_path {
   if ($path eq 'news') {
     my @all_news_items = all_news_items();
     my @news_summary = ();
-    if (@all_news_items > 3) {
-      @news_summary = (@all_news_items)[0..3];
+    if (@all_news_items > 1) {
+      @news_summary = (@all_news_items)[0..1];
     } else {
-      warn "warning: less than 4 news items";
+      warn "warning: less than 2 news items";
       @news_summary = @all_news_items;
     }
 
     print $recent_news_fh qq|<div class="recent-news">\n|;
     for my $item (@news_summary) {
       my $md = '';
-      $md .= '#### ' . $item->{title} . ' *' . $item->{date} . "*\n";
+      $md .= '##### **' . $item->{title} . ' *' . $item->{date} . "* **\n";
       $md .= $item->{contents} . "\n";
       print $recent_news_fh markdown($md), "\n";
     }
