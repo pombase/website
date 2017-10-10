@@ -1,7 +1,7 @@
 .front-container {
   padding: 0 1em 0 1em;
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1050px;
 }
 
 .metadata {
@@ -24,11 +24,16 @@
 }
 
 .welcome {
-
+  clear: both;
+  width: 48%;
+  display: block;
+  float: left;
 }
 
 .welcome-title {
-  font-size: 140%;
+  font-size: 150%;
+  clear: both;
+  font-weight: bold;
 }
 
 .welcome-content {
@@ -113,18 +118,24 @@
 }
 
 .front-panel {
-  box-shadow: 0px 0px 10px rgba(0,0,0,.80);
+  box-shadow: 0px 0px 18px rgba(120,120,120,.80);
   vertical-align: top;
   min-width: 300px;
   min-height: 10em;
 }
 
+.panel-container {
+  clear: both;
+}
+
 .quick-links {
-  display: flex;
-  justify-content: center;
   font-size: 120%;
+  width: 48%;
+  display: block;
+  float: right;
 }
 
 .quick-links-group {
-  margin: 1em 1em 0 1em;
+  display: inline-block;
+  margin: 0em 1em 0.5em 1em;
 }
