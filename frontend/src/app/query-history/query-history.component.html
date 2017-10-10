@@ -26,17 +26,14 @@
     <thead>
       <tr>
         <th></th>
+        <th><span (dblclick)="setAllCounts()">Results</span></th>
         <th>Query</th>
-        <th><span (dblclick)="setAllCounts()">Count</span></th>
       </tr>
     </thead>
     <tbody>
     <tr *ngFor="let histEntry of historyEntries">
       <td>
         <input [(ngModel)]="histEntry.checked" type="checkbox"/>
-      </td>
-      <td>
-        {{histEntry.getQuery().toString()}}
       </td>
       <td class="result-count">
         <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== null">
@@ -45,6 +42,9 @@
         <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() === null">
           [Results]
         </a>
+      </td>
+      <td>
+        {{histEntry.getQuery().toString()}}
       </td>
       <td class="row-actions">
         <a *ngIf="histEntry.getResultCount() !== null" (click)="showQueryDetails(histEntry)">...</a>
