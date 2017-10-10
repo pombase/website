@@ -16,7 +16,7 @@ export class RecentCommunityPubsComponent implements OnInit {
   ngOnInit() {
     this.pombaseApiService.getRecentReferences()
       .then(recentReferences => {
-        this.recentCommunityCurationPubs = recentReferences.community_curated.splice(0, 8);
+        this.recentCommunityCurationPubs = recentReferences.community_curated.splice(0, 6);
       });
   }
 }
