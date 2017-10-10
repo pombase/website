@@ -103,4 +103,12 @@ export class Util {
       });
     }).join('');
   }
+
+  static randInt(upperBound: number): number {
+    return Math.floor(Math.random() * upperBound);
+  }
+
+  static randElement<T>(arr: Array<T>): T {
+    return arr[Util.randInt(arr.length)];
+  }
 }

@@ -3,8 +3,8 @@
 }
 
 .panel-contents {
-  padding: 0.3em;
-  width: 240px;
+  padding: 0.4em;
+  width: 300px;
 }
 
 .sub-heading {
@@ -13,7 +13,8 @@
 
 .panel-desc {
   position: absolute;
-  background-color: rgba(250,250,250,0.7);
+  background-color: rgba(250,250,250,0.9);
   font-weight: bold;
   font-size: 110%;
+  margin: 0.4em;
 }

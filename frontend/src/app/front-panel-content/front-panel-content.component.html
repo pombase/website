@@ -2,5 +2,11 @@
 Cytokinestic ring assembly.
 </div>
 <div *ngIf="panelId == 1">
-Browse the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">biological process summary</a>.
+<app-recent-community-pubs></app-recent-community-pubs>
+</div>
+<div *ngIf="panelId == 2">
+PomBase maintains an inventory of proteins with no known biological role, including their taxonomic conservation
+</div>
+<div *ngIf="panelId == 3">
+The fission yeast "GO slim" provides a summary of genes annotated to broad biological processes
 </div>

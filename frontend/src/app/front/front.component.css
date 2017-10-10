@@ -93,9 +93,9 @@
 
   .front-panels {
     display: table;
-    border-spacing: 2em;
+    border-spacing: 2.5em;
   }
-  
+
   .front-panel-row {
     display: table-row;
   }
@@ -113,10 +113,9 @@
 }
 
 .front-panel {
-  border: 1px solid black;
   box-shadow: 0px 0px 10px rgba(0,0,0,.80);
   vertical-align: top;
-  min-width: 240px;
+  min-width: 300px;
   min-height: 10em;
 }
 

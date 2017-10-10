@@ -1,16 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Metadata, PombaseAPIService } from '../pombase-api.service';
+import { Util } from '../shared/util';
 
 import { getAppConfig } from '../config';
-
-function randInt(upperBound: number): number {
-  return Math.floor(Math.random() * upperBound);
-}
-
-function randElement<T>(arr: Array<T>): T {
-  return arr[randInt(arr.length)];
-}
 
 @Component({
   selector: 'app-front',
@@ -22,10 +15,13 @@ export class FrontComponent implements OnInit {
 
   imageNames = ['Slide1.png', 'Slide2.png', 'Slide3.png'];
   rotatingImageName = this.imageNames[0];
-  recentCommunityCurationPubs = null;
   spotlightPanelConfig =
     getAppConfig().frontPagePanels.filter(conf =>
       conf.panel_type === 'spotlight'
+    );
+  communityPanelConfig =
+    getAppConfig().frontPagePanels.filter(conf =>
+      conf.panel_type === 'community'
     );
   explorePanelConfig =
     getAppConfig().frontPagePanels.filter(conf =>
@@ -33,22 +29,20 @@ export class FrontComponent implements OnInit {
     );
 
   spotlightConf = null;
+  communityConf = null;
   exploreConf = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
-    this.rotatingImageName = randElement(this.imageNames);
-    this.spotlightConf = randElement(this.spotlightPanelConfig);
-    this.exploreConf = randElement(this.explorePanelConfig);
+    this.rotatingImageName = Util.randElement(this.imageNames);
+    this.spotlightConf = Util.randElement(this.spotlightPanelConfig);
+    this.communityConf = Util.randElement(this.communityPanelConfig);
+    this.exploreConf = Util.randElement(this.explorePanelConfig);
 
     this.pombaseApiService.getMetadata()
       .then(metadata => {
         this.metadata = metadata;
-      });
-    this.pombaseApiService.getRecentReferences()
-      .then(recentReferences => {
-        this.recentCommunityCurationPubs = recentReferences.community_curated.splice(0, 8);
       });
   }
 }

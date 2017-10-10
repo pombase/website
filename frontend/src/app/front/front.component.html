@@ -57,9 +57,7 @@ sets
     <app-front-panel [conf]="spotlightConf"></app-front-panel>
   </div>
   <div class="front-panel">
-    <span class="front-page-list-title">Recent community curation</span>
-    <app-reference-short-list *ngIf="recentCommunityCurationPubs"
-                              [references]="recentCommunityCurationPubs"></app-reference-short-list>
+    <app-front-panel [conf]="communityConf"></app-front-panel>
   </div>
   <div class="front-panel">
     <app-front-panel [conf]="exploreConf"></app-front-panel>

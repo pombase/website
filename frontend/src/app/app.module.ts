@@ -78,6 +78,7 @@ import { QueryDetailsDialogComponent } from './query-details-dialog/query-detail
 import { RecentNewsComponent } from './recent-news/recent-news.component';
 import { FrontPanelContentComponent } from './front-panel-content/front-panel-content.component';
 import { FrontPanelComponent } from './front-panel/front-panel.component';
+import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-community-pubs.component';
 
 export function documentFactory() {
     return document;
@@ -160,6 +161,7 @@ export function metaFactory(): MetaLoader {
     RecentNewsComponent,
     FrontPanelContentComponent,
     FrontPanelComponent,
+    RecentCommunityPubsComponent,
   ],
   imports: [
     BrowserModule,
