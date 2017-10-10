@@ -25,7 +25,7 @@ export class FrontPanelComponent implements OnInit {
       if (this.conf.panel_type === 'explore') {
         this.panelDescription = 'Explore PomBase';
       } else {
-        this.panelDescription = 'Community';
+        this.panelDescription = null;
       }
     }
   }
