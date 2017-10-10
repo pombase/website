@@ -17,15 +17,15 @@ export class FrontComponent implements OnInit {
   rotatingImageName = this.imageNames[0];
   spotlightPanelConfig =
     getAppConfig().frontPagePanels.filter(conf =>
-      conf.panel_type === 'spotlight'
+      conf.panel_type === 'spotlight' && conf.is_current
     );
   communityPanelConfig =
     getAppConfig().frontPagePanels.filter(conf =>
-      conf.panel_type === 'community'
+      conf.panel_type === 'community' && conf.is_current
     );
   explorePanelConfig =
     getAppConfig().frontPagePanels.filter(conf =>
-      conf.panel_type === 'explore'
+      conf.panel_type === 'explore' && conf.is_current
     );
 
   spotlightConf = null;

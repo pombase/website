@@ -66,6 +66,8 @@ export interface PanelConfig {
   internalId: number;
   head_image: Array<string>;
   link?: string;
+  link_label?: string;
+  is_current: boolean;
   internalLink?: string;
   externalLink?: string;
 }
