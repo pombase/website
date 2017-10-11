@@ -1,4 +1,4 @@
-# Fission Yeast Phenotype Ontology
+## Fission Yeast Phenotype Ontology
 
 PomBase curators develop and use the Fission Yeast Phenotype Ontology
 (FYPO) to annotate phenotypes of mutant alleles and of over- or
@@ -14,7 +14,7 @@ Yeast Phenotype Ontology. Bioinformatics. 2013 July 1;29(13):
 [PubMed abstract (PMID:23658422)](http://www.ncbi.nlm.nih.gov/pubmed/23658422) or
 [Full text at Bioinformatics](http://bioinformatics.oxfordjournals.org/content/29/13/1671.long)
 
-## Browsing FYPO terms
+### Browsing FYPO terms
 
 At present, FYPO is included collections such as the National Center
 for Biomedical Ontology's
@@ -32,7 +32,7 @@ both of which allow searching and browsing.
 We hope to deploy a browser at PomBase in the not-too-distant future
 that will include annotations as well as terms.
 
-## Finding FYPO terms and annotations in PomBase
+### Finding FYPO terms and annotations in PomBase
 
 FYPO terms are displayed on PomBase gene pages, along with supporting
 evidence and allele and expression details, as described in the
@@ -43,7 +43,7 @@ FYPO, and returns a list of genes that have alleles annotated to the
 specified term or any of its descendants.  For example, see the
 [FAQ on finding essential genes](http://www.pombase.org/faqs/can-i-get-list-essential-pombe-genes).
 
-## Curating phenotypes with FYPO
+### Curating phenotypes with FYPO
 
 The PomBase online curation tool,
 [Canto](http://curation.pombase.org/pombe), uses FYPO terms for
@@ -51,7 +51,7 @@ annotation of S. pombe phenotypes.
 [Phenotype curation documentation](http://curation.pombase.org/pombe/docs/fypo_annotation)
 is available via Canto.
 
-## Submitting Bulk Data
+### Submitting Bulk Data
 
 If you have a large set of phenotype data to submit, you may want to
 do a bulk submission.  See the documentation on the
