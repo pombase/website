@@ -1,7 +1,15 @@
 <div class="front-panel">
-  <img class="head-img" width="300" height="185" src="{{headImage}}" />
+  <img *ngIf="headImage" class="head-img" width="300" height="185" src="{{headImage}}" />
+  <video *ngIf="headVideo" width="300" autoplay controls="controls">
+    <source src="{{headVideo}}" type="video/mp4">
+  </video>
+
   <div class="panel-contents">
-    <div class="title"><span *ngIf="panelDescription">{{panelDescription}}: </span>{{conf.title}}</div>
+    <div class="title">
+      <span *ngIf="panelDescription">{{panelDescription}}: </span>
+      <span *ngIf="!conf.title_link">{{conf.title}}</span>
+      <a *ngIf="conf.title_link" href="{{conf.title_link}}">{{conf.title}}</a>
+    </div>
     <app-front-panel-content [panelId]="conf.internalId"></app-front-panel-content>
     <a *ngIf="conf.internalLink" routerLink="{{conf.internalLink}}">
       {{conf.link_label}}

@@ -13,11 +13,18 @@ export class FrontPanelComponent implements OnInit {
 
   panelDescription = null;
   headImage = null;
+  headVideo = null;
 
   constructor() { }
 
   ngOnInit() {
-    this.headImage = Util.randElement(this.conf.head_image);
+    const randMedia = Util.randElement(this.conf.head_image);
+
+    if (randMedia.match(/\.mp4$/)) {
+      this.headVideo = randMedia;
+    } else {
+      this.headImage = randMedia;
+    }
 
     if (this.conf.panel_type === 'spotlight') {
       this.panelDescription = 'Research spotlight';

@@ -62,6 +62,7 @@ export interface ConfigOrganism {
 
 export interface PanelConfig {
   title?: string;
+  title_link?: string;
   panel_type: string;
   internalId: number;
   head_image: Array<string>;
