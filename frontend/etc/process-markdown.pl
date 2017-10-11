@@ -316,6 +316,8 @@ sub angular_link {
   my $title = shift;
   my $path = shift;
 
+  $path =~ s/\.md$//;
+
   if ($path =~ /\.(?:png|gif)($|\s)/) {
     return "[$title]($path)";
   }
