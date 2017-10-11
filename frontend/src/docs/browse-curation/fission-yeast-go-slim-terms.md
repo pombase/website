@@ -1,4 +1,4 @@
-# Fission Yeast GO slim terms
+## Fission yeast GO slim
 
 The table below shows terms in the current fission yeast biological
 process GO slim, and the number of annotations to each term. GO IDs

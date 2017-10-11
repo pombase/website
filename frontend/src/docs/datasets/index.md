@@ -15,6 +15,7 @@ subdirectories are organised slightly differently from the links on this
 page. If you have trouble finding anything, please ask the
 [helpdesk](mailto:helpdesk@pombase.org).
 
+-------
 
 #### FTP site ####
 [*S. pombe* ftp site root directory](ftp://ftp.pombase.org/pombe/)
@@ -24,6 +25,8 @@ page. If you have trouble finding anything, please ask the
 -  Genome sequence (FASTA or enriched EMBL format for Artemis)
 -  Feature coordinates (coding regions, introns, exons, UTRs, etc.)
 -  Genomic regions (centromeres, telomeres, mating type)
+
+-------
 
 #### Annotation datasets ####
 
@@ -37,8 +40,12 @@ Annotation type|Description
 [Modifications](ftp://ftp.pombase.org/pombe/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future; ftp)
 [Orthologs](ftp://ftp.pombase.org/pombe/orthologs/)|Manually curated ortholog sets for [human](how-can-i-find-s-pombe-orthologs-of-a-human-gene) and [*S. cerevisiae*](how-can-i-search-for-the-s-cerevisiae-ortholog-s-homolog-s-of-an-s-pombe-gene); also see [documentation](/documentation/orthologs) (ftp)
 
+-------
+
 #### [Gene names and IDs](downloads/names-and-identifiers) ####
 Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers
+
+-------
 
 #### Curated inventories
 
