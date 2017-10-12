@@ -74,4 +74,11 @@ PomBase staff
 
 ------------------------------------
 
-Funding: PomBase is funded by the Wellcome Trust \[104967/Z/14/Z\].
+Project funding
+---------------
+
+PomBase is funded by the [Wellcome Trust](https://wellcome.ac.uk/) \[104967/Z/14/Z\].
+
+<a href="https://wellcome.ac.uk/">
+  <img style="background-color: black" height="127px" src="https://wellcome.ac.uk/sites/all/themes/corp_base/assets/images/new-logos/wellcome-logo.svg" alt="Wellcome"/>
+</a>
