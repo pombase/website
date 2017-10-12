@@ -534,6 +534,7 @@ United Kingdom</p>
 <ul>
 <li><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></li>
 <li><a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim terms</a></li>
+<li><a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a></li>
 <li><a routerLink="/browse-curation/drugs-known-pombe-targets">Drugs with known targets</a></li>
 </ul>
 
@@ -944,7 +945,7 @@ United Kingdom</p>
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-go-slim-terms'">
-<h1 id="fission-yeast-go-slim-terms">Fission Yeast GO slim terms</h1>
+<h2 id="fission-yeast-go-slim">Fission yeast GO slim</h2>
 <p>The table below shows terms in the current fission yeast biological process GO slim, and the number of annotations to each term. GO IDs link to the QuickGO browser, where you can explore the ontology and annotations further. Icons beside each GO term link to <a href="http://www.esyn.org/">esyN</a>, which provides a graphical view of interactions for the genes from the PomBase High Confidence Physical Interaction Network (HCPIN) dataset. Only the subset of genes linked into the interaction network will be displayed in the esyN network view. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
 <p>Further information is available from:</p>
 <ul>
@@ -983,11 +984,11 @@ United Kingdom</p>
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-phenotype-ontology'">
-<h1 id="fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</h1>
+<h2 id="fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</h2>
 <p>PomBase curators develop and use the Fission Yeast Phenotype Ontology (FYPO) to annotate phenotypes of mutant alleles and of over- or under-expressing wild type genes.</p>
 <p>The contents and structure of FYPO are described on the <a href="http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology">FYPO page of the PomBase wiki</a> and in the publication:</p>
 <p>Harris MA, Lock A, Bähler J, Oliver SG, Wood V. FYPO: The Fission Yeast Phenotype Ontology. Bioinformatics. 2013 July 1;29(13): 1671–1678. <a href="http://www.ncbi.nlm.nih.gov/pubmed/23658422">PubMed abstract (PMID:23658422)</a> or <a href="http://bioinformatics.oxfordjournals.org/content/29/13/1671.long">Full text at Bioinformatics</a></p>
-<h2 id="browsing-fypo-terms">Browsing FYPO terms</h2>
+<h3 id="browsing-fypo-terms">Browsing FYPO terms</h3>
 <p>At present, FYPO is included collections such as the National Center for Biomedical Ontology's <a href="http://bioportal.bioontology.org/">BioPortal</a> and EBI's <a href="http://www.ebi.ac.uk/ontology-lookup/">Ontology Lookup Service (OLS)</a>, both of which allow searching and browsing.</p>
 <ul>
 <li>BioPortal <a href="http://bioportal.bioontology.org/ontologies/FYPO">FYPO summary page</a></li>
@@ -995,17 +996,18 @@ United Kingdom</p>
 <li><a href="http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=FYPO">OLS FYPO browser</a></li>
 </ul>
 <p>We hope to deploy a browser at PomBase in the not-too-distant future that will include annotations as well as terms.</p>
-<h2 id="finding-fypo-terms-and-annotations-in-pombase">Finding FYPO terms and annotations in PomBase</h2>
+<h3 id="finding-fypo-terms-and-annotations-in-pombase">Finding FYPO terms and annotations in PomBase</h3>
 <p>FYPO terms are displayed on PomBase gene pages, along with supporting evidence and allele and expression details, as described in the PomBase gene page documentation.</p>
 <p>The PomBase advanced search can use either term names or IDs to search FYPO, and returns a list of genes that have alleles annotated to the specified term or any of its descendants. For example, see the <a href="http://www.pombase.org/faqs/can-i-get-list-essential-pombe-genes">FAQ on finding essential genes</a>.</p>
-<h2 id="curating-phenotypes-with-fypo">Curating phenotypes with FYPO</h2>
+<h3 id="curating-phenotypes-with-fypo">Curating phenotypes with FYPO</h3>
 <p>The PomBase online curation tool, <a href="http://curation.pombase.org/pombe">Canto</a>, uses FYPO terms for annotation of S. pombe phenotypes. <a href="http://curation.pombase.org/pombe/docs/fypo_annotation">Phenotype curation documentation</a> is available via Canto.</p>
-<h2 id="submitting-bulk-data">Submitting Bulk Data</h2>
+<h3 id="submitting-bulk-data">Submitting Bulk Data</h3>
 <p>If you have a large set of phenotype data to submit, you may want to do a bulk submission. See the documentation on the <a href="http://www.pombase.org/submit-data/phenotype-data-bulk-upload-format">recommended file format</a>, and use the Phenotype Data Submission Form.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
-
+<h2 id="browse-curation">Browse curation</h2>
+<p><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a>: Summary page and links to additional information <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim terms</a>: Biological process GO Slim terms and annotation totals <a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a>: Consensus binding sequences found in <em>S. pombe</em> <a routerLink="/browse-curation/drugs-known-pombe-targets">Drug targets</a>: List of drugs known to affect <em>S. pombe</em>, and their targets or mechanism of action</p>
 
   </div>
   </div>
@@ -2184,6 +2186,7 @@ United Kingdom</p>
 <p><strong>Warning:</strong> Files in the old FTP site within the EBI domain are no longer updated. If you have a link that contains <strong>ftp.ebi.ac.uk</strong>, please check these pages for a link using <strong>ftp.pombase.org</strong>. Please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a> if you need help finding a file or directory.</p>
 </div>
 <p>Links below go to web pages, except where &quot;ftp&quot; indicates that they go directly to ftp site directories. Note that the ftp subdirectories are organised slightly differently from the links on this page. If you have trouble finding anything, please ask the <a routerLink="/mailto:helpdesk@pombase.org">helpdesk</a>.</p>
+<hr />
 <h4 id="ftp-site">FTP site</h4>
 <p><a href="ftp://ftp.pombase.org/pombe/"><em>S. pombe</em> ftp site root directory</a></p>
 <h4 id="genome-sequence-and-features"><a routerLink="/downloads/genome-datasets">Genome sequence and features</a></h4>
@@ -2192,6 +2195,7 @@ United Kingdom</p>
 <li>Feature coordinates (coding regions, introns, exons, UTRs, etc.)</li>
 <li>Genomic regions (centromeres, telomeres, mating type)</li>
 </ul>
+<hr />
 <h4 id="annotation-datasets">Annotation datasets</h4>
 <table>
 <thead>
@@ -2231,8 +2235,10 @@ United Kingdom</p>
 </tr>
 </tbody>
 </table>
+<hr />
 <h4 id="gene-names-and-ids"><a routerLink="/downloads/names-and-identifiers">Gene names and IDs</a></h4>
 <p>Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers</p>
+<hr />
 <h4 id="curated-inventories">Curated inventories</h4>
 <ul>
 <li><a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a></li>
