@@ -41,13 +41,15 @@ export release=`jq -r .release release_config.json`
 perl -pne 's/<<APP_BASE_URL>>/$ENV{"base_url"}/; s/<<GOOGLE_ANALYTICS_ID>>/$ENV{"analytics_id"}/; ' src/index.html.template > src/index.html
 
 
+NG='node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng'
+
 if [ x$release == x'true' ]
 then
     echo building $release_env for production ...
-    ng build --env=prod --target=production --progress=false || exit 1
+    $NG build --env=prod --target=production --progress=false || exit 1
 else
     echo building $release_env for testing ...
-    ng build --progress=false || exit 1
+    $NG build --progress=false || exit 1
 fi
 echo done
 
