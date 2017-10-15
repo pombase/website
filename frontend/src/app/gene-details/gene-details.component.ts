@@ -1,9 +1,8 @@
-import { Component, OnInit, Input,
-         Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { MetaService } from '@ngx-meta/core';
 
 import { SynonymDetails, GeneDetails, ChromosomeLocation, PombaseAPIService } from '../pombase-api.service';
 
@@ -51,7 +50,7 @@ export class GeneDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
-              private readonly meta: MetaService,
+              private readonly meta: Meta,
               @Inject('Window') private window: any
              ) { }
 
@@ -111,7 +110,7 @@ export class GeneDetailsComponent implements OnInit {
   setPageTitle(): void {
     let title = 'Gene - ' + this.displayNameLong();
     this.titleService.setTitle(title);
-    this.meta.setTitle(title);
+    this.meta.updateTag({property: 'og:title', content: title});
   }
 
   hasMiscAnnotations(): boolean {

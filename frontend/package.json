@@ -20,7 +20,6 @@
     "@angular/platform-browser": "^4.4.0-RC.0",
     "@angular/platform-browser-dynamic": "^4.4.0-RC.0",
     "@angular/router": "^4.4.0-RC.0",
-    "@ngx-meta/core": "^4.0.1",
     "@types/file-saver": "0.0.1",
     "angulartics2": "^1.6.4",
     "blob": "0.0.4",

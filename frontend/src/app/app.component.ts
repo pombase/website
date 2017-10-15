@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Meta } from '@angular/platform-browser';
 
-import { MetaService } from '@ngx-meta/core';
+import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
 import { Angulartics2GoogleAnalytics } from 'angulartics2';
+
+const defaultTitle = 'PomBase, the S. pombe genome database';
+const defaultDescription = 'PomBase is a comprehensive database for the fission yeast ' +
+  'Schizosaccharomyces pombe, providing structural and functional annotation, ' +
+  'literature curation and access to large-scale data sets';
+
 
 @Component({
   selector: 'app-root',
@@ -20,12 +26,12 @@ export class AppComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
-    private readonly meta: MetaService,
+    private meta: Meta,
     private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) { }
 
   ngOnInit() {
     this.router.events
-      .filter(event => event instanceof NavigationEnd)
+      .filter(event => event instanceof NavigationStart)
       .map(() => this.activatedRoute)
       .map(route => {
         while (route.firstChild) {
@@ -36,9 +42,11 @@ export class AppComponent implements OnInit {
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
       .subscribe((event) => {
-        let title = event['title'] ? event['title'] : 'The S. pombe genome database';
+        console.log(event['title']);
+        let title = defaultTitle;
         this.titleService.setTitle(title);
-        this.meta.setTitle(title);
+        this.meta.updateTag({property: 'og:title', content: title});
+        this.meta.updateTag({property: 'og:description', content: defaultDescription});
       });
   }
 }

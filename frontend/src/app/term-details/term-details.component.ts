@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Inject,
          HostListener } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { MetaService } from '@ngx-meta/core';
 
 import { TermDetails, PombaseAPIService, TermSubsets } from '../pombase-api.service';
 
@@ -33,7 +33,7 @@ export class TermDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private titleService: Title,
               private router: Router,
-              private readonly meta: MetaService,
+              private readonly meta: Meta,
               @Inject('Window') private window: any
              ) { }
 
@@ -61,7 +61,7 @@ export class TermDetailsComponent implements OnInit {
       title += 'UNKNOWN';
     }
     this.titleService.setTitle(title);
-    this.meta.setTitle(title);
+    this.meta.updateTag({property: 'og:title', content: title});
   }
 
   scrollToPageTop(): void {

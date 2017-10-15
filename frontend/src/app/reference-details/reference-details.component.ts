@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Title } from '@angular/platform-browser';
-
-import { MetaService } from '@ngx-meta/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
@@ -27,7 +25,7 @@ export class ReferenceDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
-              private readonly meta: MetaService,
+              private readonly meta: Meta,
              ) { }
 
   setPageTitle(): void {
@@ -41,7 +39,7 @@ export class ReferenceDetailsComponent implements OnInit {
       title = 'UNKNOWN';
     }
     this.titleService.setTitle(title);
-    this.meta.setTitle(title);
+    this.meta.updateTag({property: 'og:title', content: title});
   }
 
   setCantoFields(): void {
