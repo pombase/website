@@ -139,3 +139,8 @@
   display: inline-block;
   margin: 0em 1em 0.5em 1em;
 }
+
+.front-callout {
+  margin: 1em 0 0 0;
+  width: 66%;
+}
