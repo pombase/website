@@ -3,7 +3,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable, Subject } from 'rxjs/Rx';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { GeneQuery, QueryResult, QueryOutputOptions } from './pombase-query';
-import { getAppConfig, getReleaseConfig } from './config';
+import { getAppConfig } from './config';
 
 function makeResults(resultsObject: any): QueryResult {
   return new QueryResult('OK', resultsObject.rows);
@@ -41,7 +41,7 @@ export class HistoryEntry {
 
 @Injectable()
 export class QueryService {
-  private apiUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest';
+  private apiUrl = '/api/v1/dataset/latest';
 
   private history: Array<HistoryEntry> = [];
   private subject: Subject<Array<HistoryEntry>> = new Subject();

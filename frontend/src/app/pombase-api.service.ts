@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import { TermShort } from './pombase-query';
 import { Util } from './shared/util';
 import { Seq } from './seq';
-import { getReleaseConfig, getAppConfig, ConfigOrganism } from './config';
+import { getAppConfig, ConfigOrganism } from './config';
 
 export enum Strand {
   Forward,
@@ -341,7 +341,7 @@ export interface GeneSubsets {
 @Injectable()
 export class PombaseAPIService {
 
-  private apiUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest';
+  private apiUrl = '/api/v1/dataset/latest';
 
   chunkPromises: {
     [key: string]: Promise<Seq>;

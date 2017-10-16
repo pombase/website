@@ -1,6 +1,0 @@
-{
-  "baseUrl": "http://localhost",
-  "analyticsId": "NONE",
-  "release": "false",
-  "rsyncDest": "/var/www/html/"
-}

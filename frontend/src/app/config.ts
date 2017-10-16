@@ -1,7 +1,6 @@
 import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
 import docConfig from './config/doc-config.json';
 import pombaseConfig from '../../pombase_v2_config.json';
-import releaseConfig from '../../release_config.json';
 
 import { GeneQuery } from './pombase-query';
 
@@ -897,8 +896,4 @@ export function getOrganismExternalLink(organismGenus: string, organismSpecies: 
   }
 
   return null;
-}
-
-export function getReleaseConfig(): any {
-  return releaseConfig;
 }

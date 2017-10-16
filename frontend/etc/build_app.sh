@@ -13,37 +13,11 @@ then
     exit 1
 fi
 
-if [ ! -f angular-cli.json ]
-then
-    echo "no 'release_config.json' - wrong directory?"
-    exit 1
-fi
-
 echo Building and releasing using configuration: $release_env
-
-rm -f release_config.json
-
-env_config_file="etc/${release_env}_release_config.json"
-
-if [ -f $env_config_file ]
-then
-    ln -s $env_config_file release_config.json
-else
-    echo No such configuration file: $env_config_file - exiting
-    exit 1
-fi
-
-export base_url=`jq -r .baseUrl release_config.json`
-export analytics_id=`jq -r .analyticsId release_config.json`
-export rsync_dest=`jq -r .rsyncDest release_config.json`
-export release=`jq -r .release release_config.json`
-
-perl -pne 's/<<APP_BASE_URL>>/$ENV{"base_url"}/; s/<<GOOGLE_ANALYTICS_ID>>/$ENV{"analytics_id"}/; ' src/index.html.template > src/index.html
-
 
 NG='node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng'
 
-if [ x$release == x'true' ]
+if [ x$release_env == x'prod' ]
 then
     echo building $release_env for production ...
     $NG build --env=prod --target=production --progress=false || exit 1
@@ -51,10 +25,5 @@ else
     echo building $release_env for testing ...
     $NG build --progress=false || exit 1
 fi
-echo done
 
-if [ $rsync_dest != null ]
-then
-    echo deploying ...
-    rsync --exclude '*~' -cavPHS dist/ $rsync_dest/
-fi
+echo done

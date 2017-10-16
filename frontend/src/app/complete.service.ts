@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { getAppConfig, getReleaseConfig } from './config';
+import { getAppConfig } from './config';
 
 export class SolrTermSummary {
   constructor(id: string, name: string, definition: string) {};
@@ -11,7 +11,7 @@ export class SolrTermSummary {
 @Injectable()
 export class CompleteService {
 
-  private completeUrl = getReleaseConfig().baseUrl + '/api/v1/dataset/latest/complete';
+  private completeUrl = '/api/v1/dataset/latest/complete';
 
   constructor(private http: Http) { }
 
