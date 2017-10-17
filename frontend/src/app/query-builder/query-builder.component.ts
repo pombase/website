@@ -34,7 +34,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     this.route.params.forEach((params: Params) => {
       if (params['predefinedQueryName']) {
         const query = getAppConfig().getPredefinedQuery(params['predefinedQueryName']);
-        this.saveQuery(query);
+        this.gotoResults(query);
       } else {
         let fromType = params['type'];
         let termId = params['id'];
