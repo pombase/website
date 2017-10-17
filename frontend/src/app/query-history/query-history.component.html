@@ -1,5 +1,5 @@
 <div class="query-history" *ngIf="historyEntries.length > 0">
-  <span class="title">History</span>
+  <span class="title">Combine queries:</span>
 
   <div class="content">
     <span class="op-buttons">
@@ -20,14 +20,16 @@
     </span>
 
     <span>
-      <button [disabled]="getSelectedEntries().length == 0" class="btn btn-primary delete-queries" (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
+      <button [disabled]="getSelectedEntries().length == 0" class="btn btn-primary delete-queries"
+              title="Select query or queries to delete"
+              (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
     </span>
   <table class="history-table">
     <thead>
       <tr>
         <th></th>
         <th><span (dblclick)="setAllCounts()">Results</span></th>
-        <th>Query</th>
+        <th>Query history</th>
       </tr>
     </thead>
     <tbody>
