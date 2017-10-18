@@ -25,8 +25,7 @@
     uses GO, phenotypes, interactions, etc.
 -   [Sequence Ontology](http://www.sequenceontology.org/)
 
-Interactions, Pathways and Networks
------------------------------------
+### Interactions, Pathways and Networks
 
 -   [BioGRID](http://www.thebiogrid.org/) Genetic and physical
     interactions
@@ -38,10 +37,9 @@ Interactions, Pathways and Networks
     sharing, and viewing network data
 -   [STRING](http://string-db.org/) Protein–protein interaction network database
 
-Sequence Analysis Tools
------------------------
+### Sequence Analysis Tools
 
-### General tools
+#### General tools
 
 <!--
 -   [GBrowse Wiki](http://gbrowse.org/wiki/index.php/Schizosaccharomyces_pombe)
@@ -53,7 +51,7 @@ Sequence Analysis Tools
     at the NCBI
 -   [Mitochondrial Genome Information](http://megasun.bch.umontreal.ca/People/lang/species/spo/spombe.html)
 
-### Sequence Features, Protein Families, Orthologues
+#### Sequence Features, Protein Families, Orthologues
 
 -   Todd Lowe's *S. pombe* genomic [tRNA analysis](http://gtrnadb.ucsc.edu/GtRNAdb2/genomes/eukaryota/Schi_pomb_972h/)
 -   [*S. pombe* membrane protein library](http://wardlab.cbs.umn.edu/pombe/)
@@ -70,16 +68,14 @@ Sequence Analysis Tools
 -   [EPD](http://epd.vital-it.ch/S_pombe/S_pombe_database.php)
     Eukaryotic Promoter Database, *S. pombe* section
 
-Gene Expression
----------------
+### Gene Expression
 
 -   [Gene Expression Viewer](http://www.bahlerlab.info/cgi-bin/SPGE/geexview) at UCL
 -   [*S. pombe* PeptideAtlas](https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/buildDetails?atlas_build_id=355)
     compendium of peptides identified in tandem mass spectrometry
     proteomics experiments
 
-Experimental tools
-------------------
+### Experimental tools
 
 -   [PRIMED](http://www.massgeneral.org/cancer/research/motamediresources.aspx)
     Primers for deleting and tagging yeast genes (*S. pombe* and *S. cerevisiae*; downloadable spreadsheets)
@@ -100,8 +96,7 @@ Experimental tools
     [Protocols](http://www-bcf.usc.edu/~forsburg/Protocols.html)
 -   [Wolf Lab Protocols](http://www.dieter-wolf-lab.org/protocols/)
 
-*S. cerevisiae* Resources
------------------------------
+### *S. cerevisiae* Resources
 
 -   [SGD](http://www.yeastgenome.org/) *Saccharomyces* Genome Database
 -   [*Saccharomyces* genome resequencing](http://www.sanger.ac.uk/research/projects/genomeinformatics/sgrp.html) at Sanger
