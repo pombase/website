@@ -1,5 +1,4 @@
-*S. pombe* Community Websites
--------------------------------
+## *S. pombe* Community Websites
 
 -   [PombeWeb](http://www-bcf.usc.edu/~forsburg/pombeweb.html) maintained by Susan Forsburg
     -   [Fission yeast researchers](http://www-bcf.usc.edu/~forsburg/pombeweb.html#people) at PombeWeb
@@ -11,13 +10,12 @@
 -   [PubMed RSS Feed](http://eutils.ncbi.nlm.nih.gov/entrez/eutils/erss.cgi?rss_guid=1ToPSyjDNLLW2R_UIOHFTxnRdlJouyMeQX4YfwMFXtO8d87M4r)
     Feed for current *S. pombe* related publications.
 
-Ontologies
---------------
+### Ontologies
 
 -   [The Gene Ontology Consortium](http://www.geneontology.org/) controlled vocabulary
 -   [AmiGO](http://amigo.geneontology.org/) Search and browse GO annotation
 -   The [QuickGO](http://www.ebi.ac.uk/quickgo/) browser at EBI
--   [SGD GO documentation](http://www.yeastgenome.org/help/function-help/gene-ontology-go)
+-   [SGD GO documentation](https://sites.google.com/view/yeastgenome-help/function-help/gene-ontology-go)
     to help SGD users become familiar with GO
 -   [Onto-Express](http://vortex.cs.wayne.edu/projects.htm#Onto-Express)
     find significant GO terms in lists of genes
@@ -34,7 +32,7 @@ Interactions, Pathways and Networks
     interactions
 -   [Interactions (IntAct)](http://www.ebi.ac.uk/intact/pages/interactions/interactions.xhtml?query=species:4896)
     Known interactions for *S. pombe* from the IntAct database
--   [Reactome pathway data](http://reactome.org/cgi-bin/eventbrowser?DB=gk_current&FOCUS_SPECIES=Schizosaccharomyces%20pombe&ID=68324&)
+-   [Reactome pathway data](http://reactome.org/PathwayBrowser/#/SPECIES=68324)
     *S. pombe* entry point.
 -   [esyN](http://www.esyn.org/index.php) Web-based tool for building,
     sharing, and viewing network data
@@ -45,12 +43,12 @@ Sequence Analysis Tools
 
 ### General tools
 
+<!--
 -   [GBrowse Wiki](http://gbrowse.org/wiki/index.php/Schizosaccharomyces_pombe)
     for *S. pombe*
+-->
 -   [Artemis](http://www.sanger.ac.uk/science/tools/artemis) Sequence
     viewer and analysis tool
--   [Genome Atlas](http://www.cbs.dtu.dk/services/GenomeAtlas-2.0/show-kingdom.php?kingdom=Eukaryotes&KLquickSearch=pombe)
-    DNA structural atlas
 -   [Map viewer](http://www.ncbi.nlm.nih.gov/mapview/map_search.cgi?chr=spombe.inf)
     at the NCBI
 -   [Mitochondrial Genome Information](http://megasun.bch.umontreal.ca/People/lang/species/spo/spombe.html)
@@ -88,10 +86,10 @@ Experimental tools
 
 ### Strains and Constructs
 
--   [Japanese National Bio Resource Project](http://yeast.lab.nig.ac.jp/nig/index_en.html)
+-   [Japanese National Bio Resource Project](http://yeast.lab.nig.ac.jp/yeast/)
 -   [Postgenome database service](http://www.riken.jp/SPD/index.html) Chemical Genetics
     Laboratory, Riken
--   [Orfeome clones](http://dna.brc.riken.jp/en/yoshidayeast_en.html) Riken
+-   [Orfeome clones](http://dna.brc.riken.jp/en/yoshidayeast_en) Riken
     Bioresource Centre
 -   [Addgene](http://www.addgene.org) Collects and distributes plasmids
 
