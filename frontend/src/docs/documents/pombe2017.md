@@ -1,15 +1,15 @@
-# pombe2017 - 9th International Fission Yeast Meeting
+## pombe2017 - 9th International Fission Yeast Meeting
 
 Banff, Alberta, Canada, 14-19 May 2017
 
-PomBase Posters
----------------
+### PomBase Posters
 
-<!--
--   Infographic
--   community curation
--   Using fission yeast QC methods to correct and improve GO annotation across eukaryotic species
+-   132: [Fission Yeast People, Papers and PomBase](ftp://ftp.pombase.org/pombe/Conferences/pombe2017/pombe2017_infographic_p132.pdf) (The PomBase Infographic; PDF)
+-   133: [PomBase Community Literature Curation](ftp://ftp.pombase.org/pombe/Conferences/pombe2017/pombe2017_p133.pdf) (PDF)
+-   164: Using fission yeast QC methods to correct and improve GO annotation across eukaryotic species
 
-Talk
+### Talk
+
 The new, improved PomBase
--->
+
+External link to [conference program](http://people.ucalgary.ca/~young/pombe2017_program.pdf)
