@@ -13,9 +13,9 @@ Chromosome coordinates (links to Ensembl genome browser):
 The 3 centromeres are also available as contiguated sequence (the
 remaining gaps in CEN2 and CEN3 are represented by 100 N's)
 
--   [CEN 1](http://www.pombase.org/sites/pombase.org/files/documents/cen1.gz) (gzipped EMBL format)
--   [CEN 2](http://www.pombase.org/sites/pombase.org/files/documents/cen2.gz) (gzipped EMBL format)
--   [CEN 3](http://www.pombase.org/sites/pombase.org/files/documents/cen3.gz) (gzipped EMBL format)
+-   [CEN 1](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/cen1.gz) (gzipped EMBL format)
+-   [CEN 2](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/cen2.gz) (gzipped EMBL format)
+-   [CEN 3](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/cen3.gz) (gzipped EMBL format)
 
 Note that specific repeats within centromeres cannot yet be viewed or
 searched as features on PomBase pages, but they can be displayed on
