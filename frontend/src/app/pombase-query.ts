@@ -103,12 +103,12 @@ export class GeneBoolNode extends GeneQueryNode {
 
   opString(): string {
     if (this.operator === QueryNodeOperator.And) {
-      return 'INTERSECT';
+      return 'AND';
     } else {
       if (this.operator === QueryNodeOperator.Or) {
-        return 'UNION';
+        return 'OR';
       } else {
-        return 'BUT_NOT';
+        return 'NOT';
       }
     }
   }
