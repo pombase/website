@@ -3,11 +3,9 @@ Conferences and Workshops
 
 ### International Fission Yeast Meeting series
 
-<!--
 [pombe2017](documents/pombe2017)
 Banff, Alberta, Canada
 14-19 May 2017
--->
 
 [pombe2015](documents/pombe2015)
 Kobe, Japan
@@ -35,8 +33,7 @@ Boston, MA, USA
 Other documents
 ---------------
 
-<!--
--   [2017 PomBase infographic]() (PDF)
--->
--   [2013 PomBase user survey results](/sites/pombase.org/files/documents/2013_pombase_survey_summary.pdf) (PDF)
+-   [2017 PomBase infographic](ftp://ftp.pombase.org/pombe/Conferences/pombe2017/pombe2017_infographic_p132.pdf) (PDF; file at FTP site)
+
+-   [2013 PomBase user survey results](ftp://ftp.pombase.org/pombe/documents/2013_pombase_survey_summary.pdf) (PDF; file at FTP site)
 

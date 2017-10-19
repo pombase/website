@@ -17,10 +17,12 @@ page. If you have trouble finding anything, please ask the
 
 -------
 
-#### FTP site ####
+### FTP site ###
 [*S. pombe* ftp site root directory](ftp://ftp.pombase.org/pombe/)
 
-#### [Genome sequence and features](/downloads/genome-datasets) ####
+-------
+
+### [Genome sequence and features](/downloads/genome-datasets) ###
 
 -  Genome sequence (FASTA or enriched EMBL format for Artemis)
 -  Feature coordinates (coding regions, introns, exons, UTRs, etc.)
@@ -28,7 +30,7 @@ page. If you have trouble finding anything, please ask the
 
 -------
 
-#### Annotation datasets ####
+### Annotation datasets ###
 
 Annotation type|Description
 ---------------|-----------
@@ -42,12 +44,12 @@ Annotation type|Description
 
 -------
 
-#### [Gene names and IDs](downloads/names-and-identifiers) ####
+### [Gene names and IDs](downloads/names-and-identifiers) ###
 Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers
 
 -------
 
-#### Curated inventories
+### Curated inventories
 
 -   [DNA binding sites](/browse-curation/dna-binding-sites.md)
 -   [Drug targets](/browse-curation/drugs-known-pombe-targets.md)
