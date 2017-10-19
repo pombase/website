@@ -9,13 +9,13 @@
   file or directory.
 </div>
 
-These files are available in the [names and IDs directory](ftp://ftp.pombase.org/pombe/names_and_identifiers/)
+These files are available in the [names and IDs FTP directory](ftp://ftp.pombase.org/pombe/names_and_identifiers/)
 
 #### Systematic ID to UniProt accession number
 
 -   [PomBase2UniProt.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/PomBase2UniProt.tsv)
     tab-delimited file with the PomBase systematic identifier for each
-    protein-conding gene mapped to the corresponding UniProt accession
+    protein-coding gene mapped to the corresponding UniProt accession
     number
 
 #### Gene names
