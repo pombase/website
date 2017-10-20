@@ -18,11 +18,24 @@ In the Query panel (top), click one of the links in the list on the left to choo
 
 ![advanced search page with new query](assets/advanced_search_main.png){width="600"}
 
-In the History panel (bottom), results are linked in the Count column,
-and you can select queries in the list to combine or delete them. To
-combine queries, you must select two or more from the list, anh then
+In the History panel (bottom), queries are listed in reverse
+chronological order (most recently run first). Results are linked in
+the Count column; the link goes to a page that displays the gene name,
+systematic ID, and product description for matching genes. The
+Download button offers additional options, including nucleotide and
+(where applicable) protein sequence. To return to the search page, use
+the small blue "<- Back" button just above the result list, **not**
+your browser's "Back" button.
+
+You can select queries in the list to combine or delete them. To
+combine queries, you must select two or more from the list, and then
 click one of the operator buttons. Results are added to the history
 list.
+
+At present, there is only an awkward kludge to specify the order for a
+query using the Subtract/NOT operator. It always places the more
+recently run query first (newer NOT/Subtract older), but you can move
+any query to the top of the history list by clicking its "Count" link.
 
 ### Query types
 
@@ -46,10 +59,10 @@ term and to any of its child terms, following the *is_a*, *part_of*,
 *regulates*, *positively_regulates*,and *negatively_regulates*
 relationships in the ontology. You may also find it helpful to search
 or browse in [QuickGO](http://www.ebi.ac.uk/QuickGO/) or
-[AmiGO])http://amigo.geneontology.org/) to find GO terms of
+[AmiGO](http://amigo.geneontology.org/) to find GO terms of
 interest. If one search does not seem to retrieve as many results as
 you expect, try again using a less specific term. Note: prior to the
-November 2014 PomBase release, the regulates relations were not
+November 2014 PomBase release, the *regulates* relations were not
 followed, and PomBase GO search results therefore did not match those
 in AmiGO.
 
@@ -163,4 +176,42 @@ history (useful for combining the list with other queries).
 organised here by topic. Several of the topics also correspond to gene
 page sections.
 
+#### Phenotype searches
 
+ -  [Can I get a list of essential pombe genes?](/faq/can-i-get-list-essential-pombe-genes)
+ -  [How can I find all of the genes that have a given mutant phenotype?](/faq/how-can-i-find-all-genes-have-given-mutant-phenotype)
+ -  [Why are some genes annotated to both viable and inviable phenotypes?](/faq/why-are-some-genes-annotated-both-viable-and-inviable-phenotypes)
+ -  [How can I browse the phenotype ontology (FYPO)?](/faq/how-can-i-browse-phenotype-ontology-fypo)
+
+#### Gene Ontology searches
+
+ -  [How can I search or browse GO annotations?](/faq/how-can-i-search-or-browse-go-annotations)
+ -  [How can I find genes with a specific activity?](/faq/how-can-i-find-genes-specific-activity)
+ -  [How can I find protein localization data?](/faq/how-can-i-find-protein-localization-data)
+ -  [How can I identify all of the genes that affect a process?](/faq/how-can-i-identify-all-genes-affect-process) (also relevant to phenotype searches)
+ -  [Can I retrieve functional annotations for genes in a list?](/faq/can-i-retrieve-functional-annotations-genes-list)
+ -  [How can I find transcription factors and their targets in PomBase?](/faq/how-can-i-find-transcription-factors-and-their-targets-pombase)
+
+#### Protein searches
+
+ -  [How can I find modifications for my protein of interest?](/faq/how-can-i-find-modifications-my-protein-interest)
+ -  [How can I find all S. pombe proteins in a particular protein family?](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family)
+ -  [How can I find proteins that have transmembrane domains?](/faq/how-can-i-find-proteins-have-transmembrane-domains)
+
+#### Taxonomic conservation
+
+ -  [How can I find S. pombe genes associated with human disease?](/faq/how-can-i-find-s.-pombe-genes-associated-human-disease)
+ -  [How can I find all S. pombe genes that are conserved in human?](/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human)
+ -  [Can I search for genes based on conservation in different taxa?](/faq/can-i-search-genes-based-on-conservation-different-taxa)
+ -  [Can I find all of the unconserved (orphan) genes in fission yeast?](/faq/can-i-find-all-unconserved-orphan-genes-fission-yeast)
+
+#### Gene and genome searches
+
+ -  [How can I retrieve all S. pombe genes?](/faq/how-can-i-retrieve-all-s.-pombe-genes)
+ -  [How can I retrieve all S. pombe protein-coding genes?](/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes)
+ -  [Can I provide a list of genes to search on?](/faq/can-i-provide-list-genes-search-on)
+ -  [Can I search for a gene list and retrieve results in the same order as in the input list?](/faq/can-i-search-gene-list-and-retrieve-results-same-order-as-input-list) (answer: no)
+ -  [How can I find snoRNA genes?](/faq/how-can-i-find-snorna-genes)
+ -  [How can I find transposons in the S. pombe genome?](/faq/how-can-i-find-transposons-s.-pombe-genome)
+ -  [How can I find genes in a region using chromosome coordinates?](/faq/how-can-i-find-genes-region-using-chromosome-coordinates)
+ -  [How can I retrieve intron coordinates or sequences?](/faq/how-can-i-retrieve-intron-coordinates-or-sequences)
