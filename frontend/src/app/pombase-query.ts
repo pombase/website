@@ -50,6 +50,7 @@ export type TermId = string;
 export abstract class GeneQueryNode {
   public abstract toObject(): Object;
   public abstract equals(obj: GeneQueryNode): boolean;
+  public abstract toString(): string;
 }
 
 export class GeneBoolNode extends GeneQueryNode {
@@ -59,11 +60,17 @@ export class GeneBoolNode extends GeneQueryNode {
               public parts: GeneQueryNode[]) {
     super();
 
+    const sortParts = () => {
+      parts.sort((a, b) => a.toString().localeCompare(b.toString()));
+    };
+
     if (operator.toLowerCase() === 'and') {
       this.operator = QueryNodeOperator.And;
+      sortParts();
     } else {
       if (operator.toLowerCase() === 'or') {
         this.operator = QueryNodeOperator.Or;
+        sortParts();
       } else {
         if (operator.toLowerCase() === 'not') {
           if (parts.length !== 2) {
