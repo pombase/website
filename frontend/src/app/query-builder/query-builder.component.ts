@@ -52,7 +52,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
   private fromJson(json: string) {
     const obj = JSON.parse(json);
     const query = new GeneQuery(obj);
-    this.queryService.saveToHistory(query);
+    this.saveQuery(query);
   }
 
   processFromRoute(fromType: string, termId: string, encodedTermName: string) {
