@@ -55,9 +55,7 @@ export class QueryService {
         for (let o of JSON.parse(savedHistoryString)) {
           try {
             const query = new GeneQuery(o.constraints);
-            // temporarily zero out the resultCount until this is fixed:
-            // https://github.com/pombase/website/issues/499
-            const entry = new HistoryEntry(query, null /*o.resultCount */);
+            const entry = new HistoryEntry(query, o.resultCount);
             this.history.push(entry);
           } catch (e) {
             console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
