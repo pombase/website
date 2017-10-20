@@ -20,8 +20,7 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.transcripts = [];
     for (let detail of this.transcriptDetails) {
-      let ensemblImageUrl =
-        `http://preview.pombase.org/browser_images/${detail.uniquename}_trans.png`;
+      let ensemblImageUrl = `/browser_images/${detail.uniquename}_trans.png`;
       let ensemblBrowserUrl =
         `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/Summary?t=${detail.uniquename}`;
       this.transcripts.push({

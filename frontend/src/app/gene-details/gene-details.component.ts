@@ -208,8 +208,7 @@ export class GeneDetailsComponent implements OnInit {
         let uniquename = params['uniquename'];
 
         // (slightly) prefetch the image
-        this.ensemblImageUrl =
-          `http://preview.pombase.org/browser_images/${uniquename}_gene.png`;
+        this.ensemblImageUrl = `/browser_images/${uniquename}_gene.png`;
         this.ensemblImage.src = this.ensemblImageUrl;
 
         // delete api call so image request is first
