@@ -161,12 +161,6 @@
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
-"@ngx-meta/core@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@ngx-meta/core/-/core-4.0.1.tgz#b035febeeb92876920480f70719fcf953dc0245f"
-  dependencies:
-    tslib "~1.7.1"
-
 "@schematics/angular@~0.0.38":
   version "0.0.39"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.0.39.tgz#6dc2b461e95e4f4756a48693f2f13a771f6d6cb5"
@@ -1153,7 +1147,7 @@ copy-webpack-plugin@^4.0.1:
     minimatch "^3.0.0"
     node-dir "^0.1.10"
 
-core-js@^2.2.0, core-js@^2.4.0, core-js@^2.4.1:
+core-js@^2.2.0, core-js@^2.4.0, core-js@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.1.tgz#ae6874dc66937789b80754ff5428df66819ca50b"
 
@@ -5362,7 +5356,7 @@ tsickle@^0.21.0:
     source-map "^0.5.6"
     source-map-support "^0.4.2"
 
-tslib@^1.7.1, tslib@~1.7.1:
+tslib@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
 
@@ -5818,16 +5812,9 @@ write-file-atomic@^2.0.0:
     imurmurhash "^0.1.4"
     signal-exit "^3.0.2"
 
-ws@1.1.1:
+ws@1.1.1, ws@^1.0.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ws/-/ws-1.1.1.tgz#082ddb6c641e85d4bb451f03d52f06eabdb1f018"
-  dependencies:
-    options ">=0.0.5"
-    ultron "1.0.x"
-
-ws@^1.0.1:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-1.1.4.tgz#57f40d036832e5f5055662a397c4de76ed66bf61"
   dependencies:
     options ">=0.0.5"
     ultron "1.0.x"
