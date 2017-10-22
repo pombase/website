@@ -49,7 +49,9 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
           this.processFromRoute(fromType, termId, termName);
         } else {
           const json = params['json'];
-          this.fromJson(goToResults, json);
+          if (json) {
+            this.fromJson(goToResults, json);
+          }
         }
       }
     });
