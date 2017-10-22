@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GeneQuery, GeneQueryNode, QueryResult, TermNode,
-         QueryOutputOptions, TermAlleleSingleOrMulti} from '../pombase-query';
+         QueryOutputOptions} from '../pombase-query';
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { getAppConfig } from '../config';
@@ -75,7 +75,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
       const matches = termId.match(/^([^:]+):/);
       if (matches && getAppConfig().phenotypeIdPrefixes.indexOf(matches[1]) !== -1) {
         // only set singleOrMulti if the termid is from a phenotype CV
-        singleOrMulti = TermAlleleSingleOrMulti.Single;
+        singleOrMulti = 'single';
       }
       const termName = decodeURIComponent(encodedTermName);
       const constraints = new TermNode(termId, termName, null, singleOrMulti, null);

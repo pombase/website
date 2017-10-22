@@ -154,17 +154,11 @@ export class GeneListNode extends GeneQueryNode {
   }
 }
 
-export const enum TermAlleleSingleOrMulti {
-  Single,
-  Multi,
-  Both,
-}
-
 export class TermNode extends GeneQueryNode {
   constructor(private termid: string,
               private termName: string,
               private definition: string,
-              private singleOrMultiAllele: TermAlleleSingleOrMulti,
+              private single_or_multi_allele: string,
               private expression: string) {
     super();
   };
@@ -172,7 +166,7 @@ export class TermNode extends GeneQueryNode {
   equals(obj: GeneQueryNode): boolean {
     if (obj instanceof TermNode) {
       return this.termid === obj.termid &&
-        this.singleOrMultiAllele === obj.singleOrMultiAllele &&
+        this.single_or_multi_allele === obj.single_or_multi_allele &&
         this.expression === obj.expression;
     }
     return false;
@@ -183,23 +177,17 @@ export class TermNode extends GeneQueryNode {
                          [], false);
   }
 
-  getSingleOrMulti(): TermAlleleSingleOrMulti {
-    return this.singleOrMultiAllele;
+  getSingleOrMulti(): string {
+    return this.single_or_multi_allele;
   }
 
   private singleOrMultiString(): string {
-    if (this.singleOrMultiAllele !== null) {
-      const alleleValue = this.singleOrMultiAllele.valueOf();
-      if (alleleValue === TermAlleleSingleOrMulti.Both) {
+    if (this.single_or_multi_allele !== null) {
+      const alleleValue = this.single_or_multi_allele.valueOf();
+      if (alleleValue === 'both') {
         return 'single and multi';
       } else {
-        if (alleleValue === TermAlleleSingleOrMulti.Single.valueOf()) {
-          return 'single';
-        } else {
-          if (alleleValue === TermAlleleSingleOrMulti.Multi) {
-            return 'multi';
-          }
-        }
+        return alleleValue;
       }
     }
     return null;
@@ -232,7 +220,7 @@ export class TermNode extends GeneQueryNode {
 
   toObject(): Object {
     const expression =
-      this.singleOrMultiAllele == TermAlleleSingleOrMulti.Single ?
+      this.single_or_multi_allele === 'single' ?
       this.expression :
       null;
     const singleOrMultiAllele = this.singleOrMultiAlleleForObject();
@@ -252,7 +240,7 @@ export class TermNode extends GeneQueryNode {
     const expressionString = this.expressionString();
     if (singleOrMultiString || expressionString) {
       ret += ' [';
-      if (this.singleOrMultiAllele == TermAlleleSingleOrMulti.Single && expressionString) {
+      if (this.single_or_multi_allele === 'single' && expressionString) {
         ret += expressionString;
         if (singleOrMultiString) {
           ret += ' - '
@@ -385,8 +373,7 @@ export class GeneQuery {
     switch(nodeType) {
 
     case 'term':
-      let singleOrMulti =
-        val['single_or_multi_allele'] as TermAlleleSingleOrMulti;
+      let singleOrMulti = val['single_or_multi_allele'];
       return new TermNode(val['termid'], val['name'],
                           val['definition'], singleOrMulti, val.expression);
 

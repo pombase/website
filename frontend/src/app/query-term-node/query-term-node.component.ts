@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
-import { TermShort, TermNode, TermAlleleSingleOrMulti } from '../pombase-query';
+import { TermShort, TermNode } from '../pombase-query';
 import { QueryNodeConfig } from '../config';
 
 @Component({
@@ -54,9 +54,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
     if (this.selectedTerm) {
       let singleOrMulti =
         this.isPhenotypeNode ?
-        (this.singleAllele ?
-         (this.multiAllele ? TermAlleleSingleOrMulti.Both : TermAlleleSingleOrMulti.Single) :
-         TermAlleleSingleOrMulti.Multi) :
+        (this.singleAllele ? (this.multiAllele ? 'both' : 'single') : 'multi') :
       null;
 
       this.newTermNode.emit(new TermNode(this.selectedTerm.termid, this.selectedTerm.name,
