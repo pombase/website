@@ -32,9 +32,15 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
+      const goToResults =
+        params['saveOrResults'] && params['saveOrResults'] === 'results';
       if (params['predefinedQueryName']) {
         const query = getAppConfig().getPredefinedQuery(params['predefinedQueryName']);
-        this.gotoResults(query);
+        if (goToResults) {
+          this.gotoResults(query);
+        } else {
+          this.saveQuery(query);
+        }
       } else {
         let fromType = params['type'];
         let termId = params['id'];
@@ -43,16 +49,20 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
           this.processFromRoute(fromType, termId, termName);
         } else {
           const json = params['json'];
-          this.fromJson(json);
+          this.fromJson(goToResults, json);
         }
       }
     });
   }
 
-  private fromJson(json: string) {
+  private fromJson(goToResults: boolean, json: string) {
     const obj = JSON.parse(json);
     const query = new GeneQuery(obj);
-    this.saveQuery(query);
+    if (goToResults) {
+      this.gotoResults(query);
+    } else {
+      this.saveQuery(query);
+    }
   }
 
   processFromRoute(fromType: string, termId: string, encodedTermName: string) {

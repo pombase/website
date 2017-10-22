@@ -98,17 +98,17 @@ const routes: Routes = [
       title: 'Advanced search'
     }
   },
-  { path: 'query/from/:type/:id/:name', component: QueryBuilderComponent,
+  { path: 'query/save/from/:type/:id/:name', component: QueryBuilderComponent,
     data: {
       title: 'Advanced search'
     }
   },
-  { path: 'query/from/predefined/:predefinedQueryName', component: QueryBuilderComponent,
+  { path: 'query/:saveOrResults/from/predefined/:predefinedQueryName', component: QueryBuilderComponent,
     data: {
       title: 'Advanced search'
     }
   },
-  { path: 'query/from/json/:json', component: QueryBuilderComponent,
+  { path: 'query/:saveOrResults/from/json/:json', component: QueryBuilderComponent,
     data: {
       title: 'Advanced search'
     }

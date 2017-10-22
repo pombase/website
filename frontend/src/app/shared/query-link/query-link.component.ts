@@ -8,6 +8,7 @@ import { QueryService } from '../../query.service';
   styleUrls: ['./query-link.component.css']
 })
 export class QueryLinkComponent implements OnInit, OnDestroy {
+  @Input() goToResults;
   @Input() predefinedQueryName;
 
   linkText = ' ';
