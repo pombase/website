@@ -4,15 +4,15 @@
   <div class="content">
     <span class="op-buttons">
     <span *ngIf="getSelectedEntries().length < 2">
-      <button class="btn btn-primary" disabled title="Select two or more queries to union">Union <img src="assets/disabled_operator_or.png"/></button>
-      <button class="btn btn-primary" disabled title="Select two or more queries to intersect">Intersect <img src="assets/disabled_operator_and.png"/></button>
+      <button class="btn btn-primary" disabled title="Select two or more queries to union">Union / or <img src="assets/disabled_operator_or.png"/></button>
+      <button class="btn btn-primary" disabled title="Select two or more queries to intersect">Intersect / and <img src="assets/disabled_operator_and.png"/></button>
     </span>
     <span *ngIf="getSelectedEntries().length >= 2">
       <button class="btn btn-primary" (click)="action('or')">Union / or <img src="assets/operator_or.png"/></button>
       <button class="btn btn-primary" (click)="action('and')">Intersect / and <img src="assets/operator_and.png"/></button>
     </span>
     <span *ngIf="getSelectedEntries().length != 2">
-      <button class="btn btn-primary" disabled title="Select two query for subtract">Subtract <img src="assets/disabled_operator_not.png"/></button>
+      <button class="btn btn-primary" disabled title="Select two query for subtract">Subtract / not <img src="assets/disabled_operator_not.png"/></button>
     </span>
     <span *ngIf="getSelectedEntries().length == 2">
       <button class="btn btn-primary" (click)="action('not')">Subtract / not <img src="assets/operator_not.png"/></button>
