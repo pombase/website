@@ -2303,11 +2303,13 @@ United Kingdom</p>
 <img src="assets/advanced_search_main.png" alt="advanced search page with new query" width="600" />
 <p class="caption">advanced search page with new query</p>
 </div>
-<p>In the History panel (bottom), results are linked in the Count column, and you can select queries in the list to combine or delete them. To combine queries, you must select two or more from the list, anh then click one of the operator buttons. Results are added to the history list.</p>
+<p>In the History panel (bottom), queries are listed in reverse chronological order (most recently run first). Results are linked in the Count column; the link goes to a page that displays the gene name, systematic ID, and product description for matching genes. The Download button offers additional options, including nucleotide and (where applicable) protein sequence. To return to the search page, use the small blue &quot;&lt;- Back&quot; button just above the result list, <strong>not</strong> your browser's &quot;Back&quot; button.</p>
+<p>You can select queries in the list to combine or delete them. To combine queries, you must select two or more from the list, and then click one of the operator buttons. Results are added to the history list.</p>
+<p>At present, there is only an awkward kludge to specify the order for a query using the Subtract/NOT operator. It always places the more recently run query first (newer NOT/Subtract older), but you can move any query to the top of the history list by clicking its &quot;Count&quot; link.</p>
 <h3 id="query-types">Query types</h3>
 <p>Ontology queries (GO, phenotype, protein modification, and protein sequence feature) retrieve genes that are annotated to the selected term(s), and to their descendants via specified relations (see the GO documentation on <a href="http://geneontology.org/page/ontology-relations">Ontology Structure and Ontology Relations</a> for more information on relationships between terms in ontologies, and see the descriptions below of specific ontology filters for lists of which relations are followed to retrieve annotations). Ontologies can be searched by ID or term name. Type or paste a complete ontology ID, including the prefix (e.g. GO:0005634, FYPO:0002059), or simply start typing to search for a term name. Choose a term from the list of options offered by the autocomplete, and click &quot;Submit&quot;.</p>
 <h4 id="go">GO</h4>
-<p>The Gene Ontology (GO) query retrieves gene products annotated to a GO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>regulates</em>, <em>positively_regulates</em>,and <em>negatively_regulates</em> relationships in the ontology. You may also find it helpful to search or browse in <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a> or [AmiGO])http://amigo.geneontology.org/) to find GO terms of interest. If one search does not seem to retrieve as many results as you expect, try again using a less specific term. Note: prior to the November 2014 PomBase release, the regulates relations were not followed, and PomBase GO search results therefore did not match those in AmiGO.</p>
+<p>The Gene Ontology (GO) query retrieves gene products annotated to a GO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>regulates</em>, <em>positively_regulates</em>,and <em>negatively_regulates</em> relationships in the ontology. You may also find it helpful to search or browse in <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a> or <a href="http://amigo.geneontology.org/">AmiGO</a> to find GO terms of interest. If one search does not seem to retrieve as many results as you expect, try again using a less specific term. Note: prior to the November 2014 PomBase release, the <em>regulates</em> relations were not followed, and PomBase GO search results therefore did not match those in AmiGO.</p>
 <h4 id="phenotype">Phenotype</h4>
 <p>The phenotype (Fission Yeast Phenotype Ontology) query retrieves genes annotated to a FYPO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>output_of</em>, <em>has_output</em>, and <em>has_part</em> relationships in the ontology. This query also offers two additional sets of options:</p>
 <div class="figure">
@@ -2346,6 +2348,46 @@ United Kingdom</p>
 <p>Type or paste a list of systematic IDs, or click the &quot;Browse&quot; button to select a file to upload. Click &quot;Lookup&quot; to add the gene list to the history (useful for combining the list with other queries).</p>
 <h3 id="search-tips">Search tips</h3>
 <p><a routerLink="/faq">FAQ</a> entries relevant to using the advanced search are organised here by topic. Several of the topics also correspond to gene page sections.</p>
+<h4 id="phenotype-searches">Phenotype searches</h4>
+<ul>
+<li><a routerLink="/faq/can-i-get-list-essential-pombe-genes">Can I get a list of essential pombe genes?</a></li>
+<li><a routerLink="/faq/how-can-i-find-all-genes-have-given-mutant-phenotype">How can I find all of the genes that have a given mutant phenotype?</a></li>
+<li><a routerLink="/faq/why-are-some-genes-annotated-both-viable-and-inviable-phenotypes">Why are some genes annotated to both viable and inviable phenotypes?</a></li>
+<li><a routerLink="/faq/how-can-i-browse-phenotype-ontology-fypo">How can I browse the phenotype ontology (FYPO)?</a></li>
+</ul>
+<h4 id="gene-ontology-searches">Gene Ontology searches</h4>
+<ul>
+<li><a routerLink="/faq/how-can-i-search-or-browse-go-annotations">How can I search or browse GO annotations?</a></li>
+<li><a routerLink="/faq/how-can-i-find-genes-specific-activity">How can I find genes with a specific activity?</a></li>
+<li><a routerLink="/faq/how-can-i-find-protein-localization-data">How can I find protein localization data?</a></li>
+<li><a routerLink="/faq/how-can-i-identify-all-genes-affect-process">How can I identify all of the genes that affect a process?</a> (also relevant to phenotype searches)</li>
+<li><a routerLink="/faq/can-i-retrieve-functional-annotations-genes-list">Can I retrieve functional annotations for genes in a list?</a></li>
+<li><a routerLink="/faq/how-can-i-find-transcription-factors-and-their-targets-pombase">How can I find transcription factors and their targets in PomBase?</a></li>
+</ul>
+<h4 id="protein-searches">Protein searches</h4>
+<ul>
+<li><a routerLink="/faq/how-can-i-find-modifications-my-protein-interest">How can I find modifications for my protein of interest?</a></li>
+<li><a routerLink="/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family">How can I find all S. pombe proteins in a particular protein family?</a></li>
+<li><a routerLink="/faq/how-can-i-find-proteins-have-transmembrane-domains">How can I find proteins that have transmembrane domains?</a></li>
+</ul>
+<h4 id="taxonomic-conservation-1">Taxonomic conservation</h4>
+<ul>
+<li><a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">How can I find S. pombe genes associated with human disease?</a></li>
+<li><a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">How can I find all S. pombe genes that are conserved in human?</a></li>
+<li><a routerLink="/faq/can-i-search-genes-based-on-conservation-different-taxa">Can I search for genes based on conservation in different taxa?</a></li>
+<li><a routerLink="/faq/can-i-find-all-unconserved-orphan-genes-fission-yeast">Can I find all of the unconserved (orphan) genes in fission yeast?</a></li>
+</ul>
+<h4 id="gene-and-genome-searches">Gene and genome searches</h4>
+<ul>
+<li><a routerLink="/faq/how-can-i-retrieve-all-s.-pombe-genes">How can I retrieve all S. pombe genes?</a></li>
+<li><a routerLink="/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes">How can I retrieve all S. pombe protein-coding genes?</a></li>
+<li><a routerLink="/faq/can-i-provide-list-genes-search-on">Can I provide a list of genes to search on?</a></li>
+<li><a routerLink="/faq/can-i-search-gene-list-and-retrieve-results-same-order-as-input-list">Can I search for a gene list and retrieve results in the same order as in the input list?</a> (answer: no)</li>
+<li><a routerLink="/faq/how-can-i-find-snorna-genes">How can I find snoRNA genes?</a></li>
+<li><a routerLink="/faq/how-can-i-find-transposons-s.-pombe-genome">How can I find transposons in the S. pombe genome?</a></li>
+<li><a routerLink="/faq/how-can-i-find-genes-region-using-chromosome-coordinates">How can I find genes in a region using chromosome coordinates?</a></li>
+<li><a routerLink="/faq/how-can-i-retrieve-intron-coordinates-or-sequences">How can I retrieve intron coordinates or sequences?</a></li>
+</ul>
 
   </div>
   <div *ngIf="pageName == 'annotation-extension-relation-display'">
@@ -4112,7 +4154,7 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <li><a routerLink="/faq/data-submission-and-formats">Data submission and formats</a></li>
 <li><a routerLink="/faq/finding-data">Finding data</a></li>
 <li><a routerLink="/faq/gene-page">Gene page</a></li>
-<li><a routerLink="/faq/genome-browser">Genome Browser</a></li>
+<li><a routerLink="/faq/genome-browser">Genome browser</a></li>
 <li><a routerLink="/faq/genome-statistics-and-lists">Genome statistics and lists</a></li>
 <li><a routerLink="/faq/orthology">Orthology</a></li>
 <li><a routerLink="/faq/sequence-retrieval">Sequence Retrieval</a></li>
@@ -4135,7 +4177,7 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 
   </div>
   <div *ngIf="pageName == 'genome-browser'">
-<h2 id="genome-browser">Genome Browser</h2>
+<h2 id="genome-browser">Genome browser</h2>
 
   </div>
   <div *ngIf="pageName == 'genome-statistics-and-lists'">
@@ -5159,7 +5201,7 @@ Example advanced search query: <a routerLink="/spombe/query/builder?filter=37&va
 </div>
 <div *ngIf="pageName == 'finding-data' || pageName == 'genome-browser' || pageName == 'how-can-i-show-or-hide-tracks-genome-browser'">
 <h3 id="how-can-i-show-or-hide-tracks-genome-browser">How can I show or hide tracks in the genome browser?</h3>
-<!-- pombase_categories: Finding data,Genome Browser -->
+<!-- pombase_categories: Finding data,Genome browser -->
 <p>In the Ensembl genome browser, click the &quot;Configure this page&quot; button in the left-hand bar. A pop-up box will appear. Note that this box has several tabs along its top, and the exact selection of tabs and configuration options depends on whether you are configuring the &quot;Location&quot;, &quot;Gene&quot;, or &quot;Transcript&quot; tab of the main browser.</p>
 <p>To turn a track on or off, click the small box to the left of its description. Note that some tracks simply toggle on and off, whereas for others a small popup appears, in which you can select from a set of options controlling exactly how the track appears. The left-hand bar of the configuration popup organizes available tracks into subsets, and offers a few additional options (including &quot;Reset configuration&quot;, which restores the default display).</p>
 <p>For example, to show or hide repeat regions, make sure you have the &quot;Location&quot; tab selected. The tabs for this configuration allow you to configure the &quot;Region&quot; (lower) and &quot;Overview&quot; (lower) images separately. In the &quot;Configure Region Image&quot; tab, click &quot;Repeat regions&quot; in the popup's left-hand bar. You can then check one box to show all repeats, or select specific types of repeat to display.</p>
@@ -10470,7 +10512,6 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <h3 id="priority-unstudied-genes">Priority unstudied genes</h3>
 <p>Fission yeast genes are classed as &quot;unknown&quot; if there is no information about the broad cellular role (biological process) in which it participates (corresponding to any of the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">high level GO Slim classes</a>). For these, we have been unable to identify a broad biological role based on experimental data in fission yeast or any other organism. Note that, as all genes in fission yeast have been curated, these genes are documented as &quot;unknown&quot; (they are not &quot;unannotated&quot;).</p>
 <p>In fission yeast the &quot;unknown&quot; inventory is <app-query-link [goToResults]="true" [predefinedQueryName]="'priority-unstudied-genes:unknown_genes'"></app-query-link> entries, many of which are apparently species-specific. However, a large number (<app-query-link [goToResults]="true" [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown'"></app-query-link>) are conserved, and a significant number of these (<app-query-link [goToResults]="true" [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-query-link>) have orthologs in vertebrates. These genes are listed below.</p>
-<p>TEST: <app-query-link [goToResults]="false" [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-query-link></p>
 <p>You can recreate this query, or variations of it, using the Advanced Search. See the relevant FAQ and the <a routerLink="/query">Advanced Search</a> documentation for details. You can also send this list directly to the advanced search (For example to mine for phenotypes or locations of interest).</p>
 <p><app-predefined-query-results [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results></p>
 
