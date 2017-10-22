@@ -1,5 +1,5 @@
 # How can I show or hide tracks in the genome browser?
-<!-- pombase_categories: Finding data,Genome Browser -->
+<!-- pombase_categories: Finding data,Genome browser -->
 
 In the Ensembl genome browser, click the "Configure this page" button in
 the left-hand bar. A pop-up box will appear. Note that this box has
