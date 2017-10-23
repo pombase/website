@@ -11,7 +11,7 @@
   </div>
   <div class="docs-content">
   <div *ngIf="pageName == 'citing-pombase'">
-<h1 id="citing-pombase">Citing PomBase</h1>
+<h2 id="citing-pombase">Citing PomBase</h2>
 <p>To cite <em>S. pombe</em> genome data and annotation, please use:</p>
 <p>Wood V, Harris MA, McDowall MD, Rutherford K, Vaughan BW, Staines DM, Aslett M, Lock A, Bähler J, Kersey PJ, Oliver SG.<br />
 PomBase: a comprehensive online resource for fission yeast.<br />
@@ -31,10 +31,10 @@ The genome sequence of <em>Schizosaccharomyces pombe</em>.<br />
 <p><a href="http://www.nature.com/nature/journal/v415/n6874/full/nature724.html">Full text at Nature</a></p>
 <h3 id="go-annotations">GO Annotations</h3>
 <p>To cite the <em>S. pombe</em> Gene Ontology annotation data, use the 2012 NAR Database Issue paper noted above.</p>
-<p>(Note that GO annotation for <em>S. pombe</em> has also been previously published, but we now recommend the 2012 NAR paper as it is more up-to-date. Aslett M, Wood V. Gene Ontology annotation status of the fission yeast genome: preliminary coverage approaches 100%. <em>Yeast</em> 2006 Oct 15;23(13):913-9. Erratum in <em>Yeast</em> 2007 May;24(5):457. PMID:17072883)</p>
+<p>(Note that GO annotation for <em>S. pombe</em> has also been previously published, but we now recommend the 2012 NAR paper as it is more up-to-date. Aslett M, Wood V. Gene Ontology annotation status of the fission yeast genome: preliminary coverage approaches 100%. <em>Yeast</em> 2006 Oct 15;23(13):913-9. Erratum in <em>Yeast</em> 2007 May;24(5):457. PMID:17072883)</p>
 <h3 id="phenotype-ontology-and-annotations">Phenotype Ontology and Annotations</h3>
 <p>To cite the Fission Yeast Phenotype Ontology (FYPO) and/or <em>S. pombe</em> FYPO annotation data, use:</p>
-<p>Harris MA, Lock A, **Bähler J, Oliver SG, Wood V.<br />
+<p>Harris MA, Lock A, Bähler J, Oliver SG, Wood V.<br />
 FYPO: The Fission Yeast Phenotype Ontology.<br />
 <em>Bioinformatics</em>. 2013 Jul 1;29(13):1671-8. doi: <a href="http://dx.doi.org/10.1093/bioinformatics/btt266">10.1093/bioinformatics/btt266</a>. Epub 2013 May 8.</p>
 <p><a href="http://www.ncbi.nlm.nih.gov/pubmed/23658422">PMID:23658422</a></p>
@@ -53,7 +53,7 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 <p><a href="http://www.ncbi.nlm.nih.gov/pubmed/22039153">PMID:22039153</a></p>
 <p><a href="http://nar.oxfordjournals.org/content/40/D1/D695.long">Full text at NAR</a></p>
 <h3 id="compara">Compara</h3>
-<p>Note that the manually curated <em>S. cerevisiae</em> and human orthologs (displayed on gene pages or downloadable) use several data sources in addition to Compara, and are therefore distinct from the Compara data. To cite the <em>S. pombe</em> Compara data, use:</p>
+<p>Note that the manually curated <em>S. cerevisiae</em> and human orthologs (displayed on gene pages or downloadable) use several data sources in addition to Compara, and are therefore distinct from the Compara data. To cite the <em>S. pombe</em> Compara data, use:</p>
 <p>Vilella AJ, Severin J, Ureta-Vidal A, Heng L, Durbin R, Birney E.<br />
 EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees in vertebrates.<br />
 <em>Genome Res</em> 2009 Feb;19(2):327-35. Epub 2008 Nov 24.</p>
@@ -2219,7 +2219,7 @@ United Kingdom</p>
 <td>Gene Ontology annotation files</td>
 </tr>
 <tr class="odd">
-<td><a href="ftp://ftp.pombase.org/pombe/annotations/GO_complexes/">Macromolecular complexes</a></td>
+<td><a href="ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/GO_complexes/">Macromolecular complexes</a></td>
 <td>Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes; ftp)</td>
 </tr>
 <tr class="even">
@@ -2949,7 +2949,7 @@ United Kingdom</p>
   </div>
   <div *ngIf="pageName == 'high-confidence-physical-interaction-network'">
 <h2 id="high-confidence-physical-interaction-network-hcpin">High Confidence Physical Interaction Network (HCPIN)</h2>
-<p>The PomBase High Confidence Physical Interaction Network (HCPIN) is a collection of physical interaction data based on three subsets Gene Ontology (GO) annotations:</p>
+<p>The PomBase High Confidence Physical Interaction Network (HCPIN) is a collection of physical interaction data based on three subsets of Gene Ontology (GO) annotations:</p>
 <ol style="list-style-type: decimal">
 <li>Manually curated protein binding annotations. PomBase curators annotate genes to the GO &quot;protein binding&quot; molecular function term (GO:0005515) when proteins are shown experimentally to interact in a pairwise, and presumably direct, manner, often by more than one method</li>
 <li>Targets or substrates of biochemical activity (e.g. protein kinases or phosphatases, protein methyltransferases, ubiquitin-protein ligases). When one protein is shown experimentally to modify another, a GO molecular function annotation represents the activity, and the target(s) can be captured using <a routerLink="/documentation/gene-page-gene-ontology#ann_ext">annotation extensions</a>. For example, <a routerLink="/gene/SPBC11B10.09">Cdc2</a> phosphorylates <a routerLink="/gene/SPBC146.03c">Cut3</a>, so it is annotated to 'protein serine/threonine kinase activity' with the extension 'has substrate cut3'.</li>
