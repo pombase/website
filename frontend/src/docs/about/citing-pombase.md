@@ -1,4 +1,4 @@
-# Citing PomBase
+## Citing PomBase
 
 To cite *S. pombe* genome data and annotation, please use:
 
@@ -43,8 +43,8 @@ Database Issue paper noted above.
 
 (Note that GO annotation for *S. pombe* has also been previously
 published, but we now recommend the 2012 NAR paper as it is more
-up-to-date. Aslett M, Wood V. Gene Ontology annotation status of the
-fission yeast genome: preliminary coverage approaches 100%. *Yeast* 2006
+up-to-date. Aslett M, Wood V. Gene Ontology annotation status of the
+fission yeast genome: preliminary coverage approaches 100%. *Yeast* 2006
 Oct 15;23(13):913-9. Erratum in *Yeast* 2007 May;24(5):457.
 PMID:17072883)
 
@@ -53,7 +53,7 @@ PMID:17072883)
 To cite the Fission Yeast Phenotype Ontology (FYPO) and/or *S. pombe*
 FYPO annotation data, use:
 
-Harris MA, Lock A, **Bähler J, Oliver SG, Wood V.\
+Harris MA, Lock A, Bähler J, Oliver SG, Wood V.\
 FYPO: The Fission Yeast Phenotype Ontology.\
 *Bioinformatics*. 2013 Jul 1;29(13):1671-8. doi:
 [10.1093/bioinformatics/btt266](http://dx.doi.org/10.1093/bioinformatics/btt266).
@@ -101,7 +101,7 @@ NAR](http://nar.oxfordjournals.org/content/40/D1/D695.long)
 Note that the manually curated *S. cerevisiae* and human orthologs
 (displayed on gene pages or downloadable) use several data sources in
 addition to Compara, and are therefore distinct from the Compara data.
-To cite the *S. pombe* Compara data, use:
+To cite the *S. pombe* Compara data, use:
 
 Vilella AJ, Severin J, Ureta-Vidal A, Heng L, Durbin R, Birney E.\
 EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees
