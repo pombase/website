@@ -36,7 +36,7 @@ Annotation type|Description
 ---------------|-----------
 [Protein datasets](/downloads/protein-datasets)|Protein sequence FASTA database, peptide features, properties, etc.
 [GO annotations](downloads/go-annotations)|Gene Ontology annotation files
-[Macromolecular complexes](ftp://ftp.pombase.org/pombe/annotations/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes; ftp)
+[Macromolecular complexes](ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes; ftp)
 [Phenotype annotations](downloads/phenotype-annotations)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
 [HCPIN datasets](ftp://ftp.pombase.org/pombe/exports/)|Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets (ftp)
 [Modifications](ftp://ftp.pombase.org/pombe/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future; ftp)
