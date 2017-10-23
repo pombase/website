@@ -10,20 +10,24 @@ import { QueryService } from '../../query.service';
 export class QueryLinkComponent implements OnInit, OnDestroy {
   @Input() goToResults;
   @Input() predefinedQueryName;
+  @Input() linkText = null;
 
-  linkText = ' ';
   subscription = null;
 
   constructor(private queryService: QueryService) { }
 
   ngOnInit() {
-    this.subscription = this.queryService.postPredefinedQueryCount(this.predefinedQueryName)
-      .subscribe((results) => {
-        this.linkText = String(results);
-      });
+    if (!this.linkText) {
+      this.subscription = this.queryService.postPredefinedQueryCount(this.predefinedQueryName)
+        .subscribe((results) => {
+          this.linkText = String(results);
+        });
+    }
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
