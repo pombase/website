@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
       .subscribe((event) => {
-        console.log(event['title']);
         let title = defaultTitle;
         this.titleService.setTitle(title);
         this.meta.updateTag({property: 'og:title', content: title});
