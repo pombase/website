@@ -218,7 +218,7 @@ select option:disabled {
 .bs-callout {
   padding: 1em;
   margin: 1em 0;
-  border: 1px solid #eee;
+  border: 1px solid #dde;
   border-left-width: 5px;
   border-radius: 3px;
   font-size: 120%;
