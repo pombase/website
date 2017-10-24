@@ -281,9 +281,9 @@ sub process_path {
     my @all_news_items = all_news_items();
     my @news_summary = ();
     if (@all_news_items > 1) {
-      @news_summary = (@all_news_items)[0..1];
+      @news_summary = (@all_news_items)[0..0];
     } else {
-      warn "warning: less than 2 news items";
+      warn "warning: less than 1 news item";
       @news_summary = @all_news_items;
     }
 
