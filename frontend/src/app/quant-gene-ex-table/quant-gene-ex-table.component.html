@@ -7,7 +7,8 @@
     <input [attr.id]="'qualitative-details-toggle'"
            type="checkbox"
            name="details-toggle" ngDefaultControl
-           [(ngModel)]="showDetails"
+           [checked]="showDetails"
+           (change)="showDetails = !showDetails"
            btnCheckbox />
     <label [attr.for]="'qualitative-details-toggle'">
       <span class="label-content">Show details</span>
