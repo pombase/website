@@ -77,6 +77,7 @@ import { RecentNewsComponent } from './recent-news/recent-news.component';
 import { FrontPanelContentComponent } from './front-panel-content/front-panel-content.component';
 import { FrontPanelComponent } from './front-panel/front-panel.component';
 import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-community-pubs.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export function documentFactory() {
     return document;
@@ -148,6 +149,7 @@ export function windowFactory() {
     FrontPanelContentComponent,
     FrontPanelComponent,
     RecentCommunityPubsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

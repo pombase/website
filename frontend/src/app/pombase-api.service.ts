@@ -842,4 +842,10 @@ export class PombaseAPIService {
         }
       });
   }
+
+  reportNotFound(path: string) {
+    path = path.replace(/^\//, '');
+    this.http.get('appreport/notfound/' + path).toPromise()
+      .then(() => {}).catch(() => {});
+  }
 }

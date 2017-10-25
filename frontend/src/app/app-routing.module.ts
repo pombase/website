@@ -13,6 +13,7 @@ import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotyp
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { FrontComponent } from './front/front.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -120,6 +121,10 @@ const routes: Routes = [
       title: 'The S. pombe genome database'
     }
   },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  }
 ];
 
 @NgModule({
