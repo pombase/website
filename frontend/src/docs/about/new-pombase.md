@@ -9,7 +9,7 @@ improvements:
  - New publication pages: For each publication loaded into PomBase, a
    page summarizes essential details about paper, and shows any
    annotations that cite it.\
-   [Example page (PMID:27984725)](/reference/PMID:27984725)and [Documentation](/documentation/publication-page)
+   [Example page (PMID:27984725)](/reference/PMID:27984725) and [Documentation](/documentation/publication-page)
  - New genotype pages: Genotype pages are analogous to gene pages, but
    describe the alleles that make up a genotype, and show phenotypes
    associated with the genotype.\
