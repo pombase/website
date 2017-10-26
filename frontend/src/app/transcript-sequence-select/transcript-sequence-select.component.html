@@ -71,7 +71,7 @@
 
             <span class="sequence-action">
           <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbiform
-                action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="POST">
+                action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="GET">
             <input name="QUERY" value="{{'>' + sequenceHeader + '\n' + sequence}}" type="hidden">
             <input name="PROGRAM" value="{{showTranslation?'blastp':'blastn'}}" type="hidden">
             <input name="PAGE_TYPE" value="BlastSearch" type="hidden">
