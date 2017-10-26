@@ -31,7 +31,7 @@ const routes: Routes = [
       title: 'Genotype'
     }
   },
-  { path: 'spombe/result/:uniquename', component: GeneDetailsComponent,
+  { path: 'spombe/:wildcard/:uniquename', component: GeneDetailsComponent,
     data: {
       title: 'Gene'
     }
