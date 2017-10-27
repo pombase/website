@@ -4176,7 +4176,6 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <li><a routerLink="/faq/genome-browser">Genome browser</a></li>
 <li><a routerLink="/faq/genome-statistics-and-lists">Genome statistics and lists</a></li>
 <li><a routerLink="/faq/orthology">Orthology</a></li>
-<li><a routerLink="/faq/sequence-retrieval">Sequence Retrieval</a></li>
 <li><a routerLink="/faq/tools-and-resources">Tools and resources</a></li>
 <li><a routerLink="/faq/using-ontologies">Using ontologies</a></li>
 </ul>
@@ -4211,10 +4210,6 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
   </div>
   <div *ngIf="pageName == 'orthology'">
 <h2 id="orthology">Orthology</h2>
-
-  </div>
-  <div *ngIf="pageName == 'sequence-retrieval'">
-<h2 id="sequence-retrieval">Sequence Retrieval</h2>
 
   </div>
   <div *ngIf="pageName == 'tools-and-resources'">
@@ -4476,7 +4471,8 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-search-short-sequences'">
 <h3 id="can-i-use-blast-search-short-sequences">Can I use BLAST to search for short sequences?</h3>
 <!-- pombase_categories: Tools and resources -->
-<p>Yes, you can search for short nucleotide sequences, such We recommend NCBI BLAST, where you can search for short nucleotide sequences, such as primers or other oligomers (PomBase does not maintain its own BLAST server).</p>
+<p>Yes, you can search for short nucleotide sequences, such as primers or other oligomers. We recommend NCBI BLAST, where you can search for short nucleotide sequences, such as primers or other oligomers (PomBase does not maintain its own BLAST server).</p>
+<p>For short peptide sequences, we recommend the PomBase <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search">peptide motif search</a>.</p>
 
 </div>
 <div *ngIf="pageName == 'finding-data' || pageName == 'can-i-use-wild-card-beginning-search-string'">
@@ -4966,9 +4962,9 @@ Example queries:
 <p>For any GO analysis, we strongly recommend that you describe your approach fully in methods, and include the release details (number and/or date) for PomBase and the GO terms and annotations you use.</p>
 
 </div>
-<div *ngIf="pageName == 'finding-data' || pageName == 'sequence-retrieval' || pageName == 'how-can-i-find-snorna-genes'">
+<div *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-snorna-genes'">
 <h3 id="how-can-i-find-snorna-genes">How can I find snoRNA genes?</h3>
-<!-- pombase_categories: Finding data,Sequence Retrieval -->
+<!-- pombase_categories: Finding data -->
 <p>In the <a routerLink="/query">advanced search</a>, click &quot;Product type&quot;, then select &quot;snoRNA&quot; from the pulldown.</p>
 <p>Note that there are likely a number of snoRNAs that have not yet been identified and annotated in <em>S. pombe</em>; we hope to investigate further in the future.</p>
 <!--
@@ -5168,7 +5164,7 @@ Example advanced search query: <a routerLink="/spombe/query/builder?filter=37&va
 <div *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-retrieve-utr-sequences'">
 <h3 id="how-can-i-retrieve-utr-sequences">How can I retrieve UTR sequences?</h3>
 <!-- pombase_categories: Finding data -->
-<p>Transcript start and end coordinates from all sources will be available as individual data tracks in the genome browser in the near future, which will allow you to view, evaluate and download them. We also provide downloadable <a routerLink="/downloads/utr">UTR data sets</a> that are updated periodically.</p>
+<p>Transcript start and end coordinates from all sources will be available as individual data tracks in the genome browser in the near future, which will allow you to view, evaluate and download them. We also provide downloadable UTR data sets that are updated periodically, available on the <a routerLink="/downloads/genome-datasets">Genome sequence and features</a> page.</p>
 <p>Also see the <a routerLink="/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">precedence criteria</a> used to choose default UTR features to display on gene pages.</p>
 <p>To retrieve UTRs for a specified list of genes, see the FAQ on <a routerLink="/faq/can-i-download-sequences-many-genes-once-including-flanking-regions">downloading sequences for multiple genes</a> (choose 5' UTR and/or 3' UTR in the popup).</p>
 

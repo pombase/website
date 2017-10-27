@@ -37,6 +37,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   upstreamBases = 0;
   downstreamBases = 0;
 
+  linksInNewWindow = false;
+
   constructor(private apiService: PombaseAPIService) { }
 
   updateHeader(sequence: string) {
