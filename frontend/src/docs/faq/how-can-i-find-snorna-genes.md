@@ -1,5 +1,5 @@
 # How can I find snoRNA genes?
-<!-- pombase_categories: Finding data,Sequence Retrieval -->
+<!-- pombase_categories: Finding data -->
 
 In the [advanced search](/query), click "Product type", then select
 "snoRNA" from the pulldown.
