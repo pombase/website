@@ -1,7 +1,7 @@
 # How can I find *S. pombe* orthologs for species other than human and *S. cerevisiae*?
 <!-- pombase_categories: Orthology,Finding data,Tools and resources -->
 
-For orthologs that are not manually curated by PomBase, we suggest two
+For orthologs that are not manually curated by PomBase, we suggest a few
 approaches:
 
 **DIOPT**
@@ -39,4 +39,17 @@ comparison (eukaryotes), using Compara in the Ensembl browser.
     your alignment.
 
 Information about how the Compara trees are generated, homology types,
-and species is available from the [Ensembl comparative genomics documentation](http://ensemblgenomes.org/info/data/comparative_genomics).
+and species is available from the
+[Ensembl comparative genomics documentation](http://ensemblgenomes.org/info/data/comparative_genomics).
+
+
+**PSI-BLAST**
+
+To search for putative orthologs not fund in DIOPT or Compara, we
+recomment PSI-BLAST (Position-Specific Iterated BLAST) at
+[NCBI](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE=Proteins&PROGRAM=blastp&RUN_PSIBLAST=on)
+or [EBI](https://www.ebi.ac.uk/Tools/sss/psiblast/). As described in
+the [NCBI tutorial](https://www.ncbi.nlm.nih.gov/books/NBK2590/),
+PSI-BLAST derives a position-specific scoring matrix (PSSM) or profile
+from the multiple sequence alignment of sequences detected above a
+given score threshold using protein–protein BLAST.
