@@ -280,11 +280,13 @@ sub process_path {
   if ($path eq 'news') {
     my @all_news_items = all_news_items();
     my @news_summary = ();
-    if (@all_news_items > 1) {
-      @news_summary = (@all_news_items)[0..0];
+    if (@all_news_items > 0) {
+      @news_summary = grep {
+        $_->{flags} && $_->{flags}->{frontpage};
+      } @all_news_items;
     } else {
-      warn "warning: less than 1 news item";
-      @news_summary = @all_news_items;
+      warn "warning: no news";
+      @news_summary = ();
     }
 
     print $recent_news_fh qq|<div class="recent-news">\n|;
@@ -348,13 +350,18 @@ sub all_news_items {
       my $title = undef;
       my $id = undef;
       my $contents = '';
+      my %flags = ();
       open my $this_file, '<', "$markdown_docs/news/$dir_file_name" or die "can't open $dir_file_name";
       while (defined (my $line = <$this_file>)) {
         if (!defined $title && $line =~ /^#+\s*(.*?)\s*$/) {
           $title = $1;
           $id = make_id_from_heading($title);
         } else {
-          $contents .= $line;
+          if ($line =~ /^\s*<!-- pombase_flags:\s*(.*?)\s*-->\s*$/) {
+            $flags{$1} = 1;
+          } else {
+            $contents .= $line;
+          }
         }
       }
       close $this_file;
@@ -363,7 +370,8 @@ sub all_news_items {
         title => $title,
         id => $id,
         contents => $contents,
-        date => $news_date
+        date => $news_date,
+        flags => \%flags,
       };
     }
   }
