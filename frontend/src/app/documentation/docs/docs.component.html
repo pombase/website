@@ -4468,6 +4468,18 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 -->
 
 </div>
+<div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence'">
+<h3 id="can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence">Can I use BLAST to find <em>S. pombe</em> sequences similar to my query sequence?</h3>
+<!-- pombase_categories: Tools and resources -->
+<p>PomBase does not maintain a BLAST server, but the BLAST tools available at <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI</a> and <a href="https://fungi.ensembl.org/Multi/Tools/Blast">Ensembl</a> allow a target species genome to be selected.</p>
+<p>Note, however, that we recommend alternate approaches for some search purposes, especially for proteins:</p>
+<ul>
+<li>If you have a short peptide sequence, our <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search">peptide motif search</a> finds matches in S. pombe proteins quickly.</li>
+<li>If you are specifically looking for S. pombe orthologs of a protein-coding gene, simple BLAST results can be misleading. Instead, you can look up manually curated orthologs in PomBase for <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> and <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">budding yeast</a>, or use the methods described in the FAQ on <a routerLink="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">finding orthologs in other species</a>.</li>
+</ul>
+<p>Also see other FAQs in the <a routerLink="/faq/orthology">Orthology</a> category and the <a routerLink="/documentation/orthologs">Ortholog curation</a> documentation.</p>
+
+</div>
 <div *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-search-short-sequences'">
 <h3 id="can-i-use-blast-search-short-sequences">Can I use BLAST to search for short sequences?</h3>
 <!-- pombase_categories: Tools and resources -->
@@ -4877,7 +4889,7 @@ Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7
 <h3 id="how-can-i-find-s.-pombe-genes-associated-human-disease">How can I find <em>S. pombe</em> genes associated with human disease?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
 <p><em>S. pombe</em> genes whose human orthologs have been implicated in disease are annotated with terms from the internal PBO vocabulary. To retrieve all of these genes, you can use the most general &quot;disease associated&quot; term in a query. In the <a routerLink="/query">advanced search</a>, select &quot;Disease&quot;. You can either start typing 'disease associated', and choose 'disease_associated' from the autocomplete options, or enter the ID 'PBO:5000000'.</p>
-<p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s-pombe-ortholog-s-of-a-human-gene">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-the-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>.</p>
+<p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-the-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>.</p>
 <!--
 Example queries:
 
@@ -4913,14 +4925,14 @@ Example queries:
 <h3 id="how-can-i-find-s.-pombe-ortholog-s-human-gene">How can I find <em>S. pombe</em> ortholog(s) of a human gene?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
 <p>In PomBase, human orthologs are curated for <em>S. pombe</em> genes as described in the <a routerLink="/documentation/orthologs">Orthologs documentation</a>.</p>
-<p>To find <em>S. pombe</em> orthologs for a human gene, you can search for the standard human gene name in the simple search box in the page header. For example, searching for human <em>ABTB1</em> will retrieve the <em>S. pombe</em> gene <em>btb3</em>. To find standard human gene names, you can search <a href="http://www.genenames.org/">HGNC</a>. Note that in a few cases, a human gene name will coincidentally match a name or synonym of a non-orthologous <em>-S. pombe</em> gene as well as the actual curated ortholog(s), so please check the gene pages carefully, especially if your search retrieves more than one result.</p>
-<p>Also see the FAQs on on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">finding disease gene orthologs</a>, and on <a routerLink="/faq/how-can-i-obtain-the-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>.</p>
+<p>To find <em>S. pombe</em> orthologs for a human gene, you can search for the standard human gene name in the simple search box in the page header. For example, searching for human <em>ABTB1</em> will retrieve the <em>S. pombe</em> gene <em>btb3</em>. To find standard human gene names, you can search <a href="http://www.genenames.org/">HGNC</a>. Note that in a few cases, a human gene name will coincidentally match a name or synonym of a non-orthologous <em>S. pombe</em> gene as well as the actual curated ortholog(s), so please check the gene pages carefully, especially if your search retrieves more than one result.</p>
+<p>Also see the FAQs on on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">finding disease gene orthologs</a>, and on <a routerLink="/faq/how-can-i-obtain-the-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>. You may also find the FAQ on <a routerLink="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">orthologs in other species</a> useful.</p>
 
 </div>
 <div *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae'">
 <h3 id="how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">How can I find <em>S. pombe</em> orthologs for species other than human and <em>S. cerevisiae</em>?</h3>
 <!-- pombase_categories: Orthology,Finding data,Tools and resources -->
-<p>For orthologs that are not manually curated by PomBase, we suggest two approaches:</p>
+<p>For orthologs that are not manually curated by PomBase, we suggest a few approaches:</p>
 <p><strong>DIOPT</strong></p>
 <p>From any gene page, follow the link to DIOPT under External References.</p>
 <p>The <a href="http://www.flyrnai.org/diopt">Drosophila RNAi Screening Center Integrative Ortholog Prediction Tool</a> (DIOPT) is a web-based tool that integrates several orthology prediction tools to identify orthologous proteins for nine species (<em>Caenorhabditis elegans, Danio rerio, Drosophila melanogaster, Homo sapiens, Mus musculus, Rattus norvegicus, Saccharomyces cerevisiae, Schizosaccharomyces pombe, and Xenopus tropicalis</em>).</p>
@@ -4938,6 +4950,8 @@ Example queries:
 <li>To configure the protein entries visible in the alignment, select the most &quot;inclusive&quot; node you require. You can reduce the number of entries by collapsing individual sub-trees before you generate your alignment.</li>
 </ol>
 <p>Information about how the Compara trees are generated, homology types, and species is available from the <a href="http://ensemblgenomes.org/info/data/comparative_genomics">Ensembl comparative genomics documentation</a>.</p>
+<p><strong>PSI-BLAST</strong></p>
+<p>To search for putative orthologs not fund in DIOPT or Compara, we recomment PSI-BLAST (Position-Specific Iterated BLAST) at <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE=Proteins&PROGRAM=blastp&RUN_PSIBLAST=on">NCBI</a> or <a href="https://www.ebi.ac.uk/Tools/sss/psiblast/">EBI</a>. As described in the <a href="https://www.ncbi.nlm.nih.gov/books/NBK2590/">NCBI tutorial</a>, PSI-BLAST derives a position-specific scoring matrix (PSSM) or profile from the multiple sequence alignment of sequences detected above a given score threshold using protein–protein BLAST.</p>
 
 </div>
 <div *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-significant-shared-fypo-annotations-genes-list'">
