@@ -322,7 +322,7 @@ for (let configName of Object.keys(_config.annotationTypes)) {
   }
 }
 
-function replaceExampleId(urlSyntax:string, idWithPrefix: string) {
+function replaceExampleId(urlSyntax: string, idWithPrefix: string) {
   let matches = idWithPrefix.match(/^([^:]+):(.*)/);
 
   if (matches) {

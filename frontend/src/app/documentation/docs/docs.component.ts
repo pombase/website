@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
 
-const urlRe = new RegExp("/([^/]+)(?:/([^/]+))?");
+const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
 
 @Component({
   selector: 'app-docs',

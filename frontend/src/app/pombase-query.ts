@@ -140,7 +140,7 @@ export class GeneListNode extends GeneQueryNode {
   equals(obj: GeneQueryNode): boolean {
     if (obj instanceof GeneListNode) {
       return this.ids.length === obj.ids.length &&
-        this.ids.every((v,i) => v === obj.ids[i]);
+        this.ids.every((v, i) => v === obj.ids[i]);
     }
     return false;
   }
@@ -243,13 +243,13 @@ export class TermNode extends GeneQueryNode {
       if (this.single_or_multi_allele === 'single' && expressionString) {
         ret += expressionString;
         if (singleOrMultiString) {
-          ret += ' - '
+          ret += ' - ';
         }
       }
       if (singleOrMultiString) {
         ret += singleOrMultiString + ' allele genotypes';
       }
-      ret += ']'
+      ret += ']';
     }
     return ret;
   }
@@ -364,13 +364,13 @@ export class GeneQuery {
 
   private makeNode(parsedJson: any): GeneQueryNode {
     const keys = Object.keys(parsedJson);
-    if (keys.length != 1) {
+    if (keys.length !== 1) {
       throw new Error('parsedJson doesn\'t have exactly one key' + parsedJson);
     }
     const nodeType = keys[0];
     const val = parsedJson[nodeType];
 
-    switch(nodeType) {
+    switch (nodeType) {
 
     case 'term':
       let singleOrMulti = val['single_or_multi_allele'];
@@ -420,7 +420,7 @@ export class GeneQuery {
   }
 
   public equals(query: GeneQuery): boolean {
-    return this.toString() == query.toString();
+    return this.toString() === query.toString();
   }
 
   public getQueryId(): number {

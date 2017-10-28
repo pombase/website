@@ -91,7 +91,7 @@ export class TermGenesViewComponent implements OnInit {
                 }
                 this.setPageTitle();
                 this.collectGenes();
-                this.queryBuilderRouterLink = "/query/save/from/term_subset/" +
+                this.queryBuilderRouterLink = '/query/save/from/term_subset/' +
                   termDetails.termid + '/' + encodeURIComponent(termDetails.name);
               })
               .catch(error => {

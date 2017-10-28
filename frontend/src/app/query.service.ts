@@ -63,7 +63,7 @@ export class QueryService {
         };
 
         let timer = TimerObservable.create(0.2);
-        const subscription = timer.subscribe(t => {
+        timer.subscribe(t => {
           this.setAllCounts();
         });
       }
@@ -158,7 +158,7 @@ export class QueryService {
         });
       };
     for (let i = 0; i < this.history.length; i++) {
-      countUpdater(this.history[i], i*100);
+      countUpdater(this.history[i], i * 100);
     }
   }
 }
