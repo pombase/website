@@ -13,7 +13,7 @@ Links below go to web pages, except where "ftp" indicates that
 they go directly to ftp site directories. Note that the ftp
 subdirectories are organised slightly differently from the links on this
 page. If you have trouble finding anything, please ask the
-[helpdesk](mailto:helpdesk@pombase.org).
+  [helpdesk](mailto:helpdesk@pombase.org).
 
 -------
 
