@@ -78,6 +78,7 @@ import { FrontPanelContentComponent } from './front-panel-content/front-panel-co
 import { FrontPanelComponent } from './front-panel/front-panel.component';
 import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-community-pubs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 
 export function documentFactory() {
     return document;
@@ -150,6 +151,7 @@ export function windowFactory() {
     FrontPanelComponent,
     RecentCommunityPubsComponent,
     NotFoundComponent,
+    PanelArchiveComponent,
   ],
   imports: [
     BrowserModule,

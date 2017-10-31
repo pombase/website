@@ -1,0 +1,6 @@
+.title {
+  font-weight: bold;
+  font-size: 200%;
+  display: flex;
+  justify-content: center;
+}

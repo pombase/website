@@ -272,3 +272,42 @@ select option:disabled {
 .bs-callout-info h4 {
   color: #5bc0de;
 }
+
+
+@media (min-width: 800px) {
+  .panel-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .info-panels {
+    display: table;
+    border-spacing: 2.5em;
+  }
+
+  .info-panel-row {
+    display: table-row;
+  }
+
+  .info-panel {
+    display: table-cell;
+  }
+}
+
+@media (max-width: 799px) {
+  .info-panel {
+    display: inline-block;
+    margin: 0.5em;
+  }
+}
+
+.info-panel {
+  box-shadow: 0px 0px 18px rgba(120,120,120,.80);
+  vertical-align: top;
+  min-width: 300px;
+  min-height: 10em;
+}
+
+.panel-container {
+  clear: both;
+}

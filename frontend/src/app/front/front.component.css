@@ -90,44 +90,6 @@
   font-size: 80%;
 }
 
-@media (min-width: 800px) {
-  .panel-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  .front-panels {
-    display: table;
-    border-spacing: 2.5em;
-  }
-
-  .front-panel-row {
-    display: table-row;
-  }
-
-  .front-panel {
-    display: table-cell;
-  }
-}
-
-@media (max-width: 799px) {
-  .front-panel {
-    display: inline-block;
-    margin: 0.5em;
-  }
-}
-
-.front-panel {
-  box-shadow: 0px 0px 18px rgba(120,120,120,.80);
-  vertical-align: top;
-  min-width: 300px;
-  min-height: 10em;
-}
-
-.panel-container {
-  clear: both;
-}
-
 .quick-links {
   font-size: 120%;
   width: 48%;
@@ -142,4 +104,16 @@
 
 .front-callout {
   margin: 1em 0 0 0;
+}
+
+.archive-link-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.4em 0 0 0;
+}
+
+.archive-link-container a {
+  font-size: 90%;
+  color: #538abf;
+  padding: 0.1em;
 }

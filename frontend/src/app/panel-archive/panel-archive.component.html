@@ -1,0 +1,16 @@
+<div *ngIf="panelType == 'explore'" class="title">
+  Archive of "Explore PomBase" items
+</div>
+<div *ngIf="panelType == 'spotlight'" class="title">
+  Archive of "Research spotlight" items
+</div>
+<div class="panel-container">
+  <div class="info-panels">
+    <div *ngFor="let row of panelConfigs" class="info-pane-row">
+      <div class="info-panel" *ngFor="let panelConfig of row">
+        <app-front-panel [conf]="panelConfig"></app-front-panel>
+      </div>
+    </div>
+  </div>
+</div>
+

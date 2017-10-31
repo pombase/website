@@ -14,6 +14,7 @@ import { ReferenceDetailsComponent } from './reference-details/reference-details
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { FrontComponent } from './front/front.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -59,6 +60,11 @@ const routes: Routes = [
   { path: 'reference/:uniquename', component: ReferenceDetailsComponent,
     data: {
       title: 'Reference'
+    }
+  },
+  { path: 'archive/:archiveType', component: PanelArchiveComponent,
+    data: {
+      title: 'Panel archive'
     }
   },
   { path: 'community',
