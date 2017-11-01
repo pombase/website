@@ -62,11 +62,11 @@ EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees in vert
 
   </div>
   <div *ngIf="pageName == 'index'">
-<h1 id="about-pombase">About PomBase</h1>
+<h2 id="about-pombase">About PomBase</h2>
 <p>PomBase is a model organism database that provides organization of and access to scientific data for the fission yeast <em>Schizosaccharomyces pombe</em>. PomBase supports genomic sequence and features, genome-wide datasets and manual literature curation.</p>
 <p>PomBase also provides a community hub for researchers, providing genome statistics, a community curation interface, news, events, documentation and mailing lists.</p>
 <hr />
-<h2 id="contact-pombase-staff">Contact PomBase staff</h2>
+<h3 id="contact-pombase-staff">Contact PomBase staff</h3>
 <p>Email: <a href="mailto:helpdesk@pombase.org">helpdesk@pombase.org</a></p>
 <p>Post:</p>
 <p>PomBase<br />
@@ -76,34 +76,29 @@ University of Cambridge<br />
 Cambridge<br />
 CB2 1GA<br />
 United Kingdom</p>
-<h2 id="submit-data">Submit Data</h2>
-<ul>
-<li>To register a gene name, please see the <a href="submit-data/gene-naming-guidelines">naming guidelines</a> and complete the <a routerLink="/submit-data/registration-form">submission form</a></li>
-<li>To submit information on individual genes, use the Contact Curators link provided on the relevant <a href="http://www.pombase.org/">PomBase</a> gene page</li>
-<li>To submit sequence-linked data, use the <a href="submit-data/data-submission-form">HTP data submission form</a></li>
-<li>To submit large sets of phenotype data, use the <a href="submit-data/phenotype-data-submission-form">phenotype data submission form</a></li>
-</ul>
-<h2 id="data-versions">Data versions</h2>
+<h3 id="submit-data">Submit Data</h3>
+<p>See the <a routerLink="/submit-data">Submit data</a> page</p>
+<h3 id="data-versions">Data versions</h3>
 <p>Versions of internal and external data loaded into current and past Pombase releases.</p>
 <p><a routerLink="/about/version-history">Version history</a></p>
-<h2 id="receive-project-updates">Receive project updates</h2>
+<h3 id="receive-project-updates">Receive project updates</h3>
 <p>Subscribe to <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">Pombelist</a> to receive annotation and data updates</p>
 <hr />
-<h2 id="pombase-staff">PomBase staff</h2>
-<h3 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h3>
+<h3 id="pombase-staff">PomBase staff</h3>
+<h4 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h4>
 <ul>
 <li>Val Wood (Curator &amp; co-PI)</li>
 <li>Midori Harris (Curator)</li>
 <li>Kim Rutherford (Programmer)</li>
 <li>Steve Oliver (PI)</li>
 </ul>
-<h3 id="university-college-london"><a href="http://www.ucl.ac.uk/">University College London</a></h3>
+<h4 id="university-college-london"><a href="http://www.ucl.ac.uk/">University College London</a></h4>
 <ul>
 <li>Antonia Lock (Curator)</li>
 <li>Jürg Bähler (co-PI)</li>
 </ul>
 <hr />
-<h2 id="project-funding">Project funding</h2>
+<h3 id="project-funding">Project funding</h3>
 <p>PomBase is funded by the <a href="https://wellcome.ac.uk/">Wellcome Trust</a> [104967/Z/14/Z].</p>
 <p><a href="https://wellcome.ac.uk/"> <img style="background-color: black" height="127px" src="https://wellcome.ac.uk/sites/all/themes/corp_base/assets/images/new-logos/wellcome-logo.svg" alt="Wellcome"/> </a></p>
 
@@ -5632,6 +5627,273 @@ Example advanced search query: <a routerLink="/spombe/query/builder?filter=37&va
 <p>In the future we will add a tree view of consensus orthologs in key species to the gene pages.</p>
 
 </div>
+  </div>
+</div>
+<div *ngIf="section == 'gene-names'">
+  <div class="docs-menu">
+<h3 id="gene-names"><a routerLink="/gene-names">Gene names</a></h3>
+<ul>
+<li><a routerLink="/gene-names">Gene names</a></li>
+<li>Gene name reservation <!-- will link to form --></li>
+<li><a routerLink="/gene-naming-guidelines"><em>S. pombe</em> gene naming guidelines</a></li>
+<li><a routerLink="/gene-naming-committee-members">Gene Naming Committee members</a></li>
+</ul>
+
+  </div>
+  <div class="docs-content">
+  <div *ngIf="pageName == 'gene-name-conflicts'">
+<h2 id="gene-name-conflicts">Gene name conflicts</h2>
+<p>List of gene names that have been used to refer to two (or more) different genes. Resolution of these conflicts is under consideration by the Gene Naming Committee. Upon conflict resolution, the name will become a secondary name for at least one of the genes for which it has been used (a database search will still retrieve all usages). Systematic IDs, and primary names where available, for the conflictingly-named genes are listed in columns 2 and 4.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Conflict</th>
+<th>Systematic ID</th>
+<th>Detail</th>
+<th>Systematic ID</th>
+<th>Detail</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>abc1</td>
+<td><a routerLink="/gene/SPBC2D10.18">abc1/SPBC2D10.18</a></td>
+<td>N Bonnefoy, 28 Aug 96</td>
+<td><a routerLink="/gene/SPAC9E9.12c">ybt1/SPAC9E9.12c</a></td>
+<td>J Davey, 11 Nov 96</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ade8</td>
+<td><a routerLink="/gene/SPBC14F5.09c">ade8/SPBC14F5.09c</a></td>
+<td></td>
+<td><a routerLink="/gene/SPCC569.08c">ade5/SPCC569.08c</a></td>
+<td></td>
+<td>mapped ade5 was misnamed as ade8 from its S. cerevisiae ortholog; ade8 is now designated obsolete for SPCC569.08</td>
+</tr>
+<tr class="odd">
+<td>car1</td>
+<td><a routerLink="/gene/SPAC17A2.01">bsu1/SPAC17A2.01</a></td>
+<td>Jia et al. 1993</td>
+<td><a routerLink="/gene/SPBP26C9.02c">car1/SPBP26C9.02c</a></td>
+<td>arginase, Van Huffel 1994</td>
+<td>sod1 is used for superoxide dismutase (SPAC821.10c) so is a synonym, not a primary name, for SPAC17A2.01</td>
+</tr>
+<tr class="even">
+<td>dim1</td>
+<td><a routerLink="/gene/SPBC336.02">SPBC336.02</a></td>
+<td>18S rRNA dimethylase, Housen 95</td>
+<td><a routerLink="/gene/SPCC16A11.05c">dim1/SPCC16A11.05c</a></td>
+<td>U4/U6.U5 snRNP, Berry &amp; Gould 97</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>gpd1</td>
+<td><a routerLink="/gene/SPBC215.05">gpd1SPBC215.05</a></td>
+<td>glycerol-3-p DH, J. Armstrong Oct 90</td>
+<td><a routerLink="/gene/SPBC32F12.11">tdh1/SPBC32F12.11</a></td>
+<td>glyceraldehyde-3-p DH, M. Vai Mar 95</td>
+<td>implemented suggestion to make tdh1 primary and gpg1 secondary for SPBC32F12.11</td>
+</tr>
+<tr class="even">
+<td>hcs</td>
+<td><a routerLink="/gene/SPAC4F8.14c">hcs1/SPAC4F8.14c</a></td>
+<td>Katayama, Jul 95</td>
+<td>SPCC737.07c</td>
+<td></td>
+<td>Add &quot;1&quot; for consistency</td>
+</tr>
+<tr class="odd">
+<td>krp1</td>
+<td><a routerLink="/gene/SPAC22E12.09c">krp1/SPAC22E12.09c</a></td>
+<td></td>
+<td>klp3/SPAC1834.07</td>
+<td></td>
+<td>krp1 is a synonym for klp3</td>
+</tr>
+<tr class="even">
+<td>mip1</td>
+<td><a routerLink="/gene/SPCC24B10.22">pog1/SPCC24B10.22</a></td>
+<td>DNA pol gamma, Copeland Jan 95</td>
+<td><a routerLink="/gene/SPAC57A7.11">mip1/SPAC57A7.11</a></td>
+<td>WD repeat, Yoshinori Sep 99</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>pab1</td>
+<td><a routerLink="/gene/SPAC227.07c">pab1/SPAC227.07c</a></td>
+<td>phosphatase, Kinoshita 95, (Yanagida lab)</td>
+<td><a routerLink="/gene/SPAC57A7.pabp/04c">SPAC57A7.04c</a></td>
+<td>poly(A) binding, Burd 91</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>sod2</td>
+<td><a routerLink="/gene/SPAC977.10">sod2/SPAC977.10</a></td>
+<td>sodium antiporter, 92</td>
+<td><a routerLink="/gene/SPAC1486.01">SPAC1486.01</a></td>
+<td>Jeong &amp; Roe, Dec 99</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ssp1</td>
+<td><a routerLink="/gene/SPCC297.03">ssp1/SPCC297.03</a></td>
+<td>p kinase, Matsusaka Oct 95</td>
+<td><a routerLink="/gene/SPAC664.11">ssc1/SPAC664.11</a></td>
+<td>chaperonin, Powell 90</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ppa1</td>
+<td><a routerLink="/gene/SPAC823.15">ppa1/SPAC823.15</a></td>
+<td>minor serine/threonine protein phosphatase pp2a-1 catalytic subunit, Kinoshita et al. Oct 90</td>
+<td><a routerLink="/gene/SPAC23C11.05">SPAC23C11.05</a></td>
+<td>inorganic pyrophosphatase, Kawasaki et al. Oct 90</td>
+<td>ppa1 not published for SPAC23C11.05 so attached as obsolete gene name</td>
+</tr>
+<tr class="odd">
+<td>ef1a-a, ef1a-b, ef1a-c</td>
+<td><a routerLink="/gene/SPCC794.09c">SPCC794.09c</a>, <a routerLink="/gene/SPAC23A1.10">SPAC23A1.10</a>, <a routerLink="/gene/SPBC839.15c">SPBC839.15c</a></td>
+<td>Elongation factor 1 alphas</td>
+<td></td>
+<td></td>
+<td>All old, non-standard names obsoleted. These three kept temporarily to distinguish the three genomic copies. Current conventions need checking (Morimyo paper). (I haven't been able to identify which is which from this as base differences in the sequenced clones or the genome sequence mean they cannot be mapped unambiguously. Needs investigating; our B and C are identical.) SPAC23A1.10 has standard name tef102.</td>
+</tr>
+<tr class="even">
+<td>skp1</td>
+<td><a routerLink="/gene/SPBC409.05">skp1/SPBC409.05</a></td>
+<td></td>
+<td><a routerLink="/gene/SPAC1687.15">gsk3/SPAC1687.15</a></td>
+<td></td>
+<td>Agreed that skp1 can be used for SPBC409.05</td>
+</tr>
+<tr class="odd">
+<td>spp1</td>
+<td><a routerLink="/gene/SPCC594.05c">spf1/SPCC594.05c</a></td>
+<td></td>
+<td><a routerLink="/gene/SPAC6B12.10c">spp1/SPAC6B12.10c</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+  <div *ngIf="pageName == 'gene-naming-committee-members'">
+<h2 id="s.-pombe-gene-naming-committee-members"><em>S. pombe</em> Gene Naming Committee members</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Member</th>
+<th>Affiliation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Steve Aves</td>
+<td>School of Biological Sciences, University of Exeter</td>
+</tr>
+<tr class="even">
+<td>Susan Forsburg</td>
+<td>Molecular and Computational Biology Section, University of Southern California</td>
+</tr>
+<tr class="odd">
+<td>Olaf Nielsen</td>
+<td>Department of Genetics, University of Copenhagen</td>
+</tr>
+<tr class="even">
+<td>Osami Niwa</td>
+<td>Kazusa DNA Research Institute, Kisarazu, Chiba, Japan</td>
+</tr>
+<tr class="odd">
+<td>Matthias Sipiczki</td>
+<td>Department of Genetics, University of Debrecen</td>
+</tr>
+<tr class="even">
+<td>Takashi Toda</td>
+<td>The Francis Crick Institute, London</td>
+</tr>
+<tr class="odd">
+<td>Nancy Walworth</td>
+<td>Robert Wood Johnson Medical School, NJ</td>
+</tr>
+<tr class="even">
+<td>Yoshinori Watanabe</td>
+<td>Laboratory of Chromosome Dynamics, Institute of Molecular and Cellular Biosciences, University of Tokyo</td>
+</tr>
+<tr class="odd">
+<td>Valerie Wood</td>
+<td>PomBase, University of Cambridge</td>
+</tr>
+<tr class="even">
+<td>Paul Young</td>
+<td>Queens University at Kingston, Ontario</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+  <div *ngIf="pageName == 'gene-naming-guidelines'">
+<h2 id="fission-yeast-gene-naming-guidelines">Fission yeast gene naming guidelines</h2>
+<h3 id="purpose-of-reserving-gene-names">Purpose of Reserving Gene Names</h3>
+<p>To avoid gene naming conflicts, the <em>S. pombe</em><a routerLink="/gene-naming-committee-members">Gene Naming Committee</a> accepts reservations for gene names that will be published imminently. This does not guarantee that no one else will use your reserved gene name, but the naming committee will actively discourage alternative usage. If we become aware of a nomenclature conflict, we will attempt to notify all parties.</p>
+<h3 id="guidelines-for-naming-s.-pombe-genes">Guidelines for naming <em>S. pombe</em> genes</h3>
+<ol style="list-style-type: decimal">
+<li>The gene name should consist of three italicized lower case letters (the gene symbol) followed by an integer (e.g. rad26). This will not be italicized in the database. (Note that a few historical gene names with four letters, or without an integer, have been grandfathered into the database, but all new standard gene names must conform to the three-letters-plus-integer pattern.)</li>
+<li>The gene name registration form will return soon. To reserve a gene name in the meantime, please <a href="mailto:helpdesk@pombase.org?subject=gene%20name%20reservation">email the helpdesk</a> and include the gene systematic ID, proposed gene name, name description, the relevant PubMed ID (if available), and any other information.</li>
+<li>The 3-letter gene symbol should stand for a description of a phenotype, gene product or gene function. In addition, we strongly prefer that a given gene symbol have only one associated description, i.e., all genes which use a given 3 letter symbol should have a related phenotype, gene product or gene function. If a 3-letter symbol is already in use, it should not be used to describe a different class of genes. Before choosing your gene name, search PomBase for any gene name beginning with the 3-letter symbol, by entering the 3-letter name followed by an asterisk, e.g. &quot;cdc*&quot;. Also check the usage of the 3-letter code in <em>S. cerevisiae</em> at <a href="http://www.yeastgenome.org/">SGD</a>.</li>
+<li>Please include your gene name(s) in the abstracts of any relevant papers. This simplifies the task of identifying yeast gene names that are already in use.</li>
+<li>At the time of registration, the <em>S. pombe</em> curator will check PubMed, GenBank/EMBL/DDBJ and the Gene Name Registry to ensure the gene name is unique. If your chosen gene name is not unique, you will be contacted and asked to select a new name.</li>
+<li>Please check that the reserved gene name is still unique, and that the gene still has no other name used for it, before submitting a publication.</li>
+<li>If it is discovered that your gene has been previously named, your gene name would instead become an alias (synonym) for the locus, and it and any associated references will remain searchable and linked to the standard locus name.</li>
+<li>If you reserve a gene name prior to publication, and your reserved name is published referring to a different gene before your name usage is published, a compromise specific to the situation will be made. In most cases, you will NOT retain the use of the gene name unless you published the name first (see &quot;Resolution of gene name conflicts&quot; below).</li>
+<li>If no conflicts arise, your gene name will become the standard name, and will appear on the gene page and elsewhere in PomBase.</li>
+</ol>
+<!-- restore when form back
+2.  Gene names may be reserved using the [Gene Name Registration
+    Form](registration-form). Please provide requested information and
+    an explanation of the 3-letter gene symbol.
+-->
+<!-- probably won't retain this
+
+### Renewing a reserved gene name
+
+To renew a gene name reservation, you must submit new data demonstrating
+continued study of this gene. Please use the [Gene Name Registration
+Form](registration-form) to submit a renewal.
+-->
+<h3 id="resolution-of-gene-name-conflicts">Resolution of gene name conflicts</h3>
+<p>Gene name conflicts in which multiple names have been used to describe one gene or, conversely, one name has been applied to multiple genes, will be resolved within 12 months. Whenever possible, all interested parties will be involved in the resolution of the conflict. We recognize that each case is unique, and we will choose the most appropriate solution using the following guidelines:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Researcher consensus:</strong> In the first instance, if the researchers involved in the name conflict agree to a resolution that satisfies our Gene Naming requirements, this solution will be implemented.</li>
+<li><strong>Literature consensus:</strong> In the absence of researcher consensus, we will examine the literature for the number of name usages and the number of different research groups utilizing a particular name usage. If there is a very obvious imbalance, we will favour the predominant name usage.</li>
+<li><strong>Priority:</strong> In the absence of either researcher or literature consensus, we will favour the gene name usage that was first published if this is significantly earlier. However, if papers are published simultaneously (within 3 months), the pre-registered name will become the primary name.</li>
+<li><strong>Relevance of the name:</strong> In rare cases where none of the above guidelines apply, we may favour a particular name usage that more accurately describes a phenotype, gene product or gene function.</li>
+</ol>
+
+  </div>
+  <div *ngIf="pageName == 'index'">
+<h2 id="fission-yeast-gene-name-registry">Fission yeast gene name registry</h2>
+<p>The Gene Naming Committee was initiated by Amar Klar, Paul Nurse and Mitsuhiro Yanagida to unify fission yeast gene names for newly defined genes, and resolve gene name conflicts.</p>
+<!--
+### <a routerLink="/registration-form">Gene name reservation form</a>g
+-->
+<h3 id="gene-name-reservation">Gene name reservation</h3>
+<p>The <strong>gene name registration form</strong> will return soon. To reserve a gene name in the meantime, please <a href="mailto:helpdesk@pombase.org?subject=gene%20name%20reservation">email the helpdesk</a> and include:</p>
+<ul>
+<li>Systematic ID</li>
+<li>Gene name</li>
+<li>Name description (what the three-letter abbreviation stands for)</li>
+<li>PubMed ID (if available) for the paper in which the name is first published</li>
+<li>Any other information</li>
+</ul>
+<h3 id="s.-pombe-gene-naming-guidelines"><a routerLink="/gene-naming-guidelines"><em>S. pombe</em> gene naming guidelines</a></h3>
+<p>How to choose and reserve a gene name; name conflict resolution</p>
+<h3 id="gene-naming-committee-members"><a routerLink="/gene-naming-committee-members">Gene Naming Committee members</a></h3>
+<hr />
+<p>Historical note: Inventories of reserved gene names and <a routerLink="/gene-name-conflicts">gene name conflicts</a> were maintained in the past, but have not been updated for several years.</p>
+
+  </div>
   </div>
 </div>
 <div *ngIf="section == 'help'">
@@ -13751,6 +14013,45 @@ Joined contigs p4C9 and c977</p>
  </tr>
  </tbody>
 </table>
+
+  </div>
+  </div>
+</div>
+<div *ngIf="section == 'submit-data'">
+  <div class="docs-menu">
+<h3 id="submit-data"><a routerLink="/submit-data">Submit data</a></h3>
+<ul>
+<li><a routerLink="/submit-data">Submit data</a></li>
+<li><a routerLink="/gene-names">Gene names</a></li>
+<li><a routerLink="/submit-data/bulk-annotation">Annotation datasets</a></li>
+<li>Sequence-linked HTP data <!--   - <a routerLink="/submit-data/htp-seq-data">Sequence-linked HTP data</a> --></li>
+</ul>
+
+  </div>
+  <div class="docs-content">
+  <div *ngIf="pageName == 'bulk-annotation'">
+<h2 id="annotation-dataset-submission">Annotation dataset submission</h2>
+<p>PomBase accepts batch submissions of certain types of data that appear on PomBase gene pages.</p>
+<p>To submit any of these data types, please prepare a file in the format indicated, and send it to the helpdesk:</p>
+<ul>
+<li>Phenotype <a routerLink="/documentation/phenotype-data-bulk-upload-format">file format</a> and <a href="mailto:helpdesk@pombase.org?subject=phenotype%20data%20submission">submission link</a></li>
+<li>Modification <a routerLink="/documentation/modification-data-bulk-upload-file-format">file format</a> and <a href="mailto:helpdesk@pombase.org?subject=modification%20data%20submission">submission link</a></li>
+<li>Qualitative gene expression data <a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-file-format">file format</a> and <a href="mailto:helpdesk@pombase.org?subject=qualitative%20gene%20expression%20data%20submission">submission link</a></li>
+<li>Quantitative gene expression data <a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-file-format">file format</a> and <a href="mailto:helpdesk@pombase.org?subject=quantitative%20gene%20expression%20data%20submission">submission link</a></li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'index'">
+<h2 id="pombase-data-submission">PomBase Data Submission</h2>
+<h3 id="gene-names"><a routerLink="/gene-names">Gene names</a></h3>
+<p>Gene naming guidelines and how to submit a new gene name</p>
+<h3 id="annotation-datasets"><a routerLink="/bulk-annotation">Annotation datasets</a></h3>
+<p>Data formats and instructions for submitting large sets of FO, phenotype, modification, or gene expression data.</p>
+<h3 id="sequence-linked-htp-data">Sequence-linked HTP data</h3>
+<!-- <a routerLink="/htp-seq-data">Sequence-linked HTP data</a> correct form link and restore this when form available -->
+<p>To submit sequence-linked data to be displayed as a track in the genome browser, please <a href="mailto:helpdesk@pombase.org?subject=HTP%20data%20submission">contact the curators</a> for instructions. (The data submission form will be restored soon.)</p>
+<h3 id="gene-specific-data">Gene-specific data</h3>
+<p>To submit information on individual genes, use the Contact Curators link provided on the relevant <a href="http://www.pombase.org/">PomBase</a> gene page</p>
 
   </div>
   </div>
