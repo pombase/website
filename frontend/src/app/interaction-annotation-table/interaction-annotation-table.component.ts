@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { InteractionAnnotation, GeneShort } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { Util } from '../shared/util';
 
 @Component({
   selector: 'app-interaction-annotation-table',
@@ -67,5 +68,15 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
 
           return displayAnnotation;
         });
+
+    this.displayTable.sort((a, b) => {
+      const geneComp = Util.geneCompare(a.interactor, b.interactor);
+      if (geneComp === 0) {
+        return a.evidence.localeCompare(b.evidence);
+      }
+      return geneComp;
+    });
+
+    console.log(this.annotationTable);
   }
 }
