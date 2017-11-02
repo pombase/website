@@ -119,6 +119,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         this.downstreamBases = 0;
       }
 
+      this.wrappedSequence = null;
       this.displaySequence = null;
 
       if (this.showTranslation) {
@@ -129,7 +130,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       } else {
         this.sequenceDescription += '-transcript-sequence';
         this.rawSequence = '';
-        this.wrappedSequence = null;
 
         let geneLocation = this.geneDetails.location;
         let strand;
@@ -191,7 +191,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         Promise.all([upstreamPromise, downstreamPromise])
           .then((values) => {
             const upstreamSequence = values[0];
-            let sequence = upstreamSequence;
             let includedParts = [];
             for (let part of transcripts[0].parts) {
               if (part.feature_type === 'exon' ||
@@ -206,15 +205,16 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
               }
             }
             const downstreamSequence = values[1];
-            sequence += downstreamSequence;
 
-            this.updateHeader(sequence.length);
-
-            this.rawSequence = sequence;
-            this.wrappedSequence = Util.splitSequenceString(this.rawSequence);
             this.displaySequence =
               new DisplaySequence(lineLength,
                                   upstreamSequence, includedParts, downstreamSequence);
+
+            this.rawSequence = this.displaySequence.residues();
+            this.updateHeader(this.rawSequence.length);
+
+            this.wrappedSequence = Util.splitSequenceString(this.rawSequence);
+
           })
           .catch((e) => {
             this.rawSequence = '';

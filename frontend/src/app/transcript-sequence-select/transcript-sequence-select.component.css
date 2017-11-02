@@ -11,12 +11,19 @@
   width: 50%;
 }
 
-.sequence-display {
+.sequence-display, .sequence-holder pre {
   max-height: 800px;
   font-family: monospace;
   overflow-y: auto;
   display: inline-block;
   background-color: white;
+  padding: 0.5em;
+  border-radius: 2px;
+}
+
+.sequence-holder pre {
+  border: 0;
+  font-size: 1em;
 }
 
 .seq-title {

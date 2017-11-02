@@ -99,8 +99,13 @@
           </div>
           </div>
         </div>
-        <div class="sequence-holder">
-          <div *ngIf="displaySequence" class="sequence-display">
+        <div *ngIf="wrappedSequence" class="sequence-holder">
+          <pre *ngIf="showTranslation">
+&gt;{{sequenceHeader}}
+{{wrappedSequence}}
+          </pre>
+
+          <div class="sequence-display" *ngIf="!showTranslation">
           <div class="header">
 &gt;{{sequenceHeader}}
           </div>

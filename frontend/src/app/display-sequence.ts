@@ -15,13 +15,17 @@ export class DisplaySequenceLine {
   }
 
   length(): number {
-    let len = 0;
+    return this.residues().length;
+  }
+
+  residues(): string {
+    let res = '';
 
     this.lineParts.map(part => {
-      len += part.residues.length;
+      res += part.residues;
     });
 
-    return len;
+    return res;
   }
 
   getParts(): Array<DisplaySequenceLinePart> {
@@ -108,5 +112,11 @@ export class DisplaySequence {
 
   getLines(): Array<DisplaySequenceLine> {
     return this.lines;
+  }
+
+  residues(): string {
+    let res = '';
+    this.lines.map(line => res += line.residues());
+    return res;
   }
 }
