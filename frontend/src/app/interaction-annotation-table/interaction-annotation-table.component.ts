@@ -76,7 +76,5 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
       }
       return geneComp;
     });
-
-    console.log(this.annotationTable);
   }
 }
