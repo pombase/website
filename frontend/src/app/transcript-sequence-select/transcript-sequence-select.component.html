@@ -75,7 +75,7 @@
                 (ngSubmit)="ncbiform.submit()"
                 target="{{linksInNewWindow ? '_blank' : ''}}"
                 action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="GET">
-            <input name="QUERY" value="{{'>' + sequenceHeader + '\n' + sequence}}" type="hidden">
+            <input name="QUERY" value="{{'>' + sequenceHeader + '\n' + wrappedSequence}}" type="hidden">
             <input name="PROGRAM" value="{{showTranslation?'blastp':'blastn'}}" type="hidden">
             <input name="PAGE_TYPE" value="BlastSearch" type="hidden">
             <input class="btn btn-primary" type="submit" value="NCBI {{showTranslation?'BLASTP':'BLASTN'}}" />
@@ -87,7 +87,7 @@
                 (ngSubmit)="ensform.submit();"
                 target="{{linksInNewWindow ? '_blank' : ''}}"
                 action="https://fungi.ensembl.org/Multi/Tools/Blast{{showTranslation?'?query=peptide;database=peptide':''}}" method="POST">
-            <input value="{{'>' + sequenceHeader + '\n' + sequence}}" name="query_sequence" type="hidden">
+            <input value="{{'>' + sequenceHeader + '\n' + wrappedSequence}}" name="query_sequence" type="hidden">
             <input class="btn btn-primary" type="submit" value="Ensembl {{showTranslation ? 'Protein' : 'DNA'}} BLAST" />
           </form>
             </span>
@@ -100,14 +100,14 @@
           </div>
         </div>
         <div class="sequence">
-          <pre *ngIf="sequence">
+          <pre *ngIf="displaySequence">
 &gt;{{sequenceHeader}}
-{{sequence}}
+{{displaySequence}}
           </pre>
-          <div *ngIf="sequence != null && sequence == ''">
+          <div *ngIf="sequence != null && wrappedSequence == ''">
             (No sequence selected)
           </div>
-          <app-loading-spinner *ngIf="sequence == null"></app-loading-spinner>
+          <app-loading-spinner *ngIf="wrappedSequence == null"></app-loading-spinner>
         </div>
     </div>
     <div *ngIf="!hasTranscripts">

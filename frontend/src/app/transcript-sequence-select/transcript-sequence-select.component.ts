@@ -14,7 +14,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;
 
   rawSequence = '';
-  sequence = '';
+  wrappedSequence = '';
+  displaySequence = '';
   sequenceDescription = '';
   sequenceHeader = '';
   hasTranscripts = false;
@@ -41,34 +42,32 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   constructor(private apiService: PombaseAPIService) { }
 
-  updateHeader(sequence: string) {
+  updateHeader(sequenceLength: number) {
     this.sequenceHeader = this.sequenceDescription;
 
-    if (sequence) {
-      if (this.showTranslation) {
-        this.sequenceHeader += ' length:' +
-          this.geneDetails.transcripts[0].protein.number_of_residues;
-      } else {
-        this.sequenceHeader += ' length:' + sequence.length;
+    if (this.showTranslation) {
+      this.sequenceHeader += ' length:' +
+        this.geneDetails.transcripts[0].protein.number_of_residues;
+    } else {
+      this.sequenceHeader += ' length:' + sequenceLength;
 
-        let partsFlags = [];
-        if (this.include5PrimeUtr) {
-          partsFlags.push('5\'UTR');
-        }
-        partsFlags.push('exons');
-        if (this.includeIntrons) {
-          partsFlags.push('introns');
-        }
-        if (this.include3PrimeUtr) {
-          partsFlags.push('3\'UTR');
-        }
-        if (partsFlags.length > 0) {
-          this.sequenceHeader += ' includes:' + partsFlags.join('+');
-        }
-        this.sequenceHeader +=
-          (this.upstreamBases > 0 ? ' upstream:' + this.upstreamBases : '') +
-          (this.downstreamBases > 0 ? ' downstream:' + this.downstreamBases : '');
+      let partsFlags = [];
+      if (this.include5PrimeUtr) {
+        partsFlags.push('5\'UTR');
       }
+      partsFlags.push('exons');
+      if (this.includeIntrons) {
+        partsFlags.push('introns');
+      }
+      if (this.include3PrimeUtr) {
+        partsFlags.push('3\'UTR');
+      }
+      if (partsFlags.length > 0) {
+        this.sequenceHeader += ' includes:' + partsFlags.join('+');
+      }
+      this.sequenceHeader +=
+      (this.upstreamBases > 0 ? ' upstream:' + this.upstreamBases : '') +
+        (this.downstreamBases > 0 ? ' downstream:' + this.downstreamBases : '');
     }
   }
 
@@ -90,13 +89,15 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
       if (this.showTranslation) {
         this.sequenceDescription += '-peptide-sequence';
-        this.updateHeader(this.sequence);
         this.rawSequence = transcripts[0].protein.sequence;
-        this.sequence = Util.splitSequenceString(this.rawSequence);
+        this.updateHeader(this.rawSequence.length);
+        this.wrappedSequence = Util.splitSequenceString(this.rawSequence);
+        this.displaySequence = this.wrappedSequence;
       } else {
         this.sequenceDescription += '-transcript-sequence';
         this.rawSequence = '';
-        this.sequence = null;
+        this.wrappedSequence = null;
+        this.displaySequence = null;
 
         let geneLocation = this.geneDetails.location;
         let strand;
@@ -129,8 +130,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         }
         let chrName = geneLocation.chromosome;
 
-        let upstreamPromise;
-        let downstreamPromise;
+        let upstreamPromise: Promise<string>;
+        let downstreamPromise: Promise<string>;
 
         if (this.upstreamBases > 0) {
           let [upstreamStart, upstreamEnd] =
@@ -172,14 +173,16 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
             }
             sequence += values[1];
 
-            this.updateHeader(sequence);
+            this.updateHeader(sequence.length);
 
             this.rawSequence = sequence;
-            this.sequence = Util.splitSequenceString(this.rawSequence);
+            this.wrappedSequence = Util.splitSequenceString(this.rawSequence);
+            this.displaySequence = this.wrappedSequence;
           })
           .catch((e) => {
             this.rawSequence = '';
-            this.sequence = '';
+            this.wrappedSequence = '';
+            this.displaySequence = '';
           });
       }
     }
@@ -187,7 +190,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   download() {
     let fileName = this.sequenceDescription + '.fasta';
-    saveAs(new Blob(['>' + this.sequenceHeader + '\n' + this.sequence],
+    saveAs(new Blob(['>' + this.sequenceHeader + '\n' + this.wrappedSequence],
                     { type: 'text' }), fileName);
   }
 
