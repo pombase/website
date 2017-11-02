@@ -110,8 +110,9 @@
 &gt;{{sequenceHeader}}
           </div>
           <div class="residues">
-          <div *ngFor="let line of displaySequence.getLines()">
+          <div class="residue-line" *ngFor="let line of displaySequence.getLines()">
             <span title="{{partTitle(part)}}" class="{{partClass(part)}}"
+                 (mouseenter)="mouseenter(part)" (mouseleave)="mouseleave()"
                   *ngFor="let part of line.getParts()">{{part.residues}}</span>
           </div>
           <div *ngIf="sequence != null && wrappedSequence == ''">

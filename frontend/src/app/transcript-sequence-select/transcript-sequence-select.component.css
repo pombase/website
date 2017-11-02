@@ -32,28 +32,36 @@
 }
 
 .residues {
+  min-width: 75em;
   color: #111;
+  font-family: DejaVu Sans Mono, monospace;
 }
 
-.part-exon, .part-exon-bold {
+.residue-line {
+  line-height: 1em;
+}
+
+.residue-line span {
+  padding: 0.15em 0;
+  display: inline-block;
+}
+
+.hovering {
+  font-weight: bold;
+}
+
+.part-exon {
   background-color: white;
   color: black;
 }
 
-.part-exon-bold, .part-exon-bold-even {
-  font-weight: bold;
-}
-
-.part-exon-bold-even, .part-exon-even {
-  background-color: #efe;
-}
-
-.part-exon-bold, .part-exon {
-  background-color: #eef;
+.part-exon {
+  background-color: #efefff;
 }
 
 .part-five_prime_utr_intron, .part-three_prime_utr_intron, .part-cds_intron {
   font-style: oblique;
+  background-color: #faffaa;
 }
 
 .part-cds_intron {

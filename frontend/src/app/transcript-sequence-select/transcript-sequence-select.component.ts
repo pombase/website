@@ -43,6 +43,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   linksInNewWindow = false;
 
+  hoverPart: DisplaySequenceLinePart = null;
+
   constructor(private apiService: PombaseAPIService) { }
 
   updateHeader(sequenceLength: number) {
@@ -83,24 +85,24 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   partClass(part: DisplaySequenceLinePart): string {
-    let retVal = 'part-';
-    if (part.partType === 'exon') {
-      if (this.include3PrimeUtr || this.include5PrimeUtr ||
-          this.includeIntrons || this.upstreamBases > 0 ||
-          this.downstreamBases > 0) {
-        retVal += part.partType + '-bold';
-      } else {
-        retVal += part.partType;
-      }
+    let retVal = 'part-' + part.partType;
 
-      if (part.exonIndex % 2 === 0 && !this.includeIntrons) {
-        retVal += '-even';
+    if (this.hoverPart !== null && this.hoverPart.partType === part.partType) {
+      if (this.hoverPart.partType !== 'exon' ||
+          this.hoverPart.exonIndex === part.exonIndex) {
+        retVal += ' hovering';
       }
-    } else {
-      retVal += part.partType;
     }
 
     return retVal;
+  }
+
+  mouseenter(part: DisplaySequenceLinePart): void {
+    this.hoverPart = part;
+  }
+
+  mouseleave(): void {
+    this.hoverPart = null;
   }
 
   updateSequence() {
