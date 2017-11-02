@@ -1,4 +1,4 @@
-.controls, .sequence {
+.controls, .sequence-holder {
   display: inline-block;
   vertical-align: top;
 }
@@ -7,12 +7,16 @@
   width: 40%;
 }
 
-.sequence {
-  width: 59%;
+.sequence-holder {
+  width: 50%;
 }
 
-.sequence pre {
+.sequence-display {
   max-height: 800px;
+  font-family: monospace;
+  overflow-y: auto;
+  display: inline-block;
+  background-color: white;
 }
 
 .seq-title {
@@ -20,16 +24,45 @@
   font-weight: bold;
 }
 
-.exon {
-
+.residues {
+  color: #111;
 }
 
-.intron {
-  background-color: #ddf;
+.part-exon, .part-exon-bold {
+  background-color: white;
+  color: black;
 }
 
-.utr {
-  background-color: #ccc;
+.part-exon-bold, .part-exon-bold-even {
+  font-weight: bold;
+}
+
+.part-exon-bold-even, .part-exon-even {
+  background-color: #efe;
+}
+
+.part-exon-bold, .part-exon {
+  background-color: #eef;
+}
+
+.part-five_prime_utr_intron, .part-three_prime_utr_intron, .part-cds_intron {
+  font-style: oblique;
+}
+
+.part-cds_intron {
+  color: #444;
+}
+
+.part-five_prime_utr_intron, .part-three_prime_utr_intron {
+  color: #644;
+}
+
+.part-five_prime_utr, .part-three_prime_utr {
+  color: #0b3dd7;
+}
+
+.part-upstream, .part-downstream {
+  color: #ec7c5f;
 }
 
 .controls .flanking-bases {

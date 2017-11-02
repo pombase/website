@@ -99,15 +99,22 @@
           </div>
           </div>
         </div>
-        <div class="sequence">
-          <pre *ngIf="displaySequence">
+        <div class="sequence-holder">
+          <div *ngIf="displaySequence" class="sequence-display">
+          <div class="header">
 &gt;{{sequenceHeader}}
-{{displaySequence}}
-          </pre>
+          </div>
+          <div class="residues">
+          <div *ngFor="let line of displaySequence.getLines()">
+            <span title="{{partTitle(part)}}" class="{{partClass(part)}}"
+                  *ngFor="let part of line.getParts()">{{part.residues}}</span>
+          </div>
           <div *ngIf="sequence != null && wrappedSequence == ''">
-            (No sequence selected)
+            (No sequence to display)
           </div>
           <app-loading-spinner *ngIf="wrappedSequence == null"></app-loading-spinner>
+          </div>
+          </div>
         </div>
     </div>
     <div *ngIf="!hasTranscripts">

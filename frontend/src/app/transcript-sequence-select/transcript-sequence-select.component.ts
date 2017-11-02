@@ -4,6 +4,9 @@ import { saveAs } from 'file-saver';
 
 import { GeneDetails, PombaseAPIService, Strand } from '../pombase-api.service';
 import { Util } from '../shared/util';
+import { DisplaySequence, DisplaySequenceLinePart } from '../display-sequence';
+
+const lineLength = 60;
 
 @Component({
   selector: 'app-transcript-sequence-select',
@@ -15,7 +18,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   rawSequence = '';
   wrappedSequence = '';
-  displaySequence = '';
+  displaySequence: DisplaySequence = null;
   sequenceDescription = '';
   sequenceHeader = '';
   hasTranscripts = false;
@@ -71,6 +74,35 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     }
   }
 
+  partTitle(part: DisplaySequenceLinePart): string {
+    if (part.partType === 'exon') {
+      return part.partType + ' ' + part.exonIndex;
+    } else {
+      return part.partType;
+    }
+  }
+
+  partClass(part: DisplaySequenceLinePart): string {
+    let retVal = 'part-';
+    if (part.partType === 'exon') {
+      if (this.include3PrimeUtr || this.include5PrimeUtr ||
+          this.includeIntrons || this.upstreamBases > 0 ||
+          this.downstreamBases > 0) {
+        retVal += part.partType + '-bold';
+      } else {
+        retVal += part.partType;
+      }
+
+      if (part.exonIndex % 2 === 0 && !this.includeIntrons) {
+        retVal += '-even';
+      }
+    } else {
+      retVal += part.partType;
+    }
+
+    return retVal;
+  }
+
   updateSequence() {
     let transcripts = this.geneDetails.transcripts;
     this.hasTranscripts = transcripts.length > 0;
@@ -87,17 +119,17 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         this.downstreamBases = 0;
       }
 
+      this.displaySequence = null;
+
       if (this.showTranslation) {
         this.sequenceDescription += '-peptide-sequence';
         this.rawSequence = transcripts[0].protein.sequence;
         this.updateHeader(this.rawSequence.length);
         this.wrappedSequence = Util.splitSequenceString(this.rawSequence);
-        this.displaySequence = this.wrappedSequence;
       } else {
         this.sequenceDescription += '-transcript-sequence';
         this.rawSequence = '';
         this.wrappedSequence = null;
-        this.displaySequence = null;
 
         let geneLocation = this.geneDetails.location;
         let strand;
@@ -158,7 +190,9 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
         Promise.all([upstreamPromise, downstreamPromise])
           .then((values) => {
-            let sequence = values[0];
+            const upstreamSequence = values[0];
+            let sequence = upstreamSequence;
+            let includedParts = [];
             for (let part of transcripts[0].parts) {
               if (part.feature_type === 'exon' ||
                   this.includeIntrons && part.feature_type === 'cds_intron' ||
@@ -168,21 +202,24 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
                   this.include3PrimeUtr &&
                   (part.feature_type === 'three_prime_utr' ||
                    this.includeIntrons && part.feature_type === 'three_prime_utr_intron')) {
-                sequence += part.residues;
+                includedParts.push(part);
               }
             }
-            sequence += values[1];
+            const downstreamSequence = values[1];
+            sequence += downstreamSequence;
 
             this.updateHeader(sequence.length);
 
             this.rawSequence = sequence;
             this.wrappedSequence = Util.splitSequenceString(this.rawSequence);
-            this.displaySequence = this.wrappedSequence;
+            this.displaySequence =
+              new DisplaySequence(lineLength,
+                                  upstreamSequence, includedParts, downstreamSequence);
           })
           .catch((e) => {
             this.rawSequence = '';
             this.wrappedSequence = '';
-            this.displaySequence = '';
+            this.displaySequence = null;
           });
       }
     }
