@@ -100,6 +100,12 @@ const routes: Routes = [
   { path: 'browse-curation',
     loadChildren: './documentation/documentation.module#DocumentationModule',
   },
+  { path: 'submit-data',
+    loadChildren: './documentation/documentation.module#DocumentationModule',
+  },
+  { path: 'gene-names',
+    loadChildren: './documentation/documentation.module#DocumentationModule',
+  },
   { path: 'query', component: QueryBuilderComponent,
     data: {
       title: 'Advanced search'
