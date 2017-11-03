@@ -43,7 +43,19 @@
         </tr>
         <tr>
           <td class="details-label">Genomic location</td>
-          <td>{{displayLocation}}</td>
+          <td>
+            <table class="genomic-location">
+              <tr>
+                <td [attr.rowspan]="displayLocation.length - 1">
+                  {{displayLocation[0]}},
+                </td>
+                <td>{{displayLocation[1]}}</td>
+              </tr>
+              <tr *ngIf="displayLocation.length > 2">
+                <td>{{displayLocation[2]}}</td>
+              </tr>
+            </table>
+          </td>
           <td *ngIf="synonymsDisplay.length > 0" class="details-label">Synonyms</td>
           <td *ngIf="synonymsDisplay.length > 0">{{synonymsDisplay}}</td>
         </tr>

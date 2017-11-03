@@ -19,7 +19,7 @@ export class GeneDetailsComponent implements OnInit {
 
   synonymsDisplay = '';
   displayFeatureType = '';
-  displayLocation = '';
+  displayLocation: Array<string> = [];
   annotationTypeNames: Array<string> = [];
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
@@ -54,20 +54,65 @@ export class GeneDetailsComponent implements OnInit {
               @Inject('Window') private window: any
              ) { }
 
-  makeDisplayLocation(location: ChromosomeLocation): string {
-    let chromosomeName = location.chromosome.name;
-    let chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
+  getCDSDisplayLocation(): string {
+    if (this.geneDetails.transcripts && this.geneDetails.transcripts.length > 0) {
+      const transcript = this.geneDetails.transcripts[0];
 
-    let displayName = chromosomeConfig.display_name || chromosomeName;
+      if (!transcript.protein) {
+        return null;
+      }
 
-    let ret = displayName + ', ';
-    if (location.strand === 'reverse') {
-      ret += location.end_pos + '-' + location.start_pos;
-    } else {
-      ret += location.start_pos + '-' + location.end_pos;
+      const parts = transcript.parts;
+
+      if (parts.length === 0) {
+        return null;
+      }
+
+      let currentCDSStart = 99999999999;
+      let currentCDSEnd = -1;
+
+      for (let part of parts) {
+        if (part.feature_type === 'exon') {
+          if (currentCDSStart > part.location.start_pos) {
+            currentCDSStart = part.location.start_pos;
+          }
+          if (currentCDSEnd < part.location.end_pos) {
+            currentCDSEnd = part.location.end_pos;
+          }
+        }
+      }
+
+      const len = currentCDSEnd - currentCDSStart + 1;
+
+      return `${currentCDSStart}-${currentCDSEnd} (${len}nt)`;
     }
-    ret += ' (' + (location.end_pos - location.start_pos + 1) + 'nt)';
-    return ret;
+
+    return null;
+  }
+
+  makeDisplayLocation(): Array<string> {
+    const location = this.geneDetails.location;
+    const chromosomeName = location.chromosome.name;
+    const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
+
+    const chrDisplayName = chromosomeConfig.display_name || chromosomeName;
+
+    let genomicLocation;
+    if (location.strand === 'reverse') {
+      genomicLocation = location.end_pos + '-' + location.start_pos;
+    } else {
+      genomicLocation = location.start_pos + '-' + location.end_pos;
+    }
+    genomicLocation += ' (' + (location.end_pos - location.start_pos + 1) + 'nt)';
+
+    const cdsDisplayLocation = this.getCDSDisplayLocation();
+
+    if (cdsDisplayLocation) {
+      return [chrDisplayName, `${cdsDisplayLocation} coding start to stop`,
+              `${genomicLocation} including UTRs`];
+    } else {
+      return [chrDisplayName, genomicLocation];
+    }
   }
 
   makeDisplayFeatureType(rawFeatureType: string): string {
@@ -217,7 +262,7 @@ export class GeneDetailsComponent implements OnInit {
             .then(geneDetails => {
               this.geneDetails = geneDetails;
               this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
-              this.displayLocation = this.makeDisplayLocation(geneDetails.location);
+              this.displayLocation = this.makeDisplayLocation();
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
               this.annotationTypeNames =
                 this.config.annotationTypeOrder
