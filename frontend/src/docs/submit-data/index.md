@@ -4,7 +4,7 @@
 
 Gene naming guidelines and how to submit a new gene name
 
-### [Annotation datasets](bulk-annotation)
+### [Annotation datasets](submit-data/bulk-annotation)
 
 Data formats and instructions for submitting large sets of FO,
 phenotype, modification, or gene expression data.
