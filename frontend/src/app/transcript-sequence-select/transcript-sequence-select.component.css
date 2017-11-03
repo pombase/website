@@ -13,7 +13,7 @@
 
 .sequence-display, .sequence-holder pre {
   max-height: 800px;
-  font-family: monospace;
+  font-family: DejaVu Sans Mono, monospace;
   overflow-y: auto;
   display: inline-block;
   background-color: white;
@@ -32,12 +32,12 @@
 }
 
 .residues {
-  min-width: 75em;
+  min-width: 65ch;
   color: #111;
-  font-family: DejaVu Sans Mono, monospace;
 }
 
 .residue-line {
+  white-space: nowrap;
   line-height: 1em;
 }
 
