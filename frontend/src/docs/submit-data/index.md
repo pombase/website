@@ -6,7 +6,7 @@ Gene naming guidelines and how to submit a new gene name
 
 ### [Annotation datasets](submit-data/bulk-annotation)
 
-Data formats and instructions for submitting large sets of FO,
+Data formats and instructions for submitting large sets of GO,
 phenotype, modification, or gene expression data.
 
 ### Sequence-linked HTP data

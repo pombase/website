@@ -54,10 +54,10 @@ These files contain coordinates, but no sequence data:
 -   Coding sequences (CDS)
 -   CDS + introns
 -   CDS + introns + UTRs
--   Introns
+<!-- -   Introns -->
 -   5' and 3' UTRs
 -   Peptide sequences
--   Non-coding RNA genes
+<!-- -   Non-coding RNA genes -->
 
 #### Genomic regions
 
