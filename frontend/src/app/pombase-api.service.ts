@@ -245,6 +245,8 @@ export class GeneDetails {
   name: string;
   feature_type: string;
   product?: string;
+  name_descriptions: Array<string>;
+  gene_neighbourhood: Array<GeneShort>;
   taxonid: number;
   transcripts: Array<TranscriptDetails>;
   deletion_viability?: string;
