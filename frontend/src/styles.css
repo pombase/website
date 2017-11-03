@@ -169,9 +169,6 @@ select option:disabled {
     width: 150px;
     left: 10px;
   }
-  .details-page-menu .details-menu-title {
-    display: none;
-  }
 }
 
 @media (max-width: 799px) {
@@ -179,9 +176,6 @@ select option:disabled {
     position: inherit;
     width: 30%;
     padding: 0.5em;
-  }
-  .details-page-menu .details-menu-title {
-    display: block;
   }
 }
 
