@@ -25,6 +25,13 @@ export class DocsComponent implements OnInit {
     });
   }
 
+  navigate($event: MouseEvent, route: string) {
+    // nagivate on when header is clicked
+    if ($event.srcElement.localName.match(/^h\d$/i)) {
+      this.router.navigate([route]);
+    }
+  }
+
   setSectPage(url: string) {
     const urlMatch = urlRe.exec(url);
     if (urlMatch) {

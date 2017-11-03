@@ -236,7 +236,7 @@ sub get_all_faq_parts {
       $line;
     } @split_contents;
 
-    $ret .= qq|<div *ngIf="$categories_condition">\n|;
+    $ret .= qq|<div (click)="navigate(\$event, '/faq/$sect_id')" *ngIf="$categories_condition">\n|;
     $ret .= markdown($contents) . "\n";
     $ret .= "</div>\n";
   }
