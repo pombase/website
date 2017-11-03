@@ -1,5 +1,5 @@
 <div>
-  <div *ngFor="let referenceShort of references">
-    <app-reference-short [reference]="referenceShort"></app-reference-short>
+  <div class="short-ref" *ngFor="let referenceShort of references">
+    <app-reference-short [showRefTitle]="true" [reference]="referenceShort"></app-reference-short>
   </div>
 </div>

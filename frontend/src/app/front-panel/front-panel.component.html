@@ -1,8 +1,10 @@
-<div class="front-panel">
-  <img *ngIf="headImage" class="head-img" width="300" height="185" src="{{headImage}}" />
+<div class="front-panel {{conf.panel_type}}">
+  <div class="head-img">
+  <img *ngIf="headImage" width="300" height="185" src="{{headImage}}" />
   <video *ngIf="headVideo" width="300" autoplay>
     <source src="{{headVideo}}" type="video/mp4">
   </video>
+  </div>
 
   <div class="panel-contents">
     <div class="title">
