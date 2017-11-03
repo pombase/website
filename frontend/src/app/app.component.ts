@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 
 import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     private meta: Meta,
+    @Inject('Window') private window: any,
     private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) { }
 
   ngOnInit() {
@@ -46,6 +47,7 @@ export class AppComponent implements OnInit {
         this.titleService.setTitle(title);
         this.meta.updateTag({property: 'og:title', content: title});
         this.meta.updateTag({property: 'og:description', content: defaultDescription});
+        this.window.scrollTo(0, 0);
       });
   }
 }
