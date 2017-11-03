@@ -19,8 +19,11 @@
       <tr>
         <th>
           <a *ngIf="orderByField != 'gene'" (click)="setOrderBy('gene')"
-             title="Click to sort">Gene</a>
-          <span *ngIf="orderByField == 'gene'">Gene</span>
+             title="Click to sort">Gene name</a>
+          <span *ngIf="orderByField == 'gene'">Gene name</span>
+        </th>
+        <th>
+          Systematic ID
         </th>
         <th>
           <a *ngIf="orderByField != 'product'" (click)="setOrderBy('product')"
@@ -32,7 +35,14 @@
     <tbody>
       <tr *ngFor="let gene of genes | geneShortOrderBy: orderByField">
         <td>
-          <app-gene-link class="app-link" [gene]="gene"></app-gene-link>
+          <a *ngIf="gene.name" routerLink="/gene/{{gene.uniquename}}">
+            {{gene.name}}
+          </a>
+        </td>
+        <td>
+          <a routerLink="/gene/{{gene.uniquename}}">
+            {{gene.uniquename}}
+          </a>
         </td>
         <td>{{gene.product}}</td>
       </tr>

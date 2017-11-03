@@ -20,3 +20,7 @@
 .links-title {
   font-weight: bold;
 }
+
+th {
+  white-space: nowrap;
+}
