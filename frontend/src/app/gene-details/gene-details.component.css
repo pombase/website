@@ -38,6 +38,10 @@
   text-align: center;
 }
 
+.genomic-location table {
+  margin: 0;
+}
+
 .genomic-location td {
   padding: 2px;
 }
