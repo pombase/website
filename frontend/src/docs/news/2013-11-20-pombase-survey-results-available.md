@@ -2,6 +2,6 @@
 
 The 2013 PomBase user survey closed at the end of October, and the
 results are available
-[here](/community/2013-pombase-user-survey-results). Some highlights
-have been sent to the pombe mailing list. Many thanks to all who
-completed the survey.
+[here](ftp://ftp.pombase.org/pombe/documents/2013_pombase_survey_summary.pdf)
+(PDF at FTP site). Some highlights have been sent to the pombe mailing
+list. Many thanks to all who completed the survey.

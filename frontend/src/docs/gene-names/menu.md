@@ -1,4 +1,4 @@
 - [Gene names](gene-names)
   - Gene name reservation  <!-- will link to form -->
-  - [*S. pombe* gene naming guidelines](gene-naming-guidelines)
-  - [Gene Naming Committee members](gene-naming-committee-members)
+  - [*S. pombe* gene naming guidelines](gene-names/gene-naming-guidelines)
+  - [Gene Naming Committee members](gene-names/gene-naming-committee-members)
