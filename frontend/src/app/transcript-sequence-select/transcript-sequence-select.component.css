@@ -72,12 +72,16 @@
   color: #644;
 }
 
-.part-five_prime_utr, .part-three_prime_utr {
-  color: #0b3dd7;
+.part-five_prime_utr {
+  color: #0b5dd7;
+}
+
+.part-three_prime_utr {
+  color: #6b3dc7;
 }
 
 .part-upstream {
-  color: #ec7c5f;
+  color: #ec5f5f;
 }
 
 .part-downstream {
