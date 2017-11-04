@@ -33,6 +33,12 @@
             </div>
             </div>
 
+            <div class="checkbox-section">
+              <input id="include-exons" type="checkbox" [(ngModel)]="includeExons"
+                     (ngModelChange)="updateSequence()"/>
+              <label for="include-exons">Include exons</label>
+            </div>
+
             <div class="checkbox-section" *ngIf="cdsIntronCount > 0 || fivePrimeIntronCount > 0 || threePrimeIntronCount > 0">
             <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
                    (ngModelChange)="updateSequence()"/>
@@ -64,7 +70,7 @@
             </div>
           </div>
 
-          <div class="sequence-actions">
+          <div *ngIf="wrappedSequence" class="sequence-actions">
             <div style="display: inline-block; vertical-align: top;" class="sequence-action">
           <button class="btn btn-primary" (click)="download()">Download sequence</button>
             </div>
@@ -99,13 +105,14 @@
           </div>
           </div>
         </div>
-        <div *ngIf="wrappedSequence" class="sequence-holder">
+        <div class="sequence-holder">
           <pre *ngIf="showTranslation">
 &gt;{{sequenceHeader}}
 {{wrappedSequence}}
           </pre>
 
           <div class="sequence-display" *ngIf="!showTranslation">
+          <div *ngIf="wrappedSequence">
           <div class="header">
 &gt;{{sequenceHeader}}
           </div>
@@ -115,11 +122,12 @@
                  (mouseenter)="mouseenter(part)" (mouseleave)="mouseleave()"
                   *ngFor="let part of line.getParts()">{{part.residues}}</span>
           </div>
-          <div *ngIf="sequence != null && wrappedSequence == ''">
+          </div>
+          </div>
+          <div *ngIf="!wrappedSequence">
             (No sequence to display)
           </div>
           <app-loading-spinner *ngIf="wrappedSequence == null"></app-loading-spinner>
-          </div>
           </div>
         </div>
     </div>

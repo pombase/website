@@ -76,8 +76,12 @@
   color: #0b3dd7;
 }
 
-.part-upstream, .part-downstream {
+.part-upstream {
   color: #ec7c5f;
+}
+
+.part-downstream {
+  color: #0ea476;
 }
 
 .controls .flanking-bases {
