@@ -382,7 +382,7 @@ let _appConfig: AppConfig = {
   cvNameMap: {
     'GO': '(molecular_function OR biological_process OR cellular_component)',
     'FYPO': 'fission_yeast_phenotype',
-    'PSI-MOD': 'post_translational_modification',
+    'PSI-MOD': 'PSI-MOD',
     'SO-protein': 'sequence',
   },
 
