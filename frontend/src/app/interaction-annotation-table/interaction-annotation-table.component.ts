@@ -69,12 +69,24 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
           return displayAnnotation;
         });
 
-    this.displayTable.sort((a, b) => {
-      const geneComp = Util.geneCompare(a.interactor, b.interactor);
-      if (geneComp === 0) {
-        return a.evidence.localeCompare(b.evidence);
+    this.displayTable.sort((a: InteractionAnnotation, b: InteractionAnnotation) => {
+      if (this.currentGene) {
+        const geneComp = Util.geneCompare(a.interactor, b.interactor);
+        if (geneComp === 0) {
+          return a.evidence.localeCompare(b.evidence);
+        }
+        return geneComp;
+      } else {
+        let geneComp = Util.geneCompare(a.gene, b.gene);
+        if (geneComp === 0) {
+          geneComp = Util.geneCompare(a.interactor, b.interactor);
+          if (geneComp === 0) {
+            return a.evidence.localeCompare(b.evidence);
+          }
+        }
+        return geneComp;
+
       }
-      return geneComp;
     });
   }
 }
