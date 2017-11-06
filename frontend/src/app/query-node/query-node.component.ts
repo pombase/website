@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 
 import { GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
          GeneQueryNode, GeneUniquename } from '../pombase-query';
@@ -10,9 +10,9 @@ import { getAppConfig, QueryNodeConfig } from '../config';
   templateUrl: './query-node.component.html',
   styleUrls: ['./query-node.component.css']
 })
-export class QueryNodeComponent implements OnInit {
+export class QueryNodeComponent implements OnInit, OnChanges {
   @Input() node: GeneQueryNode;
-  @Input() isActive: boolean;
+  @Input() startNodeType: string = null;
   @Output() nodeEvent = new EventEmitter<GeneQueryNode>();
 
   nodeTypes = getAppConfig().queryBuilder.nodeTypes;
@@ -37,6 +37,12 @@ export class QueryNodeComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnChanges() {
+    if (this.startNodeType) {
+      this.setNodeType(this.startNodeType);
+    }
+  }
+
   upperCaseIntial(s): string {
     return s.charAt(0).toUpperCase() + s.slice(1);
   }
@@ -57,7 +63,7 @@ export class QueryNodeComponent implements OnInit {
     this.nodeEvent.emit(null);
   }
 
-  clickNode(confId: string) {
+  setNodeType(confId: string) {
     if (!this.activeConf || confId !== this.activeConf.id) {
       this.clearQuery();
       for (let conf of this.nodeTypes) {

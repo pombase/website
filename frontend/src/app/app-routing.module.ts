@@ -111,6 +111,11 @@ const routes: Routes = [
       title: 'Advanced search'
     }
   },
+  { path: 'query/start_from/:nodeTypeId', component: QueryBuilderComponent,
+    data: {
+      title: 'Advanced search'
+    }
+  },
   { path: 'query/:saveOrResults/from/subset/:subsetName/:subsetDisplayName',
     component: QueryBuilderComponent,
     data: {

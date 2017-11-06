@@ -7,7 +7,8 @@
     <div>
       <span class="query-title">Query</span>
     </div>
-    <app-query-node (nodeEvent)="nodeEvent($event)"></app-query-node>
+    <app-query-node (nodeEvent)="nodeEvent($event)"
+                    [startNodeType]="startNodeType"></app-query-node>
   </div>
   <div class="query-history">
     <app-query-history (gotoResults)="gotoResults($event)"></app-query-history>

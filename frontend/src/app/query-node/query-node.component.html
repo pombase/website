@@ -5,7 +5,7 @@
       New query
     </div>
     <div [ngClass]="{'node-selected-button': activeConf && conf.id == activeConf.id}"
-         (click)="clickNode(conf.id)" class="node-button" *ngFor="let conf of nodeTypes">
+         (click)="setNodeType(conf.id)" class="node-button" *ngFor="let conf of nodeTypes">
       {{upperCaseIntial(conf.displayName)}}
     </div>
   </div>

@@ -17,6 +17,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
   resultsDescription = '';
   timerSubscription = null;
   showLoading = false;
+  startNodeType = null;
 
   resetQuery() {
     this.query = null;
@@ -32,6 +33,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
+      this.startNodeType = null;
       const goToResults =
         params['saveOrResults'] && params['saveOrResults'] === 'results';
       if (params['predefinedQueryName']) {
@@ -60,6 +62,11 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
             const json = params['json'];
             if (json) {
               this.fromJson(goToResults, json);
+            } else {
+              const nodeTypeId = params['nodeTypeId'];
+              if (nodeTypeId) {
+                this.startNodeType = nodeTypeId;
+              }
             }
           }
         }
