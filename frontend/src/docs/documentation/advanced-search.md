@@ -29,8 +29,13 @@ your browser's "Back" button.
 
 You can select queries in the list to combine or delete them. To
 combine queries, you must select two or more from the list, and then
-click one of the operator buttons. Results are added to the history
-list.
+click one of the operator buttons:
+
+![advanced search page with new query](assets/advanced_search_combination.png){width="300"}
+
+Results are added to the history list:
+
+![advanced search page with new query](assets/advanced_search_combination_result.png){width="300"}
 
 At present, there is only an awkward kludge to specify the order for a
 query using the Subtract/NOT operator. It always places the more
