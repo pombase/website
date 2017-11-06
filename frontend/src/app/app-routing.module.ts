@@ -111,6 +111,12 @@ const routes: Routes = [
       title: 'Advanced search'
     }
   },
+  { path: 'query/:saveOrResults/from/subset/:subsetName/:subsetDisplayName',
+    component: QueryBuilderComponent,
+    data: {
+      title: 'Advanced search'
+    }
+  },
   { path: 'query/save/from/:type/:id/:name', component: QueryBuilderComponent,
     data: {
       title: 'Advanced search'

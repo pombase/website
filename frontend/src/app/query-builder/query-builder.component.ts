@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { GeneQuery, GeneQueryNode, QueryResult, TermNode,
-         QueryOutputOptions} from '../pombase-query';
+import { GeneQuery, GeneQueryNode, QueryResult, TermNode, SubsetNode,
+         QueryOutputOptions } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { getAppConfig } from '../config';
@@ -48,13 +48,35 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
         if (fromType && termId && termName) {
           this.processFromRoute(fromType, termId, termName);
         } else {
-          const json = params['json'];
-          if (json) {
-            this.fromJson(goToResults, json);
+          const subsetName = params['subsetName'];
+          let subsetDisplayName = params['subsetDisplayName'];
+          if (subsetName) {
+            let decodedSubsetDisplayName = '';
+            if (subsetDisplayName) {
+              decodedSubsetDisplayName = decodeURIComponent(subsetDisplayName);
+            }
+            this.fromSubsetName(goToResults, subsetName, decodedSubsetDisplayName);
+          } else {
+            const json = params['json'];
+            if (json) {
+              this.fromJson(goToResults, json);
+            }
           }
         }
       }
     });
+  }
+
+  private fromSubsetName(goToResults: boolean,
+                         subsetName: string, subsetDisplayName: string): void {
+    const constraints = new SubsetNode (subsetName, subsetDisplayName);
+    const query = new GeneQuery(constraints);
+    if (goToResults) {
+      this.gotoResults(query);
+    } else {
+      this.saveQuery(query);
+    }
+    
   }
 
   private fromJson(goToResults: boolean, json: string) {

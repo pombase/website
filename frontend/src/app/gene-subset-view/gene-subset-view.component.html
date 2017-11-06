@@ -17,11 +17,17 @@
         categories: {{subset.elements.length}}
       </div>
       <div *ngIf="subsetDisplayName">
-        {{subsetDisplayName}}
+        {{subsetDisplayName}}<span *ngIf="subsetGeneCount > 0">: {{subsetGeneCount}}</span>
       </div>
     </div>
 
-    <app-genes-table [legend]="''"
-                     [genes]="subset.elements"></app-genes-table>
+    <div class="actions">
+      <span class="title">Actions: </span>
+      <a *ngIf="queryBuilderRouterLink" routerLink="{{queryBuilderRouterLink}}">
+        Use these genes in query...
+      </a>
+    </div>
+
+    <app-genes-table [legend]="''" [genes]="subset.elements"></app-genes-table>
   </div>
 </div>
