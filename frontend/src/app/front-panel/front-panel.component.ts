@@ -12,8 +12,8 @@ export class FrontPanelComponent implements OnInit {
   @Input() conf: PanelConfig;
 
   panelDescription = null;
-  headImage = null;
-  headVideo = null;
+  headImage: string = null;
+  headVideo: string = null;
 
   constructor() { }
 
@@ -24,6 +24,10 @@ export class FrontPanelComponent implements OnInit {
       this.headVideo = randMedia;
     } else {
       this.headImage = randMedia;
+
+      if (!this.headImage.match(/^\assets\//)) {
+        this.headImage = 'assets/' + this.headImage;
+      }
     }
 
     if (this.conf.panel_type === 'spotlight') {
