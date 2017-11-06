@@ -18,6 +18,17 @@
   float: left;
 }
 
+@media (max-width: 600px) {
+  #logo img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #header-row {
+    height: 20vw;
+  }
+}
+
 #header-search-box {
   z-index: 1000;
 }
