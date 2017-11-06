@@ -27,15 +27,25 @@
   #header-row {
     height: 20vw;
   }
+
+  #header-search-box {
+    margin-top: 1.2vw;
+    font-size: 2.5vw;
+  }
 }
 
 #header-search-box {
   z-index: 1000;
 }
 
+@media (min-width: 600px) {
+  #header-search-box {
+    margin-top: 12px;
+  }
+}
+
 #header-search-box {
   text-align: right;
-  margin-top: 12px;
 }
 
 #content {
