@@ -14,23 +14,23 @@ The fission yeast <a routerLink="/browse-curation/fission-yeast-go-slim-terms">G
 Use the <a routerLink="/query">Advanced Search</a> to construct complex queries (GO, phenotypes, taxonomic distribution, domain, chromosomal location).
 </div>
 <div *ngIf="panelId == 5">
-PomBase has integrated over 200,000 manually curated gene specific annotations. See our <a routerLink="/about/resource-metrics">Resource Metrics</a> page for more literature curation progress reports.
+PomBase has integrated over 200,000 manually curated gene-specific annotations. See our <a routerLink="/about/resource-metrics">Resource Metrics</a> page for more literature curation progress reports.
 </div>
 <div *ngIf="panelId == 6">
-PomBase is using manually curated Gene Ontology annotation to generate biological process specific networks. Part of the cytokinesis network is displayed. Currently available networks can be accessed from the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim</a> page.
+PomBase uses manually curated Gene Ontology annotation to generate biological process-specific networks, such as the cytokinesis network excerpted above. Currently available networks are linked to the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim</a> page.
 </div>
 <div *ngIf="panelId == 7">
-PomBase provides extensive and answers many questions in the <a routerLink="/faq">FAQ</a> but please <app-contact-email [linkName]="'contact the heskdesk'" [subject]="'PomBase question'"></app-contact-email> if you can’t find the information you are looking for.
+PomBase provides extensive documentation and answers many questions in the <a routerLink="/faq">FAQ</a>. For any information you can't find there, please <app-contact-email [linkName]="'contact the helpdesk'" [subject]="'PomBase question'"></app-contact-email>.
 </div>
 <div *ngIf="panelId == 8">
-PomBase has pioneered a community curation system that enables researchers to contribute publication-based annotations directly to database curators. To participate, search for the PuBMed ID of your paper <a href="https://curation.pombase.org/pombe">in Canto</a> or <app-contact-email [linkName]="'contact the heskdesk'" [subject]="'PomBase question'"></app-contact-email>.
+PomBase has pioneered a community curation system that enables researchers to contribute publication-based annotations directly to database curators. To participate, search for the PubMed ID of your paper <a href="https://curation.pombase.org/pombe">in Canto</a> or <app-contact-email [linkName]="'contact the helpdesk'" [subject]="'PomBase question'"></app-contact-email>.
 </div>
 <div *ngIf="panelId == 9">
-The <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search">Protein Motif Search Tool</a> finds any user-defined amino acid sequence. Search supports exact match queries, wildcards, gaps, and ambiguity codes.
+The <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search">Protein Motif Search Tool</a> finds any user-defined amino acid sequence. The search supports exact match queries, wildcards, gaps, and ambiguity codes.
 </div>
 <div *ngIf="panelId == 10">
-4020 of the 5070 fission yeast protein coding genes now have assigned primary names. We encourage all authors and reviewers to ensure that gene names are registered prior to publication. Visit our <a routerLink="/gene-names">gene registry page</a>, and the <a routerLink="/gene-names/gene-naming-guidelines">S. pombe gene naming guidelines</a> for more information.
+4020 of the 5070 fission yeast protein-coding genes now have assigned standard names. We encourage all authors and reviewers to ensure that gene names are registered prior to publication. Visit our <a routerLink="/gene-names">gene registry page</a> and the <a routerLink="/gene-names/gene-naming-guidelines">*S. pombe* gene naming guidelines</a> for more information.
 </div>
 <div *ngIf="panelId == 11">
-Over 500 S. pombe genes whose human orthologs have been implicated in disease are manually annotated with terms from a small in-house vocabulary. See the <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">disease gene FAQ</a> for information on searching these genes.
+Over 500 *S. pombe* genes whose human orthologs have been implicated in disease are manually annotated with terms from a small in-house vocabulary. See the <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">disease gene FAQ</a> for information on searching these genes.
 </div>
