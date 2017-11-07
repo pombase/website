@@ -13,38 +13,37 @@
 
           <div *ngIf="!showTranslation">
             <div class="seq-title">
-              Show these gene parts:
+              Display sequence of these gene parts:
             </div>
 
-            <div class="checkbox-section" *ngIf="featureIsTranslatable">
-            <div *ngIf="has5PrimeUtr">
-            <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
-                   (ngModelChange)="updateSequence()"/>
-            <label for="include-5-prime">Include 5'UTR</label>
-            </div>
-            <div *ngIf="!has5PrimeUtr">
-              (no 5' UTR)
-            </div>
-            </div>
             <div class="flanking-bases">
-              Include
               <input id="upstream-bases" type="number" min="0"
                      [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
               bases upstream
               <span *ngIf="featureIsTranslatable && include5PrimeUtr">of UTR</span>
               <span *ngIf="!(featureIsTranslatable && include5PrimeUtr)">of translation start</span>
             </div>
+            <div class="checkbox-section" *ngIf="featureIsTranslatable">
+            <div *ngIf="has5PrimeUtr">
+            <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
+                   (ngModelChange)="updateSequence()"/>
+            <label for="include-5-prime">5'UTR</label>
+            </div>
+            <div *ngIf="!has5PrimeUtr">
+              (no 5' UTR)
+            </div>
+            </div>
 
             <div class="checkbox-section">
               <input id="include-exons" type="checkbox" [(ngModel)]="includeExons"
                      (ngModelChange)="updateSequence()"/>
-              <label for="include-exons">Include exons</label>
+              <label for="include-exons">Exons</label>
             </div>
 
             <div class="checkbox-section" *ngIf="cdsIntronCount > 0 || fivePrimeIntronCount > 0 || threePrimeIntronCount > 0">
             <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
                    (ngModelChange)="updateSequence()"/>
-            <label for="include-introns">Include introns</label>
+            <label for="include-introns">Introns</label>
             <div class="utr-intron-warning" *ngIf="includeIntrons && (include5PrimeUtr && fivePrimeIntronCount > 0 || include3PrimeUtr && threePrimeIntronCount > 0)">
               <div *ngIf="include5PrimeUtr">
                 <div *ngIf="fivePrimeIntronCount == 1">(Includes one 5'UTR intron)</div>
@@ -61,14 +60,13 @@
             <div *ngIf="has3PrimeUtr">
             <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
-            <label for="include-3-prime">Include 3'UTR</label>
+            <label for="include-3-prime">3'UTR</label>
             </div>
             <div *ngIf="!has3PrimeUtr">
               (no 3' UTR)
             </div>
             </div>
             <div class="flanking-bases">
-              Include
               <input id="downstream-bases" type="number" min="0"
                      [(ngModel)]="downstreamBases" (ngModelChange)="updateSequence()"/>
               bases downstream

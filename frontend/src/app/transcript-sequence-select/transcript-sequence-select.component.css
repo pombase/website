@@ -89,10 +89,6 @@
   color: #0ea476;
 }
 
-.controls .flanking-bases {
-/*  margin-left: 1em; */
-}
-
 .controls .flanking-bases input {
   width: 6em;
 }
@@ -110,8 +106,8 @@
   margin-left: 1em;
 }
 
-.checkbox-section {
-  padding: 0 0 0.4em 0;
+.checkbox-section, .flanking-bases {
+  padding: 0 0 0.4em 1em;
 }
 
 .sequence-actions {
