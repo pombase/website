@@ -27,8 +27,9 @@
 }
 
 .seq-title {
-  padding-top: 0.5em;
+  padding-top: 1em;
   font-weight: bold;
+  padding-bottom: 0.5em;
 }
 
 .residues {
@@ -89,7 +90,7 @@
 }
 
 .controls .flanking-bases {
-  margin-left: 1em;
+/*  margin-left: 1em; */
 }
 
 .controls .flanking-bases input {

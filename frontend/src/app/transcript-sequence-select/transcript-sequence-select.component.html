@@ -12,11 +12,8 @@
           </div>
 
           <div *ngIf="!showTranslation">
-            <div *ngIf="featureIsTranslatable" class="seq-title">
-              CDS sequence and:
-            </div>
-            <div *ngIf="!featureIsTranslatable" class="seq-title">
-              Gene sequence:
+            <div class="seq-title">
+              Show these gene parts:
             </div>
 
             <div class="checkbox-section" *ngIf="featureIsTranslatable">
@@ -25,12 +22,17 @@
                    (ngModelChange)="updateSequence()"/>
             <label for="include-5-prime">Include 5'UTR</label>
             </div>
+            <div *ngIf="!has5PrimeUtr">
+              (no 5' UTR)
+            </div>
             </div>
             <div class="flanking-bases">
               Include
               <input id="upstream-bases" type="number" min="0"
                      [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
-              bases upstream <span *ngIf="featureIsTranslatable && include5PrimeUtr">of UTR</span>
+              bases upstream
+              <span *ngIf="featureIsTranslatable && include5PrimeUtr">of UTR</span>
+              <span *ngIf="!(featureIsTranslatable && include5PrimeUtr)">of translation start</span>
             </div>
 
             <div class="checkbox-section">
@@ -61,12 +63,17 @@
                    (ngModelChange)="updateSequence()"/>
             <label for="include-3-prime">Include 3'UTR</label>
             </div>
+            <div *ngIf="!has3PrimeUtr">
+              (no 3' UTR)
+            </div>
             </div>
             <div class="flanking-bases">
               Include
               <input id="downstream-bases" type="number" min="0"
                      [(ngModel)]="downstreamBases" (ngModelChange)="updateSequence()"/>
-              bases downstream <span *ngIf="featureIsTranslatable && include3PrimeUtr">of UTR</span>
+              bases downstream
+              <span *ngIf="featureIsTranslatable && include3PrimeUtr">of UTR</span>
+              <span *ngIf="!(featureIsTranslatable && include3PrimeUtr)">of translation end</span>
             </div>
           </div>
 
