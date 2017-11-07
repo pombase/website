@@ -132,6 +132,7 @@ export interface SplitByParentsConfig {
   config_name: string;
   termids: Array<string>;
   display_name: string;
+  details_link_label?: string;
 }
 
 export interface AnnotationType {
