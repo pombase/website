@@ -19,7 +19,7 @@ displayed on a genome browser track, "PomBase Annotated Promoter
 (SO:0000167)". This track is under the Sequence and assembly menu, and
 is activated in the default configuration. To search the manually
 curated promoters, we suggest that you use Artemis. Follow the
-instructions in [this FAQ](/faq/there-equivalent-artemis-java-applet-in-md),
+instructions in [this FAQ](/faq/there-equivalent-artemis-java-applet-pombase),
 and search for features with "Key" = "promoter".
 
 

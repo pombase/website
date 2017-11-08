@@ -1,8 +1,10 @@
 # Can I convert a file from GTF to GFF3?
 <!-- pombase_categories: Tools and resources -->
 
-PomBase does not offer a converter. The Sequence Ontology site has a
-conversion script that can be used via a web form (at
-http://www.sequenceontology.org/cgi-bin/converter.cgi) or checked out
-from their CVS repository.
+PomBase does not offer a converter. The 
+
+[Sequence Ontology](http://www.sequenceontology.org/) project offers a
+conversion tool available for download or usage via web form from
+their [GitHub site](https://github.com/The-Sequence-Ontology/GTF-TO-GFF3-Converter)
+
 

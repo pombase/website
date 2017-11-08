@@ -4,7 +4,7 @@
 No, but this can be done within Artemis.
 
 Install Artemis (available from
-http://www.sanger.ac.uk/science/tools/artemis).
+<http://www.sanger.ac.uk/science/tools/artemis>).
 
 You can then read in the EMBL format chromosome contig files of
 sequence and annotation (available from the 
@@ -19,7 +19,7 @@ generate a restriction map:
     for any restriction patterns of interest and save them into your
     file.
 5.  You can add "color" labels to distinguish the different restriction
-    sites. See the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-in-md) and the
+    sites. See the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase) and the
     [Artemis manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf) (pdf;
     Sanger site) for additional information.
 

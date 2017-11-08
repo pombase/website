@@ -6,7 +6,7 @@ S. pombe genome features were originally annotated using
 in the manual
 (ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf - see
 p. 9), Artemis draws from a list of feature keys that is documented at
-EBI: ftp://ftp.ebi.ac.uk/pub/databases/embl/doc/FT\_current.html\#7.2\
+EBI: (<ftp://ftp.ebi.ac.uk/pub/databases/embl/doc/FT\_current.html\#7.2\>)
 
 In the genome sequence data files, features are defined using
 [Sequence Ontology](http://sequenceontology.org/) terms. Gene pages

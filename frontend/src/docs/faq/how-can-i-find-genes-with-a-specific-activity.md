@@ -14,7 +14,7 @@ into the box. Otherwise, and start typing a name or description; the
 autocomplete feature will suggest terms. Choose one to retrieve
 annotated genes. You can try using more specific or less specific
 terms to retrieve the results that best fit your expectations and
-needs. See the [advanced search documentation](documentation/advaced-search)
+needs. See the [advanced search documentation](documentation/advanced-search)
 and the [Gene Page GO documentation](/documentation/gene-page-gene-ontology) 
 for more information, including how [ontology searches retrieve
 annotations] to general terms.

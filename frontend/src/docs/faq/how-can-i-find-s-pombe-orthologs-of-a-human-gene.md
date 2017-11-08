@@ -16,6 +16,6 @@ your search retrieves more than one result.
 
 Also see the FAQs on on [finding genes conserved in human](/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human),
 [finding disease gene orthologs](/faq/how-can-i-find-s.-pombe-genes-associated-human-disease),
-and on [downloading the full set of curated orthologs](/faq/how-can-i-obtain-the-list-human-and-s.-pombe-orthologs).
+and on [downloading the full set of curated orthologs](/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs).
 You may also find the FAQ on [orthologs in other species](/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae) useful.
 

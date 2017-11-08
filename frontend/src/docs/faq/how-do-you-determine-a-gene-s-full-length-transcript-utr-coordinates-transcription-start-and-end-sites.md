@@ -26,9 +26,9 @@ sources and a set of precedence criteria:
 
 More information is available in the mailing list archive for two HTP
 datasets (Broad:
-http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000856.html ;
+<http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000856.html> ;
 Lanterman/Dutrow:
-http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000814.html).
+<http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000814.html>).
 
 Transcript start and end coordinates from all sources will be available
 as individual data tracks in the Ensembl genome browser in the near

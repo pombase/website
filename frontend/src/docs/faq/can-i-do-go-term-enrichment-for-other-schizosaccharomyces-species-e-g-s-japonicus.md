@@ -5,7 +5,7 @@ There are two possible approaches:
 
 1. Retrieve a set of GO annotations in GAF format for *S. japonicus*,
 *S. octosporus* or *S. cryophilus*, as described in the 
-[relevant FAQ](/faq/how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.-g.-s.-japonicus).
+[relevant FAQ](/faq/how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus).
 Use the GO annotation dataset and your gene list for enrichment.
 
 OR
