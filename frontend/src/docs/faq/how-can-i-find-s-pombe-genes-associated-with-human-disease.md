@@ -1,4 +1,4 @@
-g# How can I find *S. pombe* genes associated with human disease?
+# How can I find *S. pombe* genes associated with human disease?
 <!-- pombase_categories: Orthology,Finding data -->
 
 *S. pombe* genes whose human orthologs have been implicated in disease
