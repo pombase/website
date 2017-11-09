@@ -177,6 +177,10 @@ select option:disabled {
     width: 30%;
     padding: 0.5em;
   }
+
+  .small-logo-visible img {
+    width: 24vw;
+  }
 }
 
 .details-page .menu-header {
