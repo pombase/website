@@ -103,7 +103,7 @@
                 <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensdnaform
                       (ngSubmit)="ensdnaform.submit();"
                       target="_blank"
-                      action="https://fungi.ensembl.org/Multi/Tools/Blast" method="POST">
+                      action="https://fungi.ensembl.org/Schizosaccharomyces_pombe/Tools/Blast" method="POST">
                   <input value="{{'>' + sequenceHeader + '\n' + wrappedSequence}}" name="query_sequence" type="hidden">
                   <input class="btn btn-primary" type="submit" value="Ensembl DNA BLAST" />
                 </form>
@@ -125,7 +125,7 @@
                 <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensprotform
                       (ngSubmit)="ensprotform.submit();"
                       target="_blank"
-                      action="https://fungi.ensembl.org/Multi/Tools/Blast?query=peptide;database=peptide" method="POST">
+                      action="https://fungi.ensembl.org/Schizosaccharomyces_pombe/Tools/Blast?query=peptide;database=peptide" method="POST">
                   <input value="{{'>' + proteinSequenceHeader + '\n' + wrappedProteinSequence}}" name="query_sequence" type="hidden">
                   <input class="btn btn-primary" type="submit" value="Ensembl Protein BLAST" />
                 </form>
