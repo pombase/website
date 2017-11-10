@@ -7,6 +7,7 @@ import { TabsetComponent } from 'ngx-bootstrap';
 import { GeneQuery, GeneListNode, QueryOutputOptions, FormatUtils,
          FormatTypes } from '../pombase-query';
 import { QueryService } from '../query.service';
+import { getAppConfig, AppConfig } from '../config';
 
 import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.service';
 
@@ -18,6 +19,8 @@ import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.servic
 export class GenesDownloadDialogComponent implements OnInit {
   @ViewChild('downloadTabs') staticTabs: TabsetComponent;
 
+  appConfig: AppConfig = getAppConfig();
+
   public genes: Array<GeneShort>;
   public seqType = 'protein';
   public includeIntrons = false;
@@ -25,9 +28,10 @@ export class GenesDownloadDialogComponent implements OnInit {
   public include3PrimeUtr = false;
 
   fieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
-                'Synonyms', 'Feature type', 'Start position', 'End position', 'Strand'];
+                'Synonyms', 'Feature type', 'Start position', 'End position',
+                'Chromosome', 'Strand'];
   fields = {'Systematic ID': true};
-  fieldValGenerators = {
+  fieldValGenerators: { [label: string]: (g: GeneSummary) => string } = {
     'Systematic ID': g => g.uniquename,
     'Name': g => g.name || '',
     'Synonyms': g => g.synonyms.join(','),
@@ -36,6 +40,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     'Feature type': g => this.displayFeatureType(g),
     'Start position': g => String(g.location.start_pos),
     'End position': g => String(g.location.end_pos),
+    'Chromosome': g => String(g.location.chromosome.name),
     'Strand': g => g.location.strand,
   };
 
@@ -108,7 +113,15 @@ export class GenesDownloadDialogComponent implements OnInit {
           const geneSummary = geneSummaries[gene.uniquename];
           let row = [];
           for (const fieldName of selectedFields) {
-            row.push(this.fieldValGenerators[fieldName](geneSummary));
+            let fieldVal = this.fieldValGenerators[fieldName](geneSummary);
+            if (fieldName === 'Chromosome') {
+              const chromosomeConfig = this.appConfig.chromosomes[fieldVal];
+              if (chromosomeConfig && chromosomeConfig.display_name) {
+                fieldVal = chromosomeConfig.display_name;
+              }
+            }
+
+            row.push(fieldVal);
           }
           rows.push(row);
         }
