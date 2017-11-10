@@ -10,11 +10,10 @@ import 'rxjs/add/operator/mergeMap';
 
 import { Angulartics2GoogleAnalytics } from 'angulartics2';
 
-const defaultTitle = 'PomBase, the S. pombe genome database';
-const defaultDescription = 'PomBase is a comprehensive database for the fission yeast ' +
-  'Schizosaccharomyces pombe, providing structural and functional annotation, ' +
-  'literature curation and access to large-scale data sets';
+import { getAppConfig } from './config';
 
+const defaultTitle = getAppConfig().site_name;
+const defaultDescription = getAppConfig().site_description;
 
 @Component({
   selector: 'app-root',

@@ -74,6 +74,8 @@ export interface PanelConfig {
 }
 
 export interface AppConfig {
+  site_name: string;
+  site_description: string;
   load_organism_taxonid: number;
   organisms: Array<ConfigOrganism>;
   frontPagePanels: Array<PanelConfig>;
@@ -367,6 +369,8 @@ function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
 }
 
 let _appConfig: AppConfig = {
+  site_name: pombaseConfig.site_name,
+  site_description: pombaseConfig.site_description,
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
   organisms: pombaseConfig.organisms,
   frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
