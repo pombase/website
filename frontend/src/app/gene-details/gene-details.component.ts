@@ -58,33 +58,15 @@ export class GeneDetailsComponent implements OnInit {
     if (this.geneDetails.transcripts && this.geneDetails.transcripts.length > 0) {
       const transcript = this.geneDetails.transcripts[0];
 
-      if (!transcript.protein) {
+      const cds_location = transcript.cds_location;
+
+      if (!cds_location) {
         return null;
       }
 
-      const parts = transcript.parts;
+      const len = cds_location.end_pos - cds_location.start_pos + 1;
 
-      if (parts.length === 0) {
-        return null;
-      }
-
-      let currentCDSStart = 99999999999;
-      let currentCDSEnd = -1;
-
-      for (let part of parts) {
-        if (part.feature_type === 'exon') {
-          if (currentCDSStart > part.location.start_pos) {
-            currentCDSStart = part.location.start_pos;
-          }
-          if (currentCDSEnd < part.location.end_pos) {
-            currentCDSEnd = part.location.end_pos;
-          }
-        }
-      }
-
-      const len = currentCDSEnd - currentCDSStart + 1;
-
-      return `${currentCDSStart}-${currentCDSEnd} (${len}nt)`;
+      return `${cds_location.start_pos}-${cds_location.end_pos} (${len}nt)`;
     }
 
     return null;
