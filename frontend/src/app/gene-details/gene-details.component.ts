@@ -128,6 +128,8 @@ export class GeneDetailsComponent implements OnInit {
 
       if (this.geneDetails.product) {
         return nameId + ' - ' + this.geneDetails.product;
+      } else {
+        return nameId;
       }
     } else {
       return 'UNKNOWN';
