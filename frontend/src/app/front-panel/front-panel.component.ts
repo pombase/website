@@ -25,7 +25,9 @@ export class FrontPanelComponent implements OnInit {
     } else {
       this.headImage = randMedia;
 
-      if (!this.headImage.match(/^\assets\//)) {
+      if (!this.headImage.match(/^assets\//) &&
+          !this.headImage.startsWith('/') &&
+          !this.headImage.startsWith('http')) {
         this.headImage = 'assets/' + this.headImage;
       }
     }
