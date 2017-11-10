@@ -76,45 +76,62 @@
           </div>
 
           <div *ngIf="wrappedSequence" class="sequence-actions">
-            <div style="display: inline-block; vertical-align: top;" class="sequence-action">
+            <div style="vertical-align: top;" class="sequence-action">
               <button class="btn btn-primary" (click)="download()">Download sequence</button>
             </div>
 
             <div style="display: inline-block" class="sequence-action">
               <span class="sequence-action">
-                <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbiform
-                      (ngSubmit)="ncbiform.submit()"
-                      target="{{linksInNewWindow ? '_blank' : ''}}"
+                <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbidnaform
+                      (ngSubmit)="ncbidnaform.submit()"
+                      target="_blank"
                       action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="GET">
                   <input name="QUERY" value="{{'>' + sequenceHeader + '\n' + wrappedSequence}}" type="hidden">
-                  <input name="PROGRAM" value="{{showTranslation?'blastp':'blastn'}}" type="hidden">
+                  <input name="PROGRAM" value="blastn" type="hidden">
                   <input name="PAGE_TYPE" value="BlastSearch" type="hidden">
-                  <input class="btn btn-primary" type="submit" value="NCBI {{showTranslation?'BLASTP':'BLASTN'}}" />
+                  <input class="btn btn-primary" type="submit" value="NCBI BLASTN" />
                 </form>
               </span>
 
               <span class="sequence-action">
-                <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensform
-                      (ngSubmit)="ensform.submit();"
-                      target="{{linksInNewWindow ? '_blank' : ''}}"
-                      action="https://fungi.ensembl.org/Multi/Tools/Blast{{showTranslation?'?query=peptide;database=peptide':''}}" method="POST">
+                <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensdnaform
+                      (ngSubmit)="ensdnaform.submit();"
+                      target="_blank"
+                      action="https://fungi.ensembl.org/Multi/Tools/Blast" method="POST">
                   <input value="{{'>' + sequenceHeader + '\n' + wrappedSequence}}" name="query_sequence" type="hidden">
-                  <input class="btn btn-primary" type="submit" value="Ensembl {{showTranslation ? 'Protein' : 'DNA'}} BLAST" />
+                  <input class="btn btn-primary" type="submit" value="Ensembl DNA BLAST" />
                 </form>
               </span>
-              <div>
-                <input if="links-in-new-window" type="checkbox" [(ngModel)]="linksInNewWindow" />
-                <label for="links-in-new-window">Open BLAST in new tab</label>
-              </div>
 
+              <span class="sequence-action">
+                <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbiprotform
+                      (ngSubmit)="ncbiprotform.submit()"
+                      target="_blank"
+                      action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="GET">
+                  <input name="QUERY" value="{{'>' + proteinSequenceHeader + '\n' + wrappedProteinSequence}}" type="hidden">
+                  <input name="PROGRAM" value="blastp" type="hidden">
+                  <input name="PAGE_TYPE" value="BlastSearch" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="NCBI BLASTP" />
+                </form>
+              </span>
+
+              <span class="sequence-action">
+                <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensprotform
+                      (ngSubmit)="ensprotform.submit();"
+                      target="_blank"
+                      action="https://fungi.ensembl.org/Multi/Tools/Blast?query=peptide;database=peptide" method="POST">
+                  <input value="{{'>' + proteinSequenceHeader + '\n' + wrappedProteinSequence}}" name="query_sequence" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="Ensembl Protein BLAST" />
+                </form>
+              </span>
             </div>
           </div>
         </div>
 
         <div class="sequence-holder">
           <pre *ngIf="showTranslation">
-&gt;{{sequenceHeader}}
-{{wrappedSequence}}
+&gt;{{proteinSequenceHeader}}
+{{wrappedProteinSequence}}
           </pre>
 
           <div class="sequence-display" *ngIf="!showTranslation">

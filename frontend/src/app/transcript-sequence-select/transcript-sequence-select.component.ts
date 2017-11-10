@@ -16,11 +16,11 @@ const lineLength = 60;
 export class TranscriptSequenceSelectComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;
 
-  rawSequence = '';
   wrappedSequence = '';
+  wrappedProteinSequence = '';
   displaySequence: DisplaySequence = null;
-  sequenceDescription = '';
   sequenceHeader = '';
+  proteinSequenceHeader = '';
   hasTranscripts = false;
   fivePrimeIntronCount = 0;
   threePrimeIntronCount = 0;
@@ -42,41 +42,36 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   upstreamBases = 0;
   downstreamBases = 0;
 
-  linksInNewWindow = false;
+  linksInNewWindow = true;
 
   hoverPart: DisplaySequenceLinePart = null;
 
   constructor(private apiService: PombaseAPIService) { }
 
   updateHeader(sequenceLength: number) {
-    this.sequenceHeader = this.sequenceDescription;
+    this.sequenceHeader = this.geneDetails.uniquename;
 
-    if (this.showTranslation) {
-      this.sequenceHeader += ' length:' +
-        this.geneDetails.transcripts[0].protein.number_of_residues;
-    } else {
-      this.sequenceHeader += ' length:' + sequenceLength;
+    this.sequenceHeader += ' length:' + sequenceLength;
 
-      let partsFlags = [];
-      if (this.include5PrimeUtr) {
-        partsFlags.push('5\'UTR');
-      }
-      if (this.includeExons) {
-        partsFlags.push('exons');
-      }
-      if (this.includeIntrons) {
-        partsFlags.push('introns');
-      }
-      if (this.include3PrimeUtr) {
-        partsFlags.push('3\'UTR');
-      }
-      if (partsFlags.length > 0) {
-        this.sequenceHeader += ' includes:' + partsFlags.join('+');
-      }
-      this.sequenceHeader +=
-      (this.upstreamBases > 0 ? ' upstream:' + this.upstreamBases : '') +
-        (this.downstreamBases > 0 ? ' downstream:' + this.downstreamBases : '');
+    let partsFlags = [];
+    if (this.include5PrimeUtr) {
+      partsFlags.push('5\'UTR');
     }
+    if (this.includeExons) {
+      partsFlags.push('exons');
+    }
+    if (this.includeIntrons) {
+      partsFlags.push('introns');
+    }
+    if (this.include3PrimeUtr) {
+      partsFlags.push('3\'UTR');
+    }
+    if (partsFlags.length > 0) {
+      this.sequenceHeader += ' includes:' + partsFlags.join('+');
+    }
+    this.sequenceHeader +=
+    (this.upstreamBases > 0 ? ' upstream:' + this.upstreamBases : '') +
+      (this.downstreamBases > 0 ? ' downstream:' + this.downstreamBases : '');
   }
 
   partTitle(part: DisplaySequenceLinePart): string {
@@ -109,13 +104,14 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   updateSequence() {
+    this.wrappedSequence = null;
+    this.displaySequence = null;
+
     let transcripts = this.geneDetails.transcripts;
     this.hasTranscripts = transcripts.length > 0;
 
-    this.sequenceDescription = this.geneDetails.uniquename;
-
     if (this.hasTranscripts) {
-      this.sequenceHeader = this.sequenceDescription;
+      this.sequenceHeader = this.geneDetails.uniquename;
       if (this.upstreamBases < 0) {
         this.upstreamBases = 0;
       }
@@ -124,116 +120,108 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         this.downstreamBases = 0;
       }
 
-      this.wrappedSequence = null;
-      this.displaySequence = null;
-
-      if (this.showTranslation) {
-        this.sequenceDescription += '-peptide-sequence';
-        this.rawSequence = transcripts[0].protein.sequence;
-        this.updateHeader(this.rawSequence.length);
-        this.wrappedSequence = Util.splitSequenceString(this.rawSequence);
+      let geneLocation = this.geneDetails.location;
+      let strand;
+      let coordStart;
+      let coordEnd;
+      if (geneLocation.strand === 'forward') {
+        strand = Strand.Forward;
+        if (this.include5PrimeUtr) {
+          coordStart = this.geneStart;
+        } else {
+          coordStart = this.cdsStart;
+        }
+        if (this.include3PrimeUtr) {
+          coordEnd = this.geneEnd;
+        } else {
+          coordEnd = this.cdsEnd;
+        }
       } else {
-        this.sequenceDescription += '-transcript-sequence';
-        this.rawSequence = '';
-
-        let geneLocation = this.geneDetails.location;
-        let strand;
-        let coordStart;
-        let coordEnd;
-        if (geneLocation.strand === 'forward') {
-          strand = Strand.Forward;
-          if (this.include5PrimeUtr) {
-            coordStart = this.geneStart;
-          } else {
-            coordStart = this.cdsStart;
-          }
-          if (this.include3PrimeUtr) {
-            coordEnd = this.geneEnd;
-          } else {
-            coordEnd = this.cdsEnd;
-          }
+        strand = Strand.Reverse;
+        if (this.include5PrimeUtr) {
+          coordEnd = this.geneEnd;
         } else {
-          strand = Strand.Reverse;
-          if (this.include5PrimeUtr) {
-            coordEnd = this.geneEnd;
-          } else {
-            coordEnd = this.cdsEnd;
-          }
-          if (this.include3PrimeUtr) {
-            coordStart = this.geneStart;
-          } else {
-            coordStart = this.cdsStart;
-          }
+          coordEnd = this.cdsEnd;
         }
-        let chrName = geneLocation.chromosome;
-
-        let upstreamPromise: Promise<string>;
-        let downstreamPromise: Promise<string>;
-
-        if (this.upstreamBases > 0) {
-          let [upstreamStart, upstreamEnd] =
-            strand === Strand.Forward ?
-             [coordStart - this.upstreamBases, coordStart - 1] :
-             [coordEnd + 1, coordEnd + this.upstreamBases];
-          upstreamPromise =
-            this.apiService.getChrSubSequence(chrName, upstreamStart, upstreamEnd,
-                                                     strand);
+        if (this.include3PrimeUtr) {
+          coordStart = this.geneStart;
         } else {
-          upstreamPromise = Promise.resolve('');
+          coordStart = this.cdsStart;
         }
-        if (this.downstreamBases > 0) {
-          let [downstreamStart, downstreamEnd] =
-            strand === Strand.Forward ?
-             [coordEnd + 1, coordEnd + this.downstreamBases] :
-             [coordStart - this.downstreamBases, coordStart - 1];
-          downstreamPromise =
-            this.apiService.getChrSubSequence(chrName, downstreamStart, downstreamEnd,
-                                                     strand);
-        } else {
-          downstreamPromise = Promise.resolve('');
-        }
-
-        Promise.all([upstreamPromise, downstreamPromise])
-          .then((values) => {
-            const upstreamSequence = values[0];
-            let includedParts = [];
-            for (let part of transcripts[0].parts) {
-              if (part.feature_type === 'exon'  && this.includeExons ||
-                  this.includeIntrons && part.feature_type === 'cds_intron' ||
-                  this.include5PrimeUtr &&
-                  (part.feature_type === 'five_prime_utr' ||
-                   this.includeIntrons && part.feature_type === 'five_prime_utr_intron') ||
-                  this.include3PrimeUtr &&
-                  (part.feature_type === 'three_prime_utr' ||
-                   this.includeIntrons && part.feature_type === 'three_prime_utr_intron')) {
-                includedParts.push(part);
-              }
-            }
-            const downstreamSequence = values[1];
-
-            this.displaySequence =
-              new DisplaySequence(lineLength,
-                                  upstreamSequence, includedParts, downstreamSequence);
-
-            this.rawSequence = this.displaySequence.residues();
-            this.updateHeader(this.rawSequence.length);
-
-            this.wrappedSequence = Util.splitSequenceString(this.rawSequence);
-
-          })
-          .catch((e) => {
-            this.rawSequence = '';
-            this.wrappedSequence = '';
-            this.displaySequence = null;
-          });
       }
+      let chrName = geneLocation.chromosome;
+
+      let upstreamPromise: Promise<string>;
+      let downstreamPromise: Promise<string>;
+
+      if (this.upstreamBases > 0) {
+        let [upstreamStart, upstreamEnd] =
+          strand === Strand.Forward ?
+          [coordStart - this.upstreamBases, coordStart - 1] :
+          [coordEnd + 1, coordEnd + this.upstreamBases];
+        upstreamPromise =
+          this.apiService.getChrSubSequence(chrName, upstreamStart, upstreamEnd,
+                                            strand);
+      } else {
+        upstreamPromise = Promise.resolve('');
+      }
+      if (this.downstreamBases > 0) {
+        let [downstreamStart, downstreamEnd] =
+          strand === Strand.Forward ?
+          [coordEnd + 1, coordEnd + this.downstreamBases] :
+          [coordStart - this.downstreamBases, coordStart - 1];
+        downstreamPromise =
+          this.apiService.getChrSubSequence(chrName, downstreamStart, downstreamEnd,
+                                            strand);
+      } else {
+        downstreamPromise = Promise.resolve('');
+      }
+
+      Promise.all([upstreamPromise, downstreamPromise])
+        .then((values) => {
+          const upstreamSequence = values[0];
+          let includedParts = [];
+          for (let part of transcripts[0].parts) {
+            if (part.feature_type === 'exon'  && this.includeExons ||
+                this.includeIntrons && part.feature_type === 'cds_intron' ||
+                this.include5PrimeUtr &&
+                (part.feature_type === 'five_prime_utr' ||
+                 this.includeIntrons && part.feature_type === 'five_prime_utr_intron') ||
+                this.include3PrimeUtr &&
+                (part.feature_type === 'three_prime_utr' ||
+                 this.includeIntrons && part.feature_type === 'three_prime_utr_intron')) {
+              includedParts.push(part);
+            }
+          }
+          const downstreamSequence = values[1];
+
+          this.displaySequence =
+            new DisplaySequence(lineLength,
+                                upstreamSequence, includedParts, downstreamSequence);
+
+          const rawSequence = this.displaySequence.residues();
+          this.updateHeader(rawSequence.length);
+
+          this.wrappedSequence = Util.splitSequenceString(rawSequence);
+        })
+        .catch((e) => {
+          this.wrappedSequence = '';
+          this.displaySequence = null;
+        });
     }
   }
 
   download() {
-    let fileName = this.sequenceDescription + '.fasta';
-    saveAs(new Blob(['>' + this.sequenceHeader + '\n' + this.wrappedSequence],
-                    { type: 'text' }), fileName);
+    if (this.showTranslation) {
+      const fileName = this.geneDetails.uniquename + '-peptide-sequence.fasta';
+      saveAs(new Blob(['>' + this.proteinSequenceHeader + '\n' +
+                       this.wrappedProteinSequence],
+                      { type: 'text' }), fileName);
+    } else {
+      const fileName = this.geneDetails.uniquename + '-transcript-sequence.fasta';
+      saveAs(new Blob(['>' + this.sequenceHeader + '\n' + this.wrappedSequence],
+                      { type: 'text' }), fileName);
+    }
   }
 
   prefetch() {
@@ -273,9 +261,17 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.cdsStart = null;
     this.cdsEnd = null;
 
+    this.proteinSequenceHeader = '';
+    this.wrappedProteinSequence = '';
+
     let transcripts = this.geneDetails.transcripts;
 
     if (transcripts && transcripts.length > 0) {
+      const rawProteinSequence = transcripts[0].protein.sequence;
+      this.proteinSequenceHeader += ' length:' +
+        this.geneDetails.transcripts[0].protein.number_of_residues;
+      this.wrappedProteinSequence = Util.splitSequenceString(rawProteinSequence);
+
       for (let part of transcripts[0].parts) {
         if (part.feature_type === 'five_prime_utr_intron') {
           this.fivePrimeIntronCount++;
