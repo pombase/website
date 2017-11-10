@@ -221,6 +221,7 @@ export interface TranscriptDetails {
   sequence: string;
   transcript_type: string;
   protein?: ProteinDetails;
+  cds_location?: ChromosomeLocation;
 }
 
 export interface InterProMatchLocation {
@@ -256,7 +257,6 @@ export class GeneDetails {
   orfeome_identifier: string;
   characterisation_status: string;
   location: ChromosomeLocation;
-  cds_location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;
   physical_interactions: Array<InteractionAnnotation>;
