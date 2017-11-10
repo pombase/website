@@ -267,10 +267,14 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     let transcripts = this.geneDetails.transcripts;
 
     if (transcripts && transcripts.length > 0) {
-      const rawProteinSequence = transcripts[0].protein.sequence;
-      this.proteinSequenceHeader += ' length:' +
-        this.geneDetails.transcripts[0].protein.number_of_residues;
-      this.wrappedProteinSequence = Util.splitSequenceString(rawProteinSequence);
+      const protein = transcripts[0].protein;
+
+      if (protein) {
+        const rawProteinSequence = protein.sequence;
+        this.proteinSequenceHeader += ' length:' +
+          this.geneDetails.transcripts[0].protein.number_of_residues;
+        this.wrappedProteinSequence = Util.splitSequenceString(rawProteinSequence);
+      }
 
       for (let part of transcripts[0].parts) {
         if (part.feature_type === 'five_prime_utr_intron') {
