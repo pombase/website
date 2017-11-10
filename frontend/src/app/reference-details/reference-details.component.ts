@@ -29,7 +29,7 @@ export class ReferenceDetailsComponent implements OnInit {
              ) { }
 
   setPageTitle(): void {
-    let title = 'Reference - ';
+    let title = this.titleService.getTitle() + ' - Reference - ';
     if (this.refDetails) {
       title += this.refDetails.uniquename;
       if (this.refDetails.title) {

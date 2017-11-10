@@ -137,7 +137,7 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    let title = 'Gene - ' + this.displayNameLong();
+    let title = this.appConfig.site_name + ' - Gene - ' + this.displayNameLong();
     this.titleService.setTitle(title);
     this.meta.updateTag({property: 'og:title', content: title});
   }
