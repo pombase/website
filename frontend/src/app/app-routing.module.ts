@@ -122,6 +122,11 @@ const routes: Routes = [
       title: 'Advanced search'
     }
   },
+  { path: 'query/results/from/history/:historyEntryId', component: QueryBuilderComponent,
+    data: {
+      title: 'Advanced search'
+    }
+  },
   { path: 'query/save/from/:type/:id/:name', component: QueryBuilderComponent,
     data: {
       title: 'Advanced search'

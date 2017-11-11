@@ -2,8 +2,26 @@
   <app-loading-spinner *ngIf="genes.length == 0"></app-loading-spinner>
 <fieldset *ngIf="genes.length > 0" class="genes-table">
 
-  <div class="download-links">
+  <div *ngIf="selectionInProgress()" class="action">
+    <button class="btn btn-primary"
+            [disabled]="selectedCount() == 0"
+            title="{{selectedCount() == 0 ? 'Select some genes to filter' : 'Filter list to show only the selected genes'}}"
+            (click)="filter()">Filter</button>
+  </div>
+  <div *ngIf="selectionInProgress()" class="action">
+    <button class="btn btn-primary"
+            title="Cancel gene selection mode"
+            (click)="cancelSelection()">Cancel</button>
+  </div>
+  <div *ngIf="!selectionInProgress()" class="action">
     <button class="btn btn-primary" (click)="download()">Download ...</button>
+  </div>
+  <div *ngIf="!selectionInProgress()" class="action">
+    <div >
+      <button [disabled]="genes.length > 500"
+              title="{{genes.length > 500 ? tooManyGenesTitle : selectGenesTitle}}"
+              class="btn btn-primary" (click)="startSelection()">Selection mode</button>
+    </div>
   </div>
 
   <legend *ngIf="showLengend">
@@ -14,9 +32,13 @@
     {{description}}
   </div>
 
+  <form>
   <table>
     <thead>
       <tr>
+        <td *ngIf="selectionInProgress()">
+          &nbsp;
+        </td>
         <th>
           <a *ngIf="orderByField != 'gene'" (click)="setOrderBy('gene')"
              title="Click to sort">Gene name</a>
@@ -34,6 +56,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let gene of genes | geneShortOrderBy: orderByField">
+        <td *ngIf="selectionInProgress()">
+          <input id="show-translation" type="checkbox"
+                 [name]="gene.uniquename"
+                 [(ngModel)]="selectedGenes[gene.uniquename]"/>
+        </td>
         <td>
           <a *ngIf="gene.name" routerLink="/gene/{{gene.uniquename}}">
             {{gene.name}}
@@ -48,5 +75,6 @@
       </tr>
     </tbody>
   </table>
+  </form>
 </fieldset>
 </div>

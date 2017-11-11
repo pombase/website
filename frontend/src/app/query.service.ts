@@ -11,10 +11,15 @@ function makeResults(resultsObject: any): QueryResult {
 
 const localStorageKey = 'pombase-query-build-history-v1';
 
+let historyEntryCounter = 0;
+
 export class HistoryEntry {
   checked = false;
+  id: number;
 
-  constructor(private query: GeneQuery, private resultCount: number) {};
+  constructor(private query: GeneQuery, private resultCount: number) {
+    this.id = historyEntryCounter++;
+  };
 
   getQuery(): GeneQuery {
     return this.query;
@@ -36,6 +41,10 @@ export class HistoryEntry {
 
   setCount(resultCount: number) {
     this.resultCount = resultCount;
+  }
+
+  getEntryId(): number {
+    return this.id;
   }
 }
 
@@ -104,24 +113,38 @@ export class QueryService {
     localStorage.setItem(localStorageKey, JSON.stringify(historyObjects));
   }
 
+  historyEntryById(historyEntryId: number): GeneQuery {
+    for (let entry of this.history) {
+      if (entry.getEntryId() === historyEntryId) {
+        return entry.getQuery();
+      }
+    }
+    return null;
+  }
+
   private deleteExisting(query: GeneQuery) {
     this.history = this.history.filter(histEntry => {
       return !histEntry.getQuery().equals(query);
     });
   }
 
-  saveToHistoryWithCount(query: GeneQuery, count: number) {
+  saveToHistoryWithCount(query: GeneQuery, count: number): HistoryEntry {
     this.deleteExisting(query);
     const entry = new HistoryEntry(query, count);
     this.history.unshift(entry);
     this.subject.next(this.history);
     this.saveHistory();
+    return entry;
   }
 
-  saveToHistory(query: GeneQuery) {
+  saveToHistory(query: GeneQuery,
+                doneCallback?: (historyEntry: HistoryEntry) => void) {
     this.postQueryCount(query)
       .subscribe((count) => {
-        this.saveToHistoryWithCount(query, count);
+        const historyEntry = this.saveToHistoryWithCount(query, count);
+        if (doneCallback) {
+          doneCallback(historyEntry);
+        }
       });
   }
 

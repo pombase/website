@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ContactEmailComponent } from './contact-email/contact-email.component';
@@ -19,7 +20,8 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
   ],
   exports: [
     GoSlimTableComponent,

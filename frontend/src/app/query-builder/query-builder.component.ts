@@ -63,9 +63,17 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
             if (json) {
               this.fromJson(goToResults, json);
             } else {
-              const nodeTypeId = params['nodeTypeId'];
+              const nodeTypeId = +params['nodeTypeId'];
               if (nodeTypeId) {
                 this.startNodeType = nodeTypeId;
+              } else {
+                const historyEntryId = +params['historyEntryId'];
+                if (historyEntryId) {
+                  const query = this.queryService.historyEntryById(historyEntryId);
+                  if (query) {
+                    this.gotoResults(query);
+                  }
+                }
               }
             }
           }
@@ -83,7 +91,6 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     } else {
       this.saveQuery(query);
     }
-    
   }
 
   private fromJson(goToResults: boolean, json: string) {
