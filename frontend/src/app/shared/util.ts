@@ -72,21 +72,29 @@ export class Util {
       description = alleleType || 'unknown';
     }
 
-    if (alleleType.match(/^mutation/)) {
-      if (alleleType.match(/amino acid/)) {
-        description.replace(/(^|,\s*)/g,
-                            function(match, p1) {
-                              return p1 + 'aa';
-                            });
-      } else {
-        if (alleleType.match(/nucleotide/)) {
-          description.replace(/(^|,\s*)/,
-                              function(match, p1) {
-                                return p1 + 'nt';
-                              });
+    if (alleleType.match(/mutation$/)) {
+      if (description.match(/\w+\d+\w+$/)) {
+        if (alleleType.match(/amino.acid/)) {
+          description += ' aa';
+        } else {
+          if (alleleType.match(/nucleotide/)) {
+            description += ' nt';
+          }
         }
       }
     }
+
+    if (alleleType.startsWith('partial') &&
+        description.match(/\d+$/)) {
+      if (alleleType.match(/^partial.amino.acid.deletion$/)) {
+        description += ' Δaa';
+      } else {
+        if (alleleType.match(/^partial.nucleotide.deletion$/)) {
+          description += ' Δnt';
+        }
+      }
+    }
+
     return `${name}(${description})`;
   }
 
