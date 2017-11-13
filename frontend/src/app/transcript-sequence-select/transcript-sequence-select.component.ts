@@ -128,7 +128,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
               endPartId &&
               typeof(endOffset) !== 'undefined' &&
               endOffset > startOffset) {
-            console.log([startPartId, startOffset, endPartId, endOffset]);
             this.selectedResidueRange =
               this.displaySequence.rangeFromParts(+startPartId, startOffset,
                                                   +endPartId, endOffset - 1);
