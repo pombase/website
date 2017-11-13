@@ -19,7 +19,6 @@
   background-color: white;
   padding: 0.5em;
   border-radius: 2px;
-  clear: right;
 }
 
 .sequence-holder pre {
@@ -28,7 +27,8 @@
 }
 
 .selected-range {
-  float: right;
+  font-size: 120%;
+  padding: 0 0.5em;
 }
 
 .seq-title {
