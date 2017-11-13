@@ -1,10 +1,10 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, Inject } from '@angular/core';
 
 import { saveAs } from 'file-saver';
 
 import { GeneDetails, PombaseAPIService, Strand } from '../pombase-api.service';
 import { Util } from '../shared/util';
-import { DisplaySequence, DisplaySequenceLinePart } from '../display-sequence';
+import { DisplaySequence, DisplaySequenceLinePart, ResidueRange } from '../display-sequence';
 
 const lineLength = 60;
 
@@ -46,7 +46,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   hoverPart: DisplaySequenceLinePart = null;
 
-  constructor(private apiService: PombaseAPIService) { }
+  selectedResidueRange: ResidueRange = null;
+
+  constructor(private apiService: PombaseAPIService,
+              @Inject('Window') private window: Window) { }
 
   updateHeader(sequenceLength: number) {
     this.sequenceHeader = this.geneDetails.uniquename;
@@ -101,6 +104,38 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   mouseleave(): void {
     this.hoverPart = null;
+  }
+
+  mousemove(): void {
+    this.selectedResidueRange = null;
+
+    const selection = this.window.getSelection();
+    if (selection) {
+      if (selection.getRangeAt && selection.rangeCount && selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        if (range) {
+          const startContainer = range.startContainer;
+          const startPartId =
+            startContainer.parentElement.getAttribute('data-part-id');
+          const startOffset = range.startOffset;
+          const endContainer = range.endContainer;
+          const endPartId =
+            endContainer.parentElement.getAttribute('data-part-id');
+          const endOffset = range.endOffset;
+
+          if (startPartId &&
+              typeof(startOffset) !== 'undefined' &&
+              endPartId &&
+              typeof(endOffset) !== 'undefined' &&
+              endOffset > startOffset) {
+            console.log([startPartId, startOffset, endPartId, endOffset]);
+            this.selectedResidueRange =
+              this.displaySequence.rangeFromParts(+startPartId, startOffset,
+                                                  +endPartId, endOffset - 1);
+          }
+        }
+      }
+    }
   }
 
   updateSequence() {

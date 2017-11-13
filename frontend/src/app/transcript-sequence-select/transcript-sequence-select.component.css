@@ -19,11 +19,16 @@
   background-color: white;
   padding: 0.5em;
   border-radius: 2px;
+  clear: right;
 }
 
 .sequence-holder pre {
   border: 0;
   font-size: 1em;
+}
+
+.selected-range {
+  float: right;
 }
 
 .seq-title {

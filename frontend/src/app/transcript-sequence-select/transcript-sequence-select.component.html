@@ -2,7 +2,7 @@
   <legend>
     Sequence
   </legend>
-  <div>
+  <div (mousemove)="mousemove()">
     <div *ngIf="hasTranscripts">
         <div class="controls">
           <div *ngIf="featureIsTranslatable">
@@ -140,6 +140,12 @@
 {{wrappedProteinSequence}}
           </pre>
 
+          <div class="selected-range" *ngIf="!showTranslation">
+          <div *ngIf="selectedResidueRange">
+            Selected residues: {{selectedResidueRange.start}}..{{selectedResidueRange.end}}
+          </div>
+          <div *ngIf="!selectedResidueRange">fwefhuwei fhweuih &nbsp;</div>
+          </div>
           <div class="sequence-display" *ngIf="!showTranslation">
           <div *ngIf="wrappedSequence">
           <div class="header">
@@ -148,7 +154,9 @@
           <div class="residues">
           <div class="residue-line" *ngFor="let line of displaySequence.getLines()">
             <span title="{{partTitle(part)}}" class="{{partClass(part)}}"
+                  #partSpan
                  (mouseenter)="mouseenter(part)" (mouseleave)="mouseleave()"
+                 [attr.data-part-id]="part.partId"
                   *ngFor="let part of line.getParts()">{{part.residues}}</span>
           </div>
           </div>

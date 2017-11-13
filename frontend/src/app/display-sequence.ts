@@ -1,10 +1,19 @@
 import { FeatureShort } from './pombase-api.service';
 
+interface PartWithId extends FeatureShort {
+  partId: number;
+}
+
+export class ResidueRange {
+  constructor(readonly start: number, readonly end: number) { }
+}
+
 export class DisplaySequenceLinePart {
   constructor(readonly uniquename: string,
               readonly partType: string,
               readonly residues: string,
-              readonly exonIndex: number | null) { }
+              readonly exonIndex: number | null,
+              readonly partId: number) { }
 }
 
 export class DisplaySequenceLine {
@@ -32,6 +41,8 @@ export class DisplaySequenceLine {
     return this.lineParts;
   }
 }
+
+let partIdCounter = 0;
 
 export class DisplaySequence {
   private lines: Array<DisplaySequenceLine> = [new DisplaySequenceLine([])];
@@ -75,13 +86,13 @@ export class DisplaySequence {
       feature_type: part.feature_type,
       residues: part.residues,
       uniquename: part.uniquename,
-    } as FeatureShort;
+    } as PartWithId;
 
     while (true) {
       if (currentLine.length() + partCopy.residues.length <= this.lineLength) {
         const linePart = new DisplaySequenceLinePart(partCopy.uniquename,
                                                      partCopy.feature_type, partCopy.residues,
-                                                     exonIndex);
+                                                     exonIndex, partIdCounter++);
         currentLine.add(linePart);
 
         if (currentLine.length() === this.lineLength) {
@@ -95,7 +106,7 @@ export class DisplaySequence {
 
         const linePart = new DisplaySequenceLinePart(partCopy.uniquename,
                                                      partCopy.feature_type, sliceResidues,
-                                                     exonIndex);
+                                                     exonIndex, partIdCounter++);
         currentLine.add(linePart);
 
         const remainingResidues = partCopy.residues.slice(sliceLength);
@@ -118,5 +129,35 @@ export class DisplaySequence {
     let res = '';
     this.lines.map(line => res += line.residues());
     return res;
+  }
+
+  rangeFromParts(startPartId: number, startPartOffset: number,
+                 endPartId: number, endPartOffset: number): ResidueRange
+  {
+    let residuesSoFar = 0;
+    let startPos = -1;
+
+    for (let lineIndex = 0; lineIndex < this.lines.length; ++lineIndex) {
+      const parts = this.lines[lineIndex].getParts();
+      for (let partIndex = 0; partIndex < parts.length; ++partIndex) {
+        const part = parts[partIndex];
+        if (part.partId === startPartId) {
+          startPos = residuesSoFar + startPartOffset;
+        }
+
+        if (part.partId === endPartId) {
+          if (startPos === -1) {
+            return null;
+          } else {
+            const endPos = residuesSoFar + endPartOffset;
+            return new ResidueRange(startPos + 1, endPos + 1);
+          }
+        }
+
+        residuesSoFar += part.residues.length;
+      }
+    }
+
+    return null;
   }
 }
