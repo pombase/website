@@ -305,7 +305,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
       if (protein) {
         const rawProteinSequence = protein.sequence;
-        this.proteinSequenceHeader += ' length:' +
+        this.proteinSequenceHeader = this.geneDetails.uniquename + ' length:' +
           this.geneDetails.transcripts[0].protein.number_of_residues;
         this.wrappedProteinSequence = Util.splitSequenceString(rawProteinSequence);
       }
