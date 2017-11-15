@@ -516,6 +516,7 @@ let _appConfig: AppConfig = {
         displayName: 'protein modification',
         nodeType: 'ontology',
         ontologyName: 'PSI-MOD',
+        placeholder: 'e.g phosphorylated residue (MOD:00696)',
       },
       {
         id: 'all_domains',
