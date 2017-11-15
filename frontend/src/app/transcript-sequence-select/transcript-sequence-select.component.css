@@ -48,8 +48,8 @@
 }
 
 .residue-line span {
-  padding: 0.15em 0;
   display: inline-block;
+  line-height: 1.5;
 }
 
 .hovering {
