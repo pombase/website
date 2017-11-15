@@ -18,8 +18,8 @@
   </div>
   <div *ngIf="!selectionInProgress()" class="action">
     <div >
-      <button [disabled]="genes.length > 500"
-              title="{{genes.length > 500 ? tooManyGenesTitle : selectGenesTitle}}"
+      <button [disabled]="genes.length > 1000"
+              title="{{genes.length > 1000 ? tooManyGenesTitle : selectGenesTitle}}"
               class="btn btn-primary" (click)="startSelection()">Selection mode</button>
     </div>
   </div>
