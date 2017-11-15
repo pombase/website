@@ -21,6 +21,7 @@ export class GenesTableComponent implements OnInit {
   orderByField = 'gene';
   showLengend = false;
   downloadModalRef = null;
+  selectedCountCache = -1;
 
   tooManyGenesTitle = 'Too many genes for select mode, try the "Gene list" option from the Search menu';
   selectGenesTitle = 'Start gene selection and filtering mode';
@@ -52,21 +53,44 @@ export class GenesTableComponent implements OnInit {
     this.genes.map(gene => {
       this.selectedGenes[gene.uniquename] = false;
     });
+    this.selectedCountCache = 0;
   }
 
   cancelSelection() {
     this.selectedGenes = null;
+    this.selectedCountCache = -1;
+  }
+
+  selectAll() {
+    Object.keys(this.selectedGenes).map(geneUniquename => {
+      this.selectedGenes[geneUniquename] = true;
+    });
+    this.selectedCountCache = this.genes.length;
+  }
+
+  selectNone() {
+    Object.keys(this.selectedGenes).map(geneUniquename => {
+      this.selectedGenes[geneUniquename] = false;
+    });
+    this.selectedCountCache = 0;
+  }
+
+  selectionChanged() {
+    this.selectedCountCache = -1;
   }
 
   selectedCount() {
-    let count = 0;
-    Object.keys(this.selectedGenes).map(geneUniquename => {
-      if (this.selectedGenes[geneUniquename]) {
-        count++;
-      }
-    });
+    if (this.selectedCountCache === -1) {
+      this.selectedCountCache = 0;
+      Object.keys(this.selectedGenes).map(geneUniquename => {
+        if (this.selectedGenes[geneUniquename]) {
+          this.selectedCountCache++;
+        }
+      });
 
-    return count;
+    }
+
+    return this.selectedCountCache;
   }
 
   filter() {
@@ -82,6 +106,7 @@ export class GenesTableComponent implements OnInit {
     this.queryService.saveToHistory(geneQuery, callback);
 
     this.selectedGenes = null;
+    this.selectedCountCache = -1;
   }
 
   ngOnInit() {
