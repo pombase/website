@@ -1,4 +1,4 @@
-import { FeatureShort } from './pombase-api.service';
+import { FeatureShort, ProteinDetails } from './pombase-api.service';
 
 interface PartWithId extends FeatureShort {
   partId: number;
@@ -44,29 +44,40 @@ export class DisplaySequenceLine {
 
 let partIdCounter = 0;
 
+class RawSequencePart {
+  constructor(public partType: string,
+              public residues: string,
+              public uniquename: string) { }
+}
+
 export class DisplaySequence {
   private lines: Array<DisplaySequenceLine> = [new DisplaySequenceLine([])];
 
-  constructor(private readonly lineLength: number,
-              private readonly upstreamSequence: string,
-              private readonly parts: Array<FeatureShort>,
-              private readonly downstreamSequence: string) {
-    const upstreamPart = {
-      feature_type: 'upstream',
-      residues: upstreamSequence,
-      uniquename: 'upstream sequence',
-    } as FeatureShort;
-    const downstreamPart = {
-      feature_type: 'downstream',
-      residues: downstreamSequence,
-      uniquename: 'downstream sequence',
-    } as FeatureShort;
+  static newFromProtein(lineLength: number, protein: ProteinDetails): DisplaySequence {
+    const seqPart = new RawSequencePart('protein', protein.sequence, protein.uniquename);
+    return new DisplaySequence(lineLength, [seqPart]);
+  }
 
-    let allAparts = [upstreamPart, ...parts, downstreamPart];
+  static newFromTranscriptParts(lineLength: number,
+                                upstreamSequence: string,
+                                parts: Array<FeatureShort>,
+                                downstreamSequence: string) {
+    const upstreamPart = new RawSequencePart('upstream', upstreamSequence,
+                                             'upstream sequence');
+    const downstreamPart = new RawSequencePart('downstream', downstreamSequence,
+                                               'downstream sequence');
+    const seqParts = parts.map(part => {
+      return new RawSequencePart(part.feature_type, part.residues, part.uniquename);
+    });
+    const displayParts = [upstreamPart, ...seqParts, downstreamPart];
+    return new DisplaySequence(lineLength, displayParts);
+  }
 
+  private constructor(private readonly lineLength: number,
+                      private readonly displayParts: Array<RawSequencePart>) {
     let exonIndex = 1;
-    allAparts.map(part => {
-      if (part.feature_type === 'exon') {
+    displayParts.map(part => {
+      if (part.partType === 'exon') {
         this.addToLines(part, exonIndex);
         exonIndex++;
       } else {
@@ -75,7 +86,7 @@ export class DisplaySequence {
     });
   }
 
-  private addToLines(part: FeatureShort, exonIndex: number | null): void {
+  private addToLines(part: RawSequencePart, exonIndex: number | null): void {
     if (part.residues.length === 0) {
       return;
     }
@@ -83,7 +94,7 @@ export class DisplaySequence {
     let currentLine = this.lines[this.lines.length - 1];
 
     let partCopy = {
-      feature_type: part.feature_type,
+      feature_type: part.partType,
       residues: part.residues,
       uniquename: part.uniquename,
     } as PartWithId;

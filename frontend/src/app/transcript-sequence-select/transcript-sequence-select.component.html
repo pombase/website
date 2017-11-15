@@ -5,7 +5,7 @@
   <div (mousemove)="mousemove()">
     <div *ngIf="hasTranscripts">
         <div class="controls">
-          <div *ngIf="featureIsTranslatable">
+          <div *ngIf="featureHasProtein()">
           <input id="show-translation" type="checkbox" [(ngModel)]="showTranslation"
                  (ngModelChange)="updateSequence()"/>
           <label for="show-translation">Show translation</label>
@@ -20,13 +20,13 @@
               <input id="upstream-bases" type="number" min="0"
                      [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
               bases upstream
-              <span *ngIf="featureIsTranslatable && include5PrimeUtr">of UTR</span>
-              <span *ngIf="!(featureIsTranslatable && include5PrimeUtr)">
-                <span *ngIf="featureIsTranslatable">of translation start</span>
-                <span *ngIf="!featureIsTranslatable">of gene start</span>
+              <span *ngIf="featureHasProtein() && include5PrimeUtr">of UTR</span>
+              <span *ngIf="!(featureHasProtein() && include5PrimeUtr)">
+                <span *ngIf="featureHasProtein()">of translation start</span>
+                <span *ngIf="!featureHasProtein()">of gene start</span>
               </span>
             </div>
-            <div class="checkbox-section" *ngIf="featureIsTranslatable">
+            <div class="checkbox-section" *ngIf="featureHasProtein()">
             <div *ngIf="has5PrimeUtr">
             <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
@@ -59,7 +59,7 @@
             </div>
             </div>
 
-            <div class="checkbox-section" *ngIf="featureIsTranslatable">
+            <div class="checkbox-section" *ngIf="featureHasProtein()">
             <div *ngIf="has3PrimeUtr">
             <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
@@ -73,10 +73,10 @@
               <input id="downstream-bases" type="number" min="0"
                      [(ngModel)]="downstreamBases" (ngModelChange)="updateSequence()"/>
               bases downstream
-              <span *ngIf="featureIsTranslatable && include3PrimeUtr">of UTR</span>
-              <span *ngIf="!(featureIsTranslatable && include3PrimeUtr)">
-                <span *ngIf="featureIsTranslatable">of translation end</span>
-                <span *ngIf="!featureIsTranslatable">of gene end</span>
+              <span *ngIf="featureHasProtein() && include3PrimeUtr">of UTR</span>
+              <span *ngIf="!(featureHasProtein() && include3PrimeUtr)">
+                <span *ngIf="featureHasProtein()">of translation end</span>
+                <span *ngIf="!featureHasProtein()">of gene end</span>
               </span>
             </div>
           </div>
@@ -135,24 +135,19 @@
         </div>
 
         <div class="sequence-holder">
-          <pre *ngIf="showTranslation">
-&gt;{{proteinSequenceHeader}}
-{{wrappedProteinSequence}}
-          </pre>
-
-          <div class="selected-range" *ngIf="!showTranslation">
+          <div class="selected-range">
           <div *ngIf="selectedResidueRange">
             Selected residues: {{selectedResidueRange.start}}..{{selectedResidueRange.end}}
           </div>
           <div *ngIf="!selectedResidueRange">&nbsp;</div>
           </div>
-          <div class="sequence-display" *ngIf="!showTranslation">
-          <div *ngIf="wrappedSequence">
+          <div class="sequence-display">
+          <div *ngIf="wrappedSequence || wrappedProteinSequence">
           <div class="header">
-&gt;{{sequenceHeader}}
+&gt;{{getSequenceHeader()}}
           </div>
           <div class="residues">
-          <div class="residue-line" *ngFor="let line of displaySequence.getLines()">
+          <div class="residue-line" *ngFor="let line of getDisplaySequence().getLines()">
             <span title="{{partTitle(part)}}" class="{{partClass(part)}}"
                   #partSpan
                  (mouseenter)="mouseenter(part)" (mouseleave)="mouseleave()"

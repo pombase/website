@@ -2,7 +2,7 @@ import { Component, OnChanges, Input, Inject } from '@angular/core';
 
 import { saveAs } from 'file-saver';
 
-import { GeneDetails, PombaseAPIService, Strand } from '../pombase-api.service';
+import { GeneDetails, ProteinDetails, PombaseAPIService, Strand } from '../pombase-api.service';
 import { Util } from '../shared/util';
 import { DisplaySequence, DisplaySequenceLinePart, ResidueRange } from '../display-sequence';
 
@@ -19,6 +19,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   wrappedSequence = '';
   wrappedProteinSequence = '';
   displaySequence: DisplaySequence = null;
+  proteinDisplaySequence: DisplaySequence = null;
   sequenceHeader = '';
   proteinSequenceHeader = '';
   hasTranscripts = false;
@@ -33,7 +34,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   cdsStart = null;
   cdsEnd = null;
 
-  featureIsTranslatable = false;
   showTranslation = false;
   includeExons = true;
   includeIntrons = false;
@@ -47,6 +47,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   hoverPart: DisplaySequenceLinePart = null;
 
   selectedResidueRange: ResidueRange = null;
+
+  protein: ProteinDetails = null;
 
   constructor(private apiService: PombaseAPIService,
               @Inject('Window') private window: Window) { }
@@ -99,7 +101,9 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   mouseenter(part: DisplaySequenceLinePart): void {
-    this.hoverPart = part;
+    if (!this.showTranslation) {
+      this.hoverPart = part;
+    }
   }
 
   mouseleave(): void {
@@ -129,8 +133,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
               typeof(endOffset) !== 'undefined' &&
               endOffset > startOffset) {
             this.selectedResidueRange =
-              this.displaySequence.rangeFromParts(+startPartId, startOffset,
-                                                  +endPartId, endOffset - 1);
+              this.getDisplaySequence().rangeFromParts(+startPartId, startOffset,
+                                                       +endPartId, endOffset - 1);
           }
         }
       }
@@ -230,8 +234,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
           const downstreamSequence = values[1];
 
           this.displaySequence =
-            new DisplaySequence(lineLength,
-                                upstreamSequence, includedParts, downstreamSequence);
+            DisplaySequence.newFromTranscriptParts(lineLength, upstreamSequence,
+                                                   includedParts, downstreamSequence);
 
           const rawSequence = this.displaySequence.residues();
           this.updateHeader(rawSequence.length);
@@ -242,6 +246,22 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
           this.wrappedSequence = '';
           this.displaySequence = null;
         });
+    }
+  }
+
+  getDisplaySequence(): DisplaySequence {
+    if (this.showTranslation && this.featureHasProtein()) {
+      return this.proteinDisplaySequence;
+    } else {
+      return this.displaySequence;
+    }
+  }
+
+  getSequenceHeader(): string {
+    if (this.showTranslation && this.featureHasProtein()) {
+      return this.proteinSequenceHeader;
+    } else {
+      return this.sequenceHeader;
     }
   }
 
@@ -272,13 +292,14 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
                                       geneLocation.end_pos + 2000, strand);
   }
 
+  featureHasProtein() {
+    return this.protein !== null;
+  }
+
   ngOnChanges() {
     this.upstreamBases = 0;
     this.downstreamBases = 0;
 
-    this.featureIsTranslatable =
-      this.geneDetails.feature_type === 'mRNA gene' ||
-      this.geneDetails.feature_type.startsWith('protein'); // future proofing
     this.showTranslation = false;
     this.includeExons = true;
     this.includeIntrons = false;
@@ -301,13 +322,14 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     let transcripts = this.geneDetails.transcripts;
 
     if (transcripts && transcripts.length > 0) {
-      const protein = transcripts[0].protein;
+      this.protein = transcripts[0].protein;
 
-      if (protein) {
-        const rawProteinSequence = protein.sequence;
+      if (this.protein) {
         this.proteinSequenceHeader = this.geneDetails.uniquename + ' length:' +
-          this.geneDetails.transcripts[0].protein.number_of_residues;
-        this.wrappedProteinSequence = Util.splitSequenceString(rawProteinSequence);
+          this.protein.number_of_residues;
+        this.proteinDisplaySequence =
+          DisplaySequence.newFromProtein(lineLength, this.protein);
+        this.wrappedProteinSequence = Util.splitSequenceString(this.protein.sequence);
       }
 
       for (let part of transcripts[0].parts) {
