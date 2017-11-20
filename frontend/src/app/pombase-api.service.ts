@@ -345,11 +345,22 @@ export class PombaseAPIService {
 
   private apiUrl = '/api/v1/dataset/latest';
 
+  private cache = {};
+
   chunkPromises: {
     [key: string]: Promise<Seq>;
   } = {};
 
-  constructor (private http: Http) {}
+  startCacheTimeout() {
+    setTimeout(() => {
+      this.cache = {};
+      this.startCacheTimeout();
+    }, 60000);
+  }
+
+  constructor (private http: Http) {
+    this.startCacheTimeout();
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
@@ -732,10 +743,14 @@ export class PombaseAPIService {
   }
 
   getGeneSummaries(): Promise<Array<GeneSummary>> {
-    return this.getWithRetry(this.apiUrl + '/data/gene_summaries')
-      .toPromise()
-      .then(response => response.json() as Array<GeneSummary>)
-      .catch(this.handleError);
+    const url = this.apiUrl + '/data/gene_summaries';
+    if (!this.cache[url]) {
+      this.cache[url] = this.getWithRetry(url)
+        .toPromise()
+        .then(response => response.json() as Array<GeneSummary>)
+        .catch(this.handleError);
+    }
+    return this.cache[url];
   }
 
   getGeneSummariesByUniquename(): Promise<{[uniquename: string]: GeneSummary}> {
