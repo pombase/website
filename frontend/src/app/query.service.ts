@@ -99,12 +99,12 @@ export class QueryService {
   }
 
   postPredefinedQuery(queryName: string, outputOptions: QueryOutputOptions): Observable<QueryResult> {
-    const query = getAppConfig().getPredefinedQuery(queryName);
+    const query = new GeneQuery(getAppConfig().getPredefinedQuery(queryName));
     return this.postQuery(query, outputOptions);
   }
 
   postPredefinedQueryCount(queryName: string): Observable<number> {
-    const query = getAppConfig().getPredefinedQuery(queryName);
+    const query = new GeneQuery(getAppConfig().getPredefinedQuery(queryName));
     return this.postQueryCount(query);
   }
 

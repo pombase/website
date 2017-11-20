@@ -2,8 +2,6 @@ import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
 import docConfig from './config/doc-config.json';
 import pombaseConfig from '../../pombase_v2_config.json';
 
-import { GeneQuery } from './pombase-query';
-
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
 }
@@ -84,7 +82,7 @@ export interface AppConfig {
     smallest: number;
     largest: number;
   };
-  predefinedQueries: { [key: string]: GeneQuery };
+  predefinedQueries: { [key: string]: string };
   cannedQueryIds: Array<string>;
   cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
@@ -104,7 +102,7 @@ export interface AppConfig {
   // return true iff the genus and species match the configured organism
   isConfigOrganism(taxon: number): boolean;
 
-  getPredefinedQuery(queryName: string): GeneQuery;
+  getPredefinedQuery(queryName: string): string;
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
 
@@ -723,8 +721,8 @@ let _appConfig: AppConfig = {
     return retOrganism;
   },
 
-  getPredefinedQuery(queryId: string): GeneQuery {
-    return new GeneQuery(getAppConfig().predefinedQueries[queryId]);
+  getPredefinedQuery(queryId: string): string {
+    return getAppConfig().predefinedQueries[queryId];
   },
 
   getExternalTermLink(configKey: string, termId: string): { url: string, displayName: string } {

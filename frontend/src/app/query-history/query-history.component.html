@@ -46,7 +46,7 @@
         </a>
       </td>
       <td>
-        {{histEntry.getQuery().toString()}}
+        {{getEntryDisplayString(histEntry)}}
       </td>
       <td class="row-actions">
         <a *ngIf="histEntry.getResultCount() !== null" (click)="showQueryDetails(histEntry)">...</a>

@@ -228,7 +228,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pombaseApiService.getGeneSummaries()
+    this.pombaseApiService.getGeneSummariesPromise()
       .then(summaries => {
         this.geneSummaries = summaries;
 

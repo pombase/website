@@ -1,4 +1,5 @@
 import { Util } from './shared/util';
+import { GeneSummaryMap } from './pombase-api.service';
 
 export interface ResultRow {
   gene_uniquename: string;
@@ -50,7 +51,9 @@ export type TermId = string;
 export abstract class GeneQueryNode {
   public abstract toObject(): Object;
   public abstract equals(obj: GeneQueryNode): boolean;
-  public abstract toString(): string;
+  public toDisplayString(geneSummaryPromise: GeneSummaryMap): string {
+    return this.toString();
+  }
 }
 
 export class GeneBoolNode extends GeneQueryNode {
@@ -146,11 +149,38 @@ export class GeneListNode extends GeneQueryNode {
   }
 
   toString(): string {
-    let s = this.ids.slice(0, 10).join(' ');
-    if (this.ids.length > 10) {
-      s += ' ...';
+    return this.toDisplayString(null);
+  }
+
+  toDisplayString(geneSummaryMap: GeneSummaryMap): string {
+    let retString = '';
+
+    let i = 0;
+    for (; i < this.ids.length; ++i) {
+      const id = this.ids[i];
+      if (retString.length > 100) {
+        break;
+      }
+
+      if (retString !== '') {
+        retString += ' ';
+      }
+      if (geneSummaryMap) {
+        const geneSummary = geneSummaryMap[id];
+        if (geneSummary) {
+          if (geneSummary.name) {
+            retString += geneSummary.name;
+            continue;
+          }
+        }
+      }
+      retString += id;
     }
-    return `[${s}]`;
+
+    if (i < this.ids.length) {
+      retString += ' ...';
+    }
+    return `[${retString}]`;
   }
 }
 
@@ -360,7 +390,8 @@ export class GeneQuery {
   private queryTopNode: GeneQueryNode;
   private queryId: number;
   private name: string;
-  private stringQuery: string;
+  private stringQuery: string = null;
+  private displayStringQuery: string = null;
 
   private makeNode(parsedJson: any): GeneQueryNode {
     const keys = Object.keys(parsedJson);
@@ -416,7 +447,7 @@ export class GeneQuery {
       }
     }
 
-    this.stringQuery = this.getTopNode().toString();
+    this.stringQuery = this.getTopNode().toDisplayString(null);
   }
 
   public equals(query: GeneQuery): boolean {
@@ -448,6 +479,18 @@ export class GeneQuery {
   }
 
   public toString(): string {
+    if (this.stringQuery === null) {
+      this.stringQuery = this.getTopNode().toString();
+    }
     return this.stringQuery;
+  }
+
+  public toDisplayString(geneSummaryMap: GeneSummaryMap): string {
+    if (geneSummaryMap) {
+      if (this.displayStringQuery === null) {
+        this.displayStringQuery = this.getTopNode().toDisplayString(geneSummaryMap);
+      }
+    }
+    return this.displayStringQuery || this.toString();
   }
 }

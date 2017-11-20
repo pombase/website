@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 
-import { GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
+import { GeneQuery, GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
          GeneQueryNode, GeneUniquename } from '../pombase-query';
 
 import { getAppConfig, QueryNodeConfig } from '../config';
@@ -16,14 +16,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   @Output() nodeEvent = new EventEmitter<GeneQueryNode>();
 
   nodeTypes = getAppConfig().queryBuilder.nodeTypes;
-  cannedQueryDetails =
-    getAppConfig().cannedQueryIds.map(id => {
-      const queryId = 'canned_query:' + id;
-      return {
-        name: getAppConfig().getPredefinedQuery(queryId).getName(),
-        queryId: queryId,
-      };
-    });
+  cannedQueryDetails = null;
 
   activeConf: QueryNodeConfig = null;
   selectedTerm = null;
@@ -35,6 +28,15 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
+    this.cannedQueryDetails =
+      getAppConfig().cannedQueryIds.map(id => {
+        const queryId = 'canned_query:' + id;
+        const query = new GeneQuery(getAppConfig().getPredefinedQuery(queryId));
+        return {
+          name: query.getName(),
+          queryId: queryId,
+        };
+      });
   }
 
   ngOnChanges() {
@@ -134,7 +136,8 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   }
 
   selectPredefinedQuery(predefinedQueryId: string): void {
-    const query = getAppConfig().getPredefinedQuery(predefinedQueryId);
+    const queryJson = getAppConfig().getPredefinedQuery(predefinedQueryId);
+    const query = new GeneQuery(queryJson);
     this.nodeEvent.emit(query.getTopNode());
   }
 }

@@ -106,7 +106,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   private downloadDelimited() {
     const selectedFields = this.selectedFieldNames();
 
-    this.pombaseApiService.getGeneSummariesByUniquename()
+    this.pombaseApiService.getGeneSummaryMapPromise()
       .then((geneSummaries) => {
         let rows: Array<Array<string>> = [selectedFields];
         for (const gene of this.genes) {

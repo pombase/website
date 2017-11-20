@@ -8,6 +8,8 @@ import { Util } from './shared/util';
 import { Seq } from './seq';
 import { getAppConfig, ConfigOrganism } from './config';
 
+export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
+
 export enum Strand {
   Forward,
   Reverse,
@@ -344,8 +346,10 @@ export interface GeneSubsets {
 export class PombaseAPIService {
 
   private apiUrl = '/api/v1/dataset/latest';
+  private geneSummariesUrl = this.apiUrl + '/data/gene_summaries';
 
-  private cache = {};
+  private promiseCache: { [name: string]: Promise<any> } = {};
+  private resultCache = {};
 
   chunkPromises: {
     [key: string]: Promise<Seq>;
@@ -353,13 +357,19 @@ export class PombaseAPIService {
 
   startCacheTimeout() {
     setTimeout(() => {
-      this.cache = {};
+      this.promiseCache = {};
+      this.resultCache = {};
       this.startCacheTimeout();
     }, 60000);
   }
 
   constructor (private http: Http) {
     this.startCacheTimeout();
+
+    setTimeout(() => {
+      // pre-fetch the gene summaries
+      this.getGeneSummaryMapPromise();
+    }, 10);
   }
 
   private handleError(error: any): Promise<any> {
@@ -742,26 +752,41 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
-  getGeneSummaries(): Promise<Array<GeneSummary>> {
-    const url = this.apiUrl + '/data/gene_summaries';
-    if (!this.cache[url]) {
-      this.cache[url] = this.getWithRetry(url)
+  getGeneSummariesPromise(): Promise<Array<GeneSummary>> {
+    if (!this.promiseCache[this.geneSummariesUrl]) {
+      this.promiseCache[this.geneSummariesUrl] = this.getWithRetry(this.geneSummariesUrl)
         .toPromise()
-        .then(response => response.json() as Array<GeneSummary>)
+        .then(response => {
+          this.resultCache[this.geneSummariesUrl] =
+            response.json() as Array<GeneSummary>;
+          return this.resultCache[this.geneSummariesUrl];
+        })
         .catch(this.handleError);
     }
-    return this.cache[url];
+    return this.promiseCache[this.geneSummariesUrl];
   }
 
-  getGeneSummariesByUniquename(): Promise<{[uniquename: string]: GeneSummary}> {
-    return this.getGeneSummaries()
-      .then(geneSummaries => {
-        let retMap = {};
-        for (let summ of geneSummaries) {
-          retMap[summ['uniquename']] = summ;
-        }
-        return retMap;
-      });
+  getGeneSummaries(): Array<GeneSummary> {
+    return this.resultCache[this.geneSummariesUrl];
+  }
+
+  getGeneSummaryMapPromise(): Promise<GeneSummaryMap> {
+    if (!this.promiseCache['getGeneSummaryMapPromise']) {
+      this.promiseCache['getGeneSummaryMapPromise'] = this.getGeneSummariesPromise()
+        .then(geneSummaries => {
+          let retMap = {};
+          for (let summ of geneSummaries) {
+            retMap[summ['uniquename']] = summ;
+          }
+          this.resultCache['getGeneSummaryMap'] = retMap;
+          return retMap;
+        });
+    }
+    return this.promiseCache['getGeneSummaryMapPromise'];
+  }
+
+  getGeneSummaryMap(): GeneSummaryMap {
+    return this.resultCache['getGeneSummaryMap'];
   }
 
   getTermSubsets(): Promise<TermSubsets> {
@@ -772,7 +797,7 @@ export class PombaseAPIService {
   }
 
   addGeneShortToSubset(subsets: GeneSubsets): Promise<GeneSubsets> {
-    return this.getGeneSummariesByUniquename()
+    return this.getGeneSummaryMapPromise()
       .then((geneSummaries) => {
         for (let subsetName of Object.keys(subsets)) {
           let subset = subsets[subsetName];

@@ -21,7 +21,7 @@ export class GeneResultsComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.results) {
-      this.pombaseApiService.getGeneSummariesByUniquename()
+      this.pombaseApiService.getGeneSummaryMapPromise()
         .then((geneSummaries) => {
           this.displayResults =
             this.results.rows.map((row) => {

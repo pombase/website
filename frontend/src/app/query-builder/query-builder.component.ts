@@ -37,7 +37,8 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
       const goToResults =
         params['saveOrResults'] && params['saveOrResults'] === 'results';
       if (params['predefinedQueryName']) {
-        const query = getAppConfig().getPredefinedQuery(params['predefinedQueryName']);
+        const queryJson = getAppConfig().getPredefinedQuery(params['predefinedQueryName']);
+        const query = new GeneQuery(queryJson);
         if (goToResults) {
           this.gotoResults(query);
         } else {
