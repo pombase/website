@@ -131,7 +131,7 @@ export class GeneBoolNode extends GeneQueryNode {
 export class GeneListNode extends GeneQueryNode {
   constructor(public ids: Array<GeneUniquename>) {
     super();
-    this.ids = this.ids.sort();
+    this.ids = Array.from(new Set(this.ids)).sort();
   };
 
   toObject(): Object {
