@@ -33,6 +33,8 @@ synonyms (where assigned), and gene product description
     protein-coding genes
 -   [sysID2product.rna.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/sysID2product.rna.tsv)
     non-coding RNA genes
+-   [pseudogeneIDs.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/pseudogeneIDs.tsv)
+    pseudogenes
 
 Note: A tab-delimited file of systematic identifiers mapped to EC
 numbers was previously maintained, but has not been updated since March
