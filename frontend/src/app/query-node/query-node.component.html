@@ -17,7 +17,7 @@
 
       <div *ngIf="activeConf.nodeType == 'ontology'">
         <app-query-term-node [termNodeConfig]="activeConf"
-                             [placeholder]="'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
+                             [placeholder]="activeConf.placeholder ? activeConf.placeholder :'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
                              (newTermNode)="newTermNode($event)"></app-query-term-node>
       </div>
 
