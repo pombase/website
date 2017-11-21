@@ -173,7 +173,7 @@ export interface IdAndOrganism {
   taxonid: number;
 }
 
-export interface GeneSummary {
+export interface GeneSummary extends GeneShort {
   uniquename: string;
   name: string;
   taxonid: number;
@@ -777,7 +777,14 @@ export class PombaseAPIService {
         .then(geneSummaries => {
           let retMap = {};
           for (let summ of geneSummaries) {
-            retMap[summ['uniquename']] = summ;
+            if (summ.name) {
+              retMap[summ.name] = summ;
+              retMap[summ.name.toLowerCase()] = summ;
+            }
+          }
+          for (let summ of geneSummaries) {
+            retMap[summ.uniquename] = summ;
+            retMap[summ.uniquename.toLowerCase()] = summ;
           }
           this.resultCache['getGeneSummaryMap'] = retMap;
           return retMap;

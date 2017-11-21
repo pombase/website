@@ -5,7 +5,6 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { QueryService, HistoryEntry } from '../query.service';
 import { GeneQuery, GeneBoolNode } from '../pombase-query';
 import { QueryDetailsDialogComponent } from '../query-details-dialog/query-details-dialog.component';
-import { PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-query-history',
@@ -20,8 +19,7 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   detailsModalRef = null;
 
   constructor(private modalService: BsModalService,
-              private queryService: QueryService,
-              private pombaseApiService: PombaseAPIService) { }
+              private queryService: QueryService) { }
 
   getSelectedEntries(): Array<HistoryEntry> {
     return this.historyEntries.filter(e => e.checked);
@@ -36,8 +34,7 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   }
 
   getEntryDisplayString(histEntry: HistoryEntry): string {
-    const geneSummaryMap = this.pombaseApiService.getGeneSummaryMap();
-    return histEntry.getQuery().toDisplayString(geneSummaryMap);
+    return histEntry.getQuery().toString();
   }
 
   deleteQueries() {

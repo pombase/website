@@ -144,8 +144,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   private downloadSequence() {
-    const geneUniquenames = this.genes.map(g => g.uniquename);
-    const query = new GeneQuery(new GeneListNode(geneUniquenames));
+    const query = new GeneQuery(new GeneListNode(this.genes));
     let seqOptions = this.seqDownloadOptions();
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], seqOptions);
     this.queryService.postQuery(query, outputOptions)

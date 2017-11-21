@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+import { GeneSummaryMap, PombaseAPIService } from '../pombase-api.service';
+
 @Component({
   selector: 'app-gene-list-lookup',
   templateUrl: './gene-list-lookup.component.html',
@@ -11,9 +13,50 @@ export class GeneListLookupComponent implements OnInit {
   inputText = '';
   inputFile = null;
 
-  constructor() { }
+  geneSummaryMap: GeneSummaryMap = null;
+  unknownIds = [];
+
+  constructor(private pombaseApiService: PombaseAPIService) {
+    this.pombaseApiService.getGeneSummaryMapPromise().then((geneSummaryMap) => {
+      this.geneSummaryMap = geneSummaryMap;
+    });
+  }
 
   ngOnInit() {
+  }
+
+  filteredIds(): Array<string> {
+    let seen = {};
+    return this.inputText.trim().split(/\s+/)
+      .filter(id => {
+        id = id.trim();
+        if (id.length == 0) {
+          return false;
+        }
+        if (id.match(/[^a-zA-Z0-9\-_:\.]/)) {
+          return false;
+        }
+        if (seen[id]) {
+          return false;
+        }
+        seen[id] = true;
+        return true;
+      })
+  }
+
+  checkIds() {
+    if (!this.geneSummaryMap) {
+      return;
+    }
+
+    let ids = this.filteredIds();
+    this.unknownIds = [];
+
+    for (let id of ids) {
+      if (!this.geneSummaryMap[id.toLowerCase()]) {
+        this.unknownIds.push(id);
+      }
+    }
   }
 
   readFile($event): void {
@@ -26,10 +69,14 @@ export class GeneListLookupComponent implements OnInit {
     };
 
     fileReader.readAsText(file);
+
+    this.checkIds();
   }
 
   lookup() {
-    let ids = this.inputText.trim().split(/\s+/);
-    this.genesFound.emit(ids);
+    const genes = this.filteredIds()
+      .filter(id => this.geneSummaryMap[id] || this.geneSummaryMap[id.toLowerCase()])
+      .map(id => this.geneSummaryMap[id] || this.geneSummaryMap[id.toLowerCase()]);
+    this.genesFound.emit(genes);
   }
 }

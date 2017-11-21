@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angu
 
 import { GeneQuery, GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
          GeneQueryNode, GeneUniquename } from '../pombase-query';
+import { GeneSummary } from '../pombase-api.service';
 
 import { getAppConfig, QueryNodeConfig } from '../config';
 
@@ -81,7 +82,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
     this.nodeEvent.emit(newNode);
   }
 
-  genesFound(genes: Array<GeneUniquename>) {
+  genesFound(genes: Array<GeneSummary>) {
     let part = new GeneListNode(genes);
     this.nodeEvent.emit(part);
   }

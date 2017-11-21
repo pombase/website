@@ -5,3 +5,8 @@
 .buttons {
   padding: 1.5em 0 0.5em 0;
 }
+
+.unknown-identifiers {
+  color: red;
+  padding: 0.2em 0;
+}

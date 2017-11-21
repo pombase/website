@@ -1,5 +1,5 @@
 import { Util } from './shared/util';
-import { GeneSummaryMap } from './pombase-api.service';
+import { GeneShort } from './pombase-api.service';
 
 export interface ResultRow {
   gene_uniquename: string;
@@ -51,9 +51,7 @@ export type TermId = string;
 export abstract class GeneQueryNode {
   public abstract toObject(): Object;
   public abstract equals(obj: GeneQueryNode): boolean;
-  public toDisplayString(geneSummaryPromise: GeneSummaryMap): string {
-    return this.toString();
-  }
+  public abstract toString(): string;
 }
 
 export class GeneBoolNode extends GeneQueryNode {
@@ -129,35 +127,48 @@ export class GeneBoolNode extends GeneQueryNode {
 }
 
 export class GeneListNode extends GeneQueryNode {
-  constructor(public ids: Array<GeneUniquename>) {
+  genes: Array<GeneShort>;
+
+  constructor(public arg: Array<GeneShort> | Array<GeneUniquename>) {
     super();
-    this.ids = Array.from(new Set(this.ids)).sort();
+
+    this.genes = [];
+
+    for (let argElement of arg) {
+      if (typeof(argElement) === 'object') {
+        this.genes.push(argElement);
+      } else {
+        this.genes.push({ uniquename: argElement, name: null });
+      }
+    }
+
+    this.genes = Array.from(new Set(this.genes)).sort();
   };
 
   toObject(): Object {
     return {
-      gene_list: this,
+      gene_list: {
+        ids: this.genes.map(gene => gene.uniquename),
+      },
     };
   }
 
   equals(obj: GeneQueryNode): boolean {
     if (obj instanceof GeneListNode) {
-      return this.ids.length === obj.ids.length &&
-        this.ids.every((v, i) => v === obj.ids[i]);
+      return this.genes.length === obj.genes.length &&
+        this.genes.every((v, i) => v.uniquename === obj.genes[i].uniquename);
     }
     return false;
   }
 
   toString(): string {
-    return this.toDisplayString(null);
-  }
+    let displayIds = this.genes.map(gene => gene.name || gene.uniquename);
 
-  toDisplayString(geneSummaryMap: GeneSummaryMap): string {
     let retString = '';
 
     let i = 0;
-    for (; i < this.ids.length; ++i) {
-      const id = this.ids[i];
+    for (; i < displayIds.length; ++i) {
+      const id = displayIds[i];
       if (retString.length > 100) {
         break;
       }
@@ -165,19 +176,10 @@ export class GeneListNode extends GeneQueryNode {
       if (retString !== '') {
         retString += ' ';
       }
-      if (geneSummaryMap) {
-        const geneSummary = geneSummaryMap[id];
-        if (geneSummary) {
-          if (geneSummary.name) {
-            retString += geneSummary.name;
-            continue;
-          }
-        }
-      }
       retString += id;
     }
 
-    if (i < this.ids.length) {
+    if (i < displayIds.length) {
       retString += ' ...';
     }
     return `[${retString}]`;
@@ -391,7 +393,6 @@ export class GeneQuery {
   private queryId: number;
   private name: string;
   private stringQuery: string = null;
-  private displayStringQuery: string = null;
 
   private makeNode(parsedJson: any): GeneQueryNode {
     const keys = Object.keys(parsedJson);
@@ -447,7 +448,7 @@ export class GeneQuery {
       }
     }
 
-    this.stringQuery = this.getTopNode().toDisplayString(null);
+    this.stringQuery = this.getTopNode().toString();
   }
 
   public equals(query: GeneQuery): boolean {
@@ -483,14 +484,5 @@ export class GeneQuery {
       this.stringQuery = this.getTopNode().toString();
     }
     return this.stringQuery;
-  }
-
-  public toDisplayString(geneSummaryMap: GeneSummaryMap): string {
-    if (geneSummaryMap) {
-      if (this.displayStringQuery === null) {
-        this.displayStringQuery = this.getTopNode().toDisplayString(geneSummaryMap);
-      }
-    }
-    return this.displayStringQuery || this.toString();
   }
 }
