@@ -182,7 +182,7 @@ export class GeneListNode extends GeneQueryNode {
     if (i < displayIds.length) {
       retString += ' ...';
     }
-    return `[${retString}]`;
+    return `gene list: [${retString}]`;
   }
 }
 
