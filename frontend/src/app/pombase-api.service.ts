@@ -189,6 +189,20 @@ export class GeneShort {
   uniquename: string;
   name: string;
   product?: string;
+
+  // The function is used to trim a GeneSummary to a GeneShort
+  static fromGeneShort(geneSummary: GeneShort): GeneShort {
+    let ret = {
+      uniquename: geneSummary.uniquename,
+      name: geneSummary.name
+    } as GeneShort;
+
+    if (geneSummary.product) {
+      ret.product = geneSummary.product;
+    }
+
+    return ret;
+  }
 }
 
 export interface GeneMap {

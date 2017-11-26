@@ -136,7 +136,7 @@ export class GeneListNode extends GeneQueryNode {
 
     for (let argElement of arg) {
       if (typeof(argElement) === 'object') {
-        this.genes.push(argElement);
+        this.genes.push(GeneShort.fromGeneShort(argElement));
       } else {
         this.genes.push({ uniquename: argElement, name: null });
       }
@@ -148,7 +148,7 @@ export class GeneListNode extends GeneQueryNode {
   toObject(): Object {
     return {
       gene_list: {
-        ids: this.genes.map(gene => gene.uniquename),
+        genes: this.genes,
       },
     };
   }
@@ -425,7 +425,7 @@ export class GeneQuery {
       return new FloatRangeNode(val['range_type'], val['start'], val['end']);
 
     case 'gene_list':
-      return new GeneListNode(val['ids']);
+      return new GeneListNode(val['genes'] || val['ids']);
     }
 
     throw new Error('Unknown type: ' + nodeType);
