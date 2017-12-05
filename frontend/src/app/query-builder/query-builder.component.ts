@@ -64,7 +64,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
             if (json) {
               this.fromJson(goToResults, json);
             } else {
-              const nodeTypeId = +params['nodeTypeId'];
+              const nodeTypeId = params['nodeTypeId'];
               if (nodeTypeId) {
                 this.startNodeType = nodeTypeId;
               } else {
