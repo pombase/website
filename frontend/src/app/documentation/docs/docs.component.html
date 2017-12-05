@@ -6134,6 +6134,15 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 -->
 
 </div>
+<div (click)="navigate($event, '/faq/how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals'">
+<h3 id="how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals">How can I find mutants with increased or decreased sensitivity to chemicals</h3>
+<!-- pombase_categories: Finding data,Using ontologies -->
+<p>In FYPO, terms for increased chemical sensitivity are grouped under <a href="https://www.pombase.org/term/FYPO:0002683">increased sensitivity to chemical (FYPO:0002683)</a>. Similarly, decreased chemical sensitivity (increased resistance) terms are grouped under <a href="https://www.pombase.org/term/FYPO:0002682">increased resistance to chemical (FYPO:0002682)</a>.</p>
+<p>The ontology term pages for each term shows more specific terms, most of which identify specific chemicals (e.g. <a href="https://www.pombase.org/term/FYPO:0000088">sensitive to hydroxyurea (FYPO:000088)</a>, and the genotypes annotated to them.</p>
+<p>In any phenotype annotation display (on gene pages, ontology term pages, or publication pages), phenotype annotations can be <a routerLink="/documentation/gene-page-phenotypes">filtered</a> to show only &quot;sensitive to chemical&quot; annotations.</p>
+<p>You can also use the advanced search Phenotype query to search for <app-query-link [goToResults]="true" [linkText]="'FYPO:0002682'" [predefinedQueryName]="'single_allele_chemical_resistance'"></app-query-link>, <app-query-link [goToResults]="true" [linkText]="'FYPO:0002683'" [predefinedQueryName]="'single_allele_chemical_sensitivity'"></app-query-link> or any of the more specific terms. (Links go to results lists of single-allele genotypes annotated to each term.)</p>
+
+</div>
 <div (click)="navigate($event, '/faq/how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species'">
 <h3 id="how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species">How can I find orthologs between <em>S. pombe</em> and other <em>Schizosaccharomyces</em> species?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
