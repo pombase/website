@@ -45,7 +45,8 @@ export class Util {
         .map((expressedAllele) => {
           const alleleDisplayName = this.alleleDisplayName(expressedAllele.allele);
           if (expressedAllele.expression &&
-              expressedAllele.allele.allele_type !== 'deletion') {
+              expressedAllele.allele.allele_type !== 'deletion' &&
+              expressedAllele.expression !== 'Not assayed') {
             return `${alleleDisplayName}[${expressedAllele.expression}]`;
           } else {
             return alleleDisplayName;
