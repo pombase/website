@@ -1,12 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { GenotypeShort } from '../pombase-api.service';
+
 @Component({
   selector: 'app-genotype-link',
   templateUrl: './genotype-link.component.html',
   styleUrls: ['./genotype-link.component.css']
 })
 export class GenotypeLinkComponent implements OnInit {
-  @Input() genotype: /* GenotypeShort */ any;
+  @Input() genotype: GenotypeShort;
 
   isShortDisplayName = false;
   displayName = '';
