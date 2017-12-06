@@ -43,7 +43,13 @@ export class Util {
     if (genotypeDetails) {
       return genotypeDetails.expressed_alleles
         .map((expressedAllele) => {
-          return this.alleleDisplayName(expressedAllele.allele);
+          const alleleDisplayName = this.alleleDisplayName(expressedAllele.allele);
+          if (expressedAllele.expression &&
+              expressedAllele.allele.allele_type !== 'deletion') {
+            return `${alleleDisplayName}[${expressedAllele.expression}]`;
+          } else {
+            return alleleDisplayName;
+          }
         })
         .join(' ');
     } else {
