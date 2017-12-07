@@ -10,6 +10,7 @@ import { Util } from '../shared/util';
 })
 export class FrontPanelComponent implements OnInit {
   @Input() conf: PanelConfig;
+  @Input() showDateAdded?: boolean;
 
   panelDescription = null;
   headImage: string = null;

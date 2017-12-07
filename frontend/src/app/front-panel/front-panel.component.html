@@ -7,10 +7,11 @@
   </div>
 
   <div class="panel-contents">
+    <span *ngIf="showDateAdded" class="date-added">{{conf.date_added}}</span>
     <div class="title">
       <span *ngIf="panelDescription">{{panelDescription}}: </span>
       <span *ngIf="!conf.title_link">{{conf.title}}</span>
-      <a *ngIf="conf.title_link" href="{{conf.title_link}}">{{conf.title}}</a>
+      <span><a *ngIf="conf.title_link" href="{{conf.title_link}}">{{conf.title}}</a></span>
     </div>
     <app-front-panel-content [panelId]="conf.internalId"></app-front-panel-content>
     <a *ngIf="conf.internalLink" routerLink="{{conf.internalLink}}">
