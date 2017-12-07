@@ -80,6 +80,10 @@ import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-com
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+
+
 export function documentFactory() {
     return document;
 }
@@ -167,6 +171,7 @@ export function windowFactory() {
     Ng2SimplePageScrollModule.forRoot(),
     ModalModule.forRoot(),
     SharedModule,
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent],
   providers: [PombaseAPIService,
@@ -179,7 +184,7 @@ export function windowFactory() {
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor() {
+  constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
 
   }
 }
