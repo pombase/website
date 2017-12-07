@@ -20,7 +20,7 @@
     <div >
       <button [disabled]="genes.length > 1000"
               title="{{genes.length > 1000 ? tooManyGenesTitle : selectGenesTitle}}"
-              class="btn btn-primary" (click)="startSelection()">Selection mode</button>
+              class="btn btn-primary" (click)="startSelection()">Select subset</button>
     </div>
   </div>
   <div *ngIf="selectionInProgress()" class="action">
