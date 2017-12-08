@@ -53,8 +53,15 @@
 
   <hr style="clear: both" />
 
-  <div class="annotations-section-header">
-  Annotations from this publication:
+  <div *ngIf="refAnnotationStatus != null" class="annotations-section-header">
+    <div *ngIf="refAnnotationStatus == 'has-annotations'">Annotations from this publication:</div>
+    <div *ngIf="refAnnotationStatus != 'has-annotations'">This publication has no
+      annotations in PomBase because
+      <span *ngIf="refAnnotationStatus == 'not-curated'">it hasn't been curated yet.</span>
+      <span *ngIf="refAnnotationStatus == 'no-annotation'">
+        the curators have found no annotatable gene-specific data in it.
+      </span>
+    </div>
   </div>
 
   <div>

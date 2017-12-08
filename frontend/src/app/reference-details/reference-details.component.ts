@@ -21,6 +21,7 @@ export class ReferenceDetailsComponent implements OnInit {
   pubMedId = null;
   apiError = null;
   cantoCommunityCuratorName = null;
+  refAnnotationStatus = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -90,6 +91,22 @@ export class ReferenceDetailsComponent implements OnInit {
     }
   }
 
+  setAnnotationStatus() {
+    if (Object.keys(this.refDetails.cv_annotations).length > 0 ||
+        this.refDetails.genetic_interactions.length > 0 ||
+        this.refDetails.physical_interactions.length > 0 ||
+        this.refDetails.paralog_annotations.length > 0 ||
+        this.refDetails.ortholog_annotations.length > 0) {
+      this.refAnnotationStatus = 'has-annotations';
+    } else {
+      if (this.refDetails.canto_triage_status = 'Curatable') {
+        this.refAnnotationStatus = 'not-curated';
+      } else {
+        this.refAnnotationStatus = 'no-annotation';
+      }
+    }
+  }
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -108,6 +125,7 @@ export class ReferenceDetailsComponent implements OnInit {
             this.setCantoFields();
             this.setVisibleSections();
             this.apiError = null;
+            this.setAnnotationStatus();
           })
           .catch(error => {
             this.apiError = error;
