@@ -57,7 +57,13 @@
     <div *ngIf="refAnnotationStatus == 'has-annotations'">Annotations from this publication:</div>
     <div *ngIf="refAnnotationStatus != 'has-annotations'">This publication has no
       annotations in PomBase because
-      <span *ngIf="refAnnotationStatus == 'not-curated'">it hasn't been curated yet.</span>
+      <span *ngIf="refAnnotationStatus == 'not-curated'">
+        it hasn't been curated yet.
+        (Please
+<app-contact-email [linkName]="'contact us'"
+                   [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
+if you would like to contribute annotations for this paper.)
+      </span>
       <span *ngIf="refAnnotationStatus == 'no-annotation'">
         the curators have found no annotatable gene-specific data in it.
       </span>
