@@ -11,7 +11,12 @@ The [advanced search](/query) includes a query that retrieves all
 protein-coding genes at once, as decribed in 
 [this FAQ](/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes).
 
-<!--
-Query link: [All genes](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2235%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
+<!--	uncomment when pombase_v2_config.json committed with queries
+
+This query retrieves genes of all types (protein-coding, non-coding
+RNA, and pseudogenes) by combining the "product type" options with the
+OR operator:
+
+<app-query-link [goToResults]="true" [linkText]="'All genes'" [predefinedQueryName]="'all_genes'"></app-query-link>
 -->
 

@@ -7,9 +7,8 @@ then select "transposon" from the pulldown.
 At present, there are 11 full-length transposons annotated, and two
 frameshifted copies.
 
-<!--
-Query link:
-[Transposons](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2211%22,%22query%22:%22PBO:0000007%22%7D%7D,%22filter_count%22:%221%22%7D%5D) \
+<!--	uncomment when pombase_v2_config.json committed with queries
+Query link: <app-query-link [goToResults]="true" [linkText]="'Transposons'" [predefinedQueryName]="'transposons'"></app-query-link>
 -->
 
 Lone LTRs are also annotated as sequence features. They cannot yet be
