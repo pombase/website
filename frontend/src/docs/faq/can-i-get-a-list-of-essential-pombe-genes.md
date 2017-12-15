@@ -43,11 +43,8 @@ use the very generic term "inviable cell population" (FYPO:0002059) or
 "viable cell population" (FYPO:0002058) in your query. All of the
 caveats about alleles and conditions still apply.
 
-<!--	uncomment when pombase_v2_config.json committed with queries
 **Query links**
 
 -   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to "inviable vegetative cell population" (FYPO:0002061)'" [predefinedQueryName]="'null_inviable'"></app-query-link>
 -   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to "viable vegetative cell population" (FYPO:0002060)'" [predefinedQueryName]="'null_viable'"></app-query-link>
 -   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to both FYPO:0002061 and FYPO:0002060'" [predefinedQueryName]="'null_viable_and_inviable'"></app-query-link>
--->
-

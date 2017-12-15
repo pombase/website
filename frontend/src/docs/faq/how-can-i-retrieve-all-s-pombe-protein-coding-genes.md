@@ -11,6 +11,4 @@ several genes that are dubious (i.e.  predicted by automated methods
 considered unlikely to actually encode protein), which you will
 presumably want to exclude from the set. The canned query does this.
 
-<!--	uncomment when pombase_v2_config.json committed with queries
 Query link: <app-query-link [goToResults]="true" [linkText]="'Protein-coding genes (excluding "dubious" and "transposon" status)'" [predefinedQueryName]="'canned_query:all_protein_coding_ex_dubious_and_transposon'"></app-query-link>
--->

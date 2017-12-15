@@ -7,9 +7,7 @@ then select "transposon" from the pulldown.
 At present, there are 11 full-length transposons annotated, and two
 frameshifted copies.
 
-<!--	uncomment when pombase_v2_config.json committed with queries
 Query link: <app-query-link [goToResults]="true" [linkText]="'Transposons'" [predefinedQueryName]="'transposons'"></app-query-link>
--->
 
 Lone LTRs are also annotated as sequence features. They cannot yet be
 retrieved by the simple or advanced searches, but they can be displayed

@@ -58,10 +58,8 @@ terms above have the annotation status "published" (e.g. GO ID
 [advanced search documentation](/documentation/advanced-search) for more
 tips on setting up the query).
 
-<!--	uncomment when pombase_v2_config.json committed with queries
 Query links:
 -   <app-query-link [goToResults]="true" [linkText]="'Genes annotated to "transcription regulatory region sequence-specific DNA binding" (GO:0000976) or "sequence-specific DNA binding transcription factor activity" (GO:0003700)'" [predefinedQueryName]="'GO_976_or_GO_3700'"></app-query-link>
 -   <app-query-link [goToResults]="true" [linkText]="'Genes annotated to "RNA polymerase II core promoter proximal region sequence-specific DNA binding" (GO:0000978) with characterisation status "published"'" [predefinedQueryName]="'GO_978_and_published'"></app-query-link>
--->
 
 
