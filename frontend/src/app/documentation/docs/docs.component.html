@@ -5674,8 +5674,8 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <p>At present, there are very few null mutants annotated as inviable in life cycle stages other than vegetative growth, and &quot;inviable vegetative cell population&quot; best fits the most common usage of &quot;essential gene&quot;. If you do want to include other stages (such as &quot;inviable spore&quot;), you can use the very generic term &quot;inviable cell population&quot; (FYPO:0002059) or &quot;viable cell population&quot; (FYPO:0002058) in your query. All of the caveats about alleles and conditions still apply.</p>
 <p><strong>Query links</strong></p>
 <ul>
-<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to "inviable vegetative cell population" (FYPO:0002061)'" [predefinedQueryName]="'null_inviable'"></app-query-link></li>
-<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to "viable vegetative cell population" (FYPO:0002060)'" [predefinedQueryName]="'null_viable'"></app-query-link></li>
+<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;inviable vegetative cell population&quot; (FYPO:0002061)'" [predefinedQueryName]="'null_inviable'"></app-query-link></li>
+<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;viable vegetative cell population&quot; (FYPO:0002060)'" [predefinedQueryName]="'null_viable'"></app-query-link></li>
 <li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to both FYPO:0002061 and FYPO:0002060'" [predefinedQueryName]="'null_viable_and_inviable'"></app-query-link></li>
 </ul>
 
@@ -6304,7 +6304,7 @@ Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7
 <li>Contact the <a href="mailto:helpdesk@pombase.org">Helpdesk</a> if you have any problems or questions.</li>
 </ol>
 <p>Finally, note that not all <em>S. pombe</em> transcription factors have been extensively characterised with respect to target genes, and for those that have, target curation in PomBase may be incomplete. You may therefore wish to query for transcription factors that have been have been experimentally characterised, and therefore might have targets which are not yet curated. To do so, use the Advanced Search to find which of the genes annotated to the transcription factor-related GO terms above have the annotation status &quot;published&quot; (e.g. GO ID &quot;GO:0000978&quot; AND Annotation Status &quot;published&quot;; see the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more tips on setting up the query).</p>
-<p>Query links: - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to "transcription regulatory region sequence-specific DNA binding" (GO:0000976) or "sequence-specific DNA binding transcription factor activity" (GO:0003700)'" [predefinedQueryName]="'GO_976_or_GO_3700'"></app-query-link> - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to "RNA polymerase II core promoter proximal region sequence-specific DNA binding" (GO:0000978) with characterisation status "published"'" [predefinedQueryName]="'GO_978_and_published'"></app-query-link></p>
+<p>Query links: - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;transcription regulatory region sequence-specific DNA binding&quot; (GO:0000976) or &quot;sequence-specific DNA binding transcription factor activity&quot; (GO:0003700)'" [predefinedQueryName]="'GO_976_or_GO_3700'"></app-query-link> - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;RNA polymerase II core promoter proximal region sequence-specific DNA binding&quot; (GO:0000978) with characterisation status &quot;published&quot;'" [predefinedQueryName]="'GO_978_and_published'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-transposons-s.-pombe-genome')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-find-transposons-s.-pombe-genome'">
@@ -6397,7 +6397,7 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22ope
 <!-- pombase_categories: Finding data,Genome statistics and lists -->
 <p>The <a routerLink="/query">advanced search</a> includes a query that retrieves all protein-coding genes at once. Click &quot;Canned queries&quot;, then click &quot;All protein coding genes (ex. dubious and transposon)&quot;.</p>
 <p>Further explanation: All protein coding genes have the type &quot;protein coding&quot;, but this type also includes a few transposon genes and several genes that are dubious (i.e. predicted by automated methods considered unlikely to actually encode protein), which you will presumably want to exclude from the set. The canned query does this.</p>
-<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Protein-coding genes (excluding "dubious" and "transposon" status)'" [predefinedQueryName]="'canned_query:all_protein_coding_ex_dubious_and_transposon'"></app-query-link></p>
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Protein-coding genes (excluding &quot;dubious&quot; and &quot;transposon&quot; status)'" [predefinedQueryName]="'canned_query:all_protein_coding_ex_dubious_and_transposon'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences')" *ngIf="pageName == 'gene-page' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences'">
