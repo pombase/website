@@ -58,12 +58,8 @@ terms above have the annotation status "published" (e.g. GO ID
 [advanced search documentation](/documentation/advanced-search) for more
 tips on setting up the query).
 
-<!--
 Query links:
-
-[Genes annotated to 'transcription regulatory region sequence-specific DNA binding' (GO:0000976) or 'sequence-specific DNA binding transcription factor activity' (GO:0003700)](/spombe/query/builder?filter=37&value=%5B%7B%22operator%22:%22OR%22,%22param%22:%7B%22set_1%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0000976%22%7D%7D,%22filter_count%22:%221%22%7D,%22set_2%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0003700%22%7D%7D,%22filter_count%22:%221%22%7D%7D%7D%5D) 
-
-[Genes annotated to 'RNA polymerase II core promoter proximal region sequence-specific DNA binding' (GO:0000978) with annotation status 'published'](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0000978%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2211%22,%22query%22:%22PBO:0000001%22%7D%7D,%22filter_count%22:%222%22%7D%5D) 
--->
+-   <app-query-link [goToResults]="true" [linkText]="'Genes annotated to "transcription regulatory region sequence-specific DNA binding" (GO:0000976) or "sequence-specific DNA binding transcription factor activity" (GO:0003700)'" [predefinedQueryName]="'GO_976_or_GO_3700'"></app-query-link>
+-   <app-query-link [goToResults]="true" [linkText]="'Genes annotated to "RNA polymerase II core promoter proximal region sequence-specific DNA binding" (GO:0000978) with characterisation status "published"'" [predefinedQueryName]="'GO_978_and_published'"></app-query-link>
 
 

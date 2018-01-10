@@ -43,11 +43,8 @@ use the very generic term "inviable cell population" (FYPO:0002059) or
 "viable cell population" (FYPO:0002058) in your query. All of the
 caveats about alleles and conditions still apply.
 
-<!--
 **Query links**
 
--   [Null alleles annotated to "inviable vegetative cell population"     (FYPO:0002061)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--   [Null alleles annotated to "viable vegetative cell population"     (FYPO:0002060)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--   [Null alleles annotated to both FYPO:0002061 and     FYPO:0002060](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%222%22%7D%5D) 
--->
-
+-   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to "inviable vegetative cell population" (FYPO:0002061)'" [predefinedQueryName]="'null_inviable'"></app-query-link>
+-   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to "viable vegetative cell population" (FYPO:0002060)'" [predefinedQueryName]="'null_viable'"></app-query-link>
+-   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to both FYPO:0002061 and FYPO:0002060'" [predefinedQueryName]="'null_viable_and_inviable'"></app-query-link>

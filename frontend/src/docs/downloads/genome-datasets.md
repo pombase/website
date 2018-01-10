@@ -20,7 +20,7 @@ systems.
 
 ### Genome sequence
 
-The current [genome sequence](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/fasta/) (ftp)
+The current [genome sequence](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/genome_sequence/) (ftp)
 is available in FASTA format. The linked directory contains a file for
 the whole genome sequence as well as separate files for each
 chromosome.

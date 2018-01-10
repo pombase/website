@@ -9,7 +9,7 @@
   file or directory.
 </div>
 
-The full [protein dataset](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/pep.fa.gz)
+The full [protein dataset](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/peptide.fa.gz)
 is available in FASTA format (link downloads gzipped file from PomBase ftp).
 
 The [protein data FTP directory](ftp://ftp.pombase.org/pombe/Protein_data/) 

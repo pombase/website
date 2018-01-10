@@ -12,6 +12,4 @@ Also see the FAQs on [finding disease gene orthologs](/faq/how-can-i-find-s.-pom
 [finding the ortholog of a specific gene](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene), and on
 [downloading the full set of curated orthologs](/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs).
 
-<!--
-Query link: [Genes conserved in vertebrates](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2226%22,%22query%22:%22PBO:0011070%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--->
+Query link: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'" [predefinedQueryName]="'conserved_in_vertebrates'"></app-query-link>
