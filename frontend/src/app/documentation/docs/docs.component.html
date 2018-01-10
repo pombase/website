@@ -4305,9 +4305,9 @@ the total annotated genes.
 <p>PomBase accepts batch submissions of certain types of data that appear on PomBase gene pages. For these data types, we use dedicated PomBase-specific formats:</p>
 <ul>
 <li><a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotypes</a></li>
-<li><a routerLink="/documentation/modification-data-bulk-upload-file-format">Modifications</a></li>
-<li><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-file-format">Qualitative gene expression</a></li>
-<li><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-file-format">Quantitative gene expression</a></li>
+<li><a routerLink="/documentation/modification-data-bulk-upload-format">Modifications</a></li>
+<li><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression</a></li>
+<li><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression</a></li>
 </ul>
 <p>For data that can be connected with sequence features or coordinates, and displayed as tracks in the genome browser, see the <a href="faqs/what-file-formats-can-i-use-submit-high-throughput-data">data format FAQ</a> and further details linked there.</p>
 <h3 id="linking-to-and-from-pombase">Linking to and from PomBase</h3>
@@ -5127,7 +5127,7 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <p>Links below go to web pages or directly to directories within the PomBase FTP site. When you reach the FTP site, choose the file(s) you need and click to download.</p>
 <p>Note that most of the datasets available here are compressed (.gz), and can be uncompressed by utilities available in all common operating systems.</p>
 <h3 id="genome-sequence">Genome sequence</h3>
-<p>The current <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/fasta/">genome sequence</a> (ftp) is available in FASTA format. The linked directory contains a file for the whole genome sequence as well as separate files for each chromosome.</p>
+<p>The current <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/genome_sequence/">genome sequence</a> (ftp) is available in FASTA format. The linked directory contains a file for the whole genome sequence as well as separate files for each chromosome.</p>
 <h4 id="feature-coordinates-only">Feature coordinates only</h4>
 <p>These files contain coordinates, but no sequence data:</p>
 <ul>
@@ -5439,7 +5439,7 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <div style="color: red">
 <p><strong>Warning:</strong> Files in the old FTP site within the EBI domain are no longer updated. If you have a link that contains <strong>ftp.ebi.ac.uk</strong>, please check these pages for a link using <strong>ftp.pombase.org</strong>. Please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a> if you need help finding a file or directory.</p>
 </div>
-<p>The full <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/pep.fa.gz">protein dataset</a> is available in FASTA format (link downloads gzipped file from PomBase ftp).</p>
+<p>The full <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/peptide.fa.gz">protein dataset</a> is available in FASTA format (link downloads gzipped file from PomBase ftp).</p>
 <p>The <a href="ftp://ftp.pombase.org/pombe/Protein_data/">protein data FTP directory</a> contains assorted data (see the README for file formats):</p>
 <ul>
 <li><a href="ftp://ftp.pombase.org/pombe/Protein_data/PeptideStats.tsv">PeptideStats.tsv</a> - Predicted molecular weight (kDa), predicted pI, charge, length (residues), codon adaptation index (CAI)</li>
@@ -5672,13 +5672,12 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 </ul>
 <p><strong>A brief note about FYPO terms</strong></p>
 <p>At present, there are very few null mutants annotated as inviable in life cycle stages other than vegetative growth, and &quot;inviable vegetative cell population&quot; best fits the most common usage of &quot;essential gene&quot;. If you do want to include other stages (such as &quot;inviable spore&quot;), you can use the very generic term &quot;inviable cell population&quot; (FYPO:0002059) or &quot;viable cell population&quot; (FYPO:0002058) in your query. All of the caveats about alleles and conditions still apply.</p>
-<!--
-**Query links**
-
--   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Null alleles annotated to "inviable vegetative cell population"     (FYPO:0002061)</a> 
--   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Null alleles annotated to "viable vegetative cell population"     (FYPO:0002060)</a> 
--   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002061%22,%22query_2%22:%22Null%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2219%22,%22query_1%22:%22FYPO:0002060%22,%22query_2%22:%22Null%22%7D%7D,%22filter_count%22:%222%22%7D%5D">Null alleles annotated to both FYPO:0002061 and     FYPO:0002060</a> 
--->
+<p><strong>Query links</strong></p>
+<ul>
+<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to "inviable vegetative cell population" (FYPO:0002061)'" [predefinedQueryName]="'null_inviable'"></app-query-link></li>
+<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to "viable vegetative cell population" (FYPO:0002060)'" [predefinedQueryName]="'null_viable'"></app-query-link></li>
+<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to both FYPO:0002061 and FYPO:0002060'" [predefinedQueryName]="'null_viable_and_inviable'"></app-query-link></li>
+</ul>
 
 </div>
 <div (click)="navigate($event, '/faq/can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe'">
@@ -6049,9 +6048,7 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <!-- pombase_categories: Finding data,Genome statistics and lists,Orthology -->
 <p>Almost all genes that are conserved between fission yeast and human are also conserved in other vertebrates (there are two exceptions, both of which are genes encoding amino acid biosynthesis proteins that have become pseudogenes in human). To retreive these genes, go to the <a routerLink="/query">advanced search</a>, click the &quot;Taxonomic conservation&quot; query option, and choose the description &quot;Conserved in vertebrates&quot;.</p>
 <p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">finding disease gene orthologs</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>.</p>
-<!--
-Query link: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2226%22,%22query%22:%22PBO:0011070%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Genes conserved in vertebrates</a> 
--->
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'" [predefinedQueryName]="'conserved_in_vertebrates'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-s.-pombe-proteins-particular-protein-family'">
@@ -6307,13 +6304,7 @@ Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7
 <li>Contact the <a href="mailto:helpdesk@pombase.org">Helpdesk</a> if you have any problems or questions.</li>
 </ol>
 <p>Finally, note that not all <em>S. pombe</em> transcription factors have been extensively characterised with respect to target genes, and for those that have, target curation in PomBase may be incomplete. You may therefore wish to query for transcription factors that have been have been experimentally characterised, and therefore might have targets which are not yet curated. To do so, use the Advanced Search to find which of the genes annotated to the transcription factor-related GO terms above have the annotation status &quot;published&quot; (e.g. GO ID &quot;GO:0000978&quot; AND Annotation Status &quot;published&quot;; see the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more tips on setting up the query).</p>
-<!--
-Query links:
-
-<a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22operator%22:%22OR%22,%22param%22:%7B%22set_1%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0000976%22%7D%7D,%22filter_count%22:%221%22%7D,%22set_2%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0003700%22%7D%7D,%22filter_count%22:%221%22%7D%7D%7D%5D">Genes annotated to 'transcription regulatory region sequence-specific DNA binding' (GO:0000976) or 'sequence-specific DNA binding transcription factor activity' (GO:0003700)</a> 
-
-<a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0000978%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2211%22,%22query%22:%22PBO:0000001%22%7D%7D,%22filter_count%22:%222%22%7D%5D">Genes annotated to 'RNA polymerase II core promoter proximal region sequence-specific DNA binding' (GO:0000978) with annotation status 'published'</a> 
--->
+<p>Query links: - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to "transcription regulatory region sequence-specific DNA binding" (GO:0000976) or "sequence-specific DNA binding transcription factor activity" (GO:0003700)'" [predefinedQueryName]="'GO_976_or_GO_3700'"></app-query-link> - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to "RNA polymerase II core promoter proximal region sequence-specific DNA binding" (GO:0000978) with characterisation status "published"'" [predefinedQueryName]="'GO_978_and_published'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-transposons-s.-pombe-genome')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-find-transposons-s.-pombe-genome'">
@@ -6321,10 +6312,7 @@ Query links:
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>In the <a routerLink="/query">advanced search</a>, click &quot;Characterisation status&quot;, then select &quot;transposon&quot; from the pulldown.</p>
 <p>At present, there are 11 full-length transposons annotated, and two frameshifted copies.</p>
-<!--
-Query link:
-<a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2211%22,%22query%22:%22PBO:0000007%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Transposons</a> \
--->
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Transposons'" [predefinedQueryName]="'transposons'"></app-query-link></p>
 <p>Lone LTRs are also annotated as sequence features. They cannot yet be retrieved by the simple or advanced searches, but they can be displayed on a <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">track in the Ensembl browser</a> (under &quot;Repeats&quot;).</p>
 <p>Finally, if you wish to install Artemis (available from <a href="http://www.sanger.ac.uk/science/tools/artemis" class="uri">http://www.sanger.ac.uk/science/tools/artemis</a>), you can use it to view LTRs in more detail. Read in the EMBL format files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets">Genome sequences</a> page). To see LTRs,</p>
 <ol style="list-style-type: decimal">
@@ -6400,9 +6388,8 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22ope
 <!-- pombase_categories: Genome statistics and lists,Finding data -->
 <p>The <a routerLink="/downloads/names-and-identifiers">Names and identifiers page</a> provides lists of all genes, including non-coding RNA genes. The allNames.tsv file contains the systematic IDs and names for both protein-coding and non-coding RNA genes, whereas two separate files are available that also include product descriptions.</p>
 <p>The <a routerLink="/query">advanced search</a> includes a query that retrieves all protein-coding genes at once, as decribed in <a routerLink="/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes">this FAQ</a>.</p>
-<!--
-Query link: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2235%22%7D%7D,%22filter_count%22:%221%22%7D%5D">All genes</a> 
--->
+<p>This query retrieves genes of all types (protein-coding, non-coding RNA, and pseudogenes) by combining the &quot;product type&quot; options with the OR operator:</p>
+<p><app-query-link [goToResults]="true" [linkText]="'All genes'" [predefinedQueryName]="'canned_query:all_genes'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'how-can-i-retrieve-all-s.-pombe-protein-coding-genes'">
@@ -6410,9 +6397,7 @@ Query link: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%
 <!-- pombase_categories: Finding data,Genome statistics and lists -->
 <p>The <a routerLink="/query">advanced search</a> includes a query that retrieves all protein-coding genes at once. Click &quot;Canned queries&quot;, then click &quot;All protein coding genes (ex. dubious and transposon)&quot;.</p>
 <p>Further explanation: All protein coding genes have the type &quot;protein coding&quot;, but this type also includes a few transposon genes and several genes that are dubious (i.e. predicted by automated methods considered unlikely to actually encode protein), which you will presumably want to exclude from the set. The canned query does this.</p>
-<!--
-Query link: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B">Protein-coding genes (excluding 'dubious' and 'transposon' status)</a> 
--->
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Protein-coding genes (excluding "dubious" and "transposon" status)'" [predefinedQueryName]="'canned_query:all_protein_coding_ex_dubious_and_transposon'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences')" *ngIf="pageName == 'gene-page' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences'">
@@ -6438,9 +6423,7 @@ Query link: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B">Protein
 </ol>
 <p>Click on a count in the query history to see the results, with a button for &quot;Download&quot; options including coordinates and sequence.</p>
 <p>Also see the <a routerLink="/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates">FAQ on finding sequence features in a region</a>.</p>
-<!--
-Query link: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%228%22,%22query_1%22:%222%22,%22query_2%22:%2220%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%229%22,%22query%22:%22protein_coding%22%7D%7D,%22filter_count%22:%222%22%7D%5D">protein-coding genes with 2-20 exons</a> 
--->
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'protein-coding genes with 2-20 exons'" [predefinedQueryName]="'2-20_exons'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-sequence-coordinates-all-features-particular-type')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequence-coordinates-all-features-particular-type'">
