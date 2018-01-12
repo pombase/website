@@ -48,7 +48,7 @@ export class ReferenceShortComponent implements OnInit {
       }
 
       if (this.showRefTitle && this.reference.title) {
-        const m = this.reference.title.match(/(^.{1,50}\S+)/);
+        const m = this.reference.title.match(/(^.{1,70}\S+)/);
         if (m) {
           this.refTitle = m[0];
         } else {
