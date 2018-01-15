@@ -79,6 +79,7 @@ import { FrontPanelComponent } from './front-panel/front-panel.component';
 import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-community-pubs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
+import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 
 export function documentFactory() {
     return document;
@@ -152,6 +153,7 @@ export function windowFactory() {
     RecentCommunityPubsComponent,
     NotFoundComponent,
     PanelArchiveComponent,
+    MessageDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -168,7 +170,8 @@ export function windowFactory() {
     ModalModule.forRoot(),
     SharedModule,
   ],
-  entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent],
+  entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,
+                    MessageDialogComponent],
   providers: [PombaseAPIService,
               { provide: 'Window', useValue: window },
               { provide: 'Document', useFactory: documentFactory },

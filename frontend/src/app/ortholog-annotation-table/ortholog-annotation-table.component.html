@@ -16,19 +16,25 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let annotation of annotationTable">
+      <tr *ngFor="let annotation of displayTable">
         <td *ngIf="!currentGene">
           <app-gene-link class="app-link" [long]="false" [gene]="annotation.gene"></app-gene-link>
         </td>
         <td *ngIf="!currentGene">{{annotation.gene.product}}</td>
-        <td>{{annotation.ortholog_organism.genus}} {{annotation.ortholog_organism.species}}</td>
+        <td>{{annotation.orthologOrganism.genus}} {{annotation.orthologOrganism.species}}</td>
         <td>
-          <a href="{{getLink(annotation.ortholog_organism, annotation.ortholog.uniquename, annotation.ortholog.name)}}">
+          <a href="{{getLink(annotation.orthologOrganism, annotation.ortholog.uniquename, annotation.ortholog.name)}}">
             {{annotation.ortholog.name ? annotation.ortholog.name + " (" + annotation.ortholog.uniquename + ")" : annotation.ortholog.uniquename }}
           </a>
         </td>
         <td>
-          <span *ngIf="annotation.ortholog.product">{{annotation.ortholog.product}}</span>
+          <span *ngIf="annotation.orthologFullProduct">
+            <span title="{{annotation.orthologFullProduct}}">{{annotation.orthologShortProduct}}</span>
+            <a (click)="showFullProduct(annotation.ortholog.uniquename, annotation.orthologFullProduct)"
+               *ngIf="annotation.orthologFullProduct != annotation.orthologShortProduct">
+              more ...
+            </a>
+          </span>
         </td>
         <td class="ortholog-reference" *ngIf="!hideColumn['reference']">
           <span *ngIf="annotation.reference">
