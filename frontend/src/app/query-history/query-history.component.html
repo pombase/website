@@ -39,7 +39,8 @@
       </td>
       <td class="result-count">
         <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== null">
-          <span *ngIf="histEntry.getUpdatedCount() == null">
+          <span *ngIf="histEntry.getUpdatedCount() == null"
+                title="Click to view results">
             {{histEntry.getResultCount()}}
           </span>
           <span *ngIf="histEntry.getUpdatedCount() != null" class="results-out-of-date"
