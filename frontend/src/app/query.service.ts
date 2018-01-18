@@ -16,6 +16,7 @@ let historyEntryCounter = 0;
 export class HistoryEntry {
   checked = false;
   id: number;
+  private updatedCount: number = null;
 
   constructor(private query: GeneQuery, private resultCount: number) {
     this.id = historyEntryCounter++;
@@ -39,8 +40,14 @@ export class HistoryEntry {
     return o;
   }
 
-  setCount(resultCount: number) {
-    this.resultCount = resultCount;
+  setUpdatedCount(updatedCount: number) {
+    if (this.resultCount !== updatedCount) {
+      this.updatedCount = updatedCount;
+    }
+  }
+
+  getUpdatedCount(): number {
+    return this.updatedCount;
   }
 
   getEntryId(): number {
@@ -175,7 +182,7 @@ export class QueryService {
         const subscription = timer.subscribe(t => {
           this.postQueryCount(query)
             .subscribe((count) => {
-              histEntry.setCount(count);
+              histEntry.setUpdatedCount(count);
               subscription.unsubscribe();
             });
         });
