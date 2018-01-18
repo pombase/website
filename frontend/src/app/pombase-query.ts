@@ -341,6 +341,31 @@ export abstract class RangeNode extends GeneQueryNode {
   }
 }
 
+export class InteractorsNode extends GeneQueryNode {
+  constructor(public geneUniquename: string, public interactionType: string) {
+    super();
+  }
+
+  toObject(): Object {
+    return {
+      'interactors': { 'gene_uniquename': this.geneUniquename,
+                       'interaction_type': this.interactionType }
+    };
+  }
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof InteractorsNode) {
+      return this.geneUniquename === obj.geneUniquename &&
+        this.interactionType === obj.interactionType;
+    }
+    return false;
+  }
+
+  toString(): string {
+    return `${this.interactionType}_interactors_of: ${this.geneUniquename}`;
+  }
+}
+
 export class IntRangeNode extends RangeNode {
   toObject(): Object {
     return {
@@ -426,6 +451,9 @@ export class GeneQuery {
 
     case 'gene_list':
       return new GeneListNode(val['genes'] || val['ids']);
+
+    case 'interactors':
+      return new InteractorsNode(val['gene_uniquename'], val['interaction_type']);
     }
 
     throw new Error('Unknown type: ' + nodeType);

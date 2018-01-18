@@ -21,6 +21,8 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
 
   displayTable = [];
 
+  routerLinkUrl = null;
+
   constructor() { }
 
   ngOnInit() {
@@ -38,6 +40,18 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    let interactionType;
+
+    if (this.annotationTypeName === 'physical_interactions') {
+      interactionType = 'physical';
+    } else {
+      interactionType = 'genetic';
+    }
+
+    const json = `{"constraints":{"interactors": {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
+      '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
+    this.routerLinkUrl = `/query/results/from/json/${json}`;
+
     this.displayTable =
       this.annotationTable.map(
         (annotation) => {
