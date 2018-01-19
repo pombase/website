@@ -16,6 +16,11 @@ import { GeneQuery, GeneListNode } from '../../pombase-query';
 export class GenesTableComponent implements OnInit {
   @Input() legend: string;
   @Input() description = '';
+
+  // a decomposed version of the description as an Array of Objects
+  // like: [{text: "abnormal cell ... ("}, {term: <a TermShort>}, {text: ")"}, ...]
+  // which allows the the termids in a description to be linked to the term pages
+  @Input() descriptionParts = [];
   @Input() genes: Array<GeneShort> = [];
 
   orderByField = 'gene';

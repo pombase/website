@@ -5,8 +5,8 @@ import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { GeneQuery, QueryResult, QueryOutputOptions } from './pombase-query';
 import { getAppConfig } from './config';
 
-function makeResults(resultsObject: any): QueryResult {
-  return new QueryResult('OK', resultsObject.rows);
+function makeResults(query: GeneQuery, resultsObject: any): QueryResult {
+  return new QueryResult('OK', query, resultsObject.rows);
 }
 
 const localStorageKey = 'pombase-query-build-history-v1';
@@ -97,7 +97,7 @@ export class QueryService {
 
   postQuery(query: GeneQuery, outputOptions: QueryOutputOptions): Observable<QueryResult> {
     return this.postRaw(query, outputOptions)
-      .map((res) => { return makeResults(res.json()); });
+      .map((res) => { return makeResults(query, res.json()); });
   }
   postQueryCount(query: GeneQuery): Observable<number> {
     const outputOptions = new QueryOutputOptions([], 'none');

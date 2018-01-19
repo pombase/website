@@ -34,6 +34,9 @@
   <div *ngIf="description" class="description">
     {{description}}
   </div>
+  <div *ngIf="descriptionParts" class="description">
+    <span *ngFor="let part of descriptionParts"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.term" routerLink="/term/{{part.term.termid}}">{{part.term.termid}}</a></span>
+  </div>
 
   <form>
   <table>

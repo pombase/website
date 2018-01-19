@@ -9,6 +9,7 @@ export interface ResultRow {
 export class QueryResult {
   constructor(
     public status: string,
+    public query: GeneQuery,
     public rows: ResultRow[]) { }
 }
 
@@ -539,6 +540,25 @@ export class GeneQuery {
 
   public getName(): string {
     return this.name;
+  }
+
+  private referencedTermsHelper(node: GeneQueryNode, collector: Array<TermShort>) {
+    if (node instanceof TermNode) {
+      collector.push(node.getTerm());
+    } else {
+      if (node instanceof GeneBoolNode) {
+        for (const part of node.getParts()) {
+          this.referencedTermsHelper(part, collector);
+        }
+      }
+    }
+  }
+
+  // return an Array of all terms referenced by TermNodes in this query
+  public referencedTerms(): Array<TermShort> {
+    let collector = [];
+    this.referencedTermsHelper(this.getTopNode(), collector);
+    return collector;
   }
 
   public toPostJSON(outputOptions: QueryOutputOptions): string {
