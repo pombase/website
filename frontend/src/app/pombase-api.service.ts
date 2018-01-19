@@ -9,6 +9,7 @@ import { Seq } from './seq';
 import { getAppConfig, ConfigOrganism } from './config';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
+export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
 
 export enum Strand {
   Forward,
@@ -362,6 +363,7 @@ export class PombaseAPIService {
 
   private apiUrl = '/api/v1/dataset/latest';
   private geneSummariesUrl = this.apiUrl + '/data/gene_summaries';
+  private chromosomeSummariesUrl = this.apiUrl + '/data/chromosome_summaries';
 
   private promiseCache: { [name: string]: Promise<any> } = {};
   private resultCache = {};
@@ -809,6 +811,48 @@ export class PombaseAPIService {
 
   getGeneSummaryMap(): GeneSummaryMap {
     return this.resultCache['getGeneSummaryMap'];
+  }
+
+  getChromosomeSummariesPromise(): Promise<Array<ChromosomeShort>> {
+    if (!this.promiseCache[this.chromosomeSummariesUrl]) {
+      this.promiseCache[this.chromosomeSummariesUrl] =
+        this.getWithRetry(this.chromosomeSummariesUrl)
+        .toPromise()
+        .then(response => {
+          this.resultCache[this.chromosomeSummariesUrl] =
+            response.json() as Array<ChromosomeShort>;
+          return this.resultCache[this.chromosomeSummariesUrl];
+        })
+        .catch(this.handleError);
+    }
+    return this.promiseCache[this.chromosomeSummariesUrl];
+  }
+
+  getChromosomeSummaries(): Array<ChromosomeShort> {
+    return this.resultCache[this.chromosomeSummariesUrl];
+  }
+
+  getChromosomeSummaryMapPromise(): Promise<ChromosomeShortMap> {
+    if (!this.promiseCache['getChromosomeShortMapPromise']) {
+      this.promiseCache['getChromosomeShortMapPromise'] =
+        this.getChromosomeSummariesPromise()
+        .then(chromosomeSummaries => {
+          let retMap = {};
+          for (let summ of chromosomeSummaries) {
+            if (summ.name) {
+              retMap[summ.name] = summ;
+              retMap[summ.name.toLowerCase()] = summ;
+            }
+          }
+          this.resultCache['getChromosomeShortMap'] = retMap;
+          return retMap;
+        });
+    }
+    return this.promiseCache['getChromosomeSummaryMapPromise'];
+  }
+
+  getChromosomeSummaryMap(): ChromosomeShortMap {
+    return this.resultCache['getChromosomeSummaryMap'];
   }
 
   getTermSubsets(): Promise<TermSubsets> {
