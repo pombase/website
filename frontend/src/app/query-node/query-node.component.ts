@@ -1,10 +1,12 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 
 import { GeneQuery, GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
-         GeneQueryNode, GeneUniquename } from '../pombase-query';
+         GenomeRangeNode, GeneQueryNode } from '../pombase-query';
 import { GeneSummary } from '../pombase-api.service';
 
 import { getAppConfig, QueryNodeConfig } from '../config';
+import { PombaseAPIService } from '../pombase-api.service';
+
 
 @Component({
   selector: 'app-query-node',
@@ -18,6 +20,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
 
   nodeTypes = getAppConfig().queryBuilder.nodeTypes;
   cannedQueryDetails = null;
+  chromosomeSummaries = null;
 
   activeConf: QueryNodeConfig = null;
   selectedTerm = null;
@@ -25,8 +28,9 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   subsetName = '';
   rangeStart: number = null;
   rangeEnd: number = null;
+  chromosomeName: string = null;
 
-  constructor() { }
+  constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
     this.cannedQueryDetails =
@@ -37,6 +41,11 @@ export class QueryNodeComponent implements OnInit, OnChanges {
           name: query.getName(),
           queryId: queryId,
         };
+      });
+
+    this.pombaseApiService.getChromosomeSummariesPromise()
+      .then(chrSummaries => {
+        this.chromosomeSummaries = chrSummaries;
       });
   }
 
@@ -134,6 +143,26 @@ export class QueryNodeComponent implements OnInit, OnChanges {
     let part = new FloatRangeNode(this.activeConf.id,
                                   this.rangeStart, this.rangeEnd);
     this.nodeEvent.emit(part);
+  }
+
+  genomeRangeSearch(): void {
+    if (this.chromosomeName) {
+      const part = new GenomeRangeNode(this.rangeStart, this.rangeEnd,
+                                       this.chromosomeName);
+      this.nodeEvent.emit(part);
+    }
+  }
+
+  genomeRangeButtonTitle(): string {
+    if (this.chromosomeName) {
+      if ((!this.rangeStart && !this.rangeEnd) || this.validRange()) {
+        return 'Click to search';
+      } else {
+        return 'Start and end are optional but start must be less than end';
+      }
+    } else {
+      return 'Select a chromosome';
+    }
   }
 
   selectPredefinedQuery(predefinedQueryId: string): void {

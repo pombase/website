@@ -601,12 +601,11 @@ let _appConfig: AppConfig = {
         displayName: 'Coding exons',
         nodeType: 'int-range',
       },
-// ignore until we can select the chromosome too:
-//       {
-//         id: 'genome_range_contains',
-//         displayName: 'Genome position',
-//         nodeType: 'int-range',
-//       },
+      {
+        id: 'genome_range',
+        displayName: 'Chromosome',
+        nodeType: 'genome-range',
+      },
       {
         id: 'gene_list',
         displayName: 'Gene IDs',

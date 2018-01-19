@@ -366,6 +366,43 @@ export class InteractorsNode extends GeneQueryNode {
   }
 }
 
+export class GenomeRangeNode extends GeneQueryNode {
+  constructor(private start: number, private end: number, private chromosomeName: string) {
+    super();
+  }
+
+  toObject(): Object {
+    return {
+      'genome_range': { start: this.start, end: this.end,
+                        chromosome_name: this.chromosomeName }
+    };
+  }
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof GenomeRangeNode) {
+      return this.chromosomeName === obj.chromosomeName &&
+        this.start === obj.start && this.end === obj.end;
+    }
+    return false;
+  }
+
+  toString(): string {
+    if (this.start || this.end) {
+      if (!this.start) {
+        return `genome_range: <= ${this.end} of ${this.chromosomeName}`;
+      } else {
+        if (!this.end) {
+          return `genome_range: >= ${this.start} of ${this.chromosomeName}`;
+        } else {
+          return `genome_range: ${this.start}..${this.end} of ${this.chromosomeName}`;
+        }
+      }
+    } else {
+      return `all_genes_from_chromosome: ${this.chromosomeName}`;
+    }
+  }
+}
+
 export class IntRangeNode extends RangeNode {
   toObject(): Object {
     return {
@@ -454,6 +491,9 @@ export class GeneQuery {
 
     case 'interactors':
       return new InteractorsNode(val['gene_uniquename'], val['interaction_type']);
+
+    case 'genome_range':
+      return new GenomeRangeNode(val['start'], val['end'], val['chromosome_name']);
     }
 
     throw new Error('Unknown type: ' + nodeType);
