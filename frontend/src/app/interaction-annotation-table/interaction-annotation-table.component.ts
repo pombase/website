@@ -48,9 +48,11 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
       interactionType = 'genetic';
     }
 
-    const json = `{"constraints":{"interactors": {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
-      '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
-    this.routerLinkUrl = `/query/results/from/json/${json}`;
+    if (this.currentGene) {
+      const json = `{"constraints":{"interactors": {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
+        '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
+      this.routerLinkUrl = `/query/results/from/json/${json}`;
+    }
 
     this.displayTable =
       this.annotationTable.map(

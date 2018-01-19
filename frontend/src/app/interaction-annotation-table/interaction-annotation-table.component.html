@@ -3,7 +3,7 @@
     {{annotationTypeDisplayName}}
   </legend>
 
-  <a routerLink="{{routerLinkUrl}}">View interactors in the query builder ...</a>
+  <a *ngIf="routerLinkUrl" routerLink="{{routerLinkUrl}}">View interactors in the query builder ...</a>
 
   <div class="annotation-table-container">
   <table>
