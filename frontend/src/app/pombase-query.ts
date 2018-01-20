@@ -194,6 +194,9 @@ export class TermNode extends GeneQueryNode {
               private single_or_multi_allele: string,
               private expression: string) {
     super();
+    if (single_or_multi_allele !== 'single') {
+      this.expression = null;
+    }
   };
 
   equals(obj: GeneQueryNode): boolean {
