@@ -524,7 +524,7 @@ export class GeneQuery {
   }
 
   public equals(query: GeneQuery): boolean {
-    return this.toString() === query.toString();
+    return this.getTopNode().equals(query.getTopNode());
   }
 
   public getQueryId(): number {
