@@ -603,7 +603,7 @@ let _appConfig: AppConfig = {
       },
       {
         id: 'genome_range',
-        displayName: 'Chromosome',
+        displayName: 'Genome location',
         nodeType: 'genome-range',
       },
       {
