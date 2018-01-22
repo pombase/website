@@ -24,6 +24,7 @@ export class TermDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   apiError = null;
   visibleSections: Array<string> = [];
+  hasAnnotations = false;
 
   menuPositionFixed = false;
 
@@ -97,6 +98,8 @@ export class TermDetailsComponent implements OnInit {
                 this.setVisibleSections();
                 this.scrollToPageTop();
                 this.apiError = null;
+                this.hasAnnotations =
+                  Object.keys(this.termDetails.cv_annotations).length > 0;
               })
               .catch(error => {
                 this.apiError = error;

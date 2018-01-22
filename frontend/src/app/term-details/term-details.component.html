@@ -14,10 +14,10 @@
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
-    <div class="no-annotations" *ngIf="genes.length == 0">
+    <div class="no-annotations" *ngIf="!hasAnnotations">
       No annotations for {{termDetails.termid}}
     </div>
-    <div *ngIf="genes.length > 0">
+    <div *ngIf="hasAnnotations">
     <hr style="clear: both" />
 
     <div *ngIf="annotationFeatureType == 'gene'" class="term-page-view-change">
