@@ -687,16 +687,10 @@ type XrfConfigMap = { [key: string]: XrfConfig };
 let xrfConfig: { [key: string]: XrfConfig } = null;
 
 // aliases that aren't in GO.xrf_abbs
-let xrfConfigAliases = {
-  TIGRFAMs: 'JCVI_TIGRFAMS',
-  SSF: 'SUPERFAMILY',
-  PROFILE: 'Prosite',
-  MOBIDBLT: 'MOBIDB',
-  AmiGO: 'GO',
-};
+let xrfConfigAliases = pombaseConfig.extra_database_aliases;
 
 let xrfExtraConfigMap = {
-  'MOBIDB': {
+  'MobiDB': {
     displayName: 'MobiDB',
     description: 'MobiDB',
     urlSyntax: 'http://mobidb.bio.unipd.it/entries/[example_id]',
