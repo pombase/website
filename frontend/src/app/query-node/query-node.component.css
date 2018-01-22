@@ -3,6 +3,10 @@
   display: flex;
 }
 
+.node-section, button {
+  margin: 6px 0;
+}
+
 .node-buttons {
   background-color: #e8e8f8;
   width: 12em;

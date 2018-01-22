@@ -1,10 +1,19 @@
-import { FeatureShort } from './pombase-api.service';
+import { FeatureShort, ProteinDetails } from './pombase-api.service';
+
+interface PartWithId extends FeatureShort {
+  partId: number;
+}
+
+export class ResidueRange {
+  constructor(readonly start: number, readonly end: number) { }
+}
 
 export class DisplaySequenceLinePart {
   constructor(readonly uniquename: string,
               readonly partType: string,
               readonly residues: string,
-              readonly exonIndex: number | null) { }
+              readonly exonIndex: number | null,
+              readonly partId: number) { }
 }
 
 export class DisplaySequenceLine {
@@ -33,29 +42,42 @@ export class DisplaySequenceLine {
   }
 }
 
+let partIdCounter = 0;
+
+class RawSequencePart {
+  constructor(public partType: string,
+              public residues: string,
+              public uniquename: string) { }
+}
+
 export class DisplaySequence {
   private lines: Array<DisplaySequenceLine> = [new DisplaySequenceLine([])];
 
-  constructor(private readonly lineLength: number,
-              private readonly upstreamSequence: string,
-              private readonly parts: Array<FeatureShort>,
-              private readonly downstreamSequence: string) {
-    const upstreamPart = {
-      feature_type: 'upstream',
-      residues: upstreamSequence,
-      uniquename: 'upstream sequence',
-    } as FeatureShort;
-    const downstreamPart = {
-      feature_type: 'downstream',
-      residues: downstreamSequence,
-      uniquename: 'downstream sequence',
-    } as FeatureShort;
+  static newFromProtein(lineLength: number, protein: ProteinDetails): DisplaySequence {
+    const seqPart = new RawSequencePart('protein', protein.sequence, protein.uniquename);
+    return new DisplaySequence(lineLength, [seqPart]);
+  }
 
-    let allAparts = [upstreamPart, ...parts, downstreamPart];
+  static newFromTranscriptParts(lineLength: number,
+                                upstreamSequence: string,
+                                parts: Array<FeatureShort>,
+                                downstreamSequence: string) {
+    const upstreamPart = new RawSequencePart('upstream', upstreamSequence,
+                                             'upstream sequence');
+    const downstreamPart = new RawSequencePart('downstream', downstreamSequence,
+                                               'downstream sequence');
+    const seqParts = parts.map(part => {
+      return new RawSequencePart(part.feature_type, part.residues, part.uniquename);
+    });
+    const displayParts = [upstreamPart, ...seqParts, downstreamPart];
+    return new DisplaySequence(lineLength, displayParts);
+  }
 
+  private constructor(private readonly lineLength: number,
+                      private readonly displayParts: Array<RawSequencePart>) {
     let exonIndex = 1;
-    allAparts.map(part => {
-      if (part.feature_type === 'exon') {
+    displayParts.map(part => {
+      if (part.partType === 'exon') {
         this.addToLines(part, exonIndex);
         exonIndex++;
       } else {
@@ -64,7 +86,7 @@ export class DisplaySequence {
     });
   }
 
-  private addToLines(part: FeatureShort, exonIndex: number | null): void {
+  private addToLines(part: RawSequencePart, exonIndex: number | null): void {
     if (part.residues.length === 0) {
       return;
     }
@@ -72,16 +94,16 @@ export class DisplaySequence {
     let currentLine = this.lines[this.lines.length - 1];
 
     let partCopy = {
-      feature_type: part.feature_type,
+      feature_type: part.partType,
       residues: part.residues,
       uniquename: part.uniquename,
-    } as FeatureShort;
+    } as PartWithId;
 
     while (true) {
       if (currentLine.length() + partCopy.residues.length <= this.lineLength) {
         const linePart = new DisplaySequenceLinePart(partCopy.uniquename,
                                                      partCopy.feature_type, partCopy.residues,
-                                                     exonIndex);
+                                                     exonIndex, partIdCounter++);
         currentLine.add(linePart);
 
         if (currentLine.length() === this.lineLength) {
@@ -95,7 +117,7 @@ export class DisplaySequence {
 
         const linePart = new DisplaySequenceLinePart(partCopy.uniquename,
                                                      partCopy.feature_type, sliceResidues,
-                                                     exonIndex);
+                                                     exonIndex, partIdCounter++);
         currentLine.add(linePart);
 
         const remainingResidues = partCopy.residues.slice(sliceLength);
@@ -118,5 +140,35 @@ export class DisplaySequence {
     let res = '';
     this.lines.map(line => res += line.residues());
     return res;
+  }
+
+  rangeFromParts(startPartId: number, startPartOffset: number,
+                 endPartId: number, endPartOffset: number): ResidueRange
+  {
+    let residuesSoFar = 0;
+    let startPos = -1;
+
+    for (let lineIndex = 0; lineIndex < this.lines.length; ++lineIndex) {
+      const parts = this.lines[lineIndex].getParts();
+      for (let partIndex = 0; partIndex < parts.length; ++partIndex) {
+        const part = parts[partIndex];
+        if (part.partId === startPartId) {
+          startPos = residuesSoFar + startPartOffset;
+        }
+
+        if (part.partId === endPartId) {
+          if (startPos === -1) {
+            return null;
+          } else {
+            const endPos = residuesSoFar + endPartOffset;
+            return new ResidueRange(startPos + 1, endPos + 1);
+          }
+        }
+
+        residuesSoFar += part.residues.length;
+      }
+    }
+
+    return null;
   }
 }

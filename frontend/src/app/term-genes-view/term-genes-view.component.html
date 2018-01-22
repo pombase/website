@@ -8,6 +8,10 @@
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
+    <div class="no-annotations" *ngIf="genes.length == 0">
+      No annotations for {{termDetails.termid}}
+    </div>
+    <div *ngIf="genes.length > 0">
     <div class="term-actions">
       <span class="title">Actions: </span>
       <a routerLink="{{queryBuilderRouterLink}}">
@@ -20,6 +24,7 @@
     <div *ngIf="showAllAnnotationsLink" class="term-page-view-change">
       <a routerLink="/term/{{termDetails.termid}}"
          routerLinkActive="active">View all annotations for this term ...</a>
+    </div>
     </div>
 
     <div>

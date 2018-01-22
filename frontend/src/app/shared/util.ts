@@ -43,7 +43,14 @@ export class Util {
     if (genotypeDetails) {
       return genotypeDetails.expressed_alleles
         .map((expressedAllele) => {
-          return this.alleleDisplayName(expressedAllele.allele);
+          const alleleDisplayName = this.alleleDisplayName(expressedAllele.allele);
+          if (expressedAllele.expression &&
+              expressedAllele.allele.allele_type !== 'deletion' &&
+              expressedAllele.expression !== 'Not assayed') {
+            return `${alleleDisplayName}[${expressedAllele.expression}]`;
+          } else {
+            return alleleDisplayName;
+          }
         })
         .join(' ');
     } else {
@@ -53,7 +60,7 @@ export class Util {
 
   static alleleDisplayName(allele: AlleleShort): string {
     let name = allele.name || 'unnamed';
-    name = name.replace(/delta$/, 'Δ');
+    name = name.replace(/delta/, 'Δ');
     let description = allele.description || '';
     let alleleType = allele.allele_type || 'unknown';
 
@@ -72,21 +79,29 @@ export class Util {
       description = alleleType || 'unknown';
     }
 
-    if (alleleType.match(/^mutation/)) {
-      if (alleleType.match(/amino acid/)) {
-        description.replace(/(^|,\s*)/g,
-                            function(match, p1) {
-                              return p1 + 'aa';
-                            });
-      } else {
-        if (alleleType.match(/nucleotide/)) {
-          description.replace(/(^|,\s*)/,
-                              function(match, p1) {
-                                return p1 + 'nt';
-                              });
+    if (alleleType.match(/mutation$/)) {
+      if (description.match(/\w+\d+\w+$/)) {
+        if (alleleType.match(/amino.acid/)) {
+          description += ' aa';
+        } else {
+          if (alleleType.match(/nucleotide/)) {
+            description += ' nt';
+          }
         }
       }
     }
+
+    if (alleleType.startsWith('partial') &&
+        description.match(/\d+$/)) {
+      if (alleleType.match(/^partial.amino.acid.deletion$/)) {
+        description += ' Δaa';
+      } else {
+        if (alleleType.match(/^partial.nucleotide.deletion$/)) {
+          description += ' Δnt';
+        }
+      }
+    }
+
     return `${name}(${description})`;
   }
 

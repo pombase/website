@@ -33,6 +33,10 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.queryService.saveToHistory(new GeneQuery(node));
   }
 
+  getEntryDisplayString(histEntry: HistoryEntry): string {
+    return histEntry.getQuery().toString();
+  }
+
   deleteQueries() {
     let selected = this.getSelectedEntries();
     this.queryService.removeFromHistory(...selected);

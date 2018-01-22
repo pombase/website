@@ -39,14 +39,21 @@
       </td>
       <td class="result-count">
         <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== null">
-          {{histEntry.getResultCount()}}
+          <span *ngIf="histEntry.getUpdatedCount() == null"
+                title="Click to view results">
+            {{histEntry.getResultCount()}}
+          </span>
+          <span *ngIf="histEntry.getUpdatedCount() != null" class="results-out-of-date"
+                title="Click to re-run this query">
+            [out of date] {{histEntry.getResultCount()}}
+          </span>
         </a>
         <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() === null">
           [Results]
         </a>
       </td>
       <td>
-        {{histEntry.getQuery().toString()}}
+        {{getEntryDisplayString(histEntry)}}
       </td>
       <td class="row-actions">
         <a *ngIf="histEntry.getResultCount() !== null" (click)="showQueryDetails(histEntry)">...</a>

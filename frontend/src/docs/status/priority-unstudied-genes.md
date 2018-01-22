@@ -16,9 +16,9 @@ number of these (<app-query-link [goToResults]="true" [predefinedQueryName]="'pr
 listed below.
 
 You can recreate this query, or variations of it, using the Advanced
-Search. See the relevant FAQ and the [Advanced Search](/query)
-documentation for details. You can also send this list directly to the
-advanced search (For example to mine for phenotypes or locations of
-interest).
+Search. See the [relevant FAQ](/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human)
+and the [Advanced Search](/query) documentation for details. You can also
+send this list directly to the advanced search (For example to mine
+for phenotypes or locations of interest).
 
 <app-predefined-query-results [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results>

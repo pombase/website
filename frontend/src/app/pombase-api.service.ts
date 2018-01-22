@@ -8,6 +8,9 @@ import { Util } from './shared/util';
 import { Seq } from './seq';
 import { getAppConfig, ConfigOrganism } from './config';
 
+export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
+export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
+
 export enum Strand {
   Forward,
   Reverse,
@@ -171,7 +174,7 @@ export interface IdAndOrganism {
   taxonid: number;
 }
 
-export interface GeneSummary {
+export interface GeneSummary extends GeneShort {
   uniquename: string;
   name: string;
   taxonid: number;
@@ -187,6 +190,20 @@ export class GeneShort {
   uniquename: string;
   name: string;
   product?: string;
+
+  // The function is used to trim a GeneSummary to a GeneShort
+  static fromGeneShort(geneSummary: GeneShort): GeneShort {
+    let ret = {
+      uniquename: geneSummary.uniquename,
+      name: geneSummary.name
+    } as GeneShort;
+
+    if (geneSummary.product) {
+      ret.product = geneSummary.product;
+    }
+
+    return ret;
+  }
 }
 
 export interface GeneMap {
@@ -221,6 +238,7 @@ export interface TranscriptDetails {
   sequence: string;
   transcript_type: string;
   protein?: ProteinDetails;
+  cds_location?: ChromosomeLocation;
 }
 
 export interface InterProMatchLocation {
@@ -245,6 +263,8 @@ export class GeneDetails {
   name: string;
   feature_type: string;
   product?: string;
+  name_descriptions: Array<string>;
+  gene_neighbourhood: Array<GeneShort>;
   taxonid: number;
   transcripts: Array<TranscriptDetails>;
   deletion_viability?: string;
@@ -254,7 +274,6 @@ export class GeneDetails {
   orfeome_identifier: string;
   characterisation_status: string;
   location: ChromosomeLocation;
-  cds_location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;
   physical_interactions: Array<InteractionAnnotation>;
@@ -300,6 +319,7 @@ export class ReferenceDetails {
   authors: string;
   authors_abbrev: string;
   pubmed_publication_date: string;
+  canto_triage_status: string;
   canto_curator_role: string;
   canto_curator_name: string;
   canto_approved_date: string;
@@ -342,12 +362,32 @@ export interface GeneSubsets {
 export class PombaseAPIService {
 
   private apiUrl = '/api/v1/dataset/latest';
+  private geneSummariesUrl = this.apiUrl + '/data/gene_summaries';
+  private chromosomeSummariesUrl = this.apiUrl + '/data/chromosome_summaries';
+
+  private promiseCache: { [name: string]: Promise<any> } = {};
+  private resultCache = {};
 
   chunkPromises: {
     [key: string]: Promise<Seq>;
   } = {};
 
-  constructor (private http: Http) {}
+  startCacheTimeout() {
+    setTimeout(() => {
+      this.promiseCache = {};
+      this.resultCache = {};
+      this.startCacheTimeout();
+    }, 60000);
+  }
+
+  constructor (private http: Http) {
+    this.startCacheTimeout();
+
+    setTimeout(() => {
+      // pre-fetch the gene summaries
+      this.getGeneSummaryMapPromise();
+    }, 10);
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
@@ -729,22 +769,90 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
-  getGeneSummaries(): Promise<Array<GeneSummary>> {
-    return this.getWithRetry(this.apiUrl + '/data/gene_summaries')
-      .toPromise()
-      .then(response => response.json() as Array<GeneSummary>)
-      .catch(this.handleError);
+  getGeneSummariesPromise(): Promise<Array<GeneSummary>> {
+    if (!this.promiseCache[this.geneSummariesUrl]) {
+      this.promiseCache[this.geneSummariesUrl] = this.getWithRetry(this.geneSummariesUrl)
+        .toPromise()
+        .then(response => {
+          this.resultCache[this.geneSummariesUrl] =
+            response.json() as Array<GeneSummary>;
+          return this.resultCache[this.geneSummariesUrl];
+        })
+        .catch(this.handleError);
+    }
+    return this.promiseCache[this.geneSummariesUrl];
   }
 
-  getGeneSummariesByUniquename(): Promise<{[uniquename: string]: GeneSummary}> {
-    return this.getGeneSummaries()
-      .then(geneSummaries => {
-        let retMap = {};
-        for (let summ of geneSummaries) {
-          retMap[summ['uniquename']] = summ;
-        }
-        return retMap;
-      });
+  getGeneSummaries(): Array<GeneSummary> {
+    return this.resultCache[this.geneSummariesUrl];
+  }
+
+  getGeneSummaryMapPromise(): Promise<GeneSummaryMap> {
+    if (!this.promiseCache['getGeneSummaryMapPromise']) {
+      this.promiseCache['getGeneSummaryMapPromise'] = this.getGeneSummariesPromise()
+        .then(geneSummaries => {
+          let retMap = {};
+          for (let summ of geneSummaries) {
+            if (summ.name) {
+              retMap[summ.name] = summ;
+              retMap[summ.name.toLowerCase()] = summ;
+            }
+          }
+          for (let summ of geneSummaries) {
+            retMap[summ.uniquename] = summ;
+            retMap[summ.uniquename.toLowerCase()] = summ;
+          }
+          this.resultCache['getGeneSummaryMap'] = retMap;
+          return retMap;
+        });
+    }
+    return this.promiseCache['getGeneSummaryMapPromise'];
+  }
+
+  getGeneSummaryMap(): GeneSummaryMap {
+    return this.resultCache['getGeneSummaryMap'];
+  }
+
+  getChromosomeSummariesPromise(): Promise<Array<ChromosomeShort>> {
+    if (!this.promiseCache[this.chromosomeSummariesUrl]) {
+      this.promiseCache[this.chromosomeSummariesUrl] =
+        this.getWithRetry(this.chromosomeSummariesUrl)
+        .toPromise()
+        .then(response => {
+          this.resultCache[this.chromosomeSummariesUrl] =
+            response.json() as Array<ChromosomeShort>;
+          return this.resultCache[this.chromosomeSummariesUrl];
+        })
+        .catch(this.handleError);
+    }
+    return this.promiseCache[this.chromosomeSummariesUrl];
+  }
+
+  getChromosomeSummaries(): Array<ChromosomeShort> {
+    return this.resultCache[this.chromosomeSummariesUrl];
+  }
+
+  getChromosomeSummaryMapPromise(): Promise<ChromosomeShortMap> {
+    if (!this.promiseCache['getChromosomeShortMapPromise']) {
+      this.promiseCache['getChromosomeShortMapPromise'] =
+        this.getChromosomeSummariesPromise()
+        .then(chromosomeSummaries => {
+          let retMap = {};
+          for (let summ of chromosomeSummaries) {
+            if (summ.name) {
+              retMap[summ.name] = summ;
+              retMap[summ.name.toLowerCase()] = summ;
+            }
+          }
+          this.resultCache['getChromosomeShortMap'] = retMap;
+          return retMap;
+        });
+    }
+    return this.promiseCache['getChromosomeSummaryMapPromise'];
+  }
+
+  getChromosomeSummaryMap(): ChromosomeShortMap {
+    return this.resultCache['getChromosomeSummaryMap'];
   }
 
   getTermSubsets(): Promise<TermSubsets> {
@@ -755,7 +863,7 @@ export class PombaseAPIService {
   }
 
   addGeneShortToSubset(subsets: GeneSubsets): Promise<GeneSubsets> {
-    return this.getGeneSummariesByUniquename()
+    return this.getGeneSummaryMapPromise()
       .then((geneSummaries) => {
         for (let subsetName of Object.keys(subsets)) {
           let subset = subsets[subsetName];

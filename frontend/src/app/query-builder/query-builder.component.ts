@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { GeneQuery, GeneQueryNode, QueryResult, TermNode,
-         QueryOutputOptions} from '../pombase-query';
+import { GeneQuery, GeneQueryNode, QueryResult, TermNode, SubsetNode,
+         QueryOutputOptions } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { getAppConfig } from '../config';
@@ -17,6 +17,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
   resultsDescription = '';
   timerSubscription = null;
   showLoading = false;
+  startNodeType = null;
 
   resetQuery() {
     this.query = null;
@@ -32,10 +33,12 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
+      this.startNodeType = null;
       const goToResults =
         params['saveOrResults'] && params['saveOrResults'] === 'results';
       if (params['predefinedQueryName']) {
-        const query = getAppConfig().getPredefinedQuery(params['predefinedQueryName']);
+        const queryJson = getAppConfig().getPredefinedQuery(params['predefinedQueryName']);
+        const query = new GeneQuery(queryJson);
         if (goToResults) {
           this.gotoResults(query);
         } else {
@@ -48,13 +51,47 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
         if (fromType && termId && termName) {
           this.processFromRoute(fromType, termId, termName);
         } else {
-          const json = params['json'];
-          if (json) {
-            this.fromJson(goToResults, json);
+          const subsetName = params['subsetName'];
+          let subsetDisplayName = params['subsetDisplayName'];
+          if (subsetName) {
+            let decodedSubsetDisplayName = '';
+            if (subsetDisplayName) {
+              decodedSubsetDisplayName = decodeURIComponent(subsetDisplayName);
+            }
+            this.fromSubsetName(goToResults, subsetName, decodedSubsetDisplayName);
+          } else {
+            const json = params['json'];
+            if (json) {
+              this.fromJson(goToResults, json);
+            } else {
+              const nodeTypeId = params['nodeTypeId'];
+              if (nodeTypeId) {
+                this.startNodeType = nodeTypeId;
+              } else {
+                const historyEntryId = +params['historyEntryId'];
+                if (historyEntryId) {
+                  const query = this.queryService.historyEntryById(historyEntryId);
+                  if (query) {
+                    this.gotoResults(query);
+                  }
+                }
+              }
+            }
           }
         }
       }
     });
+  }
+
+  private fromSubsetName(goToResults: boolean,
+                         subsetName: string, subsetDisplayName: string): void {
+    const constraints = new SubsetNode (subsetName, subsetDisplayName);
+    const query = new GeneQuery(constraints);
+    if (goToResults) {
+      this.gotoResults(query);
+    } else {
+      this.saveQuery(query);
+    }
   }
 
   private fromJson(goToResults: boolean, json: string) {

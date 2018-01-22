@@ -79,6 +79,7 @@ import { FrontPanelComponent } from './front-panel/front-panel.component';
 import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-community-pubs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
+import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -156,6 +157,7 @@ export function windowFactory() {
     RecentCommunityPubsComponent,
     NotFoundComponent,
     PanelArchiveComponent,
+    MessageDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -173,7 +175,8 @@ export function windowFactory() {
     SharedModule,
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
   ],
-  entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent],
+  entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,
+                    MessageDialogComponent],
   providers: [PombaseAPIService,
               { provide: 'Window', useValue: window },
               { provide: 'Document', useFactory: documentFactory },

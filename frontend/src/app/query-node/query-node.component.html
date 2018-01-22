@@ -5,7 +5,7 @@
       New query
     </div>
     <div [ngClass]="{'node-selected-button': activeConf && conf.id == activeConf.id}"
-         (click)="clickNode(conf.id)" class="node-button" *ngFor="let conf of nodeTypes">
+         (click)="setNodeType(conf.id)" class="node-button" *ngFor="let conf of nodeTypes">
       {{upperCaseIntial(conf.displayName)}}
     </div>
   </div>
@@ -17,7 +17,7 @@
 
       <div *ngIf="activeConf.nodeType == 'ontology'">
         <app-query-term-node [termNodeConfig]="activeConf"
-                             [placeholder]="'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
+                             [placeholder]="activeConf.placeholder ? activeConf.placeholder :'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
                              (newTermNode)="newTermNode($event)"></app-query-term-node>
       </div>
 
@@ -81,6 +81,33 @@
                 [disabled]="!validRange()" (click)="intRangeSearch($event)">Search</button>
       </div>
 
+      <div *ngIf="activeConf.id == 'genome_range'">
+        <div class="node-section">
+          <span *ngIf="!chromosomeSummaries">[loading ...]</span>
+          <span *ngIf="chromosomeSummaries">
+            <select [(ngModel)]="chromosomeName">
+              <option [ngValue]="null">Choose a chromosome</option>
+              <option *ngFor = "let chromosomeSummary of chromosomeSummaries"
+                      [ngValue]="chromosomeSummary.name">
+                {{chromosomeSummary.name}}
+              </option>
+            </select>
+          </span>
+        </div>
+        <div class="node-section">
+          Restrict to region:
+          <input type="number" [(ngModel)]="rangeStart" min="1" step="1"
+                 placeholder="start base (optional) ..."/>
+          <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
+                 placeholder="end base (optional) ..."/>
+          <div style="color: red" *ngIf="(rangeStart || rangeEnd) &&!validRange()">
+            Start position must be less the end position
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary"
+                [attr.title]="genomeRangeButtonTitle()"
+                [disabled]="(rangeStart || rangeEnd) && !validRange() || !chromosomeName" (click)="genomeRangeSearch($event)">Search</button>
+      </div>
     </div>
   </div>
 </div>

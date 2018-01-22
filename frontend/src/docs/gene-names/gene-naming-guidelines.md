@@ -3,7 +3,7 @@
 ### Purpose of Reserving Gene Names
 
 To avoid gene naming conflicts, the
-*S. pombe*[Gene Naming Committee](gene-naming-committee-members)
+*S. pombe*[Gene Naming Committee](gene-names/gene-naming-committee-members)
 accepts reservations for gene names that will be published
 imminently. This does not guarantee that no one else will use your
 reserved gene name, but the naming committee will actively discourage
@@ -59,7 +59,7 @@ will attempt to notify all parties.
 
 <!-- restore when form back
 2.  Gene names may be reserved using the [Gene Name Registration
-    Form](registration-form). Please provide requested information and
+    Form](gene-names/registration-form). Please provide requested information and
     an explanation of the 3-letter gene symbol.
 -->
 

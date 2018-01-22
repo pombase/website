@@ -9,7 +9,7 @@ ontology term pages for GO Slim biological process terms, each GO Slim
 term links to the [HCPIN physical interaction network](/documentation/high-confidence-physical-interaction-network)
 in esyN. For example, the GO Slim page and the ontology term page for
 "regulation of mitotic cell cycle phase transition" ([GO:1901990](/term/GO:1901990)) link to
-http://www.esyn.org//builder.php?type=Graph&term=GO:1901990&interactionType=physical&source=pombase&includeInteractors=false .
+<http://www.esyn.org//builder.php?type=Graph&term=GO:1901990&interactionType=physical&source=pombase&includeInteractors=false>.
 
 We plan to provide gene-centred network displays on gene pages in the near future.
 
@@ -45,22 +45,22 @@ Using the esyN network display:
 You can also use EsyN to:
 
 Visualize interactions for a user-defined list of genes. To do this,
-visit http://www.esyn.org/builder.php?type=Graph, click on the "Network from
+visit <http://www.esyn.org/builder.php?type=Graph>, click on the "Network from
 list" option in the left-hand panel, and follow the instructions in the
 pop-up.
 
 Build your own network -- either an Interactome graph or a Petri net --
-from scratch (see the tutorial at http://www.esyn.org/tutorial.html).
+from scratch (see the tutorial at <http://www.esyn.org/tutorial.html>).
 In both cases you can use the Advanced Tools to retrieve the
 interactions for a number of model organisms from several databases (see
-http://www.esyn.org/builder.php?type=Graph#interactions).
+<http://www.esyn.org/builder.php?type=Graph#interactions>).
 
 Save and share your networks. By logging in via the "My esyN" link (at
 the top of every esyN page), any user can save, share privately with
 collaborators, or publish any network.
 
 Browse, view and modify, previously published, models (both graphs and
-Petri nets) at http://www.esyn.org/browse.php. We describe these
+Petri nets) at <http://www.esyn.org/browse.php>. We describe these
 networks are "public" in the sense of the open source movement, so that
 they are not only free to be copied, modified and (when possible)
 re-published, but we also actively encourage any collaborative effort to

@@ -4,30 +4,26 @@
       Search <span class="caret"></span>
     </button>
     <ul *dropdownMenu class="dropdown-menu" role="menu">
-<!--
-      <li role="menuitem">
-        <a routerLink="/" routerLinkActive="active" class="dropdown-item">
-          Simple
-        </a>
-      </li>
--->
       <li role="menuitem">
         <a routerLink="/query" routerLinkActive="active" class="dropdown-item">
           Advanced
         </a>
       </li>
       <li role="menuitem">
-        <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search" class="dropdown-item">
-          Peptide Motifs
-        </a>
-      </li>
-<!--
-      <li role="menuitem">
-        <a routerLink="/" routerLinkActive="active" class="dropdown-item">
+        <a routerLink="/query/start_from/gene_list" routerLinkActive="active" class="dropdown-item">
           Gene list
         </a>
       </li>
--->
+      <li role="menuitem">
+        <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search" class="dropdown-item">
+          Peptide motifs
+        </a>
+      </li>
+      <li role="menuitem">
+        <a href="https://fungi.ensembl.org/Schizosaccharomyces_pombe/Tools/Blast?db=core" class="dropdown-item">
+          BLAST at Ensembl
+        </a>
+      </li>
     </ul>
   </span>
 
@@ -38,6 +34,8 @@
     <ul *dropdownMenu class="dropdown-menu" role="menu">
       <li role="menuitem">
         <a href="/gene-names" class="dropdown-item">Gene names</a></li>
+      <li role="menuitem">
+        <a href="/submit-data" class="dropdown-item">Datasets</a></li>
       <li role="menuitem">
         <a href="https://curation.pombase.org/pombe/" class="dropdown-item">Curate a paper</a></li>
     </ul>

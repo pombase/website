@@ -9,10 +9,12 @@ import { PombaseAPIService } from '../../pombase-api.service';
 })
 export class GeneResultsComponent implements OnInit, OnChanges {
   @Input() results: QueryResult;
-  @Input() description: string;
+  @Input() description: string = '';
 
   displayResults = null;
+  descriptionParts = [];
   legend = null;
+  termsInQuery = [];
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
@@ -21,11 +23,30 @@ export class GeneResultsComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.results) {
-      this.pombaseApiService.getGeneSummariesByUniquename()
+      this.pombaseApiService.getGeneSummaryMapPromise()
         .then((geneSummaries) => {
           this.displayResults =
             this.results.rows.map((row) => {
               return geneSummaries[row.gene_uniquename];
+            });
+
+          this.termsInQuery = this.results.query.referencedTerms();
+          const termids = this.termsInQuery.map(term => term.termid);
+          const termidRe = new RegExp('(' + termids.join('|') + ')');
+
+          const descriptionBits = this.description.split(termidRe);
+          this.descriptionParts =
+            descriptionBits.map(bit => {
+              const index = termids.indexOf(bit);
+              if (index === -1) {
+                return {
+                  text: bit,
+                };
+              } else {
+                return {
+                  term: this.termsInQuery[index],
+                };
+              }
             });
 
           this.legend = 'Result';

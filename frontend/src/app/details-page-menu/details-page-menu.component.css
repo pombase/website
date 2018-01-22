@@ -1,3 +1,17 @@
 .menu-header {
   font-weight: bold;
 }
+
+.small-logo-hidden img, .small-logo-visible img {
+  padding: 5px;
+}
+
+.small-logo-hidden {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.small-logo-visible {
+  opacity: 1;
+  transition: opacity 0.2s;
+}

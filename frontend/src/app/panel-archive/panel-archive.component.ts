@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { getAppConfig } from '../config';
+import { getAppConfig, PanelConfig } from '../config';
 
 @Component({
   selector: 'app-panel-archive',
@@ -25,6 +25,10 @@ export class PanelArchiveComponent implements OnInit {
           .filter(conf =>
                   conf.panel_type === this.panelType && conf.is_current
                  )
+          .sort((conf1: PanelConfig, conf2: PanelConfig) => {
+            // reverse compare
+            return conf2.date_added.localeCompare(conf1.date_added);
+          })
           .map(conf => {
             if (this.panelConfigs === null) {
               this.panelConfigs = [[conf]];

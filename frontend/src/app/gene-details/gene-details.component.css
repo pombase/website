@@ -37,3 +37,11 @@
   font-size: 90%;
   text-align: center;
 }
+
+.genomic-location table {
+  margin: 0;
+}
+
+.genomic-location td {
+  padding: 2px;
+}

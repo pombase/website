@@ -50,6 +50,7 @@
     "no-unused-variable": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
+    "no-conditional-assignment": true,
     "object-literal-sort-keys": false,
     "one-line": [
       true,

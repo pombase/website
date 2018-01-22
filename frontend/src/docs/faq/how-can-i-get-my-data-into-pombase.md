@@ -12,14 +12,19 @@ The best route depends on the amount and type of data you have.
     modifications) and how to use the curation interface.
 -   If you have data from large-scale experiments that is associated
     with sequence coordinates, it can be displayed as a track in the
-    Genome Browser. Use the [HTP data submission form](/submit-data/data-submission-form)
+    Genome Browser. See the [data submission page](/submit-data) for instructions.
+<!-- Use the [HTP data submission form](/submit-data/data-submission-form)
     to send details.
+-->
 -   If you have a large set of phenotype data (e.g. from a screen of the
     deletion collection), especially if there are many annotations to
     one or a few
     [FYPO](/browse-curation/fission-yeast-phenotype-ontology) term(s),
     you can send them to the helpdesk in the 
     [phenotype annotation spreadsheet format](/documentation/phenotype-data-bulk-upload-format).
+-   Similarly, we can accept sets of GO, modification, or gene
+    expression data as described on the [dataset submission
+    page](/submit-data/bulk-annotation).
 -   For large sets of genetic or physical interaction data, we recommend
     that you prepare a spreadsheet using the [template provided by BioGRID](http://wiki.thebiogrid.org/doku.php/contribute) 
     (see "Step 1. Send Us Your Interaction Data"). You are welcome to send

@@ -10,10 +10,11 @@ import { Util } from '../shared/util';
 })
 export class FrontPanelComponent implements OnInit {
   @Input() conf: PanelConfig;
+  @Input() showDateAdded?: boolean;
 
   panelDescription = null;
-  headImage = null;
-  headVideo = null;
+  headImage: string = null;
+  headVideo: string = null;
 
   constructor() { }
 
@@ -24,6 +25,12 @@ export class FrontPanelComponent implements OnInit {
       this.headVideo = randMedia;
     } else {
       this.headImage = randMedia;
+
+      if (!this.headImage.match(/^assets\//) &&
+          !this.headImage.startsWith('/') &&
+          !this.headImage.startsWith('http')) {
+        this.headImage = 'assets/' + this.headImage;
+      }
     }
 
     if (this.conf.panel_type === 'spotlight') {

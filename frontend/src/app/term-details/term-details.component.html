@@ -14,11 +14,16 @@
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
+    <div class="no-annotations" *ngIf="genes.length == 0">
+      No annotations for {{termDetails.termid}}
+    </div>
+    <div *ngIf="genes.length > 0">
     <hr style="clear: both" />
 
     <div *ngIf="annotationFeatureType == 'gene'" class="term-page-view-change">
       <a routerLink="/term_genes/{{termDetails.termid}}"
          routerLinkActive="active">View genes annotated with this term ...</a>
+    </div>
     </div>
 
     <div *ngIf="annotationFeatureType == 'genotype'" class="term-page-view-change">

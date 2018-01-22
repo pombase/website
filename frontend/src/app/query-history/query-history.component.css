@@ -49,3 +49,7 @@ td.result-count {
 .row-actions a:hover {
   color: black;
 }
+
+.results-out-of-date {
+  color: red;
+}

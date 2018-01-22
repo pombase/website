@@ -1,4 +1,8 @@
 <span class="reference-short-link">
-  <a *ngIf="!xref" routerLink="/reference/{{reference.uniquename}}" routerLinkActive="active">{{displayString}}</a>
+  <span *ngIf="!xref">
+    <a *ngIf="!refTitle" routerLink="/reference/{{reference.uniquename}}">{{displayString}}</a>
+    <a *ngIf="refTitle" routerLink="/reference/{{reference.uniquename}}"
+       title="{{displayString}} - {{reference.title}}">{{refTitle}}</a>
+  </span>
   <a *ngIf="xref" href="{{xref}}">{{displayString}}</a>
 </span>

@@ -54,7 +54,7 @@ export class TermDetailsComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    let title = 'Ontology term - ';
+    let title = this.titleService.getTitle() + ' - Ontology term - ';
     if (this.termDetails) {
       title += this.termDetails.termid + ' - ' + this.termDetails.name;
     } else {

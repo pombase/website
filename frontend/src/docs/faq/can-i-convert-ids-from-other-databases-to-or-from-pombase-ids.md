@@ -2,7 +2,7 @@
 <!-- pombase_categories: Tools and resources -->
 
 PomBase does not have its own tool for ID conversion. We suggest you try
-the EBI's PICR web service ( <http://www.ebi.ac.uk/Tools/picr/>), which
+the EBI's PICR web service (<http://www.ebi.ac.uk/Tools/picr/>), which
 can convert between UniProtKB, RefSeq, Ensembl Genomes (including *S.
 pombe* systematic IDs), and many other common database IDs.
 

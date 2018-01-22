@@ -1,29 +1,26 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 
-import { GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
-         GeneQueryNode, GeneUniquename } from '../pombase-query';
+import { GeneQuery, GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
+         GenomeRangeNode, GeneQueryNode } from '../pombase-query';
+import { GeneSummary } from '../pombase-api.service';
 
 import { getAppConfig, QueryNodeConfig } from '../config';
+import { PombaseAPIService } from '../pombase-api.service';
+
 
 @Component({
   selector: 'app-query-node',
   templateUrl: './query-node.component.html',
   styleUrls: ['./query-node.component.css']
 })
-export class QueryNodeComponent implements OnInit {
+export class QueryNodeComponent implements OnInit, OnChanges {
   @Input() node: GeneQueryNode;
-  @Input() isActive: boolean;
+  @Input() startNodeType: string = null;
   @Output() nodeEvent = new EventEmitter<GeneQueryNode>();
 
   nodeTypes = getAppConfig().queryBuilder.nodeTypes;
-  cannedQueryDetails =
-    getAppConfig().cannedQueryIds.map(id => {
-      const queryId = 'canned_query:' + id;
-      return {
-        name: getAppConfig().getPredefinedQuery(queryId).getName(),
-        queryId: queryId,
-      };
-    });
+  cannedQueryDetails = null;
+  chromosomeSummaries = null;
 
   activeConf: QueryNodeConfig = null;
   selectedTerm = null;
@@ -31,10 +28,31 @@ export class QueryNodeComponent implements OnInit {
   subsetName = '';
   rangeStart: number = null;
   rangeEnd: number = null;
+  chromosomeName: string = null;
 
-  constructor() { }
+  constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
+    this.cannedQueryDetails =
+      getAppConfig().cannedQueryIds.map(id => {
+        const queryId = 'canned_query:' + id;
+        const query = new GeneQuery(getAppConfig().getPredefinedQuery(queryId));
+        return {
+          name: query.getName(),
+          queryId: queryId,
+        };
+      });
+
+    this.pombaseApiService.getChromosomeSummariesPromise()
+      .then(chrSummaries => {
+        this.chromosomeSummaries = chrSummaries;
+      });
+  }
+
+  ngOnChanges() {
+    if (this.startNodeType) {
+      this.setNodeType(this.startNodeType);
+    }
   }
 
   upperCaseIntial(s): string {
@@ -57,7 +75,7 @@ export class QueryNodeComponent implements OnInit {
     this.nodeEvent.emit(null);
   }
 
-  clickNode(confId: string) {
+  setNodeType(confId: string) {
     if (!this.activeConf || confId !== this.activeConf.id) {
       this.clearQuery();
       for (let conf of this.nodeTypes) {
@@ -73,7 +91,7 @@ export class QueryNodeComponent implements OnInit {
     this.nodeEvent.emit(newNode);
   }
 
-  genesFound(genes: Array<GeneUniquename>) {
+  genesFound(genes: Array<GeneSummary>) {
     let part = new GeneListNode(genes);
     this.nodeEvent.emit(part);
   }
@@ -127,8 +145,29 @@ export class QueryNodeComponent implements OnInit {
     this.nodeEvent.emit(part);
   }
 
+  genomeRangeSearch(): void {
+    if (this.chromosomeName) {
+      const part = new GenomeRangeNode(this.rangeStart, this.rangeEnd,
+                                       this.chromosomeName);
+      this.nodeEvent.emit(part);
+    }
+  }
+
+  genomeRangeButtonTitle(): string {
+    if (this.chromosomeName) {
+      if ((!this.rangeStart && !this.rangeEnd) || this.validRange()) {
+        return 'Click to search';
+      } else {
+        return 'Start and end are optional but start must be less than end';
+      }
+    } else {
+      return 'Select a chromosome';
+    }
+  }
+
   selectPredefinedQuery(predefinedQueryId: string): void {
-    const query = getAppConfig().getPredefinedQuery(predefinedQueryId);
+    const queryJson = getAppConfig().getPredefinedQuery(predefinedQueryId);
+    const query = new GeneQuery(queryJson);
     this.nodeEvent.emit(query.getTopNode());
   }
 }

@@ -6,7 +6,8 @@ submission route depends on the data type:
 
 -   For any data that can be associated with genome sequence coordinates
     (e.g. gene expression, ChIP-seq protein localisation, variation,
-    etc.), please use the [data submission form for HTP sequence-linked data](/submit-data/data-submission-form).
+    etc.), please see the [data submission page](/submit-data) for instructions.
+<!-- use the [data submission form for HTP sequence-linked data](/submit-data/data-submission-form). -->
 -   Several types of data associated with genes can be displayed on gene
     pages. PomBase has developed bulk upload formats for phenotype,
     modification, and gene expression data -- see the [FAQ on file formats](/faq/what-file-formats-can-i-use-submit-high-throughput-data) 

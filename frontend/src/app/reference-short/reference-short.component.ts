@@ -10,9 +10,11 @@ import { getXrf } from '../config';
 })
 export class ReferenceShortComponent implements OnInit {
   @Input() reference: ReferenceShort;
+  @Input() showRefTitle = false;
   @Input() linkText?: string;
 
   displayString = '';
+  refTitle = '';
   xref = null;
 
   constructor() { }
@@ -42,6 +44,18 @@ export class ReferenceShortComponent implements OnInit {
       } else {
         if (this.displayString !== this.reference.uniquename) {
           this.displayString = this.reference.uniquename;
+        }
+      }
+
+      if (this.showRefTitle && this.reference.title) {
+        const m = this.reference.title.match(/(^.{1,60}\S+)/);
+        if (m) {
+          this.refTitle = m[0];
+          if (this.refTitle !== this.reference.title) {
+              this.refTitle += ' ...';
+          }
+        } else {
+          this.refTitle = this.reference.title;
         }
       }
     }

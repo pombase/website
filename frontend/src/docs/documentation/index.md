@@ -45,9 +45,9 @@ on PomBase gene pages. For these data types, we use dedicated
 PomBase-specific formats:
 
 -   [Phenotypes](documentation/phenotype-data-bulk-upload-format)
--   [Modifications](documentation/modification-data-bulk-upload-file-format)
--   [Qualitative gene expression](documentation/qualitative-gene-expression-data-bulk-upload-file-format)
--   [Quantitative gene expression](documentation/quantitative-gene-expression-data-bulk-upload-file-format)
+-   [Modifications](documentation/modification-data-bulk-upload-format)
+-   [Qualitative gene expression](documentation/qualitative-gene-expression-data-bulk-upload-format)
+-   [Quantitative gene expression](documentation/quantitative-gene-expression-data-bulk-upload-format)
 
 For data that can be connected with sequence features or coordinates,
 and displayed as tracks in the genome browser, see the [data format

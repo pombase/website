@@ -16,7 +16,7 @@ repository, notably [AmiGO](http://amigo.geneontology.org/) and
 documentation available:
 
 -   [AmiGO Manual](http://wiki.geneontology.org/index.php/AmiGO_2_Manual:_Overview) 
--   [QuickGO Help page](http://www.ebi.ac.uk/QuickGO/help.html) 
+-   [QuickGO Help page](http://www.ebi.ac.uk/QuickGO/help) 
 
 Hint: to find *S. pombe* annotations, use Organism:
 Schizosaccharomyces pombe, Taxon: 4896 (*Schizosaccharomyces pombe*)

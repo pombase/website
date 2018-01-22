@@ -4,5 +4,5 @@
 PomBase does not offer a GFF-to-GTF converter. There is a perl script on
 SEQanswers, which uses the module Bio::Tools::GFF from the BioPerl
 library, available from
-http://seqanswers.com/forums/showpost.php?p=22529&postcount=4
+<http://seqanswers.com/forums/showpost.php?p=22529&postcount=4>
 

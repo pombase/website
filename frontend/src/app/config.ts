@@ -2,8 +2,6 @@ import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
 import docConfig from './config/doc-config.json';
 import pombaseConfig from '../../pombase_v2_config.json';
 
-import { GeneQuery } from './pombase-query';
-
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
 }
@@ -67,12 +65,15 @@ export interface PanelConfig {
   head_image: Array<string>;
   link?: string;
   link_label?: string;
+  date_added: string;
   is_current: boolean;
   internalLink?: string;
   externalLink?: string;
 }
 
 export interface AppConfig {
+  site_name: string;
+  site_description: string;
   load_organism_taxonid: number;
   organisms: Array<ConfigOrganism>;
   frontPagePanels: Array<PanelConfig>;
@@ -81,7 +82,7 @@ export interface AppConfig {
     smallest: number;
     largest: number;
   };
-  predefinedQueries: { [key: string]: GeneQuery };
+  predefinedQueries: { [key: string]: string };
   cannedQueryIds: Array<string>;
   cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
@@ -101,7 +102,7 @@ export interface AppConfig {
   // return true iff the genus and species match the configured organism
   isConfigOrganism(taxon: number): boolean;
 
-  getPredefinedQuery(queryName: string): GeneQuery;
+  getPredefinedQuery(queryName: string): string;
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
 
@@ -131,6 +132,7 @@ export interface SplitByParentsConfig {
   config_name: string;
   termids: Array<string>;
   display_name: string;
+  details_link_label?: string;
 }
 
 export interface AnnotationType {
@@ -365,6 +367,8 @@ function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
 }
 
 let _appConfig: AppConfig = {
+  site_name: pombaseConfig.site_name,
+  site_description: pombaseConfig.site_description,
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
   organisms: pombaseConfig.organisms,
   frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
@@ -382,7 +386,7 @@ let _appConfig: AppConfig = {
   cvNameMap: {
     'GO': '(molecular_function OR biological_process OR cellular_component)',
     'FYPO': 'fission_yeast_phenotype',
-    'PSI-MOD': 'post_translational_modification',
+    'PSI-MOD': 'PSI-MOD',
     'SO-protein': 'sequence',
   },
 
@@ -391,99 +395,7 @@ let _appConfig: AppConfig = {
     pfam: 'http://pfam.xfam.org/family/',
   },
 
-  evidenceTypes: {
-    IMP: {
-      long: 'Inferred from Mutant Phenotype',
-      link: 'http://www.geneontology.org/page/imp-inferred-mutant-phenotype',
-    },
-    IDA: {
-      long: 'Inferred from Direct Assay',
-      link: 'http://www.geneontology.org/page/ida-inferred-direct-assay',
-    },
-    IGI: {
-      long: 'Inferred from Genetic Interaction',
-      link: 'http://www.geneontology.org/page/igi-inferred-genetic-interaction',
-    },
-    IPI: {
-      long: 'Inferred from Physical Interaction',
-      link: 'http://www.geneontology.org/page/ipi-inferred-physical-interaction',
-    },
-    EXP: {
-      long: 'Inferred from Experiment',
-      link: 'http://www.geneontology.org/page/exp-inferred-experiment',
-    },
-    IEP: {
-      long: 'Inferred from Expression Pattern',
-      link: 'http://www.geneontology.org/page/iep-inferred-expression-pattern',
-    },
-    ISS: {
-      long: 'Inferred from Sequence or Structural Similarity',
-      link: 'http://www.geneontology.org/page/iss-inferred-sequence-or-structural-similarity',
-    },
-    ISO: {
-      long: 'Inferred from Sequence Orthology',
-      link: 'http://www.geneontology.org/page/iso-inferred-sequence-orthology',
-    },
-    ISA: {
-      long: 'Inferred from Sequence Alignment',
-      link: 'http://www.geneontology.org/page/isa-inferred-sequence-alignment',
-    },
-    ISM: {
-      long: 'Inferred from Sequence Model',
-      link: 'http://www.geneontology.org/page/ism-inferred-sequence-model',
-    },
-    IGC: {
-      long: 'Inferred from Genomic Context',
-      link: 'http://www.geneontology.org/page/igc-inferred-genomic-context',
-    },
-    IBA: {
-      long: 'Inferred from Biological aspect of Ancestor',
-      link: 'http://www.geneontology.org/page/iba-inferred-biological-aspect-ancestor',
-    },
-    IBD: {
-      long: 'Inferred from Biological aspect of Descendant',
-      link: 'http://www.geneontology.org/page/ibd-inferred-biological-aspect-descendent',
-    },
-    IKR: {
-      long: 'Inferred from Key Residues',
-      link: 'http://www.geneontology.org/page/ikr-inferred-key-residues',
-    },
-    IRD: {
-      long: 'Inferred from Rapid Divergence',
-      link: 'http://www.geneontology.org/page/ird-inferred-rapid-divergence',
-    },
-    RCA: {
-      long: 'inferred from Reviewed Computational Analysis',
-      link: 'http://www.geneontology.org/page/rca-inferred-reviewed-computational-analysis',
-    },
-    NAS: {
-      long: 'Non-traceable Author Statement',
-      link: 'http://www.geneontology.org/page/nas-non-traceable-author-statement',
-    },
-    IC: {
-      long: 'Inferred by Curator',
-      link: 'http://www.geneontology.org/page/ic-inferred-curator',
-    },
-    ND: {
-      long: 'No biological Data available',
-      link: 'http://www.geneontology.org/page/nd-no-biological-data-available',
-    },
-    IEA: {
-      long: 'Inferred from Electronic Annotation',
-      link: 'http://www.geneontology.org/page/automatically-assigned-evidence-codes',
-    },
-    NR: {
-      long: 'Not Recorded',
-      link: 'http://www.geneontology.org/page/nr-not-recorded',
-    },
-    TAS: {
-      long: 'Traceable Author Statement',
-      link: 'http://www.geneontology.org/page/tas-traceable-author-statement',
-    },
-    UNK: {
-      long: 'Unknown',
-    },
-  },
+  evidenceTypes: pombaseConfig.evidence_types,
   externalGeneReferences: pombaseConfig.external_gene_references,
   externalTermReferences: pombaseConfig.external_term_references,
   miscExternalLinks: pombaseConfig.misc_external_links,
@@ -510,6 +422,7 @@ let _appConfig: AppConfig = {
         displayName: 'protein modification',
         nodeType: 'ontology',
         ontologyName: 'PSI-MOD',
+        placeholder: 'e.g phosphorylated residue (MOD:00696)',
       },
       {
         id: 'all_domains',
@@ -688,12 +601,11 @@ let _appConfig: AppConfig = {
         displayName: 'Coding exons',
         nodeType: 'int-range',
       },
-// ignore until we can select the chromosome too:
-//       {
-//         id: 'genome_range_contains',
-//         displayName: 'Genome position',
-//         nodeType: 'int-range',
-//       },
+      {
+        id: 'genome_range',
+        displayName: 'Genome location',
+        nodeType: 'genome-range',
+      },
       {
         id: 'gene_list',
         displayName: 'Gene IDs',
@@ -716,8 +628,8 @@ let _appConfig: AppConfig = {
     return retOrganism;
   },
 
-  getPredefinedQuery(queryId: string): GeneQuery {
-    return new GeneQuery(getAppConfig().predefinedQueries[queryId]);
+  getPredefinedQuery(queryId: string): string {
+    return getAppConfig().predefinedQueries[queryId];
   },
 
   getExternalTermLink(configKey: string, termId: string): { url: string, displayName: string } {
@@ -775,16 +687,10 @@ type XrfConfigMap = { [key: string]: XrfConfig };
 let xrfConfig: { [key: string]: XrfConfig } = null;
 
 // aliases that aren't in GO.xrf_abbs
-let xrfConfigAliases = {
-  TIGRFAMs: 'JCVI_TIGRFAMS',
-  SSF: 'SUPERFAMILY',
-  PROFILE: 'Prosite',
-  MOBIDBLT: 'MOBIDB',
-  AmiGO: 'GO',
-};
+let xrfConfigAliases = pombaseConfig.extra_database_aliases;
 
 let xrfExtraConfigMap = {
-  'MOBIDB': {
+  'MobiDB': {
     displayName: 'MobiDB',
     description: 'MobiDB',
     urlSyntax: 'http://mobidb.bio.unipd.it/entries/[example_id]',

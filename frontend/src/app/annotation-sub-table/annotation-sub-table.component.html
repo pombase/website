@@ -1,6 +1,13 @@
 <div class="sub-table">
   <div *ngIf="!detailsOnly" class="view-controls">
-    <a *ngIf="currentViewState != TableViewState.Details" (click)="allDetailsView()">Show details ...</a> 
+    <a *ngIf="currentViewState != TableViewState.Details" (click)="allDetailsView()">
+      <span *ngIf="splitByConfig && splitByConfig.details_link_label">
+        {{splitByConfig.details_link_label}}
+      </span>
+      <span *ngIf="!splitByConfig || !splitByConfig.details_link_label">
+        Show details ...
+      </span>
+    </a> 
     <a *ngIf="currentViewState == TableViewState.Details" (click)="allSummaryView()">Show summary ...</a>
   </div>
 

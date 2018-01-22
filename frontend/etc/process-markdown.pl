@@ -199,7 +199,7 @@ sub process_front_panels {
     my $content = $this_conf->{content};
     for my $content_line (split /\n/, $content) {
       process_line(\$content_line);
-      print $panel_contents_comp_fh $content_line, "\n";
+      print $panel_contents_comp_fh markdown($content_line), "\n";
     }
     print $panel_contents_comp_fh "</div>\n";
   }
@@ -236,7 +236,7 @@ sub get_all_faq_parts {
       $line;
     } @split_contents;
 
-    $ret .= qq|<div *ngIf="$categories_condition">\n|;
+    $ret .= qq|<div (click)="navigate(\$event, '/faq/$sect_id')" *ngIf="$categories_condition">\n|;
     $ret .= markdown($contents) . "\n";
     $ret .= "</div>\n";
   }

@@ -8,7 +8,7 @@
   <div class="info-panels">
     <div *ngFor="let row of panelConfigs" class="info-pane-row">
       <div class="info-panel" *ngFor="let panelConfig of row">
-        <app-front-panel [conf]="panelConfig"></app-front-panel>
+        <app-front-panel [conf]="panelConfig" [showDateAdded]="true"></app-front-panel>
       </div>
     </div>
   </div>

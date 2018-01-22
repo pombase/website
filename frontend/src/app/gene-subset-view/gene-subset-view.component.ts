@@ -12,7 +12,9 @@ import { GeneSubsetDetails, PombaseAPIService } from '../pombase-api.service';
 export class GeneSubsetViewComponent implements OnInit {
   subset: GeneSubsetDetails = null;
   subsetDisplayName = null;
+  subsetGeneCount = 0;
   apiError = null;
+  queryBuilderRouterLink = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -34,11 +36,11 @@ export class GeneSubsetViewComponent implements OnInit {
             let subsetName = params['subsetName'];
             this.subset = subsets[subsetName];
             if (this.subset) {
+              this.subsetGeneCount = this.subset.elements.length;
               let matchResults = this.subset.display_name.match(/characterisation_status:(.*)/);
               if (matchResults) {
                 this.subsetDisplayName =
-                  'Genes with characterisation status "' + matchResults[1] +
-                  '": ' + this.subset.elements.length;
+                  'Genes with characterisation status "' + matchResults[1] + '"';
               } else {
                 let interproMatchResults = this.subset.name.match(/interpro:(.*)/);
                 if (interproMatchResults) {
@@ -46,9 +48,12 @@ export class GeneSubsetViewComponent implements OnInit {
                   if (interproMatchResults[1].indexOf(this.subset.display_name) === -1) {
                     this.subsetDisplayName += ' "' + this.subset.display_name + '"';
                   }
-                  this.subsetDisplayName += ': ' + this.subset.elements.length;
                 }
               }
+
+              const encodedDisplayName = encodeURIComponent(this.subsetDisplayName);
+              this.queryBuilderRouterLink =
+                `/query/save/from/subset/${subsetName}/${encodedDisplayName}`;
             } else {
               this.apiError = {
                 status: 404,

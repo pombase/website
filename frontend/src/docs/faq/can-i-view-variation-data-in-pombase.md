@@ -24,6 +24,6 @@ A Variscan track showing variation diversity along the sequence is also
 available.
 
 Ensembl provides a
-[quick reference card](http://test.genomebrowser.pombase.org/info/website/tutorials/Ensembl_variation_quick_reference_card.pdf)
+[quick reference card](http://genomebrowser.pombase.org/info/website/tutorials/Ensembl_variation_quick_reference_card.pdf)
 with more information on the browser interface for variations.
 

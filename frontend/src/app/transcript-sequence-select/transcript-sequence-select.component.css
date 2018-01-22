@@ -13,7 +13,7 @@
 
 .sequence-display, .sequence-holder pre {
   max-height: 800px;
-  font-family: monospace;
+  font-family: DejaVu Sans Mono, monospace;
   overflow-y: auto;
   display: inline-block;
   background-color: white;
@@ -26,24 +26,30 @@
   font-size: 1em;
 }
 
+.selected-range {
+  font-size: 120%;
+  padding: 0 0.5em;
+}
+
 .seq-title {
-  padding-top: 0.5em;
+  padding-top: 1em;
   font-weight: bold;
+  padding-bottom: 0.5em;
 }
 
 .residues {
-  min-width: 75em;
+  min-width: 65ch;
   color: #111;
-  font-family: DejaVu Sans Mono, monospace;
 }
 
 .residue-line {
+  white-space: nowrap;
   line-height: 1em;
 }
 
 .residue-line span {
-  padding: 0.15em 0;
   display: inline-block;
+  line-height: 1.5;
 }
 
 .hovering {
@@ -72,16 +78,20 @@
   color: #644;
 }
 
-.part-five_prime_utr, .part-three_prime_utr {
-  color: #0b3dd7;
+.part-five_prime_utr {
+  color: #0b5dd7;
 }
 
-.part-upstream, .part-downstream {
-  color: #ec7c5f;
+.part-three_prime_utr {
+  color: #6b3dc7;
 }
 
-.controls .flanking-bases {
-  margin-left: 1em;
+.part-upstream {
+  color: #ec5f5f;
+}
+
+.part-downstream {
+  color: #0ea476;
 }
 
 .controls .flanking-bases input {
@@ -101,8 +111,8 @@
   margin-left: 1em;
 }
 
-.checkbox-section {
-  padding: 0 0 0.4em 0;
+.checkbox-section, .flanking-bases {
+  padding: 0 0 0.4em 1em;
 }
 
 .sequence-actions {

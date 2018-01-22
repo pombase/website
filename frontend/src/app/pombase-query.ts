@@ -1,4 +1,5 @@
 import { Util } from './shared/util';
+import { GeneShort } from './pombase-api.service';
 
 export interface ResultRow {
   gene_uniquename: string;
@@ -8,6 +9,7 @@ export interface ResultRow {
 export class QueryResult {
   constructor(
     public status: string,
+    public query: GeneQuery,
     public rows: ResultRow[]) { }
 }
 
@@ -126,31 +128,62 @@ export class GeneBoolNode extends GeneQueryNode {
 }
 
 export class GeneListNode extends GeneQueryNode {
-  constructor(public ids: Array<GeneUniquename>) {
+  genes: Array<GeneShort>;
+
+  constructor(public arg: Array<GeneShort> | Array<GeneUniquename>) {
     super();
-    this.ids = this.ids.sort();
+
+    this.genes = [];
+
+    for (let argElement of arg) {
+      if (typeof(argElement) === 'object') {
+        this.genes.push(GeneShort.fromGeneShort(argElement));
+      } else {
+        this.genes.push({ uniquename: argElement, name: null });
+      }
+    }
+
+    this.genes = Array.from(new Set(this.genes)).sort();
   };
 
   toObject(): Object {
     return {
-      gene_list: this,
+      gene_list: {
+        genes: this.genes,
+      },
     };
   }
 
   equals(obj: GeneQueryNode): boolean {
     if (obj instanceof GeneListNode) {
-      return this.ids.length === obj.ids.length &&
-        this.ids.every((v, i) => v === obj.ids[i]);
+      return this.genes.length === obj.genes.length &&
+        this.genes.every((v, i) => v.uniquename === obj.genes[i].uniquename);
     }
     return false;
   }
 
   toString(): string {
-    let s = this.ids.slice(0, 10).join(' ');
-    if (this.ids.length > 10) {
-      s += ' ...';
+    let displayIds = this.genes.map(gene => gene.name || gene.uniquename);
+
+    let retString = '';
+
+    let i = 0;
+    for (; i < displayIds.length; ++i) {
+      const id = displayIds[i];
+      if (retString.length > 100) {
+        break;
+      }
+
+      if (retString !== '') {
+        retString += ' ';
+      }
+      retString += id;
     }
-    return `[${s}]`;
+
+    if (i < displayIds.length) {
+      retString += ' ...';
+    }
+    return `gene list: [${retString}]`;
   }
 }
 
@@ -161,6 +194,9 @@ export class TermNode extends GeneQueryNode {
               private single_or_multi_allele: string,
               private expression: string) {
     super();
+    if (single_or_multi_allele !== 'single') {
+      this.expression = null;
+    }
   };
 
   equals(obj: GeneQueryNode): boolean {
@@ -309,6 +345,68 @@ export abstract class RangeNode extends GeneQueryNode {
   }
 }
 
+export class InteractorsNode extends GeneQueryNode {
+  constructor(public geneUniquename: string, public interactionType: string) {
+    super();
+  }
+
+  toObject(): Object {
+    return {
+      'interactors': { 'gene_uniquename': this.geneUniquename,
+                       'interaction_type': this.interactionType }
+    };
+  }
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof InteractorsNode) {
+      return this.geneUniquename === obj.geneUniquename &&
+        this.interactionType === obj.interactionType;
+    }
+    return false;
+  }
+
+  toString(): string {
+    return `${this.interactionType}_interactors_of: ${this.geneUniquename}`;
+  }
+}
+
+export class GenomeRangeNode extends GeneQueryNode {
+  constructor(private start: number, private end: number, private chromosomeName: string) {
+    super();
+  }
+
+  toObject(): Object {
+    return {
+      'genome_range': { start: this.start, end: this.end,
+                        chromosome_name: this.chromosomeName }
+    };
+  }
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof GenomeRangeNode) {
+      return this.chromosomeName === obj.chromosomeName &&
+        this.start === obj.start && this.end === obj.end;
+    }
+    return false;
+  }
+
+  toString(): string {
+    if (this.start || this.end) {
+      if (!this.start) {
+        return `genome_range: <= ${this.end} of ${this.chromosomeName}`;
+      } else {
+        if (!this.end) {
+          return `genome_range: >= ${this.start} of ${this.chromosomeName}`;
+        } else {
+          return `genome_range: ${this.start}..${this.end} of ${this.chromosomeName}`;
+        }
+      }
+    } else {
+      return `all_genes_from_chromosome: ${this.chromosomeName}`;
+    }
+  }
+}
+
 export class IntRangeNode extends RangeNode {
   toObject(): Object {
     return {
@@ -360,7 +458,7 @@ export class GeneQuery {
   private queryTopNode: GeneQueryNode;
   private queryId: number;
   private name: string;
-  private stringQuery: string;
+  private stringQuery: string = null;
 
   private makeNode(parsedJson: any): GeneQueryNode {
     const keys = Object.keys(parsedJson);
@@ -393,7 +491,13 @@ export class GeneQuery {
       return new FloatRangeNode(val['range_type'], val['start'], val['end']);
 
     case 'gene_list':
-      return new GeneListNode(val['ids']);
+      return new GeneListNode(val['genes'] || val['ids']);
+
+    case 'interactors':
+      return new InteractorsNode(val['gene_uniquename'], val['interaction_type']);
+
+    case 'genome_range':
+      return new GenomeRangeNode(val['start'], val['end'], val['chromosome_name']);
     }
 
     throw new Error('Unknown type: ' + nodeType);
@@ -420,7 +524,7 @@ export class GeneQuery {
   }
 
   public equals(query: GeneQuery): boolean {
-    return this.toString() === query.toString();
+    return this.getTopNode().equals(query.getTopNode());
   }
 
   public getQueryId(): number {
@@ -441,6 +545,25 @@ export class GeneQuery {
     return this.name;
   }
 
+  private referencedTermsHelper(node: GeneQueryNode, collector: Array<TermShort>) {
+    if (node instanceof TermNode) {
+      collector.push(node.getTerm());
+    } else {
+      if (node instanceof GeneBoolNode) {
+        for (const part of node.getParts()) {
+          this.referencedTermsHelper(part, collector);
+        }
+      }
+    }
+  }
+
+  // return an Array of all terms referenced by TermNodes in this query
+  public referencedTerms(): Array<TermShort> {
+    let collector = [];
+    this.referencedTermsHelper(this.getTopNode(), collector);
+    return collector;
+  }
+
   public toPostJSON(outputOptions: QueryOutputOptions): string {
     let obj = this.toObject();
     obj['output_options'] = outputOptions;
@@ -448,6 +571,9 @@ export class GeneQuery {
   }
 
   public toString(): string {
+    if (this.stringQuery === null) {
+      this.stringQuery = this.getTopNode().toString();
+    }
     return this.stringQuery;
   }
 }

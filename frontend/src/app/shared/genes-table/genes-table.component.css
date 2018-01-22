@@ -2,11 +2,12 @@
   padding-right: 20px;
 }
 
-.download-links {
+.action {
   float: right;
   height: 0.9em;
   position: relative;
   top: -0.6em;
+  padding: 0 5px;
 }
 
 .genes-table table {
@@ -19,4 +20,8 @@
 
 .links-title {
   font-weight: bold;
+}
+
+th {
+  white-space: nowrap;
 }

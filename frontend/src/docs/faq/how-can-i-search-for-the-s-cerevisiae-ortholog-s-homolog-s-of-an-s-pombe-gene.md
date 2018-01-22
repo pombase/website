@@ -13,7 +13,7 @@ systematic names can be searched for *S. cerevisiae*, to avoid
 confusion in cases where unrelated genes coincidentally have the same
 name in *S. pombe* and *S. cerevisiae*. To find systematic names of
 *S. cerevisiae* genes, you can search
-[SGD](https://www.yeastgenome.org/locus).
+[SGD](https://www.yeastgenome.org/).
 
 Also see the [FAQ on downloading the full set of orthologs](/faq/how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs).
 

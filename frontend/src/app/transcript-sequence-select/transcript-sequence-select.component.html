@@ -2,41 +2,51 @@
   <legend>
     Sequence
   </legend>
-  <div>
+  <div (mousemove)="mousemove()">
     <div *ngIf="hasTranscripts">
         <div class="controls">
-          <div *ngIf="featureIsTranslatable">
+          <div *ngIf="featureHasProtein()">
           <input id="show-translation" type="checkbox" [(ngModel)]="showTranslation"
                  (ngModelChange)="updateSequence()"/>
           <label for="show-translation">Show translation</label>
           </div>
 
           <div *ngIf="!showTranslation">
-            <div *ngIf="featureIsTranslatable" class="seq-title">
-              CDS sequence and:
-            </div>
-            <div *ngIf="!featureIsTranslatable" class="seq-title">
-              Gene sequence:
+            <div class="seq-title">
+              Display sequence of these gene parts:
             </div>
 
-            <div class="checkbox-section" *ngIf="featureIsTranslatable">
+            <div class="flanking-bases">
+              <input id="upstream-bases" type="number" min="0"
+                     [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
+              bases upstream
+              <span *ngIf="featureHasProtein() && include5PrimeUtr">of UTR</span>
+              <span *ngIf="!(featureHasProtein() && include5PrimeUtr)">
+                <span *ngIf="featureHasProtein()">of translation start</span>
+                <span *ngIf="!featureHasProtein()">of gene start</span>
+              </span>
+            </div>
+            <div class="checkbox-section" *ngIf="featureHasProtein()">
             <div *ngIf="has5PrimeUtr">
             <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
-            <label for="include-5-prime">Include 5'UTR</label>
+            <label for="include-5-prime">5'UTR</label>
             </div>
-            <div class="flanking-bases">
-              Include
-              <input id="upstream-bases" type="number" min="0"
-                     [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
-              bases upstream <span *ngIf="featureIsTranslatable && include5PrimeUtr">of UTR</span>
+            <div *ngIf="!has5PrimeUtr">
+              (no 5' UTR)
             </div>
+            </div>
+
+            <div class="checkbox-section">
+              <input id="include-exons" type="checkbox" [(ngModel)]="includeExons"
+                     (ngModelChange)="updateSequence()"/>
+              <label for="include-exons">Exons</label>
             </div>
 
             <div class="checkbox-section" *ngIf="cdsIntronCount > 0 || fivePrimeIntronCount > 0 || threePrimeIntronCount > 0">
             <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
                    (ngModelChange)="updateSequence()"/>
-            <label for="include-introns">Include introns</label>
+            <label for="include-introns">Introns</label>
             <div class="utr-intron-warning" *ngIf="includeIntrons && (include5PrimeUtr && fivePrimeIntronCount > 0 || include3PrimeUtr && threePrimeIntronCount > 0)">
               <div *ngIf="include5PrimeUtr">
                 <div *ngIf="fivePrimeIntronCount == 1">(Includes one 5'UTR intron)</div>
@@ -49,77 +59,107 @@
             </div>
             </div>
 
-            <div class="checkbox-section" *ngIf="featureIsTranslatable">
+            <div class="checkbox-section" *ngIf="featureHasProtein()">
             <div *ngIf="has3PrimeUtr">
             <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
                    (ngModelChange)="updateSequence()"/>
-            <label for="include-3-prime">Include 3'UTR</label>
+            <label for="include-3-prime">3'UTR</label>
+            </div>
+            <div *ngIf="!has3PrimeUtr">
+              (no 3' UTR)
+            </div>
             </div>
             <div class="flanking-bases">
-              Include
               <input id="downstream-bases" type="number" min="0"
                      [(ngModel)]="downstreamBases" (ngModelChange)="updateSequence()"/>
-              bases downstream <span *ngIf="featureIsTranslatable && include3PrimeUtr">of UTR</span>
-            </div>
+              bases downstream
+              <span *ngIf="featureHasProtein() && include3PrimeUtr">of UTR</span>
+              <span *ngIf="!(featureHasProtein() && include3PrimeUtr)">
+                <span *ngIf="featureHasProtein()">of translation end</span>
+                <span *ngIf="!featureHasProtein()">of gene end</span>
+              </span>
             </div>
           </div>
 
-          <div class="sequence-actions">
-            <div style="display: inline-block; vertical-align: top;" class="sequence-action">
-          <button class="btn btn-primary" (click)="download()">Download sequence</button>
+          <div *ngIf="wrappedSequence" class="sequence-actions">
+            <div style="vertical-align: top;" class="sequence-action">
+              <button class="btn btn-primary" (click)="download()">Download sequence</button>
             </div>
 
             <div style="display: inline-block" class="sequence-action">
-            <span class="sequence-action">
-          <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbiform
-                (ngSubmit)="ncbiform.submit()"
-                target="{{linksInNewWindow ? '_blank' : ''}}"
-                action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="GET">
-            <input name="QUERY" value="{{'>' + sequenceHeader + '\n' + wrappedSequence}}" type="hidden">
-            <input name="PROGRAM" value="{{showTranslation?'blastp':'blastn'}}" type="hidden">
-            <input name="PAGE_TYPE" value="BlastSearch" type="hidden">
-            <input class="btn btn-primary" type="submit" value="NCBI {{showTranslation?'BLASTP':'BLASTN'}}" />
-          </form>
-            </span>
+              <span class="sequence-action">
+                <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbidnaform
+                      (ngSubmit)="ncbidnaform.submit()"
+                      target="_blank"
+                      action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="GET">
+                  <input name="QUERY" value="{{'>' + sequenceHeader + '\n' + wrappedSequence}}" type="hidden">
+                  <input name="PROGRAM" value="blastn" type="hidden">
+                  <input name="PAGE_TYPE" value="BlastSearch" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="NCBI BLASTN" />
+                </form>
+              </span>
 
-            <span class="sequence-action">
-          <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensform
-                (ngSubmit)="ensform.submit();"
-                target="{{linksInNewWindow ? '_blank' : ''}}"
-                action="https://fungi.ensembl.org/Multi/Tools/Blast{{showTranslation?'?query=peptide;database=peptide':''}}" method="POST">
-            <input value="{{'>' + sequenceHeader + '\n' + wrappedSequence}}" name="query_sequence" type="hidden">
-            <input class="btn btn-primary" type="submit" value="Ensembl {{showTranslation ? 'Protein' : 'DNA'}} BLAST" />
-          </form>
-            </span>
-          <div>
-            <input if="links-in-new-window" type="checkbox" [(ngModel)]="linksInNewWindow" />
-            <label for="links-in-new-window">Open BLAST in new tab</label>
-          </div>
+              <span class="sequence-action">
+                <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensdnaform
+                      (ngSubmit)="ensdnaform.submit();"
+                      target="_blank"
+                      action="https://fungi.ensembl.org/Schizosaccharomyces_pombe/Tools/Blast" method="POST">
+                  <input value="{{'>' + sequenceHeader + '\n' + wrappedSequence}}" name="query_sequence" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="Ensembl DNA BLAST" />
+                </form>
+              </span>
 
-          </div>
+              <span class="sequence-action">
+                <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbiprotform
+                      (ngSubmit)="ncbiprotform.submit()"
+                      target="_blank"
+                      action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="GET">
+                  <input name="QUERY" value="{{'>' + proteinSequenceHeader + '\n' + wrappedProteinSequence}}" type="hidden">
+                  <input name="PROGRAM" value="blastp" type="hidden">
+                  <input name="PAGE_TYPE" value="BlastSearch" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="NCBI BLASTP" />
+                </form>
+              </span>
+
+              <span class="sequence-action">
+                <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensprotform
+                      (ngSubmit)="ensprotform.submit();"
+                      target="_blank"
+                      action="https://fungi.ensembl.org/Schizosaccharomyces_pombe/Tools/Blast?query=peptide;database=peptide" method="POST">
+                  <input value="{{'>' + proteinSequenceHeader + '\n' + wrappedProteinSequence}}" name="query_sequence" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="Ensembl Protein BLAST" />
+                </form>
+              </span>
+            </div>
           </div>
         </div>
-        <div *ngIf="wrappedSequence" class="sequence-holder">
-          <pre *ngIf="showTranslation">
-&gt;{{sequenceHeader}}
-{{wrappedSequence}}
-          </pre>
 
-          <div class="sequence-display" *ngIf="!showTranslation">
+        <div class="sequence-holder" *ngIf="getDisplaySequence()">
+          <div class="selected-range">
+          <div *ngIf="selectedResidueRange">
+            Selected residues: {{selectedResidueRange.start}}..{{selectedResidueRange.end}}
+          </div>
+          <div *ngIf="!selectedResidueRange">&nbsp;</div>
+          </div>
+          <div class="sequence-display">
+          <div *ngIf="wrappedSequence || wrappedProteinSequence">
           <div class="header">
-&gt;{{sequenceHeader}}
+&gt;{{getSequenceHeader()}}
           </div>
           <div class="residues">
-          <div class="residue-line" *ngFor="let line of displaySequence.getLines()">
+          <div class="residue-line" *ngFor="let line of getDisplaySequence().getLines()">
             <span title="{{partTitle(part)}}" class="{{partClass(part)}}"
+                  #partSpan
                  (mouseenter)="mouseenter(part)" (mouseleave)="mouseleave()"
+                 [attr.data-part-id]="part.partId"
                   *ngFor="let part of line.getParts()">{{part.residues}}</span>
           </div>
-          <div *ngIf="sequence != null && wrappedSequence == ''">
+          </div>
+          </div>
+          <div *ngIf="!wrappedSequence">
             (No sequence to display)
           </div>
           <app-loading-spinner *ngIf="wrappedSequence == null"></app-loading-spinner>
-          </div>
           </div>
         </div>
     </div>

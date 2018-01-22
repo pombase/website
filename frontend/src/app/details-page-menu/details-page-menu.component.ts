@@ -35,7 +35,7 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
       // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
       let scrollingElement = document.scrollingElement || document.documentElement;
 
-      if (scrollingElement.scrollTop > 115) {
+      if (scrollingElement.scrollTop >= 115) {
         this.menuPositionFixed = true;
       } else {
         this.menuPositionFixed = false;

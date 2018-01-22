@@ -4,7 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 
-import { SynonymDetails, GeneDetails, ChromosomeLocation, PombaseAPIService } from '../pombase-api.service';
+import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AppConfig } from '../config';
@@ -19,7 +19,7 @@ export class GeneDetailsComponent implements OnInit {
 
   synonymsDisplay = '';
   displayFeatureType = '';
-  displayLocation = '';
+  displayLocation: Array<string> = [];
   annotationTypeNames: Array<string> = [];
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
@@ -54,20 +54,47 @@ export class GeneDetailsComponent implements OnInit {
               @Inject('Window') private window: any
              ) { }
 
-  makeDisplayLocation(location: ChromosomeLocation): string {
-    let chromosomeName = location.chromosome.name;
-    let chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
+  getCDSDisplayLocation(): string {
+    if (this.geneDetails.transcripts && this.geneDetails.transcripts.length > 0) {
+      const transcript = this.geneDetails.transcripts[0];
 
-    let displayName = chromosomeConfig.display_name || chromosomeName;
+      const cds_location = transcript.cds_location;
 
-    let ret = displayName + ', ';
-    if (location.strand === 'reverse') {
-      ret += location.end_pos + '-' + location.start_pos;
-    } else {
-      ret += location.start_pos + '-' + location.end_pos;
+      if (!cds_location) {
+        return null;
+      }
+
+      const len = cds_location.end_pos - cds_location.start_pos + 1;
+
+      return `${cds_location.start_pos}-${cds_location.end_pos} (${len}nt)`;
     }
-    ret += ' (' + (location.end_pos - location.start_pos + 1) + 'nt)';
-    return ret;
+
+    return null;
+  }
+
+  makeDisplayLocation(): Array<string> {
+    const location = this.geneDetails.location;
+    const chromosomeName = location.chromosome.name;
+    const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
+
+    const chrDisplayName = chromosomeConfig.display_name || chromosomeName;
+
+    let genomicLocation;
+    if (location.strand === 'reverse') {
+      genomicLocation = location.end_pos + '-' + location.start_pos;
+    } else {
+      genomicLocation = location.start_pos + '-' + location.end_pos;
+    }
+    genomicLocation += ' (' + (location.end_pos - location.start_pos + 1) + 'nt)';
+
+    const cdsDisplayLocation = this.getCDSDisplayLocation();
+
+    if (cdsDisplayLocation) {
+      return [chrDisplayName, `${cdsDisplayLocation} coding start to stop`,
+              `${genomicLocation} including UTRs`];
+    } else {
+      return [chrDisplayName, genomicLocation];
+    }
   }
 
   makeDisplayFeatureType(rawFeatureType: string): string {
@@ -101,6 +128,8 @@ export class GeneDetailsComponent implements OnInit {
 
       if (this.geneDetails.product) {
         return nameId + ' - ' + this.geneDetails.product;
+      } else {
+        return nameId;
       }
     } else {
       return 'UNKNOWN';
@@ -108,7 +137,7 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    let title = 'Gene - ' + this.displayNameLong();
+    let title = this.appConfig.site_name + ' - Gene - ' + this.displayNameLong();
     this.titleService.setTitle(title);
     this.meta.updateTag({property: 'og:title', content: title});
   }
@@ -217,7 +246,7 @@ export class GeneDetailsComponent implements OnInit {
             .then(geneDetails => {
               this.geneDetails = geneDetails;
               this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
-              this.displayLocation = this.makeDisplayLocation(geneDetails.location);
+              this.displayLocation = this.makeDisplayLocation();
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
               this.annotationTypeNames =
                 this.config.annotationTypeOrder

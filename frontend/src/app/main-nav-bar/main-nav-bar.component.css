@@ -24,6 +24,17 @@
   margin: 0;
 }
 
+@media (max-width: 1000px) {
+  #header-navbar {
+    font-size: 1.4vw;
+  }
+
+  #header-navbar .dropdown-toggle {
+    padding: 1vw;
+    margin: 0;
+  }
+}
+
 .dropdown:hover .dropdown-menu: {
 /*   display: block;*/
 }

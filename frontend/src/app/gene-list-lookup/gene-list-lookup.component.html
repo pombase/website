@@ -1,8 +1,17 @@
 <div class="gene-list-lookup">
-  <textarea rows="8" [(ngModel)]="inputText"></textarea>
+  <div *ngIf="!geneSummaryMap">
+    Loading gene summaries ...
+  </div>
+
+  <div *ngIf="geneSummaryMap">
+    <textarea rows="8" [(ngModel)]="inputText" (ngModelChange)="checkIds()"></textarea>
+    <div *ngIf="unknownIds.length > 0" class="unknown-identifiers">
+      Unknown identifiers: <span>{{unknownIds.join(" ").substring(0, 1000)}}</span>
+    </div>
   Read from file: <input type="file" (change)="readFile($event)">
 
   <div class="buttons">
     <button class="btn btn-primary" (click)="lookup()">Lookup</button>
+  </div>
   </div>
 </div>

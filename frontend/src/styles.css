@@ -152,7 +152,7 @@ select option:disabled {
 
 .menu-pos-fixed {
   position: fixed;
-  top: 10px;
+  top: 2px;
 }
 .menu-pos-absolute {
   position: absolute;
@@ -169,9 +169,6 @@ select option:disabled {
     width: 150px;
     left: 10px;
   }
-  .details-page-menu .details-menu-title {
-    display: none;
-  }
 }
 
 @media (max-width: 799px) {
@@ -180,8 +177,9 @@ select option:disabled {
     width: 30%;
     padding: 0.5em;
   }
-  .details-page-menu .details-menu-title {
-    display: block;
+
+  .small-logo-visible img {
+    width: 24vw;
   }
 }
 
