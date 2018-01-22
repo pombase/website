@@ -5,3 +5,8 @@
 .external-links div {
   padding: 0.5em 0 0.5em 0;
 }
+
+.no-annotations {
+  margin: 10px 0;
+  font-size: 120%;
+}

@@ -9,3 +9,8 @@
 .term-actions .title {
   font-weight: bold;
 }
+
+.no-annotations {
+  margin: 10px 0;
+  font-size: 120%;
+}
