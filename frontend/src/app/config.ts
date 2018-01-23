@@ -649,7 +649,7 @@ let _appConfig: AppConfig = {
       }
     }
 
-    let xrfDetails = getXrfConfig()[configKey];
+    let xrfDetails = getXrfConfig()[configKey.toLowerCase()];
 
     if (xrfDetails) {
       return { url: replaceExampleId(xrfDetails.urlSyntax, termId),
