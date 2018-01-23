@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { OrthologAnnotation, GeneShort } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getOrganismExternalLink } from '../config';
@@ -10,7 +10,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
   templateUrl: './ortholog-annotation-table.component.html',
   styleUrls: ['./ortholog-annotation-table.component.css']
 })
-export class OrthologAnnotationTableComponent implements OnInit {
+export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
   @Input() currentGene: GeneShort = null;
   @Input() hideColumns: Array<string> = [];
   @Input() annotationTable: Array<OrthologAnnotation>;
@@ -45,7 +45,9 @@ export class OrthologAnnotationTableComponent implements OnInit {
     this.hideColumns.map(col => {
       this.hideColumn[col] = true;
     });
+  }
 
+  ngOnChanges() {
     this.displayTable =
       this.annotationTable.map(row => {
         let shortProduct = null;
