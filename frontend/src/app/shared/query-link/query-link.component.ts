@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 import { QueryService } from '../../query.service';
+import { getAppConfig } from '../../config';
 
 @Component({
   selector: 'app-query-link',
@@ -13,10 +14,16 @@ export class QueryLinkComponent implements OnInit, OnDestroy {
   @Input() linkText = null;
 
   subscription = null;
+  queryConfig = null;
+  titleText = '';
 
   constructor(private queryService: QueryService) { }
 
   ngOnInit() {
+    this.queryConfig = getAppConfig().getPredefinedQuery(this.predefinedQueryName);
+
+//    this.titleText = this.queryConfig.name || this.predefinedQueryName;
+
     if (!this.linkText) {
       this.subscription = this.queryService.postPredefinedQueryCount(this.predefinedQueryName)
         .subscribe((results) => {

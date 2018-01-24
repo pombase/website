@@ -71,6 +71,11 @@ export interface PanelConfig {
   externalLink?: string;
 }
 
+export interface PredefinedQueryConfig {
+  name: string;
+  constraints: any;
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -82,7 +87,7 @@ export interface AppConfig {
     smallest: number;
     largest: number;
   };
-  predefinedQueries: { [key: string]: string };
+  predefinedQueries: { [key: string]: PredefinedQueryConfig };
   cannedQueryIds: Array<string>;
   cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
@@ -102,7 +107,7 @@ export interface AppConfig {
   // return true iff the genus and species match the configured organism
   isConfigOrganism(taxon: number): boolean;
 
-  getPredefinedQuery(queryName: string): string;
+  getPredefinedQuery(queryName: string): PredefinedQueryConfig;
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
 
@@ -628,7 +633,7 @@ let _appConfig: AppConfig = {
     return retOrganism;
   },
 
-  getPredefinedQuery(queryId: string): string {
+  getPredefinedQuery(queryId: string): PredefinedQueryConfig {
     return getAppConfig().predefinedQueries[queryId];
   },
 
