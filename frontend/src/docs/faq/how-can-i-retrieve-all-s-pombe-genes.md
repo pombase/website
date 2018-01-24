@@ -15,5 +15,5 @@ This query retrieves genes of all types (protein-coding, non-coding
 RNA, and pseudogenes) by combining the "product type" options with the
 OR operator:
 
-<app-query-link [goToResults]="true" [linkText]="'All genes'" [predefinedQueryName]="'canned_query:all_genes'"></app-query-link>
+<app-query-link [goToResults]="true" [linkText]="'All genes'" [predefinedQueryId]="'canned_query:all_genes'"></app-query-link>
 

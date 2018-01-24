@@ -5674,9 +5674,9 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <p>At present, there are very few null mutants annotated as inviable in life cycle stages other than vegetative growth, and &quot;inviable vegetative cell population&quot; best fits the most common usage of &quot;essential gene&quot;. If you do want to include other stages (such as &quot;inviable spore&quot;), you can use the very generic term &quot;inviable cell population&quot; (FYPO:0002059) or &quot;viable cell population&quot; (FYPO:0002058) in your query. All of the caveats about alleles and conditions still apply.</p>
 <p><strong>Query links</strong></p>
 <ul>
-<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;inviable vegetative cell population&quot; (FYPO:0002061)'" [predefinedQueryName]="'null_inviable'"></app-query-link></li>
-<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;viable vegetative cell population&quot; (FYPO:0002060)'" [predefinedQueryName]="'null_viable'"></app-query-link></li>
-<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to both FYPO:0002061 and FYPO:0002060'" [predefinedQueryName]="'null_viable_and_inviable'"></app-query-link></li>
+<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;inviable vegetative cell population&quot; (FYPO:0002061)'" [predefinedQueryId]="'null_inviable'"></app-query-link></li>
+<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;viable vegetative cell population&quot; (FYPO:0002060)'" [predefinedQueryId]="'null_viable'"></app-query-link></li>
+<li><app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to both FYPO:0002061 and FYPO:0002060'" [predefinedQueryId]="'null_viable_and_inviable'"></app-query-link></li>
 </ul>
 
 </div>
@@ -6048,7 +6048,7 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <!-- pombase_categories: Finding data,Genome statistics and lists,Orthology -->
 <p>Almost all genes that are conserved between fission yeast and human are also conserved in other vertebrates (there are two exceptions, both of which are genes encoding amino acid biosynthesis proteins that have become pseudogenes in human). To retreive these genes, go to the <a routerLink="/query">advanced search</a>, click the &quot;Taxonomic conservation&quot; query option, and choose the description &quot;Conserved in vertebrates&quot;.</p>
 <p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">finding disease gene orthologs</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>.</p>
-<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'" [predefinedQueryName]="'conserved_in_vertebrates'"></app-query-link></p>
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'" [predefinedQueryId]="'conserved_in_vertebrates'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-s.-pombe-proteins-particular-protein-family'">
@@ -6137,7 +6137,7 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <p>In FYPO, terms for increased chemical sensitivity are grouped under <a href="https://www.pombase.org/term/FYPO:0002683">increased sensitivity to chemical (FYPO:0002683)</a>. Similarly, decreased chemical sensitivity (increased resistance) terms are grouped under <a href="https://www.pombase.org/term/FYPO:0002682">increased resistance to chemical (FYPO:0002682)</a>.</p>
 <p>The ontology term pages for each term shows more specific terms, most of which identify specific chemicals (e.g. <a href="https://www.pombase.org/term/FYPO:0000088">sensitive to hydroxyurea (FYPO:000088)</a>, and the genotypes annotated to them.</p>
 <p>In any phenotype annotation display (on gene pages, ontology term pages, or publication pages), phenotype annotations can be <a routerLink="/documentation/gene-page-phenotypes">filtered</a> to show only &quot;sensitive to chemical&quot; annotations.</p>
-<p>You can also use the advanced search Phenotype query to search for <app-query-link [goToResults]="true" [linkText]="'FYPO:0002682'" [predefinedQueryName]="'single_allele_chemical_resistance'"></app-query-link>, <app-query-link [goToResults]="true" [linkText]="'FYPO:0002683'" [predefinedQueryName]="'single_allele_chemical_sensitivity'"></app-query-link> or any of the more specific terms. (Links go to results lists of single-allele genotypes annotated to each term.)</p>
+<p>You can also use the advanced search Phenotype query to search for <app-query-link [goToResults]="true" [linkText]="'FYPO:0002682'" [predefinedQueryId]="'single_allele_chemical_resistance'"></app-query-link>, <app-query-link [goToResults]="true" [linkText]="'FYPO:0002683'" [predefinedQueryId]="'single_allele_chemical_sensitivity'"></app-query-link> or any of the more specific terms. (Links go to results lists of single-allele genotypes annotated to each term.)</p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species'">
@@ -6304,7 +6304,7 @@ Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7
 <li>Contact the <a href="mailto:helpdesk@pombase.org">Helpdesk</a> if you have any problems or questions.</li>
 </ol>
 <p>Finally, note that not all <em>S. pombe</em> transcription factors have been extensively characterised with respect to target genes, and for those that have, target curation in PomBase may be incomplete. You may therefore wish to query for transcription factors that have been have been experimentally characterised, and therefore might have targets which are not yet curated. To do so, use the Advanced Search to find which of the genes annotated to the transcription factor-related GO terms above have the annotation status &quot;published&quot; (e.g. GO ID &quot;GO:0000978&quot; AND Annotation Status &quot;published&quot;; see the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more tips on setting up the query).</p>
-<p>Query links: - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;transcription regulatory region sequence-specific DNA binding&quot; (GO:0000976) or &quot;sequence-specific DNA binding transcription factor activity&quot; (GO:0003700)'" [predefinedQueryName]="'GO_976_or_GO_3700'"></app-query-link> - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;RNA polymerase II core promoter proximal region sequence-specific DNA binding&quot; (GO:0000978) with characterisation status &quot;published&quot;'" [predefinedQueryName]="'GO_978_and_published'"></app-query-link></p>
+<p>Query links: - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;transcription regulatory region sequence-specific DNA binding&quot; (GO:0000976) or &quot;sequence-specific DNA binding transcription factor activity&quot; (GO:0003700)'" [predefinedQueryId]="'GO_976_or_GO_3700'"></app-query-link> - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;RNA polymerase II core promoter proximal region sequence-specific DNA binding&quot; (GO:0000978) with characterisation status &quot;published&quot;'" [predefinedQueryId]="'GO_978_and_published'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-transposons-s.-pombe-genome')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-find-transposons-s.-pombe-genome'">
@@ -6312,7 +6312,7 @@ Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>In the <a routerLink="/query">advanced search</a>, click &quot;Characterisation status&quot;, then select &quot;transposon&quot; from the pulldown.</p>
 <p>At present, there are 11 full-length transposons annotated, and two frameshifted copies.</p>
-<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Transposons'" [predefinedQueryName]="'transposons'"></app-query-link></p>
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Transposons'" [predefinedQueryId]="'transposons'"></app-query-link></p>
 <p>Lone LTRs are also annotated as sequence features. They cannot yet be retrieved by the simple or advanced searches, but they can be displayed on a <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">track in the Ensembl browser</a> (under &quot;Repeats&quot;).</p>
 <p>Finally, if you wish to install Artemis (available from <a href="http://www.sanger.ac.uk/science/tools/artemis" class="uri">http://www.sanger.ac.uk/science/tools/artemis</a>), you can use it to view LTRs in more detail. Read in the EMBL format files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets">Genome sequences</a> page). To see LTRs,</p>
 <ol style="list-style-type: decimal">
@@ -6389,7 +6389,7 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22ope
 <p>The <a routerLink="/downloads/names-and-identifiers">Names and identifiers page</a> provides lists of all genes, including non-coding RNA genes. The allNames.tsv file contains the systematic IDs and names for both protein-coding and non-coding RNA genes, whereas two separate files are available that also include product descriptions.</p>
 <p>The <a routerLink="/query">advanced search</a> includes a query that retrieves all protein-coding genes at once, as decribed in <a routerLink="/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes">this FAQ</a>.</p>
 <p>This query retrieves genes of all types (protein-coding, non-coding RNA, and pseudogenes) by combining the &quot;product type&quot; options with the OR operator:</p>
-<p><app-query-link [goToResults]="true" [linkText]="'All genes'" [predefinedQueryName]="'canned_query:all_genes'"></app-query-link></p>
+<p><app-query-link [goToResults]="true" [linkText]="'All genes'" [predefinedQueryId]="'canned_query:all_genes'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'how-can-i-retrieve-all-s.-pombe-protein-coding-genes'">
@@ -6397,7 +6397,7 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22ope
 <!-- pombase_categories: Finding data,Genome statistics and lists -->
 <p>The <a routerLink="/query">advanced search</a> includes a query that retrieves all protein-coding genes at once. Click &quot;Canned queries&quot;, then click &quot;All protein coding genes (ex. dubious and transposon)&quot;.</p>
 <p>Further explanation: All protein coding genes have the type &quot;protein coding&quot;, but this type also includes a few transposon genes and several genes that are dubious (i.e. predicted by automated methods considered unlikely to actually encode protein), which you will presumably want to exclude from the set. The canned query does this.</p>
-<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Protein-coding genes (excluding &quot;dubious&quot; and &quot;transposon&quot; status)'" [predefinedQueryName]="'canned_query:all_protein_coding_ex_dubious_and_transposon'"></app-query-link></p>
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Protein-coding genes (excluding &quot;dubious&quot; and &quot;transposon&quot; status)'" [predefinedQueryId]="'canned_query:all_protein_coding_ex_dubious_and_transposon'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences')" *ngIf="pageName == 'gene-page' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences'">
@@ -6423,7 +6423,7 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22ope
 </ol>
 <p>Click on a count in the query history to see the results, with a button for &quot;Download&quot; options including coordinates and sequence.</p>
 <p>Also see the <a routerLink="/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates">FAQ on finding sequence features in a region</a>.</p>
-<p>Query link: <app-query-link [goToResults]="true" [linkText]="'protein-coding genes with 2-20 exons'" [predefinedQueryName]="'2-20_exons'"></app-query-link></p>
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'protein-coding genes with 2-20 exons'" [predefinedQueryId]="'2-20_exons'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-sequence-coordinates-all-features-particular-type')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequence-coordinates-all-features-particular-type'">
@@ -12132,9 +12132,9 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   <div *ngIf="pageName == 'priority-unstudied-genes'">
 <h3 id="priority-unstudied-genes">Priority unstudied genes</h3>
 <p>Fission yeast genes are classed as &quot;unknown&quot; if there is no information about the broad cellular role (biological process) in which it participates (corresponding to any of the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">high level GO Slim classes</a>). For these, we have been unable to identify a broad biological role based on experimental data in fission yeast or any other organism. Note that, as all genes in fission yeast have been curated, these genes are documented as &quot;unknown&quot; (they are not &quot;unannotated&quot;).</p>
-<p>In fission yeast the &quot;unknown&quot; inventory is <app-query-link [goToResults]="true" [predefinedQueryName]="'priority-unstudied-genes:unknown_genes'"></app-query-link> entries, many of which are apparently species-specific. However, a large number (<app-query-link [goToResults]="true" [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown'"></app-query-link>) are conserved, and a significant number of these (<app-query-link [goToResults]="true" [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-query-link>) have orthologs in vertebrates. These genes are listed below.</p>
+<p>In fission yeast the &quot;unknown&quot; inventory is <app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:unknown_genes'"></app-query-link> entries, many of which are apparently species-specific. However, a large number (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown'"></app-query-link>) are conserved, and a significant number of these (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-query-link>) have orthologs in vertebrates. These genes are listed below.</p>
 <p>You can recreate this query, or variations of it, using the Advanced Search. See the <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">relevant FAQ</a> and the <a routerLink="/query">Advanced Search</a> documentation for details. You can also send this list directly to the advanced search (For example to mine for phenotypes or locations of interest).</p>
-<p><app-predefined-query-results [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results></p>
+<p><app-predefined-query-results [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results></p>
 
   </div>
   <div *ngIf="pageName == 'sequence-updates-pending'">

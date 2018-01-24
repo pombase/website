@@ -10,7 +10,7 @@ import { getAppConfig } from '../../config';
 })
 export class QueryLinkComponent implements OnInit, OnDestroy {
   @Input() goToResults;
-  @Input() predefinedQueryName;
+  @Input() predefinedQueryId;
   @Input() linkText = null;
 
   subscription = null;
@@ -20,12 +20,12 @@ export class QueryLinkComponent implements OnInit, OnDestroy {
   constructor(private queryService: QueryService) { }
 
   ngOnInit() {
-    this.queryConfig = getAppConfig().getPredefinedQuery(this.predefinedQueryName);
+    this.queryConfig = getAppConfig().getPredefinedQuery(this.predefinedQueryId);
 
-//    this.titleText = this.queryConfig.name || this.predefinedQueryName;
+//    this.titleText = this.queryConfig.name || this.predefinedQueryId;
 
     if (!this.linkText) {
-      this.subscription = this.queryService.postPredefinedQueryCount(this.predefinedQueryName)
+      this.subscription = this.queryService.postPredefinedQueryCount(this.predefinedQueryId)
         .subscribe((results) => {
           this.linkText = String(results);
         });

@@ -132,7 +132,7 @@ const routes: Routes = [
       title: 'Advanced search'
     }
   },
-  { path: 'query/:saveOrResults/from/predefined/:predefinedQueryName', component: QueryBuilderComponent,
+  { path: 'query/:saveOrResults/from/predefined/:predefinedQueryId', component: QueryBuilderComponent,
     data: {
       title: 'Advanced search'
     }

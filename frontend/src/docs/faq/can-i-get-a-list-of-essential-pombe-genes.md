@@ -45,6 +45,6 @@ caveats about alleles and conditions still apply.
 
 **Query links**
 
--   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;inviable vegetative cell population&quot; (FYPO:0002061)'" [predefinedQueryName]="'null_inviable'"></app-query-link>
--   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;viable vegetative cell population&quot; (FYPO:0002060)'" [predefinedQueryName]="'null_viable'"></app-query-link>
--   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to both FYPO:0002061 and FYPO:0002060'" [predefinedQueryName]="'null_viable_and_inviable'"></app-query-link>
+-   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;inviable vegetative cell population&quot; (FYPO:0002061)'" [predefinedQueryId]="'null_inviable'"></app-query-link>
+-   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to &quot;viable vegetative cell population&quot; (FYPO:0002060)'" [predefinedQueryId]="'null_viable'"></app-query-link>
+-   <app-query-link [goToResults]="true" [linkText]="'Null alleles annotated to both FYPO:0002061 and FYPO:0002060'" [predefinedQueryId]="'null_viable_and_inviable'"></app-query-link>
