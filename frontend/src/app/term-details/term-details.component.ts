@@ -80,6 +80,18 @@ export class TermDetailsComponent implements OnInit {
     }
   }
 
+  makeTableDisplayName(annotationTypeName: string): string {
+    const m = annotationTypeName.match(/extension:(.*):(.*):(gene|genotype)/);
+    if (m) {
+      const relTypeDisplayName = m[2];
+      return 'Annotations with the extension: ' +
+        relTypeDisplayName + ' ' + this.termDetails.termid;
+    } else {
+      return this.config.annotationTypes[annotationTypeName].display_name +
+        ' annotations for ' + this.termDetails.termid + ' and its descendants';
+    }
+  }
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['termid'] !== undefined) {

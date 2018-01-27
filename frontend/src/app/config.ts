@@ -330,6 +330,35 @@ for (let configName of Object.keys(_config.annotationTypes)) {
   }
 }
 
+{
+  let seenNames = {};
+
+  for (let extNameConf of pombaseConfig.extension_display_names) {
+    const displayName = extNameConf.display_name;
+    const typeName = `extension:${displayName}`;
+
+    if (seenNames[typeName]) {
+      continue;
+    } else {
+      seenNames[typeName] = true;
+    }
+
+    _config.annotationTypes[typeName + ':gene'] = {
+      'feature_type': 'gene',
+      'display_name': displayName,
+      'columns_to_show': ['desc-rel', 'gene', 'evidence', 'qualifiers', 'reference', 'count', 'extension']
+    };
+    _config.annotationTypes[typeName + ':genotype'] = {
+      'feature_type': 'genotype',
+      'display_name': displayName,
+      'columns_to_show': ['desc-rel', 'genotype', 'evidence', 'qualifiers', 'reference', 'count', 'extension']
+    };
+
+    _config.annotationTypeOrder.push(typeName + ':gene');
+    _config.annotationTypeOrder.push(typeName + ':genotype');
+  }
+}
+
 function replaceExampleId(urlSyntax: string, idWithPrefix: string) {
   let matches = idWithPrefix.match(/^([^:]+):(.*)/);
 
