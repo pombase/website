@@ -141,6 +141,7 @@ export interface SplitByParentsConfig {
 }
 
 export interface AnnotationType {
+  feature_type: string;
   display_name: string;
   inherits_from?: string;
   split_by_parents?: Array<SplitByParentsConfig>;
@@ -148,7 +149,7 @@ export interface AnnotationType {
   details_only?: boolean;
   no_gene_details_section?: boolean;
   hide_term_details?: boolean;
-  filters: Array<FilterConfig>;
+  filters?: Array<FilterConfig>;
   external_db_link_keys?: Array<string>;
   misc_config?: {
     [key: string]: any;
