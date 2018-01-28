@@ -40,7 +40,6 @@
     <div *ngFor="let annotationTypeName of annotationTypeNames">
 
       <div *ngIf="termDetails.cv_annotations[annotationTypeName]">
-        <div>{{annotationTypeName}}</div>
         <app-annotation-table id="{{annotationTypeName}}"
                               *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
                               [scope]="'term'"
