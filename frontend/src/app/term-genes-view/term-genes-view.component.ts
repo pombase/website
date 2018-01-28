@@ -22,6 +22,7 @@ export class TermGenesViewComponent implements OnInit {
   showAllAnnotationsLink = true;
   apiError = null;
   subsets: TermSubsets = {};
+  geneSummaries = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -53,25 +54,13 @@ export class TermGenesViewComponent implements OnInit {
   }
 
   collectGenes(): void {
-    this.genes = [];
-    let geneMap = {};
-
-    for (let cvName of Object.keys(this.termDetails.cv_annotations)) {
-      let termAnnotations = this.termDetails.cv_annotations[cvName];
-      for (let termAnnotation of termAnnotations) {
-        for (let annotation of termAnnotation.annotations) {
-          for (let gene of annotation.genes) {
-            geneMap[(gene as GeneShort).uniquename] = gene;
-          }
-        }
-      }
-    }
-
-    for (let geneUniquename of Object.keys(geneMap)) {
-      this.genes.push(geneMap[geneUniquename]);
-    }
-
-    this.genes.sort(Util.geneCompare);
+    this.pombaseApiService.getGeneSummaryMapPromise()
+      .then(geneSummaries => {
+        this.genes =
+          this.termDetails.genes_annotated_with
+          .map(geneUniquename => geneSummaries[geneUniquename]);
+        this.genes.sort(Util.geneCompare);
+      });
   }
 
   ngOnInit() {

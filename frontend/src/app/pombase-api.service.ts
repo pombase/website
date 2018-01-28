@@ -310,6 +310,7 @@ export class TermDetails {
   cv_annotations: CvAnnotations;
   single_allele_genotype_uniquenames: Array<string>;
   single_allele_genotypes: Array<GenotypeShort>;
+  genes_annotated_with: Array<string>;
 }
 
 export class ReferenceDetails {
