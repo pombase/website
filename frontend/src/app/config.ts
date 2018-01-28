@@ -330,7 +330,7 @@ for (let configName of Object.keys(_config.annotationTypes)) {
   }
 }
 
-{
+if (pombaseConfig.show_extensions_on_term_pages) {
   let seenNames = {};
 
   for (let extNameConf of pombaseConfig.extension_display_names) {
