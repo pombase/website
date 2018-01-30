@@ -24,7 +24,7 @@ the Count column; the link goes to a page that displays the gene name,
 systematic ID, and product description for matching genes. The
 Download button offers additional options, including nucleotide and
 (where applicable) protein sequence. To return to the search page, use
-the small blue "<- Back" button just above the result list, **not**
+the blue "<- Advanced search" button just above the result list, **not**
 your browser's "Back" button.
 
 You can select queries in the list to combine or delete them. To
