@@ -4,6 +4,7 @@
 <h3 id="about"><a routerLink="/about">About</a></h3>
 <ul>
 <li><a routerLink="/about/citing-pombase">Citing PomBase</a></li>
+<li><a routerLink="/about/terms-of-use">Terms of Use</a></li>
 <li><a routerLink="/help">Help</a></li>
 <li><a routerLink="/about/resource-metrics">Resource metrics</a></li>
 </ul>
@@ -12,6 +13,7 @@
   <div class="docs-content">
   <div *ngIf="pageName == 'citing-pombase'">
 <h2 id="citing-pombase">Citing PomBase</h2>
+<p>Also see the <a routerLink="/about/terms-of-use">Terms of Use</a>.</p>
 <p>To cite <em>S. pombe</em> genome data and annotation, please use:</p>
 <p>Wood V, Harris MA, McDowall MD, Rutherford K, Vaughan BW, Staines DM, Aslett M, Lock A, Bähler J, Kersey PJ, Oliver SG.<br />
 PomBase: a comprehensive online resource for fission yeast.<br />
@@ -61,6 +63,43 @@ EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees in vert
 <p><a href="http://genome.cshlp.org/content/19/2/327.long">Full text at Genome Research</a></p>
 
   </div>
+  <div *ngIf="pageName == 'data-sources'">
+<h2 id="pombase-data-sources">PomBase Data Sources</h2>
+<p>Also see the <a routerLink="/about/terms-of-use">Terms of Use</a>.</p>
+<h3 id="research-spotlight-images">Research spotlight images</h3>
+<p>For images used on the home page, see the <a routerLink="/archive/spotlight">Research Spotlight archive</a> and links therein.</p>
+<h3 id="genome-browser-data-tracks">Genome browser data tracks</h3>
+<p>These publications describe datasets displayed as genome browser tracks. Each PubMed ID links to the PomBase <a routerLink="/documentation/publication-page">publication page</a> for the paper, which in turn links to PubMed and EuropePMC. Full text and repository database links will be available via PubMed and EuropePMC where relevant.</p>
+<ul>
+<li>Bitton DA, Rallis C, Jeffares DC, Smith GC, Chen YY, Codlin S, Marguerat S, Bähler J.<br />
+<em>Genome Res.</em> 2014 Jul;24(7):1169-79.<br />
+<a routerLink="/reference/PMID:24709818">PMID:24709818</a></li>
+<li>Jeffares DC, Rallis C, Rieux A, Speed D, Převorovský M, Mourier T, Marsellach FX, Iqbal Z, Lau W, Cheng TM, Pracana R, Mülleder M, Lawson JL, Chessel A, Bala S, Hellenthal G, O'Fallon B, Keane T, Simpson JT, Bischof L, Tomiczek B, Bitton DA, Sideri T, Codlin S, Hellberg JE, van Trigt L, Jeffery L, Li JJ, Atkinson S, Thodberg M, Febrer M, McLay K, Drou N, Brown W, Hayles J, Carazo Salas RE, Ralser M, Maniatis N, Balding DJ, Balloux F, Durbin R, Bähler J.<br />
+<em>Nat. Genet.</em> 2015 Mar;47(3):235-41 <a routerLink="/reference/PMID:25665008">PMID:25665008</a></li>
+<li>Marguerat S, Schmidt A, Codlin S, Chen W, Aebersold R, Bähler J<br />
+<em>Cell</em> 2012 Oct 26;151(3):671-83<br />
+<a routerLink="/reference/PMID:23101633">PMID:23101633</a></li>
+<li>Mata J.<br />
+<em>RNA Biol 2013</em> Aug;10(8):1407-14<br />
+<a routerLink="/reference/PMID:23900342">PMID:23900342</a></li>
+<li>Rhind N, Chen Z, Yassour M, Thompson DA, Haas BJ, Habib N, Wapinski I, Roy S, Lin MF, Heiman DI, Young SK, Furuya K, Guo Y, Pidoux A, Chen HM, Robbertse B, Goldberg JM, Aoki K, Bayne EH, Berlin AM, Desjardins CA, Dobbs E, Dukaj L, Fan L, FitzGerald MG, French C, Gujja S, Hansen K, Keifenheim D, Levin JZ, Mosher RA, Müller CA, Pfiffner J, Priest M, Russ C, Smialowska A, Swoboda P, Sykes SM, Vaughn M, Vengrova S, Yoder R, Zeng Q, Allshire R, Baulcombe D, Birren BW, Brown W, Ekwall K, Kellis M, Leatherwood J, Levin H, Margalit H, Martienssen R, Nieduszynski CA, Spatafora JW, Friedman N, Dalgaard JZ, Baumann P, Niki H, Regev A, Nusbaum C.<br />
+<em>Science</em> 2011 May 20;332(6032):930-6<br />
+<a routerLink="/reference/PMID:21511999">PMID:21511999</a></li>
+<li>Schlackow M, Marguerat S, Proudfoot NJ, Bähler J, Erban R, Gullerova M.<br />
+<em>RNA</em> 2013 Dec;19(12):1617-31<br />
+<a routerLink="/reference/PMID:24152550">PMID:24152550</a></li>
+<li>Soriano I, Quintales L, Antequera F.<br />
+<em>BMC Genomics</em> 2013 Nov 21;14:813<br />
+<a routerLink="/reference/PMID:24256300">PMID:24256300</a></li>
+<li>Woolcock KJ, Gaidatzis D, Punga T, Bühler M.<br />
+<em>Nat. Struct. Mol. Biol.</em> 2011 Jan;18(1):94-9<br />
+<a routerLink="/reference/PMID:21151114">PMID:21151114</a></li>
+<li>Xu J, Yanagisawa Y, Tsankov AM, Hart C, Aoki K, Kommajosyula N, Steinmann KE, Bochicchio J, Russ C, Regev A, Rando OJ, Nusbaum C, Niki H, Milos P, Weng Z, Rhind N.<br />
+<em>Genome Biol.</em> 2012 Apr 24;13(4):R27<br />
+<a routerLink="/reference/PMID:22531001">PMID:22531001</a></li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="about-pombase">About PomBase</h2>
 <p>PomBase is a model organism database that provides organization of and access to scientific data for the fission yeast <em>Schizosaccharomyces pombe</em>. PomBase supports genomic sequence and features, genome-wide datasets and manual literature curation.</p>
@@ -78,6 +117,9 @@ CB2 1GA<br />
 United Kingdom</p>
 <h3 id="submit-data">Submit Data</h3>
 <p>See the <a routerLink="/submit-data">Submit data</a> page</p>
+<h3 id="data-sources">Data sources</h3>
+<p>Source publications for external data used in Pombase pages and genome browser.</p>
+<p><a routerLink="/about/data-sources">Data sources</a></p>
 <h3 id="data-versions">Data versions</h3>
 <p>Versions of internal and external data loaded into current and past Pombase releases.</p>
 <p><a routerLink="/about/version-history">Version history</a></p>
@@ -141,6 +183,14 @@ United Kingdom</p>
 <p>The <a href="https://curation.pombase.org/pombe/stats/annotation">Curation Statistics</a> page (currently part of PomBase Canto) provides a set of metrics reflecting the current state of literature curation in PomBase.</p>
 <h2 id="web-usage">Web usage</h2>
 <p>Statistics forthcoming</p>
+
+  </div>
+  <div *ngIf="pageName == 'terms-of-use'">
+<h2 id="pombase-terms-of-use">PomBase Terms of Use</h2>
+<p>All data curated by PomBase, including data from Canto community curation, are licensed under the Creative Commons Attribution 4.0 International license (CC-BY; see the Creative Commons site for a <a href="https://creativecommons.org/licenses/by/4.0/">summary</a> and the <a href="https://creativecommons.org/licenses/by/4.0/legalcode">full license</a>).</p>
+<p>Datasets hosted in the genome browser and front-page Research Spotlight images are used with permission of the generating researchers. Specific copyright and licensing terms may apply; consult the relevant publications (listed on the <a routerLink="/about/data-suorces">Data Sources</a> page) for details.</p>
+<p>Canto is is licensed under the GNU General Public License v3.0; see the <a href="https://github.com/pombase/canto/blob/master/LICENSE">Canto License page</a> for more information.</p>
+<p>Also see the <a routerLink="/about/citing-pombase">Citing PomBase</a> page.</p>
 
   </div>
   <div *ngIf="pageName == 'version-history'">
