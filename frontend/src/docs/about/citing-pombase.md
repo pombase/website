@@ -1,5 +1,7 @@
 ## Citing PomBase
 
+Also see the [Terms of Use](about/terms-of-use).
+
 To cite *S. pombe* genome data and annotation, please use:
 
 Wood V, Harris MA, McDowall MD, Rutherford K, Vaughan BW, Staines DM,
