@@ -9,7 +9,7 @@ International license (CC-BY; see the Creative Commons site for a
 Datasets hosted in the genome browser and front-page Research Spotlight images
 are used with permission of the generating researchers. Specific copyright and
 licensing terms may apply; consult the relevant publications (listed on the
-[Data Sources](about/data-suorces) page) for details.
+[Data Sources](about/data-sources) page) for details.
 
 Canto is is licensed under the GNU General Public License v3.0; see
 the [Canto License page](https://github.com/pombase/canto/blob/master/LICENSE) 

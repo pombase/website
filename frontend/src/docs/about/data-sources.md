@@ -19,7 +19,7 @@ EuropePMC where relevant.
     *Genome Res.* 2014 Jul;24(7):1169-79.\
     [PMID:24709818](reference/PMID:24709818)
   - Jeffares DC, Rallis C, Rieux A, Speed D, Převorovský M, Mourier T, Marsellach FX, Iqbal Z, Lau W, Cheng TM, Pracana R, Mülleder M, Lawson JL, Chessel A, Bala S, Hellenthal G, O'Fallon B, Keane T, Simpson JT, Bischof L, Tomiczek B, Bitton DA, Sideri T, Codlin S, Hellberg JE, van Trigt L, Jeffery L, Li JJ, Atkinson S, Thodberg M, Febrer M, McLay K, Drou N, Brown W, Hayles J, Carazo Salas RE, Ralser M, Maniatis N, Balding DJ, Balloux F, Durbin R, Bähler J.\
-    *Nat. Genet.* 2015 Mar;47(3):235-41
+    *Nat. Genet.* 2015 Mar;47(3):235-41\
     [PMID:25665008](reference/PMID:25665008)
   - Marguerat S, Schmidt A, Codlin S, Chen W, Aebersold R, Bähler J\
     *Cell* 2012 Oct 26;151(3):671-83\
