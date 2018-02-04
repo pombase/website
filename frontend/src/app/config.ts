@@ -22,7 +22,8 @@ export interface ExternalLinks {
 }
 
 export interface ChromosomeConfig {
-  display_name: string;
+  long_display_name: string;
+  short_display_name: string;
 }
 
 export interface QueryNodeTermConfig {

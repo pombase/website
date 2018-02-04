@@ -116,8 +116,8 @@ export class GenesDownloadDialogComponent implements OnInit {
             let fieldVal = this.fieldValGenerators[fieldName](geneSummary);
             if (fieldName === 'Chromosome') {
               const chromosomeConfig = this.appConfig.chromosomes[fieldVal];
-              if (chromosomeConfig && chromosomeConfig.display_name) {
-                fieldVal = chromosomeConfig.display_name;
+              if (chromosomeConfig && chromosomeConfig.short_display_name) {
+                fieldVal = chromosomeConfig.short_display_name;
               }
             }
 

@@ -77,7 +77,7 @@ export class GeneDetailsComponent implements OnInit {
     const chromosomeName = location.chromosome.name;
     const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
 
-    const chrDisplayName = chromosomeConfig.display_name || chromosomeName;
+    const chrDisplayName = chromosomeConfig.short_display_name || chromosomeName;
 
     let genomicLocation;
     if (location.strand === 'reverse') {
