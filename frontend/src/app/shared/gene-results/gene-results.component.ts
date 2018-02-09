@@ -30,28 +30,33 @@ export class GeneResultsComponent implements OnInit, OnChanges {
               return geneSummaries[row.gene_uniquename];
             });
 
-          this.termsInQuery = this.results.query.referencedTerms();
-          const termids = this.termsInQuery.map(term => term.termid);
-          const termidRe = new RegExp('(' + termids.join('|') + ')');
+          if (this.description) {
+            this.termsInQuery = this.results.query.referencedTerms();
+            const termids = this.termsInQuery.map(term => term.termid);
+            const termidRe = new RegExp('(' + termids.join('|') + ')');
 
-          const descriptionBits = this.description.split(termidRe);
-          this.descriptionParts =
-            descriptionBits.map(bit => {
-              const index = termids.indexOf(bit);
-              if (index === -1) {
-                return {
-                  text: bit,
-                };
-              } else {
-                return {
-                  term: this.termsInQuery[index],
-                };
-              }
-            });
+            const descriptionBits = this.description.split(termidRe);
+            this.descriptionParts =
+              descriptionBits.map(bit => {
+                const index = termids.indexOf(bit);
+                if (index === -1) {
+                  return {
+                    text: bit,
+                  };
+                } else {
+                  return {
+                    term: this.termsInQuery[index],
+                  };
+                }
+              });
 
-          this.legend = 'Result';
-          if (this.displayResults.length > 5) {
-            this.legend += `: ${this.displayResults.length} genes`;
+            this.legend = 'Result';
+            if (this.displayResults.length > 5) {
+              this.legend += `: ${this.displayResults.length} genes`;
+            }
+          } else {
+            this.legend = '';
+            this.descriptionParts = [];
           }
         });
     } else {
