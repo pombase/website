@@ -25,7 +25,7 @@ export class HistoryEntry {
 
   isNewEntry(): boolean {
     return this.creationStamp != null &&
-      (new Date().getTime() - this.creationStamp) / 1000 < 60;
+      (new Date().getTime() - this.creationStamp) / 1000 < 2;
   }
 
   getQuery(): GeneQuery {
