@@ -37,7 +37,7 @@
       <td>
         <input [(ngModel)]="histEntry.checked" type="checkbox"/>
       </td>
-      <td class="result-count">
+      <td [ngClass]="{'new-hist-item': histEntry.isNewEntry()}" class="result-count">
         <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== null">
           <span *ngIf="histEntry.getUpdatedCount() == null"
                 title="Click to view results">
@@ -52,7 +52,7 @@
           [Results]
         </a>
       </td>
-      <td>
+      <td [ngClass]="{'new-hist-item': histEntry.isNewEntry()}">
         {{getEntryDisplayString(histEntry)}}
       </td>
       <td class="row-actions">
