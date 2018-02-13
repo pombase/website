@@ -25,6 +25,8 @@ export class TermDetailsComponent implements OnInit {
   apiError = null;
   visibleSections: Array<string> = [];
   annotatedGeneCount = 0;
+  singleAlleleGenotypeGeneCount = 0;
+  singleAlleleGenotypeCount = 0;
 
   menuPositionFixed = false;
 
@@ -96,6 +98,22 @@ export class TermDetailsComponent implements OnInit {
     return this.termDetails.genes_annotated_with.length > 0;
   }
 
+  setCounts(): void {
+    this.singleAlleleGenotypeCount = this.termDetails.single_allele_genotypes.length;
+
+    let singleAlleleGenotypeGenes = {};
+
+    for (let genotype of this.termDetails.single_allele_genotypes) {
+      let gene = genotype.expressed_alleles[0].allele.gene;
+      singleAlleleGenotypeGenes[gene.uniquename] = true;
+    }
+
+    this.singleAlleleGenotypeGeneCount = Object.keys(singleAlleleGenotypeGenes).length;
+
+    this.annotatedGeneCount = this.termDetails.genes_annotated_with.length;
+
+  }
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['termid'] !== undefined) {
@@ -114,7 +132,7 @@ export class TermDetailsComponent implements OnInit {
                 this.setVisibleSections();
                 this.scrollToPageTop();
                 this.apiError = null;
-                this.annotatedGeneCount = this.termDetails.genes_annotated_with.length;
+                this.setCounts();
               })
               .catch(error => {
                 this.apiError = error;
