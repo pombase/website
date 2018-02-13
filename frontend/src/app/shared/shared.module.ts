@@ -14,6 +14,7 @@ import { GeneResultsComponent } from './gene-results/gene-results.component';
 import { GenesTableComponent } from './genes-table/genes-table.component';
 import { GeneShortOrderByPipe } from './gene-short-order-by.pipe';
 import { GeneLinkComponent } from './gene-link/gene-link.component';
+import { CvVersionComponent } from './cv-version/cv-version.component';
 
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 
@@ -36,6 +37,7 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
     GenesTableComponent,
     GeneShortOrderByPipe,
     GeneLinkComponent,
+    CvVersionComponent,
   ],
   declarations: [
     GoSlimTableComponent,
@@ -50,6 +52,7 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
     GenesTableComponent,
     GeneShortOrderByPipe,
     GeneLinkComponent,
+    CvVersionComponent,
   ],
 })
 export class SharedModule { }

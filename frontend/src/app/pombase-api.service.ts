@@ -22,6 +22,7 @@ export class Metadata {
   export_prog_version: string;
   gene_count: number;
   term_count: number;
+  cv_versions: { [cv_name: string]: string };
 }
 
 export class RecentReferences {

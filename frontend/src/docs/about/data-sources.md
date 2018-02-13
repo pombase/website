@@ -42,3 +42,9 @@ EuropePMC where relevant.
   - Xu J, Yanagisawa Y, Tsankov AM, Hart C, Aoki K, Kommajosyula N, Steinmann KE, Bochicchio J, Russ C, Regev A, Rando OJ, Nusbaum C, Niki H, Milos P, Weng Z, Rhind N.\
     *Genome Biol.* 2012 Apr 24;13(4):R27\
     [PMID:22531001](reference/PMID:22531001)
+
+### Ontology versions
+
+- GO: <app-cv-version cvName="molecular_function"></app-cv-version>
+- FYPO: <app-cv-version cvName="fission_yeast_phenotype"></app-cv-version>
+- PSI-MOD: <app-cv-version cvName="PSI-MOD"></app-cv-version>
