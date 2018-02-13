@@ -14,15 +14,15 @@
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
-    <div class="no-annotations" *ngIf="!hasAnnotations">
+    <div class="no-annotations" *ngIf="!hasAnnotations()">
       No annotations for {{termDetails.termid}}
     </div>
-    <div *ngIf="hasAnnotations">
+    <div *ngIf="hasAnnotations()">
     <hr style="clear: both" />
 
-    <div *ngIf="annotationFeatureType == 'gene'" class="term-page-view-change">
+    <div *ngIf="annotationFeatureType == 'gene' && annotatedGeneCount > 0" class="term-page-view-change">
       <a routerLink="/term_genes/{{termDetails.termid}}"
-         routerLinkActive="active">View genes annotated with this term ...</a>
+         routerLinkActive="active">View {{annotatedGeneCount}} gene{{annotatedGeneCount>1?'s':''}} annotated with this term ...</a>
     </div>
     </div>
 

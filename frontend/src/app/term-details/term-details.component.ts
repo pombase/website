@@ -24,7 +24,7 @@ export class TermDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   apiError = null;
   visibleSections: Array<string> = [];
-  hasAnnotations = false;
+  annotatedGeneCount = 0;
 
   menuPositionFixed = false;
 
@@ -92,6 +92,10 @@ export class TermDetailsComponent implements OnInit {
     }
   }
 
+  hasAnnotations(): boolean {
+    return this.termDetails.genes_annotated_with.length > 0;
+  }
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['termid'] !== undefined) {
@@ -110,8 +114,7 @@ export class TermDetailsComponent implements OnInit {
                 this.setVisibleSections();
                 this.scrollToPageTop();
                 this.apiError = null;
-                this.hasAnnotations =
-                  Object.keys(this.termDetails.cv_annotations).length > 0;
+                this.annotatedGeneCount = this.termDetails.genes_annotated_with.length;
               })
               .catch(error => {
                 this.apiError = error;
