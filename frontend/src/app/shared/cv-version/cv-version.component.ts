@@ -27,7 +27,8 @@ export class CvVersionComponent implements OnInit, OnChanges {
       const version = metadata.cv_versions[this.cvName];
 
       if (version) {
-        this.version = version;
+        this.version = version.replace(/^releases\/(.*)/, '$1')
+          .replace(/^(\d\d):(\d\d):(\d\d\d\d)\s*.*/, '$3-$2-$1');
       }
     });
   }
