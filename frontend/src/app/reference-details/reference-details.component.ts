@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
-import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig,
+         getAppConfig, AppConfig } from '../config';
 
 import { ReferenceDetails, PombaseAPIService } from '../pombase-api.service';
 
@@ -15,6 +16,9 @@ export class ReferenceDetailsComponent implements OnInit {
   @Input() refDetails: ReferenceDetails;
 
   annotationTypeNames: Array<string>;
+  appConfig: AppConfig = getAppConfig();
+  siteName = '';
+  submissionDate = null;
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   isPubMedRef = false;
@@ -27,7 +31,9 @@ export class ReferenceDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private titleService: Title,
               private readonly meta: Meta,
-             ) { }
+             ) {
+    this.siteName = this.appConfig.site_name;
+  }
 
   setPageTitle(): void {
     let title = this.titleService.getTitle() + ' - Reference - ';
@@ -126,6 +132,12 @@ export class ReferenceDetailsComponent implements OnInit {
             this.setVisibleSections();
             this.apiError = null;
             this.setAnnotationStatus();
+            if (refDetails.canto_session_submitted_date) {
+              this.submissionDate =refDetails.canto_session_submitted_date
+                .replace(/(\d\d\d\d-\d\d-\d\d).*/, "$1");
+            } else {
+              this.submissionDate = null;
+            }
           })
           .catch(error => {
             this.apiError = error;
