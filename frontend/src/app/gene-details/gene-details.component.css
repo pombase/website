@@ -38,8 +38,8 @@
   text-align: center;
 }
 
-.genomic-location table {
-  margin: 0;
+.genomic-location {
+  margin: 0 !important;
 }
 
 .genomic-location td {
