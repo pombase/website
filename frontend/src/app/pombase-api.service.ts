@@ -902,60 +902,58 @@ export class PombaseAPIService {
     return chunkPromise;
   }
 
-  getChrSubSequence(chromosomeName: string, start: number, end: number, strand: Strand): Promise<string> {
-    let chromosomesPromise = this.getChromosomeSummaryMapPromise();
+  async getChrSubSequence(chromosomeName: string, start: number, end: number, strand: Strand): Promise<string> {
+    let chromosomesMap = await this.getChromosomeSummaryMapPromise();
 
-    return chromosomesPromise.then(chromosomesMap => {
-      let chunkSizes = getAppConfig().apiSeqChunkSizes;
+    let chunkSizes = getAppConfig().apiSeqChunkSizes;
 
-      if (start < 1) {
-        start = 1;
-      }
-      const chrLength = chromosomesMap[chromosomeName].length;
-      if (end > chrLength) {
-        end = chrLength;
-      }
+    if (start < 1) {
+      start = 1;
+    }
+    const chrLength = chromosomesMap[chromosomeName].length;
+    if (end > chrLength) {
+      end = chrLength;
+    }
 
-      if (start > end) {
-        return Promise.resolve('');
-      }
+    if (start > end) {
+      return Promise.resolve('');
+    }
 
-      let subSeqLength = end - start + 1;
+    let subSeqLength = end - start + 1;
 
-      let chunkSize;
+    let chunkSize;
 
-      // use big chunks for big sub sequences
-      if (subSeqLength > (chunkSizes.smallest + chunkSizes.largest) / 3) {
-        chunkSize = chunkSizes.largest;
-      } else {
-        chunkSize = chunkSizes.smallest;
-      }
+    // use big chunks for big sub sequences
+    if (subSeqLength > (chunkSizes.smallest + chunkSizes.largest) / 3) {
+      chunkSize = chunkSizes.largest;
+    } else {
+      chunkSize = chunkSizes.smallest;
+    }
 
-      let startChunk = Math.floor((start - 1) / chunkSize);
-      let endChunk = Math.floor((end - 1) / chunkSize);
+    let startChunk = Math.floor((start - 1) / chunkSize);
+    let endChunk = Math.floor((end - 1) / chunkSize);
 
-      let promises = [];
+    let promises = [];
 
-      for (let chunkId = startChunk; chunkId < endChunk + 1; chunkId++) {
-        promises[chunkId - startChunk] =
-          this.getChunkPromise(chromosomeName, chunkSize, chunkId);
-      }
+    for (let chunkId = startChunk; chunkId < endChunk + 1; chunkId++) {
+      promises[chunkId - startChunk] =
+        this.getChunkPromise(chromosomeName, chunkSize, chunkId);
+    }
 
-      return Promise.all(promises)
-        .then(values => {
-          let chunksResidues = values.map(seq => seq.residues).join('');
+    return Promise.all(promises)
+      .then(values => {
+        let chunksResidues = values.map(seq => seq.residues).join('');
 
-          let startInChunk = start - 1 - startChunk * chunkSize;
-          let endInChunk = end - startChunk * chunkSize;
+        let startInChunk = start - 1 - startChunk * chunkSize;
+        let endInChunk = end - startChunk * chunkSize;
 
-          let retResidues = chunksResidues.slice(startInChunk, endInChunk);
-          if (strand === Strand.Reverse) {
-            return Util.reverseComplement(retResidues);
-          } else {
-            return retResidues;
-          }
-        });
-    });
+        let retResidues = chunksResidues.slice(startInChunk, endInChunk);
+        if (strand === Strand.Reverse) {
+          return Util.reverseComplement(retResidues);
+        } else {
+          return retResidues;
+        }
+      });
   }
 
   reportNotFound(path: string) {
