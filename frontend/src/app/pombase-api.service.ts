@@ -164,7 +164,7 @@ export interface ChromosomeShort {
 }
 
 export interface ChromosomeLocation {
-  chromosome: ChromosomeShort;
+  chromosome_name: string;
   start_pos: number;
   end_pos: number;
   strand: string;
@@ -835,8 +835,8 @@ export class PombaseAPIService {
   }
 
   getChromosomeSummaryMapPromise(): Promise<ChromosomeShortMap> {
-    if (!this.promiseCache['getChromosomeShortMapPromise']) {
-      this.promiseCache['getChromosomeShortMapPromise'] =
+    if (!this.promiseCache['getChromosomeSummaryMapPromise']) {
+      this.promiseCache['getChromosomeSummaryMapPromise'] =
         this.getChromosomeSummariesPromise()
         .then(chromosomeSummaries => {
           let retMap = {};
@@ -846,7 +846,7 @@ export class PombaseAPIService {
               retMap[summ.name.toLowerCase()] = summ;
             }
           }
-          this.resultCache['getChromosomeShortMap'] = retMap;
+          this.resultCache['getChromosomeSummaryMap'] = retMap;
           return retMap;
         });
     }
@@ -902,55 +902,60 @@ export class PombaseAPIService {
     return chunkPromise;
   }
 
-  getChrSubSequence(chromosome: ChromosomeShort, start: number, end: number, strand: Strand): Promise<string> {
-    let chunkSizes = getAppConfig().apiSeqChunkSizes;
+  getChrSubSequence(chromosomeName: string, start: number, end: number, strand: Strand): Promise<string> {
+    let chromosomesPromise = this.getChromosomeSummaryMapPromise();
 
-    if (start < 1) {
-      start = 1;
-    }
-    if (end > chromosome.length) {
-      end = chromosome.length;
-    }
+    return chromosomesPromise.then(chromosomesMap => {
+      let chunkSizes = getAppConfig().apiSeqChunkSizes;
 
-    if (start > end) {
-      return Promise.resolve('');
-    }
+      if (start < 1) {
+        start = 1;
+      }
+      const chrLength = chromosomesMap[chromosomeName].length;
+      if (end > chrLength) {
+        end = chrLength;
+      }
 
-    let subSeqLength = end - start + 1;
+      if (start > end) {
+        return Promise.resolve('');
+      }
 
-    let chunkSize;
+      let subSeqLength = end - start + 1;
 
-    // use big chunks for big sub sequences
-    if (subSeqLength > (chunkSizes.smallest + chunkSizes.largest) / 3) {
-      chunkSize = chunkSizes.largest;
-    } else {
-      chunkSize = chunkSizes.smallest;
-    }
+      let chunkSize;
 
-    let startChunk = Math.floor((start - 1) / chunkSize);
-    let endChunk = Math.floor((end - 1) / chunkSize);
+      // use big chunks for big sub sequences
+      if (subSeqLength > (chunkSizes.smallest + chunkSizes.largest) / 3) {
+        chunkSize = chunkSizes.largest;
+      } else {
+        chunkSize = chunkSizes.smallest;
+      }
 
-    let promises = [];
+      let startChunk = Math.floor((start - 1) / chunkSize);
+      let endChunk = Math.floor((end - 1) / chunkSize);
 
-    for (let chunkId = startChunk; chunkId < endChunk + 1; chunkId++) {
-      promises[chunkId - startChunk] =
-        this.getChunkPromise(chromosome.name, chunkSize, chunkId);
-    }
+      let promises = [];
 
-    return Promise.all(promises)
-      .then(values => {
-        let chunksResidues = values.map(seq => seq.residues).join('');
+      for (let chunkId = startChunk; chunkId < endChunk + 1; chunkId++) {
+        promises[chunkId - startChunk] =
+          this.getChunkPromise(chromosomeName, chunkSize, chunkId);
+      }
 
-        let startInChunk = start - 1 - startChunk * chunkSize;
-        let endInChunk = end - startChunk * chunkSize;
+      return Promise.all(promises)
+        .then(values => {
+          let chunksResidues = values.map(seq => seq.residues).join('');
 
-        let retResidues = chunksResidues.slice(startInChunk, endInChunk);
-        if (strand === Strand.Reverse) {
-          return Util.reverseComplement(retResidues);
-        } else {
-          return retResidues;
-        }
-      });
+          let startInChunk = start - 1 - startChunk * chunkSize;
+          let endInChunk = end - startChunk * chunkSize;
+
+          let retResidues = chunksResidues.slice(startInChunk, endInChunk);
+          if (strand === Strand.Reverse) {
+            return Util.reverseComplement(retResidues);
+          } else {
+            return retResidues;
+          }
+        });
+    });
   }
 
   reportNotFound(path: string) {

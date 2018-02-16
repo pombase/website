@@ -74,7 +74,7 @@ export class GeneDetailsComponent implements OnInit {
 
   makeDisplayLocation(): Array<string> {
     const location = this.geneDetails.location;
-    const chromosomeName = location.chromosome.name;
+    const chromosomeName = location.chromosome_name;
     const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
 
     const chrDisplayName = chromosomeConfig.short_display_name || chromosomeName;

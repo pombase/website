@@ -40,7 +40,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     'Feature type': g => this.displayFeatureType(g),
     'Start position': g => String(g.location.start_pos),
     'End position': g => String(g.location.end_pos),
-    'Chromosome': g => String(g.location.chromosome.name),
+    'Chromosome': g => String(g.location.chromosome_name),
     'Strand': g => g.location.strand,
   };
 
