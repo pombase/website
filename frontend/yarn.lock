@@ -2,13 +2,13 @@
 # yarn lockfile v1
 
 
-"@angular-devkit/build-optimizer@~0.0.28":
-  version "0.0.42"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-optimizer/-/build-optimizer-0.0.42.tgz#402b0dda4883db91e2381c3ddc55888408a7894e"
+"@angular-devkit/build-optimizer@0.0.40":
+  version "0.0.40"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-optimizer/-/build-optimizer-0.0.40.tgz#c7a8efc102adaeb6e63f4cbe8753dab4796e319a"
   dependencies:
     loader-utils "^1.1.0"
     source-map "^0.5.6"
-    typescript "~2.6.2"
+    typescript "~2.6.1"
     webpack-sources "^1.0.1"
 
 "@angular-devkit/core@0.0.20":
@@ -17,22 +17,25 @@
   dependencies:
     source-map "^0.5.6"
 
-"@angular-devkit/schematics@~0.0.34":
-  version "0.0.52"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-0.0.52.tgz#cbd2f42778b50d6422a254ffaec05ad4ef3cb6c0"
+"@angular-devkit/schematics@0.0.34":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-0.0.34.tgz#c3ef61b0e49e585d9982f2828e9a67b3879a6b1b"
   dependencies:
+    "@angular-devkit/core" "0.0.20"
     "@ngtools/json-schema" "^1.1.0"
-    rxjs "^5.5.6"
+    minimist "^1.2.0"
+    rxjs "^5.4.2"
 
-"@angular/cli@=1.4.8":
-  version "1.4.8"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.4.8.tgz#3d5399c1cf86696aa790ed93afd5d865b0a5b7ee"
+"@angular/cli@=1.4.10":
+  version "1.4.10"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.4.10.tgz#7602c7fb15a56cd1d7e8c9ed38f7645b08a6799b"
   dependencies:
-    "@angular-devkit/build-optimizer" "~0.0.28"
-    "@angular-devkit/schematics" "~0.0.34"
+    "@angular-devkit/build-optimizer" "0.0.40"
+    "@angular-devkit/core" "0.0.20"
+    "@angular-devkit/schematics" "0.0.34"
     "@ngtools/json-schema" "1.1.0"
-    "@ngtools/webpack" "1.7.4"
-    "@schematics/angular" "~0.0.46"
+    "@ngtools/webpack" "1.7.5"
+    "@schematics/angular" "0.0.49"
     autoprefixer "^6.5.3"
     chalk "^2.0.1"
     circular-dependency-plugin "^3.0.0"
@@ -151,16 +154,16 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.1.0.tgz#c3a0c544d62392acc2813a42c8a0dc6f58f86922"
 
-"@ngtools/webpack@1.7.4":
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.7.4.tgz#5015c47ebd339045dd89a1bef0497f4524d2c8ed"
+"@ngtools/webpack@1.7.5":
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.7.5.tgz#8c369033406bfd34338e9de196a7323fd3ec8251"
   dependencies:
     enhanced-resolve "^3.1.0"
     loader-utils "^1.0.2"
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
-"@schematics/angular@~0.0.46":
+"@schematics/angular@0.0.49":
   version "0.0.49"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.0.49.tgz#c00ca573756d6a79ee518b05eab5fe6e7b73f341"
   dependencies:
@@ -4762,7 +4765,7 @@ rxjs@^5.1.0:
   dependencies:
     symbol-observable "^1.0.1"
 
-rxjs@^5.4.2, rxjs@^5.5.6:
+rxjs@^5.4.2:
   version "5.5.6"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.6.tgz#e31fb96d6fd2ff1fd84bcea8ae9c02d007179c02"
   dependencies:
@@ -5503,7 +5506,7 @@ type-is@~1.6.15:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.3.tgz#df3dcdc38f3beb800d4bc322646b04a3f6ca7f0d"
 
-typescript@~2.6.2:
+typescript@~2.6.1:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
 
