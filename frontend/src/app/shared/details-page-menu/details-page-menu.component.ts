@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges,
          Inject, HostListener } from '@angular/core';
 
-import { getAnnotationTableConfig, AnnotationTableConfig} from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig} from '../../config';
 
 interface MenuItem {
   id: string;
