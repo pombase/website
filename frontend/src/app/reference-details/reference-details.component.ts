@@ -18,7 +18,6 @@ export class ReferenceDetailsComponent implements OnInit {
   annotationTypeNames: Array<string>;
   appConfig: AppConfig = getAppConfig();
   siteName = '';
-  submissionDate = null;
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   isPubMedRef = false;
@@ -132,12 +131,6 @@ export class ReferenceDetailsComponent implements OnInit {
             this.setVisibleSections();
             this.apiError = null;
             this.setAnnotationStatus();
-            if (refDetails.canto_session_submitted_date) {
-              this.submissionDate =refDetails.canto_session_submitted_date
-                .replace(/(\d\d\d\d-\d\d-\d\d).*/, "$1");
-            } else {
-              this.submissionDate = null;
-            }
           })
           .catch(error => {
             this.apiError = error;

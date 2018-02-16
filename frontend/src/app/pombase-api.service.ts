@@ -40,6 +40,7 @@ export interface ReferenceShort {
   citation_date_pages?: string;
   authors_abbrev: string;
   publication_year: string;
+  approved_date: string;
 }
 
 export interface ExpressedAllele {
@@ -954,6 +955,13 @@ export class PombaseAPIService {
           return retResidues;
         }
       });
+  }
+
+  getReferencesPromise(constraint: string) {
+    return this.getWithRetry(this.apiUrl + '/data/community_curated_references')
+      .toPromise()
+      .then(response => response.json() as Array<ReferenceShort>)
+      .catch(this.handleError);
   }
 
   reportNotFound(path: string) {

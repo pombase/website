@@ -30,9 +30,9 @@
         <tr *ngIf="isPubMedRef">
           <td class="details-label">Citation</td>
           <td>{{refDetails.citation}}</td>
-          <td *ngIf="refAnnotationStatus != 'not-curated' && submissionDate">
+          <td *ngIf="refAnnotationStatus != 'not-curated' && refDetails.approved_date">
             <a style="visibility: hidden" href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
-            {{submissionDate}}</td>
+            {{refDetails.approved_date}}</td>
         </tr>
         <tr>
           <td class="details-label">ID</td>

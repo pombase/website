@@ -78,6 +78,8 @@ import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-com
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog.component';
+import { ReferenceDetailListComponent } from './reference-detail-list/reference-detail-list.component';
+import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
 
 export function documentFactory() {
     return document;
@@ -151,6 +153,8 @@ export function windowFactory() {
     NotFoundComponent,
     PanelArchiveComponent,
     MessageDialogComponent,
+    ReferenceDetailListComponent,
+    ReferenceDetailListPageComponent,
   ],
   imports: [
     BrowserModule,
