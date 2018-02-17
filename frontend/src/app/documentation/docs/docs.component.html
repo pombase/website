@@ -5687,6 +5687,13 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 </ul>
 
 </div>
+<div (click)="navigate($event, '/faq/can-i-find-unmapped-genes-pombase')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-find-unmapped-genes-pombase'">
+<h3 id="can-i-find-unmapped-genes-pombase">Can I find unmapped genes in PomBase?</h3>
+<!-- pombase_categories: Finding data,Genome statistics and lists -->
+<p>PomBase maintains a <a routerLink="/status/unmapped_genes">list of genetic loci that have not been cloned or mapped</a>. The page lists the names published for the loci and the publications that use the names. In a few cases, unmapped loci have been shown to be allelic with each other.</p>
+<p>Note that some locus names coincidentally match the standard names of cloned genes. In these cases PomBase curators have determined that the unmapped locus is not the same as the named gene.</p>
+
+</div>
 <div (click)="navigate($event, '/faq/can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase'">
 <h3 id="can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase">Can I generate a comprehensive restriction enzyme map of the genome in PomBase?</h3>
 <!-- pombase_categories: Tools and resources -->
@@ -14908,7 +14915,7 @@ Joined contigs p4C9 and c977</p>
  </tr>
  <tr>
   <td>ani1</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=732808">PMID:732808</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
@@ -14982,46 +14989,46 @@ Joined contigs p4C9 and c977</p>
  </tr>
  <tr>
   <td>cps2</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1524835">PMID:1524835</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>cps4</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1524835">PMID:1524835</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>cps6</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1524835">PMID:1524835</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>cps7</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1524835">PMID:1524835</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>cps9</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1524835">PMID:1524835</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>cps10</td>
-  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7882425">PMID:7882425</a></td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1524835">PMID:1524835</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7882425">PMID:7882425</a></td>
   <td>&nbsp;</td>
  <tr>
   <td>cps11</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1524835">PMID:1524835</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>cps13</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1524835">PMID:1524835</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>cps14</td>
-  <td>&nbsp;</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1524835">PMID:1524835</a></td>
   <td>&nbsp;</td>
  <tr>
   <td>crm2</td>
@@ -15099,8 +15106,23 @@ Joined contigs p4C9 and c977</p>
   <td>&nbsp;</td>
  </tr>
  <tr>
+  <td>ird5</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=16377914">PMID:16377914</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=24301766">PMID:24301766</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=26301056">PMID:26301056</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
   <td>ird11</td>
-  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=22095476">PMID:22095476</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=22173629">PMID:22173629</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=25117315">PMID:25117315</a></td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=22095476">PMID:22095476</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=22173629">PMID:22173629</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=25117315">PMID:25117315</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=26301056">PMID:26301056</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ird13</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=16377914">PMID:16377914</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=24301766">PMID:24301766</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>ird14</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=16377914">PMID:16377914</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=24301766">PMID:24301766</a></td>
   <td>&nbsp;</td>
  </tr>
  <tr>
