@@ -6,7 +6,7 @@ with sequence features or coordinates, and can display the data as
 tracks in the genome browser. We 
 accept data in any of several formats, 
 <!-- [accept data](/submit-data/data-submission-form) in any of several formats, -->
-listed on the genome browser documentation page on [Adding Custom Tracks to Ensembl](http://genomebrowser.pombase.org/info/website/upload/index.html#formats).
+listed on the genome browser documentation page on [Adding Custom Tracks to Ensembl](http://fungi.ensembl.org/info/website/upload/index.html#formats).
 To choose a file format for your data, consult the table below and the
 linked FAQs. Please [consult the helpdesk](mailto:helpdesk@pombase.org) to submit a file or if you need further
 assistance.

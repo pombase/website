@@ -15,7 +15,7 @@ complete representative rDNA repeats:
 -   A partial repeat at the right-hand end contains
     [SPRRNA.45](/gene/SPRRNA.45)
 
-The complete repeat sequence coordinates are [Chromosome 3:5542-13722](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=III%3A5542-13722) (note
+The complete repeat sequence coordinates are [Chromosome 3:5542-13722](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?r=III%3A5542-13722) (note
 that the reverse strand is transcribed). The link goes to the PomBase
 Genome Browser, where you can view and
 [download](/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates) the
