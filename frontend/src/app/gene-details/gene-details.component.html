@@ -86,6 +86,9 @@
            <img src="{{ensemblImageUrl}}" />
            <div class="ensembl-link-label">View in Ensembl genome browser ...</div>
         </a>
+        <div *ngIf="jbrowseLinkUrl" class="jbrowse-link">
+          <a href="{{jbrowseLinkUrl}}">View in JBrowse ...</a>
+        </div>
       </div>
     </div>
 

@@ -45,3 +45,7 @@
 .genomic-location td {
   padding: 2px;
 }
+
+.jbrowse-link {
+  text-align: center;
+}

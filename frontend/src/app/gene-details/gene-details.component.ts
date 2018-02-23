@@ -30,6 +30,7 @@ export class GeneDetailsComponent implements OnInit {
   organism = null;
   ensemblImageUrl = null;
   ensemblImage = new Image();
+  jbrowseLinkUrl = null;
   extraMenuSections = [
     {
       id: 'transcript-sequence',
@@ -227,6 +228,41 @@ export class GeneDetailsComponent implements OnInit {
     }
   }
 
+  setJBrowseLink(): void {
+    if (false && this.geneDetails) {
+      this.pombaseApiService.getChromosomeSummaryMapPromise()
+        .then(chromosomeSummaryMap => {
+          const loc = this.geneDetails.location;
+          const chrName = loc.chromosome_name;
+          const chr = chromosomeSummaryMap[chrName];
+          const chrLength = chr.length;
+
+          const lowerPos = Math.max(loc.start_pos, loc.end_pos);
+          const upperPos = Math.max(loc.start_pos, loc.end_pos);
+
+          const mid = Math.round((lowerPos + upperPos) / 2);
+
+          const jbHalfWidth = 10000;
+          let jbStart = mid - jbHalfWidth;
+          if (jbStart < 1) {
+            jbStart = 1;
+          }
+
+          let jbEnd = mid + jbHalfWidth;
+          if (jbEnd > chrLength) {
+            jbEnd = chrLength;
+          }
+
+          const chrDisplayName = this.appConfig.chromosomes[chrName].short_display_name;
+
+          this.jbrowseLinkUrl =
+            `jbrowse/index.html?loc=${chrDisplayName}%3A${jbStart}..${jbEnd}&tracks=DNA%2CPomBase%20features`;
+        });
+    } else {
+      this.jbrowseLinkUrl = null;
+    }
+  }
+
   private isGeneDetailPageType(typeName: string): boolean {
     return !this.config.getAnnotationType(typeName).no_gene_details_section;
   }
@@ -240,7 +276,7 @@ export class GeneDetailsComponent implements OnInit {
         this.ensemblImageUrl = `/browser_images/${uniquename}_gene.png`;
         this.ensemblImage.src = this.ensemblImageUrl;
 
-        // delete api call so image request is first
+        // delay api call so image request is first
         setTimeout(() => {
           this.pombaseApiService.getGene(uniquename)
             .then(geneDetails => {
@@ -254,6 +290,7 @@ export class GeneDetailsComponent implements OnInit {
               this.setPageTitle();
               this.scrollToPageTop();
               this.setProductSize();
+              this.setJBrowseLink();
               this.showProteinFeatures =
                 this.geneDetails.transcripts && this.geneDetails.transcripts.length > 0 &&
                 !!this.geneDetails.transcripts[0].protein ||
