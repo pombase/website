@@ -260,6 +260,10 @@ export interface InterProMatch {
   locations: Array<InterProMatchLocation>;
 }
 
+export interface AnnotationDetailMap {
+  [id: number]: Annotation;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
@@ -284,6 +288,7 @@ export class GeneDetails {
   paralog_annotations: Array<ParalogAnnotation>;
   target_of_annotations: Array<TargetOfAnnotation>;
   references: Array<ReferenceShort>;
+  annotation_details: AnnotationDetailMap;
 }
 
 export class GenotypeDetails {
@@ -293,6 +298,7 @@ export class GenotypeDetails {
   expressed_alleles: Array<ExpressedAllele>;
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;
+  annotation_details: AnnotationDetailMap;
 }
 
 export interface TermAndRelation {
@@ -313,6 +319,7 @@ export class TermDetails {
   single_allele_genotype_uniquenames: Array<string>;
   single_allele_genotypes: Array<GenotypeShort>;
   genes_annotated_with: Array<string>;
+  annotation_details: AnnotationDetailMap;
 }
 
 export class ReferenceDetails {
@@ -333,6 +340,7 @@ export class ReferenceDetails {
   genetic_interactions: Array<InteractionAnnotation>;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
+  annotation_details: AnnotationDetailMap;
 }
 
 export interface TermSubsetElement {
@@ -406,10 +414,13 @@ export class PombaseAPIService {
 
   processTermAnnotations(termAnnotations: Array<TermAnnotation>,
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
-                         allelesByUniquename: AlleleMap,
-                         referencesByUniquename?: any, termsByTermId?: any) {
+                         allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
+                         referencesByUniquename: any, termsByTermId: any) {
     for (let termAnnotation of termAnnotations) {
-      for (let annotation of termAnnotation.annotations) {
+      termAnnotation.annotations =
+        (termAnnotation.annotations as any as Array<number>)
+        .map(id => { return annotationDetailsMap[id] }) as Array<Annotation>;
+      for (let annotation of termAnnotation.annotations as Array<Annotation>) {
         annotation.genes =
           (annotation.genes as Array<string>).map((gene_uniquename: string) => {
             return genesByUniquename[gene_uniquename];
@@ -613,12 +624,14 @@ export class PombaseAPIService {
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
     let termsByTermId = json.terms_by_termid;
+    let annotationDetailsMap = json.annotation_details;
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
-                                  allelesByUniquename, referencesByUniquename, termsByTermId);
+                                  allelesByUniquename, annotationDetailsMap,
+                                  referencesByUniquename, termsByTermId);
     }
 
     this.processInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
@@ -674,13 +687,15 @@ export class PombaseAPIService {
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
     let termsByTermId = json.terms_by_termid;
+    let annotationDetailsMap = json.annotation_details;
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
     this.processExpressedAlleles(allelesByUniquename, genesByUniquename, json.expressed_alleles);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
-                                  allelesByUniquename, referencesByUniquename, termsByTermId);
+                                  allelesByUniquename, annotationDetailsMap,
+                                  referencesByUniquename, termsByTermId);
     }
 
     return json as GenotypeDetails;
@@ -701,12 +716,14 @@ export class PombaseAPIService {
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
     let termsByTermId = json.terms_by_termid;
+    let annotationDetailsMap = json.annotation_details;
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
-                                  allelesByUniquename, referencesByUniquename, termsByTermId);
+                                  allelesByUniquename, annotationDetailsMap,
+                                  referencesByUniquename, termsByTermId);
     }
 
     json.single_allele_genotypes = [];
@@ -734,12 +751,14 @@ export class PombaseAPIService {
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
     let termsByTermId = json.terms_by_termid;
+    let annotationDetailsMap = json.annotation_details;
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
-                                  allelesByUniquename, null, termsByTermId);
+                                  allelesByUniquename, annotationDetailsMap,
+                                  null, termsByTermId);
     }
 
 
