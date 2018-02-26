@@ -11,6 +11,8 @@ import { getAppConfig, ConfigOrganism } from './config';
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
 
+type TermIdTermMap = { [termid: string]: TermShort };
+
 export enum Strand {
   Forward,
   Reverse,
@@ -415,11 +417,13 @@ export class PombaseAPIService {
   processTermAnnotations(termAnnotations: Array<TermAnnotation>,
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                          allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
-                         referencesByUniquename: any, termsByTermId: any) {
+                         referencesByUniquename: any, termsByTermId: TermIdTermMap) {
     for (let termAnnotation of termAnnotations) {
       termAnnotation.annotations =
         (termAnnotation.annotations as any as Array<number>)
         .map(id => { return annotationDetailsMap[id] }) as Array<Annotation>;
+      const termId = termAnnotation.term as any as string;
+      termAnnotation.term = termsByTermId[termId];
       for (let annotation of termAnnotation.annotations as Array<Annotation>) {
         annotation.genes =
           (annotation.genes as Array<string>).map((gene_uniquename: string) => {
