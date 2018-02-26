@@ -623,6 +623,15 @@ export class PombaseAPIService {
       json.transcripts = [];
     }
 
+    for (let fieldName of ['cv_annotations',
+                           'genes_by_uniquename', 'genotypes_by_uniquename',
+                           'alleles_by_uniquename', 'references_by_uniquename',
+                           'terms_by_termid', 'annotation_details']) {
+      if (typeof(json[fieldName]) === 'undefined') {
+        json[fieldName] = {};
+      }
+    }
+
     let genesByUniquename = json.genes_by_uniquename;
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
@@ -638,16 +647,21 @@ export class PombaseAPIService {
                                   referencesByUniquename, termsByTermId);
     }
 
+    for (let fieldName of ['physical_interactions', 'genetic_interactions',
+                           'ortholog_annotations', 'paralog_annotations',
+                           'target_of_annotations', 'synonyms', 'name_descriptions',
+                           'interpro_matches']) {
+      if (typeof(json[fieldName]) === 'undefined') {
+        json[fieldName] = [];
+      }
+    }
+
     this.processInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
     this.processInteractions(json.genetic_interactions, genesByUniquename, referencesByUniquename);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename, referencesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename, referencesByUniquename);
     this.processTargetOf(json.target_of_annotations, genesByUniquename, genotypesByUniquename,
                          allelesByUniquename, referencesByUniquename);
-
-    if (!json['interpro_matches']) {
-      json['interpro_matches'] = [];
-    }
 
     // for displaying the references section on the gene page
     json.references = this.processGeneReferences(referencesByUniquename);
@@ -715,12 +729,31 @@ export class PombaseAPIService {
   processTermResponse(response: Response): TermDetails {
     let json = response.json();
 
+    for (let fieldName of ['cv_annotations',
+                           'genes_by_uniquename', 'genotypes_by_uniquename',
+                           'alleles_by_uniquename', 'references_by_uniquename',
+                           'terms_by_termid', 'annotation_details']) {
+      if (typeof(json[fieldName]) === 'undefined') {
+        json[fieldName] = {};
+      }
+    }
+
     let genesByUniquename = json.genes_by_uniquename;
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
     let termsByTermId = json.terms_by_termid;
     let annotationDetailsMap = json.annotation_details;
+
+
+    for (let fieldName of ['interesting_parents', 'subsets',
+                           'synonyms', 'genes_annotated_with',
+                           'direct_ancestors',
+                           'single_allele_genotype_uniquenames']) {
+      if (typeof(json[fieldName]) === 'undefined') {
+        json[fieldName] = [];
+      }
+    }
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
