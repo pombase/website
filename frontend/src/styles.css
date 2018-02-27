@@ -186,12 +186,14 @@ select option:disabled {
 .details-page .menu-header {
   border-top: 1px solid lightgrey;
 }
+
 .details-page .menu-item {
-  border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
-  padding: 3px;
+  border-left: 2px solid #667;
+  padding: 2px;
   font-size: 80%;
+  background-color: #f7f7ff;
+  margin: 3px;
+  margin-left: 8px;
 }
 
 .details-page .menu-item a {

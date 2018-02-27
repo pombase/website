@@ -1,5 +1,8 @@
 .menu-header {
   font-weight: bold;
+  border-left: 3px solid #556;
+  margin-left: 0;
+  font-size: 90%;
 }
 
 .small-logo-hidden img, .small-logo-visible img {
