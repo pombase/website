@@ -1,15 +1,14 @@
 <div class="docs">
 <div *ngIf="section == 'about'">
-  <div class="docs-menu">
-<h3 id="about"><a routerLink="/about">About</a></h3>
-<ul>
-<li><a routerLink="/about/citing-pombase">Citing PomBase</a></li>
-<li><a routerLink="/about/terms-of-use">Terms of Use</a></li>
-<li><a routerLink="/help">Help</a></li>
-<li><a routerLink="/about/resource-metrics">Resource metrics</a></li>
-</ul>
+<app-page-contents-menu title="About">
 
-  </div>
+<div class="menu-item"><a routerLink="/about/citing-pombase">Citing PomBase</a></div>
+<div class="menu-item"><a routerLink="/about/terms-of-use">Terms of Use</a></div>
+<div class="menu-item"><a routerLink="/help">Help</a></div>
+<div class="menu-item"><a routerLink="/about/resource-metrics">Resource metrics</a></div>
+
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'citing-pombase'">
 <h2 id="citing-pombase">Citing PomBase</h2>
@@ -602,16 +601,14 @@ United Kingdom</p>
   </div>
 </div>
 <div *ngIf="section == 'browse-curation'">
-  <div class="docs-menu">
-<h3 id="browse-curation"><a routerLink="/browse-curation">Browse curation</a></h3>
-<ul>
-<li><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></li>
-<li><a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim terms</a></li>
-<li><a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a></li>
-<li><a routerLink="/browse-curation/drugs-known-pombe-targets">Drugs with known targets</a></li>
-</ul>
+<app-page-contents-menu title="Browse curation">
 
-  </div>
+<div class="menu-item"><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></div>
+<div class="menu-item"><a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim terms</a></div>
+<div class="menu-item"><a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a></div>
+<div class="menu-item"><a routerLink="/browse-curation/drugs-known-pombe-targets">Drugs with known targets</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'dna-binding-sites'">
 <h3 id="dna-binding-site-consensus-sequences-in-s.-pombe">DNA binding site consensus sequences in <em>S. pombe</em></h3>
@@ -1086,15 +1083,13 @@ the total annotated genes.
   </div>
 </div>
 <div *ngIf="section == 'community'">
-  <div class="docs-menu">
-<h3 id="community"><a routerLink="/community">Community</a></h3>
-<ul>
-<li><a routerLink="/community/fission-yeast-community-curation-project">Community curation project</a></li>
-<li><a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">Mailing list</a></li>
-<li><a routerLink="/community/internet-resources">External resources</a></li>
-</ul>
+<app-page-contents-menu title="Community">
 
-  </div>
+<div class="menu-item"><a routerLink="/community/fission-yeast-community-curation-project">Community curation project</a></div>
+<div class="sub-sub-menu-item"><a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">Mailing list</a></div>
+<div class="menu-item"><a routerLink="/community/internet-resources">External resources</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == '2006-survey-q16'">
 <h3 id="genedb-s.-pombe-survey-question-16-responses">2006 GeneDB <em>S. pombe</em> survey, question 16 responses</h3>
@@ -3516,26 +3511,21 @@ the total annotated genes.
   </div>
 </div>
 <div *ngIf="section == 'datasets'">
-  <div class="docs-menu">
-<h3 id="datasets"><a routerLink="/datasets">Datasets</a></h3>
-<ul>
-<li><a routerLink="/datasets">Datasets</a></li>
-<li><a routerLink="/downloads/genome-datasets">Genome datasets</a></li>
-<li><a routerLink="/downloads/genome-datasets#Annotation_datasets">Annotation datasets</a>
-<ul>
-<li><a routerLink="/downloads/go-annotations">GO annotations</a></li>
-<li><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></li>
-<li><a href="ftp://ftp.pombase.org/pombe/annotations/modifications/">Modifications</a></li>
-<li><a href="ftp://ftp.pombase.org/pombe/exports/">HCPIN datasets</a></li>
-<li><a href="ftp://ftp.pombase.org/pombe/orthologs/">Orthologs</a></li>
-</ul></li>
-<li><a routerLink="/downloads/protein-datasets">Protein datasets</a></li>
-<li><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></li>
-<li><a routerLink="/documents">Documents</a></li>
-<li><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a></li>
-</ul>
+<app-page-contents-menu title="Datasets">
 
-  </div>
+<div class="menu-item"><a routerLink="//downloads/genome-datasets">Genome datasets</a></div>
+<div class="menu-item"><a routerLink="//downloads/genome-datasets#Annotation_datasets">Annotation datasets</a></div>
+<div class="sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
+<div class="sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
+<div class="sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/annotations/modifications/">Modifications</a></div>
+<div class="sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/exports/">HCPIN datasets</a></div>
+<div class="sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/orthologs/">Orthologs</a></div>
+<div class="menu-item"><a routerLink="//downloads/protein-datasets">Protein datasets</a></div>
+<div class="menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
+<div class="menu-item"><a routerLink="/documents">Documents</a></div>
+<div class="menu-item"><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'index'">
 <h2 id="datasets">Datasets</h2>
@@ -3607,43 +3597,38 @@ the total annotated genes.
   </div>
 </div>
 <div *ngIf="section == 'documentation'">
-  <div class="docs-menu">
-<h3 id="documentation"><a routerLink="/documentation">Documentation</a></h3>
-<ul>
-<li>Gene pages
-<ul>
-<li><a routerLink="/documentation/gene-page-basic-information">Basic information</a></li>
-<li><a routerLink="/documentation/gene-page-gene-ontology">Gene Ontology</a></li>
-<li><a routerLink="/documentation/gene-page-phenotypes">Phenotypes</a></li>
-<li><a routerLink="/documentation/gene-page-target">Target of</a></li>
-<li><a routerLink="/documentation/gene-page-protein-features">Protein features</a></li>
-<li><a routerLink="/documentation/gene-page-modifications">Modifications</a></li>
-<li><a routerLink="/documentation/gene-page-gene-expression">Gene expression</a></li>
-<li><a routerLink="/documentation/genetic-and-physical-interactions">Genetic and physical interactions</a></li>
-<li><a routerLink="/documentation/orthologs">Ortholog curation</a></li>
-<li><a routerLink="/documentation/taxonomic-conservation">Taxonomic conservation</a></li>
-<li><a routerLink="/documentation/gene-page-sequence">Sequence</a></li>
-<li><a routerLink="/documentation/controlled-curation">Controlled curation</a></li>
-<li><a routerLink="/documentation/gene-page-external-references">External references</a></li>
-<li><a routerLink="/documentation/gene-page-literature">Literature</a></li>
-</ul></li>
-<li><a routerLink="/documentation/pombase-go-slim-documentation">GO Slim</a></li>
-<li><a routerLink="/documentation/ontology-term-page">Ontology term pages</a></li>
-<li><a routerLink="/documentation/publication-page">Publication pages</a></li>
-<li><a routerLink="/documentation/genotype-page">Genotype pages</a></li>
-<li><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></li>
-<li><a routerLink="/documentation/simple-search-documentation">Simple search</a></li>
-<li><a routerLink="/documentation/advanced-search">Advanced search</a></li>
-<li>Data submission file formats
-<ul>
-<li><a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data</a></li>
-<li><a routerLink="/documentation/modification-data-bulk-upload-format">Modification data</a></li>
-<li><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression data</a></li>
-<li><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression data</a></li>
-</ul></li>
-</ul>
+<app-page-contents-menu title="Documentation">
 
-  </div>
+<div class="menu-item">Gene pages</div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-basic-information">Basic information</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-gene-ontology">Gene Ontology</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-phenotypes">Phenotypes</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-target">Target of</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-protein-features">Protein features</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-modifications">Modifications</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-gene-expression">Gene expression</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/genetic-and-physical-interactions">Genetic and physical interactions</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/orthologs">Ortholog curation</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/taxonomic-conservation">Taxonomic conservation</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-sequence">Sequence</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/controlled-curation">Controlled curation</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-external-references">External references</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-literature">Literature</a></div>
+<div class="menu-item"><a routerLink="documentation/pombase-go-slim-documentation">GO Slim</a></div>
+<div class="menu-item"><a routerLink="documentation/ontology-term-page">Ontology term pages</a></div>
+<div class="menu-item"><a routerLink="documentation/publication-page">Publication pages</a></div>
+<div class="menu-item"><a routerLink="documentation/genotype-page">Genotype pages</a></div>
+<div class="menu-item"><a routerLink="browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></div>
+<div class="menu-item"><a routerLink="documentation/simple-search-documentation">Simple search</a></div>
+<div class="menu-item"><a routerLink="documentation/advanced-search">Advanced search</a></div>
+<div class="menu-item">Data submission file formats</div>
+<div class="sub-menu-item"><a routerLink="documentation/phenotype-data-bulk-upload-format">Phenotype data</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/modification-data-bulk-upload-format">Modification data</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression data</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression data</a></div>
+
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'advanced-search'">
 <h2 id="advanced-search">Advanced search</h2>
@@ -5039,16 +5024,14 @@ the total annotated genes.
   </div>
 </div>
 <div *ngIf="section == 'documents'">
-  <div class="docs-menu">
-<h3 id="documents"><a routerLink="/documents">Documents</a></h3>
-<ul>
-<li><a routerLink="/documents/pombe2017">pombe2017</a></li>
-<li><a routerLink="/documents/pombe2015">pombe2015</a></li>
-<li><a routerLink="/documents/pombe2013">pombe2013</a></li>
-<li><a routerLink="/documents/pombe2011">pombe2011</a></li>
-</ul>
+<app-page-contents-menu title="Documents">
 
-  </div>
+<div class="menu-item"><a routerLink="/documents/pombe2017">pombe2017</a></div>
+<div class="menu-item"><a routerLink="/documents/pombe2015">pombe2015</a></div>
+<div class="menu-item"><a routerLink="/documents/pombe2013">pombe2013</a></div>
+<div class="menu-item"><a routerLink="/documents/pombe2011">pombe2011</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'index'">
 <h2 id="conferences-and-workshops">Conferences and Workshops</h2>
@@ -5143,26 +5126,22 @@ the total annotated genes.
   </div>
 </div>
 <div *ngIf="section == 'downloads'">
-  <div class="docs-menu">
-<h3 id="downloads"><a routerLink="/downloads">Downloads</a></h3>
-<ul>
-<li><a routerLink="/datasets">Datasets</a></li>
-<li><a routerLink="/downloads/genome-datasets">Genome datasets</a></li>
-<li><a routerLink="/downloads/genome-datasets#Annotation_datasets">Annotation datasets</a>
-<ul>
-<li><a routerLink="/downloads/go-annotations">GO annotations</a></li>
-<li><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></li>
-<li><a href="ftp://ftp.pombase.org/pombe/annotations/modifications/">Modifications</a></li>
-<li><a href="ftp://ftp.pombase.org/pombe/exports/">HCPIN datasets</a></li>
-<li><a href="ftp://ftp.pombase.org/pombe/orthologs/">Orthologs</a></li>
-</ul></li>
-<li><a routerLink="/downloads/protein-datasets">Protein datasets</a></li>
-<li><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></li>
-<li><a routerLink="/documents">Documents</a></li>
-<li><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a></li>
-</ul>
+<app-page-contents-menu title="Downloads">
 
-  </div>
+<div class="menu-item"><a routerLink="/datasets">Datasets</a></div>
+<div class="sub-menu-item"><a routerLink="//downloads/genome-datasets">Genome datasets</a></div>
+<div class="sub-menu-item"><a routerLink="//downloads/genome-datasets#Annotation_datasets">Annotation datasets</a></div>
+<div class="sub-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
+<div class="sub-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
+<div class="sub-sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/annotations/modifications/">Modifications</a></div>
+<div class="sub-sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/exports/">HCPIN datasets</a></div>
+<div class="sub-sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/orthologs/">Orthologs</a></div>
+<div class="sub-menu-item"><a routerLink="//downloads/protein-datasets">Protein datasets</a></div>
+<div class="sub-menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
+<div class="menu-item"><a routerLink="/documents">Documents</a></div>
+<div class="menu-item"><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'chado-database-dumps'">
 <h2 id="chado-database-dumps">Chado database dumps</h2>
@@ -5509,21 +5488,19 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
   </div>
 </div>
 <div *ngIf="section == 'faq'">
-  <div class="docs-menu">
-<h3 id="faq"><a routerLink="/faq">FAQ</a></h3>
-<ul>
-<li><a routerLink="/faq/data-submission-and-formats">Data submission and formats</a></li>
-<li><a routerLink="/faq/finding-data">Finding data</a></li>
-<li><a routerLink="/faq/gene-page">Gene page</a></li>
-<li><a routerLink="/faq/genome-browser">Genome browser</a></li>
-<li><a routerLink="/faq/genome-statistics-and-lists">Genome statistics and lists</a></li>
-<li><a routerLink="/faq/orthology">Orthology</a></li>
-<li><a routerLink="/faq/tools-and-resources">Tools and resources</a></li>
-<li><a routerLink="/faq/using-ontologies">Using ontologies</a></li>
-<li><a routerLink="/faq/all-frequently-asked-questions">All Frequently Asked Questions</a></li>
-</ul>
+<app-page-contents-menu title="FAQ">
 
-  </div>
+<div class="menu-item"><a routerLink="/faq/data-submission-and-formats">Data submission and formats</a></div>
+<div class="menu-item"><a routerLink="/faq/finding-data">Finding data</a></div>
+<div class="menu-item"><a routerLink="/faq/gene-page">Gene page</a></div>
+<div class="menu-item"><a routerLink="/faq/genome-browser">Genome browser</a></div>
+<div class="menu-item"><a routerLink="/faq/genome-statistics-and-lists">Genome statistics and lists</a></div>
+<div class="menu-item"><a routerLink="/faq/orthology">Orthology</a></div>
+<div class="menu-item"><a routerLink="/faq/tools-and-resources">Tools and resources</a></div>
+<div class="menu-item"><a routerLink="/faq/using-ontologies">Using ontologies</a></div>
+<div class="menu-item"><a routerLink="/faq/all-frequently-asked-questions">All Frequently Asked Questions</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'all-frequently-asked-questions'">
 <h2 id="all-frequently-asked-questions">All Frequently Asked Questions</h2>
@@ -6984,16 +6961,14 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
   </div>
 </div>
 <div *ngIf="section == 'gene-names'">
-  <div class="docs-menu">
-<h3 id="gene-names"><a routerLink="/gene-names">Gene names</a></h3>
-<ul>
-<li><a routerLink="/gene-names">Gene names</a></li>
-<li>Gene name reservation <!-- will link to form --></li>
-<li><a routerLink="/gene-names/gene-naming-guidelines"><em>S. pombe</em> gene naming guidelines</a></li>
-<li><a routerLink="/gene-names/gene-naming-committee-members">Gene Naming Committee members</a></li>
-</ul>
+<app-page-contents-menu title="Gene names">
 
-  </div>
+<div class="menu-item"><a routerLink="/gene-names">Gene names</a></div>
+<div class="sub-menu-item">Gene name reservation</div>
+<div class="sub-menu-item"><a routerLink="/gene-names/gene-naming-guidelines"><i>S. pombe</i> gene naming guidelines</a></div>
+<div class="sub-menu-item"><a routerLink="/gene-names/gene-naming-committee-members">Gene Naming Committee members</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'gene-name-conflicts'">
 <h2 id="gene-name-conflicts">Gene name conflicts</h2>
@@ -7251,15 +7226,13 @@ Form](registration-form) to submit a renewal.
   </div>
 </div>
 <div *ngIf="section == 'help'">
-  <div class="docs-menu">
-<h3 id="help"><a routerLink="/help">Help</a></h3>
-<ul>
-<li><a routerLink="/faq">Frequently Asked Questions (FAQ)</a></li>
-<li><a routerLink="/documentation">PomBase Documentation</a></li>
-<li><a routerLink="/about/contacts">Contact Curators</a></li>
-</ul>
+<app-page-contents-menu title="Help">
 
-  </div>
+<div class="menu-item"><a routerLink="/faq">Frequently Asked Questions (FAQ)</a></div>
+<div class="menu-item"><a routerLink="/documentation">PomBase Documentation</a></div>
+<div class="menu-item"><a routerLink="/about/contacts">Contact Curators</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'index'">
 <h1 id="help">Help</h1>
@@ -7271,105 +7244,103 @@ Form](registration-form) to submit a renewal.
   </div>
 </div>
 <div *ngIf="section == 'news'">
-  <div class="docs-menu">
-<h3 id="news"><a routerLink="/news">News</a></h3>
-<ul>
-<li><a simplePageScroll href="#congratulations-gsa-award-winners">Congratulations to GSA award winners</a></li>
-<li><a simplePageScroll href="#new-improved-pombase-goes-live">New, improved PomBase goes live</a></li>
-<li><a simplePageScroll href="#th-international-fission-yeast-meeting-early-registration-closes-soon">9th International Fission Yeast Meeting - early registration closes soon</a></li>
-<li><a simplePageScroll href="#th-international-fission-yeast-meeting-registration-open">9th International Fission Yeast Meeting registration open</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#show-your-support-database-funding">Show your support for database funding</a></li>
-<li><a simplePageScroll href="#our-model-organism-database-commentary">Our model organism database commentary</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#new-advanced-search-features">New Advanced Search features</a></li>
-<li><a simplePageScroll href="#new-genetics-primer-fission-yeast">New genetics primer for fission yeast</a></li>
-<li><a simplePageScroll href="#pombase-data-update-viability-summary-correction-alert">PomBase data update; viability summary correction alert</a></li>
-<li><a simplePageScroll href="#pombase-data-update-multi-allele-phenotypes">PomBase data update with multi-allele phenotypes</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#canto-downtime-new-version">Canto downtime &amp; new version</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombe-travel-fellowships">Pombe 2015 travel fellowships</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombe-poster-abstract-deadline-extended">Pombe 2015 poster abstract deadline extended</a></li>
-<li><a simplePageScroll href="#pombe-abstract-deadline-approaching">Pombe 2015 abstract deadline approaching</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombe-registration-now-open">Pombe 2015 registration now open</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#new-compact-go-annotation-display">New compact GO annotation display</a></li>
-<li><a simplePageScroll href="#esyn-network-visualizations-pombase">esyN network visualizations in PomBase</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#gene-ontology-publication-on-annotation-extensions">Gene Ontology publication on annotation extensions</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#human-ortholog-data-correction-coming-next-month">Human ortholog data correction coming next month</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#meeting-mini-reviews-published">2013 meeting mini-reviews published</a></li>
-<li><a simplePageScroll href="#pombase-survey-results-available">PomBase survey results available</a></li>
-<li><a simplePageScroll href="#new-target-gene-page-section">New &quot;Target Of&quot; gene page section</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-user-survey-open">PomBase User Survey open</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#send-htp-data-pombase">Send HTP data to PomBase</a></li>
-<li><a simplePageScroll href="#connecting-pombase">Connecting With PomBase</a></li>
-<li><a simplePageScroll href="#pombelist-has-moved">pombelist has moved</a></li>
-<li><a simplePageScroll href="#pombase-website-update">PomBase website update</a></li>
-<li><a simplePageScroll href="#pombase-launches-community-curation">PomBase launches community curation</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#pombase-data-update">PomBase data update</a></li>
-<li><a simplePageScroll href="#genedb-s.-pombe-decommissioned">GeneDB S. pombe decommissioned</a></li>
-<li><a simplePageScroll href="#quantitative-gene-expression-data-available-pombase">Quantitative gene expression data available in PomBase</a></li>
-<li><a simplePageScroll href="#carl-singer-foundation-established">Carl Singer Foundation Established</a></li>
-<li><a simplePageScroll href="#pombe-registration-abstracts-by-mon-th-april">Pombe 2013: registration &amp; abstracts by Mon 8th April</a></li>
-<li><a simplePageScroll href="#data-update-on-pombase-web-site">Data update on PomBase web site</a></li>
-<li><a simplePageScroll href="#speed-improvements-and-new-data-on-pombase-web-site">Speed improvements and new data on PomBase web site</a></li>
-<li><a simplePageScroll href="#new-data-and-new-features-on-pombase-web-site">New data and new features on PomBase web site</a></li>
-<li><a simplePageScroll href="#pombase-web-site-fully-live">PomBase web site fully live</a></li>
-<li><a simplePageScroll href="#pombase-preview-launch">PomBase preview launch</a></li>
-<li><a simplePageScroll href="#pombase-nar-paper-published-online">PomBase NAR paper published online</a></li>
-<li><a simplePageScroll href="#genedb-s.-pombe-now-uses-latest-release-pfam-protein-family-database-.-.">GeneDB (S. pombe) now uses the latest release of the Pfam protein family database(25.0).</a></li>
-<li><a simplePageScroll href="#schizosaccharomyces-comparative-genome-paper-published">Schizosaccharomyces Comparative Genome Paper Published</a></li>
-<li><a simplePageScroll href="#genome-reappraisal-reveals-new-genes-and-revised-gene-structures">Genome reappraisal reveals new genes and revised gene structures</a></li>
-<li><a simplePageScroll href="#annotated-transcription-start-and-termination-sites-fission-yeast">Annotated transcription start and termination sites for fission yeast</a></li>
-<li><a simplePageScroll href="#analysis-fission-yeast-deletion-publication">Analysis of Fission Yeast Deletion Publication</a></li>
-<li><a simplePageScroll href="#funding-pombase">Funding for PomBase</a></li>
-<li><a simplePageScroll href="#fission-yeast-one-key-organisms-reference-genomes-project">Fission yeast is one of the 12 key organisms of the reference genomes project</a></li>
-<li><a simplePageScroll href="#genedb-s.-pombe-now-uses-latest-update-pfam-release-.">GeneDB (S. pombe) now uses the latest update to Pfam, release 24.0</a></li>
-<li><a simplePageScroll href="#fission-yeast-ensembl-fungi">Fission yeast in Ensembl Fungi</a></li>
-<li><a simplePageScroll href="#genedb-now-using-version-pfam-protein-family-database.">GeneDB is now using Version 23 of the Pfam protein family database.</a></li>
-<li><a simplePageScroll href="#s.-pombe-genedb-now-includes-deep-links-biological-general-repository-interaction-datasets-biogrid">S. pombe GeneDB now includes &quot;deep links&quot; to the Biological General Repository for Interaction Datasets (BioGRID)</a></li>
-<li><a simplePageScroll href="#global-sequence-and-chip-study-examines-eukaryotic-transcription">Global sequence and chip study examines eukaryotic transcription</a></li>
-<li><a simplePageScroll href="#the-h-mating-type-region-has-been-provided">The h- mating type region has been provided</a></li>
-<li><a simplePageScroll href="#baumann-and-zakian-labs-identify-telomerase-rna">Baumann and Zakian labs identify telomerase RNA</a></li>
-<li><a simplePageScroll href="#wellcome-trust-advanced-course-genome-wide-approaches-fission-yeast">Wellcome Trust Advanced Course 'Genome-wide approaches with fission yeast</a></li>
-<li><a simplePageScroll href="#th-international-fission-yeast-meeting">4th International Fission Yeast Meeting</a></li>
-<li><a simplePageScroll href="#genedb-representation-fission-yeast-data-moved-contigs-chromosomes">GeneDB representation of the fission yeast data moved from contigs to chromosomes</a></li>
-<li><a simplePageScroll href="#yeast-special-issue-european-fission-yeast-meeting">Yeast Special Issue from the 2006 European Fission Yeast Meeting</a></li>
-<li><a simplePageScroll href="#the-first-fission-yeast-whole-proteome-localization-study-now-published">The first fission yeast whole proteome localization study is now published</a></li>
-<li><a simplePageScroll href="#fission-yeast-database-survey">Fission yeast database survey</a></li>
-<li><a simplePageScroll href="#european-fission-yeast-meeting">European Fission Yeast Meeting</a></li>
-<li><a simplePageScroll href="#comparative-genomics-eukaryotic-microorganisms">Comparative Genomics of Eukaryotic Microorganisms</a></li>
-<li><a simplePageScroll href="#second-east-coast-regional-pombe-meeting">Second East Coast Regional pombe Meeting</a></li>
-<li><a simplePageScroll href="#general-repository-interaction-datasets">General Repository for Interaction Datasets</a></li>
-<li><a simplePageScroll href="#the-third-international-fission-yeast-meeting">The Third International Fission Yeast Meeting</a></li>
-<li><a simplePageScroll href="#methods-volume-issue">Methods Volume 33 Issue 3</a></li>
-<li><a simplePageScroll href="#recent-genome-wide-surveys">Recent Genome wide surveys</a></li>
-<li><a simplePageScroll href="#the-new-fission-yeast-book-now-published">The 'new' fission yeast book is now published</a></li>
-<li><a simplePageScroll href="#schizosaccharomyces-pombe-essential-genes-pilot-study">Schizosaccharomyces pombe Essential Genes: A pilot Study</a></li>
-<li><a simplePageScroll href="#global-transcriptional-responses-fission-yeast-environmental-stress">Global transcriptional responses of fission yeast to environmental stress</a></li>
-</ul>
+<app-page-contents-menu title="News">
 
-  </div>
+<div class="menu-item"><a simplePageScroll href="#congratulations-gsa-award-winners">Congratulations to GSA award winners</a></div>
+<div class="menu-item"><a simplePageScroll href="#new-improved-pombase-goes-live">New, improved PomBase goes live</a></div>
+<div class="menu-item"><a simplePageScroll href="#th-international-fission-yeast-meeting-early-registration-closes-soon">9th International Fission Yeast Meeting - early registration closes soon</a></div>
+<div class="menu-item"><a simplePageScroll href="#th-international-fission-yeast-meeting-registration-open">9th International Fission Yeast Meeting registration open</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#show-your-support-database-funding">Show your support for database funding</a></div>
+<div class="menu-item"><a simplePageScroll href="#our-model-organism-database-commentary">Our model organism database commentary</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#new-advanced-search-features">New Advanced Search features</a></div>
+<div class="menu-item"><a simplePageScroll href="#new-genetics-primer-fission-yeast">New genetics primer for fission yeast</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update-viability-summary-correction-alert">PomBase data update; viability summary correction alert</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update-multi-allele-phenotypes">PomBase data update with multi-allele phenotypes</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#canto-downtime-new-version">Canto downtime & new version</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombe-travel-fellowships">Pombe 2015 travel fellowships</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombe-poster-abstract-deadline-extended">Pombe 2015 poster abstract deadline extended</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombe-abstract-deadline-approaching">Pombe 2015 abstract deadline approaching</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombe-registration-now-open">Pombe 2015 registration now open</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#new-compact-go-annotation-display">New compact GO annotation display</a></div>
+<div class="menu-item"><a simplePageScroll href="#esyn-network-visualizations-pombase">esyN network visualizations in PomBase</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#gene-ontology-publication-on-annotation-extensions">Gene Ontology publication on annotation extensions</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#human-ortholog-data-correction-coming-next-month">Human ortholog data correction coming next month</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#meeting-mini-reviews-published">2013 meeting mini-reviews published</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-survey-results-available">PomBase survey results available</a></div>
+<div class="menu-item"><a simplePageScroll href="#new-target-gene-page-section">New "Target Of" gene page section</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-user-survey-open">PomBase User Survey open</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#send-htp-data-pombase">Send HTP data to PomBase</a></div>
+<div class="menu-item"><a simplePageScroll href="#connecting-pombase">Connecting With PomBase</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombelist-has-moved">pombelist has moved</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-website-update">PomBase website update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-launches-community-curation">PomBase launches community curation</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
+<div class="menu-item"><a simplePageScroll href="#genedb-s.-pombe-decommissioned">GeneDB S. pombe decommissioned</a></div>
+<div class="menu-item"><a simplePageScroll href="#quantitative-gene-expression-data-available-pombase">Quantitative gene expression data available in PomBase</a></div>
+<div class="menu-item"><a simplePageScroll href="#carl-singer-foundation-established">Carl Singer Foundation Established</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombe-registration-abstracts-by-mon-th-april">Pombe 2013: registration & abstracts by Mon 8th April</a></div>
+<div class="menu-item"><a simplePageScroll href="#data-update-on-pombase-web-site">Data update on PomBase web site</a></div>
+<div class="menu-item"><a simplePageScroll href="#speed-improvements-and-new-data-on-pombase-web-site">Speed improvements and new data on PomBase web site</a></div>
+<div class="menu-item"><a simplePageScroll href="#new-data-and-new-features-on-pombase-web-site">New data and new features on PomBase web site</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-web-site-fully-live">PomBase web site fully live</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-preview-launch">PomBase preview launch</a></div>
+<div class="menu-item"><a simplePageScroll href="#pombase-nar-paper-published-online">PomBase NAR paper published online</a></div>
+<div class="menu-item"><a simplePageScroll href="#genedb-s.-pombe-now-uses-latest-release-pfam-protein-family-database-.-.">GeneDB (S. pombe) now uses the latest release of the Pfam protein family database(25.0).</a></div>
+<div class="menu-item"><a simplePageScroll href="#schizosaccharomyces-comparative-genome-paper-published">Schizosaccharomyces Comparative Genome Paper Published</a></div>
+<div class="menu-item"><a simplePageScroll href="#genome-reappraisal-reveals-new-genes-and-revised-gene-structures">Genome reappraisal reveals new genes and revised gene structures</a></div>
+<div class="menu-item"><a simplePageScroll href="#annotated-transcription-start-and-termination-sites-fission-yeast">Annotated transcription start and termination sites for fission yeast</a></div>
+<div class="menu-item"><a simplePageScroll href="#analysis-fission-yeast-deletion-publication">Analysis of Fission Yeast Deletion Publication</a></div>
+<div class="menu-item"><a simplePageScroll href="#funding-pombase">Funding for PomBase</a></div>
+<div class="menu-item"><a simplePageScroll href="#fission-yeast-one-key-organisms-reference-genomes-project">Fission yeast is one of the 12 key organisms of the reference genomes project</a></div>
+<div class="menu-item"><a simplePageScroll href="#genedb-s.-pombe-now-uses-latest-update-pfam-release-.">GeneDB (S. pombe) now uses the latest update to Pfam, release 24.0</a></div>
+<div class="menu-item"><a simplePageScroll href="#fission-yeast-ensembl-fungi">Fission yeast in Ensembl Fungi</a></div>
+<div class="menu-item"><a simplePageScroll href="#genedb-now-using-version-pfam-protein-family-database.">GeneDB is now using Version 23 of the Pfam protein family database.</a></div>
+<div class="menu-item"><a simplePageScroll href="#s.-pombe-genedb-now-includes-deep-links-biological-general-repository-interaction-datasets-biogrid">S. pombe GeneDB now includes "deep links" to the Biological General Repository for Interaction Datasets (BioGRID)</a></div>
+<div class="menu-item"><a simplePageScroll href="#global-sequence-and-chip-study-examines-eukaryotic-transcription">Global sequence and chip study examines eukaryotic transcription</a></div>
+<div class="menu-item"><a simplePageScroll href="#the-h-mating-type-region-has-been-provided">The h- mating type region has been provided</a></div>
+<div class="menu-item"><a simplePageScroll href="#baumann-and-zakian-labs-identify-telomerase-rna">Baumann and Zakian labs identify telomerase RNA</a></div>
+<div class="menu-item"><a simplePageScroll href="#wellcome-trust-advanced-course-genome-wide-approaches-fission-yeast">Wellcome Trust Advanced Course 'Genome-wide approaches with fission yeast</a></div>
+<div class="menu-item"><a simplePageScroll href="#th-international-fission-yeast-meeting">4th International Fission Yeast Meeting</a></div>
+<div class="menu-item"><a simplePageScroll href="#genedb-representation-fission-yeast-data-moved-contigs-chromosomes">GeneDB representation of the fission yeast data moved from contigs to chromosomes</a></div>
+<div class="menu-item"><a simplePageScroll href="#yeast-special-issue-european-fission-yeast-meeting">Yeast Special Issue from the 2006 European Fission Yeast Meeting</a></div>
+<div class="menu-item"><a simplePageScroll href="#the-first-fission-yeast-whole-proteome-localization-study-now-published">The first fission yeast whole proteome localization study is now published</a></div>
+<div class="menu-item"><a simplePageScroll href="#fission-yeast-database-survey">Fission yeast database survey</a></div>
+<div class="menu-item"><a simplePageScroll href="#european-fission-yeast-meeting">European Fission Yeast Meeting</a></div>
+<div class="menu-item"><a simplePageScroll href="#comparative-genomics-eukaryotic-microorganisms">Comparative Genomics of Eukaryotic Microorganisms</a></div>
+<div class="menu-item"><a simplePageScroll href="#second-east-coast-regional-pombe-meeting">Second East Coast Regional pombe Meeting</a></div>
+<div class="menu-item"><a simplePageScroll href="#general-repository-interaction-datasets">General Repository for Interaction Datasets</a></div>
+<div class="menu-item"><a simplePageScroll href="#the-third-international-fission-yeast-meeting">The Third International Fission Yeast Meeting</a></div>
+<div class="menu-item"><a simplePageScroll href="#methods-volume-issue">Methods Volume 33 Issue 3</a></div>
+<div class="menu-item"><a simplePageScroll href="#recent-genome-wide-surveys">Recent Genome wide surveys</a></div>
+<div class="menu-item"><a simplePageScroll href="#the-new-fission-yeast-book-now-published">The 'new' fission yeast book is now published</a></div>
+<div class="menu-item"><a simplePageScroll href="#schizosaccharomyces-pombe-essential-genes-pilot-study">Schizosaccharomyces pombe Essential Genes: A pilot Study</a></div>
+<div class="menu-item"><a simplePageScroll href="#global-transcriptional-responses-fission-yeast-environmental-stress">Global transcriptional responses of fission yeast to environmental stress</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'global-transcriptional-responses-fission-yeast-environmental-stress'">
 <h3 id="global-transcriptional-responses-of-fission-yeast-to-environmental-stress">Global transcriptional responses of fission yeast to environmental stress</h3>
@@ -8092,6 +8063,7 @@ Please sign the letter to add your voice in support of the databases that help m
 
   </div>
   <div *ngIf="pageName == 'index'">
+<h2 id="news-archive">News archive</h2>
 <h3 id="congratulations-gsa-award-winners">Congratulations to GSA award winners</h3>
 <p><em>2017-11-24</em></p>
 <p>The <a href="http://www.genetics-gsa.org">Genetics Society of America</a> (GSA) has announced two award winners familiar to the model organism database world:</p>
@@ -8629,26 +8601,22 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
 </div>
 <div *ngIf="section == 'status'">
-  <div class="docs-menu">
-<h3 id="status"><a routerLink="/status">Status</a></h3>
-<ul>
-<li><a routerLink="/status/statistics">Statistics</a></li>
-<li><a routerLink="/status/sequencing-status">Sequencing status</a>
-<ul>
-<li><a routerLink="/status/centromeres">Centromeres</a></li>
-<li><a routerLink="/status/mating-type-region">Mating type region</a></li>
-<li><a routerLink="/status/telomeres">Telomeres</a></li>
-</ul></li>
-<li><a routerLink="/status/sequencing-updates">Sequence updates</a></li>
-<li><a routerLink="/status/sequence-updates-pending">Sequence updates pending</a></li>
-<li><a routerLink="/status/gene-coordinate-changes">Gene coordinate changes</a></li>
-<li><a routerLink="/status/new-and-removed-genes">New and removed genes</a></li>
-<li><a routerLink="/status/gene-characterisation">Gene characterisation</a></li>
-<li><a routerLink="/status/priority-unstudied-genes">Priority unstudied genes</a></li>
-<li><a routerLink="/status/unmapped_genes">Unmapped genes</a></li>
-</ul>
+<app-page-contents-menu title="Status">
 
-  </div>
+<div class="menu-item"><a routerLink="/status/statistics">Statistics</a></div>
+<div class="menu-item"><a routerLink="/status/sequencing-status">Sequencing status</a></div>
+<div class="sub-menu-item"><a routerLink="/status/centromeres">Centromeres</a></div>
+<div class="sub-menu-item"><a routerLink="/status/mating-type-region">Mating type region</a></div>
+<div class="sub-menu-item"><a routerLink="/status/telomeres">Telomeres</a></div>
+<div class="menu-item"><a routerLink="/status/sequencing-updates">Sequence updates</a></div>
+<div class="menu-item"><a routerLink="/status/sequence-updates-pending">Sequence updates pending</a></div>
+<div class="menu-item"><a routerLink="/status/gene-coordinate-changes">Gene coordinate changes</a></div>
+<div class="menu-item"><a routerLink="/status/new-and-removed-genes">New and removed genes</a></div>
+<div class="menu-item"><a routerLink="/status/gene-characterisation">Gene characterisation</a></div>
+<div class="menu-item"><a routerLink="/status/priority-unstudied-genes">Priority unstudied genes</a></div>
+<div class="menu-item"><a routerLink="/status/unmapped_genes">Unmapped genes</a></div>
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'centromeres'">
 <h2 id="centromeres">Centromeres</h2>
@@ -15407,16 +15375,16 @@ Joined contigs p4C9 and c977</p>
   </div>
 </div>
 <div *ngIf="section == 'submit-data'">
-  <div class="docs-menu">
-<h3 id="submit-data"><a routerLink="/submit-data">Submit data</a></h3>
-<ul>
-<li><a routerLink="/submit-data">Submit data</a></li>
-<li><a routerLink="/gene-names">Gene names</a></li>
-<li><a routerLink="/submit-data/bulk-annotation">Annotation datasets</a></li>
-<li>Sequence-linked HTP data <!--   - <a routerLink="/submit-data/htp-seq-data">Sequence-linked HTP data</a> --></li>
-</ul>
+<app-page-contents-menu title="Submit data">
 
-  </div>
+<div class="menu-item"><a routerLink="/submit-data">Submit data</a></div>
+<div class="sub-menu-item"><a routerLink="/gene-names">Gene names</a></div>
+<div class="sub-menu-item"><a routerLink="/submit-data/bulk-annotation">Annotation datasets</a></div>
+<div class="sub-menu-item">Sequence-linked HTP data</div>
+<!--<div class="sub-menu-item"><a routerLink="/submit-data/htp-seq-data">Sequence-linked HTP data</a></div> -->
+
+
+</app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'bulk-annotation'">
 <h2 id="annotation-dataset-submission">Annotation dataset submission</h2>

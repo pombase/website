@@ -1,0 +1,12 @@
+<div class="page-content-menu"
+     [ngClass]="{'menu-pos-fixed': menuPositionFixed, 'menu-pos-absolute': !menuPositionFixed}">
+  <a [ngClass]="{'small-logo-visible': menuPositionFixed, 'small-logo-hidden': !menuPositionFixed}"
+     routerLink="/" title="PomBase home">
+    <img src="assets/pombase-logo-small.png" alt="pombase.org" />
+  </a>
+  <div class="menu-item menu-header">
+    <a (click)="scrollToPageTop()">{{title}}</a>
+  </div>
+
+  <ng-content></ng-content>
+</div>

@@ -1,28 +1,28 @@
- - Gene pages
-     -   [Basic information](documentation/gene-page-basic-information)
-     -   [Gene Ontology](documentation/gene-page-gene-ontology)
-     -   [Phenotypes](documentation/gene-page-phenotypes)
-     -   [Target of](documentation/gene-page-target)
-     -   [Protein features](documentation/gene-page-protein-features)
-     -   [Modifications](documentation/gene-page-modifications)
-     -   [Gene expression](documentation/gene-page-gene-expression)
-     -   [Genetic and physical interactions](documentation/genetic-and-physical-interactions)
-     -   [Ortholog curation](documentation/orthologs)
-     -   [Taxonomic conservation](documentation/taxonomic-conservation)
-     -   [Sequence](documentation/gene-page-sequence)
-     -   [Controlled curation](documentation/controlled-curation)
-     -   [External references](documentation/gene-page-external-references)
-     -   [Literature](documentation/gene-page-literature)
- -   [GO Slim](documentation/pombase-go-slim-documentation)
- -   [Ontology term pages](documentation/ontology-term-page)
- -   [Publication pages](documentation/publication-page)
- -   [Genotype pages](documentation/genotype-page)
- -   [Fission Yeast Phenotype Ontology](browse-curation/fission-yeast-phenotype-ontology)
- -   [Simple search](documentation/simple-search-documentation)
- -   [Advanced search](documentation/advanced-search)
- -   Data submission file formats
-     -   [Phenotype data](documentation/phenotype-data-bulk-upload-format)
-     -   [Modification data](documentation/modification-data-bulk-upload-format)
-     -   [Qualitative gene expression data](documentation/qualitative-gene-expression-data-bulk-upload-format)
-     -   [Quantitative gene expression data](documentation/quantitative-gene-expression-data-bulk-upload-format)
+<div class="menu-item">Gene pages</div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-basic-information">Basic information</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-gene-ontology">Gene Ontology</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-phenotypes">Phenotypes</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-target">Target of</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-protein-features">Protein features</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-modifications">Modifications</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-gene-expression">Gene expression</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/genetic-and-physical-interactions">Genetic and physical interactions</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/orthologs">Ortholog curation</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/taxonomic-conservation">Taxonomic conservation</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-sequence">Sequence</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/controlled-curation">Controlled curation</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-external-references">External references</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/gene-page-literature">Literature</a></div>
+<div class="menu-item"><a routerLink="documentation/pombase-go-slim-documentation">GO Slim</a></div>
+<div class="menu-item"><a routerLink="documentation/ontology-term-page">Ontology term pages</a></div>
+<div class="menu-item"><a routerLink="documentation/publication-page">Publication pages</a></div>
+<div class="menu-item"><a routerLink="documentation/genotype-page">Genotype pages</a></div>
+<div class="menu-item"><a routerLink="browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></div>
+<div class="menu-item"><a routerLink="documentation/simple-search-documentation">Simple search</a></div>
+<div class="menu-item"><a routerLink="documentation/advanced-search">Advanced search</a></div>
+<div class="menu-item">Data submission file formats</div>
+<div class="sub-menu-item"><a routerLink="documentation/phenotype-data-bulk-upload-format">Phenotype data</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/modification-data-bulk-upload-format">Modification data</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression data</a></div>
+<div class="sub-menu-item"><a routerLink="documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression data</a></div>
 

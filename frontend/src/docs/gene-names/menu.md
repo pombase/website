@@ -1,4 +1,4 @@
-- [Gene names](gene-names)
-  - Gene name reservation  <!-- will link to form -->
-  - [*S. pombe* gene naming guidelines](gene-names/gene-naming-guidelines)
-  - [Gene Naming Committee members](gene-names/gene-naming-committee-members)
+<div class="menu-item"><a routerLink="/gene-names">Gene names</a></div>
+<div class="sub-menu-item">Gene name reservation</div>
+<div class="sub-menu-item"><a routerLink="/gene-names/gene-naming-guidelines"><i>S. pombe</i> gene naming guidelines</a></div>
+<div class="sub-menu-item"><a routerLink="/gene-names/gene-naming-committee-members">Gene Naming Committee members</a></div>
