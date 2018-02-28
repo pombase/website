@@ -8,6 +8,7 @@ import { Component, OnInit, Input,
 })
 export class PageContentsMenuComponent implements OnInit {
   @Input() title;
+  @Input() titleRoute = null;
 
   menuPositionFixed = false;
 

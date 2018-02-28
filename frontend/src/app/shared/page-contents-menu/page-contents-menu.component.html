@@ -4,8 +4,9 @@
      routerLink="/" title="PomBase home">
     <img src="assets/pombase-logo-small.png" alt="pombase.org" />
   </a>
-  <div class="menu-item menu-header">
-    <a (click)="scrollToPageTop()">{{title}}</a>
+  <div class="left-menu-part left-menu-header">
+    <a *ngIf="!titleRoute" (click)="scrollToPageTop()">{{title}}</a>
+    <a *ngIf="titleRoute" routerLink="{{titleRoute}}">{{title}}</a>
   </div>
 
   <ng-content></ng-content>

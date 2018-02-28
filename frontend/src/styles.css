@@ -183,36 +183,37 @@ select option:disabled {
   }
 }
 
-.details-page .menu-header, .page-content-menu .menu-header {
-  font-size: 95%;
-}
-.details-page .menu-item, .page-content-menu .menu-item {
-  font-size: 90%;
-}
-.details-page .menu-item, .page-content-menu .menu-item, .page-content-menu .sub-menu-item, .page-content-menu .sub-sub-menu-item {
+.left-menu-part {
   border-left: 2px solid #889;
   margin-top: 5px;
   margin-bottom: 5px;
-  background-color: #eef;
-  padding: 2px;
-}
-.page-content-menu .sub-menu-item {
-  margin-left: 5px;
-  font-size: 85%;
-}
-.page-content-menu .sub-sub-menu-item {
-  margin-left: 10px;
-  font-size: 80%;
-  background-color: #f7f7ff;
-  margin: 3px;
-  margin-left: 8px;
+  background-color: #eeebdd;
+  padding: 3px 5px;
 }
 
-.details-page .menu-item a {
+.left-menu-header {
+  font-size: 95%;
+  margin-left: 0px;
+  font-weight: bold;
+}
+.left-menu-item {
+  font-size: 90%;
+  margin-left: 5px;
+}
+.left-sub-menu-item {
+  margin-left: 10px;
+  font-size: 85%;
+}
+.left-sub-sub-menu-item {
+  margin-left: 15px;
+  font-size: 80%;
+}
+
+.left-menu-part a {
   color: #014c8c;
 }
 
-.details-page .menu-item a:hover {
+.left-menu-part a:hover {
   text-decoration: underline;
 }
 

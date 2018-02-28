@@ -257,7 +257,7 @@ sub process_path {
 
   my $menu_title = (ucfirst $path) =~ s/-/ /gr;
   $menu_title = 'FAQ' if $menu_title =~ /faq/i;
-  print $docs_component_fh qq|<app-page-contents-menu title="$menu_title">\n|;
+  print $docs_component_fh qq|<app-page-contents-menu title="$menu_title" titleRoute="/$path">\n|;
 
   my $menu_content = contents_for_template("$path/menu", $data->{menu});
 
@@ -404,7 +404,7 @@ sub contents_for_template {
 
     if ($path eq 'news/menu') {
       for my $item (@all_news_items) {
-        $ret .= qq|<div class="menu-item"><a simplePageScroll href="#| . $item->{id} . '">' . $item->{title} . qq|</a></div>\n|;
+        $ret .= qq|<div class="left-menu-part left-menu-item"><a simplePageScroll href="#| . $item->{id} . '">' . $item->{title} . qq|</a></div>\n|;
       }
     } else {
       $ret .= "## News archive\n";
@@ -434,7 +434,7 @@ sub contents_for_template {
       for my $category_id (@categories) {
         next if $category_id eq 'index';
         my $category_name = $faq_category_names{$category_id};
-        $ret .= qq|<div class="menu-item"><a routerLink="/faq/$category_id">$category_name</a></div>\n|
+        $ret .= qq|<div class="left-menu-part left-menu-item"><a routerLink="/faq/$category_id">$category_name</a></div>\n|
       }
     } else {
       if (ref $details) {
