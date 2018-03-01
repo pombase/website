@@ -8,13 +8,13 @@ The most proximal anchored cosmids to each telomere are (links
 to genome browser):
 
 -   Chromosome I left c212 (coordinates
-    [1-29663](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=I%3A1-29663;site=ensemblunit))
+    [1-29663](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?r=I%3A1-29663;site=ensemblunit))
 -   Cromosome I right c750
-    ([5554844-5579133](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=I%3A5554844-5579133;site=ensemblunit))
+    ([5554844-5579133](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?r=I%3A5554844-5579133;site=ensemblunit))
 -   Chromosome II left c1348
-    ([1-39186](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=II%3A1-39186;site=ensemblunit))
+    ([1-39186](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?r=II%3A1-39186;site=ensemblunit))
 -   Chromosome II right pT2R1
-    ([4500619-4539800](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=II%3A4500619-4539800;site=ensemblunit))
+    ([4500619-4539800](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?r=II%3A4500619-4539800;site=ensemblunit))
 -   There are no telomere proximal clones for chromosome III as the
     unsequenced rDNA blocks occur inbetween the sequenced portion and
     the telomeres on both chromosome arms.
@@ -29,7 +29,7 @@ Sasaki *et al.*
 ([PMID:18727152](http://www.ncbi.nlm.nih.gov/pubmed?term=18727152))
 and will be attached to the assembly in the next round of sequence
 changes. In the meantime, the contig can be viewed in the
-[PomBase genome browser](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?g=SPBC460.01c;r=AB325691:1479-3197;t=SPBC460.01c.1).
+[PomBase genome browser](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?g=SPBC460.01c;r=AB325691:1479-3197;t=SPBC460.01c.1).
 
 A set of [small insert clones](ftp://ftp.sanger.ac.uk/pub/yeast/sequences/pombe/telomeres/)
 (FTP link; also see table) from a telomere plasmid library has been

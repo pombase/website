@@ -71,7 +71,7 @@ and further details linked there.
 
 We plan to add specific documentation about comparative genomics using
 *S. pombe* here. In the meantime, you can look at the documentation for
-[Ensembl Compara](http://genomebrowser.pombase.org/info/docs/compara/index.html).
+[Ensembl Compara](http://www.ensembl.org/info/genome/compara/index.html).
 
 ### More information ... ###
 

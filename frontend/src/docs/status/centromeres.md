@@ -6,9 +6,9 @@ Ensembl genome browser.
 
 Chromosome coordinates (links to Ensembl genome browser):
 
--   CEN 1: [I:3753687-3789421](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=I%3A3753687-3789421;site=ensemblunit)
--   CEN 2: [II:1602264-1644747](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=II%3A1602264-1644747;site=ensemblunit)
--   CEN 3: [III:1070904-1137003](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=III%3A1070904-1137003;site=ensemblunit)
+-   CEN 1: [I:3753687-3789421](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?r=I%3A3753687-3789421;site=ensemblunit)
+-   CEN 2: [II:1602264-1644747](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?r=II%3A1602264-1644747;site=ensemblunit)
+-   CEN 3: [III:1070904-1137003](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?r=III%3A1070904-1137003;site=ensemblunit)
 
 The 3 centromeres are also available as contiguated sequence (the
 remaining gaps in CEN2 and CEN3 are represented by 100 N's)
