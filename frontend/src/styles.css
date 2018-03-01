@@ -64,7 +64,7 @@ a {
 
 .annotation-table td, .genes-table td, .genotypes-table td, .annotation-table th, .genes-table th, .genotypes-table th {
   vertical-align: top;
-  padding: 0 10px 5px 0;
+  padding: 0 10px 6px 0;
 }
 
 .annotation-table .annotation-table-container {
