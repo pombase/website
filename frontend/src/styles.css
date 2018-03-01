@@ -192,21 +192,21 @@ select option:disabled {
 }
 
 .left-menu-header {
-  font-size: 95%;
+  font-size: 85%;
   margin-left: 0px;
   font-weight: bold;
 }
 .left-menu-item {
-  font-size: 90%;
+  font-size: 80%;
   margin-left: 5px;
 }
 .left-sub-menu-item {
   margin-left: 10px;
-  font-size: 85%;
+  font-size: 76%;
 }
 .left-sub-sub-menu-item {
   margin-left: 15px;
-  font-size: 80%;
+  font-size: 73%;
 }
 
 .left-menu-part a {
