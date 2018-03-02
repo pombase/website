@@ -160,19 +160,19 @@ select option:disabled {
 }
 
 @media (min-width: 800px) {
-  .details-page {
+  .details-page, .docs-content {
     right: 0;
     padding-left: 175px;
     width: auto;
   }
-  .details-page-menu {
+  .details-page-menu, .page-content-menu {
     width: 150px;
     left: 10px;
   }
 }
 
 @media (max-width: 799px) {
-  .details-page-menu {
+  .details-page-menu, .docs-menu {
     position: inherit;
     width: 30%;
     padding: 0.5em;
@@ -183,22 +183,37 @@ select option:disabled {
   }
 }
 
-.details-page .menu-header {
-  border-top: 1px solid lightgrey;
-}
-.details-page .menu-item {
-  border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
-  padding: 3px;
-  font-size: 80%;
+.left-menu-part {
+  border-left: 2px solid #889;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #eeebdd;
+  padding: 3px 5px;
 }
 
-.details-page .menu-item a {
+.left-menu-header {
+  font-size: 85%;
+  margin-left: 0px;
+  font-weight: bold;
+}
+.left-menu-item {
+  font-size: 80%;
+  margin-left: 5px;
+}
+.left-sub-menu-item {
+  margin-left: 10px;
+  font-size: 76%;
+}
+.left-sub-sub-menu-item {
+  margin-left: 15px;
+  font-size: 73%;
+}
+
+.left-menu-part a {
   color: #014c8c;
 }
 
-.details-page .menu-item a:hover {
+.left-menu-part a:hover {
   text-decoration: underline;
 }
 

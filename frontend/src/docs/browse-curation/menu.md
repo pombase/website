@@ -1,4 +1,4 @@
-- [Fission Yeast Phenotype Ontology](browse-curation/fission-yeast-phenotype-ontology)
-- [GO slim terms](browse-curation/fission-yeast-go-slim-terms)
-- [DNA binding sites](browse-curation/dna-binding-sites)
-- [Drugs with known targets](browse-curation/drugs-known-pombe-targets)
+<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim terms</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/drugs-known-pombe-targets">Drugs with known targets</a></div>

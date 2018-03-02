@@ -1,12 +1,12 @@
- - [Datasets](datasets)
-   - [Genome datasets](/downloads/genome-datasets)
-   - [Annotation datasets](/downloads/genome-datasets#Annotation_datasets)
-     - [GO annotations](downloads/go-annotations)
-     - [Phenotype annotations](downloads/phenotype-annotations)
-     - [Modifications](ftp://ftp.pombase.org/pombe/annotations/modifications/)
-     - [HCPIN datasets](ftp://ftp.pombase.org/pombe/exports/)
-     - [Orthologs](ftp://ftp.pombase.org/pombe/orthologs/)
-   - [Protein datasets](/downloads/protein-datasets)
-   - [Names and IDs](downloads/names-and-identifiers)
- - [Documents](documents)
- - [Chado database dumps](downloads/chado-database-dumps)
+<div class="left-menu-part left-menu-item"><a routerLink="/datasets">Datasets</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/genome-datasets">Genome datasets</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/genome-datasets#Annotation_datasets">Annotation datasets</a></div>
+<div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
+<div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
+<div class="left-menu-part left-sub-sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/annotations/modifications/">Modifications</a></div>
+<div class="left-menu-part left-sub-sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/exports/">HCPIN datasets</a></div>
+<div class="left-menu-part left-sub-sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/orthologs/">Orthologs</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/protein-datasets">Protein datasets</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documents">Documents</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a></div>
