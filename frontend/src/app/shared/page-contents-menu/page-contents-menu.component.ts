@@ -20,7 +20,7 @@ export class PageContentsMenuComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   scrollEvent(event) {
-    if (this.title === 'News') {
+    if (this.title === 'News' || this.title === 'Documentation') {
       this.menuPositionFixed = false;
       return;
     }
