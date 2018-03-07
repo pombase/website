@@ -426,8 +426,12 @@ export class PombaseAPIService {
       termAnnotation.term = termsByTermId[termId];
       for (let annotation of termAnnotation.annotations as Array<Annotation>) {
         annotation.genes =
-          (annotation.genes as Array<string>).map((gene_uniquename: string) => {
-            return genesByUniquename[gene_uniquename];
+          (annotation.genes as Array<any>).map((geneDetail: any) => {
+            if (typeof(geneDetail) === 'string') {
+              return genesByUniquename[geneDetail as string];
+            } else {
+              return geneDetail as GeneShort;
+            }
           }) as Array<GeneShort>;
         if (referencesByUniquename) {
           annotation.reference = referencesByUniquename[annotation.reference as string];
