@@ -4367,7 +4367,82 @@ the total annotated genes.
 <h2 id="modification-data-bulk-upload-format">Modification data bulk upload format</h2>
 <p>PomBase welcomes submissions of published large-scale modification data sets. We have devised a tab-delimited text file format for bulk modification data.</p>
 <p>Include a header line that labels the columns -- use the entry in the Contents column below as the column header text.</p>
-<p>Column | Contents | Example | Mandatory? | Multiple entries allowed? 1 | Gene systematic ID | SPBC11B10.09 | Yes | No 2 | Gene name | cdc2 | No | No 3 | Ontology ID | MOD:0000001 | Yes | No 4 | Evidence | ECO:0000006 | Yes | No 5 | Residue | S72 | No | Yes 6 | Extension | added_by(PomBase:SPBC11B10.09) | No | Yes 7 | Reference | PMID:24763107 | Yes | No 8 | Taxon | 4896 | Yes | No 9 | Date | 20140501 | Yes | No</p>
+<table>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Contents</th>
+<th>Example</th>
+<th>Mandatory?</th>
+<th>Multiple entries allowed?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Gene systematic ID</td>
+<td>SPBC11B10.09</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Gene name</td>
+<td>cdc2</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Ontology ID</td>
+<td>MOD:0000001</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Evidence</td>
+<td>ECO:0000006</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Residue</td>
+<td>S72</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Extension</td>
+<td>added_by(PomBase:SPBC11B10.09)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Reference</td>
+<td>PMID:24763107</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Taxon</td>
+<td>4896</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Date</td>
+<td>20140501</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Notes:</strong></p>
 <p>At present we accept protein modification data, using PSI-MOD IDs in the Ontology ID column. We plan to accept RNA modification data in the future. More information is available in the <a routerLink="/documentation/gene-page-modifications">gene page modifications documentation</a>.</p>
 <p>Use one line per modified position (multiple entries are allowed only in the Extension column).</p>
@@ -4381,7 +4456,7 @@ the total annotated genes.
 <li>See the table below for allowed annotation extensions. Multiple extensions can be included for a modification. Separate extensions with a comma (,) if they combine to form a &quot;compound&quot; extension (all parts apply together), or with a pipe (|) if they are independent. You can also use separate rows for annotations with independent extensions.</li>
 <li>The Reference column has the publication's PubMed ID (PMID).</li>
 <li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although if you have an NCBI taxon ID for a specific <em>S. pombe</em> strain you are welcome to use it</li>
-<li>The date is the date on which the annotations are created; you may use the paper publication date or the date on which you prepare your data file. Format: YYYYMMDD</li>
+<li>The date is the date on which the annotations are created; you may use the paper publication date or the date on which you prepare p your data file. Format: YYYYMMDD</li>
 </ol>
 <p><strong>Allowed annotation extensions:</strong></p>
 <p>Annotation extensions can be used to provide additional information, such as a gene whose product adds or removes a modification, a process or cell cycle phase during which a modification is present, or modification site occupancy (see the <a routerLink="/documentation/gene-page-modifications">gene page modifications documentation</a> for more information). Each annotation extension consists of a relation and either an identifier or a number.</p>

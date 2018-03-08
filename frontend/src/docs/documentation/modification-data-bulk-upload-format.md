@@ -8,6 +8,7 @@ Include a header line that labels the columns -- use the entry in the
 Contents column below as the column header text.
 
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
+-------|----------|---------|------------|--------------------------
 1 | Gene systematic ID | SPBC11B10.09 | Yes | No
 2 | Gene name | cdc2 | No | No
 3 | Ontology ID | MOD:0000001 | Yes | No
