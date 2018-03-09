@@ -98,19 +98,3 @@ PomBase: a comprehensive online resource for fission yeast.\
 [Full text at
 NAR](http://nar.oxfordjournals.org/content/40/D1/D695.long)
 
-### Compara
-
-Note that the manually curated *S. cerevisiae* and human orthologs
-(displayed on gene pages or downloadable) use several data sources in
-addition to Compara, and are therefore distinct from the Compara data.
-To cite the *S. pombe* Compara data, use:
-
-Vilella AJ, Severin J, Ureta-Vidal A, Heng L, Durbin R, Birney E.\
-EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees
-in vertebrates.\
-*Genome Res* 2009 Feb;19(2):327-35. Epub 2008 Nov 24.
-
-[PMID:19029536](http://www.ncbi.nlm.nih.gov/pubmed/19029536)
-
-[Full text at Genome
-Research](http://genome.cshlp.org/content/19/2/327.long)
