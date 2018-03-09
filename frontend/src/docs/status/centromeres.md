@@ -22,14 +22,14 @@ searched as features on PomBase pages, but they can be displayed on
 tracks in the genome browser. Turn on any or all of "PomBase Annotated
 Centromeric Inner Repeat Region (SO:0001798)", "PomBase Annotated dg
 Repeat (SO:0001898)" or "PomBase Annotated dh Repeat (SO:0001899)" (see
-the [browser track FAQ](http://www.pombase.org/faqs/how-can-i-show-or-hide-tracks-in-the-genome-browser) for
+the [browser track FAQ](/faq/how-can-i-show-or-hide-tracks-in-the-genome-browser) for
 instructions).
 
 Repeats are also shown in the diagram below. To see the repeat
 sequences, download and unzip the [contiguated sequence files](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/)
 and view them in
 [Artemis](http://www.sanger.ac.uk/science/tools/artemis). (See
-[this FAQ](http://www.pombase.org/faqs/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) for more
+[this FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) for more
 information.)
 
 **Note:** Recent work by Chad Ellermeier and Gerry Smith suggests that

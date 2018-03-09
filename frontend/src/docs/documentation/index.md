@@ -51,7 +51,7 @@ PomBase-specific formats:
 
 For data that can be connected with sequence features or coordinates,
 and displayed as tracks in the genome browser, see the [data format
-FAQ](faqs/what-file-formats-can-i-use-submit-high-throughput-data)
+FAQ](faq/what-file-formats-can-i-use-submit-high-throughput-data)
 and further details linked there.
 
 ### Linking to and from PomBase ###

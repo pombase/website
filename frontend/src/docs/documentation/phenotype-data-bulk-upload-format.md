@@ -41,7 +41,7 @@ blank in the rest of the rows.
     names from the dataset download page.
 2.  For help finding suitable ontology (FYPO) terms to describe your
     phenotypes, see the [FYPO summary page](browse-curation/fission-yeast-phenotype-ontology) and the
-    [FAQ on browsing FYPO](faqs/how-can-i-browse-phenotype-ontology-fypo). If you can't
+    [FAQ on browsing FYPO](/faq/how-can-i-browse-phenotype-ontology-fypo). If you can't
     find a term you need, email the
     [helpdesk](mailto:helpdesk@pombase.org) for assistance; we can add
     new FYPO terms as needed.
