@@ -8,6 +8,7 @@ import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.s
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AppConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-gene-details',
@@ -51,6 +52,7 @@ export class GeneDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
+              private deployConfigService: DeployConfigService,
               private readonly meta: Meta,
               @Inject('Window') private window: any
              ) { }
@@ -229,7 +231,7 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   setJBrowseLink(): void {
-    if (false && this.geneDetails) {
+    if (this.geneDetails) {
       this.pombaseApiService.getChromosomeSummaryMapPromise()
         .then(chromosomeSummaryMap => {
           const loc = this.geneDetails.location;
@@ -237,7 +239,7 @@ export class GeneDetailsComponent implements OnInit {
           const chr = chromosomeSummaryMap[chrName];
           const chrLength = chr.length;
 
-          const lowerPos = Math.max(loc.start_pos, loc.end_pos);
+          const lowerPos = Math.min(loc.start_pos, loc.end_pos);
           const upperPos = Math.max(loc.start_pos, loc.end_pos);
 
           const mid = Math.round((lowerPos + upperPos) / 2);
@@ -255,8 +257,9 @@ export class GeneDetailsComponent implements OnInit {
 
           const chrDisplayName = this.appConfig.chromosomes[chrName].short_display_name;
 
+          const tracks = 'PomBase%20forward%20strand%20features%2CDNA%2CPomBase%20reverse%20strand%20features';
           this.jbrowseLinkUrl =
-            `jbrowse/index.html?loc=${chrDisplayName}%3A${jbStart}..${jbEnd}&tracks=DNA%2CPomBase%20features`;
+            `jbrowse/index.html?loc=${chrDisplayName}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
         });
     } else {
       this.jbrowseLinkUrl = null;
