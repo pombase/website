@@ -1,4 +1,8 @@
 {
+  "/jbrowse": {
+    "target": "http://localhost:8400",
+    "secure": false
+  },
   "/api": {
     "target": "http://localhost:8400",
     "secure": false
