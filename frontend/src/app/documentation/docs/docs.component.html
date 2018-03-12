@@ -53,13 +53,6 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 <em>Nucleic Acids Res.</em> 2012 Jan;40(Database issue):D695-9. Epub 2011 Oct 28.</p>
 <p><a href="http://www.ncbi.nlm.nih.gov/pubmed/22039153">PMID:22039153</a></p>
 <p><a href="http://nar.oxfordjournals.org/content/40/D1/D695.long">Full text at NAR</a></p>
-<h3 id="compara">Compara</h3>
-<p>Note that the manually curated <em>S. cerevisiae</em> and human orthologs (displayed on gene pages or downloadable) use several data sources in addition to Compara, and are therefore distinct from the Compara data. To cite the <em>S. pombe</em> Compara data, use:</p>
-<p>Vilella AJ, Severin J, Ureta-Vidal A, Heng L, Durbin R, Birney E.<br />
-EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees in vertebrates.<br />
-<em>Genome Res</em> 2009 Feb;19(2):327-35. Epub 2008 Nov 24.</p>
-<p><a href="http://www.ncbi.nlm.nih.gov/pubmed/19029536">PMID:19029536</a></p>
-<p><a href="http://genome.cshlp.org/content/19/2/327.long">Full text at Genome Research</a></p>
 
   </div>
   <div *ngIf="pageName == 'data-sources'">
@@ -1068,7 +1061,7 @@ the total annotated genes.
 <p>We hope to deploy a browser at PomBase in the not-too-distant future that will include annotations as well as terms.</p>
 <h3 id="finding-fypo-terms-and-annotations-in-pombase">Finding FYPO terms and annotations in PomBase</h3>
 <p>FYPO terms are displayed on PomBase gene pages, along with supporting evidence and allele and expression details, as described in the PomBase gene page documentation.</p>
-<p>The PomBase advanced search can use either term names or IDs to search FYPO, and returns a list of genes that have alleles annotated to the specified term or any of its descendants. For example, see the <a href="http://www.pombase.org/faqs/can-i-get-list-essential-pombe-genes">FAQ on finding essential genes</a>.</p>
+<p>The PomBase advanced search can use either term names or IDs to search FYPO, and returns a list of genes that have alleles annotated to the specified term or any of its descendants. For example, see the <a routerLink="/faq/can-i-get-list-essential-pombe-genes">FAQ on finding essential genes</a>.</p>
 <h3 id="curating-phenotypes-with-fypo">Curating phenotypes with FYPO</h3>
 <p>The PomBase online curation tool, <a href="http://curation.pombase.org/pombe">Canto</a>, uses FYPO terms for annotation of S. pombe phenotypes. <a href="http://curation.pombase.org/pombe/docs/fypo_annotation">Phenotype curation documentation</a> is available via Canto.</p>
 <h3 id="submitting-bulk-data">Submitting Bulk Data</h3>
@@ -3956,7 +3949,7 @@ the total annotated genes.
   <div *ngIf="pageName == 'controlled-curation'">
 <h2 id="pombase-controlled-curation">PomBase controlled curation</h2>
 <p>Gene and publication pages include manually curated annotations of several types that cannot be represented using available ontologies.</p>
-<p>For each annotation, the summary view shows a text description, which corresponds to an entry in the internal <!-- <a routerLink="/PBO">http://www.pombase.org/faqs/what-pbo-option-advanced-search</a> --> PB term set. The detailed view adds the PBO ID, evidence (if available), reference, and count. The count links to the <a routerLink="/documentation/ontology-term-page">ontology term page</a> for the description.</p>
+<p>For each annotation, the summary view shows a text description, which corresponds to an entry in the internal <!-- <a routerLink="/PBO">/faq/what-pbo-option-advanced-search</a> --> PB term set. The detailed view adds the PBO ID, evidence (if available), reference, and count. The count links to the <a routerLink="/documentation/ontology-term-page">ontology term page</a> for the description.</p>
 <p>Links in the left-hand navigation menu include:</p>
 <ul>
 <li><p><strong>Complementation</strong> - Indicates that an <em>S. pombe</em> gene complements, or is complemented by, a gene from another species</p></li>
@@ -3984,7 +3977,7 @@ the total annotated genes.
 <ol style="list-style-type: decimal">
 <li>See the <a routerLink="/submit-data/gene-name-registry">Gene Name Registry</a> for more information about <em>S. pombe</em> gene names. Synonyms include all names other than the standard name that have been published for a gene, and thus are not guaranteed to be unique.</li>
 <li>Free text description of the gene product</li>
-<li>Chromosome coordinates for the gene. For protein-coding genes, the first set of numbers indicate the gene start, end, and length including the default UTRs chosen by PomBase curators (see <a href="http://www.pombase.org/faqs/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s">this FAQ</a> for more information). The &quot;CDS&quot; numbers give the start, end, and length excluding UTRs but including introns (other than introns located entirely within UTRs).</li>
+<li>Chromosome coordinates for the gene. For protein-coding genes, the first set of numbers indicate the gene start, end, and length including the default UTRs chosen by PomBase curators (see <a routerLink="/faq/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s">this FAQ</a> for more information). The &quot;CDS&quot; numbers give the start, end, and length excluding UTRs but including introns (other than introns located entirely within UTRs).</li>
 <li>What the three-letter acronym stands for; where available, name descriptions are provided for synonyms as well as primary names.</li>
 <li>Category describing how well-studied a gene is; see the <a routerLink="/status/gene-characterisation">Gene Characterisation</a> page for details</li>
 <li>Indicates whether a gene encodes protein, specifies a non-coding RNA, or is a pseudogene</li>
@@ -4253,7 +4246,7 @@ the total annotated genes.
   <div *ngIf="pageName == 'gene-page-target'">
 <h2 id="gene-page-target-of">Gene page: Target of</h2>
 <p>The &quot;Target of&quot; section describes genes that affect the gene of interest. Genes listed under &quot;Target of&quot; may include upstream regulators or enzymes that modify the product of the gene of interest. For example, the &quot;Target of&quot; annotations for <a routerLink="/gene/SPBC11B10.09">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others).</p>
-<p>Target of data are derived by taking the reciprocal of <a href="http://www.pombase.org/faqs/what-annotation-extension">ontology annotation extensions</a> (using <a routerLink="/documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a> and <a routerLink="/documentation/gene-page-phenotypes">phenotype</a> annotation extensions). The table includes:</p>
+<p>Target of data are derived by taking the reciprocal of <a href="/faq/what-annotation-extension">ontology annotation extensions</a> (using <a routerLink="/documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a> and <a routerLink="/documentation/gene-page-phenotypes">phenotype</a> annotation extensions). The table includes:</p>
 <ul>
 <li>Ontology: GO or FYPO, i.e. the ontology in which the annotation was made</li>
 <li>Relationship: indicates how the genes are connected. The relationship is the reciprocal of the relation used in the originating annotation extension, as noted in the <a routerLink="/documentation/annotation-extension-relation-display">Annotation extension relation display documentation</a>.</li>
@@ -4351,7 +4344,7 @@ the total annotated genes.
 <li><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression</a></li>
 <li><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression</a></li>
 </ul>
-<p>For data that can be connected with sequence features or coordinates, and displayed as tracks in the genome browser, see the <a href="faqs/what-file-formats-can-i-use-submit-high-throughput-data">data format FAQ</a> and further details linked there.</p>
+<p>For data that can be connected with sequence features or coordinates, and displayed as tracks in the genome browser, see the <a href="faq/what-file-formats-can-i-use-submit-high-throughput-data">data format FAQ</a> and further details linked there.</p>
 <h3 id="linking-to-and-from-pombase">Linking to and from PomBase</h3>
 <ul>
 <li>Linking to PomBase: To link to any PomBase gene page, use the systematic ID for the gene in a URL with the syntax http://www.pombase.org/gene/[systematic ID]. For example, <a routerLink="/gene/SPBC11B10.09">http://www.pombase.org/gene/SPBC11B10.09</a> links to the gene page for <a routerLink="/spombe/result/SPBC11B10.09">cdc2</a>.</li>
@@ -4562,7 +4555,7 @@ the total annotated genes.
 <h2 id="ortholog-curation">Ortholog curation</h2>
 <p>The &quot;Orthologs&quot; section of a gene page lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases.</p>
 <p>Ortholog prediction: The source of the ortholog prediction may vary. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches that are uniformly one-to one across species; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase's approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
-<p>For species other than budding yeast and human, we provide links to Compara to display orthologs from fungi or from all species. for further information, see the <a href="http://www.pombase.org/faqs/how-can-i-find-s-pombe-orthologs-species-other-human-and-s-cerevisiae">FAQ on orthologs in additional species</a>.</p>
+<p>For species other than budding yeast and human, we provide links to Compara to display orthologs from fungi or from all species. for further information, see the <a routerLink="/faq/how-can-i-find-s-pombe-orthologs-species-other-human-and-s-cerevisiae">FAQ on orthologs in additional species</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'phenotype-data-bulk-upload-format'">
@@ -4719,7 +4712,7 @@ the total annotated genes.
 <p>Please include all 19 columns. If you have nothing to put in one of the non-mandatory columns, include the header and leave the column blank in the rest of the rows.</p>
 <ol style="list-style-type: decimal">
 <li>Include the systematic ID for each gene. You can look up systematic IDs on gene pages, or refer to the file of all gene names from the dataset download page.</li>
-<li>For help finding suitable ontology (FYPO) terms to describe your phenotypes, see the <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the <a routerLink="/faqs/how-can-i-browse-phenotype-ontology-fypo">FAQ on browsing FYPO</a>. If you can't find a term you need, email the <a href="mailto:helpdesk@pombase.org">helpdesk</a> for assistance; we can add new FYPO terms as needed.</li>
+<li>For help finding suitable ontology (FYPO) terms to describe your phenotypes, see the <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the <a routerLink="/faq/how-can-i-browse-phenotype-ontology-fypo">FAQ on browsing FYPO</a>. If you can't find a term you need, email the <a href="mailto:helpdesk@pombase.org">helpdesk</a> for assistance; we can add new FYPO terms as needed.</li>
 <li>The allele description specifically describes the change; see table below.</li>
 <li>In the Expression column, use one of these values: 'overexpression', 'knockdown', 'endogenous', 'null', 'not specified'. Deletions should always have 'null' expression.</li>
 <li>The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but you can use &quot;unknown&quot; if you don't know the original background.</li>
@@ -5062,7 +5055,7 @@ the total annotated genes.
   <div *ngIf="pageName == 'taxonomic-conservation'">
 <h2 id="taxonomic-conservation">Taxonomic conservation</h2>
 <p>The Taxonomic conservation section provides manually assigned classifiers of taxon distribution (at the domain/kingdom level) of the product of a protein-coding gene. The classifiers come from a small controlled vocabulary maintained by PomBase curators. All applicable terms are assigned to a protein.</p>
-<p>For each annotation, the summary view shows a text description, which corresponds to an entry in the internal PBO <!-- <a href="http://www.pombase.org/faqs/what-pbo-option-advanced-search">PBO</a> --> term set. The detailed view adds the PBO ID and a count that links to the <a routerLink="/documentation/ontology-term-page">ontology term page</a> for the description.</p>
+<p>For each annotation, the summary view shows a text description, which corresponds to an entry in the internal PBO <!-- <a routerLink="/faq/what-pbo-option-advanced-search">PBO</a> --> term set. The detailed view adds the PBO ID and a count that links to the <a routerLink="/documentation/ontology-term-page">ontology term page</a> for the description.</p>
 <h3 id="taxonomic-conservation-terms">Taxonomic conservation terms</h3>
 <ul>
 <li>These terms identify the taxonomic groups in which gene product ortholog(s) have been identified:
@@ -5323,7 +5316,7 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <p><strong>Warning:</strong> Files in the old FTP site within the EBI domain are no longer updated. If you have a link that contains <strong>ftp.ebi.ac.uk</strong>, please check these pages for a link using <strong>ftp.pombase.org</strong>. Please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a> if you need help finding a file or directory.</p>
 </div>
 <p>Downloadable intron datasets are available in FASTA format from the <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/FASTA/">PomBase FTP site</a>.</p>
-<p>Note that you can also use the Advanced Search to find all genes containing introns, as described in the <a href="http://www.pombase.org/faqs/how-can-i-retrieve-intron-coordinates-or-sequences">FAQ on introns</a>.</p>
+<p>Note that you can also use the Advanced Search to find all genes containing introns, as described in the <a routerLink="/gfaq/how-can-i-retrieve-intron-coordinates-or-sequences">FAQ on introns</a>.</p>
 <h5 id="legacy-intron-data">Legacy intron data</h5>
 <p>We also provide access to archived <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Intron_Data/OLD/">intron data</a>. Please note that this set of intron data reflect the dataset at the time of publication of the <em>S. pombe</em> genome sequence, and does not include any new introns, or changes to introns, since then. The intron data archive includes:</p>
 <ul>
@@ -5524,7 +5517,7 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <ol style="list-style-type: decimal">
 <li>The database that produced the file -- included to facilitate data sharing with other databases. Obviously always PomBase for this file.</li>
 <li>The systematic ID for each gene.</li>
-<li>To use the FYPO IDs, see the <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the <a routerLink="/faqs/how-can-i-browse-the-phenotype-ontology-fypo">FAQ on browsing FYPO</a>.</li>
+<li>To use the FYPO IDs, see the <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the <a routerLink="/faq/how-can-i-browse-the-phenotype-ontology-fypo">FAQ on browsing FYPO</a>.</li>
 <li>The allele description specifically describes the change; see the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> for details on allele types and descriptions.</li>
 <li>The Expression column contains one of these values: 'overexpression', 'knockdown', 'endogenous', 'null', 'not specified'. Deletions always have 'null' expression.</li>
 <li>The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but &quot;unknown&quot; is allowed.</li>
@@ -6913,15 +6906,15 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 </tr>
 <tr class="even">
 <td>Modifications</td>
-<td><a routerLink="/documentation/modification-bulk-upload-file-format">modification file format</a></td>
+<td><a routerLink="/documentation/modification-data-bulk-upload-file-format">modification file format</a></td>
 </tr>
 <tr class="odd">
 <td>Qualitative gene expression</td>
-<td><a routerLink="/documentation/qualitative-gene-expression-bulk-upload-file-format">qualitative gene expression file format</a></td>
+<td><a routerLink="/documentation/qualitative-data-gene-expression-bulk-upload-file-format">qualitative gene expression file format</a></td>
 </tr>
 <tr class="even">
 <td>Quantitative gene expression</td>
-<td><a routerLink="/documentation/quantitative-gene-expression-bulk-upload-file-format">quantitative gene expression file format</a></td>
+<td><a routerLink="/documentation/quantitative-data-gene-expression-bulk-upload-file-format">quantitative gene expression file format</a></td>
 </tr>
 </tbody>
 </table>
@@ -8707,8 +8700,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <li><a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/centromeres/cen2.gz">CEN 2</a> (gzipped EMBL format)</li>
 <li><a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/centromeres/cen3.gz">CEN 3</a> (gzipped EMBL format)</li>
 </ul>
-<p>Note that specific repeats within centromeres cannot yet be viewed or searched as features on PomBase pages, but they can be displayed on tracks in the genome browser. Turn on any or all of &quot;PomBase Annotated Centromeric Inner Repeat Region (SO:0001798)&quot;, &quot;PomBase Annotated dg Repeat (SO:0001898)&quot; or &quot;PomBase Annotated dh Repeat (SO:0001899)&quot; (see the <a href="http://www.pombase.org/faqs/how-can-i-show-or-hide-tracks-in-the-genome-browser">browser track FAQ</a> for instructions).</p>
-<p>Repeats are also shown in the diagram below. To see the repeat sequences, download and unzip the <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/">contiguated sequence files</a> and view them in <a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis</a>. (See <a href="http://www.pombase.org/faqs/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase">this FAQ</a> for more information.)</p>
+<p>Note that specific repeats within centromeres cannot yet be viewed or searched as features on PomBase pages, but they can be displayed on tracks in the genome browser. Turn on any or all of &quot;PomBase Annotated Centromeric Inner Repeat Region (SO:0001798)&quot;, &quot;PomBase Annotated dg Repeat (SO:0001898)&quot; or &quot;PomBase Annotated dh Repeat (SO:0001899)&quot; (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-in-the-genome-browser">browser track FAQ</a> for instructions).</p>
+<p>Repeats are also shown in the diagram below. To see the repeat sequences, download and unzip the <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/">contiguated sequence files</a> and view them in <a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis</a>. (See <a routerLink="/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase">this FAQ</a> for more information.)</p>
 <p><strong>Note:</strong> Recent work by Chad Ellermeier and Gerry Smith suggests that there are only 4 +/- 1 copies of the 6760 bp repeat missing from chromosome 3</p>
 <p>Please note: This map is a schematic diagram. Distances and overlaps are approximate. Please refer to the sequence data to design experimental constructs.</p>
 <div class="figure">
