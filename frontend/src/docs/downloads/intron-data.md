@@ -14,7 +14,7 @@ Downloadable intron datasets are available in FASTA format from the
 
 Note that you can also use the Advanced Search to find all genes
 containing introns, as described in the 
-[FAQ on introns](http://www.pombase.org/faqs/how-can-i-retrieve-intron-coordinates-or-sequences).
+[FAQ on introns](/gfaq/how-can-i-retrieve-intron-coordinates-or-sequences).
 
 ##### Legacy intron data
 

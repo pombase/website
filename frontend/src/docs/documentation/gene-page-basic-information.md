@@ -13,7 +13,7 @@ gene:
 3.  Chromosome coordinates for the gene. For protein-coding genes, the
     first set of numbers indicate the gene start, end, and length
     including the default UTRs chosen by PomBase curators 
-    (see [this FAQ](http://www.pombase.org/faqs/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s)
+    (see [this FAQ](/faq/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s)
     for more information). The "CDS" numbers give the start, end, and
     length excluding UTRs but including introns (other than introns
     located entirely within UTRs).

@@ -41,7 +41,7 @@ PomBase gene page documentation.
 The PomBase advanced search can use either term names or IDs to search
 FYPO, and returns a list of genes that have alleles annotated to the
 specified term or any of its descendants.  For example, see the
-[FAQ on finding essential genes](http://www.pombase.org/faqs/can-i-get-list-essential-pombe-genes).
+[FAQ on finding essential genes](/faq/can-i-get-list-essential-pombe-genes).
 
 ### Curating phenotypes with FYPO
 

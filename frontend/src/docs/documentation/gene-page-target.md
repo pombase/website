@@ -10,7 +10,7 @@ others).
 
 Target of data are derived by taking the reciprocal of [ontology
 annotation
-extensions](http://www.pombase.org/faqs/what-annotation-extension)
+extensions](/faq/what-annotation-extension)
 (using [GO annotation extensions](documentation/gene-page-gene-ontology#ann_ext) and
 [phenotype](/documentation/gene-page-phenotypes) annotation
 extensions). The table includes:
