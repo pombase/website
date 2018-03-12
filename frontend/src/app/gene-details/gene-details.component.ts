@@ -259,7 +259,7 @@ export class GeneDetailsComponent implements OnInit {
 
           const tracks = 'PomBase%20forward%20strand%20features%2CDNA%2CPomBase%20reverse%20strand%20features';
           this.jbrowseLinkUrl =
-            `jbrowse/index.html?loc=${chrDisplayName}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
+            `jbrowse/?loc=${chrDisplayName}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
         });
     } else {
       this.jbrowseLinkUrl = null;
