@@ -9,7 +9,7 @@
   file or directory.
 </div>
 
-[Phenotype annotations](ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/FYPOviability.tsv)
+[Phenotype annotations](ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz)
 (link downloads gzipped file from PomBase ftp) for alleles of
 *S. pombe* genes are manually curated from the literature using
 Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file
