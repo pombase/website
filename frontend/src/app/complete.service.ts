@@ -4,6 +4,8 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { getAppConfig } from './config';
 
+import * as similarity from 'string-similarity'
+
 export class SolrTermSummary {
   constructor(id: string, name: string, definition: string) {};
 }
@@ -32,13 +34,28 @@ export class CompleteService {
 
         const terms = parsedRes['matches'];
 
-        return terms.map((term) => {
+        const resultTerms = terms.map((term) => {
+          let synonymMatch = null;
+          if (queryText.length >= 2 && term['close_synonyms']) {
+            const nameScore = similarity.compareTwoStrings(term.name, queryText);
+            for (const syn of term['close_synonyms'] as Array<string>) {
+              const synScore = similarity.compareTwoStrings(syn, queryText);
+              if (synScore > nameScore) {
+                synonymMatch = syn;
+                break;
+              }
+            }
+          }
           return {
+            matchName: synonymMatch === null ? term['name'] : synonymMatch,
+            isSynonymMatch: synonymMatch !== null,
             termid: term['id'],
             name: term['name'],
             definition: term['definition']
           };
         });
+
+        return resultTerms;
       });
   }
 }
