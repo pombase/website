@@ -140,7 +140,7 @@
    "RGD" : {
       "description" : "Rat Genome Database",
       "name" : "RGD",
-      "url_syntax" : "http://rgd.mcw.edu/generalSearch/RgdSearch.jsp?quickSearch=1&searchKeyword=[example_id]",
+      "url_syntax" : "http://rgd.mcw.edu/rgdweb/search/search.html?term=[example_id]",
       "website" : "http://rgd.mcw.edu/"
    },
    "SFLD" : {
