@@ -21,13 +21,13 @@ Boston, MA, USA
 
 ### Other Conferences and Workshops
 
--   [2009 EMBO Workshop](ftp://ftp.pombase.org/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/EMBO_workshop/),
+-   [2009 EMBO Workshop](ftp://ftp.pombase.org/Archived_directories/Presentations_workshops_and_meeting_abstracts/EMBO_workshop/),
     Manchester, UK (FTP directory)
--   [Computing workshops, 2006 & 2007](ftp://ftp.pombase.org/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/),
+-   [Computing workshops, 2006 & 2007](ftp://ftp.pombase.org/Archived_directories/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/),
     various dates and locations (FTP directory)
--   [2006 Fission yeast genome analysis workshop](ftp://ftp.pombase.org/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/Fission_yeast_computing_workshop_man_Mar2006.ppt),
+-   [2006 Fission yeast genome analysis workshop](ftp://ftp.pombase.org/Archived_directories/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/Fission_yeast_computing_workshop_man_Mar2006.ppt),
     Hinxton, UK - course manual (file at FTP site)
--   [2006 European fission yeast meeting](ftp://ftp.pombase.org/pombe/Archived_directories/Presentations_workshops_and_meeting_abstracts/Pombe_meeting_abstract_books/Wellcome_Euro_Yeast_27_2_06.pdf),
+-   [2006 European fission yeast meeting](ftp://ftp.pombase.org/Archived_directories/Presentations_workshops_and_meeting_abstracts/Pombe_meeting_abstract_books/Wellcome_Euro_Yeast_27_2_06.pdf),
     Hinxton, UK - abstracts (file at FTP site)
 
 Other documents
