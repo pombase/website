@@ -1,13 +1,15 @@
 # Can I find replication origins in PomBase?
 <!-- pombase_categories: Finding data -->
 
-Replication origin coordinates are not yet included in PomBase. We hope
-to obtain comprehensive origin data in the genome browser in the future,
-but we rely on user submissions to set priorities for adding data tracks
-to the browser.
+Replication origins cannot yet be viewed or searched as features on
+PomBase pages, but they can be displayed on tracks in the genome
+browser. Select one or more of the tracks with data type "Replication
+Origins" (see the
+[browser track FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser) 
+if necessary).
 
-Until replication origins are available in PomBase, we suggest that you
-use the data collated by Conrad Nieduszynski in *S. pombe* OriDB:
+You can also use the data collated by Conrad Nieduszynski in
+*S. pombe* OriDB:
 
 -   Home page: <http://pombe.oridb.org/index.php>
 -   Search:

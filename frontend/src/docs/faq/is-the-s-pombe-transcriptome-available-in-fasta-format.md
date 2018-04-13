@@ -4,7 +4,7 @@
 There is no single transcriptome sequence file available from PomBase at
 present. Several transcriptomic data sets are available as
 [tracks](/faq/how-can-i-show-or-hide-tracks-genome-browser) in the
-PomBase [genome browser](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Info/Index).
+PomBase [genome browser](https://www.pombase.org/jbrowse/).
 The GFF3 genome feature files available from the [Genome Datasets](/downloads/genome-datasets) page include the coordinates of the
 [annotated full-length transcript features](/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites).
 

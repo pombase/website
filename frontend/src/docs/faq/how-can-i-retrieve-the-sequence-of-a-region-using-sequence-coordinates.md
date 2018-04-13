@@ -1,15 +1,10 @@
 # How can I retrieve the sequence of a region using sequence coordinates?
 <!-- pombase_categories: Genome browser,Finding data -->
 
-Go to the [Genome Browser](http://fungi.ensembl.org/Schizosaccharomyces_pombe/Info/Index) 
-(or click the "View in Ensembl genome browser ..." link on any gene
-page), and find the region of interest by searching for a gene name, a
-systematic ID, or a set of coordinates. Then click the Export Data
-button on the left-hand side.
+Go to the [genome browser](https://www.pombase.org/jbrowse/), and
+enter region coordinates (as described in
+[this FAQ](https://www.pombase.org/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser).
 
-Select the number of bases up- and downstream (even if you have searched
-using coordinates, you can add flanking sequence to what you download),
-which strand and the features you would like. Click "next". Select your
-download option. Your browser will save or display the data, depending
-on which format you select.
-
+the "Reference sequence" track label, small triangle at the right-hand
+end of the label box to reveal the popup menu, then elect "Save track
+data".

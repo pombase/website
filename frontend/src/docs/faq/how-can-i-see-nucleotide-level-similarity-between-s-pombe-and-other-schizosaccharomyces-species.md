@@ -1,18 +1,19 @@
 # How can I see nucleotide-level similarity between *S. pombe* and other *Schizosaccharomyces* species?
 <!-- pombase_categories: Orthology,Finding data,Tools and resources -->
 
-PomBase offers two ways to view nucleotide-level similarity between *S.
+At present there are two ways to view nucleotide-level similarity between *S.
 pombe* and *S. japonicus*, *S. octosporus*, or *S. cryophilus*. Both use
-the genome browser.
+the Ensembl genome browser.
 
-1.  To view nucleotide similarity data tracks in the browser, follow the
-    usual steps as described in the [data track FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser). Select the
-    data type "Comparative Genomics".
+1.  To view nucleotide similarity data tracks in the browser, Go to
+    your region of interest in the browser (e.g. follow the link from
+    the External references section of a gene page). Click "Configure
+    this page" button in the left-hand bar. A popup box will
+    appear. Select the data type "Comparative Genomics" on the left of
+    the popup, then choose one or more of the "LASTz net" tracks.
 2.  Display syntenic regions as follows:
-    1.  Go to your region of interest in the browser (e.g. follow the
-        link from a gene page or [use sequence coordinates](/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser)).
-        Make sure the "Location" tab is selected in the horizontal set
-        of tabs along the top.
+    1.  Again, go to the region of interest. Make sure the "Location"
+        tab is selected in the horizontal set of tabs along the top.
     2.  In the left-hand menu, find the "Comparative Genomics" heading,
         and click on "Region Comparison".
     3.  To select a species for comparison, go to the bottom of the

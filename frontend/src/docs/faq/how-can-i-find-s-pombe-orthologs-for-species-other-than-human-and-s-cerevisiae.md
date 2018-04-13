@@ -21,7 +21,9 @@ Schizosaccharomyces pombe, and Xenopus tropicalis*).
 You can search for orthologs/paralogs in Fungi, or in a pan-taxonomic
 comparison (eukaryotes), using Compara in the Ensembl browser.
 
-1.  On any gene page, follow the "View in Ensembl genome browser" link.
+1.  On any gene page, follow the link to the Ensembl genome browser
+    under External References.
+
 2.  Click the "Gene:" tab to show Compara links in the left-hand
     margin - for fungal alignments, choose "Fungal Compara", or for
     all eukaryotic species choose "Pan-taxonomic Compara".
