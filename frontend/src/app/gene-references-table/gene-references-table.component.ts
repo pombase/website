@@ -11,7 +11,7 @@ export class GeneReferencesTableComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
   @Input() references: Array<ReferenceShort>;
 
-  orderByField = '+authors';
+  orderByField = '+authors_abbrev';
 
   pubmedSearchUrl = null;
   pubmedSearchGeneLabel = null;

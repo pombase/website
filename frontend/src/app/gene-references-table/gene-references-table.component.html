@@ -7,8 +7,8 @@
   </div>
   <div class="sort-buttons">
     Sort by:
-    <span *ngIf="orderByField == '+authors'">Authors</span>
-    <a *ngIf="orderByField != '+authors'" (click)="setOrderBy('+authors')">Authors</a> |
+    <span *ngIf="orderByField == '+authors_abbrev'">Authors</span>
+    <a *ngIf="orderByField != '+authors_abbrev'" (click)="setOrderBy('+authors_abbrev')">Authors</a> |
     Year:
     <span *ngIf="orderByField == '+publication_year'">Ascending</span>
     <a *ngIf="orderByField != '+publication_year'" (click)="setOrderBy('+publication_year')">Ascending</a> /
@@ -34,7 +34,7 @@
           </div>
           <div>
             <span class="pub-authors">
-              {{reference.authors}}
+              {{reference.authors_abbrev}}
             </span>
             <span *ngIf="!reference.journal">
               <span class="pub-citation">
