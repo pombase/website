@@ -18,7 +18,7 @@ containing introns, as described in the
 
 ##### Legacy intron data
 
-We also provide access to archived [intron data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Archived_directories/Intron_Data/OLD/).
+We also provide access to archived [intron data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/Archived_directories/Intron_Data/OLD/).
 Please note that this set of intron data reflect the dataset at the
 time of publication of the *S. pombe* genome sequence, and does not
 include any new introns, or changes to introns, since then. The
