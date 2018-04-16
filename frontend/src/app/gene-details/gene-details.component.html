@@ -81,11 +81,11 @@
     <hr style="clear: both" />
     <div class="chromosome-region-view"
          *ngIf="appConfig.isConfigOrganism(geneDetails.taxonid)">
-      <div *ngIf="ensemblImageUrl">
-        <img src="{{ensemblImageUrl}}" />
-      </div>
       <div class="jbrowse-link">
         <a href="{{jbrowseLinkUrl}}">View region in JBrowse ...</a>
+      </div>
+      <div *ngIf="ensemblImageUrl">
+        <img src="{{ensemblImageUrl}}" />
       </div>
     </div>
 
