@@ -82,13 +82,10 @@
     <div class="chromosome-region-view"
          *ngIf="appConfig.isConfigOrganism(geneDetails.taxonid)">
       <div *ngIf="ensemblImageUrl">
-        <a href="http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?db=core;g={{geneDetails.uniquename}}">
-           <img src="{{ensemblImageUrl}}" />
-           <div class="ensembl-link-label">View in Ensembl genome browser ...</div>
-        </a>
-        <div *ngIf="deployConfigService.get('mode') == 'dev'" class="jbrowse-link">
-          <a href="{{jbrowseLinkUrl}}">View in JBrowse ...</a>
-        </div>
+        <img src="{{ensemblImageUrl}}" />
+      </div>
+      <div class="jbrowse-link">
+        <a href="{{jbrowseLinkUrl}}">View gene region in JBrowse ...</a>
       </div>
     </div>
 
