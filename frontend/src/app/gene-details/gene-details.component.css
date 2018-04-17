@@ -44,5 +44,11 @@
 .jbrowse-link {
   font-size: 120%;
   text-align: center;
-  margin: 0.8em;
+  margin: 0.4em;
 }
+
+.ensembl-link-label {
+  font-size: 110%;
+  text-align: center;
+}
+

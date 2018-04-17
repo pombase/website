@@ -84,6 +84,11 @@
       <div class="jbrowse-link">
         <a href="{{jbrowseLinkUrl}}">View region in JBrowse ...</a>
       </div>
+      <div class="ensembl-link-label">
+        <a href="http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?db=core;g={{geneDetails.uniquename}}">
+          View in Ensembl genome browser ...
+        </a>
+      </div>
       <div *ngIf="ensemblImageUrl">
         <img src="{{ensemblImageUrl}}" />
       </div>
