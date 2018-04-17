@@ -5721,14 +5721,16 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <div (click)="navigate($event, '/faq/can-i-find-promoters-pombase')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-find-promoters-pombase' || pageName == 'all-faqs'">
 <h3 id="can-i-find-promoters-pombase">Can I find promoters in PomBase?</h3>
 <!-- pombase_categories: Finding data -->
-<!-- restore
+<p>There are very few manually curated promoters in PomBase; they are included in the forward and reverse strand feature tracks, which are enabled by default. To search the manually curated promoters, we suggest that you use Artemis. Follow the instructions in <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">this FAQ</a>, and search for features with &quot;Key&quot; = &quot;promoter&quot;.</p>
+<p>At present, there are also no promoter datasets available as tracks in PomBase JBrowse.</p>
+<p>We will soon add some transcription start site datasets, including one that was included in the previous version of the PomBase genome browser, from from Li <em>et al.</em> (2015) Genome-wide analysis of core promoter structures in <em>Schizosaccharomyces pombe</em> with DeepCAGE. RNA Biol. 12:525-37 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261">PMID:25747261</a>).</p>
+<p>We will also add any promoter data sets that are submitted to us.</p>
+<!-- edit & restore
 The PomBase genome browser includes a data track of core promoter
 locations from Li *et al.* (2015) Genome-wide analysis of core promoter
 structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 12:525-37 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261">PMID:25747261</a>).
--->
-<p>The previous version of the PomBase genome browser included a data track of core promoter locations from Li <em>et al.</em> (2015) Genome-wide analysis of core promoter structures in <em>Schizosaccharomyces pombe</em> with DeepCAGE. RNA Biol. 12:525-37 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261">PMID:25747261</a>). We will soon add this track to PomBase JBrowse.</p>
-<!-- edit & restore
+
  The
 promoter track is listed under the Transcription Starts Site menu, and
 is best viewed using the "Labels" track style, which labels promoter
@@ -5736,8 +5738,6 @@ features using the associated gene IDs (see the
 <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">browser configuration FAQ</a> for more
 information).
 -->
-<p>We will add new tracks for any more promoter data sets that are submitted to us.</p>
-<p>There are very few manually curated promoters in PomBase; they are included in the forward and reverse strand feature tracks, which are enabled by default. To search the manually curated promoters, we suggest that you use Artemis. Follow the instructions in <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">this FAQ</a>, and search for features with &quot;Key&quot; = &quot;promoter&quot;.</p>
 
 </div>
 <div (click)="navigate($event, '/faq/can-i-find-replication-origins-pombase')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-find-replication-origins-pombase' || pageName == 'all-faqs'">
