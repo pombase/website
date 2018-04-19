@@ -70,6 +70,6 @@ Region|Description
 #### Other data
 
 -   Additional information and historical data are available for [introns](downloads/intron-data)
--   [Cosmid sequences](ftp://ftp.pombase.org/pombe/Archived_directories/Cosmid_sequences/) and [Chromosome tiling paths from genome sequence assembly](ftp://ftp.pombase.org/pombe/Archived_directories/Cosmid_assembly_data/)
+-   [Cosmid sequences](ftp://ftp.pombase.org/Archived_directories/Cosmid_sequences/) and [Chromosome tiling paths from genome sequence assembly](ftp://ftp.pombase.org/Archived_directories/Cosmid_assembly_data/)
 -   You can also browse the files available from the [Ensembl Genomes FTP
 site](ftp://ftp.ensemblgenomes.org/pub/current/fungi/).

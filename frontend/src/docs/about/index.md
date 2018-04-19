@@ -29,6 +29,12 @@ United Kingdom
 
 See the [Submit data](submit-data) page
 
+### Data sources
+
+Source publications for external data used in Pombase pages and genome browser.
+
+[Data sources](about/data-sources)
+
 ### Data versions
 
 Versions of internal and external data loaded into current and past

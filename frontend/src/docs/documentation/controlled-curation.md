@@ -5,7 +5,7 @@ several types that cannot be represented using available ontologies.
 
 For each annotation, the summary view shows a text description, which
 corresponds to an entry in the internal
-<!-- [http://www.pombase.org/faqs/what-pbo-option-advanced-search](PBO) -->
+<!-- [/faq/what-pbo-option-advanced-search](PBO) -->
 PB term set. The detailed view adds the PBO ID, evidence (if available),
 reference, and count. The count links to the [ontology term page](/documentation/ontology-term-page) 
 for the description.

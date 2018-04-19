@@ -1,28 +1,3 @@
-.docs-menu {
-  background-color: #ff;
-  border: 2px solid #ddf;
-  width: 15%;
-  float: left;
-  margin: 1em 0 0 0;
-  padding: 0em;
-}
-
-.docs-menu h3 {
-  margin: 0;
-  padding: 0.2em;
-  background-color: #ddf;
-}
-
-.docs-menu ul {
-  padding: 0;
-  margin: 0;
-}
-
-.docs-menu li {
-  list-style: none;
-  padding: 0.2em 0.8em 0.2em 0.8em;
-}
-
 .docs-content {
   width: 78%;
   float: left;

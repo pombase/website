@@ -1,10 +1,10 @@
 # Is there an equivalent to the Artemis java applet in PomBase?
 <!-- pombase_categories: Finding data,Tools and resources -->
 
-No; at present only the genome browser is available via the PomBase
-web site. (In the future we may investigate the possibility of adding
-an Artemis applet to PomBase, and will update this FAQ accordingly
-when it becomes available.)
+No; at present only the JBrowse and links to the Ensemble genome
+browser are available via the PomBase web site. (In the future we may
+investigate the possibility of adding an Artemis applet to PomBase,
+and will update this FAQ accordingly when it becomes available.)
 
 If you want to browse the *S. pombe* genome in the Artemis environment,
 it is fairly easy to download and run locally:

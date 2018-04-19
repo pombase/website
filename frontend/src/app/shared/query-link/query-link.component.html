@@ -1,1 +1,1 @@
-<a routerLink="/query/{{goToResults?'results':'save'}}/from/predefined/{{predefinedQueryName}}">{{linkText || ''}}</a>
+<a [attr.title]="titleText" routerLink="/query/{{goToResults?'results':'save'}}/from/predefined/{{predefinedQueryId}}">{{linkText || ''}}</a>

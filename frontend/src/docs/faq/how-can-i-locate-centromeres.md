@@ -1,15 +1,15 @@
 # How can I locate centromeres?
 <!-- pombase_categories: Genome browser,Finding data -->
 
-Centromeres can be retrieved in the PomBase Ensembl browser; the
+Centromeres can be retrieved in the PomBase genome browser; the
 coordinates are:
 
 Chromosome I:
-[3753687-3789421](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=I%3A3753687-3789421;site=ensemblunit) 
+[3753687-3789421](https://www.pombase.org/jbrowse/?loc=I%3A3753680..3789414&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=)
 Chromosome II:
-[1602264-1644747](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=II%3A1602264-1644747;site=ensemblunit) 
+[1602264-1644747](https://www.pombase.org/jbrowse/?loc=II%3A1602261..1644744&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=)
 Chromosome III:
-[1070904-1137003](http://genomebrowser.pombase.org/Schizosaccharomyces_pombe/Location/View?r=III%3A1070904-1137003;site=ensemblunit) 
+[1070904-1137003](https://www.pombase.org/jbrowse/?loc=III%3A1070899..1136998&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=)
 
 Sequence features within the centromeres, such as repeats, are annotated
 with Sequence Ontology terms. For more details, see the

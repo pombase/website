@@ -1,6 +1,6 @@
-import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
-import docConfig from './config/doc-config.json';
-import pombaseConfig from '../../pombase_v2_config.json';
+const goXrfConfigMap = require('./config/go-xrf-abbr-external-links.json');
+const docConfig = require('./config/doc-config.json');
+const pombaseConfig =  require('../../pombase_v2_config.json');
 
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
@@ -22,7 +22,8 @@ export interface ExternalLinks {
 }
 
 export interface ChromosomeConfig {
-  display_name: string;
+  long_display_name: string;
+  short_display_name: string;
 }
 
 export interface QueryNodeTermConfig {
@@ -71,6 +72,11 @@ export interface PanelConfig {
   externalLink?: string;
 }
 
+export interface PredefinedQueryConfig {
+  name: string;
+  constraints: any;
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -82,7 +88,7 @@ export interface AppConfig {
     smallest: number;
     largest: number;
   };
-  predefinedQueries: { [key: string]: string };
+  predefinedQueries: { [key: string]: PredefinedQueryConfig };
   cannedQueryIds: Array<string>;
   cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
@@ -102,7 +108,7 @@ export interface AppConfig {
   // return true iff the genus and species match the configured organism
   isConfigOrganism(taxon: number): boolean;
 
-  getPredefinedQuery(queryName: string): string;
+  getPredefinedQuery(queryName: string): PredefinedQueryConfig;
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
 
@@ -136,6 +142,7 @@ export interface SplitByParentsConfig {
 }
 
 export interface AnnotationType {
+  feature_type: string;
   display_name: string;
   inherits_from?: string;
   split_by_parents?: Array<SplitByParentsConfig>;
@@ -143,7 +150,7 @@ export interface AnnotationType {
   details_only?: boolean;
   no_gene_details_section?: boolean;
   hide_term_details?: boolean;
-  filters: Array<FilterConfig>;
+  filters?: Array<FilterConfig>;
   external_db_link_keys?: Array<string>;
   misc_config?: {
     [key: string]: any;
@@ -321,6 +328,35 @@ for (let configName of Object.keys(_config.annotationTypes)) {
     let newConfig = {};
     Object.assign(newConfig, parentConfig, thisConfig);
     Object.assign(thisConfig, newConfig);
+  }
+}
+
+if (pombaseConfig.show_extensions_on_term_pages) {
+  let seenNames = {};
+
+  for (let extNameConf of pombaseConfig.extension_display_names) {
+    const displayName = extNameConf.display_name;
+    const typeName = `extension:${displayName}`;
+
+    if (seenNames[typeName]) {
+      continue;
+    } else {
+      seenNames[typeName] = true;
+    }
+
+    _config.annotationTypes[typeName + ':gene'] = {
+      'feature_type': 'gene',
+      'display_name': displayName,
+      'columns_to_show': ['desc-rel', 'gene', 'evidence', 'qualifiers', 'reference', 'count', 'extension']
+    };
+    _config.annotationTypes[typeName + ':genotype'] = {
+      'feature_type': 'genotype',
+      'display_name': displayName,
+      'columns_to_show': ['desc-rel', 'genotype', 'evidence', 'qualifiers', 'reference', 'count', 'extension']
+    };
+
+    _config.annotationTypeOrder.push(typeName + ':gene');
+    _config.annotationTypeOrder.push(typeName + ':genotype');
   }
 }
 
@@ -628,7 +664,7 @@ let _appConfig: AppConfig = {
     return retOrganism;
   },
 
-  getPredefinedQuery(queryId: string): string {
+  getPredefinedQuery(queryId: string): PredefinedQueryConfig {
     return getAppConfig().predefinedQueries[queryId];
   },
 
@@ -649,7 +685,7 @@ let _appConfig: AppConfig = {
       }
     }
 
-    let xrfDetails = getXrfConfig()[configKey];
+    let xrfDetails = getXrfConfig()[configKey.toLowerCase()];
 
     if (xrfDetails) {
       return { url: replaceExampleId(xrfDetails.urlSyntax, termId),

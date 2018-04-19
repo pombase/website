@@ -51,7 +51,7 @@ PomBase-specific formats:
 
 For data that can be connected with sequence features or coordinates,
 and displayed as tracks in the genome browser, see the [data format
-FAQ](faqs/what-file-formats-can-i-use-submit-high-throughput-data)
+FAQ](faq/what-file-formats-can-i-use-submit-high-throughput-data)
 and further details linked there.
 
 ### Linking to and from PomBase ###
@@ -71,7 +71,7 @@ and further details linked there.
 
 We plan to add specific documentation about comparative genomics using
 *S. pombe* here. In the meantime, you can look at the documentation for
-[Ensembl Compara](http://genomebrowser.pombase.org/info/docs/compara/index.html).
+[Ensembl Compara](http://www.ensembl.org/info/genome/compara/index.html).
 
 ### More information ... ###
 

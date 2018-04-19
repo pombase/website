@@ -8,6 +8,7 @@ import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.s
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AppConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-gene-details',
@@ -30,6 +31,7 @@ export class GeneDetailsComponent implements OnInit {
   organism = null;
   ensemblImageUrl = null;
   ensemblImage = new Image();
+  jbrowseLinkUrl = null;
   extraMenuSections = [
     {
       id: 'transcript-sequence',
@@ -50,6 +52,7 @@ export class GeneDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
+              private deployConfigService: DeployConfigService,
               private readonly meta: Meta,
               @Inject('Window') private window: any
              ) { }
@@ -74,10 +77,10 @@ export class GeneDetailsComponent implements OnInit {
 
   makeDisplayLocation(): Array<string> {
     const location = this.geneDetails.location;
-    const chromosomeName = location.chromosome.name;
+    const chromosomeName = location.chromosome_name;
     const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
 
-    const chrDisplayName = chromosomeConfig.display_name || chromosomeName;
+    const chrDisplayName = chromosomeConfig.short_display_name || chromosomeName;
 
     let genomicLocation;
     if (location.strand === 'reverse') {
@@ -227,6 +230,42 @@ export class GeneDetailsComponent implements OnInit {
     }
   }
 
+  setJBrowseLink(): void {
+    if (this.geneDetails) {
+      this.pombaseApiService.getChromosomeSummaryMapPromise()
+        .then(chromosomeSummaryMap => {
+          const loc = this.geneDetails.location;
+          const chrName = loc.chromosome_name;
+          const chr = chromosomeSummaryMap[chrName];
+          const chrLength = chr.length;
+
+          const lowerPos = Math.min(loc.start_pos, loc.end_pos);
+          const upperPos = Math.max(loc.start_pos, loc.end_pos);
+
+          const mid = Math.round((lowerPos + upperPos) / 2);
+
+          const jbHalfWidth = 10000;
+          let jbStart = mid - jbHalfWidth;
+          if (jbStart < 1) {
+            jbStart = 1;
+          }
+
+          let jbEnd = mid + jbHalfWidth;
+          if (jbEnd > chrLength) {
+            jbEnd = chrLength;
+          }
+
+          const chrDisplayName = this.appConfig.chromosomes[chrName].short_display_name;
+
+          const tracks = 'PomBase%20forward%20strand%20features%2CDNA%2CPomBase%20reverse%20strand%20features';
+          this.jbrowseLinkUrl =
+            `jbrowse/?loc=${chrDisplayName}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
+        });
+    } else {
+      this.jbrowseLinkUrl = null;
+    }
+  }
+
   private isGeneDetailPageType(typeName: string): boolean {
     return !this.config.getAnnotationType(typeName).no_gene_details_section;
   }
@@ -240,7 +279,7 @@ export class GeneDetailsComponent implements OnInit {
         this.ensemblImageUrl = `/browser_images/${uniquename}_gene.png`;
         this.ensemblImage.src = this.ensemblImageUrl;
 
-        // delete api call so image request is first
+        // delay api call so image request is first
         setTimeout(() => {
           this.pombaseApiService.getGene(uniquename)
             .then(geneDetails => {
@@ -254,6 +293,7 @@ export class GeneDetailsComponent implements OnInit {
               this.setPageTitle();
               this.scrollToPageTop();
               this.setProductSize();
+              this.setJBrowseLink();
               this.showProteinFeatures =
                 this.geneDetails.transcripts && this.geneDetails.transcripts.length > 0 &&
                 !!this.geneDetails.transcripts[0].protein ||

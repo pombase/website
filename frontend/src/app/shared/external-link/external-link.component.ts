@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { getAppConfig } from '../../config';
 
@@ -7,7 +7,7 @@ import { getAppConfig } from '../../config';
   templateUrl: './external-link.component.html',
   styleUrls: ['./external-link.component.css']
 })
-export class ExternalLinkComponent implements OnInit {
+export class ExternalLinkComponent implements OnInit, OnChanges {
   @Input() identifier: string;
   @Input() linkText: string = null;
   @Input() linkConfigKey: string;
@@ -22,6 +22,9 @@ export class ExternalLinkComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
     let xrfDetails =
       getAppConfig().getExternalTermLink(this.linkConfigKey, this.identifier);
     if (xrfDetails) {

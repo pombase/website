@@ -14,25 +14,25 @@
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
-    <div class="no-annotations" *ngIf="genes.length == 0">
+    <div class="no-annotations" *ngIf="!hasAnnotations()">
       No annotations for {{termDetails.termid}}
     </div>
-    <div *ngIf="genes.length > 0">
+    <div *ngIf="hasAnnotations()">
     <hr style="clear: both" />
 
-    <div *ngIf="annotationFeatureType == 'gene'" class="term-page-view-change">
+    <div *ngIf="annotationFeatureType == 'gene' && annotatedGeneCount > 0" class="term-page-view-change">
       <a routerLink="/term_genes/{{termDetails.termid}}"
-         routerLinkActive="active">View genes annotated with this term ...</a>
+         routerLinkActive="active">View {{annotatedGeneCount}} gene{{annotatedGeneCount>1?'s':''}} annotated with this term ...</a>
     </div>
     </div>
 
-    <div *ngIf="annotationFeatureType == 'genotype'" class="term-page-view-change">
+    <div *ngIf="annotationFeatureType == 'genotype' && singleAlleleGenotypeCount > 0" class="term-page-view-change">
       <div>
         <a routerLink="/term_single_allele_genotype_genes/{{termDetails.termid}}"
-           routerLinkActive="active">Genes from single-allele genotypes associated with this term ...</a>
+           routerLinkActive="active">View {{singleAlleleGenotypeGeneCount}} gene{{singleAlleleGenotypeGeneCount>0?'s':''}} from single-allele genotypes associated with this term ...</a>
       </div>
       <div>
-        <a routerLink="/term_genotypes/{{termDetails.termid}}">Single-allele genotypes associated with this term ...</a>
+        <a routerLink="/term_genotypes/{{termDetails.termid}}">View {{singleAlleleGenotypeCount}} single-allele genotype{{singleAlleleGenotypeCount>0?'s':''}} associated with this term ...</a>
       </div>
     </div>
 
@@ -43,8 +43,8 @@
         <app-annotation-table id="{{annotationTypeName}}"
                               *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
                               [scope]="'term'"
-                              [tableDisplayName]="config.annotationTypes[annotationTypeName].display_name + ' annotations for ' + termDetails.termid + ' and its descendants'"
-                              [annotationTypeName]="termDetails.cv_name"
+                              [tableDisplayName]="makeTableDisplayName(annotationTypeName)"
+                              [annotationTypeName]="annotationTypeName"
                               [featureInFirstColumn]="true"
                               [annotationTable]="termDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
       </div>

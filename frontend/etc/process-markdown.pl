@@ -107,6 +107,8 @@ sub make_id_from_heading {
   return $id;
 }
 
+my $all_questions_category = 'All Frequently Asked Questions';
+
 while (my ($id, $file_name) = each %{$sections{faq}}) {
   if ($id eq 'index') {
     next;
@@ -114,7 +116,7 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
 
   open my $fh, '<', "$markdown_docs/$file_name" or die "can't open $file_name";
   my $heading = undef;
-  my @categories = ();
+  my @categories = ($all_questions_category);
   my $contents = "";
   while (defined (my $line = <$fh>)) {
     $contents .= $line;
@@ -122,7 +124,7 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
       $heading = $1;
     } else {
       if ($line =~ /<!-- pombase_categories:\s*(.*?)\s*-->/) {
-        @categories = split /,/, $1;
+        push @categories, split /,/, $1;
       }
     }
   }
@@ -224,6 +226,8 @@ sub get_all_faq_parts {
         "pageName == '" . make_id_from_heading($_) . "'";
       } (@categories, $id);
 
+    $categories_condition .= q( || pageName == 'all-faqs');
+
     my @split_contents = split /\n/, $contents;
     (my $sect_id = $split_contents[0]) =~ s/^#+\s*(.*?)\??$/make_id_from_heading($1)/e;
 
@@ -250,9 +254,16 @@ sub process_path {
   my $data = $sections{$path};
 
   print $docs_component_fh qq|<div *ngIf="section == '$path'">\n|;
-  print $docs_component_fh qq|  <div class="docs-menu">\n|;
-  print $docs_component_fh markdown(contents_for_template("$path/menu", $data->{menu})), "\n";
-  print $docs_component_fh qq|  </div>\n|;
+
+  my $menu_title = (ucfirst $path) =~ s/-/ /gr;
+  $menu_title = 'FAQ' if $menu_title =~ /faq/i;
+  print $docs_component_fh qq|<app-page-contents-menu title="$menu_title" titleRoute="/$path">\n|;
+
+  my $menu_content = contents_for_template("$path/menu", $data->{menu});
+
+  print $docs_component_fh "\n$menu_content\n";
+  print $docs_component_fh "</app-page-contents-menu>\n";
+
   print $docs_component_fh qq|  <div class="docs-content">\n|;
 
   for my $page_name (sort keys %$data) {
@@ -388,21 +399,15 @@ sub contents_for_template {
 
   my $ret = "";
 
-  if ($path =~ m|(.*)/menu$|) {
-    my $section = $1;
-    my $menu_title = (ucfirst $section) =~ s/-/ /gr;
-    $menu_title = 'FAQ' if $menu_title =~ /faq/i;
-    $ret = "### " . angular_link($menu_title, $section) . "\n";
-  }
-
   if ($path =~ m[^news/(index|menu)$]) {
     my @all_news_items = all_news_items();
 
     if ($path eq 'news/menu') {
       for my $item (@all_news_items) {
-        $ret .= ' - <a simplePageScroll href="#' . $item->{id} . '">' . $item->{title} . "</a>\n";
+        $ret .= qq|<div class="left-menu-part left-menu-item"><a simplePageScroll href="#| . $item->{id} . '">' . $item->{title} . qq|</a></div>\n|;
       }
     } else {
+      $ret .= "## News archive\n";
       my @rev_items = @all_news_items;
       for my $item (@rev_items) {
         $ret .= '### ' . $item->{title} . ' {#' . $item->{id} . "}\n\n";
@@ -412,12 +417,24 @@ sub contents_for_template {
     }
   } else {
     if ($path =~ m[^faq/menu]) {
-      my @categories = sort keys %{$sections{faq}};
+      my $all_questions_category_id = make_id_from_heading($all_questions_category);
+
+      my @categories = sort {
+        if ($a eq $all_questions_category_id) {
+          1;
+        } else {
+          if ($b eq $all_questions_category_id) {
+            -1;
+          } else {
+            $a cmp $b;
+          }
+        }
+      } keys %{$sections{faq}};
 
       for my $category_id (@categories) {
         next if $category_id eq 'index';
         my $category_name = $faq_category_names{$category_id};
-        $ret .= " - " . angular_link($category_name, "faq/$category_id") . "\n";
+        $ret .= qq|<div class="left-menu-part left-menu-item"><a routerLink="/faq/$category_id">$category_name</a></div>\n|
       }
     } else {
       if (ref $details) {

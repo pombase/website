@@ -9,7 +9,7 @@ import { QueryOutputOptions } from '../../pombase-query';
   styleUrls: ['./predefined-query-results.component.css']
 })
 export class PredefinedQueryResultsComponent implements OnInit, OnDestroy {
-  @Input() predefinedQueryName;
+  @Input() predefinedQueryId;
 
   results = null;
   subscription = null;
@@ -20,7 +20,7 @@ export class PredefinedQueryResultsComponent implements OnInit, OnDestroy {
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], 'none');
 
     this.subscription =
-      this.queryService.postPredefinedQuery(this.predefinedQueryName, outputOptions)
+      this.queryService.postPredefinedQuery(this.predefinedQueryId, outputOptions)
       .subscribe((results) => {
         this.results = results;
       });

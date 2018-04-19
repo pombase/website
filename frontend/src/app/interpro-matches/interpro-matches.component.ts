@@ -41,10 +41,15 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
         let newMatch = Object.assign({}, match);
         newMatch['id'] = newId;
         newMatch['interProEntryUrl'] = interProEntryUrl;
-        newMatch['dbEntryUrl'] = xrfResult.url;
-        newMatch['dbDisplayName'] = xrfResult.displayName || match.dbname;
-        newMatch['dbDescription'] = xrfResult.description || newMatch['dbDisplayName'];
-        newMatch['dbWebsite'] = xrfResult.website;
+        if (xrfResult) {
+          newMatch['dbEntryUrl'] = xrfResult.url;
+          newMatch['dbDisplayName'] = xrfResult.displayName || match.dbname;
+          newMatch['dbDescription'] = xrfResult.description || newMatch['dbDisplayName'];
+          newMatch['dbWebsite'] = xrfResult.website;
+        } else {
+          newMatch['dbDisplayName'] = match.dbname;
+          newMatch['dbDescription'] = newMatch['dbDisplayName'];
+        }
         return newMatch;
       });
 

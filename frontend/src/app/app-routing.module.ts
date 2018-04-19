@@ -16,6 +16,7 @@ import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { FrontComponent } from './front/front.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
+import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -61,6 +62,11 @@ const routes: Routes = [
   { path: 'reference/:uniquename', component: ReferenceDetailsComponent,
     data: {
       title: 'Reference'
+    }
+  },
+  { path: 'reference_list/:constraint', component: ReferenceDetailListPageComponent,
+    data: {
+      title: 'References'
     }
   },
   { path: 'archive/:archiveType', component: PanelArchiveComponent,
@@ -133,7 +139,7 @@ const routes: Routes = [
       title: 'Advanced search'
     }
   },
-  { path: 'query/:saveOrResults/from/predefined/:predefinedQueryName', component: QueryBuilderComponent,
+  { path: 'query/:saveOrResults/from/predefined/:predefinedQueryId', component: QueryBuilderComponent,
     data: {
       title: 'Advanced search'
     }

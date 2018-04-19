@@ -6,9 +6,10 @@ features. Also see the
 
 ![gene page protein features](assets/gene_page_protein_features.png){width="800"}
 
-1.  The graphical view is a static graphic from the PomBase Genome
-    Browser, and shows the positions of domains and other features.
-    Below the graphic is a link to the Genome Browser's protein view.
+1.  The graphical view is a static graphic from the Ensembl genome
+    browser for _S. pombe_, and shows the positions of domains and
+    other features. Below the graphic is a link to the Ensembl
+    browser's protein view.
 2.  The table of protein families and domains is described in more
     detail below.
 3.  This section provides manual curation that ensures that large

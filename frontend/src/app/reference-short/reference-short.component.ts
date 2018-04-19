@@ -15,6 +15,7 @@ export class ReferenceShortComponent implements OnInit {
 
   displayString = '';
   refTitle = '';
+  titleAttr = '';
   xref = null;
 
   constructor() { }
@@ -58,6 +59,16 @@ export class ReferenceShortComponent implements OnInit {
           this.refTitle = this.reference.title;
         }
       }
+    }
+
+
+    if (this.reference.title) {
+      this.titleAttr = this.reference.title;
+      if (this.reference.citation) {
+        this.titleAttr += ' - ' + this.reference.citation;
+      }
+    } else {
+      this.titleAttr = this.displayString;
     }
   }
 }

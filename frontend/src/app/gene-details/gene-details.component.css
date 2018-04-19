@@ -33,15 +33,22 @@
   margin: 0 auto;
 }
 
-.ensembl-link-label {
-  font-size: 90%;
-  text-align: center;
-}
-
-.genomic-location table {
-  margin: 0;
+.genomic-location {
+  margin: 0 !important;
 }
 
 .genomic-location td {
   padding: 2px;
 }
+
+.jbrowse-link {
+  font-size: 120%;
+  text-align: center;
+  margin: 0.4em;
+}
+
+.ensembl-link-label {
+  font-size: 110%;
+  text-align: center;
+}
+

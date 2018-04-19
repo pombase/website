@@ -19,6 +19,7 @@ import { FrontComponent } from './front/front.component';
 import { PombaseAPIService } from './pombase-api.service';
 import { QueryService } from './query.service';
 import { CompleteService } from './complete.service';
+import { DeployConfigService } from './deploy-config.service';
 import { AnnotationTableComponent } from './annotation-table/annotation-table.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { GetFocusDirective } from './get-focus.directive';
@@ -43,8 +44,6 @@ import { QuantGeneExTableComponent } from './quant-gene-ex-table/quant-gene-ex-t
 import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-table.component';
 import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
-import { Ng2SimplePageScrollModule } from './ng2-simple-page-scroll/ng2-simple-page-scroll.module';
-import { DetailsPageMenuComponent } from './details-page-menu/details-page-menu.component';
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
 import { GenotypesTableComponent } from './genotypes-table/genotypes-table.component';
 import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotypes-view/term-single-gene-genotypes-view.component';
@@ -80,6 +79,8 @@ import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-com
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog.component';
+import { ReferenceDetailListComponent } from './reference-detail-list/reference-detail-list.component';
+import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -122,7 +123,6 @@ export function windowFactory() {
     QualGeneExTableComponent,
     WithOrFromLinkComponent,
     GenotypeDetailsComponent,
-    DetailsPageMenuComponent,
     TermGenotypesViewComponent,
     GenotypesTableComponent,
     TermSingleGeneGenotypesViewComponent,
@@ -158,6 +158,8 @@ export function windowFactory() {
     NotFoundComponent,
     PanelArchiveComponent,
     MessageDialogComponent,
+    ReferenceDetailListComponent,
+    ReferenceDetailListPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -170,7 +172,6 @@ export function windowFactory() {
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
-    Ng2SimplePageScrollModule.forRoot(),
     ModalModule.forRoot(),
     SharedModule,
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
@@ -183,6 +184,7 @@ export function windowFactory() {
               { provide: 'Window', useFactory: windowFactory },
               QueryService,
               CompleteService,
+              DeployConfigService,
              ],
   bootstrap: [AppComponent]
 })

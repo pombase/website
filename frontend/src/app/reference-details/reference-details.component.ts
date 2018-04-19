@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
-import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig,
+         getAppConfig, AppConfig } from '../config';
 
 import { ReferenceDetails, PombaseAPIService } from '../pombase-api.service';
 
@@ -15,6 +16,8 @@ export class ReferenceDetailsComponent implements OnInit {
   @Input() refDetails: ReferenceDetails;
 
   annotationTypeNames: Array<string>;
+  appConfig: AppConfig = getAppConfig();
+  siteName = '';
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   isPubMedRef = false;
@@ -27,7 +30,9 @@ export class ReferenceDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private titleService: Title,
               private readonly meta: Meta,
-             ) { }
+             ) {
+    this.siteName = this.appConfig.site_name;
+  }
 
   setPageTitle(): void {
     let title = this.titleService.getTitle() + ' - Reference - ';

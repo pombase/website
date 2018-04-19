@@ -152,7 +152,7 @@
         </td>
         <td *ngIf="compactFirstRows[termAnnotation.term.termid] && showColumn['count'] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
-          <a *ngIf="termAnnotation.term.genotype_count == 0" routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active"
+          <a *ngIf="typeConfig.feature_type == 'gene'" routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active"
              title="{{termAnnotation.term.gene_count}} genes are annotated with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
         </td>
       </tr>

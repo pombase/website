@@ -1,5 +1,4 @@
 ### New, improved PomBase goes live
-<!-- pombase_flags: frontpage -->
 
 The new PomBase web site, which has been under development during 2017, has been released.
 The new site features:

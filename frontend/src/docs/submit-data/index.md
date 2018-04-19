@@ -1,6 +1,6 @@
 ## PomBase Data Submission
 
-### [Gene names](gene-names)
+### [Gene names](submit-data/gene-names)
 
 Gene naming guidelines and how to submit a new gene name
 

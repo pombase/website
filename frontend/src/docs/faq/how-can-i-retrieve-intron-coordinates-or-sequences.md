@@ -25,4 +25,4 @@ button for "Download" options including coordinates and sequence.
 
 Also see the [FAQ on finding sequence features in a region](/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates).
 
-Query link: <app-query-link [goToResults]="true" [linkText]="'protein-coding genes with 2-20 exons'" [predefinedQueryName]="'2-20_exons'"></app-query-link>
+Query link: <app-query-link [goToResults]="true" [linkText]="'protein-coding genes with 2-20 exons'" [predefinedQueryId]="'2-20_exons'"></app-query-link>

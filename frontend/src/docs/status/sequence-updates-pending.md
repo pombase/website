@@ -44,8 +44,8 @@ discrepancies, or if you have any comments about them, please contact
 "Data were generated at the Broad Institute. Chad Nusbaum, personal
 communication."
 
-The data can be downloaded as an Excel spreadsheet from the [PomBase ftp site](ftp://ftp.pombase.org/pombe/Archived_directories/972_discrepancies_from_Broad.xls)
-====
+The data can be downloaded as an Excel spreadsheet from the [PomBase ftp site](ftp://ftp.pombase.org/Archived_directories/972_discrepancies_from_Broad.xls)
+
 Chromosome|Location|Left|Sample|Reference|Right|Clustered?|Homopolymer|Confirmed in
 ----------|--------|----|------|---------|-----|----------|-----------|------------
 I|94353|GTGACAATTGAATTTTTTTT|T| |AAATGTTTCTATATTGTTAA|No|X| 

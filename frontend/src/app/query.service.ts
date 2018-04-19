@@ -15,12 +15,18 @@ let historyEntryCounter = 0;
 
 export class HistoryEntry {
   checked = false;
-  id: number;
+  private id: number;
   private updatedCount: number = null;
 
-  constructor(private query: GeneQuery, private resultCount: number) {
+  constructor(private query: GeneQuery, private resultCount: number,
+              private creationStamp: number = null) {
     this.id = historyEntryCounter++;
   };
+
+  isNewEntry(): boolean {
+    return this.creationStamp != null &&
+      (new Date().getTime() - this.creationStamp) / 1000 < 2;
+  }
 
   getQuery(): GeneQuery {
     return this.query;
@@ -137,7 +143,7 @@ export class QueryService {
 
   saveToHistoryWithCount(query: GeneQuery, count: number): HistoryEntry {
     this.deleteExisting(query);
-    const entry = new HistoryEntry(query, count);
+    const entry = new HistoryEntry(query, count, new Date().getTime());
     this.history.unshift(entry);
     this.subject.next(this.history);
     this.saveHistory();

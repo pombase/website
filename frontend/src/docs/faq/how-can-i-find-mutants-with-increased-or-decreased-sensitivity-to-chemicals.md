@@ -16,6 +16,6 @@ pages, or publication pages), phenotype annotations can be
 "sensitive to chemical" annotations.
 
 You can also use the advanced search Phenotype query to search for
-<app-query-link [goToResults]="true" [linkText]="'FYPO:0002682'" [predefinedQueryName]="'single_allele_chemical_resistance'"></app-query-link>, <app-query-link [goToResults]="true" [linkText]="'FYPO:0002683'" [predefinedQueryName]="'single_allele_chemical_sensitivity'"></app-query-link>
+<app-query-link [goToResults]="true" [linkText]="'FYPO:0002682'" [predefinedQueryId]="'single_allele_chemical_resistance'"></app-query-link>, <app-query-link [goToResults]="true" [linkText]="'FYPO:0002683'" [predefinedQueryId]="'single_allele_chemical_sensitivity'"></app-query-link>
 or any of the more specific terms. (Links go to results lists of
 single-allele genotypes annotated to each term.)

@@ -3,3 +3,11 @@
     white-space: nowrap;
   }
 }
+
+.interaction-source {
+  padding: 0 0 0.6em 0;
+}
+
+.interaction-source span {
+  font-weight: bold;
+}

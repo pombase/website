@@ -21,16 +21,14 @@ and include:
  -  PubMed ID (if available) for the paper in which the name is first published
  -  Any other information
 
-### [*S. pombe* gene naming guidelines](gene-names/gene-naming-guidelines)
+### [*S. pombe* gene naming guidelines](submit-data/gene-naming-guidelines)
 
 How to choose and reserve a gene name; name conflict resolution
 
-### [Gene Naming Committee members](gene-names/gene-naming-committee-members)
+### [Gene Naming Committee members](submit-data/gene-naming-committee-members)
 
 -----
 
 Historical note: Inventories of reserved gene names and 
-[gene name conflicts](gene-names/gene-name-conflicts) were maintained
+[gene name conflicts](submit-data/gene-name-conflicts) were maintained
 in the past, but have not been updated for several years.
-
-

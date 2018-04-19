@@ -1,0 +1,16 @@
+<div>
+  <div class="ref-group" *ngFor="let group of groups">
+    <div class="ref-group-header">
+      {{group.title}}
+    </div>
+    <div class="ref-group-list">
+      <ul>
+        <li class="short-ref" *ngFor="let ref of group.refList">
+          <a [title]="refTitle(ref)"
+             routerLink="/reference/{{ref.uniquename}}">{{ref.title}}</a>
+          {{extraDisplayString(ref)}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

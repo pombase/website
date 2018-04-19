@@ -9,10 +9,10 @@ all genes in fission yeast have been curated, these genes are documented
 as "unknown" (they are not "unannotated").
 
 In fission yeast the "unknown" inventory is 
-<app-query-link [goToResults]="true" [predefinedQueryName]="'priority-unstudied-genes:unknown_genes'"></app-query-link> entries, many of
+<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:unknown_genes'"></app-query-link> entries, many of
 which are apparently species-specific. However, a large number
-(<app-query-link [goToResults]="true" [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown'"></app-query-link>) are conserved, and a significant
-number of these (<app-query-link [goToResults]="true" [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-query-link>) have orthologs in vertebrates. These genes are
+(<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown'"></app-query-link>) are conserved, and a significant
+number of these (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-query-link>) have orthologs in vertebrates. These genes are
 listed below.
 
 You can recreate this query, or variations of it, using the Advanced
@@ -21,4 +21,4 @@ and the [Advanced Search](/query) documentation for details. You can also
 send this list directly to the advanced search (For example to mine
 for phenotypes or locations of interest).
 
-<app-predefined-query-results [predefinedQueryName]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results>
+<app-predefined-query-results [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results>

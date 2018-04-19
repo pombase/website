@@ -187,7 +187,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
           coordStart = this.cdsStart;
         }
       }
-      let chrName = geneLocation.chromosome;
+      let chrName = geneLocation.chromosome_name;
 
       let upstreamPromise: Promise<string>;
       let downstreamPromise: Promise<string>;
@@ -287,7 +287,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       strand = Strand.Reverse;
     }
 
-    this.apiService.getChrSubSequence(geneLocation.chromosome,
+    this.apiService.getChrSubSequence(geneLocation.chromosome_name,
                                       geneLocation.start_pos - 2000,
                                       geneLocation.end_pos + 2000, strand);
   }

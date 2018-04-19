@@ -7,12 +7,12 @@ then select "transposon" from the pulldown.
 At present, there are 11 full-length transposons annotated, and two
 frameshifted copies.
 
-Query link: <app-query-link [goToResults]="true" [linkText]="'Transposons'" [predefinedQueryName]="'transposons'"></app-query-link>
+Query link: <app-query-link [goToResults]="true" [linkText]="'Transposons'" [predefinedQueryId]="'transposons'"></app-query-link>
 
 Lone LTRs are also annotated as sequence features. They cannot yet be
-retrieved by the simple or advanced searches, but they can be displayed
-on a [track in the Ensembl browser](/faq/how-can-i-show-or-hide-tracks-genome-browser) 
-(under "Repeats").
+retrieved by the simple or advanced searches, but they are included in
+the forward and reverse strand sequence feature tracks in the genome
+browser.
 
 Finally, if you wish to install Artemis (available from
 <http://www.sanger.ac.uk/science/tools/artemis>), you can use it to view

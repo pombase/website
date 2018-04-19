@@ -11,4 +11,4 @@ several genes that are dubious (i.e.  predicted by automated methods
 considered unlikely to actually encode protein), which you will
 presumably want to exclude from the set. The canned query does this.
 
-Query link: <app-query-link [goToResults]="true" [linkText]="'Protein-coding genes (excluding &quot;dubious&quot; and &quot;transposon&quot; status)'" [predefinedQueryName]="'canned_query:all_protein_coding_ex_dubious_and_transposon'"></app-query-link>
+Query link: <app-query-link [goToResults]="true" [linkText]="'Protein-coding genes (excluding &quot;dubious&quot; and &quot;transposon&quot; status)'" [predefinedQueryId]="'canned_query:all_protein_coding_ex_dubious_and_transposon'"></app-query-link>

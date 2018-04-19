@@ -48,7 +48,8 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       this.soAnnotationTable = null;
     }
 
-    if (this.transcriptDetails && this.transcriptDetails.uniquename) {
+    if (this.geneDetails.feature_type !== 'pseudogene' &&
+        this.transcriptDetails && this.transcriptDetails.uniquename) {
       this.ensemblImageUrl = `/browser_images/${this.transcriptDetails.uniquename}_pep.png`;
       this.ensemblBrowserUrl =
         `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptDetails.uniquename}`;
