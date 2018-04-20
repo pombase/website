@@ -168,6 +168,13 @@ Find protein-coding genes with a specified number of coding
 exons. Enter the desired minimum and maximum number and click
 "Search".
 
+#### Genome location
+
+Find genes in a specified region of a chromosome. Select a chromosome
+from the pulldown, and click "Search" to retrieve all genes on the
+chromosome. Optional: enter start and end coordinates in the boxes to
+retrieve only genes in the indicated region.
+
 #### Gene IDs
 
 Type or paste a list of systematic IDs, or click the "Browse" button
@@ -220,3 +227,4 @@ page sections.
  -  [How can I find transposons in the S. pombe genome?](/faq/how-can-i-find-transposons-s.-pombe-genome)
  -  [How can I find genes in a region using chromosome coordinates?](/faq/how-can-i-find-genes-region-using-chromosome-coordinates)
  -  [How can I retrieve intron coordinates or sequences?](/faq/how-can-i-retrieve-intron-coordinates-or-sequences)
+ -  [How can I find all sequence features in a region using chromosome coordinates?](/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates)
