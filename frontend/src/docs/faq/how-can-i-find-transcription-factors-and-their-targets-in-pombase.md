@@ -59,6 +59,7 @@ terms above have the annotation status "published" (e.g. GO ID
 tips on setting up the query).
 
 Query links:
+
 -   <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;transcription regulatory region sequence-specific DNA binding&quot; (GO:0000976) or &quot;sequence-specific DNA binding transcription factor activity&quot; (GO:0003700)'" [predefinedQueryId]="'GO_976_or_GO_3700'"></app-query-link>
 -   <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;RNA polymerase II core promoter proximal region sequence-specific DNA binding&quot; (GO:0000978) with characterisation status &quot;published&quot;'" [predefinedQueryId]="'GO_978_and_published'"></app-query-link>
 
