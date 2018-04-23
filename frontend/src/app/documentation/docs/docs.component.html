@@ -3684,6 +3684,8 @@ the total annotated genes.
 <p>Find protein-coding genes with products that have a specified number of transmembrane domains. Enter the desired minimum and maximum number and click &quot;Search&quot;.</p>
 <h4 id="coding-exons">Coding exons</h4>
 <p>Find protein-coding genes with a specified number of coding exons. Enter the desired minimum and maximum number and click &quot;Search&quot;.</p>
+<h4 id="genome-location">Genome location</h4>
+<p>Find genes in a specified region of a chromosome. Select a chromosome from the pulldown, and click &quot;Search&quot; to retrieve all genes on the chromosome. Optional: enter start and end coordinates in the boxes to retrieve only genes in the indicated region.</p>
 <h4 id="gene-ids">Gene IDs</h4>
 <p>Type or paste a list of systematic IDs, or click the &quot;Browse&quot; button to select a file to upload. Click &quot;Lookup&quot; to add the gene list to the history (useful for combining the list with other queries).</p>
 <h3 id="search-tips">Search tips</h3>
@@ -3727,6 +3729,8 @@ the total annotated genes.
 <li><a routerLink="/faq/how-can-i-find-transposons-s.-pombe-genome">How can I find transposons in the S. pombe genome?</a></li>
 <li><a routerLink="/faq/how-can-i-find-genes-region-using-chromosome-coordinates">How can I find genes in a region using chromosome coordinates?</a></li>
 <li><a routerLink="/faq/how-can-i-retrieve-intron-coordinates-or-sequences">How can I retrieve intron coordinates or sequences?</a></li>
+<li><a routerLink="/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates">How can I find all sequence features in a region using chromosome coordinates?</a></li>
+<li><a routerLink="/faq/how-can-i-find-genes-region-using-chromosome-coordinates">How can I find genes in a region using chromosome coordinates?</a></li>
 </ul>
 
   </div>
@@ -6185,24 +6189,18 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <div (click)="navigate($event, '/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-sequence-features-region-using-chromosome-coordinates' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-all-sequence-features-region-using-chromosome-coordinates">How can I find all sequence features in a region using chromosome coordinates?</h3>
 <!-- pombase_categories: Genome browser,Finding data -->
-<p>You can do this in the <a href="https://www.pombase.org/jbrowse/">genome browser</a> (or follow a link from a gene page). First, <a routerLink="/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">enter the coordinates</a>.</p>
+<p>You can do this in the <a href="https://www.pombase.org/jbrowse/">genome browser</a> (or follow a link from a gene page). First <a routerLink="/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">enter the coordinates</a>.</p>
 <p>Ensure that the PomBase forward and reverse strand feature tracks are visible (they are enabled by default). For each strand, click the small triangle at the right-hand end of the track label to reveal the popup menu. Select &quot;Save track data&quot;, then choose from the options in the popup.</p>
+<p>You can also use the <a href="https://www.pombase.org/query">advanced search</a> to retrieve genes in a region, but at present other sequence feature types are not included. Use the &quot;Genome location&quot; query. First, select a chromosome in the pulldown. You can then either add start and end coordinates to specify a region, or leave the &quot;Restrict to region&quot; boxes blank to retrieve all genes on the chromosome.</p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-genes-region-using-chromosome-coordinates')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-genes-region-using-chromosome-coordinates' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-genes-region-using-chromosome-coordinates">How can I find genes in a region using chromosome coordinates?</h3>
 <!-- pombase_categories: Finding data -->
-<!-- 
-* denotes things to confirm in actual interface when this works:
-In the <a routerLink="/query">advanced search</a>, click *"more queries" to see
-the "Genes between coordinates" query option. Choose a chromosome from
-the *pulldown, and enter start and end coordinates in the *text boxes.
--->
-<p>The <a routerLink="/query">advanced search</a> query to retrieve genes in a specified genomic region is temporarily unavailable.</p>
-<p>In the meantime, we suggest that you use the Genome Browser to find all features (not only genes), <a routerLink="/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates">as described here</a>.</p>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2210%22,%22query%22:%22II%22%7D,%22filter_2%22:%7B%22operator%22:%22AND%22,%22filter%22:%2215%22,%22query_1%22:%221000000%22,%22query_2%22:%222000000%22%7D%7D,%22filter_count%22:%222%22%7D%5D">Genes between coordinates 1000000-2000000 on chromosome 2</a> 
--->
+<p>To retrieve genes in a region in the <a href="https://www.pombase.org/query">advanced search</a>, use the &quot;Genome location&quot; query. First, select a chromosome in the pulldown. You can then either add start and end coordinates to specify a region, or leave the &quot;Restrict to region&quot; boxes blank to retrieve all genes on the chromosome.</p>
+<p>You can also use the genome browser to find all features (not only genes), <a routerLink="/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates">as described here</a>.</p>
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'Genes between coordinates 1000000-2000000 on chromosome 2'"
+    [predefinedQueryName]="'chr2_1000000-2000000'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-genes-specific-activity')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-genes-specific-activity' || pageName == 'all-faqs'">
@@ -6433,7 +6431,11 @@ pop-up.
 <li>Contact the <a href="mailto:helpdesk@pombase.org">Helpdesk</a> if you have any problems or questions.</li>
 </ol>
 <p>Finally, note that not all <em>S. pombe</em> transcription factors have been extensively characterised with respect to target genes, and for those that have, target curation in PomBase may be incomplete. You may therefore wish to query for transcription factors that have been have been experimentally characterised, and therefore might have targets which are not yet curated. To do so, use the Advanced Search to find which of the genes annotated to the transcription factor-related GO terms above have the annotation status &quot;published&quot; (e.g. GO ID &quot;GO:0000978&quot; AND Annotation Status &quot;published&quot;; see the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more tips on setting up the query).</p>
-<p>Query links: - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;transcription regulatory region sequence-specific DNA binding&quot; (GO:0000976) or &quot;sequence-specific DNA binding transcription factor activity&quot; (GO:0003700)'" [predefinedQueryId]="'GO_976_or_GO_3700'"></app-query-link> - <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;RNA polymerase II core promoter proximal region sequence-specific DNA binding&quot; (GO:0000978) with characterisation status &quot;published&quot;'" [predefinedQueryId]="'GO_978_and_published'"></app-query-link></p>
+<p>Query links:</p>
+<ul>
+<li><app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;transcription regulatory region sequence-specific DNA binding&quot; (GO:0000976) or &quot;sequence-specific DNA binding transcription factor activity&quot; (GO:0003700)'" [predefinedQueryId]="'GO_976_or_GO_3700'"></app-query-link></li>
+<li><app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;RNA polymerase II core promoter proximal region sequence-specific DNA binding&quot; (GO:0000978) with characterisation status &quot;published&quot;'" [predefinedQueryId]="'GO_978_and_published'"></app-query-link></li>
+</ul>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-transposons-s.-pombe-genome')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-find-transposons-s.-pombe-genome' || pageName == 'all-faqs'">
