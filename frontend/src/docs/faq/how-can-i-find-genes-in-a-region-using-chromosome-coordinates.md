@@ -10,7 +10,3 @@ all genes on the chromosome.
 You can also use the genome browser to find all features (not only
 genes), [as described here](/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates).
 
-Example query: 
-<app-query-link [goToResults]="true" [linkText]="'Genes between coordinates 1000000-2000000 on chromosome 2'"
-    [predefinedQueryName]="'chr2_1000000-2000000'">
-</app-query-link>
