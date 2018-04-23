@@ -103,6 +103,7 @@
 }
 
 .front-callout {
+  display: none;
   margin: 1em 0 0 0;
 }
 
