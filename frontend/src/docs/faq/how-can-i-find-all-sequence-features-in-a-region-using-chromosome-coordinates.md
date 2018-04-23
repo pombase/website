@@ -12,7 +12,7 @@ the popup.
 
 You can also use the [advanced search](https://www.pombase.org/query)
 to retrieve genes in a region, but at present other sequence feature
-types are not include. Use the "Genome location" query. First, select
+types are not included. Use the "Genome location" query. First, select
 a chromosome in the pulldown. You can then either add start and end
 coordinates to specify a region, or leave the "Restrict to region"
 boxes blank to retrieve all genes on the chromosome.
