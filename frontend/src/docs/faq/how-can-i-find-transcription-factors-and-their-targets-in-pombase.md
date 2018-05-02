@@ -7,11 +7,11 @@ or by transitivity (i.e. annotated to a more specific "descendant" term
 linked to one of these terms):
 
 -   GO:0000976 transcription regulatory region sequence-specific DNA
-    binding (view in
+    binding (view in [PomBase](/term/GO:0000976),
     [QuickGO](http://www.ebi.ac.uk/QuickGO/GTerm?id=GO:0000976) or
     [AmiGO](http://amigo.geneontology.org/amigo/term/GO:0000976))
 -   GO:0003700 sequence-specific DNA binding transcription factor
-    activity (view in
+    activity (view in [PomBase](/term/GO:0003700),
     [QuickGO](http://www.ebi.ac.uk/QuickGO/GTerm?id=GO:0003700) or
     [AmiGO](http://amigo.geneontology.org/amigo/term/GO:0003700))
 

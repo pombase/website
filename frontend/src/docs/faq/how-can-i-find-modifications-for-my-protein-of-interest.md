@@ -15,6 +15,10 @@ to retrieve annotated genes. See the [advanced search documentation](/documentat
 for more information, including how ontology searches retrieve
 annotations to general terms.
 
-<!--
-Example query: [phosphorylated residue (MOD:00696)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2220%22,%22query%22:%22MOD:00696%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--->
+Example query: 
+<app-query-link [goToResults]="true" [linkText]="'phosphorylated residue (MOD:00696)'"
+    [predefinedQueryName]="'MOD_696'">
+</app-query-link>
+
+There is also an ontology term page for each modification term used to
+annotate *S. pombe* proteins, e.g. [MOD:00696](/term/MOD:00696).

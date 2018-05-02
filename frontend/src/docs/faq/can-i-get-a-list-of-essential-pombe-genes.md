@@ -4,9 +4,9 @@
 If an essential gene is deleted, the cell cannot survive under normal
 laboratory conditions. A search for deletion alleles annotated to the
 Fission Yeast Phenotype Ontology term "inviable vegetative cell
-population" (FYPO:0002061) would therefore identify essential fission
+population" ([FYPO:0002061](/term/FYPO:0002061)) would therefore identify essential fission
 yeast genes. Similarly, deletion alleles annotated to "viable vegetative
-cell population" (FYPO:0002060) represent non-essential genes.
+cell population" ([FYPO:0002060](/term/FYPO:0002177)) represent non-essential genes.
 
 **Downloadable summary**
 

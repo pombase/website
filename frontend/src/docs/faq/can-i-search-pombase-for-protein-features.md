@@ -4,9 +4,9 @@
 A selection of protein sequence motifs and features have been manually
 curated using terms from the [Sequence Ontology](http://sequenceontology.org/)
 (SO). For example, [Rad54](/gene/SPAC15A10.03c) has a KEN box (a motif
-recognized by the anaphase-promoting complex; SO:0001807), and
+recognized by the anaphase-promoting complex; [SO:0001807](/term/SO:0001807)), and
 [Cuf1](/gene/SPAC31A2.11c) and [Trz1](/gene/SPAC1D4.10) have nuclear
-localization signals (NLS; SO:0001528). These annotations are included
+localization signals (NLS; [SO:0001528](/term/SO:0001528)). These annotations are included
 in the Protein Features section of the gene page.
 
 To search for these features, use the "Protein feature" query in the

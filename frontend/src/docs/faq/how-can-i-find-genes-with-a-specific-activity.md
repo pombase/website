@@ -8,8 +8,8 @@ term query in the [advanced search](/query) to retrieve genes whose
 products have a given activity.
 
 In the "GO" query, if you know the ID (for example, "histone
-acetyltransferase activity" is GO:0004402, and "calcium ion
-transmembrane transporter activity" is GO:0015085), type or paste it
+acetyltransferase activity" is [GO:0004402](/term/GO:0004402), and "calcium ion
+transmembrane transporter activity" is [GO:0015085](/term/GO:0015085)), type or paste it
 into the box. Otherwise, and start typing a name or description; the
 autocomplete feature will suggest terms. Choose one to retrieve
 annotated genes. You can try using more specific or less specific

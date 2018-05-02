@@ -16,8 +16,8 @@ process).
 Use the union (OR operator) button in the PomBase [advanced search](/query), 
 available in the query history, as described in the [advanced search documentation](documentation/advanced-search). 
 For example, to find genes that affect cellular respiration, search
-for "FYPO:0000078 (abnormal cellular respiration)"; search for
-"GO:0045333 (cellular respiration)"; and then combine them in a third
+for "[FYPO:0000078](/term/FYPO:0000078) (abnormal cellular respiration)"; search for
+"[GO:0045333](/term/GO:0045333) (cellular respiration)"; and then combine them in a third
 query. For any process, you can try using more specific or less
 specific terms to retrieve the results that best fit your expectations
 and needs.
