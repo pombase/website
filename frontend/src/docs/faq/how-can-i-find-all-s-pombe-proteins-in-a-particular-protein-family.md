@@ -19,6 +19,8 @@ There are various ways you can find protein family members.
     in item 1 above. (If necessary, you can use the query history to
     combine the results of several queries.)
 
-<!--
-Example query: [Proteins matching "ATPase, AAA-type, core" (Pfam:PF00004)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%224%22,%22query_1%22:%22pfam_pf%22,%22query_2%22:%22PF00004%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--->
+Example query: <app-query-link [goToResults]="true" [linkText]="'Proteins matching "ATPase, AAA-type, core" (Pfam:PF00004)'"
+    [predefinedQueryName]="'Pfam_PF00004'">
+</app-query-link>
+
+

@@ -14,10 +14,12 @@ Also see the FAQs on [finding genes conserved in human](/faq/how-can-i-find-all-
 [downloading the full set of curated orthologs](/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs).
 
 
-<!--
 Example queries:
 
--   [disease\_associated     (PBO:5000000)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:5000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--   [cancer     (PBO:0000239)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0000239%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
+-  <app-query-link [goToResults]="true" [linkText]="'disease\_associated (PBO:5000000)'"
+    [predefinedQueryName]="'all_diseases'">
+  </app-query-link>
 
--->
+-  <app-query-link [goToResults]="true" [linkText]="'cancer (PBO:0000239)'"
+    [predefinedQueryName]="'cancer'">
+  </app-query-link>

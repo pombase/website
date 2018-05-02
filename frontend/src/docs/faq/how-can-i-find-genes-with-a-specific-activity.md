@@ -19,6 +19,8 @@ and the [Gene Page GO documentation](/documentation/gene-page-gene-ontology)
 for more information, including how [ontology searches retrieve
 annotations] to general terms.
 
-<!--
-Example query: [phosphoprotein phosphatase activity (GO:0004721)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0004721%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--->
+Example query: <app-query-link [goToResults]="true" [linkText]="'phosphoprotein phosphatase activity (GO:0004721)'"
+    [predefinedQueryName]="'GO_4721'">
+</app-query-link>
+
+

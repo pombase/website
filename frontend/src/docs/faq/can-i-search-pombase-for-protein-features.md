@@ -18,8 +18,9 @@ Also see the FAQs on [transmembrane domains](/faq/how-can-i-find-proteins-have-t
 [protein families](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family),
 and the section of the search documentation on protein feature and protein domain queries.
 
-<!--
-Example query: [nuclear localization signal (SO:0001528)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2229%22,%22query%22:%22SO:0001528%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--->
+Example query:  <app-query-link [goToResults]="true" [linkText]="'nuclear localization signal (SO:0001528)'"
+    [predefinedQueryName]="'SO_1528'">
+</app-query-link>
+
 
 

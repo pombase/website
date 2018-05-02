@@ -5,6 +5,6 @@ In the [advanced search](/query), click "Product type", then select "rRNA" from 
 
 Also see the FAQ on [rDNA sequences](/faq/there-any-rdna-repeat-sequences-pombase).
 
-<!--
-Query: [rRNA genes](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%229%22,%22query%22:%22rRNA%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--->
+Query: <app-query-link [goToResults]="true" [linkText]="'rRNA genes'"
+    [predefinedQueryName]="'rrna_genes'">
+</app-query-link>

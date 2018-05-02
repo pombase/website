@@ -21,7 +21,6 @@ inferences from ortholog annotations. Macromolecular complex
 annotations are also available in a file (see
 [FAQ](faq/there-list-protein-complexes-s.-pombe-and-their-subunits)).
 
-<!--
-Example query: [nucleus (GO:0005634)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0005634%22%7D%7D,%22filter_count%22:%221%22%7D%5D)
--->
-
+Example query: <app-query-link [goToResults]="true" [linkText]="'nucleus (GO:0005634)'"
+    [predefinedQueryName]="'GO_5634'">
+</app-query-link>
