@@ -9,37 +9,41 @@ the resources to maintain past sequences or flag every error in PomBase.
 
   Contig Name   Region                              Size
   ------------- ----------------------------------- ----------------
-                unsequenced to chr1 left telomere   10 kb ± 2 kb\*
+                unsequenced to chr1 left telomere   10 ± 2 kb\*
   c212          sub-telomeric left arm              29,663 bp
-                Gap                                 &lt;5kb\*
+                Gap                                 &lt;5 kb\*
   c977          left arm and right arm              5,549,370 bp
-                unsequenced to chr1 left telomere   18kb ± 3kb\*
+                unsequenced to chr1 left telomere   18 ± 3 kb\*
 
- 
+
 
 #### Chromosome 2
 
   Contig Name   Region                                                Size
   ------------- ----------------------------------------------------- --------------
-                unsequenced to chr2 left telomere                     25kb ± 5kb\*
-  c1348         sub-telomeric left arm                                80,201bp
-                Gap                                                   22kb ± 5kb\*
+  AB325691      chr2 left arm gap-filling contig                      20,000 bp\*\*
+                Gap                                                   5 ± 5 kb
+  c1348         sub-telomeric left arm                                80,201 bp
+                Gap                                                   22 ± 5 kb\*
   pB10D8        left arm to centromeric gap                           1,536,269 bp
-                Gap                                                   \~6kb
+                Gap                                                   \~6 kb
   pJ5566        right arm from centromeric gap to telomeric repeats   2,923,134 bp
 
- 
+
 
 #### Chromosome 3
 
   Contig Name   Region                           Size
   ------------- -------------------------------- ------------------
   p20C8         left arm from centromeric gap    1,083,348 bp
-                Gap                              25.3kb ± 6kb\*\*
+                Gap                              25.3 ± 6 kb\*\*\*
   c1676         right arm from centromeric gap   1,369,435 bp
 
 \* pers comm. Randy Hyppa and Gerry Smith.
-\*\* pers comm. Chad Ellermeier and Gerry Smith.
+
+\*\* Sasaki *et al.* ([PMID:18727152](http://www.ncbi.nlm.nih.gov/pubmed?term=18727152))
+
+\*\*\* pers comm. Chad Ellermeier and Gerry Smith.
 
 #### [Centromere clone information](status/centromeres)
 

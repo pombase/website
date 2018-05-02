@@ -21,7 +21,7 @@ to genome browser):
 
 Details of all clones used for the assembly, and their order, length and
 overlap details is provided in a set of
-[spreadsheets](ftp://ftp.pombase.org/pombe/Archived_directories/Cosmid_assembly_data/)
+[spreadsheets](ftp://ftp.pombase.org/Archived_directories/Cosmid_assembly_data/)
 available from the PomBase FTP site.
 
 A contig extending the left arm of Chromosome II was sequenced by
@@ -35,9 +35,6 @@ A set of [small insert clones](ftp://ftp.sanger.ac.uk/pub/yeast/sequences/pombe/
 (FTP link; also see table) from a telomere plasmid library has been
 made available by [Neal Sugawara](mailto:sugawara@hydra.rose.brandeis.edu). None can be
 assigned to a chromosome at present.
-
-Clones included in the final sequence are available from the Wellcome
-Trust Sanger Institute; send email to <archives@sanger.ac.uk>
 
 Plasmid|Size of insert|Location of telomeric sequence|Comments|Vector|Laboratory|Funded by|Stage
 -------|--------------|------------------------------|--------|------|----------|---------|-----
