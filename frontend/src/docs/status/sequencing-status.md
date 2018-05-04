@@ -51,4 +51,4 @@ the resources to maintain past sequences or flag every error in PomBase.
 
 #### [Mating type region information](status/mating-type-region)
 
-#### [Ribosomal DNA information (FAQ)](faq/are-there-any-rdna-repeat-sequences-pombase)
+#### [Ribosomal DNA information (FAQ)](faq/there-any-rdna-repeat-sequences-pombase)
