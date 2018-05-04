@@ -18,7 +18,7 @@ page. If you have trouble finding anything, please ask the
 -------
 
 ### FTP site ###
-[*S. pombe* ftp site root directory](ftp://ftp.pombase.org/pombe/)
+[*S. pombe* ftp site root directory](ftp://ftp.pombase.org/) (the "pombe" subdirectory contains the current files of most interest)
 
 -------
 
