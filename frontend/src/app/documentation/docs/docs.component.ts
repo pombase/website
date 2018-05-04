@@ -1,6 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 
 import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
+
+import { getAppConfig, AppConfig } from '../../config';
 
 const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
 
@@ -13,9 +17,12 @@ export class DocsComponent implements OnInit {
   section: string = null;
   pageName: string = null;
   subscription = null;
+  appConfig: AppConfig = getAppConfig();
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private titleService: Title,
+              private readonly meta: Meta,
               @Inject('Window') private window: any
              ) {
     this.subscription = router.events.subscribe(event => {
@@ -25,10 +32,17 @@ export class DocsComponent implements OnInit {
     });
   }
 
-  navigate($event: MouseEvent, route: string) {
+  setPageTitle(heading): void {
+    let title = this.appConfig.site_name + ' - FAQ - ' + heading;
+    this.titleService.setTitle(title);
+    this.meta.updateTag({property: 'og:title', content: title});
+  }
+
+  navigate($event: MouseEvent, route: string, heading: string) {
     // nagivate on when header is clicked
     if ($event.srcElement.localName.match(/^h\d$/i)) {
       this.router.navigate([route]);
+      this.setPageTitle(heading);
     }
   }
 

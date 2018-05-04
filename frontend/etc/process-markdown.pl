@@ -142,7 +142,8 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
 
   $contents =~ s/^#/###/gm;
 
-  $faq_questions{$id} = { contents => $contents,
+  $faq_questions{$id} = { heading => $heading,
+                          contents => $contents,
                           categories => \@categories };
 
   close $fh;
@@ -218,6 +219,7 @@ sub get_all_faq_parts {
 
   for my $id (@ids) {
     my $details = $faq_questions->{$id};
+    my $heading = $details->{heading};
     my $contents = $details->{contents};
     my @categories = @{$details->{categories}};
 
@@ -240,7 +242,10 @@ sub get_all_faq_parts {
       $line;
     } @split_contents;
 
-    $ret .= qq|<div (click)="navigate(\$event, '/faq/$sect_id')" *ngIf="$categories_condition">\n|;
+    (my $fixed_heading = $heading) =~ s/'//g;
+    $fixed_heading =~ s/"/&quot;/g;
+
+    $ret .= qq|<div (click)="navigate(\$event, '/faq/$sect_id', '$fixed_heading')" *ngIf="$categories_condition">\n|;
     $ret .= markdown($contents) . "\n";
     $ret .= "</div>\n";
   }
