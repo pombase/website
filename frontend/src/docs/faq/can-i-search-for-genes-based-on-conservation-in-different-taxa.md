@@ -4,5 +4,5 @@
 Yes, use the "Taxonomic conservation" query in the [advanced search](/query).
 
 Example query: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'"
-    [predefinedQueryName]="'conserved_in_vertebrates'">
+    [predefinedQueryId]="'conserved_in_vertebrates'">
 </app-query-link>

@@ -33,5 +33,5 @@ Available options:
 
 
 Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'"
-    [predefinedQueryName]="'snorna_genes'">
+    [predefinedQueryId]="'snorna_genes'">
 </app-query-link>

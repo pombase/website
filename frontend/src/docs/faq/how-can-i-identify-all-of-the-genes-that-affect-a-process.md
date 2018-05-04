@@ -22,6 +22,6 @@ query. For any process, you can try using more specific or less
 specific terms to retrieve the results that best fit your expectations
 and needs.
 
-Example query: <app-query-link [goToResults]="true" [linkText]="'genes annotated to 'abnormal cellular respiration' (FYPO:0000078) or 'cellular respiration' (GO:0045333)'"
-    [predefinedQueryName]="'FYPO_78_or_GO_45333'">
+Example query: <app-query-link [goToResults]="true" [linkText]="'genes annotated to &quot;abnormal cellular respiration&quot; (FYPO:0000078) or &quot;cellular respiration&quot; (GO:0045333)'"
+    [predefinedQueryId]="'FYPO_78_or_GO_45333'">
 </app-query-link>

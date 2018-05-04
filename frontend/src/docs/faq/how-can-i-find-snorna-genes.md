@@ -9,5 +9,5 @@ identified and annotated in *S. pombe*; we hope to investigate further
 in the future.
 
 Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'"
-    [predefinedQueryName]="'snorna_genes'">
+    [predefinedQueryId]="'snorna_genes'">
 </app-query-link>

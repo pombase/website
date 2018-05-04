@@ -5793,7 +5793,7 @@ information).
 <div (click)="navigate($event, '/faq/can-i-get-list-essential-pombe-genes')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'can-i-get-list-essential-pombe-genes' || pageName == 'all-faqs'">
 <h3 id="can-i-get-list-essential-pombe-genes">Can I get a list of essential pombe genes?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
-<p>If an essential gene is deleted, the cell cannot survive under normal laboratory conditions. A search for deletion alleles annotated to the Fission Yeast Phenotype Ontology term &quot;inviable vegetative cell population&quot; (FYPO:0002061) would therefore identify essential fission yeast genes. Similarly, deletion alleles annotated to &quot;viable vegetative cell population&quot; (FYPO:0002060) represent non-essential genes.</p>
+<p>If an essential gene is deleted, the cell cannot survive under normal laboratory conditions. A search for deletion alleles annotated to the Fission Yeast Phenotype Ontology term &quot;inviable vegetative cell population&quot; (<a routerLink="/term/FYPO:0002061">FYPO:0002061</a>) would therefore identify essential fission yeast genes. Similarly, deletion alleles annotated to &quot;viable vegetative cell population&quot; (<a routerLink="/term/FYPO:0002177">FYPO:0002060</a>) represent non-essential genes.</p>
 <p><strong>Downloadable summary</strong></p>
 <p>A <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/FYPOviability.tsv">set of &quot;viability summary&quot; data</a>, as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: &quot;viable&quot;, &quot;inviable&quot; or &quot;condition-dependent&quot;.</p>
 <p><strong>Querying</strong></p>
@@ -5868,20 +5868,18 @@ information).
 <h3 id="can-i-search-genes-based-on-conservation-different-taxa">Can I search for genes based on conservation in different taxa?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
 <p>Yes, use the &quot;Taxonomic conservation&quot; query in the <a routerLink="/query">advanced search</a>.</p>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2226%22,%22query%22:%22PBO:0011070%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Genes conserved in vertebrates</a> 
--->
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'"
+    [predefinedQueryId]="'conserved_in_vertebrates'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/can-i-search-pombase-protein-features')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-search-pombase-protein-features' || pageName == 'all-faqs'">
 <h3 id="can-i-search-pombase-protein-features">Can I search PomBase for protein features?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
-<p>A selection of protein sequence motifs and features have been manually curated using terms from the <a href="http://sequenceontology.org/">Sequence Ontology</a> (SO). For example, <a routerLink="/gene/SPAC15A10.03c">Rad54</a> has a KEN box (a motif recognized by the anaphase-promoting complex; SO:0001807), and <a routerLink="/gene/SPAC31A2.11c">Cuf1</a> and <a routerLink="/gene/SPAC1D4.10">Trz1</a> have nuclear localization signals (NLS; SO:0001528). These annotations are included in the Protein Features section of the gene page.</p>
+<p>A selection of protein sequence motifs and features have been manually curated using terms from the <a href="http://sequenceontology.org/">Sequence Ontology</a> (SO). For example, <a routerLink="/gene/SPAC15A10.03c">Rad54</a> has a KEN box (a motif recognized by the anaphase-promoting complex; <a routerLink="/term/SO:0001807">SO:0001807</a>), and <a routerLink="/gene/SPAC31A2.11c">Cuf1</a> and <a routerLink="/gene/SPAC1D4.10">Trz1</a> have nuclear localization signals (NLS; <a routerLink="/term/SO:0001528">SO:0001528</a>). These annotations are included in the Protein Features section of the gene page.</p>
 <p>To search for these features, use the &quot;Protein feature&quot; query in the <a routerLink="/query">advanced search</a> (enter a SO ID or description; see the <a routerLink="/documentation/advanced-search">documentation</a> for help with searching).</p>
 <p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-proteins-have-transmembrane-domains">transmembrane domains</a> and <a routerLink="/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family">protein families</a>, and the section of the search documentation on protein feature and protein domain queries.</p>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2229%22,%22query%22:%22SO:0001528%22%7D%7D,%22filter_count%22:%221%22%7D%5D">nuclear localization signal (SO:0001528)</a> 
--->
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'nuclear localization signal (SO:0001528)'"
+    [predefinedQueryId]="'SO_1528'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence' || pageName == 'all-faqs'">
@@ -6155,12 +6153,10 @@ For example, the Genetic Interactions header for cdc2 links to
 <div (click)="navigate($event, '/faq/how-can-i-find-all-genes-have-given-mutant-phenotype')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-all-genes-have-given-mutant-phenotype' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-all-genes-have-given-mutant-phenotype">How can I find all of the genes that have a given mutant phenotype?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
-<p>You can search for genes annotated to a Fission Yeast Phenotype Ontology term in the <a routerLink="/query">advanced search</a>. In the &quot;Phenotype&quot; query, if you know the ID (for example, &quot;inviable cell&quot; is FYPO:0000049, and &quot;elongated cell&quot; is FYPO:0000017) you can type or paste the ID into the box. Otherwise, start typing a term name or description; the autocomplete feature will suggest phenotypes. Choose one to retrieve annotated genes.</p>
-<p>Note that the FYPO search retrieves annotations by following the <em>is_a</em>, <em>part_of</em>, <em>output_of</em>, <em>has_output</em>, and <em>has_part</em> relationships in the ontology. For example, FYPO includes the relation &quot;inviable swollen elongated cell with enlarged nucleus&quot; (FYPO:0002083) <em>has_part</em> &quot;swollen cell&quot; (FYPO:0000025). Genes annotated to FYPO:0002083 will therefore be retrieved in a search for FYPO:0000025. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more information.</p>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0000017%22,%22query_2%22:%22all_alleles%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Genes annotated to "elongated cell" (FYPO:0000017), all alleles</a> 
-
--->
+<p>You can search for genes annotated to a Fission Yeast Phenotype Ontology term in the <a routerLink="/query">advanced search</a>. In the &quot;Phenotype&quot; query, if you know the ID (for example, &quot;inviable cell&quot; is <a routerLink="/term/FYPO:0000049">FYPO:0000049</a>, and &quot;elongated cell&quot; is <a routerLink="/term/FYPO:0002177">FYPO:0000017</a>) you can type or paste the ID into the box. Otherwise, start typing a term name or description; the autocomplete feature will suggest phenotypes. Choose one to retrieve annotated genes.</p>
+<p>Note that the FYPO search retrieves annotations by following the <em>is_a</em>, <em>part_of</em>, <em>output_of</em>, <em>has_output</em>, and <em>has_part</em> relationships in the ontology. For example, FYPO includes the relation &quot;inviable swollen elongated cell with enlarged nucleus&quot; (<a routerLink="/term/FYPO:0002177">FYPO:0002083</a>) <em>has_part</em> &quot;swollen cell&quot; (<a routerLink="/term/FYPO:0000025">FYPO:0000025</a>). Genes annotated to FYPO:0002083 will therefore be retrieved in a search for FYPO:0000025. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more information.</p>
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;elongated cell&quot; (FYPO:0000017), all alleles, any expression level'"
+    [predefinedQueryId]="'FYPO_17_all'"> </app-query-link></p>
 <p>Also see the FAQ on <a routerLink="/faq/can-i-get-list-essential-pombe-genes">finding essential genes</a>.</p>
 
 </div>
@@ -6181,9 +6177,8 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <li>If you don't have an accession, but do know any member of the family, go directly to its gene page. In the &quot;Protein Features&quot; section of the gene page there is a table of protein domains and families, which includes a link to a list of all family members in S. pombe.</li>
 <li>If you know neither accessions nor family members, you can search for keywords in the <a href="http://www.ebi.ac.uk/interpro/">InterPro</a> database, which combines signatures from a number of member databases, including Pfam. Record the accession number(s) of the family, and use them in the PomBase advanced search as described in item 1 above. (If necessary, you can use the query history to combine the results of several queries.)</li>
 </ol>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%224%22,%22query_1%22:%22pfam_pf%22,%22query_2%22:%22PF00004%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Proteins matching "ATPase, AAA-type, core" (Pfam:PF00004)</a> 
--->
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'Proteins matching &quot;ATPase, AAA-type, core&quot; (Pfam:PF00004)'"
+    [predefinedQueryId]="'Pfam_PF00004'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-sequence-features-region-using-chromosome-coordinates' || pageName == 'all-faqs'">
@@ -6207,10 +6202,9 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <h3 id="how-can-i-find-genes-specific-activity">How can I find genes with a specific activity?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>PomBase uses Gene Ontology (GO) molecular function terms to capture the activities -- including enzymatic activities, binding, transporters, etc. -- of gene products. You can therefore use the GO term query in the <a routerLink="/query">advanced search</a> to retrieve genes whose products have a given activity.</p>
-<p>In the &quot;GO&quot; query, if you know the ID (for example, &quot;histone acetyltransferase activity&quot; is GO:0004402, and &quot;calcium ion transmembrane transporter activity&quot; is GO:0015085), type or paste it into the box. Otherwise, and start typing a name or description; the autocomplete feature will suggest terms. Choose one to retrieve annotated genes. You can try using more specific or less specific terms to retrieve the results that best fit your expectations and needs. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> and the <a routerLink="/documentation/gene-page-gene-ontology">Gene Page GO documentation</a> for more information, including how [ontology searches retrieve annotations] to general terms.</p>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0004721%22%7D%7D,%22filter_count%22:%221%22%7D%5D">phosphoprotein phosphatase activity (GO:0004721)</a> 
--->
+<p>In the &quot;GO&quot; query, if you know the ID (for example, &quot;histone acetyltransferase activity&quot; is <a routerLink="/term/GO:0004402">GO:0004402</a>, and &quot;calcium ion transmembrane transporter activity&quot; is <a routerLink="/term/GO:0015085">GO:0015085</a>), type or paste it into the box. Otherwise, and start typing a name or description; the autocomplete feature will suggest terms. Choose one to retrieve annotated genes. You can try using more specific or less specific terms to retrieve the results that best fit your expectations and needs. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> and the <a routerLink="/documentation/gene-page-gene-ontology">Gene Page GO documentation</a> for more information, including how [ontology searches retrieve annotations] to general terms.</p>
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'phosphoprotein phosphatase activity (GO:0004721)'"
+    [predefinedQueryId]="'GO_4721'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus' || pageName == 'all-faqs'">
@@ -6247,9 +6241,9 @@ and select the Intron Branch Point track.
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>Protein modifications (where curated) are included in the Modifications section on gene pages. (We plan to include RNA modifications later.) The <a routerLink="/documentation/gene-page-modifications">gene page modifications documentation</a> describes the display.</p>
 <p>To retrieve all genes whose products have a given modification, use the &quot;Protein modifications&quot; query in the [Advanced Search]. If you know the ID (for example, &quot;phosphorylated residue&quot; is MOD:00696), type or paste it into the box. Otherwise, start typing a name or description; the autocomplete feature will suggest terms. Choose one to retrieve annotated genes. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more information, including how ontology searches retrieve annotations to general terms.</p>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2220%22,%22query%22:%22MOD:00696%22%7D%7D,%22filter_count%22:%221%22%7D%5D">phosphorylated residue (MOD:00696)</a> 
--->
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'phosphorylated residue (MOD:00696)'"
+    [predefinedQueryId]="'MOD_696'"> </app-query-link></p>
+<p>There is also an ontology term page for each modification term used to annotate <em>S. pombe</em> proteins, e.g. <a routerLink="/term/MOD:00696">MOD:00696</a>.</p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals' || pageName == 'all-faqs'">
@@ -6273,18 +6267,16 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>Gene Ontology (GO) cellular component annotations capture the localizations of gene products to subcellular structures such as organelles or complexes. GO Cellular Component annotations are displayed on PomBase gene pages as described in the <a routerLink="/documentation/gene-page-gene-ontology">PomBase GO documentation</a>. The GO Consortium provides <a href="http://geneontology.org/page/cellular-component-ontology-guidelines">documentation</a> that describes what the Cellular Component ontology includes. To search for proteins (or functional RNAs) with a particular localization, use the GO query in the <a routerLink="/query">advanced search</a> to find genes annotated to the relevant GO Cellular Component term(s).</p>
 <p>Pombase GO Cellular Component annotations include data from the whole-genome localization study (Matsuyama et al. 2006) as well as manually curated data from papers on small-scale experiments, and inferences from ortholog annotations. Macromolecular complex annotations are also available in a file (see <a routerLink="/faq/there-list-protein-complexes-s.-pombe-and-their-subunits">FAQ</a>).</p>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0005634%22%7D%7D,%22filter_count%22:%221%22%7D%5D">nucleus (GO:0005634)</a>
--->
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'nucleus (GO:0005634)'"
+    [predefinedQueryId]="'GO_5634'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-proteins-have-transmembrane-domains')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-proteins-have-transmembrane-domains' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-proteins-have-transmembrane-domains">How can I find proteins that have transmembrane domains?</h3>
 <!-- pombase_categories: Finding data -->
 <p>In the <a routerLink="/query">advanced search</a>, use the &quot;Number of TM domains&quot; query. Enter the minimum and maximum number of domains (use the same number as minimum and maximum to retrieve proteins with, e.g. exactly 7 transmembrane domains).</p>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%226%22,%22query_1%22:%227%22,%22query_2%22:%227%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Genes whose products have 7 transmembrane domains</a> 
--->
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'Genes whose products have 7 transmembrane domains'"
+    [predefinedQueryId]="'7TM'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-rrna-genes')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-rrna-genes' || pageName == 'all-faqs'">
@@ -6292,9 +6284,8 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22par
 <!-- pombase_categories: Finding data -->
 <p>In the <a routerLink="/query">advanced search</a>, click &quot;Product type&quot;, then select &quot;rRNA&quot; from the pulldown.</p>
 <p>Also see the FAQ on <a routerLink="/faq/there-any-rdna-repeat-sequences-pombase">rDNA sequences</a>.</p>
-<!--
-Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%229%22,%22query%22:%22rRNA%22%7D%7D,%22filter_count%22:%221%22%7D%5D">rRNA genes</a> 
--->
+<p>Query: <app-query-link [goToResults]="true" [linkText]="'rRNA genes'"
+    [predefinedQueryId]="'rrna_genes'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-s.-pombe-genes-associated-human-disease')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-s.-pombe-genes-associated-human-disease' || pageName == 'all-faqs'">
@@ -6302,13 +6293,13 @@ Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7
 <!-- pombase_categories: Orthology,Finding data -->
 <p><em>S. pombe</em> genes whose human orthologs have been implicated in disease are annotated with terms from the internal PBO vocabulary. To retrieve all of these genes, you can use the most general &quot;disease associated&quot; term in a query. In the <a routerLink="/query">advanced search</a>, select &quot;Disease&quot;. You can either start typing 'disease associated', and choose 'disease_associated' from the autocomplete options, or enter the ID 'PBO:5000000'.</p>
 <p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>.</p>
-<!--
-Example queries:
-
--   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:5000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D">disease\_associated     (PBO:5000000)</a> 
--   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0000239%22%7D%7D,%22filter_count%22:%221%22%7D%5D">cancer     (PBO:0000239)</a> 
-
--->
+<p>Example queries:</p>
+<ul>
+<li><p><app-query-link [goToResults]="true" [linkText]="'disease\_associated (PBO:5000000)'"
+[predefinedQueryId]="'all_diseases'"> </app-query-link></p></li>
+<li><p><app-query-link [goToResults]="true" [linkText]="'cancer (PBO:0000239)'"
+[predefinedQueryId]="'cancer'"> </app-query-link></p></li>
+</ul>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species' || pageName == 'all-faqs'">
@@ -6392,9 +6383,8 @@ Example queries:
 <!-- pombase_categories: Finding data -->
 <p>In the <a routerLink="/query">advanced search</a>, click &quot;Product type&quot;, then select &quot;snoRNA&quot; from the pulldown.</p>
 <p>Note that there are likely a number of snoRNAs that have not yet been identified and annotated in <em>S. pombe</em>; we hope to investigate further in the future.</p>
-<!--
-Query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%229%22,%22query%22:%22snoRNA%22%7D%7D,%22filter_count%22:%221%22%7D%5D">snoRNA genes</a> 
--->
+<p>Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'"
+    [predefinedQueryId]="'snorna_genes'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-transcription-factor-binding-sites-pombase')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-transcription-factor-binding-sites-pombase' || pageName == 'all-faqs'">
@@ -6415,8 +6405,8 @@ pop-up.
 <!-- pombase_categories: Finding data -->
 <p>All sequence-specific DNA-binding transcription factors should be annotated to at least two GO Molecular Function terms, either directly or by transitivity (i.e. annotated to a more specific &quot;descendant&quot; term linked to one of these terms):</p>
 <ul>
-<li>GO:0000976 transcription regulatory region sequence-specific DNA binding (view in <a href="http://www.ebi.ac.uk/QuickGO/GTerm?id=GO:0000976">QuickGO</a> or <a href="http://amigo.geneontology.org/amigo/term/GO:0000976">AmiGO</a>)</li>
-<li>GO:0003700 sequence-specific DNA binding transcription factor activity (view in <a href="http://www.ebi.ac.uk/QuickGO/GTerm?id=GO:0003700">QuickGO</a> or <a href="http://amigo.geneontology.org/amigo/term/GO:0003700">AmiGO</a>)</li>
+<li>GO:0000976 transcription regulatory region sequence-specific DNA binding (view in <a routerLink="/term/GO:0000976">PomBase</a>, <a href="http://www.ebi.ac.uk/QuickGO/GTerm?id=GO:0000976">QuickGO</a> or <a href="http://amigo.geneontology.org/amigo/term/GO:0000976">AmiGO</a>)</li>
+<li>GO:0003700 sequence-specific DNA binding transcription factor activity (view in <a routerLink="/term/GO:0003700">PomBase</a>, <a href="http://www.ebi.ac.uk/QuickGO/GTerm?id=GO:0003700">QuickGO</a> or <a href="http://amigo.geneontology.org/amigo/term/GO:0003700">AmiGO</a>)</li>
 </ul>
 <p><a routerLink="/faq/what-annotation-extension">Annotation extensions</a> are used to capture two types of &quot;target&quot; data (where available):</p>
 <ul>
@@ -6481,10 +6471,9 @@ pop-up.
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>The best way to find genes that have any effect on a process, we recommend searching for both GO and FYPO terms relevant to the process.</p>
 <p>As described in the <a routerLink="/faq/why-are-some-genes-abnormal-phenotype-annotated-corresponding-go-process-while-others-are-not">FAQ on GO and FYPO annotations</a>, PomBase curators annotate all genes with phenotypes that affect a process, whereas GO annotations are restricted to genes whose products act directly in a process or its regulation. By querying for genes annotated to either a GO term or a FYPO term, you can find genes with relevant phenotypes (including &quot;downstream effects&quot;) as well as genes involved in a process (with or without mutant phenotypes affecting the process).</p>
-<p>Use the union (OR operator) button in the PomBase <a routerLink="/query">advanced search</a>, available in the query history, as described in the <a routerLink="/documentation/advanced-search">advanced search documentation</a>. For example, to find genes that affect cellular respiration, search for &quot;FYPO:0000078 (abnormal cellular respiration)&quot;; search for &quot;GO:0045333 (cellular respiration)&quot;; and then combine them in a third query. For any process, you can try using more specific or less specific terms to retrieve the results that best fit your expectations and needs.</p>
-<!--
-Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22operator%22:%22OR%22,%22param%22:%7B%22set_1%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%221%22,%22query%22:%22GO:0045333%22%7D%7D,%22filter_count%22:%221%22%7D,%22set_2%22:%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2219%22,%22query_1%22:%22FYPO:0000078%22,%22query_2%22:%22all_alleles%22%7D%7D,%22filter_count%22:%221%22%7D%7D%7D%5D">genes annotated to 'abnormal cellular respiration' (FYPO:0000078) or 'cellular respiration' (GO:0045333)</a> 
--->
+<p>Use the union (OR operator) button in the PomBase <a routerLink="/query">advanced search</a>, available in the query history, as described in the <a routerLink="/documentation/advanced-search">advanced search documentation</a>. For example, to find genes that affect cellular respiration, search for &quot;<a routerLink="/term/FYPO:0000078">FYPO:0000078</a> (abnormal cellular respiration)&quot;; search for &quot;<a routerLink="/term/GO:0045333">GO:0045333</a> (cellular respiration)&quot;; and then combine them in a third query. For any process, you can try using more specific or less specific terms to retrieve the results that best fit your expectations and needs.</p>
+<p>Example query: <app-query-link [goToResults]="true" [linkText]="'genes annotated to &quot;abnormal cellular respiration&quot; (FYPO:0000078) or &quot;cellular respiration&quot; (GO:0045333)'"
+    [predefinedQueryId]="'FYPO_78_or_GO_45333'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-locate-centromeres')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-locate-centromeres' || pageName == 'all-faqs'">
@@ -6566,9 +6555,8 @@ Example query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22ope
 <li><p>If you only need genes, you can use the <a routerLink="/query">advanced search</a> to find all genes of a given type. (Note that non-gene features such as repeats cannot be retrieved by this method.) Select the &quot;Product type&quot; query, then choose a type from the pulldown menu. The &quot;Download&quot; options include coordinates and sequences in FASTA format. If you need more than one feature type, query for each type and then use Query Management to combine the individual queries with the &quot;Union&quot; (OR operator) button. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more information. Click on a count in the query history to see the results, with a button for &quot;Download&quot; options including coordinates and sequence.</p></li>
 <li><p>The bioinformatically inclined can also use the Ensembl Genomes REST API to retrieve transcript feature coordinates, as described in the <a routerLink="/faq/s.-pombe-transcriptome-available-fasta-format">FAQ on pombe transcriptome sequences</a>. Select the desired feature type(s) from the output file of stable IDs (bear in mind that Ensembl idiosyncratically uses &quot;biotype&quot; to mean feature type).</p></li>
 </ol>
-<!--
-Example advanced search query: <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%229%22,%22query%22:%22snoRNA%22%7D%7D,%22filter_count%22:%221%22%7D%5D">snoRNA genes</a> 
--->
+<p>Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'"
+    [predefinedQueryId]="'snorna_genes'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequence-region-using-sequence-coordinates' || pageName == 'all-faqs'">
@@ -6789,7 +6777,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
 <p>Yes, there is a file that lists GO macromolecular complex assignments for fission yeast gene products in the FTP directory:</p>
 <p>ftp://ftp.pombase.org/pombe/annotations/GO_complexes/</p>
-<p>Note that the complex inventory includes the RNA subunits of ribonucleoprotein complexes. There is some redundancy in the list, because some gene products are annotated to both complexes and subcomplexes. For example, subunits of the DASH complex (GO:0042729) are annotated to 'condensed chromosome outer kinetochore' (GO:0000940) as well as GO:0042729. Additional notes are available in a README file: ftp://ftp.pombase.org/pombe/annotations/GO_complexes/README</p>
+<p>Note that the complex inventory includes the RNA subunits of ribonucleoprotein complexes. There is some redundancy in the list, because some gene products are annotated to both complexes and subcomplexes. For example, subunits of the DASH complex (<a routerLink="/term/GO:0042729">GO:0042729</a>) are annotated to 'condensed chromosome outer kinetochore' (<a routerLink="/term/GO:0000940">GO:0000940</a>) as well as GO:0042729. Additional notes are available in a README file: ftp://ftp.pombase.org/pombe/annotations/GO_complexes/README</p>
 <p>Also see the <a routerLink="/faq/how-can-i-find-protein-localization-data">FAQ on localization</a>.</p>
 
 </div>
@@ -14157,9 +14145,9 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"> </td>
+<td align="left"></td>
 <td align="left">unsequenced to chr1 left telomere</td>
-<td align="left">10 kb ± 2 kb*</td>
+<td align="left">10 ± 2 kb*</td>
 </tr>
 <tr class="even">
 <td align="left">c212</td>
@@ -14167,9 +14155,9 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <td align="left">29,663 bp</td>
 </tr>
 <tr class="odd">
-<td align="left"> </td>
+<td align="left"></td>
 <td align="left">Gap</td>
-<td align="left">&lt;5kb*</td>
+<td align="left">&lt;5 kb*</td>
 </tr>
 <tr class="even">
 <td align="left">c977</td>
@@ -14177,13 +14165,12 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <td align="left">5,549,370 bp</td>
 </tr>
 <tr class="odd">
-<td align="left"> </td>
+<td align="left"></td>
 <td align="left">unsequenced to chr1 left telomere</td>
-<td align="left">18kb ± 3kb*</td>
+<td align="left">18 ± 3 kb*</td>
 </tr>
 </tbody>
 </table>
-<p> </p>
 <h4 id="chromosome-2">Chromosome 2</h4>
 <table>
 <thead>
@@ -14195,38 +14182,42 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"> </td>
-<td align="left">unsequenced to chr2 left telomere</td>
-<td align="left">25kb ± 5kb*</td>
+<td align="left">AB325691</td>
+<td align="left">chr2 left arm gap-filling contig</td>
+<td align="left">20,000 bp**</td>
 </tr>
 <tr class="even">
-<td align="left">c1348</td>
-<td align="left">sub-telomeric left arm</td>
-<td align="left">80,201bp</td>
+<td align="left"></td>
+<td align="left">Gap</td>
+<td align="left">5 ± 5 kb</td>
 </tr>
 <tr class="odd">
-<td align="left"> </td>
-<td align="left">Gap</td>
-<td align="left">22kb ± 5kb*</td>
+<td align="left">c1348</td>
+<td align="left">sub-telomeric left arm</td>
+<td align="left">80,201 bp</td>
 </tr>
 <tr class="even">
+<td align="left"></td>
+<td align="left">Gap</td>
+<td align="left">22 ± 5 kb*</td>
+</tr>
+<tr class="odd">
 <td align="left">pB10D8</td>
 <td align="left">left arm to centromeric gap</td>
 <td align="left">1,536,269 bp</td>
 </tr>
-<tr class="odd">
-<td align="left"> </td>
-<td align="left">Gap</td>
-<td align="left">~6kb</td>
-</tr>
 <tr class="even">
+<td align="left"></td>
+<td align="left">Gap</td>
+<td align="left">~6 kb</td>
+</tr>
+<tr class="odd">
 <td align="left">pJ5566</td>
 <td align="left">right arm from centromeric gap to telomeric repeats</td>
 <td align="left">2,923,134 bp</td>
 </tr>
 </tbody>
 </table>
-<p> </p>
 <h4 id="chromosome-3">Chromosome 3</h4>
 <table>
 <thead>
@@ -14243,9 +14234,9 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <td align="left">1,083,348 bp</td>
 </tr>
 <tr class="even">
-<td align="left"> </td>
+<td align="left"></td>
 <td align="left">Gap</td>
-<td align="left">25.3kb ± 6kb**</td>
+<td align="left">25.3 ± 6 kb***</td>
 </tr>
 <tr class="odd">
 <td align="left">c1676</td>
@@ -14254,7 +14245,9 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 </tr>
 </tbody>
 </table>
-<p>* pers comm. Randy Hyppa and Gerry Smith. ** pers comm. Chad Ellermeier and Gerry Smith.</p>
+<p>* pers comm. Randy Hyppa and Gerry Smith.</p>
+<p>** Sasaki <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18727152">PMID:18727152</a>)</p>
+<p>*** pers comm. Chad Ellermeier and Gerry Smith.</p>
 <h4 id="centromere-clone-information"><a routerLink="/status/centromeres">Centromere clone information</a></h4>
 <h4 id="telomere-clone-information"><a routerLink="/status/telomeres">Telomere clone information</a></h4>
 <h4 id="mating-type-region-information"><a routerLink="/status/mating-type-region">Mating type region information</a></h4>
@@ -14599,10 +14592,9 @@ Joined contigs p4C9 and c977</p>
 <li>Chromosome II right pT2R1 (<a href="https://www.pombase.org/jbrowse/?loc=II%3A4500628..4539804&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=">4500619-4539800</a>)</li>
 <li>There are no telomere proximal clones for chromosome III as the unsequenced rDNA blocks occur in between the sequenced portion and the telomeres on both chromosome arms.</li>
 </ul>
-<p>Details of all clones used for the assembly, and their order, length and overlap details is provided in a set of <a href="ftp://ftp.pombase.org/pombe/Archived_directories/Cosmid_assembly_data/">spreadsheets</a> available from the PomBase FTP site.</p>
+<p>Details of all clones used for the assembly, and their order, length and overlap details is provided in a set of <a href="ftp://ftp.pombase.org/Archived_directories/Cosmid_assembly_data/">spreadsheets</a> available from the PomBase FTP site.</p>
 <p>A contig extending the left arm of Chromosome II was sequenced by Sasaki <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18727152">PMID:18727152</a>) and will be attached to the assembly in the next round of sequence changes. In the meantime, the contig can be viewed in the <a href="https://www.pombase.org/jbrowse/?loc=chr_II_telomeric_gap%3A2002..18001&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=">PomBase genome browser</a>.</p>
 <p>A set of <a href="ftp://ftp.sanger.ac.uk/pub/yeast/sequences/pombe/telomeres/">small insert clones</a> (FTP link; also see table) from a telomere plasmid library has been made available by <a href="mailto:sugawara@hydra.rose.brandeis.edu">Neal Sugawara</a>. None can be assigned to a chromosome at present.</p>
-<p>Clones included in the final sequence are available from the Wellcome Trust Sanger Institute; send email to <a href="mailto:archives@sanger.ac.uk">archives@sanger.ac.uk</a></p>
 <table>
 <thead>
 <tr class="header">

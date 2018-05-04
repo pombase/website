@@ -20,7 +20,7 @@ for more information, including how [ontology searches retrieve
 annotations] to general terms.
 
 Example query: <app-query-link [goToResults]="true" [linkText]="'phosphoprotein phosphatase activity (GO:0004721)'"
-    [predefinedQueryName]="'GO_4721'">
+    [predefinedQueryId]="'GO_4721'">
 </app-query-link>
 
 
