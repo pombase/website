@@ -20,7 +20,7 @@ NG='node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng'
 if [ x$release_env == x'prod' ]
 then
     echo building $release_env for production ...
-    $NG build --env=prod --target=production --progress=false || exit 1
+    $NG build --configuration=production --progress=false || exit 1
 else
     echo building $release_env for testing ...
     $NG build --progress=false || exit 1
