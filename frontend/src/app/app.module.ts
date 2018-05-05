@@ -82,6 +82,10 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
 import { ReferenceDetailListComponent } from './reference-detail-list/reference-detail-list.component';
 import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
 
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+
+
 export function documentFactory() {
     return document;
 }
@@ -170,6 +174,7 @@ export function windowFactory() {
     PopoverModule.forRoot(),
     ModalModule.forRoot(),
     SharedModule,
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,
                     MessageDialogComponent],
@@ -184,7 +189,7 @@ export function windowFactory() {
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor() {
+  constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
 
   }
 }

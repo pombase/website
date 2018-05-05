@@ -1,6 +1,6 @@
-import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
-import docConfig from './config/doc-config.json';
-import pombaseConfig from '../../pombase_v2_config.json';
+const goXrfConfigMap = require('./config/go-xrf-abbr-external-links.json');
+const docConfig = require('./config/doc-config.json');
+const pombaseConfig =  require('../../pombase_v2_config.json');
 
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
