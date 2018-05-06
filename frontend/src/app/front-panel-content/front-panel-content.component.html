@@ -19,42 +19,46 @@
 
 </div>
 <div *ngIf="panelId == 5">
-<p>Browse PomBase's inventory of conserved proteins with no known biological role</p>
+<p><app-recent-community-pubs></app-recent-community-pubs></p>
 
 </div>
 <div *ngIf="panelId == 6">
-<p>The fission yeast <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim</a> provides a summary of genes annotated to broad biological processes</p>
+<p>Browse PomBase's inventory of conserved proteins with no known biological role</p>
 
 </div>
 <div *ngIf="panelId == 7">
-<p>Use the <a routerLink="/query">Advanced Search</a> to construct complex queries (GO, phenotypes, taxonomic distribution, domain, chromosomal location).</p>
+<p>The fission yeast <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim</a> provides a summary of genes annotated to broad biological processes</p>
 
 </div>
 <div *ngIf="panelId == 8">
-<p>PomBase has integrated over 200,000 manually curated gene-specific annotations. See our <a routerLink="/about/resource-metrics">Resource Metrics</a> page for more literature curation progress reports.</p>
+<p>Use the <a routerLink="/query">Advanced Search</a> to construct complex queries (GO, phenotypes, taxonomic distribution, domain, chromosomal location).</p>
 
 </div>
 <div *ngIf="panelId == 9">
-<p>PomBase uses manually curated Gene Ontology annotation to generate biological process-specific networks, such as the cytokinesis network excerpted above. Currently available networks are linked to the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim</a> page.</p>
+<p>PomBase has integrated over 200,000 manually curated gene-specific annotations. See our <a routerLink="/about/resource-metrics">Resource Metrics</a> page for more literature curation progress reports.</p>
 
 </div>
 <div *ngIf="panelId == 10">
-<p>PomBase provides extensive documentation and answers many questions in the <a routerLink="/faq">FAQ</a>. For any information you can't find there, please <app-contact-email [linkName]="'contact the helpdesk'" [subject]="'PomBase question'"></app-contact-email>.</p>
+<p>PomBase uses manually curated Gene Ontology annotation to generate biological process-specific networks, such as the cytokinesis network excerpted above. Currently available networks are linked to the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim</a> page.</p>
 
 </div>
 <div *ngIf="panelId == 11">
-<p>PomBase has pioneered a community curation system that enables researchers to contribute publication-based annotations directly to database curators. To participate, search for the PubMed ID of your paper <a href="https://curation.pombase.org/pombe">in Canto</a> or <app-contact-email [linkName]="'contact the helpdesk'" [subject]="'PomBase question'"></app-contact-email>.</p>
+<p>PomBase provides extensive documentation and answers many questions in the <a routerLink="/faq">FAQ</a>. For any information you can't find there, please <app-contact-email [linkName]="'contact the helpdesk'" [subject]="'PomBase question'"></app-contact-email>.</p>
 
 </div>
 <div *ngIf="panelId == 12">
-<p>The <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search">Protein Motif Search Tool</a> finds any user-defined amino acid sequence. The search supports exact match queries, wildcards, gaps, and ambiguity codes.</p>
+<p>PomBase has pioneered a community curation system that enables researchers to contribute publication-based annotations directly to database curators. To participate, search for the PubMed ID of your paper <a href="https://curation.pombase.org/pombe">in Canto</a> or <app-contact-email [linkName]="'contact the helpdesk'" [subject]="'PomBase question'"></app-contact-email>.</p>
 
 </div>
 <div *ngIf="panelId == 13">
-<p>4020 of the 5070 fission yeast protein-coding genes now have assigned standard names. We encourage all authors and reviewers to ensure that gene names are registered prior to publication. Visit our <a routerLink="/gene-names">gene registry page</a> and the <a routerLink="/gene-names/gene-naming-guidelines"><em>S. pombe</em> gene naming guidelines</a> for more information.</p>
+<p>The <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search">Protein Motif Search Tool</a> finds any user-defined amino acid sequence. The search supports exact match queries, wildcards, gaps, and ambiguity codes.</p>
 
 </div>
 <div *ngIf="panelId == 14">
+<p>4020 of the 5070 fission yeast protein-coding genes now have assigned standard names. We encourage all authors and reviewers to ensure that gene names are registered prior to publication. Visit our <a routerLink="/gene-names">gene registry page</a> and the <a routerLink="/gene-names/gene-naming-guidelines"><em>S. pombe</em> gene naming guidelines</a> for more information.</p>
+
+</div>
+<div *ngIf="panelId == 15">
 <p>Over 500 <em>S. pombe</em> genes whose human orthologs have been implicated in disease are manually annotated with terms from a small in-house vocabulary. See the <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">disease gene FAQ</a> for information on searching these genes.</p>
 
 </div>
