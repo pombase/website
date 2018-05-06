@@ -14,6 +14,7 @@ export class FrontPanelComponent implements OnInit {
 
   panelDescription = null;
   headImage: string = null;
+  headImageLink: string = null;
   headVideo: string = null;
 
   constructor() { }
@@ -32,6 +33,8 @@ export class FrontPanelComponent implements OnInit {
         this.headImage = 'assets/' + this.headImage;
       }
     }
+
+    this.headImageLink = this.conf.head_image_link;
 
     if (this.conf.panel_type === 'spotlight') {
       this.panelDescription = 'Research spotlight';

@@ -64,6 +64,7 @@ export interface PanelConfig {
   panel_type: string;
   internalId: number;
   head_image: Array<string>;
+  head_image_link: string;
   link?: string;
   link_label?: string;
   date_added: string;
