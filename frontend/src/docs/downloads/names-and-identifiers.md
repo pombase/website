@@ -20,7 +20,7 @@ These files are available in the [names and IDs FTP directory](ftp://ftp.pombase
 
 #### Gene names
 
--   [allNames.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/allNames.tsv)
+-   [gene_IDs_names.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/gene_IDs_names.tsv)
     tab-delimited file of systematic ID, primary gene name (where
     assigned), and all synonyms for each gene
 

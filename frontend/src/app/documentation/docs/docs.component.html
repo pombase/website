@@ -5346,7 +5346,7 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 </ul>
 <h4 id="gene-names">Gene names</h4>
 <ul>
-<li><a href="ftp://ftp.pombase.org/pombe/names_and_identifiers/allNames.tsv">allNames.tsv</a> tab-delimited file of systematic ID, primary gene name (where assigned), and all synonyms for each gene</li>
+<li><a href="ftp://ftp.pombase.org/pombe/names_and_identifiers/gene_IDs_names.tsv">gene_IDs_names.tsv</a> tab-delimited file of systematic ID, primary gene name (where assigned), and all synonyms for each gene</li>
 </ul>
 <h4 id="systematic-id-to-gene-product">Systematic ID to gene product</h4>
 <p>Files include systematic name, primary name (where assigned), synonyms (where assigned), and gene product description</p>
@@ -6505,7 +6505,7 @@ pop-up.
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-all-s.-pombe-genes', 'How can I retrieve all *S. pombe* genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-all-s.-pombe-genes' || pageName == 'all-faqs'">
 <h3 id="how-can-i-retrieve-all-s.-pombe-genes">How can I retrieve all <em>S. pombe</em> genes?</h3>
 <!-- pombase_categories: Genome statistics and lists,Finding data -->
-<p>The <a routerLink="/downloads/names-and-identifiers">Names and identifiers page</a> provides lists of all genes, including non-coding RNA genes. The allNames.tsv file contains the systematic IDs and names for both protein-coding and non-coding RNA genes, whereas two separate files are available that also include product descriptions.</p>
+<p>The <a routerLink="/downloads/names-and-identifiers">Names and identifiers page</a> provides lists of all genes, including non-coding RNA genes. The gene_IDs_names.tsv file contains the systematic IDs and names for both protein-coding and non-coding RNA genes, whereas two separate files are available that also include product descriptions.</p>
 <p>The <a routerLink="/query">advanced search</a> includes a query that retrieves all protein-coding genes at once, as decribed in <a routerLink="/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes">this FAQ</a>.</p>
 <p>This query retrieves genes of all types (protein-coding, non-coding RNA, and pseudogenes) by combining the &quot;product type&quot; options with the OR operator:</p>
 <p><app-query-link [goToResults]="true" [linkText]="'All genes'" [predefinedQueryId]="'canned_query:all_genes'"></app-query-link></p>
@@ -7455,7 +7455,7 @@ Carl’s family would be happy to receive memories of Carl’s life at regards [
 </ul>
 <p>We will also soon refine the display of the new expression data, and can add more datasets upon request. We thank Sam Marguerat for preparing the data from both papers for inclusion in PomBase.</p>
 <p>We have also updated the PomBase site to include manual curation through April 4, 2013, and we have updated the &quot;all gene names&quot; file on the PomBase ftp site. The new file is available at<br />
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/allNames.tsv" class="uri">ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/allNames.tsv</a></p>
+<a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/gene_IDs_names.tsv" class="uri">ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/gene_IDs_names.tsv</a></p>
 
   </div>
   <div *ngIf="pageName == 'genedb-s-pombe-decommissioned'">
@@ -8210,7 +8210,7 @@ We also have an updated version of the <em>S. pombe</em>/human ortholog table av
 </ul>
 <p>We will also soon refine the display of the new expression data, and can add more datasets upon request. We thank Sam Marguerat for preparing the data from both papers for inclusion in PomBase.</p>
 <p>We have also updated the PomBase site to include manual curation through April 4, 2013, and we have updated the &quot;all gene names&quot; file on the PomBase ftp site. The new file is available at<br />
-<a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/allNames.tsv" class="uri">ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/allNames.tsv</a></p>
+<a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/gene_IDs_names.tsv" class="uri">ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/gene_IDs_names.tsv</a></p>
 <h3 id="carl-singer-foundation-established">Carl Singer Foundation Established</h3>
 <p><em>2013-04-11</em></p>
 <p>Carl Singer, who was an integral part of the yeast research community for many years, passed away on February 8, 2013. Throughout his career, Carl supported yeast research both with his engineering expertise and with his good cheer. In tribute to Carl, the Singer family has now set up <a href="http://www.thecarlsingerfoundation.org/">The Carl Singer Foundation</a>, a charitable foundation dedicated to supporting scientific education in the field of yeast genetics. Questions about the foundation may be directed to Harry Singer at harry [at] thecarlsingerfoundation.org.<br />

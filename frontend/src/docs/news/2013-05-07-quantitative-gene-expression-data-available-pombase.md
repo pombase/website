@@ -18,4 +18,4 @@ data from both papers for inclusion in PomBase.
 We have also updated the PomBase site to include manual curation through
 April 4, 2013, and we have updated the "all gene names" file on the
 PomBase ftp site. The new file is available at\
-<ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/allNames.tsv>
+<ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/gene_IDs_names.tsv>

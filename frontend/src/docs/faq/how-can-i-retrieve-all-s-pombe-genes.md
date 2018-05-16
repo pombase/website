@@ -3,7 +3,7 @@
 
 The [Names and identifiers page](/downloads/names-and-identifiers)
 provides lists of all genes, including non-coding RNA genes. The
-allNames.tsv file contains the systematic IDs and names for both
+gene_IDs_names.tsv file contains the systematic IDs and names for both
 protein-coding and non-coding RNA genes, whereas two separate files
 are available that also include product descriptions.
 
