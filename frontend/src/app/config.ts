@@ -628,7 +628,7 @@ let _appConfig: AppConfig = {
         id: 'canned_queries',
         displayName: 'Canned queries',
         nodeType: 'canned-queries',
-        topDescription: 'Pre-defined queries', 
+        topDescription: 'Predefined queries',
       },
       {
         id: 'protein_mol_weight',
