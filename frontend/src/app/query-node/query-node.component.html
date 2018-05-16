@@ -11,7 +11,12 @@
   </div>
   <div class="node-components">
     <div *ngIf="!activeConf">
-      (Choose a starting point from left-hand menu)
+      <div class="node-top-description">
+        Choose a starting point from left-hand menu
+      </div>
+      <div>
+        <a routerLink="/documentation/advanced-search">Advanced search documentation ...</a>
+      </div>
     </div>
     <div *ngIf="activeConf">
 
