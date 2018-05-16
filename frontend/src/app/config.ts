@@ -440,6 +440,7 @@ let _appConfig: AppConfig = {
   chromosomes: pombaseConfig.chromosomes,
   documentation: docConfig,
 
+  // query builder node configuration:
   queryBuilder: {
     nodeTypes: [
       {
