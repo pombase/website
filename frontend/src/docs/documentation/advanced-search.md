@@ -16,7 +16,7 @@ In the Search menu, choose Advanced (or bookmark http://www.pombase.org/query).
 
 In the Query panel (top), click one of the links in the list on the left to choose a [query type](query-types).  For each query, the interface guides your input.
 
-![advanced search page with new query](assets/advanced_search_main.png){width="600"}
+![advanced search page with new query](assets/advanced_search_main.png){width="682"}
 
 In the History panel (bottom), queries are listed in reverse
 chronological order (most recently run first). Results are linked in
@@ -57,6 +57,21 @@ including the prefix (e.g. GO:0005634, FYPO:0002059), or simply start
 typing to search for a term name. Choose a term from the list of
 options offered by the autocomplete, and click "Submit".
 
+#### Commonly used queries
+
+This item offers convenient links to perform frequently used queries
+easily. Click on the query description to add the results to the query
+history.
+
+Please contact the [helpdesk](mailto:helpdesk@pombase.org) if you
+would like any queries added to the selection.
+
+#### Gene IDs
+
+Type or paste a list of systematic IDs, or click the "Browse" button
+to select a file to upload. Click "Lookup" to add the gene list to the
+history (useful for combining the list with other queries).
+
 #### GO
 
 The Gene Ontology (GO) query retrieves gene products annotated to a GO
@@ -79,13 +94,13 @@ annotated to a FYPO term and to any of its child terms, following the
 relationships in the ontology. This query also offers two additional
 sets of options:
 
-![phenotype search options](assets/fypo_search_options.png){width="400"}
+![phenotype search options](assets/fypo_search_options.png){width="651"}
 
 By default, the phenotype search retrieves genes from single-allele
 genotypes annotated to the searched FYPO term. You can alter the
 selected options to add genes from multi-allele genotypes. See the
 [gene page phenotype documentation](documentation/gene-page-phenotypes)
-and the [genotype page documentation[(documentation/genotype-page)
+and the [genotype page documentation](documentation/genotype-page)
 for more information.
 
 Different alleles of one gene may have different phenotypes, and one
@@ -97,6 +112,11 @@ changes, such as most disruptions, that completely abolish expression
 of the gene) or overexpression of the wild type allele.
 
 It is not yet possible to use condition details in the search.
+
+#### Product type
+
+Choose a gene product type (e.g. protein coding, tRNA, etc.) from the
+pulldown menu.
 
 #### Protein modification
 
@@ -115,34 +135,11 @@ This query searches for terms or IDs in the
 and retrieves protein-coding genes where the protein has the feature
 represented by the SO term (e.g. KEN box SO:0001807).
 
-#### Disease
+#### Protein length
 
-Search the internal PBO vocabulary to find *S. pombe* genes whose
-human orthologs have been implicated in disease. Start typing 'disease
-associated' or the name of a specific disease, and choose from the
-autocomplete options.
-
-#### Product type
-
-Choose a gene product type (e.g. protein coding, tRNA, etc.) from the
-pulldown menu.
-
-#### Taxonomic conservation
-
-Choose one of the descriptions from the pulldown menu. See the [gene page documentation](documentation/taxonomic-conservation) for more information.
-
-#### Characterisation status
-
-Choose one of the descriptions from the pulldown menu. See the [gene characterisation page](status/gene-characterisation) for more information.
-
-#### Canned queries
-
-This item offers convenient links to perform frequently used queries
-easily. Click on the query description to add the results to the query
-history.
-
-Please contact the [helpdesk](mailto:helpdesk@pombase.org) if you
-would like any queries added to the selection.
+Find protein-coding genes with products in a specified length
+range. Enter the desired minimum and maximum length and click
+"Search".
 
 #### Protein mol. weight
 
@@ -150,23 +147,18 @@ Find protein-coding genes with products in a specified mass
 range. Enter the desired minimum and maximum mass in kiloDaltons (kDa)
 and click "Search".
 
-#### Protein length
+#### Disease
 
-Find protein-coding genes with products in a specified length
-range. Enter the desired minimum and maximum length and click
-"Search".
+Search the internal PBO vocabulary to find *S. pombe* genes whose
+human orthologs have been implicated in disease. Start typing 'disease
+associated' or the name of a specific disease, and choose from the
+autocomplete options.
 
 #### Number of TM domains
 
 Find protein-coding genes with products that have a specified number
 of transmembrane domains. Enter the desired minimum and maximum number
 and click "Search".
-
-#### Coding exons
-
-Find protein-coding genes with a specified number of coding
-exons. Enter the desired minimum and maximum number and click
-"Search".
 
 #### Genome location
 
@@ -175,13 +167,19 @@ from the pulldown, and click "Search" to retrieve all genes on the
 chromosome. Optional: enter start and end coordinates in the boxes to
 retrieve only genes in the indicated region.
 
-#### Gene IDs
+#### Coding exons
 
-Type or paste a list of systematic IDs, or click the "Browse" button
-to select a file to upload. Click "Lookup" to add the gene list to the
-history (useful for combining the list with other queries).
+Find protein-coding genes with a specified number of coding
+exons. Enter the desired minimum and maximum number and click
+"Search".
 
+#### Taxonomic conservation
 
+Choose one of the descriptions from the pulldown menu. See the [gene page documentation](documentation/taxonomic-conservation) for more information.
+
+#### Characterisation status
+
+Choose one of the descriptions from the pulldown menu. See the [gene characterisation page](status/gene-characterisation) for more information.
 
 ### Search tips
 [FAQ](/faq) entries relevant to using the advanced search are
