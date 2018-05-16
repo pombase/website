@@ -650,7 +650,7 @@ let _appConfig: AppConfig = {
       },
       {
         id: 'exon_count',
-        displayName: 'Coding exons',
+        displayName: 'Number of exons',
         nodeType: 'int-range',
         topDescription: 'Retrieve genes by number of exons',
       },
