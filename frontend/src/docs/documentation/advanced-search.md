@@ -133,7 +133,7 @@ InterPro. Type or paste an accession and click "Submit".
 This query searches for terms or IDs in the 
 [Sequence Ontology](http://sequenceontology.org/) 
 and retrieves protein-coding genes where the protein has the feature
-represented by the SO term (e.g. KEN box SO:0001807).
+represented by the SO term (e.g. [KEN box SO:0001807](/term/SO:0001807) ).
 
 #### Protein length
 
