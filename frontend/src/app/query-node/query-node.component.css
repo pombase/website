@@ -53,3 +53,8 @@
 .range input {
   width: 8em;
 }
+
+.node-top-description {
+  font-weight: bold;
+  margin: 0 0 0.6em 0;
+}

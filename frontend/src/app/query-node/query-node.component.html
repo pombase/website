@@ -15,6 +15,10 @@
     </div>
     <div *ngIf="activeConf">
 
+      <div class="node-top-description">
+        {{activeConf.topDescription}}:
+      </div>
+
       <div *ngIf="activeConf.nodeType == 'ontology'">
         <app-query-term-node [termNodeConfig]="activeConf"
                              [placeholder]="activeConf.placeholder ? activeConf.placeholder :'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
