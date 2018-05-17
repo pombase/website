@@ -143,6 +143,11 @@ export interface SplitByParentsConfig {
   details_link_label?: string;
 }
 
+export interface AnnotationExternalLinkConfig {
+  display_text: string;
+  url_prefix: string;
+}
+
 export interface AnnotationType {
   feature_type: string;
   display_name: string;
@@ -154,6 +159,7 @@ export interface AnnotationType {
   hide_term_details?: boolean;
   filters?: Array<FilterConfig>;
   external_db_link_keys?: Array<string>;
+  external_link_config?: Array<AnnotationExternalLinkConfig>;
   misc_config?: {
     [key: string]: any;
   };

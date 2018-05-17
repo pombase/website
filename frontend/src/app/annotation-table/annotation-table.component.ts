@@ -24,6 +24,9 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   splitDataList = {};
   splitSummaryList = {};
   split_by_parents: Array<SplitByParentsConfig> = [];
+  externalLinksConfig = [];
+
+  allTermIds = [];
 
   constructor() { }
 
@@ -63,12 +66,18 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
     }
   }
 
+  getAllTermIds(): string[] {
+    return this.annotationTable.map((termAnnotation) => termAnnotation.term.termid);
+  }
+
   ngOnInit() {
     if (!this.annotationTable) {
       return;
     }
 
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
+
+    this.externalLinksConfig = this.typeConfig.external_link_config || [];
 
     if (this.tableDisplayName == null) {
       if (this.typeConfig.display_name) {
@@ -82,6 +91,8 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    this.allTermIds = this.getAllTermIds();
+
     this.maybeDoSplit();
   }
 }

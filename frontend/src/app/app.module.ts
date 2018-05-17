@@ -84,6 +84,7 @@ import { ReferenceDetailListPageComponent } from './reference-detail-list-page/r
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { AnnotationTableExtLinksComponent } from './annotation-table-ext-links/annotation-table-ext-links.component';
 
 
 export function documentFactory() {
@@ -160,6 +161,7 @@ export function windowFactory() {
     MessageDialogComponent,
     ReferenceDetailListComponent,
     ReferenceDetailListPageComponent,
+    AnnotationTableExtLinksComponent,
   ],
   imports: [
     BrowserModule,
