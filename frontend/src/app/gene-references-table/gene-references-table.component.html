@@ -2,6 +2,10 @@
   <legend>
     Literature
   </legend>
+
+  <app-help-link [route]="'/documentation/gene-page-literature'">
+  </app-help-link>
+
   <div *ngIf="pubmedSearchUrl" class="pubmed-search">
     <a href="{{pubmedSearchUrl}}">Search PubMed for {{pubmedSearchGeneLabel}}</a>
   </div>

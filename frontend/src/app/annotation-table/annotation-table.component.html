@@ -4,6 +4,9 @@
     <span *ngIf="!annotationTypeName">Annotations</span>
   </legend>
 
+  <app-help-link *ngIf="typeConfig.help_route" [route]="typeConfig.help_route">
+  </app-help-link>
+
   <div class="annotation-table-container">
   <app-deletion-viability-summary *ngIf="geneDetails && annotationTypeName == 'single_allele_phenotype'"
                                   [geneDetails]="geneDetails">

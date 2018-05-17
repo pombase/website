@@ -163,6 +163,7 @@ export interface AnnotationType {
   misc_config?: {
     [key: string]: any;
   };
+  help_route?: string;
 }
 
 export interface AnnotationTypes {

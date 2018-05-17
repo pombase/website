@@ -3,6 +3,9 @@
     {{annotationTypeDisplayName}}
   </legend>
 
+  <app-help-link [route]="'/documentation/genetic-and-physical-interactions'">
+  </app-help-link>
+
   <div class="interaction-source"><span>Source:</span> <a href="https://thebiogrid.org/">BioGRID</a></div>
 
   <a *ngIf="routerLinkUrl" routerLink="{{routerLinkUrl}}">Query using interacting genes ...</a>

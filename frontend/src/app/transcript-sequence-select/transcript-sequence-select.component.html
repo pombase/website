@@ -2,6 +2,10 @@
   <legend>
     Sequence
   </legend>
+
+  <app-help-link [route]="'/documentation/gene-page-sequence'">
+  </app-help-link>
+
   <div (mousemove)="mousemove()">
     <div *ngIf="hasTranscripts">
         <div class="controls">

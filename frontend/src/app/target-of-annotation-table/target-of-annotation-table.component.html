@@ -3,6 +3,9 @@
     Target of
   </legend>
 
+  <app-help-link [route]="'/documentation/gene-page-target'">
+  </app-help-link>
+
   <div class="view-controls">
     <a *ngIf="currentViewState != TableViewState.Details" (click)="showDetails()">Show details ...</a>
     <a *ngIf="currentViewState == TableViewState.Details" (click)="showSummary()">Show summary ...</a>
