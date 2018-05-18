@@ -1,6 +1,10 @@
 <fieldset *ngIf="annotationTable?.length > 0" class="annotation-table">
   <legend>
     Quantitative gene expression
+
+    <app-help-link [route]="'/documentation/gene-page-gene-expression'"
+                   [title]="'View documentation for Quantitative gene expression'">
+    </app-help-link>
   </legend>
 
   <div class="table-control">

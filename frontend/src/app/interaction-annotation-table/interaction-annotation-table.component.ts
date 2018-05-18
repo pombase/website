@@ -20,6 +20,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   hideColumn = {};
 
   displayTable = [];
+  helpIconTitle = 'View documentation';
 
   routerLinkUrl = null;
 
@@ -34,8 +35,10 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
     if (typeConfig && typeConfig.display_name) {
       this.annotationTypeDisplayName =
         this.config.annotationTypes[this.annotationTypeName].display_name;
+      this.helpIconTitle = 'View documentation for ' + typeConfig.display_name;
     } else {
       this.annotationTypeDisplayName = this.annotationTypeName;
+      this.helpIconTitle = 'View documentation';
     }
   }
 

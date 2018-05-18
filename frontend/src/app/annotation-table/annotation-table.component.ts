@@ -25,6 +25,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   splitSummaryList = {};
   split_by_parents: Array<SplitByParentsConfig> = [];
   externalLinksConfig = [];
+  helpIconTitle = 'View documention';
 
   allTermIds = [];
 
@@ -85,6 +86,13 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
       } else {
         this.tableDisplayName = this.annotationTypeName;
       }
+    }
+
+    if (this.tableDisplayName) {
+      this.helpIconTitle = 'View documentation for the ' + this.tableDisplayName +
+        ' section';
+    } else {
+      this.helpIconTitle = 'View documentation';
     }
 
     this.maybeDoSplit();
