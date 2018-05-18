@@ -1,3 +1,8 @@
-.annotation-table-ext-links-component li {
+ul {
+  padding-left: 0;
+}
+
+li {
+  margin-top: 0.2em;
   list-style-type: none;
 }

@@ -1,5 +1,4 @@
 <div class="annotation-table-ext-links-component" *ngIf="termIds.length > 0">
-  External links:
   <ul>
     <li *ngFor="let config of extLinksConfig">
       <a href="{{config.url_prefix}}{{termIdString}}">{{config.display_text}}</a>

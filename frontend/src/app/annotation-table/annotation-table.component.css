@@ -3,14 +3,7 @@
   font-size: 120%;
 }
 
-.annotation-table-slim-and-links {
-  display: grid;
-  grid-template-columns: auto 20em;
-}
-
-.annotation-table-slim {
-}
-
 .annotation-table-ext-links {
-  margin-left: 2em;
+  padding-left: 2em;
+  border-top: 1px solid #AAA
 }

@@ -12,20 +12,10 @@
                                   [geneDetails]="geneDetails">
   </app-deletion-viability-summary>
 
-  <div *ngIf="externalLinksConfig.length > 0 || geneDetails && annotationTypeName == 'biological_process'"
-       class="annotation-table-slim-and-links">
-
     <div class="annotation-table-slim" *ngIf="geneDetails && annotationTypeName == 'biological_process'">
       <app-go-slim-summary [geneDetails]="geneDetails">
       </app-go-slim-summary>
     </div>
-
-    <div class="annotation-table-ext-links" *ngIf="externalLinksConfig.length > 0">
-      <app-annotation-table-ext-links [termIds]="allTermIds" [extLinksConfig]="externalLinksConfig">
-      </app-annotation-table-ext-links>
-    </div>
-
-  </div>
 
   <div *ngIf="split_by_parents.length == 0">
     <app-annotation-sub-table
@@ -56,4 +46,10 @@
                           [proteinDetails]="geneDetails.transcripts[0].protein">
   </app-protein-properties>
   </div>
+
+  <div class="annotation-table-ext-links" *ngIf="externalLinksConfig.length > 0">
+    <app-annotation-table-ext-links [termIds]="allTermIds" [extLinksConfig]="externalLinksConfig">
+    </app-annotation-table-ext-links>
+  </div>
+
 </fieldset>
