@@ -1,7 +1,7 @@
 <div class="annotation-table-ext-links-component" *ngIf="termIds.length > 0">
   <ul>
     <li *ngFor="let config of extLinksConfig">
-      <a href="{{config.url_prefix}}{{termIdString}}">{{config.display_text}}</a>
+      <a target="_blank" href="{{config.url_prefix}}{{termIdString}}">{{config.display_text}}</a>
     </li>
   </ul>
 </div>
