@@ -68,7 +68,11 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   }
 
   getAllTermIds(): string[] {
-    return this.annotationTable.map((termAnnotation) => termAnnotation.term.termid);
+    if (this.annotationTable) {
+      return this.annotationTable.map((termAnnotation) => termAnnotation.term.termid);
+    } else {
+      return [];
+    }
   }
 
   ngOnInit() {
