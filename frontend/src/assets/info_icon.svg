@@ -39,8 +39,8 @@
      inkscape:window-height="983"
      id="namedview30"
      showgrid="false"
-     inkscape:zoom="3.8064516"
-     inkscape:cx="31.525424"
+     inkscape:zoom="7.6129032"
+     inkscape:cx="31.394068"
      inkscape:cy="31"
      inkscape:window-x="0"
      inkscape:window-y="27"
@@ -114,17 +114,16 @@
      fill="url(#fieldGradient)"
      stroke="url(#edgeGradient)"
      stroke-width="2"
-     style="fill-opacity:1;fill:#4f94fe" />
-  <g
-     id="info"
-     fill="white">
-    <polygon
-       points="23,25 35,25 35,44 39,44 39,48 23,48 23,44 27,44 27,28 23,28 23,25"
-       id="polygon23" />
-    <circle
-       r="4"
-       cx="31"
-       cy="17"
-       id="circle25" />
-  </g>
+     style="fill-opacity:1;fill:#337ab7;stroke:#3050a7;stroke-opacity:1" />
+  <polygon
+     style="fill:#ffffff"
+     id="polygon23"
+     points="23,48 23,44 27,44 27,28 23,28 23,25 35,25 35,44 39,44 39,48 "
+     transform="matrix(1,0,0,1.045689,0.26271186,-0.64867406)" />
+  <circle
+     style="fill:#ffffff;stroke-width:0.95629925"
+     id="circle25"
+     cy="15.825764"
+     cx="31.007969"
+     r="5.0813527" />
 </svg>
