@@ -1,6 +1,4 @@
-.help-link {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 100%;
+.help-link img {
+  height: 1.0em;
+  margin-left: 0.5em;
 }

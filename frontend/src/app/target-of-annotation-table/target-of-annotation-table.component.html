@@ -1,10 +1,10 @@
 <fieldset *ngIf="annotationTable?.length > 0" class="annotation-table">
   <legend>
     Target of
-  </legend>
 
-  <app-help-link [route]="'/documentation/gene-page-target'">
-  </app-help-link>
+    <app-help-link [route]="'/documentation/gene-page-target'">
+    </app-help-link>
+  </legend>
 
   <div class="view-controls">
     <a *ngIf="currentViewState != TableViewState.Details" (click)="showDetails()">Show details ...</a>

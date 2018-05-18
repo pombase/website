@@ -1,10 +1,10 @@
 <fieldset *ngIf="references?.length > 0" class="annotation-table references">
   <legend>
     Literature
-  </legend>
 
-  <app-help-link [route]="'/documentation/gene-page-literature'">
-  </app-help-link>
+    <app-help-link [route]="'/documentation/gene-page-literature'">
+    </app-help-link>
+  </legend>
 
   <div *ngIf="pubmedSearchUrl" class="pubmed-search">
     <a href="{{pubmedSearchUrl}}">Search PubMed for {{pubmedSearchGeneLabel}}</a>
