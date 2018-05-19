@@ -71,3 +71,8 @@ ul.conditions li {
 .summary-feature {
   padding-left: 20px;
 }
+
+.annotation-table-ext-links {
+  padding-left: 2em;
+  border-top: 1px solid #AAA
+}

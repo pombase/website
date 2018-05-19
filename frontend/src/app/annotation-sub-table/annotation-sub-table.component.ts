@@ -40,6 +40,17 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   annotationCount = 0;
   detailsOnly = false;
 
+  externalLinksConfig = [];
+  allTermIds = [];
+
+  getAllTermIds(): string[] {
+    if (this.annotationTable) {
+      return this.annotationTable.map((termAnnotation) => termAnnotation.term.termid);
+    } else {
+      return [];
+    }
+  }
+
   updateCurrentFilter(filter: AnnotationFilter) {
     if (filter) {
       [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
@@ -150,11 +161,14 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
       this.detailsOnly = false;
       this.allSummaryView();
     }
+
+    this.allTermIds = this.getAllTermIds();
   }
 
   ngOnInit() {
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
     this.filterConfig = this.typeConfig.filters;
+    this.externalLinksConfig = this.typeConfig.external_link_config || [];
   }
 
   ngOnChanges() {
