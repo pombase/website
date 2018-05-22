@@ -421,7 +421,7 @@ export class PombaseAPIService {
                          referencesByUniquename: any, termsByTermId: TermIdTermMap) {
     for (let termAnnotation of termAnnotations) {
       termAnnotation.annotations =
-        (termAnnotation.annotations as any as Array<number>)
+        Array.from(new Set(termAnnotation.annotations as any as Array<number>))
         .map(id => { return annotationDetailsMap[id] }) as Array<Annotation>;
       const termId = termAnnotation.term as any as string;
       termAnnotation.term = termsByTermId[termId];
