@@ -1,5 +1,4 @@
 ### Congratulations to GSA award winners
-<!-- pombase_flags: frontpage -->
 
 The [Genetics Society of America](http://www.genetics-gsa.org) (GSA)
 has announced two award winners familiar to the model organism
