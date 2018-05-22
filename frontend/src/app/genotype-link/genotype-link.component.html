@@ -1,6 +1,6 @@
 <span [class.short-genotype-link]="isShortDisplayName">
   <ng-template #allelesPopover>
-    <span *ngIf="genotype.background">Background: {{genotype.background}}</span>
+    <span *ngIf="background">Background: <span class="genotype-background">{{background}}</span></span>
     <app-genotype-allele-summary class="link-allele-summary" [genotype]="genotype">
     </app-genotype-allele-summary>
   </ng-template>

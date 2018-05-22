@@ -76,3 +76,7 @@ ul.conditions li {
   padding-left: 2em;
   border-top: 1px solid #AAA
 }
+
+.genotype-background span {
+  font-weight: bold;
+}

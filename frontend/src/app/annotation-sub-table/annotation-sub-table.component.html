@@ -40,6 +40,7 @@
         <th>Term name</th>
         <th *ngIf="showColumn['gene'] && !featureInFirstColumn">Gene</th>
         <th *ngIf="showColumn['genotype'] && !featureInFirstColumn">Genotype</th>
+        <th *ngIf="showColumn['genotype_background'] && !featureInFirstColumn">Background</th>
         <th *ngIf="showColumn['evidence']">Evidence</th>
         <th *ngIf="showColumn['conditions']">Conditions</th>
         <th *ngIf="showColumn['qualifiers']">Qualifiers</th>
@@ -118,7 +119,18 @@
           <app-gene-link class="app-link" *ngIf="annotation.gene" [gene]="annotation.gene"></app-gene-link>
         </td>
         <td *ngIf="showColumn['genotype'] && !featureInFirstColumn">
-          <app-genotype-link class="app-link" *ngIf="annotation.genotype" [genotype]="annotation.genotype"></app-genotype-link>
+          <app-genotype-link class="app-link" *ngIf="annotation.genotype"
+                             [genotype]="annotation.genotype"
+                             [background]="annotation.genotype_background">
+          </app-genotype-link>
+          <div class="genotype-background" *ngIf="annotation.genotype_background">
+            background: <span>{{annotation.genotype_background}}</span>
+          </div>
+        </td>
+        <td *ngIf="showColumn['genotype_background']">
+          <span class="genotype-background">
+            {{annotation.genotype_background}}
+          </span>
         </td>
         <td class="with" *ngIf="showColumn['evidence']">
           <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>

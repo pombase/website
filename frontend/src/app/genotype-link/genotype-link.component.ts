@@ -9,6 +9,7 @@ import { GenotypeShort } from '../pombase-api.service';
 })
 export class GenotypeLinkComponent implements OnInit {
   @Input() genotype: GenotypeShort;
+  @Input() background: string = null;
 
   isShortDisplayName = false;
   displayName = '';

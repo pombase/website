@@ -94,6 +94,7 @@ export interface Annotation {
   qualifiers: Array<TermShort>;
   genes: Array<GeneShort>|Array<string>;
   genotype: string|GenotypeShort;
+  genotype_background?: string;
   extension: Array<ExtPart>;
 }
 export interface TermAnnotation {

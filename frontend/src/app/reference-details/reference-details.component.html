@@ -95,7 +95,7 @@ if you would like to contribute annotations for this paper.)
                              *ngIf="annotationTypeName != 'qualitative_gene_expression' && annotationTypeName != 'quantitative_gene_expression'"
                             [scope]="'reference'"
                             [annotationTypeName]="annotationTypeName"
-                            [hideColumns]="['reference', 'desc-rel']"
+                            [hideColumns]="['reference', 'desc-rel', 'genotype_background']"
                             [featureInFirstColumn]="true"
                             [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
     </span>

@@ -6,3 +6,7 @@
 .link-allele-summary table {
   width: 100%;
 }
+
+.genotype-background {
+  font-weight: bold;
+}
