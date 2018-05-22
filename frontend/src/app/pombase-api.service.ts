@@ -65,7 +65,7 @@ export interface AlleleMap {
 }
 
 export interface GenotypeShort {
-  uniquename: string;
+  display_uniquename: string;
   name: string;
   displayNameLong?: string;
   background: string;
@@ -94,6 +94,7 @@ export interface Annotation {
   qualifiers: Array<TermShort>;
   genes: Array<GeneShort>|Array<string>;
   genotype: string|GenotypeShort;
+  genotype_background?: string;
   extension: Array<ExtPart>;
 }
 export interface TermAnnotation {
@@ -294,7 +295,7 @@ export class GeneDetails {
 }
 
 export class GenotypeDetails {
-  uniquename: string;
+  display_uniquename: string;
   name: string;
   background: string;
   expressed_alleles: Array<ExpressedAllele>;

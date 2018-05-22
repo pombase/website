@@ -145,6 +145,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
       this.termNameColSpan -= 1;
     }
 
+    let foundBackground = false;
+
     if (this.annotationTable && this.annotationTable.length > 0) {
       for (let termAnnotation of this.annotationTable) {
         this.compactFirstRows[termAnnotation.term.termid] =
@@ -152,6 +154,20 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
           !termAnnotation.annotations[0].extension ||
           termAnnotation.annotations[0].extension.length === 0;
       }
+
+      FOUND:
+      for (let termAnnotation of this.annotationTable) {
+        for (let annotation of termAnnotation.annotations) {
+          if (annotation.genotype_background) {
+            foundBackground = true;
+            break FOUND;
+          }
+        }
+      }
+    }
+
+    if (!foundBackground) {
+      this.showColumn['genotype_background'] = false;
     }
 
     if (typeConfig.details_only) {
