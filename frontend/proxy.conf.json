@@ -1,6 +1,10 @@
 {
   "/jbrowse": {
-    "target": "http://localhost:8400",
+    "target": "http://localhost/",
+    "secure": false
+  },
+  "/browser_images": {
+    "target": "http://localhost/",
     "secure": false
   },
   "/api": {
