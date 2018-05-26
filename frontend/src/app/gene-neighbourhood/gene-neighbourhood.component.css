@@ -1,8 +1,13 @@
 .gene-neighbourhood {
   padding: 10px 0 10px 0;
-  text-align: center;
   white-space: nowrap;
   overflow-x: auto;
+  display: block;
+  width: calc(16em + 800px);
+}
+
+.gene-neighbourhood-inner {
+  text-align: center;
 }
 
 .gene-neighbourhood-focus-gene {

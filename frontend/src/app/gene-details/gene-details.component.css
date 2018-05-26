@@ -1,8 +1,8 @@
 #gene-summary {
+  display: inline-block;
 }
 
 #gene-details .chromosome-region-view {
-  margin: 0 auto;
 }
 
 @media (max-width: 799px) {
@@ -14,15 +14,17 @@
 @media (min-width: 800px) {
   #gene-details .chromosome-region-view {
     width: 800px;
+    margin: 0 8em;
   }
 }
 
 .gene-details-name-id {
-  text-align: center;
+  font-size: 120%;
 }
 
-.name-id {
+.name-id .gene-name {
   font-weight: bold;
+  font-size: 110%;
 }
 
 .details-page-summary td {
@@ -30,7 +32,6 @@
 }
 
 #gene-summary table {
-  margin: 0 auto;
 }
 
 .genomic-location {

@@ -6,19 +6,17 @@
                        [subject]="'Comment or problem report for ' + displayNameLong()"></app-contact-email>
     <div class="details-page-name-and-id">
     <div class="gene-details-name-id">
-    <span *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">
+    <span class="gene-name" *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">
       <span class="name-id">{{organism.genus}} {{organism.species}}</span>
     </span>
     <span *ngIf="geneDetails.name">
-      <span class="name-id">{{geneDetails.name}}</span>
+      <span class="name-id"><span class="gene-name">{{geneDetails.name}}</span> / {{geneDetails.uniquename}} details</span>
     </span>
-    <span *ngIf="!geneDetails.name">
+    <span class="gene-name" *ngIf="!geneDetails.name">
       <span class="name-id">{{geneDetails.uniquename}}</span>
     </span>
     </div>
     </div>
-
-    <hr style="clear: both" />
 
     <div id="gene-summary" class="details-page-summary">
     <table>
@@ -78,7 +76,6 @@
                              [visibleSections]="visibleSections"></app-details-page-menu>
     </div>
 
-    <hr style="clear: both" />
     <div class="chromosome-region-view"
          *ngIf="appConfig.isConfigOrganism(geneDetails.taxonid)">
       <div class="jbrowse-link">
@@ -98,8 +95,6 @@
     <app-gene-neighbourhood [focusGeneUniquename]="geneDetails.uniquename"
                             [focusGeneName]="geneDetails.name"
                             [neighbourhood]="geneDetails.gene_neighbourhood"></app-gene-neighbourhood>
-
-    <hr style="clear: both" />
 
     <div *ngFor="let annotationTypeName of annotationTypeNames">
 

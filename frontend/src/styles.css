@@ -17,9 +17,8 @@ a {
 }
 
 .details-page-name-and-id {
-  font-weight: bold;
   font-size: 170%;
-  margin-bottom: 30px;
+  margin: 0.8em 0 0.5em 0;
 }
 
 .details-page-name-and-id .name {
@@ -29,6 +28,9 @@ a {
 .details-page-summary {
   font-size: 110%;
   border: 0;
+  border-top: 1px solid #bbb;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #bbb;
 }
 
 .details-page-summary .details-label {
@@ -97,9 +99,6 @@ fieldset.annotation-table {
 }
 
 /* override Bootstrap */
-fieldset legend, ul.pagination {
-  margin: 5px 0;
-}
 html body hr {
   margin: 15px 0;
 }
@@ -166,11 +165,11 @@ select option:disabled {
 @media (min-width: 800px) {
   .details-page, .docs-content {
     right: 0;
-    padding-left: 175px;
+    padding-left: 180px;
     width: auto;
   }
   .details-page-menu, .page-content-menu {
-    width: 150px;
+    width: 160px;
     left: 10px;
   }
 }
@@ -191,17 +190,17 @@ select option:disabled {
   margin-top: 5px;
   margin-bottom: 5px;
   background-color: #eeebdd;
-  padding: 3px 5px;
+  padding: 2px 3px 2px 3px;
 }
 
 .left-menu-header {
-  font-size: 85%;
+  font-size: 92%;
   margin-left: 0px;
   font-weight: bold;
   border-left: 4px solid #556;
 }
 .left-menu-item {
-  font-size: 80%;
+  font-size: 88%;
   margin-left: 6px;
   border-left: 3px solid #667;
 }
