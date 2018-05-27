@@ -32,12 +32,14 @@ export class FormatUtils {
   }
 }
 
-export class TermShort {
-  constructor(public termid: TermId,
-              public name: string,
-              public definition: string,
-              public interesting_parents: Array<string>,
-              public is_obsolete: boolean) { }
+export interface TermShort {
+  termid: TermId,
+  name: string,
+  definition: string,
+  interesting_parents: Array<string>,
+  is_obsolete: boolean;
+  gene_count?: number;
+  genotype_count?: number;
 }
 
 export enum QueryNodeOperator {
@@ -209,8 +211,11 @@ export class TermNode extends GeneQueryNode {
   }
 
   getTerm(): TermShort {
-    return new TermShort(this.termid, this.termName, this.definition,
-                         [], false);
+    return {
+      termid: this.termid,
+      name: this.termName,
+      definition: this.definition
+    } as TermShort;
   }
 
   getSingleOrMulti(): string {

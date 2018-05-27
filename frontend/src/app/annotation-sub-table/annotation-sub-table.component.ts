@@ -15,7 +15,7 @@ import { TableViewState } from '../pombase-types';
 export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
-  @Input() featureInFirstColumn? = false;
+  @Input() featureInFirstColumn = false;
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() scope: string;
   @Input() splitByConfig: SplitByParentsConfig = null;
