@@ -11,7 +11,7 @@ export class AnnotationTableExtLinksComponent implements OnInit, OnChanges {
   @Input() termIds = [];
   @Input() extLinksConfig: Array<AnnotationExternalLinkConfig> = [];
 
-  termIdString = "";
+  termIdString = '';
 
   constructor() { }
 

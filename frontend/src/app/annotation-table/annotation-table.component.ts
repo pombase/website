@@ -13,7 +13,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() tableDisplayName?: string = null;
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
-  @Input() featureInFirstColumn? = false;
+  @Input() featureInFirstColumn = false;
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() geneDetails?: GeneDetails = null;
   @Input() scope: string; // "gene", "term", "reference" ...

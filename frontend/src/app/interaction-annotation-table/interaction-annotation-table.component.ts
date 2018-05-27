@@ -52,7 +52,8 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
     }
 
     if (this.currentGene) {
-      const json = `{"constraints":{"interactors": {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
+      const json = `{"constraints":{"interactors":
+       {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
         '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
       this.routerLinkUrl = `/query/results/from/json/${json}`;
     }

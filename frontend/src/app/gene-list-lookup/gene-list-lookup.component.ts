@@ -30,7 +30,7 @@ export class GeneListLookupComponent implements OnInit {
     return this.inputText.trim().split(/\s+/)
       .filter(id => {
         id = id.trim();
-        if (id.length == 0) {
+        if (id.length === 0) {
           return false;
         }
         if (id.match(/[^a-zA-Z0-9\-_:\.]/)) {

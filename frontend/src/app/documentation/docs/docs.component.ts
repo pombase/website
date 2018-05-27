@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Title } from '@angular/platform-browser';
 
@@ -13,7 +13,7 @@ const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
   templateUrl: './docs.component.html',
   styleUrls: ['./docs.component.css']
 })
-export class DocsComponent implements OnInit {
+export class DocsComponent implements OnInit, OnDestroy {
   section: string = null;
   pageName: string = null;
   subscription = null;

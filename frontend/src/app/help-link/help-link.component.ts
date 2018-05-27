@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HelpLinkComponent implements OnInit {
   @Input() route: string;
-  @Input() title: string = 'Visit documentation';
+  @Input() title = 'Visit documentation';
 
   constructor() { }
 
