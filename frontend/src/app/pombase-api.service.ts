@@ -329,6 +329,7 @@ export class ReferenceDetails {
   uniquename: string;
   title: string;
   citation: string;
+  abstract: string;
   authors: string;
   authors_abbrev: string;
   pubmed_publication_date: string;
@@ -336,6 +337,7 @@ export class ReferenceDetails {
   canto_curator_role: string;
   canto_curator_name: string;
   canto_approved_date: string;
+  approved_date: string;
   canto_session_submitted_date: string;
   publication_year: string;
   cv_annotations: CvAnnotations;
