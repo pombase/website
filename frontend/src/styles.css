@@ -96,6 +96,7 @@ fieldset.annotation-table {
   display: block;
   font-size: 120%;
   width: auto;
+  margin: 5px;
 }
 
 .term-page-view-change {
