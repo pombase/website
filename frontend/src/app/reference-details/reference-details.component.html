@@ -7,7 +7,7 @@
                      [subject]="'Comment or problem report'"></app-contact-email>
 
   <div class="details-page-name-and-id">
-    <span class="reference-title" *ngIf="refDetails.title">
+    <span class="reference-title name-id-highlight" *ngIf="refDetails.title">
       {{refDetails.title}}
     </span>
   </div>
@@ -61,8 +61,6 @@
     <app-details-page-menu [title]="refDetails.uniquename"
                            [visibleSections]="visibleSections"></app-details-page-menu>
   </div>
-
-  <hr style="clear: both" />
 
   <div *ngIf="refAnnotationStatus != null" class="annotations-section-header">
     <div *ngIf="refAnnotationStatus == 'has-annotations'">Annotations from this publication:</div>

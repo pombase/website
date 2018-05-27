@@ -18,7 +18,6 @@
       No annotations for {{termDetails.termid}}
     </div>
     <div *ngIf="hasAnnotations()">
-    <hr style="clear: both" />
 
     <div *ngIf="annotationFeatureType == 'gene' && annotatedGeneCount > 0" class="term-page-view-change">
       <a routerLink="/term_genes/{{termDetails.termid}}"

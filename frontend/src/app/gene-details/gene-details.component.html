@@ -10,7 +10,7 @@
       <span class="name-id">{{organism.genus}} {{organism.species}}</span>
     </span>
     <span *ngIf="geneDetails.name">
-      <span class="name-id"><span class="gene-name">{{geneDetails.name}}</span> / {{geneDetails.uniquename}} details</span>
+      <span class="name-id"><span class="name-id-highlight">{{geneDetails.name}}</span> / {{geneDetails.uniquename}} details</span>
     </span>
     <span class="gene-name" *ngIf="!geneDetails.name">
       <span class="name-id">{{geneDetails.uniquename}}</span>
@@ -23,7 +23,7 @@
       <tbody>
         <tr>
           <td class="details-label">Gene standard name</td>
-          <td>{{geneDetails.name || ''}}</td>
+          <td><span class="gene-name">{{geneDetails.name || ''}}</span></td>
           <td class="details-label">Characterisation status</td>
           <td>{{geneDetails.characterisation_status}}</td>
         </tr>

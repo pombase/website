@@ -1,5 +1,5 @@
-#gene-summary {
-  display: inline-block;
+.gene-name {
+  font-weight: bold;
 }
 
 #gene-details .chromosome-region-view {
@@ -20,11 +20,6 @@
 
 .gene-details-name-id {
   font-size: 120%;
-}
-
-.name-id .gene-name {
-  font-weight: bold;
-  font-size: 110%;
 }
 
 .details-page-summary td {

@@ -19,9 +19,11 @@ a {
 .details-page-name-and-id {
   font-size: 170%;
   margin: 0.8em 0 0.5em 0;
+  max-width: 1400px;
 }
 
-.details-page-name-and-id .name {
+.details-page-name-and-id .name-id-highlight {
+  font-weight: bold;
   font-size: 110%;
 }
 
@@ -31,6 +33,8 @@ a {
   border-top: 1px solid #bbb;
   padding: 0.5em 0;
   border-bottom: 1px solid #bbb;
+  display: inline-block;
+  max-width: 1400px;
 }
 
 .details-page-summary .details-label {

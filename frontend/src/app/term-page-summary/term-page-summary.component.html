@@ -1,6 +1,6 @@
 <div *ngIf="termDetails">
   <div class="details-page-name-and-id">
-    {{termDetails.termid}} - {{termDetails.name}}
+    <span class="name-id-highlight">{{termDetails.name}}</span> ({{termDetails.termid}})
   </div>
 
   <div id="term-summary" class="details-page-summary">

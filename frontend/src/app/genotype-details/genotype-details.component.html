@@ -5,11 +5,11 @@
     <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
                        [subject]="'Comment or problem report'"></app-contact-email>
     <div class="details-page-name-and-id">
-      <div class="name" *ngIf="genotypeDetails.name">
-        <span [innerHTML]="genotypeDetails.name"></span>
+      <div *ngIf="genotypeDetails.name">
+        <span class="name-id-highlight" [innerHTML]="genotypeDetails.name"></span>
       </div>
 
-      <span [innerHTML]="displayName"></span>
+      <span class="name-id-highlight" [innerHTML]="displayName"></span>
     </div>
 
     <div id="genotype-summary" class="details-page-summary genotype-details-page-summary">
