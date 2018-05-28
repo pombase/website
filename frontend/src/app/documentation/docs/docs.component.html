@@ -7050,6 +7050,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-genome-browser-tracks">New genome browser tracks</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-book-chapter-about-pombase">New book chapter about PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-releases-jbrowse">PomBase releases JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#in-memory-andr-eacute-goffeau">In memory of Andr&eacute; Goffeau</a></div>
@@ -7894,8 +7895,33 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>The chapter is <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">free to download</a> thanks to the <a href="https://wellcome.ac.uk/">Wellcome Trust</a>.</p>
 
   </div>
+  <div *ngIf="pageName == 'new-browse-tracks'">
+<h3 id="new-genome-browser-tracks">New genome browser tracks</h3>
+<!-- pombase_flags: frontpage -->
+<p>We are very pleased to announce the loading of a number of new datasets into the PomBase <a routerLink="/jbrowse/">JBrowse genome browser</a>.</p>
+<p>These include:</p>
+<ul>
+<li><a href="https://www.biorxiv.org/content/early/2018/03/13/281642">Thodberg <em>et al.</em> (2018)</a> - CAGE-defined Transcription Start Sites across 5 different conditions</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=23163955">Yadav <em>et al.</em> (2012)</a> - G(x) scores specifying the amount of free energy needed to melt base pairs in the DNA duplex at different genomic locations</li>
+<li>A PomBase generated dataset of <a routerLink="/browse-curation/dna-binding-sites">promoter elements across the genome</a> (computational matching of the consensus promoter sequences to the reference DNA sequence)</li>
+<li>The intron branch points from <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">Bitton et al (2014)</a> which was also available in the ensembl browser.</li>
+</ul>
+<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written a <a routerLink="/media/Getting_started_with_PomBase_JBrowse.pdf">basic guide to &quot;getting started with PomBase JBrowse&quot;</a> which covers how to load tracks, navigating the browser, what the metadata includes etc.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
+<h3 id="new-genome-browser-tracks">New genome browser tracks</h3>
+<p><em>2018-05-28</em></p>
+<p>We are very pleased to announce the loading of a number of new datasets into the PomBase <a href="/jbrowse/">JBrowse genome browser</a>.</p>
+<p>These include:</p>
+<ul>
+<li><a href="https://www.biorxiv.org/content/early/2018/03/13/281642">Thodberg <em>et al.</em> (2018)</a> - CAGE-defined Transcription Start Sites across 5 different conditions</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=23163955">Yadav <em>et al.</em> (2012)</a> - G(x) scores specifying the amount of free energy needed to melt base pairs in the DNA duplex at different genomic locations</li>
+<li>A PomBase generated dataset of <a href="/browse-curation/dna-binding-sites">promoter elements across the genome</a> (computational matching of the consensus promoter sequences to the reference DNA sequence)</li>
+<li>The intron branch points from <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">Bitton et al (2014)</a> which was also available in the ensembl browser.</li>
+</ul>
+<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written a <a href="/media/Getting_started_with_PomBase_JBrowse.pdf">basic guide to &quot;getting started with PomBase JBrowse&quot;</a> which covers how to load tracks, navigating the browser, what the metadata includes etc.</p>
 <h3 id="new-book-chapter-about-pombase">New book chapter about PomBase</h3>
 <p><em>2018-05-22</em></p>
 <p>PomBase has a <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">new book chapter</a> in <a href="https://link.springer.com/book/10.1007/978-1-4939-7737-6">&quot;Eukaryotic Genomic Databases&quot; (Methods and Protocols)</a>.</p>
