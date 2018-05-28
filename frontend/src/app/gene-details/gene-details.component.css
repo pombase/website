@@ -26,7 +26,31 @@
   padding-right: 30px;
 }
 
-#gene-summary table {
+@media (min-width: 1200px) {
+  #gene-summary {
+    display: inline-grid;
+    grid-template-columns: min-content auto min-content auto;
+  }
+}
+@media (max-width: 1200px) {
+  #gene-summary {
+    display: grid;
+    grid-template-columns: min-content max-content;
+  }
+}
+
+#gene-summary div:nth-child(odd) {
+  margin: 0.2em 1.5em 0.2em 0;
+  min-width: 10em;
+}
+
+#gene-summary div:nth-child(even) {
+  margin: 0.2em 3em 0.2em 0;
+  max-width: 40em;
+}
+
+#gene-summary div:nth-child(4n) {
+  white-space: nowrap;
 }
 
 .genomic-location {
@@ -35,6 +59,7 @@
 
 .genomic-location td {
   padding: 2px;
+  white-space: nowrap;
 }
 
 .jbrowse-link {

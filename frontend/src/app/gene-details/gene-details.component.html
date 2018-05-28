@@ -19,29 +19,20 @@
     </div>
 
     <div id="gene-summary" class="details-page-summary">
-    <table>
-      <tbody>
-        <tr>
-          <td class="details-label">Gene standard name</td>
-          <td><span class="gene-name">{{geneDetails.name || ''}}</span></td>
-          <td class="details-label">Characterisation status</td>
-          <td>{{geneDetails.characterisation_status}}</td>
-        </tr>
-        <tr>
-          <td class="details-label">Product</td>
-          <td>{{geneDetails.product}}</td>
-          <td class="details-label">Feature type</td>
-          <td>{{displayFeatureType}}</td>
-        </tr>
-        <tr>
-          <td class="details-label">Systematic ID</td>
-          <td>{{geneDetails.uniquename}}</td>
-          <td class="details-label">Product size</td>
-          <td>{{productSize}}</td>
-        </tr>
-        <tr>
-          <td class="details-label">Genomic location</td>
-          <td>
+          <div class="details-label">Gene standard name</div>
+          <div><span class="gene-name">{{geneDetails.name || ''}}</span></div>
+          <div class="details-label">Characterisation status</div>
+          <div>{{geneDetails.characterisation_status}}</div>
+          <div class="details-label">Product</div>
+          <div>{{geneDetails.product}}</div>
+          <div class="details-label">Feature type</div>
+          <div>{{displayFeatureType}}</div>
+          <div class="details-label">Systematic ID</div>
+          <div>{{geneDetails.uniquename}}</div>
+          <div class="details-label">Product size</div>
+          <div>{{productSize}}</div>
+          <div class="details-label">Genomic location</div>
+          <div>
             <table class="genomic-location">
               <tr>
                 <td [attr.rowspan]="displayLocation.length - 1">
@@ -53,20 +44,15 @@
                 <td>{{displayLocation[2]}}</td>
               </tr>
             </table>
-          </td>
-          <td *ngIf="synonymsDisplay.length > 0" class="details-label">Synonyms</td>
-          <td *ngIf="synonymsDisplay.length > 0">{{synonymsDisplay}}</td>
-        </tr>
-        <tr *ngIf="geneDetails.name_descriptions.length > 0 || synonymsDisplay.length > 0">
-          <td class="details-label"><span *ngIf="geneDetails.name_descriptions.length > 0">Name description</span></td>
-          <td>
+          </div>
+          <div *ngIf="synonymsDisplay.length > 0" class="details-label">Synonyms</div>
+          <div *ngIf="synonymsDisplay.length > 0">{{synonymsDisplay}}</div>
+          <div class="details-label"><span *ngIf="geneDetails.name_descriptions.length > 0">Name description</span></div>
+          <div>
             <span *ngFor="let nameDesc of geneDetails.name_descriptions; let i = index">
               {{nameDesc}}<span *ngIf="i < geneDetails.name_descriptions.length - 1">,<br/></span>
             </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
     </div>
 
     <div id="gene-details-menu">
