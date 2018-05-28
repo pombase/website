@@ -26,6 +26,7 @@
   padding-right: 30px;
 }
 
+@supports (display: grid) {
 @media (min-width: 1200px) {
   #gene-summary {
     display: inline-grid;
@@ -37,6 +38,7 @@
     display: grid;
     grid-template-columns: min-content max-content;
   }
+}
 }
 
 #gene-summary div:nth-child(odd) {
