@@ -27,18 +27,18 @@
 }
 
 @supports (display: grid) {
-@media (min-width: 1200px) {
-  #gene-summary {
-    display: inline-grid;
-    grid-template-columns: min-content auto min-content auto;
+  @media (min-width: 1200px) {
+    #gene-summary {
+      display: inline-grid;
+      grid-template-columns: min-content auto min-content auto;
+    }
   }
-}
-@media (max-width: 1200px) {
-  #gene-summary {
-    display: grid;
-    grid-template-columns: min-content max-content;
+  @media (max-width: 1200px) {
+    #gene-summary {
+      display: grid;
+      grid-template-columns: min-content max-content;
+    }
   }
-}
 }
 
 #gene-summary div:nth-child(odd) {
