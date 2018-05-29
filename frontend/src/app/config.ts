@@ -69,7 +69,7 @@ export interface PanelConfig {
   link?: string;
   link_label?: string;
   date_added: string;
-  is_current: boolean;
+  show_on_front_page: boolean;
   internalLink?: string;
   externalLink?: string;
 }

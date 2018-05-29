@@ -23,8 +23,7 @@ export class PanelArchiveComponent implements OnInit {
 
         getAppConfig().frontPagePanels
           .filter(conf =>
-                  conf.panel_type === this.panelType && conf.is_current
-                 )
+                  conf.panel_type === this.panelType)
           .sort((conf1: PanelConfig, conf2: PanelConfig) => {
             // reverse compare
             return conf2.date_added.localeCompare(conf1.date_added);
