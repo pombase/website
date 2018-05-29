@@ -1,7 +1,7 @@
 .gene-neighbourhood {
   padding: 10px 0 10px 0;
   white-space: nowrap;
-  overflow-x: auto;
+  overflow-x: visible;
   display: block;
   width: calc(16em + 800px);
 }
