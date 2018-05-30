@@ -15,5 +15,5 @@ with the separate contig sequence yields the Chromosome 2 contig of an
 h90 strain.
 
 For a detailed description of the *S. pombe* mating type region,
-please see the [online tutorial(http://www1.bio.ku.dk/english/research/fg/cellecyklus_genomintegritet/mating/)]
+please see the [online tutorial](http://www1.bio.ku.dk/english/research/fg/cellecyklus_genomintegritet/mating/)
 provided by the Nielsen lab (external link).
