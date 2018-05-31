@@ -5,11 +5,11 @@
 The site is deployed by building a container from the JSON output of `pombase-chado-json`,
 which is run nightly by this script:
 
-`https://github.com/pombase/pombase-legacy/blob/master/etc/load-all.sh`
+https://github.com/pombase/pombase-legacy/blob/master/etc/load-all.sh
 
 The container is build with:
 
-`https://github.com/pombase/pombase-chado/blob/master/etc/build_container.sh`
+https://github.com/pombase/pombase-chado/blob/master/etc/build_container.sh
 
 ### Test setup
 
