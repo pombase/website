@@ -4326,6 +4326,11 @@ the total annotated genes.
 <li><a routerLink="/documentation/simple-search-documentation">Simple search</a></li>
 <li><a routerLink="/documentation/advanced-search">Advanced search</a></li>
 </ul>
+<h3 id="jbrowse-genome-browser">JBrowse Genome Browser</h3>
+<ul>
+<li><a routerLink="/media/Getting_started_with_PomBase_JBrowse.pdf">Getting started with PomBase JBrowse</a> - an introductory guide to browser navigation, track loading, metadata, etc. (by Antonia Lock; PDF)</li>
+<li>Also see the General entry in the JBrowse Help menu</li>
+</ul>
 <h3 id="other-pombase-pages">Other PomBase Pages</h3>
 <ul>
 <li>GO Slim <a routerLink="/documentation/pombase-go-slim-documentation">Documentation</a> and <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">Usage tips</a></li>
@@ -5346,7 +5351,8 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 </ul>
 <h4 id="gene-names">Gene names</h4>
 <ul>
-<li><a href="ftp://ftp.pombase.org/pombe/names_and_identifiers/gene_IDs_names.tsv">gene_IDs_names.tsv</a> tab-delimited file of systematic ID, primary gene name (where assigned), and all synonyms for each gene</li>
+<li><p><a href="ftp://ftp.pombase.org/pombe/names_and_identifiers/gene_IDs_names.tsv">gene_IDs_names.tsv</a> tab-delimited file of systematic ID, primary gene name (where assigned), and all synonyms for each gene</p></li>
+<li><p><a href="ftp://ftp.pombase.org/pombe/names_and_identifiers/gene_IDs_names_products.tsv">gene_IDs_names_products.tsv</a> tab-delimited file of systematic ID, primary gene name (where assigned), chromosome, product description, UniProtKB accession, all synonyms, and product type (protein coding, ncRNA, etc.) for each gene</p></li>
 </ul>
 <h4 id="systematic-id-to-gene-product">Systematic ID to gene product</h4>
 <p>Files include systematic name, primary name (where assigned), synonyms (where assigned), and gene product description</p>
@@ -5726,8 +5732,9 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <h3 id="can-i-find-promoters-pombase">Can I find promoters in PomBase?</h3>
 <!-- pombase_categories: Finding data -->
 <p>There are very few manually curated promoters in PomBase; they are included in the forward and reverse strand feature tracks, which are enabled by default. To search the manually curated promoters, we suggest that you use Artemis. Follow the instructions in <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">this FAQ</a>, and search for features with &quot;Key&quot; = &quot;promoter&quot;.</p>
-<p>At present, there are also no promoter datasets available as tracks in PomBase JBrowse.</p>
-<p>We will soon add some transcription start site datasets, including one that was included in the previous version of the PomBase genome browser, from from Li <em>et al.</em> (2015) Genome-wide analysis of core promoter structures in <em>Schizosaccharomyces pombe</em> with DeepCAGE. RNA Biol. 12:525-37 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261">PMID:25747261</a>).</p>
+<p>Computationally identified matches to the <a href="https://www.pombase.org/browse-curation/dna-binding-sites">DNA binding sites</a></p>
+<p>found in <em>S. pombe</em> are avaliable as a data track in PomBase JBrowse. To launch JBrowse with the track loaded, use <a href="https://www.pombase.org/jbrowse/?loc=I%3A2518981..2531220&tracks=DNA%20sequence%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20promoters%20(computationally%20matched">this link</a>&amp;highlight=).</p>
+<p>We will also soon add some transcription start site datasets, including one that was included in the previous version of the PomBase genome browser, from Li <em>et al.</em> (2015) Genome-wide analysis of core promoter structures in <em>Schizosaccharomyces pombe</em> with DeepCAGE. RNA Biol. 12:525-37 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261">PMID:25747261</a>).</p>
 <p>We will also add any promoter data sets that are submitted to us.</p>
 <!-- edit & restore
 The PomBase genome browser includes a data track of core promoter
@@ -5735,12 +5742,6 @@ locations from Li *et al.* (2015) Genome-wide analysis of core promoter
 structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 12:525-37 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261">PMID:25747261</a>).
 
- The
-promoter track is listed under the Transcription Starts Site menu, and
-is best viewed using the "Labels" track style, which labels promoter
-features using the associated gene IDs (see the
-<a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">browser configuration FAQ</a> for more
-information).
 -->
 
 </div>
@@ -7890,43 +7891,43 @@ Please sign the letter to add your voice in support of the databases that help m
   <div *ngIf="pageName == 'book-chapter'">
 <h3 id="new-book-chapter-about-pombase">New book chapter about PomBase</h3>
 <!-- pombase_flags: frontpage -->
-<p>PomBase has a <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">new book chapter</a> in <a href="https://link.springer.com/book/10.1007/978-1-4939-7737-6">&quot;Eukaryotic Genomic Databases&quot; (Methods and Protocols)</a>.</p>
-<p>This chapter provides insight into the curation philosophy and data organization at PomBase, and provides a guide to using PomBase for infrequent visitors and anyone considering exploring S. pombe in their research.</p>
-<p>The chapter is <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">free to download</a> thanks to the <a href="https://wellcome.ac.uk/">Wellcome Trust</a>.</p>
+<p>PomBase has a <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">new book chapter</a> in <a href="https://link.springer.com/book/10.1007/978-1-4939-7737-6"><em>Eukaryotic Genomic Databases</em> (Methods and Protocols)</a>.</p>
+<p>This chapter provides insight into the curation philosophy and data organization at PomBase, and provides a guide to using PomBase tailored for infrequent visitors and anyone considering extending their research to include <em>S. pombe</em>.</p>
+<p>The chapter is <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">free to download</a> courtesy of the <a href="https://wellcome.ac.uk/">Wellcome Trust</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'new-browse-tracks'">
 <h3 id="new-genome-browser-tracks">New genome browser tracks</h3>
 <!-- pombase_flags: frontpage -->
-<p>We are very pleased to announce the loading of a number of new datasets into the PomBase <a routerLink="/jbrowse/">JBrowse genome browser</a>.</p>
+<p>We are very pleased to announce that we have loaded a number of new datasets into the PomBase <a routerLink="/jbrowse/">JBrowse genome browser</a>.</p>
 <p>These include:</p>
 <ul>
 <li><a href="https://www.biorxiv.org/content/early/2018/03/13/281642">Thodberg <em>et al.</em> (2018)</a> - CAGE-defined Transcription Start Sites across 5 different conditions</li>
 <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=23163955">Yadav <em>et al.</em> (2012)</a> - G(x) scores specifying the amount of free energy needed to melt base pairs in the DNA duplex at different genomic locations</li>
-<li>A PomBase generated dataset of <a routerLink="/browse-curation/dna-binding-sites">promoter elements across the genome</a> (computational matching of the consensus promoter sequences to the reference DNA sequence)</li>
-<li>The intron branch points from <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">Bitton et al (2014)</a> which was also available in the ensembl browser.</li>
+<li>A PomBase-generated dataset of <a routerLink="/browse-curation/dna-binding-sites">promoter elements across the genome</a> (computational matching of the consensus promoter sequences to the reference DNA sequence)</li>
+<li>The intron branch points from <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">Bitton <em>et al.</em> (2014)</a> which was also available in the Ensembl browser.</li>
 </ul>
-<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written a <a routerLink="/media/Getting_started_with_PomBase_JBrowse.pdf">basic guide to &quot;getting started with PomBase JBrowse&quot;</a> which covers how to load tracks, navigating the browser, what the metadata includes etc.</p>
+<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written <a routerLink="/media/Getting_started_with_PomBase_JBrowse.pdf">&quot;Getting started with PomBase JBrowse&quot;</a>, a basic guide that covers loading tracks, navigating the browser, what metadata we provide, and more.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <h3 id="new-genome-browser-tracks">New genome browser tracks</h3>
 <p><em>2018-05-28</em></p>
-<p>We are very pleased to announce the loading of a number of new datasets into the PomBase <a href="/jbrowse/">JBrowse genome browser</a>.</p>
+<p>We are very pleased to announce that we have loaded a number of new datasets into the PomBase <a href="/jbrowse/">JBrowse genome browser</a>.</p>
 <p>These include:</p>
 <ul>
 <li><a href="https://www.biorxiv.org/content/early/2018/03/13/281642">Thodberg <em>et al.</em> (2018)</a> - CAGE-defined Transcription Start Sites across 5 different conditions</li>
 <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=23163955">Yadav <em>et al.</em> (2012)</a> - G(x) scores specifying the amount of free energy needed to melt base pairs in the DNA duplex at different genomic locations</li>
-<li>A PomBase generated dataset of <a href="/browse-curation/dna-binding-sites">promoter elements across the genome</a> (computational matching of the consensus promoter sequences to the reference DNA sequence)</li>
-<li>The intron branch points from <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">Bitton et al (2014)</a> which was also available in the ensembl browser.</li>
+<li>A PomBase-generated dataset of <a href="/browse-curation/dna-binding-sites">promoter elements across the genome</a> (computational matching of the consensus promoter sequences to the reference DNA sequence)</li>
+<li>The intron branch points from <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">Bitton <em>et al.</em> (2014)</a> which was also available in the Ensembl browser.</li>
 </ul>
-<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written a <a href="/media/Getting_started_with_PomBase_JBrowse.pdf">basic guide to &quot;getting started with PomBase JBrowse&quot;</a> which covers how to load tracks, navigating the browser, what the metadata includes etc.</p>
+<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written <a href="/media/Getting_started_with_PomBase_JBrowse.pdf">&quot;Getting started with PomBase JBrowse&quot;</a>, a basic guide that covers loading tracks, navigating the browser, what metadata we provide, and more.</p>
 <h3 id="new-book-chapter-about-pombase">New book chapter about PomBase</h3>
 <p><em>2018-05-22</em></p>
-<p>PomBase has a <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">new book chapter</a> in <a href="https://link.springer.com/book/10.1007/978-1-4939-7737-6">&quot;Eukaryotic Genomic Databases&quot; (Methods and Protocols)</a>.</p>
-<p>This chapter provides insight into the curation philosophy and data organization at PomBase, and provides a guide to using PomBase for infrequent visitors and anyone considering exploring S. pombe in their research.</p>
-<p>The chapter is <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">free to download</a> thanks to the <a href="https://wellcome.ac.uk/">Wellcome Trust</a>.</p>
+<p>PomBase has a <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">new book chapter</a> in <a href="https://link.springer.com/book/10.1007/978-1-4939-7737-6"><em>Eukaryotic Genomic Databases</em> (Methods and Protocols)</a>.</p>
+<p>This chapter provides insight into the curation philosophy and data organization at PomBase, and provides a guide to using PomBase tailored for infrequent visitors and anyone considering extending their research to include <em>S. pombe</em>.</p>
+<p>The chapter is <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">free to download</a> courtesy of the <a href="https://wellcome.ac.uk/">Wellcome Trust</a>.</p>
 <h3 id="pombase-releases-jbrowse">PomBase releases JBrowse</h3>
 <p><em>2018-04-16</em></p>
 <p>PomBase has now implemented <a href="https://www.pombase.org/jbrowse/?loc=II%3A564641..602220&amp;tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20%20reverse%20strand%20features&amp;highlight=">JBrowse</a>, from the <a href="http://gmod.org/wiki/Main_Page">GMOD</a> project, as its genome browser. The new browser offers a number of improvements over the old:</p>
@@ -10915,6 +10916,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <h2 id="mating-type-region">Mating type region</h2>
 <p>The <em>S. pombe</em> mating type region is located on Chromosome 2 (for 972 h-, the coordinates are <a href="https://www.pombase.org/jbrowse/?loc=II%3A2129210..2137123&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=">II:2129208-2137121</a>). This sequence represents a version of the mat2P-mat3M region in which mat2P and the cenH element are deleted.</p>
 <p>A contig of the h90 configuration of the mat2P-mat3M region was created by Xavier Marsellach and Lorena Aguilar (Azorín lab) using available data and <em>S. pombe var. kambucha</em> as a scaffold. The contig can be viewed in the <a href="https://www.pombase.org/jbrowse/?loc=mating_type_region%3A2013..18114&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=">genome browser</a>. Replacing the Chromosome 2 region spanning coordinates 2129208-2137121 with the separate contig sequence yields the Chromosome 2 contig of an h90 strain.</p>
+<p>For a detailed description of the <em>S. pombe</em> mating type region, please see the <a href="http://www1.bio.ku.dk/english/research/fg/cellecyklus_genomintegritet/mating/">online tutorial</a> provided by the Nielsen lab (external link).</p>
 
   </div>
   <div *ngIf="pageName == 'new-and-removed-genes'">
