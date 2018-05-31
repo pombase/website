@@ -20,8 +20,8 @@
     </div>
     <div *ngIf="activeConf">
 
-      <div class="node-top-description">
-        {{activeConf.topDescription}}:
+      <div class="node-top-description" *ngIf="activeConf.topDescription">
+        <span *ngFor="let part of activeConf.topDescription"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.link" routerLink="{{part.link.route}}">{{part.link.link_text}}</a></span>:
       </div>
 
       <div *ngIf="activeConf.nodeType == 'ontology'">
@@ -75,7 +75,7 @@
         <input type="number" [(ngModel)]="rangeEnd" min="0" step="0.01"
                placeholder="max ..."/>
         <button type="button" class="btn btn-primary"
-                [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'" 
+                [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'"
                 [disabled]="!validRange()" (click)="floatRangeSearch($event)">Search</button>
       </div>
 
@@ -86,7 +86,7 @@
         <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
                placeholder="max ..."/>
         <button type="button" class="btn btn-primary"
-                [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'" 
+                [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'"
                 [disabled]="!validRange()" (click)="intRangeSearch($event)">Search</button>
       </div>
 

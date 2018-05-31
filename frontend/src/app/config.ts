@@ -36,9 +36,17 @@ export interface QueryNodeSubsetConfig {
   displayName: string;
 }
 
+export interface QueryNodeTopDescriptionPart {
+  text?: string;
+  link?: {
+    link_text: string;
+    route: string;
+  };
+}
+
 export interface QueryNodeConfig {
   id: string;
-  topDescription: string;
+  topDescription: Array<QueryNodeTopDescriptionPart>;
   displayName: string;
   nodeType: string;
   ontologyName?: string;
@@ -454,20 +462,21 @@ let _appConfig: AppConfig = {
         id: 'canned_queries',
         displayName: 'Commonly used queries',
         nodeType: 'canned-queries',
-        topDescription: 'Shortcuts for commonly used queries',
+        topDescription: [{ text: 'Shortcuts for commonly used queries' }],
       },
       {
         id: 'gene_list',
         displayName: 'Gene IDs',
         nodeType: 'gene-list',
-        topDescription: 'Enter or upload a list of systematic gene IDs',
+        topDescription: [{ text: 'Enter or upload a list of systematic gene IDs' }],
       },
       {
         id: 'GO',
         displayName: 'GO',
         nodeType: 'ontology',
         ontologyName: 'GO',
-        topDescription: 'Retrieve genes via annotated Gene Ontology terms that describe the activity, process, or location of their products (protein or ncRNA)',
+        topDescription: [{ text: 'Retrieve genes via annotated Gene Ontology terms that describe the ' +
+                           'activity, process, or location of their products (protein or ncRNA)' }],
       },
       {
         id: 'FYPO',
@@ -475,7 +484,8 @@ let _appConfig: AppConfig = {
         nodeType: 'ontology',
         ontologyName: 'FYPO',
         annotationFeatureType: 'genotype',
-        topDescription: 'Retrieve genes based on phenotypes of mutations annotated using Fission Yeast Phenotype Ontology (FYPO) terms',
+        topDescription: [{ text: 'Retrieve genes based on phenotypes of mutations annotated using Fission ' +
+                           'Yeast Phenotype Ontology (FYPO) terms' }],
       },
       {
         id: 'product_type',
@@ -511,7 +521,9 @@ let _appConfig: AppConfig = {
             'displayName': 'feature_type:rRNA',
           }
         ],
-        topDescription: 'Retrieve genes based on product type. Note that "protein" includes dubious and transposon protein-coding genes; there is a prepared query that excludes both in the list of commonly used queries',
+        topDescription: [{ text: 'Retrieve genes based on product type. Note that "protein" includes ' +
+                           'dubious and transposon protein-coding genes; there is a prepared query that excludes ' +
+                           'both in the list of commonly used queries' }],
       },
       {
         id: 'PSI-MOD',
@@ -519,7 +531,7 @@ let _appConfig: AppConfig = {
         nodeType: 'ontology',
         ontologyName: 'PSI-MOD',
         placeholder: 'e.g phosphorylated residue (MOD:00696)',
-        topDescription: 'Retrieve protein-coding genes based on modifications annotated using PSI-MOD ontology terms',
+        topDescription: [{ text: 'Retrieve protein-coding genes based on modifications annotated using PSI-MOD ontology terms' }],
       },
       {
         id: 'all_domains',
@@ -527,51 +539,54 @@ let _appConfig: AppConfig = {
         nodeType: 'subset-input',
         subsetPrefix: null,
         placeholder: 'eg. PF02373 or IPR001138',
-        topDescription: 'Retrieve protein-coding genes by specific domains present in the products. To retrieve all domain-containing proteins, search for "IPR*" or "PF*"'
+        topDescription: [{ text: 'Retrieve protein-coding genes by specific domains present in the products. ' +
+                           'To retrieve all domain-containing proteins, search for "IPR*" or "PF*"' }],
       },
       {
         id: 'SO_protein',
         displayName: 'protein feature',
         nodeType: 'ontology',
         ontologyName: 'SO-protein',
-        topDescription: 'Retrieve protein-coding genes based on features annotated using the protein sequence feature branch of the Sequence Ontology (SO)'
+        topDescription: [{ text: 'Retrieve protein-coding genes based on features annotated using the protein ' +
+                           'sequence feature branch of the Sequence Ontology (SO)' }],
       },
       {
         id: 'protein_length',
         displayName: 'protein length',
         nodeType: 'int-range',
-        topDescription: 'Retrieve protein-coding genes by product length (in amino acids)',
+        topDescription: [{ text: 'Retrieve protein-coding genes by product length (in amino acids)' }],
       },
       {
         id: 'protein_mol_weight',
         displayName: 'protein mol. weight',
         nodeType: 'float-range',
-        topDescription: 'Retrieve protein-coding genes by product molecular weight'
+        topDescription: [{ text: 'Retrieve protein-coding genes by product molecular weight' }]
       },
       {
         id: 'disease_associated',
         displayName: 'disease',
         nodeType: 'ontology',
         ontologyName: 'disease_associated',
-        topDescription: 'Retrieve genes for which the curated human ortholog is associated with a disease. To find all disease gene orthologs, search for "disease_associated"',
+        topDescription: [{ text: 'Retrieve genes for which the curated human ortholog is associated with a disease. ' +
+                           'To find all disease gene orthologs, search for "disease_associated"' }],
       },
       {
         id: 'tm_domain_count',
         displayName: 'Number of TM domains',
         nodeType: 'int-range',
-        topDescription: 'Retrieve protein-coding genes by number of predicted transmembrane domains in the product',
+        topDescription: [{ text: 'Retrieve protein-coding genes by number of predicted transmembrane domains in the product' }],
       },
       {
         id: 'genome_range',
         displayName: 'Genome location',
         nodeType: 'genome-range',
-        topDescription: 'Retrieve genes in a specified region of a chromosome'
+        topDescription: [{ text: 'Retrieve genes in a specified region of a chromosome' }],
       },
       {
         id: 'exon_count',
         displayName: 'Number of exons',
         nodeType: 'int-range',
-        topDescription: 'Retrieve genes by number of exons',
+        topDescription: [{ text: 'Retrieve genes by number of exons' }],
       },
       {
         id: 'taxonomic_conservation',
@@ -635,7 +650,7 @@ let _appConfig: AppConfig = {
             'termid': 'PBO:0006222'
           },
         ],
-        topDescription: 'Retrieve protein-coding genes based on broad categories of taxonomic conservation',
+        topDescription: [{ text: 'Retrieve protein-coding genes based on broad categories of taxonomic conservation' }],
       },
       {
         id: 'characterisation_status',
@@ -671,7 +686,13 @@ let _appConfig: AppConfig = {
             displayName: 'characterisation_status:conserved unknown',
           },
         ],
-        topDescription: 'Retrieve protein-coding genes based on characterisation status'
+        topDescription: [{ text: 'Retrieve protein-coding genes based on '},
+                         {
+                           link: {
+                             link_text: 'characterisation status',
+                             route: '/status/gene-characterisation',
+                           },
+                         }],
       },
     ],
   },
