@@ -22,6 +22,13 @@
 -   [Simple search](documentation/simple-search-documentation)
 -   [Advanced search](documentation/advanced-search)
 
+### JBrowse Genome Browser
+
+-   [Getting started with PomBase JBrowse](media/Getting_started_with_PomBase_JBrowse.pdf) - 
+    an introductory guide to browser navigation, track loading,
+    metadata, etc. (by Antonia Lock; PDF)
+-   Also see the General entry in the JBrowse Help menu
+
 ### Other PomBase Pages ###
 
 -   GO Slim

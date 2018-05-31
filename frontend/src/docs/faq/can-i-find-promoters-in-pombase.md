@@ -8,12 +8,15 @@ suggest that you use Artemis. Follow the instructions in
 [this FAQ](/faq/there-equivalent-artemis-java-applet-pombase), 
 and search for features with "Key" = "promoter".
 
-At present, there are also no promoter datasets available as tracks in
-PomBase JBrowse.
+Computationally identified matches to the [DNA binding sites](https://www.pombase.org/browse-curation/dna-binding-sites)
 
-We will soon add some transcription start site datasets, including one
-that was included in the previous version of the PomBase genome
-browser, from from Li *et al.* (2015) Genome-wide analysis of core
+found in *S. pombe* are avaliable as a data track in PomBase
+JBrowse. To launch JBrowse with the track loaded, use
+[this link](https://www.pombase.org/jbrowse/?loc=I%3A2518981..2531220&tracks=DNA%20sequence%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20promoters%20(computationally%20matched)&highlight=).
+
+We will also soon add some transcription start site datasets,
+including one that was included in the previous version of the PomBase
+genome browser, from Li *et al.* (2015) Genome-wide analysis of core
 promoter structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA
 Biol. 12:525-37
 ([PMID:25747261](http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261)).
@@ -27,12 +30,6 @@ locations from Li *et al.* (2015) Genome-wide analysis of core promoter
 structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 12:525-37 ([PMID:25747261](http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261)).
 
- The
-promoter track is listed under the Transcription Starts Site menu, and
-is best viewed using the "Labels" track style, which labels promoter
-features using the associated gene IDs (see the
-[browser configuration FAQ](/faq/how-can-i-show-or-hide-tracks-genome-browser) for more
-information).
 -->
 
 
