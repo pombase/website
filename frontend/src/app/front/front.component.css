@@ -98,8 +98,13 @@
 }
 
 .quick-links-group {
-  display: inline-block;
+  display: block;
   margin: 0em 1em 0.5em 1em;
+  white-space: nowrap;
+}
+
+.quick-links-group span {
+  white-space: nowrap;
 }
 
 .front-callout {
