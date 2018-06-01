@@ -3,7 +3,7 @@
     <span *ngIf="annotationTypeName">{{tableDisplayName}}</span>
     <span *ngIf="!annotationTypeName">Annotations</span>
 
-    <app-help-link *ngIf="typeConfig.help_route" [route]="typeConfig.help_route"
+    <app-help-link *ngIf="typeConfig && typeConfig.help_route" [route]="typeConfig.help_route"
                    [title]="helpIconTitle">
     </app-help-link>
   </legend>

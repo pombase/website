@@ -29,7 +29,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   constructor() { }
 
   maybeDoSplit() {
-    if (this.typeConfig && this.typeConfig.split_by_parents) {
+    if (this.annotationTable && this.typeConfig && this.typeConfig.split_by_parents) {
       this.split_by_parents = this.typeConfig.split_by_parents;
       this.splitDataList = {};
       this.splitSummaryList = {};
@@ -65,10 +65,9 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    if (!this.annotationTable) {
-      return;
-    }
+  }
 
+  ngOnChanges() {
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
     if (this.tableDisplayName == null) {
@@ -86,10 +85,6 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
       this.helpIconTitle = 'View documentation';
     }
 
-    this.maybeDoSplit();
-  }
-
-  ngOnChanges() {
     this.maybeDoSplit();
   }
 }
