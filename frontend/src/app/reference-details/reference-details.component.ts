@@ -104,7 +104,8 @@ export class ReferenceDetailsComponent implements OnInit {
         this.refDetails.ortholog_annotations.length > 0) {
       this.refAnnotationStatus = 'has-annotations';
     } else {
-      if (this.refDetails.canto_triage_status === 'Curatable') {
+      if (this.refDetails.canto_triage_status === 'Curatable' &&
+          !this.refDetails.approved_date) {
         this.refAnnotationStatus = 'not-curated';
       } else {
         this.refAnnotationStatus = 'no-annotation';
