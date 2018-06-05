@@ -40,7 +40,17 @@ Results are added to the history list:
 At present, there is only an awkward kludge to specify the order for a
 query using the Subtract/NOT operator. It always places the more
 recently run query first (newer NOT/Subtract older), but you can move
-any query to the top of the history list by clicking its "Count" link.
+any query to the top of the history list by clicking its "Results" link.
+
+Query results can remain available in the history list for several
+days. If changes in annotation cause results to change since a query
+was last run, the entry in the history list will be labeled "out of
+date":
+
+![advanced search page with out-of-date query](assets/advanced_search_out-of-date_result.png){width="300"}
+
+Click on the "Results" link to re-run the query and retrieve the
+up-to-date result.
 
 ### Query types
 
