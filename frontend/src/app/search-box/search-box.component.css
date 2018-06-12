@@ -11,7 +11,7 @@
   border-radius: .25rem;
   display: inline;
 }
-.search-info span {
+.search-info {
   padding: 5px;
   color: #e63535;
   background-color: #fff;
