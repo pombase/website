@@ -1,3 +1,13 @@
+<ng-template #annotationHelpPopover>
+  <div class="help-popover">
+    {{title}}
+  </div>
+</ng-template>
+
 <span class="help-link">
-  <a title="{{title}}" routerLink="{{route}}"><img src="/assets/info_icon.svg"></a>
+
+  <a [popover]="annotationHelpPopover"
+     triggers="mouseenter:mouseleave" placement="bottom"
+     container="body"
+     routerLink="{{route}}"><img src="/assets/info_icon.svg"></a>
 </span>

@@ -24,7 +24,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   splitDataList = {};
   splitSummaryList = {};
   split_by_parents: Array<SplitByParentsConfig> = [];
-  helpIconTitle = 'View documention';
+  helpIconTitle = 'Click to view documention';
 
   constructor() { }
 
@@ -79,10 +79,10 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
     }
 
     if (this.tableDisplayName) {
-      this.helpIconTitle = 'View documentation for the ' + this.tableDisplayName +
+      this.helpIconTitle = 'Click to view documentation for the ' + this.tableDisplayName +
         ' section';
     } else {
-      this.helpIconTitle = 'View documentation';
+      this.helpIconTitle = 'Click to view documentation';
     }
 
     this.maybeDoSplit();
