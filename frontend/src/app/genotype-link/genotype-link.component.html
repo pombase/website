@@ -3,10 +3,15 @@
     <span *ngIf="background">Background: <span class="genotype-background">{{background}}</span></span>
     <app-genotype-allele-summary class="link-allele-summary" [genotype]="genotype">
     </app-genotype-allele-summary>
+
+    <div class="genotype-extra-help">
+      (Click to view all annotation for this genotype)
+    </div>
   </ng-template>
   <a [popover]="allelesPopover"
      triggers="mouseenter:mouseleave"
      placement="bottom"
+     container="body"
      routerLink="/genotype/{{genotype.display_uniquename}}"
      routerLinkActive="active">
     <span [innerHTML]="displayName"></span>

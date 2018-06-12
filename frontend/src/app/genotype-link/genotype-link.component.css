@@ -10,3 +10,9 @@
 .genotype-background {
   font-weight: bold;
 }
+
+.genotype-extra-help {
+  margin-top: 0.4em;
+  font-size: 90%;
+  opacity: 0.8;
+}
