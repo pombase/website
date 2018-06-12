@@ -5,6 +5,24 @@
   <div *ngIf="model.otherDetails" class="match-extra">{{model.otherDetails}}</div>
   </div>
 </ng-template>
+
+<ng-template #searchHelpPopover>
+  <div class="help-popover">
+    <ul>
+      <li>Start typing to search for genes</li>
+      <li>For publications: type or paste a PubMed ID and press enter</li>
+      <li>For ontology terms: type or paste the term ID and press enter</li>
+    </ul>
+  </div>
+</ng-template>
+
+<span *ngIf="isInitialised()" class="search-help">
+    <img [popover]="searchHelpPopover"
+         triggers="mouseenter:mouseleave" placement="bottom"
+         container="body"
+         src="/assets/info_icon.svg">
+</span>
+
 <input #searchBox
        *ngIf="geneSummaries.length > 0"
        placeholder="search ..."
@@ -18,6 +36,7 @@
        (typeaheadNoResults)="typeaheadNoResults($event)"
        typeaheadOptionsLimit="15"
        class="form-control search-box">
-<span class="search-info" [style.visibility]="getVisibility()">
+
+<span class="search-info" [style.visibility]="noMatchingGenes() ? 'visible' : 'hidden'">
   No matching genes
 </span>

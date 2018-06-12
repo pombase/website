@@ -41,6 +41,10 @@ export class SearchBoxComponent implements OnInit {
       .mergeMap((token: string) => this.summariesAsObservable(token));
   }
 
+  isInitialised(): boolean {
+    return this.geneSummaries.length > 0;
+  }
+
   nameExactMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     if (geneSumm.name && geneSumm.name.toLowerCase() === value) {
       return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
@@ -251,7 +255,7 @@ export class SearchBoxComponent implements OnInit {
 
         this.geneSummaries.sort(summaryCmp);
       });
-  }
+ }
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
     this.router.navigate(['/gene', e.item.uniquename]);
@@ -287,11 +291,7 @@ export class SearchBoxComponent implements OnInit {
     }
   }
 
-  getVisibility(): string {
-    if (this.noResults && this.fieldValue.length > 0) {
-      return 'visible';
-    } else {
-      return 'hidden';
-    }
+  noMatchingGenes(): boolean {
+    return this.noResults && this.fieldValue.length > 0;
   }
 }

@@ -11,7 +11,7 @@
   border-radius: .25rem;
   display: inline;
 }
-.search-info {
+.search-info span {
   padding: 5px;
   color: #e63535;
   background-color: #fff;
@@ -30,3 +30,15 @@
   font-size: 95%;
 }
 
+.search-help {
+  padding: 0;
+  margin: 0;
+}
+
+.search-help img {
+  height: 1.5em;
+}
+
+.help-popover {
+  color: black;
+}
