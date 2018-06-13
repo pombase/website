@@ -419,6 +419,11 @@
   <td>&nbsp;</td>
  </tr>
  <tr>
+  <td>srs1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9651503">PMID:9651503</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
   <td>ste2</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1934121">PMID:1934121</a></td>
   <td>&nbsp;</td>
