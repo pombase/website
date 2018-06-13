@@ -13,7 +13,7 @@
    height="62"
    version="1.1"
    id="svg28"
-   sodipodi:docname="Information_icon.svg"
+   sodipodi:docname="info_icon.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <metadata
      id="metadata32">
@@ -39,8 +39,8 @@
      inkscape:window-height="983"
      id="namedview30"
      showgrid="false"
-     inkscape:zoom="7.6129032"
-     inkscape:cx="31.394068"
+     inkscape:zoom="12.064516"
+     inkscape:cx="31"
      inkscape:cy="31"
      inkscape:window-x="0"
      inkscape:window-y="27"
@@ -83,7 +83,16 @@
          id="stop9" />
     </linearGradient>
     <radialGradient
-       id="shadowGradient">
+       id="shadowGradient"
+       gradientUnits="userSpaceOnUse"
+       cx="32.5"
+       cy="29.5"
+       fx="32.5"
+       fy="29.5"
+       r="26.5"
+       gradientTransform="matrix(1.1565012,0,0,1.1738722,-7.2195677,-3.6443354)"
+       fr="0"
+       spreadMethod="pad">
       <stop
          offset="0.0"
          stop-color="#C0C0C0"
@@ -99,31 +108,30 @@
          id="stop16" />
     </radialGradient>
   </defs>
-  <circle
+  <ellipse
      id="shadow"
-     r="26.5"
-     cx="32.5"
-     cy="29.5"
-     fill="url(#shadowGradient)"
-     transform="matrix(1.0648,0.0,0.0,1.064822,-2.1,1.0864)" />
-  <circle
+     cx="30.905495"
+     cy="31.109226"
+     style="fill:#ffffff;fill-opacity:0;stroke-width:1.17768574"
+     rx="31.35183"
+     ry="31.06617" />
+  <ellipse
      id="field"
-     r="25.8"
-     cx="31"
-     cy="31"
-     fill="url(#fieldGradient)"
-     stroke="url(#edgeGradient)"
-     stroke-width="2"
-     style="fill-opacity:1;fill:#337ab7;stroke:#3050a7;stroke-opacity:1" />
+     cx="30.875797"
+     cy="31.165646"
+     style="fill:#fffff2;fill-opacity:0.80578512;stroke:#0063ff;stroke-width:4.77841568;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     transform="rotate(2.4089812e-4)"
+     rx="26.354969"
+     ry="26.727964" />
   <polygon
-     style="fill:#ffffff"
+     style="fill:#0063ff;fill-opacity:1"
      id="polygon23"
      points="23,48 23,44 27,44 27,28 23,28 23,25 35,25 35,44 39,44 39,48 "
      transform="matrix(1,0,0,1.045689,0.26271186,-0.64867406)" />
   <circle
-     style="fill:#ffffff;stroke-width:0.95629925"
+     style="fill:#0060ff;fill-opacity:1;stroke-width:0.95629925"
      id="circle25"
-     cy="15.825764"
-     cx="31.007969"
+     cy="16.405977"
+     cx="30.676418"
      r="5.0813527" />
 </svg>

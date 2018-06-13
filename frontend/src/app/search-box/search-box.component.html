@@ -1,5 +1,5 @@
 <ng-template #searchBoxTemplate let-model="item" let-index="index">
-  <div>
+  <div class="search-box-contents">
   <span *ngIf="model.name"><strong>{{model.name}}</strong> ({{model.uniquename}})</span>
   <span *ngIf="!model.name"><strong>{{model.uniquename}}</strong></span>
   <div *ngIf="model.otherDetails" class="match-extra">{{model.otherDetails}}</div>
@@ -16,13 +16,6 @@
   </div>
 </ng-template>
 
-<span *ngIf="isInitialised()" class="search-help">
-    <img [popover]="searchHelpPopover"
-         triggers="mouseenter:mouseleave" placement="bottom"
-         container="body"
-         src="/assets/info_icon.svg">
-</span>
-
 <input #searchBox
        *ngIf="geneSummaries.length > 0"
        placeholder="search ..."
@@ -36,6 +29,13 @@
        (typeaheadNoResults)="typeaheadNoResults($event)"
        typeaheadOptionsLimit="15"
        class="form-control search-box">
+
+<span *ngIf="isInitialised()" class="search-help">
+    <img [popover]="searchHelpPopover"
+         triggers="mouseenter:mouseleave" placement="bottom"
+         container="body"
+         src="/assets/info_icon.svg">
+</span>
 
 <span class="search-info" [style.visibility]="noMatchingGenes() ? 'visible' : 'hidden'">
   No matching genes
