@@ -26,8 +26,9 @@ CCAAT_motif|CCAAT|[SO:0001856](http://sequenceontology.org/browser/current_svn/t
 MluI cell cycle box (MCB)|ACGCGT|[SO:0001855](http://sequenceontology.org/browser/current_svn/term/SO:0001855)
 pombe cell cycle box (PCB)|GNAACR|[SO:0001871](http://sequenceontology.org/browser/current_svn/term/SO:0001871)
 AACCCT_box|GNAACR|[SO:0001901](http://sequenceontology.org/browser/current_svn/term/SO:0001901)
-GATA_box|WGATAR|[SO:0001840](http://sequenceontology.org/browser/current_svn/term/SO:0001840)
-CArG-box|(C/T)TA(T/A)4TA(G/A)|[SO:0002156](http://sequenceontology.org/browser/current_svn/term/SO:0002156)
+GATA box|WGATAR|[SO:0001840](http://sequenceontology.org/browser/current_svn/term/SO:0001840)
+CArG box|(C/T)TA(T/A)4TA(G/A)|[SO:0002156](http://sequenceontology.org/browser/current_svn/term/SO:0002156)
+M26 binding site|TGACGT|[SO:0001900](http://sequenceontology.org/browser/current_svn/term/SO:0001900)
 
 
 #### Other DNA binding sites
