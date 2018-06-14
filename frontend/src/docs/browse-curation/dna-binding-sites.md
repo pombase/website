@@ -25,19 +25,24 @@ Ace2 UAS|CCAGCC|[Ace2](https://www.pombase.org/gene/SPAC6G10.12c)|[SO:0001857](h
 CCAAT motif|CCAAT|[Php2](https://www.pombase.org/gene/SPBC725.11c), [Php3](https://www.pombase.org/gene/SPAC23C11.08), [Php4](https://www.pombase.org/gene/SPBC16E9.01c), [Php5](https://www.pombase.org/gene/SPBC3B8.02)|[SO:0001856](http://sequenceontology.org/browser/current_svn/term/SO:0001856)
 MluI cell cycle box (MCB)|ACGCGT|[Cdc10](https://www.pombase.org/gene/SPBC336.12c), [Res1](https://www.pombase.org/gene/SPBC725.16), [Res2](https://www.pombase.org/gene/SPAC22F3.09c), [Yox1](https://www.pombase.org/gene/SPBC21B10.13c)|[SO:0001855](http://sequenceontology.org/browser/current_svn/term/SO:0001855)
 pombe cell cycle box (PCB)|GNAACR|[Sep1](https://www.pombase.org/gene/SPBC4C3.12), [Fkh2](https://www.pombase.org/gene/SPBC16G5.15c), [Mbx1](https://www.pombase.org/gene/SO:0001871)|[SO:0001871](http://sequenceontology.org/browser/current_svn/term/SO:0001871)
-AACCCT_box|GNAACR|[Ams2](https://www.pombase.org/gene/SPCC290.04)|[SO:0001901](http://sequenceontology.org/browser/current_svn/term/SO:0001901)
+AACCCT_box|ATCA(C/A)AACCCTAACCCT|[Ams2](https://www.pombase.org/gene/SPCC290.04), [Teb1](https://www.pombase.org/gene/SPAC13G7.10)|[SO:0001901](http://sequenceontology.org/browser/current_svn/term/SO:0001901)
 GATA box|WGATAR|[Gaf1](https://www.pombase.org/gene/SPCC1902.01)|[SO:0001840](http://sequenceontology.org/browser/current_svn/term/SO:0001840)
 CArG box|(C/T)TA(T/A)4TA(G/A)||[SO:0002156](http://sequenceontology.org/browser/current_svn/term/SO:0002156)
 M26 binding site|TGACGT|[Atf1](https://www.pombase.org/gene/SPBC29B5.01), [Pcr1](https://www.pombase.org/gene/SPAC21E11.03c)|[SO:0001900](http://sequenceontology.org/browser/current_svn/term/SO:0001900)
+TATA box|TATA(A|T)A(A|T)|[brf1](https://www.pombase.org/gene/SPBC13E7.10c), [tbp1](https://www.pombase.org/gene/SPAC29E6.08)|[SO:0000174](http://sequenceontology.org/browser/current_svn/term/SO:0000174)
+zinc_repressed_element|GNMGATC|[Loz1](https://www.pombase.org/gene/SPAC25B8.19c)|[SO:0002006](http://sequenceontology.org/browser/current_svn/term/SO:0002006)
+ARS consensus sequence|WTTTAYRTTTW|[Cbp1](https://www.pombase.org/gene/SPBC1105.04c)|[SO:0002004](http://sequenceontology.org/browser/current_svn/term/SO:0002004)
+
 
 
 #### Other DNA binding sites
 
-Site Name|Consensus Sequence|Sequence Ontology ID
----------|------------------|--------------------
-GT_dinucleotide_repeat|(GT)n|[SO:0001862](http://sequenceontology.org/browser/current_svn/term/SO:0001862)
-GTT_trinucleotide_repeat|(GTT)n|[SO:0001863](http://sequenceontology.org/browser/current_svn/term/SO:0001863)
-rDNA_intergenic_spacer_element|AGGTAAGGGTAATGCAC|[SO:0001860](http://sequenceontology.org/browser/current_svn/term/SO:0001860)
+Site Name|Consensus Sequence|bound by|Sequence Ontology ID
+---------|------------------|--------|--------------------
+GT_dinucleotide_repeat|(GT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001862](http://sequenceontology.org/browser/current_svn/term/SO:0001862)
+GTT_trinucleotide_repeat|(GTT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001863](http://sequenceontology.org/browser/current_svn/term/SO:0001863)
+rDNA_intergenic_spacer_element|AGGTAAGGGTAATGCAC|[Reb1](https://www.pombase.org/gene/SPBC1198.11c)|[SO:0001860](http://sequenceontology.org/browser/current_svn/term/SO:0001860)
+telomeric repeat|TTAC(0-1)A(0-1)G(1-8)|[Taz1](https://www.pombase.org/gene/SPAC16A10.07c)|[SO:0001860](http://sequenceontology.org/browser/current_svn/term/SO:0001860)
 
 #### Notes
 
