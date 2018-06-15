@@ -39,9 +39,9 @@ ARS consensus sequence|WTTTAYRTTTW|[Cbp1](https://www.pombase.org/gene/SPBC1105.
 
 Site Name|Consensus Sequence|bound by|Sequence Ontology ID
 ---------|------------------|--------|--------------------
-GT_dinucleotide_repeat|(GT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001862](http://sequenceontology.org/browser/current_svn/term/SO:0001862)
-GTT_trinucleotide_repeat|(GTT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001863](http://sequenceontology.org/browser/current_svn/term/SO:0001863)
-rDNA_intergenic_spacer_element|AGGTAAGGGTAATGCAC|[Reb1](https://www.pombase.org/gene/SPBC1198.11c)|[SO:0001860](http://sequenceontology.org/browser/current_svn/term/SO:0001860)
+GT dinucleotide repeat|(GT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001862](http://sequenceontology.org/browser/current_svn/term/SO:0001862)
+GTT trinucleotide repeat|(GTT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001863](http://sequenceontology.org/browser/current_svn/term/SO:0001863)
+rDNA intergenic spacer element|AGGTAAGGGTAATGCAC|[Reb1](https://www.pombase.org/gene/SPBC1198.11c)|[SO:0001860](http://sequenceontology.org/browser/current_svn/term/SO:0001860)
 telomeric repeat|TTAC(0-1)A(0-1)G(1-8)|[Taz1](https://www.pombase.org/gene/SPAC16A10.07c)|[SO:0001860](http://sequenceontology.org/browser/current_svn/term/SO:0001860)
 
 #### Notes
