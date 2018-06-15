@@ -29,7 +29,7 @@ AACCCT_box|ATCA(C/A)AACCCTAACCCT|[Ams2](https://www.pombase.org/gene/SPCC290.04)
 GATA box|WGATAR|[Gaf1](https://www.pombase.org/gene/SPCC1902.01)|[SO:0001840](http://sequenceontology.org/browser/current_svn/term/SO:0001840)
 CArG box|(C/T)TA(T/A)4TA(G/A)||[SO:0002156](http://sequenceontology.org/browser/current_svn/term/SO:0002156)
 M26 binding site|TGACGT|[Atf1](https://www.pombase.org/gene/SPBC29B5.01), [Pcr1](https://www.pombase.org/gene/SPAC21E11.03c)|[SO:0001900](http://sequenceontology.org/browser/current_svn/term/SO:0001900)
-TATA box|TATA(A|T)A(A|T)|[brf1](https://www.pombase.org/gene/SPBC13E7.10c), [tbp1](https://www.pombase.org/gene/SPAC29E6.08)|[SO:0000174](http://sequenceontology.org/browser/current_svn/term/SO:0000174)
+TATA box|TATA(A\|T)A(A\|T)|[brf1](https://www.pombase.org/gene/SPBC13E7.10c), [tbp1](https://www.pombase.org/gene/SPAC29E6.08)|[SO:0000174](http://sequenceontology.org/browser/current_svn/term/SO:0000174)
 zinc_repressed_element|GNMGATC|[Loz1](https://www.pombase.org/gene/SPAC25B8.19c)|[SO:0002006](http://sequenceontology.org/browser/current_svn/term/SO:0002006)
 ARS consensus sequence|WTTTAYRTTTW|[Cbp1](https://www.pombase.org/gene/SPBC1105.04c)|[SO:0002004](http://sequenceontology.org/browser/current_svn/term/SO:0002004)
 
