@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -9,6 +10,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+
+import { CookieLawModule } from 'angular2-cookie-law';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -167,6 +170,7 @@ export function windowFactory() {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
@@ -179,6 +183,7 @@ export function windowFactory() {
     ModalModule.forRoot(),
     SharedModule,
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    CookieLawModule,
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,
                     MessageDialogComponent],
