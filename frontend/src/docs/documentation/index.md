@@ -24,9 +24,9 @@
 
 ### JBrowse Genome Browser
 
--   [Getting started with PomBase JBrowse](/media/Getting_started_with_PomBase_JBrowse.pdf) - 
+-   [Getting started with PomBase JBrowse](documentation/JBrowse_quick_start) - 
     an introductory guide to browser navigation, track loading,
-    metadata, etc. (by Antonia Lock; PDF)
+    metadata, etc. (by Antonia Lock)
 -   Also see the General entry in the JBrowse Help menu
 
 ### Other PomBase Pages ###
