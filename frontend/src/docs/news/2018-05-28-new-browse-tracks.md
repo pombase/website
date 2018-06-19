@@ -18,6 +18,6 @@ These include:
      which was also available in the Ensembl browser.
 
 For anyone wanting a quick introduction to our genome browser, Antonia
-Lock has written ["Getting started with PomBase JBrowse"](/media/Getting_started_with_PomBase_JBrowse.pdf), 
+Lock has written ["Getting started with PomBase JBrowse"](documentation/JBrowse_quick_start), 
 a basic guide that covers loading tracks, navigating the browser,
 what metadata we provide, and more.
