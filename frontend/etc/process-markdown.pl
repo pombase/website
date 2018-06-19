@@ -377,6 +377,7 @@ sub all_news_items {
           if ($line =~ /^\s*<!-- pombase_flags:\s*(.*?)\s*-->\s*$/) {
             $flags{$1} = 1;
           } else {
+            process_line(\$line);
             $contents .= $line;
           }
         }
