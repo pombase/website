@@ -3697,6 +3697,126 @@ the total annotated genes.
 
 </app-page-contents-menu>
   <div class="docs-content">
+  <div *ngIf="pageName == 'JBrowse_quick_start'">
+<h2 id="getting-started-with-pombase-jbrowse">Getting started with PomBase JBrowse</h2>
+<p>The PomBase genome browser can be accessed in multiple ways: - On any PomBase page, click the &quot;Search&quot; tab in the header menu, and select &quot;Genome browser&quot; - From a gene page, click the &quot;View region in JBrowse ...&quot; link just above the map image - Go directly to https://www.pombase.org/jbrowse/</p>
+<h3 id="dna-sequence-forward-features-and-reverse-features">DNA sequence, forward features and reverse features</h3>
+<p>Tracks for annotated sequence features -- genes, repeats, etc. -- on the forward and reverse strands are displayed by default.</p>
+<p>To show the track containing the reference DNA sequence, use the &quot;Genome sequence and features&quot; filter and enable the &quot;DNA sequence&quot; track as described below.</p>
+<h3 id="enabling-data-tracks">Enabling data tracks</h3>
+<p>To show data tracks: 1. Click on the &quot;Select tracks&quot; button in the top left corner.</p>
+<div class="figure">
+<img src="assets/jbrowse_main_top_track_button.png" alt="JBrowse top, with &quot;select tracks&quot; button highlighted" width="700" />
+<p class="caption">JBrowse top, with &quot;select tracks&quot; button highlighted</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Locate the track(s) of interest (see below), and then click the tickbox for any individual track to toggle it on/off, or use the tickbox in the header to enable/disable all of the listed tracks at once.</p></li>
+<li><p>Click the &quot;Back to browser&quot; button at the top.</p></li>
+<li><p>The tracks should now be displayed. For example, the sequence feature and DNA sequence tracks look like this:</p></li>
+</ol>
+<div class="figure">
+<img src="assets/jbrowse_seq_feature_tracks.png" alt="JBrowse display of pombe sequence and features" width="700" />
+<p class="caption">JBrowse display of pombe sequence and features</p>
+</div>
+<p>To hide a track, click the (X) button to the left of the track label, or go to the &quot;Select tracks&quot; page and clear its tickbox.</p>
+<p>Drag and drop tracks to change the order in which they appear.</p>
+<h4 id="locating-data">Locating data</h4>
+<p>Each entry in the left-hand column can be used to filter the track list. Filter criteria fall into several categories, corresponding to some of the track metadata (see below):</p>
+<div class="figure">
+<img src="assets/jbrowse_track_selector.png" alt="JBrowse track selection interface" width="400" />
+<p class="caption">JBrowse track selection interface</p>
+</div>
+<p>As you select filters, the screen will update to show only relevant criteria on the left, and matching tracks on the right.</p>
+<p>You can also search for names, keywords, etc. using the &quot;Contains text&quot; box.</p>
+<p>Any applied filters, including text, can be cleared by clicking the red X button that appears next to a selected filter (in the search box or the left-hand column), or by using the &quot;Clear All Filters&quot; button.</p>
+<p>For a list of recently enabled tracks, click &quot;Recently Used&quot;.</p>
+<h4 id="track-metadata">Track metadata</h4>
+<p>Information about each track is captured as part of the curation process. Metadata includes:</p>
+<ul>
+<li>Data type: what the experiment measured</li>
+<li>Track label (name): Brief description that appears with the track in the browser display</li>
+<li>Alleles: data from wild type or mutant cells</li>
+<li>Growth phase or response: data from cells assayed a specific stress response or growth phase (e.g. nitrogen starvation, oxidative stress, vegetative growth)</li>
+<li>Localized gene product: the protein assayed in a chromatin binding experiment</li>
+<li>Strain background mutations: any background mutations present in the strain for experimental purposes only and not considered as influencing the results in themselves, such as auxotrophic markers (e.g. <em>leu1-1</em>) or alleles utilized for block and release experiments (e.g. <em>cdc25-22</em>)</li>
+<li>Mating type and ploidy</li>
+<li>Conditions: experimental conditions, e.g. whether cells were grown in YES or EMM, or if H<sub>2</sub>O<sub>2</sub> or t-BOOH was used to induce oxidative stress</li>
+<li>Study ID: accession for the study encompassing the data in external databases (e.g. GEO, ArrayExpress)</li>
+<li>Sample ID: accession for the sample used to generate the data in external databases (e.g. GEO, ArrayExpress)</li>
+<li>First author name</li>
+<li>PubMed ID: paper in which the data were published</li>
+<li>Publication year</li>
+</ul>
+<p>The metadata can be viewed in two ways: 1. In the track selector, tracks are listed with associated metadata on the right hand side:</p>
+<div class="figure">
+<img src="assets/jbrowse_track_selection_top.png" alt="JBrowse track selector with metadata headers highlighted" width="700" />
+<p class="caption">JBrowse track selector with metadata headers highlighted</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>In the browser, hover over a track label to display a down arrow:</li>
+</ol>
+<div class="figure">
+<img src="assets/jbrowse_track_label_hover.png" alt="JBrowse track label" width="200" />
+<p class="caption">JBrowse track label</p>
+</div>
+<p>Click the arrow, then click &quot;about this track&quot; in the popup menu:</p>
+<div class="figure">
+<img src="assets/jbrowse_track_menu.png" alt="JBrowse track popup menu" width="300" />
+<p class="caption">JBrowse track popup menu</p>
+</div>
+<p>The metadata and stats are displayed:</p>
+<div class="figure">
+<img src="assets/jbrowse_metadata_popup.png" alt="JBrowse track metadata popup" width="300" />
+<p class="caption">JBrowse track metadata popup</p>
+</div>
+<p>To dismiss the popup, click the 'X' in the upper right corner or the 'OK' button at the bottom.</p>
+<h3 id="navigating-the-browser">Navigating the browser</h3>
+<h4 id="moving-around">Moving around</h4>
+<p>There are several ways to navigate the genome.</p>
+<ul>
+<li><p>Use the box at the top that displays the chromosomal coordinates to navigate to a specified location: <img src="assets/jbrowse_main_top_coords.png" alt="JBrowse top of main display" width="520" /></p></li>
+<li> </li>
+<li>Type a gene name, or</li>
+<li>Select a chromosome in the pulldown, then type or paste a range of coordinates (two numbers separated by two dots, e.g. 2323258..2336458).
+<ul>
+<li>If you select one of the pulldown options but omit coordinates, the browser goes to a default location spanning most of the selected chromosome.</li>
+<li>You can also type both a chromosome ID and coordinates directly in the location box, e.g II:2323258..2336458. Use Roman numerals (I, II, III) for the three nuclear chromosomes.</li>
+</ul></li>
+<li>Click the &quot;Go&quot; button or hit return to go to the gene or region.</li>
+<li>Coordinates for some regions of interest:
+<ul>
+<li>Centromeres</li>
+<li>I:3753687..3789421</li>
+<li>II:1602264..1644747</li>
+<li>III:1070904..1137003</li>
+<li>Mating type region</li>
+<li>II:2129208..2137121</li>
+<li>rDNA (link to one complete repeat)</li>
+<li>III:5542..13722</li>
+</ul></li>
+<li>For more information on the chromosome selection options, see PomBase documentation on [genome sequencing status[(status/sequencing-status), the <a href="status/mating-type-region">mating type region</a>, and <a routerLink="/faq/there-any-rdna-repeat-sequences-pombase">rDNA</a>.</li>
+<li><p>In the uppermost bar, a red box indicates the size and position of the currently displayed region, in the context of the whole chromosome. Click in the bar or drag the red box to change position.</p></li>
+</ul>
+<div class="figure">
+<img src="assets/jbrowse_position_bar.png" alt="JBrowse position bar" width="300" />
+<p class="caption">JBrowse position bar</p>
+</div>
+<ul>
+<li>Use the arrows next in the bar with the box for chromosomal coordinates to move right or left in increments.</li>
+<li>Drag or swipe (depending on device) in the main browser window to scroll.</li>
+</ul>
+<h4 id="zooming">Zooming</h4>
+<p>To zoom:</p>
+<ul>
+<li>Use the + and - buttons, or</li>
+<li>In the main browser window, double-click to zoom in, and shift-double-click to zoom out, or</li>
+<li>In the narrow bar below the chromosomal coordinates, click and drag to highlight a region, then click within the highlighted region to zoom so the region fills the browser window:</li>
+</ul>
+<p><img src="assets/jbrowse_region_selection_bar.png" alt="JBrowse region selection bar" width="300" /> <img src="assets//jbrowse_region_zoom.png" alt="JBrowse zoom in on selected region" width="400" /></p>
+<p>To see the DNA sequence, zoom in until it appears, first as color-coded blocks, and then labeled with letters.</p>
+<p>More <em>S. pombe</em>-specific information can be found in the <a href="https://www.pombase.org/faq/genome-browser">Genome browser FAQ list</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'advanced-search'">
 <h2 id="advanced-search">Advanced search</h2>
 <p><strong>Note: This documentation is still a work in progress. Please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a> if you have any questions.</strong></p>
@@ -4408,7 +4528,7 @@ the total annotated genes.
 </ul>
 <h3 id="jbrowse-genome-browser">JBrowse Genome Browser</h3>
 <ul>
-<li><a routerLink="/media/Getting_started_with_PomBase_JBrowse.pdf">Getting started with PomBase JBrowse</a> - an introductory guide to browser navigation, track loading, metadata, etc. (by Antonia Lock; PDF)</li>
+<li><a routerLink="/documentation/JBrowse_quick_start">Getting started with PomBase JBrowse</a> - an introductory guide to browser navigation, track loading, metadata, etc. (by Antonia Lock)</li>
 <li>Also see the General entry in the JBrowse Help menu</li>
 </ul>
 <h3 id="other-pombase-pages">Other PomBase Pages</h3>
@@ -7987,22 +8107,22 @@ Please sign the letter to add your voice in support of the databases that help m
 <li>A PomBase-generated dataset of <a routerLink="/browse-curation/dna-binding-sites">promoter elements across the genome</a> (computational matching of the consensus promoter sequences to the reference DNA sequence)</li>
 <li>The intron branch points from <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">Bitton <em>et al.</em> (2014)</a> which was also available in the Ensembl browser.</li>
 </ul>
-<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written <a routerLink="/media/Getting_started_with_PomBase_JBrowse.pdf">&quot;Getting started with PomBase JBrowse&quot;</a>, a basic guide that covers loading tracks, navigating the browser, what metadata we provide, and more.</p>
+<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written <a routerLink="/documentation/JBrowse_quick_start">&quot;Getting started with PomBase JBrowse&quot;</a>, a basic guide that covers loading tracks, navigating the browser, what metadata we provide, and more.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <h3 id="new-genome-browser-tracks">New genome browser tracks</h3>
 <p><em>2018-05-28</em></p>
-<p>We are very pleased to announce that we have loaded a number of new datasets into the PomBase <a href="/jbrowse/">JBrowse genome browser</a>.</p>
+<p>We are very pleased to announce that we have loaded a number of new datasets into the PomBase <a routerLink="/jbrowse/">JBrowse genome browser</a>.</p>
 <p>These include:</p>
 <ul>
 <li><a href="https://www.biorxiv.org/content/early/2018/03/13/281642">Thodberg <em>et al.</em> (2018)</a> - CAGE-defined Transcription Start Sites across 5 different conditions</li>
 <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=23163955">Yadav <em>et al.</em> (2012)</a> - G(x) scores specifying the amount of free energy needed to melt base pairs in the DNA duplex at different genomic locations</li>
-<li>A PomBase-generated dataset of <a href="/browse-curation/dna-binding-sites">promoter elements across the genome</a> (computational matching of the consensus promoter sequences to the reference DNA sequence)</li>
+<li>A PomBase-generated dataset of <a routerLink="/browse-curation/dna-binding-sites">promoter elements across the genome</a> (computational matching of the consensus promoter sequences to the reference DNA sequence)</li>
 <li>The intron branch points from <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">Bitton <em>et al.</em> (2014)</a> which was also available in the Ensembl browser.</li>
 </ul>
-<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written <a href="/media/Getting_started_with_PomBase_JBrowse.pdf">&quot;Getting started with PomBase JBrowse&quot;</a>, a basic guide that covers loading tracks, navigating the browser, what metadata we provide, and more.</p>
+<p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written <a routerLink="/documentation/JBrowse_quick_start">&quot;Getting started with PomBase JBrowse&quot;</a>, a basic guide that covers loading tracks, navigating the browser, what metadata we provide, and more.</p>
 <h3 id="new-book-chapter-about-pombase">New book chapter about PomBase</h3>
 <p><em>2018-05-22</em></p>
 <p>PomBase has a <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">new book chapter</a> in <a href="https://link.springer.com/book/10.1007/978-1-4939-7737-6"><em>Eukaryotic Genomic Databases</em> (Methods and Protocols)</a>.</p>
@@ -8092,10 +8212,10 @@ Jeffares DC <em>et al.</em> 2015. The genomic and phenotypic diversity of Schizo
 <p>New files are now available from the PomBase FTP site, and are linked from pages in the Download Datasets area:</p>
 <ul>
 <li>Non-coding RNA sequence feature coordinates (available via the <a href="/downloads/data-mappings">Data Mappings</a> page);</li>
-<li>Protein features, such as domains and family assignments (available via the <a href="/downloads/protein-datasets">Protein Datasets</a> page);</li>
+<li>Protein features, such as domains and family assignments (available via the <a routerLink="/downloads/protein-datasets">Protein Datasets</a> page);</li>
 <li>Protein modification annotations (also in Protein Datasets).</li>
 </ul>
-<p>The <a href="/status/new-and-removed-genes">New and Removed Genes page</a> has been updated to reflect recent deletions and merges.<br />
+<p>The <a routerLink="/status/new-and-removed-genes">New and Removed Genes page</a> has been updated to reflect recent deletions and merges.<br />
 <br />
 Note: Ontology graph views are no longer available in the genome browser, so links have been removed from the GO, FYPO, and modification tables on the gene pages. For GO and FYPO, links to external ontology browsers that offer graphical views are available on the <a href="/documentation/ontology-term-page">Ontology Term pages</a>.<br />
 <br />
@@ -8189,7 +8309,7 @@ On gene pages, we have links to gene-specific interaction networks in esyN in th
 <li>Interactions for the gene in the PomBase <a href="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a></li>
 </ul></li>
 </ul>
-<p>We also have esyN links on the <a href="/browse-curation/fission-yeast-go-slim-terms">GO Slim page</a> and on ontology term pages for GO Slim biological process terms. Each GO Slim term links to the HCPIN physical interaction network in esyN (for example, see the &quot;regulation of mitotic cell cycle&quot; <a href="http://www.esyn.org//builder.php?type=Graph&amp;term=GO:0007346&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false">network</a>).</p>
+<p>We also have esyN links on the <a href="/browse-curation/fission-yeast-go-slim-terms">GO Slim page</a> and on ontology term pages for GO Slim biological process terms. Each GO Slim term links to the HCPIN physical interaction network in esyN (for example, see the &quot;regulation of mitotic cell cycle&quot; <a href="http://www.esyn.org//builder.php?type=Graph&term=GO:0007346&interactionType=physical&source=pombase&includeInteractors=false">network</a>).</p>
 <h3 id="pombase-data-update">PomBase data update</h3>
 <p><em>2014-11-12</em></p>
 <p>We have updated the data available on the PomBase web site to include manual curation through October 27, 2014, including 225 community-curated publications. The gene page Phenotype section now includes data from the high-throughput microscopy analysis of viable deletion mutants reported in:<br />
@@ -8222,7 +8342,7 @@ We have also made corrections to some residue positions affected by sequence upd
 <h3 id="gene-ontology-publication-on-annotation-extensions">Gene Ontology publication on annotation extensions</h3>
 <p><em>2014-06-29</em></p>
 <p>PomBase was an early adopter of <a href="/documentation/gene-page-gene-ontology#ann_ext">annotation extensions</a>, which add spatial, temporal, or substrate/target details to GO annotations. The GO Consortium has now published a paper describing its implementation of annotation extensions, in which PomBase examples and its gene page display figure prominently:</p>
-<p>Huntley, R.P. <em>et al.</em> (2014) A method for increasing expressivity of Gene Ontology annotations using a compositional approach. <em>BMC Bioinformatics</em> 2014, <strong>15</strong>:155. <a href="http://www.biomedcentral.com/1471-2105/15/155/abstract">doi:10.1186/1471-2105-15-155</a> <a href="http://www.ncbi.nlm.nih.gov/pubmed/24885854">PMID:24885854</a></p>
+<p>Huntley, R.P. <em>et al.</em> (2014) A method for increasing expressivity of Gene Ontology annotations using a compositional approach. <em>BMC Bioinformatics</em> 2014, <strong>15</strong>:155. <a href="http://www.biomedcentral.com/1471-2105/15/155/abstract">doi:10.1186/1471-<span class="no-break">2105-15-15</span>5</a> <a href="http://www.ncbi.nlm.nih.gov/pubmed/24885854">PMID:24885854</a></p>
 <h3 id="pombase-data-update">PomBase data update</h3>
 <p><em>2014-05-15</em></p>
 <p>We have updated the data available on the PomBase web site. The data now includes manual curation through April 28, 2014. Transcriptome data from <a href="http://europepmc.org/abstract/MED/23101633">Margeurat <em>et al</em> (2012)</a> is now available as Ensembl Browser tracks.</p>
@@ -8246,7 +8366,7 @@ The PomBase Staff</p>
 <ul>
 <li>Rhind N, [and many more]. 2011. Comparative functional genomics of the fission yeasts. Science 332(6032):930-6. doi: 10.1126/science.1203357. <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:21511999</a></li>
 <li>Schlackow M, Marguerat S, Proudfoot NJ, Bähler J, Erban R, Gullerova M. 2013. Genome-wide analysis of poly(A) site selection in <em>Schizosaccharomyces pombe</em>. RNA. 19(12):1617-31. doi:10.1261/rna.040675.113. <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24152550">PMID:24152550</a></li>
-<li>Soriano I, Quintales L, Antequera F. 2013. Clustered regulatory elements at nucleosome-depleted regions punctuate a constant nucleosomal landscape in Schizosaccharomyces pombe. BMC Genomics. 14:813. doi:10.1186/1471-2164-14-813. <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24256300">PMID:24256300</a> (partial data;  remainder coming in the next update)</li>
+<li>Soriano I, Quintales L, Antequera F. 2013. Clustered regulatory elements at nucleosome-depleted regions punctuate a constant nucleosomal landscape in Schizosaccharomyces pombe. BMC Genomics. 14:813. doi:10.1186/1471-<span class="no-break">2164-14-81</span>3. <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24256300">PMID:24256300</a> (partial data;  remainder coming in the next update)</li>
 <li>Xu J, Yanagisawa Y, Tsankov AM, Hart C, Aoki K, Kommajosyula N, Steinmann KE, Bochicchio J, Russ C, Regev A, Rando OJ, Nusbaum C, Niki H, Milos P, Weng Z, Rhind N. 2012. Genome-wide identification and characterization of replication origins by deep sequencing. Genome Biol. 13(4):R27. doi:10.1186/gb-2012-13-4-r27. <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=22531001">PMID:22531001</a></li>
 </ul>
 <p>Now that more data tracks are available, we have added some categories to the track configuration section to improve organization. Additional documentation is in preparation, and will be announced here when available.<br />
@@ -8257,7 +8377,7 @@ Genome sequences for additional <em>Schizosaccharomyces</em> species (<em>S. jap
 <p>We are about to release a data update for PomBase. Please note that there is still a problem with the human orthologs, as originally described on this list in mid-December (see archived message at <a href="http://listserver.ebi.ac.uk/pipermail/pombelist/2013/003926.html" class="uri">http://listserver.ebi.ac.uk/pipermail/pombelist/2013/003926.html</a>). We will correct this problem in the next PomBase release, and apologise for any inconvenience in the meantime.</p>
 <h3 id="pombase-data-update">PomBase data update</h3>
 <p><em>2013-12-08</em></p>
-<p>We have updated the data available on the PomBase web site to include manual curation through November 11, 2013. We now have future meetings available as a <a href="/calendar">calendar</a> or a <a href="/events">list</a>. The <a href="/faq">FAQ</a> and some documentation pages have also been updated.<br />
+<p>We have updated the data available on the PomBase web site to include manual curation through November 11, 2013. We now have future meetings available as a <a routerLink="/calendar">calendar</a> or a <a routerLink="/events">list</a>. The <a routerLink="/faq">FAQ</a> and some documentation pages have also been updated.<br />
 <br />
 </p>
 <h3 id="meeting-mini-reviews-published">2013 meeting mini-reviews published</h3>
@@ -8269,7 +8389,7 @@ Genome sequences for additional <em>Schizosaccharomyces</em> species (<em>S. jap
 <p>The 2013 PomBase user survey closed at the end of October, and the results are available <a href="ftp://ftp.pombase.org/pombe/documents/2013_pombase_survey_summary.pdf">here</a> (PDF at FTP site). Some highlights have been sent to the pombe mailing list. Many thanks to all who completed the survey.</p>
 <h3 id="new-target-gene-page-section">New &quot;Target Of&quot; gene page section</h3>
 <p><em>2013-10-27</em></p>
-<p>With the October 2013 update, gene pages now include &quot;<a href="/documentation/gene-page-target">Target Of</a>&quot; annotations, which describe genes that affect the gene of interest. These annotations are essentially the reciprocal of <a href="/faqs/what-annotation-extension">ontology annotation extensions</a>. Each &quot;Target Of&quot; annotation includes a relationship that indicates how the genes are connected, the name and product of the second gene, and a reference. Genes listed under &quot;Target Of&quot; may include upstream regulators or enzymes that modify the product of the gene of interest. For example, the &quot;Target Of&quot; annotations for <a href="/spombe/result/SPBC11B10.09#recipext">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others). At present, &quot;Target Of&quot; data includes annotations derived from <a href="/documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a>. We will soon extend it to include data from <a href="/documentation/gene-page-phenotypes">phenotype</a> annotation extensions.</p>
+<p>With the October 2013 update, gene pages now include &quot;<a href="/documentation/gene-page-target">Target Of</a>&quot; annotations, which describe genes that affect the gene of interest. These annotations are essentially the reciprocal of <a href="/faqs/what-annotation-extension">ontology annotation extensions</a>. Each &quot;Target Of&quot; annotation includes a relationship that indicates how the genes are connected, the name and product of the second gene, and a reference. Genes listed under &quot;Target Of&quot; may include upstream regulators or enzymes that modify the product of the gene of interest. For example, the &quot;Target Of&quot; annotations for <a routerLink="/spombe/result/SPBC11B10.09#recipext">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others). At present, &quot;Target Of&quot; data includes annotations derived from <a href="/documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a>. We will soon extend it to include data from <a routerLink="/documentation/gene-page-phenotypes">phenotype</a> annotation extensions.</p>
 <h3 id="pombase-data-update">PomBase data update</h3>
 <p><em>2013-10-21</em></p>
 <p>The PomBase web site has been updated and now includes manually curated data through October 6, 2013. The number of community-curated papers continues to increase, ensuring that PomBase gene pages contain complete and up-to-date information. We are also pleased to announce that data tracks are now available in the genome browser for data from these two publications:</p>
@@ -8291,7 +8411,7 @@ We also have an updated version of the <em>S. pombe</em>/human ortholog table av
 <p>At the pombe 2013 meeting in London, PomBase staff received numerous requests display various published data, such as gene expression, histone modifications, etc. in the genome browser. To provide this, we now invite pombe researchers to send data: If you have published any high-throughput experiments that produced data  that can be associated with genome sequence coordinates, and thereby displayed as tracks on the PomBase genome browser, please fill out the <a href="/submit-data/data-submission-form">HTP Data Submission Form</a>. We can also accept large sets of phenotype data via the Phenotype Data Submission Form. If you have any problems or questions, contact us via the <a href="mailto:helpdesk@pombase.org">PomBase Helpdesk</a> at any time.</p>
 <h3 id="connecting-pombase">Connecting With PomBase</h3>
 <p><em>2013-07-29</em></p>
-<p>To complement the <a href="/community/mailing-lists">mailing list</a> and twitter (<span class="citation">[@PomBase]</span>(http://twitter.com/PomBase)) it is now possible to follow the activities of PomBase and interact with other members of the pombe community via the new <a href="http://www.linkedin.com/groups/PomBase-5122686">LinkedIn Group</a> and <a href="https://plus.google.com/114842152049074799331">Google+</a>.</p>
+<p>To complement the <a routerLink="/community/mailing-lists">mailing list</a> and twitter (<a href="http://twitter.com/PomBase"><span class="citation">@PomBase</span></a>) it is now possible to follow the activities of PomBase and interact with other members of the pombe community via the new <a href="http://www.linkedin.com/groups/PomBase-5122686">LinkedIn Group</a> and <a href="https://plus.google.com/114842152049074799331">Google+</a>.</p>
 <p>Links to these are also available from the front page of the PomBase.org site.</p>
 <h3 id="pombelist-has-moved">pombelist has moved</h3>
 <p><em>2013-07-21</em></p>
@@ -8398,7 +8518,7 @@ We are aware that there is an intermittent problem with the &quot;Reference&quot
 <li>Phenotype annotations now use the Fission Yeast Phenotype Ontology (FYPO), and include allele details, expression levels, and experimental conditions. With FYPO, more detailed phenotypes can be described, and links between terms for related phenotypes support improved phenotype searches.</li>
 <li>Many GO annotations now include &quot;annotation extensions&quot; that provide additional specificity. For example, extensions may capture the substrate of a catalytic activity, the cell cycle phase during which a function or process occurs, or any of several other types of supporting information for the annotation. Annotation extensions are described in more detail below.</li>
 </ul>
-<p>You can see these new data types on many gene pages, such as <a href="/spombe/result/SPBC11B10.09">cdc2</a> or <a href="/spombe/result/SPBC106.10">pka1</a>.</p>
+<p>You can see these new data types on many gene pages, such as <a routerLink="/spombe/result/SPBC11B10.09">cdc2</a> or <a routerLink="/spombe/result/SPBC106.10">pka1</a>.</p>
 <p><strong>New web site features:</strong></p>
 <ul>
 <li>Annotation display - Gene page GO and phenotype displays have been revamped to show new annotation types described above.</li>
@@ -8430,7 +8550,7 @@ We are aware that there is an intermittent problem with the &quot;Reference&quot
 <p><em>2012-07-01</em></p>
 <p>We are pleased to announce that the PomBase web site, <a href="http://www.pombase.org">www.pombase.org</a>, is now fully live; the preview phase has ended. The site has been updated with an assortment of new features, datatypes, and bug fixes.</p>
 <p>More recent data, reflecting additions and changes through March 20, 2012, are now available on gene pages and in search results.</p>
-<p>The updated site features a Gene List Search that provides behavior equivalent to GeneDB's List Download. You can now type or paste lists into the Gene Systematic IDs and Gene Names filters, and use the Query History to combine a gene list search with other search options. For convenience, there is a direct link to a search page pre-configured to accept a list of systematic IDs available in the Find menu, on the Find page, and here: <a href="/spombe/query/builder?filter=12">http://www.pombase.org/spombe/query/builder?filter=12</a></p>
+<p>The updated site features a Gene List Search that provides behavior equivalent to GeneDB's List Download. You can now type or paste lists into the Gene Systematic IDs and Gene Names filters, and use the Query History to combine a gene list search with other search options. For convenience, there is a direct link to a search page pre-configured to accept a list of systematic IDs available in the Find menu, on the Find page, and here: <a routerLink="/spombe/query/builder?filter=12">http://www.pombase.org/spombe/query/builder?filter=12</a></p>
 <p>The Advanced Search also now offers:</p>
 <ul>
 <li>options to search GO, FYPO, and other ontologies by term name or ID;</li>
@@ -8489,7 +8609,7 @@ In addition, numerous minor improvements have been made. Please send any questio
 <p>Dynamic repertoire of the fission yeast transcriptome reveals: 94% of the genome is transcribed; extensive variation in different stages and conditions; global and condition-specific coupling between splicing efficiency and transcription; confirms the majority of introns; refines ~75 gene structures; identifies 453 new transcripts 26 of which were predicted to code for proteins.</p>
 <h3 id="the-h-mating-type-region-has-been-provided">The h- mating type region has been provided</h3>
 <p><em>2008-01-31</em></p>
-<p>The <a href="/status/mating-type-region">h- mating type region</a> has been provided by Xavier Marsellach and Lorena Aguilar.</p>
+<p>The <a routerLink="/status/mating-type-region">h- mating type region</a> has been provided by Xavier Marsellach and Lorena Aguilar.</p>
 <h3 id="baumann-and-zakian-labs-identify-telomerase-rna">Baumann and Zakian labs identify telomerase RNA</h3>
 <p><em>2007-12-31</em></p>
 <p>Baumann and Zakian labs identify elusive <a href="/spombe/result/SPNCRNA.214">telomerase RNA</a> (PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157152">18157152</a> and PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157149">18157149</a>)</p>
@@ -8511,7 +8631,7 @@ In addition, numerous minor improvements have been made. Please send any questio
  </p>
 <h3 id="fission-yeast-database-survey">Fission yeast database survey</h3>
 <p><em>2006-04-30</em></p>
-<p>The fission yeast database survey is now closed. You can view the survey results <a href="/community/pombase_2006_survey_summary">here</a>.</p>
+<p>The fission yeast database survey is now closed. You can view the survey results <a routerLink="/community/pombase_2006_survey_summary">here</a>.</p>
 <h3 id="european-fission-yeast-meeting">European Fission Yeast Meeting</h3>
 <p><em>2006-03-17</em></p>
 <p>The European Fission Yeast Meeting (16th-18th March 2006) and The Fission Yeast Bioinformatics workshop (15th - 16th Mar 2006) both took place at the Wellcome Trust Genome Campus in Hinxton (Cambridge, UK).</p>
@@ -8534,7 +8654,7 @@ This meeting took place from November 11-13, 2005 in Miami Beach, Florida.</p>
 <p>The meeting was held at UC San Diego on August 24-29, 2004.</p>
 <h3 id="methods-volume-issue">Methods Volume 33 Issue 3</h3>
 <p><em>2004-04-30</em></p>
-<p>This issue of Methods includes 11 papers for fission yeast protocols including DNA damage checkpoint assays, cell wall analysis, TAP, nuclear envelope integrity assays, GFP imaging, TS mutant creation and plasmid use and construction. See the <a href="http://www.sciencedirect.com/science/journal/10462023/33/3">Methods site</a> or the <a href="/fission-yeast-papers-methods-volume-33-issue-3">Table of Contents</a> (at PomBase)<a href="/fission-yeast-papers-methods-volume-33-issue-3"></a> for details of the papers including PMIDs.</p>
+<p>This issue of Methods includes 11 papers for fission yeast protocols including DNA damage checkpoint assays, cell wall analysis, TAP, nuclear envelope integrity assays, GFP imaging, TS mutant creation and plasmid use and construction. See the <a href="http://www.sciencedirect.com/science/journal/10462023/33/3">Methods site</a> or the <a routerLink="/fission-yeast-papers-methods-volume-33-issue-3">Table of Contents</a> (at PomBase)<a href="/fission-yeast-papers-methods-volume-33-issue-3"></a> for details of the papers including PMIDs.</p>
 <h3 id="recent-genome-wide-surveys">Recent Genome wide surveys</h3>
 <p><em>2003-10-31</em></p>
 <p>Correlations Between Gene Expression and Gene Conservation in Fission Yeast. Mata J, Bahler J. Genome Res. 2003 Nov 12 <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=14613978">PMID:14613978</a><br />
