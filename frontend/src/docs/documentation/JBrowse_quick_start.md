@@ -1,6 +1,7 @@
 ## Getting started with PomBase JBrowse
 
 The PomBase genome browser can be accessed in multiple ways:
+
 - On any PomBase page, click the "Search" tab in the header menu, and
   select "Genome browser"
 - From a gene page, click the "View region in JBrowse ..." link just
@@ -8,8 +9,10 @@ The PomBase genome browser can be accessed in multiple ways:
 - Go directly to https://www.pombase.org/jbrowse/
 
 ### DNA sequence, forward features and reverse features
-Tracks for annotated sequence features -- genes, repeats, etc. -- on
-the forward and reverse strands are displayed by default.
+
+Tracks for annotated sequence features &mdash; genes, repeats,
+etc. &mdash; on the forward and reverse strands are displayed by
+default.
 
 To show the track containing the reference DNA sequence, use the
 "Genome sequence and features" filter and enable the "DNA sequence"
@@ -88,6 +91,7 @@ process. Metadata includes:
 - Publication year
 
 The metadata can be viewed in two ways:
+
 1. In the track selector, tracks are listed with associated metadata
 on the right hand side:
 
@@ -97,18 +101,18 @@ on the right hand side:
 2. In the browser, hover over a track label to display a down
 arrow:
 
-![JBrowse track label](assets/jbrowse_track_label_hover.png){width="200"}
+    ![JBrowse track label](assets/jbrowse_track_label_hover.png){width="200"}
 
-Click the arrow, then click "about this track" in the popup menu:
+    Click the arrow, then click "about this track" in the popup menu:
 
-![JBrowse track popup menu](assets/jbrowse_track_menu.png){width="300"}
+    ![JBrowse track popup menu](assets/jbrowse_track_menu.png){width="300"}
 
-The metadata and stats are displayed:
+    The metadata and stats are displayed:
 
-![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){width="300"}
+    ![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){width="300"}
 
-To dismiss the popup, click the 'X' in the upper right corner or the
-'OK' button at the bottom.
+    To dismiss the popup, click the 'X' in the upper right corner or
+    the 'OK' button at the bottom.
 
 ### Navigating the browser
 #### Moving around
@@ -118,32 +122,34 @@ There are several ways to navigate the genome.
   navigate to a specified location:
 ![JBrowse top of main display](assets/jbrowse_main_top_coords.png){width="520"}
 
-- &nbsp;
-  - Type a gene name, or
-  - Select a chromosome in the pulldown, then type or paste a range of
-    coordinates (two numbers separated by two dots,
-    e.g. 2323258..2336458).
-    - If you select one of the pulldown options but omit coordinates,
-      the browser goes to a default location spanning most of the
-      selected chromosome.
-    - You can also type both a chromosome ID and coordinates directly
-      in the location box, e.g II:2323258..2336458. Use Roman numerals
-      (I, II, III) for the three nuclear chromosomes.
-  - Click the "Go" button or hit return to go to the gene or region.
-  - Coordinates for some regions of interest: 
-    - Centromeres
-      - I:3753687..3789421
-      - II:1602264..1644747
-      - III:1070904..1137003
-    - Mating type region
-      - II:2129208..2137121
-    - rDNA (link to one complete repeat)
-      - III:5542..13722
-  - For more information on the chromosome selection options, see
-    PomBase documentation on [genome sequencing
-    status[(status/sequencing-status), the [mating type
-    region](status/mating-type-region), and
-    [rDNA](faq/there-any-rdna-repeat-sequences-pombase).
+- In the coordinates box,
+     - Type a gene name, or
+     - Select a chromosome in the pulldown, then type or paste a range
+       of coordinates (two numbers separated by two dots,
+       e.g. 2323258..2336458).
+         - If you select one of the pulldown options but omit
+          coordinates, the browser goes to a default location spanning
+          most of the selected chromosome.
+         - You can also type both a chromosome ID and coordinates
+          directly in the location box, e.g II:2323258..2336458. Use
+          Roman numerals (I, II, III) for the three nuclear
+          chromosomes.
+     - Click the "Go" button or hit return to go to the gene or
+       region.
+     - Coordinates for some regions of interest: 
+         - Centromeres
+             - I:3753687..3789421
+             - II:1602264..1644747
+             - III:1070904..1137003
+         - Mating type region
+             - II:2129208..2137121
+         - rDNA (link to one complete repeat)
+            - III:5542..13722
+     - For more information on the chromosome selection options, see
+       PomBase documentation on [genome sequencing status](status/sequencing-status),
+       the [mating type region](status/mating-type-region), and
+       [rDNA](faq/there-any-rdna-repeat-sequences-pombase).
+
 - In the uppermost bar, a red box indicates the size and position of
   the currently displayed region, in the context of the whole
   chromosome. Click in the bar or drag the red box to change position.
@@ -162,12 +168,14 @@ To zoom:
 - Use the + and - buttons, or
 - In the main browser window, double-click to zoom in, and
   shift-double-click to zoom out, or
-- In the narrow bar below the chromosomal coordinates, click and drag
-  to highlight a region, then click within the highlighted region to
-  zoom so the region fills the browser window:
+- In the narrow bar below the chromosomal coordinates:
 
-![JBrowse region selection bar](assets/jbrowse_region_selection_bar.png){width="300"}
-![JBrowse zoom in on selected region](assets//jbrowse_region_zoom.png){width="400"}
+    ![JBrowse region selection bar](assets/jbrowse_region_selection_bar.png){width="300"}
+
+     Click and drag to highlight a region, then click within the
+     highlighted region to zoom so the region fills the browser window:
+
+    ![JBrowse zoom in on selected region](assets//jbrowse_region_zoom.png){width="400"}
 
 To see the DNA sequence, zoom in until it appears, first as
 color-coded blocks, and then labeled with letters.
