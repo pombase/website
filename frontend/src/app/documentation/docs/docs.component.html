@@ -3699,9 +3699,14 @@ the total annotated genes.
   <div class="docs-content">
   <div *ngIf="pageName == 'JBrowse_quick_start'">
 <h2 id="getting-started-with-pombase-jbrowse">Getting started with PomBase JBrowse</h2>
-<p>The PomBase genome browser can be accessed in multiple ways: - On any PomBase page, click the &quot;Search&quot; tab in the header menu, and select &quot;Genome browser&quot; - From a gene page, click the &quot;View region in JBrowse ...&quot; link just above the map image - Go directly to https://www.pombase.org/jbrowse/</p>
+<p>The PomBase genome browser can be accessed in multiple ways:</p>
+<ul>
+<li>On any PomBase page, click the &quot;Search&quot; tab in the header menu, and select &quot;Genome browser&quot;</li>
+<li>From a gene page, click the &quot;View region in JBrowse ...&quot; link just above the map image</li>
+<li>Go directly to https://www.pombase.org/jbrowse/</li>
+</ul>
 <h3 id="dna-sequence-forward-features-and-reverse-features">DNA sequence, forward features and reverse features</h3>
-<p>Tracks for annotated sequence features -- genes, repeats, etc. -- on the forward and reverse strands are displayed by default.</p>
+<p>Tracks for annotated sequence features — genes, repeats, etc. — on the forward and reverse strands are displayed by default.</p>
 <p>To show the track containing the reference DNA sequence, use the &quot;Genome sequence and features&quot; filter and enable the &quot;DNA sequence&quot; track as described below.</p>
 <h3 id="enabling-data-tracks">Enabling data tracks</h3>
 <p>To show data tracks: 1. Click on the &quot;Select tracks&quot; button in the top left corner.</p>
@@ -3747,14 +3752,16 @@ the total annotated genes.
 <li>PubMed ID: paper in which the data were published</li>
 <li>Publication year</li>
 </ul>
-<p>The metadata can be viewed in two ways: 1. In the track selector, tracks are listed with associated metadata on the right hand side:</p>
+<p>The metadata can be viewed in two ways:</p>
+<ol style="list-style-type: decimal">
+<li>In the track selector, tracks are listed with associated metadata on the right hand side:</li>
+</ol>
 <div class="figure">
 <img src="assets/jbrowse_track_selection_top.png" alt="JBrowse track selector with metadata headers highlighted" width="700" />
 <p class="caption">JBrowse track selector with metadata headers highlighted</p>
 </div>
 <ol start="2" style="list-style-type: decimal">
-<li>In the browser, hover over a track label to display a down arrow:</li>
-</ol>
+<li><p>In the browser, hover over a track label to display a down arrow:</p>
 <div class="figure">
 <img src="assets/jbrowse_track_label_hover.png" alt="JBrowse track label" width="200" />
 <p class="caption">JBrowse track label</p>
@@ -3769,13 +3776,15 @@ the total annotated genes.
 <img src="assets/jbrowse_metadata_popup.png" alt="JBrowse track metadata popup" width="300" />
 <p class="caption">JBrowse track metadata popup</p>
 </div>
-<p>To dismiss the popup, click the 'X' in the upper right corner or the 'OK' button at the bottom.</p>
+<p>To dismiss the popup, click the 'X' in the upper right corner or the 'OK' button at the bottom.</p></li>
+</ol>
 <h3 id="navigating-the-browser">Navigating the browser</h3>
 <h4 id="moving-around">Moving around</h4>
 <p>There are several ways to navigate the genome.</p>
 <ul>
 <li><p>Use the box at the top that displays the chromosomal coordinates to navigate to a specified location: <img src="assets/jbrowse_main_top_coords.png" alt="JBrowse top of main display" width="520" /></p></li>
-<li> </li>
+<li>In the coordinates box,
+<ul>
 <li>Type a gene name, or</li>
 <li>Select a chromosome in the pulldown, then type or paste a range of coordinates (two numbers separated by two dots, e.g. 2323258..2336458).
 <ul>
@@ -3785,16 +3794,23 @@ the total annotated genes.
 <li>Click the &quot;Go&quot; button or hit return to go to the gene or region.</li>
 <li>Coordinates for some regions of interest:
 <ul>
-<li>Centromeres</li>
+<li>Centromeres
+<ul>
 <li>I:3753687..3789421</li>
 <li>II:1602264..1644747</li>
 <li>III:1070904..1137003</li>
-<li>Mating type region</li>
+</ul></li>
+<li>Mating type region
+<ul>
 <li>II:2129208..2137121</li>
-<li>rDNA (link to one complete repeat)</li>
+</ul></li>
+<li>rDNA (link to one complete repeat)
+<ul>
 <li>III:5542..13722</li>
 </ul></li>
-<li>For more information on the chromosome selection options, see PomBase documentation on [genome sequencing status[(status/sequencing-status), the <a href="status/mating-type-region">mating type region</a>, and <a routerLink="/faq/there-any-rdna-repeat-sequences-pombase">rDNA</a>.</li>
+</ul></li>
+<li>For more information on the chromosome selection options, see PomBase documentation on <a routerLink="/status/sequencing-status">genome sequencing status</a>, the <a routerLink="/status/mating-type-region">mating type region</a>, and <a routerLink="/faq/there-any-rdna-repeat-sequences-pombase">rDNA</a>.</li>
+</ul></li>
 <li><p>In the uppermost bar, a red box indicates the size and position of the currently displayed region, in the context of the whole chromosome. Click in the bar or drag the red box to change position.</p></li>
 </ul>
 <div class="figure">
@@ -3810,9 +3826,17 @@ the total annotated genes.
 <ul>
 <li>Use the + and - buttons, or</li>
 <li>In the main browser window, double-click to zoom in, and shift-double-click to zoom out, or</li>
-<li>In the narrow bar below the chromosomal coordinates, click and drag to highlight a region, then click within the highlighted region to zoom so the region fills the browser window:</li>
+<li><p>In the narrow bar below the chromosomal coordinates:</p>
+<div class="figure">
+<img src="assets/jbrowse_region_selection_bar.png" alt="JBrowse region selection bar" width="300" />
+<p class="caption">JBrowse region selection bar</p>
+</div>
+<p>Click and drag to highlight a region, then click within the highlighted region to zoom so the region fills the browser window:</p>
+<div class="figure">
+<img src="assets//jbrowse_region_zoom.png" alt="JBrowse zoom in on selected region" width="400" />
+<p class="caption">JBrowse zoom in on selected region</p>
+</div></li>
 </ul>
-<p><img src="assets/jbrowse_region_selection_bar.png" alt="JBrowse region selection bar" width="300" /> <img src="assets//jbrowse_region_zoom.png" alt="JBrowse zoom in on selected region" width="400" /></p>
 <p>To see the DNA sequence, zoom in until it appears, first as color-coded blocks, and then labeled with letters.</p>
 <p>More <em>S. pombe</em>-specific information can be found in the <a href="https://www.pombase.org/faq/genome-browser">Genome browser FAQ list</a>.</p>
 
