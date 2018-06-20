@@ -20,9 +20,10 @@ track as described below.
 
 ### Enabling data tracks
 To show data tracks:
+
 1. Click on the "Select tracks" button in the top left corner.
 
-![JBrowse top, with "select tracks" button highlighted](assets/jbrowse_main_top_track_button.png){width="700"}
+    ![JBrowse top, with "select tracks" button highlighted](assets/jbrowse_main_top_track_button.png){width="700"}
 
 2. Locate the track(s) of interest (see below), and then click the
 tickbox for any individual track to toggle it on/off, or use the
@@ -34,7 +35,7 @@ once.
 4. The tracks should now be displayed. For example, the sequence
 feature and DNA sequence tracks look like this:
 
-![JBrowse display of pombe sequence and features](assets/jbrowse_seq_feature_tracks.png){width="700"}
+    ![JBrowse display of pombe sequence and features](assets/jbrowse_seq_feature_tracks.png){width="700"}
 
 To hide a track, click the (X) button to the left of the track label,
 or go to the "Select tracks" page and clear its tickbox.
@@ -46,7 +47,7 @@ Each entry in the left-hand column can be used to filter the track
 list. Filter criteria fall into several categories, corresponding to
 some of the track metadata (see below):
 
-![JBrowse track selection interface](assets/jbrowse_track_selector.png){width="400"}
+![JBrowse track selection interface](assets/jbrowse_track_selector.png){width="450"}
 
 As you select filters, the screen will update to show only relevant
 criteria on the left, and matching tracks on the right.
@@ -95,21 +96,21 @@ The metadata can be viewed in two ways:
 1. In the track selector, tracks are listed with associated metadata
 on the right hand side:
 
-![JBrowse track selector with metadata headers highlighted](assets/jbrowse_track_selection_top.png){width="700"}
+    ![JBrowse track selector with metadata headers highlighted](assets/jbrowse_track_selection_top.png){width="750"}
 
 
 2. In the browser, hover over a track label to display a down
 arrow:
 
-    ![JBrowse track label](assets/jbrowse_track_label_hover.png){width="200"}
+    ![JBrowse track label](assets/jbrowse_track_label_hover.png){width="300"}
 
     Click the arrow, then click "about this track" in the popup menu:
 
-    ![JBrowse track popup menu](assets/jbrowse_track_menu.png){width="300"}
+    ![JBrowse track popup menu](assets/jbrowse_track_menu.png){width="400"}
 
     The metadata and stats are displayed:
 
-    ![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){width="300"}
+    ![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){width="400"}
 
     To dismiss the popup, click the 'X' in the upper right corner or
     the 'OK' button at the bottom.
@@ -120,9 +121,9 @@ There are several ways to navigate the genome.
 
 - Use the box at the top that displays the chromosomal coordinates to
   navigate to a specified location:
-![JBrowse top of main display](assets/jbrowse_main_top_coords.png){width="520"}
+![JBrowse top of main display](assets/jbrowse_main_top_coords.png){width="600"}
 
-- In the coordinates box,
+    In the coordinates box,
      - Type a gene name, or
      - Select a chromosome in the pulldown, then type or paste a range
        of coordinates (two numbers separated by two dots,
@@ -154,9 +155,9 @@ There are several ways to navigate the genome.
   the currently displayed region, in the context of the whole
   chromosome. Click in the bar or drag the red box to change position.
 
-![JBrowse position bar](assets/jbrowse_position_bar.png){width="300"}
+    ![JBrowse position bar](assets/jbrowse_position_bar.png){width="500"}
 
-- Use the arrows next in the bar with the box for chromosomal
+- Use the arrows next to the bar with the box for chromosomal
   coordinates to move right or left in increments.
 - Drag or swipe (depending on device) in the main browser window to
   scroll.
@@ -168,14 +169,14 @@ To zoom:
 - Use the + and - buttons, or
 - In the main browser window, double-click to zoom in, and
   shift-double-click to zoom out, or
-- In the narrow bar below the chromosomal coordinates:
+- Use the narrow bar below the chromosomal coordinates:
 
     ![JBrowse region selection bar](assets/jbrowse_region_selection_bar.png){width="300"}
 
      Click and drag to highlight a region, then click within the
      highlighted region to zoom so the region fills the browser window:
 
-    ![JBrowse zoom in on selected region](assets//jbrowse_region_zoom.png){width="400"}
+    ![JBrowse zoom in on selected region](assets//jbrowse_region_zoom.png){width="500"}
 
 To see the DNA sequence, zoom in until it appears, first as
 color-coded blocks, and then labeled with letters.
