@@ -778,6 +778,12 @@ United Kingdom</p>
 <td><a href="https://www.pombase.org/gene/SPAC25B8.19c">Loz1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002006">SO:0002006</a></td>
 </tr>
+<tr class="even">
+<td>Zas1 recognition motif</td>
+<td>(Y)CCCCAY</td>
+<td><a href="https://www.pombase.org/gene/SPBC1198.04c">Zas1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002215">SO:0002215</a></td>
+</tr>
 </tbody>
 </table>
 <h4 id="other-dna-binding-sites">Other DNA binding sites</h4>
@@ -5277,9 +5283,26 @@ In the coordinates box,
   </div>
   <div *ngIf="pageName == 'simple-search-documentation'">
 <h2 id="simple-search">Simple search</h2>
-<p>The simple search is available via the search box in the header on every PomBase page.</p>
-<p>It searches gene names (standard names and synonyms), systematic IDs, and gene product descriptions for fission yeast genes. Human and budding yeast orthologs can also be searched by standard gene name and ORF name, respectively.</p>
+<p>The simple search is available via the search box in the header on every PomBase page:</p>
+<div class="figure">
+<img src="assets/simple_search_mouseover_help.png" alt="Simple search mouseover help" width="600" />
+<p class="caption">Simple search mouseover help</p>
+</div>
+<p>The simple search works for:</p>
+<ul>
+<li>Fission yeast gene names, synonyms, and systematic IDs</li>
+<li>Fission yeast gene product descriptions</li>
+<li>Human orthologs of fission yeast genes — search by standard gene symbols</li>
+<li>Budding yeast orthologs of fission yeast genes — search by standard gene names or ORF names</li>
+<li>Publications — search by PubMed ID</li>
+<li>Ontology terms — search by term ID</li>
+</ul>
 <p>Start typing to see a pulldown of autocomplete matches, then choose one, or if there is a single match simply hit return, to go to the matching gene page.</p>
+<div class="figure">
+<img src="assets/simple_search_dropdown.png" alt="Simple search autocomplete matches" width="170" />
+<p class="caption">Simple search autocomplete matches</p>
+</div>
+<p>For publications or ontology terms, type or paste an ID as directed.</p>
 
   </div>
   <div *ngIf="pageName == 'taxonomic-conservation'">
