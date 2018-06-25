@@ -3709,26 +3709,27 @@ the total annotated genes.
 <p>Tracks for annotated sequence features — genes, repeats, etc. — on the forward and reverse strands are displayed by default.</p>
 <p>To show the track containing the reference DNA sequence, use the &quot;Genome sequence and features&quot; filter and enable the &quot;DNA sequence&quot; track as described below.</p>
 <h3 id="enabling-data-tracks">Enabling data tracks</h3>
-<p>To show data tracks: 1. Click on the &quot;Select tracks&quot; button in the top left corner.</p>
+<p>To show data tracks:</p>
+<ol style="list-style-type: decimal">
+<li><p>Click on the &quot;Select tracks&quot; button in the top left corner.</p>
 <div class="figure">
 <img src="assets/jbrowse_main_top_track_button.png" alt="JBrowse top, with &quot;select tracks&quot; button highlighted" width="700" />
 <p class="caption">JBrowse top, with &quot;select tracks&quot; button highlighted</p>
-</div>
-<ol start="2" style="list-style-type: decimal">
+</div></li>
 <li><p>Locate the track(s) of interest (see below), and then click the tickbox for any individual track to toggle it on/off, or use the tickbox in the header to enable/disable all of the listed tracks at once.</p></li>
 <li><p>Click the &quot;Back to browser&quot; button at the top.</p></li>
-<li><p>The tracks should now be displayed. For example, the sequence feature and DNA sequence tracks look like this:</p></li>
-</ol>
+<li><p>The tracks should now be displayed. For example, the sequence feature and DNA sequence tracks look like this:</p>
 <div class="figure">
 <img src="assets/jbrowse_seq_feature_tracks.png" alt="JBrowse display of pombe sequence and features" width="700" />
 <p class="caption">JBrowse display of pombe sequence and features</p>
-</div>
+</div></li>
+</ol>
 <p>To hide a track, click the (X) button to the left of the track label, or go to the &quot;Select tracks&quot; page and clear its tickbox.</p>
 <p>Drag and drop tracks to change the order in which they appear.</p>
 <h4 id="locating-data">Locating data</h4>
 <p>Each entry in the left-hand column can be used to filter the track list. Filter criteria fall into several categories, corresponding to some of the track metadata (see below):</p>
 <div class="figure">
-<img src="assets/jbrowse_track_selector.png" alt="JBrowse track selection interface" width="400" />
+<img src="assets/jbrowse_track_selector.png" alt="JBrowse track selection interface" width="450" />
 <p class="caption">JBrowse track selection interface</p>
 </div>
 <p>As you select filters, the screen will update to show only relevant criteria on the left, and matching tracks on the right.</p>
@@ -3754,26 +3755,24 @@ the total annotated genes.
 </ul>
 <p>The metadata can be viewed in two ways:</p>
 <ol style="list-style-type: decimal">
-<li>In the track selector, tracks are listed with associated metadata on the right hand side:</li>
-</ol>
+<li><p>In the track selector, tracks are listed with associated metadata on the right hand side:</p>
 <div class="figure">
-<img src="assets/jbrowse_track_selection_top.png" alt="JBrowse track selector with metadata headers highlighted" width="700" />
+<img src="assets/jbrowse_track_selection_top.png" alt="JBrowse track selector with metadata headers highlighted" width="750" />
 <p class="caption">JBrowse track selector with metadata headers highlighted</p>
-</div>
-<ol start="2" style="list-style-type: decimal">
+</div></li>
 <li><p>In the browser, hover over a track label to display a down arrow:</p>
 <div class="figure">
-<img src="assets/jbrowse_track_label_hover.png" alt="JBrowse track label" width="200" />
+<img src="assets/jbrowse_track_label_hover.png" alt="JBrowse track label" width="300" />
 <p class="caption">JBrowse track label</p>
 </div>
 <p>Click the arrow, then click &quot;about this track&quot; in the popup menu:</p>
 <div class="figure">
-<img src="assets/jbrowse_track_menu.png" alt="JBrowse track popup menu" width="300" />
+<img src="assets/jbrowse_track_menu.png" alt="JBrowse track popup menu" width="400" />
 <p class="caption">JBrowse track popup menu</p>
 </div>
 <p>The metadata and stats are displayed:</p>
 <div class="figure">
-<img src="assets/jbrowse_metadata_popup.png" alt="JBrowse track metadata popup" width="300" />
+<img src="assets/jbrowse_metadata_popup.png" alt="JBrowse track metadata popup" width="400" />
 <p class="caption">JBrowse track metadata popup</p>
 </div>
 <p>To dismiss the popup, click the 'X' in the upper right corner or the 'OK' button at the bottom.</p></li>
@@ -3782,8 +3781,8 @@ the total annotated genes.
 <h4 id="moving-around">Moving around</h4>
 <p>There are several ways to navigate the genome.</p>
 <ul>
-<li><p>Use the box at the top that displays the chromosomal coordinates to navigate to a specified location: <img src="assets/jbrowse_main_top_coords.png" alt="JBrowse top of main display" width="520" /></p></li>
-<li>In the coordinates box,
+<li><p>Use the box at the top that displays the chromosomal coordinates to navigate to a specified location: <img src="assets/jbrowse_main_top_coords.png" alt="JBrowse top of main display" width="600" /></p>
+In the coordinates box,
 <ul>
 <li>Type a gene name, or</li>
 <li>Select a chromosome in the pulldown, then type or paste a range of coordinates (two numbers separated by two dots, e.g. 2323258..2336458).
@@ -3811,29 +3810,27 @@ the total annotated genes.
 </ul></li>
 <li>For more information on the chromosome selection options, see PomBase documentation on <a routerLink="/status/sequencing-status">genome sequencing status</a>, the <a routerLink="/status/mating-type-region">mating type region</a>, and <a routerLink="/faq/there-any-rdna-repeat-sequences-pombase">rDNA</a>.</li>
 </ul></li>
-<li><p>In the uppermost bar, a red box indicates the size and position of the currently displayed region, in the context of the whole chromosome. Click in the bar or drag the red box to change position.</p></li>
-</ul>
+<li><p>In the uppermost bar, a red box indicates the size and position of the currently displayed region, in the context of the whole chromosome. Click in the bar or drag the red box to change position.</p>
 <div class="figure">
-<img src="assets/jbrowse_position_bar.png" alt="JBrowse position bar" width="300" />
+<img src="assets/jbrowse_position_bar.png" alt="JBrowse position bar" width="500" />
 <p class="caption">JBrowse position bar</p>
-</div>
-<ul>
-<li>Use the arrows next in the bar with the box for chromosomal coordinates to move right or left in increments.</li>
-<li>Drag or swipe (depending on device) in the main browser window to scroll.</li>
+</div></li>
+<li>Use the arrows next to the bar with the box for chromosomal coordinates to move right or left in increments.</li>
+<li><p>Drag or swipe (depending on device) in the main browser window to scroll.</p></li>
 </ul>
 <h4 id="zooming">Zooming</h4>
 <p>To zoom:</p>
 <ul>
 <li>Use the + and - buttons, or</li>
 <li>In the main browser window, double-click to zoom in, and shift-double-click to zoom out, or</li>
-<li><p>In the narrow bar below the chromosomal coordinates:</p>
+<li><p>Use the narrow bar below the chromosomal coordinates:</p>
 <div class="figure">
 <img src="assets/jbrowse_region_selection_bar.png" alt="JBrowse region selection bar" width="300" />
 <p class="caption">JBrowse region selection bar</p>
 </div>
 <p>Click and drag to highlight a region, then click within the highlighted region to zoom so the region fills the browser window:</p>
 <div class="figure">
-<img src="assets//jbrowse_region_zoom.png" alt="JBrowse zoom in on selected region" width="400" />
+<img src="assets//jbrowse_region_zoom.png" alt="JBrowse zoom in on selected region" width="500" />
 <p class="caption">JBrowse zoom in on selected region</p>
 </div></li>
 </ul>
