@@ -6114,7 +6114,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <!-- pombase_categories: Orthology,Finding data -->
 <p>Yes, use the &quot;Taxonomic conservation&quot; query in the <a routerLink="/query">advanced search</a>.</p>
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'"
-    [predefinedQueryId]="'conserved_in_vertebrates'"> </app-query-link></p>
+    [predefinedQueryId]="'canned_query:conserved_in_vertebrates'"> </app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/can-i-search-pombase-protein-features', 'Can I search PomBase for protein features?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-search-pombase-protein-features' || pageName == 'all-faqs'">
@@ -6410,7 +6410,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <!-- pombase_categories: Finding data,Genome statistics and lists,Orthology -->
 <p>Almost all genes that are conserved between fission yeast and human are also conserved in other vertebrates (there are two exceptions, both of which are genes encoding amino acid biosynthesis proteins that have become pseudogenes in human). To retreive these genes, go to the <a routerLink="/query">advanced search</a>, click the &quot;Taxonomic conservation&quot; query option, and choose the description &quot;Conserved in vertebrates&quot;.</p>
 <p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">finding disease gene orthologs</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>.</p>
-<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'" [predefinedQueryId]="'conserved_in_vertebrates'"></app-query-link></p>
+<p>Query link: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'" [predefinedQueryId]="'canned_query:conserved_in_vertebrates'"></app-query-link></p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family', 'How can I find all *S. pombe* proteins in a particular protein family?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-s.-pombe-proteins-particular-protein-family' || pageName == 'all-faqs'">
@@ -6541,7 +6541,7 @@ and select the Intron Branch Point track.
 <p>Example queries:</p>
 <ul>
 <li><p><app-query-link [goToResults]="true" [linkText]="'disease\_associated (PBO:5000000)'"
-[predefinedQueryId]="'all_diseases'"> </app-query-link></p></li>
+[predefinedQueryId]="'canned_query:all_diseases'"> </app-query-link></p></li>
 <li><p><app-query-link [goToResults]="true" [linkText]="'cancer (PBO:0000239)'"
 [predefinedQueryId]="'cancer'"> </app-query-link></p></li>
 </ul>

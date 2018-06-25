@@ -17,7 +17,7 @@ Also see the FAQs on [finding genes conserved in human](/faq/how-can-i-find-all-
 Example queries:
 
 -  <app-query-link [goToResults]="true" [linkText]="'disease\_associated (PBO:5000000)'"
-    [predefinedQueryId]="'all_diseases'">
+    [predefinedQueryId]="'canned_query:all_diseases'">
   </app-query-link>
 
 -  <app-query-link [goToResults]="true" [linkText]="'cancer (PBO:0000239)'"
