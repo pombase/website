@@ -69,7 +69,11 @@ export class GeneDetailsComponent implements OnInit {
 
       const len = cds_location.end_pos - cds_location.start_pos + 1;
 
-      return `${cds_location.start_pos}-${cds_location.end_pos} (${len}nt)`;
+      if (cds_location.strand === 'reverse') {
+        return `${cds_location.end_pos}-${cds_location.start_pos} (${len}nt)`;
+      } else {
+        return `${cds_location.start_pos}-${cds_location.end_pos} (${len}nt)`;
+      }
     }
 
     return null;
