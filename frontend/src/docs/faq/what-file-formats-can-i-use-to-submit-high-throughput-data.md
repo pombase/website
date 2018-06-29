@@ -29,9 +29,9 @@ PomBase-specific formats as shown in the table:
 Data type | File format description
 ----------|------------------------
 Phenotypes | [phenotype file format](/documentation/phenotype-data-bulk-upload-format) 
-Modifications | [modification file format](/documentation/modification-data-bulk-upload-file-format) 
-Qualitative gene expression | [qualitative gene expression file format](/documentation/qualitative-data-gene-expression-bulk-upload-file-format) 
-Quantitative gene expression | [quantitative gene expression file format](/documentation/quantitative-data-gene-expression-bulk-upload-file-format) 
+Modifications | [modification file format](/documentation/modification-data-bulk-upload-format) 
+Qualitative gene expression | [qualitative gene expression file format](/documentation/qualitative-data-gene-expression-bulk-upload-format) 
+Quantitative gene expression | [quantitative gene expression file format](/documentation/quantitative-data-gene-expression-bulk-upload-format) 
 
 We may be able to accept data in other text formats. Please enquire via
 the PomBase [helpdesk](mailto:helpdesk@pombase.org) if you have any questions about your data format.

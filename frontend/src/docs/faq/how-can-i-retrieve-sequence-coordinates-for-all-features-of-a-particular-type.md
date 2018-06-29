@@ -29,7 +29,9 @@ Available options:
     [FAQ on pombe transcriptome sequences](/faq/s.-pombe-transcriptome-available-fasta-format).
     Select the desired feature type(s) from the output file of stable
     IDs (bear in mind that Ensembl idiosyncratically uses "biotype" to
-    mean feature type).
+    mean feature type). Note, however, that EG is updated much less
+    frequently than PomBase, so EG data will rarely be as up-to-date
+    as the PomBase web site. Documentation is available:
 
 
 Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'"

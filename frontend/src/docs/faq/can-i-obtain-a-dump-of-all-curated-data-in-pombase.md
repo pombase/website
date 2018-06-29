@@ -3,7 +3,6 @@
 
 Data that appear on gene pages -- sequence feature annotations,
 ontology annotations, etc. -- are stored in a database that uses the
-[Chado](http://gmod.org/wiki/Chado) schema. Monthly snapshots of the
-PomBase Chado database are available via the [Downloads](/downloads)
-page.
+[Chado](http://gmod.org/wiki/Chado) schema. Snapshots of the PomBase
+Chado database are available via the [Downloads](/downloads) page.
 

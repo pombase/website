@@ -8,10 +8,14 @@ PomBase [genome browser](https://www.pombase.org/jbrowse/).
 The GFF3 genome feature files available from the [Genome Datasets](/downloads/genome-datasets) page include the coordinates of the
 [annotated full-length transcript features](/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites).
 
-The bioinformatically inclined can also use the Ensembl Genomes REST API
-to retrieve transcript feature coordinates. The [FAQ on programmatic access to PomBase](/faq/there-any-programmatic-access-pombase-data) provides an
-introduction to using the API, some pombe-specific examples, and links
-to additional documentation.
+The bioinformatically inclined can also use the Ensembl Genomes REST
+API to retrieve transcript feature coordinates. (Note that, while the
+sequence has not changed recently, annotation data are likely to be
+out of date relative to the PomBase web site Ensembl Genomes is
+updated much less frequently than PomBase.) The
+[FAQ on programmatic access to PomBase](/faq/there-any-programmatic-access-pombase-data) 
+provides an introduction to using the API, some pombe-specific
+examples, and links to additional documentation.
 
 -   For transcript coordinates, first retrieve all stable IDs using this
     URL:
