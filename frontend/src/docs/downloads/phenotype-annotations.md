@@ -75,7 +75,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 2.  The systematic ID for each gene.
 3.  To use the FYPO IDs, see the [FYPO summary page](/browse-curation/fission-yeast-phenotype-ontology) 
     and the
-    [FAQ on browsing FYPO](/faq/how-can-i-browse-the-phenotype-ontology-fypo).
+    [FAQ on browsing FYPO](/faq/how-can-i-browse-phenotype-ontology-fypo).
 4.  The allele description specifically describes the change; see the
     [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
     for details on allele types and descriptions.

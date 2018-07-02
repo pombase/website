@@ -3,7 +3,7 @@
 
 Fission yeast polyadenylation data are available in the genome
 browser. To display the data, enable one or more of the tracks with
-the data type "Poyl(A) sites".
+the data type "Poly(A) sites".
 
 [Help with configuring browser tracks](/faq/how-can-i-show-or-hide-tracks-genome-browser) is available.
 
