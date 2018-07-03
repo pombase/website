@@ -5466,14 +5466,12 @@ In the coordinates box,
   <div class="docs-content">
   <div *ngIf="pageName == 'chado-database-dumps'">
 <h2 id="chado-database-dumps">Chado database dumps</h2>
-<!-- uncomment and replace snapshot paragraph when new link active (update if needed)
-The <a href="ftp://ftp.pombase.org/pombase_data_dumps/nightly_update/">nightly release</a> of PomBase data includes 
-a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
-
+<p>The <a href="ftp://ftp.pombase.org/nightly_update/">nightly release</a> of PomBase data includes a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.</p>
+<p>For PomBase releases made between July 2012 and January 2017, Chado data dumps are available for <a href="http://curation.pombase.org/dumps/releases/">download</a>. For these dumps, the file names include release numbers that correspond to the &quot;Annotation Version&quot; numbers in the <a routerLink="/about/version-history">Data version history</a> table.</p>
+<p>For data released between January 2017 and the present, monthly data snapshots will be made available for download in the near future. In the meantime, please <a href="mailto:helpdesk@pombase.org">contact the curators</a> if you need any data not available at the links above.</p>
+<!-- uncomment and replace monthly snapshot paragraph when new link active (update if needed)
 <a href="ftp://ftp.pombase.org/pombase_data_dumps/monthly_chado_snapshots/">Monthly snapshots</a> of the Chado data are archived and available for download.
 -->
-<p>Monthly data snapshots from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database are available for <a href="http://curation.pombase.org/dumps/releases/">download</a>.</p>
-<p>For data dumps made between July 2012 and January 2017, the file names include release numbers that correspond to the &quot;Annotation Version&quot; numbers in the <a routerLink="/about/version-history">Data version history</a> table.</p>
 
   </div>
   <div *ngIf="pageName == 'genome-datasets'">
@@ -5771,7 +5769,7 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <ol style="list-style-type: decimal">
 <li>The database that produced the file -- included to facilitate data sharing with other databases. Obviously always PomBase for this file.</li>
 <li>The systematic ID for each gene.</li>
-<li>To use the FYPO IDs, see the <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the <a routerLink="/faq/how-can-i-browse-the-phenotype-ontology-fypo">FAQ on browsing FYPO</a>.</li>
+<li>To use the FYPO IDs, see the <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the <a routerLink="/faq/how-can-i-browse-phenotype-ontology-fypo">FAQ on browsing FYPO</a>.</li>
 <li>The allele description specifically describes the change; see the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> for details on allele types and descriptions.</li>
 <li>The Expression column contains one of these values: 'overexpression', 'knockdown', 'endogenous', 'null', 'not specified'. Deletions always have 'null' expression.</li>
 <li>The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but &quot;unknown&quot; is allowed.</li>
@@ -5869,7 +5867,8 @@ a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.
 <div (click)="navigate($event, '/faq/can-i-access-pombase-via-api', 'Can I access PomBase via an API?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-api' || pageName == 'all-faqs'">
 <h3 id="can-i-access-pombase-via-api">Can I access PomBase via an API?</h3>
 <!-- pombase_categories: Tools and resources -->
-<p>Yes, the Ensembl API can be used with PomBase, as documented here:</p>
+<p>PomBase does not have an API at present.</p>
+<p>The Ensembl API can be used to query <em>S. pombe</em> data. Note, however, that EG is updated much less frequently than PomBase, so EG data will rarely be as up-to-date as the PomBase web site. Documentation is available:</p>
 <ol style="list-style-type: decimal">
 <li><a href="http://ensemblgenomes.org/info/access/eg_api">Ensembl Genomes Perl API installation and basic use instructions</a> (with links to additional Ensembl API documentation)</li>
 <li><a href="http://www.ensembl.org/info/docs/api/core/core_tutorial.html">Tutorial for using the API with the core database</a> - Includes examples about connecting to the database, retrieving chromosomes, genes, transcript and translations along with the corresponding xrefs.</li>
@@ -6025,7 +6024,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="navigate($event, '/faq/can-i-get-cdna-sequences-s.-pombe', 'Can I get cDNA sequences for *S. pombe*?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-get-cdna-sequences-s.-pombe' || pageName == 'all-faqs'">
 <h3 id="can-i-get-cdna-sequences-s.-pombe">Can I get cDNA sequences for <em>S. pombe</em>?</h3>
 <!-- pombase_categories: Finding data -->
-<p>A file of cDNA sequences in FASTA format is available on the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page.</p>
+<p>A file of cDNA sequences in FASTA format is available on the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page, under the &quot;Feature sequences&quot; heading.</p>
 
 </div>
 <div (click)="navigate($event, '/faq/can-i-get-file-specific-set-genome-features', 'Can I get a file with a specific set of genome features?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-get-file-specific-set-genome-features' || pageName == 'all-faqs'">
@@ -6060,13 +6059,15 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="navigate($event, '/faq/can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe', 'Can I get a list of systematic IDs, primary names, synonyms and gene products in *S. pombe*?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe' || pageName == 'all-faqs'">
 <h3 id="can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe">Can I get a list of systematic IDs, primary names, synonyms and gene products in <em>S. pombe</em>?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
-<p>Yes: From the <a routerLink="/downloads/names-and-identifiers">Data Mapping</a> page, retrieve this file: ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/sysID2product.tsv</p>
+<p>Yes: From the <a routerLink="/downloads/names-and-identifiers">PomBase name and identifier mappings</a> page, retrieve this file:</p>
+<p>ftp://ftp.pombase.org/pombe/names_and_identifiers/sysID2product.tsv</p>
+<p>Also consider other files listed on the page.</p>
 
 </div>
 <div (click)="navigate($event, '/faq/can-i-obtain-dump-all-curated-data-pombase', 'Can I obtain a dump of all curated data in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-obtain-dump-all-curated-data-pombase' || pageName == 'all-faqs'">
 <h3 id="can-i-obtain-dump-all-curated-data-pombase">Can I obtain a dump of all curated data in PomBase?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
-<p>Data that appear on gene pages -- sequence feature annotations, ontology annotations, etc. -- are stored in a database that uses the <a href="http://gmod.org/wiki/Chado">Chado</a> schema. Monthly snapshots of the PomBase Chado database are available via the <a routerLink="/downloads">Downloads</a> page.</p>
+<p>Data that appear on gene pages -- sequence feature annotations, ontology annotations, etc. -- are stored in a database that uses the <a href="http://gmod.org/wiki/Chado">Chado</a> schema. Snapshots of the PomBase Chado database are available via the <a routerLink="/downloads">Downloads</a> page.</p>
 
 </div>
 <div (click)="navigate($event, '/faq/can-i-provide-list-genes-search-on', 'Can I provide a list of genes to search on?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-provide-list-genes-search-on' || pageName == 'all-faqs'">
@@ -6167,7 +6168,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="navigate($event, '/faq/can-i-view-nucleotide-sequence-genome-browser', 'Can I view nucleotide sequence in the genome browser?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'tools-and-resources' || pageName == 'can-i-view-nucleotide-sequence-genome-browser' || pageName == 'all-faqs'">
 <h3 id="can-i-view-nucleotide-sequence-genome-browser">Can I view nucleotide sequence in the genome browser?</h3>
 <!-- pombase_categories: Genome browser,Tools and resources -->
-<p>Yes. First, make sure the Reference sequence track is enabled (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">FAQ on showing tracks</a> if necessary).</p>
+<p>Yes. First, make sure the DNA sequence track is enabled (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">FAQ on showing tracks</a> if necessary).</p>
 <p>Then simply zoom in until sequence appears. The graphic will first display colored blocks representing color-coded nucleotides, and then legible sequence.</p>
 <p>At any zoom level, use the arrows to scroll along the sequence.</p>
 
@@ -6175,24 +6176,10 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="navigate($event, '/faq/can-i-view-variation-data-pombase', 'Can I view variation data in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-browser' || pageName == 'can-i-view-variation-data-pombase' || pageName == 'all-faqs'">
 <h3 id="can-i-view-variation-data-pombase">Can I view variation data in PomBase?</h3>
 <!-- pombase_categories: Finding data,Genome browser -->
-<p>The previous version of the PomBase genome browser included variation data from natural <em>S. pombe</em> isolates, published in:</p>
+<p>The PomBase genome browser includes variation data from natural <em>S. pombe</em> isolates, published in:</p>
 <p>Jeffares DC <em>et al.</em> 2015. The genomic and phenotypic diversity of Schizosaccharomyces pombe. <em>Nat Genet.</em> <strong>47(3):</strong>235-241. doi: <a href="http://dx.doi.org/10.1038/ng.3215">10.1038/ng.3215</a> <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25665008">PMID:25665008</a></p>
-<p>We will soon add these data to PomBase JBrowse.</p>
-<!-- restore (edit as needed)
-To view the variation data, enable one or more of the tracks under
-"Variation".
-<a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">Help</a> is available
-for enabling tracks.
-
-Insertions/deletions (indels) and SNPs can be enabled as separate
-tracks, or "Sequence variants (all sources)" displays both types on a
-single track. Clicking on any variation feature in the track brings up a
-small pop-up box with a summary and link to further details about the
-variation.
-
-A Variscan track showing variation diversity along the sequence is also
-available.
--->
+<p>To view the variation data, enable one or more of the tracks under &quot;Variation&quot; (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">FAQ on showing tracks</a> if necessary). Insertions/deletions (indels) and SNPs can be enabled as separate tracks.</p>
+<p>Clicking on any variation feature in either the track brings up a pop-up box with further details about the variation.</p>
 
 </div>
 <div (click)="navigate($event, '/faq/can-i-visualise-networks-pombase', 'Can I visualise networks in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-visualise-networks-pombase' || pageName == 'all-faqs'">
@@ -6236,7 +6223,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <div (click)="navigate($event, '/faq/do-you-have-polyadenylation-data-fission-yeast', 'Do you have polyadenylation data for fission yeast?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'do-you-have-polyadenylation-data-fission-yeast' || pageName == 'all-faqs'">
 <h3 id="do-you-have-polyadenylation-data-fission-yeast">Do you have polyadenylation data for fission yeast?</h3>
 <!-- pombase_categories: Finding data -->
-<p>Fission yeast polyadenylation data are available in the genome browser. To display the data, enable one or more of the tracks with the data type &quot;Poyl(A) sites&quot;.</p>
+<p>Fission yeast polyadenylation data are available in the genome browser. To display the data, enable one or more of the tracks with the data type &quot;Poly(A) sites&quot;.</p>
 <p><a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">Help with configuring browser tracks</a> is available.</p>
 
 </div>
@@ -6471,14 +6458,9 @@ For example, the Genetic Interactions header for cdc2 links to
 <div (click)="navigate($event, '/faq/how-can-i-find-intron-branch-sites', 'How can I find intron branch sites?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-intron-branch-sites' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-intron-branch-sites">How can I find intron branch sites?</h3>
 <!-- pombase_categories: Finding data -->
-<p>The previous version of the PomBase genome browser included a dataset of intron branch sites as a track. The data were published in:</p>
+<p>The PomBase genome browser includes a dataset of intron branch sites as a track. The data were published in:</p>
 <p>Bitton DA, Rallis C, Jeffares DC, Smith GC, Chen YY, Codlin S, Marguerat S, Bähler J. LaSSO, a strategy for genome-wide mapping of intronic lariats and branch points using RNA-seq. <em>Genome Res.</em> 2014 Jul; <strong>24(7)</strong>:1169-79. (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">PMID:24709818</a>; <a href="http://dx.doi.org/10.1101/gr.166819.113">DOI:10.1101/gr.166819.113</a>)</p>
-<p>We will soon add this track to PomBase JBrowse.</p>
-<!--
-To view this data track, follow the instructions in the 
-<a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">track selection FAQ</a>, 
-and select the Intron Branch Point track.
--->
+<p>To view this data track, follow the instructions in the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">track selection FAQ</a>, and select the Intron Branch Point track.</p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-find-modifications-my-protein-interest', 'How can I find modifications for my protein of interest?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-modifications-my-protein-interest' || pageName == 'all-faqs'">
@@ -6797,7 +6779,7 @@ pop-up.
 <ol style="list-style-type: decimal">
 <li><p>Download one of the files available via the <a routerLink="/downloads/genome-datasets">Genome Datasets</a> page. The GFF3 files contain coordinates, and you can parse the files for the feature type you need. For example, to find all non-coding RNAs, search for &quot;ncRNA_gene&quot;; for coding sequences, use &quot;CDS&quot;, etc. There are also separate files available for CDS and UTR data.</p></li>
 <li><p>If you only need genes, you can use the <a routerLink="/query">advanced search</a> to find all genes of a given type. (Note that non-gene features such as repeats cannot be retrieved by this method.) Select the &quot;Product type&quot; query, then choose a type from the pulldown menu. The &quot;Download&quot; options include coordinates and sequences in FASTA format. If you need more than one feature type, query for each type and then use Query Management to combine the individual queries with the &quot;Union&quot; (OR operator) button. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more information. Click on a count in the query history to see the results, with a button for &quot;Download&quot; options including coordinates and sequence.</p></li>
-<li><p>The bioinformatically inclined can also use the Ensembl Genomes REST API to retrieve transcript feature coordinates, as described in the <a routerLink="/faq/s.-pombe-transcriptome-available-fasta-format">FAQ on pombe transcriptome sequences</a>. Select the desired feature type(s) from the output file of stable IDs (bear in mind that Ensembl idiosyncratically uses &quot;biotype&quot; to mean feature type).</p></li>
+<li><p>The bioinformatically inclined can also use the Ensembl Genomes REST API to retrieve transcript feature coordinates, as described in the <a routerLink="/faq/s.-pombe-transcriptome-available-fasta-format">FAQ on pombe transcriptome sequences</a>. Select the desired feature type(s) from the output file of stable IDs (bear in mind that Ensembl idiosyncratically uses &quot;biotype&quot; to mean feature type). Note, however, that EG is updated much less frequently than PomBase, so EG data will rarely be as up-to-date as the PomBase web site. Documentation is available:</p></li>
 </ol>
 <p>Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'"
     [predefinedQueryId]="'snorna_genes'"> </app-query-link></p>
@@ -6806,8 +6788,8 @@ pop-up.
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates', 'How can I retrieve the sequence of a region using sequence coordinates?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequence-region-using-sequence-coordinates' || pageName == 'all-faqs'">
 <h3 id="how-can-i-retrieve-sequence-region-using-sequence-coordinates">How can I retrieve the sequence of a region using sequence coordinates?</h3>
 <!-- pombase_categories: Genome browser,Finding data -->
-<p>Go to the <a href="https://www.pombase.org/jbrowse/">genome browser</a>, and enter region coordinates (as described in <a href="https://www.pombase.org/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">this FAQ</a>.</p>
-<p>the &quot;Reference sequence&quot; track label, small triangle at the right-hand end of the label box to reveal the popup menu, then elect &quot;Save track data&quot;.</p>
+<p>Go to the <a href="https://www.pombase.org/jbrowse/">genome browser</a>, and make sure the DNA sequence track is enabled (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">FAQ on showing tracks</a> if necessary). Enter region coordinates (as described in <a href="https://www.pombase.org/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">this FAQ</a>.</p>
+<p>In the &quot;DNA sequence&quot; track label, click on the small triangle at the right-hand end of the label box to reveal the popup menu, then select &quot;Save track data&quot;.</p>
 
 </div>
 <div (click)="navigate($event, '/faq/how-can-i-retrieve-sequences-non-protein-coding-genes', 'How can I retrieve sequences for non-protein-coding genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequences-non-protein-coding-genes' || pageName == 'all-faqs'">
@@ -6942,7 +6924,7 @@ pop-up.
 <h3 id="s.-pombe-transcriptome-available-fasta-format">Is the <em>S. pombe</em> transcriptome available in FASTA format?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>There is no single transcriptome sequence file available from PomBase at present. Several transcriptomic data sets are available as <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">tracks</a> in the PomBase <a href="https://www.pombase.org/jbrowse/">genome browser</a>. The GFF3 genome feature files available from the <a routerLink="/downloads/genome-datasets">Genome Datasets</a> page include the coordinates of the <a routerLink="/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">annotated full-length transcript features</a>.</p>
-<p>The bioinformatically inclined can also use the Ensembl Genomes REST API to retrieve transcript feature coordinates. The <a routerLink="/faq/there-any-programmatic-access-pombase-data">FAQ on programmatic access to PomBase</a> provides an introduction to using the API, some pombe-specific examples, and links to additional documentation.</p>
+<p>The bioinformatically inclined can also use the Ensembl Genomes REST API to retrieve transcript feature coordinates. (Note that, while the sequence has not changed recently, annotation data are likely to be out of date relative to the PomBase web site Ensembl Genomes is updated much less frequently than PomBase.) The <a routerLink="/faq/there-any-programmatic-access-pombase-data">FAQ on programmatic access to PomBase</a> provides an introduction to using the API, some pombe-specific examples, and links to additional documentation.</p>
 <ul>
 <li>For transcript coordinates, first retrieve all stable IDs using this URL:
 <ul>
@@ -7020,8 +7002,8 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <h3 id="there-list-protein-complexes-s.-pombe-and-their-subunits">Is there a list of protein complexes in <em>S. pombe</em>, and their subunits?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
 <p>Yes, there is a file that lists GO macromolecular complex assignments for fission yeast gene products in the FTP directory:</p>
-<p>ftp://ftp.pombase.org/pombe/annotations/GO_complexes/</p>
-<p>Note that the complex inventory includes the RNA subunits of ribonucleoprotein complexes. There is some redundancy in the list, because some gene products are annotated to both complexes and subcomplexes. For example, subunits of the DASH complex (<a routerLink="/term/GO:0042729">GO:0042729</a>) are annotated to 'condensed chromosome outer kinetochore' (<a routerLink="/term/GO:0000940">GO:0000940</a>) as well as GO:0042729. Additional notes are available in a README file: ftp://ftp.pombase.org/pombe/annotations/GO_complexes/README</p>
+<p>ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/GO_complexes/</p>
+<p>Note that the complex inventory includes the RNA subunits of ribonucleoprotein complexes. There is some redundancy in the list, because some gene products are annotated to both complexes and subcomplexes. For example, subunits of the DASH complex (<a routerLink="/term/GO:0042729">GO:0042729</a>) are annotated to 'condensed chromosome outer kinetochore' (<a routerLink="/term/GO:0000940">GO:0000940</a>) as well as GO:0042729. Additional notes are available in a README file: ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/GO_complexes/README</p>
 <p>Also see the <a routerLink="/faq/how-can-i-find-protein-localization-data">FAQ on localization</a>.</p>
 
 </div>
@@ -7152,15 +7134,15 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 </tr>
 <tr class="even">
 <td>Modifications</td>
-<td><a routerLink="/documentation/modification-data-bulk-upload-file-format">modification file format</a></td>
+<td><a routerLink="/documentation/modification-data-bulk-upload-format">modification file format</a></td>
 </tr>
 <tr class="odd">
 <td>Qualitative gene expression</td>
-<td><a routerLink="/documentation/qualitative-data-gene-expression-bulk-upload-file-format">qualitative gene expression file format</a></td>
+<td><a routerLink="/documentation/qualitative-data-gene-expression-bulk-upload-format">qualitative gene expression file format</a></td>
 </tr>
 <tr class="even">
 <td>Quantitative gene expression</td>
-<td><a routerLink="/documentation/quantitative-data-gene-expression-bulk-upload-file-format">quantitative gene expression file format</a></td>
+<td><a routerLink="/documentation/quantitative-data-gene-expression-bulk-upload-format">quantitative gene expression file format</a></td>
 </tr>
 </tbody>
 </table>
