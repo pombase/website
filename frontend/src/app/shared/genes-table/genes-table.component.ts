@@ -24,7 +24,6 @@ export class GenesTableComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];
 
   orderByField = 'gene';
-  showLengend = false;
   downloadModalRef = null;
   selectedCountCache = -1;
 
@@ -113,8 +112,5 @@ export class GenesTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.legend) {
-      this.showLengend = true;
-    }
   }
 }

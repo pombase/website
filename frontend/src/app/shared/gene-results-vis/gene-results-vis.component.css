@@ -1,0 +1,11 @@
+.vis-main {
+  margin: 2em 0 2em 1em;
+}
+
+.vis-column-select, .vis-svg, .vis-gene-details {
+  float: left;
+}
+
+.vis-column-select {
+  width: 17em;
+}

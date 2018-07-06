@@ -1,5 +1,6 @@
 <div>
-<fieldset *ngIf="genes.length > 0" class="genes-table">
+  <tabset *ngIf="genes.length > 0">
+    <tab heading="{{legend}}">
 
   <div *ngIf="selectionInProgress()" class="action">
     <button class="btn btn-primary"
@@ -26,10 +27,6 @@
     Select: <a (click)="selectAll()">all</a> | <a (click)="selectNone()">none</a> 
   </div>
 
-  <legend *ngIf="showLengend && legend">
-    <span>{{legend}}</span>
-  </legend>
-
   <div *ngIf="description" class="description">
     {{description}}
   </div>
@@ -37,7 +34,7 @@
     <span *ngFor="let part of descriptionParts"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.term" routerLink="/term/{{part.term.termid}}">{{part.term.termid}}</a></span>
   </div>
 
-  <form>
+  <form class="genes-table">
   <table>
     <thead>
       <tr>
@@ -82,5 +79,10 @@
     </tbody>
   </table>
   </form>
-</fieldset>
+    </tab>
+    <tab heading="Visualise">
+      <app-gene-results-vis [genes]="genes">
+      </app-gene-results-vis>
+    </tab>
+  </tabset>
 </div>

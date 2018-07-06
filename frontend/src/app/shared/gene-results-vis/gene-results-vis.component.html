@@ -1,0 +1,28 @@
+<div class="vis-main">
+  <div class="vis-column-select">
+    <div *ngFor="let colConfig of visColumnConfigs">
+      {{colConfig.display_name}}: <input type="checkbox" [(ngModel)]="selectedColumns[colConfig.name]"/>
+    </div>
+  </div>
+
+  <div class="vis-svg">
+    <svg width="550" [attr.height]="genes.length * 2"
+         xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
+         id="gene-vis" overflow="visible">
+      <g style="pointer-events:all">
+        <rect *ngFor="let gene of geneData"
+              (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
+              class="vis-gene" [attr.id]="gene.id" [attr.height]="gene.height"
+              [attr.width]="gene.width" [attr.x]="gene.x" [attr.y]="gene.y"
+              stroke-width="0" stroke="#9f9"
+              [attr.fill]="gene.color"
+              style="pointer-events:inherit">
+        </rect>
+      </g>
+    </svg>
+  </div>
+
+  <div class="vis-gene-details" *ngIf="currentGene">
+    {{currentGene.name}} {{currentGene.uniquename}}
+  </div>
+</div>

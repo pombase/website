@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ContactEmailComponent } from './contact-email/contact-email.component';
 import { CharacterisationStatusTableComponent } from './characterisation-status-table/characterisation-status-table.component';
@@ -11,6 +13,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { ApiErrorDisplayComponent } from './api-error-display/api-error-display.component';
 import { ExternalLinkComponent } from './external-link/external-link.component';
 import { GeneResultsComponent } from './gene-results/gene-results.component';
+import { GeneResultsVisComponent } from './gene-results-vis/gene-results-vis.component';
 import { GenesTableComponent } from './genes-table/genes-table.component';
 import { GeneShortOrderByPipe } from './gene-short-order-by.pipe';
 import { GeneLinkComponent } from './gene-link/gene-link.component';
@@ -27,6 +30,7 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
     RouterModule,
     FormsModule,
     Ng2SimplePageScrollModule.forRoot(),
+    TabsModule.forRoot(),
   ],
   exports: [
     GoSlimTableComponent,
@@ -38,6 +42,7 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
     ApiErrorDisplayComponent,
     ExternalLinkComponent,
     GeneResultsComponent,
+    GeneResultsVisComponent,
     GenesTableComponent,
     GeneShortOrderByPipe,
     GeneLinkComponent,
@@ -55,6 +60,7 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
     ApiErrorDisplayComponent,
     ExternalLinkComponent,
     GeneResultsComponent,
+    GeneResultsVisComponent,
     GenesTableComponent,
     GeneShortOrderByPipe,
     GeneLinkComponent,

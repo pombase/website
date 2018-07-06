@@ -87,6 +87,11 @@ export interface PredefinedQueryConfig {
   constraints: any;
 }
 
+export interface VisColumnConfig {
+  name: string;
+  display_name: string;
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -114,6 +119,12 @@ export interface AppConfig {
   documentation: Array<string>;
 
   queryBuilder: QueryBuilderConfig;
+
+  geneResults: {
+    visualisation: {
+      columns: Array<VisColumnConfig>;
+    }
+  };
 
   // return true iff the genus and species match the configured organism
   isConfigOrganism(taxon: number): boolean;
@@ -696,6 +707,8 @@ let _appConfig: AppConfig = {
       },
     ],
   },
+
+  geneResults: pombaseConfig.gene_results,
 
   isConfigOrganism(taxonid: number): boolean {
     return taxonid = this.load_organism_taxonid;
