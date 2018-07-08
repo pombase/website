@@ -87,9 +87,16 @@ export interface PredefinedQueryConfig {
   constraints: any;
 }
 
+export interface VisColumnAttrValueConfig {
+  color: string;
+}
+
 export interface VisColumnConfig {
   name: string;
   display_name: string;
+  attr_values: {
+    [value: string]: VisColumnAttrValueConfig;
+  }
 }
 
 export interface AppConfig {

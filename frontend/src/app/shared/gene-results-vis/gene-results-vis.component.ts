@@ -4,10 +4,26 @@ import { getAppConfig, VisColumnConfig } from '../../config';
 import { QueryService } from '../../query.service';
 import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult } from '../../pombase-query';
 
-class GeneData {
-  constructor(public id: number, height: number, width: number,
-              x: number, y: number, color: string) {};
+class GeneDisplayData {
+  constructor(public id: number,
+              public height: number, public width: number,
+              public x: number, public y: number,
+              public color: string) {};
 }
+
+class ColumnSpan {
+  constructor(public startGeneIndex: number,
+              public endGeneIndex: number,
+              public spanAttributeValue) {};
+}
+
+class ColumnDisplayData {
+  constructor(public height: number, public width: number,
+              public x: number, public y: number,
+              public color: string) {};
+}
+
+type ColumnDisplayDataMap = { [columnName: string]: Array<ColumnDisplayData> };
 
 @Component({
   selector: 'app-gene-results-vis',
@@ -19,19 +35,25 @@ export class GeneResultsVisComponent implements OnInit {
 
   results: QueryResult = null;
 
-  geneData = [];
+  geneDisplayData = [];
   geneMap = {};
+
+  columnDisplayDataMap: ColumnDisplayDataMap = {};
+
   currentGene = null;
   currentGeneDomId = null;
-  visColumnConfigs: Array<VisColumnConfig>;
+  visColumnConfigs: Array<VisColumnConfig> = [];
+  visColumnNames: Array<string> = [];
 
   selectedColumns: { [index: string]: boolean; } = {};
   selectedConfigs: Array<VisColumnConfig> = [];
 
   constructor(private queryService: QueryService) {
     this.visColumnConfigs = getAppConfig().geneResults.visualisation.columns;
+    this.visColumnNames = [];
 
     this.visColumnConfigs.map(colConfig => {
+      this.visColumnNames.push(colConfig.name);
       this.selectedColumns[colConfig.name] = false;
     });
   }
@@ -62,6 +84,60 @@ export class GeneResultsVisComponent implements OnInit {
 
   processColumnResults(results: QueryResult): void {
     this.results = results;
+
+    let groupedColumnData: { [columnName: string]: Array<ColumnSpan> } = {};
+
+    const visColumnNames = this.visColumnConfigs.map(c => c.name);
+
+    visColumnNames.map(columnName => groupedColumnData[columnName] = []);
+
+    let resultRows = results.rows;
+
+    // do sorting
+
+    for (let i = 0; i < resultRows.length; i++) {
+      const resultRow = resultRows[i];
+
+      for (const columnName of visColumnNames) {
+        const rowAttr = resultRow[columnName];
+        let columnSpans = groupedColumnData[columnName];
+        if (columnSpans.length === 0 ||
+            columnSpans[columnSpans.length - 1].spanAttributeValue !== rowAttr) {
+          columnSpans.push(new ColumnSpan(i, i, rowAttr))
+        } else {
+          let prevSpan = columnSpans[columnSpans.length - 1];
+          prevSpan.endGeneIndex = i;
+        }
+      }
+    }
+
+    this.columnDisplayDataMap = {};
+
+    for (let i = 0; i < visColumnNames.length; i++) {
+      const columnName = visColumnNames[i];
+      const columnSpans = groupedColumnData[columnName];
+
+      const displayData = columnSpans.map(colSpan => {
+        const geneCount = colSpan.endGeneIndex - colSpan.startGeneIndex + 1;
+
+        let color = "#888";  // default
+        const attrConfig =
+          this.visColumnConfigs[i].attr_values[colSpan.spanAttributeValue];
+
+        if (attrConfig) {
+          color = attrConfig.color;
+        }
+
+        return new ColumnDisplayData(3 * geneCount, 20,
+                                     50 + i * 10, colSpan.startGeneIndex * 3,
+                                     color);
+
+      });
+
+      this.columnDisplayDataMap[columnName] = displayData;
+    }
+
+    console.log(this.columnDisplayDataMap);
   }
 
   queryColumnResults(): void {
@@ -76,7 +152,7 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   makeGeneData(): void {
-    this.geneData = [];
+    this.geneDisplayData = [];
 
     this.geneMap = {};
 
@@ -88,7 +164,7 @@ export class GeneResultsVisComponent implements OnInit {
 
       let color = this.geneColor(geneDomId, false);
 
-      this.geneData.push({
+      this.geneDisplayData.push({
         'id': geneDomId,
         'height': 3,
         'width': 500,
@@ -99,8 +175,12 @@ export class GeneResultsVisComponent implements OnInit {
     }
   }
 
-  getGeneData(): Array<GeneData> {
-    return this.geneData;
+  getGeneDisplayData(): Array<GeneDisplayData> {
+    return this.geneDisplayData;
+  }
+
+  getColumnDisplayDataMap(): ColumnDisplayDataMap {
+    return this.columnDisplayDataMap
   }
 
   confSelectionChanged(): void {
@@ -148,7 +228,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   showResults(): boolean {
     return this.selectedConfigs.length > 0 && this.results !== null &&
-      this.geneData !== null;
+      this.geneDisplayData !== null;
   }
 
   ngOnInit() {

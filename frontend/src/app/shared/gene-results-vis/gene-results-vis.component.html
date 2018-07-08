@@ -20,12 +20,23 @@
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
           <g style="pointer-events:all">
-            <rect *ngFor="let geneData of getGeneData()"
+            <rect *ngFor="let geneData of getGeneDisplayData()"
                   (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
                   class="vis-gene" [attr.id]="geneData.id" [attr.height]="geneData.height"
                   [attr.width]="geneData.width" [attr.x]="geneData.x" [attr.y]="geneData.y"
                   stroke-width="0" stroke="#9f9"
                   [attr.fill]="geneData.color"
+                  style="pointer-events:inherit">
+            </rect>
+          </g>
+          <g *ngFor="let columnName of visColumnNames">
+            <rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
+                  (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
+                  class="vis-column"
+                  [attr.height]="columnData.height" [attr.width]="columnData.width"
+                  [attr.x]="columnData.x" [attr.y]="columnData.y"
+                  stroke-width="0" stroke="#9f9"
+                  [attr.fill]="columnData.color"
                   style="pointer-events:inherit">
             </rect>
           </g>
