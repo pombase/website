@@ -1,10 +1,14 @@
 <div class="vis-main">
   <div class="vis-column-select">
+    <div>
+      <a (click)="setSortBy('gene-name')">Sort by gene</a>
+    </div>
     <div *ngFor="let colConfig of visColumnConfigs">
       {{colConfig.display_name}}:
       <input type="checkbox"
              (change)="confSelectionChanged()"
              [(ngModel)]="selectedColumns[colConfig.name]"/>
+      <a (click)="setSortBy(colConfig.name)">[sort]</a>
     </div>
   </div>
 

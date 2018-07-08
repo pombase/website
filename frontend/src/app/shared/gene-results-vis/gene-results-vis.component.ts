@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { GeneShort } from '../../pombase-api.service';
 import { getAppConfig, VisColumnConfig } from '../../config';
 import { QueryService } from '../../query.service';
-import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult } from '../../pombase-query';
+import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult, ResultRow } from '../../pombase-query';
+import { Util } from '../util';
 
 class GeneDisplayData {
   constructor(public id: number,
@@ -38,6 +39,8 @@ export class GeneResultsVisComponent implements OnInit {
   geneDisplayData = [];
   geneMap = {};
 
+  genesByUniquename = {};
+
   columnDisplayDataMap: ColumnDisplayDataMap = {};
 
   currentGene = null;
@@ -48,6 +51,8 @@ export class GeneResultsVisComponent implements OnInit {
   selectedColumns: { [index: string]: boolean; } = {};
   selectedConfigs: Array<VisColumnConfig> = [];
   selectedConfigNames: Array<string> = [];
+
+  sortByField = 'gene-name';
 
   lineHeight = 5;
   columnWidth = 30;
@@ -87,18 +92,38 @@ export class GeneResultsVisComponent implements OnInit {
     eventTargetElement.setAttribute('fill', geneColor);
   }
 
-  processColumnResults(results: QueryResult): void {
-    this.results = results;
+  setSortBy(fieldName: string) {
+    this.sortByField = fieldName;
+    this.processColumnResults();
+    this.makeGeneData();
+  }
 
+  sortResultRows(resultRows: ResultRow[]): void {
+    const geneNameSort = (a: ResultRow, b: ResultRow) =>
+      Util.geneCompare(this.genesByUniquename[a.gene_uniquename],
+                       this.genesByUniquename[b.gene_uniquename]);
+
+    if (this.sortByField === 'gene-name') {
+      resultRows.sort(geneNameSort);
+    } else {
+      const byField = (a: ResultRow, b: ResultRow) => {
+        return a[this.sortByField].localeCompare(b[this.sortByField]);
+      }
+
+      resultRows.sort(byField);
+    }
+  }
+
+  processColumnResults(): void {
     let groupedColumnData: { [columnName: string]: Array<ColumnSpan> } = {};
 
     const visColumnNames = this.visColumnConfigs.map(c => c.name);
 
     visColumnNames.map(columnName => groupedColumnData[columnName] = []);
 
-    let resultRows = results.rows;
+    let resultRows = this.results.rows;
 
-    // do sorting
+    this.sortResultRows(resultRows);
 
     for (let i = 0; i < resultRows.length; i++) {
       const resultRow = resultRows[i];
@@ -125,7 +150,7 @@ export class GeneResultsVisComponent implements OnInit {
       const displayData = columnSpans.map(colSpan => {
         const geneCount = colSpan.endGeneIndex - colSpan.startGeneIndex + 1;
 
-        let color = "#8888";  // default
+        let color = '#8888';  // default
         const attrConfig =
           this.visColumnConfigs[i].attr_values[colSpan.spanAttributeValue];
 
@@ -142,8 +167,6 @@ export class GeneResultsVisComponent implements OnInit {
 
       this.columnDisplayDataMap[columnName] = displayData;
     }
-
-    console.log(this.columnDisplayDataMap);
   }
 
   queryColumnResults(): void {
@@ -154,7 +177,11 @@ export class GeneResultsVisComponent implements OnInit {
     const outputOptions =
       new QueryOutputOptions(['gene_uniquename', ...visColumnNames], 'none');
     this.queryService.postQuery(geneListQuery, outputOptions)
-      .subscribe(results => this.processColumnResults(results));
+      .subscribe(results => {
+        this.results = results;
+        this.makeGeneData();
+        this.processColumnResults()
+      });
   }
 
   makeGeneData(): void {
@@ -162,8 +189,10 @@ export class GeneResultsVisComponent implements OnInit {
 
     this.geneMap = {};
 
-    for (let i = 0; i < this.genes.length; i++) {
-      const gene = this.genes[i];
+    for (let i = 0; i < this.results.rows.length; i++) {
+      const row = this.results.rows[i];
+      const geneUniquename = row.gene_uniquename;
+      const gene = this.genesByUniquename[geneUniquename];
       const geneDomId = this.makeGeneDomId(gene.uniquename, i);
 
       this.geneMap[geneDomId] = gene;
@@ -200,7 +229,6 @@ export class GeneResultsVisComponent implements OnInit {
 
     if (!this.results) {
       this.queryColumnResults();
-      this.makeGeneData();
     }
   }
 
@@ -239,5 +267,6 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.genes.map(gene => this.genesByUniquename[gene.uniquename] = gene);
   }
 }
