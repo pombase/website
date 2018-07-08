@@ -16,10 +16,11 @@
 
     <div *ngIf="showResults()">
       <div class="vis-svg">
-        <svg width="550" [attr.height]="genes.length * 2"
+        <svg [attr.width]="geneWidth + selectedConfigNames.length * columnWidth"
+             [attr.height]="genes.length * lineHeight + 10"
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
-          <g style="pointer-events:all">
+          <g style="pointer-events: all">
             <rect *ngFor="let geneData of getGeneDisplayData()"
                   (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
                   class="vis-gene" [attr.id]="geneData.id" [attr.height]="geneData.height"
@@ -29,7 +30,8 @@
                   style="pointer-events:inherit">
             </rect>
           </g>
-          <g *ngFor="let columnName of visColumnNames">
+          <g *ngFor="let columnName of visColumnNames"
+             style="pointer-events: none">
             <rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
                   (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
                   class="vis-column"

@@ -47,6 +47,11 @@ export class GeneResultsVisComponent implements OnInit {
 
   selectedColumns: { [index: string]: boolean; } = {};
   selectedConfigs: Array<VisColumnConfig> = [];
+  selectedConfigNames: Array<string> = [];
+
+  lineHeight = 5;
+  columnWidth = 30;
+  geneWidth = 40;
 
   constructor(private queryService: QueryService) {
     this.visColumnConfigs = getAppConfig().geneResults.visualisation.columns;
@@ -98,7 +103,7 @@ export class GeneResultsVisComponent implements OnInit {
     for (let i = 0; i < resultRows.length; i++) {
       const resultRow = resultRows[i];
 
-      for (const columnName of visColumnNames) {
+      for (const columnName of this.selectedConfigNames) {
         const rowAttr = resultRow[columnName];
         let columnSpans = groupedColumnData[columnName];
         if (columnSpans.length === 0 ||
@@ -113,23 +118,24 @@ export class GeneResultsVisComponent implements OnInit {
 
     this.columnDisplayDataMap = {};
 
-    for (let i = 0; i < visColumnNames.length; i++) {
-      const columnName = visColumnNames[i];
+    for (let i = 0; i < this.selectedConfigNames.length; i++) {
+      const columnName = this.selectedConfigNames[i];
       const columnSpans = groupedColumnData[columnName];
 
       const displayData = columnSpans.map(colSpan => {
         const geneCount = colSpan.endGeneIndex - colSpan.startGeneIndex + 1;
 
-        let color = "#888";  // default
+        let color = "#8888";  // default
         const attrConfig =
           this.visColumnConfigs[i].attr_values[colSpan.spanAttributeValue];
 
         if (attrConfig) {
-          color = attrConfig.color;
+          color = attrConfig.color + '8';  // make transparent
         }
 
-        return new ColumnDisplayData(3 * geneCount, 20,
-                                     50 + i * 10, colSpan.startGeneIndex * 3,
+        return new ColumnDisplayData(this.lineHeight * geneCount, this.columnWidth,
+                                     this.geneWidth + i * this.columnWidth,
+                                     colSpan.startGeneIndex * this.lineHeight,
                                      color);
 
       });
@@ -166,10 +172,10 @@ export class GeneResultsVisComponent implements OnInit {
 
       this.geneDisplayData.push({
         'id': geneDomId,
-        'height': 3,
-        'width': 500,
+        'height': this.lineHeight,
+        'width': this.geneWidth + this.selectedConfigNames.length * this.columnWidth,
         'x': 0,
-        'y': i * 3,
+        'y': i * this.lineHeight,
         color,
       });
     }
@@ -188,6 +194,7 @@ export class GeneResultsVisComponent implements OnInit {
     for (const visConfig of this.visColumnConfigs) {
       if (this.selectedColumns[visConfig.name]) {
         this.selectedConfigs.push(visConfig);
+        this.selectedConfigNames.push(visConfig.name);
       }
     }
 
@@ -217,7 +224,7 @@ export class GeneResultsVisComponent implements OnInit {
       const geneId = match[2];
 
       if (index % 10 === 0) {
-        return '#aaa';
+        return '#ddd';
       } else {
         return '#f8f8f8';
       }
