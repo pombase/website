@@ -9,3 +9,7 @@
 .vis-column-select {
   width: 17em;
 }
+
+.feature-size {
+  user-select: none;
+}

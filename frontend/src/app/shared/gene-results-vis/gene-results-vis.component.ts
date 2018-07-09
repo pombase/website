@@ -6,9 +6,7 @@ import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult, ResultRow } f
 import { Util } from '../util';
 
 class GeneDisplayData {
-  constructor(public id: number,
-              public height: number, public width: number,
-              public x: number, public y: number,
+  constructor(public id: string, public geneIndex: number,
               public color: string) {};
 }
 
@@ -19,8 +17,8 @@ class ColumnSpan {
 }
 
 class ColumnDisplayData {
-  constructor(public height: number, public width: number,
-              public x: number, public y: number,
+  constructor(public startIndex: number, public endIndex: number,
+              public columnIndex: number,
               public color: string) {};
 }
 
@@ -36,7 +34,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   results: QueryResult = null;
 
-  geneDisplayData = [];
+  geneDisplayData: Array<GeneDisplayData> = [];
   geneMap = {};
 
   genesByUniquename = {};
@@ -54,9 +52,10 @@ export class GeneResultsVisComponent implements OnInit {
 
   sortByField = 'gene-name';
 
-  lineHeight = 5;
+  lineHeight = 3;
   columnWidth = 30;
   geneWidth = 40;
+  columnGap = 5;
 
   constructor(private queryService: QueryService) {
     this.visColumnConfigs = getAppConfig().geneResults.visualisation.columns;
@@ -114,6 +113,14 @@ export class GeneResultsVisComponent implements OnInit {
     }
   }
 
+  changeLineHeight(delta: number): void {
+    if (delta < 0 && this.lineHeight < 2) {
+      return;
+    }
+
+    this.lineHeight += delta;
+  }
+
   processColumnResults(): void {
     let groupedColumnData: { [columnName: string]: Array<ColumnSpan> } = {};
 
@@ -150,17 +157,17 @@ export class GeneResultsVisComponent implements OnInit {
       const displayData = columnSpans.map(colSpan => {
         const geneCount = colSpan.endGeneIndex - colSpan.startGeneIndex + 1;
 
-        let color = '#8888';  // default
+        let color = '#888';  // default
         const attrConfig =
           this.visColumnConfigs[i].attr_values[colSpan.spanAttributeValue];
 
         if (attrConfig) {
-          color = attrConfig.color + '8';  // make transparent
+          color = attrConfig.color;
         }
 
-        return new ColumnDisplayData(this.lineHeight * geneCount, this.columnWidth,
-                                     this.geneWidth + i * this.columnWidth,
-                                     colSpan.startGeneIndex * this.lineHeight,
+        return new ColumnDisplayData(colSpan.startGeneIndex,
+                                     colSpan.endGeneIndex,
+                                     i,
                                      color);
 
       });
@@ -200,11 +207,8 @@ export class GeneResultsVisComponent implements OnInit {
       let color = this.geneColor(geneDomId, false);
 
       this.geneDisplayData.push({
-        'id': geneDomId,
-        'height': this.lineHeight,
-        'width': this.geneWidth + this.selectedConfigNames.length * this.columnWidth,
-        'x': 0,
-        'y': i * this.lineHeight,
+        id: geneDomId,
+        geneIndex: i,
         color,
       });
     }
