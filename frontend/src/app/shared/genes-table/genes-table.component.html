@@ -1,7 +1,7 @@
 <div>
-  <tabset *ngIf="genes.length > 0">
-    <tab heading="{{legend}}">
+<fieldset *ngIf="genes.length > 0" class="genes-table">
 
+  <div *ngIf="!showingVisualisation">
   <div *ngIf="selectionInProgress()" class="action">
     <button class="btn btn-primary"
             [disabled]="selectedCount() == 0"
@@ -27,14 +27,43 @@
     Select: <a (click)="selectAll()">all</a> | <a (click)="selectNone()">none</a> 
   </div>
 
-  <div *ngIf="description" class="description">
+  <div *ngIf="!selectionInProgress() && deployConfigService.get('mode') == 'dev'" class="action">
+    <button class="btn btn-primary"
+            title="Show gene visualisation"
+            (click)="showVisualisation()">Visualise</button>
+  </div>
+
+  </div>
+
+  <div *ngIf="showingVisualisation" class="action">
+    <button class="btn btn-primary"
+            title="Return to gene list"
+            (click)="hideVisualisation()">Finish visualisation</button>
+  </div>
+
+  <legend *ngIf="legend && !showingVisualisation">
+    <span>{{legend}}</span>
+  </legend>
+
+  <legend *ngIf="visLegend && showingVisualisation">
+    <span>{{visLegend}}</span>
+  </legend>
+
+  <div *ngIf="showingVisualisation">
+    <app-gene-results-vis [genes]="genes">
+    </app-gene-results-vis>
+  </div>
+
+
+  <div *ngIf="!showingVisualisation">
+ <div *ngIf="description" class="description">
     {{description}}
   </div>
   <div *ngIf="descriptionParts" class="description">
     <span *ngFor="let part of descriptionParts"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.term" routerLink="/term/{{part.term.termid}}">{{part.term.termid}}</a></span>
   </div>
 
-  <form class="genes-table">
+  <form>
   <table>
     <thead>
       <tr>
@@ -79,10 +108,6 @@
     </tbody>
   </table>
   </form>
-    </tab>
-    <tab heading="Visualise">
-      <app-gene-results-vis [genes]="genes">
-      </app-gene-results-vis>
-    </tab>
-  </tabset>
+  </div>
+</fieldset>
 </div>

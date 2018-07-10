@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -7,6 +7,7 @@ import { GeneShort } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 import { QueryService, HistoryEntry } from '../../query.service';
 import { GeneQuery, GeneListNode } from '../../pombase-query';
+import { DeployConfigService } from '../../deploy-config.service';
 
 @Component({
   selector: 'app-genes-table',
@@ -26,6 +27,9 @@ export class GenesTableComponent implements OnInit {
   orderByField = 'gene';
   downloadModalRef = null;
   selectedCountCache = -1;
+  showingVisualisation = false;
+
+  visLegend = null;
 
   tooManyGenesTitle = 'Too many genes for select mode, try the "Gene list" option from the Search menu';
   selectGenesTitle = 'Start gene selection and filtering mode';
@@ -34,7 +38,8 @@ export class GenesTableComponent implements OnInit {
 
   constructor(private modalService: BsModalService,
               private queryService: QueryService,
-              private router: Router) { }
+              private router: Router,
+              private deployConfigService: DeployConfigService) { }
 
   setOrderBy(field: string) {
     this.orderByField = field;
@@ -111,6 +116,20 @@ export class GenesTableComponent implements OnInit {
     this.selectedCountCache = -1;
   }
 
+  showVisualisation(): void {
+    this.showingVisualisation = true;
+  }
+
+  hideVisualisation(): void {
+    this.showingVisualisation = false;
+  }
+
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    if (this.legend) {
+      this.visLegend = `Visualising ${this.genes.length} genes`;
+    }
   }
 }
