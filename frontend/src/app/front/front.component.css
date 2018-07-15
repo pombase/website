@@ -10,6 +10,10 @@
   color: grey;
 }
 
+.metadata .pombase-chado-json {
+  display: none;
+}
+
 .front-page-list {
   display: inline-block;
   vertical-align: top;
