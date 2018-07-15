@@ -8,6 +8,10 @@ population" ([FYPO:0002061](/term/FYPO:0002061)) would therefore identify essent
 yeast genes. Similarly, deletion alleles annotated to "viable vegetative
 cell population" ([FYPO:0002060](/term/FYPO:0002177)) represent non-essential genes.
 
+Note that viability/inviability annotations are fairly complete for
+protein-coding genes, but very few non-coding RNA genes have been
+tested.
+
 **Downloadable summary**
 
 A [set of "viability summary" data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/FYPOviability.tsv),
@@ -18,11 +22,14 @@ and one of three values: "viable", "inviable" or "condition-dependent".
 **Querying**
 
 -   To find genes annotated to "inviable vegetative cell population",
-    select the "phenotype" query and type or paste the ID, FYPO:0002061.
-    Select the "Null" option for "Expresion level" and submit
-    the query. The results include all genes that showed inviable
-    phenotypes in the HTP deletion project as well some manually
-    annotated genes. Do the same for viable (FYPO:0002060).
+    You can also set up the query manually: select the "phenotype"
+    query and type or paste the ID, FYPO:0002061.  Select the "Null"
+    option for "Expresion level" and submit the query. The results
+    include all genes that showed inviable phenotypes in the HTP
+    deletion project as well some manually annotated genes. Similarly,
+    there is a query for genes annotated to "viable vegetative cell
+    population" (FYPO:0002060).
+
 -   For some deletion mutants, viability depends on experimental
     conditions, which cannot yet be queried in PomBase. These genes
     are annotated to both viable (FYPO:0002060) and inviable
