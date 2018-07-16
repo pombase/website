@@ -11,8 +11,9 @@
       <a (click)="setSortBy('gene-name')">[Sort by gene name]</a>
     </div>
 
-    <div class="feature-size">
+    <div class="feature-size" *ngIf="showResults()">
       Feature size: <a *ngIf="lineHeight > 1" (click)="changeLineHeight(-1)">[-]</a>
+      <span style="color: #bbb" *ngIf="lineHeight <= 1">[-]</span>
       <a (click)="changeLineHeight(1)">[+]</a>
     </div>
   </div>
