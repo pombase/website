@@ -90,7 +90,7 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { AnnotationTableExtLinksComponent } from './annotation-table-ext-links/annotation-table-ext-links.component';
 import { HelpLinkComponent } from './help-link/help-link.component';
 
-import { Ng4TwitterTimelineModule } from 'ng4-twitter-timeline/lib/index';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 export function documentFactory() {
     return document;
@@ -185,7 +185,7 @@ export function windowFactory() {
     SharedModule,
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     CookieLawModule,
-    Ng4TwitterTimelineModule,
+    NgxTwitterTimelineModule,
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,
                     MessageDialogComponent],
