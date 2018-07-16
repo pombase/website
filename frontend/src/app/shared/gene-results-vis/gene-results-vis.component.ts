@@ -67,6 +67,7 @@ export class GeneResultsVisComponent implements OnInit {
   selectedConfigNames: Array<string> = [];
 
   sortByField = 'gene-name';
+  previousSortByField = 'gene-name';
 
   lineHeight = 3;
   columnWidth = 30;
@@ -136,27 +137,39 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   setSortBy(fieldName: string) {
+    if (this.sortByField === fieldName) {
+      return;
+    }
+    this.previousSortByField = this.sortByField;
     this.sortByField = fieldName;
     this.sortGeneUniquenames();
     this.updateDisplayData();
   }
 
-  sortGeneUniquenames(): void {
-    const geneNameSort = (a: string, b: string) =>
-      Util.geneCompare(this.geneDataMap[a].geneShort,
-                       this.geneDataMap[b].geneShort);
-
-    if (this.sortByField === 'gene-name') {
-      this.sortedGeneUniquenames.sort(geneNameSort);
+  doSortByField(geneUniquenameA: string, geneUniquenameB: string,
+                fieldName: string, secondFieldName: string): number
+  {
+    let res;
+    if (fieldName === 'gene-name') {
+      res = Util.geneCompare(this.geneDataMap[geneUniquenameA].geneShort,
+                                   this.geneDataMap[geneUniquenameB].geneShort);
     } else {
-      const byField = (a: string, b: string) => {
-        const fieldA = this.geneDataMap[a].getField(this.sortByField);
-        const fieldB = this.geneDataMap[b].getField(this.sortByField);
-        return fieldA.localeCompare(fieldB);
-      }
-
-      this.sortedGeneUniquenames.sort(byField);
+      const fieldA = this.geneDataMap[geneUniquenameA].getField(fieldName);
+      const fieldB = this.geneDataMap[geneUniquenameB].getField(fieldName);
+      res = fieldA.localeCompare(fieldB);
     }
+
+    if (res === 0 && secondFieldName !== null) {
+      return this.doSortByField(geneUniquenameA, geneUniquenameB, secondFieldName, null);
+    } else {
+      return res;
+    }
+  }
+
+  sortGeneUniquenames(): void {
+    this.sortedGeneUniquenames.sort((a, b) => {
+      return this.doSortByField(a, b, this.sortByField, this.previousSortByField);
+    });
   }
 
   changeLineHeight(delta: number): void {
