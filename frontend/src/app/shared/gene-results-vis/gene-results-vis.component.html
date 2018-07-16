@@ -1,11 +1,11 @@
 <div class="vis-main">
   <div class="vis-column-select">
-    <div *ngFor="let colConfig of visColumnConfigs">
-      {{colConfig.display_name}}:
+    <div *ngFor="let colName of visColumnNames">
+      {{visColumnConfigs[colName].display_name}}:
       <input type="checkbox"
              (change)="confSelectionChanged()"
-             [(ngModel)]="selectedColumns[colConfig.name]"/>
-      <a *ngIf="showResults()" (click)="setSortBy(colConfig.name)">[sort]</a>
+             [(ngModel)]="selectedColumns[colName]"/>
+      <a *ngIf="showResults()" (click)="setSortBy(colName)">[sort]</a>
     </div>
     <div *ngIf="showResults()">
       <a (click)="setSortBy('gene-name')">Sort by gene</a>
@@ -40,14 +40,14 @@
                   style="pointer-events:inherit">
             </rect>
           </g>
-          <g *ngFor="let columnName of visColumnNames"
+          <g *ngFor="let columnName of selectedConfigNames; let columnIndex = index"
              style="pointer-events: none">
             <rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
                   (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
                   class="vis-column"
                   [attr.height]="lineHeight * (columnData.endIndex - columnData.startIndex + 1)"
                   [attr.width]="columnWidth"
-                  [attr.x]="this.geneWidth + columnData.columnIndex * (this.columnWidth + this.columnGap) + columnGap"
+                  [attr.x]="this.geneWidth + columnIndex * (this.columnWidth + this.columnGap) + columnGap"
                   [attr.y]="lineHeight * columnData.startIndex"
                   stroke-width="0" stroke="#9f9"
                   [attr.fill]="columnData.color" fill-opacity="0.6"
@@ -60,6 +60,11 @@
   </div>
 
   <div class="vis-gene-details" *ngIf="currentGene">
-    {{currentGene.name}} {{currentGene.uniquename}}
+    <div>
+      {{currentGene.getGeneShort().name}} {{currentGene.getGeneShort().uniquename}}
+    </div>
+    <div *ngFor="let colName of visColumnNames">
+      {{visColumnConfigs[colName].display_name}}: {{currentGene.getField(colName)}}
+    </div>
   </div>
 </div>

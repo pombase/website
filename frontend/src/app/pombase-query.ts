@@ -1,10 +1,15 @@
 import { Util } from './shared/util';
 import { GeneShort } from './pombase-api.service';
 
+export class TermAndName {
+  termid: string;
+  name: string;
+}
+
 export interface ResultRow {
   gene_uniquename: string;
   sequence?: string;
-  [other_attribute: string]: string;
+  [other_attribute: string]: string | TermAndName;
 }
 
 export class QueryResult {
