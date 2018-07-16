@@ -4,3 +4,7 @@
   display: flex;
   justify-content: center;
 }
+
+.panel-container {
+  margin-top: 2.5em;
+}

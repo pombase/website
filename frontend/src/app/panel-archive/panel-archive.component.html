@@ -5,12 +5,8 @@
   Archive of "Research spotlight" items
 </div>
 <div class="panel-container">
-  <div class="info-panels">
-    <div *ngFor="let row of panelConfigs" class="info-pane-row">
-      <div class="info-panel" *ngFor="let panelConfig of row">
-        <app-front-panel [conf]="panelConfig" [showDateAdded]="true"></app-front-panel>
-      </div>
-    </div>
+  <div *ngFor="let config of panelConfigs" class="info-panel">
+    <app-front-panel [conf]="config" [showDateAdded]="true"></app-front-panel>
   </div>
 </div>
 

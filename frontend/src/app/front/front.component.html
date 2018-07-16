@@ -60,8 +60,6 @@ You are using the new PomBase site, released on October 24, 2017.
 
 
 <div class="panel-container">
-<div class="info-panels">
-  <div class="info-panel-row">
   <div class="info-panel">
     <app-front-panel [conf]="spotlightConf"></app-front-panel>
     <div class="archive-link-container">
@@ -80,16 +78,17 @@ You are using the new PomBase site, released on October 24, 2017.
       <a routerLink="/archive/explore">Archive ...</a>
     </div>
   </div>
-  </div>
-</div>
-</div>
 
+<div class="front-news-feed">
   <span class="front-page-list-title">Recent news</span>
   <app-recent-news></app-recent-news>
-
 </div>
 
-
+<div class="front-twitter-feed">
+<ng4-twitter-timeline [dataSrc]="{sourceType: 'profile',screenName: 'pombase'}" [opts]="{tweetLimit: 8}"></ng4-twitter-timeline>
+</div>
+</div>
+</div>
 
 <hr style="clear: both" />
 

@@ -10,7 +10,7 @@ import { getAppConfig, PanelConfig } from '../config';
 })
 export class PanelArchiveComponent implements OnInit {
   panelType = '';
-  panelConfigs;
+  panelConfigs = [];
 
   constructor(private route: ActivatedRoute) { }
 
@@ -19,26 +19,16 @@ export class PanelArchiveComponent implements OnInit {
       if (params['archiveType'] !== undefined) {
         this.panelType = params['archiveType'];
 
-        this.panelConfigs = null;
+        this.panelConfigs = [];
 
         getAppConfig().frontPagePanels
-          .filter(conf =>
-                  conf.panel_type === this.panelType)
+          .filter(conf => conf.panel_type === this.panelType)
           .sort((conf1: PanelConfig, conf2: PanelConfig) => {
             // reverse compare
             return conf2.date_added.localeCompare(conf1.date_added);
           })
           .map(conf => {
-            if (this.panelConfigs === null) {
-              this.panelConfigs = [[conf]];
-            } else {
-              let lastRow = this.panelConfigs[this.panelConfigs.length - 1];
-              if (lastRow.length < 3) {
-                lastRow.push(conf);
-              } else {
-                this.panelConfigs.push([conf]);
-              }
-            }
+            this.panelConfigs.push(conf);
           });
       };
     });

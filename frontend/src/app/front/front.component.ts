@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Ng4TwitterTimelineService } from 'ng4-twitter-timeline/lib/index';
+
 import { Metadata, PombaseAPIService } from '../pombase-api.service';
 import { Util } from '../shared/util';
 
@@ -32,7 +34,8 @@ export class FrontComponent implements OnInit {
   communityConf = null;
   exploreConf = null;
 
-  constructor(private pombaseApiService: PombaseAPIService) { }
+  constructor(private ng4TwitterTimelineService: Ng4TwitterTimelineService,
+              private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
     this.rotatingImageName = Util.randElement(this.imageNames);

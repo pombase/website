@@ -127,3 +127,16 @@
   color: #538abf;
   padding: 0.1em;
 }
+
+.front-news-feed {
+  grid-column: 1 / span 2;
+}
+
+.front-twitter-feed {
+  height: 60em;
+  overflow-y: auto;
+}
+
+.panel-container {
+  margin: 2.5em;
+}
