@@ -93,8 +93,7 @@ export class GeneResultsVisComponent implements OnInit {
   selectedColumns: { [index: string]: boolean; } = {};
   selectedConfigNames: Array<string> = [];
 
-  sortByField = 'gene-name';
-  previousSortByField = 'gene-name';
+  sortByFields = ['gene-name'];
 
   lineHeight = 3;
   columnWidth = 30;
@@ -177,34 +176,40 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   setSortBy(fieldName: string) {
-    if (this.sortByField === fieldName) {
+    if (this.sortByFields[0] === fieldName) {
       return;
     }
-    this.previousSortByField = this.sortByField;
-    this.sortByField = fieldName;
+    const idx = this.sortByFields.indexOf(fieldName);
+
+    if (idx != -1) {
+      this.sortByFields.splice(idx, 1);
+    }
+
+    this.sortByFields.unshift(fieldName);
+
     this.sortGeneUniquenames();
     this.updateDisplayData();
   }
 
   doSortByField(geneUniquenameA: string, geneUniquenameB: string,
-                fieldName: string, secondFieldName: string): number {
+                fieldNames: Array<string>): number {
     let res;
-    if (fieldName === 'gene-name') {
+    if (fieldNames[0] === 'gene-name') {
       res = Util.geneCompare(this.geneDataMap[geneUniquenameA].getGeneShort(),
                              this.geneDataMap[geneUniquenameB].getGeneShort());
     } else {
-      const fieldA = this.geneDataMap[geneUniquenameA].getField(fieldName);
-      const fieldB = this.geneDataMap[geneUniquenameB].getField(fieldName);
+      const fieldA = this.geneDataMap[geneUniquenameA].getField(fieldNames[0]);
+      const fieldB = this.geneDataMap[geneUniquenameB].getField(fieldNames[0]);
 
-      if (this.visColumnConfigMap[fieldName].default_order === 'forward') {
+      if (this.visColumnConfigMap[fieldNames[0]].default_order === 'forward') {
         res = fieldA.localeCompare(fieldB);
       } else {
         res = fieldB.localeCompare(fieldA);
       }
     }
 
-    if (res === 0 && secondFieldName !== null) {
-      return this.doSortByField(geneUniquenameA, geneUniquenameB, secondFieldName, null);
+    if (res === 0 && fieldNames.length > 1) {
+      return this.doSortByField(geneUniquenameA, geneUniquenameB, fieldNames.slice(1));
     } else {
       return res;
     }
@@ -212,7 +217,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   sortGeneUniquenames(): void {
     this.sortedGeneUniquenames.sort((a, b) => {
-      return this.doSortByField(a, b, this.sortByField, this.previousSortByField);
+      return this.doSortByField(a, b, this.sortByFields);
     });
   }
 
