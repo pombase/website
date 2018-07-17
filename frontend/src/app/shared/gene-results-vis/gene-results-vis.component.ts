@@ -195,7 +195,12 @@ export class GeneResultsVisComponent implements OnInit {
     } else {
       const fieldA = this.geneDataMap[geneUniquenameA].getField(fieldName);
       const fieldB = this.geneDataMap[geneUniquenameB].getField(fieldName);
-      res = fieldA.localeCompare(fieldB);
+
+      if (this.visColumnConfigMap[fieldName].default_order === 'forward') {
+        res = fieldA.localeCompare(fieldB);
+      } else {
+        res = fieldB.localeCompare(fieldA);
+      }
     }
 
     if (res === 0 && secondFieldName !== null) {
