@@ -13,3 +13,7 @@
 .feature-size {
   user-select: none;
 }
+
+.gene-name {
+  font-weight: bold;
+}

@@ -62,7 +62,10 @@
 
   <div class="vis-gene-details" *ngIf="currentGene">
     <div>
-      {{currentGene.getGeneShort().name}} {{currentGene.getGeneShort().uniquename}}
+      <span class="gene-name">{{currentGene.getGeneShort().name}}</span> {{currentGene.getGeneShort().uniquename}}
+      <span *ngIf="currentGene.getGeneShort().product">
+        {{currentGene.getGeneShort().product}}
+      </span>
     </div>
     <div *ngFor="let colConfig of visColumnConfigs">
       {{colConfig.display_name}}: {{currentGene.getField(colConfig.name)}}
