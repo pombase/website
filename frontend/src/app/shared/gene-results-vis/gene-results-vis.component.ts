@@ -27,6 +27,29 @@ class GeneData {
     } else {
       cleanRow['go_component'] = 'none';
     }
+
+    if (!cleanRow['ortholog_taxonids']) {
+      cleanRow['ortholog_taxonids'] = [];
+    }
+
+    if (cleanRow['ortholog_taxonids']) {
+      const rowTaxonids = cleanRow['ortholog_taxonids'];
+      delete cleanRow['ortholog_taxonids'];
+      for (const config of this.visColumnConfigs) {
+        if (!config.name.startsWith('ortholog_taxonids')) {
+          continue;
+        }
+        let attrValue = 'absent';
+        for (const taxonId of rowTaxonids) {
+          const fullName = 'ortholog_taxonids:' + taxonId;
+          if (fullName === config.name) {
+            attrValue = 'present';
+          }
+        }
+        cleanRow[config.name] = attrValue;
+      }
+    }
+
     return cleanRow;
   }
 
@@ -38,7 +61,8 @@ class GeneData {
     return this.geneShort;
   }
 
-  constructor(public geneShort: GeneShort, row: ResultRow) {
+  constructor(private visColumnConfigs: Array<VisColumnConfig>,
+              private geneShort: GeneShort, row: ResultRow) {
     this.cleanRow = this.cleanResults(row);
   };
 }
@@ -60,8 +84,11 @@ export class GeneResultsVisComponent implements OnInit {
 
   currentGene = null;
 
-  visColumnConfigs: { [colName: string]: VisColumnConfig } = {};
+  visColumnConfigMap: { [colName: string]: VisColumnConfig } = {};
+  visColumnConfigs: Array<VisColumnConfig> = [];
   visColumnNames: Array<string> = [];
+
+  queryColumnNames = new Set<string>();
 
   selectedColumns: { [index: string]: boolean; } = {};
   selectedConfigNames: Array<string> = [];
@@ -76,12 +103,25 @@ export class GeneResultsVisComponent implements OnInit {
 
   constructor(private queryService: QueryService) {
     const colConfigs = getAppConfig().geneResults.visualisation.columns;
-    this.visColumnConfigs = {};
+    this.visColumnConfigMap = {};
+    this.visColumnConfigs = [];
     this.visColumnNames = [];
+
+    const nameRE = /(.*):(.*)/;
 
     colConfigs.map(colConfig => {
       this.visColumnNames.push(colConfig.name);
-      this.visColumnConfigs[colConfig.name] = colConfig;
+      this.visColumnConfigs.push(colConfig);
+      this.visColumnConfigMap[colConfig.name] = colConfig;
+
+      let nameMatch = nameRE.exec(colConfig.name);
+
+      if (nameMatch) {
+        this.queryColumnNames.add(nameMatch[1]);
+      } else {
+        this.queryColumnNames.add(colConfig.name);
+      }
+
       this.selectedColumns[colConfig.name] = false;
     });
   }
@@ -94,7 +134,7 @@ export class GeneResultsVisComponent implements OnInit {
     let resultMap = {};
     queryResult.rows.map(row => {
       const geneShort = geneMap[row.gene_uniquename];
-      resultMap[row.gene_uniquename] = new GeneData(geneShort, row);
+      resultMap[row.gene_uniquename] = new GeneData(this.visColumnConfigs, geneShort, row);
     });
     return resultMap;
   }
@@ -147,12 +187,11 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   doSortByField(geneUniquenameA: string, geneUniquenameB: string,
-                fieldName: string, secondFieldName: string): number
-  {
+                fieldName: string, secondFieldName: string): number {
     let res;
     if (fieldName === 'gene-name') {
-      res = Util.geneCompare(this.geneDataMap[geneUniquenameA].geneShort,
-                                   this.geneDataMap[geneUniquenameB].geneShort);
+      res = Util.geneCompare(this.geneDataMap[geneUniquenameA].getGeneShort(),
+                             this.geneDataMap[geneUniquenameB].getGeneShort());
     } else {
       const fieldA = this.geneDataMap[geneUniquenameA].getField(fieldName);
       const fieldB = this.geneDataMap[geneUniquenameB].getField(fieldName);
@@ -190,10 +229,10 @@ export class GeneResultsVisComponent implements OnInit {
         const rowAttr = this.geneDataMap[geneUniquename].getField(columnName);
         let prevRowAttr;
 
-        if (idx == 0) {
+        if (idx === 0) {
           prevRowAttr = null;
         } else {
-          const prevGeneUniquename = this.geneDataMap[this.sortedGeneUniquenames[idx-1]];
+          const prevGeneUniquename = this.geneDataMap[this.sortedGeneUniquenames[idx - 1]];
           prevRowAttr = prevGeneUniquename.getField(columnName);
         }
 
@@ -202,7 +241,7 @@ export class GeneResultsVisComponent implements OnInit {
             columnDisplayData[columnDisplayData.length - 1] !== prevRowAttr) {
           let color = '#888';  // default
           const attrConfig =
-            this.visColumnConfigs[columnName].attr_values[rowAttr];
+            this.visColumnConfigMap[columnName].attr_values[rowAttr];
 
           if (attrConfig) {
             color = attrConfig.color;
@@ -221,7 +260,7 @@ export class GeneResultsVisComponent implements OnInit {
     const geneListQuery = new GeneQuery(geneListNode);
 
     const outputOptions =
-      new QueryOutputOptions(['gene_uniquename', ...this.visColumnNames], 'none');
+      new QueryOutputOptions(['gene_uniquename', ...Array.from(this.queryColumnNames)], 'none');
     this.queryService.postQuery(geneListQuery, outputOptions)
       .subscribe(results => {
         this.geneDataMap = this.makeGeneDataMap(results);
@@ -270,7 +309,7 @@ export class GeneResultsVisComponent implements OnInit {
       }
     }
 
-    if (Object.keys(this.geneDataMap).length == 0) {
+    if (Object.keys(this.geneDataMap).length === 0) {
       this.runQuery();
     } else {
       this.updateDisplayData();

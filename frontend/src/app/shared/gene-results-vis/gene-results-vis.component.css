@@ -7,7 +7,7 @@
 }
 
 .vis-column-select {
-  width: 17em;
+  min-width: 20em;
 }
 
 .feature-size {

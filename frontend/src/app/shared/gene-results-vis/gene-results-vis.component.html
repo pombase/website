@@ -1,11 +1,11 @@
 <div class="vis-main">
   <div class="vis-column-select">
-    <div *ngFor="let colName of visColumnNames">
-      {{visColumnConfigs[colName].display_name}}:
+    <div *ngFor="let colConfig of visColumnConfigs">
+      {{colConfig.display_name}}:
       <input type="checkbox"
              (change)="confSelectionChanged()"
-             [(ngModel)]="selectedColumns[colName]"/>
-      <a *ngIf="showResults()" (click)="setSortBy(colName)">[sort]</a>
+             [(ngModel)]="selectedColumns[colConfig.name]"/>
+      <a *ngIf="showResults()" (click)="setSortBy(colConfig.name)">[sort]</a>
     </div>
     <div *ngIf="showResults()">
       <a (click)="setSortBy('gene-name')">[Sort by gene name]</a>
@@ -64,8 +64,8 @@
     <div>
       {{currentGene.getGeneShort().name}} {{currentGene.getGeneShort().uniquename}}
     </div>
-    <div *ngFor="let colName of visColumnNames">
-      {{visColumnConfigs[colName].display_name}}: {{currentGene.getField(colName)}}
+    <div *ngFor="let colConfig of visColumnConfigs">
+      {{colConfig.display_name}}: {{currentGene.getField(colConfig.name)}}
     </div>
   </div>
 </div>
