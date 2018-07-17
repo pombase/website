@@ -325,10 +325,6 @@ export class GeneResultsVisComponent implements OnInit {
       return '#88b';
     }
 
-    if (!geneIndex) {
-      return '#f00';
-    }
-
     if (geneIndex % 10 === 0) {
       return '#ddd';
     } else {
