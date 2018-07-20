@@ -1,19 +1,20 @@
 {
-    "name": "PomBase, the comprehensive database for the fission yeast Schizosaccharomyces pombe",
+    "name": "PomBase",
     "short_name": "PomBase",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "https://www.pombase.org/assets/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-256x256.png",
+            "src": "https://www.pombase.org/assets/android-chrome-256x256.png",
             "sizes": "256x256",
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#bac1dc",
+    "background_color": "#bac1dc",
+    "start_url": "https://www.pombase.org",
     "display": "standalone"
 }
