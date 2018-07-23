@@ -25,7 +25,7 @@ class DisplayModel {
 })
 export class SearchBoxComponent implements OnInit {
   form: FormGroup;
-  dataSource: Observable<DisplayModel>;
+  dataSource: Observable<Array<DisplayModel>>;
   noResults = true;
 
   lastMatchIdentifier = '';
@@ -135,7 +135,7 @@ export class SearchBoxComponent implements OnInit {
     return matches.findIndex((element) => element.uniquename === match.uniquename) !== -1;
   }
 
-  summariesAsObservable(fieldValue: string): Observable<any> {
+  summariesFromToken(fieldValue: string): Array<DisplayModel> {
     if (this.geneSummaries) {
       let value = fieldValue.trim().toLowerCase();
 
@@ -217,19 +217,20 @@ export class SearchBoxComponent implements OnInit {
             }
           }
         }
-        return Observable.of(filteredSummaries);
-      } else {
-        return Observable.of([]);
+        return filteredSummaries;
       }
-    } else {
-      return Observable.of([]);
     }
+    return [];
   }
 
-  getDataSource(): Observable<DisplayModel> {
+  observableFromToken(token: string): Observable<Array<DisplayModel>> {
+    return Observable.of(this.summariesFromToken(token));
+  }
+
+  getDataSource(): Observable<Array<DisplayModel>> {
     return this.form.valueChanges
       .map(formData => formData.searchBox)
-      .mergeMap((token: string) => this.summariesAsObservable(token));
+      .mergeMap((token: string) => this.observableFromToken(token));
   }
 
   ngOnInit() {
