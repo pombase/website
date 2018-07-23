@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 import { PombaseAPIService, GeneSummary } from '../pombase-api.service';
+import { CompleteService, SolrTermSummary } from '../complete.service';
 
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
+import { map, switchMap } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
 
 interface Model extends GeneSummary {
   searchData: string;
@@ -19,21 +21,25 @@ class DisplayModel {
               public otherDetails: string) { }
 }
 
+const CV_NAMES_FOR_TERM_COMPLETE =
+  '(molecular_function OR biological_process OR cellular_component OR ' +
+  'fission_yeast_phenotype)';
+
 @Component({
   selector: 'app-search-box',
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent implements OnInit {
-  form: FormGroup;
   dataSource: Observable<Array<DisplayModel>>;
   noResults = true;
 
-  lastMatchIdentifier = '';
+  fieldValue = '';
 
   geneSummaries: Array<GeneSummary> = [];
 
-  constructor(private pombaseApiService: PombaseAPIService,
+  constructor(private completeService: CompleteService,
+              private pombaseApiService: PombaseAPIService,
               private router: Router) {
   }
 
@@ -42,7 +48,11 @@ export class SearchBoxComponent implements OnInit {
   }
 
   makeGeneDisplayModel(uniquename: string, name: string, otherDetails: string): DisplayModel {
-    return new DisplayModel('Gene', uniquename, name, otherDetails);
+    return new DisplayModel('Matching genes:', uniquename, name, otherDetails);
+  }
+
+  makeTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
+    return new DisplayModel('Matching terms:', termResult.termid, termResult.name, null);
   }
 
   nameExactMatch(geneSumm: GeneSummary, value: string): DisplayModel {
@@ -228,23 +238,34 @@ export class SearchBoxComponent implements OnInit {
     return [];
   }
 
+  getTermMatches(token: string): Observable<Array<DisplayModel>> {
+    return this.completeService.completeTermName(CV_NAMES_FOR_TERM_COMPLETE, token)
+      .map((termResults: Array<SolrTermSummary>) =>
+           termResults.map(termResult => this.makeTermDisplayModel(termResult)));
+  }
+
   observableFromToken(token: string): Observable<Array<DisplayModel>> {
     const geneSummaryObservable = Observable.of(this.summariesFromToken(token));
+    const termResultsObservable = this.getTermMatches(token);
 
-    return geneSummaryObservable;
+    const combined = combineLatest(geneSummaryObservable, termResultsObservable)
+      .map(([geneRes, termRes]) => {
+        return [...geneRes.slice(0, 10), ...termRes.slice(0, 10)];
+      });
+    return combined;
   }
 
   getDataSource(): Observable<Array<DisplayModel>> {
-    return this.form.valueChanges
-      .map(formData => formData.searchBox)
-      .mergeMap((token: string) => this.observableFromToken(token));
+    return Observable.create((observer: any) => {
+      // Runs on every search
+      observer.next(this.fieldValue);
+    })
+    .pipe(
+      switchMap((token: string) => this.observableFromToken(token))
+   );
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      searchBox: new FormControl(''),
-    });
-
     this.dataSource = this.getDataSource();
 
     this.pombaseApiService.getGeneSummariesPromise()
@@ -273,7 +294,11 @@ export class SearchBoxComponent implements OnInit {
  }
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
-    this.router.navigate(['/gene', e.item.uniquename]);
+    if (e.item.matchType === 'gene') {
+      this.router.navigate(['/gene', e.item.uniquename]);
+    } else {
+      this.router.navigate(['/term', e.item.uniquename]);
+    }
     this.clearBox();
   }
 
@@ -290,11 +315,11 @@ export class SearchBoxComponent implements OnInit {
   }
 
   clearBox(): void {
-    this.form.setValue({ searchBox: '' });
+    this.fieldValue = '';
   }
 
   enterPressed(e: any) {
-    let trimmedValue = this.form.value.searchBox.trim();
+    let trimmedValue = this.fieldValue;
     if (this.matchesReference(trimmedValue)) {
       let pmid = trimmedValue;
       if (!pmid.startsWith('PMID:')) {
@@ -311,6 +336,6 @@ export class SearchBoxComponent implements OnInit {
   }
 
   noMatchingGenes(): boolean {
-    return this.noResults && this.form.value.searchBox.length > 0;
+    return this.noResults && this.fieldValue.length > 0;
   }
 }

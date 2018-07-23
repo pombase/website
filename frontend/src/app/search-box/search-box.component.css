@@ -23,6 +23,10 @@
 /*  font-weight: 200; */
 }
 
+.search-box-contents {
+  margin-left: 0.5em;
+}
+
 .match-extra {
   display: block;
   font-weight: 200;

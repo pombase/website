@@ -16,18 +16,19 @@
   </div>
 </ng-template>
 
-<form [formGroup]="form">
-<input formControlName="searchBox"
+<input #searchBox
        *ngIf="geneSummaries.length > 0"
        placeholder="search ..."
+       [(ngModel)]="fieldValue"
        (keyup.enter)="enterPressed($event)"
        [typeahead]="dataSource"
        [typeaheadMinLength]="2"
        [typeaheadItemTemplate]="searchBoxTemplate"
        [typeaheadSingleWords]="false"
+       typeaheadGroupField="matchType"
        (typeaheadOnSelect)="typeaheadOnSelect($event)"
        (typeaheadNoResults)="typeaheadNoResults($event)"
-       typeaheadOptionsLimit="15"
+       typeaheadOptionsLimit="20"
        class="form-control search-box">
 
 <span *ngIf="isInitialised()" class="search-help">
@@ -40,4 +41,3 @@
 <span class="search-info" [style.visibility]="noMatchingGenes() ? 'visible' : 'hidden'">
   No matching genes
 </span>
-</form>

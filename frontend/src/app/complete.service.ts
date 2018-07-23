@@ -7,7 +7,7 @@ import { getAppConfig } from './config';
 import * as similarity from 'string-similarity'
 
 export class SolrTermSummary {
-  constructor(id: string, name: string, definition: string) {};
+  constructor(public termid: string, public name: string, public definition: string) {};
 }
 
 @Injectable()
