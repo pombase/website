@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -23,8 +24,8 @@ class DisplayModel {
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent implements OnInit {
-  public fieldValue = '';
-  dataSource: Observable<any>;
+  form: FormGroup;
+  dataSource: Observable<DisplayModel>;
   noResults = true;
 
   lastMatchIdentifier = '';
@@ -33,12 +34,6 @@ export class SearchBoxComponent implements OnInit {
 
   constructor(private pombaseApiService: PombaseAPIService,
               private router: Router) {
-    this.dataSource = Observable
-      .create((observer: any) => {
-        // Runs on every search
-        observer.next(this.fieldValue);
-      })
-      .mergeMap((token: string) => this.summariesAsObservable(token));
   }
 
   isInitialised(): boolean {
@@ -142,7 +137,7 @@ export class SearchBoxComponent implements OnInit {
 
   summariesAsObservable(fieldValue: string): Observable<any> {
     if (this.geneSummaries) {
-      let value = this.fieldValue.trim().toLowerCase();
+      let value = fieldValue.trim().toLowerCase();
 
       if (value.length > 0) {
         let filteredSummaries = [];
@@ -231,7 +226,19 @@ export class SearchBoxComponent implements OnInit {
     }
   }
 
+  getDataSource(): Observable<DisplayModel> {
+    return this.form.valueChanges
+      .map(formData => formData.searchBox)
+      .mergeMap((token: string) => this.summariesAsObservable(token));
+  }
+
   ngOnInit() {
+    this.form = new FormGroup({
+      searchBox: new FormControl(''),
+    });
+
+    this.dataSource = this.getDataSource();
+
     this.pombaseApiService.getGeneSummariesPromise()
       .then(summaries => {
         this.geneSummaries = summaries;
@@ -259,7 +266,7 @@ export class SearchBoxComponent implements OnInit {
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
     this.router.navigate(['/gene', e.item.uniquename]);
-    this.fieldValue = '';
+    this.clearBox();
   }
 
   public typeaheadNoResults(e: boolean) {
@@ -274,24 +281,28 @@ export class SearchBoxComponent implements OnInit {
     return value.match(/^\s*[a-zA-Z_]+:\d\d\d+\s*$/) != null;
   }
 
+  clearBox(): void {
+    this.form.setValue({ searchBox: '' });
+  }
+
   enterPressed(e: any) {
-    let trimmedValue = this.fieldValue.trim();
+    let trimmedValue = this.form.value.searchBox.trim();
     if (this.matchesReference(trimmedValue)) {
-      let pmid = this.fieldValue;
+      let pmid = trimmedValue;
       if (!pmid.startsWith('PMID:')) {
         pmid = 'PMID:' + pmid;
       }
-      this.fieldValue = '';
+      this.clearBox()
       this.router.navigate(['/reference', pmid]);
     } else {
       if (this.matchesTerm(trimmedValue)) {
-        this.fieldValue = '';
+      this.clearBox()
         this.router.navigate(['/term', trimmedValue]);
       }
     }
   }
 
   noMatchingGenes(): boolean {
-    return this.noResults && this.fieldValue.length > 0;
+    return this.noResults && this.form.value.searchBox.length > 0;
   }
 }
