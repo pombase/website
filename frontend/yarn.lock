@@ -456,9 +456,9 @@ angular2-cookie-law@^6.0.4:
   dependencies:
     tslib "^1.9.0"
 
-angulartics2@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/angulartics2/-/angulartics2-6.1.1.tgz#86095d7d147ed63c0f469159b67eb660acad8175"
+angulartics2@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/angulartics2/-/angulartics2-6.2.0.tgz#52eab311be74c9d055632e385988645c233a2c0f"
   dependencies:
     tslib "^1.9.0"
 
