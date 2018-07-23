@@ -13,7 +13,8 @@ interface Model extends GeneSummary {
 }
 
 class DisplayModel {
-  constructor(public uniquename: string,
+  constructor(public matchType: string,
+              public uniquename: string,
               public name: string,
               public otherDetails: string) { }
 }
@@ -40,9 +41,13 @@ export class SearchBoxComponent implements OnInit {
     return this.geneSummaries.length > 0;
   }
 
+  makeGeneDisplayModel(uniquename: string, name: string, otherDetails: string): DisplayModel {
+    return new DisplayModel('Gene', uniquename, name, otherDetails);
+  }
+
   nameExactMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     if (geneSumm.name && geneSumm.name.toLowerCase() === value) {
-      return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
     }
     return null;
   }
@@ -51,7 +56,7 @@ export class SearchBoxComponent implements OnInit {
     if (geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1 &&
         (geneSumm.name.indexOf('-antisense-') === -1 ||
          value.indexOf('antisense') !== -1)) { // See #409
-      return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
     } else {
       return null;
     }
@@ -59,7 +64,7 @@ export class SearchBoxComponent implements OnInit {
 
   identifierMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     if (geneSumm.uniquename.toLowerCase().indexOf(value) !== -1) {
-      return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
     } else {
       return null;
     }
@@ -69,7 +74,7 @@ export class SearchBoxComponent implements OnInit {
     if (geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1 &&
         geneSumm.name.indexOf('-antisense-') !== -1 &&
         value.indexOf('antisense') === -1) { // See #409
-      return new DisplayModel(geneSumm.uniquename, geneSumm.name, null);
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
     } else {
       return null;
     }
@@ -78,7 +83,7 @@ export class SearchBoxComponent implements OnInit {
   synonymMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     for (let syn of geneSumm.synonyms) {
       if (syn.toLowerCase().indexOf(value) !== -1) {
-        return new DisplayModel(geneSumm.uniquename, geneSumm.name, 'synonym: ' + syn);
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, 'synonym: ' + syn);
       }
     }
     return null;
@@ -87,7 +92,7 @@ export class SearchBoxComponent implements OnInit {
   synonymExactMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     for (let syn of geneSumm.synonyms) {
       if (syn.toLowerCase() === value) {
-        return new DisplayModel(geneSumm.uniquename, geneSumm.name, 'synonym: ' + syn);
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, 'synonym: ' + syn);
       }
     }
     return null;
@@ -96,7 +101,7 @@ export class SearchBoxComponent implements OnInit {
   orthologMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     for (let orth of geneSumm.orthologs) {
       if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
-        return new DisplayModel(geneSumm.uniquename, geneSumm.name,
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
                                 'ortholog: ' + orth.identifier);
       }
     }
@@ -106,7 +111,7 @@ export class SearchBoxComponent implements OnInit {
   orthologExactMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     for (let orth of geneSumm.orthologs) {
       if (orth.identifier.toLowerCase() === value) {
-        return new DisplayModel(geneSumm.uniquename, geneSumm.name,
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
                                 'ortholog: ' + orth.identifier);
       }
     }
@@ -115,7 +120,7 @@ export class SearchBoxComponent implements OnInit {
 
   productMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     if (geneSumm.product && geneSumm.product.toLowerCase().indexOf(value) !== -1) {
-      return new DisplayModel(geneSumm.uniquename, geneSumm.name,
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
                               'product: ' + geneSumm.product);
     } else {
       return null;
@@ -124,7 +129,7 @@ export class SearchBoxComponent implements OnInit {
 
   uniprotIdMatch(geneSumm: GeneSummary, value: string): DisplayModel {
     if (geneSumm.uniprot_identifier && geneSumm.uniprot_identifier.toLowerCase().indexOf(value) !== -1) {
-      return new DisplayModel(geneSumm.uniquename, geneSumm.name,
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
                               'UniProt ID: ' + geneSumm.uniprot_identifier);
     } else {
       return null;
@@ -224,7 +229,9 @@ export class SearchBoxComponent implements OnInit {
   }
 
   observableFromToken(token: string): Observable<Array<DisplayModel>> {
-    return Observable.of(this.summariesFromToken(token));
+    const geneSummaryObservable = Observable.of(this.summariesFromToken(token));
+
+    return geneSummaryObservable;
   }
 
   getDataSource(): Observable<Array<DisplayModel>> {
