@@ -10,6 +10,10 @@ export class SolrTermSummary {
   constructor(public termid: string, public name: string, public definition: string) {};
 }
 
+export class SolrRefSummary {
+  constructor(public pubmedid: string, public title: string, public citation: string) {};
+}
+
 @Injectable()
 export class CompleteService {
 
@@ -25,7 +29,7 @@ export class CompleteService {
       return Observable.from([]);
     }
 
-    return this.http.get(this.completeUrl + '/' + serverCvName + '/' + queryText)
+    return this.http.get(this.completeUrl + '/term/' + serverCvName + '/' + queryText)
       .map((res: Response) => {
         const parsedRes = res.json();
         if (parsedRes['status'] !== 'Ok') {
@@ -56,6 +60,33 @@ export class CompleteService {
         });
 
         return resultTerms;
+      });
+  }
+
+  completeRef(queryText: string): Observable<SolrRefSummary[]> {
+    queryText = queryText.trim();
+    if (queryText.length === 0) {
+      return Observable.from([]);
+    }
+
+    return this.http.get(this.completeUrl + '/ref/' + queryText)
+      .map((res: Response) => {
+        const parsedRes = res.json();
+        if (parsedRes['status'] !== 'Ok') {
+          return [];
+        }
+
+        const refs = parsedRes['matches'];
+
+        const resultRefs = refs.map((ref) => {
+          return {
+            pubmedid: ref.id,
+            title: ref.title,
+            citation: ref.citation,
+          };
+        });
+
+        return resultRefs;
       });
   }
 }

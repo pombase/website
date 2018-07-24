@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 import { PombaseAPIService, GeneSummary } from '../pombase-api.service';
-import { CompleteService, SolrTermSummary } from '../complete.service';
+import { CompleteService, SolrTermSummary, SolrRefSummary } from '../complete.service';
 
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { map, switchMap } from 'rxjs/operators';
@@ -18,7 +18,11 @@ class DisplayModel {
   constructor(public matchType: string,
               public uniquename: string,
               public name: string,
-              public otherDetails: string) { }
+              public otherDetails: string) {
+    if (this.name && this.name.length > 50) {
+      this.name = this.name.slice(0, 48) + '...';
+    }
+  }
 }
 
 const CV_NAMES_FOR_TERM_COMPLETE =
@@ -53,6 +57,10 @@ export class SearchBoxComponent implements OnInit {
 
   makeTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
     return new DisplayModel('Matching terms:', termResult.termid, termResult.name, null);
+  }
+
+  makeRefDisplayModel(refResult: SolrRefSummary): DisplayModel {
+    return new DisplayModel('Matching publications:', refResult.pubmedid, refResult.title, refResult.citation);
   }
 
   nameExactMatch(geneSumm: GeneSummary, value: string): DisplayModel {
@@ -244,13 +252,31 @@ export class SearchBoxComponent implements OnInit {
            termResults.map(termResult => this.makeTermDisplayModel(termResult)));
   }
 
+  getRefMatches(token: string): Observable<Array<DisplayModel>> {
+    return this.completeService.completeRef(token)
+      .map((refResults: Array<SolrRefSummary>) =>
+           refResults.map(refResult => this.makeRefDisplayModel(refResult)));
+  }
+
   observableFromToken(token: string): Observable<Array<DisplayModel>> {
     const geneSummaryObservable = Observable.of(this.summariesFromToken(token));
     const termResultsObservable = this.getTermMatches(token);
+    const refResultsObservable = this.getRefMatches(token);
 
-    const combined = combineLatest(geneSummaryObservable, termResultsObservable)
-      .map(([geneRes, termRes]) => {
-        return [...geneRes.slice(0, 10), ...termRes.slice(0, 10)];
+
+    const combined =
+      combineLatest(geneSummaryObservable, termResultsObservable, refResultsObservable)
+      .map(([geneRes, termRes, refRes]) => {
+        const maxGenes = 8;
+        const maxTerms = 5;
+        const geneCount = geneRes.length;
+        const termCount = termRes.length;
+        let refCount = 3;
+        if (geneCount + termCount < maxGenes + maxTerms) {
+          refCount += (maxGenes + maxTerms) - (geneCount + termCount);
+        }
+        return [...geneRes.slice(0, maxGenes), ...termRes.slice(0, maxTerms),
+                ...refRes.slice(0, refCount)];
       });
     return combined;
   }
@@ -294,10 +320,14 @@ export class SearchBoxComponent implements OnInit {
  }
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
-    if (e.item.matchType === 'gene') {
+    if (e.item.matchType.toLowerCase().includes('gene')) {
       this.router.navigate(['/gene', e.item.uniquename]);
     } else {
-      this.router.navigate(['/term', e.item.uniquename]);
+      if (e.item.matchType.toLowerCase().includes('term')) {
+        this.router.navigate(['/term', e.item.uniquename]);
+      } else {
+        this.router.navigate(['/reference', e.item.uniquename]);
+      }
     }
     this.clearBox();
   }

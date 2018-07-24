@@ -324,3 +324,9 @@ select option:disabled {
 .panel-container {
   clear: both;
 }
+
+.dropdown-header {
+  padding: 3px 15px;
+  background-color: #e5e8f3;
+  color: #444;
+}
