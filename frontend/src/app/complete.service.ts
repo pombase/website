@@ -79,10 +79,15 @@ export class CompleteService {
         const refs = parsedRes['matches'];
 
         const resultRefs = refs.map((ref) => {
+          const bits = [ref.authors_abbrev, ref.citation];
+
+          const authorAndCitation =
+            bits.filter(v => !!v).join(' ');
+
           return {
             pubmedid: ref.id,
             title: ref.title,
-            citation: ref.citation,
+            citation: authorAndCitation,
           };
         });
 
