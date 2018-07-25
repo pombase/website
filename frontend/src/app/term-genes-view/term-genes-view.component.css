@@ -1,11 +1,3 @@
-.external-links div {
-  padding: 0.5em 0 0.5em 0;
-}
-
-.term-actions {
-  padding: 1em 0 0 0;
-}
-
 .term-actions .title {
   font-weight: bold;
 }
@@ -13,4 +5,8 @@
 .no-annotations {
   margin: 10px 0;
   font-size: 120%;
+}
+
+hr {
+  margin: 12px 0;
 }
