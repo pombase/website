@@ -20,7 +20,8 @@ bleomycins | fungal cell wall septation and cytokinesis inhibitors |
 brefeldin A | inhibits intracellular transport |  
 calcofluor white | cell wall synthesis |  
 camptothecin | topoisomerase 1 (Top1) inhibitor |  
-canavanine | naturally occuring (alfafa) L-arginine antimetabolite |  
+canavanine | naturally occuring (alfafa) L-arginine antimetabolite | 
+cerulenin | inhibits β -keto-acyl ACP synthase and HMG -CoA synthase | [PMID:30003614](http://www.ncbi.nlm.nih.gov/pubmed/?term=30003614) 
 chloramphenicol | protein synthesis inhibitor |  
 compactin | ergosterol biosynthesis |  
 Cutin-1 | fatty acid synthase beta subunit (Fas1); inhibits nuclear envelope expansion during mitosis | [PMID:26869222](http://www.ncbi.nlm.nih.gov/pubmed/?term=26869222) 
