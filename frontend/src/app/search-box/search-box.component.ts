@@ -3,15 +3,26 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { PombaseAPIService, GeneSummary } from '../pombase-api.service';
+import { PombaseAPIService, GeneSummary, IdAndOrganism } from '../pombase-api.service';
 import { CompleteService, SolrTermSummary, SolrRefSummary } from '../complete.service';
 
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { map, switchMap } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 
-interface Model extends GeneSummary {
-  searchData: string;
+class SearchSummary {
+  constructor(
+    public uniquename: string,
+    public uniquenameLowerCase: string,
+    public name: string,
+    public nameLowerCase: string,
+    public product: string,
+    public productLowerCase: string,
+    public uniprotIdentifier: string,
+    public uniprotIdentifierLowerCase: string,
+    public synonyms: Array<string>,
+    public synonymsLowerCase: Array<string>,
+    public orthologs: Array<IdAndOrganism>) { }
 }
 
 class DisplayModel {
@@ -40,7 +51,7 @@ export class SearchBoxComponent implements OnInit {
 
   fieldValue = '';
 
-  geneSummaries: Array<GeneSummary> = [];
+  searchSummaries: Array<SearchSummary> = [];
 
   constructor(private completeService: CompleteService,
               private pombaseApiService: PombaseAPIService,
@@ -48,7 +59,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   isInitialised(): boolean {
-    return this.geneSummaries.length > 0;
+    return this.searchSummaries.length > 0;
   }
 
   makeGeneDisplayModel(uniquename: string, name: string, otherDetails: string): DisplayModel {
@@ -63,92 +74,92 @@ export class SearchBoxComponent implements OnInit {
     return new DisplayModel('Matching publications:', refResult.pubmedid, refResult.title, refResult.citation);
   }
 
-  nameExactMatch(geneSumm: GeneSummary, value: string): DisplayModel {
-    if (geneSumm.name && geneSumm.name.toLowerCase() === value) {
+  nameExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+    if (geneSumm.nameLowerCase === value) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
     }
     return null;
   }
 
-  nameMatch(geneSumm: GeneSummary, value: string): DisplayModel {
-    if (geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1 &&
+  nameMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+    if (geneSumm.nameLowerCase && geneSumm.nameLowerCase.indexOf(value) !== -1 &&
         (geneSumm.name.indexOf('-antisense-') === -1 ||
          value.indexOf('antisense') !== -1)) { // See #409
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
+    } else {
+      return null;
+    }
+  }
+
+  identifierMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+    if (geneSumm.uniquenameLowerCase.indexOf(value) !== -1) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
     } else {
       return null;
     }
   }
 
-  identifierMatch(geneSumm: GeneSummary, value: string): DisplayModel {
-    if (geneSumm.uniquename.toLowerCase().indexOf(value) !== -1) {
-      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
-    } else {
-      return null;
-    }
-  }
-
-  antisenseNameMatch(geneSumm: GeneSummary, value: string): DisplayModel {
-    if (geneSumm.name && geneSumm.name.toLowerCase().indexOf(value) !== -1 &&
+  antisenseNameMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+    if (geneSumm.name && geneSumm.nameLowerCase.indexOf(value) !== -1 &&
         geneSumm.name.indexOf('-antisense-') !== -1 &&
         value.indexOf('antisense') === -1) { // See #409
-      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null);
     } else {
       return null;
     }
   }
 
-  synonymMatch(geneSumm: GeneSummary, value: string): DisplayModel {
-    for (let syn of geneSumm.synonyms) {
-      if (syn.toLowerCase().indexOf(value) !== -1) {
-        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, 'synonym: ' + syn);
-      }
+  synonymMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+    const matchIndex = geneSumm.synonymsLowerCase.findIndex(syn => syn.indexOf(value) !== -1);
+    if (matchIndex !== -1) {
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
+                                       'synonym: ' + geneSumm.synonyms[matchIndex]);
     }
     return null;
   }
 
-  synonymExactMatch(geneSumm: GeneSummary, value: string): DisplayModel {
-    for (let syn of geneSumm.synonyms) {
-      if (syn.toLowerCase() === value) {
-        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, 'synonym: ' + syn);
-      }
+  synonymExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+    const matchIndex = geneSumm.synonymsLowerCase.findIndex(syn => syn === value);
+    if (matchIndex !== -1) {
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
+                                       'synonym: ' + geneSumm.synonyms[matchIndex]);
     }
     return null;
   }
 
-  orthologMatch(geneSumm: GeneSummary, value: string): DisplayModel {
+  orthologMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     for (let orth of geneSumm.orthologs) {
       if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
         return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                'ortholog: ' + orth.identifier);
+                                         'ortholog: ' + orth.identifier);
       }
     }
     return null;
   }
 
-  orthologExactMatch(geneSumm: GeneSummary, value: string): DisplayModel {
+  orthologExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     for (let orth of geneSumm.orthologs) {
       if (orth.identifier.toLowerCase() === value) {
         return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                'ortholog: ' + orth.identifier);
+                                         'ortholog: ' + orth.identifier);
       }
     }
     return null;
   }
 
-  productMatch(geneSumm: GeneSummary, value: string): DisplayModel {
-    if (geneSumm.product && geneSumm.product.toLowerCase().indexOf(value) !== -1) {
+  productMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+    if (geneSumm.product && geneSumm.productLowerCase.indexOf(value) !== -1) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                              'product: ' + geneSumm.product);
+                                       'product: ' + geneSumm.product);
     } else {
       return null;
     }
   }
 
-  uniprotIdMatch(geneSumm: GeneSummary, value: string): DisplayModel {
-    if (geneSumm.uniprot_identifier && geneSumm.uniprot_identifier.toLowerCase().indexOf(value) !== -1) {
+  uniprotIdMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+    if (geneSumm.uniprotIdentifier && geneSumm.uniprotIdentifierLowerCase.indexOf(value) !== -1) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                              'UniProt ID: ' + geneSumm.uniprot_identifier);
+                                       'UniProt ID: ' + geneSumm.uniprotIdentifier);
     } else {
       return null;
     }
@@ -159,85 +170,57 @@ export class SearchBoxComponent implements OnInit {
   }
 
   summariesFromToken(fieldValue: string): Array<DisplayModel> {
-    if (this.geneSummaries) {
+    if (this.searchSummaries) {
       let value = fieldValue.trim().toLowerCase();
 
       if (value.length > 0) {
-        let filteredSummaries = [];
-        for (let geneSumm of this.geneSummaries) {
-          let match = this.nameExactMatch(geneSumm, value);
-          if (match) {
-            filteredSummaries.push(match);
-          }
-        }
-        for (let geneSumm of this.geneSummaries) {
-          let match = this.synonymExactMatch(geneSumm, value);
-          if (match) {
-            filteredSummaries.push(match);
-          }
-        }
-        for (let geneSumm of this.geneSummaries) {
-          let match = this.orthologExactMatch(geneSumm, value);
-          if (match) {
-            filteredSummaries.push(match);
-          }
-        }
-        for (let geneSumm of this.geneSummaries) {
-          let match = this.nameMatch(geneSumm, value);
+        let filteredSummaries: Array<DisplayModel> = [];
+
+        const maybeAdd = (match: DisplayModel) => {
           if (match && filteredSummaries.length < 20 &&
               !this.containsMatch(filteredSummaries, match)) {
             filteredSummaries.push(match);
           }
+        };
+
+        for (let geneSumm of this.searchSummaries) {
+          maybeAdd(this.nameExactMatch(geneSumm, value));
+        }
+        for (let geneSumm of this.searchSummaries) {
+          maybeAdd(this.synonymExactMatch(geneSumm, value));
+        }
+        for (let geneSumm of this.searchSummaries) {
+          maybeAdd(this.orthologExactMatch(geneSumm, value));
+        }
+        for (let geneSumm of this.searchSummaries) {
+          maybeAdd(this.nameMatch(geneSumm, value));
         }
         if (filteredSummaries.length < 20) {
-          for (let geneSumm of this.geneSummaries) {
-            let match = this.identifierMatch(geneSumm, value);
-            if (match && filteredSummaries.length < 20) {
-              filteredSummaries.push(match);
-            }
+          for (let geneSumm of this.searchSummaries) {
+            maybeAdd(this.identifierMatch(geneSumm, value));
           }
         }
-        for (let geneSumm of this.geneSummaries) {
-          let match = this.antisenseNameMatch(geneSumm, value);
-          if (match && filteredSummaries.length < 20 &&
-              !this.containsMatch(filteredSummaries, match)) {
-            filteredSummaries.push(match);
-          }
+        for (let geneSumm of this.searchSummaries) {
+          maybeAdd(this.antisenseNameMatch(geneSumm, value));
         }
         if (filteredSummaries.length < 20) {
-          for (let geneSumm of this.geneSummaries) {
-            let match = this.synonymMatch(geneSumm, value);
-            if (match && filteredSummaries.length < 20 &&
-                !this.containsMatch(filteredSummaries, match)) {
-              filteredSummaries.push(match);
-            }
-          }
-        }
-        if (filteredSummaries.length < 20) {
-          for (let geneSumm of this.geneSummaries) {
-            let match = this.orthologMatch(geneSumm, value);
-            if (match && filteredSummaries.length < 20 &&
-                !this.containsMatch(filteredSummaries, match)) {
-              filteredSummaries.push(match);
-            }
+          for (let geneSumm of this.searchSummaries) {
+            maybeAdd(this.synonymMatch(geneSumm, value));
           }
         }
         if (filteredSummaries.length < 20) {
-          for (let geneSumm of this.geneSummaries) {
-            let match = this.productMatch(geneSumm, value);
-            if (match && filteredSummaries.length < 20 &&
-                !this.containsMatch(filteredSummaries, match)) {
-              filteredSummaries.push(match);
-            }
+          for (let geneSumm of this.searchSummaries) {
+            maybeAdd(this.orthologMatch(geneSumm, value));
           }
         }
         if (filteredSummaries.length < 20) {
-          for (let geneSumm of this.geneSummaries) {
-            let match = this.uniprotIdMatch(geneSumm, value);
-            if (match && filteredSummaries.length < 20 &&
-                !this.containsMatch(filteredSummaries, match)) {
-              filteredSummaries.push(match);
-            }
+          for (let geneSumm of this.searchSummaries) {
+            maybeAdd(this.productMatch(geneSumm, value));
+          }
+        }
+        if (filteredSummaries.length < 20) {
+          for (let geneSumm of this.searchSummaries) {
+            maybeAdd(this.uniprotIdMatch(geneSumm, value));
           }
         }
         return filteredSummaries;
@@ -286,9 +269,9 @@ export class SearchBoxComponent implements OnInit {
       // Runs on every search
       observer.next(this.fieldValue);
     })
-    .pipe(
-      switchMap((token: string) => this.observableFromToken(token))
-   );
+      .pipe(
+        switchMap((token: string) => this.observableFromToken(token))
+      );
   }
 
   ngOnInit() {
@@ -296,7 +279,7 @@ export class SearchBoxComponent implements OnInit {
 
     this.pombaseApiService.getGeneSummariesPromise()
       .then(summaries => {
-        this.geneSummaries = summaries;
+        this.searchSummaries = this.makeSearchSummaries(summaries);
 
         let summaryCmp =
           (a, b) => {
@@ -315,9 +298,29 @@ export class SearchBoxComponent implements OnInit {
             }
           };
 
-        this.geneSummaries.sort(summaryCmp);
+        this.searchSummaries.sort(summaryCmp);
       });
- }
+  }
+
+  makeSearchSummaries(summaries: Array<GeneSummary>): Array<SearchSummary> {
+    return summaries
+      .map(geneSumm => {
+        const nameLowerCase =
+          geneSumm.name ? geneSumm.name.toLowerCase() : undefined;
+        const productLowerCase =
+          geneSumm.product ? geneSumm.product.toLowerCase() : undefined;
+        const uniprotIdentifierLowerCase =
+          geneSumm.uniprot_identifier ? geneSumm.uniprot_identifier.toLowerCase() : undefined;
+
+        return new SearchSummary(geneSumm.uniquename,
+                                 geneSumm.uniquename.toLowerCase(),
+                                 geneSumm.name, nameLowerCase,
+                                 geneSumm.product, productLowerCase,
+                                 geneSumm.uniprot_identifier, uniprotIdentifierLowerCase,
+                                 geneSumm.synonyms, geneSumm.synonyms.map(syn => syn.toLowerCase()),
+                                 geneSumm.orthologs)
+      });
+  }
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
     if (e.item.matchType.toLowerCase().includes('gene')) {
@@ -359,7 +362,7 @@ export class SearchBoxComponent implements OnInit {
       this.router.navigate(['/reference', pmid]);
     } else {
       if (this.matchesTerm(trimmedValue)) {
-      this.clearBox()
+        this.clearBox()
         this.router.navigate(['/term', trimmedValue]);
       }
     }
