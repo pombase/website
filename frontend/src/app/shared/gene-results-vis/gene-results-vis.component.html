@@ -79,8 +79,12 @@
     <div *ngIf="selectedGeneList.length > 1" class="vis-selected-genes-heading">
       {{selectedGeneList.length}} selected genes:
     </div>
-    <div class="vis-selected-genes-gene" *ngFor="let geneData of selectedGeneList">
+    <div class="vis-selected-genes-gene"
+         *ngFor="let geneData of selectedGeneList.slice(0, 30)">
       {{geneData.getGeneShort().name || geneData.getGeneShort().uniquename}}
+    </div>
+    <div *ngIf="selectedGeneList.length > 30">
+      (and {{selectedGeneList.length - 30}} others)
     </div>
     <button class="btn btn-primary"
     title="Send selected genes to the advanced search page"
