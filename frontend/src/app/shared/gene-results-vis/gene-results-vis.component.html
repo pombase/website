@@ -47,6 +47,8 @@
             <rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
                   class="vis-column"
                   (click)="dataClick($event, columnData)"
+                  (mouseenter)="dataEnter($event, columnData)"
+                  (mouseleave)="dataLeave($event, columnData)"
                   [attr.height]="lineHeight * (columnData.endIndex - columnData.startIndex + 1)"
                   [attr.width]="columnWidth"
                   [attr.x]="geneWidth + columnIndex * (columnWidth + columnGap) + columnGap"
@@ -71,6 +73,10 @@
     <div *ngFor="let colConfig of visColumnConfigs">
       {{colConfig.display_name}}: {{currentGene.getField(colConfig.name)}}
     </div>
+  </div>
+
+  <div class="vis-column-details" *ngIf="currentData">
+    {{currentData.columnConfig.display_name}}: {{currentData.rowAttr}}
   </div>
 
   <div class="vis-selected-genes" *ngIf="selectedGeneList.length != 0">

@@ -11,7 +11,9 @@ class GeneDisplayData {
 }
 
 class ColumnDisplayData {
-  constructor(public startIndex: number, public endIndex: number,
+  constructor(public columnConfig: VisColumnConfig,
+              public rowAttr: string,
+              public startIndex: number, public endIndex: number,
               public color: string, public geneUniquenames: Array<string>) {};
 }
 
@@ -82,7 +84,8 @@ export class GeneResultsVisComponent implements OnInit {
   geneDisplayData: Array<GeneDisplayData> = [];
   columnDisplayDataMap: { [colName: string]: Array<ColumnDisplayData> } = {};
 
-  currentGene = null;
+  currentData: ColumnDisplayData = null;
+  currentGene: GeneData = null;
 
   visColumnConfigMap: { [colName: string]: VisColumnConfig } = {};
   visColumnConfigs: Array<VisColumnConfig> = [];
@@ -209,11 +212,21 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   geneEnter($event: Event, geneData: GeneDisplayData) {
+    this.currentData = null;
     this.currentGene = this.geneDataMap[geneData.geneUniquename];
   }
 
   geneLeave($event: Event) {
     this.currentGene = null;
+  }
+
+  dataEnter($event: Event, columnData: ColumnDisplayData) {
+    this.currentGene = null;
+    this.currentData = columnData;
+  }
+
+  dataLeave($event: Event) {
+    this.currentData = null;
   }
 
   sendToQueryBuilder(): void {
@@ -301,7 +314,7 @@ export class GeneResultsVisComponent implements OnInit {
           prevRowAttr = prevGeneData.getField(columnName);
         }
 
-        let columnDisplayData = this.columnDisplayDataMap[columnName];
+        let columnDisplayDataList = this.columnDisplayDataMap[columnName];
         if (!prevRowAttr ||
             this.geneDataMap[geneUniquename].getField(columnName) !== prevRowAttr) {
           let color = '#888';  // default
@@ -312,9 +325,13 @@ export class GeneResultsVisComponent implements OnInit {
             color = attrConfig.color;
           }
 
-          columnDisplayData.push(new ColumnDisplayData(idx, idx, color, [geneUniquename]))
+          const columnConfig = this.visColumnConfigMap[columnName];
+          const columnDisplayData =
+            new ColumnDisplayData(columnConfig, rowAttr, idx, idx, color, [geneUniquename]);
+
+          columnDisplayDataList.push(columnDisplayData);
         } else {
-          let prevSpan = columnDisplayData[columnDisplayData.length - 1];
+          let prevSpan = columnDisplayDataList[columnDisplayDataList.length - 1];
           prevSpan.endIndex = idx;
           prevSpan.geneUniquenames.push(geneUniquename);
         }
