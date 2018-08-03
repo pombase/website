@@ -208,20 +208,11 @@ export class GeneResultsVisComponent implements OnInit {
     $event.stopPropagation();
   }
 
-  mouseenter($event: Event) {
-    const eventTargetElement = $event.target as Element;
-    const domId = eventTargetElement.id;
-
-    if (domId) {
-      const [geneIndex, geneUniquename] = this.geneUniquenameFromDomId(domId);
-
-      this.currentGene = this.geneDataMap[geneUniquename];
-    } else {
-      this.currentGene = null;
-    }
+  geneEnter($event: Event, geneData: GeneDisplayData) {
+    this.currentGene = this.geneDataMap[geneData.geneUniquename];
   }
 
-  mouseleave($event: Event) {
+  geneLeave($event: Event) {
     this.currentGene = null;
   }
 

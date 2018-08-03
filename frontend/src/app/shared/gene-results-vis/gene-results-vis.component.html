@@ -32,7 +32,8 @@
           <g style="pointer-events: all">
             <rect *ngFor="let geneData of getGeneDisplayData()"
                   (click)="geneclick($event)"
-                  (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
+                  (mouseenter)="geneEnter($event, geneData)"
+                  (mouseleave)="geneLeave($event, geneData)"
                   [ngClass]="{'vis-gene': !selectedGenes[geneData.geneUniquename], 'vis-gene-selected': selectedGenes[geneData.geneUniquename]}"
                   [attr.id]="geneData.id" [attr.height]="lineHeight"
                   [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap)"
