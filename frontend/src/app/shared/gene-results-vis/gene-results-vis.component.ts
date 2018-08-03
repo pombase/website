@@ -7,7 +7,7 @@ import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult, ResultRow, Te
 import { Util } from '../util';
 
 class GeneDisplayData {
-  constructor(public id: string, public geneIndex: number) {};
+  constructor(public id: string, public geneIndex: number, public geneUniquename: string) {};
 }
 
 class ColumnDisplayData {
@@ -339,8 +339,7 @@ export class GeneResultsVisComponent implements OnInit {
       const geneDomId = this.makeGeneDomId(geneUniquename, geneIndex);
 
       this.geneDisplayData.push(new GeneDisplayData(
-        geneDomId,
-        geneIndex,
+        geneDomId, geneIndex, geneUniquename
       ));
     });
   }
