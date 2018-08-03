@@ -4,7 +4,7 @@
       {{colConfig.display_name}}:
       <input type="checkbox"
              (change)="confSelectionChanged()"
-             [(ngModel)]="selectedColumns[colConfig.name]"/>
+             [(ngModel)]="activeColumns[colConfig.name]"/>
       <a *ngIf="showResults()" (click)="setSortBy(colConfig.name)">[sort]</a>
     </div>
     <div *ngIf="showResults()">
@@ -25,7 +25,7 @@
 
     <div *ngIf="showResults()">
       <div class="vis-svg">
-        <svg [attr.width]="geneWidth + selectedConfigNames.length * (columnWidth + columnGap) + 20"
+        <svg [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap) + 20"
              [attr.height]="genes.length * lineHeight + 10"
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
@@ -34,14 +34,14 @@
                   (click)="mouseclick($event)"
                   (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
                   class="vis-gene" [attr.id]="geneData.id" [attr.height]="lineHeight"
-                  [attr.width]="geneWidth + selectedConfigNames.length * (columnWidth + columnGap)"
+                  [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap)"
                   [attr.x]="0"
                   [attr.y]="geneData.geneIndex * lineHeight"
                   stroke-width="0" stroke="#9f9"
                   style="pointer-events:inherit">
             </rect>
           </g>
-          <g *ngFor="let columnName of selectedConfigNames; let columnIndex = index"
+          <g *ngFor="let columnName of activeConfigNames; let columnIndex = index"
              style="pointer-events: none">
             <rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
                   class="vis-column"

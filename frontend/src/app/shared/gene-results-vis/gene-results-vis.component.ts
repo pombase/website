@@ -90,8 +90,8 @@ export class GeneResultsVisComponent implements OnInit {
 
   queryColumnNames = new Set<string>();
 
-  selectedColumns: { [index: string]: boolean; } = {};
-  selectedConfigNames: Array<string> = [];
+  activeColumns: { [index: string]: boolean; } = {};
+  activeConfigNames: Array<string> = [];
 
   sortByFields = ['gene-name'];
 
@@ -125,7 +125,7 @@ export class GeneResultsVisComponent implements OnInit {
         this.queryColumnNames.add(colConfig.name);
       }
 
-      this.selectedColumns[colConfig.name] = false;
+      this.activeColumns[colConfig.name] = false;
     });
   }
 
@@ -280,7 +280,7 @@ export class GeneResultsVisComponent implements OnInit {
     });
 
     this.sortedGeneUniquenames.map((geneUniquename, idx) => {
-      for (const columnName of this.selectedConfigNames) {
+      for (const columnName of this.activeConfigNames) {
         const rowAttr = this.geneDataMap[geneUniquename].getField(columnName);
         let prevRowAttr;
 
@@ -354,10 +354,10 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   confSelectionChanged(): void {
-    this.selectedConfigNames = [];
+    this.activeConfigNames = [];
     for (const visConfigName of this.visColumnNames) {
-      if (this.selectedColumns[visConfigName]) {
-        this.selectedConfigNames.push(visConfigName);
+      if (this.activeColumns[visConfigName]) {
+        this.activeConfigNames.push(visConfigName);
       }
     }
 
@@ -373,7 +373,7 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   showResults(): boolean {
-    return this.selectedConfigNames.length > 0 && Object.keys(this.geneDataMap).length > 0;
+    return this.activeConfigNames.length > 0 && Object.keys(this.geneDataMap).length > 0;
   }
 
   ngOnInit() {
