@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { GeneShort } from '../../pombase-api.service';
 import { getAppConfig, VisColumnConfig } from '../../config';
-import { QueryService } from '../../query.service';
+import { QueryService, HistoryEntry } from '../../query.service';
 import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult, ResultRow, TermAndName } from '../../pombase-query';
 import { Util } from '../util';
 
 class GeneDisplayData {
-  constructor(public id: string, public geneIndex: number,
-              public color: string) {};
+  constructor(public id: string, public geneIndex: number) {};
 }
 
 class ColumnDisplayData {
@@ -100,7 +100,11 @@ export class GeneResultsVisComponent implements OnInit {
   geneWidth = 40;
   columnGap = 5;
 
-  constructor(private queryService: QueryService) {
+  selectedGenes: { [index: string]: boolean } = {};
+  selectedGeneList: Array<GeneData> = [];
+
+  constructor(private queryService: QueryService,
+              private router: Router) {
     const colConfigs = getAppConfig().geneResults.visualisation.columns;
     this.visColumnConfigMap = {};
     this.visColumnConfigs = [];
@@ -148,6 +152,43 @@ export class GeneResultsVisComponent implements OnInit {
     }
   }
 
+  private getSelectedGeneUniquenames() {
+    let selectedGeneUniquenames = [];
+    for (const geneUniquename of Object.keys(this.selectedGenes)) {
+      if (this.selectedGenes[geneUniquename]) {
+        selectedGeneUniquenames.push(geneUniquename);
+      }
+    }
+    return selectedGeneUniquenames;
+  }
+
+  setSelectedGeneList(): void {
+    const selectedGeneUniquenames = this.getSelectedGeneUniquenames();
+
+    const compareGenes = (geneUniquenameA: string, geneUniquenameB: string) => {
+      return Util.geneCompare(this.geneDataMap[geneUniquenameA].getGeneShort(),
+                              this.geneDataMap[geneUniquenameB].getGeneShort());
+    };
+
+    selectedGeneUniquenames.sort(compareGenes);
+
+    this.selectedGeneList =
+      selectedGeneUniquenames.map(uniquename => this.geneDataMap[uniquename]);
+  }
+
+  mouseclick($event: Event) {
+    const eventTargetElement = $event.target as Element;
+    const domId = eventTargetElement.id;
+
+    if (domId) {
+      const [geneIndex, geneUniquename] = this.geneUniquenameFromDomId(domId);
+
+      this.selectedGenes[geneUniquename] = !this.selectedGenes[geneUniquename];
+
+      this.setSelectedGeneList();
+    }
+  }
+
   mouseenter($event: Event) {
     const eventTargetElement = $event.target as Element;
     const domId = eventTargetElement.id;
@@ -156,23 +197,27 @@ export class GeneResultsVisComponent implements OnInit {
       const [geneIndex, geneUniquename] = this.geneUniquenameFromDomId(domId);
 
       this.currentGene = this.geneDataMap[geneUniquename];
-      const geneColor = this.geneColor(geneIndex, true);
-      eventTargetElement.setAttribute('fill', geneColor);
     } else {
       this.currentGene = null;
     }
   }
 
   mouseleave($event: Event) {
-    const eventTargetElement = $event.target as Element;
-    const domId = eventTargetElement.id;
-
     this.currentGene = null;
+  }
 
-    const [geneIndex, geneUniquename] = this.geneUniquenameFromDomId(domId);
+  sendToQueryBuilder(): void {
+    const selectedGenes =
+      this.getSelectedGeneUniquenames().map(uniquename => {
+        return this.geneDataMap[uniquename].getGeneShort();
+      });
 
-    const geneColor = this.geneColor(geneIndex, false);
-    eventTargetElement.setAttribute('fill', geneColor);
+    const part = new GeneListNode(selectedGenes);
+    const geneQuery = new GeneQuery(part);
+    const callback = (historyEntry: HistoryEntry) => {
+      this.router.navigate(['/query/results/from/history/', historyEntry.getEntryId()]);
+    };
+    this.queryService.saveToHistory(geneQuery, callback);
   }
 
   setSortBy(fieldName: string) {
@@ -181,7 +226,7 @@ export class GeneResultsVisComponent implements OnInit {
     }
     const idx = this.sortByFields.indexOf(fieldName);
 
-    if (idx != -1) {
+    if (idx !== -1) {
       this.sortByFields.splice(idx, 1);
     }
 
@@ -293,12 +338,9 @@ export class GeneResultsVisComponent implements OnInit {
       const gene = this.geneDataMap[geneUniquename];
       const geneDomId = this.makeGeneDomId(geneUniquename, geneIndex);
 
-      let color = this.geneColor(geneIndex, false);
-
       this.geneDisplayData.push(new GeneDisplayData(
         geneDomId,
         geneIndex,
-        color,
       ));
     });
   }
@@ -328,18 +370,6 @@ export class GeneResultsVisComponent implements OnInit {
 
   makeGeneDomId(geneUniquename: string, index: number): string {
     return 'gene-' + index + '-'  + geneUniquename;
-  }
-
-  geneColor(geneIndex: number, isCurrent: boolean): string {
-    if (isCurrent) {
-      return '#88b';
-    }
-
-    if (geneIndex % 10 === 0) {
-      return '#ddd';
-    } else {
-      return '#f8f8f8';
-    }
   }
 
   showResults(): boolean {

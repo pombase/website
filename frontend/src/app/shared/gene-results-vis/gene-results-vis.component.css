@@ -6,6 +6,11 @@
   float: left;
 }
 
+.vis-selected-genes {
+  float: right;
+  margin-right: 20%;
+}
+
 .vis-column-select {
   min-width: 20em;
 }
@@ -16,4 +21,20 @@
 
 .gene-name {
   font-weight: bold;
+}
+
+.vis-gene {
+  fill: #f0f0f0;
+}
+
+.vis-gene-selected {
+  fill: #a0a0ff;
+}
+
+.vis-gene:hover {
+  fill: #8090f0;
+}
+
+.vis-gene-selected:hover {
+  fill: #b0b0ff;
 }

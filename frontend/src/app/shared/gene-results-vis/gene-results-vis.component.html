@@ -31,20 +31,19 @@
              id="gene-vis" overflow="visible">
           <g style="pointer-events: all">
             <rect *ngFor="let geneData of getGeneDisplayData()"
+                  (click)="mouseclick($event)"
                   (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
                   class="vis-gene" [attr.id]="geneData.id" [attr.height]="lineHeight"
                   [attr.width]="geneWidth + selectedConfigNames.length * (columnWidth + columnGap)"
                   [attr.x]="0"
                   [attr.y]="geneData.geneIndex * lineHeight"
                   stroke-width="0" stroke="#9f9"
-                  [attr.fill]="geneData.color"
                   style="pointer-events:inherit">
             </rect>
           </g>
           <g *ngFor="let columnName of selectedConfigNames; let columnIndex = index"
              style="pointer-events: none">
             <rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
-                  (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
                   class="vis-column"
                   [attr.height]="lineHeight * (columnData.endIndex - columnData.startIndex + 1)"
                   [attr.width]="columnWidth"
@@ -70,5 +69,17 @@
     <div *ngFor="let colConfig of visColumnConfigs">
       {{colConfig.display_name}}: {{currentGene.getField(colConfig.name)}}
     </div>
+  </div>
+
+  <div class="vis-selected-genes" *ngIf="selectedGeneList.length != 0">
+    <div class="vis-selected-genes-heading">
+      Selected genes:
+    </div>
+    <div *ngFor="let geneData of selectedGeneList">
+      {{geneData.getGeneShort().name || geneData.getGeneShort().uniquename}}
+    </div>
+    <button class="btn btn-primary"
+    title="Send selected genes to the advanced search page"
+    (click)="sendToQueryBuilder()">Filter</button>
   </div>
 </div>
