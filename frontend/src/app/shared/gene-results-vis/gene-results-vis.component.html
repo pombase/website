@@ -5,7 +5,8 @@
       <input type="checkbox"
              (change)="confSelectionChanged()"
              [(ngModel)]="activeColumns[colConfig.name]"/>
-      <a *ngIf="showResults()" (click)="setSortBy(colConfig.name)">[sort]</a>
+      <a *ngIf="showResults() && activeColumns[colConfig.name]"
+         (click)="setSortBy(colConfig.name)">[sort]</a>
     </div>
     <div *ngIf="showResults()">
       <a (click)="setSortBy('gene-name')">[Sort by gene name]</a>
