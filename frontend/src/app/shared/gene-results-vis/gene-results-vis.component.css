@@ -20,6 +20,10 @@
   user-select: none;
 }
 
+.gene-name-and-product {
+  margin-bottom: 0.3em;
+}
+
 .gene-name {
   font-weight: bold;
 }

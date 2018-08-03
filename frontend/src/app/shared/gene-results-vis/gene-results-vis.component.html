@@ -64,7 +64,7 @@
   </div>
 
   <div class="vis-gene-details" *ngIf="currentGene">
-    <div>
+    <div class="gene-name-and-product">
       <span class="gene-name">{{currentGene.getGeneShort().name}}</span> {{currentGene.getGeneShort().uniquename}}
       <span *ngIf="currentGene.getGeneShort().product">
         {{currentGene.getGeneShort().product}}
