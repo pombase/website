@@ -47,3 +47,15 @@
 .vis-selected-genes-gene {
   margin-left: 1em;
 }
+
+rect.vis-column {
+  fill-opacity: 0.7;
+  stroke-width: 0;
+}
+
+
+rect.vis-column:hover {
+  fill-opacity: 1;
+  stroke-width: 2;
+  stroke: #555;
+}
