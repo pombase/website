@@ -96,9 +96,9 @@ export class GeneResultsVisComponent implements OnInit {
   sortByFields = ['gene-name'];
 
   lineHeight = 3;
-  columnWidth = 30;
+  columnWidth = 35;
   geneWidth = 40;
-  columnGap = 5;
+  columnGap = 10;
 
   selectedGenes: { [index: string]: boolean } = {};
   selectedGeneList: Array<GeneData> = [];
