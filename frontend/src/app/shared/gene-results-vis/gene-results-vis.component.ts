@@ -12,7 +12,7 @@ class GeneDisplayData {
 
 class ColumnDisplayData {
   constructor(public startIndex: number, public endIndex: number,
-              public color: string) {};
+              public color: string, public geneUniquenames: Array<string>) {};
 }
 
 class GeneData {
@@ -176,17 +176,36 @@ export class GeneResultsVisComponent implements OnInit {
       selectedGeneUniquenames.map(uniquename => this.geneDataMap[uniquename]);
   }
 
-  mouseclick($event: Event) {
+  geneclick($event: Event) {
     const eventTargetElement = $event.target as Element;
     const domId = eventTargetElement.id;
 
     if (domId) {
       const [geneIndex, geneUniquename] = this.geneUniquenameFromDomId(domId);
 
-      this.selectedGenes[geneUniquename] = !this.selectedGenes[geneUniquename];
-
-      this.setSelectedGeneList();
+      this.toggleSelectedGene(geneUniquename);
     }
+  }
+
+  toggleSelectedGene(geneUniquename: string): void {
+    this.selectedGenes[geneUniquename] = !this.selectedGenes[geneUniquename];
+    this.setSelectedGeneList();
+  }
+
+  setSelectedGene(geneUniquename: string): any {
+    this.selectedGenes[geneUniquename] = true;
+    this.setSelectedGeneList();
+  }
+
+  dataClick($event: MouseEvent, columnData: ColumnDisplayData): void {
+    for (const geneUniquename of columnData.geneUniquenames) {
+      if ($event.ctrlKey) {
+        this.setSelectedGene(geneUniquename);
+      } else {
+        this.toggleSelectedGene(geneUniquename);
+      }
+    }
+    $event.stopPropagation();
   }
 
   mouseenter($event: Event) {
@@ -282,18 +301,18 @@ export class GeneResultsVisComponent implements OnInit {
     this.sortedGeneUniquenames.map((geneUniquename, idx) => {
       for (const columnName of this.activeConfigNames) {
         const rowAttr = this.geneDataMap[geneUniquename].getField(columnName);
-        let prevRowAttr;
+        let prevRowAttr: string;
 
         if (idx === 0) {
           prevRowAttr = null;
         } else {
-          const prevGeneUniquename = this.geneDataMap[this.sortedGeneUniquenames[idx - 1]];
-          prevRowAttr = prevGeneUniquename.getField(columnName);
+          const prevGeneData = this.geneDataMap[this.sortedGeneUniquenames[idx - 1]];
+          prevRowAttr = prevGeneData.getField(columnName);
         }
 
         let columnDisplayData = this.columnDisplayDataMap[columnName];
         if (!prevRowAttr ||
-            columnDisplayData[columnDisplayData.length - 1] !== prevRowAttr) {
+            this.geneDataMap[geneUniquename].getField(columnName) !== prevRowAttr) {
           let color = '#888';  // default
           const attrConfig =
             this.visColumnConfigMap[columnName].attr_values[rowAttr];
@@ -301,10 +320,12 @@ export class GeneResultsVisComponent implements OnInit {
           if (attrConfig) {
             color = attrConfig.color;
           }
-          columnDisplayData.push(new ColumnDisplayData(idx, idx, color))
+
+          columnDisplayData.push(new ColumnDisplayData(idx, idx, color, [geneUniquename]))
         } else {
-          let prevSpan = ColumnDisplayData[columnDisplayData.length - 1];
-          prevSpan.endGeneIndex = idx;
+          let prevSpan = columnDisplayData[columnDisplayData.length - 1];
+          prevSpan.endIndex = idx;
+          prevSpan.geneUniquenames.push(geneUniquename);
         }
       }
     });

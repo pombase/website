@@ -1,5 +1,6 @@
 .vis-main {
   margin: 2em 0 2em 1em;
+  user-select: none;
 }
 
 .vis-column-select, .vis-results, .vis-gene-details {
@@ -37,4 +38,16 @@
 
 .vis-gene-selected:hover {
   fill: #b0b0ff;
+}
+
+.vis-selected-genes {
+  user-select: text;
+}
+
+.vis-selected-genes-heading {
+  font-weight: bold;
+}
+
+.vis-selected-genes-gene {
+  margin-left: 1em;
 }

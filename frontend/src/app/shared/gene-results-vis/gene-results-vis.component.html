@@ -31,7 +31,7 @@
              id="gene-vis" overflow="visible">
           <g style="pointer-events: all">
             <rect *ngFor="let geneData of getGeneDisplayData()"
-                  (click)="mouseclick($event)"
+                  (click)="geneclick($event)"
                   (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)"
                   [ngClass]="{'vis-gene': !selectedGenes[geneData.geneUniquename], 'vis-gene-selected': selectedGenes[geneData.geneUniquename]}"
                   [attr.id]="geneData.id" [attr.height]="lineHeight"
@@ -42,10 +42,10 @@
                   style="pointer-events:inherit">
             </rect>
           </g>
-          <g *ngFor="let columnName of activeConfigNames; let columnIndex = index"
-             style="pointer-events: none">
+          <g *ngFor="let columnName of activeConfigNames; let columnIndex = index">
             <rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
                   class="vis-column"
+                  (click)="dataClick($event, columnData)"
                   [attr.height]="lineHeight * (columnData.endIndex - columnData.startIndex + 1)"
                   [attr.width]="columnWidth"
                   [attr.x]="geneWidth + columnIndex * (columnWidth + columnGap) + columnGap"
@@ -73,10 +73,13 @@
   </div>
 
   <div class="vis-selected-genes" *ngIf="selectedGeneList.length != 0">
-    <div class="vis-selected-genes-heading">
-      Selected genes:
+    <div *ngIf="selectedGeneList.length == 1" class="vis-selected-genes-heading">
+      One selected gene:
     </div>
-    <div *ngFor="let geneData of selectedGeneList">
+    <div *ngIf="selectedGeneList.length > 1" class="vis-selected-genes-heading">
+      {{selectedGeneList.length}} selected genes:
+    </div>
+    <div class="vis-selected-genes-gene" *ngFor="let geneData of selectedGeneList">
       {{geneData.getGeneShort().name || geneData.getGeneShort().uniquename}}
     </div>
     <button class="btn btn-primary"
