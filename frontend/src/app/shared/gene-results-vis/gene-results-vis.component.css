@@ -32,8 +32,16 @@
   fill: #f0f0f0;
 }
 
+.vis-gene:nth-child(10n+1) {
+  fill: #e0e0e0;
+}
+
 .vis-gene-selected {
-  fill: #c0c0ff;
+  fill: #a0a0e0;
+}
+
+.vis-gene-selected:nth-child(10n+1) {
+  fill: #9090d0;
 }
 
 .vis-gene:hover, .vis-gene-selected:hover {
