@@ -11,15 +11,6 @@
   display: inline;
 }
 
-.vis-selected-genes {
-  float: right;
-  margin: 2em 2em 0.5em 0;
-}
-
-.vis-selected-genes button {
-  margin-top: 1em;
-}
-
 .vis-column-select {
   min-width: 17em;
 }
@@ -57,7 +48,13 @@
 }
 
 .vis-selected-genes {
+  float: right;
+  margin: 1em 8em 0.5em 0;
   user-select: text;
+}
+
+.vis-selected-genes button {
+  margin-top: 1em;
 }
 
 .vis-selected-genes-heading {
