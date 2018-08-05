@@ -32,6 +32,7 @@ M26 binding site|TGACGT|[Atf1](https://www.pombase.org/gene/SPBC29B5.01), [Pcr1]
 TATA box|TATA(A\|T)A(A\|T)|[Brf1](https://www.pombase.org/gene/SPBC13E7.10c), [Tbp1](https://www.pombase.org/gene/SPAC29E6.08)|[SO:0000174](http://sequenceontology.org/browser/current_svn/term/SO:0000174)
 zinc repressed element|GNMGATC|[Loz1](https://www.pombase.org/gene/SPAC25B8.19c)|[SO:0002006](http://sequenceontology.org/browser/current_svn/term/SO:0002006)
 Zas1 recognition motif|(Y)CCCCAY|[Zas1](https://www.pombase.org/gene/SPBC1198.04c)|[SO:0002215](http://sequenceontology.org/browser/current_svn/term/SO:0002215)
+Pho7 binding site |[5'-TCG(G/C)(A/T)xxTTxAA]|[Pho7](https://www.pombase.org/gene/SPBC27B12.11c)|
 
 
 
