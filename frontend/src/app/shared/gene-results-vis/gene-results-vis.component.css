@@ -56,8 +56,14 @@
   font-weight: bold;
 }
 
-.vis-selected-genes-gene {
+.vis-selected-genes-list {
   margin-left: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0 3em;
+}
+
+.vis-selected-genes-gene {
 }
 
 rect.vis-column {
