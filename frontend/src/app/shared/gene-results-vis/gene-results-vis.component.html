@@ -63,22 +63,6 @@
     </div>
   </div>
 
-  <div class="vis-gene-details" *ngIf="currentGene">
-    <div class="gene-name-and-product">
-      <span class="gene-name">{{currentGene.getGeneShort().name}}</span> {{currentGene.getGeneShort().uniquename}}
-      <span *ngIf="currentGene.getGeneShort().product">
-        {{currentGene.getGeneShort().product}}
-      </span>
-    </div>
-    <div *ngFor="let colConfig of visColumnConfigs">
-      {{colConfig.display_name}}: {{currentGene.getField(colConfig.name)}}
-    </div>
-  </div>
-
-  <div class="vis-column-details" *ngIf="currentData">
-    {{currentData.columnConfig.display_name}}: {{currentData.rowAttr}}
-  </div>
-
   <div class="vis-selected-genes" *ngIf="selectedGeneList.length != 0">
     <div *ngIf="selectedGeneList.length == 1" class="vis-selected-genes-heading">
       One selected gene:
@@ -100,4 +84,21 @@
     title="Send selected genes to the advanced search page"
     (click)="sendToQueryBuilder()">Filter</button>
   </div>
+
+  <div class="vis-gene-details" *ngIf="currentGene">
+    <div class="gene-name-and-product">
+      <span class="gene-name">{{currentGene.getGeneShort().name}}</span> {{currentGene.getGeneShort().uniquename}}
+      <span *ngIf="currentGene.getGeneShort().product">
+        {{currentGene.getGeneShort().product}}
+      </span>
+    </div>
+    <div *ngFor="let colConfig of visColumnConfigs">
+      {{colConfig.display_name}}: {{currentGene.getField(colConfig.name)}}
+    </div>
+  </div>
+
+  <div class="vis-column-details" *ngIf="currentData">
+    {{currentData.columnConfig.display_name}}: {{currentData.rowAttr}}
+  </div>
+
 </div>

@@ -3,17 +3,25 @@
   user-select: none;
 }
 
-.vis-column-select, .vis-results, .vis-gene-details {
+.vis-column-select, .vis-results {
   float: left;
+}
+
+.vis-gene-details, vis-column-details {
+  display: inline;
 }
 
 .vis-selected-genes {
   float: right;
-  margin-right: 20%;
+  margin: 2em 2em 0.5em 0;
+}
+
+.vis-selected-genes button {
+  margin-top: 1em;
 }
 
 .vis-column-select {
-  min-width: 20em;
+  min-width: 17em;
 }
 
 .feature-size {
@@ -57,7 +65,7 @@
 }
 
 .vis-selected-genes-list {
-  margin: 0.5em 0 1em 1em;
+  margin: 0.5em 0 0.5em 1em;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0 3em;
