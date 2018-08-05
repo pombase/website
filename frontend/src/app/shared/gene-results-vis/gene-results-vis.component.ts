@@ -230,6 +230,11 @@ export class GeneResultsVisComponent implements OnInit {
     this.currentData = null;
   }
 
+  clearSelected(): void {
+    this.selectedGenes = {};
+    this.setSelectedGeneList();
+  }
+
   sendToQueryBuilder(): void {
     const selectedGenes =
       this.getSelectedGeneUniquenames().map(uniquename => {
