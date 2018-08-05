@@ -89,7 +89,8 @@
     <div class="vis-selected-genes-list">
     <div class="vis-selected-genes-gene"
          *ngFor="let geneData of selectedGeneList.slice(0, geneListMaxLength)">
-      {{geneData.getGeneShort().name || geneData.getGeneShort().uniquename}}
+      <app-gene-link [gene]="geneData.getGeneShort()" [long]="false">
+      </app-gene-link>
     </div>
     </div>
     <div *ngIf="selectedGeneList.length > geneListMaxLength">
