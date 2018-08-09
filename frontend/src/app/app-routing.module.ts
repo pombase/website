@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule, NoPreloading } from '@angular/router';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -163,7 +163,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules,
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: NoPreloading,
                                            scrollPositionRestoration: 'enabled' }),
             Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])],
   exports: [RouterModule],
