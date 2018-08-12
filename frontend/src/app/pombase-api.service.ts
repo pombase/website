@@ -376,6 +376,7 @@ export interface GeneSubsets {
 
 @Injectable()
 export class PombaseAPIService {
+  private static PROMOTER_RE = /(.*)-promoter$/;
 
   private apiUrl = '/api/v1/dataset/latest';
   private geneSummariesUrl = this.apiUrl + '/data/gene_summaries';
@@ -421,6 +422,20 @@ export class PombaseAPIService {
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                          allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
                          referencesByUniquename: any, termsByTermId: TermIdTermMap) {
+    const _getPromoter = (extRange) => {
+      const matches = extRange.promoter_uniquename.match(PombaseAPIService.PROMOTER_RE);
+
+      if (matches) {
+        return {
+          gene: genesByUniquename[matches[1]],
+        };
+      } else {
+        return {
+          displayName: extRange.promoter_uniquename,
+        };
+      }
+    };
+
     for (let termAnnotation of termAnnotations) {
       termAnnotation.annotations =
         Array.from(new Set(termAnnotation.annotations as any as Array<number>))
@@ -452,6 +467,10 @@ export class PombaseAPIService {
             } else {
               if (extPart.ext_range.gene_uniquename) {
                 extPart.ext_range.gene = genesByUniquename[extPart.ext_range.gene_uniquename];
+              } else {
+                if (extPart.ext_range.promoter_uniquename) {
+                  extPart.ext_range.promoter = _getPromoter(extPart.ext_range);
+                }
               }
             }
           });
@@ -503,6 +522,10 @@ export class PombaseAPIService {
                       .map(termid => {
                         return termsByTermId[termid];
                       });
+                  } else {
+                    if (extPart.ext_range.promoter_uniquename) {
+                      extPart.ext_range.promoter = _getPromoter(extPart.ext_range);
+                    }
                   }
                 }
               }
