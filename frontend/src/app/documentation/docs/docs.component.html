@@ -605,6 +605,7 @@ United Kingdom</p>
   <div class="docs-content">
   <div *ngIf="pageName == 'dna-binding-sites'">
 <h3 id="dna-binding-site-consensus-sequences-in-s.-pombe">DNA binding site consensus sequences in <em>S. pombe</em></h3>
+<p>Also see <a href="https://www.pombase.org/jbrowse/?loc=III%3A725765..736352&tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&highlight=">PomBase JBrowse with binding site track enabled</a>.</p>
 <h4 id="transcription-factor-binding-sites">Transcription factor binding sites</h4>
 <table>
 <thead>
@@ -6629,13 +6630,8 @@ Example queries:
 <div (click)="navigate($event, '/faq/how-can-i-find-transcription-factor-binding-sites-pombase', 'How can I find transcription factor binding sites in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-transcription-factor-binding-sites-pombase' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-transcription-factor-binding-sites-pombase">How can I find transcription factor binding sites in PomBase?</h3>
 <!-- pombase_categories: Finding data -->
-<p>A data track showing transcription factor binding sites was available in the previous version of the PomBase genome browser. We will soon make this track available in JBrowse.</p>
-<!--
-There is a data track available for transcription factor binding sites
-in the genome browser. Follow the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">instructions for showing tracks</a>, and choose
-"Transcription Factor Binding Sites" in the left-hand menu of the
-pop-up.
--->
+<p>There is a data track available for transcription factor binding sites in the genome browser. To enable the track, follow the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">instructionsfor showing tracks</a>, and filter on the data type &quot;Promoters&quot;, or use this link:</p>
+<p>https://www.pombase.org/jbrowse/?loc=III%3A725765..736352&amp;tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&amp;highlight=</p>
 <p>Also see the <a routerLink="/faq/how-can-i-find-transcription-factors-and-their-targets-pombase">FAQ on finding transcription factors</a>.</p>
 
 </div>
