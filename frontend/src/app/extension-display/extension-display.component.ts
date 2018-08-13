@@ -27,6 +27,10 @@ export class ExtensionDisplayComponent implements OnInit {
   }
 
   ngOnInit() {
+    const loadOrganism = getAppConfig().getConfigOrganism();
+    const loadOrganismFullName = loadOrganism.genus + ' ' + loadOrganism.species;
+    const organismRE = new RegExp(` *\\(${loadOrganismFullName}\\)`);
+
     this.linkoutConfig = getAppConfig().linkoutConfig;
 
     let extensionCopy: Array<ExtPart> = this.extension.slice();
@@ -42,11 +46,19 @@ export class ExtensionDisplayComponent implements OnInit {
 
         newRange = newRange.map(rangePart => {
           if (rangePart.gene_product) {
-            let id = rangePart.gene_product;
+            const id = rangePart.gene_product;
+            let displayName;
+            if (rangePart.term) {
+              displayName = rangePart.term.name;
+              displayName = displayName.replace(organismRE, '');
+            } else {
+              displayName = id;
+            }
             return {
               gene_product: {
                 id: id,
                 link: this.getLink(id),
+                displayName,
               }
             };
           } else {

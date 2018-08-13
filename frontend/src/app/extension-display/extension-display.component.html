@@ -36,7 +36,7 @@
 
       <span *ngIf="range.gene_product">
         <a title="{{range.gene_product.id}}"
-           [attr.href]="range.gene_product.link">{{range.gene_product.id}}</a>
+           [attr.href]="range.gene_product.link">{{range.gene_product.displayName}}</a>
       </span>
 
       <span *ngIf="range.domain">

@@ -137,6 +137,8 @@ export interface AppConfig {
   // return true iff the genus and species match the configured organism
   isConfigOrganism(taxon: number): boolean;
 
+  getConfigOrganism(): ConfigOrganism;
+
   getPredefinedQuery(queryName: string): PredefinedQueryConfig;
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
@@ -720,6 +722,10 @@ let _appConfig: AppConfig = {
 
   isConfigOrganism(taxonid: number): boolean {
     return taxonid = this.load_organism_taxonid;
+  },
+
+  getConfigOrganism(): ConfigOrganism {
+    return this.getOrganismByTaxonid(this.load_organism_taxonid);
   },
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism {

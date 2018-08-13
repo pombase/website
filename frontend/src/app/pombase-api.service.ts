@@ -470,6 +470,10 @@ export class PombaseAPIService {
               } else {
                 if (extPart.ext_range.promoter_uniquename) {
                   extPart.ext_range.promoter = _getPromoter(extPart.ext_range);
+                } else {
+                  if (extPart.ext_range.gene_product) {
+                    extPart.ext_range.term = termsByTermId[extPart.ext_range.gene_product];
+                  }
                 }
               }
             }
@@ -525,6 +529,10 @@ export class PombaseAPIService {
                   } else {
                     if (extPart.ext_range.promoter_uniquename) {
                       extPart.ext_range.promoter = _getPromoter(extPart.ext_range);
+                    } else {
+                      if (extPart.ext_range.gene_product) {
+                        extPart.ext_range.term = termsByTermId[extPart.ext_range.gene_product];
+                      }
                     }
                   }
                 }
