@@ -6,3 +6,9 @@
 .ref-group-list {
   padding: 5px 10px 5px 10px;
 }
+
+.reference-page-title {
+  font-weight: bold;
+  font-size: 140%;
+  margin-bottom: 1em;
+}

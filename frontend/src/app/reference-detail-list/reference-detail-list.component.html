@@ -1,4 +1,8 @@
 <div>
+  <div *ngIf="pageTitle" class="reference-page-title">
+    {{pageTitle}}
+  </div>
+
   <div class="ref-group" *ngFor="let group of groups">
     <div class="ref-group-header">
       {{group.title}}

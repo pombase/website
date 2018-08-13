@@ -15,11 +15,16 @@ class RefGroup {
 export class ReferenceDetailListComponent implements OnInit, OnChanges {
   @Input() constraint = null;
 
+  pageTitle = null;
+
   groups: Array<RefGroup> = [];
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
+    if (this.constraint === 'community') {
+      this.pageTitle = 'Community curated publications';
+    }
   }
 
   extraDisplayString(reference: ReferenceShort): string {
@@ -28,16 +33,16 @@ export class ReferenceDetailListComponent implements OnInit, OnChanges {
       ret += reference.authors_abbrev;
     }
     if (reference.publication_year) {
-      ret += " (" + reference.publication_year + ")";
+      ret += ' (' + reference.publication_year + ')';
     }
     return ret;
   }
 
   refTitle(reference: ReferenceShort): string {
-    let ret = reference.uniquename + " - " + reference.title;
+    let ret = reference.uniquename + ' - ' + reference.title;
     const extra = this.extraDisplayString(reference);
     if (extra.length > 0) {
-      ret += " " + extra;
+      ret += ' ' + extra;
     }
     return ret;
   }
