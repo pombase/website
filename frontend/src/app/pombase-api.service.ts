@@ -376,8 +376,6 @@ export interface GeneSubsets {
 
 @Injectable()
 export class PombaseAPIService {
-  private static PROMOTER_RE = /(.*)-promoter$/;
-
   private apiUrl = '/api/v1/dataset/latest';
   private geneSummariesUrl = this.apiUrl + '/data/gene_summaries';
   private chromosomeSummariesUrl = this.apiUrl + '/data/chromosome_summaries';
@@ -423,17 +421,9 @@ export class PombaseAPIService {
                          allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
                          referencesByUniquename: any, termsByTermId: TermIdTermMap) {
     const _getPromoter = (extRange) => {
-      const matches = extRange.promoter_uniquename.match(PombaseAPIService.PROMOTER_RE);
-
-      if (matches) {
-        return {
-          gene: genesByUniquename[matches[1]],
-        };
-      } else {
-        return {
-          displayName: extRange.promoter_uniquename,
-        };
-      }
+      return {
+          gene: genesByUniquename[extRange.promoter_gene_uniquename],
+      };
     };
 
     for (let termAnnotation of termAnnotations) {
@@ -468,7 +458,7 @@ export class PombaseAPIService {
               if (extPart.ext_range.gene_uniquename) {
                 extPart.ext_range.gene = genesByUniquename[extPart.ext_range.gene_uniquename];
               } else {
-                if (extPart.ext_range.promoter_uniquename) {
+                if (extPart.ext_range.promoter_gene_uniquename) {
                   extPart.ext_range.promoter = _getPromoter(extPart.ext_range);
                 } else {
                   if (extPart.ext_range.gene_product) {
@@ -527,7 +517,7 @@ export class PombaseAPIService {
                         return termsByTermId[termid];
                       });
                   } else {
-                    if (extPart.ext_range.promoter_uniquename) {
+                    if (extPart.ext_range.promoter_gene_uniquename) {
                       extPart.ext_range.promoter = _getPromoter(extPart.ext_range);
                     } else {
                       if (extPart.ext_range.gene_product) {
