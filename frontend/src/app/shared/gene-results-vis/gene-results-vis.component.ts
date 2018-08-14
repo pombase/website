@@ -20,15 +20,20 @@ class ColumnDisplayData {
 class GeneData {
   cleanRow: Object;
 
-  cleanResults(row: ResultRow): Object {
-    let cleanRow: Object = Object.assign({}, row);
-    if (cleanRow['go_component']) {
-      if (cleanRow['go_component'] instanceof Object) {
-        cleanRow['go_component'] = cleanRow['go_component'].term.name;
+  cleanGORow(row, fieldName: string): void {
+    if (row[fieldName]) {
+      if (row[fieldName] instanceof Object) {
+        row[fieldName] = row[fieldName].term.name;
       }
     } else {
-      cleanRow['go_component'] = 'none';
+      row[fieldName] = 'none';
     }
+  }
+
+  cleanResults(row: ResultRow): Object {
+    let cleanRow: Object = Object.assign({}, row);
+    this.cleanGORow(cleanRow, 'go_component');
+    this.cleanGORow(cleanRow, 'go_process_superslim');
 
     if (!cleanRow['ortholog_taxonids']) {
       cleanRow['ortholog_taxonids'] = [];
