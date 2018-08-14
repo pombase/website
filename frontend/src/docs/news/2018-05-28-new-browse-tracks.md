@@ -2,7 +2,7 @@
 <!-- pombase_flags: frontpage -->
 
 We are very pleased to announce that we have loaded a number of new datasets
-into the PomBase [JBrowse genome browser](/jbrowse/).
+into the PomBase [JBrowse genome browser](https://www.pombase.org/jbrowse/).
 
 These include:
 
