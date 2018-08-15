@@ -34,6 +34,7 @@ class GeneData {
     let cleanRow: Object = Object.assign({}, row);
     this.cleanGORow(cleanRow, 'go_component');
     this.cleanGORow(cleanRow, 'go_process_superslim');
+    this.cleanGORow(cleanRow, 'go_function');
 
     if (!cleanRow['ortholog_taxonids']) {
       cleanRow['ortholog_taxonids'] = [];
