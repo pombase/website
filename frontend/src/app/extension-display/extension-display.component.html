@@ -24,6 +24,12 @@
         </span>
       </span>
 
+      <span *ngIf="range.summary_residues">
+        <span *ngFor="let residue of range.summary_residues; let lastSumm = last">
+          {{residue}}<span *ngIf="!lastSumm">, </span>
+        </span>
+      </span>
+
       <span *ngIf="range.summaryGenes">
         <span *ngFor="let summ of range.summaryGenes; let lastSumm = last">
           <span class="summary-gene-and-comma"><span *ngFor="let gene of summ; let lastGene = last"><app-gene-link class="app-link" [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene"> and </span></span><span *ngIf="!lastSumm">,</span></span>
