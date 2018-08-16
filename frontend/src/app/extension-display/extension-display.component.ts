@@ -23,7 +23,12 @@ export class ExtensionDisplayComponent implements OnInit {
   }
 
   getLink(idWithPrefix: string): string {
-    return getXrf(idWithPrefix).url;
+    const linkConf = getXrf(idWithPrefix);
+    if (linkConf) {
+      return linkConf.url;
+    } else {
+      return null;
+    }
   }
 
   ngOnInit() {
