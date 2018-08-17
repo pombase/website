@@ -53,7 +53,7 @@ export class AnnotationTableFiltersComponent implements OnInit, OnChanges {
       this.filterConfig.filter(conf => {
         return conf.scope.indexOf(this.scope) !== -1 &&
           (this.currentViewState === TableViewState.Details ||
-           conf.filter_name !== 'evidence');
+           !conf.detailed_view_only);
       });
   }
 }

@@ -149,6 +149,13 @@ export interface AppConfig {
 
 export interface TermFilterCategory {
   display_name: string;
+  // term IDs of the ancestors of the terms in this categories
+  ancestors: Array<string>;
+}
+
+export interface ExtensionFilterCategory {
+  display_name: string;
+  // term IDs of the ancestors of the terms in this categories
   ancestors: Array<string>;
 }
 
@@ -164,6 +171,8 @@ export interface FilterConfig {
   scope: Array<string>;
   term_categories?: Array<TermFilterCategory>;
   evidence_categories?: Array<EvidenceFilterCategory>;
+  extension_rel_type_name?: string;
+  extension_categories?: Array<ExtensionFilterCategory>;
 }
 
 export interface SplitByParentsConfig {
