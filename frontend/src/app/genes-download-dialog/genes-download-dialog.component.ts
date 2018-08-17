@@ -5,13 +5,13 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { TabsetComponent } from 'ngx-bootstrap';
 
 import { GeneQuery, GeneListNode, QueryOutputOptions, FormatUtils,
-         FormatTypes } from '../pombase-query';
+         FormatTypes,
+         ResultRow} from '../pombase-query';
 import { QueryService } from '../query.service';
 import { getAppConfig, AppConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
 import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.service';
-import { type } from 'os';
 
 @Component({
   selector: 'app-genes-download-dialog',
@@ -29,11 +29,11 @@ export class GenesDownloadDialogComponent implements OnInit {
   public include5PrimeUtr = false;
   public include3PrimeUtr = false;
 
-  fieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
+  summaryFieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
                 'Synonyms', 'Feature type', 'Start position', 'End position',
                 'Chromosome', 'Strand'];
-  fields = {'Systematic ID': true};
-  fieldValGenerators: { [label: string]: (g: GeneSummary) => string } = {
+  selectedFields = {'Systematic ID': true};
+  summaryFieldValGenerators: { [label: string]: (g: GeneSummary) => string } = {
     'Systematic ID': g => g.uniquename,
     'Name': g => g.name || '',
     'Synonyms': g => g.synonyms.join(','),
@@ -64,17 +64,17 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   selectAll() {
-    this.fieldNames.map(name => this.fields[name] = true);
+    this.summaryFieldNames.map(name => this.selectedFields[name] = true);
   }
 
   fieldChange(fieldName) {
-    const selectedFields = this.selectedFieldNames();
+    const [selectedFields] = this.selectedFieldNames();
 
     if (selectedFields.length === 0) {
       if (fieldName === 'Systematic ID') {
-        this.fields['Name'] = true;
+        this.selectedFields['Name'] = true;
       } else {
-        this.fields['Systematic ID'] = true;
+        this.selectedFields['Systematic ID'] = true;
       }
     }
   }
@@ -98,45 +98,64 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   isValid() {
-    for (let fieldName of this.fieldNames) {
-      if (this.fields[fieldName]) {
+    for (let fieldName of this.summaryFieldNames) {
+      if (this.selectedFields[fieldName]) {
         return true;
       }
     }
     return false;
   }
 
-  private selectedFieldNames(): Array<string> {
-    return this.fieldNames.filter((name) => this.fields[name]);
+  private selectedFieldNames(): [Array<string>, Array<string>] {
+    return [this.summaryFieldNames.filter(name => this.selectedFields[name]),
+            this.fieldsForServer.map(conf => conf.name)
+               .filter(fieldName => this.selectedFields[fieldName])];
   }
 
   private downloadDelimited() {
-    const selectedFields = this.selectedFieldNames();
+    const [selectedSummaryFields, selectedServerFields] = this.selectedFieldNames();
 
     const summaryPromise = this.pombaseApiService.getGeneSummaryMapPromise();
 
-    let outputFields = [];
-    let outputFieldDisplayNames = [];
-    for (let fieldConf of this.fieldsForServer) {
-      if (this.fields[fieldConf.name]) {
-        outputFields.push(fieldConf.name);
-        outputFieldDisplayNames.push(fieldConf.display_name);
-      }
+    let serverPromise;
+
+    if (selectedServerFields.length > 0) {
+      const query = new GeneQuery(new GeneListNode(this.genes));
+      const outputOptions = new QueryOutputOptions(['gene_uniquename', ...selectedServerFields], 'none');
+      serverPromise = this.queryService.postQuery(query, outputOptions).toPromise();
+
+    } else {
+      serverPromise = Promise.resolve(null);
     }
 
-    const query = new GeneQuery(new GeneListNode(this.genes));
-    const outputOptions = new QueryOutputOptions(['gene_uniquename', ...outputFields], 'none');
-    const queryPrommise = this.queryService.postQuery(query, outputOptions).toPromise();
-
-    Promise.all([summaryPromise, queryPrommise])
+    Promise.all([summaryPromise, serverPromise])
       .then(([geneSummaries, serverResults]) => {
-        let rows: Array<Array<string>> = [[...selectedFields, ...outputFieldDisplayNames]];
-        for (const serverRow of serverResults.rows) {
-          const geneUniquename = serverRow['gene_uniquename'];
+        const serverRowsMap: { [index: string]: ResultRow } = {};
+
+        let headerRow = [...selectedSummaryFields];
+
+        if (serverResults) {
+          for (const serverRow of serverResults.rows) {
+            serverRowsMap[serverRow['gene_uniquename']] = serverRow;
+          }
+
+          for (let fieldConf of this.fieldsForServer) {
+            if (this.selectedFields[fieldConf.name]) {
+              headerRow.push(fieldConf.display_name);
+            }
+          }
+        }
+
+        let rows: Array<Array<string>> = [headerRow];
+
+        for (const gene of this.genes) {
+          const geneUniquename = gene.uniquename;
+
           const geneSummary = geneSummaries[geneUniquename];
+
           let row = [];
-          for (const fieldName of selectedFields) {
-            let fieldVal = this.fieldValGenerators[fieldName](geneSummary);
+          for (const fieldName of selectedSummaryFields) {
+            let fieldVal = this.summaryFieldValGenerators[fieldName](geneSummary);
             if (fieldName === 'Chromosome') {
               const chromosomeConfig = this.appConfig.chromosomes[fieldVal];
               if (chromosomeConfig && chromosomeConfig.short_display_name) {
@@ -146,15 +165,18 @@ export class GenesDownloadDialogComponent implements OnInit {
 
             row.push(fieldVal);
           }
-          for (const serverField of outputFields) {
-            let fieldValue = serverRow[serverField];
-            if (typeof(fieldValue) === 'undefined') {
-              row.push('');
-            } else {
-              if (fieldValue['term']) {
-                row.push(fieldValue['term'].name);
+          if (serverRowsMap) {
+            for (const serverField of selectedServerFields) {
+              const serverRow = serverRowsMap[geneUniquename];
+              let fieldValue = serverRow[serverField];
+              if (typeof (fieldValue) === 'undefined') {
+                row.push('');
               } else {
-                row.push(fieldValue);
+                if (fieldValue['term']) {
+                  row.push(fieldValue['term'].name);
+                } else {
+                  row.push(fieldValue);
+                }
               }
             }
           }

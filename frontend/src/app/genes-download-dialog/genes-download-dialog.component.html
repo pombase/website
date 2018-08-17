@@ -9,15 +9,15 @@
     <tabset #downloadTabs>
       <tab heading="Tab delimited">
         <div class="field-column">
-        <div *ngFor="let fieldName of fieldNames">
-          <input  id="name" type="checkbox" [(ngModel)]="fields[fieldName]"
+        <div *ngFor="let fieldName of summaryFieldNames">
+          <input  id="name" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                   (ngModelChange)="fieldChange(fieldName)"/>
           <label for="name">{{fieldName}}</label>
         </div>
         </div>
         <div *ngIf="!deployConfigService.productionMode()" class="field-column">
         <div *ngFor="let fieldConf of fieldsForServer">
-          <input id="name" type="checkbox" [(ngModel)]="fields[fieldConf.name]"
+          <input id="name" type="checkbox" [(ngModel)]="selectedFields[fieldConf.name]"
                  (ngModelChange)="fieldChange(fieldConf)"/>
           <label for="name">{{fieldConf.display_name}}</label>
         </div>
