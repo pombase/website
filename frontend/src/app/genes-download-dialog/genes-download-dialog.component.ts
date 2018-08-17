@@ -8,8 +8,10 @@ import { GeneQuery, GeneListNode, QueryOutputOptions, FormatUtils,
          FormatTypes } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { getAppConfig, AppConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.service';
+import { type } from 'os';
 
 @Component({
   selector: 'app-genes-download-dialog',
@@ -44,9 +46,14 @@ export class GenesDownloadDialogComponent implements OnInit {
     'Strand': g => g.location.strand,
   };
 
+  fieldsForServer =
+    getAppConfig().geneResults.visualisation.columns
+    .filter(conf => conf.column_type !== 'ortholog');
+
   constructor(private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
-              public bsModalRef: BsModalRef) {}
+              public bsModalRef: BsModalRef,
+              public deployConfigService: DeployConfigService) {}
 
   private currentTab(): string {
     if (this.staticTabs.tabs[0].active) {
@@ -106,11 +113,27 @@ export class GenesDownloadDialogComponent implements OnInit {
   private downloadDelimited() {
     const selectedFields = this.selectedFieldNames();
 
-    this.pombaseApiService.getGeneSummaryMapPromise()
-      .then((geneSummaries) => {
-        let rows: Array<Array<string>> = [selectedFields];
-        for (const gene of this.genes) {
-          const geneSummary = geneSummaries[gene.uniquename];
+    const summaryPromise = this.pombaseApiService.getGeneSummaryMapPromise();
+
+    let outputFields = [];
+    let outputFieldDisplayNames = [];
+    for (let fieldConf of this.fieldsForServer) {
+      if (this.fields[fieldConf.name]) {
+        outputFields.push(fieldConf.name);
+        outputFieldDisplayNames.push(fieldConf.display_name);
+      }
+    }
+
+    const query = new GeneQuery(new GeneListNode(this.genes));
+    const outputOptions = new QueryOutputOptions(['gene_uniquename', ...outputFields], 'none');
+    const queryPrommise = this.queryService.postQuery(query, outputOptions).toPromise();
+
+    Promise.all([summaryPromise, queryPrommise])
+      .then(([geneSummaries, serverResults]) => {
+        let rows: Array<Array<string>> = [[...selectedFields, ...outputFieldDisplayNames]];
+        for (const serverRow of serverResults.rows) {
+          const geneUniquename = serverRow['gene_uniquename'];
+          const geneSummary = geneSummaries[geneUniquename];
           let row = [];
           for (const fieldName of selectedFields) {
             let fieldVal = this.fieldValGenerators[fieldName](geneSummary);
@@ -122,6 +145,18 @@ export class GenesDownloadDialogComponent implements OnInit {
             }
 
             row.push(fieldVal);
+          }
+          for (const serverField of outputFields) {
+            let fieldValue = serverRow[serverField];
+            if (typeof(fieldValue) === 'undefined') {
+              row.push('');
+            } else {
+              if (fieldValue['term']) {
+                row.push(fieldValue['term'].name);
+              } else {
+                row.push(fieldValue);
+              }
+            }
           }
           rows.push(row);
         }

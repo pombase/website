@@ -5,3 +5,12 @@
 .nucleotide-options {
   padding-left: 1em;
 }
+
+.field-column {
+  float: left;
+  padding: 1em;
+}
+
+.select-actions {
+  clear: both;
+}

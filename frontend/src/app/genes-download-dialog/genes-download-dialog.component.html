@@ -8,12 +8,23 @@
   <div class="modal-body">
     <tabset #downloadTabs>
       <tab heading="Tab delimited">
+        <div class="field-column">
         <div *ngFor="let fieldName of fieldNames">
           <input  id="name" type="checkbox" [(ngModel)]="fields[fieldName]"
                   (ngModelChange)="fieldChange(fieldName)"/>
           <label for="name">{{fieldName}}</label>
         </div>
+        </div>
+        <div *ngIf="!deployConfigService.productionMode()" class="field-column">
+        <div *ngFor="let fieldConf of fieldsForServer">
+          <input id="name" type="checkbox" [(ngModel)]="fields[fieldConf.name]"
+                 (ngModelChange)="fieldChange(fieldConf)"/>
+          <label for="name">{{fieldConf.display_name}}</label>
+        </div>
+        </div>
+        <div class="select-actions">
         <a (click)="selectAll()">Select all ...</a> 
+        </div>
       </tab>
 
       <tab heading="Sequence">

@@ -95,6 +95,7 @@ export interface VisColumnConfig {
   name: string;
   display_name: string;
   default_order: string;
+  column_type: string;
   attr_values: {
     [value: string]: VisColumnAttrValueConfig;
   }

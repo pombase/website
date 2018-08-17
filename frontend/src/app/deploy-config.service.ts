@@ -14,4 +14,8 @@ export class DeployConfigService {
   get(key: string): any {
     return this.config[key];
   }
+
+  productionMode(): boolean {
+    return this.get('mode') !== 'dev';
+  }
 }
