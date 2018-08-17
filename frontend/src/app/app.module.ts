@@ -92,6 +92,7 @@ import { AnnotationTableExtLinksComponent } from './annotation-table-ext-links/a
 import { HelpLinkComponent } from './help-link/help-link.component';
 
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
+import { AnnotationTableExtensionFilterComponent } from './annotation-table-extension-filter/annotation-table-extension-filter.component';
 
 export function documentFactory() {
     return document;
@@ -169,6 +170,7 @@ export function windowFactory() {
     ReferenceDetailListPageComponent,
     AnnotationTableExtLinksComponent,
     HelpLinkComponent,
+    AnnotationTableExtensionFilterComponent,
   ],
   imports: [
     BrowserModule,
