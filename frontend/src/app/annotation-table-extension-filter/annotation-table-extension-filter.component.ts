@@ -83,9 +83,5 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
                                       active, category.ancestors);
       this.choiceData.push(selectData);
     }
-
-    this.choiceData.sort((a, b) => {
-      return a.displayName.localeCompare(b.displayName);
-    });
   }
 }
