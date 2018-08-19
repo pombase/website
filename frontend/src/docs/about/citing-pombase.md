@@ -1,6 +1,7 @@
 ## Citing PomBase
 
-Also see the [Terms of Use](about/terms-of-use).
+Also see the [Terms of Use](about/terms-of-use) and the complete list
+of [papers published by PomBase](about/published-by-pombase).
 
 To cite *S. pombe* genome data and annotation, please use:
 
@@ -45,10 +46,10 @@ Database Issue paper noted above.
 
 (Note that GO annotation for *S. pombe* has also been previously
 published, but we now recommend the 2012 NAR paper as it is more
-up-to-date. Aslett M, Wood V. Gene Ontology annotation status of the
-fission yeast genome: preliminary coverage approaches 100%. *Yeast* 2006
-Oct 15;23(13):913-9. Erratum in *Yeast* 2007 May;24(5):457.
-PMID:17072883)
+up-to-date. The older publication is Aslett M, Wood V. Gene Ontology
+annotation status of the fission yeast genome: preliminary coverage
+approaches 100%. *Yeast* 2006 Oct 15;23(13):913-9. Erratum in *Yeast*
+2007 May;24(5):457.  PMID:17072883)
 
 ### Phenotype Ontology and Annotations
 
@@ -57,11 +58,10 @@ FYPO annotation data, use:
 
 Harris MA, Lock A, Bähler J, Oliver SG, Wood V.\
 FYPO: The Fission Yeast Phenotype Ontology.\
-*Bioinformatics*. 2013 Jul 1;29(13):1671-8. doi:
-[10.1093/bioinformatics/btt266](http://dx.doi.org/10.1093/bioinformatics/btt266).
+*Bioinformatics*. 2013 Jul 1;29(13):1671-8. 
 Epub 2013 May 8.
 
-[PMID:23658422](http://www.ncbi.nlm.nih.gov/pubmed/23658422)
+[PMID:23658422](http://www.ncbi.nlm.nih.gov/pubmed/23658422) [DOI:10.1093/bioinformatics/btt266](http://dx.doi.org/10.1093/bioinformatics/btt266).
 
 Full text at Bioinformatics:
 [HTML](http://bioinformatics.oxfordjournals.org/content/29/13/1671.long)

@@ -696,6 +696,11 @@
   <td>name prl103; synonym prl3 (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=28031482">PMID:28031482</a>)</td>
   <td>January 2017</td>
  </tr>
+ <tr>
+  <td><a routerLink="/gene/SPMITNCRNA.01" routerLinkActive="active" [attr.title]="'SPNCRNA.1708'"><span class="gene-link">SPNCRNA.1708</span></a></td>
+  <td>name rnpB (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=29954949">PMID:29954949</a>)</td>
+  <td>August 2018</td>
+ </tr>
  </tbody>
 </table>
 
