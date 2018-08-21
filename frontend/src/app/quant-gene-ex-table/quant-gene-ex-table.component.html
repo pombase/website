@@ -7,32 +7,48 @@
     </app-help-link>
   </legend>
 
-  <div class="table-control">
-    <input [attr.id]="'qualitative-details-toggle'"
-           type="checkbox"
-           name="details-toggle" ngDefaultControl
-           [checked]="showDetails"
-           (change)="showDetails = !showDetails"
-           btnCheckbox />
-    <label [attr.for]="'qualitative-details-toggle'">
-      <span class="label-content">Show details</span>
-    </label>
+  <div class="view-controls">
+    <a *ngIf="!detailsMode()" (click)="setDetailsView()">
+      Show details ...
+    </a>
+    <a *ngIf="detailsMode()" (click)="setSummaryView()">
+      Show summary ...
+    </a>
   </div>
 
-  <table>
+  <div class="filter-controls">
+    <app-annotation-table-filters *ngIf="filterConfig"
+                                  [filterConfig]="filterConfig"
+                                  [scope]="scope"
+                                  [annotationTable]="annotationTable"
+                                  [currentViewState]="currentViewState"
+                                  (filterChange)="updateCurrentFilter($event)">
+    </app-annotation-table-filters>
+  </div>
+
+  <div *ngIf="tableIsFiltered" class="filter-count">
+    <span *ngIf="filteredAnnotationCount == annotationCount">
+      Showing all annotations
+    </span>
+    <span *ngIf="filteredAnnotationCount != annotationCount">
+      Showing {{filteredAnnotationCount}} of {{annotationCount}} annotations
+    </span>
+  </div>
+
+  <table *ngIf="filteredTable.length != 0">
     <thead>
       <tr>
         <th>Description</th>
         <th *ngIf="showGene">Gene</th>
         <th>Molecules/cell (avg.)</th>
         <th>Extension</th>
-        <th *ngIf="showDetails">Condition</th>
-        <th *ngIf="showDetails">Scale</th>
-        <th *ngIf="showDetails">Evidence</th>
-        <th *ngIf="showDetails && showReference">Reference</th>
+        <th *ngIf="detailsMode()">Condition</th>
+        <th *ngIf="detailsMode()">Scale</th>
+        <th *ngIf="detailsMode()">Evidence</th>
+        <th *ngIf="detailsMode() && showReference">Reference</th>
       </tr>
     </thead>
-    <tbody *ngFor="let termAnnotation of annotationTable ; trackBy:trackByTermId">
+    <tbody *ngFor="let termAnnotation of filteredTable ; trackBy:trackByTermId">
       <tr class="term-annotation"
           *ngFor="let annotation of termAnnotation.annotations ; let i = index">
         <td><span  *ngIf="i==0">{{termAnnotation.term.name}}</span></td>
@@ -47,7 +63,7 @@
                                       *ngIf="annotation.extension"
                                       [extension]="annotation.extension"></app-extension-display>
         </td>
-        <td *ngIf="showDetails">
+        <td *ngIf="detailsMode()">
           <div class="conditions">
             <div *ngFor="let condition of annotation.conditions ; let i = index">
               <a routerLink="/term/{{condition.termid}}"
@@ -55,17 +71,21 @@
             </div>
           </div>
         </td>
-        <td *ngIf="showDetails">
+        <td *ngIf="detailsMode()">
           <span *ngIf="annotation.gene_ex_props">{{annotation.gene_ex_props.scale}}</span>
         </td>
-        <td *ngIf="showDetails">
+        <td *ngIf="detailsMode()">
           <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
         </td>
-        <td *ngIf="showDetails && showReference">
+        <td *ngIf="detailsMode() && showReference">
           <app-reference-short *ngIf="annotation.reference"
                                [reference]="annotation.reference"></app-reference-short>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <span class="no-annotations" *ngIf="filteredTable.length == 0">
+    (No annotations after filtering)
+  </span>
 </fieldset>
