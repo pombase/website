@@ -15,7 +15,7 @@
           <label for="name">{{fieldName}}</label>
         </div>
         </div>
-        <div *ngIf="!deployConfigService.productionMode()" class="field-column">
+        <div *ngIf="false && !deployConfigService.productionMode()" class="field-column">
         <div *ngFor="let fieldConf of fieldsForServer">
           <input id="name" type="checkbox" [(ngModel)]="selectedFields[fieldConf.name]"
                  (ngModelChange)="fieldChange(fieldConf)"/>
