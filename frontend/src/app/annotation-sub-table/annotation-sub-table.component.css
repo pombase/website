@@ -5,7 +5,6 @@
 .filter-controls {
   float: right;
   font-size: 90%;
-  user-select: none;
 }
 
 .filter-count {
@@ -16,6 +15,7 @@
 .view-controls, .filter-controls {
   margin-bottom: 0.5em;
   display: inline-block;
+  user-select: none;
 }
 
 .no-annotations {
