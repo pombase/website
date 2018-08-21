@@ -35,6 +35,20 @@ Source publications for external data used in Pombase pages and genome browser.
 
 [Data sources](about/data-sources)
 
+### Citing PomBase
+
+The [Citing PomBase](/about/citing-pombase) page lists papers to cite
+for PomBase, the *S. pombe* genome sequence, annotation data, and
+other resources.
+
+### Terms of Use
+
+[Terms of Use](about/terms-of-use) for PomBase data and Canto.
+
+### PomBase Publications
+
+Complete list of [papers published by PomBase](about/published-by-pombase).
+
 ### Data versions
 
 Versions of internal and external data loaded into current and past
