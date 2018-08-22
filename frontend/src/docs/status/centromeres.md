@@ -6,9 +6,9 @@ Ensembl genome browser.
 
 Chromosome coordinates (links to JBrowse):
 
--   CEN 1: [I:3753687-3789421](https://www.pombase.org/jbrowse/?loc=I%3A3753680..3789414&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=)
--   CEN 2: [II:1602264-1644747](https://www.pombase.org/jbrowse/?loc=II%3A1602261..1644744&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=)
--   CEN 3: [III:1070904-1137003](https://www.pombase.org/jbrowse/?loc=III%3A1070899..1136998&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=)
+-   CEN 1: [I:3753687-3789421][cen1]
+-   CEN 2: [II:1602264-1644747][cen2]
+-   CEN 3: [III:1070904-1137003][cen3]
 
 The 3 centromeres are also available as contiguated sequence (the
 remaining gaps in CEN2 and CEN3 are represented by 100 N's)
@@ -41,3 +41,8 @@ constructs.
 
 Centromere map from: The genome sequence of *Schizosaccharomyces pombe*.
 Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam
+
+[cen1]: https://www.pombase.org/jbrowse/?loc=I%3A3753680..3789414&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+[cen2]: https://www.pombase.org/jbrowse/?loc=II%3A1602261..1644744&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+[cen3]: https://www.pombase.org/jbrowse/?loc=III%3A1070899..1136998&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+

@@ -7,14 +7,10 @@ page for the current assembly status.
 The most proximal anchored cosmids to each telomere are (links
 to genome browser):
 
--   Chromosome I left c212 (coordinates
-    [1-29663](https://www.pombase.org/jbrowse/?loc=I%3A1..29664&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=))
--   Cromosome I right c750
-    ([5554844-5579133](https://www.pombase.org/jbrowse/?loc=I%3A5554843..5579133&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=))
--   Chromosome II left c1348
-    ([1-39186](https://www.pombase.org/jbrowse/?loc=II%3A1..39181&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=))
--   Chromosome II right pT2R1
-    ([4500619-4539800](https://www.pombase.org/jbrowse/?loc=II%3A4500628..4539804&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=))
+-   Chromosome I left c212 (coordinates [1-29663][tel1l])
+-   Cromosome I right c750 ([5554844-5579133][tel1lr])
+-   Chromosome II left c1348 ([1-39186][tel2l])
+-   Chromosome II right pT2R1 ([4500619-4539800][tel2r])
 -   There are no telomere proximal clones for chromosome III as the
     unsequenced rDNA blocks occur in between the sequenced portion and
     the telomeres on both chromosome arms.
@@ -29,7 +25,7 @@ Sasaki *et al.*
 ([PMID:18727152](http://www.ncbi.nlm.nih.gov/pubmed?term=18727152))
 and will be attached to the assembly in the next round of sequence
 changes. In the meantime, the contig can be viewed in the
-[PomBase genome browser](https://www.pombase.org/jbrowse/?loc=chr_II_telomeric_gap%3A2002..18001&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=).
+[PomBase genome browser][telgap].
 
 A set of [small insert clones](ftp://ftp.sanger.ac.uk/pub/yeast/sequences/pombe/telomeres/)
 (FTP link; also see table) from a telomere plasmid library has been
@@ -53,3 +49,9 @@ pNSU65|8.1 kb|Terminal|pNSU21 and pNSU65 were isolated from the first and second
 pMLC12 where the blunt end (SmaI end) ligated to the
 telomeric sequences. "Internal" means that an *S. pombe*
 sequence intervenes between the telomere and vector sequences.
+
+[tel1l]: https://www.pombase.org/jbrowse/?loc=I%3A1..29664&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+[tel1r]: https://www.pombase.org/jbrowse/?loc=I%3A5554843..5579133&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+[tel2l]: https://www.pombase.org/jbrowse/?loc=II%3A1..39181&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+[tel2r]: https://www.pombase.org/jbrowse/?loc=II%3A4500628..4539804&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+[telgap]: https://www.pombase.org/jbrowse/?loc=chr_II_telomeric_gap%3A2002..18001&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=

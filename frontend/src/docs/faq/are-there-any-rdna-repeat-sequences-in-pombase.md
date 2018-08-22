@@ -15,7 +15,7 @@ complete representative rDNA repeats:
 -   A partial repeat at the right-hand end contains
     [SPRRNA.45](/gene/SPRRNA.45)
 
-The complete repeat sequence coordinates are [Chromosome 3:5542-13722](https://www.pombase.org/jbrowse/?loc=III%3A5540..13720&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=) (note
+The complete repeat sequence coordinates are [Chromosome 3:5542-13722][rdna] (note
 that the reverse strand is transcribed). The link goes to the PomBase
 genome browser, where you can view and
 [download](/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates) the
@@ -24,3 +24,4 @@ choose "-1" in the location settings.
 
 Also see the FAQ on [finding rRNA genes](/faq/how-can-i-find-rrna-genes).
 
+[rdna]: https://www.pombase.org/jbrowse/?loc=III%3A5540..13720&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
