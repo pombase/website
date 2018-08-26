@@ -19,7 +19,7 @@ text, so it can be opened in a spreadsheet application or parsed with a
 script; the [format](http://geneontology.org/page/go-annotation-file-gaf-format-21)
 is described on the GO website.
 
-Also see the [list of protein complexes](ftp://ftp.pombase.org/pombe/annotations/GO_complexes/) 
+Also see the [list of protein complexes](ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/GO_complexes/) 
 in the FTP directory, which uses GO macromolecular complex terms and
 IDs.
 
