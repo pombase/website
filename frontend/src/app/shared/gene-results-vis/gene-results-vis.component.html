@@ -17,6 +17,10 @@
       <span style="color: #bbb" *ngIf="lineHeight <= 1">[-]</span>
       <a (click)="changeLineHeight(1)">[+]</a>
     </div>
+
+    <div class="svn-download" *ngIf="showResults()">
+      <a (click)="saveAsSVG()">Download ...</a>
+    </div>
   </div>
 
   <div class="vis-results">
@@ -25,17 +29,27 @@
     </div>
 
     <div *ngIf="showResults()">
-      <div class="vis-svg">
-        <svg [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap) + 20"
+        <svg #visSVG [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap) + 20"
              [attr.height]="genes.length * lineHeight + 10"
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
+          <defs>
+            <style type="text/css">
+               rect.vis-gene {
+                 fill: #f0f0f0;
+               }
+               rect.vis-gene:nth-child(10n+1) {
+                 fill: #e0e0e0;
+               }
+            </style>
+          </defs>
           <g style="pointer-events: all">
             <rect *ngFor="let geneData of getGeneDisplayData()"
+                  class="vis-gene"
                   (click)="geneclick($event)"
                   (mouseenter)="geneEnter($event, geneData)"
                   (mouseleave)="geneLeave($event, geneData)"
-                  [ngClass]="{'vis-gene': !selectedGenes[geneData.geneUniquename], 'vis-gene-selected': selectedGenes[geneData.geneUniquename]}"
+                  [ngClass]="{'vis-gene-selected': selectedGenes[geneData.geneUniquename]}"
                   [attr.id]="geneData.id" [attr.height]="lineHeight"
                   [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap)"
                   [attr.x]="0"
@@ -59,7 +73,6 @@
             </rect>
           </g>
         </svg>
-      </div>
     </div>
   </div>
 

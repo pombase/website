@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { GeneShort } from '../../pombase-api.service';
 import { getAppConfig, VisColumnConfig } from '../../config';
@@ -82,6 +82,7 @@ class GeneData {
 })
 export class GeneResultsVisComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];
+  @ViewChild('visSVG') visSvg: ElementRef;
 
   geneDataMap: { [geneUniquename: string]: GeneData } = {};
 
@@ -137,6 +138,21 @@ export class GeneResultsVisComponent implements OnInit {
 
       this.activeColumns[colConfig.name] = false;
     });
+  }
+
+  saveAsSVG() {
+    const el = this.visSvg.nativeElement;
+    el.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    const svgData = el.outerHTML;
+    const preface = '<?xml version="1.0" standalone="no"?>\r\n';
+    const svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
+    const svgUrl = URL.createObjectURL(svgBlob);
+    const downloadLink = document.createElement("a");
+    downloadLink.href = svgUrl;
+    downloadLink.download = name;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
   }
 
   makeGeneDataMap(queryResult: QueryResult): { [geneUniquename: string]: GeneData } {

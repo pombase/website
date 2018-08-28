@@ -27,14 +27,6 @@
   font-weight: bold;
 }
 
-.vis-gene {
-  fill: #f0f0f0;
-}
-
-.vis-gene:nth-child(10n+1) {
-  fill: #e0e0e0;
-}
-
 .vis-gene-selected {
   fill: #a0a0e0;
 }
