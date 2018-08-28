@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { getAppConfig } from '../../config';
+
 @Component({
   selector: 'app-contact-email',
   templateUrl: './contact-email.component.html',
@@ -9,7 +11,7 @@ export class ContactEmailComponent implements OnInit {
   @Input() linkName = 'Contact';
   @Input() subject = null;
 
-  emailLink = 'mailto:helpdesk@pombase.org';
+  emailLink = 'mailto:' + getAppConfig().helpdesk_address;
 
   constructor() { }
 
