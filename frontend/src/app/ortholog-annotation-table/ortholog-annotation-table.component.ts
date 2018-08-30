@@ -68,6 +68,7 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
           orthologOrganism: row.ortholog_organism,
           orthologShortProduct: shortProduct,
           orthologFullProduct: row.ortholog.product,
+          reference: row.reference,
         };
       });
   }
