@@ -54,7 +54,8 @@
                 {{reference.citation_date_pages}}
               </span>
             </span>
-            <app-reference-short [reference]="reference" [linkText]="'Details'"></app-reference-short>
+            <a *ngIf="reference.uniquename"
+               routerLink="/reference/{{reference.uniquename}}">details ...</a>
           </div>
         </td>
         <td *ngIf="orderByField == '+publication_year' || orderByField == '-publication_year'">
