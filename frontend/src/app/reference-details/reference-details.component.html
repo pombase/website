@@ -63,7 +63,14 @@
   </div>
 
   <div *ngIf="refAnnotationStatus != null" class="annotations-section-header">
-    <div *ngIf="refAnnotationStatus == 'has-annotations'">Annotations from this publication:</div>
+    <div *ngIf="refAnnotationStatus == 'has-annotations'">
+      <div *ngIf="refDetails.uniquename.startsWith('PMID:')">
+        Annotations from this publication:
+      </div>
+      <div *ngIf="!refDetails.uniquename.startsWith('PMID:')">
+        Annotations from this reference:
+      </div>
+    </div>
     <div *ngIf="refAnnotationStatus != 'has-annotations'">This publication has no
       annotations in PomBase because
       <span *ngIf="refAnnotationStatus == 'not-curated'">
