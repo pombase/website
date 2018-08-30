@@ -18,11 +18,11 @@
         <tr *ngIf="isPubMedRef">
           <td class="details-label">Authors</td>
           <td>{{refDetails.authors}}</td>
-          <td *ngIf="cantoCommunityCuratorName && refAnnotationStatus != 'not-curated'">
+          <td class="ref-curated-by" *ngIf="cantoCommunityCuratorName && refAnnotationStatus != 'not-curated'">
             <a href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
             Community curation provided by {{cantoCommunityCuratorName}}
           </td>
-          <td *ngIf="!cantoCommunityCuratorName && refAnnotationStatus != 'not-curated'">
+          <td class="ref-curated-by" *ngIf="!cantoCommunityCuratorName && refAnnotationStatus != 'not-curated'">
             <a href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
             Curated by {{siteName}} staff
           </td>

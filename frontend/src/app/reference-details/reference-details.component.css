@@ -5,3 +5,7 @@
 .annotations-section-header {
   font-size: 150%;
 }
+
+.ref-curated-by {
+  min-width: 20em;
+}
