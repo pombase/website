@@ -694,6 +694,9 @@ export class PombaseAPIService {
     // for displaying the references section on the gene page
     json.references = this.processGeneReferences(referencesByUniquename);
 
+    json.feature_publications =
+      (json.feature_publications || []).map(refUniquename => referencesByUniquename[refUniquename]);
+
     return json as GeneDetails;
   }
 
