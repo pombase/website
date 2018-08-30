@@ -45,7 +45,7 @@ synonyms (where assigned), and gene product description
 Note: A tab-delimited file of systematic identifiers mapped to EC
 numbers was previously maintained, but has not been updated since March
 2012. The most recent version of the
-[gp2EC.txt](ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/OLD/gp2EC.txt)
+[gp2EC.txt](ftp://ftp.pombase.org/pombe/names_and_identifiers/OLD/gp2EC.txt)
 file is available in the FTP archive, but because it is out of date it
 may contain errors or omissions.
 

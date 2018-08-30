@@ -8,7 +8,7 @@ pombe* systematic IDs), and many other common database IDs.
 
 For UniProt IDs, we provide a static mapping file of PomBase systematic
 IDs and UniProtKB accessions, available on the [Data Mapping](/downloads/names-and-identifiers) page and by FTP from
-<ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/PomBase2UniProt.tsv>.
+<ftp://ftp.pombase.org/pombe/names_and_identifiers/PomBase2UniProt.tsv>.
 
 For other *Schizosaccharomyces* species (*S. japonicus*, *S. octosporus*,
 *S. cryophilus*), the PICR service converts between UniProtKB accessions

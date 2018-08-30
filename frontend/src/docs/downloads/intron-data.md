@@ -10,7 +10,7 @@
 </div>
 
 Downloadable intron datasets are available in FASTA format from the
-[PomBase FTP site](ftp://ftp.ebi.ac.uk/pub/databases/pombase/FASTA/).
+[PomBase FTP site](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/).
 
 Note that you can also use the Advanced Search to find all genes
 containing introns, as described in the 
@@ -18,7 +18,7 @@ containing introns, as described in the
 
 ##### Legacy intron data
 
-We also provide access to archived [intron data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/Archived_directories/Intron_Data/OLD/).
+We also provide access to archived [intron data](ftp://ftp.pombase.org/Archived_directories/Intron_Data/OLD/).
 Please note that this set of intron data reflect the dataset at the
 time of publication of the *S. pombe* genome sequence, and does not
 include any new introns, or changes to introns, since then. The
