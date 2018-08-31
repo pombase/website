@@ -58,7 +58,7 @@ Pombase releases.
 
 ### Receive project updates
 
-Subscribe to [Pombelist](http://listserver.ebi.ac.uk/mailman/listinfo/pombelist) to receive
+Subscribe to [Pombelist](https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist) to receive
 annotation and data updates
 
 ------------------------------------
