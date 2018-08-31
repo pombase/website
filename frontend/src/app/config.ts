@@ -123,6 +123,7 @@ export interface AppConfig {
   externalGeneReferences: Array<ExternalGeneReference>;
   externalTermReferences: Array<ExternalTermReference>;
   miscExternalLinks: ExternalLinks;
+  pubsToLinkToJBrowse: Set<string>;
   chromosomes: {
     [identifier: string]: ChromosomeConfig;
   };
@@ -485,6 +486,7 @@ let _appConfig: AppConfig = {
   externalGeneReferences: pombaseConfig.external_gene_references,
   externalTermReferences: pombaseConfig.external_term_references,
   miscExternalLinks: pombaseConfig.misc_external_links,
+  pubsToLinkToJBrowse: pombaseConfig.pubs_to_link_to_jbrowse ? new Set(pombaseConfig.pubs_to_link_to_jbrowse) : new Set(),
   chromosomes: pombaseConfig.chromosomes,
   documentation: docConfig,
 

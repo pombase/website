@@ -25,6 +25,7 @@ export class ReferenceDetailsComponent implements OnInit {
   apiError = null;
   cantoCommunityCuratorName = null;
   refAnnotationStatus = null;
+  hasJBrowseTracks = false;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -132,6 +133,8 @@ export class ReferenceDetailsComponent implements OnInit {
             this.setVisibleSections();
             this.apiError = null;
             this.setAnnotationStatus();
+            this.hasJBrowseTracks =
+              getAppConfig().pubsToLinkToJBrowse.has(refDetails.uniquename);
           })
           .catch(error => {
             this.apiError = error;

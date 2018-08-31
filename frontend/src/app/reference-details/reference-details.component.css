@@ -9,3 +9,12 @@
 .ref-curated-by {
   min-width: 20em;
 }
+
+.ref-jbrowse-link {
+  font-size: 140%;
+  margin: 1em 0;
+}
+
+.ref-jbrowse-link a {
+  margin-left: 1em;
+}
