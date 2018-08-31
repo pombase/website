@@ -38,7 +38,19 @@
                 <td [attr.rowspan]="displayLocation.length - 1">
                   {{displayLocation[0]}},
                 </td>
-                <td>{{displayLocation[1]}}</td>
+                <td>{{displayLocation[1]}}
+                  <span *ngIf="geneDetails.feature_publications.length == 1">
+                    <app-reference-short
+                      [reference]="geneDetails.feature_publications[0]"
+                      [linkText]="'Source ...'"></app-reference-short>
+                  </span>
+                  <span *ngIf="geneDetails.feature_publications.length > 1">
+                    <app-reference-short
+                      *ngFor="let pub of geneDetails.feature_publications; let i = index"
+                      [reference]="pub"
+                      [linkText]="'[Source ' + (i+1) + ']'"></app-reference-short>
+                  </span>
+                </td>
               </tr>
               <tr *ngIf="displayLocation.length > 2">
                 <td>{{displayLocation[2]}}</td>
