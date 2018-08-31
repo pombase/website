@@ -1,8 +1,20 @@
+<ng-template #refPopover>
+  <div *ngFor="let content of popoverContents">{{content}}</div>
+  <div *ngIf="isPMID">(click to view all annotation from this publication)</div>
+</ng-template>
 <span class="reference-short-link">
   <span *ngIf="!xref">
-    <a *ngIf="!refTitle" [title]="titleAttr" routerLink="/reference/{{reference.uniquename}}">{{displayString}}</a>
-    <a *ngIf="refTitle" [title]="titleAttr" routerLink="/reference/{{reference.uniquename}}"
-       title="{{displayString}} - {{reference.title}}">{{refTitle}}</a>
+    <a *ngIf="!refTitle" [popover]="refPopover"
+       triggers="mouseenter:mouseleave"
+       placement="bottom" container="body"
+       routerLink="/reference/{{reference.uniquename}}">{{displayString}}</a>
+    <a *ngIf="refTitle" [popover]="refPopover"
+       triggers="mouseenter:mouseleave"
+       placement="bottom" container="body"
+       routerLink="/reference/{{reference.uniquename}}">{{refTitle}}</a>
   </span>
-  <a *ngIf="xref" [title]="titleAttr" href="{{xref}}">{{displayString}}</a>
+  <a *ngIf="xref" [popover]="refPopover"
+     triggers="mouseenter:mouseleave"
+     placement="bottom" container="body"
+     href="{{xref}}">{{displayString}}</a>
 </span>

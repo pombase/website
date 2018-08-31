@@ -15,8 +15,9 @@ export class ReferenceShortComponent implements OnInit {
 
   displayString = '';
   refTitle = '';
-  titleAttr = '';
+  popoverContents = [];
   xref = null;
+  isPMID = false;
 
   constructor() { }
 
@@ -31,10 +32,6 @@ export class ReferenceShortComponent implements OnInit {
         this.displayString = this.reference.uniquename;
       }
     } else {
-      if (this.linkText) {
-        this.displayString = this.linkText;
-        return;
-      }
       if (this.reference.authors_abbrev) {
         this.displayString = this.reference.authors_abbrev;
       } else {
@@ -46,6 +43,12 @@ export class ReferenceShortComponent implements OnInit {
         if (this.displayString !== this.reference.uniquename) {
           this.displayString = this.reference.uniquename;
         }
+      }
+
+      if (this.linkText) {
+        this.popoverContents = [this.displayString];
+        this.displayString = this.linkText;
+        return;
       }
 
       if (this.showRefTitle && this.reference.title) {
@@ -61,14 +64,17 @@ export class ReferenceShortComponent implements OnInit {
       }
     }
 
+    if (this.reference.uniquename.startsWith("PMID:")) {
+      this.isPMID = true;
+    }
 
     if (this.reference.title) {
-      this.titleAttr = this.reference.title;
+      this.popoverContents = [this.reference.title];
       if (this.reference.citation) {
-        this.titleAttr += ' - ' + this.reference.citation;
+        this.popoverContents.push(this.reference.citation);
       }
     } else {
-      this.titleAttr = this.displayString;
+      this.popoverContents = [this.displayString];
     }
   }
 }
