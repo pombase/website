@@ -7341,6 +7341,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombelist-changes">pombelist changes</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-genome-browser-tracks">New genome browser tracks</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-book-chapter-about-pombase">New book chapter about PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-releases-jbrowse">PomBase releases JBrowse</a></div>
@@ -8200,8 +8201,17 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written <a routerLink="/documentation/JBrowse_quick_start">&quot;Getting started with PomBase JBrowse&quot;</a>, a basic guide that covers loading tracks, navigating the browser, what metadata we provide, and more.</p>
 
   </div>
+  <div *ngIf="pageName == 'mailing-list-move-to-cam'">
+<h3 id="pombelist-changes">pombelist changes</h3>
+<!-- pombase_flags: frontpage -->
+<p>The pombe community mailing list, &quot;pombelist&quot;, has migrated from the EBI and is now hosted by the University of Cambridge. The new address is <a href="mailto:pombelist@pombase.org">pombelist@pombase.org</a>. The link to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">subscribe</a> has also changed.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
+<h3 id="pombelist-changes">pombelist changes</h3>
+<p><em>2018-08-31</em></p>
+<p>The pombe community mailing list, &quot;pombelist&quot;, has migrated from the EBI and is now hosted by the University of Cambridge. The new address is <a href="mailto:pombelist@pombase.org">pombelist@pombase.org</a>. The link to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">subscribe</a> has also changed.</p>
 <h3 id="new-genome-browser-tracks">New genome browser tracks</h3>
 <p><em>2018-05-28</em></p>
 <p>We are very pleased to announce that we have loaded a number of new datasets into the PomBase <a href="https://www.pombase.org/jbrowse/">JBrowse genome browser</a>.</p>
