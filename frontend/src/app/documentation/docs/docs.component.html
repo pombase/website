@@ -5634,10 +5634,10 @@ In the coordinates box,
 <div style="color: red">
 <p><strong>Warning:</strong> Files in the old FTP site within the EBI domain are no longer updated. If you have a link that contains <strong>ftp.ebi.ac.uk</strong>, please check these pages for a link using <strong>ftp.pombase.org</strong>. Please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a> if you need help finding a file or directory.</p>
 </div>
-<p>Downloadable intron datasets are available in FASTA format from the <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/FASTA/">PomBase FTP site</a>.</p>
+<p>Downloadable intron datasets are available in FASTA format from the <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/">PomBase FTP site</a>.</p>
 <p>Note that you can also use the Advanced Search to find all genes containing introns, as described in the <a routerLink="/gfaq/how-can-i-retrieve-intron-coordinates-or-sequences">FAQ on introns</a>.</p>
 <h5 id="legacy-intron-data">Legacy intron data</h5>
-<p>We also provide access to archived <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/Archived_directories/Intron_Data/OLD/">intron data</a>. Please note that this set of intron data reflect the dataset at the time of publication of the <em>S. pombe</em> genome sequence, and does not include any new introns, or changes to introns, since then. The intron data archive includes:</p>
+<p>We also provide access to archived <a href="ftp://ftp.pombase.org/Archived_directories/Intron_Data/OLD/">intron data</a>. Please note that this set of intron data reflect the dataset at the time of publication of the <em>S. pombe</em> genome sequence, and does not include any new introns, or changes to introns, since then. The intron data archive includes:</p>
 <ul>
 <li>List of all <em>S. pombe</em> intron-containing genes</li>
 <li>List of all <em>S. pombe</em> genes with exon numbers</li>
@@ -5671,7 +5671,7 @@ In the coordinates box,
 <li><a href="ftp://ftp.pombase.org/pombe/names_and_identifiers/sysID2product.rna.tsv">sysID2product.rna.tsv</a> non-coding RNA genes</li>
 <li><a href="ftp://ftp.pombase.org/pombe/names_and_identifiers/pseudogeneIDs.tsv">pseudogeneIDs.tsv</a> pseudogenes</li>
 </ul>
-<p>Note: A tab-delimited file of systematic identifiers mapped to EC numbers was previously maintained, but has not been updated since March 2012. The most recent version of the <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/OLD/gp2EC.txt">gp2EC.txt</a> file is available in the FTP archive, but because it is out of date it may contain errors or omissions.</p>
+<p>Note: A tab-delimited file of systematic identifiers mapped to EC numbers was previously maintained, but has not been updated since March 2012. The most recent version of the <a href="ftp://ftp.pombase.org/pombe/names_and_identifiers/OLD/gp2EC.txt">gp2EC.txt</a> file is available in the FTP archive, but because it is out of date it may contain errors or omissions.</p>
 
   </div>
   <div *ngIf="pageName == 'phenotype-annotations'">
@@ -5968,7 +5968,7 @@ In the coordinates box,
 <h3 id="can-i-convert-ids-other-databases-or-pombase-ids">Can I convert IDs from other databases to or from PomBase IDs?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>PomBase does not have its own tool for ID conversion. We suggest you try the EBI's PICR web service (<a href="http://www.ebi.ac.uk/Tools/picr/" class="uri">http://www.ebi.ac.uk/Tools/picr/</a>), which can convert between UniProtKB, RefSeq, Ensembl Genomes (including <em>S. pombe</em> systematic IDs), and many other common database IDs.</p>
-<p>For UniProt IDs, we provide a static mapping file of PomBase systematic IDs and UniProtKB accessions, available on the <a routerLink="/downloads/names-and-identifiers">Data Mapping</a> page and by FTP from <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/PomBase2UniProt.tsv" class="uri">ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Mappings/PomBase2UniProt.tsv</a>.</p>
+<p>For UniProt IDs, we provide a static mapping file of PomBase systematic IDs and UniProtKB accessions, available on the <a routerLink="/downloads/names-and-identifiers">Data Mapping</a> page and by FTP from <a href="ftp://ftp.pombase.org/pombe/names_and_identifiers/PomBase2UniProt.tsv" class="uri">ftp://ftp.pombase.org/pombe/names_and_identifiers/PomBase2UniProt.tsv</a>.</p>
 <p>For other <em>Schizosaccharomyces</em> species (<em>S. japonicus</em>, <em>S. octosporus</em>, <em>S. cryophilus</em>), the PICR service converts between UniProtKB accessions and the identifiers used in Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>), but with one caveat: the IDs used by PICR, UniProtKB, and QuickGO contain underscores, whereas those in Rhind <em>et al.</em> do not (e.g. SJAG_00455 versus SJAG00455). The IDs with underscores are correct.</p>
 
 </div>
@@ -6108,7 +6108,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>If an essential gene is deleted, the cell cannot survive under normal laboratory conditions. A search for deletion alleles annotated to the Fission Yeast Phenotype Ontology term &quot;inviable vegetative cell population&quot; (<a routerLink="/term/FYPO:0002061">FYPO:0002061</a>) would therefore identify essential fission yeast genes. Similarly, deletion alleles annotated to &quot;viable vegetative cell population&quot; (<a routerLink="/term/FYPO:0002177">FYPO:0002060</a>) represent non-essential genes.</p>
 <p>Note that viability/inviability annotations are fairly complete for protein-coding genes, but very few non-coding RNA genes have been tested.</p>
 <p><strong>Downloadable summary</strong></p>
-<p>A <a href="ftp://ftp.ebi.ac.uk/pub/databases/pombase/pombe/Phenotype_annotations/FYPOviability.tsv">set of &quot;viability summary&quot; data</a>, as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: &quot;viable&quot;, &quot;inviable&quot; or &quot;condition-dependent&quot;.</p>
+<p>A <a href="ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/FYPOviability.tsv">set of &quot;viability summary&quot; data</a>, as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: &quot;viable&quot;, &quot;inviable&quot; or &quot;condition-dependent&quot;.</p>
 <p><strong>Querying</strong></p>
 <ul>
 <li><p>To find genes annotated to &quot;inviable vegetative cell population&quot;, You can also set up the query manually: select the &quot;phenotype&quot; query and type or paste the ID, FYPO:0002061. Select the &quot;Null&quot; option for &quot;Expresion level&quot; and submit the query. The results include all genes that showed inviable phenotypes in the HTP deletion project as well some manually annotated genes. Similarly, there is a query for genes annotated to &quot;viable vegetative cell population&quot; (FYPO:0002060).</p></li>
