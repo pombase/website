@@ -1,5 +1,6 @@
 <ng-template #genePopover>
   <div *ngFor="let bit of popoverBits">{{bit}}</div>
+  <div class="link-hint">(Click to view gene details)</div>
 </ng-template>
 
 <a routerLink="/gene/{{gene.uniquename}}"
