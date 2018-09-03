@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PopoverModule } from 'ngx-bootstrap';
 
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ContactEmailComponent } from './contact-email/contact-email.component';
@@ -31,6 +32,7 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
     FormsModule,
     Ng2SimplePageScrollModule.forRoot(),
     TabsModule.forRoot(),
+    PopoverModule.forRoot(),
   ],
   exports: [
     GoSlimTableComponent,

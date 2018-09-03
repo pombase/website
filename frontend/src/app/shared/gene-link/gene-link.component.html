@@ -1,3 +1,10 @@
-<a routerLink="/gene/{{gene.uniquename}}" [attr.title]="linkTitle">
+<ng-template #genePopover>
+  <div *ngFor="let bit of popoverBits">{{bit}}</div>
+</ng-template>
+
+<a routerLink="/gene/{{gene.uniquename}}"
+   [popover]="genePopover"
+   triggers="mouseenter:mouseleave"
+   placement="bottom" container="body">
   <span class="gene-link">{{displayString}}</span>
 </a>
