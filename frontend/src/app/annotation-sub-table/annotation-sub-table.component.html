@@ -1,3 +1,8 @@
+<ng-template #termGeneCount let-genecount="geneCount" let-termid="termId">
+  <div>{{genecount}} genes are annotated with {{termid}}</div>
+  <div class="term-gene-count-link-hint">(click to view)</div>
+</ng-template>
+
 <div class="sub-table">
   <div *ngIf="!detailsOnly" class="view-controls">
     <a *ngIf="currentViewState != TableViewState.Details" (click)="allDetailsView()">
@@ -74,8 +79,14 @@
         </td>
         <td *ngIf="showColumn['count']"
             [attr.rowspan]="termAnnotation.annotations.length + 1">
-          <a *ngIf="termAnnotation.term.genotype_count == 0" routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active"
-             title="{{termAnnotation.term.gene_count}} genes are annotated with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
+          <a *ngIf="termAnnotation.term.genotype_count == 0"
+             routerLink="/term/{{termAnnotation.term.termid}}"
+             [popover]="termGeneCount"
+             triggers="mouseenter:mouseleave"
+             placement="bottom" container="body"
+             [popoverContext]="getCountPopoverContext(termAnnotation.term)">
+            {{termAnnotation.term.gene_count}}
+          </a>
         </td>
       </tr>
 
@@ -164,8 +175,14 @@
         </td>
         <td *ngIf="compactFirstRows[termAnnotation.term.termid] && showColumn['count'] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
-          <a *ngIf="typeConfig.feature_type == 'gene'" routerLink="/term/{{termAnnotation.term.termid}}" routerLinkActive="active"
-             title="{{termAnnotation.term.gene_count}} genes are annotated with {{termAnnotation.term.termid}}">{{termAnnotation.term.gene_count}}</a>
+          <a *ngIf="typeConfig.feature_type == 'gene'"
+             routerLink="/term/{{termAnnotation.term.termid}}"
+             [popover]="termGeneCount"
+             triggers="mouseenter:mouseleave"
+             placement="bottom" container="body"
+             [popoverContext]="getCountPopoverContext(termAnnotation.term)">
+            {{termAnnotation.term.gene_count}}
+          </a>
         </td>
       </tr>
 

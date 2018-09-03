@@ -6,6 +6,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
 import { AnnotationTable } from '../pombase-api.service';
 import { AnnotationFilter } from '../filtering/annotation-filter';
 import { TableViewState } from '../pombase-types';
+import { TermShort } from '../pombase-query';
 
 @Component({
   selector: 'app-annotation-sub-table',
@@ -63,6 +64,13 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   }
 
   constructor() { }
+
+  getCountPopoverContext(term: TermShort): { [key: string]: number|string } {
+    return {
+      geneCount: term.gene_count,
+      termId: term.termid,
+    };
+  }
 
   toggleDetails(termid: string) {
     this.detailsView[termid] = !this.detailsView[termid];

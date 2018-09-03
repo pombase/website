@@ -81,3 +81,8 @@ ul.conditions li {
 .genotype-background span {
   font-weight: bold;
 }
+
+.term-gene-count-link-hint {
+  font-size: 90%;
+  margin-top: 0.4em;
+}
