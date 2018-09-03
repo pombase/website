@@ -1,6 +1,6 @@
 <ng-template #refPopover>
   <div *ngFor="let content of popoverContents">{{content}}</div>
-  <div *ngIf="isPMID">(click to view all annotation from this publication)</div>
+  <div class="link-hint" *ngIf="isPMID">(click to view all annotation from this publication)</div>
 </ng-template>
 <span class="reference-short-link">
   <span *ngIf="!xref">
