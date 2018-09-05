@@ -2,6 +2,7 @@
   background: #bbc3de url(../assets/header-background.jpg) right no-repeat;
   height: 115px;
   position: relative;
+  flex-shrink: 0;
 }
 
 #header-content, #content {
