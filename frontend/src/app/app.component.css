@@ -48,12 +48,20 @@
   text-align: right;
 }
 
+#app-component {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 #content {
   font-size: 110%;
+  flex: 1 0 auto;
 }
 
 #footer {
   text-align: center;
   clear: both;
   padding: 30px 180px 30px 180px;
+  flex-shrink: 0;
 }
