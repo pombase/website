@@ -161,12 +161,6 @@ select option:disabled {
   max-width: 60em !important;
 }
 
-.contact-email {
-  float: right;
-  padding-right: 2em;
-  font-size: 120%;
-}
-
 .menu-pos-fixed {
   position: fixed;
   top: 2px;
