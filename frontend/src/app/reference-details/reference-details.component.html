@@ -3,8 +3,7 @@
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
 <div id="reference-details" class="details-page" *ngIf="refDetails && !apiError">
-  <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
-                     [subject]="'Comment or problem report'"></app-contact-email>
+  <app-social-contact></app-social-contact>
 
   <div class="details-page-name-and-id">
     <span class="reference-title name-id-highlight" *ngIf="refDetails.title">

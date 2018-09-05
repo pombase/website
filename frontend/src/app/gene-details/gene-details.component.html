@@ -2,8 +2,7 @@
   <app-loading-spinner *ngIf="!geneDetails && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
   <div id="gene-details" class="details-page" *ngIf="geneDetails && !apiError">
-    <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
-                       [subject]="'Comment or problem report for ' + displayNameLong()"></app-contact-email>
+    <app-social-contact [subject]="'Comment or problem report for ' + displayNameLong()"></app-social-contact>
     <div class="details-page-name-and-id">
     <div class="gene-details-name-id">
     <span class="gene-name" *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">

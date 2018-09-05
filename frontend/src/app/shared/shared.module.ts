@@ -24,6 +24,7 @@ import { DetailsPageMenuComponent } from './details-page-menu/details-page-menu.
 import { Ng2SimplePageScrollModule } from '../ng2-simple-page-scroll/ng2-simple-page-scroll.module';
 
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
+import { SocialContactComponent } from './social-contact/social-contact.component';
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
     PageContentsMenuComponent,
     CvVersionComponent,
     DetailsPageMenuComponent,
+    SocialContactComponent,
   ],
   declarations: [
     GoSlimTableComponent,
@@ -69,6 +71,7 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
     PageContentsMenuComponent,
     CvVersionComponent,
     DetailsPageMenuComponent,
+    SocialContactComponent,
   ],
 })
 export class SharedModule { }

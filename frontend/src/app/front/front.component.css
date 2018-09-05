@@ -35,9 +35,9 @@
 }
 
 .welcome-title {
-  font-size: 150%;
-  clear: both;
+  font-size: 160%;
   font-weight: bold;
+  padding: 0.7em 0 0.1em 0;
 }
 
 .welcome-content {
@@ -63,24 +63,6 @@
   width: 95%;
   height: auto;
   margin-bottom: 1em;
-}
-
-.social {
-  padding: 10px 0 10px 0;
-  width: 50%;
-}
-
-.social div {
-  width: 50%;
-}
-
-.social img {
-  padding: 0 4px 0 4px;
-}
-
-#pombase-contacts {
-  margin: 0.2em 0 0.4em 0;
-  float: right;
 }
 
 #top-row {

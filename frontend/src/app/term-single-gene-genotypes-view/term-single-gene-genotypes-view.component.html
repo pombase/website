@@ -2,8 +2,7 @@
   <app-loading-spinner *ngIf="!termDetails"></app-loading-spinner>
 
   <div *ngIf="termDetails">
-    <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
-                       [subject]="'Comment or problem report'"></app-contact-email>
+    <app-social-contact></app-social-contact>
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 

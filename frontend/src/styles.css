@@ -18,7 +18,8 @@ a {
 
 .details-page-name-and-id {
   font-size: 170%;
-  margin: 0.8em 0 0.5em 0;
+  margin: 0 0 0.5em 0;
+  padding: 0.6em 0 0 0;
   max-width: 1400px;
 }
 

@@ -1,4 +1,5 @@
 <div>
+  <app-social-contact></app-social-contact>
   <app-loading-spinner *ngIf="!subset && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 

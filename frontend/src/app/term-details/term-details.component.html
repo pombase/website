@@ -3,8 +3,7 @@
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
   <div id="term-details" class="details-page" *ngIf="termDetails">
-    <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"
-                       [subject]="'Comment or problem report'"></app-contact-email>
+    <app-social-contact></app-social-contact>
 
     <div id="term-details-menu">
       <app-details-page-menu *ngIf="termDetails"

@@ -160,7 +160,7 @@ $faq_data{index} = 'faq/index.md';
 
 $sections{faq} = \%faq_data;
 
-print $docs_component_fh qq|<div class="docs">\n|;
+print $docs_component_fh qq|<div class="docs">\n<app-social-contact></app-social-contact>\n|;
 
 for my $path (sort keys %sections) {
   process_path($path);

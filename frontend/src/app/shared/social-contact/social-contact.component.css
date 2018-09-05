@@ -1,0 +1,17 @@
+.social {
+  padding: 10px 0.5em 10px 0;
+  width: 50%;
+}
+
+.social div {
+  width: 50%;
+}
+
+.social img {
+  padding: 0 4px 0 4px;
+}
+
+.pombase-social-contacts {
+  margin: 0.2em 4em 0.4em 0;
+  float: right;
+}
