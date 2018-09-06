@@ -76,7 +76,9 @@
           <span *ngIf="orderByField == 'gene'">Gene name</span>
         </th>
         <th>
-          Systematic ID
+          <a *ngIf="orderByField != 'systematicId'" (click)="setOrderBy('systematicId')"
+             title="Click to sort">Systematic ID</a>
+          <span *ngIf="orderByField == 'systematicId'">Systematic ID</span>
         </th>
         <th>
           <a *ngIf="orderByField != 'product'" (click)="setOrderBy('product')"

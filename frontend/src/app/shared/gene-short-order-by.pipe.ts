@@ -10,7 +10,13 @@ export class GeneShortOrderByPipe implements PipeTransform {
     if (field === 'gene' || field === '+gene') {
       genes.sort(Util.geneCompare);
     } else {
-      genes.sort(Util.geneProductCompare);
+      if (field === 'systematicId' || field === '+systematicId') {
+        genes.sort((gene1, gene2) => {
+          return gene1.uniquename.localeCompare(gene2.uniquename);
+        })
+      } else {
+        genes.sort(Util.geneProductCompare);
+      }
     }
 
     return genes;
