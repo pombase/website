@@ -64,12 +64,12 @@ a {
   width: 100%;
 }
 
-.annotation-table, .annotation-table legend, .genes-table, .genes-table legend, .genotypes-table, .genotypes-table legend {
-  border-radius: 2px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #bbb;
-  background-color: #F9F9F9;
+.annotation-table, .annotation-table .section-heading, .genes-table, .genes-table .section-heading, .genotypes-table, .genotypes-table .section-heading {
+}
+
+.annotation-table .section-heading {
+  font-size: 150%;
+  font-weight: bold;
 }
 
 .annotation-table, .genes-table, .genotypes-table {
@@ -88,9 +88,10 @@ a {
 
 .annotation-table .annotation-table-container {
   overflow-x: auto;
+  border-top: 1px solid #bbb;
 }
 
-fieldset.annotation-table {
+div.annotation-table {
   min-width: inherit;
 }
 

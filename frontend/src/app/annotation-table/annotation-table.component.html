@@ -1,12 +1,12 @@
-<fieldset *ngIf="annotationTable?.length > 0" class="annotation-table">
-  <legend>
+<div *ngIf="annotationTable?.length > 0" class="annotation-table">
+  <div class="section-heading">
     <span *ngIf="annotationTypeName">{{tableDisplayName}}</span>
     <span *ngIf="!annotationTypeName">Annotations</span>
 
     <app-help-link *ngIf="typeConfig && typeConfig.help_route" [route]="typeConfig.help_route"
                    [title]="helpIconTitle">
     </app-help-link>
-  </legend>
+  </div>
 
   <div class="annotation-table-container">
   <app-deletion-viability-summary *ngIf="geneDetails && annotationTypeName == 'single_allele_phenotype'"
@@ -48,4 +48,4 @@
   </app-protein-properties>
   </div>
 
-</fieldset>
+</div>
