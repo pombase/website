@@ -15,7 +15,7 @@ use Carp;
 use Getopt::Long qw(GetOptions);
 
 my $web_config = '';
-my $doc_config = '';
+my $doc_config_file_name = '';
 my $markdown_docs = '';
 my $recent_news_component = '';
 my $docs_component = '';
@@ -23,13 +23,13 @@ my $front_page_content_component = '';
 
 GetOptions(
   'web-config=s' => \$web_config,
-  'doc-config=s' => \$doc_config,
+  'doc-config=s' => \$doc_config_file_name,
   'markdown-docs=s' => \$markdown_docs,
   'recent-news-component=s' => \$recent_news_component,
   'docs-component=s' => \$docs_component,
   'front-panel-content-component=s' => \$front_page_content_component);
 
-if (!$web_config || !$doc_config || !$markdown_docs || !$recent_news_component ||
+if (!$web_config || !$doc_config_file_name || !$markdown_docs || !$recent_news_component ||
     !$docs_component || !$front_page_content_component) {
   die "missing arg";
 }
@@ -171,8 +171,8 @@ print $docs_component_fh "</div>\n";
 close $recent_news_fh;
 close $docs_component_fh;
 
-open my $doc_config_fh, '>', $doc_config
-  or die "can't open $doc_config: $!\n";
+open my $doc_config_fh, '>', $doc_config_file_name
+  or die "can't open $doc_config_file_name: $!\n";
 
 print $doc_config_fh to_json( [sort keys %sections], { canonical => 1, pretty => 1 } );
 
