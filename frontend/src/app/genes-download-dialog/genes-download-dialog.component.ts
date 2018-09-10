@@ -26,6 +26,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   public genes: Array<GeneShort>;
   public seqType = 'protein';
   public includeIntrons = false;
+  public includeExons = true;
   public include5PrimeUtr = false;
   public include3PrimeUtr = false;
   public upstreamBases = 0;

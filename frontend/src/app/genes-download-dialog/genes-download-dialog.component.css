@@ -17,3 +17,7 @@
 .nucleotide-controls .flanking-bases input {
   width: 6em;
 }
+
+#include-exons {
+  color: #999;
+}
