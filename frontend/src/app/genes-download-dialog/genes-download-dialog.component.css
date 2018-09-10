@@ -2,10 +2,9 @@
   font-weight: bold;
 }
 
-.nucleotide-options {
+.nucleotide-controls {
   padding-left: 1em;
 }
-
 .field-column {
   float: left;
   padding: 1em;
@@ -13,4 +12,8 @@
 
 .select-actions {
   clear: both;
+}
+
+.nucleotide-controls .flanking-bases input {
+  width: 6em;
 }

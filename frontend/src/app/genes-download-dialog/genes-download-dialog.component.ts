@@ -28,6 +28,8 @@ export class GenesDownloadDialogComponent implements OnInit {
   public includeIntrons = false;
   public include5PrimeUtr = false;
   public include3PrimeUtr = false;
+  public upstreamBases = 0;
+  public downstreamBases = 0;
 
   summaryFieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
                 'Synonyms', 'Feature type', 'Start position', 'End position',
@@ -195,6 +197,8 @@ export class GenesDownloadDialogComponent implements OnInit {
           include_introns: this.includeIntrons,
           include_5_prime_utr: this.include5PrimeUtr,
           include_3_prime_utr: this.include3PrimeUtr,
+          upstream_bases: this.upstreamBases,
+          downstream_bases: this.downstreamBases,
         },
       };
     }
