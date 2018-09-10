@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/toPromise';
+import { Observable, of } from 'rxjs';
 
 import { TermShort } from './pombase-query';
 import { Util } from './shared/util';
@@ -705,7 +704,7 @@ export class PombaseAPIService {
       .retryWhen((errors) => {
         return errors
           .mergeMap((error) =>
-                    (error.status === 404) ? Observable.throw(error) : Observable.of(error))
+                    (error.status === 404) ? Observable.throw(error) : of(error))
           .delay(10000)
           .take(5);
       })

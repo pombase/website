@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Observable, of } from 'rxjs';
 
 import { PombaseAPIService, GeneSummary, IdAndOrganism } from '../pombase-api.service';
 import { CompleteService, SolrTermSummary, SolrRefSummary } from '../complete.service';
@@ -242,10 +241,9 @@ export class SearchBoxComponent implements OnInit {
   }
 
   observableFromToken(token: string): Observable<Array<DisplayModel>> {
-    const geneSummaryObservable = Observable.of(this.summariesFromToken(token));
+    const geneSummaryObservable = of(this.summariesFromToken(token));
     const termResultsObservable = this.getTermMatches(token);
     const refResultsObservable = this.getRefMatches(token);
-
 
     const combined =
       combineLatest(geneSummaryObservable, termResultsObservable, refResultsObservable)
