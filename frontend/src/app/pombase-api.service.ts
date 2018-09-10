@@ -6,6 +6,7 @@ import { TermShort } from './pombase-query';
 import { Util } from './shared/util';
 import { Seq } from './seq';
 import { getAppConfig, ConfigOrganism } from './config';
+import { retryWhen, delay, take, timeout } from 'rxjs/operators';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
@@ -701,14 +702,16 @@ export class PombaseAPIService {
 
   getWithRetry(url: string): Observable<Response> {
     return this.http.get(url)
-      .retryWhen((errors) => {
+      .pipe(
+        retryWhen((errors) => {
         return errors
           .mergeMap((error) =>
                     (error.status === 404) ? Observable.throw(error) : of(error))
-          .delay(10000)
-          .take(5);
-      })
-      .timeout(60000);
+          .pipe(delay(5000),
+                take(10));
+       }),
+       timeout(60000)
+      );
   }
 
   getGene(uniquename: string): Promise<GeneDetails> {
