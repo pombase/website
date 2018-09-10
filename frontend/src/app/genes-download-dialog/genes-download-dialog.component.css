@@ -3,7 +3,7 @@
 }
 
 .nucleotide-controls {
-  padding-left: 1em;
+  padding: 0.6em 1em;
 }
 .field-column {
   float: left;
@@ -16,6 +16,10 @@
 
 .nucleotide-controls .flanking-bases input {
   width: 6em;
+}
+
+.nucleotide-controls input {
+  margin: 0.3em;
 }
 
 #include-exons {
