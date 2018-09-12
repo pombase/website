@@ -63,6 +63,22 @@
 #footer {
   text-align: center;
   clear: both;
-  padding: 30px 180px 30px 180px;
   flex-shrink: 0;
+}
+
+@media (min-width: 600px) {
+  #header-search-box {
+    margin-top: 12px;
+  }
+
+  #footer {
+    padding: 30px 180px 30px 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  #footer {
+    padding: 1em;
+  }
+
 }
