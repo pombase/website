@@ -11,10 +11,10 @@ h1,h2,h3,h4,h5,h6,h7 {
 }
 
 @media (max-width: 600px) {
-  body, button.btn {
+  body, button.btn, a.btn, input.btn {
     font-size: 2.0vw;
   }
-  button.btn {
+  button.btn, a.btn, input.btn {
     padding: 0.5em 0.8em;
   }
 }
