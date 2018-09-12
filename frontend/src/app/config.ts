@@ -201,6 +201,7 @@ export interface AnnotationType {
   filters?: Array<FilterConfig>;
   external_db_link_keys?: Array<string>;
   external_link_config?: Array<AnnotationExternalLinkConfig>;
+  residue_as_extension_part?: boolean;
   misc_config?: {
     [key: string]: any;
   };

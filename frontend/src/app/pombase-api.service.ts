@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { TermShort } from './pombase-query';
 import { Util } from './shared/util';
 import { Seq } from './seq';
-import { getAppConfig, ConfigOrganism } from './config';
+import { getAppConfig, ConfigOrganism, AnnotationType, getAnnotationTableConfig } from './config';
 import { retryWhen, delay, take, timeout } from 'rxjs/operators';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
@@ -416,15 +416,11 @@ export class PombaseAPIService {
     }
   }
 
-  processTermAnnotations(termAnnotations: Array<TermAnnotation>,
+  processTermAnnotations(cvName: string, termAnnotations: Array<TermAnnotation>,
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                          allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
                          referencesByUniquename: any, termsByTermId: TermIdTermMap) {
-    const _getPromoter = (extRange) => {
-      return {
-          gene: genesByUniquename[extRange.promoter_gene_uniquename],
-      };
-    };
+    const annotationTypeConfig: AnnotationType = getAnnotationTableConfig().getAnnotationType(cvName);
 
     for (let termAnnotation of termAnnotations) {
       termAnnotation.annotations =
@@ -433,14 +429,7 @@ export class PombaseAPIService {
       const termId = termAnnotation.term as any as string;
       termAnnotation.term = termsByTermId[termId];
       for (let annotation of termAnnotation.annotations as Array<Annotation>) {
-        annotation.genes =
-          (annotation.genes as Array<any>).map((geneDetail: any) => {
-            if (typeof(geneDetail) === 'string') {
-              return genesByUniquename[geneDetail as string];
-            } else {
-              return geneDetail as GeneShort;
-            }
-          }) as Array<GeneShort>;
+        annotation.genes = genesOfAnnotation(annotation, genesByUniquename);
         if (referencesByUniquename) {
           annotation.reference = referencesByUniquename[annotation.reference as string];
         }
@@ -450,24 +439,12 @@ export class PombaseAPIService {
             annotation.conditions.map((termid: string) => termsByTermId[termid] as TermShort);
         }
 
+        if (annotation.residue && annotationTypeConfig.residue_as_extension_part) {
+          moveResidueToExtension(annotation);
+        }
+
         if (annotation.extension) {
-          annotation.extension.map((extPart) => {
-            if (extPart.ext_range.termid) {
-              extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
-            } else {
-              if (extPart.ext_range.gene_uniquename) {
-                extPart.ext_range.gene = genesByUniquename[extPart.ext_range.gene_uniquename];
-              } else {
-                if (extPart.ext_range.promoter_gene_uniquename) {
-                  extPart.ext_range.promoter = _getPromoter(extPart.ext_range);
-                } else {
-                  if (extPart.ext_range.gene_product) {
-                    extPart.ext_range.term = termsByTermId[extPart.ext_range.gene_product];
-                  }
-                }
-              }
-            }
-          });
+          processExtension(annotation, termsByTermId, genesByUniquename);
         }
         if (genotypesByUniquename && annotation.genotype) {
           annotation.genotype = genotypesByUniquename[annotation.genotype as string];
@@ -518,7 +495,7 @@ export class PombaseAPIService {
                       });
                   } else {
                     if (extPart.ext_range.promoter_gene_uniquename) {
-                      extPart.ext_range.promoter = _getPromoter(extPart.ext_range);
+                      extPart.ext_range.promoter = getPromoterGene(extPart.ext_range, genesByUniquename);
                     } else {
                       if (extPart.ext_range.gene_product) {
                         extPart.ext_range.term = termsByTermId[extPart.ext_range.gene_product];
@@ -670,7 +647,7 @@ export class PombaseAPIService {
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(cvName, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap,
                                   referencesByUniquename, termsByTermId);
     }
@@ -744,7 +721,7 @@ export class PombaseAPIService {
     this.processExpressedAlleles(allelesByUniquename, genesByUniquename, json.expressed_alleles);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(cvName, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap,
                                   referencesByUniquename, termsByTermId);
     }
@@ -791,7 +768,7 @@ export class PombaseAPIService {
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(cvName, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap,
                                   referencesByUniquename, termsByTermId);
     }
@@ -826,7 +803,7 @@ export class PombaseAPIService {
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(cvName, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap,
                                   null, termsByTermId);
     }
@@ -1059,3 +1036,58 @@ export class PombaseAPIService {
       .then(() => {}).catch(() => {});
   }
 }
+function processExtension(annotation: Annotation, termsByTermId: TermIdTermMap, genesByUniquename: GeneMap) {
+  annotation.extension.map((extPart) => {
+    if (extPart.ext_range.termid) {
+      extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
+    }
+    else {
+      if (extPart.ext_range.gene_uniquename) {
+        extPart.ext_range.gene = genesByUniquename[extPart.ext_range.gene_uniquename];
+      }
+      else {
+        if (extPart.ext_range.promoter_gene_uniquename) {
+          extPart.ext_range.promoter = getPromoterGene(extPart.ext_range, genesByUniquename);
+        }
+        else {
+          if (extPart.ext_range.gene_product) {
+            extPart.ext_range.term = termsByTermId[extPart.ext_range.gene_product];
+          }
+        }
+      }
+    }
+  });
+}
+
+function getPromoterGene(extRange: any, genesByUniquename: GeneMap) {
+  return () => {
+    return {
+      gene: genesByUniquename[extRange.promoter_gene_uniquename],
+    };
+  };
+}
+
+function genesOfAnnotation(annotation: Annotation, genesByUniquename: GeneMap): GeneShort[] | string[] {
+  return (annotation.genes as Array<any>).map((geneDetail: any) => {
+    if (typeof (geneDetail) === 'string') {
+      return genesByUniquename[geneDetail as string];
+    }
+    else {
+      return geneDetail as GeneShort;
+    }
+  }) as Array<GeneShort>;
+}
+
+function moveResidueToExtension(annotation) {
+  const residue = annotation.residue;
+  delete annotation.residue;
+
+  annotation.extension.push({
+    rel_type_display_name: 'modified residue',
+    rel_type_name: 'modified_residue',
+    ext_range: {
+      misc: residue,
+    },
+  });
+}
+
