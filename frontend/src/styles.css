@@ -11,8 +11,11 @@ h1,h2,h3,h4,h5,h6,h7 {
 }
 
 @media (max-width: 600px) {
-  body {
+  body, button.btn {
     font-size: 2.0vw;
+  }
+  button.btn {
+    padding: 0.5em 0.8em;
   }
 }
 
@@ -326,7 +329,7 @@ select option:disabled {
   .info-panel, .front-twitter-feed {
     width: 300px;
   }
-  
+
   .info-panel, .front-twitter-feed, .front-news-feed {
     display: inline-block;
     margin: 0.2em;
