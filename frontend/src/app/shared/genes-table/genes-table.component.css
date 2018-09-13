@@ -7,7 +7,8 @@
   height: 0.9em;
   position: relative;
   top: -0.6em;
-  padding: 0 5px;
+  padding: 0 0.3em;
+  margin-bottom: 0.5em;
 }
 
 .genes-table table {
