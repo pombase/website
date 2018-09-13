@@ -70,3 +70,9 @@ td.result-count {
   animation-duration: 10s;
   animation-name: highlightRow;
 }
+
+@media (max-width: 600px) {
+  button.btn img {
+    height: 4vw;
+  }
+}
