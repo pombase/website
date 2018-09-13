@@ -279,9 +279,14 @@ export class GeneDetailsComponent implements OnInit {
       if (params['uniquename'] !== undefined) {
         let uniquename = params['uniquename'];
 
-        // (slightly) prefetch the image
-        this.ensemblImageUrl = `/browser_images/${uniquename}_gene.png`;
-        this.ensemblImage.src = this.ensemblImageUrl;
+        if (this.appConfig.missingBrowserImages.indexOf(uniquename) == -1) {
+          // (slightly) prefetch the image
+          this.ensemblImageUrl = `/browser_images/${uniquename}_gene.png`;
+          this.ensemblImage.src = this.ensemblImageUrl;
+        } else {
+          this.ensemblImageUrl = null;
+          this.ensemblImage.src = null;
+        }
 
         // delay api call so image request is first
         setTimeout(() => {

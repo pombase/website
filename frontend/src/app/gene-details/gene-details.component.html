@@ -86,6 +86,9 @@
       <div *ngIf="ensemblImageUrl">
         <img src="{{ensemblImageUrl}}" />
       </div>
+      <div style="font-weight: bold" *ngIf="!ensemblImageUrl">
+        Genes around {{geneDetails.uniquename}}:
+      </div>
     </div>
 
 

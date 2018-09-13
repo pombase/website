@@ -119,6 +119,7 @@ export interface AppConfig {
   termPageConfig: TermPageConfig;
   phenotypeIdPrefixes: Array<string>;
   linkoutConfig: LinkoutConfig;
+  missingBrowserImages: Array<string>;
   evidenceTypes: EvidenceConfig;
   externalGeneReferences: Array<ExternalGeneReference>;
   externalTermReferences: Array<ExternalTermReference>;
@@ -482,6 +483,8 @@ let _appConfig: AppConfig = {
     pro: 'http://www.proconsortium.org/cgi-bin/pro/entry_pro?id=',
     pfam: 'http://pfam.xfam.org/family/',
   },
+
+  missingBrowserImages: pombaseConfig.missing_browser_images,
 
   evidenceTypes: pombaseConfig.evidence_types,
   externalGeneReferences: pombaseConfig.external_gene_references,
