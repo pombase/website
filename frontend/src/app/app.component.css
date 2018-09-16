@@ -22,7 +22,7 @@
 @media (max-width: 600px) {
   #logo img {
     max-width: 100%;
-    height: auto;
+    height: 14vw;
   }
 
   #header-row {
@@ -32,6 +32,17 @@
   #header-search-box {
     margin-top: 1.2vw;
     font-size: 2.5vw;
+  }
+
+  #header-content, #content {
+    padding: 0.3em;
+    padding-left: 0.7em;
+  }
+}
+
+@media (max-width: 1000px) {
+  #header-row {
+    background: #bbc3de url(../assets/header-background-mobile.jpg) right 0 no-repeat;
   }
 }
 
@@ -81,4 +92,10 @@
     padding: 1em;
   }
 
+}
+
+@media (min-width: 600px) and (max-width: 1100px) {
+  #logo img {
+    height: 67px;
+  }
 }
