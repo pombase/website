@@ -1,5 +1,4 @@
-Contact us
-----------
+## Contact us
 
 Email: [helpdesk@pombase.org](mailto:helpdesk@pombase.org)
 

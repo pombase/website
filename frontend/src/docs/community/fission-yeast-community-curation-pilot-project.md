@@ -1,5 +1,4 @@
-Participating groups & Annotated papers
----------------------------------------
+## Participating groups & Annotated papers
 
 This table summarizes the results of the pilot project that preceded the
 [Fission Yeast Community Curation Project](community/fission-yeast-community-curation-project).
