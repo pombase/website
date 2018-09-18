@@ -56,6 +56,16 @@ export class DocsComponent implements OnInit, OnDestroy {
         this.pageName = 'index';
       }
     }
+
+    let configKey = this.section;
+    if (this.pageName !== 'index') {
+      configKey += '/' + this.pageName;
+    }
+    const pageConfig = this.appConfig.documentation[configKey];
+
+    if (pageConfig) {
+      this.setPageTitle(pageConfig + ' - Documentation');
+    }
   }
 
   scrollToPageTop(): void {

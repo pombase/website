@@ -49,6 +49,7 @@ open my $docs_component_fh, '>', $docs_component
 
 warn "writing to docs component: $docs_component\n";
 
+my %section_titles = ();
 my %sections = ();
 
 opendir my $dir, $markdown_docs
@@ -174,7 +175,7 @@ close $docs_component_fh;
 open my $doc_config_fh, '>', $doc_config_file_name
   or die "can't open $doc_config_file_name: $!\n";
 
-print $doc_config_fh to_json( [sort keys %sections], { canonical => 1, pretty => 1 } );
+print $doc_config_fh to_json(\%section_titles, { canonical => 1, pretty => 1 } );
 
 close $doc_config_fh;
 
@@ -281,7 +282,18 @@ sub process_path {
       my $category_name = $faq_category_names{$category_id};
       print $docs_component_fh markdown("## $category_name"), "\n";;
     } else {
-      print $docs_component_fh markdown(contents_for_template("$path/$page_name", $data->{$page_name})), "\n";
+      my $contents = contents_for_template("$path/$page_name", $data->{$page_name});
+
+      if ($contents =~ /^#+\s*(.*)$/m) {
+        my $page_title = $1;
+        $page_title =~ s/\*//g;
+        $section_titles{"$path/$page_name"} = $page_title;
+        if ($page_name eq 'index') {
+          $section_titles{$path} = $page_title;
+        }
+      }
+
+      print $docs_component_fh markdown($contents), "\n";
     }
     print $docs_component_fh qq|  </div>\n|;
   }

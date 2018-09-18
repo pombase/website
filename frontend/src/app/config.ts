@@ -101,6 +101,11 @@ export interface VisColumnConfig {
   }
 }
 
+export interface DocumentationConfig {
+  // titles for each path / Markdown file
+  [path: string]: string;
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -128,7 +133,7 @@ export interface AppConfig {
   chromosomes: {
     [identifier: string]: ChromosomeConfig;
   };
-  documentation: Array<string>;
+  documentation: DocumentationConfig;
 
   queryBuilder: QueryBuilderConfig;
 
