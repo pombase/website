@@ -32,17 +32,17 @@ export class DocsComponent implements OnInit, OnDestroy {
     });
   }
 
-  setPageTitle(heading): void {
-    let title = this.appConfig.site_name + ' - FAQ - ' + heading;
+  setPageTitle(subTitle: string): void {
+    let title = this.appConfig.site_name + ' - ' + subTitle;
     this.titleService.setTitle(title);
     this.meta.updateTag({property: 'og:title', content: title});
   }
 
-  navigate($event: MouseEvent, route: string, heading: string) {
+  faq_navigate($event: MouseEvent, route: string, heading: string) {
     // nagivate on when header is clicked
     if ($event.srcElement.localName.match(/^h\d$/i)) {
       this.router.navigate([route]);
-      this.setPageTitle(heading);
+      this.setPageTitle('FAQ - ' + heading);
     }
   }
 

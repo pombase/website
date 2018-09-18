@@ -242,10 +242,10 @@ sub get_all_faq_parts {
       $line;
     } @split_contents;
 
-    (my $fixed_heading = $heading) =~ s/'//g;
+    (my $fixed_heading = $heading) =~ s/[\'\*]//g;
     $fixed_heading =~ s/"/&quot;/g;
 
-    $ret .= qq|<div (click)="navigate(\$event, '/faq/$sect_id', '$fixed_heading')" *ngIf="$categories_condition">\n|;
+    $ret .= qq|<div (click)="faq_navigate(\$event, '/faq/$sect_id', '$fixed_heading')" *ngIf="$categories_condition">\n|;
     $ret .= markdown($contents) . "\n";
     $ret .= "</div>\n";
   }
