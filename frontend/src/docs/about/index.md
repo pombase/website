@@ -80,6 +80,10 @@ annotation and data updates
 
 ------------------------------------
 
+### Privacy
+
+See the PomBase [privacy policy](about/privacy-policy) and [cookie policy](about/cookie-policy).
+
 ### Project funding
 
 PomBase is funded by the [Wellcome Trust](https://wellcome.ac.uk/) \[104967/Z/14/Z\].
