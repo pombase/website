@@ -1,10 +1,12 @@
 {
    "about" : "About PomBase",
    "about/citing-pombase" : "Citing PomBase",
+   "about/cookie-policy" : "PomBase Cookie Policy",
    "about/data-sources" : "PomBase Data Sources",
    "about/index" : "About PomBase",
    "about/new-pombase" : "New, improved PomBase",
    "about/pombase-staff" : "Contact us",
+   "about/privacy-policy" : "PomBase Privacy Policy",
    "about/published-by-pombase" : "Publications by PomBase staff",
    "about/resource-metrics" : "Resource Metrics",
    "about/terms-of-use" : "PomBase Terms of Use",
