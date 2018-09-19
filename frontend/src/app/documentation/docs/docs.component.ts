@@ -58,13 +58,18 @@ export class DocsComponent implements OnInit, OnDestroy {
     }
 
     let configKey = this.section;
-    if (this.pageName !== 'index') {
-      configKey += '/' + this.pageName;
-    }
-    const pageConfig = this.appConfig.documentation[configKey];
 
-    if (pageConfig) {
-      this.setPageTitle(pageConfig + ' - Documentation');
+    if (configKey === 'documentation' && this.pageName === 'index') {
+      this.setPageTitle('Documentation');
+    } else {
+      if (this.pageName !== 'index') {
+        configKey += '/' + this.pageName;
+      }
+      const pageConfig = this.appConfig.documentation[configKey];
+
+      if (pageConfig) {
+        this.setPageTitle('Documentation - ' + pageConfig);
+      }
     }
   }
 
