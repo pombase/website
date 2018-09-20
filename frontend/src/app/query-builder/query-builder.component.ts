@@ -5,6 +5,7 @@ import { GeneQuery, GeneQueryNode, QueryResult, TermNode, SubsetNode,
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { getAppConfig } from '../config';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-query-builder',
@@ -18,6 +19,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
   timerSubscription = null;
   showLoading = false;
   startNodeType = null;
+  appConfig = getAppConfig();
 
   resetQuery() {
     this.query = null;
@@ -27,11 +29,13 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
 
   constructor(private queryService: QueryService,
               private route: ActivatedRoute,
+              private titleService: Title,
              ) {
     this.resetQuery();
   }
 
   ngOnInit() {
+    this.titleService.setTitle(this.appConfig.site_name + ' - Advanced search');
     this.route.params.forEach((params: Params) => {
       this.startNodeType = null;
       const goToResults =
