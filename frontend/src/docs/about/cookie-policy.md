@@ -48,7 +48,7 @@ Table of cookies we use on our site:
 |Name|Description|More information|
 |----|-----------|----------------|
 |Canto_pombe__session|Cookie set by Canto|[PomBase privacy policy](about/privacy-policy)|
-|_ga<br>_gali<br>_gid<br>_gat<br>_gat_jbrowseTracker<br>__utma<br>__utmb<br>__utmc<br>__utmt<br>__utmz|Cookies used by Google Analytics, which we use to measure website usage|[Google's privacy policy](http://www.google.com/policies/privacy/) and [Google Analytics Cookie descriptions]()https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage|
+|_ga<br>_gali<br>_gid<br>_gat<br>_gat_jbrowseTracker<br>__utma<br>__utmb<br>__utmc<br>__utmt<br>__utmz|Cookies used by Google Analytics, which we use to measure website usage|[Google's privacy policy](http://www.google.com/policies/privacy/) and [Google Analytics Cookie descriptions](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage)|
 
 #### Strictly Necessary Cookies
 
