@@ -174,11 +174,6 @@ select option:disabled {
   position: fixed;
   top: 2px;
 }
-.menu-pos-absolute {
-  position: absolute;
-  top: 130px;
-}
-
 @media (min-width: 800px) {
   .details-page, .docs-content {
     right: 0;
@@ -189,15 +184,19 @@ select option:disabled {
     width: 160px;
     left: 10px;
   }
+  .menu-pos-absolute {
+    position: absolute;
+    top: 130px;
+  }
 }
 
+
 @media (max-width: 799px) {
-  .details-page-menu, .docs-menu {
+  .details-page-menu, .page-content-menu, .docs-menu {
     position: inherit;
-    width: 30%;
+    width: 50em;
     padding: 0.5em;
   }
-
   .small-logo-visible img {
     width: 24vw;
   }
