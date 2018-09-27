@@ -81,10 +81,30 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   partTitle(part: DisplaySequenceLinePart): string {
     if (part.partType === 'exon') {
-      return part.partType + ' ' + part.exonIndex;
-    } else {
-      return part.partType;
+      return 'CDS ' + part.partType + ' ' + part.exonIndex;
     }
+
+    if (part.partType === 'cds_intron') {
+      return 'CDS intron';
+    }
+
+    if (part.partType === 'five_prime_utr') {
+      return `5' UTR`;
+    }
+
+    if (part.partType === 'three_prime_utr') {
+      return `3' UTR`;
+    }
+
+    if (part.partType === 'five_prime_utr_intron') {
+      return `5' UTR intron`;
+    }
+
+    if (part.partType === 'three_prime_utr_intron') {
+      return `3' UTR intron`;
+    }
+
+    return part.partType;
   }
 
   partClass(part: DisplaySequenceLinePart): string {
