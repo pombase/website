@@ -20,7 +20,6 @@
 }
 
 .front-page-list-title {
-  font-size: 130%;
   margin-bottom: 0.5em;
   display: inline-block;
   font-weight: bold;
@@ -43,7 +42,6 @@
 }
 
 .welcome-title {
-  font-size: 160%;
   font-weight: bold;
   padding: 0.7em 0 0.1em 0;
   clear: both;
