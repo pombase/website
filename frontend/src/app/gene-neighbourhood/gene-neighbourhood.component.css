@@ -1,10 +1,21 @@
 .gene-neighbourhood {
   padding: 10px 0 10px 0;
   white-space: nowrap;
-  overflow-x: visible;
   display: block;
-  width: calc(16em + 800px);
 }
+
+@media (min-width: 1200px) {
+  .gene-neighbourhood {
+    width: calc(16em + 800px);
+    overflow-x: visible;
+  }
+}
+@media (max-width: 1199px) {
+  .gene-neighbourhood {
+    white-space: normal;
+  }
+}
+
 
 .gene-neighbourhood-inner {
   text-align: center;
@@ -12,6 +23,13 @@
 
 .gene-neighbourhood-focus-gene {
   font-weight: bold;
+}
+
+@media (max-width: 1199px) {
+  .gene-neighbourhood-focus-gene {
+    font-size: 120%;
+    display: block;
+  }
 }
 
 .gene-neighbourhood-genes {
