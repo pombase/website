@@ -1,14 +1,18 @@
-.controls, .sequence-holder {
+.controls, .sequence-actions, .sequence-holder {
   display: inline-block;
   vertical-align: top;
 }
 
-.controls {
-  width: 40%;
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .controls {
+    width: 30%;
+  }
 }
 
-.sequence-holder {
-  width: 50%;
+@media (min-width: 1400px) {
+  .controls {
+    width: 40%;
+  }
 }
 
 .sequence-display, .sequence-holder pre {
@@ -19,6 +23,10 @@
   background-color: white;
   padding: 0.5em;
   border-radius: 2px;
+}
+
+.sequence-holder {
+  padding-left: 1em;
 }
 
 .sequence-holder pre {
@@ -115,10 +123,24 @@
   padding: 0 0 0.4em 1em;
 }
 
-.sequence-actions {
-  padding: 2em 0 0.5em 0;
-}
 .sequence-action {
   padding: 0 0.8em 0.7em 0;
   display: inline-block;
 }
+
+@media (min-width: 1200px) {
+  .sequence-actions {
+    padding: 2em 0 0.5em 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  .transcript-part-selection, .sequence-actions {
+    width: 45%;
+    display: inline-block;
+  }
+  .sequence-actions {
+    padding-left: 5em;
+  }
+}
+

@@ -16,7 +16,7 @@
           <label for="show-translation">Show translation</label>
           </div>
 
-          <div *ngIf="!showTranslation">
+          <div class="transcript-part-selection" *ngIf="!showTranslation">
             <div class="seq-title">
               Display sequence of these gene parts:
             </div>
@@ -87,11 +87,11 @@
           </div>
 
           <div *ngIf="wrappedSequence" class="sequence-actions">
-            <div style="vertical-align: top;" class="sequence-action">
+            <div class="sequence-action download-action">
               <button class="btn btn-primary" (click)="download()">Download sequence</button>
             </div>
 
-            <div style="display: inline-block" class="sequence-action">
+            <div style="display: inline-block" class="blast-actions">
               <span class="sequence-action">
                 <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbidnaform
                       (ngSubmit)="ncbidnaform.submit()"
