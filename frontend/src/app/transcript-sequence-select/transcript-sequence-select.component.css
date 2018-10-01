@@ -1,4 +1,4 @@
-.controls, .sequence-actions, .sequence-holder {
+.controls, .sequence-actions, .transcript-sequence-actions, .sequence-holder {
   display: inline-block;
   vertical-align: top;
 }
