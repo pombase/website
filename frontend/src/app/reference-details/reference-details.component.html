@@ -30,8 +30,8 @@
           <td class="details-label">Citation</td>
           <td>{{refDetails.citation}}</td>
           <td *ngIf="refAnnotationStatus != 'not-curated' && refDetails.approved_date">
-            <a style="visibility: hidden" href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
-            Added to PomBase on {{refDetails.approved_date}}</td>
+            <a class="canto-padding-image" style="visibility: hidden" href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
+            Added to PomBase on <span class="approved-date">{{refDetails.approved_date}}</span></td>
         </tr>
         <tr>
           <td class="details-label">ID</td>

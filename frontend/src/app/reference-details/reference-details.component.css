@@ -18,3 +18,13 @@
 .ref-jbrowse-link a {
   margin-left: 1em;
 }
+
+.approved-date {
+  white-space: nowrap;
+}
+
+@media (max-width: 1199px) {
+  .canto-padding-image {
+    display: none;
+  }
+}
