@@ -15,12 +15,33 @@
 #header-navbar {
   position: absolute;
   bottom: 0px;
-  right: 0em;
   background-color: rgba(100, 110, 145, 0.7);
   padding: 0 0.8em 0 0.8em;
 }
 
+@media (min-width: 600px) {
+  #header-navbar {
+    right: 0em;
+  }
+  .dropdown-menu li {
+    font-size: 1em;
+  }
+}
+@media (max-width: 599px) {
+  #header-navbar {
+    left: 0em;
+  }
+  .dropdown-menu li {
+    font-size: 2vw;
+  }
+}
+
+.dropdown-menu > li > a {
+  padding: 2px 15px;
+}
+
 .dropdown-menu {
+  min-width: 100px;
   margin: 0;
 }
 
