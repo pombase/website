@@ -1,7 +1,8 @@
-Conferences and Workshops
--------------------------
+## Downloadable Documents
 
-### International Fission Yeast Meeting series
+### Conferences and Workshops
+
+#### International Fission Yeast Meeting series
 
 [pombe2017](documents/pombe2017)
 Banff, Alberta, Canada
@@ -19,7 +20,7 @@ London, UK
 Boston, MA, USA
 25-30 June 2011
 
-### Other Conferences and Workshops
+#### Other Conferences and Workshops
 
 -   [2009 EMBO Workshop](ftp://ftp.pombase.org/Archived_directories/Presentations_workshops_and_meeting_abstracts/EMBO_workshop/),
     Manchester, UK (FTP directory)
@@ -30,8 +31,7 @@ Boston, MA, USA
 -   [2006 European fission yeast meeting](ftp://ftp.pombase.org/Archived_directories/Presentations_workshops_and_meeting_abstracts/Pombe_meeting_abstract_books/Wellcome_Euro_Yeast_27_2_06.pdf),
     Hinxton, UK - abstracts (file at FTP site)
 
-Other documents
----------------
+## Other documents
 
 -   [2017 PomBase infographic](ftp://ftp.pombase.org/pombe/Conferences/pombe2017/pombe2017_infographic_p132.pdf) (PDF; file at FTP site)
 
