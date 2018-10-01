@@ -1,4 +1,4 @@
-.controls, .sequence-actions, .transcript-sequence-actions, .sequence-holder {
+.controls, .sequence-actions, .transcript-sequence-actions {
   display: inline-block;
   vertical-align: top;
 }
@@ -132,6 +132,10 @@
   .sequence-actions {
     padding: 2em 0 0.5em 0;
   }
+
+  .sequence-holder {
+    display: inline-block;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -142,9 +146,22 @@
   .sequence-actions {
     padding-left: 5em;
   }
+
+  .sequence-holder .residue-line {
+    font-size: 0.9em;
+  }
+
+  .residues[_ngcontent-c20] {
+    min-width: 62ch;
+  }
+
+  .sequence-holder {
+    display: block;
+    overflow-x: hidden;
+  }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 600px) {
   .transcript-part-selection label {
     margin-bottom: 0;
   }
