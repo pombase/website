@@ -83,7 +83,7 @@
           View in Ensembl genome browser ...
         </a>
       </div>
-      <div *ngIf="ensemblImageUrl">
+      <div id="gene-inline-browser-image" *ngIf="ensemblImageUrl">
         <img src="{{ensemblImageUrl}}" />
       </div>
       <div style="font-weight: bold" *ngIf="!ensemblImageUrl">

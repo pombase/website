@@ -9,6 +9,9 @@
   #gene-details .chromosome-region-view {
     width: 100%;
   }
+  #gene-inline-browser-image img {
+    width: 94vw;
+  }
 }
 
 @media (min-width: 800px) {
