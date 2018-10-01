@@ -144,3 +144,8 @@
   }
 }
 
+@media (max-width: 1199px) {
+  .transcript-part-selection label {
+    margin-bottom: 0;
+  }
+}
