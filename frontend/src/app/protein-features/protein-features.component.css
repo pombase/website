@@ -8,6 +8,12 @@
   padding: 0.5em;
 }
 
+@media (max-width: 1199px) {
+  .ensembl-image img {
+    width: 100%;
+  }
+}
+
 .ensembl-link-label {
   font-size: 110%;
 }
