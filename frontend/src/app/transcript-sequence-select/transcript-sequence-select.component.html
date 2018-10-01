@@ -86,12 +86,12 @@
             </div>
           </div>
 
-          <div *ngIf="wrappedSequence" class="sequence-actions">
-            <div class="sequence-action download-action">
+          <div class="sequence-actions">
+            <div *ngIf="wrappedSequence || showTranslation" class="sequence-action download-action">
               <button class="btn btn-primary" (click)="download()">Download sequence</button>
             </div>
 
-            <div style="display: inline-block" class="blast-actions">
+            <div *ngIf="wrappedSequence" style="display: inline-block" class="blast-actions">
               <span class="sequence-action">
                 <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbidnaform
                       (ngSubmit)="ncbidnaform.submit()"
