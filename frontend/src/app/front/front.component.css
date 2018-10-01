@@ -1,5 +1,4 @@
 .front-container {
-  padding: 0 1em 0 1em;
   margin: 0 auto;
   max-width: 1050px;
 }
@@ -119,6 +118,20 @@
   overflow-y: auto;
 }
 
-.panel-container {
-  margin: 2.5em;
+@media (min-width: 800px) {
+  .front-container {
+    padding: 0 1em;
+  }
+  .panel-container {
+    margin: 2.5em;
+  }
+}
+
+@media (max-width: 799px) {
+  .front-container {
+    padding: 0 0.3em;
+  }
+  .panel-container {
+    margin: 1.5em 0.5em;
+  }
 }
