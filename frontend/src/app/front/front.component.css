@@ -28,15 +28,25 @@
 
 .welcome {
   clear: both;
-  width: 48%;
   display: block;
-  float: left;
+}
+
+@media (max-width: 799px) {
+  .welcome {
+  }
+}
+@media (min-width: 800px) {
+  .welcome {
+    float: left;
+    width: 48%;
+  }
 }
 
 .welcome-title {
   font-size: 160%;
   font-weight: bold;
   padding: 0.7em 0 0.1em 0;
+  clear: both;
 }
 
 .welcome-content {
@@ -77,15 +87,31 @@
 
 .quick-links {
   font-size: 120%;
-  width: 48%;
   display: block;
-  float: right;
+}
+
+@media (min-width: 800px) {
+  .quick-links {
+    float: right;
+    width: 48%;
+  }
+}
+
+@media (max-width: 799px) {
+  .quick-links {
+    padding-top: 1em;
+  }
 }
 
 .quick-links-group {
   display: block;
   margin: 0em 1em 0.5em 1em;
-  white-space: nowrap;
+}
+
+@media (min-width: 1100px) {
+  .quick-links-group {
+    white-space: nowrap;
+  }
 }
 
 .quick-links-group span {
