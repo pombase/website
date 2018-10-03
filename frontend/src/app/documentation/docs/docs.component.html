@@ -3909,6 +3909,61 @@ the total annotated genes.
 
 </app-page-contents-menu>
   <div class="docs-content">
+  <div *ngIf="pageName == 'Broad_dataset_email'">
+<h3 id="email-import-of-the-fission-yeast-revisions-from-the-broad-institute-comparative-genome-paper-into-genedb">Email: Import of the fission yeast revisions from the Broad Institute comparative genome paper into GeneDB</h3>
+<p>Originally sent by Val Wood to pombelist Sat Apr 23 16:00:37 BST 2011</p>
+<p>The changes reported in PMID:21511999 are visible in GeneDB.</p>
+<p>Gene Structure Changes</p>
+<p>We have imported 306 of the gene structure changes. Some reported<br />
+changes were rejected because :<br />
+i) The change was already incorporated<br />
+ii) The gene is known to be frame-shifted (the correct, albeit gene<br />
+structure is currently represented) the confirmed frame-shifts will be<br />
+fixed in the next round of sequence changes.<br />
+iii) A different start site was reported, but homology or experimental<br />
+evidence supports the existing coding sequence start site (if this was<br />
+inconclusive I used the Broad start site)<br />
+iv) The existing structure was already experimentally supported (in<br />
+these cases alternative transcript features will be created once we move<br />
+to the new PomBase)</p>
+<p>Most of the changes are small, alterations to gene structures and<br />
+include mainly:<br />
+i) Additional in-frame introns<br />
+ii) Use of an alternative starting methionine<br />
+iii) Use of an alternative, but proximal acceptor (in these cases it<br />
+is possible that both variants occur, but we have used the new<br />
+experimentally supported one)<br />
+iv) A couple of genes were &quot;un-merged&quot; and one merged.<br />
+A small number of changes were larger, and involved additional N or C<br />
+terminal exons, and occasionally gross changes to coding sequence.</p>
+<p>As there are a large number of changes it is possible that your gene(s)<br />
+of interest could be affected.<br />
+All of the updated genes are annotated with:<br />
+&quot;warning, gene structure updated &quot;PMID:xxxxxxxx&quot; (this will change to<br />
+PMID:21511999 when GeneDB is next updated)<br />
+in the &quot;controlled curation&quot; section of the gene page</p>
+<p>New Genes<br />
+New gene structures have been created for the new genes reported<br />
+All new genes identified in this analysis are annotated with:<br />
+&quot;warning, new gene PMID:xxxxxxxx&quot; (this will change to PMID:21511999<br />
+when GeneDB is next updated)<br />
+in the &quot;controlled curation&quot; section of the gene page</p>
+<p>ncRNAs<br />
+All non coding RNAs were imported.<br />
+Some are clearly coincident with existing predicted RNAs (However, some<br />
+of the previously annotated RNA's may appear on the incorrect strand as<br />
+they were derived from Affymetrix data),<br />
+Over time, these will be assessed and merged where appropriate.</p>
+<p>UTRs<br />
+The UTRs derived from the Broad data have been used for the consensus<br />
+UTR set, the precedence for the current annotated consensus set is now :<br />
+Individual published sources&gt; PMID:21511999 &gt;PMID:20118936<br />
+We hope to make the entire datasets available in the new PomBase.</p>
+<p>If you have any questions, please direct them to the new helpdesk,<br />
+helpdesk at pombase.ac.uk, or send your query directly using the curator<br />
+feedback on the GeneDB web page.</p>
+
+  </div>
   <div *ngIf="pageName == 'JBrowse_quick_start'">
 <h2 id="getting-started-with-pombase-jbrowse">Getting started with PomBase JBrowse</h2>
 <p>The PomBase genome browser can be accessed in multiple ways:</p>
@@ -4048,6 +4103,45 @@ In the coordinates box,
 </ul>
 <p>To see the DNA sequence, zoom in until it appears, first as color-coded blocks, and then labeled with letters.</p>
 <p>More <em>S. pombe</em>-specific information can be found in the <a href="https://www.pombase.org/faq/genome-browser">Genome browser FAQ list</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == 'Lanterman_Dutrow_dataset_email'">
+<h3 id="email-annotated-transcription-start-and-termination-sites-for-fission-yeast.">Email: Annotated transcription start and termination sites for fission yeast.</h3>
+<p>Originally sent by Val Wood to pombelist Fri Feb 4 12:08:34 GMT 2011</p>
+<p>A set of genome wide transcription start and termination sites manually<br />
+annotated by Lantermann et. al in PMID: 20118936, based on<br />
+transcriptome data from Dutrow et. al. PMID: 18641648 have been used to<br />
+create 5' and 3'UTR features for the reference genome, for genes with no<br />
+previously annotated transcript from another source.</p>
+<p>This increases the number of manually annotated UTRs from<br />
+298 to 3605 for 5'<br />
+778 to 3693 for 3'</p>
+<p>Because it appears that transcription start and end can be fuzzy,<br />
+these features should be considered as an &quot;indicator&quot; of the likely<br />
+extent of transcription. We will continue to revise the reference<br />
+transcript set as updates are reported, to represent the longest<br />
+discrete transcript for a region as the consensus.</p>
+<p>Data Access<br />
+You can access the transcription start and end from individual GeneDB<br />
+gene pages for genes of interest using the sequence viewers GBrowse or<br />
+Artemis. The links to these 2 browsers are to the right and left of the<br />
+&quot;context map&quot; on the &quot;Location&quot; section of the gene page.<br />
+(Artemis tips: Use the &quot;Artemis applet&quot; option selected; If you are<br />
+interested in a specific gene, reduce the upstream and downstream range<br />
+of to 1000 before clicking &quot;submit&quot;; the page will take a few seconds<br />
+to render the first time in a session)</p>
+<p>You can download this data as part of the complete annotation in the<br />
+&quot;rich EMBL files&quot; from here<br />
+ftp://ftp.sanger.ac.uk/pub/yeast/pombe/Chromosome_contigs/ (the files<br />
+chromosome*.contig)<br />
+and view them in Artemis on your desktop (Artemis can be downloaded for<br />
+local use with a single click from here:<br />
+http://www.sanger.ac.uk/resources/software/artemis/)</p>
+<p>Hosting Further Transcriptome Datasets<br />
+Clearly, as more transcriptome data becomes available the community will<br />
+require access to the different datasets, in addition to the consensus<br />
+transcripts. We intend to provide this in the future through the new<br />
+PomBase using the Ensembl viewer.</p>
 
   </div>
   <div *ngIf="pageName == 'advanced-search'">
@@ -5002,7 +5096,7 @@ In the coordinates box,
   </div>
   <div *ngIf="pageName == 'phenotype-data-bulk-upload-format'">
 <h2 id="phenotype-data-bulk-upload-format">Phenotype data bulk upload format</h2>
-<p>PomBase welcomes submissions of published large-scale phenotype data sets. We have devised a tab-delimited text file format for bulk phenotype data. A similar format is used for the downloadable file of single-allele phenotype data.</p>
+<p>PomBase welcomes submissions of published large-scale phenotype data sets. We have devised a tab-delimited text file format for bulk phenotype data. A similar format is used for the downloadable file of single-allele phenotype data (with one more column at the start of each line to identify PomBase as the source).</p>
 <p>Include a header line that labels the columns -- use the entry in the Contents column below as the column header text.</p>
 <table>
 <thead>
@@ -5561,13 +5655,14 @@ In the coordinates box,
 </app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'index'">
-<h2 id="conferences-and-workshops">Conferences and Workshops</h2>
-<h3 id="international-fission-yeast-meeting-series">International Fission Yeast Meeting series</h3>
+<h2 id="downloadable-documents">Downloadable Documents</h2>
+<h3 id="conferences-and-workshops">Conferences and Workshops</h3>
+<h4 id="international-fission-yeast-meeting-series">International Fission Yeast Meeting series</h4>
 <p><a routerLink="/documents/pombe2017">pombe2017</a> Banff, Alberta, Canada 14-19 May 2017</p>
 <p><a routerLink="/documents/pombe2015">pombe2015</a> Kobe, Japan 21-25 June 2015</p>
 <p><a routerLink="/documents/pombe2013">pombe2013</a> London, UK 24-29 June 2013</p>
 <p><a routerLink="/documents/pombe2011">pombe2011</a> Boston, MA, USA 25-30 June 2011</p>
-<h3 id="other-conferences-and-workshops">Other Conferences and Workshops</h3>
+<h4 id="other-conferences-and-workshops">Other Conferences and Workshops</h4>
 <ul>
 <li><a href="ftp://ftp.pombase.org/Archived_directories/Presentations_workshops_and_meeting_abstracts/EMBO_workshop/">2009 EMBO Workshop</a>, Manchester, UK (FTP directory)</li>
 <li><a href="ftp://ftp.pombase.org/Archived_directories/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/">Computing workshops, 2006 &amp; 2007</a>, various dates and locations (FTP directory)</li>
@@ -7101,7 +7196,7 @@ Example queries:
 <li>For genes not covered by (1) or (2), start/end data from Lantermann <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=20118936">PMID:20118936</a>) based on transcriptome data from Dutrow <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18641648">PMID:18641648</a>) are used where available.</li>
 <li>For genes not covered by (1), (2) or (3), we use data from Wilhelm <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/18488015">PMID:18488015</a>).</li>
 </ol>
-<p>More information is available in the mailing list archive for two HTP datasets (Broad: <a href="http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000856.html" class="uri">http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000856.html</a> ; Lanterman/Dutrow: <a href="http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000814.html" class="uri">http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000814.html</a>).</p>
+<p>More information is available in the descriptions of two HTP datasets originally sent to pombelist (<a routerLink="/documentation/Broad_dataset_email">Broad</a> and <a routerLink="/documentation/Lanterman_Dutrow_dataset_email">Lanterman/Dutrow</a>.</p>
 <p>Transcript start and end coordinates from all sources will be available as individual data tracks in the Ensembl genome browser in the near future, which will allow you to view and evaluate them. PomBase will also curate splice and transcript variants as data become available.</p>
 <!-- remove this when ticket #350 done -->
 <p>Note: exon and CDS coordinates are temporarily unavailable on PomBase gene pages.</p>
