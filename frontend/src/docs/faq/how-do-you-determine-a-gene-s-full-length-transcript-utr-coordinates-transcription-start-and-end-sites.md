@@ -24,11 +24,9 @@ sources and a set of precedence criteria:
 4.  For genes not covered by (1), (2) or (3), we use data from Wilhelm
     *et al.* ([PMID:18488015](http://www.ncbi.nlm.nih.gov/pubmed/18488015)).
 
-More information is available in the mailing list archive for two HTP
-datasets (Broad:
-<http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000856.html> ;
-Lanterman/Dutrow:
-<http://listserver.ebi.ac.uk/pipermail/pombelist/2011/000814.html>).
+More information is available in the descriptions of two HTP
+datasets originally sent to pombelist ([Broad](documentation/Broad_dataset_email) and [Lanterman/Dutrow](documentation/Lanterman_Dutrow_dataset_email).
+
 
 Transcript start and end coordinates from all sources will be available
 as individual data tracks in the Ensembl genome browser in the near
