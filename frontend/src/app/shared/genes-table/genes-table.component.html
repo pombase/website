@@ -55,7 +55,7 @@
   </div>
 
 
-  <div *ngIf="!showingVisualisation">
+  <div class="genes-table-wrapper" *ngIf="!showingVisualisation">
  <div *ngIf="description" class="description">
     {{description}}
   </div>
@@ -105,7 +105,7 @@
             {{gene.uniquename}}
           </a>
         </td>
-        <td>{{gene.product}}</td>
+        <td class="product">{{gene.product}}</td>
       </tr>
     </tbody>
   </table>
