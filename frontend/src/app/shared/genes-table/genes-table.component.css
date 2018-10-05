@@ -28,5 +28,5 @@ th {
 }
 
 .genes-table .product {
-  word-break: break-all;
+  word-break: break-word;
 }
