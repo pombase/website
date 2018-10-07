@@ -19,6 +19,18 @@
  </thead>
  <tbody>
   <tr>
+  <td>2018-10-05</td>
+  <td>2339</td>
+  <td>2035</td>
+  <td>410</td>
+  <td>163</td>
+  <td>122</td>
+  <td>55</td>
+  <td>13</td>
+  <td>5137</td>
+ </tr>
+ <tbody>
+  <tr>
   <td>2017-01-30</td>
   <td>2235</td>
   <td>1996</td>
