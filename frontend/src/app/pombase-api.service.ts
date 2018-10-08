@@ -606,6 +606,8 @@ export class PombaseAPIService {
   processGeneResponse(response: Response): GeneDetails {
     let json = response.json();
 
+    json.displayName = json.name || json.uniquename;
+
     if (json.transcripts) {
       for (let transcript of json.transcripts) {
         transcript.sequence = '';
