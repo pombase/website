@@ -43,7 +43,10 @@ export class GeneExternalReferencesComponent implements OnChanges {
       } else {
         let fieldValue = this.geneDetails[fieldName];
         if (fieldValue) {
-          return [fieldValue, url.replace('<<IDENTIFIER>>', fieldValue)];
+          let replacedUrl = url.replace('<<IDENTIFIER>>', fieldValue)
+            .replace('<<UNIQUENAME>>', this.geneDetails.uniquename)
+            .replace('<<GENE_NAME>>', this.geneDetails.name);
+          return [fieldValue, replacedUrl];
         }
 
         return [];
