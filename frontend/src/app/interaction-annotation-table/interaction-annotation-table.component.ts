@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { InteractionAnnotation, GeneShort } from '../pombase-api.service';
-import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { InteractionAnnotation, GeneShort, GeneDetails } from '../pombase-api.service';
+import { getAnnotationTableConfig, AnnotationTableConfig, makeGeneExternalUrl, AppConfig, getAppConfig } from '../config';
 import { Util } from '../shared/util';
 
 @Component({
@@ -10,11 +10,12 @@ import { Util } from '../shared/util';
 })
 export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
-  @Input() currentGene: GeneShort = null;
+  @Input() currentGene: GeneDetails = null;
   @Input() hideColumns: Array<string> = [];
   @Input() annotationTable: Array<InteractionAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
+  appConfig: AppConfig = getAppConfig();
 
   annotationTypeDisplayName = null;
   hideColumn = {};
@@ -23,6 +24,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   helpIconTitle = 'View documentation';
 
   routerLinkUrl = null;
+  biogridUrl: string = null;
 
   constructor() { }
 
@@ -56,6 +58,10 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
        {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
         '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
       this.routerLinkUrl = `/query/results/from/json/${json}`;
+
+      if (this.currentGene.biogrid_interactor_id) {
+        [, this.biogridUrl] = this.appConfig.getExternalGeneLink('BioGRID', this.currentGene);
+      }
     }
 
     this.displayTable =

@@ -7,9 +7,13 @@
     </app-help-link>
   </legend>
 
-  <div class="interaction-source"><span>Source:</span> Interactions curated by <a href="https://thebiogrid.org/">BioGRID</a> and PomBase</div>
+  <div class="interaction-source"><span>Source:</span> Interactions curated by <a href="https://thebiogrid.org/">BioGRID</a> and PomBase.</div>
 
-  <a *ngIf="routerLinkUrl" routerLink="{{routerLinkUrl}}">Query using interacting genes ...</a>
+  <a *ngIf="biogridUrl" class="biogrid-link" href="{{biogridUrl}}">
+    View interactions for this gene at BioGRID ...
+  </a>
+
+  <a class="query-link" *ngIf="routerLinkUrl" routerLink="{{routerLinkUrl}}">Query using interacting genes ...</a>
 
   <div class="annotation-table-container">
   <table>

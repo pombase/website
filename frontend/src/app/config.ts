@@ -1,3 +1,5 @@
+import { GeneDetails } from "./pombase-api.service";
+
 const goXrfConfigMap = require('./config/go-xrf-abbr-external-links.json');
 const docConfig = require('./config/doc-config.json');
 const pombaseConfig =  require('../../pombase_v2_config.json');
@@ -153,6 +155,8 @@ export interface AppConfig {
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
 
   getExternalTermLink(dbName: string, termId: string): { url: string, displayName: string };
+
+  getExternalGeneLink(name: string, geneDetails: GeneDetails): Array<string>;
 }
 
 export interface TermFilterCategory {
@@ -234,6 +238,56 @@ export interface ExternalGeneReference {
   field_name: string;
   go_xrf_abbrev?: string;
   url?: string;
+}
+
+export function makeGeneExternalUrl(geneDetails: GeneDetails, extRefConf: ExternalGeneReference): Array<string> {
+  let getAllIds = (geneDetails: GeneDetails): Array<string> => {
+    let ret = [geneDetails.uniquename];
+    if (geneDetails.name) {
+      ret.push(geneDetails.name);
+    }
+
+    for (let synonym of geneDetails.synonyms) {
+      if (synonym['type'] === 'exact') {
+        ret.push(synonym.name);
+      }
+    }
+    return ret;
+  };
+
+  let url = extRefConf.url;
+  let fieldName = extRefConf.field_name;
+  if (url) {
+    if (fieldName === 'NCBI_ALL_IDS') {
+      return [geneDetails.name || geneDetails.uniquename,
+              url.replace(/<<IDENTIFIER>>/, getAllIds(geneDetails).join('+OR+'))];
+    } else {
+      let fieldValue = geneDetails[fieldName];
+      if (fieldValue) {
+        let replacedUrl = url.replace('<<IDENTIFIER>>', fieldValue)
+          .replace('<<UNIQUENAME>>', geneDetails.uniquename)
+          .replace('<<GENE_NAME>>', geneDetails.name);
+        return [fieldValue, replacedUrl];
+      }
+
+      return [];
+    }
+  } else {
+    let go_xrf_abbrev = extRefConf.go_xrf_abbrev;
+    if (go_xrf_abbrev) {
+      let fieldValue = geneDetails[fieldName];
+      if (fieldValue) {
+        const xrfDetails = getXrfWithPrefix(go_xrf_abbrev, fieldValue);
+        if (xrfDetails) {
+          return [fieldValue, xrfDetails.url];
+        } else {
+          return [];
+        }
+      }
+    }
+
+    return [];
+  }
 }
 
 export interface ExternalTermReference {
@@ -797,6 +851,16 @@ let _appConfig: AppConfig = {
 
     return null;
   },
+
+  getExternalGeneLink(name: string, geneDetails: GeneDetails): Array<string> {
+    for (let conf of this.externalGeneReferences) {
+      if (conf['name'] === name) {
+        return makeGeneExternalUrl(geneDetails, conf);
+      }
+    }
+
+    return null;
+  }
 };
 
 export function getAnnotationTableConfig(): AnnotationTableConfig {

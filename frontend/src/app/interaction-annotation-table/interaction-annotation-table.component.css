@@ -6,6 +6,18 @@
 
 .interaction-source {
   padding: 0 0 0.6em 0;
+  display: inline-block;
+}
+
+.biogrid-link {
+  padding-left: 5em;
+  display: inline-block;
+  float: right;
+}
+
+.query-link {
+  display: block;
+  padding-bottom: 0.5em;
 }
 
 .interaction-source span {

@@ -1,7 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 
 import { getAppConfig, ExternalGeneReference,
-         getXrfWithPrefix } from '../config';
+         getXrfWithPrefix, makeGeneExternalUrl} from '../config';
 import { GeneDetails } from '../pombase-api.service';
 
 @Component({
@@ -18,64 +18,11 @@ export class GeneExternalReferencesComponent implements OnChanges {
 
   constructor() { }
 
-  getAllIds(): Array<string> {
-    let ret = [this.geneDetails.uniquename];
-    if (this.geneDetails.name) {
-      ret.push(this.geneDetails.name);
-    }
-
-    for (let synonym of this.geneDetails.synonyms) {
-      if (synonym['type'] === 'exact') {
-        ret.push(synonym.name);
-      }
-    }
-
-    return ret;
-  }
-
-  makeUrl(extRefConf: ExternalGeneReference): Array<string> {
-    let url = extRefConf.url;
-    let fieldName = extRefConf.field_name;
-    if (url) {
-      if (fieldName === 'NCBI_ALL_IDS') {
-        return [this.geneDetails.name || this.geneDetails.uniquename,
-                url.replace(/<<IDENTIFIER>>/, this.getAllIds().join('+OR+'))];
-      } else {
-        let fieldValue = this.geneDetails[fieldName];
-        if (fieldValue) {
-          let replacedUrl = url.replace('<<IDENTIFIER>>', fieldValue)
-            .replace('<<UNIQUENAME>>', this.geneDetails.uniquename)
-            .replace('<<GENE_NAME>>', this.geneDetails.name);
-          return [fieldValue, replacedUrl];
-        }
-
-        return [];
-      }
-    } else {
-      let go_xrf_abbrev = extRefConf.go_xrf_abbrev;
-      if (go_xrf_abbrev) {
-        let fieldValue = this.geneDetails[fieldName];
-        if (fieldValue) {
-          const xrfDetails = getXrfWithPrefix(go_xrf_abbrev, fieldValue);
-          if (xrfDetails) {
-            return [fieldValue, xrfDetails.url];
-          } else {
-            return [];
-          }
-        }
-      }
-
-      return [];
-    }
-  }
-
   ngOnChanges() {
-    this.allIds = this.getAllIds();
-
     this.table = [];
 
     for (let extRefConf of this.appConfig.externalGeneReferences) {
-      let link = this.makeUrl(extRefConf);
+      let link = makeGeneExternalUrl(this.geneDetails, extRefConf);
       let confFeatureTypes = extRefConf.feature_types;
       if (confFeatureTypes.indexOf('ALL') === -1 &&
           extRefConf.feature_types.indexOf(this.geneDetails.feature_type) === -1) {

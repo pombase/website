@@ -278,6 +278,7 @@ export class GeneDetails {
   transcripts: Array<TranscriptDetails>;
   deletion_viability?: string;
   uniprot_identifier?: string;
+  biogrid_interactor_id?: string;
   interpro_matches: Array<InterProMatch>;
   tm_domain_coords: Array<Array<number>>;
   orfeome_identifier: string;
