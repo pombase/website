@@ -150,7 +150,7 @@
     reflect-metadata "^0.1.2"
     tsickle "^0.32.1"
 
-"@angular/compiler@^6.1.8":
+"@angular/compiler@^6.1.9":
   version "6.1.9"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-6.1.9.tgz#3696659f752b5e239f5186cea72cf17965b59cb8"
   dependencies:
