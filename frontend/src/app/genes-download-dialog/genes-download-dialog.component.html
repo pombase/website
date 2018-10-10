@@ -37,18 +37,17 @@
           <label for="nucleotide">Nucleotide</label>
           <div class="nucleotide-controls" *ngIf="seqType == 'nucleotide'">
             <div class="title">
-              Download sequence of these gene parts:
+              Include in downloaded sequences:
             </div>
 
             <div class="flanking-bases">
               <input id="upstream-bases" type="number" min="0" value="0"
                      [(ngModel)]="upstreamBases"/>
-              bases upstream
-              <span *ngIf="include5PrimeUtr">of 5'UTR (if any)</span>
+              <label for="upstream-bases">bases upstream</label>
             </div>
             <div id="include-5-prime">
               <input type="checkbox" [(ngModel)]="include5PrimeUtr"/>
-              <label for="include-5-prime">5'UTR of coding genes</label>
+              <label for="include-5-prime">5'UTR (protein-coding genes only)</label>
             </div>
             <div id="include-exons">
               <input type="checkbox" disabled [(ngModel)]="includeExons"/>
@@ -60,13 +59,12 @@
             </div>
             <div id="include-3-prime">
               <input type="checkbox" [(ngModel)]="include3PrimeUtr"/>
-              <label for="include-3-prime">3'UTR of coding genes</label>
+              <label for="include-3-prime">3'UTR (protein-coding genes only)</label>
             </div>
             <div class="flanking-bases">
               <input id="downstream-bases" type="number" min="0" value="0"
                      [(ngModel)]="downstreamBases"/>
-              bases downstream
-              <span *ngIf="include3PrimeUtr">of 3'UTR (if any)</span>
+              <label for="downstream-bases">bases downstream</label>
             </div>
           </div>
         </div>
