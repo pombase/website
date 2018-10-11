@@ -701,6 +701,11 @@
   <td>name rnpB (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=29954949">PMID:29954949</a>)</td>
   <td>August 2018</td>
  </tr>
+   <tr>
+  <td><a routerLink="/gene/SPNCRNA.9001" routerLinkActive="active" [attr.title]="'SPNCRNA.9001'"><span class="gene-link">SPNCRNA.9001</span></a></td>
+  <td>SPBC8E4.02c replaced by SPNCRNA.9001 (prt2) (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=29414789">PMID:29414789</a>)</td>
+  <td>October 2018</td>
+ </tr>
  </tbody>
 </table>
 
@@ -1127,6 +1132,11 @@
   <td>SPCC794.16</td>
   <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
+ </tr>
+    <tr>
+  <td>SPBC8E4.02c</td>
+  <td>SPBC8E4.02c replaced by SPNCRNA.9001 (prt2) (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=29414789">PMID:29414789</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=29414789">PMID:29414789</a>)</td>
+  <td>2018-10-11</td>
  </tr>
  </tbody>
 </table>
