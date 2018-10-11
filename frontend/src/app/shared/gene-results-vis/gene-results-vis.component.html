@@ -29,11 +29,11 @@
     </div>
 
     <div *ngIf="showResults()">
-        <svg #visSVG [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap) + 20"
+        <svg #visSVG [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap) + 100"
              [attr.height]="genes.length * lineHeight + 10"
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
-          <defs>
+          <svg:defs>
             <style type="text/css">
                rect.vis-gene {
                  fill: #f0f0f0;
@@ -42,10 +42,10 @@
                  fill: #e0e0e0;
                }
             </style>
-          </defs>
-          <g style="pointer-events: all">
-            <rect *ngFor="let geneData of getGeneDisplayData()"
-                  class="vis-gene"
+          </svg:defs>
+          <svg:g style="pointer-events: all">
+            <svg:rect *ngFor="let geneData of getGeneDisplayData()"
+                      class="vis-gene"
                   (click)="geneclick($event)"
                   (mouseenter)="geneEnter($event, geneData)"
                   (mouseleave)="geneLeave($event, geneData)"
@@ -53,13 +53,17 @@
                   [attr.id]="geneData.id" [attr.height]="lineHeight"
                   [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap)"
                   [attr.x]="0"
-                  [attr.y]="geneData.geneIndex * lineHeight"
+                  [attr.y]="colLabelHeight + geneData.geneIndex * lineHeight"
                   stroke-width="0" stroke="#9f9"
                   style="pointer-events:inherit">
-            </rect>
-          </g>
-          <g *ngFor="let columnName of activeConfigNames; let columnIndex = index">
-            <rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
+            </svg:rect>
+          </svg:g>
+          <svg:g *ngFor="let columnName of activeConfigNames; let columnIndex = index">
+            <svg:text class="col-label"
+                      attr.transform="translate({{colLabelXOffset + geneWidth + columnIndex * (columnWidth + columnGap) + columnGap}} {{colLabelHeight}}) rotate(-60)">
+              {{visColumnConfigMap[columnName].display_name}}
+            </svg:text>
+            <svg:rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
                   class="vis-column"
                   (click)="dataClick($event, columnData)"
                   (mouseenter)="dataEnter($event, columnData)"
@@ -67,11 +71,11 @@
                   [attr.height]="lineHeight * (columnData.endIndex - columnData.startIndex + 1)"
                   [attr.width]="columnWidth"
                   [attr.x]="geneWidth + columnIndex * (columnWidth + columnGap) + columnGap"
-                  [attr.y]="lineHeight * columnData.startIndex"
+                  [attr.y]="colLabelHeight + lineHeight * columnData.startIndex"
                   [attr.fill]="columnData.color"
                   style="pointer-events:inherit">
-            </rect>
-          </g>
+            </svg:rect>
+          </svg:g>
         </svg>
     </div>
   </div>

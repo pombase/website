@@ -110,6 +110,8 @@ export class GeneResultsVisComponent implements OnInit {
   geneWidth = 40;
   columnGap = 10;
   geneListMaxLength = 35;
+  colLabelHeight = 120;
+  colLabelXOffset = 15;
 
   selectedGenes: { [index: string]: boolean } = {};
   selectedGeneList: Array<GeneData> = [];
