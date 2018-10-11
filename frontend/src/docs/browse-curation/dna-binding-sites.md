@@ -32,7 +32,6 @@ MluI cell cycle box (MCB)|ACGCGT|[Cdc10](https://www.pombase.org/gene/SPBC336.12
 pombe cell cycle box (PCB)|GNAACR|[Sep1](https://www.pombase.org/gene/SPBC4C3.12), [Fkh2](https://www.pombase.org/gene/SPBC16G5.15c), [Mbx1](https://www.pombase.org/gene/SO:0001871)|[SO:0001871](http://sequenceontology.org/browser/current_svn/term/SO:0001871)
 AACCCT box|ATCA(C/A)AACCCTAACCCT|[Ams2](https://www.pombase.org/gene/SPCC290.04), [Teb1](https://www.pombase.org/gene/SPAC13G7.10)|[SO:0001901](http://sequenceontology.org/browser/current_svn/term/SO:0001901)
 GATA box|WGATAR|[Gaf1](https://www.pombase.org/gene/SPCC1902.01)|[SO:0001840](http://sequenceontology.org/browser/current_svn/term/SO:0001840)
-CArG box|(C/T)TA(T/A)4TA(G/A)||[SO:0002156](http://sequenceontology.org/browser/current_svn/term/SO:0002156)
 M26 binding site|TGACGT|[Atf1](https://www.pombase.org/gene/SPBC29B5.01), [Pcr1](https://www.pombase.org/gene/SPAC21E11.03c)|[SO:0001900](http://sequenceontology.org/browser/current_svn/term/SO:0001900)
 TATA box|TATA(A\|T)A(A\|T)|[Brf1](https://www.pombase.org/gene/SPBC13E7.10c), [Tbp1](https://www.pombase.org/gene/SPAC29E6.08)|[SO:0000174](http://sequenceontology.org/browser/current_svn/term/SO:0000174)
 zinc repressed element|GNMGATC|[Loz1](https://www.pombase.org/gene/SPAC25B8.19c)|[SO:0002006](http://sequenceontology.org/browser/current_svn/term/SO:0002006)
