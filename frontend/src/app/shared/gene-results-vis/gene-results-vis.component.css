@@ -78,3 +78,7 @@ rect.vis-column:hover {
 .col-label {
   font-size: 80%;
 }
+
+.svg-download {
+  padding: 0.4em 0;
+}

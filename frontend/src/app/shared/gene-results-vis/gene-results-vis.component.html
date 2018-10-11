@@ -8,18 +8,9 @@
       <a *ngIf="showResults() && activeColumns[colConfig.name]"
          (click)="setSortBy(colConfig.name)">[sort]</a>
     </div>
-    <div *ngIf="showResults()">
-      <a (click)="setSortBy('gene-name')">[Sort by gene name]</a>
-    </div>
 
-    <div class="feature-size" *ngIf="showResults()">
-      Feature size: <a *ngIf="lineHeight > 1" (click)="changeLineHeight(-1)">[-]</a>
-      <span style="color: #bbb" *ngIf="lineHeight <= 1">[-]</span>
-      <a (click)="changeLineHeight(1)">[+]</a>
-    </div>
-
-    <div class="svn-download" *ngIf="showResults()">
-      <a (click)="saveAsSVG()">Download ...</a>
+    <div class="svg-download" *ngIf="showResults()">
+      <a (click)="saveAsSVG()">Download image as SVG ...</a>
     </div>
   </div>
 
