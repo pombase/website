@@ -53,7 +53,7 @@
                   [attr.id]="geneData.id" [attr.height]="lineHeight"
                   [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap)"
                   [attr.x]="0"
-                  [attr.y]="colLabelHeight + geneData.geneIndex * lineHeight"
+                  [attr.y]="5 + colLabelHeight + geneData.geneIndex * lineHeight"
                   stroke-width="0" stroke="#9f9"
                   style="pointer-events:inherit">
             </svg:rect>
@@ -71,7 +71,7 @@
                   [attr.height]="lineHeight * (columnData.endIndex - columnData.startIndex + 1)"
                   [attr.width]="columnWidth"
                   [attr.x]="geneWidth + columnIndex * (columnWidth + columnGap) + columnGap"
-                  [attr.y]="colLabelHeight + lineHeight * columnData.startIndex"
+                  [attr.y]="5 + colLabelHeight + lineHeight * columnData.startIndex"
                   [attr.fill]="columnData.color"
                   style="pointer-events:inherit">
             </svg:rect>
