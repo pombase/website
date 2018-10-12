@@ -21,7 +21,7 @@
 
     <div *ngIf="showResults()">
         <svg #visSVG [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap) + 100"
-             [attr.height]="genes.length * lineHeight + 10"
+             [attr.height]="colLabelHeight + genes.length * lineHeight + 10"
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
           <svg:defs>
