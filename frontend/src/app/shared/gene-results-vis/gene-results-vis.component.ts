@@ -292,17 +292,27 @@ export class GeneResultsVisComponent implements OnInit {
   doSortByField(geneUniquenameA: string, geneUniquenameB: string,
                 fieldNames: Array<string>): number {
     let res;
-    if (fieldNames[0] === 'gene-name') {
+    const sortFieldName = fieldNames[0];
+    if (sortFieldName === 'gene-name') {
       res = Util.geneCompare(this.geneDataMap[geneUniquenameA].getGeneShort(),
                              this.geneDataMap[geneUniquenameB].getGeneShort());
     } else {
-      const fieldA = this.geneDataMap[geneUniquenameA].getField(fieldNames[0]);
-      const fieldB = this.geneDataMap[geneUniquenameB].getField(fieldNames[0]);
+      const fieldConfig = this.visColumnConfigMap[sortFieldName];
+      const defaultOrder = fieldConfig.default_order;
+      const fieldAValue = this.geneDataMap[geneUniquenameA].getField(sortFieldName);
+      const fieldBValue = this.geneDataMap[geneUniquenameB].getField(sortFieldName);
 
-      if (this.visColumnConfigMap[fieldNames[0]].default_order === 'forward') {
-        res = fieldA.localeCompare(fieldB);
+      if (defaultOrder === 'sort_priority') {
+        const geneAPriority = fieldConfig.attr_values[fieldAValue].sort_priority;
+        const geneBPriority = fieldConfig.attr_values[fieldBValue].sort_priority;
+
+        res = geneAPriority - geneBPriority;
       } else {
-        res = fieldB.localeCompare(fieldA);
+        if (defaultOrder === 'forward') {
+          res = fieldAValue.localeCompare(fieldBValue);
+        } else {
+          res = fieldBValue.localeCompare(fieldAValue);
+        }
       }
     }
 

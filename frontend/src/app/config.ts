@@ -91,6 +91,8 @@ export interface PredefinedQueryConfig {
 
 export interface VisColumnAttrValueConfig {
   color: string;
+  display_name: string;
+  sort_priority: number;
 }
 
 export interface VisColumnConfig {
