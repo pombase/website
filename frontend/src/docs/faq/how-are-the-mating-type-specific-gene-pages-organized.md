@@ -1,9 +1,9 @@
-# How are the mating type specific gene pages organized*?
+# How are the mating type specific gene pages organized?
 <!-- pombase_categories: Gene page, Finding data -->
 
 As described in detail in this [online tutorial](https://www1.bio.ku.dk/english/research/fg/cellecyklus_genomintegritet/mating/) (external link) provided by the Nielsen lab, *S. pombe* switch between the two mating types M and P.
 
-Genetic information encoded by the mat1 locus determines the mating type: if this locus contains the Pc and Pi genes, the cell is mating type P, and if it contains the Mc and Mi genes the cell is mating type M. Additionally, S. pombe contains two silent loci: mat2 and mat3. These loci are not expressed but host the information needed for each mating type configuration. Mat2 contains the two genes Pc and Pi, and Mat3 contains the two genes Mc and Mi. Recombinational DNA repair during mitotic cell division ensures production of one daughter cell of parental mating type and one daughter of the opposite mating type.
+Genetic information encoded by the mat1 locus determines the mating type: if this locus contains the Pc and Pi genes, the cell is mating type P, and if it contains the Mc and Mi genes the cell is mating type M. Additionally, *S. pombe* contains two silent loci: mat2 and mat3. These loci are not expressed but host the information needed for each mating type configuration. Mat2 contains the two genes Pc and Pi, and Mat3 contains the two genes Mc and Mi. Recombinational DNA repair during mitotic cell division ensures production of one daughter cell of parental mating type and one daughter of the opposite mating type.
 
 A wild type S. pombe cell thus contains 6 mating type specific genes:
  1. mat1-P/Mc - expressed
