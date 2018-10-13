@@ -15,7 +15,7 @@ A wild type S. pombe cell thus contains 6 mating type specific genes:
 
 The sequenced *S. pombe* reference strain (972 h-) is in the M mating type configuration (encodes the Mc and Mi genes at the mat1 locus). The mat2 genes are deleted in this strain for technical reasons, whereas the mat3 genes are intact. 
 
-The DNA seqence of the WT [silent mating type region](https://www.pombase.org/status/mating-type-region) containing the mat2 and mat3 genes was reconstructed yielding an extra [mating type region contig](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/genome_sequence/), the genes contained within this contig are represented in PomBase. This has the consequence that there are two copies of the silent M genes. The systematic IDs and contig source of the mating type specific genes are:
+The DNA seqence of the WT [silent mating type region](https://www.pombase.org/status/mating-type-region) containing the mat2 and mat3 genes was reconstructed yielding an extra [mating type region contig](https://www.pombase.org/downloads/genome-datasets)(see 'current genome' ftp site link), the genes contained within this contig are represented in PomBase. This has the consequence that there are two copies of the silent M genes. The systematic IDs and contig source of the mating type specific genes are:
  1. mat1-Mc - SPBC23G7.09 (from the chromosome 2 contig)
  2. mat1-Mi - SPBC23G7.17c (from the chromosome 2 contig)
  3. mat2-Pc - SPMTR.01 (from the mating type contig)
