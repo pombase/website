@@ -103,7 +103,7 @@ export class GeneResultsVisComponent implements OnInit {
   activeColumns: { [index: string]: boolean; } = {};
   activeConfigNames: Array<string> = [];
 
-  sortByFields = ['gene-name'];
+  sortByFields = [];
 
   lineHeight = 3;
   columnWidth = 35;
@@ -138,8 +138,12 @@ export class GeneResultsVisComponent implements OnInit {
         this.queryColumnNames.add(colConfig.name);
       }
 
-      this.activeColumns[colConfig.name] = false;
+      this.activeColumns[colConfig.name] = true;
+
+      this.sortByFields.push(colConfig.name);
     });
+
+    this.sortByFields.push('gene-name');
   }
 
   saveAsSVG() {
@@ -446,5 +450,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   ngOnInit() {
     this.sortedGeneUniquenames = this.genes.map(geneShort => geneShort.uniquename);
+
+    this.confSelectionChanged();
   }
 }
