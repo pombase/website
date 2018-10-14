@@ -6523,6 +6523,17 @@ For example, the Genetic Interactions header for cdc2 links to
 <p><a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">Help with configuring browser tracks</a> is available.</p>
 
 </div>
+<div (click)="faq_navigate($event, '/faq/how-are-mating-type-specific-gene-pages-organized', 'How are the mating type specific gene pages organized?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'gene-page' || pageName == 'finding-data' || pageName == 'how-are-mating-type-specific-gene-pages-organized' || pageName == 'all-faqs'">
+<h3 id="how-are-mating-type-specific-gene-pages-organized">How are the mating type specific gene pages organized?</h3>
+<!-- pombase_categories: Gene page, Finding data -->
+<p>As described in detail in this <a href="https://www1.bio.ku.dk/english/research/fg/cellecyklus_genomintegritet/mating/">online tutorial</a> (external link) provided by the Nielsen lab, <em>S. pombe</em> switch between the two mating types M and P.</p>
+<p>Genetic information encoded by the mat1 locus determines the mating type: if this locus contains the Pc and Pi genes, the cell is mating type P, and if it contains the Mc and Mi genes the cell is mating type M. Additionally, <em>S. pombe</em> contains two silent loci: mat2 and mat3. These loci are not expressed but host the information needed for each mating type configuration. Mat2 contains the two genes Pc and Pi, and Mat3 contains the two genes Mc and Mi. Recombinational DNA repair during mitotic cell division ensures production of one daughter cell of parental mating type and one daughter of the opposite mating type.</p>
+<p>A wild type S. pombe cell thus contains 6 mating type specific genes: 1. mat1-P/Mc - expressed 2. mat1-P/Mi - expressed 3. mat2-Pc - silent 4. mat2-Pi - silent 5. mat3-Mc - silent 6. mat3-Mi - silent</p>
+<p>The sequenced <em>S. pombe</em> reference strain (972 h-) is in the M mating type configuration (encodes the Mc and Mi genes at the mat1 locus). The mat2 genes are deleted in this strain for technical reasons, whereas the mat3 genes are intact.</p>
+<p>The DNA seqence of the WT <a href="https://www.pombase.org/status/mating-type-region">silent mating type region</a> containing the mat2 and mat3 genes was reconstructed yielding an extra <a href="https://www.pombase.org/downloads/genome-datasets">mating type region contig</a> (see 'current genome' ftp site link), all genes contained within this contig are represented in PomBase. This has the consequence that there are two copies of the silent M genes. The systematic IDs and contig source of the mating type specific genes are: 1. mat1-Mc - SPBC23G7.09 (from the chromosome 2 contig) 2. mat1-Mi - SPBC23G7.17c (from the chromosome 2 contig) 3. mat2-Pc - SPMTR.01 (from the mating type contig) 4. mat2-Pi - SPMTR.02 (from the mating type contig) 5. mat3-Mc - SPBC1711.02 (from the chromosome 2 contig) 6. mat3-Mi - SPBC1711.01c (from the chromosome 2 contig) 7. mat3-Mc - SPMTR.04 (extra copy from the mating type contig) 8. mat3-Mi - SPMTR.03 (extra copy from the mating type contig)</p>
+<p>For the M specific genes, functional annotation (GO, phenotypes...) is attached to the mat1-Mc and mat1-Mi genes. For the P specific genes, functional annotation is attached to mat2-Pc and mat2-Pi out of necessity (mat1-Pc and mat1-Pi does not exist in the database).</p>
+
+</div>
 <div (click)="faq_navigate($event, '/faq/how-are-non-coding-rna-genes-identified', 'How are non-coding RNA genes identified?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'how-are-non-coding-rna-genes-identified' || pageName == 'all-faqs'">
 <h3 id="how-are-non-coding-rna-genes-identified">How are non-coding RNA genes identified?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
@@ -8451,7 +8462,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <li>Develop testable hypotheses;</li>
 <li>Investigate transcriptomics, proteomics and genomics datasets across multiple databases and different user interfaces.</li>
 </ul>
-<p>Please see the [course website[(https://coursesandconferences.wellcomegenomecampus.org/our-events/fungal-pathogen-genomics-2019/) for more information, including how to apply, costs (limited bursaries are available), programme, and logistics.</p>
+<p>Please see the <a href="https://coursesandconferences.wellcomegenomecampus.org/our-events/fungal-pathogen-genomics-2019/">course website</a> for more information, including how to apply, costs (limited bursaries are available), programme, and logistics.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
@@ -8466,7 +8477,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <li>Develop testable hypotheses;</li>
 <li>Investigate transcriptomics, proteomics and genomics datasets across multiple databases and different user interfaces.</li>
 </ul>
-<p>Please see the [course website[(https://coursesandconferences.wellcomegenomecampus.org/our-events/fungal-pathogen-genomics-2019/) for more information, including how to apply, costs (limited bursaries are available), programme, and logistics.</p>
+<p>Please see the <a href="https://coursesandconferences.wellcomegenomecampus.org/our-events/fungal-pathogen-genomics-2019/">course website</a> for more information, including how to apply, costs (limited bursaries are available), programme, and logistics.</p>
 <h3 id="transcript-tracks-atkinson-et-al-loaded">Transcript tracks from Atkinson et al (2018) loaded</h3>
 <p><em>2018-10-06</em></p>
 <p>We are very pleased to announce that we have loaded the transcript tracks from <a href="https://www.ncbi.nlm.nih.gov/pubmed/29914874">Atkinson et al (2018)</a> into the PomBase JBrowse genome browser. For a brief introduction to getting started with PomBase JBrowse, please see our <a href="https://www.pombase.org/documentation/JBrowse_quick_start">documentation page</a>. If you have published data that you would like to see hosted, please get in touch.</p>
@@ -11489,6 +11500,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <h2 id="mating-type-region">Mating type region</h2>
 <p>The <em>S. pombe</em> mating type region is located on Chromosome 2 (for 972 h-, the coordinates are <a href="https://www.pombase.org/jbrowse/?loc=II%3A2129210..2137123&amp;tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&amp;highlight=">II:2129208-2137121</a>. This sequence represents a version of the mat2P-mat3M region in which mat2P and the cenH element are deleted.</p>
 <p>A contig of the h90 configuration of the mat2P-mat3M region was created by Xavier Marsellach and Lorena Aguilar (Azorín lab) using available data and <em>S. pombe var. kambucha</em> as a scaffold. The contig can be viewed in the <a href="https://www.pombase.org/jbrowse/?loc=mating_type_region%3A2013..18114&amp;tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&amp;highlight=">genome browser</a>. Replacing the Chromosome 2 region spanning coordinates 2129208-2137121 with the separate contig sequence yields the Chromosome 2 contig of an h90 strain.</p>
+<p>For a description of how the mating type specific genes are organized and annotated in PomBase, see this <a href="https://www.pombase.org/faq/how-are-the-mating-type-specific-gene-pages-organized">FAQ item</a>.</p>
 <p>For a detailed description of the <em>S. pombe</em> mating type region, please see the <a href="http://www1.bio.ku.dk/english/research/fg/cellecyklus_genomintegritet/mating/">online tutorial</a> provided by the Nielsen lab (external link).</p>
 
   </div>
