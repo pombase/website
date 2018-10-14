@@ -17,6 +17,6 @@ Course content provides hands-on training on how to:
 - Investigate transcriptomics, proteomics and genomics datasets across
 multiple databases and different user interfaces.
 
-Please see the [course website[(https://coursesandconferences.wellcomegenomecampus.org/our-events/fungal-pathogen-genomics-2019/)
+Please see the [course website](https://coursesandconferences.wellcomegenomecampus.org/our-events/fungal-pathogen-genomics-2019/)
 for more information, including how to apply, costs (limited bursaries
 are available), programme, and logistics.
