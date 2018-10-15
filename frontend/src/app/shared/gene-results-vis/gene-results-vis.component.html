@@ -14,6 +14,29 @@
     </div>
   </div>
 
+  <ng-template #genePopover>
+    <div *ngIf="currentGene">
+    <div class="gene-name-and-product">
+      <span class="gene-name">{{currentGene.getGeneShort().name}}</span> {{currentGene.getGeneShort().uniquename}}
+      <span *ngIf="currentGene.getGeneShort().product">
+        {{currentGene.getGeneShort().product}}
+      </span>
+    </div>
+    <div *ngFor="let colConfig of visColumnConfigs">
+      {{colConfig.display_name}}: {{currentGene.getField(colConfig.name)}}
+    </div>
+    </div>
+  </ng-template>
+  <ng-template #colPopover>
+    <div *ngIf="currentData">
+    <div>
+      {{currentData.columnConfig.display_name}}: {{currentData.rowAttr}}
+    </div>
+    <div class="pop-up-help">
+      (click to toggle selection)
+    </div>
+    </div>
+  </ng-template>
   <div class="vis-results">
     <div *ngIf="!showResults()">
       (Select a column type from the list to the left)
@@ -46,6 +69,10 @@
                   [attr.x]="0"
                   [attr.y]="5 + colLabelHeight + geneData.geneIndex * lineHeight"
                   stroke-width="0" stroke="#9f9"
+                  [popover]="genePopover"
+                  triggers="mouseenter:mouseleave"
+                  placement="top"
+                  container="body"
                   style="pointer-events:inherit">
             </svg:rect>
           </svg:g>
@@ -64,6 +91,10 @@
                   [attr.x]="geneWidth + columnIndex * (columnWidth + columnGap) + columnGap"
                   [attr.y]="5 + colLabelHeight + lineHeight * columnData.startIndex"
                   [attr.fill]="columnData.color"
+                  [popover]="colPopover"
+                  triggers="mouseenter:mouseleave"
+                  placement="top"
+                  container="body"
                   style="pointer-events:inherit">
             </svg:rect>
           </svg:g>
@@ -95,21 +126,4 @@
     title="Send selected genes to the advanced search page"
     (click)="sendToQueryBuilder()">Filter</button>
   </div>
-
-  <div class="vis-gene-details" *ngIf="currentGene">
-    <div class="gene-name-and-product">
-      <span class="gene-name">{{currentGene.getGeneShort().name}}</span> {{currentGene.getGeneShort().uniquename}}
-      <span *ngIf="currentGene.getGeneShort().product">
-        {{currentGene.getGeneShort().product}}
-      </span>
-    </div>
-    <div *ngFor="let colConfig of visColumnConfigs">
-      {{colConfig.display_name}}: {{currentGene.getField(colConfig.name)}}
-    </div>
-  </div>
-
-  <div class="vis-column-details" *ngIf="currentData">
-    {{currentData.columnConfig.display_name}}: {{currentData.rowAttr}}
-  </div>
-
 </div>

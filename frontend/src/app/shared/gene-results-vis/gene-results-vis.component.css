@@ -1,10 +1,11 @@
 .vis-main {
-  margin: 2em 0 2em 1em;
+  margin: 0 1em 2em 1em;
   user-select: none;
 }
 
 .vis-column-select, .vis-results {
-  float: left;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .vis-gene-details, vis-column-details {
@@ -13,6 +14,7 @@
 
 .vis-column-select {
   min-width: 17em;
+  margin-top: 3em;
 }
 
 .feature-size {
@@ -21,6 +23,7 @@
 
 .gene-name-and-product {
   margin-bottom: 0.3em;
+  max-width: 30em;
 }
 
 .gene-name {
@@ -40,9 +43,9 @@
 }
 
 .vis-selected-genes {
-  float: right;
-  margin: 1em 8em 0.5em 0;
+  margin: 3em 0 0 0;
   user-select: text;
+  display: inline-block;
 }
 
 .vis-selected-genes button {
@@ -54,10 +57,9 @@
 }
 
 .vis-selected-genes-list {
-  margin: 0.5em 0 0.5em 1em;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 0 3em;
+  grid-gap: 0 2em;
 }
 
 .vis-selected-genes-gene {
@@ -81,4 +83,10 @@ rect.vis-column:hover {
 
 .svg-download {
   padding: 0.4em 0;
+}
+
+.pop-up-help {
+  margin-top: 0.4em;
+  font-size: 90%;
+  opacity: 0.8;
 }
