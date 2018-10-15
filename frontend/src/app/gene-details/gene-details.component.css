@@ -5,7 +5,7 @@
 #gene-details .chromosome-region-view {
 }
 
-@media (max-width: 799px) {
+@media (max-width: 800px) {
   #gene-details .chromosome-region-view {
     width: 100%;
   }
@@ -16,7 +16,16 @@
 
 @media (min-width: 800px) {
   #gene-details .chromosome-region-view {
-    width: 800px;
+    width: auto;
+    max-width: 800px;
+  }
+  #gene-inline-browser-image {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1200px) {
+  #gene-details .chromosome-region-view {
     margin: 0 8em;
   }
 }
@@ -39,7 +48,7 @@
   @media (max-width: 1200px) {
     #gene-summary {
       display: grid;
-      grid-template-columns: min-content max-content;
+      grid-template-columns: auto auto;
     }
   }
 }
