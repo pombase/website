@@ -47,16 +47,6 @@
              [attr.height]="colLabelHeight + genes.length * lineHeight + 10"
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
-          <svg:defs>
-            <style type="text/css">
-               rect.vis-gene {
-                 fill: #f0f0f0;
-               }
-               rect.vis-gene:nth-child(10n) {
-                 fill: #e0e0e0;
-               }
-            </style>
-          </svg:defs>
           <svg:g style="pointer-events: all">
             <svg:rect *ngFor="let geneData of getGeneDisplayData()"
                       class="vis-gene"
