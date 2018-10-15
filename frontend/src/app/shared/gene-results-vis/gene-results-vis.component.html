@@ -43,7 +43,7 @@
     </div>
 
     <div *ngIf="showResults()">
-        <svg #visSVG [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap) + 100"
+        <svg #visSVG [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap) + 100 + leftMargin"
              [attr.height]="colLabelHeight + genes.length * lineHeight + 10"
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
@@ -66,7 +66,7 @@
                   [ngClass]="{'vis-gene-selected': selectedGenes[geneData.geneUniquename]}"
                   [attr.id]="geneData.id" [attr.height]="lineHeight"
                   [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap)"
-                  [attr.x]="0"
+                  [attr.x]="leftMargin"
                   [attr.y]="5 + colLabelHeight + geneData.geneIndex * lineHeight"
                   stroke-width="0" stroke="#9f9"
                   [popover]="genePopover"
@@ -78,7 +78,7 @@
           </svg:g>
           <svg:g *ngFor="let columnName of activeConfigNames; let columnIndex = index">
             <svg:text class="col-label"
-                      attr.transform="translate({{colLabelXOffset + geneWidth + columnIndex * (columnWidth + columnGap) + columnGap}} {{colLabelHeight}}) rotate(-60)">
+                      attr.transform="translate({{leftMargin + colLabelXOffset + geneWidth + columnIndex * (columnWidth + columnGap) + columnGap}} {{colLabelHeight}}) rotate(-60)">
               {{visColumnConfigMap[columnName].display_name}}
             </svg:text>
             <svg:rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
@@ -88,7 +88,7 @@
                   (mouseleave)="dataLeave($event, columnData)"
                   [attr.height]="lineHeight * (columnData.endIndex - columnData.startIndex + 1)"
                   [attr.width]="columnWidth"
-                  [attr.x]="geneWidth + columnIndex * (columnWidth + columnGap) + columnGap"
+                  [attr.x]="leftMargin + geneWidth + columnIndex * (columnWidth + columnGap) + columnGap"
                   [attr.y]="5 + colLabelHeight + lineHeight * columnData.startIndex"
                   [attr.fill]="columnData.color"
                   [popover]="colPopover"

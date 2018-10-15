@@ -112,6 +112,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   sortByFields = [];
 
+  leftMargin = 35;
   lineHeight = 3;
   columnWidth = 35;
   geneWidth = 40;
