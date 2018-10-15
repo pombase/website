@@ -90,6 +90,13 @@ rect.vis-column:hover {
   font-size: 80%;
 }
 
+.scale-label {
+  font-size: 75%;
+  dominant-baseline: central;
+  text-anchor: end;
+  fill: #666;
+}
+
 .svg-download {
   padding: 0.4em 0;
 }

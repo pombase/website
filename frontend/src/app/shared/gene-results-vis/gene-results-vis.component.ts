@@ -456,6 +456,14 @@ export class GeneResultsVisComponent implements OnInit {
     return this.activeConfigNames.length > 0 && Object.keys(this.geneDataMap).length > 0;
   }
 
+  getScaleIndexes(): Array<number> {
+    let ret = [];
+    for (let i = 1; i < this.geneDisplayData.length/10; i++) {
+      ret.push(i * 10);
+    }
+    return ret;
+  }
+
   ngOnInit() {
     this.sortedGeneUniquenames = this.genes.map(geneShort => geneShort.uniquename);
 

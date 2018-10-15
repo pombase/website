@@ -47,6 +47,10 @@
              [attr.height]="colLabelHeight + genes.length * lineHeight + 10"
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
+          <svg:text *ngFor="let idx of getScaleIndexes()" class="scale-label"
+                    attr.transform="translate({{leftMargin-3}} {{lineHeight * idx + colLabelHeight + 2}})">
+            {{idx}}
+          </svg:text>
           <svg:g style="pointer-events: all">
             <svg:rect *ngFor="let geneData of getGeneDisplayData()"
                       class="vis-gene"
