@@ -11,10 +11,17 @@ class GeneDisplayData {
 }
 
 class ColumnDisplayData {
+  displayName: string = '';
   constructor(public columnConfig: VisColumnConfig,
               public rowAttr: string,
               public startIndex: number, public endIndex: number,
-              public color: string, public geneUniquenames: Array<string>) {};
+              public color: string, public geneUniquenames: Array<string>) {
+                if (columnConfig.attr_values[rowAttr] && columnConfig.attr_values[rowAttr].display_name) {
+                  this.displayName = columnConfig.attr_values[rowAttr].display_name;
+                } else {
+                  this.displayName = rowAttr;
+                }
+              };
 }
 
 class GeneData {
