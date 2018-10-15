@@ -78,6 +78,9 @@
       <div class="jbrowse-link">
         <a href="{{jbrowseLinkUrl}}">View region in JBrowse ...</a>
       </div>
+      <div *ngIf="deployConfigService.get('mode') == 'dev'">
+        <iframe src="{{jbrowseLinkUrl + '&tracklist=0'}}" width="800px" height="300px"></iframe>
+      </div>
       <div class="ensembl-link-label">
         <a href="http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?db=core;g={{geneDetails.uniquename}}">
           View in Ensembl genome browser ...
