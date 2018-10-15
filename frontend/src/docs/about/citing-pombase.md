@@ -5,25 +5,11 @@ of [papers published by PomBase](about/published-by-pombase).
 
 To cite *S. pombe* genome data and annotation, please use:
 
-Wood V, Harris MA, McDowall MD, Rutherford K, Vaughan BW, Staines DM,
-Aslett M, Lock A, Bähler J, Kersey PJ, Oliver SG.\
-PomBase: a comprehensive online resource for fission yeast.\
-*Nucleic Acids Res.* 2012 Jan;40(Database issue):D695-9. Epub 2011 Oct
-28.
-
-[PMID:22039153](http://www.ncbi.nlm.nih.gov/pubmed/22039153) [DOI:10.1093/nar/gkr853](http://dx.doi.org/DOI:10.1093/nar/gkr853)
-
-You may also wish to cite the most recent PomBase NAR Database Issue
-paper:
-
-McDowall MD, Harris MA, Lock A, Rutherford K, Staines DM, Bähler J,
-Kersey PJ, Oliver SG, Wood V.\
-PomBase 2015: updates to the fission yeast database.\
-*Nucleic Acids Res.* 2015 Jan;43(Database issue):D665-61. Epub 2014 Oct
-31.
-
-[PMID:25361970](http://www.ncbi.nlm.nih.gov/pubmed/?term=25361970)
-[DOI:10.1093/nar/gku1040](http://dx.doi.org/10.1093/nar/gku1040)
+Lock A,	Rutherford K, Harris MA, Hayles	J, Oliver SG, Bähler J;	Wood V.\
+PomBase 2018: user-driven reimplementation of the fission yeast database provides rapid and intuitive access to diverse, interconnected information.\
+*Nucleic Acids Res.* 2018 (Database issue): gky961 Epub 2018 Oct 13.\
+PMID coming soon. [DOI:10.1093/nar/gky961](https://doi.org/10.1093/nar/gky961)
+<!-- [PMID:](http://www.ncbi.nlm.nih.gov/pubmed/)-->
 
 ### Genome Sequence
 
