@@ -145,7 +145,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
       .subscribe((results) => {
         this.queryService.saveToHistoryWithCount(thisQuery, results.rows.length);
         this.results = results;
-        this.resultsDescription = 'Results for: ' + queryAsString;
+        this.resultsDescription = queryAsString;
         this.timerSubscription.unsubscribe();
         this.timerSubscription = null;
         this.showLoading = false;

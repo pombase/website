@@ -49,20 +49,21 @@
     <span>{{visLegend}}</span>
   </legend>
 
+  <div class="description">
+    <span *ngIf="showingVisualisation">Visualisation for: </span>
+    <span *ngIf="!showingVisualisation">Results for: </span>
+    <span *ngIf="description">{{description}}</span>
+    <span *ngIf="descriptionParts">
+      <span *ngFor="let part of descriptionParts"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.term" routerLink="/term/{{part.term.termid}}">{{part.term.termid}}</a></span>
+    </span>
+  </div>
+
   <div *ngIf="showingVisualisation">
     <app-gene-results-vis [genes]="genes">
     </app-gene-results-vis>
   </div>
 
-
   <div class="genes-table-wrapper" *ngIf="!showingVisualisation">
- <div *ngIf="description" class="description">
-    {{description}}
-  </div>
-  <div *ngIf="descriptionParts" class="description">
-    <span *ngFor="let part of descriptionParts"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.term" routerLink="/term/{{part.term.termid}}">{{part.term.termid}}</a></span>
-  </div>
-
   <form>
   <table>
     <thead>
