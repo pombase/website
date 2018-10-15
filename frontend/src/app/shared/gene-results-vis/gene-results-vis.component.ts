@@ -109,7 +109,7 @@ export class GeneResultsVisComponent implements OnInit {
   columnWidth = 35;
   geneWidth = 40;
   columnGap = 10;
-  geneListMaxLength = 35;
+  geneListMaxLength = 40;
   colLabelHeight = 120;
   colLabelXOffset = 15;
 
