@@ -20,7 +20,7 @@
     max-width: 800px;
   }
   #gene-inline-browser-image {
-    overflow: hidden;
+    overflow: auto;
   }
 }
 
