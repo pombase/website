@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
@@ -32,6 +32,7 @@ export class GeneDetailsComponent implements OnInit {
   ensemblImageUrl = null;
   ensemblImage = new Image();
   jbrowseLinkUrl = null;
+  sanitizedJBrowseURL: SafeResourceUrl = null;
   extraMenuSections = [
     {
       id: 'transcript-sequence',
@@ -54,6 +55,7 @@ export class GeneDetailsComponent implements OnInit {
               private titleService: Title,
               private deployConfigService: DeployConfigService,
               private readonly meta: Meta,
+              private sanitizer: DomSanitizer,
               @Inject('Window') private window: any
              ) { }
 
@@ -264,10 +266,17 @@ export class GeneDetailsComponent implements OnInit {
           const tracks = 'PomBase%20forward%20strand%20features%2CDNA%2CPomBase%20reverse%20strand%20features';
           this.jbrowseLinkUrl =
             `jbrowse/?loc=${chrDisplayName}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
-        });
+
+          this.sanitizedJBrowseURL =
+            this.sanitizer.bypassSecurityTrustResourceUrl(this.jbrowseLinkUrl + '&tracklist=0');
+      });
     } else {
       this.jbrowseLinkUrl = null;
     }
+  }
+
+  getJBrowseIFrameURL(): SafeResourceUrl {
+    return this.sanitizedJBrowseURL;
   }
 
   private isGeneDetailPageType(typeName: string): boolean {
