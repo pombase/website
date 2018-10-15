@@ -30,6 +30,19 @@
     width: 100%;
     overflow: auto;
   }
+  .vis-selected-genes {
+    margin: 0.5em 0 0 0;
+  }
+}
+@media (min-width: 800px) {
+  .vis-selected-genes {
+    margin: 3em 0 0 4em;
+  }
+}
+
+.vis-selected-genes {
+  user-select: text;
+  display: inline-block;
 }
 
 .feature-size {
@@ -64,12 +77,6 @@ rect.vis-gene-selected:nth-child(10n) {
 
 .vis-gene:nth-child(10n) {
   fill: #e0e0e0;
-}
-
-.vis-selected-genes {
-  margin: 3em 0 0 0;
-  user-select: text;
-  display: inline-block;
 }
 
 .vis-selected-genes button {
