@@ -64,6 +64,12 @@ a {
   }
 }
 
+@media (min-width: 1300px) {
+  .details-page-summary {
+    min-width: 1000px;
+  }
+}
+
 .details-page-summary table td {
   vertical-align: top;
   padding: 0 40px 5px 0;

@@ -20,6 +20,11 @@
   }
 }
 
+.jbrowse-container {
+  max-width: 800px;
+  margin: auto;
+}
+
 @media (min-width: 800px) and (max-width: 1000px) {
   .jbrowse-container {
     height: 350px;
@@ -71,16 +76,18 @@
   padding-right: 30px;
 }
 
+#gene-summary {
+  display: inline-grid;
+}
+
 @supports (display: grid) {
   @media (min-width: 1200px) {
     #gene-summary {
-      display: inline-grid;
       grid-template-columns: min-content auto min-content auto;
     }
   }
   @media (max-width: 1200px) {
     #gene-summary {
-      display: grid;
       grid-template-columns: auto auto;
     }
   }
