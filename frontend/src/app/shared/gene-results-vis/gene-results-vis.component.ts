@@ -33,7 +33,7 @@ class GeneData {
         row[fieldName] = row[fieldName].term.name;
       }
     } else {
-      row[fieldName] = 'none';
+      row[fieldName] = 'unknown';
     }
   }
 
