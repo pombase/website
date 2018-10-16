@@ -268,7 +268,7 @@ export class GeneDetailsComponent implements OnInit {
             `jbrowse/?loc=${chrDisplayName}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
 
           this.sanitizedJBrowseURL =
-            this.sanitizer.bypassSecurityTrustResourceUrl(this.jbrowseLinkUrl + '&tracklist=0');
+            this.sanitizer.bypassSecurityTrustResourceUrl(this.jbrowseLinkUrl + '&tracklist=0&nav=0&overview=0');
       });
     } else {
       this.jbrowseLinkUrl = null;
