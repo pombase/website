@@ -83,12 +83,12 @@
       <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
       </iframe>
       </div>
-      <div class="ensembl-link-label">
+      <div *ngIf="deployConfigService.get('mode') != 'dev'" class="ensembl-link-label">
         <a href="http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?db=core;g={{geneDetails.uniquename}}">
           View in Ensembl genome browser ...
         </a>
       </div>
-      <div id="gene-inline-browser-image" *ngIf="ensemblImageUrl">
+      <div id="gene-inline-browser-image" *ngIf="ensemblImageUrl && deployConfigService.get('mode') != 'dev'">
         <img src="{{ensemblImageUrl}}" />
       </div>
       <div style="font-weight: bold" *ngIf="!ensemblImageUrl">
