@@ -78,9 +78,10 @@
       <div class="jbrowse-link">
         <a href="{{jbrowseLinkUrl}}">View region in JBrowse ...</a>
       </div>
-      <div *ngIf="deployConfigService.get('mode') == 'dev'">
-        <iframe *ngIf="getJBrowseIFrameURL()" [src]="getJBrowseIFrameURL()"
-                width="800px" height="360px"></iframe>
+      <div class="jbrowse-container"
+           *ngIf="getJBrowseIFrameURL() && deployConfigService.get('mode') == 'dev'">
+      <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
+      </iframe>
       </div>
       <div class="ensembl-link-label">
         <a href="http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?db=core;g={{geneDetails.uniquename}}">
