@@ -43,8 +43,8 @@
     </div>
 
     <div *ngIf="showResults()">
-        <svg #visSVG [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap) + 50 + leftMargin"
-             [attr.height]="colLabelHeight + genes.length * lineHeight + 10"
+        <svg #visSVG [attr.width]="visTotalWidth()"
+             [attr.height]="visTotalHeight()"
              xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
              id="gene-vis" overflow="visible">
 

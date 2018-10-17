@@ -464,6 +464,15 @@ export class GeneResultsVisComponent implements OnInit {
     return ret;
   }
 
+  visTotalWidth(): number {
+    return this.geneWidth + this.activeConfigNames.length * (this.columnWidth + this.columnGap) +
+      50 + this.leftMargin;
+  }
+
+  visTotalHeight(): number {
+    return this.colLabelHeight + this.genes.length * this.lineHeight + 10;
+  }
+
   ngOnInit() {
     this.sortedGeneUniquenames = this.genes.map(geneShort => geneShort.uniquename);
 
