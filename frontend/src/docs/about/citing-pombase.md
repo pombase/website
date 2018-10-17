@@ -8,8 +8,8 @@ To cite *S. pombe* genome data and annotation, please use:
 Lock A,	Rutherford K, Harris MA, Hayles	J, Oliver SG, Bähler J;	Wood V.\
 PomBase 2018: user-driven reimplementation of the fission yeast database provides rapid and intuitive access to diverse, interconnected information.\
 *Nucleic Acids Res.* 2018 (Database issue): gky961 Epub 2018 Oct 13.\
-PMID coming soon. [DOI:10.1093/nar/gky961](https://doi.org/10.1093/nar/gky961)
-<!-- [PMID:](http://www.ncbi.nlm.nih.gov/pubmed/)-->
+[PMID:30321395](http://www.ncbi.nlm.nih.gov/pubmed/30321395) [DOI:10.1093/nar/gky961](https://doi.org/10.1093/nar/gky961)
+
 
 ### Genome Sequence
 
