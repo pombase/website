@@ -73,8 +73,11 @@
               text-anchor: end;
               fill: #666;
             }
-            .col-label {
+            .col-label, .col-key-label {
               font-size: 80%;
+            }
+            .key-attr-value-text {
+              font-size: 70%;
             }
           </style>
 
@@ -121,6 +124,32 @@
                   container="body"
                   style="pointer-events: fill;">
             </svg:rect>
+          </svg:g>
+          <svg:g class="col-key" *ngFor="let columnName of activeConfigNames; let columnIndex = index">
+            <svg:text class="col-key-label"
+                      attr.transform="translate({{keyXPos()}} {{keyYPos(columnIndex)}})">
+              {{visColumnConfigMap[columnName].display_name}}
+            </svg:text>
+            <svg:g *ngFor="let item of visColumnConfigMap[columnName].attr_values | keyvalue; let attrValIndex = index">
+              <svg:rect class="key-attr-value-rect"
+                        [attr.height]="keyRectHeight"
+                        [attr.width]="keyRectWidth"
+                        [attr.x]="keyXPos()"
+                        [attr.y]="keyYPos(columnIndex) + attrValIndex * (keyRectHeight + keyAttrGap) + keyAttrGap + 3"
+                        [attr.fill]="item.value.color"
+                        stroke-width="1"
+                        stroke="#9999"
+                        style="pointer-events: fill;">
+              </svg:rect>
+
+              <svg:text class="key-attr-value-text"
+                        [attr.x]="keyXPos() + keyRectWidth + keyAttrGap"
+                        [attr.y]="keyYPos(columnIndex) + attrValIndex * (keyRectHeight + keyAttrGap) + keyAttrGap + keyRectHeight + 3"
+                        fill="#555"
+                        style="pointer-events: fill;">
+                {{item.value.display_name || item.key}}
+              </svg:text>
+            </svg:g>
           </svg:g>
         </svg>
     </div>

@@ -112,14 +112,21 @@ export class GeneResultsVisComponent implements OnInit {
 
   sortByFields = [];
 
+  geneListMaxLength = 40;
+
   leftMargin = 35;
   lineHeight = 3;
   columnWidth = 35;
   geneWidth = 40;
   columnGap = 10;
-  geneListMaxLength = 40;
   colLabelHeight = 120;
   colLabelXOffset = 15;
+  keyWidth = 200;
+  keyHeaderHeight = 28;
+  keyRectHeight = 10;
+  keyRectWidth = 10;
+  keyAttrGap = 2;
+  keyHeaderGap = 5;
 
   selectedGenes: { [index: string]: boolean } = {};
   selectedGeneList: Array<GeneData> = [];
@@ -466,11 +473,39 @@ export class GeneResultsVisComponent implements OnInit {
 
   visTotalWidth(): number {
     return this.geneWidth + this.activeConfigNames.length * (this.columnWidth + this.columnGap) +
-      50 + this.leftMargin;
+      this.keyWidth + this.leftMargin;
   }
 
   visTotalHeight(): number {
-    return this.colLabelHeight + this.genes.length * this.lineHeight + 10;
+    let retVal = this.colLabelHeight + this.genes.length * this.lineHeight + 10;
+
+    if (this.visColumnConfigs.length > 0) {
+      retVal = Math.max(retVal, this.keyYPos(this.visColumnConfigs.length));
+
+    }
+
+    return retVal;
+  }
+
+  keyXPos(): number {
+    return this.leftMargin + this.geneWidth + this.columnGap + 30 +
+      this.activeConfigNames.length * (this.columnWidth + this.columnGap);
+  }
+
+  keyYPos(index: number): number {
+    let offsetFromPrev = 0;
+
+    if (index > 0) {
+      for (let i = 0; i < index; i++) {
+        const conf = this.visColumnConfigs[i];
+        offsetFromPrev += Object.keys(conf.attr_values).length *
+          (this.keyRectHeight + this.keyAttrGap);
+      }
+
+      offsetFromPrev += (this.keyHeaderHeight + this.keyHeaderGap) * index;
+    }
+
+    return offsetFromPrev + this.colLabelHeight;
   }
 
   ngOnInit() {
