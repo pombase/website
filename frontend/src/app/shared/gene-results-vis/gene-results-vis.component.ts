@@ -121,12 +121,12 @@ export class GeneResultsVisComponent implements OnInit {
   columnGap = 10;
   colLabelHeight = 120;
   colLabelXOffset = 15;
-  keyWidth = 200;
-  keyHeaderHeight = 28;
+  keyWidth = 280;
+  keyHeaderHeight = 15;
   keyRectHeight = 10;
   keyRectWidth = 10;
   keyAttrGap = 2;
-  keyHeaderGap = 5;
+  keyHeaderGap = 20;
 
   selectedGenes: { [index: string]: boolean } = {};
   selectedGeneList: Array<GeneData> = [];
@@ -488,7 +488,7 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   keyXPos(): number {
-    return this.leftMargin + this.geneWidth + this.columnGap + 30 +
+    return this.leftMargin + this.geneWidth + this.columnGap + 50 +
       this.activeConfigNames.length * (this.columnWidth + this.columnGap);
   }
 
@@ -505,7 +505,7 @@ export class GeneResultsVisComponent implements OnInit {
       offsetFromPrev += (this.keyHeaderHeight + this.keyHeaderGap) * index;
     }
 
-    return offsetFromPrev + this.colLabelHeight;
+    return offsetFromPrev + this.colLabelHeight + this.keyHeaderHeight;
   }
 
   ngOnInit() {
