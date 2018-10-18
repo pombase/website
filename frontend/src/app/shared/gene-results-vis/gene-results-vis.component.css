@@ -3,7 +3,7 @@
   user-select: none;
 }
 
-.vis-column-select, .vis-results {
+.vis-column-select, .vis-results, .vis-results-and-selected {
   display: inline-block;
   vertical-align: top;
 }
@@ -34,7 +34,7 @@
     margin: 0.5em 0 0 0;
   }
 }
-@media (min-width: 800px) {
+@media (min-width: 900px) {
   .vis-selected-genes {
     margin: 120px 0 0 4em;
   }

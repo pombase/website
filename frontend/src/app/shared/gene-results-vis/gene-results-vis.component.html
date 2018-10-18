@@ -37,6 +37,7 @@
     </div>
     </div>
   </ng-template>
+  <div class="vis-results-and-selected">
   <div class="vis-results">
     <div *ngIf="!showResults()">
       (Select a column type from the list to the left)
@@ -178,5 +179,6 @@
     <button class="btn btn-primary"
     title="Send selected genes to the advanced search page"
     (click)="sendToQueryBuilder()">Filter</button>
+  </div>
   </div>
 </div>
