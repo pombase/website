@@ -131,13 +131,13 @@
                       attr.transform="translate({{keyXPos()}} {{keyYPos(columnIndex)}})">
               {{visColumnConfigMap[columnName].display_name}}
             </svg:text>
-            <svg:g *ngFor="let item of visColumnConfigMap[columnName].attr_values | keyvalue; let attrValIndex = index">
+            <svg:g *ngFor="let conf of attrValuesInUse[columnName]; let attrValIndex = index">
               <svg:rect class="key-attr-value-rect"
                         [attr.height]="keyRectHeight"
                         [attr.width]="keyRectWidth"
                         [attr.x]="keyXPos()"
                         [attr.y]="keyYPos(columnIndex) + attrValIndex * (keyRectHeight + keyAttrGap) + keyAttrGap + 3"
-                        [attr.fill]="item.value.color"
+                        [attr.fill]="conf.color"
                         stroke-width="1"
                         stroke="#9999"
                         style="pointer-events: fill;">
@@ -148,7 +148,7 @@
                         [attr.y]="keyYPos(columnIndex) + attrValIndex * (keyRectHeight + keyAttrGap) + keyAttrGap + keyRectHeight + 3"
                         fill="#555"
                         style="pointer-events: fill;">
-                {{item.value.display_name || item.key}}
+                {{conf.displayName}}
               </svg:text>
             </svg:g>
           </svg:g>

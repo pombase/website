@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { GeneShort } from '../../pombase-api.service';
-import { getAppConfig, VisColumnConfig } from '../../config';
+import { getAppConfig, VisColumnConfig, VisColumnAttrValueConfig } from '../../config';
 import { QueryService, HistoryEntry } from '../../query.service';
 import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult, ResultRow, TermAndName } from '../../pombase-query';
 import { Util } from '../util';
@@ -82,6 +82,10 @@ class GeneData {
   };
 }
 
+class AttrValueConf {
+  constructor(public displayName: string, public color: string) {}
+}
+
 @Component({
   selector: 'app-gene-results-vis',
   templateUrl: './gene-results-vis.component.html',
@@ -109,6 +113,8 @@ export class GeneResultsVisComponent implements OnInit {
 
   activeColumns: { [index: string]: boolean; } = {};
   activeConfigNames: Array<string> = [];
+
+  attrValuesInUse: { [colName: string]: Array<AttrValueConf> };
 
   sortByFields = [];
 
@@ -357,13 +363,19 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   processColumnResults(): void {
+    let attrValuesInUseCollector: { [columnName: string]: Set<string>} = {};
+
     this.visColumnNames.map((columnName, i) => {
       this.columnDisplayDataMap[columnName] = [];
+      attrValuesInUseCollector[columnName] = new Set();
     });
 
     this.sortedGeneUniquenames.map((geneUniquename, idx) => {
       for (const columnName of this.activeConfigNames) {
         const rowAttr = this.geneDataMap[geneUniquename].getField(columnName);
+
+        attrValuesInUseCollector[columnName].add(rowAttr);
+
         let prevRowAttr: string;
 
         if (idx === 0) {
@@ -396,6 +408,21 @@ export class GeneResultsVisComponent implements OnInit {
         }
       }
     });
+
+    this.attrValuesInUse = {};
+
+    for (const columnName of this.activeConfigNames) {
+      this.attrValuesInUse[columnName] = [];
+
+      const columnConf = this.visColumnConfigMap[columnName];
+      for (const attrName of Object.keys(columnConf.attr_values)) {
+         if (attrValuesInUseCollector[columnName].has(attrName)) {
+           const attrConf = columnConf.attr_values[attrName];
+           const confForTemplate = new AttrValueConf(attrConf.display_name || attrName, attrConf.color);
+           this.attrValuesInUse[columnName].push(confForTemplate);
+         }
+      }
+    }
   }
 
   runQuery(): void {
@@ -497,8 +524,8 @@ export class GeneResultsVisComponent implements OnInit {
     if (index > 0) {
       for (let i = 0; i < index; i++) {
         const confName = this.activeConfigNames[i];
-        const conf = this.visColumnConfigMap[confName];
-        offsetFromPrev += Object.keys(conf.attr_values).length *
+        const attrValues = this.attrValuesInUse[confName]
+        offsetFromPrev += attrValues.length *
           (this.keyRectHeight + this.keyAttrGap);
       }
 
