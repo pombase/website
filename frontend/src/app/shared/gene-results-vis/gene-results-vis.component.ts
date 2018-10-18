@@ -480,8 +480,7 @@ export class GeneResultsVisComponent implements OnInit {
     let retVal = this.colLabelHeight + this.genes.length * this.lineHeight + 10;
 
     if (this.visColumnConfigs.length > 0) {
-      retVal = Math.max(retVal, this.keyYPos(this.visColumnConfigs.length));
-
+      retVal = Math.max(retVal, this.keyYPos(this.activeConfigNames.length));
     }
 
     return retVal;
@@ -497,7 +496,8 @@ export class GeneResultsVisComponent implements OnInit {
 
     if (index > 0) {
       for (let i = 0; i < index; i++) {
-        const conf = this.visColumnConfigs[i];
+        const confName = this.activeConfigNames[i];
+        const conf = this.visColumnConfigMap[confName];
         offsetFromPrev += Object.keys(conf.attr_values).length *
           (this.keyRectHeight + this.keyAttrGap);
       }
