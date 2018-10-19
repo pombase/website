@@ -65,7 +65,7 @@ export class GeneListLookupComponent implements OnInit {
     let fileReader = new FileReader();
 
     fileReader.onloadend = (e) => {
-      this.inputText = fileReader.result;
+      this.inputText = fileReader.result as string;
     };
 
     fileReader.readAsText(file);
