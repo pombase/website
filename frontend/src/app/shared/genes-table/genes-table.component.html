@@ -49,7 +49,7 @@
     <span>{{visLegend}}</span>
   </legend>
 
-  <div class="description">
+  <div *ngIf="description || descriptionParts.length > 0" class="description">
     <span *ngIf="showingVisualisation">Visualisation for: </span>
     <span *ngIf="!showingVisualisation">Results for: </span>
     <span *ngIf="description">{{description}}</span>
