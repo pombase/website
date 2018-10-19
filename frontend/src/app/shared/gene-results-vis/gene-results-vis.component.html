@@ -94,7 +94,7 @@
                   (mouseleave)="geneLeave($event, geneData)"
                   [ngClass]="{'vis-gene-selected': selectedGenes[geneData.geneUniquename]}"
                   [attr.id]="geneData.id" [attr.height]="lineHeight"
-                  [attr.width]="geneWidth + activeConfigNames.length * (columnWidth + columnGap)"
+                  [attr.width]="geneWidth + activeColumnNames.length * (columnWidth + columnGap)"
                   [attr.x]="leftMargin"
                   [attr.y]="5 + colLabelHeight + geneData.geneIndex * lineHeight"
                   [popover]="genePopover"
@@ -104,7 +104,7 @@
                   style="pointer-events: inherit;">
             </svg:rect>
           </svg:g>
-          <svg:g *ngFor="let columnName of activeConfigNames; let columnIndex = index">
+          <svg:g *ngFor="let columnName of activeColumnNames; let columnIndex = index">
             <svg:text class="col-label"
                       attr.transform="translate({{leftMargin + colLabelXOffset + geneWidth + columnIndex * (columnWidth + columnGap) + columnGap}} {{colLabelHeight}}) rotate(-60)">
               {{visColumnConfigMap[columnName].display_name}}
@@ -126,7 +126,7 @@
                   style="pointer-events: fill;">
             </svg:rect>
           </svg:g>
-          <svg:g class="col-key" *ngFor="let columnName of activeConfigNames; let columnIndex = index">
+          <svg:g class="col-key" *ngFor="let columnName of activeColumnNames; let columnIndex = index">
             <svg:text class="col-key-label"
                       attr.transform="translate({{keyXPos()}} {{keyYPos(columnIndex)}})">
               {{visColumnConfigMap[columnName].display_name}}

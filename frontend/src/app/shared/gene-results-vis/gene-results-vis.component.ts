@@ -112,7 +112,7 @@ export class GeneResultsVisComponent implements OnInit {
   queryColumnNames = new Set<string>();
 
   activeColumns: { [index: string]: boolean; } = {};
-  activeConfigNames: Array<string> = [];
+  activeColumnNames: Array<string> = [];
 
   attrValuesInUse: { [colName: string]: Array<AttrValueConf> };
 
@@ -371,7 +371,7 @@ export class GeneResultsVisComponent implements OnInit {
     });
 
     this.sortedGeneUniquenames.map((geneUniquename, idx) => {
-      for (const columnName of this.activeConfigNames) {
+      for (const columnName of this.activeColumnNames) {
         const rowAttr = this.geneDataMap[geneUniquename].getField(columnName);
 
         attrValuesInUseCollector[columnName].add(rowAttr);
@@ -411,7 +411,7 @@ export class GeneResultsVisComponent implements OnInit {
 
     this.attrValuesInUse = {};
 
-    for (const columnName of this.activeConfigNames) {
+    for (const columnName of this.activeColumnNames) {
       this.attrValuesInUse[columnName] = [];
 
       const columnConf = this.visColumnConfigMap[columnName];
@@ -468,10 +468,10 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   confSelectionChanged(): void {
-    this.activeConfigNames = [];
+    this.activeColumnNames = [];
     for (const visConfigName of this.visColumnNames) {
       if (this.activeColumns[visConfigName]) {
-        this.activeConfigNames.push(visConfigName);
+        this.activeColumnNames.push(visConfigName);
       }
     }
 
@@ -487,7 +487,7 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   showResults(): boolean {
-    return this.activeConfigNames.length > 0 && Object.keys(this.geneDataMap).length > 0;
+    return this.activeColumnNames.length > 0 && Object.keys(this.geneDataMap).length > 0;
   }
 
   getScaleIndexes(): Array<number> {
@@ -499,7 +499,7 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   visTotalWidth(): number {
-    return this.geneWidth + this.activeConfigNames.length * (this.columnWidth + this.columnGap) +
+    return this.geneWidth + this.activeColumnNames.length * (this.columnWidth + this.columnGap) +
       this.keyWidth + this.leftMargin;
   }
 
@@ -507,7 +507,7 @@ export class GeneResultsVisComponent implements OnInit {
     let retVal = this.colLabelHeight + this.genes.length * this.lineHeight + 10;
 
     if (this.visColumnConfigs.length > 0) {
-      retVal = Math.max(retVal, this.keyYPos(this.activeConfigNames.length));
+      retVal = Math.max(retVal, this.keyYPos(this.activeColumnNames.length));
     }
 
     return retVal;
@@ -515,7 +515,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   keyXPos(): number {
     return this.leftMargin + this.geneWidth + this.columnGap + 50 +
-      this.activeConfigNames.length * (this.columnWidth + this.columnGap);
+      this.activeColumnNames.length * (this.columnWidth + this.columnGap);
   }
 
   keyYPos(index: number): number {
@@ -523,7 +523,7 @@ export class GeneResultsVisComponent implements OnInit {
 
     if (index > 0) {
       for (let i = 0; i < index; i++) {
-        const confName = this.activeConfigNames[i];
+        const confName = this.activeColumnNames[i];
         const attrValues = this.attrValuesInUse[confName]
         offsetFromPrev += attrValues.length *
           (this.keyRectHeight + this.keyAttrGap);
