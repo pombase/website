@@ -50,50 +50,52 @@ gene is annotated to more than one GO term, one is selected for the
 QuiLT display according to a set order of precedence:
 
 - GO biological process
-   -  signaling (GO:0023052)
-   -  gene expression (GO:0010467)
-   -  chromatin remodeling (GO:0006338)> protein folding (GO:0006457)
-   -  cellular component biogenesis (GO:0044085)
-   -  DNA metabolic process (GO:0006259)> cell cycle (GO:0007049)
-   -  cytoskeleton organization (GO:0007010)
-   -  membrane organization (GO:0061024)
-   -  organelle localization (GO:0051640)
-   -  lipid metabolic process (GO:0006629)
-   -  small molecule metabolic process (GO:0044281)
-   -  generation of precursor metabolites and energy (GO:0006091)
-   -  transport (GO:0006810)
-   -  cellular catabolic process (GO:0044248)
-   -  detoxification (GO:0098754)
-   -  other (i.e none of the above)
-   -  unknown
+   - signaling (GO:0023052)
+   - gene expression (GO:0010467)
+   - chromatin remodeling (GO:0006338)
+   - protein folding (GO:0006457)
+   - cellular component biogenesis (GO:0044085)
+   - DNA metabolic process (GO:0006259)
+   - cell cycle (GO:0007049)
+   - cytoskeleton organization (GO:0007010)
+   - membrane organization (GO:0061024)
+   - organelle localization (GO:0051640)
+   - lipid metabolic process (GO:0006629)
+   - small molecule metabolic process (GO:0044281)
+   - generation of precursor metabolites and energy (GO:0006091)
+   - transport (GO:0006810)
+   - cellular catabolic process (GO:0044248)
+   - detoxification (GO:0098754)
+   - other (i.e none of the above)
+   - unknown
 
 - GO cellular component
-   -  nucleus (GO:0005634)
-   -  endoplasmic reticulum (ER; GO:0005783)
-   -  mitochondrion (GO:0005739)
-   -  cytoplasm (GO:0005737)
-   -  other (i.e none of the above)
-   -  unknown
+   - nucleus (GO:0005634)
+   - endoplasmic reticulum (ER; GO:0005783)
+   - mitochondrion (GO:0005739)
+   - cytoplasm (GO:0005737)
+   - other (i.e none of the above)
+   - unknown
 
 - GO molecular function
-   -  oxidoreductase activity (GO:0016491)
-   -  hydrolase activity (GO:0016787)
-   -  transferase activity (GO:0016740)
-   -  ligase activity (GO:0016874)
-   -  cyclase activity (GO:0009975)
-   -  lyase activity (GO:0016829)
-   -  unknown catalytic activity (GO:0003824)
-   -  enzyme regulator activity (GO:0030234)
-   -  transcription regulator activity (GO:0140110)
-   -  transporter activity (GO:0005215)
-   -  cytoskeletal protein binding (GO:0008092)
-   -  unfolded protein binding (GO:0051082)
-   -  DNA binding (GO:0003677)
-   -  RNA binding (GO:0003723)
-   -  metal ion binding (GO:0046872)
-   -  lipid binding (GO:0008289)
-   -  cell adhesion mediator activity (GO:0098631)
-   -  structural molecule activity (GO:0005198)
-   -  other (i.e none of the above)
-   -  unknown
+   - oxidoreductase activity (GO:0016491)
+   - hydrolase activity (GO:0016787)
+   - transferase activity (GO:0016740)
+   - ligase activity (GO:0016874)
+   - cyclase activity (GO:0009975)
+   - lyase activity (GO:0016829)
+   - unknown catalytic activity (GO:0003824)
+   - enzyme regulator activity (GO:0030234)
+   - DNA binding (GO:0003677)
+   - transcription regulator activity (GO:0140110)
+   - transporter activity (GO:0005215)
+   - cytoskeletal protein binding (GO:0008092)
+   - unfolded protein binding (GO:0051082)
+   - RNA binding (GO:0003723)
+   - metal ion binding (GO:0046872)
+   - lipid binding (GO:0008289)
+   - cell adhesion mediator activity (GO:0098631)
+   - structural molecule activity (GO:0005198)
+   - other (i.e none of the above)
+   - unknown
 
