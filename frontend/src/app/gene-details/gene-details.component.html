@@ -75,9 +75,6 @@
 
     <div class="chromosome-region-view"
          *ngIf="appConfig.isConfigOrganism(geneDetails.taxonid)">
-      <div class="jbrowse-link">
-        <a href="{{jbrowseLinkUrl}}">View region in JBrowse ...</a>
-      </div>
       <div class="jbrowse-container"
            *ngIf="getJBrowseIFrameURL() && deployConfigService.get('mode') == 'dev'">
       <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
