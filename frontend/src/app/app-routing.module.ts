@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, NoPreloading } from '@angular/router';
 
-import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
@@ -165,7 +162,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: NoPreloading,
                                            scrollPositionRestoration: 'enabled' }),
-            Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])],
+  ],
   exports: [RouterModule],
   providers: []
 })

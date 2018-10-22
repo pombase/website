@@ -187,7 +187,7 @@ export function windowFactory() {
     PopoverModule.forRoot(),
     ModalModule.forRoot(),
     SharedModule,
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    Angulartics2Module.forRoot(),
     CookieLawModule,
     NgxTwitterTimelineModule,
   ],
@@ -205,6 +205,6 @@ export function windowFactory() {
 })
 export class AppModule {
   constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
-
+    angulartics2GoogleAnalytics.startTracking();
   }
 }
