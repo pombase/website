@@ -12,14 +12,14 @@
   display: inline;
 }
 
-@media (min-width: 1100px) { 
+@media (min-width: 1100px) {
   .vis-column-select {
     min-width: 17em;
     margin-top: 3em;
     display: inline-block;
   }
 }
-@media (max-width: 1100px) { 
+@media (max-width: 1100px) {
   .vis-column-select {
     margin-top: 0.5em;
     display: block;
@@ -76,14 +76,9 @@
   grid-gap: 0 2em;
 }
 
-.vis-selected-genes-gene {
-}
-
 rect.vis-column {
-  fill-opacity: 0.7;
   stroke-width: 0;
 }
-
 
 rect.vis-column:hover {
   fill-opacity: 1;
