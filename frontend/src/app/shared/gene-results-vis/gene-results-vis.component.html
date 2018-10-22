@@ -40,7 +40,12 @@
   <div class="vis-results-and-selected">
   <div class="vis-results">
     <div *ngIf="!showResults()">
+    <div *ngIf="activeColumnNames.length == 0">
       (Select a column type from the list to the left)
+    </div>
+    <div *ngIf="activeColumnNames.length != 0">
+      Loading ...
+    </div>
     </div>
 
     <div *ngIf="showResults()">
