@@ -75,7 +75,6 @@
 
             .scale-label {
               font-size: 75%;
-              dominant-baseline: central;
               text-anchor: end;
               fill: #666;
             }
@@ -91,6 +90,7 @@
           </style>
 
           <svg:text *ngFor="let idx of getScaleIndexes()" class="scale-label"
+                    dy="0.4em"
                     attr.transform="translate({{leftMargin-3}} {{lineHeight * idx + colLabelHeight + 2}})">
             {{idx}}
           </svg:text>
