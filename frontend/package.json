@@ -28,7 +28,7 @@
     "blob": "0.0.4",
     "bootstrap3": "^3.3.5",
     "core-js": "^2.5.7",
-    "file-saver": "^2.0.0-rc.3",
+    "file-saver": "^2.0.0-rc.4",
     "ngx-bootstrap": "^3.0.1",
     "ngx-twitter-timeline": "^0.1.4",
     "rxjs": "^6.3.3",
