@@ -26,9 +26,11 @@ gene:
 7.  The size of the mature gene product. For protein-coding genes, the
     length (number of amino acid residues) and molecular weight are
     shown.
-8.  Links to genome browsers (PomBase JBrowse and the *S. pombe*
-    browser at Ensembl Fungi), centred on the location of the gene
-9.  Static graphic from the PomBase Genome Browser showing the region
-    around the gene
-
-10. Links to gene pages for nearby genes
+8.  Interactive graphic from PomBase JBrowse, centred on the location
+    of the gene. Drag to scroll left and right, double-click to zoom
+    in, shift-double-click to zoom out, and click a feature to see
+    details in a popup. The "Full-screen view" link in the corner
+    opens the fully functional JBrowse in a new tab or
+    window. Reloading a gene page restores the display to the default
+    location and zoom level.
+9.  Links to gene pages for nearby genes
