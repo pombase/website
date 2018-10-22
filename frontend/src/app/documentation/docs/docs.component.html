@@ -4506,9 +4506,8 @@ PomBase using the Ensembl viewer.</p>
 <li>Category describing how well-studied a gene is; see the <a routerLink="/status/gene-characterisation">Gene Characterisation</a> page for details</li>
 <li>Indicates whether a gene encodes protein, specifies a non-coding RNA, or is a pseudogene</li>
 <li>The size of the mature gene product. For protein-coding genes, the length (number of amino acid residues) and molecular weight are shown.</li>
-<li>Links to genome browsers (PomBase JBrowse and the <em>S. pombe</em> browser at Ensembl Fungi), centred on the location of the gene</li>
-<li><p>Static graphic from the PomBase Genome Browser showing the region around the gene</p></li>
-<li><p>Links to gene pages for nearby genes</p></li>
+<li>Interactive graphic from PomBase JBrowse, centred on the location of the gene. Drag to scroll left and right, double-click to zoom in, shift-double-click to zoom out, and click a feature to see details in a popup. The &quot;Full-screen view&quot; link in the corner opens the fully functional JBrowse in a new tab or window. Reloading a gene page restores the display to the default location and zoom level.</li>
+<li>Links to gene pages for nearby genes</li>
 </ol>
 
   </div>
@@ -5600,7 +5599,8 @@ PomBase using the Ensembl viewer.</p>
 <h4 id="go-annotation-precedence">GO annotation precedence</h4>
 <p>In each branch of GO, only one term can be included for display. If a gene is annotated to more than one GO term, one is selected for the QuiLT display according to a set order of precedence:</p>
 <ul>
-<li>GO biological process</li>
+<li>GO biological process
+<ul>
 <li>signaling (GO:0023052)</li>
 <li>gene expression (GO:0010467)</li>
 <li>chromatin remodeling (GO:0006338)</li>
@@ -5618,15 +5618,19 @@ PomBase using the Ensembl viewer.</p>
 <li>cellular catabolic process (GO:0044248)</li>
 <li>detoxification (GO:0098754)</li>
 <li>other (i.e none of the above)</li>
-<li><p>unknown</p></li>
-<li>GO cellular component</li>
+<li>unknown</li>
+</ul></li>
+<li>GO cellular component
+<ul>
 <li>nucleus (GO:0005634)</li>
 <li>endoplasmic reticulum (ER; GO:0005783)</li>
 <li>mitochondrion (GO:0005739)</li>
 <li>cytoplasm (GO:0005737)</li>
 <li>other (i.e none of the above)</li>
-<li><p>unknown</p></li>
-<li>GO molecular function</li>
+<li>unknown</li>
+</ul></li>
+<li>GO molecular function
+<ul>
 <li>oxidoreductase activity (GO:0016491)</li>
 <li>hydrolase activity (GO:0016787)</li>
 <li>transferase activity (GO:0016740)</li>
@@ -5646,7 +5650,8 @@ PomBase using the Ensembl viewer.</p>
 <li>cell adhesion mediator activity (GO:0098631)</li>
 <li>structural molecule activity (GO:0005198)</li>
 <li>other (i.e none of the above)</li>
-<li><p>unknown</p></li>
+<li>unknown</li>
+</ul></li>
 </ul>
 
   </div>
@@ -7654,6 +7659,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-pombase-genomic-region-graphics">New PomBase genomic region graphics</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-nar-database-issue">PomBase NAR Database Issue</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#fungal-pathogen-genomics-course-registration-open">Fungal Pathogen Genomics Course 2019 - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#transcript-tracks-atkinson-et-al-loaded">Transcript tracks from Atkinson et al (2018) loaded</a></div>
@@ -8552,8 +8558,16 @@ PomBase 2018: user-driven reimplementation of the fission yeast database provide
 <p>We have updated the <a routerLink="/about/citing-pombase">Citing PomBase</a> to recommend citing this new paper. Thank you all for guiding the development of the new, improved PomBase, and for your continued usage, curation contributions, and suggestions!</p>
 
   </div>
+  <div *ngIf="pageName == 'jbrowse-graphics-gene-page'">
+<h3 id="new-pombase-genomic-region-graphics">New PomBase genomic region graphics</h3>
+<p>PomBase gene pages now use interactive graphics from PomBase JBrowse to depict the genomic region around the gene. Drag to scroll left and right, double-click to zoom in, shift-double-click to zoom out, and click a feature to see details in a popup. The &quot;Full-screen view&quot; link in the corner opens the fully functional JBrowse in a new tab or window. Reloading a gene page restores the display to the default location and zoom level.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
+<h3 id="new-pombase-genomic-region-graphics">New PomBase genomic region graphics</h3>
+<p><em>2018-10-23</em></p>
+<p>PomBase gene pages now use interactive graphics from PomBase JBrowse to depict the genomic region around the gene. Drag to scroll left and right, double-click to zoom in, shift-double-click to zoom out, and click a feature to see details in a popup. The &quot;Full-screen view&quot; link in the corner opens the fully functional JBrowse in a new tab or window. Reloading a gene page restores the display to the default location and zoom level.</p>
 <h3 id="pombase-nar-database-issue">PomBase NAR Database Issue</h3>
 <p><em>2018-10-15</em></p>
 <p>PomBase has published a new paper in Nucleic Acids Research's well-known annual Database Issue, now available as an <a href="https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gky961/5128936">open-access Advance Article</a>.</p>
