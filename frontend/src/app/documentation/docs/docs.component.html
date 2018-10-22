@@ -5574,6 +5574,82 @@ PomBase using the Ensembl viewer.</p>
 </ol>
 
   </div>
+  <div *ngIf="pageName == 'quick-little-tool'">
+<h2 id="quick-little-tool">Quick Little Tool</h2>
+<p>PomBase's Quick Little Tool (QuiLT) allows you to view multiple types of annotation for genes in a list in a single graphical display.</p>
+<div class="figure">
+<img src="assets/quilt_display.png" alt="Quick Little Tool display" width="600" />
+<p class="caption">Quick Little Tool display</p>
+</div>
+<h3 id="finding-quilt">Finding QuiLT</h3>
+<p>On any gene list page, including Advanced Search results and the gene lists linked to ontology term pages, click the &quot;Visualise&quot; button to reach QuiLT. To return to the previous page, use the &quot;Finish visualisation&quot; button.</p>
+<h3 id="adding-and-sorting-annotations">Adding and sorting annotations</h3>
+<p>In the QuiLT display, each row represents a single gene, and each column is an annotation type.</p>
+<p>Use the checkboxes (1) to toggle an annotation type on and off. When annotations are shown, a link appears to sort on that annotation type. You may want to try different combinations of which types are shown, and which used to sort the list, until you get a display you like. You can download the graph (with key) in SVG format at any time (2). The key (4) shows only terms used to annotate genes in the list, so for small gene lists not all terms may appear.</p>
+<p>Click on a row to select a single gene, or click on a box in any column (3) to select all genes in it. In the displayed gene list, you can clear the selection (5) or use the &quot;Filter&quot; button (6) to create a new gene list from the selection (which you can then visualise in QuiLT).</p>
+<h3 id="available-annotation-types">Available annotation types</h3>
+<p>At present, QuiLT includes:</p>
+<ul>
+<li>deletion viability</li>
+<li>presence or absence of budding yeast orthologs</li>
+<li>presence or absence of human orthologs</li>
+<li>GO biological process</li>
+<li>GO cellular component</li>
+<li>GO molecular function</li>
+</ul>
+<h4 id="go-annotation-precedence">GO annotation precedence</h4>
+<p>In each branch of GO, only one term can be included for display. If a gene is annotated to more than one GO term, one is selected for the QuiLT display according to a set order of precedence:</p>
+<ul>
+<li>GO biological process</li>
+<li>signaling (GO:0023052)</li>
+<li>gene expression (GO:0010467)</li>
+<li>chromatin remodeling (GO:0006338)</li>
+<li>protein folding (GO:0006457)</li>
+<li>cellular component biogenesis (GO:0044085)</li>
+<li>DNA metabolic process (GO:0006259)</li>
+<li>cell cycle (GO:0007049)</li>
+<li>cytoskeleton organization (GO:0007010)</li>
+<li>membrane organization (GO:0061024)</li>
+<li>organelle localization (GO:0051640)</li>
+<li>lipid metabolic process (GO:0006629)</li>
+<li>small molecule metabolic process (GO:0044281)</li>
+<li>generation of precursor metabolites and energy (GO:0006091)</li>
+<li>transport (GO:0006810)</li>
+<li>cellular catabolic process (GO:0044248)</li>
+<li>detoxification (GO:0098754)</li>
+<li>other (i.e none of the above)</li>
+<li><p>unknown</p></li>
+<li>GO cellular component</li>
+<li>nucleus (GO:0005634)</li>
+<li>endoplasmic reticulum (ER; GO:0005783)</li>
+<li>mitochondrion (GO:0005739)</li>
+<li>cytoplasm (GO:0005737)</li>
+<li>other (i.e none of the above)</li>
+<li><p>unknown</p></li>
+<li>GO molecular function</li>
+<li>oxidoreductase activity (GO:0016491)</li>
+<li>hydrolase activity (GO:0016787)</li>
+<li>transferase activity (GO:0016740)</li>
+<li>ligase activity (GO:0016874)</li>
+<li>cyclase activity (GO:0009975)</li>
+<li>lyase activity (GO:0016829)</li>
+<li>unknown catalytic activity (GO:0003824)</li>
+<li>enzyme regulator activity (GO:0030234)</li>
+<li>DNA binding (GO:0003677)</li>
+<li>transcription regulator activity (GO:0140110)</li>
+<li>transporter activity (GO:0005215)</li>
+<li>cytoskeletal protein binding (GO:0008092)</li>
+<li>unfolded protein binding (GO:0051082)</li>
+<li>RNA binding (GO:0003723)</li>
+<li>metal ion binding (GO:0046872)</li>
+<li>lipid binding (GO:0008289)</li>
+<li>cell adhesion mediator activity (GO:0098631)</li>
+<li>structural molecule activity (GO:0005198)</li>
+<li>other (i.e none of the above)</li>
+<li><p>unknown</p></li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'simple-search-documentation'">
 <h2 id="simple-search">Simple search</h2>
 <p>The simple search is available via the search box in the header on every PomBase page:</p>
