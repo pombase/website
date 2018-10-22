@@ -98,7 +98,6 @@ export interface VisColumnAttrValueConfig {
 export interface VisColumnConfig {
   name: string;
   display_name: string;
-  default_order: string;
   column_type: string;
   attr_values: {
     [value: string]: VisColumnAttrValueConfig;
@@ -109,6 +108,14 @@ export interface DocumentationConfig {
   // titles for each path / Markdown file
   [path: string]: string;
 }
+
+export interface GeneResultsVisConfig {
+  columns: Array<VisColumnConfig>;
+};
+
+export interface GeneResultsConfig {
+  visualisation: GeneResultsVisConfig;
+};
 
 export interface AppConfig {
   site_name: string;
@@ -141,11 +148,10 @@ export interface AppConfig {
 
   queryBuilder: QueryBuilderConfig;
 
-  geneResults: {
-    visualisation: {
-      columns: Array<VisColumnConfig>;
-    }
-  };
+  _geneResults: GeneResultsConfig;
+  _processedGeneResults: GeneResultsConfig;
+
+  getGeneResultsConfig(): GeneResultsConfig;
 
   // return true iff the genus and species match the configured organism
   isConfigOrganism(taxon: number): boolean;
@@ -797,7 +803,28 @@ let _appConfig: AppConfig = {
     ],
   },
 
-  geneResults: pombaseConfig.gene_results,
+  _geneResults: pombaseConfig.gene_results,
+  _processedGeneResults: null,
+
+  getGeneResultsConfig(): GeneResultsConfig {
+    let geneResultsConfig: GeneResultsConfig = this._geneResults;
+    if (this._processedGeneResults === null) {
+      for (let columnConfig of geneResultsConfig.visualisation.columns) {
+        let index = 0;
+        for (let attrVal of Object.keys(columnConfig.attr_values)) {
+          let attrValueConfig = columnConfig.attr_values[attrVal];
+          if (!attrValueConfig.sort_priority) {
+            attrValueConfig.sort_priority = index;
+          }
+          index++;
+        }
+      }
+
+      this._processedGeneResults = geneResultsConfig;
+    }
+
+    return this._processedGeneResults;
+  },
 
   isConfigOrganism(taxonid: number): boolean {
     return taxonid = this.load_organism_taxonid;

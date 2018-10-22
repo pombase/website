@@ -139,7 +139,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   constructor(private queryService: QueryService,
               private router: Router) {
-    const colConfigs = getAppConfig().geneResults.visualisation.columns;
+    const colConfigs = getAppConfig().getGeneResultsConfig().visualisation.columns;
     this.visColumnConfigMap = {};
     this.visColumnConfigs = [];
     this.visColumnNames = [];
@@ -323,22 +323,13 @@ export class GeneResultsVisComponent implements OnInit {
                              this.geneDataMap[geneUniquenameB].getGeneShort());
     } else {
       const fieldConfig = this.visColumnConfigMap[sortFieldName];
-      const defaultOrder = fieldConfig.default_order;
       const fieldAValue = this.geneDataMap[geneUniquenameA].getField(sortFieldName);
       const fieldBValue = this.geneDataMap[geneUniquenameB].getField(sortFieldName);
 
-      if (defaultOrder === 'sort_priority') {
-        const geneAPriority = fieldConfig.attr_values[fieldAValue].sort_priority;
-        const geneBPriority = fieldConfig.attr_values[fieldBValue].sort_priority;
+      const geneAPriority = fieldConfig.attr_values[fieldAValue].sort_priority;
+      const geneBPriority = fieldConfig.attr_values[fieldBValue].sort_priority;
 
-        res = geneAPriority - geneBPriority;
-      } else {
-        if (defaultOrder === 'forward') {
-          res = fieldAValue.localeCompare(fieldBValue);
-        } else {
-          res = fieldBValue.localeCompare(fieldAValue);
-        }
-      }
+      res = geneAPriority - geneBPriority;
     }
 
     if (res === 0 && fieldNames.length > 1) {

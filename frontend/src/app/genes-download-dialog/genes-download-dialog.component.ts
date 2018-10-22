@@ -50,7 +50,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   };
 
   fieldsForServer =
-    getAppConfig().geneResults.visualisation.columns
+    getAppConfig().getGeneResultsConfig().visualisation.columns
     .filter(conf => conf.column_type !== 'ortholog');
 
   constructor(private pombaseApiService: PombaseAPIService,
