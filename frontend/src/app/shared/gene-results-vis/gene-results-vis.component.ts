@@ -16,8 +16,9 @@ class ColumnDisplayData {
               public rowAttr: string,
               public startIndex: number, public endIndex: number,
               public color: string, public geneUniquenames: Array<string>) {
-                if (columnConfig.attr_values[rowAttr] && columnConfig.attr_values[rowAttr].display_name) {
-                  this.displayName = columnConfig.attr_values[rowAttr].display_name;
+                if (columnConfig.attrValuesMap.get(rowAttr) &&
+                    columnConfig.attrValuesMap.get(rowAttr).display_name) {
+                  this.displayName = columnConfig.attrValuesMap.get(rowAttr).display_name;
                 } else {
                   this.displayName = rowAttr;
                 }
@@ -326,8 +327,8 @@ export class GeneResultsVisComponent implements OnInit {
       const fieldAValue = this.geneDataMap[geneUniquenameA].getField(sortFieldName);
       const fieldBValue = this.geneDataMap[geneUniquenameB].getField(sortFieldName);
 
-      const geneAPriority = fieldConfig.attr_values[fieldAValue].sort_priority;
-      const geneBPriority = fieldConfig.attr_values[fieldBValue].sort_priority;
+      const geneAPriority = fieldConfig.attrValuesMap.get(fieldAValue).sort_priority;
+      const geneBPriority = fieldConfig.attrValuesMap.get(fieldBValue).sort_priority;
 
       res = geneAPriority - geneBPriority;
     }
@@ -381,7 +382,7 @@ export class GeneResultsVisComponent implements OnInit {
             this.geneDataMap[geneUniquename].getField(columnName) !== prevRowAttr) {
           let color = '#888';  // default
           const attrConfig =
-            this.visColumnConfigMap[columnName].attr_values[rowAttr];
+            this.visColumnConfigMap[columnName].attrValuesMap.get(rowAttr);
 
           if (attrConfig) {
             color = attrConfig.color;
@@ -406,9 +407,9 @@ export class GeneResultsVisComponent implements OnInit {
       this.attrValuesInUse[columnName] = [];
 
       const columnConf = this.visColumnConfigMap[columnName];
-      for (const attrName of Object.keys(columnConf.attr_values)) {
+      for (const attrName of columnConf.attrValuesMap.keys()) {
          if (attrValuesInUseCollector[columnName].has(attrName)) {
-           const attrConf = columnConf.attr_values[attrName];
+           const attrConf = columnConf.attrValuesMap.get(attrName);
            const confForTemplate = new AttrValueConf(attrConf.display_name || attrName, attrConf.color);
            this.attrValuesInUse[columnName].push(confForTemplate);
          }

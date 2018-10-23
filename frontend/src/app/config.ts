@@ -90,6 +90,7 @@ export interface PredefinedQueryConfig {
 }
 
 export interface VisColumnAttrValueConfig {
+  name: string;
   color: string;
   display_name: string;
   sort_priority: number;
@@ -99,9 +100,8 @@ export interface VisColumnConfig {
   name: string;
   display_name: string;
   column_type: string;
-  attr_values: {
-    [value: string]: VisColumnAttrValueConfig;
-  }
+  attr_values: Array<VisColumnAttrValueConfig>;
+  attrValuesMap: Map<string, VisColumnAttrValueConfig>;
 }
 
 export interface DocumentationConfig {
@@ -810,13 +810,14 @@ let _appConfig: AppConfig = {
     let geneResultsConfig: GeneResultsConfig = this._geneResults;
     if (this._processedGeneResults === null) {
       for (let columnConfig of geneResultsConfig.visualisation.columns) {
+        columnConfig.attrValuesMap = new Map();
         let index = 0;
-        for (let attrVal of Object.keys(columnConfig.attr_values)) {
-          let attrValueConfig = columnConfig.attr_values[attrVal];
+        for (let attrValueConfig of columnConfig.attr_values) {
           if (!attrValueConfig.sort_priority) {
             attrValueConfig.sort_priority = index;
           }
           index++;
+          columnConfig.attrValuesMap.set(attrValueConfig.name, attrValueConfig);
         }
       }
 
