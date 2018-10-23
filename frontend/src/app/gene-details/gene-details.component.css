@@ -3,6 +3,7 @@
 }
 
 #gene-details .chromosome-region-view {
+  padding-top: 1em;
 }
 
 @media (max-width: 800px) {
