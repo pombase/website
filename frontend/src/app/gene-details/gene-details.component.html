@@ -75,28 +75,11 @@
 
     <div class="chromosome-region-view"
          *ngIf="appConfig.isConfigOrganism(geneDetails.taxonid)">
-      <div class="jbrowse-link"
-           *ngIf="getJBrowseIFrameURL() && deployConfigService.get('mode') != 'dev'">
-        <a href="{{jbrowseLinkUrl}}">View region in JBrowse ...</a>
-      </div>
-      <div class="jbrowse-container"
-           *ngIf="getJBrowseIFrameURL() && deployConfigService.get('mode') == 'dev'">
-      <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
-      </iframe>
-      </div>
-      <div *ngIf="deployConfigService.get('mode') != 'dev'" class="ensembl-link-label">
-        <a href="http://fungi.ensembl.org/Schizosaccharomyces_pombe/Location/View?db=core;g={{geneDetails.uniquename}}">
-          View in Ensembl genome browser ...
-        </a>
-      </div>
-      <div id="gene-inline-browser-image" *ngIf="ensemblImageUrl && deployConfigService.get('mode') != 'dev'">
-        <img src="{{ensemblImageUrl}}" />
-      </div>
-      <div style="font-weight: bold" *ngIf="!ensemblImageUrl">
-        Genes around {{geneDetails.uniquename}}:
+      <div class="jbrowse-container" *ngIf="getJBrowseIFrameURL()">
+        <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
+        </iframe>
       </div>
     </div>
-
 
     <app-gene-neighbourhood [focusGeneUniquename]="geneDetails.uniquename"
                             [focusGeneName]="geneDetails.name"

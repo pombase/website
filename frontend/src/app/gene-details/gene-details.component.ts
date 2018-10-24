@@ -29,8 +29,6 @@ export class GeneDetailsComponent implements OnInit {
   showProteinFeatures = false;
   productSize = '';
   organism = null;
-  ensemblImageUrl = null;
-  ensemblImage = new Image();
   jbrowseLinkUrl = null;
   sanitizedJBrowseURL: SafeResourceUrl = null;
   extraMenuSections = [
@@ -287,15 +285,6 @@ export class GeneDetailsComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
         let uniquename = params['uniquename'];
-
-        if (this.appConfig.missingBrowserImages.indexOf(uniquename) == -1) {
-          // (slightly) prefetch the image
-          this.ensemblImageUrl = `/browser_images/${uniquename}_gene.png`;
-          this.ensemblImage.src = this.ensemblImageUrl;
-        } else {
-          this.ensemblImageUrl = null;
-          this.ensemblImage.src = null;
-        }
 
         // delay api call so image request is first
         setTimeout(() => {
