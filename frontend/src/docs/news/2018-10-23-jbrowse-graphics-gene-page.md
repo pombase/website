@@ -1,4 +1,5 @@
 ### New PomBase genomic region graphics
+<!-- newsfeed_thumbnail: browser.png -->
 
 PomBase gene pages now use interactive graphics from PomBase JBrowse
 to depict the genomic region around the gene. Drag to scroll left and

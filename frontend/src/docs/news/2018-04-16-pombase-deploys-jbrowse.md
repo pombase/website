@@ -1,4 +1,5 @@
 ### PomBase releases JBrowse
+<!-- newsfeed_thumbnail: browser.png -->
 
 PomBase has now implemented [JBrowse](https://www.pombase.org/jbrowse/?loc=II%3A564641..602220&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20
 reverse%20strand%20features&highlight=), 

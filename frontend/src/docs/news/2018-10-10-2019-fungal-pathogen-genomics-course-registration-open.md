@@ -1,5 +1,6 @@
 ### Fungal Pathogen Genomics Course 2019 - registration open
 <!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: WT_course.png -->
 
 Registration for the 
 [2019 Fungal Pathogen Genomics Course](https://coursesandconferences.wellcomegenomecampus.org/our-events/fungal-pathogen-genomics-2019/)

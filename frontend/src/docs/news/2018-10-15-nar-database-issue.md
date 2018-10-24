@@ -1,5 +1,6 @@
 ### PomBase NAR Database Issue
 <!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: NAR_paper.png -->
 
 PomBase has published a	new paper in Nucleic Acids Research's
 well-known annual Database Issue, now available as an

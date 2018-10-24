@@ -254,6 +254,13 @@ sub get_all_faq_parts {
   return $ret;
 }
 
+sub make_news_thumbnail
+{
+  my $item = shift;
+
+  return qq|<img class="newsfeed-thumbnail" src="/assets/newsfeed/$item->{thumbnail}"/>|;
+}
+
 sub process_path {
   my $path = shift;
 
@@ -319,10 +326,16 @@ sub process_path {
 
     print $recent_news_fh qq|<div class="recent-news">\n|;
     for my $item (@news_summary) {
+      print $recent_news_fh qq|<div class="news-item">\n|;
+      if ($item->{thumbnail}) {
+        print $recent_news_fh make_news_thumbnail($item) . "\n";
+      }
       my $md = '';
-      $md .= '#### **' . $item->{title} . ' *' . $item->{date} . "* **\n";
+      $md .= '#### **' . $item->{title} . "**\n\n";
+      $md .= '*' . $item->{date} . "*\n";
       $md .= $item->{contents} . "\n";
       print $recent_news_fh markdown($md), "\n";
+      print $recent_news_fh qq|</div>\n|;
     }
     print $recent_news_fh qq|
 <div id="archive-link"><a routerLink="/news/">News archive ...</a></div>\n</div>\n
@@ -380,6 +393,7 @@ sub all_news_items {
       my $id = undef;
       my $contents = '';
       my %flags = ();
+      my $thumbnail = undef;
       open my $this_file, '<', "$markdown_docs/news/$dir_file_name" or die "can't open $dir_file_name";
       while (defined (my $line = <$this_file>)) {
         if (!defined $title && $line =~ /^#+\s*(.*?)\s*$/) {
@@ -389,8 +403,12 @@ sub all_news_items {
           if ($line =~ /^\s*<!-- pombase_flags:\s*(.*?)\s*-->\s*$/) {
             $flags{$1} = 1;
           } else {
-            process_line(\$line);
-            $contents .= $line;
+            if ($line =~ /^\s*<!-- newsfeed_thumbnail:\s*(.*?)\s*-->\s*$/) {
+              $thumbnail = $1;
+            } else {
+              process_line(\$line);
+              $contents .= $line;
+            }
           }
         }
       }
@@ -402,6 +420,7 @@ sub all_news_items {
         contents => $contents,
         date => $news_date,
         flags => \%flags,
+        thumbnail => $thumbnail,
       };
     }
   }
@@ -425,13 +444,20 @@ sub contents_for_template {
         $ret .= qq|<div class="left-menu-part left-menu-item"><a simplePageScroll href="#| . $item->{id} . '">' . $item->{title} . qq|</a></div>\n|;
       }
     } else {
-      $ret .= "## News archive\n";
+      $ret .= "## News archive";
+      $ret .= qq|\n<div class="news-archive">\n|;
       my @rev_items = @all_news_items;
       for my $item (@rev_items) {
+        $ret.= qq|\n<div class="news-item">\n|;
+        if ($item->{thumbnail}) {
+          $ret .= make_news_thumbnail($item) . "\n\n";
+        }
         $ret .= '### ' . $item->{title} . ' {#' . $item->{id} . "}\n\n";
         $ret .= '*' . $item->{date} . "*\n";
         $ret .= $item->{contents} . "\n";;
+        $ret .= qq|\n</div>\n|;
       }
+      $ret .= qq|\n</div>\n|;
     }
   } else {
     if ($path =~ m[^faq/menu]) {

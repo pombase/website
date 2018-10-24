@@ -1,5 +1,6 @@
 ### New book chapter about PomBase
 <!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: book_chapter.png -->
 
 PomBase has a [new book chapter](https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4)
 in
