@@ -1,4 +1,5 @@
 ### New PomBase genomic region graphics
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 
 PomBase gene pages now use interactive graphics from PomBase JBrowse
