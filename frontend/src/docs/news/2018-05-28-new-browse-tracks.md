@@ -2,10 +2,7 @@
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: new_tracks.png -->
 
-We are very pleased to announce that we have loaded a number of new datasets
-into the PomBase [JBrowse genome browser](https://www.pombase.org/jbrowse/).
-
-These include:
+We are very pleased to announce that we have loaded a number of new datasets into the PomBase [JBrowse genome browser (https://www.pombase.org/jbrowse/). These include:
 
    - [Thodberg *et al.* (2018)](https://www.biorxiv.org/content/early/2018/03/13/281642) - CAGE-defined
      [transcription start sites][tss] across 5 different conditions
@@ -18,10 +15,7 @@ These include:
      [Bitton *et al.* (2014)](https://www.ncbi.nlm.nih.gov/pubmed/?term=24709818)
      which was also available in the Ensembl browser.
 
-For anyone wanting a quick introduction to our genome browser, Antonia
-Lock has written ["Getting started with PomBase JBrowse"](/documentation/JBrowse_quick_start), 
-a basic guide that covers loading tracks, navigating the browser,
-what metadata we provide, and more.
+For anyone wanting a quick introduction to our genome browser, Antonia Lock has written ["Getting started with PomBase JBrowse"](/documentation/JBrowse_quick_start), a basic guide that covers loading tracks, navigating the browser, what metadata we provide, and more.
 
 
 [tss]: https://www.pombase.org/jbrowse/?loc=II%3A27586..65254&tracks=DNA%20sequence%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20transcription%20start%20sites%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20heat%20shock%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20heat%20shock%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20nitrogen%20starvation%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20nitrogen%20starvation%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20oxidative%20stress%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20oxidative%20stress%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20in%20YES%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20in%20YES%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20in%20glucose%20minimal%20medium%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20in%20glucose%20minimal%20medium%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)&highlight=
