@@ -407,7 +407,7 @@ export class GeneResultsVisComponent implements OnInit {
       this.attrValuesInUse[columnName] = [];
 
       const columnConf = this.visColumnConfigMap[columnName];
-      for (const attrName of columnConf.attrValuesMap.keys()) {
+      for (const attrName of Array.from(columnConf.attrValuesMap.keys())) {
          if (attrValuesInUseCollector[columnName].has(attrName)) {
            const attrConf = columnConf.attrValuesMap.get(attrName);
            const confForTemplate = new AttrValueConf(attrConf.display_name || attrName, attrConf.color);
