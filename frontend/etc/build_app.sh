@@ -17,6 +17,8 @@ echo Building and releasing using configuration: $release_env
 
 NG='node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng'
 
+$NG --version
+
 if [ x$release_env == x'prod' ]
 then
     echo building $release_env for production ...
