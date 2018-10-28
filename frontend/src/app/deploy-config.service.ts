@@ -1,8 +1,12 @@
 import { Injectable, Inject } from '@angular/core';
 
+interface DeployConfig {
+  mode: string;
+}
+
 @Injectable()
 export class DeployConfigService {
-  config: any = { mode: 'dev' };
+  config: DeployConfig = { mode: 'dev' };
 
   constructor(@Inject('Window') private window: any) {
     if (window.pombaseAppDeployConfig &&
@@ -11,11 +15,7 @@ export class DeployConfigService {
     }
   }
 
-  get(key: string): any {
-    return this.config[key];
-  }
-
   productionMode(): boolean {
-    return this.get('mode') !== 'dev';
+    return this.config.mode !== 'dev';
   }
 }
