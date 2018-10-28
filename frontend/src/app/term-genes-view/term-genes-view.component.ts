@@ -4,7 +4,9 @@ import { Title } from '@angular/platform-browser';
 import { Util } from '../shared/util';
 
 import { TermDetails, PombaseAPIService, GeneShort,
-         TermSubsets } from '../pombase-api.service';
+         TermSubsets,
+         APIError,
+         GeneSummary} from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationType } from '../config';
 
 
@@ -18,11 +20,11 @@ export class TermGenesViewComponent implements OnInit {
   queryBuilderRouterLink: string;
 
   typeConfig: AnnotationType = null;
-  genes = [];
+  genes: Array<GeneShort> = [];
   showAllAnnotationsLink = true;
-  apiError = null;
+  apiError: APIError = null;
   subsets: TermSubsets = {};
-  geneSummaries = null;
+  geneSummaries: Array<GeneSummary> = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,

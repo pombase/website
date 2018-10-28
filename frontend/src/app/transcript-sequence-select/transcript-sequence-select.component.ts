@@ -29,10 +29,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   has5PrimeUtr = false;
   has3PrimeUtr = false;
 
-  geneStart = null;
-  geneEnd = null;
-  cdsStart = null;
-  cdsEnd = null;
+  geneStart: number = null;
+  geneEnd: number = null;
+  cdsStart: number = null;
+  cdsEnd: number = null;
 
   showTranslation = false;
   includeExons = true;

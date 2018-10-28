@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angu
 import { TermAnnotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
-         FilterConfig, SplitByParentsConfig } from '../config';
+         FilterConfig, SplitByParentsConfig, AnnotationExternalLinkConfig } from '../config';
 import { AnnotationTable } from '../pombase-api.service';
 import { AnnotationFilter } from '../filtering/annotation-filter';
 import { TableViewState } from '../pombase-types';
@@ -31,9 +31,9 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   filteredTable: AnnotationTable = [];
 
   hideColumn = {};
-  showColumn = {};
+  showColumn: { [key: string]: boolean } = {};
   termNameColSpan = -1;
-  compactFirstRows = {};
+  compactFirstRows: { [key: string]: boolean } = {};
   detailsView: {[key: string]: boolean} = {};
   currentViewState = TableViewState.Summary;
   tableIsFiltered = false;
@@ -41,8 +41,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   annotationCount = 0;
   detailsOnly = false;
 
-  externalLinksConfig = [];
-  allTermIds = [];
+  externalLinksConfig: Array<AnnotationExternalLinkConfig> = [];
+  allTermIds: Array<string> = [];
 
   getAllTermIds(): string[] {
     if (this.annotationTable) {

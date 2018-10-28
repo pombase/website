@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 import { QueryService } from '../../query.service';
-import { QueryOutputOptions } from '../../pombase-query';
+import { QueryOutputOptions, QueryResult } from '../../pombase-query';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-predefined-query-results',
@@ -9,10 +10,10 @@ import { QueryOutputOptions } from '../../pombase-query';
   styleUrls: ['./predefined-query-results.component.css']
 })
 export class PredefinedQueryResultsComponent implements OnInit, OnDestroy {
-  @Input() predefinedQueryId;
+  @Input() predefinedQueryId: string;
 
-  results = null;
-  subscription = null;
+  results: QueryResult = null;
+  subscription: Subscription = null;
 
   constructor(private queryService: QueryService) { }
 

@@ -7,8 +7,8 @@ import { Component, OnInit, Input,
   styleUrls: ['./page-contents-menu.component.css']
 })
 export class PageContentsMenuComponent implements OnInit {
-  @Input() title;
-  @Input() titleRoute = null;
+  @Input() title: string;
+  @Input() titleRoute: string = null;
 
   menuPositionFixed = false;
 
@@ -19,7 +19,7 @@ export class PageContentsMenuComponent implements OnInit {
   constructor(@Inject('Window') private window: any) { }
 
   @HostListener('window:scroll', ['$event'])
-  scrollEvent(event) {
+  scrollEvent(event: any) {
     if (this.title === 'News' || this.title === 'Documentation') {
       this.menuPositionFixed = false;
       return;

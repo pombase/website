@@ -35,7 +35,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   summaryFieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
                 'Synonyms', 'Feature type', 'Start position', 'End position',
                 'Chromosome', 'Strand'];
-  selectedFields = {'Systematic ID': true};
+  selectedFields: { [key: string]: boolean } = {'Systematic ID': true};
   summaryFieldValGenerators: { [label: string]: (g: GeneSummary) => string } = {
     'Systematic ID': g => g.uniquename,
     'Name': g => g.name || '',
@@ -70,7 +70,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     this.summaryFieldNames.map(name => this.selectedFields[name] = true);
   }
 
-  fieldChange(fieldName) {
+  fieldChange(fieldName: string) {
     const [selectedFields] = this.selectedFieldNames();
 
     if (selectedFields.length === 0) {
@@ -86,7 +86,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     return rows.map((row) => row.join('\t')).join('\n');
   }
 
-  private doDownload(rows) {
+  private doDownload(rows: string[][]) {
     let fileName = 'gene_list.tsv';
     let blob = new Blob([this.rowsAsTSV(rows)], { type: 'text' });
     saveAs(blob, fileName);
@@ -171,7 +171,7 @@ export class GenesDownloadDialogComponent implements OnInit {
           if (serverRowsMap) {
             for (const serverField of selectedServerFields) {
               const serverRow = serverRowsMap[geneUniquename];
-              let fieldValue = serverRow[serverField];
+              let fieldValue: any = serverRow[serverField];
               if (typeof (fieldValue) === 'undefined') {
                 row.push('');
               } else {

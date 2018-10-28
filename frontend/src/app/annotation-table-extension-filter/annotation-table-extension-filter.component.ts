@@ -49,7 +49,7 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
 
     this.choiceData = [];
 
-    let seenAncestors = {};
+    let seenAncestors: { [key: string]: boolean } = {};
 
     for (let termAnnotation of this.annotationTable) {
       for (let annotation of termAnnotation.annotations) {

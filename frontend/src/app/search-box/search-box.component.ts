@@ -280,7 +280,7 @@ export class SearchBoxComponent implements OnInit {
         this.searchSummaries = this.makeSearchSummaries(summaries);
 
         let summaryCmp =
-          (a, b) => {
+          (a: SearchSummary, b: SearchSummary) => {
             if (a.name) {
               if (b.name) {
                 return a.name.localeCompare(b.name);

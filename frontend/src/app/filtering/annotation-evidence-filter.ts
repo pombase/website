@@ -2,7 +2,7 @@ import { AnnotationTable } from '../pombase-api.service';
 import { AnnotationFilter } from './annotation-filter';
 
 export class AnnotationEvidenceFilter implements AnnotationFilter {
-  evidenceCodes = [];
+  evidenceCodes: Array<string> = [];
 
   constructor(private evidenceCodesArg: Array<string>) {
     for (let code of this.evidenceCodesArg) {

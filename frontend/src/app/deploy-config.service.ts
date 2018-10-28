@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 
 @Injectable()
 export class DeployConfigService {
-  config = { mode: 'dev' };
+  config: any = { mode: 'dev' };
 
   constructor(@Inject('Window') private window: any) {
     if (window.pombaseAppDeployConfig &&

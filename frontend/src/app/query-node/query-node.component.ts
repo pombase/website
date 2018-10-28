@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 
 import { GeneQuery, GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
-         GenomeRangeNode, GeneQueryNode } from '../pombase-query';
-import { GeneSummary } from '../pombase-api.service';
+         GenomeRangeNode, GeneQueryNode, TermShort } from '../pombase-query';
+import { GeneSummary, ChromosomeShort } from '../pombase-api.service';
 
-import { getAppConfig, QueryNodeConfig } from '../config';
+import { getAppConfig, QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
+import { SubscriptionLike } from 'rxjs';
 
 
 @Component({
@@ -19,12 +20,12 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   @Output() nodeEvent = new EventEmitter<GeneQueryNode>();
 
   nodeTypes = getAppConfig().queryBuilder.nodeTypes;
-  cannedQueryDetails = null;
-  chromosomeSummaries = null;
+  cannedQueryDetails: Array<{ name: string; queryId: string; }> = null;
+  chromosomeSummaries: Array<ChromosomeShort> = null;
 
   activeConf: QueryNodeConfig = null;
-  selectedTerm = null;
-  selectedSubset = null;
+  selectedTerm: TermShort = null;
+  selectedSubset: QueryNodeSubsetConfig = null;
   subsetName = '';
   rangeStart: number = null;
   rangeEnd: number = null;
@@ -55,7 +56,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
     }
   }
 
-  upperCaseIntial(s): string {
+  upperCaseIntial(s: string): string {
     return s.charAt(0).toUpperCase() + s.slice(1);
   }
 

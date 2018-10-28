@@ -11,7 +11,7 @@ export class EvidenceLinkComponent implements OnInit {
 
   displayName = '[unknown]';
   title = '[unknown]';
-  link = null;
+  link: string = null;
   appConfig: AppConfig = getAppConfig();
   linkoutConfig: LinkoutConfig = {};
 

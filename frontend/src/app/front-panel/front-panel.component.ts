@@ -12,7 +12,7 @@ export class FrontPanelComponent implements OnInit {
   @Input() conf: PanelConfig;
   @Input() showDateAdded?: boolean;
 
-  panelDescription = null;
+  panelDescription: string = null;
   headImage: string = null;
   headImageLink: string = null;
   headVideo: string = null;

@@ -13,8 +13,8 @@ export class GeneReferencesTableComponent implements OnInit, OnChanges {
 
   orderByField = '+authors_abbrev';
 
-  pubmedSearchUrl = null;
-  pubmedSearchGeneLabel = null;
+  pubmedSearchUrl: string = null;
+  pubmedSearchGeneLabel: string = null;
 
   setOrderBy(field: string) {
     this.orderByField = field;

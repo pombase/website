@@ -17,7 +17,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   isPhenotypeNode = false;
   singleAllele = true;
   multiAllele = false;
-  expression = null;
+  expression: string = null;
 
   constructor() { }
 

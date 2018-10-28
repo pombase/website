@@ -26,9 +26,9 @@ class ColumnDisplayData {
 }
 
 class GeneData {
-  cleanRow: Object;
+  cleanRow: any;
 
-  cleanGORow(row, fieldName: string): void {
+  cleanGORow(row: any, fieldName: string): void {
     if (row[fieldName]) {
       if (row[fieldName] instanceof Object) {
         row[fieldName] = row[fieldName].term.name;
@@ -39,7 +39,7 @@ class GeneData {
   }
 
   cleanResults(row: ResultRow): Object {
-    let cleanRow: Object = Object.assign({}, row);
+    let cleanRow: any = Object.assign({}, row);
     this.cleanGORow(cleanRow, 'go_component');
     this.cleanGORow(cleanRow, 'go_process_superslim');
     this.cleanGORow(cleanRow, 'go_function');
@@ -98,7 +98,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   geneDataMap: { [geneUniquename: string]: GeneData } = {};
 
-  sortedGeneUniquenames = [];
+  sortedGeneUniquenames: Array<string> = [];
 
   geneDisplayData: Array<GeneDisplayData> = [];
   columnDisplayDataMap: { [colName: string]: Array<ColumnDisplayData> } = {};
@@ -117,7 +117,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   attrValuesInUse: { [colName: string]: Array<AttrValueConf> };
 
-  sortByFields = [];
+  sortByFields: Array<string> = [];
 
   geneListMaxLength = 40;
 
@@ -184,11 +184,11 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   makeGeneDataMap(queryResult: QueryResult): { [geneUniquename: string]: GeneData } {
-    let geneMap = {};
+    let geneMap: { [key: string]: GeneShort } = {};
     this.genes.map(geneShort => {
       geneMap[geneShort.uniquename] = geneShort;
     });
-    let resultMap = {};
+    let resultMap: { [key: string]: GeneData } = {};
     queryResult.rows.map(row => {
       const geneShort = geneMap[row.gene_uniquename];
       resultMap[row.gene_uniquename] = new GeneData(this.visColumnConfigs, geneShort, row);

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GeneShort } from '../pombase-api.service';
 
 @Component({
   selector: 'app-gene-neighbourhood',
@@ -6,9 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./gene-neighbourhood.component.css']
 })
 export class GeneNeighbourhoodComponent implements OnInit {
-  @Input() focusGeneUniquename;
-  @Input() focusGeneName;
-  @Input() neighbourhood;
+  @Input() focusGeneUniquename: string;
+  @Input() focusGeneName: string;
+  @Input() neighbourhood: Array<GeneShort>;
 
   constructor() { }
 

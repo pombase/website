@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Metadata, PombaseAPIService } from '../pombase-api.service';
 import { Util } from '../shared/util';
 
-import { getAppConfig } from '../config';
+import { getAppConfig, PanelConfig } from '../config';
 
 @Component({
   selector: 'app-front',
@@ -29,9 +29,9 @@ export class FrontComponent implements OnInit {
       conf.panel_type === 'explore' && conf.show_on_front_page
     );
 
-  spotlightConf = null;
-  communityConf = null;
-  exploreConf = null;
+  spotlightConf: PanelConfig = null;
+  communityConf: PanelConfig = null;
+  exploreConf: PanelConfig = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

@@ -10,7 +10,7 @@ export class GeneLinkComponent implements OnInit {
   @Input() long = true;
 
   displayString = '';
-  popoverBits = [];
+  popoverBits: Array<string> = [];
 
   constructor() { }
 

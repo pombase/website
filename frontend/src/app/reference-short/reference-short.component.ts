@@ -15,8 +15,8 @@ export class ReferenceShortComponent implements OnInit {
 
   displayString = '';
   refTitle = '';
-  popoverContents = [];
-  xref = null;
+  popoverContents: string[] = [];
+  xref: string = null;
   isPMID = false;
 
   constructor() { }

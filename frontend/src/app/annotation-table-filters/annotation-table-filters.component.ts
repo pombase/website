@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, OnChanges,
          EventEmitter } from '@angular/core';
 
-import { TermAnnotation } from '../pombase-api.service';
+import { TermAnnotation, Annotation } from '../pombase-api.service';
 import { FilterConfig } from '../config';
 import { AnnotationFilterCombiner } from '../filtering';
 import { AnnotationFilter } from '../filtering/annotation-filter';
@@ -20,8 +20,8 @@ export class AnnotationTableFiltersComponent implements OnInit, OnChanges {
   @Output() filterChange = new EventEmitter<AnnotationFilter>();
 
   tableViewState = TableViewState;
-  currentFilters = {};
-  scopeFilterConfig = [];
+  currentFilters: { [key: string]: AnnotationFilter } = {};
+  scopeFilterConfig: Array<FilterConfig> = [];
 
   filterChanged(filterType: string, event: AnnotationFilter) {
     if (event) {

@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
 
 import { getAppConfig, AppConfig } from '../../config';
+import { Subscription } from 'rxjs';
 
 const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
 
@@ -16,7 +17,7 @@ const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
 export class DocsComponent implements OnInit, OnDestroy {
   section: string = null;
   pageName: string = null;
-  subscription = null;
+  subscription: Subscription = null;
   appConfig: AppConfig = getAppConfig();
 
   constructor(private route: ActivatedRoute,

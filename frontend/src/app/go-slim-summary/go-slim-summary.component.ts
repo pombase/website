@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
-import { GeneDetails, TermSubsets, PombaseAPIService } from '../pombase-api.service';
+import { GeneDetails, TermSubsets, PombaseAPIService, TermSubsetElement } from '../pombase-api.service';
 
 @Component({
   selector: 'app-go-slim-summary',
@@ -11,7 +11,7 @@ export class GoSlimSummaryComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
 
   subsetPromise: Promise<TermSubsets> = null;
-  geneSlimTerms = null;
+  geneSlimTerms: Array<TermSubsetElement> = [];
 
   getAllAncestors(): Set<string> {
     let ret = new Set();

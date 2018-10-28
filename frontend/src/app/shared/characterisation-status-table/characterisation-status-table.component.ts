@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PombaseAPIService } from '../../pombase-api.service';
+import { PombaseAPIService, APIError } from '../../pombase-api.service';
+
+interface DisplaySubset {
+  name: string;
+  displayName: string;
+  geneCount: number;
+}
 
 @Component({
   selector: 'app-characterisation-status-table',
@@ -8,8 +14,8 @@ import { PombaseAPIService } from '../../pombase-api.service';
   styleUrls: ['./characterisation-status-table.component.css']
 })
 export class CharacterisationStatusTableComponent implements OnInit {
-  characterisationSubsets = null;
-  apiError = null;
+  characterisationSubsets: Array<DisplaySubset> = null;
+  apiError: APIError = null;
   total = 0;
 
   constructor(private pombaseApiService: PombaseAPIService) { }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { GeneSubsetDetails, PombaseAPIService } from '../pombase-api.service';
+import { GeneSubsetDetails, PombaseAPIService, APIError } from '../pombase-api.service';
 
 @Component({
   selector: 'app-gene-subset-view',
@@ -11,10 +11,10 @@ import { GeneSubsetDetails, PombaseAPIService } from '../pombase-api.service';
 })
 export class GeneSubsetViewComponent implements OnInit {
   subset: GeneSubsetDetails = null;
-  subsetDisplayName = null;
+  subsetDisplayName: string = null;
   subsetGeneCount = 0;
-  apiError = null;
-  queryBuilderRouterLink = null;
+  apiError: APIError = null;
+  queryBuilderRouterLink: string = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,

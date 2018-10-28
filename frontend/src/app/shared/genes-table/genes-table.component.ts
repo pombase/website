@@ -1,12 +1,12 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { GeneShort } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 import { QueryService, HistoryEntry } from '../../query.service';
-import { GeneQuery, GeneListNode } from '../../pombase-query';
+import { GeneQuery, GeneListNode, TermShort } from '../../pombase-query';
 import { DeployConfigService } from '../../deploy-config.service';
 
 @Component({
@@ -21,20 +21,20 @@ export class GenesTableComponent implements OnInit {
   // a decomposed version of the description as an Array of Objects
   // like: [{text: "abnormal cell ... ("}, {term: <a TermShort>}, {text: ")"}, ...]
   // which allows the the termids in a description to be linked to the term pages
-  @Input() descriptionParts = [];
+  @Input() descriptionParts: Array<({ text?: string; term?: TermShort; })> = [];
   @Input() genes: Array<GeneShort> = [];
 
   orderByField = 'gene';
-  downloadModalRef = null;
+  downloadModalRef: BsModalRef = null;
   selectedCountCache = -1;
   showingVisualisation = false;
 
-  visLegend = null;
+  visLegend: string = null;
 
   tooManyGenesTitle = 'Too many genes for select mode, try the "Gene list" option from the Search menu';
   selectGenesTitle = 'Start gene selection and filtering mode';
 
-  selectedGenes = null;
+  selectedGenes: { [key: string]: boolean } = null;
 
   constructor(private modalService: BsModalService,
               private queryService: QueryService,

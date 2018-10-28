@@ -4,6 +4,14 @@ import { getAppConfig, ExternalGeneReference,
          getXrfWithPrefix, makeGeneExternalUrl} from '../config';
 import { GeneDetails } from '../pombase-api.service';
 
+interface RefRow {
+  refType: string;
+  name: string;
+  description: string;
+  linkLabel: string;
+  url: string;
+}
+
 @Component({
   selector: 'app-gene-external-references',
   templateUrl: './gene-external-references.component.html',
@@ -12,8 +20,7 @@ import { GeneDetails } from '../pombase-api.service';
 export class GeneExternalReferencesComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;
 
-  allIds = [];
-  table = [];
+  table: Array<RefRow> = [];
   appConfig = getAppConfig();
 
   constructor() { }
@@ -29,7 +36,7 @@ export class GeneExternalReferencesComponent implements OnChanges {
         continue;
       }
       if (link.length > 0) {
-        let row = {
+        let row: RefRow = {
           refType: extRefConf.ref_type,
           name: extRefConf.name,
           description: extRefConf.description,

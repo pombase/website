@@ -5,7 +5,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AppConfig } from '../config';
 
-import { ReferenceDetails, PombaseAPIService } from '../pombase-api.service';
+import { ReferenceDetails, PombaseAPIService, APIError } from '../pombase-api.service';
 
 @Component({
   selector: 'app-reference-details',
@@ -21,10 +21,10 @@ export class ReferenceDetailsComponent implements OnInit {
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   isPubMedRef = false;
-  pubMedId = null;
-  apiError = null;
-  cantoCommunityCuratorName = null;
-  refAnnotationStatus = null;
+  pubMedId: string = null;
+  apiError: APIError = null;
+  cantoCommunityCuratorName: string = null;
+  refAnnotationStatus: string = null;
   hasJBrowseTracks = false;
 
   constructor(private pombaseApiService: PombaseAPIService,

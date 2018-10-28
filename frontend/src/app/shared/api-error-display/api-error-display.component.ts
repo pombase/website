@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { APIError } from '../../pombase-api.service';
 
 @Component({
   selector: 'app-api-error-display',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./api-error-display.component.css']
 })
 export class ApiErrorDisplayComponent implements OnInit {
-  @Input() error = null;
+  @Input() error: APIError = null;
 
   constructor() { }
 

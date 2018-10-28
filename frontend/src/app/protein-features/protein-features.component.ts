@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { GeneDetails } from '../pombase-api.service';
+import { GeneDetails, ProteinDetails, TranscriptDetails, TermAnnotation } from '../pombase-api.service';
 
 import { getAppConfig } from '../config';
 
@@ -13,12 +13,12 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
 
   appConfig = getAppConfig();
-  ensemblImageUrl = null;
-  ensemblBrowserUrl = null;
-  transcriptDetails = null;
-  proteinDetails = null;
-  proteinFeaturesTable = null;
-  soAnnotationTable = null;
+  ensemblImageUrl: string = null;
+  ensemblBrowserUrl: string = null;
+  transcriptDetails: TranscriptDetails = null;
+  proteinDetails: ProteinDetails = null;
+  proteinFeaturesTable: Array<TermAnnotation> = null;
+  soAnnotationTable: Array<TermAnnotation> = null;
 
   constructor() { }
 

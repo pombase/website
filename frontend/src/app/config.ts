@@ -270,7 +270,7 @@ export function makeGeneExternalUrl(geneDetails: GeneDetails, extRefConf: Extern
       return [geneDetails.name || geneDetails.uniquename,
               url.replace(/<<IDENTIFIER>>/, getAllIds(geneDetails).join('+OR+'))];
     } else {
-      let fieldValue = geneDetails[fieldName];
+      let fieldValue = (geneDetails as any)[fieldName];
       if (fieldValue) {
         let replacedUrl = url.replace('<<IDENTIFIER>>', fieldValue)
           .replace('<<UNIQUENAME>>', geneDetails.uniquename)
@@ -283,7 +283,7 @@ export function makeGeneExternalUrl(geneDetails: GeneDetails, extRefConf: Extern
   } else {
     let go_xrf_abbrev = extRefConf.go_xrf_abbrev;
     if (go_xrf_abbrev) {
-      let fieldValue = geneDetails[fieldName];
+      let fieldValue = (geneDetails as any)[fieldName];
       if (fieldValue) {
         const xrfDetails = getXrfWithPrefix(go_xrf_abbrev, fieldValue);
         if (xrfDetails) {
@@ -451,7 +451,7 @@ for (let configName of Object.keys(_config.annotationTypes)) {
 }
 
 if (pombaseConfig.show_extensions_on_term_pages) {
-  let seenNames = {};
+  let seenNames: { [key: string]: boolean } = {};
 
   for (let extNameConf of pombaseConfig.extension_display_names) {
     const displayName = extNameConf.display_name;
@@ -837,7 +837,7 @@ let _appConfig: AppConfig = {
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism {
     let retOrganism = null;
-    this.organisms.map((organism) => {
+    this.organisms.map((organism: ConfigOrganism) => {
       if (organism.taxonid === taxonid) {
         retOrganism = organism;
       }
@@ -916,7 +916,7 @@ let xrfConfig: { [key: string]: XrfConfig } = null;
 // aliases that aren't in GO.xrf_abbs
 let xrfConfigAliases = pombaseConfig.extra_database_aliases;
 
-let xrfExtraConfigMap = {
+let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
   'MobiDB': {
     displayName: 'MobiDB',
     description: 'MobiDB',
@@ -1008,7 +1008,7 @@ export function getXrf(idWithPrefix: string): XrfDetails {
   }
 }
 
-let organismPrefix = {
+let organismPrefix: { [key: string]: string } = {
   'Homo_sapiens': 'HGNC-symbol',
   'Saccharomyces_cerevisiae': 'SGD',
 };

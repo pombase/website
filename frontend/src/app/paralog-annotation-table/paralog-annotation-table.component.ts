@@ -15,7 +15,7 @@ export class ParalogAnnotationTableComponent implements OnInit {
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
-  annotationTypeDisplayName = null;
+  annotationTypeDisplayName: string = null;
 
   constructor() { }
 

@@ -8,7 +8,7 @@ import { AnnotationExternalLinkConfig } from '../config';
   styleUrls: ['./annotation-table-ext-links.component.css']
 })
 export class AnnotationTableExtLinksComponent implements OnInit, OnChanges {
-  @Input() termIds = [];
+  @Input() termIds: Array<string> = [];
   @Input() extLinksConfig: Array<AnnotationExternalLinkConfig> = [];
 
   termIdString = '';

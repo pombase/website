@@ -1,9 +1,23 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
-import { TargetOfAnnotation, GeneShort } from '../pombase-api.service';
+import { TargetOfAnnotation, GeneShort, GenotypeShort, ReferenceShort } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 import { Util } from '../shared/util';
 import { TableViewState } from '../pombase-types';
+
+interface DisplayRow {
+  ontologyLabel: string;
+  ext_rel_display_name: string;
+  genes: Array<GeneShort>;
+  genotype: GenotypeShort;
+  reference: ReferenceShort;
+}
+
+interface SummaryRow {
+  ontologyLabel: string;
+  ext_rel_display_name: string;
+  genes: Array<GeneShort>;
+}
 
 @Component({
   selector: 'app-target-of-annotation-table',
@@ -15,8 +29,8 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TargetOfAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
-  displayTable = [];
-  summaryTable = [];
+  displayTable: Array<DisplayRow> = [];
+  summaryTable: Array<SummaryRow> = [];
 
   // copy to the component for use in template
   TableViewState = TableViewState;
@@ -40,7 +54,7 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
       let ontologyLabels = typeConfig.misc_config['ontologyLabels'];
 
       let genesToString =
-        (genes) => {
+        (genes: Array<GeneShort>) => {
           return genes.map((gene) => gene.uniquename).join(' ');
         };
 
@@ -53,13 +67,13 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
         this.displayTable.push({
           ontologyLabel: ontologyLabel,
           ext_rel_display_name: annotation.ext_rel_display_name,
-          genes: annotation.genes,
+          genes: annotation.genes as Array<GeneShort>,
           genotype: annotation.genotype,
           reference: annotation.reference,
         });
       }
 
-      let rowComp = (o1, o2) => {
+      let rowComp = (o1: DisplayRow, o2: DisplayRow) => {
         let labelCompare =
           o2.ontologyLabel.localeCompare(o1.ontologyLabel);
 

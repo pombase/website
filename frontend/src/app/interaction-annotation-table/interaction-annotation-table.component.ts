@@ -1,7 +1,15 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { InteractionAnnotation, GeneShort, GeneDetails } from '../pombase-api.service';
+import { InteractionAnnotation, GeneShort, GeneDetails, ReferenceShort } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig, makeGeneExternalUrl, AppConfig, getAppConfig } from '../config';
 import { Util } from '../shared/util';
+
+interface DisplayAnnotation {
+  gene: GeneShort;
+  interactor: GeneShort;
+  reference: ReferenceShort;
+  evidence: string;
+  displayLabel: string;
+}
 
 @Component({
   selector: 'app-interaction-annotation-table',
@@ -17,13 +25,13 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
 
-  annotationTypeDisplayName = null;
-  hideColumn = {};
+  annotationTypeDisplayName: string = null;
+  hideColumn: { [key: string]: boolean } = {};
 
-  displayTable = [];
+  displayTable: Array<DisplayAnnotation> = [];
   helpIconTitle = 'View documentation';
 
-  routerLinkUrl = null;
+  routerLinkUrl: string = null;
   biogridUrl: string = null;
 
   constructor() { }
@@ -67,7 +75,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
     this.displayTable =
       this.annotationTable.map(
         (annotation) => {
-          let displayAnnotation = {
+          let displayAnnotation: DisplayAnnotation = {
             gene: annotation.gene,
             interactor: annotation.interactor,
             reference: annotation.reference,
@@ -95,7 +103,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
           return displayAnnotation;
         });
 
-    this.displayTable.sort((a: InteractionAnnotation, b: InteractionAnnotation) => {
+    this.displayTable.sort((a: DisplayAnnotation, b: DisplayAnnotation) => {
       if (this.currentGene) {
         const geneComp = Util.geneCompare(a.interactor, b.interactor);
         if (geneComp === 0) {

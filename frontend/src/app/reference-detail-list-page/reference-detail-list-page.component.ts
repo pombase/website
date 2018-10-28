@@ -7,7 +7,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./reference-detail-list-page.component.css']
 })
 export class ReferenceDetailListPageComponent implements OnInit {
-  constraint = null;
+  constraint: string = null;
 
   constructor(private route: ActivatedRoute) { }
 

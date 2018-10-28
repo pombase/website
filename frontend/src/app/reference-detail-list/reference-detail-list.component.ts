@@ -13,9 +13,9 @@ class RefGroup {
   styleUrls: ['./reference-detail-list.component.css']
 })
 export class ReferenceDetailListComponent implements OnInit, OnChanges {
-  @Input() constraint = null;
+  @Input() constraint: string = null;
 
-  pageTitle = null;
+  pageTitle: string = null;
 
   groups: Array<RefGroup> = [];
 
@@ -48,7 +48,7 @@ export class ReferenceDetailListComponent implements OnInit, OnChanges {
   }
 
   makeGroups(references: Array<ReferenceShort>) {
-    let groupMap = {};
+    let groupMap: { [key: string]: Array<ReferenceShort> } = {};
 
     for (let ref of references) {
       if (ref.approved_date) {

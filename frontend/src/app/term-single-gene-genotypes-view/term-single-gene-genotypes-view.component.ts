@@ -33,7 +33,7 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
   }
 
   setGenes(): void {
-    let genes = {};
+    let genes: { [key: string]: GeneShort } = {};
 
     for (let genotype of this.termDetails.single_allele_genotypes) {
       let gene = genotype.expressed_alleles[0].allele.gene;

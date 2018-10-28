@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 
 import { Util } from '../shared/util';
 
-import { GenotypeDetails, PombaseAPIService } from '../pombase-api.service';
+import { GenotypeDetails, PombaseAPIService, APIError } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
@@ -20,7 +20,7 @@ export class GenotypeDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   displayAlleles: Array<any> = [];
   displayName = '';
-  apiError = null;
+  apiError: APIError = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,

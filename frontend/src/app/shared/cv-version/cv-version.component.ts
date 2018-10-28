@@ -11,7 +11,7 @@ export class CvVersionComponent implements OnInit, OnChanges {
   @Input() cvName: string;
 
   metadataPromise: Promise<Metadata> = null;
-  version = null;
+  version: string = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

@@ -6,6 +6,7 @@ import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { getAppConfig } from '../config';
 import { Title } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-query-builder',
@@ -16,9 +17,9 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
   query: GeneQuery;
   results: QueryResult = null;
   resultsDescription = '';
-  timerSubscription = null;
+  timerSubscription: Subscription = null;
   showLoading = false;
-  startNodeType = null;
+  startNodeType: number = null;
   appConfig = getAppConfig();
 
   resetQuery() {

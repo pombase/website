@@ -3,6 +3,7 @@ import { GeneShort } from './pombase-api.service';
 
 export class TermAndName {
   termid: string;
+  term: number;
   name: string;
 }
 
@@ -112,7 +113,7 @@ export class GeneBoolNode extends GeneQueryNode {
   }
 
   toObject(): Object {
-    let ret = {};
+    let ret: { [key: string]: Array<Object> } = {};
     ret[QueryNodeOperator[this.operator].toLowerCase()] =
       this.getParts().map((part: GeneQueryNode) => part.toObject());
     return ret;
@@ -514,7 +515,7 @@ export class GeneQuery {
     throw new Error('Unknown type: ' + nodeType);
   }
 
-  constructor(arg: Object) {
+  constructor(arg: string | GeneQueryNode | { name: string, constraints: string }) {
     this.name = null;
     this.queryId = nextQueryId++;
     if (arg instanceof GeneQueryNode) {
@@ -570,7 +571,7 @@ export class GeneQuery {
 
   // return an Array of all terms referenced by TermNodes in this query
   public referencedTerms(): Array<TermShort> {
-    let collector = [];
+    let collector: TermShort[] = [];
     this.referencedTermsHelper(this.getTopNode(), collector);
     return collector;
   }

@@ -20,8 +20,8 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;
-  annotationTypeDisplayName = null;
-  splitDataList = {};
+  annotationTypeDisplayName: string = null;
+  splitDataList: { [key: string]: Array<TermAnnotation> } = {};
   splitSummaryList = {};
   split_by_parents: Array<SplitByParentsConfig> = [];
   helpIconTitle = 'Click to view documention';

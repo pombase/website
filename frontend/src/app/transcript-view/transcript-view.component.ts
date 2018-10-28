@@ -10,7 +10,7 @@ import { TranscriptDetails } from '../pombase-api.service';
 export class TranscriptViewComponent implements OnInit, OnChanges {
   @Input() transcriptDetails: Array<TranscriptDetails>;
 
-  transcripts = [];
+  transcripts: Array<{ ensemblImageUrl: string, ensemblBrowserUrl: string }> = [];
 
   constructor() { }
 

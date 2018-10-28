@@ -10,7 +10,7 @@ import { getAppConfig, PanelConfig } from '../config';
 })
 export class PanelArchiveComponent implements OnInit {
   panelType = '';
-  panelConfigs = [];
+  panelConfigs: Array<PanelConfig> = [];
 
   constructor(private route: ActivatedRoute) { }
 

@@ -1,7 +1,19 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { PombaseAPIService, InterProMatch } from '../pombase-api.service';
+import { PombaseAPIService, InterProMatch, APIError, InterProMatchLocation } from '../pombase-api.service';
 import { getXrfWithPrefix, XrfDetails } from '../config';
+
+interface DisplayMatch {
+  geneCount: number;
+  id: string;
+  dbname: string;
+  name: string;
+  evidence: string;
+  interpro_id: string;
+  interpro_name: string;
+  interpro_type: string;
+  locations: Array<InterProMatchLocation>;
+}
 
 @Component({
   selector: 'app-interpro-matches',
@@ -9,12 +21,12 @@ import { getXrfWithPrefix, XrfDetails } from '../config';
   styleUrls: ['./interpro-matches.component.css']
 })
 export class InterproMatchesComponent implements OnInit, OnChanges {
-  @Input() geneDisplayName;
-  @Input() uniprotIdentifier = null;
+  @Input() geneDisplayName: string;
+  @Input() uniprotIdentifier: string = null;
   @Input() matches: Array<InterProMatch> = null;
 
-  displayMatches = [];
-  apiError = null;
+  displayMatches: Array<DisplayMatch> = [];
+  apiError: APIError = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
@@ -39,16 +51,16 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
           xrfResult = getXrfWithPrefix(match.dbname, id);
         }
         let newMatch = Object.assign({}, match);
-        newMatch['id'] = newId;
-        newMatch['interProEntryUrl'] = interProEntryUrl;
+        newMatch.id = newId;
+        newMatch.interProEntryUrl = interProEntryUrl;
         if (xrfResult) {
-          newMatch['dbEntryUrl'] = xrfResult.url;
-          newMatch['dbDisplayName'] = xrfResult.displayName || match.dbname;
-          newMatch['dbDescription'] = xrfResult.description || newMatch['dbDisplayName'];
-          newMatch['dbWebsite'] = xrfResult.website;
+          newMatch.dbEntryUrl = xrfResult.url;
+          newMatch.dbDisplayName = xrfResult.displayName || match.dbname;
+          newMatch.dbDescription = xrfResult.description || newMatch.dbDisplayName;
+          newMatch.dbWebsite = xrfResult.website;
         } else {
-          newMatch['dbDisplayName'] = match.dbname;
-          newMatch['dbDescription'] = newMatch['dbDisplayName'];
+          newMatch.dbDisplayName = match.dbname;
+          newMatch.dbDescription = newMatch.dbDisplayName;
         }
         return newMatch;
       });
@@ -58,16 +70,16 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
     this.pombaseApiService.getGeneSubsets()
       .then(subsets => {
         for (let match of displayMatches) {
-          match['geneCount'] = '';
-          match['countLinkTitle'] = '';
-          match['countLinkUrl'] = '';
+          match.geneCount = null;
+          match.countLinkTitle = '';
+          match.countLinkUrl = '';
           if (match.interpro_id) {
             let subsetId = 'interpro:' + match.interpro_id;
             let subset = subsets[subsetId];
             if (subset) {
-              match['geneCount'] = subset.elements.length;
-              match['countLinkTitle'] = `View all ${match.interpro_id} (${match.interpro_name}) genes`;
-              match['countLinkUrl'] = `/gene_subset/${subsetId}`;
+              match.geneCount = subset.elements.length;
+              match.countLinkTitle = `View all ${match.interpro_id} (${match.interpro_name}) genes`;
+              match.countLinkUrl = `/gene_subset/${subsetId}`;
             }
           } else {
             let subsetId = 'interpro:' + match.dbname + ':' + match.id;

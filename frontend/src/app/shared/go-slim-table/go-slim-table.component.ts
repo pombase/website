@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PombaseAPIService, TermSubsetDetails } from '../../pombase-api.service';
+import { PombaseAPIService, TermSubsetDetails, GeneSubsetDetails, APIError } from '../../pombase-api.service';
 
 @Component({
   selector: 'app-go-slim-table',
@@ -10,9 +10,9 @@ import { PombaseAPIService, TermSubsetDetails } from '../../pombase-api.service'
 export class GoSlimTableComponent implements OnInit {
 
   goSlimSubset: TermSubsetDetails = null;
-  nonSlimWithBP = null;
-  nonSlimWithoutBP = null;
-  apiError = null;
+  nonSlimWithBP: GeneSubsetDetails = null;
+  nonSlimWithoutBP: GeneSubsetDetails = null;
+  apiError: APIError = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

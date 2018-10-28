@@ -30,7 +30,7 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
   constructor(@Inject('Window') private window: any) { }
 
   @HostListener('window:scroll', ['$event'])
-  scrollEvent(event) {
+  scrollEvent(event: any) {
     if (typeof(document) !== 'undefined') {
       // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
       let scrollingElement = document.scrollingElement || document.documentElement;
@@ -48,7 +48,7 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  private upperCaseIntial(s): string {
+  private upperCaseIntial(s: string): string {
     return s.charAt(0).toUpperCase() + s.slice(1);
   }
 

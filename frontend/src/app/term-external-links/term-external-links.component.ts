@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { AnnotationType } from '../config';
 
 @Component({
   selector: 'app-term-external-links',
@@ -6,9 +7,9 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
   styleUrls: ['./term-external-links.component.css']
 })
 export class TermExternalLinksComponent implements OnInit, OnChanges {
-  @Input() typeConfig;
-  @Input() termId;
-  linkConfigKeys = [];
+  @Input() typeConfig: AnnotationType;
+  @Input() termId: string;
+  linkConfigKeys: Array<string> = [];
 
   constructor() { }
 

@@ -110,7 +110,7 @@ export class Util {
   }
 
   static reverseComplement(seq: string): string {
-    let lookup = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'};
+    let lookup: { [base: string]: string } = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'};
 
     return seq.split('').reverse().map(base => {
       return base.replace(/([agct])/i, function ($0) {

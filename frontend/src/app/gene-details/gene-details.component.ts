@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig } from '../config';
+         getAppConfig, AppConfig, ConfigOrganism } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
@@ -25,11 +25,11 @@ export class GeneDetailsComponent implements OnInit {
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
-  apiError = null;
+  apiError: any = null;
   showProteinFeatures = false;
   productSize = '';
-  organism = null;
-  jbrowseLinkUrl = null;
+  organism: ConfigOrganism = null;
+  jbrowseLinkUrl: string = null;
   sanitizedJBrowseURL: SafeResourceUrl = null;
   extraMenuSections = [
     {
@@ -310,7 +310,7 @@ export class GeneDetailsComponent implements OnInit {
               this.organism = this.appConfig.getOrganismByTaxonid(geneDetails.taxonid);
               this.apiError = null;
             })
-            .catch(error => {
+            .catch((error: any) => {
               this.apiError = error;
             });
         }, 1);

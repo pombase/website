@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType } from '../config';
 
 import { GeneDetails } from '../pombase-api.service';
 
@@ -15,7 +15,7 @@ export class MiscAnnotationTableComponent implements OnInit {
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
-  typeConfigs = {};
+  typeConfigs: { [key: string]: AnnotationType } = {};
 
   constructor() { }
 

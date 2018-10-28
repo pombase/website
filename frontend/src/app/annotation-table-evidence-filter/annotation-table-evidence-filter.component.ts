@@ -50,7 +50,7 @@ export class AnnotationTableEvidenceFilterComponent implements OnInit, OnChanges
 
     this.choiceData = [];
 
-    let seenEvidence = {};
+    let seenEvidence: { [key: string]: boolean } = {};
 
     for (let termAnnotation of this.annotationTable) {
       for (let annotation of termAnnotation.annotations) {

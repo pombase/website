@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ExtPart } from '../pombase-api.service';
+import { ExtPart, ExtRange } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, LinkoutConfig, getXrf, getXrfWithPrefix } from '../config';
 
@@ -10,9 +10,9 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
   styleUrls: ['./extension-display.component.css']
 })
 export class ExtensionDisplayComponent implements OnInit {
-  @Input() extension = [];
+  @Input() extension: Array<ExtPart> = [];
 
-  displayExtension = [];
+  displayExtension: { relTypeName: string; extRange: any; }[] = [];
   linkoutConfig: LinkoutConfig = {};
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
@@ -42,7 +42,7 @@ export class ExtensionDisplayComponent implements OnInit {
 
     this.displayExtension =
       extensionCopy.map(ext => {
-        let newRange = [];
+        let newRange: Array<any> = [];
         if (ext.ext_range instanceof Array) {
           newRange = ext.ext_range;
         } else {

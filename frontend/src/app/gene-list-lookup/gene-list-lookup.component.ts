@@ -11,10 +11,9 @@ export class GeneListLookupComponent implements OnInit {
   @Output() genesFound = new EventEmitter();
 
   inputText = '';
-  inputFile = null;
 
   geneSummaryMap: GeneSummaryMap = null;
-  unknownIds = [];
+  unknownIds: Array<string> = [];
 
   constructor(private pombaseApiService: PombaseAPIService) {
     this.pombaseApiService.getGeneSummaryMapPromise().then((geneSummaryMap) => {
@@ -26,7 +25,7 @@ export class GeneListLookupComponent implements OnInit {
   }
 
   filteredIds(): Array<string> {
-    let seen = {};
+    let seen: { [key: string]: boolean } = {};
     return this.inputText.trim().split(/\s+/)
       .filter(id => {
         id = id.trim();
@@ -59,8 +58,8 @@ export class GeneListLookupComponent implements OnInit {
     }
   }
 
-  readFile($event): void {
-    let inputValue = $event.target;
+  readFile($event: Event): void {
+    let inputValue = $event.target as any;
     let file = inputValue.files[0];
     let fileReader = new FileReader();
 

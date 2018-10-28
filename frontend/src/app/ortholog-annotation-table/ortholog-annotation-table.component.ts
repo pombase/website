@@ -1,9 +1,10 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { OrthologAnnotation, GeneShort } from '../pombase-api.service';
+import { OrthologAnnotation, GeneShort, ReferenceShort } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getOrganismExternalLink } from '../config';
+         getOrganismExternalLink,
+         ConfigOrganism} from '../config';
 import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-ortholog-annotation-table',
@@ -16,12 +17,19 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<OrthologAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
-  annotationTypeDisplayName = null;
-  hideColumn = {};
+  annotationTypeDisplayName: string = null;
+  hideColumn: { [key: string]: boolean } = {};
 
-  fullProductRef = null;
+  fullProductRef: BsModalRef = null;
 
-  displayTable = [];
+  displayTable: Array<{
+    gene: GeneShort;
+    ortholog: GeneShort;
+    orthologOrganism: ConfigOrganism;
+    orthologShortProduct: string;
+    orthologFullProduct: string;
+    reference: ReferenceShort;
+  }> = [];
 
   getLink(organism: any, uniquename: string, name: string): string {
     return getOrganismExternalLink(organism.genus, organism.species, uniquename, name);

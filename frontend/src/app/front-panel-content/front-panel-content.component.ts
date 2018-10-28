@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./front-panel-content.component.css']
 })
 export class FrontPanelContentComponent implements OnInit {
-  @Input() panelId;
+  @Input() panelId: number;
 
   constructor() { }
 

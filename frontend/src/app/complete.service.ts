@@ -40,7 +40,7 @@ export class CompleteService {
 
         const terms = parsedRes['matches'];
 
-        const resultTerms = terms.map((term) => {
+        const resultTerms = terms.map((term: any) => {
           let synonymMatch = null;
           if (queryText.length >= 2 && term['close_synonyms']) {
             const nameScore = similarity.compareTwoStrings(term.name, queryText);
@@ -80,7 +80,7 @@ export class CompleteService {
 
         const refs = parsedRes['matches'];
 
-        const resultRefs = refs.map((ref) => {
+        const resultRefs = refs.map((ref: any) => {
           const bits = [ref.authors_abbrev, ref.citation];
 
           const authorAndCitation =

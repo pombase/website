@@ -5,7 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 
-import { TermDetails, PombaseAPIService, TermSubsets } from '../pombase-api.service';
+import { TermDetails, PombaseAPIService, TermSubsets, APIError } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          AnnotationType } from '../config';
@@ -22,7 +22,7 @@ export class TermDetailsComponent implements OnInit {
   typeConfig: AnnotationType = null;
   annotationTypeNames: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
-  apiError = null;
+  apiError: APIError = null;
   visibleSections: Array<string> = [];
   annotatedGeneCount = 0;
   singleAlleleGenotypeGeneCount = 0;
@@ -41,7 +41,7 @@ export class TermDetailsComponent implements OnInit {
              ) { }
 
   @HostListener('window:scroll', ['$event'])
-  scrollEvent(event) {
+  scrollEvent(event: any) {
     if (typeof(document) !== 'undefined') {
       // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
       let scrollingElement = document.scrollingElement || document.documentElement;
@@ -101,7 +101,7 @@ export class TermDetailsComponent implements OnInit {
   setCounts(): void {
     this.singleAlleleGenotypeCount = this.termDetails.single_allele_genotypes.length;
 
-    let singleAlleleGenotypeGenes = {};
+    let singleAlleleGenotypeGenes: { [key: string]: boolean } = {};
 
     for (let genotype of this.termDetails.single_allele_genotypes) {
       let gene = genotype.expressed_alleles[0].allele.gene;

@@ -76,10 +76,27 @@ export interface GenotypeMap {
   [uniquename: string]: GenotypeShort;
 }
 
+export interface ExtRange {
+  gene_uniquename?: string;
+  gene?: GeneShort;
+  promoter_gene_uniquename?: string;
+  promoter?: () => { gene: GeneShort };
+  summary_gene_uniquenames?: Array<Array<string>>;
+  summaryGenes?: Array<Array<GeneShort>>;
+  termid?: string;
+  term?: TermShort
+  summary_termids?: Array<string>;
+  summaryTerms?: Array<TermShort>;
+  misc?: string;
+  domain?: string;
+  gene_product?: string;
+  summary_residues?: Array<string>;
+}
+
 export interface ExtPart {
   rel_type_display_name?: string;
   rel_type_name: string;
-  ext_range: any;
+  ext_range: ExtRange;
 }
 
 export interface Annotation {
@@ -253,6 +270,14 @@ export interface InterProMatchLocation {
 }
 
 export interface InterProMatch {
+  countLinkTitle: string;
+  countLinkUrl: string;
+  dbDescription: string;
+  dbWebsite: string;
+  geneCount: number;
+  dbDisplayName: string;
+  dbEntryUrl: string;
+  interProEntryUrl: string;
   id: string;
   dbname: string;
   name: string;
@@ -375,6 +400,11 @@ export interface GeneSubsets {
   [subsetName: string]: GeneSubsetDetails;
 }
 
+export interface APIError {
+  status: number;
+  message: string;
+}
+
 @Injectable()
 export class PombaseAPIService {
   private apiUrl = '/api/v1/dataset/latest';
@@ -382,7 +412,7 @@ export class PombaseAPIService {
   private chromosomeSummariesUrl = this.apiUrl + '/data/chromosome_summaries';
 
   private promiseCache: { [name: string]: Promise<any> } = {};
-  private resultCache = {};
+  private resultCache: any = {};
 
   chunkPromises: {
     [key: string]: Promise<Seq>;
@@ -472,7 +502,7 @@ export class PombaseAPIService {
           row.genes = [];
         }
         if (row.extension) {
-          row.extension.map((extPart) => {
+          row.extension.map((extPart: ExtPart) => {
             if (extPart.ext_range.termid) {
               extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
             } else {
@@ -483,7 +513,7 @@ export class PombaseAPIService {
                   extPart.ext_range.summaryGenes =
                     extPart.ext_range.summary_gene_uniquenames
                     .map(part => {
-                      return part.map(gene_uniquename => {
+                      return part.map((gene_uniquename: string) => {
                         return genesByUniquename[gene_uniquename];
                       });
                     });
@@ -675,7 +705,7 @@ export class PombaseAPIService {
     json.references = this.processGeneReferences(referencesByUniquename);
 
     json.feature_publications =
-      (json.feature_publications || []).map(refUniquename => referencesByUniquename[refUniquename]);
+      (json.feature_publications || []).map((refUniquename: string) => referencesByUniquename[refUniquename]);
 
     return json as GeneDetails;
   }
@@ -863,7 +893,7 @@ export class PombaseAPIService {
     if (!this.promiseCache['getGeneSummaryMapPromise']) {
       this.promiseCache['getGeneSummaryMapPromise'] = this.getGeneSummariesPromise()
         .then(geneSummaries => {
-          let retMap = {};
+          let retMap: { [key: string]: GeneSummary } = {};
           for (let summ of geneSummaries) {
             if (summ.name) {
               retMap[summ.name] = summ;
@@ -909,7 +939,7 @@ export class PombaseAPIService {
       this.promiseCache['getChromosomeSummaryMapPromise'] =
         this.getChromosomeSummariesPromise()
         .then(chromosomeSummaries => {
-          let retMap = {};
+          let retMap: { [chrName: string]: ChromosomeShort} = {};
           for (let summ of chromosomeSummaries) {
             if (summ.name) {
               retMap[summ.name] = summ;
@@ -991,7 +1021,7 @@ export class PombaseAPIService {
 
     let subSeqLength = end - start + 1;
 
-    let chunkSize;
+    let chunkSize: number;
 
     // use big chunks for big sub sequences
     if (subSeqLength > (chunkSizes.smallest + chunkSizes.largest) / 3) {
@@ -1081,7 +1111,7 @@ function genesOfAnnotation(annotation: Annotation, genesByUniquename: GeneMap): 
   }) as Array<GeneShort>;
 }
 
-function moveResidueToExtension(annotation) {
+function moveResidueToExtension(annotation: Annotation) {
   const residue = annotation.residue;
   delete annotation.residue;
 
