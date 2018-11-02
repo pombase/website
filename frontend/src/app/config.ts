@@ -224,6 +224,7 @@ export interface AnnotationType {
     [key: string]: any;
   };
   help_route?: string;
+  deploy_mode: string; // display only in this mode, defaults to any mode
 }
 
 export interface AnnotationTypes {

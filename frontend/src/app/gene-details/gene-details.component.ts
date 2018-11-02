@@ -294,9 +294,21 @@ export class GeneDetailsComponent implements OnInit {
               this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
               this.displayLocation = this.makeDisplayLocation();
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
-              this.annotationTypeNames =
-                this.config.annotationTypeOrder
-                .filter(typeName => this.isGeneDetailPageType(typeName));
+              this.annotationTypeNames = this.config.annotationTypeOrder
+                .filter(typeName => {
+                  if (this.isGeneDetailPageType(typeName)) {
+                    const annotationTypeConfig = this.config.getAnnotationType(typeName);
+
+                    if (annotationTypeConfig.deploy_mode) {
+                      const mode = this.deployConfigService.getMode();
+                      return mode == annotationTypeConfig.deploy_mode;
+                    } else {
+                      return true;
+                    }
+                  } else {
+                    return false;
+                  }
+                });
               this.setPageTitle();
               this.scrollToPageTop();
               this.setProductSize();

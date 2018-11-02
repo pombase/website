@@ -15,6 +15,10 @@ export class DeployConfigService {
     }
   }
 
+  getMode(): string {
+    return this.config.mode;
+  }
+
   productionMode(): boolean {
     return this.config.mode !== 'dev';
   }
