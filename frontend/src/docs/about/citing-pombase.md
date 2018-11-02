@@ -27,11 +27,11 @@ The genome sequence of *Schizosaccharomyces pombe*.\
 
 ### GO Annotations
 
-To cite the *S. pombe* Gene Ontology annotation data, use the 2012 NAR
+To cite the *S. pombe* Gene Ontology annotation data, use the 2018 NAR
 Database Issue paper noted above.
 
 (Note that GO annotation for *S. pombe* has also been previously
-published, but we now recommend the 2012 NAR paper as it is more
+published, but we now recommend the 2018 NAR paper as it is more
 up-to-date. The older publication is Aslett M, Wood V. Gene Ontology
 annotation status of the fission yeast genome: preliminary coverage
 approaches 100%. *Yeast* 2006 Oct 15;23(13):913-9. Erratum in *Yeast*

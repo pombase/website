@@ -6,7 +6,7 @@ on multiple orthogonal annotation types &mdash; the Quick Little Tool
 (QuiLT) for visualisation.
 
 Inspired by our recent analysis of conserved unstudied proteins (see
-figures 3 and S1 in the [manuscript at bioRxiv]()), 
+figures 3 and S1 in the [manuscript at *** SERVER or publisher ***]()), 
 QuiLT allows you to create a similar figure for any gene list you
 create or import using the advanced search. To use QuiLT, follow the
 link to your search results, then click the "Visualise" button. QuiLT
