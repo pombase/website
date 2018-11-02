@@ -318,6 +318,7 @@ export class GeneDetails {
   target_of_annotations: Array<TargetOfAnnotation>;
   references: Array<ReferenceShort>;
   annotation_details: AnnotationDetailMap;
+  feature_publications: Array<ReferenceShort>;
 }
 
 export class GenotypeDetails {
