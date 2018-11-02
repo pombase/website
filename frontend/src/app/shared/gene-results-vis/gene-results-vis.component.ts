@@ -84,7 +84,7 @@ class GeneData {
 }
 
 class AttrValueConf {
-  constructor(public displayName: string, public color: string) {}
+  constructor(public attrValue: string, public displayName: string, public color: string) {}
 }
 
 @Component({
@@ -134,6 +134,8 @@ export class GeneResultsVisComponent implements OnInit {
   keyRectWidth = 10;
   keyAttrGap = 2;
   keyHeaderGap = 20;
+
+  keyHighlight: string = null;
 
   selectedGenes: { [index: string]: boolean } = {};
   selectedGeneList: Array<GeneData> = [];
@@ -264,6 +266,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   geneEnter($event: Event, geneData: GeneDisplayData) {
     this.currentData = null;
+    this.keyHighlight = null;
     this.currentGene = this.geneDataMap[geneData.geneUniquename];
   }
 
@@ -274,10 +277,12 @@ export class GeneResultsVisComponent implements OnInit {
   dataEnter($event: Event, columnData: ColumnDisplayData) {
     this.currentGene = null;
     this.currentData = columnData;
+    this.keyHighlight = columnData.columnConfig.name + ':' + columnData.rowAttr;
   }
 
   dataLeave($event: Event) {
     this.currentData = null;
+    this.keyHighlight = null;
   }
 
   clearSelected(): void {
@@ -410,7 +415,7 @@ export class GeneResultsVisComponent implements OnInit {
       for (const attrName of Array.from(columnConf.attrValuesMap.keys())) {
          if (attrValuesInUseCollector[columnName].has(attrName)) {
            const attrConf = columnConf.attrValuesMap.get(attrName);
-           const confForTemplate = new AttrValueConf(attrConf.display_name || attrName, attrConf.color);
+           const confForTemplate = new AttrValueConf(attrName, attrConf.display_name || attrName, attrConf.color);
            this.attrValuesInUse[columnName].push(confForTemplate);
          }
       }

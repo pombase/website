@@ -152,7 +152,7 @@
                         [attr.y]="keyYPos(columnIndex) + attrValIndex * (keyRectHeight + keyAttrGap) + keyAttrGap + 3"
                         [attr.fill]="conf.color"
                         stroke-width="1"
-                        stroke="#9999"
+                        [attr.stroke]="(keyHighlight == columnName + ':' + conf.attrValue) ? '#2229' : '#9999'"
                         style="pointer-events: fill;">
               </svg:rect>
 
@@ -160,6 +160,7 @@
                         [attr.x]="keyXPos() + keyRectWidth + keyAttrGap"
                         [attr.y]="keyYPos(columnIndex) + attrValIndex * (keyRectHeight + keyAttrGap) + keyAttrGap + keyRectHeight + 3"
                         fill="#555"
+                        [style.font-weight]="(keyHighlight == columnName + ':' + conf.attrValue) ? 'bold' : 'normal'"
                         style="pointer-events: fill;">
                 {{conf.displayName}}
               </svg:text>
