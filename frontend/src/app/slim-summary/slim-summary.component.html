@@ -1,0 +1,18 @@
+<div *ngIf="geneSlimTerms" class="slim-summary">
+  <div *ngIf="geneSlimTerms.length > 0">
+  <div>
+    <a *ngIf="annotationType.slim_link" class="heading" routerLink="{{annotationType.slim_link}}">{{annotationType.slim_description}}</a>
+    <span *ngIf="!annotationType.slim_link" class="heading">{{annotationType.slim_description}}</span>
+  </div>
+  <div class="slim-link-container">
+  <span class="slim-links" *ngFor="let element of geneSlimTerms">
+    <a routerLink="/term_genes/{{element.termid}}">{{element.name}}</a>
+  </span>
+  </div>
+  </div>
+  <div class="heading" *ngIf="geneSlimTerms.length == 0">
+    This gene product is not currently assigned to any
+    <a *ngIf="annotationType.slim_link" routerLink="{{annotationType.slim_link}}">{{annotationType.slim_no_category_text}}</a>
+    <span *ngIf="!annotationType.slim_link">{{annotationType.slim_no_category_text}}</span>
+  </div>
+</div>

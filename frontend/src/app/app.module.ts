@@ -59,7 +59,7 @@ import { GeneExternalReferencesComponent } from './gene-external-references/gene
 import { AnnotationTableEvidenceFilterComponent } from './annotation-table-evidence-filter/annotation-table-evidence-filter.component';
 import { GenotypeAlleleSummaryComponent } from './genotype-allele-summary/genotype-allele-summary.component';
 import { DeletionViabilitySummaryComponent } from './deletion-viability-summary/deletion-viability-summary.component';
-import { GoSlimSummaryComponent } from './go-slim-summary/go-slim-summary.component';
+import { SlimSummaryComponent } from './slim-summary/slim-summary.component';
 import { ReferenceShortListComponent } from './reference-short-list/reference-short-list.component';
 import { TranscriptSequenceSelectComponent } from './transcript-sequence-select/transcript-sequence-select.component';
 import { ProteinPropertiesComponent } from './protein-properties/protein-properties.component';
@@ -142,7 +142,7 @@ export function windowFactory() {
     AnnotationTableEvidenceFilterComponent,
     GenotypeAlleleSummaryComponent,
     DeletionViabilitySummaryComponent,
-    GoSlimSummaryComponent,
+    SlimSummaryComponent,
     ReferenceShortListComponent,
     TranscriptSequenceSelectComponent,
     ProteinPropertiesComponent,

@@ -1,4 +1,4 @@
-.go-slim-summary {
+.slim-summary {
   padding: 0 5px 0 5px;
   border: 1px solid #bbb;
   border-radius: 2px;
@@ -8,7 +8,7 @@
   margin-bottom: 0.6em;
 }
 
-.go-slim-links a {
+.slim-links a {
   padding: 0.2em 0.5em 0.2em 0.5em;
   margin: 0 0 0 0.5em;
   border: 1px solid #bbb;
@@ -17,11 +17,11 @@
   white-space: nowrap;
 }
 
-.go-slim-summary .heading {
+.slim-summary .heading {
   font-weight: bold;
   padding: 2px;
 }
 
-.go-slim-link-container {
+.slim-link-container {
   padding: 0 0.3em 0.4em 0.3em;
 }

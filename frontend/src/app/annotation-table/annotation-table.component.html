@@ -13,9 +13,9 @@
                                   [geneDetails]="geneDetails">
   </app-deletion-viability-summary>
 
-    <div class="annotation-table-slim" *ngIf="geneDetails && annotationTypeName == 'biological_process'">
-      <app-go-slim-summary [geneDetails]="geneDetails">
-      </app-go-slim-summary>
+    <div class="annotation-table-slim" *ngIf="geneDetails && typeConfig.slim_subset_name">
+      <app-slim-summary [geneDetails]="geneDetails" [annotationTypeName]="annotationTypeName">
+      </app-slim-summary>
     </div>
 
   <div *ngIf="split_by_parents.length == 0">

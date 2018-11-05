@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GoSlimSummaryComponent } from './go-slim-summary.component';
+import { SlimSummaryComponent } from './slim-summary.component';
 
-describe('GoSlimSummaryComponent', () => {
-  let component: GoSlimSummaryComponent;
-  let fixture: ComponentFixture<GoSlimSummaryComponent>;
+describe('SlimSummaryComponent', () => {
+  let component: SlimSummaryComponent;
+  let fixture: ComponentFixture<SlimSummaryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GoSlimSummaryComponent ]
+      declarations: [ SlimSummaryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GoSlimSummaryComponent);
+    fixture = TestBed.createComponent(SlimSummaryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

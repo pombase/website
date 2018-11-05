@@ -344,6 +344,7 @@ export class TermDetails {
   direct_ancestors: Array<TermAndRelation>;
   annotation_feature_type: string;
   name: string;
+  in_subsets: Array<string>;
   is_obsolete: false;
   cv_annotations: CvAnnotations;
   single_allele_genotype_uniquenames: Array<string>;
