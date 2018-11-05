@@ -25,7 +25,7 @@
     "@types/string-similarity": "^1.2.0",
     "angular2-cookie-law": "^6.0.4",
     "angulartics2": "^7.0.2",
-    "blob": "0.0.4",
+    "blob": "0.0.5",
     "bootstrap3": "^3.3.5",
     "core-js": "^2.5.7",
     "file-saver": "^2.0.0-rc.4",
