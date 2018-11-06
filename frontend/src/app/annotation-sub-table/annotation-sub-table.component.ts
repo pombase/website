@@ -2,7 +2,10 @@ import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angu
 import { TermAnnotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
-         FilterConfig, SplitByParentsConfig, AnnotationExternalLinkConfig } from '../config';
+         FilterConfig, SplitByParentsConfig, AnnotationExternalLinkConfig,
+         getAppConfig,
+         AppConfig,
+         LinkDisplay} from '../config';
 import { AnnotationTable } from '../pombase-api.service';
 import { AnnotationFilter } from '../filtering/annotation-filter';
 import { TableViewState } from '../pombase-types';
@@ -26,6 +29,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   TableViewState = TableViewState;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
+  appConfig: AppConfig = getAppConfig();
   typeConfig: AnnotationType;
   filterConfig: Array<FilterConfig> = null;
   filteredTable: AnnotationTable = [];
@@ -112,6 +116,15 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
   trackByTermId(index: number, item: any) {
     return item.term.termid;
+  }
+
+  getTermXrefLink(id: string): string {
+    const configKey = this.typeConfig.term_xref_conf_key;
+    if (configKey && id) {
+      return this.appConfig.getMiscExternalLink(configKey, id).url;
+    } else {
+      return '';
+    }
   }
 
   hasQualifiers(): boolean {

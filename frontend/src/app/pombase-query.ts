@@ -47,6 +47,8 @@ export interface TermShort {
   is_obsolete: boolean;
   gene_count?: number;
   genotype_count?: number;
+  xref?: string;
+  xref_display_name?: string;
 }
 
 export enum QueryNodeOperator {

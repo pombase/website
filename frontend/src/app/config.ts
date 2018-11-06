@@ -166,6 +166,13 @@ export interface AppConfig {
   getExternalTermLink(dbName: string, termId: string): { url: string, displayName: string };
 
   getExternalGeneLink(name: string, geneDetails: GeneDetails): Array<string>;
+
+  getMiscExternalLink(configKey: string, id: string): LinkDisplay;
+}
+
+export interface LinkDisplay {
+  url: string;
+  displayName: string;
 }
 
 export interface TermFilterCategory {
@@ -225,6 +232,12 @@ export interface AnnotationType {
   slim_description?: string;
   slim_link?: string;
   slim_no_category_text?: string;
+  // a type name for the cvtermprop to display to the user
+  term_xref_display_name_prop?: string;
+  // the cvtermprop type name for the extra ID
+  term_xref_id_prop?: string;
+  // the config key to use in the call to getMiscExternalLink()
+  term_xref_conf_key?: string;
   misc_config?: {
     [key: string]: any;
   };
@@ -858,7 +871,7 @@ let _appConfig: AppConfig = {
     return getAppConfig().predefinedQueries[queryId];
   },
 
-  getExternalTermLink(configKey: string, termId: string): { url: string, displayName: string } {
+  getExternalTermLink(configKey: string, termId: string): LinkDisplay {
     let confs = this.externalTermReferences;
 
     for (let conf of confs) {
@@ -899,7 +912,19 @@ let _appConfig: AppConfig = {
     }
 
     return null;
-  }
+  },
+
+  // get a URL from the misc_external_links configuration and substitute the given ID
+  getMiscExternalLink(configKey: string, id: string): LinkDisplay {
+    let configUrl = this.miscExternalLinks[configKey];
+
+    if (configUrl) {
+      return { url: configUrl.replace('<<IDENTIFIER>>', id),
+               displayName: configKey };
+    }
+
+    return null;
+  },
 };
 
 export function getAnnotationTableConfig(): AnnotationTableConfig {
