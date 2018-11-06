@@ -136,6 +136,7 @@ export interface AppConfig {
   phenotypeIdPrefixes: Array<string>;
   linkoutConfig: LinkoutConfig;
   missingBrowserImages: Array<string>;
+  searchBoxCvNames: Array<string>;
   evidenceTypes: EvidenceConfig;
   externalGeneReferences: Array<ExternalGeneReference>;
   externalTermReferences: Array<ExternalTermReference>;
@@ -557,6 +558,9 @@ let _appConfig: AppConfig = {
   },
 
   missingBrowserImages: pombaseConfig.missing_browser_images,
+
+  // limit the search box term autocompletion to these CVs:
+  searchBoxCvNames: pombaseConfig.search_box_cv_names,
 
   evidenceTypes: pombaseConfig.evidence_types,
   externalGeneReferences: pombaseConfig.external_gene_references,

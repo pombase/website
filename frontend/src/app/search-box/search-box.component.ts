@@ -4,9 +4,10 @@ import { Observable, of } from 'rxjs';
 
 import { PombaseAPIService, GeneSummary, IdAndOrganism } from '../pombase-api.service';
 import { CompleteService, SolrTermSummary, SolrRefSummary } from '../complete.service';
+import { getAppConfig } from '../config';
 
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
-import { map, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 
 class SearchSummary {
@@ -35,10 +36,6 @@ class DisplayModel {
   }
 }
 
-const CV_NAMES_FOR_TERM_COMPLETE =
-  '(molecular_function OR biological_process OR cellular_component OR ' +
-  'fission_yeast_phenotype)';
-
 @Component({
   selector: 'app-search-box',
   templateUrl: './search-box.component.html',
@@ -51,6 +48,8 @@ export class SearchBoxComponent implements OnInit {
   fieldValue = '';
 
   searchSummaries: Array<SearchSummary> = [];
+
+  cvNamesForTermComplete = '(' + getAppConfig().searchBoxCvNames.join(' OR ') + ')';
 
   constructor(private completeService: CompleteService,
               private pombaseApiService: PombaseAPIService,
@@ -229,7 +228,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   getTermMatches(token: string): Observable<Array<DisplayModel>> {
-    return this.completeService.completeTermName(CV_NAMES_FOR_TERM_COMPLETE, token)
+    return this.completeService.completeTermName(this.cvNamesForTermComplete, token)
       .map((termResults: Array<SolrTermSummary>) =>
            termResults.map(termResult => this.makeTermDisplayModel(termResult)));
   }
@@ -349,7 +348,7 @@ export class SearchBoxComponent implements OnInit {
     this.fieldValue = '';
   }
 
-  enterPressed(e: any) {
+  enterPressed() {
     let trimmedValue = this.fieldValue;
     if (this.matchesReference(trimmedValue)) {
       let pmid = trimmedValue;
