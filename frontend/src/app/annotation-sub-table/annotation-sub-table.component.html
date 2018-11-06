@@ -49,7 +49,7 @@
         <th *ngIf="showColumn['evidence']">Evidence</th>
         <th *ngIf="showColumn['conditions']">Conditions</th>
         <th *ngIf="showColumn['qualifiers']">Qualifiers</th>
-        <th *ngIf="showColumn['term-xref']">{{typeConfig.term_xref_conf_key}}</th>
+        <th *ngIf="showColumn['term-xref']">Source</th>
         <th *ngIf="showColumn['residue']">Residue</th>
         <th *ngIf="showColumn['reference']">Reference</th>
         <th *ngIf="showColumn['count']">Count</th>
@@ -171,7 +171,7 @@
         </td>
         <td *ngIf="showColumn['term-xref']">
           <div *ngIf="termAnnotation.term.xref">
-            <a href="{{getTermXrefLink(termAnnotation.term.xref)}}">{{termAnnotation.term.xref_display_name}}</a>
+            <a href="{{getTermXrefLink(termAnnotation.term.xref)}}">{{typeConfig.term_xref_conf_key}}</a>
           </div>
         </td>
         <td *ngIf="showColumn['residue']">{{annotation.residue}}</td>
