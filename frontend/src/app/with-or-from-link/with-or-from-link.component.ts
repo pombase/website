@@ -27,7 +27,12 @@ export class WithOrFromLinkComponent implements OnInit {
 
     if (this.withOrFrom.identifier) {
       this.identifier = this.withOrFrom.identifier;
-      this.link = getXrf(this.withOrFrom.identifier).url;
+      const xrfDetails = getXrf(this.withOrFrom.identifier);
+      if (xrfDetails) {
+        this.link = xrfDetails.url;
+      } else {
+        this.link = null;
+      }
     }
   }
 }
