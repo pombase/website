@@ -300,16 +300,18 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   prefetch() {
     let geneLocation = this.geneDetails.location;
-    let strand;
-    if (geneLocation.strand === 'forward') {
-      strand = Strand.Forward;
-    } else {
-      strand = Strand.Reverse;
-    }
+    if (geneLocation) {
+      let strand;
+      if (geneLocation.strand === 'forward') {
+        strand = Strand.Forward;
+      } else {
+        strand = Strand.Reverse;
+      }
 
-    this.apiService.getChrSubSequence(geneLocation.chromosome_name,
-                                      geneLocation.start_pos - 2000,
-                                      geneLocation.end_pos + 2000, strand);
+      this.apiService.getChrSubSequence(geneLocation.chromosome_name,
+                                        geneLocation.start_pos - 2000,
+                                        geneLocation.end_pos + 2000, strand);
+    }
   }
 
   featureHasProtein() {

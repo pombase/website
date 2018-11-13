@@ -81,6 +81,9 @@ export class GeneDetailsComponent implements OnInit {
 
   makeDisplayLocation(): Array<string> {
     const location = this.geneDetails.location;
+    if (!location) {
+      return null;
+    }
     const chromosomeName = location.chromosome_name;
     const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
 
@@ -235,7 +238,7 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   setJBrowseLink(): void {
-    if (this.geneDetails) {
+    if (this.geneDetails && this.geneDetails.location) {
       this.pombaseApiService.getChromosomeSummaryMapPromise()
         .then(chromosomeSummaryMap => {
           const loc = this.geneDetails.location;

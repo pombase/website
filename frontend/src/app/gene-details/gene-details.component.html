@@ -30,8 +30,8 @@
           <div>{{geneDetails.uniquename}}</div>
           <div class="details-label">Product size</div>
           <div>{{productSize}}</div>
-          <div class="details-label">Genomic location</div>
-          <div>
+          <div *ngIf="displayLocation" class="details-label">Genomic location</div>
+          <div *ngIf="displayLocation">
             <table class="genomic-location">
               <tr>
                 <td [attr.rowspan]="displayLocation.length - 1">
