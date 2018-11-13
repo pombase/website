@@ -32,9 +32,12 @@ export class ExtensionDisplayComponent implements OnInit {
   }
 
   ngOnInit() {
+    let organismRE: RegExp = null;
     const loadOrganism = getAppConfig().getConfigOrganism();
-    const loadOrganismFullName = loadOrganism.genus + ' ' + loadOrganism.species;
-    const organismRE = new RegExp(` *\\(${loadOrganismFullName}\\)`);
+    if (loadOrganism) {
+      const loadOrganismFullName = loadOrganism.genus + ' ' + loadOrganism.species;
+      organismRE = new RegExp(` *\\(${loadOrganismFullName}\\)`);
+    }
 
     this.linkoutConfig = getAppConfig().linkoutConfig;
 
@@ -55,7 +58,9 @@ export class ExtensionDisplayComponent implements OnInit {
             let displayName;
             if (rangePart.term) {
               displayName = rangePart.term.name;
-              displayName = displayName.replace(organismRE, '');
+              if (organismRE) {
+                displayName = displayName.replace(organismRE, '');
+              }
             } else {
               displayName = id;
             }
