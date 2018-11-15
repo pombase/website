@@ -7659,6 +7659,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-your-pocket">PomBase in your pocket</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#see-your-genes-quilt">See your genes in a QuiLT</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-pombase-genomic-region-graphics">New PomBase genomic region graphics</a></div>
@@ -8582,9 +8583,22 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Many thanks to our star (and only) programmer, Kim Rutherford, for developing QuiLT.</p>
 
   </div>
+  <div *ngIf="pageName == 'S.-pombe-in-your-pocket'">
+<h3 id="pombase-in-your-pocket">PomBase in your pocket</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: mobile_thumb.png -->
+<p>Our usage statistics informed us that over 20% of devices accessing PomBase are smartphones or tablets. We therefore spent some time optimizing the display for small screens. We hope that you will continue to enjoy PomBase on the go!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/mobile_thumb.png"/></p>
+<h3 id="pombase-your-pocket">PomBase in your pocket</h3>
+<p><em>2018-11-14</em></p>
+<p>Our usage statistics informed us that over 20% of devices accessing PomBase are smartphones or tablets. We therefore spent some time optimizing the display for small screens. We hope that you will continue to enjoy PomBase on the go!</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/QLT.png"/></p>
 <h3 id="see-your-genes-quilt">See your genes in a QuiLT</h3>
