@@ -386,6 +386,7 @@ sub process_line {
 sub all_news_items {
   my @items = ();
   opendir my $dh, "$markdown_docs/news";
+ ITEM:
   while (my $dir_file_name = readdir($dh)) {
     if ($dir_file_name =~ /^($date_re)-(.*)\.md$/) {
       my $news_date = $1;
@@ -401,6 +402,7 @@ sub all_news_items {
           $id = make_id_from_heading($title);
         } else {
           if ($line =~ /^\s*<!-- pombase_flags:\s*(.*?)\s*-->\s*$/) {
+            next ITEM if $1 eq 'draft';
             $flags{$1} = 1;
           } else {
             if ($line =~ /^\s*<!-- newsfeed_thumbnail:\s*(.*?)\s*-->\s*$/) {
