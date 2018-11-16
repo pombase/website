@@ -200,6 +200,7 @@ export interface GeneSummary extends GeneShort {
   uniquename: string;
   name: string;
   taxonid: number;
+  organism?: ConfigOrganism;
   product?: string;
   uniprot_identifier?: string;
   synonyms: Array<string>;
@@ -878,8 +879,11 @@ export class PombaseAPIService {
       this.promiseCache[this.geneSummariesUrl] = this.getWithRetry(this.geneSummariesUrl)
         .toPromise()
         .then(response => {
-          this.resultCache[this.geneSummariesUrl] =
-            response.json() as Array<GeneSummary>;
+          const result = response.json() as Array<GeneSummary>;
+          result.map(summ => {
+            summ.organism = getAppConfig().getOrganismByTaxonid(summ.taxonid);
+          })
+          this.resultCache[this.geneSummariesUrl] = result;
           return this.resultCache[this.geneSummariesUrl];
         })
         .catch(this.handleError);

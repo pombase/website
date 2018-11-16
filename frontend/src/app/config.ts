@@ -158,6 +158,7 @@ export interface AppConfig {
   isConfigOrganism(taxon: number): boolean;
 
   getConfigOrganism(): ConfigOrganism;
+  isMultiOrganismMode(): boolean;
 
   getPredefinedQuery(queryName: string): PredefinedQueryConfig;
 
@@ -540,6 +541,8 @@ function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
   return ret;
 }
 
+let _organismMap: { [taxonid: number]: ConfigOrganism } = null;
+
 let _appConfig: AppConfig = {
   site_name: pombaseConfig.site_name,
   site_description: pombaseConfig.site_description,
@@ -856,15 +859,19 @@ let _appConfig: AppConfig = {
   getConfigOrganism(): ConfigOrganism {
     return this.getOrganismByTaxonid(this.load_organism_taxonid);
   },
+  isMultiOrganismMode(): boolean {
+    return !this.load_organism_taxonid;
+  }
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism {
-    let retOrganism = null;
-    this.organisms.map((organism: ConfigOrganism) => {
-      if (organism.taxonid === taxonid) {
-        retOrganism = organism;
-      }
-    });
-    return retOrganism;
+    if (!_organismMap) {
+      _organismMap = {};
+      this.organisms.map((organism: ConfigOrganism) => {
+        _organismMap[organism.taxonid] = organism;
+      });
+    }
+
+    return _organismMap[taxonid];
   },
 
   getPredefinedQuery(queryId: string): PredefinedQueryConfig {

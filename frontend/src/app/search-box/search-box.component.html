@@ -2,7 +2,11 @@
   <div class="search-box-contents">
   <span *ngIf="model.name"><strong>{{model.name}}</strong> ({{model.uniquename}})</span>
   <span *ngIf="!model.name"><strong>{{model.uniquename}}</strong></span>
-  <div *ngIf="model.otherDetails" class="match-extra">{{model.otherDetails}}</div>
+    <div *ngIf="model.otherDetails" class="match-extra">
+      <div *ngFor="let detail of model.otherDetails">
+        {{detail}}
+      </div>
+    </div>
   </div>
 </ng-template>
 
