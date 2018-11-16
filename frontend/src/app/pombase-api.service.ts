@@ -882,6 +882,8 @@ export class PombaseAPIService {
           const result = response.json() as Array<GeneSummary>;
           result.map(summ => {
             summ.organism = getAppConfig().getOrganismByTaxonid(summ.taxonid);
+            summ.synonyms = summ.synonyms || [];
+            summ.orthologs = summ.orthologs || [];
           })
           this.resultCache[this.geneSummariesUrl] = result;
           return this.resultCache[this.geneSummariesUrl];
