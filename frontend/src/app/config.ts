@@ -861,7 +861,7 @@ let _appConfig: AppConfig = {
   },
   isMultiOrganismMode(): boolean {
     return !this.load_organism_taxonid;
-  }
+  },
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism {
     if (!_organismMap) {
