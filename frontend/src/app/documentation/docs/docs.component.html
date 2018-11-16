@@ -7659,8 +7659,8 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
-<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-your-pocket">PomBase in your pocket</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-your-pocket">PomBase in your pocket</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-pombase-genomic-region-graphics">New PomBase genomic region graphics</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-nar-database-issue">PomBase NAR Database Issue</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#fungal-pathogen-genomics-course-registration-open">Fungal Pathogen Genomics Course 2019 - registration open</a></div>
@@ -8558,14 +8558,6 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>PomBase gene pages now use interactive graphics from PomBase JBrowse to depict the genomic region around the gene. Drag to scroll left and right, double-click to zoom in, shift-double-click to zoom out, and click a feature to see details in a popup. The &quot;Full-screen view&quot; link in the corner opens the fully functional JBrowse in a new tab or window. Reloading a gene page restores the display to the default location and zoom level.</p>
 
   </div>
-  <div *ngIf="pageName == 'conserved-unknowns-pub'">
-<h3 id="hidden-in-plain-sight-what-remains-to-be-discovered-in-the-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
-<!-- pombase_flags: frontpage -->
-<!-- newsfeed_thumbnail: unknowns.png -->
-<p>In a new publication, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. To draw attention to these proteins, we develop metrics to define unknown lists, provide unknown inventories for human and yeast, classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, and speculate about reasons for their neglect.</p>
-<p>A <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">pre-publication manuscript</a> is available at bioRxiv.</p>
-
-  </div>
   <div *ngIf="pageName == 'quick-little-tool'">
 <h3 id="see-your-genes-in-a-quilt">See your genes in a QuiLT</h3>
 <!-- pombase_flags: draft -->
@@ -8590,21 +8582,29 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Our usage statistics informed us that over 20% of devices accessing PomBase are smartphones or tablets. We therefore spent some time optimizing the display for small screens. We hope that you will continue to enjoy PomBase on the go!</p>
 
   </div>
+  <div *ngIf="pageName == 'conserved-unknowns-pub'">
+<h3 id="hidden-in-plain-sight-what-remains-to-be-discovered-in-the-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: unknowns.png -->
+<p>In a new publication, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. To draw attention to these proteins, we develop metrics to define unknown lists, provide unknown inventories for human and yeast, classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, and speculate about reasons for their neglect.</p>
+<p>A <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">pre-publication manuscript</a> is available at bioRxiv.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/unknowns.png"/></p>
+<h3 id="hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
+<p><em>2018-11-17</em></p>
+<p>In a new publication, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. To draw attention to these proteins, we develop metrics to define unknown lists, provide unknown inventories for human and yeast, classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, and speculate about reasons for their neglect.</p>
+<p>A <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">pre-publication manuscript</a> is available at bioRxiv.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/mobile_thumb.png"/></p>
 <h3 id="pombase-your-pocket">PomBase in your pocket</h3>
 <p><em>2018-11-14</em></p>
 <p>Our usage statistics informed us that over 20% of devices accessing PomBase are smartphones or tablets. We therefore spent some time optimizing the display for small screens. We hope that you will continue to enjoy PomBase on the go!</p>
-</div>
-<div class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/unknowns.png"/></p>
-<h3 id="hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
-<p><em>2018-10-26</em></p>
-<p>In a new publication, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. To draw attention to these proteins, we develop metrics to define unknown lists, provide unknown inventories for human and yeast, classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, and speculate about reasons for their neglect.</p>
-<p>A <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">pre-publication manuscript</a> is available at bioRxiv.</p>
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
