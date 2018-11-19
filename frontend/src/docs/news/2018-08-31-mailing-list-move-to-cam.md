@@ -1,5 +1,4 @@
 ### pombelist changes
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombelist.png -->
 
 The pombe community mailing list, "pombelist", is now hosted by the

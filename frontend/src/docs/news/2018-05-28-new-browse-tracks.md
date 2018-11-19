@@ -1,5 +1,4 @@
 ### New genome browser tracks
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: new_tracks.png -->
 
 We are very pleased to announce that we have loaded a number of new datasets into the PomBase [JBrowse genome browser (https://www.pombase.org/jbrowse/). These include:
