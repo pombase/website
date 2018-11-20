@@ -62,15 +62,13 @@ export class SearchBoxComponent implements OnInit {
     return this.searchSummaries.length > 0;
   }
 
-  makeGeneDisplayModel(uniquename: string, name: string, otherDetail: string, organism: ConfigOrganism): DisplayModel {
-    let otherDetails: Array<string> = [];
+  makeGeneDisplayModel(uniquename: string, name: string, otherDetailsArg: Array<string>, organism: ConfigOrganism): DisplayModel {
+    let otherDetails: Array<string> = [...otherDetailsArg];
     if (getAppConfig().isMultiOrganismMode()) {
       const fullName = organism.genus + ' ' + organism.species;
-      otherDetails.push(fullName);
+      otherDetails.unshift(fullName);
     }
-    if (otherDetail) {
-      otherDetails.push(otherDetail);
-    }
+
     return new DisplayModel('Matching genes:', uniquename, name, otherDetails, organism);
   }
 
@@ -84,7 +82,7 @@ export class SearchBoxComponent implements OnInit {
 
   nameExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     if (geneSumm.nameLowerCase === value) {
-      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null, geneSumm.organism);
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
     }
     return null;
   }
@@ -93,7 +91,7 @@ export class SearchBoxComponent implements OnInit {
     if (geneSumm.nameLowerCase && geneSumm.nameLowerCase.indexOf(value) !== -1 &&
         (geneSumm.name.indexOf('-antisense-') === -1 ||
          value.indexOf('antisense') !== -1)) { // See #409
-        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null, geneSumm.organism);
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
     } else {
       return null;
     }
@@ -101,7 +99,7 @@ export class SearchBoxComponent implements OnInit {
 
   identifierMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     if (geneSumm.uniquenameLowerCase.indexOf(value) !== -1) {
-      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null, geneSumm.organism);
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
     } else {
       return null;
     }
@@ -111,7 +109,7 @@ export class SearchBoxComponent implements OnInit {
     if (geneSumm.name && geneSumm.nameLowerCase.indexOf(value) !== -1 &&
         geneSumm.name.indexOf('-antisense-') !== -1 &&
         value.indexOf('antisense') === -1) { // See #409
-        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, null, geneSumm.organism);
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
     } else {
       return null;
     }
@@ -121,7 +119,7 @@ export class SearchBoxComponent implements OnInit {
     const matchIndex = geneSumm.synonymsLowerCase.findIndex(syn => syn.indexOf(value) !== -1);
     if (matchIndex !== -1) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                       'synonym: ' + geneSumm.synonyms[matchIndex],
+                                       ['synonym: ' + geneSumm.synonyms[matchIndex]],
                                        geneSumm.organism);
     }
     return null;
@@ -131,7 +129,7 @@ export class SearchBoxComponent implements OnInit {
     const matchIndex = geneSumm.synonymsLowerCase.findIndex(syn => syn === value);
     if (matchIndex !== -1) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                       'synonym: ' + geneSumm.synonyms[matchIndex],
+                                       ['synonym: ' + geneSumm.synonyms[matchIndex]],
                                        geneSumm.organism);
     }
     return null;
@@ -140,29 +138,38 @@ export class SearchBoxComponent implements OnInit {
   orthologMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     for (let orth of geneSumm.orthologs) {
       if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
+        const organismDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
+        const detail = 'ortholog: ' + orth.identifier + ' (' +
+          organismDetails.genus + ' ' + organismDetails.species + ')';
         return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                         'ortholog: ' + orth.identifier,
-                                         geneSumm.organism);
+                                         [detail], geneSumm.organism);
       }
     }
     return null;
   }
 
   orthologExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
-    for (let orth of geneSumm.orthologs) {
-      if (orth.identifier.toLowerCase() === value) {
-        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                         'ortholog: ' + orth.identifier,
-                                         geneSumm.organism);
-      }
+    const matchingOrthologs = geneSumm.orthologs.filter(orth => {
+      return orth.identifier.toLowerCase() === value;
+    });
+    if (matchingOrthologs.length > 0) {
+      const details =
+        matchingOrthologs.map(orth => {
+          const orgDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
+          return 'ortholog: <span class="search-box-highlight">' +
+            orth.identifier + '</span> (' + orgDetails.common_name + ')';
+        });
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
+        details, geneSumm.organism);
     }
+
     return null;
   }
 
   productMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     if (geneSumm.product && geneSumm.productLowerCase.indexOf(value) !== -1) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                       'product: ' + geneSumm.product,
+                                       ['product: ' + geneSumm.product],
                                        geneSumm.organism);
     } else {
       return null;
@@ -172,7 +179,7 @@ export class SearchBoxComponent implements OnInit {
   uniprotIdMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     if (geneSumm.uniprotIdentifier && geneSumm.uniprotIdentifierLowerCase.indexOf(value) !== -1) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                       'UniProt ID: ' + geneSumm.uniprotIdentifier,
+                                       ['UniProt ID: ' + geneSumm.uniprotIdentifier],
                                        geneSumm.organism);
     } else {
       return null;
