@@ -1,5 +1,5 @@
 ### See your genes in a QuiLT
-<!-- pombase_flags: draft -->
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: QLT.png -->
 
 PomBase now offers a new way to display gene lists graphically based
@@ -7,7 +7,7 @@ on multiple orthogonal annotation types &mdash; the Quick Little Tool
 (QuiLT) for visualisation.
 
 Inspired by our recent analysis of conserved unstudied proteins (see
-figures 3 and S1 in the [manuscript at *** SERVER or publisher ***]()), 
+figures 4 and S1 in the [manuscript at bioRxiv](https://www.biorxiv.org/content/early/2018/11/16/469569)), 
 QuiLT allows you to create a similar figure for any gene list you
 create or import using the advanced search. To use QuiLT, follow the
 link to your search results, then click the "Visualise" button. QuiLT
