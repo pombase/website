@@ -387,7 +387,7 @@ In Kollar M (ed) <em>Eukaryotic Genomic Databases. Methods in Molecular Biology<
   </div>
   <div *ngIf="pageName == 'version-history'">
 <h1 id="pombase-data-version-history">PomBase data version history</h1>
-<p>This table records versions of software, annotations, etc. used in the numbered releases of Pombase made between September 2012 and January 2017.</p>
+<p>This table records versions of software, annotations, etc. used in the numbered releases of Pombase made between September 2012 and January 2017. See the <a routerLink="/downloads/chado-database-dumps">Chado database dumps</a> page for a link to the data represented by the &quot;Annotation Version&quot; column.</p>
 <h4 id="past-pombase-releases">Past PomBase Releases</h4>
 <table border="1">
  <tbody>
@@ -7659,6 +7659,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#fission-yeast-transmembrane-transport-overhaul">Fission yeast transmembrane transport overhaul</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-your-pocket">PomBase in your pocket</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-pombase-genomic-region-graphics">New PomBase genomic region graphics</a></div>
@@ -8587,9 +8588,22 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>A <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">pre-publication manuscript</a> is available at bioRxiv.</p>
 
   </div>
+  <div *ngIf="pageName == 'tm-transport-overhaul'">
+<h3 id="fission-yeast-transmembrane-transport-overhaul">Fission yeast transmembrane transport overhaul</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: antiporter.png -->
+<p>The Gene Ontology &quot;<a href="http://amigo.geneontology.org/amigo/term/GO:0055085">transmembrane transport</a>&quot; branch has recently been substantially revised. In line with these revisions, PomBase has standardised gene product descriptions for transporters, and overhauled GO annotations to be as complete and comprehensive as possible based on current knowledge.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/antiporter.png"/></p>
+<h3 id="fission-yeast-transmembrane-transport-overhaul">Fission yeast transmembrane transport overhaul</h3>
+<p><em>2018-11-20</em></p>
+<p>The Gene Ontology &quot;<a href="http://amigo.geneontology.org/amigo/term/GO:0055085">transmembrane transport</a>&quot; branch has recently been substantially revised. In line with these revisions, PomBase has standardised gene product descriptions for transporters, and overhauled GO annotations to be as complete and comprehensive as possible based on current knowledge.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/unknowns.png"/></p>
 <h3 id="hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
