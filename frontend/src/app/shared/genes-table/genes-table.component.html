@@ -27,7 +27,7 @@
     Select: <a (click)="selectAll()">all</a> | <a (click)="selectNone()">none</a> 
   </div>
 
-  <div *ngIf="!selectionInProgress() && !deployConfigService.productionMode()" class="action">
+  <div *ngIf="!selectionInProgress()" class="action">
     <button class="btn btn-primary"
             title="Show gene visualisation"
             (click)="showVisualisation()">Visualise</button>

@@ -7,7 +7,6 @@ import { GeneShort } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 import { QueryService, HistoryEntry } from '../../query.service';
 import { GeneQuery, GeneListNode, TermShort } from '../../pombase-query';
-import { DeployConfigService } from '../../deploy-config.service';
 
 @Component({
   selector: 'app-genes-table',
@@ -38,8 +37,7 @@ export class GenesTableComponent implements OnInit {
 
   constructor(private modalService: BsModalService,
               private queryService: QueryService,
-              private router: Router,
-              private deployConfigService: DeployConfigService) { }
+              private router: Router) { }
 
   setOrderBy(field: string) {
     this.orderByField = field;
