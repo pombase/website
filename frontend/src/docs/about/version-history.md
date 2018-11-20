@@ -2,7 +2,9 @@
 
 This table records versions of software, annotations, etc. used in the
 numbered releases of Pombase made between September 2012 and January
-2017.
+2017. See the [Chado database dumps](downloads/chado-database-dumps)
+page for a link to the data represented by the "Annotation Version"
+column.
 
 #### Past PomBase Releases ####
 
