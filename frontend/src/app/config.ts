@@ -67,6 +67,7 @@ export interface ConfigOrganism {
   taxonid: number;
   genus: string;
   species: string;
+  common_name: string;
 }
 
 export interface PanelConfig {

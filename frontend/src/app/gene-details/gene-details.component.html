@@ -6,7 +6,7 @@
     <div class="details-page-name-and-id">
     <div class="gene-details-name-id">
     <span class="gene-name" *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">
-      <span class="name-id">{{organism.genus}} {{organism.species}}</span>
+      <span class="name-id">{{organism.common_name}}</span>
     </span>
     <span *ngIf="geneDetails.name">
       <span class="name-id"><span class="name-id-highlight">{{geneDetails.name}}</span> / {{geneDetails.uniquename}} details</span>
