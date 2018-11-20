@@ -26,6 +26,7 @@ export class ReferenceDetailsComponent implements OnInit {
   cantoCommunityCuratorName: string = null;
   refAnnotationStatus: string = null;
   hasJBrowseTracks = false;
+  multiOrgMode = getAppConfig().isMultiOrganismMode();
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
