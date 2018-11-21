@@ -29,7 +29,15 @@ The genome sequence of <em>Schizosaccharomyces pombe</em>.<br />
 <p><a href="http://www.ncbi.nlm.nih.gov/pubmed/11859360">PMID:11859360</a></p>
 <p><a href="http://www.nature.com/nature/journal/v415/n6874/full/nature724.html">Full text at Nature</a></p>
 <h3 id="go-annotations">GO Annotations</h3>
-<p>To cite the <em>S. pombe</em> Gene Ontology annotation data, use the 2018 NAR Database Issue paper noted above.</p>
+<p>To cite the <em>S. pombe</em> Gene Ontology annotation data, use two papers from the 2018 NAR Database Issue:</p>
+<ol style="list-style-type: decimal">
+<li>The PomBase paper noted above</li>
+<li>The GO Consortium paper:</li>
+</ol>
+<p>The Gene Ontology Consortium.<br />
+The Gene Ontology Resource: 20 years and still GOing strong.<br />
+<em>Nucleic Acids Res.</em> 2018 (Database issue): gky1055 Epub 2018 Nov 5.<br />
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/30395331">PMID:30395331</a> <a href="https://doi.org/10.1093/nar/gky1055">DOI:10.1093/nar/gky1055</a></p>
 <p>(Note that GO annotation for <em>S. pombe</em> has also been previously published, but we now recommend the 2018 NAR paper as it is more up-to-date. The older publication is Aslett M, Wood V. Gene Ontology annotation status of the fission yeast genome: preliminary coverage approaches 100%. <em>Yeast</em> 2006 Oct 15;23(13):913-9. Erratum in <em>Yeast</em> 2007 May;24(5):457. PMID:17072883)</p>
 <h3 id="phenotype-ontology-and-annotations">Phenotype Ontology and Annotations</h3>
 <p>To cite the Fission Yeast Phenotype Ontology (FYPO) and/or <em>S. pombe</em> FYPO annotation data, use:</p>
@@ -3887,6 +3895,8 @@ the total annotated genes.
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-external-references">External references</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-literature">Literature</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/pombase-go-slim-documentation">GO Slim</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/JBrowse_quick_start">PomBase JBrowse</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/quick-little-tool">QuiLT visualisation</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/ontology-term-page">Ontology term pages</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/publication-page">Publication pages</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/genotype-page">Genotype pages</a></div>
@@ -4849,6 +4859,10 @@ PomBase using the Ensembl viewer.</p>
 <ul>
 <li><a routerLink="/documentation/JBrowse_quick_start">Getting started with PomBase JBrowse</a> - an introductory guide to browser navigation, track loading, metadata, etc. (by Antonia Lock)</li>
 <li>Also see the General entry in the JBrowse Help menu</li>
+</ul>
+<h3 id="quilt">QuiLT</h3>
+<ul>
+<li><a routerLink="/quick-little-tool">Documentation</a> for the Quick Little Tool for gene list visualisation</li>
 </ul>
 <h3 id="other-pombase-pages">Other PomBase Pages</h3>
 <ul>
@@ -7663,6 +7677,8 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#fission-yeast-transmembrane-transport-overhaul">Fission yeast transmembrane transport overhaul</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-your-pocket">PomBase in your pocket</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#celebrating-years-go">Celebrating 20 years of GO</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#rna-central-and-pombase">RNA central and PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-pombase-genomic-region-graphics">New PomBase genomic region graphics</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-nar-database-issue">PomBase NAR Database Issue</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#fungal-pathogen-genomics-course-registration-open">Fungal Pathogen Genomics Course 2019 - registration open</a></div>
@@ -8531,7 +8547,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'transcript-tracks-from-Atkinson-et-al-(2018)-loaded'">
 <h3 id="transcript-tracks-from-atkinson-et-al-2018-loaded">Transcript tracks from Atkinson et al (2018) loaded</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: Atkinson.png -->
 <p>We are very pleased to announce that we have loaded the transcript tracks from <a href="https://www.ncbi.nlm.nih.gov/pubmed/29914874">Atkinson et al (2018)</a> into the PomBase JBrowse genome browser. For a brief introduction to getting started with PomBase JBrowse, please see our <a href="https://www.pombase.org/documentation/JBrowse_quick_start">documentation page</a>. If you have published data that you would like to see hosted, please get in touch.</p>
 
@@ -8555,6 +8570,21 @@ Please sign the letter to add your voice in support of the databases that help m
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 <p>PomBase gene pages now use interactive graphics from PomBase JBrowse to depict the genomic region around the gene. Drag to scroll left and right, double-click to zoom in, shift-double-click to zoom out, and click a feature to see details in a popup. The &quot;Full-screen view&quot; link in the corner opens the fully functional JBrowse in a new tab or window. Reloading a gene page restores the display to the default location and zoom level.</p>
+
+  </div>
+  <div *ngIf="pageName == 'rna-central'">
+<h3 id="rna-central-and-pombase">RNA central and PomBase</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: rna_central_icon.png -->
+<p>RNAcentral is a comprehensive database of non-coding RNA sequences. PomBase is an RNAcentral Consortium member, and all of the curated non-coding RNAs from PomBase will be available in RNAcentral soon. For more information, see their recent <a href="https://doi.org/10.1093/nar/gky1034">NAR Database Issue paper</a>, as well as current <a href="https://rnacentral.org/search?q=pombe">search results for <em>S. pombe</em> RNAs</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == '20-years-GO'">
+<h3 id="celebrating-20-years-of-go">Celebrating 20 years of GO</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: go-logo-icon.mini.png -->
+<p>PomBase curators are major contributors to the <a href="http://geneontology.org/">Gene Ontology</a> (GO) project — ontology content, annotations, and QC procedures — and co-authors on the new <a href="https://doi.org/10.1093/nar/gky1055">GO NAR Database Issue paper</a>.</p>
+<p>We recommend citing the GO and PomBase NAR papers when you use GO data in your analyses.</p>
 
   </div>
   <div *ngIf="pageName == 'S.-pombe-in-your-pocket'">
@@ -8635,6 +8665,19 @@ Please sign the letter to add your voice in support of the databases that help m
 <h3 id="pombase-your-pocket">PomBase in your pocket</h3>
 <p><em>2018-11-14</em></p>
 <p>Our usage statistics informed us that over 20% of devices accessing PomBase are smartphones or tablets. We therefore spent some time optimizing the display for small screens. We hope that you will continue to enjoy PomBase on the go!</p>
+</div>
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/go-logo-icon.mini.png"/></p>
+<h3 id="celebrating-years-go">Celebrating 20 years of GO</h3>
+<p><em>2018-11-08</em></p>
+<p>PomBase curators are major contributors to the <a href="http://geneontology.org/">Gene Ontology</a> (GO) project — ontology content, annotations, and QC procedures — and co-authors on the new <a href="https://doi.org/10.1093/nar/gky1055">GO NAR Database Issue paper</a>.</p>
+<p>We recommend citing the GO and PomBase NAR papers when you use GO data in your analyses.</p>
+</div>
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/rna_central_icon.png"/></p>
+<h3 id="rna-central-and-pombase">RNA central and PomBase</h3>
+<p><em>2018-11-06</em></p>
+<p>RNAcentral is a comprehensive database of non-coding RNA sequences. PomBase is an RNAcentral Consortium member, and all of the curated non-coding RNAs from PomBase will be available in RNAcentral soon. For more information, see their recent <a href="https://doi.org/10.1093/nar/gky1034">NAR Database Issue paper</a>, as well as current <a href="https://rnacentral.org/search?q=pombe">search results for <em>S. pombe</em> RNAs</a>.</p>
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
