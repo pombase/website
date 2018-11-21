@@ -29,6 +29,10 @@
     metadata, etc. (by Antonia Lock)
 -   Also see the General entry in the JBrowse Help menu
 
+### QuiLT
+
+-   [Documentation](quick-little-tool) for the Quick Little Tool for gene list visualisation
+
 ### Other PomBase Pages ###
 
 -   GO Slim

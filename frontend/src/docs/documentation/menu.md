@@ -14,6 +14,8 @@
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-external-references">External references</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-literature">Literature</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/pombase-go-slim-documentation">GO Slim</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/JBrowse_quick_start">PomBase JBrowse</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/quick-little-tool">QuiLT visualisation</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/ontology-term-page">Ontology term pages</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/publication-page">Publication pages</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/genotype-page">Genotype pages</a></div>
