@@ -27,8 +27,15 @@ The genome sequence of *Schizosaccharomyces pombe*.\
 
 ### GO Annotations
 
-To cite the *S. pombe* Gene Ontology annotation data, use the 2018 NAR
-Database Issue paper noted above.
+To cite the *S. pombe* Gene Ontology annotation data, use two papers from the 2018 NAR Database Issue:
+
+1. The PomBase paper noted above
+2. The GO Consortium paper:
+
+The Gene Ontology Consortium.\
+The Gene Ontology Resource: 20 years and still GOing strong.\
+*Nucleic Acids Res.* 2018 (Database issue): gky1055 Epub 2018 Nov 5.\
+[PMID:30395331](http://www.ncbi.nlm.nih.gov/pubmed/30395331) [DOI:10.1093/nar/gky1055](https://doi.org/10.1093/nar/gky1055)
 
 (Note that GO annotation for *S. pombe* has also been previously
 published, but we now recommend the 2018 NAR paper as it is more
