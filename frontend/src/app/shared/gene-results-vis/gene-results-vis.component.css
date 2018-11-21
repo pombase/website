@@ -95,3 +95,13 @@ rect.vis-column:hover {
   font-size: 90%;
   opacity: 0.8;
 }
+
+.documentation-link {
+  margin: 1em 1em 1em 0;
+}
+
+.documentation-link img {
+  height: 1.0em;
+  margin-right: 0.2em;
+  vertical-align: text-top;
+}
