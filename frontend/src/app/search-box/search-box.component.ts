@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { PombaseAPIService, GeneSummary, IdAndOrganism } from '../pombase-api.service';
 import { CompleteService, SolrTermSummary, SolrRefSummary } from '../complete.service';
@@ -281,14 +282,14 @@ export class SearchBoxComponent implements OnInit {
 
   getTermMatches(token: string): Observable<Array<DisplayModel>> {
     return this.completeService.completeTermName(this.cvNamesForTermComplete, token)
-      .map((termResults: Array<SolrTermSummary>) =>
-           termResults.map(termResult => this.makeTermDisplayModel(termResult)));
+      .pipe(map((termResults: Array<SolrTermSummary>) =>
+           termResults.map(termResult => this.makeTermDisplayModel(termResult))));
   }
 
   getRefMatches(token: string): Observable<Array<DisplayModel>> {
     return this.completeService.completeRef(token)
-      .map((refResults: Array<SolrRefSummary>) =>
-           refResults.map(refResult => this.makeRefDisplayModel(refResult)));
+      .pipe(map((refResults: Array<SolrRefSummary>) =>
+           refResults.map(refResult => this.makeRefDisplayModel(refResult))));
   }
 
   observableFromToken(token: string): Observable<Array<DisplayModel>> {
@@ -298,18 +299,19 @@ export class SearchBoxComponent implements OnInit {
 
     const combined =
       combineLatest(geneSummaryObservable, termResultsObservable, refResultsObservable)
-      .map(([geneRes, termRes, refRes]) => {
-        const maxGenes = 8;
-        const maxTerms = 5;
-        const geneCount = geneRes.length;
-        const termCount = termRes.length;
-        let refCount = 3;
-        if (geneCount + termCount < maxGenes + maxTerms) {
-          refCount += (maxGenes + maxTerms) - (geneCount + termCount);
-        }
-        return [...geneRes.slice(0, maxGenes), ...termRes.slice(0, maxTerms),
-                ...refRes.slice(0, refCount)];
-      });
+        .pipe(
+          map(([geneRes, termRes, refRes]) => {
+            const maxGenes = 8;
+            const maxTerms = 5;
+            const geneCount = geneRes.length;
+            const termCount = termRes.length;
+            let refCount = 3;
+            if (geneCount + termCount < maxGenes + maxTerms) {
+              refCount += (maxGenes + maxTerms) - (geneCount + termCount);
+            }
+            return [...geneRes.slice(0, maxGenes), ...termRes.slice(0, maxTerms),
+            ...refRes.slice(0, refCount)];
+          }));
     return combined;
   }
 
