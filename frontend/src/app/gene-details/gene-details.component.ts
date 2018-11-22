@@ -150,6 +150,7 @@ export class GeneDetailsComponent implements OnInit {
     let title = this.appConfig.site_name + ' - Gene - ' + this.displayNameLong();
     this.titleService.setTitle(title);
     this.meta.updateTag({property: 'og:title', content: title});
+    this.meta.updateTag({property: 'description', content: title});
   }
 
   hasMiscAnnotations(): boolean {
