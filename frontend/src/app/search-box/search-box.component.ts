@@ -72,6 +72,22 @@ export class SearchBoxComponent implements OnInit {
     return new DisplayModel('Matching genes:', uniquename, name, otherDetails, organism);
   }
 
+  highlightMatch(pos: number, searchString: string, target?: string): string {
+    let start;
+    let highlightBit;
+    let rest;
+    if (target) {
+      start = target.substr(0, pos);
+      highlightBit = target.substr(pos, searchString.length);
+      rest = target.substr(pos + searchString.length);
+    } else {
+      start = '';
+      highlightBit = searchString;
+      rest = '';
+    }
+    return `${start}<span class="search-box-highlight">${highlightBit}</span>${rest}`;
+  }
+
   makeTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
     return new DisplayModel('Matching terms:', termResult.termid, termResult.name, null);
   }
@@ -118,8 +134,9 @@ export class SearchBoxComponent implements OnInit {
   synonymMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     const matchIndex = geneSumm.synonymsLowerCase.findIndex(syn => syn.indexOf(value) !== -1);
     if (matchIndex !== -1) {
+      const highlightedMatch = this.highlightMatch(0, geneSumm.synonyms[matchIndex]);
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                       ['synonym: ' + geneSumm.synonyms[matchIndex]],
+                                       ['synonym: ' + highlightedMatch],
                                        geneSumm.organism);
     }
     return null;
@@ -128,8 +145,9 @@ export class SearchBoxComponent implements OnInit {
   synonymExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     const matchIndex = geneSumm.synonymsLowerCase.findIndex(syn => syn === value);
     if (matchIndex !== -1) {
+      const highlightedMatch = this.highlightMatch(0, geneSumm.synonyms[matchIndex]);
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                       ['synonym: ' + geneSumm.synonyms[matchIndex]],
+                                       ['synonym: ' + highlightedMatch],
                                        geneSumm.organism);
     }
     return null;
@@ -137,9 +155,10 @@ export class SearchBoxComponent implements OnInit {
 
   orthologMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     for (let orth of geneSumm.orthologs) {
-      if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
+      const pos = orth.identifier.toLowerCase().indexOf(value);
+      if (pos !== -1) {
         const organismDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
-        const detail = 'ortholog: ' + orth.identifier + ' (' +
+        const detail = 'ortholog: ' + this.highlightMatch(pos, value, orth.identifier) + ' (' +
           organismDetails.genus + ' ' + organismDetails.species + ')';
         return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
                                          [detail], geneSumm.organism);
@@ -156,8 +175,7 @@ export class SearchBoxComponent implements OnInit {
       const details =
         matchingOrthologs.map(orth => {
           const orgDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
-          return 'ortholog: <span class="search-box-highlight">' +
-            orth.identifier + '</span> (' + orgDetails.common_name + ')';
+          return `ortholog: ${this.highlightMatch(0, orth.identifier)} (${orgDetails.common_name})`;
         });
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
         details, geneSumm.organism);
@@ -167,23 +185,30 @@ export class SearchBoxComponent implements OnInit {
   }
 
   productMatch(geneSumm: SearchSummary, value: string): DisplayModel {
-    if (geneSumm.product && geneSumm.productLowerCase.indexOf(value) !== -1) {
-      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                       ['product: ' + geneSumm.product],
-                                       geneSumm.organism);
-    } else {
-      return null;
+    if (geneSumm.product) {
+      const pos = geneSumm.productLowerCase.indexOf(value);
+      if (pos !== -1) {
+        const highlightedMatch = this.highlightMatch(pos, value, geneSumm.product);
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
+                                         ['product: ' + highlightedMatch],
+                                         geneSumm.organism);
+      }
     }
+    return null;
   }
 
   uniprotIdMatch(geneSumm: SearchSummary, value: string): DisplayModel {
-    if (geneSumm.uniprotIdentifier && geneSumm.uniprotIdentifierLowerCase.indexOf(value) !== -1) {
-      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                       ['UniProt ID: ' + geneSumm.uniprotIdentifier],
-                                       geneSumm.organism);
-    } else {
-      return null;
+    if (geneSumm.uniprotIdentifier) {
+      const pos = geneSumm.uniprotIdentifierLowerCase.indexOf(value);
+
+      if (pos !== -1) {
+        const highlightedMatch = this.highlightMatch(pos, value, geneSumm.uniprotIdentifier);
+        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
+                                         ['UniProt ID: ' + highlightedMatch],
+                                         geneSumm.organism);
+      }
     }
+    return null;
   }
 
   containsMatch(matches: Array<DisplayModel>, match: DisplayModel): boolean {

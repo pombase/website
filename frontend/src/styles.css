@@ -381,3 +381,7 @@ select option:disabled {
   background-color: #e5e8f3;
   color: #444;
 }
+
+.search-box-highlight {
+  font-weight: bold;
+}
