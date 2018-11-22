@@ -385,3 +385,11 @@ select option:disabled {
 .search-box-highlight {
   font-weight: bold;
 }
+
+.search-box-organism {
+  color: #888;
+}
+
+li.active .search-box-organism {
+  color: #e8e8e8d0;
+}

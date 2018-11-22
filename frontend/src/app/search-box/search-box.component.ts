@@ -65,8 +65,9 @@ export class SearchBoxComponent implements OnInit {
   makeGeneDisplayModel(uniquename: string, name: string, otherDetailsArg: Array<string>, organism: ConfigOrganism): DisplayModel {
     let otherDetails: Array<string> = [...otherDetailsArg];
     if (getAppConfig().isMultiOrganismMode()) {
-      const fullName = organism.genus + ' ' + organism.species;
-      otherDetails.unshift(fullName);
+      const orgDetails =
+        `<span class="search-box-organism">${organism.common_name}</span>`;
+      otherDetails.unshift(orgDetails);
     }
 
     return new DisplayModel('Matching genes:', uniquename, name, otherDetails, organism);
@@ -157,9 +158,11 @@ export class SearchBoxComponent implements OnInit {
     for (let orth of geneSumm.orthologs) {
       const pos = orth.identifier.toLowerCase().indexOf(value);
       if (pos !== -1) {
-        const organismDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
-        const detail = 'ortholog: ' + this.highlightMatch(pos, value, orth.identifier) + ' (' +
-          organismDetails.genus + ' ' + organismDetails.species + ')';
+        const orgDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
+        const commonNameSpan =
+          `<span class="search-box-organism">(${orgDetails.common_name})</span>`;
+        const detail =
+          `ortholog: ${this.highlightMatch(pos, value, orth.identifier)} ${commonNameSpan}`;
         return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
                                          [detail], geneSumm.organism);
       }
@@ -175,7 +178,8 @@ export class SearchBoxComponent implements OnInit {
       const details =
         matchingOrthologs.map(orth => {
           const orgDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
-          return `ortholog: ${this.highlightMatch(0, orth.identifier)} (${orgDetails.common_name})`;
+          const commonNameSpan = `<span class="search-box-organism">(${orgDetails.common_name})</span>`;
+          return `ortholog: ${this.highlightMatch(0, orth.identifier)} ${commonNameSpan}`;
         });
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
         details, geneSumm.organism);
