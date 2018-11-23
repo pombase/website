@@ -65,6 +65,7 @@ export class TermDetailsComponent implements OnInit {
     }
     this.titleService.setTitle(title);
     this.meta.updateTag({property: 'og:title', content: title});
+    this.meta.updateTag({property: 'description', content: title});
   }
 
   scrollToPageTop(): void {

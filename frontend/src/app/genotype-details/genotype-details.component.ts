@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { Util } from '../shared/util';
 
@@ -24,8 +24,8 @@ export class GenotypeDetailsComponent implements OnInit {
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
-              private titleService: Title
-             ) { }
+              private titleService: Title,
+              private readonly meta: Meta) { }
 
   displayNameLong(): string {
     return Util.displayNameLong(this.genotypeDetails);
@@ -38,6 +38,8 @@ export class GenotypeDetailsComponent implements OnInit {
   setPageTitle(): void {
     let title = this.titleService.getTitle();
     this.titleService.setTitle(title + ' - ' + this.displayName);
+    this.meta.updateTag({property: 'og:title', content: title});
+    this.meta.updateTag({property: 'description', content: title});
   }
 
   ngOnInit() {

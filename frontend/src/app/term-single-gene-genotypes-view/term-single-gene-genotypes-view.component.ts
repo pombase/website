@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { ActivatedRoute, Params } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 
 import { TermDetails, GeneShort, PombaseAPIService } from '../pombase-api.service';
 
@@ -17,8 +17,8 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
-              private titleService: Title
-             ) { }
+              private titleService: Title,
+              private meta: Meta) { }
 
   setPageTitle(): void {
     let title = this.titleService.getTitle();
@@ -30,6 +30,8 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
       displayName = 'UNKNOWN';
     }
     this.titleService.setTitle(title + ' - ' + displayName);
+    this.meta.updateTag({property: 'og:title', content: title});
+    this.meta.updateTag({property: 'description', content: title});
   }
 
   setGenes(): void {
