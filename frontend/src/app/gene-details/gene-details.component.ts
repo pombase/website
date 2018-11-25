@@ -288,10 +288,8 @@ export class GeneDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
-        let uniquename = params['uniquename'];
+          let uniquename = params['uniquename'];
 
-        // delay api call so image request is first
-        setTimeout(() => {
           this.pombaseApiService.getGene(uniquename)
             .then(geneDetails => {
               this.geneDetails = geneDetails;
@@ -329,7 +327,6 @@ export class GeneDetailsComponent implements OnInit {
             .catch((error: any) => {
               this.apiError = error;
             });
-        }, 1);
       };
     });
   }
