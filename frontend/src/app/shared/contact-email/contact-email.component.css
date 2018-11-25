@@ -1,4 +1,14 @@
 .contact-email {
-  font-size: 120%;
   vertical-align: top;
+}
+
+@media (min-width: 600px) {
+  .contact-email {
+    font-size: 120%;
+  }
+}
+@media (max-width: 600px) {
+  .contact-email {
+    white-space: nowrap;
+  }
 }

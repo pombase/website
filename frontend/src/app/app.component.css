@@ -70,8 +70,13 @@
 }
 
 #content {
-  font-size: 110%;
   flex: 1 0 auto;
+}
+
+@media (min-width: 600px) {
+  #content {
+    font-size: 110%;
+  }
 }
 
 #footer {
