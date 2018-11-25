@@ -28,10 +28,25 @@ a {
 }
 
 .details-page-name-and-id {
-  font-size: 170%;
   margin: 0 0 0.5em 0;
   padding: 0.6em 0 0 0;
   max-width: 1400px;
+}
+
+@media (min-width: 1000px) {
+  .details-page-name-and-id {
+    font-size: 200%;
+  }
+}
+@media (min-width: 600px) and (max-width: 1000px) {
+  .details-page-name-and-id {
+    font-size: 175%;
+  }
+}
+@media (max-width: 600px) {
+  .details-page-name-and-id {
+    font-size: 150%;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -42,7 +57,6 @@ a {
 
 .details-page-name-and-id .name-id-highlight {
   font-weight: bold;
-  font-size: 110%;
 }
 
 .details-page-summary {
