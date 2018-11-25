@@ -87,9 +87,15 @@
       grid-template-columns: min-content auto min-content auto;
     }
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1200px) and (min-width: 600px) {
     #gene-summary {
       grid-template-columns: auto auto;
+    }
+  }
+  @media (max-width: 600px) {
+    #gene-summary {
+      grid-template-columns: auto;
+      width: 99%;
     }
   }
 }
@@ -114,7 +120,12 @@
 
 .genomic-location td {
   padding: 2px;
-  white-space: nowrap;
+}
+
+@media (min-width: 600px) {
+  .genomic-location td {
+    white-space: nowrap;
+  }
 }
 
 .jbrowse-link {
