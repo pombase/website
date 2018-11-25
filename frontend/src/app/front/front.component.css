@@ -139,7 +139,7 @@
 }
 
 .front-twitter-feed {
-  height: 80em;
+  height: 100em;
   overflow-y: auto;
 }
 
@@ -148,6 +148,7 @@
     padding: 0 1em;
   }
   .panel-container {
+    margin-top: 1em;
   }
 }
 
