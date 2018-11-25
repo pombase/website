@@ -1,6 +1,5 @@
 #header-row {
   background: #bbc3de url(../assets/header-background.jpg) right no-repeat;
-  height: 115px;
   position: relative;
   flex-shrink: 0;
 }
@@ -26,7 +25,7 @@
   }
 
   #header-row {
-    height: 20vw;
+    height: 150px;
   }
 
   #header-search-box {
@@ -43,6 +42,7 @@
 @media (max-width: 1000px) {
   #header-row {
     background: #bbc3de url(../assets/header-background-mobile.jpg) right 0 no-repeat;
+    background-size: cover;
   }
 }
 
@@ -53,6 +53,9 @@
 @media (min-width: 600px) {
   #header-search-box {
     margin-top: 12px;
+  }
+  #header-row {
+    height: 115px;
   }
 }
 

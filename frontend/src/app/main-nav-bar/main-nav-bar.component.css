@@ -47,11 +47,11 @@
 
 @media (max-width: 1000px) {
   #header-navbar {
-    font-size: 1.4vw;
+    font-size: 0.9em;
   }
 
   #header-navbar .dropdown-toggle {
-    padding: 1vw;
+    padding: 0.25em;
     margin: 0;
   }
 }
