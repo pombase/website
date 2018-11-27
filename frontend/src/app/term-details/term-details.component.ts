@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 import { TermDetails, PombaseAPIService, TermSubsets, APIError } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         AnnotationType } from '../config';
+         AnnotationType, AppConfig, getAppConfig} from '../config';
 
 @Component({
   selector: 'app-term-details',
@@ -27,6 +27,7 @@ export class TermDetailsComponent implements OnInit {
   annotatedGeneCount = 0;
   singleAlleleGenotypeGeneCount = 0;
   singleAlleleGenotypeCount = 0;
+  appConfig: AppConfig = getAppConfig();
 
   menuPositionFixed = false;
 
@@ -57,7 +58,7 @@ export class TermDetailsComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle() + ' - Ontology term - ';
+    let title = this.appConfig.site_name + ' - Ontology term - ';
     if (this.termDetails) {
       title += this.termDetails.termid + ' - ' + this.termDetails.name;
     } else {

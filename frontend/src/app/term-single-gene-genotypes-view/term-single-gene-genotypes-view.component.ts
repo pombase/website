@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 
 import { TermDetails, GeneShort, PombaseAPIService } from '../pombase-api.service';
+import { AppConfig, getAppConfig } from '../config';
 
 @Component({
   selector: 'app-term-single-gene-genotypes-view',
@@ -13,6 +14,8 @@ import { TermDetails, GeneShort, PombaseAPIService } from '../pombase-api.servic
 export class TermSingleGeneGenotypesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;
 
+  appConfig: AppConfig = getAppConfig();
+
   singleAlleleGenotypeGenes: Array<GeneShort> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -21,11 +24,11 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
               private meta: Meta) { }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle();
+    let title = this.appConfig.site_name;
     let displayName;
     if (this.termDetails) {
-      displayName = this.termDetails.termid + ' - ' + this.termDetails.name +
-        ' - genes from-single allele genotypes';
+      displayName = 'Genes from single allele genotypes annotated with ' +
+        this.termDetails.termid + ' - ' + this.termDetails.name;
     } else {
       displayName = 'UNKNOWN';
     }

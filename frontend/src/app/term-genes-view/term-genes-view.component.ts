@@ -7,7 +7,7 @@ import { TermDetails, PombaseAPIService, GeneShort,
          TermSubsets,
          APIError,
          GeneSummary} from '../pombase-api.service';
-import { getAnnotationTableConfig, AnnotationType } from '../config';
+import { getAnnotationTableConfig, AnnotationType, AppConfig, getAppConfig } from '../config';
 
 
 @Component({
@@ -25,6 +25,7 @@ export class TermGenesViewComponent implements OnInit {
   apiError: APIError = null;
   subsets: TermSubsets = {};
   geneSummaries: Array<GeneSummary> = null;
+  appConfig: AppConfig = getAppConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -45,7 +46,7 @@ export class TermGenesViewComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle();
+    let title = this.appConfig.site_name;
     let displayName;
     if (this.termDetails) {
       displayName = this.termDetails.termid + ' - ' + this.termDetails.name;

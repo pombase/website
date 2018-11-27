@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 
 import { TermDetails, PombaseAPIService } from '../pombase-api.service';
+import { AppConfig, getAppConfig } from '../config';
 
 @Component({
   selector: 'app-term-genotypes-view',
@@ -12,17 +13,19 @@ import { TermDetails, PombaseAPIService } from '../pombase-api.service';
 export class TermGenotypesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;
 
+  appConfig: AppConfig = getAppConfig();
+
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
               private meta: Meta) { }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle();
+    let title = this.appConfig.site_name;
     let displayName;
     if (this.termDetails) {
-      displayName = this.termDetails.termid + ' - ' + this.termDetails.name +
-        'single-allele genotypes';
+      displayName = 'Single-allele genotypes annotated with ' +
+        this.termDetails.termid + ' - ' + this.termDetails.name;
     } else {
       displayName = 'UNKNOWN';
     }

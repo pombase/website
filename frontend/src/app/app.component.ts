@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 
-import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
+import { Router, NavigationStart, ActivatedRoute, NavigationEnd, Data } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import 'rxjs/add/operator/filter';
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.router.events
-      .filter(event => event instanceof NavigationStart)
+      .filter(event => event instanceof NavigationEnd)
       .map(() => this.activatedRoute)
       .map(route => {
         while (route.firstChild) {
@@ -41,11 +41,12 @@ export class AppComponent implements OnInit {
       })
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
-      .subscribe((event) => {
-        let title = defaultTitle;
-        this.titleService.setTitle(title);
-        this.meta.updateTag({property: 'og:title', content: title});
-        this.meta.updateTag({property: 'og:description', content: defaultDescription});
+      .subscribe((event: Data) => {
+        if (event.defaultTitleDetail) {
+          const title = defaultTitle + ' - ' + event.defaultTitleDetail;
+          this.titleService.setTitle(title);
+          this.meta.updateTag({ property: 'og:title', content: title });
+        }
         this.window.scrollTo(0, 0);
       });
   }

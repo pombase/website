@@ -18,57 +18,48 @@ import { ReferenceDetailListPageComponent } from './reference-detail-list-page/r
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
     data: {
-      title: 'Gene'
     }
   },
   { path: 'gene_subset/:subsetName', component: GeneSubsetViewComponent,
     data: {
-      title: 'Gene subset'
     }
   },
   { path: 'genotype/:uniquename', component: GenotypeDetailsComponent,
     data: {
-      title: 'Genotype'
     }
   },
   { path: 'spombe/:wildcard/:uniquename', component: GeneDetailsComponent,
     data: {
-      title: 'Gene'
     }
   },
   { path: 'term/:termid', component: TermDetailsComponent,
     data: {
-      title: 'Term'
     }
   },
   { path: 'term_genes/:termid', component: TermGenesViewComponent,
     data: {
-      title: 'Term genes'
     }
   },
   { path: 'term_genotypes/:termid', component: TermGenotypesViewComponent,
     data: {
-      title: 'Term genotypes'
     }
   },
   { path: 'term_single_allele_genotype_genes/:termid', component: TermSingleGeneGenotypesViewComponent,
     data: {
-      title: 'Genes from single-allele genotypes'
     }
   },
   { path: 'reference/:uniquename', component: ReferenceDetailsComponent,
     data: {
-      title: 'Reference'
     }
   },
   { path: 'reference_list/:constraint', component: ReferenceDetailListPageComponent,
     data: {
-      title: 'References'
+      defaultTitleDetail: 'References'
     }
   },
   { path: 'archive/:archiveType', component: PanelArchiveComponent,
     data: {
-      title: 'Panel archive'
+      defaultTitleDetail: 'Panel archive'
     }
   },
   { path: 'community',
@@ -112,45 +103,45 @@ const routes: Routes = [
   },
   { path: 'query', component: QueryBuilderComponent,
     data: {
-      title: 'Advanced search'
+      defaultTitleDetail: 'Advanced search'
     }
   },
   { path: 'query/start_from/:nodeTypeId', component: QueryBuilderComponent,
     data: {
-      title: 'Advanced search'
+      defaultTitleDetail: 'Advanced search'
     }
   },
   { path: 'query/:saveOrResults/from/subset/:subsetName/:subsetDisplayName',
     component: QueryBuilderComponent,
     data: {
-      title: 'Advanced search'
+      defaultTitleDetail: 'Advanced search'
     }
   },
   { path: 'query/results/from/history/:historyEntryId', component: QueryBuilderComponent,
     data: {
-      title: 'Advanced search'
+      defaultTitleDetail: 'Advanced search'
     }
   },
   { path: 'query/save/from/:type/:id/:name', component: QueryBuilderComponent,
     data: {
-      title: 'Advanced search'
+      defaultTitleDetail: 'Advanced search'
     }
   },
   { path: 'query/:saveOrResults/from/predefined/:predefinedQueryId', component: QueryBuilderComponent,
     data: {
-      title: 'Advanced search'
+      defaultTitleDetail: 'Advanced search'
     }
   },
   { path: 'query/:saveOrResults/from/json/:json', component: QueryBuilderComponent,
     data: {
-      title: 'Advanced search'
+      defaultTitleDetail: 'Advanced search'
     }
   },
   { path: 'front', redirectTo: '/', pathMatch: 'full' },
   {
     path: '', component: FrontComponent,
     data: {
-      title: 'The S. pombe genome database'
+      defaultTitleDetail: 'The Schizosaccharomyces pombe genome database'
     }
   },
   {

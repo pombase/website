@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { GeneSubsetDetails, PombaseAPIService, APIError } from '../pombase-api.service';
+import { AppConfig, getAppConfig } from '../config';
 
 @Component({
   selector: 'app-gene-subset-view',
@@ -15,6 +16,7 @@ export class GeneSubsetViewComponent implements OnInit {
   subsetGeneCount = 0;
   apiError: APIError = null;
   queryBuilderRouterLink: string = null;
+  appConfig: AppConfig = getAppConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -22,9 +24,10 @@ export class GeneSubsetViewComponent implements OnInit {
              ) { }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle();
     if (this.subset) {
-      this.titleService.setTitle(title + ' - ' + this.subset.name);
+      this.titleService.setTitle(this.appConfig.site_name + ' - ' + this.subset.name);
+    } else {
+      this.titleService.setTitle(this.appConfig.site_name);
     }
   }
 

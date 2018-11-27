@@ -37,7 +37,7 @@ export class ReferenceDetailsComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle() + ' - Reference - ';
+    let title = this.appConfig.site_name + ' - Reference - ';
     if (this.refDetails) {
       title += this.refDetails.uniquename;
       if (this.refDetails.title) {

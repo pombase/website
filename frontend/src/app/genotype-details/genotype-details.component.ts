@@ -6,7 +6,8 @@ import { Util } from '../shared/util';
 
 import { GenotypeDetails, PombaseAPIService, APIError } from '../pombase-api.service';
 
-import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfig } from '../config';
+import { title } from 'process';
 
 @Component({
   selector: 'app-genotype-details',
@@ -21,6 +22,7 @@ export class GenotypeDetailsComponent implements OnInit {
   displayAlleles: Array<any> = [];
   displayName = '';
   apiError: APIError = null;
+  appConfig: AppConfig = getAppConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -36,8 +38,7 @@ export class GenotypeDetailsComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    let title = this.titleService.getTitle();
-    this.titleService.setTitle(title + ' - ' + this.displayName);
+    this.titleService.setTitle(this.appConfig.site_name + ' - Genotype - ' + this.displayName);
     this.meta.updateTag({property: 'og:title', content: title});
     this.meta.updateTag({property: 'description', content: title});
   }
