@@ -13,6 +13,10 @@ export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
 
 type TermIdTermMap = { [termid: string]: TermShort };
 
+const RETRY_DELAY = 3000;
+const RETRY_COUNT = 10;
+const REQUEST_TIMEOUT = 60000;
+
 export enum Strand {
   Forward,
   Reverse,
@@ -713,6 +717,9 @@ export class PombaseAPIService {
     return json as GeneDetails;
   }
 
+  // if a request fails, retry it RETRY_COUNT times but delay RETRY_DELAY
+  // milliseconds between tries
+  // if a request hangs, timeout after REQUEST_TIMEOUT milliseconds
   getWithRetry(url: string): Observable<Response> {
     return this.http.get(url)
       .pipe(
@@ -720,10 +727,9 @@ export class PombaseAPIService {
         return errors
           .mergeMap((error) =>
                     (error.status === 404) ? Observable.throw(error) : of(error))
-          .pipe(delay(5000),
-                take(10));
+          .pipe(delay(RETRY_DELAY), take(RETRY_COUNT));
        }),
-       timeout(60000)
+       timeout(REQUEST_TIMEOUT)
       );
   }
 
