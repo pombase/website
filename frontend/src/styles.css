@@ -197,11 +197,11 @@ select option:disabled {
 @media (min-width: 800px) {
   .details-page, .docs-content {
     right: 0;
-    padding-left: 180px;
+    padding-left: 190px;
     width: auto;
   }
   .details-page-menu, .page-content-menu {
-    width: 160px;
+    width: 170px;
     left: 10px;
   }
   .menu-pos-absolute {
