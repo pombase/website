@@ -1,12 +1,14 @@
 <div class="api-error">
-  <span *ngIf="error.status == 404">
+  <div *ngIf="error.status == 404">
     Sorry, page not found.  Please go to the <a routerLink="/"
     routerLinkActive="active" title="Home">PomBase front page</a>.
-  </span>
-  <span *ngIf="error.status != 404">
-    Internal error.  Please try reloading or go to
-    the <a routerLink="/" routerLinkActive="active" title="Home">main
-    page</a>.
-    <div>{{error}}</div>
-  </span>
+  </div>
+  <div> *ngIf="error.status != 404">
+    <div>There has been a server error while loading this page.</div>
+    <div>
+    Please try reloading or go to the
+    <a routerLink="/" routerLinkActive="active" title="Home">main page</a>.
+    </div>
+    <div style="display: hidden">{{error}}</div>
+  </div>
 </div>
