@@ -3,12 +3,12 @@
     Sorry, page not found.  Please go to the <a routerLink="/"
     routerLinkActive="active" title="Home">PomBase front page</a>.
   </div>
-  <div> *ngIf="error.status != 404">
+  <div *ngIf="error.status != 404">
     <div>There has been a server error while loading this page.</div>
     <div>
     Please try reloading or go to the
     <a routerLink="/" routerLinkActive="active" title="Home">main page</a>.
     </div>
-    <div style="display: hidden">{{error}}</div>
+    <div style="display: none">{{error}}</div>
   </div>
 </div>
