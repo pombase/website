@@ -7,6 +7,7 @@ import { Util } from './shared/util';
 import { Seq } from './seq';
 import { getAppConfig, ConfigOrganism, AnnotationType, getAnnotationTableConfig } from './config';
 import { retryWhen, delay, take, timeout } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
@@ -725,8 +726,13 @@ export class PombaseAPIService {
       .pipe(
         retryWhen((errors) => {
         return errors
-          .mergeMap((error) =>
-                    (error.status === 404) ? Observable.throw(error) : of(error))
+          .mergeMap((error) => {
+            if (error.status === 404) {
+              return throwError(error);
+            } else {
+              return of(error);
+            }
+          })
           .pipe(delay(RETRY_DELAY), take(RETRY_COUNT));
        }),
        timeout(REQUEST_TIMEOUT)
