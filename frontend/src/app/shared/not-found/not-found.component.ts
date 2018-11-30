@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
-import { PombaseAPIService } from '../pombase-api.service';
+import { PombaseAPIService } from '../../pombase-api.service';
 
 @Component({
   selector: 'app-not-found',
@@ -11,14 +10,12 @@ import { PombaseAPIService } from '../pombase-api.service';
   styleUrls: ['./not-found.component.css']
 })
 export class NotFoundComponent implements OnInit {
-  path = '';
+  @Input() path: string;
 
   constructor(private pombaseApiService: PombaseAPIService,
-              private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
-              private router: Router) { }
+              private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) { }
 
   ngOnInit() {
-    this.path = this.router.url;
     this.angulartics2GoogleAnalytics.exceptionTrack({
       fatal: false,
       description: 'unknown path: ' + this.path,

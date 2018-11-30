@@ -20,6 +20,7 @@ import { GeneShortOrderByPipe } from './gene-short-order-by.pipe';
 import { GeneLinkComponent } from './gene-link/gene-link.component';
 import { PageContentsMenuComponent } from './page-contents-menu/page-contents-menu.component';
 import { CvVersionComponent } from './cv-version/cv-version.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsPageMenuComponent } from './details-page-menu/details-page-menu.component';
 import { Ng2SimplePageScrollModule } from '../ng2-simple-page-scroll/ng2-simple-page-scroll.module';
 
@@ -51,6 +52,7 @@ import { SocialContactComponent } from './social-contact/social-contact.componen
     GeneLinkComponent,
     PageContentsMenuComponent,
     CvVersionComponent,
+    NotFoundComponent,
     DetailsPageMenuComponent,
     SocialContactComponent,
   ],
@@ -70,6 +72,7 @@ import { SocialContactComponent } from './social-contact/social-contact.componen
     GeneLinkComponent,
     PageContentsMenuComponent,
     CvVersionComponent,
+    NotFoundComponent,
     DetailsPageMenuComponent,
     SocialContactComponent,
   ],

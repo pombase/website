@@ -1,0 +1,17 @@
+.not-found {
+  padding: 30px;
+  font-size: 110%;
+}
+
+.not-found .title {
+  font-size: 250%;
+  font-weight: bold;
+}
+
+.not-found .contact {
+  font-size: 150%;
+}
+
+.not-found .centred {
+  text-align: center;
+}

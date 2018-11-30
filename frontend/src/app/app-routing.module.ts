@@ -11,7 +11,7 @@ import { TermSingleGeneGenotypesViewComponent } from './term-single-gene-genotyp
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { FrontComponent } from './front/front.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { RouterNotFoundHandlerComponent } from './router-not-found-handler/router-not-found-handler.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
 
@@ -146,7 +146,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    component: RouterNotFoundHandlerComponent,
   }
 ];
 

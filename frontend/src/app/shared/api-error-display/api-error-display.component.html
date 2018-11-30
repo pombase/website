@@ -1,7 +1,6 @@
 <div class="api-error">
   <div *ngIf="error.status == 404">
-    Sorry, page not found.  Please go to the <a routerLink="/"
-    routerLinkActive="active" title="Home">PomBase front page</a>.
+    <app-not-found [path]="path"></app-not-found>
   </div>
   <div *ngIf="error.status != 404">
     <div>There has been a server error while loading this page.</div>

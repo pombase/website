@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { APIError } from '../../pombase-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-api-error-display',
@@ -9,9 +10,12 @@ import { APIError } from '../../pombase-api.service';
 export class ApiErrorDisplayComponent implements OnInit {
   @Input() error: APIError = null;
 
-  constructor() { }
+  path: string;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.path = this.router.url;
   }
 
 }

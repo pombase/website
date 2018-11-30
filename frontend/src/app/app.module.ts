@@ -80,7 +80,6 @@ import { RecentNewsComponent } from './recent-news/recent-news.component';
 import { FrontPanelContentComponent } from './front-panel-content/front-panel-content.component';
 import { FrontPanelComponent } from './front-panel/front-panel.component';
 import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-community-pubs.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 import { ReferenceDetailListComponent } from './reference-detail-list/reference-detail-list.component';
@@ -93,6 +92,7 @@ import { HelpLinkComponent } from './help-link/help-link.component';
 
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { AnnotationTableExtensionFilterComponent } from './annotation-table-extension-filter/annotation-table-extension-filter.component';
+import { RouterNotFoundHandlerComponent } from './router-not-found-handler/router-not-found-handler.component';
 
 export function documentFactory() {
     return document;
@@ -163,7 +163,6 @@ export function windowFactory() {
     FrontPanelContentComponent,
     FrontPanelComponent,
     RecentCommunityPubsComponent,
-    NotFoundComponent,
     PanelArchiveComponent,
     MessageDialogComponent,
     ReferenceDetailListComponent,
@@ -171,6 +170,7 @@ export function windowFactory() {
     AnnotationTableExtLinksComponent,
     HelpLinkComponent,
     AnnotationTableExtensionFilterComponent,
+    RouterNotFoundHandlerComponent,
   ],
   imports: [
     BrowserModule,
