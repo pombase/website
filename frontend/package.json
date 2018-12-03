@@ -33,7 +33,7 @@
     "ngx-twitter-timeline": "^0.1.4",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
-    "string-similarity": "^1.2.0",
+    "string-similarity": "^3.0.0",
     "ts-helpers": "^1.1.2",
     "zone.js": "^0.8.26"
   },
