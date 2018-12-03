@@ -28,7 +28,7 @@ class ColumnDisplayData {
 class GeneData {
   cleanRow: any;
 
-  cleanGORow(row: any, fieldName: string): void {
+  cleanAttributeRow(row: any, fieldName: string): void {
     if (row[fieldName]) {
       if (row[fieldName] instanceof Object) {
         row[fieldName] = row[fieldName].term.name;
@@ -40,9 +40,10 @@ class GeneData {
 
   cleanResults(row: ResultRow): Object {
     let cleanRow: any = Object.assign({}, row);
-    this.cleanGORow(cleanRow, 'go_component');
-    this.cleanGORow(cleanRow, 'go_process_superslim');
-    this.cleanGORow(cleanRow, 'go_function');
+    this.cleanAttributeRow(cleanRow, 'go_component');
+    this.cleanAttributeRow(cleanRow, 'go_process_superslim');
+    this.cleanAttributeRow(cleanRow, 'go_function');
+    this.cleanAttributeRow(cleanRow, 'characterisation_status');
 
     if (!cleanRow['ortholog_taxonids']) {
       cleanRow['ortholog_taxonids'] = [];
