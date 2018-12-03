@@ -129,7 +129,7 @@ export class GeneResultsVisComponent implements OnInit {
   columnGap = 10;
   colLabelHeight = 120;
   colLabelXOffset = 15;
-  keyWidth = 280;
+  keyWidth = 300;
   keyHeaderHeight = 15;
   keyRectHeight = 10;
   keyRectWidth = 10;
