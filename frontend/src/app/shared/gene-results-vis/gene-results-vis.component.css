@@ -105,3 +105,8 @@ rect.vis-column:hover {
   margin-right: 0.2em;
   vertical-align: text-top;
 }
+
+.loading {
+  font-size: 150%;
+  padding: 2em;
+}
