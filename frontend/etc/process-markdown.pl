@@ -379,7 +379,7 @@ sub process_line {
   $$line_ref =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
   if ($$line_ref !~ /<!--.*-->/) {
 #    $$line_ref =~ s/,([^ ])/,&#8203;$1/g;
-    $$line_ref =~ s|(\d\d\d\d-\d\d-\d\d)|<span class="no-break">$1</span>|g;
+    $$line_ref =~ s|\b(\d\d\d\d-\d\d-\d\d)\b|<span class="no-break">$1</span>|g;
   }
 }
 
