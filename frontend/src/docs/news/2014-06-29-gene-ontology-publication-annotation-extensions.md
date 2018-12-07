@@ -1,7 +1,6 @@
 ### Gene Ontology publication on annotation extensions
 
-PomBase was an early adopter of [annotation
-extensions](/documentation/gene-page-gene-ontology#ann_ext), which add
+PomBase was an early adopter of [annotation extensions](/documentation/gene-page-gene-ontology#ann_ext), which add
 spatial, temporal, or substrate/target details to GO annotations. The GO
 Consortium has now published a paper describing its implementation of
 annotation extensions, in which PomBase examples and its gene page
