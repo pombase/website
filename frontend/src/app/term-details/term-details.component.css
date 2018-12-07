@@ -10,3 +10,7 @@
   margin: 10px 0;
   font-size: 120%;
 }
+
+.details-page-summary table {
+  width: 90%;
+}
