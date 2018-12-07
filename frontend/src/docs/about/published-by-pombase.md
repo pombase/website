@@ -4,6 +4,7 @@ Please see the [Citing PomBase](/about/citing-pombase) page, which
 lists papers to cite for PomBase, the *S. pombe* genome sequence,
 Canto, FYPO, annotations and Compara.
 
+
 ### Journal articles
 
 Lock A,	Rutherford K, Harris MA, Hayles	J, Oliver SG, Bähler J;	Wood V.\
@@ -39,6 +40,13 @@ PomBase: a comprehensive online resource for fission yeast.\
 *Nucleic Acids Res.* 2012 Jan;40(Database issue):D695-9. Epub 2011 Oct
 28.\
 [PMID:22039153](http://www.ncbi.nlm.nih.gov/pubmed/22039153) [DOI:10.1093/nar/gkr853](http://dx.doi.org/DOI:10.1093/nar/gkr853)
+
+### Preprints <!-- comment out preprint section when there aren't any? -->
+
+Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
+Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?
+[Pre-publication manuscript](https://www.biorxiv.org/content/early/2018/11/16/469569) available at bioRxiv.
+
 
 ### Book chapter
 
