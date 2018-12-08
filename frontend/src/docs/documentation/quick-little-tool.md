@@ -36,12 +36,14 @@ QuiLT).
 
 At present, QuiLT includes:
 
-- deletion viability
-- presence or absence of budding yeast orthologs
-- presence or absence of human orthologs
+- Deletion viability
+- Presence or absence of budding yeast orthologs
+- Presence or absence of human orthologs
 - GO biological process
 - GO cellular component
 - GO molecular function
+- [Characterization status](/status/gene-characterisation) for protein-coding genes
+- [Taxonomic distribution](/documentation/taxonomic-conservation)
 
 #### GO annotation precedence
 
