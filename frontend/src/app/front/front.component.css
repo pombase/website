@@ -30,7 +30,7 @@
   display: block;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 800px) {
   .welcome {
   }
 }
@@ -96,7 +96,7 @@
   }
 }
 
-@media (max-width: 799px) {
+@media (max-width: 800px) {
   .quick-links {
     padding-top: 1em;
   }
@@ -152,11 +152,20 @@
   }
 }
 
-@media (max-width: 799px) {
+@media (min-width: 400px) and (max-width: 800px) {
   .front-container {
     padding: 0 0.3em;
   }
   .panel-container {
     margin: 1.5em 0.5em;
+  }
+}
+
+@media (max-width: 400px) {
+  .front-container {
+    padding: 0 0.1em;
+  }
+  .panel-container {
+    margin: 1.5em auto;
   }
 }

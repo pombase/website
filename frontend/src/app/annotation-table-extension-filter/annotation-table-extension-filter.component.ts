@@ -21,10 +21,12 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() config: FilterConfig;
   @Output() filterChange = new EventEmitter<AnnotationFilter>();
+  @Output() availableChoiceChange = new EventEmitter<number>();
 
   selectedCategory: any = null;
 
   choiceData: Array<SelectData> = [];
+  availableChoices: number = 0;
 
   reset(): void {
     this.selectedCategory = null;
@@ -69,6 +71,8 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
       }
     }
 
+    this.availableChoices = 0;
+
     for (let category of this.config.extension_categories) {
       let active = false;
 
@@ -82,6 +86,12 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
       let selectData = new SelectData(category.display_name,
                                       active, category.ancestors);
       this.choiceData.push(selectData);
+
+      if (active) {
+        this.availableChoices += 1;
+      }
     }
+
+    this.availableChoiceChange.emit(this.availableChoices);
   }
 }
