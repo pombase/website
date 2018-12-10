@@ -4,6 +4,8 @@ html {
 
 body {
   height: 100vh;
+  background-color: #fefeff;
+  color: #333330;
 }
 
 h1,h2,h3,h4,h5,h6,h7 {
