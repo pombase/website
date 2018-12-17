@@ -1,5 +1,4 @@
 ### RNA central and PomBase
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: rna_central_icon.png -->
 
 RNAcentral is a comprehensive database of non-coding RNA
