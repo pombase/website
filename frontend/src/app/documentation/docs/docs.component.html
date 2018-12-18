@@ -7765,6 +7765,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <app-page-contents-menu title="News" titleRoute="/news">
 
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#see-your-genes-quilt">See your genes in a QuiLT</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#fission-yeast-transmembrane-transport-overhaul">Fission yeast transmembrane transport overhaul</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</a></div>
@@ -8663,14 +8664,12 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'rna-central'">
 <h3 id="rna-central-and-pombase">RNA central and PomBase</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: rna_central_icon.png -->
 <p>RNAcentral is a comprehensive database of non-coding RNA sequences. PomBase is an RNAcentral Consortium member, and all of the curated non-coding RNAs from PomBase will be available in RNAcentral soon. For more information, see their recent <a href="https://doi.org/10.1093/nar/gky1034">NAR Database Issue paper</a>, as well as current <a href="https://rnacentral.org/search?q=pombe">search results for <em>S. pombe</em> RNAs</a>.</p>
 
   </div>
   <div *ngIf="pageName == '20-years-GO'">
 <h3 id="celebrating-20-years-of-go">Celebrating 20 years of GO</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: go-logo-icon.mini.png -->
 <p>PomBase curators are major contributors to the <a href="http://geneontology.org/">Gene Ontology</a> (GO) project — ontology content, annotations, and QC procedures — and co-authors on the new <a href="https://doi.org/10.1093/nar/gky1055">GO NAR Database Issue paper</a>.</p>
 <p>We recommend citing the GO and PomBase NAR papers when you use GO data in your analyses.</p>
@@ -8725,9 +8724,24 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Many thanks to Paco Antequera for sending us the bigwig files! If you would like us to load any datasets then please get in touch.</p>
 
   </div>
+  <div *ngIf="pageName == 'mitochondrial-protein-review'">
+<h3 id="new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: mito_news.png -->
+<p>Responding to increasing interest in mitochondrial biology, especially relating to ageing, neurogenerative diseases, and processes at the ER-mitochondrion interface, we have reviewed <em>S. pombe</em> mitochondrial GO annotations. Although there is still relatively little fission yeast-derived experimental data in this area, we have refined many inferred annotations for mitochondrial complexes and sub-components as well as some for processes.</p>
+<p>You can see all 753 <em>S. pombe</em> mitochondrial annotations on the ontology term page for <a href="https://www.pombase.org/term/GO:0005739">mitochondrion (GO:0005739)</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/mito_news.png"/></p>
+<h3 id="new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</h3>
+<p><em>2018-12-17</em></p>
+<p>Responding to increasing interest in mitochondrial biology, especially relating to ageing, neurogenerative diseases, and processes at the ER-mitochondrion interface, we have reviewed <em>S. pombe</em> mitochondrial GO annotations. Although there is still relatively little fission yeast-derived experimental data in this area, we have refined many inferred annotations for mitochondrial complexes and sub-components as well as some for processes.</p>
+<p>You can see all 753 <em>S. pombe</em> mitochondrial annotations on the ontology term page for <a href="https://www.pombase.org/term/GO:0005739">mitochondrion (GO:0005739)</a>.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</h3>
