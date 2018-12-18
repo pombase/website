@@ -170,7 +170,7 @@
           </div>
         </td>
         <td *ngIf="showColumn['term-xref']">
-          <div *ngIf="termAnnotation.term.xref">
+          <div *ngIf="showXRef(termAnnotation.term.xref, annotation.reference)">
             <a href="{{getTermXrefLink(termAnnotation.term.xref)}}">{{typeConfig.term_xref_conf_key}}</a>
           </div>
         </td>

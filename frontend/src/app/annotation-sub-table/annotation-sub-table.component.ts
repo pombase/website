@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
-import { TermAnnotation } from '../pombase-api.service';
+import { TermAnnotation, Annotation, ReferenceShort } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          FilterConfig, SplitByParentsConfig, AnnotationExternalLinkConfig,
@@ -125,6 +125,23 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     } else {
       return '';
     }
+  }
+
+  showXRef(xref: string, reference: ReferenceShort): boolean {
+    if (xref) {
+      const condition = this.typeConfig.term_xref_condition;
+      if (condition) {
+        if (condition.startsWith('reference=')) {
+          const condRef = condition.substring(10);
+          if (reference && condRef && condRef == reference.uniquename) {
+            return true;
+          }
+        }
+      } else {
+        return true;
+      }
+    }
+    return false;
   }
 
   hasQualifiers(): boolean {
