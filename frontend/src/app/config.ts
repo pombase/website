@@ -240,6 +240,8 @@ export interface AnnotationType {
   term_xref_id_prop?: string;
   // the config key to use in the call to getMiscExternalLink()
   term_xref_conf_key?: string;
+  // conditions used restrict when the xref is displayed
+  term_xref_condition?: string;
   misc_config?: {
     [key: string]: any;
   };
