@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class PredefinedQueryResultsComponent implements OnInit, OnDestroy {
   @Input() predefinedQueryId: string;
+  @Input() description: string = null;
 
   results: QueryResult = null;
   subscription: Subscription = null;

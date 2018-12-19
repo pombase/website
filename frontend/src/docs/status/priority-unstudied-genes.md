@@ -21,4 +21,4 @@ and the [Advanced Search](/query) documentation for details. You can also
 send this list directly to the advanced search (For example to mine
 for phenotypes or locations of interest).
 
-<app-predefined-query-results [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results>
+<app-predefined-query-results [description]="'Unstudied genes'" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results>
