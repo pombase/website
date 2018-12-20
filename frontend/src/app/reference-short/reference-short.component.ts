@@ -64,7 +64,7 @@ export class ReferenceShortComponent implements OnInit {
       }
     }
 
-    if (this.reference.uniquename.startsWith("PMID:")) {
+    if (this.reference.gene_count > 0 || this.reference.genotype_count > 0) {
       this.isPMID = true;
     }
 
