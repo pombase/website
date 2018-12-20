@@ -48,6 +48,8 @@ export interface ReferenceShort {
   authors_abbrev: string;
   publication_year: string;
   approved_date: string;
+  gene_count?: number;
+  genotype_count?: number;
 }
 
 export interface ExpressedAllele {
