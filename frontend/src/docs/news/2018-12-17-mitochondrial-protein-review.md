@@ -1,4 +1,4 @@
-### New nucleosome occupancy maps loaded
+### Mitochondrial GO annotation update
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: mito_news.png -->
 
