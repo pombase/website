@@ -12,3 +12,6 @@ well as some for processes.
 
 You can see all 753 *S. pombe* mitochondrial annotations on the
 ontology term page for [mitochondrion (GO:0005739)](https://www.pombase.org/term/GO:0005739).
+
+Icon courtesy of Reactome.
+
