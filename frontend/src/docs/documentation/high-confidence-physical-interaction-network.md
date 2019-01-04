@@ -24,4 +24,4 @@ Ontology (GO) annotations:
     those inferred from an experimentally characterised ortholog.
 
 The data can be downloaded in tab-delimited format from the [Download
-Datasets](/downloads/datasets) page.
+Datasets](/datasets) page.
