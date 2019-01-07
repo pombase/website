@@ -6,7 +6,7 @@ import 'rxjs/add/observable/from';
 
 import { getAppConfig } from './config';
 
-import * as similarity from 'string-similarity'
+import * as similarity from 'string-similarity';
 
 export class SolrTermSummary {
   constructor(public termid: string, public name: string, public definition: string) {};
