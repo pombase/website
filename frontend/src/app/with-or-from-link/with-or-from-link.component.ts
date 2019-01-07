@@ -18,7 +18,7 @@ export class WithOrFromLinkComponent implements OnInit {
   constructor() { }
 
   displayIdOf(idWithPrefix: string): string {
-    return idWithPrefix.replace(/.*:/, '');
+    return idWithPrefix.replace(/^[^:]+:/, '');
   }
 
   ngOnInit() {
