@@ -15,8 +15,8 @@ visualisation is also available from the PomBase pages that list genes
 annotated to an ontology term, and on the Priority unstudied genes
 page.
 
-To see the Unknowns dataset in QuiLT, visit the [unknowns results page](https://www.pombase.org/query/results/from/predefined/priority-unstudied-genes:conserved_unknown)
-and click "Visualisation".
+To see the Unknowns dataset in QuiLT, visit the [unknowns results page](query/results/from/predefined/priority-unstudied-genes:conserved_unknown)
+and click "Visualise".
 
 The QuiLT display is interactive, and you can:
 
