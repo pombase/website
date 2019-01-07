@@ -18,7 +18,29 @@
   background-image: none;
   border-radius: .25rem;
   font-weight: bold;
+  margin: 0.5em;
 }
+
+@media (max-width: 600px) {
+  .small-screen-search-info {
+    display: inline;
+  }
+  .big-screen-search-info {
+    display: none;
+  }
+  .search-box {
+    width: 40%;
+  }
+}
+@media (min-width: 600px) {
+  .small-screen-search-info {
+    display: none;
+  }
+  .big-screen-search-info {
+    display: inline;
+  }
+}
+
 .synonym-match {
 /*  font-weight: 200; */
 }

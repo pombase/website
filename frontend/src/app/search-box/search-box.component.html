@@ -20,6 +20,10 @@
   </div>
 </ng-template>
 
+<span class="search-info small-screen-search-info" [style.visibility]="noMatchingGenes() ? 'visible' : 'hidden'">
+  No matches
+</span>
+
 <input #searchBox
        *ngIf="searchSummaries.length > 0"
        placeholder="search ..."
@@ -42,6 +46,6 @@
          src="/assets/info_icon.svg">
 </span>
 
-<span class="search-info" [style.visibility]="noMatchingGenes() ? 'visible' : 'hidden'">
-  No matching genes
+<span class="search-info big-screen-search-info" [style.visibility]="noMatchingGenes() ? 'visible' : 'hidden'">
+  No matches
 </span>
