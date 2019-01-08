@@ -701,9 +701,9 @@ let _appConfig: AppConfig = {
         id: 'disease_associated',
         displayName: 'disease',
         nodeType: 'ontology',
-        ontologyName: 'disease_associated',
+        ontologyName: 'disease_ontology',
         topDescription: [{ text: 'Retrieve genes for which the curated human ortholog is associated with a disease. ' +
-                           'To find all disease gene orthologs, search for "disease_associated"' }],
+                           'To find all disease gene orthologs, search for "disease"' }],
       },
       {
         id: 'tm_domain_count',
