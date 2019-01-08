@@ -93,6 +93,7 @@ import { HelpLinkComponent } from './help-link/help-link.component';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { AnnotationTableExtensionFilterComponent } from './annotation-table-extension-filter/annotation-table-extension-filter.component';
 import { RouterNotFoundHandlerComponent } from './router-not-found-handler/router-not-found-handler.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 export function documentFactory() {
     return document;
@@ -171,6 +172,7 @@ export function windowFactory() {
     HelpLinkComponent,
     AnnotationTableExtensionFilterComponent,
     RouterNotFoundHandlerComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,

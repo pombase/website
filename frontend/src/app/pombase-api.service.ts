@@ -32,6 +32,10 @@ export class Metadata {
   cv_versions: { [cv_name: string]: string };
 }
 
+export class DatabaseStatistics {
+  gene_counts_by_taxonid: { [taxonId: number]: number}
+}
+
 export class RecentReferences {
   pubmed: Array<ReferenceShort>;
   admin_curated: Array<ReferenceShort>;
@@ -878,6 +882,13 @@ export class PombaseAPIService {
     return this.getWithRetry(this.apiUrl + '/data/metadata')
       .toPromise()
       .then(response => response.json() as Metadata)
+      .catch(this.handleError);
+  }
+
+  getStatistics(): Promise<DatabaseStatistics> {
+    return this.getWithRetry(this.apiUrl + '/data/stats')
+      .toPromise()
+      .then(response => response.json() as DatabaseStatistics)
       .catch(this.handleError);
   }
 
