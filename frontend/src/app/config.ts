@@ -217,6 +217,14 @@ export interface AnnotationExternalLinkConfig {
   url_prefix: string;
 }
 
+export interface SourceConfig {
+  // conditions used restrict when the xref is displayed
+  condition?: string;
+  // the Chado cvtermprop type name for the ID used for linking
+  // if this is set we know that this source can be linked to
+  id_prop?: string;
+}
+
 export interface AnnotationType {
   feature_type: string;
   display_name: string;
@@ -234,14 +242,7 @@ export interface AnnotationType {
   slim_description?: string;
   slim_link?: string;
   slim_no_category_text?: string;
-  // a type name for the cvtermprop to display to the user
-  term_xref_display_name_prop?: string;
-  // the cvtermprop type name for the extra ID
-  term_xref_id_prop?: string;
-  // the config key to use in the call to getMiscExternalLink()
-  term_xref_conf_key?: string;
-  // conditions used restrict when the xref is displayed
-  term_xref_condition?: string;
+  source_config?: { [source_name: string]: SourceConfig };
   misc_config?: {
     [key: string]: any;
   };

@@ -39,6 +39,11 @@ export class FormatUtils {
   }
 }
 
+export interface TermXref {
+  xref_id: string,
+  xref_display_name: string,
+}
+
 export interface TermShort {
   termid: TermId,
   name: string,
@@ -47,8 +52,7 @@ export interface TermShort {
   is_obsolete: boolean;
   gene_count?: number;
   genotype_count?: number;
-  xref?: string;
-  xref_display_name?: string;
+  xrefs: { [source_name: string]: TermXref }; 
 }
 
 export enum QueryNodeOperator {

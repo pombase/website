@@ -9,7 +9,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
 import { AnnotationTable } from '../pombase-api.service';
 import { AnnotationFilter } from '../filtering/annotation-filter';
 import { TableViewState } from '../pombase-types';
-import { TermShort } from '../pombase-query';
+import { TermShort, TermXref } from '../pombase-query';
 
 @Component({
   selector: 'app-annotation-sub-table',
@@ -118,30 +118,55 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     return item.term.termid;
   }
 
-  getTermXrefLink(id: string): string {
-    const configKey = this.typeConfig.term_xref_conf_key;
-    if (configKey && id) {
-      return this.appConfig.getMiscExternalLink(configKey, id).url;
+  getTermXrefLink(sourceName: string, id: string): string {
+    if (sourceName && id) {
+      return this.appConfig.getMiscExternalLink(sourceName, id).url;
     } else {
       return '';
     }
   }
 
-  showXRef(xref: string, reference: ReferenceShort): boolean {
-    if (xref) {
-      const condition = this.typeConfig.term_xref_condition;
-      if (condition) {
-        if (condition.startsWith('reference=')) {
-          const condRef = condition.substring(10);
-          if (reference && condRef && condRef == reference.uniquename) {
-            return true;
-          }
+  checkCondition(condition: string, reference: ReferenceShort): boolean {
+    if (condition) {
+      if (condition.startsWith('reference=')) {
+        const condRef = condition.substring(10);
+        if (reference && condRef && condRef == reference.uniquename) {
+          return true;
         }
-      } else {
-        return true;
       }
     }
     return false;
+  }
+
+  showXRef(sourceName: string, reference: ReferenceShort): boolean {
+    if (!this.typeConfig.source_config) {
+      return false;
+    }
+    const sourceConfig = this.typeConfig.source_config[sourceName];
+    if (sourceConfig) {
+      const condition = sourceConfig.condition;
+      return this.checkCondition(condition, reference);
+    } else {
+      return true;
+    }
+  }
+
+  otherSources(reference: ReferenceShort): Array<string> {
+    let sourceConfig = this.typeConfig.source_config;
+    if (!sourceConfig) {
+      return [];
+    }
+
+    let ret = [];
+
+    for (const sourceName of Object.keys(sourceConfig)) {
+      const conf = sourceConfig[sourceName];
+      if (this.checkCondition(conf.condition, reference) && !conf.id_prop) {
+        ret.push(sourceName);
+      }
+    }
+
+    return ret;
   }
 
   hasQualifiers(): boolean {
