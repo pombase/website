@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import 'rxjs/add/observable/from';
 
 import { getAppConfig } from './config';
+import { catchError, map } from 'rxjs/operators';
+import { encodeUriFragment } from '@angular/router/src/url_tree';
 
 export interface MotifPeptideMatch {
   start: number;
@@ -38,7 +40,8 @@ export class MotifService {
       return Observable.from([]);
     }
 
-    return this.http.get(this.motifSearchUrl + '/' + motif)
-      .map((res: Response) => res.json())
+    return this.http.get(this.motifSearchUrl + '/' + encodeURI(motif))
+     .pipe(map((res: Response) => res.json()),
+           catchError(err => of({ status: 'ERROR', peptide_matches: []})));
   }
 }
