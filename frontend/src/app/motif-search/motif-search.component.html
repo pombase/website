@@ -1,0 +1,150 @@
+<div>
+  <input type="text" [ngModel]="motif" (ngModelChange)="motifChange($event)"/>
+
+  <div *ngIf="showHelp">
+    Search examples:
+    <table width="100%" border="0">
+      <tbody>
+        <tr>
+	  <td class="pep">CADR</td>
+	  <td>will find</td>
+	  <td>CADR</td>
+	</tr>
+	<tr>
+	  <td class="pep">CA[DE]R</td>
+	  <td>will find</td>
+	  <td>CADR/CAER</td>
+	</tr>
+	<tr>
+	  <td class="pep">CA...R</td>
+	  <td> will find</td>
+	  <td>CAXXXR</td>
+	</tr>
+	<tr>
+	  <td class="pep">CA.+R </td>
+	  <td>will find </td>
+	  <td>CA(any number of one or more amino acids)R</td>
+	</tr>
+	<tr>
+	  <td class="pep">SPR.|SP.R</td>
+	  <td>will find </td>
+	  <td>SPRX or SPXR</td>
+	</tr>
+	<tr>
+	  <td class="pep">^ME </td>
+	  <td>will find </td>
+	  <td>proteins beginning with ME</td>
+	</tr>
+	<tr>
+	  <td class="pep">LAA$</td>
+	  <td>will find </td>
+	  <td>proteins terminating LAA</td>
+	</tr>
+	<tr>
+	  <td class="pep">^.{{ '{1,20}MCA' }}</td>
+	  <td>will find </td>
+	  <td>proteins with MCA in the first 20 amino acids</td>
+	</tr>
+      </tbody>
+    </table>
+
+    <div>
+      Amino acid group codes (<b>Please note these options do not work in combination with square brackets</b>):
+    </div>
+    <table width="100%" border="0">
+      <tbody><tr>
+	  <th align="left">AA group</th>
+	  <th align="left">Code</th>
+	  <th align="left">Amino acids</th>
+        </tr>
+        <tr>
+	  <td>acidic </td>
+	  <td><b>0</b> </td>
+	  <td class="pep">DE</td>
+        </tr>
+        <tr>
+	  <td>alcohol </td>
+	  <td><b>1</b> </td>
+	  <td class="pep">ST</td>
+        </tr>
+        <tr>
+	  <td>aliphatic </td>
+	  <td><b>2</b> </td>
+	  <td class="pep">AGILV</td>
+        </tr>
+        <tr>
+	  <td>aromatic </td>
+	  <td><b>3</b> </td>
+	  <td class="pep">FHWY</td>
+        </tr>
+        <tr>
+	  <td>basic </td>
+	  <td><b>4</b> </td>
+	  <td class="pep">KRH</td>
+        </tr>
+        <tr>
+	  <td>charged </td>
+	  <td><b>5</b> </td>
+	  <td class="pep">DEHKR</td>
+        </tr>
+        <tr>
+	  <td>hydrophobic </td>
+	  <td><b>6</b> </td>
+	  <td class="pep">AVILMFYW</td>
+        </tr>
+        <tr>
+	  <td>hydrophilic </td>
+	  <td><b>7</b> </td>
+	  <td class="pep">KRHDENQ</td>
+        </tr>
+        <tr>
+	  <td>polar </td>
+	  <td><b>8</b> </td>
+	  <td class="pep">CDEHKNQRST</td>
+        </tr>
+        <tr>
+	  <td>small </td>
+	  <td><b>9</b> </td>
+	  <td class="pep">ACDGNPSTV</td>
+        </tr>
+        <tr>
+	  <td>tiny </td>
+	  <td><b>B</b> </td>
+	  <td class="pep">AGS</td>
+        </tr>
+        <tr>
+	  <td>turnlike </td>
+	  <td><b>Z</b> </td>
+	  <td class="pep">ACDEGHKNQRST</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!showHelp">
+    <div *ngIf="hasResults == false">
+      No matching peptides
+    </div>
+    <table class="results" *ngIf="hasResults == true">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Start</td>
+          <td colspan="3"></td>
+          <td class="end-pos">End</td>
+        </tr>
+      </thead>
+      <tbody *ngFor="let peptideResult of peptideResults">
+        <tr class="match-line" *ngFor="let peptideMatch of peptideResult.matches ; let i = index">
+          <td class="peptide-id" *ngIf="i==0"
+              [attr.rowspan]="peptideResult.matches.length">{{peptideResult.peptide_id}}</td>
+          <td class="start-pos">{{peptideMatch.start}}</td>
+          <td class="before-peptides">{{peptideMatch.before}}</td>
+          <td class="matching-peptides">{{peptideMatch.match}}</td>
+          <td class="after-peptides">{{peptideMatch.after}}</td>
+          <td class="end-pos">{{peptideMatch.end}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

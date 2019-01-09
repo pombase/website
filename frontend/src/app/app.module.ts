@@ -94,6 +94,7 @@ import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { AnnotationTableExtensionFilterComponent } from './annotation-table-extension-filter/annotation-table-extension-filter.component';
 import { RouterNotFoundHandlerComponent } from './router-not-found-handler/router-not-found-handler.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { MotifSearchComponent } from './motif-search/motif-search.component';
 
 export function documentFactory() {
     return document;
@@ -173,6 +174,7 @@ export function windowFactory() {
     AnnotationTableExtensionFilterComponent,
     RouterNotFoundHandlerComponent,
     StatisticsComponent,
+    MotifSearchComponent,
   ],
   imports: [
     BrowserModule,

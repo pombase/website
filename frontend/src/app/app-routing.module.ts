@@ -14,6 +14,7 @@ import { FrontComponent } from './front/front.component';
 import { RouterNotFoundHandlerComponent } from './router-not-found-handler/router-not-found-handler.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
+import { MotifSearchComponent } from './motif-search/motif-search.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -135,6 +136,11 @@ const routes: Routes = [
   { path: 'query/:saveOrResults/from/json/:json', component: QueryBuilderComponent,
     data: {
       defaultTitleDetail: 'Advanced search'
+    }
+  },
+  { path: 'motif_search', component: MotifSearchComponent,
+    data: {
+      defaultTitleDetail: 'Motif search'
     }
   },
   { path: 'front', redirectTo: '/', pathMatch: 'full' },

@@ -1,0 +1,42 @@
+.match-line {
+
+}
+
+table thead td.end-pos {
+  text-align: right;
+}
+
+table.results tbody {
+  border-top: 0.1em solid grey;
+}
+
+table.results td {
+  padding: 0.2em 0;
+}
+
+table.results td.peptide-id {
+  vertical-align: top;
+}
+
+table.results td.start-pos {
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+}
+
+table.results td.before-peptides {
+  text-align: right;
+  font-family: monospace;
+}
+
+table.results td.matching-peptides {
+  color: red;
+  font-family: monospace;
+}
+
+table.results td.after-peptides {
+  font-family: monospace;
+}
+
+table.results td.end-pos {
+  text-align: right;
+}
