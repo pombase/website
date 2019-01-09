@@ -141,6 +141,8 @@ export class GeneResultsVisComponent implements OnInit {
   selectedGenes: { [index: string]: boolean } = {};
   selectedGeneList: Array<GeneData> = [];
 
+  attrValueCounts: { [columnName: string]: { [attrName: string]: number } } = {};
+
   constructor(private queryService: QueryService,
               private router: Router) {
     const colConfigs = getAppConfig().getGeneResultsConfig().visualisation.columns;
@@ -361,18 +363,21 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   processColumnResults(): void {
-    let attrValuesInUseCollector: { [columnName: string]: Set<string>} = {};
+    this.attrValueCounts = {};
 
     this.visColumnNames.map((columnName, i) => {
       this.columnDisplayDataMap[columnName] = [];
-      attrValuesInUseCollector[columnName] = new Set();
+      this.attrValueCounts[columnName] = {};
     });
 
     this.sortedGeneUniquenames.map((geneUniquename, idx) => {
       for (const columnName of this.activeColumnNames) {
         const rowAttr = this.geneDataMap[geneUniquename].getField(columnName);
 
-        attrValuesInUseCollector[columnName].add(rowAttr);
+        if (!this.attrValueCounts[columnName][rowAttr]) {
+          this.attrValueCounts[columnName][rowAttr] = 0;
+        }
+        this.attrValueCounts[columnName][rowAttr]++;
 
         let prevRowAttr: string;
 
@@ -414,7 +419,7 @@ export class GeneResultsVisComponent implements OnInit {
 
       const columnConf = this.visColumnConfigMap[columnName];
       for (const attrName of Array.from(columnConf.attrValuesMap.keys())) {
-         if (attrValuesInUseCollector[columnName].has(attrName)) {
+         if (this.attrValueCounts[columnName][attrName]) {
            const attrConf = columnConf.attrValuesMap.get(attrName);
            const confForTemplate = new AttrValueConf(attrName, attrConf.display_name || attrName, attrConf.color);
            this.attrValuesInUse[columnName].push(confForTemplate);
