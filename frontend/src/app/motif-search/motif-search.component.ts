@@ -25,7 +25,8 @@ export class MotifSearchComponent implements OnInit {
   constructor(private motifService: MotifService) {
     this.motifSub = this.motifChanged.pipe(
       map(motif => {
-        const trimmed = motif.trim();
+        let trimmed = motif.trim();
+        trimmed = trimmed.replace(/[\[\]\|]/g, '');
         this.showHelp = trimmed.length == 0;
         return trimmed;
       }),
