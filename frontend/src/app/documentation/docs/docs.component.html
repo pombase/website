@@ -7764,6 +7764,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#improved-disease-association-dataset-released">Improved disease association dataset released</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#mitochondrial-go-annotation-update">Mitochondrial GO annotation update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#see-your-genes-quilt">See your genes in a QuiLT</a></div>
@@ -8734,9 +8735,26 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Icon courtesy of Reactome.</p>
 
   </div>
+  <div *ngIf="pageName == 'improved-disease-association-dataset-released'">
+<h3 id="improved-disease-association-dataset-released">Improved disease association dataset released</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: human disease.png -->
+<p>We are pleased to announce the release of our improved human disease mappings dataset. This dataset connects human disease causing genes to their <em>S. pombe</em> orthologs.</p>
+<p>Diseases are now mapped to the Disease Ontology (DO) and the dataset has been extended by data from Malacards. All disease associations can be accessed from the <a href="https://www.pombase.org/term/DOID:4">top level disease page</a>. A disease slim has been created to facilitate browsing of disease categories. Currently, 907 S. pombe genes are associated with disease (up from 610 in the original dataset). This number is due to increase as mappings are still in progress.</p>
+<p>Many thanks to DO and Malacards for help in improving this annotation set. Icon courtesy of Julie McMurry.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<h3 id="improved-disease-association-dataset-released">Improved disease association dataset released</h3>
+<p><em>2019-01-09</em></p>
+<p>We are pleased to announce the release of our improved human disease mappings dataset. This dataset connects human disease causing genes to their <em>S. pombe</em> orthologs.</p>
+<p>Diseases are now mapped to the Disease Ontology (DO) and the dataset has been extended by data from Malacards. All disease associations can be accessed from the <a href="https://www.pombase.org/term/DOID:4">top level disease page</a>. A disease slim has been created to facilitate browsing of disease categories. Currently, 907 S. pombe genes are associated with disease (up from 610 in the original dataset). This number is due to increase as mappings are still in progress.</p>
+<p>Many thanks to DO and Malacards for help in improving this annotation set. Icon courtesy of Julie McMurry.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/mito_news.png"/></p>
 <h3 id="mitochondrial-go-annotation-update">Mitochondrial GO annotation update</h3>
