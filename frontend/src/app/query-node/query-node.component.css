@@ -8,7 +8,7 @@
 }
 
 .node-buttons {
-  background-color: #e8e8f8;
+  background-color: #ececfc;
   width: 12em;
   left: 0;
   top: 0;
@@ -17,7 +17,7 @@
 }
 
 .node-button {
-  color: #00a;
+  color: #22b;
   height: 1.5em;
   cursor: pointer;
   white-space: nowrap;
@@ -27,11 +27,13 @@
 }
 
 .node-selected-button {
-  background-color: #ddf;
-  border-left: 1px solid #bbc;
-  border-top: 1px solid #bbc;
-  border-bottom: 1px solid #bbc;
-  border-right: 1px solid #ddf;
+  color: #00a;
+  border-left: 1px solid #aac;
+  border-top: 1px solid #aac;
+  border-bottom: 1px solid #aac;
+  border-right: 0;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 
 .node-button:hover {
@@ -39,15 +41,20 @@
 }
 
 .node-components {
-  background-color: #ddf;
   width: 100%;
   min-height: 16em;
   padding: 0.6em;
   display: inline-block;
   vertical-align: top;
-  border-right: 1px solid #bbc;
-  border-top: 1px solid #bbc;
-  border-bottom: 1px solid #bbc;
+  border-right: 1px solid #aac;
+  border-top: 1px solid #aac;
+  border-bottom: 1px solid #aac;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.node-components, .node-selected-button {
+  background-color: #e5e5fe;
 }
 
 .range input {

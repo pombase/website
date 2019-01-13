@@ -10,6 +10,7 @@ body {
 
 h1,h2,h3,h4,h5,h6,h7 {
   margin-bottom: 0.2em;
+  color: #222
 }
 
 @media (max-width: 600px) {
@@ -415,4 +416,25 @@ select option:disabled {
 
 li.active .search-box-organism {
   color: #e8e8e8d0;
+}
+
+.modal-header {
+  border-bottom: 0;
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
+.modal-header, .modal-footer {
+  background-color: #dce0ef;
+}
+
+.modal-footer .btn-default {
+  background-color: #d5daeb;
+  border-color: #b8b8b8;
+}
+
+p {
+  color: #444;
 }
