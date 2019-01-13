@@ -9,7 +9,7 @@ their _S. pombe_ orthologs.
 
 Diseases are now mapped to the Disease Ontology (DO) and the dataset has been
 extended by data from Malacards. All disease associations can be accessed from
-the [top level disease page](https://www.pombase.org/term/DOID:4). A disease
+the [top level disease page](/term/DOID:4). A disease
 slim has been created to facilitate browsing of disease categories. Currently,
 907 S. pombe genes are associated with disease (up from 610 in the original
 dataset). This number is due to increase as mappings are still in progress.
