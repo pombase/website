@@ -44,6 +44,7 @@ class GeneData {
     this.cleanAttributeRow(cleanRow, 'go_process_superslim');
     this.cleanAttributeRow(cleanRow, 'go_function');
     this.cleanAttributeRow(cleanRow, 'characterisation_status');
+    this.cleanAttributeRow(cleanRow, 'protein_length_bin');
 
     if (!cleanRow['ortholog_taxonids']) {
       cleanRow['ortholog_taxonids'] = [];
