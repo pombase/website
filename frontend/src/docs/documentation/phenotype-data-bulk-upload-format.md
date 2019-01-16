@@ -4,7 +4,9 @@ PomBase welcomes submissions of published large-scale phenotype data
 sets. We have devised a tab-delimited text file format for bulk
 phenotype data. A similar format is used for the downloadable file of
 single-allele phenotype data (with one more column at the start of
-each line to identify PomBase as the source).
+each line to identify PomBase as the source; note that, because
+Database is column 1 in the downloadable file, column numbers differ
+by 1 between the download and upload formats).
 
 Include a header line that labels the columns -- use the entry in the
 Contents column below as the column header text.

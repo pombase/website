@@ -20,7 +20,9 @@ The file is in a version of the PomBase phenotype data bulk annotation
 format (PHAF), detailed below. This format in nearly identical to the
 one that can be used to submit phenotype annotations to PomBase in bulk,
 as described on the [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
-page, with the addition of the Database column.
+page, with the addition of the Database column. Note that, because
+Database is column 1 in the downloadable file, column numbers differ
+by 1 between the download and upload formats.
 
 Propagating phenotype annotations: Note that the file contains only
 direct annotations to FYPO terms. It does not include annotations that
@@ -47,25 +49,26 @@ columns may be empty.
 
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
-1 | Gene systematic ID | SPBC11B10.09 | Yes | No
-2 | FYPO ID | FYPO:0000001 | Yes | No
-3 | Allele description | G146D | Yes | No
-4 | Expression | overexpression | Yes | No
-5 | Parental strain | 975 h+ | Yes | No
-6 | Background strain name | SP286 | No | No
-7 | Background genotype description | h+ ura4-D18 leu1-32 ade6-M210 | No | No
-8 | Gene name | cdc2 | No | No
-9 | Allele name | cdc2-1w | No | No
-10 | Allele synonym | wee2-1 | No | Yes
-11 | Allele type | amino acid mutation | Yes | No
-12 | Evidence | ECO:0000336 | Yes | No
-13 | Condition | at high temperature | Yes | Yes
-14 | Penetrance | 85% | No | No
-15 | Expressivity | medium | No | No
-16 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
-17 | Reference | PMID:23697806 | Yes | No
-18 | taxon | taxon:4896 | Yes | No
-19 | Date | 20120101 | Yes | No
+1 | Database | PomBase | Yes | No
+2 | Gene systematic ID | SPBC11B10.09 | Yes | No
+3 | FYPO ID | FYPO:0000001 | Yes | No
+4 | Allele description | G146D | Yes | No
+5 | Expression | overexpression | Yes | No
+6 | Parental strain | 975 h+ | Yes | No
+7 | Background strain name | SP286 | No | No
+8 | Background genotype description | h+ ura4-D18 leu1-32 ade6-M210 | No | No
+9 | Gene name | cdc2 | No | No
+10 | Allele name | cdc2-1w | No | No
+11 | Allele synonym | wee2-1 | No | Yes
+12 | Allele type | amino acid mutation | Yes | No
+13 | Evidence | ECO:0000336 | Yes | No
+14 | Condition | at high temperature | Yes | Yes
+15 | Penetrance | 85% | No | No
+16 | Expressivity | medium | No | No
+17 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
+18 | Reference | PMID:23697806 | Yes | No
+19 | taxon | taxon:4896 | Yes | No
+20 | Date | 20120101 | Yes | No
 
 **Notes:**
 
