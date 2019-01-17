@@ -5191,7 +5191,7 @@ PomBase using the Ensembl viewer.</p>
   </div>
   <div *ngIf="pageName == 'phenotype-data-bulk-upload-format'">
 <h2 id="phenotype-data-bulk-upload-format">Phenotype data bulk upload format</h2>
-<p>PomBase welcomes submissions of published large-scale phenotype data sets. We have devised a tab-delimited text file format for bulk phenotype data. A similar format is used for the downloadable file of single-allele phenotype data (with one more column at the start of each line to identify PomBase as the source).</p>
+<p>PomBase welcomes submissions of published large-scale phenotype data sets. We have devised a tab-delimited text file format for bulk phenotype data. A similar format is used for the downloadable file of single-allele phenotype data (with one more column at the start of each line to identify PomBase as the source; note that, because Database is column 1 in the downloadable file, column numbers differ by 1 between the download and upload formats).</p>
 <p>Include a header line that labels the columns -- use the entry in the Contents column below as the column header text.</p>
 <table>
 <thead>
@@ -6092,7 +6092,7 @@ PomBase using the Ensembl viewer.</p>
 <p><strong>Warning:</strong> Files in the old FTP site within the EBI domain are no longer updated. If you have a link that contains <strong>ftp.ebi.ac.uk</strong>, please check these pages for a link using <strong>ftp.pombase.org</strong>. Please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a> if you need help finding a file or directory.</p>
 </div>
 <p><a href="ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz">Phenotype annotations</a> (link downloads gzipped file from PomBase ftp) for alleles of <em>S. pombe</em> genes are manually curated from the literature using Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file contains annotations for single allele phenotypes (single mutants) only.</p>
-<p>The file is in a version of the PomBase phenotype data bulk annotation format (PHAF), detailed below. This format in nearly identical to the one that can be used to submit phenotype annotations to PomBase in bulk, as described on the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> page, with the addition of the Database column.</p>
+<p>The file is in a version of the PomBase phenotype data bulk annotation format (PHAF), detailed below. This format in nearly identical to the one that can be used to submit phenotype annotations to PomBase in bulk, as described on the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> page, with the addition of the Database column. Note that, because Database is column 1 in the downloadable file, column numbers differ by 1 between the download and upload formats.</p>
 <p>Propagating phenotype annotations: Note that the file contains only direct annotations to FYPO terms. It does not include annotations that can be inferred by propagating between terms within the ontology. To make full use of the FYPO annotation data, we strongly recommend also using the ontology structure and inferred annotations. Please contact the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a> if you need assistance.</p>
 <h3 id="viability-summary">Viability summary</h3>
 <p>A <a href="ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/FYPOviability.tsv">set of &quot;viability summary&quot; data</a> as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: &quot;viable&quot;, &quot;inviable&quot; or &quot;condition-dependent&quot;.</p>
@@ -6112,132 +6112,139 @@ PomBase using the Ensembl viewer.</p>
 <tbody>
 <tr class="odd">
 <td>1</td>
-<td>Gene systematic ID</td>
-<td>SPBC11B10.09</td>
+<td>Database</td>
+<td>PomBase</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="even">
 <td>2</td>
-<td>FYPO ID</td>
-<td>FYPO:0000001</td>
+<td>Gene systematic ID</td>
+<td>SPBC11B10.09</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td>Allele description</td>
-<td>G146D</td>
+<td>FYPO ID</td>
+<td>FYPO:0000001</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td>Expression</td>
-<td>overexpression</td>
+<td>Allele description</td>
+<td>G146D</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="odd">
 <td>5</td>
-<td>Parental strain</td>
-<td>975 h+</td>
+<td>Expression</td>
+<td>overexpression</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="even">
 <td>6</td>
+<td>Parental strain</td>
+<td>975 h+</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>7</td>
 <td>Background strain name</td>
 <td>SP286</td>
 <td>No</td>
 <td>No</td>
 </tr>
-<tr class="odd">
-<td>7</td>
+<tr class="even">
+<td>8</td>
 <td>Background genotype description</td>
 <td>h+ ura4-D18 leu1-32 ade6-M210</td>
 <td>No</td>
 <td>No</td>
 </tr>
-<tr class="even">
-<td>8</td>
+<tr class="odd">
+<td>9</td>
 <td>Gene name</td>
 <td>cdc2</td>
 <td>No</td>
 <td>No</td>
 </tr>
-<tr class="odd">
-<td>9</td>
+<tr class="even">
+<td>10</td>
 <td>Allele name</td>
 <td>cdc2-1w</td>
 <td>No</td>
 <td>No</td>
 </tr>
-<tr class="even">
-<td>10</td>
+<tr class="odd">
+<td>11</td>
 <td>Allele synonym</td>
 <td>wee2-1</td>
 <td>No</td>
 <td>Yes</td>
 </tr>
-<tr class="odd">
-<td>11</td>
+<tr class="even">
+<td>12</td>
 <td>Allele type</td>
 <td>amino acid mutation</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
-<tr class="even">
-<td>12</td>
+<tr class="odd">
+<td>13</td>
 <td>Evidence</td>
 <td>ECO:0000336</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
-<tr class="odd">
-<td>13</td>
+<tr class="even">
+<td>14</td>
 <td>Condition</td>
 <td>at high temperature</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
-<tr class="even">
-<td>14</td>
+<tr class="odd">
+<td>15</td>
 <td>Penetrance</td>
 <td>85%</td>
 <td>No</td>
 <td>No</td>
 </tr>
-<tr class="odd">
-<td>15</td>
+<tr class="even">
+<td>16</td>
 <td>Expressivity</td>
 <td>medium</td>
 <td>No</td>
 <td>No</td>
 </tr>
-<tr class="even">
-<td>16</td>
+<tr class="odd">
+<td>17</td>
 <td>Extension</td>
 <td>assayed_using(PomBase:SPBC582.03)</td>
 <td>No</td>
 <td>Yes</td>
 </tr>
-<tr class="odd">
-<td>17</td>
+<tr class="even">
+<td>18</td>
 <td>Reference</td>
 <td>PMID:23697806</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
-<tr class="even">
-<td>18</td>
+<tr class="odd">
+<td>19</td>
 <td>taxon</td>
 <td>taxon:4896</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
-<tr class="odd">
-<td>19</td>
+<tr class="even">
+<td>20</td>
 <td>Date</td>
 <td>20120101</td>
 <td>Yes</td>
