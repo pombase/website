@@ -21,7 +21,7 @@ https://github.com/pombase/pombase-chado/blob/master/etc/build_container.sh
 
 ### Run test server
 
-`ng serve --proxy-config proxy.conf.json`
+`ng serve --host 0.0.0.0 --proxy-config proxy.conf.json`
 
 ### Run JSON/query server
 
