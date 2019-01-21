@@ -366,10 +366,10 @@
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
   integrity sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==
 
-"@types/string-similarity@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@types/string-similarity/-/string-similarity-1.2.0.tgz#0598ffdac808067953e1da480fda85e8fde80560"
-  integrity sha512-zrUNNlpw29TES8RF5EbdjlyLQduy9rh0b+xgx3RuPl0Qb6KMcQ3CI+cNKejpU3TEbLEfq6l627WxDIXS+Ebj/Q==
+"@types/string-similarity@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/string-similarity/-/string-similarity-3.0.0.tgz#12b655f1aab0156049657a4e9287caf3e6718d93"
+  integrity sha512-vhHkPKxl0cudrbxr5Dog1HVgUGXtmyYP95qy1da/h5gFEzIqDMN/+SjJAS7/6DEAdeI+AJQX8zrdWXL3wP4FRA==
 
 "@types/webpack-sources@^0.1.5":
   version "0.1.5"
