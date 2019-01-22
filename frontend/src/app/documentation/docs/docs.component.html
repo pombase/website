@@ -893,6 +893,11 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 
 </app-page-contents-menu>
   <div class="docs-content">
+  <div *ngIf="pageName == 'disease-slim'">
+<h2 id="disease-slim">Disease slim</h2>
+<p><app-disease-slim-table></app-disease-slim-table></p>
+
+  </div>
   <div *ngIf="pageName == 'dna-binding-sites'">
 <h3 id="dna-binding-site-consensus-sequences-in-s.-pombe">DNA binding site consensus sequences in <em>S. pombe</em></h3>
 <p>Also see <a href="https://www.pombase.org/jbrowse/?loc=III%3A725762..736349&amp;tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&amp;highlight=">PomBase JBrowse with binding site track enabled</a>.</p>

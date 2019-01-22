@@ -12,6 +12,7 @@
    "about/terms-of-use" : "PomBase Terms of Use",
    "about/version-history" : "PomBase data version history",
    "browse-curation" : "Browse curation",
+   "browse-curation/disease-slim" : "Disease slim",
    "browse-curation/dna-binding-sites" : "DNA binding site consensus sequences in S. pombe",
    "browse-curation/drugs-known-pombe-targets" : "Drugs with known S. pombe targets",
    "browse-curation/fission-yeast-go-slim-terms" : "Fission yeast GO slim",
