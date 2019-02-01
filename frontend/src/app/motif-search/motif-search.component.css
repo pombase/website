@@ -1,9 +1,14 @@
-.match-line {
-
+h1,h2,h3,h4 {
+  padding: 0.2em 0 0.2em 0;
 }
 
 table thead td.end-pos {
   text-align: right;
+  padding-left: 1em;
+}
+
+table.results {
+  margin-top: 1em;
 }
 
 table.results tbody {
@@ -19,8 +24,8 @@ table.results td.peptide-id {
 }
 
 table.results td.start-pos {
-  padding-left: 0.4em;
-  padding-right: 0.4em;
+  padding-left: 0.5em;
+  padding-right: 1em;
 }
 
 table.results td.before-peptides {
@@ -39,4 +44,13 @@ table.results td.after-peptides {
 
 table.results td.end-pos {
   text-align: right;
+}
+
+.no-match {
+  margin-top: 1em;
+}
+
+.input-area {
+  padding: 1em;
+  font-size: 105%;
 }

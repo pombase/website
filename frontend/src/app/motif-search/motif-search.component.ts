@@ -3,8 +3,17 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs';
 import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { getAppConfig, AppConfig } from '../config';
 
 import { MotifService, MotifPeptideResult } from '../motif.service';
+
+enum SearchState {
+  ShowHelp = 0,
+  TooShort = 1,
+  Searching = 2,
+  NoResults = 3,
+  SomeResults = 5,
+}
 
 @Component({
   selector: 'app-motif-search',
@@ -16,20 +25,35 @@ export class MotifSearchComponent implements OnInit {
   motif: string = '';
   motifChanged: Subject<string> = new Subject<string>();
 
-  hasResults = false;
-  showHelp = true;
+  SearchState = SearchState;
+  searchState: SearchState = SearchState.ShowHelp;
 
   peptideResults: MotifPeptideResult[] = [];
   motifSub: Subscription;
 
+  organismCommonName: string = null;
+
+  appConfig: AppConfig;
+
   constructor(private motifService: MotifService) {
+    this.appConfig = getAppConfig();
+
+    if (!this.appConfig.isMultiOrganismMode()) {
+      this.organismCommonName =
+      this.appConfig.getConfigOrganism().species;
+    }
+
     this.motifSub = this.motifChanged.pipe(
       map(motif => {
         let trimmed = motif.trim();
-        trimmed = trimmed.replace(/\|$/g, '');
-        trimmed = trimmed.replace(/^\|/g, '');
-        trimmed = trimmed.replace(/^\.[\*\+]$/g, '');
-        this.showHelp = trimmed.length == 0;
+        trimmed = trimmed.replace(/\|+$/g, '');
+        trimmed = trimmed.replace(/^\|+/g, '');
+        trimmed = trimmed.replace(/^\.*[\*\+]*$/g, '');
+        if (trimmed.length == 0) {
+          this.searchState = SearchState.ShowHelp;
+        } else {
+          // this.searchState = SearchState.Searching;
+        }
         return trimmed;
       }),
       debounceTime(250),
@@ -38,17 +62,29 @@ export class MotifSearchComponent implements OnInit {
       .subscribe(results => {
         if (results.status === 'OK') {
           this.peptideResults = results.peptide_matches
-          this.hasResults = results.peptide_matches.length > 0;
+          if (results.peptide_matches.length > 0) {
+            this.searchState = SearchState.SomeResults
+          } else {
+            this.searchState = SearchState.NoResults;
+          }
         } else {
           this.peptideResults = [];
-          this.hasResults = false;
+          this.searchState = SearchState.NoResults;
         }
       },
-      err => console.error(err));
+      err => {
+        this.searchState = SearchState.ShowHelp;
+        console.error(err);
+      });
   }
 
   motifChange(motif: string): void {
     this.motifChanged.next(motif);
+  }
+
+  resetSearch(): void {
+    this.motif = '';
+    this.motifChange('');
   }
 
   ngOnInit() {

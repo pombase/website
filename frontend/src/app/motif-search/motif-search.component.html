@@ -1,131 +1,143 @@
 <div>
-  <input type="text" [ngModel]="motif" (ngModelChange)="motifChange($event)"/>
-
-  <div *ngIf="showHelp">
-    Search examples:
+  <h1>Search for a motif <span *ngIf="organismCommonName">in all {{organismCommonName}} protein sequences</span></h1>
+  <div class="input-area">
+    <input type="text" [(ngModel)]="motif" placeholder="Enter a motif ..." (ngModelChange)="motifChange($event)"/>
+    <a (click)="resetSearch()">reset ...</a>
+  </div>
+  <div *ngIf="searchState == SearchState.ShowHelp">
+    <h3>Search examples</h3>
+    <div style="width: 50em">
     <table width="100%" border="0">
       <tbody>
         <tr>
-	  <td class="pep">CADR</td>
-	  <td>will find</td>
-	  <td>CADR</td>
-	</tr>
-	<tr>
-	  <td class="pep">CA[DE]R</td>
-	  <td>will find</td>
-	  <td>CADR/CAER</td>
-	</tr>
-	<tr>
-	  <td class="pep">CA...R</td>
-	  <td> will find</td>
-	  <td>CAXXXR</td>
-	</tr>
-	<tr>
-	  <td class="pep">CA.+R </td>
-	  <td>will find </td>
-	  <td>CA(any number of one or more amino acids)R</td>
-	</tr>
-	<tr>
-	  <td class="pep">SPR.|SP.R</td>
-	  <td>will find </td>
-	  <td>SPRX or SPXR</td>
-	</tr>
-	<tr>
-	  <td class="pep">^ME </td>
-	  <td>will find </td>
-	  <td>proteins beginning with ME</td>
-	</tr>
-	<tr>
-	  <td class="pep">LAA$</td>
-	  <td>will find </td>
-	  <td>proteins terminating LAA</td>
-	</tr>
-	<tr>
-	  <td class="pep">^.{{ '{1,20}MCA' }}</td>
-	  <td>will find </td>
-	  <td>proteins with MCA in the first 20 amino acids</td>
-	</tr>
+    <td class="pep">CADR</td>
+    <td>will find</td>
+    <td>CADR</td>
+  </tr>
+  <tr>
+    <td class="pep">CA[DE]R</td>
+    <td>will find</td>
+    <td>CADR/CAER</td>
+  </tr>
+  <tr>
+    <td class="pep">CA...R</td>
+    <td> will find</td>
+    <td>CAXXXR</td>
+  </tr>
+  <tr>
+    <td class="pep">CA.+R </td>
+    <td>will find </td>
+    <td>CA(any number of one or more amino acids)R</td>
+  </tr>
+  <tr>
+    <td class="pep">SPR.|SP.R</td>
+    <td>will find </td>
+    <td>SPRX or SPXR</td>
+  </tr>
+  <tr>
+    <td class="pep">^ME </td>
+    <td>will find </td>
+    <td>proteins beginning with ME</td>
+  </tr>
+  <tr>
+    <td class="pep">LAA$</td>
+    <td>will find </td>
+    <td>proteins terminating LAA</td>
+  </tr>
+  <tr>
+    <td class="pep">^.{{ '{1,20}MCA' }}</td>
+    <td>will find </td>
+    <td>proteins with MCA in the first 20 amino acids</td>
+  </tr>
       </tbody>
     </table>
-
-    <div>
-      Amino acid group codes (<b>Please note these options do not work in combination with square brackets</b>):
     </div>
+    <h4>
+      Amino acid group codes
+    </h4>
+    <b>Please note these options do not work in combination with square brackets</b>
+    <div style="width: 30em">
     <table width="100%" border="0">
       <tbody><tr>
-	  <th align="left">AA group</th>
-	  <th align="left">Code</th>
-	  <th align="left">Amino acids</th>
+    <th align="left">AA group</th>
+    <th align="left">Code</th>
+    <th align="left">Amino acids</th>
         </tr>
         <tr>
-	  <td>acidic </td>
-	  <td><b>0</b> </td>
-	  <td class="pep">DE</td>
+    <td>acidic </td>
+    <td><b>0</b> </td>
+    <td class="pep">DE</td>
         </tr>
         <tr>
-	  <td>alcohol </td>
-	  <td><b>1</b> </td>
-	  <td class="pep">ST</td>
+    <td>alcohol </td>
+    <td><b>1</b> </td>
+    <td class="pep">ST</td>
         </tr>
         <tr>
-	  <td>aliphatic </td>
-	  <td><b>2</b> </td>
-	  <td class="pep">AGILV</td>
+    <td>aliphatic </td>
+    <td><b>2</b> </td>
+    <td class="pep">AGILV</td>
         </tr>
         <tr>
-	  <td>aromatic </td>
-	  <td><b>3</b> </td>
-	  <td class="pep">FHWY</td>
+    <td>aromatic </td>
+    <td><b>3</b> </td>
+    <td class="pep">FHWY</td>
         </tr>
         <tr>
-	  <td>basic </td>
-	  <td><b>4</b> </td>
-	  <td class="pep">KRH</td>
+    <td>basic </td>
+    <td><b>4</b> </td>
+    <td class="pep">KRH</td>
         </tr>
         <tr>
-	  <td>charged </td>
-	  <td><b>5</b> </td>
-	  <td class="pep">DEHKR</td>
+    <td>charged </td>
+    <td><b>5</b> </td>
+    <td class="pep">DEHKR</td>
         </tr>
         <tr>
-	  <td>hydrophobic </td>
-	  <td><b>6</b> </td>
-	  <td class="pep">AVILMFYW</td>
+    <td>hydrophobic </td>
+    <td><b>6</b> </td>
+    <td class="pep">AVILMFYW</td>
         </tr>
         <tr>
-	  <td>hydrophilic </td>
-	  <td><b>7</b> </td>
-	  <td class="pep">KRHDENQ</td>
+    <td>hydrophilic </td>
+    <td><b>7</b> </td>
+    <td class="pep">KRHDENQ</td>
         </tr>
         <tr>
-	  <td>polar </td>
-	  <td><b>8</b> </td>
-	  <td class="pep">CDEHKNQRST</td>
+    <td>polar </td>
+    <td><b>8</b> </td>
+    <td class="pep">CDEHKNQRST</td>
         </tr>
         <tr>
-	  <td>small </td>
-	  <td><b>9</b> </td>
-	  <td class="pep">ACDGNPSTV</td>
+    <td>small </td>
+    <td><b>9</b> </td>
+    <td class="pep">ACDGNPSTV</td>
         </tr>
         <tr>
-	  <td>tiny </td>
-	  <td><b>B</b> </td>
-	  <td class="pep">AGS</td>
+    <td>tiny </td>
+    <td><b>B</b> </td>
+    <td class="pep">AGS</td>
         </tr>
         <tr>
-	  <td>turnlike </td>
-	  <td><b>Z</b> </td>
-	  <td class="pep">ACDEGHKNQRST</td>
+    <td>turnlike </td>
+    <td><b>Z</b> </td>
+    <td class="pep">ACDEGHKNQRST</td>
         </tr>
       </tbody>
     </table>
   </div>
+  </div>
 
-  <div *ngIf="!showHelp">
-    <div *ngIf="hasResults == false">
-      No matching peptides
+  <div>
+    <div class="no-match" *ngIf="searchState == SearchState.NoResults">
+      <h4>No matching peptides</h4>
     </div>
-    <table class="results" *ngIf="hasResults == true">
+
+    <div class="searching-message" *ngIf="searchState == SearchState.Searching">
+			<h4>Searching ...</h4>
+    </div>
+
+    <table class="results" *ngIf="searchState == SearchState.SomeResults">
       <thead>
         <tr>
           <td>ID</td>
