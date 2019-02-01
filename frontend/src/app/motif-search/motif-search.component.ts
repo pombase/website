@@ -26,6 +26,9 @@ export class MotifSearchComponent implements OnInit {
     this.motifSub = this.motifChanged.pipe(
       map(motif => {
         let trimmed = motif.trim();
+        trimmed = trimmed.replace(/\|$/g, '');
+        trimmed = trimmed.replace(/^\|/g, '');
+        trimmed = trimmed.replace(/^\.[\*\+]$/g, '');
         this.showHelp = trimmed.length == 0;
         return trimmed;
       }),
