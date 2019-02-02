@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs';
 import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { getAppConfig, AppConfig } from '../config';
 
+import { getAppConfig, AppConfig } from '../config';
 import { MotifService, MotifPeptideResult, MotifSearchResults } from '../motif.service';
+import { GeneListNode, GeneQuery } from '../pombase-query';
+import { QueryService, HistoryEntry } from '../query.service';
 
 enum SearchState {
   ShowHelp = 0,
@@ -42,7 +45,9 @@ export class MotifSearchComponent implements OnInit {
 
   appConfig: AppConfig;
 
-  constructor(private motifService: MotifService) {
+  constructor(private router: Router,
+              private queryService: QueryService,
+              private motifService: MotifService) {
     this.appConfig = getAppConfig();
 
     if (!this.appConfig.isMultiOrganismMode()) {
@@ -84,6 +89,16 @@ export class MotifSearchComponent implements OnInit {
         this.searchState = SearchState.ShowHelp;
         console.error(err);
       });
+  }
+
+  sendToQueryBuilder(): void {
+    const geneUniquenames = this.peptideResults.map(res => res.gene_id);
+    const part = new GeneListNode(geneUniquenames);
+    const geneQuery = new GeneQuery(part);
+    const callback = (historyEntry: HistoryEntry) => {
+      this.router.navigate(['/query/results/from/history/', historyEntry.getEntryId()]);
+    };
+    this.queryService.saveToHistory(geneQuery, callback);
   }
 
   motifChange(motif: string): void {

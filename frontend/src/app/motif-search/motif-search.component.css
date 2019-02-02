@@ -7,43 +7,51 @@ table thead td.end-pos {
   padding-left: 1em;
 }
 
-table.results {
+.results {
   margin-top: 1em;
 }
 
-table.results tbody {
+.results tbody {
   border-top: 0.1em solid grey;
 }
 
-table.results td {
+.results td {
   padding: 0.2em 0;
 }
 
-table.results td.peptide-id {
+.results td.peptide-id {
   vertical-align: top;
 }
 
-table.results td.start-pos {
+.results td.start-pos {
   padding-left: 0.5em;
   padding-right: 1em;
 }
 
-table.results td.before-peptides {
+.results td.before-peptides {
   text-align: right;
   font-family: monospace;
 }
 
-table.results td.matching-peptides {
+.results td.matching-peptides {
   color: red;
   font-family: monospace;
 }
 
-table.results td.after-peptides {
+.results td.after-peptides {
   font-family: monospace;
 }
 
-table.results td.end-pos {
+.results td.end-pos {
   text-align: right;
+}
+
+.match-count {
+  margin-right: 2em;
+}
+
+.match-count .count {
+  font-weight: bold;
 }
 
 .no-match {
@@ -53,4 +61,16 @@ table.results td.end-pos {
 .input-area {
   padding: 1em;
   font-size: 105%;
+}
+
+.send-genes {
+  margin-bottom: 1em;
+}
+
+.input-reset {
+  margin-left: 0.4em;
+}
+
+.result-header {
+  margin-bottom: 1em;
 }

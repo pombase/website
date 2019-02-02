@@ -2,7 +2,7 @@
   <h1>Search for a motif <span *ngIf="organismCommonName">in all {{organismCommonName}} protein sequences</span></h1>
   <div class="input-area">
     <input type="text" [(ngModel)]="motif" placeholder="Enter a motif ..." (ngModelChange)="motifChange($event)"/>
-    <a (click)="resetSearch()">reset ...</a>
+    <a class="input-reset" (click)="resetSearch()">clear</a>
   </div>
   <div *ngIf="searchState == SearchState.ShowHelp">
     <h3>Search examples</h3>
@@ -137,7 +137,16 @@
 			<h4>Searching ...</h4>
     </div>
 
-    <table class="results" *ngIf="searchState == SearchState.SomeResults">
+    <div class="results" *ngIf="searchState == SearchState.SomeResults">
+      <div class="result-header">
+      <span class="match-count">
+        <span class="count">{{peptideResults.length}}</span> matching genes
+      </span>
+      <span class="send-genes">
+        <a (click)="sendToQueryBuilder()">Send gene list to advanced search</a>
+      </span>
+      </div>
+    <table>
       <thead>
         <tr>
           <td>ID</td>
@@ -159,5 +168,6 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
