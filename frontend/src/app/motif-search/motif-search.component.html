@@ -148,8 +148,9 @@
       </thead>
       <tbody *ngFor="let peptideResult of peptideResults">
         <tr class="match-line" *ngFor="let peptideMatch of peptideResult.matches ; let i = index">
-          <td class="peptide-id" *ngIf="i==0"
-              [attr.rowspan]="peptideResult.matches.length">{{peptideResult.peptide_id}}</td>
+          <td class="peptide-id" *ngIf="i==0" [attr.rowspan]="peptideResult.matches.length">
+              <a routerLink="/gene/{{peptideResult.gene_id}}">{{peptideResult.gene_id}}</a>
+          </td>
           <td class="start-pos">{{peptideMatch.start}}</td>
           <td class="before-peptides">{{peptideMatch.before}}</td>
           <td class="matching-peptides">{{peptideMatch.match}}</td>

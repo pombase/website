@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { getAppConfig, AppConfig } from '../config';
 
-import { MotifService, MotifPeptideResult } from '../motif.service';
+import { MotifService, MotifPeptideResult, MotifSearchResults } from '../motif.service';
 
 enum SearchState {
   ShowHelp = 0,
@@ -21,6 +21,13 @@ enum SearchState {
   styleUrls: ['./motif-search.component.css']
 })
 export class MotifSearchComponent implements OnInit {
+  cleanResults(results: MotifSearchResults): void {
+    results.gene_matches.map((geneDetails: MotifPeptideResult) => {
+      if (!geneDetails.matches) {
+        geneDetails.matches = []
+      }
+    })
+  }
 
   motif: string = '';
   motifChanged: Subject<string> = new Subject<string>();
@@ -61,9 +68,10 @@ export class MotifSearchComponent implements OnInit {
       switchMap(motif => this.motifService.motifSearch(motif)))
       .subscribe(results => {
         if (results.status === 'OK') {
-          this.peptideResults = results.peptide_matches
-          if (results.peptide_matches.length > 0) {
-            this.searchState = SearchState.SomeResults
+          this.peptideResults = results.gene_matches
+          if (this.peptideResults.length > 0) {
+            this.cleanResults(results);
+            this.searchState = SearchState.SomeResults;
           } else {
             this.searchState = SearchState.NoResults;
           }
