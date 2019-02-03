@@ -156,7 +156,7 @@
           <td class="end-pos">End</td>
         </tr>
       </thead>
-      <tbody *ngFor="let peptideResult of peptideResults">
+      <tbody *ngFor="let peptideResult of peptideResultsWithDetails">
         <tr class="match-line" *ngFor="let peptideMatch of peptideResult.matches ; let i = index">
           <td class="peptide-id" *ngIf="i==0" [attr.rowspan]="peptideResult.matches.length">
             <app-gene-link [gene]="geneSummaries[peptideResult.gene_id]" [long]="false"></app-gene-link>
@@ -170,6 +170,10 @@
         </tr>
       </tbody>
     </table>
+    <div class="other-genes" *ngIf="geneMatchesWithNoDetails != 0">
+      <span *ngIf="geneMatchesWithNoDetails == 1">One other matching gene not shown</span>
+      <span *ngIf="geneMatchesWithNoDetails > 1">{{geneMatchesWithNoDetails}} other matching genes not shown</span>
+      - send list to advanced search to see all genes
     </div>
   </div>
 </div>

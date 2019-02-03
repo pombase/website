@@ -25,13 +25,6 @@ enum SearchState {
   styleUrls: ['./motif-search.component.css']
 })
 export class MotifSearchComponent implements OnInit {
-  cleanResults(results: MotifSearchResults): void {
-    results.gene_matches.map((geneDetails: MotifPeptideResult) => {
-      if (!geneDetails.matches) {
-        geneDetails.matches = []
-      }
-    })
-  }
 
   motif: string = '';
   motifChanged: Subject<string> = new Subject<string>();
@@ -39,13 +32,13 @@ export class MotifSearchComponent implements OnInit {
   SearchState = SearchState;
   searchState: SearchState = SearchState.ShowHelp;
 
-  peptideResults: MotifPeptideResult[] = [];
+  peptideResults: Array<MotifPeptideResult> = [];
+  peptideResultsWithDetails: Array<MotifPeptideResult> = [];
+  geneMatchesWithNoDetails: number = 0;
+
   motifSub: Subscription;
-
   organismCommonName: string = null;
-
   appConfig: AppConfig;
-
   geneSummaries: GeneSummaryMap = null;
 
   constructor(private router: Router,
@@ -83,7 +76,9 @@ export class MotifSearchComponent implements OnInit {
         if (results.status === 'OK') {
           this.peptideResults = results.gene_matches
           if (this.peptideResults.length > 0) {
-            this.cleanResults(results);
+            this.peptideResultsWithDetails = this.cleanResults(results);
+            this.geneMatchesWithNoDetails =
+               results.gene_matches.length - this.peptideResultsWithDetails.length;
             this.searchState = SearchState.SomeResults;
           } else {
             this.searchState = SearchState.NoResults;
@@ -97,6 +92,12 @@ export class MotifSearchComponent implements OnInit {
         this.searchState = SearchState.ShowHelp;
         console.error(err);
       });
+  }
+
+  cleanResults(results: MotifSearchResults): Array<MotifPeptideResult> {
+    return results.gene_matches.filter((geneDetails: MotifPeptideResult) => {
+      return geneDetails.matches;
+    })
   }
 
   sendToQueryBuilder(): void {

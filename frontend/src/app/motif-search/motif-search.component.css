@@ -55,6 +55,11 @@ table thead td.end-pos {
   text-align: right;
 }
 
+.results .other-genes {
+  font-size: 110%;
+  font-weight: bold;
+}
+
 .match-count {
   margin-right: 2em;
 }
