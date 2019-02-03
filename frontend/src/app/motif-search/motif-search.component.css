@@ -28,6 +28,10 @@ table thead td.end-pos {
   padding-right: 1em;
 }
 
+.results td.product {
+  vertical-align: top;
+}
+
 .results td.start-pos, .results th.start-pos {
   padding-left: 0.5em;
   padding-right: 1em;
