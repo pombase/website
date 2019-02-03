@@ -68,6 +68,7 @@ export class MotifSearchComponent implements OnInit {
         trimmed = trimmed.replace(/\|+$/g, '');
         trimmed = trimmed.replace(/^\|+/g, '');
         trimmed = trimmed.replace(/^\.*[\*\+]*$/g, '');
+        trimmed = trimmed.replace(/x/ig, '.');
         if (trimmed.length == 0) {
           this.searchState = SearchState.ShowHelp;
         } else {
