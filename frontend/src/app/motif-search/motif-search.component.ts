@@ -9,6 +9,7 @@ import { getAppConfig, AppConfig } from '../config';
 import { MotifService, MotifPeptideResult, MotifSearchResults } from '../motif.service';
 import { GeneListNode, GeneQuery } from '../pombase-query';
 import { QueryService, HistoryEntry } from '../query.service';
+import { PombaseAPIService, GeneShort, GeneSummaryMap } from '../pombase-api.service';
 
 enum SearchState {
   ShowHelp = 0,
@@ -45,7 +46,10 @@ export class MotifSearchComponent implements OnInit {
 
   appConfig: AppConfig;
 
+  geneSummaries: GeneSummaryMap = null;
+
   constructor(private router: Router,
+              private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
               private motifService: MotifService) {
     this.appConfig = getAppConfig();
@@ -54,6 +58,9 @@ export class MotifSearchComponent implements OnInit {
       this.organismCommonName =
       this.appConfig.getConfigOrganism().species;
     }
+
+    pombaseApiService.getGeneSummaryMapPromise()
+      .then(geneSummaries => this.geneSummaries = geneSummaries);
 
     this.motifSub = this.motifChanged.pipe(
       map(motif => {

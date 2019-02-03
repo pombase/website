@@ -23,7 +23,12 @@ table thead td.end-pos {
   vertical-align: top;
 }
 
-.results td.start-pos {
+.results td.product, .results th.product {
+  padding-left: 0.5em;
+  padding-right: 1em;
+}
+
+.results td.start-pos, .results th.start-pos {
   padding-left: 0.5em;
   padding-right: 1em;
 }

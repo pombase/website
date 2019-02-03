@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="geneSummaries">
   <h1>Search for a motif <span *ngIf="organismCommonName">in all {{organismCommonName}} protein sequences</span></h1>
   <div class="input-area">
     <input type="text" [(ngModel)]="motif" placeholder="Enter a motif ..." (ngModelChange)="motifChange($event)"/>
@@ -149,8 +149,9 @@
     <table>
       <thead>
         <tr>
-          <td>ID</td>
-          <td>Start</td>
+          <td>Gene</td>
+          <td class="product">Product</td>
+          <td class="start-pos">Start</td>
           <td colspan="3"></td>
           <td class="end-pos">End</td>
         </tr>
@@ -158,8 +159,9 @@
       <tbody *ngFor="let peptideResult of peptideResults">
         <tr class="match-line" *ngFor="let peptideMatch of peptideResult.matches ; let i = index">
           <td class="peptide-id" *ngIf="i==0" [attr.rowspan]="peptideResult.matches.length">
-              <a routerLink="/gene/{{peptideResult.gene_id}}">{{peptideResult.gene_id}}</a>
+            <app-gene-link [gene]="geneSummaries[peptideResult.gene_id]" [long]="false"></app-gene-link>
           </td>
+          <td class="product" *ngIf="i==0" [attr.rowspan]="peptideResult.matches.length">{{geneSummaries[peptideResult.gene_id].product || ''}}</td>
           <td class="start-pos">{{peptideMatch.start}}</td>
           <td class="before-peptides">{{peptideMatch.before}}</td>
           <td class="matching-peptides">{{peptideMatch.match}}</td>
