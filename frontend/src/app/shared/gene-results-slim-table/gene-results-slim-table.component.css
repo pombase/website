@@ -1,3 +1,8 @@
+.loading {
+  margin: 1em 1em 2em 1em;
+  font-size: 150%;
+}
+
 .subset-table {
   margin: 1em;
 }

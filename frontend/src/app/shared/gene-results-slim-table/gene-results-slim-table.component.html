@@ -1,5 +1,8 @@
 <div>
- <div *ngIf="resultTable.length != 0">
+  <div class="loading" *ngIf="resultTable.length == 0">
+    Loading ...
+  </div>
+  <div *ngIf="resultTable.length != 0">
     <table class="subset-table">
         <thead>
           <th>Name</th>
