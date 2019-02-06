@@ -40,7 +40,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
       });
   }
 
-  makeResultTable(results: QueryResult): any {
+  makeResultTable(results: QueryResult): Array<ProcessedRow> {
     this.termGeneUniquenames = {};
     for (const row of results.rows) {
       if (row.subsets) {
@@ -66,7 +66,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
       resultTable.push(row);
     }
 
-    return resultTable;
+    return resultTable.sort((rowA, rowB) => rowA.termName.localeCompare(rowB.termName));
   }
 
   gotoGenes(termId: TermId): void {
