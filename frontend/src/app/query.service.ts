@@ -106,7 +106,7 @@ export class QueryService {
       .map((res) => { return makeResults(query, res.json()); });
   }
   postQueryCount(query: GeneQuery): Observable<number> {
-    const outputOptions = new QueryOutputOptions([], 'none');
+    const outputOptions = new QueryOutputOptions([], [], 'none');
     return this.postRaw(query, outputOptions)
       .map((res) => { return res.json().rows.length; });
   }

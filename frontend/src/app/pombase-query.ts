@@ -10,7 +10,8 @@ export class TermAndName {
 export interface ResultRow {
   gene_uniquename: string;
   sequence?: string;
-  [other_attribute: string]: string | TermAndName;
+  subsets?: Array<TermId>;
+  [other_attribute: string]: string | TermAndName | Array<TermId>;
 }
 
 export class QueryResult {
@@ -52,7 +53,7 @@ export interface TermShort {
   is_obsolete: boolean;
   gene_count?: number;
   genotype_count?: number;
-  xrefs: { [source_name: string]: TermXref }; 
+  xrefs: { [source_name: string]: TermXref };
 }
 
 export enum QueryNodeOperator {
@@ -467,6 +468,7 @@ type SequenceOptions = 'protein' | 'none' | {
 
 export class QueryOutputOptions {
   constructor(private field_names: Array<string>,
+              private flags: Array<string>,
               private sequence: SequenceOptions) { }
 }
 

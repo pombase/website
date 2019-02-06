@@ -7,6 +7,9 @@ import { GeneShort } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 import { QueryService, HistoryEntry } from '../../query.service';
 import { GeneQuery, GeneListNode, TermShort } from '../../pombase-query';
+import { getAnnotationTableConfig, AnnotationTableConfig,
+  AnnotationType, AppConfig, getAppConfig} from '../../config';
+import { DeployConfigService } from '../../deploy-config.service';
 
 @Component({
   selector: 'app-genes-table',
@@ -27,6 +30,7 @@ export class GenesTableComponent implements OnInit {
   downloadModalRef: BsModalRef = null;
   selectedCountCache = -1;
   showingVisualisation = false;
+  slimTableSlimName: string = null;
 
   visLegend: string = null;
 
@@ -35,8 +39,12 @@ export class GenesTableComponent implements OnInit {
 
   selectedGenes: { [key: string]: boolean } = null;
 
+  geneResultConfig = getAppConfig().getGeneResultsConfig();
+  slimLegend: string;
+
   constructor(private modalService: BsModalService,
               private queryService: QueryService,
+              private deployConfigService: DeployConfigService,
               private router: Router) { }
 
   setOrderBy(field: string) {
@@ -120,6 +128,15 @@ export class GenesTableComponent implements OnInit {
 
   hideVisualisation(): void {
     this.showingVisualisation = false;
+  }
+
+  showSlim(subsetName: string): void {
+    this.slimTableSlimName = subsetName;
+    this.slimLegend = getAppConfig().slims[subsetName].slim_display_name;
+  }
+
+  hideSlim(): void {
+    this.slimTableSlimName = null;
   }
 
   ngOnInit() {

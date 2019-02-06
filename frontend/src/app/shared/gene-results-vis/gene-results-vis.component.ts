@@ -434,7 +434,7 @@ export class GeneResultsVisComponent implements OnInit {
     const geneListQuery = new GeneQuery(geneListNode);
 
     const outputOptions =
-      new QueryOutputOptions(['gene_uniquename', ...Array.from(this.queryColumnNames)], 'none');
+      new QueryOutputOptions(['gene_uniquename', ...Array.from(this.queryColumnNames)], [], 'none');
     this.queryService.postQuery(geneListQuery, outputOptions)
       .subscribe(results => {
         this.geneDataMap = this.makeGeneDataMap(results);

@@ -27,6 +27,7 @@ import { Ng2SimplePageScrollModule } from '../ng2-simple-page-scroll/ng2-simple-
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 import { SocialContactComponent } from './social-contact/social-contact.component';
 import { DiseaseSlimTableComponent } from './disease-slim-table/disease-slim-table.component';
+import { GeneResultsSlimTableComponent } from './gene-results-slim-table/gene-results-slim-table.component';
 
 @NgModule({
   imports: [
@@ -57,6 +58,7 @@ import { DiseaseSlimTableComponent } from './disease-slim-table/disease-slim-tab
     DetailsPageMenuComponent,
     SocialContactComponent,
     DiseaseSlimTableComponent,
+    GeneResultsSlimTableComponent,
   ],
   declarations: [
     GoSlimTableComponent,
@@ -78,6 +80,7 @@ import { DiseaseSlimTableComponent } from './disease-slim-table/disease-slim-tab
     DetailsPageMenuComponent,
     SocialContactComponent,
     DiseaseSlimTableComponent,
+    GeneResultsSlimTableComponent,
   ],
 })
 export class SharedModule { }

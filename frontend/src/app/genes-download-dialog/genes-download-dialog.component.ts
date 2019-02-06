@@ -124,7 +124,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
     if (selectedServerFields.length > 0) {
       const query = new GeneQuery(new GeneListNode(this.genes));
-      const outputOptions = new QueryOutputOptions(['gene_uniquename', ...selectedServerFields], 'none');
+      const outputOptions = new QueryOutputOptions(['gene_uniquename', ...selectedServerFields], [], 'none');
       serverPromise = this.queryService.postQuery(query, outputOptions).toPromise();
 
     } else {
@@ -208,7 +208,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   private downloadSequence() {
     const query = new GeneQuery(new GeneListNode(this.genes));
     let seqOptions = this.seqDownloadOptions();
-    const outputOptions = new QueryOutputOptions(['gene_uniquename'], seqOptions);
+    const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], seqOptions);
     this.queryService.postQuery(query, outputOptions)
       .subscribe((results) => {
         const fileName = 'sequence.fasta';

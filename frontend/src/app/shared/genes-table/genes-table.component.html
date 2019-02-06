@@ -1,19 +1,28 @@
 <div>
 <fieldset *ngIf="genes.length > 0" class="genes-table">
 
-  <div *ngIf="!showingVisualisation">
-  <div *ngIf="selectionInProgress()" class="action">
+    <div *ngIf="!showingVisualisation && !slimTableSlimName">
+      <div *ngIf="selectionInProgress()">
+  <div class="action">
     <button class="btn btn-primary"
             [disabled]="selectedCount() == 0"
             title="{{selectedCount() == 0 ? 'Select some genes to filter' : 'Filter list to show only the selected genes'}}"
             (click)="filter()">Filter</button>
   </div>
-  <div *ngIf="selectionInProgress()" class="action">
+
+  <div class="action">
     <button class="btn btn-primary"
             title="Cancel gene selection mode"
             (click)="cancelSelection()">Cancel</button>
   </div>
-  <div *ngIf="!selectionInProgress()" class="action">
+
+  <div class="action">
+    Select: <a (click)="selectAll()">all</a> | <a (click)="selectNone()">none</a>
+  </div>
+  </div>
+
+  <div *ngIf="!selectionInProgress()">
+  <div class="action">
     <button class="btn btn-primary" (click)="download()">Download ...</button>
   </div>
   <div *ngIf="!selectionInProgress()" class="action">
@@ -23,14 +32,21 @@
               class="btn btn-primary" (click)="startSelection()">Select subset</button>
     </div>
   </div>
-  <div *ngIf="selectionInProgress()" class="action">
-    Select: <a (click)="selectAll()">all</a> | <a (click)="selectNone()">none</a>
-  </div>
 
-  <div *ngIf="!selectionInProgress()" class="action">
+  <div>
+  <div class="action">
     <button class="btn btn-primary"
             title="Show gene visualisation"
             (click)="showVisualisation()">Visualise</button>
+  </div>
+
+  <div class="action" *ngFor="let subsetName of geneResultConfig.slim_table_slim_names">
+    <button *ngIf="!deployConfigService.productionMode()"
+            class="btn btn-primary"
+            title="Show gene slim"
+            (click)="showSlim(subsetName)">Slim</button>
+  </div>
+  </div>
   </div>
 
   </div>
@@ -41,12 +57,22 @@
             (click)="hideVisualisation()">Finish visualisation</button>
   </div>
 
-  <legend *ngIf="legend && !showingVisualisation">
-    <span>{{legend}}</span>
+  <div *ngIf="slimTableSlimName" class="action">
+    <button class="btn btn-primary"
+            title="Return to gene list"
+            (click)="hideSlim()">Back to results</button>
+  </div>
+
+  <legend *ngIf="!showingVisualisation && !slimTableSlimName">
+    <span *ngIf="legend">{{legend}}</span>
   </legend>
 
-  <legend *ngIf="visLegend && showingVisualisation">
-    <span>{{visLegend}}</span>
+  <legend *ngIf="showingVisualisation">
+    <span *ngIf="visLegend">{{visLegend}}</span>
+  </legend>
+
+  <legend *ngIf="slimTableSlimName">
+    <span *ngIf="slimLegend">{{slimLegend}}</span>
   </legend>
 
   <div *ngIf="description || descriptionParts.length > 0" class="description">
@@ -63,7 +89,12 @@
     </app-gene-results-vis>
   </div>
 
-  <div class="genes-table-wrapper" *ngIf="!showingVisualisation">
+  <div *ngIf="slimTableSlimName">
+    <app-gene-results-slim-table [genes]="genes" [slimName]="slimTableSlimName">
+    </app-gene-results-slim-table>
+  </div>
+
+  <div class="genes-table-wrapper" *ngIf="!showingVisualisation && !slimTableSlimName">
   <form>
   <table>
     <thead>

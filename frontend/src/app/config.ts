@@ -1,4 +1,5 @@
 import { GeneDetails } from "./pombase-api.service";
+import { TermAndName } from "./pombase-query";
 
 const goXrfConfigMap = require('./config/go-xrf-abbr-external-links.json');
 const docConfig = require('./config/doc-config.json');
@@ -116,7 +117,14 @@ export interface GeneResultsVisConfig {
 
 export interface GeneResultsConfig {
   visualisation: GeneResultsVisConfig;
+  // names of slims that are available from the results pages:
+  slim_table_slim_names: Array<string>;
 };
+
+export interface SlimConfig {
+  slim_display_name: string;
+  terms: Array<TermAndName>;
+}
 
 export interface AppConfig {
   site_name: string;
@@ -143,6 +151,7 @@ export interface AppConfig {
   externalTermReferences: Array<ExternalTermReference>;
   miscExternalLinks: ExternalLinks;
   pubsToLinkToJBrowse: Set<string>;
+  slims: { [slimName: string]: SlimConfig };
   chromosomes: {
     [identifier: string]: ChromosomeConfig;
   };
@@ -571,6 +580,7 @@ let _appConfig: AppConfig = {
     'PSI-MOD': 'PSI-MOD',
     'SO-protein': 'sequence',
   },
+  slims: pombaseConfig.slims,
 
   linkoutConfig: {
     pro: 'http://www.proconsortium.org/cgi-bin/pro/entry_pro?id=',

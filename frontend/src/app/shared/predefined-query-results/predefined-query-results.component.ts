@@ -19,7 +19,7 @@ export class PredefinedQueryResultsComponent implements OnInit, OnDestroy {
   constructor(private queryService: QueryService) { }
 
   ngOnInit() {
-    const outputOptions = new QueryOutputOptions(['gene_uniquename'], 'none');
+    const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], 'none');
 
     this.subscription =
       this.queryService.postPredefinedQuery(this.predefinedQueryId, outputOptions)

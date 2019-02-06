@@ -1,0 +1,7 @@
+.subset-table {
+  margin: 1em;
+}
+
+.subset-table .count {
+  text-align: right;
+}

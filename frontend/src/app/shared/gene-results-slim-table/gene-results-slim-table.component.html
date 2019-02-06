@@ -1,0 +1,23 @@
+<div>
+ <div *ngIf="resultTable.length != 0">
+    <table class="subset-table">
+        <thead>
+          <th>Name</th>
+          <th>Term</th>
+          <th>Genes</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of resultTable">
+            <td class="term-name">{{row.termName}}</td>
+            <td class="term-id">
+              <a routerLink="/term/{{row.termId}}">{{row.termId}}</a>
+            </td>
+            <td class="count">
+              <a *ngIf="row.geneUniquenames.length != 0" (click)="gotoGenes(row.termId)">{{row.geneUniquenames.length}}</a>
+              <span *ngIf="row.geneUniquenames.length == 0">{{row.geneUniquenames.length}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+ </div>
+</div>
