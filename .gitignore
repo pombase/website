@@ -1,2 +1,33 @@
-/frontend/pombase_v2_config.json
-/frontend/.vs/slnx.sqlite
+# pombase
+pombase_v2_config.json
+src/browser_images
+
+# compiled output
+dist
+tmp
+
+# dependencies
+node_modules
+bower_components
+
+# IDEs and editors
+.idea
+.vscode
+.project
+.classpath
+*.launch
+.settings/
+.vs/*
+
+# misc
+.sass-cache
+connect.lock
+coverage/*
+libpeerconnection.log
+npm-debug.log
+testem.log
+typings
+
+# emacs
+*~
+.#*
