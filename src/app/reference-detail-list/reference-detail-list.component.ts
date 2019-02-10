@@ -2,6 +2,8 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { PombaseAPIService, ReferenceShort } from '../pombase-api.service';
 
+import { getAppConfig } from '../config';
+
 class RefGroup {
   constructor(public title: string,
               public refList: Array<ReferenceShort>) {}
@@ -24,6 +26,10 @@ export class ReferenceDetailListComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (this.constraint === 'community') {
       this.pageTitle = 'Community curated publications';
+    } else {
+      if (this.constraint === 'admin') {
+        this.pageTitle = getAppConfig().site_name + ' curated publications';
+      }
     }
   }
 

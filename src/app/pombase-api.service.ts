@@ -1089,7 +1089,7 @@ export class PombaseAPIService {
   }
 
   getReferencesPromise(constraint: string) {
-    return this.getWithRetry(this.apiUrl + '/data/community_curated_references')
+    return this.getWithRetry(this.apiUrl + `/data/${constraint}_curated_references`)
       .toPromise()
       .then(response => response.json() as Array<ReferenceShort>)
       .catch(this.handleError);
