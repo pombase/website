@@ -1,4 +1,4 @@
-### Protein-coding gene characterisation
+### Protein-coding gene characterisation status
 
 <app-characterisation-status-table></app-characterisation-status-table>
 

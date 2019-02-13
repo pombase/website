@@ -197,7 +197,7 @@
    "news/index" : "News archive",
    "status" : "Genome Status",
    "status/centromeres" : "Centromeres",
-   "status/gene-characterisation" : "Protein-coding gene characterisation",
+   "status/gene-characterisation" : "Protein-coding gene characterisation status",
    "status/gene-characterisation-statistics-history" : "Protein-coding gene characterisation statistics history",
    "status/gene-coordinate-changes" : "Gene coordinate changes",
    "status/index" : "Genome Status",
