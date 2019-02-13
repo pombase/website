@@ -10,5 +10,22 @@
 .reference-page-title {
   font-weight: bold;
   font-size: 140%;
-  margin-bottom: 1em;
+  display: inline-block;
+}
+
+@media (min-width: 600px) {
+  .reference-page-title {
+    margin: 0 6em 1em 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .reference-page-title {
+    margin: 0 1em 1em 0;
+  }
+}
+
+.other-ref-page {
+  display: inline-block;
+  margin: 0 1em 1em 0;
 }

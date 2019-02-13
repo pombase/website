@@ -1,7 +1,13 @@
 <div>
-  <div *ngIf="pageTitle" class="reference-page-title">
+  <h2 *ngIf="pageTitle" class="reference-page-title">
     {{pageTitle}}
+  </h2>
+
+  <div class="other-ref-page">
+    <a *ngIf="constraint == 'community'" routerLink="/reference_list/admin">View {{siteName}} curated publications ...</a>
+    <a *ngIf="constraint == 'admin'" routerLink="/reference_list/community">View community curated publications ...</a>
   </div>
+
 
   <div class="ref-group" *ngFor="let group of groups">
     <div class="ref-group-header">

@@ -20,17 +20,11 @@ export class ReferenceDetailListComponent implements OnInit, OnChanges {
   pageTitle: string = null;
 
   groups: Array<RefGroup> = [];
+  siteName = getAppConfig().site_name;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
-    if (this.constraint === 'community') {
-      this.pageTitle = 'Community curated publications';
-    } else {
-      if (this.constraint === 'admin') {
-        this.pageTitle = getAppConfig().site_name + ' curated publications';
-      }
-    }
   }
 
   extraDisplayString(reference: ReferenceShort): string {
@@ -78,5 +72,13 @@ export class ReferenceDetailListComponent implements OnInit, OnChanges {
 
     this.pombaseApiService.getReferencesPromise(this.constraint)
       .then(references => this.makeGroups(references));
+
+    if (this.constraint === 'community') {
+      this.pageTitle = 'Community curated publications';
+    } else {
+      if (this.constraint === 'admin') {
+        this.pageTitle = this.siteName + ' curated publications';
+      }
+    }
   }
 }
