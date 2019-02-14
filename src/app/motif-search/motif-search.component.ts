@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
@@ -26,7 +26,7 @@ enum SearchState {
 })
 export class MotifSearchComponent implements OnInit {
 
-  motif: string = '';
+  motif = '';
   motifChanged: Subject<string> = new Subject<string>();
 
   SearchState = SearchState;
@@ -34,7 +34,7 @@ export class MotifSearchComponent implements OnInit {
 
   peptideResults: Array<MotifPeptideResult> = [];
   peptideResultsWithDetails: Array<MotifPeptideResult> = [];
-  geneMatchesWithNoDetails: number = 0;
+  geneMatchesWithNoDetails = 0;
 
   motifSub: Subscription;
   organismCommonName: string = null;
@@ -62,7 +62,7 @@ export class MotifSearchComponent implements OnInit {
         trimmed = trimmed.replace(/^\|+/g, '');
         trimmed = trimmed.replace(/^\.*[\*\+]*$/g, '');
         trimmed = trimmed.replace(/x/ig, '.');
-        if (trimmed.length == 0) {
+        if (trimmed.length === 0) {
           this.searchState = SearchState.ShowHelp;
         } else {
           // this.searchState = SearchState.Searching;
