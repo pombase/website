@@ -49,9 +49,8 @@
             (click)="showVisualisation()">Visualise</button>
   </div>
 
-  <div class="action" *ngFor="let subsetName of geneResultConfig.slim_table_slim_names">
-    <button *ngIf="!deployConfigService.productionMode()"
-            class="btn btn-primary"
+  <div class="action" *ngFor="let subsetName of slimNames">
+    <button class="btn btn-primary"
             title="Show gene slim"
             (click)="showSlim(subsetName)">Slim</button>
   </div>

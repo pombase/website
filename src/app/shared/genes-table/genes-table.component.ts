@@ -42,10 +42,16 @@ export class GenesTableComponent implements OnInit {
   geneResultConfig = getAppConfig().getGeneResultsConfig();
   slimLegend: string;
 
+  slimNames: Array<string> = [];
+
   constructor(private modalService: BsModalService,
               private queryService: QueryService,
               private deployConfigService: DeployConfigService,
-              private router: Router) { }
+              private router: Router) {
+    if (!deployConfigService.productionMode()) {
+      this.slimNames = this.geneResultConfig.slim_table_slim_names;
+    }
+  }
 
   setOrderBy(field: string) {
     this.orderByField = field;
