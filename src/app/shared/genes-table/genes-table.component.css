@@ -3,19 +3,21 @@
 }
 
 .action {
-  float: right;
-  height: 0.9em;
-  position: relative;
-  top: -0.6em;
   padding: 0 0.3em;
-  margin-bottom: 0.5em;
+  display: inline-block;
 }
 
-.genes-table table {
+.action-row {
+  float: right;
+  margin-bottom: 0.8em;
+}
+
+.content {
   clear: both;
 }
 
 .description {
+  float: left;
   padding-bottom: 1em;
   font-weight: bold;
 }

@@ -18,7 +18,8 @@ h1,h2,h3,h4,h5,h6,h7 {
 /*    font-size: 2.0vw;  */
   }
   button.btn, a.btn, input.btn {
-    padding: 0.5em 0.8em;
+    padding: 0.2em 0.4em;
+    font-size: 90%;
   }
 }
 
