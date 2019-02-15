@@ -20,6 +20,7 @@ h1,h2,h3,h4,h5,h6,h7 {
   button.btn, a.btn, input.btn {
     padding: 0.2em 0.4em;
     font-size: 90%;
+    margin: 0.2em 0;
   }
 }
 
