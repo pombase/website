@@ -11,3 +11,16 @@ University of Cambridge\
 Cambridge\
 CB2 1GA\
 United Kingdom
+
+
+#### [University of Cambridge](http://www.cam.ac.uk/)
+
+-   Val Wood (Curator & co-PI)
+-   Midori Harris (Curator)
+-   Kim Rutherford (Programmer)
+-   Steve Oliver (PI)
+
+#### [University College London](http://www.ucl.ac.uk/)
+
+-   Antonia Lock (Curator)
+-   Jürg Bähler (co-PI)

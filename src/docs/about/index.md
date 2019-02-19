@@ -49,17 +49,11 @@ other resources.
 
 Complete list of [papers published by PomBase](about/published-by-pombase).
 
-### Data versions
+------------------------------------
 
-Versions of internal and external data loaded into current and past
-Pombase releases.
+### PomBase SAB
 
-[Version history](about/version-history)
-
-### Receive project updates
-
-Subscribe to [Pombelist](https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist) to receive
-annotation and data updates
+[Scientific Advisory Board members](about/pombase-sab)
 
 ------------------------------------
 
@@ -77,6 +71,19 @@ annotation and data updates
 -   Antonia Lock (Curator)
 -   Jürg Bähler (co-PI)
 
+------------------------------------
+
+### Data versions
+
+Versions of internal and external data loaded into current and past
+Pombase releases.
+
+[Version history](about/version-history)
+
+### Receive project updates
+
+Subscribe to [Pombelist](https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist) to receive
+annotation and data updates
 
 ------------------------------------
 
