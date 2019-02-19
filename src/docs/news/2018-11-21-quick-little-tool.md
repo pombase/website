@@ -1,5 +1,4 @@
 ### See your genes in a QuiLT
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: QLT.png -->
 
 PomBase now offers a new way to display gene lists graphically based

@@ -1,5 +1,4 @@
 ### Fission yeast transmembrane transport overhaul
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: antiporter.png -->
 
 The Gene Ontology "[transmembrane transport](https://www.pombase.org/term_genes/GO:0055085)"

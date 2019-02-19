@@ -1,5 +1,4 @@
 ### Mitochondrial GO annotation update
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: mito_news.png -->
 
 Responding to increasing interest in mitochondrial biology, especially

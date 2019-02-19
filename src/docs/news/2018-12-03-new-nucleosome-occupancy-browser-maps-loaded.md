@@ -1,5 +1,4 @@
 ### New nucleosome occupancy maps loaded
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 
 We have loaded the nucleosome occupancy maps as described in González et al. (2016) [PMID: 27662899](https://www.ncbi.nlm.nih.gov/pubmed/?term=27662899). This dataset was generated using the paired-end sequencing protocol of Illumina and thus those maps are of higher resolution than those made with single-end (SE) sequencing hosted in the browser since before.
