@@ -8,6 +8,9 @@ National Institute of Biological Sciences, Beijing, China
 *Kathleen Gould*<br>
 Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA
 
+*Doug Howe*
+The Zebrafish Information Network, University of Oregon, Eugene, OR, USA
+
 *Sue Jaspersen*<br>
 Stowers Institute for Medical Research, Kansas City, MO, USA &amp; Department of Molecular and Integrative Physiology, University of Kansas Medical Center, Kansas City, KS, USA
 
