@@ -3,10 +3,20 @@
   font-size: 150%;
 }
 
-.subset-table {
-  margin: 1em;
+.subset-table, .summary {
+  margin: 1em 4em 1em 1em;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .subset-table .count {
   text-align: right;
+}
+
+.summary-content {
+  margin-top: 1em;
+}
+
+.summary li {
+  list-style-type: none;
 }

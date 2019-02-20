@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GeneShort, PombaseAPIService, TermSubsetDetails } from '../../pombase-api.service';
+import { GeneShort, PombaseAPIService, TermSubsetDetails, GeneSummary, GeneSummaryMap } from '../../pombase-api.service';
 import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult, TermId, GeneUniquename } from '../../pombase-query';
 import { QueryService, HistoryEntry } from '../../query.service';
 import { Router } from '@angular/router';
@@ -23,6 +23,10 @@ export class GeneResultsSlimTableComponent implements OnInit {
   resultTable: Array<ProcessedRow> = [];
   termGeneUniquenames: { [termId: string]: Array<GeneUniquename>} = {};
 
+  countsReady = false;
+  slimmedGenes: Set<GeneUniquename> = null;
+  unslimmedGenes: Set<GeneUniquename> = null;
+
   constructor(private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
               private router: Router) {
@@ -40,7 +44,31 @@ export class GeneResultsSlimTableComponent implements OnInit {
       });
   }
 
+  calcGeneStats(geneSummarymap: GeneSummaryMap, resultTable: Array<ProcessedRow>): void {
+    let seenGenes = new Set();
+
+    for (const row of resultTable) {
+      row.geneUniquenames.map(geneUniquename => seenGenes.add(geneUniquename));
+    }
+
+    this.slimmedGenes = seenGenes;
+
+    const proteinCodingGenes =
+      this.genes.filter(geneShort => {
+        const summary = geneSummarymap[geneShort.uniquename];
+        return summary && summary.feature_type === 'mRNA gene';
+      }).map(geneShort => geneShort.uniquename);
+
+    this.unslimmedGenes = new Set([...proteinCodingGenes]);
+
+    seenGenes.forEach(geneUniquename => this.unslimmedGenes.delete(geneUniquename));
+
+    this.countsReady = true;
+  }
+
   makeResultTable(results: QueryResult): Array<ProcessedRow> {
+    this.countsReady = false;
+
     this.termGeneUniquenames = {};
     for (const row of results.rows) {
       if (row.subsets) {
@@ -54,7 +82,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
       }
     }
 
-    let resultTable = [];
+    let resultTable: Array<ProcessedRow> = [];
 
     for (const subsetTermDetail of this.subsetDetails.elements) {
       let geneUniquenames: Array<GeneUniquename> = [];
@@ -77,21 +105,33 @@ export class GeneResultsSlimTableComponent implements OnInit {
         return -1;
       }
     };
+
+    this.pombaseApiService.getGeneSummaryMapPromise()
+      .then(geneSummaryMap => this.calcGeneStats(geneSummaryMap, resultTable));
+
     return resultTable.sort(sortRows);
   }
 
-  gotoGenes(termId: TermId): void {
+  gotoGenesOfTerm(termId: TermId): void {
     const genes = this.termGeneUniquenames[termId];
     if (!genes) {
       return;
     }
 
+    this.gotoGenes(genes);
+  }
+
+  private gotoGenes(genes: string[]) {
     const part = new GeneListNode(genes);
     const geneQuery = new GeneQuery(part);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/query/results/from/history/', historyEntry.getEntryId()]);
     };
     this.queryService.saveToHistory(geneQuery, callback);
+  }
+
+  gotoUnslimmedGenes(): void {
+    this.gotoGenes(Array.from(this.unslimmedGenes));
   }
 
   ngOnInit() {

@@ -3,7 +3,9 @@
     Loading ...
   </div>
   <div *ngIf="resultTable.length != 0">
-    <table class="subset-table">
+    <div class="subset-table">
+      <h4>Terms and genes</h4>
+      <table class="subset-table">
         <thead>
           <th>Name</th>
           <th>Term</th>
@@ -16,11 +18,27 @@
               <a routerLink="/term/{{row.termId}}">{{row.termId}}</a>
             </td>
             <td class="count">
-              <a *ngIf="row.geneUniquenames.length != 0" (click)="gotoGenes(row.termId)">{{row.geneUniquenames.length}}</a>
-              <span *ngIf="row.geneUniquenames.length == 0">{{row.geneUniquenames.length}}</span>
+              <a *ngIf="row.geneUniquenames.length != 0" (click)="gotoGenesOfTerm(row.termId)">{{row.geneUniquenames.length}}</a>
+              <span *ngIf="row.geneUniquenames.length == 0">0</span>
             </td>
           </tr>
         </tbody>
       </table>
+  </div>
+  <div *ngIf="countsReady" class="summary">
+    <h4>Summary</h4>
+    <div class="summary-content">
+    <ul>
+    <li>
+      Total slimmed gene products (protein and ncRNA): {{slimmedGenes.size}}
+    </li>
+    <li>
+      Protein coding genes not covered by the slim:
+      <a *ngIf="unslimmedGenes.size != 0" (click)="gotoUnslimmedGenes()">{{unslimmedGenes.size}}</a>
+      <span *ngIf="unslimmedGenes.size == 0">0</span>
+    </li>
+    </ul>
+    </div>
+  </div>
  </div>
 </div>
