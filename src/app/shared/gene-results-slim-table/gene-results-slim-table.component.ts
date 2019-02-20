@@ -66,7 +66,18 @@ export class GeneResultsSlimTableComponent implements OnInit {
       resultTable.push(row);
     }
 
-    return resultTable.sort((rowA, rowB) => rowA.termName.localeCompare(rowB.termName));
+    const sortRows = function(rowA: ProcessedRow, rowB: ProcessedRow) {
+      if (rowA.geneUniquenames.length === 0 && rowB.geneUniquenames.length === 0 ||
+          rowA.geneUniquenames.length !== 0 && rowB.geneUniquenames.length !== 0) {
+        return rowA.termName.localeCompare(rowB.termName);
+      }
+      if (rowA.geneUniquenames.length === 0) {
+        return 1;
+      } else {
+        return -1;
+      }
+    };
+    return resultTable.sort(sortRows);
   }
 
   gotoGenes(termId: TermId): void {
