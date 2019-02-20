@@ -6,6 +6,7 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/about/citing-pombase">Citing PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/published-by-pombase">PomBase Publications</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/terms-of-use">Terms of Use</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-sab">SAB</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/privacy-policy">Privacy Policy</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/help">Help</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/resource-metrics">Resource metrics</a></div>
@@ -201,11 +202,9 @@ United Kingdom</p>
 <p><a routerLink="/about/terms-of-use">Terms of Use</a> for PomBase data and Canto.</p>
 <h3 id="pombase-publications">PomBase Publications</h3>
 <p>Complete list of <a routerLink="/about/published-by-pombase">papers published by PomBase</a>.</p>
-<h3 id="data-versions">Data versions</h3>
-<p>Versions of internal and external data loaded into current and past Pombase releases.</p>
-<p><a routerLink="/about/version-history">Version history</a></p>
-<h3 id="receive-project-updates">Receive project updates</h3>
-<p>Subscribe to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">Pombelist</a> to receive annotation and data updates</p>
+<hr />
+<h3 id="pombase-sab">PomBase SAB</h3>
+<p><a routerLink="/about/pombase-sab">Scientific Advisory Board members</a></p>
 <hr />
 <h3 id="pombase-staff">PomBase staff</h3>
 <h4 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h4>
@@ -220,6 +219,12 @@ United Kingdom</p>
 <li>Antonia Lock (Curator)</li>
 <li>Jürg Bähler (co-PI)</li>
 </ul>
+<hr />
+<h3 id="data-versions">Data versions</h3>
+<p>Versions of internal and external data loaded into current and past Pombase releases.</p>
+<p><a routerLink="/about/version-history">Version history</a></p>
+<h3 id="receive-project-updates">Receive project updates</h3>
+<p>Subscribe to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">Pombelist</a> to receive annotation and data updates</p>
 <hr />
 <h3 id="privacy">Privacy</h3>
 <p>See the PomBase <a routerLink="/about/privacy-policy">privacy policy</a> and <a routerLink="/about/cookie-policy">cookie policy</a>.</p>
@@ -247,6 +252,22 @@ United Kingdom</p>
 <p>We thank the members of the fission yeast research community who have followed its progress via the preview site, and welcome <a href="mailto:helpdesk@pombase.org?subject=Comment%20on%20the%20new%20PomBase">feedback</a> from all users.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombase-sab'">
+<h2 id="pombase-scientific-advisory-board">PomBase Scientific Advisory Board</h2>
+<h4 id="current-members">Current members</h4>
+<p><em>Li-Lin Du</em><br> National Institute of Biological Sciences, Beijing, China</p>
+<p><em>Kathleen Gould</em><br> Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA</p>
+<p><em>Doug Howe</em> The Zebrafish Information Network, University of Oregon, Eugene, OR, USA</p>
+<p><em>Sue Jaspersen</em><br> Stowers Institute for Medical Research, Kansas City, MO, USA &amp; Department of Molecular and Integrative Physiology, University of Kansas Medical Center, Kansas City, KS, USA</p>
+<p><em>Sabina Leonelli</em><br> Exeter Centre for the Study of the Life Sciences &amp; Department of Sociology, Philosophy and Anthropology, University of Exeter, Exeter, UK</p>
+<p><em>Samuel Marguerat</em><br> MRC London Institute of Medical Sciences, London, UK &amp; Institute of Clinical Sciences, Faculty of Medicine, Imperial College London, London, UK</p>
+<p><em>Sophie Martin</em><br> Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland</p>
+<!--
+#### Past members
+(uncomment when anyone rotates off)
+-->
+
+  </div>
   <div *ngIf="pageName == 'pombase-staff'">
 <h2 id="contact-us">Contact us</h2>
 <p>Email: <a href="mailto:helpdesk@pombase.org">helpdesk@pombase.org</a></p>
@@ -258,6 +279,18 @@ University of Cambridge<br />
 Cambridge<br />
 CB2 1GA<br />
 United Kingdom</p>
+<h4 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h4>
+<ul>
+<li>Val Wood (Curator &amp; co-PI)</li>
+<li>Midori Harris (Curator)</li>
+<li>Kim Rutherford (Programmer)</li>
+<li>Steve Oliver (PI)</li>
+</ul>
+<h4 id="university-college-london"><a href="http://www.ucl.ac.uk/">University College London</a></h4>
+<ul>
+<li>Antonia Lock (Curator)</li>
+<li>Jürg Bähler (co-PI)</li>
+</ul>
 
   </div>
   <div *ngIf="pageName == 'privacy-policy'">
@@ -7784,6 +7817,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#published-hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Published: Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombe-registration-open">Pombe 2019 - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#val-wood-wins-biocuration-society-award">Val Wood wins Biocuration society award</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#improved-disease-association-dataset-released">Improved disease association dataset released</a></div>
@@ -8700,14 +8734,12 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'S.-pombe-in-your-pocket'">
 <h3 id="pombase-in-your-pocket">PomBase in your pocket</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: mobile_thumb.png -->
 <p>Our usage statistics informed us that over 20% of devices accessing PomBase are smartphones or tablets. We therefore spent some time optimizing the display for small screens. We hope that you will continue to enjoy PomBase on the go!</p>
 
   </div>
   <div *ngIf="pageName == 'conserved-unknowns-pub'">
 <h3 id="hidden-in-plain-sight-what-remains-to-be-discovered-in-the-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: unknowns.png -->
 <p>In a new publication, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. To draw attention to these proteins, we develop metrics to define unknown lists, provide unknown inventories for human and yeast, classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, and speculate about reasons for their neglect.</p>
 <p>A <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">pre-publication manuscript</a> is available at bioRxiv.</p>
@@ -8715,7 +8747,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'tm-transport-overhaul'">
 <h3 id="fission-yeast-transmembrane-transport-overhaul">Fission yeast transmembrane transport overhaul</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: antiporter.png -->
 <p>The Gene Ontology &quot;<a href="https://www.pombase.org/term_genes/GO:0055085">transmembrane transport</a>&quot; branch has recently been substantially revised. In line with these revisions, PomBase has standardised gene product descriptions for transporters, and overhauled GO annotations to be as complete and comprehensive as possible based on current knowledge.</p>
 <p>Icon courtesy of <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=29077811">Reactome</a>.</p>
@@ -8723,7 +8754,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'quick-little-tool'">
 <h3 id="see-your-genes-in-a-quilt">See your genes in a QuiLT</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: QLT.png -->
 <p>PomBase now offers a new way to display gene lists graphically based on multiple orthogonal annotation types — the Quick Little Tool (QuiLT) for visualisation.</p>
 <p>Inspired by our recent analysis of conserved unstudied proteins (see figures 4 and S1 in the <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">manuscript at bioRxiv</a>), QuiLT allows you to create a similar figure for any gene list you create or import using the advanced search. To use QuiLT, follow the link to your search results, then click the &quot;Visualise&quot; button. QuiLT visualisation is also available from the PomBase pages that list genes annotated to an ontology term, and on the Priority unstudied genes page.</p>
@@ -8741,7 +8771,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'new-nucleosome-occupancy-browser-maps-loaded'">
 <h3 id="new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 <p>We have loaded the nucleosome occupancy maps as described in González et al. (2016) <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27662899">PMID: 27662899</a>. This dataset was generated using the paired-end sequencing protocol of Illumina and thus those maps are of higher resolution than those made with single-end (SE) sequencing hosted in the browser since before.</p>
 <p>Here is a link that <a href="https://www.pombase.org/jbrowse/?loc=II%3A2751621..2767510&tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2Cnucleosome%20positioning%20during%20vegetative%20growth%3B%20repeat%201%20-%20Gonz%C3%A1lez%20et%20al.%20%282016%29%2Cnucleosome%20positioning%20during%20vegetative%20growth%3B%20repeat%202%20-%20Gonz%C3%A1lez%20et%20al.%20%282016%29%2CDNA%20sequence&highlight=">loads the tracks in PomBase JBrowse</a>. And here is a link to our <a href="https://www.pombase.org/documentation/JBrowse_quick_start">JBrowse quickstart guide</a>.</p>
@@ -8750,7 +8779,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'mitochondrial-protein-review'">
 <h3 id="mitochondrial-go-annotation-update">Mitochondrial GO annotation update</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: mito_news.png -->
 <p>Responding to increasing interest in mitochondrial biology, especially relating to ageing, neurogenerative diseases, and processes at the ER-mitochondrion interface, we have reviewed <em>S. pombe</em> mitochondrial GO annotations. Although there is still relatively little fission yeast-derived experimental data in this area, we have refined many inferred annotations for mitochondrial complexes and sub-components as well as some for processes.</p>
 <p>You can see all 753 <em>S. pombe</em> mitochondrial annotations on the ontology term page for <a href="https://www.pombase.org/term/GO:0005739">mitochondrion (GO:0005739)</a>.</p>
@@ -8780,9 +8808,22 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>The conference will take place July 14-19, 2019, in Barcelona, Spain. Early registration closes on April 15th — or when capacity is reached. Please see the <a href="http://www.pombe2019.com">conference website</a> for more information, including registration final deadline and costs (some travel grants are available), abstract submission, programme, accommodation, and logistics.</p>
 
   </div>
+  <div *ngIf="pageName == 'conserved-unknowns-open-biol'">
+<h3 id="published-hidden-in-plain-sight-what-remains-to-be-discovered-in-the-eukaryotic-proteome">Published: Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: unknowns.png -->
+<p>Our analysis of conserved unknown proteins has now been published in <!-- [Open Biology]()--> Open Biology. In it, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. We develop metrics to define unknown lists, provide unknown inventories for human and yeast, and classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, all with a view to drawing attention to the unknowns to alleviate their neglect.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/unknowns.png"/></p>
+<h3 id="published-hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Published: Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
+<p><em>2019-02-20</em></p>
+<p>Our analysis of conserved unknown proteins has now been published in <!-- [Open Biology]()--> Open Biology. In it, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. We develop metrics to define unknown lists, provide unknown inventories for human and yeast, and classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, all with a view to drawing attention to the unknowns to alleviate their neglect.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombe2019tiny.png"/></p>
 <h3 id="pombe-registration-open">Pombe 2019 - registration open</h3>
