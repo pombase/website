@@ -70,10 +70,11 @@ The Gene Ontology Resource: 20 years and still GOing strong.\
 *Nucleic Acids Res.* 2018 Nov 5. [Epub ahead of print]\
 [PMID:30395331](http://www.ncbi.nlm.nih.gov/pubmed/30395331) [DOI:10.1093/nar/gky1055](http://dx.doi.org/10.1093/nar/gky1055)
 
-The RNAcentral Constortium.\
+The RNAcentral Consortium.\
 RNAcentral: a hub of information for non-coding RNA sequences.\
 *Nucleic Acids Res.* 2018 (Database issue): gky1034 Epub 2018 Nov 5.\
 [PMID:30395267](http://www.ncbi.nlm.nih.gov/pubmed/30395267) [DOI:10.1093/nar/gky1034](http://dx.doi.org/10.1093/nar/gky1034)
+(Correction in [DOI:10.1093/nar/gky1206](http://dx.doi.org/10.1093/nar/gky1206))
 
 Urban M, Cuzick A, Rutherford K, Irvine A, Pedro H, Pant R, Sadanadan V, Khamari L, Billal S, Mohanty S, Hammond-Kosack KE.\
 PHI-base: a new interface and further additions for the multi-species pathogen-host interactions database.\
@@ -104,7 +105,7 @@ Hoffman CS, Wood V, Fantes PA.\
  An Ancient Yeast for Young Geneticists: A Primer on the *Schizosaccharomyces pombe* Model System.
 *Genetics*. 2015 Oct;201(2):403-23.\
 [PMID:26447128](http://www.ncbi.nlm.nih.gov/pubmed/26447128) [DOI:10.1534/genetics.115.181503](http://dx.doi.org/10.1534/genetics.115.181503)\
-(Erratum in [PMID:26953269](http://www.ncbi.nlm.nih.gov/pubmed/26953269) [DOI:10.1534/genetics.116.187088](http://dx.doi.org/10.1534/genetics.116.187088))\
+(Erratum in [PMID:26953269](http://www.ncbi.nlm.nih.gov/pubmed/26953269) [DOI:10.1534/genetics.116.187088](http://dx.doi.org/10.1534/genetics.116.187088))
 
 Gene Ontology Consortium\
 Gene Ontology Consortium: going forward.\
