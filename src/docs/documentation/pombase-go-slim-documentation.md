@@ -3,9 +3,10 @@
 "GO slims" are subsets of the Gene Ontology (GO) that provide a broad
 overview of annotation distribution. Slims can offer a useful overview
 of a genome or the results of a large-scale experiment. For more
-information on GO slims, please see PomBase [GO Slimming Tips](/browse-curation/fission-yeast-go-slimming-tips) and the [GO Slim
-Guide](http://www.geneontology.org/GO.slims.shtml) at the Gene Ontology
-website.
+information on GO slims, please see PomBase [GO Slimming
+Tips](/browse-curation/fission-yeast-go-slimming-tips) and the [GO
+Subset Guide](http://geneontology.org/docs/go-subset-guide/) at the
+Gene Ontology website.
 
 The [GO slim term set](/browse-curation/fission-yeast-go-slim-terms)
 constructed for fission yeast provides almost complete coverage of gene

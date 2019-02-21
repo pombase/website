@@ -1,4 +1,5 @@
 ### Pombe 2019 - registration open
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombe2019tiny.png -->
 
 Registration for the 
