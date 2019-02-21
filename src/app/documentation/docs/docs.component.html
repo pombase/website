@@ -402,10 +402,10 @@ In Kollar M (ed) <em>Eukaryotic Genomic Databases. Methods in Molecular Biology<
 The Gene Ontology Resource: 20 years and still GOing strong.<br />
 <em>Nucleic Acids Res.</em> 2018 Nov 5. [Epub ahead of print]<br />
 <a href="http://www.ncbi.nlm.nih.gov/pubmed/30395331">PMID:30395331</a> <a href="http://dx.doi.org/10.1093/nar/gky1055">DOI:10.1093/nar/gky1055</a></p>
-<p>The RNAcentral Constortium.<br />
+<p>The RNAcentral Consortium.<br />
 RNAcentral: a hub of information for non-coding RNA sequences.<br />
 <em>Nucleic Acids Res.</em> 2018 (Database issue): gky1034 Epub 2018 Nov 5.<br />
-<a href="http://www.ncbi.nlm.nih.gov/pubmed/30395267">PMID:30395267</a> <a href="http://dx.doi.org/10.1093/nar/gky1034">DOI:10.1093/nar/gky1034</a></p>
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/30395267">PMID:30395267</a> <a href="http://dx.doi.org/10.1093/nar/gky1034">DOI:10.1093/nar/gky1034</a> (Correction in <a href="http://dx.doi.org/10.1093/nar/gky1206">DOI:10.1093/nar/gky1206</a>)</p>
 <p>Urban M, Cuzick A, Rutherford K, Irvine A, Pedro H, Pant R, Sadanadan V, Khamari L, Billal S, Mohanty S, Hammond-Kosack KE.<br />
 PHI-base: a new interface and further additions for the multi-species pathogen-host interactions database.<br />
 <em>Nucleic Acids Res.</em> 2017 Jan 4;45(D1):D604-D610. Epub 2016 Dec 3.<br />
@@ -429,8 +429,8 @@ AnGeLi: A Tool for the Analysis of Gene Lists from Fission Yeast.<br />
 <p>Hoffman CS, Wood V, Fantes PA.<br />
 An Ancient Yeast for Young Geneticists: A Primer on the <em>Schizosaccharomyces pombe</em> Model System. <em>Genetics</em>. 2015 Oct;201(2):403-23.<br />
 <a href="http://www.ncbi.nlm.nih.gov/pubmed/26447128">PMID:26447128</a> <a href="http://dx.doi.org/10.1534/genetics.115.181503">DOI:10.1534/genetics.115.181503</a><br />
-(Erratum in <a href="http://www.ncbi.nlm.nih.gov/pubmed/26953269">PMID:26953269</a> <a href="http://dx.doi.org/10.1534/genetics.116.187088">DOI:10.1534/genetics.116.187088</a>)<br />
-Gene Ontology Consortium<br />
+(Erratum in <a href="http://www.ncbi.nlm.nih.gov/pubmed/26953269">PMID:26953269</a> <a href="http://dx.doi.org/10.1534/genetics.116.187088">DOI:10.1534/genetics.116.187088</a>)</p>
+<p>Gene Ontology Consortium<br />
 Gene Ontology Consortium: going forward.<br />
 <em>Nucleic Acids Res.</em> 2015 Jan;43(Database issue):D1049-56. Epub 2014 Nov 26.<br />
 <a href="http://www.ncbi.nlm.nih.gov/pubmed/25428369">PMID:25428369</a> <a href="http://dx.doi.org/10.1093/nar/gku1179">DOI:10.1093/nar/gku1179</a></p>
@@ -5484,7 +5484,7 @@ PomBase using the Ensembl viewer.</p>
   </div>
   <div *ngIf="pageName == 'pombase-go-slim-documentation'">
 <h2 id="go-slims---gene-ontology-subsets">GO Slims - Gene Ontology subsets</h2>
-<p>&quot;GO slims&quot; are subsets of the Gene Ontology (GO) that provide a broad overview of annotation distribution. Slims can offer a useful overview of a genome or the results of a large-scale experiment. For more information on GO slims, please see PomBase <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">GO Slimming Tips</a> and the <a href="http://www.geneontology.org/GO.slims.shtml">GO Slim Guide</a> at the Gene Ontology website.</p>
+<p>&quot;GO slims&quot; are subsets of the Gene Ontology (GO) that provide a broad overview of annotation distribution. Slims can offer a useful overview of a genome or the results of a large-scale experiment. For more information on GO slims, please see PomBase <a href="/browse-curation/fission-yeast-go-slimming-tips">GO Slimming Tips</a> and the <a href="http://geneontology.org/docs/go-subset-guide/">GO Subset Guide</a> at the Gene Ontology website.</p>
 <p>The <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim term set</a> constructed for fission yeast provides almost complete coverage of gene products annotated to biological process terms. This slim set is a good starting point for users who wish to identify terms of biological interest to create a &quot;custom slim&quot;, or to become familiar with the genome contents.</p>
 <p>In the GO slim <a routerLink="/browse-curation/fission-yeast-go-slim-terms">table</a>, GO IDs link to the QuickGO browser, where you can explore the ontology and annotations further. The annotation totals include annotations to the slim term and to descendants following the <em>is_a</em>, <em>part_of, regulates, positively_regulates,</em>and <em>negatively_regulates</em> relationships, and link to gene lists.</p>
 
@@ -7140,7 +7140,8 @@ Example queries:
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>GO term enrichment identifies GO terms that are significantly overrepresented (or underrepresented) among a set of genes.</p>
 <p>At present PomBase does not have its own GO enrichment tool. We recommend using the <a href="http://go.princeton.edu/cgi-bin/GOTermFinder">Generic GO Term Finder at Princeton</a>, because it offers a simple interface and up-to-date ontology and annotation data, including the current PomBase GO annotation dataset (you can upload your own backgound set, GO annotation file, or both). You can also use the GO Term Finder to retrieve all annotations for your gene list by setting the p-value to 1.</p>
-<p>Before you perform an enrichment analysis, we recommend that you use the accompanying &quot;slimming&quot; tool, <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GO Term Mapper</a>, which is useful for a broad overview of the annotation set (for more information, gsee the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">Fission Yeast GO slim terms</a> page and <a routerLink="/faq/how-can-i-use-go-slims-s.-pombe">FAQ</a>). GO Term Mapper is especially useful if you use your own GAF for the enrichment, because it will show:</p>
+<p>Before you perform an enrichment analysis, we recommend that you do a GO slim analysis of your gene list, for a broad overview of the annotation set (for more information, see the <a href="/browse-curation/fission-yeast-go-slim-terms">Fission Yeast GO slim terms</a> page and <a routerLink="/faq/how-can-i-use-go-slims-s.-pombe">FAQ</a>). You can</p>
+<p>use Princeton's GO slimming tool, <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GO Term Mapper</a>, GO Term Mapper is especially useful if you use your own GAF for the enrichment, because it will show:</p>
 <ul>
 <li>IDs in your gene list that are missing from the annotation set (the annotations in GO Term Mapper's database or your uploaded GAF)</li>
 <li>Genes in your list that have annotations but do not map to the slim</li>
@@ -7413,7 +7414,8 @@ Example queries:
 <h3 id="how-can-i-use-go-slims-s.-pombe">How can I use GO slims with S. pombe?</h3>
 <!-- pombase_categories: Genome statistics and lists,Tools and resources,Using ontologies -->
 <p>The <a routerLink="/browse-curation/fission-yeast-go-slim-terms">Fission Yeast GO slim terms</a> page provides a generic GO biological process slim for <em>S. pombe</em>, and shows total genes annotated to each term directly or to any of its descendants.</p>
-<p>If you want GO slim annotations for your own list of <em>S. pombe</em> genes, we recommend the <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GO Term Mapper</a> at Princeton. Upload your list of genes, and select &quot;PomBase (S. pombe GOslim) (Process only)&quot; from the &quot;Choose GO slim&quot; pulldown. GO Term Mapper's interface and documentation should make the rest straightforward, but let PomBase staff know if you have any problems.</p>
+<p>If you want GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search &quot;Gene IDs&quot; option, and then use the &quot;Slim&quot; button on the search results page. See the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
+<p>If you want to use a different slim, we recommend using the <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GO Term Mapper</a> at Princeton. Upload your list of genes, and select &quot;Schizosaccharomyces pombe (PomBase)&quot; in the Organism pulldown. For the slim, select one of the radio buttons, or scroll down to Advanced Options to choose GO terms to make up a custom slim. GO Term Mapper's interface and documentation should make the rest straightforward, but let PomBase staff know if you have any problems.</p>
 <p>For further information on using the generic <em>S. pombe</em> slim, or on creating your own GO slim, please see the <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">Fission Yeast GO slimming tips</a> page.</p>
 
 </div>
@@ -8803,6 +8805,7 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'pombe-2019-registration-open'">
 <h3 id="pombe-2019---registration-open">Pombe 2019 - registration open</h3>
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombe2019tiny.png -->
 <p>Registration for the <a href="http://www.pombe2019.com">10th International Fission Yeast Meeting</a> is now open!</p>
 <p>The conference will take place July 14-19, 2019, in Barcelona, Spain. Early registration closes on April 15th — or when capacity is reached. Please see the <a href="http://www.pombe2019.com">conference website</a> for more information, including registration final deadline and costs (some travel grants are available), abstract submission, programme, accommodation, and logistics.</p>
