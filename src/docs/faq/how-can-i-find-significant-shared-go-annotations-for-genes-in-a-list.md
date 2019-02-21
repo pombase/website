@@ -13,12 +13,16 @@ annotation data, including the current PomBase GO annotation dataset
 both). You can also use the GO Term Finder to retrieve all annotations
 for your gene list by setting the p-value to 1.
 
-Before you perform an enrichment analysis, we recommend that you use the
-accompanying "slimming" tool, 
+Before you perform an enrichment analysis, we recommend that you do a
+GO slim analysis of your gene list, for a broad overview of the
+annotation set (for more information, see the [Fission Yeast GO slim
+terms](/browse-curation/fission-yeast-go-slim-terms) page and
+[FAQ](/faq/how-can-i-use-go-slims-s.-pombe)). You can
+
+
+ use Princeton's GO slimming tool, 
 [GO Term Mapper](http://go.princeton.edu/cgi-bin/GOTermMapper), 
-which is useful for a broad overview of the annotation set (for more
-information, gsee the [Fission Yeast GO slim terms](/browse-curation/fission-yeast-go-slim-terms) 
-page and [FAQ](/faq/how-can-i-use-go-slims-s.-pombe)). GO Term Mapper is
+GO Term Mapper is
 especially useful if you use your own GAF for the enrichment, because
 it will show:
 
