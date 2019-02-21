@@ -48,9 +48,7 @@ export class GenesTableComponent implements OnInit {
               private queryService: QueryService,
               private deployConfigService: DeployConfigService,
               private router: Router) {
-    if (!deployConfigService.productionMode()) {
-      this.slimNames = this.geneResultConfig.slim_table_slim_names;
-    }
+    this.slimNames = this.geneResultConfig.slim_table_slim_names;
   }
 
   setOrderBy(field: string) {
