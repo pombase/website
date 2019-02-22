@@ -7,9 +7,9 @@ Also see [PomBase JBrowse with binding site track enabled][prom].
 
 #### Transcription factor binding sites
 
-Site Name|Consensus Sequence|bound by|Sequence Ontology ID
----------|------------------|--------|--------------------
-Sap1 recognition motif|TARGCAGNTNYAACGMG|[Sap1](https://www.pombase.org/gene/SPCC1672.02c)|[SO:0001864](http://sequenceontology.org/browser/current_svn/term/SO:0001864)
+Site Name|Consensus Sequence|bound by|Sequence Ontology ID|Reference
+---------|------------------|--------|--------------------|---------
+Sap1 recognition motif|TARGCAGNTNYAACGMG|[Sap1](https://www.pombase.org/gene/SPCC1672.02c)|[SO:0001864](http://sequenceontology.org/browser/current_svn/term/SO:0001864)|[PMID:16166653](https://www.ncbi.nlm.nih.gov/pubmed/16166653),[PMID:7651412](https://www.ncbi.nlm.nih.gov/pubmed/7651412)
 AP 1 binding site|TGACTCA|[Pap1](https://www.pombase.org/gene/SPAC1783.07c)|[SO:0001842](http://sequenceontology.org/browser/current_svn/term/SO:0001842)
 calcineurin-dependent response element (CDRE motif)|GNGGCKCA|[Prz1](https://www.pombase.org/gene/SPAC4G8.13c)|[SO:0001865](http://sequenceontology.org/browser/current_svn/term/SO:0001865)
 cyclic AMP response element (CRE)|TGACGTCA|[Atf1](https://www.pombase.org/gene/SPBC29B5.01), [Pap1](https://www.pombase.org/gene/SPAC1783.07c), [Pcr1](https://www.pombase.org/gene/SPAC21E11.03c)|[SO:0001843](http://sequenceontology.org/browser/current_svn/term/SO:0001843)
@@ -32,7 +32,6 @@ MluI cell cycle box (MCB)|ACGCGT|[Cdc10](https://www.pombase.org/gene/SPBC336.12
 pombe cell cycle box (PCB)|GNAACR|[Sep1](https://www.pombase.org/gene/SPBC4C3.12), [Fkh2](https://www.pombase.org/gene/SPBC16G5.15c), [Mbx1](https://www.pombase.org/gene/SO:0001871)|[SO:0001871](http://sequenceontology.org/browser/current_svn/term/SO:0001871)
 AACCCT box|ATCA(C/A)AACCCTAACCCT|[Ams2](https://www.pombase.org/gene/SPCC290.04), [Teb1](https://www.pombase.org/gene/SPAC13G7.10)|[SO:0001901](http://sequenceontology.org/browser/current_svn/term/SO:0001901)
 GATA box|WGATAR|[Gaf1](https://www.pombase.org/gene/SPCC1902.01)|[SO:0001840](http://sequenceontology.org/browser/current_svn/term/SO:0001840)
-M26 binding site|TGACGT|[Atf1](https://www.pombase.org/gene/SPBC29B5.01), [Pcr1](https://www.pombase.org/gene/SPAC21E11.03c)|[SO:0001900](http://sequenceontology.org/browser/current_svn/term/SO:0001900)
 TATA box|TATA(A\|T)A(A\|T)|[Brf1](https://www.pombase.org/gene/SPBC13E7.10c), [Tbp1](https://www.pombase.org/gene/SPAC29E6.08)|[SO:0000174](http://sequenceontology.org/browser/current_svn/term/SO:0000174)
 zinc repressed element|GNMGATC|[Loz1](https://www.pombase.org/gene/SPAC25B8.19c)|[SO:0002006](http://sequenceontology.org/browser/current_svn/term/SO:0002006)
 Zas1 recognition motif|(Y)CCCCAY|[Zas1](https://www.pombase.org/gene/SPBC1198.04c)|[SO:0002215](http://sequenceontology.org/browser/current_svn/term/SO:0002215)
