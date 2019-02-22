@@ -10,11 +10,11 @@ Also see [PomBase JBrowse with binding site track enabled][prom].
 Site Name|Consensus Sequence|bound by|Sequence Ontology ID|Reference
 ---------|------------------|--------|--------------------|---------
 Sap1 recognition motif|TARGCAGNTNYAACGMG|[Sap1](https://www.pombase.org/gene/SPCC1672.02c)|[SO:0001864](http://sequenceontology.org/browser/current_svn/term/SO:0001864)|[PMID:16166653](https://www.ncbi.nlm.nih.gov/pubmed/16166653),[PMID:7651412](https://www.ncbi.nlm.nih.gov/pubmed/7651412)
-AP 1 binding site|TGACTCA|[Pap1](https://www.pombase.org/gene/SPAC1783.07c)|[SO:0001842](http://sequenceontology.org/browser/current_svn/term/SO:0001842)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
-calcineurin-dependent response element (CDRE motif)|GNGGCKCA|[Prz1](https://www.pombase.org/gene/SPAC4G8.13c)|[SO:0001865](http://sequenceontology.org/browser/current_svn/term/SO:0001865)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
-cyclic AMP response element (CRE)|TGACGTCA|[Atf1](https://www.pombase.org/gene/SPBC29B5.01), [Pap1](https://www.pombase.org/gene/SPAC1783.07c), [Pcr1](https://www.pombase.org/gene/SPAC21E11.03c)|[SO:0001843](http://sequenceontology.org/browser/current_svn/term/SO:0001843)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
-CSL response element|GTGRGAA|[Cbf11](https://www.pombase.org/gene/SPCC736.08)|[SO:0001839](http://sequenceontology.org/browser/current_svn/term/SO:0001839)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
-copper-response element (CuRE)|HTHNNGCTGD|[Cuf1](https://www.pombase.org/gene/SPAC31A2.11c)|[SO:0001844](http://sequenceontology.org/browser/current_svn/term/SO:0001844)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
+AP 1 binding site|TGACTCA|[Pap1](https://www.pombase.org/gene/SPAC1783.07c)|[SO:0001842](http://sequenceontology.org/browser/current_svn/term/SO:0001842)|[PMID:1899230](https://www.ncbi.nlm.nih.gov/pubmed/1899230), [PMID:3034432](https://www.ncbi.nlm.nih.gov/pubmed/3034432), [PMID:3125983](https://www.ncbi.nlm.nih.gov/pubmed/3125983)
+calcineurin-dependent response element (CDRE motif)|GNGGCKCA|[Prz1](https://www.pombase.org/gene/SPAC4G8.13c)|[SO:0001865](http://sequenceontology.org/browser/current_svn/term/SO:0001865)|[PMID:16928959](https://www.ncbi.nlm.nih.gov/pubmed/16928959)
+cyclic AMP response element (CRE)|TGACGTCA|[Atf1](https://www.pombase.org/gene/SPBC29B5.01), [Pap1](https://www.pombase.org/gene/SPAC1783.07c), [Pcr1](https://www.pombase.org/gene/SPAC21E11.03c)|[SO:0001843](http://sequenceontology.org/browser/current_svn/term/SO:0001843)|[PMID:11483355](https://www.ncbi.nlm.nih.gov/pubmed/11483355),[PMID:11483993](https://www.ncbi.nlm.nih.gov/pubmed/11483993)
+CSL response element|GTGRGAA|[Cbf11](https://www.pombase.org/gene/SPCC736.08)|[SO:0001839](http://sequenceontology.org/browser/current_svn/term/SO:0001839)|[PMID:19101542](https://www.ncbi.nlm.nih.gov/pubmed/19101542)
+copper-response element (CuRE)|HTHNNGCTGD|[Cuf1](https://www.pombase.org/gene/SPAC31A2.11c)|[SO:0001844](http://sequenceontology.org/browser/current_svn/term/SO:0001844)|[PMID:10593913](https://www.ncbi.nlm.nih.gov/pubmed/10593913),[PMID:9188496](https://www.ncbi.nlm.nih.gov/pubmed/9188496),[PMID:9211922](https://www.ncbi.nlm.nih.gov/pubmed/9211922)
 DNA damage response element (DRE)|CGWGGWNGMM|[Deb1](https://www.pombase.org/gene/SPAC1B1.01)|[SO:0001845](http://sequenceontology.org/browser/current_svn/term/SO:0001845)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
 FLEX element|GTAAACAAACAAAM|[Fkh2](https://www.pombase.org/gene/SPBC16G5.15c), [Mei4](https://www.pombase.org/gene/SPBC32H8.11)|[SO:0001846](http://sequenceontology.org/browser/current_svn/term/SO:0001846)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
 forkhead motif|TTTRTTTACA|[Sep1](https://www.pombase.org/gene/SPBC4C3.12)|[SO:0001847](http://sequenceontology.org/browser/current_svn/term/SO:0001847)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
@@ -41,8 +41,8 @@ Pho7 binding site |[5'-TCG(G/C)(A/T)xxTTxAA]|[Pho7](https://www.pombase.org/gene
 
 #### Other DNA binding sites
 
-Site Name|Consensus Sequence|bound by|Sequence Ontology ID
----------|------------------|--------|--------------------
+Site Name|Consensus Sequence|bound by|Sequence Ontology ID|Reference
+---------|------------------|--------|--------------------|---------
 ARS consensus sequence|WTTTAYRTTTW|[Cbp1](https://www.pombase.org/gene/SPBC1105.04c)|[SO:0002004](http://sequenceontology.org/browser/current_svn/term/SO:0002004)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
 GT dinucleotide repeat|(GT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001862](http://sequenceontology.org/browser/current_svn/term/SO:0001862)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
 GTT trinucleotide repeat|(GTT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001863](http://sequenceontology.org/browser/current_svn/term/SO:0001863)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
