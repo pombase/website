@@ -43,11 +43,11 @@ zinc repressed element|GNMGATC|[Loz1](https://www.pombase.org/gene/SPAC25B8.19c)
 
 Site Name|Consensus Sequence|bound by|Sequence Ontology ID|Reference
 ---------|------------------|--------|--------------------|---------
-ARS consensus sequence|WTTTAYRTTTW|[Cbp1](https://www.pombase.org/gene/SPBC1105.04c)|[SO:0002004](http://sequenceontology.org/browser/current_svn/term/SO:0002004)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
-GT dinucleotide repeat|(GT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001862](http://sequenceontology.org/browser/current_svn/term/SO:0001862)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
+ARS consensus sequence|WTTTAYRTTTW|[Cbp1](https://www.pombase.org/gene/SPBC1105.04c)|[SO:0002004](http://sequenceontology.org/browser/current_svn/term/SO:0002004)|
+GT dinucleotide repeat|(GT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001862](http://sequenceontology.org/browser/current_svn/term/SO:0001862)|
 GTT trinucleotide repeat|(GTT)n|[Tsn1](https://www.pombase.org/gene/SPAC30.03c)|[SO:0001863](http://sequenceontology.org/browser/current_svn/term/SO:0001863)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
-rDNA intergenic spacer element|AGGTAAGGGTAATGCAC|[Reb1](https://www.pombase.org/gene/SPBC1198.11c)|[SO:0001860](http://sequenceontology.org/browser/current_svn/term/SO:0001860)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
-telomeric repeat|TTAC(0-1)A(0-1)G(1-8)|[Taz1](https://www.pombase.org/gene/SPAC16A10.07c)|[SO:0001496](http://sequenceontology.org/browser/current_svn/term/SO:0001496)|[PMID:](https://www.ncbi.nlm.nih.gov/pubmed/)
+rDNA intergenic spacer element|AGGTAAGGGTAATGCAC|[Reb1](https://www.pombase.org/gene/SPBC1198.11c)|[SO:0001860](http://sequenceontology.org/browser/current_svn/term/SO:0001860)|[PMID:9016645](https://www.ncbi.nlm.nih.gov/pubmed/9016645)
+telomeric repeat|TTAC(0-1)A(0-1)G(1-8)|[Taz1](https://www.pombase.org/gene/SPAC16A10.07c)|[SO:0001496](http://sequenceontology.org/browser/current_svn/term/SO:0001496)|[PMID:8720065](https://www.ncbi.nlm.nih.gov/pubmed/8720065)
 
 #### Notes
 
