@@ -32,7 +32,7 @@ it will show:
 -   Genes in your list that have no annotations
 
 A few other enrichment tools are described on the GO Consortium's 
-[GO Enrichment Analysis](http://geneontology.org/page/go-enrichment-analysis) 
+[GO Enrichment Analysis](https://geneontology.github.io/docs/go-enrichment-analysis/)
 page. If you choose one of these, we recommend that you only use an
 enrichment tool that allows you to upload a background set
 representing the genes used in your experiment. Even if you regard the

@@ -3,8 +3,7 @@
 For each ontology term loaded into PomBase, a page summarizes
 essential details about the term, and shows any annotations to it or
 its descendants via *is\_a*, *part\_of*, and the *regulates* relations
-(the GO documentation on [Ontology Structure](http://geneontology.org/page/ontology-structure) and
-[Ontology Relations](http://geneontology.org/page/ontology-relations)
+(the GO documentation on [Ontology Structure and Ontology Relations](http://geneontology.org/docs/ontology-relations/)
 has some useful information on this topic). For FYPO terms only, the
 has_part relation is also used.
 

@@ -58,7 +58,7 @@ Ontology queries (GO, phenotype, protein modification, and protein
 sequence feature) retrieve genes that are annotated to the selected
 term(s), and to their descendants via specified relations (see the GO
 documentation on 
-[Ontology Structure and Ontology Relations](http://geneontology.org/page/ontology-relations)
+[Ontology Structure and Ontology Relations](http://geneontology.org/docs/ontology-relations/)
 for more information on relationships between terms in ontologies, and
 see the descriptions below of specific ontology filters for lists of
 which relations are followed to retrieve annotations). Ontologies can

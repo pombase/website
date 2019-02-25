@@ -89,7 +89,4 @@ mutation of *pka1* causes nuclear accumulation of Ste11. This is
 represented by annotation to the ontology term "nuclear protein
 accumulation" (FYPO:0000255), with the extension
 "assayed\_using(PomBase:SPBC32C12.02)". Extensions can also indicate
-expressivity or penetrance for a phenotype.\
-\
-\
-
+expressivity or penetrance for a phenotype.

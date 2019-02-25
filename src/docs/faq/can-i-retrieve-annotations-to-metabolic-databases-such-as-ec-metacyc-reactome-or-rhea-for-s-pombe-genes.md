@@ -16,5 +16,5 @@ reactions or pathways, respectively, in [MetaCyc](http://metacyc.org/) or
 [Reactome](http://www.reactome.org/).
 
 A complete list, with descriptions and links, is available on the
-[GO Consortium's Download Mappings](http://geneontology.org/page/download-mappings) page.
+[GO Consortium's Cross-References](http://geneontology.org/docs/download-mappings/) page.
 

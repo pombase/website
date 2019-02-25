@@ -9,16 +9,14 @@ ontology term or a gene product via a relationship.
 Extensions are most commonly used with GO annotations, where they can be
 used to capture details such as substrates of molecular functions or
 cell cycle phases during which a localization is observed. More
-information is available in the [gene page GO annotation documentation](/documentation/gene-page-gene-ontology). The GO
-Consortium provides further information on annotation extensions in its
-[annotation documentation](http://geneontology.org/page/annotation-extension),
-including the [file format guide](http://www.geneontology.org/page/go-annotation-file-format-20),
-on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension), and
-in a
-[publication](http://www.biomedcentral.com/1471-2105/15/155/abstract).
+information is available in the [gene page GO annotation documentation](/documentation/gene-page-gene-ontology).
+
+The GO Consortium provides further information on annotation
+extensions in its [file format guide](http://geneontology.org/page/go-annotation-file-gaf-format-21/),
+on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension),
+and in publications from [2014](http://www.biomedcentral.com/1471-2105/15/155/abstract) and [2017](https://link.springer.com/protocol/10.1007%2F978-1-4939-3743-1_17).
 PomBase converts many extension names to more human-friendly text, as
-described
-[here](/documentation/annotation-extension-relation-display).
+described [here](/documentation/annotation-extension-relation-display).
 
 Phenotype annotations using FYPO may have extensions that capture
 expressivity (severity) or penetrance, or identify a gene or gene

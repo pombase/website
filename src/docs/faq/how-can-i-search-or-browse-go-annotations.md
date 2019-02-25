@@ -6,8 +6,8 @@ search](/query), and retrieve a list of all genes annotated to the
 term and its descendants via the relations *is\_a*, *part\_of*,
 *regulates*, *positively\_regulates,* and *negatively\_regulates*. For
 example, a search for "cytokinesis" will include genes annotated to
-"regulation of cytokinesis". (See the GO documentation on [Ontology Structure](http://geneontology.org/page/ontology-structure) and
-[Ontology Relations](http://geneontology.org/page/ontology-relations)
+"regulation of cytokinesis". (See the GO documentation on [Ontology Structure and
+Ontology Relations](http://geneontology.org/docs/ontology-relations/)
 for more information.)
 
 *S. pombe* GO annotations are also available in browsers that use the GO

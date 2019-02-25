@@ -88,7 +88,7 @@ features of the fission yeast slim terms and annotations.
     example) genes involved in *regulation of cytokinesis* will be
     included with the set of genes annotated to *cytokinesis*. See the
     [GO Ontology Relations
-    documentation](http://www.geneontology.org/GO.ontology.relations.shtml)
+    documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
     totals presented for the [PomBase default S. pombe slim](browse-curation/fission-yeast-go-slim-terms), by contrast,
     are calculated both explicitly including or excluding the genes
