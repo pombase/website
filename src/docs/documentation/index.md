@@ -31,7 +31,7 @@
 
 ### QuiLT
 
--   [Documentation](quick-little-tool) for the Quick Little Tool for gene list visualisation
+-   [Documentation](documentation/quick-little-tool) for the Quick Little Tool for gene list visualisation
 
 ### Other PomBase Pages ###
 

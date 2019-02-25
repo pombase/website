@@ -159,10 +159,11 @@ and click "Search".
 
 #### Disease
 
-Search the internal PBO vocabulary to find *S. pombe* genes whose
-human orthologs have been implicated in disease. Start typing 'disease
-associated' or the name of a specific disease, and choose from the
-autocomplete options.
+Search the Disease Ontology to find *S. pombe* genes whose human
+orthologs have been implicated in disease. Start typing 'disease' or
+the name of a specific disease, and choose from the autocomplete
+options. To retrieve all disease-associated genes, type or paste
+'DOID:4'.
 
 #### Number of TM domains
 

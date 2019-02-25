@@ -15,9 +15,6 @@ Links in the left-hand navigation menu include:
 - **Complementation** - Indicates that an _S. pombe_ gene complements,
     or is complemented by, a gene from another species
 
-- **Disease association** - Indicates that the gene's human ortholog
-    has been implicated in disease
-
 - **Miscellaneous**
 
 - **Warnings** - Alerts to changes or anomalies that can affect
