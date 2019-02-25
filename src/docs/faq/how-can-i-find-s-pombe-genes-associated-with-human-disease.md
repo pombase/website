@@ -3,11 +3,9 @@
 
 *S. pombe* genes whose human orthologs have been implicated in disease
 are annotated with terms from the internal PBO vocabulary. To retrieve
-all of these genes, you can use the most general "disease associated"
+all of these genes, you can use the most general "disease"
 term in a query. In the [advanced search](/query), select
-"Disease". You can either start typing 'disease associated', and
-choose 'disease_associated' from the autocomplete options, or enter
-the ID 'PBO:5000000'.
+"Disease", and copy or past the ID 'DOID:4'.
 
 Also see the FAQs on [finding genes conserved in human](/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human),
 [finding the ortholog of a specific gene](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene), and on
@@ -16,10 +14,10 @@ Also see the FAQs on [finding genes conserved in human](/faq/how-can-i-find-all-
 
 Example queries:
 
--  <app-query-link [goToResults]="true" [linkText]="'disease\_associated (PBO:5000000)'"
+-  <app-query-link [goToResults]="true" [linkText]="'disease (DOID:4)'"
     [predefinedQueryId]="'canned_query:all_diseases'">
   </app-query-link>
 
--  <app-query-link [goToResults]="true" [linkText]="'cancer (PBO:0000239)'"
+-  <app-query-link [goToResults]="true" [linkText]="'cancer (DOID:162)'"
     [predefinedQueryId]="'cancer'">
   </app-query-link>
