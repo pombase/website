@@ -31,11 +31,11 @@ You can select queries in the list to combine or delete them. To
 combine queries, you must select two or more from the list, and then
 click one of the operator buttons:
 
-![advanced search page with new query](assets/advanced_search_combination.png){width="300"}
+![advanced search page with new query](assets/advanced_search_combination.png){width="400"}
 
 Results are added to the history list:
 
-![advanced search page with new query](assets/advanced_search_combination_result.png){width="300"}
+![advanced search page with new query](assets/advanced_search_combination_result.png){width="400"}
 
 At present, there is only an awkward kludge to specify the order for a
 query using the Subtract/NOT operator. It always places the more
@@ -47,10 +47,37 @@ days. If changes in annotation cause results to change since a query
 was last run, the entry in the history list will be labeled "out of
 date":
 
-![advanced search page with out-of-date query](assets/advanced_search_out-of-date_result.png){width="300"}
+![advanced search page with out-of-date query](assets/advanced_search_out-of-date_result.png){width="400"}
 
 Click on the "Results" link to re-run the query and retrieve the
 up-to-date result.
+
+### Query results page
+
+Clicking on any up-to-date count in the "Results" column goes to a
+page that shows the count, query details, and a list of matching
+genes.
+
+![advanced search results page](assets/advanced_search_results.png){width="400"}
+
+1. Return to the main Advanced search page
+
+2. Click on a header to sort by the column
+
+3. Send the gene list to [QuiLT](documentation/quick-little-tool) for
+visualisation
+
+4. Show [GO slim](documentation/pombase-go-slim-documentation)
+annotations for genes in the list
+
+5. Narrow the list: click the button to reveal checkboxes 
+
+6. Download selected data for genes in the list. In the popup, the
+default "Tab delimited" view offers a set of details that can be
+included in a downloaded text file. Click "Sequence" to retrieve amino
+acid or nucleotide sequences in FASTA format. When "Nucleotide" is
+selected, flanking sequence options similar to those on the [gene
+page](documentation/gene-page-sequence) are available.
 
 ### Query types
 
