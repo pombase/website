@@ -4324,21 +4324,35 @@ PomBase using the Ensembl viewer.</p>
 <p>In the History panel (bottom), queries are listed in reverse chronological order (most recently run first). Results are linked in the Count column; the link goes to a page that displays the gene name, systematic ID, and product description for matching genes. The Download button offers additional options, including nucleotide and (where applicable) protein sequence. To return to the search page, use the blue &quot;&lt;- Advanced search&quot; button just above the result list, <strong>not</strong> your browser's &quot;Back&quot; button.</p>
 <p>You can select queries in the list to combine or delete them. To combine queries, you must select two or more from the list, and then click one of the operator buttons:</p>
 <div class="figure">
-<img src="assets/advanced_search_combination.png" alt="advanced search page with new query" width="300" />
+<img src="assets/advanced_search_combination.png" alt="advanced search page with new query" width="400" />
 <p class="caption">advanced search page with new query</p>
 </div>
 <p>Results are added to the history list:</p>
 <div class="figure">
-<img src="assets/advanced_search_combination_result.png" alt="advanced search page with new query" width="300" />
+<img src="assets/advanced_search_combination_result.png" alt="advanced search page with new query" width="400" />
 <p class="caption">advanced search page with new query</p>
 </div>
 <p>At present, there is only an awkward kludge to specify the order for a query using the Subtract/NOT operator. It always places the more recently run query first (newer NOT/Subtract older), but you can move any query to the top of the history list by clicking its &quot;Results&quot; link.</p>
 <p>Query results can remain available in the history list for several days. If changes in annotation cause results to change since a query was last run, the entry in the history list will be labeled &quot;out of date&quot;:</p>
 <div class="figure">
-<img src="assets/advanced_search_out-of-date_result.png" alt="advanced search page with out-of-date query" width="300" />
+<img src="assets/advanced_search_out-of-date_result.png" alt="advanced search page with out-of-date query" width="400" />
 <p class="caption">advanced search page with out-of-date query</p>
 </div>
 <p>Click on the &quot;Results&quot; link to re-run the query and retrieve the up-to-date result.</p>
+<h3 id="query-results-page">Query results page</h3>
+<p>Clicking on any up-to-date count in the &quot;Results&quot; column goes to a page that shows the count, query details, and a list of matching genes.</p>
+<div class="figure">
+<img src="assets/advanced_search_results.png" alt="advanced search results page" width="400" />
+<p class="caption">advanced search results page</p>
+</div>
+<ol style="list-style-type: decimal">
+<li><p>Return to the main Advanced search page</p></li>
+<li><p>Click on a header to sort by the column</p></li>
+<li><p>Send the gene list to <a routerLink="/documentation/quick-little-tool">QuiLT</a> for visualisation</p></li>
+<li><p>Show <a routerLink="/documentation/pombase-go-slim-documentation">GO slim</a> annotations for genes in the list</p></li>
+<li><p>Narrow the list: click the button to reveal checkboxes</p></li>
+<li><p>Download selected data for genes in the list. In the popup, the default &quot;Tab delimited&quot; view offers a set of details that can be included in a downloaded text file. Click &quot;Sequence&quot; to retrieve amino acid or nucleotide sequences in FASTA format. When &quot;Nucleotide&quot; is selected, flanking sequence options similar to those on the <a href="documentation/gene-page-sequence">gene page</a> are available.</p></li>
+</ol>
 <h3 id="query-types">Query types</h3>
 <p>Ontology queries (GO, phenotype, protein modification, and protein sequence feature) retrieve genes that are annotated to the selected term(s), and to their descendants via specified relations (see the GO documentation on <a href="http://geneontology.org/docs/ontology-relations/">Ontology Structure and Ontology Relations</a> for more information on relationships between terms in ontologies, and see the descriptions below of specific ontology filters for lists of which relations are followed to retrieve annotations). Ontologies can be searched by ID or term name. Type or paste a complete ontology ID, including the prefix (e.g. GO:0005634, FYPO:0002059), or simply start typing to search for a term name. Choose a term from the list of options offered by the autocomplete, and click &quot;Submit&quot;.</p>
 <h4 id="commonly-used-queries">Commonly used queries</h4>
@@ -6505,22 +6519,8 @@ PomBase using the Ensembl viewer.</p>
 <div (click)="faq_navigate($event, '/faq/can-i-download-sequences-many-genes-once-including-flanking-regions', 'Can I download sequences for many genes at once, including flanking regions? ')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-download-sequences-many-genes-once-including-flanking-regions' || pageName == 'all-faqs'">
 <h3 id="can-i-download-sequences-many-genes-once-including-flanking-regions">Can I download sequences for many genes at once, including flanking regions?</h3>
 <!-- pombase_categories: Finding data -->
-<p>If you only need coding sequence, introns, and/or curated UTRs, use the <a routerLink="/query">advanced search</a> to find the set of genes you want (see the <a routerLink="/documentation/advanced-search">documentation</a> as needed).</p>
-<p>Click on a count in the query history to see the results, with a button for &quot;Download&quot; options including coordinates and sequence. In the popup, click on the Sequence tab, select Nucleotide, then tick boxes to add any of: 5' UTR, introns, 3' UTR.</p>
-<p>At present, there isn't a good way to retrieve user-specified amounts of flanking sequence for multiple genes in bulk directly from PomBase. We hope to add a more convenient option in the near future, but in the meantime, we recommend using the Ensembl Genomes Biomart query:</p>
-<ol style="list-style-type: decimal">
-<li>Go to <a href="http://fungi.ensembl.org/biomart/martview/" class="uri">http://fungi.ensembl.org/biomart/martview/</a></li>
-<li>Select the database &quot;Ensembl Fungi Genes&quot; from the &quot;CHOOSE DATABASE&quot; drop-down menu.</li>
-<li>Select &quot;Schizosaccharomyces pombe genes&quot; from the &quot;CHOOSE DATASET&quot; drop-down menu. Additional options will appear in the left-hand sidebar.</li>
-<li>In the left-hand menu, click on the header &quot;Filters&quot;.</li>
-<li>Expand the section &quot;GENE&quot; by clicking the + sign</li>
-<li>In the drop-down menu in the section &quot;Limit to genes (external references)&quot; select &quot;PomBase Gene ID(s)&quot;. (This will automatically tick the &quot;Limit to genes&quot; box.) In the box underneath, type or paste a list of <em>S. pombe</em> gene names or systematic IDs.</li>
-<li>In the left-hand menu, click on the header &quot;Attributes&quot;.</li>
-<li>Click the &quot;Sequences&quot; button, and expand the &quot;SEQUENCES&quot; section.</li>
-<li>Click a button to select which sequences you want. In the cartoon, red or black highlighting indicates what each option retrieves. Key: |---, 5' flanking region; leftmost box, 5' UTR; inner boxes, coding exons; rightmost box, 3' UTR; ---|, 3' flanking region; ^, introns.</li>
-<li>To include flanking regions, tick one or both of the &quot;Upstream flank&quot; and &quot;Downstream flank&quot; boxes, and enter the length you want. (Note: the &quot;flank&quot; options in the button selections retrieve ONLY flanking squence, and will only retrieve 3' or 5' in any given query, not both.)</li>
-<li>When you have specified what you want, find the &quot;Results&quot; button in the header and click it. You will be able to view or download the results, or have them emailed to you.</li>
-</ol>
+<p>Yes; first use the <a routerLink="/query">advanced search</a> to find the set of genes you want (see the <a routerLink="/documentation/advanced-search">documentation</a> as needed).</p>
+<p>Click on a count in the query history to see the <a routerLink="/documentation/advanced-search">results</a>, with a button for &quot;Download&quot; options. In the popup, click on the Sequence tab, select Nucleotide, then tick boxes to add any of: 5' UTR, introns, 3' UTR. To include flanking sequences, type or use the arrow buttons to set the desired length of upstream and downstream sequence.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-find-all-unconserved-orphan-genes-fission-yeast', 'Can I find all of the unconserved (orphan) genes in fission yeast?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'can-i-find-all-unconserved-orphan-genes-fission-yeast' || pageName == 'all-faqs'">
@@ -7320,7 +7320,7 @@ Example queries:
 <p>You can retrieve sequences from a gene page or in the genome browser, although flanking sequences are only available from gene pages at present.</p>
 <p><strong>On the gene page</strong>: Scroll down or click the left-hand menu link to the Sequence section of the page, where a DNA sequence is displayed by default. For protein-coding genes, the CDS is shown, and you can click boxes to add the sequences of any annotated introns or 5' or 3' UTRs. To include flanking sequences, enter a number of nucleotides in the &quot;upstream&quot; and/or &quot;downstream&quot; boxes. Only applicable options appear for non-coding RNA genes. The &quot;Download sequence&quot; button saves a FASTA file with your selection.</p>
 <p><strong>To use the Genome Browser</strong>: Click the &quot;View in JBrowse&quot; link under the map graphic on a gene page. In the browser, click on any feature to show a popup with details, including the sequence. Use controls in the popup to save FASTA sequence.</p>
-<p>To retrieve flanking regions for more than one gene at a time, at present you must use the Ensembl Genomes Biomart query, as described in <a routerLink="/faq/can-i-download-sequences-many-genes-once-including-flanking-regions">this FAQ</a>.</p>
+<p>To retrieve flanking regions for more than one gene at a time, see <a routerLink="/faq/can-i-download-sequences-many-genes-once-including-flanking-regions">this FAQ</a>.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-intron-coordinates-or-sequences', 'How can I retrieve intron coordinates or sequences?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-intron-coordinates-or-sequences' || pageName == 'all-faqs'">
