@@ -19,8 +19,6 @@ the map graphic on a gene page. In the browser, click on any feature
 to show a popup with details, including the sequence. Use controls in
 the popup to save FASTA sequence.
 
-
-To retrieve flanking regions for more than one gene at a time, at
-present you must use the Ensembl Genomes Biomart query, as described in
+To retrieve flanking regions for more than one gene at a time, see
 [this FAQ](/faq/can-i-download-sequences-many-genes-once-including-flanking-regions).
 
