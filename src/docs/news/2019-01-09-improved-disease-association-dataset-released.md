@@ -1,6 +1,5 @@
 ### Improved disease association dataset released
 
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: human disease.png -->
 
 We are pleased to announce the release of our improved human disease
