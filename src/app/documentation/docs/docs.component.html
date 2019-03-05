@@ -7847,6 +7847,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#go-slim-any-s.-pombe-gene-list">GO slim for any *S. pombe* gene list</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#south-eastern-regional-yeast-meeting-serym-registration-open">South Eastern Regional Yeast Meeting (SERYM) - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#international-cell-cycle-meeting-registration-open">International Cell Cycle meeting - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#published-hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Published: Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</a></div>
@@ -8816,7 +8817,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'improved-disease-association-dataset-released'">
 <h3 id="improved-disease-association-dataset-released">Improved disease association dataset released</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: human disease.png -->
 <p>We are pleased to announce the release of our improved human disease mappings dataset. This dataset connects human disease causing genes to their <em>S. pombe</em> orthologs.</p>
 <p>Diseases are now mapped to the Disease Ontology (DO) and the dataset has been extended by data from Malacards. All disease associations can be accessed from the <a routerLink="/term/DOID:4">top level disease page</a>. A disease slim has been created to facilitate browsing of disease categories. Currently, 907 S. pombe genes are associated with disease (up from 610 in the original dataset). This number is due to increase as mappings are still in progress.</p>
@@ -8864,9 +8864,24 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Icon: SERYM 2019</p>
 
   </div>
+  <div *ngIf="pageName == 'list-go-slim-tool'">
+<h3 id="go-slim-for-any-s.-pombe-gene-list">GO slim for any <em>S. pombe</em> gene list</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: slim_tiny.png -->
+<p>PomBase's advanced search now allows you to retrieve <a href="documentation/pombase-go-slim-documentation">GO slim</a> annotations for any set of search results. To find GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search &quot;Gene IDs&quot; option, and then use the &quot;Slim&quot; button on the search results page.</p>
+<p>See the <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO slim page</a> and the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/slim_tiny.png"/></p>
+<h3 id="go-slim-any-s.-pombe-gene-list">GO slim for any <em>S. pombe</em> gene list</h3>
+<p><em>2019-03-05</em></p>
+<p>PomBase's advanced search now allows you to retrieve <a href="documentation/pombase-go-slim-documentation">GO slim</a> annotations for any set of search results. To find GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search &quot;Gene IDs&quot; option, and then use the &quot;Slim&quot; button on the search results page.</p>
+<p>See the <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO slim page</a> and the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/serym2019tiny.png"/></p>
 <h3 id="south-eastern-regional-yeast-meeting-serym-registration-open">South Eastern Regional Yeast Meeting (SERYM) - registration open</h3>
