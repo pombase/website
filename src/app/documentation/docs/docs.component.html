@@ -5272,7 +5272,7 @@ PomBase using the Ensembl viewer.</p>
   <div *ngIf="pageName == 'orthologs'">
 <h2 id="ortholog-curation">Ortholog curation</h2>
 <p>The &quot;Orthologs&quot; section of a gene page lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases.</p>
-<p>Ortholog prediction: The source of the ortholog prediction may vary. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches that are uniformly one-to one across species; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase's approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
+<p>Ortholog prediction: The source of the ortholog prediction may vary. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by [PSI-BLAST]{.st} matches that are uniformly one-to one across species; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase's approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
 <p>For species other than budding yeast and human, we provide links to Compara to display orthologs from fungi or from all species. for further information, see the <a routerLink="/faq/how-can-i-find-s-pombe-orthologs-species-other-human-and-s-cerevisiae">FAQ on orthologs in additional species</a>.</p>
 
   </div>
@@ -7882,8 +7882,8 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
-<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-advanced-search-features">New Advanced Search features</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-genetics-primer-fission-yeast">New genetics primer for fission yeast</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update-viability-summary-correction-alert">PomBase data update; viability summary correction alert</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update-multi-allele-phenotypes">PomBase data update with multi-allele phenotypes</a></div>
@@ -7898,8 +7898,8 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombe-registration-now-open">Pombe 2015 registration now open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
-<div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-compact-go-annotation-display">New compact GO annotation display</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#esyn-network-visualizations-pombase">esyN network visualizations in PomBase</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-compact-go-annotation-display">New compact GO annotation display</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-data-update">PomBase data update</a></div>
@@ -9161,11 +9161,6 @@ Note: Ontology graph views are no longer available in the genome browser, so lin
 </p>
 </div>
 <div class="news-item">
-<h3 id="pombase-data-update">PomBase data update</h3>
-<p><em>2015-12-02</em></p>
-<p>We have updated the data available on the PomBase web site to include manual curation through November 9, 2015, including 340 community-curated publications.</p>
-</div>
-<div class="news-item">
 <h3 id="new-advanced-search-features">New Advanced Search features</h3>
 <p><em>2015-12-02</em></p>
 <p>We have introduced new features to the <a href="/spombe/query/builder">Advanced Search</a>:</p>
@@ -9174,6 +9169,11 @@ Note: Ontology graph views are no longer available in the genome browser, so lin
 <li>You can now query for genes that interact genetically or physically with a specified gene.</li>
 <li>The FYPO query now offers options to choose nulls (deletions or disruptions), wild-type overexpression, or all alleles. The search results will include any genes that have an allele that matches the allele criteria and the chosen phenotype.</li>
 </ul>
+</div>
+<div class="news-item">
+<h3 id="pombase-data-update">PomBase data update</h3>
+<p><em>2015-12-02</em></p>
+<p>We have updated the data available on the PomBase web site to include manual curation through November 9, 2015, including 340 community-curated publications.</p>
 </div>
 <div class="news-item">
 <h3 id="new-genetics-primer-fission-yeast">New genetics primer for fission yeast</h3>
@@ -9264,13 +9264,6 @@ We will announce when the new version of Canto is released to the public.</p>
 <p>We have updated the data available on the PomBase web site to include manual curation through January 12, 2015, including 240 community-curated publications. The gene page Phenotype section now features a compact default display. A downloadable &quot;viability summary&quot; data file is now available. The PomBase BLAST server has incorporated interface changes made Ensembl-wide.</p>
 </div>
 <div class="news-item">
-<h3 id="new-compact-go-annotation-display">New compact GO annotation display</h3>
-<p><em>2014-12-10</em></p>
-<p>To make the Gene Ontology (GO) annotations easier to read on PomBase gene pages, we have introduced a new, streamlined display that presents just the essentials. The summary shows the term name (hyperlinked to the ontology term page), the count of genes annotated to the term, and any annotation extensions. All of the previously visible annotation details are still available -- simply click the &quot;Summary&quot; button to switch to the &quot;Full&quot; view. Or click the &quot;+&quot; and &quot;-&quot; icons to expand or collapse the annotation to a single term.<br />
- <br />
-In addition, the top of the Biological Process table now lists any GO slim terms applicable to the gene.</p>
-</div>
-<div class="news-item">
 <h3 id="esyn-network-visualizations-pombase">esyN network visualizations in PomBase</h3>
 <p><em>2014-12-10</em></p>
 <p>PomBase has implemented network visualisations for fission yeast in <a href="http://www.esyn.org/">esyN</a>, using data curated by BioGRID and PomBase. esyN is a web-based tool for building, sharing, and viewing network data developed by Dan Bean and Giorgio Favrin in the <a href="http://www.sysbiol.cam.ac.uk">Cambridge Systems Biology Centre</a>, University of Cambridge, UK.<br />
@@ -9285,6 +9278,13 @@ On gene pages, we have links to gene-specific interaction networks in esyN in th
 </ul></li>
 </ul>
 <p>We also have esyN links on the <a href="/browse-curation/fission-yeast-go-slim-terms">GO Slim page</a> and on ontology term pages for GO Slim biological process terms. Each GO Slim term links to the HCPIN physical interaction network in esyN (for example, see the &quot;regulation of mitotic cell cycle&quot; <a href="http://www.esyn.org//builder.php?type=Graph&term=GO:0007346&interactionType=physical&source=pombase&includeInteractors=false">network</a>).</p>
+</div>
+<div class="news-item">
+<h3 id="new-compact-go-annotation-display">New compact GO annotation display</h3>
+<p><em>2014-12-10</em></p>
+<p>To make the Gene Ontology (GO) annotations easier to read on PomBase gene pages, we have introduced a new, streamlined display that presents just the essentials. The summary shows the term name (hyperlinked to the ontology term page), the count of genes annotated to the term, and any annotation extensions. All of the previously visible annotation details are still available -- simply click the &quot;Summary&quot; button to switch to the &quot;Full&quot; view. Or click the &quot;+&quot; and &quot;-&quot; icons to expand or collapse the annotation to a single term.<br />
+ <br />
+In addition, the top of the Biological Process table now lists any GO slim terms applicable to the gene.</p>
 </div>
 <div class="news-item">
 <h3 id="pombase-data-update">PomBase data update</h3>
@@ -12170,7 +12170,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <td><a routerLink="/gene/SPAC19B12.05c">SPAC19B12.05c</a></td>
 <td></td>
 <td>additional exon</td>
-<td><span class="no-break">pers. comm. Val Wood</span></td>
+<td>[pers. comm. Val Wood]{.no-break}</td>
 <td><span class="no-break">2003-04-22</span></td>
 </tr>
 </tbody>
