@@ -10,6 +10,14 @@
     "@angular-devkit/core" "7.3.2"
     rxjs "6.3.3"
 
+"@angular-devkit/architect@0.13.5":
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.13.5.tgz#ecd41e3bc37337b9b8884cebc761a367b06cb697"
+  integrity sha512-ouqDu5stZA2gsWnbKMThDfOG/D6lJQaLL+oGEoM5zfnKir3ctyV5rOm73m2pDYUblByTCb+rkj5KmooUWpnV1g==
+  dependencies:
+    "@angular-devkit/core" "7.3.5"
+    rxjs "6.3.3"
+
 "@angular-devkit/build-angular@~0.13.2":
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.13.2.tgz#1a10be1ac13409f0a39432a37cebb3875ae0763d"
@@ -92,12 +100,23 @@
     rxjs "6.3.3"
     source-map "0.7.3"
 
-"@angular-devkit/schematics@7.3.2":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-7.3.2.tgz#e9d3c1f2128a56f66ea846ce3f80c69d4c3a9ae9"
-  integrity sha512-pxPzMfgVNFq1V6aTrBRYKGATSHfzj67IFYOqKWYt6EnUQxHuAOdFqbB6vIKfZhsYko2anp9Q0dAs6mfesBThNQ==
+"@angular-devkit/core@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-7.3.5.tgz#2a59a913eab358e2385f52ba28132b81435e63b3"
+  integrity sha512-J/Tztq2BZ3tpwUsbiz8N61rf9lwqn85UvJsDui2SPIdzDR9KmPr5ESI2Irc/PEb9i+CBXtVuhr8AIqo7rR6ZTg==
   dependencies:
-    "@angular-devkit/core" "7.3.2"
+    ajv "6.9.1"
+    chokidar "2.0.4"
+    fast-json-stable-stringify "2.0.0"
+    rxjs "6.3.3"
+    source-map "0.7.3"
+
+"@angular-devkit/schematics@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-7.3.5.tgz#7b007f8a86dea76e93eef007d4fb6e7d8324b7bb"
+  integrity sha512-BFCCkwRMBC4aFlngaloi1avCTgGrl1MFc/0Av2sCpBh/fdm1FqSVzmOiTfu93dehRVVL/bTrA2qj+xpNsXCxzA==
+  dependencies:
+    "@angular-devkit/core" "7.3.5"
     rxjs "6.3.3"
 
 "@angular/animations@^7.2.5":
@@ -107,16 +126,16 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cli@^7.3.2":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-7.3.2.tgz#2664bfa5b00259440066a5cf851c74f6099dd4f9"
-  integrity sha512-M1AtkjB27XjMs+CuJNEv2v7vTu7sMJPw0e41SDPik22+ErOK6YnV6m5VG10fCZZYwCjnWOVNP5Du7Lsdyd/vNQ==
+"@angular/cli@^7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-7.3.5.tgz#7aa0294410e0a9ae18b9e686803d9b0997d8c5fa"
+  integrity sha512-WL339qoWMIsQympJAabtcvX6hMydGD/H0fm8K9ihD7xd6Af1QCSDN/aWTIvYyEzj9Hb8/sJ3mgRtvLlr1xTHzg==
   dependencies:
-    "@angular-devkit/architect" "0.13.2"
-    "@angular-devkit/core" "7.3.2"
-    "@angular-devkit/schematics" "7.3.2"
-    "@schematics/angular" "7.3.2"
-    "@schematics/update" "0.13.2"
+    "@angular-devkit/architect" "0.13.5"
+    "@angular-devkit/core" "7.3.5"
+    "@angular-devkit/schematics" "7.3.5"
+    "@schematics/angular" "7.3.5"
+    "@schematics/update" "0.13.5"
     "@yarnpkg/lockfile" "1.1.0"
     ini "1.3.5"
     inquirer "6.2.1"
@@ -303,22 +322,22 @@
     tree-kill "1.2.1"
     webpack-sources "1.3.0"
 
-"@schematics/angular@7.3.2":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-7.3.2.tgz#470f972a9d80ab8af9900e33972bce44aa567718"
-  integrity sha512-ClqG1qA919QqsikIXIP/jKl2Boj70lihCbpXhZgjsahLY8UJgq9oh8K1QuvYJtz4AI4GADfG1fGzPdYfy94+kg==
+"@schematics/angular@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-7.3.5.tgz#7af1cd446b051b2be3fbe59cb4ba140ec06e2d87"
+  integrity sha512-fKNZccf1l2OcDwtDupYj54N/YuiMLCWeaXNxcJNUYvGnBtzxQJ4P2LtSCjB4HDvYCtseQM7iyc7D1Xrr5gI8nw==
   dependencies:
-    "@angular-devkit/core" "7.3.2"
-    "@angular-devkit/schematics" "7.3.2"
+    "@angular-devkit/core" "7.3.5"
+    "@angular-devkit/schematics" "7.3.5"
     typescript "3.2.4"
 
-"@schematics/update@0.13.2":
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/@schematics/update/-/update-0.13.2.tgz#14ba82076b435814896ac141ba4dfad0dd3dadcd"
-  integrity sha512-w3ONb59VXN/ypEvi6IlLhuHAAgmtJwrnuZ5I7hPzDJYSuajGjwO238/HZvUeh+R/ttyq9RSFi/0SQJpi7b4yvw==
+"@schematics/update@0.13.5":
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/@schematics/update/-/update-0.13.5.tgz#6019accecd2bca5efc931cc9832ecb234009ceb2"
+  integrity sha512-bmwVKeyOmC948gJrIxPg0TY0999nusqSVqXJ8hqAgD0fyD6rnzF74nUhovQGvwFV0pZK8fCkRfdJIqgAPFcHcw==
   dependencies:
-    "@angular-devkit/core" "7.3.2"
-    "@angular-devkit/schematics" "7.3.2"
+    "@angular-devkit/core" "7.3.5"
+    "@angular-devkit/schematics" "7.3.5"
     "@yarnpkg/lockfile" "1.1.0"
     ini "1.3.5"
     pacote "9.4.0"
