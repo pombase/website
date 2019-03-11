@@ -49,3 +49,5 @@ numbers was previously maintained, but has not been updated since March
 file is available in the FTP archive, but because it is out of date it
 may contain errors or omissions.
 
+For FTP downloads, connect as "guest" if prompted; see [this
+FAQ](faq/do-i-need-password-download-ftp-site) for more information.

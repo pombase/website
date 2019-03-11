@@ -25,4 +25,5 @@ contains assorted data (see the README for file formats):
 
 Also see the [protein modification annotations](ftp://ftp.pombase.org/pombe/annotations/modifications/) directory.
     
-
+For FTP downloads, connect as "guest" if prompted; see [this
+FAQ](faq/do-i-need-password-download-ftp-site) for more information.

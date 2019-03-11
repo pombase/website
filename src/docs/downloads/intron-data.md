@@ -10,7 +10,9 @@
 </div>
 
 Downloadable intron datasets are available in FASTA format from the
-[PomBase FTP site](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/).
+[PomBase FTP site](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/)
+(connect as "guest" if prompted; see [this
+FAQ](faq/do-i-need-password-download-ftp-site) for more information).
 
 Note that you can also use the Advanced Search to find all genes
 containing introns, as described in the 

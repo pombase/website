@@ -1,5 +1,8 @@
 ## Downloadable Documents
 
+For FTP downloads, connect as "guest" if prompted; see [this
+FAQ](faq/do-i-need-password-download-ftp-site) for more information.
+
 ### Conferences and Workshops
 
 #### International Fission Yeast Meeting series

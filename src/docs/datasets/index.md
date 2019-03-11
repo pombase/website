@@ -20,6 +20,9 @@ page. If you have trouble finding anything, please ask the
 ### FTP site ###
 [*S. pombe* ftp site root directory](ftp://ftp.pombase.org/) (the "pombe" subdirectory contains the current files of most interest)
 
+For FTP downloads, connect as "guest" if prompted; see [this
+FAQ](faq/do-i-need-password-download-ftp-site) for more information.
+
 -------
 
 ### [Genome sequence and features](/downloads/genome-datasets) ###

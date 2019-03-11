@@ -27,3 +27,6 @@ Previous versions of the *S. pombe* GO annotation file can be retrieved
 from the [PomBase FTP archive](ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/OLD/).
 
 To cite the fission yeast GO data, please see [Citing PomBase](/about/citing-pombase).
+
+For FTP downloads, connect as "guest" if prompted; see [this
+FAQ](faq/do-i-need-password-download-ftp-site) for more information.

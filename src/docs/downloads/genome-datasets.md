@@ -9,10 +9,10 @@
   file or directory.
 </div>
 
-
 Links below go to web pages or directly to directories within the
 PomBase FTP site. When you reach the FTP site, choose the file(s) you
-need and click to download.
+need and click to download (connect as "guest" if prompted; see [this
+FAQ](faq/do-i-need-password-download-ftp-site) for more information).
 
 Note that most of the datasets available here are compressed (.gz), and
 can be uncompressed by utilities available in all common operating

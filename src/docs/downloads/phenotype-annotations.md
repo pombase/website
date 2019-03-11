@@ -32,6 +32,9 @@ using the ontology structure and inferred annotations. Please contact
 the [PomBase helpdesk](mailto:helpdesk@pombase.org) if you need
 assistance.
 
+For FTP downloads, connect as "guest" if prompted; see [this
+FAQ](faq/do-i-need-password-download-ftp-site) for more information.
+
 ### Viability summary
 
 A [set of "viability summary" data](ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/FYPOviability.tsv)

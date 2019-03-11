@@ -14,6 +14,9 @@ snapshots will be made available for download in the near future. In
 the meantime, please [contact the curators](mailto:helpdesk@pombase.org)
 if you need any data not available at the links above.
 
+For FTP downloads, connect as "guest" if prompted; see [this
+FAQ](faq/do-i-need-password-download-ftp-site) for more information.
+
 <!-- uncomment and replace monthly snapshot paragraph when new link active (update if needed)
 [Monthly snapshots](ftp://ftp.pombase.org/pombase_data_dumps/monthly_chado_snapshots/) of the Chado data are archived and available for download.
 -->
