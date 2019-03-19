@@ -196,7 +196,7 @@
     <div class="other-genes" *ngIf="geneMatchesWithNoDetails != 0">
       <span *ngIf="geneMatchesWithNoDetails == 1">One other matching gene not shown</span>
       <span *ngIf="geneMatchesWithNoDetails > 1">{{geneMatchesWithNoDetails}} other matching genes not shown</span>
-      - send list to advanced search to see all genes
+      - <span class="send-genes"><a (click)="sendToQueryBuilder()">Send gene list to advanced search</a></span> to see all genes
     </div>
   </div>
 </div>
