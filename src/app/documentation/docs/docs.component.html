@@ -6036,12 +6036,9 @@ PomBase using the Ensembl viewer.</p>
   <div *ngIf="pageName == 'chado-database-dumps'">
 <h2 id="chado-database-dumps">Chado database dumps</h2>
 <p>The <a href="ftp://ftp.pombase.org/nightly_update/">nightly release</a> of PomBase data includes a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.</p>
-<p>For PomBase releases made between July 2012 and January 2017, Chado data dumps are available for <a href="http://curation.pombase.org/dumps/releases/">download</a>. For these dumps, the file names include release numbers that correspond to the &quot;Annotation Version&quot; numbers in the <a routerLink="/about/version-history">Data version history</a> table.</p>
-<p>For data released between January 2017 and the present, monthly data snapshots will be made available for download in the near future. In the meantime, please <a href="mailto:helpdesk@pombase.org">contact the curators</a> if you need any data not available at the links above.</p>
-<p>For FTP downloads, connect as &quot;guest&quot; if prompted; see <a href="faq/do-i-need-password-download-ftp-site">this FAQ</a> for more information.</p>
-<!-- uncomment and replace monthly snapshot paragraph when new link active (update if needed)
-<a href="ftp://ftp.pombase.org/pombase_data_dumps/monthly_chado_snapshots/">Monthly snapshots</a> of the Chado data are archived and available for download.
--->
+<p>Archived Chado data dumps are also available for <a href="http://curation.pombase.org/releases/">download</a>. From January 2018 onwards, monthly data snapshots are provided. Earlier archived dumps correspond to the intermittent PomBase releases made between July 2012 and January 2017. For these dumps, the file names include release numbers that correspond to the &quot;Annotation Version&quot; numbers in the <a routerLink="/about/version-history">Data version history</a> table.</p>
+<p>Please <a href="mailto:helpdesk@pombase.org">contact the curators</a> if you need any data not available at the links above.</p>
+<p>The nightly release is on the PomBase FTP site. The other Chado dumps can also be retrieved by <a href="ftp://ftp.pombase.org/releases/">FTP</a> as well as HTTP. For FTP downloads, connect as &quot;guest&quot; if prompted; see <a routerLink="/faq/do-i-need-password-download-ftp-site">this FAQ</a> for more information.</p>
 
   </div>
   <div *ngIf="pageName == 'genome-datasets'">
@@ -7867,6 +7864,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#icygmb-registration-open">ICYGMB 2019  - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#go-slim-any-s.-pombe-gene-list">GO slim for any *S. pombe* gene list</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#south-eastern-regional-yeast-meeting-serym-registration-open">South Eastern Regional Yeast Meeting (SERYM) - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#international-cell-cycle-meeting-registration-open">International Cell Cycle meeting - registration open</a></div>
@@ -8892,9 +8890,24 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>See the <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO slim page</a> and the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
 
   </div>
+  <div *ngIf="pageName == 'icygmb2019'">
+<h3 id="icygmb-2019---registration-open">ICYGMB 2019 - registration open</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: icygmb_tiny.png -->
+<p>Registration is now open for the <a href="https://yeast2019.org">29th International Conference on Yeast Genetics and Molecular Biology (ICYGMB)</a>, which returns to Gothenburg, Sweden, August 18-22, 2019.</p>
+<p>Yeast2019 is the meeting of the international yeast research community where the latest, and even unpublished results are exchanged, and new projects, alliances, and collaborations are founded. Featuring 55 confirmed speakers including keynote lectures by Susan Gasser, Roger Kornberg and Frederick Roth, this conference will contain important news and information for all yeast researchers. A do-not-miss-event.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/icygmb_tiny.png"/></p>
+<h3 id="icygmb-registration-open">ICYGMB 2019 - registration open</h3>
+<p><em>2019-03-13</em></p>
+<p>Registration is now open for the <a href="https://yeast2019.org">29th International Conference on Yeast Genetics and Molecular Biology (ICYGMB)</a>, which returns to Gothenburg, Sweden, August 18-22, 2019.</p>
+<p>Yeast2019 is the meeting of the international yeast research community where the latest, and even unpublished results are exchanged, and new projects, alliances, and collaborations are founded. Featuring 55 confirmed speakers including keynote lectures by Susan Gasser, Roger Kornberg and Frederick Roth, this conference will contain important news and information for all yeast researchers. A do-not-miss-event.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/slim_tiny.png"/></p>
 <h3 id="go-slim-any-s.-pombe-gene-list">GO slim for any <em>S. pombe</em> gene list</h3>
