@@ -52,6 +52,11 @@ Mappings between PomBase systematic IDs, gene names, product descriptions, and U
 
 -------
 
+### GO slim
+Current [GO slim IDs and term names](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv) (ftp)
+
+-------
+
 ### Curated inventories
 
 -   [DNA binding sites](/browse-curation/dna-binding-sites.md)
