@@ -7,9 +7,14 @@ Canto, FYPO, annotations and Compara.
 
 ### Journal articles
 
+Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
+Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
+*Open Biol* 2019 Feb 20;9(2):180241.\
+[DOI:10.1098/rsob.180241](https://doi.org/10.1098/rsob.180241)
+
 Lock A,	Rutherford K, Harris MA, Hayles	J, Oliver SG, Bähler J;	Wood V.\
 PomBase 2018: user-driven reimplementation of the fission yeast database provides rapid and intuitive access to diverse, interconnected information.\
-*Nucleic Acids Res.* 2018 (Database issue): gky961 Epub 2018 Oct 13.\
+*Nucleic Acids Res.* 2019 Jan 8;47(Database issue): D821-D827. Epub 2018 Oct 13.\
 [PMID:30321395](http://www.ncbi.nlm.nih.gov/pubmed/30321395) [DOI:10.1093/nar/gky961](https://doi.org/10.1093/nar/gky961)
 
 Oliver SG, Lock A, Harris MA, Nurse P, Wood V.\
@@ -20,8 +25,7 @@ Model organism databases: essential resources that need the support of both fund
 McDowall MD, Harris MA, Lock A, Rutherford K, Staines DM, Bähler J,
 Kersey PJ, Oliver SG, Wood V.\
 PomBase 2015: updates to the fission yeast database.\
-*Nucleic Acids Res.* 2015 Jan;43(Database issue):D665-61. Epub 2014 Oct
-31.\
+*Nucleic Acids Res.* 2015 Jan;43(Database issue):D665-61. Epub 2014 Oct 31.\
 [PMID:25361970](http://www.ncbi.nlm.nih.gov/pubmed/?term=25361970) [DOI:10.1093/nar/gku1040](http://dx.doi.org/10.1093/nar/gku1040)
 
 Rutherford KM, Harris MA, Lock A, Oliver SG, Wood V.\
@@ -37,14 +41,13 @@ FYPO: The Fission Yeast Phenotype Ontology.\
 Wood V, Harris MA, McDowall MD, Rutherford K, Vaughan BW, Staines DM,
 Aslett M, Lock A, Bähler J, Kersey PJ, Oliver SG.\
 PomBase: a comprehensive online resource for fission yeast.\
-*Nucleic Acids Res.* 2012 Jan;40(Database issue):D695-9. Epub 2011 Oct
-28.\
+*Nucleic Acids Res.* 2012 Jan;40(Database issue):D695-9. Epub 2011 Oct 28.\
 [PMID:22039153](http://www.ncbi.nlm.nih.gov/pubmed/22039153) [DOI:10.1093/nar/gkr853](http://dx.doi.org/DOI:10.1093/nar/gkr853)
 
 ### Preprints <!-- comment out preprint section when there aren't any? -->
 
 Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
-Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?
+Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
 [Pre-publication manuscript](https://www.biorxiv.org/content/early/2018/11/16/469569) available at bioRxiv.
 
 
@@ -67,12 +70,12 @@ Posters and slides from conferences and workshops are available on the [Document
 
 The Gene Ontology Consortium.\
 The Gene Ontology Resource: 20 years and still GOing strong.\
-*Nucleic Acids Res.* 2018 Nov 5. [Epub ahead of print]\
+*Nucleic Acids Res.* 2019 Jan 8;47(Database issue):D330-D338.\
 [PMID:30395331](http://www.ncbi.nlm.nih.gov/pubmed/30395331) [DOI:10.1093/nar/gky1055](http://dx.doi.org/10.1093/nar/gky1055)
 
 The RNAcentral Consortium.\
 RNAcentral: a hub of information for non-coding RNA sequences.\
-*Nucleic Acids Res.* 2018 (Database issue): gky1034 Epub 2018 Nov 5.\
+*Nucleic Acids Res.* 2019 Jan 8;47(Database issue):D221-D229. Epub 2018 Nov 5.\
 [PMID:30395267](http://www.ncbi.nlm.nih.gov/pubmed/30395267) [DOI:10.1093/nar/gky1034](http://dx.doi.org/10.1093/nar/gky1034)
 (Correction in [DOI:10.1093/nar/gky1206](http://dx.doi.org/10.1093/nar/gky1206))
 
