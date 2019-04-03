@@ -10,7 +10,7 @@ Canto, FYPO, annotations and Compara.
 Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
 Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
 *Open Biol* 2019 Feb 20;9(2):180241.\
-[DOI:10.1098/rsob.180241](https://doi.org/10.1098/rsob.180241)
+[PMID:30938578](http://www.ncbi.nlm.nih.gov/pubmed/30938578)[DOI:10.1098/rsob.180241](https://doi.org/10.1098/rsob.180241)
 
 Lock A,	Rutherford K, Harris MA, Hayles	J, Oliver SG, Bähler J;	Wood V.\
 PomBase 2018: user-driven reimplementation of the fission yeast database provides rapid and intuitive access to diverse, interconnected information.\
