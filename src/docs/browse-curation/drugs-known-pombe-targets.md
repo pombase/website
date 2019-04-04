@@ -6,7 +6,7 @@ known about their targets or mechanisms of action.
 
 Drug | Targeted gene product, process, etc. | Reference
 -----|--------------------------------------|----------
-1,10-phenanthroline | inhibits RNA polymerases II and III | [PMID:27518095](https://www.ncbi.nlm.nih.gov/pubmed/?term=27518095) 
+1,10-phenanthroline | inhibits RNA polymerases II and III | [PMID:27518095](https://www.pombase.org/reference/PMID:27518095) 
 CT2108A, CT2108B | fatty acid synthase |  
 alpha-amanitin | RNA polymerase II inhibitor |  
 alverine citrate | proteasome/lipid synthesis? |  
@@ -21,10 +21,10 @@ brefeldin A | inhibits intracellular transport |
 calcofluor white | cell wall synthesis |  
 camptothecin | topoisomerase 1 (Top1) inhibitor |  
 canavanine | naturally occuring (alfafa) L-arginine antimetabolite | 
-cerulenin | inhibits β -keto-acyl ACP synthase and HMG -CoA synthase | [PMID:30003614](http://www.ncbi.nlm.nih.gov/pubmed/?term=30003614) 
+cerulenin | inhibits β -keto-acyl ACP synthase and HMG -CoA synthase | [PMID:30003614](https://www.pombase.org/reference/PMID:30003614) 
 chloramphenicol | protein synthesis inhibitor |  
 compactin | ergosterol biosynthesis |  
-Cutin-1 | fatty acid synthase beta subunit (Fas1); inhibits nuclear envelope expansion during mitosis | [PMID:26869222](http://www.ncbi.nlm.nih.gov/pubmed/?term=26869222) 
+Cutin-1 | fatty acid synthase beta subunit (Fas1); inhibits nuclear envelope expansion during mitosis | [PMID:26869222](https://www.pombase.org/reference/PMID:26869222) 
 cycloheximide | translation inhibitor |  
 cyclosporin A | binds cyclophilin |  
 dihydromotuporamine C | proteasome/lipid synthesis? |  
@@ -38,6 +38,7 @@ latrunculin | inhibits actin polymerization |
 leptomycin B | nuclear export receptor Crm1 |  
 lovastatin | competitive HMG CoA-reductase inhibitor |  
 methyl-2-benzimidazolecarbamate | reversible MT inhibitor |  
+microcystin | PP2A inhibitor | [PMID:29079657](https://www.pombase.org/reference/PMID:29079657)
 monensin | intracellular transport |  
 natamycin | blocks fungal growth by binding specifically to ergosterol without permeabilizing the membrane |  
 nystatin | ergosterol biosynthesis; antifungal; ergosta-5,7,22,24,(28)-tetraenol binding |  
@@ -46,10 +47,10 @@ phleomycin | causes DNA strand breaks |
 pravastatin | HMG-CoA reductase inhibitor |  
 ricin | disrupts translation by inactivating the ribosome |  
 sanglifehrin A | binds cyclophilin |  
-spliceostatin A | binds SF3b components and inhibits splicing | [PMID:17961508](http://www.ncbi.nlm.nih.gov/pubmed/?term=17961508) 
+spliceostatin A | binds SF3b components and inhibits splicing | [PMID:17961508](https://www.pombase.org/reference/PMID:17961508) 
 staurosporine | protein kinase inhibitor |  
 tagetitoxin/tagetin | RNA polymerase III inhibitor |  
 thialysine | naturally occuring lysine analogue |  
-trichostatin A (TSA) | histone deacetylase inhibitor | [PMID:19723888](http://www.ncbi.nlm.nih.gov/pubmed/?term=19723888) 
+trichostatin A (TSA) | histone deacetylase inhibitor | [PMID:19723888](https://www.pombase.org/reference/PMID:19723888) 
 tunicamycin | inhibits N-glycosylation |  
 zaragozic acid | inhibits N-glycosylation |  
