@@ -224,6 +224,9 @@ export class SearchBoxComponent implements OnInit {
     if (this.searchSummaries) {
       let value = fieldValue.trim().toLowerCase();
 
+      value = value.replace(/\s+gene$/i, '');
+      value = value.replace(/^gene\s+/i, '');
+
       if (value.length > 0) {
         let filteredSummaries: Array<DisplayModel> = [];
 
