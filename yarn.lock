@@ -4559,10 +4559,10 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
   integrity sha512-MFh0d/Wa7vkKO3Y3LlacqAEeHK0mckVqzDieUKTT+KGxi+zIpeVsFxymkIiRpbpDziHc290Xr9A1O4Om7otoRA==
 
-ngx-bootstrap@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-3.2.0.tgz#ece7c48af0bc260462c3f77de14f22d4b3dde149"
-  integrity sha512-oLSLIWZgRiIfcuxyXLMZUOhX3wZtg6lpuMbdo/0UzMDg2bSOe1XPskcKZ/iuOa3FOlU9rjuYMzswHYYV5f/QCA==
+ngx-bootstrap@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-4.0.1.tgz#b361a5fe71ab0a6d37e4fd2fc551684b031697e6"
+  integrity sha512-1O30RTmKO66F8+z5n3V+Y2/aZDhMjt4Se8dobTWmB7un9bJWovx7BQjjNqa0BsssA47LvqEnExNLhoTlSlE30A==
 
 ngx-twitter-timeline@^0.1.5:
   version "0.1.5"
