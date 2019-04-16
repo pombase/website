@@ -45,7 +45,14 @@ export class GenesDownloadDialogComponent implements OnInit {
     'Feature type': g => this.displayFeatureType(g),
     'Start position': g => String(g.location.start_pos),
     'End position': g => String(g.location.end_pos),
-    'Chromosome': g => String(g.location.chromosome_name),
+    'Chromosome': g => {
+      const chrName = g.location.chromosome_name;
+      const chromosomeConfig = this.appConfig.chromosomes[chrName];
+      if (chromosomeConfig && chromosomeConfig.short_display_name) {
+        return chromosomeConfig.short_display_name;
+      }
+      return chrName;
+    },
     'Strand': g => g.location.strand,
   };
 
@@ -159,12 +166,6 @@ export class GenesDownloadDialogComponent implements OnInit {
           let row = [];
           for (const fieldName of selectedSummaryFields) {
             let fieldVal = this.summaryFieldValGenerators[fieldName](geneSummary);
-            if (fieldName === 'Chromosome') {
-              const chromosomeConfig = this.appConfig.chromosomes[fieldVal];
-              if (chromosomeConfig && chromosomeConfig.short_display_name) {
-                fieldVal = chromosomeConfig.short_display_name;
-              }
-            }
 
             row.push(fieldVal);
           }
