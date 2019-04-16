@@ -26,11 +26,11 @@ export enum FormatTypes {
 }
 
 export class FormatUtils {
-  public static formatQueryResults(results: QueryResult, format: FormatTypes) {
+  public static formatQueryResults(results: QueryResult, headers: { [key: string]: string }, format: FormatTypes) {
     let ret = '';
     for (const row of results.rows) {
       if (format === FormatTypes.FASTA) {
-        ret += '>' + row.gene_uniquename + '\n';
+        ret += '>' + headers[row.gene_uniquename] + '\n';
         ret += Util.splitSequenceString(row.sequence);
         ret += '\n';
       }

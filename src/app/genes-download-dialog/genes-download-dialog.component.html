@@ -8,7 +8,9 @@
   <div class="modal-body">
     <tabset #downloadTabs>
       <tab heading="Tab delimited">
+        <div class="flex-container">
         <div class="field-column">
+        <div>Columns:</div>
         <div *ngFor="let fieldName of summaryFieldNames">
           <input  id="name" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                   (ngModelChange)="fieldChange(fieldName)"/>
@@ -21,14 +23,18 @@
                  (ngModelChange)="fieldChange(fieldConf)"/>
           <label for="name">{{fieldConf.display_name}}</label>
         </div>
-        </div>
         <div class="select-actions">
-        <a (click)="selectAll()">Select all ...</a> 
+        <a (click)="selectAll()">Select all ...</a>
+        </div>
+        </div>
         </div>
       </tab>
 
       <tab heading="Sequence">
+      <div class="flex-container">
+      <div class="seq-column">
         <div>
+          <div>Type:</div>
           <input id="protein" type="radio" [(ngModel)]="seqType" value="protein"/>
           <label for="protein">Protein</label>
         </div>
@@ -67,6 +73,17 @@
               <label for="downstream-bases">bases downstream</label>
             </div>
           </div>
+        </div>
+        </div>
+        <div class="field-column">
+           <div>Sequence descriptions:</div>
+           <div *ngFor="let fieldName of summaryFieldNames">
+             <input id="name" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
+                    [disabled]="fieldName === 'Systematic ID'"
+                    (ngModelChange)="fieldChange(fieldName)"/>
+             <label for="name">{{fieldName}}</label>
+           </div>
+        </div>
         </div>
       </tab>
     </tabset>

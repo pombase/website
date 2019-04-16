@@ -5,9 +5,18 @@
 .nucleotide-controls {
   padding: 0.6em 1em;
 }
-.field-column {
-  float: left;
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.field-column, .seq-column {
   padding: 1em;
+}
+
+.seq-column {
+  min-width: 15em;
 }
 
 .select-actions {

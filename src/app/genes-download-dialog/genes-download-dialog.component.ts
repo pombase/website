@@ -207,14 +207,33 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   private downloadSequence() {
+    const [selectedSummaryFields] = this.selectedFieldNames();
+    const summaryMapPromise = this.pombaseApiService.getGeneSummaryMapPromise();
+
     const query = new GeneQuery(new GeneListNode(this.genes));
     let seqOptions = this.seqDownloadOptions();
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], seqOptions);
-    this.queryService.postQuery(query, outputOptions)
-      .subscribe((results) => {
+    const queryPromise = this.queryService.postQuery(query, outputOptions).toPromise();
+
+    Promise.all([summaryMapPromise, queryPromise])
+      .then(([summaryMap, results]) => {
         const fileName = 'sequence.fasta';
+        let descriptions: { [geneUniquename: string]: string } = {};
+
+        for (const row of results.rows) {
+          const geneUniquename = row.gene_uniquename;
+          const geneSummary = summaryMap[geneUniquename];
+
+          const headerFields = geneUniquename + ' ' +
+            selectedSummaryFields.filter(fieldName => fieldName !== 'Systematic ID')
+              .map(fieldName => this.summaryFieldValGenerators[fieldName](geneSummary))
+              .join('|');
+
+          descriptions[geneUniquename] = headerFields;
+        }
+
         const formattedSequence =
-          FormatUtils.formatQueryResults(results, FormatTypes.FASTA);
+          FormatUtils.formatQueryResults(results, descriptions, FormatTypes.FASTA);
         const blob = new Blob([formattedSequence], { type: 'text' });
         saveAs(blob, fileName);
       });
