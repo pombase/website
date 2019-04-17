@@ -17,7 +17,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 6 | Extension | added_by(PomBase:SPBC11B10.09) | No | Yes
 7 | Reference | PMID:24763107 | Yes | No
 8 | Taxon | 4896 | Yes | No
-9 | Date | 20140501 | Yes | No
+9 | Date | 2014-05-01 | Yes | No
 
 **Notes:**
 
@@ -71,7 +71,7 @@ File columns:
     for a specific *S. pombe* strain you are welcome to use it
 9.  The date is the date on which the annotations are created; you may
     use the paper publication date or the date on which you prepare
-    your data file. Format: YYYYMMDD
+    your data file. Format: YYYY-MM-DD
 
 
 **Allowed annotation extensions:**

@@ -31,7 +31,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 16 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
 17 | Reference | PMID:23697806 | Yes | No
 18 | taxon | taxon:4896 | Yes | No
-19 | Date | 20120101 | Yes | No
+19 | Date | 2012-01-01 | Yes | No
 
 **Notes:**
 
@@ -114,7 +114,7 @@ blank in the rest of the rows.
     for a specific *S. pombe* strain you are welcome to use it
 19. The date is the date on which the annotations are created; you may
     use the paper publication date or the date on which you prepare
-    your data file. Format: YYYYMMDD
+    your data file. Format: YYYY-MM-DD
 
 **Details for allele types and descriptions:**
 
