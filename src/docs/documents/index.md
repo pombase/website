@@ -35,6 +35,7 @@ Boston, MA, USA
     Hinxton, UK - abstracts (file at FTP site)
 
 ## Other documents
+-   [2019 PomBase user survey results](ftp://ftp.pombase.org/pombe/documents/2019_pombase_survey_summary_no_freetext_responses.pdf) (PDF; file at FTP site)
 
 -   [2017 PomBase infographic](ftp://ftp.pombase.org/pombe/Conferences/pombe2017/pombe2017_infographic_p132.pdf) (PDF; file at FTP site)
 
