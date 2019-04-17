@@ -7885,6 +7885,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#s.-pombe-gene-list">*S. pombe* gene list</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#icygmb-registration-open">ICYGMB 2019  - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#go-slim-any-s.-pombe-gene-list">GO slim for any *S. pombe* gene list</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#south-eastern-regional-yeast-meeting-serym-registration-open">South Eastern Regional Yeast Meeting (SERYM) - registration open</a></div>
@@ -8864,14 +8865,12 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'wood-isb-award'">
 <h3 id="val-wood-wins-biocuration-society-award">Val Wood wins Biocuration society award</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: isb_logo_32px.png -->
 <p>Congratulations to PomBase project leader Val Wood, who has received the 2019 Exceptional Contributions to Biocuration Award from the International Society for Biocuration. Read more at the <a href="https://www.biocuration.org/anne-morgat-and-val-wood-recipients-of-the-2019-biocuration-awards/">ISB site</a></p>
 
   </div>
   <div *ngIf="pageName == 'pombe-2019-registration-open'">
 <h3 id="pombe-2019---registration-open">Pombe 2019 - registration open</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombe2019tiny.png -->
 <p>Registration for the <a href="http://www.pombe2019.com">10th International Fission Yeast Meeting</a> is now open!</p>
 <p>The conference will take place July 14-19, 2019, in Barcelona, Spain. Early registration closes on April 15th — or when capacity is reached. Please see the <a href="http://www.pombe2019.com">conference website</a> for more information, including registration final deadline and costs (some travel grants are available), abstract submission, programme, accommodation, and logistics.</p>
@@ -8919,9 +8918,24 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Yeast2019 is the meeting of the international yeast research community where the latest, and even unpublished results are exchanged, and new projects, alliances, and collaborations are founded. Featuring 55 confirmed speakers including keynote lectures by Susan Gasser, Roger Kornberg and Frederick Roth, this conference will contain important news and information for all yeast researchers. A do-not-miss-event.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombe-gene-info-extension'">
+<h3 id="s.-pombe-gene-list"><em>S. pombe</em> gene list</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: gix_icon.png -->
+<p><em>S. pombe</em> gene information is now included in the <a href="https://gene-info.org/">Gene Info</a> extension (GIX) for the Chrome and Firefox web browsers. GIX allows you to retrieve information about a gene product directly on any webpage simply by double clicking an official gene name, synonym or supported accession. Searching or double-clicking on text terms retrieves gene function annotation, GO terms, external database links, and interaction data drawn from BioGRID and IntAct. Retrieved gene names are automatically hyperlinked for rapid recursive searches.</p>
+<p>GeneInfo is fully open source, available online at <a href="https://github.com/knightjdr/gene-info/">GitHub</a>. Tutorial videos, a step-by-step guide, and download links for Firefox Add-ons and the Chrome web storeare available <a href="https://gene-info.org/">online</a>. GeneInfo was developed by James Knight in the <a href="https://gingraslab.lunenfeld.ca/">Gingras Lab</a> at the <a href="http://www.lunenfeld.ca/">Lunenfeld-Tanenbaum Research Institute</a> in Toronto, Canada.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/gix_icon.png"/></p>
+<h3 id="s.-pombe-gene-list"><em>S. pombe</em> gene list</h3>
+<p><em>2019-04-16</em></p>
+<p><em>S. pombe</em> gene information is now included in the <a href="https://gene-info.org/">Gene Info</a> extension (GIX) for the Chrome and Firefox web browsers. GIX allows you to retrieve information about a gene product directly on any webpage simply by double clicking an official gene name, synonym or supported accession. Searching or double-clicking on text terms retrieves gene function annotation, GO terms, external database links, and interaction data drawn from BioGRID and IntAct. Retrieved gene names are automatically hyperlinked for rapid recursive searches.</p>
+<p>GeneInfo is fully open source, available online at <a href="https://github.com/knightjdr/gene-info/">GitHub</a>. Tutorial videos, a step-by-step guide, and download links for Firefox Add-ons and the Chrome web storeare available <a href="https://gene-info.org/">online</a>. GeneInfo was developed by James Knight in the <a href="https://gingraslab.lunenfeld.ca/">Gingras Lab</a> at the <a href="http://www.lunenfeld.ca/">Lunenfeld-Tanenbaum Research Institute</a> in Toronto, Canada.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/icygmb_tiny.png"/></p>
 <h3 id="icygmb-registration-open">ICYGMB 2019 - registration open</h3>
