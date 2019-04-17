@@ -130,7 +130,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     if (condition) {
       if (condition.startsWith('reference=')) {
         const condRef = condition.substring(10);
-        if (reference && condRef && condRef == reference.uniquename) {
+        if (reference && condRef && condRef === reference.uniquename) {
           return true;
         }
       }
