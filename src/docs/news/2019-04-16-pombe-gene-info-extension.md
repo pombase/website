@@ -1,4 +1,4 @@
-### *S. pombe* gene list
+### *S. pombe* included in gene-info browser extension
 
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: gix_icon.png -->
