@@ -94,29 +94,29 @@ export class QueryService {
     }
   }
 
-  private postRaw(query: GeneQuery, outputOptions: QueryOutputOptions): Observable<Response> {
+  private postRaw(query: GeneQuery, outputOptions: QueryOutputOptions): Promise<Response> {
     const jsonString = query.toPostJSON(outputOptions);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + '/query', jsonString, options);
+    return this.http.post(this.apiUrl + '/query', jsonString, options).toPromise();
   }
 
-  postQuery(query: GeneQuery, outputOptions: QueryOutputOptions): Observable<QueryResult> {
+  postQuery(query: GeneQuery, outputOptions: QueryOutputOptions): Promise<QueryResult> {
     return this.postRaw(query, outputOptions)
-      .map((res) => { return makeResults(query, res.json()); });
+      .then(res => makeResults(query, res.json()));
   }
-  postQueryCount(query: GeneQuery): Observable<number> {
+  postQueryCount(query: GeneQuery): Promise<number> {
     const outputOptions = new QueryOutputOptions([], [], 'none');
     return this.postRaw(query, outputOptions)
-      .map((res) => { return res.json().rows.length; });
+      .then(res => res.json().rows.length);
   }
 
-  postPredefinedQuery(queryName: string, outputOptions: QueryOutputOptions): Observable<QueryResult> {
+  postPredefinedQuery(queryName: string, outputOptions: QueryOutputOptions): Promise<QueryResult> {
     const query = new GeneQuery(getAppConfig().getPredefinedQuery(queryName));
     return this.postQuery(query, outputOptions);
   }
 
-  postPredefinedQueryCount(queryName: string): Observable<number> {
+  postPredefinedQueryCount(queryName: string): Promise<number> {
     const query = new GeneQuery(getAppConfig().getPredefinedQuery(queryName));
     return this.postQueryCount(query);
   }
@@ -153,7 +153,7 @@ export class QueryService {
   saveToHistory(query: GeneQuery,
                 doneCallback?: (historyEntry: HistoryEntry) => void) {
     this.postQueryCount(query)
-      .subscribe((count) => {
+      .then((count) => {
         const historyEntry = this.saveToHistoryWithCount(query, count);
         if (doneCallback) {
           doneCallback(historyEntry);
@@ -187,7 +187,7 @@ export class QueryService {
         let timer = TimerObservable.create(delay);
         const subscription = timer.subscribe(t => {
           this.postQueryCount(query)
-            .subscribe((count) => {
+            .then((count) => {
               histEntry.setUpdatedCount(count);
               subscription.unsubscribe();
             });

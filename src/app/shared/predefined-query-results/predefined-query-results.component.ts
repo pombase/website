@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { QueryService } from '../../query.service';
 import { QueryOutputOptions, QueryResult } from '../../pombase-query';
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './predefined-query-results.component.html',
   styleUrls: ['./predefined-query-results.component.css']
 })
-export class PredefinedQueryResultsComponent implements OnInit, OnDestroy {
+export class PredefinedQueryResultsComponent implements OnInit {
   @Input() predefinedQueryId: string;
   @Input() description: string = null;
 
@@ -21,14 +21,9 @@ export class PredefinedQueryResultsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], 'none');
 
-    this.subscription =
-      this.queryService.postPredefinedQuery(this.predefinedQueryId, outputOptions)
-      .subscribe((results) => {
+    this.queryService.postPredefinedQuery(this.predefinedQueryId, outputOptions)
+      .then(results => {
         this.results = results;
       });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

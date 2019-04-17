@@ -143,7 +143,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
 
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], 'none');
     this.queryService.postQuery(this.query, outputOptions)
-      .subscribe((results) => {
+      .then(results => {
         this.queryService.saveToHistoryWithCount(thisQuery, results.rows.length);
         this.results = results;
         this.resultsDescription = queryAsString;

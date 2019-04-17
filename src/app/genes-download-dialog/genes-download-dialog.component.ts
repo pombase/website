@@ -132,7 +132,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     if (selectedServerFields.length > 0) {
       const query = new GeneQuery(new GeneListNode(this.genes));
       const outputOptions = new QueryOutputOptions(['gene_uniquename', ...selectedServerFields], [], 'none');
-      serverPromise = this.queryService.postQuery(query, outputOptions).toPromise();
+      serverPromise = this.queryService.postQuery(query, outputOptions);
 
     } else {
       serverPromise = Promise.resolve(null);
@@ -213,7 +213,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     const query = new GeneQuery(new GeneListNode(this.genes));
     let seqOptions = this.seqDownloadOptions();
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], seqOptions);
-    const queryPromise = this.queryService.postQuery(query, outputOptions).toPromise();
+    const queryPromise = this.queryService.postQuery(query, outputOptions);
 
     Promise.all([summaryMapPromise, queryPromise])
       .then(([summaryMap, results]) => {

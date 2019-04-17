@@ -39,7 +39,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
     const outputOptions =
       new QueryOutputOptions(['gene_uniquename'], ['include_gene_subsets'], 'none');
     this.queryService.postQuery(geneListQuery, outputOptions)
-      .subscribe(results => {
+      .then(results => {
         this.resultTable = this.makeResultTable(results);
       });
   }
