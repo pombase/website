@@ -7885,6 +7885,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-interpro-update">PomBase InterPro Update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#s.-pombe-included-gene-info-browser-extension">*S. pombe* included in Gene Info browser extension</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#icygmb-registration-open">ICYGMB 2019  - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#go-slim-any-s.-pombe-gene-list">GO slim for any *S. pombe* gene list</a></div>
@@ -8878,7 +8879,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'conserved-unknowns-open-biol'">
 <h3 id="published-hidden-in-plain-sight-what-remains-to-be-discovered-in-the-eukaryotic-proteome">Published: Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: unknowns.png -->
 <p>Our analysis of conserved unknown proteins has now been published in <a href="https://royalsocietypublishing.org/doi/10.1098/rsob.180241">Open Biology</a>. In it, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. We develop metrics to define unknown lists, provide unknown inventories for human and yeast, and classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, all with a view to drawing attention to the unknowns to alleviate their neglect.</p>
 
@@ -8926,9 +8926,24 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>GeneInfo is fully open source, available online at <a href="https://github.com/knightjdr/gene-info/">GitHub</a>. Tutorial videos, a step-by-step guide, and download links for Firefox Add-ons and the Chrome web storeare available <a href="https://gene-info.org/">online</a>. GeneInfo was developed by James Knight in the <a href="https://gingraslab.lunenfeld.ca/">Gingras Lab</a> at the <a href="http://www.lunenfeld.ca/">Lunenfeld-Tanenbaum Research Institute</a> in Toronto, Canada.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombase-interpro-update'">
+<h3 id="pombase-interpro-update">PomBase InterPro Update</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: interpro_32px.png -->
+<p>PomBase now uses InterPro Version 73.0, which integrates 1,531 new methods from the CATH-Gene3D (122), CDD (330), PANTHER (1075), Pfam (2), PROSITE profiles (1) and TIGRFAMs (1) databases, and covers 81.2% of UniProt Knowledgebase release 2019_02.</p>
+<p>See <a href="https://www.ebi.ac.uk/about/news/service-news/InterPro-73.0">the news item at InterPro</a> for additional information, including release notes.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-interpro-update">PomBase InterPro Update</h3>
+<p><em>2019-04-17</em></p>
+<p>PomBase now uses InterPro Version 73.0, which integrates 1,531 new methods from the CATH-Gene3D (122), CDD (330), PANTHER (1075), Pfam (2), PROSITE profiles (1) and TIGRFAMs (1) databases, and covers 81.2% of UniProt Knowledgebase release 2019_02.</p>
+<p>See <a href="https://www.ebi.ac.uk/about/news/service-news/InterPro-73.0">the news item at InterPro</a> for additional information, including release notes.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/gix_icon.png"/></p>
 <h3 id="s.-pombe-included-gene-info-browser-extension"><em>S. pombe</em> included in Gene Info browser extension</h3>
