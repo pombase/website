@@ -380,8 +380,9 @@ select option:disabled {
 
 .newsfeed-thumbnail {
   float: left;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   margin: 0.1em 1em 0.2em 0;
+  border-radius: 15%;
 }
 
 .recent-news .news-item {
