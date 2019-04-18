@@ -1,5 +1,5 @@
-import { GeneDetails } from "./pombase-api.service";
-import { TermAndName } from "./pombase-query";
+import { GeneDetails } from './pombase-api.service';
+import { TermAndName } from './pombase-query';
 
 const goXrfConfigMap = require('./config/go-xrf-abbr-external-links.json');
 const docConfig = require('./config/doc-config.json');
@@ -282,13 +282,13 @@ export interface ExternalGeneReference {
 }
 
 export function makeGeneExternalUrl(geneDetails: GeneDetails, extRefConf: ExternalGeneReference): Array<string> {
-  let getAllIds = (geneDetails: GeneDetails): Array<string> => {
-    let ret = [geneDetails.uniquename];
-    if (geneDetails.name) {
-      ret.push(geneDetails.name);
+  let getAllIds = (details: GeneDetails): Array<string> => {
+    let ret = [details.uniquename];
+    if (details.name) {
+      ret.push(details.name);
     }
 
-    for (let synonym of geneDetails.synonyms) {
+    for (let synonym of details.synonyms) {
       if (synonym['type'] === 'exact') {
         ret.push(synonym.name);
       }
