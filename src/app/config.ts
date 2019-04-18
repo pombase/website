@@ -132,6 +132,7 @@ export interface AppConfig {
   load_organism_taxonid: number;
   helpdesk_address: string;
   organisms: Array<ConfigOrganism>;
+  ortholog_taxonids: Array<number>;
   frontPagePanels: Array<PanelConfig>;
   apiSeqChunkSizes: {
     all: Array<number>;
@@ -562,6 +563,7 @@ let _appConfig: AppConfig = {
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
   helpdesk_address: pombaseConfig.helpdesk_address,
   organisms: pombaseConfig.organisms,
+  ortholog_taxonids: pombaseConfig.ortholog_taxonids,
   frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
