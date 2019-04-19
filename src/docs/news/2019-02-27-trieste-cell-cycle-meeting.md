@@ -1,5 +1,4 @@
 ### International Cell Cycle meeting - registration open
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: chantal_roubinet_tiny.png -->
 
 Registration is now open for the [Inaugural Trieste Cell Cycle

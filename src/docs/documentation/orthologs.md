@@ -26,4 +26,4 @@ orthology calls.
 
 For species other than budding yeast and human, we provide links to
 Compara to display orthologs from fungi or from all species. for further
-information, see the [FAQ on orthologs in additional species](/faq/how-can-i-find-s-pombe-orthologs-species-other-human-and-s-cerevisiae).
+information, see the [FAQ on orthologs in additional species](/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae).
