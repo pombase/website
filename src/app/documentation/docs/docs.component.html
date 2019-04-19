@@ -5288,7 +5288,7 @@ PomBase using the Ensembl viewer.</p>
 <h2 id="ortholog-curation">Ortholog curation</h2>
 <p>The &quot;Orthologs&quot; section of a gene page lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases.</p>
 <p>Ortholog prediction: The source of the ortholog prediction may vary. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches that are uniformly one-to one across species; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase's approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
-<p>For species other than budding yeast and human, we provide links to Compara to display orthologs from fungi or from all species. for further information, see the <a routerLink="/faq/how-can-i-find-s-pombe-orthologs-species-other-human-and-s-cerevisiae">FAQ on orthologs in additional species</a>.</p>
+<p>For species other than budding yeast and human, we provide links to Compara to display orthologs from fungi or from all species. for further information, see the <a routerLink="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in additional species</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'phenotype-data-bulk-upload-format'">
@@ -6405,7 +6405,7 @@ PomBase using the Ensembl viewer.</p>
 <app-page-contents-menu title="FAQ" titleRoute="/faq">
 
 <div class="left-menu-part left-menu-item"><a routerLink="/faq/data-submission-and-formats">Data submission and formats</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/faq/finding-data"> Finding data</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/faq/finding-data">Finding data</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/faq/gene-page">Gene page</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/faq/genome-browser">Genome browser</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/faq/genome-statistics-and-lists">Genome statistics and lists</a></div>
@@ -7886,8 +7886,11 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#customisable-fasta-download">Customisable FASTA download</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#integrated-motif-search">Integrated motif search</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-interpro-update">PomBase InterPro Update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#s.-pombe-included-gene-info-browser-extension">*S. pombe* included in Gene Info browser extension</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#integrated-motif-search">Integrated motif search</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#icygmb-registration-open">ICYGMB 2019  - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#go-slim-any-s.-pombe-gene-list">GO slim for any *S. pombe* gene list</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#south-eastern-regional-yeast-meeting-serym-registration-open">South Eastern Regional Yeast Meeting (SERYM) - registration open</a></div>
@@ -8886,7 +8889,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'trieste-cell-cycle-meeting'">
 <h3 id="international-cell-cycle-meeting---registration-open">International Cell Cycle meeting - registration open</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: chantal_roubinet_tiny.png -->
 <p>Registration is now open for the <a href="https://www.ucl.ac.uk/lmcb/cell-cycle-meeting-2019">Inaugural Trieste Cell Cycle Meeting</a>, which will be held June 3-6, 2019, in Trieste, Italy.</p>
 <p>This is the first of a planned series of biennial cell cycle meetings that will take place in Europe, and will alternate with the Salk Cell Cycle meetings held on the US west coast.</p>
@@ -8896,7 +8898,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'serym2019'">
 <h3 id="south-eastern-regional-yeast-meeting-serym---registration-open">South Eastern Regional Yeast Meeting (SERYM) - registration open</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: serym2019tiny.png -->
 <p>Registration is now open for the <a href="https://petitinstitute.gatech.edu/serym-2019">26th annual South Eastern Regional Yeast Meeting (SERYM)</a>, which will be held April 12-14, 2019, in Atlanta, GA, USA.</p>
 <p>Fission yeast's own Susan Forsburg is the keynote speaker. The meeting brings together researchers who use any type of yeast as a model system, covering diverse, interdisciplinary topics from strategies for treatment of fungal disease to modeling human disease in yeast.</p>
@@ -8919,6 +8920,13 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Yeast2019 is the meeting of the international yeast research community where the latest, and even unpublished results are exchanged, and new projects, alliances, and collaborations are founded. Featuring 55 confirmed speakers including keynote lectures by Susan Gasser, Roger Kornberg and Frederick Roth, this conference will contain important news and information for all yeast researchers. A do-not-miss-event.</p>
 
   </div>
+  <div *ngIf="pageName == 'motif-search-integrated'">
+<h3 id="integrated-motif-search">Integrated motif search</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: motif_search_cropped.png -->
+<p>The PomBase <a routerLink="/motif_search">motif search</a> has been fully integrated into the website, and allows users to find protein motifs and send them directly to the PomBase <a routerLink="/query">advanced search</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'pombe-gene-info-extension'">
 <h3 id="s.-pombe-included-in-gene-info-browser-extension"><em>S. pombe</em> included in Gene Info browser extension</h3>
 <!-- pombase_flags: frontpage -->
@@ -8935,9 +8943,45 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>See <a href="https://www.ebi.ac.uk/about/news/service-news/InterPro-73.0">the news item at InterPro</a> for additional information, including release notes.</p>
 
   </div>
+  <div *ngIf="pageName == 'customisable-fasta'">
+<h3 id="customisable-fasta-download">Customisable FASTA download</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombelist.png -->
+<p>You can now download nucleotide or peptide sequences for genes in Advanced search results in FASTA format, and customise what is included in the FASTA headers (e.g. gene names, product descriptions, sequence coordinates, or various IDs can be included).</p>
+
+  </div>
+  <div *ngIf="pageName == 'prediction-links'">
+<h3 id="integrated-motif-search">Integrated motif search</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: tree_for_news.png -->
+<p>We have added new external links to PomBase gene pages for structure and ortholog predictions:</p>
+<ul>
+<li><p>Protein-specific links to <a href="https://swissmodel.expasy.org/">SWISS-MODEL</a>, a fully automated protein structure homology-modelling server, accessible via the ExPASy web server, lead to a SWISS-MODEL Repository page for each sequence and present results. If no structure or model is available, you can either trigger adding an entry to the repository with a single click or easily interactively search for templates and build models in your own SWISS-MODEL workspace.</p></li>
+<li><p>Ensembl Fungi Compara and Ensembl Pan-taxonomic Compara links lead to orthology predictions from the Ensembl Compara pipeline for fungi and all species, respectively.</p></li>
+<li><p><a href="http://www.pantherdb.org/">PANTHER</a> links retrieve gene information, classification, and predicted orthologs.</p></li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
+<h3 id="customisable-fasta-download">Customisable FASTA download</h3>
+<p><em>2019-04-18</em></p>
+<p>You can now download nucleotide or peptide sequences for genes in Advanced search results in FASTA format, and customise what is included in the FASTA headers (e.g. gene names, product descriptions, sequence coordinates, or various IDs can be included).</p>
+</div>
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/tree_for_news.png"/></p>
+<h3 id="integrated-motif-search">Integrated motif search</h3>
+<p><em>2019-04-18</em></p>
+<p>We have added new external links to PomBase gene pages for structure and ortholog predictions:</p>
+<ul>
+<li><p>Protein-specific links to <a href="https://swissmodel.expasy.org/">SWISS-MODEL</a>, a fully automated protein structure homology-modelling server, accessible via the ExPASy web server, lead to a SWISS-MODEL Repository page for each sequence and present results. If no structure or model is available, you can either trigger adding an entry to the repository with a single click or easily interactively search for templates and build models in your own SWISS-MODEL workspace.</p></li>
+<li><p>Ensembl Fungi Compara and Ensembl Pan-taxonomic Compara links lead to orthology predictions from the Ensembl Compara pipeline for fungi and all species, respectively.</p></li>
+<li><p><a href="http://www.pantherdb.org/">PANTHER</a> links retrieve gene information, classification, and predicted orthologs.</p></li>
+</ul>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-interpro-update">PomBase InterPro Update</h3>
@@ -8951,6 +8995,12 @@ Please sign the letter to add your voice in support of the databases that help m
 <p><em>2019-04-16</em></p>
 <p><em>S. pombe</em> gene information is now included in the <a href="https://gene-info.org/">Gene Info</a> extension (GIX) for the Chrome and Firefox web browsers. GIX allows you to retrieve information about a gene product directly on any webpage simply by double clicking an official gene name, synonym or supported accession. Searching or double-clicking on text terms retrieves gene function annotation, GO terms, external database links, and interaction data drawn from BioGRID and IntAct. Retrieved gene names are automatically hyperlinked for rapid recursive searches.</p>
 <p>GeneInfo is fully open source, available online at <a href="https://github.com/knightjdr/gene-info/">GitHub</a>. Tutorial videos, a step-by-step guide, and download links for Firefox Add-ons and the Chrome web storeare available <a href="https://gene-info.org/">online</a>. GeneInfo was developed by James Knight in the <a href="https://gingraslab.lunenfeld.ca/">Gingras Lab</a> at the <a href="http://www.lunenfeld.ca/">Lunenfeld-Tanenbaum Research Institute</a> in Toronto, Canada.</p>
+</div>
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/motif_search_cropped.png"/></p>
+<h3 id="integrated-motif-search">Integrated motif search</h3>
+<p><em>2019-03-19</em></p>
+<p>The PomBase <a routerLink="/motif_search">motif search</a> has been fully integrated into the website, and allows users to find protein motifs and send them directly to the PomBase <a routerLink="/query">advanced search</a>.</p>
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/icygmb_tiny.png"/></p>
