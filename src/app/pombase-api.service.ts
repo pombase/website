@@ -213,19 +213,6 @@ export interface IdNameAndOrganism {
   taxonid: number;
 }
 
-export interface GeneSummary extends GeneShort {
-  uniquename: string;
-  name: string;
-  taxonid: number;
-  organism?: ConfigOrganism;
-  product?: string;
-  uniprot_identifier?: string;
-  synonyms: Array<string>;
-  orthologs: Array<IdNameAndOrganism>;
-  location?: ChromosomeLocation;
-  feature_type: string;
-}
-
 export class GeneShort {
   uniquename: string;
   name: string;
@@ -244,6 +231,19 @@ export class GeneShort {
 
     return ret;
   }
+}
+
+export interface GeneSummary extends GeneShort {
+  uniquename: string;
+  name: string;
+  taxonid: number;
+  organism?: ConfigOrganism;
+  product?: string;
+  uniprot_identifier?: string;
+  synonyms: Array<string>;
+  orthologs: Array<IdNameAndOrganism>;
+  location?: ChromosomeLocation;
+  feature_type: string;
 }
 
 export interface GeneMap {
@@ -1111,16 +1111,13 @@ function processExtension(annotation: Annotation, termsByTermId: TermIdTermMap, 
   annotation.extension.map((extPart) => {
     if (extPart.ext_range.termid) {
       extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
-    }
-    else {
+    } else {
       if (extPart.ext_range.gene_uniquename) {
         extPart.ext_range.gene = genesByUniquename[extPart.ext_range.gene_uniquename];
-      }
-      else {
+      } else {
         if (extPart.ext_range.promoter_gene_uniquename) {
           extPart.ext_range.promoter = getPromoterGene(extPart.ext_range, genesByUniquename);
-        }
-        else {
+        } else {
           if (extPart.ext_range.gene_product) {
             extPart.ext_range.term = termsByTermId[extPart.ext_range.gene_product];
           }
@@ -1142,8 +1139,7 @@ function genesOfAnnotation(annotation: Annotation, genesByUniquename: GeneMap): 
   return (annotation.genes as Array<any>).map((geneDetail: any) => {
     if (typeof (geneDetail) === 'string') {
       return genesByUniquename[geneDetail as string];
-    }
-    else {
+    } else {
       return geneDetail as GeneShort;
     }
   }) as Array<GeneShort>;

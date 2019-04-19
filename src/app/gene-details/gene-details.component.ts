@@ -303,7 +303,7 @@ export class GeneDetailsComponent implements OnInit {
 
                     if (annotationTypeConfig.deploy_mode) {
                       const mode = this.deployConfigService.getMode();
-                      return mode == annotationTypeConfig.deploy_mode;
+                      return mode === annotationTypeConfig.deploy_mode;
                     } else {
                       return true;
                     }

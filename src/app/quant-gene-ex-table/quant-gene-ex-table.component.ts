@@ -52,7 +52,7 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
   }
 
   detailsMode(): boolean {
-    return this.currentViewState == TableViewState.Details;
+    return this.currentViewState === TableViewState.Details;
   }
 
   setDetailsView() {

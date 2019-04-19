@@ -11,7 +11,7 @@ class GeneDisplayData {
 }
 
 class ColumnDisplayData {
-  displayName: string = '';
+  displayName = '';
   constructor(public columnConfig: VisColumnConfig,
               public rowAttr: string,
               public startIndex: number, public endIndex: number,
@@ -176,12 +176,12 @@ export class GeneResultsVisComponent implements OnInit {
 
   saveAsSVG() {
     const el = this.visSvg.nativeElement;
-    el.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    el.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
     const svgData = el.outerHTML;
     const preface = '<?xml version="1.0" standalone="no"?>\r\n';
-    const svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
+    const svgBlob = new Blob([preface, svgData], {type: 'image/svg+xml;charset=utf-8'});
     const svgUrl = URL.createObjectURL(svgBlob);
-    const downloadLink = document.createElement("a");
+    const downloadLink = document.createElement('a');
     downloadLink.href = svgUrl;
     downloadLink.download = name;
     document.body.appendChild(downloadLink);
@@ -496,7 +496,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   getScaleIndexes(): Array<number> {
     let ret = [];
-    for (let i = 1; i < this.geneDisplayData.length/10; i++) {
+    for (let i = 1; i < this.geneDisplayData.length / 10; i++) {
       ret.push(i * 10);
     }
     return ret;

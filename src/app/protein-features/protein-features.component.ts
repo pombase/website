@@ -50,7 +50,7 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
 
     if (this.geneDetails.feature_type !== 'pseudogene' &&
         this.transcriptDetails && this.transcriptDetails.uniquename &&
-        this.appConfig.missingBrowserImages.indexOf(this.geneDetails.uniquename) == -1) {
+        this.appConfig.missingBrowserImages.indexOf(this.geneDetails.uniquename) === -1) {
       this.ensemblImageUrl = `/browser_images/${this.transcriptDetails.uniquename}_pep.png`;
       this.ensemblBrowserUrl =
         `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptDetails.uniquename}`;

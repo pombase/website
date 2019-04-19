@@ -26,7 +26,7 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
   selectedCategory: any = null;
 
   choiceData: Array<SelectData> = [];
-  availableChoices: number = 0;
+  availableChoices = 0;
 
   reset(): void {
     this.selectedCategory = null;

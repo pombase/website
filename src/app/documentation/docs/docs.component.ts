@@ -41,7 +41,7 @@ export class DocsComponent implements OnInit, OnDestroy {
 
   faq_navigate($event: MouseEvent, route: string, heading: string) {
     // nagivate on when header is clicked
-    if ($event.srcElement.localName.match(/^h\d$/i)) {
+    if (($event.target as HTMLHeadingElement).localName.match(/^h\d$/i)) {
       this.router.navigate([route]);
       this.setPageTitle('FAQ - ' + heading);
     }
