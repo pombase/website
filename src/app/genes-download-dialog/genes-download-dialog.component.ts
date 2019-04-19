@@ -5,13 +5,12 @@ import { BsModalRef } from 'ngx-bootstrap/modal/';
 import { TabsetComponent } from 'ngx-bootstrap';
 
 import { GeneQuery, GeneListNode, QueryOutputOptions, FormatUtils,
-         FormatTypes,
-         ResultRow} from '../pombase-query';
+         FormatTypes, ResultRow} from '../pombase-query';
 import { QueryService } from '../query.service';
 import { getAppConfig, AppConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
-import { GeneShort, GeneSummary, PombaseAPIService } from '../pombase-api.service';
+import { GeneShort, GeneSummary, PombaseAPIService, GeneSummaryMap } from '../pombase-api.service';
 
 @Component({
   selector: 'app-genes-download-dialog',
@@ -32,11 +31,12 @@ export class GenesDownloadDialogComponent implements OnInit {
   public upstreamBases = 0;
   public downstreamBases = 0;
 
-  summaryFieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
+  fieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
                 'Synonyms', 'Feature type', 'Start position', 'End position',
                 'Chromosome', 'Strand'];
+
   selectedFields: { [key: string]: boolean } = {'Systematic ID': true};
-  summaryFieldValGenerators: { [label: string]: (g: GeneSummary) => string } = {
+  fieldValGenerators: { [label: string]: (g: GeneSummary) => string } = {
     'Systematic ID': g => g.uniquename,
     'Name': g => g.name || '',
     'Synonyms': g => g.synonyms.join(','),
@@ -56,6 +56,8 @@ export class GenesDownloadDialogComponent implements OnInit {
     'Strand': g => g.location.strand,
   };
 
+  summaryPromise: Promise<GeneSummaryMap> = null;
+
   fieldsForServer =
     getAppConfig().getGeneResultsConfig().visualisation.columns
     .filter(conf => conf.column_type !== 'ortholog');
@@ -63,7 +65,20 @@ export class GenesDownloadDialogComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
               public bsModalRef: BsModalRef,
-              public deployConfigService: DeployConfigService) {}
+              public deployConfigService: DeployConfigService) {
+
+    this.summaryPromise = this.pombaseApiService.getGeneSummaryMapPromise();
+
+    for (const orthTaxonid of this.appConfig.ortholog_taxonids) {
+      const orthOrg = this.appConfig.getOrganismByTaxonid(orthTaxonid);
+      const orthFieldName = orthOrg.common_name + ' ortholog(s)';
+      this.fieldNames.push(orthFieldName);
+      this.fieldValGenerators[orthFieldName] =
+        (summary) =>
+          summary.orthologs.filter(orth => orth.taxonid === orthTaxonid)
+            .map(orth => orth.name || orth.identifier).join(',');
+    }
+  }
 
   private currentTab(): string {
     if (this.staticTabs.tabs[0].active) {
@@ -74,7 +89,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   selectAll() {
-    this.summaryFieldNames.map(name => this.selectedFields[name] = true);
+    this.fieldNames.map(name => this.selectedFields[name] = true);
   }
 
   fieldChange(fieldName: string) {
@@ -108,7 +123,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   isValid() {
-    for (let fieldName of this.summaryFieldNames) {
+    for (let fieldName of this.fieldNames) {
       if (this.selectedFields[fieldName]) {
         return true;
       }
@@ -117,15 +132,13 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   private selectedFieldNames(): [Array<string>, Array<string>] {
-    return [this.summaryFieldNames.filter(name => this.selectedFields[name]),
+    return [this.fieldNames.filter(name => this.selectedFields[name]),
             this.fieldsForServer.map(conf => conf.name)
                .filter(fieldName => this.selectedFields[fieldName])];
   }
 
   private downloadDelimited() {
     const [selectedSummaryFields, selectedServerFields] = this.selectedFieldNames();
-
-    const summaryPromise = this.pombaseApiService.getGeneSummaryMapPromise();
 
     let serverPromise;
 
@@ -138,7 +151,7 @@ export class GenesDownloadDialogComponent implements OnInit {
       serverPromise = Promise.resolve(null);
     }
 
-    Promise.all([summaryPromise, serverPromise])
+    Promise.all([this.summaryPromise, serverPromise])
       .then(([geneSummaries, serverResults]) => {
         const serverRowsMap: { [index: string]: ResultRow } = {};
 
@@ -165,7 +178,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
           let row = [];
           for (const fieldName of selectedSummaryFields) {
-            let fieldVal = this.summaryFieldValGenerators[fieldName](geneSummary);
+            let fieldVal = this.fieldValGenerators[fieldName](geneSummary);
 
             row.push(fieldVal);
           }
@@ -226,7 +239,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
           const headerFields = geneUniquename + ' ' +
             selectedSummaryFields.filter(fieldName => fieldName !== 'Systematic ID')
-              .map(fieldName => this.summaryFieldValGenerators[fieldName](geneSummary))
+              .map(fieldName => this.fieldValGenerators[fieldName](geneSummary))
               .join('|');
 
           descriptions[geneUniquename] = headerFields;

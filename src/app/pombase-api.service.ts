@@ -207,6 +207,12 @@ export interface IdAndOrganism {
   taxonid: number;
 }
 
+export interface IdNameAndOrganism {
+  identifier: string;
+  name: string | null;
+  taxonid: number;
+}
+
 export interface GeneSummary extends GeneShort {
   uniquename: string;
   name: string;
@@ -215,7 +221,7 @@ export interface GeneSummary extends GeneShort {
   product?: string;
   uniprot_identifier?: string;
   synonyms: Array<string>;
-  orthologs: Array<IdAndOrganism>;
+  orthologs: Array<IdNameAndOrganism>;
   location?: ChromosomeLocation;
   feature_type: string;
 }

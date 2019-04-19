@@ -11,7 +11,7 @@
         <div class="flex-container">
         <div class="field-column">
         <div>Columns:</div>
-        <div *ngFor="let fieldName of summaryFieldNames">
+        <div *ngFor="let fieldName of fieldNames">
           <input  id="name" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                   (ngModelChange)="fieldChange(fieldName)"/>
           <label for="name">{{fieldName}}</label>
@@ -77,7 +77,7 @@
         </div>
         <div class="field-column">
            <div>Sequence descriptions:</div>
-           <div *ngFor="let fieldName of summaryFieldNames">
+           <div *ngFor="let fieldName of fieldNames">
              <input id="name" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                     [disabled]="fieldName === 'Systematic ID'"
                     (ngModelChange)="fieldChange(fieldName)"/>

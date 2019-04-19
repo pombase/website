@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { PombaseAPIService, GeneSummary, IdAndOrganism } from '../pombase-api.service';
+import { PombaseAPIService, GeneSummary, IdAndOrganism, IdNameAndOrganism } from '../pombase-api.service';
 import { CompleteService, SolrTermSummary, SolrRefSummary } from '../complete.service';
 import { getAppConfig, ConfigOrganism } from '../config';
 
@@ -23,7 +23,7 @@ class SearchSummary {
     public uniprotIdentifierLowerCase: string,
     public synonyms: Array<string>,
     public synonymsLowerCase: Array<string>,
-    public orthologs: Array<IdAndOrganism>,
+    public orthologs: Array<IdNameAndOrganism>,
     public organism: ConfigOrganism) { }
 }
 
@@ -173,7 +173,8 @@ export class SearchBoxComponent implements OnInit {
 
   orthologExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
     const matchingOrthologs = geneSumm.orthologs.filter(orth => {
-      return orth.identifier.toLowerCase() === value;
+      return orth.identifier.toLowerCase() === value ||
+        orth.name && orth.name.toLowerCase() === value;
     });
     if (matchingOrthologs.length > 0) {
       const details =
