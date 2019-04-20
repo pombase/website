@@ -74,7 +74,7 @@ export class SearchBoxComponent implements OnInit {
     return new DisplayModel('Matching genes:', uniquename, name, otherDetails, organism);
   }
 
-  highlightMatch(pos: number, searchString: string, target?: string): string {
+    highlightMatch(pos: number, searchString: string, target?: string): string {
     let start;
     let highlightBit;
     let rest;
@@ -155,33 +155,44 @@ export class SearchBoxComponent implements OnInit {
     return null;
   }
 
-  orthologMatch(geneSumm: SearchSummary, value: string): DisplayModel {
-    for (let orth of geneSumm.orthologs) {
-      const pos = orth.identifier.toLowerCase().indexOf(value);
-      if (pos !== -1) {
-        const orgDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
-        const commonNameSpan =
-          `<span class="search-box-organism">(${orgDetails.common_name})</span>`;
-        const detail =
-          `ortholog: ${this.highlightMatch(pos, value, orth.identifier)} ${commonNameSpan}`;
-        return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
-                                         [detail], geneSumm.organism);
+  orthologMatch(geneSumm: SearchSummary, value: string, exactness: 'exact'|'sub-string'): DisplayModel {
+    interface FieldAndOrth {
+      matchingFieldValue: string;
+      orth: IdNameAndOrganism;
+    }
+
+    let matchingOrthologs: Array<FieldAndOrth> = [];
+
+    if (exactness === 'exact') {
+      for (const orth of geneSumm.orthologs) {
+        if (orth.name && orth.name.toLowerCase().indexOf(value) !== -1) {
+          matchingOrthologs.push({ matchingFieldValue: orth.name, orth });
+          break;
+        } else {
+          if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
+            matchingOrthologs.push({ matchingFieldValue: orth.identifier, orth });
+            break;
+          }
+        }
+      }
+    } else {
+      for (const orth of geneSumm.orthologs) {
+        if (orth.name && orth.name.toLowerCase() === value) {
+          matchingOrthologs.push({ matchingFieldValue: orth.name, orth });
+        } else {
+          if (orth.identifier.toLowerCase() === value) {
+            matchingOrthologs.push({ matchingFieldValue: orth.identifier, orth });
+          }
+        }
       }
     }
-    return null;
-  }
 
-  orthologExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
-    const matchingOrthologs = geneSumm.orthologs.filter(orth => {
-      return orth.identifier.toLowerCase() === value ||
-        orth.name && orth.name.toLowerCase() === value;
-    });
     if (matchingOrthologs.length > 0) {
       const details =
-        matchingOrthologs.map(orth => {
+        matchingOrthologs.map(({ matchingFieldValue, orth })  => {
           const orgDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
           const commonNameSpan = `<span class="search-box-organism">(${orgDetails.common_name})</span>`;
-          return `ortholog: ${this.highlightMatch(0, orth.identifier)} ${commonNameSpan}`;
+          return `ortholog: ${this.highlightMatch(0, matchingFieldValue)} ${commonNameSpan}`;
         });
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
         details, geneSumm.organism);
@@ -245,7 +256,7 @@ export class SearchBoxComponent implements OnInit {
           maybeAdd(this.synonymExactMatch(geneSumm, value));
         }
         for (let geneSumm of this.searchSummaries) {
-          maybeAdd(this.orthologExactMatch(geneSumm, value));
+          maybeAdd(this.orthologMatch(geneSumm, value, 'exact'));
         }
         for (let geneSumm of this.searchSummaries) {
           maybeAdd(this.nameMatch(geneSumm, value));
@@ -265,7 +276,7 @@ export class SearchBoxComponent implements OnInit {
         }
         if (filteredSummaries.length < 20) {
           for (let geneSumm of this.searchSummaries) {
-            maybeAdd(this.orthologMatch(geneSumm, value));
+            maybeAdd(this.orthologMatch(geneSumm, value, 'sub-string'));
           }
         }
         if (filteredSummaries.length < 20) {
