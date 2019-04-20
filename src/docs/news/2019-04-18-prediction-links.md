@@ -1,4 +1,4 @@
-### New external links from gene pages
+### Structure and ortholog links on gene pages
 
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: tree_for_news.png -->
