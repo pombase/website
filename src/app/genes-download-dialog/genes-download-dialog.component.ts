@@ -71,7 +71,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
     for (const orthTaxonid of this.appConfig.ortholog_taxonids) {
       const orthOrg = this.appConfig.getOrganismByTaxonid(orthTaxonid);
-      const orthFieldName = orthOrg.common_name + ' ortholog(s)';
+      const orthFieldName = orthOrg.common_name + ' ortholog';
       this.fieldNames.push(orthFieldName);
       this.fieldValGenerators[orthFieldName] =
         (summary) =>
