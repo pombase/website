@@ -1,4 +1,4 @@
-### Integrated motif search
+### New external links from gene pages
 
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: tree_for_news.png -->
