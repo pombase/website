@@ -1,9 +1,5 @@
 <div class="gene-list-lookup">
-  <div *ngIf="!geneSummaryMap">
-    Loading gene summaries ...
-  </div>
-
-  <div *ngIf="geneSummaryMap">
+  <div>
     <textarea rows="8" [(ngModel)]="inputText" (ngModelChange)="checkIds()"></textarea>
     <div *ngIf="unknownIds.length > 0" class="unknown-identifiers">
       Unknown identifiers: <span>{{unknownIds.join(" ").substring(0, 1000)}}</span>

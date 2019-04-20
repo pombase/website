@@ -618,6 +618,12 @@ let _appConfig: AppConfig = {
         topDescription: [{ text: 'Enter or upload a list of systematic gene IDs' }],
       },
       {
+        id: 'uniprot_id_list',
+        displayName: 'UniProt IDs',
+        nodeType: 'gene-list',
+        topDescription: [{ text: 'Enter or upload a list of systematic UniProt IDs' }],
+      },
+      {
         id: 'GO',
         displayName: 'GO',
         nodeType: 'ontology',

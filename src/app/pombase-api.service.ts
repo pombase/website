@@ -953,6 +953,24 @@ export class PombaseAPIService {
     return this.resultCache['getGeneSummaryMap'];
   }
 
+  getGeneSummaryUniprotMapPromise(): Promise<GeneSummaryMap> {
+    if (!this.promiseCache['getGeneSummaryUniprotMapPromise']) {
+      this.promiseCache['getGeneSummaryUniprotMapPromise'] = this.getGeneSummariesPromise()
+        .then(geneSummaries => {
+          let retMap: { [key: string]: GeneSummary } = {};
+          for (let summ of geneSummaries) {
+            if (summ.uniprot_identifier) {
+              retMap[summ.uniprot_identifier] = summ;
+              retMap[summ.uniprot_identifier.toLowerCase()] = summ;
+            }
+          }
+          this.resultCache['getGeneSummaryUniprotMap'] = retMap;
+          return retMap;
+        });
+    }
+    return this.promiseCache['getGeneSummaryUniprotMapPromise'];
+  }
+
   getChromosomeSummariesPromise(): Promise<Array<ChromosomeShort>> {
     if (!this.promiseCache[this.chromosomeSummariesUrl]) {
       this.promiseCache[this.chromosomeSummariesUrl] =

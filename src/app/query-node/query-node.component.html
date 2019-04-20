@@ -31,7 +31,11 @@
       </div>
 
       <div *ngIf="activeConf.id == 'gene_list'">
-        <app-gene-list-lookup (genesFound)="genesFound($event)"></app-gene-list-lookup>
+        <app-gene-list-lookup [lookupFieldType]="'id-and-name'" (genesFound)="genesFound($event)"></app-gene-list-lookup>
+      </div>
+
+      <div *ngIf="activeConf.id == 'uniprot_id_list'">
+        <app-gene-list-lookup [lookupFieldType]="'uniprot-id'" (genesFound)="genesFound($event)"></app-gene-list-lookup>
       </div>
 
       <div *ngIf="activeConf.nodeType == 'small-ontology'">
