@@ -165,6 +165,16 @@ export class SearchBoxComponent implements OnInit {
 
     if (exactness === 'exact') {
       for (const orth of geneSumm.orthologs) {
+        if (orth.name && orth.name.toLowerCase() === value) {
+          matchingOrthologs.push({ matchingFieldValue: orth.name, orth });
+        } else {
+          if (orth.identifier.toLowerCase() === value) {
+            matchingOrthologs.push({ matchingFieldValue: orth.identifier, orth });
+          }
+        }
+      }
+    } else {
+      for (const orth of geneSumm.orthologs) {
         if (orth.name && orth.name.toLowerCase().indexOf(value) !== -1) {
           matchingOrthologs.push({ matchingFieldValue: orth.name, orth });
           break;
@@ -172,16 +182,6 @@ export class SearchBoxComponent implements OnInit {
           if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
             matchingOrthologs.push({ matchingFieldValue: orth.identifier, orth });
             break;
-          }
-        }
-      }
-    } else {
-      for (const orth of geneSumm.orthologs) {
-        if (orth.name && orth.name.toLowerCase() === value) {
-          matchingOrthologs.push({ matchingFieldValue: orth.name, orth });
-        } else {
-          if (orth.identifier.toLowerCase() === value) {
-            matchingOrthologs.push({ matchingFieldValue: orth.identifier, orth });
           }
         }
       }
