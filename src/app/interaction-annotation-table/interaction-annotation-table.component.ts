@@ -139,7 +139,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.updateDisplayTable();
+    this.updateCurrentFilter(null);
   }
 
   updateCurrentFilter(filter: InteractionFilter) {
