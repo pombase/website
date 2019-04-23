@@ -3,7 +3,7 @@ import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angu
 import { TermAnnotation, AnnotationTable } from '../pombase-api.service';
 import { TableViewState } from '../pombase-types';
 import { AnnotationTableConfig, getAnnotationTableConfig, AnnotationType, FilterConfig } from '../config';
-import { AnnotationFilter } from '../filtering/annotation-filter';
+import { Filter } from '../filtering';
 
 @Component({
   selector: 'app-quant-gene-ex-table',
@@ -40,7 +40,7 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  updateCurrentFilter(filter: AnnotationFilter) {
+  updateCurrentFilter(filter: Filter<AnnotationTable>) {
     if (filter) {
       [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
         filter.filter(this.annotationTable);

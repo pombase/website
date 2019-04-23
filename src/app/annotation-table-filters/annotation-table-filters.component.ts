@@ -1,10 +1,9 @@
 import { Component, OnInit, Input, Output, OnChanges,
          EventEmitter } from '@angular/core';
 
-import { TermAnnotation, Annotation } from '../pombase-api.service';
+import { TermAnnotation, AnnotationTable } from '../pombase-api.service';
 import { FilterConfig } from '../config';
-import { AnnotationFilterCombiner } from '../filtering';
-import { AnnotationFilter } from '../filtering/annotation-filter';
+import { AnnotationFilter, FilterCombiner } from '../filtering';
 import { TableViewState } from '../pombase-types';
 
 @Component({
@@ -39,7 +38,7 @@ export class AnnotationTableFiltersComponent implements OnInit, OnChanges {
     if (eventsToEmit.length === 0) {
       this.filterChange.emit(null);
     } else {
-      this.filterChange.emit(new AnnotationFilterCombiner(eventsToEmit));
+      this.filterChange.emit(new FilterCombiner<AnnotationTable>(eventsToEmit));
     }
   }
 

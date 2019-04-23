@@ -1,7 +1,7 @@
 import { AnnotationTable } from '../pombase-api.service';
-import { AnnotationFilter } from './annotation-filter';
+import { Filter } from '../filtering';
 
-export class AnnotationEvidenceFilter implements AnnotationFilter {
+export class AnnotationEvidenceFilter implements Filter<AnnotationTable> {
   evidenceCodes: Array<string> = [];
 
   constructor(private evidenceCodesArg: Array<string>) {

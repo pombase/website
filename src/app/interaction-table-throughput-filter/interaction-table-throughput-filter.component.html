@@ -1,0 +1,11 @@
+<span>
+  {{config.display_name}}
+
+  <select [(ngModel)]="selectedCategory" (ngModelChange)="setCategory($event)">
+    <option [ngValue]="null">No filter</option>
+    <option *ngFor = "let category of choiceData"
+            [disabled]="!category.active" [ngValue]="category">
+      {{category.displayName}}
+    </option>
+  </select>
+</span>

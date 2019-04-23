@@ -4,6 +4,28 @@
   }
 }
 
+.annotation-table-container {
+  clear: both;
+}
+
+.filter-controls {
+  float: right;
+  clear: right;
+  font-size: 90%;
+  margin-top: 1em;
+}
+
+.filter-count {
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+
+.filter-controls {
+  margin-bottom: 0.5em;
+  display: inline-block;
+  user-select: none;
+}
+
 .interaction-source {
   padding: 0 0 0.6em 0;
   display: inline-block;
@@ -11,7 +33,6 @@
 
 .biogrid-link {
   padding-left: 5em;
-  display: inline-block;
   float: right;
 }
 

@@ -1,11 +1,17 @@
-import { AnnotationTable } from './pombase-api.service';
-import { AnnotationFilter } from './filtering/annotation-filter';
+import { AnnotationTable, InteractionTable } from './pombase-api.service';
 
-export class AnnotationFilterCombiner implements AnnotationFilter {
-  constructor(private filters: Array<AnnotationFilter>) { }
+export interface Filter<T> {
+  filter(table: T): [T, number, number];
+}
 
-  filter(annotationTable: AnnotationTable): [AnnotationTable, number, number] {
-    let filterResult: [AnnotationTable, number, number] =
+export type AnnotationFilter = Filter<AnnotationTable>;
+export type InteractionFilter = Filter<InteractionTable>;
+
+export class FilterCombiner<T> implements Filter<T> {
+  constructor(private filters: Array<Filter<T>>) { }
+
+  filter(annotationTable: T): [T, number, number] {
+    let filterResult: [T, number, number] =
       this.filters[0].filter(annotationTable);
 
     let totalAnnotationCount = filterResult[1];

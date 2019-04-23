@@ -13,8 +13,24 @@
     View interactions for {{currentGene.displayName}} at BioGRID ...
   </a>
 
+  <div class="filter-controls">
+    <app-interaction-table-filters [interactionTable]="annotationTable"
+                                   [filters]="filters"
+                                   (filterChange)="updateCurrentFilter($event)">
+    </app-interaction-table-filters>
+  </div>
+
   <div class="query-link">
     <a *ngIf="routerLinkUrl" routerLink="{{routerLinkUrl}}">Query using interacting genes ...</a>
+  </div>
+
+  <div *ngIf="tableIsFiltered" class="filter-count">
+    <span *ngIf="filteredTable.length == annotationTable.length">
+      Showing all annotations
+    </span>
+    <span *ngIf="filteredTable.length != annotationTable.length">
+      Showing {{filteredAnnotationCount}} of {{annotationCount}} annotations
+    </span>
   </div>
 
   <div class="annotation-table-container">

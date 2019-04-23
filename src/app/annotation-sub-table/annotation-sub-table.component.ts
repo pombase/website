@@ -7,9 +7,9 @@ import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          AppConfig,
          LinkDisplay} from '../config';
 import { AnnotationTable } from '../pombase-api.service';
-import { AnnotationFilter } from '../filtering/annotation-filter';
 import { TableViewState } from '../pombase-types';
 import { TermShort, TermXref } from '../pombase-query';
+import { Filter } from '../filtering';
 
 @Component({
   selector: 'app-annotation-sub-table',
@@ -56,7 +56,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
   }
 
-  updateCurrentFilter(filter: AnnotationFilter) {
+  updateCurrentFilter(filter: Filter<AnnotationTable>) {
     if (filter) {
       [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
         filter.filter(this.annotationTable);

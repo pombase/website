@@ -1,4 +1,4 @@
-import { GeneDetails } from './pombase-api.service';
+import { GeneDetails, ThroughputType } from './pombase-api.service';
 import { TermAndName } from './pombase-query';
 
 const goXrfConfigMap = require('./config/go-xrf-abbr-external-links.json');
@@ -204,6 +204,11 @@ export interface EvidenceFilterCategory {
   evidence_codes: Array<string>;
 }
 
+export interface ThroughputFilterCategory {
+  throughput_type: ThroughputType,
+  display_name: string,
+}
+
 export interface FilterConfig {
   filter_name: string;
   display_name: string;
@@ -213,6 +218,7 @@ export interface FilterConfig {
   evidence_categories?: Array<EvidenceFilterCategory>;
   extension_rel_type_name?: string;
   extension_categories?: Array<ExtensionFilterCategory>;
+  throughput_categories?: Array<ThroughputFilterCategory>;
 }
 
 export interface SplitByParentsConfig {

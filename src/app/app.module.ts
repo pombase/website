@@ -95,6 +95,8 @@ import { AnnotationTableExtensionFilterComponent } from './annotation-table-exte
 import { RouterNotFoundHandlerComponent } from './router-not-found-handler/router-not-found-handler.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { MotifSearchComponent } from './motif-search/motif-search.component';
+import { InteractionTableFiltersComponent } from './interaction-table-filters/interaction-table-filters.component';
+import { InteractionTableThroughputFilterComponent } from './interaction-table-throughput-filter/interaction-table-throughput-filter.component';
 
 export function documentFactory() {
     return document;
@@ -175,6 +177,8 @@ export function windowFactory() {
     RouterNotFoundHandlerComponent,
     StatisticsComponent,
     MotifSearchComponent,
+    InteractionTableFiltersComponent,
+    InteractionTableThroughputFilterComponent,
   ],
   imports: [
     BrowserModule,

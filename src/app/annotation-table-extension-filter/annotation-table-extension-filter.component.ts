@@ -1,8 +1,8 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { TermAnnotation } from '../pombase-api.service';
+import { TermAnnotation, AnnotationTable } from '../pombase-api.service';
 import { FilterConfig } from '../config';
-import { AnnotationFilter } from '../filtering/annotation-filter';
 import { AnnotationExtensionFilter } from '../filtering/annotation-extension-filter';
+import { Filter } from '../filtering';
 
 class SelectData {
   constructor(public displayName: string,
@@ -20,7 +20,7 @@ class SelectData {
 export class AnnotationTableExtensionFilterComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() config: FilterConfig;
-  @Output() filterChange = new EventEmitter<AnnotationFilter>();
+  @Output() filterChange = new EventEmitter<Filter<AnnotationTable>>();
   @Output() availableChoiceChange = new EventEmitter<number>();
 
   selectedCategory: any = null;

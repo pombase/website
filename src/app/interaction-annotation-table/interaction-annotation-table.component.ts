@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { InteractionAnnotation, GeneShort, GeneDetails, ReferenceShort } from '../pombase-api.service';
-import { getAnnotationTableConfig, AnnotationTableConfig, makeGeneExternalUrl, AppConfig, getAppConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig, makeGeneExternalUrl, AppConfig, getAppConfig, FilterConfig } from '../config';
 import { Util } from '../shared/util';
+import { AnnotationFilter, InteractionFilter } from '../filtering';
+import { type } from 'os';
 
 interface DisplayAnnotation {
   gene: GeneShort;
@@ -25,6 +27,8 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
 
+  filteredTable: Array<InteractionAnnotation> = null;
+
   annotationTypeDisplayName: string = null;
   hideColumn: { [key: string]: boolean } = {};
 
@@ -33,6 +37,10 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
 
   routerLinkUrl: string = null;
   biogridUrl: string = null;
+  annotationCount: any;
+  filteredAnnotationCount: any;
+  tableIsFiltered: boolean;
+  filters: Array<FilterConfig> = null;
 
   constructor() { }
 
@@ -42,6 +50,8 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
     });
 
     let typeConfig = this.config.annotationTypes[this.annotationTypeName];
+    this.filters = typeConfig.filters;
+
     if (typeConfig && typeConfig.display_name) {
       this.annotationTypeDisplayName =
         this.config.annotationTypes[this.annotationTypeName].display_name;
@@ -52,7 +62,11 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnChanges() {
+  updateDisplayTable(): void {
+    if (this.filteredTable === null) {
+      this.filteredTable = this.annotationTable;
+    }
+
     let interactionType;
 
     if (this.annotationTypeName === 'physical_interactions') {
@@ -73,7 +87,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
     }
 
     this.displayTable =
-      this.annotationTable.map(
+      this.filteredTable.map(
         (annotation) => {
           let displayAnnotation: DisplayAnnotation = {
             gene: annotation.gene,
@@ -118,9 +132,26 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
             return a.evidence.localeCompare(b.evidence);
           }
         }
-        return geneComp;
 
+        return geneComp;
       }
     });
+  }
+
+  ngOnChanges() {
+    this.updateDisplayTable();
+  }
+
+  updateCurrentFilter(filter: InteractionFilter) {
+    if (filter) {
+      [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
+        filter.filter(this.annotationTable);
+    } else {
+      this.filteredTable = this.annotationTable;
+    }
+
+    this.tableIsFiltered = !!filter;
+
+    this.updateDisplayTable();
   }
 }

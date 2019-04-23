@@ -147,6 +147,8 @@ export interface TermSummaryRow {
   extension: Array<ExtPart>;
 }
 
+export type ThroughputType = 'high'|'low'|'non-experimental'|null;
+
 export interface InteractionAnnotation {
   reference: ReferenceShort;
   reference_uniquename: string;
@@ -155,7 +157,10 @@ export interface InteractionAnnotation {
   gene_uniquename: string;
   interactor: GeneShort;
   interactor_uniquename: string;
+  throughput: ThroughputType;
 }
+
+export type InteractionTable = Array<InteractionAnnotation>;
 
 export interface InteractionAnnotations {
   [type_name: string]: Array<InteractionAnnotation>;

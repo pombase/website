@@ -1,8 +1,8 @@
 import { AnnotationTable, Annotation } from '../pombase-api.service';
-import { AnnotationFilter } from './annotation-filter';
 import { TermShort } from '../pombase-query';
+import { Filter } from '../filtering';
 
-export class AnnotationExtensionFilter implements AnnotationFilter {
+export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
   constructor(private rangeTermIds: Array<string>) { }
 
   filter(annotationTable: AnnotationTable): [AnnotationTable, number, number] {
