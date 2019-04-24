@@ -75,7 +75,8 @@ annotations for genes in the list
 6. Download selected data for genes in the list. In the popup, the
 default "Tab delimited" view offers a set of details that can be
 included in a downloaded text file. Click "Sequence" to retrieve amino
-acid or nucleotide sequences in FASTA format. When "Nucleotide" is
+acid or nucleotide sequences in FASTA format. Use the checkboxes to
+select which items are included in the headers. When "Nucleotide" is
 selected, flanking sequence options similar to those on the [gene
 page](documentation/gene-page-sequence) are available.
 
