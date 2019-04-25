@@ -49,40 +49,45 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
         } else {
           this.saveQuery(query);
         }
-      } else {
-        let fromType = params['type'];
-        let termId = params['id'];
-        let termName = params['name'];
-        if (fromType && termId && termName) {
-          this.processFromRoute(fromType, termId, termName);
-        } else {
-          const subsetName = params['subsetName'];
-          let subsetDisplayName = params['subsetDisplayName'];
-          if (subsetName) {
-            let decodedSubsetDisplayName = '';
-            if (subsetDisplayName) {
-              decodedSubsetDisplayName = decodeURIComponent(subsetDisplayName);
-            }
-            this.fromSubsetName(goToResults, subsetName, decodedSubsetDisplayName);
-          } else {
-            const json = params['json'];
-            if (json) {
-              this.fromJson(goToResults, json);
-            } else {
-              const nodeTypeId = params['nodeTypeId'];
-              if (nodeTypeId) {
-                this.startNodeType = nodeTypeId;
-              } else {
-                const historyEntryId = +params['historyEntryId'];
-                if (historyEntryId) {
-                  const query = this.queryService.historyEntryById(historyEntryId);
-                  if (query) {
-                    this.gotoResults(query);
-                  }
-                }
-              }
-            }
-          }
+        return;
+      }
+
+      let fromType = params['type'];
+      let termId = params['id'];
+      let termName = params['name'];
+      if (fromType && termId && termName) {
+        this.processFromRoute(fromType, termId, termName);
+        return;
+      }
+
+      const subsetName = params['subsetName'];
+      let subsetDisplayName = params['subsetDisplayName'];
+      if (subsetName) {
+        let decodedSubsetDisplayName = '';
+        if (subsetDisplayName) {
+          decodedSubsetDisplayName = decodeURIComponent(subsetDisplayName);
+        }
+        this.fromSubsetName(goToResults, subsetName, decodedSubsetDisplayName);
+        return;
+      }
+
+      const json = params['json'];
+      if (json) {
+        this.fromJson(goToResults, json);
+        return;
+      }
+
+      const nodeTypeId = params['nodeTypeId'];
+      if (nodeTypeId) {
+        this.startNodeType = nodeTypeId;
+        return;
+      }
+
+      const historyEntryId = +params['historyEntryId'];
+      if (historyEntryId) {
+        const query = this.queryService.historyEntryById(historyEntryId);
+        if (query) {
+          this.gotoResults(query);
         }
       }
     });
