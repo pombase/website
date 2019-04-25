@@ -4366,7 +4366,7 @@ PomBase using the Ensembl viewer.</p>
 <li><p>Send the gene list to <a routerLink="/documentation/quick-little-tool">QuiLT</a> for visualisation</p></li>
 <li><p>Show <a routerLink="/documentation/pombase-go-slim-documentation">GO slim</a> annotations for genes in the list</p></li>
 <li><p>Narrow the list: click the button to reveal checkboxes</p></li>
-<li><p>Download selected data for genes in the list. In the popup, the default &quot;Tab delimited&quot; view offers a set of details that can be included in a downloaded text file. Click &quot;Sequence&quot; to retrieve amino acid or nucleotide sequences in FASTA format. When &quot;Nucleotide&quot; is selected, flanking sequence options similar to those on the <a href="documentation/gene-page-sequence">gene page</a> are available.</p></li>
+<li><p>Download selected data for genes in the list. In the popup, the default &quot;Tab delimited&quot; view offers a set of details that can be included in a downloaded text file. Click &quot;Sequence&quot; to retrieve amino acid or nucleotide sequences in FASTA format. Use the checkboxes to select which items are included in the headers. When &quot;Nucleotide&quot; is selected, flanking sequence options similar to those on the <a href="documentation/gene-page-sequence">gene page</a> are available.</p></li>
 </ol>
 <h3 id="query-types">Query types</h3>
 <p>Ontology queries (GO, phenotype, protein modification, and protein sequence feature) retrieve genes that are annotated to the selected term(s), and to their descendants via specified relations (see the GO documentation on <a href="http://geneontology.org/docs/ontology-relations/">Ontology Structure and Ontology Relations</a> for more information on relationships between terms in ontologies, and see the descriptions below of specific ontology filters for lists of which relations are followed to retrieve annotations). Ontologies can be searched by ID or term name. Type or paste a complete ontology ID, including the prefix (e.g. GO:0005634, FYPO:0002059), or simply start typing to search for a term name. Choose a term from the list of options offered by the autocomplete, and click &quot;Submit&quot;.</p>
@@ -7129,7 +7129,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-genes-associated-human-disease', 'How can I find S. pombe genes associated with human disease?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-s.-pombe-genes-associated-human-disease' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-s.-pombe-genes-associated-human-disease">How can I find <em>S. pombe</em> genes associated with human disease?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
-<p><em>S. pombe</em> genes whose human orthologs have been implicated in disease are annotated with terms from the internal PBO vocabulary. To retrieve all of these genes, you can use the most general &quot;disease&quot; term in a query. In the <a routerLink="/query">advanced search</a>, select &quot;Disease&quot;, and copy or past the ID 'DOID:4'.</p>
+<p><em>S. pombe</em> genes whose human orthologs have been implicated in disease are annotated with terms from the <a href="http://www.disease-ontology.org/">Disease Ontology</a>. To retrieve all of these genes, you can use the most general &quot;disease&quot; term in a query. In the <a routerLink="/query">advanced search</a>, select &quot;Disease&quot;, and copy or past the ID 'DOID:4'.</p>
 <p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>.</p>
 <p>Example queries:</p>
 <ul>
@@ -7397,6 +7397,12 @@ Example queries:
 <!-- pombase_categories: Genome browser,Finding data -->
 <p>Go to the <a href="https://www.pombase.org/jbrowse/">genome browser</a>, and make sure the DNA sequence track is enabled (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">FAQ on showing tracks</a> if necessary). Enter region coordinates (as described in <a href="https://www.pombase.org/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">this FAQ</a>.</p>
 <p>In the &quot;DNA sequence&quot; track label, click on the small triangle at the right-hand end of the label box to reveal the popup menu, then select &quot;Save track data&quot;.</p>
+
+</div>
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequences-fasta-file-custom-headers', 'How can I retrieve sequences in a FASTA file with custom headers?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequences-fasta-file-custom-headers' || pageName == 'all-faqs'">
+<h3 id="how-can-i-retrieve-sequences-fasta-file-custom-headers">How can I retrieve sequences in a FASTA file with custom headers?</h3>
+<!-- pombase_categories: Finding data -->
+<p>You can customize the headers for FASTA files of downloaded results from the advanced search (i.e. for any list of genes). The Download dialog offers several options for items to include in the headers. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more information.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequences-non-protein-coding-genes', 'How can I retrieve sequences for non-protein-coding genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequences-non-protein-coding-genes' || pageName == 'all-faqs'">
