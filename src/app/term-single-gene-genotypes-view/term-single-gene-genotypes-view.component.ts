@@ -38,16 +38,19 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
   }
 
   setGenes(): void {
-    let genes: { [key: string]: GeneShort } = {};
+    this.pombaseApiService.getGeneSummaryMapPromise()
+      .then(geneSummaryMap => {
+        let genes: { [key: string]: GeneShort } = {};
 
-    for (let genotype of this.termDetails.single_allele_genotypes) {
-      let gene = genotype.expressed_alleles[0].allele.gene;
-      genes[gene.uniquename] = gene;
-    }
+        for (let genotype of this.termDetails.single_allele_genotypes) {
+          let gene = genotype.expressed_alleles[0].allele.gene;
+          genes[gene.uniquename] = gene;
+        }
 
-    for (let geneUniquename of Object.keys(genes)) {
-      this.singleAlleleGenotypeGenes.push(genes[geneUniquename]);
-    }
+        for (let geneUniquename of Object.keys(genes)) {
+          this.singleAlleleGenotypeGenes.push(geneSummaryMap[geneUniquename]);
+        }
+      })
   }
 
   ngOnInit() {
