@@ -4,6 +4,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AppConfig } from '../config';
+import { Util } from '../shared/util';
 
 import { ReferenceDetails, PombaseAPIService, APIError } from '../pombase-api.service';
 
@@ -27,6 +28,7 @@ export class ReferenceDetailsComponent implements OnInit {
   refAnnotationStatus: string = null;
   hasJBrowseTracks = false;
   multiOrgMode = getAppConfig().isMultiOrganismMode();
+  graphicalAbstractImagePath: string = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -116,6 +118,16 @@ export class ReferenceDetailsComponent implements OnInit {
     }
   }
 
+  setGraphicalAbstract(): void {
+    this.graphicalAbstractImagePath = null;
+    for (const panelConf of this.appConfig.frontPagePanels) {
+      if (panelConf.panel_type === 'spotlight' && panelConf.head_image &&
+        panelConf.reference_id && panelConf.reference_id === this.refDetails.uniquename) {
+          this.graphicalAbstractImagePath = Util.randElement(panelConf.head_image);
+       }
+     }
+  }
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -135,6 +147,7 @@ export class ReferenceDetailsComponent implements OnInit {
             this.setVisibleSections();
             this.apiError = null;
             this.setAnnotationStatus();
+            this.setGraphicalAbstract();
             this.hasJBrowseTracks =
               getAppConfig().pubsToLinkToJBrowse.has(refDetails.uniquename);
           })

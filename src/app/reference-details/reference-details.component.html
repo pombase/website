@@ -12,48 +12,57 @@
   </div>
 
   <div id="reference-summary" class="details-page-summary">
-    <table>
-      <tbody>
-        <tr *ngIf="isPubMedRef">
-          <td class="details-label">Authors</td>
-          <td>{{refDetails.authors}}</td>
-          <td class="ref-curated-by" *ngIf="!multiOrgMode && cantoCommunityCuratorName && refAnnotationStatus != 'not-curated'">
-            <a href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
+    <ng-container *ngIf="isPubMedRef">
+
+      <div class="details-label">Authors</div>
+      <div>{{refDetails.authors}}</div>
+
+      <ng-container *ngIf="!multiOrgMode && refAnnotationStatus != 'not-curated'">
+        <div class="curation-status details-label">
+          <a href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
+        </div>
+
+        <div class="curation-status curation-status-text">
+          <div class="ref-curated-by" *ngIf="cantoCommunityCuratorName">
             Community curation provided by {{cantoCommunityCuratorName}}
-          </td>
-          <td class="ref-curated-by" *ngIf="!multiOrgMode && !cantoCommunityCuratorName && refAnnotationStatus != 'not-curated'">
-            <a href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
+          </div>
+          <div class="ref-curated-by" *ngIf="!cantoCommunityCuratorName">
             Curated by {{siteName}} staff
-          </td>
-        </tr>
-        <tr *ngIf="isPubMedRef">
-          <td class="details-label">Citation</td>
-          <td>{{refDetails.citation}}</td>
-          <td *ngIf="refAnnotationStatus != 'not-curated' && refDetails.approved_date">
-            <a class="canto-padding-image" style="visibility: hidden" href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
-            Added to {{siteName}} on <span class="approved-date">{{refDetails.approved_date}}</span></td>
-        </tr>
-        <tr>
-          <td class="details-label">ID</td>
-          <td>{{refDetails.uniquename}}</td>
-        </tr>
-        <tr *ngIf="isPubMedRef">
-          <td class="details-label">Links</td>
-          <td>
-            <a class="pub-link" href="http://europepmc.org/abstract/MED/{{pubMedId}}">Europe PMC</a>
-              |
-            <a *ngIf="refAnnotationStatus != 'has-annotations'"
-               class="pub-link" href="http://www.ncbi.nlm.nih.gov/pubmed?term={{pubMedId}}">PubMed</a>
-            <a *ngIf="refAnnotationStatus == 'has-annotations'"
-               class="pub-link" href="https://www.ncbi.nlm.nih.gov/pubmed?holding=pombase&term={{pubMedId}}">PubMed</a>
-          </td>
-        </tr>
-        <tr *ngIf="refDetails.abstract">
-          <td class="details-label">Abstract</td>
-          <td colspan="3"><span class="abstract">{{refDetails.abstract}}</span></td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
+          <div *ngIf="refDetails.approved_date">
+            Added to {{siteName}} on <span class="approved-date">{{refDetails.approved_date}}</span>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="details-label">Citation</div>
+      <div>{{refDetails.citation}}</div>
+    </ng-container>
+
+    <div class="details-label">ID</div>
+    <div>{{refDetails.uniquename}}</div>
+
+    <ng-container r*ngIf="isPubMedRef">
+      <div class="details-label">Links</div>
+      <div>
+        <a class="pub-link" href="http://europepmc.org/abstract/MED/{{pubMedId}}">Europe PMC</a>
+          |
+        <a *ngIf="refAnnotationStatus != 'has-annotations'"
+           class="pub-link" href="http://www.ncbi.nlm.nih.gov/pubmed?term={{pubMedId}}">PubMed</a>
+        <a *ngIf="refAnnotationStatus == 'has-annotations'"
+           class="pub-link" href="https://www.ncbi.nlm.nih.gov/pubmed?holding=pombase&term={{pubMedId}}">PubMed</a>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="refDetails.abstract">
+      <div class="details-label">Abstract</div>
+      <div class="abstract">
+        <div *ngIf="graphicalAbstractImagePath" id="graphical-abstract" >
+          <img src="{{graphicalAbstractImagePath}}"/>
+        </div>
+        {{refDetails.abstract}}
+      </div>
+    </ng-container>
   </div>
 
   <div id="reference-details-menu">
