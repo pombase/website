@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, config } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { PombaseAPIService, GeneSummary, IdAndOrganism, IdNameAndOrganism } from '../pombase-api.service';
@@ -74,7 +74,7 @@ export class SearchBoxComponent implements OnInit {
     return new DisplayModel('Matching genes:', uniquename, name, otherDetails, organism);
   }
 
-    highlightMatch(pos: number, searchString: string, target?: string): string {
+  highlightMatch(pos: number, searchString: string, target?: string): string {
     let start;
     let highlightBit;
     let rest;
@@ -262,8 +262,15 @@ export class SearchBoxComponent implements OnInit {
           maybeAdd(this.nameMatch(geneSumm, value));
         }
         if (filteredSummaries.length < 20) {
+          let valueNoSuffixes = value;
+          const suffixesToTrim = getAppConfig().searchBoxConfig.suffixes_to_trim;
+          if (suffixesToTrim) {
+            suffixesToTrim.map(suff => {
+              valueNoSuffixes = valueNoSuffixes.replace(new RegExp(suff + '$'), '');
+            });
+          }
           for (let geneSumm of this.searchSummaries) {
-            maybeAdd(this.identifierMatch(geneSumm, value));
+            maybeAdd(this.identifierMatch(geneSumm, valueNoSuffixes));
           }
         }
         for (let geneSumm of this.searchSummaries) {

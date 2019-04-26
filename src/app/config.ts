@@ -13,6 +13,10 @@ export interface LinkoutConfig {
   [name: string]: string;
 }
 
+export interface SearchBoxConfig {
+  suffixes_to_trim: Array<string>;
+}
+
 export interface EvidenceConfig {
   [name: string]: {
     long?: string;
@@ -148,6 +152,7 @@ export interface AppConfig {
   linkoutConfig: LinkoutConfig;
   missingBrowserImages: Array<string>;
   searchBoxCvNames: Array<string>;
+  searchBoxConfig: SearchBoxConfig;
   evidenceTypes: EvidenceConfig;
   externalGeneReferences: Array<ExternalGeneReference>;
   externalTermReferences: Array<ExternalTermReference>;
@@ -604,6 +609,7 @@ let _appConfig: AppConfig = {
 
   // limit the search box term autocompletion to these CVs:
   searchBoxCvNames: pombaseConfig.search_box_cv_names,
+  searchBoxConfig: pombaseConfig.search_box_config,
 
   evidenceTypes: pombaseConfig.evidence_types,
   externalGeneReferences: pombaseConfig.external_gene_references,
