@@ -78,6 +78,7 @@ export interface PanelConfig {
   internalId: number;
   head_image: Array<string>;
   head_image_link: string;
+  reference_id?: string;
   link?: string;
   link_label?: string;
   date_added: string;
@@ -546,6 +547,10 @@ function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
 
     let retConfig = Object.assign({}, conf);
     retConfig.internalId = i;
+
+    if (retConfig.reference_id && !retConfig.link) {
+      retConfig.link = '/reference/' + retConfig.reference_id;
+    }
 
     if (retConfig.link) {
       if (urlRe.test(retConfig.link)) {
