@@ -122,8 +122,11 @@ export class ReferenceDetailsComponent implements OnInit {
     this.graphicalAbstractImagePath = null;
     for (const panelConf of this.appConfig.frontPagePanels) {
       if (panelConf.panel_type === 'spotlight' && panelConf.head_image &&
-        panelConf.reference_id && panelConf.reference_id === this.refDetails.uniquename) {
-          this.graphicalAbstractImagePath = Util.randElement(panelConf.head_image);
+          panelConf.reference_id && panelConf.reference_id === this.refDetails.uniquename) {
+         const filteredImages = panelConf.head_image.filter(path => !path.endsWith('.mp4'));
+         if (filteredImages.length > 0) {
+           this.graphicalAbstractImagePath = Util.randElement(filteredImages);
+         }
        }
      }
   }
