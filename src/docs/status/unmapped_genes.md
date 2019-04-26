@@ -508,6 +508,11 @@
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=1769544">PMID:1769544</a></td>
   <td>&nbsp;</td>
  </tr>
+    <tr>
+  <td>uvi18</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8048925">PMID:8048925</a></td>
+  <td>&nbsp;</td>
+ </tr>
  <tr>
   <td>wtr2</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8913338">PMID:8913338</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=15338055">PMID:15338055</a></td>
