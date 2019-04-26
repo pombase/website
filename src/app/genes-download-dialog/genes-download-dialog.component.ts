@@ -31,30 +31,9 @@ export class GenesDownloadDialogComponent implements OnInit {
   public upstreamBases = 0;
   public downstreamBases = 0;
 
-  fieldNames = ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
-                'Synonyms', 'Feature type', 'Start position', 'End position',
-                'Chromosome', 'Strand'];
+  fieldNames = GeneSummary.getDisplayFieldNames();
 
   selectedFields: { [key: string]: boolean } = {'Systematic ID': true};
-  fieldValGenerators: { [label: string]: (g: GeneSummary) => string } = {
-    'Systematic ID': g => g.uniquename,
-    'Name': g => g.name || '',
-    'Synonyms': g => g.synonyms.join(','),
-    'Product description': g => g.product,
-    'UniProt ID': g => g.uniprot_identifier,
-    'Feature type': g => this.displayFeatureType(g),
-    'Start position': g => String(g.location.start_pos),
-    'End position': g => String(g.location.end_pos),
-    'Chromosome': g => {
-      const chrName = g.location.chromosome_name;
-      const chromosomeConfig = this.appConfig.chromosomes[chrName];
-      if (chromosomeConfig && chromosomeConfig.short_display_name) {
-        return chromosomeConfig.short_display_name;
-      }
-      return chrName;
-    },
-    'Strand': g => g.location.strand,
-  };
 
   summaryPromise: Promise<GeneSummaryMap> = null;
 
@@ -68,16 +47,6 @@ export class GenesDownloadDialogComponent implements OnInit {
               public deployConfigService: DeployConfigService) {
 
     this.summaryPromise = this.pombaseApiService.getGeneSummaryMapPromise();
-
-    for (const orthTaxonid of this.appConfig.ortholog_taxonids) {
-      const orthOrg = this.appConfig.getOrganismByTaxonid(orthTaxonid);
-      const orthFieldName = orthOrg.common_name + ' ortholog';
-      this.fieldNames.push(orthFieldName);
-      this.fieldValGenerators[orthFieldName] =
-        (summary) =>
-          summary.orthologs.filter(orth => orth.taxonid === orthTaxonid)
-            .map(orth => orth.name || orth.identifier).join(',');
-    }
   }
 
   private currentTab(): string {
@@ -112,14 +81,6 @@ export class GenesDownloadDialogComponent implements OnInit {
     let fileName = 'gene_list.tsv';
     let blob = new Blob([this.rowsAsTSV(rows)], { type: 'text' });
     saveAs(blob, fileName);
-  }
-
-  private displayFeatureType(geneSummary: GeneSummary): string {
-    if (geneSummary.feature_type === 'mRNA gene') {
-      return 'protein coding';
-    } else {
-      return geneSummary.feature_type;
-    }
   }
 
   isValid() {
@@ -178,7 +139,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
           let row = [];
           for (const fieldName of selectedSummaryFields) {
-            let fieldVal = this.fieldValGenerators[fieldName](geneSummary);
+            let fieldVal = geneSummary.getFieldDisplayValue(fieldName);
 
             row.push(fieldVal);
           }
@@ -239,7 +200,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
           const headerFields = geneUniquename + ' ' +
             selectedSummaryFields.filter(fieldName => fieldName !== 'Systematic ID')
-              .map(fieldName => this.fieldValGenerators[fieldName](geneSummary))
+              .map(fieldName => geneSummary.getFieldDisplayValue(fieldName))
               .join('|');
 
           descriptions[geneUniquename] = headerFields;

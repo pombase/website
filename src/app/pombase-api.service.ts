@@ -5,7 +5,8 @@ import { Observable, of } from 'rxjs';
 import { TermShort } from './pombase-query';
 import { Util } from './shared/util';
 import { Seq } from './seq';
-import { getAppConfig, ConfigOrganism, AnnotationType, getAnnotationTableConfig } from './config';
+import { getAppConfig, AppConfig, ConfigOrganism,
+         AnnotationType, getAnnotationTableConfig } from './config';
 import { retryWhen, delay, take, timeout } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
@@ -238,7 +239,10 @@ export class GeneShort {
   }
 }
 
-export interface GeneSummary extends GeneShort {
+export class GeneSummary extends GeneShort {
+  private static displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = null;
+  private static displayFieldNames: Array<string> = null;
+
   uniquename: string;
   name: string;
   taxonid: number;
@@ -249,6 +253,75 @@ export interface GeneSummary extends GeneShort {
   orthologs: Array<IdNameAndOrganism>;
   location?: ChromosomeLocation;
   feature_type: string;
+
+  private static makeFields(): void {
+    const displayFieldNames =
+       ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
+    'Synonyms', 'Feature type', 'Start position', 'End position',
+    'Chromosome', 'Strand'];
+
+    const displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = {
+      'Systematic ID': g => g.uniquename,
+      'Name': g => g.name || '',
+      'Synonyms': g => g.synonyms.join(','),
+      'Product description': g => g.product,
+      'UniProt ID': g => g.uniprot_identifier,
+      'Feature type': g => g.displayFeatureType(),
+      'Start position': g => String(g.location.start_pos),
+      'End position': g => String(g.location.end_pos),
+      'Chromosome': g => {
+        const chrName = g.location.chromosome_name;
+        const chromosomeConfig = getAppConfig().chromosomes[chrName];
+        if (chromosomeConfig && chromosomeConfig.short_display_name) {
+          return chromosomeConfig.short_display_name;
+        }
+        return chrName;
+      },
+      'Strand': g => g.location.strand,
+    };
+    for (const orthTaxonid of getAppConfig().ortholog_taxonids) {
+      const orthOrg = getAppConfig().getOrganismByTaxonid(orthTaxonid);
+      const orthFieldName = orthOrg.common_name + ' ortholog';
+      displayFieldNames.push(orthFieldName);
+      displayFieldGenerators[orthFieldName] =
+        (summary) =>
+          summary.orthologs.filter(orth => orth.taxonid === orthTaxonid)
+            .map(orth => orth.name || orth.identifier).join(',');
+    }
+
+    this.displayFieldGenerators = displayFieldGenerators;
+    this.displayFieldNames = displayFieldNames;
+  }
+
+  private static getFieldDisplayGenerators(): { [label: string]: (g: GeneSummary) => string } {
+    if (!GeneSummary.displayFieldNames) {
+      GeneSummary.makeFields();
+    }
+    return GeneSummary.displayFieldGenerators;
+  }
+
+  static getDisplayFieldNames(): Array<string> {
+    if (!GeneSummary.displayFieldNames) {
+      GeneSummary.makeFields();
+    }
+    return GeneSummary.displayFieldNames;
+  }
+
+  displayFeatureType(): string {
+    if (this.feature_type === 'mRNA gene') {
+      return 'protein coding';
+    } else {
+      return this.feature_type;
+    }
+  }
+
+  getFieldDisplayValue(fieldName: string): string {
+    if (GeneSummary.getFieldDisplayGenerators()[fieldName]) {
+      return GeneSummary.getFieldDisplayGenerators()[fieldName](this);
+    } else {
+      return null;
+    }
+  }
 }
 
 export interface GeneMap {
@@ -938,14 +1011,13 @@ export class PombaseAPIService {
         .then(geneSummaries => {
           let retMap: { [key: string]: GeneSummary } = {};
           for (let summ of geneSummaries) {
-            if (summ.name) {
-              retMap[summ.name] = summ;
-              retMap[summ.name.toLowerCase()] = summ;
+            const realSumm = Object.assign(new GeneSummary(), summ);
+            if (realSumm.name) {
+              retMap[realSumm.name] = realSumm;
+              retMap[realSumm.name.toLowerCase()] = realSumm;
             }
-          }
-          for (let summ of geneSummaries) {
-            retMap[summ.uniquename] = summ;
-            retMap[summ.uniquename.toLowerCase()] = summ;
+            retMap[realSumm.uniquename] = realSumm;
+            retMap[realSumm.uniquename.toLowerCase()] = realSumm;
           }
           this.resultCache['getGeneSummaryMap'] = retMap;
           return retMap;
