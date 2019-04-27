@@ -26,10 +26,17 @@ export class GenesTableComponent implements OnInit {
   @Input() genes: Array<GeneSummary> = [];
 
   orderByField = 'gene';
+  orderByFieldDisplayName = 'Gene name';
   downloadModalRef: BsModalRef = null;
   selectedCountCache = -1;
   showingVisualisation = false;
   slimTableSlimName: string = null;
+
+  fieldDisplayNames = GeneSummary.getDisplayFieldNames();
+  fieldDisplayValueGenerators = GeneSummary;
+
+  defaultFieldNames = ['Gene name', 'Systematic ID', 'Product description'];
+  visibleFieldNames = [...this.defaultFieldNames, /* 'UniProt ID', 'Feature type' */];
 
   visLegend: string = null;
 
@@ -50,8 +57,21 @@ export class GenesTableComponent implements OnInit {
     this.slimNames = this.geneResultConfig.slim_table_slim_names;
   }
 
-  setOrderBy(field: string) {
-    this.orderByField = field;
+  setOrderBy(fieldName: string) {
+    this.orderByFieldDisplayName = fieldName;
+    if (fieldName === 'Systematic ID') {
+      this.orderByField = 'systematicId';
+    } else {
+      if (fieldName === 'Gene name') {
+        this.orderByField = 'gene';
+      } else {
+        this.orderByField = 'product';
+      }
+    }
+  }
+
+  sortableField(fieldName: string): boolean {
+    return this.defaultFieldNames.includes(fieldName);
   }
 
   download() {

@@ -256,13 +256,13 @@ export class GeneSummary extends GeneShort {
 
   private static makeFields(): void {
     const displayFieldNames =
-       ['Systematic ID', 'Name', 'Product description', 'UniProt ID',
+       ['Systematic ID', 'Gene name', 'Product description', 'UniProt ID',
     'Synonyms', 'Feature type', 'Start position', 'End position',
     'Chromosome', 'Strand'];
 
     const displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = {
       'Systematic ID': g => g.uniquename,
-      'Name': g => g.name || '',
+      'Gene name': g => g.name || '',
       'Synonyms': g => g.synonyms.join(','),
       'Product description': g => g.product,
       'UniProt ID': g => g.uniprot_identifier,

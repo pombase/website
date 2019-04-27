@@ -1,5 +1,5 @@
-.genes-table table th, .genes-table table th {
-  padding-right: 20px;
+.genes-table table th, .genes-table table td {
+  padding-right: 25px;
 }
 
 .action {
