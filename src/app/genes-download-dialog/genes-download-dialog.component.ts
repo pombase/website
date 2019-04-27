@@ -23,6 +23,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();
 
   public genes: Array<GeneShort>;
+  public initialFields: Array<string>;
   public seqType = 'protein';
   public includeIntrons = false;
   public includeExons = true;
@@ -66,7 +67,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
     if (selectedFields.length === 0) {
       if (fieldName === 'Systematic ID') {
-        this.selectedFields['Name'] = true;
+        this.selectedFields['Gene name'] = true;
       } else {
         this.selectedFields['Systematic ID'] = true;
       }
@@ -224,5 +225,8 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.initialFields) {
+      this.initialFields.map(fieldName => this.selectedFields[fieldName] = true);
+    }
   }
 }

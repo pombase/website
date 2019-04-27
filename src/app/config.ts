@@ -121,6 +121,7 @@ export interface GeneResultsVisConfig {
 };
 
 export interface GeneResultsConfig {
+  sortable_columns: Array<string>;
   visualisation: GeneResultsVisConfig;
   // names of slims that are available from the results pages:
   slim_table_slim_names: Array<string>;

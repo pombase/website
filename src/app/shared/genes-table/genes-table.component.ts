@@ -9,6 +9,9 @@ import { QueryService, HistoryEntry } from '../../query.service';
 import { GeneQuery, GeneListNode, TermShort } from '../../pombase-query';
 import { getAppConfig } from '../../config';
 import { DeployConfigService } from '../../deploy-config.service';
+import { GenesTableConfigComponent } from '../../genes-table-config/genes-table-config.component';
+import { SettingsService } from '../../settings.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-genes-table',
@@ -35,8 +38,8 @@ export class GenesTableComponent implements OnInit {
   fieldDisplayNames = GeneSummary.getDisplayFieldNames();
   fieldDisplayValueGenerators = GeneSummary;
 
-  defaultFieldNames = ['Gene name', 'Systematic ID', 'Product description'];
-  visibleFieldNames = [...this.defaultFieldNames, /* 'UniProt ID', 'Feature type' */];
+  sortableColumns = getAppConfig().getGeneResultsConfig().sortable_columns;
+  visibleFieldNames: Array<string> = [];
 
   visLegend: string = null;
 
@@ -49,12 +52,29 @@ export class GenesTableComponent implements OnInit {
   slimLegend: string;
 
   slimNames: Array<string> = [];
+  columnsSubscription: Subscription;
 
   constructor(private modalService: BsModalService,
               private queryService: QueryService,
+              private settingsService: SettingsService,
               private deployConfigService: DeployConfigService,
               private router: Router) {
     this.slimNames = this.geneResultConfig.slim_table_slim_names;
+
+    this.visibleFieldNames = settingsService.visibleGenesTableColumns;
+
+    this.columnsSubscription =
+      settingsService.visibleGenesTableColumns$.subscribe(visbleColumns => this.visibleFieldNames = visbleColumns);
+  }
+
+  configureColumns(): void {
+    const config = {
+      animated: false,
+      initialState: {
+        visibleFieldNames: this.visibleFieldNames,
+      },
+    };
+    this.downloadModalRef = this.modalService.show(GenesTableConfigComponent, config);
   }
 
   setOrderBy(fieldName: string) {
@@ -71,15 +91,18 @@ export class GenesTableComponent implements OnInit {
   }
 
   sortableField(fieldName: string): boolean {
-    return this.defaultFieldNames.includes(fieldName);
+    return this.sortableColumns.includes(fieldName);
   }
 
   download() {
     const config = {
       animated: false,
+      initialState: {
+        initialFields: this.visibleFieldNames,
+        genes: this.genes,
+      },
     };
     this.downloadModalRef = this.modalService.show(GenesDownloadDialogComponent, config);
-    this.downloadModalRef.content.genes = this.genes;
   }
 
   selectionInProgress() {
@@ -169,5 +192,9 @@ export class GenesTableComponent implements OnInit {
     if (this.legend) {
       this.visLegend = `Visualising ${this.genes.length} genes`;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.columnsSubscription.unsubscribe();
   }
 }

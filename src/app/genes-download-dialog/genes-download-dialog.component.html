@@ -89,6 +89,7 @@
     </tabset>
  </div>
   <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
     <button type="button" class="btn btn-primary" [disabled]="!isValid()"
             [attr.title]="isValid() ? 'Start download' : 'Select at least one column to download'"
             (click)="download()">Download</button>

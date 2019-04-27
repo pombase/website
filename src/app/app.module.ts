@@ -97,6 +97,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { MotifSearchComponent } from './motif-search/motif-search.component';
 import { InteractionTableFiltersComponent } from './interaction-table-filters/interaction-table-filters.component';
 import { InteractionTableThroughputFilterComponent } from './interaction-table-throughput-filter/interaction-table-throughput-filter.component';
+import { GenesTableConfigComponent } from './genes-table-config/genes-table-config.component';
 
 export function documentFactory() {
     return document;
@@ -179,6 +180,7 @@ export function windowFactory() {
     MotifSearchComponent,
     InteractionTableFiltersComponent,
     InteractionTableThroughputFilterComponent,
+    GenesTableConfigComponent,
   ],
   imports: [
     BrowserModule,
@@ -200,7 +202,7 @@ export function windowFactory() {
     NgxTwitterTimelineModule,
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,
-                    MessageDialogComponent],
+                    GenesTableConfigComponent, MessageDialogComponent],
   providers: [PombaseAPIService,
               { provide: 'Window', useValue: window },
               { provide: 'Document', useFactory: documentFactory },

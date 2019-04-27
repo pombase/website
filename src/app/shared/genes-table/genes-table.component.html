@@ -97,9 +97,12 @@
   <table>
     <thead>
       <tr>
-        <td *ngIf="selectionInProgress()">
+        <th>
+          <a (click)="configureColumns()" title="Configure columns"><span class="glyphicon glyphicon-cog"></span></a>
+        </th>
+        <th *ngIf="selectionInProgress()">
           &nbsp;
-        </td>
+        </th>
         <th *ngFor="let fieldName of visibleFieldNames">
           <div *ngIf="sortableField(fieldName)">
             <a *ngIf="orderByFieldDisplayName != fieldName" (click)="setOrderBy(fieldName)"
@@ -114,6 +117,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let gene of genes | geneShortOrderBy: orderByField">
+        <td>
+          &nbsp;
+        </td>
         <td *ngIf="selectionInProgress()">
           <input id="show-translation" type="checkbox"
                  [name]="gene.uniquename"
