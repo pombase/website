@@ -30,7 +30,7 @@
         </div>
       </tab>
 
-      <tab heading="FASTA sequence">
+      <tab heading="FASTA sequence" (select)="tabSelected($event)">
       <div class="flex-container">
       <div class="seq-column">
         <div>
@@ -78,10 +78,10 @@
         <div class="field-column">
            <div>Include in headers:</div>
            <div *ngFor="let fieldName of fieldNames">
-             <input id="name" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
+             <input id="name-{{fieldName}}" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                     [disabled]="fieldName === 'Systematic ID'"
                     (ngModelChange)="fieldChange(fieldName)"/>
-             <label for="name">{{fieldName}}</label>
+             <label for="name-{{fieldName}}">{{fieldName}}</label>
            </div>
         </div>
         </div>

@@ -34,3 +34,9 @@
 #include-exons {
   color: #999;
 }
+
+/* so the user can't click on the label to toggle the checkbox: */
+input[type=checkbox]:disabled +label {
+  user-select: none;
+  color: grey;
+}

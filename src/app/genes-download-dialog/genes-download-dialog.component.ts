@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 
 import { saveAs } from 'file-saver';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
-import { TabsetComponent } from 'ngx-bootstrap';
+import { TabsetComponent, TabDirective } from 'ngx-bootstrap';
 
 import { GeneQuery, GeneListNode, QueryOutputOptions, FormatUtils,
          FormatTypes, ResultRow} from '../pombase-query';
@@ -55,6 +55,12 @@ export class GenesDownloadDialogComponent implements OnInit {
       return 'delimited';
     } else {
       return 'sequence';
+    }
+  }
+
+  tabSelected(tab: TabDirective): void {
+    if (tab.heading === 'FASTA sequence') {
+      this.selectedFields['Systematic ID'] = true;
     }
   }
 
