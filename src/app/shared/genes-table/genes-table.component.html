@@ -97,7 +97,7 @@
   <table>
     <thead>
       <tr>
-        <th>
+        <th *ngIf="!deployConfigService.productionMode()">
           <a (click)="configureColumns()" title="Configure columns"><span class="glyphicon glyphicon-cog"></span></a>
         </th>
         <th *ngIf="selectionInProgress()">
@@ -117,7 +117,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let gene of genes | geneShortOrderBy: orderByField">
-        <td>
+        <td *ngIf="!deployConfigService.productionMode()">
           &nbsp;
         </td>
         <td *ngIf="selectionInProgress()">

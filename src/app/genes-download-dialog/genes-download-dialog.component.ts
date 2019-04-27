@@ -11,6 +11,7 @@ import { getAppConfig, AppConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
 import { GeneShort, GeneSummary, PombaseAPIService, GeneSummaryMap } from '../pombase-api.service';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'app-genes-download-dialog',
@@ -23,7 +24,6 @@ export class GenesDownloadDialogComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();
 
   public genes: Array<GeneShort>;
-  public initialFields: Array<string>;
   public seqType = 'protein';
   public includeIntrons = false;
   public includeExons = true;
@@ -44,9 +44,9 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   constructor(private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
+              private settingsService: SettingsService,
               public bsModalRef: BsModalRef,
               public deployConfigService: DeployConfigService) {
-
     this.summaryPromise = this.pombaseApiService.getGeneSummaryMapPromise();
   }
 
@@ -225,8 +225,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.initialFields) {
-      this.initialFields.map(fieldName => this.selectedFields[fieldName] = true);
-    }
+    this.settingsService.visibleGenesTableColumns
+      .map(fieldName => this.selectedFields[fieldName] = true);
   }
 }
