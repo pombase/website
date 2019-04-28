@@ -731,7 +731,7 @@ let _appConfig: AppConfig = {
         id: 'protein_mol_weight',
         displayName: 'protein mol. weight',
         nodeType: 'float-range',
-        topDescription: [{ text: 'Retrieve protein-coding genes by product molecular weight' }]
+        topDescription: [{ text: 'Retrieve protein-coding genes by product molecular weight in kDa' }]
       },
       {
         id: 'disease_associated',
