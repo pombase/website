@@ -201,9 +201,7 @@ export class GenesTableComponent implements OnInit {
   }
 
   ngOnChanges() {
-    if (this.legend) {
-      this.visLegend = `Visualising ${this.genes.length} genes`;
-    }
+    this.visLegend = `Visualising ${this.genes.length} genes`;
   }
 
   ngOnDestroy(): void {

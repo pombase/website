@@ -1,7 +1,7 @@
 <div>
 <fieldset *ngIf="genes.length != 0" class="genes-table">
   <legend *ngIf="!showingVisualisation && !slimTableSlimName">
-    <span *ngIf="legend">{{legend}}</span>
+    {{legend || 'Results'}}
   </legend>
 
   <legend *ngIf="showingVisualisation">
