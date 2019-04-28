@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -55,6 +56,7 @@ export class GenesTableComponent implements OnInit {
   columnsSubscription: Subscription;
 
   constructor(private modalService: BsModalService,
+              private sanitizer: DomSanitizer,
               private queryService: QueryService,
               private settingsService: SettingsService,
               private deployConfigService: DeployConfigService,
@@ -183,6 +185,16 @@ export class GenesTableComponent implements OnInit {
 
   hideSlim(): void {
     this.slimTableSlimName = null;
+  }
+
+  displayFieldValue (gene: GeneSummary, fieldName: string): string|SafeHtml {
+    const rawValue = gene.getFieldDisplayValue(fieldName);
+    if (fieldName.endsWith(' ortholog')) {
+      const htmlValue = rawValue.replace(/,/g , ',&#8203;');
+      return this.sanitizer.bypassSecurityTrustHtml(htmlValue);
+    } else {
+      return rawValue;
+    }
   }
 
   ngOnInit() {
