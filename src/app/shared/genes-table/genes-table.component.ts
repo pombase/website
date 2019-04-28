@@ -189,7 +189,7 @@ export class GenesTableComponent implements OnInit {
 
   displayFieldValue (gene: GeneSummary, fieldName: string): string|SafeHtml {
     const rawValue = gene.getFieldDisplayValue(fieldName);
-    if (fieldName.endsWith(' ortholog')) {
+    if (fieldName.endsWith(' ortholog') && rawValue.indexOf(',') !== -1) {
       const htmlValue = rawValue.replace(/,/g , ',&#8203;');
       return this.sanitizer.bypassSecurityTrustHtml(htmlValue);
     } else {
