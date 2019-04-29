@@ -62,6 +62,7 @@ export interface QueryNodeConfig {
   terms?: Array<QueryNodeTermConfig>;
   subsets?: Array<QueryNodeSubsetConfig>;
   placeholder?: string;
+  extraResultTableColumns?: Array<string>;
 }
 
 export interface QueryBuilderConfig {
@@ -640,6 +641,7 @@ let _appConfig: AppConfig = {
         displayName: 'UniProt accessions',
         nodeType: 'gene-list',
         topDescription: [{ text: 'Enter or upload a list of UniProt accession numbers (eg. P04551)' }],
+        extraResultTableColumns: ['UniProt ID'],
       },
       {
         id: 'GO',

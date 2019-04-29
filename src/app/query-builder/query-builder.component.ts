@@ -4,9 +4,10 @@ import { GeneQuery, GeneQueryNode, QueryResult, TermNode, SubsetNode,
          QueryOutputOptions } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { getAppConfig } from '../config';
+import { getAppConfig, QueryNodeConfig } from '../config';
 import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'app-query-builder',
@@ -31,6 +32,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
   constructor(private queryService: QueryService,
               private route: ActivatedRoute,
               private titleService: Title,
+              private settingsService: SettingsService,
              ) {
     this.resetQuery();
   }
@@ -162,10 +164,15 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     this.queryService.saveToHistory(query);
   }
 
-  nodeEvent(part: GeneQueryNode) {
-    if (part) {
-      const query = new GeneQuery(part);
+  nodeEvent({ node, nodeConf }: {node: GeneQueryNode, nodeConf: QueryNodeConfig}) {
+    if (node) {
+      const query = new GeneQuery(node);
       this.saveQuery(query);
+//   See #1236 - maybe add the UniProt ID column to the results table if the
+//   user searches using the UniProt IDs tools
+//      if (nodeConf.extraResultTableColumns) {
+//        this.settingsService.addVisibleGenesTableColumns(nodeConf.extraResultTableColumns);
+//      }
     }
   }
 

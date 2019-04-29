@@ -19,4 +19,18 @@ export class SettingsService {
   set visibleGenesTableColumns(val: Array<string>) {
     this._visibleGenesTableColumns.next(val);
   }
+
+  addVisibleGenesTableColumns(fieldNames: Array<string>): void {
+    let visible = this.visibleGenesTableColumns;
+    let changed = false;
+    fieldNames.map(fieldName => {
+      if (!visible.includes(fieldName)) {
+        visible.push(fieldName);
+        changed = true;
+      }
+    });
+    if (changed) {
+      this.visibleGenesTableColumns = visible;
+    }
+  }
 }
