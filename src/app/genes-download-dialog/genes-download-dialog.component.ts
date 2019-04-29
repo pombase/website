@@ -111,7 +111,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     let serverPromise;
 
     if (selectedServerFields.length > 0) {
-      const query = new GeneQuery(new GeneListNode(this.genes));
+      const query = new GeneQuery(null, new GeneListNode(this.genes));
       const outputOptions = new QueryOutputOptions(['gene_uniquename', ...selectedServerFields], [], 'none');
       serverPromise = this.queryService.postQuery(query, outputOptions);
 
@@ -191,7 +191,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     const [selectedSummaryFields] = this.selectedFieldNames();
     const summaryMapPromise = this.pombaseApiService.getGeneSummaryMapPromise();
 
-    const query = new GeneQuery(new GeneListNode(this.genes));
+    const query = new GeneQuery(null, new GeneListNode(this.genes));
     let seqOptions = this.seqDownloadOptions();
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], seqOptions);
     const queryPromise = this.queryService.postQuery(query, outputOptions);

@@ -41,7 +41,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
     this.cannedQueryDetails =
       getAppConfig().cannedQueryIds.map(id => {
         const queryId = 'canned_query:' + id;
-        const query = new GeneQuery(getAppConfig().getPredefinedQuery(queryId));
+        const query = GeneQuery.fromJSONString(getAppConfig().getPredefinedQuery(queryId));
         return {
           name: query.getName(),
           queryId: queryId,
@@ -176,7 +176,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
 
   selectPredefinedQuery(predefinedQueryId: string): void {
     const queryJson = getAppConfig().getPredefinedQuery(predefinedQueryId);
-    const query = new GeneQuery(queryJson);
+    const query = GeneQuery.fromJSONString(queryJson);
     this.emitNodeEvent(query.getTopNode());
   }
 }

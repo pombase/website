@@ -483,7 +483,18 @@ export class GeneQuery {
   private name: string;
   private stringQuery: string = null;
 
-  private makeNode(parsedJson: any): GeneQueryNode {
+  static fromJSONString(arg: { name: string, constraints: string }): GeneQuery {
+    if (typeof(arg) === 'string') {
+      throw new Error('GeneQuery constructor needs an Object not a string');
+    }
+    if (arg['constraints']) {
+      return new GeneQuery(arg['name'], this.nodeFromObj(arg['constraints']))
+    } else {
+      return new GeneQuery(null, this.nodeFromObj(arg));
+    }
+  }
+
+  private static nodeFromObj(parsedJson: any): GeneQueryNode {
     const keys = Object.keys(parsedJson);
     if (keys.length !== 1) {
       throw new Error('parsedJson doesn\'t have exactly one key' + parsedJson);
@@ -501,7 +512,7 @@ export class GeneQuery {
     case 'or':
     case 'and':
     case 'not':
-      const parts = (val as Array<GeneQueryNode>).map((json: any) => this.makeNode(json));
+      const parts = (val as Array<GeneQueryNode>).map((json: any) => this.nodeFromObj(json));
       return new GeneBoolNode(nodeType, parts);
 
     case 'subset':
@@ -526,22 +537,10 @@ export class GeneQuery {
     throw new Error('Unknown type: ' + nodeType);
   }
 
-  constructor(arg: string | GeneQueryNode | { name: string, constraints: string }) {
+  constructor(queryName: string, topNode: GeneQueryNode) {
     this.name = null;
     this.queryId = nextQueryId++;
-    if (arg instanceof GeneQueryNode) {
-      this.queryTopNode = arg;
-    } else {
-      if (typeof(arg) === 'string') {
-        throw new Error('GeneQuery constructor needs an Object not a string');
-      }
-      if (arg['constraints']) {
-        this.queryTopNode = this.makeNode(arg['constraints']);
-        this.name = arg['name'];
-      } else {
-        this.queryTopNode = this.makeNode(arg);
-      }
-    }
+    this.queryTopNode = topNode;
 
     this.stringQuery = this.getTopNode().toString();
   }

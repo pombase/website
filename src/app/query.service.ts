@@ -76,7 +76,7 @@ export class QueryService {
 
         for (let o of JSON.parse(savedHistoryString)) {
           try {
-            const query = new GeneQuery(o.constraints);
+            const query = GeneQuery.fromJSONString(o.constraints);
             const entry = new HistoryEntry(query, o.resultCount);
             this.history.push(entry);
           } catch (e) {
@@ -112,12 +112,12 @@ export class QueryService {
   }
 
   postPredefinedQuery(queryName: string, outputOptions: QueryOutputOptions): Promise<QueryResult> {
-    const query = new GeneQuery(getAppConfig().getPredefinedQuery(queryName));
+    const query = GeneQuery.fromJSONString(getAppConfig().getPredefinedQuery(queryName));
     return this.postQuery(query, outputOptions);
   }
 
   postPredefinedQueryCount(queryName: string): Promise<number> {
-    const query = new GeneQuery(getAppConfig().getPredefinedQuery(queryName));
+    const query = GeneQuery.fromJSONString(getAppConfig().getPredefinedQuery(queryName));
     return this.postQueryCount(query);
   }
 

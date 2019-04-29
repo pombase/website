@@ -45,7 +45,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
         params['saveOrResults'] && params['saveOrResults'] === 'results';
       if (params['predefinedQueryId']) {
         const queryJson = getAppConfig().getPredefinedQuery(params['predefinedQueryId']);
-        const query = new GeneQuery(queryJson);
+        const query = GeneQuery.fromJSONString(queryJson);
         if (goToResults) {
           this.gotoResults(query);
         } else {
@@ -98,7 +98,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
   private fromSubsetName(goToResults: boolean,
                          subsetName: string, subsetDisplayName: string): void {
     const constraints = new SubsetNode (subsetName, subsetDisplayName);
-    const query = new GeneQuery(constraints);
+    const query = new GeneQuery(null, constraints);
     if (goToResults) {
       this.gotoResults(query);
     } else {
@@ -108,7 +108,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
 
   private fromJson(goToResults: boolean, json: string) {
     const obj = JSON.parse(json);
-    const query = new GeneQuery(obj);
+    const query = GeneQuery.fromJSONString(obj);
     if (goToResults) {
       this.gotoResults(query);
     } else {
@@ -128,7 +128,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
       }
       const termName = decodeURIComponent(encodedTermName);
       const constraints = new TermNode(termId, termName, null, singleOrMulti, null);
-      newQuery = new GeneQuery(constraints);
+      newQuery = new GeneQuery(null, constraints);
     }
 
     if (newQuery) {
@@ -166,7 +166,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
 
   nodeEvent({ node, nodeConf }: {node: GeneQueryNode, nodeConf: QueryNodeConfig}) {
     if (node) {
-      const query = new GeneQuery(node);
+      const query = new GeneQuery(null, node);
       this.saveQuery(query);
 //   See #1236 - maybe add the UniProt ID column to the results table if the
 //   user searches using the UniProt IDs tools

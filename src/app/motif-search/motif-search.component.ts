@@ -103,7 +103,7 @@ export class MotifSearchComponent implements OnInit {
   sendToQueryBuilder(): void {
     const geneUniquenames = this.peptideResults.map(res => res.gene_id);
     const part = new GeneListNode(geneUniquenames);
-    const geneQuery = new GeneQuery(part);
+    const geneQuery = new GeneQuery(null, part);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/query/results/from/history/', historyEntry.getEntryId()]);
     };

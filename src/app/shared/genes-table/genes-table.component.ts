@@ -160,7 +160,7 @@ export class GenesTableComponent implements OnInit {
     const selectedGenes = this.genes.filter(gene => this.selectedGenes[gene.uniquename]);
 
     const part = new GeneListNode(selectedGenes);
-    const geneQuery = new GeneQuery(part);
+    const geneQuery = new GeneQuery(null, part);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/query/results/from/history/', historyEntry.getEntryId()]);
     };
