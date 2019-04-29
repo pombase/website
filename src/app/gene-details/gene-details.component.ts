@@ -281,7 +281,7 @@ export class GeneDetailsComponent implements OnInit {
     return this.sanitizedJBrowseURL;
   }
 
-  private isGeneDetailPageType(typeName: string): boolean {
+  private showAsSection(typeName: string): boolean {
     return !this.config.getAnnotationType(typeName).no_gene_details_section;
   }
 
@@ -298,7 +298,7 @@ export class GeneDetailsComponent implements OnInit {
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
               this.annotationTypeNames = this.config.annotationTypeOrder
                 .filter(typeName => {
-                  if (this.isGeneDetailPageType(typeName)) {
+                  if (this.showAsSection(typeName)) {
                     const annotationTypeConfig = this.config.getAnnotationType(typeName);
 
                     if (annotationTypeConfig.deploy_mode) {

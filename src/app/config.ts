@@ -256,6 +256,7 @@ export interface AnnotationType {
   split_by_parents?: Array<SplitByParentsConfig>;
   columns_to_show?: Array<string>;
   details_only?: boolean;
+  // if true, don't automatically show a gene page section for this type
   no_gene_details_section?: boolean;
   hide_term_details?: boolean;
   filters?: Array<FilterConfig>;
