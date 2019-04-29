@@ -295,6 +295,7 @@ export interface ExternalGeneReference {
   field_name: string;
   go_xrf_abbrev?: string;
   url?: string;
+  show_in_sections?: Array<string>;
 }
 
 export function makeGeneExternalUrl(geneDetails: GeneDetails, extRefConf: ExternalGeneReference): Array<string> {

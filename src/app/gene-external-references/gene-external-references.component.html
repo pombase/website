@@ -7,20 +7,6 @@
     </app-help-link>
   </legend>
 
-  <table>
-    <tr *ngFor="let row of table">
-      <td>
-        {{row.refType}}
-      </td>
-      <td>
-        {{row.name}}
-      </td>
-      <td>
-        <a href="{{row.url}}">{{row.linkLabel}}</a>
-      </td>
-      <td>
-        {{row.description}}
-      </td>
-    </tr>
-  </table>
+  <app-external-refs-table [geneDetails]="geneDetails">
+  </app-external-refs-table>
 </fieldset>

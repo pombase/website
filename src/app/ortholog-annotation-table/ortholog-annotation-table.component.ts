@@ -1,8 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { OrthologAnnotation, GeneShort, ReferenceShort } from '../pombase-api.service';
+import { OrthologAnnotation, GeneShort, ReferenceShort, GeneDetails } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getOrganismExternalLink,
-         ConfigOrganism} from '../config';
+         getOrganismExternalLink, ConfigOrganism, getAppConfig, ExternalGeneReference} from '../config';
 import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
@@ -12,13 +11,15 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./ortholog-annotation-table.component.css']
 })
 export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
-  @Input() currentGene: GeneShort = null;
+  @Input() currentGene: GeneDetails = null;
   @Input() hideColumns: Array<string> = [];
   @Input() annotationTable: Array<OrthologAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   annotationTypeDisplayName: string = null;
   hideColumn: { [key: string]: boolean } = {};
+
+  extRefConfs: Array<ExternalGeneReference> = [];
 
   fullProductRef: BsModalRef = null;
 

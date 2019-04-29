@@ -7,7 +7,11 @@
     </app-help-link>
   </legend>
 
-  <div class="annotation-table-container">
+  <div class="ortholog-table annotation-table-container">
+    <div class="title">
+      Manually assigned orthologs
+    </div>
+
   <table>
     <thead>
       <tr>
@@ -48,5 +52,20 @@
       </tr>
     </tbody>
   </table>
+  </div>
+
+  <div class="external-refs">
+    <div class="title">
+      Predicted orthologs
+
+      <app-help-link [route]="'/documentation/gene-page-external-references'"
+                     [title]="'Click to view documentation for External references'">
+      </app-help-link>
+    </div>
+
+    <div class="ref-table">
+      <app-external-refs-table [geneDetails]="currentGene" [sectionFilter]="'orthologs'">
+      </app-external-refs-table>
+    </div>
   </div>
 </fieldset>

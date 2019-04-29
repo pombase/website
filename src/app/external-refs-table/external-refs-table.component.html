@@ -1,0 +1,16 @@
+<table>
+  <tr *ngFor="let row of table">
+    <td *ngIf="showTypeColumn">
+      {{row.refType}}
+    </td>
+    <td>
+      {{row.name}}
+    </td>
+    <td>
+      <a href="{{row.url}}">{{row.linkLabel}}</a>
+    </td>
+    <td>
+      {{row.description}}
+    </td>
+  </tr>
+</table>

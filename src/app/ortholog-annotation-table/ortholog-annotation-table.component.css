@@ -1,0 +1,17 @@
+.ortholog-table {
+  max-width: 1200px;
+}
+
+.title {
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+
+.ref-table {
+  max-width: 750px;
+  font-size: 90%;
+}
+
+.external-refs {
+  padding-top: 1.5em;
+}
