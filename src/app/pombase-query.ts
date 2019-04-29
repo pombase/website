@@ -31,7 +31,7 @@ export class FormatUtils {
 
     if (format === FormatTypes.FASTA) {
       for (const row of results.rows) {
-        if (row.sequence) { 
+        if (row.sequence) {
           ret += '>' + headers[row.gene_uniquename] + '\n';
           ret += Util.splitSequenceString(row.sequence);
           ret += '\n';
