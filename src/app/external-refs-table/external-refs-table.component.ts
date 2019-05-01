@@ -34,6 +34,7 @@ export class ExternalRefsTableComponent implements OnChanges {
 
   ngOnChanges() {
     this.table = [];
+    this.extRefConfs = [];
 
     for (let extRefConf of this.appConfig.externalGeneReferences) {
       let confFeatureTypes = extRefConf.feature_types;
