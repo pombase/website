@@ -538,7 +538,7 @@ export class GeneQuery {
   }
 
   constructor(queryName: string, topNode: GeneQueryNode) {
-    this.name = null;
+    this.name = queryName;
     this.queryId = nextQueryId++;
     this.queryTopNode = topNode;
 
