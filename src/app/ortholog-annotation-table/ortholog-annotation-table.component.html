@@ -7,7 +7,8 @@
     </app-help-link>
   </legend>
 
-  <div class="ortholog-table annotation-table-container">
+  <div *ngIf="annotationTable?.length > 0"
+       class="ortholog-table annotation-table-container">
     <div class="title">
       Manually assigned orthologs
     </div>

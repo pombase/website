@@ -1,5 +1,6 @@
 .ortholog-table {
   max-width: 1200px;
+  padding-bottom: 1.5em;
 }
 
 .title {
@@ -10,8 +11,4 @@
 .ref-table {
   max-width: 750px;
   font-size: 90%;
-}
-
-.external-refs {
-  padding-top: 1.5em;
 }

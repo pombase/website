@@ -193,10 +193,7 @@ export class GeneDetailsComponent implements OnInit {
       }
 
       if (annotationTypeName === 'orthologs') {
-        if (this.geneDetails.ortholog_annotations &&
-            this.geneDetails.ortholog_annotations.length > 0) {
-          this.visibleSections.push(annotationTypeName);
-        }
+        this.visibleSections.push(annotationTypeName);
       }
 
       if (annotationTypeName === 'paralogs') {
