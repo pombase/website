@@ -43,6 +43,14 @@
   </div>
 
   <div *ngIf="!selectionInProgress()">
+    <div class="action">
+      <button class="btn btn-primary"
+              (click)="configureColumns()"
+              title="Add/remove columns">
+        <span class="glyphicon glyphicon-cog"></span> Columns ...
+      </button>
+    </div>
+
   <div class="action">
     <button class="btn btn-primary"
             title="Show gene visualisation"
@@ -97,9 +105,6 @@
   <table>
     <thead>
       <tr>
-        <th *ngIf="!deployConfigService.productionMode()">
-          <a (click)="configureColumns()" title="Configure columns"><span class="glyphicon glyphicon-cog"></span></a>
-        </th>
         <th *ngIf="selectionInProgress()">
           &nbsp;
         </th>
@@ -117,9 +122,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let gene of genes | geneShortOrderBy: orderByField">
-        <td *ngIf="!deployConfigService.productionMode()">
-          &nbsp;
-        </td>
         <td *ngIf="selectionInProgress()">
           <input id="show-translation" type="checkbox"
                  [name]="gene.uniquename"
