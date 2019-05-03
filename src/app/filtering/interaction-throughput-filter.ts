@@ -2,8 +2,6 @@ import { InteractionTable, ThroughputType } from '../pombase-api.service';
 import { Filter } from '../filtering';
 
 export class InteractionThroughputFilter implements Filter<InteractionTable> {
-  evidenceCodes: Array<string> = [];
-
   constructor(private throughputType: ThroughputType) { }
 
   filter(interactionTable: InteractionTable): [InteractionTable, number, number] {

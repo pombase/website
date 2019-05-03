@@ -125,6 +125,7 @@ export interface Annotation {
   genotype: string|GenotypeShort;
   genotype_background?: string;
   extension: Array<ExtPart>;
+  throughput?: ThroughputType;
 }
 export interface TermAnnotation {
   term: TermShort;

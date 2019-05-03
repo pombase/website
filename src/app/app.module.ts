@@ -99,6 +99,7 @@ import { InteractionTableFiltersComponent } from './interaction-table-filters/in
 import { InteractionTableThroughputFilterComponent } from './interaction-table-throughput-filter/interaction-table-throughput-filter.component';
 import { GenesTableConfigComponent } from './genes-table-config/genes-table-config.component';
 import { ExternalRefsTableComponent } from './external-refs-table/external-refs-table.component';
+import { AnnotationTableThroughputFilterComponent } from './annotation-table-throughput-filter/annotation-table-throughput-filter.component';
 
 export function documentFactory() {
     return document;
@@ -183,6 +184,7 @@ export function windowFactory() {
     InteractionTableThroughputFilterComponent,
     GenesTableConfigComponent,
     ExternalRefsTableComponent,
+    AnnotationTableThroughputFilterComponent,
   ],
   imports: [
     BrowserModule,
