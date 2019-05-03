@@ -192,7 +192,10 @@
           <td class="end-pos">{{peptideMatch.end}}</td>
         </tr>
         <tr *ngIf="peptideResult.match_count > peptideResult.matches.length">
-          <td><a (click)="morePeptideMatches(peptideResult.gene_id)">Show all matches for {{peptideResult.gene_id}} ...</a></td>
+          <td></td><td></td><td colspan="5">Showing first {{peptideResult.matches.length}} matches.  <a (click)="morePeptideMatches(peptideResult.gene_id)">Show all ...</a></td>
+        </tr>
+        <tr *ngIf="peptideResult.match_count == peptideResult.matches.length && peptideResult.match_count > 20">
+          <td></td><td></td><td colspan="5">Showing all {{peptideResult.matches.length}} matches</td>
         </tr>
       </tbody>
     </table>
