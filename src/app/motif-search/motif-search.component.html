@@ -191,6 +191,9 @@
           <td class="after-peptides">{{peptideMatch.after}}</td>
           <td class="end-pos">{{peptideMatch.end}}</td>
         </tr>
+        <tr *ngIf="peptideResult.match_count > peptideResult.matches.length">
+          <td><a (click)="morePeptideMatches(peptideResult.gene_id)">Show all matches for {{peptideResult.gene_id}} ...</a></td>
+        </tr>
       </tbody>
     </table>
     <div class="other-genes" *ngIf="geneMatchesWithNoDetails != 0">

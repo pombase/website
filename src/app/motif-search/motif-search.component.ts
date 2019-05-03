@@ -28,6 +28,7 @@ export class MotifSearchComponent implements OnInit {
 
   motif = '';
   motifChanged: Subject<string> = new Subject<string>();
+  trimmedMotif = '';
 
   SearchState = SearchState;
   searchState: SearchState = SearchState.ShowHelp;
@@ -57,6 +58,7 @@ export class MotifSearchComponent implements OnInit {
 
     this.motifSub = this.motifChanged.pipe(
       map(motif => {
+        this.trimmedMotif = '';
         let trimmed = motif.trim();
         trimmed = trimmed.replace(/\|+$/g, '');
         trimmed = trimmed.replace(/^\|+/g, '');
@@ -67,6 +69,7 @@ export class MotifSearchComponent implements OnInit {
         } else {
           // this.searchState = SearchState.Searching;
         }
+        this.trimmedMotif = trimmed;
         return trimmed;
       }),
       debounceTime(250),
@@ -98,6 +101,20 @@ export class MotifSearchComponent implements OnInit {
     return results.gene_matches.filter((geneDetails: MotifPeptideResult) => {
       return geneDetails.matches;
     })
+  }
+
+  morePeptideMatches(geneUniquename: string): void {
+    this.motifService.motifSearch(geneUniquename, this.trimmedMotif).toPromise()
+      .then(results => {
+        if (results.gene_matches.length === 1) {
+          const fullGeneMatch = results.gene_matches[0];
+          const existingGeneIndex =
+            this.peptideResultsWithDetails.findIndex(existingGeneMatch => {
+              return existingGeneMatch.gene_id === fullGeneMatch.gene_id;
+            });
+          this.peptideResultsWithDetails[existingGeneIndex] = fullGeneMatch;
+        }
+      });
   }
 
   sendToQueryBuilder(): void {
