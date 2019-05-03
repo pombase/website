@@ -35,13 +35,14 @@ export class MotifService {
 
   constructor(private http: Http) { }
 
-  motifSearch(motif: string): Observable<MotifSearchResults> {
+  // scope: "all" or a gene systematic ID
+  motifSearch(scope: string, motif: string): Observable<MotifSearchResults> {
     motif = motif.trim();
     if (motif.length === 0) {
       return Observable.from([]);
     }
 
-    return this.http.get(this.motifSearchUrl + '/' + encodeURI(motif))
+    return this.http.get(this.motifSearchUrl + '/' + scope + '/' + encodeURI(motif))
      .pipe(map((res: Response) => res.json()),
            catchError(err => of({ status: 'ERROR', peptide_matches: []})));
   }

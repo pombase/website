@@ -71,7 +71,7 @@ export class MotifSearchComponent implements OnInit {
       }),
       debounceTime(250),
       distinctUntilChanged(),
-      switchMap(motif => this.motifService.motifSearch(motif)))
+      switchMap(motif => this.motifService.motifSearch('all', motif)))
       .subscribe(results => {
         if (results.status === 'OK') {
           this.peptideResults = results.gene_matches
