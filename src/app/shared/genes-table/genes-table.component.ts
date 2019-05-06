@@ -93,7 +93,7 @@ export class GenesTableComponent implements OnInit {
   }
 
   sortableField(fieldName: string): boolean {
-    return this.sortableColumns.includes(fieldName);
+    return this.sortableColumns.indexOf(fieldName) > -1;
   }
 
   download() {
