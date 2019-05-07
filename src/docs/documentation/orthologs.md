@@ -8,12 +8,15 @@ recorded manually, as described below, by curators. Budding yeast
 entries link to the [*Saccharomyces* Genome
 Database](http://www.yeastgenome.org/) (SGD), and human genes link to
 [HGNC](http://www.genenames.org/); the text descriptions come from
-these databases.
+these databases. For more information see the FAQs on 
+[budding yeast](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene) and 
+[human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) orthologs.
 
-For species other than budding yeast and human, the second subsection
-provides links to several resources that predict orthologs in all
-fungi or all species. For further information, see the [FAQ on
-orthologs in additional species](/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae).
+The second subsection provides links to several resources that predict
+orthologs in all fungi or all species (PomBase cannot manually curate
+orthologs in species other than budding yeast and human). For further
+information, see the [FAQ on orthologs in additional
+species](/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae).
 (Note: these links also appear in the External references section.)
 
 Manual ortholog prediction methods: The human and budding yeast

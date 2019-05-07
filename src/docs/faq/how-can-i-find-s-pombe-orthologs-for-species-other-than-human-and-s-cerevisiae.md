@@ -6,7 +6,8 @@ approaches:
 
 **DIOPT**
 
-From any gene page, follow the link to DIOPT under External References.
+From any gene page, follow the link to DIOPT (in the Orthologs section
+and under External References).
 
 The [Drosophila RNAi Screening Center Integrative Ortholog Prediction Tool](http://www.flyrnai.org/diopt) 
 (DIOPT) is a web-based tool that integrates several orthology
@@ -15,6 +16,19 @@ prediction tools to identify orthologous proteins for nine species
 sapiens, Mus musculus, Rattus norvegicus, Saccharomyces cerevisiae,
 Schizosaccharomyces pombe, and Xenopus tropicalis*).
 
+**PANTHER**
+
+The PANTHER (Protein ANalysis THrough Evolutionary Relationships)
+Classification System classifies proteins (and their genes) according
+to family and subfamily, molecular function, biological process, and
+pathway.
+
+From any gene page, follow the link to PANTHER (in the Orthologs
+section and under External References). The linked page includes a
+list of orthologs, and links to phylogenetic tree views that can also
+display alignments. [Help](http://www.pantherdb.org/help/PANTHERhelp.jsp)
+is available.
+
 
 **Compara**
 
@@ -22,7 +36,7 @@ You can search for orthologs/paralogs in Fungi, or in a pan-taxonomic
 comparison (eukaryotes), using Compara in the Ensembl browser.
 
 1.  On any gene page, follow the link to the Ensembl genome browser
-    under External References.
+    under Orthologs or External References.
 
 2.  Click the "Gene:" tab to show Compara links in the left-hand
     margin - for fungal alignments, choose "Fungal Compara", or for
