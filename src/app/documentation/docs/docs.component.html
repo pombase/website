@@ -5287,8 +5287,8 @@ PomBase using the Ensembl viewer.</p>
   <div *ngIf="pageName == 'orthologs'">
 <h2 id="ortholog-curation">Ortholog curation</h2>
 <p>The &quot;Orthologs&quot; section of a gene page includes two subsections.</p>
-<p>The first lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually, as described below, by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases.</p>
-<p>For species other than budding yeast and human, the second subsection provides links to several resources that predict orthologs in all fungi or all species. For further information, see the <a href="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in additional species</a>. (Note: these links also appear in the External references section.)</p>
+<p>The first lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually, as described below, by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases. For more information see the FAQs on <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">budding yeast</a> and <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> orthologs.</p>
+<p>The second subsection provides links to several resources that predict orthologs in all fungi or all species (PomBase cannot manually curate orthologs in species other than budding yeast and human). For further information, see the <a href="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in additional species</a>. (Note: these links also appear in the External references section.)</p>
 <p>Manual ortholog prediction methods: The human and budding yeast orthologs are manually predicted based on a variety of sources. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches that are uniformly one-to one across species; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase's approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
 
   </div>
@@ -7012,13 +7012,13 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Query link: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'" [predefinedQueryId]="'canned_query:conserved_in_vertebrates'"></app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family', 'How can I find all S. pombe proteins in a particular protein family?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-s.-pombe-proteins-particular-protein-family' || pageName == 'all-faqs'">
-<h3 id="how-can-i-find-all-s.-pombe-proteins-particular-protein-family">How can I find all <em>S. pombe</em> proteins in a particular protein family?</h3>
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain', 'How can I find all S. pombe proteins in a particular protein family, or that have a particular domain?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain' || pageName == 'all-faqs'">
+<h3 id="how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain">How can I find all <em>S. pombe</em> proteins in a particular protein family, or that have a particular domain?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
-<p>There are various ways you can find protein family members.</p>
+<p>There are various ways you can find protein family members or domains.</p>
 <ol style="list-style-type: decimal">
 <li>If you know the Pfam, PRINTs, PROSITE, or InterPro accession for the family or domain you want, you can use the <a routerLink="/query">advanced search</a>). Click &quot;Protein domain&quot; and then enter the accession.</li>
-<li>If you don't have an accession, but do know any member of the family, go directly to its gene page. In the &quot;Protein Features&quot; section of the gene page there is a table of protein domains and families, which includes a link to a list of all family members in S. pombe.</li>
+<li>If you don't have an accession, but do know any member of the family, go directly to its gene page. In the &quot;Protein Features&quot; section of the gene page there is a table of protein domains and families. The &quot;Count&quot; column links to a list of all family members in <em>S. pombe</em>.</li>
 <li>If you know neither accessions nor family members, you can search for keywords in the <a href="http://www.ebi.ac.uk/interpro/">InterPro</a> database, which combines signatures from a number of member databases, including Pfam. Record the accession number(s) of the family, and use them in the PomBase advanced search as described in item 1 above. (If necessary, you can use the query history to combine the results of several queries.)</li>
 </ol>
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'Proteins matching &quot;ATPase, AAA-type, core&quot; (Pfam:PF00004)'"
@@ -7175,12 +7175,15 @@ Example queries:
 <!-- pombase_categories: Orthology,Finding data,Tools and resources -->
 <p>For orthologs that are not manually curated by PomBase, we suggest a few approaches:</p>
 <p><strong>DIOPT</strong></p>
-<p>From any gene page, follow the link to DIOPT under External References.</p>
+<p>From any gene page, follow the link to DIOPT (in the Orthologs section and under External References).</p>
 <p>The <a href="http://www.flyrnai.org/diopt">Drosophila RNAi Screening Center Integrative Ortholog Prediction Tool</a> (DIOPT) is a web-based tool that integrates several orthology prediction tools to identify orthologous proteins for nine species (<em>Caenorhabditis elegans, Danio rerio, Drosophila melanogaster, Homo sapiens, Mus musculus, Rattus norvegicus, Saccharomyces cerevisiae, Schizosaccharomyces pombe, and Xenopus tropicalis</em>).</p>
+<p><strong>PANTHER</strong></p>
+<p>The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System classifies proteins (and their genes) according to family and subfamily, molecular function, biological process, and pathway.</p>
+<p>From any gene page, follow the link to PANTHER (in the Orthologs section and under External References). The linked page includes a list of orthologs, and links to phylogenetic tree views that can also display alignments. <a href="http://www.pantherdb.org/help/PANTHERhelp.jsp">Help</a> is available.</p>
 <p><strong>Compara</strong></p>
 <p>You can search for orthologs/paralogs in Fungi, or in a pan-taxonomic comparison (eukaryotes), using Compara in the Ensembl browser.</p>
 <ol style="list-style-type: decimal">
-<li><p>On any gene page, follow the link to the Ensembl genome browser under External References.</p></li>
+<li><p>On any gene page, follow the link to the Ensembl genome browser under Orthologs or External References.</p></li>
 <li>Click the &quot;Gene:&quot; tab to show Compara links in the left-hand margin - for fungal alignments, choose &quot;Fungal Compara&quot;, or for all eukaryotic species choose &quot;Pan-taxonomic Compara&quot;.</li>
 <li>You should see a &quot;collapsed&quot; gene tree highlighting your fission yeast gene of interest. From here you can click on any node to see a menu of options:
 <ol style="list-style-type: decimal">
