@@ -2,6 +2,10 @@
 {
     "typescript.tsdk": "./node_modules/typescript/lib",
     "files.exclude": {
-        "**/*~": true
+      "**/*~": true,
+      "**/.classpath": true,
+      "**/.project": true,
+      "**/.settings": true,
+      "**/.factorypath": true
     }
 }
