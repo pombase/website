@@ -56,6 +56,14 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.queryService.setAllCounts();
   }
 
+  selectAll() {
+    this.historyEntries.map(e => e.checked = true);
+  }
+
+  selectNone() {
+    this.historyEntries.map(e => e.checked = false);
+  }
+
   ngOnInit() {
     this.historyEntries = this.queryService.getHistory();
     this.histSubscription =

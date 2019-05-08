@@ -76,3 +76,7 @@ td.result-count {
     height: 4vw;
   }
 }
+
+.select-all-none {
+  padding: 0.5em 0 0 1em;
+}
