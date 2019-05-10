@@ -18,10 +18,13 @@ contains assorted data (see the README for file formats):
 -   [PeptideStats.tsv](ftp://ftp.pombase.org/pombe/Protein_data/PeptideStats.tsv) - 
     Predicted molecular weight (kDa), predicted pI, charge, length
     (residues), codon adaptation index (CAI)
--   [aa_composition.tsv](ftp://ftp.pombase.org/pombe/Protein_data/aa_composition.tsv) - 
-    Amino acid composition
 -   [Protein_Features.tsv](ftp://ftp.pombase.org/pombe/Protein_data/Protein_Features.tsv) - 
     Protein features such as domains and family assignments
+-   [aa_composition.tsv](ftp://ftp.pombase.org/pombe/Protein_data/aa_composition.tsv) - 
+    Amino acid composition
+-   [transmembrane_domain_coords_and_seqs.tsv](ftp://ftp.pombase.org/pombe/Protein_data/transmembrane_domain_coords_and_seqs.tsv) - 
+    Sequences and coordinates for transmembrane domains
+
 
 Also see the [protein modification annotations](ftp://ftp.pombase.org/pombe/annotations/modifications/) directory.
     
