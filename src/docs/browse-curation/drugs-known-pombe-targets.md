@@ -17,6 +17,7 @@ antifungal azoles | sterol biosynthesis inhibitors |
 arborcandin C | 1,3-beta-glucan synthase |  
 benomyl | destabilizes microtubules |  
 bleomycins | fungal cell wall septation and cytokinesis inhibitors |  
+bortezomib | proteasome inhibitor |  [PMID:25908789](https://www.pombase.org/reference/PMID:25908789) 
 brefeldin A | inhibits intracellular transport |  
 calcofluor white | cell wall synthesis |  
 camptothecin | topoisomerase 1 (Top1) inhibitor |  
