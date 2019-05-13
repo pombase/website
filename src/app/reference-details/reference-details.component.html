@@ -70,9 +70,9 @@
                            [visibleSections]="visibleSections"></app-details-page-menu>
   </div>
 
-  <div *ngIf="hasJBrowseTracks" class="ref-jbrowse-link">
+  <div *ngIf="hasJBrowseTracks()" class="ref-jbrowse-link">
     Datasets from this publication are available in the PomBase
-    JBrowse genome browser.  <a href="/jbrowse/"><img src="/assets/jbrowse-link-tiny.png"/> View...</a>
+    JBrowse genome browser.  <a href="{{jbrowsePath}}"><img src="/assets/jbrowse-link-tiny.png"/> View...</a>
   </div>
 
   <div *ngIf="refAnnotationStatus != null" class="annotations-section-header">

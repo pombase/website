@@ -4,6 +4,7 @@ import { TermAndName } from './pombase-query';
 const goXrfConfigMap = require('./config/go-xrf-abbr-external-links.json');
 const docConfig = require('./config/doc-config.json');
 const pombaseConfig =  require('../../pombase_v2_config.json');
+const jbrowseTracks =  require('../../minimal_jbrowse_track_list.json');
 
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
@@ -159,7 +160,6 @@ export interface AppConfig {
   externalGeneReferences: Array<ExternalGeneReference>;
   externalTermReferences: Array<ExternalTermReference>;
   miscExternalLinks: ExternalLinks;
-  pubsToLinkToJBrowse: Set<string>;
   slims: { [slimName: string]: SlimConfig };
   chromosomes: {
     [identifier: string]: ChromosomeConfig;
@@ -619,7 +619,6 @@ let _appConfig: AppConfig = {
   externalGeneReferences: pombaseConfig.external_gene_references,
   externalTermReferences: pombaseConfig.external_term_references,
   miscExternalLinks: pombaseConfig.misc_external_links,
-  pubsToLinkToJBrowse: pombaseConfig.pubs_to_link_to_jbrowse ? new Set(pombaseConfig.pubs_to_link_to_jbrowse) : new Set(),
   chromosomes: pombaseConfig.chromosomes,
   documentation: docConfig,
 
@@ -1114,4 +1113,15 @@ export function getOrganismExternalLink(organismGenus: string, organismSpecies: 
   }
 
   return null;
+}
+
+export interface JBrowseTrackInfo {
+    pmed_id: string;
+    label:   string;
+}
+
+const _jbrowseTracks: Array<JBrowseTrackInfo> = jbrowseTracks;
+
+export function getJBrowseTracksByPMID(pmid: string): Array<JBrowseTrackInfo> {
+  return  _jbrowseTracks.filter(track => track.pmed_id = pmid);
 }
