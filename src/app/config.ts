@@ -1123,5 +1123,6 @@ export interface JBrowseTrackInfo {
 const _jbrowseTracks: Array<JBrowseTrackInfo> = jbrowseTracks;
 
 export function getJBrowseTracksByPMID(pmid: string): Array<JBrowseTrackInfo> {
-  return  _jbrowseTracks.filter(track => track.pmed_id = pmid);
+  pmid = pmid.replace(/^PMID:/, '');
+  return  _jbrowseTracks.filter(track => track.pmed_id === pmid);
 }
