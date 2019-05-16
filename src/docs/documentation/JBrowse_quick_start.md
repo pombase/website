@@ -42,6 +42,26 @@ or go to the "Select tracks" page and clear its tickbox.
 
 Drag and drop tracks to change the order in which they appear.
 
+#### Changing the track scale
+By default, the scale fits the range of the data being displayed in the current viewing window. The scale can be manually defined.
+
+Click the downarrow to the right of the track label:
+
+![Jbrowse edit config](assets/jbrowse_track_label_config.png){width="700"}
+
+Change the scale by defining a max_score and/or a min score:
+
+![JBrowse_max_score defined](assets/jbrowse_max_score.png){width="400"}
+
+The scale can be made consistent across tracks: 
+
+![rescaled tracks](jbrowse_rescaled.png){width="700"}
+jbrowse_rescaled.png
+
+More wiggle track configuration option in the official
+[JBrowse documentation](http://gmod.org/wiki/JBrowse_Configuration_Guide#Wiggle_track_configuration_options)
+
+
 #### Locating data
 Each entry in the left-hand column can be used to filter the track
 list. Filter criteria fall into several categories, corresponding to
