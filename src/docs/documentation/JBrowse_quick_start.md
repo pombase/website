@@ -45,7 +45,7 @@ Drag and drop tracks to change the order in which they appear.
 #### Changing the track scale
 By default, the scale fits the range of the data being displayed in the current viewing window. The scale can be manually defined.
 
-Click the downarrow to the right of the track label:
+Click the downarrow to the right of the track label, and click on edit config:
 
 ![Jbrowse edit config](assets/jbrowse_track_label_config.png){width="700"}
 
