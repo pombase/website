@@ -55,7 +55,7 @@ Change the scale by defining a max_score and/or a min score:
 
 The scale can be made consistent across tracks: 
 
-![rescaled tracks](jbrowse_rescaled.png){width="700"}
+![rescaled tracks](assets/jbrowse_rescaled.png){width="700"}
 jbrowse_rescaled.png
 
 More wiggle track configuration option in the official
