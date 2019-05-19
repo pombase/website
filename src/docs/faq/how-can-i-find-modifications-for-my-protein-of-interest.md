@@ -16,8 +16,7 @@ for more information, including how ontology searches retrieve
 annotations to general terms.
 
 Example query: 
-<app-query-link [goToResults]="true" [linkText]="'phosphorylated residue (MOD:00696)'"
-    [predefinedQueryId]="'MOD_696'">
+<app-query-link [goToResults]="true" [linkText]="'phosphorylated residue (MOD:00696)'" [predefinedQueryId]="'MOD_696'">
 </app-query-link>
 
 There is also an ontology term page for each modification term used to

@@ -14,10 +14,8 @@ Also see the FAQs on [finding genes conserved in human](/faq/how-can-i-find-all-
 
 Example queries:
 
--  <app-query-link [goToResults]="true" [linkText]="'disease (DOID:4)'"
-    [predefinedQueryId]="'canned_query:all_diseases'">
+-  <app-query-link [goToResults]="true" [linkText]="'disease (DOID:4)'" [predefinedQueryId]="'canned_query:all_diseases'">
   </app-query-link>
 
--  <app-query-link [goToResults]="true" [linkText]="'cancer (DOID:162)'"
-    [predefinedQueryId]="'cancer'">
+-  <app-query-link [goToResults]="true" [linkText]="'cancer (DOID:162)'" [predefinedQueryId]="'cancer'">
   </app-query-link>

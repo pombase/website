@@ -19,8 +19,7 @@ and the [Gene Page GO documentation](/documentation/gene-page-gene-ontology)
 for more information, including how [ontology searches retrieve
 annotations] to general terms.
 
-Example query: <app-query-link [goToResults]="true" [linkText]="'phosphoprotein phosphatase activity (GO:0004721)'"
-    [predefinedQueryId]="'GO_4721'">
+Example query: <app-query-link [goToResults]="true" [linkText]="'phosphoprotein phosphatase activity (GO:0004721)'" [predefinedQueryId]="'GO_4721'">
 </app-query-link>
 
 

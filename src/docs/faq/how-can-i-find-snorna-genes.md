@@ -8,6 +8,5 @@ Note that there are likely a number of snoRNAs that have not yet been
 identified and annotated in *S. pombe*; we hope to investigate further
 in the future.
 
-Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'"
-    [predefinedQueryId]="'snorna_genes'">
+Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'" [predefinedQueryId]="'snorna_genes'">
 </app-query-link>

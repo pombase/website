@@ -19,8 +19,7 @@ There are various ways you can find protein family members or domains.
     in item 1 above. (If necessary, you can use the query history to
     combine the results of several queries.)
 
-Example query: <app-query-link [goToResults]="true" [linkText]="'Proteins matching &quot;ATPase, AAA-type, core&quot; (Pfam:PF00004)'"
-    [predefinedQueryId]="'Pfam_PF00004'">
+Example query: <app-query-link [goToResults]="true" [linkText]="'Proteins matching &quot;ATPase, AAA-type, core&quot; (Pfam:PF00004)'" [predefinedQueryId]="'Pfam_PF00004'">
 </app-query-link>
 
 
