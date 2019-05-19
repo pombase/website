@@ -7917,6 +7917,7 @@ http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#customisable-fasta-download">Customisable FASTA download</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-interpro-update">PomBase InterPro Update</a></div>
@@ -8993,9 +8994,32 @@ Please sign the letter to add your voice in support of the databases that help m
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'tRNA_metabolism_update'">
+<h3 id="trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: rna_metabolism_32px.png -->
+<p>The process of tRNA metabolism, and the associated molecular functions have recently been reviewed.</p>
+<ul>
+<li><a href="https://www.pombase.org/term/GO:0006399">&quot;tRNA metabolic process&quot; annotation</a></li>
+<li><a href="https://www.pombase.org/term_genes/GO:0006399">genes for &quot;tRNA metabolic process&quot;</a></li>
+</ul>
+<p>Please let us know if the annotation can be further improved.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/rna_metabolism_32px.png"/></p>
+<h3 id="trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</h3>
+<p><em>2019-05-19</em></p>
+<p>The process of tRNA metabolism, and the associated molecular functions have recently been reviewed.</p>
+<ul>
+<li><a href="https://www.pombase.org/term/GO:0006399">&quot;tRNA metabolic process&quot; annotation</a></li>
+<li><a href="https://www.pombase.org/term_genes/GO:0006399">genes for &quot;tRNA metabolic process&quot;</a></li>
+</ul>
+<p>Please let us know if the annotation can be further improved.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
 <h3 id="customisable-fasta-download">Customisable FASTA download</h3>
