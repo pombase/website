@@ -7,8 +7,8 @@ dist: xenial
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get -y install libjson-perl libtext-csv-perl libperlio-gzip-perl libgd-perl libjson-perl pandoc
-  - (curl -L http://cpanmin.us | sudo perl - --self-upgrade) && sudo cpanm Pandoc
+  - sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl pandoc
+  - (curl -L http://cpanmin.us | sudo perl - --self-upgrade) && sudo cpanm Pandoc Text::CSV
   - curl -OL http://current.geneontology.org/metadata/GO.xrf_abbs
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
