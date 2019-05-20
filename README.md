@@ -3,6 +3,10 @@ Front end code for PomBase
 See https://github.com/pombase/website/tree/master/
 ## The PomBase frontend code
 
+### Build and test status
+
+[![Build Status](https://api.travis-ci.org/pombase/website.svg?branch=master)](https://travis-ci.org/pombase/website)
+
 ### Deploying
 
 The site is deployed by building a container from the JSON output of `pombase-chado-json`,
@@ -20,11 +24,11 @@ https://github.com/pombase/pombase-chado/blob/master/etc/build_container.sh
 
 `git clone https://github.com/pombase/website.git pombase-website`
 
-`cd pombase-website/frontend`
+`cd pombase-website/`
 
 ### Run test server
 
-`ng serve --host 0.0.0.0 --proxy-config proxy.conf.json`
+`ng serve --port 4242 --disable-host-check --host 0.0.0.0 --proxy-config proxy.conf.json`
 
 ### Run JSON/query server
 
