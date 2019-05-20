@@ -1,0 +1,822 @@
+[
+    {
+        "pmed_id": "21151114",
+        "label": "Arb1 chromatin binding sites in clr4delta during vegetative growth; repeat 1 - Woolcock et al. (2011)"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Arb1 chromatin binding sites in clr4delta during vegetative growth; repeat 2 - Woolcock et al. (2011)"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Arb1 chromatin binding sites in clr4delta during vegetative growth; repeat 3 - Woolcock et al. (2011)"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Arb1 chromatin binding sites during vegetative growth; repeat 1 - Woolcock et al. (2011)"
+    },
+    {
+        "label": "Arb1 chromatin binding sites during vegetative growth; repeat 2 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Arb1 chromatin binding sites during vegetative growth; repeat 3 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Dcr1 chromatin binding sites clr4delta during vegetative growth; repeat 1 - Woolcock et al. (2011)"
+    },
+    {
+        "label": "Dcr1 chromatin binding sites in clr4delta during vegetative growth; repeat 2 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Dcr1 chromatin binding sites in clr4delta during vegetative growth; repeat 3 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Dcr1 chromatin binding sites during vegetative growth; repeat 1 - Woolcock et al. (2011)"
+    },
+    {
+        "label": "Dcr1 chromatin binding sites during vegetative growth; repeat 2 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Dcr1 chromatin binding sites during vegetative growth; repeat 3 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Rdp1 chromatin binding sites in clr4delta during vegetative growth; repeat 1 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Rdp1 chromatin binding sites in clr4delta during vegetative growth; repeat 2 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Rdp1 chromatin binding sites in clr4delta during vegetative growth; repeat 3 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Rdp1 chromatin binding sites during vegetative growth; repeat 1 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Rdp1 chromatin binding sites during vegetative growth; repeat 2 - Woolcock et al. (2011)"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Rdp1 chromatin binding sites during vegetative growth; repeat 3 - Woolcock et al. (2011)"
+    },
+    {
+        "label": "Swi6 chromatin binding sites in clr4delta during vegetative growth; repeat 1 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Swi6 chromatin binding sites in clr4delta during vegetative growth; repeat 2 - Woolcock et al. (2011)"
+    },
+    {
+        "label": "Swi6 chromatin binding sites in clr4delta during vegetative growth; repeat 3 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Swi6 chromatin binding sites in dcr1delta during vegetative growth; repeat 2 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Swi6 chromatin binding sites in dcr1delta during vegetative growth; repeat 1 - Woolcock et al. (2011)"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Swi6 chromatin binding sites during vegetative growth; (control channel:clr4delta) repeat 1 - Woolcock et al. (2011)"
+    },
+    {
+        "label": "Swi6 chromatin binding sites during vegetative growth; (control channel: clr4delta) repeat 2 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "pmed_id": "21151114",
+        "label": "Swi6 chromatin binding sites during vegetative growth; (control channel: clr4delta) repeat 3 - Woolcock et al. (2011)"
+    },
+    {
+        "label": "Swi6 chromatin binding sites during vegetative growth; (control channel: dam only) repeat 1 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Swi6 chromatin binding sites during vegetative growth; (control channel: dam only) repeat 2 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Swi6 chromatin binding sites during vegetative growth; (control channel: dam only) repeat 3 - Woolcock et al. (2011)",
+        "pmed_id": "21151114"
+    },
+    {
+        "label": "Intron Branch Points - Bitton et al. (2014)",
+        "pmed_id": "24709818"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "nucleosome positioning at 0h meiosis in pat1-114 background - Soriano et al. (2013)"
+    },
+    {
+        "label": "nucleosome positioning at 3h meiosis in pat1-114 background - Soriano et al. (2013)",
+        "pmed_id": "24256300"
+    },
+    {
+        "label": "nucleosome positioning at 5h meiosis in pat1-114 background - Soriano et al. (2013)",
+        "pmed_id": "24256300"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "nucleosome positioning during vegetative growth in diploid pat1-114 background - Soriano et al. (2013)"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "nucleosome positioning in atf1delta during vegetative growth - Soriano et al. (2013)"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "nucleosome positioning in pcr1delta during vegetative growth - Soriano et al. (2013)"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "nucleosome positioning during vegetative growth - Soriano et al. (2013)"
+    },
+    {
+        "label": "nucleosome positioning during vegetative growth - Soriano et al. (2013)",
+        "pmed_id": "24256300"
+    },
+    {
+        "label": "Poly(A) sites during exponential growth (forward strand) - Mata (2013)",
+        "pmed_id": "23900342"
+    },
+    {
+        "pmed_id": "23900342",
+        "label": "Poly(A) sites during exponential growth (reverse strand) - Mata (2013)"
+    },
+    {
+        "pmed_id": "24152550",
+        "label": "Poly(A) sites; all data (forward strand) - Schlackow et al. (2013)"
+    },
+    {
+        "pmed_id": "24152550",
+        "label": "Poly(A) sites; all data (reverse strand) - Schlackow et al. (2013)"
+    },
+    {
+        "pmed_id": "24152550",
+        "label": "Poly(A) sites; all strand-specific data (forward strand) - Schlackow et al. (2013)"
+    },
+    {
+        "pmed_id": "24152550",
+        "label": "Poly(A) sites; all strand-specific data (reverse strand) - Schlackow et al. (2013)"
+    },
+    {
+        "pmed_id": "24152550",
+        "label": "Poly(A) sites during meiotic arrest in pat1-114 background (forward strand) - Schlackow et al. (2013)"
+    },
+    {
+        "pmed_id": "24152550",
+        "label": "Poly(A) sites during meiotic arrest in pat1-114 background (reverse strand) - Schlackow et al. (2013)"
+    },
+    {
+        "pmed_id": "24152550",
+        "label": "Poly(A) sites during quiescence 24h (forward strand) - Schlackow et al. (2013)"
+    },
+    {
+        "label": "Poly(A) sites during quiescence 24h (reverse strand) - Schlackow et al. (2013)",
+        "pmed_id": "24152550"
+    },
+    {
+        "label": "Poly(A) sites during quiescence 7d (forward strand) - Schlackow et al. (2013)",
+        "pmed_id": "24152550"
+    },
+    {
+        "label": "Poly(A) sites during quiescence 7d (reverse strand) - Schlackow et al. (2013)",
+        "pmed_id": "24152550"
+    },
+    {
+        "label": "Poly(A) sites (non-strand-specific) during exponential growth (forward strand) - Schlackow et al. (2013)",
+        "pmed_id": "24152550"
+    },
+    {
+        "pmed_id": "24152550",
+        "label": "Poly(A) sites (non-strand-specific) during exponential growth (reverse strand) - Schlackow et al. (2013)"
+    },
+    {
+        "label": "Replication origins in cells synchronized by cdc25-ts block/release and hydroxyurea arrest - Xu et al. (2012)",
+        "pmed_id": "22531001"
+    },
+    {
+        "pmed_id": "22531001",
+        "label": "Replication origins in dfp1-3A synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)"
+    },
+    {
+        "label": "Replication origins in cells synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)",
+        "pmed_id": "22531001"
+    },
+    {
+        "label": "Poly(A)+ transcripts during quiescence; repeat 1 - Marguerat et al. (2012)",
+        "pmed_id": "23101633"
+    },
+    {
+        "label": "Poly(A)+ transcripts during quiescence; repeat 2 - Marguerat et al. (2012)",
+        "pmed_id": "23101633"
+    },
+    {
+        "label": "Poly(A)+ transcripts during vegetative growth; repeat 1  - Marguerat et al. (2012)",
+        "pmed_id": "23101633"
+    },
+    {
+        "pmed_id": "23101633",
+        "label": "Poly(A)+ transcripts during vegetative growth; repeat 2 - Marguerat et al. (2012)"
+    },
+    {
+        "label": "Total transcripts during vegetative growth; repeat 1 - Marguerat et al. (2012)",
+        "pmed_id": "23101633"
+    },
+    {
+        "pmed_id": "23101633",
+        "label": "Total transcripts during vegetative growth; repeat 2 - Marguerat et al. (2012)"
+    },
+    {
+        "pmed_id": "23101633",
+        "label": "Total transcripts in quiescent cells; repeat 1 - Marguerat et al. (2012)"
+    },
+    {
+        "pmed_id": "23101633",
+        "label": "Total transcripts in quiescent cells; repeat 2 - Marguerat et al. (2012)"
+    },
+    {
+        "pmed_id": "21511999",
+        "label": "Transcripts; all data (forward strand) - Rhind et al. (2011)"
+    },
+    {
+        "label": "Transcripts; all data (reverse strand) - Rhind et al. (2011)",
+        "pmed_id": "21511999"
+    },
+    {
+        "pmed_id": "21511999",
+        "label": "Transcripts during early stationary phase (forward strand) - Rhind et al. (2011)"
+    },
+    {
+        "label": "Transcripts during early stationary phase (reverse strand) - Rhind et al. (2011)",
+        "pmed_id": "21511999"
+    },
+    {
+        "pmed_id": "21511999",
+        "label": "Transcripts during glucose starvation (forward strand) - Rhind et al. (2011)"
+    },
+    {
+        "label": "Transcripts during glucose starvation (reverse strand) - Rhind et al. (2011)",
+        "pmed_id": "21511999"
+    },
+    {
+        "label": "Transcripts during heat shock (forward strand) - Rhind et al. (2011)",
+        "pmed_id": "21511999"
+    },
+    {
+        "pmed_id": "21511999",
+        "label": "Transcripts during heat shock (reverse strand) - Rhind et al. (2011)"
+    },
+    {
+        "label": "Transcripts during vegetative growth (forward strand) - Rhind et al. (2011)",
+        "pmed_id": "21511999"
+    },
+    {
+        "label": "Transcripts during vegetative growth (reverse strand) - Rhind et al. (2011)",
+        "pmed_id": "21511999"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "Transcripts during meiosis 0h in pat1-114 background (forward strand) - Soriano et al. (2013)"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "Transcripts during meiosis 0h in pat1-114 background (reverse strand) - Soriano et al. (2013)"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "Transcripts during meiosis 3h in pat1-114 background (forward strand) - Soriano et al. (2013)"
+    },
+    {
+        "label": "Transcripts during meiosis 3h in pat1-114 background (reverse strand) - Soriano et al. (2013)",
+        "pmed_id": "24256300"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "Transcripts during meiosis 5h in pat1-114 background (forward strand) - Soriano et al. (2013)"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "Transcripts during meiosis 5h in pat1-114 background (reverse strand) - Soriano et al. (2013)"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "Transcripts during vegetative growth (forward strand) - Soriano et al. (2013)"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "Transcripts during vegetative growth (reverse strand) - Soriano et al. (2013)"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "Transcripts in atf1delta (forward strand) - Soriano et al. (2013)"
+    },
+    {
+        "label": "Transcripts in atf1delta (reverse strand) - Soriano et al. (2013)",
+        "pmed_id": "24256300"
+    },
+    {
+        "label": "Transcripts in diploid vegetative pat1-114 (forward strand) - Soriano et al. (2013)",
+        "pmed_id": "24256300"
+    },
+    {
+        "label": "Transcripts in diploid vegetative pat1-114 (reverse strand) - Soriano et al. (2013)",
+        "pmed_id": "24256300"
+    },
+    {
+        "pmed_id": "24256300",
+        "label": "Transcripts in pcr1delta (forward strand) - Soriano et al. (2013)"
+    },
+    {
+        "label": "Transcripts in pcr1delta (reverse strand) - Soriano et al. (2013)",
+        "pmed_id": "24256300"
+    },
+    {
+        "label": "Poly(A)+ transcripts during vegetative growth; repeat 1 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Poly(A)+ transcripts during vegetative growth; repeat 2 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Poly(A)+ transcripts during vegetative growth; repeat 3 - Wilhelm et al. (2012)"
+    },
+    {
+        "label": "Transcripts during vegetative growth - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 0h in pat1-114 background; repeat 1 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 0h in pat1-114 background; repeat 2 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Transcripts during meiosis 0h in pat1-114 background; repeat 3 - Wilhelm et al. (2012)"
+    },
+    {
+        "label": "Transcripts during meiosis 0h in pat1-114 background; repeat 4 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 1h+2h in pat1-114 background; repeat 1 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 1h+2h in pat1-114 background; repeat 2 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 1h+2h in pat1-114 background; repeat 3 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 1h+2h in pat1-114 background; repeat 4 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Transcripts during meiosis 3h+4h in pat1-114 background; repeat 1 - Wilhelm et al. (2012)"
+    },
+    {
+        "label": "Transcripts during meiosis 3h+4h in pat1-114 background; repeat 2 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Transcripts during meiosis 3h+4h in pat1-114 background; repeat 3 - Wilhelm et al. (2012)"
+    },
+    {
+        "label": "Transcripts during meiosis 3h+4h in pat1-114 background; repeat 4 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 5h+6h in pat1-114 background; repeat 1 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Transcripts during meiosis 5h+6h in pat1-114 background; repeat 2 - Wilhelm et al. (2012)"
+    },
+    {
+        "label": "Transcripts during meiosis 5h+6h in pat1-114 background; repeat 3 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 5h+6h in pat1-114 background; repeat 4 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 7h+8h in pat1-114 background; repeat 1 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during meiosis 7h+8h in pat1-114 background; repeat 2 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Transcripts during meiosis 7h+8h in pat1-114 background; repeat 3 - Wilhelm et al. (2012)"
+    },
+    {
+        "label": "Transcripts during meiosis 7h+8h in pat1-114 background; repeat 4 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during oxidative stress (15 min 0.5mM H2O2); repeat 1 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "label": "Transcripts during oxidative stress (15 min 0.5mM H2O2); repeat 2 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Transcripts during oxidative stress  (15 min 0.5mM H2O2); repeat 3 - Wilhelm et al. (2012)"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Transcripts during vegetative growth; repeat 1 - Wilhelm et al. (2012)"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Transcripts during vegetative growth; repeat 2 - Wilhelm et al. (2012)"
+    },
+    {
+        "label": "Transcripts in prp2-1 mutant; repeat 1 - Wilhelm et al. (2012)",
+        "pmed_id": "18488015"
+    },
+    {
+        "pmed_id": "18488015",
+        "label": "Transcripts in prp2-1 mutant; repeat 2 - Wilhelm et al. (2012)"
+    },
+    {
+        "label": "Position specific G(x) scores (free energy needed to separate a base pair) - Yadav et al. (2012)",
+        "pmed_id": "23163955"
+    },
+    {
+        "pmed_id": "25361970",
+        "label": "Consensus transcription factor DNA binding motifs"
+    },
+    {
+        "label": "Transcription start sites in glucose minimal medium (forward strand) - Thodberg et al. (2018)",
+        "pmed_id": "30566651"
+    },
+    {
+        "label": "Transcription start sites in glucose minimal medium (reverse strand) - Thodberg et al. (2018)",
+        "pmed_id": "30566651"
+    },
+    {
+        "label": "Transcription start sites in YES (forward strand) - Thodberg et al. (2018)",
+        "pmed_id": "30566651"
+    },
+    {
+        "pmed_id": "30566651",
+        "label": "Transcription start sites in YES (reverse strand) - Thodberg et al. (2018)"
+    },
+    {
+        "label": "Transcription start sites during heat shock (forward strand) - Thodberg et al. (2018)",
+        "pmed_id": "30566651"
+    },
+    {
+        "pmed_id": "30566651",
+        "label": "Transcription start sites during heat shock (reverse strand) - Thodberg et al. (2018)"
+    },
+    {
+        "label": "Transcription start sites during oxidative stress (forward strand) - Thodberg et al. (2018)",
+        "pmed_id": "30566651"
+    },
+    {
+        "label": "Transcription start sites during oxidative stress (reverse strand) - Thodberg et al. (2018)",
+        "pmed_id": "30566651"
+    },
+    {
+        "pmed_id": "30566651",
+        "label": "Transcription start sites during nitrogen starvation (forward strand) - Thodberg et al. (2018)"
+    },
+    {
+        "pmed_id": "30566651",
+        "label": "Transcription start sites during nitrogen starvation (reverse strand) - Thodberg et al. (2018)"
+    },
+    {
+        "pmed_id": "30566651",
+        "label": "Consensus transcription start sites - Thodberg et al. (2018)"
+    },
+    {
+        "label": "Indels in 161 S. pombe natural isolates",
+        "pmed_id": "25665008"
+    },
+    {
+        "pmed_id": "25665008",
+        "label": "SNPs in 161 S. pombe natural isolates"
+    },
+    {
+        "label": "Poly(A)+ transcripts in rrp6-ts during vegetative growth; repeat 1 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in rrp6-ts during vegetative growth; repeat 1 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in rrp6-ts during vegetative growth; repeat 2 forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in rrp6-ts during vegetative growth; repeat 2 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts in rrp6delta during vegetative growth; repeat 1 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts in rrp6delta during vegetative growth; repeat 1 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts in rrp6delta during vegetative growth; repeat 2 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in rrp6delta during vegetative growth; repeat 2 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in dis3-54 during vegetative growth; repeat 1 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in dis3-54 during vegetative growth; repeat 1 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in dis3-54 during vegetative growth; repeat 2 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts in dis3-54 during vegetative growth; repeat 2 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in ago1delta during vegetative growth; repeat 1 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in ago1delta during vegetative growth; repeat 1 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts in ago1delta during vegetative growth; repeat 2 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts in ago1delta during vegetative growth; repeat 2 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts in ago1delta during vegetative growth; repeat 3 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in ago1delta during vegetative growth; repeat 3 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in dcr1delta during vegetative growth; repeat 1 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in dcr1delta during vegetative growth; repeat 1 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in dcr1delta during vegetative growth; repeat 2 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts in dcr1delta during vegetative growth; repeat 2 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts in rdp1delta during vegetative growth; repeat 1 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in rdp1delta during vegetative growth; repeat 1 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts in rdp1delta during vegetative growth; repeat 2 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts in rdp1delta during vegetative growth; repeat 2 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts in exo1delta during vegetative growth; repeat 1 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts in exo1delta during vegetative growth; repeat 1 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts in exo1delta during vegetative growth; repeat 2 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts in exo1delta during vegetative growth; repeat 2 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during vegetative growth (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during vegetative growth (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "21981922",
+        "label": "Poly(A)+ transcripts during vegetative growth (forward strand) - Lemieux et al. (2011)"
+    },
+    {
+        "pmed_id": "21981922",
+        "label": "Poly(A)+ transcripts during vegetative growth (reverse strand) - Lemieux et al. (2011)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during vegetative growth (forward strand) - Lemay et al. (2014)",
+        "pmed_id": "25240800"
+    },
+    {
+        "label": "Poly(A)+ transcripts during vegetative growth (reverse strand) - Lemay et al. (2014)",
+        "pmed_id": "25240800"
+    },
+    {
+        "label": "Poly(A)+ transcripts during 7d quiescence (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts during 7d quiescence  (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during early stationary phase; repeat 1 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during early stationary phase; repeat 1 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during early stationary phase; repeat 2 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during early stationary phase; repeat 2 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts during late stationary phase; repeat 1 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts during late stationary phase; repeat 1 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts during late stationary phase; repeat 2 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during late stationary phase; repeat 2 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during meiosis 0h in pat1-114 background; repeat 1 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 0h in pat1-114 background; repeat 1 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 0h in pat1-114 background; repeat 2 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during meiosis 0h in pat1-114 background; repeat 2 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during meiosis 2h in pat1-114 background; repeat 1 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 2h in pat1-114 background; repeat 1 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 2h in pat1-114 background; repeat 2 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during meiosis 2h in pat1-114 background; repeat 2 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 4h in pat1-114 background; repeat 1 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during meiosis 4h in pat1-114 background; repeat 1 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 4h in pat1-114 background; repeat 2 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during meiosis 4h in pat1-114 background; repeat 2 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 6h in pat1-114 background; repeat 1 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during meiosis 6h in pat1-114 background; repeat 1 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 6h in pat1-114 background; repeat 2 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during meiosis 6h in pat1-114 background; repeat 2 (reverse strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 8h in pat1-114 background; repeat 1 (forward strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 8h in pat1-114 background; repeat 1 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "29914874",
+        "label": "Poly(A)+ transcripts during meiosis 8h in pat1-114 background; repeat 2 (forward strand) - Atkinson et al. (2018)"
+    },
+    {
+        "label": "Poly(A)+ transcripts during meiosis 8h in pat1-114 background; repeat 2 (reverse strand) - Atkinson et al. (2018)",
+        "pmed_id": "29914874"
+    },
+    {
+        "pmed_id": "27662899",
+        "label": "nucleosome positioning during vegetative growth; repeat 1 - González et al. (2016)"
+    },
+    {
+        "label": "nucleosome positioning during vegetative growth; repeat 2 - González et al. (2016)",
+        "pmed_id": "27662899"
+    },
+    {
+        "label": "Untagged control; 2 combined repeats - Garg et al. (2015)",
+        "pmed_id": "25908789"
+    },
+    {
+        "label": "Fkh2 chromatin binding sites during vegetative growth; TAP tag, 2 combined repeats - Garg et al. (2015)",
+        "pmed_id": "25908789"
+    },
+    {
+        "label": "Sak1 chromatin binding sites during vegetative growth; TAP tag, 2 combined repeats - Garg et al. (2015)",
+        "pmed_id": "25908789"
+    },
+    {
+        "pmed_id": "25908789",
+        "label": "Sep1 chromatin binding sites during bortezomib treatment; TAP tag, 2 combined repeats - Garg et al. (2015)"
+    }
+]
