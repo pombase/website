@@ -13,7 +13,7 @@ before_install:
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_jbrowse_track_metadata.csv
-  - curl -OL https://github.com/pombase/pombase-chado/blob/master/etc/create_jbrowse_track_list.pl && chmod a+x create_jbrowse_track_list.pl
+  - curl -OL https://raw.githubusercontent.com/pombase/pombase-chado/master/etc/create_jbrowse_track_list.pl && chmod a+x create_jbrowse_track_list.pl
   - yarn
 
 script: >
