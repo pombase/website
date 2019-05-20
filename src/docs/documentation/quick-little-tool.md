@@ -44,6 +44,7 @@ At present, QuiLT includes:
 - GO molecular function
 - [Characterization status](/status/gene-characterisation) for protein-coding genes
 - [Taxonomic distribution](/documentation/taxonomic-conservation)
+- Protein length
 
 #### GO annotation precedence
 
