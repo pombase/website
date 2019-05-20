@@ -11,8 +11,11 @@ before_install:
   - (curl -L http://cpanmin.us | sudo perl - --self-upgrade) && sudo cpanm Pandoc
   - curl -OL http://current.geneontology.org/metadata/GO.xrf_abbs
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json
+  - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
+  - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_jbrowse_track_metadata.csv
+  - curl -OL https://github.com/pombase/pombase-chado/blob/master/etc/create_jbrowse_track_list.pl && chmod a+x create_jbrowse_track_list.pl
   - yarn
 
-script:
-  - cp etc/example_minimal_jbrowse_track_list.json minimal_jbrowse_track_list.json
-  - ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
+script: >
+  ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json &&
+  ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
