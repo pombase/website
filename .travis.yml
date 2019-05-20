@@ -4,11 +4,13 @@ node_js:
 cache: yarn
 
 dist: xenial
+
 before_install:
-  - apt install libjson-perl
+  - sudo apt install libjson-perl
   - curl -OL http://current.geneontology.org/metadata/GO.xrf_abbs
   - curl -IL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json
   - yarn
+
 script:
   - ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json
   - ./node_modules/@angular/cli/bin/ng build
