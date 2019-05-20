@@ -15,4 +15,4 @@ before_install:
 
 script:
   - cp etc/example_minimal_jbrowse_track_list.json minimal_jbrowse_track_list.json
-  - ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json && ./node_modules/@angular/cli/bin/ng build
+  - ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
