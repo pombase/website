@@ -1,7 +1,6 @@
-Front end code for PomBase
+## PomBase frontend code
 
 See https://github.com/pombase/website/tree/master/
-## The PomBase frontend code
 
 ### Build and test status
 
