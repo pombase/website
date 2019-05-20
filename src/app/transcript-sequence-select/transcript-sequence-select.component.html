@@ -115,7 +115,7 @@
                 </form>
               </span>
 
-              <span class="sequence-action">
+              <span *ngIf="geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
                 <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbiprotform
                       (ngSubmit)="ncbiprotform.submit()"
                       target="_blank"
@@ -127,7 +127,7 @@
                 </form>
               </span>
 
-              <span class="sequence-action">
+              <span *ngIf="geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
                 <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensprotform
                       (ngSubmit)="ensprotform.submit();"
                       target="_blank"
