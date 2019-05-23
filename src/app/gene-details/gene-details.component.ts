@@ -260,7 +260,7 @@ export class GeneDetailsComponent implements OnInit {
             jbEnd = chrLength;
           }
 
-          const chrDisplayName = this.appConfig.chromosomes[chrName].short_display_name;
+          const chrDisplayName = this.appConfig.chromosomes[chrName].export_id;
 
           const tracks = 'PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CDNA%20sequence';
           this.jbrowseLinkUrl =

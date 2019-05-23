@@ -32,6 +32,8 @@ export interface ExternalLinks {
 export interface ChromosomeConfig {
   long_display_name: string;
   short_display_name: string;
+  export_id: string;
+  export_file_id: string;
 }
 
 export interface QueryNodeTermConfig {
