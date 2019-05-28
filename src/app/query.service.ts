@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { GeneQuery, QueryResult, QueryOutputOptions } from './pombase-query';
 import { getAppConfig } from './config';
@@ -66,7 +66,7 @@ export class QueryService {
   private apiUrl = '/api/v1/dataset/latest';
 
   private history: Array<HistoryEntry> = [];
-  private subject: Subject<Array<HistoryEntry>> = new Subject();
+  private subject: BehaviorSubject<Array<HistoryEntry>> = null;
 
   constructor(private http: Http) {
     try {
@@ -83,6 +83,8 @@ export class QueryService {
             console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
           }
         };
+
+        this.subject = new BehaviorSubject(this.history);
 
         let timer = TimerObservable.create(0.2);
         timer.subscribe(t => {
