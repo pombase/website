@@ -2,19 +2,15 @@
   <div>Evidence: {{title}}</div>
   <div class="link-hint" *ngIf="link">(click to view evidence code description)</div>
 </ng-template>
-<span>
+<span [popover]="evidencePopover"
+      triggers="mouseenter:mouseleave"
+      placement="left" container="body">
   <span *ngIf="link">
-    <a [attr.href]="link"
-       [popover]="evidencePopover"
-       triggers="mouseenter:mouseleave"
-       placement="bottom" container="body">
+    <a [attr.href]="link">
       {{displayName}}
     </a>
   </span>
-  <span *ngIf="!link"
-        [popover]="evidencePopover"
-        triggers="mouseenter:mouseleave"
-        placement="bottom" container="body">
+  <span *ngIf="!link">
     {{displayName}}
   </span>
 </span>
