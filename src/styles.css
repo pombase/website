@@ -193,6 +193,7 @@ select option:disabled {
 
 .popover {
   max-width: 60em !important;
+  pointer-events: none;
 }
 
 .menu-pos-fixed {
