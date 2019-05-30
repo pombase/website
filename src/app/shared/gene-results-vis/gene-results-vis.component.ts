@@ -96,7 +96,7 @@ class AttrValueConf {
 })
 export class GeneResultsVisComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];
-  @ViewChild('visSVG') visSvg: ElementRef;
+  @ViewChild('visSVG', { static: false }) visSvg: ElementRef;
 
   geneDataMap: { [geneUniquename: string]: GeneData } = {};
 

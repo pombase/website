@@ -6,7 +6,6 @@ import 'rxjs/add/observable/from';
 
 import { getAppConfig } from './config';
 import { catchError, map } from 'rxjs/operators';
-import { encodeUriFragment } from '@angular/router/src/url_tree';
 
 export interface MotifPeptideMatch {
   start: number;
