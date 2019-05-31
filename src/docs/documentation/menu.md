@@ -22,6 +22,7 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/simple-search-documentation">Simple search</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/advanced-search">Advanced search</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/motif-search">Motif search</a></div>
 <div class="left-menu-part left-menu-item">Data submission file formats</div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/modification-data-bulk-upload-format">Modification data</a></div>

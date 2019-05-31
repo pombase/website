@@ -21,6 +21,7 @@
 
 -   [Simple search](documentation/simple-search-documentation)
 -   [Advanced search](documentation/advanced-search)
+-   [Peptide motif search](documentation/motif-search)
 
 ### JBrowse Genome Browser
 
