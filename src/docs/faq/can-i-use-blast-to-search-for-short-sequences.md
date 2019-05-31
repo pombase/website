@@ -7,4 +7,4 @@ short nucleotide sequences, such as primers or other oligomers
 (PomBase does not maintain its own BLAST server).
 
 For short peptide sequences, we recommend the PomBase 
-[peptide motif search](https://curation.pombase.org/cgi-bin/sanger_motif_search).
+[peptide motif search](/motif_search).

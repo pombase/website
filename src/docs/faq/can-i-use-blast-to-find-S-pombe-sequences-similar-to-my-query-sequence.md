@@ -10,9 +10,9 @@ Note, however, that we recommend alternate approaches for some search
 purposes, especially for proteins:
 
  - If you have a short peptide sequence, our
-   [peptide motif search](https://curation.pombase.org/cgi-bin/sanger_motif_search)
-   finds matches in S. pombe proteins quickly.
- - If you are specifically looking for S. pombe orthologs of a
+   [peptide motif search](/motif_search)
+   finds matches in *S. pombe* proteins quickly.
+ - If you are specifically looking for *S. pombe* orthologs of a
    protein-coding gene, simple BLAST results can be
    misleading. Instead, you can look up manually curated orthologs in
    PomBase for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and
