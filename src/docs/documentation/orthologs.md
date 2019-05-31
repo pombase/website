@@ -1,3 +1,4 @@
+
 ## Ortholog curation
 
 The "Orthologs" section of a gene page includes two subsections. 
@@ -5,12 +6,13 @@ The "Orthologs" section of a gene page includes two subsections.
 The first lists any orthologous genes in budding yeast (*Saccharomyces
 cerevisiae*) or human (*Homo sapiens*) that have been assessed and
 recorded manually, as described below, by curators. Budding yeast
-entries link to the [*Saccharomyces* Genome
-Database](http://www.yeastgenome.org/) (SGD), and human genes link to
-[HGNC](http://www.genenames.org/); the text descriptions come from
-these databases. For more information see the FAQs on 
-[budding yeast](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene) and 
-[human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) orthologs.
+entries link to the [*Saccharomyces* Genome Database](http://www.yeastgenome.org/)
+(SGD), and human genes link to [HGNC](http://www.genenames.org/); the
+text descriptions come from these databases. For more information,
+including how to search the curated orthologs, see the FAQs on
+[budding yeast](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene)
+and [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene)
+orthologs.
 
 The second subsection provides links to several resources that predict
 orthologs in all fungi or all species (PomBase cannot manually curate
