@@ -4086,6 +4086,7 @@ the total annotated genes.
 <div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/simple-search-documentation">Simple search</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/advanced-search">Advanced search</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/motif-search">Motif search</a></div>
 <div class="left-menu-part left-menu-item">Data submission file formats</div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/modification-data-bulk-upload-format">Modification data</a></div>
@@ -5029,6 +5030,7 @@ PomBase using the Ensembl viewer.</p>
 <ul>
 <li><a routerLink="/documentation/simple-search-documentation">Simple search</a></li>
 <li><a routerLink="/documentation/advanced-search">Advanced search</a></li>
+<li><a routerLink="/documentation/motif-search">Peptide motif search</a></li>
 </ul>
 <h3 id="jbrowse-genome-browser">JBrowse Genome Browser</h3>
 <ul>
@@ -5229,6 +5231,136 @@ PomBase using the Ensembl viewer.</p>
 <p>Please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a> if you have any questions about what to use for modification IDs, Evidence, annotation extensions, or anything else you need to represent your data in this format.</p>
 
   </div>
+  <div *ngIf="pageName == 'motif-search'">
+<h2 id="peptide-motif-search">Peptide motif search</h2>
+<p>The peptide motif search finds short peptide sequence matches in the predicted amino acid sequences of <em>S. pombe</em> proteins.</p>
+<p>Type or paste a motif using the single-letter amino acid code. As you type, matches will appear. The results table shows each matching sequence in the context of a longer stretch of the protein sequence. The list of genes with one or more matches can be sent to the advanced search.</p>
+<p>The search can also use wildcards, codes for groups of amino acids (e.g. any charged amino acid), and syntax to specify motifs at the beginning or end of a protein:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Sequence</th>
+<th>will find</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CADR</td>
+<td>any protein containing CADR</td>
+</tr>
+<tr class="even">
+<td>CA[DE]R</td>
+<td>any protein containing CADR or CAER</td>
+</tr>
+<tr class="odd">
+<td>CA[DE]+LQ</td>
+<td>CA(any sequence of D and E)LQ</td>
+</tr>
+<tr class="even">
+<td>CA…R</td>
+<td>CA(any three amino acids)R</td>
+</tr>
+<tr class="odd">
+<td>CA.+R</td>
+<td>CA(one or more amino acids)R</td>
+</tr>
+<tr class="even">
+<td>SPR.</td>
+<td>SP.R</td>
+</tr>
+<tr class="odd">
+<td>^ME</td>
+<td>proteins beginning with ME</td>
+</tr>
+<tr class="even">
+<td>LAA$</td>
+<td>proteins terminating LAA</td>
+</tr>
+<tr class="odd">
+<td>^.{{ &quot;{1,20}MCA&quot; }}</td>
+<td>proteins with MCA in the first 20 amino acids</td>
+</tr>
+</tbody>
+</table>
+<p>Amino acid group codes</p>
+<table>
+<thead>
+<tr class="header">
+<th>AA group</th>
+<th>Code</th>
+<th>Amino acids</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>acidic</td>
+<td>0</td>
+<td>DE</td>
+</tr>
+<tr class="even">
+<td>alcohol</td>
+<td>1</td>
+<td>ST</td>
+</tr>
+<tr class="odd">
+<td>aliphatic</td>
+<td>2</td>
+<td>AGILV</td>
+</tr>
+<tr class="even">
+<td>aromatic</td>
+<td>3</td>
+<td>FHWY</td>
+</tr>
+<tr class="odd">
+<td>basic</td>
+<td>4</td>
+<td>KRH</td>
+</tr>
+<tr class="even">
+<td>charged</td>
+<td>5</td>
+<td>DEHKR</td>
+</tr>
+<tr class="odd">
+<td>hydrophobic</td>
+<td>6</td>
+<td>AVILMFYW</td>
+</tr>
+<tr class="even">
+<td>hydrophilic</td>
+<td>7</td>
+<td>KRHDENQ</td>
+</tr>
+<tr class="odd">
+<td>polar</td>
+<td>8</td>
+<td>CDEHKNQRST</td>
+</tr>
+<tr class="even">
+<td>small</td>
+<td>9</td>
+<td>ACDGNPSTV</td>
+</tr>
+<tr class="odd">
+<td>tiny</td>
+<td>B</td>
+<td>AGS</td>
+</tr>
+<tr class="even">
+<td>turnlike</td>
+<td>Z</td>
+<td>ACDEGHKNQRST</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<ul>
+<li>CA6AC will find CALAC and CAFAC</li>
+<li>CA0+LQ will find CA(any sequence of D or E)LQ</li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'ontology-term-page'">
 <h2 id="ontology-term-pages">Ontology term pages</h2>
 <p>For each ontology term loaded into PomBase, a page summarizes essential details about the term, and shows any annotations to it or its descendants via <em>is_a</em>, <em>part_of</em>, and the <em>regulates</em> relations (the GO documentation on <a href="http://geneontology.org/docs/ontology-relations/">Ontology Structure and Ontology Relations</a> has some useful information on this topic). For FYPO terms only, the has_part relation is also used.</p>
@@ -5268,7 +5400,7 @@ PomBase using the Ensembl viewer.</p>
   <div *ngIf="pageName == 'orthologs'">
 <h2 id="ortholog-curation">Ortholog curation</h2>
 <p>The “Orthologs” section of a gene page includes two subsections.</p>
-<p>The first lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually, as described below, by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases. For more information see the FAQs on <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">budding yeast</a> and <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> orthologs.</p>
+<p>The first lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually, as described below, by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases. For more information, including how to search the curated orthologs, see the FAQs on <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">budding yeast</a> and <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> orthologs.</p>
 <p>The second subsection provides links to several resources that predict orthologs in all fungi or all species (PomBase cannot manually curate orthologs in species other than budding yeast and human). For further information, see the <a href="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in additional species</a>. (Note: these links also appear in the External references section.)</p>
 <p>Manual ortholog prediction methods: The human and budding yeast orthologs are manually predicted based on a variety of sources. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches that are uniformly one-to one across species; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase’s approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
 
@@ -6699,8 +6831,8 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>PomBase does not maintain a BLAST server, but the BLAST tools available at <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI</a> and <a href="https://fungi.ensembl.org/Multi/Tools/Blast">Ensembl</a> allow a target species genome to be selected.</p>
 <p>Note, however, that we recommend alternate approaches for some search purposes, especially for proteins:</p>
 <ul>
-<li>If you have a short peptide sequence, our <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search">peptide motif search</a> finds matches in S. pombe proteins quickly.</li>
-<li>If you are specifically looking for S. pombe orthologs of a protein-coding gene, simple BLAST results can be misleading. Instead, you can look up manually curated orthologs in PomBase for <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> and <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">budding yeast</a>, or use the methods described in the FAQ on <a routerLink="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">finding orthologs in other species</a>.</li>
+<li>If you have a short peptide sequence, our <a routerLink="/motif_search">peptide motif search</a> finds matches in <em>S. pombe</em> proteins quickly.</li>
+<li>If you are specifically looking for <em>S. pombe</em> orthologs of a protein-coding gene, simple BLAST results can be misleading. Instead, you can look up manually curated orthologs in PomBase for <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> and <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">budding yeast</a>, or use the methods described in the FAQ on <a routerLink="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">finding orthologs in other species</a>.</li>
 </ul>
 <p>Also see other FAQs in the <a routerLink="/faq/orthology">Orthology</a> category and the <a routerLink="/documentation/orthologs">Ortholog curation</a> documentation.</p>
 
@@ -6709,7 +6841,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <h3 id="can-i-use-blast-search-short-sequences">Can I use BLAST to search for short sequences?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>Yes, you can search for short nucleotide sequences, such as primers or other oligomers. We recommend NCBI BLAST, where you can search for short nucleotide sequences, such as primers or other oligomers (PomBase does not maintain its own BLAST server).</p>
-<p>For short peptide sequences, we recommend the PomBase <a href="https://curation.pombase.org/cgi-bin/sanger_motif_search">peptide motif search</a>.</p>
+<p>For short peptide sequences, we recommend the PomBase <a routerLink="/motif_search">peptide motif search</a>.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-use-wild-card-beginning-search-string', 'Can I use a wild card at the beginning of a search string?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-use-wild-card-beginning-search-string' || pageName == 'all-faqs'">
@@ -6727,7 +6859,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="faq_navigate($event, '/faq/can-i-view-my-protein-interest-multiple-alignment-related-proteins-other-species', 'Can I view my protein of interest in a multiple alignment with related proteins in other species?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'tools-and-resources' || pageName == 'can-i-view-my-protein-interest-multiple-alignment-related-proteins-other-species' || pageName == 'all-faqs'">
 <h3 id="can-i-view-my-protein-interest-multiple-alignment-related-proteins-other-species">Can I view my protein of interest in a multiple alignment with related proteins in other species?</h3>
 <!-- pombase_categories: Orthology,Tools and resources -->
-<p>PomBase does not have its own alignment viewer. DIOPT and Compara, two of the tools we recommend for finding orthologs, have alignment display options. See the <a routerLink="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in other species</a> for more information.</p>
+<p>PomBase does not have its own alignment viewer. DIOPT, Compara, and PANTHER, three of the tools we recommend for finding orthologs, have alignment display options. See the <a href="faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in other species</a> for more information.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-view-nucleotide-sequence-genome-browser', 'Can I view nucleotide sequence in the genome browser?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'tools-and-resources' || pageName == 'can-i-view-nucleotide-sequence-genome-browser' || pageName == 'all-faqs'">

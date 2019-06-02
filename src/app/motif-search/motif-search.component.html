@@ -4,6 +4,11 @@
     <input type="text" [(ngModel)]="motif" placeholder="Enter a motif ..." (ngModelChange)="motifChange($event)"/>
     <a class="input-reset" (click)="resetSearch()">clear</a>
   </div>
+  <div class="motif-docs">
+    <app-help-link [route]="'/documentation/motif-search'" [title]="'Documentation ...'">
+      Documentation ...
+    </app-help-link>
+  </div>
   <div *ngIf="searchState == SearchState.ShowHelp">
     <h3>Search examples</h3>
     <div style="width: 50em">

@@ -9,5 +9,7 @@
   <a [popover]="annotationHelpPopover"
      triggers="mouseenter:mouseleave" placement="left"
      container="body"
-     routerLink="{{route}}"><img src="/assets/info_icon.svg"></a>
+     routerLink="{{route}}"><img src="/assets/info_icon.svg">
+    <ng-content></ng-content>
+  </a>
 </span>

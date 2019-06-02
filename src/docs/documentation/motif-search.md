@@ -23,7 +23,7 @@ CA.+R | CA(one or more amino acids)R
 SPR.|SP.R | SPRX or SPXR
 ^ME | proteins beginning with ME
 LAA$ | proteins terminating LAA
-^.{1,20}MCA | proteins with MCA in the first 20 amino acids
+^.{{ \"{1,20}MCA\" }} | proteins with MCA in the first 20 amino acids
 
 Amino acid group codes
 
