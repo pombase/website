@@ -1,8 +1,5 @@
-<div *ngIf="panelType == 'explore'" class="title">
-  Archive of "Explore PomBase" items
-</div>
-<div *ngIf="panelType == 'spotlight'" class="title">
-  Archive of "Research spotlight" items
+<div class="title">
+  {{longTitle}}
 </div>
 <div class="panel-container">
   <div *ngFor="let config of panelConfigs" class="info-panel">

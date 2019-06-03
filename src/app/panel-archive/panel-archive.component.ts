@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { getAppConfig, PanelConfig } from '../config';
+import { getAppConfig, PanelConfig, AppConfig } from '../config';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-panel-archive',
@@ -11,8 +12,20 @@ import { getAppConfig, PanelConfig } from '../config';
 export class PanelArchiveComponent implements OnInit {
   panelType = '';
   panelConfigs: Array<PanelConfig> = [];
+  appConfig: AppConfig = getAppConfig();
+  longTitle: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private readonly meta: Meta,
+              private titleService: Title,  ) { }
+
+  setPageTitle(): void {
+    let title = this.appConfig.site_name + ' - ' + this.longTitle;
+
+    this.titleService.setTitle(title);
+    this.meta.updateTag({property: 'og:title', content: title});
+    this.meta.updateTag({property: 'description', content: title});
+  }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
@@ -20,6 +33,20 @@ export class PanelArchiveComponent implements OnInit {
         this.panelType = params['archiveType'];
 
         this.panelConfigs = [];
+
+        if (this.panelType === 'explore') {
+          this.longTitle = 'Explore PomBase';
+        } else {
+          if (this.panelType === 'spotlight') {
+            this.longTitle = 'Research spotlight'
+          } else {
+            this.longTitle = this.panelType.charAt(0).toUpperCase() + this.panelType.slice(1);
+          }
+        }
+
+        this.longTitle = `Archive of "${this.longTitle}" items`;
+
+        this.setPageTitle();
 
         getAppConfig().frontPagePanels
           .filter(conf => conf.panel_type === this.panelType)
