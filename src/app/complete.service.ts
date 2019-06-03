@@ -20,6 +20,7 @@ export class SolrRefSummary {
 export class CompleteService {
 
   private completeUrl = '/api/v1/dataset/latest/complete';
+  private cleanRE = new RegExp('[/]', 'g');
 
   constructor(private http: Http) { }
 
@@ -30,6 +31,8 @@ export class CompleteService {
     if (queryText.length === 0) {
       return Observable.from([]);
     }
+
+    queryText = queryText.replace(this.cleanRE, ' ');
 
     return this.http.get(this.completeUrl + '/term/' + serverCvName + '/' + queryText)
       .map((res: Response) => {
@@ -70,6 +73,8 @@ export class CompleteService {
     if (queryText.length === 0) {
       return Observable.from([]);
     }
+
+    queryText = queryText.replace(this.cleanRE, ' ');
 
     return this.http.get(this.completeUrl + '/ref/' + queryText)
       .map((res: Response) => {
