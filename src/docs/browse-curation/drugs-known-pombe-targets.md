@@ -44,7 +44,7 @@ monensin | intracellular transport |
 natamycin | blocks fungal growth by binding specifically to ergosterol without permeabilizing the membrane |  
 nystatin | ergosterol biosynthesis; antifungal; ergosta-5,7,22,24,(28)-tetraenol binding |  
 oxazolidinones | protein synthesis inhibitor |  
-phleomycin | causes DNA strand breaks |  
+phleomycin | antibiotic damaging nucleic acids in the presence of iron when cells are grown aerobically | [PMID:17724773](https://www.pombase.org/reference/PMID:17724773)  
 pravastatin | HMG-CoA reductase inhibitor |  
 ricin | disrupts translation by inactivating the ribosome |  
 sanglifehrin A | binds cyclophilin |  
