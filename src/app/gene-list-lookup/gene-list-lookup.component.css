@@ -10,3 +10,7 @@
   color: red;
   padding: 0.2em 0;
 }
+
+.read-from-file input {
+  display: block;
+}

@@ -13,6 +13,7 @@ import { DeployConfigService } from '../../deploy-config.service';
 import { GenesTableConfigComponent } from '../../genes-table-config/genes-table-config.component';
 import { SettingsService } from '../../settings.service';
 import { Subscription } from 'rxjs';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-genes-table',
@@ -28,6 +29,8 @@ export class GenesTableComponent implements OnInit {
   // which allows the the termids in a description to be linked to the term pages
   @Input() descriptionParts: Array<({ text?: string; term?: TermShort; })> = [];
   @Input() genes: Array<GeneSummary> = [];
+
+  faCog = faCog;
 
   orderByField = 'gene';
   orderByFieldDisplayName = 'Gene name';

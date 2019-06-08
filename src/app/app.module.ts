@@ -14,6 +14,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { CookieLawModule } from 'angular2-cookie-law';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
@@ -204,6 +206,7 @@ export function windowFactory() {
     Angulartics2Module.forRoot(),
     CookieLawModule,
     NgxTwitterTimelineModule,
+    FontAwesomeModule,
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,
                     GenesTableConfigComponent, MessageDialogComponent],
@@ -221,4 +224,5 @@ export class AppModule {
   constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
     angulartics2GoogleAnalytics.startTracking();
   }
+
 }

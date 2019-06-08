@@ -29,6 +29,8 @@ import { SocialContactComponent } from './social-contact/social-contact.componen
 import { DiseaseSlimTableComponent } from './disease-slim-table/disease-slim-table.component';
 import { GeneResultsSlimTableComponent } from './gene-results-slim-table/gene-results-slim-table.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -37,6 +39,7 @@ import { GeneResultsSlimTableComponent } from './gene-results-slim-table/gene-re
     Ng2SimplePageScrollModule.forRoot(),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
+    FontAwesomeModule,
   ],
   exports: [
     GoSlimTableComponent,

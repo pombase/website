@@ -6,6 +6,9 @@ body {
   height: 100vh;
   background-color: #fefeff;
   color: #333330;
+  font-size: 14px;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  line-height: 1.43;
 }
 
 h1,h2,h3,h4,h5,h6,h7 {
@@ -26,6 +29,10 @@ h1,h2,h3,h4,h5,h6,h7 {
 
 a {
   cursor: pointer;
+}
+
+a, a:not([href]):not([tabindex]) {
+  color: #337ab7;
 }
 
 .citation {
@@ -260,7 +267,7 @@ select option:disabled {
   border-left: 1.7px solid #889;
 }
 
-.left-menu-part a {
+.left-menu-part a:not([href]):not([tabindex]) {
   color: #014c8c;
 }
 
@@ -452,4 +459,17 @@ figure {
 figcaption {
   margin-top: 0.7em;
   margin-bottom: 1em;
+}
+
+.btn[disabled], .btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.btn[disabled] {
+  opacity: 0.65;
+}
+#content .btn {
+  font-size: 0.9em;
 }

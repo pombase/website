@@ -10,6 +10,8 @@ import 'rxjs/add/operator/mergeMap';
 
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 import { getAppConfig } from './config';
 
 const defaultTitle = getAppConfig().site_name;
