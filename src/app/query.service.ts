@@ -84,13 +84,12 @@ export class QueryService {
           }
         };
 
-        this.subject = new BehaviorSubject(this.history);
-
         let timer = TimerObservable.create(0.2);
         timer.subscribe(t => {
           this.setAllCounts();
         });
       }
+      this.subject = new BehaviorSubject(this.history);
     } catch (e) {
       console.log('failed to deserialise history: ' + e.message);
     }
