@@ -27,7 +27,6 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@types/file-saver": "^2.0.1",
-    "@types/string-similarity": "^3",
     "angular2-cookie-law": "^7.0.1",
     "angulartics2": "^7.5.2",
     "blob": "0.0.5",
@@ -39,7 +38,6 @@
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.5.2",
     "stream": "0.0.2",
-    "string-similarity": "^3",
     "ts-helpers": "^1.1.2",
     "tslib": "^1.9.0",
     "zone.js": "^0.9.1"
