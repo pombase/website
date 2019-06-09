@@ -11,7 +11,7 @@
 }
 
 button.dropdown-item {
-  font-size: 80%;
+  font-size: 75%;
 }
 
 #header-navbar {
@@ -29,7 +29,7 @@ button.dropdown-item {
     font-size: 1em;
   }
 }
-@media (max-width: 599px) {
+@media (max-width: 600px) {
   #header-navbar {
     left: 0em;
   }
@@ -48,10 +48,6 @@ button.dropdown-item {
 }
 
 @media (max-width: 1000px) {
-  #header-navbar {
-    font-size: 0.9em;
-  }
-
   #header-navbar .dropdown-toggle {
     padding: 0.25em;
     margin: 0;

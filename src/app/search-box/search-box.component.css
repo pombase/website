@@ -29,7 +29,7 @@
     display: none;
   }
   .search-box {
-    width: 40%;
+    width: 55%;
   }
 }
 @media (min-width: 600px) {
@@ -38,6 +38,7 @@
   }
   .big-screen-search-info {
     display: inline;
+    margin-right: 3em;
   }
 }
 

@@ -17,13 +17,16 @@ h1,h2,h3,h4,h5,h6,h7 {
 }
 
 @media (max-width: 600px) {
-  body, button.btn, a.btn, input.btn {
-/*    font-size: 2.0vw;  */
-  }
   button.btn, a.btn, input.btn {
     padding: 0.2em 0.4em;
     font-size: 90%;
     margin: 0.2em 0;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+  button.btn, a.btn, input.btn {
+    font-size: 95%;
   }
 }
 
@@ -430,6 +433,17 @@ select option:disabled {
 
 li.active .search-box-organism {
   color: #e8e8e8d0;
+}
+
+@media (max-width: 600px) {
+  #header-search-box .dropdown-item {
+    font-size: 75%;
+  }
+}
+@media (min-width: 600px) {
+  #header-search-box .dropdown-item {
+    font-size: 85%;
+  }
 }
 
 .modal-header {

@@ -30,10 +30,6 @@
   display: block;
 }
 
-@media (max-width: 800px) {
-  .welcome {
-  }
-}
 @media (min-width: 800px) {
   .welcome {
     float: left;

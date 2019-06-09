@@ -20,12 +20,11 @@
 
 @media (max-width: 600px) {
   #logo img {
-    max-width: 100%;
-    height: 14vw;
+    max-width: 130%;
   }
 
   #header-row {
-    height: 150px;
+    height: 145px;
   }
 
   #header-search-box {
