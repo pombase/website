@@ -4,7 +4,7 @@
 </ng-template>
 <span class="reference-short-link" [popover]="refPopover"
       triggers="mouseenter:mouseleave" container="body"
-      placement="left">
+      placement="top">
   <span *ngIf="!xref">
     <a *ngIf="refTitle" routerLink="/reference/{{reference.uniquename}}">{{refTitle}}</a>
     <a *ngIf="!refTitle" routerLink="/reference/{{reference.uniquename}}">{{displayString}}</a>

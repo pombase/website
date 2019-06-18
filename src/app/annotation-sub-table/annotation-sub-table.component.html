@@ -84,7 +84,7 @@
              routerLink="/term/{{termAnnotation.term.termid}}"
              [popover]="termGeneCount"
              triggers="mouseenter:mouseleave"
-             placement="left" container="body"
+             placement="bottom" container="body"
              [popoverContext]="getCountPopoverContext(termAnnotation.term)">
             {{termAnnotation.term.gene_count}}
           </a>
@@ -190,7 +190,7 @@
              routerLink="/term/{{termAnnotation.term.termid}}"
              [popover]="termGeneCount"
              triggers="mouseenter:mouseleave"
-             placement="left" container="body"
+             placement="bottom" container="body"
              [popoverContext]="getCountPopoverContext(termAnnotation.term)">
             {{termAnnotation.term.gene_count}}
           </a>
