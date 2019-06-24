@@ -4,6 +4,7 @@ import { GeneQuery, GeneQueryNode, QueryResult, TermNode, SubsetNode,
          QueryOutputOptions } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
+import { ToastrService } from 'ngx-toastr';
 import { getAppConfig, QueryNodeConfig } from '../config';
 import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
@@ -33,6 +34,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private titleService: Title,
               private settingsService: SettingsService,
+              private toastr: ToastrService,
              ) {
     this.resetQuery();
   }
@@ -168,6 +170,10 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
     if (node) {
       const query = new GeneQuery(null, node);
       this.saveQuery(query);
+
+      this.toastr.success('Query results added to history below');
+
+
 //   See #1236 - maybe add the UniProt ID column to the results table if the
 //   user searches using the UniProt IDs tools
 //      if (nodeConf.extraResultTableColumns) {
