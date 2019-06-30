@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { CookieLawModule } from 'angular2-cookie-law';
+import { ToastrModule } from 'ngx-toastr';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -190,6 +192,7 @@ export function windowFactory() {
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -202,6 +205,12 @@ export function windowFactory() {
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
     ModalModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 7500,
+      extendedTimeOut: 5000,
+      enableHtml: true,
+      positionClass: 'toast-top-center',
+    }),
     SharedModule,
     Angulartics2Module.forRoot(),
     CookieLawModule,
