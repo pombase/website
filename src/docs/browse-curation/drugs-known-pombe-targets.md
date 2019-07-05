@@ -26,13 +26,13 @@ cerulenin | inhibits β -keto-acyl ACP synthase and HMG -CoA synthase | [PMID:30
 chloramphenicol | protein synthesis inhibitor |  
 compactin | ergosterol biosynthesis |  
 Cutin-1 | fatty acid synthase beta subunit (Fas1); inhibits nuclear envelope expansion during mitosis | [PMID:26869222](https://www.pombase.org/reference/PMID:26869222) 
-cycloheximide | translation inhibitor |  
+cycloheximide | translation inhibitor, binds to the 60S ribosomal subunit and prevents release of deacetylated tRNA from the E site |  
 cyclosporin A | binds cyclophilin |  
 dihydromotuporamine C | proteasome/lipid synthesis? |  
 echinocandin | cell wall synthesis |  
 fenpropimorph | proteasome/lipid synthesis? |  
 hydroxyurea | inhibits ribonucleotide reductase; slows DNA synthesis; causes replication fork stalling |  
-hygromycin B | translation inhibitor |  
+hygromycin B | translation inhibitor, binds to the 40S ribosomal subunit and interferes with translocation of tRNA from the A site to the P site of the ribosome |  
 isopropyl N-3-chlorophenyl carbamate | spindle poison |  
 itraconazole | spindle poison |  
 latrunculin | inhibits actin polymerization |  
