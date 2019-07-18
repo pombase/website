@@ -1320,7 +1320,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 </tr>
 <tr class="odd">
 <td>cycloheximide</td>
-<td>translation inhibitor</td>
+<td>translation inhibitor, binds to the 60S ribosomal subunit and prevents release of deacetylated tRNA from the E site</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1350,7 +1350,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 </tr>
 <tr class="odd">
 <td>hygromycin B</td>
-<td>translation inhibitor</td>
+<td>translation inhibitor, binds to the 40S ribosomal subunit and interferes with translocation of tRNA from the A site to the P site of the ribosome</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -6943,8 +6943,10 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Genetic information encoded by the mat1 locus determines the mating type: if this locus contains the Pc and Pi genes, the cell is mating type P, and if it contains the Mc and Mi genes the cell is mating type M. Additionally, <em>S. pombe</em> contains two silent loci: mat2 and mat3. These loci are not expressed but host the information needed for each mating type configuration. Mat2 contains the two genes Pc and Pi, and Mat3 contains the two genes Mc and Mi. Recombinational DNA repair during mitotic cell division ensures production of one daughter cell of parental mating type and one daughter of the opposite mating type.</p>
 <p>A wild type S. pombe cell thus contains 6 mating type specific genes: 1. mat1-P/Mc - expressed 2. mat1-P/Mi - expressed 3. mat2-Pc - silent 4. mat2-Pi - silent 5. mat3-Mc - silent 6. mat3-Mi - silent</p>
 <p>The sequenced <em>S. pombe</em> reference strain (972 h-) is in the M mating type configuration (encodes the Mc and Mi genes at the mat1 locus). The mat2 genes are deleted in this strain for technical reasons, whereas the mat3 genes are intact.</p>
-<p>The DNA seqence of the WT <a href="https://www.pombase.org/status/mating-type-region">silent mating type region</a> containing the mat2 and mat3 genes was reconstructed yielding an extra <a href="https://www.pombase.org/downloads/genome-datasets">mating type region contig</a> (see ‘current genome’ ftp site link), all genes contained within this contig are represented in PomBase. This has the consequence that there are two copies of the silent M genes. The systematic IDs and contig source of the mating type specific genes are: 1. mat1-Mc - SPBC23G7.09 (from the chromosome 2 contig) 2. mat1-Mi - SPBC23G7.17c (from the chromosome 2 contig) 3. mat2-Pc - SPMTR.01 (from the mating type contig) 4. mat2-Pi - SPMTR.02 (from the mating type contig) 5. mat3-Mc - SPBC1711.02 (from the chromosome 2 contig) 6. mat3-Mi - SPBC1711.01c (from the chromosome 2 contig) 7. mat3-Mc - SPMTR.04 (extra copy from the mating type contig) 8. mat3-Mi - SPMTR.03 (extra copy from the mating type contig)</p>
-<p>For the M specific genes, functional annotation (GO, phenotypes…) is attached to the mat1-Mc and mat1-Mi genes. For the P specific genes, functional annotation is attached to mat2-Pc and mat2-Pi out of necessity (mat1-Pc and mat1-Pi does not exist in the database).</p>
+<p>The DNA seqence of the WT <a href="https://www.pombase.org/status/mating-type-region">silent mating type region</a> containing the mat2 and mat3 genes was reconstructed yielding an extra <a href="https://www.pombase.org/downloads/genome-datasets">mating type region contig</a> (see ‘current genome’ ftp site link). Only the P genes from this contig have gene pages in PomBase.</p>
+<p>The systematic IDs and contig source of the mating type specific genes are: 1. mat1-Mc - SPBC23G7.09 (from the chromosome 2 contig) 2. mat1-Mi - SPBC23G7.17c (from the chromosome 2 contig) 3. mat2-Pc - SPMTR.01 (from the mating type contig) 4. mat2-Pi - SPMTR.02 (from the mating type contig) 5. mat3-Mc - SPBC1711.02 (from the chromosome 2 contig) 6. mat3-Mi - SPBC1711.01c (from the chromosome 2 contig)</p>
+<p>The duplicate M genes without gene pages are: 7. mat3-Mc - SPMTR.04 (extra copy from the mating type contig) 8. mat3-Mi - SPMTR.03 (extra copy from the mating type contig)</p>
+<p>For the M specific genes, functional annotation (GO, phenotypes…) is attached to the mat1-Mc and mat1-Mi genes. For the P specific genes, functional annotation is attached to mat2-Pc and mat2-Pi out of necessity (the reference strain is in the M configuration).</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-are-non-coding-rna-genes-identified', 'How are non-coding RNA genes identified?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'how-are-non-coding-rna-genes-identified' || pageName == 'all-faqs'">
@@ -7991,6 +7993,7 @@ Example queries:
 <app-page-contents-menu title="News" titleRoute="/news">
 
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#join-conversations-on-slack">Join the conversations on Slack</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse">"Fitness Landscape of the Fission Yeast Genome" dataset loaded into JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#customisable-fasta-download">Customisable FASTA download</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</a></div>
@@ -9080,6 +9083,15 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Please let us know if the annotation can be further improved.</p>
 
   </div>
+  <div *ngIf="pageName == 'Fitness_Landscape_of_the_Fission_Yeast_Genome-data-loaded'">
+<h3 id="fitness-landscape-of-the-fission-yeast-genome-dataset-loaded-into-jbrowse">“Fitness Landscape of the Fission Yeast Genome” dataset loaded into JBrowse</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: browser.png -->
+<p>We have loaded the <a href="https://www.pombase.org/reference/PMID:31077324">Grech et al. (2019) “Fitness Landscape of the Fission Yeast Genome”</a> dataset into JBrowse. In this study, transposon mutagenesis libraries were created to map transposon insertion sites in the S. pombe genome. From this data, functional elements of the genome were inferred. The tracks from this study can be loaded by a single click from the linked publication page above</p>
+<p>Thanks Dan Jeffares for sending us the data.</p>
+<p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'join-the-conversations-on-slack'">
 <h3 id="join-the-conversations-on-slack">Join the conversations on Slack</h3>
 <!-- pombase_flags: frontpage -->
@@ -9103,6 +9115,14 @@ Please sign the letter to add your voice in support of the databases that help m
 <li><a routerLink="/assets/external_media/PombeSlack-flyer.pdf">PombeSlack flyer</a></li>
 <li><a href="https://bit.ly/2XYkcEi">Join PombeSlack</a></li>
 </ul>
+</div>
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<h3 id="fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse">“Fitness Landscape of the Fission Yeast Genome” dataset loaded into JBrowse</h3>
+<p><em>2019-07-11</em></p>
+<p>We have loaded the <a href="https://www.pombase.org/reference/PMID:31077324">Grech et al. (2019) “Fitness Landscape of the Fission Yeast Genome”</a> dataset into JBrowse. In this study, transposon mutagenesis libraries were created to map transposon insertion sites in the S. pombe genome. From this data, functional elements of the genome were inferred. The tracks from this study can be loaded by a single click from the linked publication page above</p>
+<p>Thanks Dan Jeffares for sending us the data.</p>
+<p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/rna_metabolism_32px.png"/></p>
