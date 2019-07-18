@@ -7990,6 +7990,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#join-conversations-on-slack">Join the conversations on Slack</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#customisable-fasta-download">Customisable FASTA download</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</a></div>
@@ -9079,9 +9080,30 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Please let us know if the annotation can be further improved.</p>
 
   </div>
+  <div *ngIf="pageName == 'join-the-conversations-on-slack'">
+<h3 id="join-the-conversations-on-slack">Join the conversations on Slack</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: slack_icon-32px.png -->
+<p>The vibrant fission yeast community now has a Slack channel. Slack provides a forum for the research community. Follow conversations you care about, message colleagues privately, or in groups, ask questions, post responses. All archived and searchable.</p>
+<ul>
+<li><a routerLink="/assets/external_media/PombeSlack-flyer.pdf">PombeSlack flyer</a></li>
+<li><a href="https://bit.ly/2XYkcEi">Join PombeSlack</a></li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/slack_icon-32px.png"/></p>
+<h3 id="join-conversations-on-slack">Join the conversations on Slack</h3>
+<p><em>2019-07-19</em></p>
+<p>The vibrant fission yeast community now has a Slack channel. Slack provides a forum for the research community. Follow conversations you care about, message colleagues privately, or in groups, ask questions, post responses. All archived and searchable.</p>
+<ul>
+<li><a routerLink="/assets/external_media/PombeSlack-flyer.pdf">PombeSlack flyer</a></li>
+<li><a href="https://bit.ly/2XYkcEi">Join PombeSlack</a></li>
+</ul>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/rna_metabolism_32px.png"/></p>
 <h3 id="trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</h3>
