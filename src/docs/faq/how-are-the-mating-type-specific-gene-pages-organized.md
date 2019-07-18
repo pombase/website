@@ -15,18 +15,22 @@ A wild type S. pombe cell thus contains 6 mating type specific genes:
 
 The sequenced *S. pombe* reference strain (972 h-) is in the M mating type configuration (encodes the Mc and Mi genes at the mat1 locus). The mat2 genes are deleted in this strain for technical reasons, whereas the mat3 genes are intact. 
 
-The DNA seqence of the WT [silent mating type region](https://www.pombase.org/status/mating-type-region) containing the mat2 and mat3 genes was reconstructed yielding an extra [mating type region contig](https://www.pombase.org/downloads/genome-datasets) (see 'current genome' ftp site link), all genes contained within this contig are represented in PomBase. This has the consequence that there are two copies of the silent M genes. The systematic IDs and contig source of the mating type specific genes are:
+The DNA seqence of the WT [silent mating type region](https://www.pombase.org/status/mating-type-region) containing the mat2 and mat3 genes was reconstructed yielding an extra [mating type region contig](https://www.pombase.org/downloads/genome-datasets) (see 'current genome' ftp site link). Only the P genes from this contig have gene pages in PomBase. 
+
+The systematic IDs and contig source of the mating type specific genes are:
  1. mat1-Mc - SPBC23G7.09 (from the chromosome 2 contig)
  2. mat1-Mi - SPBC23G7.17c (from the chromosome 2 contig)
  3. mat2-Pc - SPMTR.01 (from the mating type contig)
  4. mat2-Pi - SPMTR.02 (from the mating type contig)
  5. mat3-Mc - SPBC1711.02 (from the chromosome 2 contig)
  6. mat3-Mi - SPBC1711.01c (from the chromosome 2 contig)
+ 
+ The duplicate M genes without gene pages are:
  7. mat3-Mc - SPMTR.04 (extra copy from the mating type contig)
  8. mat3-Mi - SPMTR.03 (extra copy from the mating type contig)
 
 For the M specific genes, functional annotation (GO, phenotypes...) is attached to the mat1-Mc and mat1-Mi genes.
-For the P specific genes, functional annotation is attached to mat2-Pc and mat2-Pi out of necessity (mat1-Pc and mat1-Pi does not exist in the database). 
+For the P specific genes, functional annotation is attached to mat2-Pc and mat2-Pi out of necessity (the reference strain is in the M configuration). 
 
 
 
