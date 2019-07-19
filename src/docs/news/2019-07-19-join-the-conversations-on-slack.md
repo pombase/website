@@ -7,5 +7,5 @@ provides a forum for the research community. Follow conversations you
 care about, message colleagues privately, or in groups, ask questions,
 post responses.  All archived and searchable.
 
- - [PombeSlack flyer](assets/external_media/PombeSlack-flyer.pdf)
+ - [PombeSlack flyer](/assets/external_media/PombeSlack-flyer.pdf)
  - [Join PombeSlack](https://bit.ly/2XYkcEi)
