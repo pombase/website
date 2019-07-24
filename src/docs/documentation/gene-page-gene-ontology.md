@@ -36,14 +36,14 @@ extension(s) is shown once:
 
 1.  The GO term name, which links to a page with additional
     information, including the term definition, any synonyms,
-    [relationships to other GO terms](#go_str), and annotations to the
+    [relationships to other GO terms](#go-structure), and annotations to the
     term or its descendants. (See the PomBase [ontology term page documentation](/documentation/ontology-term-page) and the GO
     documentation on the [GO graph](http://geneontology.org/docs/ontology-documentation/) and
     [Relations in GO](http://geneontology.org/docs/ontology-relations/) for
     more information.)
 2.  [GO Slim](/browse-curation/fission-yeast-go-slim-terms) terms
     applicable to the gene.
-3.  GO annotations may have [extensions](#ann_ext) to capture any of
+3.  GO annotations may have [extensions](#annotation-extensions) to capture any of
     several types of additional detail. *S. pombe* genes link to PomBase
     gene pages, and ontology term names link to ontology term pages.
 
@@ -57,9 +57,9 @@ than one paper), and annotations to terms hidden in the summary view:
 ![full gene page GO annotations](assets/go_gene_page_full.png){width="800"}
 
 
-1.  The unique [ID and name](#id) for a GO term, linked to an ontology
+1.  The unique [ID and name](#term-id-and-name) for a GO term, linked to an ontology
     term page as described above.
-2.  An abbreviation (code) for the type of [evidence](#evid) that
+2.  An abbreviation (code) for the type of [evidence](#evidence-codes) that
     supports the annotation. The evidence categories come from the set
     of [evidence codes](http://geneontology.org/docs/guide-go-evidence-codes/)
     defined by the GO Consortium.
@@ -76,18 +76,18 @@ than one paper), and annotations to terms hidden in the summary view:
     term page as described above.
 7.  [GO Slim](/browse-curation/fission-yeast-go-slim-terms) terms
     applicable to the gene.
-8.  GO annotations may have [extensions](#ann_ext) to capture any of
+8.  GO annotations may have [extensions](#annotation-extensions) to capture any of
     several types of additional detail. *S. pombe* genes link to PomBase
     gene pages.
 
-#### Term ID and name #### {#id}
+#### Term ID and name ####
 
 Annotations are made to the definition of a term, not the term name
 itself, so we recommend that users always read the term
 definition. The definition of a term can be found on the ontology term
 page linked to the term name and ID.
 
-#### GO Structure #### {#go_str}
+#### GO Structure ####
 
 GO is structured in a hierarchal order with less specific terms being
 parents of more specific child terms. A child term may have multiple
@@ -112,7 +112,7 @@ For more information on relationships in GO, see the
 [Relations in GO](http://geneontology.org/docs/ontology-relations/)
 documentation.
 
-#### Evidence codes #### {#evid}
+#### Evidence codes ####
 
 In PomBase, every annotation is supported by a reference that states
 where the annotation comes from, and an evidence code that describes
@@ -147,7 +147,7 @@ was used in the comparison or detected in the interaction. In these
 cases the [With/From column](http://geneontology.org/docs/go-annotation-file-gaf-format-21/)
 provides more information regarding the source of the information.
 
-#### Annotation extensions #### {#ann_ext}
+#### Annotation extensions ####
 
 Where available, annotation extensions are displayed underneath the GO
 term name. The extensions provide additional specificity to the
@@ -159,11 +159,11 @@ serine/threonine kinase activity and has the substrates
 [mei3](/gene/SPBC119.04) and [rst2](/gene/SPAC6F12.02). It is a
 cellular component of the nucleus during nitrogen starvation, but
 found in the vacuole during glucose starvation).
-
+g
 The GO Consortium provides further information on annotation
 extensions in its [file format guide](http://geneontology.org/page/go-annotation-file-gaf-format-21/),
 on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension),
-and in publications from [2014](http://www.biomedcentral.com/1471-2105/15/155/abstract) and [2017](https://link.springer.com/protocol/10.1007%2F978-1-4939-3743-1_17).
+and in publications from [2014](https://www.ncbi.nlm.nih.gov/pubmed/?term=24885854) and [2017](https://www.ncbi.nlm.nih.gov/pubmed/?term=27812947).
 PomBase converts many extension names to more human-friendly text, as
 described [here](/documentation/annotation-extension-relation-display).
 
