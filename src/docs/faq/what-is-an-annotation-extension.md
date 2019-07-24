@@ -14,7 +14,7 @@ information is available in the [gene page GO annotation documentation](/documen
 The GO Consortium provides further information on annotation
 extensions in its [file format guide](http://geneontology.org/page/go-annotation-file-gaf-format-21/),
 on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension),
-and in publications from [2014](http://www.biomedcentral.com/1471-2105/15/155/abstract) and [2017](https://link.springer.com/protocol/10.1007%2F978-1-4939-3743-1_17).
+and in publications from [2014](https://www.ncbi.nlm.nih.gov/pubmed/?term=24885854) and [2017](https://www.ncbi.nlm.nih.gov/pubmed/?term=27812947).
 PomBase converts many extension names to more human-friendly text, as
 described [here](/documentation/annotation-extension-relation-display).
 
