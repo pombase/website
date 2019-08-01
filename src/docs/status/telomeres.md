@@ -17,7 +17,7 @@ to genome browser):
 
 Details of all clones used for the assembly, and their order, length and
 overlap details is provided in a set of
-[spreadsheets](ftp://ftp.pombase.org/Archived_directories/Cosmid_assembly_data/)
+[spreadsheets](ftp://ftp.pombase.org/archive/Cosmid_assembly_data/)
 available from the PomBase FTP site.
 
 A contig extending the left arm of Chromosome II was sequenced by
