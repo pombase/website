@@ -19,6 +19,6 @@ PomBase converts many extension names to more human-friendly text, as
 described [here](/documentation/annotation-extension-relation-display).
 
 Phenotype annotations using FYPO may have extensions that capture
-expressivity (severity) or penetrance, or identify a gene or gene
-product used in an assay, as described in the [gene page phenotype documentation](/documentation/gene-page-phenotypes).
+severity or penetrance, or identify a gene or gene product used in an
+assay, as described in the [gene page phenotype documentation](/documentation/gene-page-phenotypes).
 

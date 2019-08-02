@@ -27,7 +27,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 12 | Evidence | ECO:0000336 | Yes | No
 13 | Condition | at high temperature | Yes | Yes
 14 | Penetrance | 85% | No | No
-15 | Expressivity | medium | No | No
+15 | Severity | medium | No | No
 16 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
 17 | Reference | PMID:23697806 | Yes | No
 18 | taxon | taxon:4896 | Yes | No
@@ -93,10 +93,9 @@ blank in the rest of the rows.
     80%), "medium" (20-80%), or "low" (less than 20%). We will convert
     to suitable IDs for loading. Penetrance data will be displayed as
     annotation extensions on gene pages.
-15. Expressivity captures information about phenotype severity. Use
-    integer + units, allowing ranges, or small CV ("high" (synonym:
-    strong), "medium", or "low" (synonym: weak)). We will convert to
-    suitable IDs for loading. Expressivity data will be displayed as
+15. Severity (formerly designated "expressivity) uses "high" (synonym:
+    strong), "medium", or "low" (synonym: weak). We will convert to
+    suitable IDs for loading. Severity data will be displayed as
     annotation extensions on gene pages.
 16. The Extension column can be used to record when a mutation in one
     gene affects another gene or its product. For example, if a

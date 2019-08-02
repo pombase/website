@@ -67,7 +67,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 13 | Evidence | ECO:0000336 | Yes | No
 14 | Condition | at high temperature | Yes | Yes
 15 | Penetrance | 85% | No | No
-16 | Expressivity | medium | No | No
+16 | Severity | medium | No | No
 17 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
 18 | Reference | PMID:23697806 | Yes | No
 19 | taxon | taxon:4896 | Yes | No
@@ -124,7 +124,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
     entries from the in-house FYPO\_EXT ontology (FYPO\_EXT:0000001 =
     high; FYPO\_EXT:0000002 = medium; FYPO\_EXT:0000003 = low;
     FYPO\_EXT:0000004 = full).
-16. Expressivity captures information about phenotype severity, using
+16. Severity (formerly designated "expressivity") uses
     the FYPO\_EXT ontology described in note 15.
 17. The Extension column is used to record when a mutation in one gene
     affects another gene or its product. For example, if a mutation in

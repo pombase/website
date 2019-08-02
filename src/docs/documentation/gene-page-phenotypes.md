@@ -43,25 +43,22 @@ single-allele phenotypes, the display includes:
     deletions or altered residues refer to amino acids or nucleotides,
     and expression level. If you can provide a description for any
     allele shown as "unknown", please [contact the PomBase curators](mailto:helpdesk@pombase.org).
-3.  Phenotype annotations may have extensions to capture expressivity
-    (the extent to which a phenotype is expressed; for PomBase
-    annotations expressivity extensions are often used to capture
-    information about phenotype severity) or penetrance (proportion of
-    a population that shows the phenotype), or to document which gene
+3.  Phenotype annotations may have extensions to capture penetrance
+    (proportion of a population that shows the phenotype) or severity
+    (previously designated "expressivity"), or to document which gene
     or protein used in an assay for level, localisation,
-    etc. *S. pombe* genes link to PomBase gene pages. Expressivity and
-    penetrance use the relations *has\_expressivity* and
-    *has\_penetrance* respectively, and can have values such as
-    "high", "medium", or "low".  Penetrance can also use numerical
-    values. A gene or gene product used in an assay is stored using
-    the appropriate PomBase systematic ID and the relation
-    *assayed\_using*; the relation is converted to *affecting* in the
-    gene page display.  If a mutation affects an activity that
-    modifies another gene product, extensions may capture the affected
-    enzyme, the affected substrate, or both. The relation
-    *assayed\_enzyme* is displayed as *affecting activity of* on gene
-    pages, and *assayed\_substrate* is shown as *affecting substrate*.
-  
+    etc. *S. pombe* genes link to PomBase gene pages. Severity and
+    penetrance use the relations *has\_severity* and *has\_penetrance*
+    respectively, and can have values such as "high", "medium", or
+    "low".  Penetrance can also use numerical values. A gene or gene
+    product used in an assay is stored using the appropriate PomBase
+    systematic ID and the relation *assayed\_using*; the relation is
+    converted to *affecting* in the gene page display.  If a mutation
+    affects an activity that modifies another gene product, extensions
+    may capture the affected enzyme, the affected substrate, or
+    both. The relation *assayed\_enzyme* is displayed as *affecting
+    activity of* on gene pages, and *assayed\_substrate* is shown as
+    *affecting substrate*.
 4.  The phenotype display can be filtered to show subsets of the total
     set of annotations. The term filter, available in the summary or
     detailed view, lists several broad phenotypic categories derived
@@ -122,24 +119,22 @@ annotations to terms hidden in the summary view:
     of medium used, etc. Descriptions come from a small ontology
     maintained by PomBase curators.
 7.  The paper from which the annotation comes.
-8.  Phenotype annotations may have extensions to capture expressivity
-    (the extent to which a phenotype is expressed; for PomBase
-    annotations expressivity extensions are often used to capture
-    information about phenotype severity) or penetrance (proportion of a
-    population that shows the phenotype), or to document which gene or
-    protein used in an assay for level, localisation, etc. *S. pombe*
-    genes link to PomBase gene pages. Expressivity and penetrance use
-    the relations *has\_expressivity* and *has\_penetrance*
-    respectively, and can have values such as "high", "medium", or "low"
-    (numerical values may be added in the future if and when the need
-    arises). A gene or gene product used in an assay is stored using the
-    appropriate PomBase systematic ID and the relation *assayed\_using*;
-    the relation is converted to *affecting* in the gene page display.
-    If a mutation affects an activity that modifies another gene
-    product, extensions may capture the affected enzyme, the affected
-    substrate, or both. The relation *assayed\_enzyme* is displayed as
-    *affecting activity of* on gene pages, and *assayed\_substrate* is
-    shown as *affecting substrate*.
+8.  Phenotype annotations may have extensions to capture penetrance
+    (proportion of a population that shows the phenotype) or severity
+    (previously designated "expressivity"), or to document which gene
+    or protein used in an assay for level, localisation,
+    etc. *S. pombe* genes link to PomBase gene pages. Severity and
+    penetrance use the relations *has\_severity* and *has\_penetrance*
+    respectively, and can have values such as "high", "medium", or
+    "low".  Penetrance can also use numerical values. A gene or gene
+    product used in an assay is stored using the appropriate PomBase
+    systematic ID and the relation *assayed\_using*; the relation is
+    converted to *affecting* in the gene page display.  If a mutation
+    affects an activity that modifies another gene product, extensions
+    may capture the affected enzyme, the affected substrate, or
+    both. The relation *assayed\_enzyme* is displayed as *affecting
+    activity of* on gene pages, and *assayed\_substrate* is shown as
+    *affecting substrate*.
 
 Similar displays are used for multi-allele phenotypes. Unless
 otherwise noted below, all items are as described above for
