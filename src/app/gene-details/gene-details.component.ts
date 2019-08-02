@@ -46,7 +46,7 @@ export class GeneDetailsComponent implements OnInit {
     }
   ];
 
-  miscAnnotationTypeNames = ['cat_act', 'ex_tools', 'genome_org', 'misc'];
+  miscAnnotationTypeNames = ['cat_act', 'ex_tools', 'genome_org', 'misc', 'm_f_g'];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
