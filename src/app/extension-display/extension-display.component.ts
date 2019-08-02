@@ -85,7 +85,7 @@ export class ExtensionDisplayComponent implements OnInit {
                 let value = rangePart.misc;
                 let link = null;
                 if (ext.rel_type_name === 'has_penetrance' ||
-                    ext.rel_type_name === 'has_expressivity') {
+                    ext.rel_type_name === 'has_severity') {
                   value += '%';
                 } else {
                   link = this.getLink(value);
