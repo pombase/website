@@ -3163,7 +3163,7 @@ the total annotated genes.
     for *S. pombe*
 -->
 <ul>
-<li><a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis</a> Sequence viewer and analysis tool</li>
+<li><a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis</a> Sequence viewer and analysis tool (Note: for <em>S. pombe</em> we recommend using <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/">Artemis Version 16</a>.</li>
 <li><a href="http://www.ncbi.nlm.nih.gov/mapview/map_search.cgi?chr=spombe.inf">Map viewer</a> at the NCBI</li>
 <li><a href="http://megasun.bch.umontreal.ca/People/lang/species/spo/spombe.html">Mitochondrial Genome Information</a></li>
 </ul>
@@ -4320,13 +4320,7 @@ Artemis. The links to these 2 browsers are to the right and left of the<br />
 interested in a specific gene, reduce the upstream and downstream range<br />
 of to 1000 before clicking “submit”; the page will take a few seconds<br />
 to render the first time in a session)</p>
-<p>You can download this data as part of the complete annotation in the<br />
-“rich EMBL files” from here<br />
-ftp://ftp.sanger.ac.uk/pub/yeast/pombe/Chromosome_contigs/ (the files<br />
-chromosome*.contig)<br />
-and view them in Artemis on your desktop (Artemis can be downloaded for<br />
-local use with a single click from here:<br />
-http://www.sanger.ac.uk/resources/software/artemis/)</p>
+<p>You can download this data as part of the complete annotation in the “rich EMBL files” from here: ftp://ftp.sanger.ac.uk/pub/yeast/pombe/Chromosome_contigs/ (the files chromosome*.contig) and view them in Artemis on your desktop (see the <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">Artemis FAQ</a> and the <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf">Artemis manual</a> (pdf; Sanger site) for additional information).</p>
 <p>Hosting Further Transcriptome Datasets<br />
 Clearly, as more transcriptome data becomes available the community will<br />
 require access to the different datasets, in addition to the consensus<br />
@@ -4849,8 +4843,8 @@ PomBase using the Ensembl viewer.</p>
 <ol type="1">
 <li>The FYPO term name, which links to a page with additional information, including the term definition, any synonyms, relationships to other FYPO terms, and annotations to the term or its descendants. (See the <a routerLink="/documentation/ontology-term-page">ontology term page documentation</a> for more.)</li>
 <li>Allele details, including a name (if one is used in the literature) and description (where known). Mouse over the allele name to show the allele type, which indicates whether partial deletions or altered residues refer to amino acids or nucleotides, and expression level. If you can provide a description for any allele shown as “unknown”, please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a>.</li>
-<li><p>Phenotype annotations may have extensions to capture expressivity (the extent to which a phenotype is expressed; for PomBase annotations expressivity extensions are often used to capture information about phenotype severity) or penetrance (proportion of a population that shows the phenotype), or to document which gene or protein used in an assay for level, localisation, etc. <em>S. pombe</em> genes link to PomBase gene pages. Expressivity and penetrance use the relations <em>has_expressivity</em> and <em>has_penetrance</em> respectively, and can have values such as “high”, “medium”, or “low”. Penetrance can also use numerical values. A gene or gene product used in an assay is stored using the appropriate PomBase systematic ID and the relation <em>assayed_using</em>; the relation is converted to <em>affecting</em> in the gene page display. If a mutation affects an activity that modifies another gene product, extensions may capture the affected enzyme, the affected substrate, or both. The relation <em>assayed_enzyme</em> is displayed as <em>affecting activity of</em> on gene pages, and <em>assayed_substrate</em> is shown as <em>affecting substrate</em>.</p></li>
-<li><p>The phenotype display can be filtered to show subsets of the total set of annotations. The term filter, available in the summary or detailed view, lists several broad phenotypic categories derived from high-level FYPO terms:</p></li>
+<li>Phenotype annotations may have extensions to capture penetrance (proportion of a population that shows the phenotype) or severity (previously designated “expressivity”), or to document which gene or protein used in an assay for level, localisation, etc. <em>S. pombe</em> genes link to PomBase gene pages. Severity and penetrance use the relations <em>has_severity</em> and <em>has_penetrance</em> respectively, and can have values such as “high”, “medium”, or “low”. Penetrance can also use numerical values. A gene or gene product used in an assay is stored using the appropriate PomBase systematic ID and the relation <em>assayed_using</em>; the relation is converted to <em>affecting</em> in the gene page display. If a mutation affects an activity that modifies another gene product, extensions may capture the affected enzyme, the affected substrate, or both. The relation <em>assayed_enzyme</em> is displayed as <em>affecting activity of</em> on gene pages, and <em>assayed_substrate</em> is shown as <em>affecting substrate</em>.</li>
+<li>The phenotype display can be filtered to show subsets of the total set of annotations. The term filter, available in the summary or detailed view, lists several broad phenotypic categories derived from high-level FYPO terms:</li>
 </ol>
 <figure>
 <img src="assets/fypo_term_filter_pulldown.png" alt="FYPO annotation term filter" width="160" /><figcaption>FYPO annotation term filter</figcaption>
@@ -4872,7 +4866,7 @@ PomBase using the Ensembl viewer.</p>
 <li>A brief descriptor for the type of evidence that supports the annotation. The evidence categories come from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</li>
 <li>Information about experimental conditions, such as temperature, type of medium used, etc. Descriptions come from a small ontology maintained by PomBase curators.</li>
 <li>The paper from which the annotation comes.</li>
-<li>Phenotype annotations may have extensions to capture expressivity (the extent to which a phenotype is expressed; for PomBase annotations expressivity extensions are often used to capture information about phenotype severity) or penetrance (proportion of a population that shows the phenotype), or to document which gene or protein used in an assay for level, localisation, etc. <em>S. pombe</em> genes link to PomBase gene pages. Expressivity and penetrance use the relations <em>has_expressivity</em> and <em>has_penetrance</em> respectively, and can have values such as “high”, “medium”, or “low” (numerical values may be added in the future if and when the need arises). A gene or gene product used in an assay is stored using the appropriate PomBase systematic ID and the relation <em>assayed_using</em>; the relation is converted to <em>affecting</em> in the gene page display. If a mutation affects an activity that modifies another gene product, extensions may capture the affected enzyme, the affected substrate, or both. The relation <em>assayed_enzyme</em> is displayed as <em>affecting activity of</em> on gene pages, and <em>assayed_substrate</em> is shown as <em>affecting substrate</em>.</li>
+<li>Phenotype annotations may have extensions to capture penetrance (proportion of a population that shows the phenotype) or severity (previously designated “expressivity”), or to document which gene or protein used in an assay for level, localisation, etc. <em>S. pombe</em> genes link to PomBase gene pages. Severity and penetrance use the relations <em>has_severity</em> and <em>has_penetrance</em> respectively, and can have values such as “high”, “medium”, or “low”. Penetrance can also use numerical values. A gene or gene product used in an assay is stored using the appropriate PomBase systematic ID and the relation <em>assayed_using</em>; the relation is converted to <em>affecting</em> in the gene page display. If a mutation affects an activity that modifies another gene product, extensions may capture the affected enzyme, the affected substrate, or both. The relation <em>assayed_enzyme</em> is displayed as <em>affecting activity of</em> on gene pages, and <em>assayed_substrate</em> is shown as <em>affecting substrate</em>.</li>
 </ol>
 <p>Similar displays are used for multi-allele phenotypes. Unless otherwise noted below, all items are as described above for single-allele phenotype displays.</p>
 <p>The multi-allele summary shows FYPO terms and genotype descriptions:</p>
@@ -5519,7 +5513,7 @@ PomBase using the Ensembl viewer.</p>
 </tr>
 <tr class="odd">
 <td>15</td>
-<td>Expressivity</td>
+<td>Severity</td>
 <td>medium</td>
 <td>No</td>
 <td>No</td>
@@ -5577,7 +5571,7 @@ PomBase using the Ensembl viewer.</p>
 <li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). You are welcome to enquire with us in advance to find out which ECO terms/IDs fit your experiments, but we can accept files with brief descriptions (such as those in the Canto phenotype evidence option list), which curators will convert to ECO IDs.</li>
 <li>Similarly, Conditions use a small ontology maintained in-house by PomBase curators, and we can either advise you about which terms/IDs to use, or convert from text to IDs when we receive your file. Use multiple entries in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium). Separate multiple entries with commas (,). Use separate lines if a phenotype is observed under more than one set of conditions (e.g. high and low temperature).</li>
 <li>Penetrance describes the proportion of a population that shows a cell-level phenotype. Use decimals, percents, or “high” (above 80%), “medium” (20-80%), or “low” (less than 20%). We will convert to suitable IDs for loading. Penetrance data will be displayed as annotation extensions on gene pages.</li>
-<li>Expressivity captures information about phenotype severity. Use integer + units, allowing ranges, or small CV (“high” (synonym: strong), “medium”, or “low” (synonym: weak)). We will convert to suitable IDs for loading. Expressivity data will be displayed as annotation extensions on gene pages.</li>
+<li>Severity (formerly designated “expressivity) uses”high&quot; (synonym: strong), “medium”, or “low” (synonym: weak). We will convert to suitable IDs for loading. Severity data will be displayed as annotation extensions on gene pages.</li>
 <li>The Extension column can be used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, you can use the phenotype “decreased protein kinase activity” and put the ID for gene B in an extension. Multiple extensions can be included for a phenotype annotation. Separate extensions with a comma (,) if they combine to form a “compound” extension (two or more genes assayed together), or with a pipe (|) if they are independent. Most phenotype extensions will be independent and pipe-separated.</li>
 <li>The Reference column has the publication’s PubMed ID (PMID).</li>
 <li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although if you have an NCBI taxon ID for a specific <em>S. pombe</em> strain you are welcome to use it</li>
@@ -6183,7 +6177,7 @@ PomBase using the Ensembl viewer.</p>
 </ul>
 <h4 id="feature-coordinates-and-sequence-data">Feature coordinates and sequence data</h4>
 <ul>
-<li><a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/">Chromosome contigs</a> (ftp) in enriched EMBL-based format for loading into <a href="http://www.sanger.ac.uk/resources/software/artemis/">Artemis</a></li>
+<li><a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/">Chromosome contigs</a> (ftp) in enriched EMBL-based format for loading into Artemis (see the <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">Artemis FAQ</a></li>
 <li>Older files in <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/OLD/20170906/embl/">EMBL format</a> and <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/OLD/20170906/genbank/">GenBank format</a> are available, and reflect the current genome sequence, with feature annotations from January 2017 (ftp).</li>
 </ul>
 <!-- put this between the two existing lines above:
@@ -6432,7 +6426,7 @@ PomBase using the Ensembl viewer.</p>
 </tr>
 <tr class="even">
 <td>16</td>
-<td>Expressivity</td>
+<td>Severity</td>
 <td>medium</td>
 <td>No</td>
 <td>No</td>
@@ -6484,7 +6478,7 @@ PomBase using the Ensembl viewer.</p>
 <li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). Please contact the <a href="mailto:helpdesk@pombase.org">Helpdesk</a> if you need assistance using these IDs</li>
 <li>Similarly, Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,).</li>
 <li>Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full).</li>
-<li>Expressivity captures information about phenotype severity, using the FYPO_EXT ontology described in note 15.</li>
+<li>Severity (formerly designated “expressivity”) uses the FYPO_EXT ontology described in note 15.</li>
 <li>The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype “decreased protein kinase activity” with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions if they combine to form a “compound” extension (e.g. two or more genes assayed together).</li>
 <li>The Reference column has the publication’s PubMed ID (PMID).</li>
 <li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although an NCBI taxon ID for a specific <em>S. pombe</em> strain would be allowed.</li>
@@ -6700,8 +6694,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <h3 id="can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase">Can I generate a comprehensive restriction enzyme map of the genome in PomBase?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>No, but this can be done within Artemis.</p>
-<p>Install Artemis (available from <a href="http://www.sanger.ac.uk/science/tools/artemis" class="uri">http://www.sanger.ac.uk/science/tools/artemis</a>).</p>
-<p>You can then read in the EMBL format chromosome contig files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page). To generate a restriction map:</p>
+<p>Install Artemis (available from <a href="http://www.sanger.ac.uk/science/tools/artemis" class="uri">http://www.sanger.ac.uk/science/tools/artemis</a>; for <em>S. pombe</em> we recommend using <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/">Artemis Version 16</a>. g You can then read in the EMBL format chromosome contig files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page). To generate a restriction map:</p>
 <ol type="1">
 <li>Create a new entry using the “Create” menu item “New Entry”</li>
 <li>Toggle off the main annotation by un-checking the chromsome contig file (this will make your new file “no name” the active entry).</li>
@@ -7370,7 +7363,7 @@ Example queries:
 <p>At present, there are 11 full-length transposons annotated, and two frameshifted copies.</p>
 <p>Query link: <app-query-link [goToResults]="true" [linkText]="'Transposons'" [predefinedQueryId]="'transposons'"></app-query-link></p>
 <p>Lone LTRs are also annotated as sequence features. They cannot yet be retrieved by the simple or advanced searches, but they are included in the forward and reverse strand sequence feature tracks in the genome browser.</p>
-<p>Finally, if you wish to install Artemis (available from <a href="http://www.sanger.ac.uk/science/tools/artemis" class="uri">http://www.sanger.ac.uk/science/tools/artemis</a>), you can use it to view LTRs in more detail. Read in the EMBL format files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets">Genome sequences</a> page). To see LTRs,</p>
+<p>Finally, if you wish to install Artemis (available from <a href="http://www.sanger.ac.uk/science/tools/artemis" class="uri">http://www.sanger.ac.uk/science/tools/artemis</a>; ](http://www.sanger.ac.uk/science/tools/artemis; for <em>S. pombe</em> we recommend using <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/">Artemis Version 16</a>, you can use it to view LTRs in more detail. Read in the EMBL format files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets">Genome sequences</a> page). To see LTRs,</p>
 <ol type="1">
 <li>In the Select menu, choose “By Key”.</li>
 <li>In the pulldown that pops up, choose “LTR”.</li>
@@ -7689,8 +7682,8 @@ Example queries:
 <p>No; at present only the JBrowse and links to the Ensembl genome browser are available via the PomBase web site. (In the future we may investigate the possibility of adding an Artemis applet to PomBase, and will update this FAQ accordingly when it becomes available.)</p>
 <p>If you want to browse the <em>S. pombe</em> genome in the Artemis environment, it is fairly easy to download and run locally:</p>
 <ul>
-<li>Artemis is available from <a href="http://www.sanger.ac.uk/science/tools/artemis" class="uri">http://www.sanger.ac.uk/science/tools/artemis</a></li>
-<li>Read in the chromosome contig files available from the <a routerLink="/downloads/genome-datasets">Genome sequences</a> page. (You can read in one or more files in a session.)</li>
+<li><p><em>Important:</em> For <em>S. pombe</em> we recommend using <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/">Artemis Version 16</a>, not the most recent version available from the <a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis home page</a>. Newer versions of Artemis may be incompatible with the default Java installed on some computers, especially Macs.</p></li>
+<li><p>Read in the chromosome contig files available from the <a routerLink="/downloads/genome-datasets">Genome sequences</a> page. (You can read in one or more files in a session.)</p></li>
 </ul>
 <p>Once you have loaded the file(s), you can do many different things, e.g.:</p>
 <ul>
@@ -7725,7 +7718,7 @@ Example queries:
 <p>Annotation extensions can be used with annotations to terms from various ontologies, such as GO, FYPO, modifications, etc. Extensions provide additional specificity to the annotation by linking the term to another ontology term or a gene product via a relationship.</p>
 <p>Extensions are most commonly used with GO annotations, where they can be used to capture details such as substrates of molecular functions or cell cycle phases during which a localization is observed. More information is available in the <a routerLink="/documentation/gene-page-gene-ontology">gene page GO annotation documentation</a>.</p>
 <p>The GO Consortium provides further information on annotation extensions in its <a href="http://geneontology.org/page/go-annotation-file-gaf-format-21/">file format guide</a>, on a <a href="http://wiki.geneontology.org/index.php/Annotation_Extension">wiki page</a>, and in publications from <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=24885854">2014</a> and <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27812947">2017</a>. PomBase converts many extension names to more human-friendly text, as described <a routerLink="/documentation/annotation-extension-relation-display">here</a>.</p>
-<p>Phenotype annotations using FYPO may have extensions that capture expressivity (severity) or penetrance, or identify a gene or gene product used in an assay, as described in the <a routerLink="/documentation/gene-page-phenotypes">gene page phenotype documentation</a>.</p>
+<p>Phenotype annotations using FYPO may have extensions that capture severity or penetrance, or identify a gene or gene product used in an assay, as described in the <a routerLink="/documentation/gene-page-phenotypes">gene page phenotype documentation</a>.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/what-bam-format', 'What is BAM format?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-bam-format' || pageName == 'all-faqs'">
@@ -10113,7 +10106,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <li><a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/centromeres/cen3.gz">CEN 3</a> (gzipped EMBL format)</li>
 </ul>
 <p>Note that specific repeats within centromeres cannot yet be viewed or searched as features on PomBase pages, but they are included in the forward and reverse strand feature tracks in the genome browser, which are enabled by default.</p>
-<p>Repeats are also shown in the diagram below. To see the repeat sequences, download and unzip the <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/">contiguated sequence files</a> and view them in <a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis</a>. (See <a routerLink="/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase">this FAQ</a> for more information.)</p>
+<p>Repeats are also shown in the diagram below. To see the repeat sequences, download and unzip the <a href="ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/">contiguated sequence files</a> and view them in Artemis. (See <a routerLink="/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase">this FAQ</a> for more information.)</p>
 <p><strong>Note:</strong> Recent work by Chad Ellermeier and Gerry Smith suggests that there are only 4 +/- 1 copies of the 6760 bp repeat missing from chromosome 3</p>
 <p>Please note: This map is a schematic diagram. Distances and overlaps are approximate. Please refer to the sequence data to design experimental constructs.</p>
 <figure>
