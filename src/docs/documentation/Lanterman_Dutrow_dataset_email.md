@@ -28,13 +28,14 @@ interested in a specific gene, reduce the upstream and downstream range
 of   to 1000 before clicking "submit"; the page will take a few seconds    
 to render the first time in a session)   
 
-You can download this data as part of the complete annotation in the    
-"rich EMBL files"  from here   
-ftp://ftp.sanger.ac.uk/pub/yeast/pombe/Chromosome_contigs/ (the files    
-chromosome*.contig)   
-and view them in Artemis on your desktop (Artemis can be downloaded for    
-local use with a single click from here:    
-http://www.sanger.ac.uk/resources/software/artemis/)   
+You can download this data as part of the complete annotation in the
+"rich EMBL files" from here:
+ftp://ftp.sanger.ac.uk/pub/yeast/pombe/Chromosome_contigs/ (the files
+chromosome*.contig) and view them in Artemis on your desktop (see the
+[Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase) and
+the [Artemis
+manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf)
+(pdf; Sanger site) for additional information).
 
 Hosting Further Transcriptome Datasets   
 Clearly, as more transcriptome data becomes available the community will    

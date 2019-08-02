@@ -38,7 +38,7 @@ These files contain coordinates, but no sequence data:
 
 -   [Chromosome contigs](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/) (ftp)
     in enriched EMBL-based format for loading into
-    [Artemis](http://www.sanger.ac.uk/resources/software/artemis/)
+    Artemis (see the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase) 
 -   Older files in [EMBL format](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/OLD/20170906/embl/)
     and [GenBank format](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/OLD/20170906/genbank/)
     are available, and reflect the current genome sequence, with feature annotations from January 2017 (ftp).

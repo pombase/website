@@ -24,8 +24,7 @@ are enabled by default.
 
 Repeats are also shown in the diagram below. To see the repeat
 sequences, download and unzip the [contiguated sequence files](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/artemis_files/)
-and view them in
-[Artemis](http://www.sanger.ac.uk/science/tools/artemis). (See
+and view them in Artemis. (See
 [this FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) for more
 information.)
 

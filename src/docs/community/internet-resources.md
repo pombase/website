@@ -46,7 +46,7 @@
     for *S. pombe*
 -->
 -   [Artemis](http://www.sanger.ac.uk/science/tools/artemis) Sequence
-    viewer and analysis tool
+    viewer and analysis tool (Note: for *S. pombe* we recommend using [Artemis Version 16](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/). 
 -   [Map viewer](http://www.ncbi.nlm.nih.gov/mapview/map_search.cgi?chr=spombe.inf)
     at the NCBI
 -   [Mitochondrial Genome Information](http://megasun.bch.umontreal.ca/People/lang/species/spo/spombe.html)

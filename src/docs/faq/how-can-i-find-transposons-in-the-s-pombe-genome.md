@@ -15,7 +15,7 @@ the forward and reverse strand sequence feature tracks in the genome
 browser.
 
 Finally, if you wish to install Artemis (available from
-<http://www.sanger.ac.uk/science/tools/artemis>), you can use it to view
+<http://www.sanger.ac.uk/science/tools/artemis>; ](http://www.sanger.ac.uk/science/tools/artemis; for *S. pombe* we recommend using [Artemis Version 16](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/), you can use it to view
 LTRs in more detail. Read in the EMBL format files of sequence and
 annotation (available from the [Genome sequences](/downloads/genome-datasets) page). To see LTRs,
 
