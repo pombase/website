@@ -175,7 +175,8 @@ close $docs_component_fh;
 open my $doc_config_fh, '>', $doc_config_file_name
   or die "can't open $doc_config_file_name: $!\n";
 
-print $doc_config_fh to_json(\%section_titles, { canonical => 1, pretty => 1 } );
+warn "writing to config JSON file: $doc_config_file_name\n";
+print $doc_config_fh to_json({ pages => \%section_titles }, { canonical => 1, pretty => 1 } );
 
 close $doc_config_fh;
 

@@ -66,7 +66,7 @@ export class DocsComponent implements OnInit, OnDestroy {
       if (this.pageName !== 'index') {
         configKey += '/' + this.pageName;
       }
-      const pageConfig = this.appConfig.documentation[configKey];
+      const pageConfig = this.appConfig.documentation.pages[configKey];
 
       if (pageConfig) {
         this.setPageTitle('Documentation - ' + pageConfig);

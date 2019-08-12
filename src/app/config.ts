@@ -115,9 +115,13 @@ export interface VisColumnConfig {
   attrValuesMap: Map<string, VisColumnAttrValueConfig>;
 }
 
-export interface DocumentationConfig {
+export interface DocPagesConfig {
   // titles for each path / Markdown file
-  [path: string]: string;
+  [path: string]: string
+}
+
+export interface DocumentationConfig {
+  pages: DocPagesConfig;
 }
 
 export interface GeneResultsVisConfig {
