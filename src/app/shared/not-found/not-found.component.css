@@ -1,6 +1,7 @@
 .not-found {
   padding: 30px;
   font-size: 110%;
+  clear: both;
 }
 
 .not-found .title {
