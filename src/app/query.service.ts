@@ -73,7 +73,7 @@ export class QueryService {
 
         for (let o of JSON.parse(savedHistoryString)) {
           try {
-            const query = GeneQuery.fromJSONString(o.constraints);
+            const query = GeneQuery.fromJSONString(o);
             const entry = new HistoryEntry(query, o.resultCount);
             this.history.push(entry);
           } catch (e) {

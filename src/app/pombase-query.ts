@@ -562,7 +562,8 @@ export class GeneQuery {
 
   public toObject(): any {
     return {
-      'constraints': this.getTopNode().toObject(),
+      name: this.getName(),
+      constraints: this.getTopNode().toObject(),
     };
   }
 
