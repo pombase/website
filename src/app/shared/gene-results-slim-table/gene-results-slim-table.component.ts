@@ -45,7 +45,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   calcGeneStats(geneSummarymap: GeneSummaryMap, resultTable: Array<ProcessedRow>): void {
-    let seenGenes = new Set();
+    let seenGenes: Set<string> = new Set();
 
     for (const row of resultTable) {
       row.geneUniquenames.map(geneUniquename => seenGenes.add(geneUniquename));
@@ -70,7 +70,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
     this.countsReady = false;
 
     this.termGeneUniquenames = {};
-    for (const row of results.rows) {
+    for (const row of results.getRows()) {
       if (row.subsets) {
         for (const subsetTermId of row.subsets as Array<TermId>) {
           if (this.termGeneUniquenames[subsetTermId]) {

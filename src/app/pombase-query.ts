@@ -16,9 +16,20 @@ export interface ResultRow {
 
 export class QueryResult {
   constructor(
-    public status: string,
-    public query: GeneQuery,
-    public rows: ResultRow[]) { }
+    private query: GeneQuery,
+    private rows: ResultRow[]) { }
+
+  getQuery(): GeneQuery {
+    return this.query;
+  }
+
+  getRows(): ResultRow[] {
+    return this.rows;
+  }
+
+  getRowCount(): number {
+    return this.getRows().length;
+  }
 }
 
 export enum FormatTypes {
@@ -30,7 +41,7 @@ export class FormatUtils {
     let ret = '';
 
     if (format === FormatTypes.FASTA) {
-      for (const row of results.rows) {
+      for (const row of results.getRows()) {
         if (row.sequence) {
           ret += '>' + headers[row.gene_uniquename] + '\n';
           ret += Util.splitSequenceString(row.sequence);

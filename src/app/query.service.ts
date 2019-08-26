@@ -4,10 +4,7 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { GeneQuery, QueryResult, QueryOutputOptions } from './pombase-query';
 import { getAppConfig } from './config';
-
-function makeResults(query: GeneQuery, resultsObject: any): QueryResult {
-  return new QueryResult('OK', query, resultsObject.rows);
-}
+import * as uuid from 'uuid';
 
 const localStorageKey = 'pombase-query-build-history-v1';
 
@@ -15,12 +12,12 @@ let historyEntryCounter = 0;
 
 export class HistoryEntry {
   checked = false;
-  private id: number;
+  private id: string;
   private updatedCount: number = null;
 
   constructor(private query: GeneQuery, private resultCount: number,
               private creationStamp: number = null) {
-    this.id = historyEntryCounter++;
+    this.id = uuid.v4();
   };
 
   isNewEntry(): boolean {
@@ -42,7 +39,7 @@ export class HistoryEntry {
 
   toObject(): Object {
     let o = this.query.toObject();
-    o.resultCount = this.resultCount;
+    o.resultCount = this.getResultCount();
     return o;
   }
 
@@ -56,7 +53,7 @@ export class HistoryEntry {
     return this.updatedCount;
   }
 
-  getEntryId(): number {
+  getEntryId(): string {
     return this.id;
   }
 }
@@ -95,21 +92,21 @@ export class QueryService {
     }
   }
 
-  private postRaw(query: GeneQuery, outputOptions: QueryOutputOptions): Promise<Response> {
+  private postRaw(query: GeneQuery, outputOptions: QueryOutputOptions): Promise<QueryResult> {
     const jsonString = query.toPostJSON(outputOptions);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + '/query', jsonString, options).toPromise();
+    return this.http.post(this.apiUrl + '/query', jsonString, options).toPromise()
+      .then(raw => new QueryResult(query, raw.json().rows));
   }
 
   postQuery(query: GeneQuery, outputOptions: QueryOutputOptions): Promise<QueryResult> {
-    return this.postRaw(query, outputOptions)
-      .then(res => makeResults(query, res.json()));
+    return this.postRaw(query, outputOptions);
   }
   postQueryCount(query: GeneQuery): Promise<number> {
     const outputOptions = new QueryOutputOptions([], [], 'none');
     return this.postRaw(query, outputOptions)
-      .then(res => res.json().rows.length);
+      .then(res => res.getRowCount());
   }
 
   postPredefinedQuery(queryName: string, outputOptions: QueryOutputOptions): Promise<QueryResult> {
@@ -127,7 +124,7 @@ export class QueryService {
     localStorage.setItem(localStorageKey, JSON.stringify(historyObjects));
   }
 
-  historyEntryById(historyEntryId: number): GeneQuery {
+  historyEntryById(historyEntryId: string): GeneQuery {
     for (let entry of this.history) {
       if (entry.getEntryId() === historyEntryId) {
         return entry.getQuery();

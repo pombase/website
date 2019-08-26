@@ -26,12 +26,12 @@ export class GeneResultsComponent implements OnInit, OnChanges {
       this.pombaseApiService.getGeneSummaryMapPromise()
         .then((geneSummaries) => {
           this.displayResults =
-            this.results.rows.map((row) => {
+            this.results.getRows().map((row) => {
               return geneSummaries[row.gene_uniquename];
             });
 
           if (this.description) {
-            this.termsInQuery = this.results.query.referencedTerms();
+            this.termsInQuery = this.results.getQuery().referencedTerms();
             const termids = this.termsInQuery.map(term => term.termid);
             const termidRe = new RegExp('(' + termids.join('|') + ')');
 

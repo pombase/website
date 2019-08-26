@@ -201,7 +201,7 @@ export class GenesDownloadDialogComponent implements OnInit {
         const fileName = 'sequence.fasta';
         let descriptions: { [geneUniquename: string]: string } = {};
 
-        for (const row of results.rows) {
+        for (const row of results.getRows()) {
           const geneUniquename = row.gene_uniquename;
           const geneSummary = summaryMap[geneUniquename];
 

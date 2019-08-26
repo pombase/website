@@ -195,7 +195,7 @@ export class GeneResultsVisComponent implements OnInit {
       geneMap[geneShort.uniquename] = geneShort;
     });
     let resultMap: { [key: string]: GeneData } = {};
-    queryResult.rows.map(row => {
+    queryResult.getRows().map(row => {
       const geneShort = geneMap[row.gene_uniquename];
       resultMap[row.gene_uniquename] = new GeneData(this.visColumnConfigs, geneShort, row);
     });
