@@ -486,11 +486,8 @@ export class QueryOutputOptions {
               private sequence: SequenceOptions) { }
 }
 
-let nextQueryId = 0;
-
 export class GeneQuery {
   private queryTopNode: GeneQueryNode;
-  private queryId: number;
   private name: string;
   private stringQuery: string = null;
 
@@ -550,7 +547,6 @@ export class GeneQuery {
 
   constructor(queryName: string, topNode: GeneQueryNode) {
     this.name = queryName;
-    this.queryId = nextQueryId++;
     this.queryTopNode = topNode;
 
     this.stringQuery = this.getTopNode().toString();
@@ -558,10 +554,6 @@ export class GeneQuery {
 
   public equals(query: GeneQuery): boolean {
     return this.getTopNode().equals(query.getTopNode());
-  }
-
-  public getQueryId(): number {
-    return this.queryId;
   }
 
   public getTopNode(): GeneQueryNode {
