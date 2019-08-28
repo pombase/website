@@ -268,7 +268,37 @@
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7865880">PMID:7865880</a></td>
   <td>&nbsp;</td>
  </tr>
-  <tr>
+ <tr>
+  <td>mms1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>mms35</td>
+ </tr>
+ <tr>
+  <td>mms8</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mms38</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mms52</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mms57</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mms60</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
   <td>orb1</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8187760">PMID:8187760</a></td>
   <td>&nbsp;</td>
