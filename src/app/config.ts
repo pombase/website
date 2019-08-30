@@ -148,6 +148,7 @@ export interface AppConfig {
   organisms: Array<ConfigOrganism>;
   ortholog_taxonids: Array<number>;
   frontPagePanels: Array<PanelConfig>;
+  defaultJBrowseTracks: Array<JBrowseTrackInfo>;
   apiSeqChunkSizes: {
     all: Array<number>;
     smallest: number;
@@ -591,6 +592,7 @@ let _appConfig: AppConfig = {
   organisms: pombaseConfig.organisms,
   ortholog_taxonids: pombaseConfig.ortholog_taxonids,
   frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
+  defaultJBrowseTracks: pombaseConfig.default_jbrowse_tracks,
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
     smallest: Math.min(...pombaseConfig.api_seq_chunk_sizes),
