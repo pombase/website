@@ -25,6 +25,7 @@ export class ReferenceDetailsComponent implements OnInit {
   pubMedId: string = null;
   apiError: APIError = null;
   cantoCommunityCuratorName: string = null;
+  cantoTriageStatus: string = 'UNKNOWN';
   refAnnotationStatus: string = null;
   jbrowseTrackLabels: Array<string> = [];
   jbrowsePath = '';
@@ -60,6 +61,7 @@ export class ReferenceDetailsComponent implements OnInit {
         this.refDetails.canto_curator_name) {
       this.cantoCommunityCuratorName = this.refDetails.canto_curator_name;
     }
+    this.cantoTriageStatus = this.refDetails.canto_triage_status;
   }
 
   setVisibleSections(): void {

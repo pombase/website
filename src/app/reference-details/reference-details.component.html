@@ -94,9 +94,17 @@
 if you would like to contribute annotations for this paper.)
       </span>
       <span *ngIf="refAnnotationStatus == 'no-annotation'">
+        <span *ngIf="cantoTriageStatus == 'Review or comment'">
+        it is a review.
+        </span>
+        <span *ngIf="cantoTriageStatus == 'Method or reagent'">
+        it is a methods paper.
+        </span>
+        <span *ngIf="cantoTriageStatus != 'Review or comment' && cantoTriageStatus != 'Method or reagent'">
         the data it contains either cannot be associated with
         individual genes, or cannot be represented by currently
         available annotation types.
+        </span>
       </span>
     </div>
   </div>
