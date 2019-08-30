@@ -7,13 +7,13 @@
     <div class="details-page-name-and-id">
       <div *ngIf="subset.name == 'non_go_slim_with_bp_annotation'">
         Gene products with biological process annotation, not covered
-        by the PomBase
+        by the {{siteName}}
         <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GOslim</a>
         categories: {{subset.elements.length}}
       </div>
       <div *ngIf="subset.name == 'non_go_slim_without_bp_annotation'">
         Gene products without biological process annotation, not covered
-        by the PomBase
+        by the {{siteName}}
         <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GOslim</a>
         categories: {{subset.elements.length}}
       </div>

@@ -18,7 +18,8 @@ export class ReferenceDetailsComponent implements OnInit {
 
   annotationTypeNames: Array<string>;
   appConfig: AppConfig = getAppConfig();
-  siteName = '';
+  siteName = this.appConfig.site_name;
+
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   isPubMedRef = false;
@@ -36,9 +37,7 @@ export class ReferenceDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private titleService: Title,
               private readonly meta: Meta,
-             ) {
-    this.siteName = this.appConfig.site_name;
-  }
+             ) { }
 
   setPageTitle(): void {
     let title = this.appConfig.site_name + ' - Reference - ';

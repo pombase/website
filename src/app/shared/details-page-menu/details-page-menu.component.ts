@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges,
          Inject, HostListener } from '@angular/core';
 
-import { getAnnotationTableConfig, AnnotationTableConfig} from '../../config';
+import { getAnnotationTableConfig, AnnotationTableConfig, getAppConfig, AppConfig} from '../../config';
 
 interface MenuItem {
   id: string;
@@ -20,6 +20,9 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
 
   menuItems: Array<MenuItem> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
+
+  appConfig: AppConfig = getAppConfig();
+  siteName = this.appConfig.site_name;
 
   menuPositionFixed = false;
 

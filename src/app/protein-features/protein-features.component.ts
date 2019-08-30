@@ -13,6 +13,8 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
 
   appConfig = getAppConfig();
+  siteName = this.appConfig.site_name;
+
   ensemblImageUrl: string = null;
   ensemblBrowserUrl: string = null;
   transcriptDetails: TranscriptDetails = null;

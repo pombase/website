@@ -14,15 +14,15 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 import { getAppConfig } from './config';
 
-const defaultTitle = getAppConfig().site_name;
-const defaultDescription = getAppConfig().site_description;
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  siteName = getAppConfig().site_name;
+  defaultDescription = getAppConfig().site_description;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
       .mergeMap(route => route.data)
       .subscribe((event: Data) => {
         if (event.defaultTitleDetail) {
-          const title = defaultTitle + ' - ' + event.defaultTitleDetail;
+          const title = this.siteName + ' - ' + event.defaultTitleDetail;
           this.titleService.setTitle(title);
           this.meta.updateTag({ property: 'og:title', content: title });
         }

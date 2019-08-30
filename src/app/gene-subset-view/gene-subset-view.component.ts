@@ -17,6 +17,7 @@ export class GeneSubsetViewComponent implements OnInit {
   apiError: APIError = null;
   queryBuilderRouterLink: string = null;
   appConfig: AppConfig = getAppConfig();
+  siteName = this.appConfig.site_name;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -25,9 +26,9 @@ export class GeneSubsetViewComponent implements OnInit {
 
   setPageTitle(): void {
     if (this.subset) {
-      this.titleService.setTitle(this.appConfig.site_name + ' - ' + this.subset.name);
+      this.titleService.setTitle(this.siteName + ' - ' + this.subset.name);
     } else {
-      this.titleService.setTitle(this.appConfig.site_name);
+      this.titleService.setTitle(this.siteName);
     }
   }
 

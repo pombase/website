@@ -26,6 +26,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
+  siteName = this.appConfig.site_name;
 
   filteredTable: Array<InteractionAnnotation> = null;
 

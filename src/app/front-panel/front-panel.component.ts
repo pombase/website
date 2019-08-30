@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { PanelConfig } from '../config';
+import { PanelConfig, AppConfig, getAppConfig } from '../config';
 import { Util } from '../shared/util';
 
 @Component({
@@ -16,6 +16,9 @@ export class FrontPanelComponent implements OnInit {
   headImage: string = null;
   headImageLink: string = null;
   headVideo: string = null;
+
+  appConfig: AppConfig = getAppConfig();
+  siteName = this.appConfig.site_name;
 
   constructor() { }
 
@@ -40,7 +43,7 @@ export class FrontPanelComponent implements OnInit {
       this.panelDescription = 'Research spotlight';
     } else {
       if (this.conf.panel_type === 'explore') {
-        this.panelDescription = 'Explore PomBase';
+        this.panelDescription = 'Explore ' + this.siteName;
       } else {
         this.panelDescription = null;
       }

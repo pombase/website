@@ -1,5 +1,6 @@
 import { Component, OnInit, Input,
          Inject, HostListener } from '@angular/core';
+import { getAppConfig, AppConfig } from '../../config';
 
 @Component({
   selector: 'app-page-contents-menu',
@@ -9,6 +10,9 @@ import { Component, OnInit, Input,
 export class PageContentsMenuComponent implements OnInit {
   @Input() title: string;
   @Input() titleRoute: string = null;
+
+  appConfig: AppConfig = getAppConfig();
+  siteName = this.appConfig.site_name;
 
   menuPositionFixed = false;
 

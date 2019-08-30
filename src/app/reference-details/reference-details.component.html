@@ -71,7 +71,7 @@
   </div>
 
   <div *ngIf="hasJBrowseTracks()" class="ref-jbrowse-link">
-    Datasets from this publication are available in the PomBase
+    Datasets from this publication are available in the {{siteName}}
     JBrowse genome browser.  <a href="{{jbrowsePath}}"><img src="/assets/jbrowse-link-tiny.png"/> View...</a>
   </div>
 
@@ -85,7 +85,7 @@
       </div>
     </div>
     <div *ngIf="refAnnotationStatus != 'has-annotations'">This publication has no
-      annotations in PomBase because
+      annotations in {{siteName}} because
       <span *ngIf="refAnnotationStatus == 'not-curated'">
         it hasn't been curated yet.
         (Please

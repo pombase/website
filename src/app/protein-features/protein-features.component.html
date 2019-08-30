@@ -48,7 +48,7 @@
 
   <div *ngIf="proteinFeaturesTable && proteinFeaturesTable.length > 0" class="pombase-annotation">
     <div class="protein-feature-title">
-      Families and domain annotated by PomBase
+      Families and domain annotated by {{siteName}}
     </div>
     <app-annotation-sub-table
       [annotationTypeName]="'PomBase family or domain'"
