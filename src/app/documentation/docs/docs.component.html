@@ -7983,6 +7983,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#join-conversations-on-slack">Join the conversations on Slack</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse">"Fitness Landscape of the Fission Yeast Genome" dataset loaded into JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</a></div>
@@ -9087,23 +9088,42 @@ Please sign the letter to add your voice in support of the databases that help m
 <!-- newsfeed_thumbnail: slack_icon-32px.png -->
 <p>The vibrant fission yeast community now has a Slack channel. Slack provides a forum for the research community. Follow conversations you care about, message colleagues privately, or in groups, ask questions, post responses. All archived and searchable.</p>
 <ul>
-<li><a href="/assets/external_media/PombeSlack-flyer.pdf">PombeSlack flyer</a></li>
-<li><a href="https://bit.ly/2XYkcEi">Join PombeSlack</a></li>
+<li>See the <a href="/assets/external_media/PombeSlack-flyer.pdf">PombeSlack flyer</a> for more information, including how to join.</li>
 </ul>
+<!-- included with original news item; commented out after expiry:
+ - <a href="https://bit.ly/2XYkcEi">Join PombeSlack</a> -->
+
+  </div>
+  <div *ngIf="pageName == 'replication-origin-tracks-loaded'">
+<h3 id="replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: browser.png -->
+<p>We have loaded data from: <a href="https://www.pombase.org/reference/PMID:14566325">Segurado et al. (2003) “A+T-rich islands”</a>, <a href="https://www.pombase.org/reference/PMID:17304213">Hayashi et al. (2007) “Pre-replicative complex localization; early and late firing origins”</a>, and <a href="https://www.pombase.org/reference/PMID:18093330">Mickle et al. (2007) “Replication origins with functional classification”</a>.</p>
+<p>To view the tracks, either follow the hyperlinks above to the respective PomBase publication pages, and click on the “view” link after “Datasets from this publication are available in the PomBase JBrowse genome browser”, or go directly to <a href="http://www.pombase.org/jbrowse/">the browser</a> and click on the “select tracks” button to find the tracks manually.</p>
+<p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
 <div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<h3 id="replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</h3>
+<p><em>2019-08-30</em></p>
+<p>We have loaded data from: <a href="https://www.pombase.org/reference/PMID:14566325">Segurado et al. (2003) “A+T-rich islands”</a>, <a href="https://www.pombase.org/reference/PMID:17304213">Hayashi et al. (2007) “Pre-replicative complex localization; early and late firing origins”</a>, and <a href="https://www.pombase.org/reference/PMID:18093330">Mickle et al. (2007) “Replication origins with functional classification”</a>.</p>
+<p>To view the tracks, either follow the hyperlinks above to the respective PomBase publication pages, and click on the “view” link after “Datasets from this publication are available in the PomBase JBrowse genome browser”, or go directly to <a href="http://www.pombase.org/jbrowse/">the browser</a> and click on the “select tracks” button to find the tracks manually.</p>
+<p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
+</div>
+<div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/slack_icon-32px.png"/></p>
 <h3 id="join-conversations-on-slack">Join the conversations on Slack</h3>
 <p><em>2019-07-19</em></p>
 <p>The vibrant fission yeast community now has a Slack channel. Slack provides a forum for the research community. Follow conversations you care about, message colleagues privately, or in groups, ask questions, post responses. All archived and searchable.</p>
 <ul>
-<li><a href="/assets/external_media/PombeSlack-flyer.pdf">PombeSlack flyer</a></li>
-<li><a href="https://bit.ly/2XYkcEi">Join PombeSlack</a></li>
+<li>See the <a href="/assets/external_media/PombeSlack-flyer.pdf">PombeSlack flyer</a> for more information, including how to join.</li>
 </ul>
+<!-- included with original news item; commented out after expiry:
+ - <a href="https://bit.ly/2XYkcEi">Join PombeSlack</a> -->
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
@@ -16635,7 +16655,37 @@ Joined contigs p4C9 and c977</p>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=7865880">PMID:7865880</a></td>
   <td>&nbsp;</td>
  </tr>
-  <tr>
+ <tr>
+  <td>mms1</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>mms35</td>
+ </tr>
+ <tr>
+  <td>mms8</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mms38</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mms52</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mms57</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>mms60</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=9153313">PMID:9153313</a></td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
   <td>orb1</td>
   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=8187760">PMID:8187760</a></td>
   <td>&nbsp;</td>
