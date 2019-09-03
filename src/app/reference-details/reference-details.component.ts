@@ -135,7 +135,7 @@ export class ReferenceDetailsComponent implements OnInit {
 
   setJBrowseTrackLabels() {
     const tracks = getJBrowseTracksByPMID(this.refDetails.uniquename);
-    if (tracks) {
+    if (tracks.length > 0) {
       this.jbrowseTrackLabels =
         this.appConfig.defaultJBrowseTracks.map(track => track.label);
       let totalLength = 0;
