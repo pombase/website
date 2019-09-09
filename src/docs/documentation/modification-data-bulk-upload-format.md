@@ -86,6 +86,7 @@ either an identifier or a number.
 Extension relation | Meaning | Example
 -------------------|---------|--------
 added_by | identifies a gene product that adds the modification | added_by(PomBase:SPBC11B10.09)
+affected_by | identifies a gene product that has some influence on the modification, but has not been conclusively shown to add or remove it | affected_by(PomBase:SPBC11B10.09)
 removed_by | identifies a gene product that removes the modification | added_by(PomBase:SPAC24H6.05)
 added_during | identifies a biological process or cell cycle phase during which the modification is actively added | added_by(GO:0000085)
 removed_during | identifies a biological process or cell cycle phase during which the modification is removed | removed_by(GO:0000087)
