@@ -1,6 +1,4 @@
 ### Integrated motif search
-
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: motif_search_cropped.png -->
 
 The PomBase [motif search](/motif_search) has been fully integrated

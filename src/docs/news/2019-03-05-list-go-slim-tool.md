@@ -1,6 +1,4 @@
 ### GO slim for any *S. pombe* gene list
-
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: slim_tiny.png -->
 
 PomBase's advanced search now allows you to retrieve [GO

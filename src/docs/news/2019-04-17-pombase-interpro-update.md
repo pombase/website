@@ -1,5 +1,4 @@
 ### PomBase InterPro Update
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 
 PomBase now uses InterPro Version 73.0, which integrates 1,531 new

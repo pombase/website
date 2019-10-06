@@ -7988,6 +7988,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 76.0</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#join-conversations-on-slack">Join the conversations on Slack</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse">"Fitness Landscape of the Fission Yeast Genome" dataset loaded into JBrowse</a></div>
@@ -9012,7 +9013,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'list-go-slim-tool'">
 <h3 id="go-slim-for-any-s.-pombe-gene-list">GO slim for any <em>S. pombe</em> gene list</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: slim_tiny.png -->
 <p>PomBase’s advanced search now allows you to retrieve <a href="documentation/pombase-go-slim-documentation">GO slim</a> annotations for any set of search results. To find GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene IDs” option, and then use the “Slim” button on the search results page.</p>
 <p>See the <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO slim page</a> and the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
@@ -9027,7 +9027,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'motif-search-integrated'">
 <h3 id="integrated-motif-search">Integrated motif search</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: motif_search_cropped.png -->
 <p>The PomBase <a routerLink="/motif_search">motif search</a> has been fully integrated into the website, and allows users to find protein motifs and send them directly to the PomBase <a routerLink="/query">advanced search</a>.</p>
 
@@ -9041,7 +9040,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'pombase-interpro-update'">
 <h3 id="pombase-interpro-update">PomBase InterPro Update</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 <p>PomBase now uses InterPro Version 73.0, which integrates 1,531 new methods from the CATH-Gene3D (122), CDD (330), PANTHER (1075), Pfam (2), PROSITE profiles (1) and TIGRFAMs (1) databases, and covers 81.2% of UniProt Knowledgebase release 2019_02.</p>
 <p>See <a href="https://www.ebi.ac.uk/about/news/service-news/InterPro-73.0">the news item at InterPro</a> for additional information, including release notes.</p>
@@ -9108,9 +9106,22 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
 
   </div>
+  <div *ngIf="pageName == 'interpro-v76-loaded'">
+<h3 id="pombase-now-uses-interpro-version-76.0">PomBase now uses InterPro Version 76.0</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: interpro_32px.png -->
+<p>PomBase now uses InterPro Version 76.0, which integrates 277 new methods from the CATH-Gene3D (1), PANTHER (178) and CDD (98) databases. InterPro cites 59846 publications in PubMed. See the InterPro <a href="https://www.ebi.ac.uk/interpro/release_notes/">release notes</a> for further information.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 76.0</h3>
+<p><em>2019-10-06</em></p>
+<p>PomBase now uses InterPro Version 76.0, which integrates 277 new methods from the CATH-Gene3D (1), PANTHER (178) and CDD (98) databases. InterPro cites 59846 publications in PubMed. See the InterPro <a href="https://www.ebi.ac.uk/interpro/release_notes/">release notes</a> for further information.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</h3>
