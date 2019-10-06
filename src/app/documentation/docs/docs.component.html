@@ -7988,6 +7988,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-pombase-funding-wellcome-trust">New PomBase funding from the Wellcome Trust</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 76.0</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#join-conversations-on-slack">Join the conversations on Slack</a></div>
@@ -9113,9 +9114,22 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>PomBase now uses InterPro Version 76.0, which integrates 277 new methods from the CATH-Gene3D (1), PANTHER (178) and CDD (98) databases. InterPro cites 59846 publications in PubMed. See the InterPro <a href="https://www.ebi.ac.uk/interpro/release_notes/">release notes</a> for further information.</p>
 
   </div>
+  <div *ngIf="pageName == 'new-wt-pombase-funding'">
+<h3 id="new-pombase-funding-from-the-wellcome-trust">New PomBase funding from the Wellcome Trust</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>We are pleased to announce that the recent PomBase application for continued Wellcome Trust funding was successful. Although the grant was not fully funded, we are confident that we can cover the shortfall by small grants for stand-alone projects and collaborations. We would like to thank the pombe community for their support with the application, and the Wellcome Trust for their continued funding. We look forward to supporting your research until 2025 (and beyond).</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="new-pombase-funding-wellcome-trust">New PomBase funding from the Wellcome Trust</h3>
+<p><em>2019-10-07</em></p>
+<p>We are pleased to announce that the recent PomBase application for continued Wellcome Trust funding was successful. Although the grant was not fully funded, we are confident that we can cover the shortfall by small grants for stand-alone projects and collaborations. We would like to thank the pombe community for their support with the application, and the Wellcome Trust for their continued funding. We look forward to supporting your research until 2025 (and beyond).</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 76.0</h3>
