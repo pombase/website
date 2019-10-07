@@ -7,8 +7,17 @@ table thead td.end-pos {
   padding-left: 1em;
 }
 
+.input-and-doc-link {
+  display: inline-block;
+}
+
+.motif-docs-link {
+  padding-left: 0.7em;
+}
+
 .results {
   margin-top: 1em;
+  clear: both;
 }
 
 .results tbody {
@@ -89,14 +98,22 @@ table thead td.end-pos {
   margin-bottom: 1em;
 }
 
-.aa-example {
-  margin-bottom: 0.5em;
-}
-
 .pep {
   font-weight: bold;
 }
 
 .aa-header {
   margin-top: 1em;
+}
+
+.help-when-not-typing {
+  margin: 1em;
+  margin-top: 2em;
+}
+
+.help-while-typing {
+  font-size: 75%;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 4em;
 }

@@ -104,6 +104,7 @@ import { InteractionTableThroughputFilterComponent } from './interaction-table-t
 import { GenesTableConfigComponent } from './genes-table-config/genes-table-config.component';
 import { ExternalRefsTableComponent } from './external-refs-table/external-refs-table.component';
 import { AnnotationTableThroughputFilterComponent } from './annotation-table-throughput-filter/annotation-table-throughput-filter.component';
+import { MotifSearchHelpComponent } from './motif-search-help/motif-search-help.component';
 
 export function documentFactory() {
     return document;
@@ -189,6 +190,7 @@ export function windowFactory() {
     GenesTableConfigComponent,
     ExternalRefsTableComponent,
     AnnotationTableThroughputFilterComponent,
+    MotifSearchHelpComponent,
   ],
   imports: [
     BrowserModule,
