@@ -16,7 +16,7 @@ table thead td.end-pos {
 }
 
 .results {
-  margin-top: 1em;
+  margin-top: 0.5em;
   clear: both;
 }
 
@@ -116,4 +116,5 @@ table thead td.end-pos {
   display: inline-block;
   vertical-align: top;
   padding-left: 4em;
+  padding-top: 0.8em;
 }
