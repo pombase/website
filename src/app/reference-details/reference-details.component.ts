@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig, getJBrowseTracksByPMID } from '../config';
+         getAppConfig, AppConfig } from '../config';
 import { Util } from '../shared/util';
 
 import { ReferenceDetails, PombaseAPIService, APIError } from '../pombase-api.service';
@@ -28,8 +28,6 @@ export class ReferenceDetailsComponent implements OnInit {
   cantoCommunityCuratorName: string = null;
   cantoTriageStatus: string = 'UNKNOWN';
   refAnnotationStatus: string = null;
-  jbrowseTrackLabels: Array<string> = [];
-  jbrowsePath = '';
   multiOrgMode = getAppConfig().isMultiOrganismMode();
   graphicalAbstractImagePath: string = null;
 
@@ -133,30 +131,6 @@ export class ReferenceDetailsComponent implements OnInit {
      }
   }
 
-  setJBrowseTrackLabels() {
-    const tracks = getJBrowseTracksByPMID(this.refDetails.uniquename);
-    if (tracks.length > 0) {
-      this.jbrowseTrackLabels =
-        this.appConfig.defaultJBrowseTracks.map(track => track.label);
-      let totalLength = 0;
-      // make sure the URL doesn't get too long
-      for (const track of tracks) {
-        this.jbrowseTrackLabels.push(track.label);
-        totalLength += track.label.length;
-        if (totalLength >= 1800) {
-          break;
-        }
-      }
-      this.jbrowsePath = encodeURI('/jbrowse/?tracks=' + this.jbrowseTrackLabels.join(','));
-    } else {
-      this.jbrowseTrackLabels = [];
-    }
-  }
-
-  hasJBrowseTracks(): boolean {
-    return this.jbrowseTrackLabels.length > 0;
-  }
-
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -177,7 +151,6 @@ export class ReferenceDetailsComponent implements OnInit {
             this.apiError = null;
             this.setAnnotationStatus();
             this.setGraphicalAbstract();
-            this.setJBrowseTrackLabels();
           })
           .catch(error => {
             this.apiError = error;

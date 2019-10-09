@@ -1,0 +1,48 @@
+<div *ngIf="hasTracks()" class="jbrowse-picker">
+  <h3>
+    <span *ngIf="tracks.length == 1">A dataset</span>
+    <span *ngIf="tracks.length != 1">{{tracks.length}} datasets</span>
+    from this publication are available in the {{siteName}} JBrowse genome browser.
+    <a style="padding: 0 0.5em;" (click)="showTracks()"><img src="/assets/jbrowse-link-tiny.png"/>
+    <span *ngIf="!tracksVisible" class="view-link"> View ...</span></a>
+  </h3>
+
+  <div *ngIf="tracksVisible">
+    <h4 class="select-tracks-help">
+      Select tracks to show in the browser.
+
+      <button class="btn btn-primary load-in-jbrowse"
+              [attr.title]="selectedCount() == 0 ? 'Select some tracks from the list below' : 'View the selected tracks in JBrowse'"
+              [disabled]="loadButtonDisabled()"
+              (click)="loadInJBrowse()">Load in JBrowse</button>
+    </h4>
+
+    <table *ngIf="tracksVisible">
+      <thead>
+        <tr>
+          <th>
+            <input id="select-all" type="checkbox" [(ngModel)]="allSelected"
+                   title="Select all" (ngModelChange)="selectAll()"/>
+          </th>
+          <th *ngFor="let col of colConfig">
+            {{col.display_name}}
+          </th>
+        </tr>
+      </thead>
+      <tr *ngFor="let track of tracks">
+        <td>
+          <input id="track.label" type="checkbox"
+                 [attr.title]="selectCheckboxesDisabled() ? 'JBrowse track limit reached' : 'Check box to select this track for JBrowse'"
+                 [disabled]="selectCheckboxesDisabled() && !selectedTracks[track.label]"
+                 [(ngModel)]="selectedTracks[track.label]"
+                 (ngModelChange)="trackSelected(track.label)"
+                 title="Select / unselect track"/>
+        </td>
+
+        <td *ngFor="let col of colConfig">
+          {{track[col.name] || ''}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

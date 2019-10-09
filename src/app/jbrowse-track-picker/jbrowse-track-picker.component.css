@@ -1,0 +1,35 @@
+.jbrowse-picker {
+  margin: 1em 0;
+}
+
+.view-link {
+  margin-left: 0.8em;
+}
+
+.select-tracks-help {
+  margin: 1em 0;
+}
+
+button.load-in-jbrowse {
+  margin: 0 1em;
+}
+
+th {
+  vertical-align: top;
+  color: #eef;
+  background-color: #768ad3;
+  padding: 0.5em;
+  border: 2px solid white;
+}
+
+td:first-child {
+  padding: 0.5em;
+}
+
+tr:nth-child(odd) {
+  background-color: #f8f8ff;
+}
+
+tr:hover {
+  background-color: #eef;
+}

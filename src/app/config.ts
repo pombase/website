@@ -140,6 +140,11 @@ export interface SlimConfig {
   terms: Array<TermAndName>;
 }
 
+export interface JBrowseColumnConfig {
+  name: string;
+  display_name: string;
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -149,6 +154,7 @@ export interface AppConfig {
   ortholog_taxonids: Array<number>;
   frontPagePanels: Array<PanelConfig>;
   defaultJBrowseTracks: Array<JBrowseTrackInfo>;
+  refPageJBrowseColumns: Array<JBrowseColumnConfig>;
   apiSeqChunkSizes: {
     all: Array<number>;
     smallest: number;
@@ -593,6 +599,7 @@ let _appConfig: AppConfig = {
   ortholog_taxonids: pombaseConfig.ortholog_taxonids,
   frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
   defaultJBrowseTracks: pombaseConfig.default_jbrowse_tracks,
+  refPageJBrowseColumns: pombaseConfig.reference_page_jbrowse_columns,
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
     smallest: Math.min(...pombaseConfig.api_seq_chunk_sizes),
@@ -1124,8 +1131,8 @@ export function getOrganismExternalLink(organismGenus: string, organismSpecies: 
 }
 
 export interface JBrowseTrackInfo {
-    pmed_id: string;
-    label:   string;
+  pmed_id: string;
+  label:   string;
 }
 
 const _jbrowseTracks: Array<JBrowseTrackInfo> = jbrowseTracks;
