@@ -143,6 +143,7 @@ export interface SlimConfig {
 export interface JBrowseColumnConfig {
   name: string;
   display_name: string;
+  download_link?: boolean;
 }
 
 export interface AppConfig {

@@ -40,7 +40,8 @@
         </td>
 
         <td *ngFor="let col of colConfig">
-          {{track[col.name] || ''}}
+          <a *ngIf="col.download_link" href="{{track[col.name]}}">Download ...</a>
+          <span *ngIf="!col.download_link">{{track[col.name] || ''}}</span>
         </td>
       </tr>
     </table>
