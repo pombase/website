@@ -92,9 +92,10 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
   }
 
   loadInJBrowse() {
-    let labels = this.tracks.filter(track => this.selectedTracks[track.label])
-      .map(track => track.label).join(',');
-    let path = encodeURI('/jbrowse/?tracks=' + labels);
+    let labels = getAppConfig().defaultJBrowseTracks.map(track => track.label);
+    this.tracks.filter(track => this.selectedTracks[track.label])
+      .map(track => labels.push(track.label));
+    let path = encodeURI('/jbrowse/?tracks=' + labels.join(','));
     this.document.location.href = path;
   }
 
