@@ -15,11 +15,18 @@ button.load-in-jbrowse {
 }
 
 th {
-  vertical-align: top;
   color: #eef;
   background-color: #768ad3;
   padding: 0.5em;
   border: 2px solid white;
+}
+
+td {
+  padding: 0.2em 0.5em;
+}
+
+td, th, td input {
+  vertical-align: top;
 }
 
 td:first-child {
