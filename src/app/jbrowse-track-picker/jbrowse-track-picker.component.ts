@@ -17,7 +17,7 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
 
   tracks: Array<JBrowseTrackInfo> = [];
   colConfig: Array<JBrowseColumnConfig> = [];
-  tracksVisible = false;
+  tracksVisible = true;
   allSelected = false;
   selectedTracks: { [key: string]: boolean } = {};
   selectedTrackCount = 0;
