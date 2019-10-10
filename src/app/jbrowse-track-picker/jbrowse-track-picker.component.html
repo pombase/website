@@ -1,21 +1,23 @@
-<div *ngIf="hasTracks()" class="jbrowse-picker">
-  <h3>
+<div id="jbrowse_tracks" *ngIf="hasTracks()">
+  <div class="jbrowse-header">
+Genome browser tracks from this publication:
+  </div>
+<fieldset class="jbrowse-picker annotation-table">
+  <legend>
     <span *ngIf="tracks.length == 1">A dataset</span>
     <span *ngIf="tracks.length != 1">{{tracks.length}} datasets</span>
-    from this publication are available in the {{siteName}} JBrowse genome browser.
-    <a style="padding: 0 0.5em;" (click)="showTracks()"><img src="/assets/jbrowse-link-tiny.png"/>
-    <span *ngIf="!tracksVisible" class="view-link"> View ...</span></a>
-  </h3>
+    from this publication are available in the genome browser
+  </legend>
 
   <div *ngIf="tracksVisible">
-    <h4 class="select-tracks-help">
-      Select tracks to show in the browser.
+    <div class="select-tracks-help">
+      Select tracks to view
 
       <button class="btn btn-primary load-in-jbrowse"
               [attr.title]="selectedCount() == 0 ? 'Select some tracks from the list below' : 'View the selected tracks in JBrowse'"
               [disabled]="loadButtonDisabled()"
               (click)="loadInJBrowse()">Load in JBrowse</button>
-    </h4>
+    </div>
 
     <table *ngIf="tracksVisible">
       <thead>
@@ -46,4 +48,5 @@
       </tr>
     </table>
   </div>
+</fieldset>
 </div>

@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig } from '../config';
+         getAppConfig, AppConfig, getJBrowseTracksByPMID } from '../config';
 import { Util } from '../shared/util';
 
 import { ReferenceDetails, PombaseAPIService, APIError } from '../pombase-api.service';
@@ -63,6 +63,10 @@ export class ReferenceDetailsComponent implements OnInit {
 
   setVisibleSections(): void {
     this.visibleSections = [];
+
+    if (getJBrowseTracksByPMID(this.refDetails.uniquename).length > 0) {
+      this.visibleSections.push('jbrowse_tracks');
+    }
 
     for (let annotationTypeName of this.annotationTypeNames) {
       if (this.refDetails.cv_annotations[annotationTypeName] &&

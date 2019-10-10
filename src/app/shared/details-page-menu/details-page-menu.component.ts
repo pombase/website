@@ -59,6 +59,12 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
     if (this.visibleSections) {
       this.menuItems =
         this.visibleSections.map(typeName => {
+          if (typeName === 'jbrowse_tracks') {
+            return {
+              id: typeName,
+              displayName: 'JBrowse tracks',
+            };
+          }
           let typeConfig = this.config.getAnnotationType(typeName);
           return {
             id: typeName,
