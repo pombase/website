@@ -50,7 +50,7 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
         this.selectedTrackCount++;
       } else {
         this.toastr.warning('Only ' + this.selectedTrackCount +
-                            ' tracks selected due JBrowse limit');
+                            ' tracks selected due to a JBrowse limit');
         break;
       }
     }
