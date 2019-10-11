@@ -18,7 +18,7 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
   tracks: Array<JBrowseTrackInfo> = [];
   colConfig: Array<JBrowseColumnConfig> = [];
   tracksVisible = true;
-  allSelected = false;
+
   selectedTracks: { [key: string]: boolean } = {};
   selectedTrackCount = 0;
   selectedLabelLength = 0;
@@ -32,16 +32,7 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
   }
 
   selectAll() {
-    this.tracks.map(track => {
-      this.selectedTracks[track.label] = false;
-    });
-
-    this.selectedLabelLength = 0;
-    this.selectedTrackCount = 0;
-
-    if (!this.allSelected) {
-      return;
-    }
+    this.selectNone();
 
     for (let track of this.tracks) {
       if (this.selectedLabelLength < JBROWSE_URL_LIMIT) {
@@ -56,12 +47,20 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
     }
   }
 
+  selectNone() {
+    this.tracks.map(track => {
+      this.selectedTracks[track.label] = false;
+    });
+
+    this.selectedLabelLength = 0;
+    this.selectedTrackCount = 0;
+  }
+
   trackSelected(label: string) {
     if (this.selectedTracks[label]) {
       this.selectedLabelLength += label.length;
     } else {
       this.selectedLabelLength -= label.length;
-      this.allSelected = false;
     }
     if (this.selectedLabelLength > JBROWSE_URL_LIMIT) {
       this.toastr.warning('No more tracks can be selected due to a JBrowse limit');

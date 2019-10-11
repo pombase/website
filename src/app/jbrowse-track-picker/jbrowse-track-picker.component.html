@@ -11,7 +11,14 @@ Genome browser tracks from this publication:
 
   <div *ngIf="tracksVisible">
     <div class="select-tracks-help">
-      Select tracks to view
+      <div>
+        <div>
+          Choose tracks to view
+        </div>
+        <div>
+          Select: <a (click)="selectAll()">all</a> | <a (click)="selectNone()">none</a>
+        </div>
+      </div>
 
       <button class="btn btn-primary load-in-jbrowse"
               [attr.title]="selectedCount() == 0 ? 'Select some tracks from the list below' : 'View the selected tracks in JBrowse'"
@@ -23,8 +30,7 @@ Genome browser tracks from this publication:
       <thead>
         <tr>
           <th>
-            <input id="select-all" type="checkbox" [(ngModel)]="allSelected"
-                   title="Select all" (ngModelChange)="selectAll()"/>
+
           </th>
           <th *ngFor="let col of colConfig">
             {{col.display_name}}
@@ -42,7 +48,7 @@ Genome browser tracks from this publication:
         </td>
 
         <td *ngFor="let col of colConfig">
-          <a *ngIf="col.download_link" href="{{track[col.name]}}">Download ...</a>
+          <a class="download-link" *ngIf="col.download_link" href="{{track[col.name]}}">Download ...</a>
           <span *ngIf="!col.download_link">{{track[col.name] || ''}}</span>
         </td>
       </tr>
