@@ -26,7 +26,7 @@
 
 button.load-in-jbrowse {
   vertical-align: top;
-  margin: 0.4em 3em;
+  margin: 0.6em 3em;
 }
 
 th {
@@ -54,5 +54,5 @@ tr:hover {
 }
 
 .download-link {
-  white-space: nowrap;;
+  white-space: nowrap;
 }
