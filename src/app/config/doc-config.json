@@ -215,6 +215,7 @@
       "news/2019-08-30-replication-origin-tracks-loaded" : "Replication origin data loaded into JBrowse",
       "news/2019-10-06-interpro-v76-loaded" : "PomBase now uses InterPro Version 76.0",
       "news/2019-10-07-new-wt-pombase-funding" : "New PomBase funding from the Wellcome Trust",
+      "news/2019-10-16-JBrowse-tracks-loadable-from-publication-pages" : "Browser tracks now loadable from publication pages",
       "news/index" : "News archive",
       "status" : "Genome Status",
       "status/centromeres" : "Centromeres",
