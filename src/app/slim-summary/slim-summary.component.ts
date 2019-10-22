@@ -18,7 +18,7 @@ export class SlimSummaryComponent implements OnInit, OnChanges {
   geneSlimTerms: Array<TermSubsetElement> = [];
 
   getAllAncestors(): Set<string> {
-    let ret = new Set();
+    let ret = new Set<string>();
 
     let annotations = this.geneDetails.cv_annotations[this.annotationTypeName];
 

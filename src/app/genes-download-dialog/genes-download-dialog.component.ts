@@ -19,7 +19,7 @@ import { SettingsService } from '../settings.service';
   styleUrls: ['./genes-download-dialog.component.css']
 })
 export class GenesDownloadDialogComponent implements OnInit {
-  @ViewChild('downloadTabs', { static: false }) staticTabs: TabsetComponent;
+  @ViewChild('downloadTabs') staticTabs: TabsetComponent;
 
   appConfig: AppConfig = getAppConfig();
 

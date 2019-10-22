@@ -5,7 +5,7 @@
     "experimentalDecorators": true,
     "lib": ["es6", "dom"],
     "mapRoot": "./",
-    "module": "es6",
+    "module": "esNext",
     "moduleResolution": "node",
     "outDir": "../dist/out-tsc",
     "sourceMap": true,
@@ -17,6 +17,14 @@
     ]
   },
   "angularCompilerOptions": {
-    "preserveWhitespaces": true
-  }
+    "preserveWhitespaces": true,
+    "enableIvy": true
+  },
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "**/*.d.ts"
+  ]
 }
