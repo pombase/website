@@ -3,58 +3,35 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { GeneQuery, GeneQueryNode, QueryResult, TermNode, SubsetNode,
          QueryOutputOptions } from '../pombase-query';
 import { QueryService } from '../query.service';
-import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { ToastrService } from 'ngx-toastr';
 import { getAppConfig, QueryNodeConfig } from '../config';
 import { Title } from '@angular/platform-browser';
-import { Subscription } from 'rxjs';
 import { SettingsService } from '../settings.service';
+import { QueryRouterService } from '../query-router.service';
 
 @Component({
   selector: 'app-query-builder',
   templateUrl: './query-builder.component.html',
   styleUrls: ['./query-builder.component.css']
 })
-export class QueryBuilderComponent implements OnInit, OnDestroy {
-  query: GeneQuery;
-  results: QueryResult = null;
-  resultsDescription = '';
-  timerSubscription: Subscription = null;
-  showLoading = false;
+export class QueryBuilderComponent implements OnInit {
   startNodeType: number = null;
   appConfig = getAppConfig();
 
-  resetQuery() {
-    this.query = null;
-    this.results = null;
-    this.resultsDescription = '';
-  }
-
   constructor(private queryService: QueryService,
               private route: ActivatedRoute,
+              private queryRouterService: QueryRouterService,
               private titleService: Title,
               private settingsService: SettingsService,
               private toastr: ToastrService,
              ) {
-    this.resetQuery();
+
   }
 
   ngOnInit() {
     this.titleService.setTitle(this.appConfig.site_name + ' - Advanced search');
     this.route.params.forEach((params: Params) => {
       this.startNodeType = null;
-      const goToResults =
-        params['saveOrResults'] && params['saveOrResults'] === 'results';
-      if (params['predefinedQueryId']) {
-        const queryJson = getAppConfig().getPredefinedQuery(params['predefinedQueryId']);
-        const query = GeneQuery.fromJSONString(queryJson);
-        if (goToResults) {
-          this.gotoResults(query);
-        } else {
-          this.saveQuery(query);
-        }
-        return;
-      }
 
       let fromType = params['type'];
       let termId = params['id'];
@@ -71,13 +48,7 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
         if (subsetDisplayName) {
           decodedSubsetDisplayName = decodeURIComponent(subsetDisplayName);
         }
-        this.fromSubsetName(goToResults, subsetName, decodedSubsetDisplayName);
-        return;
-      }
-
-      const json = params['json'];
-      if (json) {
-        this.fromJson(goToResults, json);
+        this.saveFromSubsetName(subsetName, decodedSubsetDisplayName);
         return;
       }
 
@@ -87,35 +58,13 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
         return;
       }
 
-      const historyEntryId = params['historyEntryId'];
-      if (historyEntryId) {
-        const query = this.queryService.historyEntryById(historyEntryId);
-        if (query) {
-          this.gotoResults(query);
-        }
-      }
     });
   }
 
-  private fromSubsetName(goToResults: boolean,
-                         subsetName: string, subsetDisplayName: string): void {
+  private saveFromSubsetName(subsetName: string, subsetDisplayName: string): void {
     const constraints = new SubsetNode (subsetName, subsetDisplayName);
     const query = new GeneQuery(null, constraints);
-    if (goToResults) {
-      this.gotoResults(query);
-    } else {
-      this.saveQuery(query);
-    }
-  }
-
-  private fromJson(goToResults: boolean, json: string) {
-    const obj = JSON.parse(json);
-    const query = GeneQuery.fromJSONString(obj);
-    if (goToResults) {
-      this.gotoResults(query);
-    } else {
-      this.saveQuery(query);
-    }
+    this.saveQuery(query);
   }
 
   processFromRoute(fromType: string, termId: string, encodedTermName: string) {
@@ -139,31 +88,11 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
   }
 
   gotoResults(query: GeneQuery) {
-    this.query = query;
-    this.results = null;
-    this.showLoading = false;
-    let timer = TimerObservable.create(400);
-    this.timerSubscription = timer.subscribe(t => {
-      this.showLoading = true;
-    });
-    let queryAsString = this.query.toString();
-
-    const thisQuery = this.query;
-
-    const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], 'none');
-    this.queryService.postQuery(this.query, outputOptions)
-      .then(results => {
-        this.queryService.saveToHistoryWithCount(thisQuery, results.getRowCount());
-        this.results = results;
-        this.resultsDescription = queryAsString;
-        this.timerSubscription.unsubscribe();
-        this.timerSubscription = null;
-        this.showLoading = false;
-      });
+    this.queryRouterService.gotoResults(query);
   }
 
   saveQuery(query: GeneQuery) {
-    this.queryService.saveToHistory(query);
+    this.queryService.runAndSaveToHistory(query);
   }
 
   nodeEvent({ node, nodeConf }: {node: GeneQueryNode, nodeConf: QueryNodeConfig}) {
@@ -179,12 +108,6 @@ export class QueryBuilderComponent implements OnInit, OnDestroy {
 //      if (nodeConf.extraResultTableColumns) {
 //        this.settingsService.addVisibleGenesTableColumns(nodeConf.extraResultTableColumns);
 //      }
-    }
-  }
-
-  ngOnDestroy() {
-    if (this.timerSubscription) {
-      this.timerSubscription.unsubscribe();
     }
   }
 }

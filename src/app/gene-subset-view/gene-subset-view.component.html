@@ -29,6 +29,7 @@
       </a>
     </div>
 
-    <app-genes-table [legend]="''" [genes]="subset.elements"></app-genes-table>
+    <app-genes-table [description]="subsetDisplayName || null"
+                     [genes]="subset.elements"></app-genes-table>
   </div>
 </div>

@@ -31,11 +31,16 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
       this.getSelectedEntries().map(e => e.getQuery().getTopNode());
     let node = new GeneBoolNode(op, selectedQueryNodes);
     this.historyEntries.map((histEntry) => histEntry.checked = false);
-    this.queryService.saveToHistory(new GeneQuery(null, node));
+    this.queryService.runAndSaveToHistory(new GeneQuery(null, node));
   }
 
   getEntryDisplayString(histEntry: HistoryEntry): string {
-    return histEntry.getQuery().toString();
+    const query = histEntry.getQuery();
+    if (query.getName()) {
+      return query.getName() + ' - ' + query.toString();
+    } else {
+      return query.toString();
+    }
   }
 
   deleteQueries() {

@@ -16,8 +16,13 @@ export interface ResultRow {
 
 export class QueryResult {
   constructor(
+    private id: string,
     private query: GeneQuery,
     private rows: ResultRow[]) { }
+
+  getId(): string {
+    return this.id;
+  }
 
   getQuery(): GeneQuery {
     return this.query;
@@ -472,6 +477,26 @@ export class FloatRangeNode extends RangeNode {
   }
 }
 
+export class QueryIdNode extends GeneQueryNode {
+  constructor(private id: string) {
+    super();
+  }
+
+  toObject(): Object {
+    return {
+      query_id: this
+    }
+  }
+
+  toString(): string {
+    return `query_id: ${this.id}`;
+  }
+
+  equals(obj: GeneQueryNode): boolean {
+    return obj instanceof QueryIdNode && obj.id == this.id;
+  }
+}
+
 type SequenceOptions = 'protein' | 'none' | {
   nucleotide: {
     include_introns: boolean,
@@ -569,6 +594,10 @@ export class GeneQuery {
 
   public getName(): string {
     return this.name;
+  }
+
+  public setName(name: string) {
+    this.name = name;
   }
 
   private referencedTermsHelper(node: GeneQueryNode, collector: Array<TermShort>) {

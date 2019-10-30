@@ -14,6 +14,7 @@ import { GenesTableConfigComponent } from '../../genes-table-config/genes-table-
 import { SettingsService } from '../../settings.service';
 import { Subscription } from 'rxjs';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { QueryRouterService } from '../../query-router.service';
 
 @Component({
   selector: 'app-genes-table',
@@ -21,8 +22,8 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./genes-table.component.css']
 })
 export class GenesTableComponent implements OnInit {
-  @Input() legend: string;
-  @Input() description = '';
+  @Input() mode = 'results';
+  @Input() description: string;
 
   // a decomposed version of the description as an Array of Objects
   // like: [{text: "abnormal cell ... ("}, {term: <a TermShort>}, {text: ")"}, ...]
@@ -30,14 +31,16 @@ export class GenesTableComponent implements OnInit {
   @Input() descriptionParts: Array<({ text?: string; term?: TermShort; })> = [];
   @Input() genes: Array<GeneSummary> = [];
 
+  legend = 'Results';
+
   faCog = faCog;
 
   orderByField = 'gene';
   orderByFieldDisplayName = 'Gene name';
   downloadModalRef: BsModalRef = null;
   selectedCountCache = -1;
-  showingVisualisation = false;
-  slimTableSlimName: string = null;
+
+  slimName: string = null;
 
   fieldDisplayNames = GeneSummary.getDisplayFieldNames();
   fieldDisplayValueGenerators = GeneSummary;
@@ -45,7 +48,7 @@ export class GenesTableComponent implements OnInit {
   sortableColumns = getAppConfig().getGeneResultsConfig().sortable_columns;
   visibleFieldNames: Array<string> = [];
 
-  visLegend: string = null;
+  visDescription: string = null;
 
   tooManyGenesTitle = 'Too many genes for select mode, try the "Gene list" option from the Search menu';
   selectGenesTitle = 'Start gene selection and filtering mode';
@@ -53,7 +56,7 @@ export class GenesTableComponent implements OnInit {
   selectedGenes: { [key: string]: boolean } = null;
 
   geneResultConfig = getAppConfig().getGeneResultsConfig();
-  slimLegend: string;
+  slimDescription: string;
 
   slimNames: Array<string> = [];
   columnsSubscription: Subscription;
@@ -61,6 +64,7 @@ export class GenesTableComponent implements OnInit {
   constructor(private modalService: BsModalService,
               private sanitizer: DomSanitizer,
               private queryService: QueryService,
+              private queryRouterSerive: QueryRouterService,
               private settingsService: SettingsService,
               private deployConfigService: DeployConfigService,
               private router: Router) {
@@ -159,35 +163,48 @@ export class GenesTableComponent implements OnInit {
     return this.selectedCountCache;
   }
 
-  filter() {
+  private makeGeneListQuery(genes: Array<GeneSummary>): GeneQuery {
+    return new GeneQuery(this.description, new GeneListNode(genes));
+  }
+
+  private filter() {
     const selectedGenes = this.genes.filter(gene => this.selectedGenes[gene.uniquename]);
 
-    const part = new GeneListNode(selectedGenes);
-    const geneQuery = new GeneQuery(null, part);
+    const geneQuery = this.makeGeneListQuery(selectedGenes);
     const callback = (historyEntry: HistoryEntry) => {
-      this.router.navigate(['/query/results/from/history/', historyEntry.getEntryId()]);
+      this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
     };
-    this.queryService.saveToHistory(geneQuery, callback);
+    this.queryService.runAndSaveToHistory(geneQuery, callback);
 
     this.selectedGenes = null;
     this.selectedCountCache = -1;
   }
 
   showVisualisation(): void {
-    this.showingVisualisation = true;
+    const query = this.makeGeneListQuery(this.genes);
+    this.queryRouterSerive.gotoResults(query, 'vis');
   }
 
-  hideVisualisation(): void {
-    this.showingVisualisation = false;
+  showResults(): void {
+    const query = this.makeGeneListQuery(this.genes);
+    this.queryRouterSerive.gotoResults(query, 'results');
   }
 
   showSlim(subsetName: string): void {
-    this.slimTableSlimName = subsetName;
-    this.slimLegend = getAppConfig().slims[subsetName].slim_display_name;
+    const query = this.makeGeneListQuery(this.genes);
+    this.queryRouterSerive.gotoResults(query, 'slim:' + subsetName);
   }
 
-  hideSlim(): void {
-    this.slimTableSlimName = null;
+  showingResults(): boolean {
+    return this.mode === 'results';
+  }
+
+  showingVisualisation(): boolean {
+    return this.mode === 'vis';
+  }
+
+  showingSlim(): boolean {
+    return this.mode.startsWith('slim');
   }
 
   displayFieldValue (gene: GeneSummary, fieldName: string): string|SafeHtml {
@@ -204,7 +221,28 @@ export class GenesTableComponent implements OnInit {
   }
 
   ngOnChanges() {
-    this.visLegend = `Visualising ${this.genes.length} genes`;
+    if (this.mode.startsWith('slim:')) {
+      this.slimName = this.mode.substr(5);
+      this.slimDescription = getAppConfig().slims[this.slimName].slim_display_name;
+    } else {
+      this.slimName = null;
+      this.slimDescription = null;
+    }
+
+    let geneBit = `${this.genes.length} gene`;
+    if (this.genes.length != 1) {
+      geneBit += 's';
+    }
+
+    if (this.showingVisualisation()) {
+      this.legend = 'Visualising ' + geneBit;
+    } else {
+      if (this.showingSlim()) {
+        this.legend = this.slimDescription + ' for ' + geneBit;
+      } else {
+        this.legend = 'Results - ' + geneBit;
+      }
+    }
   }
 
   ngOnDestroy(): void {

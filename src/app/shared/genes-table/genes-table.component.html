@@ -1,28 +1,18 @@
 <div>
 <fieldset *ngIf="genes.length != 0" class="genes-table">
-  <legend *ngIf="!showingVisualisation && !slimTableSlimName">
-    {{legend || 'Results'}}
-  </legend>
-
-  <legend *ngIf="showingVisualisation">
-    <span *ngIf="visLegend">{{visLegend}}</span>
-  </legend>
-
-  <legend *ngIf="slimTableSlimName">
-    <span *ngIf="slimLegend">{{slimLegend}}</span>
+  <legend>
+    {{legend}}
   </legend>
 
   <div *ngIf="description || descriptionParts.length != 0" class="description">
-    <span *ngIf="showingVisualisation">Visualisation for: </span>
-    <span *ngIf="!showingVisualisation">Results for: </span>
-    <span *ngIf="description">{{description}}</span>
-    <span *ngIf="descriptionParts">
+    <span *ngIf="descriptionParts.length == 0">{{description}}</span>
+    <span *ngIf="descriptionParts.length != 0">
       <span *ngFor="let part of descriptionParts"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.term" routerLink="/term/{{part.term.termid}}">{{part.term.termid}}</a></span>
     </span>
   </div>
 
   <div class="action-row">
-    <div *ngIf="!showingVisualisation && !slimTableSlimName">
+    <div *ngIf="!showingVisualisation() && !showingSlim()">
       <div *ngIf="selectionInProgress()">
   <div class="action">
     <button class="btn btn-primary"
@@ -76,31 +66,31 @@
 
   </div>
 
-  <div *ngIf="showingVisualisation" class="action">
+  <div *ngIf="showingVisualisation()" class="action">
     <button class="btn btn-primary"
             title="Return to gene list"
-            (click)="hideVisualisation()">Finish visualisation</button>
+            (click)="showResults()">Finish visualisation</button>
   </div>
 
-  <div *ngIf="slimTableSlimName" class="action">
+  <div *ngIf="showingSlim()" class="action">
     <button class="btn btn-primary"
             title="Return to gene list"
-            (click)="hideSlim()">Back to results</button>
+            (click)="showResults()">Back to results</button>
   </div>
   </div>
 
   <div class="content">
-  <div *ngIf="showingVisualisation">
+  <div *ngIf="showingVisualisation()">
     <app-gene-results-vis [genes]="genes">
     </app-gene-results-vis>
   </div>
 
-  <div *ngIf="slimTableSlimName">
-    <app-gene-results-slim-table [genes]="genes" [slimName]="slimTableSlimName">
+  <div *ngIf="showingSlim()">
+    <app-gene-results-slim-table [genes]="genes" [slimName]="slimName">
     </app-gene-results-slim-table>
   </div>
 
-  <div *ngIf="!showingVisualisation && !slimTableSlimName">
+  <div *ngIf="!showingVisualisation() && !showingSlim()">
   <form>
   <table>
     <thead>

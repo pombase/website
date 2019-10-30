@@ -303,9 +303,9 @@ export class GeneResultsVisComponent implements OnInit {
     const part = new GeneListNode(selectedGenes);
     const geneQuery = new GeneQuery(null, part);
     const callback = (historyEntry: HistoryEntry) => {
-      this.router.navigate(['/query/results/from/history/', historyEntry.getEntryId()]);
+      this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
     };
-    this.queryService.saveToHistory(geneQuery, callback);
+    this.queryService.runAndSaveToHistory(geneQuery, callback);
   }
 
   setSortBy(fieldName: string) {

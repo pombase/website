@@ -1,0 +1,11 @@
+
+<div *ngIf="!results" class="query-running-spinner">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div *ngIf="results">
+  <button class="btn btn-primary" title="Go to the Advanced Search interface"
+    (click)="gotoAdvancedSearch()">&lt;- Advanced search</button>
+
+  <app-gene-results [mode]="mode" [results]="results"></app-gene-results>
+</div>

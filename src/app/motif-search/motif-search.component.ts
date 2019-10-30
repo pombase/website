@@ -8,7 +8,7 @@ import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operato
 import { getAppConfig, AppConfig } from '../config';
 import { MotifService, MotifPeptideResult, MotifSearchResults } from '../motif.service';
 import { GeneListNode, GeneQuery } from '../pombase-query';
-import { QueryService, HistoryEntry } from '../query.service';
+import { QueryRouterService } from '../query-router.service';
 import { PombaseAPIService, GeneShort, GeneSummaryMap } from '../pombase-api.service';
 
 enum SearchState {
@@ -44,7 +44,7 @@ export class MotifSearchComponent implements OnInit {
 
   constructor(private router: Router,
               private pombaseApiService: PombaseAPIService,
-              private queryService: QueryService,
+              private queryRouterService: QueryRouterService,
               private motifService: MotifService) {
     this.appConfig = getAppConfig();
 
@@ -120,11 +120,8 @@ export class MotifSearchComponent implements OnInit {
   sendToQueryBuilder(): void {
     const geneUniquenames = this.peptideResults.map(res => res.gene_id);
     const part = new GeneListNode(geneUniquenames);
-    const geneQuery = new GeneQuery(null, part);
-    const callback = (historyEntry: HistoryEntry) => {
-      this.router.navigate(['/query/results/from/history/', historyEntry.getEntryId()]);
-    };
-    this.queryService.saveToHistory(geneQuery, callback);
+    const geneQuery = new GeneQuery('peptides matching motif "' + this.trimmedMotif + '"', part);
+    this.queryRouterService.gotoResults(geneQuery);
   }
 
   motifChange(motif: string): void {
