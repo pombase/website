@@ -25,6 +25,7 @@ heat shock element (HSE)|NGAAN (at least 3 copies)|[Hsf1](https://www.pombase.or
 homol D box|CAGTCACA (or inverted form TGTGACTG)|[Fhl1](https://www.pombase.org/gene/SPAC1142.08), [Rrn7](https://www.pombase.org/gene/SPBC336.09c)|[SO:0001848](http://sequenceontology.org/browser/current_svn/term/SO:0001848)|[PMID:21673110](https://www.ncbi.nlm.nih.gov/pubmed/21673110), [PMID:7501449](https://www.ncbi.nlm.nih.gov/pubmed/7501449), [PMID:8458332](https://www.ncbi.nlm.nih.gov/pubmed/8458332)
 homol E box|ACCCTACCCT (or inverted form AGGGTAGGGT)|[Fhl1](https://www.pombase.org/gene/SPAC1142.08)|[SO:0001849](http://sequenceontology.org/browser/current_svn/term/SO:0001849)|[PMID:7501449](https://www.ncbi.nlm.nih.gov/pubmed/7501449)
 iron repressed GATA element|WGATAA|[Atf1](https://www.pombase.org/gene/SPBC29B5.01), [Fep1](https://www.pombase.org/gene/SPAC23E2.01)|[SO:0001851](http://sequenceontology.org/browser/current_svn/term/SO:0001851)|[PMID:11956219](https://www.ncbi.nlm.nih.gov/pubmed/11956219), [PMID:17211681](https://www.ncbi.nlm.nih.gov/pubmed/17211681)
+LOZ1 response element|CGNMGATCNTY|[Loz1](https://www.pombase.org/gene/SPAC25B8.19c)|[SO:0002225](http://sequenceontology.org/browser/current_svn/term/SO:0002225)|[PMID:31515876](https://www.ncbi.nlm.nih.gov/pubmed/31515876)
 mating type M-box|ACAAT|[Mat1-Mc](https://www.pombase.org/gene/SPBC23G7.09)|[SO:0001852](http://sequenceontology.org/browser/current_svn/term/SO:0001852)|[PMID:9233811](https://www.ncbi.nlm.nih.gov/pubmed/9233811)
 MluI cell cycle box (MCB)|ACGCGT|[Cdc10](https://www.pombase.org/gene/SPBC336.12c), [Res1](https://www.pombase.org/gene/SPBC725.16), [Res2](https://www.pombase.org/gene/SPAC22F3.09c), [Yox1](https://www.pombase.org/gene/SPBC21B10.13c)|[SO:0001855](http://sequenceontology.org/browser/current_svn/term/SO:0001855)|[PMID:16285853](https://www.ncbi.nlm.nih.gov/pubmed/16285853)
 Pho7 binding site |[5'-TCG(G/C)(A/T)xxTTxAA]|[Pho7](https://www.pombase.org/gene/SPBC27B12.11c)|[SO:0002216](http://sequenceontology.org/browser/current_svn/term/SO:0002216)|[PMID:28811350](https://www.ncbi.nlm.nih.gov/pubmed/28811350)
@@ -36,7 +37,6 @@ TATA box|TATA(A\|T)A(A\|T)|[Brf1](https://www.pombase.org/gene/SPBC13E7.10c), [T
 TR box|TTCTTTGTTY|[Ste11](https://www.pombase.org/gene/SPBC32C12.02), [Mat1-Mc](https://www.pombase.org/gene/SPBC23G7.09)|[SO:0001858](http://sequenceontology.org/browser/current_svn/term/SO:0001858)|[PMID:1657709](https://www.ncbi.nlm.nih.gov/pubmed/1657709)
 Zas1 recognition motif|(Y)CCCCAY|[Zas1](https://www.pombase.org/gene/SPBC1198.04c)|[SO:0002215](http://sequenceontology.org/browser/current_svn/term/SO:0002215)|[PMID:29735745](https://www.ncbi.nlm.nih.gov/pubmed/29735745)
 zinc repressed element|GNMGATC|[Loz1](https://www.pombase.org/gene/SPAC25B8.19c)|[SO:0002006](http://sequenceontology.org/browser/current_svn/term/SO:0002006)|[PMID:24003116](https://www.ncbi.nlm.nih.gov/pubmed/24003116)
-
 
 
 #### Other DNA binding sites
