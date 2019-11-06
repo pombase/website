@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { GeneQuery, QueryResult, QueryOutputOptions } from './pombase-query';
+import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode } from './pombase-query';
 import { getAppConfig } from './config';
-import * as uuid from 'uuid';
+import { Results } from './query/results';
 
 const localStorageKey = 'pombase-query-build-history-v1';
 
@@ -12,12 +12,16 @@ let historyEntryCounter = 0;
 
 export class HistoryEntry {
   checked = false;
-  private id: string;
   private updatedCount: number = null;
 
-  constructor(private query: GeneQuery, private resultCount: number,
-              private creationStamp: number = null) {
-    this.id = uuid.v4();
+  // assign internal IDs where they are missing/null
+  static internalIdCounter = 1;
+
+  constructor(private id: string, private query: GeneQuery, private resultCount: number,
+    private creationStamp: number = null) {
+    if (!this.id) {
+      this.id = String(HistoryEntry.internalIdCounter++);
+    }
   };
 
   isNewEntry(): boolean {
@@ -39,6 +43,7 @@ export class HistoryEntry {
 
   toObject(): Object {
     let o = this.query.toObject();
+    o.id = this.getEntryId();
     o.resultCount = this.getResultCount();
     return o;
   }
@@ -73,8 +78,9 @@ export class QueryService {
 
         for (let o of JSON.parse(savedHistoryString)) {
           try {
+            let id = o.id;
             const query = GeneQuery.fromJSONString(o);
-            const entry = new HistoryEntry(query, o.resultCount);
+            const entry = new HistoryEntry(id, query, o.resultCount);
             this.history.push(entry);
           } catch (e) {
             console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
@@ -97,24 +103,31 @@ export class QueryService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + '/query', jsonString, options).toPromise()
-      .then(raw => new QueryResult(query, raw.json().rows));
+      .then(raw => {
+        const rawJson = raw.json();
+        if (rawJson.status === 'ok') {
+          return new QueryResult(rawJson.id, GeneQuery.fromJSONString(rawJson.query), rawJson.rows);
+        } else {
+          throw rawJson.err;
+        }
+      });
   }
 
-  postQuery(query: GeneQuery, outputOptions: QueryOutputOptions): Promise<QueryResult> {
+  postQuery(query: GeneQuery, outputOptions: QueryOutputOptions = new QueryOutputOptions([], [], 'none')): Promise<QueryResult> {
     return this.postRaw(query, outputOptions);
   }
-  postQueryCount(query: GeneQuery): Promise<number> {
+  postQueryCount(query: GeneQuery): Promise<QueryResult> {
     const outputOptions = new QueryOutputOptions([], [], 'none');
-    return this.postRaw(query, outputOptions)
-      .then(res => res.getRowCount());
+    return this.postRaw(query, outputOptions);
   }
 
-  postPredefinedQuery(queryName: string, outputOptions: QueryOutputOptions): Promise<QueryResult> {
+  postPredefinedQuery(queryName: string, name: string, outputOptions: QueryOutputOptions): Promise<QueryResult> {
     const query = GeneQuery.fromJSONString(getAppConfig().getPredefinedQuery(queryName));
+    query.setName(name);
     return this.postQuery(query, outputOptions);
   }
 
-  postPredefinedQueryCount(queryName: string): Promise<number> {
+  postPredefinedQueryCount(queryName: string): Promise<QueryResult> {
     const query = GeneQuery.fromJSONString(getAppConfig().getPredefinedQuery(queryName));
     return this.postQueryCount(query);
   }
@@ -139,23 +152,45 @@ export class QueryService {
     });
   }
 
-  saveToHistoryWithCount(query: GeneQuery, count: number): HistoryEntry {
+  saveResultsToHistory(result: QueryResult): HistoryEntry {
+    const query = result.getQuery();
     this.deleteExisting(query);
-    const entry = new HistoryEntry(query, count, new Date().getTime());
+    const entry = new HistoryEntry(result.getId(), query, result.getRowCount(),
+                                   new Date().getTime());
     this.history.unshift(entry);
     this.subject.next(this.history);
     this.saveHistory();
     return entry;
   }
 
-  saveToHistory(query: GeneQuery,
-                doneCallback?: (historyEntry: HistoryEntry) => void) {
+  runAndSaveToHistory(query: GeneQuery,
+    doneCallback?: (historyEntry: HistoryEntry) => void) {
     this.postQueryCount(query)
-      .then((count) => {
-        const historyEntry = this.saveToHistoryWithCount(query, count);
+      .then((result) => {
+        const historyEntry = this.saveResultsToHistory(result);
         if (doneCallback) {
           doneCallback(historyEntry);
         }
+      });
+  }
+
+  exec(query: GeneQuery, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
+    return this.postQuery(query, outputOptions)
+      .then((result: QueryResult) => {
+        this.saveResultsToHistory(result);
+        return result;
+      });
+  }
+
+  execById(id: string, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
+    let query = this.historyEntryById(id);
+    if (!query) {
+      query = new GeneQuery(null, new QueryIdNode(id));
+    }
+    return this.postQuery(query, outputOptions)
+      .then((result: QueryResult) => {
+        this.saveResultsToHistory(result);
+        return result;
       });
   }
 
@@ -185,8 +220,8 @@ export class QueryService {
         let timer = TimerObservable.create(delay);
         const subscription = timer.subscribe(t => {
           this.postQueryCount(query)
-            .then((count) => {
-              histEntry.setUpdatedCount(count);
+            .then((res) => {
+              histEntry.setUpdatedCount(res.getRowCount());
               subscription.unsubscribe();
             });
         });

@@ -15,6 +15,8 @@ import { RouterNotFoundHandlerComponent } from './router-not-found-handler/route
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
 import { MotifSearchComponent } from './motif-search/motif-search.component';
+import { GeneResultsPageComponent } from './gene-results-page/gene-results-page.component';
+import { QueryResult } from './pombase-query';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -112,28 +114,28 @@ const routes: Routes = [
       defaultTitleDetail: 'Advanced search'
     }
   },
-  { path: 'query/:saveOrResults/from/subset/:subsetName/:subsetDisplayName',
+  { path: 'query/save/from/subset/:subsetName/:subsetDisplayName',
     component: QueryBuilderComponent,
     data: {
       defaultTitleDetail: 'Advanced search'
     }
   },
-  { path: 'query/results/from/history/:historyEntryId', component: QueryBuilderComponent,
+  { path: ':mode/from/id/:id', component: GeneResultsPageComponent,
     data: {
-      defaultTitleDetail: 'Advanced search'
+      defaultTitleDetail: 'Search results'
+    }
+  },
+  { path: ':mode/from/json/:json', component: GeneResultsPageComponent,
+    data: {
+      defaultTitleDetail: 'Search results'
+    }
+  },
+  { path: ':mode/from/predefined/:predefinedQueryId', component: GeneResultsPageComponent,
+    data: {
+      defaultTitleDetail: 'Search results'
     }
   },
   { path: 'query/save/from/:type/:id/:name', component: QueryBuilderComponent,
-    data: {
-      defaultTitleDetail: 'Advanced search'
-    }
-  },
-  { path: 'query/:saveOrResults/from/predefined/:predefinedQueryId', component: QueryBuilderComponent,
-    data: {
-      defaultTitleDetail: 'Advanced search'
-    }
-  },
-  { path: 'query/:saveOrResults/from/json/:json', component: QueryBuilderComponent,
     data: {
       defaultTitleDetail: 'Advanced search'
     }

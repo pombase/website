@@ -8,12 +8,13 @@ import { PombaseAPIService, GeneSummary } from '../../pombase-api.service';
   styleUrls: ['./gene-results.component.css']
 })
 export class GeneResultsComponent implements OnInit, OnChanges {
+  @Input() mode: string;
   @Input() results: QueryResult;
-  @Input() description: string = '';
+
+  description: string = null;
 
   displayResults: Array<GeneSummary> = null;
   descriptionParts: Array<({ text?: string; term?: TermShort; })> = [];
-  legend: string = null;
   termsInQuery: Array<TermShort> = [];
 
   constructor(private pombaseApiService: PombaseAPIService) { }
@@ -23,6 +24,10 @@ export class GeneResultsComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.results) {
+
+      const query = this.results.getQuery();
+      this.description = query.getName() || query.toString();
+
       this.pombaseApiService.getGeneSummaryMapPromise()
         .then((geneSummaries) => {
           this.displayResults =
@@ -30,7 +35,6 @@ export class GeneResultsComponent implements OnInit, OnChanges {
               return geneSummaries[row.gene_uniquename];
             });
 
-          if (this.description) {
             this.termsInQuery = this.results.getQuery().referencedTerms();
             const termids = this.termsInQuery.map(term => term.termid);
             const termidRe = new RegExp('(' + termids.join('|') + ')');
@@ -49,15 +53,6 @@ export class GeneResultsComponent implements OnInit, OnChanges {
                   };
                 }
               });
-
-            this.legend = 'Result';
-            if (this.displayResults.length > 5) {
-              this.legend += `: ${this.displayResults.length} genes`;
-            }
-          } else {
-            this.legend = '';
-            this.descriptionParts = [];
-          }
         });
     } else {
       this.displayResults = null;

@@ -80,7 +80,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
       const json = `{"constraints":{"interactors":
        {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
         '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
-      this.routerLinkUrl = `/query/results/from/json/${json}`;
+      this.routerLinkUrl = `/results/from/json/${json}`;
 
       if (this.currentGene.biogrid_interactor_id) {
         [, this.biogridUrl] = this.appConfig.getExternalGeneLink('BioGRID', this.currentGene);

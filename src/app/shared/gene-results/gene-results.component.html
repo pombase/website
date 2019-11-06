@@ -7,7 +7,8 @@
       (No results)
     </div>
     <app-genes-table *ngIf="displayResults.length > 0"
-                     [genes]="displayResults" [legend]="legend"
+                     [mode]="mode"
+                     [genes]="displayResults" [description]="description"
                      [descriptionParts]="descriptionParts"></app-genes-table>
   </div>
 </div>

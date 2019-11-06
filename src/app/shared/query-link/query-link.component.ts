@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { QueryService } from '../../query.service';
 import { getAppConfig, PredefinedQueryConfig } from '../../config';
 import { Subscription } from 'rxjs';
+import { QueryRouterService } from '../../query-router.service';
 
 @Component({
   selector: 'app-query-link',
@@ -14,21 +15,21 @@ export class QueryLinkComponent implements OnInit {
   @Input() predefinedQueryId: string;
   @Input() linkText: string = null;
 
-  queryConfig: PredefinedQueryConfig = null;
   titleText = '';
 
-  constructor(private queryService: QueryService) { }
+  constructor(private queryService: QueryService,
+              private queryRouterService: QueryRouterService) { }
 
   ngOnInit() {
-    this.queryConfig = getAppConfig().getPredefinedQuery(this.predefinedQueryId);
-
-//    this.titleText = this.queryConfig.name || this.predefinedQueryId;
-
     if (!this.linkText) {
       this.queryService.postPredefinedQueryCount(this.predefinedQueryId)
         .then((results) => {
-          this.linkText = String(results);
+          this.linkText = String(results.getRowCount());
         });
     }
+  }
+
+  gotoResults(): void {
+    this.queryRouterService.gotoPredefinedQueryResults(this.predefinedQueryId);
   }
 }

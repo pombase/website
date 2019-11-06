@@ -1501,7 +1501,7 @@ the total annotated genes.
 <li>You can create your own slim, or retrieve slim annotations for a gene set, using online slimming tools such as the <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GOTermMapper</a> at Princeton.</li>
 <li>When creating a slim for the entire genome, you should try to ensure that it covers as many annotated genes in your set as possible (see #3 in list above). You should be aware of how many genes are annotated but not in your slim, and how many are “unknown” (i.e., annotated only to the root node; see #5 in list above).</li>
 <li>For display purposes you usually want to keep the number of terms as small as possible to convey your results. However, you should ensure that the terms you include are specific enough to capture biologically relevant information. Many terms (e.g. metabolic process (2915 annotations), cellular process (4083 annotations)) are too general for the purpose of most slim-based analyses.</li>
-<li>On a related note, if you are using your slim for data analysis (e.g. to summarize an enrichment), you should ensure that the terms are specific enough to demonstrate their relevance to the biological topic of interest. For example, lumping all genes involved in transport my mask overrepresentation of transmembrane transport vs. underrepresentation of vesicle-mediated transport in your results set, so you need to ensure that the slim has categories to represent your results effectively.</li>
+<li>On a related note, if you are using your slim for data analysis (e.g. to summarize an enrichment), you should ensure that the terms are specific enough to demonstrate their relevance to the biological topic of interest. For example, lumping all genes involved in transport my mask overrepresentation of transmembrane transport vs. underrepresentation of vesicle-mediated transport in your results set, so you need to ensure that the slim has categories to represent your results effectively.</li>
 <li>Most current implementations of software to create “GO slims” include the <em>regulates</em> relationship by default, so that (for example) genes involved in <em>regulation of cytokinesis</em> will be included with the set of genes annotated to <em>cytokinesis</em>. See the <a href="http://geneontology.org/docs/ontology-relations/">GO Ontology Relations documentation</a> for further information about relationships in GO. The annotation totals presented for the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">PomBase default S. pombe slim</a>, by contrast, are calculated both explicitly including or excluding the genes which are involved in a process via regulation only. We expect this distinction to be available in future versions of slimming software.</li>
 </ol>
 
@@ -4126,7 +4126,7 @@ terminal exons, and occasionally gross changes to coding sequence.</p>
 <p>As there are a large number of changes it is possible that your gene(s)<br />
 of interest could be affected.<br />
 All of the updated genes are annotated with:<br />
-“warning, gene structure updated”PMID:xxxxxxxx&quot; (this will change to<br />
+“warning, gene structure updated”PMID:xxxxxxxx" (this will change to<br />
 PMID:21511999 when GeneDB is next updated)<br />
 in the “controlled curation” section of the gene page</p>
 <p>New Genes<br />
@@ -4208,7 +4208,7 @@ feedback on the GeneDB web page.</p>
 <li>Alleles: data from wild type or mutant cells</li>
 <li>Growth phase or response: data from cells assayed a specific stress response or growth phase (e.g. nitrogen starvation, oxidative stress, vegetative growth)</li>
 <li>Localized gene product: the protein assayed in a chromatin binding experiment</li>
-<li>Strain background mutations: any background mutations present in the strain for experimental purposes only and not considered as influencing the results in themselves, such as auxotrophic markers (e.g. <em>leu1-1</em>) or alleles utilized for block and release experiments (e.g. <em>cdc25-22</em>)</li>
+<li>Strain background mutations: any background mutations present in the strain for experimental purposes only and not considered as influencing the results in themselves, such as auxotrophic markers (e.g. <em>leu1-1</em>) or alleles utilized for block and release experiments (e.g. <em>cdc25-22</em>)</li>
 <li>Mating type and ploidy</li>
 <li>Conditions: experimental conditions, e.g. whether cells were grown in YES or EMM, or if H<sub>2</sub>O<sub>2</sub> or t-BOOH was used to induce oxidative stress</li>
 <li>Study ID: accession for the study encompassing the data in external databases (e.g. GEO, ArrayExpress)</li>
@@ -4390,7 +4390,7 @@ PomBase using the Ensembl viewer.</p>
 <h4 id="protein-domain">Protein domain</h4>
 <p>Search for an ID from Pfam, PRINTs, PROFILE, ProSite, or InterPro. Type or paste an accession and click “Submit”.</p>
 <h4 id="protein-feature">Protein feature</h4>
-<p>This query searches for terms or IDs in the <a href="http://sequenceontology.org/">Sequence Ontology</a> and retrieves protein-coding genes where the protein has the feature represented by the SO term (e.g. <a routerLink="/term/SO:0001807">KEN box SO:0001807</a> ).</p>
+<p>This query searches for terms or IDs in the <a href="http://sequenceontology.org/">Sequence Ontology</a> and retrieves protein-coding genes where the protein has the feature represented by the SO term (e.g. <a routerLink="/term/SO:0001807">KEN box SO:0001807</a> ).</p>
 <h4 id="protein-length">Protein length</h4>
 <p>Find protein-coding genes with products in a specified length range. Enter the desired minimum and maximum length and click “Search”.</p>
 <h4 id="protein-mol.-weight">Protein mol. weight</h4>
@@ -5275,7 +5275,7 @@ PomBase using the Ensembl viewer.</p>
 <td>proteins terminating LAA</td>
 </tr>
 <tr class="odd">
-<td>^.{{ &quot;{1,20}MCA&quot; }}</td>
+<td>^.{{ "{1,20}MCA" }}</td>
 <td>proteins with MCA in the first 20 amino acids</td>
 </tr>
 </tbody>
@@ -5576,7 +5576,7 @@ PomBase using the Ensembl viewer.</p>
 <li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). You are welcome to enquire with us in advance to find out which ECO terms/IDs fit your experiments, but we can accept files with brief descriptions (such as those in the Canto phenotype evidence option list), which curators will convert to ECO IDs.</li>
 <li>Similarly, Conditions use a small ontology maintained in-house by PomBase curators, and we can either advise you about which terms/IDs to use, or convert from text to IDs when we receive your file. Use multiple entries in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium). Separate multiple entries with commas (,). Use separate lines if a phenotype is observed under more than one set of conditions (e.g. high and low temperature).</li>
 <li>Penetrance describes the proportion of a population that shows a cell-level phenotype. Use decimals, percents, or “high” (above 80%), “medium” (20-80%), or “low” (less than 20%). We will convert to suitable IDs for loading. Penetrance data will be displayed as annotation extensions on gene pages.</li>
-<li>Severity (formerly designated “expressivity) uses”high&quot; (synonym: strong), “medium”, or “low” (synonym: weak). We will convert to suitable IDs for loading. Severity data will be displayed as annotation extensions on gene pages.</li>
+<li>Severity (formerly designated “expressivity) uses”high" (synonym: strong), “medium”, or “low” (synonym: weak). We will convert to suitable IDs for loading. Severity data will be displayed as annotation extensions on gene pages.</li>
 <li>The Extension column can be used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, you can use the phenotype “decreased protein kinase activity” and put the ID for gene B in an extension. Multiple extensions can be included for a phenotype annotation. Separate extensions with a comma (,) if they combine to form a “compound” extension (two or more genes assayed together), or with a pipe (|) if they are independent. Most phenotype extensions will be independent and pipe-separated.</li>
 <li>The Reference column has the publication’s PubMed ID (PMID).</li>
 <li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although if you have an NCBI taxon ID for a specific <em>S. pombe</em> strain you are welcome to use it</li>
@@ -5588,8 +5588,8 @@ PomBase using the Ensembl viewer.</p>
 <table>
 <thead>
 <tr class="header">
-<th>Allele type (col. 11)</th>
-<th>Example allele description (col. 3)</th>
+<th>Allele type (col. 11)</th>
+<th>Example allele description (col. 3)</th>
 <th>Notes</th>
 </tr>
 </thead>
@@ -6614,7 +6614,7 @@ PomBase using the Ensembl viewer.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus', 'Can I do GO term enrichment for other Schizosaccharomyces species (e.g. S. japonicus)?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus' || pageName == 'all-faqs'">
-<h3 id="can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus">Can I do GO term enrichment for other <em>Schizosaccharomyces</em> species (e.g. <em>S. japonicus</em>)?</h3>
+<h3 id="can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus">Can I do GO term enrichment for other <em>Schizosaccharomyces</em> species (e.g. <em>S. japonicus</em>)?</h3>
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>There are two possible approaches:</p>
 <ol type="1">
@@ -7155,7 +7155,7 @@ For example, the Genetic Interactions header for cdc2 links to
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus', 'How can I find GO annotations for other Schizosaccharomyces species (e.g. S. japonicus)?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus' || pageName == 'all-faqs'">
-<h3 id="how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus">How can I find GO annotations for other <em>Schizosaccharomyces</em> species (e.g. <em>S. japonicus</em>)?</h3>
+<h3 id="how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus">How can I find GO annotations for other <em>Schizosaccharomyces</em> species (e.g. <em>S. japonicus</em>)?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>For the sequenced strains of <em>S. japonicus</em>, <em>S. octosporus</em> and <em>S. cryophilus</em>, the Ensembl group has generated GO annotation data sets for protein-coding genes by transferring experiment-based annotations from <em>S. pombe</em> orthologs. You can use the <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a> browser to retrieve the data for each species – follow the “Search and Filter GO annotation sets” link, then click “Filter” to set a taxon filter for the taxon ID:</p>
 <ul>
@@ -7174,7 +7174,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <h3 id="how-can-i-find-intron-branch-sites">How can I find intron branch sites?</h3>
 <!-- pombase_categories: Finding data -->
 <p>The PomBase genome browser includes a dataset of intron branch sites as a track. Follow <a href="https://www.pombase.org/jbrowse/?loc=I%3A704338..724338&tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CDNA%20sequence%2CIntron%20Branch%20Points%20-%20Bitton%20et%20al.%20(2014">this link</a>&amp;tracklist=1&amp;nav=1&amp;overview=1&amp;highlight=) to view the data.</p>
-<p>The data were published in: Bitton DA et al. (2014), <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">PMID:24709818</a>; <a href="http://dx.doi.org/10.1101/gr.166819.113">DOI:10.1101/gr.166819.113</a></p>
+<p>The data were published in: Bitton DA et al. (2014), <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">PMID:24709818</a>; <a href="http://dx.doi.org/10.1101/gr.166819.113">DOI:10.1101/gr.166819.113</a></p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-can-i-find-modifications-my-protein-interest', 'How can I find modifications for my protein of interest?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-modifications-my-protein-interest' || pageName == 'all-faqs'">
@@ -7183,14 +7183,14 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Protein modifications (where curated) are included in the Modifications section on gene pages. (We plan to include RNA modifications later.) The <a routerLink="/documentation/gene-page-modifications">gene page modifications documentation</a> describes the display.</p>
 <p>To retrieve all genes whose products have a given modification, use the “Protein modifications” query in the [Advanced Search]. If you know the ID (for example, “phosphorylated residue” is MOD:00696), type or paste it into the box. Otherwise, start typing a name or description; the autocomplete feature will suggest terms. Choose one to retrieve annotated genes. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more information, including how ontology searches retrieve annotations to general terms.</p>
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'phosphorylated residue (MOD:00696)'" [predefinedQueryId]="'MOD_696'"> </app-query-link></p>
-<p>There is also an ontology term page for each modification term used to annotate <em>S. pombe</em> proteins, e.g. <a routerLink="/term/MOD:00696">MOD:00696</a>.</p>
+<p>There is also an ontology term page for each modification term used to annotate <em>S. pombe</em> proteins, e.g. <a routerLink="/term/MOD:00696">MOD:00696</a>.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals', 'How can I find mutants with increased or decreased sensitivity to chemicals')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals">How can I find mutants with increased or decreased sensitivity to chemicals</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>In FYPO, terms for increased chemical sensitivity are grouped under <a href="https://www.pombase.org/term/FYPO:0002683">increased sensitivity to chemical (FYPO:0002683)</a>. Similarly, decreased chemical sensitivity (increased resistance) terms are grouped under <a href="https://www.pombase.org/term/FYPO:0002682">increased resistance to chemical (FYPO:0002682)</a>.</p>
-<p>The ontology term pages for each term shows more specific terms, most of which identify specific chemicals (e.g. <a href="https://www.pombase.org/term/FYPO:0000088">sensitive to hydroxyurea (FYPO:000088)</a>, and the genotypes annotated to them.</p>
+<p>The ontology term pages for each term shows more specific terms, most of which identify specific chemicals (e.g. <a href="https://www.pombase.org/term/FYPO:0000088">sensitive to hydroxyurea (FYPO:000088)</a>, and the genotypes annotated to them.</p>
 <p>In any phenotype annotation display (on gene pages, ontology term pages, or publication pages), phenotype annotations can be <a routerLink="/documentation/gene-page-phenotypes">filtered</a> to show only “sensitive to chemical” annotations.</p>
 <p>You can also use the advanced search Phenotype query to search for <app-query-link [goToResults]="true" [linkText]="'FYPO:0002682'" [predefinedQueryId]="'single_allele_chemical_resistance'"></app-query-link>, <app-query-link [goToResults]="true" [linkText]="'FYPO:0002683'" [predefinedQueryId]="'single_allele_chemical_sensitivity'"></app-query-link> or any of the more specific terms. (Links go to results lists of single-allele genotypes annotated to each term.)</p>
 
@@ -7470,7 +7470,7 @@ Example queries:
 <li>Go to the <a routerLink="/query">advanced search</a>.</li>
 <li>Select the “Coding exons” query.</li>
 <li>Enter values: min 2, max 20. Click “Search”.</li>
-<li>Optional: to restrict to protein-coding genes, select the “Product type” query, then choose “protein”. Use the “Intersect” (AND operator&quot;) button to combine the queries.</li>
+<li>Optional: to restrict to protein-coding genes, select the “Product type” query, then choose “protein”. Use the “Intersect” (AND operator") button to combine the queries.</li>
 </ol>
 <p>Click on a count in the query history to see the results, with a button for “Download” options including coordinates and sequence.</p>
 <p>Also see the <a routerLink="/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates">FAQ on finding sequence features in a region</a>.</p>
@@ -7927,7 +7927,7 @@ Example queries:
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>The GO annotations available from PomBase (gene pages, advanced search, etc.) and the GO Consortium site (AmiGO; GO downloads) differ from those available from the UniProt GOA site (including QuickGO) for three main reasons:</p>
 <ol type="1">
-<li>RNA - PomBase provides GO annotations for functional RNAs ( e.g. rRNA, tRNA, snRNA), but at present the UniProt GOA dataset only includes annotations for protein-coding genes.</li>
+<li>RNA - PomBase provides GO annotations for functional RNAs (e.g. rRNA, tRNA, snRNA), but at present the UniProt GOA dataset only includes annotations for protein-coding genes.</li>
 <li>Time lag - <em>S. pombe</em> GO data are updated at the same time on the PomBase and GO Consortium sites, but the UniProt GOA site may be up to a few weeks behind.</li>
 <li>Filtering - PomBase does not include automated annotations that are redundant with manual annotations (contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a> for further details). The GO Consortium site uses the same filtered annotation dataset as PomBase, whereas the UniProt GOA site includes the automated annotations.</li>
 </ol>
@@ -8309,9 +8309,9 @@ This conference took place from 12th-17th November 2005 in Sant Feliu de Guixols
 <li>ability to search for genes in a region, such as centromeres or telomeres;</li>
 <li>improved organization of filter selections.</li>
 </ul>
-<p>We have also fixed a Sequence Download error reported by some users, so that the “CDS”, CDS + UTRs“, and”CDS + UTRs + Introns&quot; options now retrieve the correct sequences.<br />
+<p>We have also fixed a Sequence Download error reported by some users, so that the “CDS”, CDS + UTRs“, and”CDS + UTRs + Introns" options now retrieve the correct sequences.<br />
 <br />
-In addition, numerous minor improvements have been made. Please send any questions or comments on the PomBase web site to us at &lt;<a href="mailto:helpdesk@pombase.org">helpdesk@pombase.org</a>&gt;.</p>
+In addition, numerous minor improvements have been made. Please send any questions or comments on the PomBase web site to us at &lt;<a href="mailto:helpdesk@pombase.org" class="email">helpdesk@pombase.org</a>&gt;.</p>
 
   </div>
   <div *ngIf="pageName == 'new-data-and-new-features-pombase-web-site'">
@@ -8465,7 +8465,7 @@ Carl’s family would be happy to receive memories of Carl’s life at regards [
   </div>
   <div *ngIf="pageName == 'pombelist-has-moved'">
 <h3 id="pombelist-has-moved">pombelist has moved</h3>
-<p>The pombe community mailing list, pombelist, has migrated from the Wellcome Trust Sanger Institute and is now hosted by EBI. The new address is <a href="mailto:pombelist@ebi.ac.uk">pombelist@ebi.ac.uk</a> (please note that the old address no longer works, and will generate an automatic notification including the new address). The link to <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">subscribe</a> has also been updated, and the entire <a href="http://listserver.ebi.ac.uk/mailman/private/pombelist/">archive</a> is available at the new location.</p>
+<p>The pombe community mailing list, pombelist, has migrated from the Wellcome Trust Sanger Institute and is now hosted by EBI. The new address is <a href="mailto:pombelist@ebi.ac.uk" class="email">pombelist@ebi.ac.uk</a> (please note that the old address no longer works, and will generate an automatic notification including the new address). The link to <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">subscribe</a> has also been updated, and the entire <a href="http://listserver.ebi.ac.uk/mailman/private/pombelist/">archive</a> is available at the new location.</p>
 
   </div>
   <div *ngIf="pageName == 'connecting-pombase'">
@@ -8696,7 +8696,7 @@ We will announce when the new version of Canto is released to the public.</p>
   <div *ngIf="pageName == 'pombase-data-update-multi-allele-phenotypes'">
 <h3 id="pombase-data-update-with-multi-allele-phenotypes">PomBase data update with multi-allele phenotypes</h3>
 <p>We have updated the data available on the PomBase web site to include manual curation through August 13, 2015, including 300 community-curated publications.</p>
-<p>PomBase gene pages now include multi-allele phenotype annotations ( i.e. phenotypes of double mutants, triple mutants, etc.). New sub-sections of the gene pages display multi-allele phenotypes at the population and individual cell level, paralleling the organisation of the single allele phenotype display. Compact and full views are available; both show phenotypes with the relevant genotypes and the alleles that make them up, and the full view adds details for evidence, expression, conditions, and references.</p>
+<p>PomBase gene pages now include multi-allele phenotype annotations (i.e. phenotypes of double mutants, triple mutants, etc.). New sub-sections of the gene pages display multi-allele phenotypes at the population and individual cell level, paralleling the organisation of the single allele phenotype display. Compact and full views are available; both show phenotypes with the relevant genotypes and the alleles that make them up, and the full view adds details for evidence, expression, conditions, and references.</p>
 <p>The genome browser now includes data tracks for two more publications:<br />
 <br />
 DNA polymerase usage from:<br />
@@ -8758,7 +8758,7 @@ Note: Ontology graph views are no longer available in the genome browser, so lin
 <h3 id="pombase-data-update">PomBase data update</h3>
 <p>We have updated the data available on the PomBase web site to include manual curation through March 9, 2016.</p>
 <p><strong>Important:</strong> We have corrected a problem that made erroneous interaction data and literature appear on some gene pages.</p>
-<p>The gene pages now include interaction data from the Vo et al. proteome-wide study (curated by BioGRID and imported into PomBase):<br />
+<p>The gene pages now include interaction data from the Vo et al. proteome-wide study (curated by BioGRID and imported into PomBase):<br />
 Vo TV <em>et al.</em> 2016. A Proteome-wide Fission Yeast Interactome Reveals Network Evolution Principles from Yeasts to Human. <em>Cell</em> <strong>164(1-2)</strong>: 310-23. doi: <a href="http://dx.doi.org/10.1016/j.cell.2015.11.037">10.1016/j.cell.2015.11.037</a> <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=26771498">PMID:26771498</a>.</p>
 <p>The genome browser now includes transcriptome data published in:<br />
 <br />
@@ -8876,7 +8876,7 @@ Please sign the letter to add your voice in support of the databases that help m
   <div *ngIf="pageName == 'mailing-list-move-to-cam'">
 <h3 id="pombelist-changes">pombelist changes</h3>
 <!-- newsfeed_thumbnail: pombelist.png -->
-<p>The pombe community mailing list, “pombelist”, is now hosted by the University of Cambridge. The new address for posting messages is <a href="mailto:pombelist@pombase.org">pombelist@pombase.org</a>. The link to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">subscribe</a> has also changed.</p>
+<p>The pombe community mailing list, “pombelist”, is now hosted by the University of Cambridge. The new address for posting messages is <a href="mailto:pombelist@pombase.org" class="email">pombelist@pombase.org</a>. The link to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">subscribe</a> has also changed.</p>
 
   </div>
   <div *ngIf="pageName == 'transcript-tracks-from-Atkinson-et-al-(2018)-loaded'">
@@ -8941,7 +8941,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <!-- newsfeed_thumbnail: QLT.png -->
 <p>PomBase now offers a new way to display gene lists graphically based on multiple orthogonal annotation types — the Quick Little Tool (QuiLT) for visualisation.</p>
 <p>Inspired by our recent analysis of conserved unstudied proteins (see figures 4 and S1 in the <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">manuscript at bioRxiv</a>), QuiLT allows you to create a similar figure for any gene list you create or import using the advanced search. To use QuiLT, follow the link to your search results, then click the “Visualise” button. QuiLT visualisation is also available from the PomBase pages that list genes annotated to an ontology term, and on the Priority unstudied genes page.</p>
-<p>To see the Unknowns dataset in QuiLT, visit the <a routerLink="/query/results/from/predefined/priority-unstudied-genes:conserved_unknown">unknowns results page</a> and click “Visualise”.</p>
+<p>To see the Unknowns dataset in QuiLT, visit the <a routerLink="/results/from/predefined/priority-unstudied-genes:conserved_unknown">unknowns results page</a> and click “Visualise”.</p>
 <p>The QuiLT display is interactive, and you can:</p>
 <ul>
 <li>Highlight subsets of the list, and filter the display</li>
@@ -8956,7 +8956,7 @@ Please sign the letter to add your voice in support of the databases that help m
   <div *ngIf="pageName == 'new-nucleosome-occupancy-browser-maps-loaded'">
 <h3 id="new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</h3>
 <!-- newsfeed_thumbnail: browser.png -->
-<p>We have loaded the nucleosome occupancy maps as described in González et al. (2016) <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27662899">PMID: 27662899</a>. This dataset was generated using the paired-end sequencing protocol of Illumina and thus those maps are of higher resolution than those made with single-end (SE) sequencing hosted in the browser since before.</p>
+<p>We have loaded the nucleosome occupancy maps as described in González et al. (2016) <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27662899">PMID: 27662899</a>. This dataset was generated using the paired-end sequencing protocol of Illumina and thus those maps are of higher resolution than those made with single-end (SE) sequencing hosted in the browser since before.</p>
 <p>Here is a link that <a href="https://www.pombase.org/jbrowse/?loc=II%3A2751621..2767510&tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2Cnucleosome%20positioning%20during%20vegetative%20growth%3B%20repeat%201%20-%20Gonz%C3%A1lez%20et%20al.%20%282016%29%2Cnucleosome%20positioning%20during%20vegetative%20growth%3B%20repeat%202%20-%20Gonz%C3%A1lez%20et%20al.%20%282016%29%2CDNA%20sequence&highlight=">loads the tracks in PomBase JBrowse</a>. And here is a link to our <a href="https://www.pombase.org/documentation/JBrowse_quick_start">JBrowse quickstart guide</a>.</p>
 <p>Many thanks to Paco Antequera for sending us the bigwig files! If you would like us to load any datasets then please get in touch.</p>
 
@@ -9082,7 +9082,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <h3 id="fitness-landscape-of-the-fission-yeast-genome-dataset-loaded-into-jbrowse">“Fitness Landscape of the Fission Yeast Genome” dataset loaded into JBrowse</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
-<p>We have loaded the <a href="https://www.pombase.org/reference/PMID:31077324">Grech et al. (2019) “Fitness Landscape of the Fission Yeast Genome”</a> dataset into JBrowse. In this study, transposon mutagenesis libraries were created to map transposon insertion sites in the S. pombe genome. From this data, functional elements of the genome were inferred. The tracks from this study can be loaded by a single click from the linked publication page above</p>
+<p>We have loaded the <a href="https://www.pombase.org/reference/PMID:31077324">Grech et al. (2019) “Fitness Landscape of the Fission Yeast Genome”</a> dataset into JBrowse. In this study, transposon mutagenesis libraries were created to map transposon insertion sites in the S. pombe genome. From this data, functional elements of the genome were inferred. The tracks from this study can be loaded by a single click from the linked publication page above</p>
 <p>Thanks Dan Jeffares for sending us the data.</p>
 <p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
 
@@ -9103,7 +9103,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <h3 id="replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
-<p>We have loaded data from: <a href="https://www.pombase.org/reference/PMID:14566325">Segurado et al. (2003) “A+T-rich islands”</a>, <a href="https://www.pombase.org/reference/PMID:17304213">Hayashi et al. (2007) “Pre-replicative complex localization; early and late firing origins”</a>, and <a href="https://www.pombase.org/reference/PMID:18093330">Mickle et al. (2007) “Replication origins with functional classification”</a>.</p>
+<p>We have loaded data from: <a href="https://www.pombase.org/reference/PMID:14566325">Segurado et al. (2003) “A+T-rich islands”</a>, <a href="https://www.pombase.org/reference/PMID:17304213">Hayashi et al. (2007) “Pre-replicative complex localization; early and late firing origins”</a>, and <a href="https://www.pombase.org/reference/PMID:18093330">Mickle et al. (2007) “Replication origins with functional classification”</a>.</p>
 <p>To view the tracks, either follow the hyperlinks above to the respective PomBase publication pages, and click on the “view” link after “Datasets from this publication are available in the PomBase JBrowse genome browser”, or go directly to <a href="http://www.pombase.org/jbrowse/">the browser</a> and click on the “select tracks” button to find the tracks manually.</p>
 <p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
 
@@ -9126,7 +9126,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <h3 id="browser-tracks-now-loadable-from-publication-pages">Browser tracks now loadable from publication pages</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: new_tracks.png -->
-<p>Data tracks from datasets hosted in the PomBase genome browser can now be browsed and loaded from their respective publication pages. For an example, see <a href="https://www.pombase.org/reference/PMID:29914874">Atkinson et al. (2018)</a>. Data tracks are now also downloadable from the publication pages.</p>
+<p>Data tracks from datasets hosted in the PomBase genome browser can now be browsed and loaded from their respective publication pages. For an example, see <a href="https://www.pombase.org/reference/PMID:29914874">Atkinson et al. (2018)</a>. Data tracks are now also downloadable from the publication pages.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
@@ -9136,7 +9136,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/new_tracks.png"/></p>
 <h3 id="browser-tracks-now-loadable-publication-pages">Browser tracks now loadable from publication pages</h3>
 <p><em>2019-10-16</em></p>
-<p>Data tracks from datasets hosted in the PomBase genome browser can now be browsed and loaded from their respective publication pages. For an example, see <a href="https://www.pombase.org/reference/PMID:29914874">Atkinson et al. (2018)</a>. Data tracks are now also downloadable from the publication pages.</p>
+<p>Data tracks from datasets hosted in the PomBase genome browser can now be browsed and loaded from their respective publication pages. For an example, see <a href="https://www.pombase.org/reference/PMID:29914874">Atkinson et al. (2018)</a>. Data tracks are now also downloadable from the publication pages.</p>
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
@@ -9154,7 +9154,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</h3>
 <p><em>2019-08-30</em></p>
-<p>We have loaded data from: <a href="https://www.pombase.org/reference/PMID:14566325">Segurado et al. (2003) “A+T-rich islands”</a>, <a href="https://www.pombase.org/reference/PMID:17304213">Hayashi et al. (2007) “Pre-replicative complex localization; early and late firing origins”</a>, and <a href="https://www.pombase.org/reference/PMID:18093330">Mickle et al. (2007) “Replication origins with functional classification”</a>.</p>
+<p>We have loaded data from: <a href="https://www.pombase.org/reference/PMID:14566325">Segurado et al. (2003) “A+T-rich islands”</a>, <a href="https://www.pombase.org/reference/PMID:17304213">Hayashi et al. (2007) “Pre-replicative complex localization; early and late firing origins”</a>, and <a href="https://www.pombase.org/reference/PMID:18093330">Mickle et al. (2007) “Replication origins with functional classification”</a>.</p>
 <p>To view the tracks, either follow the hyperlinks above to the respective PomBase publication pages, and click on the “view” link after “Datasets from this publication are available in the PomBase JBrowse genome browser”, or go directly to <a href="http://www.pombase.org/jbrowse/">the browser</a> and click on the “select tracks” button to find the tracks manually.</p>
 <p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
 </div>
@@ -9173,7 +9173,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse">“Fitness Landscape of the Fission Yeast Genome” dataset loaded into JBrowse</h3>
 <p><em>2019-07-11</em></p>
-<p>We have loaded the <a href="https://www.pombase.org/reference/PMID:31077324">Grech et al. (2019) “Fitness Landscape of the Fission Yeast Genome”</a> dataset into JBrowse. In this study, transposon mutagenesis libraries were created to map transposon insertion sites in the S. pombe genome. From this data, functional elements of the genome were inferred. The tracks from this study can be loaded by a single click from the linked publication page above</p>
+<p>We have loaded the <a href="https://www.pombase.org/reference/PMID:31077324">Grech et al. (2019) “Fitness Landscape of the Fission Yeast Genome”</a> dataset into JBrowse. In this study, transposon mutagenesis libraries were created to map transposon insertion sites in the S. pombe genome. From this data, functional elements of the genome were inferred. The tracks from this study can be loaded by a single click from the linked publication page above</p>
 <p>Thanks Dan Jeffares for sending us the data.</p>
 <p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
 </div>
@@ -9295,7 +9295,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</h3>
 <p><em>2018-12-03</em></p>
-<p>We have loaded the nucleosome occupancy maps as described in González et al. (2016) <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27662899">PMID: 27662899</a>. This dataset was generated using the paired-end sequencing protocol of Illumina and thus those maps are of higher resolution than those made with single-end (SE) sequencing hosted in the browser since before.</p>
+<p>We have loaded the nucleosome occupancy maps as described in González et al. (2016) <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27662899">PMID: 27662899</a>. This dataset was generated using the paired-end sequencing protocol of Illumina and thus those maps are of higher resolution than those made with single-end (SE) sequencing hosted in the browser since before.</p>
 <p>Here is a link that <a href="https://www.pombase.org/jbrowse/?loc=II%3A2751621..2767510&tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2Cnucleosome%20positioning%20during%20vegetative%20growth%3B%20repeat%201%20-%20Gonz%C3%A1lez%20et%20al.%20%282016%29%2Cnucleosome%20positioning%20during%20vegetative%20growth%3B%20repeat%202%20-%20Gonz%C3%A1lez%20et%20al.%20%282016%29%2CDNA%20sequence&highlight=">loads the tracks in PomBase JBrowse</a>. And here is a link to our <a href="https://www.pombase.org/documentation/JBrowse_quick_start">JBrowse quickstart guide</a>.</p>
 <p>Many thanks to Paco Antequera for sending us the bigwig files! If you would like us to load any datasets then please get in touch.</p>
 </div>
@@ -9305,7 +9305,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <p><em>2018-11-21</em></p>
 <p>PomBase now offers a new way to display gene lists graphically based on multiple orthogonal annotation types — the Quick Little Tool (QuiLT) for visualisation.</p>
 <p>Inspired by our recent analysis of conserved unstudied proteins (see figures 4 and S1 in the <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">manuscript at bioRxiv</a>), QuiLT allows you to create a similar figure for any gene list you create or import using the advanced search. To use QuiLT, follow the link to your search results, then click the “Visualise” button. QuiLT visualisation is also available from the PomBase pages that list genes annotated to an ontology term, and on the Priority unstudied genes page.</p>
-<p>To see the Unknowns dataset in QuiLT, visit the <a routerLink="/query/results/from/predefined/priority-unstudied-genes:conserved_unknown">unknowns results page</a> and click “Visualise”.</p>
+<p>To see the Unknowns dataset in QuiLT, visit the <a routerLink="/results/from/predefined/priority-unstudied-genes:conserved_unknown">unknowns results page</a> and click “Visualise”.</p>
 <p>The QuiLT display is interactive, and you can:</p>
 <ul>
 <li>Highlight subsets of the list, and filter the display</li>
@@ -9377,7 +9377,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
 <h3 id="pombelist-changes">pombelist changes</h3>
 <p><em>2018-08-31</em></p>
-<p>The pombe community mailing list, “pombelist”, is now hosted by the University of Cambridge. The new address for posting messages is <a href="mailto:pombelist@pombase.org">pombelist@pombase.org</a>. The link to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">subscribe</a> has also changed.</p>
+<p>The pombe community mailing list, “pombelist”, is now hosted by the University of Cambridge. The new address for posting messages is <a href="mailto:pombelist@pombase.org" class="email">pombelist@pombase.org</a>. The link to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">subscribe</a> has also changed.</p>
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/new_tracks.png"/></p>
@@ -9492,7 +9492,7 @@ Oliver SG, Lock A, Harris MA, Nurse P, Wood V. 2016. Model organism databases: e
 <p><em>2016-04-11</em></p>
 <p>We have updated the data available on the PomBase web site to include manual curation through March 9, 2016.</p>
 <p><strong>Important:</strong> We have corrected a problem that made erroneous interaction data and literature appear on some gene pages.</p>
-<p>The gene pages now include interaction data from the Vo et al. proteome-wide study (curated by BioGRID and imported into PomBase):<br />
+<p>The gene pages now include interaction data from the Vo et al. proteome-wide study (curated by BioGRID and imported into PomBase):<br />
 Vo TV <em>et al.</em> 2016. A Proteome-wide Fission Yeast Interactome Reveals Network Evolution Principles from Yeasts to Human. <em>Cell</em> <strong>164(1-2)</strong>: 310-23. doi: <a href="http://dx.doi.org/10.1016/j.cell.2015.11.037">10.1016/j.cell.2015.11.037</a> <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=26771498">PMID:26771498</a>.</p>
 <p>The genome browser now includes transcriptome data published in:<br />
 <br />
@@ -9548,7 +9548,7 @@ Note: Ontology graph views are no longer available in the genome browser, so lin
 <h3 id="pombase-data-update-multi-allele-phenotypes">PomBase data update with multi-allele phenotypes</h3>
 <p><em>2015-09-03</em></p>
 <p>We have updated the data available on the PomBase web site to include manual curation through August 13, 2015, including 300 community-curated publications.</p>
-<p>PomBase gene pages now include multi-allele phenotype annotations ( i.e. phenotypes of double mutants, triple mutants, etc.). New sub-sections of the gene pages display multi-allele phenotypes at the population and individual cell level, paralleling the organisation of the single allele phenotype display. Compact and full views are available; both show phenotypes with the relevant genotypes and the alleles that make them up, and the full view adds details for evidence, expression, conditions, and references.</p>
+<p>PomBase gene pages now include multi-allele phenotype annotations (i.e. phenotypes of double mutants, triple mutants, etc.). New sub-sections of the gene pages display multi-allele phenotypes at the population and individual cell level, paralleling the organisation of the single allele phenotype display. Compact and full views are available; both show phenotypes with the relevant genotypes and the alleles that make them up, and the full view adds details for evidence, expression, conditions, and references.</p>
 <p>The genome browser now includes data tracks for two more publications:<br />
 <br />
 DNA polymerase usage from:<br />
@@ -9787,7 +9787,7 @@ We also have an updated version of the <em>S. pombe</em>/human ortholog table av
 <div class="news-item">
 <h3 id="pombelist-has-moved">pombelist has moved</h3>
 <p><em>2013-07-21</em></p>
-<p>The pombe community mailing list, pombelist, has migrated from the Wellcome Trust Sanger Institute and is now hosted by EBI. The new address is <a href="mailto:pombelist@ebi.ac.uk">pombelist@ebi.ac.uk</a> (please note that the old address no longer works, and will generate an automatic notification including the new address). The link to <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">subscribe</a> has also been updated, and the entire <a href="http://listserver.ebi.ac.uk/mailman/private/pombelist/">archive</a> is available at the new location.</p>
+<p>The pombe community mailing list, pombelist, has migrated from the Wellcome Trust Sanger Institute and is now hosted by EBI. The new address is <a href="mailto:pombelist@ebi.ac.uk" class="email">pombelist@ebi.ac.uk</a> (please note that the old address no longer works, and will generate an automatic notification including the new address). The link to <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">subscribe</a> has also been updated, and the entire <a href="http://listserver.ebi.ac.uk/mailman/private/pombelist/">archive</a> is available at the new location.</p>
 </div>
 <div class="news-item">
 <h3 id="pombase-website-update">PomBase website update</h3>
@@ -9951,9 +9951,9 @@ We are aware that there is an intermittent problem with the “Reference” colu
 <li>ability to search for genes in a region, such as centromeres or telomeres;</li>
 <li>improved organization of filter selections.</li>
 </ul>
-<p>We have also fixed a Sequence Download error reported by some users, so that the “CDS”, CDS + UTRs“, and”CDS + UTRs + Introns&quot; options now retrieve the correct sequences.<br />
+<p>We have also fixed a Sequence Download error reported by some users, so that the “CDS”, CDS + UTRs“, and”CDS + UTRs + Introns" options now retrieve the correct sequences.<br />
 <br />
-In addition, numerous minor improvements have been made. Please send any questions or comments on the PomBase web site to us at &lt;<a href="mailto:helpdesk@pombase.org">helpdesk@pombase.org</a>&gt;.</p>
+In addition, numerous minor improvements have been made. Please send any questions or comments on the PomBase web site to us at &lt;<a href="mailto:helpdesk@pombase.org" class="email">helpdesk@pombase.org</a>&gt;.</p>
 </div>
 <div class="news-item">
 <h3 id="pombase-preview-launch">PomBase preview launch</h3>
@@ -17248,7 +17248,7 @@ Joined contigs p4C9 and c977</p>
 <ol type="1">
 <li>The gene name should consist of three italicized lower case letters (the gene symbol) followed by an integer (e.g. rad26). This will not be italicized in the database. (Note that a few historical gene names with four letters, or without an integer, have been grandfathered into the database, but all new standard gene names must conform to the three-letters-plus-integer pattern.)</li>
 <li>The gene name registration form will return soon. To reserve a gene name in the meantime, please <a href="mailto:helpdesk@pombase.org?subject=gene%20name%20reservation">email the helpdesk</a> and include the gene systematic ID, proposed gene name, name description, the relevant PubMed ID (if available), and any other information.</li>
-<li>The 3-letter gene symbol should stand for a description of a phenotype, gene product or gene function. In addition, we strongly prefer that a given gene symbol have only one associated description, i.e., all genes which use a given 3 letter symbol should have a related phenotype, gene product or gene function. If a 3-letter symbol is already in use, it should not be used to describe a different class of genes. Before choosing your gene name, search PomBase for any gene name beginning with the 3-letter symbol, by entering the 3-letter name followed by an asterisk, e.g. “cdc*”. Also check the usage of the 3-letter code in <em>S. cerevisiae</em> at <a href="http://www.yeastgenome.org/">SGD</a>.</li>
+<li>The 3-letter gene symbol should stand for a description of a phenotype, gene product or gene function. In addition, we strongly prefer that a given gene symbol have only one associated description, i.e., all genes which use a given 3 letter symbol should have a related phenotype, gene product or gene function. If a 3-letter symbol is already in use, it should not be used to describe a different class of genes. Before choosing your gene name, search PomBase for any gene name beginning with the 3-letter symbol, by entering the 3-letter name followed by an asterisk, e.g. “cdc*”. Also check the usage of the 3-letter code in <em>S. cerevisiae</em> at <a href="http://www.yeastgenome.org/">SGD</a>.</li>
 <li>Please include your gene name(s) in the abstracts of any relevant papers. This simplifies the task of identifying yeast gene names that are already in use.</li>
 <li>At the time of registration, the <em>S. pombe</em> curator will check PubMed, GenBank/EMBL/DDBJ and the Gene Name Registry to ensure the gene name is unique. If your chosen gene name is not unique, you will be contacted and asked to select a new name.</li>
 <li>Please check that the reserved gene name is still unique, and that the gene still has no other name used for it, before submitting a publication.</li>

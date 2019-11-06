@@ -21,7 +21,7 @@ export class PredefinedQueryResultsComponent implements OnInit {
   ngOnInit() {
     const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], 'none');
 
-    this.queryService.postPredefinedQuery(this.predefinedQueryId, outputOptions)
+    this.queryService.postPredefinedQuery(this.predefinedQueryId, this.description, outputOptions)
       .then(results => {
         this.results = results;
       });

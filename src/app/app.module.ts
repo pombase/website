@@ -88,6 +88,7 @@ import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 import { ReferenceDetailListComponent } from './reference-detail-list/reference-detail-list.component';
 import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
+import { GeneResultsPageComponent } from './gene-results-page/gene-results-page.component';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -193,6 +194,7 @@ export function windowFactory() {
     AnnotationTableThroughputFilterComponent,
     MotifSearchHelpComponent,
     JbrowseTrackPickerComponent,
+    GeneResultsPageComponent,
   ],
   imports: [
     BrowserModule,
