@@ -2,6 +2,7 @@
 
 | Systematic ID | Standard name | Comments | Reference | Date |
 |---------------|---------------|----------|-----------|------|
+| [SPNCRNA.103](/gene/SPNCRNA.103) | sme2 | Coordinates changed from complement(339346..340012) to complement(339346..340907) | [PMID:24920274](http://www.ncbi.nlm.nih.gov/pubmed/24920274) | 2019-11-08 |
 | [SPBC577.05c](/gene/SPBC577.05c) | rec27 | Coordinates changed from complement(join(757566..757746,757796..757951,758130..758197)) to complement(join(757566..757746,757796..757951,758002..758042)) | [PMID:28469148](http://www.ncbi.nlm.nih.gov/pubmed/28469148) | 2017-09-14 |
 | [SPSNORNA.41](/gene/SPSNORNA.41) | snR46 | Switched from + strand to - strand | pers. comm. Francois Bachand | 2017-05-25 |
 | [SPBC530.13](/gene/SPBC530.13) | lsc1 | Frameshifted by Chr_II:825012!G→A; coordinates changed from join(824374..824534,824579..824660,824874..825011,825065..825188,825245..825747) to join(824374..824534,824579..824660,824874..824999,825065..825188,825245..825747) | [PMID:26615217](http://www.ncbi.nlm.nih.gov/pubmed/26615217) and pers. comm. Li-Lin Du | 2017-04-17 |
