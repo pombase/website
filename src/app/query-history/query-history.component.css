@@ -58,20 +58,8 @@ td.result-count {
   color: red;
 }
 
-@keyFrames highlightRow {
-  from {
-    background-color: #ddddff;
-  }
-  30% {
-    background-color: #ddddff;
-  }
-  to {
-    background-color: #ffffff;
-  }
-}
-
 .new-hist-item {
-  animation-duration: 10s;
+  animation-duration: 20s;
   animation-name: highlightRow;
 }
 

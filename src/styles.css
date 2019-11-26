@@ -487,3 +487,15 @@ figcaption {
 #content .btn {
   font-size: 0.9em;
 }
+
+@keyframes highlightRow {
+  from {
+    background-color: #bbbbff;
+  }
+  10% {
+    background-color: #d7d7ff;
+  }
+  to {
+    background-color: #ffffff;
+  }
+}
