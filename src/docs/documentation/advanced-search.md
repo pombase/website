@@ -60,25 +60,37 @@ genes.
 
 ![advanced search results page](assets/advanced_search_results.png){width="400"}
 
-1. Return to the main Advanced search page
+1. Return to the main Advanced search page (you can also use the
+browser "back" button)
 
 2. Click on a header to sort by the column
 
-3. Send the gene list to [QuiLT](documentation/quick-little-tool) for
+3. Select columns to display
+
+4. Send the gene list to [QuiLT](documentation/quick-little-tool) for
 visualisation
 
-4. Show [GO slim](documentation/pombase-go-slim-documentation)
+5. Show [GO slim](documentation/pombase-go-slim-documentation)
 annotations for genes in the list
 
-5. Narrow the list: click the button to reveal checkboxes 
+6. Narrow the list: click the button to reveal checkboxes 
 
-6. Download selected data for genes in the list. In the popup, the
+7. Download selected data for genes in the list. In the popup, the
 default "Tab delimited" view offers a set of details that can be
 included in a downloaded text file. Click "Sequence" to retrieve amino
 acid or nucleotide sequences in FASTA format. Use the checkboxes to
 select which items are included in the headers. When "Nucleotide" is
 selected, flanking sequence options similar to those on the [gene
 page](documentation/gene-page-sequence) are available.
+
+#### Sharing search results
+
+Each results page has a stable, unique URL that you can bookmark,
+copy/paste, and share. Anyone who follows a shared link will see the
+same results page, and the query will be added to their query history.
+
+The "Visualise" and "Slim" options also generate stable, unique,
+sharable URLs.
 
 ### Query types
 

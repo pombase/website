@@ -31,6 +31,13 @@ can clear the selection (5) or use the "Filter" button (6) to create a
 new gene list from the selection (which you can then visualise in
 QuiLT).
 
+### Sharing results
+
+Each QuiLT visualisation page has a stable, unique URL that you can
+bookmark, copy/paste, and share. Anyone who follows a shared link will
+see QuiLT displaying the same gene list. Clicking the "Advanced
+Search" button adds a query that would produce the gene list to the
+query history.
 
 ### Available annotation types
 
