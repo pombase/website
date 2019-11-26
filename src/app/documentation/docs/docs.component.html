@@ -4366,13 +4366,17 @@ PomBase using the Ensembl viewer.</p>
 <img src="assets/advanced_search_results.png" alt="advanced search results page" width="400" /><figcaption>advanced search results page</figcaption>
 </figure>
 <ol type="1">
-<li><p>Return to the main Advanced search page</p></li>
+<li><p>Return to the main Advanced search page (you can also use the browser “back” button)</p></li>
 <li><p>Click on a header to sort by the column</p></li>
+<li><p>Select columns to display</p></li>
 <li><p>Send the gene list to <a routerLink="/documentation/quick-little-tool">QuiLT</a> for visualisation</p></li>
 <li><p>Show <a routerLink="/documentation/pombase-go-slim-documentation">GO slim</a> annotations for genes in the list</p></li>
 <li><p>Narrow the list: click the button to reveal checkboxes</p></li>
 <li><p>Download selected data for genes in the list. In the popup, the default “Tab delimited” view offers a set of details that can be included in a downloaded text file. Click “Sequence” to retrieve amino acid or nucleotide sequences in FASTA format. Use the checkboxes to select which items are included in the headers. When “Nucleotide” is selected, flanking sequence options similar to those on the <a href="documentation/gene-page-sequence">gene page</a> are available.</p></li>
 </ol>
+<h4 id="sharing-search-results">Sharing search results</h4>
+<p>Each results page has a stable, unique URL that you can bookmark, copy/paste, and share. Anyone who follows a shared link will see the same results page, and the query will be added to their query history.</p>
+<p>The “Visualise” and “Slim” options also generate stable, unique, sharable URLs.</p>
 <h3 id="query-types">Query types</h3>
 <p>Ontology queries (GO, phenotype, protein modification, and protein sequence feature) retrieve genes that are annotated to the selected term(s), and to their descendants via specified relations (see the GO documentation on <a href="http://geneontology.org/docs/ontology-relations/">Ontology Structure and Ontology Relations</a> for more information on relationships between terms in ontologies, and see the descriptions below of specific ontology filters for lists of which relations are followed to retrieve annotations). Ontologies can be searched by ID or term name. Type or paste a complete ontology ID, including the prefix (e.g. GO:0005634, FYPO:0002059), or simply start typing to search for a term name. Choose a term from the list of options offered by the autocomplete, and click “Submit”.</p>
 <h4 id="commonly-used-queries">Commonly used queries</h4>
@@ -5907,6 +5911,8 @@ PomBase using the Ensembl viewer.</p>
 <p>In the QuiLT display, each row represents a single gene, and each column is an annotation type.</p>
 <p>Use the checkboxes (1) to toggle an annotation type on and off. When annotations are shown, a link appears to sort on that annotation type. You may want to try different combinations of which types are shown, and which used to sort the list, until you get a display you like. You can download the graph (with key) in SVG format at any time (2). The key (4) shows only terms used to annotate genes in the list, so for small gene lists not all terms may appear.</p>
 <p>Click on a row to select a single gene, or click on a box in any column (3) to select all genes in it. In the displayed gene list, you can clear the selection (5) or use the “Filter” button (6) to create a new gene list from the selection (which you can then visualise in QuiLT).</p>
+<h3 id="sharing-results">Sharing results</h3>
+<p>Each QuiLT visualisation page has a stable, unique URL that you can bookmark, copy/paste, and share. Anyone who follows a shared link will see QuiLT displaying the same gene list. Clicking the “Advanced Search” button adds a query that would produce the gene list to the query history.</p>
 <h3 id="available-annotation-types">Available annotation types</h3>
 <p>At present, QuiLT includes:</p>
 <ul>
@@ -6827,6 +6833,13 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>To search for these features, use the “Protein feature” query in the <a routerLink="/query">advanced search</a> (enter a SO ID or description; see the <a routerLink="/documentation/advanced-search">documentation</a> for help with searching).</p>
 <p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-proteins-have-transmembrane-domains">transmembrane domains</a> and <a routerLink="/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family">protein families</a>, and the section of the search documentation on protein feature and protein domain queries.</p>
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'nuclear localization signal (SO:0001528)'" [predefinedQueryId]="'SO_1528'"> </app-query-link></p>
+
+</div>
+<div (click)="faq_navigate($event, '/faq/can-i-share-my-search-results', 'Can I share my search results?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-share-my-search-results' || pageName == 'all-faqs'">
+<h3 id="can-i-share-my-search-results">Can I share my search results?</h3>
+<!-- pombase_categories: Finding data -->
+<p>Yes. In the advanced search, each results page has a stable, unique URL that you can bookmark, copy/paste, and share. Anyone who follows a shared link will see the same results page, and the query will be added to their query history.</p>
+<p>The “Visualise” and “Slim” options also generate stable, unique, sharable URLs, and QuiLT visualisations have the stable URLs no matter how you reach the QuiLT page.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence', 'Can I use BLAST to find S. pombe sequences similar to my query sequence?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence' || pageName == 'all-faqs'">
