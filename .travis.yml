@@ -1,9 +1,10 @@
 language: node_js
+
 node_js:
   - "10"
 cache: yarn
 
-dist: xenial
+dist: bionic
 
 before_install:
   - sudo apt-get update
