@@ -544,9 +544,20 @@ export class GeneQuery {
 
     case 'or':
     case 'and':
-    case 'not':
       const parts = (val as Array<GeneQueryNode>).map((json: any) => this.nodeFromObj(json));
       return new GeneBoolNode(nodeType, parts);
+
+    case 'not':
+      if (val instanceof Array) {
+        const parts = (val as Array<GeneQueryNode>).map((json: any) => this.nodeFromObj(json));
+        return new GeneBoolNode(nodeType, parts);
+      } else {
+        const parts = (val as {node_a: any; node_b: any;});
+        const jsonA = parts['node_a'];
+        const jsonB = parts['node_b'];
+        const nodes = [this.nodeFromObj(jsonA), this.nodeFromObj(jsonB)];
+        return new GeneBoolNode(nodeType, nodes);
+      }
 
     case 'subset':
       return new SubsetNode(val['subset_name'], null);
