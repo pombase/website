@@ -15,9 +15,9 @@ before_install:
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_jbrowse_track_metadata.csv
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-chado/master/etc/create_jbrowse_track_list.pl && chmod a+x create_jbrowse_track_list.pl
-  - curl -L https://github.com/jgm/pandoc/releases/download/2.8/pandoc-2.8-linux-amd64.tar.gz | (cd /tmp/; tar xzf -)
+  - (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/2.8/pandoc-2.8-1-amd64.deb; dpkg -i pandoc-2.8-1-amd64.deb)
   - yarn
 
 script: >
-  PATH=/tmp/pandoc-2.8/bin:$PATH ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json &&
+  ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json &&
   ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
