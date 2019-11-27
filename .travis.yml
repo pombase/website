@@ -15,7 +15,7 @@ before_install:
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_jbrowse_track_metadata.csv
   - curl -OL https://raw.githubusercontent.com/pombase/pombase-chado/master/etc/create_jbrowse_track_list.pl && chmod a+x create_jbrowse_track_list.pl
-  - (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/2.8/pandoc-2.8-1-amd64.deb; dpkg -i pandoc-2.8-1-amd64.deb)
+  - (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/2.8/pandoc-2.8-1-amd64.deb; sudo dpkg -i pandoc-2.8-1-amd64.deb)
   - yarn
 
 script: >
