@@ -30,6 +30,7 @@ export class ReferenceDetailsComponent implements OnInit {
   refAnnotationStatus: string = null;
   multiOrgMode = getAppConfig().isMultiOrganismMode();
   graphicalAbstractImagePath: string = null;
+  videoPath: string = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -127,12 +128,16 @@ export class ReferenceDetailsComponent implements OnInit {
     for (const panelConf of this.appConfig.frontPagePanels) {
       if (panelConf.panel_type === 'spotlight' && panelConf.head_image &&
           panelConf.reference_id && panelConf.reference_id === this.refDetails.uniquename) {
-         const filteredImages = panelConf.head_image.filter(path => !path.endsWith('.mp4'));
-         if (filteredImages.length > 0) {
-           this.graphicalAbstractImagePath = Util.randElement(filteredImages);
-         }
-       }
-     }
+        const selectedPath = Util.randElement(panelConf.head_image);
+        if (selectedPath.endsWith('.mp4')) {
+          this.videoPath = selectedPath;
+          this.graphicalAbstractImagePath = null;
+        } else {
+          this.graphicalAbstractImagePath = selectedPath;
+          this.videoPath = null;
+        }
+      }
+    }
   }
 
   ngOnInit() {
