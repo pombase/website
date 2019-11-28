@@ -1,3 +1,8 @@
 .query-running-spinner {
   padding: 3em;
 }
+
+.query-error {
+  padding-top: 2em;
+  font-size: 120%;
+}

@@ -108,7 +108,7 @@ export class QueryService {
         if (rawJson.status === 'ok') {
           return new QueryResult(rawJson.id, GeneQuery.fromJSONString(rawJson.query), rawJson.rows);
         } else {
-          throw rawJson.err;
+          return Promise.reject(rawJson.status);
         }
       });
   }

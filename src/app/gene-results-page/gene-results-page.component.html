@@ -1,11 +1,14 @@
 
-<div *ngIf="!results" class="query-running-spinner">
+<div *ngIf="!results && !err" class="query-running-spinner">
   <app-loading-spinner></app-loading-spinner>
 </div>
 
-<div *ngIf="results">
+<div *ngIf="results || err">
   <button class="btn btn-primary" title="Go to the Advanced Search interface"
     (click)="gotoAdvancedSearch()">&lt;- Advanced search</button>
 
-  <app-gene-results [mode]="mode" [results]="results"></app-gene-results>
+  <div *ngIf="err" class="query-error">
+     Error showing results: {{err}}
+  </div>
+  <app-gene-results *ngIf="!err" [mode]="mode" [results]="results"></app-gene-results>
 </div>

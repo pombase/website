@@ -17,6 +17,7 @@ export class GeneResultsPageComponent implements OnInit, OnDestroy {
   showLoading: boolean = true;
   timerSubscription: Subscription = null;
   mode: string;
+  err: string = null;
 
   constructor(private queryService: QueryService,
               private router: Router,
@@ -67,13 +68,15 @@ export class GeneResultsPageComponent implements OnInit, OnDestroy {
     this.timerSubscription = timer.subscribe(t => {
       this.showLoading = true;
     });
+    this.err = null;
     resultPromise
       .then(results => {
         this.results = results;
         this.timerSubscription.unsubscribe();
         this.timerSubscription = null;
         this.showLoading = false;
-      });
+      })
+      .catch(err => this.err = err);
   }
 
   ngOnDestroy() {
