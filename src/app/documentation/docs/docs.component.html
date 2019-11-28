@@ -8008,6 +8008,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#unique-permanent-urls-search-results">Unique permanent URLs for search results</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#browser-tracks-now-loadable-publication-pages">Browser tracks now loadable from publication pages</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-pombase-funding-wellcome-trust">New PomBase funding from the Wellcome Trust</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 76.0</a></div>
@@ -9149,9 +9150,36 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Data tracks from datasets hosted in the PomBase genome browser can now be browsed and loaded from their respective publication pages. For an example, see <a href="https://www.pombase.org/reference/PMID:29914874">Atkinson et al. (2018)</a>. Data tracks are now also downloadable from the publication pages.</p>
 
   </div>
+  <div *ngIf="pageName == 'shareable-result-links'">
+<h3 id="unique-permanent-urls-for-search-results">Unique permanent URLs for search results</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: advanced_search.png -->
+<p>All result pages from the <a routerLink="/query">Advanced search</a> now have a unique permanent URL that can be bookmarked and shared with your colleagues.</p>
+<p>The <a routerLink="/documentation/quick-little-tool">QuiLT</a> and <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim</a> pages also now have permanent URLs.</p>
+<p>Examples:</p>
+<ul>
+<li><a routerLink="/results/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">All disease associated genes</a></li>
+<li><a routerLink="/vis/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">QuiLT example for all disease associated genes</a></li>
+<li><a routerLink="/slim:bp_goslim_pombe/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">GO slim for disease associated genes</a></li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
+<h3 id="unique-permanent-urls-search-results">Unique permanent URLs for search results</h3>
+<p><em>2019-11-28</em></p>
+<p>All result pages from the <a routerLink="/query">Advanced search</a> now have a unique permanent URL that can be bookmarked and shared with your colleagues.</p>
+<p>The <a routerLink="/documentation/quick-little-tool">QuiLT</a> and <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim</a> pages also now have permanent URLs.</p>
+<p>Examples:</p>
+<ul>
+<li><a routerLink="/results/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">All disease associated genes</a></li>
+<li><a routerLink="/vis/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">QuiLT example for all disease associated genes</a></li>
+<li><a routerLink="/slim:bp_goslim_pombe/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">GO slim for disease associated genes</a></li>
+</ul>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/new_tracks.png"/></p>
 <h3 id="browser-tracks-now-loadable-publication-pages">Browser tracks now loadable from publication pages</h3>
