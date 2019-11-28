@@ -11,12 +11,12 @@
     <div *ngIf="hasTranscripts">
         <div class="controls">
           <div *ngIf="featureHasProtein()">
-          <input id="show-translation" type="checkbox" [(ngModel)]="showTranslation"
+          <input id="show-translation" type="checkbox" [(ngModel)]="showNucSequence"
                  (ngModelChange)="updateSequence()"/>
-          <label for="show-translation">Show translation</label>
+          <label for="show-translation">Show nucleotide sequence</label>
           </div>
 
-          <div class="transcript-part-selection" *ngIf="!showTranslation">
+          <div class="transcript-part-selection" *ngIf="showNucSequence">
             <div class="seq-title">
               Display sequence of these gene parts:
             </div>
@@ -86,9 +86,9 @@
             </div>
           </div>
 
-          <div [class.sequence-actions]="!showTranslation"
-               [class.translation-sequence-actions]="showTranslation">
-            <div *ngIf="wrappedSequence || showTranslation" class="sequence-action download-action">
+          <div [class.sequence-actions]="showNucSequence"
+               [class.translation-sequence-actions]="!showNucSequence">
+            <div *ngIf="wrappedSequence || !showNucSequence" class="sequence-action download-action">
               <button class="btn btn-primary" (click)="download()">Download sequence</button>
             </div>
 

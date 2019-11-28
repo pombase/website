@@ -34,7 +34,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   cdsStart: number = null;
   cdsEnd: number = null;
 
-  showTranslation = false;
+  showNucSequence = false;
   includeExons = true;
   includeIntrons = false;
   include5PrimeUtr = false;
@@ -121,7 +121,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   mouseenter(part: DisplaySequenceLinePart): void {
-    if (!this.showTranslation) {
+    if (this.showNucSequence) {
       this.hoverPart = part;
     }
   }
@@ -270,7 +270,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   getDisplaySequence(): DisplaySequence {
-    if (this.showTranslation && this.featureHasProtein()) {
+    if (!this.showNucSequence && this.featureHasProtein()) {
       return this.proteinDisplaySequence;
     } else {
       return this.displaySequence;
@@ -278,7 +278,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   getSequenceHeader(): string {
-    if (this.showTranslation && this.featureHasProtein()) {
+    if (!this.showNucSequence && this.featureHasProtein()) {
       return this.proteinSequenceHeader;
     } else {
       return this.sequenceHeader;
@@ -286,7 +286,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   download() {
-    if (this.showTranslation) {
+    if (!this.showNucSequence) {
       const fileName = this.geneDetails.uniquename + '-peptide-sequence.fasta';
       saveAs(new Blob(['>' + this.proteinSequenceHeader + '\n' +
                        this.wrappedProteinSequence],
@@ -322,7 +322,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.upstreamBases = 0;
     this.downstreamBases = 0;
 
-    this.showTranslation = false;
+    this.showNucSequence = false;
     this.includeExons = true;
     this.includeIntrons = false;
     this.include5PrimeUtr = false;
