@@ -21,6 +21,7 @@ export class GenotypeDetailsComponent implements OnInit {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   displayAlleles: Array<any> = [];
   displayName = '';
+  displayNameForTitle = '';
   apiError: APIError = null;
   appConfig: AppConfig = getAppConfig();
 
@@ -30,15 +31,22 @@ export class GenotypeDetailsComponent implements OnInit {
               private readonly meta: Meta) { }
 
   displayNameLong(): string {
-    return Util.displayNameLong(this.genotypeDetails).replace(/,/g, ',&thinsp;');;
+    return Util.displayNameLong(this.genotypeDetails);;
   }
 
   setDisplayName(): void {
-    this.displayName = this.displayNameLong();
+    const displayName = this.displayNameLong();
+    this.displayNameForTitle = displayName;
+    this.displayName = displayName.replace(/,/g, ',&thinsp;');
+
+    if (this.displayNameForTitle.length > 105) {
+      this.displayNameForTitle = this.displayNameForTitle.substr(0, 100) + ' ...';
+    }
   }
 
   setPageTitle(): void {
-    this.titleService.setTitle(this.appConfig.site_name + ' - Genotype - ' + this.displayName);
+    this.titleService.setTitle(this.appConfig.site_name + ' - Genotype - ' +
+                               this.displayNameForTitle);
     this.meta.updateTag({property: 'og:title', content: title});
     this.meta.updateTag({property: 'description', content: title});
   }
