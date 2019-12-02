@@ -85,7 +85,7 @@
         Annotations from this reference:
       </div>
     </div>
-    <div *ngIf="refAnnotationStatus != 'has-annotations'">This publication has no
+    <div *ngIf="refAnnotationStatus != 'has-annotations' && !hasBrowserTracks()">This publication has no
       annotations in {{siteName}} because
       <span *ngIf="refAnnotationStatus == 'not-curated'">
         it hasn't been curated yet.

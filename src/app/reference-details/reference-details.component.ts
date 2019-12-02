@@ -27,7 +27,7 @@ export class ReferenceDetailsComponent implements OnInit {
   apiError: APIError = null;
   cantoCommunityCuratorName: string = null;
   cantoTriageStatus: string = 'UNKNOWN';
-  refAnnotationStatus: string = null;
+  refAnnotationStatus: null | 'has-annotations' | 'not-curated' | 'no-annotation' = null;
   multiOrgMode = getAppConfig().isMultiOrganismMode();
   graphicalAbstractImagePath: string = null;
   videoPath: string = null;
@@ -104,6 +104,10 @@ export class ReferenceDetailsComponent implements OnInit {
         }
       }
     }
+  }
+
+  hasBrowserTracks(): boolean {
+    return getJBrowseTracksByPMID(this.refDetails.uniquename).length > 0;
   }
 
   setAnnotationStatus() {
