@@ -106,6 +106,7 @@ import { ExternalRefsTableComponent } from './external-refs-table/external-refs-
 import { AnnotationTableThroughputFilterComponent } from './annotation-table-throughput-filter/annotation-table-throughput-filter.component';
 import { MotifSearchHelpComponent } from './motif-search-help/motif-search-help.component';
 import { JbrowseTrackPickerComponent } from './jbrowse-track-picker/jbrowse-track-picker.component';
+import { StatsRibbonComponent } from './stats-ribbon/stats-ribbon.component';
 
 export function documentFactory() {
     return document;
@@ -193,6 +194,7 @@ export function windowFactory() {
     MotifSearchHelpComponent,
     JbrowseTrackPickerComponent,
     GeneResultsPageComponent,
+    StatsRibbonComponent,
   ],
   imports: [
     BrowserModule,

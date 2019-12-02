@@ -28,6 +28,7 @@
 .welcome {
   clear: both;
   display: block;
+  margin-bottom: 1em;
 }
 
 @media (min-width: 800px) {
@@ -164,4 +165,8 @@
   .panel-container {
     margin: 1.5em auto;
   }
+}
+
+.stats-ribbon {
+  font-weight: bold;
 }

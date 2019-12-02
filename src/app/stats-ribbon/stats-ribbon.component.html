@@ -1,0 +1,5 @@
+<span>
+  <span *ngIf="organismStats">{{organismStats.annotations}} annotations,</span>
+  <span *ngIf="curatedPublicationsCount != 0">{{curatedPublicationsCount}} curated publication, </span>
+  <span *ngIf="dbCreationDate">updated {{dbCreationDate}}</span>
+</span>

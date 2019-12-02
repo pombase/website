@@ -14,6 +14,7 @@ export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
 
 type TermIdTermMap = { [termid: string]: TermShort };
+type TaxonId = number;
 
 const RETRY_DELAY = 3000;
 const RETRY_COUNT = 10;
@@ -25,7 +26,7 @@ export enum Strand {
 }
 
 export class Metadata {
-  db_creation_datetime: Date;
+  db_creation_datetime: string;
   export_prog_name: string;
   export_prog_version: string;
   gene_count: number;
@@ -33,8 +34,15 @@ export class Metadata {
   cv_versions: { [cv_name: string]: string };
 }
 
-export class DatabaseStatistics {
-  gene_counts_by_taxonid: { [taxonId: number]: number}
+export interface StatCountsByTaxon{
+  genes: number;
+  annotations: number;
+}
+
+export interface DatabaseStatistics {
+  by_taxon: { [taxon_id: number]: StatCountsByTaxon };
+  community_pubs_count: number;
+  non_community_pubs_count: number;
 }
 
 export class RecentReferences {

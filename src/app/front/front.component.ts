@@ -12,7 +12,7 @@ import { getAppConfig, PanelConfig } from '../config';
   styleUrls: ['./front.component.css']
 })
 export class FrontComponent implements OnInit {
-  @Input() metadata: Metadata;
+  metadata: Metadata;
 
   imageNames = ['Slide1.png', 'Slide2.png', 'Slide3.png'];
   rotatingImageName = this.imageNames[0];
