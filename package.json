@@ -11,6 +11,7 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
+    "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/greeting-app/stats-es2015.json",
     "e2e": "protractor"
   },
   "private": true,
@@ -64,6 +65,7 @@
     "protractor": "^5.4.2",
     "ts-node": "^8.3.0",
     "tslint": "~5.18.0",
-    "typescript": "~3.6.4"
+    "typescript": "~3.6.4",
+    "webpack-bundle-analyzer": "^3.6.0"
   }
 }
