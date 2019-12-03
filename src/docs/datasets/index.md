@@ -41,7 +41,7 @@ Annotation type|Description
 [GO annotations](downloads/go-annotations)|Gene Ontology annotation files
 [Macromolecular complexes](ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes; ftp)
 [Phenotype annotations](downloads/phenotype-annotations)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
-[HCPIN datasets](ftp://ftp.pombase.org/pombe/exports/)|Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets; also see [documentation](/documentation/high-confidence-physical-interaction-network) (ftp)
+[HCPIN datasets](ftp://ftp.pombase.org/pombe/high_confidence_physical_interactions/)|Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets; also see [documentation](/documentation/high-confidence-physical-interaction-network) (ftp)
 [Modifications](ftp://ftp.pombase.org/pombe/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future; ftp)
 [Orthologs](ftp://ftp.pombase.org/pombe/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) (ftp)
 
