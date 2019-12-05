@@ -1,5 +1,5 @@
 <span>
-  <span *ngIf="organismStats">{{organismStats.annotations}} annotations,</span>
-  <span *ngIf="curatedPublicationsCount != 0">{{curatedPublicationsCount}} curated publication, </span>
-  <span *ngIf="dbCreationDate">updated {{dbCreationDate}}</span>
+  <span *ngIf="dbCreationDate">Last updated {{dbCreationDate}}:</span>
+  <span *ngIf="organismStats">{{organismStats.annotations}} annotations</span>
+  <span *ngIf="curatedPublicationsCount != 0">from {{curatedPublicationsCount}} curated publications </span>
 </span>
