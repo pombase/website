@@ -51,7 +51,7 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
   makeTables(): void {
     if (this.annotationTable) {
       let typeConfig = this.config.getAnnotationType('target_of');
-      let ontologyLabels = typeConfig.misc_config['ontologyLabels'];
+      let ontologyLabels = typeConfig.misc_config.target_of.ontology_labels;
 
       let genesToString =
         (genes: Array<GeneShort>) => {

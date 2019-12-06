@@ -283,7 +283,11 @@ export interface AnnotationType {
   slim_no_category_text?: string;
   source_config?: { [source_name: string]: SourceConfig };
   misc_config?: {
-    [key: string]: any;
+    target_of?: {
+      ontology_labels: {
+        [cv_name: string]: string;
+      };
+    }
   };
   help_route?: string;
   deploy_mode?: string; // display only in this mode, defaults to any mode
