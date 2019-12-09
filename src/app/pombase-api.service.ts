@@ -199,7 +199,7 @@ export interface TargetOfAnnotation {
   ext_rel_display_name: string;
   reference: ReferenceShort;
   reference_uniquename: string;
-  genes: Array<GeneShort>|Array<string>;
+  gene: GeneShort|string;
   genotype: GenotypeShort;
   genotype_uniquename: string;
 }
@@ -697,13 +697,8 @@ export class PombaseAPIService {
                   genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                   allelesByUniquename: AlleleMap, referencesByUniquename: any) {
     for (let annotation of targetOfAnnotations) {
-      if (annotation.genes) {
-        annotation.genes =
-          (annotation.genes as Array<string>).map((gene_uniquename: string) => {
-            return genesByUniquename[gene_uniquename] as GeneShort;
-          });
-      } else {
-        annotation.genes = [];
+      if (annotation.gene) {
+        annotation.gene = genesByUniquename[annotation.gene as string] as GeneShort;
       }
       if (annotation.genotype_uniquename) {
         annotation.genotype = genotypesByUniquename[annotation.genotype_uniquename];

@@ -29,16 +29,16 @@
         <td>{{annotation.ext_rel_display_name}}</td>
         <td>
           <span *ngIf="!annotation.genotype">
-            <app-gene-link *ngFor="let gene of annotation.genes" class="app-link"
-                           [long]="false" [gene]="gene"></app-gene-link>
+            <app-gene-link class="app-link"
+                           [long]="false" [gene]="annotation.gene"></app-gene-link>
           </span>
           <app-genotype-link class="app-link" *ngIf="annotation.genotype"
                              [genotype]="annotation.genotype"></app-genotype-link>
           &nbsp; <span *ngIf="annotation.gene">{{annotation.gene.product}}</span>
         </td>
         <td>
-          <span *ngFor="let gene of annotation.genes">
-            {{gene.product}}
+          <span>
+            {{annotation.gene.product}}
           </span>
         </td>
         <td>
@@ -52,14 +52,14 @@
         <td>{{annotation.ontologyLabel}}</td>
         <td>{{annotation.ext_rel_display_name}}</td>
         <td>
-          <span *ngFor="let gene of annotation.genes">
+          <span>
             <app-gene-link class="app-link"
-                           [long]="false" [gene]="gene"></app-gene-link>
+                           [long]="false" [gene]="annotation.gene"></app-gene-link>
           </span>
         </td>
         <td>
-          <span *ngFor="let gene of annotation.genes">
-            {{gene.product}}
+          <span>
+            {{annotation.gene.product}}
           </span>
         </td>
       </tr>

@@ -146,6 +146,12 @@ export interface JBrowseColumnConfig {
   download_link?: boolean;
 }
 
+export interface TargetOfConfig {
+ ontology_labels: {
+    [cv_name: string]: string;
+  };
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -153,6 +159,7 @@ export interface AppConfig {
   helpdesk_address: string;
   organisms: Array<ConfigOrganism>;
   ortholog_taxonids: Array<number>;
+  targetOfConfig: TargetOfConfig;
   frontPagePanels: Array<PanelConfig>;
   defaultJBrowseTracks: Array<JBrowseTrackInfo>;
   refPageJBrowseColumns: Array<JBrowseColumnConfig>;
@@ -282,13 +289,6 @@ export interface AnnotationType {
   slim_link?: string;
   slim_no_category_text?: string;
   source_config?: { [source_name: string]: SourceConfig };
-  misc_config?: {
-    target_of?: {
-      ontology_labels: {
-        [cv_name: string]: string;
-      };
-    }
-  };
   help_route?: string;
   deploy_mode?: string; // display only in this mode, defaults to any mode
 }
@@ -602,6 +602,7 @@ let _appConfig: AppConfig = {
   helpdesk_address: pombaseConfig.helpdesk_address,
   organisms: pombaseConfig.organisms,
   ortholog_taxonids: pombaseConfig.ortholog_taxonids,
+  targetOfConfig: pombaseConfig.target_of_config,
   frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
   defaultJBrowseTracks: pombaseConfig.default_jbrowse_tracks,
   refPageJBrowseColumns: pombaseConfig.reference_page_jbrowse_columns,
