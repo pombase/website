@@ -6,6 +6,7 @@ import { Util } from '../shared/util';
 import { TableViewState } from '../pombase-types';
 
 interface DisplayRow {
+  showInSummary: boolean;
   ontologyLabel: string;
   ext_rel_display_name: string;
   gene: GeneShort;
@@ -59,6 +60,7 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
         let ontologyLabel =
           ontologyLabels[annotation.ontology_name] || annotation.ontology_name;
         this.displayTable.push({
+          showInSummary: annotation.show_in_summary,
           ontologyLabel: ontologyLabel,
           ext_rel_display_name: annotation.ext_rel_display_name,
           gene: annotation.gene as GeneShort,
@@ -68,6 +70,9 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
       }
 
       for (let annotation of this.displayTable) {
+        if (!annotation.showInSummary) {
+          continue;
+        }
         let summaryRow = {
           ontologyLabel: annotation.ontologyLabel,
           ext_rel_display_name: annotation.ext_rel_display_name,

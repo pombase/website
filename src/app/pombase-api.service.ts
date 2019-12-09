@@ -195,6 +195,7 @@ export interface ParalogAnnotation {
 }
 
 export interface TargetOfAnnotation {
+  show_in_summary: boolean;
   ontology_name: string;
   ext_rel_display_name: string;
   reference: ReferenceShort;
