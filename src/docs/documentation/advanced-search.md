@@ -170,7 +170,7 @@ pulldown menu.
 
 #### Protein modification
 
-Search for terms or IDs in the [PSI-MOD](http://www.psidev.info/MOD)
+Search for terms or IDs in the [PSI-MOD](http://obofoundry.org/ontology/mod.html)
 ontology.
 
 #### Protein domain
