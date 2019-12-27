@@ -14,8 +14,8 @@
    "EC" : {
       "description" : "Enzyme Commission",
       "name" : "EC",
-      "url_syntax" : "http://www.expasy.org/enzyme/[example_id]",
-      "website" : "http://www.chem.qmul.ac.uk/iubmb/enzyme/"
+      "url_syntax" : "https://enzyme.expasy.org/EC/[example_id]",
+      "website" : "http://enzyme.expasy.org/"
    },
    "ECOGENE" : {
       "description" : "EcoGene Database of Escherichia coli Sequence and Function",
@@ -200,7 +200,7 @@
    "WB" : {
       "description" : "WormBase database of nematode biology",
       "name" : "WB",
-      "url_syntax" : "http://www.wormbase.org/db/gene/gene?name=[example_id]",
+      "url_syntax" : "http://www.wormbase.org/get?name=[example_id]",
       "website" : "http://www.wormbase.org/"
    },
    "dictyBase" : {

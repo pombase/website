@@ -4397,7 +4397,7 @@ PomBase using the Ensembl viewer.</p>
 <h4 id="product-type">Product type</h4>
 <p>Choose a gene product type (e.g. protein coding, tRNA, etc.) from the pulldown menu.</p>
 <h4 id="protein-modification">Protein modification</h4>
-<p>Search for terms or IDs in the <a href="http://www.psidev.info/MOD">PSI-MOD</a> ontology.</p>
+<p>Search for terms or IDs in the <a href="http://obofoundry.org/ontology/mod.html">PSI-MOD</a> ontology.</p>
 <h4 id="protein-domain">Protein domain</h4>
 <p>Search for an ID from Pfam, PRINTs, PROFILE, ProSite, or InterPro. Type or paste an accession and click “Submit”.</p>
 <h4 id="protein-feature">Protein feature</h4>
@@ -4818,7 +4818,7 @@ PomBase using the Ensembl viewer.</p>
   </div>
   <div *ngIf="pageName == 'gene-page-modifications'">
 <h2 id="gene-page-modifications">Gene page: Modifications</h2>
-<p>The Modifications section lists protein modifications that have been manually curated, using terms from the <a href="http://www.psidev.info/MOD">PSI-MOD</a> ontology, for protein-coding genes. PomBase will add RNA modifications to this section in the future, when relevant data are curated.</p>
+<p>The Modifications section lists protein modifications that have been manually curated, using terms from the <a href="http://obofoundry.org/ontology/mod.html">PSI-MOD</a> ontology, for protein-coding genes. PomBase will add RNA modifications to this section in the future, when relevant data are curated.</p>
 <h4 id="ontology-annotations-for-protein-features">Ontology Annotations for Protein Features</h4>
 <p>The summary view shows only the names of the most specific terms used to annotate the gene:</p>
 <figure>
@@ -4833,7 +4833,7 @@ PomBase using the Ensembl viewer.</p>
 <li>Modification annotations may have <a routerLink="/#ann_ext">extensions</a> to capture any of several types of additional detail. <em>S. pombe</em> genes link to PomBase gene pages, and GO term names link to PomBase ontology term summary pages.</li>
 <li>The summary view is filtered, using the ontology structure, so that it shows only the most specific terms used to annotate a gene. Modification annotations curated for a gene using less specific terms (“superclasses” or “ancestors” in the ontology) appear only in the detailed view.</li>
 <li>An abbreviation (code) or brief description for the type of evidence that supports the annotation. Modification annotations use some of the <a href="http://geneontology.org/docs/guide-go-evidence-codes/">codes</a> defined by the GO Consortium, plus a small subset of the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</li>
-<li>The residue(s) modified (where available)</li>
+<li>The residue(s) modified (where available). Note: for histones, residue numbering assumes that the initiator methionine is removed.</li>
 <li>The published source of the annotation (where available)</li>
 <li>The total number of genes annotated to this term or any of its descendants, linked to a list of those genes. The gene list page includes basic information about the ontology term, and a link to send the gene list to the advanced search.</li>
 </ol>
@@ -5403,7 +5403,7 @@ PomBase using the Ensembl viewer.</p>
 <li>Annotated genotypes (rather than genes) are listed for each term.</li>
 <li>In the detailed view, evidence filtering is available as described in the <a routerLink="/documentation/gene-page-phenotypes">gene page documentation</a>.</li>
 </ol>
-<p>Ontology term pages are available for <a href="http://geneontology.org/">GO</a>, <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO</a>, <a href="http://sequenceontology.org/">SO</a>, <a href="http://www.psidev.info/MOD">PSI-MOD</a>, the internal PBO description collection, and PECO, the internal ontology we use for phenotype experimental conditions.</p>
+<p>Ontology term pages are available for <a href="http://geneontology.org/">GO</a>, <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO</a>, <a href="http://sequenceontology.org/">SO</a>, <a href="http://obofoundry.org/ontology/mod.html">PSI-MOD</a>, the internal PBO description collection, and PECO, the internal ontology we use for phenotype experimental conditions.</p>
 
   </div>
   <div *ngIf="pageName == 'orthologs'">
