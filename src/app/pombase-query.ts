@@ -630,9 +630,9 @@ export class GeneQuery {
     return collector;
   }
 
-  public toPostJSON(outputOptions: QueryOutputOptions): string {
+  public toPostJSON(outputOptions: QueryOutputOptions = null): string {
     let obj = this.toObject();
-    obj['output_options'] = outputOptions;
+    obj['output_options'] = outputOptions || {};
     return JSON.stringify(obj);
   }
 

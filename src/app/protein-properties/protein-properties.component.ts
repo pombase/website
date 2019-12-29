@@ -32,6 +32,15 @@ export class ProteinPropertiesComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
+  getPropDisplayName(propName: string): string {
+    return (this.propDisplayNames as { [name: string]: string })[propName];
+  }
+
+  getProteinDisplayDetails(propName: string): string {
+    // FIXME: yuck
+    return (this.proteinDisplayDetails as unknown as { [name: string]: string })[propName];
+  }
+
   ngOnChanges() {
     this.proteinDisplayDetails = Object.assign({}, this.proteinDetails);
 

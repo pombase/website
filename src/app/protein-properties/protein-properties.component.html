@@ -1,7 +1,7 @@
 <table class="protein-properties">
   <tr *ngFor="let propName of propNames">
-    <td class="prop-name">{{propDisplayNames[propName]}}</td>
-    <td>{{proteinDisplayDetails[propName]}}</td>
+    <td class="prop-name">{{getPropDisplayName(propName)}}</td>
+    <td>{{getProteinDisplayDetails(propName)}}</td>
   </tr>
 </table>
 

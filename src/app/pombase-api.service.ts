@@ -401,6 +401,7 @@ export interface AnnotationDetailMap {
 export class GeneDetails {
   uniquename: string;
   name: string;
+  displayName: string;
   feature_type: string;
   product?: string;
   name_descriptions: Array<string>;

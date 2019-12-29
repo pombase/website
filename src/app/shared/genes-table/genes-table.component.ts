@@ -167,7 +167,7 @@ export class GenesTableComponent implements OnInit {
     return new GeneQuery(this.description, new GeneListNode(genes));
   }
 
-  private filter() {
+  filter() {
     const selectedGenes = this.genes.filter(gene => this.selectedGenes[gene.uniquename]);
 
     const geneQuery = this.makeGeneListQuery(selectedGenes);

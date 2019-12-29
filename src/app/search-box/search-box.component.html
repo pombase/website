@@ -28,7 +28,7 @@
        *ngIf="searchSummaries.length > 0"
        placeholder="search ..."
        [(ngModel)]="fieldValue"
-       (keyup.enter)="enterPressed($event)"
+       (keyup.enter)="enterPressed()"
        [typeahead]="dataSource"
        [typeaheadMinLength]="2"
        [typeaheadItemTemplate]="searchBoxTemplate"

@@ -40,7 +40,7 @@
 
       <div *ngIf="activeConf.nodeType == 'small-ontology'">
         <select [(ngModel)]="selectedTerm"
-                (ngModelChange)="smallOntologyChange($event)">
+                (ngModelChange)="smallOntologyChange()">
           <option [ngValue]="null">Choose ...</option>
           <option *ngFor = "let term of activeConf.terms" [ngValue]="term">
             {{term.name}}
@@ -50,7 +50,7 @@
 
       <div *ngIf="activeConf.nodeType == 'subset-select'">
         <select [(ngModel)]="selectedSubset"
-                (ngModelChange)="subsetChange($event)">
+                (ngModelChange)="subsetChange()">
           <option [ngValue]="null">Choose ...</option>
           <option *ngFor = "let subset of activeConf.subsets" [ngValue]="subset">
             {{removePrefix(subset.displayName)}}
@@ -69,7 +69,7 @@
                [placeholder]="activeConf.placeholder || ''" />
         <button type="button" class="btn btn-primary"
                 [disabled]="!subsetName || subsetName.trim().length == 0"
-                (click)="subsetInputSearch($event)">Search</button>
+                (click)="subsetInputSearch()">Search</button>
       </div>
 
       <div *ngIf="activeConf.nodeType == 'float-range'"
@@ -80,7 +80,7 @@
                placeholder="max ..."/>
         <button type="button" class="btn btn-primary"
                 [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'"
-                [disabled]="!validRange()" (click)="floatRangeSearch($event)">Search</button>
+                [disabled]="!validRange()" (click)="floatRangeSearch()">Search</button>
       </div>
 
       <div *ngIf="activeConf.nodeType == 'int-range'"
@@ -91,7 +91,7 @@
                placeholder="max ..."/>
         <button type="button" class="btn btn-primary"
                 [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'"
-                [disabled]="!validRange()" (click)="intRangeSearch($event)">Search</button>
+                [disabled]="!validRange()" (click)="intRangeSearch()">Search</button>
       </div>
 
       <div *ngIf="activeConf.id == 'genome_range'">
@@ -119,7 +119,7 @@
         </div>
         <button type="button" class="btn btn-primary"
                 [attr.title]="genomeRangeButtonTitle()"
-                [disabled]="(rangeStart || rangeEnd) && !validRange() || !chromosomeName" (click)="genomeRangeSearch($event)">Search</button>
+                [disabled]="(rangeStart || rangeEnd) && !validRange() || !chromosomeName" (click)="genomeRangeSearch()">Search</button>
       </div>
     </div>
   </div>
