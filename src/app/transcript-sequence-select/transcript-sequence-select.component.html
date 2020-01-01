@@ -94,7 +94,7 @@
 
              <div *ngIf="wrappedSequence" class="blast-actions">
              <span class="sequence-action">
-                <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbidnaform
+                <form id="ncbi-blast-gene-dna" name="NCBIBLASTDNA" #ncbidnaform
                       (ngSubmit)="ncbidnaform.submit()"
                       target="_blank"
                       action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="GET">
@@ -106,7 +106,7 @@
               </span>
 
               <span class="sequence-action">
-                <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensdnaform
+                <form id="ens-blast-gene-dna" name="BLASTGenomicSequenceDNA" #ensdnaform
                       (ngSubmit)="ensdnaform.submit();"
                       target="_blank"
                       action="https://fungi.ensembl.org/Schizosaccharomyces_pombe/Tools/Blast" method="POST">
@@ -116,7 +116,7 @@
               </span>
 
               <span *ngIf="geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
-                <form id="ncbi-blast-gene" name="NCBIBLAST" #ncbiprotform
+                <form id="ncbi-blast-gene-prot" name="NCBIBLASTPROT" #ncbiprotform
                       (ngSubmit)="ncbiprotform.submit()"
                       target="_blank"
                       action="https://blast.ncbi.nlm.nih.gov/Blast.cgi" method="GET">
@@ -128,7 +128,7 @@
               </span>
 
               <span *ngIf="geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
-                <form id="ens-blast-gene" name="BLASTGenomicSequence" #ensprotform
+                <form id="ens-blast-gene-prot" name="BLASTGenomicSequenceProt" #ensprotform
                       (ngSubmit)="ensprotform.submit();"
                       target="_blank"
                       action="https://fungi.ensembl.org/Schizosaccharomyces_pombe/Tools/Blast?query=peptide;database=peptide" method="POST">
