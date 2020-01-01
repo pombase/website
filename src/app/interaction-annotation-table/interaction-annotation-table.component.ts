@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { InteractionAnnotation, GeneShort, GeneDetails, ReferenceShort } from '../pombase-api.service';
-import { getAnnotationTableConfig, AnnotationTableConfig, makeGeneExternalUrl, AppConfig, getAppConfig, FilterConfig } from '../config';
+import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfig, FilterConfig } from '../config';
 import { Util } from '../shared/util';
 import { AnnotationFilter, InteractionFilter } from '../filtering';
 import { type } from 'os';
