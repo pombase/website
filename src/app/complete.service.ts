@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Response } from '@angular/http';
+import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/from';
 
+import { HttpRetryService, RetryOptions } from './http-retry.service';
 import { getAppConfig } from './config';
 
 // Code from: https://github.com/aceakash/string-similarity
@@ -52,13 +53,15 @@ export class SolrRefSummary {
   constructor(public pubmedid: string, public title: string, public citation: string) {};
 }
 
+const retryOptions: RetryOptions = new RetryOptions(500, 3, 2000);
+
 @Injectable()
 export class CompleteService {
 
   private completeUrl = '/api/v1/dataset/latest/complete';
   private cleanRE = new RegExp('[/]', 'g');
 
-  constructor(private http: Http) { }
+  constructor(private httpRetry: HttpRetryService) { }
 
   completeTermName(cvName: string, queryText: string): Observable<SolrTermSummary[]> {
     const serverCvName = getAppConfig().cvNameMap[cvName] || cvName;
@@ -70,7 +73,9 @@ export class CompleteService {
 
     queryText = queryText.replace(this.cleanRE, ' ');
 
-    return this.http.get(this.completeUrl + '/term/' + serverCvName + '/' + queryText)
+    const completeTermUrl = this.completeUrl + '/term/' + serverCvName + '/' + queryText;
+
+    return this.httpRetry.getWithRetry(completeTermUrl, retryOptions)
       .map((res: Response) => {
         const parsedRes = res.json();
         if (parsedRes['status'] !== 'Ok') {
@@ -112,7 +117,9 @@ export class CompleteService {
 
     queryText = queryText.replace(this.cleanRE, ' ');
 
-    return this.http.get(this.completeUrl + '/ref/' + queryText)
+    const completeRefUrl = this.completeUrl + '/ref/' + queryText;
+
+    return this.httpRetry.getWithRetry(completeRefUrl, retryOptions)
       .map((res: Response) => {
         const parsedRes = res.json();
         if (parsedRes['status'] !== 'Ok') {

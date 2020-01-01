@@ -1,24 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable, of } from 'rxjs';
 
 import { TermShort } from './pombase-query';
 import { Util } from './shared/util';
 import { Seq } from './seq';
-import { getAppConfig, AppConfig, ConfigOrganism,
+import { getAppConfig, ConfigOrganism,
          AnnotationType, getAnnotationTableConfig } from './config';
-import { retryWhen, delay, take, timeout } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+
+import { HttpRetryService } from './http-retry.service';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
 
 type TermIdTermMap = { [termid: string]: TermShort };
-type TaxonId = number;
-
-const RETRY_DELAY = 3000;
-const RETRY_COUNT = 10;
-const REQUEST_TIMEOUT = 60000;
 
 export enum Strand {
   Forward,
@@ -535,7 +529,8 @@ export class PombaseAPIService {
     }, 60000);
   }
 
-  constructor (private http: Http) {
+  constructor (private http: Http,
+               private httpRetry: HttpRetryService) {
     this.startCacheTimeout();
 
     setTimeout(() => {
@@ -814,29 +809,8 @@ export class PombaseAPIService {
     return json as GeneDetails;
   }
 
-  // if a request fails, retry it RETRY_COUNT times but delay RETRY_DELAY
-  // milliseconds between tries
-  // if a request hangs, timeout after REQUEST_TIMEOUT milliseconds
-  getWithRetry(url: string): Observable<Response> {
-    return this.http.get(url)
-      .pipe(
-        retryWhen((errors) => {
-        return errors
-          .mergeMap((error) => {
-            if (error.status === 404) {
-              return throwError(error);
-            } else {
-              return of(error);
-            }
-          })
-          .pipe(delay(RETRY_DELAY), take(RETRY_COUNT));
-       }),
-       timeout(REQUEST_TIMEOUT)
-      );
-  }
-
   getGene(uniquename: string): Promise<GeneDetails> {
-    return this.getWithRetry(this.apiUrl + '/data/gene/' + uniquename)
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/gene/' + uniquename)
       .toPromise()
       .then(response => this.processGeneResponse(response))
       .catch(this.handleError);
@@ -874,7 +848,7 @@ export class PombaseAPIService {
   }
 
   getGenotype(uniquename: string): Promise<GenotypeDetails> {
-    return this.getWithRetry(this.apiUrl + '/data/genotype/' + uniquename)
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/genotype/' + uniquename)
       .toPromise()
       .then(response => this.processGenotypeResponse(response))
       .catch(this.handleError);
@@ -929,7 +903,7 @@ export class PombaseAPIService {
   }
 
   getTerm(termid: string): Promise<TermDetails> {
-    return this.getWithRetry(this.apiUrl + '/data/term/' + termid)
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/term/' + termid)
       .toPromise()
       .then(response => this.processTermResponse(response))
       .catch(this.handleError);
@@ -962,28 +936,28 @@ export class PombaseAPIService {
   }
 
   getReference(uniquename: string): Promise<ReferenceDetails> {
-    return this.getWithRetry(this.apiUrl + '/data/reference/' + uniquename)
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/reference/' + uniquename)
       .toPromise()
       .then(response => this.processReferenceResponse(response))
       .catch(this.handleError);
   }
 
   getMetadata(): Promise<Metadata> {
-    return this.getWithRetry(this.apiUrl + '/data/metadata')
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/metadata')
       .toPromise()
       .then(response => response.json() as Metadata)
       .catch(this.handleError);
   }
 
   getStatistics(): Promise<DatabaseStatistics> {
-    return this.getWithRetry(this.apiUrl + '/data/stats')
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/stats')
       .toPromise()
       .then(response => response.json() as DatabaseStatistics)
       .catch(this.handleError);
   }
 
   getRecentReferences(): Promise<RecentReferences> {
-    return this.getWithRetry(this.apiUrl + '/data/recent_references')
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/recent_references')
       .toPromise()
       .then(response => response.json() as RecentReferences)
       .catch(this.handleError);
@@ -991,7 +965,7 @@ export class PombaseAPIService {
 
   getGeneSummariesPromise(): Promise<Array<GeneSummary>> {
     if (!this.promiseCache[this.geneSummariesUrl]) {
-      this.promiseCache[this.geneSummariesUrl] = this.getWithRetry(this.geneSummariesUrl)
+      this.promiseCache[this.geneSummariesUrl] = this.httpRetry.getWithRetry(this.geneSummariesUrl)
         .toPromise()
         .then(response => {
           const result = response.json() as Array<GeneSummary>;
@@ -1058,7 +1032,7 @@ export class PombaseAPIService {
   getChromosomeSummariesPromise(): Promise<Array<ChromosomeShort>> {
     if (!this.promiseCache[this.chromosomeSummariesUrl]) {
       this.promiseCache[this.chromosomeSummariesUrl] =
-        this.getWithRetry(this.chromosomeSummariesUrl)
+        this.httpRetry.getWithRetry(this.chromosomeSummariesUrl)
         .toPromise()
         .then(response => {
           this.resultCache[this.chromosomeSummariesUrl] =
@@ -1098,7 +1072,7 @@ export class PombaseAPIService {
   }
 
   getTermSubsets(): Promise<TermSubsets> {
-    return this.getWithRetry(this.apiUrl + '/data/term_subsets')
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/term_subsets')
       .toPromise()
       .then(response => response.json() as TermSubsets)
       .catch(this.handleError);
@@ -1118,7 +1092,7 @@ export class PombaseAPIService {
   }
 
   getGeneSubsets(): Promise<GeneSubsets> {
-    return this.getWithRetry(this.apiUrl + '/data/gene_subsets')
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/gene_subsets')
       .toPromise()
       .then(response => response.json() as GeneSubsets)
       .then(subset => this.addGeneShortToSubset(subset))
@@ -1133,7 +1107,7 @@ export class PombaseAPIService {
     }
 
     let chunkPromise =
-      this.getWithRetry(this.apiUrl + '/data/chromosome/' + chromosomeName +
+      this.httpRetry.getWithRetry(this.apiUrl + '/data/chromosome/' + chromosomeName +
                     '/sequence/' + chunkSize + '/chunk_' + chunkId)
       .toPromise()
       .then(response => new Seq(response.text()))
@@ -1197,7 +1171,7 @@ export class PombaseAPIService {
   }
 
   getReferencesPromise(constraint: string) {
-    return this.getWithRetry(this.apiUrl + `/data/${constraint}_curated_references`)
+    return this.httpRetry.getWithRetry(this.apiUrl + `/data/${constraint}_curated_references`)
       .toPromise()
       .then(response => response.json() as Array<ReferenceShort>)
       .catch(this.handleError);
