@@ -6,6 +6,8 @@ import 'rxjs/add/observable/from';
 
 import { getAppConfig } from './config';
 
+// Code from: https://github.com/aceakash/string-similarity
+// Copyright (c) 2018 Akash Kurdekar
 function compareTwoStrings(first: string, second: string) {
   first = first.replace(/\s+/g, '')
   second = second.replace(/\s+/g, '')
