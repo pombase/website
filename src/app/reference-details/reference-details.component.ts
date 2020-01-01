@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig, getJBrowseTracksByPMID } from '../config';
+         getAppConfig, AppConfig, getJBrowseTracksByPMID, getXrfWithPrefix } from '../config';
 import { Util } from '../shared/util';
 
 import { ReferenceDetails, PombaseAPIService, APIError } from '../pombase-api.service';
@@ -31,6 +31,7 @@ export class ReferenceDetailsComponent implements OnInit {
   multiOrgMode = getAppConfig().isMultiOrganismMode();
   graphicalAbstractImagePath: string = null;
   videoPath: string = null;
+  doiUrl: string = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -164,6 +165,11 @@ export class ReferenceDetailsComponent implements OnInit {
             this.apiError = null;
             this.setAnnotationStatus();
             this.setGraphicalAbstract();
+            if (refDetails.doi) {
+              this.doiUrl = getXrfWithPrefix('DOI', refDetails.doi).url;
+            } else {
+              this.doiUrl = null;
+            }
           })
           .catch(error => {
             this.apiError = error;
