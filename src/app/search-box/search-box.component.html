@@ -24,8 +24,10 @@
   No matches
 </span>
 
+<span *ngIf="searchSummaries.length == 0" class="data-loading-message">Loading ...</span>
+
 <input #searchBox
-       *ngIf="searchSummaries.length > 0"
+       *ngIf="searchSummaries.length != 0"
        placeholder="search ..."
        [(ngModel)]="fieldValue"
        (keyup.enter)="enterPressed()"

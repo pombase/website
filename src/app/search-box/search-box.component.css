@@ -74,3 +74,9 @@
 .help-popover ul {
   padding-left: 10px;
 }
+
+.data-loading-message {
+  background-color: #fffb;
+  border: 1px solid #eeea;
+  padding: 0.3em;
+}
