@@ -79,4 +79,9 @@
   background-color: #fffb;
   border: 1px solid #eeea;
   padding: 0.3em;
+  border-radius: 3px;
+}
+
+.data-loading-error {
+  white-space: nowrap;
 }

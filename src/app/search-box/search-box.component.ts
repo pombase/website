@@ -50,6 +50,8 @@ export class SearchBoxComponent implements OnInit {
 
   fieldValue = '';
 
+  geneSummariesFailed = false;
+
   searchSummaries: Array<SearchSummary> = [];
 
   cvNamesForTermComplete = '(' + getAppConfig().searchBoxCvNames.join(' OR ') + ')';
@@ -372,7 +374,8 @@ export class SearchBoxComponent implements OnInit {
           };
 
         this.searchSummaries.sort(summaryCmp);
-      });
+      })
+      .catch(reason => this.geneSummariesFailed = true);
   }
 
   makeSearchSummaries(summaries: Array<GeneSummary>): Array<SearchSummary> {

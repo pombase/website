@@ -24,7 +24,10 @@
   No matches
 </span>
 
-<span *ngIf="searchSummaries.length == 0" class="data-loading-message">Loading ...</span>
+<span *ngIf="searchSummaries.length == 0 && !geneSummariesFailed" class="data-loading-message">Loading ...</span>
+<span *ngIf="searchSummaries.length == 0 && geneSummariesFailed" class="data-loading-message data-loading-error">
+  Search box initialisation failed - try reloading
+</span>
 
 <input #searchBox
        *ngIf="searchSummaries.length != 0"
