@@ -322,7 +322,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.upstreamBases = 0;
     this.downstreamBases = 0;
 
-    this.showNucSequence = false;
+    this.showNucSequence = true;
     this.includeExons = true;
     this.includeIntrons = false;
     this.include5PrimeUtr = false;
@@ -352,6 +352,9 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         this.proteinDisplaySequence =
           DisplaySequence.newFromProtein(lineLength, this.protein);
         this.wrappedProteinSequence = Util.splitSequenceString(this.protein.sequence);
+
+        // for genes with protein sequences, default to showing the prot. sequence
+        this.showNucSequence = false;
       }
 
       for (let part of transcripts[0].parts) {
