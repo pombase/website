@@ -24,6 +24,7 @@ button.dropdown-item {
 @media (min-width: 600px) {
   #header-navbar {
     right: 0em;
+    border-top-left-radius: 5px;
   }
   .dropdown-menu li {
     font-size: 1em;
