@@ -2,7 +2,7 @@
 
 <!-- newsfeed_thumbnail: stable_pAde6_vector.png -->
 
-To enable fission yeast researchers to manipulate *S pombe* molecular
+To enable fission yeast researchers to manipulate *S. pombe* molecular
 biology reproducibly and easily, Aleks Vještica and Magdalena Marek in
 Sophie Martin's lab have designed and constructed a series of simple,
 fully characterized plasmids.
