@@ -125,7 +125,11 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
       $heading = $1;
     } else {
       if ($line =~ /<!-- pombase_categories:\s*(.*?)\s*-->/) {
-        push @categories, split /,/, $1;
+        push @categories, map {
+          s/^\s+//;
+          s/\s+$//;
+          $_;
+        } split /,/, $1;
       }
     }
   }
