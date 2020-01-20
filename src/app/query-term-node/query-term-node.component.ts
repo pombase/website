@@ -1,7 +1,8 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
-import { TermShort, TermNode } from '../pombase-query';
+import { TermShort, TermNode, TermAndName } from '../pombase-query';
 import { QueryNodeConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-query-term-node',
@@ -18,8 +19,11 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   singleAllele = true;
   multiAllele = false;
   expression: string = null;
+  phenotypeConditionNamespace: string = null;
+  phenotypeConditions: Array<TermAndName> = [];
+  showConditionSelector = false;
 
-  constructor() { }
+  constructor(public deployConfigService: DeployConfigService) { }
 
   singleMultiChange(buttonType: string) {
     if (buttonType === 'single' && !this.multiAllele) {
@@ -36,6 +40,10 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
 
   termMatched(term: TermShort) {
     this.selectedTerm = term;
+  }
+
+  phenotypeConditionMatched(term: TermShort) {
+    this.phenotypeConditions = [term];
   }
 
   submitTitle(): string {
@@ -59,7 +67,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
 
       this.newTermNode.emit(new TermNode(this.selectedTerm.termid, this.selectedTerm.name,
                                          this.selectedTerm.definition, singleOrMulti,
-                                         this.expression));
+                                         this.expression, this.phenotypeConditions));
     }
   }
 
@@ -73,10 +81,13 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
     this.isPhenotypeNode =
       this.termNodeConfig.annotationFeatureType &&
       this.termNodeConfig.annotationFeatureType === 'genotype';
+    this.phenotypeConditions = [];
     if (this.isPhenotypeNode) {
       this.expression = 'any';
+      this.phenotypeConditionNamespace = this.termNodeConfig.phenotypeConditionNamespace;
     } else {
       this.expression = null;
+      this.phenotypeConditionNamespace = null;
     }
   }
 }

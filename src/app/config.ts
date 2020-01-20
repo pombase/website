@@ -66,6 +66,7 @@ export interface QueryNodeConfig {
   subsets?: Array<QueryNodeSubsetConfig>;
   placeholder?: string;
   extraResultTableColumns?: Array<string>;
+  phenotypeConditionNamespace?: string;
 }
 
 export interface QueryBuilderConfig {
@@ -681,6 +682,7 @@ let _appConfig: AppConfig = {
         annotationFeatureType: 'genotype',
         topDescription: [{ text: 'Retrieve genes based on phenotypes of mutations annotated using Fission ' +
                            'Yeast Phenotype Ontology (FYPO) terms' }],
+        phenotypeConditionNamespace: 'phenotype_condition',
       },
       {
         id: 'product_type',

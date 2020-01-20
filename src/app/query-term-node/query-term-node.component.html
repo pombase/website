@@ -40,6 +40,17 @@
     </div>
     </div>
   </div>
+
+  <div *ngIf="!deployConfigService.productionMode() && phenotypeConditionNamespace">
+    <input id="show-cond-select" type="checkbox" [(ngModel)]="showConditionSelector"
+           title="Click to constrain by condition"/>
+    <label for="show-cond-select">Constrain condition</label>
+    <app-term-name-complete *ngIf="showConditionSelector"
+                            [cvName]="phenotypeConditionNamespace"
+                            [placeholder]="'Start typing a phenotype condtion'"
+                            (termMatched)="phenotypeConditionMatched($event)"></app-term-name-complete>
+
+  </div>
 </div>
 
 <div class="buttons">

@@ -78,7 +78,7 @@ export class QueryBuilderComponent implements OnInit {
         singleOrMulti = 'single';
       }
       const termName = decodeURIComponent(encodedTermName);
-      const constraints = new TermNode(termId, termName, null, singleOrMulti, null);
+      const constraints = new TermNode(termId, termName, null, singleOrMulti, null, []);
       newQuery = new GeneQuery(null, constraints);
     }
 
