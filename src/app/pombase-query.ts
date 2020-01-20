@@ -3,7 +3,6 @@ import { GeneShort } from './pombase-api.service';
 
 export class TermAndName {
   termid: string;
-  term: number;
   name: string;
 }
 
