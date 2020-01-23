@@ -7,7 +7,8 @@ known about their targets or mechanisms of action.
 Drug | Cellular target | Process target | Other | Reference
 -----|-----------------|----------------|-------|----------
 1,10-phenanthroline | RNA polymerases II and III inhibitor ||| [PMID:27518095](https://www.pombase.org/reference/PMID:27518095) 
-CT2108A, CT2108B | fatty acid synthase | | 
+CT2108A | fatty acid synthase inhibitor | | 
+CT2108B | fatty acid synthase inhibitor | | 
 alpha-amanitin | RNA polymerase II inhibitor, [rpb1](https://www.pombase.org/gene/SPBC28F2.12) binding | transcription initiation and elongation inhibitor | interferes with a protein conformational change underlying the transcription mechanism | [PMID:11805306](https://www.pombase.org/reference/PMID:11805306)
 alverine citrate | | proteasome/lipid synthesis? |  
 amiloride | Plasma membrane importer [Bsu1](https://www.pombase.org/gene/SPAC17A2.01) inhibitor | glucose metabolism | |[PMID:15701794](https://www.pombase.org/reference/PMID:15701794), [PMID:8431459](https://www.pombase.org/reference/PMID:8431459)
@@ -18,7 +19,7 @@ arborcandin C | 1,3-beta-glucan synthase |
 benomyl | | microtubule destabilizer |  
 bleomycins | | fungal cell wall septation and cytokinesis inhibitors | gamma irradiation mimetic | [Forsburg lab](https://dornsife.usc.edu/pombenet/drugs/) 
 bortezomib | | proteasome inhibitor || [PMID:25908789](https://www.pombase.org/reference/PMID:25908789) 
-brefeldin A | | intracellular transport inhibitor |  
+brefeldin A | | intracellular transport inhibitor | inhibits the GEFs for class II ARFs | [PMID:27191590](https://www.pombase.org/reference/PMID:27191590) 
 calcofluor white | | cell wall synthesis |  
 camptothecin | topoisomerase 1 [Top1](https://www.pombase.org/gene/SPBC1703.14c)  inhibitor |  
 canavanine ||| toxic analog of arginine | 
