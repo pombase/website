@@ -21,7 +21,7 @@ bortezomib | | proteasome inhibitor || [PMID:25908789](https://www.pombase.org/r
 brefeldin A | | intracellular transport inhibitor |  
 calcofluor white | | cell wall synthesis |  
 camptothecin | topoisomerase 1 [Top1](https://www.pombase.org/gene/SPBC1703.14c)  inhibitor |  
-canavanine ||| naturally occuring (alfafa) L-arginine antimetabolite | 
+canavanine ||| toxic analog of arginine | 
 cerulenin | β -keto-acyl ACP synthase and HMG -CoA synthase inhibitor || | [PMID:30003614](https://www.pombase.org/reference/PMID:30003614) 
 chloramphenicol || protein synthesis inhibitor |  
 compactin | | ergosterol biosynthesis |  
