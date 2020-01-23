@@ -11,7 +11,7 @@ CT2108A, CT2108B | fatty acid synthase | |
 alpha-amanitin | RNA polymerase II inhibitor |  
 alverine citrate | | proteasome/lipid synthesis? |  
 amiloride | sodium transporter inhibitor |  
-amphotericin B | ergosterol | sterol biosynthesis inhibitor | forms membrane pores |  
+amphotericin B | ergosterol binding | sterol biosynthesis inhibitor | forms membrane pores |  
 anisomycin | | translation inhibitor |  
 antifungal azoles | | sterol biosynthesis inhibitor |  
 arborcandin C | 1,3-beta-glucan synthase |  
