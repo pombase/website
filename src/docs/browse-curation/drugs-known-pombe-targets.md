@@ -31,6 +31,7 @@ cyclosporin A | cyclophilin inhibitor | calcineurin inhibitor |several cyclophil
 dihydromotuporamine C | | | proteasome/lipid synthesis? |  
 echinocandin | | | cell wall synthesis |  
 fenpropimorph | proteasome/lipid synthesis? |  
+FK506 | [Fkh1](https://www.pombase.org/gene/SPBC839.17c) | cell cycle progression inhibition through TOR kinase inhibition | [PMID:11335722](https://www.pombase.org/reference/PMID:11335722) 
 hydroxyurea | ribonucleotide reductase small subunit [Suc22](https://www.pombase.org/gene/SPBC25D12.04) inhibitor | slows DNA synthesis | causes replication fork stalling |  [PMID:27869662](https://www.pombase.org/reference/PMID:27869662)
 hygromycin B | 40S ribosomal subunit| translation inhibitor | interferes with translocation of tRNA from the A site to the P site of the ribosome |  
 isopropyl N-3-chlorophenyl carbamate | | | spindle poison |  
@@ -48,6 +49,7 @@ orthovanadate | H(+)-ATPase inhibitor | | | [PMID:8431459](https://www.pombase.o
 oxazolidinones | protein synthesis inhibitor |  
 phleomycin | antibiotic damaging nucleic acids in the presence of iron when cells are grown aerobically ||| [PMID:17724773](https://www.pombase.org/reference/PMID:17724773)  
 pravastatin | HMG-CoA reductase inhibitor |  
+rapamycin (sirolimus) | [Fkh1](https://www.pombase.org/gene/SPBC839.17c) | cell cycle progression inhibition through TOR kinase inhibition | [PMID:11335722](https://www.pombase.org/reference/PMID:11335722) 
 ricin | ribosome inhibitor | translation inhibitor | |  
 sanglifehrin A | cyclophilin binding|  
 spliceostatin A | SF3b components binding | splicing inhibitor || [PMID:17961508](https://www.pombase.org/reference/PMID:17961508) 
