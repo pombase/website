@@ -56,4 +56,4 @@ tagetitoxin/tagetin | RNA polymerase III inhibitor |
 thialysine | || naturally occuring lysine analogue |  
 trichostatin A (TSA) | histone deacetylase inhibitor ||| [PMID:19723888](https://www.pombase.org/reference/PMID:19723888) 
 tunicamycin | | N-glycosylation inhibitor|  
-zaragozic acid | N-glycosylation inhibitor |  
+zaragozic acid | | N-glycosylation inhibitor |  
