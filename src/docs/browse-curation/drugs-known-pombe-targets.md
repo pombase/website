@@ -44,7 +44,7 @@ monensin | |  intracellular transport |
 natamycin | ergosterol binding| | blocks fungal growth without permeabilizing the membrane |  
 nystatin | ergosta-5,7,22,24,(28)-tetraenol binding | ergosterol biosynthesis; antifungal; ergosta-5,7,22,24,(28)-tetraenol binding |  
 oxazolidinones | protein synthesis inhibitor |  
-phleomycin | antibiotic damaging nucleic acids in the presence of iron when cells are grown aerobically | [PMID:17724773](https://www.pombase.org/reference/PMID:17724773)  
+phleomycin | antibiotic damaging nucleic acids in the presence of iron when cells are grown aerobically ||| [PMID:17724773](https://www.pombase.org/reference/PMID:17724773)  
 pravastatin | HMG-CoA reductase inhibitor |  
 ricin | ribosome inhibitor | translation inhibitor | |  
 sanglifehrin A | cyclophilin binding|  
@@ -52,6 +52,6 @@ spliceostatin A | SF3b components binding | splicing inhibitor || [PMID:17961508
 staurosporine | protein kinase inhibitor |  
 tagetitoxin/tagetin | RNA polymerase III inhibitor |  
 thialysine | || naturally occuring lysine analogue |  
-trichostatin A (TSA) | histone deacetylase inhibitor | [PMID:19723888](https://www.pombase.org/reference/PMID:19723888) 
+trichostatin A (TSA) | histone deacetylase inhibitor ||| [PMID:19723888](https://www.pombase.org/reference/PMID:19723888) 
 tunicamycin | | N-glycosylation inhibitor|  
 zaragozic acid | N-glycosylation inhibitor |  
