@@ -10,7 +10,7 @@ Drug | Cellular target | Process target | Other | Reference
 CT2108A, CT2108B | fatty acid synthase | | 
 alpha-amanitin | RNA polymerase II inhibitor |  
 alverine citrate | | proteasome/lipid synthesis? |  
-amiloride | Plasma membrane importer [Bsu1](https://www.pombase.org/gene/SPAC17A2.01) inhibitor | glucose metabolism |[PMID:15701794](https://www.pombase.org/reference/PMID:15701794), [PMID:8431459](https://www.pombase.org/reference/PMID:8431459)
+amiloride | Plasma membrane importer [Bsu1](https://www.pombase.org/gene/SPAC17A2.01) inhibitor | glucose metabolism | |[PMID:15701794](https://www.pombase.org/reference/PMID:15701794), [PMID:8431459](https://www.pombase.org/reference/PMID:8431459)
 amphotericin B | ergosterol binding | sterol biosynthesis inhibitor | forms membrane pores |  
 anisomycin | | translation inhibitor |  
 antifungal azoles | | sterol biosynthesis inhibitor |  
@@ -27,7 +27,7 @@ chloramphenicol || protein synthesis inhibitor |
 compactin | | ergosterol biosynthesis |  
 cutin-1 | fatty acid synthase beta subunit [Fas1](https://www.pombase.org/gene/SPAC926.09c) | nuclear envelope expansion during mitosis inhibitor | | [PMID:26869222](https://www.pombase.org/reference/PMID:26869222) 
 cycloheximide | 60S ribosomal subunit inhibitor | translation | prevents release of deacetylated tRNA from the E site |  
-cyclosporin A | cyclophilin |  
+cyclosporin A | cyclophilin inhibitor | calcineurin inhibitor |several cyclophilins described in S. pombe| [PMID:16134115](https://www.pombase.org/reference/PMID:16134115) 
 dihydromotuporamine C | | | proteasome/lipid synthesis? |  
 echinocandin | | | cell wall synthesis |  
 fenpropimorph | proteasome/lipid synthesis? |  
