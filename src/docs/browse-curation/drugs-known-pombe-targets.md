@@ -10,7 +10,8 @@ Drug | Cellular target | Process target | Other | Reference
 CT2108A, CT2108B | fatty acid synthase | | 
 alpha-amanitin | RNA polymerase II inhibitor |  
 alverine citrate | | proteasome/lipid synthesis? |  
-amiloride | sodium transporter inhibitor |  
+amiloride | Plasma membrane importer
+[Bsu1](https://www.pombase.org/gene/SPAC17A2.01) inhibitor | glucose metabolism |[PMID:15701794](https://www.pombase.org/reference/PMID:15701794), [PMID:8431459](https://www.pombase.org/reference/PMID:8431459)
 amphotericin B | ergosterol binding | sterol biosynthesis inhibitor | forms membrane pores |  
 anisomycin | | translation inhibitor |  
 antifungal azoles | | sterol biosynthesis inhibitor |  
@@ -43,6 +44,7 @@ microcystin | PP2A inhibitor | || [PMID:29079657](https://www.pombase.org/refere
 monensin | |  intracellular transport |  
 natamycin | ergosterol binding| | blocks fungal growth without permeabilizing the membrane |  
 nystatin | ergosta-5,7,22,24,(28)-tetraenol binding | ergosterol biosynthesis; antifungal; ergosta-5,7,22,24,(28)-tetraenol binding |  
+orthovanadate | H(+)-ATPase inhibitor | | | [PMID:8431459](https://www.pombase.org/reference/PMID:8431459) 
 oxazolidinones | protein synthesis inhibitor |  
 phleomycin | antibiotic damaging nucleic acids in the presence of iron when cells are grown aerobically ||| [PMID:17724773](https://www.pombase.org/reference/PMID:17724773)  
 pravastatin | HMG-CoA reductase inhibitor |  
