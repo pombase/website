@@ -10,8 +10,7 @@ Drug | Cellular target | Process target | Other | Reference
 CT2108A, CT2108B | fatty acid synthase | | 
 alpha-amanitin | RNA polymerase II inhibitor |  
 alverine citrate | | proteasome/lipid synthesis? |  
-amiloride | Plasma membrane importer
-[Bsu1](https://www.pombase.org/gene/SPAC17A2.01) inhibitor | glucose metabolism |[PMID:15701794](https://www.pombase.org/reference/PMID:15701794), [PMID:8431459](https://www.pombase.org/reference/PMID:8431459)
+amiloride | Plasma membrane importer [Bsu1](https://www.pombase.org/gene/SPAC17A2.01) inhibitor | glucose metabolism |[PMID:15701794](https://www.pombase.org/reference/PMID:15701794), [PMID:8431459](https://www.pombase.org/reference/PMID:8431459)
 amphotericin B | ergosterol binding | sterol biosynthesis inhibitor | forms membrane pores |  
 anisomycin | | translation inhibitor |  
 antifungal azoles | | sterol biosynthesis inhibitor |  
