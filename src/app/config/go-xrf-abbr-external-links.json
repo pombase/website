@@ -9,7 +9,7 @@
       "description" : "Conserved Domain Database at NCBI",
       "name" : "CDD",
       "url_syntax" : "http://www.ncbi.nlm.nih.gov/Structure/cdd/cddsrv.cgi?uid=[example_id]",
-      "website" : "http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=cdd"
+      "website" : "https://www.ncbi.nlm.nih.gov/cdd"
    },
    "DOI" : {
       "description" : "Digital Object Identifier",
@@ -22,12 +22,6 @@
       "name" : "EC",
       "url_syntax" : "https://enzyme.expasy.org/EC/[example_id]",
       "website" : "http://enzyme.expasy.org/"
-   },
-   "ECOGENE" : {
-      "description" : "EcoGene Database of Escherichia coli Sequence and Function",
-      "name" : "ECOGENE",
-      "url_syntax" : "http://www.ecogene.org/geneInfo.php?eg_id=[example_id]",
-      "website" : "http://www.ecogene.org/"
    },
    "EMBL" : {
       "description" : "EMBL Nucleotide Sequence Database",
@@ -77,12 +71,6 @@
       "url_syntax" : "http://www.ebi.ac.uk/interpro/entry/[example_id]",
       "website" : "http://www.ebi.ac.uk/interpro/"
    },
-   "JCVI_TIGRFAMS" : {
-      "description" : "TIGRFAMs HMM collection at the J. Craig Venter Institute",
-      "name" : "JCVI_TIGRFAMS",
-      "url_syntax" : "http://search.jcvi.org/search?p&q=[example_id]",
-      "website" : "http://search.jcvi.org/"
-   },
    "MGI" : {
       "description" : "Mouse Genome Informatics",
       "name" : "MGI",
@@ -104,8 +92,8 @@
    "PDB" : {
       "description" : "Protein Data Bank",
       "name" : "PDB",
-      "url_syntax" : "http://www.rcsb.org/pdb/cgi/explore.cgi?pdbId=[example_id]",
-      "website" : "http://www.rcsb.org/pdb/"
+      "url_syntax" : "https://www.rcsb.org/structure/[example_id]",
+      "website" : "https://www.rcsb.org/pdb/"
    },
    "PIRSF" : {
       "description" : "PIR Superfamily Classification System",
@@ -116,8 +104,8 @@
    "PR" : {
       "description" : "Protein Ontology",
       "name" : "PR",
-      "url_syntax" : "http://purl.obolibrary.org/obo/PR_[example_id]",
-      "website" : "http://www.proconsortium.org/pro/pro.shtml"
+      "url_syntax" : "https://proconsortium.org/app/entry/[example_id]",
+      "website" : "https://proconsortium.org/"
    },
    "PRINTS" : {
       "description" : "PRINTS compendium of protein fingerprints",
@@ -131,34 +119,22 @@
       "url_syntax" : "http://pfam.xfam.org/family/[example_id]",
       "website" : "http://pfam.xfam.org"
    },
-   "ProDom" : {
-      "description" : "ProDom protein domain families",
-      "name" : "ProDom",
-      "url_syntax" : "http://prodom.prabi.fr/prodom/current/cgi-bin/request.pl?question=DBEN&query=[example_id]",
-      "website" : "http://prodom.prabi.fr/prodom/current/html/home.php"
-   },
    "Prosite" : {
       "description" : "Prosite database of protein families and domains",
       "name" : "Prosite",
-      "url_syntax" : "http://www.expasy.ch/cgi-bin/prosite-search-ac?[example_id]",
-      "website" : "http://www.expasy.ch/prosite/"
+      "url_syntax" : "https://prosite.expasy.org/[example_id]",
+      "website" : "https://prosite.expasy.org/"
    },
    "RGD" : {
       "description" : "Rat Genome Database",
       "name" : "RGD",
-      "url_syntax" : "http://rgd.mcw.edu/rgdweb/search/search.html?term=[example_id]",
-      "website" : "http://rgd.mcw.edu/"
-   },
-   "SFLD" : {
-      "description" : "Structure-Function Linkage Database",
-      "name" : "SFLD",
-      "url_syntax" : "http://www.theseed.org/linkin.cgi?id=[example_id]",
-      "website" : "http://sfld.rbvi.ucsf.edu/django/"
+      "url_syntax" : "https://rgd.mcw.edu/rgdweb/search/search.html?[example_id]",
+      "website" : "https://rgd.mcw.edu/"
    },
    "SGD" : {
       "description" : "Saccharomyces Genome Database",
       "name" : "SGD",
-      "url_syntax" : "http://www.yeastgenome.org/locus/[example_id]/overview",
+      "url_syntax" : "https://www.yeastgenome.org/locus/[example_id]",
       "website" : "http://www.yeastgenome.org/"
    },
    "SMART" : {
@@ -171,13 +147,13 @@
       "description" : "Sequence Ontology",
       "name" : "SO",
       "url_syntax" : "http://www.sequenceontology.org/browser/current_svn/term/SO:[example_id]",
-      "website" : "http://sequenceontology.org/"
+      "website" : "http://www.sequenceontology.org/"
    },
    "SUPERFAMILY" : {
       "description" : "SUPERFAMILY protein annotation database",
       "name" : "SUPERFAMILY",
-      "url_syntax" : "http://supfam.cs.bris.ac.uk/SUPERFAMILY/cgi-bin/scop.cgi?ipid=SSF[example_id]",
-      "website" : "http://supfam.cs.bris.ac.uk/SUPERFAMILY/index.html"
+      "url_syntax" : "http://supfam.org/scop/[example_id]",
+      "website" : "http://supfam.org/"
    },
    "UniPathway" : {
       "description" : "UniPathway",
@@ -188,20 +164,20 @@
    "UniProtKB" : {
       "description" : "Universal Protein Knowledgebase",
       "name" : "UniProtKB",
-      "url_syntax" : "http://www.uniprot.org/uniprot/[example_id]",
+      "url_syntax" : "https://www.uniprot.org/uniprot/[example_id]",
       "website" : "http://www.uniprot.org"
    },
    "UniProtKB-KW" : {
       "description" : "UniProt Knowledgebase keywords",
       "name" : "UniProtKB-KW",
-      "url_syntax" : "http://www.uniprot.org/keywords/[example_id]",
+      "url_syntax" : "https://www.uniprot.org/keywords/[example_id]",
       "website" : "http://www.uniprot.org/keywords/"
    },
    "UniProtKB-SubCell" : {
       "description" : "UniProt Knowledgebase Subcellular Location vocabulary",
       "name" : "UniProtKB-SubCell",
       "url_syntax" : "http://www.uniprot.org/locations/[example_id]",
-      "website" : "http://www.uniprot.org/locations/"
+      "website" : "https://www.uniprot.org/locations/"
    },
    "WB" : {
       "description" : "WormBase database of nematode biology",
