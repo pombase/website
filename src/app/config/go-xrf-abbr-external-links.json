@@ -155,6 +155,12 @@
       "url_syntax" : "http://supfam.org/scop/[example_id]",
       "website" : "http://supfam.org/"
    },
+   "TIGRFAMS" : {
+      "description" : "TIGRFAMs HMM collection at the J. Craig Venter Institute",
+      "name" : "TIGRFAMS",
+      "url_syntax" : "http://tigrfams.jcvi.org/cgi-bin/HmmReportPage.cgi?acc=[example_id]",
+      "website" : "http://tigrfams.jcvi.org/cgi-bin/index.cgi"
+   },
    "UniPathway" : {
       "description" : "UniPathway",
       "name" : "UniPathway",
