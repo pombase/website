@@ -8,6 +8,9 @@
          (click)="setNodeType(conf.id)" class="node-button" *ngFor="let conf of nodeTypes">
       {{upperCaseIntial(conf.displayName)}}
     </div>
+    <div class="button-filler">
+
+    </div>
   </div>
   <div class="node-components">
     <div *ngIf="!activeConf">

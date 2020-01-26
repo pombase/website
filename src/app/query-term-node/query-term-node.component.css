@@ -3,8 +3,13 @@
   font-size: 80%;
 }
 
-.allele-filter {
-  margin: 0.5em 0.2em 0.5em 0.2em;
+.phenotype-filter {
+  margin: 1em 3em 0em 0.5em;
+  vertical-align: top;
+}
+
+.phenotype-filter-inline-block {
+  display: inline-block;
 }
 
 .buttons {
@@ -13,4 +18,18 @@
 
 .ontology-options {
   padding-left: 1em;
+}
+
+div.phenotype-condition-selector {
+  display: block;
+}
+
+.phenotype-condition-selector label {
+  margin: 0.5em 0.1em;
+}
+
+.phenotype-condition-complete {
+  margin-left: 1em;
+  display: inline-block;
+  width: 25em;
 }

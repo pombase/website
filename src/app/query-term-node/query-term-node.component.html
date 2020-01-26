@@ -5,7 +5,8 @@
 <div class="term-definition" *ngIf="selectedTerm?.definition">{{selectedTerm.definition}}</div>
 
 <div *ngIf="isPhenotypeNode">
-  <div class="allele-filter single-or-multi-allele">
+  <div class="phenotype-filter single-or-multi-allele"
+    [ngClass]="{'phenotype-filter-inline-block': !deployConfigService.productionMode()}">
     Include genes from:
     <div class="ontology-options">
     <div>
@@ -23,7 +24,8 @@
     </div>
   </div>
 
-  <div *ngIf="!multiAllele" class="allele-filter expression">
+  <div *ngIf="!multiAllele" class="phenotype-filter expression"
+    [ngClass]="{'phenotype-filter-inline-block': !deployConfigService.productionMode()}">
     Expression level:
     <div class="ontology-options">
     <div>
@@ -41,11 +43,13 @@
     </div>
   </div>
 
-  <div *ngIf="!deployConfigService.productionMode() && phenotypeConditionNamespace">
+  <div *ngIf="!deployConfigService.productionMode() && phenotypeConditionNamespace"
+       class="phenotype-condition-selector phenotype-filter">
     <input id="show-cond-select" type="checkbox" [(ngModel)]="showConditionSelector"
            title="Click to constrain by condition"/>
-    <label for="show-cond-select">Constrain condition</label>
+    <label for="show-cond-select">Constrain condition<span *ngIf="showConditionSelector">:</span></label>
     <app-term-name-complete *ngIf="showConditionSelector"
+                            class="phenotype-condition-complete"
                             [cvName]="phenotypeConditionNamespace"
                             [placeholder]="'Start typing a phenotype condtion'"
                             (termMatched)="phenotypeConditionMatched($event)"></app-term-name-complete>

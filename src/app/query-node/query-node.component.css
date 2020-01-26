@@ -12,18 +12,21 @@
   width: 12em;
   left: 0;
   top: 0;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   vertical-align: top;
 }
 
 .node-button {
   color: #22b;
-  height: 1.5em;
+  min-height: 1.55em;
   cursor: pointer;
   white-space: nowrap;
-  padding: 0.1em 0.3em 0.1em 0.2em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
   font-size: 90%;
   border-right: 1px solid #bbc;
+  flex-grow: 0.01;
 }
 
 .node-selected-button {
@@ -38,6 +41,11 @@
 
 .node-button:hover {
   text-decoration: underline;
+}
+
+.button-filler {
+  border-right: 1px solid #aac;
+  flex-grow: 1;
 }
 
 .node-components {

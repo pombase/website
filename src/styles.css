@@ -499,3 +499,8 @@ figcaption {
     background-color: #ffffff;
   }
 }
+
+/* tweak bootstrap style:  */
+label {
+  margin-bottom: .3rem;
+}
