@@ -60,7 +60,8 @@
 
       <div *ngIf="activeConf.nodeType == 'canned-queries'">
         <div *ngFor="let cannedQueryDetail of cannedQueryDetails">
-          <a (click)="selectPredefinedQuery(cannedQueryDetail.queryId)">{{cannedQueryDetail.name}}</a>
+          <a (click)="selectPredefinedQuery(cannedQueryDetail.queryId)"
+             [innerHTML]="cannedQueryDetail.name"></a>
         </div>
       </div>
 
