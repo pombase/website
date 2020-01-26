@@ -1507,10 +1507,10 @@ angular2-cookie-law@^7.0.1:
   dependencies:
     tslib "^1.9.0"
 
-angulartics2@^7.5.2:
-  version "7.5.2"
-  resolved "https://registry.yarnpkg.com/angulartics2/-/angulartics2-7.5.2.tgz#58ea8eca811581350f5067ddedecd9f070d82598"
-  integrity sha512-gfQ/kRtrKD0fLOGZsWlcD8obIWTAJGSdiVRp6lH+LxLD8shKnl1/StWlUJeOioUkU0ps4QGRb0tCSlCdnI5DAw==
+angulartics2@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/angulartics2/-/angulartics2-8.3.0.tgz#a20c954a27f93d60a6d62bc3a038dfaf785079a7"
+  integrity sha512-gbInN/QPkR8VeL+4N+RDKjLBmJ2DM1AZgvxdr7Eu4cPRxfl2rNMvwuAUCaC+m1In/QSteWXwDkyuupVrNBd+Gg==
   dependencies:
     tslib "^1.9.0"
 
