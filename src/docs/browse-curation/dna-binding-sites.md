@@ -51,7 +51,7 @@ telomeric repeat|TTAC(0-1)A(0-1)G(1-8)|[Taz1](https://www.pombase.org/gene/SPAC1
 
 #### Notes
 
-SO IDs link to [MISO](http://sequenceontology.org/browser/obob.cgi), the [Sequence Ontology](http://sequenceontology.org/) browser. Consensus sequences use the [IUBMB Nomenclature for Incompletely Specified Bases in Nucleic Acid Sequences](http://www.sbcs.qmul.ac.uk/iubmb/misc/naseq.html); briefly:
+SO IDs link to [MISO](http://sequenceontology.org/browser/obob.cgi), the [Sequence Ontology](http://sequenceontology.org/) browser. Consensus sequences use the [IUBMB Nomenclature for Incompletely Specified Bases in Nucleic Acid Sequences](https://www.qmul.ac.uk/sbcs/iubmb/misc/naseq.html); briefly:
 
  -   R = purine (A or G)
  -   Y = pyrimidine (C or T)

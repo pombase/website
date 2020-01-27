@@ -7,7 +7,7 @@ with mappings between GO terms and entries in the various
 metabolism-oriented databases.
 
 For example, many GO molecular function (MF) terms representing
-enzymatic activities are mapped to the corresponding [Enzyme Commission](http://www.chem.qmul.ac.uk/iubmb/enzyme/) (EC) number for the
+enzymatic activities are mapped to the corresponding [Enzyme Commission](https://www.qmul.ac.uk/sbcs/iubmb/enzyme/) (EC) number for the
 reaction, and some are also mapped to entries from
 [KEGG](http://www.genome.jp/kegg/) or from the
 [Rhea](http://www.rhea-db.org/home) database of annotated chemical
