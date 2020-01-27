@@ -8,8 +8,8 @@ organelles or complexes. GO Cellular Component annotations are
 displayed on PomBase gene pages as described in the 
 [PomBase GO documentation](/documentation/gene-page-gene-ontology).
 The GO Consortium' ontology 
-[overview]( graph](http://geneontology.org/docs/ontology-documentation/)
-that describes what the Cellular Component ontology includes. To
+[overview](http://geneontology.org/docs/ontology-documentation/)
+describes what the Cellular Component ontology includes. To
 search for proteins (or functional RNAs) with a particular
 localization, use the GO query in the [advanced search](/query) to
 find genes annotated to the relevant GO Cellular Component term(s).

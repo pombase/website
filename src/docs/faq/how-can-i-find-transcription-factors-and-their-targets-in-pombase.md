@@ -33,7 +33,7 @@ annotation dataset. For the latter:
 1.  Download the GO annotation file (GAF) from the [GO Annotations](/downloads/go-annotations) page. The file is
     tab-delimited text, so it can be opened in a spreadsheet application
     or parsed with a script; the
-    [format](http://geneontology.org/docs/go-annotation-file-gaf-format-21/) is
+    [format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/) is
     described on the GO website.
 2.  Look up the GO IDs for the specific terms to which genes are
     directly annotated -- the "Child Terms" feature in QuickGO is good
