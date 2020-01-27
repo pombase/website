@@ -36,7 +36,7 @@ extension(s) is shown once:
 
 1.  The GO term name, which links to a page with additional
     information, including the term definition, any synonyms,
-    [relationships to other GO terms](#go-structure), and annotations to the
+    relationships to other GO terms, and annotations to the
     term or its descendants. (See the PomBase [ontology term page documentation](/documentation/ontology-term-page) and the GO
     documentation on the [GO graph](http://geneontology.org/docs/ontology-documentation/) and
     [Relations in GO](http://geneontology.org/docs/ontology-relations/) for
@@ -57,16 +57,16 @@ than one paper), and annotations to terms hidden in the summary view:
 ![full gene page GO annotations](assets/go_gene_page_full.png){width="800"}
 
 
-1.  The unique [ID and name](#term-id-and-name) for a GO term, linked to an ontology
+1.  The unique ID and name for a GO term, linked to an ontology
     term page as described above.
-2.  An abbreviation (code) for the type of [evidence](#evidence-codes) that
+2.  An abbreviation (code) for the type of (see "Evidence codes" below) that
     supports the annotation. The evidence categories come from the set
     of [evidence codes](http://geneontology.org/docs/guide-go-evidence-codes/)
     defined by the GO Consortium.
 
 3.  An additional ontology term or identifier that provides supporting
     details for annotations using certain evidence codes (see below
-    and [GO documentation](http://geneontology.org/docs/go-annotation-file-gaf-format-21/)).
+    and [GO documentation](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)).
 4.  An optional qualifier that modifies the connection between the
     gene product and the GO term. Entries come from the set of allowed qualifiers described in
     [GO's annotation overview](http://geneontology.org/docs/go-annotations/)
@@ -76,7 +76,7 @@ than one paper), and annotations to terms hidden in the summary view:
     term page as described above.
 7.  [GO Slim](/browse-curation/fission-yeast-go-slim-terms) terms
     applicable to the gene.
-8.  GO annotations may have [extensions](#annotation-extensions) to capture any of
+8.  GO annotations may have extensions(see "Annotation extensions" below) to capture any of
     several types of additional detail. *S. pombe* genes link to PomBase
     gene pages.
 
@@ -144,7 +144,7 @@ present in a gene product can give clues to its biological role.
 For some types of evidence, such as sequence comparisons or
 interaction data, it is important to note what gene or gene product
 was used in the comparison or detected in the interaction. In these
-cases the [With/From column](http://geneontology.org/docs/go-annotation-file-gaf-format-21/)
+cases the [With/From column](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)
 provides more information regarding the source of the information.
 
 #### Annotation extensions ####
@@ -161,7 +161,7 @@ cellular component of the nucleus during nitrogen starvation, but
 found in the vacuole during glucose starvation).
 g
 The GO Consortium provides further information on annotation
-extensions in its [file format guide](http://geneontology.org/page/go-annotation-file-gaf-format-21/),
+extensions in its [file format guide](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/),
 on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension),
 and in publications from [2014](https://www.ncbi.nlm.nih.gov/pubmed/?term=24885854) and [2017](https://www.ncbi.nlm.nih.gov/pubmed/?term=27812947).
 PomBase converts many extension names to more human-friendly text, as

@@ -17,7 +17,7 @@ The detailed view shows more information for each annotation, and may display ad
 ![full gene page modification ontology annotation](assets/gene_page_modification_full.png "Protein modifications"){width="800"}
 
 1.  Name and ID of the ontology term
-2.  Modification annotations may have [extensions](#ann_ext) to capture
+2.  Modification annotations may have extensions (see below) to capture
     any of several types of additional detail. *S. pombe* genes link to
     PomBase gene pages, and GO term names link to PomBase ontology term
     summary pages.
