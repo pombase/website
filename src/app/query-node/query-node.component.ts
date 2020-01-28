@@ -23,7 +23,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   @Input() startNodeType: string = null;
   @Output() nodeEvent = new EventEmitter<NodeEventDetails>();
 
-  nodeTypes = getAppConfig().queryBuilder.nodeTypes;
+  nodeTypes = getAppConfig().queryBuilder.node_types;
   cannedQueryDetails: Array<{ name: string; queryId: string; }> = null;
   chromosomeSummaries: Array<ChromosomeShort> = null;
 
