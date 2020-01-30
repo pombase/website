@@ -6,8 +6,6 @@ import { GeneSummary, ChromosomeShort } from '../pombase-api.service';
 
 import { getAppConfig, QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
-import { SubscriptionLike } from 'rxjs';
-
 
 interface NodeEventDetails {
   node: GeneQueryNode;
