@@ -1,5 +1,4 @@
 ### tRNA metabolism GO annotation update
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: rna_metabolism_32px.png -->
 
 The process of tRNA metabolism, and the associated molecular functions

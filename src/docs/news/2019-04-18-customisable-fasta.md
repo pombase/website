@@ -1,6 +1,5 @@
 ### Customisable FASTA download
 
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombelist.png -->
 
 You can now download nucleotide or peptide sequences for genes in

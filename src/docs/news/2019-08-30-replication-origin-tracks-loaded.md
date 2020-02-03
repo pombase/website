@@ -1,5 +1,4 @@
 ### Replication origin data loaded into JBrowse
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 
 We have loaded data from: [Segurado et al. (2003) "A+T-rich islands"](https://www.pombase.org/reference/PMID:14566325), [Hayashi et al. (2007) "Pre-replicative complex localization; early and late firing origins"](https://www.pombase.org/reference/PMID:17304213), and [Mickle et al. (2007) "Replication origins with functional classification"](https://www.pombase.org/reference/PMID:18093330).  
