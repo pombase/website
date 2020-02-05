@@ -141,27 +141,44 @@ in AmiGO.
 The phenotype (Fission Yeast Phenotype Ontology) query retrieves genes
 annotated to a FYPO term and to any of its child terms, following the
 *is_a*, *part_of*, *output_of*, *has_output*, and *has_part*
-relationships in the ontology. This query also offers two additional
+relationships in the ontology. This query also offers three additional
 sets of options:
 
 ![phenotype search options](assets/fypo_search_options.png){width="651"}
 
-By default, the phenotype search retrieves genes from single-allele
-genotypes annotated to the searched FYPO term. You can alter the
-selected options to add genes from multi-allele genotypes. See the
-[gene page phenotype documentation](documentation/gene-page-phenotypes)
-and the [genotype page documentation](documentation/genotype-page)
-for more information.
+**Alleles:** By default, the phenotype search retrieves genes from
+single-allele genotypes annotated to the searched FYPO term. You can
+alter the selected options to add genes from multi-allele
+genotypes. See the [gene page phenotype
+documentation](documentation/gene-page-phenotypes) and the [genotype
+page documentation](documentation/genotype-page) for more information.
 
-Different alleles of one gene may have different phenotypes, and one
-allele may give rise to different phenotypes under different
-experimental conditions. At present, you can retrieve annotations for
-all alleles of a gene, or use the "Expression level" options restrict
-the query to null alleles (covers deletions and any other sequence
-changes, such as most disruptions, that completely abolish expression
-of the gene) or overexpression of the wild type allele.
+**Expression:** Different alleles of one gene may have different
+phenotypes, and one allele may give rise to different phenotypes under
+different experimental conditions. At present, you can retrieve
+annotations for all alleles of a gene, or use the "Expression level"
+options restrict the query to null alleles (covers deletions and any
+other sequence changes, such as most disruptions, that completely
+abolish expression of the gene) or overexpression of the wild type
+allele.
 
-It is not yet possible to use condition details in the search.
+**Conditions:** The "Constrain condition" option restricts the results
+to include only genes that have phenotype annotations including the
+specified condition. The search uses the same condition descriptors as
+Canto and the PomBase web pages. Start typing, then choose from the
+autocomplete options.
+
+Note that the results will include any gene that has phenotype
+annotations including the specified condition *for any
+allele*. Queries that include conditions can be combined using the
+AND, NOT, or OR operators like any other, but the result of any
+combination of phenotype queries will likely include annotations for
+different alleles. There may not be any individual annotation in which
+both/all of multiple conditions co-occur.
+
+The search does not yet support querying for multiple conditions on
+the same annotation, nor for queries that *exclude* a given condition;
+both are planned for future development.
 
 #### Product type
 
