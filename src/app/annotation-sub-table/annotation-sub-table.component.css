@@ -5,6 +5,7 @@
 .filter-controls {
   float: right;
   font-size: 90%;
+  padding-bottom: 0.8em;
 }
 
 .filter-count {
