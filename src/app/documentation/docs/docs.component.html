@@ -4522,13 +4522,15 @@ PomBase using the Ensembl viewer.</p>
 <h4 id="go">GO</h4>
 <p>The Gene Ontology (GO) query retrieves gene products annotated to a GO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>regulates</em>, <em>positively_regulates</em>,and <em>negatively_regulates</em> relationships in the ontology. You may also find it helpful to search or browse in <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a> or <a href="http://amigo.geneontology.org/">AmiGO</a> to find GO terms of interest. If one search does not seem to retrieve as many results as you expect, try again using a less specific term. Note: prior to the November 2014 PomBase release, the <em>regulates</em> relations were not followed, and PomBase GO search results therefore did not match those in AmiGO.</p>
 <h4 id="phenotype">Phenotype</h4>
-<p>The phenotype (Fission Yeast Phenotype Ontology) query retrieves genes annotated to a FYPO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>output_of</em>, <em>has_output</em>, and <em>has_part</em> relationships in the ontology. This query also offers two additional sets of options:</p>
+<p>The phenotype (Fission Yeast Phenotype Ontology) query retrieves genes annotated to a FYPO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>output_of</em>, <em>has_output</em>, and <em>has_part</em> relationships in the ontology. This query also offers three additional sets of options:</p>
 <figure>
 <img src="assets/fypo_search_options.png" width="651" alt="" /><figcaption>phenotype search options</figcaption>
 </figure>
-<p>By default, the phenotype search retrieves genes from single-allele genotypes annotated to the searched FYPO term. You can alter the selected options to add genes from multi-allele genotypes. See the <a routerLink="/documentation/gene-page-phenotypes">gene page phenotype documentation</a> and the <a routerLink="/documentation/genotype-page">genotype page documentation</a> for more information.</p>
-<p>Different alleles of one gene may have different phenotypes, and one allele may give rise to different phenotypes under different experimental conditions. At present, you can retrieve annotations for all alleles of a gene, or use the “Expression level” options restrict the query to null alleles (covers deletions and any other sequence changes, such as most disruptions, that completely abolish expression of the gene) or overexpression of the wild type allele.</p>
-<p>It is not yet possible to use condition details in the search.</p>
+<p><strong>Alleles:</strong> By default, the phenotype search retrieves genes from single-allele genotypes annotated to the searched FYPO term. You can alter the selected options to add genes from multi-allele genotypes. See the <a href="documentation/gene-page-phenotypes">gene page phenotype documentation</a> and the <a href="documentation/genotype-page">genotype page documentation</a> for more information.</p>
+<p><strong>Expression:</strong> Different alleles of one gene may have different phenotypes, and one allele may give rise to different phenotypes under different experimental conditions. At present, you can retrieve annotations for all alleles of a gene, or use the “Expression level” options restrict the query to null alleles (covers deletions and any other sequence changes, such as most disruptions, that completely abolish expression of the gene) or overexpression of the wild type allele.</p>
+<p><strong>Conditions:</strong> The “Constrain condition” option restricts the results to include only genes that have phenotype annotations including the specified condition. The search uses the same condition descriptors as Canto and the PomBase web pages. Start typing, then choose from the autocomplete options.</p>
+<p>Note that the results will include any gene that has phenotype annotations including the specified condition <em>for any allele</em>. Queries that include conditions can be combined using the AND, NOT, or OR operators like any other, but the result of any combination of phenotype queries will likely include annotations for different alleles. There may not be any individual annotation in which both/all of multiple conditions co-occur.</p>
+<p>The search does not yet support querying for multiple conditions on the same annotation, nor for queries that <em>exclude</em> a given condition; both are planned for future development.</p>
 <h4 id="product-type">Product type</h4>
 <p>Choose a gene product type (e.g. protein coding, tRNA, etc.) from the pulldown menu.</p>
 <h4 id="protein-modification">Protein modification</h4>
@@ -8143,6 +8145,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#query-phenotypes-conditions">Query phenotypes for conditions</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#levures-mod-les-et-outils-th-international-conference">Levures, Modèles et Outils 14th International Conference</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-elixir-node-service">PomBase is now an ELIXIR Node Service</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-vectors-simple-reliable-s.-pombe-molecular-biology">New vectors for simple, reliable *S. pombe* molecular biology</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#unique-permanent-urls-search-results">Unique permanent URLs for search results</a></div>
@@ -8158,7 +8162,7 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-interpro-update">PomBase InterPro Update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#s.-pombe-included-gene-info-browser-extension">*S. pombe* included in Gene Info browser extension</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#integrated-motif-search">Integrated motif search</a></div>
-<div class="left-menu-part left-menu-item"><a simplePageScroll href="#levures-mod-les-et-outils-th-international-conference">Levures, Modèles et Outils 14th International Conference</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#icygmb-registration-open">ICYGMB 2019  - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#go-slim-any-s.-pombe-gene-list">GO slim for any *S. pombe* gene list</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#south-eastern-regional-yeast-meeting-serym-registration-open">South Eastern Regional Yeast Meeting (SERYM) - registration open</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#international-cell-cycle-meeting-registration-open">International Cell Cycle meeting - registration open</a></div>
@@ -9179,20 +9183,10 @@ Please sign the letter to add your voice in support of the databases that help m
 
   </div>
   <div *ngIf="pageName == 'icygmb2019'">
-<h3 id="levures-modèles-et-outils-14th-international-conference">Levures, Modèles et Outils 14th International Conference</h3>
-<!-- newsfeed_thumbnail: poster_LMO14_32px.png -->
-<p>The 14th edition of the <a href="https://lmo-14-2020.sciencesconf.org/">“Levures, Modèles et Outils” meeting (LMO14)</a> will be held in July 9-11, 2020, at the University of Strasbourg in France. Registration is open February 3rd to June 30th, and abstracts can be submitted from February 3rd to April 10th. Authors will be notified in early May and the final program will be available in early June.</p>
-<p>The sessions will be diverse and present the latest findings using yeast as a model organism on the following topics:</p>
-<ol type="1">
-<li>Cell biology, cell cycle, cytoskeleton</li>
-<li>Gene expression regulation</li>
-<li>Population, functional and evolutionary genomics</li>
-<li>Replication, repair and recombination</li>
-<li>Transport, sensing and signaling</li>
-<li>Pathogenic yeast and filamentous fungi</li>
-<li>Tools, resources and databases</li>
-<li>New technologies, yeast and industry</li>
-</ol>
+<h3 id="icygmb-2019---registration-open">ICYGMB 2019 - registration open</h3>
+<!-- newsfeed_thumbnail: icygmb_tiny.png -->
+<p>Registration is now open for the <a href="https://yeast2019.org">29th International Conference on Yeast Genetics and Molecular Biology (ICYGMB)</a>, which returns to Gothenburg, Sweden, August 18-22, 2019.</p>
+<p>Yeast2019 is the meeting of the international yeast research community where the latest, and even unpublished results are exchanged, and new projects, alliances, and collaborations are founded. Featuring 55 confirmed speakers including keynote lectures by Susan Gasser, Roger Kornberg and Frederick Roth, this conference will contain important news and information for all yeast researchers. A do-not-miss-event.</p>
 
   </div>
   <div *ngIf="pageName == 'motif-search-integrated'">
@@ -9217,14 +9211,12 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'customisable-fasta'">
 <h3 id="customisable-fasta-download">Customisable FASTA download</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombelist.png -->
 <p>You can now download nucleotide or peptide sequences for genes in Advanced search results in FASTA format, and customise what is included in the FASTA headers (e.g. gene names, product descriptions, sequence coordinates, or various IDs can be included).</p>
 
   </div>
   <div *ngIf="pageName == 'prediction-links'">
 <h3 id="new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: tree_for_news.png -->
 <p>We have added new external links to PomBase gene pages for structure and ortholog predictions:</p>
 <ul>
@@ -9236,7 +9228,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'tRNA_metabolism_update'">
 <h3 id="trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: rna_metabolism_32px.png -->
 <p>The process of tRNA metabolism, and the associated molecular functions have recently been reviewed.</p>
 <ul>
@@ -9248,7 +9239,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'Fitness_Landscape_of_the_Fission_Yeast_Genome-data-loaded'">
 <h3 id="fitness-landscape-of-the-fission-yeast-genome-dataset-loaded-into-jbrowse">“Fitness Landscape of the Fission Yeast Genome” dataset loaded into JBrowse</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 <p>We have loaded the <a href="https://www.pombase.org/reference/PMID:31077324">Grech et al. (2019) “Fitness Landscape of the Fission Yeast Genome”</a> dataset into JBrowse. In this study, transposon mutagenesis libraries were created to map transposon insertion sites in the S. pombe genome. From this data, functional elements of the genome were inferred. The tracks from this study can be loaded by a single click from the linked publication page above</p>
 <p>Thanks Dan Jeffares for sending us the data.</p>
@@ -9269,7 +9259,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'replication-origin-tracks-loaded'">
 <h3 id="replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 <p>We have loaded data from: <a href="https://www.pombase.org/reference/PMID:14566325">Segurado et al. (2003) “A+T-rich islands”</a>, <a href="https://www.pombase.org/reference/PMID:17304213">Hayashi et al. (2007) “Pre-replicative complex localization; early and late firing origins”</a>, and <a href="https://www.pombase.org/reference/PMID:18093330">Mickle et al. (2007) “Replication origins with functional classification”</a>.</p>
 <p>To view the tracks, either follow the hyperlinks above to the respective PomBase publication pages, and click on the “view” link after “Datasets from this publication are available in the PomBase JBrowse genome browser”, or go directly to <a href="http://www.pombase.org/jbrowse/">the browser</a> and click on the “select tracks” button to find the tracks manually.</p>
@@ -9327,9 +9316,59 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>PomBase has been awarded Node Service status by the <a href="https://elixiruknode.org/">UK node</a> of <a href="https://elixir-europe.org/">ELIXIR</a>. ELIXIR-UK Node Services support the bioinformatics and broader biological research communities by providing training and resources that help researchers to find and share data, exchange expertise, and agree on best practices at national, European and international levels. The review panel describes PomBase as a “mature, leading model organism database which is popular, unique, well used, and has a strong user community.”</p>
 
   </div>
+  <div *ngIf="pageName == 'lmo14-strasbourg'">
+<h3 id="levures-modèles-et-outils-14th-international-conference">Levures, Modèles et Outils 14th International Conference</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: poster_LMO14_32px.png -->
+<p>The 14th edition of the <a href="https://lmo-14-2020.sciencesconf.org/">“Levures, Modèles et Outils” meeting (LMO14)</a> will be held in July 9-11, 2020, at the University of Strasbourg in France. Registration is open February 3rd to June 30th, and abstracts can be submitted from February 3rd to April 10th. Authors will be notified in early May and the final program will be available in early June.</p>
+<p>The sessions will be diverse and present the latest findings using yeast as a model organism on the following topics:</p>
+<ol type="1">
+<li>Cell biology, cell cycle, cytoskeleton</li>
+<li>Gene expression regulation</li>
+<li>Population, functional and evolutionary genomics</li>
+<li>Replication, repair and recombination</li>
+<li>Transport, sensing and signaling</li>
+<li>Pathogenic yeast and filamentous fungi</li>
+<li>Tools, resources and databases</li>
+<li>New technologies, yeast and industry</li>
+</ol>
+
+  </div>
+  <div *ngIf="pageName == 'advanced-search-phenotype-conditions'">
+<h3 id="query-phenotypes-for-conditions">Query phenotypes for conditions</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: advanced_search.png -->
+<p>The PomBase advanced search <a routerLink="/query">Advanced search</a> now supports using experimental conditions as search criteria for phenotype annotations. For example, you can now query for genes that show abnormal chromosome segregation mutant phenotypes specifically at high or low temperatures. The search uses the same condition descriptors as Canto and the PomBase web pages.</p>
+<p>Note that phenotype queries that have condition constraints can be combined, but pay careful attention to the annotations for the results. Future work will add support for querying for multiple conditions on the same annotation, and for specifying conditions to exclude from results.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
+<h3 id="query-phenotypes-conditions">Query phenotypes for conditions</h3>
+<p><em>2020-02-05</em></p>
+<p>The PomBase advanced search <a routerLink="/query">Advanced search</a> now supports using experimental conditions as search criteria for phenotype annotations. For example, you can now query for genes that show abnormal chromosome segregation mutant phenotypes specifically at high or low temperatures. The search uses the same condition descriptors as Canto and the PomBase web pages.</p>
+<p>Note that phenotype queries that have condition constraints can be combined, but pay careful attention to the annotations for the results. Future work will add support for querying for multiple conditions on the same annotation, and for specifying conditions to exclude from results.</p>
+</div>
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/poster_LMO14_32px.png"/></p>
+<h3 id="levures-mod-les-et-outils-th-international-conference">Levures, Modèles et Outils 14th International Conference</h3>
+<p><em>2020-02-04</em></p>
+<p>The 14th edition of the <a href="https://lmo-14-2020.sciencesconf.org/">“Levures, Modèles et Outils” meeting (LMO14)</a> will be held in July 9-11, 2020, at the University of Strasbourg in France. Registration is open February 3rd to June 30th, and abstracts can be submitted from February 3rd to April 10th. Authors will be notified in early May and the final program will be available in early June.</p>
+<p>The sessions will be diverse and present the latest findings using yeast as a model organism on the following topics:</p>
+<ol type="1">
+<li>Cell biology, cell cycle, cytoskeleton</li>
+<li>Gene expression regulation</li>
+<li>Population, functional and evolutionary genomics</li>
+<li>Replication, repair and recombination</li>
+<li>Transport, sensing and signaling</li>
+<li>Pathogenic yeast and filamentous fungi</li>
+<li>Tools, resources and databases</li>
+<li>New technologies, yeast and industry</li>
+</ol>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/elixir_uk_thumb.png"/></p>
 <h3 id="pombase-now-elixir-node-service">PomBase is now an ELIXIR Node Service</h3>
@@ -9451,21 +9490,11 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>The PomBase <a routerLink="/motif_search">motif search</a> has been fully integrated into the website, and allows users to find protein motifs and send them directly to the PomBase <a routerLink="/query">advanced search</a>.</p>
 </div>
 <div class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/poster_LMO14_32px.png"/></p>
-<h3 id="levures-mod-les-et-outils-th-international-conference">Levures, Modèles et Outils 14th International Conference</h3>
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/icygmb_tiny.png"/></p>
+<h3 id="icygmb-registration-open">ICYGMB 2019 - registration open</h3>
 <p><em>2019-03-13</em></p>
-<p>The 14th edition of the <a href="https://lmo-14-2020.sciencesconf.org/">“Levures, Modèles et Outils” meeting (LMO14)</a> will be held in July 9-11, 2020, at the University of Strasbourg in France. Registration is open February 3rd to June 30th, and abstracts can be submitted from February 3rd to April 10th. Authors will be notified in early May and the final program will be available in early June.</p>
-<p>The sessions will be diverse and present the latest findings using yeast as a model organism on the following topics:</p>
-<ol type="1">
-<li>Cell biology, cell cycle, cytoskeleton</li>
-<li>Gene expression regulation</li>
-<li>Population, functional and evolutionary genomics</li>
-<li>Replication, repair and recombination</li>
-<li>Transport, sensing and signaling</li>
-<li>Pathogenic yeast and filamentous fungi</li>
-<li>Tools, resources and databases</li>
-<li>New technologies, yeast and industry</li>
-</ol>
+<p>Registration is now open for the <a href="https://yeast2019.org">29th International Conference on Yeast Genetics and Molecular Biology (ICYGMB)</a>, which returns to Gothenburg, Sweden, August 18-22, 2019.</p>
+<p>Yeast2019 is the meeting of the international yeast research community where the latest, and even unpublished results are exchanged, and new projects, alliances, and collaborations are founded. Featuring 55 confirmed speakers including keynote lectures by Susan Gasser, Roger Kornberg and Frederick Roth, this conference will contain important news and information for all yeast researchers. A do-not-miss-event.</p>
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/slim_tiny.png"/></p>
