@@ -3,15 +3,16 @@
     Loading ...
   </div>
   <div *ngIf="displayResults">
-    <div *ngIf="displayResults.length == 0">
-      (No results)
+    <div *ngIf="displayResults.length == 0" class="description">
+      <span class="description-prefix">No results for:</span>
+      <app-query-description-display *ngIf="description || descriptionParts.length != 0"
+                                     [description]="description" [descriptionParts]="descriptionParts">
+      </app-query-description-display>
     </div>
+
     <app-genes-table *ngIf="displayResults.length > 0"
                      [mode]="mode"
                      [genes]="displayResults" [description]="description"
                      [descriptionParts]="descriptionParts"></app-genes-table>
   </div>
 </div>
-
-
-

@@ -7,7 +7,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { GeneSummary } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 import { QueryService, HistoryEntry } from '../../query.service';
-import { GeneQuery, GeneListNode, TermShort } from '../../pombase-query';
+import { GeneQuery, GeneListNode, TermAndName } from '../../pombase-query';
 import { getAppConfig } from '../../config';
 import { DeployConfigService } from '../../deploy-config.service';
 import { GenesTableConfigComponent } from '../../genes-table-config/genes-table-config.component';
@@ -28,7 +28,7 @@ export class GenesTableComponent implements OnInit {
   // a decomposed version of the description as an Array of Objects
   // like: [{text: "abnormal cell ... ("}, {term: <a TermShort>}, {text: ")"}, ...]
   // which allows the the termids in a description to be linked to the term pages
-  @Input() descriptionParts: Array<({ text?: string; term?: TermShort; })> = [];
+  @Input() descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
   @Input() genes: Array<GeneSummary> = [];
 
   legend = 'Results';

@@ -2,5 +2,11 @@
   padding: 4px;
 }
 
-.gene-results-content {
+.description {
+  font-size: 110%;
+  padding-top: 2em;
+}
+
+.description-prefix {
+  font-weight: bold;
 }

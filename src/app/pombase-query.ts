@@ -273,6 +273,10 @@ export class TermNode extends GeneQueryNode {
     return this.single_or_multi_allele;
   }
 
+  getConditions(): Array<TermAndName> {
+    return this.conditions;
+  }
+
   private singleOrMultiString(): string {
     if (this.single_or_multi_allele !== null) {
       const alleleValue = this.single_or_multi_allele.valueOf();
@@ -647,7 +651,7 @@ export class GeneQuery {
     this.name = name;
   }
 
-  private referencedTermsHelper(node: GeneQueryNode, collector: Array<TermShort>) {
+  private referencedTermsHelper(node: GeneQueryNode, collector: Array<TermAndName>) {
     if (node instanceof TermNode) {
       collector.push(node.getTerm());
     } else {
@@ -660,8 +664,8 @@ export class GeneQuery {
   }
 
   // return an Array of all terms referenced by TermNodes in this query
-  public referencedTerms(): Array<TermShort> {
-    let collector: TermShort[] = [];
+  public referencedTerms(): Array<TermAndName> {
+    let collector: TermAndName[] = [];
     this.referencedTermsHelper(this.getTopNode(), collector);
     return collector;
   }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { QueryResult, TermShort } from '../../pombase-query';
+import { QueryResult, TermShort, TermAndName } from '../../pombase-query';
 import { PombaseAPIService, GeneSummary } from '../../pombase-api.service';
 
 @Component({
@@ -14,8 +14,8 @@ export class GeneResultsComponent implements OnInit, OnChanges {
   description: string = null;
 
   displayResults: Array<GeneSummary> = null;
-  descriptionParts: Array<({ text?: string; term?: TermShort; })> = [];
-  termsInQuery: Array<TermShort> = [];
+  descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
+  termsInQuery: Array<TermAndName> = [];
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

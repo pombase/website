@@ -4,12 +4,9 @@
     {{legend}}
   </legend>
 
-  <div *ngIf="description || descriptionParts.length != 0" class="description">
-    <span *ngIf="descriptionParts.length == 0">{{description}}</span>
-    <span *ngIf="descriptionParts.length != 0">
-      <span *ngFor="let part of descriptionParts"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.term" routerLink="/term/{{part.term.termid}}">{{part.term.termid}}</a></span>
-    </span>
-  </div>
+  <app-query-description-display *ngIf="description || descriptionParts.length != 0" class="description"
+                                 [description]="description" [descriptionParts]="descriptionParts">
+  </app-query-description-display>
 
   <div class="action-row">
     <div *ngIf="!showingVisualisation() && !showingSlim()">
