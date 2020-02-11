@@ -796,7 +796,13 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     description: 'QuickGO',
     urlSyntax: 'http://www.ebi.ac.uk/QuickGO/GTerm?id=[example_id]',
     website: 'http://www.ebi.ac.uk/QuickGO/',
-  }
+  },
+  'PR': {
+    description : 'Protein Ontology',
+    displayName : 'PRO',
+    urlSyntax : 'https://proconsortium.org/app/entry/PR:[example_id]',
+    website : 'https://proconsortium.org/',
+  },
 };
 
 export interface XrfDetails {
