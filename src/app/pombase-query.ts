@@ -397,15 +397,22 @@ export class SubsetNode extends GeneQueryNode {
 }
 
 function rangeToString(rangeNode: RangeNode) {
+  let returnVal = rangeNode.rangeType;
   if (!rangeNode.rangeEnd) {
-    return rangeNode.rangeType + '(>' + rangeNode.rangeStart + ')';
+    returnVal += '(\u2265' + rangeNode.rangeStart + ')';
   } else {
     if (!rangeNode.rangeStart) {
-      return rangeNode.rangeType + '(<' + rangeNode.rangeEnd + ')';
+      returnVal += '(\u2264' + rangeNode.rangeEnd + ')';
     } else {
-      return rangeNode.rangeType + '(' + rangeNode.rangeStart + '..' + rangeNode.rangeEnd + ')';
+      if (rangeNode.rangeStart == rangeNode.rangeEnd) {
+        returnVal += '(' + rangeNode.rangeStart + ')';
+      } else {
+        returnVal += '(' + rangeNode.rangeStart + '..' + rangeNode.rangeEnd + ')';
+      }
     }
   }
+
+  return returnVal;
 }
 
 export abstract class RangeNode extends GeneQueryNode {
