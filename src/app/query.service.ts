@@ -227,7 +227,13 @@ export class QueryService {
         });
       };
     for (let i = 0; i < this.history.length; i++) {
-      countUpdater(this.history[i], i * 100);
+      let delay;
+      if (i < 10) {
+        delay = i * 200;
+      } else {
+        delay = (i - 10) * 500 + 2500;
+      }
+      countUpdater(this.history[i], delay);
     }
   }
 }
