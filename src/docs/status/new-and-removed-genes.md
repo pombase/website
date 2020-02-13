@@ -1075,62 +1075,62 @@
  </tr>
  <tr>
   <td>SPAC1D4.07c</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPAC27E2.13</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPAC4H3.12c</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPBC1685.12c</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPBC32F12.17</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPBC354.11c</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPBC36.13</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPCC1672.14</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPCC188.05</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPCC417.04</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPCC622.05</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
  <tr>
   <td>SPCC794.16</td>
-  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=21511999">PMID:26615217</a>)</td>
+  <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
     <tr>
