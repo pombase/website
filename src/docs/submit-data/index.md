@@ -9,7 +9,7 @@ Gene naming guidelines and how to submit a new gene name
 Data formats and instructions for submitting large sets of GO,
 phenotype, modification, or gene expression data.
 
-### [Sequence-linked HTP data](data-submission-form-for-HTP-sequence-linked-data)
+### [Sequence-linked HTP data](submit-data/data-submission-form-for-HTP-sequence-linked-data)
 
 To submit sequence-linked data to be displayed as a track in the genome browser.
 
