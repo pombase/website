@@ -28,3 +28,5 @@ glucose MM, standard temperature
 18 | Sample ID | GSM3019628, ERS555567 | No | Yes
 19 | Data file type | bigwig, bed | Yes | No
 20 | File name | name given to submitted data-file relevant to the track | Yes | No
+
+To submit the files, or if you have any questions, please [contact the PomBase curators](mailto:helpdesk@pombase.org).
