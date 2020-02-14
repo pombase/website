@@ -63,6 +63,10 @@ export class ReferenceDetailsComponent implements OnInit {
     this.cantoTriageStatus = this.refDetails.canto_triage_status;
   }
 
+  hasApprovedSession(): boolean {
+    return !!this.refDetails.canto_approved_date;
+  }
+
   setVisibleSections(): void {
     this.visibleSections = [];
 
@@ -111,21 +115,24 @@ export class ReferenceDetailsComponent implements OnInit {
     return getJBrowseTracksByPMID(this.refDetails.uniquename).length > 0;
   }
 
-  setAnnotationStatus() {
+  hasAnnotations(): boolean {
     if (Object.keys(this.refDetails.cv_annotations).length > 0 ||
         this.refDetails.genetic_interactions.length > 0 ||
         this.refDetails.physical_interactions.length > 0 ||
         this.refDetails.paralog_annotations.length > 0 ||
         this.refDetails.ortholog_annotations.length > 0) {
-      this.refAnnotationStatus = 'has-annotations';
+      return true;
     } else {
-      if (this.refDetails.canto_triage_status === 'Curatable' &&
-          !this.refDetails.approved_date) {
-        this.refAnnotationStatus = 'not-curated';
-      } else {
-        this.refAnnotationStatus = 'no-annotation';
-      }
+      return false;
     }
+  }
+
+  hasCantoSession(): boolean {
+    return !!this.refDetails.canto_curator_name;
+  }
+
+  isAdminSession(): boolean {
+    return this.hasCantoSession() && this.refDetails.canto_curator_role !== 'Community';
   }
 
   setGraphicalAbstract(): void {
@@ -163,7 +170,6 @@ export class ReferenceDetailsComponent implements OnInit {
             this.setCantoFields();
             this.setVisibleSections();
             this.apiError = null;
-            this.setAnnotationStatus();
             this.setGraphicalAbstract();
             if (refDetails.doi) {
               this.doiUrl = getXrfWithPrefix('DOI', refDetails.doi).url;

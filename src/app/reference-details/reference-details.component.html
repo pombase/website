@@ -17,7 +17,7 @@
       <div class="details-label">Authors</div>
       <div>{{refDetails.authors}}</div>
 
-      <ng-container *ngIf="!multiOrgMode && refAnnotationStatus != 'not-curated'">
+      <ng-container *ngIf="!multiOrgMode && hasApprovedSession()">
         <div class="curation-status details-label">
           <a href="http://curation.pombase.org/pombe/"><img src="/assets/canto_icon.png"/></a>
         </div>
@@ -29,7 +29,7 @@
           <div class="ref-curated-by" *ngIf="!cantoCommunityCuratorName">
             Curated by {{siteName}} staff
           </div>
-          <div *ngIf="refDetails.approved_date">
+          <div *ngIf="hasApprovedSession()">
             Added to {{siteName}} on <span class="approved-date">{{refDetails.approved_date}}</span>
           </div>
         </div>
@@ -47,9 +47,9 @@
       <div>
         <a class="pub-link" href="http://europepmc.org/abstract/MED/{{pubMedId}}">Europe PMC</a>
           |
-        <a *ngIf="refAnnotationStatus != 'has-annotations'"
+        <a *ngIf="!hasAnnotations()"
            class="pub-link" href="http://www.ncbi.nlm.nih.gov/pubmed?term={{pubMedId}}">PubMed</a>
-        <a *ngIf="refAnnotationStatus == 'has-annotations'"
+        <a *ngIf="hasAnnotations()"
            class="pub-link" href="https://www.ncbi.nlm.nih.gov/pubmed?holding=pombase&term={{pubMedId}}">PubMed</a>
         <span class="ref-doi" *ngIf="refDetails.doi">| DOI: <a href="{{doiUrl}}">{{refDetails.doi}}</a></span>
       </div>
@@ -77,25 +77,87 @@
   <app-jbrowse-track-picker [refUniquename]="refDetails.uniquename">
   </app-jbrowse-track-picker>
 
-  <div *ngIf="refAnnotationStatus != null" class="annotations-section-header">
-    <div *ngIf="refAnnotationStatus == 'has-annotations'">
-      <div *ngIf="refDetails.uniquename.startsWith('PMID:')">
-        Annotations from this publication:
+  <div class="annotations-section-header">
+
+      <div *ngIf="cantoTriageStatus == 'Curatable'">
+
+        <div *ngIf="hasAnnotations()">
+
+          <div *ngIf="hasApprovedSession()">
+            <div *ngIf="refDetails.uniquename.startsWith('PMID:')">
+              Annotations from this publication:
+            </div>
+            <div *ngIf="!refDetails.uniquename.startsWith('PMID:')">
+              Annotations from this reference:
+            </div>
+          </div>
+
+          <div *ngIf="hasCantoSession() && !hasApprovedSession()">
+            <div *ngIf="isAdminSession()">
+              This paper has partial curation that predates {{siteName}} and Canto.
+              Please
+              <app-contact-email [linkName]="'contact the curators'"
+                                 [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
+              if you would like to contribute to its full curation.
+            </div>
+            <div *ngIf="!isAdminSession()">
+              Community curation is in progress for this paper.  Please
+              <app-contact-email [linkName]="'contact the curators'"
+                                 [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
+              if you would like to suggest annotations from it.
+            </div>
+          </div>
+
+          <div *ngIf="!hasCantoSession()">
+            This paper has partial curation that predates PomBase and Canto.
+            Please
+            <app-contact-email [linkName]="'contact the curators'"
+                               [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
+            if you would like to contribute to its full curation.
+          </div>
+
+        </div>
+
+        <div *ngIf="!hasAnnotations() && !hasBrowserTracks()">
+          <div *ngIf="hasCantoSession()">
+            <div *ngIf="hasApprovedSession()">
+              This publication has no annotations in {{siteName}}
+              because the data it contains either cannot be associated
+              with individual genes, or cannot be represented by
+              currently available annotation types.
+            </div>
+            <div *ngIf="!hasApprovedSession()">
+              <div *ngIf="isAdminSession()">
+                This publication has no annotations in {{siteName}} because it hasn't been curated yet.
+                Please
+                <app-contact-email [linkName]="'contact the curators'"
+                                   [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
+                if you want to contribute annotations for this paper.
+              </div>
+              <div *ngIf="!isAdminSession()">
+                Community curation is in progress for this paper.  Please
+                <app-contact-email [linkName]="'contact the curators'"
+                                   [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
+                if you would like to suggest annotations from it.
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="!hasCantoSession()">
+            This publication has no annotations in {{siteName}}
+            because it hasn't been curated yet.  Please
+            <app-contact-email [linkName]="'contact the curators'"
+                               [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
+            if you want to contribute annotations for this paper.
+        </div>
+
       </div>
-      <div *ngIf="!refDetails.uniquename.startsWith('PMID:')">
-        Annotations from this reference:
-      </div>
-    </div>
-    <div *ngIf="refAnnotationStatus != 'has-annotations' && !hasBrowserTracks()">This publication has no
-      annotations in {{siteName}} because
-      <span *ngIf="refAnnotationStatus == 'not-curated'">
-        it hasn't been curated yet.
-        (Please
-<app-contact-email [linkName]="'contact us'"
-                   [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
-if you would like to contribute annotations for this paper.)
-      </span>
-      <span *ngIf="refAnnotationStatus == 'no-annotation'">
+
+      <div *ngIf="cantoTriageStatus != 'Curatable'">
+        <span>
+          This publication has no
+          annotations in {{siteName}} because
+        </span>
         <span *ngIf="cantoTriageStatus == 'Review or comment'">
         it is a review.
         </span>
@@ -107,8 +169,8 @@ if you would like to contribute annotations for this paper.)
         individual genes, or cannot be represented by currently
         available annotation types.
         </span>
-      </span>
-    </div>
+     </div>
+
   </div>
 
   <div>
