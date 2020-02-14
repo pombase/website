@@ -29,6 +29,7 @@
     an introductory guide to browser navigation, track loading,
     metadata, etc. (by Antonia Lock)
 -   Also see the General entry in the JBrowse Help menu
+-   See "File Formats" below to submit data
 
 ### QuiLT
 
@@ -60,6 +61,7 @@ PomBase-specific formats:
 -   [Modifications](documentation/modification-data-bulk-upload-format)
 -   [Qualitative gene expression](documentation/qualitative-gene-expression-data-bulk-upload-format)
 -   [Quantitative gene expression](documentation/quantitative-gene-expression-data-bulk-upload-format)
+-   [HTP data for JBrowse tracks](documentation/data-submission-form-for-HTP-sequence-linked-data)
 
 For data that can be connected with sequence features or coordinates,
 and displayed as tracks in the genome browser, see the [data format

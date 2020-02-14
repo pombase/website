@@ -28,4 +28,5 @@
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/modification-data-bulk-upload-format">Modification data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression data</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">HTP data for browser tracks</a></div>
 

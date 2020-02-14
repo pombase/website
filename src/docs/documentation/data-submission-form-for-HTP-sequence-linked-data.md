@@ -1,22 +1,25 @@
 ## HTP sequence-linked data submission instructions
 
-PomBase welcomes submissions of published HTP sequence-linked data, suitable for viewing in a genome browser. We require [JBrowse compliant](https://www.pombase.org/faq/data-submission-and-formats) data files and associated meta-data descriptions. We have devised a tab-delimited text file format for description of meta-data. 
+PomBase welcomes submissions of published HTP sequence-linked data,
+suitable for viewing in a genome browser. We require [JBrowse
+compliant](https://www.pombase.org/faq/data-submission-and-formats)
+data files and associated metadata descriptions. We have devised a
+tab-delimited text file format for the metadata we need.
 
-Include a header line that labels the columns -- use the entry in the Contents column below as the column header text.
+Include a header line that labels the columns -- use the entry in the
+Contents column below as the column header text.
 
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
 1 | Data type | Transcripts, Chromatin binding, Nucleosome positioning, Poly(A) sites, Replication origins | Yes | No
-2 | Unique one sentence track label, in the following format: 1. binding protein (only for chromatin binding) 2. datatype 3. mutant 4. during 5. background 6. any additional experimental detail or assay information 7. strand 8. ref - first author (year) | Nucleosome positioning during vegetative growth; repeat 1 - Gonzalez et al. (2016), Poly(A) sites during meiosis (forward strand) - Schlackow et al. (2013), Replication origins in cells synchronized by cdc25-ts block/release and hydroxyurea arrest - Xu et al. (2012)  | Yes | No
-3 | Assayed protein | Fkh2 | Only required for chromatin binding data to specify the protein binding to chromatin | No
+2 | Unique one-sentence track label, in the following format: 1. binding protein (only for chromatin binding) 2. data type 3. mutant 4. during 5. background 6. any additional experimental detail or assay information 7. strand 8. reference (first author (year)) | Nucleosome positioning during vegetative growth; repeat 1 - Gonzalez et al. (2016), Poly(A) sites during meiosis (forward strand) - Schlackow et al. (2013), Replication origins in cells synchronized by cdc25-ts block/release and hydroxyurea arrest - Xu et al. (2012)  | Yes | No
+3 | Assayed protein | Fkh2 | Only required for chromatin binding data, to specify the protein binding to chromatin | No
 4 | Experimental background alleles | cdc25-22, leu1-1 | Yes | Yes
 5 | WT or mutant (strains with background mutations only are considered WT) | WT | Yes | No
-6 | Mutant alleles | clr4-delta, dfp1-3A | No | Yes
+6 | Mutant alleles | clr4delta, dfp1-3A | No | Yes
 7 | Mating type | h90, h+, h- | No | No
-8 | Conditions | YES, high temperature 
-glucose MM, standard temperature 
-+ HU | No | No
-9 | Comment free-text field for additional information | | No | Yes
+8 | Conditions | YES, high temperature; glucose MM, standard temperature + HU | No | No
+9 | Comment | free-text field for additional information | No | Yes
 10 | Growth phase or response | vegetative growth, meiosis,  quiescence, glucose starvation, oxidative stress, heat shock | Yes | Yes if the track combines data
 11 | Strand | forward, reverse | No | No
 12 | Assay type | tiling microarray, RNA-seq, HT sequencing  | Yes | No
