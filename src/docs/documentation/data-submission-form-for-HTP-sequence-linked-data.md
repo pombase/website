@@ -12,10 +12,10 @@ Contents column below as the column header text.
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
 1 | Data type | Transcripts, Chromatin binding, Nucleosome positioning, Poly(A) sites, Replication origins | Yes | No
-2 | Unique one-sentence track label, in the following format: 1. binding protein (only for chromatin binding) 2. data type 3. mutant 4. during 5. background 6. any additional experimental detail or assay information 7. strand 8. reference (first author (year)) | Nucleosome positioning during vegetative growth; repeat 1 - Gonzalez et al. (2016), Poly(A) sites during meiosis (forward strand) - Schlackow et al. (2013), Replication origins in cells synchronized by cdc25-ts block/release and hydroxyurea arrest - Xu et al. (2012)  | Yes | No
+2 | Track label | see below for format and examples***  | Yes | No
 3 | Assayed protein | Fkh2 | Only required for chromatin binding data, to specify the protein binding to chromatin | No
 4 | Experimental background alleles | cdc25-22, leu1-1 | Yes | Yes
-5 | WT or mutant (strains with background mutations only are considered WT) | WT | Yes | No
+5 | WT or mutant (strains with only background mutations are considered WT) | WT | Yes | No
 6 | Mutant alleles | clr4delta, dfp1-3A | No | Yes
 7 | Mating type | h90, h+, h- | No | No
 8 | Conditions | YES, high temperature; glucose MM, standard temperature + HU | No | No
@@ -31,5 +31,21 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 18 | Sample ID | GSM3019628, ERS555567 | No | Yes
 19 | Data file type | bigwig, bed | Yes | No
 20 | File name | name given to submitted data-file relevant to the track | Yes | No
+
+**Track label format
+
+The track label must uniquely describe each track. For consistency in track label descriptions, please try and follow the following format as closely as possible: 
+
+"Assayed protein" "data type" "in mutant" "during Growth phase or response" "additional experimental detail of importance (Mating type, Conditions, Experimental background alleles)" "; repeat " "(strand)" - "First author (Publication year)"
+
+Nucleosome positioning during vegetative growth; repeat 1 - Gonzalez et al. (2016)
+Poly(A) sites during meiosis (forward strand) - Schlackow et al. (2013)
+Transcripts in atf1delta (forward strand) - Soriano et al. (2013)
+Replication origins in cells synchronized by cdc25-ts block/release and hydroxyurea arrest - Xu et al. (2012)
+Replication origins in cells synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)
+Replication origins in dfp1-3A synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)
+Transcription start sites during oxidative stress (reverse strand) - Thodberg et al. (2018)
+
+**Submit
 
 To submit the files, or if you have any questions, please [contact the PomBase curators](mailto:helpdesk@pombase.org).
