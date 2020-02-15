@@ -36,7 +36,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 
 The track label must uniquely describe each track. For consistency in track label descriptions, please try and follow the following format as closely as possible: 
 
-"Assayed protein" "data type" "in mutant" "during Growth phase or response" "additional experimental detail of importance (Mating type, Conditions, Experimental background alleles)" "; repeat " "(strand)" - "First author (Publication year)"
+"Assayed protein" "data type" "in mutant" "during Growth phase or response" "additional experimental detail of importance (Mating type, Conditions, Experimental background alleles)" "; repeat " "(strand)" "- First author (Publication year)"
 
 Nucleosome positioning during vegetative growth; repeat 1 - Gonzalez et al. (2016)
 Poly(A) sites during meiosis (forward strand) - Schlackow et al. (2013)
