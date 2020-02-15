@@ -32,7 +32,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 19 | Data file type | bigwig, bed | Yes | No
 20 | File name | name given to submitted data-file relevant to the track | Yes | No
 
-**Track label format
+**Track label format**
 
 The track label must uniquely describe each track. For consistency in track label descriptions, please try and follow the following format as closely as possible: 
 
@@ -46,6 +46,6 @@ Replication origins in cells synchronized by elutriation and hydroxyurea arrest 
 Replication origins in dfp1-3A synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)
 Transcription start sites during oxidative stress (reverse strand) - Thodberg et al. (2018)
 
-**Submit
+**Submit**
 
 To submit the files, or if you have any questions, please [contact the PomBase curators](mailto:helpdesk@pombase.org).
