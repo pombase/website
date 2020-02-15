@@ -38,13 +38,13 @@ The track label must uniquely describe each track. For consistency in track labe
 
 "Assayed protein" "data type" "in mutant" "during Growth phase or response" "additional experimental detail of importance (Mating type, Conditions, Experimental background alleles)" "; repeat " "(strand)" "- First author (Publication year)"
 
-Nucleosome positioning during vegetative growth; repeat 1 - Gonzalez et al. (2016)
-Poly(A) sites during meiosis (forward strand) - Schlackow et al. (2013)
-Transcripts in atf1delta (forward strand) - Soriano et al. (2013)
-Replication origins in cells synchronized by cdc25-ts block/release and hydroxyurea arrest - Xu et al. (2012)
-Replication origins in cells synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)
-Replication origins in dfp1-3A synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)
-Transcription start sites during oxidative stress (reverse strand) - Thodberg et al. (2018)
+ * Nucleosome positioning during vegetative growth; repeat 1 - Gonzalez et al. (2016)
+ * Poly(A) sites during meiosis (forward strand) - Schlackow et al. (2013)
+ * Transcripts in atf1delta (forward strand) - Soriano et al. (2013)
+ * Replication origins in cells synchronized by cdc25-ts block/release and hydroxyurea arrest - Xu et al. (2012)
+ * Replication origins in cells synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)
+ * Replication origins in dfp1-3A synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)
+ * Transcription start sites during oxidative stress (reverse strand) - Thodberg et al. (2018)
 
 **Submit**
 
