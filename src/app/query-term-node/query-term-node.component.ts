@@ -46,6 +46,12 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
     this.phenotypeConditions = [term];
   }
 
+  conditionSelectorChanged(): void {
+    if (!this.showConditionSelector) {
+      this.phenotypeConditions = [];
+    }
+  }
+
   submitTitle(): string {
     if (this.selectedTerm) {
       return '';

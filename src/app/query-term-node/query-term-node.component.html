@@ -44,6 +44,7 @@
   <div *ngIf="phenotypeConditionNamespace"
        class="phenotype-condition-selector phenotype-filter">
     <input id="show-cond-select" type="checkbox" [(ngModel)]="showConditionSelector"
+           (change)="conditionSelectorChanged()"
            title="Click to constrain by condition"/>
     <label for="show-cond-select">Constrain condition<span *ngIf="showConditionSelector">:</span></label>
     <app-term-name-complete *ngIf="showConditionSelector"
