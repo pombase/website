@@ -4234,6 +4234,7 @@ the total annotated genes.
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/modification-data-bulk-upload-format">Modification data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression data</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">HTP data for browser tracks</a></div>
 
 
 </app-page-contents-menu>
@@ -4837,6 +4838,179 @@ PomBase using the Ensembl viewer.</p>
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'data-submission-form-for-HTP-sequence-linked-data'">
+<h2 id="htp-sequence-linked-data-submission-instructions">HTP sequence-linked data submission instructions</h2>
+<p>PomBase welcomes submissions of published HTP sequence-linked data, suitable for viewing in a genome browser. We require <a href="https://www.pombase.org/faq/data-submission-and-formats">JBrowse compliant</a> data files and associated metadata descriptions. We have devised a tab-delimited text file format for the metadata we need.</p>
+<p>Include a header line that labels the columns – use the entry in the Contents column below as the column header text.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Contents</th>
+<th>Example</th>
+<th>Mandatory?</th>
+<th>Multiple entries allowed?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Data type</td>
+<td>Transcripts, Chromatin binding, Nucleosome positioning, Poly(A) sites, Replication origins</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Track label</td>
+<td>see below for format and examples***</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Assayed protein</td>
+<td>Fkh2</td>
+<td>Only required for chromatin binding data, to specify the protein binding to chromatin</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Experimental background alleles</td>
+<td>cdc25-22, leu1-1</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>WT or mutant (strains with only background mutations are considered WT)</td>
+<td>WT</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Mutant alleles</td>
+<td>clr4delta, dfp1-3A</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Mating type</td>
+<td>h90, h+, h-</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Conditions</td>
+<td>YES, high temperature; glucose MM, standard temperature + HU</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Comment</td>
+<td>free-text field for additional information</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Growth phase or response</td>
+<td>vegetative growth, meiosis, quiescence, glucose starvation, oxidative stress, heat shock</td>
+<td>Yes</td>
+<td>Yes if the track combines data</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Strand</td>
+<td>forward, reverse</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Assay type</td>
+<td>tiling microarray, RNA-seq, HT sequencing</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>First author</td>
+<td>Soriano</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Publication year</td>
+<td>2020</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Pubmed ID</td>
+<td>31077324</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Study ID</td>
+<td>GSE110976, PRJEB7403</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Database</td>
+<td>GEO, ArrayExpress</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>Sample ID</td>
+<td>GSM3019628, ERS555567</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>Data file type</td>
+<td>bigwig, bed</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>File name</td>
+<td>name given to submitted data-file relevant to the track</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Track label format</strong></p>
+<p>The track label must uniquely describe each track. For consistency in track label descriptions, please try and follow the following format as closely as possible:</p>
+<p>“Assayed protein” “data type” “in mutant” “during Growth phase or response” “additional experimental detail of importance (Mating type, Conditions, Experimental background alleles)” “; repeat” “(strand)” “- First author (Publication year)”</p>
+<ul>
+<li>Nucleosome positioning during vegetative growth; repeat 1 - Gonzalez et al. (2016)</li>
+<li>Poly(A) sites during meiosis (forward strand) - Schlackow et al. (2013)</li>
+<li>Transcripts in atf1delta (forward strand) - Soriano et al. (2013)</li>
+<li>Replication origins in cells synchronized by cdc25-ts block/release and hydroxyurea arrest - Xu et al. (2012)</li>
+<li>Replication origins in cells synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)</li>
+<li>Replication origins in dfp1-3A synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)</li>
+<li>Transcription start sites during oxidative stress (reverse strand) - Thodberg et al. (2018)</li>
+</ul>
+<p><strong>Submit</strong></p>
+<p>To submit the files, or if you have any questions, please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'gene-page-basic-information'">
 <h2 id="gene-page-basic-information">Gene page: Basic information</h2>
 <p>At the top of each gene page is a set of basic information about the gene:</p>
@@ -5177,6 +5351,7 @@ PomBase using the Ensembl viewer.</p>
 <ul>
 <li><a routerLink="/documentation/JBrowse_quick_start">Getting started with PomBase JBrowse</a> - an introductory guide to browser navigation, track loading, metadata, etc. (by Antonia Lock)</li>
 <li>Also see the General entry in the JBrowse Help menu</li>
+<li>See “File Formats” below to submit data</li>
 </ul>
 <h3 id="quilt">QuiLT</h3>
 <ul>
@@ -5203,6 +5378,7 @@ PomBase using the Ensembl viewer.</p>
 <li><a routerLink="/documentation/modification-data-bulk-upload-format">Modifications</a></li>
 <li><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression</a></li>
 <li><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression</a></li>
+<li><a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">HTP data for JBrowse tracks</a></li>
 </ul>
 <p>For data that can be connected with sequence features or coordinates, and displayed as tracks in the genome browser, see the <a href="faq/what-file-formats-can-i-use-submit-high-throughput-data">data format FAQ</a> and further details linked there.</p>
 <h3 id="linking-to-and-from-pombase">Linking to and from PomBase</h3>
@@ -17278,7 +17454,7 @@ Joined contigs p4C9 and c977</p>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/submit-data/gene-naming-guidelines"><i>S. pombe</i> gene naming guidelines</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/submit-data/gene-naming-committee-members">Gene Naming Committee members</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/submit-data/bulk-annotation">Annotation datasets</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/submit-data/">Sequence-linked HTP data</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">Sequence-linked HTP data</a></div>
 
 
 </app-page-contents-menu>
@@ -17556,8 +17732,8 @@ Form](registration-form) to submit a renewal.
 <p>Gene naming guidelines and how to submit a new gene name</p>
 <h3 id="annotation-datasets"><a routerLink="/submit-data/bulk-annotation">Annotation datasets</a></h3>
 <p>Data formats and instructions for submitting large sets of GO, phenotype, modification, or gene expression data.</p>
-<h3 id="sequence-linked-htp-data"><a routerLink="/submit-data/data-submission-form-for-HTP-sequence-linked-data">Sequence-linked HTP data</a></h3>
-<p>To submit sequence-linked data to be displayed as a track in the genome browser.</p>
+<h3 id="sequence-linked-htp-data"><a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">Sequence-linked HTP data</a></h3>
+<p>Metadata format and instructions for submitting sequence-linked data to be displayed as a track in the genome browser.</p>
 <h3 id="gene-specific-data">Gene-specific data</h3>
 <p>To submit information on individual genes, use the Contact Curators link provided on the relevant <a href="http://www.pombase.org/">PomBase</a> gene page</p>
 
