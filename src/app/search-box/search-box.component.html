@@ -41,6 +41,7 @@
        typeaheadGroupField="matchType"
        (typeaheadOnSelect)="typeaheadOnSelect($event)"
        (typeaheadNoResults)="typeaheadNoResults($event)"
+       [typeaheadOptionField]="'name'"
        typeaheadOptionsLimit="20"
        class="form-control search-box">
 
