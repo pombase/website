@@ -77,8 +77,8 @@
   <app-jbrowse-track-picker [refUniquename]="refDetails.uniquename">
   </app-jbrowse-track-picker>
 
-  <div class="annotations-section-header">
-
+  <div>
+    <div class="annotations-section-header">
       <div *ngIf="cantoTriageStatus == 'Curatable'">
 
         <div *ngIf="hasAnnotations()">
@@ -170,7 +170,7 @@
         available annotation types.
         </span>
      </div>
-
+    </div>
   </div>
 
   <div>
