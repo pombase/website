@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of, config } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of, config, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 import { PombaseAPIService, GeneSummary, IdAndOrganism, IdNameAndOrganism } from '../pombase-api.service';
 import { CompleteService, SolrTermSummary, SolrRefSummary } from '../complete.service';
@@ -46,7 +46,8 @@ class DisplayModel {
 })
 export class SearchBoxComponent implements OnInit {
   dataSource: Observable<Array<DisplayModel>>;
-  noResults = true;
+  noResults = false;
+  waitingForServer = false;
 
   fieldValue = '';
 
@@ -333,6 +334,7 @@ export class SearchBoxComponent implements OnInit {
             if (geneCount + termCount < maxGenes + maxTerms) {
               refCount += (maxGenes + maxTerms) - (geneCount + termCount);
             }
+            this.waitingForServer = false;
             return [...geneRes.slice(0, maxGenes), ...termRes.slice(0, maxTerms),
             ...refRes.slice(0, refCount)];
           }));
@@ -340,12 +342,20 @@ export class SearchBoxComponent implements OnInit {
   }
 
   getDataSource(): Observable<Array<DisplayModel>> {
-    return Observable.create((observer: any) => {
-      // Runs on every search
-      observer.next(this.fieldValue);
-    })
+    return Observable
+      .create((observer: any) => {
+        // Runs on every search
+        observer.next(this.fieldValue);
+      })
       .pipe(
-        switchMap((token: string) => this.observableFromToken(token))
+        catchError(err => {
+          this.waitingForServer = false;
+          return of([]);
+        }),
+        switchMap((token: string) => {
+          this.waitingForServer = true;
+          return this.observableFromToken(token);
+        })
       );
   }
 
@@ -444,7 +454,7 @@ export class SearchBoxComponent implements OnInit {
     }
   }
 
-  noMatchingGenes(): boolean {
-    return this.noResults && this.fieldValue.length > 0;
+  noMatches(): boolean {
+    return !this.waitingForServer && this.noResults && this.fieldValue.length > 0;
   }
 }

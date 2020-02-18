@@ -20,7 +20,7 @@
   </div>
 </ng-template>
 
-<span class="search-info small-screen-search-info" [style.visibility]="noMatchingGenes() ? 'visible' : 'hidden'">
+<span class="search-info small-screen-search-info" [style.visibility]="noMatches() ? 'visible' : 'hidden'">
   No matches
 </span>
 
@@ -51,6 +51,6 @@
          src="/assets/info_icon.svg">
 </span>
 
-<span class="search-info big-screen-search-info" [style.visibility]="noMatchingGenes() ? 'visible' : 'hidden'">
+<span class="search-info big-screen-search-info" [style.visibility]="noMatches() ? 'visible' : 'hidden'">
   No matches
 </span>
