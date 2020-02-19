@@ -35,7 +35,7 @@
     "core-js": "^3.1.4",
     "file-saver": "^2.0.2",
     "ngx-bootstrap": "^5.1.0",
-    "ngx-toastr": "^10.0.4",
+    "ngx-toastr": "^12",
     "ngx-twitter-timeline": "^0.1.5",
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.2",
