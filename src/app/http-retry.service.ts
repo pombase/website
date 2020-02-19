@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { retryWhen, delay, take, timeout } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -10,9 +10,10 @@ const RETRY_COUNT = 10;
 const REQUEST_TIMEOUT = 60000;
 
 export class RetryOptions {
-  constructor(public retryDelay: number,
-              public retryCount: number,
-              public requestTimeout: number) {};
+  constructor(public responseType: string,
+              public retryDelay: number = RETRY_DELAY,
+              public retryCount: number = RETRY_COUNT,
+              public requestTimeout: number = REQUEST_TIMEOUT) { };
 }
 
 @Injectable({
@@ -20,18 +21,24 @@ export class RetryOptions {
 })
 export class HttpRetryService {
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
 
   }
 
   // if a request fails, retry it RETRY_COUNT times but delay RETRY_DELAY
   // milliseconds between tries
   // if a request hangs, timeout after REQUEST_TIMEOUT milliseconds
-  getWithRetry(url: string, options: RetryOptions = null): Observable<Response> {
+  getWithRetry(url: string, options: RetryOptions = null): Observable<HttpResponse<any>> {
     if (options == null) {
-      options = new RetryOptions(RETRY_DELAY, RETRY_COUNT, REQUEST_TIMEOUT);
+      options = new RetryOptions('json');
     }
-    return this.http.get(url)
+    let getOptions: Object;
+    if (options.responseType === 'json') {
+      getOptions = { responseType: 'json' };
+    } else {
+      getOptions = { responseType: 'text' };
+    }
+    return this.http.get<any>(url, getOptions)
       .pipe(
         retryWhen((errors) => {
         return errors

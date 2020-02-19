@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { TermShort } from './pombase-query';
 import { Util } from './shared/util';
@@ -7,7 +7,7 @@ import { Seq } from './seq';
 import { getAppConfig, ConfigOrganism,
          AnnotationType, getAnnotationTableConfig } from './config';
 
-import { HttpRetryService } from './http-retry.service';
+import { HttpRetryService, RetryOptions } from './http-retry.service';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
@@ -529,7 +529,7 @@ export class PombaseAPIService {
     }, 60000);
   }
 
-  constructor (private http: Http,
+  constructor (private http: HttpClient,
                private httpRetry: HttpRetryService) {
     this.startCacheTimeout();
 
@@ -732,9 +732,7 @@ export class PombaseAPIService {
       .map((key) => processOneReference(referencesByUniquename[key]));
   }
 
-  processGeneResponse(response: Response): GeneDetails {
-    let json = response.json();
-
+  processGeneResponse(json: any): GeneDetails {
     json.displayName = json.name || json.uniquename;
 
     if (json.transcripts) {
@@ -825,9 +823,7 @@ export class PombaseAPIService {
     });
   }
 
-  processGenotypeResponse(response: Response): GenotypeDetails {
-    let json = response.json();
-
+  processGenotypeResponse(json: any): GenotypeDetails {
     let genesByUniquename = json.genes_by_uniquename;
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
@@ -854,9 +850,7 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
-  processTermResponse(response: Response): TermDetails {
-    let json = response.json();
-
+  processTermResponse(json: any): TermDetails {
     for (let fieldName of ['cv_annotations',
                            'genes_by_uniquename', 'genotypes_by_uniquename',
                            'alleles_by_uniquename', 'references_by_uniquename',
@@ -909,9 +903,7 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
-  processReferenceResponse(response: Response): ReferenceDetails {
-    let json = response.json();
-
+  processReferenceResponse(json: any): ReferenceDetails {
     let genesByUniquename = json.genes_by_uniquename;
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
@@ -945,21 +937,21 @@ export class PombaseAPIService {
   getMetadata(): Promise<Metadata> {
     return this.httpRetry.getWithRetry(this.apiUrl + '/data/metadata')
       .toPromise()
-      .then(response => response.json() as Metadata)
+      .then(body => body as unknown as Metadata)
       .catch(this.handleError);
   }
 
   getStatistics(): Promise<DatabaseStatistics> {
     return this.httpRetry.getWithRetry(this.apiUrl + '/data/stats')
       .toPromise()
-      .then(response => response.json() as DatabaseStatistics)
+      .then(body => body as unknown as DatabaseStatistics)
       .catch(this.handleError);
   }
 
   getRecentReferences(): Promise<RecentReferences> {
     return this.httpRetry.getWithRetry(this.apiUrl + '/data/recent_references')
       .toPromise()
-      .then(response => response.json() as RecentReferences)
+      .then(body => body as unknown as RecentReferences)
       .catch(this.handleError);
   }
 
@@ -967,8 +959,8 @@ export class PombaseAPIService {
     if (!this.promiseCache[this.geneSummariesUrl]) {
       this.promiseCache[this.geneSummariesUrl] = this.httpRetry.getWithRetry(this.geneSummariesUrl)
         .toPromise()
-        .then(response => {
-          const result = response.json() as Array<GeneSummary>;
+        .then(body => {
+          const result = body as unknown as Array<GeneSummary>;
           result.map(summ => {
             summ.organism = getAppConfig().getOrganismByTaxonid(summ.taxonid);
             summ.synonyms = summ.synonyms || [];
@@ -1036,7 +1028,7 @@ export class PombaseAPIService {
         .toPromise()
         .then(response => {
           this.resultCache[this.chromosomeSummariesUrl] =
-            response.json() as Array<ChromosomeShort>;
+            response as unknown as Array<ChromosomeShort>;
           return this.resultCache[this.chromosomeSummariesUrl];
         })
         .catch(this.handleError);
@@ -1074,7 +1066,7 @@ export class PombaseAPIService {
   getTermSubsets(): Promise<TermSubsets> {
     return this.httpRetry.getWithRetry(this.apiUrl + '/data/term_subsets')
       .toPromise()
-      .then(response => response.json() as TermSubsets)
+      .then(body => body as unknown as TermSubsets)
       .catch(this.handleError);
   }
 
@@ -1094,7 +1086,7 @@ export class PombaseAPIService {
   getGeneSubsets(): Promise<GeneSubsets> {
     return this.httpRetry.getWithRetry(this.apiUrl + '/data/gene_subsets')
       .toPromise()
-      .then(response => response.json() as GeneSubsets)
+      .then(body => body as unknown as GeneSubsets)
       .then(subset => this.addGeneShortToSubset(subset))
       .catch(this.handleError);
   }
@@ -1106,11 +1098,12 @@ export class PombaseAPIService {
       return this.chunkPromises[key];
     }
 
+    const retryOptions = new RetryOptions('text');
     let chunkPromise =
       this.httpRetry.getWithRetry(this.apiUrl + '/data/chromosome/' + chromosomeName +
-                    '/sequence/' + chunkSize + '/chunk_' + chunkId)
+                    '/sequence/' + chunkSize + '/chunk_' + chunkId, retryOptions)
       .toPromise()
-      .then(response => new Seq(response.text()))
+      .then(body => new Seq(body as unknown as string))
       .catch(this.handleError);
     this.chunkPromises[key] = chunkPromise;
     return chunkPromise;
@@ -1173,7 +1166,7 @@ export class PombaseAPIService {
   getReferencesPromise(constraint: string) {
     return this.httpRetry.getWithRetry(this.apiUrl + `/data/${constraint}_curated_references`)
       .toPromise()
-      .then(response => response.json() as Array<ReferenceShort>)
+      .then(body => body as unknown as Array<ReferenceShort>)
       .catch(this.handleError);
   }
 

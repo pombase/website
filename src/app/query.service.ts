@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from '@angular/common/http';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode } from './pombase-query';
@@ -70,7 +70,7 @@ export class QueryService {
   private history: Array<HistoryEntry> = [];
   private subject: BehaviorSubject<Array<HistoryEntry>> = null;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     try {
       let savedHistoryString = localStorage.getItem(localStorageKey);
       if (savedHistoryString) {
@@ -100,15 +100,13 @@ export class QueryService {
 
   private postRaw(query: GeneQuery, outputOptions: QueryOutputOptions): Promise<QueryResult> {
     const jsonString = query.toPostJSON(outputOptions);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + '/query', jsonString, options).toPromise()
-      .then(raw => {
-        const rawJson = raw.json();
-        if (rawJson.status === 'ok') {
-          return new QueryResult(rawJson.id, GeneQuery.fromJSONString(rawJson.query), rawJson.rows);
+    const headers = new HttpHeaders().append('Content-Type', 'application/json');
+    return this.http.post<QueryResult>(this.apiUrl + '/query', jsonString, { headers }).toPromise()
+      .then((json: any) => {
+        if (json['status'] === 'ok') {
+          return new QueryResult(json['id'], GeneQuery.fromJSONString(json['query']), json['rows']);
         } else {
-          return Promise.reject(rawJson.status);
+          return Promise.reject(json['status']);
         }
       });
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Response } from '@angular/http';
+import { HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/from';
 
@@ -53,7 +53,7 @@ export class SolrRefSummary {
   constructor(public pubmedid: string, public title: string, public citation: string) {};
 }
 
-const retryOptions: RetryOptions = new RetryOptions(500, 3, 2000);
+const retryOptions: RetryOptions = new RetryOptions('json', 500, 3, 2000);
 
 @Injectable()
 export class CompleteService {
@@ -76,8 +76,8 @@ export class CompleteService {
     const completeTermUrl = this.completeUrl + '/term/' + serverCvName + '/' + queryText;
 
     return this.httpRetry.getWithRetry(completeTermUrl, retryOptions)
-      .map((res: Response) => {
-        const parsedRes = res.json();
+      .map((body: HttpResponse<any>) => {
+        const parsedRes = body as any;
         if (parsedRes['status'] !== 'Ok') {
           return [];
         }
@@ -120,8 +120,8 @@ export class CompleteService {
     const completeRefUrl = this.completeUrl + '/ref/' + queryText;
 
     return this.httpRetry.getWithRetry(completeRefUrl, retryOptions)
-      .map((res: Response) => {
-        const parsedRes = res.json();
+      .map((body: HttpResponse<any>) => {
+        const parsedRes = body as any;
         if (parsedRes['status'] !== 'Ok') {
           return [];
         }
