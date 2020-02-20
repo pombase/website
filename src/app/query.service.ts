@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from '@angular/common/http';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode } from './pombase-query';
 import { getAppConfig } from './config';
-import { Results } from './query/results';
 
 const localStorageKey = 'pombase-query-build-history-v1';
-
-let historyEntryCounter = 0;
 
 export class HistoryEntry {
   checked = false;
