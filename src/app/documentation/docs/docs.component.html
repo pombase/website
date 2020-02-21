@@ -8321,6 +8321,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#quarter-million-annotations">Quarter of a million annotations</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#query-phenotypes-conditions">Query phenotypes for conditions</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#levures-mod-les-et-outils-th-international-conference">Levures, Modèles et Outils 14th International Conference</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-elixir-node-service">PomBase is now an ELIXIR Node Service</a></div>
@@ -8803,6 +8804,7 @@ Carl’s family would be happy to receive memories of Carl’s life at regards [
   </div>
   <div *ngIf="pageName == 'pombelist-has-moved'">
 <h3 id="pombelist-has-moved">pombelist has moved</h3>
+<p><strong>Update: This item dates from July 2013, and the links in it no longer work.</strong> \ Please see the <a routerLink="/community">Fission Yeast Community</a> page for the current mailing list link. \ (<span class="no-break">2020-02-18</span>)</p>
 <p>The pombe community mailing list, pombelist, has migrated from the Wellcome Trust Sanger Institute and is now hosted by EBI. The new address is <a href="mailto:pombelist@ebi.ac.uk" class="email">pombelist@ebi.ac.uk</a> (please note that the old address no longer works, and will generate an automatic notification including the new address). The link to <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">subscribe</a> has also been updated, and the entire <a href="http://listserver.ebi.ac.uk/mailman/private/pombelist/">archive</a> is available at the new location.</p>
 
   </div>
@@ -9518,9 +9520,25 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Note that phenotype queries that have condition constraints can be combined, but pay careful attention to the annotations for the results. Future work will add support for querying for multiple conditions on the same annotation, and for specifying conditions to exclude from results.</p>
 
   </div>
+  <div *ngIf="pageName == 'quarter_million'">
+<h3 id="quarter-of-a-million-annotations">Quarter of a million annotations</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: quarter_mill.png -->
+<p>PomBase recently reached 250,000 annotations to controlled vocabularies and ontologies. The majority, (over 90%) are assigned manually from fission yeast experimental data derived from 3776, mainly low-throughput, hypothesis-driven publications.</p>
+<p>You can query and combine any of these data types here: https://www.pombase.org/query</p>
+<p>Thank you to everyone who contributed to this significant achievement through community curation.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/quarter_mill.png"/></p>
+<h3 id="quarter-million-annotations">Quarter of a million annotations</h3>
+<p><em>2020-02-20</em> PomBase recently reached 250,000 annotations to controlled vocabularies and ontologies. The majority, (over 90%) are assigned manually from fission yeast experimental data derived from 3776, mainly low-throughput, hypothesis-driven publications.</p>
+<p>You can query and combine any of these data types here: https://www.pombase.org/query</p>
+<p>Thank you to everyone who contributed to this significant achievement through community curation.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="query-phenotypes-conditions">Query phenotypes for conditions</h3>
@@ -10227,6 +10245,7 @@ We also have an updated version of the <em>S. pombe</em>/human ortholog table av
 <section id="pombelist-has-moved" class="news-item">
 <h3>pombelist has moved</h3>
 <p><em>2013-07-21</em></p>
+<p><strong>Update: This item dates from July 2013, and the links in it no longer work.</strong> \ Please see the <a routerLink="/community">Fission Yeast Community</a> page for the current mailing list link. \ (<span class="no-break">2020-02-18</span>)</p>
 <p>The pombe community mailing list, pombelist, has migrated from the Wellcome Trust Sanger Institute and is now hosted by EBI. The new address is <a href="mailto:pombelist@ebi.ac.uk" class="email">pombelist@ebi.ac.uk</a> (please note that the old address no longer works, and will generate an automatic notification including the new address). The link to <a href="http://listserver.ebi.ac.uk/mailman/listinfo/pombelist">subscribe</a> has also been updated, and the entire <a href="http://listserver.ebi.ac.uk/mailman/private/pombelist/">archive</a> is available at the new location.</p>
 </section>
 <section id="pombase-website-update" class="news-item">
