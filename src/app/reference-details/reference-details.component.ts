@@ -132,7 +132,7 @@ export class ReferenceDetailsComponent implements OnInit {
   }
 
   isAdminSession(): boolean {
-    return this.hasCantoSession() && this.refDetails.canto_curator_role !== 'Community';
+    return this.hasCantoSession() && this.refDetails.canto_curator_role.toLowerCase() !== 'community';
   }
 
   setGraphicalAbstract(): void {
