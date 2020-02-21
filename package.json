@@ -4,8 +4,9 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "ng-high-mem-serve": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng serve --prod --port 4242 --disable-host-check --host 0.0.0.0 --proxy-config proxy.conf.json",
-    "ng-high-mem-build": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --prod --port 4242 --disable-host-check --host 0.0.0.0 --proxy-config proxy.conf.json",
+    "ng-high-mem-serve": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng serve --port 4242 --disable-host-check --host 0.0.0.0 --proxy-config proxy.conf.json",
+    "ng-high-mem-prod-serve": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng serve --prod --port 4242 --disable-host-check --host 0.0.0.0 --proxy-config proxy.conf.json",
+    "ng-high-mem-prod-build": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --prod --port 4242 --disable-host-check --host 0.0.0.0 --proxy-config proxy.conf.json",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
