@@ -803,6 +803,12 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     urlSyntax : 'https://proconsortium.org/app/entry/PR:[example_id]',
     website : 'https://proconsortium.org/',
   },
+  SUPERFAMILY : {
+    description : 'SUPERFAMILY protein annotation database',
+    displayName : 'SUPERFAMILY',
+    urlSyntax : 'http://supfam.org/SUPERFAMILY/cgi-bin/scop.cgi?ipid=[example_id]',
+    website : 'http://supfam.org/'
+ },
 };
 
 export interface XrfDetails {
