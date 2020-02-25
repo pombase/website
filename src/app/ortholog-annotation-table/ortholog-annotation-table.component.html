@@ -32,7 +32,10 @@
         <td *ngIf="!currentGene">{{annotation.gene.product}}</td>
         <td>{{annotation.orthologOrganism.genus}} {{annotation.orthologOrganism.species}}</td>
         <td>
-          <a href="{{getLink(annotation.orthologOrganism, annotation.ortholog.uniquename, annotation.ortholog.name)}}">
+          <app-gene-link *ngIf="appConfig.isConfigOrganism(annotation.orthologOrganism.taxonid)"
+                         class="app-link" [long]="false" [gene]="annotation.ortholog"></app-gene-link>
+          <a *ngIf="!appConfig.isConfigOrganism(annotation.orthologOrganism.taxonid)"
+              href="{{getLink(annotation.orthologOrganism, annotation.ortholog.uniquename, annotation.ortholog.name)}}">
             {{annotation.ortholog.name ? annotation.ortholog.name + " (" + annotation.ortholog.uniquename + ")" : annotation.ortholog.uniquename }}
           </a>
         </td>

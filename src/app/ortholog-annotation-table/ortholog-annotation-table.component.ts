@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { OrthologAnnotation, GeneShort, ReferenceShort, GeneDetails } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getOrganismExternalLink, ConfigOrganism, getAppConfig, ExternalGeneReference} from '../config';
+         getOrganismExternalLink, ConfigOrganism, getAppConfig, ExternalGeneReference, AppConfig} from '../config';
 import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
@@ -16,6 +16,7 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<OrthologAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
+  appConfig: AppConfig = getAppConfig();
   annotationTypeDisplayName: string = null;
   hideColumn: { [key: string]: boolean } = {};
 
@@ -32,7 +33,7 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
     reference: ReferenceShort;
   }> = [];
 
-  getLink(organism: any, uniquename: string, name: string): string {
+  getLink(organism: ConfigOrganism, uniquename: string, name: string): string {
     return getOrganismExternalLink(organism.genus, organism.species, uniquename, name);
   }
 
