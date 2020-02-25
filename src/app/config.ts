@@ -78,6 +78,8 @@ export interface ConfigOrganism {
   genus: string;
   species: string;
   common_name: string;
+  alternative_names: Array<string>;
+  assembly_version: string;
 }
 
 export interface PanelConfig {
