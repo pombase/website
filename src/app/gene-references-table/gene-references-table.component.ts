@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 import { ReferenceShort, GeneDetails } from '../pombase-api.service';
+import { getAppConfig } from '../config';
 
 @Component({
   selector: 'app-gene-references-table',
@@ -15,6 +16,8 @@ export class GeneReferencesTableComponent implements OnInit, OnChanges {
 
   pubmedSearchUrl: string = null;
   pubmedSearchGeneLabel: string = null;
+
+  appConfig = getAppConfig();
 
   setOrderBy(field: string) {
     this.orderByField = field;
@@ -41,7 +44,12 @@ export class GeneReferencesTableComponent implements OnInit, OnChanges {
       });
 
     let joinedIds = idList.join(' OR ');
-    this.pubmedSearchUrl =
-      `http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=Search&db=pubmed&term=(${joinedIds}) AND (pombe OR fission yeast)`;
+
+    if (this.appConfig.isConfigOrganism(this.geneDetails.taxonid)) {
+      this.pubmedSearchUrl =
+        `http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=Search&db=pubmed&term=(${joinedIds}) AND (pombe OR fission yeast)`;
+    } else {
+      this.pubmedSearchUrl = null;
+    }
   }
 }
