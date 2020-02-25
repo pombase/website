@@ -30,6 +30,8 @@
           <div>{{geneDetails.uniquename}}</div>
           <div class="details-label">Product size</div>
           <div>{{productSize}}</div>
+          <div class="details-label" *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">Organism</div>
+          <div *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">{{organismLongName}}</div>
           <div *ngIf="displayLocation" class="details-label">Genomic location</div>
           <div *ngIf="displayLocation">
             <table class="genomic-location">

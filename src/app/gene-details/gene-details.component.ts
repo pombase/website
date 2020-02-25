@@ -29,6 +29,7 @@ export class GeneDetailsComponent implements OnInit {
   showProteinFeatures = false;
   productSize = '';
   organism: ConfigOrganism = null;
+  organismLongName: string = null;
   jbrowseLinkUrl: string = null;
   sanitizedJBrowseURL: SafeResourceUrl = null;
   extraMenuSections = [
@@ -319,6 +320,7 @@ export class GeneDetailsComponent implements OnInit {
                 !!this.geneDetails.cv_annotations['PomBase family or domain'];
               this.setVisibleSections();
               this.organism = this.appConfig.getOrganismByTaxonid(geneDetails.taxonid);
+              this.organismLongName = this.organism.genus + ' ' + this.organism.species;
               this.apiError = null;
             })
             .catch((error: any) => {
