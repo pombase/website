@@ -149,7 +149,7 @@
     <app-transcript-sequence-select id="transcript-sequence"
                                     [geneDetails]="geneDetails"></app-transcript-sequence-select>
 
-    <app-gene-external-references id="external-refs"
+    <app-gene-external-references *ngIf="appConfig.isConfigOrganism(organism.taxonid)" id="external-refs"
                                   [geneDetails]="geneDetails"></app-gene-external-references>
 
     <app-gene-references-table id="literature"
