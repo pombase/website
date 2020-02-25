@@ -5,7 +5,7 @@
     <app-social-contact [subject]="'Comment or problem report for ' + displayNameLong()"></app-social-contact>
     <div class="details-page-name-and-id">
     <div class="gene-details-name-id">
-    <span class="gene-name" *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">
+    <span class="gene-name" *ngIf="!isConfiguredOrganism">
       <span class="name-id">{{organism.common_name}}</span>
     </span>
     <span *ngIf="geneDetails.name">
@@ -20,18 +20,18 @@
     <div id="gene-summary" class="details-page-summary">
           <div class="details-label">Gene standard name</div>
           <div><span class="gene-name">{{geneDetails.name || ''}}</span></div>
-          <div class="details-label">Characterisation status</div>
-          <div>{{geneDetails.characterisation_status}}</div>
+          <div *ngIf="isConfiguredOrganism" class="details-label">Characterisation status</div>
+          <div *ngIf="isConfiguredOrganism">{{geneDetails.characterisation_status}}</div>
           <div class="details-label">Product</div>
           <div>{{geneDetails.product}}</div>
           <div class="details-label">Feature type</div>
           <div>{{displayFeatureType}}</div>
           <div class="details-label">Systematic ID</div>
           <div>{{geneDetails.uniquename}}</div>
-          <div class="details-label">Product size</div>
-          <div>{{productSize}}</div>
-          <div class="details-label" *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">Organism</div>
-          <div *ngIf="!appConfig.isConfigOrganism(geneDetails.taxonid)">{{organismLongName}}</div>
+          <div *ngIf="productSize.length != 0" class="details-label">Product size</div>
+          <div *ngIf="productSize.length != 0">{{productSize}}</div>
+          <div class="details-label" *ngIf="!isConfiguredOrganism">Organism</div>
+          <div *ngIf="!isConfiguredOrganism">{{organismLongName}}</div>
           <div *ngIf="displayLocation" class="details-label">Genomic location</div>
           <div *ngIf="displayLocation">
             <table class="genomic-location">
@@ -75,8 +75,7 @@
                              [visibleSections]="visibleSections"></app-details-page-menu>
     </div>
 
-    <div class="chromosome-region-view"
-         *ngIf="appConfig.isConfigOrganism(geneDetails.taxonid)">
+    <div class="chromosome-region-view" *ngIf="isConfiguredOrganism">
       <div class="jbrowse-container" *ngIf="getJBrowseIFrameURL()">
         <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
         </iframe>
@@ -115,7 +114,7 @@
                                  [geneDetails]="geneDetails"></app-misc-annotation-table>
 
       <app-transcript-view id="{{annotationTypeName}}"
-                           *ngIf="annotationTypeName == 'transcript_view' && geneDetails?.transcripts.length > 0 && appConfig.isConfigOrganism(geneDetails.taxonid)"
+                           *ngIf="annotationTypeName == 'transcript_view' && geneDetails?.transcripts.length > 0 && isConfiguredOrganism"
                            [transcriptDetails]="geneDetails.transcripts"></app-transcript-view>
 
       <app-protein-features id="{{annotationTypeName}}"
@@ -146,10 +145,10 @@
                                       [annotationTable]="geneDetails.target_of_annotations"></app-target-of-annotation-table>
     </div>
 
-    <app-transcript-sequence-select id="transcript-sequence"
+    <app-transcript-sequence-select *ngIf="isConfiguredOrganism" id="transcript-sequence"
                                     [geneDetails]="geneDetails"></app-transcript-sequence-select>
 
-    <app-gene-external-references *ngIf="appConfig.isConfigOrganism(organism.taxonid)" id="external-refs"
+    <app-gene-external-references *ngIf="isConfiguredOrganism" id="external-refs"
                                   [geneDetails]="geneDetails"></app-gene-external-references>
 
     <app-gene-references-table id="literature"
