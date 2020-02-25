@@ -58,7 +58,7 @@
   </table>
   </div>
 
-  <div class="external-refs" *ngIf="currentGene">
+  <div class="external-refs" *ngIf="currentGene && appConfig.isConfigOrganism(currentGene.taxonid)">
     <div class="title">
       Ortholog prediction resources
 
