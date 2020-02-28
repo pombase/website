@@ -108,6 +108,8 @@ import { AnnotationTableThroughputFilterComponent } from './annotation-table-thr
 import { MotifSearchHelpComponent } from './motif-search-help/motif-search-help.component';
 import { JbrowseTrackPickerComponent } from './jbrowse-track-picker/jbrowse-track-picker.component';
 import { StatsRibbonComponent } from './stats-ribbon/stats-ribbon.component';
+import { AllCvVersionsComponent } from './all-cv-versions/all-cv-versions.component';
+import { InternalDetailsComponent } from './internal-details/internal-details.component';
 
 export function documentFactory() {
     return document;
@@ -196,6 +198,8 @@ export function windowFactory() {
     JbrowseTrackPickerComponent,
     GeneResultsPageComponent,
     StatsRibbonComponent,
+    AllCvVersionsComponent,
+    InternalDetailsComponent,
   ],
   imports: [
     BrowserModule,

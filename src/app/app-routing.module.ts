@@ -17,6 +17,7 @@ import { ReferenceDetailListPageComponent } from './reference-detail-list-page/r
 import { MotifSearchComponent } from './motif-search/motif-search.component';
 import { GeneResultsPageComponent } from './gene-results-page/gene-results-page.component';
 import { QueryResult } from './pombase-query';
+import { InternalDetailsComponent } from './internal-details/internal-details.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -103,6 +104,11 @@ const routes: Routes = [
   },
   { path: 'gene-names',
     loadChildren: () => import('./documentation/documentation.module').then(m => m.DocumentationModule),
+  },
+  { path: 'internal-details', component: InternalDetailsComponent,
+    data: {
+      defaultTitleDetail: 'Internal details'
+    }
   },
   { path: 'query', component: QueryBuilderComponent,
     data: {

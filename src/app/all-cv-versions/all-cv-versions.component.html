@@ -1,0 +1,8 @@
+<div>
+  <ul>
+    <li *ngFor="let cvDetails of metadata.cv_versions | keyvalue">
+      {{cvDetails.key}}: {{cvDetails.value}}
+    </li>
+  </ul>
+
+</div>
