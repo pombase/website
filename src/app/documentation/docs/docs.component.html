@@ -8321,7 +8321,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
-<div class="left-menu-part left-menu-item"><a simplePageScroll href="#quarter-million-annotations">Quarter of a million annotations</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#community-curation-response-rate-reaches">Community curation response rate reaches 50%</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#a-quarter-million-annotations">A quarter of a million annotations</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#query-phenotypes-conditions">Query phenotypes for conditions</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#levures-mod-les-et-outils-th-international-conference">Levures, Modèles et Outils 14th International Conference</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-elixir-node-service">PomBase is now an ELIXIR Node Service</a></div>
@@ -9521,23 +9522,36 @@ Please sign the letter to add your voice in support of the databases that help m
 
   </div>
   <div *ngIf="pageName == 'quarter_million'">
-<h3 id="quarter-of-a-million-annotations">Quarter of a million annotations</h3>
+<h3 id="a-quarter-of-a-million-annotations">A quarter of a million annotations</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: quarter_mill.png -->
-<p>PomBase recently reached 250,000 annotations to controlled vocabularies and ontologies. The majority, (over 90%) are assigned manually from fission yeast experimental data derived from 3776, mainly low-throughput, hypothesis-driven publications.</p>
-<p>You can query and combine any of these data types in the <a href="https://www.pombase.org/query">Advanced search tool</a>.</p>
+<p>PomBase recently reached 250,000 annotations to controlled vocabularies and ontologies. The majority (over 90%) are assigned manually from fission yeast experimental data derived from 3776 publications, most of which report low-throughput, hypothesis-driven experiments.</p>
+<p>You can query and combine any of these data types in the <a href="https://www.pombase.org/query">Advanced search</a>.</p>
 <p>Thank you to everyone who contributed to this significant achievement through community curation.</p>
+
+  </div>
+  <div *ngIf="pageName == '50_percent'">
+<h3 id="community-curation-response-rate-reaches-50">Community curation response rate reaches 50%</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: canto.png -->
+<p>789/1587 publications assigned to community members for curation are finished. A big thank you to everyone who has participated so far. For more details, and all our curation metrics, see https://curation.pombase.org/pombe/stats/annotation</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
 <div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
+<h3 id="community-curation-response-rate-reaches">Community curation response rate reaches 50%</h3>
+<p><em>2020-02-28</em></p>
+<p>789/1587 publications assigned to community members for curation are finished. A big thank you to everyone who has participated so far. For more details, and all our curation metrics, see https://curation.pombase.org/pombe/stats/annotation</p>
+</div>
+<div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/quarter_mill.png"/></p>
-<h3 id="quarter-million-annotations">Quarter of a million annotations</h3>
+<h3 id="a-quarter-million-annotations">A quarter of a million annotations</h3>
 <p><em>2020-02-20</em></p>
-<p>PomBase recently reached 250,000 annotations to controlled vocabularies and ontologies. The majority, (over 90%) are assigned manually from fission yeast experimental data derived from 3776, mainly low-throughput, hypothesis-driven publications.</p>
-<p>You can query and combine any of these data types in the <a href="https://www.pombase.org/query">Advanced search tool</a>.</p>
+<p>PomBase recently reached 250,000 annotations to controlled vocabularies and ontologies. The majority (over 90%) are assigned manually from fission yeast experimental data derived from 3776 publications, most of which report low-throughput, hypothesis-driven experiments.</p>
+<p>You can query and combine any of these data types in the <a href="https://www.pombase.org/query">Advanced search</a>.</p>
 <p>Thank you to everyone who contributed to this significant achievement through community curation.</p>
 </div>
 <div class="news-item">
