@@ -1,4 +1,4 @@
-### Quarter of a million annotations
+### A quarter of a million annotations
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: quarter_mill.png -->
 
