@@ -8321,6 +8321,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-uses-interpro-version">PomBase now uses InterPro Version 77</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#community-curation-response-rate-reaches">Community curation response rate reaches 50%</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#a-quarter-million-annotations">A quarter of a million annotations</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#query-phenotypes-conditions">Query phenotypes for conditions</a></div>
@@ -9537,9 +9538,22 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>789/1587 publications assigned to community members for curation are finished. A big thank you to everyone who has participated so far. For more details, and all our curation metrics, see https://curation.pombase.org/pombe/stats/annotation</p>
 
   </div>
+  <div *ngIf="pageName == 'interpro-v77'">
+<h3 id="pombase-now-uses-interpro-version-77">PomBase now uses InterPro Version 77</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: interpro_32px.png -->
+<p>PomBase now uses InterPro Version 77.0, which integrates 145 new methods from the CATH-Gene3D (134), and SUPERFAMILY (11) databases. InterPro cites 59894 publications in PubMed. See the InterPro <a href="https://www.ebi.ac.uk/interpro/release_notes/">release notes</a> for further information.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-now-uses-interpro-version">PomBase now uses InterPro Version 77</h3>
+<p><em>2020-03-01</em></p>
+<p>PomBase now uses InterPro Version 77.0, which integrates 145 new methods from the CATH-Gene3D (134), and SUPERFAMILY (11) databases. InterPro cites 59894 publications in PubMed. See the InterPro <a href="https://www.ebi.ac.uk/interpro/release_notes/">release notes</a> for further information.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
 <h3 id="community-curation-response-rate-reaches">Community curation response rate reaches 50%</h3>
