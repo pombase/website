@@ -27,7 +27,7 @@ export class ReferenceDetailsComponent implements OnInit {
   apiError: APIError = null;
   cantoCommunityCuratorName: string = null;
   cantoTriageStatus: string = 'UNKNOWN';
-  refAnnotationStatus: null | 'has-annotations' | 'not-curated' | 'no-annotation' = null;
+
   multiOrgMode = getAppConfig().isMultiOrganismMode();
   graphicalAbstractImagePath: string = null;
   videoPath: string = null;
@@ -55,6 +55,7 @@ export class ReferenceDetailsComponent implements OnInit {
   }
 
   setCantoFields(): void {
+    this.cantoCommunityCuratorName = null;
     if (this.refDetails.canto_curator_role &&
         this.refDetails.canto_curator_role === 'community' &&
         this.refDetails.canto_curator_name) {
@@ -137,16 +138,15 @@ export class ReferenceDetailsComponent implements OnInit {
 
   setGraphicalAbstract(): void {
     this.graphicalAbstractImagePath = null;
+    this.videoPath = null;
     for (const panelConf of this.appConfig.frontPagePanels) {
       if (panelConf.panel_type === 'spotlight' && panelConf.head_image &&
           panelConf.reference_id && panelConf.reference_id === this.refDetails.uniquename) {
         const selectedPath = Util.randElement(panelConf.head_image);
         if (selectedPath.endsWith('.mp4')) {
           this.videoPath = selectedPath;
-          this.graphicalAbstractImagePath = null;
         } else {
           this.graphicalAbstractImagePath = selectedPath;
-          this.videoPath = null;
         }
       }
     }
@@ -158,6 +158,7 @@ export class ReferenceDetailsComponent implements OnInit {
         let uniquename = params['uniquename'];
         this.pombaseApiService.getReference(uniquename)
           .then(refDetails => {
+            this.apiError = null;
             this.refDetails = refDetails;
             this.annotationTypeNames = this.config.annotationTypeOrder;
             let re = /(PMID):(\d+)/i;
@@ -165,11 +166,14 @@ export class ReferenceDetailsComponent implements OnInit {
             if (matches) {
               this.isPubMedRef = true;
               this.pubMedId = matches[2];
+            } else {
+              this.isPubMedRef = false;
+              this.pubMedId = null;
             }
             this.setPageTitle();
             this.setCantoFields();
             this.setVisibleSections();
-            this.apiError = null;
+
             this.setGraphicalAbstract();
             if (refDetails.doi) {
               this.doiUrl = getXrfWithPrefix('DOI', refDetails.doi).url;
