@@ -148,7 +148,7 @@
             because it hasn't been curated yet.  Please
             <app-contact-email [linkName]="'contact the curators'"
                                [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
-            if you want to contribute annotations for this paper.
+            if you want to contribute annotations <span *ngIf="hasPossibleBrowserTracks()">or high throughput datasets</span> for this paper.
         </div>
 
       </div>
