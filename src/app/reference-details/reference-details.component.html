@@ -79,7 +79,7 @@
 
   <div>
     <div class="annotations-section-header">
-      <div *ngIf="cantoTriageStatus == 'Curatable'">
+      <div *ngIf="isCuratable()">
 
         <div *ngIf="hasAnnotations()">
 
@@ -152,8 +152,9 @@
         </div>
 
       </div>
+    </div>
 
-      <div *ngIf="cantoTriageStatus != 'Curatable'">
+    <div *ngIf="!isCuratable() && !hasAnnotations() && !hasBrowserTracks()">
         <span>
           This publication has no
           annotations in {{siteName}} because
@@ -169,7 +170,6 @@
         individual genes, or cannot be represented by currently
         available annotation types.
         </span>
-     </div>
     </div>
   </div>
 

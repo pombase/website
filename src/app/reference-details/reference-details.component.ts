@@ -112,6 +112,15 @@ export class ReferenceDetailsComponent implements OnInit {
     }
   }
 
+  isCuratable(): boolean {
+    return !!this.cantoTriageStatus && (this.cantoTriageStatus == 'Curatable' ||
+      this.hasPossibleBrowserTracks());
+  }
+
+  hasPossibleBrowserTracks(): boolean {
+    return this.appConfig.canto_data_config.browser_track_triage_types.includes(this.cantoTriageStatus);
+  }
+
   hasBrowserTracks(): boolean {
     return getJBrowseTracksByPMID(this.refDetails.uniquename).length > 0;
   }
