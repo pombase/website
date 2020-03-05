@@ -155,11 +155,16 @@ export interface TargetOfConfig {
   };
 }
 
+export interface CantaDataConfig {
+  browser_track_triage_types: Array<string>;
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
   load_organism_taxonid: number;
   helpdesk_address: string;
+  canto_data_config: CantaDataConfig;
   organisms: Array<ConfigOrganism>;
   ortholog_taxonids: Array<number>;
   targetOfConfig: TargetOfConfig;
@@ -603,6 +608,7 @@ let _appConfig: AppConfig = {
   site_description: pombaseConfig.site_description,
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
   helpdesk_address: pombaseConfig.helpdesk_address,
+  canto_data_config: pombaseConfig.canto_data_config,
   organisms: pombaseConfig.organisms,
   ortholog_taxonids: pombaseConfig.ortholog_taxonids,
   targetOfConfig: pombaseConfig.target_of_config,
