@@ -18,7 +18,7 @@
         </div>
         </div>
         <div class="field-column">
-        <div *ngIf="false && !deployConfigService.productionMode()">
+        <div *ngIf="!deployConfigService.productionMode()">
         <div *ngFor="let fieldConf of fieldsForServer">
           <input id="name" type="checkbox" [(ngModel)]="selectedFields[fieldConf.name]"
                  (ngModelChange)="fieldChange(fieldConf)"/>

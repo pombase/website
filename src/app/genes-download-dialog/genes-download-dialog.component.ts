@@ -46,7 +46,7 @@ export class GenesDownloadDialogComponent implements OnInit {
               public bsModalRef: BsModalRef,
               public deployConfigService: DeployConfigService) {
     this.summaryPromise = this.pombaseApiService.getGeneSummaryMapPromise();
-    if (false && !deployConfigService.productionMode()) {
+    if (!deployConfigService.productionMode()) {
       this.fieldsForServer = getAppConfig().getGeneResultsConfig().visualisation.columns
         .filter(conf => conf.column_type !== 'ortholog');
     }
