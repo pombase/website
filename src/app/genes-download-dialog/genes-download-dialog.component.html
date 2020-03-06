@@ -17,16 +17,25 @@
           <label for="name">{{fieldName}}</label>
         </div>
         </div>
-        <div *ngIf="false && !deployConfigService.productionMode()" class="field-column">
+        <div class="field-column">
+        <div *ngIf="false && !deployConfigService.productionMode()">
         <div *ngFor="let fieldConf of fieldsForServer">
           <input id="name" type="checkbox" [(ngModel)]="selectedFields[fieldConf.name]"
                  (ngModelChange)="fieldChange(fieldConf)"/>
           <label for="name">{{fieldConf.display_name}}</label>
         </div>
+        </div>
+
         <div class="select-actions">
-        <a (click)="selectAll()">Select all ...</a>
+          <div>
+            <a (click)="selectAll()">Select all</a>
+          </div>
+          <div>
+            <a (click)="resetSelection()">Reset selection</a>
+          </div>
         </div>
         </div>
+
         </div>
       </tab>
 

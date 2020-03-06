@@ -7,7 +7,7 @@ import { TabsetComponent, TabDirective } from 'ngx-bootstrap';
 import { GeneQuery, GeneListNode, QueryOutputOptions, FormatUtils,
          FormatTypes, ResultRow} from '../pombase-query';
 import { QueryService } from '../query.service';
-import { getAppConfig, AppConfig } from '../config';
+import { getAppConfig, AppConfig, VisColumnConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
 import { GeneShort, GeneSummary, PombaseAPIService, GeneSummaryMap } from '../pombase-api.service';
@@ -38,9 +38,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   summaryPromise: Promise<GeneSummaryMap> = null;
 
-  fieldsForServer =
-    getAppConfig().getGeneResultsConfig().visualisation.columns
-    .filter(conf => conf.column_type !== 'ortholog');
+  fieldsForServer: Array<VisColumnConfig> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
@@ -48,6 +46,10 @@ export class GenesDownloadDialogComponent implements OnInit {
               public bsModalRef: BsModalRef,
               public deployConfigService: DeployConfigService) {
     this.summaryPromise = this.pombaseApiService.getGeneSummaryMapPromise();
+    if (false && !deployConfigService.productionMode()) {
+      this.fieldsForServer = getAppConfig().getGeneResultsConfig().visualisation.columns
+        .filter(conf => conf.column_type !== 'ortholog');
+    }
   }
 
   private currentTab(): string {
@@ -66,6 +68,13 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   selectAll() {
     this.fieldNames.map(name => this.selectedFields[name] = true);
+    this.fieldsForServer.map(fieldConf => this.selectedFields[fieldConf.name] = true);
+  }
+
+  resetSelection() {
+    this.selectedFields = {};
+    this.settingsService.visibleGenesTableColumns
+      .map(fieldName => this.selectedFields[fieldName] = true);
   }
 
   fieldChange(fieldName: string) {
@@ -231,7 +240,6 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.settingsService.visibleGenesTableColumns
-      .map(fieldName => this.selectedFields[fieldName] = true);
+    this.resetSelection();
   }
 }
