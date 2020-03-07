@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { GeneSummary } from './pombase-api.service';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
