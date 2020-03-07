@@ -7,6 +7,8 @@ import { getAppConfig } from './config';
 
 const localStorageKey = 'pombase-query-build-history-v1';
 
+const QUERY_CACHE_MAX = 10;
+
 export class HistoryEntry {
   checked = false;
   private updatedCount: number = null;
@@ -177,13 +179,37 @@ export class QueryService {
       });
   }
 
+  private queryCache: Array<[string, QueryResult]> = [];
+
+  getFromCache(id: string): QueryResult {
+   for (const [cachedId, queryResult] of this.queryCache) {
+     if (id === cachedId) {
+       return queryResult;
+     }
+   }
+   return null;
+  }
+
+  addToCache(id: string, queryResult: QueryResult): void {
+    if (this.queryCache.length > QUERY_CACHE_MAX) {
+      this.queryCache.shift();
+    }
+    this.queryCache.push([id, queryResult]);
+  }
+
   execById(id: string, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
+    const cachedQueryResult = this.getFromCache(id);
+    if (cachedQueryResult) {
+      this.saveResultsToHistory(cachedQueryResult)
+      return Promise.resolve(cachedQueryResult);
+    }
     let query = this.historyEntryById(id);
     if (!query) {
       query = new GeneQuery(null, new QueryIdNode(id));
     }
     return this.postQuery(query, outputOptions)
       .then((result: QueryResult) => {
+        this.addToCache(id, result);
         this.saveResultsToHistory(result);
         return result;
       });
