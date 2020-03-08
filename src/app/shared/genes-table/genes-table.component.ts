@@ -230,7 +230,7 @@ export class GenesTableComponent implements OnInit {
     }
 
     let geneBit = `${this.genes.length} gene`;
-    if (this.genes.length != 1) {
+    if (this.genes.length !== 1) {
       geneBit += 's';
     }
 

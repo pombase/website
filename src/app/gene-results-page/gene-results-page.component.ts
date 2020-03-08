@@ -14,7 +14,7 @@ import { getAppConfig } from '../config';
 })
 export class GeneResultsPageComponent implements OnInit, OnDestroy {
   results: QueryResult = null;
-  showLoading: boolean = true;
+  showLoading = true;
   timerSubscription: Subscription = null;
   mode: string;
   err: string = null;

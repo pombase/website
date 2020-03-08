@@ -228,7 +228,7 @@ function conditionsEqual(conditions1: Array<TermAndName>, conditions2: Array<Ter
   if (!conditions1 || !conditions2) {
     return false;
   }
-  if (conditions1.length != conditions2.length) {
+  if (conditions1.length !== conditions2.length) {
     return false;
   }
 
@@ -315,7 +315,7 @@ export class TermNode extends GeneQueryNode {
   }
 
   private getConditionsString(): string {
-    if (!this.conditions || this.conditions.length == 0) {
+    if (!this.conditions || this.conditions.length === 0) {
       return null;
     }
     return this.conditions
@@ -404,7 +404,7 @@ function rangeToString(rangeNode: RangeNode) {
     if (!rangeNode.rangeStart) {
       returnVal += '(\u2264' + rangeNode.rangeEnd + ')';
     } else {
-      if (rangeNode.rangeStart == rangeNode.rangeEnd) {
+      if (rangeNode.rangeStart === rangeNode.rangeEnd) {
         returnVal += '(' + rangeNode.rangeStart + ')';
       } else {
         returnVal += '(' + rangeNode.rangeStart + '..' + rangeNode.rangeEnd + ')';
@@ -539,7 +539,7 @@ export class QueryIdNode extends GeneQueryNode {
   }
 
   equals(obj: GeneQueryNode): boolean {
-    return obj instanceof QueryIdNode && obj.id == this.id;
+    return obj instanceof QueryIdNode && obj.id === this.id;
   }
 }
 
@@ -590,16 +590,16 @@ export class GeneQuery {
                           val['conditions']);
 
     case 'or':
-    case 'and':
+    case 'and': {
       const parts = (val as Array<GeneQueryNode>).map((json: any) => this.nodeFromObj(json));
       return new GeneBoolNode(nodeType, parts);
-
+    }
     case 'not':
       if (val instanceof Array) {
         const parts = (val as Array<GeneQueryNode>).map((json: any) => this.nodeFromObj(json));
         return new GeneBoolNode(nodeType, parts);
       } else {
-        const parts = (val as {node_a: any; node_b: any;});
+        const parts = (val as { node_a: any; node_b: any; });
         const jsonA = parts['node_a'];
         const jsonB = parts['node_b'];
         const nodes = [this.nodeFromObj(jsonA), this.nodeFromObj(jsonB)];

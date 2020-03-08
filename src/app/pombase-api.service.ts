@@ -28,7 +28,7 @@ export class Metadata {
   cv_versions: { [cv_name: string]: string };
 }
 
-export interface StatCountsByTaxon{
+export interface StatCountsByTaxon {
   genes: number;
   annotations: number;
 }

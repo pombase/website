@@ -14,7 +14,7 @@ export class StatsRibbonComponent implements OnInit {
   stats: DatabaseStatistics = null;
   organismStats: StatCountsByTaxon = null;
   configOrganism: ConfigOrganism = null;
-  curatedPublicationsCount: number = 0;
+  curatedPublicationsCount = 0;
   dbCreationDate: string = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
@@ -26,7 +26,7 @@ export class StatsRibbonComponent implements OnInit {
     this.pombaseApiService.getMetadata()
       .then(metadata => {
         this.metadata = metadata;
-        this.dbCreationDate = metadata.db_creation_datetime.split(" ")[0];
+        this.dbCreationDate = metadata.db_creation_datetime.split(' ')[0];
       });
 
     this.pombaseApiService.getStatistics()

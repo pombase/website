@@ -10,18 +10,18 @@ const localStorageKey = 'pombase-query-build-history-v1';
 const QUERY_CACHE_MAX = 10;
 
 export class HistoryEntry {
-  checked = false;
-  private updatedCount: number = null;
 
   // assign internal IDs where they are missing/null
   static internalIdCounter = 1;
+  checked = false;
+  private updatedCount: number = null;
 
   constructor(private id: string, private query: GeneQuery, private resultCount: number,
     private creationStamp: number = null) {
     if (!this.id) {
       this.id = String(HistoryEntry.internalIdCounter++);
     }
-  };
+  }
 
   isNewEntry(): boolean {
     return this.creationStamp != null &&
@@ -68,6 +68,8 @@ export class QueryService {
 
   private history: Array<HistoryEntry> = [];
   private subject: BehaviorSubject<Array<HistoryEntry>> = null;
+
+  private queryCache: Array<[string, QueryResult]> = [];
 
   constructor(private http: HttpClient) {
     try {
@@ -178,8 +180,6 @@ export class QueryService {
         return result;
       });
   }
-
-  private queryCache: Array<[string, QueryResult]> = [];
 
   getFromCache(id: string): QueryResult {
    for (const [cachedId, queryResult] of this.queryCache) {

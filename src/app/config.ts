@@ -680,7 +680,7 @@ let _appConfig: AppConfig = {
   },
 
   isConfigOrganism(taxonid: number): boolean {
-    return taxonid == this.load_organism_taxonid;
+    return taxonid === this.load_organism_taxonid;
   },
 
   getConfigOrganism(): ConfigOrganism {

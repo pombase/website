@@ -26,7 +26,7 @@ export class ReferenceDetailsComponent implements OnInit {
   pubMedId: string = null;
   apiError: APIError = null;
   cantoCommunityCuratorName: string = null;
-  cantoTriageStatus: string = 'UNKNOWN';
+  cantoTriageStatus = 'UNKNOWN';
 
   multiOrgMode = getAppConfig().isMultiOrganismMode();
   graphicalAbstractImagePath: string = null;
@@ -113,7 +113,7 @@ export class ReferenceDetailsComponent implements OnInit {
   }
 
   isCuratable(): boolean {
-    return !!this.cantoTriageStatus && (this.cantoTriageStatus == 'Curatable' ||
+    return !!this.cantoTriageStatus && (this.cantoTriageStatus === 'Curatable' ||
       this.hasPossibleBrowserTracks());
   }
 

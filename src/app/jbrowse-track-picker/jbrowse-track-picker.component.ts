@@ -83,7 +83,7 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
   }
 
   loadButtonDisabled(): boolean {
-    return this.selectedCount() == 0;
+    return this.selectedCount() === 0;
   }
 
   selectCheckboxesDisabled(): boolean {

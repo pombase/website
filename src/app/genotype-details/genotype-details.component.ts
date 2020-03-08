@@ -31,7 +31,7 @@ export class GenotypeDetailsComponent implements OnInit {
               private readonly meta: Meta) { }
 
   displayNameLong(): string {
-    return Util.displayNameLong(this.genotypeDetails);;
+    return Util.displayNameLong(this.genotypeDetails);
   }
 
   setDisplayName(): void {

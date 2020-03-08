@@ -101,10 +101,12 @@ import { RouterNotFoundHandlerComponent } from './router-not-found-handler/route
 import { StatisticsComponent } from './statistics/statistics.component';
 import { MotifSearchComponent } from './motif-search/motif-search.component';
 import { InteractionTableFiltersComponent } from './interaction-table-filters/interaction-table-filters.component';
-import { InteractionTableThroughputFilterComponent } from './interaction-table-throughput-filter/interaction-table-throughput-filter.component';
+import { InteractionTableThroughputFilterComponent }
+   from './interaction-table-throughput-filter/interaction-table-throughput-filter.component';
 import { GenesTableConfigComponent } from './genes-table-config/genes-table-config.component';
 import { ExternalRefsTableComponent } from './external-refs-table/external-refs-table.component';
-import { AnnotationTableThroughputFilterComponent } from './annotation-table-throughput-filter/annotation-table-throughput-filter.component';
+import { AnnotationTableThroughputFilterComponent }
+   from './annotation-table-throughput-filter/annotation-table-throughput-filter.component';
 import { MotifSearchHelpComponent } from './motif-search-help/motif-search-help.component';
 import { JbrowseTrackPickerComponent } from './jbrowse-track-picker/jbrowse-track-picker.component';
 import { StatsRibbonComponent } from './stats-ribbon/stats-ribbon.component';

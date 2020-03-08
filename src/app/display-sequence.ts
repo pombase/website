@@ -143,8 +143,7 @@ export class DisplaySequence {
   }
 
   rangeFromParts(startPartId: number, startPartOffset: number,
-                 endPartId: number, endPartOffset: number): ResidueRange
-  {
+                 endPartId: number, endPartOffset: number): ResidueRange {
     let residuesSoFar = 0;
     let startPos = -1;
 
