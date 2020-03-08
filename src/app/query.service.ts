@@ -69,7 +69,7 @@ export class QueryService {
   private history: Array<HistoryEntry> = [];
   private subject: BehaviorSubject<Array<HistoryEntry>> = null;
 
-  private queryCache: Array<[string, QueryResult]> = [];
+  private queryCache: Array<QueryResult> = [];
 
   constructor(private http: HttpClient) {
     try {
@@ -152,6 +152,7 @@ export class QueryService {
   }
 
   saveResultsToHistory(result: QueryResult): HistoryEntry {
+    this.addToResultCache(result);
     const query = result.getQuery();
     this.deleteExisting(query);
     const entry = new HistoryEntry(result.getId(), query, result.getRowCount(),
@@ -182,19 +183,19 @@ export class QueryService {
   }
 
   getFromCache(id: string): QueryResult {
-   for (const [cachedId, queryResult] of this.queryCache) {
-     if (id === cachedId) {
-       return queryResult;
+   for (const cachedQueryResult of this.queryCache) {
+     if (id === cachedQueryResult.getId()) {
+       return cachedQueryResult;
      }
    }
    return null;
   }
 
-  addToCache(id: string, queryResult: QueryResult): void {
+  addToResultCache(queryResult: QueryResult): void {
     if (this.queryCache.length > QUERY_CACHE_MAX) {
       this.queryCache.shift();
     }
-    this.queryCache.push([id, queryResult]);
+    this.queryCache.push(queryResult);
   }
 
   execById(id: string, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
@@ -209,7 +210,6 @@ export class QueryService {
     }
     return this.postQuery(query, outputOptions)
       .then((result: QueryResult) => {
-        this.addToCache(id, result);
         this.saveResultsToHistory(result);
         return result;
       });
