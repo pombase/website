@@ -89,7 +89,7 @@ export class QueryService {
         };
 
         let timer = TimerObservable.create(0.2);
-        timer.subscribe(t => {
+        timer.subscribe(() => {
           this.setAllCounts();
         });
       }
@@ -242,7 +242,7 @@ export class QueryService {
         const query = histEntry.getQuery();
 
         let timer = TimerObservable.create(delay);
-        const subscription = timer.subscribe(t => {
+        const subscription = timer.subscribe(() => {
           this.postQueryCount(query)
             .then((res) => {
               histEntry.setUpdatedCount(res.getRowCount());

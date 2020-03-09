@@ -70,7 +70,7 @@ export class GenesTableComponent implements OnInit {
               private router: Router) {
     this.slimNames = this.geneResultConfig.slim_table_slim_names;
 
-    this.visibleFieldNames = settingsService.visibleGenesTableColumns;
+    this.visibleFieldNames = this.settingsService.visibleGenesTableColumns;
 
     this.columnsSubscription =
       settingsService.visibleGenesTableColumns$.subscribe(visbleColumns => this.visibleFieldNames = visbleColumns);
