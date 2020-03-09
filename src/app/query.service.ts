@@ -7,7 +7,7 @@ import { getAppConfig } from './config';
 
 const localStorageKey = 'pombase-query-build-history-v1';
 
-const QUERY_CACHE_MAX = 10;
+const QUERY_CACHE_MAX = 20;
 
 export class HistoryEntry {
 
