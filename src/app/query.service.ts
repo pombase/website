@@ -192,6 +192,9 @@ export class QueryService {
   }
 
   addToResultCache(queryResult: QueryResult): void {
+    if (this.getFromCache(queryResult.getId()) !== null) {
+      return;
+    }
     if (this.queryCache.length > QUERY_CACHE_MAX) {
       this.queryCache.shift();
     }
