@@ -101,10 +101,7 @@
               if you would like to contribute to its full curation.
             </div>
             <div *ngIf="!isAdminSession()">
-              Community curation is in progress for this paper.  Please
-              <app-contact-email [linkName]="'contact the curators'"
-                                 [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
-              if you would like to suggest annotations from it.
+              This session is assigned to one of the authors for community curation.
             </div>
           </div>
 
@@ -135,10 +132,7 @@
                 if you want to contribute annotations for this paper.
               </div>
               <div *ngIf="!isAdminSession()">
-                Community curation is in progress for this paper.  Please
-                <app-contact-email [linkName]="'contact the curators'"
-                                   [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
-                if you would like to suggest annotations from it.
+                This session is assigned to one of the authors for community curation.
               </div>
             </div>
           </div>
