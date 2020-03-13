@@ -74,11 +74,28 @@ export class GenesTableComponent implements OnInit {
     this.visibleFieldNames = this.settingsService.visibleGenesTableFieldNames;
   }
 
+  private cleanResult(result: Array<DisplayResultRow>) {
+    for (let row of result) {
+      for (const fieldName of this.visibleFieldNames) {
+        if (!this.sortableField(fieldName)) {
+          const rawValue = row[fieldName];
+          if (rawValue.indexOf(',') !== -1) {
+            const htmlValue = rawValue.replace(/,/g, ',&#8203;');
+            row[fieldName] = this.sanitizer.bypassSecurityTrustHtml(htmlValue);
+          }
+        }
+      }
+    }
+  }
+
   updateDisplayGenes(): void {
     this.loading = true;
     if (this.genes) {
       this.queryService.queryGenesWithFields(this.genes.map(gene => gene.uniquename), this.visibleFieldNames)
-        .then(result => this.displayGenes = result)
+        .then(result => {
+          this.cleanResult(result);
+          this.displayGenes = result;
+        })
         .finally(() => this.loading = false);
     }
   }
@@ -204,16 +221,6 @@ export class GenesTableComponent implements OnInit {
 
   showingSlim(): boolean {
     return this.mode.startsWith('slim');
-  }
-
-  displayFieldValue (row: DisplayResultRow, fieldName: string): string|SafeHtml {
-    const rawValue = row[fieldName];
-    if (fieldName.endsWith(' ortholog') && rawValue.indexOf(',') !== -1) {
-      const htmlValue = rawValue.replace(/,/g , ',&#8203;');
-      return this.sanitizer.bypassSecurityTrustHtml(htmlValue);
-    } else {
-      return rawValue;
-    }
   }
 
   ngOnInit() {

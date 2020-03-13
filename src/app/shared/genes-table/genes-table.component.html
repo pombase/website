@@ -135,7 +135,7 @@
             </ng-container>
           </div>
           <div *ngIf="!sortableField(fieldName)">
-            <span [innerHtml]="displayFieldValue(gene, fieldName)"></span>
+            <span [innerHtml]="gene[fieldName]"></span>
           </div>
         </td>
       </tr>
