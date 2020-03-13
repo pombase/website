@@ -181,6 +181,13 @@ export class QueryService {
       });
   }
 
+  execNoSave(query: GeneQuery, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
+    return this.postQuery(query, outputOptions)
+      .then((result: QueryResult) => {
+        return result;
+      });
+  }
+
   exec(query: GeneQuery, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
     return this.postQuery(query, outputOptions)
       .then((result: QueryResult) => {
@@ -245,7 +252,7 @@ export class QueryService {
     } else {
       const query = GeneQuery.fromGeneUniquenames(null, geneUniquenames);
       const options = new QueryOutputOptions(['gene_uniquename', ...fieldsForServer], [], 'none');
-      queryPromise = this.exec(query, options);
+      queryPromise = this.execNoSave(query, options);
     }
 
     const queryResults = await queryPromise;
