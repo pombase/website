@@ -2,8 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode } from './pombase-query';
+import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode, GeneUniquename } from './pombase-query';
 import { getAppConfig } from './config';
+import { PombaseAPIService, GeneSummaryMap, GeneSummary } from './pombase-api.service';
+
+export interface DisplayResultRow {
+  uniquename: string;
+  [fieldName: string]: any;
+}
 
 const localStorageKey = 'pombase-query-build-history-v1';
 
@@ -71,7 +77,8 @@ export class QueryService {
 
   private queryCache: Array<QueryResult> = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private pombaseApiService: PombaseAPIService,
+              private http: HttpClient) {
     try {
       let savedHistoryString = localStorage.getItem(localStorageKey);
       if (savedHistoryString) {
@@ -216,6 +223,27 @@ export class QueryService {
         this.saveResultsToHistory(result);
         return result;
       });
+  }
+
+  queryGenesWithFields(geneUniquenames: Array<GeneUniquename>,
+                       fieldNames: Array<string>): Promise<Array<DisplayResultRow>>
+  {
+     return this.pombaseApiService.getGeneSummaryMapPromise()
+      .then(
+        (geneSummaryMap: GeneSummaryMap) =>
+          geneUniquenames.map(geneUniquename => {
+            const geneSummary = geneSummaryMap[geneUniquename];
+            const displayRow: any = { };
+
+            displayRow['uniquename'] = geneSummary.uniquename;
+
+            for (const fieldName of fieldNames) {
+              displayRow[fieldName] = geneSummary.getFieldDisplayValue(fieldName);
+            }
+
+            return displayRow as DisplayResultRow;
+          })
+      );
   }
 
   getHistory(): Array<HistoryEntry> {

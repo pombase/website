@@ -14,7 +14,11 @@ export class Util {
       if (gene2.name) {
         return 1;
       } else {
-        return gene1.uniquename.localeCompare(gene2.uniquename);
+        if (gene1.uniquename && gene2.uniquename) {
+          return gene1.uniquename.localeCompare(gene2.uniquename);
+        } else {
+          return 0;
+        }
       }
     }
   }
@@ -30,7 +34,7 @@ export class Util {
       if (gene2.product) {
         return 1;
       } else {
-        return this.geneCompare(gene1, gene2);
+        return Util.geneCompare(gene1, gene2);
       }
     }
   }

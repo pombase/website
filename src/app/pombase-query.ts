@@ -164,14 +164,14 @@ export class GeneBoolNode extends GeneQueryNode {
 export class GeneListNode extends GeneQueryNode {
   genes: Array<GeneShort>;
 
-  constructor(public arg: Array<GeneShort> | Array<GeneUniquename>) {
+  constructor(public arg: Array<{ uniquename: string }> | Array<GeneUniquename>) {
     super();
 
     this.genes = [];
 
     for (let argElement of arg) {
       if (typeof(argElement) === 'object') {
-        this.genes.push(GeneShort.fromGeneShort(argElement));
+        this.genes.push({ uniquename: argElement.uniquename, name: null });
       } else {
         this.genes.push({ uniquename: argElement, name: null });
       }

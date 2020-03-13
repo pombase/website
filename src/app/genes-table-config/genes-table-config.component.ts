@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
 import { SettingsService } from '../settings.service';
 import { GeneSummary } from '../pombase-api.service';
+import { getAppConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-genes-table-config',
@@ -10,35 +12,34 @@ import { GeneSummary } from '../pombase-api.service';
 })
 export class GenesTableConfigComponent implements OnInit {
 
-  fieldNames = GeneSummary.getDisplayFieldNames();
+  genesTableFields = getAppConfig().getGeneResultsConfig().geneTableFields;
 
-  selectedFields: { [key: string]: boolean } = {};
+  selectedFieldNames: { [key: string]: boolean } = {};
 
   constructor(public bsModalRef: BsModalRef,
-              private settingService: SettingsService) {
-    settingService.visibleGenesTableColumns
-      .map(fieldName => this.selectedFields[fieldName] = true);
+              private settingService: SettingsService,
+              public deployConfigService: DeployConfigService) {
+    settingService.visibleGenesTableFieldNames
+      .map(fieldName => this.selectedFieldNames[fieldName] = true);
   }
 
   apply(): void {
-    this.settingService.visibleGenesTableColumns = this.selectedFieldNames();
+    this.settingService.visibleGenesTableFieldNames = this.getSelectedFieldNames();
     this.bsModalRef.hide()
   }
 
   fieldChange(fieldName: string): void {
-    const selectedFields = this.selectedFieldNames();
-
-    if (selectedFields.length === 0) {
-      if (fieldName === 'Systematic ID') {
-        this.selectedFields['Gene name'] = true;
+    if (this.getSelectedFieldNames().length === 0) {
+      if (fieldName === 'uniquename') {
+        this.selectedFieldNames['name'] = true;
       } else {
-        this.selectedFields['Systematic ID'] = true;
+        this.selectedFieldNames['uniquename'] = true;
       }
     }
   }
 
-  private selectedFieldNames(): Array<string> {
-    return this.fieldNames.filter(name => this.selectedFields[name]);
+  private getSelectedFieldNames(): Array<string> {
+    return Object.keys(this.selectedFieldNames).filter(name => this.selectedFieldNames[name]);
   }
 
   ngOnInit(): void {

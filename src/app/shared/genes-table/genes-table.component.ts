@@ -6,9 +6,9 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { GeneSummary } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
-import { QueryService, HistoryEntry } from '../../query.service';
+import { QueryService, HistoryEntry, DisplayResultRow } from '../../query.service';
 import { GeneQuery, GeneListNode, TermAndName } from '../../pombase-query';
-import { getAppConfig } from '../../config';
+import { getAppConfig, GeneResultsFieldConfig } from '../../config';
 import { DeployConfigService } from '../../deploy-config.service';
 import { GenesTableConfigComponent } from '../../genes-table-config/genes-table-config.component';
 import { SettingsService } from '../../settings.service';
@@ -35,18 +35,15 @@ export class GenesTableComponent implements OnInit {
 
   faCog = faCog;
 
-  orderByField = 'gene';
-  orderByFieldDisplayName = 'Gene name';
+  orderByFieldName = 'name';
   downloadModalRef: BsModalRef = null;
   selectedCountCache = -1;
 
   slimName: string = null;
 
-  fieldDisplayNames = GeneSummary.getDisplayFieldNames();
-  fieldDisplayValueGenerators = GeneSummary;
-
   sortableColumns = getAppConfig().getGeneResultsConfig().sortable_columns;
   visibleFieldNames: Array<string> = [];
+  visibleFields: Array<GeneResultsFieldConfig> = [];
 
   visDescription: string = null;
 
@@ -61,6 +58,8 @@ export class GenesTableComponent implements OnInit {
   slimNames: Array<string> = [];
   columnsSubscription: Subscription;
 
+  displayGenes: Array<DisplayResultRow> = [];
+
   constructor(private modalService: BsModalService,
               private sanitizer: DomSanitizer,
               private queryService: QueryService,
@@ -70,10 +69,15 @@ export class GenesTableComponent implements OnInit {
               private router: Router) {
     this.slimNames = this.geneResultConfig.slim_table_slim_names;
 
-    this.visibleFieldNames = this.settingsService.visibleGenesTableColumns;
+    this.visibleFieldNames = this.settingsService.visibleGenesTableFieldNames;
+  }
 
-    this.columnsSubscription =
-      settingsService.visibleGenesTableColumns$.subscribe(visbleColumns => this.visibleFieldNames = visbleColumns);
+  updateDisplayGenes(): void {
+    this.displayGenes = [];
+    if (this.genes) {
+      this.queryService.queryGenesWithFields(this.genes.map(gene => gene.uniquename), this.visibleFieldNames)
+        .then(result => this.displayGenes = result);
+    }
   }
 
   configureColumns(): void {
@@ -87,16 +91,7 @@ export class GenesTableComponent implements OnInit {
   }
 
   setOrderBy(fieldName: string) {
-    this.orderByFieldDisplayName = fieldName;
-    if (fieldName === 'Systematic ID') {
-      this.orderByField = 'systematicId';
-    } else {
-      if (fieldName === 'Gene name') {
-        this.orderByField = 'gene';
-      } else {
-        this.orderByField = 'product';
-      }
-    }
+    this.orderByFieldName = fieldName;
   }
 
   sortableField(fieldName: string): boolean {
@@ -163,12 +158,13 @@ export class GenesTableComponent implements OnInit {
     return this.selectedCountCache;
   }
 
-  private makeGeneListQuery(genes: Array<GeneSummary>): GeneQuery {
+  private makeGeneListQuery(genes: Array<{ uniquename: string }>): GeneQuery {
     return new GeneQuery(this.description, new GeneListNode(genes));
   }
 
   filter() {
-    const selectedGenes = this.genes.filter(gene => this.selectedGenes[gene.uniquename]);
+    const selectedGenes =
+      this.genes.filter(gene => this.selectedGenes[gene.uniquename]);
 
     const geneQuery = this.makeGeneListQuery(selectedGenes);
     const callback = (historyEntry: HistoryEntry) => {
@@ -207,8 +203,8 @@ export class GenesTableComponent implements OnInit {
     return this.mode.startsWith('slim');
   }
 
-  displayFieldValue (gene: GeneSummary, fieldName: string): string|SafeHtml {
-    const rawValue = gene.getFieldDisplayValue(fieldName);
+  displayFieldValue (row: DisplayResultRow, fieldName: string): string|SafeHtml {
+    const rawValue = row[fieldName];
     if (fieldName.endsWith(' ortholog') && rawValue.indexOf(',') !== -1) {
       const htmlValue = rawValue.replace(/,/g , ',&#8203;');
       return this.sanitizer.bypassSecurityTrustHtml(htmlValue);
@@ -218,6 +214,35 @@ export class GenesTableComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.columnsSubscription =
+      this.settingsService.visibleGenesTableFieldNames$
+        .subscribe(visbleFieldnames => {
+          this.visibleFieldNames = visbleFieldnames;
+
+          if (this.visibleFieldNames.includes('name')) {
+            this.setOrderBy('name');
+          } else {
+            if (this.visibleFieldNames.includes('uniquename')) {
+              this.setOrderBy('uniquename');
+            } else {
+              if (this.visibleFieldNames.length > 0) {
+                this.setOrderBy(this.visibleFieldNames[0]);
+              } else {
+                this.visibleFieldNames.push('uniquename');
+                this.setOrderBy('uniquename');
+              }
+            }
+          }
+
+          this.visibleFields = [];
+          for (const fieldName of visbleFieldnames) {
+            const fieldConfig = this.geneResultConfig.field_config[fieldName];
+            this.visibleFields.push(fieldConfig);
+          }
+
+          this.updateDisplayGenes();
+        });
+    this.updateDisplayGenes();
   }
 
   ngOnChanges() {
@@ -243,6 +268,8 @@ export class GenesTableComponent implements OnInit {
         this.legend = 'Results - ' + geneBit;
       }
     }
+
+    this.updateDisplayGenes();
   }
 
   ngOnDestroy(): void {

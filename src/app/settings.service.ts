@@ -1,26 +1,32 @@
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
+import { getAppConfig } from './config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
-  private readonly _visibleGenesTableColumns =
-    new BehaviorSubject<Array<string>>(['Systematic ID', 'Gene name', 'Product description']);
+  private readonly _visibleGenesTableFieldNames =
+    new BehaviorSubject<Array<string>>(['uniquename', 'name', 'product']);
 
-  readonly visibleGenesTableColumns$ = this._visibleGenesTableColumns.asObservable();
+  readonly visibleGenesTableFieldNames$ = this._visibleGenesTableFieldNames.asObservable();
 
-  get visibleGenesTableColumns(): Array<string> {
-    return this._visibleGenesTableColumns.getValue();
+  get visibleGenesTableFieldNames(): Array<string> {
+    return this._visibleGenesTableFieldNames.getValue();
   }
 
-  set visibleGenesTableColumns(val: Array<string>) {
-    this._visibleGenesTableColumns.next(val);
+  set visibleGenesTableFieldNames(val: Array<string>) {
+    const genesTableFields = getAppConfig().getGeneResultsConfig().geneTableFields;
+    const valSet = new Set(val);
+    const newVisibleFieldNames =
+      genesTableFields.filter(fieldConfig => valSet.has(fieldConfig.name))
+        .map(fieldConfig => fieldConfig.name);
+    this._visibleGenesTableFieldNames.next(newVisibleFieldNames);
   }
 
-  addVisibleGenesTableColumns(fieldNames: Array<string>): void {
-    let visible = this.visibleGenesTableColumns;
+  addVisibleGenesTableFields(fieldNames: Array<string>): void {
+    let visible = this.visibleGenesTableFieldNames;
     let changed = false;
     fieldNames.map(fieldName => {
       if (!visible.includes(fieldName)) {
@@ -29,7 +35,7 @@ export class SettingsService {
       }
     });
     if (changed) {
-      this.visibleGenesTableColumns = visible;
+      this.visibleGenesTableFieldNames = visible;
     }
   }
 }

@@ -12,18 +12,17 @@
         <div class="field-column">
         <div>Columns:</div>
         <div *ngFor="let fieldName of fieldNames">
-          <input  id="name" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
+          <input  id="name-{{fieldName}}" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                   (ngModelChange)="fieldChange(fieldName)"/>
-          <label for="name">{{fieldName}}</label>
+          <label for="name-{{fieldName}}">{{fieldConfigByName[fieldName].display_name}}</label>
         </div>
         </div>
         <div class="field-column">
         <div *ngIf="!deployConfigService.productionMode()">
-        <div *ngFor="let fieldConf of fieldsForServer">
-          <input id="name" type="checkbox" [(ngModel)]="selectedFields[fieldConf.name]"
-                 (ngModelChange)="fieldChange(fieldConf)"/>
-          <label for="name">{{fieldConf.display_name}}</label>
-        </div>
+
+
+
+
         </div>
 
         <div class="select-actions">
@@ -90,7 +89,7 @@
              <input id="name-{{fieldName}}" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                     [disabled]="fieldName === 'Systematic ID'"
                     (ngModelChange)="fieldChange(fieldName)"/>
-             <label for="name-{{fieldName}}">{{fieldName}}</label>
+             <label for="name-{{fieldName}}">{{fieldConfigByName[fieldName].display_name}}</label>
            </div>
         </div>
         </div>

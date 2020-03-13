@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { GeneShort } from '../../pombase-api.service';
-import { getAppConfig, VisColumnConfig, VisColumnAttrValueConfig } from '../../config';
+import { getAppConfig, GeneResultsFieldConfig } from '../../config';
 import { QueryService, HistoryEntry } from '../../query.service';
 import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult, ResultRow, TermAndName } from '../../pombase-query';
 import { Util } from '../util';
@@ -12,7 +12,7 @@ class GeneDisplayData {
 
 class ColumnDisplayData {
   displayName = '';
-  constructor(public columnConfig: VisColumnConfig,
+  constructor(public columnConfig: GeneResultsFieldConfig,
               public rowAttr: string,
               public startIndex: number, public endIndex: number,
               public color: string, public geneUniquenames: Array<string>) {
@@ -79,7 +79,7 @@ class GeneData {
     return this.geneShort;
   }
 
-  constructor(private visColumnConfigs: Array<VisColumnConfig>,
+  constructor(private visColumnConfigs: Array<GeneResultsFieldConfig>,
               private geneShort: GeneShort, row: ResultRow) {
     this.cleanRow = this.cleanResults(row);
   };
@@ -108,8 +108,8 @@ export class GeneResultsVisComponent implements OnInit {
   currentData: ColumnDisplayData = null;
   currentGene: GeneData = null;
 
-  visColumnConfigMap: { [colName: string]: VisColumnConfig } = {};
-  visColumnConfigs: Array<VisColumnConfig> = [];
+  visColumnConfigMap: { [colName: string]: GeneResultsFieldConfig } = {};
+  visColumnConfigs: Array<GeneResultsFieldConfig> = [];
   visColumnNames: Array<string> = [];
 
   queryColumnNames = new Set<string>();
@@ -146,7 +146,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   constructor(private queryService: QueryService,
               private router: Router) {
-    const colConfigs = getAppConfig().getGeneResultsConfig().visualisation.columns;
+    const colConfigs = getAppConfig().getGeneResultsConfig().visualisationFields;
     this.visColumnConfigMap = {};
     this.visColumnConfigs = [];
     this.visColumnNames = [];

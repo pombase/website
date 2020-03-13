@@ -7,11 +7,12 @@ import { TabsetComponent, TabDirective } from 'ngx-bootstrap';
 import { GeneQuery, GeneListNode, QueryOutputOptions, FormatUtils,
          FormatTypes, ResultRow} from '../pombase-query';
 import { QueryService } from '../query.service';
-import { getAppConfig, AppConfig, VisColumnConfig } from '../config';
+import { AppConfig, getAppConfig, GeneResultsFieldConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
 import { GeneShort, GeneSummary, PombaseAPIService, GeneSummaryMap } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
+import { map } from 'rxjs-compat/operator/map';
 
 @Component({
   selector: 'app-genes-download-dialog',
@@ -32,24 +33,21 @@ export class GenesDownloadDialogComponent implements OnInit {
   public upstreamBases = 0;
   public downstreamBases = 0;
 
-  fieldNames = GeneSummary.getDisplayFieldNames();
+  fields = getAppConfig().getGeneResultsConfig().geneTableFields;
+  fieldNames = this.fields.map(conf => conf.name);
 
-  selectedFields: { [key: string]: boolean } = {'Systematic ID': true};
+  fieldConfigByName: { [fieldName: string]: GeneResultsFieldConfig } = {};
 
-  summaryPromise: Promise<GeneSummaryMap> = null;
-
-  fieldsForServer: Array<VisColumnConfig> = [];
+  selectedFields: { [key: string]: boolean } = {'uniquename': true};
 
   constructor(private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
               private settingsService: SettingsService,
               public bsModalRef: BsModalRef,
               public deployConfigService: DeployConfigService) {
-    this.summaryPromise = this.pombaseApiService.getGeneSummaryMapPromise();
-    if (!deployConfigService.productionMode()) {
-      this.fieldsForServer = getAppConfig().getGeneResultsConfig().visualisation.columns
-        .filter(conf => conf.column_type !== 'ortholog');
-    }
+    this.fields.map(fieldConfig => {
+      this.fieldConfigByName[fieldConfig.name] = fieldConfig;
+    });
   }
 
   private currentTab(): string {
@@ -62,18 +60,17 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   tabSelected(tab: TabDirective): void {
     if (tab.heading === 'FASTA sequence') {
-      this.selectedFields['Systematic ID'] = true;
+      this.selectedFields['uniquename'] = true;
     }
   }
 
   selectAll() {
     this.fieldNames.map(name => this.selectedFields[name] = true);
-    this.fieldsForServer.map(fieldConf => this.selectedFields[fieldConf.name] = true);
   }
 
   resetSelection() {
     this.selectedFields = {};
-    this.settingsService.visibleGenesTableColumns
+    this.settingsService.visibleGenesTableFieldNames
       .map(fieldName => this.selectedFields[fieldName] = true);
   }
 
@@ -81,10 +78,10 @@ export class GenesDownloadDialogComponent implements OnInit {
     const [selectedFields] = this.selectedFieldNames();
 
     if (selectedFields.length === 0) {
-      if (fieldName === 'Systematic ID') {
-        this.selectedFields['Gene name'] = true;
+      if (fieldName === 'uniquename') {
+        this.selectedFields['gene'] = true;
       } else {
-        this.selectedFields['Systematic ID'] = true;
+        this.selectedFields['uniquename'] = true;
       }
     }
   }
@@ -108,72 +105,21 @@ export class GenesDownloadDialogComponent implements OnInit {
     return false;
   }
 
-  private selectedFieldNames(): [Array<string>, Array<string>] {
-    return [this.fieldNames.filter(name => this.selectedFields[name]),
-            this.fieldsForServer.map(conf => conf.name)
-               .filter(fieldName => this.selectedFields[fieldName])];
+  private selectedFieldNames(): Array<string> {
+    return this.fieldNames.filter(fieldName => this.selectedFields[fieldName]);
   }
 
   private downloadDelimited() {
-    const [selectedSummaryFields, selectedServerFields] = this.selectedFieldNames();
-
-    let serverPromise;
-
-    if (selectedServerFields.length > 0) {
-      const query = new GeneQuery(null, new GeneListNode(this.genes));
-      const outputOptions = new QueryOutputOptions(['gene_uniquename', ...selectedServerFields], [], 'none');
-      serverPromise = this.queryService.postQuery(query, outputOptions);
-
-    } else {
-      serverPromise = Promise.resolve(null);
-    }
-
-    Promise.all([this.summaryPromise, serverPromise])
-      .then(([geneSummaries, serverResults]) => {
-        const serverRowsMap: { [index: string]: ResultRow } = {};
-
-        let headerRow = [...selectedSummaryFields];
-
-        if (serverResults) {
-          for (const serverRow of serverResults.rows) {
-            serverRowsMap[serverRow['gene_uniquename']] = serverRow;
-          }
-
-          for (let fieldConf of this.fieldsForServer) {
-            if (this.selectedFields[fieldConf.name]) {
-              headerRow.push(fieldConf.display_name);
-            }
-          }
-        }
-
+    const selectedFieldNames = this.selectedFieldNames();
+    const geneUniquenames = this.genes.map(gene => gene.uniquename);
+    this.queryService.queryGenesWithFields(geneUniquenames, selectedFieldNames)
+      .then(result => {
+        let headerRow =
+          selectedFieldNames.map(fieldName => this.fieldConfigByName[fieldName].display_name);
         let rows: Array<Array<string>> = [headerRow];
 
-        for (const gene of this.genes) {
-          const geneUniquename = gene.uniquename;
-
-          const geneSummary = geneSummaries[geneUniquename];
-
-          let row = [];
-          for (const fieldName of selectedSummaryFields) {
-            let fieldVal = geneSummary.getFieldDisplayValue(fieldName);
-
-            row.push(fieldVal);
-          }
-          if (serverRowsMap) {
-            for (const serverField of selectedServerFields) {
-              const serverRow = serverRowsMap[geneUniquename];
-              let fieldValue: any = serverRow[serverField];
-              if (typeof (fieldValue) === 'undefined') {
-                row.push('');
-              } else {
-                if (fieldValue['term']) {
-                  row.push(fieldValue['term'].name);
-                } else {
-                  row.push(fieldValue);
-                }
-              }
-            }
-          }
+        for (const resultRow of result) {
+          let row = selectedFieldNames.map(fieldName => (resultRow as any)[fieldName]);
           rows.push(row);
         }
         this.doDownload(rows);
@@ -197,7 +143,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   private downloadSequence() {
-    const [selectedSummaryFields] = this.selectedFieldNames();
+    const selectedSummaryFields = this.selectedFieldNames();
     const summaryMapPromise = this.pombaseApiService.getGeneSummaryMapPromise();
 
     const query = new GeneQuery(null, new GeneListNode(this.genes));
@@ -215,7 +161,7 @@ export class GenesDownloadDialogComponent implements OnInit {
           const geneSummary = summaryMap[geneUniquename];
 
           const headerFields = geneUniquename + ' ' +
-            selectedSummaryFields.filter(fieldName => fieldName !== 'Systematic ID')
+            selectedSummaryFields.filter(fieldName => fieldName !== 'uniquename')
               .map(fieldName => geneSummary.getFieldDisplayValue(fieldName))
               .join('|');
 
