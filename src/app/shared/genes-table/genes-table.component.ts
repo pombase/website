@@ -60,6 +60,8 @@ export class GenesTableComponent implements OnInit {
 
   displayGenes: Array<DisplayResultRow> = [];
 
+  loading = true;
+
   constructor(private modalService: BsModalService,
               private sanitizer: DomSanitizer,
               private queryService: QueryService,
@@ -73,10 +75,11 @@ export class GenesTableComponent implements OnInit {
   }
 
   updateDisplayGenes(): void {
-    this.displayGenes = [];
+    this.loading = true;
     if (this.genes) {
       this.queryService.queryGenesWithFields(this.genes.map(gene => gene.uniquename), this.visibleFieldNames)
-        .then(result => this.displayGenes = result);
+        .then(result => this.displayGenes = result)
+        .finally(() => this.loading = false);
     }
   }
 

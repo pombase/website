@@ -89,6 +89,9 @@
 
   <div *ngIf="!showingVisualisation() && !showingSlim()">
   <form>
+
+  <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+
   <table>
     <thead>
       <tr>
