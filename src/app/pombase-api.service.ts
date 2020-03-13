@@ -260,7 +260,7 @@ export class GeneSummary extends GeneShort {
 
   private static makeFields(): void {
     const geneResultsConfig = getAppConfig().getGeneResultsConfig();
-    const fieldNames = geneResultsConfig.gene_summary_field_names;
+    const fieldNames = geneResultsConfig.geneSummaryFieldNameSet;
 
     const displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = {
       'uniquename': g => g.uniquename,
@@ -282,7 +282,7 @@ export class GeneSummary extends GeneShort {
       'strand': g => g.location.strand,
     };
 
-    for (const fieldName of fieldNames) {
+    fieldNames.forEach(fieldName => {
       const fieldConfig = geneResultsConfig.field_config[fieldName];
 
       if (fieldConfig.column_type === 'orthologs') {
@@ -297,7 +297,7 @@ export class GeneSummary extends GeneShort {
             '" but field name doesn\'t start with "orthologs:" for name: "' + fieldName + '"');
         }
       }
-    }
+    });
 
     this.displayFieldGenerators = displayFieldGenerators;
   }
@@ -323,6 +323,10 @@ export class GeneSummary extends GeneShort {
     } else {
       return null;
     }
+  }
+
+  displayName(): string {
+    return this.name || this.uniquename;
   }
 }
 

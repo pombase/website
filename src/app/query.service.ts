@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode, GeneUniquename } from './pombase-query';
+import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode, GeneUniquename, ResultRow } from './pombase-query';
 import { getAppConfig } from './config';
 import { PombaseAPIService, GeneSummaryMap, GeneSummary } from './pombase-api.service';
 
@@ -225,25 +225,64 @@ export class QueryService {
       });
   }
 
-  queryGenesWithFields(geneUniquenames: Array<GeneUniquename>,
-                       fieldNames: Array<string>): Promise<Array<DisplayResultRow>>
+  async queryGenesWithFields(geneUniquenames: Array<GeneUniquename>,
+                             fieldNames: Array<string>): Promise<Array<DisplayResultRow>>
   {
-     return this.pombaseApiService.getGeneSummaryMapPromise()
-      .then(
-        (geneSummaryMap: GeneSummaryMap) =>
-          geneUniquenames.map(geneUniquename => {
-            const geneSummary = geneSummaryMap[geneUniquename];
-            const displayRow: any = { };
+    let queryPromise: Promise<QueryResult|null>;
 
-            displayRow['uniquename'] = geneSummary.uniquename;
+    let fieldsForServer: Array<string> = [];
 
-            for (const fieldName of fieldNames) {
-              displayRow[fieldName] = geneSummary.getFieldDisplayValue(fieldName);
-            }
+    const geneResultsConfig = getAppConfig().getGeneResultsConfig();
 
-            return displayRow as DisplayResultRow;
-          })
-      );
+    fieldNames.map(fieldName => {
+      if (!geneResultsConfig.geneSummaryFieldNameSet.has(fieldName)) {
+        fieldsForServer.push(fieldName);
+      }
+    })
+
+    if (fieldsForServer.length == 0) {
+      queryPromise = Promise.resolve(null);
+    } else {
+      const query = GeneQuery.fromGeneUniquenames(null, geneUniquenames);
+      const options = new QueryOutputOptions(['gene_uniquename', ...fieldsForServer], [], 'none');
+      queryPromise = this.exec(query, options);
+    }
+
+    const queryResults = await queryPromise;
+
+    const geneSummaryMap = await this.pombaseApiService.getGeneSummaryMapPromise();
+
+    const rowProcessor = (geneUniquename: GeneUniquename, serverRow?: ResultRow) => {
+      const geneSummary = geneSummaryMap[geneUniquename];
+      const displayRow: any = {};
+
+      displayRow['uniquename'] = geneSummary.uniquename;
+
+      for (const fieldName of fieldNames) {
+        displayRow[fieldName] = geneSummary.getFieldDisplayValue(fieldName);
+      }
+
+      for (const serverFieldName of fieldsForServer) {
+        const fieldConfig = geneResultsConfig.field_config[serverFieldName];
+        const rawServerValue = serverRow[serverFieldName];
+        if (fieldConfig.column_type === 'gene_list') {
+          const fieldValue = rawServerValue || [];
+          displayRow[serverFieldName] =
+            (fieldValue as Array<string>)
+            .map(geneUniquename => geneSummaryMap[geneUniquename].displayName()).join(',');
+        } else {
+          displayRow[serverFieldName] = rawServerValue;
+        }
+      }
+
+      return displayRow as DisplayResultRow;
+    };
+
+    if (fieldsForServer.length == 0) {
+      return geneUniquenames.map(geneUniquename => rowProcessor(geneUniquename));
+    } else {
+      return queryResults.getRows().map(resultRow => rowProcessor(resultRow.gene_uniquename, resultRow));
+    }
   }
 
   getHistory(): Array<HistoryEntry> {

@@ -131,6 +131,7 @@ export interface GeneResultsConfig {
   sortable_columns: Array<string>;
   field_config: { [name: string]: GeneResultsFieldConfig };
   gene_summary_field_names: Array<string>;
+  geneSummaryFieldNameSet: Set<string>;
   visualisation_field_names: Array<string>;
   gene_table_field_names: Array<string>;
   visualisationFields: Array<GeneResultsFieldConfig>;
@@ -790,6 +791,7 @@ geneResults.geneTableFields =
   geneResults.gene_table_field_names.map(fieldFinder)
   .filter(conf => !!conf);
 
+geneResults.geneSummaryFieldNameSet = new Set(geneResults['gene_summary_field_names'])
 
 export function getAnnotationTableConfig(): AnnotationTableConfig {
   return _config;

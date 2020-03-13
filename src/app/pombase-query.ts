@@ -10,7 +10,7 @@ export interface ResultRow {
   gene_uniquename: string;
   sequence?: string;
   subsets?: Array<TermId>;
-  [other_attribute: string]: string | TermAndName | Array<TermId>;
+  [other_attribute: string]: string | TermAndName | Array<TermId> | Array<string>;
 }
 
 export class QueryResult {
@@ -633,6 +633,11 @@ export class GeneQuery {
     this.queryTopNode = topNode;
 
     this.stringQuery = this.getTopNode().toString();
+  }
+
+  static fromGeneUniquenames(queryName: string, geneUniquenames: Array<GeneUniquename>): GeneQuery {
+    const part = new GeneListNode(geneUniquenames);
+    return new GeneQuery(queryName, part);
   }
 
   public equals(query: GeneQuery): boolean {
