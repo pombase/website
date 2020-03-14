@@ -107,6 +107,7 @@ export class GenesTableComponent implements OnInit {
       initialState: {
         visibleFieldNames: this.visibleFieldNames,
       },
+      class: 'modal-lg',
     };
     this.downloadModalRef = this.modalService.show(GenesTableConfigComponent, config);
   }
@@ -126,6 +127,7 @@ export class GenesTableComponent implements OnInit {
         initialFields: this.visibleFieldNames,
         genes: this.genes,
       },
+      class: 'modal-lg',
     };
     this.downloadModalRef = this.modalService.show(GenesDownloadDialogComponent, config);
   }
