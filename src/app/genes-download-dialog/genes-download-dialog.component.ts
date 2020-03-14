@@ -72,11 +72,11 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   fieldChange(fieldName: string) {
-    const [selectedFields] = this.selectedFieldNames();
+    const selectedFields = this.selectedFieldNames();
 
     if (selectedFields.length === 0) {
       if (fieldName === 'uniquename') {
-        this.selectedFields['gene'] = true;
+        this.selectedFields['name'] = true;
       } else {
         this.selectedFields['uniquename'] = true;
       }
