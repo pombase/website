@@ -2,13 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode, GeneUniquename, ResultRow, TermAndName } from './pombase-query';
+import { GeneQuery, QueryResult, QueryIdNode, GeneUniquename, ResultRow, TermAndName } from './pombase-query';
 import { getAppConfig } from './config';
 import { PombaseAPIService, GeneSummaryMap, GeneSummary } from './pombase-api.service';
 
 export interface DisplayResultRow {
   uniquename: string;
   [fieldName: string]: any;
+}
+type SequenceOptions = 'protein' | 'none' | {
+  nucleotide: {
+    include_introns: boolean,
+    include_5_prime_utr: boolean,
+    include_3_prime_utr: boolean,
+  },
+};
+
+export class QueryOutputOptions {
+  constructor(private field_names: Array<string>,
+              private flags: Array<string>,
+              private sequence: SequenceOptions) { }
 }
 
 const localStorageKey = 'pombase-query-build-history-v1';
@@ -233,7 +246,8 @@ export class QueryService {
   }
 
   async queryGenesWithFields(geneUniquenames: Array<GeneUniquename>,
-                             fieldNames: Array<string>): Promise<Array<DisplayResultRow>>
+                             fieldNames: Array<string>,
+                             sequenceOptions?: SequenceOptions): Promise<Array<DisplayResultRow>>
   {
     let queryPromise: Promise<QueryResult|null>;
 
@@ -247,11 +261,12 @@ export class QueryService {
       }
     })
 
-    if (fieldsForServer.length == 0) {
+    if (fieldsForServer.length == 0 && !sequenceOptions) {
       queryPromise = Promise.resolve(null);
     } else {
       const query = GeneQuery.fromGeneUniquenames(null, geneUniquenames);
-      const options = new QueryOutputOptions(['gene_uniquename', ...fieldsForServer], [], 'none');
+      const options = new QueryOutputOptions(['gene_uniquename', ...fieldsForServer], [],
+                                             sequenceOptions || 'none');
       queryPromise = this.execNoSave(query, options);
     }
 
@@ -267,6 +282,10 @@ export class QueryService {
 
       for (const fieldName of fieldNames) {
         displayRow[fieldName] = geneSummary.getFieldDisplayValue(fieldName);
+      }
+
+      if (sequenceOptions) {
+        displayRow['sequence'] = serverRow.sequence;
       }
 
       for (const serverFieldName of fieldsForServer) {
@@ -301,7 +320,7 @@ export class QueryService {
       return displayRow as DisplayResultRow;
     };
 
-    if (fieldsForServer.length == 0) {
+    if (fieldsForServer.length == 0 && !sequenceOptions) {
       return geneUniquenames.map(geneUniquename => rowProcessor(geneUniquename));
     } else {
       return queryResults.getRows().map(resultRow => rowProcessor(resultRow.gene_uniquename, resultRow));

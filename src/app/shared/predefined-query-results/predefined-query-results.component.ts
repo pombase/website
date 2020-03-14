@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { QueryService } from '../../query.service';
-import { QueryOutputOptions, QueryResult } from '../../pombase-query';
+import { QueryService, QueryOutputOptions } from '../../query.service';
+import { QueryResult } from '../../pombase-query';
 import { Subscription } from 'rxjs';
 
 @Component({

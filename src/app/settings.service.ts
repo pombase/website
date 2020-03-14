@@ -7,8 +7,10 @@ import { getAppConfig } from './config';
   providedIn: 'root'
 })
 export class SettingsService {
+  private readonly _defaultVisibleFieldNames = ['uniquename', 'name', 'product'];
+
   private readonly _visibleGenesTableFieldNames =
-    new BehaviorSubject<Array<string>>(['uniquename', 'name', 'product']);
+    new BehaviorSubject<Array<string>>(this._defaultVisibleFieldNames);
 
   readonly visibleGenesTableFieldNames$ = this._visibleGenesTableFieldNames.asObservable();
 
@@ -23,6 +25,14 @@ export class SettingsService {
       genesTableFields.filter(fieldConfig => valSet.has(fieldConfig.name))
         .map(fieldConfig => fieldConfig.name);
     this._visibleGenesTableFieldNames.next(newVisibleFieldNames);
+  }
+
+  get defaultVisibleFieldNames(): Array<string> {
+    return this._defaultVisibleFieldNames;
+  }
+
+  resetVisibleFields() {
+    this.visibleGenesTableFieldNames = ['uniquename', 'name', 'product'];
   }
 
   addVisibleGenesTableFields(fieldNames: Array<string>): void {

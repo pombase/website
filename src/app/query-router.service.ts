@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { QueryService } from './query.service';
-import { GeneQuery, QueryOutputOptions, QueryResult } from './pombase-query';
+import { GeneQuery, QueryResult } from './pombase-query';
 
 @Injectable({
   providedIn: 'root'

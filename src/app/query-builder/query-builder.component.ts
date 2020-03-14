@@ -1,7 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { GeneQuery, GeneQueryNode, QueryResult, TermNode, SubsetNode,
-         QueryOutputOptions } from '../pombase-query';
+import { GeneQuery, GeneQueryNode, TermNode, SubsetNode } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { ToastrService } from 'ngx-toastr';
 import { getAppConfig, QueryNodeConfig } from '../config';

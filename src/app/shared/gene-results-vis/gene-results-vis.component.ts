@@ -2,8 +2,8 @@ import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { GeneShort } from '../../pombase-api.service';
 import { getAppConfig, GeneResultsFieldConfig } from '../../config';
-import { QueryService, HistoryEntry } from '../../query.service';
-import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult, ResultRow, TermAndName } from '../../pombase-query';
+import { QueryService, HistoryEntry, QueryOutputOptions } from '../../query.service';
+import { GeneListNode, GeneQuery, QueryResult, ResultRow } from '../../pombase-query';
 import { Util } from '../util';
 
 class GeneDisplayData {

@@ -4,15 +4,13 @@ import { saveAs } from 'file-saver';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap';
 
-import { GeneQuery, GeneListNode, QueryOutputOptions, FormatUtils,
-         FormatTypes, ResultRow} from '../pombase-query';
+import { FormatUtils, FormatTypes} from '../pombase-query';
 import { QueryService } from '../query.service';
 import { AppConfig, getAppConfig, GeneResultsFieldConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
-import { GeneShort, GeneSummary, PombaseAPIService, GeneSummaryMap } from '../pombase-api.service';
+import { GeneShort } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
-import { map } from 'rxjs-compat/operator/map';
 
 @Component({
   selector: 'app-genes-download-dialog',
@@ -40,8 +38,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   selectedFields: { [key: string]: boolean } = {'uniquename': true};
 
-  constructor(private pombaseApiService: PombaseAPIService,
-              private queryService: QueryService,
+  constructor(private queryService: QueryService,
               private settingsService: SettingsService,
               public bsModalRef: BsModalRef,
               public deployConfigService: DeployConfigService) {
@@ -70,7 +67,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   resetSelection() {
     this.selectedFields = {};
-    this.settingsService.visibleGenesTableFieldNames
+    this.settingsService.defaultVisibleFieldNames
       .map(fieldName => this.selectedFields[fieldName] = true);
   }
 
@@ -143,29 +140,21 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   private downloadSequence() {
-    const selectedSummaryFields = this.selectedFieldNames();
-    const summaryMapPromise = this.pombaseApiService.getGeneSummaryMapPromise();
-
-    const query = new GeneQuery(null, new GeneListNode(this.genes));
+    const selectedFieldNames = this.selectedFieldNames();
+    const geneUniquenames = this.genes.map(gene => gene.uniquename)
     let seqOptions = this.seqDownloadOptions();
-    const outputOptions = new QueryOutputOptions(['gene_uniquename'], [], seqOptions);
-    const queryPromise = this.queryService.postQuery(query, outputOptions);
-
-    Promise.all([summaryMapPromise, queryPromise])
-      .then(([summaryMap, results]) => {
+    this.queryService.queryGenesWithFields(geneUniquenames, selectedFieldNames, seqOptions)
+      .then(results => {
         const fileName = 'sequence.fasta';
         let descriptions: { [geneUniquename: string]: string } = {};
 
-        for (const row of results.getRows()) {
-          const geneUniquename = row.gene_uniquename;
-          const geneSummary = summaryMap[geneUniquename];
+        for (const resultRow of results) {
+          const geneUniquename = resultRow.uniquename;
+          const headerValues = selectedFieldNames.map(fieldName => (resultRow as any)[fieldName]);
+          const description = geneUniquename + ' ' +
+            headerValues.filter(fieldName => fieldName !== 'uniquename').join('|');
 
-          const headerFields = geneUniquename + ' ' +
-            selectedSummaryFields.filter(fieldName => fieldName !== 'uniquename')
-              .map(fieldName => geneSummary.getFieldDisplayValue(fieldName))
-              .join('|');
-
-          descriptions[geneUniquename] = headerFields;
+          descriptions[geneUniquename] = description;
         }
 
         const formattedSequence =

@@ -1,5 +1,6 @@
 import { Util } from './shared/util';
 import { GeneShort } from './pombase-api.service';
+import { QueryOutputOptions, DisplayResultRow } from './query.service';
 
 export class TermAndName {
   termid: string;
@@ -41,13 +42,13 @@ export enum FormatTypes {
 }
 
 export class FormatUtils {
-  public static formatQueryResults(results: QueryResult, headers: { [key: string]: string }, format: FormatTypes) {
+  public static formatQueryResults(results: DisplayResultRow[], headers: { [key: string]: string }, format: FormatTypes) {
     let ret = '';
 
     if (format === FormatTypes.FASTA) {
-      for (const row of results.getRows()) {
+      for (const row of results) {
         if (row.sequence) {
-          ret += '>' + headers[row.gene_uniquename] + '\n';
+          ret += '>' + headers[row.uniquename] + '\n';
           ret += Util.splitSequenceString(row.sequence);
           ret += '\n';
         }
@@ -541,20 +542,6 @@ export class QueryIdNode extends GeneQueryNode {
   equals(obj: GeneQueryNode): boolean {
     return obj instanceof QueryIdNode && obj.id === this.id;
   }
-}
-
-type SequenceOptions = 'protein' | 'none' | {
-  nucleotide: {
-    include_introns: boolean,
-    include_5_prime_utr: boolean,
-    include_3_prime_utr: boolean,
-  },
-};
-
-export class QueryOutputOptions {
-  constructor(private field_names: Array<string>,
-              private flags: Array<string>,
-              private sequence: SequenceOptions) { }
 }
 
 export class GeneQuery {
