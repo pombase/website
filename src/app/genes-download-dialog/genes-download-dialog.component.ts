@@ -175,6 +175,8 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.resetSelection();
+    this.selectedFields = {};
+    this.settingsService.visibleGenesTableFieldNames
+      .map(fieldName => this.selectedFields[fieldName] = true)
   }
 }
