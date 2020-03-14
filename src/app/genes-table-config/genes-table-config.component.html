@@ -12,6 +12,9 @@
              (ngModelChange)="fieldChange(field.name)"/>
       <label for="name-{{field.name}}">{{field.display_name}}</label>
     </div>
+    <div class="reset-selection">
+      <a (click)="resetSelection()">Reset selection</a>
+    </div>
     </div>
   </div>
   <div class="modal-footer">

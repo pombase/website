@@ -5,3 +5,8 @@
   grid-auto-flow: column;
   margin: 1.5em;
 }
+
+.reset-selection {
+  grid-row: span 2;
+  margin-top: 1.5em;
+}

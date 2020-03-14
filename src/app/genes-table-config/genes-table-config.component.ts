@@ -17,14 +17,14 @@ export class GenesTableConfigComponent implements OnInit {
   selectedFieldNames: { [key: string]: boolean } = {};
 
   constructor(public bsModalRef: BsModalRef,
-              private settingService: SettingsService,
+              private settingsService: SettingsService,
               public deployConfigService: DeployConfigService) {
-    settingService.visibleGenesTableFieldNames
+    settingsService.visibleGenesTableFieldNames
       .map(fieldName => this.selectedFieldNames[fieldName] = true);
   }
 
   apply(): void {
-    this.settingService.visibleGenesTableFieldNames = this.getSelectedFieldNames();
+    this.settingsService.visibleGenesTableFieldNames = this.getSelectedFieldNames();
     this.bsModalRef.hide()
   }
 
@@ -36,6 +36,12 @@ export class GenesTableConfigComponent implements OnInit {
         this.selectedFieldNames['uniquename'] = true;
       }
     }
+  }
+
+  resetSelection() {
+    this.selectedFieldNames = {};
+    this.settingsService.defaultVisibleFieldNames
+      .map(fieldName => this.selectedFieldNames[fieldName] = true);
   }
 
   private getSelectedFieldNames(): Array<string> {
