@@ -6,18 +6,12 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="field-column">
+    <div class="field-container">
     <div *ngFor="let field of genesTableFields">
       <input id="name-{{field.name}}" type="checkbox" [(ngModel)]="selectedFieldNames[field.name]"
              (ngModelChange)="fieldChange(field.name)"/>
       <label for="name-{{field.name}}">{{field.display_name}}</label>
     </div>
-    </div>
-    <div class="field-column">
-      <div *ngIf="!deployConfigService.productionMode()">
-
-
-        </div>
     </div>
   </div>
   <div class="modal-footer">

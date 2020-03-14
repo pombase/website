@@ -8,41 +8,30 @@
   <div class="modal-body">
     <tabset #downloadTabs>
       <tab heading="Tab delimited">
-        <div class="flex-container">
-        <div class="field-column">
-        <div>Columns:</div>
+        <div class="field-container">
+
         <div *ngFor="let fieldName of fieldNames">
           <input  id="name-{{fieldName}}" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                   (ngModelChange)="fieldChange(fieldName)"/>
           <label for="name-{{fieldName}}">{{fieldConfigByName[fieldName].display_name}}</label>
         </div>
-        </div>
-        <div class="field-column">
-        <div *ngIf="!deployConfigService.productionMode()">
 
-
-
-
+        <div class="select-all-action">
+          <a (click)="selectAll()">Select all</a>
         </div>
 
-        <div class="select-actions">
-          <div>
-            <a (click)="selectAll()">Select all</a>
-          </div>
-          <div>
-            <a (click)="resetSelection()">Reset selection</a>
-          </div>
-        </div>
+        <div>
+          <a (click)="resetSelection()">Reset selection</a>
         </div>
 
         </div>
       </tab>
 
       <tab heading="FASTA sequence" (select)="tabSelected($event)">
-      <div class="flex-container">
+      <div>
       <div class="seq-column">
-        <div>
-          <div>Type:</div>
+        <div>Type:</div>
+        <div class="seq-control">
           <input id="protein" type="radio" [(ngModel)]="seqType" value="protein"/>
           <label for="protein">Protein</label>
         </div>
@@ -85,11 +74,22 @@
         </div>
         <div class="field-column">
            <div>Include in headers:</div>
+           <div class="field-container">
            <div *ngFor="let fieldName of fieldNames">
              <input id="name-{{fieldName}}" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                     [disabled]="fieldName === 'Systematic ID'"
                     (ngModelChange)="fieldChange(fieldName)"/>
              <label for="name-{{fieldName}}">{{fieldConfigByName[fieldName].display_name}}</label>
+           </div>
+
+           <div class="select-all-action">
+             <a (click)="selectAll()">Select all</a>
+           </div>
+
+           <div>
+             <a (click)="resetSelection()">Reset selection</a>
+           </div>
+
            </div>
         </div>
         </div>

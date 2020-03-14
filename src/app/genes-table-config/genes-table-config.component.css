@@ -1,3 +1,7 @@
-.field-column {
-  padding: 1em;
+.field-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(16, auto);
+  grid-auto-flow: column;
+  margin: 1.5em;
 }
