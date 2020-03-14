@@ -10,7 +10,7 @@ export interface ResultRow {
   gene_uniquename: string;
   sequence?: string;
   subsets?: Array<TermId>;
-  [other_attribute: string]: string | TermAndName | Array<TermId> | Array<string>;
+  [other_attribute: string]: string | { term: TermAndName } | Array<TermId> | Array<string>;
 }
 
 export class QueryResult {

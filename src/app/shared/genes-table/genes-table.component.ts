@@ -79,7 +79,7 @@ export class GenesTableComponent implements OnInit {
       for (const fieldName of this.visibleFieldNames) {
         if (!this.sortableField(fieldName)) {
           const rawValue = row[fieldName];
-          if (rawValue.indexOf(',') !== -1) {
+          if (typeof (rawValue) === 'string' && rawValue.indexOf(',') !== -1) {
             const htmlValue = rawValue.replace(/,/g, ',&#8203;');
             row[fieldName] = this.sanitizer.bypassSecurityTrustHtml(htmlValue);
           }
@@ -96,6 +96,7 @@ export class GenesTableComponent implements OnInit {
           this.cleanResult(result);
           this.displayGenes = result;
         })
+        .catch(err => console.error(err))
         .finally(() => this.loading = false);
     }
   }

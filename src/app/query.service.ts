@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode, GeneUniquename, ResultRow } from './pombase-query';
+import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode, GeneUniquename, ResultRow, TermAndName } from './pombase-query';
 import { getAppConfig } from './config';
 import { PombaseAPIService, GeneSummaryMap, GeneSummary } from './pombase-api.service';
 
@@ -272,13 +272,29 @@ export class QueryService {
       for (const serverFieldName of fieldsForServer) {
         const fieldConfig = geneResultsConfig.field_config[serverFieldName];
         const rawServerValue = serverRow[serverFieldName];
-        if (fieldConfig.column_type === 'gene_list') {
-          const fieldValue = rawServerValue || [];
-          displayRow[serverFieldName] =
-            (fieldValue as Array<string>)
-            .map(geneUniquename => geneSummaryMap[geneUniquename].displayName()).join(',');
+
+        if (typeof(rawServerValue) === 'undefined') {
+          displayRow[serverFieldName] = '';
         } else {
-          displayRow[serverFieldName] = rawServerValue;
+          switch (fieldConfig.column_type) {
+            case 'gene_list':
+              const fieldValue = rawServerValue || [];
+              displayRow[serverFieldName] =
+                (fieldValue as Array<string>)
+                  .map(geneUniquename => geneSummaryMap[geneUniquename].displayName()).join(',');
+              break;
+
+            case 'ontology_term':
+              if (typeof(rawServerValue) === 'string') {
+                displayRow[serverFieldName] = rawServerValue;
+              } else {
+                displayRow[serverFieldName] = (rawServerValue as { term: TermAndName }).term.termid;
+              }
+              break;
+
+            default:
+              displayRow[serverFieldName] = rawServerValue;
+          }
         }
       }
 
