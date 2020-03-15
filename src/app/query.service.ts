@@ -247,8 +247,7 @@ export class QueryService {
 
   async queryGenesWithFields(geneUniquenames: Array<GeneUniquename>,
                              fieldNames: Array<string>,
-                             sequenceOptions?: SequenceOptions): Promise<Array<DisplayResultRow>>
-  {
+                             sequenceOptions?: SequenceOptions): Promise<Array<DisplayResultRow>> {
     let queryPromise: Promise<QueryResult|null>;
 
     let fieldsForServer: Array<string> = [];
@@ -261,7 +260,7 @@ export class QueryService {
       }
     })
 
-    if (fieldsForServer.length == 0 && !sequenceOptions) {
+    if (fieldsForServer.length === 0 && !sequenceOptions) {
       queryPromise = Promise.resolve(null);
     } else {
       const query = GeneQuery.fromGeneUniquenames(null, geneUniquenames);
@@ -300,7 +299,7 @@ export class QueryService {
               const fieldValue = rawServerValue || [];
               displayRow[serverFieldName] =
                 (fieldValue as Array<string>)
-                  .map(geneUniquename => geneSummaryMap[geneUniquename].displayName()).join(',');
+                  .map(uniquename => geneSummaryMap[uniquename].displayName()).join(',');
               break;
 
             case 'ontology_term':
@@ -320,7 +319,7 @@ export class QueryService {
       return displayRow as DisplayResultRow;
     };
 
-    if (fieldsForServer.length == 0 && !sequenceOptions) {
+    if (fieldsForServer.length === 0 && !sequenceOptions) {
       return geneUniquenames.map(geneUniquename => rowProcessor(geneUniquename));
     } else {
       return queryResults.getRows().map(resultRow => rowProcessor(resultRow.gene_uniquename, resultRow));

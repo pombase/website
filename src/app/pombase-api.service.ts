@@ -287,7 +287,7 @@ export class GeneSummary extends GeneShort {
 
       if (fieldConfig.column_type === 'orthologs') {
         if (fieldName.startsWith('orthologs:')) {
-          const orthTaxonId = parseInt(fieldName.substr(10));
+          const orthTaxonId = parseInt(fieldName.substr(10), 10);
           displayFieldGenerators[fieldName] =
             (summary) =>
               summary.orthologs.filter(orth => orth.taxonid === orthTaxonId)

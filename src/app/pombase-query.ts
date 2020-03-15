@@ -615,16 +615,16 @@ export class GeneQuery {
     throw new Error('Unknown type: ' + nodeType);
   }
 
+  static fromGeneUniquenames(queryName: string, geneUniquenames: Array<GeneUniquename>): GeneQuery {
+    const part = new GeneListNode(geneUniquenames);
+    return new GeneQuery(queryName, part);
+  }
+
   constructor(queryName: string, topNode: GeneQueryNode) {
     this.name = queryName;
     this.queryTopNode = topNode;
 
     this.stringQuery = this.getTopNode().toString();
-  }
-
-  static fromGeneUniquenames(queryName: string, geneUniquenames: Array<GeneUniquename>): GeneQuery {
-    const part = new GeneListNode(geneUniquenames);
-    return new GeneQuery(queryName, part);
   }
 
   public equals(query: GeneQuery): boolean {
