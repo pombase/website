@@ -260,7 +260,7 @@ export class GeneSummary extends GeneShort {
 
   private static makeFields(): void {
     const geneResultsConfig = getAppConfig().getGeneResultsConfig();
-    const fieldNames = geneResultsConfig.geneSummaryFieldNameSet;
+    const fieldNames = geneResultsConfig.geneSummaryFieldNames;
 
     const displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = {
       'uniquename': g => g.uniquename,

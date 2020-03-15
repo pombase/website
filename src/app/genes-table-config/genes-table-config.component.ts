@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
 import { SettingsService } from '../settings.service';
 import { GeneSummary } from '../pombase-api.service';
-import { getAppConfig } from '../config';
+import { getAppConfig, GeneResultsFieldConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
@@ -12,13 +12,18 @@ import { DeployConfigService } from '../deploy-config.service';
 })
 export class GenesTableConfigComponent implements OnInit {
 
-  genesTableFields = getAppConfig().getGeneResultsConfig().geneTableFields;
+  fields: Array<GeneResultsFieldConfig> = [];
 
   selectedFieldNames: { [key: string]: boolean } = {};
 
   constructor(public bsModalRef: BsModalRef,
               private settingsService: SettingsService,
               public deployConfigService: DeployConfigService) {
+    if (deployConfigService.productionMode()) {
+      this.fields = getAppConfig().getGeneResultsConfig().geneSummaryFields;
+    } else {
+      this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
+    }
     settingsService.visibleGenesTableFieldNames
       .map(fieldName => this.selectedFieldNames[fieldName] = true);
   }

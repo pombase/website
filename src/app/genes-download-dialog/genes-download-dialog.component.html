@@ -10,7 +10,7 @@
       <tab heading="Tab delimited">
         <div class="field-container">
 
-        <div *ngFor="let fieldName of fieldNames">
+        <div class="field-input" *ngFor="let fieldName of fieldNames">
           <input  id="name-{{fieldName}}" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                   (ngModelChange)="fieldChange(fieldName)"/>
           <label for="name-{{fieldName}}">{{fieldConfigByName[fieldName].display_name}}</label>
@@ -75,7 +75,7 @@
         <div class="field-column">
            <div>Include in headers:</div>
            <div class="field-container">
-           <div *ngFor="let fieldName of fieldNames">
+           <div class="field-input" *ngFor="let fieldName of fieldNames">
              <input id="name-{{fieldName}}" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                     [disabled]="fieldName === 'Systematic ID'"
                     (ngModelChange)="fieldChange(fieldName)"/>

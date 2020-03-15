@@ -131,9 +131,10 @@ export interface GeneResultsConfig {
   sortable_columns: Array<string>;
   field_config: { [name: string]: GeneResultsFieldConfig };
   gene_summary_field_names: Array<string>;
-  geneSummaryFieldNameSet: Set<string>;
+  geneSummaryFieldNames: Array<string>;
   visualisation_field_names: Array<string>;
   gene_table_field_names: Array<string>;
+  geneSummaryFields: Array<GeneResultsFieldConfig>;
   visualisationFields: Array<GeneResultsFieldConfig>;
   geneTableFields: Array<GeneResultsFieldConfig>;
   // names of slims that are available from the results pages:
@@ -791,7 +792,9 @@ geneResults.geneTableFields =
   geneResults.gene_table_field_names.map(fieldFinder)
   .filter(conf => !!conf);
 
-geneResults.geneSummaryFieldNameSet = new Set(geneResults['gene_summary_field_names'])
+geneResults.geneSummaryFieldNames = geneResults['gene_summary_field_names'];
+geneResults.geneSummaryFields =
+  geneResults.geneSummaryFieldNames.map(fieldFinder);
 
 export function getAnnotationTableConfig(): AnnotationTableConfig {
   return _config;

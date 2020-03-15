@@ -31,8 +31,8 @@ export class GenesDownloadDialogComponent implements OnInit {
   public upstreamBases = 0;
   public downstreamBases = 0;
 
-  fields = getAppConfig().getGeneResultsConfig().geneTableFields;
-  fieldNames = this.fields.map(conf => conf.name);
+  fields: Array<GeneResultsFieldConfig> = [];
+  fieldNames: Array<string> = [];
 
   fieldConfigByName: { [fieldName: string]: GeneResultsFieldConfig } = {};
 
@@ -42,6 +42,12 @@ export class GenesDownloadDialogComponent implements OnInit {
               private settingsService: SettingsService,
               public bsModalRef: BsModalRef,
               public deployConfigService: DeployConfigService) {
+    if (deployConfigService.productionMode()) {
+      this.fields = getAppConfig().getGeneResultsConfig().geneSummaryFields;
+    } else {
+      this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
+    }
+    this.fieldNames = this.fields.map(conf => conf.name);
     this.fields.map(fieldConfig => {
       this.fieldConfigByName[fieldConfig.name] = fieldConfig;
     });

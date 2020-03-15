@@ -256,7 +256,7 @@ export class QueryService {
     const geneResultsConfig = getAppConfig().getGeneResultsConfig();
 
     fieldNames.map(fieldName => {
-      if (!geneResultsConfig.geneSummaryFieldNameSet.has(fieldName)) {
+      if (!geneResultsConfig.geneSummaryFieldNames.includes(fieldName)) {
         fieldsForServer.push(fieldName);
       }
     })
