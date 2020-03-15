@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
 import { SettingsService } from '../settings.service';
 import { GeneSummary } from '../pombase-api.service';
+import { getAppConfig, GeneResultsFieldConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-genes-table-config',
@@ -10,35 +12,45 @@ import { GeneSummary } from '../pombase-api.service';
 })
 export class GenesTableConfigComponent implements OnInit {
 
-  fieldNames = GeneSummary.getDisplayFieldNames();
+  fields: Array<GeneResultsFieldConfig> = [];
 
-  selectedFields: { [key: string]: boolean } = {};
+  selectedFieldNames: { [key: string]: boolean } = {};
 
   constructor(public bsModalRef: BsModalRef,
-              private settingService: SettingsService) {
-    settingService.visibleGenesTableColumns
-      .map(fieldName => this.selectedFields[fieldName] = true);
+              private settingsService: SettingsService,
+              public deployConfigService: DeployConfigService) {
+    if (deployConfigService.productionMode()) {
+      this.fields = getAppConfig().getGeneResultsConfig().geneSummaryFields;
+    } else {
+      this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
+    }
+    settingsService.visibleGenesTableFieldNames
+      .map(fieldName => this.selectedFieldNames[fieldName] = true);
   }
 
   apply(): void {
-    this.settingService.visibleGenesTableColumns = this.selectedFieldNames();
+    this.settingsService.visibleGenesTableFieldNames = this.getSelectedFieldNames();
     this.bsModalRef.hide()
   }
 
   fieldChange(fieldName: string): void {
-    const selectedFields = this.selectedFieldNames();
-
-    if (selectedFields.length === 0) {
-      if (fieldName === 'Systematic ID') {
-        this.selectedFields['Gene name'] = true;
+    if (this.getSelectedFieldNames().length === 0) {
+      if (fieldName === 'uniquename') {
+        this.selectedFieldNames['name'] = true;
       } else {
-        this.selectedFields['Systematic ID'] = true;
+        this.selectedFieldNames['uniquename'] = true;
       }
     }
   }
 
-  private selectedFieldNames(): Array<string> {
-    return this.fieldNames.filter(name => this.selectedFields[name]);
+  resetSelection() {
+    this.selectedFieldNames = {};
+    this.settingsService.defaultVisibleFieldNames
+      .map(fieldName => this.selectedFieldNames[fieldName] = true);
+  }
+
+  private getSelectedFieldNames(): Array<string> {
+    return Object.keys(this.selectedFieldNames).filter(name => this.selectedFieldNames[name]);
   }
 
   ngOnInit(): void {

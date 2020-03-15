@@ -110,14 +110,6 @@ export interface VisColumnAttrValueConfig {
   sort_priority: number;
 }
 
-export interface VisColumnConfig {
-  name: string;
-  display_name: string;
-  column_type: string;
-  attr_values: Array<VisColumnAttrValueConfig>;
-  attrValuesMap: Map<string, VisColumnAttrValueConfig>;
-}
-
 export interface DocPagesConfig {
   // titles for each path / Markdown file
   [path: string]: string
@@ -127,13 +119,24 @@ export interface DocumentationConfig {
   pages: DocPagesConfig;
 }
 
-export interface GeneResultsVisConfig {
-  columns: Array<VisColumnConfig>;
+export interface GeneResultsFieldConfig {
+  name: string;
+  display_name: string;
+  column_type: string;
+  attr_values: Array<VisColumnAttrValueConfig>;
+  attrValuesMap: Map<string, VisColumnAttrValueConfig>;
 };
 
 export interface GeneResultsConfig {
   sortable_columns: Array<string>;
-  visualisation: GeneResultsVisConfig;
+  field_config: { [name: string]: GeneResultsFieldConfig };
+  gene_summary_field_names: Array<string>;
+  geneSummaryFieldNames: Array<string>;
+  visualisation_field_names: Array<string>;
+  gene_table_field_names: Array<string>;
+  geneSummaryFields: Array<GeneResultsFieldConfig>;
+  visualisationFields: Array<GeneResultsFieldConfig>;
+  geneTableFields: Array<GeneResultsFieldConfig>;
   // names of slims that are available from the results pages:
   slim_table_slim_names: Array<string>;
 };
@@ -198,7 +201,10 @@ export interface AppConfig {
   queryBuilder: QueryBuilderConfig;
 
   _geneResults: GeneResultsConfig;
-  _processedGeneResults: GeneResultsConfig;
+
+  // the names of fields that can be queried and used in the client
+  // see: GeneQueryData in data.rs and class QueryOutputOptions in pombase-query.ts
+  allowedQueryFieldName: Array<string>;
 
   getGeneResultsConfig(): GeneResultsConfig;
 
@@ -655,28 +661,12 @@ let _appConfig: AppConfig = {
   // query builder node configuration:
   queryBuilder: pombaseConfig.query_builder,
 
+  allowedQueryFieldName: pombaseConfig.gene_results.allowed_query_field_names,
+
   _geneResults: pombaseConfig.gene_results,
-  _processedGeneResults: null,
 
   getGeneResultsConfig(): GeneResultsConfig {
-    let geneResultsConfig: GeneResultsConfig = this._geneResults;
-    if (this._processedGeneResults === null) {
-      for (let columnConfig of geneResultsConfig.visualisation.columns) {
-        columnConfig.attrValuesMap = new Map();
-        let index = 0;
-        for (let attrValueConfig of columnConfig.attr_values) {
-          if (!attrValueConfig.sort_priority) {
-            attrValueConfig.sort_priority = index;
-          }
-          index++;
-          columnConfig.attrValuesMap.set(attrValueConfig.name, attrValueConfig);
-        }
-      }
-
-      this._processedGeneResults = geneResultsConfig;
-    }
-
-    return this._processedGeneResults;
+    return this._geneResults;
   },
 
   isConfigOrganism(taxonid: number): boolean {
@@ -760,6 +750,51 @@ let _appConfig: AppConfig = {
     return null;
   },
 };
+
+
+let geneResults = pombaseConfig.gene_results as GeneResultsConfig;
+
+_appConfig._geneResults = geneResults;
+
+for (const fieldName of Object.keys(geneResults.field_config)) {
+
+  let fieldConfig = geneResults.field_config[fieldName];
+  fieldConfig.name = fieldName;
+
+  if (fieldConfig.attr_values) {
+    fieldConfig.attrValuesMap = new Map();
+    let index = 0;
+    for (let attrValueConfig of fieldConfig.attr_values) {
+      if (!attrValueConfig.sort_priority) {
+        attrValueConfig.sort_priority = index;
+      }
+      index++;
+      fieldConfig.attrValuesMap.set(attrValueConfig.name, attrValueConfig);
+    }
+  }
+}
+
+
+const fieldFinder = (fieldName: string) => {
+  const fieldConfig = geneResults.field_config[fieldName];
+  if (fieldConfig) {
+    return fieldConfig;
+  } else {
+    console.error('no field_config for: ' + fieldName);
+    return null;
+  }
+}
+geneResults.visualisationFields =
+  geneResults.visualisation_field_names.map(fieldFinder)
+  .filter(conf => !!conf);
+
+geneResults.geneTableFields =
+  geneResults.gene_table_field_names.map(fieldFinder)
+  .filter(conf => !!conf);
+
+geneResults.geneSummaryFieldNames = geneResults['gene_summary_field_names'];
+geneResults.geneSummaryFields =
+  geneResults.geneSummaryFieldNames.map(fieldFinder);
 
 export function getAnnotationTableConfig(): AnnotationTableConfig {
   return _config;

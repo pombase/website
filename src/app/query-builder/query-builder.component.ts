@@ -1,7 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { GeneQuery, GeneQueryNode, QueryResult, TermNode, SubsetNode,
-         QueryOutputOptions } from '../pombase-query';
+import { GeneQuery, GeneQueryNode, TermNode, SubsetNode } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { ToastrService } from 'ngx-toastr';
 import { getAppConfig, QueryNodeConfig } from '../config';
@@ -102,12 +101,9 @@ export class QueryBuilderComponent implements OnInit {
 
       this.toastr.success('Query results added to history below');
 
-
-//   See #1236 - maybe add the UniProt ID column to the results table if the
-//   user searches using the UniProt IDs tools
-//      if (nodeConf.extraResultTableColumns) {
-//        this.settingsService.addVisibleGenesTableColumns(nodeConf.extraResultTableColumns);
-//      }
+      if (nodeConf.extraResultTableColumns) {
+        this.settingsService.addVisibleGenesTableFields(nodeConf.extraResultTableColumns);
+      }
     }
   }
 }

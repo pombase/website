@@ -6,11 +6,11 @@ import { Util } from './util';
   name: 'geneShortOrderBy'
 })
 export class GeneShortOrderByPipe implements PipeTransform {
-  transform(genes: Array<GeneShort>, field: string): any {
-    if (field === 'gene' || field === '+gene') {
+  transform(genes: Array<GeneShort>, fieldName: string): any {
+    if (fieldName === 'name' || fieldName === '+name') {
       genes.sort(Util.geneCompare);
     } else {
-      if (field === 'systematicId' || field === '+systematicId') {
+      if (fieldName === 'uniquename' || fieldName === '+uniquename') {
         genes.sort((gene1, gene2) => {
           return gene1.uniquename.localeCompare(gene2.uniquename);
         })

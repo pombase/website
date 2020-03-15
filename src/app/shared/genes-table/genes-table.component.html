@@ -89,26 +89,29 @@
 
   <div *ngIf="!showingVisualisation() && !showingSlim()">
   <form>
+
+  <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+
   <table>
     <thead>
       <tr>
         <th *ngIf="selectionInProgress()">
           &nbsp;
         </th>
-        <th *ngFor="let fieldName of visibleFieldNames">
-          <div *ngIf="sortableField(fieldName)">
-            <a *ngIf="orderByFieldDisplayName != fieldName" (click)="setOrderBy(fieldName)"
-               title="Click to sort">{{fieldName}}</a>
-            <span *ngIf="orderByFieldDisplayName == fieldName">{{fieldName}}</span>
+        <th *ngFor="let fieldConfig of visibleFields">
+          <div *ngIf="sortableField(fieldConfig.name)">
+            <a *ngIf="orderByFieldName != fieldConfig.name" (click)="setOrderBy(fieldConfig.name)"
+               title="Click to sort">{{fieldConfig.display_name}}</a>
+            <span *ngIf="orderByFieldName == fieldConfig.name">{{fieldConfig.display_name}}</span>
           </div>
-          <div *ngIf="!sortableField(fieldName)">
-            {{fieldName}}
+          <div *ngIf="!sortableField(fieldConfig.name)">
+            {{fieldConfig.display_name}}
           </div>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let gene of genes | geneShortOrderBy: orderByField">
+      <tr *ngFor="let gene of displayGenes | geneShortOrderBy: orderByFieldName">
         <td *ngIf="selectionInProgress()">
           <input id="show-translation" type="checkbox"
                  [name]="gene.uniquename"
@@ -116,23 +119,23 @@
                  [(ngModel)]="selectedGenes[gene.uniquename]"/>
         </td>
         <td *ngFor="let fieldName of visibleFieldNames">
-          <div *ngIf="fieldName == 'Systematic ID'">
-            <a routerLink="/gene/{{gene.uniquename}}">
-              {{gene.uniquename}}
+          <div *ngIf="fieldName == 'uniquename'">
+            <a routerLink="/gene/{{gene['uniquename']}}">
+              {{gene['uniquename']}}
             </a>
           </div>
-          <div *ngIf="fieldName == 'Gene name'">
-            <a *ngIf="gene.name" routerLink="/gene/{{gene.uniquename}}">
-              {{gene.name}}
+          <div *ngIf="fieldName == 'name'">
+            <a *ngIf="gene.name" routerLink="/gene/{{gene['uniquename']}}">
+              {{gene['name']}}
             </a>
           </div>
-          <div *ngIf="fieldName == 'Product description'">
-            <ng-container *ngIf="gene.product">
-              {{gene.product}}
+          <div *ngIf="fieldName == 'product'">
+            <ng-container *ngIf="gene['product']">
+              {{gene['product']}}
             </ng-container>
           </div>
           <div *ngIf="!sortableField(fieldName)">
-            <span [innerHtml]="displayFieldValue(gene, fieldName)"></span>
+            <span [innerHtml]="gene[fieldName]"></span>
           </div>
         </td>
       </tr>

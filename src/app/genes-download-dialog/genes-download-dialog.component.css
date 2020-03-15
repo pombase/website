@@ -6,22 +6,37 @@
   padding: 0.6em 1em;
 }
 
-.flex-container {
-  display: flex;
-  flex-direction: row;
+.field-column {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 1em;
 }
 
-.field-column, .seq-column {
-  padding: 1em;
+.field-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(15, auto);
+  grid-auto-flow: column;
+  margin: 1.5em;
+  width: 100%;
+}
+
+.field-input {
+  white-space: nowrap;
+}
+
+.seq-control {
+  margin-top: 1em;
 }
 
 .seq-column {
+  display: inline-block;
+  padding: 1em;
   min-width: 15em;
 }
 
-.select-actions {
-  margin-top: 2em;
-  clear: both;
+.seq-column input {
+  margin-top: 0.3em;
 }
 
 .nucleotide-controls .flanking-bases input {
@@ -38,4 +53,9 @@
 
 input[type=checkbox]:disabled +label {
   color: grey;
+}
+
+.select-all-action {
+  grid-row: span 2;
+  margin-top: 1.5em;
 }

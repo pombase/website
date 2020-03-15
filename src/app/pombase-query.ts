@@ -1,5 +1,6 @@
 import { Util } from './shared/util';
 import { GeneShort } from './pombase-api.service';
+import { QueryOutputOptions, DisplayResultRow } from './query.service';
 
 export class TermAndName {
   termid: string;
@@ -10,7 +11,7 @@ export interface ResultRow {
   gene_uniquename: string;
   sequence?: string;
   subsets?: Array<TermId>;
-  [other_attribute: string]: string | TermAndName | Array<TermId>;
+  [other_attribute: string]: string | { term: TermAndName } | Array<TermId> | Array<string>;
 }
 
 export class QueryResult {
@@ -41,13 +42,13 @@ export enum FormatTypes {
 }
 
 export class FormatUtils {
-  public static formatQueryResults(results: QueryResult, headers: { [key: string]: string }, format: FormatTypes) {
+  public static formatQueryResults(results: DisplayResultRow[], headers: { [key: string]: string }, format: FormatTypes) {
     let ret = '';
 
     if (format === FormatTypes.FASTA) {
-      for (const row of results.getRows()) {
+      for (const row of results) {
         if (row.sequence) {
-          ret += '>' + headers[row.gene_uniquename] + '\n';
+          ret += '>' + headers[row.uniquename] + '\n';
           ret += Util.splitSequenceString(row.sequence);
           ret += '\n';
         }
@@ -164,14 +165,14 @@ export class GeneBoolNode extends GeneQueryNode {
 export class GeneListNode extends GeneQueryNode {
   genes: Array<GeneShort>;
 
-  constructor(public arg: Array<GeneShort> | Array<GeneUniquename>) {
+  constructor(public arg: Array<{ uniquename: string }> | Array<GeneUniquename>) {
     super();
 
     this.genes = [];
 
     for (let argElement of arg) {
       if (typeof(argElement) === 'object') {
-        this.genes.push(GeneShort.fromGeneShort(argElement));
+        this.genes.push({ uniquename: argElement.uniquename, name: null });
       } else {
         this.genes.push({ uniquename: argElement, name: null });
       }
@@ -543,20 +544,6 @@ export class QueryIdNode extends GeneQueryNode {
   }
 }
 
-type SequenceOptions = 'protein' | 'none' | {
-  nucleotide: {
-    include_introns: boolean,
-    include_5_prime_utr: boolean,
-    include_3_prime_utr: boolean,
-  },
-};
-
-export class QueryOutputOptions {
-  constructor(private field_names: Array<string>,
-              private flags: Array<string>,
-              private sequence: SequenceOptions) { }
-}
-
 export class GeneQuery {
   private queryTopNode: GeneQueryNode;
   private name: string;
@@ -626,6 +613,11 @@ export class GeneQuery {
     }
 
     throw new Error('Unknown type: ' + nodeType);
+  }
+
+  static fromGeneUniquenames(queryName: string, geneUniquenames: Array<GeneUniquename>): GeneQuery {
+    const part = new GeneListNode(geneUniquenames);
+    return new GeneQuery(queryName, part);
   }
 
   constructor(queryName: string, topNode: GeneQueryNode) {

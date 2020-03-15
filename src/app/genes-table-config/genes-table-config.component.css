@@ -1,0 +1,12 @@
+.field-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(15, auto);
+  grid-auto-flow: column;
+  margin: 1.5em;
+}
+
+.reset-selection {
+  grid-row: span 2;
+  margin-top: 1.5em;
+}

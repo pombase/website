@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GeneShort, PombaseAPIService, TermSubsetDetails, GeneSummary, GeneSummaryMap } from '../../pombase-api.service';
-import { GeneListNode, GeneQuery, QueryOutputOptions, QueryResult, TermId, GeneUniquename } from '../../pombase-query';
-import { QueryService, HistoryEntry } from '../../query.service';
+import { GeneListNode, GeneQuery, QueryResult, TermId, GeneUniquename } from '../../pombase-query';
+import { QueryService, HistoryEntry, QueryOutputOptions } from '../../query.service';
 import { Router } from '@angular/router';
 
 class ProcessedRow {

@@ -2,8 +2,27 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { GeneQuery, QueryResult, QueryOutputOptions, QueryIdNode } from './pombase-query';
+import { GeneQuery, QueryResult, QueryIdNode, GeneUniquename, ResultRow, TermAndName } from './pombase-query';
 import { getAppConfig } from './config';
+import { PombaseAPIService, GeneSummaryMap, GeneSummary } from './pombase-api.service';
+
+export interface DisplayResultRow {
+  uniquename: string;
+  [fieldName: string]: any;
+}
+type SequenceOptions = 'protein' | 'none' | {
+  nucleotide: {
+    include_introns: boolean,
+    include_5_prime_utr: boolean,
+    include_3_prime_utr: boolean,
+  },
+};
+
+export class QueryOutputOptions {
+  constructor(private field_names: Array<string>,
+              private flags: Array<string>,
+              private sequence: SequenceOptions) { }
+}
 
 const localStorageKey = 'pombase-query-build-history-v1';
 
@@ -71,7 +90,8 @@ export class QueryService {
 
   private queryCache: Array<QueryResult> = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private pombaseApiService: PombaseAPIService,
+              private http: HttpClient) {
     try {
       let savedHistoryString = localStorage.getItem(localStorageKey);
       if (savedHistoryString) {
@@ -174,6 +194,13 @@ export class QueryService {
       });
   }
 
+  execNoSave(query: GeneQuery, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
+    return this.postQuery(query, outputOptions)
+      .then((result: QueryResult) => {
+        return result;
+      });
+  }
+
   exec(query: GeneQuery, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
     return this.postQuery(query, outputOptions)
       .then((result: QueryResult) => {
@@ -216,6 +243,87 @@ export class QueryService {
         this.saveResultsToHistory(result);
         return result;
       });
+  }
+
+  async queryGenesWithFields(geneUniquenames: Array<GeneUniquename>,
+                             fieldNames: Array<string>,
+                             sequenceOptions?: SequenceOptions): Promise<Array<DisplayResultRow>> {
+    let queryPromise: Promise<QueryResult|null>;
+
+    let fieldsForServer: Array<string> = [];
+
+    const geneResultsConfig = getAppConfig().getGeneResultsConfig();
+
+    fieldNames.map(fieldName => {
+      if (!geneResultsConfig.geneSummaryFieldNames.includes(fieldName)) {
+        fieldsForServer.push(fieldName);
+      }
+    })
+
+    if (fieldsForServer.length === 0 && !sequenceOptions) {
+      queryPromise = Promise.resolve(null);
+    } else {
+      const query = GeneQuery.fromGeneUniquenames(null, geneUniquenames);
+      const options = new QueryOutputOptions(['gene_uniquename', ...fieldsForServer], [],
+                                             sequenceOptions || 'none');
+      queryPromise = this.execNoSave(query, options);
+    }
+
+    const queryResults = await queryPromise;
+
+    const geneSummaryMap = await this.pombaseApiService.getGeneSummaryMapPromise();
+
+    const rowProcessor = (geneUniquename: GeneUniquename, serverRow?: ResultRow) => {
+      const geneSummary = geneSummaryMap[geneUniquename];
+      const displayRow: any = {};
+
+      displayRow['uniquename'] = geneSummary.uniquename;
+
+      for (const fieldName of fieldNames) {
+        displayRow[fieldName] = geneSummary.getFieldDisplayValue(fieldName);
+      }
+
+      if (sequenceOptions) {
+        displayRow['sequence'] = serverRow.sequence;
+      }
+
+      for (const serverFieldName of fieldsForServer) {
+        const fieldConfig = geneResultsConfig.field_config[serverFieldName];
+        const rawServerValue = serverRow[serverFieldName];
+
+        if (typeof(rawServerValue) === 'undefined') {
+          displayRow[serverFieldName] = '';
+        } else {
+          switch (fieldConfig.column_type) {
+            case 'gene_list':
+              const fieldValue = rawServerValue || [];
+              displayRow[serverFieldName] =
+                (fieldValue as Array<string>)
+                  .map(uniquename => geneSummaryMap[uniquename].displayName()).join(',');
+              break;
+
+            case 'ontology_term':
+              if (typeof(rawServerValue) === 'string') {
+                displayRow[serverFieldName] = rawServerValue;
+              } else {
+                displayRow[serverFieldName] = (rawServerValue as { term: TermAndName }).term.termid;
+              }
+              break;
+
+            default:
+              displayRow[serverFieldName] = rawServerValue;
+          }
+        }
+      }
+
+      return displayRow as DisplayResultRow;
+    };
+
+    if (fieldsForServer.length === 0 && !sequenceOptions) {
+      return geneUniquenames.map(geneUniquename => rowProcessor(geneUniquename));
+    } else {
+      return queryResults.getRows().map(resultRow => rowProcessor(resultRow.gene_uniquename, resultRow));
+    }
   }
 
   getHistory(): Array<HistoryEntry> {

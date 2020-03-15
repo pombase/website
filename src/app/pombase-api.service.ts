@@ -245,7 +245,7 @@ export class GeneShort {
 
 export class GeneSummary extends GeneShort {
   private static displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = null;
-  private static displayFieldNames: Array<string> = null;
+  private static fieldNames: Array<string> = null;
 
   uniquename: string;
   name: string;
@@ -259,21 +259,19 @@ export class GeneSummary extends GeneShort {
   feature_type: string;
 
   private static makeFields(): void {
-    const displayFieldNames =
-       ['Systematic ID', 'Gene name', 'Product description', 'UniProt ID',
-    'Synonyms', 'Feature type', 'Start position', 'End position',
-    'Chromosome', 'Strand'];
+    const geneResultsConfig = getAppConfig().getGeneResultsConfig();
+    const fieldNames = geneResultsConfig.geneSummaryFieldNames;
 
     const displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = {
-      'Systematic ID': g => g.uniquename,
-      'Gene name': g => g.name || '',
-      'Synonyms': g => g.synonyms.join(','),
-      'Product description': g => g.product,
-      'UniProt ID': g => g.uniprot_identifier,
-      'Feature type': g => g.displayFeatureType(),
-      'Start position': g => String(g.location.start_pos),
-      'End position': g => String(g.location.end_pos),
-      'Chromosome': g => {
+      'uniquename': g => g.uniquename,
+      'name': g => g.name || '',
+      'synonyms': g => g.synonyms.join(','),
+      'product': g => g.product,
+      'uniprot_identifier': g => g.uniprot_identifier,
+      'feature_type': g => g.displayFeatureType(),
+      'start_pos': g => String(g.location.start_pos),
+      'end_pos': g => String(g.location.end_pos),
+      'chromosome_name': g => {
         const chrName = g.location.chromosome_name;
         const chromosomeConfig = getAppConfig().chromosomes[chrName];
         if (chromosomeConfig && chromosomeConfig.short_display_name) {
@@ -281,37 +279,37 @@ export class GeneSummary extends GeneShort {
         }
         return chrName;
       },
-      'Strand': g => g.location.strand,
+      'strand': g => g.location.strand,
     };
-    for (const orthTaxonid of getAppConfig().ortholog_taxonids) {
-      const orthOrg = getAppConfig().getOrganismByTaxonid(orthTaxonid);
-      const orthFieldName = orthOrg.common_name + ' ortholog';
-      displayFieldNames.push(orthFieldName);
-      displayFieldGenerators[orthFieldName] =
-        (summary) =>
-          summary.orthologs.filter(orth => orth.taxonid === orthTaxonid)
-            .map(orth => orth.name || orth.identifier).join(',');
-    }
+
+    fieldNames.forEach(fieldName => {
+      const fieldConfig = geneResultsConfig.field_config[fieldName];
+
+      if (fieldConfig.column_type === 'orthologs') {
+        if (fieldName.startsWith('orthologs:')) {
+          const orthTaxonId = parseInt(fieldName.substr(10), 10);
+          displayFieldGenerators[fieldName] =
+            (summary) =>
+              summary.orthologs.filter(orth => orth.taxonid === orthTaxonId)
+                .map(orth => orth.name || orth.identifier).join(',');
+        } else {
+          console.error('field config type is "' + fieldName +
+            '" but field name doesn\'t start with "orthologs:" for name: "' + fieldName + '"');
+        }
+      }
+    });
 
     this.displayFieldGenerators = displayFieldGenerators;
-    this.displayFieldNames = displayFieldNames;
   }
 
   private static getFieldDisplayGenerators(): { [label: string]: (g: GeneSummary) => string } {
-    if (!GeneSummary.displayFieldNames) {
+    if (!GeneSummary.displayFieldGenerators) {
       GeneSummary.makeFields();
     }
     return GeneSummary.displayFieldGenerators;
   }
 
-  static getDisplayFieldNames(): Array<string> {
-    if (!GeneSummary.displayFieldNames) {
-      GeneSummary.makeFields();
-    }
-    return GeneSummary.displayFieldNames;
-  }
-
-  displayFeatureType(): string {
+  private displayFeatureType(): string {
     if (this.feature_type === 'mRNA gene') {
       return 'protein coding';
     } else {
@@ -325,6 +323,10 @@ export class GeneSummary extends GeneShort {
     } else {
       return null;
     }
+  }
+
+  displayName(): string {
+    return this.name || this.uniquename;
   }
 }
 

@@ -1,26 +1,42 @@
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
+import { getAppConfig } from './config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
-  private readonly _visibleGenesTableColumns =
-    new BehaviorSubject<Array<string>>(['Systematic ID', 'Gene name', 'Product description']);
+  private readonly _defaultVisibleFieldNames = ['uniquename', 'name', 'product'];
 
-  readonly visibleGenesTableColumns$ = this._visibleGenesTableColumns.asObservable();
+  private readonly _visibleGenesTableFieldNames =
+    new BehaviorSubject<Array<string>>(this._defaultVisibleFieldNames);
 
-  get visibleGenesTableColumns(): Array<string> {
-    return this._visibleGenesTableColumns.getValue();
+  readonly visibleGenesTableFieldNames$ = this._visibleGenesTableFieldNames.asObservable();
+
+  get visibleGenesTableFieldNames(): Array<string> {
+    return this._visibleGenesTableFieldNames.getValue();
   }
 
-  set visibleGenesTableColumns(val: Array<string>) {
-    this._visibleGenesTableColumns.next(val);
+  set visibleGenesTableFieldNames(val: Array<string>) {
+    const genesTableFields = getAppConfig().getGeneResultsConfig().geneTableFields;
+    const valSet = new Set(val);
+    const newVisibleFieldNames =
+      genesTableFields.filter(fieldConfig => valSet.has(fieldConfig.name))
+        .map(fieldConfig => fieldConfig.name);
+    this._visibleGenesTableFieldNames.next(newVisibleFieldNames);
   }
 
-  addVisibleGenesTableColumns(fieldNames: Array<string>): void {
-    let visible = this.visibleGenesTableColumns;
+  get defaultVisibleFieldNames(): Array<string> {
+    return this._defaultVisibleFieldNames;
+  }
+
+  resetVisibleFields() {
+    this.visibleGenesTableFieldNames = ['uniquename', 'name', 'product'];
+  }
+
+  addVisibleGenesTableFields(fieldNames: Array<string>): void {
+    let visible = this.visibleGenesTableFieldNames;
     let changed = false;
     fieldNames.map(fieldName => {
       if (!visible.includes(fieldName)) {
@@ -29,7 +45,7 @@ export class SettingsService {
       }
     });
     if (changed) {
-      this.visibleGenesTableColumns = visible;
+      this.visibleGenesTableFieldNames = visible;
     }
   }
 }
