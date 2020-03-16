@@ -119,24 +119,18 @@
                  [(ngModel)]="selectedGenes[gene.uniquename]"/>
         </td>
         <td *ngFor="let fieldName of visibleFieldNames">
-          <div *ngIf="fieldName == 'uniquename'">
-            <a routerLink="/gene/{{gene['uniquename']}}">
+          <a *ngIf="fieldName == 'uniquename'" routerLink="/gene/{{gene['uniquename']}}">
               {{gene['uniquename']}}
-            </a>
-          </div>
-          <div *ngIf="fieldName == 'name'">
-            <a *ngIf="gene.name" routerLink="/gene/{{gene['uniquename']}}">
+          </a>
+          <a *ngIf="fieldName == 'name' && gene.name" routerLink="/gene/{{gene['uniquename']}}">
               {{gene['name']}}
-            </a>
-          </div>
-          <div *ngIf="fieldName == 'product'">
-            <ng-container *ngIf="gene['product']">
+          </a>
+          <ng-container *ngIf="fieldName == 'product' && gene['product']">
               {{gene['product']}}
-            </ng-container>
-          </div>
-          <div *ngIf="!sortableField(fieldName)">
-            <span [innerHtml]="gene[fieldName]"></span>
-          </div>
+          </ng-container>
+          <span *ngIf="!sortableField(fieldName)"
+                [innerHtml]="gene[fieldName]">
+          </span>
         </td>
       </tr>
     </tbody>
