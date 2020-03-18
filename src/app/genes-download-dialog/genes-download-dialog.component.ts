@@ -42,11 +42,7 @@ export class GenesDownloadDialogComponent implements OnInit {
               private settingsService: SettingsService,
               public bsModalRef: BsModalRef,
               public deployConfigService: DeployConfigService) {
-    if (deployConfigService.productionMode()) {
-      this.fields = getAppConfig().getGeneResultsConfig().geneSummaryFields;
-    } else {
-      this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
-    }
+    this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
     this.fieldNames = this.fields.map(conf => conf.name);
     this.fields.map(fieldConfig => {
       this.fieldConfigByName[fieldConfig.name] = fieldConfig;

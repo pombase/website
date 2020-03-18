@@ -19,11 +19,7 @@ export class GenesTableConfigComponent implements OnInit {
   constructor(public bsModalRef: BsModalRef,
               private settingsService: SettingsService,
               public deployConfigService: DeployConfigService) {
-    if (deployConfigService.productionMode()) {
-      this.fields = getAppConfig().getGeneResultsConfig().geneSummaryFields;
-    } else {
-      this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
-    }
+    this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
     settingsService.visibleGenesTableFieldNames
       .map(fieldName => this.selectedFieldNames[fieldName] = true);
   }
