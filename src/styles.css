@@ -164,20 +164,6 @@ html body hr {
   margin: 15px 0;
 }
 
-#loading-spinner {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  z-index: 15;
-  top: 50%;
-  left: 50%;
-  margin: -100px 0 0 -16px;
-}
-
-#loading-spinner-text {
-  font-size: 120%;
-}
-
 ul {
   padding-left: 25px;
 }

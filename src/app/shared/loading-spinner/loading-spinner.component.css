@@ -1,0 +1,18 @@
+
+#loading-spinner {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -16px;
+  text-align: center;
+  width: 10%;
+}
+
+#loading-spinner-text {
+  font-size: 110%;
+}
+
+#loading-spinner img {
+  display: inline-block;
+}
