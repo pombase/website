@@ -1,5 +1,4 @@
 ### Unique permanent URLs for search results
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: advanced_search.png -->
 
 All result pages from the [Advanced search](/query)

@@ -1,5 +1,4 @@
 ### New PomBase funding from the Wellcome Trust
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 We are pleased to announce that the recent PomBase application for
