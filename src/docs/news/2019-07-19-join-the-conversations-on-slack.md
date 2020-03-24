@@ -1,5 +1,4 @@
 ### Join the conversations on Slack
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: slack_icon-32px.png -->
 
 The vibrant fission yeast community now has a Slack channel.  Slack
