@@ -61,7 +61,7 @@
         <div *ngIf="graphicalAbstractImagePath" id="graphical-abstract" >
           <img src="{{graphicalAbstractImagePath}}"/>
         </div>
-        <video *ngIf="videoPath" width="300" autoplay id="graphical-abstract">
+        <video *ngIf="videoPath" width="300" loop autoplay id="graphical-abstract">
           <source src="{{videoPath}}" type="video/mp4">
         </video>
         {{refDetails.abstract}}
