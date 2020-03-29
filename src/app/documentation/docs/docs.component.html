@@ -8321,6 +8321,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#angeli-update">AnGeLi update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-search-result-download-options">New search result download options</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 77.0</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#community-curation-response-rate-reaches">Community curation response rate reaches 50%</a></div>
@@ -9428,7 +9429,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'join-the-conversations-on-slack'">
 <h3 id="join-the-conversations-on-slack">Join the conversations on Slack</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: slack_icon-32px.png -->
 <p>The vibrant fission yeast community now has a Slack channel. Slack provides a forum for the research community. Follow conversations you care about, message colleagues privately, or in groups, ask questions, post responses. All archived and searchable.</p>
 <ul>
@@ -9543,10 +9543,11 @@ Please sign the letter to add your voice in support of the databases that help m
 
   </div>
   <div *ngIf="pageName == 'angeli'">
-<h3 id="angeli-update">Angeli update</h3>
-<!-- pombase_flags: draft -->
+<h3 id="angeli-update">AnGeLi update</h3>
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: angeli.png -->
-<p>AnGeLi (developed by Danny Bitton) is an enrichment tool that allows you to perform enrichments over gene lists. Angeli was recently updated with PomBase ontology data from 04-03-2020 to provide 9320 lists including ontology terms annotated by PomBase, and many additional datasets from the Bahler laboratory.</p>
+<p>AnGeLi (developed by Danny Bitton) is a tool that allows you to perform enrichments over gene lists.</p>
+<p>AnGeLi has recently been updated to provide 9320 lists, including ontology-based annotations from PomBase (as of <span class="no-break">2020-03-04</span>) as well as many additional datasets from the Bähler laboratory.</p>
 
   </div>
   <div *ngIf="pageName == 'new-search-result-download-options'">
@@ -9564,6 +9565,13 @@ Please sign the letter to add your voice in support of the databases that help m
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/angeli.png"/></p>
+<h3 id="angeli-update">AnGeLi update</h3>
+<p><em>2020-03-23</em></p>
+<p>AnGeLi (developed by Danny Bitton) is a tool that allows you to perform enrichments over gene lists.</p>
+<p>AnGeLi has recently been updated to provide 9320 lists, including ontology-based annotations from PomBase (as of <span class="no-break">2020-03-04</span>) as well as many additional datasets from the Bähler laboratory.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="new-search-result-download-options">New search result download options</h3>
