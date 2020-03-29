@@ -3,6 +3,10 @@
     "target": "http://localhost/",
     "secure": false
   },
+  "/media": {
+    "target": "http://localhost/",
+    "secure": false
+  },
   "/browser_images": {
     "target": "http://localhost/",
     "secure": false
