@@ -22,5 +22,5 @@ United Kingdom
 
 #### [University College London](http://www.ucl.ac.uk/)
 
--   Antonia Lock (Curator)
+<! ---   Antonia Lock (Curator) -->
 -   Jürg Bähler (co-PI)
