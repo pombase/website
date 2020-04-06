@@ -21,7 +21,9 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   expression: string = null;
   phenotypeConditionNamespace: string = null;
   phenotypeConditions: Array<TermAndName> = [];
+  phenotypeExcludeConditions: Array<TermAndName> = [];
   showConditionSelector = false;
+  showExcludeConditionSelector = false;
 
   constructor(public deployConfigService: DeployConfigService) { }
 
@@ -46,9 +48,19 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
     this.phenotypeConditions = [term];
   }
 
+  phenotypeExcludeConditionMatched(term: TermShort) {
+    this.phenotypeExcludeConditions = [term];
+  }
+
   conditionSelectorChanged(): void {
     if (!this.showConditionSelector) {
       this.phenotypeConditions = [];
+    }
+  }
+
+  excludeConditionSelectorChanged(): void {
+    if (!this.showExcludeConditionSelector) {
+      this.phenotypeExcludeConditions = [];
     }
   }
 
@@ -73,7 +85,8 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
 
       this.newTermNode.emit(new TermNode(this.selectedTerm.termid, this.selectedTerm.name,
                                          this.selectedTerm.definition, singleOrMulti,
-                                         this.expression, this.phenotypeConditions));
+                                         this.expression, this.phenotypeConditions,
+                                         this.phenotypeExcludeConditions));
     }
   }
 

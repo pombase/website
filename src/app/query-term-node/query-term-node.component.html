@@ -45,14 +45,26 @@
        class="phenotype-condition-selector phenotype-filter">
     <input id="show-cond-select" type="checkbox" [(ngModel)]="showConditionSelector"
            (change)="conditionSelectorChanged()"
-           title="Click to constrain by condition"/>
+           title="Click to constrain results to genes that have the phenotype in a particular experimental condition"/>
     <label for="show-cond-select">Constrain condition<span *ngIf="showConditionSelector">:</span></label>
     <app-term-name-complete *ngIf="showConditionSelector"
                             class="phenotype-condition-complete"
                             [cvName]="phenotypeConditionNamespace"
                             [placeholder]="'Start typing a phenotype condition, eg. low temperature'"
                             (termMatched)="phenotypeConditionMatched($event)"></app-term-name-complete>
+  </div>
 
+  <div *ngIf="!deployConfigService.productionMode() && phenotypeConditionNamespace"
+       class="phenotype-condition-selector phenotype-filter">
+    <input id="show-ex-cond-select" type="checkbox" [(ngModel)]="showExcludeConditionSelector"
+           (change)="excludeConditionSelectorChanged()"
+           title="Click to exclude genes that have a phenotype in a particular experimental condition"/>
+    <label for="show-ex-cond-select">Exclude condition<span *ngIf="showExcludeConditionSelector">:</span></label>
+    <app-term-name-complete *ngIf="showExcludeConditionSelector"
+                            class="phenotype-condition-complete"
+                            [cvName]="phenotypeConditionNamespace"
+                            [placeholder]="'Start typing a phenotype condition, eg. low temperature'"
+                            (termMatched)="phenotypeExcludeConditionMatched($event)"></app-term-name-complete>
   </div>
 </div>
 

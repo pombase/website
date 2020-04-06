@@ -245,7 +245,8 @@ export class TermNode extends GeneQueryNode {
               private definition: string,
               private single_or_multi_allele: string,
               private expression: string,
-              private conditions: Array<TermAndName>) {
+              private conditions: Array<TermAndName>,
+              private excludedConditions: Array<TermAndName>) {
     super();
     if (single_or_multi_allele !== 'single') {
       this.expression = null;
@@ -257,7 +258,8 @@ export class TermNode extends GeneQueryNode {
       return this.termid === obj.termid &&
         this.single_or_multi_allele === obj.single_or_multi_allele &&
         this.expression === obj.expression &&
-        conditionsEqual(this.conditions, obj.conditions);
+        conditionsEqual(this.conditions, obj.conditions) &&
+        conditionsEqual(this.excludedConditions, obj.excludedConditions);
     }
     return false;
   }
@@ -272,10 +274,6 @@ export class TermNode extends GeneQueryNode {
 
   getSingleOrMulti(): string {
     return this.single_or_multi_allele;
-  }
-
-  getConditions(): Array<TermAndName> {
-    return this.conditions;
   }
 
   private singleOrMultiString(): string {
@@ -315,11 +313,11 @@ export class TermNode extends GeneQueryNode {
     }
   }
 
-  private getConditionsString(): string {
-    if (!this.conditions || this.conditions.length === 0) {
+  private getConditionsString(conditions: Array<TermAndName>): string {
+    if (!conditions || conditions.length === 0) {
       return null;
     }
-    return this.conditions
+    return conditions
       .map(termShort => termShort.name + ' (' + termShort.termid + ')')
       .join(' and ');
   }
@@ -337,6 +335,7 @@ export class TermNode extends GeneQueryNode {
         single_or_multi_allele: singleOrMultiAllele,
         expression: expression,
         conditions: this.conditions,
+        excluded_conditions: this.excludedConditions,
       }
     };
   }
@@ -345,7 +344,9 @@ export class TermNode extends GeneQueryNode {
     let ret = this.termName + ' (' + this.termid + ')';
     const singleOrMultiString = this.singleOrMultiString();
     const expressionString = this.expressionString();
-    const conditionsString = this.getConditionsString();
+    const conditionsString = this.getConditionsString(this.conditions);
+    const excludedConditionsString = this.getConditionsString(this.excludedConditions);
+
     if (singleOrMultiString || expressionString || conditionsString) {
       ret += ' [';
       if (this.single_or_multi_allele === 'single' && expressionString) {
@@ -362,6 +363,12 @@ export class TermNode extends GeneQueryNode {
           ret += ' - ';
         }
         ret += 'conditions: ' + conditionsString;
+      }
+      if (excludedConditionsString) {
+        if (ret.length > 2) {
+          ret += ' - ';
+        }
+        ret += 'excluded conditions: ' + excludedConditionsString;
       }
       ret += ']';
     }
@@ -574,7 +581,7 @@ export class GeneQuery {
       let singleOrMulti = val['single_or_multi_allele'];
       return new TermNode(val['termid'], val['name'],
                           val['definition'], singleOrMulti, val.expression,
-                          val['conditions']);
+                          val['conditions'], val['excluded_conditions']);
 
     case 'or':
     case 'and': {
