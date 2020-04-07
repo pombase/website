@@ -576,10 +576,6 @@ export class PombaseAPIService {
             annotation.conditions.map((termid: string) => termsByTermId[termid] as TermShort);
         }
 
-        if (annotation.residue && annotationTypeConfig.residue_as_extension_part) {
-          moveResidueToExtension(annotation);
-        }
-
         if (annotation.extension) {
           processExtension(annotation, termsByTermId, genesByUniquename);
         }
@@ -1214,18 +1210,5 @@ function genesOfAnnotation(annotation: Annotation, genesByUniquename: GeneMap): 
       return geneDetail as GeneShort;
     }
   }) as Array<GeneShort>;
-}
-
-function moveResidueToExtension(annotation: Annotation) {
-  const residue = annotation.residue;
-  delete annotation.residue;
-
-  annotation.extension.push({
-    rel_type_display_name: 'residues bound',
-    rel_type_name: 'residues_bound',
-    ext_range: {
-      misc: residue,
-    },
-  });
 }
 
