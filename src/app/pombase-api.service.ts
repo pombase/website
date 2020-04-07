@@ -1221,8 +1221,8 @@ function moveResidueToExtension(annotation: Annotation) {
   delete annotation.residue;
 
   annotation.extension.push({
-    rel_type_display_name: 'modified residue',
-    rel_type_name: 'modified_residue',
+    rel_type_display_name: 'residues bound',
+    rel_type_name: 'residues_bound',
     ext_range: {
       misc: residue,
     },
