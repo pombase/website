@@ -35,6 +35,7 @@
        [(ngModel)]="fieldValue"
        (keyup.enter)="enterPressed()"
        [typeahead]="dataSource"
+       [typeaheadAsync]="true"
        [typeaheadMinLength]="2"
        [typeaheadItemTemplate]="searchBoxTemplate"
        [typeaheadSingleWords]="false"
