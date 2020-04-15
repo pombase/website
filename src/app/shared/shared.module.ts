@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { PopoverModule } from 'ngx-bootstrap';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ContactEmailComponent } from './contact-email/contact-email.component';
