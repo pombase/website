@@ -40,16 +40,19 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
           let notFlag = false;
 
           if (splitByTermId.startsWith('NOT ')) {
+            // handling splitting out some terms, eg. MF binding vs NOT binding
             notFlag = true;
             splitByTermId = splitByTermId.substr(4);
           }
 
           for (let termAnnotation of this.annotationTable) {
             let interestingParents = termAnnotation.term.interesting_parents;
-            let hasInterestingParent = interestingParents && (interestingParents.indexOf(splitByTermId) !== -1);
+            let isInThisSplit =
+              termAnnotation.term.termid == splitByTermId ||
+              interestingParents && (interestingParents.indexOf(splitByTermId) !== -1);
 
-            if (notFlag && !hasInterestingParent ||
-                !notFlag && hasInterestingParent) {
+            if (notFlag && !isInThisSplit ||
+                !notFlag && isInThisSplit) {
               if (!this.splitDataList[splitByConfig.config_name]) {
                 this.splitDataList[splitByConfig.config_name] = [];
               }
