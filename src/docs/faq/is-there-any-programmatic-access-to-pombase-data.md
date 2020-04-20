@@ -27,7 +27,7 @@ using a variety of languages and interfaces. The following URLs are
 examples specific to *S. pombe*:
 
 -   retrieve the cDNA sequence of the specified gene in FASTA:
-    <http://rest.ensemblgenomes.org/sequence/id/SPAC2F7.03c?content-type=text/x-fasta;type=cdna>
+    <http://rest.ensembl.org/sequence/id/SPAC2F7.03c?content-type=text/x-fasta;type=cdna>
 -   retrieve list of homologues from the pan-taxonomic comparative
     <database for the specified gene in JSON format:
-    http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/json&format=condensed&compara=pan_homology>
+    http://rest.ensembl.org/homology/id/SPAC2F7.03c?content-type=application/json&format=condensed&compara=pan_homology>
