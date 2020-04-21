@@ -44,6 +44,7 @@
         <th>Interacting product</th>
         <th>Evidence</th>
         <th *ngIf="!hideColumn['reference']">Reference</th>
+        <th *ngIf="!hideColumn['interactionNote']">Interaction note</th>
       </tr>
     </thead>
     <tbody>
@@ -62,6 +63,9 @@
           <span *ngIf="annotation.reference">
             <app-reference-short [reference]="annotation.reference"></app-reference-short>
           </span>
+        </td>
+        <td class="interaction-note" *ngIf="!hideColumn['interactionNote']">
+          <a *ngIf="annotation.interactionNote" (click)="showInteractionNote(annotation)">View ...</a>
         </td>
       </tr>
     </tbody>

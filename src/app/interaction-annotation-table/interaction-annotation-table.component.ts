@@ -2,8 +2,9 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { InteractionAnnotation, GeneShort, GeneDetails, ReferenceShort } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfig, FilterConfig } from '../config';
 import { Util } from '../shared/util';
-import { AnnotationFilter, InteractionFilter } from '../filtering';
-import { type } from 'os';
+import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
+import { InteractionFilter } from '../filtering';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 interface DisplayAnnotation {
   gene: GeneShort;
@@ -11,6 +12,7 @@ interface DisplayAnnotation {
   reference: ReferenceShort;
   evidence: string;
   displayLabel: string;
+  interactionNote: string;
 }
 
 @Component({
@@ -42,14 +44,11 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   filteredAnnotationCount: any;
   tableIsFiltered: boolean;
   filters: Array<FilterConfig> = null;
+  interactionNoteRef: any;
 
-  constructor() { }
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.hideColumns.map(col => {
-      this.hideColumn[col] = true;
-    });
-
     let typeConfig = this.config.annotationTypes[this.annotationTypeName];
     this.filters = typeConfig.filters;
 
@@ -63,7 +62,22 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
     }
   }
 
+  showInteractionNote(annotation: DisplayAnnotation) {
+    const config = {
+      animated: false,
+    };
+    this.interactionNoteRef = this.modalService.show(MessageDialogComponent, config);
+    this.interactionNoteRef.content.title = 'Interaction note';
+    this.interactionNoteRef.content.message = annotation.interactionNote;
+  }
+
   updateDisplayTable(): void {
+    this.hideColumns.map(col => {
+      this.hideColumn[col] = true;
+    });
+
+    this.hideColumn['interactionNote'] = true;
+
     if (this.filteredTable === null) {
       this.filteredTable = this.annotationTable;
     }
@@ -96,7 +110,12 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
             reference: annotation.reference,
             evidence: annotation.evidence,
             displayLabel: '',
+            interactionNote: annotation.interaction_note,
           };
+
+          if (annotation.interaction_note) {
+            this.hideColumn['interactionNote'] = false;
+          }
 
           let labelConfig = this.config.interactionDirectionalLabels[annotation.evidence];
 

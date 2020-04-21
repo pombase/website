@@ -162,6 +162,7 @@ export interface InteractionAnnotation {
   interactor: GeneShort;
   interactor_uniquename: string;
   throughput: ThroughputType;
+  interaction_note: string;
 }
 
 export type InteractionTable = Array<InteractionAnnotation>;

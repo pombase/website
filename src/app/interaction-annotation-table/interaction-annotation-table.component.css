@@ -31,6 +31,10 @@
   display: inline-block;
 }
 
+.interaction-note {
+  font-size: 90%;
+}
+
 .biogrid-link {
   padding-left: 5em;
   float: right;
