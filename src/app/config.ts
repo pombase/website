@@ -397,7 +397,10 @@ export interface AnnotationTableConfig {
 
 let _config: AnnotationTableConfig = {
   annotationTypes: pombaseConfig.cv_config,
-  annotationTypeOrder: pombaseConfig.annotation_type_order,
+  annotationTypeOrder: (pombaseConfig.annotation_type_order as Array<string>)
+    .filter(typeName => {
+      return typeName in pombaseConfig.cv_config;
+    }),
   extensions: {
   },
   interactionDirectionalLabels: {
