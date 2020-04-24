@@ -113,12 +113,12 @@ sub make_id_from_heading {
 my @json_solr_contents = ();
 
 sub add_to_json {
-  my ($path, $heading, $contents) = @_;
+  my ($path, $heading, $content) = @_;
 
   push @json_solr_contents, {
     id => $path,
     heading => $heading,
-    contents => $contents,
+    content => $content,
   };
 }
 
