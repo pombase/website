@@ -16,6 +16,7 @@ use Getopt::Long qw(GetOptions);
 
 my $web_config = '';
 my $doc_config_file_name = '';
+my $json_docs_file_name = '';
 my $markdown_docs = '';
 my $recent_news_component = '';
 my $docs_component = '';
@@ -24,6 +25,7 @@ my $front_page_content_component = '';
 GetOptions(
   'web-config=s' => \$web_config,
   'doc-config=s' => \$doc_config_file_name,
+  'json-docs=s' => \$json_docs_file_name,
   'markdown-docs=s' => \$markdown_docs,
   'recent-news-component=s' => \$recent_news_component,
   'docs-component=s' => \$docs_component,
@@ -108,6 +110,18 @@ sub make_id_from_heading {
   return $id;
 }
 
+my @json_solr_contents = ();
+
+sub add_to_json {
+  my ($path, $heading, $contents) = @_;
+
+  push @json_solr_contents, {
+    id => $path,
+    heading => $heading,
+    contents => $contents,
+  };
+}
+
 my $all_questions_category = 'All Frequently Asked Questions';
 
 while (my ($id, $file_name) = each %{$sections{faq}}) {
@@ -150,6 +164,10 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
   $faq_questions{$id} = { heading => $heading,
                           contents => $contents,
                           categories => \@categories };
+
+  my $path = "faq/$id";
+
+  add_to_json($path, $heading, $contents);
 
   close $fh;
 }
@@ -229,7 +247,9 @@ sub get_all_faq_parts {
     my $contents = $details->{contents};
     my @categories = @{$details->{categories}};
 
-    $section_titles{"faq/$id"} = $heading;
+    my $path = "faq/$id";
+
+    $section_titles{$path} = $heading;
 
     my $categories_condition =
       join " || ", map {
@@ -305,6 +325,10 @@ sub process_path {
         if ($page_name eq 'index') {
           $section_titles{$path} = $page_title;
         }
+
+        add_to_json("$path/$page_name", $page_title, $contents);
+      } else {
+        die;
       }
 
       print $docs_component_fh markdown($contents), "\n";
@@ -507,3 +531,11 @@ sub contents_for_template {
 
   return $ret;
 }
+
+open my $json_docs_fh, '>', $json_docs_file_name
+  or die "can't open $json_docs_file_name for writing\n";
+
+print $json_docs_fh to_json(\@json_solr_contents, { canonical => 1, pretty => 1 } );
+
+close $json_docs_fh or die;
+
