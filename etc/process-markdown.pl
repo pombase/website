@@ -229,6 +229,8 @@ sub get_all_faq_parts {
     my $contents = $details->{contents};
     my @categories = @{$details->{categories}};
 
+    $section_titles{"faq/$id"} = $heading;
+
     my $categories_condition =
       join " || ", map {
         "pageName == '" . make_id_from_heading($_) . "'";
