@@ -104,7 +104,7 @@
    "PR" : {
       "description" : "Protein Ontology",
       "name" : "PR",
-      "url_syntax" : "https://proconsortium.org/app/entry/[example_id]",
+      "url_syntax" : "https://proconsortium.org/app/entry/PR_[example_id]",
       "website" : "https://proconsortium.org/"
    },
    "PRINTS" : {

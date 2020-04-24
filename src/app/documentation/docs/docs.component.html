@@ -7503,7 +7503,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <div (click)="faq_navigate($event, '/faq/how-can-i-find-intron-branch-sites', 'How can I find intron branch sites?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-intron-branch-sites' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-intron-branch-sites">How can I find intron branch sites?</h3>
 <!-- pombase_categories: Finding data -->
-<p>The PomBase genome browser includes a dataset of intron branch sites as a track. Follow <a href="https://www.pombase.org/jbrowse/?loc=I%3A704338..724338&tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CDNA%20sequence%2CIntron%20Branch%20Points%20-%20Bitton%20et%20al.%20(2014">this link</a>&amp;tracklist=1&amp;nav=1&amp;overview=1&amp;highlight=) to view the data.</p>
+<p>The PomBase genome browser includes a dataset of intron branch sites as a track. Follow <a href="https://www.pombase.org/jbrowse/?loc=I%3A704338..724338&tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CDNA%20sequence%2CIntron%20Branch%20Points%20-%20Bitton%20et%20al.%20&#40;2014&#41;&tracklist=1&nav=1&overview=1&highlight=">this link</a> to view the data.</p>
 <p>The data were published in: Bitton DA et al. (2014), <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">PMID:24709818</a>; <a href="http://dx.doi.org/10.1101/gr.166819.113">DOI:10.1101/gr.166819.113</a></p>
 
 </div>
@@ -7993,8 +7993,8 @@ Example queries:
 <p>In addition, the interface also provides access to the Variant Effect Predictor tool and a tool for mapping genomic coordinates between different versions of genome assemblies.</p>
 <p>The <a href="https://github.com/Ensembl/ensembl-rest/wiki">user guide</a> provides comprehensive descriptions of interface functionality, plus examples using a variety of languages and interfaces. The following URLs are examples specific to <em>S. pombe</em>:</p>
 <ul>
-<li>retrieve the cDNA sequence of the specified gene in FASTA: <a href="http://rest.ensemblgenomes.org/sequence/id/SPAC2F7.03c?content-type=text/x-fasta;type=cdna" class="uri">http://rest.ensemblgenomes.org/sequence/id/SPAC2F7.03c?content-type=text/x-fasta;type=cdna</a></li>
-<li>retrieve list of homologues from the pan-taxonomic comparative &lt;database for the specified gene in JSON format: http://rest.ensemblgenomes.org/homology/id/SPAC2F7.03c?content-type=application/json&amp;format=condensed&amp;compara=pan_homology&gt;</li>
+<li>retrieve the cDNA sequence of the specified gene in FASTA: <a href="http://rest.ensembl.org/sequence/id/SPAC2F7.03c?content-type=text/x-fasta;type=cdna" class="uri">http://rest.ensembl.org/sequence/id/SPAC2F7.03c?content-type=text/x-fasta;type=cdna</a></li>
+<li>retrieve list of homologues from the pan-taxonomic comparative &lt;database for the specified gene in JSON format: http://rest.ensembl.org/homology/id/SPAC2F7.03c?content-type=application/json&amp;format=condensed&amp;compara=pan_homology&gt;</li>
 </ul>
 
 </div>
@@ -8318,6 +8318,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombetalks-start-on-april-th">PombeTalks start on April 29th</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#angeli-update">AnGeLi update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-search-result-download-options">New search result download options</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 77.0</a></div>
@@ -9559,9 +9560,34 @@ Please sign the letter to add your voice in support of the databases that help m
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks'">
+<h3 id="pombetalks-start-on-april-29th">PombeTalks start on April 29th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The first in the new series of online PombeTalks will take place on Wednesday 29 April 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
+<ul>
+<li><p><strong>Aleksandar Vjeṧtica</strong>, Sophie Martin’s lab, University of Lausanne: <em>Cycling for reproductive fidelity: Coupling the cell cycle and re-fertilisation blocks ensures ploidy maintenance during sexual lifecycle</em></p></li>
+<li><p><strong>Haitong Hou</strong>, Julia Cooper’s lab, NCI &amp; University of Colorado: <em>Centromeres are dismantled by foundational meiotic proteins Spo11 and Rec8</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also mark your calendars for the next two sessions on <strong>May 13</strong> and <strong>May 27</strong>, and if you’re interested in speaking, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a>.</p>
+<p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-start-on-april-th">PombeTalks start on April 29th</h3>
+<p><em>2020-04-22</em></p>
+<p>The first in the new series of online PombeTalks will take place on Wednesday 29 April 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
+<ul>
+<li><p><strong>Aleksandar Vjeṧtica</strong>, Sophie Martin’s lab, University of Lausanne: <em>Cycling for reproductive fidelity: Coupling the cell cycle and re-fertilisation blocks ensures ploidy maintenance during sexual lifecycle</em></p></li>
+<li><p><strong>Haitong Hou</strong>, Julia Cooper’s lab, NCI &amp; University of Colorado: <em>Centromeres are dismantled by foundational meiotic proteins Spo11 and Rec8</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also mark your calendars for the next two sessions on <strong>May 13</strong> and <strong>May 27</strong>, and if you’re interested in speaking, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a>.</p>
+<p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/angeli.png"/></p>
 <h3 id="angeli-update">AnGeLi update</h3>
