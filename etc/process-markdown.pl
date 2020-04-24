@@ -115,6 +115,8 @@ my @json_solr_contents = ();
 sub add_to_json {
   my ($path, $heading, $content) = @_;
 
+  $content =~ s/<!--.*?-->//;
+
   push @json_solr_contents, {
     id => $path,
     heading => $heading,
