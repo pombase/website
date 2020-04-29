@@ -537,7 +537,12 @@ sub contents_for_template {
 open my $json_docs_fh, '>', $json_docs_file_name
   or die "can't open $json_docs_file_name for writing\n";
 
-print $json_docs_fh to_json(\@json_solr_contents, { canonical => 1, pretty => 1 } );
+my @sorted_json_solr_contents =
+  sort {
+    $a->{id} cmp $b->{id};
+  } @json_solr_contents;
+
+print $json_docs_fh to_json(\@sorted_json_solr_contents, { canonical => 1, pretty => 1 } );
 
 close $json_docs_fh or die;
 
