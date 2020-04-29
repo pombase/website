@@ -8318,6 +8318,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#congratulations-midori-harris-recipient-biocuration-career-award">Congratulations to Midori Harris recipient of the 2020 Biocuration Career Award</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombetalks-start-on-april-th">PombeTalks start on April 29th</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#angeli-update">AnGeLi update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-search-result-download-options">New search result download options</a></div>
@@ -9573,9 +9574,24 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 
   </div>
+  <div *ngIf="pageName == 'midori-biocuration-career-award'">
+<h3 id="congratulations-to-midori-harris-recipient-of-the-2020-biocuration-career-award">Congratulations to Midori Harris recipient of the 2020 Biocuration Career Award</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: isb_logo_32px.png -->
+<p>Midori Harris, ontology developer and curator at PomBase has been awarded the <a href="https://www.biocuration.org/midori-harris-recipient-of-the-2020-biocuration-award/">2020 Biocuration Career Award</a>.</p>
+<p>Congratulations to Midori and a huge thanks for all that you do for PomBase.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/isb_logo_32px.png"/></p>
+<h3 id="congratulations-midori-harris-recipient-biocuration-career-award">Congratulations to Midori Harris recipient of the 2020 Biocuration Career Award</h3>
+<p><em>2020-04-28</em></p>
+<p>Midori Harris, ontology developer and curator at PomBase has been awarded the <a href="https://www.biocuration.org/midori-harris-recipient-of-the-2020-biocuration-award/">2020 Biocuration Career Award</a>.</p>
+<p>Congratulations to Midori and a huge thanks for all that you do for PomBase.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-start-on-april-th">PombeTalks start on April 29th</h3>
