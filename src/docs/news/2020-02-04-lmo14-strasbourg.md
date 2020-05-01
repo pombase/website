@@ -1,5 +1,5 @@
 ### Levures, Modèles et Outils 14th International Conference
-<!-- pombase_flags: frontpage -->
+
 <!-- newsfeed_thumbnail: poster_LMO14_32px.png -->
 
 The 14th edition of the ["Levures, Modèles et Outils" meeting

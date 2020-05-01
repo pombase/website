@@ -1,5 +1,5 @@
 ### New vectors for simple, reliable *S. pombe* molecular biology
-<!-- pombase_flags: frontpage -->
+
 <!-- newsfeed_thumbnail: stable_pAde6_vector.png -->
 
 To enable fission yeast researchers to manipulate *S. pombe* molecular

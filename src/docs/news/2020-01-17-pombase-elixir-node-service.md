@@ -1,5 +1,5 @@
 ### PomBase is now an ELIXIR Node Service
-<!-- pombase_flags: frontpage -->
+
 <!-- newsfeed_thumbnail: elixir_uk_thumb.png -->
 
 PomBase has been awarded Node Service status by the [UK node](https://elixiruknode.org/) of

@@ -1,5 +1,5 @@
 ### A quarter of a million annotations
-<!-- pombase_flags: frontpage -->
+
 <!-- newsfeed_thumbnail: quarter_mill.png -->
 
 PomBase recently reached 250,000 annotations to controlled

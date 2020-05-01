@@ -1,5 +1,5 @@
 ### Query phenotypes for conditions
-<!-- pombase_flags: frontpage -->
+
 <!-- newsfeed_thumbnail: advanced_search.png -->
 
 The PomBase advanced search [Advanced search](/query) now supports
