@@ -7,6 +7,21 @@ Canto, FYPO, annotations and Compara.
 
 ### Journal articles
 
+Lock A, Harris MA, Rutherford K, Hayles J, Wood V.\
+Community curation in PomBase: enabling fission yeast experts to provide detailed, standardized, sharable annotation from research publications.
+*Database (Oxford)* 2020 Jan 1;2020. pii: baaa028.\
+[PMID:32353878](http://www.ncbi.nlm.nih.gov/pubmed/32353878)[DOI:10.1093/database/baaa028.](https://doi.org/10.1093/database/baaa028)
+
+Shefchek KA et al. (including Harris MA).\
+The Monarch Initiative in 2019: an integrative data and analytic platform connecting phenotypes to genotypes across species.\
+*Nucleic Acids Res.* 2020 Jan 8;48(Database issue): D704-D715.\
+[PMID:31701156](http://www.ncbi.nlm.nih.gov/pubmed/31701156)[DOI:10.1093/nar/gkz997.](https://doi.org/10.1093/nar/gkz997)
+
+Urban M, Cuzick A, Seager J, Wood V, Rutherford K, Venkatesh SY, De Silva N, Martinez MC, Pedro H, Yates AD, Hassani-Pak K, Hammond-Kosack KE.\
+PHI-base: the pathogen-host interactions database.\
+*Nucleic Acids Res.* 2020 Jan 8;48(Database issue): D613-D620.\
+[PMID:31733065](http://www.ncbi.nlm.nih.gov/pubmed/31733065)[DOI:10.1093/nar/gkz904.](https://doi.org/10.1093/nar/gkz904)
+
 Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
 Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
 *Open Biol* 2019 Feb 20;9(2):180241.\
@@ -45,6 +60,10 @@ PomBase: a comprehensive online resource for fission yeast.\
 [PMID:22039153](http://www.ncbi.nlm.nih.gov/pubmed/22039153) [DOI:10.1093/nar/gkr853](http://dx.doi.org/DOI:10.1093/nar/gkr853)
 
 ### Preprints <!-- comment out preprint section when there aren't any? -->
+
+Wood V, Carbon S, Harris MA, Lock A, Engel SR, Hill DP, Van Auken K, Attrill H, Feuermann M, Gaudet P, Lovering RC, Poux S, Rutherford KM, Mungall CJ.\
+Term Matrix: A novel Gene Ontology annotation quality control system based on ontology term co-annotation patterns\.
+[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2020.04.21.045195v1.full) available at bioRxiv.
 
 Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
 Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
