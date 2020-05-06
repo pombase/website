@@ -28,3 +28,18 @@
 .docs-content .header th {
   padding: 2px 5px 2px 5px;
 }
+
+.altmetric-embed {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.pub-citation {
+  display: inline-block;
+  padding-left: 1.1em;
+  width: 87%;
+}
+
+.clear-float {
+  clear: both;
+}
