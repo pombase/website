@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy, Renderer2 } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Title } from '@angular/platform-browser';
 
@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
 
 import { getAppConfig, AppConfig } from '../../config';
 import { Subscription } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
 
 const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
 
@@ -24,7 +25,9 @@ export class DocsComponent implements OnInit, OnDestroy {
               private router: Router,
               private titleService: Title,
               private readonly meta: Meta,
-              @Inject('Window') private window: any
+              @Inject('Window') private window: any,
+              private renderer2: Renderer2,
+              @Inject(DOCUMENT) private document: any
              ) {
     this.subscription = router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -81,6 +84,12 @@ export class DocsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.scrollToPageTop();
     this.setSectPage(this.router.url);
+
+    // see: https://stackoverflow.com/questions/56880754/angular-5-using-the-altmetric-badge-in-the-angular-app-gives-uncaught-error-t
+    const s = this.renderer2.createElement('script');
+    s.type = 'text/javascript';
+    s.src = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
+    this.renderer2.appendChild(this.document.body, s);
   }
 
   ngOnDestroy(): void {
