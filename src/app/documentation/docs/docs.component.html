@@ -8371,6 +8371,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombetalks-may-th">PombeTalks May 13th</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#chromatin-silencing-ontology-amp-annotation-overhaul">Chromatin silencing ontology &amp; annotation overhaul</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 79.0</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#mitochondrial-genome-update">Mitochondrial genome update</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#published-community-curation-pombase">Published: Community curation in PomBase</a></div>
@@ -9586,14 +9588,12 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'interpro-v77'">
 <h3 id="pombase-now-uses-interpro-version-77.0">PomBase now uses InterPro Version 77.0</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 <p>PomBase now uses InterPro Version 77.0, which integrates 145 new methods from the CATH-Gene3D (134), and SUPERFAMILY (11) databases. InterPro cites 59894 publications in PubMed. See the InterPro <a href="https://www.ebi.ac.uk/interpro/release_notes/">release notes</a> for further information.</p>
 
   </div>
   <div *ngIf="pageName == 'angeli'">
 <h3 id="angeli-update">AnGeLi update</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: angeli.png -->
 <p>AnGeLi (developed by Danny Bitton) is a tool that allows you to perform enrichments over gene lists.</p>
 <p>AnGeLi has recently been updated to provide 9320 lists, including ontology-based annotations from PomBase (as of <span class="no-break">2020-03-04</span>) as well as many additional datasets from the Bähler laboratory.</p>
@@ -9601,7 +9601,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'new-search-result-download-options'">
 <h3 id="new-search-result-download-options">New search result download options</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: advanced_search.png -->
 <p>The PomBase <a routerLink="/query">Advanced search</a> has added new options to the data you can download for your query results:</p>
 <ul>
@@ -9613,7 +9612,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'pombetalks'">
 <h3 id="pombetalks-start-on-april-29th">PombeTalks start on April 29th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The first in the new series of online PombeTalks will take place on Wednesday 29 April 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
 <ul>
@@ -9626,7 +9624,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'midori-biocuration-career-award'">
 <h3 id="midori-harris-receives-2020-biocuration-career-award">Midori Harris receives 2020 Biocuration Career Award</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: isb_logo_32px.png -->
 <p>Midori Harris, ontology developer and curator at PomBase, has been awarded the <a href="https://www.biocuration.org/midori-harris-recipient-of-the-2020-biocuration-award/">2020 Biocuration Career Award</a>.</p>
 <p>Congratulations to Midori and a huge thanks for all that you do for PomBase.</p>
@@ -9634,7 +9631,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'community-curation-publication'">
 <h3 id="published-community-curation-in-pombase">Published: Community curation in PomBase</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: canto.png -->
 <p>The PomBase team has published an overview of our experience with community curation for fission yeast. In the article, out this week in <a href="https://academic.oup.com/database/article/doi/10.1093/database/baaa028/5827230">Database</a>, we reflect on the factors that have made our community’s remarkable, standard-setting achievements possible, and on the benefits we and PomBase users derive from this effort. We highlight the collaboration between authors and professional curators that arises via community curation, and how annotation quality improves as a result.</p>
 <p>Watch for invitations to curate your new papers, or see our <a href="https://www.pombase.org/community/fission-yeast-community-curation-project">community curation page</a> for more information.</p>
@@ -9654,15 +9650,57 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>PomBase now uses InterPro Version 79.0, which integrates:</p>
 <ul>
 <li>128 new InterPro entries</li>
-<li>An update to PIRSF [3.10].</li>
-<li>Integration of 151 new methods from the SUPERFAMILY (4), CATH-Gene3D (6), PIRSF (9), PANTHER (106), CDD (26) databases.</li>
+<li>An update to PIRSF [3.10]</li>
+<li>151 new methods from the SUPERFAMILY (4), CATH-Gene3D (6), PIRSF (9), PANTHER (106), and CDD (26) databases.</li>
 </ul>
-<p>InterPro cites 48466 publications in PubMed. See the InterPro release notes for further information.</p>
+<p>InterPro cites 48466 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
+
+  </div>
+  <div *ngIf="pageName == 'chromatin-silencing'">
+<h3 id="chromatin-silencing-ontology-annotation-overhaul">Chromatin silencing ontology &amp; annotation overhaul</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: nucleosome.png -->
+<p>PomBase curators have collaborated with the GO Consortium to improve the representation of chromatin silencing and the underlying heterochromatin organization processes in the GO biological process ontology and annotations.</p>
+<p>Notably, “chromatin silencing” terms have been removed from GO on the grounds that they conflated various heterochromatin assembly, formation, and maintenance pathways with processes that affect chromatin-mediated repression more indirectly (e.g. tethering to the nuclear envelope). Chromatin silencing is a phenotype resulting from the cumulative effects of these processes, and the Fission Yeast Phenotype Ontology (FYPO) accordingly retains a full suite of “chromatin silencing” terms.</p>
+<p>Annotations using the GO chromatin silencing terms were reviewed, and either removed or reannotated based on what could be inferred from the phenotypes, resulting in a substantially revised set of <a href="https://www.pombase.org/term/GO:0031507">heterochromatin assembly annotations</a>. Further work is required, so please <a href="mailto:helpdesk@pombase.org">send us</a> any corrections.</p>
+
+  </div>
+  <div *ngIf="pageName == 'pombetalks-may-13'">
+<h3 id="pombetalks-may-13th">PombeTalks May 13th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online PombeTalks will take place on Wednesday 13 May 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
+<ul>
+<li><p><strong>Sarah Lambert</strong>, Institut Curie, Paris, France: <em>Resolution of replication stress in space and time for maintaining genome stability</em></p></li>
+<li><p><strong>Cornelia Kilchert</strong>, Justus-Liebig-University, Giessen, Germany: <em>RNA-binding proteins in fission yeast - a global perspective</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also mark your calendars for the next two sessions on <strong>May 27</strong> and <strong>June 10</strong>, and if you’re interested in speaking, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a>.</p>
+<p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-may-th">PombeTalks May 13th</h3>
+<p><em>2020-05-07</em></p>
+<p>The next online PombeTalks will take place on Wednesday 13 May 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
+<ul>
+<li><p><strong>Sarah Lambert</strong>, Institut Curie, Paris, France: <em>Resolution of replication stress in space and time for maintaining genome stability</em></p></li>
+<li><p><strong>Cornelia Kilchert</strong>, Justus-Liebig-University, Giessen, Germany: <em>RNA-binding proteins in fission yeast - a global perspective</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also mark your calendars for the next two sessions on <strong>May 27</strong> and <strong>June 10</strong>, and if you’re interested in speaking, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a>.</p>
+<p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
+</div>
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/nucleosome.png"/></p>
+<h3 id="chromatin-silencing-ontology-amp-annotation-overhaul">Chromatin silencing ontology &amp; annotation overhaul</h3>
+<p><em>2020-05-07</em></p>
+<p>PomBase curators have collaborated with the GO Consortium to improve the representation of chromatin silencing and the underlying heterochromatin organization processes in the GO biological process ontology and annotations.</p>
+<p>Notably, “chromatin silencing” terms have been removed from GO on the grounds that they conflated various heterochromatin assembly, formation, and maintenance pathways with processes that affect chromatin-mediated repression more indirectly (e.g. tethering to the nuclear envelope). Chromatin silencing is a phenotype resulting from the cumulative effects of these processes, and the Fission Yeast Phenotype Ontology (FYPO) accordingly retains a full suite of “chromatin silencing” terms.</p>
+<p>Annotations using the GO chromatin silencing terms were reviewed, and either removed or reannotated based on what could be inferred from the phenotypes, resulting in a substantially revised set of <a href="https://www.pombase.org/term/GO:0031507">heterochromatin assembly annotations</a>. Further work is required, so please <a href="mailto:helpdesk@pombase.org">send us</a> any corrections.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 79.0</h3>
@@ -9670,10 +9708,10 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>PomBase now uses InterPro Version 79.0, which integrates:</p>
 <ul>
 <li>128 new InterPro entries</li>
-<li>An update to PIRSF [3.10].</li>
-<li>Integration of 151 new methods from the SUPERFAMILY (4), CATH-Gene3D (6), PIRSF (9), PANTHER (106), CDD (26) databases.</li>
+<li>An update to PIRSF [3.10]</li>
+<li>151 new methods from the SUPERFAMILY (4), CATH-Gene3D (6), PIRSF (9), PANTHER (106), and CDD (26) databases.</li>
 </ul>
-<p>InterPro cites 48466 publications in PubMed. See the InterPro release notes for further information.</p>
+<p>InterPro cites 48466 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/mitogenome.png"/></p>
