@@ -1,5 +1,4 @@
 ### Published: Community curation in PomBase
-<!-- pombase_flags: frontpage -->
 
 <!-- newsfeed_thumbnail: canto.png -->
 

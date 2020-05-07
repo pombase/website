@@ -1,5 +1,5 @@
 ### Midori Harris receives 2020 Biocuration Career Award
-<!-- pombase_flags: frontpage -->
+
 <!-- newsfeed_thumbnail: isb_logo_32px.png -->
 
 Midori Harris, ontology developer and curator at PomBase, has been
