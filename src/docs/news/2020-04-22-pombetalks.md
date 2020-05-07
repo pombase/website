@@ -1,5 +1,4 @@
 ### PombeTalks start on April 29th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The first in the new series of online PombeTalks will take place on Wednesday 29 April 2020 at 17:00 [Central European Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/). Speakers:
