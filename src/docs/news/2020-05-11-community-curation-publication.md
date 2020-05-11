@@ -1,5 +1,5 @@
 ### Published: Community curation in PomBase
-
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: canto.png -->
 
 The PomBase team has published an overview of our experience with
@@ -14,5 +14,3 @@ curation, and how annotation quality improves as a result.
 Watch for invitations to curate your new papers, or see our [community
 curation page](https://www.pombase.org/community/fission-yeast-community-curation-project)
 for more information.
-
-

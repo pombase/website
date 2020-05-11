@@ -8371,11 +8371,11 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#published-community-curation-pombase">Published: Community curation in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombetalks-may-th">PombeTalks May 13th</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#chromatin-silencing-ontology-amp-annotation-overhaul">Chromatin silencing ontology &amp; annotation overhaul</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 79.0</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#mitochondrial-genome-update">Mitochondrial genome update</a></div>
-<div class="left-menu-part left-menu-item"><a simplePageScroll href="#published-community-curation-pombase">Published: Community curation in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#midori-harris-receives-biocuration-career-award">Midori Harris receives 2020 Biocuration Career Award</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombetalks-start-on-april-th">PombeTalks start on April 29th</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#angeli-update">AnGeLi update</a></div>
@@ -9629,13 +9629,6 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Congratulations to Midori and a huge thanks for all that you do for PomBase.</p>
 
   </div>
-  <div *ngIf="pageName == 'community-curation-publication'">
-<h3 id="published-community-curation-in-pombase">Published: Community curation in PomBase</h3>
-<!-- newsfeed_thumbnail: canto.png -->
-<p>The PomBase team has published an overview of our experience with community curation for fission yeast. In the article, out this week in <a href="https://academic.oup.com/database/article/doi/10.1093/database/baaa028/5827230">Database</a>, we reflect on the factors that have made our community’s remarkable, standard-setting achievements possible, and on the benefits we and PomBase users derive from this effort. We highlight the collaboration between authors and professional curators that arises via community curation, and how annotation quality improves as a result.</p>
-<p>Watch for invitations to curate your new papers, or see our <a href="https://www.pombase.org/community/fission-yeast-community-curation-project">community curation page</a> for more information.</p>
-
-  </div>
   <div *ngIf="pageName == 'mitochondrial-genome-update'">
 <h3 id="mitochondrial-genome-update">Mitochondrial genome update</h3>
 <!-- pombase_flags: frontpage -->
@@ -9678,9 +9671,24 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 
   </div>
+  <div *ngIf="pageName == 'community-curation-publication'">
+<h3 id="published-community-curation-in-pombase">Published: Community curation in PomBase</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: canto.png -->
+<p>The PomBase team has published an overview of our experience with community curation for fission yeast. In the article, out this week in <a href="https://academic.oup.com/database/article/doi/10.1093/database/baaa028/5827230">Database</a>, we reflect on the factors that have made our community’s remarkable, standard-setting achievements possible, and on the benefits we and PomBase users derive from this effort. We highlight the collaboration between authors and professional curators that arises via community curation, and how annotation quality improves as a result.</p>
+<p>Watch for invitations to curate your new papers, or see our <a href="https://www.pombase.org/community/fission-yeast-community-curation-project">community curation page</a> for more information.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
+<h3 id="published-community-curation-pombase">Published: Community curation in PomBase</h3>
+<p><em>2020-05-11</em></p>
+<p>The PomBase team has published an overview of our experience with community curation for fission yeast. In the article, out this week in <a href="https://academic.oup.com/database/article/doi/10.1093/database/baaa028/5827230">Database</a>, we reflect on the factors that have made our community’s remarkable, standard-setting achievements possible, and on the benefits we and PomBase users derive from this effort. We highlight the collaboration between authors and professional curators that arises via community curation, and how annotation quality improves as a result.</p>
+<p>Watch for invitations to curate your new papers, or see our <a href="https://www.pombase.org/community/fission-yeast-community-curation-project">community curation page</a> for more information.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-may-th">PombeTalks May 13th</h3>
@@ -9718,13 +9726,6 @@ Please sign the letter to add your voice in support of the databases that help m
 <h3 id="mitochondrial-genome-update">Mitochondrial genome update</h3>
 <p><em>2020-05-01</em></p>
 <p>The mitochondrial genome sequence in PomBase has been updated to reflect corrections made in <a href="https://www.ncbi.nlm.nih.gov/pubmed/31364709">Tao et al. (2019) “Intraspecific Diversity of Fission Yeast Mitochondrial Genomes”</a>.</p>
-</div>
-<div class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
-<h3 id="published-community-curation-pombase">Published: Community curation in PomBase</h3>
-<p><em>2020-05-01</em></p>
-<p>The PomBase team has published an overview of our experience with community curation for fission yeast. In the article, out this week in <a href="https://academic.oup.com/database/article/doi/10.1093/database/baaa028/5827230">Database</a>, we reflect on the factors that have made our community’s remarkable, standard-setting achievements possible, and on the benefits we and PomBase users derive from this effort. We highlight the collaboration between authors and professional curators that arises via community curation, and how annotation quality improves as a result.</p>
-<p>Watch for invitations to curate your new papers, or see our <a href="https://www.pombase.org/community/fission-yeast-community-curation-project">community curation page</a> for more information.</p>
 </div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/isb_logo_32px.png"/></p>
