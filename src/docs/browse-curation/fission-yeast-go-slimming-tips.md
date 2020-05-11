@@ -5,7 +5,7 @@
 These points will help you understand GO slims, and highlight some
 features of the fission yeast slim terms and annotations.
 
-1.  Note that the counts in the "Genes" column of the GO slim table are
+1.  Note that the counts in the "Genes" column of the GO slim tables are
     not additive, because many gene products are annotated to multiple
     terms.
 2.  It not possible to create a slim with no overlaps between terms.
@@ -21,11 +21,12 @@ features of the fission yeast slim terms and annotations.
     which is not the same.
 4.  It is difficult to define a slim which includes all annotated gene
     products without including terms with very small numbers of
-    annotations (for example, the cell aging branch has very few
-    annotations), or very high level terms which are not particularly
-    biologically informative (e.g. cellular process). Because we have
-    opted not to include such terms, some gene products are annotated to
-    process terms but do not appear in the slim annotation set.
+    annotations (for example, the peroxisome organization branch has
+    very few annotations), or very high level terms which are not
+    particularly biologically informative (e.g. cellular
+    process). Because we have opted not to include such terms, some
+    gene products are annotated to process terms but do not appear in
+    the slim annotation set.
 5.  Bear in mind that both proteins and RNAs can be annotated to GO
     terms. If you are working only with proteins you will need to make
     adjustments for this. For example, many tRNAs and rRNAs are
@@ -44,36 +45,32 @@ features of the fission yeast slim terms and annotations.
     evidence codes, but it is very useful for increasing the coverage of
     some of the high level GO terms. Accurate annotation counts for some
     terms currently depends on including this evidence code (for
-    example, there are 26 gene products annotated to transmembrane
+    example, there are 16 gene products annotated to transmembrane
     transport with IEA evidence, which are not yet covered by a manual
     annotation). For fission yeast, the IEA annotations improve slim
-    coverage, but only represent a small number of annotations (654
-    biological process annotations as of September 2011), and have a low
+    coverage, but only represent a small number of annotations (519
+    biological process annotations as of May 2020), and have a low
     rate of false positives. We therefore recommend that you include
     them.
-8.  If you are making comparisons with budding yeast (or other
-    organisms), you should consider excluding the evidence code **RCA**.
-    This evidence code is used for functional predictions, and has a
-    very high rate of false positives (for example, including RCA for
-    budding yeast hugely will greatly and artificially inflate the
-    number of annotations to translation).
 
 #### Creating a user-defined slim ####
 
 1.  You can create your own slim, or retrieve slim annotations for a
     gene set, using online slimming tools such as the
     [GOTermMapper](http://go.princeton.edu/cgi-bin/GOTermMapper) at
-    Princeton.
+    Princeton or [QuickGO Explore
+    Biology](https://www.ebi.ac.uk/QuickGO/slimming) at EBI (note that
+    QuickGO requires UniProtKB accessions; PomBase IDs will not work).
 2.  When creating a slim for the entire genome, you should try to ensure
     that it covers as many annotated genes in your set as possible (see
-    \#3 in list above). You should be aware of how many genes are
+    \#3 in the list above). You should be aware of how many genes are
     annotated but not in your slim, and how many are "unknown" (i.e.,
-    annotated only to the root node; see \#5 in list above).
+    annotated only to the root node; see \#5 above).
 3.  For display purposes you usually want to keep the number of terms as
     small as possible to convey your results. However, you should ensure
     that the terms you include are specific enough to capture
     biologically relevant information. Many terms (e.g. metabolic
-    process (2915 annotations), cellular process (4083 annotations)) are
+    process (3229 annotations), cellular process (4581 annotations)) are
     too general for the purpose of most slim-based analyses.
 4.  On a related note, if you are using your slim for data analysis
     (e.g. to summarize an enrichment), you should ensure that the terms
@@ -90,7 +87,23 @@ features of the fission yeast slim terms and annotations.
     [GO Ontology Relations
     documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
-    totals presented for the [PomBase default S. pombe slim](browse-curation/fission-yeast-go-slim-terms), by contrast,
+    totals presented for the [PomBase default *S. pombe*
+    slim](browse-curation/fission-yeast-go-slim-terms), by contrast,
+    are calculated both explicitly including the genes which are
+    involved in a process via regulation only. We expect the
+    distinction to be available in future versions of slimming
+    software.
+
+<!-- restore commented-out version when ticket 1521 done
+5.  Most current implementations of software to create "GO slims"
+    include the *regulates* relationship by default, so that (for
+    example) genes involved in *regulation of cytokinesis* will be
+    included with the set of genes annotated to *cytokinesis*. See the
+    [GO Ontology Relations
+    documentation](http://geneontology.org/docs/ontology-relations/)
+    for further information about relationships in GO. The annotation
+    totals presented for the [PomBase default *S. pombe* slim](browse-curation/fission-yeast-go-slim-terms), by contrast,
     are calculated both explicitly including or excluding the genes
     which are involved in a process via regulation only. We expect this
     distinction to be available in future versions of slimming software.
+-->
