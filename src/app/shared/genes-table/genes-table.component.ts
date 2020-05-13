@@ -53,6 +53,7 @@ export class GenesTableComponent implements OnInit {
   selectedGenes: { [key: string]: boolean } = null;
 
   geneResultConfig = getAppConfig().getGeneResultsConfig();
+  slimConfig = getAppConfig().slims;
   slimDescription: string;
 
   slimNames: Array<string> = [];
@@ -261,7 +262,7 @@ export class GenesTableComponent implements OnInit {
   ngOnChanges() {
     if (this.mode.startsWith('slim:')) {
       this.slimName = this.mode.substr(5);
-      this.slimDescription = getAppConfig().slims[this.slimName].slim_display_name;
+      this.slimDescription = getAppConfig().slims[this.slimName].description;
     } else {
       this.slimName = null;
       this.slimDescription = null;

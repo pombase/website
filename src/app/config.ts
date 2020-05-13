@@ -141,8 +141,19 @@ export interface GeneResultsConfig {
   slim_table_slim_names: Array<string>;
 };
 
+
+interface SlimExternalLinkConfig {
+  description: string;
+  link_text: string;
+  link_config_key: string;
+  icon_image: string;
+}
+
 export interface SlimConfig {
   slim_display_name: string;
+  description: string;
+  cv_name: string;
+  external_link_config?: SlimExternalLinkConfig;
   terms: Array<TermAndName>;
 }
 

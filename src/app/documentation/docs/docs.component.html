@@ -978,15 +978,15 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 <div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim terms</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/drugs-known-pombe-targets">Drugs with known targets</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/disease-slim">Disease Ontology slim</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/disease-slim">Monarch Disease Ontology slim</a></div>
 
 </app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'disease-slim'">
-<h2 id="disease-ontology-slim">Disease Ontology slim</h2>
-<p>A “slim” is a high-level subset of terms from an ontology, used to analyze sets of annotated genes. The table below shows a slim set of grouping terms that we have selected from the <a href="http://www.disease-ontology.org/">Disease Ontology</a> (DO), and the number of annotations to each term. DO IDs link to PomBase ontology term pages. The annotation totals link to pages with information about the term and a list of annotated genes. A gene may be included in the annotation sets for more than one slim term.</p>
-<p>If you would like to have any terms added to the DO slim, please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
-<p><app-disease-slim-table></app-disease-slim-table></p>
+<h2 id="monarch-disease-ontology-slim">Monarch disease ontology slim</h2>
+<p>A “slim” is a high-level subset of terms from an ontology, used to analyze sets of annotated genes. The table below shows a slim set of grouping terms that we have selected from the <a href="https://mondo.monarchinitiative.org/">Monarch Disease Ontology</a> (MONDO) and the number of annotations to each term. MONDO IDs link to PomBase ontology term pages. The annotation totals link to pages with information about the term and a list of annotated genes. A gene may be included in the annotation sets for more than one slim term.</p>
+<p>If you would like to have any terms added to the PomBase MONDO slim set, please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
+<p><app-go-slim-table [slimName]="'pombe_mondo_slim'"></app-go-slim-table></p>
 
   </div>
   <div *ngIf="pageName == 'dna-binding-sites'">
@@ -1659,8 +1659,16 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 </table>
 
   </div>
+  <div *ngIf="pageName == 'fission-yeast-cc-go-slim-terms'">
+<h2 id="fission-yeast-go-cellular-component-slim">Fission yeast GO Cellular Component slim</h2>
+<p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
+<p>The table below shows terms in the current fission yeast cellular component GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">GO slim IDs and term names</a> from the PomBase FTP site.</p>
+<p><app-go-slim-table [slimName]="'cc_goslim_pombe'"></app-go-slim-table></p>
+
+  </div>
   <div *ngIf="pageName == 'fission-yeast-go-slim-terms'">
-<h2 id="fission-yeast-go-slim">Fission yeast GO slim</h2>
+<h2 id="fission-yeast-go-biological-process-slim">Fission yeast GO Biological Process slim</h2>
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses a GO slim to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast biological process GO slim, and the number of annotations to each term. GO IDs link to PomBase <a routerLink="/documentation/ontology-term-page">ontology term pages</a>. Icons beside each GO term link to <a href="http://www.esyn.org/">esyN</a>, which provides a graphical view of interactions for the genes from the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a> dataset. Only the subset of genes linked into the interaction network will be displayed in the esyN network view. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
 <p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">GO slim IDs and term names</a> from the PomBase FTP site.</p>
@@ -1671,7 +1679,7 @@ tables on this page include annotated RNAs. For some GO terms, notably
 'cytoplasmic translation', RNAs make up a significant proportion of
 the total annotated genes.
 -->
-<p><app-go-slim-table></app-go-slim-table></p>
+<p><app-go-slim-table [slimName]="'bp_goslim_pombe'"></app-go-slim-table></p>
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-go-slimming-tips'">
@@ -1679,23 +1687,35 @@ the total annotated genes.
 <h4 id="general-go-slim-hints">General GO Slim hints</h4>
 <p>These points will help you understand GO slims, and highlight some features of the fission yeast slim terms and annotations.</p>
 <ol type="1">
-<li>Note that the counts in the “Genes” column of the GO slim table are not additive, because many gene products are annotated to multiple terms.</li>
+<li>Note that the counts in the “Genes” column of the GO slim tables are not additive, because many gene products are annotated to multiple terms.</li>
 <li>It not possible to create a slim with no overlaps between terms. Although the <em>S. pombe</em> slim has been defined to include biologically informative terms, and minimise overlaps between terms, large overlaps cannot be entirely avoided. For example, most of the gene products annotated to <em>signal transduction</em> are also annotated other terms in the slim.</li>
 <li>As a consequence of points 1 and 2, GO slim annotation summaries should not be presented using pie charts. Although a pie chart could show the fraction of total annotations for any slim term, it can too easily be mistaken for the fraction of total annotated gene products, which is not the same.</li>
-<li>It is difficult to define a slim which includes all annotated gene products without including terms with very small numbers of annotations (for example, the cell aging branch has very few annotations), or very high level terms which are not particularly biologically informative (e.g. cellular process). Because we have opted not to include such terms, some gene products are annotated to process terms but do not appear in the slim annotation set.</li>
+<li>It is difficult to define a slim which includes all annotated gene products without including terms with very small numbers of annotations (for example, the peroxisome organization branch has very few annotations), or very high level terms which are not particularly biologically informative (e.g. cellular process). Because we have opted not to include such terms, some gene products are annotated to process terms but do not appear in the slim annotation set.</li>
 <li>Bear in mind that both proteins and RNAs can be annotated to GO terms. If you are working only with proteins you will need to make adjustments for this. For example, many tRNAs and rRNAs are annotated to cytoplasmic translation, and are therefore included in the slim set.</li>
 <li>There is a difference between “unknown” and “unannotated”. All fission yeast and budding yeast gene products have been assessed and are classed as “unknown” for biological process if no biological process information is found (experimental or inferred). If you are making comparisons with other organisms, remember that it is possible that not all gene products have been assessed and that the “unknown” set is underestimated.</li>
-<li>The default S. pombe slim includes all evidence codes for fission yeast. The evidence code <strong>IEA</strong> (inferred from electronic annotation) is often considered to be less accurate than other evidence codes, but it is very useful for increasing the coverage of some of the high level GO terms. Accurate annotation counts for some terms currently depends on including this evidence code (for example, there are 26 gene products annotated to transmembrane transport with IEA evidence, which are not yet covered by a manual annotation). For fission yeast, the IEA annotations improve slim coverage, but only represent a small number of annotations (654 biological process annotations as of September 2011), and have a low rate of false positives. We therefore recommend that you include them.</li>
-<li>If you are making comparisons with budding yeast (or other organisms), you should consider excluding the evidence code <strong>RCA</strong>. This evidence code is used for functional predictions, and has a very high rate of false positives (for example, including RCA for budding yeast hugely will greatly and artificially inflate the number of annotations to translation).</li>
+<li>The default S. pombe slim includes all evidence codes for fission yeast. The evidence code <strong>IEA</strong> (inferred from electronic annotation) is often considered to be less accurate than other evidence codes, but it is very useful for increasing the coverage of some of the high level GO terms. Accurate annotation counts for some terms currently depends on including this evidence code (for example, there are 16 gene products annotated to transmembrane transport with IEA evidence, which are not yet covered by a manual annotation). For fission yeast, the IEA annotations improve slim coverage, but only represent a small number of annotations (519 biological process annotations as of May 2020), and have a low rate of false positives. We therefore recommend that you include them.</li>
 </ol>
 <h4 id="creating-a-user-defined-slim">Creating a user-defined slim</h4>
 <ol type="1">
-<li>You can create your own slim, or retrieve slim annotations for a gene set, using online slimming tools such as the <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GOTermMapper</a> at Princeton.</li>
-<li>When creating a slim for the entire genome, you should try to ensure that it covers as many annotated genes in your set as possible (see #3 in list above). You should be aware of how many genes are annotated but not in your slim, and how many are “unknown” (i.e., annotated only to the root node; see #5 in list above).</li>
-<li>For display purposes you usually want to keep the number of terms as small as possible to convey your results. However, you should ensure that the terms you include are specific enough to capture biologically relevant information. Many terms (e.g. metabolic process (2915 annotations), cellular process (4083 annotations)) are too general for the purpose of most slim-based analyses.</li>
+<li>You can create your own slim, or retrieve slim annotations for a gene set, using online slimming tools such as the <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GOTermMapper</a> at Princeton or <a href="https://www.ebi.ac.uk/QuickGO/slimming">QuickGO Explore Biology</a> at EBI (note that QuickGO requires UniProtKB accessions; PomBase IDs will not work).</li>
+<li>When creating a slim for the entire genome, you should try to ensure that it covers as many annotated genes in your set as possible (see #3 in the list above). You should be aware of how many genes are annotated but not in your slim, and how many are “unknown” (i.e., annotated only to the root node; see #5 above).</li>
+<li>For display purposes you usually want to keep the number of terms as small as possible to convey your results. However, you should ensure that the terms you include are specific enough to capture biologically relevant information. Many terms (e.g. metabolic process (3229 annotations), cellular process (4581 annotations)) are too general for the purpose of most slim-based analyses.</li>
 <li>On a related note, if you are using your slim for data analysis (e.g. to summarize an enrichment), you should ensure that the terms are specific enough to demonstrate their relevance to the biological topic of interest. For example, lumping all genes involved in transport my mask overrepresentation of transmembrane transport vs. underrepresentation of vesicle-mediated transport in your results set, so you need to ensure that the slim has categories to represent your results effectively.</li>
-<li>Most current implementations of software to create “GO slims” include the <em>regulates</em> relationship by default, so that (for example) genes involved in <em>regulation of cytokinesis</em> will be included with the set of genes annotated to <em>cytokinesis</em>. See the <a href="http://geneontology.org/docs/ontology-relations/">GO Ontology Relations documentation</a> for further information about relationships in GO. The annotation totals presented for the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">PomBase default S. pombe slim</a>, by contrast, are calculated both explicitly including or excluding the genes which are involved in a process via regulation only. We expect this distinction to be available in future versions of slimming software.</li>
+<li>Most current implementations of software to create “GO slims” include the <em>regulates</em> relationship by default, so that (for example) genes involved in <em>regulation of cytokinesis</em> will be included with the set of genes annotated to <em>cytokinesis</em>. See the <a href="http://geneontology.org/docs/ontology-relations/">GO Ontology Relations documentation</a> for further information about relationships in GO. The annotation totals presented for the <a href="browse-curation/fission-yeast-go-slim-terms">PomBase default <em>S. pombe</em> slim</a>, by contrast, are calculated both explicitly including the genes which are involved in a process via regulation only. We expect the distinction to be available in future versions of slimming software.</li>
 </ol>
+<!-- restore commented-out version when ticket 1521 done
+5.  Most current implementations of software to create "GO slims"
+    include the *regulates* relationship by default, so that (for
+    example) genes involved in *regulation of cytokinesis* will be
+    included with the set of genes annotated to *cytokinesis*. See the
+    [GO Ontology Relations
+    documentation](http://geneontology.org/docs/ontology-relations/)
+    for further information about relationships in GO. The annotation
+    totals presented for the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">PomBase default *S. pombe* slim</a>, by contrast,
+    are calculated both explicitly including or excluding the genes
+    which are involved in a process via regulation only. We expect this
+    distinction to be available in future versions of slimming software.
+-->
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-phenotype-ontology'">
@@ -4595,7 +4615,7 @@ PomBase using the Ensembl viewer.</p>
 <h4 id="protein-mol.-weight">Protein mol. weight</h4>
 <p>Find protein-coding genes with products in a specified mass range. Enter the desired minimum and maximum mass in kiloDaltons (kDa) and click “Search”.</p>
 <h4 id="disease">Disease</h4>
-<p>Search the Disease Ontology to find <em>S. pombe</em> genes whose human orthologs have been implicated in disease. Start typing ‘disease’ or the name of a specific disease, and choose from the autocomplete options. To retrieve all disease-associated genes, type or paste ‘DOID:4’.</p>
+<p>Search the Monarch Disease Ontology to find <em>S. pombe</em> genes whose human orthologs have been implicated in disease. Start typing ‘disease’ or the name of a specific disease, and choose from the autocomplete options. To retrieve all disease-associated genes, type or paste “MONDO:0000001”.</p>
 <h4 id="number-of-tm-domains">Number of TM domains</h4>
 <p>Find protein-coding genes with products that have a specified number of transmembrane domains. Enter the desired minimum and maximum number and click “Search”.</p>
 <h4 id="genome-location">Genome location</h4>
@@ -7611,12 +7631,12 @@ For example, the Genetic Interactions header for cdc2 links to
 <div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-genes-associated-human-disease', 'How can I find S. pombe genes associated with human disease?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-s.-pombe-genes-associated-human-disease' || pageName == 'all-faqs'">
 <h3 id="how-can-i-find-s.-pombe-genes-associated-human-disease">How can I find <em>S. pombe</em> genes associated with human disease?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
-<p><em>S. pombe</em> genes whose human orthologs have been implicated in disease are annotated with terms from the <a href="http://www.disease-ontology.org/">Disease Ontology</a>. To retrieve all of these genes, you can use the most general “disease” term in a query. In the <a routerLink="/query">advanced search</a>, select “Disease”, and copy or past the ID ‘DOID:4’.</p>
+<p><em>S. pombe</em> genes whose human orthologs have been implicated in disease are annotated with terms from the <a href="https://mondo.monarchinitiative.org/">Monarch Disease Ontology</a>. To retrieve all of these genes, you can use the most general “disease” term in a query. In the <a routerLink="/query">advanced search</a>, select “Disease”, and copy or past the ID “MONDO:0000001”.</p>
 <p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">finding the ortholog of a specific gene</a>, and on <a routerLink="/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>.</p>
 <p>Example queries:</p>
 <ul>
-<li><p><app-query-link [goToResults]="true" [linkText]="'disease (DOID:4)'" [predefinedQueryId]="'canned_query:all_diseases'"> </app-query-link></p></li>
-<li><p><app-query-link [goToResults]="true" [linkText]="'cancer (DOID:162)'" [predefinedQueryId]="'cancer'"> </app-query-link></p></li>
+<li><p><app-query-link [goToResults]="true" [linkText]="'disease or disorder (MONDO:0000001)'" [predefinedQueryId]="'canned_query:all_diseases'"> </app-query-link></p></li>
+<li><p><app-query-link [goToResults]="true" [linkText]="'cancer (MONDO:0004992)'" [predefinedQueryId]="'cancer'"> </app-query-link></p></li>
 </ul>
 
 </div>
@@ -9374,7 +9394,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <h3 id="improved-disease-association-dataset-released">Improved disease association dataset released</h3>
 <!-- newsfeed_thumbnail: human disease.png -->
 <p>We are pleased to announce the release of our improved human disease mappings dataset. This dataset connects human disease causing genes to their <em>S. pombe</em> orthologs.</p>
-<p>Diseases are now mapped to the Disease Ontology (DO) and the dataset has been extended by data from Malacards. All disease associations can be accessed from the <a routerLink="/term/DOID:4">top level disease page</a>. A disease slim has been created to facilitate browsing of disease categories. Currently, 907 S. pombe genes are associated with disease (up from 610 in the original dataset). This number is due to increase as mappings are still in progress.</p>
+<p>Diseases are now mapped to the Disease Ontology (DO) and the dataset has been extended by data from Malacards. All disease associations can be accessed from the top level disease page. A disease slim has been created to facilitate browsing of disease categories. Currently, 907 S. pombe genes are associated with disease (up from 610 in the original dataset). This number is due to increase as mappings are still in progress.</p>
 <p>Many thanks to DO and Malacards for help in improving this annotation set. Icon courtesy of <a href="https://pixabay.com/en/users/mcmurryjulie-2375405/">Julie McMurry</a>.</p>
 
   </div>
@@ -9983,7 +10003,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <h3 id="improved-disease-association-dataset-released">Improved disease association dataset released</h3>
 <p><em>2019-01-09</em></p>
 <p>We are pleased to announce the release of our improved human disease mappings dataset. This dataset connects human disease causing genes to their <em>S. pombe</em> orthologs.</p>
-<p>Diseases are now mapped to the Disease Ontology (DO) and the dataset has been extended by data from Malacards. All disease associations can be accessed from the <a routerLink="/term/DOID:4">top level disease page</a>. A disease slim has been created to facilitate browsing of disease categories. Currently, 907 S. pombe genes are associated with disease (up from 610 in the original dataset). This number is due to increase as mappings are still in progress.</p>
+<p>Diseases are now mapped to the Disease Ontology (DO) and the dataset has been extended by data from Malacards. All disease associations can be accessed from the top level disease page. A disease slim has been created to facilitate browsing of disease categories. Currently, 907 S. pombe genes are associated with disease (up from 610 in the original dataset). This number is due to increase as mappings are still in progress.</p>
 <p>Many thanks to DO and Malacards for help in improving this annotation set. Icon courtesy of <a href="https://pixabay.com/en/users/mcmurryjulie-2375405/">Julie McMurry</a>.</p>
 </div>
 <div class="news-item">

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { PopoverModule } from 'ngx-bootstrap/popover';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
 import { ContactEmailComponent } from './contact-email/contact-email.component';
@@ -27,7 +28,6 @@ import { Ng2SimplePageScrollModule } from '../ng2-simple-page-scroll/ng2-simple-
 
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 import { SocialContactComponent } from './social-contact/social-contact.component';
-import { DiseaseSlimTableComponent } from './disease-slim-table/disease-slim-table.component';
 import { GeneResultsSlimTableComponent } from './gene-results-slim-table/gene-results-slim-table.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -40,6 +40,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     Ng2SimplePageScrollModule.forRoot(),
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
+    BsDropdownModule.forRoot(),
     FontAwesomeModule,
   ],
   exports: [
@@ -61,7 +62,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NotFoundComponent,
     DetailsPageMenuComponent,
     SocialContactComponent,
-    DiseaseSlimTableComponent,
     GeneResultsSlimTableComponent,
   ],
   declarations: [
@@ -83,7 +83,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NotFoundComponent,
     DetailsPageMenuComponent,
     SocialContactComponent,
-    DiseaseSlimTableComponent,
     GeneResultsSlimTableComponent,
     QueryDescriptionDisplayComponent,
   ],

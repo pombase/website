@@ -1,17 +1,17 @@
 <div>
-  <app-loading-spinner *ngIf="!goSlimSubset && !apiError"></app-loading-spinner>
+  <app-loading-spinner *ngIf="!slimSubset && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
-  <div *ngIf="goSlimSubset">
+  <div *ngIf="slimSubset">
   <table class="go-slim-table">
     <thead>
       <th>Name</th>
       <th>Term</th>
       <th>Genes</th>
-      <th>Physical network interaction</th>
+      <th *ngIf="slimConfig.external_link_config">{{slimConfig.external_link_config.description}}</th>
     </thead>
     <tbody>
-      <tr *ngFor="let element of goSlimSubset.elements">
+      <tr *ngFor="let element of slimSubset.elements">
         <td>{{element.name}}</td>
         <td>
           <a routerLink="/term/{{element.termid}}" routerLinkActive="active">{{element.termid}}</a>
@@ -19,11 +19,11 @@
         <td>
           <a routerLink="/term_genes/{{element.termid}}" routerLinkActive="active">{{element.gene_count}}</a>
         </td>
-        <td>
+        <td *ngIf="slimConfig.external_link_config">
           <app-external-link [identifier]="element.termid"
-                             [linkText]="'esyN'"
-                             [linkConfigKey]="'esyn'"
-                             [iconImage]="'esyn_icon.png'">
+                             [linkText]="slimConfig.external_link_config.link_text"
+                             [linkConfigKey]="slimConfig.external_link_config.link_config_key"
+                             [iconImage]="slimConfig.external_link_config.icon_image">
           </app-external-link>
         </td>
       </tr>
@@ -32,28 +32,28 @@
 
   <div id="slim-gene-totals">
     <div id="slim-gene-totals-header">
-      Total slimmed gene products (protein and ncRNA): {{goSlimSubset.total_gene_count}}
+      Total slimmed gene products (protein and ncRNA): {{slimSubset.total_gene_count}}
     </div>
 
     Note that the counts in the "Genes" column are not additive,
     because many gene products are annotated to more than one term in
-    the GO slim.
-  </div>
-  
+    the slim.
   </div>
 
-  <div *ngIf="nonSlimWithBP" id="non-slim-genes">
+  </div>
+
+  <div *ngIf="nonSlimWithAnnotation" id="non-slim-genes">
     <div id="non-slim-total">Protein coding genes not covered by the slim
-    ({{nonSlimWithBP.elements.length + nonSlimWithoutBP.elements.length}} in total):</div>
+    ({{nonSlimWithAnnotation.elements.length + nonSlimWithoutAnnotation.elements.length}} in total):</div>
     <div>
-      Gene products with biological process annotation, but not in any of the
-      categories above:
-      <a routerLink="/gene_subset/non_go_slim_with_bp_annotation"
-         routerLinkActive="active">{{nonSlimWithBP.elements.length}}</a>
+      {{nonSlimWithAnnotation.display_name}}:
+      <a routerLink="/gene_subset/{{nonSlimWithAnnotationName}}"
+         routerLinkActive="active">{{nonSlimWithAnnotation.elements.length}}</a>
     </div>
-    <div>Gene products with no biological process annotation:
-      <a routerLink="/gene_subset/non_go_slim_without_bp_annotation"
-         routerLinkActive="active">{{nonSlimWithoutBP.elements.length}}</a>
+    <div>
+      {{nonSlimWithoutAnnotation.display_name}}:
+      <a routerLink="/gene_subset/{{nonSlimWithoutAnnotationName}}"
+         routerLinkActive="active">{{nonSlimWithoutAnnotation.elements.length}}</a>
     </div>
   </div>
 </div>

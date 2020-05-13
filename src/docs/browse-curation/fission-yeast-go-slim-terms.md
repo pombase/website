@@ -1,4 +1,4 @@
-## Fission yeast GO slim
+## Fission yeast GO Biological Process slim
 
 A "GO slim" is a subset of the Gene Ontology terms selected for a
 specific purpose in interpreting large-scale data, such as functional
@@ -34,5 +34,5 @@ tables on this page include annotated RNAs. For some GO terms, notably
 the total annotated genes.
 -->
 
-<app-go-slim-table></app-go-slim-table>
+<app-go-slim-table [slimName]="'bp_goslim_pombe'"></app-go-slim-table>
 

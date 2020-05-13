@@ -44,10 +44,18 @@
             (click)="showVisualisation()">Visualise</button>
   </div>
 
-  <div class="action" *ngFor="let subsetName of slimNames">
-    <button class="btn btn-primary"
-            title="Show gene slim"
-            (click)="showSlim(subsetName)">Slim</button>
+  <div class="btn-group" dropdown *ngIf="slimNames.length != 0">
+    <button id="slim-button" dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+      Slim with:
+    </button>
+
+    <ul id="slim-dropdown" *dropdownMenu class="dropdown-menu" role="menu">
+      <li *ngFor="let subsetName of slimNames" role="menuitem">
+        <a class="dropdown-item" (click)="showSlim(subsetName)">
+          {{slimConfig[subsetName].slim_display_name}}
+        </a>
+      </li>
+    </ul>
   </div>
 
   <div class="action">

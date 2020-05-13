@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { PombaseAPIService, TermSubsetDetails, GeneSubsetDetails, APIError } from '../../pombase-api.service';
+import { getAppConfig, SlimConfig, getAnnotationTableConfig } from '../../config';
 
 @Component({
   selector: 'app-go-slim-table',
@@ -8,27 +9,40 @@ import { PombaseAPIService, TermSubsetDetails, GeneSubsetDetails, APIError } fro
   styleUrls: ['./go-slim-table.component.css']
 })
 export class GoSlimTableComponent implements OnInit {
+  @Input() slimName: string;
 
-  goSlimSubset: TermSubsetDetails = null;
-  nonSlimWithBP: GeneSubsetDetails = null;
-  nonSlimWithoutBP: GeneSubsetDetails = null;
+  appConfig = getAppConfig();
+
+  slimSubset: TermSubsetDetails = null;
+  nonSlimWithAnnotation: GeneSubsetDetails = null;
+  nonSlimWithoutAnnotation: GeneSubsetDetails = null;
   apiError: APIError = null;
+
+  slimConfig: SlimConfig = null;
+  nonSlimWithAnnotationName: string = null;
+  nonSlimWithoutAnnotationName: string = null;
+  cvDisplayName: string = null;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
+    this.slimConfig = this.appConfig.slims[this.slimName];
+    this.cvDisplayName = getAnnotationTableConfig().getAnnotationType(this.slimConfig.cv_name).display_name;
+
     this.pombaseApiService.getTermSubsets()
       .then(subsets => {
-        this.goSlimSubset = Object.assign({}, subsets['bp_goslim_pombe']);
-        this.goSlimSubset.elements.sort((a, b) => a.name.localeCompare(b.name));
+        this.slimSubset = Object.assign({}, subsets[this.slimName]);
+        this.slimSubset.elements.sort((a, b) => a.name.localeCompare(b.name));
       })
       .catch(error => {
         this.apiError = error;
       });
     this.pombaseApiService.getGeneSubsets()
       .then(subsets => {
-        this.nonSlimWithBP = subsets['non_go_slim_with_bp_annotation'];
-        this.nonSlimWithoutBP = subsets['non_go_slim_without_bp_annotation'];
+        this.nonSlimWithAnnotationName = `non_slim_with_${this.slimConfig.cv_name}_annotation`;
+        this.nonSlimWithAnnotation = subsets[this.nonSlimWithAnnotationName];
+        this.nonSlimWithoutAnnotationName = `non_slim_without_${this.slimConfig.cv_name}_annotation`;
+        this.nonSlimWithoutAnnotation = subsets[this.nonSlimWithoutAnnotationName];
       })
       .catch(error => {
         this.apiError = error;
