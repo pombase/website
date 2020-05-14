@@ -2,12 +2,12 @@
 <!-- pombase_categories: Tools and resources -->
 
 This is an area of active development at PomBase. At present, PomBase
-links GO slim terms to the web-based network tool
+links GO terms to the web-based network tool
 [esyN](http://www.esyn.org/) ^1^: on the 
-[GO Slim page](/browse-curation/fission-yeast-go-slim-terms) and on
-ontology term pages for GO Slim biological process terms, each GO Slim
+[GO biological process slim page](/browse-curation/fission-yeast-go-slim-terms) and on
+ontology term pages for GO biological process slim terms, each GO slim
 term links to the [HCPIN physical interaction network](/documentation/high-confidence-physical-interaction-network)
-in esyN. For example, the GO Slim page and the ontology term page for
+in esyN. For example, the GO process slim page and the ontology term page for
 "regulation of mitotic cell cycle phase transition" ([GO:1901990](/term/GO:1901990)) link to
 <http://www.esyn.org//builder.php?type=Graph&term=GO:1901990&interactionType=physical&source=pombase&includeInteractors=false>.
 

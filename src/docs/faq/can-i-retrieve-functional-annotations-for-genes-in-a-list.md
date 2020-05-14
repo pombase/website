@@ -27,5 +27,5 @@ approaches also make it easier to maintain and update your data than
 storing individual GO annotations locally.)
 
 Also see the [FAQ on GO term enrichment](/faq/how-can-i-find-significant-shared-go-annotations-genes-list)
-and the [PomBase GO Slim](/browse-curation/fission-yeast-go-slim-terms) page.
+and the [PomBase GO Slim documentation](/documentation/pombase-go-slim-documentation) page.
 
