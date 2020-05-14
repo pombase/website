@@ -20,6 +20,7 @@
       "browse-curation/fission-yeast-cc-go-slim-terms" : "Fission yeast GO Cellular Component slim",
       "browse-curation/fission-yeast-go-slim-terms" : "Fission yeast GO Biological Process slim",
       "browse-curation/fission-yeast-go-slimming-tips" : "PomBase GO Slim Usage Tips",
+      "browse-curation/fission-yeast-mf-go-slim-terms" : "Fission yeast GO Molecular Function slim",
       "browse-curation/fission-yeast-phenotype-ontology" : "Fission Yeast Phenotype Ontology",
       "browse-curation/index" : "Browse curation",
       "community" : "Fission Yeast Community",

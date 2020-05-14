@@ -1663,7 +1663,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 <h2 id="fission-yeast-go-cellular-component-slim">Fission yeast GO Cellular Component slim</h2>
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast cellular component GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
-<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">GO slim IDs and term names</a> from the PomBase FTP site.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there.</p>
 <p><app-go-slim-table [slimName]="'cc_goslim_pombe'"></app-go-slim-table></p>
 
   </div>
@@ -1716,6 +1716,14 @@ the total annotated genes.
     which are involved in a process via regulation only. We expect this
     distinction to be available in future versions of slimming software.
 -->
+
+  </div>
+  <div *ngIf="pageName == 'fission-yeast-mf-go-slim-terms'">
+<h2 id="fission-yeast-go-molecular-function-slim">Fission yeast GO Molecular Function slim</h2>
+<p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
+<p>The table below shows terms in the current fission yeast molecular function GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there.</p>
+<p><app-go-slim-table [slimName]="'mf_goslim_pombe'"></app-go-slim-table></p>
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-phenotype-ontology'">
