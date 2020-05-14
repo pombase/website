@@ -35,7 +35,7 @@ export class GenesTableComponent implements OnInit {
 
   faCog = faCog;
 
-  orderByFieldName = 'name';
+  orderByFieldName = 'product';
   downloadModalRef: BsModalRef = null;
   selectedCountCache = -1;
 
@@ -233,17 +233,21 @@ export class GenesTableComponent implements OnInit {
         .subscribe(visbleFieldnames => {
           this.visibleFieldNames = visbleFieldnames;
 
-          if (this.visibleFieldNames.includes('name')) {
-            this.setOrderBy('name');
+          if (this.visibleFieldNames.includes('product')) {
+            this.setOrderBy('product');
           } else {
-            if (this.visibleFieldNames.includes('uniquename')) {
-              this.setOrderBy('uniquename');
+            if (this.visibleFieldNames.includes('name')) {
+              this.setOrderBy('name');
             } else {
-              if (this.visibleFieldNames.length > 0) {
-                this.setOrderBy(this.visibleFieldNames[0]);
-              } else {
-                this.visibleFieldNames.push('uniquename');
+              if (this.visibleFieldNames.includes('uniquename')) {
                 this.setOrderBy('uniquename');
+              } else {
+                if (this.visibleFieldNames.length > 0) {
+                  this.setOrderBy(this.visibleFieldNames[0]);
+                } else {
+                  this.visibleFieldNames.push('uniquename');
+                  this.setOrderBy('uniquename');
+                }
               }
             }
           }

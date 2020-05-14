@@ -10,7 +10,7 @@ export class GenotypesTableComponent implements OnInit {
   @Input() legend: string;
   @Input() genotypes: Array<GenotypeShort> = [];
 
-  orderByField = 'gene';
+  orderByField = 'product';
 
   setOrderBy(field: string) {
     this.orderByField = field;
