@@ -2,7 +2,7 @@
 
 Fission yeast genes are classed as "unknown" if there is no information
 about the broad cellular role (biological process) in which it
-participates (corresponding to any of the [high level GO Slim classes](/browse-curation/fission-yeast-go-slim-terms)). For these, we
+participates (corresponding to any of the [high level GO biological process slim classes](/browse-curation/fission-yeast-go-slim-terms)). For these, we
 have been unable to identify a broad biological role based on
 experimental data in fission yeast or any other organism. Note that, as
 all genes in fission yeast have been curated, these genes are documented

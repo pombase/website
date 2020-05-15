@@ -234,13 +234,13 @@ descriptions: ####
  <tr>
   <td>Published</td>
   <td>Experimentally characterised (or published)</td>
-  <td>Completely or partially characterised in a small scale experiment, with some published information about the biological role (corresponding to any of the fission yeast GO slim biological process terms)</td>
+  <td>Completely or partially characterised in a small scale experiment, with some published information about the biological role (corresponding to any of the fission yeast GO biological process slim terms)</td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>Role inferred</td>
   <td>Role inferred from homology</td>
-  <td>A biological role (as above, a fission yeast GO slim term) is inferred from homology to an experimentally characterised gene product</td>
+  <td>A biological role (as above, a fission yeast GO process slim term) is inferred from homology to an experimentally characterised gene product</td>
   <td>&nbsp;</td>
  </tr>
  <tr>

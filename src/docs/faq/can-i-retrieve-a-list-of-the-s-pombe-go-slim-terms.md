@@ -2,7 +2,7 @@
 <!-- pombase_categories: Genome statistics and lists,Using ontologies -->
 
 Yes, you can download the term names and IDs for the [Fission Yeast GO
-slim terms](/browse-curation/fission-yeast-go-slim-terms) from the
+process slim terms](/browse-curation/fission-yeast-go-slim-terms) from the
 [PomBase FTP site.](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv).
 
 For further information on using the *S. pombe* slim, please see the
