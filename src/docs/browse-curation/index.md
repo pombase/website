@@ -1,6 +1,10 @@
 ## Browse curation
 
 - [Fission Yeast Phenotype Ontology](browse-curation/fission-yeast-phenotype-ontology): Summary page and links to additional information
-- [GO slim terms](browse-curation/fission-yeast-go-slim-terms): Biological process GO Slim terms and annotation totals
+- GO slim annotation summaries
+	- [Biological process GO slim](browse-curation/fission-yeast-go-slim-terms): terms and annotation totals
+	- [Molecular function GO slim](browse-curation/fission-yeast-mf-go-slim-terms): terms and annotation totals
+	- [Cellular component GO slim](browse-curation/fission-yeast-cc-go-slim-terms): terms and annotation totals
+- [Disease association overview](browse-curation/disease-slim): Fission yeast Mondo slim terms and annotation totals
 - [DNA binding sites](browse-curation/dna-binding-sites): Consensus binding sequences found in *S. pombe*
 - [Drug targets](browse-curation/drugs-known-pombe-targets): List of drugs known to affect *S. pombe*, and their targets or mechanism of action
