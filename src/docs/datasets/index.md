@@ -53,7 +53,15 @@ Mappings between PomBase systematic IDs, gene names, product descriptions, and U
 -------
 
 ### GO slim
-Current [GO Process slim IDs and term names](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv) (ftp)
+Current GO slim IDs and term names
+ [GO biological process slim](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv) (ftp)
+ [GO molecular function slim](ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.tsv) (ftp)
+ [GO cellular component slim](ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv) (ftp)
+
+-------
+
+### Mondo slim
+Current [fission yeast Mondo Disease Ontology slim IDs and term names](ftp://ftp.pombase.org/nightly_update/misc/disease_ontology_slim_ids_and_names.tsv) (ftp)
 
 -------
 
