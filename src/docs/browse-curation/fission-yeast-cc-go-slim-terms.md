@@ -16,7 +16,10 @@ genes.
 
 Further information is available from the [PomBase GO slim
 documentation](documentation/pombase-go-slim-documentation) and
-additional pages linked there.
+additional pages linked there. You can also download a list of current
+[GO component slim IDs and term names](ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv)
+from the PomBase FTP site.
+
 
 <app-go-slim-table [slimName]="'cc_goslim_pombe'"></app-go-slim-table>
 
