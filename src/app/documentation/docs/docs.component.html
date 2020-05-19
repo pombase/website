@@ -975,17 +975,20 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 <app-page-contents-menu title="Browse curation" titleRoute="/browse-curation">
 
 <div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim terms</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO process slim terms</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">GO function slim terms</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">GO component slim terms</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/drugs-known-pombe-targets">Drugs with known targets</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/disease-slim">Monarch Disease Ontology slim</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/browse-curation/disease-slim">Mondo Disease Ontology slim</a></div>
 
 </app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'disease-slim'">
-<h2 id="monarch-disease-ontology-slim">Monarch disease ontology slim</h2>
-<p>A “slim” is a high-level subset of terms from an ontology, used to analyze sets of annotated genes. The table below shows a slim set of grouping terms that we have selected from the <a href="https://mondo.monarchinitiative.org/">Monarch Disease Ontology</a> (MONDO) and the number of annotations to each term. MONDO IDs link to PomBase ontology term pages. The annotation totals link to pages with information about the term and a list of annotated genes. A gene may be included in the annotation sets for more than one slim term.</p>
-<p>If you would like to have any terms added to the PomBase MONDO slim set, please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
+<h2 id="monarch-disease-ontology-slim">Monarch Disease Ontology slim</h2>
+<p>A “slim” is a high-level subset of terms from an ontology, used to analyze sets of annotated genes. The table below shows a slim set of grouping terms that we have selected from the <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) and the number of annotations to each term. Mondo IDs link to PomBase ontology term pages. The annotation totals link to pages with information about the term and a list of annotated genes. A gene may be included in the annotation sets for more than one slim term.</p>
+<p>You can download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/disease_ontology_slim_ids_and_names.tsv">PomBase Mondo slim IDs and term names</a> from the PomBase FTP site.</p>
+<p>If you would like to have any terms added to the PomBase Mondo slim set, please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
 <p><app-go-slim-table [slimName]="'pombe_mondo_slim'"></app-go-slim-table></p>
 
   </div>
@@ -1663,7 +1666,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 <h2 id="fission-yeast-go-cellular-component-slim">Fission yeast GO Cellular Component slim</h2>
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast cellular component GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
-<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv">GO component slim IDs and term names</a> from the PomBase FTP site.</p>
 <p><app-go-slim-table [slimName]="'cc_goslim_pombe'"></app-go-slim-table></p>
 
   </div>
@@ -1671,7 +1674,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 <h2 id="fission-yeast-go-biological-process-slim">Fission yeast GO Biological Process slim</h2>
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses a GO slim to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast biological process GO slim, and the number of annotations to each term. GO IDs link to PomBase <a routerLink="/documentation/ontology-term-page">ontology term pages</a>. Icons beside each GO term link to <a href="http://www.esyn.org/">esyN</a>, which provides a graphical view of interactions for the genes from the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a> dataset. Only the subset of genes linked into the interaction network will be displayed in the esyN network view. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
-<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">GO slim IDs and term names</a> from the PomBase FTP site.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">GO process slim IDs and term names</a> from the PomBase FTP site.</p>
 <!-- <a href="http://www.esyn.org/tutorial.html">esyN documentation</a> -->
 <!--
 Note that both proteins and RNAs can be annotated to GO terms, and the
@@ -1711,7 +1714,7 @@ the total annotated genes.
     [GO Ontology Relations
     documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
-    totals presented for the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">PomBase default *S. pombe* slim</a>, by contrast,
+    totals presented for the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">PomBase default *S. pombe* process slim</a>, by contrast,
     are calculated both explicitly including or excluding the genes
     which are involved in a process via regulation only. We expect this
     distinction to be available in future versions of slimming software.
@@ -1722,7 +1725,7 @@ the total annotated genes.
 <h2 id="fission-yeast-go-molecular-function-slim">Fission yeast GO Molecular Function slim</h2>
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast molecular function GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
-<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.tsv">GO function slim IDs and term names</a> from the PomBase FTP site.</p>
 <p><app-go-slim-table [slimName]="'mf_goslim_pombe'"></app-go-slim-table></p>
 
   </div>
@@ -1752,7 +1755,13 @@ the total annotated genes.
 <h2 id="browse-curation">Browse curation</h2>
 <ul>
 <li><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology</a>: Summary page and links to additional information</li>
-<li><a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim terms</a>: Biological process GO Slim terms and annotation totals</li>
+<li>GO slim annotation summaries
+<ul>
+<li><a routerLink="/browse-curation/fission-yeast-go-slim-terms">Biological process GO slim</a>: terms and annotation totals</li>
+<li><a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">Molecular function GO slim</a>: terms and annotation totals</li>
+<li><a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">Cellular component GO slim</a>: terms and annotation totals</li>
+</ul></li>
+<li><a routerLink="/browse-curation/disease-slim">Disease association overview</a>: Fission yeast Mondo slim terms and annotation totals</li>
 <li><a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a>: Consensus binding sequences found in <em>S. pombe</em></li>
 <li><a routerLink="/browse-curation/drugs-known-pombe-targets">Drug targets</a>: List of drugs known to affect <em>S. pombe</em>, and their targets or mechanism of action</li>
 </ul>
@@ -4200,7 +4209,11 @@ the total annotated genes.
 <div class="left-menu-part left-sub-menu-item"><a href="ftp://ftp.pombase.org/pombe/orthologs/">Orthologs</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="//downloads/protein-datasets">Protein datasets</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">GO slim</a></div>
+<div class="left-menu-part left-menu-item">GO slims</div>
+<div class="left-menu-part left-sub-menu-item"><a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">GO biological process slim</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.tsv">GO molecular function slim</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv">GO cellular component slim</a></div>
+<div class="left-menu-part left-menu-item"><a href="ftp://ftp.pombase.org/nightly_update/misc/disease_ontology_slim_ids_and_names.tsv">Mondo Disease Ontology slim</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documents">Documents</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a></div>
 
@@ -4268,7 +4281,10 @@ the total annotated genes.
 <p>Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers</p>
 <hr />
 <h3 id="go-slim">GO slim</h3>
-<p>Current <a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">GO slim IDs and term names</a> (ftp)</p>
+<p>Current GO slim IDs and term names <a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">GO biological process slim</a> (ftp) <a href="ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.tsv">GO molecular function slim</a> (ftp) <a href="ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv">GO cellular component slim</a> (ftp)</p>
+<hr />
+<h3 id="mondo-slim">Mondo slim</h3>
+<p>Current <a href="ftp://ftp.pombase.org/nightly_update/misc/disease_ontology_slim_ids_and_names.tsv">fission yeast Mondo Disease Ontology slim IDs and term names</a> (ftp)</p>
 <hr />
 <h3 id="curated-inventories">Curated inventories</h3>
 <ul>
@@ -7186,13 +7202,13 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <li><p>If you are interested in many GO terms, or if you do not know in advance which terms may be relevant, we recommend that you use a “GO term enrichment” tool. Such tools are typically used to find terms overrepresented for a gene list, but can be used to retrieve all GO annotations if the p-value threshold is set artificially high.</p></li>
 </ul>
 <p>Both the Advanced Search and term enrichment tools take advantage of the hierarchical structure of GO, such that annotations to specific terms are propagated to “ancestor” terms via <em>is_a</em> and <em>part_of</em> relations. See the <a routerLink="/documentation/gene-page-gene-ontology">PomBase GO documentation</a>, and the GO Consortium documentation linked there, for more information. (These approaches also make it easier to maintain and update your data than storing individual GO annotations locally.)</p>
-<p>Also see the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list">FAQ on GO term enrichment</a> and the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">PomBase GO Slim</a> page.</p>
+<p>Also see the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list">FAQ on GO term enrichment</a> and the <a routerLink="/documentation/pombase-go-slim-documentation">PomBase GO Slim documentation</a> page.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-retrieve-list-s.-pombe-go-slim-terms', 'Can I retrieve a list of the S. pombe GO slim terms?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-list-s.-pombe-go-slim-terms' || pageName == 'all-faqs'">
 <h3 id="can-i-retrieve-list-s.-pombe-go-slim-terms">Can I retrieve a list of the S. pombe GO slim terms?</h3>
 <!-- pombase_categories: Genome statistics and lists,Using ontologies -->
-<p>Yes, you can download the term names and IDs for the <a href="/browse-curation/fission-yeast-go-slim-terms">Fission Yeast GO slim terms</a> from the <a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">PomBase FTP site.</a>.</p>
+<p>Yes, you can download the term names and IDs for the <a href="/browse-curation/fission-yeast-go-slim-terms">Fission Yeast GO process slim terms</a> from the <a href="ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv">PomBase FTP site.</a>.</p>
 <p>For further information on using the <em>S. pombe</em> slim, please see the PomBase <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO slim page</a>, <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">GO slimming tips</a>, and <a routerLink="/documentation/pombase-go-slim-documentation">GO slim documentation</a>.</p>
 
 </div>
@@ -7290,7 +7306,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="faq_navigate($event, '/faq/can-i-visualise-networks-pombase', 'Can I visualise networks in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-visualise-networks-pombase' || pageName == 'all-faqs'">
 <h3 id="can-i-visualise-networks-pombase">Can I visualise networks in PomBase?</h3>
 <!-- pombase_categories: Tools and resources -->
-<p>This is an area of active development at PomBase. At present, PomBase links GO slim terms to the web-based network tool <a href="http://www.esyn.org/">esyN</a> <sup>1</sup>: on the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO Slim page</a> and on ontology term pages for GO Slim biological process terms, each GO Slim term links to the <a routerLink="/documentation/high-confidence-physical-interaction-network">HCPIN physical interaction network</a> in esyN. For example, the GO Slim page and the ontology term page for “regulation of mitotic cell cycle phase transition” (<a routerLink="/term/GO:1901990">GO:1901990</a>) link to <a href="http://www.esyn.org//builder.php?type=Graph&amp;term=GO:1901990&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false" class="uri">http://www.esyn.org//builder.php?type=Graph&amp;term=GO:1901990&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false</a>.</p>
+<p>This is an area of active development at PomBase. At present, PomBase links GO terms to the web-based network tool <a href="http://www.esyn.org/">esyN</a> <sup>1</sup>: on the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GO biological process slim page</a> and on ontology term pages for GO biological process slim terms, each GO slim term links to the <a routerLink="/documentation/high-confidence-physical-interaction-network">HCPIN physical interaction network</a> in esyN. For example, the GO process slim page and the ontology term page for “regulation of mitotic cell cycle phase transition” (<a routerLink="/term/GO:1901990">GO:1901990</a>) link to <a href="http://www.esyn.org//builder.php?type=Graph&amp;term=GO:1901990&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false" class="uri">http://www.esyn.org//builder.php?type=Graph&amp;term=GO:1901990&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false</a>.</p>
 <p>We plan to provide gene-centred network displays on gene pages in the near future.</p>
 <!--
 On gene pages, we have links to gene-specific interaction networks in
@@ -8399,6 +8415,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#improved-gene-disease-curation">Improved gene-disease curation</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#published-community-curation-pombase">Published: Community curation in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombetalks-may-th">PombeTalks May 13th</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#chromatin-silencing-ontology-amp-annotation-overhaul">Chromatin silencing ontology &amp; annotation overhaul</a></div>
@@ -9707,9 +9725,37 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>Watch for invitations to curate your new papers, or see our <a href="https://www.pombase.org/community/fission-yeast-community-curation-project">community curation page</a> for more information.</p>
 
   </div>
+  <div *ngIf="pageName == 'increased-disease-annotation-coverage'">
+<h3 id="improved-gene-disease-curation">Improved gene-disease curation</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: human disease.png -->
+<p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have now increased coverage by adding new gene–disease term connections, with 3954 individual annotations to 1195 genes (up from 2588 and 905 respectively in January 2019). Disease associations now cover 24.5% of all fission yeast protein-coding genes, and over one third of those with human orthologs.</p>
+
+  </div>
+  <div *ngIf="pageName == 'pombase-uses-mondo'">
+<h3 id="pombase-adopts-mondo-for-disease-gene-curation">PomBase adopts MONDO for disease gene curation</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: human disease.png -->
+<p>PomBase has switched from the <a href="https://disease-ontology.org/">Disease Ontology</a> (DO) to the Monarch Initiative’s <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) for disease gene curation. Mondo covers the same set of disease descriptions as DO, but has a richer hierarchical structure that classifies more specific descriptions into broad categories (e.g. anemia, cancer, kidney disease) suitable for a disease “slim” term set.</p>
+<p>PomBase curators are collaborating with Mondo to improve its disease classification, especially in areas that will support inferences that improve fission yeast disease annotation coverage in the new <a href="https://www.pombase.org/browse-curation/disease-slim">PomBase Mondo slim</a>. The new disease slim is a work in progress, so if there is a particular disease grouping that you would find useful, please <a href="mailto:helpdesk@pombase.org">let us know</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<h3 id="pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</h3>
+<p><em>2020-05-18</em></p>
+<p>PomBase has switched from the <a href="https://disease-ontology.org/">Disease Ontology</a> (DO) to the Monarch Initiative’s <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) for disease gene curation. Mondo covers the same set of disease descriptions as DO, but has a richer hierarchical structure that classifies more specific descriptions into broad categories (e.g. anemia, cancer, kidney disease) suitable for a disease “slim” term set.</p>
+<p>PomBase curators are collaborating with Mondo to improve its disease classification, especially in areas that will support inferences that improve fission yeast disease annotation coverage in the new <a href="https://www.pombase.org/browse-curation/disease-slim">PomBase Mondo slim</a>. The new disease slim is a work in progress, so if there is a particular disease grouping that you would find useful, please <a href="mailto:helpdesk@pombase.org">let us know</a>.</p>
+</div>
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<h3 id="improved-gene-disease-curation">Improved gene-disease curation</h3>
+<p><em>2020-05-18</em></p>
+<p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have now increased coverage by adding new gene–disease term connections, with 3954 individual annotations to 1195 genes (up from 2588 and 905 respectively in January 2019). Disease associations now cover 24.5% of all fission yeast protein-coding genes, and over one third of those with human orthologs.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
 <h3 id="published-community-curation-pombase">Published: Community curation in PomBase</h3>
@@ -10915,8 +10961,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <h3 id="protein-coding-gene-characterisation-status">Protein-coding gene characterisation status</h3>
 <p><app-characterisation-status-table></app-characterisation-status-table></p>
 <p>Protein-coding gene characterisation status descriptions</p>
-<p><strong>Published:</strong> Completely or partially characterised in a small scale experiment, with some published information about the biological role (corresponding to any of the <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO slim</a> biological process terms)</p>
-<p><strong>Biological role inferred:</strong> A biological role (as above, a <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO slim</a> term) is inferred from homology to an experimentally characterised gene product</p>
+<p><strong>Published:</strong> Completely or partially characterised in a small scale experiment, with some published information about the biological role (corresponding to any of the <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO biological process slim</a> terms)</p>
+<p><strong>Biological role inferred:</strong> A biological role (as above, a <a href="browse-curation/fission-yeast-go-slim-terms">fission yeast GO Process slim</a> term) is inferred from homology to an experimentally characterised gene product</p>
 <p><strong>Conserved protein (unknown biological role):</strong> Conserved outside the <i>Schizosaccharomyces</i>, but nothing known about the biological role in any organism</p>
 <p><strong><i>Schizosaccharomyces</i> specific protein, uncharacterized:</strong> Unpublished and found only in fission yeast (<i>S. pombe</i>, <i>S. octosporus</i>, <i>S. japonicus</i>, <i>S. cryophilus</i>); nothing known about biological role. May be single copy or a member of a multi-member family.</p>
 <p><strong><i>S. pombe</i> specific protein, uncharacterized:</strong> Unpublished and found only in <i>S. pombe</i> (not detected in other <i>Schizosaccharomyces</i> species); nothing known about biological role</p>
@@ -11156,13 +11202,13 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
  <tr>
   <td>Published</td>
   <td>Experimentally characterised (or published)</td>
-  <td>Completely or partially characterised in a small scale experiment, with some published information about the biological role (corresponding to any of the fission yeast GO slim biological process terms)</td>
+  <td>Completely or partially characterised in a small scale experiment, with some published information about the biological role (corresponding to any of the fission yeast GO biological process slim terms)</td>
   <td>&nbsp;</td>
  </tr>
  <tr>
   <td>Role inferred</td>
   <td>Role inferred from homology</td>
-  <td>A biological role (as above, a fission yeast GO slim term) is inferred from homology to an experimentally characterised gene product</td>
+  <td>A biological role (as above, a fission yeast GO process slim term) is inferred from homology to an experimentally characterised gene product</td>
   <td>&nbsp;</td>
  </tr>
  <tr>
@@ -14562,7 +14608,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'priority-unstudied-genes'">
 <h3 id="priority-unstudied-genes">Priority unstudied genes</h3>
-<p>Fission yeast genes are classed as “unknown” if there is no information about the broad cellular role (biological process) in which it participates (corresponding to any of the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">high level GO Slim classes</a>). For these, we have been unable to identify a broad biological role based on experimental data in fission yeast or any other organism. Note that, as all genes in fission yeast have been curated, these genes are documented as “unknown” (they are not “unannotated”).</p>
+<p>Fission yeast genes are classed as “unknown” if there is no information about the broad cellular role (biological process) in which it participates (corresponding to any of the <a routerLink="/browse-curation/fission-yeast-go-slim-terms">high level GO biological process slim classes</a>). For these, we have been unable to identify a broad biological role based on experimental data in fission yeast or any other organism. Note that, as all genes in fission yeast have been curated, these genes are documented as “unknown” (they are not “unannotated”).</p>
 <p>In fission yeast the “unknown” inventory is <app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:unknown_genes'"></app-query-link> entries, many of which are apparently found only in the fission yeast clade. However, a large number (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown'"></app-query-link>) are conserved, and a significant number of these (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-query-link>) have orthologs in vertebrates. These genes are listed below.</p>
 <p>You can recreate this query, or variations of it, using the Advanced Search. See the <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">relevant FAQ</a> and the <a routerLink="/query">Advanced Search</a> documentation for details. You can also send this list directly to the advanced search (For example to mine for phenotypes or locations of interest).</p>
 <p><app-predefined-query-results [description]="'Unstudied genes'" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results></p>
