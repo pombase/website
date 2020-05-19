@@ -51,6 +51,10 @@ export class DocsComponent implements OnInit, OnDestroy {
   }
 
   setSectPage(url: string) {
+    const realUrl = this.appConfig.docPageAliases[url];
+    if (realUrl) {
+      url = realUrl;
+    }
     const urlMatch = urlRe.exec(url);
     if (urlMatch) {
       this.section = urlMatch[1];

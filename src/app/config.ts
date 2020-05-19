@@ -183,6 +183,7 @@ export interface AppConfig {
   ortholog_taxonids: Array<number>;
   targetOfConfig: TargetOfConfig;
   frontPagePanels: Array<PanelConfig>;
+  docPageAliases: { [old: string]: string };
   defaultJBrowseTracks: Array<JBrowseTrackInfo>;
   refPageJBrowseColumns: Array<JBrowseColumnConfig>;
   apiSeqChunkSizes: {
@@ -633,6 +634,7 @@ let _appConfig: AppConfig = {
   ortholog_taxonids: pombaseConfig.ortholog_taxonids,
   targetOfConfig: pombaseConfig.target_of_config,
   frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
+  docPageAliases: pombaseConfig.doc_page_aliases,
   defaultJBrowseTracks: pombaseConfig.default_jbrowse_tracks,
   refPageJBrowseColumns: pombaseConfig.reference_page_jbrowse_columns,
   apiSeqChunkSizes: {
