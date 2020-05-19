@@ -41,7 +41,7 @@ extension(s) is shown once:
     documentation on the [GO graph](http://geneontology.org/docs/ontology-documentation/) and
     [Relations in GO](http://geneontology.org/docs/ontology-relations/) for
     more information.)
-2.  [GO Slim](/browse-curation/fission-yeast-go-slim-terms) terms
+2.  [GO Slim](documentation/pombase-go-slim-documentation) terms
     applicable to the gene.
 3.  GO annotations may have [extensions](#annotation-extensions) to capture any of
     several types of additional detail. *S. pombe* genes link to PomBase

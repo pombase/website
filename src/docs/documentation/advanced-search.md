@@ -71,7 +71,10 @@ browser "back" button)
 visualisation
 
 5. Show [GO slim](documentation/pombase-go-slim-documentation)
-annotations for genes in the list
+annotations for genes in the list. Click "Slim with" to reveal a
+dropdown, and choose a slim. Note: when you return to the main
+Advanced search page, the query history will include an entry showing
+the query as a gene list. This is harmless.
 
 6. Narrow the list: click the button to reveal checkboxes 
 
