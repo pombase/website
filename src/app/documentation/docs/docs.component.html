@@ -1662,15 +1662,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 </table>
 
   </div>
-  <div *ngIf="pageName == 'fission-yeast-cc-go-slim-terms'">
-<h2 id="fission-yeast-go-cellular-component-slim">Fission yeast GO Cellular Component slim</h2>
-<p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
-<p>The table below shows terms in the current fission yeast cellular component GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
-<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv">GO component slim IDs and term names</a> from the PomBase FTP site.</p>
-<p><app-go-slim-table [slimName]="'cc_goslim_pombe'"></app-go-slim-table></p>
-
-  </div>
-  <div *ngIf="pageName == 'fission-yeast-go-slim-terms'">
+  <div *ngIf="pageName == 'fission-yeast-bp-go-slim-terms'">
 <h2 id="fission-yeast-go-biological-process-slim">Fission yeast GO Biological Process slim</h2>
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses a GO slim to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast biological process GO slim, and the number of annotations to each term. GO IDs link to PomBase <a routerLink="/documentation/ontology-term-page">ontology term pages</a>. Icons beside each GO term link to <a href="http://www.esyn.org/">esyN</a>, which provides a graphical view of interactions for the genes from the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a> dataset. Only the subset of genes linked into the interaction network will be displayed in the esyN network view. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
@@ -1683,6 +1675,14 @@ tables on this page include annotated RNAs. For some GO terms, notably
 the total annotated genes.
 -->
 <p><app-go-slim-table [slimName]="'bp_goslim_pombe'"></app-go-slim-table></p>
+
+  </div>
+  <div *ngIf="pageName == 'fission-yeast-cc-go-slim-terms'">
+<h2 id="fission-yeast-go-cellular-component-slim">Fission yeast GO Cellular Component slim</h2>
+<p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
+<p>The table below shows terms in the current fission yeast cellular component GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv">GO component slim IDs and term names</a> from the PomBase FTP site.</p>
+<p><app-go-slim-table [slimName]="'cc_goslim_pombe'"></app-go-slim-table></p>
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-go-slimming-tips'">
