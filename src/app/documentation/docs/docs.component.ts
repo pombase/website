@@ -21,8 +21,7 @@ export class DocsComponent implements OnInit, OnDestroy {
   subscription: Subscription = null;
   appConfig: AppConfig = getAppConfig();
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
+  constructor(private router: Router,
               private titleService: Title,
               private readonly meta: Meta,
               @Inject('Window') private window: any,
