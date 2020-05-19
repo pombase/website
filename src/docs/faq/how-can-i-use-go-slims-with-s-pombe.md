@@ -1,8 +1,8 @@
 # How can I use GO slims with S. pombe?
 <!-- pombase_categories: Genome statistics and lists,Tools and resources,Using ontologies -->
 
-The [Fission Yeast GO slim terms](/browse-curation/fission-yeast-go-slim-terms) page provides a
-generic GO biological process slim for *S. pombe*, and shows total genes
+The [Fission Yeast GO slim pages](documentation/pombase-go-slim-documentation)
+provide generic GO slims for *S. pombe*, and show total genes
 annotated to each term directly or to any of its descendants.
 
 If you want GO slim annotations for your own list of *S. pombe* genes,
