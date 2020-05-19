@@ -19,7 +19,7 @@ esyN in the table headers of the Interactions sections:
         (HCPIN)](/documentation/high-confidence-physical-interaction-network)
 
 We also have esyN links on the [GO Slim
-page](/browse-curation/fission-yeast-go-slim-terms) and on ontology term
+page](/browse-curation/fission-yeast-bp-go-slim-terms) and on ontology term
 pages for GO Slim biological process terms. Each GO Slim term links to
 the HCPIN physical interaction network in esyN (for example, see the
 "regulation of mitotic cell cycle"

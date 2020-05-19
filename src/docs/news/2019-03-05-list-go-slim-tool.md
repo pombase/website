@@ -8,6 +8,6 @@ of *S. pombe* genes, use the advanced search "Gene IDs" option, and
 then use the "Slim" button on the search results page.
 
 See the [fission yeast GO slim
-page](browse-curation/fission-yeast-go-slim-terms) and the [advanced
+page](browse-curation/fission-yeast-bp-go-slim-terms) and the [advanced
 search documentation](documentation/advanced-search) for more
 information.

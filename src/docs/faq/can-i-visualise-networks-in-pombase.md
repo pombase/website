@@ -4,7 +4,7 @@
 This is an area of active development at PomBase. At present, PomBase
 links GO terms to the web-based network tool
 [esyN](http://www.esyn.org/) ^1^: on the 
-[GO biological process slim page](/browse-curation/fission-yeast-go-slim-terms) and on
+[GO biological process slim page](/browse-curation/fission-yeast-bp-go-slim-terms) and on
 ontology term pages for GO biological process slim terms, each GO slim
 term links to the [HCPIN physical interaction network](/documentation/high-confidence-physical-interaction-network)
 in esyN. For example, the GO process slim page and the ontology term page for

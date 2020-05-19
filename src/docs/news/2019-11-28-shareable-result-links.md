@@ -6,7 +6,7 @@ now have a unique permanent URL that can be bookmarked and shared with
 your colleagues.
 
 The [QuiLT](/documentation/quick-little-tool)
-and [GO slim](/browse-curation/fission-yeast-go-slim-terms)
+and [GO slim](/browse-curation/fission-yeast-bp-go-slim-terms)
 pages also now have permanent URLs.
 
 Examples:

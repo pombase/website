@@ -8,10 +8,10 @@ Protein-coding gene characterisation status descriptions
 **Published:** Completely or partially characterised
 in a small scale experiment, with some published information about the
 biological role (corresponding to any of the [fission yeast GO
-biological process slim](browse-curation/fission-yeast-go-slim-terms) terms)
+biological process slim](browse-curation/fission-yeast-bp-go-slim-terms) terms)
 
 **Biological role inferred:** A biological role (as above, a [fission
-yeast GO Process slim](browse-curation/fission-yeast-go-slim-terms) term) is
+yeast GO Process slim](browse-curation/fission-yeast-bp-go-slim-terms) term) is
 inferred from homology to an experimentally characterised gene product
 
 **Conserved protein (unknown biological role):** Conserved outside the <i>Schizosaccharomyces</i>,

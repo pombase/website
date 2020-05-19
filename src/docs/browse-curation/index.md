@@ -2,7 +2,7 @@
 
 - [Fission Yeast Phenotype Ontology](browse-curation/fission-yeast-phenotype-ontology): Summary page and links to additional information
 - GO slim annotation summaries
-	- [Biological process GO slim](browse-curation/fission-yeast-go-slim-terms): terms and annotation totals
+	- [Biological process GO slim](browse-curation/fission-yeast-bp-go-slim-terms): terms and annotation totals
 	- [Molecular function GO slim](browse-curation/fission-yeast-mf-go-slim-terms): terms and annotation totals
 	- [Cellular component GO slim](browse-curation/fission-yeast-cc-go-slim-terms): terms and annotation totals
 - [Disease association overview](browse-curation/disease-slim): Fission yeast Mondo slim terms and annotation totals
