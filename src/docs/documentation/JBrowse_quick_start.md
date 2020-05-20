@@ -124,9 +124,9 @@ arrow:
 
     ![JBrowse track label](assets/jbrowse_track_label_hover.png){width="300"}
 
-    Click the arrow, then click "about this track" in the popup menu:
+    Click the arrow, then click "About this track" in the dropdown menu:
 
-    ![JBrowse track popup menu](assets/jbrowse_track_menu.png){width="400"}
+    ![JBrowse track dropdown menu](assets/jbrowse_track_menu_about.png){width="400"}
 
     The metadata and stats are displayed:
 
@@ -203,3 +203,26 @@ color-coded blocks, and then labeled with letters.
 
 More *S. pombe*-specific information can be found in the [Genome
 browser FAQ list](https://www.pombase.org/faq/genome-browser).
+
+### Exporting data
+To export the data for any track, hover over the track label to
+display a down arrow:
+
+    ![JBrowse track label](assets/jbrowse_track_label_hover.png){width="300"}
+
+    Click the arrow, then click "Save track data" in the dropdown menu:
+
+    ![JBrowse track dropdown menu save data](assets/jbrowse_track_menu_save.png){width="400"}
+
+    In the popup, choose a data format. GFF3 is available for most
+    tracks; other options depend on the data type. You can also edit
+    the name of the file where the data will be saved.
+
+
+    ![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){width="400"}
+
+    Click 'View' to see how the data will appear in the saved file. To
+    download the data file click 'Save' (available in the original
+    popup or the 'View' panel). To dismiss the popup withous saving,
+    click the 'X' in the upper right corner or the 'Close' button at
+    the bottom.
