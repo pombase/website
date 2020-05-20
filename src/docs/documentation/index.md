@@ -10,9 +10,10 @@
 -   [Modifications](documentation/gene-page-modifications)
 -   [Gene expression](documentation/gene-page-gene-expression)
 -   [Interactions](documentation/genetic-and-physical-interactions)
--   [Orthologs](documentation/orthologs)
+-   [Orthologs](documentation/orthologs) and paralogs
 -   [Sequence](documentation/gene-page-sequence)
 -   [Taxonomic conservation](documentation/taxonomic-conservation)
+-   [Disease association](documentation/disease-association)
 -   [Controlled curation](documentation/controlled-curation)
 -   [External references](documentation/gene-page-external-references)
 -   [Literature](documentation/gene-page-literature)

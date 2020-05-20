@@ -17,6 +17,9 @@ Links in the left-hand navigation menu include:
 
 - **Miscellaneous**
 
+- **Subunit composition** - Brief description of homo- or heteromeric
+    complex(es) in which the gene product is found
+
 - **Warnings** - Alerts to changes or anomalies that can affect
     interpretation of experimental results, such as changes to the
     sequence or feature annotation
