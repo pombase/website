@@ -151,7 +151,10 @@ interface SlimExternalLinkConfig {
 
 export interface SlimConfig {
   slim_display_name: string;
+  doc_path: string;
+  full_slim_path: string;
   description: string;
+  slim_results_description: string;
   cv_name: string;
   external_link_config?: SlimExternalLinkConfig;
   terms: Array<TermAndName>;

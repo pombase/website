@@ -4,12 +4,7 @@
   </div>
   <div *ngIf="resultTable.length != 0">
     <div class="description">
-A "GO slim" is a subset of the Gene Ontology terms selected for a
-specific purpose in interpreting the functional annotations in an
-entire organism, or a gene product list derived from an experiment.
-PomBase has created a GO slim to provide a simple summary of
-S. pombe's biological capabilities by grouping gene products using
-broad biological process classifiers.
+{{slimConfig.slim_results_description}}
     </div>
     <div class="subset-table">
       <h4>Terms and genes</h4>
@@ -50,7 +45,7 @@ broad biological process classifiers.
     <div class="summary-content">
       <ul>
         <li>
-          See <a routerLink="/browse-curation/fission-yeast-go-slim-terms">full GO slim set</a> for more information
+          See <a routerLink="{{slimConfig.full_slim_path}}">full {{slimConfig.slim_display_name}} set</a> for more information
         </li>
       </ul>
     </div>

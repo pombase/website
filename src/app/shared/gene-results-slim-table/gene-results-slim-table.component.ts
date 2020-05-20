@@ -3,6 +3,7 @@ import { GeneShort, PombaseAPIService, TermSubsetDetails, GeneSummary, GeneSumma
 import { GeneListNode, GeneQuery, QueryResult, TermId, GeneUniquename } from '../../pombase-query';
 import { QueryService, HistoryEntry, QueryOutputOptions } from '../../query.service';
 import { Router } from '@angular/router';
+import { AppConfig, getAppConfig, SlimConfig } from '../../config';
 
 class ProcessedRow {
   constructor(public termId: string, public termName: string,
@@ -26,6 +27,8 @@ export class GeneResultsSlimTableComponent implements OnInit {
   countsReady = false;
   slimmedGenes: Set<GeneUniquename> = null;
   unslimmedGenes: Set<GeneUniquename> = null;
+  appConfig: AppConfig = getAppConfig();
+  slimConfig: SlimConfig = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
@@ -135,6 +138,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.slimConfig = this.appConfig.slims[this.slimName];
     this.pombaseApiService.getTermSubsets()
       .then(subsets => {
         this.subsetDetails = subsets[this.slimName];
