@@ -4309,6 +4309,7 @@ the total annotated genes.
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/genetic-and-physical-interactions">Genetic and physical interactions</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/orthologs">Ortholog curation</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/taxonomic-conservation">Taxonomic conservation</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/disease-association">Disease association</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-sequence">Sequence</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/controlled-curation">Controlled curation</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-external-references">External references</a></div>
@@ -4464,9 +4465,9 @@ feedback on the GeneDB web page.</p>
 <figure>
 <img src="assets/jbrowse_track_label_hover.png" width="300" alt="" /><figcaption>JBrowse track label</figcaption>
 </figure>
-<p>Click the arrow, then click “about this track” in the popup menu:</p>
+<p>Click the arrow, then click “About this track” in the dropdown menu:</p>
 <figure>
-<img src="assets/jbrowse_track_menu.png" width="400" alt="" /><figcaption>JBrowse track popup menu</figcaption>
+<img src="assets/jbrowse_track_menu_about.png" width="400" alt="" /><figcaption>JBrowse track dropdown menu</figcaption>
 </figure>
 <p>The metadata and stats are displayed:</p>
 <figure>
@@ -4530,6 +4531,26 @@ feedback on the GeneDB web page.</p>
 </ul>
 <p>To see the DNA sequence, zoom in until it appears, first as color-coded blocks, and then labeled with letters.</p>
 <p>More <em>S. pombe</em>-specific information can be found in the <a href="https://www.pombase.org/faq/genome-browser">Genome browser FAQ list</a>.</p>
+<h3 id="exporting-data">Exporting data</h3>
+<p>To export the data for any track, hover over the track label to display a down arrow:</p>
+<pre><code>![JBrowse track label](assets/jbrowse_track_label_hover.png){width=&quot;300&quot;}
+
+Click the arrow, then click &quot;Save track data&quot; in the dropdown menu:
+
+![JBrowse track dropdown menu save data](assets/jbrowse_track_menu_save.png){width=&quot;400&quot;}
+
+In the popup, choose a data format. GFF3 is available for most
+tracks; other options depend on the data type. You can also edit
+the name of the file where the data will be saved.
+
+
+![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){width=&quot;400&quot;}
+
+Click &#39;View&#39; to see how the data will appear in the saved file. To
+download the data file click &#39;Save&#39; (available in the original
+popup or the &#39;View&#39; panel). To dismiss the popup withous saving,
+click the &#39;X&#39; in the upper right corner or the &#39;Close&#39; button at
+the bottom.</code></pre>
 
   </div>
   <div *ngIf="pageName == 'Lanterman_Dutrow_dataset_email'">
@@ -4920,6 +4941,7 @@ PomBase using the Ensembl viewer.</p>
 <ul>
 <li><p><strong>Complementation</strong> - Indicates that an <em>S. pombe</em> gene complements, or is complemented by, a gene from another species</p></li>
 <li><p><strong>Miscellaneous</strong></p></li>
+<li><p><strong>Subunit composition</strong> - Brief description of homo- or heteromeric complex(es) in which the gene product is found</p></li>
 <li><p><strong>Warnings</strong> - Alerts to changes or anomalies that can affect interpretation of experimental results, such as changes to the sequence or feature annotation</p></li>
 </ul>
 <p>In the Miscellaneous category, annotations fall under one of these sub-headings:</p>
@@ -5103,6 +5125,23 @@ PomBase using the Ensembl viewer.</p>
 </ul>
 <p><strong>Submit</strong></p>
 <p>To submit the files, or if you have any questions, please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == 'disease-association'">
+<h2 id="gene-page-disease-associations">Gene page: Disease associations</h2>
+<p>The Disease association section lists disease descriptions from the Monarch Initiative’s <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) for fission yeast orthologs of human disease-causing genes.</p>
+<p>The summary view shows slim terms (see below) and the names of the most specific terms used to annotate the gene.</p>
+<p>The detailed view shows more information for each annotation, and may display additional terms:</p>
+<figure>
+<img src="assets/gene_page_disease_full.png" title="Disease associations" width="800" alt="" /><figcaption>full gene page disease association annotation</figcaption>
+</figure>
+<ol type="1">
+<li><p><a routerLink="/browse-curation/disease-slim">Mondo slim</a> terms applicable to the gene.</p></li>
+<li><p>The Mondo term ID and name, which link to a page with additional information, including the term definition, any synonyms, relationships to other Mondo terms, and annotations to the term or its descendants.</p></li>
+<li><p>Indicates whether the annotation was created by PomBase curators or obtained from an external source (usually <a href="https://www.malacards.org/">Malacards</a></p></li>
+<li><p>The paper from which the annotation comes.</p></li>
+<li><p>The number of genes annotated to the term, linked to an ontology term page as described above.</p></li>
+</ol>
 
   </div>
   <div *ngIf="pageName == 'gene-page-basic-information'">
@@ -5428,9 +5467,10 @@ PomBase using the Ensembl viewer.</p>
 <li><a routerLink="/documentation/gene-page-modifications">Modifications</a></li>
 <li><a routerLink="/documentation/gene-page-gene-expression">Gene expression</a></li>
 <li><a routerLink="/documentation/genetic-and-physical-interactions">Interactions</a></li>
-<li><a routerLink="/documentation/orthologs">Orthologs</a></li>
+<li><a routerLink="/documentation/orthologs">Orthologs</a> and paralogs</li>
 <li><a routerLink="/documentation/gene-page-sequence">Sequence</a></li>
 <li><a routerLink="/documentation/taxonomic-conservation">Taxonomic conservation</a></li>
+<li><a routerLink="/documentation/disease-association">Disease association</a></li>
 <li><a routerLink="/documentation/controlled-curation">Controlled curation</a></li>
 <li><a routerLink="/documentation/gene-page-external-references">External references</a></li>
 <li><a routerLink="/documentation/gene-page-literature">Literature</a></li>
@@ -5819,6 +5859,8 @@ PomBase using the Ensembl viewer.</p>
 <p>The first lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually, as described below, by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases. For more information, including how to search the curated orthologs, see the FAQs on <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">budding yeast</a> and <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> orthologs.</p>
 <p>The second subsection provides links to several resources that predict orthologs in all fungi or all species (PomBase cannot manually curate orthologs in species other than budding yeast and human). For further information, see the <a href="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in additional species</a>. (Note: these links also appear in the External references section.)</p>
 <p>Manual ortholog prediction methods: The human and budding yeast orthologs are manually predicted based on a variety of sources. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches that are uniformly one-to one across species; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase’s approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
+<h2 id="paralogs">Paralogs</h2>
+<p>The Paralogs section lists any curated paralogous fission yeast genes.</p>
 
   </div>
   <div *ngIf="pageName == 'phenotype-data-bulk-upload-format'">
@@ -7074,6 +7116,15 @@ PomBase using the Ensembl viewer.</p>
 <!-- pombase_categories: Finding data -->
 <p>Yes; first use the <a routerLink="/query">advanced search</a> to find the set of genes you want (see the <a routerLink="/documentation/advanced-search">documentation</a> as needed).</p>
 <p>Click on a count in the query history to see the <a routerLink="/documentation/advanced-search">results</a>, with a button for “Download” options. In the popup, click on the Sequence tab, select Nucleotide, then tick boxes to add any of: 5’ UTR, introns, 3’ UTR. To include flanking sequences, type or use the arrow buttons to set the desired length of upstream and downstream sequence.</p>
+
+</div>
+<div (click)="faq_navigate($event, '/faq/can-i-export-data-sequence-region-genome-browser', 'Can I export data for a sequence region from the genome browser?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'can-i-export-data-sequence-region-genome-browser' || pageName == 'all-faqs'">
+<h3 id="can-i-export-data-sequence-region-genome-browser">Can I export data for a sequence region from the genome browser?</h3>
+<!-- pombase_categories: Genome browser,Finding data -->
+<p>To download track data from the <a href="https://www.pombase.org/jbrowse/">genome browser</a> (or follow a link from a gene page), first, make sure the you have enabled the track(s) of interest (see the <a href="/faq/how-can-i-show-or-hide-tracks-genome-browser">FAQ on showing tracks</a> if necessary).</p>
+<p>Next select a region by <a href="/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">entering coordinates</a> or by highlighting it. For any data track, click on the end of the track label to show the dropdown menu, and choose “Save track data”. In the popup that appears, choose a data format, edit the file name if desired, and click “Save”.</p>
+<p>Most track data are available in GFF3 format; other options will depend on the data type (e.g. BED, Wiggle, etc.).</p>
+<p>See the <a routerLink="/documentation/JBrowse_quick_start">PomBase JBrowse guide</a> for more information.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-find-all-unconserved-orphan-genes-fission-yeast', 'Can I find all of the unconserved (orphan) genes in fission yeast?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'can-i-find-all-unconserved-orphan-genes-fission-yeast' || pageName == 'all-faqs'">
@@ -8420,6 +8471,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-fission-yeast-go-slims">New fission yeast GO slims</a></div>
+<div class="left-menu-part left-menu-item"><a simplePageScroll href="#new-ontology-slimming-options-advanced-search-results">New ontology slimming options for advanced search results</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#improved-gene-disease-curation">Improved gene-disease curation</a></div>
 <div class="left-menu-part left-menu-item"><a simplePageScroll href="#published-community-curation-pombase">Published: Community curation in PomBase</a></div>
@@ -9682,14 +9735,12 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'mitochondrial-genome-update'">
 <h3 id="mitochondrial-genome-update">Mitochondrial genome update</h3>
-<!-- pombase_flags: frontpage -->
-<!-- newsfeed_thumbnail: mitogenome.png -->
+<p>g <!-- newsfeed_thumbnail: mitogenome.png --></p>
 <p>The mitochondrial genome sequence in PomBase has been updated to reflect corrections made in <a href="https://www.ncbi.nlm.nih.gov/pubmed/31364709">Tao et al. (2019) “Intraspecific Diversity of Fission Yeast Mitochondrial Genomes”</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'interpro-v79'">
 <h3 id="pombase-now-uses-interpro-version-79.0">PomBase now uses InterPro Version 79.0</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 <p>PomBase now uses InterPro Version 79.0, which integrates:</p>
 <ul>
@@ -9745,9 +9796,35 @@ Please sign the letter to add your voice in support of the databases that help m
 <p>PomBase curators are collaborating with Mondo to improve its disease classification, especially in areas that will support inferences that improve fission yeast disease annotation coverage in the new <a href="https://www.pombase.org/browse-curation/disease-slim">PomBase Mondo slim</a>. The new disease slim is a work in progress, so if there is a particular disease grouping that you would find useful, please <a href="mailto:helpdesk@pombase.org">let us know</a>.</p>
 
   </div>
+  <div *ngIf="pageName == 'advanced-search-slim-options'">
+<h3 id="new-ontology-slimming-options-for-advanced-search-results">New ontology slimming options for advanced search results</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: dropdown_menu.png -->
+<p>The PomBase <a routerLink="/query">advanced search</a> results panel now allows you to retrieve annotations to any of the fission yeast <a href="documentation/pombase-go-slim-documentation">GO slims</a> or the <a href="https://www.pombase.org/browse-curation/disease-slim">Mondo disease slim</a> for genes in the results list. For example, you can query for all genes involved in a process and slim the resulting list by molecular function or disease association.</p>
+
+  </div>
+  <div *ngIf="pageName == 'new-fission-yeast-go-slims'">
+<h3 id="new-fission-yeast-go-slims">New fission yeast GO slims</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: dropdown_menu.png -->
+<p>To complement the overview provided by the <a href="/browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO biological process slim</a>, we have created GO slims for the <a href="/browse-curation/fission-yeast-mf-go-slim-terms">molecular function</a> and <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">cellular component</a> branches of GO. Each slim page provides links to ontology term pages, annotated genes, and to download slim terms and IDs from the PomBase ftp site.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/dropdown_menu.png"/></p>
+<h3 id="new-fission-yeast-go-slims">New fission yeast GO slims</h3>
+<p><em>2020-05-20</em></p>
+<p>To complement the overview provided by the <a href="/browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO biological process slim</a>, we have created GO slims for the <a href="/browse-curation/fission-yeast-mf-go-slim-terms">molecular function</a> and <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">cellular component</a> branches of GO. Each slim page provides links to ontology term pages, annotated genes, and to download slim terms and IDs from the PomBase ftp site.</p>
+</div>
+<div class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/dropdown_menu.png"/></p>
+<h3 id="new-ontology-slimming-options-advanced-search-results">New ontology slimming options for advanced search results</h3>
+<p><em>2020-05-20</em></p>
+<p>The PomBase <a routerLink="/query">advanced search</a> results panel now allows you to retrieve annotations to any of the fission yeast <a href="documentation/pombase-go-slim-documentation">GO slims</a> or the <a href="https://www.pombase.org/browse-curation/disease-slim">Mondo disease slim</a> for genes in the results list. For example, you can query for all genes involved in a process and slim the resulting list by molecular function or disease association.</p>
+</div>
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
 <h3 id="pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</h3>
@@ -9803,7 +9880,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <div class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/mitogenome.png"/></p>
 <h3 id="mitochondrial-genome-update">Mitochondrial genome update</h3>
-<p><em>2020-05-01</em></p>
+<p><em>2020-05-01</em> g</p>
 <p>The mitochondrial genome sequence in PomBase has been updated to reflect corrections made in <a href="https://www.ncbi.nlm.nih.gov/pubmed/31364709">Tao et al. (2019) “Intraspecific Diversity of Fission Yeast Mitochondrial Genomes”</a>.</p>
 </div>
 <div class="news-item">
