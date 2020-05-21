@@ -76,7 +76,7 @@ dropdown, and choose a slim. Note: when you return to the main
 Advanced search page, the query history will include an entry showing
 the query as a gene list. This is harmless.
 
-6. Narrow the list: click the button to reveal checkboxes 
+6. Narrow the list: click the button to reveal checkboxes
 
 7. Download selected data for genes in the list. In the popup, the
 default "Tab delimited" view offers a set of details that can be
@@ -119,9 +119,10 @@ history.
 Please contact the [helpdesk](mailto:helpdesk@pombase.org) if you
 would like any queries added to the selection.
 
-#### Gene IDs
+#### Gene names and IDs
 
-Type or paste a list of systematic IDs, or click the "Browse" button
+Type or paste a list of gene names or systematic IDs (or a mixture),
+or click the "Browse" button
 to select a file to upload. Click "Lookup" to add the gene list to the
 history (useful for combining the list with other queries).
 
@@ -200,8 +201,8 @@ InterPro. Type or paste an accession and click "Submit".
 
 #### Protein feature
 
-This query searches for terms or IDs in the 
-[Sequence Ontology](http://sequenceontology.org/) 
+This query searches for terms or IDs in the
+[Sequence Ontology](http://sequenceontology.org/)
 and retrieves protein-coding genes where the protein has the feature
 represented by the SO term (e.g. [KEN box SO:0001807](/term/SO:0001807) ).
 

@@ -4,7 +4,7 @@
 PomBase's advanced search now allows you to retrieve [GO
 slim](documentation/pombase-go-slim-documentation) annotations for any
 set of search results. To find GO slim annotations for your own list
-of *S. pombe* genes, use the advanced search "Gene IDs" option, and
+of *S. pombe* genes, use the advanced search "Gene names and IDs" option, and
 then use the "Slim" button on the search results page.
 
 See the [fission yeast GO slim

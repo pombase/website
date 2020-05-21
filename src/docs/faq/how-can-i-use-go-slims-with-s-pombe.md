@@ -6,7 +6,7 @@ provide generic GO slims for *S. pombe*, and show total genes
 annotated to each term directly or to any of its descendants.
 
 If you want GO slim annotations for your own list of *S. pombe* genes,
-use the advanced search "Gene IDs" option, and then use the "Slim"
+use the advanced search "Gene names and IDs" option, and then use the "Slim"
 button on the search results page. See the [advanced search
 documentation](documentation/advanced-search) for more information.
 

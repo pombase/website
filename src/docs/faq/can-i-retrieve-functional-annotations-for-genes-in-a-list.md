@@ -8,7 +8,7 @@ how many specific topics you are interested in:
 -   For a small number of specific GO terms (e.g. localization to the
     nucleus or cytoplasm, or a role in signaling or DNA metabolism),
     you can use the [advanced search](/query). Paste your gene list
-    into the "Gene IDs" query, and then combine it with a GO query for
+    into the "Gene names and IDs" query, and then combine it with a GO query for
     each term of interest (see the [search documentation](/documentation/advanced-search)
     for more information).
 

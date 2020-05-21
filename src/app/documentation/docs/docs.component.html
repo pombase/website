@@ -4612,8 +4612,8 @@ PomBase using the Ensembl viewer.</p>
 <h4 id="commonly-used-queries">Commonly used queries</h4>
 <p>This item offers convenient links to perform frequently used queries easily. Click on the query description to add the results to the query history.</p>
 <p>Please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a> if you would like any queries added to the selection.</p>
-<h4 id="gene-ids">Gene IDs</h4>
-<p>Type or paste a list of systematic IDs, or click the “Browse” button to select a file to upload. Click “Lookup” to add the gene list to the history (useful for combining the list with other queries).</p>
+<h4 id="gene-names-and-ids">Gene names and IDs</h4>
+<p>Type or paste a list of gene names or systematic IDs (or a mixture), or click the “Browse” button to select a file to upload. Click “Lookup” to add the gene list to the history (useful for combining the list with other queries).</p>
 <h4 id="go">GO</h4>
 <p>The Gene Ontology (GO) query retrieves gene products annotated to a GO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>regulates</em>, <em>positively_regulates</em>,and <em>negatively_regulates</em> relationships in the ontology. You may also find it helpful to search or browse in <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a> or <a href="http://amigo.geneontology.org/">AmiGO</a> to find GO terms of interest. If one search does not seem to retrieve as many results as you expect, try again using a less specific term. Note: prior to the November 2014 PomBase release, the <em>regulates</em> relations were not followed, and PomBase GO search results therefore did not match those in AmiGO.</p>
 <h4 id="phenotype">Phenotype</h4>
@@ -7202,7 +7202,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>You can find the GO annotations for your genes corresponding to functional roles and localizations. Our recommended approach depends on how many specific topics you are interested in:</p>
 <ul>
-<li><p>For a small number of specific GO terms (e.g. localization to the nucleus or cytoplasm, or a role in signaling or DNA metabolism), you can use the <a routerLink="/query">advanced search</a>. Paste your gene list into the “Gene IDs” query, and then combine it with a GO query for each term of interest (see the <a routerLink="/documentation/advanced-search">search documentation</a> for more information).</p></li>
+<li><p>For a small number of specific GO terms (e.g. localization to the nucleus or cytoplasm, or a role in signaling or DNA metabolism), you can use the <a routerLink="/query">advanced search</a>. Paste your gene list into the “Gene names and IDs” query, and then combine it with a GO query for each term of interest (see the <a routerLink="/documentation/advanced-search">search documentation</a> for more information).</p></li>
 <li><p>If you are interested in many GO terms, or if you do not know in advance which terms may be relevant, we recommend that you use a “GO term enrichment” tool. Such tools are typically used to find terms overrepresented for a gene list, but can be used to retrieve all GO annotations if the p-value threshold is set artificially high.</p></li>
 </ul>
 <p>Both the Advanced Search and term enrichment tools take advantage of the hierarchical structure of GO, such that annotations to specific terms are propagated to “ancestor” terms via <em>is_a</em> and <em>part_of</em> relations. See the <a routerLink="/documentation/gene-page-gene-ontology">PomBase GO documentation</a>, and the GO Consortium documentation linked there, for more information. (These approaches also make it easier to maintain and update your data than storing individual GO annotations locally.)</p>
@@ -8015,7 +8015,7 @@ Example queries:
 <h3 id="how-can-i-use-go-slims-s.-pombe">How can I use GO slims with S. pombe?</h3>
 <!-- pombase_categories: Genome statistics and lists,Tools and resources,Using ontologies -->
 <p>The <a routerLink="/documentation/pombase-go-slim-documentation">Fission Yeast GO slim pages</a> provide generic GO slims for <em>S. pombe</em>, and show total genes annotated to each term directly or to any of its descendants.</p>
-<p>If you want GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene IDs” option, and then use the “Slim” button on the search results page. See the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
+<p>If you want GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene names and IDs” option, and then use the “Slim” button on the search results page. See the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
 <p>If you want to use a different slim, we recommend using the <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GO Term Mapper</a> at Princeton. Upload your list of genes, and select “Schizosaccharomyces pombe (PomBase)” in the Organism pulldown. For the slim, select one of the radio buttons, or scroll down to Advanced Options to choose GO terms to make up a custom slim. GO Term Mapper’s interface and documentation should make the rest straightforward, but let PomBase staff know if you have any problems.</p>
 <p>For further information on using the generic <em>S. pombe</em> slim, or on creating your own GO slim, please see the <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">Fission Yeast GO slimming tips</a> page.</p>
 
@@ -9468,7 +9468,7 @@ Please sign the letter to add your voice in support of the databases that help m
   <div *ngIf="pageName == 'list-go-slim-tool'">
 <h3 id="go-slim-for-any-s.-pombe-gene-list">GO slim for any <em>S. pombe</em> gene list</h3>
 <!-- newsfeed_thumbnail: slim_tiny.png -->
-<p>PomBase’s advanced search now allows you to retrieve <a href="documentation/pombase-go-slim-documentation">GO slim</a> annotations for any set of search results. To find GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene IDs” option, and then use the “Slim” button on the search results page.</p>
+<p>PomBase’s advanced search now allows you to retrieve <a href="documentation/pombase-go-slim-documentation">GO slim</a> annotations for any set of search results. To find GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene names and IDs” option, and then use the “Slim” button on the search results page.</p>
 <p>See the <a href="browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO slim page</a> and the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
 
   </div>
@@ -10018,7 +10018,7 @@ Please sign the letter to add your voice in support of the databases that help m
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/slim_tiny.png"/></p>
 <h3 id="go-slim-any-s.-pombe-gene-list">GO slim for any <em>S. pombe</em> gene list</h3>
 <p><em>2019-03-05</em></p>
-<p>PomBase’s advanced search now allows you to retrieve <a href="documentation/pombase-go-slim-documentation">GO slim</a> annotations for any set of search results. To find GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene IDs” option, and then use the “Slim” button on the search results page.</p>
+<p>PomBase’s advanced search now allows you to retrieve <a href="documentation/pombase-go-slim-documentation">GO slim</a> annotations for any set of search results. To find GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene names and IDs” option, and then use the “Slim” button on the search results page.</p>
 <p>See the <a href="browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO slim page</a> and the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
 </div>
 <div class="news-item">
