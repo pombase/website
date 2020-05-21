@@ -9,6 +9,7 @@
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/genetic-and-physical-interactions">Genetic and physical interactions</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/orthologs">Ortholog curation</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/taxonomic-conservation">Taxonomic conservation</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/disease-association">Disease association</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-sequence">Sequence</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/controlled-curation">Controlled curation</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-external-references">External references</a></div>

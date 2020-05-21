@@ -38,3 +38,7 @@ the breadth of coverage is greater than any individual prediction
 method, and includes many ortholog calls which are not detected by any
 automated method.  Gradually, we will add and display supporting
 references for all orthology calls.
+
+## Paralogs
+
+The Paralogs section lists any curated paralogous fission yeast genes.
