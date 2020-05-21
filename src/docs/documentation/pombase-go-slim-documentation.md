@@ -9,8 +9,9 @@ Subset Guide](http://geneontology.org/docs/go-subset-guide/) at the
 Gene Ontology website.
 
 PomBase provides a GO slim term set for each major branch of GO:
-- [GO biological process slim term set](/browse-curation/fission-yeast-bp-go-slim-terms)
+
 - [GO molecular function slim term set](/browse-curation/fission-yeast-mf-go-slim-terms)
+- [GO biological process slim term set](/browse-curation/fission-yeast-bp-go-slim-terms)
 - [GO cellular component slim term set](/browse-curation/fission-yeast-cc-go-slim-terms)
 
 Each fission yeast GO slim has been constructed to optimise coverage
@@ -40,6 +41,7 @@ because they are not annotated to any term in the GO branch, or
 because they have annotations to terms not covered by the slim.
 
 Current GO slim IDs and term names can be downloaded from the PomBase ftp site:
-- [GO biological process slim](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv)
+
 - [GO molecular function slim](ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.tsv)
+- [GO biological process slim](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv)
 - [GO cellular component slim](ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv)

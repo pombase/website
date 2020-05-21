@@ -6,8 +6,9 @@ fission yeast GO slims, and the Mondo Disease Ontology slim, from the
 PomBase FTP site:
 
 Current GO slim IDs and term names
-- [GO biological process slim](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv)
+
 - [GO molecular function slim](ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.tsv)
+- [GO biological process slim](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv)
 - [GO cellular component slim](ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv)
 
 Current [fission yeast Mondo Disease Ontology slim IDs and term names](ftp://ftp.pombase.org/nightly_update/misc/disease_ontology_slim_ids_and_names.tsv)
