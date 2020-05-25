@@ -9,6 +9,10 @@
 }
 
 ::ng-deep .result-block em {
-  font-style: normal;
+  font-style: inherit;
   font-weight: bold;
+}
+
+.citation {
+  font-style: italic;
 }

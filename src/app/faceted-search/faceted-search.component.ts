@@ -74,13 +74,21 @@ export class FacetedSearchComponent implements OnInit {
 
   processResults(results: SolrSearchResults): void {
     results.ref_matches.map(refMatch => {
-      if (refMatch.hl['citation']) {
-        refMatch.citation = refMatch.hl.citation[0];
-      }
-      if (refMatch.hl['title']) {
+      if (refMatch.hl.title) {
         refMatch.title = refMatch.hl.title[0];
       }
-    })
+      if (refMatch.hl.citation) {
+        refMatch.citation = refMatch.hl.citation[0];
+      }
+      if (refMatch.hl.title) {
+        refMatch.title = refMatch.hl.title[0];
+      }
+    });
+    results.term_matches.map(termMatch => {
+      if (termMatch.hl.name) {
+        termMatch.name = termMatch.hl.name[0];
+      }
+    });
   }
 
   queryChange(query: string): void {

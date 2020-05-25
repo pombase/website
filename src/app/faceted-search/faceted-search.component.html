@@ -26,16 +26,17 @@
 
   <div *ngIf="searchState == SearchState.SomeResults" class="results-container">
     <div class="result-block">
-      terms
+      Terms
       <ul>
         <li *ngFor="let match of results.term_matches">
-          <a routerLink="/term/{{match.id}}">{{match.name}} ({{match.id}})</a>
+          <div><a routerLink="/term/{{match.id}}">{{match.id}}</a> ({{match.cv_name}})</div>
+          <div [innerHTML]="match.name"></div>
         </li>
       </ul>
     </div>
 
     <div class="result-block">
-      docs
+      Docs
       <ul>
         <li *ngFor="let match of results.doc_matches">
           <a routerLink="/{{match.id}}"><b>{{match.heading}}</b></a>
@@ -45,14 +46,13 @@
     </div>
 
     <div class="result-block">
-      refs
+      Refs
       <ul>
         <li *ngFor="let match of results.ref_matches">
           <div><a routerLink="/reference/{{match.id}}"><b>{{match.id}}</b></a></div>
-          <div *ngIf="match.hl.title" [innerHTML]="match.hl.title"></div>
-          <div *ngIf="!match.hl.title">{{match.title}}</div>
-          <div *ngIf="match.hl.citation" [innerHTML]="match.hl.citation"></div>
-          <div *ngIf="!match.hl.citation">{{match.citation}}</div>
+          <div class="pub-title" *ngIf="match.title" [innerHTML]="match.title"></div>
+          <div class="authors" *ngIf="match.hl.authors" [innerHTML]="match.hl.authors"></div>
+          <div class="citation" *ngIf="match.citation" [innerHTML]="match.hl.citation"></div>
         </li>
       </ul>
     </div>
