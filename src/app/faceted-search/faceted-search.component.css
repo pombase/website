@@ -8,6 +8,10 @@
   padding: 1em;
 }
 
+.input-area input {
+  width: 25em;
+}
+
 ::ng-deep .result-block em {
   font-style: inherit;
   font-weight: bold;

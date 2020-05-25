@@ -20,7 +20,8 @@
   </div>
 
   <div class="input-area">
-    <input type="text" [(ngModel)]="query" placeholder="Search ..." (ngModelChange)="queryChange($event)" />
+    <input type="text" [(ngModel)]="query" placeholder="Search ..."
+           (ngModelChange)="queryChange($event)" />
     <a class="input-reset" (click)="resetSearch()">clear</a>
   </div>
 
