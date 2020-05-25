@@ -552,6 +552,8 @@ sub markdown_to_plain
   # remove Angular elements
   $content =~ s!<(app-[\w\-]+).*?>(.*?)</\1>!$2!gs;
 
+  $content =~ s!([\-=])+!$1!g;
+
   my $md = markdown($content, 'plain');
 
   # remove heading
