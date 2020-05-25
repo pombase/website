@@ -16,3 +16,8 @@
 .citation {
   font-style: italic;
 }
+
+.block-heading {
+  font-weight: bold;
+  font-size: 110%;
+}

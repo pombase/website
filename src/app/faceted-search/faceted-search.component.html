@@ -26,7 +26,10 @@
 
   <div *ngIf="searchState == SearchState.SomeResults" class="results-container">
     <div class="result-block">
-      Terms
+      <div class="block-heading">Terms</div>
+      <div *ngIf="results.term_matches.length == 0">
+        No matching terms
+      </div>
       <ul>
         <li *ngFor="let match of results.term_matches">
           <div><a routerLink="/term/{{match.id}}">{{match.id}}</a> ({{match.cv_name}})</div>
@@ -35,8 +38,11 @@
       </ul>
     </div>
 
-    <div class="result-block">
-      Docs
+    <div class="terms-block result-block">
+      <div class="block-heading">Documentation</div>
+      <div *ngIf="results.doc_matches.length == 0">
+        No matching documentation
+      </div>
       <ul>
         <li *ngFor="let match of results.doc_matches">
           <a routerLink="/{{match.id}}"><b>{{match.heading}}</b></a>
@@ -46,7 +52,10 @@
     </div>
 
     <div class="result-block">
-      Refs
+      <div class="block-heading">Publications</div>
+      <div *ngIf="results.ref_matches.length == 0">
+        No matching publications
+      </div>
       <ul>
         <li *ngFor="let match of results.ref_matches">
           <div><a routerLink="/reference/{{match.id}}"><b>{{match.id}}</b></a></div>
