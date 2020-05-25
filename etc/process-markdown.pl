@@ -378,11 +378,12 @@ sub process_path {
 
 sub markdown {
   my $md = shift;
+  my $output_type = shift // 'html';
 
   my $html = "";
 
   pandoc '--columns' => 1000, -f => 'markdown-markdown_in_html_blocks+link_attributes+auto_identifiers+implicit_header_references+header_attributes',
-    -t => 'html', { in => \$md, out => \$html };
+    -t => $output_type, { in => \$md, out => \$html };
 
   return $html;
 }
@@ -541,6 +542,33 @@ my @sorted_json_solr_contents =
   sort {
     $a->{id} cmp $b->{id};
   } @json_solr_contents;
+
+sub markdown_to_plain
+{
+  my $page_details = shift;
+  my $heading = $page_details->{heading};
+  my $content = $page_details->{content};
+
+  # remove Angular elements
+  $content =~ s!<(app-[\w\-]+).*?>(.*?)</\1>!$2!gs;
+
+  my $md = markdown($content, 'plain');
+
+  # remove heading
+  $md =~ s/\Q$heading//g;
+
+  return $md;
+}
+
+map {
+  $_->{content} = markdown_to_plain($_);
+} @sorted_json_solr_contents;
+
+# remove empty contents
+@sorted_json_solr_contents =
+  grep {
+    $_->{content} =~ /\w/;
+  } @sorted_json_solr_contents;
 
 print $json_docs_fh to_json(\@sorted_json_solr_contents, { canonical => 1, pretty => 1 } );
 
