@@ -1,0 +1,61 @@
+<div id="faceted-search" *ngIf="geneSummaries">
+  <h2>
+    Search
+  </h2>
+
+  <div *ngIf="searchState == SearchState.ShowHelp">
+    Start typing
+  </div>
+
+  <div *ngIf="searchState == SearchState.TooShort">
+    Type more
+  </div>
+
+  <div *ngIf="searchState == SearchState.Searching">
+    Searching ...
+  </div>
+
+  <div *ngIf="searchState == SearchState.NoResults">
+    No matches
+  </div>
+
+  <div class="input-area">
+    <input type="text" [(ngModel)]="query" placeholder="Search ..." (ngModelChange)="queryChange($event)" />
+    <a class="input-reset" (click)="resetSearch()">clear</a>
+  </div>
+
+  <div *ngIf="searchState == SearchState.SomeResults" class="results-container">
+    <div class="result-block">
+      terms
+      <ul>
+        <li *ngFor="let match of results.term_matches">
+          <a routerLink="/term/{{match.id}}">{{match.name}} ({{match.id}})</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="result-block">
+      docs
+      <ul>
+        <li *ngFor="let match of results.doc_matches">
+          <a routerLink="/{{match.id}}"><b>{{match.heading}}</b></a>
+          <div *ngIf="match.hl.content" [innerHTML]="match.hl.content"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="result-block">
+      refs
+      <ul>
+        <li *ngFor="let match of results.ref_matches">
+          <div><a routerLink="/reference/{{match.id}}"><b>{{match.id}}</b></a></div>
+          <div *ngIf="match.hl.title" [innerHTML]="match.hl.title"></div>
+          <div *ngIf="!match.hl.title">{{match.title}}</div>
+          <div *ngIf="match.hl.citation" [innerHTML]="match.hl.citation"></div>
+          <div *ngIf="!match.hl.citation">{{match.citation}}</div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>

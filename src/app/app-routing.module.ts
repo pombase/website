@@ -16,8 +16,8 @@ import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
 import { MotifSearchComponent } from './motif-search/motif-search.component';
 import { GeneResultsPageComponent } from './gene-results-page/gene-results-page.component';
-import { QueryResult } from './pombase-query';
 import { InternalDetailsComponent } from './internal-details/internal-details.component';
+import { FacetedSearchComponent } from './faceted-search/faceted-search.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -144,6 +144,12 @@ const routes: Routes = [
   { path: 'query/save/from/:type/:id/:name', component: QueryBuilderComponent,
     data: {
       defaultTitleDetail: 'Advanced search'
+    }
+  },
+
+  { path: 'search', component: FacetedSearchComponent,
+    data: {
+      defaultTitleDetail: 'Search'
     }
   },
   { path: 'motif_search', component: MotifSearchComponent,
