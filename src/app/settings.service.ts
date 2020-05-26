@@ -9,6 +9,8 @@ import { getAppConfig } from './config';
 export class SettingsService {
   private readonly _defaultVisibleFieldNames = ['uniquename', 'name', 'product'];
 
+  private searchText = '';
+
   private readonly _visibleGenesTableFieldNames =
     new BehaviorSubject<Array<string>>(this._defaultVisibleFieldNames);
 
@@ -47,5 +49,13 @@ export class SettingsService {
     if (changed) {
       this.visibleGenesTableFieldNames = visible;
     }
+  }
+
+  get currentSearchText(): string {
+    return this.searchText;
+  }
+
+  set currentSearchText(text: string) {
+    this.searchText = text;
   }
 }

@@ -4,6 +4,7 @@ import { SolrSearchService, SolrSearchResults } from '../solr-search.service';
 import { PombaseAPIService, GeneSummaryMap } from '../pombase-api.service';
 import { Subscription, Subject } from 'rxjs';
 import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { SettingsService } from '../settings.service';
 
 enum SearchState {
   ShowHelp = 0,
@@ -30,7 +31,9 @@ export class FacetedSearchComponent implements OnInit {
   private queryChanged: Subject<string> = new Subject<string>();
 
   constructor(private pombaseApiService: PombaseAPIService,
-    private solrSearch: SolrSearchService) {
+              private settingsService: SettingsService,
+              private solrSearch: SolrSearchService) {
+
     pombaseApiService.getGeneSummaryMapPromise()
       .then(geneSummaries => this.geneSummaries = geneSummaries);
 
@@ -46,6 +49,7 @@ export class FacetedSearchComponent implements OnInit {
           }
         }
         this.trimmedQuery = trimmed;
+        settingsService.currentSearchText = trimmed;
         return trimmed;
       }),
       debounceTime(250),
@@ -101,6 +105,8 @@ export class FacetedSearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.query = this.settingsService.currentSearchText;
+    this.queryChange(this.query);
   }
 
   ngOnDestroy(): void {
