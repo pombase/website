@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, OnDestroy, Renderer2 } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy, Renderer2, AfterViewInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Title } from '@angular/platform-browser';
 
@@ -15,9 +15,10 @@ const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
   templateUrl: './docs.component.html',
   styleUrls: ['./docs.component.css']
 })
-export class DocsComponent implements OnInit, OnDestroy {
+export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   section: string = null;
   pageName: string = null;
+  itemId: string = null;
   subscription: Subscription = null;
   appConfig: AppConfig = getAppConfig();
 
@@ -58,7 +59,12 @@ export class DocsComponent implements OnInit, OnDestroy {
     if (urlMatch) {
       this.section = urlMatch[1];
       if (urlMatch[2]) {
-        this.pageName = urlMatch[2];
+        if (this.section === 'news') {
+          this.pageName = 'index';
+          this.itemId = urlMatch[2];
+        } else {
+          this.pageName = urlMatch[2];
+        }
       } else {
         this.pageName = 'index';
       }
@@ -76,6 +82,15 @@ export class DocsComponent implements OnInit, OnDestroy {
 
       if (pageConfig) {
         this.setPageTitle('Documentation - ' + pageConfig);
+      }
+    }
+  }
+
+  ngAfterViewInit() {
+    if (this.itemId) {
+      const item = this.document.getElementById(this.itemId) as HTMLElement;
+      if (item) {
+        item.scrollIntoView();
       }
     }
   }

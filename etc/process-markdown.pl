@@ -422,8 +422,9 @@ sub all_news_items {
   opendir my $dh, "$markdown_docs/news";
  ITEM:
   while (my $dir_file_name = readdir($dh)) {
-    if ($dir_file_name =~ /^($date_re)-(.*)\.md$/) {
-      my $news_date = $1;
+    if ($dir_file_name =~ /^(($date_re)-.*)\.md$/) {
+      my $news_date = $2;
+      my $page_name = $1;
       my $title = undef;
       my $id = undef;
       my $contents = '';
@@ -453,6 +454,7 @@ sub all_news_items {
       push @items, {
         title => $title,
         id => $id,
+        page_name => $page_name,
         contents => $contents,
         date => $news_date,
         flags => \%flags,
@@ -484,7 +486,7 @@ sub contents_for_template {
       $ret .= qq|\n<div class="news-archive">\n|;
       my @rev_items = @all_news_items;
       for my $item (@rev_items) {
-        $ret.= qq|\n<div class="news-item">\n|;
+        $ret.= qq|\n<div id="$item->{page_name}" class="news-item">\n|;
         if ($item->{thumbnail}) {
           $ret .= make_news_thumbnail($item) . "\n\n";
         }
@@ -552,9 +554,12 @@ sub markdown_to_plain
   # remove Angular elements
   $content =~ s!<(app-[\w\-]+).*?>(.*?)</\1>!$2!gs;
 
-  $content =~ s!([\-=])+!$1!g;
-
   my $md = markdown($content, 'plain');
+
+  # remove some noise
+  $content =~ s!([\-=])+!$1!g;
+  $content =~ s!_(\s|$)!$1!g;
+  $content =~ s!(^|\s)_!$1!g;
 
   # remove heading
   $md =~ s/\Q$heading//g;
@@ -563,6 +568,7 @@ sub markdown_to_plain
 }
 
 map {
+  $_->{heading} = markdown_to_plain($_);
   $_->{content} = markdown_to_plain($_);
 } @sorted_json_solr_contents;
 

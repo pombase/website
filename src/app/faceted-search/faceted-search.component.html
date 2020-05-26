@@ -3,6 +3,10 @@
     Search
   </h2>
 
+  <div *ngIf="searchState == SearchState.SomeResults">
+    &nbsp;
+  </div>
+
   <div *ngIf="searchState == SearchState.ShowHelp">
     Start typing
   </div>
@@ -26,18 +30,6 @@
   </div>
 
   <div *ngIf="searchState == SearchState.SomeResults" class="results-container">
-    <div class="result-block">
-      <div class="block-heading">Terms</div>
-      <div *ngIf="results.term_matches.length == 0">
-        No matching terms
-      </div>
-      <ul>
-        <li *ngFor="let match of results.term_matches">
-          <div><a routerLink="/term/{{match.id}}">{{match.id}}</a> ({{match.cv_name}})</div>
-          <div [innerHTML]="match.name"></div>
-        </li>
-      </ul>
-    </div>
 
     <div class="terms-block result-block">
       <div class="block-heading">Documentation</div>
@@ -48,6 +40,19 @@
         <li *ngFor="let match of results.doc_matches">
           <a routerLink="/{{match.id}}"><b>{{match.heading}}</b></a>
           <div *ngIf="match.hl.content" [innerHTML]="match.hl.content"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="result-block">
+      <div class="block-heading">Terms</div>
+      <div *ngIf="results.term_matches.length == 0">
+        No matching terms
+      </div>
+      <ul>
+        <li *ngFor="let match of results.term_matches">
+          <div><a routerLink="/term/{{match.id}}">{{match.id}}</a> ({{match.cv_name}})</div>
+          <div [innerHTML]="match.name"></div>
         </li>
       </ul>
     </div>
