@@ -90,7 +90,13 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.itemId) {
       const item = this.document.getElementById(this.itemId) as HTMLElement;
       if (item) {
-        item.scrollIntoView();
+        // hack to let images load
+        setTimeout(() => {
+          item.scrollIntoView();
+        }, 300);
+        setTimeout(() => {
+          item.scrollIntoView();
+        }, 1300);
       }
     }
   }
