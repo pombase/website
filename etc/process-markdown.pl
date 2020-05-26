@@ -547,9 +547,7 @@ my @sorted_json_solr_contents =
 
 sub markdown_to_plain
 {
-  my $page_details = shift;
-  my $heading = $page_details->{heading};
-  my $content = $page_details->{content};
+  my $content = shift;
 
   # remove Angular elements
   $content =~ s!<(app-[\w\-]+).*?>(.*?)</\1>!$2!gs;
@@ -561,15 +559,15 @@ sub markdown_to_plain
   $content =~ s!_(\s|$)!$1!g;
   $content =~ s!(^|\s)_!$1!g;
 
-  # remove heading
-  $md =~ s/\Q$heading//g;
-
   return $md;
 }
 
 map {
-  $_->{heading} = markdown_to_plain($_);
-  $_->{content} = markdown_to_plain($_);
+  my $plain_heading = markdown_to_plain($_->{heading});
+  $_->{heading} = $plain_heading;
+  $_->{content} = markdown_to_plain($_->{content});
+  # remove heading
+  $_->{content} =~ s/\Q$plain_heading//g;
 } @sorted_json_solr_contents;
 
 # remove empty contents
