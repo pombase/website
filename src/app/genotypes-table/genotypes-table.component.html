@@ -10,6 +10,11 @@
       <thead>
         <tr>
           <th>
+            <a *ngIf="orderByField != 'allele'" (click)="setOrderBy('allele')"
+               title="Click to sort">Allele</a>
+            <span *ngIf="orderByField == 'allele'">Allele</span>
+          </th>
+          <th>
             <a *ngIf="orderByField != 'gene'" (click)="setOrderBy('gene')"
                title="Click to sort">Gene</a>
             <span *ngIf="orderByField == 'gene'">Gene</span>
@@ -19,20 +24,15 @@
                title="Click to sort">Product</a>
             <span *ngIf="orderByField == 'product'">Product</span>
           </th>
-          <th>
-            <a *ngIf="orderByField != 'allele'" (click)="setOrderBy('allele')"
-               title="Click to sort">Allele</a>
-            <span *ngIf="orderByField == 'allele'">Allele</span>
-          </th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let genotype of genotypes | genotypeOrderBy: orderByField">
+          <td><app-genotype-link class="app-link" [genotype]="genotype"></app-genotype-link></td>
           <td>
             <app-gene-link class="app-link" [gene]="genotype.expressed_alleles[0].allele.gene"></app-gene-link>
           </td>
           <td>{{genotype.expressed_alleles[0].allele.gene.product}}</td>
-          <td><app-genotype-link class="app-link" [genotype]="genotype"></app-genotype-link></td>
         </tr>
       </tbody>
     </table>
