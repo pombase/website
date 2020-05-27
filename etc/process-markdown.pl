@@ -552,14 +552,15 @@ sub markdown_to_plain
   # remove Angular elements
   $content =~ s!<(app-[\w\-]+).*?>(.*?)</\1>!$2!gs;
 
-  my $md = markdown($content, 'plain');
+  my $plain_text = markdown($content, 'plain');
 
   # remove some noise
-  $content =~ s!([\-=])+!$1!g;
-  $content =~ s!_(\s|$)!$1!g;
-  $content =~ s!(^|\s)_!$1!g;
+  $plain_text =~ s!([\-=])+!$1!g;
+  $plain_text =~ s!(\s\s)\s+!$1!g;
+  $plain_text =~ s!_([\.,\s]|$)!$1!g;
+  $plain_text =~ s!(^|[\.,\s])_!$1!g;
 
-  return $md;
+  return $plain_text
 }
 
 map {
