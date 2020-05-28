@@ -865,6 +865,12 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     urlSyntax : 'https://proconsortium.org/app/entry/PR:[example_id]',
     website : 'https://proconsortium.org/',
   },
+  'Gene3D' : {
+    description : 'Domain Architecture Classification',
+    displayName : 'Gene3D',
+    urlSyntax: 'http://www.cathdb.info/version/latest/superfamily/[example_id]',
+    website: 'http://www.cathdb.info/'
+  },
   SUPERFAMILY : {
     description : 'SUPERFAMILY protein annotation database',
     displayName : 'SUPERFAMILY',

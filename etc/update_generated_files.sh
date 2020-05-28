@@ -8,8 +8,9 @@ set -o pipefail
 go_xrfs_abbs=$1
 web_config=$2
 
-ABBREVS="AGI_LocusCode CDD DDJB DOI EC EMBL ENSEMBL FB GEO GO Gene3D HAMAP InterPro iPTMnet TIGRFAMS MGI ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam ProDom Prosite QuickGO RGD SFLD SGD SMART SO SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB dictyBase Cyclebase"
+ABBREVS="AGI_LocusCode CDD DDJB DOI EC EMBL ENSEMBL FB GEO GO HAMAP InterPro iPTMnet TIGRFAMS MGI ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam ProDom Prosite QuickGO RGD SFLD SGD SMART SO SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB dictyBase Cyclebase"
 
+# get link configuration from GO
 etc/make-link-js.pl $go_xrfs_abbs $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
 
 echo -n 'Using Pandoc version: '
