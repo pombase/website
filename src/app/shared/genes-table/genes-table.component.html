@@ -121,7 +121,7 @@
     <tbody>
       <tr *ngFor="let gene of displayGenes | geneShortOrderBy: orderByFieldName">
         <td *ngIf="selectionInProgress()">
-          <input id="show-translation" type="checkbox"
+          <input type="checkbox"
                  [name]="gene.uniquename"
                  (ngModelChange)="selectionChanged()"
                  [(ngModel)]="selectedGenes[gene.uniquename]"/>
