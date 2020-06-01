@@ -64,7 +64,8 @@
         </a>
       </td>
       <td [ngClass]="{'new-hist-item': histEntry.isNewEntry()}">
-        {{getEntryDisplayString(histEntry)}}
+        <div class="query-hist-name" *ngIf="histEntry.getQuery().getName()">{{histEntry.getQuery().getName()}}</div>
+        <div class="query-hist-details">{{getQueryDisplayString(histEntry)}}</div>
       </td>
       <td class="row-actions">
         <a *ngIf="histEntry.getResultCount() !== null" (click)="showQueryDetails(histEntry)">...</a>

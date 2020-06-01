@@ -78,3 +78,8 @@ td.result-count {
   margin-right: 0.4em;
   display: inline-block;
 }
+
+.query-hist-name {
+  font-weight: bold;
+  font-size: 110%;
+}
