@@ -1,5 +1,5 @@
 ### PombeTalks May 27th
-<!-- pombase_flags: frontpage -->
+
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next online PombeTalks will take place on Wednesday 27 May 2020 at 17:00 [Central European Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/). This time, in addition to the usual pair of research talks, our own Val Wood will show a few of PomBase's lesser-known features.

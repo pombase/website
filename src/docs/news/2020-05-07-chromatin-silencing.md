@@ -1,5 +1,5 @@
 ### Chromatin silencing ontology &amp; annotation overhaul
-<!-- pombase_flags: frontpage -->
+
 <!-- newsfeed_thumbnail: nucleosome.png -->
 
 PomBase curators have collaborated with the GO Consortium to improve

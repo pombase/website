@@ -1,5 +1,5 @@
 ### Published: Community curation in PomBase
-<!-- pombase_flags: frontpage -->
+
 <!-- newsfeed_thumbnail: canto.png -->
 
 The PomBase team has published an overview of our experience with
