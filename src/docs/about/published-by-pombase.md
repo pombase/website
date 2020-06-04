@@ -7,46 +7,86 @@ Canto, FYPO, annotations and Compara.
 
 ### Journal articles
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/database/baaa028."></div>
+
+<div class="pub-citation">
 Lock A, Harris MA, Rutherford K, Hayles J, Wood V.\
 Community curation in PomBase: enabling fission yeast experts to provide detailed, standardized, sharable annotation from research publications.
 *Database (Oxford)* 2020 Jan 1;2020. pii: baaa028.\
+</div>
+<div class="clear-float"></div>
 [PMID:32353878](http://www.ncbi.nlm.nih.gov/pubmed/32353878) [DOI:10.1093/database/baaa028.](https://doi.org/10.1093/database/baaa028)
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1098/rsob.180241"></div>
+
+<div class="pub-citation">
 Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
 Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
 *Open Biol* 2019 Feb 20;9(2):180241.\
+</div>
+<div class="clear-float"></div>
 [PMID:30938578](http://www.ncbi.nlm.nih.gov/pubmed/30938578) [DOI:10.1098/rsob.180241](https://doi.org/10.1098/rsob.180241)
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gky961"></div>
+
+<div class="pub-citation">
 Lock A,	Rutherford K, Harris MA, Hayles	J, Oliver SG, Bähler J;	Wood V.\
 PomBase 2018: user-driven reimplementation of the fission yeast database provides rapid and intuitive access to diverse, interconnected information.\
 *Nucleic Acids Res.* 2019 Jan 8;47(Database issue): D821-D827. Epub 2018 Oct 13.\
+</div>
+<div class="clear-float"></div>
 [PMID:30321395](http://www.ncbi.nlm.nih.gov/pubmed/30321395) [DOI:10.1093/nar/gky961](https://doi.org/10.1093/nar/gky961)
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1186/s12915-016-0276-z"></div>
+
+<div class="pub-citation">
 Oliver SG, Lock A, Harris MA, Nurse P, Wood V.\
 Model organism databases: essential resources that need the support of both funders and users.\
 *BMC Biol.* 2016 14(1): 49. \
+</div>
+<div class="clear-float"></div>
 [PMID:27334346](http://www.ncbi.nlm.nih.gov/pubmed/27334346) [DOI:10.1186/s12915-016-0276-z](http://dx.doi.org/10.1186/s12915-016-0276-z)
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gku1040"></div>
+
+<div class="pub-citation">
 McDowall MD, Harris MA, Lock A, Rutherford K, Staines DM, Bähler J,
 Kersey PJ, Oliver SG, Wood V.\
 PomBase 2015: updates to the fission yeast database.\
 *Nucleic Acids Res.* 2015 Jan;43(Database issue):D665-61. Epub 2014 Oct 31.\
+</div>
+<div class="clear-float"></div>
 [PMID:25361970](http://www.ncbi.nlm.nih.gov/pubmed/?term=25361970) [DOI:10.1093/nar/gku1040](http://dx.doi.org/10.1093/nar/gku1040)
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/bioinformatics/btu103"></div>
+
+<div class="pub-citation">
 Rutherford KM, Harris MA, Lock A, Oliver SG, Wood V.\
 Canto: An online tool for community literature curation.\
 *Bioinformatics*. 2014 Jun 15;30(12):1791-2. Epub 2014 Feb 25.\
+</div>
+<div class="clear-float"></div>
 [PMID:24574118](http://www.ncbi.nlm.nih.gov/pubmed/24574118) [DOI:10.1093/bioinformatics/btu103](http://dx.doi.org/10.1093/bioinformatics/btu103)
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/bioinformatics/btt266"></div>
+
+<div class="pub-citation">
 Harris MA, Lock A, Bähler J, Oliver SG, Wood V.\
 FYPO: The Fission Yeast Phenotype Ontology.\
 *Bioinformatics*. 2013 Jul 1;29(13):1671-8. Epub 2013 May 8.\
+</div>
+<div class="clear-float"></div>
 [PMID:23658422](http://www.ncbi.nlm.nih.gov/pubmed/23658422) [DOI:10.1093/bioinformatics/btt266](http://dx.doi.org/10.1093/bioinformatics/btt266).
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkr853"></div>
+
+<div class="pub-citation">
 Wood V, Harris MA, McDowall MD, Rutherford K, Vaughan BW, Staines DM,
 Aslett M, Lock A, Bähler J, Kersey PJ, Oliver SG.\
 PomBase: a comprehensive online resource for fission yeast.\
 *Nucleic Acids Res.* 2012 Jan;40(Database issue):D695-9. Epub 2011 Oct 28.\
+</div>
+<div class="clear-float"></div>
 [PMID:22039153](http://www.ncbi.nlm.nih.gov/pubmed/22039153) [DOI:10.1093/nar/gkr853](http://dx.doi.org/DOI:10.1093/nar/gkr853)
 
 ### Preprints <!-- comment out preprint section when there aren't any? -->

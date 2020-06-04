@@ -48,3 +48,5 @@ EuropePMC where relevant.
 - GO: <app-cv-version cvName="molecular_function"></app-cv-version>
 - FYPO: <app-cv-version cvName="fission_yeast_phenotype"></app-cv-version>
 - PSI-MOD: <app-cv-version cvName="PSI-MOD"></app-cv-version>
+
+  [All ontologies and controlled vocabularies](/internal-details)
