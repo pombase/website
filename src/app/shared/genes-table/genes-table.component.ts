@@ -183,7 +183,7 @@ export class GenesTableComponent implements OnInit {
   }
 
   private makeGeneListQuery(genes: Array<{ uniquename: string }>): GeneQuery {
-    return new GeneQuery(this.description, new GeneListNode(genes));
+    return new GeneQuery(new GeneListNode(this.description, genes));
   }
 
   filter() {

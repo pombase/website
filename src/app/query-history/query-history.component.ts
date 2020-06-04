@@ -22,6 +22,8 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   historyEntries: Array<HistoryEntry> = [];
   histSubscription: Subscription = null;
   detailsModalRef: BsModalRef = null;
+  // only used when the query name isn't set:
+  showDetailMap: { [id: string]: boolean } = {};
 
   faDownload = faDownload;
 
@@ -36,13 +38,26 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   action(op: string) {
     let selectedQueryNodes =
       this.getSelectedEntries().map(e => e.getQuery().getTopNode());
-    let node = new GeneBoolNode(op, selectedQueryNodes);
+    let node = new GeneBoolNode(null, op, selectedQueryNodes);
     this.historyEntries.map((histEntry) => histEntry.checked = false);
-    this.queryService.runAndSaveToHistory(new GeneQuery(null, node));
+    this.queryService.runAndSaveToHistory(new GeneQuery(node));
+  }
+
+  toggleDetails(histEntry: HistoryEntry): void {
+    this.showDetailMap[histEntry.getEntryId()] = !this.showDetailMap[histEntry.getEntryId()];
+  }
+
+  showDetails(histEntry: HistoryEntry): boolean {
+    return !histEntry.getQuery().getName() || this.showDetailMap[histEntry.getEntryId()];
+  }
+
+  removeTags(input: string): string {
+    // remove <i>...</i> from organism names
+    return input.replace(/<([^>]+)>([^<]*)<\/\1>/g, '$2');
   }
 
   getQueryDisplayString(histEntry: HistoryEntry): string {
-    return histEntry.getQuery().toString();
+    return this.removeTags(histEntry.getQuery().toString());
   }
 
   deleteQueries() {

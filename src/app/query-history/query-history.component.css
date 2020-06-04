@@ -82,4 +82,17 @@ td.result-count {
 .query-hist-name {
   font-weight: bold;
   font-size: 110%;
+  margin-right: 1.5em;
+}
+
+.show-details-button {
+  white-space: nowrap;
+}
+
+a.show-details-button {
+  opacity: 0.8;
+}
+
+a.show-details-button:hover {
+  opacity: 1;
 }

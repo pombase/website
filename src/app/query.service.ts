@@ -142,7 +142,6 @@ export class QueryService {
 
   postPredefinedQuery(queryName: string, name: string, outputOptions: QueryOutputOptions): Promise<QueryResult> {
     const query = GeneQuery.fromJSONString(getAppConfig().getPredefinedQuery(queryName));
-    query.setName(name);
     return this.postQuery(query, outputOptions);
   }
 
@@ -235,7 +234,7 @@ export class QueryService {
     }
     let query = this.historyEntryById(id);
     if (!query) {
-      query = new GeneQuery(null, new QueryIdNode(id));
+      query = new GeneQuery(new QueryIdNode(null, id));
     }
     return this.postQuery(query, outputOptions)
       .then((result: QueryResult) => {

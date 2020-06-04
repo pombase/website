@@ -41,13 +41,8 @@ export class QueryBuilderComponent implements OnInit {
       }
 
       const subsetName = params['subsetName'];
-      let subsetDisplayName = params['subsetDisplayName'];
       if (subsetName) {
-        let decodedSubsetDisplayName = '';
-        if (subsetDisplayName) {
-          decodedSubsetDisplayName = decodeURIComponent(subsetDisplayName);
-        }
-        this.saveFromSubsetName(subsetName, decodedSubsetDisplayName);
+        this.saveFromSubsetName(subsetName);
         return;
       }
 
@@ -60,9 +55,9 @@ export class QueryBuilderComponent implements OnInit {
     });
   }
 
-  private saveFromSubsetName(subsetName: string, subsetDisplayName: string): void {
-    const constraints = new SubsetNode (subsetName, subsetDisplayName);
-    const query = new GeneQuery(null, constraints);
+  private saveFromSubsetName(subsetName: string): void {
+    const constraints = new SubsetNode(null, subsetName);
+    const query = new GeneQuery(constraints);
     this.saveQuery(query);
   }
 
@@ -77,8 +72,8 @@ export class QueryBuilderComponent implements OnInit {
         singleOrMulti = 'single';
       }
       const termName = decodeURIComponent(encodedTermName);
-      const constraints = new TermNode(termId, termName, null, singleOrMulti, null, [], []);
-      newQuery = new GeneQuery(null, constraints);
+      const constraints = new TermNode(null, termId, termName, null, singleOrMulti, null, [], []);
+      newQuery = new GeneQuery(constraints);
     }
 
     if (newQuery) {
@@ -96,7 +91,7 @@ export class QueryBuilderComponent implements OnInit {
 
   nodeEvent({ node, nodeConf }: {node: GeneQueryNode, nodeConf: QueryNodeConfig}) {
     if (node) {
-      const query = new GeneQuery(null, node);
+      const query = new GeneQuery(node);
       this.saveQuery(query);
 
       this.toastr.success('Query results added to history below');

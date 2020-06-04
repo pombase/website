@@ -36,8 +36,8 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   runQuery(slimName: string): void {
-    const geneListNode = new GeneListNode(this.genes);
-    const geneListQuery = new GeneQuery(null, geneListNode);
+    const geneListNode = new GeneListNode(null, this.genes);
+    const geneListQuery = new GeneQuery(geneListNode);
 
     const outputOptions =
       new QueryOutputOptions(['gene_uniquename'], ['include_gene_subsets'], 'none');
@@ -125,8 +125,8 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   private gotoGenes(genes: string[]) {
-    const part = new GeneListNode(genes);
-    const geneQuery = new GeneQuery(null, part);
+    const part = new GeneListNode(null, genes);
+    const geneQuery = new GeneQuery(part);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
     };

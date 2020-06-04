@@ -300,8 +300,8 @@ export class GeneResultsVisComponent implements OnInit {
         return this.geneDataMap[uniquename].getGeneShort();
       });
 
-    const part = new GeneListNode(selectedGenes);
-    const geneQuery = new GeneQuery(null, part);
+    const part = new GeneListNode(null, selectedGenes);
+    const geneQuery = new GeneQuery(part);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
     };
@@ -430,8 +430,8 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   runQuery(): void {
-    const geneListNode = new GeneListNode(this.genes);
-    const geneListQuery = new GeneQuery(null, geneListNode);
+    const geneListNode = new GeneListNode(null, this.genes);
+    const geneListQuery = new GeneQuery(geneListNode);
 
     const outputOptions =
       new QueryOutputOptions(['gene_uniquename', ...Array.from(this.queryColumnNames)], [], 'none');

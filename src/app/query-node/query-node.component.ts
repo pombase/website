@@ -99,13 +99,13 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   }
 
   genesFound(genes: Array<GeneSummary>) {
-    let part = new GeneListNode(genes);
+    let part = new GeneListNode(null, genes);
     this.emitNodeEvent(part);
   }
 
   smallOntologyChange(): void {
     if (this.selectedTerm) {
-      let part = new TermNode(this.selectedTerm.termid, this.selectedTerm.name,
+      let part = new TermNode(null, this.selectedTerm.termid, this.selectedTerm.name,
                               this.selectedTerm.definition, null, null, [], []);
       this.emitNodeEvent(part);
     }
@@ -113,7 +113,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
 
   subsetChange(): void {
     if (this.selectedSubset) {
-      let part = new SubsetNode(this.selectedSubset.name, this.selectedSubset.displayName);
+      let part = new SubsetNode(null, this.selectedSubset.name);
       this.emitNodeEvent(part);
     }
   }
@@ -127,7 +127,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
       } else {
         longName = trimmedSubsetName;
       }
-      let part = new SubsetNode(longName, longName);
+      let part = new SubsetNode(null, longName);
       this.emitNodeEvent(part);
     }
   }
@@ -141,20 +141,20 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   }
 
   intRangeSearch(): void {
-    let part = new IntRangeNode(this.activeConf.id,
+    let part = new IntRangeNode(null, this.activeConf.id,
                                 this.rangeStart, this.rangeEnd);
     this.emitNodeEvent(part);
   }
 
   floatRangeSearch(): void {
-    let part = new FloatRangeNode(this.activeConf.id,
+    let part = new FloatRangeNode(null, this.activeConf.id,
                                   this.rangeStart, this.rangeEnd);
     this.emitNodeEvent(part);
   }
 
   genomeRangeSearch(): void {
     if (this.chromosomeName) {
-      const part = new GenomeRangeNode(this.rangeStart, this.rangeEnd,
+      const part = new GenomeRangeNode(null, this.rangeStart, this.rangeEnd,
                                        this.chromosomeName);
       this.emitNodeEvent(part);
     }

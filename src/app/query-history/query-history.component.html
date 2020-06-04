@@ -64,8 +64,17 @@
         </a>
       </td>
       <td [ngClass]="{'new-hist-item': histEntry.isNewEntry()}">
-        <div class="query-hist-name" *ngIf="histEntry.getQuery().getName()">{{histEntry.getQuery().getName()}}</div>
-        <div class="query-hist-details">{{getQueryDisplayString(histEntry)}}</div>
+        <div *ngIf="histEntry.getQuery().getName()">
+          <span class="query-hist-name">{{removeTags(histEntry.getQuery().getName())}}</span>
+          <span *ngIf="!showDetails(histEntry)">
+            <a (click)="toggleDetails(histEntry)" class="show-details-button">[show query details]</a>
+          </span>
+        </div>
+        <div *ngIf="showDetails(histEntry)" class="query-hist-details">
+          <div>{{getQueryDisplayString(histEntry)}}</div>
+          <a (click)="toggleDetails(histEntry)" *ngIf="histEntry.getQuery().getName()">[hide details] </a>
+        </div>
+
       </td>
       <td class="row-actions">
         <a *ngIf="histEntry.getResultCount() !== null" (click)="showQueryDetails(histEntry)">...</a>
