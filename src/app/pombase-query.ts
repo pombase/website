@@ -92,7 +92,7 @@ export class GeneQueryBase {
     return this.nodeName;
   }
 
-  protected setNodeName(nodename: string): void {
+  public setNodeName(nodename: string): void {
     this.nodeName = nodename;
   }
 
@@ -107,6 +107,7 @@ export class GeneQueryBase {
 
 export interface GeneQueryNode {
   getNodeName(): string;
+  setNodeName(newName: string): void;
   toObject(): Object;
   equals(obj: GeneQueryNode): boolean;
   toString(): string;
@@ -698,8 +699,12 @@ export class GeneQuery {
     };
   }
 
-  public getName(): string {
+  public getQueryName(): string {
     return this.getTopNode().getNodeName();
+  }
+
+  public setQueryName(newName: string) {
+    this.getTopNode().setNodeName(newName);
   }
 
   private referencedTermsHelper(node: GeneQueryNode, collector: Array<TermAndName>) {

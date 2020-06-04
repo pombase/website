@@ -79,6 +79,10 @@ export class HistoryEntry {
   getEntryId(): string {
     return this.id;
   }
+
+  queryName(): string {
+    return this.getQuery().getQueryName();
+  }
 }
 
 @Injectable()
@@ -154,13 +158,25 @@ export class QueryService {
     localStorage.setItem(localStorageKey, this.historyAsJson());
   }
 
-  historyEntryById(historyEntryId: string): GeneQuery {
+  historyEntryById(historyEntryId: string): HistoryEntry {
     for (let entry of this.history) {
       if (entry.getEntryId() === historyEntryId) {
-        return entry.getQuery();
+        return entry;
       }
     }
     return null;
+  }
+
+  editQueryName(histId: string, newName: string): Promise<void> {
+    let histEntry = this.historyEntryById(histId);
+    histEntry.getQuery().setQueryName(newName);
+    const promise = new Promise<void>((resolve) => {
+    this.runAndSaveToHistory(histEntry.getQuery(),
+                             () => {
+                               resolve();
+                             });
+    });
+    return promise;
   }
 
   private deleteExisting(query: GeneQuery) {
@@ -232,8 +248,11 @@ export class QueryService {
       this.saveResultsToHistory(cachedQueryResult)
       return Promise.resolve(cachedQueryResult);
     }
-    let query = this.historyEntryById(id);
-    if (!query) {
+    let histEntry = this.historyEntryById(id);
+    let query = null;
+    if (histEntry) {
+      query = histEntry.getQuery();
+    } else {
       query = new GeneQuery(new QueryIdNode(null, id));
     }
     return this.postQuery(query, outputOptions)

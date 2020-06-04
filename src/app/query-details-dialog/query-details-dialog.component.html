@@ -6,7 +6,7 @@
     </button>
   </div>
   <div *ngIf="query" class="modal-body">
-    <div class="query-name" *ngIf="query.getName()">{{query.getName()}}</div>
+    <div class="query-name" *ngIf="query.getQueryName()">{{query.getQueryName()}}</div>
     <div>
       {{query.toPostJSON()}}
     </div>

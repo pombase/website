@@ -64,15 +64,30 @@
         </a>
       </td>
       <td [ngClass]="{'new-hist-item': histEntry.isNewEntry()}">
-        <div *ngIf="histEntry.getQuery().getName()">
-          <span class="query-hist-name">{{removeTags(histEntry.getQuery().getName())}}</span>
-          <span *ngIf="!showDetails(histEntry)">
-            <a (click)="toggleDetails(histEntry)" class="show-details-button">[show query details]</a>
+        <div class="edit-icon" *ngIf="!nameEditId() || nameEditId() != histEntry.getEntryId()">
+          <span (click)="addOrEditName(histEntry)"
+            title="{{histEntry.queryName()?'Edit query name':'Name this query'}}">
+            <fa-icon [icon]="faEdit"></fa-icon>
           </span>
+        </div>
+        <div class="query-hist-name-and-button" *ngIf="(!nameEditId() || nameEditId() != histEntry.getEntryId()) && histEntry.queryName()">
+          <span class="query-hist-name">{{removeTags(histEntry.queryName())}}</span>
+          <span *ngIf="!showDetails(histEntry)">
+            <a (click)="toggleDetails(histEntry)" class="show-details-button">[details]</a>
+          </span>
+        </div>
+
+        <div *ngIf="nameEditId() && nameEditId() == histEntry.getEntryId()" class="name-edit">
+          Edit name:
+          <input type="text" size="80" (keyup.enter)="storeNameEdit()"
+                 [(ngModel)]="queryNameForEdit" placeholder="Query name ..." />
+          <button class="btn btn-sm" (click)="storeNameEdit()">Save</button>
+          <button class="btn btn-sm" (click)="cancelNameEdit()">Cancel</button>
         </div>
         <div *ngIf="showDetails(histEntry)" class="query-hist-details">
           <div>{{getQueryDisplayString(histEntry)}}</div>
-          <a (click)="toggleDetails(histEntry)" *ngIf="histEntry.getQuery().getName()">[hide details] </a>
+          <a (click)="toggleDetails(histEntry)"
+             *ngIf="histEntry.queryName() && !nameEditId()">[hide details] </a>
         </div>
 
       </td>

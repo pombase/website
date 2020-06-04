@@ -11,6 +11,8 @@ import { saveAs } from 'file-saver';
 import { DeployConfigService } from '../deploy-config.service';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-query-history',
   templateUrl: './query-history.component.html',
@@ -24,6 +26,12 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   detailsModalRef: BsModalRef = null;
   // only used when the query name isn't set:
   showDetailMap: { [id: string]: boolean } = {};
+  // set when we are editing a query name
+  _nameEditId: string = null;
+
+  queryNameForEdit: string = null;
+
+  faEdit = faEdit;
 
   faDownload = faDownload;
 
@@ -43,12 +51,32 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.queryService.runAndSaveToHistory(new GeneQuery(node));
   }
 
+  nameEditId(): string {
+    return this._nameEditId;
+  }
+
+  addOrEditName(histEntry: HistoryEntry): void {
+    this._nameEditId = histEntry.getEntryId();
+    this.queryNameForEdit = histEntry.queryName() || '';
+  }
+
+  storeNameEdit(): void {
+    this.queryService.editQueryName(this.nameEditId(), this.queryNameForEdit);
+    this._nameEditId = null;
+    this.queryNameForEdit = null;
+  }
+
+  cancelNameEdit(): void {
+    this._nameEditId = null;
+    this.queryNameForEdit = null;
+  }
+
   toggleDetails(histEntry: HistoryEntry): void {
     this.showDetailMap[histEntry.getEntryId()] = !this.showDetailMap[histEntry.getEntryId()];
   }
 
   showDetails(histEntry: HistoryEntry): boolean {
-    return !histEntry.getQuery().getName() || this.showDetailMap[histEntry.getEntryId()];
+    return !histEntry.getQuery().getQueryName() || this.showDetailMap[histEntry.getEntryId()];
   }
 
   removeTags(input: string): string {

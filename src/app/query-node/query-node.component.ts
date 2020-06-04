@@ -41,7 +41,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
         const queryId = 'canned_query:' + id;
         const query = GeneQuery.fromJSONString(getAppConfig().getPredefinedQuery(queryId));
         return {
-          name: query.getName(),
+          name: query.getQueryName(),
           queryId: queryId,
         };
       });

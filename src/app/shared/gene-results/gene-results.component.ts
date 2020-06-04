@@ -26,7 +26,7 @@ export class GeneResultsComponent implements OnInit, OnChanges {
     if (this.results) {
 
       const query = this.results.getQuery();
-      this.description = query.getName() || query.toString();
+      this.description = query.getQueryName() || query.toString();
 
       this.pombaseApiService.getGeneSummaryMapPromise()
         .then((geneSummaries) => {

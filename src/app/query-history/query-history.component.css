@@ -90,9 +90,17 @@ td.result-count {
 }
 
 a.show-details-button {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 a.show-details-button:hover {
   opacity: 1;
+}
+
+.edit-icon {
+  float: left;
+}
+
+.query-hist-details, .query-hist-name-and-button {
+  margin-left: 1.6em;
 }
