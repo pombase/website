@@ -1,18 +1,19 @@
 <div>
-  <div *ngIf="!displayResults">
+  <div *ngIf="!results">
     Loading ...
   </div>
-  <div *ngIf="displayResults">
-    <div *ngIf="displayResults.length == 0" class="description">
+  <div *ngIf="results">
+    <div *ngIf="results.getRowCount() == 0" class="description">
       <span class="description-prefix">No results for:</span>
       <app-query-description-display *ngIf="description || descriptionParts.length != 0"
                                      [description]="description" [descriptionParts]="descriptionParts">
       </app-query-description-display>
     </div>
 
-    <app-genes-table *ngIf="displayResults.length > 0"
+    <app-genes-table *ngIf="results.getRowCount() != 0"
                      [mode]="mode"
-                     [genes]="displayResults" [description]="description"
+                     [genesOrResults]="results"
+                     [description]="description"
                      [descriptionParts]="descriptionParts"></app-genes-table>
   </div>
 </div>

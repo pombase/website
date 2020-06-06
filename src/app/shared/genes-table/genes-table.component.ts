@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
-import { GeneSummary } from '../../pombase-api.service';
+import { GeneSummary, PombaseAPIService, GeneSummaryMap } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 import { QueryService, HistoryEntry, DisplayResultRow } from '../../query.service';
-import { GeneQuery, GeneListNode, TermAndName } from '../../pombase-query';
+import { GeneQuery, GeneListNode, TermAndName, QueryResult } from '../../pombase-query';
 import { getAppConfig, GeneResultsFieldConfig } from '../../config';
 import { DeployConfigService } from '../../deploy-config.service';
 import { GenesTableConfigComponent } from '../../genes-table-config/genes-table-config.component';
@@ -29,7 +29,8 @@ export class GenesTableComponent implements OnInit {
   // like: [{text: "abnormal cell ... ("}, {term: <a TermShort>}, {text: ")"}, ...]
   // which allows the the termids in a description to be linked to the term pages
   @Input() descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
-  @Input() genes: Array<GeneSummary> = [];
+  @Input() genesOrResults: Array<GeneSummary>|QueryResult = null;
+  genes: Array<GeneSummary> = [];
 
   legend = 'Results';
 
@@ -68,6 +69,7 @@ export class GenesTableComponent implements OnInit {
               private queryService: QueryService,
               private queryRouterSerive: QueryRouterService,
               private settingsService: SettingsService,
+              private pombaseApiService: PombaseAPIService,
               private deployConfigService: DeployConfigService,
               private router: Router) {
     this.slimNames = this.geneResultConfig.slim_table_slim_names;
@@ -99,6 +101,22 @@ export class GenesTableComponent implements OnInit {
         })
         .catch(err => console.error(err))
         .finally(() => this.loading = false);
+
+      let geneBit = `${this.genes.length} gene`;
+      if (this.genes.length !== 1) {
+        geneBit += 's';
+      }
+
+      if (this.showingVisualisation()) {
+        this.legend = 'Visualising ' + geneBit;
+      } else {
+        if (this.showingSlim()) {
+          this.legend = this.slimDescription + ' for ' + geneBit;
+        } else {
+          this.legend = 'Results - ' + geneBit;
+        }
+      }
+
     }
   }
 
@@ -182,15 +200,42 @@ export class GenesTableComponent implements OnInit {
     return this.selectedCountCache;
   }
 
-  private makeGeneListQuery(genes: Array<{ uniquename: string }>): GeneQuery {
-    return new GeneQuery(new GeneListNode(this.description, genes));
+  private makeGeneListQuery(): GeneQuery {
+    if (this.genesOrResults instanceof QueryResult) {
+      const queryResult = this.genesOrResults;
+      return queryResult.getQuery();
+    } else {
+      return new GeneQuery(new GeneListNode(this.description, this.genes));
+    }
+  }
+
+  private makeGeneQueryFromList(genes: Array<{ uniquename: string }>): GeneQuery {
+    let newName = null;
+    if (this.genesOrResults instanceof QueryResult) {
+      const queryResults = this.genesOrResults;
+      if (queryResults.getQuery().getQueryName()) {
+        newName = queryResults.getQuery().getQueryName();
+      }
+    } else {
+      if (this.description) {
+        newName = this.description;
+      }
+    }
+    if (newName) {
+      if (genes.length > 1) {
+        newName = genes.length + ' genes from: ' + newName;
+      } else {
+        newName = 'gene from: ' + newName;
+      }
+    }
+    return new GeneQuery(new GeneListNode(newName, genes));
   }
 
   filter() {
     const selectedGenes =
       this.genes.filter(gene => this.selectedGenes[gene.uniquename]);
 
-    const geneQuery = this.makeGeneListQuery(selectedGenes);
+    const geneQuery = this.makeGeneQueryFromList(selectedGenes);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
     };
@@ -201,17 +246,17 @@ export class GenesTableComponent implements OnInit {
   }
 
   showVisualisation(): void {
-    const query = this.makeGeneListQuery(this.genes);
+    const query = this.makeGeneListQuery();
     this.queryRouterSerive.gotoResults(query, 'vis');
   }
 
   showResults(): void {
-    const query = this.makeGeneListQuery(this.genes);
+    const query = this.makeGeneListQuery();
     this.queryRouterSerive.gotoResults(query, 'results');
   }
 
   showSlim(subsetName: string): void {
-    const query = this.makeGeneListQuery(this.genes);
+    const query = this.makeGeneListQuery();
     this.queryRouterSerive.gotoResults(query, 'slim:' + subsetName);
   }
 
@@ -264,6 +309,8 @@ export class GenesTableComponent implements OnInit {
   }
 
   ngOnChanges() {
+    this.genes = [];
+
     if (this.mode.startsWith('slim:')) {
       this.slimName = this.mode.substr(5);
       this.slimDescription = getAppConfig().slims[this.slimName].description;
@@ -272,22 +319,21 @@ export class GenesTableComponent implements OnInit {
       this.slimDescription = null;
     }
 
-    let geneBit = `${this.genes.length} gene`;
-    if (this.genes.length !== 1) {
-      geneBit += 's';
-    }
+    if (this.genesOrResults instanceof QueryResult) {
+      const queryResult = this.genesOrResults;
 
-    if (this.showingVisualisation()) {
-      this.legend = 'Visualising ' + geneBit;
+      this.pombaseApiService.getGeneSummaryMapPromise()
+        .then((geneSummaries: GeneSummaryMap) => {
+          this.genes =
+            queryResult.getRows().map((row) => {
+              return geneSummaries[row.gene_uniquename];
+            });
+          this.updateDisplayGenes();
+        })
     } else {
-      if (this.showingSlim()) {
-        this.legend = this.slimDescription + ' for ' + geneBit;
-      } else {
-        this.legend = 'Results - ' + geneBit;
-      }
+      this.genes = this.genesOrResults;
+      this.updateDisplayGenes();
     }
-
-    this.updateDisplayGenes();
   }
 
   ngOnDestroy(): void {
