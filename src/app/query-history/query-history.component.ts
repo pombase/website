@@ -79,6 +79,10 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     return !histEntry.getQuery().getQueryName() || this.showDetailMap[histEntry.getEntryId()];
   }
 
+  needsDetailsButton(histEntry: HistoryEntry): boolean {
+    return histEntry.hasEditedName();
+  }
+
   removeTags(input: string): string {
     // remove <i>...</i> from organism names
     return input.replace(/<([^>]+)>([^<]*)<\/\1>/g, '$2');

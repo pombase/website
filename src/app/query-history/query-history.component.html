@@ -72,7 +72,7 @@
         </div>
         <div class="query-hist-name-and-button" *ngIf="(!nameEditId() || nameEditId() != histEntry.getEntryId()) && histEntry.queryName()">
           <span class="query-hist-name">{{removeTags(histEntry.queryName())}}</span>
-          <span *ngIf="!showDetails(histEntry)">
+          <span *ngIf="needsDetailsButton(histEntry) && !showDetails(histEntry)">
             <a (click)="toggleDetails(histEntry)" class="show-details-button">[details]</a>
           </span>
         </div>
