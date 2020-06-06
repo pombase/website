@@ -98,8 +98,8 @@ export class QueryNodeComponent implements OnInit, OnChanges {
     this.emitNodeEvent(newNode);
   }
 
-  genesFound(genes: Array<GeneSummary>) {
-    let part = new GeneListNode(null, genes);
+  genesFound(param: { genes: Array<GeneSummary>, listName: string }): void {
+    let part = new GeneListNode(param.listName, param.genes);
     this.emitNodeEvent(part);
   }
 

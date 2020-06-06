@@ -1,15 +1,19 @@
 <div class="gene-list-lookup">
   <div>
-    <textarea rows="8" [(ngModel)]="inputText" (ngModelChange)="checkIds()"></textarea>
+    <textarea rows="7" [(ngModel)]="inputText" (ngModelChange)="checkIds()"></textarea>
     <div *ngIf="unknownIds.length > 0" class="unknown-identifiers">
       Unknown identifiers: <span>{{unknownIds.join(" ").substring(0, 1000)}}</span>
     </div>
   <div class="read-from-file">
   Read from file: <input type="file" (change)="readFile($event)">
+  </div>
+
+  <div class="list-name">
+  Name this gene list (Optional): <input [(ngModel)]="listName"/>
+  </div>
 
   <div class="buttons">
     <button class="btn btn-primary" (click)="lookup()">Lookup</button>
-  </div>
   </div>
   </div>
 </div>
