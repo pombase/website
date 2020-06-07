@@ -24,6 +24,14 @@
               title="Select query or queries to delete"
               (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
     </span>
+
+    <span *ngIf="!deployConfigService.productionMode()">
+      <button class="btn btn-primary" (click)="exportAll()"
+              title="Export query history to a file">
+        <span class="export-icon"><fa-icon [icon]="faDownload"></fa-icon></span>Export <span class="fake-img"></span>
+      </button>
+    </span>
+
   <div class="select-all-none">
     Select: <a (click)="selectAll()">all</a> | <a (click)="selectNone()">none</a>
   </div>

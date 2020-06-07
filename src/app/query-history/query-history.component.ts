@@ -6,6 +6,10 @@ import { QueryService, HistoryEntry } from '../query.service';
 import { GeneQuery, GeneBoolNode } from '../pombase-query';
 import { QueryDetailsDialogComponent } from '../query-details-dialog/query-details-dialog.component';
 import { Subscription } from 'rxjs';
+import { saveAs } from 'file-saver';
+
+import { DeployConfigService } from '../deploy-config.service';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-query-history',
@@ -19,8 +23,11 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   histSubscription: Subscription = null;
   detailsModalRef: BsModalRef = null;
 
+  faDownload = faDownload;
+
   constructor(private modalService: BsModalService,
-              private queryService: QueryService) { }
+              private queryService: QueryService,
+              public deployConfigService: DeployConfigService) { }
 
   getSelectedEntries(): Array<HistoryEntry> {
     return this.historyEntries.filter(e => e.checked);
@@ -59,6 +66,12 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
 
   setAllCounts() {
     this.queryService.setAllCounts();
+  }
+
+  exportAll(): void {
+    let fileName = 'all_queries.json';
+    let blob = new Blob([this.queryService.historyAsJson(2)], { type: 'application/json' });
+    saveAs(blob, fileName);
   }
 
   selectAll() {

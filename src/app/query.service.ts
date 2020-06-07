@@ -152,8 +152,7 @@ export class QueryService {
   }
 
   private saveHistory() {
-    let historyObjects = this.history.map((e) => e.toObject());
-    localStorage.setItem(localStorageKey, JSON.stringify(historyObjects));
+    localStorage.setItem(localStorageKey, this.historyAsJson());
   }
 
   historyEntryById(historyEntryId: string): GeneQuery {
@@ -342,6 +341,11 @@ export class QueryService {
       });
     this.subject.next(this.history);
     this.saveHistory();
+  }
+
+  historyAsJson(space: string|number = null): string {
+    let historyObjects = this.history.map((e) => e.toObject());
+    return JSON.stringify(historyObjects, null, space);
   }
 
   setAllCounts() {

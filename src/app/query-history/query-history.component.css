@@ -72,3 +72,9 @@ td.result-count {
 .select-all-none {
   padding: 0.5em 0 0 1em;
 }
+
+.export-icon {
+  height: 1em;
+  margin-right: 0.4em;
+  display: inline-block;
+}
