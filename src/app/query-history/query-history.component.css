@@ -73,7 +73,7 @@ td.result-count {
   padding: 0.5em 0 0 1em;
 }
 
-.export-icon {
+.export-icon, .import-icon {
   height: 1em;
   margin-right: 0.4em;
   display: inline-block;
@@ -103,4 +103,8 @@ a.show-details-button:hover {
 
 .query-hist-details, .query-hist-name-and-button {
   margin-left: 1.6em;
+}
+
+.export-button {
+  margin-left: 2em;
 }

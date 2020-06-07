@@ -25,11 +25,21 @@
               (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
     </span>
 
-    <span *ngIf="!deployConfigService.productionMode()">
+    <span class="export-button" *ngIf="!deployConfigService.productionMode()">
       <button class="btn btn-primary" (click)="exportAll()"
               title="Export query history to a file">
-        <span class="export-icon"><fa-icon [icon]="faDownload"></fa-icon></span>Export <span class="fake-img"></span>
+        <span class="export-icon"><fa-icon [icon]="faDownload"></fa-icon></span>Export history<span class="fake-img"></span>
       </button>
+    </span>
+
+    <span *ngIf="!deployConfigService.productionMode()">
+      <button class="btn btn-primary" (click)="importQueries()"
+              title="Import queries from file">
+        <span class="import-icon"><fa-icon [icon]="faUpload"></fa-icon></span>Import queries<span class="fake-img"></span>
+      </button>
+      <span *ngIf="importingFromFile">
+        Read from file: <input type="file" (change)="importFile($event)">
+      </span>
     </span>
 
   <div class="select-all-none">
@@ -98,4 +108,16 @@
     </tbody>
   </table>
   </div>
+</div>
+
+<div *ngIf="historyEntries.length == 0">
+<span *ngIf="!deployConfigService.productionMode()">
+  <button class="btn btn-primary" (click)="importQueries()"
+          title="Import queries from a previous session">
+    <span class="import-icon"><fa-icon [icon]="faUpload"></fa-icon></span>Import queries from file<span class="fake-img"></span>
+  </button>
+  <span *ngIf="importingFromFile">
+    Read from file: <input type="file" (change)="importFile($event)">
+  </span>
+</span>
 </div>

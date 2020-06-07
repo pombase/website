@@ -7,11 +7,10 @@ import { GeneQuery, GeneBoolNode } from '../pombase-query';
 import { QueryDetailsDialogComponent } from '../query-details-dialog/query-details-dialog.component';
 import { Subscription } from 'rxjs';
 import { saveAs } from 'file-saver';
+import { ToastrService } from 'ngx-toastr';
 
 import { DeployConfigService } from '../deploy-config.service';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
-
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faDownload, faUpload } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-query-history',
@@ -32,11 +31,13 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   queryNameForEdit: string = null;
 
   faEdit = faEdit;
-
   faDownload = faDownload;
+  faUpload = faUpload;
+  importingFromFile: boolean;
 
   constructor(private modalService: BsModalService,
               private queryService: QueryService,
+              private toastr: ToastrService,
               public deployConfigService: DeployConfigService) { }
 
   getSelectedEntries(): Array<HistoryEntry> {
@@ -114,6 +115,26 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     let fileName = 'all_queries.json';
     let blob = new Blob([this.queryService.historyAsJson(2)], { type: 'application/json' });
     saveAs(blob, fileName);
+  }
+
+  importQueries(): void {
+    this.importingFromFile = true;
+  }
+
+  importFile($event: Event): void {
+    let inputValue = $event.target as any;
+    let file = inputValue.files[0];
+    let fileReader = new FileReader();
+
+    fileReader.onloadend = (e) => {
+      const errorString = this.queryService.saveImportedQueries(fileReader.result as string);
+      if (errorString) {
+        this.toastr.error(errorString);
+      }
+      this.importingFromFile = false;
+    };
+
+    fileReader.readAsText(file);
   }
 
   selectAll() {

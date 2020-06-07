@@ -107,9 +107,7 @@ export class QueryService {
 
         for (let o of JSON.parse(savedHistoryString)) {
           try {
-            let id = o.id;
-            const query = GeneQuery.fromJSONString(o);
-            const entry = new HistoryEntry(id, query, o.resultCount);
+            const entry = this.entryFromJsonObject(o);
             this.history.push(entry);
           } catch (e) {
             console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
@@ -124,6 +122,41 @@ export class QueryService {
       this.subject = new BehaviorSubject(this.history);
     } catch (e) {
       console.log('failed to deserialise history: ' + e.message);
+    }
+  }
+
+  // make a HistoryEntry from a query parsed from JSON
+  private entryFromJsonObject(o: any) {
+    let id = o.id;
+    const query = GeneQuery.fromJSONString(o);
+    const entry = new HistoryEntry(id, query, o.resultCount);
+    return entry;
+  }
+
+  // return null on success or a string with an error message
+  public saveImportedQueries(queriesString: string): string {
+    try {
+      const queriesObjects = JSON.parse(queriesString);
+
+      if (queriesObjects instanceof Array) {
+        queriesObjects.reverse();
+        for (let obj of queriesObjects) {
+          try {;
+            const entry = this.entryFromJsonObject(obj);
+            this.deleteExisting(entry.getQuery());
+            this.history.unshift(entry);
+            this.subject.next(this.history);
+          } catch {
+            return 'cannot parse a query from: ' + JSON.stringify(obj);
+          }
+        }
+        this.saveHistory();
+        this.setAllCounts();
+      } else {
+        return 'import failed: text isn\'t an exported query list';
+      }
+    } catch (e) {
+      return 'failed to parse imported queries: ' + e.toString();
     }
   }
 
