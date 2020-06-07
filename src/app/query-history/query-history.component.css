@@ -105,6 +105,10 @@ a.show-details-button:hover {
   margin-left: 1.6em;
 }
 
+.save-cancel-name-edit {
+  white-space: nowrap;
+}
+
 .export-button {
   margin-left: 2em;
 }
