@@ -1,8 +1,12 @@
-### PombeTalks June 10th
+### PombeTalks POSTPONED to June 17th
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The next online PombeTalks will take place on Wednesday 10 June 2020 at 17:00 [Central European Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/):
+Please note that the next online PombeTalks will take place one week later than originally planned, to support the [STEM Strike for Black Lives](https://www.shutdownstem.com/) on 10th June.
+
+In the meantime, please complete this brief [survey](https://forms.gle/ANVsCcfaqf2p4Q9fA) of the audience.
+
+On Wednesday **17th June** 2020 at 17:00 [Central European Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/), the speakers will be:
 
 - **Gautam Dey**, Baum lab, UCL / EMBL Heidelberg: *Closed mitosis requires local disassembly of the nuclear envelope*
 
