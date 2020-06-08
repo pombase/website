@@ -121,11 +121,17 @@ export class GeneResultsSlimTableComponent implements OnInit {
       return;
     }
 
-    this.gotoGenes(genes);
+    this.gotoGenes(termId, genes);
   }
 
-  private gotoGenes(genes: string[]) {
-    const part = new GeneListNode(null, genes);
+  private gotoGenes(termId: string, genes: string[]) {
+    let nodeName = this.slimConfig.slim_display_name;
+    if (termId) {
+      nodeName = `genes from ${termId} in ${nodeName}`;
+    } else {
+      nodeName = `unslimmed genes from ${nodeName}`;
+    }
+    const part = new GeneListNode(nodeName, genes);
     const geneQuery = new GeneQuery(part);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
@@ -134,7 +140,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   gotoUnslimmedGenes(): void {
-    this.gotoGenes(Array.from(this.unslimmedGenes));
+    this.gotoGenes(null, Array.from(this.unslimmedGenes));
   }
 
   ngOnInit() {
