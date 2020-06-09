@@ -19,6 +19,8 @@ class ProcessedRow {
 export class GeneResultsSlimTableComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];
   @Input() slimName: string = null;
+  // probably the query name
+  @Input() geneListDescription: string = null;
 
   subsetDetails: TermSubsetDetails = null;
   resultTable: Array<ProcessedRow> = [];
@@ -125,13 +127,16 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   private gotoGenes(termId: string, genes: string[]) {
-    let nodeName = this.slimConfig.slim_display_name;
+    let slimDisplayName = this.slimConfig.slim_display_name.toLowerCase();
     if (termId) {
-      nodeName = `genes from ${termId} in ${nodeName}`;
+      slimDisplayName = `genes from ${termId} in ${slimDisplayName}`;
     } else {
-      nodeName = `unslimmed genes from ${nodeName}`;
+      slimDisplayName = `unslimmed genes from ${slimDisplayName}`;
     }
-    const part = new GeneListNode(nodeName, genes);
+    if (this.geneListDescription) {
+      slimDisplayName += ' of ' + this.geneListDescription;
+    }
+    const part = new GeneListNode(slimDisplayName, genes);
     const geneQuery = new GeneQuery(part);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);

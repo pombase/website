@@ -30,6 +30,7 @@ export class GenesTableComponent implements OnInit {
   // which allows the the termids in a description to be linked to the term pages
   @Input() descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
   @Input() genesOrResults: Array<GeneSummary>|QueryResult = null;
+  queryResult: QueryResult = null;
   genes: Array<GeneSummary> = [];
 
   legend = 'Results';
@@ -320,12 +321,12 @@ export class GenesTableComponent implements OnInit {
     }
 
     if (this.genesOrResults instanceof QueryResult) {
-      const queryResult = this.genesOrResults;
+      this.queryResult = this.genesOrResults;
 
       this.pombaseApiService.getGeneSummaryMapPromise()
         .then((geneSummaries: GeneSummaryMap) => {
           this.genes =
-            queryResult.getRows().map((row) => {
+            this.queryResult.getRows().map((row) => {
               return geneSummaries[row.gene_uniquename];
             });
           this.updateDisplayGenes();

@@ -91,7 +91,8 @@
   </div>
 
   <div *ngIf="showingSlim()">
-    <app-gene-results-slim-table [genes]="genes" [slimName]="slimName">
+    <app-gene-results-slim-table [genes]="genes" [slimName]="slimName"
+                                 [geneListDescription]="queryResult?.getQuery()?.getQueryName()">
     </app-gene-results-slim-table>
   </div>
 
