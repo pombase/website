@@ -96,6 +96,8 @@ class AttrValueConf {
 })
 export class GeneResultsVisComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];
+  // probably the query name
+  @Input() geneListDescription: string = null;
   @ViewChild('visSVG') visSvg: ElementRef;
 
   geneDataMap: { [geneUniquename: string]: GeneData } = {};
@@ -294,13 +296,26 @@ export class GeneResultsVisComponent implements OnInit {
     this.setSelectedGeneList();
   }
 
+  selectedGenesDescription(): string {
+    let desc = '';
+    if (this.selectedGeneList.length == 1) {
+      desc = 'one selected gene'
+    } else {
+      desc = this.selectedGeneList.length + ' selected genes';
+    }
+    return desc;
+  }
+
   sendToQueryBuilder(): void {
     const selectedGenes =
       this.getSelectedGeneUniquenames().map(uniquename => {
         return this.geneDataMap[uniquename].getGeneShort();
       });
 
-    const part = new GeneListNode(null, selectedGenes);
+    const queryName = this.selectedGenesDescription() + ' from visualisation' +
+      (this.geneListDescription ? ' of ' + this.geneListDescription: '');
+
+    const part = new GeneListNode(queryName, selectedGenes);
     const geneQuery = new GeneQuery(part);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);

@@ -86,7 +86,7 @@
 
   <div class="content">
   <div *ngIf="showingVisualisation()">
-    <app-gene-results-vis [genes]="genes">
+    <app-gene-results-vis [genes]="genes" [geneListDescription]="queryResult?.getQuery()?.getQueryName()">
     </app-gene-results-vis>
   </div>
 
