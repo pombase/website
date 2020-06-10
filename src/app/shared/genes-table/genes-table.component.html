@@ -86,12 +86,13 @@
 
   <div class="content">
   <div *ngIf="showingVisualisation()">
-    <app-gene-results-vis [genes]="genes">
+    <app-gene-results-vis [genes]="genes" [geneListDescription]="queryResult?.getQuery()?.getQueryName()">
     </app-gene-results-vis>
   </div>
 
   <div *ngIf="showingSlim()">
-    <app-gene-results-slim-table [genes]="genes" [slimName]="slimName">
+    <app-gene-results-slim-table [genes]="genes" [slimName]="slimName"
+                                 [geneListDescription]="queryResult?.getQuery()?.getQueryName()">
     </app-gene-results-slim-table>
   </div>
 
@@ -121,7 +122,7 @@
     <tbody>
       <tr *ngFor="let gene of displayGenes | geneShortOrderBy: orderByFieldName">
         <td *ngIf="selectionInProgress()">
-          <input id="show-translation" type="checkbox"
+          <input type="checkbox"
                  [name]="gene.uniquename"
                  (ngModelChange)="selectionChanged()"
                  [(ngModel)]="selectedGenes[gene.uniquename]"/>

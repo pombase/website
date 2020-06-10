@@ -21,8 +21,8 @@
     </div>
 
     <div>
-      <app-genes-table [description]="'Genes from single-allele genotypes annotated with ' + termDetails.termid + ' or its descendants: ' + singleAlleleGenotypeGenes.length"
-                       [genes]="singleAlleleGenotypeGenes"></app-genes-table>
+      <app-genes-table [description]="'genes from single-allele genotypes annotated with ' + termDetails.termid + ' or its descendants'"
+                       [genesOrResults]="singleAlleleGenotypeGenes"></app-genes-table>
     </div>
   </div>
 </div>

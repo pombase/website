@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
-import { GeneSummaryMap, PombaseAPIService } from '../pombase-api.service';
+import { GeneSummaryMap, PombaseAPIService, GeneSummary } from '../pombase-api.service';
 
 @Component({
   selector: 'app-gene-list-lookup',
@@ -12,6 +12,7 @@ export class GeneListLookupComponent implements OnInit {
   @Output() genesFound = new EventEmitter();
 
   inputText = '';
+  listName: string = null;
 
   unknownIds: Array<string> = [];
   geneSummaryMapPromise: Promise<GeneSummaryMap>;
@@ -75,6 +76,19 @@ export class GeneListLookupComponent implements OnInit {
     })
   }
 
+  private makeListName(genes: Array<GeneSummary>): string {
+    if (this.listName) {
+      return this.listName;
+    }
+
+    if (genes.length <= 8) {
+      return 'uploaded gene list: ' +
+        genes.map(g => g.displayName()).join(' ');
+    } else {
+      return 'uploaded gene list of ' + genes.length + ' genes';
+    }
+  }
+
   lookup() {
     this.geneSummaryMapPromise.then((geneSummaryMap) => {
       const mapFilterFunc =
@@ -85,7 +99,8 @@ export class GeneListLookupComponent implements OnInit {
       const genes = this.filteredIds()
         .filter(mapFilterFunc)
         .map(mapFilterFunc);
-      this.genesFound.emit(genes);
+      const listName = this.makeListName(genes);
+      this.genesFound.emit({ genes, listName });
     });
   }
 }

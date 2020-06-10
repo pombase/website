@@ -40,6 +40,8 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
   setGenes(): void {
     this.pombaseApiService.getGeneSummaryMapPromise()
       .then(geneSummaryMap => {
+        this.singleAlleleGenotypeGenes = [];
+
         let genes: { [key: string]: GeneShort } = {};
 
         for (let genotype of this.termDetails.single_allele_genotypes) {

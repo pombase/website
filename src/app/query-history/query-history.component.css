@@ -73,8 +73,42 @@ td.result-count {
   padding: 0.5em 0 0 1em;
 }
 
-.export-icon {
+.export-icon, .import-icon {
   height: 1em;
   margin-right: 0.4em;
   display: inline-block;
+}
+
+.query-hist-name {
+  font-weight: bold;
+  font-size: 110%;
+  margin-right: 1.5em;
+}
+
+.show-details-button {
+  white-space: nowrap;
+}
+
+a.show-details-button {
+  opacity: 0.6;
+}
+
+a.show-details-button:hover {
+  opacity: 1;
+}
+
+.edit-icon {
+  float: left;
+}
+
+.query-hist-details, .query-hist-name-and-button {
+  margin-left: 1.6em;
+}
+
+.save-cancel-name-edit {
+  white-space: nowrap;
+}
+
+.export-button {
+  margin-left: 2em;
 }

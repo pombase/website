@@ -14,3 +14,7 @@
 .read-from-file input {
   display: block;
 }
+
+.list-name {
+  margin-top: 1em;
+}

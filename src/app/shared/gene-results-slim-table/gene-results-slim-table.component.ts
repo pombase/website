@@ -19,6 +19,8 @@ class ProcessedRow {
 export class GeneResultsSlimTableComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];
   @Input() slimName: string = null;
+  // probably the query name
+  @Input() geneListDescription: string = null;
 
   subsetDetails: TermSubsetDetails = null;
   resultTable: Array<ProcessedRow> = [];
@@ -36,8 +38,8 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   runQuery(slimName: string): void {
-    const geneListNode = new GeneListNode(this.genes);
-    const geneListQuery = new GeneQuery(null, geneListNode);
+    const geneListNode = new GeneListNode(null, this.genes);
+    const geneListQuery = new GeneQuery(geneListNode);
 
     const outputOptions =
       new QueryOutputOptions(['gene_uniquename'], ['include_gene_subsets'], 'none');
@@ -121,12 +123,21 @@ export class GeneResultsSlimTableComponent implements OnInit {
       return;
     }
 
-    this.gotoGenes(genes);
+    this.gotoGenes(termId, genes);
   }
 
-  private gotoGenes(genes: string[]) {
-    const part = new GeneListNode(genes);
-    const geneQuery = new GeneQuery(null, part);
+  private gotoGenes(termId: string, genes: string[]) {
+    let slimDisplayName = this.slimConfig.slim_display_name.toLowerCase();
+    if (termId) {
+      slimDisplayName = `genes from ${termId} in ${slimDisplayName}`;
+    } else {
+      slimDisplayName = `unslimmed genes from ${slimDisplayName}`;
+    }
+    if (this.geneListDescription) {
+      slimDisplayName += ' of ' + this.geneListDescription;
+    }
+    const part = new GeneListNode(slimDisplayName, genes);
+    const geneQuery = new GeneQuery(part);
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
     };
@@ -134,7 +145,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   gotoUnslimmedGenes(): void {
-    this.gotoGenes(Array.from(this.unslimmedGenes));
+    this.gotoGenes(null, Array.from(this.unslimmedGenes));
   }
 
   ngOnInit() {
