@@ -52,6 +52,17 @@ date":
 Click on the "Results" link to re-run the query and retrieve the
 up-to-date result.
 
+If the parameters for a query are not all visible in the history, a
+"[details]" toggle (1) to show or hide additional details will
+appear. You can also edit the name that appears in the history list
+(2). The name will be used as part of the description when the query
+is used in any combined query (which can, in turn, be given a new
+name).
+
+![advanced search query name and details](assets/query_name_details.png){width="400"}
+
+
+
 ### Query results page
 
 Clicking on any up-to-date count in the "Results" column goes to a
