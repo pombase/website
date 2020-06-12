@@ -56,7 +56,8 @@ sanglifehrin A | cyclophilin binding|
 spliceostatin A | SF3b components binding | splicing inhibitor || [PMID:17961508](https://www.pombase.org/reference/PMID:17961508) 
 staurosporine | protein kinase inhibitor |  
 tagetitoxin/tagetin | RNA polymerase III [Rpc53](https://www.pombase.org/gene/SPCC18.07) inhibitor | || [RNA polymerases and associated factors](https://books.google.co.uk/books?id=zYlqeJAi0igC&pg=PA173&lpg=PA173&dq=tagetitoxin+pombe&source=bl&ots=zENTjUISTy&sig=ACfU3U2_CsWzJPojjmBVgRvbvm3bi0x5lQ&hl=en&sa=X&ved=2ahUKEwjh0IDe75nnAhUHZMAKHcM7CV8Q6AEwBXoECFgQAQ#v=onepage&q=tagetitoxin%20pombe&f=false) 
-thialysine | || toxic lysine analogue |  
+terbinafine | squalene monooxygenase [Erg1](https://www.pombase.org/gene/SPBC713.12) inhibitor | | | [PMID:32320462](https://www.pombase.org/reference/PMID:32320462)
+thialysine | | | toxic lysine analogue |  
 trichostatin A (TSA) | histone deacetylase inhibitor ||| [PMID:19723888](https://www.pombase.org/reference/PMID:19723888) 
 tunicamycin | | N-glycosylation inhibitor|  
 zaragozic acid | | N-glycosylation inhibitor |  
