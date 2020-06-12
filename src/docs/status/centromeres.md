@@ -10,13 +10,6 @@ Chromosome coordinates (links to JBrowse):
 -   CEN 2: [II:1602264-1644747][cen2]
 -   CEN 3: [III:1070904-1137003][cen3]
 
-The 3 centromeres are also available as contiguated sequence (the
-remaining gaps in CEN2 and CEN3 are represented by 100 N's)
-
--   [CEN 1](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/centromeres/cen1.gz) (gzipped EMBL format)
--   [CEN 2](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/centromeres/cen2.gz) (gzipped EMBL format)
--   [CEN 3](ftp://ftp.pombase.org/pombe/genome_sequence_and_features/feature_sequences/centromeres/cen3.gz) (gzipped EMBL format)
-
 Note that specific repeats within centromeres cannot yet be viewed or
 searched as features on PomBase pages, but they are included in the
 forward and reverse strand feature tracks in the genome browser, which
