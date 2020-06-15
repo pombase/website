@@ -137,6 +137,10 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     fileReader.readAsText(file);
   }
 
+  cancelImport(): void {
+    this.importingFromFile = false;
+  }
+
   selectAll() {
     this.historyEntries.map(e => e.checked = true);
   }

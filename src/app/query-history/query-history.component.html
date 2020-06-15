@@ -25,20 +25,30 @@
               (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
     </span>
 
-    <span class="export-button" *ngIf="!deployConfigService.productionMode()">
-      <button class="btn btn-primary" (click)="exportAll()"
-              title="Export query history to a file">
-        <span class="export-icon"><fa-icon [icon]="faDownload"></fa-icon></span>Export history<span class="fake-img"></span>
-      </button>
-    </span>
-
-    <span *ngIf="!deployConfigService.productionMode()">
-      <button class="btn btn-primary" (click)="importQueries()"
-              title="Import queries from file">
-        <span class="import-icon"><fa-icon [icon]="faUpload"></fa-icon></span>Import queries<span class="fake-img"></span>
-      </button>
+    <span class="import-export-buttons" *ngIf="!deployConfigService.productionMode()">
       <span *ngIf="importingFromFile">
+        <button class="btn btn-sm btn-primary" (click)="cancelImport()"
+                title="Cancel query import">
+          Cancel
+        </button>
         Read from file: <input type="file" (change)="importFile($event)">
+      </span>
+
+      <span *ngIf="!importingFromFile">
+        <button class="btn btn-primary" (click)="exportAll()" title="Export query history to a file">
+          <span class="export-icon">
+            <fa-icon [icon]="faDownload"></fa-icon>
+          </span>Export history<span class="fake-img"></span>
+        </button>
+      </span>
+
+      <span *ngIf="!importingFromFile">
+        <button class="btn btn-primary" (click)="importQueries()"
+          title="Import queries from file">
+          <span class="import-icon">
+            <fa-icon [icon]="faUpload"></fa-icon>
+          </span>Import queries<span class="fake-img"></span>
+        </button>
       </span>
     </span>
 
