@@ -3,7 +3,14 @@
 Also see the [Terms of Use](about/terms-of-use) and the complete list
 of [papers published by PomBase](about/published-by-pombase).
 
-To cite *S. pombe* genome data and annotation, please use:
+To cite anything from PomBase, including
+
+- *S. pombe* genome sequence and feature annotation
+- Curated data (GO, phenotypes, modifications, gene expression, etc.)
+- GO or disease slim sets
+- Tools (advanced search, motif search, QuiLT, etc.)
+
+please use:
 
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gky961"></div>
 
