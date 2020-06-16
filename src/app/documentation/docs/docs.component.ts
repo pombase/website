@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, OnDestroy, Renderer2, AfterViewInit } from '
 import { Meta } from '@angular/platform-browser';
 import { Title } from '@angular/platform-browser';
 
-import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 
 import { getAppConfig, AppConfig } from '../../config';
 import { Subscription } from 'rxjs';
@@ -32,6 +32,7 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
     this.subscription = router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.setSectPage(event.url);
+        this.addAltmetrics();
       }
     });
   }
@@ -108,12 +109,32 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this.scrollToPageTop();
     this.setSectPage(this.router.url);
+    this.addAltmetrics();
+  }
+
+  private addAltmetrics(): void {
+
+    // remove existing Altmetric script, then add again so the code is re-executed
+
+    const existingAltmetricScript = window.document.querySelector('#altmetric-js-script');
+    if (existingAltmetricScript) {
+      existingAltmetricScript.remove();
+    }
+
+    const scripts = window.document.querySelectorAll('script');
+    // clean up script tags added by Altmetrics
+    scripts.forEach(script => {
+      if (script.src.startsWith('https://api.altmetric.com')) {
+        script.remove();
+      }
+    });
 
     // see: https://stackoverflow.com/questions/56880754/angular-5-using-the-altmetric-badge-in-the-angular-app-gives-uncaught-error-t
-    const s = this.renderer2.createElement('script');
-    s.type = 'text/javascript';
-    s.src = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
-    this.renderer2.appendChild(this.document.body, s);
+    const altmetricScript = this.renderer2.createElement('script');
+    altmetricScript.id = 'altmetric-js-script';
+    altmetricScript.type = 'text/javascript';
+    altmetricScript.src = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
+    this.renderer2.appendChild(this.document.body, altmetricScript);
   }
 
   ngOnDestroy(): void {
