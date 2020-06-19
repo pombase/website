@@ -24,14 +24,14 @@ calcofluor white | | cell wall synthesis |
 camptothecin | topoisomerase 1 [Top1](https://www.pombase.org/gene/SPBC1703.14c)  inhibitor |
 canavanine ||| toxic analog of arginine |
 cerulenin | β -keto-acyl ACP synthase and HMG -CoA synthase inhibitor || | [PMID:30003614](https://www.pombase.org/reference/PMID:30003614)
-chloramphenicol || protein synthesis inhibitor |
-compactin | | ergosterol biosynthesis |
+chloramphenicol | | protein synthesis inhibitor | |
+compactin | | ergosterol biosynthesis | |
 cutin-1 | fatty acid synthase beta subunit [Fas1](https://www.pombase.org/gene/SPAC926.09c) | nuclear envelope expansion during mitosis inhibitor | | [PMID:26869222](https://www.pombase.org/reference/PMID:26869222)
 cycloheximide | 60S ribosomal subunit inhibitor | translation | prevents release of deacetylated tRNA from the E site |
-cyclosporin A | cyclophilin inhibitor | calcineurin inhibitor |several cyclophilins described in S. pombe| [PMID:16134115](https://www.pombase.org/reference/PMID:16134115)
-dihydromotuporamine C | | | proteasome/lipid synthesis? |
+cyclosporin A | inhibits calcineurin and cyclophilins | |several cyclophilins described in S. pombe| [PMID:16134115](https://www.pombase.org/reference/PMID:16134115)
+dihydromotuporamine C | | proteasome/lipid synthesis? | |
 echinocandin | | | cell wall synthesis |
-fenpropimorph | proteasome/lipid synthesis? |
+fenpropimorph | | proteasome/lipid synthesis? | 
 FK506 | [Fkh1](https://www.pombase.org/gene/SPBC839.17c) | cell cycle progression inhibition through TOR kinase inhibition | [PMID:11335722](https://www.pombase.org/reference/PMID:11335722)
 hydroxyurea | ribonucleotide reductase small subunit [Suc22](https://www.pombase.org/gene/SPBC25D12.04) inhibitor | slows DNA synthesis | causes replication fork stalling |  [PMID:27869662](https://www.pombase.org/reference/PMID:27869662)
 hygromycin B | 40S ribosomal subunit| translation inhibitor | interferes with translocation of tRNA from the A site to the P site of the ribosome |
@@ -45,15 +45,15 @@ microcystin | PP2A inhibitor | | | [PMID:29079657](https://www.pombase.org/refer
 monensin | |  intracellular transport |
 mycophenolic acid | IMP dehydrogenase [Gua1](https://www.pombase.org/gene/SPBC2F12.14c) inhibitor || limits cellular GTP pools| [PMID:11535588](https://www.pombase.org/reference/PMID:11535588)
 natamycin | ergosterol binding| | blocks fungal growth without permeabilizing the membrane |
-nystatin | ergosta-5,7,22,24,(28)-tetraenol binding | ergosterol biosynthesis; antifungal; ergosta-5,7,22,24,(28)-tetraenol binding |
+nystatin | ergosta-5,7,22,24,(28)-tetraenol binding | ergosterol biosynthesis | antifungal |
 orthovanadate | H(+)-ATPase inhibitor | | | [PMID:8431459](https://www.pombase.org/reference/PMID:8431459)
 oxazolidinones | protein synthesis inhibitor |
-phleomycin | antibiotic damaging nucleic acids in the presence of iron when cells are grown aerobically ||| [PMID:17724773](https://www.pombase.org/reference/PMID:17724773)
+phleomycin | antibiotic; damages nucleic acids in the presence of iron when cells are grown aerobically ||| [PMID:17724773](https://www.pombase.org/reference/PMID:17724773)
 pravastatin | HMG-CoA reductase inhibitor |
-rapamycin (sirolimus) | [Fkh1](https://www.pombase.org/gene/SPBC839.17c) | cell cycle progression inhibition through TOR kinase inhibition | [PMID:11335722](https://www.pombase.org/reference/PMID:11335722)
+rapamycin (sirolimus) | [Fkh1](https://www.pombase.org/gene/SPBC839.17c) | inhibits cell cycle progression by inhibiting TOR kinase | [PMID:11335722](https://www.pombase.org/reference/PMID:11335722)
 ricin | ribosome inhibitor | translation inhibitor | |
 sanglifehrin A | cyclophilin binding | | |
-spliceostatin A | SF3b components binding | splicing inhibitor || [PMID:17961508](https://www.pombase.org/reference/PMID:17961508)
+spliceostatin A | binds SF3b components | splicing inhibitor || [PMID:17961508](https://www.pombase.org/reference/PMID:17961508)
 staurosporine | protein kinase inhibitor |
 tagetitoxin/tagetin | RNA polymerase III [Rpc53](https://www.pombase.org/gene/SPCC18.07) inhibitor | || [RNA polymerases and associated factors](https://books.google.co.uk/books?id=zYlqeJAi0igC&pg=PA173&lpg=PA173&dq=tagetitoxin+pombe&source=bl&ots=zENTjUISTy&sig=ACfU3U2_CsWzJPojjmBVgRvbvm3bi0x5lQ&hl=en&sa=X&ved=2ahUKEwjh0IDe75nnAhUHZMAKHcM7CV8Q6AEwBXoECFgQAQ#v=onepage&q=tagetitoxin%20pombe&f=false)
 terbinafine | squalene monooxygenase [Erg1](https://www.pombase.org/gene/SPBC713.12) inhibitor | sterol biosynthesis | | [PMID:32320462](https://www.pombase.org/reference/PMID:32320462)
