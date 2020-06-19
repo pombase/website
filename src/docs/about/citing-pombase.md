@@ -113,3 +113,5 @@ PomBase: a comprehensive online resource for fission yeast.\
 </div>
 <div class="clear-float"></div>
 [PMID:22039153](http://www.ncbi.nlm.nih.gov/pubmed/22039153) - [DOI: 10.1093/nar/gkr853](http://dx.doi.org/10.1093/nar/gkr853) - [Full text at NAR](http://nar.oxfordjournals.org/content/40/D1/D695.long)
+
+*Altmetric badges link to data provided by [Altmetric.com](https://www.altmetric.com/), a research metrics company who track and collect the online conversations around millions of scholarly outputs. Read [more about Altmetrics](https://www.altmetric.com/about-altmetrics/).*
