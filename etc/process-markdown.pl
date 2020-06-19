@@ -552,9 +552,17 @@ sub markdown_to_plain
   # remove Angular elements
   $content =~ s!<(app-[\w\-]+).*?>(.*?)</\1>!$2!gs;
 
-  my $plain_text = markdown($content, 'plain');
+  my $plain_text;
+
+  if (length $content < 200 && $content =~ /^[a-z\s\?\"\-,\.\d:\%]+$/i) {
+    # shortcut for headings with no Markdown
+    $plain_text = $content;
+  } else {
+    $plain_text = markdown($content, 'plain');
+  }
 
   # remove some noise
+  $plain_text =~ s!\{.*?\}!!g;
   $plain_text =~ s!([\-=])+!$1!g;
   $plain_text =~ s!(\s\s)\s+!$1!g;
   $plain_text =~ s!_([\.,\s]|$)!$1!g;
