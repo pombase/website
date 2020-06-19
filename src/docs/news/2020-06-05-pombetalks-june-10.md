@@ -1,5 +1,4 @@
 ### PombeTalks POSTPONED to June 17th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 Please note that the next online PombeTalks will take place one week later than originally planned, to support the [STEM Strike for Black Lives](https://www.shutdownstem.com/) on 10th June.
