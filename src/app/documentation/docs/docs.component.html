@@ -1069,7 +1069,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 <p>A “slim” is a high-level subset of terms from an ontology, used to analyze sets of annotated genes. The table below shows a slim set of grouping terms that we have selected from the <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) and the number of annotations to each term. Mondo IDs link to PomBase ontology term pages. The annotation totals link to pages with information about the term and a list of annotated genes. A gene may be included in the annotation sets for more than one slim term.</p>
 <p>You can download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/disease_ontology_slim_ids_and_names.tsv">PomBase Mondo slim IDs and term names</a> from the PomBase FTP site.</p>
 <p>If you would like to have any terms added to the PomBase Mondo slim set, please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
-<p><app-go-slim-table [slimName]="'pombe_mondo_slim'"></app-go-slim-table></p>
+<p><app-slim-table [slimName]="'pombe_mondo_slim'"></app-slim-table></p>
 
   </div>
   <div *ngIf="pageName == 'dna-binding-sites'">
@@ -1768,7 +1768,7 @@ tables on this page include annotated RNAs. For some GO terms, notably
 'cytoplasmic translation', RNAs make up a significant proportion of
 the total annotated genes.
 -->
-<p><app-go-slim-table [slimName]="'bp_goslim_pombe'"></app-go-slim-table></p>
+<p><app-slim-table [slimName]="'bp_goslim_pombe'"></app-slim-table></p>
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-cc-go-slim-terms'">
@@ -1776,7 +1776,7 @@ the total annotated genes.
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast cellular component GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
 <p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv">GO component slim IDs and term names</a> from the PomBase FTP site.</p>
-<p><app-go-slim-table [slimName]="'cc_goslim_pombe'"></app-go-slim-table></p>
+<p><app-slim-table [slimName]="'cc_goslim_pombe'"></app-slim-table></p>
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-go-slimming-tips'">
@@ -1820,7 +1820,7 @@ the total annotated genes.
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast molecular function GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
 <p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.tsv">GO function slim IDs and term names</a> from the PomBase FTP site.</p>
-<p><app-go-slim-table [slimName]="'mf_goslim_pombe'"></app-go-slim-table></p>
+<p><app-slim-table [slimName]="'mf_goslim_pombe'"></app-slim-table></p>
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-phenotype-ontology'">

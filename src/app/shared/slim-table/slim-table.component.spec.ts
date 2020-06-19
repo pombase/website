@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GoSlimTableComponent } from './go-slim-table.component';
+import { SlimTableComponent } from './slim-table.component';
 
 describe('GoSlimTableComponent', () => {
   let component: GoSlimTableComponent;

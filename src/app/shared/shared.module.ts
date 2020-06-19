@@ -7,7 +7,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
-import { GoSlimTableComponent } from './go-slim-table/go-slim-table.component';
+import { SlimTableComponent } from './slim-table/slim-table.component';
 import { ContactEmailComponent } from './contact-email/contact-email.component';
 import { CharacterisationStatusTableComponent } from './characterisation-status-table/characterisation-status-table.component';
 import { QueryLinkComponent } from './query-link/query-link.component';
@@ -44,7 +44,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
   ],
   exports: [
-    GoSlimTableComponent,
+    SlimTableComponent,
     ContactEmailComponent,
     CharacterisationStatusTableComponent,
     QueryLinkComponent,
@@ -65,7 +65,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GeneResultsSlimTableComponent,
   ],
   declarations: [
-    GoSlimTableComponent,
+    SlimTableComponent,
     ContactEmailComponent,
     CharacterisationStatusTableComponent,
     QueryLinkComponent,

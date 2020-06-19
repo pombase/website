@@ -15,4 +15,4 @@ from the PomBase FTP site.
 If you would like to have any terms added to the PomBase Mondo slim set, please
 contact the [helpdesk](mailto:helpdesk@pombase.org).
 
-<app-go-slim-table [slimName]="'pombe_mondo_slim'"></app-go-slim-table>
+<app-slim-table [slimName]="'pombe_mondo_slim'"></app-slim-table>

@@ -22,5 +22,5 @@ names](ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.t
 from the PomBase FTP site.
 
 
-<app-go-slim-table [slimName]="'mf_goslim_pombe'"></app-go-slim-table>
+<app-slim-table [slimName]="'mf_goslim_pombe'"></app-slim-table>
 

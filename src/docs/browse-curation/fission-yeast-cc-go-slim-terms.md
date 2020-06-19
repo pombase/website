@@ -21,5 +21,5 @@ additional pages linked there. You can also download a list of current
 from the PomBase FTP site.
 
 
-<app-go-slim-table [slimName]="'cc_goslim_pombe'"></app-go-slim-table>
+<app-slim-table [slimName]="'cc_goslim_pombe'"></app-slim-table>
 

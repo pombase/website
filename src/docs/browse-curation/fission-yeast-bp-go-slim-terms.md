@@ -34,5 +34,5 @@ tables on this page include annotated RNAs. For some GO terms, notably
 the total annotated genes.
 -->
 
-<app-go-slim-table [slimName]="'bp_goslim_pombe'"></app-go-slim-table>
+<app-slim-table [slimName]="'bp_goslim_pombe'"></app-slim-table>
 

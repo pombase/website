@@ -4,11 +4,11 @@ import { PombaseAPIService, TermSubsetDetails, GeneSubsetDetails, APIError } fro
 import { getAppConfig, SlimConfig, getAnnotationTableConfig } from '../../config';
 
 @Component({
-  selector: 'app-go-slim-table',
-  templateUrl: './go-slim-table.component.html',
-  styleUrls: ['./go-slim-table.component.css']
+  selector: 'app-slim-table',
+  templateUrl: './slim-table.component.html',
+  styleUrls: ['./slim-table.component.css']
 })
-export class GoSlimTableComponent implements OnInit {
+export class SlimTableComponent implements OnInit {
   @Input() slimName: string;
 
   appConfig = getAppConfig();
