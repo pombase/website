@@ -3,6 +3,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PombaseAPIService, TermSubsetDetails, GeneSubsetDetails, APIError } from '../../pombase-api.service';
 import { getAppConfig, SlimConfig, getAnnotationTableConfig } from '../../config';
 
+class SlimSubsetElement {
+  constructor(public termid: string,
+              public name: string,
+              public gene_count: number) { }
+}
+
 @Component({
   selector: 'app-slim-table',
   templateUrl: './slim-table.component.html',
@@ -14,6 +20,7 @@ export class SlimTableComponent implements OnInit {
   appConfig = getAppConfig();
 
   slimSubset: TermSubsetDetails = null;
+  slimSubsetElements: Array<SlimSubsetElement> = [];
   nonSlimWithAnnotation: GeneSubsetDetails = null;
   nonSlimWithoutAnnotation: GeneSubsetDetails = null;
   apiError: APIError = null;
@@ -32,7 +39,13 @@ export class SlimTableComponent implements OnInit {
     this.pombaseApiService.getTermSubsets()
       .then(subsets => {
         this.slimSubset = Object.assign({}, subsets[this.slimName]);
-        this.slimSubset.elements.sort((a, b) => a.name.localeCompare(b.name));
+        this.slimSubsetElements = [];
+        for (const termid of Object.keys(this.slimSubset.elements)) {
+          const element = this.slimSubset.elements[termid];
+          const slimSubsetElement = new SlimSubsetElement(termid, element.name, element.gene_count);
+          this.slimSubsetElements.push(slimSubsetElement);
+        }
+        this.slimSubsetElements.sort((a, b) => a.name.localeCompare(b.name));
       })
       .catch(error => {
         this.apiError = error;

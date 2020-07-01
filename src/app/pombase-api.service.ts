@@ -482,14 +482,13 @@ export class ReferenceDetails {
 
 export interface TermSubsetElement {
   name: string;
-  termid: string;
   gene_count: number;
 }
 
 export interface TermSubsetDetails {
   name: string;
   total_gene_count: number;
-  elements: Array<TermSubsetElement>;
+  elements: { [termid: string]: TermSubsetElement };
 }
 
 export interface TermSubsets {

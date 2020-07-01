@@ -11,7 +11,7 @@
       <th *ngIf="slimConfig.external_link_config">{{slimConfig.external_link_config.description}}</th>
     </thead>
     <tbody>
-      <tr *ngFor="let element of slimSubset.elements">
+      <tr *ngFor="let element of slimSubsetElements">
         <td>{{element.name}}</td>
         <td>
           <a routerLink="/term/{{element.termid}}" routerLinkActive="active">{{element.termid}}</a>
