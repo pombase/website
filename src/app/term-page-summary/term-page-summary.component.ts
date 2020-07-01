@@ -4,6 +4,7 @@ import { TermDetails, TermAndRelation, PombaseAPIService,
          TermSubsets } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AnnotationType } from '../config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-term-page-summary',
@@ -16,9 +17,12 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
   filteredAncestors: Array<TermAndRelation> = [];
   subsets: TermSubsets = {};
   typeConfig: AnnotationType = null;
+  slimConfig = getAppConfig().slims;
+  slimConfigNames = Object.keys(this.slimConfig);
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
-  constructor(private pombaseApiService: PombaseAPIService) { }
+  constructor(private router: Router,
+              private pombaseApiService: PombaseAPIService) { }
 
   isInSubset(subsetName: string): boolean {
     if (!this.subsets[subsetName]) {
@@ -31,6 +35,10 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
     }
 
     return false;
+  }
+
+  goToFullSlim(slimName: string) {
+    this.router.navigate([this.slimConfig[slimName].full_slim_path]);
   }
 
   filterAncestors(): void {

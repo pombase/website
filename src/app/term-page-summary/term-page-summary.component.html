@@ -25,16 +25,20 @@
   </div>
 
   <div class="external-links">
-    <div *ngIf="isInSubset('bp_goslim_pombe')">
+    <div *ngFor="let slimName of slimConfigNames">
+      <span *ngIf="isInSubset(slimName)">
         This term is part of the
-        <a routerLink="/browse-curation/fission-yeast-go-slim-terms"
-        routerLinkActive="active">biological process overview</a> (GO
-        slim) -
-      <app-external-link [identifier]="termDetails.termid"
-                         [linkText]="'View the esyN network'"
-                         [linkConfigKey]="'esyn'"
-                         [iconImage]="'esyn_icon.png'">
-      </app-external-link>
+        <a (click)="goToFullSlim(slimName)">{{slimConfig[slimName].slim_display_name}}</a>
+
+        <span *ngIf="slimName == 'bp_goslim_pombe'">
+          &ndash;
+         <app-external-link [identifier]="termDetails.termid"
+                            [linkText]="'View the esyN network'"
+                            [linkConfigKey]="'esyn'"
+                            [iconImage]="'esyn_icon.png'">
+         </app-external-link>
+        </span>
+      </span>
     </div>
 
     <div class="external-links">
