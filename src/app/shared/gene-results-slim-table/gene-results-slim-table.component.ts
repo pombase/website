@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GeneShort, PombaseAPIService, TermSubsetDetails, GeneSummary, GeneSummaryMap } from '../../pombase-api.service';
+import { GeneShort, PombaseAPIService, TermSubsetDetails, GeneSummaryMap } from '../../pombase-api.service';
 import { GeneListNode, GeneQuery, QueryResult, TermId, GeneUniquename } from '../../pombase-query';
 import { QueryService, HistoryEntry, QueryOutputOptions } from '../../query.service';
 import { Router } from '@angular/router';
@@ -37,7 +37,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
               private router: Router) {
   }
 
-  runQuery(slimName: string): void {
+  runQuery(): void {
     const geneListNode = new GeneListNode(null, this.genes);
     const geneListQuery = new GeneQuery(geneListNode);
 
@@ -89,13 +89,15 @@ export class GeneResultsSlimTableComponent implements OnInit {
 
     let resultTable: Array<ProcessedRow> = [];
 
-    for (const subsetTermDetail of this.subsetDetails.elements) {
+    for (const termid of Object.keys(this.subsetDetails.elements)) {
       let geneUniquenames: Array<GeneUniquename> = [];
-      if (this.termGeneUniquenames[subsetTermDetail.termid]) {
-        geneUniquenames = this.termGeneUniquenames[subsetTermDetail.termid];
+      if (this.termGeneUniquenames[termid]) {
+        geneUniquenames = this.termGeneUniquenames[termid];
       }
 
-      const row = new ProcessedRow(subsetTermDetail.termid, subsetTermDetail.name, geneUniquenames);
+      const element = this.subsetDetails.elements[termid];
+
+      const row = new ProcessedRow(termid, element.name, geneUniquenames);
       resultTable.push(row);
     }
 
@@ -153,7 +155,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
     this.pombaseApiService.getTermSubsets()
       .then(subsets => {
         this.subsetDetails = subsets[this.slimName];
-        this.runQuery(this.slimName);
+        this.runQuery();
       });
   }
 }

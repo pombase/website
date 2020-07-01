@@ -36,8 +36,8 @@ export class TermGenesViewComponent implements OnInit {
     if (!this.subsets[subsetName]) {
       return false;
     }
-    for (let element of this.subsets[subsetName].elements) {
-      if (element.termid === this.termDetails.termid) {
+    for (let termid of Object.keys(this.subsets[subsetName].elements)) {
+      if (termid === this.termDetails.termid) {
         return true;
       }
     }

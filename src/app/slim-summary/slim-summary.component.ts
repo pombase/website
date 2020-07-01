@@ -3,6 +3,12 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { TermSubsets, PombaseAPIService, TermSubsetElement, GeneDetails } from '../pombase-api.service';
 import { AnnotationType, getAnnotationTableConfig } from '../config';
 
+class SlimSubsetElement {
+  constructor(public termid: string,
+              public name: string,
+              public gene_count: number) { }
+}
+
 @Component({
   selector: 'app-slim-summary',
   templateUrl: './slim-summary.component.html',
@@ -15,7 +21,7 @@ export class SlimSummaryComponent implements OnInit, OnChanges {
   annotationType: AnnotationType = null;
 
   subsetPromise: Promise<TermSubsets> = null;
-  geneSlimTerms: Array<TermSubsetElement> = [];
+  geneSlimTerms: Array<SlimSubsetElement> = [];
 
   getAllAncestors(): Set<string> {
     let ret = new Set<string>();
@@ -55,10 +61,15 @@ export class SlimSummaryComponent implements OnInit, OnChanges {
     this.subsetPromise
       .then((subsets) => {
         let allAncestors = this.getAllAncestors();
-        this.geneSlimTerms =
-          subsets[this.annotationType.slim_subset_name].elements.filter((termAndName) => {
-            return allAncestors.has(termAndName.termid);
-          });
+        this.geneSlimTerms = [];
+        const subset = subsets[this.annotationType.slim_subset_name];
+        for (const termid of Object.keys(subset.elements)) {
+          if (allAncestors.has(termid)) {
+            const element = subset.elements[termid];
+            const slimTerm = new SlimSubsetElement(termid, element.name, element.gene_count);
+            this.geneSlimTerms.push(slimTerm);
+          }
+        }
       });
   }
 }
