@@ -237,8 +237,7 @@
     (No annotations after filtering)
   </span>
 
-  <div class="annotation-table-ext-links"
-       *ngIf="currentViewState == TableViewState.Details && externalLinksConfig.length != 0">
+  <div class="annotation-table-ext-links" *ngIf="externalLinksConfig.length != 0">
     <app-annotation-table-ext-links [termIds]="allTermIds" [extLinksConfig]="externalLinksConfig">
     </app-annotation-table-ext-links>
   </div>
