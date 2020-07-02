@@ -13,7 +13,9 @@ Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-euro
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
 [pombelist](https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist)
-and PombeSlack one day in advance, so make sure you've signed up.
+and PombeSlack one day in advance, so make sure you've signed up. Also
+see PombeSlack for Q&A after the talks, and for recordings of previous
+sessions.
 
 The next talks are on **July 22nd**, and the [summer
 schedule](https://researchseminars.org/seminar/pombeTalks) is
