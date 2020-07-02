@@ -48,9 +48,17 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   externalLinksConfig: Array<AnnotationExternalLinkConfig> = [];
   allTermIds: Array<string> = [];
 
-  getAllTermIds(): string[] {
+  getAllTermIds(): Array<string> {
     if (this.annotationTable) {
-      return this.annotationTable.map((termAnnotation) => termAnnotation.term.termid);
+      let ret: Array<string> = [];
+
+      this.annotationTable.map((termAnnotation: TermAnnotation) => {
+        if (!termAnnotation.is_not) {
+          ret.push(termAnnotation.term.termid);
+        }
+      });
+
+      return ret;
     } else {
       return [];
     }
