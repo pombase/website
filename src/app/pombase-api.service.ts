@@ -118,7 +118,7 @@ export interface Annotation {
   descRelName: string;
   reference: string|ReferenceShort;
   evidence?: string;
-  conditions: Array<TermShort|string>;
+  conditions: Array<TermShort>;
   withs: Array<any>;
   froms: Array<any>;
   residue?: string;
@@ -573,7 +573,7 @@ export class PombaseAPIService {
 
         if (annotation.conditions) {
           annotation.conditions =
-            annotation.conditions.map((termid: string) => termsByTermId[termid] as TermShort);
+            annotation.conditions.map((termid: any) => termsByTermId[termid] as TermShort);
         }
 
         if (annotation.extension) {
