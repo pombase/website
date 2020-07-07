@@ -113,6 +113,12 @@ export interface ExtPart {
   ext_range: ExtRange;
 }
 
+export interface GeneExProps {
+  avg_copies_per_cell: string;
+  copies_per_cell: string;
+  scale: string;
+}
+
 export interface Annotation {
   descDist: number;
   descRelName: string;
@@ -123,6 +129,7 @@ export interface Annotation {
   froms: Array<any>;
   residue?: string;
   qualifiers: Array<TermShort>;
+  gene_ex_props?: GeneExProps;
   genes: Array<GeneShort>|Array<string>;
   genotype: string|GenotypeShort;
   genotype_background?: string;
