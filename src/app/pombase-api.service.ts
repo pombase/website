@@ -966,12 +966,15 @@ export class PombaseAPIService {
         .toPromise()
         .then(body => {
           const result = body as unknown as Array<GeneSummary>;
+          const processedResult: Array<GeneSummary> = [];
           result.map(summ => {
             summ.organism = getAppConfig().getOrganismByTaxonid(summ.taxonid);
             summ.synonyms = summ.synonyms || [];
             summ.orthologs = summ.orthologs || [];
+            const newSumm = Object.assign(new GeneSummary(), summ);
+            processedResult.push(newSumm);
           })
-          this.resultCache[this.geneSummariesUrl] = result;
+          this.resultCache[this.geneSummariesUrl] = processedResult;
           return this.resultCache[this.geneSummariesUrl];
         })
         .catch(this.handleError);
@@ -989,13 +992,13 @@ export class PombaseAPIService {
         .then(geneSummaries => {
           let retMap: { [key: string]: GeneSummary } = {};
           for (let summ of geneSummaries) {
-            const realSumm = Object.assign(new GeneSummary(), summ);
-            if (realSumm.name) {
-              retMap[realSumm.name] = realSumm;
-              retMap[realSumm.name.toLowerCase()] = realSumm;
+
+            if (summ.name) {
+              retMap[summ.name] = summ;
+              retMap[summ.name.toLowerCase()] = summ;
             }
-            retMap[realSumm.uniquename] = realSumm;
-            retMap[realSumm.uniquename.toLowerCase()] = realSumm;
+            retMap[summ.uniquename] = summ;
+            retMap[summ.uniquename.toLowerCase()] = summ;
           }
           this.resultCache['getGeneSummaryMap'] = retMap;
           return retMap;
