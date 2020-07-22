@@ -12,8 +12,6 @@ Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-euro
 
 - **PomBase** microPublications announcement (Midori Harris)
 
-Sahana Holla**, Grewal lab, NIH: *Positioning heterochromatin at the nuclear periphery promotes epigenetic inheritance*
-
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
 [pombelist](https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist)
