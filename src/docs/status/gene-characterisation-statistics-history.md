@@ -19,6 +19,18 @@
  </thead>
  <tbody>
   <tr>
+  <td>2019-12-31</td>
+  <td>2368</td>
+  <td>2010</td>
+  <td>406</td>
+  <td>162</td>
+  <td>122</td>
+  <td>55</td>
+  <td>13</td>
+  <td>5136</td>
+ </tr>
+ <tbody>
+  <tr>
   <td>2018-10-05</td>
   <td>2339</td>
   <td>2035</td>
