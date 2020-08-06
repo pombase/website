@@ -1,5 +1,5 @@
 # How can I get my data into PomBase?
-<!-- pombase_categories: Data submission and formats -->
+<!-- pombase_categories: Data submission and formats,Genome browser -->
 
 The best route depends on the amount and type of data you have.
 
@@ -11,8 +11,9 @@ The best route depends on the amount and type of data you have.
     the supported data types (Gene Ontology, phenotypes, interactions,
     modifications) and how to use the curation interface.
 -   If you have data from large-scale experiments that is associated
-    with sequence coordinates, it can be displayed as a track in the
-    Genome Browser. See the [data submission page](/submit-data) for instructions.
+    with sequence coordinates, it can be displayed as a track in
+    PomBase JBrowse. See the [data submission page](/submit-data) for
+    instructions.
 <!-- Use the [HTP data submission form](/submit-data/data-submission-form)
     to send details.
 -->

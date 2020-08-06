@@ -12,13 +12,12 @@ assistance.
 
 File format | Recommended for
 ------------|----------------
-[BAM](/faq/what-bam-format) | sequence alignments, especially from high-throughput experiments
+[BAM](/faq/what-bam-format) | sequence alignments, especially from high-throughput experiments such as RNAseq
 [BED](/faq/what-bed-format) | sequence features with coordinates
-[bedGraph](/faq/what-bedgraph-format) | values attached to genome locations/regions
 [bigBed](/faq/what-bigbed-format) | sequence features with coordinates
 [bigWig](/faq/what-bigwig-format) | values attached to genome locations/regions
 [GFF3](/faq/what-gff) | sequence features with coordinates
-[PSL](/faq/what-psl-format) | sequence alignments
+<!-- [PSL](/faq/what-psl-format) | sequence alignments -->
 [VCF](/faq/what-vcf) | structural variations, such as SNPs, insertions, deletions, or copy number variants
 [WIG](/faq/what-wig-format) | values attached to genome locations/regions
 
