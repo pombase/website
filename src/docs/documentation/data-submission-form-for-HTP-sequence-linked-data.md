@@ -1,13 +1,16 @@
 ## HTP sequence-linked data submission instructions
 
 PomBase welcomes submissions of published HTP sequence-linked data,
-suitable for viewing in a genome browser. We require [JBrowse
-compliant](https://www.pombase.org/faq/data-submission-and-formats)
-data files and associated metadata descriptions. We have devised a
-tab-delimited text file format for the metadata we need.
-
-Include a header line that labels the columns -- use the entry in the
-Contents column below as the column header text.
+suitable for viewing in a genome browser. We require JBrowse compliant
+data files and associated metadata descriptions. Please see the [FAQ
+on file formats](/faq/what-file-formats-can-i-use-submit-high-throughput-data)
+for links to the file format descriptions, and other entries in the
+[data submission FAQ category](https://www.pombase.org/faq/data-submission-and-formats) 
+for more information.
+    
+We have devised a tab-delimited text file format for the metadata we
+need. Include a header line that labels the columns -- use the entry
+in the Contents column below as the column header text.
 
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
