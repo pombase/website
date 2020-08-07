@@ -2,7 +2,7 @@
 <!-- pombase_categories: Genome statistics and lists -->
 
 PomBase annotations are updated each time the daily upload to the
-[preview site](http://preview.pombase.org/) succeeds, with snapshots
+preview site (behind the scenes) succeeds, with snapshots
 archived on a monthly basis. To refer to PomBase in your publications,
 we recommend citing the date on which you view or download data. If
 you download an archived snapshot, cite its date.
