@@ -17,9 +17,9 @@ File format | Recommended for
 [bigBed](/faq/what-bigbed-format) | sequence features with coordinates
 [bigWig](/faq/what-bigwig-format) | values attached to genome locations/regions
 [GFF3](/faq/what-gff) | sequence features with coordinates
-<!-- [PSL](/faq/what-psl-format) | sequence alignments -->
 [VCF](/faq/what-vcf) | structural variations, such as SNPs, insertions, deletions, or copy number variants
 [WIG](/faq/what-wig-format) | values attached to genome locations/regions
+<!-- [PSL](/faq/what-psl-format) | sequence alignments -->
 
 We can also accept batch submissions of certain types of data that
 appear on PomBase gene pages. For these data types, we use dedicated

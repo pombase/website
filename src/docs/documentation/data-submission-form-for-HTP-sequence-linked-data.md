@@ -28,12 +28,12 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 12 | Assay type | tiling microarray, RNA-seq, HT sequencing  | Yes | No
 13 | First author | Soriano | Yes | No
 14 | Publication year | 2020 | Yes | No
-15 | Pubmed ID | 31077324 | Yes | No
+15 | PubMed ID | 31077324 | Yes | No
 16 | Study ID | GSE110976, PRJEB7403| Yes | No
 17 | Database | GEO, ArrayExpress | Yes | No
 18 | Sample ID | GSM3019628, ERS555567 | No | Yes
 19 | Data file type | bigwig, bed | Yes | No
-20 | File name | name given to submitted data-file relevant to the track | Yes | No
+20 | File name | name given to submitted data file relevant to the track | Yes | No
 
 **Track label format**
 
