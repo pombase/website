@@ -19,7 +19,6 @@
             [popover]="'' + popoverContent(part)" triggers="mouseenter:mouseleave" container="body"
             [class.highlight-part]="part.partId() == transcript.getHighlightedPart()"
             (mouseenter)="transcript.setHighlightedPart(part.partId())" [style.width]="part.getDivVW() + 'vw'"
-            title="{{part.displayName()}}: {{part.displayLocation(true)}}">
             &nbsp;
           </div>
           <div class="arrow"></div>
