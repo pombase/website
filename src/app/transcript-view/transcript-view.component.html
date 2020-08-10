@@ -15,6 +15,7 @@
       <div class="part-container">
         <div class="transcript-graphic">
           <div *ngFor="let part of transcript.displayParts()" class="{{part.type()}}"
+            [popover]="'' + popoverContent(part)" triggers="mouseenter:mouseleave" container="body"
             [class.highlight-part]="part.partId() == transcript.getHighlightedPart()"
             (mouseenter)="transcript.setHighlightedPart(part.partId())" [style.width]="part.getDivVW() + 'vw'"
             title="{{part.displayName()}}: {{part.displayLocation()}}">
@@ -27,25 +28,33 @@
             <tr *ngFor="let part of transcript.nonIntronParts()">
               <td [class.highlight-part]="part.partId() == transcript.getHighlightedPart()"
                   (mouseenter)="transcript.setHighlightedPart(part.partId())"
+                  [popover]="'' + popoverContent(part)"
+                  triggers="mouseenter:mouseleave" container="body" placement="bottom"
                   class="part-name">
                 {{part.displayName()}}
               </td>
               <td [class.highlight-part]="part.partId() == transcript.getHighlightedPart()"
                   (mouseenter)="transcript.setHighlightedPart(part.partId())"
+                  [popover]="'' + popoverContent(part)"
+                  triggers="mouseenter:mouseleave" container="body" placement="bottom"
                   class="part-location">
                 {{part.displayLocation()}}
               </td>
-              <td *ngIf="part.nextIntron()"
-                  [class.highlight-part]="part.nextIntron().partId() == transcript.getHighlightedPart()"
-                  (mouseenter)="transcript.setHighlightedPart(part.nextIntron().partId())"
+              <td *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
+                  [class.highlight-part]="part.nextPart().partId() == transcript.getHighlightedPart()"
+                  (mouseenter)="transcript.setHighlightedPart(part.nextPart().partId())"
+                  [popover]="'' + popoverContent(part)"
+                  triggers="mouseenter:mouseleave" container="body" placement="bottom"
                   class="part-name">
-                {{part.nextIntron().displayName()}}
+                {{part.nextPart().displayName()}}
               </td>
-              <td *ngIf="part.nextIntron()"
-                  [class.highlight-part]="part.nextIntron().partId() == transcript.getHighlightedPart()"
-                  (mouseenter)="transcript.setHighlightedPart(part.nextIntron().partId())"
+              <td *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
+                  [class.highlight-part]="part.nextPart().partId() == transcript.getHighlightedPart()"
+                  (mouseenter)="transcript.setHighlightedPart(part.nextPart().partId())"
+                  [popover]="'' + popoverContent(part)"
+                  triggers="mouseenter:mouseleave" container="body" placement="bottom"
                   class="part-location">
-                {{part.nextIntron().displayLocation()}}
+                {{part.nextPart().displayLocation()}}
               </td>
             </tr>
           </table>

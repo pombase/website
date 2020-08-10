@@ -87,3 +87,7 @@
 .part-container {
   margin: 1em;
 }
+
+.part-popover {
+  color: #222;
+}

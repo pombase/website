@@ -87,7 +87,8 @@ class DisplayTranscript {
 class DisplayPart {
   private _divWidth: number = -1;
   private _id: string = null;
-  private _nextIntron: DisplayPart
+  private _next: DisplayPart;
+  private _previous: DisplayPart;
 
   constructor(private part: FeatureShort, private exonCount: number,
               private intronCount: number) {
@@ -118,19 +119,27 @@ class DisplayPart {
       return 'intron ' + this.intronCount;
     } else {
       if (this.type() === 'exon') {
-        return 'exon ' + this.exonCount;
+        return 'exon CDS ' + this.exonCount;
       } else {
         return this.displayType();
       }
     }
   }
 
-  setNextIntron(nextIntron: DisplayPart) {
-    this._nextIntron = nextIntron;
+  setNext(nextPart: DisplayPart) {
+    this._next = nextPart;
   }
 
-  public nextIntron(): DisplayPart {
-    return this._nextIntron;
+  setPrevious(previousPart: DisplayPart) {
+    this._previous = previousPart;
+  }
+
+  public nextPart(): DisplayPart {
+    return this._next;
+  }
+
+  public previousPart(): DisplayPart {
+    return this._previous;
   }
 
   public uniquename(): string {
@@ -207,6 +216,24 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
 
   public geneStrand(): string {
     return this.geneDetails.location.strand;
+  }
+
+  public popoverContent(part: DisplayPart): string {
+    if (part.type() === 'exon') {
+      if ((!part.previousPart() || part.previousPart().type() === 'cds_intron') &&
+          (!part.nextPart() || part.nextPart().type() === 'cds_intron')) {
+        return 'Coding exon: ' + part.displayLocation();
+      }
+
+      if (part.previousPart() && part.previousPart().type().startsWith('five_prime_utr') ||
+          part.nextPart() && part.nextPart().type().startsWith('three_prime_utr')) {
+        return 'Coding part of exon: ' + part.displayLocation();
+      }
+
+      return 'Exon: ' + part.displayLocation();
+    }
+
+    return part.displayType() + ': ' + part.displayLocation();
   }
 
   ngOnInit() {
