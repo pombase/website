@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { TranscriptDetails, GeneDetails, FeatureShort } from '../pombase-api.service';
+import { TranscriptDetails, GeneDetails, FeatureShort, ChromosomeLocation } from '../pombase-api.service';
 import { AppConfig, getAppConfig } from '../config';
 
 class DisplayTranscript {
@@ -23,7 +23,8 @@ class DisplayTranscript {
           intronCount++;
         }
       }
-      const displayPart = new DisplayPart(part, exonCount, intronCount);
+      const displayPart = new DisplayPart(part, transcript.location,
+                                          exonCount, intronCount);
       this._displayParts.push(displayPart);
       totalLength += displayPart.baseLength();
     }
@@ -90,8 +91,9 @@ class DisplayPart {
   private _next: DisplayPart;
   private _previous: DisplayPart;
 
-  constructor(private part: FeatureShort, private exonCount: number,
-              private intronCount: number) {
+  constructor(private part: FeatureShort,
+              private transcriptLocation: ChromosomeLocation,
+              private exonCount: number, private intronCount: number) {
     this._id = part.uniquename.replace(/:/g, '-');
   }
 
@@ -154,19 +156,36 @@ class DisplayPart {
     return this.part.feature_type;
   }
 
-  public startPos(): number {
+  public startPos(showTranscriptCoords: boolean): number {
+    if (showTranscriptCoords) {
+      if (this.part.location.strand === 'reverse') {
+        return this.transcriptLocation.end_pos - this.part.location.start_pos + 1;
+      }
+
+      return this.part.location.start_pos - this.transcriptLocation.start_pos + 1;
+    }
+
     return this.part.location.start_pos;
   }
 
-  public endPos(): number {
+  public endPos(showTranscriptCoords: boolean): number {
+    if (showTranscriptCoords) {
+      if (this.part.location.strand === 'reverse') {
+        return this.transcriptLocation.end_pos - this.part.location.end_pos + 1;
+      }
+
+      return this.part.location.end_pos - this.transcriptLocation.start_pos + 1;
+    }
     return this.part.location.end_pos;
   }
 
-  public displayLocation(): string {
-   if (this.part.location.strand === 'reverse') {
-      return this.endPos() + '-' + this.startPos();
+  public displayLocation(showTranscriptCoords: boolean): string {
+    if (this.part.location.strand === 'reverse') {
+      return this.endPos(showTranscriptCoords) + '-' +
+        this.startPos(showTranscriptCoords);
     } else {
-      return this.startPos() + '-' + this.endPos();
+      return this.startPos(showTranscriptCoords) + '-' +
+        this.endPos(showTranscriptCoords);
     }
   }
 
@@ -198,6 +217,8 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
 
   appConfig: AppConfig = getAppConfig();
 
+  showTranscriptCoords = false;
+
   constructor() { }
 
   updateDisplayStrings() {
@@ -219,21 +240,30 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
   }
 
   public popoverContent(part: DisplayPart): string {
+    let prefix = null;
+
     if (part.type() === 'exon') {
       if ((!part.previousPart() || part.previousPart().type() === 'cds_intron') &&
           (!part.nextPart() || part.nextPart().type() === 'cds_intron')) {
-        return 'Coding exon: ' + part.displayLocation();
+        prefix = 'Coding exon'
+      } else {
+        if (part.previousPart() && part.previousPart().type().startsWith('five_prime_utr') ||
+            part.nextPart() && part.nextPart().type().startsWith('three_prime_utr')) {
+          prefix = 'Coding part of exon';
+        } else {
+          prefix = 'Exon';
+        }
       }
-
-      if (part.previousPart() && part.previousPart().type().startsWith('five_prime_utr') ||
-          part.nextPart() && part.nextPart().type().startsWith('three_prime_utr')) {
-        return 'Coding part of exon: ' + part.displayLocation();
-      }
-
-      return 'Exon: ' + part.displayLocation();
+    } else {
+      prefix = part.displayType();
     }
 
-    return part.displayType() + ': ' + part.displayLocation();
+    return prefix + ': ' + part.displayLocation(false) +
+      ' (' + part.displayLocation(true) + ')';
+  }
+
+  public partTrackBy(_index: number, item: DisplayPart): string {
+    return item.partId();
   }
 
   ngOnInit() {

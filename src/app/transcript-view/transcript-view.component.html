@@ -14,18 +14,19 @@
 
       <div class="part-container">
         <div class="transcript-graphic">
-          <div *ngFor="let part of transcript.displayParts()" class="{{part.type()}}"
+          <div *ngFor="let part of transcript.displayParts(); trackBy: partTrackBy"
+               class="{{part.type()}}"
             [popover]="'' + popoverContent(part)" triggers="mouseenter:mouseleave" container="body"
             [class.highlight-part]="part.partId() == transcript.getHighlightedPart()"
             (mouseenter)="transcript.setHighlightedPart(part.partId())" [style.width]="part.getDivVW() + 'vw'"
-            title="{{part.displayName()}}: {{part.displayLocation()}}">
+            title="{{part.displayName()}}: {{part.displayLocation(true)}}">
             &nbsp;
           </div>
           <div class="arrow"></div>
         </div>
         <div class="coords">
           <table>
-            <tr *ngFor="let part of transcript.nonIntronParts()">
+            <tr *ngFor="let part of transcript.nonIntronParts(); index as idx; trackBy: partTrackBy">
               <td [class.highlight-part]="part.partId() == transcript.getHighlightedPart()"
                   (mouseenter)="transcript.setHighlightedPart(part.partId())"
                   [popover]="'' + popoverContent(part)"
@@ -38,23 +39,34 @@
                   [popover]="'' + popoverContent(part)"
                   triggers="mouseenter:mouseleave" container="body" placement="bottom"
                   class="part-location">
-                {{part.displayLocation()}}
+                {{part.displayLocation(showTranscriptCoords)}}
               </td>
-              <td *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
+              <td>
+              <div *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
                   [class.highlight-part]="part.nextPart().partId() == transcript.getHighlightedPart()"
                   (mouseenter)="transcript.setHighlightedPart(part.nextPart().partId())"
                   [popover]="'' + popoverContent(part)"
                   triggers="mouseenter:mouseleave" container="body" placement="bottom"
                   class="part-name">
                 {{part.nextPart().displayName()}}
+              </div>
               </td>
-              <td *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
+              <td>
+              <div *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
                   [class.highlight-part]="part.nextPart().partId() == transcript.getHighlightedPart()"
                   (mouseenter)="transcript.setHighlightedPart(part.nextPart().partId())"
                   [popover]="'' + popoverContent(part)"
                   triggers="mouseenter:mouseleave" container="body" placement="bottom"
                   class="part-location">
-                {{part.nextPart().displayLocation()}}
+                {{part.nextPart().displayLocation(showTranscriptCoords)}}
+              </div>
+              </td>
+              <td>
+                <div id="coord-type-toggle" *ngIf="idx == 0">
+                  <input [(ngModel)]="showTranscriptCoords"
+                         id="coord-type" type="checkbox"/>
+                  <label for="coord-type">Show transcript coords</label>
+                </div>
               </td>
             </tr>
           </table>
