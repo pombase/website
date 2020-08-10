@@ -8,20 +8,22 @@
 }
 
 .transcript-graphic div {
-  border: 1px solid grey;
   display: inline-block;
   color: #eee;
   height: 1.6em;
 }
 
 .transcript-graphic div.five_prime_utr, .transcript-graphic div.three_prime_utr {
+  border: 1px solid #66e;
   background-color: #66e;
 }
 .transcript-graphic div.five_prime_utr.highlight-part, .transcript-graphic div.three_prime_utr.highlight-part {
-  background-color: #33b;
+  border: 1px solid #007;
+  background-color: #22a;
 }
 
-.transcript-graphic div.cds_intron, .transcript-graphic div.three_prime_utr_intron,
+.transcript-graphic div.cds_intron,
+.transcript-graphic div.three_prime_utr_intron,
 .transcript-graphic div.five_prime_utr_intron {
   background-color: #222;
   border: 0;
@@ -42,9 +44,11 @@
 }
 
 .transcript-graphic div.exon {
+  border: 1px solid #d77;
   background-color: #d77;
 }
 .transcript-graphic div.exon.highlight-part {
+  border: 1px solid #633;
   background-color: #a22;
 }
 

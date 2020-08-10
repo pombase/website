@@ -32,9 +32,11 @@ class DisplayTranscript {
       const displayPart = this._displayParts[i];
       if (i+1 < this._displayParts.length) {
         const nextPart = this._displayParts[i+1];
-        if (nextPart.type().endsWith('intron')) {
-          displayPart.setNextIntron(nextPart);
-        }
+        displayPart.setNext(nextPart);
+      }
+      if (i > 0) {
+        const previousPart = this._displayParts[i-1];
+        displayPart.setPrevious(previousPart);
       }
       displayPart.setDivVW(totalLength);
     }
