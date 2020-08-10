@@ -114,8 +114,8 @@
                                  [geneDetails]="geneDetails"></app-misc-annotation-table>
 
       <app-transcript-view id="{{annotationTypeName}}"
-                           *ngIf="annotationTypeName == 'transcript_view' && geneDetails?.transcripts.length > 0 && isConfiguredOrganism"
-                           [transcriptDetails]="geneDetails.transcripts"></app-transcript-view>
+                           *ngIf="annotationTypeName == 'transcript_view' && geneDetails?.transcripts.length > 0"
+                           [geneDetails]="geneDetails"></app-transcript-view>
 
       <app-protein-features id="{{annotationTypeName}}"
                             *ngIf="annotationTypeName == 'protein_features' && showProteinFeatures"

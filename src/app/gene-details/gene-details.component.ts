@@ -174,9 +174,13 @@ export class GeneDetailsComponent implements OnInit {
         this.visibleSections.push(annotationTypeName);
       }
 
-      if ((annotationTypeName === 'protein_features' && this.showProteinFeatures ||
-           annotationTypeName === 'transcript_view') &&
+      if (annotationTypeName === 'protein_features' && this.showProteinFeatures &&
           this.geneDetails.feature_type === 'mRNA gene') {
+        this.visibleSections.push(annotationTypeName);
+      }
+      if (annotationTypeName === 'transcript_view' &&
+        this.geneDetails && this.geneDetails.transcripts &&
+        this.geneDetails.transcripts.length > 0) {
         this.visibleSections.push(annotationTypeName);
       }
 

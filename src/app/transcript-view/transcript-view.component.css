@@ -1,17 +1,85 @@
-.ensembl-transcript-view {
-  width: 100%;
-  text-align: center;
-}
-
-.ensembl-image {
-  display: inline-block;
-  padding: 0.5em;
-}
-
-.ensembl-link-label {
-  font-size: 110%;
-}
-
 .transcript-view-title {
   font-weight: bold;
+}
+
+.transcript-graphic {
+  display: flex;
+  padding: 1em 0 1em 0;
+}
+
+.transcript-graphic div {
+  border: 1px solid grey;
+  display: inline-block;
+  color: #eee;
+  height: 1.6em;
+}
+
+.transcript-graphic div.five_prime_utr, .transcript-graphic div.three_prime_utr {
+  background-color: #66e;
+}
+.transcript-graphic div.five_prime_utr.highlight-part, .transcript-graphic div.three_prime_utr.highlight-part {
+  background-color: #33b;
+}
+
+.transcript-graphic div.cds_intron, .transcript-graphic div.three_prime_utr_intron,
+.transcript-graphic div.five_prime_utr_intron {
+  background-color: #222;
+  border: 0;
+  height: 0.2em;
+  position: relative;
+  top: 0.7em;
+}
+
+.transcript-graphic div.cds_intron.highlight-part,
+.transcript-graphic div.three_prime_utr_intron.highlight-part,
+.transcript-graphic div.five_prime_utr_intron.highlight-part {
+  height: 0.4em;
+  top: 0.6em;
+}
+
+.transcript-graphic div {
+  white-space: nowrap;
+}
+
+.transcript-graphic div.exon {
+  background-color: #d77;
+}
+.transcript-graphic div.exon.highlight-part {
+  background-color: #a22;
+}
+
+.transcript-graphic div.arrow {
+  border-top: 0.8em solid transparent;
+  border-bottom: 0.8em solid transparent;
+  border-left: 0.8em solid green;
+  border-right: 0;
+}
+
+.transcript-graphic .highlight-part {
+  background-color: #222;
+}
+
+.coords .highlight-part {
+  font-weight: bold;
+}
+
+.coords table {
+  table-layout: fixed;
+  width: 36em;
+}
+
+.coords table td {
+  white-space: nowrap;
+}
+
+.coords td.part-name {
+  width: 8em;
+}
+
+.coords td.part-location {
+  width: 12em;
+}
+
+.part-container {
+  margin: 1em;
 }
