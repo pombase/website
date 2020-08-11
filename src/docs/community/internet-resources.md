@@ -78,7 +78,7 @@
 ### Experimental tools
 
 -   [PRIMED](http://www.massgeneral.org/cancer/research/motamediresources.aspx)
-    Primers for deleting and tagging yeast genes (*S. pombe* and *S. cerevisiae*; downloadable spreadsheets)
+    Primers for deleting and tagging yeast genes (*S. pombe* and *S. cerevisiae*; scroll to bottom of page for downloadable spreadsheets)
 
 ### Strains and Constructs
 
@@ -91,10 +91,9 @@
 
 ### Experimental protocols
 
--   The [Forsburg lab](http://www-bcf.usc.edu/~forsburg/plasmids.html)
+-   The [Forsburg lab](https://dornsife.usc.edu/pombenet/)
     technical information e.g.
-    [Protocols](http://www-bcf.usc.edu/~forsburg/Protocols.html)
--   [Wolf Lab Protocols](http://www.dieter-wolf-lab.org/protocols/)
+    [Protocols](https://dornsife.usc.edu/pombenet/protocols/)
 
 ### *S. cerevisiae* Resources
 
