@@ -97,6 +97,10 @@
   text-align: right;
 }
 
+#coord-type-toggle label {
+  user-select: none;
+}
+
 @media (max-width: 800px) {
   #coord-type-toggle {
     display: none;
