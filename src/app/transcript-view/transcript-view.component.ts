@@ -56,6 +56,14 @@ class DisplayTranscript {
     this._locationString += ` (${len}nt)`;
   }
 
+  public startPos(): number {
+    return this.transcript.location.start_pos;
+  }
+
+  public endPos(): number {
+    return this.transcript.location.end_pos;
+  }
+
   public setHighlightedPart(partId: string) {
     this._hightlightedPartId = partId;
   }
@@ -258,8 +266,8 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
       prefix = part.displayType();
     }
 
-    return prefix + ': ' + part.displayLocation(false) +
-      ' (' + part.displayLocation(true) + ')';
+    return prefix + ' - genomic location: ' + part.displayLocation(false) +
+      ', transcript location: ' + part.displayLocation(true);
   }
 
   public partTrackBy(_index: number, item: DisplayPart): string {
