@@ -93,8 +93,10 @@
 }
 
 #coord-type-toggle {
-  width: 14em;
-  text-align: right;
+  width: 20em;
+  display: block;
+  position: absolute;
+  left: 50vw;
 }
 
 #coord-type-toggle label {

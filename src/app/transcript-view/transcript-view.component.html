@@ -3,6 +3,15 @@
     Transcript details
   </legend>
 
+  <div id="coord-type-toggle">
+    <div title="Check box to show coordinates with respect to the start of the transcript">
+      <input [(ngModel)]="showTranscriptCoords"
+             id="coord-type" type="checkbox"/>
+      <label for="coord-type">Show transcript coordinates</label>
+
+    </div>
+  </div>
+
   <div class="annotation-table-container">
     <div *ngFor="let transcript of displayTranscripts">
       <div class="transcript-view-title">
@@ -59,13 +68,6 @@
                   class="part-location">
                 {{part.nextPart().displayLocation(showTranscriptCoords)}}
               </div>
-              </td>
-              <td>
-                <div id="coord-type-toggle" *ngIf="idx == 0">
-                  <input [(ngModel)]="showTranscriptCoords"
-                         id="coord-type" type="checkbox"/>
-                  <label for="coord-type">Show transcript coords</label>
-                </div>
               </td>
             </tr>
           </table>
