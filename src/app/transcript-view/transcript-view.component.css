@@ -10,13 +10,13 @@
 }
 
 .transcript-view-title {
-  padding: 0.5em 0 0.2em 0;
+  padding: 0.5em 0 0.4em 0;
   font-weight: bold;
 }
 
 .transcript-graphic {
   display: flex;
-  padding: 1em 0 1em 0;
+  padding: 1.5em 1em 2em 1em;
 }
 
 .transcript-graphic div {
@@ -81,24 +81,30 @@
 }
 
 .coords table {
-  table-layout: fixed;
-  width: 40em;
+  margin: 1em 0 2em 1em;
+  width: auto;
 }
 
 .coords table td {
   white-space: nowrap;
+  padding-right: 2em;
 }
 
-.coords td.part-name {
-  width: 8em;
-}
-
-.coords td.part-location {
+.coords table td.part-name {
   width: 10em;
 }
 
+.coords table td.part-name-column-3 {
+  width: 8em;
+}
+
+
+.coords table td.part-location {
+  width: 12em;
+}
+
 .part-container {
-  margin: 1em;
+  margin: 0.1em;
 }
 
 .part-popover {
@@ -106,18 +112,27 @@
 }
 
 #toggles-and-key {
-  width: 25em;
+  width: 16em;
   display: block;
-  position: absolute;
-  left: 55vw;
+/*  position: absolute;*/
+  float: right;
+  background-color: #fff;
+  padding: 0.2em 0 0 0.4em;
 }
 
 #toggles-and-key label {
   user-select: none;
+  white-space: nowrap;
 }
 
-@media (max-width: 800px) {
+@media (min-width: 1200px) {
   #toggles-and-key {
-    display: none;
+    margin-right: 17vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  #toggles-and-key {
+    margin-right: 2vw;
   }
 }

@@ -3,27 +3,30 @@
     Transcript details
   </legend>
 
-  <div id="toggles-and-key">
-    <div title="Check box to show coordinates with respect to the start of the transcript">
-      <input [(ngModel)]="showTranscriptCoords"
-             id="coord-type" type="checkbox"/>
-      <label for="coord-type">Show transcript coordinates</label>
-    </div>
-
-    <div id="key">
-      <div>Key:</div>
-      <div class="key-box key-box-utr">&nbsp;</div><div>UTR</div>
-      <div class="key-box key-box-exon">&nbsp;</div><div>exon</div>
-    </div>
-  </div>
-
   <div class="annotation-table-container">
-    <div *ngFor="let transcript of displayTranscripts">
+    <div *ngFor="let transcript of displayTranscripts; let idx = index">
+
+      <div *ngIf="idx == 0" id="toggles-and-key">
+        <div title="Check box to show coordinates with respect to the start of the transcript">
+          <input [(ngModel)]="showTranscriptCoords" id="coord-type" type="checkbox" />
+          <label for="coord-type">Show transcript coordinates</label>
+        </div>
+
+        <div id="key">
+          <div>Key:</div>
+          <div class="key-box key-box-utr">&nbsp;</div>
+          <div>UTR</div>
+          <div class="key-box key-box-exon">&nbsp;</div>
+          <div>exon</div>
+        </div>
+      </div>
+
       <div class="transcript-view-title">
         {{transcript.type()}} {{transcript.uniquename()}}
       </div>
-      <div>
-        Location: {{transcript.displayLocation()}}, chromosome {{chromosomeDisplayName}} {{geneStrand()}} strand
+      <div class="transcript-name-and-loc">
+        Location: {{transcript.displayLocation()}},
+        <span style="white-space: nowrap">chromosome {{chromosomeDisplayName}} {{geneStrand()}} strand</span>
       </div>
 
       <div class="part-container">
@@ -54,25 +57,21 @@
                   class="part-location">
                 {{part.displayLocation(showTranscriptCoords)}}
               </td>
-              <td>
-              <div *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
+              <td *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
                   [class.highlight-part]="part.nextPart().partId() == transcript.getHighlightedPart()"
                   (mouseenter)="transcript.setHighlightedPart(part.nextPart().partId())"
                   [popover]="'' + popoverContent(part)"
                   triggers="mouseenter:mouseleave" container="body" placement="bottom"
-                  class="part-name">
+                  class="part-name-column-3">
                 {{part.nextPart().displayName()}}
-              </div>
               </td>
-              <td>
-              <div *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
+              <td *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
                   [class.highlight-part]="part.nextPart().partId() == transcript.getHighlightedPart()"
                   (mouseenter)="transcript.setHighlightedPart(part.nextPart().partId())"
                   [popover]="'' + popoverContent(part)"
                   triggers="mouseenter:mouseleave" container="body" placement="bottom"
                   class="part-location">
                 {{part.nextPart().displayLocation(showTranscriptCoords)}}
-              </div>
               </td>
             </tr>
           </table>
