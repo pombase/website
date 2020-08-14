@@ -1,4 +1,16 @@
+#key {
+  display: flex;
+}
+
+.key-box {
+  width: 1.3em;
+  height: 1.1em;
+  display: inline-block;
+  margin: 0.1em 0.2em 0 0.9em;
+}
+
 .transcript-view-title {
+  padding: 0.5em 0 0.2em 0;
   font-weight: bold;
 }
 
@@ -13,7 +25,7 @@
   height: 1.6em;
 }
 
-.transcript-graphic div.five_prime_utr, .transcript-graphic div.three_prime_utr {
+.transcript-graphic div.five_prime_utr, .transcript-graphic div.three_prime_utr, .key-box-utr {
   border: 1px solid #66e;
   background-color: #66e;
 }
@@ -43,7 +55,8 @@
   white-space: nowrap;
 }
 
-.transcript-graphic div.exon {
+.transcript-graphic div.exon,
+.key-box-exon {
   border: 1px solid #d77;
   background-color: #d77;
 }
@@ -92,19 +105,19 @@
   color: #222;
 }
 
-#coord-type-toggle {
-  width: 20em;
+#toggles-and-key {
+  width: 25em;
   display: block;
   position: absolute;
-  left: 50vw;
+  left: 55vw;
 }
 
-#coord-type-toggle label {
+#toggles-and-key label {
   user-select: none;
 }
 
 @media (max-width: 800px) {
-  #coord-type-toggle {
+  #toggles-and-key {
     display: none;
   }
 }

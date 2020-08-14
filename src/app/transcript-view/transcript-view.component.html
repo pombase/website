@@ -3,12 +3,17 @@
     Transcript details
   </legend>
 
-  <div id="coord-type-toggle">
+  <div id="toggles-and-key">
     <div title="Check box to show coordinates with respect to the start of the transcript">
       <input [(ngModel)]="showTranscriptCoords"
              id="coord-type" type="checkbox"/>
       <label for="coord-type">Show transcript coordinates</label>
+    </div>
 
+    <div id="key">
+      <div>Key:</div>
+      <div class="key-box key-box-utr">&nbsp;</div><div>UTR</div>
+      <div class="key-box key-box-exon">&nbsp;</div><div>exon</div>
     </div>
   </div>
 
