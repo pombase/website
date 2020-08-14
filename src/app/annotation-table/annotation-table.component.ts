@@ -46,10 +46,10 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
           }
 
           for (let termAnnotation of this.annotationTable) {
-            let interestingParents = termAnnotation.term.interesting_parents;
+            let interestingIsaParents = termAnnotation.term.interesting_isa_parents;
             let isInThisSplit =
               termAnnotation.term.termid === splitByTermId ||
-              interestingParents && (interestingParents.indexOf(splitByTermId) !== -1);
+              interestingIsaParents && (interestingIsaParents.indexOf(splitByTermId) !== -1);
 
             if (notFlag && !isInThisSplit ||
                 !notFlag && isInThisSplit) {

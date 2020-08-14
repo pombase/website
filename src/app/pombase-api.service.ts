@@ -874,7 +874,7 @@ export class PombaseAPIService {
     let annotationDetailsMap = json.annotation_details;
 
 
-    for (let fieldName of ['interesting_parents', 'subsets',
+    for (let fieldName of ['interesting_isa_parents', 'subsets',
                            'synonyms', 'genes_annotated_with',
                            'direct_ancestors',
                            'single_allele_genotype_uniquenames']) {

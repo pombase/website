@@ -59,9 +59,9 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
         if (extension) {
           for (let extPart of extension) {
             if (extPart.ext_range['term']) {
-              const interestingParents = extPart.ext_range['term'].interesting_parents;
-              if (interestingParents) {
-                for (let ancestor of interestingParents) {
+              const interestingIsaParents = extPart.ext_range['term'].interesting_isa_parents;
+              if (interestingIsaParents) {
+                for (let ancestor of interestingIsaParents) {
                   seenAncestors[ancestor] = true;
                 }
               }

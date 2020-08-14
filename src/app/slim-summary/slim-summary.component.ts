@@ -38,8 +38,8 @@ export class SlimSummaryComponent implements OnInit, OnChanges {
 
         ret.add(term.termid);
 
-        if (term.interesting_parents) {
-          for (let ancestor of term.interesting_parents) {
+        if (term.interesting_isa_parents) {
+          for (let ancestor of term.interesting_isa_parents) {
             ret.add(ancestor);
           }
         }
