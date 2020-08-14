@@ -81,7 +81,7 @@
 }
 
 .coords table {
-  margin: 1em 0 2em 1em;
+  margin: 1em;
   width: auto;
 }
 
@@ -91,16 +91,16 @@
 }
 
 .coords table td.part-name {
-  width: 10em;
+  width: 8em;
 }
 
 .coords table td.part-name-column-3 {
-  width: 8em;
+  width: 6em;
 }
 
 
 .coords table td.part-location {
-  width: 12em;
+  width: 13em;
 }
 
 .part-container {
