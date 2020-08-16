@@ -12,8 +12,8 @@ export class AnnotationTermFilter implements Filter<AnnotationTable> {
     for (let annotation of annotationTable) {
       TERMS: for (let termId of this.termIds) {
         annotationCount += annotation.annotations.length;
-        if (annotation.term.interesting_isa_parents) {
-          for (let interestingAncestor of annotation.term.interesting_isa_parents) {
+        if (annotation.term.interesting_parent_ids) {
+          for (let interestingAncestor of annotation.term.interesting_parent_ids) {
             if (interestingAncestor === termId) {
               retTable.push(annotation);
               filteredAnnotationCount += annotation.annotations.length;

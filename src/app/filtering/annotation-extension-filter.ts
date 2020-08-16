@@ -21,8 +21,8 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
             for (let extPart of annotation.extension) {
               if (extPart.ext_range['term']) {
                 const rangeTerm: TermShort = extPart.ext_range['term'];
-                if (rangeTerm.interesting_isa_parents) {
-                  for (let interestingAncestor of rangeTerm.interesting_isa_parents) {
+                if (rangeTerm.interesting_parent_ids) {
+                  for (let interestingAncestor of rangeTerm.interesting_parent_ids) {
                     if (interestingAncestor === filterTermId) {
                       retTermAnnotation.annotations.push(annotation);
                       continue ANNOTATION;

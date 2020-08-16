@@ -68,7 +68,7 @@ export interface TermShort {
   termid: TermId,
   name: string,
   definition: string,
-  interesting_isa_parents: Array<string>,
+  interesting_parent_ids: Array<string>,
   is_obsolete: boolean;
   gene_count?: number;
   genotype_count?: number;

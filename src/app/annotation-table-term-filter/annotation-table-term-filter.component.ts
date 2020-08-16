@@ -53,8 +53,8 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
     let seenAncestors: { [key: string]: boolean } = {};
 
     for (let termAnnotation of this.annotationTable) {
-      if (termAnnotation.term.interesting_isa_parents) {
-        for (let ancestor of termAnnotation.term.interesting_isa_parents) {
+      if (termAnnotation.term.interesting_parent_ids) {
+        for (let ancestor of termAnnotation.term.interesting_parent_ids) {
           seenAncestors[ancestor] = true;
         }
       }
