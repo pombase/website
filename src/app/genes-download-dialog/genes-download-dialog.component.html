@@ -97,7 +97,7 @@
 
       <tab *ngIf="!deployConfigService.productionMode()" heading="GO Annotation Format">
         <div class="field-container gaf-container">
-          <div class="gaf-title">Choose the GO aspects to export:</div>
+          <div class="gaf-title">Choose the GO aspects to download:</div>
           <div class="field-input" *ngFor="let aspect of appConfig.goAspects">
             <input  id="name-{{aspect}}" type="checkbox" [(ngModel)]="selectedAspects[aspect]"/>
             <label for="name-{{aspect}}">{{aspectDisplayName(aspect)}}</label>
