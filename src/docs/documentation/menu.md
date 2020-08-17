@@ -4,6 +4,7 @@
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-phenotypes">Phenotypes</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-target">Target of</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-protein-features">Protein features</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-transcript">Transcript</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-modifications">Modifications</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-gene-expression">Gene expression</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/genetic-and-physical-interactions">Genetic and physical interactions</a></div>

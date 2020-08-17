@@ -6,6 +6,7 @@
 -   [Gene Ontology](documentation/gene-page-gene-ontology)
 -   [Phenotypes](documentation/gene-page-phenotypes)
 -   [Target of](documentation/gene-page-target)
+-   [Transcript](documentation/gene-page-transcript)
 -   [Protein features](documentation/gene-page-protein-features)
 -   [Modifications](documentation/gene-page-modifications)
 -   [Gene expression](documentation/gene-page-gene-expression)
