@@ -10,6 +10,7 @@ export class TermAndName {
 export interface ResultRow {
   gene_uniquename: string;
   sequence?: string;
+  gaf_lines?: Array<string>;
   subsets?: Array<TermId>;
   [other_attribute: string]: string | { term: TermAndName } | Array<TermId> | Array<string>;
 }

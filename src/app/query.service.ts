@@ -18,10 +18,22 @@ type SequenceOptions = 'protein' | 'none' | {
   },
 };
 
+export class GAFOptions {
+  constructor(private aspects: Array<string>) { }
+}
+
 export class QueryOutputOptions {
   constructor(private field_names: Array<string>,
               private flags: Array<string>,
-              private sequence: SequenceOptions) { }
+              private sequence?: SequenceOptions,
+              private gaf_options?: GAFOptions) {
+    if (!this.sequence) {
+      this.sequence = 'none';
+    }
+    if (!this.gaf_options) {
+      this.gaf_options = new GAFOptions([]);
+    }
+  }
 }
 
 const localStorageKey = 'pombase-query-build-history-v1';
@@ -177,7 +189,7 @@ export class QueryService {
     return this.postRaw(query, outputOptions);
   }
   postQueryCount(query: GeneQuery): Promise<QueryResult> {
-    const outputOptions = new QueryOutputOptions([], [], 'none');
+    const outputOptions = new QueryOutputOptions([], []);
     return this.postRaw(query, outputOptions);
   }
 

@@ -196,6 +196,7 @@ export interface AppConfig {
   };
   predefinedQueries: { [key: string]: PredefinedQueryConfig };
   cannedQueryIds: Array<string>;
+  goAspects: Array<string>;
   cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
   phenotypeIdPrefixes: Array<string>;
@@ -409,6 +410,8 @@ export interface AnnotationTableConfig {
   };
   getAnnotationType(annotationTypeName: string): AnnotationType;
 }
+
+const GO_ASPECTS = ['molecular_function', 'biological_process', 'cellular_component'];
 
 let _config: AnnotationTableConfig = {
   annotationTypes: pombaseConfig.cv_config,
@@ -651,8 +654,9 @@ let _appConfig: AppConfig = {
     ancestorRelNames: ['is_a', 'part_of', 'regulates'],
   },
   phenotypeIdPrefixes: pombaseConfig.phenotype_id_prefixes,
+  goAspects: GO_ASPECTS,
   cvNameMap: {
-    'GO': '(molecular_function OR biological_process OR cellular_component)',
+    'GO': '(' + GO_ASPECTS.join(' OR ') + ')',
     'FYPO': 'fission_yeast_phenotype',
     'PSI-MOD': 'PSI-MOD',
     'SO-protein': 'sequence',

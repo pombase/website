@@ -94,12 +94,29 @@
         </div>
         </div>
       </tab>
+
+      <tab *ngIf="!deployConfigService.productionMode()" heading="GO Annotation Format">
+        <div class="field-container gaf-container">
+          <div class="gaf-title">Choose the GO aspects to export:</div>
+          <div class="field-input" *ngFor="let aspect of appConfig.goAspects">
+            <input  id="name-{{aspect}}" type="checkbox" [(ngModel)]="selectedAspects[aspect]"/>
+            <label for="name-{{aspect}}">{{aspectDisplayName(aspect)}}</label>
+          </div>
+        </div>
+        <div class="gaf-help">
+Use this tab to download Gene Ontology annotation for the genes in
+your result set.
+<p>
+The annotation will be in <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/">
+Gene Association File ("GAF") format</a>.
+        </div>
+      </tab>
     </tabset>
  </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
     <button type="button" class="btn btn-primary" [disabled]="!isValid()"
-            [attr.title]="isValid() ? 'Start download' : 'Select at least one column to download'"
+            [attr.title]="downloadTitle()"
             (click)="download()">Download</button>
   </div>
 </div>

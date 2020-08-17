@@ -59,3 +59,21 @@ input[type=checkbox]:disabled +label {
   grid-row: span 2;
   margin-top: 1.5em;
 }
+
+.gaf-container {
+  margin-bottom: 3em;
+}
+
+.gaf-help {
+  margin: 1em;
+}
+
+.gaf-title {
+  font-size: 110%;
+  margin: 0.5em 0 1.5em 0;
+}
+
+.gaf-container .field-input {
+  text-transform: capitalize;
+  margin: 0.2em 1em 0.2em 1em;
+}

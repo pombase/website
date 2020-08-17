@@ -4,8 +4,8 @@ import { saveAs } from 'file-saver';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 
-import { FormatUtils, FormatTypes} from '../pombase-query';
-import { QueryService } from '../query.service';
+import { FormatUtils, FormatTypes, GeneQuery} from '../pombase-query';
+import { QueryService, QueryOutputOptions, GAFOptions } from '../query.service';
 import { AppConfig, getAppConfig, GeneResultsFieldConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
@@ -38,6 +38,8 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   selectedFields: { [key: string]: boolean } = {'uniquename': true};
 
+  selectedAspects: { [key: string]: boolean } = {};
+
   constructor(private queryService: QueryService,
               private settingsService: SettingsService,
               public bsModalRef: BsModalRef,
@@ -47,13 +49,25 @@ export class GenesDownloadDialogComponent implements OnInit {
     this.fields.map(fieldConfig => {
       this.fieldConfigByName[fieldConfig.name] = fieldConfig;
     });
+
+    for (const aspect of this.appConfig.goAspects) {
+      this.selectedAspects[aspect] = true;
+    }
   }
 
   private currentTab(): string {
+    if (!this.staticTabs) {
+      return null;
+    }
+
     if (this.staticTabs.tabs[0].active) {
       return 'delimited';
     } else {
-      return 'sequence';
+      if (this.staticTabs.tabs[1].active) {
+        return 'sequence';
+      } else {
+        return 'gaf';
+      }
     }
   }
 
@@ -85,6 +99,10 @@ export class GenesDownloadDialogComponent implements OnInit {
     }
   }
 
+  aspectDisplayName(aspectName: string): string {
+    return aspectName.replace("_", " ");
+  }
+
   private rowsAsTSV(rows: Array<Array<string>>): string {
     return rows.map((row) => row.join('\t')).join('\n');
   }
@@ -96,12 +114,37 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   isValid() {
-    for (let fieldName of this.fieldNames) {
-      if (this.selectedFields[fieldName]) {
-        return true;
+    if (!this.currentTab()) {
+      return false;
+    }
+
+    if (this.currentTab() === 'gaf') {
+      for (const aspect of Object.keys(this.selectedAspects)) {
+        if (this.selectedAspects[aspect]) {
+          return true;
+        }
+      }
+    } else {
+      for (let fieldName of this.fieldNames) {
+        if (this.selectedFields[fieldName]) {
+          return true;
+        }
       }
     }
+
     return false;
+  }
+
+  downloadTitle(): string {
+    if (this.isValid()) {
+      return 'Start download';
+    } else {
+      if (this.currentTab() === 'gaf') {
+        return 'Select at least one aspect';
+      } else {
+        return 'Select at least one column to download';
+      }
+    }
   }
 
   private selectedFieldNames(): Array<string> {
@@ -166,11 +209,40 @@ export class GenesDownloadDialogComponent implements OnInit {
       });
   }
 
+  downloadGAF(): void {
+    const geneUniquenames = this.genes.map(gene => gene.uniquename)
+    let selectedAspects = [];
+    for (const aspect of Object.keys(this.selectedAspects)) {
+      if (this.selectedAspects[aspect]) {
+        selectedAspects.push(aspect);
+      }
+    }
+    const options = new QueryOutputOptions([], [], 'none', new GAFOptions(selectedAspects));
+    const query = GeneQuery.fromGeneUniquenames('GAF download', geneUniquenames);
+    this.queryService.postQuery(query, options)
+      .then(results => {
+        const fileName = 'gene_results.gaf.tsv';
+
+        let gafString = '';
+        for (const resultRow of results.getRows()) {
+          const gafLines = resultRow.gaf_lines;
+          gafString += gafLines;
+        }
+
+        const blob = new Blob([gafString], { type: 'text' });
+        saveAs(blob, fileName);
+      });
+  }
+
   download() {
     if (this.currentTab() === 'delimited') {
       this.downloadDelimited();
     } else {
-      this.downloadSequence();
+      if (this.currentTab() === 'sequence') {
+        this.downloadSequence();
+      } else {
+        this.downloadGAF();
+      }
     }
 
     this.bsModalRef.hide();
