@@ -3,12 +3,17 @@
 
 At present, PomBase can host any types of data that can be connected
 with sequence features or coordinates, and can display the data as
-tracks in the genome browser. We 
-accept data in any of several formats.
+tracks in the genome browser. We accept data in any of several
+formats. To choose a file format for your data, consult the table
+below and the linked FAQs. 
+
+Also please see the [HTP data submission
+page](/documentation/data-submission-form-for-HTP-sequence-linked-data)
+for instructions and submission templates, and [consult the
+helpdesk](mailto:helpdesk@pombase.org) to submit a file or if you need
+further assistance.
+
 <!-- [accept data](/submit-data/data-submission-form) in any of several formats. -->
-To choose a file format for your data, consult the table below and the
-linked FAQs. Please [consult the helpdesk](mailto:helpdesk@pombase.org) to submit a file or if you need further
-assistance.
 
 File format | Recommended for
 ------------|----------------
