@@ -1,6 +1,6 @@
 # The Fission Yeast Community Curation Project
 
-Comprehensive manual curation of the S. pombe literature is a primary
+Comprehensive manual curation of the *S. pombe* literature is a primary
 goal of the PomBase project, and among the most important activities
 of the curation staff. Increasing numbers of new publications, and a
 large backlog of older papers, however, mean that complete literature
@@ -39,6 +39,14 @@ data from annotated papers widely visible.
   publication-centred links in Canto, we are currently investigating
   possible ways to link to external resources such as ORCID or OpenRIF
   via ORCID IDs.
+
+**Further reading:** For an in-depth analysis of our approach, and the
+  status of community curation as of early 2019, see our publication:
+
+Lock A, Harris MA, Rutherford K, Hayles J, Wood V.\
+Community curation in PomBase: enabling fission yeast experts to provide detailed, standardized, sharable annotation from research publications.
+*Database (Oxford)* 2020 Jan 1;2020. pii: baaa028.\
+[PMID:32353878](http://www.ncbi.nlm.nih.gov/pubmed/32353878) [DOI:10.1093/database/baaa028](https://doi.org/10.1093/database/baaa028)
 
 For a bit of historical perspective, you can browse the results of the
 [Community Curation Pilot Project](community/fission-yeast-community-curation-pilot-project)
