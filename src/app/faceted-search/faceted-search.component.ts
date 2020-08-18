@@ -27,10 +27,9 @@ export class FacetedSearchComponent implements OnInit {
   results: SolrSearchResults = null;
 
   private solrSub: Subscription = null;
-  private trimmedQuery = '';
   private queryChanged: Subject<string> = new Subject<string>();
 
-  constructor(private pombaseApiService: PombaseAPIService,
+  constructor(pombaseApiService: PombaseAPIService,
               private settingsService: SettingsService,
               private solrSearch: SolrSearchService) {
 
@@ -39,7 +38,6 @@ export class FacetedSearchComponent implements OnInit {
 
     this.solrSub = this.queryChanged.pipe(
       map(query => {
-        this.trimmedQuery = '';
         let trimmed = query.trim();
         if (trimmed.length === 0) {
           this.searchState = SearchState.ShowHelp;
@@ -48,7 +46,6 @@ export class FacetedSearchComponent implements OnInit {
             this.searchState = SearchState.TooShort;
           }
         }
-        this.trimmedQuery = trimmed;
         settingsService.currentSearchText = trimmed;
         return trimmed;
       }),
