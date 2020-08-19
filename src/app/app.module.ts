@@ -114,7 +114,6 @@ import { JbrowseTrackPickerComponent } from './jbrowse-track-picker/jbrowse-trac
 import { StatsRibbonComponent } from './stats-ribbon/stats-ribbon.component';
 import { AllCvVersionsComponent } from './all-cv-versions/all-cv-versions.component';
 import { InternalDetailsComponent } from './internal-details/internal-details.component';
-import { FacetedSearchComponent } from './faceted-search/faceted-search.component';
 
 export function documentFactory() {
     return document;
@@ -205,7 +204,6 @@ export function windowFactory() {
     StatsRibbonComponent,
     AllCvVersionsComponent,
     InternalDetailsComponent,
-    FacetedSearchComponent,
   ],
   imports: [
     BrowserModule,

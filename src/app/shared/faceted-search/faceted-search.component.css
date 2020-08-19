@@ -1,0 +1,41 @@
+.result-block {
+  margin: 0.6em 0 1em 1em;
+  background-color: #f9faf5;
+  padding: 0.5em;
+}
+
+@media (min-width: 600px) {
+  .input-area input {
+    width: 25em;
+  }
+}
+
+@media (max-width: 600px) {
+  .input-area input {
+    width: 15em;
+  }
+}
+
+::ng-deep .result-block em {
+  font-style: inherit;
+  font-weight: bold;
+}
+
+.citation {
+  font-style: italic;
+}
+
+.block-heading {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+.search-status {
+  padding-left: 1em;
+  color: #333;
+  min-width: 10em;
+}
+
+.input-reset {
+  margin-left: 0.3em;
+}

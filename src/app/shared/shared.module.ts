@@ -29,6 +29,7 @@ import { Ng2SimplePageScrollModule } from '../ng2-simple-page-scroll/ng2-simple-
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 import { SocialContactComponent } from './social-contact/social-contact.component';
 import { GeneResultsSlimTableComponent } from './gene-results-slim-table/gene-results-slim-table.component';
+import { FacetedSearchComponent } from './faceted-search/faceted-search.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -63,6 +64,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DetailsPageMenuComponent,
     SocialContactComponent,
     GeneResultsSlimTableComponent,
+    FacetedSearchComponent,
   ],
   declarations: [
     SlimTableComponent,
@@ -85,6 +87,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SocialContactComponent,
     GeneResultsSlimTableComponent,
     QueryDescriptionDisplayComponent,
+    FacetedSearchComponent,
   ],
 })
 export class SharedModule { }

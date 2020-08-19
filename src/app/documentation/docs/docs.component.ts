@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, NavigationStart } from '@angular/router';
 
 import { getAppConfig, AppConfig } from '../../config';
+import { DeployConfigService } from '../../deploy-config.service'
 import { Subscription } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 
@@ -24,6 +25,7 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private router: Router,
               private titleService: Title,
+              public deployConfigService: DeployConfigService,
               private readonly meta: Meta,
               @Inject('Window') private window: any,
               private renderer2: Renderer2,

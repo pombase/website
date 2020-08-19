@@ -410,9 +410,13 @@ sub angular_link {
 
 sub process_line {
   my $line_ref = shift;
+  my $quote_angular_elements = !shift;
+
   $$line_ref =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
   if ($$line_ref !~ /<!--.*-->/) {
-   $$line_ref =~ s|(<app-[^>]+>)|`$1`{=html}|g;
+    if ($quote_angular_elements) {
+      $$line_ref =~ s|(<app-[^>]+>)|`$1`{=html}|g;
+    }
    $$line_ref =~ s|\b(\d\d\d\d-\d\d-\d\d)\b|<span class="no-break">$1</span>|g;
   }
 }
@@ -524,8 +528,17 @@ sub contents_for_template {
       } else {
       open my $file, '<', "$markdown_docs/$details" or die "can't open $details: $!";
 
+      my $in_raw_html_block = 0;
+
       while (my $line = <$file>) {
-        process_line(\$line);
+        if ($line eq "\`\`\`{=html}\n") {
+          $in_raw_html_block = 1;
+        } else {
+          if ($in_raw_html_block && $line eq '```') {
+            $in_raw_html_block = 0;
+          }
+        }
+        process_line(\$line, $in_raw_html_block);
         $ret .= $line;
       }
 

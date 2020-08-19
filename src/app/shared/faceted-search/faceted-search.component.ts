@@ -1,10 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { SolrSearchService, SolrSearchResults } from '../solr-search.service';
-import { PombaseAPIService, GeneSummaryMap } from '../pombase-api.service';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Params } from '@angular/router';
+
+import { SolrSearchService, SolrSearchResults } from '../../solr-search.service';
+import { PombaseAPIService, GeneSummaryMap } from '../../pombase-api.service';
+import { getAppConfig } from '../../config';
 import { Subscription, Subject } from 'rxjs';
 import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { SettingsService } from '../settings.service';
+import { SettingsService } from '../../settings.service';
 
 enum SearchState {
   ShowHelp = 0,
@@ -20,11 +24,19 @@ enum SearchState {
   styleUrls: ['./faceted-search.component.css']
 })
 export class FacetedSearchComponent implements OnInit {
+  @Input() scope: string;
   geneSummaries: GeneSummaryMap = null;
   query = '';
   SearchState = SearchState;
   searchState: SearchState = SearchState.ShowHelp;
   results: SolrSearchResults = null;
+  appConfig = getAppConfig();
+
+  displayScopeMap: { [scope: string]: string } = {
+    term: 'ontology terms',
+    doc: 'documentation and FAQ',
+    ref: 'references',
+  };
 
   private solrSub: Subscription = null;
   private queryChanged: Subject<string> = new Subject<string>();
@@ -51,7 +63,7 @@ export class FacetedSearchComponent implements OnInit {
       }),
       debounceTime(250),
       distinctUntilChanged(),
-      switchMap(query => this.solrSearch.search(query)))
+      switchMap(query => this.solrSearch.search(this.scope, query)))
       .subscribe((results: SolrSearchResults) => {
         if (results.status === 'Ok') {
           this.results = results;

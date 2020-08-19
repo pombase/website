@@ -61,19 +61,19 @@ export interface SolrSearchResults {
   providedIn: 'root'
 })
 export class SolrSearchService {
-  private solrSearchUrl = '/api/v1/dataset/latest/search/all';
+  private solrSearchUrl = '/api/v1/dataset/latest/search/';
 
   constructor(private http: HttpClient) { }
 
 
-  search(query: string): Observable<SolrSearchResults> {
+  search(scope: string, query: string): Observable<SolrSearchResults> {
     query = query.trim();
     if (query.length === 0) {
       return Observable.from([]);
     }
 
-    return this.http.get(this.solrSearchUrl + '/' + encodeURI(query))
+    return this.http.get(this.solrSearchUrl + '/' + scope + '/' + encodeURI(query))
       .pipe(map((body: HttpResponse<any>) => body as unknown as SolrSearchResults),
-        catchError(err => of({ status: 'ERROR', peptide_matches: [] } as unknown as SolrSearchResults)));
+            catchError(err => of({ status: err, term_matches: [], ref_matches: [], doc_matches: [] } as unknown as SolrSearchResults)));
   }
 }

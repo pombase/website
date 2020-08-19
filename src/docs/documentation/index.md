@@ -1,5 +1,15 @@
 # PomBase Web Site Help & Documentation
 
+
+```{=html}
+<div *ngIf="!deployConfigService.productionMode()"  class="doc-search">
+<div class="doc-search-title">
+Search documentation and FAQ:
+</div>
+<app-faceted-search [scope]="'doc'"></app-faceted-search>
+</div>
+```
+
 ### Gene Pages ### {#DocsGenePage}
 
 -   [Basic information](documentation/gene-page-basic-information)

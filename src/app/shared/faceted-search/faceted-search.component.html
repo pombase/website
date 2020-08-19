@@ -1,0 +1,44 @@
+<div id="faceted-search" *ngIf="geneSummaries">
+
+  <div class="input-area">
+    <input type="text" [(ngModel)]="query" placeholder="Search ..."
+           (ngModelChange)="queryChange($event)" />
+    <a class="input-reset" (click)="resetSearch()">clear</a>
+
+    <span class="search-status" *ngIf="searchState == SearchState.SomeResults">
+      &nbsp;
+    </span>
+
+    <span class="search-status" *ngIf="searchState == SearchState.ShowHelp">
+      &nbsp;
+    </span>
+
+    <span class="search-status" *ngIf="searchState == SearchState.TooShort">
+      Too short
+    </span>
+
+    <span class="search-status" *ngIf="searchState == SearchState.Searching">
+      Searching ...
+    </span>
+
+    <span class="search-status" *ngIf="searchState == SearchState.NoResults">
+      No matches
+    </span>
+
+  </div>
+
+  <div *ngIf="searchState == SearchState.SomeResults" class="results-container">
+    <div class="terms-block result-block">
+      <div class="block-heading">Search results:</div>
+      <div *ngIf="results.doc_matches.length == 0">
+        No matching documentation
+      </div>
+      <ul>
+        <li *ngFor="let match of results.doc_matches">
+          <a routerLink="/{{match.id}}"><b>{{match.heading}}</b></a>
+          <div *ngIf="match.hl.content" [innerHTML]="match.hl.content"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -5881,6 +5881,12 @@ PomBase using the Ensembl viewer.</p>
   </div>
   <div *ngIf="pageName == 'index'">
 <h1 id="pombase-web-site-help-documentation">PomBase Web Site Help &amp; Documentation</h1>
+<div *ngIf="!deployConfigService.productionMode()"  class="doc-search">
+<div class="doc-search-title">
+Search documentation and FAQ:
+</div>
+<app-faceted-search [scope]="'doc'"></app-faceted-search>
+</div>
 <h3 id="DocsGenePage">Gene Pages</h3>
 <ul>
 <li><a routerLink="/documentation/gene-page-basic-information">Basic information</a></li>

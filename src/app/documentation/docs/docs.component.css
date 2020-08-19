@@ -4,10 +4,6 @@
   margin: 0 0 0 2em;
 }
 
-.docs-content table {
-/*  width: 100%; */
-}
-
 .docs-content td {
   padding: 4px;
   min-width: 5em;
@@ -42,4 +38,20 @@
 
 .clear-float {
   clear: both;
+}
+
+.doc-search {
+  padding: 1em 0 1em 1em;
+}
+
+@media (min-width: 1200px) {
+  .doc-search {
+    float: right;
+    width: 36em;
+  }
+}
+
+.doc-search-title {
+  padding-bottom: 0.5em;
+  font-size: 110%;
 }
