@@ -3749,10 +3749,14 @@ the total annotated genes.
   </div>
   <div *ngIf="pageName == 'fission-yeast-community-curation-project'">
 <h1 id="the-fission-yeast-community-curation-project">The Fission Yeast Community Curation Project</h1>
-<p>Comprehensive manual curation of the S. pombe literature is a primary goal of the PomBase project, and among the most important activities of the curation staff. Increasing numbers of new publications, and a large backlog of older papers, however, mean that complete literature curation will require input from the research community as well as the efforts of dedicated professional curators.</p>
+<p>Comprehensive manual curation of the <em>S. pombe</em> literature is a primary goal of the PomBase project, and among the most important activities of the curation staff. Increasing numbers of new publications, and a large backlog of older papers, however, mean that complete literature curation will require input from the research community as well as the efforts of dedicated professional curators.</p>
 <p>The PomBase Community Curation system enables researchers to contribute annotations directly to PomBase based on their publications using Canto, a web-based tool that allows both curators and researchers to create annotations. Canto supports GO, phenotype, interaction, and modification annotations, and can be configured for use with other ontologies as the need arises. Annotations made in the community curation system will be prioritized for inclusion in PomBase and will therefore also be more rapidly disseminated to other databases (e.g. GenBank/ENA/DDBJ, UniProtKB, BioGRID and GO), making data from annotated papers widely visible.</p>
 <p><strong>How to contribute</strong>: For newly published papers, PomBase curators email authors inviting them to participate, with specific instructions and links. Lab members are also welcome to evaluate existing annotations and create new annotations from past publications — use the PubMed ID search on the <a href="https://curation.pombase.org/pombe">main PomBase Canto page</a>. Anyone can also try the <a href="https://curation.pombase.org/demo">demo version of Canto</a>.</p>
 <p><strong>Progress and attribution</strong>: <a href="https://curation.pombase.org/pombe/stats/annotation">Curation statistics</a> track S. pombe papers curated in Canto by PomBase and community curators, and the annotations obtained. Canto will soon allow contributors to register <a href="http://orcid.org/">ORCID</a> identifiers in the system, which will support more formalised attribution of community contributions to PomBase, and thereby enable researchers to cite community curation in institutional reports, funding applications, etc. To supplement the existing permanent publication-centred links in Canto, we are currently investigating possible ways to link to external resources such as ORCID or OpenRIF via ORCID IDs.</p>
+<p><strong>Further reading:</strong> For an in-depth analysis of our approach, and the status of community curation as of early 2019, see our publication:</p>
+<p>Lock A, Harris MA, Rutherford K, Hayles J, Wood V.<br />
+Community curation in PomBase: enabling fission yeast experts to provide detailed, standardized, sharable annotation from research publications. <em>Database (Oxford)</em> 2020 Jan 1;2020. pii: baaa028.<br />
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/32353878">PMID:32353878</a> <a href="https://doi.org/10.1093/database/baaa028">DOI:10.1093/database/baaa028</a></p>
 <p>For a bit of historical perspective, you can browse the results of the <a routerLink="/community/fission-yeast-community-curation-pilot-project">Community Curation Pilot Project</a> that took place in 2009.</p>
 
   </div>
@@ -4716,6 +4720,7 @@ the total annotated genes.
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-phenotypes">Phenotypes</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-target">Target of</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-protein-features">Protein features</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-transcript">Transcript</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-modifications">Modifications</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-gene-expression">Gene expression</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/genetic-and-physical-interactions">Genetic and physical interactions</a></div>
@@ -5367,7 +5372,8 @@ PomBase using the Ensembl viewer.</p>
   <div *ngIf="pageName == 'data-submission-form-for-HTP-sequence-linked-data'">
 <h2 id="htp-sequence-linked-data-submission-instructions">HTP sequence-linked data submission instructions</h2>
 <p>PomBase welcomes submissions of published HTP sequence-linked data, suitable for viewing in a genome browser. We require JBrowse compliant data files and associated metadata descriptions. Please see the <a href="/faq/what-file-formats-can-i-use-submit-high-throughput-data">FAQ on file formats</a> for links to the file format descriptions, and other entries in the <a href="https://www.pombase.org/faq/data-submission-and-formats">data submission FAQ category</a> for more information.</p>
-<p>We have devised a tab-delimited text file format for the metadata we need. Include a header line that labels the columns – use the entry in the Contents column below as the column header text.</p>
+<p>We have devised a file format for the metadata we need, with downloadable spreadsheet templates available in <a href="ftp://ftp.pombase.org/pombe/documents/HTP_submisssion_template.xlt">Excel</a> and <a href="ftp://ftp.pombase.org/pombe/documents/HTP_submisssion_template.ots">Open Document Format</a> (FTP site links). Letters in the table below refer to spreadsheet columns.</p>
+<p>If you prefer, you can prepare a file without using the template. Create a tab-delimited text file, and include a header line that labels the columns, using the entry in the Contents column below as the column header text.</p>
 <table>
 <thead>
 <tr class="header">
@@ -5380,140 +5386,133 @@ PomBase using the Ensembl viewer.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
+<td>1 (A)</td>
 <td>Data type</td>
 <td>Transcripts, Chromatin binding, Nucleosome positioning, Poly(A) sites, Replication origins</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="even">
-<td>2</td>
+<td>2 (B)</td>
 <td>Track label</td>
 <td>see below for format and examples***</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td>Assayed protein</td>
+<td>3 (C)</td>
+<td>Assayed gene product</td>
 <td>Fkh2</td>
 <td>Only required for chromatin binding data, to specify the protein binding to chromatin</td>
 <td>No</td>
 </tr>
 <tr class="even">
-<td>4</td>
-<td>Experimental background alleles</td>
-<td>cdc25-22, leu1-1</td>
+<td>4 (D)</td>
+<td>Strain background</td>
+<td>h- cdc25-22, leu1-1</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
 <tr class="odd">
-<td>5</td>
+<td>5 (E)</td>
 <td>WT or mutant (strains with only background mutations are considered WT)</td>
 <td>WT</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="even">
-<td>6</td>
+<td>6 (F)</td>
 <td>Mutant alleles</td>
 <td>clr4delta, dfp1-3A</td>
 <td>No</td>
 <td>Yes</td>
 </tr>
 <tr class="odd">
-<td>7</td>
-<td>Mating type</td>
-<td>h90, h+, h-</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr class="even">
-<td>8</td>
+<td>7 (G)</td>
 <td>Conditions</td>
 <td>YES, high temperature; glucose MM, standard temperature + HU</td>
 <td>No</td>
 <td>No</td>
 </tr>
-<tr class="odd">
-<td>9</td>
+<tr class="even">
+<td>8 (H)</td>
 <td>Comment</td>
 <td>free-text field for additional information</td>
 <td>No</td>
 <td>Yes</td>
 </tr>
-<tr class="even">
-<td>10</td>
+<tr class="odd">
+<td>9 (I)</td>
 <td>Growth phase or response</td>
 <td>vegetative growth, meiosis, quiescence, glucose starvation, oxidative stress, heat shock</td>
 <td>Yes</td>
 <td>Yes if the track combines data</td>
 </tr>
-<tr class="odd">
-<td>11</td>
+<tr class="even">
+<td>10 (J)</td>
 <td>Strand</td>
 <td>forward, reverse</td>
 <td>No</td>
 <td>No</td>
 </tr>
-<tr class="even">
-<td>12</td>
+<tr class="odd">
+<td>11 (K)</td>
 <td>Assay type</td>
 <td>tiling microarray, RNA-seq, HT sequencing</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
-<tr class="odd">
-<td>13</td>
-<td>First author</td>
+<tr class="even">
+<td>12 (L)</td>
+<td>First author (surname)</td>
 <td>Soriano</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
-<tr class="even">
-<td>14</td>
+<tr class="odd">
+<td>13 (M)</td>
 <td>Publication year</td>
 <td>2020</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
-<tr class="odd">
-<td>15</td>
+<tr class="even">
+<td>14 (N)</td>
 <td>PubMed ID</td>
 <td>31077324</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
+<tr class="odd">
+<td>15 (O)</td>
+<td>Database</td>
+<td>GEO, ArrayExpress</td>
+<td>Required for data available in public repository databases</td>
+<td>No</td>
+</tr>
 <tr class="even">
-<td>16</td>
+<td>16 (P)</td>
 <td>Study ID</td>
 <td>GSE110976, PRJEB7403</td>
-<td>Yes</td>
+<td>Required if the Database column has an entry</td>
 <td>No</td>
 </tr>
 <tr class="odd">
-<td>17</td>
-<td>Database</td>
-<td>GEO, ArrayExpress</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr class="even">
-<td>18</td>
+<td>17 (Q)</td>
 <td>Sample ID</td>
 <td>GSM3019628, ERS555567</td>
 <td>No</td>
 <td>Yes</td>
 </tr>
-<tr class="odd">
-<td>19</td>
+<tr class="even">
+<td>18 (R)</td>
 <td>Data file type</td>
 <td>bigwig, bed</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
-<tr class="even">
-<td>20</td>
+<tr class="odd">
+<td>19 (S)</td>
 <td>File name</td>
 <td>name given to submitted data file relevant to the track</td>
 <td>Yes</td>
@@ -5522,8 +5521,9 @@ PomBase using the Ensembl viewer.</p>
 </tbody>
 </table>
 <p><strong>Track label format</strong></p>
-<p>The track label must uniquely describe each track. For consistency in track label descriptions, please try and follow the following format as closely as possible:</p>
-<p>“Assayed protein” “data type” “in mutant” “during Growth phase or response” “additional experimental detail of importance (Mating type, Conditions, Experimental background alleles)” “; repeat” “(strand)” “- First author (Publication year)”</p>
+<p>The track label must uniquely describe each track. For consistency in track label descriptions, please follow the recommended format as closely as possible:</p>
+<p>“Assayed gene product” “Data type” “in mutant” “during Growth phase or response” “additional experimental detail of importance (Conditions, Strain background)” “; repeat” “(strand)” “- First author (Publication year)”</p>
+<p>Examples:</p>
 <ul>
 <li>Nucleosome positioning during vegetative growth; repeat 1 - Gonzalez et al. (2016)</li>
 <li>Poly(A) sites during meiosis (forward strand) - Schlackow et al. (2013)</li>
@@ -5824,6 +5824,20 @@ PomBase using the Ensembl viewer.</p>
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'gene-page-transcript'">
+<h2 id="gene-page-transcript">Gene page: Transcript</h2>
+<p>The Transcript section of a gene page shows the positions of introns and exons in each transcript graphical and table formats.</p>
+<figure>
+<img src="assets/gene_page_transcript.png" width="800" alt="" /><figcaption>Transcript section</figcaption>
+</figure>
+<ol type="1">
+<li><p>ID and genomic location. The transcript systematic ID is the gene systematic ID with “.1” appended. (When PomBase adds support for alternative transcripts, they will receive sequentially numbered suffixes.)</p></li>
+<li><p>In the default view, intron and exon positions are shown in the table as genomic coordinates. When the “Show transcript coordinates” button is checked, positions in the table are numbered using the annotated transcription start site as 1.</p></li>
+<li><p>Mouse over any exon or intron to highlight its coordinates in the table, and bring up a box with position details. Genomic coordinates and within-transcript positions appear in the pop-up no matter which is selected in the main display.</p></li>
+<li><p>Mouse over any entry in the exon/intron tables to show the box with position details.</p></li>
+</ol>
+
+  </div>
   <div *ngIf="pageName == 'genetic-and-physical-interactions'">
 <h2 id="genetic-and-physical-interactions">Genetic and physical interactions</h2>
 <p>The Interactions section of a gene page displays genetic and physical interactions for a gene (or its product), in <a href="http://thebiogrid.org/">BioGRID</a> format. All interactions are curated manually by PomBase or BioGRID curators.</p>
@@ -5873,6 +5887,7 @@ PomBase using the Ensembl viewer.</p>
 <li><a routerLink="/documentation/gene-page-gene-ontology">Gene Ontology</a></li>
 <li><a routerLink="/documentation/gene-page-phenotypes">Phenotypes</a></li>
 <li><a routerLink="/documentation/gene-page-target">Target of</a></li>
+<li><a routerLink="/documentation/gene-page-transcript">Transcript</a></li>
 <li><a routerLink="/documentation/gene-page-protein-features">Protein features</a></li>
 <li><a routerLink="/documentation/gene-page-modifications">Modifications</a></li>
 <li><a routerLink="/documentation/gene-page-gene-expression">Gene expression</a></li>
@@ -8481,10 +8496,11 @@ Example queries:
 <!-- pombase_categories: Data submission and formats,Genome browser -->
 <p>PomBase welcomes large sets of published data. The recommended submission route depends on the data type:</p>
 <ul>
-<li>For any data that can be associated with genome sequence coordinates (e.g. gene expression, ChIP-seq protein localisation, variation, etc.), we can add data tracks to Jrlowse. Please see the <a href="/submit-data">data submission page</a> for instructions. <!-- use the <a routerLink="/submit-data/data-submission-form">data submission form for HTP sequence-linked data</a>. --></li>
-<li>Several types of data associated with genes can be displayed on gene pages. PomBase has developed bulk upload formats for phenotype, modification, and gene expression data – see the <a routerLink="/faq/what-file-formats-can-i-use-submit-high-throughput-data">FAQ on file formats</a> for links to the file format descriptions and data submission forms.</li>
+<li>For any data that can be associated with genome sequence coordinates (e.g. gene expression, ChIP-seq protein localisation, variation, etc.), we can add data tracks to JBrowse. Please see the <a href="/documentation/data-submission-form-for-HTP-sequence-linked-data">HTP data submission page</a> for instructions and submission templates.</li>
+<li>Several types of data associated with genes can be displayed on gene pages. PomBase has developed bulk upload formats for phenotype, modification, and gene expression data – see the <a href="/submit-data/bulk-annotation">Annotation data submission page</a> and the <a href="/faq/what-file-formats-can-i-use-submit-high-throughput-data">FAQ on file formats</a> for links to the file format descriptions and data submission forms.</li>
 </ul>
 <p>If you have any other type of large-scale data – or if you have problems or questions regarding the available submission forms – please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
+<!-- use the <a routerLink="/submit-data/data-submission-form">data submission form for HTP sequence-linked data</a>. -->
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-can-i-use-go-slims-s.-pombe', 'How can I use GO slims with S. pombe?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-use-go-slims-s.-pombe' || pageName == 'all-faqs'">
@@ -8691,7 +8707,9 @@ Example queries:
 <div (click)="faq_navigate($event, '/faq/what-file-formats-can-i-use-submit-high-throughput-data', 'What file formats can I use to submit high-throughput data?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-file-formats-can-i-use-submit-high-throughput-data' || pageName == 'all-faqs'">
 <h3 id="what-file-formats-can-i-use-submit-high-throughput-data">What file formats can I use to submit high-throughput data?</h3>
 <!-- pombase_categories: Data submission and formats -->
-<p>At present, PomBase can host any types of data that can be connected with sequence features or coordinates, and can display the data as tracks in the genome browser. We accept data in any of several formats. <!-- <a routerLink="/submit-data/data-submission-form">accept data</a> in any of several formats. --> To choose a file format for your data, consult the table below and the linked FAQs. Please <a href="mailto:helpdesk@pombase.org">consult the helpdesk</a> to submit a file or if you need further assistance.</p>
+<p>At present, PomBase can host any types of data that can be connected with sequence features or coordinates, and can display the data as tracks in the genome browser. We accept data in any of several formats. To choose a file format for your data, consult the table below and the linked FAQs.</p>
+<p>Also please see the <a href="/documentation/data-submission-form-for-HTP-sequence-linked-data">HTP data submission page</a> for instructions and submission templates, and <a href="mailto:helpdesk@pombase.org">consult the helpdesk</a> to submit a file or if you need further assistance.</p>
+<!-- <a routerLink="/submit-data/data-submission-form">accept data</a> in any of several formats. -->
 <table>
 <thead>
 <tr class="header">
