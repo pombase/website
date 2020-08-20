@@ -110,8 +110,8 @@
         <th *ngFor="let fieldConfig of visibleFields">
           <div *ngIf="sortableField(fieldConfig.name)">
             <a *ngIf="orderByFieldName != fieldConfig.name" (click)="setOrderBy(fieldConfig.name)"
-               title="Click to sort">{{fieldConfig.display_name}}</a>
-            <span *ngIf="orderByFieldName == fieldConfig.name">{{fieldConfig.display_name}}</span>
+               title="Click to sort">{{fieldConfig.display_name}}<img src="assets/sort_both.svg"/></a>
+            <span *ngIf="orderByFieldName == fieldConfig.name">{{fieldConfig.display_name}}<img title="Sorted by: {{fieldConfig.display_name}}" src="assets/sort_up.svg"/></span>
           </div>
           <div *ngIf="!sortableField(fieldConfig.name)">
             {{fieldConfig.display_name}}
