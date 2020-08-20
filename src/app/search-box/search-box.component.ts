@@ -37,6 +37,8 @@ class DisplayModel {
       this.name = this.name.slice(0, 42) + '...';
     }
     if (this.otherDetails) {
+      this.otherDetails =
+        this.otherDetails.filter(detail => detail && detail.length > 0);
       for (let idx = 0; idx < this.otherDetails.length; idx++) {
         const otherDetail = this.otherDetails[idx];
         if (otherDetail.length > 55) {
