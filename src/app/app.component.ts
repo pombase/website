@@ -11,6 +11,7 @@ import 'rxjs/add/operator/mergeMap';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 import { getAppConfig } from './config';
+import { DeployConfigService } from './deploy-config.service'
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
   defaultDescription = getAppConfig().site_description;
 
   constructor(
+    public deployConfigService: DeployConfigService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,

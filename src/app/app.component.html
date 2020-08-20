@@ -25,12 +25,41 @@
 </div>
 
 <div id="footer">
+  <span class="footer-line">
   {{siteName}} is funded by
   the <a href="http://www.wellcome.ac.uk/">Wellcome Trust</a>,
   run by a consortium comprising
   the <a href="http://www.cam.ac.uk/">University of Cambridge</a>,
   <a href="http://www.ucl.ac.uk/">University College London</a>,
   and hosted by the <a href="http://www.babraham.ac.uk">Babraham Institute</a>.
+  </span>
+  <span *ngIf="!deployConfigService.productionMode()"
+        class="footer-line">
+    {{siteName}} is an <a href="https://elixiruknode.org/node-services/">ELIXIR-UK Node Service</a>
+  </span>
 </div>
+
+<div *ngIf="!deployConfigService.productionMode()" id="footer-logos">
+  <a href="https://wellcome.ac.uk/">
+    <img style="background-color: black" height="64px"
+         src="assets/wellcome-logo.svg" alt="Wellcome Trust"/>
+  </a>
+  <a href="https://www.sysbiol.cam.ac.uk/">
+    <img height="64px" src="assets/sysbiol_logo-64px.png"
+         alt="Cambridge Systems Biology Centre"/>
+  </a>
+  <a href="https://www.cam.ac.uk/">
+    <img height="64px"
+         src="assets/cambridge-logo-64px.png" alt="University of Cambridge"/>
+  </a>
+  <a href="https://www.ucl.ac.uk/">
+    <img height="64px"
+         src="assets/ucl_logo-64px.png" alt="University College London"/>
+  </a>
+  <a href="https://elixir-europe.org/">
+    <img height="64px" src="assets/elixir-logo-64px.png" alt="ELIXIR"/>
+  </a>
+</div>
+
 </div>
 <!-- <cookie-law>This site uses cookies</cookie-law> -->

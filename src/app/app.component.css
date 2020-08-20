@@ -83,6 +83,18 @@
   clear: both;
   flex-shrink: 0;
 }
+.footer-line {
+  display: inline-block;
+}
+
+#footer-logos {
+  text-align: center;
+  clear: both;
+  flex-shrink: 0;
+}
+#footer-logos img {
+  margin: 1em;
+}
 
 @media (min-width: 600px) {
   #header-search-box {
