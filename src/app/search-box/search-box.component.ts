@@ -33,8 +33,16 @@ class DisplayModel {
               public name: string,
               public otherDetails: Array<string>,
               public organism: ConfigOrganism = null) {
-    if (this.name && this.name.length > 50) {
-      this.name = this.name.slice(0, 48) + '...';
+    if (this.name && this.name.length > 45) {
+      this.name = this.name.slice(0, 42) + '...';
+    }
+    if (this.otherDetails) {
+      for (let idx = 0; idx < this.otherDetails.length; idx++) {
+        const otherDetail = this.otherDetails[idx];
+        if (otherDetail.length > 55) {
+          this.otherDetails[idx] = otherDetail.slice(0, 53) + '...';
+        }
+      }
     }
   }
 }
@@ -94,11 +102,13 @@ export class SearchBoxComponent implements OnInit {
   }
 
   makeTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
-    return new DisplayModel('Matching terms:', termResult.termid, termResult.name, null);
+    return new DisplayModel('Matching terms:', termResult.termid, termResult.name,
+                            [termResult.definition]);
   }
 
   makeRefDisplayModel(refResult: SolrRefSummary): DisplayModel {
-    return new DisplayModel('Matching publications:', refResult.pubmedid, refResult.title, [refResult.citation]);
+    return new DisplayModel('Matching publications:', refResult.pubmedid, refResult.title,
+                            [refResult.citation]);
   }
 
   nameExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
@@ -327,10 +337,10 @@ export class SearchBoxComponent implements OnInit {
         .pipe(
           map(([geneRes, termRes, refRes]) => {
             const maxGenes = 8;
-            const maxTerms = 5;
+            const maxTerms = 6;
             const geneCount = geneRes.length;
             const termCount = termRes.length;
-            let refCount = 3;
+            let refCount = 5;
             if (geneCount + termCount < maxGenes + maxTerms) {
               refCount += (maxGenes + maxTerms) - (geneCount + termCount);
             }

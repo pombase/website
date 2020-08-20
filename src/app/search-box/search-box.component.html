@@ -20,10 +20,6 @@
   </div>
 </ng-template>
 
-<span class="search-info small-screen-search-info" [style.visibility]="noMatches() ? 'visible' : 'hidden'">
-  No matches
-</span>
-
 <span *ngIf="searchSummaries.length == 0 && !geneSummariesFailed" class="data-loading-message">Loading ...</span>
 <span *ngIf="searchSummaries.length == 0 && geneSummariesFailed" class="data-loading-message data-loading-error">
   Search box initialisation failed - try reloading
@@ -43,16 +39,17 @@
        (typeaheadOnSelect)="typeaheadOnSelect($event)"
        (typeaheadNoResults)="typeaheadNoResults($event)"
        [typeaheadOptionField]="'name'"
-       typeaheadOptionsLimit="20"
+       [typeaheadOptionsInScrollableView]="10"
+       [typeaheadOptionsLimit]="20"
        class="form-control search-box">
 
 <span *ngIf="isInitialised()" class="search-help">
     <img [popover]="searchHelpPopover"
-         triggers="mouseenter:mouseleave" placement="bottom"
+         triggers="mouseenter:mouseleave" placement="right"
          container="body"
          src="/assets/info_icon.svg">
 </span>
 
-<span class="search-info big-screen-search-info" [style.visibility]="noMatches() ? 'visible' : 'hidden'">
+<span class="search-info" [style.visibility]="noMatches() ? 'visible' : 'hidden'">
   No matches
 </span>
