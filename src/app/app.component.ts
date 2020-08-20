@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 
-import { Router, NavigationStart, ActivatedRoute, NavigationEnd, Data } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd, Data } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import 'rxjs/add/operator/filter';
@@ -9,8 +9,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 import { getAppConfig } from './config';
 
