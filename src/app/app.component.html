@@ -33,13 +33,12 @@
   <a href="http://www.ucl.ac.uk/">University College London</a>,
   and hosted by the <a href="http://www.babraham.ac.uk">Babraham Institute</a>.
   </span>
-  <span *ngIf="!deployConfigService.productionMode()"
-        class="footer-line">
+  <span class="footer-line">
     {{siteName}} is an <a href="https://elixiruknode.org/node-services/">ELIXIR-UK Node Service</a>
   </span>
 </div>
 
-<div *ngIf="!deployConfigService.productionMode()" id="footer-logos">
+<div id="footer-logos">
   <a href="https://wellcome.ac.uk/">
     <img style="background-color: black" height="64px"
          src="assets/wellcome-logo.svg" alt="Wellcome Trust"/>
