@@ -1,21 +1,22 @@
 <div id="app-component">
-  <div id="header">
-    <div id="header-main">
-      <div id="logo-and-slogan">
-        <a id="header-anchor"></a>
-        <div id="logo">
-          <a routerLink="/" routerLinkActive="active" title="{{siteName}} home">
-            <img src="assets/pombase-logo.png" alt="{{siteName}} home" />
-          </a>
-        </div>
-      </div>
-      <div id="header-search-box">
-        <app-search-box></app-search-box>
-      </div>
-    </div>
+<div id="header-row">
+<a id="header-anchor"></a>
+<div id="header-content">
+<div id="logo-and-slogan">
+<div id="logo">
+  <a routerLink="/" routerLinkActive="active" title="{{siteName}} home">
+    <img src="assets/pombase-logo.png" alt="{{siteName}} home" />
+  </a>
+</div>
+</div>
+<div id="header-search-box">
+  <app-search-box></app-search-box>
+</div>
+</div>
 
-    <app-main-nav-bar></app-main-nav-bar>
-  </div>
+<app-main-nav-bar></app-main-nav-bar>
+
+</div>
 
 <div id="content">
 
