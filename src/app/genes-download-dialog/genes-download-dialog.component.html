@@ -45,28 +45,33 @@
 
             <div class="flanking-bases">
               <input id="upstream-bases" type="number" min="0" value="0"
-                     [(ngModel)]="upstreamBases"/>
+                     [(ngModel)]="upstreamBases" (ngModelChange)="nucControlChange()"/>
               <label for="upstream-bases">bases upstream</label>
             </div>
-            <div id="include-5-prime">
-              <input type="checkbox" [(ngModel)]="include5PrimeUtr"/>
+            <div>
+              <input id="include-5-prime" type="checkbox" [(ngModel)]="include5PrimeUtr"
+                     (ngModelChange)="nucControlChange()"/>
               <label for="include-5-prime">5'UTR (protein-coding genes only)</label>
             </div>
-            <div id="include-exons">
-              <input type="checkbox" disabled [(ngModel)]="includeExons"/>
+            <div>
+              <input id="include-exons" type="checkbox" [disabled]="disableIncludeExons"
+                     [attr.title]="disableIncludeExons ? 'Select some up/down stream bases, UTRs or introns for download to enable this toggle' : ''"
+                     [(ngModel)]="includeExons" (ngModelChange)="nucControlChange($event)"/>
               <label for="include-exons">Exons</label>
             </div>
-            <div id="include-introns">
-              <input type="checkbox" [(ngModel)]="includeIntrons"/>
+            <div>
+              <input id="include-introns" type="checkbox" [(ngModel)]="includeIntrons"
+                     (ngModelChange)="nucControlChange()"/>
               <label for="include-introns">Introns</label>
             </div>
-            <div id="include-3-prime">
-              <input type="checkbox" [(ngModel)]="include3PrimeUtr"/>
+            <div>
+              <input id="include-3-prime" type="checkbox" [(ngModel)]="include3PrimeUtr"
+                     (ngModelChange)="nucControlChange()"/>
               <label for="include-3-prime">3'UTR (protein-coding genes only)</label>
             </div>
             <div class="flanking-bases">
               <input id="downstream-bases" type="number" min="0" value="0"
-                     [(ngModel)]="downstreamBases"/>
+                     [(ngModel)]="downstreamBases" (ngModelChange)="nucControlChange()"/>
               <label for="downstream-bases">bases downstream</label>
             </div>
           </div>

@@ -47,14 +47,6 @@
   margin: 0.3em;
 }
 
-#include-exons {
-  color: #999;
-}
-
-input[type=checkbox]:disabled +label {
-  color: grey;
-}
-
 .select-all-action {
   grid-row: span 2;
   margin-top: 1.5em;

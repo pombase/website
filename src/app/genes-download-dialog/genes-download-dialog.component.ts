@@ -11,6 +11,7 @@ import { DeployConfigService } from '../deploy-config.service';
 
 import { GeneShort } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
+import { faSignLanguage } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-genes-download-dialog',
@@ -26,6 +27,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   public seqType = 'protein';
   public includeIntrons = false;
   public includeExons = true;
+  public disableIncludeExons = true;
   public include5PrimeUtr = false;
   public include3PrimeUtr = false;
   public upstreamBases = 0;
@@ -103,6 +105,17 @@ export class GenesDownloadDialogComponent implements OnInit {
     return aspectName.replace("_", " ");
   }
 
+  nucControlChange($event: any): void {
+    if (!this.include3PrimeUtr && !this.include5PrimeUtr &&
+        !this.includeIntrons &&
+        this.upstreamBases == 0 && this.downstreamBases == 0) {
+      this.includeExons = true;
+      this.disableIncludeExons = true;
+    } else {
+      this.disableIncludeExons = false;
+    }
+  }
+
   private rowsAsTSV(rows: Array<Array<string>>): string {
     return rows.map((row) => row.join('\t')).join('\n');
   }
@@ -175,6 +188,7 @@ export class GenesDownloadDialogComponent implements OnInit {
       return {
         nucleotide: {
           include_introns: this.includeIntrons,
+          include_exons: this.includeExons,
           include_5_prime_utr: this.include5PrimeUtr,
           include_3_prime_utr: this.include3PrimeUtr,
           upstream_bases: this.upstreamBases,
