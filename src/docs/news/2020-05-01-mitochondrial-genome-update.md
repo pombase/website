@@ -1,5 +1,4 @@
 ### Mitochondrial genome update
-g
 <!-- newsfeed_thumbnail: mitogenome.png -->
 
 The mitochondrial genome sequence in PomBase has been updated to
