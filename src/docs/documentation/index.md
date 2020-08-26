@@ -4,7 +4,7 @@
 ```{=html}
 <div *ngIf="!deployConfigService.productionMode()"  class="doc-search">
 <div class="doc-search-title">
-Search documentation and FAQ:
+Search documentation, news archive and FAQ:
 </div>
 <app-faceted-search [scope]="'doc'"></app-faceted-search>
 </div>
