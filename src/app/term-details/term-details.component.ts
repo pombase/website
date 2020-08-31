@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Inject,
-         HostListener } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -29,8 +28,6 @@ export class TermDetailsComponent implements OnInit {
   singleAlleleGenotypeCount = 0;
   appConfig: AppConfig = getAppConfig();
 
-  menuPositionFixed = false;
-
   subsets: TermSubsets = {};
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -40,22 +37,6 @@ export class TermDetailsComponent implements OnInit {
               private readonly meta: Meta,
               @Inject('Window') private window: any
              ) { }
-
-  @HostListener('window:scroll', ['$event'])
-  scrollEvent(event: any) {
-    if (typeof(document) !== 'undefined') {
-      // see: http://stackoverflow.com/questions/28633221/document-body-scrolltop-firefox-returns-0-only-js
-      let scrollingElement = document.scrollingElement || document.documentElement;
-
-      if (scrollingElement.scrollTop > 115) {
-        this.menuPositionFixed = true;
-      } else {
-        this.menuPositionFixed = false;
-      }
-    } else {
-      this.menuPositionFixed = false;
-    }
-  }
 
   setPageTitle(): void {
     let title = this.appConfig.site_name + ' - Ontology term - ';
