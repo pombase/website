@@ -11,7 +11,6 @@ import { DeployConfigService } from '../deploy-config.service';
 
 import { GeneShort } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
-import { faSignLanguage } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-genes-download-dialog',
