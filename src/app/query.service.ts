@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Subject, BehaviorSubject } from 'rxjs';
-import { TimerObservable } from 'rxjs/observable/TimerObservable';
+import { Subject, BehaviorSubject, timer } from 'rxjs';
 import { GeneQuery, QueryResult, QueryIdNode, GeneUniquename, ResultRow, TermAndName } from './pombase-query';
 import { getAppConfig } from './config';
 import { PombaseAPIService, GeneSummaryMap, GeneSummary } from './pombase-api.service';
@@ -126,10 +125,12 @@ export class QueryService {
           }
         };
 
-        let timer = TimerObservable.create(0.2);
-        timer.subscribe(() => {
+        const timer$ = timer(0.2);
+        const subscription = timer$.subscribe(() => {
           this.setAllCounts();
         });
+
+        subscription.unsubscribe();
       }
       this.subject = new BehaviorSubject(this.history);
     } catch (e) {
@@ -420,8 +421,8 @@ export class QueryService {
       (histEntry: HistoryEntry, delay: number) => {
         const query = histEntry.getQuery();
 
-        let timer = TimerObservable.create(delay);
-        const subscription = timer.subscribe(() => {
+        let timer$ = timer(delay);
+        const subscription = timer$.subscribe(() => {
           this.postQueryCount(query)
             .then((res) => {
               histEntry.setUpdatedCount(res.getRowCount());
