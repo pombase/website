@@ -1,5 +1,4 @@
 ### New ontology slimming options for advanced search results 
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: dropdown_menu.png -->
 
 The PomBase [advanced search](/query) results panel now allows you to

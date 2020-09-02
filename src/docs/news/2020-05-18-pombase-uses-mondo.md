@@ -1,5 +1,4 @@
 ### PomBase adopts MONDO for disease gene curation
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: human disease.png -->
 
 PomBase has switched from the [Disease

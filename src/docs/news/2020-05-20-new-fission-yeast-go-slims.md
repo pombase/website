@@ -1,5 +1,4 @@
 ### New fission yeast GO slims
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: dropdown_menu.png -->
 
 To complement the overview provided by the [fission yeast GO

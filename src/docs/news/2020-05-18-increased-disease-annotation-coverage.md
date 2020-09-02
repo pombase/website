@@ -1,5 +1,4 @@
 ### Improved gene-disease curation
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: human disease.png -->
 
 PomBase disease gene curation associates disease descriptors with
