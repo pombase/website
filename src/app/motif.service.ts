@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable, throwError, of } from 'rxjs';
-import 'rxjs/add/observable/from';
+import { Observable, of, from } from 'rxjs';
 
-import { getAppConfig } from './config';
 import { catchError, map } from 'rxjs/operators';
 
 export interface MotifPeptideMatch {
@@ -38,7 +36,7 @@ export class MotifService {
   motifSearch(scope: string, motif: string): Observable<MotifSearchResults> {
     motif = motif.trim();
     if (motif.length === 0) {
-      return Observable.from([]);
+      return from([]);
     }
 
     return this.http.get(this.motifSearchUrl + '/' + scope + '/' + encodeURI(motif))

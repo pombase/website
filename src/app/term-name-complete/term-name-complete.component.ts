@@ -2,8 +2,8 @@ import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angu
 import { CompleteService } from '../complete.service';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/switchMap';
+import { Observable, of } from 'rxjs';
+import { switchMap, catchError } from 'rxjs/operators';
 
 import { TermShort } from '../pombase-query';
 
@@ -20,13 +20,17 @@ export class TermNameCompleteComponent implements OnInit, OnChanges {
 
   public selectedTerm = '';
 
-  constructor(private completeService: CompleteService) {
+  constructor(completeService: CompleteService) {
     this.dataSource =
       Observable.create((observer: any) => {
         observer.next(this.selectedTerm);
       })
-      .switchMap((token: string) =>
-                 completeService.completeTermName(this.cvName, token));
+      .pipe(switchMap((token: string) =>
+                      completeService.completeTermName(this.cvName, token)),
+            catchError(e => {
+              console.log('completion API call failed: ' + e.message);
+              return of([]);
+            }));
   };
 
   ngOnInit() {

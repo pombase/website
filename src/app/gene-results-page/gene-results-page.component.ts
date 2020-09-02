@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { Subscription } from 'rxjs';
-
+import { Subscription, timer } from 'rxjs';
 import { QueryService } from '../query.service';
 import { QueryResult, GeneQuery } from '../pombase-query';
 import { getAppConfig } from '../config';
@@ -64,8 +62,8 @@ export class GeneResultsPageComponent implements OnInit, OnDestroy {
 
   private handleResults(resultPromise: Promise<QueryResult>) {
     this.showLoading = false;
-    const timer = TimerObservable.create(400);
-    this.timerSubscription = timer.subscribe(t => {
+    const timer$ = timer(400);
+    this.timerSubscription = timer$.subscribe(_ => {
       this.showLoading = true;
     });
     this.err = null;

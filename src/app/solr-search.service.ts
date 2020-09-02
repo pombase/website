@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import 'rxjs/add/observable/from';
+import { Observable, of, from } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 export interface TermMatch {
@@ -69,7 +68,7 @@ export class SolrSearchService {
   search(scope: string, query: string): Observable<SolrSearchResults> {
     query = query.trim();
     if (query.length === 0) {
-      return Observable.from([]);
+      return from([]);
     }
 
     return this.http.get(this.solrSearchUrl + '/' + scope + '/' + encodeURI(query))

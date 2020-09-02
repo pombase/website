@@ -1,10 +1,10 @@
 import { GeneDetails, ThroughputType } from './pombase-api.service';
 import { TermAndName } from './pombase-query';
 
-const goXrfConfigMap = require('./config/go-xrf-abbr-external-links.json');
-const docConfig = require('./config/doc-config.json');
-const pombaseConfig =  require('../../pombase_v2_config.json');
-const jbrowseTracks =  require('../../minimal_jbrowse_track_list.json');
+import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
+import docConfig from './config/doc-config.json';
+import pombaseConfig from '../../pombase_v2_config.json';
+import jbrowseTracks from '../../minimal_jbrowse_track_list.json';
 
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;

@@ -320,13 +320,21 @@ export class SearchBoxComponent implements OnInit {
   getTermMatches(token: string): Observable<Array<DisplayModel>> {
     return this.completeService.completeTermName(this.cvNamesForTermComplete, token)
       .pipe(map((termResults: Array<SolrTermSummary>) =>
-           termResults.map(termResult => this.makeTermDisplayModel(termResult))));
+           termResults.map(termResult => this.makeTermDisplayModel(termResult))),
+            catchError(e => {
+              console.log('completion API call failed: ' + e.message);
+              return of([]);
+            }));
   }
 
   getRefMatches(token: string): Observable<Array<DisplayModel>> {
     return this.completeService.completeRef(token)
       .pipe(map((refResults: Array<SolrRefSummary>) =>
-           refResults.map(refResult => this.makeRefDisplayModel(refResult))));
+           refResults.map(refResult => this.makeRefDisplayModel(refResult))),
+            catchError(e => {
+              console.log('completion API call failed: ' + e.message);
+              return of([]);
+            }));
   }
 
   observableFromToken(token: string): Observable<Array<DisplayModel>> {

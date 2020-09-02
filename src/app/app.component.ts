@@ -4,9 +4,7 @@ import { Meta } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd, Data } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
+import { filter, map, mergeMap } from 'rxjs/operators';
 
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
@@ -30,24 +28,25 @@ export class AppComponent implements OnInit {
     private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) { }
 
   ngOnInit() {
-    this.router.events
-      .filter(event => event instanceof NavigationEnd)
-      .map(() => this.activatedRoute)
-      .map(route => {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => this.activatedRoute),
+      map((route: ActivatedRoute) => {
         while (route.firstChild) {
           route = route.firstChild;
         }
         return route;
-      })
-      .filter(route => route.outlet === 'primary')
-      .mergeMap(route => route.data)
-      .subscribe((event: Data) => {
-        if (event.defaultTitleDetail) {
-          const title = this.siteName + ' - ' + event.defaultTitleDetail;
-          this.titleService.setTitle(title);
-          this.meta.updateTag({ property: 'og:title', content: title });
-        }
-        this.window.scrollTo(0, 0);
-      });
+      }),
+      filter((route: ActivatedRoute) => route.outlet === 'primary'),
+      mergeMap((route: ActivatedRoute) => route.data)
+    )
+    .subscribe((event: Data) => {
+      if (event.defaultTitleDetail) {
+        const title = this.siteName + ' - ' + event.defaultTitleDetail;
+        this.titleService.setTitle(title);
+        this.meta.updateTag({ property: 'og:title', content: title });
+      }
+      this.window.scrollTo(0, 0);
+    });
   }
 }

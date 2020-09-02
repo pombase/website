@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { retryWhen, delay, take, timeout } from 'rxjs/operators';
+import { retryWhen, delay, take, timeout, mergeMap, catchError, concatMap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import 'rxjs/add/operator/mergeMap';
 
 const RETRY_DELAY = 3000;
 const RETRY_COUNT = 10;
@@ -41,17 +40,22 @@ export class HttpRetryService {
     return this.http.get<any>(url, getOptions)
       .pipe(
         retryWhen((errors) => {
-        return errors
-          .mergeMap((error) => {
-            if (error.status === 404) {
-              return throwError(error);
-            } else {
-              return of(error);
-            }
-          })
-          .pipe(delay(options.retryDelay), take(options.retryCount));
-       }),
-       timeout(options.requestTimeout)
+          return errors
+            .pipe(
+              mergeMap((error) => {
+                if (error.status === 404) {
+                  return throwError(error);
+                } else {
+                  return of(error);
+                }
+              }),
+              delay(options.retryDelay),
+              take(options.retryCount),
+              mergeMap(err => throwError(`server access failed after ${options.retryCount} retries, error: ${err}`))
+            )
+        }),
+        timeout(options.requestTimeout),
+        catchError(e => throwError(e))
       );
   }
 

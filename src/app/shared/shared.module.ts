@@ -24,7 +24,8 @@ import { PageContentsMenuComponent } from './page-contents-menu/page-contents-me
 import { CvVersionComponent } from './cv-version/cv-version.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsPageMenuComponent } from './details-page-menu/details-page-menu.component';
-import { Ng2SimplePageScrollModule } from '../ng2-simple-page-scroll/ng2-simple-page-scroll.module';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
 
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 import { SocialContactComponent } from './social-contact/social-contact.component';
@@ -38,7 +39,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     RouterModule,
     FormsModule,
-    Ng2SimplePageScrollModule.forRoot(),
+    NgxPageScrollCoreModule.forRoot({duration: 0}),
+    NgxPageScrollModule,
     TabsModule.forRoot(),
     PopoverModule.forRoot(),
     BsDropdownModule.forRoot(),
