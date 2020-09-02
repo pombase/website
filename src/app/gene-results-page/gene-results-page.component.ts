@@ -63,6 +63,9 @@ export class GeneResultsPageComponent implements OnInit, OnDestroy {
   private handleResults(resultPromise: Promise<QueryResult>) {
     this.showLoading = false;
     const timer$ = timer(400);
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
     this.timerSubscription = timer$.subscribe(_ => {
       this.showLoading = true;
     });
