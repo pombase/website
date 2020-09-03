@@ -20,6 +20,8 @@ template. Create a tab-delimited text file, and include a header line
 that labels the columns, using the entry in the Contents column below
 as the column header text.
 
+### File columns
+
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
 1 (A) | Data type | Transcripts, Chromatin binding, Nucleosome positioning, Poly(A) sites, Replication origins | Yes | No
@@ -43,7 +45,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 19 (S) | File name | name given to submitted data file relevant to the track | Yes | No 
 
 
-**Track label format**
+### Track label format
 
 The track label must uniquely describe each track. For consistency in track label descriptions, please follow the recommended format as closely as possible: 
 
@@ -59,6 +61,6 @@ Examples:
  * Replication origins in dfp1-3A synchronized by elutriation and hydroxyurea arrest - Xu et al. (2012)
  * Transcription start sites during oxidative stress (reverse strand) - Thodberg et al. (2018)
 
-**Submit**
+### Submit
 
 To submit the files, or if you have any questions, please [contact the PomBase curators](mailto:helpdesk@pombase.org).
