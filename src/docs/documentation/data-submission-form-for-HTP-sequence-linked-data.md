@@ -10,9 +10,9 @@ for more information.
     
 We have devised a file format for the metadata we need, with
 downloadable spreadsheet templates available in
-[Excel](ftp://ftp.pombase.org/pombe/documents/HTP_submisssion_template.xlt)
+[Excel](ftp://ftp.pombase.org/pombe/documents/HTP_submission_template.xlt)
 and [Open Document
-Format](ftp://ftp.pombase.org/pombe/documents/HTP_submisssion_template.ots)
+Format](ftp://ftp.pombase.org/pombe/documents/HTP_submission_template.ots)
 (FTP site links). Letters in the table below refer to spreadsheet columns.
 
 If you prefer, you can prepare a file without using the
