@@ -1,4 +1,4 @@
-### Published: Community curation in PomBase
+### Published: GO Term Matrix for annotation QC
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: go-logo-icon-mini.png -->
 
