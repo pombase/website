@@ -159,7 +159,7 @@ serine/threonine kinase activity and has the substrates
 [mei3](/gene/SPBC119.04) and [rst2](/gene/SPAC6F12.02). It is a
 cellular component of the nucleus during nitrogen starvation, but
 found in the vacuole during glucose starvation).
-g
+
 The GO Consortium provides further information on annotation
 extensions in its [file format guide](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/),
 on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension),
