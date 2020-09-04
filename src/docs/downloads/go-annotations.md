@@ -23,6 +23,12 @@ Also see the [list of protein complexes](ftp://ftp.pombase.org/pombe/annotations
 in the FTP directory, which uses GO macromolecular complex terms and
 IDs.
 
+Note that the contents of the file downloadable from PomBase may
+differ from files available elsewhere (e.g. see [this
+FAQ](why-are-go-annotations-different-between-pombase-and-uniprot-goa),
+and will not include annotations inferred by transitivity (see [this
+FAQ](/faq/why-are-go-terms-missing-from-the-downloadable-annotation-file)).
+
 Previous versions of the *S. pombe* GO annotation file can be retrieved
 from the [PomBase FTP archive](ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/OLD/).
 
