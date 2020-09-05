@@ -24,6 +24,7 @@ class DisplayTranscript {
         }
       }
       const displayPart = new DisplayPart(part, transcript.location,
+                                          transcript.transcript_type,
                                           exonCount, intronCount);
       this._displayParts.push(displayPart);
       totalLength += displayPart.baseLength();
@@ -101,6 +102,7 @@ class DisplayPart {
 
   constructor(private part: FeatureShort,
               private transcriptLocation: ChromosomeLocation,
+              private transcriptType: string,
               private exonCount: number, private intronCount: number) {
     this._id = part.uniquename.replace(/:/g, '-');
   }
@@ -129,7 +131,11 @@ class DisplayPart {
       return 'intron ' + this.intronCount;
     } else {
       if (this.type() === 'exon') {
-        return 'exon CDS ' + this.exonCount;
+        if (this.transcriptType === 'mRNA') {
+          return 'exon CDS ' + this.exonCount;
+        } else {
+          return 'exon ' + this.exonCount;
+        }
       } else {
         return this.displayType();
       }
