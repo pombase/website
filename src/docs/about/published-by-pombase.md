@@ -89,7 +89,22 @@ PomBase: a comprehensive online resource for fission yeast.\
 <div class="clear-float"></div>
 [PMID:22039153](http://www.ncbi.nlm.nih.gov/pubmed/22039153) [DOI:10.1093/nar/gkr853](http://dx.doi.org/DOI:10.1093/nar/gkr853)
 
-### Preprints <!-- comment out preprint section when there aren't any? -->
+
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1098/rsob.200149"></div>
+
+<div class="pub-citation">
+Valerie Wood, Seth Carbon, Midori A. Harris, Antonia Lock†, Stacia
+R. Engel, David P. Hill, Kimberly Van Auken, Helen Attrill, Marc
+Feuermann, Pascale Gaudet, Ruth C. Lovering, Sylvain Poux, Kim
+M. Rutherford and Christopher J. Mungall \
+Term Matrix: a novel Gene Ontology annotation quality control system based on ontology term co-annotation patterns \
+*Open Biol.* 10:200149
+</div>
+<div class="clear-float"></div>
+[PMID:32875947](http://www.ncbi.nlm.nih.gov/pubmed/32875947) [10.1098/rsob.200149](https://doi.org/10.1098/rsob.200149)
+
+<!-- comment out preprint section when there aren't any?
+### Preprints 
 
 Wood V, Carbon S, Harris MA, Lock A, Engel SR, Hill DP, Van Auken K, Attrill H, Feuermann M, Gaudet P, Lovering RC, Poux S, Rutherford KM, Mungall CJ.\
 Term Matrix: A novel Gene Ontology annotation quality control system based on ontology term co-annotation patterns\.
@@ -98,7 +113,7 @@ Term Matrix: A novel Gene Ontology annotation quality control system based on on
 Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
 Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
 [Pre-publication manuscript](https://www.biorxiv.org/content/early/2018/11/16/469569) available at bioRxiv.
-
+-->
 
 
 ### Book chapter
