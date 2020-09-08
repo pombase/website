@@ -1133,10 +1133,16 @@
   <td>not protein-coding (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24929437">PMID:24929437</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=26615217">PMID:26615217</a>)</td>
   <td>2015-12-11</td>
  </tr>
-    <tr>
+  <tr>
   <td>SPBC8E4.02c</td>
   <td>SPBC8E4.02c replaced by SPNCRNA.9001 (prt2) (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=29414789">PMID:29414789</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=29414789">PMID:29414789</a>)</td>
   <td>2018-10-11</td>
  </tr>
+  <tr>
+  <td>SPNCRNA.46</td>
+  <td>SPNCRNA.46 changed to 5' UTR of SPAC144.19 (prl46) (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=32594847">PMID:32594847</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=29414789">PMID:29414789</a>)</td>
+  <td>2020-09-08</td>
+ </tr>
  </tbody>
 </table>
+
