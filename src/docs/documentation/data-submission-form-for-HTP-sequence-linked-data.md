@@ -7,6 +7,19 @@ on file formats](/faq/what-file-formats-can-i-use-submit-high-throughput-data)
 for links to the file format descriptions, and other entries in the
 [data submission FAQ category](https://www.pombase.org/faq/data-submission-and-formats) 
 for more information.
+
+### Data files
+
+All features in data files need to use these chromosome IDs:
+
+-    I
+-    II
+-    III
+-    chr_II_telomeric_gap
+-    mitochondrial
+-    mating_type_region
+
+### Metadata
     
 We have devised a file format for the metadata we need, with
 downloadable spreadsheet templates available in
@@ -20,7 +33,7 @@ template. Create a tab-delimited text file, and include a header line
 that labels the columns, using the entry in the Contents column below
 as the column header text.
 
-### File columns
+#### File columns
 
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
@@ -45,7 +58,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 19 (S) | File name | name given to submitted data file relevant to the track | Yes | No 
 
 
-### Track label format
+#### Track label format
 
 The track label must uniquely describe each track. For consistency in track label descriptions, please follow the recommended format as closely as possible: 
 
