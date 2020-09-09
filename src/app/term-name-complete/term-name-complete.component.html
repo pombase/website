@@ -1,8 +1,14 @@
 <ng-template #termNameCompleteTemplate let-model="item" let-index="index">
-  <span>{{model.matchName}} ({{model.termid}})
+  <div>{{model.matchName}} ({{model.termid}})
     <span *ngIf="model.isSynonymMatch" class="synonym-match">synonym</span>
-  </span>
+  </div>
+  <div *ngIf="model.definition" class="term-definition">
+    {{model.definition}}
+  </div>
 </ng-template>
+
+{{selectedTerm}}
+
 <input #termNameCompleteBox
        placeholder="{{placeholder}}"
        [(ngModel)]="selectedTerm"

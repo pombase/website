@@ -486,3 +486,14 @@ label {
 .annotation-table-filter select {
   width: 10em;
 }
+
+button.dropdown-item.active > div.term-definition {
+  display: inline-block;
+  width: 53em;
+  font-size: 80%;
+  color: #fff;
+  margin: 0.1em 0.2em 0em 1em;
+  max-height: 3em;
+  white-space: normal;
+  overflow-y: hidden;
+}
