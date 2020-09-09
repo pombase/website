@@ -487,6 +487,10 @@ label {
   width: 10em;
 }
 
+button.dropdown-item {
+  padding: 0.2rem 0.5rem 0.2rem 1rem;
+}
+
 button.dropdown-item.active > div.term-definition {
   display: inline-block;
   width: 53em;
