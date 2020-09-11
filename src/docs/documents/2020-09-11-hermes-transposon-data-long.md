@@ -1,7 +1,5 @@
 ### Hermes transposon insertions in PomBase
 
-<!-- newsfeed_thumbnail: transposon.png -->
-
 PomBase now hosts transposon integration data from [Lee et
 al. 2020](https://www.pombase.org/reference/PMID:32101745). Henry
 Levin explains the background and significance of the work:
