@@ -12,7 +12,7 @@ the ontology. These inferred annotations are used in PomBase web pages
 and searches, but are not included in the GAF file. More information
 on ontology structure and annotation inference is available in
 documentation at [PomBase](/documentation/gene-page-gene-ontology) and
-GO )[ontology](http://geneontology.org/docs/ontology-documentation/)
+GO ([ontology](http://geneontology.org/docs/ontology-documentation/)
 and [annotation](http://geneontology.org/docs/go-annotations/).
 
 When you use GO annotations in any analysis, we strongly recommend
