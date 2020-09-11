@@ -1,8 +1,8 @@
 ### Hermes transposon insertions in PomBase
 <!-- newsfeed_thumbnail: transposon.png -->
 
-PomBase now hosts transposon integration data from [Lee et
-al. 2020](https://www.pombase.org/reference/PMID:32101745). Henry
+PomBase now hosts transposon integration data from
+[Lee et al. 2020](/reference/PMID:32101745). Henry
 Levin explains the background and significance of the work:
 
 "Transposon Integration Sequencing is a genome wide method of mapping
@@ -13,12 +13,11 @@ a pronounced lack of insertions in genes necessary for growth.  This
 method, originally developed to study bacteria is now used to
 characterize the genomes of several yeasts including *S. pombe*.  In
 earlier work we used the transposon Hermes to identify genes of
-*S. pombe* required for growth ([Guo et al., 2013, Genetics,
-PMID:23893486](https://www.pombase.org/reference/PMID:23893486)).  We
+*S. pombe* required for growth
+([Guo et al., 2013, Genetics, PMID:23893486](/reference/PMID:23893486)).  We
 have now applied Hermes and Transposon Integration Sequencing to
-identify genes important for the formation of heterochromatin ([Lee et
-al., 2020, Cell Reports,
-PMID:32101745](https://www.pombase.org/reference/PMID:32101745)).
+identify genes important for the formation of heterochromatin
+([Lee et al., 2020, Cell Reports, PMID:32101745](/reference/PMID:32101745)).
 Insertion sites from eight independent cultures can be visualized from
 PomBase as custom tracks on Jbrowse. Four cultures were of cells with
 ura4 silenced by cen1 heterochromatin. The other four cultures were of

@@ -417,7 +417,6 @@ sub process_line {
     if ($quote_angular_elements) {
       $$line_ref =~ s|(<app-[^>]+>)|`$1`{=html}|g;
     }
-   $$line_ref =~ s|\b(\d\d\d\d-\d\d-\d\d)\b|<span class="no-break">$1</span>|g;
   }
 }
 
