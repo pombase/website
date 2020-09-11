@@ -99,9 +99,12 @@ export class GenesTableComponent implements OnInit {
         .then(result => {
           this.cleanResult(result);
           this.displayGenes = result;
+          this.loading = false;
         })
-        .catch(err => console.error(err))
-        .finally(() => this.loading = false);
+        .catch(err => {
+          console.error(err);
+          this.loading = false;
+        });
 
       let geneBit = `${this.genes.length} gene`;
       if (this.genes.length !== 1) {
