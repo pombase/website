@@ -7,7 +7,7 @@ import { Util } from '../shared/util';
 import { GenotypeDetails, PombaseAPIService, APIError } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfig } from '../config';
-import { title } from 'process';
+
 
 @Component({
   selector: 'app-genotype-details',
@@ -45,8 +45,9 @@ export class GenotypeDetailsComponent implements OnInit {
   }
 
   setPageTitle(): void {
-    this.titleService.setTitle(this.appConfig.site_name + ' - Genotype - ' +
-                               this.displayNameForTitle);
+    const title = this.appConfig.site_name + ' - Genotype - ' +
+      this.displayNameForTitle;
+    this.titleService.setTitle(title);
     this.meta.updateTag({property: 'og:title', content: title});
     this.meta.updateTag({property: 'description', content: title});
   }
