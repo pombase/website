@@ -29,6 +29,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   has5PrimeUtr = false;
   has3PrimeUtr = false;
 
+  transcriptIndex = 0;
+
   geneStart: number = null;
   geneEnd: number = null;
   cdsStart: number = null;
@@ -54,7 +56,13 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
               @Inject('Window') private window: Window) { }
 
   updateHeader(sequenceLength: number) {
-    this.sequenceHeader = this.geneDetails.uniquename;
+    if (this.geneDetails.transcripts.length > 0) {
+      let transcript = this.geneDetails.transcripts[this.transcriptIndex];
+
+      this.sequenceHeader = transcript.uniquename || this.geneDetails.uniquename;
+    } else {
+      this.sequenceHeader = this.geneDetails.uniquename;
+    }
 
     this.sequenceHeader += ' length:' + sequenceLength;
 
@@ -169,7 +177,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.hasTranscripts = transcripts.length > 0;
 
     if (this.hasTranscripts) {
-      this.sequenceHeader = this.geneDetails.uniquename;
       if (this.upstreamBases < 0) {
         this.upstreamBases = 0;
       }
@@ -239,7 +246,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         .then((values) => {
           const upstreamSequence = values[0];
           let includedParts = [];
-          for (let part of transcripts[0].parts) {
+          for (let part of transcripts[this.transcriptIndex].parts) {
             if (part.feature_type === 'exon'  && this.includeExons ||
                 this.includeIntrons && part.feature_type === 'cds_intron' ||
                 this.include5PrimeUtr &&
@@ -318,15 +325,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     return this.protein !== null;
   }
 
-  ngOnChanges() {
+  transcriptChanged() {
     this.upstreamBases = 0;
     this.downstreamBases = 0;
 
-    this.showNucSequence = true;
-    this.includeExons = true;
-    this.includeIntrons = false;
-    this.include5PrimeUtr = false;
-    this.include3PrimeUtr = false;
     this.fivePrimeIntronCount = 0;
     this.threePrimeIntronCount = 0;
     this.cdsIntronCount = 0;
@@ -344,20 +346,19 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     let transcripts = this.geneDetails.transcripts;
 
     if (transcripts && transcripts.length > 0) {
-      this.protein = transcripts[0].protein;
+      let transcript = transcripts[this.transcriptIndex];
+      this.protein = transcript.protein;
 
       if (this.protein) {
-        this.proteinSequenceHeader = this.geneDetails.uniquename + ' length:' +
+        this.proteinSequenceHeader =
+          (transcript.uniquename || this.geneDetails.uniquename) + ' length:' +
           this.protein.number_of_residues;
         this.proteinDisplaySequence =
           DisplaySequence.newFromProtein(lineLength, this.protein);
         this.wrappedProteinSequence = Util.splitSequenceString(this.protein.sequence);
-
-        // for genes with protein sequences, default to showing the prot. sequence
-        this.showNucSequence = false;
       }
 
-      for (let part of transcripts[0].parts) {
+      for (let part of transcript.parts) {
         if (part.feature_type === 'five_prime_utr_intron') {
           this.fivePrimeIntronCount++;
         }
@@ -394,5 +395,22 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.prefetch();
 
     this.updateSequence();
+  }
+
+  ngOnChanges() {
+    this.showNucSequence = true;
+    this.includeExons = true;
+    this.includeIntrons = false;
+    this.include5PrimeUtr = false;
+    this.include3PrimeUtr = false;
+
+    this.protein = null;
+
+    this.transcriptChanged();
+
+    if (this.protein) {
+      // for genes with protein sequences, default to showing the prot. sequence
+      this.showNucSequence = false;
+    }
   }
 }

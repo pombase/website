@@ -7,6 +7,16 @@
     </app-help-link>
   </legend>
 
+  <div *ngIf="geneDetails.transcripts.length > 1" class="transcript-select">
+    Select a transcript:
+    <select [(ngModel)]="transcriptIndex" (change)="transcriptChanged()">
+      <option *ngFor = "let transcript of geneDetails.transcripts; let idx = index"
+              [ngValue]="idx">
+        {{transcript.uniquename}}
+      </option>
+    </select>
+  </div>
+
   <div (mousemove)="mousemove()">
     <div *ngIf="hasTranscripts">
         <div class="controls">
