@@ -229,15 +229,20 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   setProductSize(): void {
-    for (let transcript of this.geneDetails.transcripts) {
-      let protein = transcript.protein;
-      if (protein) {
-        let proteinSequenceLength = protein.number_of_residues;
-        let weight = Math.round(protein.molecular_weight * 100) / 100.0;
-        this.productSize = proteinSequenceLength + ' aa, ' + weight + ' kDa';
-      } else {
-        this.productSize = transcript.sequence.length + ' nt';
-      }
+    const transcripts = this.geneDetails.transcripts;
+    if (!transcripts || transcripts.length == 0) {
+      return;
+    }
+
+    const transcript = transcripts[0];
+    const protein = transcript.protein;
+
+    if (protein) {
+      const proteinSequenceLength = protein.number_of_residues;
+      const weight = Math.round(protein.molecular_weight * 100) / 100.0;
+      this.productSize = proteinSequenceLength + ' aa, ' + weight + ' kDa';
+    } else {
+      this.productSize = transcript.sequence.length + ' nt';
     }
   }
 
