@@ -60,7 +60,7 @@
                   class="part-location">
                 {{part.displayLocation(showTranscriptCoords)}}
               </td>
-              <td *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
+              <td *ngIf="part.nextPart() && part.nextPart().type().includes('intron')"
                   [class.highlight-part]="part.nextPart().partId() == transcript.getHighlightedPart()"
                   (mouseenter)="transcript.setHighlightedPart(part.nextPart().partId())"
                   [popover]="'' + popoverContent(part)"
@@ -68,7 +68,7 @@
                   class="part-name-column-3">
                 {{part.nextPart().displayName()}}
               </td>
-              <td *ngIf="part.nextPart() && part.nextPart().type() === 'cds_intron'"
+              <td *ngIf="part.nextPart() && part.nextPart().type().includes('intron')"
                   [class.highlight-part]="part.nextPart().partId() == transcript.getHighlightedPart()"
                   (mouseenter)="transcript.setHighlightedPart(part.nextPart().partId())"
                   [popover]="'' + popoverContent(part)"
