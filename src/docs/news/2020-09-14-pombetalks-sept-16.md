@@ -6,10 +6,9 @@ The next online PombeTalks will take place on Wednesday **16th September**
 2020 at 17:00 [Central European
 Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/):
 
+- **Susan Forsburg**, University of Southern California: *Visualizing replication stress*
 
-- **Sigurd Braun**, LMU MUnich: Spatial control of silent chromatin*
-
-- **Susan Forsburg**, USC: *Visualizing genome instability*
+- **Sigurd Braun**, Ludwig-Maximilians-Universität, München: *Gene repression at the nuclear membrane: Multifaceted roles of Lem2*
 
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
