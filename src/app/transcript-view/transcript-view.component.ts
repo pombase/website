@@ -8,6 +8,7 @@ class DisplayTranscript {
   private _nonIntronParts: Array<DisplayPart> = [];
   private _hightlightedPartId: string = null;
   private _locationString: string = null;
+  private _padding: DisplayPart = null;
 
   constructor(geneLocation: ChromosomeLocation,
               private transcript: TranscriptDetails) {
@@ -16,6 +17,38 @@ class DisplayTranscript {
     let intronCount = 0;
 
     const geneLength = geneLocation.end_pos - geneLocation.start_pos + 1;
+
+    let paddingLocation: ChromosomeLocation = null;
+
+    if (transcript.location.strand === 'forward') {
+      if (transcript.location.start_pos - geneLocation.start_pos > 0) {
+        paddingLocation = {
+          chromosome_name: transcript.location.chromosome_name,
+          start_pos: geneLocation.start_pos,
+          end_pos: transcript.location.start_pos - 1,
+          strand: transcript.location.strand,
+        } as ChromosomeLocation;
+      }
+    } else {
+      if (geneLocation.end_pos - transcript.location.end_pos > 0) {
+        paddingLocation = {
+          chromosome_name: transcript.location.chromosome_name,
+          start_pos: transcript.location.end_pos +1,
+          end_pos: geneLocation.end_pos,
+          strand: transcript.location.strand,
+        } as ChromosomeLocation;
+      }
+    }
+
+    if (paddingLocation) {
+      const fakePaddingPart = {
+        feature_type: 'padding',
+        uniquename: transcript.uniquename + ':padding',
+        location: paddingLocation,
+        residues: '',
+      } as FeatureShort;
+      this._padding = new DisplayPart(fakePaddingPart, transcript.location, 'padding', 0, 0);
+    }
 
     for (const part of transcript.parts) {
       if (part.feature_type == 'exon') {
@@ -29,6 +62,10 @@ class DisplayTranscript {
                                           transcript.transcript_type,
                                           exonCount, intronCount);
       this._displayParts.push(displayPart);
+    }
+
+    if (this._padding) {
+      this._padding.setDivVW(geneLength);
     }
 
     for (let i = 0; i < this._displayParts.length; i++) {
@@ -72,6 +109,10 @@ class DisplayTranscript {
 
   public getHighlightedPart(): string {
     return this._hightlightedPartId;
+  }
+
+  public padding(): DisplayPart {
+    return this._padding;
   }
 
   public displayParts(): Array<DisplayPart> {
