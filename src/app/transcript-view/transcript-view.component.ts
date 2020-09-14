@@ -9,11 +9,13 @@ class DisplayTranscript {
   private _hightlightedPartId: string = null;
   private _locationString: string = null;
 
-  constructor(private transcript: TranscriptDetails) {
-    let totalLength = 0;
+  constructor(geneLocation: ChromosomeLocation,
+              private transcript: TranscriptDetails) {
 
     let exonCount = 0;
     let intronCount = 0;
+
+    const geneLength = geneLocation.end_pos - geneLocation.start_pos + 1;
 
     for (const part of transcript.parts) {
       if (part.feature_type == 'exon') {
@@ -27,7 +29,6 @@ class DisplayTranscript {
                                           transcript.transcript_type,
                                           exonCount, intronCount);
       this._displayParts.push(displayPart);
-      totalLength += displayPart.baseLength();
     }
 
     for (let i = 0; i < this._displayParts.length; i++) {
@@ -40,7 +41,7 @@ class DisplayTranscript {
         const previousPart = this._displayParts[i-1];
         displayPart.setPrevious(previousPart);
       }
-      displayPart.setDivVW(totalLength);
+      displayPart.setDivVW(geneLength);
     }
 
     this._nonIntronParts =
@@ -236,15 +237,18 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
   constructor() { }
 
   updateDisplayStrings() {
-    const location = this.geneDetails.location;
-    const chromosomeName = location.chromosome_name;
+    const geneLocation = this.geneDetails.location;
+    const chromosomeName = geneLocation.chromosome_name;
     const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
     this.displayTranscripts = [];
 
     this.chromosomeDisplayName = chromosomeConfig.short_display_name || chromosomeName;
 
+    let longestTranscriptLength = -1;
+
     for (const transcript of this.transcripts) {
-      this.displayTranscripts.push(new DisplayTranscript(transcript));
+      const displayTranscript = new DisplayTranscript(geneLocation, transcript);
+      this.displayTranscripts.push(displayTranscript);
     }
   }
 
