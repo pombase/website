@@ -7,9 +7,14 @@
     <div *ngFor="let transcript of displayTranscripts; let idx = index">
 
       <div *ngIf="idx == 0" id="toggles-and-key">
-        <div title="Check box to show coordinates with respect to the start of the transcript">
-          <input [(ngModel)]="showTranscriptCoords" id="coord-type" type="checkbox" />
-          <label for="coord-type">Show transcript coordinates</label>
+        <div title="Check the box to show a table of exon/intron/UTR positions">
+          <input [(ngModel)]="showCoordTable" id="show-coord-table" type="checkbox"/>
+          <label for="show-coord-table">Show exon/intron/UTR positions</label>
+        </div>
+        <div *ngIf="showCoordTable"
+             title="Check the box to show positions with respect to the start of the transcript">
+          <input [(ngModel)]="showTranscriptCoords" id="show-transcript-coords" type="checkbox" />
+          <label for="show-transcript-coords">Show transcript positions</label>
         </div>
 
         <div id="key">
@@ -43,7 +48,7 @@
           </div>
           <div class="arrow"></div>
         </div>
-        <div class="coords">
+        <div *ngIf="showCoordTable" class="coords">
           <table>
             <tr *ngFor="let part of transcript.nonIntronParts(); index as idx; trackBy: partTrackBy">
               <td [class.highlight-part]="part.partId() == transcript.getHighlightedPart()"

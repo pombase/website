@@ -273,6 +273,7 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
 
   appConfig: AppConfig = getAppConfig();
 
+  showCoordTable = false;
   showTranscriptCoords = false;
 
   constructor() { }

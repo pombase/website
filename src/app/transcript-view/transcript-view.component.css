@@ -16,7 +16,7 @@
 
 .transcript-graphic {
   display: flex;
-  padding: 1.5em 1em 2em 1em;
+  padding: 1.2em 1em 0.8em 1em;
 }
 
 .transcript-graphic div {
@@ -76,6 +76,10 @@
   background-color: #222;
 }
 
+.coords {
+  padding-bottom: 1em;
+}
+
 .coords .highlight-part {
   font-weight: bold;
 }
@@ -112,12 +116,14 @@
 }
 
 #toggles-and-key {
-  width: 16em;
+  width: 18em;
   display: block;
-/*  position: absolute;*/
-  float: right;
-  background-color: #fff;
+  background-color: #fffd;
   padding: 0.2em 0 0 0.4em;
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  top: -0.4em;
 }
 
 #toggles-and-key label {
@@ -127,7 +133,7 @@
 
 @media (min-width: 1200px) {
   #toggles-and-key {
-    margin-right: 17vw;
+    margin-right: 10vw;
   }
 }
 
