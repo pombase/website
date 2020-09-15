@@ -123,7 +123,7 @@
   z-index: 100;
   position: absolute;
   right: 0;
-  top: -0.4em;
+  top: -1.4em;
 }
 
 #toggles-and-key label {
@@ -141,4 +141,8 @@
   #toggles-and-key {
     margin-right: 2vw;
   }
+}
+
+.annotation-table .annotation-table-container {
+  overflow-x: inherit;
 }

@@ -122,6 +122,11 @@ a, a:not([href]):not([tabindex]) {
   padding: 0 10px 6px 0;
 }
 
+.annotation-table .annotation-table-container {
+  /* https://stackoverflow.com/questions/52405038/absolute-div-inside-fieldset-with-legend */
+  position: relative;
+}
+
 @media (max-width: 1200px) {
   /* see: https://github.com/pombase/website/issues/1313 */
 .annotation-table .annotation-table-container {
