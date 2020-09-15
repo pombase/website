@@ -6988,12 +6988,6 @@ Search documentation, news archive and FAQ:
 
 </app-page-contents-menu>
   <div class="docs-content">
-  <div *ngIf="pageName == 'hermes-transposon-data-long'">
-<h3 id="hermes-transposon-insertions-in-pombase">Hermes transposon insertions in PomBase</h3>
-<p>PomBase now hosts transposon integration data from <a href="https://www.pombase.org/reference/PMID:32101745">Lee et al. 2020</a>. Henry Levin explains the background and significance of the work:</p>
-<p>“Transposon Integration Sequencing is a genome wide method of mapping sequences that contribute to growth. High throughput sequencing of transposon integration sites in haploid cells with single insertions reveals which genes are dispensable. Once propagated, cultures exhibit a pronounced lack of insertions in genes necessary for growth. This method, originally developed to study bacteria is now used to characterize the genomes of several yeasts including <em>S. pombe</em>. In earlier work we used the transposon Hermes to identify genes of <em>S. pombe</em> required for growth (<a href="https://www.pombase.org/reference/PMID:23893486">Guo et al., 2013, Genetics, PMID:23893486</a>). We have now applied Hermes and Transposon Integration Sequencing to identify genes important for the formation of heterochromatin (<a href="https://www.pombase.org/reference/PMID:32101745">Lee et al., 2020, Cell Reports, PMID:32101745</a>). Insertion sites from eight independent cultures can be visualized from PomBase as custom tracks on Jbrowse. Four cultures were of cells with ura4 silenced by cen1 heterochromatin. The other four cultures were of a strain without ura4. By passaging the cultures in 5-FOA we selected against cells with defects in heterochromatin. Genes that contributed to the formation of heterochromatin exhibited fewer insertions in cells with the cen1 copy of ura4 relative to the strain lacking ura4. To distinguish genes critical for heterochromatin from genes that contribute to a lesser extent we passaged cultures in 5-FOA for 5 generations and for 80 generations. While viewing these integration sites can indicate whether genes of interest contribute to heterochromatin formation you can also examine insertions in the cultures lacking ura4 to gage whether specific genes or noncoding sequences make significant contributions to growth.”</p>
-
-  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="downloadable-documents">Downloadable Documents</h2>
 <p>For FTP downloads, connect as “guest” if prompted; see <a href="faq/do-i-need-password-download-ftp-site">this FAQ</a> for more information.</p>
@@ -8967,6 +8961,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-september-th">PombeTalks September 16th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#hermes-transposon-insertions-pombase">Hermes transposon insertions in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#hermes-transposon-insertions-pombase">Hermes transposon insertions in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-genome-browser-datasets">New genome browser datasets</a></div>
@@ -10344,7 +10339,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'name-queries'">
 <h3 id="editable-pombase-query-names">Editable PomBase query names</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: advanced_search.png -->
 <p>Entries in the <a routerLink="/query">PomBase advanced search</a> query history now show brief, user-editable query descriptions, and a toggle to show or hide additional details.</p>
 
@@ -10434,7 +10428,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'pombetalks-sept-2'">
 <h3 id="pombetalks-september-2nd">PombeTalks September 2nd</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next online PombeTalks will take place on Wednesday <strong>2nd September</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
 <ul>
@@ -10496,9 +10489,36 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>“Transposon Integration Sequencing is a genome wide method of mapping sequences that contribute to growth. High throughput sequencing of transposon integration sites in haploid cells with single insertions reveals which genes are dispensable. Once propagated, cultures exhibit a pronounced lack of insertions in genes necessary for growth. This method, originally developed to study bacteria is now used to characterize the genomes of several yeasts including <em>S. pombe</em>. In earlier work we used the transposon Hermes to identify genes of <em>S. pombe</em> required for growth (<a routerLink="/reference/PMID:23893486">Guo et al., 2013, Genetics, PMID:23893486</a>). We have now applied Hermes and Transposon Integration Sequencing to identify genes important for the formation of heterochromatin (<a routerLink="/reference/PMID:32101745">Lee et al., 2020, Cell Reports, PMID:32101745</a>). Insertion sites from eight independent cultures can be visualized from PomBase as custom tracks on Jbrowse. Four cultures were of cells with ura4 silenced by cen1 heterochromatin. The other four cultures were of a strain without ura4. By passaging the cultures in 5-FOA we selected against cells with defects in heterochromatin. Genes that contributed to the formation of heterochromatin exhibited fewer insertions in cells with the cen1 copy of ura4 relative to the strain lacking ura4. To distinguish genes critical for heterochromatin from genes that contribute to a lesser extent we passaged cultures in 5-FOA for 5 generations and for 80 generations. While viewing these integration sites can indicate whether genes of interest contribute to heterochromatin formation you can also examine insertions in the cultures lacking ura4 to gage whether specific genes or noncoding sequences make significant contributions to growth.”</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-sept-16'">
+<h3 id="pombetalks-september-16th">PombeTalks September 16th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online PombeTalks will take place on Wednesday <strong>16th September</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
+<ul>
+<li><p><strong>Susan Forsburg</strong>, University of Southern California: <em>Visualizing replication stress</em></p></li>
+<li><p><strong>Sigurd Braun</strong>, Ludwig-Maximilians-Universität, München: <em>Gene repression at the nuclear membrane: Multifaceted roles of Lem2</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>The next talks are on <strong>September 30</strong>, and the <a href="https://researchseminars.org/seminar/pombeTalks">schedule</a> is available for the next few weeks. If you’re interested in speaking, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a>.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2020-09-14-pombetalks-sept-16" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-september-th">PombeTalks September 16th</h3>
+<p><em>2020-09-14</em></p>
+<p>The next online PombeTalks will take place on Wednesday <strong>16th September</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
+<ul>
+<li><p><strong>Susan Forsburg</strong>, University of Southern California: <em>Visualizing replication stress</em></p></li>
+<li><p><strong>Sigurd Braun</strong>, Ludwig-Maximilians-Universität, München: <em>Gene repression at the nuclear membrane: Multifaceted roles of Lem2</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>The next talks are on <strong>September 30</strong>, and the <a href="https://researchseminars.org/seminar/pombeTalks">schedule</a> is available for the next few weeks. If you’re interested in speaking, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a>.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+</div>
 <div id="2020-09-11-hermes-transposon-data-long" class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/transposon.png"/></p>
 <h3 id="hermes-transposon-insertions-pombase">Hermes transposon insertions in PomBase</h3>
