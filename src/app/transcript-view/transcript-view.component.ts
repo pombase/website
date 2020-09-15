@@ -250,7 +250,7 @@ class DisplayPart {
   }
 
   setDivVW(totalLength: number) {
-    this._divWidth = Math.round(Math.max(1, 100 * this.baseLength() / totalLength)) / 1.5;
+    this._divWidth = Math.max(1, 100 * this.baseLength() / totalLength) / 1.5;
   }
 
   getDivVW(): number {
