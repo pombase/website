@@ -125,12 +125,12 @@ export class QueryService {
           }
         };
 
-        const timer$ = timer(0.2);
+        const timer$ = timer(200);
         const subscription = timer$.subscribe(() => {
           this.setAllCounts();
+          subscription.unsubscribe();
         });
 
-        subscription.unsubscribe();
       }
       this.subject = new BehaviorSubject(this.history);
     } catch (e) {
