@@ -250,11 +250,19 @@ from the pulldown, and click "Search" to retrieve all genes on the
 chromosome. Optional: enter start and end coordinates in the boxes to
 retrieve only genes in the indicated region.
 
-#### Coding exons
+#### Number of exons
 
-Find protein-coding genes with a specified number of coding
-exons. Enter the desired minimum and maximum number and click
-"Search".
+Find genes with a specified number of coding exons in the primary
+transcript (note: at present this query does not consider any
+annotated alternative transcripts). Enter the desired minimum and
+maximum number and click "Search".
+
+#### Number of transcripts
+
+Find genes with a specified number of annotated transcripts; genes
+with two or more have one or more alternative transcripts in addition
+to the primary transcript. Enter the desired minimum and maximum
+number and click "Search".
 
 #### Taxonomic conservation
 
