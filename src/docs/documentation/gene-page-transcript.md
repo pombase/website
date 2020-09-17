@@ -1,16 +1,22 @@
 ## Gene page: Transcript
 
 The Transcript section of a gene page shows the positions of introns
-and exons in each transcript graphical and table formats.
+and exons in each transcript. The default is a graphical view:
 
-![Transcript section](assets/gene_page_transcript.png){width="800"}
+![Transcript section (default)](assets/gene_page_transcript.png){width="800"}
 
-1. ID and genomic location. The transcript systematic ID is the gene
-   systematic ID with ".1" appended. (When PomBase adds support for
-   alternative transcripts, they will receive sequentially numbered
-   suffixes.)
+The default view shows one diagram per annotated transcript, with
+intron and exon positions hidden. Click "Show exon/intron/UTR
+positions" to display a table under each transcript diagram:
 
-2. In the default view, intron and exon positions are shown in the
+![Transcript section (expanded)](assets/gene_page_transcript_coord.png){width="800"}
+
+1. ID(s) and genomic location(s). The transcript systematic ID is the
+   gene systematic ID with a suffix appended. The primary transcript
+   suffix is ".1", and any annotated alternative transcripts receive
+   sequentially numbered suffixes.
+
+2. By default, intron and exon positions are shown in the
    table as genomic coordinates. When the "Show transcript
    coordinates" button is checked, positions in the table are numbered
    using the annotated transcription start site as 1.
