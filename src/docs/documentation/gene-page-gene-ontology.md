@@ -119,9 +119,8 @@ where the annotation comes from, and an evidence code that describes
 the type of data that supports the annotation. An annotation may be
 inferred from experimental ‘wet lab’ data, backed by a literature
 reference and citing experimental evidence such as
-[IDA](http://wiki.geneontology.org/index.php/Inferred_from_Direct_Assay_(IDA))
-(Inferred from Direct Assay) or
-[IMP](http://wiki.geneontology.org/index.php/Inferred_from_Mutant_Phenotype_(IMP))
+<a href="http://wiki.geneontology.org/index.php/Inferred_from_Direct_Assay_(IDA)">IDA</a>
+(Inferred from Direct Assay) or <a href="http://wiki.geneontology.org/index.php/Inferred_from_Mutant_Phenotype_(IMP)">IMP</a>
 (Inferred from Mutant Phenotype). Further information on evidence
 codes is available in the [GO Evidence Codes](http://geneontology.org/docs/guide-go-evidence-codes/)
 documentation.
@@ -130,13 +129,13 @@ Another source of annotations come from computational methods. Please
 note that all computational annotations are based on predictions. In
 cases where a sequence model has been used to annotate genes, but the
 genes annotated based on the model have not been manually checked, the
-[IEA](http://wiki.geneontology.org/index.php/Inferred_from_Electronic_Annotation_(IEA))
+<a href="http://wiki.geneontology.org/index.php/Inferred_from_Electronic_Annotation_(IEA)">IEA</a>
 (Inferred from Electronic Annotation) evidence code is assigned. If
 the annotations have been manually checked other evidence codes may be
 used, for instance
-[ISO](http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Orthology_(ISO))
+<a href="http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Orthology_(ISO)">ISO</a>
 (Inferred from Sequence Orthology) or
-[ISM](http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Model_(ISM))
+<a href="http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Model_(ISM)">ISM</a>
 (Inferred from Sequence Model). PomBase uses ISO to cross-reference to
 the roles of known *S. cerevisiae* genes, and uses ISM when domains
 present in a gene product can give clues to its biological role.
