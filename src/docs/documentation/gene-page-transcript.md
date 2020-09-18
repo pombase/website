@@ -13,8 +13,8 @@ positions" to display a table under each transcript diagram:
 
 1. ID(s) and genomic location(s). The transcript systematic ID is the
    gene systematic ID with a suffix appended. The primary transcript
-   suffix is ".1", and any annotated alternative transcripts receive
-   sequentially numbered suffixes.
+   suffix is ".1", and any additional annotated transcript isoforms
+   receive sequentially numbered suffixes.
 
 2. By default, intron and exon positions are shown in the
    table as genomic coordinates. When the "Show transcript

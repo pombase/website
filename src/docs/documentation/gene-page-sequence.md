@@ -8,7 +8,8 @@ genes, the predicted amino acid sequence is displayed by default:
 ![peptide sequence section](assets/gene_page_sequence_aa.png){width="800"}
 
 1.  If two or more transcripts are annotated for a gene, the primary
-    transcript is shown by default. Use the selector to switch.
+    transcript is shown by default. Use the selector to switch between
+    transcript isoforms.
 
 2.  Toggle to show the amino acid sequence for protein-coding genes
     (not available for non-coding RNA genes, which always show
