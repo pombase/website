@@ -5105,8 +5105,10 @@ PomBase using the Ensembl viewer.</p>
 <p>Find protein-coding genes with products that have a specified number of transmembrane domains. Enter the desired minimum and maximum number and click “Search”.</p>
 <h4 id="genome-location">Genome location</h4>
 <p>Find genes in a specified region of a chromosome. Select a chromosome from the pulldown, and click “Search” to retrieve all genes on the chromosome. Optional: enter start and end coordinates in the boxes to retrieve only genes in the indicated region.</p>
-<h4 id="coding-exons">Coding exons</h4>
-<p>Find protein-coding genes with a specified number of coding exons. Enter the desired minimum and maximum number and click “Search”.</p>
+<h4 id="number-of-exons">Number of exons</h4>
+<p>Find genes with a specified number of coding exons in the primary transcript (note: at present this query does not consider any annotated alternative transcripts). Enter the desired minimum and maximum number and click “Search”.</p>
+<h4 id="number-of-transcripts">Number of transcripts</h4>
+<p>Find genes with a specified number of annotated transcripts; genes with two or more have one or more alternative transcripts in addition to the primary transcript. Enter the desired minimum and maximum number and click “Search”.</p>
 <h4 id="taxonomic-conservation">Taxonomic conservation</h4>
 <p>Choose one of the descriptions from the pulldown menu. See the <a routerLink="/documentation/taxonomic-conservation">gene page documentation</a> for more information.</p>
 <h4 id="characterisation-status">Characterisation status</h4>
@@ -5688,8 +5690,8 @@ PomBase using the Ensembl viewer.</p>
 <p>GO is structured in a hierarchal order with less specific terms being parents of more specific child terms. A child term may have multiple parents and multiple children; the BP <em>mitotic sister chromatid segregation</em>, for instance, has child terms representing each part of the segregation process (sister chromatid cohesion, separation, etc.) as well as parent terms connecting it to both the mitotic cell cycle and chromosome segregation. Crucially, whenever an annotation is made to a term, the gene product is automatically annotated to all the parent terms. The ancestry of a term can be viewed in browsers such as AmiGO or QuickGO, accessible via links on the ontology term page. For more information, see the <a href="http://geneontology.org/docs/ontology-documentation/">GO graph</a> documentation.</p>
 <p>Multiple relationships exist to describe the links within the ontologies. A child term can have an <em>is_a</em> relation to the parent term, where the child is a more specific type of the parent, or a <em>part_of</em> relationship where the child makes up a part of the parent. For instance, the mitochondrion <em>is_a</em> intracellular organelle and is part_of a cell. Additionally, GO also include regulatory relationships. For more information on relationships in GO, see the <a href="http://geneontology.org/docs/ontology-relations/">Relations in GO</a> documentation.</p>
 <h4 id="evidence-codes">Evidence codes</h4>
-<p>In PomBase, every annotation is supported by a reference that states where the annotation comes from, and an evidence code that describes the type of data that supports the annotation. An annotation may be inferred from experimental ‘wet lab’ data, backed by a literature reference and citing experimental evidence such as <a href="http://wiki.geneontology.org/index.php/Inferred_from_Direct_Assay_(IDA">IDA</a>) (Inferred from Direct Assay) or <a href="http://wiki.geneontology.org/index.php/Inferred_from_Mutant_Phenotype_(IMP">IMP</a>) (Inferred from Mutant Phenotype). Further information on evidence codes is available in the <a href="http://geneontology.org/docs/guide-go-evidence-codes/">GO Evidence Codes</a> documentation.</p>
-<p>Another source of annotations come from computational methods. Please note that all computational annotations are based on predictions. In cases where a sequence model has been used to annotate genes, but the genes annotated based on the model have not been manually checked, the <a href="http://wiki.geneontology.org/index.php/Inferred_from_Electronic_Annotation_(IEA">IEA</a>) (Inferred from Electronic Annotation) evidence code is assigned. If the annotations have been manually checked other evidence codes may be used, for instance <a href="http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Orthology_(ISO">ISO</a>) (Inferred from Sequence Orthology) or <a href="http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Model_(ISM">ISM</a>) (Inferred from Sequence Model). PomBase uses ISO to cross-reference to the roles of known <em>S. cerevisiae</em> genes, and uses ISM when domains present in a gene product can give clues to its biological role.</p>
+<p>In PomBase, every annotation is supported by a reference that states where the annotation comes from, and an evidence code that describes the type of data that supports the annotation. An annotation may be inferred from experimental ‘wet lab’ data, backed by a literature reference and citing experimental evidence such as <a href="http://wiki.geneontology.org/index.php/Inferred_from_Direct_Assay_(IDA)">IDA</a> (Inferred from Direct Assay) or <a href="http://wiki.geneontology.org/index.php/Inferred_from_Mutant_Phenotype_(IMP)">IMP</a> (Inferred from Mutant Phenotype). Further information on evidence codes is available in the <a href="http://geneontology.org/docs/guide-go-evidence-codes/">GO Evidence Codes</a> documentation.</p>
+<p>Another source of annotations come from computational methods. Please note that all computational annotations are based on predictions. In cases where a sequence model has been used to annotate genes, but the genes annotated based on the model have not been manually checked, the <a href="http://wiki.geneontology.org/index.php/Inferred_from_Electronic_Annotation_(IEA)">IEA</a> (Inferred from Electronic Annotation) evidence code is assigned. If the annotations have been manually checked other evidence codes may be used, for instance <a href="http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Orthology_(ISO)">ISO</a> (Inferred from Sequence Orthology) or <a href="http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Model_(ISM)">ISM</a> (Inferred from Sequence Model). PomBase uses ISO to cross-reference to the roles of known <em>S. cerevisiae</em> genes, and uses ISM when domains present in a gene product can give clues to its biological role.</p>
 <p>For some types of evidence, such as sequence comparisons or interaction data, it is important to note what gene or gene product was used in the comparison or detected in the interaction. In these cases the <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/">With/From column</a> provides more information regarding the source of the information.</p>
 <h4 id="annotation-extensions">Annotation extensions</h4>
 <p>Where available, annotation extensions are displayed underneath the GO term name. The extensions provide additional specificity to the annotation by linking the term to another ontology term or a gene product via a relationship. Examples include specifying substrates of molecular functions or specifying the cellular localization during a process (for instance, <a routerLink="/gene/SPBC106.10">pka1</a> has protein serine/threonine kinase activity and has the substrates <a routerLink="/gene/SPBC119.04">mei3</a> and <a routerLink="/gene/SPAC6F12.02">rst2</a>. It is a cellular component of the nucleus during nitrogen starvation, but found in the vacuole during glucose starvation).</p>
@@ -5832,16 +5834,28 @@ PomBase using the Ensembl viewer.</p>
   </div>
   <div *ngIf="pageName == 'gene-page-sequence'">
 <h2 id="gene-page-sequence">Gene page: Sequence</h2>
-<p>The Sequence section of a gene page provides a widget to download DNA sequences for any gene, and amino acid sequences for protein-coding genes, as well as links to send sequences to BLAST. For protein-coding genes, the DNA sequence of the coding exon(s) is displayed by default.</p>
+<p>The Sequence section of a gene page provides a widget to download DNA sequences for any gene, and amino acid sequences for protein-coding genes, as well as links to send sequences to BLAST. For protein-coding genes, the predicted amino acid sequence is displayed by default:</p>
 <figure>
-<img src="assets/gene_page_sequence.png" width="800" alt="" /><figcaption>DNA sequence section</figcaption>
+<img src="assets/gene_page_sequence_aa.png" width="800" alt="" /><figcaption>peptide sequence section</figcaption>
 </figure>
 <ol type="1">
+<li><p>If two or more transcripts are annotated for a gene, the primary transcript is shown by default. Use the selector to switch between transcript isoforms.</p></li>
+<li><p>Toggle to show the amino acid sequence for protein-coding genes (not available for non-coding RNA genes, which always show nucleotide sequenceâ).</p></li>
+<li><p>Link to save the displayed sequence to a file.</p></li>
+<li><p>Links to send the displayed sequence to BLAST at <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI</a> or <a href="http://fungi.ensembl.org/Multi/Tools/Blast?db=core">Ensembl</a>.</p></li>
+<li><p>The peptide sequence header shows the transcript ID and the protein length.</p></li>
+</ol>
+<p>For non-coding RNA genes, and for protein-coding genes with “Show nucleotide sequence” selected, more options are available:</p>
+<figure>
+<img src="assets/gene_page_sequence_nt.png" width="800" alt="" /><figcaption>DNA sequence section</figcaption>
+</figure>
+<ol type="1">
+<li><p>Transcript selector (as above)</p></li>
 <li><p>Toggle to show the amino acid sequence (not available for non-coding RNA genes).</p></li>
 <li><p>Controls to add UTRs, introns, or flanking sequences to the displayed sequence. For upstream or downstream sequence, use the up/down control to increment by one base, or type or paste a number in the box.</p></li>
-<li><p>The sequence header indicates what is included.</p></li>
 <li><p>Link to save the displayed sequence to a file.</p></li>
 <li><p>Links to send the displayed sequence to BLAST at <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI</a> or <a href="http://fungi.ensembl.org/Multi/Tools/Blast?db=core">Ensembl</a>. DNA sequences link to BLASTN by default.</p></li>
+<li><p>The nucleotide sequence header shows the transcript ID and indicates what is included.</p></li>
 </ol>
 <p>When the “Show translation” option is selected, irrelevant controls are hidden and BLASTP links are shown:</p>
 <figure>
@@ -5864,13 +5878,17 @@ PomBase using the Ensembl viewer.</p>
   </div>
   <div *ngIf="pageName == 'gene-page-transcript'">
 <h2 id="gene-page-transcript">Gene page: Transcript</h2>
-<p>The Transcript section of a gene page shows the positions of introns and exons in each transcript graphical and table formats.</p>
+<p>The Transcript section of a gene page shows the positions of introns and exons in each transcript. The default is a graphical view:</p>
 <figure>
-<img src="assets/gene_page_transcript.png" width="800" alt="" /><figcaption>Transcript section</figcaption>
+<img src="assets/gene_page_transcript.png" width="800" alt="" /><figcaption>Transcript section (default)</figcaption>
+</figure>
+<p>The default view shows one diagram per annotated transcript, with intron and exon positions hidden. Click “Show exon/intron/UTR positions” to display a table under each transcript diagram:</p>
+<figure>
+<img src="assets/gene_page_transcript_coord.png" width="800" alt="" /><figcaption>Transcript section (expanded)</figcaption>
 </figure>
 <ol type="1">
-<li><p>ID and genomic location. The transcript systematic ID is the gene systematic ID with “.1” appended. (When PomBase adds support for alternative transcripts, they will receive sequentially numbered suffixes.)</p></li>
-<li><p>In the default view, intron and exon positions are shown in the table as genomic coordinates. When the “Show transcript coordinates” button is checked, positions in the table are numbered using the annotated transcription start site as 1.</p></li>
+<li><p>ID(s) and genomic location(s). The transcript systematic ID is the gene systematic ID with a suffix appended. The primary transcript suffix is “.1”, and any additional annotated transcript isoforms receive sequentially numbered suffixes.</p></li>
+<li><p>By default, intron and exon positions are shown in the table as genomic coordinates. When the “Show transcript coordinates” button is checked, positions in the table are numbered using the annotated transcription start site as 1.</p></li>
 <li><p>Mouse over any exon or intron to highlight its coordinates in the table, and bring up a box with position details. Genomic coordinates and within-transcript positions appear in the pop-up no matter which is selected in the main display.</p></li>
 <li><p>Mouse over any entry in the exon/intron tables to show the box with position details.</p></li>
 </ol>
@@ -8961,6 +8979,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#new-genome-browser-datasets">New genome browser datasets</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-september-th">PombeTalks September 16th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#hermes-transposon-insertions-pombase">Hermes transposon insertions in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#hermes-transposon-insertions-pombase">Hermes transposon insertions in PomBase</a></div>
@@ -10385,7 +10404,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'fission-yeast-micropublications'">
 <h3 id="fission-yeast-micropublications">Fission yeast microPublications</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: micropubs32px.png -->
 <p>PomBase has recently joined <a href="https://www.micropublication.org/">microPublication.org</a>, which “publishes brief, novel findings, negative and/or reproduced results, and results which may lack a broader scientific narrative”, as a Partner Database. Fission yeast researchers can thus now make any results available to the community, even those that don’t fit neatly into traditional publications.</p>
 <p>Visit the <a href="https://www.micropublication.org/">microPublications website</a> to learn more, to <a href="https://www.micropublication.org/submit-new-article/">register</a> and submit your data, or sign up to review. Send questions to the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a>.</p>
@@ -10491,7 +10509,6 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
   </div>
   <div *ngIf="pageName == 'pombetalks-sept-16'">
 <h3 id="pombetalks-september-16th">PombeTalks September 16th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next online PombeTalks will take place on Wednesday <strong>16th September</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
 <ul>
@@ -10503,9 +10520,50 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 
   </div>
+  <div *ngIf="pageName == 'new-jbrowse-datasets'">
+<h3 id="new-genome-browser-datasets">New genome browser datasets</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: browser.png -->
+<p>Two new datasets in are now available in PomBase JBrowse (links go to PomBase publication pages, which in turn link to the browser with the tracks enabled):</p>
+<ul>
+<li><a routerLink="/reference/PMID:23395004">Meiotic DSBs</a> from<br />
+Fowler KR, Gutiérrez-Velasco S, Martín-Castellanos C, Smith GR. 2013.<br />
+Protein determinants of meiotic DNA break hot spots.<br />
+PMID:25747261 DOI: 10.1016/j.molcel.2013.01.008</li>
+</ul>
+<p>and</p>
+<ul>
+<li><a routerLink="/reference/PMID:32152323">Time-lapse single-cell transcripts for dormancy breaking</a> from<br />
+Tsuyuzaki H, Hosokawa M, Arikawa K, Yoda T, Okada N, Takeyama H, Sato. 2020.<br />
+Time-lapse single-cell transcriptomics reveals modulation of histone H3 for dormancy breaking in fission yeast.<br />
+PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
+</ul>
+<p>More datasets are always welcome, so check out our <a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">instructions for submission</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2020-09-17-new-jbrowse-datasets" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<h3 id="new-genome-browser-datasets">New genome browser datasets</h3>
+<p><em>2020-09-17</em></p>
+<p>Two new datasets in are now available in PomBase JBrowse (links go to PomBase publication pages, which in turn link to the browser with the tracks enabled):</p>
+<ul>
+<li><a routerLink="/reference/PMID:23395004">Meiotic DSBs</a> from<br />
+Fowler KR, Gutiérrez-Velasco S, Martín-Castellanos C, Smith GR. 2013.<br />
+Protein determinants of meiotic DNA break hot spots.<br />
+PMID:25747261 DOI: 10.1016/j.molcel.2013.01.008</li>
+</ul>
+<p>and</p>
+<ul>
+<li><a routerLink="/reference/PMID:32152323">Time-lapse single-cell transcripts for dormancy breaking</a> from<br />
+Tsuyuzaki H, Hosokawa M, Arikawa K, Yoda T, Okada N, Takeyama H, Sato. 2020.<br />
+Time-lapse single-cell transcriptomics reveals modulation of histone H3 for dormancy breaking in fission yeast.<br />
+PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
+</ul>
+<p>More datasets are always welcome, so check out our <a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">instructions for submission</a>.</p>
+</div>
 <div id="2020-09-14-pombetalks-sept-16" class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-september-th">PombeTalks September 16th</h3>
