@@ -124,6 +124,9 @@ page to ensure that your residue position entries are up to date.
 For protein-coding genes, number nucleotide residues from 1 starting
 with the A of the initiator ATG.
 
+For histones, amino acid residue numbering assumes that the initiator
+methionine is removed.
+
 Allele type (col. 11) | Example allele description (col. 3) | Notes
 ----------------------|-------------------------------------|------
 amino acid mutation | S123A | use one-letter code; if more than one change, separate with comma(s)
