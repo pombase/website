@@ -1059,7 +1059,7 @@
   <td>2015-11-16</td>
  </tr>
  <tr>
-  <td>SPNCRNA.727</td>
+  <td>SPNCRNA.723</td>
   <td>deleted; ID added as synonym to snR41/SPSNORNA.07, snR70/SPSNORNA.08 and snR51b/SPSNORNA.09 (covers all)</td>
   <td>2015-11-16</td>
  </tr>
@@ -1135,13 +1135,18 @@
  </tr>
   <tr>
   <td>SPBC8E4.02c</td>
-  <td>SPBC8E4.02c replaced by SPNCRNA.9001 (prt2) (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=29414789">PMID:29414789</a></td>
+  <td>SPBC8E4.02c replaced by SPNCRNA.9001 (prt2) (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=29414789">PMID:29414789</a>)</td>
   <td>2018-10-11</td>
  </tr>
   <tr>
   <td>SPNCRNA.46</td>
-  <td>SPNCRNA.46 changed to 5' UTR of SPAC144.19 (prl46) (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=32594847">PMID:32594847</a></td>
+  <td>SPNCRNA.46 changed to 5' UTR of SPAC144.19 (prl46) (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=32594847">PMID:32594847</a>)</td>
   <td>2020-09-08</td>
+ </tr>
+  <tr>
+  <td>SPNCRNA.600</td>
+  <td>SPNCRNA.600 changed to transcript isoform of SPAC17G6.02c (tco1) (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=18276645">PMID:18276645</a>)</td>
+  <td>2020-09-24</td>
  </tr>
  </tbody>
 </table>
