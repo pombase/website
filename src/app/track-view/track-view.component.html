@@ -1,6 +1,11 @@
 <div class="track-view">
 <svg style="background-color: white" [attr.viewBox]="viewBox()">
   <style>
+    .highlighted-feature {
+      stroke: #444444;
+      stroke-width: 2px;
+      fill-opacity: 0.7;
+    }
   </style>
   <svg:g *ngFor="let displayTrack of displayTracks; let trackIdx = index">
     <svg:text class="track-label"
@@ -12,6 +17,8 @@
     </svg:text>
     <svg:rect *ngFor="let part of displayTrack.feature.parts; let partIdx = index"
               class="track-feature"
+              [class.highlighted-feature]="!part.padding && displayTrack.feature.id == highlightedId"
+              (mouseenter)="setHighlighted(displayTrack.feature.id)"
               [attr.fill]="(trackColors[displayTrack.dbName] || '#345') + (part.padding ? '99' : '')"
               [attr.width]="part.size() * widthScaleFactor()"
               [attr.height]="part.padding ? 1.6 : featureHeight()"

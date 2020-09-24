@@ -27,6 +27,8 @@ export class TrackViewComponent implements OnInit, OnChanges {
 
   displayTracks: Array<DisplayTrack> = [];
 
+  highlightedId: string = null;
+
   totalHeight = 0;
 
   constructor() { }
@@ -53,6 +55,10 @@ export class TrackViewComponent implements OnInit, OnChanges {
 
   viewBox(): string {
     return `-5 -5 ${this.trackWidth()+this.trackLabelWidth()+50} ${this.totalHeight+10}`;
+  }
+
+  setHighlighted(id: string) {
+    this.highlightedId = id;
   }
 
   ngOnInit(): void {
