@@ -13,9 +13,9 @@
               class="track-feature"
               [attr.fill]="trackColors[displayTrack.dbName] || '#345'"
               [attr.width]="part.size() * widthScaleFactor()"
-              [attr.height]="featureHeight()"
+              [attr.height]="part.padding ? 1.6 : featureHeight()"
               [attr.x]="trackLabelWidth() + (part.start-1) * widthScaleFactor()"
-              [attr.y]="(featureHeight()+featureLabelHeight()) * trackIdx">
+              [attr.y]="(featureHeight()+featureLabelHeight()) * trackIdx + (part.padding ? featureHeight()/2.0-1 : 0)">
     </svg:rect>
     <svg:text class="feature-label"
               dominant-baseline="hanging"

@@ -35,8 +35,15 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
 
     this.geneDetails.interpro_matches
       .map(match => {
-        const parts = match.locations
-          .map(loc => new TrackViewFeaturePart(loc.start, loc.end));
+        const parts = [];
+        for (let i = 0; i < match.locations.length; i++) {
+          const loc = match.locations[i];
+          parts.push(new TrackViewFeaturePart(loc.start, loc.end, false));
+          if (i < match.locations.length - 1) {
+            const nextLoc = match.locations[i+1];
+            parts.push(new TrackViewFeaturePart(loc.end+1, nextLoc.start-1, true));
+          }
+        }
         const feature = new TrackViewFeature(match.id, match.interpro_name || match.name, parts);
         if (!featuresByDbname[match.dbname]) {
           featuresByDbname[match.dbname] = [];

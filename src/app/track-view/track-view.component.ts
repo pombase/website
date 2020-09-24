@@ -32,7 +32,7 @@ export class TrackViewComponent implements OnInit, OnChanges {
   constructor() { }
 
   featureHeight(): number {
-    return 8;
+    return 6;
   }
 
   featureLabelHeight(): number {
@@ -52,7 +52,7 @@ export class TrackViewComponent implements OnInit, OnChanges {
   }
 
   viewBox(): string {
-    return `-5 -5 ${this.trackWidth()+this.trackLabelWidth()+10} ${this.totalHeight+10}`;
+    return `-5 -5 ${this.trackWidth()+this.trackLabelWidth()+50} ${this.totalHeight+10}`;
   }
 
   ngOnInit(): void {

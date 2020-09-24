@@ -1,5 +1,5 @@
 export class TrackViewFeaturePart {
-  constructor(public start: number, public end: number /*, padding: boolean */) {
+  constructor(public start: number, public end: number, public padding: boolean) {
 
   }
 
