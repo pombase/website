@@ -6,6 +6,7 @@
     <svg:text class="track-label"
               *ngIf="displayTrack.label"
               dominant-baseline="hanging"
+              font-size="14px"
               attr.transform="translate(3 {{trackIdx * (featureHeight()+featureLabelHeight())+3}})">
       {{displayTrack.label}}
     </svg:text>
