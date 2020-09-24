@@ -41,7 +41,12 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
           parts.push(new TrackViewFeaturePart(loc.start, loc.end, false));
           if (i < match.locations.length - 1) {
             const nextLoc = match.locations[i+1];
-            parts.push(new TrackViewFeaturePart(loc.end+1, nextLoc.start-1, true));
+            const paddStart = loc.end + 1;
+            const paddEnd = nextLoc.start - 1;
+            // cope with overlapping locations in the match
+            if (paddStart < paddEnd) {
+              parts.push(new TrackViewFeaturePart(paddStart, paddEnd, true));
+            }
           }
         }
         const feature = new TrackViewFeature(match.id, match.interpro_name || match.name, parts);
