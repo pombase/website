@@ -42,7 +42,7 @@ export class TrackViewComponent implements OnInit, OnChanges {
   }
 
   trackLabelWidth(): number {
-    return 120;
+    return 80;
   }
 
   trackWidth(): number {
