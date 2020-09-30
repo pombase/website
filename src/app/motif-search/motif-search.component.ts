@@ -77,7 +77,10 @@ export class MotifSearchComponent implements OnInit {
       switchMap(motif => this.motifService.motifSearch('all', motif)))
       .subscribe(results => {
         if (results.status === 'OK') {
-          this.peptideResults = results.gene_matches
+          this.peptideResults = results.gene_matches;
+          this.peptideResults.map(res => {
+            res.gene_id = res.gene_id.replace(/\.\d+$/, '');
+          });
           if (this.peptideResults.length > 0) {
             this.peptideResultsWithDetails = this.cleanResults(results);
             this.geneMatchesWithNoDetails =
