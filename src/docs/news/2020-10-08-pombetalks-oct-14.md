@@ -1,13 +1,14 @@
-### PombeTalks September 30th
+### PombeTalks October 14th
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The next online PombeTalks will take place on Wednesday **16th September**
+The next online PombeTalks will take place on Wednesday **14th October**
 2020 at 17:00 [Central European
 Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/):
 
-- **Alexander Lorenz**, University of Aberdeen, UK: *Meiotic recombination outcome in the face of genetic diversity*
+- **Dimitrios Vavylonis**, Lehigh University: *Modeling fission yeast's polarization pattern*
 
-- **Veneta Gerganova**, Martin Lab, UNIL, Switzerland: *Patterning of membrane-associated proteins through membrane flows*
+- **Chloe Snider**, Gould Lab, Vanderbilt University: *Opposite surfaces of the Cdc15 F-BAR domain create a membrane platform that coordinates cytoskeletal and signaling components for cytokinesis*
 
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
@@ -16,7 +17,7 @@ and PombeSlack one day in advance, so make sure you've signed up. Also
 see PombeSlack for Q&A after the talks, and for recordings of previous
 sessions.
 
-The next talks are on **October 14**, and the [schedule](https://researchseminars.org/seminar/pombeTalks) is
+The next talks are on **October 28**, and the [schedule](https://researchseminars.org/seminar/pombeTalks) is
 available for the next few weeks. If you're interested in speaking, please fill out [this
 form](https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform).
 
