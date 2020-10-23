@@ -60,9 +60,16 @@ If descendant of | Display name | Reciprocal
 GO:0003824 catalytic activity | has substrate | substrate of
 GO:0006810 transport | transports | transported by
 GO:0005215 transporter activity | transports | transported by
+GO:0000976 transcription regulatory region sequence-specific DNA binding | regulates transcription of | transcription regulated by
+GO:0001216 DNA-binding transcription activator activity | activates transcription of | transcription activated by
+GO:0001217 DNA-binding transcription repressor activity | represses transcription of | transcription repressed by
+GO:0003713 transcription coactivator activity | activates transcription of | transcription activated by
+GO:0003714 transcription corepressor activity | represses transcription of | transcription repressed by
 GO:0030234 enzyme regulator activity | regulates | regulated by
 GO:0008047 enzyme activator activity | positively regulates | positively regulated by
 GO:0004857 enzyme inhibitor activity | negatively regulates | negatively regulated by
 GO:0051179 localization | localizes | localized by
 GO:0005488 binding | binds | binds
 (anything not listed above) | has input | input for
+
+
