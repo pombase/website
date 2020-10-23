@@ -72,4 +72,30 @@ GO:0051179 localization | localizes | localized by
 GO:0005488 binding | binds | binds
 (anything not listed above) | has input | input for
 
+PomBase displays also use human-friendly names for [Protein
+Ontology](https://proconsortium.org/pro.shtml) (PRO) terms used in
+extensions (inculding "active form"). The display names include
+modification positions denoted with these abbreviations:
 
+Abbreviation | Meaning
+-------------|--------
+Ac | acetylated
+Clv | cleaved (residue specification optional)
+DiUbiq | diubiquitinated
+GDP+ | GDP-bound
+GTP+ | GTP-bound
+HyperOx | hyperoxidized
+InitMet- | initiator methionine removed
+Ip | prenylated
+Me | methylated
+MonoUbiq | monoubiquitinated
+Ox+ | oxidized form
+Phos | phosphorylated (specified residue)
+PhosRes+ | phosphorylated (unspecified residue)
+PhosRes- | unphosphorylated
+PolyUbiq | polyubiquitinated
+Red+ | reduced form
+Sumo | sumoylated
+Ubiq | ubiquitinated
+UnMod | unmodified (residue specification optional)
+UnUbiq | unubiquitinated

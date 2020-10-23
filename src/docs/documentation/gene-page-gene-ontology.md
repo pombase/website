@@ -76,9 +76,13 @@ than one paper), and annotations to terms hidden in the summary view:
     term page as described above.
 7.  [GO Slim](/browse-curation/fission-yeast-go-slim-terms) terms
     applicable to the gene.
-8.  GO annotations may have extensions(see "Annotation extensions" below) to capture any of
-    several types of additional detail. *S. pombe* genes link to PomBase
-    gene pages.
+8.  GO annotations may have extensions(see "Annotation extensions"
+    below) to capture any of several types of additional
+    detail. *S. pombe* genes link to PomBase gene pages. [Protein
+    Ontology](https://proconsortium.org/pro.shtml) (PRO) terms, which
+    identify specific processed or modified forms of a protein, can be
+    used in extensions or to indicate which form is active; both are
+    displayed here.
 
 #### Term ID and name ####
 
@@ -169,6 +173,15 @@ described [here](/documentation/annotation-extension-relation-display).
 If an extension mentions another *S. pombe* gene, the extension data
 will also be displayed as an annotation in the "[Target of](/documentation/gene-page-target)" 
 section of the page for that gene.
+
+PRO terms can be used in extensions, and PRO terms that are used to
+associate a GO annotation with a specific modified or processed form
+are also listed with annotation extensions. In both cases, PRO IDs
+link to Protein Ontology web pages. Note that PomBase uses
+human-friendly display names that differ from the full names on the
+PRO pages; abbreviations used in the display names are included in the
+[extension display
+documentation](/documentation/annotation-extension-relation-display).
 
 #### Finding other genes annotated to a specific GO term ####
 
