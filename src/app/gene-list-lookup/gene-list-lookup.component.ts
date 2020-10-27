@@ -61,19 +61,17 @@ export class GeneListLookupComponent implements OnInit {
   }
 
   readFile($event: Event): void {
-    this.pombaseApiService.getGeneSummaryMapPromise().then((geneSummaryMap) => {
-      let inputValue = $event.target as any;
-      let file = inputValue.files[0];
-      let fileReader = new FileReader();
+    let inputValue = $event.target as any;
+    let file = inputValue.files[0];
+    let fileReader = new FileReader();
 
-      fileReader.onloadend = (e) => {
-        this.inputText = fileReader.result as string;
-      };
+    fileReader.onloadend = () => {
+      this.inputText = fileReader.result as string;
+    };
 
-      fileReader.readAsText(file);
+    fileReader.readAsText(file);
 
-      this.checkIds();
-    })
+    this.checkIds();
   }
 
   private makeListName(genes: Array<GeneSummary>): string {
