@@ -11,9 +11,21 @@
   height: auto;
 }
 
+table, .not-found-ids {
+  margin: 0 1.5em;
+}
+
+.send-genes {
+  margin: 1em 0 0 0;
+}
+
 td {
   vertical-align: top;
-  padding: 0.2em 1em;
+  padding: 0.2em 0;
+}
+
+th, td {
+  min-width: 10em;
 }
 
 .id-select {

@@ -35,7 +35,6 @@ export class IdentifierMapperComponent implements OnInit {
   oneToOneMatches: { [id: string]: GeneSummary } = {};
   multipleMatches: { [id: string]: Array<GeneSummary> } = {};
   notFound: Array<string> = [];
-  listName: string = null;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private queryRouterService: QueryRouterService) {
@@ -68,10 +67,15 @@ export class IdentifierMapperComponent implements OnInit {
     return Object.keys(obj).length;
   }
 
-  hasResults(): boolean {
+  lookupDone(): boolean {
     return this.objectKeyCount(this.oneToOneMatches) > 0 ||
       this.objectKeyCount(this.multipleMatches) > 0 ||
       this.notFound.length > 0;
+  }
+
+  hasMatches(): boolean {
+    return this.objectKeyCount(this.oneToOneMatches) > 0 ||
+      this.objectKeyCount(this.multipleMatches) > 0;
   }
 
   clear(): void {

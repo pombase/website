@@ -1,13 +1,13 @@
 <div id="identifier-mapper">
-  <h2 class="id-heading" *ngIf="!hasResults()">
+  <h2 class="id-heading" *ngIf="!lookupDone()">
     Identifier mapping tool
   </h2>
-  <h2 class="id-heading" *ngIf="hasResults()">
-    Mapping tool results <span *ngIf="hasResults()">for {{selectedMapperType.displayName}} identifiers</span>
+  <h2 class="id-heading" *ngIf="lookupDone()">
+    Mapping tool results <span *ngIf="lookupDone()">for {{selectedMapperType.displayName}} identifiers</span>
   </h2>
 
   <div class="id-mapper-main">
-    <div class="id-mapper-query" *ngIf="!hasResults()">
+    <div class="id-mapper-query" *ngIf="!lookupDone()">
       <div class="id-select">
         Identifier type: <select [compareWith]="mapperTypeCompare"
                                  [(ngModel)]="selectedMapperType" (ngModelChange)="resetResults()">
@@ -34,30 +34,33 @@
       </div>
     </div>
 
-    <div class="id-mapper-results" *ngIf="hasResults()">
+    <div class="id-mapper-results" *ngIf="lookupDone()">
       <button class="id-reset btn btn-primary"
               (click)="resetResults()">
         &lt;-- Go back
       </button>
 
-      <div *ngIf="hasResults()">
+      <div *ngIf="hasMatches()">
         <div class="send-genes">
-          <a (click)="sendToQueryBuilder()">Send gene list to advanced search</a>
-        </div>
-
-        <div class="list-name">
-          Name this gene list (Optional): <input [(ngModel)]="listName"/>
+          <a (click)="sendToQueryBuilder()">Send matching {{organismCommonName}} gene list to the advanced search</a>
         </div>
       </div>
 
-      <div class="not-found-section" *ngIf="notFound.length != 0">
+      <div class="not-found-section" *ngIf="notFound.length != 0 && hasMatches()">
         <div class="not-found-heading">
           These identifiers could not be found:
         </div>
-        <div>
+        <div class="not-found-ids">
           <span *ngFor="let id of notFound">{{id}} </span>
         </div>
       </div>
+
+      <div class="not-found-section" *ngIf="notFound.length != 0 && !hasMatches()">
+        <div class="not-found-heading">
+          No matching {{organismCommonName}} genes were found
+        </div>
+      </div>
+
 
       <div class="multi-section" *ngIf="objectKeyCount(multipleMatches) != 0">
         <div class="multi-heading">
@@ -67,8 +70,8 @@
         </div>
         <table>
           <thead>
-            <td>Identifier</td>
-            <td>{{organismCommonName}} genes</td>
+            <th>Identifier</th>
+            <th>{{organismCommonName}} genes</th>
           </thead>
           <tbody>
             <tr *ngFor="let item of multipleMatches | keyvalue">
@@ -89,8 +92,8 @@
         </div>
         <table>
           <thead>
-            <td>Identifier</td>
-            <td>{{organismCommonName}} gene</td>
+            <th>Identifier</th>
+            <th>{{organismCommonName}} gene</th>
           </thead>
           <tbody>
             <tr *ngFor="let item of oneToOneMatches | keyvalue">
