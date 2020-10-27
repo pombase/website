@@ -15,6 +15,7 @@ import { RouterNotFoundHandlerComponent } from './router-not-found-handler/route
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
 import { ReferenceDetailListPageComponent } from './reference-detail-list-page/reference-detail-list-page.component';
 import { MotifSearchComponent } from './motif-search/motif-search.component';
+import { IdentifierMapperComponent } from './identifier-mapper/identifier-mapper.component';
 import { GeneResultsPageComponent } from './gene-results-page/gene-results-page.component';
 import { InternalDetailsComponent } from './internal-details/internal-details.component';
 
@@ -149,6 +150,11 @@ const routes: Routes = [
   { path: 'motif_search', component: MotifSearchComponent,
     data: {
       defaultTitleDetail: 'Motif search'
+    }
+  },
+  { path: 'identifier-mapper', component: IdentifierMapperComponent,
+    data: {
+      defaultTitleDetail: 'ID mapper'
     }
   },
   { path: 'front', redirectTo: '/', pathMatch: 'full' },

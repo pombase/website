@@ -1,0 +1,105 @@
+<div id="identifier-mapper">
+  <h2 class="id-heading" *ngIf="!hasResults()">
+    Identifier mapping tool
+  </h2>
+  <h2 class="id-heading" *ngIf="hasResults()">
+    Mapping tool results <span *ngIf="hasResults()">for {{selectedMapperType.displayName}} identifiers</span>
+  </h2>
+
+  <div class="id-mapper-main">
+    <div class="id-mapper-query" *ngIf="!hasResults()">
+      <div class="id-select">
+        Identifier type: <select [compareWith]="mapperTypeCompare"
+                                 [(ngModel)]="selectedMapperType" (ngModelChange)="resetResults()">
+          <option *ngFor="let mapperType of mapperTypes"
+                  [selected]="mapperType.id == 'uniprot'"
+                  [ngValue]="mapperType">{{mapperType.displayName}}</option>
+        </select>
+      </div>
+
+      <textarea class="id-input" cols="50" rows="8" [(ngModel)]="inputText"></textarea>
+
+      <div class="id-actions">
+        <button class="id-lookup-action btn btn-primary"
+                [disabled]="!geneSummaries && inputText.length != 0"
+                (click)="lookup()">Lookup</button>
+
+        <button class="id-lookup-action btn btn-warning"
+                [disabled]="!geneSummaries && inputText.length != 0"
+                (click)="clear()">Clear</button>
+
+        <span class="id-read-from-file">
+          Read from file: <input type="file" (change)="readFile($event)">
+        </span>
+      </div>
+    </div>
+
+    <div class="id-mapper-results" *ngIf="hasResults()">
+      <button class="id-reset btn btn-primary"
+              (click)="resetResults()">
+        &lt;-- Go back
+      </button>
+
+      <div *ngIf="hasResults()">
+        <div class="send-genes">
+          <a (click)="sendToQueryBuilder()">Send gene list to advanced search</a>
+        </div>
+
+        <div class="list-name">
+          Name this gene list (Optional): <input [(ngModel)]="listName"/>
+        </div>
+      </div>
+
+      <div class="not-found-section" *ngIf="notFound.length != 0">
+        <div class="not-found-heading">
+          These identifiers could not be found:
+        </div>
+        <div>
+          <span *ngFor="let id of notFound">{{id}} </span>
+        </div>
+      </div>
+
+      <div class="multi-section" *ngIf="objectKeyCount(multipleMatches) != 0">
+        <div class="multi-heading">
+          Identifiers matching multiple genes:
+        </div>
+        <table>
+          <thead>
+            <td>Identifier</td>
+            <td>{{organismCommonName}} genes</td>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of multipleMatches | keyvalue">
+              <td>{{item.key}}</td>
+              <td>
+                <div *ngFor="let gene of item.value">
+                  <app-gene-link [long]="true" [gene]="gene"></app-gene-link>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="one-one-section" *ngIf="objectKeyCount(oneToOneMatches) != 0">
+        <div class="one-one-heading">
+          Identifiers matching a single gene (one-to-one matches):
+        </div>
+        <table>
+          <thead>
+            <td>Identifier</td>
+            <td>{{organismCommonName}} gene</td>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of oneToOneMatches | keyvalue">
+              <td>{{item.key}}</td>
+              <td>
+                <app-gene-link [long]="true" [gene]="item.value"></app-gene-link>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

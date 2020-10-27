@@ -1,0 +1,61 @@
+#identifier-mapper {
+  font-size: 140%;
+}
+
+#identifier-mapper .id-mapper-main {
+  padding: 1em 0.5em 1em 1em;
+}
+
+#identifier-mapper textarea {
+  width: 70vw;
+  height: auto;
+}
+
+td {
+  vertical-align: top;
+  padding: 0.2em 1em;
+}
+
+.id-select {
+  padding-bottom: 0.5em;
+}
+
+.id-mapper-query {
+  margin: 0 0 2em 0;
+}
+
+.id-heading, .not-found-heading, .multi-heading, .one-one-heading {
+  margin: 0.6em 0 0.6em 0;
+  font-weight: bold;
+}
+
+.id-actions {
+  width: 70vw;
+  padding: 0.5em 0;
+}
+
+.id-reset {
+  padding-bottom: 0.5em;
+}
+
+@media (min-width: 800px) {
+  .id-lookup-action {
+    float: right;
+  }
+  .id-read-from-file {
+    white-space: nowrap;
+  }
+  .id-lookup-action {
+    margin-left: 2em;
+  }
+}
+
+@media (max-width: 800px) {
+  .id-read-from-file {
+    display: block;
+    width: 70vw;
+  }
+  .id-lookup-action {
+    margin-right: 2em;
+  }
+}
