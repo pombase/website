@@ -124,7 +124,11 @@ export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
         const partName = part.getNodeName();
         if (partName) {
           if (newNodeNameParts) {
-            newNodeNameParts.push(partName);
+            if (part instanceof GeneBoolNode) {
+              newNodeNameParts.push('(' + partName + ')');
+            } else {
+              newNodeNameParts.push(partName);
+            }
           }
         } else {
           newNodeNameParts = null;
