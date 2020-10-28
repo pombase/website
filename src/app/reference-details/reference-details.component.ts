@@ -155,7 +155,7 @@ export class ReferenceDetailsComponent implements OnInit {
         if (selectedPath.endsWith('.mp4')) {
           this.videoPath = selectedPath;
         } else {
-          this.graphicalAbstractImagePath = selectedPath;
+          this.graphicalAbstractImagePath = 'assets/' + selectedPath;
         }
       }
     }
