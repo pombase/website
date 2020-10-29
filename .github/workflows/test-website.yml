@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Tests
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  test-website:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup
+        run: |
+           sudo apt-get update
+           sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl pandoc
+           (curl -L http://cpanmin.us | sudo perl - --self-upgrade) && sudo cpanm --notest Pandoc Text::CSV
+           curl -OL http://current.geneontology.org/metadata/GO.xrf_abbs
+           curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json
+           curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
+           curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_jbrowse_track_metadata.csv
+           curl -OL https://raw.githubusercontent.com/pombase/pombase-chado/master/etc/create_jbrowse_track_list.pl && chmod a+x create_jbrowse_track_list.pl
+           (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/2.8/pandoc-2.8-1-amd64.deb; sudo dpkg -i pandoc-2.8-1-amd64.deb)
+           yarn
+ 
+      - name: test
+        run: |
+           ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json
+           ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
+
+          
