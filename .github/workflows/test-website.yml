@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: setup
+      - name: Prerequisites
         run: |
            sudo apt-get update
            sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl pandoc
@@ -32,7 +32,7 @@ jobs:
            (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/2.8/pandoc-2.8-1-amd64.deb; sudo dpkg -i pandoc-2.8-1-amd64.deb)
            yarn
  
-      - name: test
+      - name: Test
         run: |
            ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json
            ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
