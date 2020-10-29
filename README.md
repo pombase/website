@@ -4,7 +4,7 @@ See https://github.com/pombase/website/tree/master/
 
 ### Build and test status
 
-[![Build Status](https://api.travis-ci.org/pombase/website.svg?branch=master)](https://travis-ci.org/pombase/website)
+![Tests](https://github.com/pombase/website/workflows/Tests/badge.svg)
 
 ### Deploying
 
