@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 
 import { Router, ActivatedRoute, NavigationEnd, Data } from '@angular/router';
@@ -15,7 +15,7 @@ import { getAppConfig } from './config';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   siteName = getAppConfig().site_name;
   defaultDescription = getAppConfig().site_description;
 
@@ -48,5 +48,9 @@ export class AppComponent implements OnInit {
       }
       this.window.scrollTo(0, 0);
     });
+  }
+
+  ngAfterViewInit(): void {
+    (<any>window).twttr.widgets.load();
   }
 }

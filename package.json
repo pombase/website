@@ -39,7 +39,6 @@
     "ngx-page-scroll-core": "^7.0.3",
     "ngx-page-scroll": "^7.0.3",
     "ngx-toastr": "^13.0.0",
-    "ngx-twitter-timeline": "^0.1.5",
     "rxjs": "^6.6.2",
     "rxjs-compat": "^6.6.2",
     "stream": "0.0.2",

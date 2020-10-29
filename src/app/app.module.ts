@@ -97,7 +97,6 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { AnnotationTableExtLinksComponent } from './annotation-table-ext-links/annotation-table-ext-links.component';
 import { HelpLinkComponent } from './help-link/help-link.component';
 
-import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { AnnotationTableExtensionFilterComponent } from './annotation-table-extension-filter/annotation-table-extension-filter.component';
 import { RouterNotFoundHandlerComponent } from './router-not-found-handler/router-not-found-handler.component';
 import { StatisticsComponent } from './statistics/statistics.component';
@@ -231,7 +230,6 @@ export function windowFactory() {
     SharedModule,
     Angulartics2Module.forRoot(),
     CookieLawModule,
-    NgxTwitterTimelineModule,
     FontAwesomeModule,
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,

@@ -6101,13 +6101,6 @@ ngx-toastr@^13.0.0:
   dependencies:
     tslib "^2.0.0"
 
-ngx-twitter-timeline@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/ngx-twitter-timeline/-/ngx-twitter-timeline-0.1.5.tgz#661094c3702b3bc90f516e3a23c06226c70622e9"
-  integrity sha512-YL74SV+/t6GmJn8nypknnrRqpBbMWtWQHqhw9+VzLQdxQAiFZm8DdA0FqIVYgk5XE+Kap00k3taF0+XnwRa2FQ==
-  dependencies:
-    tslib "^1.9.0"
-
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
