@@ -393,7 +393,7 @@ select option:disabled {
 .info-panel, .front-twitter-feed {
   box-shadow: 0px 0px 18px rgba(120,120,120,.80);
   vertical-align: top;
-  width: 300px;
+  max-width: 300px;
 }
 
 .panel-container {
