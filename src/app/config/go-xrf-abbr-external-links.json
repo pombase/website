@@ -11,6 +11,12 @@
       "url_syntax" : "http://www.ncbi.nlm.nih.gov/Structure/cdd/cddsrv.cgi?uid=[example_id]",
       "website" : "https://www.ncbi.nlm.nih.gov/cdd"
    },
+   "CGD" : {
+      "description" : "Candida Genome Database",
+      "name" : "CGD",
+      "url_syntax" : "http://www.candidagenome.org/cgi-bin/locus.pl?dbid=[example_id]",
+      "website" : "http://www.candidagenome.org/"
+   },
    "DOI" : {
       "description" : "Digital Object Identifier",
       "name" : "DOI",
@@ -149,6 +155,12 @@
       "url_syntax" : "http://supfam.org/scop/[example_id]",
       "website" : "http://supfam.org/"
    },
+   "TAIR" : {
+      "description" : "The Arabidopsis Information Resource",
+      "name" : "TAIR",
+      "url_syntax" : "http://arabidopsis.org/servlets/TairObject?accession=[example_id]",
+      "website" : "http://www.arabidopsis.org/"
+   },
    "TIGRFAMS" : {
       "description" : "TIGRFAMs HMM collection at the J. Craig Venter Institute",
       "name" : "TIGRFAMS",
@@ -184,6 +196,12 @@
       "name" : "WB",
       "url_syntax" : "http://www.wormbase.org/get?name=[example_id]",
       "website" : "http://www.wormbase.org/"
+   },
+   "ZFIN" : {
+      "description" : "Zebrafish Information Network",
+      "name" : "ZFIN",
+      "url_syntax" : "http://zfin.org/[example_id]",
+      "website" : "http://zfin.org/"
    },
    "dictyBase" : {
       "description" : "dictyBase",
