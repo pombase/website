@@ -51,6 +51,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    (<any>window).twttr.widgets.load();
+    const twttr = (<any>window).twttr;
+    if (twttr) {
+      twttr.widgets.load();
+    }
   }
 }
