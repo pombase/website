@@ -1,5 +1,4 @@
 ### PombeTalks October 28th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next online PombeTalks will take place on Wednesday **28th October**
