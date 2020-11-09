@@ -45,6 +45,12 @@
            [attr.href]="range.gene_product.link">{{range.gene_product.displayName}}</a>
       </span>
 
+      <span *ngIf="range.gene_and_gene_product">
+        <app-gene-link class="app-link" [long]="false" [gene]="range.gene_and_gene_product.gene"></app-gene-link>
+        (<a title="{{range.gene_and_gene_product.product.name || range.gene_and_gene_product.product.id}}"
+           [attr.href]="range.gene_and_gene_product.product.link">{{range.gene_and_gene_product.product.displayName}}</a>)
+      </span>
+
       <span *ngIf="range.domain">
         <a title="{{range.domain.id}}"
            [attr.href]="range.domain.link">{{range.domain.id}}</a>

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ExtPart, ExtRange } from '../pombase-api.service';
+import { ExtPart } from '../pombase-api.service';
+import { TermShort } from '../pombase-query';
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, LinkoutConfig, getXrf, getXrfWithPrefix } from '../config';
 
@@ -53,51 +54,66 @@ export class ExtensionDisplayComponent implements OnInit {
         }
 
         newRange = newRange.map(rangePart => {
-          if (rangePart.gene_product) {
-            const id = rangePart.gene_product;
-            let displayName;
-            if (rangePart.term) {
-              displayName = rangePart.term.name;
-              if (organismRE) {
-                displayName = displayName.replace(organismRE, '');
+          const termForProduct =
+            (id: string, term?: TermShort) => {
+              let displayName;
+              if (term) {
+                displayName = rangePart.term.name;
+                if (organismRE) {
+                  displayName = displayName.replace(organismRE, '');
+                }
+              } else {
+                displayName = id;
               }
-            } else {
-              displayName = id;
-            }
-            return {
-              gene_product: {
+              return {
                 id: id,
                 link: this.getLink(id),
                 displayName,
-              }
+              };
+            };
+
+          if (rangePart.gene_product) {
+            return {
+              gene_product: termForProduct(rangePart.gene_product,
+                                           rangePart.term),
             };
           } else {
-            if (rangePart.domain) {
-              let id = rangePart.domain;
+            if (rangePart.gene_and_gene_product) {
               return {
-                domain: {
-                  id: id,
-                  link: this.getLink(id),
+                gene_and_gene_product: {
+                  gene: rangePart.gene_and_gene_product.gene,
+                  product: termForProduct(rangePart.gene_and_gene_product.product,
+                                          rangePart.term)
                 }
               };
             } else {
-              if (rangePart.misc) {
-                let value = rangePart.misc;
-                let link = null;
-                if (ext.rel_type_name === 'has_penetrance' ||
-                    ext.rel_type_name === 'has_severity') {
-                  value += '%';
-                } else {
-                  link = this.getLink(value);
-                }
+              if (rangePart.domain) {
+                let id = rangePart.domain;
                 return {
-                  misc: {
-                    value: value,
-                    link: link,
+                  domain: {
+                    id: id,
+                    link: this.getLink(id),
                   }
                 };
               } else {
-                return rangePart;
+                if (rangePart.misc) {
+                  let value = rangePart.misc;
+                  let link = null;
+                  if (ext.rel_type_name === 'has_penetrance' ||
+                      ext.rel_type_name === 'has_severity') {
+                    value += '%';
+                  } else {
+                    link = this.getLink(value);
+                  }
+                  return {
+                    misc: {
+                      value: value,
+                      link: link,
+                    }
+                  };
+                } else {
+                  return rangePart;
+                }
               }
             }
           }

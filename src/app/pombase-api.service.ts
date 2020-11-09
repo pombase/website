@@ -90,6 +90,12 @@ export interface GenotypeMap {
   [uniquename: string]: GenotypeShort;
 }
 
+export interface GeneAndGeneProduct {
+  product: string,
+  gene?: GeneShort,
+  gene_uniquename: string,
+}
+
 export interface ExtRange {
   gene_uniquename?: string;
   gene?: GeneShort;
@@ -104,6 +110,7 @@ export interface ExtRange {
   misc?: string;
   domain?: string;
   gene_product?: string;
+  gene_and_gene_product?: GeneAndGeneProduct;
   summary_residues?: Array<string>;
 }
 
@@ -640,6 +647,17 @@ export class PombaseAPIService {
                     } else {
                       if (extPart.ext_range.gene_product) {
                         extPart.ext_range.term = termsByTermId[extPart.ext_range.gene_product];
+                      } else {
+                        if (extPart.ext_range.gene_and_gene_product) {
+                          const geneUniquename =
+                            extPart.ext_range.gene_and_gene_product.gene_uniquename;
+                          extPart.ext_range.gene_and_gene_product.gene =
+                            genesByUniquename[geneUniquename];
+                          const productTermId = extPart.ext_range.gene_and_gene_product.product;
+                          if (productTermId) {
+                            extPart.ext_range.term = termsByTermId[productTermId];
+                          }
+                        }
                       }
                     }
                   }
@@ -1198,6 +1216,13 @@ function processExtension(annotation: Annotation, termsByTermId: TermIdTermMap, 
         } else {
           if (extPart.ext_range.gene_product) {
             extPart.ext_range.term = termsByTermId[extPart.ext_range.gene_product];
+          } else {
+            if (extPart.ext_range.gene_and_gene_product) {
+              const productTermId = extPart.ext_range.gene_and_gene_product.product;
+              extPart.ext_range.term = termsByTermId[productTermId];
+              const geneUniquename = extPart.ext_range.gene_and_gene_product.gene_uniquename;
+              extPart.ext_range.gene_and_gene_product.gene = genesByUniquename[geneUniquename];
+            }
           }
         }
       }
