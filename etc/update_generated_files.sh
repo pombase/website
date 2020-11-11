@@ -5,13 +5,16 @@ date
 set -eu
 set -o pipefail
 
-go_xrfs_abbs=$1
-web_config=$2
+web_config=$1
 
-ABBREVS="AGI_LocusCode CDD DDJB DOI EC EMBL ENSEMBL FB GEO GO HAMAP InterPro iPTMnet TIGRFAMS MGI ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam ProDom Prosite QuickGO RGD SFLD SGD SMART SO SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB dictyBase Cyclebase ZFIN CGD TAIR"
+ABBREVS="AGI_LocusCode CDD DDJB DOI EC EMBL ENSEMBL:gene FB GEO GO:molecular_function HAMAP InterPro iPTMnet TIGRFAMS MGI:gene ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam:polypeptide_region ProDom Prosite QuickGO RGD SFLD SGD SMART SO:sequence_feature SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB:gene dictyBase Cyclebase ZFIN:gene CGD TAIR:gene"
+
+DB_XREFS_FILE=/tmp/db-xrefs-$$.yaml
+
+curl https://raw.githubusercontent.com/geneontology/go-site/master/metadata/db-xrefs.yaml > $DB_XREFS_FILE
 
 # get link configuration from GO
-etc/make-link-js.pl $go_xrfs_abbs $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
+etc/make-link-js.pl $DB_XREFS_FILE $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
 
 echo -n 'Using Pandoc version: '
 pandoc --version

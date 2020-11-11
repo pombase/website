@@ -2,11 +2,14 @@
 
 use strict;
 use warnings;
+use Data::Dumper;
+
+use YAML 'LoadFile';
 
 use JSON -support_by_pp;
 
 my $file_name = shift;
-my @abbrevs = @ARGV;
+my @db_ids = @ARGV;
 
 my %result = ();
 
@@ -15,47 +18,68 @@ my $current_database_description = undef;
 my $current_url_syntax = undef;
 my $current_generic_url = undef;
 
-open my $fh, '<', $file_name or die "can't open $file_name: $!";
+my $xrefs = LoadFile($file_name);
 
-while (<$fh>) {
-  if (/^abbreviation:\s*(.*)/) {
-    if ($current_abbreviation) {
-      $result{$current_abbreviation} = {
-        name => $current_abbreviation,
-        description => $current_database_description,
-        url_syntax => $current_url_syntax,
-        website => $current_generic_url,
-      };
-      $current_abbreviation = undef;
-    $current_url_syntax = undef;
-      $current_database_description = undef;
-    }
+my %db_ids = ();
 
-    if (grep { $_ eq $1 } @abbrevs) {
-      $current_abbreviation = $1;
-    }
+map {
+  my $db_id = $_;
+
+  if ($db_id =~ /(.*):(.*)/) {
+    my $db_name = $1;
+
+    $db_ids{$db_name} = {
+      entity_type_name => $2,
+    };
   } else {
-    if (/^url_syntax:\s*(.*)/) {
-      $current_url_syntax = $1;
-    } else {
-      if (/^database:\s*(.*)/) {
-        $current_database_description = $1;
-      } else {
-        if (/^generic_url:\s*(.*)/) {
-          $current_generic_url = $1;
-        }
+    $db_ids{$db_id} = {};
+  }
+} @db_ids;
+
+for my $xref (@$xrefs) {
+  my $database_name = $xref->{database};
+
+  my $db_id_conf = $db_ids{$database_name};
+
+  if (defined $db_id_conf) {
+    my $entity_type_name = $db_id_conf->{entity_type_name};
+
+    my $entity_type = undef;
+
+    if (@{$xref->{entity_types}} > 1) {
+      if (!defined $entity_type_name) {
+        die "no entity type name specified for $database_name which has ",
+          scalar(@{$xref->{entity_types}}), " entity types:\n",
+          Dumper([$xref->{entity_types}]);
       }
+
+      map {
+        my $this_entity_type = $_;
+        if ($this_entity_type->{type_name} eq $entity_type_name ||
+              $this_entity_type->{type_name} =~ s/ /_/gr eq $entity_type_name) {
+          $entity_type = $this_entity_type;
+        }
+      } @{$xref->{entity_types}};
+    } else {
+      $entity_type = $xref->{entity_types}->[0];
     }
+
+    delete $db_ids{$database_name};
+
+    $result{$database_name} = {
+      name => $database_name,
+      description => $xref->{name},
+      url_syntax => $entity_type->{url_syntax},
+      website => $xref->{generic_urls}->[0],
+    };
   }
 }
 
-if ($current_abbreviation) {
-  $result{$current_abbreviation} = {
-    name => $current_abbreviation,
-    description => $current_database_description,
-    url_syntax => $current_url_syntax,
-    website => $current_generic_url,
-  };
+my @missing_dbs = sort keys %db_ids;
+
+if (@missing_dbs) {
+  warn "warning: some databases could not be found in $file_name:",
+    " @missing_dbs\n";
 }
 
 print to_json( \%result, { canonical => 1, pretty => 1 } );
