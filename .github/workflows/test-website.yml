@@ -22,7 +22,7 @@ jobs:
       - name: Prerequisites
         run: |
            sudo apt-get update
-           sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl pandoc
+           sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl pandoc libyaml-perl
            (curl -L http://cpanmin.us | sudo perl - --self-upgrade) && sudo cpanm --notest Pandoc Text::CSV
            curl -OL http://current.geneontology.org/metadata/GO.xrf_abbs
            curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json
@@ -34,7 +34,6 @@ jobs:
 
       - name: Test
         run: |
-           sudo apt-get install libyaml-perl
            ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json
            ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
 
