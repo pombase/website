@@ -11,7 +11,7 @@ ABBREVS="AGI_LocusCode CDD DDJB DOI EC EMBL ENSEMBL:gene FB GEO GO:molecular_fun
 
 DB_XREFS_FILE=/tmp/db-xrefs-$$.yaml
 
-curl https://raw.githubusercontent.com/geneontology/go-site/master/metadata/db-xrefs.yaml > $DB_XREFS_FILE
+curl http://current.geneontology.org/metadata/db-xrefs.yaml > $DB_XREFS_FILE
 
 # get link configuration from GO
 etc/make-link-js.pl $DB_XREFS_FILE $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
