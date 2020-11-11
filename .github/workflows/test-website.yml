@@ -35,5 +35,5 @@ jobs:
       - name: Test
         run: |
            ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json
-           ./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
+           ./etc/update_generated_files.sh pombase_v2_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
 
