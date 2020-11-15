@@ -128,7 +128,6 @@ export class GenesTableComponent implements OnInit {
     const config = {
       animated: false,
       initialState: {
-        visibleFieldNames: this.visibleFieldNames,
       },
       class: 'modal-lg',
     };
