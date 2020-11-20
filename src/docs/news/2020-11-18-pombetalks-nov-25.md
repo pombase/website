@@ -1,13 +1,14 @@
-### PombeTalks November 11th
+### PombeTalks November 25th
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The next online PombeTalks will take place on Wednesday **11th November**
+The last online PombeTalks for 2020 will take place on Wednesday **25th November**
 2020 at 17:00 [Central European
 Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/):
 
-- **Farnaz Mansouri**, Mark Bayfield lab (York University, Toronto): *The uncharacterized S. pombe La-related protein 1 functions in translation and affects RNA abundance*
+- **I-Ju Lee**, David Pellman's Lab, Dana-Farber Cancer Institute: *Factors promoting nuclear envelope assembly independent of the canonical ESCRT pathway*
 
-- **Saz Basu**, Paul Nurse lab (Francis Crick Institute, London): *Unmasking the mitotic potential of G1/S Cyclin-CDK*
+- **Ulrike Endesfelder**, Carnegie Mellon University: *TBC*
 
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
@@ -16,7 +17,7 @@ and PombeSlack one day in advance, so make sure you've signed up. Also
 see PombeSlack for Q&A after the talks, and for recordings of previous
 sessions.
 
-The next talks are on **November 25**. PombeTalks will then take a
+After these talks, PombeTalks will take a well-earned
 break, and return in early 2021. The
 [schedule](https://researchseminars.org/seminar/pombeTalks) is
 available, and you are always welcome to fill out [this
