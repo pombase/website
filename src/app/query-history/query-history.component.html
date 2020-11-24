@@ -1,4 +1,4 @@
-<div class="query-history" *ngIf="historyEntries.length > 0">
+<div class="query-history" *ngIf="sortedHistoryEntries.length > 0">
   <span class="title">Combine queries:</span>
 
   <div class="content">
@@ -60,11 +60,14 @@
       <tr>
         <th></th>
         <th><span (dblclick)="setAllCounts()">Results</span></th>
-        <th>Query history</th>
+        <th (click)="changeSortOrder()">Query history
+          <img *ngIf="sortColumn != 'queryName'" title="Sort by query name" src="assets/sort_both.svg" />
+          <img *ngIf="sortColumn == 'queryName'" src="assets/sort_up.svg" />
+        </th>
       </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let histEntry of historyEntries">
+    <tr *ngFor="let histEntry of sortedHistoryEntries">
       <td>
         <input [(ngModel)]="histEntry.checked" type="checkbox"/>
       </td>
@@ -122,7 +125,7 @@
   </div>
 </div>
 
-<div *ngIf="historyEntries.length == 0">
+<div *ngIf="sortedHistoryEntries.length == 0">
 <span *ngIf="!deployConfigService.productionMode()">
   <button class="btn btn-primary" (click)="importQueries()"
           title="Import queries from a previous session">

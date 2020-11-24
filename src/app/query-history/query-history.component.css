@@ -29,6 +29,7 @@
 .history-table th {
   text-align: left;
   background-color: #f0f0f0;
+  user-select: none;
 }
 
 td.result-count {

@@ -21,6 +21,7 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   @Output() gotoResults = new EventEmitter<GeneQuery>();
 
   historyEntries: Array<HistoryEntry> = [];
+  sortedHistoryEntries: Array<HistoryEntry> = [];
   histSubscription: Subscription = null;
   detailsModalRef: BsModalRef = null;
   // only used when the query name isn't set:
@@ -35,20 +36,45 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   faUpload = faUpload;
   importingFromFile: boolean;
 
+  sortColumn: 'default'|'queryName' = 'default';
+
   constructor(private modalService: BsModalService,
               private queryService: QueryService,
               private toastr: ToastrService,
               public deployConfigService: DeployConfigService) { }
 
   getSelectedEntries(): Array<HistoryEntry> {
-    return this.historyEntries.filter(e => e.checked);
+    return this.sortedHistoryEntries.filter(e => e.checked);
+  }
+
+  changeSortOrder(): void {
+    if (this.sortColumn == 'default') {
+      this.sortColumn = 'queryName';
+      this.sortedHistoryEntries = this.historyEntries.slice()
+        .sort((histEntryA, histEntryB) => {
+          if (!histEntryA.queryName() && !histEntryB.queryName()) {
+            return this.getQueryDisplayString(histEntryA)
+              .localeCompare(this.getQueryDisplayString(histEntryB));
+          }
+          if (!histEntryA.queryName()) {
+            return 1;
+          }
+          if (!histEntryB.queryName()) {
+            return -1;
+          }
+          return histEntryA.queryName().localeCompare(histEntryB.queryName());
+        });
+    } else {
+      this.sortColumn = 'default';
+      this.sortedHistoryEntries = this.historyEntries;
+    }
   }
 
   action(op: string) {
     let selectedQueryNodes =
       this.getSelectedEntries().map(e => e.getQuery().getTopNode());
     let node = new GeneBoolNode(null, op, selectedQueryNodes);
-    this.historyEntries.map((histEntry) => histEntry.checked = false);
+    this.sortedHistoryEntries.map((histEntry) => histEntry.checked = false);
     this.queryService.runAndSaveToHistory(new GeneQuery(node));
   }
 
@@ -142,18 +168,20 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   }
 
   selectAll() {
-    this.historyEntries.map(e => e.checked = true);
+    this.sortedHistoryEntries.map(e => e.checked = true);
   }
 
   selectNone() {
-    this.historyEntries.map(e => e.checked = false);
+    this.sortedHistoryEntries.map(e => e.checked = false);
   }
 
   ngOnInit() {
     this.histSubscription =
       this.queryService.getHistoryChanges()
         .subscribe((newHistory) => {
+          this.sortColumn = 'default';
           this.historyEntries = newHistory;
+          this.sortedHistoryEntries = newHistory;
         });
   }
 
