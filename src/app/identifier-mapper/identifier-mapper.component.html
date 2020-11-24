@@ -17,15 +17,17 @@
         </select>
       </div>
 
-      <textarea class="id-input" cols="50" rows="8" [(ngModel)]="inputText"></textarea>
+      <textarea class="id-input" cols="50" rows="8"
+                (change)="inputTextChanged()"
+                [(ngModel)]="inputText"></textarea>
 
       <div class="id-actions">
         <button class="id-lookup-action btn btn-primary"
-                [disabled]="!geneSummaries && inputText.length != 0"
+                [disabled]="!geneSummaryMap || filteredIds.length == 0"
                 (click)="lookup()">Lookup</button>
 
         <button class="id-lookup-action btn btn-warning"
-                [disabled]="!geneSummaries && inputText.length != 0"
+                [disabled]="!geneSummaryMap || filteredIds.length == 0"
                 (click)="clear()">Clear</button>
 
         <span class="id-read-from-file">
@@ -61,31 +63,6 @@
         </div>
       </div>
 
-
-      <div class="multi-section" *ngIf="objectKeyCount(multipleMatches) != 0">
-        <div class="multi-heading">
-          The following identifiers in your list mapped to multiple
-          genes (paralogs) in {{organismCommonName}}.
-          All paralogs were included:
-        </div>
-        <table>
-          <thead>
-            <th>Identifier</th>
-            <th>{{organismCommonName}} genes</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of multipleMatches | keyvalue">
-              <td>{{item.key}}</td>
-              <td>
-                <div *ngFor="let gene of item.value">
-                  <app-gene-link [long]="true" [gene]="gene"></app-gene-link>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
       <div class="one-one-section" *ngIf="objectKeyCount(oneToOneMatches) != 0">
         <div class="one-one-heading">
           Identifiers matching a single gene (one-to-one matches):
@@ -105,6 +82,55 @@
           </tbody>
         </table>
       </div>
+
+      <div class="one-to-many-section" *ngIf="objectKeyCount(oneToManyMatches) != 0">
+        <div class="multi-heading">
+          The following identifiers in your list mapped to multiple
+          genes (paralogs) in {{organismCommonName}}.
+          All paralogs were included:
+        </div>
+        <table>
+          <thead>
+            <th>Identifier</th>
+            <th>{{organismCommonName}} genes</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of oneToManyMatches | keyvalue">
+              <td>{{item.key}}</td>
+              <td>
+                <div *ngFor="let gene of item.value">
+                  <app-gene-link [long]="true" [gene]="gene"></app-gene-link>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="many-to-one-section" *ngIf="objectKeyCount(manyToOneMatches) != 0">
+        <div class="multi-heading">
+Many to one:
+        </div>
+        <table>
+          <thead>
+            <th>Identifiers</th>
+            <th>{{organismCommonName}} gene</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of manyToOneMatches | keyvalue">
+              <td>
+                <div *ngFor="let queryId of item.value">
+                  {{queryId}}
+                </div>
+              </td>
+              <td>
+                <app-gene-link [long]="true" [gene]="geneSummaryMap[item.key]"></app-gene-link>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneUniquename, GeneListNode, GeneQuery } from '../pombase-query';
 
-import { PombaseAPIService, GeneSummary } from '../pombase-api.service';
+import { PombaseAPIService, GeneSummary, GeneSummaryMap } from '../pombase-api.service';
 import { QueryRouterService } from '../query-router.service';
 import { AppConfig, getAppConfig } from '../config';
 
@@ -21,9 +21,10 @@ export class IdentifierMapperComponent implements OnInit {
 
   appConfig: AppConfig = getAppConfig();
   inputText = '';
+  filteredIds: Array<string> = [];
   selectedMapperType: MapperType = null;
-  geneSummariesPromise: Promise<Array<GeneSummary>> = null;
-  geneSummaries: Array<GeneSummary> = null;
+  geneSummaryMapPromise: Promise<GeneSummaryMap> = null;
+  geneSummaryMap: GeneSummaryMap = null;
   uniprotType: MapperType = {
     id: 'uniprot',
     taxonId: null,
@@ -33,13 +34,21 @@ export class IdentifierMapperComponent implements OnInit {
   organismCommonName = this.appConfig.getConfigOrganism().common_name;
 
   oneToOneMatches: { [id: string]: GeneSummary } = {};
-  multipleMatches: { [id: string]: Array<GeneSummary> } = {};
+  // eg. human PBRM1 -> pombe rsc4 and rsc1
+  oneToManyMatches: { [id: string]: Array<GeneSummary> } = {};
+  // eg. human ACTA1, ACTA2, ACTA2 etc <- pombe act1 (SPBC32H8.12c)
+  manyToOneMatches: { [id: string]: Array<string> } = {};
   notFound: Array<string> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private queryRouterService: QueryRouterService) {
-    this.geneSummariesPromise = this.pombaseApiService.getGeneSummariesPromise();
-    this.geneSummariesPromise.then(geneSummaries => this.geneSummaries = geneSummaries);
+    this.geneSummaryMapPromise =
+      this.pombaseApiService.getGeneSummaryMapPromise();
+
+    this.geneSummaryMapPromise
+      .then(summaryMap => {
+        this.geneSummaryMap = summaryMap;
+      });
 
     this.mapperTypes = [this.uniprotType];
     this.selectedMapperType = this.uniprotType;
@@ -69,13 +78,15 @@ export class IdentifierMapperComponent implements OnInit {
 
   lookupDone(): boolean {
     return this.objectKeyCount(this.oneToOneMatches) > 0 ||
-      this.objectKeyCount(this.multipleMatches) > 0 ||
+      this.objectKeyCount(this.oneToManyMatches) > 0 ||
+      this.objectKeyCount(this.manyToOneMatches) > 0 ||
       this.notFound.length > 0;
   }
 
   hasMatches(): boolean {
     return this.objectKeyCount(this.oneToOneMatches) > 0 ||
-      this.objectKeyCount(this.multipleMatches) > 0;
+      this.objectKeyCount(this.oneToManyMatches) > 0 ||
+      this.objectKeyCount(this.manyToOneMatches) > 0;
   }
 
   clear(): void {
@@ -85,26 +96,34 @@ export class IdentifierMapperComponent implements OnInit {
 
   resetResults(): void {
     this.oneToOneMatches = {};
-    this.multipleMatches = {};
+    this.oneToManyMatches = {};
     this.notFound = [];
+    this.manyToOneMatches = {};
   }
 
   allMatches(): Array<GeneSummary> {
-    let geneUniquenames = Object.values(this.oneToOneMatches);
+    let genes = Object.values(this.oneToOneMatches);
 
-    Object.keys(this.multipleMatches)
+    Object.keys(this.oneToManyMatches)
       .map(key => {
-        const matches = this.multipleMatches[key];
-        matches.map(geneSumm => geneUniquenames.push(geneSumm));
+        const matches = this.oneToManyMatches[key];
+        matches.map(geneSumm => genes.push(geneSumm));
       });
 
-    return geneUniquenames;
+    Object.keys(this.manyToOneMatches)
+      .map(geneUniquename => {
+        const gene = this.geneSummaryMap[geneUniquename];
+        genes.push(gene);
+      });
+
+    return genes;
   }
 
   sendToQueryBuilder(): void {
     let geneUniquenames = this.allMatches();
 
-    const part = new GeneListNode('genes from identifier mapping', geneUniquenames);
+    const part = new GeneListNode('genes from identifier mapping',
+                                  geneUniquenames);
     const geneQuery = new GeneQuery(part);
     this.queryRouterService.gotoResults(geneQuery);
   }
@@ -121,7 +140,7 @@ export class IdentifierMapperComponent implements OnInit {
     fileReader.readAsText(file);
   }
 
-  filteredIds(): Array<string> {
+  filterIds(): Array<string> {
     let seen: Set<string> = new Set();
     return this.inputText.trim().split(/[,\s\u200B]+/)
       .filter(id => {
@@ -140,12 +159,15 @@ export class IdentifierMapperComponent implements OnInit {
       })
   }
 
+  inputTextChanged(): void {
+    this.filteredIds = this.filterIds();
+  }
+
   lookup(): void {
-    const ids = this.filteredIds();
+    const ids = this.filterIds();
 
-    this.geneSummariesPromise
-      .then(geneSummaries => {
-
+    this.geneSummaryMapPromise
+      .then(summaryMap => {
         this.resetResults();
 
         if (!this.selectedMapperType) {
@@ -155,14 +177,22 @@ export class IdentifierMapperComponent implements OnInit {
         const lookupMap: { [key: string]: Array<GeneSummary> } = {};
         const lookupAdd = (key: string, geneSumm: GeneSummary) => {
           const lowerKey = key.toLowerCase();
-          if (!lookupMap[lowerKey]) {
+          if (lookupMap[lowerKey]) {
+            if (lookupMap[lowerKey]
+                .filter(el => {
+                  return geneSumm.uniquename === el.uniquename;
+                })
+                .length > 0) {
+              return;
+            }
+          } else {
             lookupMap[lowerKey] = [];
           }
           lookupMap[lowerKey].push(geneSumm);
         };
 
 
-        for (const geneSummary of geneSummaries) {
+        for (const geneSummary of Object.values(summaryMap)) {
           if (this.selectedMapperType.id === 'uniprot') {
             if (geneSummary.uniprot_identifier) {
               lookupAdd(geneSummary.uniprot_identifier, geneSummary);
@@ -188,6 +218,8 @@ export class IdentifierMapperComponent implements OnInit {
           }
         }
 
+        let allToAllMatches: { [key: string]: Set<string> } = {};
+
         ids.map((id: GeneUniquename) => {
           const lowerId = id.toLowerCase();
           const matchingGenes: Array<GeneSummary> = lookupMap[lowerId];
@@ -196,12 +228,35 @@ export class IdentifierMapperComponent implements OnInit {
             if (matchingGenes.length == 1) {
               this.oneToOneMatches[id] = matchingGenes[0];
             } else {
-              this.multipleMatches[id] = matchingGenes;
+              this.oneToManyMatches[id] = matchingGenes;
             }
+
+            matchingGenes.map(matchedGene => {
+              if (!allToAllMatches[matchedGene.uniquename]) {
+                allToAllMatches[matchedGene.uniquename] = new Set();
+              }
+              allToAllMatches[matchedGene.uniquename].add(id);
+            })
           } else {
             this.notFound.push(id);
           }
         });
+
+        Object.keys(allToAllMatches).map(uniquename => {
+          const matches = Array.from(allToAllMatches[uniquename]);
+          if (matches.length > 1) {
+            this.manyToOneMatches[uniquename] = matches;
+
+            console.log(this.oneToOneMatches);
+
+            matches.map(queryId => {
+              console.log(queryId);
+
+              delete this.oneToOneMatches[queryId];
+            });
+          }
+        });
+
       });
   }
 
