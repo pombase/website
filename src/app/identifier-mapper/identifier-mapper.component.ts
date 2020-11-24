@@ -140,9 +140,9 @@ export class IdentifierMapperComponent implements OnInit {
     fileReader.readAsText(file);
   }
 
-  filterIds(): Array<string> {
+  filterIds(inputText: string): Array<string> {
     let seen: Set<string> = new Set();
-    return this.inputText.trim().split(/[,\s\u200B]+/)
+    return inputText.trim().split(/[,\s\u200B]+/)
       .filter(id => {
         id = id.trim();
         if (id.length === 0) {
@@ -159,12 +159,12 @@ export class IdentifierMapperComponent implements OnInit {
       })
   }
 
-  inputTextChanged(): void {
-    this.filteredIds = this.filterIds();
+  inputTextChanged(inputText: string): void {
+    this.filteredIds = this.filterIds(inputText);
   }
 
   lookup(): void {
-    const ids = this.filterIds();
+    const ids = this.filterIds(this.inputText);
 
     this.geneSummaryMapPromise
       .then(summaryMap => {

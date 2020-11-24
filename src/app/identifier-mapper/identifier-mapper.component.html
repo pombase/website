@@ -18,7 +18,7 @@
       </div>
 
       <textarea class="id-input" cols="50" rows="8"
-                (change)="inputTextChanged()"
+                (ngModelChange)="inputTextChanged($event)"
                 [(ngModel)]="inputText"></textarea>
 
       <div class="id-actions">
@@ -59,7 +59,7 @@
 
       <div class="not-found-section" *ngIf="notFound.length != 0 && !hasMatches()">
         <div class="not-found-heading">
-          No matching {{organismCommonName}} genes were found
+          No matching {{organismCommonName}} genes were found for {{selectedMapperType.displayName}} identifiers.
         </div>
       </div>
 
