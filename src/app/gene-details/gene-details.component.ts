@@ -198,7 +198,9 @@ export class GeneDetailsComponent implements OnInit {
         }
       }
 
-      if (annotationTypeName === 'orthologs') {
+      if (annotationTypeName === 'orthologs' &&
+          (this.geneDetails.feature_type === 'mRNA gene'||
+           this.geneDetails.feature_type === 'pseudogene')) {
         this.visibleSections.push(annotationTypeName);
       }
 
