@@ -8038,6 +8038,19 @@ For example, the Genetic Interactions header for cdc2 links to
 <p><a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">Help with configuring browser tracks</a> is available.</p>
 
 </div>
+<div (click)="faq_navigate($event, '/faq/help-canto-isn-t-working-me.-do-you-have-any-suggestions', 'Help! Canto isnt working for me. Do you have any suggestions?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'tools-and-resources' || pageName == 'help-canto-isn-t-working-me.-do-you-have-any-suggestions' || pageName == 'all-faqs'">
+<h3 id="help-canto-isn-t-working-me.-do-you-have-any-suggestions">Help! Canto isn’t working for me. Do you have any suggestions?</h3>
+<!-- pombase_categories: Data submission and formats,Tools and resources -->
+<p>We have received occasional reports of problems with access to <a href="http://curation.pombase.org/pombe">Canto</a>, apparently due to firewall issues, especially from users in China. If you have any trouble, we have some suggestions relayed from affected colleagues:</p>
+<ul>
+<li>Some browsers work better than others. Users in China report better success with the “360” browser than with Microsoft IE or Edge (note that PomBase staff have not tested all of these browsers ourselves).</li>
+<li>With any browser, connecting via a VPN may help.</li>
+<li>When you follow the curation link in an invitation email, it may help to refresh the page or click on the “PMID:nnn summary” link in the upper left corner of the page before clicking the “Start curating” button.</li>
+<li>A “hard refresh” may help on any Canto page (usually Shift plus the usual page-reload keystroke; consult your browser’s documentation or help).</li>
+</ul>
+<p>If none of these solve your problems, or if you have any other suggestions, please contact the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a>.</p>
+
+</div>
 <div (click)="faq_navigate($event, '/faq/how-are-mating-type-specific-gene-pages-organized', 'How are the mating type specific gene pages organized?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'gene-page' || pageName == 'finding-data' || pageName == 'how-are-mating-type-specific-gene-pages-organized' || pageName == 'all-faqs'">
 <h3 id="how-are-mating-type-specific-gene-pages-organized">How are the mating type specific gene pages organized?</h3>
 <!-- pombase_categories: Gene page, Finding data -->
