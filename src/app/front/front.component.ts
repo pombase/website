@@ -33,6 +33,8 @@ export class FrontComponent implements OnInit {
   communityConf: PanelConfig = null;
   exploreConf: PanelConfig = null;
 
+  siteName = getAppConfig().site_name;
+
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
