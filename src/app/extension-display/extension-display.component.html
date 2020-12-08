@@ -8,7 +8,7 @@
       </span>
 
       <span *ngIf="range.summaryTerms">
-        <span class="summary-term-and-comma"><span *ngFor="let term of range.summaryTerms; let lastTerm = last"> <a routerLink="/term/{{term.termid}}" routerLinkActive="active">{{term.name}}</a><span *ngIf="!lastTerm">,</span></span></span>
+        <span class="summary-term-and-comma"><span *ngFor="let term of range.summaryTerms; let lastTerm = last"> <app-term-link [term]="term">{{term.name}}</app-term-link><span *ngIf="!lastTerm">,</span></span></span>
       </span>
 
       <span *ngIf="range.gene">
