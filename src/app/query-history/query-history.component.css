@@ -113,3 +113,7 @@ a.show-details-button:hover {
 .import-export-buttons {
   margin-left: 2em;
 }
+
+.bool-op-image {
+  min-width: 42px;
+}
