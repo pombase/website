@@ -2,6 +2,15 @@
   white-space: nowrap;
 }
 
+.gene-name-and-id {
+  font-weight: bold;
+}
+
+.gene-product {
+  font-size: 95%;
+  padding: 0.1em 0 0.2em 0;
+}
+
 .link-hint {
   font-size: 90%;
   margin-top: 0.4em;
