@@ -110,7 +110,7 @@ export class SearchBoxComponent implements OnInit {
 
   makeRefDisplayModel(refResult: SolrRefSummary): DisplayModel {
     return new DisplayModel('Matching publications:', refResult.pubmedid, refResult.title,
-                            [refResult.citation]);
+                            [refResult.author_and_citation]);
   }
 
   nameExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {

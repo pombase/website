@@ -46,12 +46,32 @@ function compareTwoStrings(first: string, second: string) {
   return (2.0 * intersectionSize) / (first.length + second.length - 2);
 }
 
-export class SolrTermSummary {
-  constructor(public termid: string, public name: string, public definition: string) {};
+export interface SolrTermSummary {
+  termid: string;
+  name: string;
+  cv_name: string;
+  definition: string;
 }
 
-export class SolrRefSummary {
-  constructor(public pubmedid: string, public title: string, public citation: string) {};
+type CantoAnnotationStatus =
+  'SESSION_CREATED'| 'SESSION_ACCEPTED'| 'CURATION_IN_PROGRESS'| 'CURATION_PAUSED'| 'NEEDS_APPROVAL'| 'APPROVAL_IN_PROGRESS'| 'APPROVED'| 'EXPORTED';
+
+export interface SolrRefSummary {
+  pubmedid: string;
+  title: string;
+  author_and_citation: string;
+  citation: string;
+  pubmed_abstract: string;
+  authors: string;
+  authors_abbrev: string;
+  pubmed_publication_date: string;
+  publication_year: string;
+  gene_count: number;
+  genotype_count: number;
+  annotation_count: number;
+  canto_annotation_status: CantoAnnotationStatus;
+  canto_curator_name: string;
+  canto_curator_role: string;
 }
 
 const retryOptions: RetryOptions = new RetryOptions('json', 600, 4, 3500);
@@ -138,11 +158,10 @@ export class CompleteService {
           const authorAndCitation =
             bits.filter(v => !!v).join(' ');
 
-          return {
-            pubmedid: ref.id,
-            title: ref.title,
-            citation: authorAndCitation,
-          };
+          ref['pubmedid'] = ref.id;
+          ref['author_and_citation'] = authorAndCitation;
+
+          return ref;
         });
 
         return resultRefs;
