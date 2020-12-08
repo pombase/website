@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { TermShort } from './pombase-query';
 import { Util } from './shared/util';
@@ -8,6 +8,7 @@ import { getAppConfig, ConfigOrganism,
          AnnotationType, getAnnotationTableConfig } from './config';
 
 import { HttpRetryService, RetryOptions } from './http-retry.service';
+import { SolrTermSummary } from './complete.service';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
@@ -1202,7 +1203,24 @@ export class PombaseAPIService {
     this.http.get('appreport/notfound/' + path).toPromise()
       .then(() => {}).catch(() => {});
   }
+
+  termSummaryById(termid: string): Promise<SolrTermSummary> {
+    if (!termid || !termid.includes(':')) {
+      return Promise.resolve(null);
+    }
+    return this.httpRetry.getWithRetry(this.apiUrl + '/summary/term/' + termid)
+      .toPromise()
+      .then((response: HttpResponse<any>) => {
+        const parsedRes = response as any;
+        if (parsedRes['status'] !== 'Ok') {
+          return null;
+        }
+        return parsedRes['summary'] as SolrTermSummary;
+      })
+      .catch(this.handleError);
+  }
 }
+
 function processExtension(annotation: Annotation, termsByTermId: TermIdTermMap, genesByUniquename: GeneMap) {
   annotation.extension.map((extPart) => {
     if (extPart.ext_range.termid) {

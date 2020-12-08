@@ -4,7 +4,7 @@
     <span *ngFor="let range of extPart.extRange; let i = index">
 
       <span *ngIf="range.term">
-        <a routerLink="/term/{{range.term.termid}}" routerLinkActive="active">{{range.term.name}}</a>
+        <app-term-link [term]="range.term">{{range.term.name}}</app-term-link>
       </span>
 
       <span *ngIf="range.summaryTerms">

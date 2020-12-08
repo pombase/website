@@ -1,0 +1,21 @@
+.term-link {
+  white-space: nowrap;
+}
+
+.term-id, .term-name {
+  font-weight: bold;
+}
+
+.term-definition {
+  font-size: 90%;
+  padding: 0.1em 0 0.2em 0;
+}
+
+.term-popover {
+  width: 40em;
+}
+
+.link-hint {
+  font-size: 90%;
+  margin-top: 0.4em;
+}

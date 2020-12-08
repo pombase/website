@@ -66,8 +66,8 @@
         <td *ngIf="detailsMode()">
           <div class="conditions">
             <div *ngFor="let condition of annotation.conditions ; let i = index">
-              <a routerLink="/term/{{condition.termid}}"
-              routerLinkActive="active">{{condition.name}}</a><span *ngIf="i < annotation.conditions.length - 1">,</span>
+              <app-term-link [term]="condition">
+              {{condition.name}}</app-term-link><span *ngIf="i < annotation.conditions.length - 1">,</span>
             </div>
           </div>
         </td>

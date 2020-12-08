@@ -6,7 +6,7 @@
   </div>
   <div class="slim-link-container">
   <span class="slim-links" *ngFor="let element of geneSlimTerms">
-    <a routerLink="/term_genes/{{element.termid}}">{{element.name}}</a>
+    <app-term-link [term]="element"><span>{{element.name}}</span></app-term-link>
   </span>
   </div>
   </div>

@@ -1,0 +1,19 @@
+<ng-template #termPopover>
+  <div class="term-popover">
+    <div>
+      <span *ngIf="term.name" class="term-name">{{term.name}}</span>
+      <span class="term-id">({{term.termid}})</span>
+    </div>
+    <div *ngIf="termSummary" class="term-definition">{{termSummary.definition}}</div>
+    <div class="link-hint">(Click to view term details and annotations)</div>
+  </div>
+</ng-template>
+
+<a routerLink="/term/{{term.termid}}"
+   [popover]="termPopover"
+   (onShown)="shown()"
+   [delay]="300"
+   triggers="mouseenter:mouseleave"
+   placement="bottom" container="body">
+  <span class="term-link"><ng-content></ng-content></span>
+</a>

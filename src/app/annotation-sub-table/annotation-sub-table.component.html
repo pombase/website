@@ -71,12 +71,18 @@
             <span *ngIf="termAnnotation.rel_names?.length > 0">
               <span class='rel-icon'>&#8593;</span><span class="rel-name">{{termAnnotation.rel_names}}</span>
             </span>
-            <a routerLink="/term/{{termAnnotation.term.termid}}">{{termAnnotation.term.termid}}</a>
+            <app-term-link [term]="termAnnotation.term">
+              {{termAnnotation.term.termid}}
+            </app-term-link>
           </span>
         </td>
         <td [attr.colspan]="termNameColSpan">
           <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
-          <a routerLink="/term/{{termAnnotation.term.termid}}" class="term-name">{{termAnnotation.term.name}}</a>
+          <span class="term-name">
+            <app-term-link [term]="termAnnotation.term">
+              {{termAnnotation.term.name}}
+            </app-term-link>
+          </span>
         </td>
         <td *ngIf="showColumn['count']"
             [attr.rowspan]="termAnnotation.annotations.length + 1">
@@ -115,7 +121,9 @@
             <span *ngIf="termAnnotation.rel_names?.length > 0">
               <span class="rel-icon">&#8593;</span><span class="rel-name">{{termAnnotation.rel_names}}</span>
             </span>
-            <a routerLink="/term/{{termAnnotation.term.termid}}">{{termAnnotation.term.termid}}</a>
+            <app-term-link [term]="termAnnotation.term">
+              {{termAnnotation.term.termid}}
+            </app-term-link>
           </span>
         </td>
         <td>
@@ -124,7 +132,9 @@
           </div>
           <div *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0">
             <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
-            <a routerLink="/term/{{termAnnotation.term.termid}}" class="term-name">{{termAnnotation.term.name}}</a>
+            <app-term-link [term]="termAnnotation.term">
+              <span class="term-name">{{termAnnotation.term.name}}</span>
+            </app-term-link>
           </div>
         </td>
         <td *ngIf="showColumn['gene'] && !featureInFirstColumn">
@@ -160,7 +170,7 @@
         <td *ngIf="showColumn['conditions']">
           <ul class="conditions">
           <li *ngFor="let condition of annotation.conditions">
-            <a routerLink="/term/{{condition.termid}}">{{condition.name}}</a>
+            <app-term-link [term]="condition">{{condition.name}}</app-term-link>
           </li>
           </ul>
         </td>
@@ -207,7 +217,11 @@
 
         <td [attr.colspan]="termNameColSpan">
             <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
-            <a routerLink="/term/{{termAnnotation.term.termid}}" class="term-name">{{termAnnotation.term.name}}</a>
+            <app-term-link [term]="termAnnotation.term">
+              <span class="term-name">
+                {{termAnnotation.term.name}}
+              </span>
+            </app-term-link>
         </td>
       </tr>
 

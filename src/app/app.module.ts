@@ -114,6 +114,7 @@ import { StatsRibbonComponent } from './stats-ribbon/stats-ribbon.component';
 import { AllCvVersionsComponent } from './all-cv-versions/all-cv-versions.component';
 import { InternalDetailsComponent } from './internal-details/internal-details.component';
 import { IdentifierMapperComponent } from './identifier-mapper/identifier-mapper.component';
+import { TermLinkComponent } from './term-link/term-link.component';
 
 export function documentFactory() {
     return document;
@@ -205,6 +206,7 @@ export function windowFactory() {
     AllCvVersionsComponent,
     InternalDetailsComponent,
     IdentifierMapperComponent,
+    TermLinkComponent,
   ],
   imports: [
     BrowserModule,
