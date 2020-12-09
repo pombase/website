@@ -63,7 +63,7 @@ export class HistoryEntry {
   }
 
   hasEditedName(): boolean {
-    return !this.query.getQueryName() || this.query.getQueryName() != this.query.toString();
+    return !this.query.getQueryName() || this.query.getQueryName() !== this.query.toString();
   }
 
   getResultCount(): number {

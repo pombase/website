@@ -199,7 +199,7 @@ export class GeneDetailsComponent implements OnInit {
       }
 
       if (annotationTypeName === 'orthologs' &&
-          (this.geneDetails.feature_type === 'mRNA gene'||
+          (this.geneDetails.feature_type === 'mRNA gene' ||
            this.geneDetails.feature_type === 'pseudogene')) {
         this.visibleSections.push(annotationTypeName);
       }
@@ -232,7 +232,7 @@ export class GeneDetailsComponent implements OnInit {
 
   setProductSize(): void {
     const transcripts = this.geneDetails.transcripts;
-    if (!transcripts || transcripts.length == 0) {
+    if (!transcripts || transcripts.length === 0) {
       return;
     }
 

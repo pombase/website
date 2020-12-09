@@ -33,7 +33,7 @@ class DisplayTranscript {
       if (geneLocation.end_pos - transcript.location.end_pos > 0) {
         paddingLocation = {
           chromosome_name: transcript.location.chromosome_name,
-          start_pos: transcript.location.end_pos +1,
+          start_pos: transcript.location.end_pos + 1,
           end_pos: geneLocation.end_pos,
           strand: transcript.location.strand,
         } as ChromosomeLocation;
@@ -51,10 +51,10 @@ class DisplayTranscript {
     }
 
     for (const part of transcript.parts) {
-      if (part.feature_type == 'exon') {
+      if (part.feature_type === 'exon') {
         exonCount++;
       } else {
-        if (part.feature_type == 'cds_intron') {
+        if (part.feature_type === 'cds_intron') {
           intronCount++;
         }
       }
@@ -70,12 +70,12 @@ class DisplayTranscript {
 
     for (let i = 0; i < this._displayParts.length; i++) {
       const displayPart = this._displayParts[i];
-      if (i+1 < this._displayParts.length) {
-        const nextPart = this._displayParts[i+1];
+      if (i + 1 < this._displayParts.length) {
+        const nextPart = this._displayParts[i + 1];
         displayPart.setNext(nextPart);
       }
       if (i > 0) {
-        const previousPart = this._displayParts[i-1];
+        const previousPart = this._displayParts[i - 1];
         displayPart.setPrevious(previousPart);
       }
       displayPart.setDivVW(geneLength);
@@ -137,7 +137,7 @@ class DisplayTranscript {
 }
 
 class DisplayPart {
-  private _divWidth: number = -1;
+  private _divWidth = -1;
   private _id: string = null;
   private _next: DisplayPart;
   private _previous: DisplayPart;
@@ -150,20 +150,20 @@ class DisplayPart {
   }
 
   public displayType(): string {
-    if (this.type() == 'five_prime_utr') {
-      return "5'UTR";
+    if (this.type() === 'five_prime_utr') {
+      return '5\'UTR';
     }
-    if (this.type() == 'three_prime_utr') {
-      return "3'UTR";
+    if (this.type() === 'three_prime_utr') {
+      return '3\'UTR';
     }
-    if (this.type() == 'cds_intron') {
-      return "intron";
+    if (this.type() === 'cds_intron') {
+      return 'intron';
     }
-    if (this.type() == 'five_prime_utr_intron') {
-      return "5'UTR intron";
+    if (this.type() === 'five_prime_utr_intron') {
+      return '5\'UTR intron';
     }
-    if (this.type() == 'three_prime_utr_intron') {
-      return "3'UTR intron";
+    if (this.type() === 'three_prime_utr_intron') {
+      return '3\'UTR intron';
     }
     return this.type();
   }

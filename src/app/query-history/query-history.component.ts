@@ -48,7 +48,7 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   }
 
   changeSortOrder(): void {
-    if (this.sortColumn == 'default') {
+    if (this.sortColumn === 'default') {
       this.sortColumn = 'queryName';
       this.sortedHistoryEntries = this.historyEntries.slice()
         .sort((histEntryA, histEntryB) => {

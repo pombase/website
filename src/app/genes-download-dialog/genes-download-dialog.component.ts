@@ -101,13 +101,13 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   aspectDisplayName(aspectName: string): string {
-    return aspectName.replace("_", " ");
+    return aspectName.replace('_', ' ');
   }
 
   nucControlChange($event: any): void {
     if (!this.include3PrimeUtr && !this.include5PrimeUtr &&
         !this.includeIntrons &&
-        this.upstreamBases == 0 && this.downstreamBases == 0) {
+        this.upstreamBases === 0 && this.downstreamBases === 0) {
       this.includeExons = true;
       this.disableIncludeExons = true;
     } else {

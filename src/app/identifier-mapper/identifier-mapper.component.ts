@@ -200,7 +200,7 @@ export class IdentifierMapperComponent implements OnInit {
           } else {
             if (this.selectedMapperType.taxonId) {
               geneSummary.orthologs.map(orth => {
-                if (orth.taxonid == this.selectedMapperType.taxonId) {
+                if (orth.taxonid === this.selectedMapperType.taxonId) {
                   const orthName = orth.name;
 
                   if (orthName) {
@@ -225,7 +225,7 @@ export class IdentifierMapperComponent implements OnInit {
           const matchingGenes: Array<GeneSummary> = lookupMap[lowerId];
 
           if (matchingGenes) {
-            if (matchingGenes.length == 1) {
+            if (matchingGenes.length === 1) {
               this.oneToOneMatches[id] = matchingGenes[0];
             } else {
               this.oneToManyMatches[id] = matchingGenes;

@@ -298,7 +298,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   selectedGenesDescription(): string {
     let desc = '';
-    if (this.selectedGeneList.length == 1) {
+    if (this.selectedGeneList.length === 1) {
       desc = 'one selected gene'
     } else {
       desc = this.selectedGeneList.length + ' selected genes';
@@ -313,7 +313,7 @@ export class GeneResultsVisComponent implements OnInit {
       });
 
     const queryName = this.selectedGenesDescription() + ' from visualisation' +
-      (this.geneListDescription ? ' of ' + this.geneListDescription: '');
+      (this.geneListDescription ? ' of ' + this.geneListDescription : '');
 
     const part = new GeneListNode(queryName, selectedGenes);
     const geneQuery = new GeneQuery(part);

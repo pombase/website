@@ -22,7 +22,7 @@ export class GeneResultsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.description == '';
+    this.description = '';
     this.descriptionParts = [];
     if (this.results) {
       const query = this.results.getQuery();

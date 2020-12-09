@@ -108,6 +108,7 @@ export interface GeneQueryNode {
 
 export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
   private operator: QueryNodeOperator;
+  private _detailsString: string;
 
   constructor(nodeName: string, operator: string,
               public parts: GeneQueryNode[]) {
@@ -206,7 +207,6 @@ export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
     }
   }
 
-  private _detailsString: string;
   detailsString(): string {
     return this._detailsString;
   }
@@ -214,6 +214,7 @@ export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
 
 export class GeneListNode extends GeneQueryBase implements GeneQueryNode {
   genes: Array<GeneShort>;
+  private _detailsString: string;
 
   constructor(nodeName: string, public arg: Array<{ uniquename: string }> | Array<GeneUniquename>) {
     super(nodeName);
@@ -274,7 +275,6 @@ export class GeneListNode extends GeneQueryBase implements GeneQueryNode {
     return false;
   }
 
-  private _detailsString: string;
   detailsString(): string {
     return this._detailsString;
   }
@@ -298,6 +298,8 @@ function conditionsEqual(conditions1: Array<TermAndName>, conditions2: Array<Ter
 }
 
 export class TermNode extends GeneQueryBase implements GeneQueryNode {
+  private _detailsString: string;
+
   constructor(nodeName: string,
               private termid: string,
               private termName: string,
@@ -443,7 +445,6 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
     this._detailsString = ret;
   }
 
-  private _detailsString: string;
   detailsString(): string {
     return this._detailsString;
   }
@@ -544,6 +545,8 @@ export class InteractorsNode extends GeneQueryBase implements GeneQueryNode {
 }
 
 export class GenomeRangeNode extends GeneQueryBase implements GeneQueryNode {
+  private _detailsString: string;
+
   constructor(nodeName: string,
               private start: number, private end: number, private chromosomeName: string) {
     super(nodeName);
@@ -590,7 +593,6 @@ export class GenomeRangeNode extends GeneQueryBase implements GeneQueryNode {
     this._detailsString = ret;
   }
 
-  private _detailsString: string;
   detailsString(): string {
     return this._detailsString;
   }
