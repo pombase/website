@@ -185,7 +185,7 @@ export class GeneResultsVisComponent implements OnInit {
     const svgUrl = URL.createObjectURL(svgBlob);
     const downloadLink = document.createElement('a');
     downloadLink.href = svgUrl;
-    downloadLink.download = name;
+    downloadLink.download = 'result-visualisation.svg';
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
