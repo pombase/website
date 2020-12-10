@@ -223,16 +223,21 @@ export class GeneListNode extends GeneQueryBase implements GeneQueryNode {
     }
 
     this.genes = [];
+    let seen = new Set();
 
     for (let argElement of arg) {
       if (typeof(argElement) === 'object') {
-        this.genes.push({ uniquename: argElement.uniquename, name: null });
+        if (!seen.has(argElement.uniquename)) {
+          this.genes.push({ uniquename: argElement.uniquename, name: null });
+          seen.add(argElement.uniquename);
+        }
       } else {
-        this.genes.push({ uniquename: argElement, name: null });
+        if (!seen.has(argElement)) {
+          this.genes.push({ uniquename: argElement, name: null });
+          seen.add(argElement);
+        }
       }
     }
-
-    this.genes = Array.from(new Set(this.genes)).sort();
 
     let displayIds = this.genes.map(gene => gene.name || gene.uniquename);
 
