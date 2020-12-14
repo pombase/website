@@ -18,6 +18,7 @@ antifungal azoles | | | [sterol biosynthesis](https://www.pombase.org/term/GO:00
 [antimycin A](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:2762) | | electron transport chain? cytochrome bc1 complex? | | |
 arborcandin C | | 1,3-beta-glucan synthase | | |
 [benomyl](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:3015) | [nda3](https://www.pombase.org/gene/SPBC26H8.07c) | | microtubule destabilizer | |
+[blebbistatin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:75379) | [myo2](https://www.pombase.org/gene/SPCC645.05c), [myp2](https://www.pombase.org/gene/SPAC4A8.05c) | inhibits myosin II ATPase | | | [PMID:23770677](https://www.pombase.org/reference/PMID:23770677)
 [bleomycins](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:22907) | | fungal cell wall | [septation](https://www.pombase.org/term/GO:0000917), [cytokinesis](https://www.pombase.org/term/GO:0000281) | gamma irradiation mimetic | [Forsburg lab](https://dornsife.usc.edu/pombenet/drugs/)
 [bortezomib](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:52717) | | proteasome | | | [PMID:25908789](https://www.pombase.org/reference/PMID:25908789)
 [brefeldin A](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:48080) | [gea1](https://www.pombase.org/gene/SPBC211.03c) | | intracellular [vesicle-mediated transport](https://www.pombase.org/term/GO:0016192) | inhibits the GEFs for class II ARFs; blocks coat assembly and vesicle budding | [PMID:27191590](https://www.pombase.org/reference/PMID:27191590), [PMID:1448152](https://pubmed.ncbi.nlm.nih.gov/1448152/) (PubMed link)
@@ -30,6 +31,7 @@ arborcandin C | | 1,3-beta-glucan synthase | | |
 [Cutin-1](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:133750) | [fas1](https://www.pombase.org/gene/SPAC926.09c) | fatty acid synthase | nuclear envelope expansion during mitosis | | [PMID:26869222](https://www.pombase.org/reference/PMID:26869222)
 [cycloheximideg](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:27641) | | 60S ribosomal subunit | [translation](https://www.pombase.org/term/GO:0002181) | prevents release of deacetylated tRNA from the E site |
 [cyclosporin A](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:4031) | | calcineurin and cyclophilins | | several cyclophilins described in *S. pombe*| [PMID:16134115](https://www.pombase.org/reference/PMID:16134115)
+dehydroxestoquinone |  [myo2](https://www.pombase.org/gene/SPCC645.05c), [myp2](https://www.pombase.org/gene/SPAC4A8.05c) | myosin II | | inhibits skeletal muscle myosin II | [PMID:23770677](https://www.pombase.org/reference/PMID:23770677)
 [dihydromotuporamine C](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:82642) | | proteasome? | lipid synthesis? | |
 [echinocandin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57248) | | | [cell wall synthesis](https://www.pombase.org/term/GO:0009272) | |
 [fenpropimorph](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:50145) | | proteasome? | lipid synthesis? | |
@@ -46,7 +48,7 @@ latrunculin [A](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:49703) or 
 [mycophenolic acid](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:168396) | [gua1](https://www.pombase.org/gene/SPBC2F12.14c) | IMP dehydrogenase | | limits cellular GTP pools | [PMID:11535588](https://www.pombase.org/reference/PMID:11535588)
 [natamycin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:7488) | | ergosterol binding | | blocks fungal growth without permeabilizing the membrane |
 [nystatin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:7660) | | ergosta-5,7,22,24,(28)-tetraenol binding | [ergosterol biosynthesis](https://www.pombase.org/term/GO:0006696) | antifungal |
-[orthovanadate](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:46442) | | H(+)-ATPase | | | [PMID:8431459](https://www.pombase.org/reference/PMID:8431459)
+[orthovanadate](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:46442) (vanadate, sodium vanadate) | | H(+)-ATPase, kinesin ATPase, dynein ATPase (not myosin ATPase) | | | [PMID:8431459](https://www.pombase.org/reference/PMID:8431459) (H(+)-ATPase, [PMID:23770677](https://www.pombase.org/reference/PMID:23770677) (motor ATPases)
 [oxazolidinones](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:55374) | | | [translation](https://www.pombase.org/term/GO:0002181) | |
 [phleomycin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:75044) | | nucleic acids | | antibiotic; damages nucleic acids in the presence of iron when cells are grown aerobically | [PMID:17724773](https://www.pombase.org/reference/PMID:17724773)
 [pravastatin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:63618) | [hmg1](https://www.pombase.org/gene/SPCC162.09c) | HMG-CoA reductase  | [ergosterol biosynthesis](https://www.pombase.org/term/GO:0006696) | |
