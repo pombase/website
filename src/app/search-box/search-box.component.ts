@@ -21,6 +21,8 @@ class SearchSummary {
     public productLowerCase: string,
     public uniprotIdentifier: string,
     public uniprotIdentifierLowerCase: string,
+    public transcripts: Array<string>,
+    public lowerCaseTranscripts: Array<string>,
     public synonyms: Array<string>,
     public synonymsLowerCase: Array<string>,
     public orthologs: Array<IdNameAndOrganism>,
@@ -146,6 +148,17 @@ export class SearchBoxComponent implements OnInit {
     } else {
       return null;
     }
+  }
+
+  transcriptMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+    const matchIndex = geneSumm.lowerCaseTranscripts.findIndex(id => id === value);
+    if (matchIndex !== -1) {
+      const highlightedMatch = this.highlightMatch(0, geneSumm.transcripts[matchIndex]);
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
+                                       ['transcript: ' + highlightedMatch],
+                                       geneSumm.organism);
+    }
+    return null;
   }
 
   synonymMatch(geneSumm: SearchSummary, value: string): DisplayModel {
@@ -293,6 +306,11 @@ export class SearchBoxComponent implements OnInit {
         }
         if (filteredSummaries.length < 20) {
           for (let geneSumm of this.searchSummaries) {
+            maybeAdd(this.transcriptMatch(geneSumm, value));
+          }
+        }
+        if (filteredSummaries.length < 20) {
+          for (let geneSumm of this.searchSummaries) {
             maybeAdd(this.synonymMatch(geneSumm, value));
           }
         }
@@ -418,11 +436,23 @@ export class SearchBoxComponent implements OnInit {
         const uniprotIdentifierLowerCase =
           geneSumm.uniprot_identifier ? geneSumm.uniprot_identifier.toLowerCase() : undefined;
 
+        let transcripts = [];
+        let lowerCaseTranscripts = [];
+
+        for (let transcriptNum = 1;
+             transcriptNum <= geneSumm.getTranscriptCount();
+             transcriptNum++) {
+          const transcriptId = geneSumm.uniquename + '.' + transcriptNum;
+          transcripts.push(transcriptId);
+          lowerCaseTranscripts.push(transcriptId.toLowerCase());
+        }
+
         return new SearchSummary(geneSumm.uniquename,
                                  geneSumm.uniquename.toLowerCase(),
                                  geneSumm.name, nameLowerCase,
                                  geneSumm.product, productLowerCase,
                                  geneSumm.uniprot_identifier, uniprotIdentifierLowerCase,
+                                 transcripts, lowerCaseTranscripts,
                                  geneSumm.synonyms, geneSumm.synonyms.map(syn => syn.toLowerCase()),
                                  geneSumm.orthologs, geneSumm.organism)
       });

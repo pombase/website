@@ -272,6 +272,7 @@ export class GeneSummary extends GeneShort {
   synonyms: Array<string>;
   orthologs: Array<IdNameAndOrganism>;
   location?: ChromosomeLocation;
+  transcript_count?: number;
   feature_type: string;
 
   private static makeFields(): void {
@@ -338,6 +339,15 @@ export class GeneSummary extends GeneShort {
       return GeneSummary.getFieldDisplayGenerators()[fieldName](this);
     } else {
       return null;
+    }
+  }
+
+  getTranscriptCount(): number {
+    if (!this.transcript_count) {
+      // field can be undefined
+      return 1;
+    } else {
+      return this.transcript_count;
     }
   }
 
