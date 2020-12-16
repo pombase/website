@@ -60,7 +60,7 @@ export interface SolrSearchResults {
   providedIn: 'root'
 })
 export class SolrSearchService {
-  private solrSearchUrl = '/api/v1/dataset/latest/search/';
+  private solrSearchUrl = '/api/v1/dataset/latest/search';
 
   constructor(private http: HttpClient) { }
 
