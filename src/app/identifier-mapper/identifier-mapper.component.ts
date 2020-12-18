@@ -132,6 +132,11 @@ export class IdentifierMapperComponent implements OnInit {
   readFile($event: Event): void {
     let inputValue = $event.target as any;
     let file = inputValue.files[0];
+
+    if (!file) {
+      return;
+    }
+
     let fileReader = new FileReader();
 
     fileReader.onloadend = () => {
