@@ -91,6 +91,7 @@ export class IdentifierMapperComponent implements OnInit {
 
   clear(): void {
     this.inputText = '';
+    this.filteredIds = [];
     this.resetResults();
   }
 
