@@ -135,6 +135,7 @@ export class IdentifierMapperComponent implements OnInit {
 
     fileReader.onloadend = () => {
       this.inputText = fileReader.result as string;
+      this.inputTextChanged(this.inputText);
     };
 
     fileReader.readAsText(file);
