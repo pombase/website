@@ -109,7 +109,15 @@ export class Util {
 
     if (description) {
       if (name.includes(description)) {
-        return name;
+        if (alleleType.match(/amino.acid/)) {
+          return name + '(aa)';
+        } else {
+          if (alleleType.match(/nucleotide/)) {
+            return name + '(nt)';
+          } else {
+            return name;
+          }
+        }
       }
 
       description = Util.descriptionWithResidueType(allele);
