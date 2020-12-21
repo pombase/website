@@ -62,9 +62,37 @@ export class Util {
     }
   }
 
-  static alleleDisplayName(allele: AlleleShort): string {
+  static tidyAlleleName(allele: AlleleShort): string {
     let name = allele.name || 'unnamed';
     name = name.replace(/delta/, 'Δ');
+    return name;
+  }
+
+  static descriptionWithResidueType(allele: AlleleShort): string {
+    let description = allele.description;
+    const alleleType = allele.allele_type;
+
+    if (!description || !alleleType) {
+      return description;
+    }
+
+    if (alleleType.match(/mutation$/)) {
+      if (description.match(/\w+\d+\w+$/)) {
+        if (alleleType.match(/amino.acid/)) {
+          description += ' aa';
+        } else {
+          if (alleleType.match(/nucleotide/)) {
+            description += ' nt';
+          }
+        }
+      }
+    }
+
+    return description;
+  }
+
+  static alleleDisplayName(allele: AlleleShort): string {
+    let name = Util.tidyAlleleName(allele);
     let description = allele.description || '';
     let alleleType = allele.allele_type || 'unknown';
 
@@ -79,20 +107,14 @@ export class Util {
       }
     }
 
-    if (!description) {
-      description = alleleType || 'unknown';
-    }
-
-    if (alleleType.match(/mutation$/)) {
-      if (description.match(/\w+\d+\w+$/)) {
-        if (alleleType.match(/amino.acid/)) {
-          description += ' aa';
-        } else {
-          if (alleleType.match(/nucleotide/)) {
-            description += ' nt';
-          }
-        }
+    if (description) {
+      if (name.includes(description)) {
+        return name;
       }
+
+      description = Util.descriptionWithResidueType(allele);
+    } else {
+      description = alleleType || 'unknown';
     }
 
     if (alleleType.startsWith('partial') &&

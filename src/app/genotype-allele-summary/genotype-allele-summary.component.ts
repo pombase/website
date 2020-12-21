@@ -13,8 +13,17 @@ export class GenotypeAlleleSummaryComponent implements OnInit {
 
   constructor() { }
 
-  alleleDisplayName(allele: AlleleShort): string {
-    return Util.alleleDisplayName(allele).replace(/,/g, ',&#8201;');
+  tidyAlleleName(allele: AlleleShort): string {
+    return Util.tidyAlleleName(allele);
+  }
+
+  alleleDisplayDescription(allele: AlleleShort): string {
+    let description = Util.descriptionWithResidueType(allele);
+    if (description) {
+      return description.replace(/,/g, ',&#8201;');
+    } else {
+      return '';
+    }
   }
 
   ngOnInit() {

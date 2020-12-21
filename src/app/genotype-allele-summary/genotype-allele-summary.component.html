@@ -1,7 +1,8 @@
 <table class="genotype-allele-summary">
   <thead>
     <th>Gene</th>
-    <th>Allele</th>
+    <th>Allele name</th>
+    <th>Description</th>
     <th>Type</th>
     <th>Expression</th>
   </thead>
@@ -9,7 +10,10 @@
     <tr *ngFor="let expressedAllele of genotype.expressed_alleles">
       <td><app-gene-link class="app-link" [long]="false" [gene]="expressedAllele.allele.gene"></app-gene-link></td>
       <td>
-        <span [innerHTML]="alleleDisplayName(expressedAllele.allele)"></span>
+        <span [innerHTML]="tidyAlleleName(expressedAllele.allele)"></span>
+      </td>
+      <td>
+        <span [innerHTML]="alleleDisplayDescription(expressedAllele.allele)"></span>
       </td>
       <td>{{expressedAllele.allele.allele_type}}</td>
       <td>{{expressedAllele.expression}}</td>
