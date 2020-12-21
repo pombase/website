@@ -553,7 +553,7 @@ for (let configName of Object.keys(_config.annotationTypes)) {
   }
 }
 
-if (false && pombaseConfig.term_page_extensions_cv_names &&
+if (pombaseConfig.term_page_extensions_cv_names &&
     pombaseConfig.term_page_extensions_cv_names.length > 0) {
   let seenNames: { [key: string]: boolean } = {};
 
