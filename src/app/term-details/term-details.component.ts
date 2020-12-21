@@ -68,9 +68,14 @@ export class TermDetailsComponent implements OnInit {
   makeTableDisplayName(annotationTypeName: string): string {
     const m = annotationTypeName.match(/extension:(.*):(.*):(gene|genotype)/);
     if (m) {
+      const cvName = m[1];
       const relTypeDisplayName = m[2];
-      return 'Annotations with the extension: ' +
-        relTypeDisplayName + ' ' + this.termDetails.termid;
+
+      const cvDisplayName =
+        getAnnotationTableConfig().getAnnotationType(cvName).display_name;
+
+      return cvDisplayName + ' annotations with the extension: ' +
+        relTypeDisplayName + ' ' + this.termDetails.name;
     } else {
       return this.config.annotationTypes[annotationTypeName].display_name +
         ' annotations for ' + this.termDetails.termid + ' and its descendants';

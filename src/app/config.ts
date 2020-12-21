@@ -553,32 +553,38 @@ for (let configName of Object.keys(_config.annotationTypes)) {
   }
 }
 
-if (pombaseConfig.show_extensions_on_term_pages) {
+if (false && pombaseConfig.term_page_extensions_cv_names &&
+    pombaseConfig.term_page_extensions_cv_names.length > 0) {
   let seenNames: { [key: string]: boolean } = {};
 
   for (let extNameConf of pombaseConfig.extension_display_names) {
-    const displayName = extNameConf.display_name;
-    const typeName = `extension:${displayName}`;
+    const extDisplayName = extNameConf.display_name;
 
-    if (seenNames[typeName]) {
-      continue;
-    } else {
-      seenNames[typeName] = true;
+    for (let cvName of pombaseConfig.term_page_extensions_cv_names) {
+      const typeName = `extension:${cvName}:${extDisplayName}`;
+      const cvDisplayName = pombaseConfig.cv_config[cvName].display_name;
+      const displayName = `${cvDisplayName} / ${extDisplayName}`;
+
+      if (seenNames[typeName]) {
+        continue;
+      } else {
+        seenNames[typeName] = true;
+      }
+
+      _config.annotationTypes[typeName + ':gene'] = {
+        'feature_type': 'gene',
+        'display_name': displayName,
+        'columns_to_show': ['desc-rel', 'gene', 'evidence', 'qualifiers', 'reference', 'count', 'extension']
+      };
+      _config.annotationTypes[typeName + ':genotype'] = {
+        'feature_type': 'genotype',
+        'display_name': displayName,
+        'columns_to_show': ['desc-rel', 'genotype', 'evidence', 'qualifiers', 'reference', 'count', 'extension']
+      };
+
+      _config.annotationTypeOrder.push(typeName + ':gene');
+      _config.annotationTypeOrder.push(typeName + ':genotype');
     }
-
-    _config.annotationTypes[typeName + ':gene'] = {
-      'feature_type': 'gene',
-      'display_name': displayName,
-      'columns_to_show': ['desc-rel', 'gene', 'evidence', 'qualifiers', 'reference', 'count', 'extension']
-    };
-    _config.annotationTypes[typeName + ':genotype'] = {
-      'feature_type': 'genotype',
-      'display_name': displayName,
-      'columns_to_show': ['desc-rel', 'genotype', 'evidence', 'qualifiers', 'reference', 'count', 'extension']
-    };
-
-    _config.annotationTypeOrder.push(typeName + ':gene');
-    _config.annotationTypeOrder.push(typeName + ':genotype');
   }
 }
 
