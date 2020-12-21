@@ -11,7 +11,15 @@
       </tr>
       <tr *ngFor="let parentDetails of filteredAncestors; let firstRow = first">
         <td *ngIf="firstRow && termDetails.definition"
-            [attr.rowspan]="filteredAncestors.length + 1">{{termDetails.definition}}</td>
+            [attr.rowspan]="filteredAncestors.length + 1">
+          {{termDetails.definition}}
+          <span *ngIf="defXrefs.length > 0">
+[<span *ngFor="let xrefDetail of defXrefs ; let i = index"><a *ngIf="xrefDetail.refShort" title="Definition reference"
+       routerLink="/reference/{{xrefDetail.identifier}}">{{xrefDetail.identifier}}</a><span
+       *ngIf="!xrefDetail.refShort">{{xrefDetail.identifier}}</span><span
+       *ngIf="i < defXrefs.length - 1">, </span></span>]
+          </span>
+        </td>
         <td class="term-parent-column">
           <span class="details-label term-parent-rel">{{parentDetails.relation_name}}</span>
           <a routerLink="/term/{{parentDetails.termid}}"

@@ -1,10 +1,16 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { TermDetails, TermAndRelation, PombaseAPIService,
-         TermSubsets } from '../pombase-api.service';
+         TermSubsets,
+         ReferenceShort} from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AnnotationType } from '../config';
 import { Router } from '@angular/router';
+
+interface XrefDetails {
+  identifier: string;
+  refShort: ReferenceShort;
+}
 
 @Component({
   selector: 'app-term-page-summary',
@@ -20,6 +26,7 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
   slimConfig = getAppConfig().slims;
   slimConfigNames = Object.keys(this.slimConfig);
   config: AnnotationTableConfig = getAnnotationTableConfig();
+  defXrefs: Array<XrefDetails> = [];
 
   constructor(private router: Router,
               private pombaseApiService: PombaseAPIService) { }
@@ -59,6 +66,28 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
     this.filterAncestors();
     this.typeConfig =
       getAnnotationTableConfig().getAnnotationType(this.termDetails.cv_name);
+    this.defXrefs = [];
+    if (this.termDetails.definition_xrefs) {
+      this.termDetails.definition_xrefs
+        .filter(xref => {
+          return xref.startsWith('PMID:') || xref.startsWith('ISBN:') ||
+            xref.startsWith('DOI:');
+        })
+        .map((xref: string) => {
+          const refShort = this.termDetails.references_by_uniquename[xref];
+          if (refShort) {
+            this.defXrefs.push({
+              identifier: xref,
+              refShort: refShort,
+            } as XrefDetails);
+          } else {
+            this.defXrefs.push({
+              identifier: xref,
+              refShort: null,
+            } as XrefDetails);
+          }
+        })
+    }
   }
 }
 

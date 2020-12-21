@@ -475,11 +475,13 @@ export class TermDetails {
   annotation_feature_type: string;
   name: string;
   is_obsolete: false;
+  definition_xrefs: Array<string>;
   cv_annotations: CvAnnotations;
   single_allele_genotype_uniquenames: Array<string>;
   single_allele_genotypes: Array<GenotypeShort>;
   genes_annotated_with: Array<string>;
   annotation_details: AnnotationDetailMap;
+  references_by_uniquename: { [referenceUniquename: string]: ReferenceShort };
 }
 
 export class ReferenceDetails {
