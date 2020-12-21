@@ -7,7 +7,7 @@ set -o pipefail
 
 web_config=$1
 
-ABBREVS="AGI_LocusCode CDD DDJB DOI EC EMBL ENSEMBL:gene FB GEO GO:molecular_function HAMAP InterPro iPTMnet TIGRFAMS MGI:gene ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam:polypeptide_region ProDom Prosite QuickGO RGD SFLD SGD SMART SO:sequence_feature SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB:gene dictyBase Cyclebase ZFIN:gene CGD TAIR:gene"
+ABBREVS="AGI_LocusCode CDD DDJB DOI ISBN EC EMBL ENSEMBL:gene FB GEO GO:molecular_function HAMAP InterPro iPTMnet TIGRFAMS MGI:gene ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam:polypeptide_region ProDom Prosite QuickGO RGD SFLD SGD SMART SO:sequence_feature SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB:gene dictyBase Cyclebase ZFIN:gene CGD TAIR:gene"
 
 DB_XREFS_FILE=/tmp/db-xrefs-$$.yaml
 

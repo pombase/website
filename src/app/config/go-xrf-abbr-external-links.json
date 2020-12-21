@@ -65,6 +65,12 @@
       "url_syntax" : "http://hamap.expasy.org/unirule/[example_id]",
       "website" : "http://hamap.expasy.org/"
    },
+   "ISBN" : {
+      "description" : "International Standard Book Number",
+      "name" : "ISBN",
+      "url_syntax" : "https://www.worldcat.org/search?q=bn%3A[example_id]",
+      "website" : "https://www.worldcat.org"
+   },
    "InterPro" : {
       "description" : "InterPro database of protein domains and motifs",
       "name" : "InterPro",
