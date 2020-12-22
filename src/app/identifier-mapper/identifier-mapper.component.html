@@ -49,11 +49,24 @@
       </div>
 
       <div class="not-found-section" *ngIf="notFound.length != 0 && hasMatches()">
-        <div class="not-found-heading">
-          These identifiers could not be found:
+        <div *ngIf="displayNotFoundList.length == notFound.length">
+          <div class="not-found-heading">
+            These {{selectedMapperType.displayName}} identifiers could not be found:
+          </div>
+          <div class="not-found-ids">
+            <span *ngFor="let id of displayNotFoundList">{{id}} </span>
+          </div>
         </div>
-        <div class="not-found-ids">
-          <span *ngFor="let id of notFound">{{id}} </span>
+        <div *ngIf="displayNotFoundList.length != notFound.length">
+          <div class="not-found-heading">
+            {{notFound.length}} {{selectedMapperType.displayName}} identifiers could not be found, showing first {{INITIAL_NOT_FOUND}}:
+          </div>
+          <div class="not-found-ids">
+            <span *ngFor="let id of displayNotFoundList">{{id}} </span>
+          </div>
+          <div class="show-all-not-found">
+            <a (click)="showAllNotFound()">Show all identifiers ...</a>
+          </div>
         </div>
       </div>
 

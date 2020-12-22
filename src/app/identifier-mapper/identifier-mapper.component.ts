@@ -39,6 +39,8 @@ export class IdentifierMapperComponent implements OnInit {
   // eg. human ACTA1, ACTA2, ACTA2 etc <- pombe act1 (SPBC32H8.12c)
   manyToOneMatches: { [id: string]: Array<string> } = {};
   notFound: Array<string> = [];
+  displayNotFoundList: Array<string> = [];
+  INITIAL_NOT_FOUND = 10;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private queryRouterService: QueryRouterService) {
@@ -99,6 +101,7 @@ export class IdentifierMapperComponent implements OnInit {
     this.oneToOneMatches = {};
     this.oneToManyMatches = {};
     this.notFound = [];
+    this.displayNotFoundList = [];
     this.manyToOneMatches = {};
   }
 
@@ -168,6 +171,10 @@ export class IdentifierMapperComponent implements OnInit {
 
   inputTextChanged(inputText: string): void {
     this.filteredIds = this.filterIds(inputText);
+  }
+
+  showAllNotFound(): void {
+    this.displayNotFoundList = this.notFound;
   }
 
   lookup(): void {
@@ -248,6 +255,8 @@ export class IdentifierMapperComponent implements OnInit {
             this.notFound.push(id);
           }
         });
+
+        this.displayNotFoundList = this.notFound.slice(0, this.INITIAL_NOT_FOUND);
 
         Object.keys(allToAllMatches).map(uniquename => {
           const matches = Array.from(allToAllMatches[uniquename]);

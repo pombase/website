@@ -71,3 +71,7 @@ th, td {
     margin-right: 2em;
   }
 }
+
+.show-all-not-found {
+  padding: 0.5em 0;
+}
