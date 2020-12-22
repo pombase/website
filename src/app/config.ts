@@ -181,6 +181,8 @@ export interface AppConfig {
   site_description: string;
   load_organism_taxonid: number;
   helpdesk_address: string;
+  gene_systematic_identifier_re: string;
+  transcript_systematic_identifier_re: string;
   canto_data_config: CantaDataConfig;
   organisms: Array<ConfigOrganism>;
   ortholog_taxonids: Array<number>;
@@ -641,6 +643,8 @@ let _appConfig: AppConfig = {
   site_description: pombaseConfig.site_description,
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
   helpdesk_address: pombaseConfig.helpdesk_address,
+  gene_systematic_identifier_re: pombaseConfig.gene_systematic_identifier_re,
+  transcript_systematic_identifier_re: pombaseConfig.transcript_systematic_identifier_re,
   canto_data_config: pombaseConfig.canto_data_config,
   organisms: pombaseConfig.organisms,
   ortholog_taxonids: pombaseConfig.ortholog_taxonids,

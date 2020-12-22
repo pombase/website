@@ -69,6 +69,9 @@ export class SearchBoxComponent implements OnInit {
 
   cvNamesForTermComplete = '(' + getAppConfig().searchBoxCvNames.join(' OR ') + ')';
 
+  sysGeneIdRe = new RegExp(getAppConfig().gene_systematic_identifier_re);
+  sysTranscriptIdRe = new RegExp(getAppConfig().transcript_systematic_identifier_re);
+
   constructor(private completeService: CompleteService,
               private pombaseApiService: PombaseAPIService,
               private router: Router) {
@@ -356,17 +359,35 @@ export class SearchBoxComponent implements OnInit {
   }
 
   observableFromToken(token: string): Observable<Array<DisplayModel>> {
+    let observables = [];
     const geneSummaryObservable = of(this.summariesFromToken(token));
-    const termResultsObservable = this.getTermMatches(token);
-    const refResultsObservable = this.getRefMatches(token);
+    observables.push(geneSummaryObservable);
+
+    token = token.replace(this.sysGeneIdRe, '').replace(this.sysTranscriptIdRe, '').trim();
+
+    if (token.length > 0) {
+      // for now we filter out systematic IDs because they cause Lucene problems
+      const termResultsObservable = this.getTermMatches(token);
+      const refResultsObservable = this.getRefMatches(token);
+      observables.push(termResultsObservable);
+      observables.push(refResultsObservable);
+    }
 
     const combined =
-      combineLatest(geneSummaryObservable, termResultsObservable, refResultsObservable)
+      combineLatest(observables)
         .pipe(
           map(([geneRes, termRes, refRes]) => {
             const maxGenes = 8;
             const maxTerms = 6;
             const geneCount = geneRes.length;
+
+            if (!termRes) {
+              termRes = [];
+            }
+            if (!refRes) {
+              refRes = [];
+            }
+
             const termCount = termRes.length;
             let refCount = 5;
             if (geneCount + termCount < maxGenes + maxTerms) {
