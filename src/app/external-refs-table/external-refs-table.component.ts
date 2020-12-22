@@ -1,7 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 
 import { getAppConfig, ExternalGeneReference,
-         getXrfWithPrefix, makeGeneExternalUrl} from '../config';
+         makeGeneExternalUrl} from '../config';
 import { GeneDetails } from '../pombase-api.service';
 
 interface RefRow {
