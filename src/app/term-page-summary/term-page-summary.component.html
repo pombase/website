@@ -17,7 +17,9 @@
 [<span *ngFor="let xrefDetail of defXrefs ; let i = index"><a *ngIf="xrefDetail.refShort" title="Reference for this definition"
        routerLink="/reference/{{xrefDetail.identifier}}">{{xrefDetail.identifier}}</a><span
        title="Reference for this definition"
-       *ngIf="!xrefDetail.refShort">{{xrefDetail.identifier}}</span><span
+       *ngIf="!xrefDetail.refShort && !xrefDetail.url">{{xrefDetail.identifier}}</span><a
+       *ngIf="!xrefDetail.refShort && xrefDetail.url"
+       href="{{xrefDetail.url}}">{{xrefDetail.identifier}}</a><span
        *ngIf="i < defXrefs.length - 1">, </span></span>]
           </span>
         </td>

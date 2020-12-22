@@ -1,15 +1,15 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { TermDetails, TermAndRelation, PombaseAPIService,
-         TermSubsets,
-         ReferenceShort} from '../pombase-api.service';
+         TermSubsets, ReferenceShort} from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AnnotationType } from '../config';
+         getAppConfig, AnnotationType, getXrf } from '../config';
 import { Router } from '@angular/router';
 
 interface XrefDetails {
   identifier: string;
   refShort: ReferenceShort;
+  url: string;
 }
 
 @Component({
@@ -79,11 +79,18 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
             this.defXrefs.push({
               identifier: xref,
               refShort: refShort,
+              url: null,
             } as XrefDetails);
           } else {
+            const xrefConf = getXrf(xref);
+            let url = null;
+            if (xrefConf) {
+              url = xrefConf.url;
+            }
             this.defXrefs.push({
               identifier: xref,
               refShort: null,
+              url,
             } as XrefDetails);
           }
         })
