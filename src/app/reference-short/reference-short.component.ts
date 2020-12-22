@@ -24,7 +24,7 @@ export class ReferenceShortComponent implements OnInit {
   ngOnInit() {
     let xrfDetail = getXrf(this.reference.uniquename);
 
-    if (xrfDetail) {
+    if (!this.reference.uniquename.startsWith("PMID:") && xrfDetail) {
       this.xref = xrfDetail.url;
       if (this.linkText) {
         this.displayString = this.linkText;
