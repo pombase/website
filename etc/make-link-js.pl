@@ -37,7 +37,12 @@ map {
 } @db_ids;
 
 for my $xref (@$xrefs) {
-  my $database_name = $xref->{database};
+  my @database_names = ($xref->{database});
+  if ($xref->{synonyms}) {
+    push @database_names, @{$xref->{synonyms}};
+  }
+
+  for my $database_name (@database_names) {
 
   my $db_id_conf = $db_ids{$database_name};
 
@@ -72,6 +77,7 @@ for my $xref (@$xrefs) {
       url_syntax => $entity_type->{url_syntax},
       website => $xref->{generic_urls}->[0],
     };
+  }
   }
 }
 

@@ -107,6 +107,12 @@
       "url_syntax" : "http://pir.georgetown.edu/cgi-bin/ipcSF?id=[example_id]",
       "website" : "http://pir.georgetown.edu/pirsf/"
    },
+   "PMID" : {
+      "description" : "PubMed",
+      "name" : "PMID",
+      "url_syntax" : "http://www.ncbi.nlm.nih.gov/pubmed/[example_id]",
+      "website" : "https://www.ncbi.nlm.nih.gov/pubmed"
+   },
    "PR" : {
       "description" : "Protein Ontology",
       "name" : "PR",
@@ -118,6 +124,12 @@
       "name" : "PRINTS",
       "url_syntax" : "http://www.bioinf.manchester.ac.uk/cgi-bin/dbbrowser/sprint/searchprintss.cgi?display_opts=Prints&category=None&queryform=false&regexpr=off&prints_accn=[example_id]",
       "website" : "http://www.bioinf.manchester.ac.uk/dbbrowser/PRINTS/"
+   },
+   "PUBMED" : {
+      "description" : "PubMed",
+      "name" : "PUBMED",
+      "url_syntax" : "http://www.ncbi.nlm.nih.gov/pubmed/[example_id]",
+      "website" : "https://www.ncbi.nlm.nih.gov/pubmed"
    },
    "Pfam" : {
       "description" : "Pfam database of protein families",
