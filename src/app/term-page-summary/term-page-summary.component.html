@@ -14,8 +14,9 @@
             [attr.rowspan]="filteredAncestors.length + 1">
           {{termDetails.definition}}
           <span *ngIf="defXrefs.length > 0">
-[<span *ngFor="let xrefDetail of defXrefs ; let i = index"><a *ngIf="xrefDetail.refShort" title="Definition reference"
+[<span *ngFor="let xrefDetail of defXrefs ; let i = index"><a *ngIf="xrefDetail.refShort" title="Reference for this definition"
        routerLink="/reference/{{xrefDetail.identifier}}">{{xrefDetail.identifier}}</a><span
+       title="Reference for this definition"
        *ngIf="!xrefDetail.refShort">{{xrefDetail.identifier}}</span><span
        *ngIf="i < defXrefs.length - 1">, </span></span>]
           </span>
