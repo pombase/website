@@ -12,6 +12,8 @@ interface MapperType {
   displayName: string;
 };
 
+const localStorageKey = 'pombase-identifier-mapping-history-v1';
+
 @Component({
   selector: 'app-identifier-mapper',
   templateUrl: './identifier-mapper.component.html',
@@ -64,6 +66,12 @@ export class IdentifierMapperComponent implements OnInit {
                                     displayName: org.common_name });
           }
         });
+    }
+
+    this.inputText = localStorage.getItem(localStorageKey);
+
+    if (this.inputText) {
+      this.filteredIds = this.filterIds(this.inputText);
     }
   }
 
@@ -170,6 +178,7 @@ export class IdentifierMapperComponent implements OnInit {
   }
 
   inputTextChanged(inputText: string): void {
+    localStorage.setItem(localStorageKey, inputText);
     this.filteredIds = this.filterIds(inputText);
   }
 
