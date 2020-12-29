@@ -21,7 +21,7 @@ export class IdentifierMapperService {
   private _inputText: string = null;
 
   appConfig: AppConfig = getAppConfig();
-  
+
   private uniprotType: MapperType = {
     id: 'uniprot',
     taxonId: null,
@@ -78,7 +78,7 @@ export class IdentifierMapperService {
       this.lookup();
     }
   }
-  
+
   public uniprotMapperType(): MapperType {
     return this.uniprotType;
   }
@@ -256,11 +256,7 @@ export class IdentifierMapperService {
       if (matches.length > 1) {
         this._manyToOneMatches[uniquename] = matches;
 
-        console.log(this._oneToOneMatches);
-
         matches.map(queryId => {
-          console.log(queryId);
-
           delete this._oneToOneMatches[queryId];
         });
       }
