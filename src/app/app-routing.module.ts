@@ -18,6 +18,7 @@ import { MotifSearchComponent } from './motif-search/motif-search.component';
 import { IdentifierMapperComponent } from './identifier-mapper/identifier-mapper.component';
 import { GeneResultsPageComponent } from './gene-results-page/gene-results-page.component';
 import { InternalDetailsComponent } from './internal-details/internal-details.component';
+import { IdentifierMapperResultsComponent } from './identifier-mapper-results/identifier-mapper-results.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -154,7 +155,12 @@ const routes: Routes = [
   },
   { path: 'identifier-mapper', component: IdentifierMapperComponent,
     data: {
-      defaultTitleDetail: 'ID mapper'
+      defaultTitleDetail: 'Identifier mapper'
+    }
+  },
+  { path: 'identifier-mapper-results', component: IdentifierMapperResultsComponent,
+    data: {
+      defaultTitleDetail: 'Identifier mapper results'
     }
   },
   { path: 'front', redirectTo: '/', pathMatch: 'full' },

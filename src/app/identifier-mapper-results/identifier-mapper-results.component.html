@@ -1,0 +1,114 @@
+<div id="id-mapper-results">
+  <h2 class="id-heading">
+    Mapping tool results for {{identifierMapperService.mapperType.displayName}} identifiers
+  </h2>
+
+  <div class="id-results-main">
+  <button class="id-reset btn btn-primary"
+          (click)="backToInput()">
+    &larr; Go back
+  </button>
+
+  <div *ngIf="hasMatches()">
+    <div class="send-genes">
+      <a (click)="sendToQueryBuilder()">Send matching {{organismCommonName}} gene list to the advanced search</a>
+    </div>
+  </div>
+
+  <div class="not-found-section" *ngIf="notFound().length != 0 && hasMatches()">
+    <div *ngIf="showingAllNotFound()">
+      <div class="not-found-heading">
+        These {{identifierMapperService.mapperType.displayName}} identifiers could not be found:
+      </div>
+      <div class="not-found-ids">
+        <span *ngFor="let id of notFound()">{{id}} </span>
+      </div>
+    </div>
+    <div *ngIf="!showingAllNotFound()">
+      <div class="not-found-heading">
+        {{notFound().length}} {{identifierMapperService.mapperType.displayName}} identifiers could not be found, showing first {{INITIAL_NOT_FOUND}}:
+      </div>
+      <div class="not-found-ids">
+        <span *ngFor="let id of displayNotFoundList()">{{id}} </span>
+      </div>
+      <div class="show-all-not-found">
+        <a (click)="reveilAllNotFound()">Show all identifiers ...</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="not-found-section" *ngIf="notFound().length != 0 && !hasMatches()">
+    <div class="not-found-heading">
+      No matching {{organismCommonName}} genes were found for {{identifierMapperService.mapperType.displayName}} identifiers.
+    </div>
+  </div>
+
+  <div class="one-one-section" *ngIf="hasOneToOneMatches()">
+    <div class="one-one-heading">
+      Identifiers matching a single gene (one-to-one matches):
+    </div>
+    <table>
+      <thead>
+        <th>Identifier</th>
+        <th>{{organismCommonName}} gene</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of oneToOneMatches() | keyvalue">
+          <td>{{item.key}}</td>
+          <td>
+            <app-gene-link [long]="true" [gene]="item.value"></app-gene-link>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="one-to-many-section" *ngIf="hasOneToManyMatches()">
+    <div class="multi-heading">
+      The following identifiers in your list mapped to multiple
+      genes (paralogs) in {{organismCommonName}}.
+      All paralogs were included:
+    </div>
+    <table>
+      <thead>
+        <th>Identifier</th>
+        <th>{{organismCommonName}} genes</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of oneToManyMatches() | keyvalue">
+          <td>{{item.key}}</td>
+          <td>
+            <div *ngFor="let gene of item.value">
+              <app-gene-link [long]="true" [gene]="gene"></app-gene-link>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="many-to-one-section" *ngIf="hasManyToOneMatches()">
+    <div class="multi-heading">
+      Many to one:
+    </div>
+    <table>
+      <thead>
+        <th>Identifiers</th>
+        <th>{{organismCommonName}} gene</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of manyToOneMatches() | keyvalue">
+          <td>
+            <div *ngFor="let queryId of item.value">
+              {{queryId}}
+            </div>
+          </td>
+          <td>
+            <app-gene-link *ngIf="geneSummaryMap" [long]="true" [gene]="geneSummaryMap[item.key]"></app-gene-link>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>

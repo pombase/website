@@ -115,6 +115,7 @@ import { AllCvVersionsComponent } from './all-cv-versions/all-cv-versions.compon
 import { InternalDetailsComponent } from './internal-details/internal-details.component';
 import { IdentifierMapperComponent } from './identifier-mapper/identifier-mapper.component';
 import { TermLinkComponent } from './term-link/term-link.component';
+import { IdentifierMapperResultsComponent } from './identifier-mapper-results/identifier-mapper-results.component';
 
 export function documentFactory() {
     return document;
@@ -207,6 +208,7 @@ export function windowFactory() {
     InternalDetailsComponent,
     IdentifierMapperComponent,
     TermLinkComponent,
+    IdentifierMapperResultsComponent,
   ],
   imports: [
     BrowserModule,

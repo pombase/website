@@ -1,17 +1,14 @@
 <div id="identifier-mapper">
-  <h2 class="id-heading" *ngIf="!lookupDone()">
+  <h2 class="id-heading">
     Identifier mapping tool
-  </h2>
-  <h2 class="id-heading" *ngIf="lookupDone()">
-    Mapping tool results <span *ngIf="lookupDone()">for {{selectedMapperType.displayName}} identifiers</span>
   </h2>
 
   <div class="id-mapper-main">
-    <div class="id-mapper-query" *ngIf="!lookupDone()">
+    <div class="id-mapper-query">
       <div class="id-select">
         Identifier type: <select [compareWith]="mapperTypeCompare"
-                                 [(ngModel)]="selectedMapperType" (ngModelChange)="resetResults()">
-          <option *ngFor="let mapperType of mapperTypes"
+                                 [(ngModel)]="identifierMapperService.mapperType">
+          <option *ngFor="let mapperType of identifierMapperService.mapperTypes()"
                   [selected]="mapperType.id == 'uniprot'"
                   [ngValue]="mapperType">{{mapperType.displayName}}</option>
         </select>
@@ -19,131 +16,21 @@
 
       <textarea class="id-input" cols="50" rows="8"
                 (ngModelChange)="inputTextChanged($event)"
-                [(ngModel)]="inputText"></textarea>
+                [(ngModel)]="identifierMapperService.inputText"></textarea>
 
       <div class="id-actions">
         <button class="id-lookup-action btn btn-primary"
-                [disabled]="!geneSummaryMap || filteredIds.length == 0"
+                [disabled]="filteredIds().length == 0"
                 (click)="lookup()">Lookup</button>
 
         <button class="id-lookup-action btn btn-warning"
-                [disabled]="!geneSummaryMap || filteredIds.length == 0"
+                [disabled]="filteredIds().length == 0"
                 (click)="clear()">Clear</button>
 
         <span class="id-read-from-file">
           Read from file: <input type="file" (change)="readFile($event)">
         </span>
       </div>
-    </div>
-
-    <div class="id-mapper-results" *ngIf="lookupDone()">
-      <button class="id-reset btn btn-primary"
-              (click)="resetResults()">
-        &lt;-- Go back
-      </button>
-
-      <div *ngIf="hasMatches()">
-        <div class="send-genes">
-          <a (click)="sendToQueryBuilder()">Send matching {{organismCommonName}} gene list to the advanced search</a>
-        </div>
-      </div>
-
-      <div class="not-found-section" *ngIf="notFound.length != 0 && hasMatches()">
-        <div *ngIf="displayNotFoundList.length == notFound.length">
-          <div class="not-found-heading">
-            These {{selectedMapperType.displayName}} identifiers could not be found:
-          </div>
-          <div class="not-found-ids">
-            <span *ngFor="let id of displayNotFoundList">{{id}} </span>
-          </div>
-        </div>
-        <div *ngIf="displayNotFoundList.length != notFound.length">
-          <div class="not-found-heading">
-            {{notFound.length}} {{selectedMapperType.displayName}} identifiers could not be found, showing first {{INITIAL_NOT_FOUND}}:
-          </div>
-          <div class="not-found-ids">
-            <span *ngFor="let id of displayNotFoundList">{{id}} </span>
-          </div>
-          <div class="show-all-not-found">
-            <a (click)="showAllNotFound()">Show all identifiers ...</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="not-found-section" *ngIf="notFound.length != 0 && !hasMatches()">
-        <div class="not-found-heading">
-          No matching {{organismCommonName}} genes were found for {{selectedMapperType.displayName}} identifiers.
-        </div>
-      </div>
-
-      <div class="one-one-section" *ngIf="objectKeyCount(oneToOneMatches) != 0">
-        <div class="one-one-heading">
-          Identifiers matching a single gene (one-to-one matches):
-        </div>
-        <table>
-          <thead>
-            <th>Identifier</th>
-            <th>{{organismCommonName}} gene</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of oneToOneMatches | keyvalue">
-              <td>{{item.key}}</td>
-              <td>
-                <app-gene-link [long]="true" [gene]="item.value"></app-gene-link>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="one-to-many-section" *ngIf="objectKeyCount(oneToManyMatches) != 0">
-        <div class="multi-heading">
-          The following identifiers in your list mapped to multiple
-          genes (paralogs) in {{organismCommonName}}.
-          All paralogs were included:
-        </div>
-        <table>
-          <thead>
-            <th>Identifier</th>
-            <th>{{organismCommonName}} genes</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of oneToManyMatches | keyvalue">
-              <td>{{item.key}}</td>
-              <td>
-                <div *ngFor="let gene of item.value">
-                  <app-gene-link [long]="true" [gene]="gene"></app-gene-link>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="many-to-one-section" *ngIf="objectKeyCount(manyToOneMatches) != 0">
-        <div class="multi-heading">
-Many to one:
-        </div>
-        <table>
-          <thead>
-            <th>Identifiers</th>
-            <th>{{organismCommonName}} gene</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of manyToOneMatches | keyvalue">
-              <td>
-                <div *ngFor="let queryId of item.value">
-                  {{queryId}}
-                </div>
-              </td>
-              <td>
-                <app-gene-link [long]="true" [gene]="geneSummaryMap[item.key]"></app-gene-link>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
     </div>
   </div>
 </div>
