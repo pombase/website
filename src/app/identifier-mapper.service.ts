@@ -165,7 +165,7 @@ export class IdentifierMapperService {
     return Object.keys(this.manyToOneMatches()).length > 0;
   }
 
-  filterIds(inputText: string): Array<string> {
+  private filterIds(inputText: string): Array<string> {
     let seen: Set<string> = new Set();
     return inputText.trim().split(/[,\s\u200B]+/)
       .filter(id => {
