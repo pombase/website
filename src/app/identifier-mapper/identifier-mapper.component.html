@@ -10,7 +10,7 @@
                                  [(ngModel)]="identifierMapperService.mapperType">
           <option *ngFor="let mapperType of identifierMapperService.mapperTypes()"
                   [selected]="mapperType.id == 'uniprot'"
-                  [ngValue]="mapperType">{{mapperType.displayName}}</option>
+                  [ngValue]="mapperType">{{mapperType.displayNameWithExamples}}</option>
         </select>
       </div>
 

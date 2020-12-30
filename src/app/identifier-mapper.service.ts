@@ -9,6 +9,7 @@ export interface MapperType {
   id: string;
   taxonId: number|null;
   displayName: string;
+  displayNameWithExamples: string;
 };
 
 const localStorageIdsKey = 'pombase-identifier-mapping-ids-history-v1';
@@ -25,7 +26,8 @@ export class IdentifierMapperService {
   private uniprotType: MapperType = {
     id: 'uniprot',
     taxonId: null,
-    displayName: 'UniProt (eg. P04551)',
+    displayName: 'UniProt',
+    displayNameWithExamples: 'UniProt (eg. P04551)',
   };
   private _mapperTypes: Array<MapperType> = [];
 
@@ -50,12 +52,14 @@ export class IdentifierMapperService {
       this.appConfig.organisms
         .map(org => {
           if (org.taxonid === orthTaxonId) {
-            let displayName = org.common_name +
+            const displayName = org.common_name;
+            const displayNameWithExamples = displayName +
               ' (eg. ' + org.example_gene_identifiers.join(' or ') + ')';
             this._mapperTypes.push({
               id: 'ortholog' + org.taxonid,
               taxonId: org.taxonid,
-              displayName
+              displayName,
+              displayNameWithExamples,
             });
           }
         });
