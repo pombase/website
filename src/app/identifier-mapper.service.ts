@@ -275,18 +275,32 @@ export class IdentifierMapperService {
 
   public allMatches(): Promise<Array<GeneSummary>> {
     return this.geneSummaryMapPromise.then((geneSummaryMap: GeneSummaryMap) => {
-      let genes: Array<GeneSummary> = Object.values(this.oneToOneMatches());
+      const seen = new Set();
+
+      let genes: Array<GeneSummary> = [];
+
+      const maybeAdd = (gene: GeneSummary) => {
+        if (!seen.has(gene.uniquename)) {
+          genes.push(gene);
+          seen.add(gene.uniquename);
+        }
+      };
+
+      Object.values(this.oneToOneMatches())
+        .map((gene: GeneSummary) => {
+          maybeAdd(gene);
+        })
 
       Object.keys(this.oneToManyMatches())
         .map(key => {
           const matches = this.oneToManyMatches()[key];
-          matches.map(geneSumm => genes.push(geneSumm));
+          matches.map(geneSumm => maybeAdd(geneSumm));
         });
 
       Object.keys(this.manyToOneMatches())
         .map(geneUniquename => {
           const gene = geneSummaryMap[geneUniquename];
-          genes.push(gene);
+          maybeAdd(gene);
         });
 
       return genes;
