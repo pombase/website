@@ -120,13 +120,11 @@ export class IdentifierMapperService {
     return this._filteredIds;
   }
 
-  hasMatches(): boolean {
-    return Object.keys(this._oneToOneMatches).length > 0 ||
-      Object.keys(this._oneToManyMatches).length > 0 ||
-      Object.keys(this._manyToOneMatches).length > 0;
+  public hasMatches(): boolean {
+    return this.allMatchesCount() > 0;
   }
 
-  resetResults(): void {
+  public resetResults(): void {
     this._oneToOneMatches = {};
     this._oneToManyMatches = {};
     this._notFound = [];
@@ -263,4 +261,29 @@ export class IdentifierMapperService {
     });
   }
 
+  public allMatchesCount(): number {
+    return Object.keys(this._oneToOneMatches).length +
+      Object.keys(this._oneToManyMatches).length +
+      Object.keys(this._manyToOneMatches).length;
+  }
+
+  public allMatches(): Promise<Array<GeneSummary>> {
+    return this.geneSummaryMapPromise.then((geneSummaryMap: GeneSummaryMap) => {
+      let genes: Array<GeneSummary> = Object.values(this.oneToOneMatches());
+
+      Object.keys(this.oneToManyMatches())
+        .map(key => {
+          const matches = this.oneToManyMatches()[key];
+          matches.map(geneSumm => genes.push(geneSumm));
+        });
+
+      Object.keys(this.manyToOneMatches())
+        .map(geneUniquename => {
+          const gene = geneSummaryMap[geneUniquename];
+          genes.push(gene);
+        });
+
+      return genes;
+    });
+  }
 }

@@ -10,16 +10,16 @@
   padding-bottom: 0.5em;
 }
 
-.show-all-not-found {
+.show-all-link {
   padding: 0.5em 0;
 }
 
-table, .not-found-ids {
+table, .not-found-ids, .show-all-link {
   margin: 0 1.5em;
 }
 
 .send-genes {
-  margin: 1em 0 0 0;
+  margin: 1.2em 0 1em 0;
 }
 
 td {
@@ -32,6 +32,6 @@ th, td {
 }
 
 .id-heading, .not-found-heading, .multi-heading, .one-one-heading {
-  margin: 0.6em 0 0.6em 0;
+  margin: 1em 0 0.5em 0;
   font-weight: bold;
 }

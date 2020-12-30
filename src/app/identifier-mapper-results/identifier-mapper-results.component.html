@@ -11,7 +11,9 @@
 
   <div *ngIf="hasMatches()">
     <div class="send-genes">
-      <a (click)="sendToQueryBuilder()">Send matching {{organismCommonName}} gene list to the advanced search</a>
+      Found {{allMatchesCount()}} {{organismCommonName}} {{geneOrGenes()}}.
+      The matching {{geneOrGenes()}} can be used in the Advanced Search tool:
+      <button class="btn btn-primary" (click)="sendToQueryBuilder()">Use {{geneOrGenes()}}</button>
     </div>
   </div>
 
@@ -31,7 +33,7 @@
       <div class="not-found-ids">
         <span *ngFor="let id of displayNotFoundList()">{{id}} </span>
       </div>
-      <div class="show-all-not-found">
+      <div class="show-all-link">
         <a (click)="reveilAllNotFound()">Show all identifiers ...</a>
       </div>
     </div>
@@ -45,9 +47,12 @@
 
   <div class="one-one-section" *ngIf="hasOneToOneMatches()">
     <div class="one-one-heading">
-      Identifiers matching a single gene (one-to-one matches):
+      {{objectKeyCount(oneToOneMatches())}} Identifier(s) matched a single gene (one-to-one matches):
     </div>
-    <table>
+    <div *ngIf="!showAllOneToOne()" class="show-all-link">
+      <a (click)="reveilAllOneToOne()">Show matches ...</a>
+    </div>
+    <table *ngIf="showAllOneToOne()">
       <thead>
         <th>Identifier</th>
         <th>{{organismCommonName}} gene</th>
@@ -65,11 +70,14 @@
 
   <div class="one-to-many-section" *ngIf="hasOneToManyMatches()">
     <div class="multi-heading">
-      The following identifiers in your list mapped to multiple
+      {{objectKeyCount(oneToManyMatches())}} identifiers in your list mapped to multiple
       genes (paralogs) in {{organismCommonName}}.
-      All paralogs were included:
+      All paralogs were included.
     </div>
-    <table>
+    <div *ngIf="!showAllOneToMany()" class="show-all-link">
+      <a (click)="reveilAllOneToMany()">Show matches ...</a>
+    </div>
+    <table *ngIf="showAllOneToMany()">
       <thead>
         <th>Identifier</th>
         <th>{{organismCommonName}} genes</th>

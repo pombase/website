@@ -20,7 +20,13 @@ export class IdentifierMapperResultsComponent implements OnInit {
 
   private geneSummaryMapPromise: Promise<GeneSummaryMap> = null;
   geneSummaryMap: GeneSummaryMap = null;
-  _showAllNotFound: boolean = false;
+  private _showAllNotFound: boolean = false;
+
+  // all currently disabled:
+  private _showAllOneToOne: boolean = true;
+  private _showAllOneToMany: boolean = true;
+  private _showAllManyToMany: boolean = true;
+
 
   constructor(private router: Router,
               public identifierMapperService: IdentifierMapperService,
@@ -75,8 +81,24 @@ export class IdentifierMapperResultsComponent implements OnInit {
     return this.identifierMapperService.oneToManyMatches();
   }
 
+  public showAllOneToOne(): boolean {
+    return this._showAllOneToOne;
+  }
+
+  public reveilAllOneToOne() {
+    this._showAllOneToOne = true;
+  }
+
   public hasOneToManyMatches(): boolean {
     return this.identifierMapperService.hasOneToManyMatches();
+  }
+
+  public showAllOneToMany(): boolean {
+    return this._showAllOneToMany;
+  }
+
+  public reveilAllOneToMany() {
+    this._showAllOneToMany = true;
   }
 
   public manyToOneMatches(): { [id: string]: Array<string> } {
@@ -87,42 +109,40 @@ export class IdentifierMapperResultsComponent implements OnInit {
     return this.identifierMapperService.hasManyToOneMatches();
   }
 
-  private allMatches(geneSummaryMap: GeneSummaryMap): Array<GeneSummary> {
-    let genes = Object.values(this.oneToOneMatches());
-
-    Object.keys(this.oneToManyMatches())
-      .map(key => {
-        const matches = this.oneToManyMatches()[key];
-        matches.map(geneSumm => genes.push(geneSumm));
-      });
-
-    Object.keys(this.manyToOneMatches())
-      .map(geneUniquename => {
-        const gene = geneSummaryMap[geneUniquename];
-        genes.push(gene);
-      });
-
-    return genes;
+  public showAllManyToMany(): boolean {
+    return this._showAllManyToMany;
   }
 
-  sendToQueryBuilder(): void {
-    this.geneSummaryMapPromise.then((geneSummaryMap: GeneSummaryMap) => {
-      let geneUniquenames = this.allMatches(geneSummaryMap);
-      let queryName;
+  public allMatchesCount(): number {
+    return this.identifierMapperService.allMatchesCount();
+  }
 
-      if (geneUniquenames.length == 1) {
-        queryName = 'gene';
-      } else {
-        queryName = geneUniquenames.length + ' genes';
-      }
+  public geneOrGenes(): string {
+    if (this.allMatchesCount() == 1) {
+      return 'gene';
+    } else {
+      return 'genes';
+    }
+  }
 
-      queryName += ' from ' + this.identifierMapperService.mapperType.displayName +
-        ' identifier mapping';
+  public sendToQueryBuilder(): void {
+    this.identifierMapperService.allMatches()
+      .then((genes: Array<GeneSummary>) => {
+        let queryName;
 
-      const part = new GeneListNode(queryName, geneUniquenames);
-      const geneQuery = new GeneQuery(part);
-      this.queryRouterService.gotoResults(geneQuery);
-    });
+        if (genes.length == 1) {
+          queryName = 'gene';
+        } else {
+          queryName = genes.length + ' genes';
+        }
+
+        queryName += ' from ' + this.identifierMapperService.mapperType.displayName +
+          ' identifier mapping';
+
+        const part = new GeneListNode(queryName, genes);
+        const geneQuery = new GeneQuery(part);
+        this.queryRouterService.gotoResults(geneQuery);
+      });
   }
 
   ngOnInit(): void {
