@@ -80,6 +80,7 @@ export interface ConfigOrganism {
   common_name: string;
   alternative_names: Array<string>;
   assembly_version: string;
+  example_gene_identifiers: Array<string>;
 }
 
 export interface PanelConfig {
