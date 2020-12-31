@@ -12,6 +12,7 @@
     "target": "es5",
     "allowUnreachableCode": false,
     "noImplicitAny": true,
+    "noUnusedLocals": true,
     "typeRoots": [
       "../node_modules/@types"
     ]
