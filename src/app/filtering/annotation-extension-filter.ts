@@ -1,4 +1,4 @@
-import { AnnotationTable, Annotation } from '../pombase-api.service';
+import { AnnotationTable } from '../pombase-api.service';
 import { TermShort } from '../pombase-query';
 import { Filter } from '../filtering';
 

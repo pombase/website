@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
-import { InteractionTable, InteractionAnnotation, ThroughputType } from '../pombase-api.service';
+import { InteractionTable, ThroughputType } from '../pombase-api.service';
 import { FilterConfig } from '../config';
 import { InteractionThroughputFilter } from '../filtering/interaction-throughput-filter';
 import { Filter } from '../filtering';

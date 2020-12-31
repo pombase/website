@@ -1,8 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Params } from '@angular/router';
-
 import { SolrSearchService, SolrSearchResults } from '../../solr-search.service';
 import { PombaseAPIService, GeneSummaryMap } from '../../pombase-api.service';
 import { getAppConfig } from '../../config';

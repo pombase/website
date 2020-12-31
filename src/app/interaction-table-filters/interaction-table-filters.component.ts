@@ -1,10 +1,8 @@
-import { Component, OnInit, Input, Output, OnChanges,
-         EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { InteractionAnnotation, InteractionTable } from '../pombase-api.service';
 import { FilterConfig } from '../config';
 import { InteractionFilter, FilterCombiner } from '../filtering';
-import { TableViewState } from '../pombase-types';
 
 @Component({
   selector: 'app-interaction-table-filters',

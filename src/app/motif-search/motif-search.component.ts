@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 import { Subject } from 'rxjs';
 import { Subscription } from 'rxjs';
@@ -9,7 +8,7 @@ import { getAppConfig, AppConfig } from '../config';
 import { MotifService, MotifPeptideResult, MotifSearchResults } from '../motif.service';
 import { GeneListNode, GeneQuery } from '../pombase-query';
 import { QueryRouterService } from '../query-router.service';
-import { PombaseAPIService, GeneShort, GeneSummaryMap } from '../pombase-api.service';
+import { PombaseAPIService, GeneSummaryMap } from '../pombase-api.service';
 
 enum SearchState {
   ShowHelp = 0,

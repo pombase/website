@@ -1,7 +1,5 @@
 import { Component, OnChanges, Input } from '@angular/core';
 
-import { getAppConfig, ExternalGeneReference } from '../config';
-
 import { GeneDetails } from '../pombase-api.service';
 
 @Component({

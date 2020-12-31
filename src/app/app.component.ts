@@ -6,8 +6,6 @@ import { Title } from '@angular/platform-browser';
 
 import { filter, map, mergeMap } from 'rxjs/operators';
 
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-
 import { getAppConfig } from './config';
 
 @Component({

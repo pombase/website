@@ -286,8 +286,6 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
 
     this.chromosomeDisplayName = chromosomeConfig.short_display_name || chromosomeName;
 
-    let longestTranscriptLength = -1;
-
     for (const transcript of this.transcripts) {
       const displayTranscript = new DisplayTranscript(geneLocation, transcript);
       this.displayTranscripts.push(displayTranscript);

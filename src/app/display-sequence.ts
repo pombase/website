@@ -74,7 +74,7 @@ export class DisplaySequence {
   }
 
   private constructor(private readonly lineLength: number,
-                      private readonly displayParts: Array<RawSequencePart>) {
+                      public readonly displayParts: Array<RawSequencePart>) {
     let exonIndex = 1;
     displayParts.map(part => {
       if (part.partType === 'exon') {

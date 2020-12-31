@@ -20,7 +20,7 @@ export class FilterCombiner<T> implements Filter<T> {
       filterResult = filter.filter(filterResult[0]);
     }
 
-    let [filteredTable, _, filteredAnnotationCount] = filterResult;
+    let [filteredTable, , filteredAnnotationCount] = filterResult;
 
     return [filteredTable, totalAnnotationCount, filteredAnnotationCount];
   }

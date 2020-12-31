@@ -1,14 +1,13 @@
 import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
-import { TermAnnotation, Annotation, ReferenceShort } from '../pombase-api.service';
+import { TermAnnotation, ReferenceShort } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          FilterConfig, SplitByParentsConfig, AnnotationExternalLinkConfig,
          getAppConfig,
-         AppConfig,
-         LinkDisplay} from '../config';
+         AppConfig} from '../config';
 import { AnnotationTable } from '../pombase-api.service';
 import { TableViewState } from '../pombase-types';
-import { TermShort, TermXref } from '../pombase-query';
+import { TermShort } from '../pombase-query';
 import { Filter } from '../filtering';
 
 @Component({
@@ -122,7 +121,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     this.tableViewChangeEmitter.emit(this.currentViewState);
   }
 
-  trackByTermId(index: number, item: any) {
+  trackByTermId(item: any) {
     return item.term.termid;
   }
 

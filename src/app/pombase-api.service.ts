@@ -4,8 +4,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { TermShort } from './pombase-query';
 import { Util } from './shared/util';
 import { Seq } from './seq';
-import { getAppConfig, ConfigOrganism,
-         AnnotationType, getAnnotationTableConfig } from './config';
+import { getAppConfig, ConfigOrganism } from './config';
 
 import { HttpRetryService, RetryOptions } from './http-retry.service';
 import { SolrTermSummary } from './complete.service';
@@ -580,12 +579,10 @@ export class PombaseAPIService {
     }
   }
 
-  processTermAnnotations(cvName: string, termAnnotations: Array<TermAnnotation>,
+  processTermAnnotations(termAnnotations: Array<TermAnnotation>,
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                          allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
                          referencesByUniquename: any, termsByTermId: TermIdTermMap) {
-    const annotationTypeConfig: AnnotationType = getAnnotationTableConfig().getAnnotationType(cvName);
-
     for (let termAnnotation of termAnnotations) {
       termAnnotation.annotations =
         Array.from(new Set(termAnnotation.annotations as any as Array<number>))
@@ -813,7 +810,7 @@ export class PombaseAPIService {
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(cvName, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap,
                                   referencesByUniquename, termsByTermId);
     }
@@ -871,7 +868,7 @@ export class PombaseAPIService {
     this.processExpressedAlleles(allelesByUniquename, genesByUniquename, json.expressed_alleles);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(cvName, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap,
                                   referencesByUniquename, termsByTermId);
     }
@@ -916,7 +913,7 @@ export class PombaseAPIService {
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(cvName, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap,
                                   referencesByUniquename, termsByTermId);
     }
@@ -949,7 +946,7 @@ export class PombaseAPIService {
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(cvName, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap,
                                   null, termsByTermId);
     }

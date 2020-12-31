@@ -2,7 +2,6 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 import { TargetOfAnnotation, GeneShort, GenotypeShort, ReferenceShort } from '../pombase-api.service';
 import { getAppConfig } from '../config';
-import { Util } from '../shared/util';
 import { TableViewState } from '../pombase-types';
 
 interface DisplayRow {

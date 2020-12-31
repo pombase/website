@@ -18,12 +18,12 @@ type SequenceOptions = 'protein' | 'none' | {
 };
 
 export class GAFOptions {
-  constructor(private aspects: Array<string>) { }
+  constructor(_aspects: Array<string>) { }
 }
 
 export class QueryOutputOptions {
-  constructor(private field_names: Array<string>,
-              private flags: Array<string>,
+  constructor(_field_names: Array<string>,
+              _flags: Array<string>,
               private sequence?: SequenceOptions,
               private gaf_options?: GAFOptions) {
     if (!this.sequence) {

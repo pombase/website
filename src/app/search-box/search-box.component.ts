@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of, config, throwError } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { PombaseAPIService, GeneSummary, IdAndOrganism, IdNameAndOrganism } from '../pombase-api.service';
+import { PombaseAPIService, GeneSummary, IdNameAndOrganism } from '../pombase-api.service';
 import { CompleteService, SolrTermSummary, SolrRefSummary } from '../complete.service';
 import { getAppConfig, ConfigOrganism } from '../config';
 

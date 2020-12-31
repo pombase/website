@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
-import { TermSubsets, PombaseAPIService, TermSubsetElement, GeneDetails } from '../pombase-api.service';
+import { TermSubsets, PombaseAPIService, GeneDetails } from '../pombase-api.service';
 import { AnnotationType, getAnnotationTableConfig } from '../config';
 
 class SlimSubsetElement {
