@@ -15,6 +15,15 @@
   font-weight: bold;
 }
 
-.highlighted {
+tr {
+  border-left: 3px solid #0000;
+}
+
+tr.highlighted {
   background-color: #fff;
+  border-left: 3px solid #617bd1;
+}
+
+table.interpro-matches-table th, table.interpro-matches-table td {
+  padding: 0 0.6em 0.2em 0.4em;
 }
