@@ -1,7 +1,6 @@
-import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppConfig, getAppConfig } from '../config';
+import { getAppConfig } from '../config';
 import { IdentifierMapperService } from '../identifier-mapper.service';
 import { GeneSummary, GeneSummaryMap, PombaseAPIService } from '../pombase-api.service';
 import { GeneListNode, GeneQuery } from '../pombase-query';

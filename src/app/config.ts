@@ -848,7 +848,7 @@ interface XrfConfig {
 
 type XrfConfigMap = { [key: string]: XrfConfig };
 
-let xrfConfig: { [key: string]: XrfConfig } = null;
+let xrfConfig: XrfConfigMap = null;
 
 // aliases that aren't in GO.xrf_abbs
 let xrfConfigAliases = pombaseConfig.extra_database_aliases;
