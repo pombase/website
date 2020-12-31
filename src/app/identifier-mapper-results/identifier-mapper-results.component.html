@@ -97,7 +97,8 @@
 
   <div class="many-to-one-section" *ngIf="hasManyToOneMatches()">
     <div class="multi-heading">
-      Many to one:
+      Many to one matches - paralogs from
+      {{identifierMapperService.mapperType.displayName}} that match a {{organismCommonName}} gene:
     </div>
     <table>
       <thead>
