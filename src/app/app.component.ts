@@ -24,8 +24,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     private meta: Meta,
-    @Inject('Window') private window: any,
-    private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) { }
+    @Inject('Window') private window: any) { }
 
   ngOnInit() {
     this.router.events.pipe(

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { QueryResult, TermShort, TermAndName } from '../../pombase-query';
-import { PombaseAPIService, GeneSummary } from '../../pombase-api.service';
+import { QueryResult, TermAndName } from '../../pombase-query';
 
 @Component({
   selector: 'app-gene-results',

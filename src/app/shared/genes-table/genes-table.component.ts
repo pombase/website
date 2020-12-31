@@ -71,7 +71,7 @@ export class GenesTableComponent implements OnInit {
               private queryRouterSerive: QueryRouterService,
               private settingsService: SettingsService,
               private pombaseApiService: PombaseAPIService,
-              private deployConfigService: DeployConfigService,
+              public deployConfigService: DeployConfigService,
               private router: Router) {
     this.slimNames = this.geneResultConfig.slim_table_slim_names;
 

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, BehaviorSubject, timer } from 'rxjs';
 import { GeneQuery, QueryResult, QueryIdNode, GeneUniquename, ResultRow, TermAndName } from './pombase-query';
 import { getAppConfig } from './config';
-import { PombaseAPIService, GeneSummaryMap, GeneSummary } from './pombase-api.service';
+import { PombaseAPIService } from './pombase-api.service';
 
 export interface DisplayResultRow {
   uniquename: string;

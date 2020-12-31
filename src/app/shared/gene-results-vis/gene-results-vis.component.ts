@@ -243,7 +243,7 @@ export class GeneResultsVisComponent implements OnInit {
     const domId = eventTargetElement.id;
 
     if (domId) {
-      const [geneIndex, geneUniquename] = this.geneUniquenameFromDomId(domId);
+      const [, geneUniquename] = this.geneUniquenameFromDomId(domId);
 
       this.toggleSelectedGene(geneUniquename);
     }
@@ -469,7 +469,6 @@ export class GeneResultsVisComponent implements OnInit {
     this.geneDisplayData = [];
 
     this.sortedGeneUniquenames.map((geneUniquename, geneIndex) => {
-      const gene = this.geneDataMap[geneUniquename];
       const geneDomId = this.makeGeneDomId(geneUniquename, geneIndex);
 
       this.geneDisplayData.push(new GeneDisplayData(

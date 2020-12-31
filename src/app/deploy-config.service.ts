@@ -8,7 +8,7 @@ interface DeployConfig {
 export class DeployConfigService {
   config: DeployConfig = { mode: 'dev' };
 
-  constructor(@Inject('Window') private window: any) {
+  constructor(@Inject('Window') window: any) {
     if (window.pombaseAppDeployConfig &&
         typeof(window.pombaseAppDeployConfig) === 'object') {
       this.config = window.pombaseAppDeployConfig;

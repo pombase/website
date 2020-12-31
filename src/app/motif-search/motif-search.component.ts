@@ -42,8 +42,7 @@ export class MotifSearchComponent implements OnInit {
   appConfig: AppConfig;
   geneSummaries: GeneSummaryMap = null;
 
-  constructor(private router: Router,
-              private pombaseApiService: PombaseAPIService,
+  constructor(pombaseApiService: PombaseAPIService,
               private queryRouterService: QueryRouterService,
               private motifService: MotifService) {
     this.appConfig = getAppConfig();

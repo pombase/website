@@ -261,7 +261,6 @@ export class GeneShort {
 
 export class GeneSummary extends GeneShort {
   private static displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = null;
-  private static fieldNames: Array<string> = null;
 
   uniquename: string;
   name: string;

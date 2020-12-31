@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { retryWhen, delay, take, timeout, mergeMap, catchError, concatMap } from 'rxjs/operators';
+import { retryWhen, delay, take, timeout, mergeMap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
 const RETRY_DELAY = 3000;

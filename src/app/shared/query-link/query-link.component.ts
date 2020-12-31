@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { QueryService } from '../../query.service';
-import { getAppConfig, PredefinedQueryConfig } from '../../config';
-import { Subscription } from 'rxjs';
 import { QueryRouterService } from '../../query-router.service';
 
 @Component({
