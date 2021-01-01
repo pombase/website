@@ -121,7 +121,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     this.tableViewChangeEmitter.emit(this.currentViewState);
   }
 
-  trackByTermId(item: any) {
+  trackByTermId(_: number, item: any) {
     return item.term.termid;
   }
 
