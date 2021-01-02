@@ -22,8 +22,8 @@ export class GAFOptions {
 }
 
 export class QueryOutputOptions {
-  constructor(_field_names: Array<string>,
-              _flags: Array<string>,
+  constructor(public field_names: Array<string>,
+              public flags: Array<string>,
               private sequence?: SequenceOptions,
               private gaf_options?: GAFOptions) {
     if (!this.sequence) {
