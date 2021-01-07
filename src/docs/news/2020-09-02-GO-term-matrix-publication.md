@@ -1,5 +1,4 @@
 ### Published: GO Term Matrix for annotation QC
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: go-term-matrix.png -->
 
 In collaboration with the GO Consortium, the PomBase team has

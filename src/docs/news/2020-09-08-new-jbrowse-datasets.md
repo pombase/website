@@ -1,5 +1,4 @@
 ### New genome browser datasets
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 
 Three new datasets in are now available in PomBase JBrowse (links go

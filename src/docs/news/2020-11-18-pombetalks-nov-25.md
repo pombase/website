@@ -1,5 +1,4 @@
 ### PombeTalks November 25th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The last online PombeTalks for 2020 will take place on Wednesday **25th November**

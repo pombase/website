@@ -1,5 +1,4 @@
 ### Submit your genome browser data
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 
 We have updated our HTP data submission procedure to make it easier
