@@ -92,10 +92,11 @@ MonoUbiq | monoubiquitinated
 Ox+ | oxidized form
 Phos | phosphorylated (specified residue)
 PhosRes+ | phosphorylated (unspecified residue)
-PhosRes- | unphosphorylated
+PhosRes- | unphosphorylated (unspecified residue)
 PolyUbiq | polyubiquitinated
 Red+ | reduced form
 Sumo | sumoylated
 Ubiq | ubiquitinated
 UnMod | unmodified (residue specification optional)
+UnPhos | unmodified (residue specification optional)
 UnUbiq | unubiquitinated
