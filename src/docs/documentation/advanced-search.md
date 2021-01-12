@@ -89,13 +89,20 @@ the query as a gene list. This is harmless.
 
 6. Narrow the list: click the button to reveal checkboxes
 
-7. Download selected data for genes in the list. In the popup, the
-default "Tab delimited" view offers a set of details that can be
-included in a downloaded text file. Click "Sequence" to retrieve amino
-acid or nucleotide sequences in FASTA format. Use the checkboxes to
-select which items are included in the headers. When "Nucleotide" is
-selected, flanking sequence options similar to those on the [gene
-page](documentation/gene-page-sequence) are available.
+7. Download selected data for genes in the list. The popup offers
+three sets of options:
+    - The default "Tab delimited" view offers a set of details that can
+      be included in a downloaded text file.
+    - Use the "Sequence" tab to retrieve amino acid or nucleotide
+      sequences in FASTA format. Use the checkboxes to select which
+      items are included in the headers. When "Nucleotide" is
+      selected, flanking sequence options similar to those on the
+      [gene page](documentation/gene-page-sequence) are available.
+    - In the "GO Annotation" tab, you can choose which ontologies to
+      include. Downloaded annotations are in [GAF 2.1
+      format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/). Note
+      that only "direct", not inferred, annotations are included, as
+      described in [this FAQ](/faq/why-are-go-terms-missing-downloadable-annotation-file).
 
 #### Sharing search results
 
