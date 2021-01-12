@@ -7,7 +7,6 @@ import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 import { FormatUtils, FormatTypes, GeneQuery} from '../pombase-query';
 import { QueryService, QueryOutputOptions, GAFOptions } from '../query.service';
 import { AppConfig, getAppConfig, GeneResultsFieldConfig } from '../config';
-import { DeployConfigService } from '../deploy-config.service';
 
 import { GeneShort } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
@@ -43,8 +42,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   constructor(private queryService: QueryService,
               private settingsService: SettingsService,
-              public bsModalRef: BsModalRef,
-              public deployConfigService: DeployConfigService) {
+              public bsModalRef: BsModalRef) {
     this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
     this.fieldNames = this.fields.map(conf => conf.name);
     this.fields.map(fieldConfig => {
