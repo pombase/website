@@ -22,9 +22,9 @@ export class IdentifierMapperResultsComponent implements OnInit {
   private _showAllNotFound: boolean = false;
 
   // all currently disabled:
-  private _showAllOneToOne: boolean = true;
-  private _showAllOneToMany: boolean = true;
-  private _showAllManyToMany: boolean = true;
+  private _showAllOneToOne: boolean = false;
+  private _showAllOneToMany: boolean = false;
+  private _showAllManyToMany: boolean = false;
 
 
   constructor(private router: Router,
@@ -43,7 +43,7 @@ export class IdentifierMapperResultsComponent implements OnInit {
     return this.identifierMapperService.hasMatches();
   }
 
-  reveilAllNotFound(): void {
+  revealAllNotFound(): void {
     this._showAllNotFound = true;
   }
 
@@ -84,7 +84,7 @@ export class IdentifierMapperResultsComponent implements OnInit {
     return this._showAllOneToOne;
   }
 
-  public reveilAllOneToOne() {
+  public revealAllOneToOne() {
     this._showAllOneToOne = true;
   }
 
@@ -96,7 +96,7 @@ export class IdentifierMapperResultsComponent implements OnInit {
     return this._showAllOneToMany;
   }
 
-  public reveilAllOneToMany() {
+  public revealAllOneToMany() {
     this._showAllOneToMany = true;
   }
 
@@ -110,6 +110,10 @@ export class IdentifierMapperResultsComponent implements OnInit {
 
   public showAllManyToMany(): boolean {
     return this._showAllManyToMany;
+  }
+
+  public revealAllManyToMany() {
+    this._showAllManyToMany = true;
   }
 
   public allMatchesCount(): number {

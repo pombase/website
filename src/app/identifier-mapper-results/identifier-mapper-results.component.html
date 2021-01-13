@@ -34,7 +34,7 @@
         <span *ngFor="let id of displayNotFoundList()">{{id}} </span>
       </div>
       <div class="show-all-link">
-        <a (click)="reveilAllNotFound()">Show all identifiers ...</a>
+        <a (click)="revealAllNotFound()">Show all identifiers ...</a>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
       {{objectKeyCount(oneToOneMatches())}} Identifier(s) matched a single gene (one-to-one matches):
     </div>
     <div *ngIf="!showAllOneToOne()" class="show-all-link">
-      <a (click)="reveilAllOneToOne()">Show matches ...</a>
+      <a (click)="revealAllOneToOne()">Show matches ...</a>
     </div>
     <table *ngIf="showAllOneToOne()">
       <thead>
@@ -75,7 +75,7 @@
       All paralogs were included.
     </div>
     <div *ngIf="!showAllOneToMany()" class="show-all-link">
-      <a (click)="reveilAllOneToMany()">Show matches ...</a>
+      <a (click)="revealAllOneToMany()">Show matches ...</a>
     </div>
     <table *ngIf="showAllOneToMany()">
       <thead>
@@ -100,7 +100,10 @@
       Many to one matches - paralogs from
       {{identifierMapperService.mapperType.displayName}} that match a {{organismCommonName}} gene:
     </div>
-    <table>
+    <div *ngIf="!showAllManyToMany()" class="show-all-link">
+      <a (click)="revealAllManyToMany()">Show matches ...</a>
+    </div>
+    <table *ngIf="showAllManyToMany()">
       <thead>
         <th>Identifiers</th>
         <th>{{organismCommonName}} gene</th>
