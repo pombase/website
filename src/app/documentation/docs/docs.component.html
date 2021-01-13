@@ -1662,7 +1662,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 <td>RNA polymerase II</td>
 <td>transcription <a href="https://www.pombase.org/term/GO:0006367">initiation</a> and <a href="https://www.pombase.org/term/GO:0006368">elongation</a></td>
 <td>interferes with a protein conformational change underlying the transcription mechanism</td>
-<td><a href="https://www.pombase.org/reference/PMID:11805306">PMID:11805306</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/11805306/">PMID:11805306</a> (PubMed link)</td>
 </tr>
 <tr class="odd">
 <td><a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:53785">alverine citrate</a></td>
@@ -1870,7 +1870,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 <td>ribonucleotide reductase small subunit</td>
 <td>slows DNA synthesis</td>
 <td>causes replication fork stalling</td>
-<td><a href="https://www.pombase.org/reference/PMID:27869662">PMID:27869662</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/27869662/">PMID:27869662</a> (PubMed link)</td>
 </tr>
 <tr class="odd">
 <td><a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16976">hygromycin B</a></td>
@@ -1950,7 +1950,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
 <td>IMP dehydrogenase</td>
 <td></td>
 <td>limits cellular GTP pools</td>
-<td><a href="https://www.pombase.org/reference/PMID:11535588">PMID:11535588</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/11535588/">PMID:11535588</a> (PubMed link)</td>
 </tr>
 <tr class="odd">
 <td><a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:7488">natamycin</a></td>
@@ -5079,7 +5079,12 @@ PomBase using the Ensembl viewer.</p>
 <li><p>Send the gene list to <a routerLink="/documentation/quick-little-tool">QuiLT</a> for visualisation</p></li>
 <li><p>Show <a routerLink="/documentation/pombase-go-slim-documentation">GO slim</a> annotations for genes in the list. Click “Slim with” to reveal a dropdown, and choose a slim. Note: when you return to the main Advanced search page, the query history will include an entry showing the query as a gene list. This is harmless.</p></li>
 <li><p>Narrow the list: click the button to reveal checkboxes</p></li>
-<li><p>Download selected data for genes in the list. In the popup, the default “Tab delimited” view offers a set of details that can be included in a downloaded text file. Click “Sequence” to retrieve amino acid or nucleotide sequences in FASTA format. Use the checkboxes to select which items are included in the headers. When “Nucleotide” is selected, flanking sequence options similar to those on the <a href="documentation/gene-page-sequence">gene page</a> are available.</p></li>
+<li><p>Download selected data for genes in the list. The popup offers three sets of options:</p>
+<ul>
+<li>The default “Tab delimited” view offers a set of details that can be included in a downloaded text file.</li>
+<li>Use the “Sequence” tab to retrieve amino acid or nucleotide sequences in FASTA format. Use the checkboxes to select which items are included in the headers. When “Nucleotide” is selected, flanking sequence options similar to those on the <a routerLink="/documentation/gene-page-sequence">gene page</a> are available.</li>
+<li>In the “GO Annotation” tab, you can choose which ontologies to include. Downloaded annotations are in <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/">GAF 2.1 format</a>. Note that only “direct”, not inferred, annotations are included, as described in <a routerLink="/faq/why-are-go-terms-missing-downloadable-annotation-file">this FAQ</a>.</li>
+</ul></li>
 </ol>
 <h4 id="sharing-search-results">Sharing search results</h4>
 <p>Each results page has a stable, unique URL that you can bookmark, copy/paste, and share. Anyone who follows a shared link will see the same results page, and the query will be added to their query history.</p>
@@ -5477,7 +5482,7 @@ PomBase using the Ensembl viewer.</p>
 </tr>
 <tr class="even">
 <td>PhosRes-</td>
-<td>unphosphorylated</td>
+<td>unphosphorylated (unspecified residue)</td>
 </tr>
 <tr class="odd">
 <td>PolyUbiq</td>
@@ -5500,6 +5505,10 @@ PomBase using the Ensembl viewer.</p>
 <td>unmodified (residue specification optional)</td>
 </tr>
 <tr class="even">
+<td>UnPhos</td>
+<td>unmodified (residue specification optional)</td>
+</tr>
+<tr class="odd">
 <td>UnUbiq</td>
 <td>unubiquitinated</td>
 </tr>
@@ -9126,6 +9135,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#first-s.-pombe-micropublication-goes-live">First S. pombe microPublication goes live</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-november-th">PombeTalks November 25th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-november-th">PombeTalks November 11th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-october-th">PombeTalks October 28th</a></div>
@@ -10611,14 +10621,12 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'GO-term-matrix-publication'">
 <h3 id="published-go-term-matrix-for-annotation-qc">Published: GO Term Matrix for annotation QC</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: go-term-matrix.png -->
 <p>In collaboration with the GO Consortium, the PomBase team has published a report on the <strong>Term Matrix</strong> approach to GO annotation quality control. The article, out this week in <a href="https://royalsocietypublishing.org/doi/10.1098/rsob.200149">Open Biology</a>, describes biological processes that do, or don’t, share annotated gene products, and how we use co-annotation patterns to build rules to detect, correct, and prevent errors.</p>
 
   </div>
   <div *ngIf="pageName == 'jbrowse-data-submission'">
 <h3 id="submit-your-genome-browser-data">Submit your genome browser data</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 <p>We have updated our HTP data submission procedure to make it easier for you to contribute your datasets for PomBase JBrowse:</p>
 <p>We now provide spreadsheet templates in Excel and Open Document formats that gather the metadata we need to load and display your data. You can download a template from the <a href="https://www.pombase.org/documentation/data-submission-form-for-HTP-sequence-linked-data">documentation page on HTP data submission</a>. Send completed spreadsheets to the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a>.</p>
@@ -10626,7 +10634,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'new-jbrowse-datasets'">
 <h3 id="new-genome-browser-datasets">New genome browser datasets</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 <p>Three new datasets in are now available in PomBase JBrowse (links go to PomBase publication pages, which in turn link to the browser with the tracks enabled):</p>
 <ul>
@@ -10747,7 +10754,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'pombetalks-nov-25'">
 <h3 id="pombetalks-november-25th">PombeTalks November 25th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The last online PombeTalks for 2020 will take place on Wednesday <strong>25th November</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
 <ul>
@@ -10759,9 +10765,26 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 
   </div>
+  <div *ngIf="pageName == 'first-fission-yeast-micropublication-live'">
+<h3 id="first-s.-pombe-micropublication-goes-live">First S. pombe microPublication goes live</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: micropubs32px.png -->
+<p>The first fission yeast microPublication has now been published:</p>
+<p>Nafees Ahamad, Simmi Anjum, Shakil Ahmed\ <a href="https://www.micropublication.org/journals/biology/micropub-biology-000348/">Pyrogallol induces oxidative stress defects in the fission yeast <em>S. pombe</em>.</a></p>
+<p>Congratulations to the authors, and thanks to the microPublication team!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2021-01-07-first-fission-yeast-micropublication-live" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/micropubs32px.png"/></p>
+<h3 id="first-s.-pombe-micropublication-goes-live">First S. pombe microPublication goes live</h3>
+<p><em>2021-01-07</em></p>
+<p>The first fission yeast microPublication has now been published:</p>
+<p>Nafees Ahamad, Simmi Anjum, Shakil Ahmed\ <a href="https://www.micropublication.org/journals/biology/micropub-biology-000348/">Pyrogallol induces oxidative stress defects in the fission yeast <em>S. pombe</em>.</a></p>
+<p>Congratulations to the authors, and thanks to the microPublication team!</p>
+</div>
 <div id="2020-11-18-pombetalks-nov-25" class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-november-th">PombeTalks November 25th</h3>
