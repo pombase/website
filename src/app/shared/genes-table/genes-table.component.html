@@ -137,7 +137,8 @@
           <ng-container *ngIf="fieldName == 'product' && gene['product']">
               {{gene['product']}}
           </ng-container>
-          <span *ngIf="!sortableField(fieldName)"
+          <span class="td-content"
+                *ngIf="!sortableField(fieldName)"
                 [innerHtml]="gene[fieldName]">
           </span>
         </td>

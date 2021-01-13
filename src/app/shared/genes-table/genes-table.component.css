@@ -33,3 +33,8 @@ th {
 .genes-table .product {
   word-break: break-word;
 }
+
+.td-content {
+  min-height: 1em;
+  display: inline-block;
+}
