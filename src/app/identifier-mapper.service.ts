@@ -43,6 +43,14 @@ export class IdentifierMapperService {
   private _notFound: Array<string> = [];
   private _mapperType: MapperType;
 
+  private readyResolve: () => void = null;
+  private readyPromise: Promise<void> =
+    new Promise((resolve, _) => {
+      this.readyResolve = () => {
+        resolve();
+      }
+    });
+
   constructor(private pombaseApiService: PombaseAPIService) {
     this._mapperTypes = [this.uniprotType];
 
@@ -85,6 +93,10 @@ export class IdentifierMapperService {
     }
   }
 
+  public resultsReady(): Promise<void> {
+    return this.readyPromise;
+  }
+
   public uniprotMapperType(): MapperType {
     return this.uniprotType;
   }
@@ -98,6 +110,7 @@ export class IdentifierMapperService {
       .then(summaryMap => {
         this.summaryMap = summaryMap;
         this.lookupHelper(this._mapperType, this._filteredIds);
+        this.readyResolve();
       });
   }
 

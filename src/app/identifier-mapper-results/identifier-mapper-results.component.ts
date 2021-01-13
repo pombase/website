@@ -17,22 +17,30 @@ export class IdentifierMapperResultsComponent implements OnInit {
   appConfig = getAppConfig();
   organismCommonName = this.appConfig.getConfigOrganism().common_name;
 
+  resultsReady = false;
+
   private geneSummaryMapPromise: Promise<GeneSummaryMap> = null;
   geneSummaryMap: GeneSummaryMap = null;
   private _showAllNotFound: boolean = false;
 
-  // all currently disabled:
   private _showAllOneToOne: boolean = false;
   private _showAllOneToMany: boolean = false;
   private _showAllManyToMany: boolean = false;
-
 
   constructor(private router: Router,
               public identifierMapperService: IdentifierMapperService,
               private pombaseApiService: PombaseAPIService,
               private queryRouterService: QueryRouterService) {
     this.geneSummaryMapPromise = this.pombaseApiService.getGeneSummaryMapPromise();
-    this.geneSummaryMapPromise.then(geneSummaryMap => this.geneSummaryMap = geneSummaryMap)
+    this.geneSummaryMapPromise.then(geneSummaryMap => this.geneSummaryMap = geneSummaryMap);
+
+    identifierMapperService.resultsReady()
+      .then(() => {
+        this.resultsReady = true;
+        // show the results if there is only one
+        this._showAllOneToOne = (this.oneToOneMatchesCount() == 1);
+        this._showAllOneToMany = (this.oneToManyMatchesCount() == 1);
+      });
   }
 
   backToInput(): void {
@@ -72,12 +80,20 @@ export class IdentifierMapperResultsComponent implements OnInit {
     return this.identifierMapperService.oneToOneMatches();
   }
 
+  public oneToOneMatchesCount(): number {
+    return this.objectKeyCount(this.oneToOneMatches());
+  }
+
   public hasOneToOneMatches(): boolean {
     return this.identifierMapperService.hasOneToOneMatches();
   }
 
   public oneToManyMatches(): { [id: string]: Array<GeneSummary> } {
     return this.identifierMapperService.oneToManyMatches();
+  }
+
+  public oneToManyMatchesCount(): number {
+    return this.objectKeyCount(this.oneToManyMatches());
   }
 
   public showAllOneToOne(): boolean {

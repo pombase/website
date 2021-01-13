@@ -1,4 +1,4 @@
-<div id="id-mapper-results">
+<div *ngIf="resultsReady" id="id-mapper-results">
   <h2 class="id-heading">
     Mapping tool results for {{identifierMapperService.mapperType.displayName}} identifiers
   </h2>
@@ -47,7 +47,9 @@
 
   <div class="one-one-section" *ngIf="hasOneToOneMatches()">
     <div class="one-one-heading">
-      {{objectKeyCount(oneToOneMatches())}} Identifier(s) matched a single gene (one-to-one matches):
+      <span *ngIf="oneToOneMatchesCount() == 1">One identifier</span>
+      <span *ngIf="oneToOneMatchesCount() != 1">{{oneToOneMatchesCount()}} identifiers</span>
+      matched a single gene (one-to-one matches):
     </div>
     <div *ngIf="!showAllOneToOne()" class="show-all-link">
       <a (click)="revealAllOneToOne()">Show matches ...</a>
@@ -70,8 +72,10 @@
 
   <div class="one-to-many-section" *ngIf="hasOneToManyMatches()">
     <div class="multi-heading">
-      {{objectKeyCount(oneToManyMatches())}} identifiers in your list mapped to multiple
-      genes (paralogs) in {{organismCommonName}}.
+      <span *ngIf="oneToManyMatchesCount() == 1">One identifier</span>
+      <span *ngIf="oneToManyMatchesCount() != 1">{{oneToManyMatchesCount()}} identifiers</span>
+
+      in your list mapped to multiple genes (paralogs) in {{organismCommonName}}.
       All paralogs were included.
     </div>
     <div *ngIf="!showAllOneToMany()" class="show-all-link">
