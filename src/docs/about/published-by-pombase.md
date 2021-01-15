@@ -11,15 +11,13 @@ Canto, FYPO, annotations and Compara.
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1098/rsob.200149"></div>
 
 <div class="pub-citation">
-Valerie Wood, Seth Carbon, Midori A. Harris, Antonia Lock†, Stacia
-R. Engel, David P. Hill, Kimberly Van Auken, Helen Attrill, Marc
-Feuermann, Pascale Gaudet, Ruth C. Lovering, Sylvain Poux, Kim
-M. Rutherford and Christopher J. Mungall \
-Term Matrix: a novel Gene Ontology annotation quality control system based on ontology term co-annotation patterns \
-*Open Biol.* 10:200149
+
+Wood V, Carbon S, Harris MA, Lock A, Engel SR, Hill DP, Van Auken K, Attrill H, Feuermann M, Gaudet P, Lovering RC, Poux S, Rutherford KM, Mungall CJ.\
+Term Matrix: a novel Gene Ontology annotation quality control system based on ontology term co-annotation patterns.\
+*Open Biol* 2020 Sep;10(9):200149\
 </div>
 <div class="clear-float"></div>
-[PMID:32875947](http://www.ncbi.nlm.nih.gov/pubmed/32875947) [10.1098/rsob.200149](https://doi.org/10.1098/rsob.200149)
+[PMID:32875947](http://www.ncbi.nlm.nih.gov/pubmed/32875947) [DOI:10.1098/rsob.200149](https://doi.org/10.1098/rsob.200149)
 
 
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/database/baaa028."></div>
@@ -37,7 +35,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <div class="pub-citation">
 Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
 Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
-*Open Biol* 2019 Feb 20;9(2):180241.\
+*Open Biol* 2019 Feb 28;9(2):180241.\
 </div>
 <div class="clear-float"></div>
 [PMID:30938578](http://www.ncbi.nlm.nih.gov/pubmed/30938578) [DOI:10.1098/rsob.180241](https://doi.org/10.1098/rsob.180241)
@@ -105,17 +103,18 @@ PomBase: a comprehensive online resource for fission yeast.\
 [PMID:22039153](http://www.ncbi.nlm.nih.gov/pubmed/22039153) [DOI:10.1093/nar/gkr853](http://dx.doi.org/DOI:10.1093/nar/gkr853)
 
 
-<!-- comment out preprint section when there aren't any?
 ### Preprints 
 
 Wood V, Carbon S, Harris MA, Lock A, Engel SR, Hill DP, Van Auken K, Attrill H, Feuermann M, Gaudet P, Lovering RC, Poux S, Rutherford KM, Mungall CJ.\
-Term Matrix: A novel Gene Ontology annotation quality control system based on ontology term co-annotation patterns\.
-[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2020.04.21.045195v1.full) available at bioRxiv.
+Term Matrix: A novel Gene Ontology annotation quality control system based on ontology term co-annotation patterns.\
+[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2020.04.21.045195v1.full) available at bioRxiv.\
+Published &mdash; see above.
 
 Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
 Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
-[Pre-publication manuscript](https://www.biorxiv.org/content/early/2018/11/16/469569) available at bioRxiv.
--->
+[Pre-publication manuscript](https://www.biorxiv.org/content/early/2018/11/16/469569) available at bioRxiv.\
+Published &mdash; see above.
+
 
 
 ### Book chapter
