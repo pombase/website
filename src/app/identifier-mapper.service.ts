@@ -15,6 +15,9 @@ export interface MapperType {
 const localStorageIdsKey = 'pombase-identifier-mapping-ids-history-v1';
 const localStorageTypeKey = 'pombase-identifier-mapping-type-history-v1';
 
+const organismCommonName = getAppConfig().getConfigOrganism().common_name;
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +30,7 @@ export class IdentifierMapperService {
     id: 'uniprot',
     taxonId: null,
     displayName: 'UniProt',
-    displayNameWithExamples: 'UniProt (e.g. P04551)',
+    displayNameWithExamples: organismCommonName + ' UniProt accessions (e.g. P04551)',
   };
 
   private _mapperTypes: Array<MapperType> = [];
