@@ -27,8 +27,9 @@ export class IdentifierMapperService {
     id: 'uniprot',
     taxonId: null,
     displayName: 'UniProt',
-    displayNameWithExamples: 'UniProt (eg. P04551)',
+    displayNameWithExamples: 'UniProt (e.g. P04551)',
   };
+
   private _mapperTypes: Array<MapperType> = [];
 
   private summaryMap: GeneSummaryMap;
@@ -62,7 +63,7 @@ export class IdentifierMapperService {
           if (org.taxonid === orthTaxonId) {
             const displayName = org.common_name;
             const displayNameWithExamples = displayName +
-              ' (eg. ' + org.example_gene_identifiers.join(' or ') + ')';
+              ' (e.g. ' + org.example_gene_identifiers.join(' or ') + ')';
             this._mapperTypes.push({
               id: 'ortholog' + org.taxonid,
               taxonId: org.taxonid,
