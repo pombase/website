@@ -54,6 +54,9 @@
     <div *ngIf="!showAllOneToOne()" class="show-all-link">
       <a (click)="revealAllOneToOne()">Show matches ...</a>
     </div>
+    <div *ngIf="showAllOneToOne() && oneToOneMatchesCount() != 1" class="hide-all-link">
+      <a (click)="hideAllOneToOne()">Hide matches</a>
+    </div>
     <table *ngIf="showAllOneToOne()">
       <thead>
         <th>Identifier</th>
@@ -81,6 +84,9 @@
     <div *ngIf="!showAllOneToMany()" class="show-all-link">
       <a (click)="revealAllOneToMany()">Show matches ...</a>
     </div>
+    <div *ngIf="showAllOneToMany() && oneToManyMatchesCount() != 1" class="hide-all-link">
+      <a (click)="hideAllOneToMany()">Hide matches</a>
+    </div>
     <table *ngIf="showAllOneToMany()">
       <thead>
         <th>Identifier</th>
@@ -104,10 +110,13 @@
       Many to one matches - paralogs from
       {{identifierMapperService.mapperType.displayName}} that match a {{organismCommonName}} gene:
     </div>
-    <div *ngIf="!showAllManyToMany()" class="show-all-link">
-      <a (click)="revealAllManyToMany()">Show matches ...</a>
+    <div *ngIf="!showAllManyToOne()" class="show-all-link">
+      <a (click)="revealAllManyToOne()">Show matches ...</a>
     </div>
-    <table *ngIf="showAllManyToMany()">
+    <div *ngIf="showAllManyToOne() && manyToOneMatchesCount() != 1" class="hide-all-link">
+      <a (click)="hideAllManyToOne()">Hide matches</a>
+    </div>
+    <table *ngIf="showAllManyToOne()">
       <thead>
         <th>Identifiers</th>
         <th>{{organismCommonName}} gene</th>

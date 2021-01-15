@@ -25,7 +25,7 @@ export class IdentifierMapperResultsComponent implements OnInit {
 
   private _showAllOneToOne: boolean = false;
   private _showAllOneToMany: boolean = false;
-  private _showAllManyToMany: boolean = false;
+  private _showAllManyToOne: boolean = false;
 
   constructor(private router: Router,
               public identifierMapperService: IdentifierMapperService,
@@ -40,6 +40,7 @@ export class IdentifierMapperResultsComponent implements OnInit {
         // show the results if there is only one
         this._showAllOneToOne = (this.oneToOneMatchesCount() == 1);
         this._showAllOneToMany = (this.oneToManyMatchesCount() == 1);
+        this._showAllManyToOne = (this.manyToOneMatchesCount() == 1);
       });
   }
 
@@ -104,6 +105,10 @@ export class IdentifierMapperResultsComponent implements OnInit {
     this._showAllOneToOne = true;
   }
 
+  public hideAllOneToOne() {
+    this._showAllOneToOne = false;
+  }
+
   public hasOneToManyMatches(): boolean {
     return this.identifierMapperService.hasOneToManyMatches();
   }
@@ -116,6 +121,10 @@ export class IdentifierMapperResultsComponent implements OnInit {
     this._showAllOneToMany = true;
   }
 
+  public hideAllOneToMany() {
+    this._showAllOneToMany = false;
+  }
+
   public manyToOneMatches(): { [id: string]: Array<string> } {
     return this.identifierMapperService.manyToOneMatches();
   }
@@ -124,12 +133,20 @@ export class IdentifierMapperResultsComponent implements OnInit {
     return this.identifierMapperService.hasManyToOneMatches();
   }
 
-  public showAllManyToMany(): boolean {
-    return this._showAllManyToMany;
+  public manyToOneMatchesCount(): number {
+    return this.objectKeyCount(this.manyToOneMatches());
   }
 
-  public revealAllManyToMany() {
-    this._showAllManyToMany = true;
+  public showAllManyToOne(): boolean {
+    return this._showAllManyToOne;
+  }
+
+  public revealAllManyToOne() {
+    this._showAllManyToOne = true;
+  }
+
+  public hideAllManyToOne() {
+    this._showAllManyToOne = false;
   }
 
   public allMatchesCount(): number {
