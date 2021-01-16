@@ -74,6 +74,13 @@
                            [visibleSections]="visibleSections"></app-details-page-menu>
   </div>
 
+  <div *ngIf="appConfig.refPageExtraLinks[refDetails.uniquename]"
+       class="external-links">
+    <a href="{{appConfig.refPageExtraLinks[refDetails.uniquename].link}}">
+      {{appConfig.refPageExtraLinks[refDetails.uniquename].text}}
+    </a>
+  </div>
+
   <app-jbrowse-track-picker [refUniquename]="refDetails.uniquename">
   </app-jbrowse-track-picker>
 

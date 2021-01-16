@@ -2,7 +2,7 @@
   font-size: 95%;
 }
 
-.annotations-section-header {
+.annotations-section-header, .external-links {
   margin: 0.6em 0;
   font-size: 150%;
 }

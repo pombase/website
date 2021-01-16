@@ -177,6 +177,11 @@ export interface CantaDataConfig {
   browser_track_triage_types: Array<string>;
 }
 
+export interface DetailsPageLinkConfig {
+  link: string;
+  text: string;
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -191,6 +196,7 @@ export interface AppConfig {
   frontPagePanels: Array<PanelConfig>;
   docPageAliases: { [old: string]: string };
   defaultJBrowseTracks: Array<JBrowseTrackInfo>;
+  refPageExtraLinks: { [key: string]: DetailsPageLinkConfig };
   refPageJBrowseColumns: Array<JBrowseColumnConfig>;
   apiSeqChunkSizes: {
     all: Array<number>;
@@ -653,6 +659,7 @@ let _appConfig: AppConfig = {
   frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
   docPageAliases: pombaseConfig.doc_page_aliases,
   defaultJBrowseTracks: pombaseConfig.default_jbrowse_tracks,
+  refPageExtraLinks: pombaseConfig.reference_page_extra_links,
   refPageJBrowseColumns: pombaseConfig.reference_page_jbrowse_columns,
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
