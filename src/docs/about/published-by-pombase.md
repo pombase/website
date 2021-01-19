@@ -1,3 +1,4 @@
+
 ## Publications authored by PomBase staff
 
 Please see the [Citing PomBase](/about/citing-pombase) page, which
@@ -24,11 +25,21 @@ Term Matrix: a novel Gene Ontology annotation quality control system based on on
 
 <div class="pub-citation">
 Lock A, Harris MA, Rutherford K, Hayles J, Wood V.\
-Community curation in PomBase: enabling fission yeast experts to provide detailed, standardized, sharable annotation from research publications.
+Community curation in PomBase: enabling fission yeast experts to provide detailed, standardized, sharable annotation from research publications.\
 *Database (Oxford)* 2020 Jan 1;2020. pii: baaa028.\
 </div>
 <div class="clear-float"></div>
 [PMID:32353878](http://www.ncbi.nlm.nih.gov/pubmed/32353878) [DOI:10.1093/database/baaa028](https://doi.org/10.1093/database/baaa028)
+
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/femsyr/foz014"></div>
+
+<div class="pub-citation">
+Dikicioglu D, Nightingale DJH, Wood V, Lilley KS, Oliver SG.\
+Transcriptional regulation of the genes involved in protein metabolism and processing in *Saccharomyces cerevisiae*.\
+* FEMS Yeast Res.* 2019 Mar 1;19(2):foz014.\
+</div>
+<div class="clear-float"></div>
+[PMID:30753445](http://www.ncbi.nlm.nih.gov/pubmed/30753445) [DOI:10.1093/femsyr/foz014](https://doi.org/10.1093/femsyr/foz014)
 
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1098/rsob.180241"></div>
 
@@ -139,6 +150,16 @@ Posters and slides from conferences and workshops are available on the [Document
 
 ## Collaborative publications including PomBase authors
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkaa1113"></div>
+
+<div class="pub-citation">
+Gene Ontology Consortium.\
+The Gene Ontology resource: enriching a GOld mine.\
+*Nucleic Acids Res.* 2021 Jan 8;49(D1):D325-D334.\
+</div>
+<div class="clear-float"></div>
+[PMID:33290552](http://www.ncbi.nlm.nih.gov/pubmed/33290552) [DOI:10.1093/nar/gkaa1113](https://doi.org/10.1093/nar/gkaa1113)
+
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkz997"></div>
 
 <div class="pub-citation">
@@ -158,6 +179,16 @@ PHI-base: the pathogen-host interactions database.\
 </div>
 <div class="clear-float"></div>
 [PMID:31733065](http://www.ncbi.nlm.nih.gov/pubmed/31733065) [DOI:10.1093/nar/gkz904](https://doi.org/10.1093/nar/gkz904)
+
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/database/baz007"></div>
+
+<div class="pub-citation">
+Gene Ontology Consortium.\
+Annotation of gene product function from high-throughput studies using the Gene Ontology.\
+*Database (Oxford).* 2019 Jan 1;2019:baz007.\
+</div>
+<div class="clear-float"></div>
+[PMID:30715275](http://www.ncbi.nlm.nih.gov/pubmed/30715275) [DOI:10.1093/database/baz007](https://doi.org/10.1093/database/baz007)
 
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gky1055"></div>
 
@@ -234,7 +265,7 @@ AnGeLi: A Tool for the Analysis of Gene Lists from Fission Yeast.\
 
 <div class="pub-citation">
 Hoffman CS, Wood V, Fantes PA.\
- An Ancient Yeast for Young Geneticists: A Primer on the *Schizosaccharomyces pombe* Model System.
+ An Ancient Yeast for Young Geneticists: A Primer on the *Schizosaccharomyces pombe* Model System.\
 *Genetics*. 2015 Oct;201(2):403-23.\
 </div>
 <div class="clear-float"></div>
