@@ -25,11 +25,9 @@ export class SeqFeatureTableComponent implements OnInit {
           const chrDisplayName = this.appConfig.chromosomes[feat.location.chromosome_name].export_id;
 
           const tracks = 'PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CDNA%20sequence';
-          const jbrowseLinkUrl =
+
+          feat.jBrowseURL =
             `/jbrowse/?loc=${chrDisplayName}%3A${feat.location.start_pos}..${feat.location.end_pos}&tracks=${tracks}`;
-
-
-          feat.jBrowseURL = jbrowseLinkUrl + '&tracklist=0&nav=0&overview=0';
         });
         features.sort((a, b) => {
           return a.feature_type.localeCompare(b.feature_type)
