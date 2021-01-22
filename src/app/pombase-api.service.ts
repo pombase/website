@@ -376,6 +376,7 @@ export interface ProteinDetails {
 export interface FeatureShort {
   feature_type: string;
   uniquename: string;
+  name: string;
   location: ChromosomeLocation;
   residues: string;
 }
@@ -1225,6 +1226,13 @@ export class PombaseAPIService {
         }
         return parsedRes['summary'] as SolrTermSummary;
       })
+      .catch(this.handleError);
+  }
+
+  getSeqFeaturePageFeatures(): Promise<Array<FeatureShort>> {
+    return this.httpRetry.getWithRetry(this.apiUrl + `/data/seq_feature_page_features`)
+      .toPromise()
+      .then(body => body as unknown as Array<FeatureShort>)
       .catch(this.handleError);
   }
 }

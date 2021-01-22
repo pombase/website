@@ -1,0 +1,27 @@
+<div *ngIf="seqFeatures" class="seq-feature-table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Chromosome</th>
+        <th>Strand</th>
+        <th>Start position</th>
+        <th>End position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let feat of seqFeatures">
+        <td>{{feat.uniquename}}</td>
+        <td>{{feat.name}}</td>
+        <td>{{feat.feature_type}}</td>
+        <td>{{feat.location.chromosome_name}}</td>
+        <td>{{feat.location.strand}}</td>
+        <td>{{feat.location.start_pos}}</td>
+        <td>{{feat.location.end_pos}}</td>
+        <td><a href="{{feat.jBrowseURL}}">View in browser ...</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -24,6 +24,7 @@ import { PageContentsMenuComponent } from './page-contents-menu/page-contents-me
 import { CvVersionComponent } from './cv-version/cv-version.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsPageMenuComponent } from './details-page-menu/details-page-menu.component';
+import { SeqFeatureTableComponent } from './seq-feature-table/seq-feature-table.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 
@@ -64,6 +65,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CvVersionComponent,
     NotFoundComponent,
     DetailsPageMenuComponent,
+    SeqFeatureTableComponent,
     SocialContactComponent,
     GeneResultsSlimTableComponent,
     FacetedSearchComponent,
@@ -86,6 +88,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CvVersionComponent,
     NotFoundComponent,
     DetailsPageMenuComponent,
+    SeqFeatureTableComponent,
     SocialContactComponent,
     GeneResultsSlimTableComponent,
     QueryDescriptionDisplayComponent,
