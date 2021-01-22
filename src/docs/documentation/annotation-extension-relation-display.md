@@ -96,7 +96,7 @@ PhosRes- | unphosphorylated (unspecified residue)
 PolyUbiq | polyubiquitinated
 Red+ | reduced form
 Sumo | sumoylated
-Ubiq | ubiquitinated
+Ubiq | ubiquitinated (residue specification optional)
 UnMod | unmodified (residue specification optional)
-UnPhos | unmodified (residue specification optional)
+UnPhos | unphosphorylated (residue specification optional)
 UnUbiq | unubiquitinated
