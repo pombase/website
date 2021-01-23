@@ -46,6 +46,12 @@
                               [featureInFirstColumn]="true"
                               [hideColumns]="['genotype_background']"
                               [annotationTable]="termDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
+
+        <app-qual-gene-ex-table id="{{annotationTypeName}}" *ngIf="annotationTypeName == 'qualitative_gene_expression'"
+                                [hideColumns]="[]"
+                                [annotationTable]="termDetails.cv_annotations[annotationTypeName]"></app-qual-gene-ex-table>
+
+
       </div>
     </div>
   </div>
