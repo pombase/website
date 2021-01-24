@@ -225,6 +225,8 @@ export interface AppConfig {
 
   queryBuilder: QueryBuilderConfig;
 
+  termDisplayNames: { [termName: string]: string };
+
   _geneResults: GeneResultsConfig;
 
   // the names of fields that can be queried and used in the client
@@ -701,6 +703,8 @@ let _appConfig: AppConfig = {
 
   // query builder node configuration:
   queryBuilder: pombaseConfig.query_builder,
+
+  termDisplayNames: pombaseConfig.term_display_names,
 
   allowedQueryFieldName: pombaseConfig.gene_results.allowed_query_field_names,
 

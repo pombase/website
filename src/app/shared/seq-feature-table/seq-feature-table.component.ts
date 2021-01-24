@@ -30,6 +30,13 @@ export class SeqFeatureTableComponent implements OnInit {
           feat.jBrowseURL =
             `/jbrowse/?loc=${chrDisplayId}%3A${feat.location.start_pos}..${feat.location.end_pos}&tracks=${tracks}`;
           feat.chromosomeDisplayId = chrDisplayId;
+
+          const typeDisplayName =
+            this.appConfig.termDisplayNames[feat.feature_type];
+
+          if (typeDisplayName) {
+            feat.feature_type = typeDisplayName;
+          }
         });
         this.seqFeatures.sort((a, b) => {
           return a.feature_type.localeCompare(b.feature_type)
