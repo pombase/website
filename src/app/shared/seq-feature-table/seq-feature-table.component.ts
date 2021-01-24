@@ -5,6 +5,7 @@ import { getAppConfig, AppConfig } from '../../config';
 
 interface DisplayFeatureShort extends FeatureShort {
   jBrowseURL: string;
+  chromosomeDisplayId: string;
 }
 
 @Component({
@@ -15,24 +16,25 @@ interface DisplayFeatureShort extends FeatureShort {
 export class SeqFeatureTableComponent implements OnInit {
 
   appConfig: AppConfig = getAppConfig();
-  seqFeatures: Array<FeatureShort> = null;
+  seqFeatures: Array<DisplayFeatureShort> = null;
 
   constructor(pombaseApiService: PombaseAPIService) {
     pombaseApiService.getSeqFeaturePageFeatures()
       .then(features => {
-        this.seqFeatures = features;
-        features.map((feat: DisplayFeatureShort) => {
-          const chrDisplayName = this.appConfig.chromosomes[feat.location.chromosome_name].export_id;
+        this.seqFeatures = features as Array<DisplayFeatureShort>;
+        this.seqFeatures.map((feat: DisplayFeatureShort) => {
+          const chrDisplayId = this.appConfig.chromosomes[feat.location.chromosome_name].export_id;
 
           const tracks = 'PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CDNA%20sequence';
 
           feat.jBrowseURL =
-            `/jbrowse/?loc=${chrDisplayName}%3A${feat.location.start_pos}..${feat.location.end_pos}&tracks=${tracks}`;
+            `/jbrowse/?loc=${chrDisplayId}%3A${feat.location.start_pos}..${feat.location.end_pos}&tracks=${tracks}`;
+          feat.chromosomeDisplayId = chrDisplayId;
         });
-        features.sort((a, b) => {
+        this.seqFeatures.sort((a, b) => {
           return a.feature_type.localeCompare(b.feature_type)
             ||
-          a.location.chromosome_name.localeCompare(b.location.chromosome_name)
+          a.chromosomeDisplayId.localeCompare(b.chromosomeDisplayId)
             ||
           a.location.start_pos - b.location.start_pos;
         })
