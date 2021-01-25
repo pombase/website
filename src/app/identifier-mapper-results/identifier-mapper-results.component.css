@@ -22,8 +22,12 @@ table, .not-found-ids, .show-all-link, .hide-all-link {
   font-size: 90%;
 }
 
+.found-message {
+  margin: 1em 0 0.2em 0;
+}
+
 .send-genes {
-  margin: 1.2em 0 1em 0;
+  margin: 0.2em 0 1em 0;
 }
 
 td {

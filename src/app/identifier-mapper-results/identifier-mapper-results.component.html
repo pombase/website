@@ -10,8 +10,10 @@
   </button>
 
   <div *ngIf="hasMatches()">
-    <div class="send-genes">
+    <div class="found-message">
       Found {{allMatchesCount()}} {{organismCommonName}} {{geneOrGenes()}}.
+    </div>
+    <div class="send-genes">
       The matching {{geneOrGenes()}} can be used in the Advanced Search tool:
       <button class="btn btn-primary" (click)="sendToQueryBuilder()">Use {{geneOrGenes()}}</button>
     </div>
