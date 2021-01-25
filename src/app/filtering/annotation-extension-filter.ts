@@ -1,5 +1,4 @@
 import { AnnotationTable } from '../pombase-api.service';
-import { TermShort } from '../pombase-query';
 import { Filter } from '../filtering';
 
 export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
@@ -20,7 +19,11 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
           if (annotation.extension) {
             for (let extPart of annotation.extension) {
               if (extPart.ext_range['term']) {
-                const rangeTerm: TermShort = extPart.ext_range['term'];
+                const rangeTerm = extPart.ext_range.term;
+                if (filterTermId == rangeTerm.termid) {
+                  retTermAnnotation.annotations.push(annotation);
+                  continue ANNOTATION;
+                }
                 if (rangeTerm.interesting_parent_ids) {
                   for (let interestingAncestor of rangeTerm.interesting_parent_ids) {
                     if (interestingAncestor === filterTermId) {

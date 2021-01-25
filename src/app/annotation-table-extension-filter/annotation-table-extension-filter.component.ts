@@ -51,18 +51,20 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
 
     this.choiceData = [];
 
-    let seenAncestors: { [key: string]: boolean } = {};
+    let seenCategories: { [key: string]: boolean } = {};
 
     for (let termAnnotation of this.annotationTable) {
       for (let annotation of termAnnotation.annotations) {
         const extension = annotation.extension;
         if (extension) {
           for (let extPart of extension) {
-            if (extPart.ext_range['term']) {
-              const interestingParentIds = extPart.ext_range['term'].interesting_parent_ids;
+            const rangeTerm = extPart.ext_range.term;
+            if (rangeTerm) {
+              seenCategories[rangeTerm.termid] = true;
+              const interestingParentIds = rangeTerm.interesting_parent_ids;
               if (interestingParentIds) {
                 for (let ancestor of interestingParentIds) {
-                  seenAncestors[ancestor] = true;
+                  seenCategories[ancestor] = true;
                 }
               }
             }
@@ -77,7 +79,7 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
       let active = false;
 
       for (let ancestor of category.ancestors) {
-        if (seenAncestors[ancestor]) {
+        if (seenCategories[ancestor]) {
           active = true;
           break;
         }
