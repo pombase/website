@@ -11,6 +11,10 @@
   height: auto;
 }
 
+.help-message {
+  width: 70vw;
+}
+
 .id-heading {
   margin: 0.6em 0 0.6em 0;
   font-weight: bold;
