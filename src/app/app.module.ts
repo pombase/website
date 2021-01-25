@@ -51,7 +51,6 @@ import { GeneReferencesTableComponent } from './gene-references-table/gene-refer
 import { ReferenceOrderByPipe } from './reference-order-by.pipe';
 import { EvidenceLinkComponent } from './evidence-link/evidence-link.component';
 import { QuantGeneExTableComponent } from './quant-gene-ex-table/quant-gene-ex-table.component';
-import { QualGeneExTableComponent } from './qual-gene-ex-table/qual-gene-ex-table.component';
 import { WithOrFromLinkComponent } from './with-or-from-link/with-or-from-link.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
@@ -150,7 +149,6 @@ export function windowFactory() {
     ReferenceOrderByPipe,
     EvidenceLinkComponent,
     QuantGeneExTableComponent,
-    QualGeneExTableComponent,
     WithOrFromLinkComponent,
     GenotypeDetailsComponent,
     TermGenotypesViewComponent,
