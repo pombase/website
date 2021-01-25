@@ -18,7 +18,7 @@ type SequenceOptions = 'protein' | 'none' | {
 };
 
 export class GAFOptions {
-  constructor(_aspects: Array<string>) { }
+  constructor(public aspects: Array<string>) { }
 }
 
 export class QueryOutputOptions {
