@@ -73,3 +73,7 @@
   font-weight: bold;
   margin: 0 0 0.6em 0;
 }
+
+.node-top-help, .node-top-id-mapper {
+  margin: 1em 0;
+}

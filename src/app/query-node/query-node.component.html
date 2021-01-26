@@ -13,16 +13,20 @@
     </div>
   </div>
   <div class="node-components">
-    <div *ngIf="!activeConf">
+    <div class="node-top" *ngIf="!activeConf">
       <div class="node-top-description">
         Choose a starting point from left-hand menu
       </div>
-      <div>
-        <a routerLink="/documentation/advanced-search">Advanced search documentation ...</a>
+      <div class="node-top-help">
+        <a routerLink="/documentation/advanced-search">Advanced search documentation</a>
+      </div>
+      <div class="node-top-id-mapper">
+        <span>For bulk lookup of UniProt accessions and ortholog IDs use the</span>
+        <a routerLink="/identifier-mapper/">Identifier Mapper</a>
       </div>
     </div>
-    <div *ngIf="activeConf">
 
+    <div *ngIf="activeConf">
       <div class="node-top-description" *ngIf="activeConf.topDescription">
         <span *ngFor="let part of activeConf.topDescription"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.link" routerLink="{{part.link.route}}">{{part.link.link_text}}</a></span>:
       </div>
@@ -38,7 +42,8 @@
       </div>
 
       <div *ngIf="activeConf.id == 'uniprot_id_list'">
-        <app-gene-list-lookup [lookupFieldType]="'uniprot-id'" (genesFound)="genesFound($event)"></app-gene-list-lookup>
+        <span>For bulk lookup of UniProt accessions use the</span>
+        <a routerLink="/identifier-mapper/">Identifier Mapper</a>
       </div>
 
       <div *ngIf="activeConf.nodeType == 'small-ontology'">
