@@ -140,9 +140,9 @@ would like any queries added to the selection.
 #### Gene names and IDs
 
 Type or paste a list of gene names or systematic IDs (or a mixture),
-or click the "Browse" button
-to select a file to upload. Click "Lookup" to add the gene list to the
-history (useful for combining the list with other queries).
+or click the "Browse" button to select a file to upload. Click
+"Lookup" to add the gene list to the history (useful for combining the
+list with other queries).
 
 #### GO
 

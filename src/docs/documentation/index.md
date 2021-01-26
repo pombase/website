@@ -33,6 +33,7 @@ Search documentation, news archive and FAQ:
 
 -   [Simple search](documentation/simple-search-documentation)
 -   [Advanced search](documentation/advanced-search)
+-   [Identifier mapper](documentation/id-mapper)
 -   [Peptide motif search](documentation/motif-search)
 
 ### JBrowse Genome Browser
