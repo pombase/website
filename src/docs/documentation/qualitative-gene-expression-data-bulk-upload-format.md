@@ -22,7 +22,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 5 | Qualifier | increased | Yes | No
 6 | Extension | during(GO:0000084) | Yes | Yes
 7 | Reference | PMID:18203864 | Yes | No
-8 | Taxon | taxon:4896 | Yes | No
+8 | Taxon | 4896 | Yes | No
 9 | Date | 2014-05-01 | Yes | No
 
 1.  Include the systematic ID for each gene. You can look up
