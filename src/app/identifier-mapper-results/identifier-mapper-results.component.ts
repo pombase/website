@@ -26,6 +26,7 @@ export class IdentifierMapperResultsComponent implements OnInit {
   private _showAllOneToOne: boolean = false;
   private _showAllOneToMany: boolean = false;
   private _showAllManyToOne: boolean = false;
+  private _showAllManyToMany: boolean = false;
 
   constructor(private router: Router,
               public identifierMapperService: IdentifierMapperService,
@@ -41,6 +42,7 @@ export class IdentifierMapperResultsComponent implements OnInit {
         this._showAllOneToOne = (this.oneToOneMatchesCount() == 1);
         this._showAllOneToMany = (this.oneToManyMatchesCount() == 1);
         this._showAllManyToOne = (this.manyToOneMatchesCount() == 1);
+        this._showAllManyToMany = (this.manyToManyMatchesCount() == 1);
       });
   }
 
@@ -147,6 +149,30 @@ export class IdentifierMapperResultsComponent implements OnInit {
 
   public hideAllManyToOne() {
     this._showAllManyToOne = false;
+  }
+
+  public manyToManyMatches(): Array<[Set<string>, Set<GeneSummary>]> {
+    return this.identifierMapperService.manyToManyMatches();
+  }
+
+  public hasManyToManyMatches(): boolean {
+    return this.identifierMapperService.hasManyToManyMatches();
+  }
+
+  public manyToManyMatchesCount(): number {
+    return this.manyToManyMatches().length;
+  }
+
+  public showAllManyToMany(): boolean {
+    return this._showAllManyToMany;
+  }
+
+  public revealAllManyToMany() {
+    this._showAllManyToMany = true;
+  }
+
+  public hideAllManyToMany() {
+    this._showAllManyToMany = false;
   }
 
   public allMatchesCount(): number {

@@ -137,5 +137,38 @@
       </tbody>
     </table>
   </div>
+
+  <div class="many-to-many-section" *ngIf="hasManyToManyMatches()">
+    <div class="multi-heading">
+      Many to many matches - {{identifierMapperService.mapperType.displayName}} paralogs
+      that match {{organismCommonName}} paralogs:
+    </div>
+    <div *ngIf="!showAllManyToMany()" class="show-all-link">
+      <a (click)="revealAllManyToMany()">Show matches ...</a>
+    </div>
+    <div *ngIf="showAllManyToMany() && manyToManyMatchesCount() != 1" class="hide-all-link">
+      <a (click)="hideAllManyToMany()">Hide matches</a>
+    </div>
+    <table *ngIf="showAllManyToMany()">
+      <thead>
+        <th>Identifiers</th>
+        <th>{{organismCommonName}} genes</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let group of manyToManyMatches()">
+          <td>
+            <div *ngFor="let queryId of group[0]">
+              {{queryId}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let geneSummary of group[1]">
+              <app-gene-link [long]="true" [gene]="geneSummary"></app-gene-link>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   </div>
 </div>

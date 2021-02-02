@@ -43,3 +43,7 @@ th, td {
   margin: 1em 0 0.5em 0;
   font-weight: bold;
 }
+
+.many-to-many-section td {
+  padding: 0.5em 0
+}

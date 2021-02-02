@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { AppConfig, getAppConfig } from './config';
 
 import { GeneSummary, GeneSummaryMap, PombaseAPIService } from './pombase-api.service';
-import { GeneUniquename } from './pombase-query';
-
 
 export interface MapperType {
   id: string;
@@ -44,6 +42,7 @@ export class IdentifierMapperService {
   private _oneToManyMatches: { [id: string]: Array<GeneSummary> } = {};
   // eg. human ACTA1, ACTA2, ACTA2 etc <- pombe act1 (SPBC32H8.12c)
   private _manyToOneMatches: { [id: string]: Array<string> } = {};
+  private _manyToManyMatches: Array<[Set<string>, Set<GeneSummary>]> = [];
   private _notFound: Array<string> = [];
   private _mapperType: MapperType;
 
@@ -148,10 +147,11 @@ export class IdentifierMapperService {
   }
 
   public resetResults(): void {
+    this._notFound = [];
     this._oneToOneMatches = {};
     this._oneToManyMatches = {};
-    this._notFound = [];
     this._manyToOneMatches = {};
+    this._manyToManyMatches = [];
   }
 
   public notFound(): Array<string> {
@@ -180,6 +180,14 @@ export class IdentifierMapperService {
 
   public hasManyToOneMatches(): boolean {
     return Object.keys(this.manyToOneMatches()).length > 0;
+  }
+
+  public manyToManyMatches(): Array<[Set<string>, Set<GeneSummary>]> {
+    return this._manyToManyMatches;
+  }
+
+  public hasManyToManyMatches(): boolean {
+    return this.manyToManyMatches().length > 0;
   }
 
   private filterIds(inputText: string): Array<string> {
@@ -248,11 +256,12 @@ export class IdentifierMapperService {
       }
     }
 
-    let allToAllMatches: { [key: string]: Set<string> } = {};
+    // could be 1-1 or 1-many:
+    let oneToSomeMatches: { [key: string]: Set<string> } = {};
 
-    ids.map((id: GeneUniquename) => {
+    ids.map((id: string) => {
       const lowerId = id.toLowerCase();
-      const matchingGenes: Array<GeneSummary> = lookupMap[lowerId];
+      const matchingGenes = lookupMap[lowerId];
 
       if (matchingGenes) {
         if (matchingGenes.length === 1) {
@@ -262,18 +271,18 @@ export class IdentifierMapperService {
         }
 
         matchingGenes.map(matchedGene => {
-          if (!allToAllMatches[matchedGene.uniquename]) {
-            allToAllMatches[matchedGene.uniquename] = new Set();
+          if (!oneToSomeMatches[matchedGene.uniquename]) {
+            oneToSomeMatches[matchedGene.uniquename] = new Set();
           }
-          allToAllMatches[matchedGene.uniquename].add(id);
+          oneToSomeMatches[matchedGene.uniquename].add(id);
         })
       } else {
         this._notFound.push(id);
       }
     });
 
-    Object.keys(allToAllMatches).map(uniquename => {
-      const matches = Array.from(allToAllMatches[uniquename]);
+    Object.keys(oneToSomeMatches).map(uniquename => {
+      const matches = Array.from(oneToSomeMatches[uniquename]);
       if (matches.length > 1) {
         this._manyToOneMatches[uniquename] = matches;
 
@@ -282,12 +291,76 @@ export class IdentifierMapperService {
         });
       }
     });
+
+    let otherOrgSeenIds: { [id: string]: boolean } = {};
+
+    ONE_TO_MANY:
+    for (const otherOrgId of Object.keys(this._oneToManyMatches)) {
+      if (otherOrgSeenIds[otherOrgId]) {
+        continue;
+      }
+
+      otherOrgSeenIds[otherOrgId] = true;
+
+      let otherIdsForGroup = new Set<string>();
+      let thisOrgSummariesForGroup = new Set<GeneSummary>();
+
+      const thisOrgGeneSummaries = this._oneToManyMatches[otherOrgId];
+
+      if (thisOrgGeneSummaries) {
+        for (const thisOrgGeneSummary of thisOrgGeneSummaries) {
+          thisOrgSummariesForGroup.add(thisOrgGeneSummary);
+          const manyToOneIds = this._manyToOneMatches[thisOrgGeneSummary.uniquename];
+          if (manyToOneIds) {
+            for (const manyToOneOtherOrgId of manyToOneIds) {
+              otherIdsForGroup.add(manyToOneOtherOrgId);
+              otherOrgSeenIds[manyToOneOtherOrgId] = true;
+            }
+          } else {
+            // it's not many-to-many
+            continue ONE_TO_MANY;
+          }
+        }
+      }
+
+      this._manyToManyMatches.push([otherIdsForGroup, thisOrgSummariesForGroup]);
+    }
+
+    for (const [otherIds, geneSummaries] of this._manyToManyMatches) {
+      otherIds.forEach(otherId => {
+        delete this._oneToManyMatches[otherId];
+      });
+      geneSummaries.forEach(geneSummary => {
+        delete this._manyToOneMatches[geneSummary.uniquename];
+      });
+    }
+  }
+
+  private oneToManyMatchesCount(): number {
+    let count = 0;
+
+    for (const id of Object.keys(this._oneToManyMatches)) {
+      count += this._oneToManyMatches[id].length;
+    }
+
+    return count;
+  }
+
+  private manyToManyMatchesCount(): number {
+    let count = 0;
+
+    for (const [_, geneSummaries] of this._manyToManyMatches) {
+      count += geneSummaries.size;
+    }
+
+    return count;
   }
 
   public allMatchesCount(): number {
     return Object.keys(this._oneToOneMatches).length +
-      Object.keys(this._oneToManyMatches).length +
-      Object.keys(this._manyToOneMatches).length;
+      this.oneToManyMatchesCount() +
+      Object.keys(this._manyToOneMatches).length +
+      this.manyToManyMatchesCount();
   }
 
   public allMatches(): Promise<Array<GeneSummary>> {
@@ -319,6 +392,10 @@ export class IdentifierMapperService {
           const gene = geneSummaryMap[geneUniquename];
           maybeAdd(gene);
         });
+
+      for (const [_, matches] of this._manyToManyMatches) {
+          matches.forEach(geneSumm => maybeAdd(geneSumm));
+      }
 
       return genes;
     });
