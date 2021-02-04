@@ -7,7 +7,7 @@ ID types:
 
 -   Find *S. pombe* genes using UniProt accessions
 -   Retrieve manually curated orthologs for
-  -    *S. cerevisiae*: Use stardard gene names (CDC28, ACT!, etc.) or ORF names (YPR121W, YPL258C, etc.)
+  -    *S. cerevisiae*: Use standard gene names (CDC28, ACT1, etc.) or ORF names (YPR121W, YPL258C, etc.)
   -    Human: use standard gene names (CDK1, BRCA2, etc.) or HGNC identifiers (e.g. HGNC:1722)
 
 For UniProt IDs, we also provide a static mapping file of PomBase
