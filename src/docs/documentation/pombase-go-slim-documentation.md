@@ -42,6 +42,6 @@ because they have annotations to terms not covered by the slim.
 
 Current GO slim IDs and term names can be downloaded from the PomBase ftp site:
 
-- [GO molecular function slim](ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.tsv)
-- [GO biological process slim](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv)
-- [GO cellular component slim](ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv)
+- [GO molecular function slim](https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv)
+- [GO biological process slim](https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv)
+- [GO cellular component slim](https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv)

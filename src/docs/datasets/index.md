@@ -4,24 +4,22 @@
 **Warning:** Files in the old FTP site within the EBI domain are no
   longer updated. If you have a link that contains **ftp.ebi.ac.uk**,
   please check these pages for a link using
-  **ftp.pombase.org**. Please [contact the PomBase
+  **https.pombase.org**. Please [contact the PomBase
   curators](mailto:helpdesk@pombase.org) if you need help finding a
   file or directory.
 </div>
 
-Links below go to web pages, except where "ftp" indicates that
-they go directly to ftp site directories. Note that the ftp
-subdirectories are organised slightly differently from the links on this
-page. If you have trouble finding anything, please ask the
-  [helpdesk](mailto:helpdesk@pombase.org).
+Note that some of the links below go to pages listing subdirectories
+that are organised slightly differently from the links on this
+page. Your browser may prompt you to open or download files.
+
+If you have trouble finding anything, please ask the
+[helpdesk](mailto:helpdesk@pombase.org).
 
 -------
 
-### FTP site ###
-[*S. pombe* ftp site root directory](ftp://ftp.pombase.org/pombe)
-
-For FTP downloads, connect as "guest" if prompted; see [this
-FAQ](faq/do-i-need-password-download-ftp-site) for more information.
+### Data download site ###
+[Main directory for *S. pombe* data](https://www.pombase.org/data/)
 
 -------
 
@@ -39,11 +37,11 @@ Annotation type|Description
 ---------------|-----------
 [Protein datasets](/downloads/protein-datasets)|Protein sequence FASTA database, peptide features, properties, etc.
 [GO annotations](downloads/go-annotations)|Gene Ontology annotation files
-[Macromolecular complexes](ftp://ftp.pombase.org/pombe/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes; ftp)
+[Macromolecular complexes](https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
 [Phenotype annotations](downloads/phenotype-annotations)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
-[HCPIN datasets](ftp://ftp.pombase.org/pombe/high_confidence_physical_interactions/)|Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets; also see [documentation](/documentation/high-confidence-physical-interaction-network) (ftp)
-[Modifications](ftp://ftp.pombase.org/pombe/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future; ftp)
-[Orthologs](ftp://ftp.pombase.org/pombe/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) (ftp)
+[HCPIN datasets](https://www.pombase.org/data/high_confidence_physical_interactions/)|Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets; also see [documentation](/documentation/high-confidence-physical-interaction-network)
+[Modifications](https://www.pombase.org/data/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future)
+[Orthologs](https://www.pombase.org/data/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
 
 -------
 
@@ -54,14 +52,14 @@ Mappings between PomBase systematic IDs, gene names, product descriptions, and U
 
 ### GO slim
 Current GO slim IDs and term names
- [GO biological process slim](ftp://ftp.pombase.org/nightly_update/misc/bp_goslim_pombe_ids_and_names.tsv) (ftp)
- [GO molecular function slim](ftp://ftp.pombase.org/nightly_update/misc/mf_goslim_pombe_ids_and_names.tsv) (ftp)
- [GO cellular component slim](ftp://ftp.pombase.org/nightly_update/misc/cc_goslim_pombe_ids_and_names.tsv) (ftp)
+ [GO biological process slim](https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv)
+ [GO molecular function slim](https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv)
+ [GO cellular component slim](https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv)
 
 -------
 
 ### Mondo slim
-Current [fission yeast Mondo Disease Ontology slim IDs and term names](ftp://ftp.pombase.org/nightly_update/misc/disease_ontology_slim_ids_and_names.tsv) (ftp)
+Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://www.pombase.org/data/releases/latest/misc/disease_ontology_slim_ids_and_names.tsv)
 
 -------
 

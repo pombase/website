@@ -4,27 +4,27 @@
 **Warning:** Files in the old FTP site within the EBI domain are no
   longer updated. If you have a link that contains **ftp.ebi.ac.uk**,
   please check these pages for a link using
-  **ftp.pombase.org**. Please [contact the PomBase
+  **pombase.org**. Please [contact the PomBase
   curators](mailto:helpdesk@pombase.org) if you need help finding a
   file or directory.
 </div>
 
-These files are available in the [names and IDs FTP directory](ftp://ftp.pombase.org/pombe/names_and_identifiers/)
+These files are available in the [names and IDs directory](https://www.pombase.org/data/names_and_identifiers/)
 
 #### Systematic ID to UniProt accession number
 
--   [PomBase2UniProt.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/PomBase2UniProt.tsv)
+-   [PomBase2UniProt.tsv](https://www.pombase.org/data/names_and_identifiers/PomBase2UniProt.tsv)
     tab-delimited file with the PomBase systematic identifier for each
     protein-coding gene mapped to the corresponding UniProt accession
     number
 
 #### Gene names
 
--   [gene_IDs_names.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/gene_IDs_names.tsv)
+-   [gene_IDs_names.tsv](https://www.pombase.org/data/names_and_identifiers/gene_IDs_names.tsv)
     tab-delimited file of systematic ID, primary gene name (where
     assigned), and all synonyms for each gene
 
--   [gene_IDs_names_products.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/gene_IDs_names_products.tsv)
+-   [gene_IDs_names_products.tsv](https://www.pombase.org/data/names_and_identifiers/gene_IDs_names_products.tsv)
     tab-delimited file of systematic ID, primary gene name (where
     assigned), chromosome, product description, UniProtKB accession,
     all synonyms, and product type (protein coding, ncRNA, etc.) for
@@ -35,19 +35,16 @@ These files are available in the [names and IDs FTP directory](ftp://ftp.pombase
 Files include systematic name, primary name (where assigned),
 synonyms (where assigned), and gene product description
 
--   [sysID2product.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/sysID2product.tsv)
+-   [sysID2product.tsv](https://www.pombase.org/data/names_and_identifiers/sysID2product.tsv)
     protein-coding genes
--   [sysID2product.rna.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/sysID2product.rna.tsv)
+-   [sysID2product.rna.tsv](https://www.pombase.org/data/names_and_identifiers/sysID2product.rna.tsv)
     non-coding RNA genes
--   [pseudogeneIDs.tsv](ftp://ftp.pombase.org/pombe/names_and_identifiers/pseudogeneIDs.tsv)
+-   [pseudogeneIDs.tsv](https://www.pombase.org/data/names_and_identifiers/pseudogeneIDs.tsv)
     pseudogenes
 
 Note: A tab-delimited file of systematic identifiers mapped to EC
 numbers was previously maintained, but has not been updated since March
 2012. The most recent version of the
-[gp2EC.txt](ftp://ftp.pombase.org/pombe/names_and_identifiers/OLD/gp2EC.txt)
-file is available in the FTP archive, but because it is out of date it
+[gp2EC.txt](https://www.pombase.org/data/names_and_identifiers/OLD/gp2EC.txt)
+file is available in the archive, but because it is out of date it
 may contain errors or omissions.
-
-For FTP downloads, connect as "guest" if prompted; see [this
-FAQ](faq/do-i-need-password-download-ftp-site) for more information.

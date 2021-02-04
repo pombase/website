@@ -23,10 +23,11 @@ All features in data files need to use these chromosome IDs:
     
 We have devised a file format for the metadata we need, with
 downloadable spreadsheet templates available in
-[Excel](ftp://ftp.pombase.org/pombe/documents/HTP_submission_template.xlt)
+[Excel](https://www.pombase.org/data/documents/HTP_submission_template.xlt)
 and [Open Document
-Format](ftp://ftp.pombase.org/pombe/documents/HTP_submission_template.ots)
-(FTP site links). Letters in the table below refer to spreadsheet columns.
+Format](https://www.pombase.org/data/documents/HTP_submission_template.ots)
+(links may download files, depending on your browser). Letters in the
+table below refer to spreadsheet columns.
 
 If you prefer, you can prepare a file without using the
 template. Create a tab-delimited text file, and include a header line

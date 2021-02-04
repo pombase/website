@@ -4,6 +4,6 @@
 The current version of the manually curated list of orthologs and
 orthologous groups identified between fission and budding yeast is
 available for download from the
-[orthologs](ftp://ftp.pombase.org/pombe/orthologs/) FTP directory
+[orthologs](https://www.pombase.org/data/orthologs/) FTP directory
 (linked from the [Datasets](/datasets) page).
 

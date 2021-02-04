@@ -3,7 +3,7 @@
 We have updated the data available on the PomBase web site. The data now
 includes manual curation through June 6, 2014. In other improvements, a
 downloadable file of [intron sequence
-data](ftp://ftp.ebi.ac.uk/pub/databases/pombase/FASTA/cdna_introns_utrs.fa.gz)
+data](https://www.pombase.org/data/genome_sequence_and_features/feature_sequences/cds+introns+utrs.fa.gz)
 (FASTA format) is now available, and phenotypes are now included in the
 Target Of section on gene pages.
 
@@ -20,3 +20,4 @@ large-scale datasets:
     of print\]
     [PMID:24763107](http://www.ncbi.nlm.nih.gov/pubmed/?term=24763107)
 
+Link updated 2021-02-04

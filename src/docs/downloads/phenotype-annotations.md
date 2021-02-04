@@ -4,13 +4,13 @@
 **Warning:** Files in the old FTP site within the EBI domain are no
   longer updated. If you have a link that contains **ftp.ebi.ac.uk**,
   please check these pages for a link using
-  **ftp.pombase.org**. Please [contact the PomBase
+  **pombase.org**. Please [contact the PomBase
   curators](mailto:helpdesk@pombase.org) if you need help finding a
   file or directory.
 </div>
 
-[Phenotype annotations](ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz)
-(link downloads gzipped file from PomBase ftp) for alleles of
+[Phenotype annotations](https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz)
+(link downloads gzipped file from PomBase) for alleles of
 *S. pombe* genes are manually curated from the literature using
 Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file
 contains annotations for single allele phenotypes (single mutants)
@@ -32,12 +32,9 @@ using the ontology structure and inferred annotations. Please contact
 the [PomBase helpdesk](mailto:helpdesk@pombase.org) if you need
 assistance.
 
-For FTP downloads, connect as "guest" if prompted; see [this
-FAQ](faq/do-i-need-password-download-ftp-site) for more information.
-
 ### Viability summary
 
-A [set of "viability summary" data](ftp://ftp.pombase.org/pombe/annotations/Phenotype_annotations/FYPOviability.tsv)
+A [set of "viability summary" data](https://www.pombase.org/data/annotations/Phenotype_annotations/FYPOviability.tsv)
 as shown at the top of the FYPO table on each gene page, is available as
 a downloadable file. The file has two columns: the gene systematic ID
 and one of three values: "viable", "inviable" or "condition-dependent".

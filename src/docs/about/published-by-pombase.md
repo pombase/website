@@ -142,7 +142,7 @@ In Kollar M (ed) *Eukaryotic Genomic Databases. Methods in Molecular Biology*, v
 
 ### Infographics
 
-[2017 PomBase infographic](ftp://ftp.pombase.org/pombe/Conferences/pombe2017/pombe2017_infographic_p132.pdf) (PDF; file at FTP site)
+[2017 PomBase infographic](https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf) (PDF; file at FTP site)
 
 ### More
 
