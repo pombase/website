@@ -234,6 +234,7 @@ export interface IdAndOrganism {
 
 export interface IdNameAndOrganism {
   identifier: string;
+  secondary_identifier: string | null;
   name: string | null;
   taxonid: number;
 }

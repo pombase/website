@@ -250,6 +250,12 @@ export class IdentifierMapperService {
               if (orthIdentifier) {
                 lookupAdd(orthIdentifier, geneSummary);
               }
+
+              const orthSecondaryIdentifier = orth.secondary_identifier;
+
+              if (orthSecondaryIdentifier) {
+                lookupAdd(orthSecondaryIdentifier, geneSummary);
+              }
             }
           });
         }
