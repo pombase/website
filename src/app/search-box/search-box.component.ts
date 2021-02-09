@@ -201,6 +201,11 @@ export class SearchBoxComponent implements OnInit {
         } else {
           if (orth.identifier.toLowerCase() === value) {
             matchingOrthologs.push({ matchingFieldValue: orth.identifier, orth });
+          } else {
+            if (orth.secondary_identifier &&
+                orth.secondary_identifier.toLowerCase() === value) {
+              matchingOrthologs.push({ matchingFieldValue: orth.secondary_identifier, orth });
+            }
           }
         }
       }
@@ -213,6 +218,12 @@ export class SearchBoxComponent implements OnInit {
           if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
             matchingOrthologs.push({ matchingFieldValue: orth.identifier, orth });
             break;
+          } else {
+            if (orth.secondary_identifier &&
+                orth.secondary_identifier.toLowerCase().indexOf(value) !== -1) {
+              matchingOrthologs.push({ matchingFieldValue: orth.secondary_identifier, orth });
+              break;
+            }
           }
         }
       }
