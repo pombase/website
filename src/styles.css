@@ -411,11 +411,11 @@ select option:disabled {
 }
 
 .search-box-organism {
-  color: #888;
+  color: #707080;
 }
 
-li.active .search-box-organism {
-  color: #e8e8e8d0;
+button.active .search-box-organism {
+  color: #e8e8f0;
 }
 
 @media (max-width: 600px) {
