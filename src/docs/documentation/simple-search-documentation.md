@@ -10,7 +10,7 @@ The simple search works for:
 - Fission yeast gene names, synonyms, and systematic IDs
 - Fission yeast gene product descriptions
 - Human orthologs of fission yeast genes &mdash; search by standard gene symbols
-- Budding yeast orthologs of fission yeast genes &mdash; search by standard gene names or ORF names
+- Budding yeast orthologs of fission yeast genes &mdash; search by standard gene names, ORF names, or SGD IDs
 - Publications &mdash; search by PubMed ID
 - Ontology terms &mdash; search by term ID
 
