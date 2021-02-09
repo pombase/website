@@ -214,17 +214,6 @@ export class SearchBoxComponent implements OnInit {
         if (orth.name && orth.name.toLowerCase().indexOf(value) !== -1) {
           matchingOrthologs.push({ matchingFieldValue: orth.name, orth });
           break;
-        } else {
-          if (orth.identifier.toLowerCase().indexOf(value) !== -1) {
-            matchingOrthologs.push({ matchingFieldValue: orth.identifier, orth });
-            break;
-          } else {
-            if (orth.secondary_identifier &&
-                orth.secondary_identifier.toLowerCase().indexOf(value) !== -1) {
-              matchingOrthologs.push({ matchingFieldValue: orth.secondary_identifier, orth });
-              break;
-            }
-          }
         }
       }
     }
