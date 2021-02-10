@@ -192,13 +192,10 @@ export class IdentifierMapperService {
 
   private filterIds(inputText: string): Array<string> {
     let seen: Set<string> = new Set();
-    return inputText.trim().split(/[,\s\u200B]+/)
+    return inputText.trim().split(/[^a-zA-Z0-9\-_:\.]+/)
       .filter(id => {
         id = id.trim();
         if (id.length === 0) {
-          return false;
-        }
-        if (id.match(/[^a-zA-Z0-9\-_:\.]/)) {
           return false;
         }
         if (seen.has(id)) {
