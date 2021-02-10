@@ -10,7 +10,7 @@ Current GO slim IDs and term names
 - [GO biological process slim](https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv)
 - [GO cellular component slim](https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv)
 
-Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://www.pombase.org/data/documents/disease_ontology_slim_ids_and_names.tsv)
+Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv)
 
 For further information on using the *S. pombe* slims, please see the
 PomBase GO slim pages ([biological

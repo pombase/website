@@ -9,7 +9,7 @@ information about the term and a list of annotated genes. A gene may
 be included in the annotation sets for more than one slim term.
 
 You can download a list of current
-[PomBase Mondo slim IDs and term names](https://www.pombase.org/data/documents/disease_ontology_slim_ids_and_names.tsv)
+[PomBase Mondo slim IDs and term names](https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv)
 from the PomBase FTP site.
 
 If you would like to have any terms added to the PomBase Mondo slim set, please

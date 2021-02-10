@@ -59,7 +59,7 @@ Current GO slim IDs and term names
 -------
 
 ### Mondo slim
-Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://www.pombase.org/data/documents/disease_ontology_slim_ids_and_names.tsv)
+Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv)
 
 -------
 
