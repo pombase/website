@@ -296,6 +296,24 @@ export class GeneResultsVisComponent implements OnInit {
     this.setSelectedGeneList();
   }
 
+  countOfBin(currentData: ColumnDisplayData): string {
+    const higlightedCount = currentData.geneUniquenames.length
+    const totalForBin = this.attrValueCounts[currentData.columnConfig.name][currentData.rowAttr];
+    if (higlightedCount === totalForBin) {
+      if (totalForBin > 2) {
+        return `All ${totalForBin} genes`;
+      } else {
+        if (totalForBin == 2) {
+          return 'Both genes';
+        } else {
+          return 'The single gene';
+        }
+      }
+    } else {
+      return `${higlightedCount}/${totalForBin} genes`;
+    }
+  }
+
   selectedGenesDescription(): string {
     let desc = '';
     if (this.selectedGeneList.length === 1) {
