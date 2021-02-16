@@ -1,5 +1,5 @@
 <span *ngIf="descriptionParts.length == 0">{{description}}</span>
 <span *ngIf="descriptionParts.length != 0">
-  <span *ngFor="let part of descriptionParts"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.term" routerLink="/term/{{part.term.termid}}">{{part.term.termid}}</a></span>
+  <span *ngFor="let part of descriptionParts"><span *ngIf="part.text" [innerHTML]="part.text"></span><a *ngIf="part.term" routerLink="/term/{{part.term.termid}}">{{part.term.termid}}</a></span>
 </span>
 
