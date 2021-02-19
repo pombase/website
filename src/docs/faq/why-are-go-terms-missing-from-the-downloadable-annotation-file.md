@@ -3,7 +3,7 @@
 
 The downloadable file of [PomBase GO
 annotations](/downloads/go-annotations) is in the GO Consortium's [GAF
-format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/),
+format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/),
 and only includes "direct" annotations, i.e. the actual term-gene
 product connections made by manual curation or computational
 transfer. When an annotation is made to a term, the gene product is
@@ -19,5 +19,5 @@ When you use GO annotations in any analysis, we strongly recommend
 using tools that take ontology structure and transitive inference of
 annotations into account.
 
-<!-- uncomment when GAF download goes live: -->
-<!-- Annotations downloadable for search results are also in GAF format, so the same considerations apply. -->
+GO annotations downloadable for search results are also in GAF format,
+so the same considerations apply.

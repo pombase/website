@@ -66,7 +66,7 @@ than one paper), and annotations to terms hidden in the summary view:
 
 3.  An additional ontology term or identifier that provides supporting
     details for annotations using certain evidence codes (see below
-    and [GO documentation](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)).
+    and [GO documentation](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)).
 4.  An optional qualifier that modifies the connection between the
     gene product and the GO term. Entries come from the set of allowed qualifiers described in
     [GO's annotation overview](http://geneontology.org/docs/go-annotations/)
@@ -147,7 +147,7 @@ present in a gene product can give clues to its biological role.
 For some types of evidence, such as sequence comparisons or
 interaction data, it is important to note what gene or gene product
 was used in the comparison or detected in the interaction. In these
-cases the [With/From column](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)
+cases the [With/From column](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
 provides more information regarding the source of the information.
 
 #### Annotation extensions ####
@@ -164,7 +164,7 @@ cellular component of the nucleus during nitrogen starvation, but
 found in the vacuole during glucose starvation).
 
 The GO Consortium provides further information on annotation
-extensions in its [file format guide](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/),
+extensions in its [file format guide](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/),
 on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension),
 and in publications from [2014](https://www.ncbi.nlm.nih.gov/pubmed/?term=24885854) and [2017](https://www.ncbi.nlm.nih.gov/pubmed/?term=27812947).
 PomBase converts many extension names to more human-friendly text, as

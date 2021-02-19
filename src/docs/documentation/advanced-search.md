@@ -102,7 +102,8 @@ three sets of options:
       include. Downloaded annotations are in [GAF 2.1
       format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/). Note
       that only "direct", not inferred, annotations are included, as
-      described in [this FAQ](/faq/why-are-go-terms-missing-downloadable-annotation-file).
+      described in [this
+      FAQ](/faq/why-are-go-terms-missing-downloadable-annotation-file).
 
 #### Sharing search results
 
