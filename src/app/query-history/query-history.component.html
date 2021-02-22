@@ -72,17 +72,17 @@
         <input [(ngModel)]="histEntry.checked" type="checkbox"/>
       </td>
       <td [ngClass]="{'new-hist-item': histEntry.isNewEntry()}" class="result-count">
-        <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== null">
-          <span *ngIf="histEntry.getUpdatedCount() == null"
+        <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== undefined">
+          <span *ngIf="histEntry.getUpdatedCount() == undefined"
                 title="Click to view results">
             {{histEntry.getResultCount()}}
           </span>
-          <span *ngIf="histEntry.getUpdatedCount() != null" class="results-out-of-date"
+          <span *ngIf="histEntry.getUpdatedCount() != undefined" class="results-out-of-date"
                 title="Click to re-run this query">
             [out of date] {{histEntry.getResultCount()}}
           </span>
         </a>
-        <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() === null">
+        <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() === undefined">
           [Results]
         </a>
       </td>
@@ -94,7 +94,7 @@
           </span>
         </div>
         <div class="query-hist-name-and-button" *ngIf="(!nameEditId() || nameEditId() != histEntry.getEntryId()) && histEntry.queryName()">
-          <span class="query-hist-name">{{removeTags(histEntry.queryName())}}</span>
+          <span class="query-hist-name">{{removeTags(histEntry.queryName()!)}}</span>
           <span *ngIf="needsDetailsButton(histEntry) && !showDetails(histEntry)">
             <a (click)="toggleDetails(histEntry)" class="show-details-button">[details]</a>
           </span>
@@ -117,7 +117,7 @@
 
       </td>
       <td class="row-actions">
-        <a *ngIf="histEntry.getResultCount() !== null" (click)="showQueryDetails(histEntry)">...</a>
+        <a *ngIf="histEntry.getResultCount() !== undefined" (click)="showQueryDetails(histEntry)">...</a>
       </td>
     </tr>
     </tbody>

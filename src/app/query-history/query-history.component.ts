@@ -22,14 +22,14 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
 
   historyEntries: Array<HistoryEntry> = [];
   sortedHistoryEntries: Array<HistoryEntry> = [];
-  histSubscription: Subscription = null;
-  detailsModalRef: BsModalRef = null;
+  histSubscription: Subscription|undefined = undefined;
+  detailsModalRef: BsModalRef|undefined = undefined;
   // only used when the query name isn't set:
   showDetailMap: { [id: string]: boolean } = {};
   // set when we are editing a query name
-  _nameEditId: string = null;
+  _nameEditId: string|undefined = undefined;
 
-  queryNameForEdit: string = null;
+  queryNameForEdit: string|undefined = undefined;
 
   faEdit = faEdit;
   faDownload = faDownload;
@@ -56,13 +56,15 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
             return this.getQueryDisplayString(histEntryA)
               .localeCompare(this.getQueryDisplayString(histEntryB));
           }
-          if (!histEntryA.queryName()) {
+          const histEntryAQueryName = histEntryA.queryName();
+          if (!histEntryAQueryName) {
             return 1;
           }
-          if (!histEntryB.queryName()) {
+          const histEntryBQueryName = histEntryB.queryName();
+          if (!histEntryBQueryName) {
             return -1;
           }
-          return histEntryA.queryName().localeCompare(histEntryB.queryName());
+          return histEntryAQueryName.localeCompare(histEntryBQueryName);
         });
     } else {
       this.sortColumn = 'default';
@@ -73,12 +75,12 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   action(op: string) {
     let selectedQueryNodes =
       this.getSelectedEntries().map(e => e.getQuery().getTopNode());
-    let node = new GeneBoolNode(null, op, selectedQueryNodes);
+    let node = new GeneBoolNode(undefined, op, selectedQueryNodes);
     this.sortedHistoryEntries.map((histEntry) => histEntry.checked = false);
     this.queryService.runAndSaveToHistory(new GeneQuery(node));
   }
 
-  nameEditId(): string {
+  nameEditId(): string|undefined {
     return this._nameEditId;
   }
 
@@ -88,14 +90,17 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   }
 
   storeNameEdit(): void {
-    this.queryService.editQueryName(this.nameEditId(), this.queryNameForEdit);
-    this._nameEditId = null;
-    this.queryNameForEdit = null;
+    const nameEditId = this.nameEditId();
+    if (nameEditId && this.queryNameForEdit) {
+      this.queryService.editQueryName(nameEditId, this.queryNameForEdit);
+    }
+    this._nameEditId = undefined;
+    this.queryNameForEdit = undefined;
   }
 
   cancelNameEdit(): void {
-    this._nameEditId = null;
-    this.queryNameForEdit = null;
+    this._nameEditId = undefined;
+    this.queryNameForEdit = undefined;
   }
 
   toggleDetails(histEntry: HistoryEntry): void {
@@ -186,6 +191,8 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.histSubscription.unsubscribe();
+    if (this.histSubscription) {
+      this.histSubscription.unsubscribe();
+    }
   }
 }

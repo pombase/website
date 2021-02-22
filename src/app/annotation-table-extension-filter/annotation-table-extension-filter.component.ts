@@ -23,21 +23,21 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
   @Output() filterChange = new EventEmitter<Filter<AnnotationTable>>();
   @Output() availableChoiceChange = new EventEmitter<number>();
 
-  selectedCategory: any = null;
+  selectedCategory: any|undefined = undefined;
 
   choiceData: Array<SelectData> = [];
   availableChoices = 0;
 
   reset(): void {
     this.selectedCategory = null;
-    this.setCategory(null);
+    this.setCategory(undefined);
   }
 
-  setCategory(event: SelectData): void {
+  setCategory(event: SelectData|undefined): void {
     if (event) {
       this.filterChange.emit(new AnnotationExtensionFilter(event.ancestors));
     } else {
-      this.filterChange.emit(null);
+      this.filterChange.emit(undefined);
     }
   }
 
@@ -75,22 +75,24 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
 
     this.availableChoices = 0;
 
-    for (let category of this.config.extension_categories) {
-      let active = false;
+    if (this.config.extension_categories) {
+      for (let category of this.config.extension_categories) {
+        let active = false;
 
-      for (let ancestor of category.ancestors) {
-        if (seenCategories[ancestor]) {
-          active = true;
-          break;
+        for (let ancestor of category.ancestors) {
+          if (seenCategories[ancestor]) {
+            active = true;
+            break;
+          }
         }
-      }
 
-      let selectData = new SelectData(category.display_name,
-                                      active, category.ancestors);
-      this.choiceData.push(selectData);
+        let selectData = new SelectData(category.display_name,
+          active, category.ancestors);
+        this.choiceData.push(selectData);
 
-      if (active) {
-        this.availableChoices += 1;
+        if (active) {
+          this.availableChoices += 1;
+        }
       }
     }
 

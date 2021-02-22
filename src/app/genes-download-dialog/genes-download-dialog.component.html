@@ -56,7 +56,7 @@
             <div>
               <input id="include-exons" type="checkbox" [disabled]="disableIncludeExons"
                      [attr.title]="disableIncludeExons ? 'Select some up/down stream bases, UTRs or introns for download to enable this toggle' : ''"
-                     [(ngModel)]="includeExons" (ngModelChange)="nucControlChange($event)"/>
+                     [(ngModel)]="includeExons" (ngModelChange)="nucControlChange()"/>
               <label for="include-exons">Exons</label>
             </div>
             <div>

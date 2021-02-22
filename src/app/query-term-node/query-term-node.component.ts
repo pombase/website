@@ -14,12 +14,12 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   @Input() placeholder: string;
   @Output() newTermNode = new EventEmitter();
 
-  selectedTerm: TermShort = null;
+  selectedTerm?: TermShort;
   isPhenotypeNode = false;
   singleAllele = true;
   multiAllele = false;
-  expression: string = null;
-  phenotypeConditionNamespace: string = null;
+  expression?: string;
+  phenotypeConditionNamespace?: string;
   phenotypeConditions: Array<TermAndName> = [];
   phenotypeExcludeConditions: Array<TermAndName> = [];
   showConditionSelector = false;
@@ -81,9 +81,9 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
       let singleOrMulti =
         this.isPhenotypeNode ?
         (this.singleAllele ? (this.multiAllele ? 'both' : 'single') : 'multi') :
-      null;
+      undefined;
 
-      this.newTermNode.emit(new TermNode(null, this.selectedTerm.termid, this.selectedTerm.name,
+      this.newTermNode.emit(new TermNode(undefined, this.selectedTerm.termid, this.selectedTerm.name,
                                          this.selectedTerm.definition, singleOrMulti,
                                          this.expression, this.phenotypeConditions,
                                          this.phenotypeExcludeConditions));
@@ -94,19 +94,19 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.selectedTerm = null;
+    this.selectedTerm = undefined;
     this.singleAllele = true;
     this.multiAllele = false;
     this.isPhenotypeNode =
-      this.termNodeConfig.annotationFeatureType &&
+      !!this.termNodeConfig.annotationFeatureType &&
       this.termNodeConfig.annotationFeatureType === 'genotype';
     this.phenotypeConditions = [];
     if (this.isPhenotypeNode) {
       this.expression = 'any';
       this.phenotypeConditionNamespace = this.termNodeConfig.phenotypeConditionNamespace;
     } else {
-      this.expression = null;
-      this.phenotypeConditionNamespace = null;
+      this.expression = undefined;
+      this.phenotypeConditionNamespace = undefined;
     }
   }
 }

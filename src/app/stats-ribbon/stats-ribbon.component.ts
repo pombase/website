@@ -10,12 +10,12 @@ import { getAppConfig, ConfigOrganism } from '../config';
   styleUrls: ['./stats-ribbon.component.css']
 })
 export class StatsRibbonComponent implements OnInit {
-  metadata: Metadata = null;
-  stats: DatabaseStatistics = null;
-  organismStats: StatCountsByTaxon = null;
-  configOrganism: ConfigOrganism = null;
+  metadata: Metadata|undefined = undefined;
+  stats: DatabaseStatistics|undefined = undefined;
+  organismStats: StatCountsByTaxon|undefined = undefined;
+  configOrganism: ConfigOrganism|undefined = undefined;
   curatedPublicationsCount = 0;
-  dbCreationDate: string = null;
+  dbCreationDate: string|undefined = undefined;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

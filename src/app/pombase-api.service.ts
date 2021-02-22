@@ -19,7 +19,7 @@ export enum Strand {
   Reverse,
 }
 
-export class Metadata {
+export interface Metadata {
   db_creation_datetime: string;
   export_prog_name: string;
   export_prog_version: string;
@@ -39,7 +39,7 @@ export interface DatabaseStatistics {
   non_community_pubs_count: number;
 }
 
-export class RecentReferences {
+export interface RecentReferences {
   pubmed: Array<ReferenceShort>;
   admin_curated: Array<ReferenceShort>;
   community_curated: Array<ReferenceShort>;
@@ -81,7 +81,7 @@ export interface AlleleMap {
 export interface GenotypeShort {
   display_uniquename: string;
   name: string;
-  displayNameLong?: string;
+  displayNameLong: string;
   background: string;
   expressed_alleles: Array<ExpressedAllele>;
 }
@@ -129,7 +129,7 @@ export interface GeneExProps {
 export interface Annotation {
   descDist: number;
   descRelName: string;
-  reference: string|ReferenceShort;
+  reference: ReferenceShort;
   evidence?: string;
   conditions: Array<TermShort>;
   withs: Array<any>;
@@ -137,8 +137,8 @@ export interface Annotation {
   residue?: string;
   qualifiers: Array<TermShort>;
   gene_ex_props?: GeneExProps;
-  genes: Array<GeneShort>|Array<string>;
-  genotype: string|GenotypeShort;
+  genes: Array<GeneShort>;
+  genotype: GenotypeShort;
   genotype_background?: string;
   extension: Array<ExtPart>;
   throughput?: ThroughputType;
@@ -165,7 +165,7 @@ export interface TermSummaryRow {
   extension: Array<ExtPart>;
 }
 
-export type ThroughputType = 'high'|'low'|'non-experimental'|null;
+export type ThroughputType = 'high'|'low'|'non-experimental';
 
 export interface InteractionAnnotation {
   reference: ReferenceShort;
@@ -239,28 +239,28 @@ export interface IdNameAndOrganism {
   taxonid: number;
 }
 
-export class GeneShort {
+export interface GeneShort {
   uniquename: string;
-  name: string;
+  name?: string;
   product?: string;
-
-  // The function is used to trim a GeneSummary to a GeneShort
-  static fromGeneShort(geneSummary: GeneShort): GeneShort {
-    let ret = {
-      uniquename: geneSummary.uniquename,
-      name: geneSummary.name
-    } as GeneShort;
-
-    if (geneSummary.product) {
-      ret.product = geneSummary.product;
-    }
-
-    return ret;
-  }
 }
 
-export class GeneSummary extends GeneShort {
-  private static displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = null;
+// The function is used to trim a GeneSummary to a GeneShort
+export function fromGeneShort(geneSummary: GeneShort): GeneShort {
+  let ret = {
+    uniquename: geneSummary.uniquename,
+    name: geneSummary.name
+  } as GeneShort;
+
+  if (geneSummary.product) {
+    ret.product = geneSummary.product;
+  }
+
+  return ret;
+}
+
+export class GeneSummary implements GeneShort {
+  private static displayFieldGenerators: { [label: string]: (g: GeneSummary) => (string | undefined) } | undefined = undefined;
 
   uniquename: string;
   name: string;
@@ -278,24 +278,24 @@ export class GeneSummary extends GeneShort {
     const geneResultsConfig = getAppConfig().getGeneResultsConfig();
     const fieldNames = geneResultsConfig.geneSummaryFieldNames;
 
-    const displayFieldGenerators: { [label: string]: (g: GeneSummary) => string } = {
+    const displayFieldGenerators: { [label: string]: (g: GeneSummary) => string|undefined } = {
       'uniquename': g => g.uniquename,
       'name': g => g.name || '',
       'synonyms': g => g.synonyms.join(','),
       'product': g => g.product,
       'uniprot_identifier': g => g.uniprot_identifier,
       'feature_type': g => g.displayFeatureType(),
-      'start_pos': g => String(g.location.start_pos),
-      'end_pos': g => String(g.location.end_pos),
+      'start_pos': g => g.location ? String(g.location.start_pos) : '',
+      'end_pos': g => g.location ? String(g.location.end_pos) : '',
       'chromosome_name': g => {
-        const chrName = g.location.chromosome_name;
+        const chrName = g.location ? g.location.chromosome_name : '';
         const chromosomeConfig = getAppConfig().chromosomes[chrName];
         if (chromosomeConfig && chromosomeConfig.short_display_name) {
           return chromosomeConfig.short_display_name;
         }
         return chrName;
       },
-      'strand': g => g.location.strand,
+      'strand': g => g.location ? g.location.strand : 'unstranded',
     };
 
     fieldNames.forEach(fieldName => {
@@ -318,11 +318,11 @@ export class GeneSummary extends GeneShort {
     this.displayFieldGenerators = displayFieldGenerators;
   }
 
-  private static getFieldDisplayGenerators(): { [label: string]: (g: GeneSummary) => string } {
+  private static getFieldDisplayGenerators(): { [label: string]: (g: GeneSummary) => string | undefined } {
     if (!GeneSummary.displayFieldGenerators) {
       GeneSummary.makeFields();
     }
-    return GeneSummary.displayFieldGenerators;
+    return GeneSummary.displayFieldGenerators as { [label: string]: (g: GeneSummary) => string | undefined };
   }
 
   private displayFeatureType(): string {
@@ -333,11 +333,11 @@ export class GeneSummary extends GeneShort {
     }
   }
 
-  getFieldDisplayValue(fieldName: string): string {
+  getFieldDisplayValue(fieldName: string): string | undefined {
     if (GeneSummary.getFieldDisplayGenerators()[fieldName]) {
       return GeneSummary.getFieldDisplayGenerators()[fieldName](this);
     } else {
-      return null;
+      return undefined;
     }
   }
 
@@ -526,7 +526,7 @@ export interface TermSubsets {
 export interface GeneSubsetDetails {
   name: string;
   display_name: string;
-  elements: Array<string>|Array<GeneShort>;
+  elements: Array<GeneShort>;
 }
 
 export interface GeneSubsets {
@@ -577,7 +577,9 @@ export class PombaseAPIService {
   processAlleleMap(allelesByUniquename: AlleleMap, genesByUniquename: GeneMap) {
     for (let alleleUniquename of Object.keys(allelesByUniquename)) {
       let allele = allelesByUniquename[alleleUniquename];
-      allele.gene = genesByUniquename[allele.gene_uniquename];
+      if (allele.gene_uniquename) {
+        allele.gene = genesByUniquename[allele.gene_uniquename];
+      }
     }
   }
 
@@ -592,9 +594,9 @@ export class PombaseAPIService {
       const termId = termAnnotation.term as any as string;
       termAnnotation.term = termsByTermId[termId];
       for (let annotation of termAnnotation.annotations as Array<Annotation>) {
-        annotation.genes = genesOfAnnotation(annotation, genesByUniquename);
+        annotation.genes = genesOfAnnotation(annotation, genesByUniquename) as Array<GeneShort>;
         if (referencesByUniquename) {
-          annotation.reference = referencesByUniquename[annotation.reference as string];
+          annotation.reference = referencesByUniquename[annotation.reference as any as string];
         }
 
         if (annotation.conditions) {
@@ -606,12 +608,14 @@ export class PombaseAPIService {
           processExtension(annotation, termsByTermId, genesByUniquename);
         }
         if (genotypesByUniquename && annotation.genotype) {
-          annotation.genotype = genotypesByUniquename[annotation.genotype as string];
+          annotation.genotype = genotypesByUniquename[annotation.genotype as any as string];
           if (annotation.genotype) {
             annotation.genotype.expressed_alleles.map((expressed_allele) => {
               expressed_allele.allele = allelesByUniquename[expressed_allele.allele_uniquename];
-              expressed_allele.allele.gene =
-                genesByUniquename[expressed_allele.allele.gene_uniquename];
+              if (expressed_allele.allele.gene_uniquename) {
+                expressed_allele.allele.gene =
+                  genesByUniquename[expressed_allele.allele.gene_uniquename];
+              }
             });
             annotation.genotype.displayNameLong = Util.displayNameLong(annotation.genotype);
           }
@@ -853,8 +857,10 @@ export class PombaseAPIService {
                           expressedAlleles: Array<ExpressedAllele>): void {
     expressedAlleles.map((expressed_allele) => {
       expressed_allele.allele = allelesByUniquename[expressed_allele.allele_uniquename];
-      expressed_allele.allele.gene =
-        genesByUniquename[expressed_allele.allele.gene_uniquename];
+      if (expressed_allele.allele.gene_uniquename) {
+        expressed_allele.allele.gene =
+          genesByUniquename[expressed_allele.allele.gene_uniquename];
+      }
     });
   }
 
@@ -1114,7 +1120,7 @@ export class PombaseAPIService {
         for (let subsetName of Object.keys(subsets)) {
           let subset = subsets[subsetName];
           subset.elements =
-            (subset.elements as Array<string>)
+            (subset.elements as any as Array<string>)
             .map((uniquename) => geneSummaries[uniquename]);
         }
         return subsets;
@@ -1214,9 +1220,9 @@ export class PombaseAPIService {
       .then(() => {}).catch(() => {});
   }
 
-  termSummaryById(termid: string): Promise<SolrTermSummary> {
+  termSummaryById(termid: string): Promise<SolrTermSummary|undefined> {
     if (!termid || !termid.includes(':')) {
-      return Promise.resolve(null);
+      return Promise.resolve(undefined);
     }
     return this.httpRetry.getWithRetry(this.apiUrl + '/summary/term/' + termid)
       .toPromise()

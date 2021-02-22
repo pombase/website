@@ -13,13 +13,20 @@
     "allowUnreachableCode": false,
     "noImplicitAny": true,
     "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "typeRoots": [
       "../node_modules/@types"
     ]
   },
   "angularCompilerOptions": {
     "preserveWhitespaces": true,
-    "enableIvy": true
+    "enableIvy": true,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   },
   "files": [
     "main.ts",

@@ -9,7 +9,7 @@ import { GenotypeShort } from '../pombase-api.service';
 })
 export class GenotypeLinkComponent implements OnInit {
   @Input() genotype: GenotypeShort;
-  @Input() background: string = null;
+  @Input() background: string|undefined = undefined;
 
   isShortDisplayName = false;
   displayName = '';
@@ -25,6 +25,7 @@ export class GenotypeLinkComponent implements OnInit {
   ngOnInit() {
     this.displayName = this.displayNameLong();
 
-    this.isShortDisplayName = this.genotype.displayNameLong.length < 50;
+    this.isShortDisplayName =
+      !!this.genotype.displayNameLong && this.genotype.displayNameLong.length < 50;
   }
 }

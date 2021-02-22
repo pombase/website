@@ -14,7 +14,7 @@ import { QueryRouterService } from '../query-router.service';
   styleUrls: ['./query-builder.component.css']
 })
 export class QueryBuilderComponent implements OnInit {
-  startNodeType: number = null;
+  startNodeType: string = null;
   appConfig = getAppConfig();
 
   constructor(private queryService: QueryService,

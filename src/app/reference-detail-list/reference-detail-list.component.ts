@@ -15,9 +15,9 @@ class RefGroup {
   styleUrls: ['./reference-detail-list.component.css']
 })
 export class ReferenceDetailListComponent implements OnInit, OnChanges {
-  @Input() constraint: string = null;
+  @Input() constraint: string;
 
-  pageTitle: string = null;
+  pageTitle: string|undefined;
 
   groups: Array<RefGroup> = [];
   siteName = getAppConfig().site_name;

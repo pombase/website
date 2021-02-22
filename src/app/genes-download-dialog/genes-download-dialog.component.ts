@@ -70,8 +70,9 @@ export class GenesDownloadDialogComponent implements OnInit {
     }
   }
 
-  tabSelected(tab: TabDirective): void {
-    if (tab.heading === 'FASTA sequence') {
+  tabSelected(tab: any): void {
+    const tabDirective = tab as TabDirective;
+    if (tabDirective.heading === 'FASTA sequence') {
       this.selectedFields['uniquename'] = true;
     }
   }
@@ -102,7 +103,7 @@ export class GenesDownloadDialogComponent implements OnInit {
     return aspectName.replace('_', ' ');
   }
 
-  nucControlChange($event: any): void {
+  nucControlChange(): void {
     if (!this.include3PrimeUtr && !this.include5PrimeUtr &&
         !this.includeIntrons &&
         this.upstreamBases === 0 && this.downstreamBases === 0) {

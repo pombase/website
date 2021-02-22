@@ -7,17 +7,13 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./reference-detail-list-page.component.css']
 })
 export class ReferenceDetailListPageComponent implements OnInit {
-  constraint: string = null;
+  constraint: string|undefined;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
-      if (params['constraint'] === undefined) {
-        this.constraint = null;
-      } else {
-        this.constraint = params['constraint'];
-      }
+      this.constraint = params['constraint'];
     });
   }
 }

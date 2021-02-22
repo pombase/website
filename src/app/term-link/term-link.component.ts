@@ -11,7 +11,7 @@ import { TermShort } from '../pombase-query';
 export class TermLinkComponent implements OnInit {
   @Input() term: TermShort;
 
-  termSummary: SolrTermSummary = null;
+  termSummary: SolrTermSummary|undefined = undefined;;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

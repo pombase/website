@@ -12,10 +12,10 @@ export class FrontPanelComponent implements OnInit {
   @Input() conf: PanelConfig;
   @Input() showDateAdded?: boolean;
 
-  panelDescription: string = null;
-  headImage: string = null;
-  headImageLink: string = null;
-  headVideo: string = null;
+  panelDescription: string|undefined;
+  headImage: string;
+  headImageLink: string;
+  headVideo: string;
 
   appConfig: AppConfig = getAppConfig();
   siteName = this.appConfig.site_name;
@@ -45,7 +45,7 @@ export class FrontPanelComponent implements OnInit {
       if (this.conf.panel_type === 'explore') {
         this.panelDescription = 'Explore ' + this.siteName;
       } else {
-        this.panelDescription = null;
+        this.panelDescription = undefined;
       }
     }
   }

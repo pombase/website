@@ -2,8 +2,13 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { TermSubsets, PombaseAPIService, GeneDetails } from '../pombase-api.service';
 import { AnnotationType, getAnnotationTableConfig } from '../config';
+import { TermShort, TermXref } from '../pombase-query';
 
-class SlimSubsetElement {
+class SlimSubsetElement implements TermShort {
+  definition: string;
+  interesting_parent_ids: Array<string> = [];
+  is_obsolete = false;
+  xrefs: { [source_name: string]: TermXref } = {};
   constructor(public termid: string,
               public name: string,
               public gene_count: number) { }

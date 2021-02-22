@@ -22,7 +22,7 @@ export class AnnotationTableThroughputFilterComponent implements OnInit, OnChang
   @Input() config: FilterConfig;
   @Output() filterChange = new EventEmitter<Filter<AnnotationTable>>();
 
-  selectedCategory: any = null;
+  selectedCategory: SelectData|null = null;
 
   choiceData: Array<SelectData> = [];
   reset(): void {
@@ -30,11 +30,11 @@ export class AnnotationTableThroughputFilterComponent implements OnInit, OnChang
     this.setCategory(null);
   }
 
-  setCategory(event: SelectData): void {
+  setCategory(event: SelectData|null): void {
     if (event) {
       this.filterChange.emit(new AnnotationThroughputFilter(event.throughput));
     } else {
-      this.filterChange.emit(null);
+      this.filterChange.emit(undefined);
     }
   }
 
@@ -50,25 +50,27 @@ export class AnnotationTableThroughputFilterComponent implements OnInit, OnChang
 
     let seenThroughput: { [key: string]: boolean } = {};
 
-    for (let termAnnotation of this.annotationTable) {
-      for (let annotation of termAnnotation.annotations) {
-        let annotationThroughput = annotation.throughput;
-        if (annotationThroughput) {
-          for (let configCategory of this.config.throughput_categories) {
-            if (annotationThroughput === configCategory.throughput_type) {
-              seenThroughput[configCategory.throughput_type] = true;
+    if (this.config.throughput_categories) {
+      for (let termAnnotation of this.annotationTable) {
+        for (let annotation of termAnnotation.annotations) {
+          let annotationThroughput = annotation.throughput;
+          if (annotationThroughput) {
+            for (let configCategory of this.config.throughput_categories) {
+              if (annotationThroughput === configCategory.throughput_type) {
+                seenThroughput[configCategory.throughput_type] = true;
+              }
             }
           }
         }
       }
-    }
 
-    for (let category of this.config.throughput_categories) {
-      let active = seenThroughput[category.throughput_type];
+      for (let category of this.config.throughput_categories) {
+        let active = seenThroughput[category.throughput_type];
 
-      let selectData = new SelectData(category.display_name,
-                                      active, category.throughput_type);
-      this.choiceData.push(selectData);
+        let selectData = new SelectData(category.display_name,
+          active, category.throughput_type);
+        this.choiceData.push(selectData);
+      }
     }
 
     this.choiceData.sort((a, b) => {

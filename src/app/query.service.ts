@@ -44,10 +44,10 @@ export class HistoryEntry {
   // assign internal IDs where they are missing/null
   static internalIdCounter = 1;
   checked = false;
-  private updatedCount: number = null;
+  private updatedCount: number|undefined = undefined;
 
   constructor(private id: string, private query: GeneQuery, private resultCount: number,
-    private creationStamp: number = null) {
+    private creationStamp: number|null = null) {
     if (!this.id) {
       this.id = String(HistoryEntry.internalIdCounter++);
     }
@@ -66,9 +66,9 @@ export class HistoryEntry {
     return !this.query.getQueryName() || this.query.getQueryName() !== this.query.toString();
   }
 
-  getResultCount(): number {
+  getResultCount(): number|undefined {
     if (this.resultCount === undefined || this.resultCount === null) {
-      return null;
+      return undefined;
     } else {
       return this.resultCount;
     }
@@ -87,7 +87,7 @@ export class HistoryEntry {
     }
   }
 
-  getUpdatedCount(): number {
+  getUpdatedCount(): number|undefined {
     return this.updatedCount;
   }
 
@@ -95,7 +95,7 @@ export class HistoryEntry {
     return this.id;
   }
 
-  queryName(): string {
+  queryName(): string|undefined {
     return this.getQuery().getQueryName();
   }
 }
@@ -105,7 +105,7 @@ export class QueryService {
   private apiUrl = '/api/v1/dataset/latest';
 
   private history: Array<HistoryEntry> = [];
-  private subject: BehaviorSubject<Array<HistoryEntry>> = null;
+  private subject: BehaviorSubject<Array<HistoryEntry>>;
 
   private queryCache: Array<QueryResult> = [];
 
@@ -132,10 +132,10 @@ export class QueryService {
         });
 
       }
-      this.subject = new BehaviorSubject(this.history);
     } catch (e) {
       console.log('failed to deserialise history: ' + e.message);
     }
+    this.subject = new BehaviorSubject(this.history);
   }
 
   // make a HistoryEntry from a query parsed from JSON
@@ -147,14 +147,14 @@ export class QueryService {
   }
 
   // return null on success or a string with an error message
-  public saveImportedQueries(queriesString: string): string {
+  public saveImportedQueries(queriesString: string): string|undefined {
     try {
       const queriesObjects = JSON.parse(queriesString);
 
       if (queriesObjects instanceof Array) {
         queriesObjects.reverse();
         for (let obj of queriesObjects) {
-          try {;
+          try {
             const entry = this.entryFromJsonObject(obj);
             this.deleteExisting(entry.getQuery());
             this.history.unshift(entry);
@@ -171,6 +171,7 @@ export class QueryService {
     } catch (e) {
       return 'failed to parse imported queries: ' + e.toString();
     }
+    return undefined; // no error
   }
 
   private postRaw(query: GeneQuery, outputOptions: QueryOutputOptions): Promise<QueryResult> {
@@ -208,25 +209,29 @@ export class QueryService {
     localStorage.setItem(localStorageKey, this.historyAsJson());
   }
 
-  historyEntryById(historyEntryId: string): HistoryEntry {
+  historyEntryById(historyEntryId: string): HistoryEntry|undefined {
     for (let entry of this.history) {
       if (entry.getEntryId() === historyEntryId) {
         return entry;
       }
     }
-    return null;
+    return undefined;
   }
 
   editQueryName(histId: string, newName: string): Promise<void> {
     let histEntry = this.historyEntryById(histId);
-    histEntry.getQuery().setQueryName(newName);
-    const promise = new Promise<void>((resolve) => {
-    this.runAndSaveToHistory(histEntry.getQuery(),
-                             () => {
-                               resolve();
-                             });
-    });
-    return promise;
+    if (histEntry) {
+      histEntry.getQuery().setQueryName(newName);
+      const promise = new Promise<void>((resolve) => {
+      this.runAndSaveToHistory(histEntry!.getQuery(),
+                               () => {
+                                 resolve();
+                               });
+      });
+      return promise;
+    } else {
+      return new Promise(() => undefined);
+    }
   }
 
   private deleteExisting(query: GeneQuery) {
@@ -273,17 +278,17 @@ export class QueryService {
       });
   }
 
-  getFromCache(id: string): QueryResult {
+  getFromCache(id: string): QueryResult|undefined {
    for (const cachedQueryResult of this.queryCache) {
      if (id === cachedQueryResult.getId()) {
        return cachedQueryResult;
      }
    }
-   return null;
+   return undefined;
   }
 
   addToResultCache(queryResult: QueryResult): void {
-    if (this.getFromCache(queryResult.getId()) !== null) {
+    if (this.getFromCache(queryResult.getId())) {
       return;
     }
     if (this.queryCache.length > QUERY_CACHE_MAX) {
@@ -295,7 +300,7 @@ export class QueryService {
   execById(id: string, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
     const cachedQueryResult = this.getFromCache(id);
     if (cachedQueryResult) {
-      this.saveResultsToHistory(cachedQueryResult)
+      this.saveResultsToHistory(cachedQueryResult);
       return Promise.resolve(cachedQueryResult);
     }
     let histEntry = this.historyEntryById(id);
@@ -303,7 +308,7 @@ export class QueryService {
     if (histEntry) {
       query = histEntry.getQuery();
     } else {
-      query = new GeneQuery(new QueryIdNode(null, id));
+      query = new GeneQuery(new QueryIdNode(undefined, id));
     }
     return this.postQuery(query, outputOptions)
       .then((result: QueryResult) => {
@@ -315,7 +320,7 @@ export class QueryService {
   async queryGenesWithFields(geneUniquenames: Array<GeneUniquename>,
                              fieldNames: Array<string>,
                              sequenceOptions?: SequenceOptions): Promise<Array<DisplayResultRow>> {
-    let queryPromise: Promise<QueryResult|null>;
+    let queryPromise: Promise<QueryResult|undefined>;
 
     let fieldsForServer: Array<string> = [];
 
@@ -328,9 +333,9 @@ export class QueryService {
     })
 
     if (fieldsForServer.length === 0 && !sequenceOptions) {
-      queryPromise = Promise.resolve(null);
+      queryPromise = Promise.resolve(undefined);
     } else {
-      const query = GeneQuery.fromGeneUniquenames(null, geneUniquenames);
+      const query = GeneQuery.fromGeneUniquenames(undefined, geneUniquenames);
       const options = new QueryOutputOptions(['gene_uniquename', ...fieldsForServer], [],
                                              sequenceOptions || 'none');
       queryPromise = this.execNoSave(query, options);
@@ -350,13 +355,13 @@ export class QueryService {
         displayRow[fieldName] = geneSummary.getFieldDisplayValue(fieldName);
       }
 
-      if (sequenceOptions) {
+      if (sequenceOptions && serverRow) {
         displayRow['sequence'] = serverRow.sequence;
       }
 
       for (const serverFieldName of fieldsForServer) {
         const fieldConfig = geneResultsConfig.field_config[serverFieldName];
-        const rawServerValue = serverRow[serverFieldName];
+        const rawServerValue = serverRow ? serverRow[serverFieldName] : undefined;
 
         if (typeof(rawServerValue) === 'undefined') {
           displayRow[serverFieldName] = '';
@@ -386,10 +391,10 @@ export class QueryService {
       return displayRow as DisplayResultRow;
     };
 
-    if (fieldsForServer.length === 0 && !sequenceOptions) {
-      return geneUniquenames.map(geneUniquename => rowProcessor(geneUniquename));
-    } else {
+    if (queryResults) {
       return queryResults.getRows().map(resultRow => rowProcessor(resultRow.gene_uniquename, resultRow));
+    } else {
+      return geneUniquenames.map(geneUniquename => rowProcessor(geneUniquename));
     }
   }
 
@@ -411,7 +416,7 @@ export class QueryService {
     this.saveHistory();
   }
 
-  historyAsJson(space: string|number = null): string {
+  historyAsJson(space?: string|number): string {
     let historyObjects = this.history.map((e) => e.toObject());
     return JSON.stringify(historyObjects, null, space);
   }

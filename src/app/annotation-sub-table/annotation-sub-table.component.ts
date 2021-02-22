@@ -21,7 +21,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() featureInFirstColumn = false;
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() scope: string;
-  @Input() splitByConfig: SplitByParentsConfig = null;
+  @Input() splitByConfig: SplitByParentsConfig|undefined = undefined;
   @Output() tableViewChangeEmitter = new EventEmitter<TableViewState>();
 
   // copy to the component for use in template
@@ -30,7 +30,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
   typeConfig: AnnotationType;
-  filterConfig: Array<FilterConfig> = null;
+  filterConfig: Array<FilterConfig>|undefined = undefined;
   filteredTable: AnnotationTable = [];
 
   hideColumn = {};
@@ -63,7 +63,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
   }
 
-  updateCurrentFilter(filter: Filter<AnnotationTable>) {
+  updateCurrentFilter(filter: Filter<AnnotationTable>|undefined) {
     if (filter) {
       [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
         filter.filter(this.annotationTable);
@@ -127,13 +127,26 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
   getTermXrefLink(sourceName: string, id: string): string {
     if (sourceName && id) {
-      return this.appConfig.getMiscExternalLink(sourceName, id).url;
+      const linkConf = this.appConfig.getMiscExternalLink(sourceName, id);
+      if (linkConf) {
+        return linkConf.url;
+      } else {
+        return '';
+      }
     } else {
       return '';
     }
   }
 
-  checkCondition(condition: string, reference: ReferenceShort): boolean {
+  xrefSource(xrefKeyValue: any): string {
+    return xrefKeyValue.key as string;
+  }
+
+  xrefId(xrefKeyValue: any): string {
+    return xrefKeyValue.value.xref_id as string;
+  }
+
+  checkCondition(condition: string|undefined, reference: ReferenceShort): boolean {
     if (condition) {
       if (condition.startsWith('reference=')) {
         const condRef = condition.substring(10);
@@ -191,8 +204,10 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   init() {
     let typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
-    for (let columnName of typeConfig.columns_to_show) {
-      this.showColumn[columnName] = true;
+    if (typeConfig.columns_to_show) {
+      for (let columnName of typeConfig.columns_to_show) {
+        this.showColumn[columnName] = true;
+      }
     }
 
     if (this.hideColumns) {
@@ -259,7 +274,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     // reset when gene changes
-    this.updateCurrentFilter(null);
+    this.updateCurrentFilter(undefined);
     this.init();
   }
 }

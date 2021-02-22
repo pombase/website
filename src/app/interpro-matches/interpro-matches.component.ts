@@ -3,16 +3,10 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { PombaseAPIService, InterProMatch, APIError, InterProMatchLocation } from '../pombase-api.service';
 import { getXrfWithPrefix, XrfDetails } from '../config';
 
-interface DisplayMatch {
-  geneCount: number;
-  id: string;
-  dbname: string;
-  name: string;
-  evidence: string;
-  interpro_id: string;
-  interpro_name: string;
-  interpro_type: string;
+interface DisplayMatch extends InterProMatch {
   locations: Array<InterProMatchLocation>;
+  dbEntryUrl: string;
+  dbDisplayName: string;
 }
 
 @Component({
@@ -50,7 +44,7 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
           const id = match.id.replace(/G3DSA:/, '');
           xrfResult = getXrfWithPrefix(match.dbname, id);
         }
-        let newMatch = Object.assign({}, match);
+        let newMatch = Object.assign({}, match) as DisplayMatch;
         newMatch.id = newId;
         newMatch.interProEntryUrl = interProEntryUrl;
         if (xrfResult) {

@@ -245,11 +245,11 @@ export interface AppConfig {
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
 
-  getExternalTermLink(dbName: string, termId: string): { url: string, displayName: string };
+  getExternalTermLink(dbName: string, termId: string): { url: string, displayName: string } | undefined;
 
-  getExternalGeneLink(name: string, geneDetails: GeneDetails): Array<string>;
+  getExternalGeneLink(name: string, geneDetails: GeneDetails): Array<string>|undefined;
 
-  getMiscExternalLink(configKey: string, id: string): LinkDisplay;
+  getMiscExternalLink(configKey: string, id: string): LinkDisplay|undefined;
 }
 
 export interface LinkDisplay {
@@ -645,7 +645,7 @@ function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
   return ret;
 }
 
-let _organismMap: { [taxonid: number]: ConfigOrganism } = null;
+let _organismMap: { [taxonid: number]: ConfigOrganism }|null = null;
 
 let _appConfig: AppConfig = {
   site_name: pombaseConfig.site_name,
@@ -729,7 +729,7 @@ let _appConfig: AppConfig = {
     if (!_organismMap) {
       _organismMap = {};
       this.organisms.map((organism: ConfigOrganism) => {
-        _organismMap[organism.taxonid] = organism;
+        _organismMap![organism.taxonid] = organism;
       });
     }
 
@@ -740,19 +740,19 @@ let _appConfig: AppConfig = {
     return getAppConfig().predefinedQueries[queryId];
   },
 
-  getExternalTermLink(configKey: string, termId: string): LinkDisplay {
+  getExternalTermLink(configKey: string, termId: string): LinkDisplay|undefined {
     let confs = this.externalTermReferences;
 
     for (let conf of confs) {
       if (conf.name === configKey) {
         let matches = termId.match(/^([^:]+):(.*)/);
 
-        if (matches) {
+        if (matches && conf.url) {
           let url =
             replaceExampleId(conf.url.replace('[conf_db_prefix]', matches[1]), termId);
           return { url: url, displayName: configKey };
         } else {
-          return null;
+          return undefined;
         }
       }
     }
@@ -770,21 +770,21 @@ let _appConfig: AppConfig = {
                displayName: configKey };
     }
 
-    return null;
+    return undefined;
   },
 
-  getExternalGeneLink(name: string, geneDetails: GeneDetails): Array<string> {
+  getExternalGeneLink(name: string, geneDetails: GeneDetails): Array<string>|undefined {
     for (let conf of this.externalGeneReferences) {
       if (conf['name'] === name) {
         return makeGeneExternalUrl(geneDetails, conf);
       }
     }
 
-    return null;
+    return undefined;
   },
 
   // get a URL from the misc_external_links configuration and substitute the given ID
-  getMiscExternalLink(configKey: string, id: string): LinkDisplay {
+  getMiscExternalLink(configKey: string, id: string): LinkDisplay|undefined {
     let configUrl = this.miscExternalLinks[configKey];
 
     if (configUrl) {
@@ -792,7 +792,7 @@ let _appConfig: AppConfig = {
                displayName: configKey };
     }
 
-    return null;
+    return undefined;
   },
 };
 
@@ -831,15 +831,16 @@ const fieldFinder = (fieldName: string) => {
 }
 geneResults.visualisationFields =
   geneResults.visualisation_field_names.map(fieldFinder)
-  .filter(conf => !!conf);
+  .filter(conf => !!conf) as Array<GeneResultsFieldConfig>;
 
 geneResults.geneTableFields =
   geneResults.gene_table_field_names.map(fieldFinder)
-  .filter(conf => !!conf);
+  .filter(conf => !!conf) as Array<GeneResultsFieldConfig>;
 
 geneResults.geneSummaryFieldNames = geneResults['gene_summary_field_names'];
 geneResults.geneSummaryFields =
-  geneResults.geneSummaryFieldNames.map(fieldFinder);
+  geneResults.geneSummaryFieldNames.map(fieldFinder)
+  .filter(conf => !!conf) as Array<GeneResultsFieldConfig>;
 
 export function getAnnotationTableConfig(): AnnotationTableConfig {
   return _config;
@@ -859,7 +860,7 @@ interface XrfConfig {
 
 type XrfConfigMap = { [key: string]: XrfConfig };
 
-let xrfConfig: XrfConfigMap = null;
+let xrfConfig: XrfConfigMap|undefined = undefined;
 
 // aliases that aren't in GO.xrf_abbs
 let xrfConfigAliases = pombaseConfig.extra_database_aliases;
@@ -945,7 +946,7 @@ function getXrfConfig(): { [key: string]: XrfConfig } {
   return xrfConfig;
 }
 
-export function getXrfWithPrefix(prefix: string, id: string): XrfDetails {
+export function getXrfWithPrefix(prefix: string, id: string): XrfDetails|undefined {
   let xrfDetail = getXrfConfig()[prefix.toLowerCase()];
 
   if (xrfDetail) {
@@ -961,16 +962,16 @@ export function getXrfWithPrefix(prefix: string, id: string): XrfDetails {
     }
   }
 
-  return null;
+  return undefined;
 }
 
-export function getXrf(idWithPrefix: string): XrfDetails {
+export function getXrf(idWithPrefix: string): XrfDetails|undefined {
   let matches = idWithPrefix.match(/^([^:]+):(.*)/);
 
   if (matches) {
     return getXrfWithPrefix(matches[1], matches[2]);
   } else {
-    return null;
+    return undefined;
   }
 }
 
@@ -979,7 +980,7 @@ let organismPrefix: { [key: string]: string } = {
   'Saccharomyces_cerevisiae': 'SGD',
 };
 
-export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, uniquename: string, name: string): string {
+export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, uniquename: string, name: string): string|undefined {
   let xrfOrgConfig = getXrfConfig()[organismPrefix[organismGenus + '_' + organismSpecies]];
 
   if (xrfOrgConfig) {
@@ -994,12 +995,13 @@ export function getOrganismExternalLink(organismGenus: string, organismSpecies: 
     }
   }
 
-  return null;
+  return undefined;
 }
 
 export interface JBrowseTrackInfo {
   pmed_id: string;
   label:   string;
+  [key: string]: string;
 }
 
 const _jbrowseTracks: Array<JBrowseTrackInfo> = jbrowseTracks;

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
-import { GeneSummary, PombaseAPIService, GeneSummaryMap } from '../../pombase-api.service';
+import { PombaseAPIService, GeneSummaryMap, GeneShort } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 import { QueryService, HistoryEntry, DisplayResultRow } from '../../query.service';
 import { GeneQuery, GeneListNode, TermAndName, QueryResult } from '../../pombase-query';
@@ -29,9 +29,9 @@ export class GenesTableComponent implements OnInit {
   // like: [{text: "abnormal cell ... ("}, {term: <a TermShort>}, {text: ")"}, ...]
   // which allows the the termids in a description to be linked to the term pages
   @Input() descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
-  @Input() genesOrResults: Array<GeneSummary>|QueryResult = null;
+  @Input() genesOrResults: Array<GeneShort>|QueryResult = null;
   queryResult: QueryResult = null;
-  genes: Array<GeneSummary> = [];
+  genes: Array<GeneShort> = [];
 
   legend = 'Results';
 

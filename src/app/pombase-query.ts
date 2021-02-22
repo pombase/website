@@ -12,7 +12,7 @@ export interface ResultRow {
   sequence?: string;
   gaf_lines?: Array<string>;
   subsets?: Array<TermId>;
-  [other_attribute: string]: string | { term: TermAndName } | Array<TermId> | Array<string>;
+  [other_attribute: string]: string | { term: TermAndName } | Array<TermId> | Array<string> | undefined;
 }
 
 export class QueryResult {
@@ -71,7 +71,7 @@ export interface TermShort {
   definition: string,
   interesting_parent_ids: Array<string>,
   is_obsolete: boolean;
-  gene_count?: number;
+  gene_count: number;
   genotype_count?: number;
   xrefs: { [source_name: string]: TermXref };
 }
@@ -86,21 +86,21 @@ export type GeneUniquename = string;
 export type TermId = string;
 
 export class GeneQueryBase {
-  constructor(private nodeName: string) {
+  constructor(private nodeName: string|undefined) {
   }
 
-  public getNodeName(): string {
+  public getNodeName(): string|undefined {
     return this.nodeName;
   }
 
-  public setNodeName(nodename: string): void {
+  public setNodeName(nodename: string|undefined): void {
     this.nodeName = nodename;
   }
 }
 
 export interface GeneQueryNode {
-  getNodeName(): string;
-  setNodeName(newName: string): void;
+  getNodeName(): string|undefined;
+  setNodeName(newName: string|undefined): void;
   toObject(): Object;
   equals(obj: GeneQueryNode): boolean;
   detailsString(): string;
@@ -110,7 +110,7 @@ export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
   private operator: QueryNodeOperator;
   private _detailsString: string;
 
-  constructor(nodeName: string, operator: string,
+  constructor(nodeName: string|undefined, operator: string,
               public parts: GeneQueryNode[]) {
 
     super(nodeName);
@@ -132,7 +132,7 @@ export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
             }
           }
         } else {
-          newNodeNameParts = null;
+          newNodeNameParts.push("[undefined]");
         }
       });
 
@@ -216,7 +216,7 @@ export class GeneListNode extends GeneQueryBase implements GeneQueryNode {
   genes: Array<GeneShort>;
   private _detailsString: string;
 
-  constructor(nodeName: string, public arg: Array<{ uniquename: string }> | Array<GeneUniquename>) {
+  constructor(nodeName: string|undefined, public arg: Array<{ uniquename: string }> | Array<GeneUniquename>) {
     super(nodeName);
     if (!nodeName) {
       this.setNodeName(this.detailsString());
@@ -228,12 +228,12 @@ export class GeneListNode extends GeneQueryBase implements GeneQueryNode {
     for (let argElement of arg) {
       if (typeof(argElement) === 'object') {
         if (!seen.has(argElement.uniquename)) {
-          this.genes.push({ uniquename: argElement.uniquename, name: null });
+          this.genes.push({ uniquename: argElement.uniquename, name: undefined });
           seen.add(argElement.uniquename);
         }
       } else {
         if (!seen.has(argElement)) {
-          this.genes.push({ uniquename: argElement, name: null });
+          this.genes.push({ uniquename: argElement, name: undefined });
           seen.add(argElement);
         }
       }
@@ -305,18 +305,18 @@ function conditionsEqual(conditions1: Array<TermAndName>, conditions2: Array<Ter
 export class TermNode extends GeneQueryBase implements GeneQueryNode {
   private _detailsString: string;
 
-  constructor(nodeName: string,
+  constructor(nodeName: string|undefined,
               private termid: string,
               private termName: string,
               private definition: string,
-              private single_or_multi_allele: string,
-              private expression: string,
+              private single_or_multi_allele: string|undefined,
+              private expression: string|undefined,
               private conditions: Array<TermAndName>,
               private excludedConditions: Array<TermAndName>) {
     super(nodeName);
 
     if (single_or_multi_allele !== 'single') {
-      this.expression = null;
+      this.expression = undefined;
     }
 
     this.setDetailsString();
@@ -345,12 +345,12 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
     } as TermShort;
   }
 
-  getSingleOrMulti(): string {
+  getSingleOrMulti(): string|undefined {
     return this.single_or_multi_allele;
   }
 
-  private singleOrMultiString(): string {
-    if (this.single_or_multi_allele !== null) {
+  private singleOrMultiString(): string|undefined {
+    if (this.single_or_multi_allele) {
       const alleleValue = this.single_or_multi_allele.valueOf();
       if (alleleValue === 'both') {
         return 'single and multi';
@@ -358,10 +358,10 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
         return alleleValue;
       }
     }
-    return null;
+    return undefined;
   }
 
-  private expressionString(): string {
+  private expressionString(): string|undefined {
     if (this.expression) {
       switch (this.expression) {
       case 'wt-overexpressed':
@@ -370,10 +370,10 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
         return 'Null expression';
       }
     }
-    return null;
+    return undefined;
   }
 
-  private singleOrMultiAlleleForObject(): string {
+  private singleOrMultiAlleleForObject(): string|undefined {
     const valAsString = this.singleOrMultiString();
     if (valAsString) {
       if (valAsString === 'single and multi') {
@@ -382,13 +382,13 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
         return valAsString;
       }
     } else {
-      return null;
+      return undefined;
     }
   }
 
-  private getConditionsString(conditions: Array<TermAndName>): string {
+  private getConditionsString(conditions: Array<TermAndName>): string|undefined {
     if (!conditions || conditions.length === 0) {
-      return null;
+      return undefined;
     }
     return conditions
       .map(termShort => termShort.name + ' (' + termShort.termid + ')')
@@ -638,7 +638,7 @@ export class FloatRangeNode extends RangeNode {
 }
 
 export class QueryIdNode extends GeneQueryBase implements GeneQueryNode {
-  constructor(nodeName: string, private id: string) {
+  constructor(nodeName: string|undefined, private id: string) {
     super(nodeName);
     if (!nodeName) {
       this.setNodeName(this.detailsString());
@@ -663,14 +663,14 @@ export class QueryIdNode extends GeneQueryBase implements GeneQueryNode {
 
 export class GeneQuery {
   private queryTopNode: GeneQueryNode;
-  private stringQuery: string = null;
+  private stringQuery: string|null = null;
 
   static fromJSONString(arg: { name: string, constraints: string }): GeneQuery {
     let constraints = this.nodeFromObj(arg.name, arg.constraints);
     return new GeneQuery(constraints);
   }
 
-  private static nodeFromObj(queryName: string, parsedJson: any): GeneQueryNode {
+  private static nodeFromObj(queryName: string|null, parsedJson: any): GeneQueryNode {
     let nodeName = parsedJson['node_name'];
     delete parsedJson['node_name'];
     if (queryName) {
@@ -731,7 +731,7 @@ export class GeneQuery {
     throw new Error('Unknown type: ' + nodeType);
   }
 
-  static fromGeneUniquenames(queryName: string, geneUniquenames: Array<GeneUniquename>): GeneQuery {
+  static fromGeneUniquenames(queryName: string|undefined, geneUniquenames: Array<GeneUniquename>): GeneQuery {
     const part = new GeneListNode(queryName, geneUniquenames);
     return new GeneQuery(part);
   }
@@ -756,7 +756,7 @@ export class GeneQuery {
     };
   }
 
-  public getQueryName(): string {
+  public getQueryName(): string|undefined {
     return this.getTopNode().getNodeName();
   }
 
@@ -783,7 +783,7 @@ export class GeneQuery {
     return collector;
   }
 
-  public toPostJSON(outputOptions: QueryOutputOptions = null): string {
+  public toPostJSON(outputOptions: QueryOutputOptions|undefined = undefined): string {
     let obj = this.toObject();
     obj['output_options'] = outputOptions || {};
     return JSON.stringify(obj);

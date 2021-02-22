@@ -16,10 +16,10 @@ const lineLength = 60;
 export class TranscriptSequenceSelectComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;
 
-  wrappedSequence = '';
-  wrappedProteinSequence = '';
-  displaySequence: DisplaySequence = null;
-  proteinDisplaySequence: DisplaySequence = null;
+  wrappedSequence? = '';
+  wrappedProteinSequence? = '';
+  displaySequence?: DisplaySequence;
+  proteinDisplaySequence?: DisplaySequence;
   sequenceHeader = '';
   proteinSequenceHeader = '';
   hasTranscripts = false;
@@ -31,10 +31,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   transcriptIndex = 0;
 
-  geneStart: number = null;
-  geneEnd: number = null;
-  cdsStart: number = null;
-  cdsEnd: number = null;
+  geneStart?: number;
+  geneEnd?: number;
+  cdsStart?: number;
+  cdsEnd?: number;
 
   showNucSequence = false;
   includeExons = true;
@@ -46,11 +46,11 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   linksInNewWindow = true;
 
-  hoverPart: DisplaySequenceLinePart = null;
+  hoverPart?: DisplaySequenceLinePart;
 
-  selectedResidueRange: ResidueRange = null;
+  selectedResidueRange?: ResidueRange;
 
-  protein: ProteinDetails = null;
+  protein?: ProteinDetails;
 
   constructor(private apiService: PombaseAPIService,
               @Inject('Window') private window: Window) { }
@@ -118,7 +118,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   partClass(part: DisplaySequenceLinePart): string {
     let retVal = 'part-' + part.partType;
 
-    if (this.hoverPart !== null && this.hoverPart.partType === part.partType) {
+    if (this.hoverPart !== null && this.hoverPart && this.hoverPart.partType === part.partType) {
       if (this.hoverPart.partType !== 'exon' ||
           this.hoverPart.exonIndex === part.exonIndex) {
         retVal += ' hovering';
@@ -135,11 +135,11 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   mouseleave(): void {
-    this.hoverPart = null;
+    this.hoverPart = undefined;
   }
 
   mousemove(): void {
-    this.selectedResidueRange = null;
+    this.selectedResidueRange = undefined;
 
     const selection = this.window.getSelection();
     if (selection) {
@@ -147,22 +147,25 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         const range = selection.getRangeAt(0);
         if (range) {
           const startContainer = range.startContainer;
-          const startPartId =
-            startContainer.parentElement.getAttribute('data-part-id');
           const startOffset = range.startOffset;
           const endContainer = range.endContainer;
-          const endPartId =
-            endContainer.parentElement.getAttribute('data-part-id');
           const endOffset = range.endOffset;
-
-          if (startPartId &&
-              typeof(startOffset) !== 'undefined' &&
+          if (startContainer.parentElement && endContainer.parentElement) {
+            const startPartId =
+              startContainer.parentElement.getAttribute('data-part-id');
+            const endPartId =
+              endContainer.parentElement.getAttribute('data-part-id');
+            const displaySequence = this.getDisplaySequence();
+            if (startPartId &&
+              typeof (startOffset) !== 'undefined' &&
               endPartId &&
-              typeof(endOffset) !== 'undefined' &&
-              endOffset > startOffset) {
-            this.selectedResidueRange =
-              this.getDisplaySequence().rangeFromParts(+startPartId, startOffset,
-                                                       +endPartId, endOffset - 1);
+              typeof (endOffset) !== 'undefined' &&
+              endOffset > startOffset &&
+              displaySequence) {
+              this.selectedResidueRange =
+                displaySequence.rangeFromParts(+startPartId, startOffset,
+                  +endPartId, endOffset - 1);
+            }
           }
         }
       }
@@ -170,8 +173,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   updateSequence() {
-    this.wrappedSequence = null;
-    this.displaySequence = null;
+    this.wrappedSequence = undefined;
+    this.displaySequence = undefined;
 
     let transcripts = this.geneDetails.transcripts;
     this.hasTranscripts = transcripts.length > 0;
@@ -219,7 +222,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       let upstreamPromise: Promise<string>;
       let downstreamPromise: Promise<string>;
 
-      if (this.upstreamBases > 0) {
+      if (this.upstreamBases > 0 && coordStart && coordEnd) {
         let [upstreamStart, upstreamEnd] =
           strand === Strand.Forward ?
           [coordStart - this.upstreamBases, coordStart - 1] :
@@ -230,7 +233,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       } else {
         upstreamPromise = Promise.resolve('');
       }
-      if (this.downstreamBases > 0) {
+      if (this.downstreamBases > 0 && coordStart && coordEnd) {
         let [downstreamStart, downstreamEnd] =
           strand === Strand.Forward ?
           [coordEnd + 1, coordEnd + this.downstreamBases] :
@@ -264,19 +267,21 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
             DisplaySequence.newFromTranscriptParts(lineLength, upstreamSequence,
                                                    includedParts, downstreamSequence);
 
-          const rawSequence = this.displaySequence.residues();
-          this.updateHeader(rawSequence.length);
+          if (this.displaySequence) {
+            const rawSequence = this.displaySequence.residues();
+            this.updateHeader(rawSequence.length);
 
-          this.wrappedSequence = Util.splitSequenceString(rawSequence);
+            this.wrappedSequence = Util.splitSequenceString(rawSequence);
+          }
         })
         .catch((e) => {
           this.wrappedSequence = '';
-          this.displaySequence = null;
+          this.displaySequence = undefined;
         });
     }
   }
 
-  getDisplaySequence(): DisplaySequence {
+  getDisplaySequence(): DisplaySequence|undefined {
     if (!this.showNucSequence && this.featureHasProtein()) {
       return this.proteinDisplaySequence;
     } else {
@@ -335,10 +340,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.has5PrimeUtr = false;
     this.has3PrimeUtr = false;
 
-    this.geneStart = null;
-    this.geneEnd = null;
-    this.cdsStart = null;
-    this.cdsEnd = null;
+    this.geneStart = undefined;
+    this.geneEnd = undefined;
+    this.cdsStart = undefined;
+    this.cdsEnd = undefined;
 
     this.proteinSequenceHeader = '';
     this.wrappedProteinSequence = '';
@@ -404,7 +409,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.include5PrimeUtr = false;
     this.include3PrimeUtr = false;
 
-    this.protein = null;
+    this.protein = undefined;
 
     this.transcriptChanged();
 
