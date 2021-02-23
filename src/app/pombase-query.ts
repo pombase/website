@@ -684,10 +684,17 @@ export class GeneQuery {
     const nodeType = keys[0];
     const val = parsedJson[nodeType];
 
+    if (val.expression === null) {
+      val.expression = undefined;  // normalise older saved queries
+    }
+
     switch (nodeType) {
 
     case 'term':
-      const singleOrMulti = val['single_or_multi_allele'];
+      let singleOrMulti = val['single_or_multi_allele'];
+      if (singleOrMulti === null) {
+        singleOrMulti = undefined;   // normalise older saved queries
+      }
       return new TermNode(nodeName, val['termid'], val['name'],
                           val['definition'], singleOrMulti, val.expression,
                           val['conditions'], val['excluded_conditions']);
