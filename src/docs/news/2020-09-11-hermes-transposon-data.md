@@ -1,5 +1,4 @@
 ### Hermes transposon insertions in PomBase
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: transposon.png -->
 
 [Read more](/news/2020-09-11-hermes-transposon-data-long) about the

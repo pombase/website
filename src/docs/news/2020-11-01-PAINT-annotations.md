@@ -1,5 +1,4 @@
 ### GO annotations from PAINT
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: go-logo-icon.mini.png -->
 
 PomBase now includes over 3000 GO annotations made using Phylogenetic
