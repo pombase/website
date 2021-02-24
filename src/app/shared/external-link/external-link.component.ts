@@ -9,9 +9,9 @@ import { getAppConfig } from '../../config';
 })
 export class ExternalLinkComponent implements OnInit, OnChanges {
   @Input() identifier: string;
-  @Input() linkText: string = null;
+  @Input() linkText: string;
   @Input() linkConfigKey: string;
-  @Input() iconImage: string = null;
+  @Input() iconImage: string;
 
   linkUrl = '';
 

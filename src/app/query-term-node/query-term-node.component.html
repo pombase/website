@@ -1,8 +1,8 @@
-<app-term-name-complete [cvName]="termNodeConfig.ontologyName"
+<app-term-name-complete [cvName]="termNodeConfig.ontologyName!"
                         [placeholder]="placeholder"
                         (termMatched)="termMatched($event)"></app-term-name-complete>
 
-<div class="term-definition" *ngIf="selectedTerm?.definition">{{selectedTerm.definition}}</div>
+<div class="term-definition" *ngIf="selectedTerm && selectedTerm.definition">{{selectedTerm!.definition}}</div>
 
 <div *ngIf="isPhenotypeNode">
   <div class="phenotype-filter single-or-multi-allele phenotype-filter-inline-block">

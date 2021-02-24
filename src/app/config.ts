@@ -980,7 +980,8 @@ let organismPrefix: { [key: string]: string } = {
   'Saccharomyces_cerevisiae': 'SGD',
 };
 
-export function getOrganismExternalLink(organismGenus: string, organismSpecies: string, uniquename: string, name: string): string|undefined {
+export function getOrganismExternalLink(organismGenus: string, organismSpecies: string,
+                                        uniquename: string, name?: string): string|undefined {
   let xrfOrgConfig = getXrfConfig()[organismPrefix[organismGenus + '_' + organismSpecies]];
 
   if (xrfOrgConfig) {
@@ -990,7 +991,7 @@ export function getOrganismExternalLink(organismGenus: string, organismSpecies: 
       if (!xrfOrgConfig.fieldName || xrfOrgConfig.displayName === 'uniquename') {
         return linkTemplate.replace('[example_id]', uniquename);
       } else {
-        return linkTemplate.replace('[example_id]', name);
+        return linkTemplate.replace('[example_id]', name || uniquename);
       }
     }
   }

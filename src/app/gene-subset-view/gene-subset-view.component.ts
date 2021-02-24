@@ -11,11 +11,11 @@ import { AppConfig, getAppConfig } from '../config';
   styleUrls: ['./gene-subset-view.component.css']
 })
 export class GeneSubsetViewComponent implements OnInit {
-  subset: GeneSubsetDetails = null;
-  subsetDisplayName: string = null;
+  subset: GeneSubsetDetails;
+  subsetDisplayName: string;
   subsetGeneCount = 0;
-  apiError: APIError = null;
-  queryBuilderRouterLink: string = null;
+  apiError: APIError;
+  queryBuilderRouterLink: string;
   appConfig: AppConfig = getAppConfig();
   siteName = this.appConfig.site_name;
 

@@ -16,7 +16,7 @@ interface DisplayFeatureShort extends FeatureShort {
 export class SeqFeatureTableComponent implements OnInit {
 
   appConfig: AppConfig = getAppConfig();
-  seqFeatures: Array<DisplayFeatureShort> = null;
+  seqFeatures: Array<DisplayFeatureShort>;
 
   constructor(pombaseApiService: PombaseAPIService) {
     pombaseApiService.getSeqFeaturePageFeatures()

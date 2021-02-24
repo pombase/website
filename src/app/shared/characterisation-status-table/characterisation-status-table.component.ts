@@ -14,8 +14,8 @@ interface DisplaySubset {
   styleUrls: ['./characterisation-status-table.component.css']
 })
 export class CharacterisationStatusTableComponent implements OnInit {
-  characterisationSubsets: Array<DisplaySubset> = null;
-  apiError: APIError = null;
+  characterisationSubsets: Array<DisplaySubset>;
+  apiError: APIError;
   total = 0;
 
   constructor(private pombaseApiService: PombaseAPIService) { }

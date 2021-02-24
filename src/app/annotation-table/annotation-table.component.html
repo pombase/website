@@ -1,4 +1,4 @@
-<fieldset *ngIf="annotationTable?.length > 0" class="annotation-table">
+<fieldset *ngIf="annotationTable && annotationTable.length > 0" class="annotation-table">
   <legend>
     <span *ngIf="annotationTypeName">{{tableDisplayName}}</span>
     <span *ngIf="!annotationTypeName">Annotations</span>
@@ -43,8 +43,8 @@
     </div>
   </div>
 
-  <app-protein-properties *ngIf="geneDetails?.transcripts[0]?.protein && annotationTypeName == 'PomBase family or domain'"
-                          [proteinDetails]="geneDetails.transcripts[0].protein">
+  <app-protein-properties *ngIf="geneDetails && geneDetails.transcripts[0]?.protein && annotationTypeName == 'PomBase family or domain'"
+                          [proteinDetails]="geneDetails.transcripts[0].protein!">
   </app-protein-properties>
   </div>
 

@@ -14,8 +14,8 @@ export class GeneReferencesTableComponent implements OnInit, OnChanges {
 
   orderByField = '+authors_abbrev';
 
-  pubmedSearchUrl: string = null;
-  pubmedSearchGeneLabel: string = null;
+  pubmedSearchUrl?: string;
+  pubmedSearchGeneLabel?: string;
 
   appConfig = getAppConfig();
 
@@ -49,7 +49,7 @@ export class GeneReferencesTableComponent implements OnInit, OnChanges {
       this.pubmedSearchUrl =
         `http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=Search&db=pubmed&term=(${joinedIds}) AND (pombe OR fission yeast)`;
     } else {
-      this.pubmedSearchUrl = null;
+      this.pubmedSearchUrl = undefined;
     }
   }
 }

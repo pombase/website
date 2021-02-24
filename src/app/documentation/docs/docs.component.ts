@@ -17,10 +17,10 @@ const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
   styleUrls: ['./docs.component.css']
 })
 export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
-  section: string = null;
-  pageName: string = null;
-  itemId: string = null;
-  subscription: Subscription = null;
+  section: string;
+  pageName: string;
+  itemId: string;
+  subscription: Subscription;
   appConfig: AppConfig = getAppConfig();
 
   constructor(private router: Router,

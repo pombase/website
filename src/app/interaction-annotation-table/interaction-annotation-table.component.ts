@@ -22,7 +22,7 @@ interface DisplayAnnotation {
 })
 export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
-  @Input() currentGene: GeneDetails = null;
+  @Input() currentGene: GeneDetails;
   @Input() hideColumns: Array<string> = [];
   @Input() annotationTable: Array<InteractionAnnotation>;
 
@@ -30,20 +30,20 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   appConfig: AppConfig = getAppConfig();
   siteName = this.appConfig.site_name;
 
-  filteredTable: Array<InteractionAnnotation> = null;
+  filteredTable: Array<InteractionAnnotation>;
 
-  annotationTypeDisplayName: string = null;
+  annotationTypeDisplayName: string;
   hideColumn: { [key: string]: boolean } = {};
 
   displayTable: Array<DisplayAnnotation> = [];
   helpIconTitle = 'View documentation';
 
-  routerLinkUrl: string = null;
-  biogridUrl: string = null;
+  routerLinkUrl: string;
+  biogridUrl: string;
   annotationCount: any;
   filteredAnnotationCount: any;
   tableIsFiltered: boolean;
-  filters: Array<FilterConfig> = null;
+  filters?: Array<FilterConfig>;
   interactionNoteRef: any;
 
   constructor(private modalService: BsModalService) { }
@@ -97,7 +97,10 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
       this.routerLinkUrl = `/results/from/json/${json}`;
 
       if (this.currentGene.biogrid_interactor_id) {
-        [, this.biogridUrl] = this.appConfig.getExternalGeneLink('BioGRID', this.currentGene);
+        const linkResult = this.appConfig.getExternalGeneLink('BioGRID', this.currentGene);
+        if (linkResult) {
+          [, this.biogridUrl] = linkResult;
+        }
       }
     }
 
@@ -159,10 +162,10 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.updateCurrentFilter(null);
+    this.updateCurrentFilter(undefined);
   }
 
-  updateCurrentFilter(filter: InteractionFilter) {
+  updateCurrentFilter(filter?: InteractionFilter) {
     if (filter) {
       [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
         filter.filter(this.annotationTable);

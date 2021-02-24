@@ -17,8 +17,8 @@ class ColumnDisplayData {
               public startIndex: number, public endIndex: number,
               public color: string, public geneUniquenames: Array<string>) {
                 if (columnConfig.attrValuesMap.get(rowAttr) &&
-                    columnConfig.attrValuesMap.get(rowAttr).display_name) {
-                  this.displayName = columnConfig.attrValuesMap.get(rowAttr).display_name;
+                    columnConfig.attrValuesMap.get(rowAttr)!.display_name) {
+                  this.displayName = columnConfig.attrValuesMap.get(rowAttr)!.display_name;
                 } else {
                   this.displayName = rowAttr;
                 }
@@ -97,7 +97,7 @@ class AttrValueConf {
 export class GeneResultsVisComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];
   // probably the query name
-  @Input() geneListDescription: string = null;
+  @Input() geneListDescription: string;
   @ViewChild('visSVG') visSvg: ElementRef;
 
   geneDataMap: { [geneUniquename: string]: GeneData } = {};
@@ -107,8 +107,8 @@ export class GeneResultsVisComponent implements OnInit {
   geneDisplayData: Array<GeneDisplayData> = [];
   columnDisplayDataMap: { [colName: string]: Array<ColumnDisplayData> } = {};
 
-  currentData: ColumnDisplayData = null;
-  currentGene: GeneData = null;
+  currentData?: ColumnDisplayData;
+  currentGene?: GeneData;
 
   visColumnConfigMap: { [colName: string]: GeneResultsFieldConfig } = {};
   visColumnConfigs: Array<GeneResultsFieldConfig> = [];
@@ -139,7 +139,7 @@ export class GeneResultsVisComponent implements OnInit {
   keyAttrGap = 2;
   keyHeaderGap = 20;
 
-  keyHighlight: string = null;
+  keyHighlight?: string;
 
   selectedGenes: { [index: string]: boolean } = {};
   selectedGeneList: Array<GeneData> = [];
@@ -204,13 +204,13 @@ export class GeneResultsVisComponent implements OnInit {
     return resultMap;
   }
 
-  geneUniquenameFromDomId(domId: string): [number, string] {
+  geneUniquenameFromDomId(domId: string): [number, string|undefined] {
     const idMatch = /gene-(\d+)-(.*)/.exec(domId);
 
     if (idMatch) {
       return [parseInt(idMatch[1], 10), idMatch[2]];
     } else {
-      return [-1, null];
+      return [-1, undefined];
     }
   }
 
@@ -245,7 +245,9 @@ export class GeneResultsVisComponent implements OnInit {
     if (domId) {
       const [, geneUniquename] = this.geneUniquenameFromDomId(domId);
 
-      this.toggleSelectedGene(geneUniquename);
+      if (geneUniquename) {
+        this.toggleSelectedGene(geneUniquename);
+      }
     }
   }
 
@@ -270,25 +272,25 @@ export class GeneResultsVisComponent implements OnInit {
     $event.stopPropagation();
   }
 
-  geneEnter($event: Event, geneData: GeneDisplayData) {
-    this.currentData = null;
-    this.keyHighlight = null;
+  geneEnter(_: Event, geneData: GeneDisplayData) {
+    this.currentData = undefined;
+    this.keyHighlight = undefined;
     this.currentGene = this.geneDataMap[geneData.geneUniquename];
   }
 
-  geneLeave($event: Event) {
-    this.currentGene = null;
+  geneLeave(_: Event) {
+    this.currentGene = undefined
   }
 
-  dataEnter($event: Event, columnData: ColumnDisplayData) {
-    this.currentGene = null;
+  dataEnter(_: Event, columnData: ColumnDisplayData) {
+    this.currentGene = undefined;
     this.currentData = columnData;
     this.keyHighlight = columnData.columnConfig.name + ':' + columnData.rowAttr;
   }
 
-  dataLeave($event: Event) {
-    this.currentData = null;
-    this.keyHighlight = null;
+  dataLeave(_: Event) {
+    this.currentData = undefined;
+    this.keyHighlight = undefined;
   }
 
   clearSelected(): void {
@@ -369,8 +371,8 @@ export class GeneResultsVisComponent implements OnInit {
       const fieldAValue = this.geneDataMap[geneUniquenameA].getField(sortFieldName);
       const fieldBValue = this.geneDataMap[geneUniquenameB].getField(sortFieldName);
 
-      const geneAPriority = fieldConfig.attrValuesMap.get(fieldAValue).sort_priority;
-      const geneBPriority = fieldConfig.attrValuesMap.get(fieldBValue).sort_priority;
+      const geneAPriority = fieldConfig.attrValuesMap.get(fieldAValue)!.sort_priority;
+      const geneBPriority = fieldConfig.attrValuesMap.get(fieldBValue)!.sort_priority;
 
       res = geneAPriority - geneBPriority;
     }
@@ -399,7 +401,7 @@ export class GeneResultsVisComponent implements OnInit {
   processColumnResults(): void {
     this.attrValueCounts = {};
 
-    this.visColumnNames.map((columnName, i) => {
+    this.visColumnNames.map((columnName, _) => {
       this.columnDisplayDataMap[columnName] = [];
       this.attrValueCounts[columnName] = {};
     });
@@ -413,10 +415,10 @@ export class GeneResultsVisComponent implements OnInit {
         }
         this.attrValueCounts[columnName][rowAttr]++;
 
-        let prevRowAttr: string;
+        let prevRowAttr: string|undefined;
 
         if (idx === 0) {
-          prevRowAttr = null;
+          prevRowAttr = undefined;
         } else {
           const prevGeneData = this.geneDataMap[this.sortedGeneUniquenames[idx - 1]];
           prevRowAttr = prevGeneData.getField(columnName);
@@ -454,7 +456,7 @@ export class GeneResultsVisComponent implements OnInit {
       const columnConf = this.visColumnConfigMap[columnName];
       for (const attrName of Array.from(columnConf.attrValuesMap.keys())) {
          if (this.attrValueCounts[columnName][attrName]) {
-           const attrConf = columnConf.attrValuesMap.get(attrName);
+           const attrConf = columnConf.attrValuesMap.get(attrName)!;
            const confForTemplate = new AttrValueConf(attrName, attrConf.display_name || attrName, attrConf.color);
            this.attrValuesInUse[columnName].push(confForTemplate);
          }
@@ -463,7 +465,7 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   runQuery(): void {
-    const geneListNode = new GeneListNode(null, this.genes);
+    const geneListNode = new GeneListNode(undefined, this.genes);
     const geneListQuery = new GeneQuery(geneListNode);
 
     const outputOptions =

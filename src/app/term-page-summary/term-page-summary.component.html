@@ -52,7 +52,7 @@
       </span>
     </div>
 
-    <div class="external-links">
+    <div *ngIf="typeConfig" class="external-links">
       <app-term-external-links [typeConfig]="typeConfig" [termId]="termDetails.termid">
       </app-term-external-links>
     </div>

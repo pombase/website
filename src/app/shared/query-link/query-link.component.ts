@@ -11,7 +11,7 @@ import { QueryRouterService } from '../../query-router.service';
 export class QueryLinkComponent implements OnInit {
   @Input() goToResults: boolean;
   @Input() predefinedQueryId: string;
-  @Input() linkText: string = null;
+  @Input() linkText: string;
 
   titleText = '';
 

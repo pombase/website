@@ -29,9 +29,9 @@ export class FrontComponent implements OnInit {
       conf.panel_type === 'explore' && conf.show_on_front_page
     );
 
-  spotlightConf: PanelConfig = null;
-  communityConf: PanelConfig = null;
-  exploreConf: PanelConfig = null;
+  spotlightConf: PanelConfig;
+  communityConf: PanelConfig;
+  exploreConf: PanelConfig;
 
   siteName = getAppConfig().site_name;
 

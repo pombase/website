@@ -20,7 +20,7 @@ export class GeneDetailsComponent implements OnInit {
 
   synonymsDisplay = '';
   displayFeatureType = '';
-  displayLocation: Array<string> = [];
+  displayLocation?: Array<string>;
   annotationTypeNames: Array<string> = [];
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
@@ -28,11 +28,11 @@ export class GeneDetailsComponent implements OnInit {
   apiError: any = null;
   showProteinFeatures = false;
   productSize = '';
-  organism: ConfigOrganism = null;
-  organismLongName: string = null;
+  organism?: ConfigOrganism;
+  organismLongName?: string;
   isConfiguredOrganism: boolean;
-  jbrowseLinkUrl: string = null;
-  sanitizedJBrowseURL: SafeResourceUrl = null;
+  jbrowseLinkUrl?: string;
+  sanitizedJBrowseURL?: SafeResourceUrl;
   extraMenuSections = [
     {
       id: 'transcript-sequence',
@@ -59,14 +59,14 @@ export class GeneDetailsComponent implements OnInit {
               @Inject('Window') private window: any
              ) { }
 
-  getCDSDisplayLocation(): string {
+  getCDSDisplayLocation(): string|undefined {
     if (this.geneDetails.transcripts && this.geneDetails.transcripts.length > 0) {
       const transcript = this.geneDetails.transcripts[0];
 
       const cds_location = transcript.cds_location;
 
       if (!cds_location) {
-        return null;
+        return undefined;
       }
 
       const len = cds_location.end_pos - cds_location.start_pos + 1;
@@ -78,13 +78,13 @@ export class GeneDetailsComponent implements OnInit {
       }
     }
 
-    return null;
+    return undefined;
   }
 
-  makeDisplayLocation(): Array<string> {
+  makeDisplayLocation(): Array<string>|undefined {
     const location = this.geneDetails.location;
     if (!location) {
-      return null;
+      return undefined;
     }
     const chromosomeName = location.chromosome_name;
     const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
@@ -283,11 +283,12 @@ export class GeneDetailsComponent implements OnInit {
             this.sanitizer.bypassSecurityTrustResourceUrl(this.jbrowseLinkUrl + '&tracklist=0&nav=0&overview=0');
       });
     } else {
-      this.jbrowseLinkUrl = null;
+      this.jbrowseLinkUrl = undefined;
+      this.sanitizedJBrowseURL = undefined;
     }
   }
 
-  getJBrowseIFrameURL(): SafeResourceUrl {
+  getJBrowseIFrameURL(): SafeResourceUrl|undefined {
     return this.sanitizedJBrowseURL;
   }
 

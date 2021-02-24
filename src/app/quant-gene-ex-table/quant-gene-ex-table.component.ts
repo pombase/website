@@ -31,7 +31,7 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
   filteredAnnotationCount = 0;
   annotationCount = 0;
 
-  filterConfig: Array<FilterConfig> = null;
+  filterConfig?: Array<FilterConfig>;
   filteredTable: AnnotationTable = [];
 
   trackByTermId(index: number, item: any) {
@@ -40,7 +40,7 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  updateCurrentFilter(filter: Filter<AnnotationTable>) {
+  updateCurrentFilter(filter?: Filter<AnnotationTable>) {
     if (filter) {
       [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
         filter.filter(this.annotationTable);
@@ -62,7 +62,7 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
 
   setSummaryView() {
     this.currentViewState = TableViewState.Summary;
-    this.updateCurrentFilter(null);
+    this.updateCurrentFilter(undefined);
     this.tableViewChangeEmitter.emit(this.currentViewState);
   }
 

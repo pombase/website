@@ -7,7 +7,7 @@
     </app-help-link>
   </legend>
 
-  <div *ngIf="annotationTable?.length > 0"
+  <div *ngIf="annotationTable && annotationTable.length > 0"
        class="ortholog-table annotation-table-container">
     <div class="title">
       Manually assigned orthologs
@@ -35,7 +35,7 @@
           <app-gene-link *ngIf="appConfig.isConfigOrganism(annotation.orthologOrganism.taxonid)"
                          class="app-link" [long]="false" [gene]="annotation.ortholog"></app-gene-link>
           <a *ngIf="!appConfig.isConfigOrganism(annotation.orthologOrganism.taxonid)"
-              href="{{getLink(annotation.orthologOrganism, annotation.ortholog.uniquename, annotation.ortholog.name)}}">
+              href="{{getLink(annotation.orthologOrganism, annotation.ortholog.uniquename, annotation.ortholog.name)!}}">
             {{annotation.ortholog.name ? annotation.ortholog.name + " (" + annotation.ortholog.uniquename + ")" : annotation.ortholog.uniquename }}
           </a>
         </td>

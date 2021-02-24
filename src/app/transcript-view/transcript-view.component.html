@@ -37,7 +37,7 @@
       <div class="part-container">
         <div class="transcript-graphic">
           <div *ngIf="transcript.padding()" class="padding"
-            [style.width]="transcript.padding().getDivVW() + 'vw'">
+            [style.width]="transcript.padding()!.getDivVW() + 'vw'">
           </div>
           <div *ngFor="let part of transcript.displayParts(); trackBy: partTrackBy"
                class="{{part.type()}}"

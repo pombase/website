@@ -63,6 +63,7 @@ export interface ExpressedAllele {
   allele: AlleleShort;
   allele_uniquename: string;
   expression: string;
+  gene: number;
 }
 
 export interface AlleleShort {
@@ -234,8 +235,8 @@ export interface IdAndOrganism {
 
 export interface IdNameAndOrganism {
   identifier: string;
-  secondary_identifier: string | null;
-  name: string | null;
+  secondary_identifier: string;
+  name: string;
   taxonid: number;
 }
 
@@ -263,9 +264,9 @@ export class GeneSummary implements GeneShort {
   private static displayFieldGenerators: { [label: string]: (g: GeneSummary) => (string | undefined) } | undefined = undefined;
 
   uniquename: string;
-  name: string;
+  name?: string;
   taxonid: number;
-  organism?: ConfigOrganism;
+  organism: ConfigOrganism;
   product?: string;
   uniprot_identifier?: string;
   synonyms: Array<string>;

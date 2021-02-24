@@ -5,7 +5,7 @@
     <app-social-contact [subject]="'Comment or problem report for ' + displayNameLong()"></app-social-contact>
     <div class="details-page-name-and-id">
     <div class="gene-details-name-id">
-    <span class="gene-name" *ngIf="!isConfiguredOrganism">
+    <span class="gene-name" *ngIf="!isConfiguredOrganism && organism">
       <span class="name-id">{{organism.common_name}}</span>
     </span>
     <span *ngIf="geneDetails.name">
@@ -109,7 +109,7 @@
                                  [geneDetails]="geneDetails"></app-misc-annotation-table>
 
       <app-transcript-view id="{{annotationTypeName}}"
-                           *ngIf="annotationTypeName == 'transcript_view' && geneDetails?.transcripts.length > 0"
+                           *ngIf="annotationTypeName == 'transcript_view' && geneDetails!.transcripts.length > 0"
                            [geneDetails]="geneDetails"></app-transcript-view>
 
       <app-protein-features id="{{annotationTypeName}}"

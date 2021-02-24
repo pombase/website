@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of, from } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -72,7 +72,7 @@ export class SolrSearchService {
     }
 
     return this.http.get(this.solrSearchUrl + '/' + scope + '/' + encodeURI(query))
-      .pipe(map((body: HttpResponse<any>) => body as unknown as SolrSearchResults),
+      .pipe(map((body: any) => body as SolrSearchResults),
             catchError(err => of({ status: err, term_matches: [], ref_matches: [], doc_matches: [] } as unknown as SolrSearchResults)));
   }
 }

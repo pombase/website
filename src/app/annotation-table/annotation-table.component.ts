@@ -10,17 +10,17 @@ import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
   styleUrls: ['./annotation-table.component.css']
 })
 export class AnnotationTableComponent implements OnInit, OnChanges {
-  @Input() tableDisplayName?: string = null;
+  @Input() tableDisplayName?: string;
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
   @Input() featureInFirstColumn = false;
   @Input() annotationTable: Array<TermAnnotation>;
-  @Input() geneDetails?: GeneDetails = null;
+  @Input() geneDetails?: GeneDetails;
   @Input() scope: string; // "gene", "term", "reference" ...
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;
-  annotationTypeDisplayName: string = null;
+  annotationTypeDisplayName: string;
   splitDataList: { [key: string]: Array<TermAnnotation> } = {};
   splitSummaryList = {};
   split_by_parents: Array<SplitByParentsConfig> = [];

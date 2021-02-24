@@ -15,12 +15,12 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   appConfig = getAppConfig();
   siteName = this.appConfig.site_name;
 
-  ensemblImageUrl: string = null;
-  ensemblBrowserUrl: string = null;
-  transcriptDetails: TranscriptDetails = null;
-  proteinDetails: ProteinDetails = null;
-  proteinFeaturesTable: Array<TermAnnotation> = null;
-  soAnnotationTable: Array<TermAnnotation> = null;
+  ensemblImageUrl?: string;
+  ensemblBrowserUrl?: string;
+  transcriptDetails?: TranscriptDetails;
+  proteinDetails?: ProteinDetails;
+  proteinFeaturesTable?: Array<TermAnnotation>;
+  soAnnotationTable?: Array<TermAnnotation>;
 
   constructor() { }
 
@@ -32,22 +32,22 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       this.transcriptDetails = this.geneDetails.transcripts[0];
       this.proteinDetails = this.transcriptDetails.protein;
     } else {
-      this.transcriptDetails = null;
-      this.proteinDetails = null;
+      this.transcriptDetails = undefined;
+      this.proteinDetails = undefined;
     }
 
     if (this.geneDetails.cv_annotations['PomBase family or domain']) {
       this.proteinFeaturesTable =
         this.geneDetails.cv_annotations['PomBase family or domain'];
     } else {
-      this.proteinFeaturesTable = null;
+      this.proteinFeaturesTable = undefined;
     }
 
     if (this.geneDetails.cv_annotations['sequence']) {
       this.soAnnotationTable =
         this.geneDetails.cv_annotations['sequence'];
     } else {
-      this.soAnnotationTable = null;
+      this.soAnnotationTable = undefined;
     }
 
     if (this.geneDetails.feature_type !== 'pseudogene' &&
@@ -57,8 +57,8 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       this.ensemblBrowserUrl =
         `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptDetails.uniquename}`;
     } else {
-      this.ensemblImageUrl = null;
-      this.ensemblBrowserUrl = null;
+      this.ensemblImageUrl = undefined;
+      this.ensemblBrowserUrl = undefined;
     }
   }
 }

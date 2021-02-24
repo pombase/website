@@ -11,30 +11,30 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./ortholog-annotation-table.component.css']
 })
 export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
-  @Input() currentGene: GeneDetails = null;
+  @Input() currentGene: GeneDetails;
   @Input() hideColumns: Array<string> = [];
   @Input() annotationTable: Array<OrthologAnnotation>;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
-  annotationTypeDisplayName: string = null;
+  annotationTypeDisplayName: string;
   hideColumn: { [key: string]: boolean } = {};
 
   extRefConfs: Array<ExternalGeneReference> = [];
 
-  fullProductRef: BsModalRef = null;
+  fullProductRef: BsModalRef;
 
   displayTable: Array<{
     gene: GeneShort;
     ortholog: GeneShort;
     orthologOrganism: ConfigOrganism;
-    orthologShortProduct: string;
-    orthologFullProduct: string;
+    orthologShortProduct?: string;
+    orthologFullProduct?: string;
     reference: ReferenceShort;
   }> = [];
 
-  getLink(organism: ConfigOrganism, uniquename: string, name: string): string {
-    return getOrganismExternalLink(organism.genus, organism.species, uniquename, name);
+  getLink(organism: ConfigOrganism, uniquename: string, name?: string): string {
+    return getOrganismExternalLink(organism.genus, organism.species, uniquename, name) || '';
   }
 
   constructor(private modalService: BsModalService) { }
@@ -60,7 +60,7 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.displayTable =
       this.annotationTable.map(row => {
-        let shortProduct = null;
+        let shortProduct;
 
         if (row.ortholog.product) {
           const m = row.ortholog.product.match(/([^;]+);/);

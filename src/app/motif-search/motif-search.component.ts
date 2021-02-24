@@ -37,9 +37,9 @@ export class MotifSearchComponent implements OnInit {
   geneMatchesWithNoDetails = 0;
 
   motifSub: Subscription;
-  organismCommonName: string = null;
+  organismCommonName: string;
   appConfig: AppConfig;
-  geneSummaries: GeneSummaryMap = null;
+  geneSummaries: GeneSummaryMap;
 
   constructor(pombaseApiService: PombaseAPIService,
               private queryRouterService: QueryRouterService,

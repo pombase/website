@@ -18,19 +18,19 @@ class ProcessedRow {
 })
 export class GeneResultsSlimTableComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];
-  @Input() slimName: string = null;
+  @Input() slimName: string;
   // probably the query name
-  @Input() geneListDescription: string = null;
+  @Input() geneListDescription: string;
 
-  subsetDetails: TermSubsetDetails = null;
+  subsetDetails: TermSubsetDetails;
   resultTable: Array<ProcessedRow> = [];
   termGeneUniquenames: { [termId: string]: Array<GeneUniquename>} = {};
 
   countsReady = false;
-  slimmedGenes: Set<GeneUniquename> = null;
-  unslimmedGenes: Set<GeneUniquename> = null;
+  slimmedGenes: Set<GeneUniquename>;
+  unslimmedGenes: Set<GeneUniquename>;
   appConfig: AppConfig = getAppConfig();
-  slimConfig: SlimConfig = null;
+  slimConfig: SlimConfig;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
@@ -38,7 +38,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   runQuery(): void {
-    const geneListNode = new GeneListNode(null, this.genes);
+    const geneListNode = new GeneListNode(undefined, this.genes);
     const geneListQuery = new GeneQuery(geneListNode);
 
     const outputOptions =
@@ -128,7 +128,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
     this.gotoGenes(termId, genes);
   }
 
-  private gotoGenes(termId: string, genes: string[]) {
+  private gotoGenes(termId: string|undefined, genes: string[]) {
     let slimDisplayName = this.slimConfig.slim_display_name.toLowerCase();
     if (termId) {
       slimDisplayName = `genes from ${termId} in ${slimDisplayName}`;
@@ -147,7 +147,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   gotoUnslimmedGenes(): void {
-    this.gotoGenes(null, Array.from(this.unslimmedGenes));
+    this.gotoGenes(undefined, Array.from(this.unslimmedGenes));
   }
 
   ngOnInit() {

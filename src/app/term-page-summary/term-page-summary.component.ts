@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 
 interface XrefDetails {
   identifier: string;
-  refShort: ReferenceShort;
-  url: string;
+  refShort?: ReferenceShort;
+  url?: string;
 }
 
 @Component({
@@ -22,7 +22,7 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
 
   filteredAncestors: Array<TermAndRelation> = [];
   subsets: TermSubsets = {};
-  typeConfig: AnnotationType = null;
+  typeConfig?: AnnotationType;
   slimConfig = getAppConfig().slims;
   slimConfigNames = Object.keys(this.slimConfig);
   config: AnnotationTableConfig = getAnnotationTableConfig();
@@ -79,17 +79,17 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
             this.defXrefs.push({
               identifier: xref,
               refShort: refShort,
-              url: null,
+              url: undefined,
             } as XrefDetails);
           } else {
             const xrefConf = getXrf(xref);
-            let url = null;
+            let url: string|undefined = undefined;
             if (xrefConf) {
               url = xrefConf.url;
             }
             this.defXrefs.push({
               identifier: xref,
-              refShort: null,
+              refShort: undefined,
               url,
             } as XrefDetails);
           }

@@ -16,11 +16,11 @@ interface DisplayMatch extends InterProMatch {
 })
 export class InterproMatchesComponent implements OnInit, OnChanges {
   @Input() geneDisplayName: string;
-  @Input() uniprotIdentifier: string = null;
-  @Input() matches: Array<InterProMatch> = null;
+  @Input() uniprotIdentifier: string;
+  @Input() matches: Array<InterProMatch>;
 
   displayMatches: Array<DisplayMatch> = [];
-  apiError: APIError = null;
+  apiError?: APIError;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
@@ -31,12 +31,14 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
     let displayMatches =
       this.matches.map(match => {
         let newId = match.id;
-        let interProEntryUrl = null;
+        let interProEntryUrl = undefined;
         if (match.interpro_id) {
           let result = getXrfWithPrefix('InterPro', match.interpro_id);
-          interProEntryUrl = result.url;
+          if (result) {
+            interProEntryUrl = result.url;
+          }
         }
-        let xrfResult: XrfDetails;
+        let xrfResult: XrfDetails|undefined;
         if (match.dbname === 'MOBIDBLT') {
           newId = newId + ':' + this.uniprotIdentifier;
           xrfResult = getXrfWithPrefix(match.dbname, this.uniprotIdentifier);
@@ -46,7 +48,10 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
         }
         let newMatch = Object.assign({}, match) as DisplayMatch;
         newMatch.id = newId;
-        newMatch.interProEntryUrl = interProEntryUrl;
+        if (interProEntryUrl) {
+          newMatch.interProEntryUrl = interProEntryUrl;
+        }
+
         if (xrfResult) {
           newMatch.dbEntryUrl = xrfResult.url;
           newMatch.dbDisplayName = xrfResult.displayName || match.dbname;
@@ -64,7 +69,7 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
     this.pombaseApiService.getGeneSubsets()
       .then(subsets => {
         for (let match of displayMatches) {
-          match.geneCount = null;
+          match.geneCount = 0;
           match.countLinkTitle = '';
           match.countLinkUrl = '';
           if (match.interpro_id) {
@@ -79,7 +84,7 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
             let subsetId = 'interpro:' + match.dbname + ':' + match.id;
             let subset = subsets[subsetId];
             if (subset) {
-              match['geneCount'] = subset.elements.length;
+              match.geneCount = subset.elements.length;
               if (match.id === match.name) {
                 match['countLinkTitle'] = `View all ${match.id} genes`;
               } else {

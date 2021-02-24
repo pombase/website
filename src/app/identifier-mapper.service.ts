@@ -20,7 +20,7 @@ const organismCommonName = getAppConfig().getConfigOrganism().common_name;
   providedIn: 'root'
 })
 export class IdentifierMapperService {
-  private _inputText: string = null;
+  private _inputText: string;
 
   appConfig: AppConfig = getAppConfig();
 
@@ -35,7 +35,7 @@ export class IdentifierMapperService {
 
   private summaryMap: GeneSummaryMap;
   private _filteredIds: Array<string> = [];
-  private geneSummaryMapPromise: Promise<GeneSummaryMap> = null;
+  private geneSummaryMapPromise: Promise<GeneSummaryMap>;
 
   private _oneToOneMatches: { [id: string]: GeneSummary } = {};
   // eg. human PBRM1 -> pombe rsc4 and rsc1
@@ -46,7 +46,7 @@ export class IdentifierMapperService {
   private _notFound: Array<string> = [];
   private _mapperType: MapperType;
 
-  private readyResolve: () => void = null;
+  private readyResolve: () => void;
   private readyPromise: Promise<void> =
     new Promise((resolve, _) => {
       this.readyResolve = () => {

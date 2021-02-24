@@ -6,9 +6,9 @@ import { AppConfig, getAppConfig } from '../config';
 class DisplayTranscript {
   private _displayParts: Array<DisplayPart> = [];
   private _nonIntronParts: Array<DisplayPart> = [];
-  private _hightlightedPartId: string = null;
-  private _locationString: string = null;
-  private _padding: DisplayPart = null;
+  private _hightlightedPartId?: string;
+  private _locationString?: string;
+  private _padding?: DisplayPart;
 
   constructor(geneLocation: ChromosomeLocation,
               private transcript: TranscriptDetails) {
@@ -18,7 +18,7 @@ class DisplayTranscript {
 
     const geneLength = geneLocation.end_pos - geneLocation.start_pos + 1;
 
-    let paddingLocation: ChromosomeLocation = null;
+    let paddingLocation: ChromosomeLocation|undefined;
 
     if (transcript.location.strand === 'forward') {
       if (transcript.location.start_pos - geneLocation.start_pos > 0) {
@@ -107,11 +107,11 @@ class DisplayTranscript {
     this._hightlightedPartId = partId;
   }
 
-  public getHighlightedPart(): string {
+  public getHighlightedPart(): string|undefined {
     return this._hightlightedPartId;
   }
 
-  public padding(): DisplayPart {
+  public padding(): DisplayPart|undefined {
     return this._padding;
   }
 
@@ -120,7 +120,7 @@ class DisplayTranscript {
   }
 
   public displayLocation(): string {
-    return this._locationString;
+    return this._locationString ?? '';
   }
 
   public nonIntronParts(): Array<DisplayPart> {
@@ -138,7 +138,7 @@ class DisplayTranscript {
 
 class DisplayPart {
   private _divWidth = -1;
-  private _id: string = null;
+  private _id: string;
   private _next: DisplayPart;
   private _previous: DisplayPart;
 
@@ -266,9 +266,9 @@ class DisplayPart {
 export class TranscriptViewComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
 
-  transcripts: Array<TranscriptDetails> = null;
+  transcripts: Array<TranscriptDetails> = [];
 
-  chromosomeDisplayName: string = null;
+  chromosomeDisplayName?: string;
   displayTranscripts: Array<DisplayTranscript> = [];
 
   appConfig: AppConfig = getAppConfig();
@@ -329,8 +329,8 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (!this.geneDetails) {
-      this.transcripts = null;
-      this.chromosomeDisplayName = null;
+      this.transcripts = [];
+      this.chromosomeDisplayName = undefined;
       this.displayTranscripts = [];
       return;
     }

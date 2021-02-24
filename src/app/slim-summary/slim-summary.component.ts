@@ -23,10 +23,10 @@ export class SlimSummaryComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
   @Input() annotationTypeName: string;
 
-  annotationType: AnnotationType = null;
+  annotationType?: AnnotationType;
 
-  subsetPromise: Promise<TermSubsets> = null;
-  geneSlimTerms: Array<SlimSubsetElement> = [];
+  subsetPromise: Promise<TermSubsets>;
+  geneSlimTerms: Array<SlimSubsetElement>;
 
   getAllAncestors(): Set<string> {
     let ret = new Set<string>();
@@ -67,12 +67,15 @@ export class SlimSummaryComponent implements OnInit, OnChanges {
       .then((subsets) => {
         let allAncestors = this.getAllAncestors();
         this.geneSlimTerms = [];
-        const subset = subsets[this.annotationType.slim_subset_name];
-        for (const termid of Object.keys(subset.elements)) {
-          if (allAncestors.has(termid)) {
-            const element = subset.elements[termid];
-            const slimTerm = new SlimSubsetElement(termid, element.name, element.gene_count);
-            this.geneSlimTerms.push(slimTerm);
+        const slimSubsetName = this.annotationType!.slim_subset_name;
+        if (slimSubsetName) {
+          const subset = subsets[slimSubsetName];
+          for (const termid of Object.keys(subset.elements)) {
+            if (allAncestors.has(termid)) {
+              const element = subset.elements[termid];
+              const slimTerm = new SlimSubsetElement(termid, element.name, element.gene_count);
+              this.geneSlimTerms.push(slimTerm);
+            }
           }
         }
       });

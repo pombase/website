@@ -19,12 +19,12 @@ export class TermGenesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;
   queryBuilderRouterLink: string;
 
-  typeConfig: AnnotationType = null;
+  typeConfig: AnnotationType;
   genes: Array<GeneShort> = [];
   showAllAnnotationsLink = true;
-  apiError: APIError = null;
+  apiError?: APIError;
   subsets: TermSubsets = {};
-  geneSummaries: Array<GeneSummary> = null;
+  geneSummaries: Array<GeneSummary>;
   appConfig: AppConfig = getAppConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -87,6 +87,7 @@ export class TermGenesViewComponent implements OnInit {
                 this.collectGenes();
                 this.queryBuilderRouterLink = '/query/save/from/term_subset/' +
                   termDetails.termid + '/' + encodeURIComponent(termDetails.name);
+                this.apiError = undefined;
               })
               .catch(error => {
                 this.apiError = error;

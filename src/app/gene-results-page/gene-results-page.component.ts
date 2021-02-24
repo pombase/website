@@ -11,11 +11,11 @@ import { getAppConfig } from '../config';
   styleUrls: ['./gene-results-page.component.css']
 })
 export class GeneResultsPageComponent implements OnInit, OnDestroy {
-  results: QueryResult = null;
+  results: QueryResult;
   showLoading = true;
-  timerSubscription: Subscription = null;
+  timerSubscription?: Subscription;
   mode: string;
-  err: string = null;
+  err?: string;
 
   constructor(private queryService: QueryService,
               private router: Router,
@@ -69,12 +69,14 @@ export class GeneResultsPageComponent implements OnInit, OnDestroy {
     this.timerSubscription = timer$.subscribe(_ => {
       this.showLoading = true;
     });
-    this.err = null;
+    this.err = undefined;
     resultPromise
       .then(results => {
         this.results = results;
-        this.timerSubscription.unsubscribe();
-        this.timerSubscription = null;
+        if (this.timerSubscription) {
+          this.timerSubscription.unsubscribe();
+          this.timerSubscription = undefined;
+        }
         this.showLoading = false;
       })
       .catch(err => this.err = err);

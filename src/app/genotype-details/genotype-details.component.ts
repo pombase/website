@@ -22,7 +22,7 @@ export class GenotypeDetailsComponent implements OnInit {
   displayAlleles: Array<any> = [];
   displayName = '';
   displayNameForTitle = '';
-  apiError: APIError = null;
+  apiError?: APIError;
   appConfig: AppConfig = getAppConfig();
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -62,7 +62,7 @@ export class GenotypeDetailsComponent implements OnInit {
             this.setDisplayName();
             this.annotationTypeNames = this.config.annotationTypeOrder;
             this.setPageTitle();
-            this.apiError = null;
+            this.apiError = undefined;
           })
           .catch(error => {
             this.apiError = error;

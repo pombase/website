@@ -12,7 +12,7 @@ export class GeneListLookupComponent implements OnInit {
   @Output() genesFound = new EventEmitter();
 
   inputText = '';
-  listName: string = null;
+  listName?: string;
 
   unknownIds: Array<string> = [];
   geneSummaryMapPromise: Promise<GeneSummaryMap>;

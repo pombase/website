@@ -9,7 +9,7 @@ import { getAppConfig, AppConfig } from '../../config';
 })
 export class PageContentsMenuComponent implements OnInit {
   @Input() title: string;
-  @Input() titleRoute: string = null;
+  @Input() titleRoute: string;
 
   appConfig: AppConfig = getAppConfig();
   siteName = this.appConfig.site_name;
@@ -23,7 +23,7 @@ export class PageContentsMenuComponent implements OnInit {
   constructor(@Inject('Window') private window: any) { }
 
   @HostListener('window:scroll', ['$event'])
-  scrollEvent(event: any) {
+  scrollEvent(_: any) {
     if (this.title === 'News' || this.title === 'Documentation') {
       this.menuPositionFixed = false;
       return;

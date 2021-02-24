@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./api-error-display.component.css']
 })
 export class ApiErrorDisplayComponent implements OnInit {
-  @Input() error: APIError = null;
+  @Input() error: APIError;
 
   path: string;
 

@@ -68,7 +68,7 @@ export interface TermXref {
 export interface TermShort {
   termid: TermId,
   name: string,
-  definition: string,
+  definition: string|undefined,
   interesting_parent_ids: Array<string>,
   is_obsolete: boolean;
   gene_count: number;
@@ -308,7 +308,7 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
   constructor(nodeName: string|undefined,
               private termid: string,
               private termName: string,
-              private definition: string,
+              private definition: string|undefined,
               private single_or_multi_allele: string|undefined,
               private expression: string|undefined,
               private conditions: Array<TermAndName>,
@@ -456,7 +456,7 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
 }
 
 export class SubsetNode extends GeneQueryBase implements GeneQueryNode {
-  constructor(nodeName: string, public subsetName: string) {
+  constructor(nodeName: string|undefined, public subsetName: string) {
     super(nodeName);
     if (!nodeName) {
       this.setNodeName(this.detailsString());
@@ -502,7 +502,7 @@ function rangeToString(rangeNode: RangeNode) {
 }
 
 export abstract class RangeNode extends GeneQueryBase {
-  constructor(nodeName: string, public rangeType: string,
+  constructor(nodeName: string|undefined, public rangeType: string,
               public rangeStart: number, public rangeEnd: number) {
     super(nodeName);
     if (!nodeName) {
@@ -552,7 +552,7 @@ export class InteractorsNode extends GeneQueryBase implements GeneQueryNode {
 export class GenomeRangeNode extends GeneQueryBase implements GeneQueryNode {
   private _detailsString: string;
 
-  constructor(nodeName: string,
+  constructor(nodeName: string|undefined,
               private start: number, private end: number, private chromosomeName: string) {
     super(nodeName);
 

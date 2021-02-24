@@ -27,8 +27,8 @@ export class HttpRetryService {
   // if a request fails, retry it RETRY_COUNT times but delay RETRY_DELAY
   // milliseconds between tries
   // if a request hangs, timeout after REQUEST_TIMEOUT milliseconds
-  getWithRetry(url: string, options: RetryOptions = null): Observable<HttpResponse<any>> {
-    if (options == null) {
+  getWithRetry(url: string, options?: RetryOptions): Observable<HttpResponse<any>> {
+    if (!options) {
       options = new RetryOptions('json');
     }
     let getOptions: Object;
@@ -49,9 +49,9 @@ export class HttpRetryService {
                   return of(error);
                 }
               }),
-              delay(options.retryDelay),
-              take(options.retryCount),
-              mergeMap(err => throwError(`server access failed after ${options.retryCount} retries, error: ${err}`))
+              delay(options!.retryDelay),
+              take(options!.retryCount),
+              mergeMap(err => throwError(`server access failed after ${options!.retryCount} retries, error: ${err}`))
             )
         }),
         timeout(options.requestTimeout),

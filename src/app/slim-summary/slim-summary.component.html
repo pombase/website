@@ -1,4 +1,4 @@
-<div *ngIf="geneSlimTerms" class="slim-summary">
+<div *ngIf="geneSlimTerms && annotationType" class="slim-summary">
   <div *ngIf="geneSlimTerms.length > 0">
   <div>
     <a *ngIf="annotationType.slim_link" class="heading" routerLink="{{annotationType.slim_link}}">{{annotationType.slim_description}}</a>

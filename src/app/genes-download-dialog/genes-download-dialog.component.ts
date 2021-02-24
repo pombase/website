@@ -54,9 +54,9 @@ export class GenesDownloadDialogComponent implements OnInit {
     }
   }
 
-  private currentTab(): string {
+  private currentTab(): string|undefined {
     if (!this.staticTabs) {
-      return null;
+      return undefined;
     }
 
     if (this.staticTabs.tabs[0].active) {

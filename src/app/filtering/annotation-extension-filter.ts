@@ -20,7 +20,7 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
             for (let extPart of annotation.extension) {
               if (extPart.ext_range['term']) {
                 const rangeTerm = extPart.ext_range.term;
-                if (filterTermId == rangeTerm.termid) {
+                if (filterTermId === rangeTerm.termid) {
                   retTermAnnotation.annotations.push(annotation);
                   continue ANNOTATION;
                 }

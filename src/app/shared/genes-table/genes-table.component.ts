@@ -29,8 +29,8 @@ export class GenesTableComponent implements OnInit {
   // like: [{text: "abnormal cell ... ("}, {term: <a TermShort>}, {text: ")"}, ...]
   // which allows the the termids in a description to be linked to the term pages
   @Input() descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
-  @Input() genesOrResults: Array<GeneShort>|QueryResult = null;
-  queryResult: QueryResult = null;
+  @Input() genesOrResults: Array<GeneShort>|QueryResult;
+  queryResult: QueryResult;
   genes: Array<GeneShort> = [];
 
   legend = 'Results';
@@ -38,25 +38,25 @@ export class GenesTableComponent implements OnInit {
   faCog = faCog;
 
   orderByFieldName = 'product';
-  downloadModalRef: BsModalRef = null;
+  downloadModalRef: BsModalRef;
   selectedCountCache = -1;
 
-  slimName: string = null;
+  slimName?: string;
 
   sortableColumns = getAppConfig().getGeneResultsConfig().sortable_columns;
   visibleFieldNames: Array<string> = [];
   visibleFields: Array<GeneResultsFieldConfig> = [];
 
-  visDescription: string = null;
+  visDescription: string;
 
   tooManyGenesTitle = 'Too many genes for select mode, try the "Gene list" option from the Search menu';
   selectGenesTitle = 'Start gene selection and filtering mode';
 
-  selectedGenes: { [key: string]: boolean } = null;
+  selectedGenes?: { [key: string]: boolean };
 
   geneResultConfig = getAppConfig().getGeneResultsConfig();
   slimConfig = getAppConfig().slims;
-  slimDescription: string;
+  slimDescription?: string;
 
   slimNames: Array<string> = [];
   columnsSubscription: Subscription;
@@ -161,27 +161,31 @@ export class GenesTableComponent implements OnInit {
   startSelection() {
     this.selectedGenes = {};
     this.genes.map(gene => {
-      this.selectedGenes[gene.uniquename] = false;
+      this.selectedGenes![gene.uniquename] = false;
     });
     this.selectedCountCache = 0;
   }
 
   cancelSelection() {
-    this.selectedGenes = null;
+    this.selectedGenes = undefined;
     this.selectedCountCache = -1;
   }
 
   selectAll() {
-    Object.keys(this.selectedGenes).map(geneUniquename => {
-      this.selectedGenes[geneUniquename] = true;
-    });
-    this.selectedCountCache = this.genes.length;
+    if (this.selectedGenes) {
+      Object.keys(this.selectedGenes).map(geneUniquename => {
+        this.selectedGenes![geneUniquename] = true;
+      });
+      this.selectedCountCache = this.genes.length;
+    }
   }
 
   selectNone() {
-    Object.keys(this.selectedGenes).map(geneUniquename => {
-      this.selectedGenes[geneUniquename] = false;
-    });
+    if (this.selectedGenes) {
+      Object.keys(this.selectedGenes).map(geneUniquename => {
+        this.selectedGenes![geneUniquename] = false;
+      });
+    }
     this.selectedCountCache = 0;
   }
 
@@ -192,15 +196,25 @@ export class GenesTableComponent implements OnInit {
   selectedCount() {
     if (this.selectedCountCache === -1) {
       this.selectedCountCache = 0;
-      Object.keys(this.selectedGenes).map(geneUniquename => {
-        if (this.selectedGenes[geneUniquename]) {
-          this.selectedCountCache++;
-        }
-      });
-
+      if (this.selectedGenes) {
+        Object.keys(this.selectedGenes).map(geneUniquename => {
+          if (this.selectedGenes![geneUniquename]) {
+            this.selectedCountCache++;
+          }
+        });
+      }
     }
 
     return this.selectedCountCache;
+  }
+
+  queryResultDisplayName(queryResult: QueryResult): string {
+    if (queryResult) {
+      return queryResult.getQuery().getQueryName() ||
+        queryResult.getQuery().toString();
+    } else {
+      return '[unknown query]';
+    }
   }
 
   private makeGeneListQuery(): GeneQuery {
@@ -213,7 +227,7 @@ export class GenesTableComponent implements OnInit {
   }
 
   private makeGeneQueryFromList(genes: Array<{ uniquename: string }>): GeneQuery {
-    let newName = null;
+    let newName = undefined;
     if (this.genesOrResults instanceof QueryResult) {
       const queryResults = this.genesOrResults;
       if (queryResults.getQuery().getQueryName()) {
@@ -235,8 +249,12 @@ export class GenesTableComponent implements OnInit {
   }
 
   filter() {
+    if (!this.selectedGenes) {
+      return;
+    }
+
     const selectedGenes =
-      this.genes.filter(gene => this.selectedGenes[gene.uniquename]);
+      this.genes.filter(gene => this.selectedGenes![gene.uniquename]);
 
     const geneQuery = this.makeGeneQueryFromList(selectedGenes);
     const callback = (historyEntry: HistoryEntry) => {
@@ -244,7 +262,7 @@ export class GenesTableComponent implements OnInit {
     };
     this.queryService.runAndSaveToHistory(geneQuery, callback);
 
-    this.selectedGenes = null;
+    this.selectedGenes = undefined;
     this.selectedCountCache = -1;
   }
 
@@ -318,8 +336,8 @@ export class GenesTableComponent implements OnInit {
       this.slimName = this.mode.substr(5);
       this.slimDescription = getAppConfig().slims[this.slimName].description;
     } else {
-      this.slimName = null;
-      this.slimDescription = null;
+      this.slimName = undefined;
+      this.slimDescription = undefined;
     }
 
     if (this.genesOrResults instanceof QueryResult) {

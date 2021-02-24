@@ -29,14 +29,14 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
 
   reset(): void {
     this.selectedCategory = null;
-    this.setCategory(null);
+    this.setCategory(undefined);
   }
 
-  setCategory(event: SelectData): void {
+  setCategory(event?: SelectData): void {
     if (event) {
       this.filterChange.emit(new AnnotationTermFilter(event.ancestors));
     } else {
-      this.filterChange.emit(null);
+      this.filterChange.emit(undefined);
     }
   }
 
@@ -49,6 +49,10 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
     this.selectedCategory = null;
 
     this.choiceData = [];
+
+    if (!this.config.term_categories) {
+      return;
+    }
 
     let seenAncestors: { [key: string]: boolean } = {};
 

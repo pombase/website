@@ -12,8 +12,8 @@ export class WithOrFromLinkComponent implements OnInit {
 
   gene: any = null;
   term: any = null;
-  identifier: string = null;
-  link: string = null;
+  identifier?: string;
+  link?: string;
 
   constructor() { }
 
@@ -31,7 +31,7 @@ export class WithOrFromLinkComponent implements OnInit {
       if (xrfDetails) {
         this.link = xrfDetails.url;
       } else {
-        this.link = null;
+        this.link = undefined;
       }
     }
   }

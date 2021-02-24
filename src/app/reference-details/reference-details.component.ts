@@ -23,15 +23,15 @@ export class ReferenceDetailsComponent implements OnInit {
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   isPubMedRef = false;
-  pubMedId: string = null;
-  apiError: APIError = null;
-  cantoCommunityCuratorName: string = null;
+  pubMedId?: string;
+  apiError?: APIError;
+  cantoCommunityCuratorName?: string;
   cantoTriageStatus = 'UNKNOWN';
 
   multiOrgMode = getAppConfig().isMultiOrganismMode();
-  graphicalAbstractImagePath: string = null;
-  videoPath: string = null;
-  doiUrl: string = null;
+  graphicalAbstractImagePath?: string;
+  videoPath?: string;
+  doiUrl?: string;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -55,7 +55,7 @@ export class ReferenceDetailsComponent implements OnInit {
   }
 
   setCantoFields(): void {
-    this.cantoCommunityCuratorName = null;
+    this.cantoCommunityCuratorName = undefined;
     if (this.refDetails.canto_curator_role &&
         this.refDetails.canto_curator_role === 'community' &&
         this.refDetails.canto_curator_name) {
@@ -146,8 +146,8 @@ export class ReferenceDetailsComponent implements OnInit {
   }
 
   setGraphicalAbstract(): void {
-    this.graphicalAbstractImagePath = null;
-    this.videoPath = null;
+    this.graphicalAbstractImagePath = undefined;
+    this.videoPath = undefined;
     for (const panelConf of this.appConfig.frontPagePanels) {
       if (panelConf.panel_type === 'spotlight' && panelConf.head_image &&
           panelConf.reference_id && panelConf.reference_id === this.refDetails.uniquename) {
@@ -167,7 +167,7 @@ export class ReferenceDetailsComponent implements OnInit {
         let uniquename = params['uniquename'];
         this.pombaseApiService.getReference(uniquename)
           .then(refDetails => {
-            this.apiError = null;
+            this.apiError = undefined;
             this.refDetails = refDetails;
             this.annotationTypeNames = this.config.annotationTypeOrder;
             let re = /(PMID):(\d+)/i;
@@ -177,7 +177,7 @@ export class ReferenceDetailsComponent implements OnInit {
               this.pubMedId = matches[2];
             } else {
               this.isPubMedRef = false;
-              this.pubMedId = null;
+              this.pubMedId = undefined;
             }
             this.setPageTitle();
             this.setCantoFields();
@@ -185,9 +185,9 @@ export class ReferenceDetailsComponent implements OnInit {
 
             this.setGraphicalAbstract();
             if (refDetails.doi) {
-              this.doiUrl = getXrfWithPrefix('DOI', refDetails.doi).url;
+              this.doiUrl = getXrfWithPrefix('DOI', refDetails.doi)?.url;
             } else {
-              this.doiUrl = null;
+              this.doiUrl = undefined;
             }
           })
           .catch(error => {

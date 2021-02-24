@@ -9,12 +9,12 @@ export class GenotypeOrderByPipe implements PipeTransform {
   transform(genotypes: Array<GenotypeShort>, field: string): any {
     genotypes.sort(function(g1, g2) {
       if (field === 'gene') {
-        return Util.geneCompare(g1.expressed_alleles[0].allele.gene,
-                                g2.expressed_alleles[0].allele.gene);
+        return Util.geneCompare(g1.expressed_alleles[0].allele.gene!,
+                                g2.expressed_alleles[0].allele.gene!);
       } else {
         if (field === 'product') {
-          return Util.geneProductCompare(g1.expressed_alleles[0].allele.gene,
-                                         g2.expressed_alleles[0].allele.gene);
+          return Util.geneProductCompare(g1.expressed_alleles[0].allele.gene!,
+                                         g2.expressed_alleles[0].allele.gene!);
         } else {
           return Util.genotypeCompare(g1, g2);
         }

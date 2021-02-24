@@ -9,7 +9,7 @@ import { PombaseAPIService, ReferenceShort } from '../pombase-api.service';
   styleUrls: ['./recent-community-pubs.component.css']
 })
 export class RecentCommunityPubsComponent implements OnInit {
-  recentCommunityCurationPubs: Array<ReferenceShort> = null;
+  recentCommunityCurationPubs: Array<ReferenceShort>;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

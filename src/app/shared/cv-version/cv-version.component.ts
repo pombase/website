@@ -10,8 +10,8 @@ import { Metadata, PombaseAPIService } from '../../pombase-api.service';
 export class CvVersionComponent implements OnInit, OnChanges {
   @Input() cvName: string;
 
-  metadataPromise: Promise<Metadata> = null;
-  version: string = null;
+  metadataPromise: Promise<Metadata>;
+  version?: string;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
@@ -19,7 +19,7 @@ export class CvVersionComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.version = null;
+    this.version = undefined;
     if (this.metadataPromise == null) {
       this.metadataPromise = this.pombaseApiService.getMetadata();
     }

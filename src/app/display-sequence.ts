@@ -143,7 +143,7 @@ export class DisplaySequence {
   }
 
   rangeFromParts(startPartId: number, startPartOffset: number,
-                 endPartId: number, endPartOffset: number): ResidueRange {
+                 endPartId: number, endPartOffset: number): ResidueRange|undefined {
     let residuesSoFar = 0;
     let startPos = -1;
 
@@ -157,7 +157,7 @@ export class DisplaySequence {
 
         if (part.partId === endPartId) {
           if (startPos === -1) {
-            return null;
+            return undefined;
           } else {
             const endPos = residuesSoFar + endPartOffset;
             return new ResidueRange(startPos + 1, endPos + 1);
@@ -168,6 +168,6 @@ export class DisplaySequence {
       }
     }
 
-    return null;
+    return undefined;
   }
 }

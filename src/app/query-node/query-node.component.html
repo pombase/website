@@ -49,7 +49,7 @@
       <div *ngIf="activeConf.nodeType == 'small-ontology'">
         <select [(ngModel)]="selectedTerm"
                 (ngModelChange)="smallOntologyChange()">
-          <option [ngValue]="null">Choose ...</option>
+          <option [ngValue]="undefined">Choose ...</option>
           <option *ngFor = "let term of activeConf.terms" [ngValue]="term">
             {{term.name}}
           </option>
@@ -59,7 +59,7 @@
       <div *ngIf="activeConf.nodeType == 'subset-select'">
         <select [(ngModel)]="selectedSubset"
                 (ngModelChange)="subsetChange()">
-          <option [ngValue]="null">Choose ...</option>
+          <option [ngValue]="undefined">Choose ...</option>
           <option *ngFor = "let subset of activeConf.subsets" [ngValue]="subset">
             {{removePrefix(subset.displayName)}}
           </option>
@@ -108,7 +108,7 @@
           <span *ngIf="!chromosomeSummaries">[loading ...]</span>
           <span *ngIf="chromosomeSummaries">
             <select [(ngModel)]="chromosomeName">
-              <option [ngValue]="null">Choose a chromosome</option>
+              <option [ngValue]="undefined">Choose a chromosome</option>
               <option *ngFor = "let chromosomeSummary of chromosomeSummaries"
                       [ngValue]="chromosomeSummary.name">
                 {{chromosomeSummary.name}}

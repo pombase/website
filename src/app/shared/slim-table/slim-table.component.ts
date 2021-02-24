@@ -19,16 +19,16 @@ export class SlimTableComponent implements OnInit {
 
   appConfig = getAppConfig();
 
-  slimSubset: TermSubsetDetails = null;
+  slimSubset: TermSubsetDetails;
   slimSubsetElements: Array<SlimSubsetElement> = [];
-  nonSlimWithAnnotation: GeneSubsetDetails = null;
-  nonSlimWithoutAnnotation: GeneSubsetDetails = null;
-  apiError: APIError = null;
+  nonSlimWithAnnotation: GeneSubsetDetails;
+  nonSlimWithoutAnnotation: GeneSubsetDetails;
+  apiError: APIError;
 
-  slimConfig: SlimConfig = null;
-  nonSlimWithAnnotationName: string = null;
-  nonSlimWithoutAnnotationName: string = null;
-  cvDisplayName: string = null;
+  slimConfig: SlimConfig;
+  nonSlimWithAnnotationName: string;
+  nonSlimWithoutAnnotationName: string;
+  cvDisplayName: string;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <app-interpro-matches *ngIf="geneDetails.interpro_matches.length > 0"
+  <app-interpro-matches *ngIf="geneDetails.interpro_matches.length > 0 && geneDetails.uniprot_identifier"
                         [geneDisplayName]="geneDetails.name || geneDetails.uniquename"
                         [uniprotIdentifier]="geneDetails.uniprot_identifier"
                         [matches]="geneDetails.interpro_matches">

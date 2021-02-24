@@ -36,7 +36,7 @@ export class AnnotationTableFiltersComponent implements OnInit, OnChanges {
     }
 
     if (eventsToEmit.length === 0) {
-      this.filterChange.emit(null);
+      this.filterChange.emit(undefined);
     } else {
       this.filterChange.emit(new FilterCombiner<AnnotationTable>(eventsToEmit));
     }

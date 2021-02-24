@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ExtPart } from '../pombase-api.service';
 import { TermShort } from '../pombase-query';
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, LinkoutConfig, getXrf, getXrfWithPrefix } from '../config';
+         getAppConfig, LinkoutConfig, getXrf } from '../config';
 
 @Component({
   selector: 'app-extension-display',
@@ -19,21 +19,17 @@ export class ExtensionDisplayComponent implements OnInit {
 
   constructor() { }
 
-  getLinkWithPrefix(prefix: string, id: string): string {
-    return getXrfWithPrefix(prefix, id).url;
-  }
-
-  getLink(idWithPrefix: string): string {
+  getLink(idWithPrefix: string): string|undefined {
     const linkConf = getXrf(idWithPrefix);
     if (linkConf) {
       return linkConf.url;
     } else {
-      return null;
+      return undefined;
     }
   }
 
   ngOnInit() {
-    let organismRE: RegExp = null;
+    let organismRE: RegExp;
     const loadOrganism = getAppConfig().getConfigOrganism();
     if (loadOrganism) {
       const loadOrganismFullName = loadOrganism.genus + ' ' + loadOrganism.species;

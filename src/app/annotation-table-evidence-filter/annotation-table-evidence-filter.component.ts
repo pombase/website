@@ -29,14 +29,14 @@ export class AnnotationTableEvidenceFilterComponent implements OnInit, OnChanges
 
   reset(): void {
     this.selectedCategory = null;
-    this.setCategory(null);
+    this.setCategory(undefined);
   }
 
-  setCategory(event: SelectData): void {
+  setCategory(event?: SelectData): void {
     if (event) {
       this.filterChange.emit(new AnnotationEvidenceFilter(event.evidenceCodes));
     } else {
-      this.filterChange.emit(null);
+      this.filterChange.emit(undefined);
     }
   }
 
@@ -49,6 +49,10 @@ export class AnnotationTableEvidenceFilterComponent implements OnInit, OnChanges
     this.selectedCategory = null;
 
     this.choiceData = [];
+
+    if (!this.config.evidence_categories) {
+      return;
+    }
 
     let seenEvidence: { [key: string]: boolean } = {};
 

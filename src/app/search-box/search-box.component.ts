@@ -15,12 +15,12 @@ class SearchSummary {
   constructor(
     public uniquename: string,
     public uniquenameLowerCase: string,
-    public name: string,
-    public nameLowerCase: string,
-    public product: string,
-    public productLowerCase: string,
-    public uniprotIdentifier: string,
-    public uniprotIdentifierLowerCase: string,
+    public name: string|undefined,
+    public nameLowerCase: string|undefined,
+    public product: string|undefined,
+    public productLowerCase: string|undefined,
+    public uniprotIdentifier: string|undefined,
+    public uniprotIdentifierLowerCase: string|undefined,
     public transcripts: Array<string>,
     public lowerCaseTranscripts: Array<string>,
     public synonyms: Array<string>,
@@ -32,9 +32,9 @@ class SearchSummary {
 class DisplayModel {
   constructor(public matchType: string,
               public uniquename: string,
-              public name: string,
+              public name: string|undefined,
               public otherDetails: Array<string>,
-              public organism: ConfigOrganism = null) {
+              public organism?: ConfigOrganism) {
     if (this.name && this.name.length > 45) {
       this.name = this.name.slice(0, 42) + '...';
     }
@@ -81,7 +81,8 @@ export class SearchBoxComponent implements OnInit {
     return this.searchSummaries.length > 0;
   }
 
-  makeGeneDisplayModel(uniquename: string, name: string, otherDetailsArg: Array<string>, organism: ConfigOrganism): DisplayModel {
+  private makeGeneDisplayModel(uniquename: string, name: string|undefined, otherDetailsArg: Array<string>,
+                               organism: ConfigOrganism): DisplayModel {
     let otherDetails: Array<string> = [...otherDetailsArg];
     if (getAppConfig().isMultiOrganismMode()) {
       const orgDetails =
@@ -92,7 +93,7 @@ export class SearchBoxComponent implements OnInit {
     return new DisplayModel('Matching genes:', uniquename, name, otherDetails, organism);
   }
 
-  highlightMatch(pos: number, searchString: string, target?: string): string {
+  private highlightMatch(pos: number, searchString: string, target?: string): string {
     let start;
     let highlightBit;
     let rest;
@@ -108,52 +109,52 @@ export class SearchBoxComponent implements OnInit {
     return `${start}<span class="search-box-highlight">${highlightBit}</span>${rest}`;
   }
 
-  makeTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
+  private makeTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
     return new DisplayModel('Matching terms:', termResult.termid, termResult.name,
                             [termResult.definition]);
   }
 
-  makeRefDisplayModel(refResult: SolrRefSummary): DisplayModel {
+  private makeRefDisplayModel(refResult: SolrRefSummary): DisplayModel {
     return new DisplayModel('Matching publications:', refResult.pubmedid, refResult.title,
                             [refResult.author_and_citation]);
   }
 
-  nameExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+  private nameExactMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     if (geneSumm.nameLowerCase === value) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
     }
-    return null;
+    return undefined;
   }
 
-  nameMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+  private nameMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     if (geneSumm.nameLowerCase && geneSumm.nameLowerCase.indexOf(value) !== -1 &&
-        (geneSumm.name.indexOf('-antisense-') === -1 ||
+        (geneSumm.name!.indexOf('-antisense-') === -1 ||
          value.indexOf('antisense') !== -1)) { // See #409
         return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
     } else {
-      return null;
+      return undefined;
     }
   }
 
-  identifierMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+  private identifierMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     if (geneSumm.uniquenameLowerCase.indexOf(value) !== -1) {
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
     } else {
-      return null;
+      return undefined;
     }
   }
 
-  antisenseNameMatch(geneSumm: SearchSummary, value: string): DisplayModel {
-    if (geneSumm.name && geneSumm.nameLowerCase.indexOf(value) !== -1 &&
-        geneSumm.name.indexOf('-antisense-') !== -1 &&
+  private antisenseNameMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
+    if (geneSumm.nameLowerCase && geneSumm.nameLowerCase.indexOf(value) !== -1 &&
+        geneSumm.name!.indexOf('-antisense-') !== -1 &&
         value.indexOf('antisense') === -1) { // See #409
         return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
     } else {
-      return null;
+      return undefined;
     }
   }
 
-  transcriptMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+  private transcriptMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     const matchIndex = geneSumm.lowerCaseTranscripts.findIndex(id => id === value);
     if (matchIndex !== -1) {
       const highlightedMatch = this.highlightMatch(0, geneSumm.transcripts[matchIndex]);
@@ -161,10 +162,10 @@ export class SearchBoxComponent implements OnInit {
                                        ['transcript: ' + highlightedMatch],
                                        geneSumm.organism);
     }
-    return null;
+    return undefined;
   }
 
-  synonymMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+  private synonymMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     const matchIndex = geneSumm.synonymsLowerCase.findIndex(syn => syn.indexOf(value) !== -1);
     if (matchIndex !== -1) {
       const highlightedMatch = this.highlightMatch(0, geneSumm.synonyms[matchIndex]);
@@ -172,10 +173,10 @@ export class SearchBoxComponent implements OnInit {
                                        ['synonym: ' + highlightedMatch],
                                        geneSumm.organism);
     }
-    return null;
+    return undefined;
   }
 
-  synonymExactMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+  private synonymExactMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     const matchIndex = geneSumm.synonymsLowerCase.findIndex(syn => syn === value);
     if (matchIndex !== -1) {
       const highlightedMatch = this.highlightMatch(0, geneSumm.synonyms[matchIndex]);
@@ -183,10 +184,10 @@ export class SearchBoxComponent implements OnInit {
                                        ['synonym: ' + highlightedMatch],
                                        geneSumm.organism);
     }
-    return null;
+    return undefined;
   }
 
-  orthologMatch(geneSumm: SearchSummary, value: string, exactness: 'exact'|'sub-string'): DisplayModel {
+  private orthologMatch(geneSumm: SearchSummary, value: string, exactness: 'exact'|'sub-string'): DisplayModel|undefined {
     interface FieldAndOrth {
       matchingFieldValue: string;
       orth: IdNameAndOrganism;
@@ -229,12 +230,12 @@ export class SearchBoxComponent implements OnInit {
         details, geneSumm.organism);
     }
 
-    return null;
+    return undefined;
   }
 
-  productMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+  private productMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     if (geneSumm.product) {
-      const pos = geneSumm.productLowerCase.indexOf(value);
+      const pos = geneSumm.productLowerCase!.indexOf(value);
       if (pos !== -1) {
         const highlightedMatch = this.highlightMatch(pos, value, geneSumm.product);
         return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
@@ -242,12 +243,12 @@ export class SearchBoxComponent implements OnInit {
                                          geneSumm.organism);
       }
     }
-    return null;
+    return undefined;
   }
 
-  uniprotIdMatch(geneSumm: SearchSummary, value: string): DisplayModel {
+  private uniprotIdMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     if (geneSumm.uniprotIdentifier) {
-      const pos = geneSumm.uniprotIdentifierLowerCase.indexOf(value);
+      const pos = geneSumm.uniprotIdentifierLowerCase!.indexOf(value);
 
       if (pos !== -1) {
         const highlightedMatch = this.highlightMatch(pos, value, geneSumm.uniprotIdentifier);
@@ -256,14 +257,14 @@ export class SearchBoxComponent implements OnInit {
                                          geneSumm.organism);
       }
     }
-    return null;
+    return undefined;
   }
 
-  containsMatch(matches: Array<DisplayModel>, match: DisplayModel): boolean {
+  private containsMatch(matches: Array<DisplayModel>, match: DisplayModel): boolean {
     return matches.findIndex((element) => element.uniquename === match.uniquename) !== -1;
   }
 
-  summariesFromToken(fieldValue: string): Array<DisplayModel> {
+  private summariesFromToken(fieldValue: string): Array<DisplayModel> {
     if (this.searchSummaries) {
       let value = fieldValue.trim().toLowerCase();
 
@@ -273,7 +274,7 @@ export class SearchBoxComponent implements OnInit {
       if (value.length > 0) {
         let filteredSummaries: Array<DisplayModel> = [];
 
-        const maybeAdd = (match: DisplayModel) => {
+        const maybeAdd = (match?: DisplayModel) => {
           if (match && filteredSummaries.length < 20 &&
               !this.containsMatch(filteredSummaries, match)) {
             filteredSummaries.push(match);

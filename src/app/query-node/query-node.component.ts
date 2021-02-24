@@ -8,8 +8,8 @@ import { getAppConfig, QueryNodeConfig, QueryNodeSubsetConfig } from '../config'
 import { PombaseAPIService } from '../pombase-api.service';
 
 interface NodeEventDetails {
-  node: GeneQueryNode;
-  nodeConf: QueryNodeConfig;
+  node?: GeneQueryNode;
+  nodeConf?: QueryNodeConfig;
 }
 
 @Component({
@@ -18,20 +18,20 @@ interface NodeEventDetails {
   styleUrls: ['./query-node.component.css']
 })
 export class QueryNodeComponent implements OnInit, OnChanges {
-  @Input() startNodeType: string = null;
+  @Input() startNodeType?: string;
   @Output() nodeEvent = new EventEmitter<NodeEventDetails>();
 
   nodeTypes = getAppConfig().queryBuilder.node_types;
-  cannedQueryDetails: Array<{ name: string; queryId: string; }> = null;
-  chromosomeSummaries: Array<ChromosomeShort> = null;
+  cannedQueryDetails?: Array<{ name: string; queryId: string; }>;
+  chromosomeSummaries?: Array<ChromosomeShort>;
 
-  activeConf: QueryNodeConfig = null;
-  selectedTerm: TermShort = null;
-  selectedSubset: QueryNodeSubsetConfig = null;
+  activeConf?: QueryNodeConfig;
+  selectedTerm?: TermShort;
+  selectedSubset?: QueryNodeSubsetConfig;
   subsetName = '';
-  rangeStart: number = null;
-  rangeEnd: number = null;
-  chromosomeName: string = null;
+  rangeStart?: number;
+  rangeEnd?: number;
+  chromosomeName?: string;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
@@ -41,7 +41,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
         const queryId = 'canned_query:' + id;
         const query = GeneQuery.fromJSONString(getAppConfig().getPredefinedQuery(queryId));
         return {
-          name: query.getQueryName(),
+          name: query.getQueryName() || '[canned query name not configured]',
           queryId: queryId,
         };
       });
@@ -67,19 +67,19 @@ export class QueryNodeComponent implements OnInit, OnChanges {
     return s.slice(firstColon + 1);
   }
 
-  emitNodeEvent(node: GeneQueryNode): void {
+  emitNodeEvent(node?: GeneQueryNode): void {
     this.nodeEvent.emit({ node, nodeConf: this.activeConf });
   }
 
   clearQuery(): void {
-    this.selectedTerm = null;
-    this.selectedSubset = null;
+    this.selectedTerm = undefined;
+    this.selectedSubset = undefined;
     this.subsetName = '';
-    this.rangeStart = null;
-    this.rangeEnd = null;
-    this.activeConf = null;
+    this.rangeStart = undefined;
+    this.rangeEnd = undefined;
+    this.activeConf = undefined;
     // clear the current query and results
-    this.emitNodeEvent(null);
+    this.emitNodeEvent(undefined);
   }
 
   setNodeType(confId: string) {
@@ -105,15 +105,15 @@ export class QueryNodeComponent implements OnInit, OnChanges {
 
   smallOntologyChange(): void {
     if (this.selectedTerm) {
-      let part = new TermNode(null, this.selectedTerm.termid, this.selectedTerm.name,
-                              this.selectedTerm.definition, null, null, [], []);
+      let part = new TermNode(undefined, this.selectedTerm.termid, this.selectedTerm.name,
+                              this.selectedTerm.definition, undefined, undefined, [], []);
       this.emitNodeEvent(part);
     }
   }
 
   subsetChange(): void {
     if (this.selectedSubset) {
-      let part = new SubsetNode(null, this.selectedSubset.name);
+      let part = new SubsetNode(undefined, this.selectedSubset.name);
       this.emitNodeEvent(part);
     }
   }
@@ -122,12 +122,12 @@ export class QueryNodeComponent implements OnInit, OnChanges {
     let trimmedSubsetName = this.subsetName.trim();
     if (trimmedSubsetName.length > 0) {
       let longName;
-      if (this.activeConf.subsetPrefix) {
+      if (this.activeConf && this.activeConf.subsetPrefix) {
         longName = this.activeConf.subsetPrefix + ':' + trimmedSubsetName;
       } else {
         longName = trimmedSubsetName;
       }
-      let part = new SubsetNode(null, longName);
+      let part = new SubsetNode(undefined, longName);
       this.emitNodeEvent(part);
     }
   }
@@ -135,26 +135,26 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   validRange(): boolean {
     return (this.rangeStart !== null ||
             this.rangeEnd !== null) &&
-      (this.rangeStart === null ||
-       this.rangeEnd === null ||
+      (this.rangeStart === undefined ||
+       this.rangeEnd === undefined ||
        this.rangeStart <= this.rangeEnd);
   }
 
   intRangeSearch(): void {
-    let part = new IntRangeNode(null, this.activeConf.id,
-                                this.rangeStart, this.rangeEnd);
+    let part = new IntRangeNode(undefined, this.activeConf!.id,
+                                this.rangeStart!, this.rangeEnd!);
     this.emitNodeEvent(part);
   }
 
   floatRangeSearch(): void {
-    let part = new FloatRangeNode(null, this.activeConf.id,
-                                  this.rangeStart, this.rangeEnd);
+    let part = new FloatRangeNode(undefined, this.activeConf!.id,
+                                  this.rangeStart!, this.rangeEnd!);
     this.emitNodeEvent(part);
   }
 
   genomeRangeSearch(): void {
     if (this.chromosomeName) {
-      const part = new GenomeRangeNode(null, this.rangeStart, this.rangeEnd,
+      const part = new GenomeRangeNode(undefined, this.rangeStart!, this.rangeEnd!,
                                        this.chromosomeName);
       this.emitNodeEvent(part);
     }

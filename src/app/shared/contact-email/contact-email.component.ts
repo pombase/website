@@ -9,7 +9,7 @@ import { getAppConfig } from '../../config';
 })
 export class ContactEmailComponent implements OnInit {
   @Input() linkName = 'Contact';
-  @Input() subject: string = null;
+  @Input() subject: string;
 
   emailLink = 'mailto:' + getAppConfig().helpdesk_address;
 

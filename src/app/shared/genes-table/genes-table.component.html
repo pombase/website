@@ -86,13 +86,13 @@
 
   <div class="content">
   <div *ngIf="showingVisualisation()">
-    <app-gene-results-vis [genes]="genes" [geneListDescription]="queryResult?.getQuery()?.getQueryName()">
+    <app-gene-results-vis [genes]="genes" [geneListDescription]="queryResultDisplayName(queryResult)">
     </app-gene-results-vis>
   </div>
 
   <div *ngIf="showingSlim()">
-    <app-gene-results-slim-table [genes]="genes" [slimName]="slimName"
-                                 [geneListDescription]="queryResult?.getQuery()?.getQueryName()">
+    <app-gene-results-slim-table [genes]="genes" [slimName]="slimName!"
+                                 [geneListDescription]="queryResultDisplayName(queryResult)">
     </app-gene-results-slim-table>
   </div>
 
@@ -125,7 +125,7 @@
           <input type="checkbox"
                  [name]="gene.uniquename"
                  (ngModelChange)="selectionChanged()"
-                 [(ngModel)]="selectedGenes[gene.uniquename]"/>
+                 [(ngModel)]="selectedGenes![gene.uniquename]"/>
         </td>
         <td *ngFor="let fieldName of visibleFieldNames">
           <a *ngIf="fieldName == 'uniquename'" routerLink="/gene/{{gene['uniquename']}}">

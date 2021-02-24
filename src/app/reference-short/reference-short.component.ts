@@ -16,7 +16,7 @@ export class ReferenceShortComponent implements OnInit {
   displayString = '';
   refTitle = '';
   popoverContents: string[] = [];
-  xref: string = null;
+  xref?: string;
   isPMID = false;
 
   constructor() { }
@@ -64,7 +64,8 @@ export class ReferenceShortComponent implements OnInit {
       }
     }
 
-    if (this.reference.gene_count > 0 || this.reference.genotype_count > 0) {
+    if (this.reference.gene_count && this.reference.gene_count > 0 ||
+       this.reference.genotype_count && this.reference.genotype_count > 0) {
       this.isPMID = true;
     }
 

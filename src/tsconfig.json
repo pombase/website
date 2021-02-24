@@ -13,7 +13,9 @@
     "allowUnreachableCode": false,
     "noImplicitAny": true,
     "noUnusedLocals": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
     "strictPropertyInitialization": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
@@ -24,6 +26,7 @@
   "angularCompilerOptions": {
     "preserveWhitespaces": true,
     "enableIvy": true,
+    "strict": true,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true

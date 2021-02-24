@@ -19,8 +19,8 @@ export class IdentifierMapperResultsComponent implements OnInit {
 
   resultsReady = false;
 
-  private geneSummaryMapPromise: Promise<GeneSummaryMap> = null;
-  geneSummaryMap: GeneSummaryMap = null;
+  private geneSummaryMapPromise: Promise<GeneSummaryMap>;
+  geneSummaryMap: GeneSummaryMap;
   private _showAllNotFound: boolean = false;
 
   private _showAllOneToOne: boolean = false;

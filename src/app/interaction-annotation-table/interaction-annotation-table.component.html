@@ -1,4 +1,4 @@
-<fieldset *ngIf="displayTable?.length > 0" class="annotation-table">
+<fieldset *ngIf="displayTable && displayTable.length > 0" class="annotation-table">
   <legend>
     {{annotationTypeDisplayName}}
 
@@ -13,7 +13,7 @@
     View interactions for {{currentGene.displayName}} at BioGRID ...
   </a>
 
-  <div class="filter-controls">
+  <div class="filter-controls" *ngIf="filters">
     <app-interaction-table-filters [interactionTable]="annotationTable"
                                    [filters]="filters"
                                    (filterChange)="updateCurrentFilter($event)">

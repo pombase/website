@@ -10,7 +10,7 @@ export class GeneResultsComponent implements OnInit, OnChanges {
   @Input() mode: string;
   @Input() results: QueryResult;
 
-  description: string = null;
+  description: string;
 
   descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
   termsInQuery: Array<TermAndName> = [];

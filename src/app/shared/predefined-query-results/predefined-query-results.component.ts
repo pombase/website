@@ -11,10 +11,10 @@ import { Subscription } from 'rxjs';
 })
 export class PredefinedQueryResultsComponent implements OnInit {
   @Input() predefinedQueryId: string;
-  @Input() description: string = null;
+  @Input() description: string;
 
-  results: QueryResult = null;
-  subscription: Subscription = null;
+  results: QueryResult;
+  subscription: Subscription;
 
   constructor(private queryService: QueryService) { }
 

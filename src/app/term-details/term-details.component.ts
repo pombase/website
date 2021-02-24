@@ -18,10 +18,10 @@ export class TermDetailsComponent implements OnInit {
   @Input() termDetails: TermDetails;
 
   annotationFeatureType = '';
-  typeConfig: AnnotationType = null;
+  typeConfig: AnnotationType;
   annotationTypeNames: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
-  apiError: APIError = null;
+  apiError?: APIError;
   visibleSections: Array<string> = [];
   annotatedGeneCount = 0;
   singleAlleleGenotypeGeneCount = 0;
@@ -93,7 +93,9 @@ export class TermDetailsComponent implements OnInit {
 
     for (let genotype of this.termDetails.single_allele_genotypes) {
       let gene = genotype.expressed_alleles[0].allele.gene;
-      singleAlleleGenotypeGenes[gene.uniquename] = true;
+      if (gene) {
+        singleAlleleGenotypeGenes[gene.uniquename] = true;
+      }
     }
 
     this.singleAlleleGenotypeGeneCount = Object.keys(singleAlleleGenotypeGenes).length;
@@ -119,7 +121,7 @@ export class TermDetailsComponent implements OnInit {
                 this.annotationTypeNames = this.config.annotationTypeOrder;
                 this.setVisibleSections();
                 this.scrollToPageTop();
-                this.apiError = null;
+                this.apiError = undefined;
                 this.setCounts();
               })
               .catch(error => {

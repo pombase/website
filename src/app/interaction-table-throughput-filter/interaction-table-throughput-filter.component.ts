@@ -29,14 +29,14 @@ export class InteractionTableThroughputFilterComponent implements OnInit, OnChan
   choiceData: Array<SelectData> = [];
   reset(): void {
     this.selectedCategory = null;
-    this.setCategory(null);
+    this.setCategory(undefined);
   }
 
-  setCategory(event: SelectData): void {
+  setCategory(event?: SelectData): void {
     if (event) {
       this.filterChange.emit(new InteractionThroughputFilter(event.throughput));
     } else {
-      this.filterChange.emit(null);
+      this.filterChange.emit(undefined);
     }
   }
 
@@ -57,14 +57,15 @@ export class InteractionTableThroughputFilterComponent implements OnInit, OnChan
       seenThroughput[interaction.throughput] = true;
     }
 
+    if (this.config.throughput_categories) {
+      for (let category of this.config.throughput_categories) {
+        let active = seenThroughput[category.throughput_type];
 
-    for (let category of this.config.throughput_categories) {
-      let active = seenThroughput[category.throughput_type];
+        let selectData = new SelectData(category.display_name,
+          active, category.throughput_type);
 
-      let selectData = new SelectData(category.display_name,
-        active, category.throughput_type);
-
-      this.choiceData.push(selectData);
+        this.choiceData.push(selectData);
+      }
     }
   }
 }

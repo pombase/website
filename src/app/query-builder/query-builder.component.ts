@@ -14,7 +14,7 @@ import { QueryRouterService } from '../query-router.service';
   styleUrls: ['./query-builder.component.css']
 })
 export class QueryBuilderComponent implements OnInit {
-  startNodeType: string = null;
+  startNodeType?: string;
   appConfig = getAppConfig();
 
   constructor(private queryService: QueryService,
@@ -30,7 +30,7 @@ export class QueryBuilderComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.appConfig.site_name + ' - Advanced search');
     this.route.params.forEach((params: Params) => {
-      this.startNodeType = null;
+      this.startNodeType = undefined;
 
       let fromType = params['type'];
       let termId = params['id'];
@@ -56,7 +56,7 @@ export class QueryBuilderComponent implements OnInit {
   }
 
   private saveFromSubsetName(subsetName: string): void {
-    const constraints = new SubsetNode(null, subsetName);
+    const constraints = new SubsetNode(undefined, subsetName);
     const query = new GeneQuery(constraints);
     this.saveQuery(query);
   }
@@ -65,14 +65,16 @@ export class QueryBuilderComponent implements OnInit {
     let newQuery = null;
 
     if (fromType === 'term_subset') {
-      let singleOrMulti = null;
+      let singleOrMulti = undefined;
       const matches = termId.match(/^([^:]+):/);
       if (matches && getAppConfig().phenotypeIdPrefixes.indexOf(matches[1]) !== -1) {
         // only set singleOrMulti if the termid is from a phenotype CV
         singleOrMulti = 'single';
       }
       const termName = decodeURIComponent(encodedTermName);
-      const constraints = new TermNode(null, termId, termName, null, singleOrMulti, null, [], []);
+      const constraints =
+        new TermNode(undefined, termId, termName, undefined,
+                     singleOrMulti, undefined, [], []);
       newQuery = new GeneQuery(constraints);
     }
 
@@ -89,15 +91,15 @@ export class QueryBuilderComponent implements OnInit {
     this.queryService.runAndSaveToHistory(query);
   }
 
-  nodeEvent({ node, nodeConf }: {node: GeneQueryNode, nodeConf: QueryNodeConfig}) {
+  nodeEvent({ node, nodeConf }: {node?: GeneQueryNode, nodeConf?: QueryNodeConfig}) {
     if (node) {
       const query = new GeneQuery(node);
       this.saveQuery(query);
 
       this.toastr.success('Query results added to history below');
 
-      if (nodeConf.extraResultTableColumns) {
-        this.settingsService.addVisibleGenesTableFields(nodeConf.extraResultTableColumns);
+      if (nodeConf!.extraResultTableColumns) {
+        this.settingsService.addVisibleGenesTableFields(nodeConf!.extraResultTableColumns);
       }
     }
   }

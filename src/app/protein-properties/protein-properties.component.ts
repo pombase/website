@@ -15,7 +15,7 @@ interface ProteinDisplayDetails {
 export class ProteinPropertiesComponent implements OnInit, OnChanges {
   @Input() proteinDetails: ProteinDetails;
 
-  proteinDisplayDetails: ProteinDisplayDetails = null;
+  proteinDisplayDetails?: ProteinDisplayDetails;
 
   propDisplayNames =
     { molecular_weight: 'Molecular weight',

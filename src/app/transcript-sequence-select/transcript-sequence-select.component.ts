@@ -118,7 +118,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   partClass(part: DisplaySequenceLinePart): string {
     let retVal = 'part-' + part.partType;
 
-    if (this.hoverPart !== null && this.hoverPart && this.hoverPart.partType === part.partType) {
+    if (this.hoverPart && this.hoverPart.partType === part.partType) {
       if (this.hoverPart.partType !== 'exon' ||
           this.hoverPart.exonIndex === part.exonIndex) {
         retVal += ' hovering';

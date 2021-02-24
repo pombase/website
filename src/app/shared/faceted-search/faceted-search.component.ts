@@ -22,11 +22,11 @@ enum SearchState {
 })
 export class FacetedSearchComponent implements OnInit {
   @Input() scope: string;
-  geneSummaries: GeneSummaryMap = null;
+  geneSummaries?: GeneSummaryMap;
   query = '';
   SearchState = SearchState;
   searchState: SearchState = SearchState.ShowHelp;
-  results: SolrSearchResults = null;
+  results?: SolrSearchResults;
   appConfig = getAppConfig();
 
   displayScopeMap: { [scope: string]: string } = {
@@ -35,7 +35,7 @@ export class FacetedSearchComponent implements OnInit {
     ref: 'references',
   };
 
-  private solrSub: Subscription = null;
+  private solrSub?: Subscription;
   private queryChanged: Subject<string> = new Subject<string>();
 
   constructor(pombaseApiService: PombaseAPIService,
@@ -72,7 +72,7 @@ export class FacetedSearchComponent implements OnInit {
             this.searchState = SearchState.NoResults;
           }
         } else {
-          this.results = null;
+          this.results = undefined;
           this.searchState = SearchState.NoResults;
         }
       },
@@ -116,7 +116,9 @@ export class FacetedSearchComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.solrSub.unsubscribe();
+    if (this.solrSub) {
+      this.solrSub.unsubscribe();
+    }
   }
 
 }
