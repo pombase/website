@@ -2,9 +2,13 @@
   font-weight: bold;
 }
 
-.term-definition {
+.term-definition, .term-cv {
   font-size: 90%;
-  padding: 0.1em 0 0.2em 0;
+  padding: 0.2em 0 0.3em 0;
+}
+
+.term-cv span {
+  font-weight: bold;
 }
 
 .term-popover {

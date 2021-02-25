@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SolrTermSummary } from '../complete.service';
+import { AnnotationTableConfig, getAnnotationTableConfig } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
 import { TermShort } from '../pombase-query';
 
@@ -11,13 +12,23 @@ import { TermShort } from '../pombase-query';
 export class TermLinkComponent implements OnInit {
   @Input() term: TermShort;
 
-  termSummary: SolrTermSummary|undefined = undefined;;
+  config = getAnnotationTableConfig();
+
+  termSummary: SolrTermSummary|undefined = undefined;
+  cvDisplayName = '';
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   shown() {
     this.pombaseApiService.termSummaryById(this.term.termid)
-      .then(termSummary => this.termSummary = termSummary);
+      .then(termSummary => {
+        this.termSummary = termSummary;
+
+        if (termSummary) {
+          let typeConfig = this.config.getAnnotationType(termSummary.cv_name);
+          this.cvDisplayName = typeConfig.display_name;
+        }
+      });
   }
 
   ngOnInit() {

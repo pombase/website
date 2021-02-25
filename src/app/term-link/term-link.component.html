@@ -5,6 +5,7 @@
       <span class="term-id">({{term.termid}})</span>
     </div>
     <div *ngIf="termSummary" class="term-definition">{{termSummary.definition}}</div>
+    <div *ngIf="termSummary" class="term-cv">From the <span>{{cvDisplayName}}</span> ontology</div>
     <div class="link-hint">(Click to view term details and annotations)</div>
   </div>
 </ng-template>
