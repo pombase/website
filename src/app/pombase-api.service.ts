@@ -1139,7 +1139,7 @@ export class PombaseAPIService {
   getChunkPromise(chromosomeName: string, chunkSize: number, chunkId: number): Promise<Seq> {
     let key = chromosomeName + '-' + chunkSize + '-' + chunkId;
 
-    if (this.chunkPromises[key]) {
+    if (key in this.chunkPromises) {
       return this.chunkPromises[key];
     }
 
