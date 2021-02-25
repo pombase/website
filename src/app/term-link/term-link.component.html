@@ -12,6 +12,7 @@
 <a routerLink="/term/{{term.termid}}"
    [popover]="termPopover"
    (onShown)="shown()"
+   [delay]="300"
    triggers="mouseenter:mouseleave"
    placement="bottom" container="body">
   <span class="term-link"><ng-content></ng-content></span>
