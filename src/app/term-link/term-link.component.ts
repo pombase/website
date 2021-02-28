@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SolrTermSummary } from '../complete.service';
-import { AnnotationTableConfig, getAnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
 import { TermShort } from '../pombase-query';
 
