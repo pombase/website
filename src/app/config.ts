@@ -873,13 +873,6 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     website: 'http://mobidb.bio.unipd.it',
     fieldName: 'uniquename',
   },
-  'HGNC-symbol': {
-    displayName: 'HGNC',
-    description: 'HGNC',
-    urlSyntax: 'http://www.genenames.org/cgi-bin/gene_symbol_report?match=[example_id]',
-    website: 'http://www.genenames.org',
-    fieldName: 'name',
-  },
   'QuickGO': {
     displayName: 'QuickGO',
     description: 'QuickGO',
@@ -976,7 +969,7 @@ export function getXrf(idWithPrefix: string): XrfDetails|undefined {
 }
 
 let organismPrefix: { [key: string]: string } = {
-  'Homo_sapiens': 'HGNC-symbol',
+  'Homo_sapiens': 'HGNC',
   'Saccharomyces_cerevisiae': 'SGD',
 };
 
@@ -989,9 +982,9 @@ export function getOrganismExternalLink(organismGenus: string, organismSpecies: 
 
     if (linkTemplate) {
       if (!xrfOrgConfig.fieldName || xrfOrgConfig.displayName === 'uniquename') {
-        return linkTemplate.replace('[example_id]', uniquename);
+        return replaceExampleId(linkTemplate, uniquename);
       } else {
-        return linkTemplate.replace('[example_id]', name || uniquename);
+        return replaceExampleId(linkTemplate, name || uniquename);
       }
     }
   }
