@@ -9288,6 +9288,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-return-march-rd">PombeTalks return March 3rd</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-identifier-mapper-now-available">PomBase identifier mapper now available</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 83.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#first-s.-pombe-micropublication-goes-live">First S. pombe microPublication goes live</a></div>
@@ -10813,7 +10814,6 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
   </div>
   <div *ngIf="pageName == 'hermes-transposon-data'">
 <h3 id="hermes-transposon-insertions-in-pombase">Hermes transposon insertions in PomBase</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: transposon.png -->
 <p><a routerLink="/news/2020-09-11-hermes-transposon-data-long">Read more</a> about the new data in PomBase from Henry Levin’s lab: <a href="/reference/PMID:32101745">Lee et al. 2020</a> applied Hermes and Transposon Integration Sequencing to identify genes important for the formation of heterochromatin. Insertion sites from eight independent cultures can be visualized from PomBase as custom tracks on Jbrowse, and additional data are visible on the <a href="/reference/PMID:32101745">publication page</a> and gene pages. The lab has also provided a <a routerLink="/news/2020-09-11-hermes-transposon-data-long">summary</a> of the work.</p>
 
@@ -10840,7 +10840,6 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
   </div>
   <div *ngIf="pageName == 'new-jbrowse-datasets'">
 <h3 id="new-genome-browser-datasets">New genome browser datasets</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 <p>Two new datasets in are now available in PomBase JBrowse (links go to PomBase publication pages, which in turn link to the browser with the tracks enabled):</p>
 <ul>
@@ -10900,7 +10899,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'PAINT-annotations'">
 <h3 id="go-annotations-from-paint">GO annotations from PAINT</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: go-logo-icon.mini.png -->
 <p>PomBase now includes over 3000 GO annotations made using Phylogenetic Annotation and INference Tool (PAINT), developed by the GO Consortium to infer protein function in a phylogenetic context, supporting precise assertions as to when functions were gained and lost during evolution. PAINT annotations use the evidence code <a href="http://wiki.geneontology.org/index.php/Inferred_from_Biological_aspect_of_Ancestor_(IBA)">“inferred from biological aspect of ancestor” (IBA)</a>. PAINT curation is described in more detail in <a href="https://pubmed.ncbi.nlm.nih.gov/21873635/">Gaudet <em>et al.</em> 2011</a>.</p>
 
@@ -10961,9 +10959,36 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Try the <a routerLink="/identifier-mapper">identifier mapper</a> or check out the <a routerLink="/documentation/id-mapper">documentation</a>.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-march-3'">
+<h3 id="pombetalks-return-march-3rd">PombeTalks return March 3rd</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The new season of online PombeTalks for 2021 will begin on Wednesday <strong>3rd March</strong> 2021 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
+<ul>
+<li><p><strong>Maria Rodriguez Lopez</strong>, Bähler lab, UCL: <em>Clr6 orchestrates transcriptional switches to regulate metabolism during oxidative stress</em></p></li>
+<li><p><strong>Olivia Muriel-Lopez</strong>, Martin lab, University of Lausanne: ’Ultrastructural plasma membrane asymmetries underlie cell-cell fusion in S. pombe*</p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will resume its fortnightly schedule, so watch this space, pombelist, or PombeSlack for updates. As in the past, you are always welcome to fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2021-02-24-pombetalks-march-3" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-return-march-rd">PombeTalks return March 3rd</h3>
+<p><em>2021-02-24</em></p>
+<p>The new season of online PombeTalks for 2021 will begin on Wednesday <strong>3rd March</strong> 2021 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
+<ul>
+<li><p><strong>Maria Rodriguez Lopez</strong>, Bähler lab, UCL: <em>Clr6 orchestrates transcriptional switches to regulate metabolism during oxidative stress</em></p></li>
+<li><p><strong>Olivia Muriel-Lopez</strong>, Martin lab, University of Lausanne: ’Ultrastructural plasma membrane asymmetries underlie cell-cell fusion in S. pombe*</p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will resume its fortnightly schedule, so watch this space, pombelist, or PombeSlack for updates. As in the past, you are always welcome to fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+</div>
 <div id="2021-02-04-id-mapper" class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="pombase-identifier-mapper-now-available">PomBase identifier mapper now available</h3>
