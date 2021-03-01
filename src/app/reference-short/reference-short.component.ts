@@ -17,11 +17,16 @@ export class ReferenceShortComponent implements OnInit {
   refTitle = '';
   popoverContents: string[] = [];
   xref?: string;
-  isPMID = false;
+  hasAnnotation = false;
 
   constructor() { }
 
   ngOnInit() {
+    if (this.reference.gene_count && this.reference.gene_count > 0 ||
+      this.reference.genotype_count && this.reference.genotype_count > 0) {
+      this.hasAnnotation = true;
+    }
+
     let xrfDetail = getXrf(this.reference.uniquename);
 
     if (!this.reference.uniquename.startsWith("PMID:") && xrfDetail) {
@@ -39,16 +44,6 @@ export class ReferenceShortComponent implements OnInit {
       }
       if (this.reference.publication_year) {
         this.displayString += ' (' + this.reference.publication_year + ')';
-      } else {
-        if (this.displayString !== this.reference.uniquename) {
-          this.displayString = this.reference.uniquename;
-        }
-      }
-
-      if (this.linkText) {
-        this.popoverContents = [this.displayString];
-        this.displayString = this.linkText;
-        return;
       }
 
       if (this.showRefTitle && this.reference.title) {
@@ -64,18 +59,17 @@ export class ReferenceShortComponent implements OnInit {
       }
     }
 
-    if (this.reference.gene_count && this.reference.gene_count > 0 ||
-       this.reference.genotype_count && this.reference.genotype_count > 0) {
-      this.isPMID = true;
-    }
-
     if (this.reference.title) {
-      this.popoverContents = [this.reference.title];
+      this.popoverContents = [this.reference.title + '  (' + this.reference.uniquename + ')'];
       if (this.reference.citation) {
         this.popoverContents.push(this.reference.citation);
       }
     } else {
       this.popoverContents = [this.displayString];
+    }
+
+    if (this.linkText) {
+      this.displayString = this.linkText;
     }
   }
 }
