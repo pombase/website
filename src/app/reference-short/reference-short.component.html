@@ -3,6 +3,7 @@
   <div class="link-hint" *ngIf="hasAnnotation">(click to view all annotation from this reference)</div>
 </ng-template>
 <span class="reference-short-link" [popover]="refPopover"
+      [delay]="appConfig.details_popup_delay"
       triggers="mouseenter:mouseleave" container="body"
       placement="bottom">
   <span *ngIf="!xref">

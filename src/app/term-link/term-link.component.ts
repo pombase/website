@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SolrTermSummary } from '../complete.service';
 import { getAnnotationTableConfig } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
+import { getAppConfig } from '../config';
 import { TermShort } from '../pombase-query';
 
 @Component({
@@ -13,6 +14,7 @@ export class TermLinkComponent implements OnInit {
   @Input() term: TermShort;
 
   config = getAnnotationTableConfig();
+  appConfig = getAppConfig();
 
   termSummary: SolrTermSummary|undefined = undefined;
   cvDisplayName = '';

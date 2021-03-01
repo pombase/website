@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { ReferenceShort } from '../pombase-api.service';
-import { getXrf } from '../config';
+import { getXrf, getAppConfig } from '../config';
 
 @Component({
   selector: 'app-reference-short',
@@ -18,6 +18,8 @@ export class ReferenceShortComponent implements OnInit {
   popoverContents: string[] = [];
   xref?: string;
   hasAnnotation = false;
+
+  appConfig = getAppConfig();
 
   constructor() { }
 

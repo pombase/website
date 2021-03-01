@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { getAppConfig } from '../../config';
 
 @Component({
   selector: 'app-gene-link',
@@ -12,6 +13,8 @@ export class GeneLinkComponent implements OnInit {
   displayString = '';
   nameAndId = '';
   product = '';
+
+  appConfig = getAppConfig();
 
   constructor() { }
 

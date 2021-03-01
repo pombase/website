@@ -5,7 +5,7 @@
 </ng-template>
 
 <a routerLink="/gene/{{gene.uniquename}}"
-   [popover]="genePopover"
+   [popover]="genePopover" [delay]="appConfig.details_popup_delay"
    triggers="mouseenter:mouseleave"
    placement="bottom" container="body">
   <span class="gene-link">{{displayString}}</span>
