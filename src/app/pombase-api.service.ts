@@ -1230,7 +1230,7 @@ export class PombaseAPIService {
       .then((response: HttpResponse<any>) => {
         const parsedRes = response as any;
         if (parsedRes['status'] !== 'Ok') {
-          return null;
+          return undefined;
         }
         return parsedRes['summary'] as SolrTermSummary;
       })
