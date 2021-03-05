@@ -6,7 +6,7 @@ import { AppConfig, getAppConfig } from '../config';
 class DisplayTranscript {
   private _displayParts: Array<DisplayPart> = [];
   private _nonIntronParts: Array<DisplayPart> = [];
-  private _hightlightedPartId?: string;
+  private _highlightedPartId?: string;
   private _locationString?: string;
   private _padding?: DisplayPart;
 
@@ -104,11 +104,11 @@ class DisplayTranscript {
   }
 
   public setHighlightedPart(partId: string) {
-    this._hightlightedPartId = partId;
+    this._highlightedPartId = partId;
   }
 
   public getHighlightedPart(): string|undefined {
-    return this._hightlightedPartId;
+    return this._highlightedPartId;
   }
 
   public padding(): DisplayPart|undefined {
