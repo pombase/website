@@ -1,5 +1,4 @@
 ### PombeTalks return March 3rd
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The new season of online PombeTalks for 2021 will begin on Wednesday
