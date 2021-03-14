@@ -4,9 +4,12 @@
   <div class="link-hint">(Click to view gene details)</div>
 </ng-template>
 
-<a routerLink="/gene/{{gene.uniquename}}"
-   [popover]="genePopover" [delay]="appConfig.details_popup_delay"
-   triggers="mouseenter:mouseleave"
+<a #link="bs-popover"
+   routerLink="/gene/{{gene.uniquename}}"
+   [popover]="genePopover"
+   triggers=""
+   (mouseenter)="mouseEnter()"
+   (mouseleave)="mouseLeave()"
    placement="bottom" container="body">
   <span class="gene-link">{{displayString}}</span>
 </a>

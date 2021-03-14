@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 import { ReferenceShort } from '../pombase-api.service';
 import { getXrf, getAppConfig } from '../config';
+import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
   selector: 'app-reference-short',
@@ -13,6 +14,10 @@ export class ReferenceShortComponent implements OnInit {
   @Input() showRefTitle = false;
   @Input() linkText?: string;
 
+  @ViewChild('link', {static: false}) link: PopoverDirective;
+
+  mouseIn = false;
+
   displayString = '';
   refTitle = '';
   popoverContents: string[] = [];
@@ -22,6 +27,26 @@ export class ReferenceShortComponent implements OnInit {
   appConfig = getAppConfig();
 
   constructor() { }
+
+  mouseEnter(): void {
+    this.mouseIn = true;
+    setTimeout(() => {
+      if (this.mouseIn && this.link) {
+        this.link.show();
+      }
+    }, this.appConfig.details_popup_delay);
+
+  }
+
+  mouseLeave(): void {
+    this.mouseIn = false;
+    this.link.hide();
+  }
+
+  ngOnDestroy(): void {
+    this.link.hide();
+    this.mouseIn = false;
+  }
 
   ngOnInit() {
     if (this.reference.gene_count && this.reference.gene_count > 0 ||

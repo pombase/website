@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { PopoverDirective } from 'ngx-bootstrap/popover';
 import { getAppConfig } from '../../config';
 
 @Component({
@@ -10,6 +11,10 @@ export class GeneLinkComponent implements OnInit {
   @Input() gene: /* GeneShort */ any;
   @Input() long = true;
 
+  @ViewChild('link', {static: false}) link: PopoverDirective;
+
+  mouseIn = false;
+
   displayString = '';
   nameAndId = '';
   product = '';
@@ -17,6 +22,26 @@ export class GeneLinkComponent implements OnInit {
   appConfig = getAppConfig();
 
   constructor() { }
+
+  mouseEnter(): void {
+    this.mouseIn = true;
+    setTimeout(() => {
+      if (this.mouseIn && this.link) {
+        this.link.show();
+      }
+    }, this.appConfig.details_popup_delay);
+
+  }
+
+  mouseLeave(): void {
+    this.mouseIn = false;
+    this.link.hide();
+  }
+
+  ngOnDestroy(): void {
+    this.link.hide();
+    this.mouseIn = false;
+  }
 
   ngOnInit() {
     if (this.gene.name) {
