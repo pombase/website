@@ -10,8 +10,8 @@ details about paper, and shows any annotations that cite it.
     [EuropePMC](http://europepmc.org/)
 2.  Any community curators who have contributed annotations via Canto
     are acknowledged.
-3.  Summary views are identical to those on [gene pages](/documentation/index#DocsGenePage).
-4.  In detailed views annotations are displayed as on [gene pages](/documentation/index#DocsGenePage), 
+3.  Summary views are identical to those on [gene pages (GO example)](/documentation/gene-page-gene-ontology).
+4.  In detailed views annotations are displayed as on [gene pages](/documentation/gene-page-gene-ontology), 
     except that a column for the annotated gene is included and the
     Reference column is omitted.
 

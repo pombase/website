@@ -10,7 +10,7 @@ Search documentation, news archive and FAQ:
 </div>
 ```
 
-### Gene Pages ### {#DocsGenePage}
+### Gene Pages ###
 
 -   [Basic information](documentation/gene-page-basic-information)
 -   [Gene Ontology](documentation/gene-page-gene-ontology)
@@ -29,7 +29,7 @@ Search documentation, news archive and FAQ:
 -   [External references](documentation/gene-page-external-references)
 -   [Literature](documentation/gene-page-literature)
 
-### Searching ### {#DocsSearch}
+### Searching ###
 
 -   [Simple search](documentation/simple-search-documentation)
 -   [Advanced search](documentation/advanced-search)

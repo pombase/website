@@ -28,10 +28,10 @@ terms have all of the depicted features.
     first, followed by any descendant term that has direct
     annotations. For each term, genes (or genotypes) are listed in a
     compact display, with separate lines only for unique combinations
-    of gene, term, and extension. As in the [gene page summary display](/documentation/index#DocsGenePage), 
+    of gene, term, and extension. As in the [gene page summary display](documentation/gene-page-gene-ontology), 
     most details are hidden.
 
-As on gene pages, a [more detailed annotation display](documentation/index#DocsGenePage) 
+As on gene pages, a [more detailed annotation display](documentation/gene-page-gene-ontology) 
 is available:
 
 ![ontology term page](assets/ontology_term_page_detail.png){width="800"}

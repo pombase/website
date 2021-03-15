@@ -1,6 +1,6 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/datasets">Datasets</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/genome-datasets">Genome datasets</a></div>
-<div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/genome-datasets#Annotation_datasets">Annotation datasets</a></div>
+<div class="left-menu-part left-menu-item">Annotation datasets</div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></div>
