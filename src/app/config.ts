@@ -248,7 +248,9 @@ export interface AppConfig {
 
   getExternalTermLink(dbName: string, termId: string): { url: string, displayName: string } | undefined;
 
-  getExternalGeneLink(name: string, geneDetails: GeneDetails): Array<string>|undefined;
+  getExternalGeneLink(name: string,
+                      organismTaxonId: number,
+                      geneDetails: GeneDetails): Array<string>|undefined;
 
   getMiscExternalLink(configKey: string, id: string): LinkDisplay|undefined;
 }
@@ -358,7 +360,9 @@ export interface ExternalGeneReference {
   show_in_sections?: Array<string>;
 }
 
-export function makeGeneExternalUrl(geneDetails: GeneDetails, extRefConf: ExternalGeneReference): Array<string> {
+export function makeGeneExternalUrl(geneDetails: GeneDetails,
+                                    organismTaxonId: number,
+                                    extRefConf: ExternalGeneReference): Array<string> {
   let getAllIds = (details: GeneDetails): Array<string> => {
     let ret = [details.uniquename];
     if (details.name) {
@@ -384,6 +388,7 @@ export function makeGeneExternalUrl(geneDetails: GeneDetails, extRefConf: Extern
       if (fieldValue) {
         let replacedUrl = url.replace('<<IDENTIFIER>>', fieldValue)
           .replace('<<UNIQUENAME>>', geneDetails.uniquename)
+          .replace('<<TAXONID>>', String(organismTaxonId))
           .replace('<<GENE_NAME>>', geneDetails.name);
         return [fieldValue, replacedUrl];
       }
@@ -775,10 +780,12 @@ let _appConfig: AppConfig = {
     return undefined;
   },
 
-  getExternalGeneLink(name: string, geneDetails: GeneDetails): Array<string>|undefined {
+  getExternalGeneLink(name: string,
+                      organismTaxonId: number,
+                      geneDetails: GeneDetails): Array<string>|undefined {
     for (let conf of this.externalGeneReferences) {
       if (conf['name'] === name) {
-        return makeGeneExternalUrl(geneDetails, conf);
+        return makeGeneExternalUrl(geneDetails, organismTaxonId, conf);
       }
     }
 

@@ -57,7 +57,9 @@ export class ExternalRefsTableComponent implements OnChanges {
 
     if (this.extRefConfs) {
       for (const extRefConf of this.extRefConfs) {
-        let link = makeGeneExternalUrl(this.geneDetails, extRefConf);
+        let link = makeGeneExternalUrl(this.geneDetails,
+                                       this.geneDetails.taxonid,
+                                       extRefConf);
         if (link.length > 0) {
           let row: RefRow = {
             refType: extRefConf.ref_type,
