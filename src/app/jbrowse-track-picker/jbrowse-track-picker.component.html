@@ -33,11 +33,14 @@ Genome browser tracks from this publication:
 
           </th>
           <th *ngFor="let col of colConfig">
-            <div>
+            <div *ngIf="tracks.length != 1">
               <a *ngIf="orderByFieldName != '+' + col.name && !col.download_link" (click)="setOrderBy(col.name)"
                  title="Click to sort by {{col.display_name}}"><img src="assets/sort_both.svg"/>{{col.display_name}}</a>
               <span class="order-column" title="Sorted by: {{col.display_name}}"
                     *ngIf="orderByFieldName == '+' + col.name && !col.download_link"><img src="assets/sort_up.svg"/>{{col.display_name}}</span>
+            </div>
+            <div *ngIf="tracks.length == 1">
+              {{col.display_name}}
             </div>
           </th>
         </tr>
