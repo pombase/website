@@ -30,8 +30,8 @@ button.load-in-jbrowse {
 }
 
 th {
-  color: #eef;
-  background-color: #768ad3;
+  color: black;
+  background-color: #c8d0ea;
   padding: 0.5em;
   border: 2px solid white;
   white-space: normal;
@@ -47,7 +47,7 @@ td:first-child {
 }
 
 tr:nth-child(odd) {
-  background-color: #f8f8ff;
+  background-color: #f3f3fa;
 }
 
 tr:hover {
@@ -56,4 +56,27 @@ tr:hover {
 
 .download-link {
   white-space: nowrap;
+}
+
+.jbrowse-picker th a {
+  color: #333;
+  font-weight: normal;
+}
+
+.jbrowse-picker th span.order-column,
+.jbrowse-picker th a {
+  margin-left: -26px;
+}
+
+.jbrowse-picker th img {
+  width: 24px;
+}
+
+.jbrowse-picker th > div {
+  margin-left: 24px;
+}
+
+.jbrowse-picker th span.order-column {
+  color: black;
+  font-weight: bold;
 }

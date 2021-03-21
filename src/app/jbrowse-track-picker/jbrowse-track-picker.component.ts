@@ -23,12 +23,18 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
   selectedTrackCount = 0;
   selectedLabelLength = 0;
 
+  orderByFieldName = '+label';
+
   constructor(@Inject(DOCUMENT) private document: Document,
               private toastr: ToastrService) {
   }
 
   hasTracks(): boolean {
     return this.tracks.length > 0;
+  }
+
+  setOrderBy(fieldName: string) {
+    this.orderByFieldName = '+' + fieldName;
   }
 
   selectAll() {

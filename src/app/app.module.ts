@@ -115,6 +115,7 @@ import { InternalDetailsComponent } from './internal-details/internal-details.co
 import { IdentifierMapperComponent } from './identifier-mapper/identifier-mapper.component';
 import { TermLinkComponent } from './term-link/term-link.component';
 import { IdentifierMapperResultsComponent } from './identifier-mapper-results/identifier-mapper-results.component';
+import { JbrowseTrackOrderByPipe } from './jbrowse-track-order-by.pipe';
 
 export function documentFactory() {
     return document;
@@ -207,6 +208,7 @@ export function windowFactory() {
     IdentifierMapperComponent,
     TermLinkComponent,
     IdentifierMapperResultsComponent,
+    JbrowseTrackOrderByPipe,
   ],
   imports: [
     BrowserModule,

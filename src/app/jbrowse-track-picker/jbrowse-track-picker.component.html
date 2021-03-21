@@ -33,11 +33,16 @@ Genome browser tracks from this publication:
 
           </th>
           <th *ngFor="let col of colConfig">
-            {{col.display_name}}
+            <div>
+              <a *ngIf="orderByFieldName != '+' + col.name && !col.download_link" (click)="setOrderBy(col.name)"
+                 title="Click to sort by {{col.display_name}}"><img src="assets/sort_both.svg"/>{{col.display_name}}</a>
+              <span class="order-column" title="Sorted by: {{col.display_name}}"
+                    *ngIf="orderByFieldName == '+' + col.name && !col.download_link"><img src="assets/sort_up.svg"/>{{col.display_name}}</span>
+            </div>
           </th>
         </tr>
       </thead>
-      <tr *ngFor="let track of tracks">
+      <tr *ngFor="let track of tracks | jbrowseTrackOrderBy: orderByFieldName">
         <td>
           <input id="track.label" type="checkbox"
                  [attr.title]="selectCheckboxesDisabled() ? 'JBrowse track limit reached' : 'Check box to select this track for JBrowse'"
