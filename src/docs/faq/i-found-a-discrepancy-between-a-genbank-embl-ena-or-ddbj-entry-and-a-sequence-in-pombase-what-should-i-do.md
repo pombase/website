@@ -1,8 +1,8 @@
-# I found a discrepancy between a GenBank (EMBL/ENA or DDBJ) entry and a sequence in Pombase. What should I do?
+# I found a discrepancy between a GenBank (EMBL/ENA or DDBJ) entry and a sequence in PomBase. What should I do?
 <!-- pombase_categories: Finding data -->
 
 We recommend using only the genome sequence, either from PomBase
-[downloadable files](/downloads/genome-datasets) or from the 
+[downloadable files](/downloads/genome-datasets) or from the
 [sequence retrieval tools](/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences) on
 the gene pages and in the genome browser. Although there are some
 sequence updates still pending, the genome sequence is more accurate

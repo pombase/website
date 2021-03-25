@@ -31,7 +31,7 @@ See the [Submit data](submit-data) page
 
 ### Data sources
 
-Source publications for external data used in Pombase pages and genome browser.
+Source publications for external data used in PomBase pages and genome browser.
 
 [Data sources](about/data-sources)
 
@@ -76,7 +76,7 @@ Complete list of [papers published by PomBase](about/published-by-pombase).
 ### Data versions
 
 Versions of internal and external data loaded into current and past
-Pombase releases.
+PomBase releases.
 
 [Version history](about/version-history)
 

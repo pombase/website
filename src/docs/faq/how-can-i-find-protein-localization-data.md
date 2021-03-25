@@ -5,16 +5,16 @@
 Gene Ontology (GO) cellular component annotations capture the
 localizations of gene products to subcellular structures such as
 organelles or complexes. GO Cellular Component annotations are
-displayed on PomBase gene pages as described in the 
+displayed on PomBase gene pages as described in the
 [PomBase GO documentation](/documentation/gene-page-gene-ontology).
-The GO Consortium' ontology 
+The GO Consortium' ontology
 [overview](http://geneontology.org/docs/ontology-documentation/)
 describes what the Cellular Component ontology includes. To
 search for proteins (or functional RNAs) with a particular
 localization, use the GO query in the [advanced search](/query) to
 find genes annotated to the relevant GO Cellular Component term(s).
 
-Pombase GO Cellular Component annotations include data from the
+PomBase GO Cellular Component annotations include data from the
 whole-genome localization study (Matsuyama et al. 2006) as well as
 manually curated data from papers on small-scale experiments, and
 inferences from ortholog annotations. Macromolecular complex

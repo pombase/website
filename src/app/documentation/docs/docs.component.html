@@ -243,7 +243,7 @@ United Kingdom</p>
 <h3 id="submit-data">Submit Data</h3>
 <p>See the <a routerLink="/submit-data">Submit data</a> page</p>
 <h3 id="data-sources">Data sources</h3>
-<p>Source publications for external data used in Pombase pages and genome browser.</p>
+<p>Source publications for external data used in PomBase pages and genome browser.</p>
 <p><a routerLink="/about/data-sources">Data sources</a></p>
 <h3 id="citing-pombase">Citing PomBase</h3>
 <p>The <a routerLink="/about/citing-pombase">Citing PomBase</a> page lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, annotation data, and other resources.</p>
@@ -270,7 +270,7 @@ United Kingdom</p>
 </ul>
 <hr />
 <h3 id="data-versions">Data versions</h3>
-<p>Versions of internal and external data loaded into current and past Pombase releases.</p>
+<p>Versions of internal and external data loaded into current and past PomBase releases.</p>
 <p><a routerLink="/about/version-history">Version history</a></p>
 <h3 id="receive-project-updates">Receive project updates</h3>
 <p>Subscribe to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">Pombelist</a> to receive annotation and data updates</p>
@@ -963,7 +963,7 @@ The Gene Ontology in 2010: extensions and refinements.<br />
   </div>
   <div *ngIf="pageName == 'version-history'">
 <h1 id="pombase-data-version-history">PomBase data version history</h1>
-<p>This table records versions of software, annotations, etc. used in the numbered releases of Pombase made between September 2012 and January 2017. See the <a routerLink="/downloads/chado-database-dumps">Chado database dumps</a> page for a link to the data represented by the “Annotation Version” column.</p>
+<p>This table records versions of software, annotations, etc. used in the numbered releases of PomBase made between September 2012 and January 2017. See the <a routerLink="/downloads/chado-database-dumps">Chado database dumps</a> page for a link to the data represented by the “Annotation Version” column.</p>
 <h4 id="past-pombase-releases">Past PomBase Releases</h4>
 <table border="1">
  <tbody>
@@ -4768,7 +4768,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <app-page-contents-menu title="Datasets" titleRoute="/datasets">
 
 <div class="left-menu-part left-menu-item"><a routerLink="//downloads/genome-datasets">Genome datasets</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="//downloads/genome-datasets#Annotation_datasets">Annotation datasets</a></div>
+<div class="left-menu-part left-menu-item">Annotation datasets</div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
 <div class="left-menu-part left-sub-menu-item"><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></div>
@@ -6232,7 +6232,7 @@ Search documentation, news archive and FAQ:
 </div>
 <app-faceted-search [scope]="'doc'"></app-faceted-search>
 </div>
-<h3 id="DocsGenePage">Gene Pages</h3>
+<h3 id="gene-pages">Gene Pages</h3>
 <ul>
 <li><a routerLink="/documentation/gene-page-basic-information">Basic information</a></li>
 <li><a routerLink="/documentation/gene-page-gene-ontology">Gene Ontology</a></li>
@@ -6251,7 +6251,7 @@ Search documentation, news archive and FAQ:
 <li><a routerLink="/documentation/gene-page-external-references">External references</a></li>
 <li><a routerLink="/documentation/gene-page-literature">Literature</a></li>
 </ul>
-<h3 id="DocsSearch">Searching</h3>
+<h3 id="searching">Searching</h3>
 <ul>
 <li><a routerLink="/documentation/simple-search-documentation">Simple search</a></li>
 <li><a routerLink="/documentation/advanced-search">Advanced search</a></li>
@@ -6611,9 +6611,9 @@ Search documentation, news archive and FAQ:
 <li>The term’s immediate parent(s), linked to the corresponding ontology term page(s).</li>
 <li>Links to external browsers are available for some ontologies. GO, FYPO and PSI-MOD terms have links to <a href="http://bioportal.bioontology.org/">BioPortal</a>, and GO term pages also link to <a href="http://amigo.geneontology.org/amigo">AmiGO</a> and <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a>. SO IDs link to <a href="http://sequenceontology.org/browser/obob.cgi">MISO</a>.</li>
 <li>Link to a page that lists genes annotated to the term or its descendants. From the linked page, the gene list can be sent to the advanced search for use in queries.</li>
-<li>In the annotation summary view, the term of interest is listed first, followed by any descendant term that has direct annotations. For each term, genes (or genotypes) are listed in a compact display, with separate lines only for unique combinations of gene, term, and extension. As in the <a routerLink="/documentation/index#DocsGenePage">gene page summary display</a>, most details are hidden.</li>
+<li>In the annotation summary view, the term of interest is listed first, followed by any descendant term that has direct annotations. For each term, genes (or genotypes) are listed in a compact display, with separate lines only for unique combinations of gene, term, and extension. As in the <a routerLink="/documentation/gene-page-gene-ontology">gene page summary display</a>, most details are hidden.</li>
 </ol>
-<p>As on gene pages, a <a routerLink="/documentation/index#DocsGenePage">more detailed annotation display</a> is available:</p>
+<p>As on gene pages, a <a routerLink="/documentation/gene-page-gene-ontology">more detailed annotation display</a> is available:</p>
 <figure>
 <img src="assets/ontology_term_page_detail.png" width="800" alt="" /><figcaption>ontology term page</figcaption>
 </figure>
@@ -6923,8 +6923,8 @@ Search documentation, news archive and FAQ:
 <ol type="1">
 <li><p>Publication details, including links to <a href="https://www.ncbi.nlm.nih.gov/pubmed/">PubMed</a> and <a href="http://europepmc.org/">EuropePMC</a></p></li>
 <li><p>Any community curators who have contributed annotations via Canto are acknowledged.</p></li>
-<li><p>Summary views are identical to those on <a routerLink="/documentation/index#DocsGenePage">gene pages</a>.</p></li>
-<li><p>In detailed views annotations are displayed as on <a routerLink="/documentation/index#DocsGenePage">gene pages</a>, except that a column for the annotated gene is included and the Reference column is omitted.</p></li>
+<li><p>Summary views are identical to those on <a routerLink="/documentation/gene-page-gene-ontology">gene pages (GO example)</a>.</p></li>
+<li><p>In detailed views annotations are displayed as on <a routerLink="/documentation/gene-page-gene-ontology">gene pages</a>, except that a column for the annotated gene is included and the Reference column is omitted.</p></li>
 <li><p>Term and evidence filtering are available for phenotype annotations as described in the <a routerLink="/documentation/gene-page-phenotypes">gene page documentation</a>.</p></li>
 </ol>
 <p>Like gene pages, publication pages include annotations of all types, with summary and detailed views available for most types:</p>
@@ -7402,7 +7402,7 @@ Search documentation, news archive and FAQ:
 
 <div class="left-menu-part left-menu-item"><a routerLink="/datasets">Datasets</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/genome-datasets">Genome datasets</a></div>
-<div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/genome-datasets#Annotation_datasets">Annotation datasets</a></div>
+<div class="left-menu-part left-menu-item">Annotation datasets</div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></div>
@@ -8503,7 +8503,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <h3 id="how-can-i-find-protein-localization-data">How can I find protein localization data?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>Gene Ontology (GO) cellular component annotations capture the localizations of gene products to subcellular structures such as organelles or complexes. GO Cellular Component annotations are displayed on PomBase gene pages as described in the <a routerLink="/documentation/gene-page-gene-ontology">PomBase GO documentation</a>. The GO Consortium’ ontology <a href="http://geneontology.org/docs/ontology-documentation/">overview</a> describes what the Cellular Component ontology includes. To search for proteins (or functional RNAs) with a particular localization, use the GO query in the <a routerLink="/query">advanced search</a> to find genes annotated to the relevant GO Cellular Component term(s).</p>
-<p>Pombase GO Cellular Component annotations include data from the whole-genome localization study (Matsuyama et al. 2006) as well as manually curated data from papers on small-scale experiments, and inferences from ortholog annotations. Macromolecular complex annotations are also available in a file (see <a routerLink="/faq/there-list-protein-complexes-s.-pombe-and-their-subunits">FAQ</a>).</p>
+<p>PomBase GO Cellular Component annotations include data from the whole-genome localization study (Matsuyama et al. 2006) as well as manually curated data from papers on small-scale experiments, and inferences from ortholog annotations. Macromolecular complex annotations are also available in a file (see <a routerLink="/faq/there-list-protein-complexes-s.-pombe-and-their-subunits">FAQ</a>).</p>
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'nucleus (GO:0005634)'" [predefinedQueryId]="'GO_5634'"> </app-query-link></p>
 
 </div>
@@ -8921,8 +8921,8 @@ Example queries:
 <p>You can also use the <a routerLink="/query">advanced search</a> to find conserved unstudied genes as described in the FAQs on <a routerLink="/faq/what-does-characterisation-status-mean-gene">characterisation status</a> and <a routerLink="/faq/can-i-search-genes-based-on-conservation-different-taxa">taxonomic conservation</a>. Start by searching for Characterisation status “conserved unknown”, and refine the search by adding a Taxonomic conservation query if you wish.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do', 'I found a discrepancy between a GenBank (EMBL/ENA or DDBJ) entry and a sequence in Pombase. What should I do?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do' || pageName == 'all-faqs'">
-<h3 id="i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do">I found a discrepancy between a GenBank (EMBL/ENA or DDBJ) entry and a sequence in Pombase. What should I do?</h3>
+<div (click)="faq_navigate($event, '/faq/i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do', 'I found a discrepancy between a GenBank (EMBL/ENA or DDBJ) entry and a sequence in PomBase. What should I do?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do' || pageName == 'all-faqs'">
+<h3 id="i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do">I found a discrepancy between a GenBank (EMBL/ENA or DDBJ) entry and a sequence in PomBase. What should I do?</h3>
 <!-- pombase_categories: Finding data -->
 <p>We recommend using only the genome sequence, either from PomBase <a routerLink="/downloads/genome-datasets">downloadable files</a> or from the <a routerLink="/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences">sequence retrieval tools</a> on the gene pages and in the genome browser. Although there are some sequence updates still pending, the genome sequence is more accurate than individual gene sequences that predate the genome.</p>
 <p>Many older <em>S. pombe</em> sequence submissions to the DNA databases (International Nucleotide Sequence Database Collaboration databases, i.e. ENA, GenBank, DDBJ) contain one or more errors (sometimes with an error rate as high as 20%), and we do not have the resources to maintain past sequences or flag every error in PomBase.</p>
@@ -9288,6 +9288,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-march-th-new-time">PombeTalks March 17th - new time!</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-return-march-rd">PombeTalks return March 3rd</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-identifier-mapper-now-available">PomBase identifier mapper now available</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 83.0</a></div>
@@ -10961,7 +10962,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'pombetalks-march-3'">
 <h3 id="pombetalks-return-march-3rd">PombeTalks return March 3rd</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The new season of online PombeTalks for 2021 will begin on Wednesday <strong>3rd March</strong> 2021 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
 <ul>
@@ -10973,9 +10973,36 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-march17'">
+<h3 id="pombetalks-march-17th---new-time">PombeTalks March 17th - new time!</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The new season of online PombeTalks for 2021 will begin on Wednesday <strong>3rd March</strong> 2021, at a different time: 9:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
+<ul>
+<li><p><strong>Yasuto Murayama</strong>, National Institute of Genetics, Shizuoka: <em>Biochemical analysis of the fission yeast structural maintenance of chromosomes complex</em></p></li>
+<li><p><strong>Ken Ishikawa</strong>, Kurume University, Kurume: <em>dCas9-mediated CRISPRi for S. pombe</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the new Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2021-03-10-pombetalks-march17" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-march-th-new-time">PombeTalks March 17th - new time!</h3>
+<p><em>2021-03-10</em></p>
+<p>The new season of online PombeTalks for 2021 will begin on Wednesday <strong>3rd March</strong> 2021, at a different time: 9:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
+<ul>
+<li><p><strong>Yasuto Murayama</strong>, National Institute of Genetics, Shizuoka: <em>Biochemical analysis of the fission yeast structural maintenance of chromosomes complex</em></p></li>
+<li><p><strong>Ken Ishikawa</strong>, Kurume University, Kurume: <em>dCas9-mediated CRISPRi for S. pombe</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the new Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+</div>
 <div id="2021-02-24-pombetalks-march-3" class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-return-march-rd">PombeTalks return March 3rd</h3>
