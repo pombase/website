@@ -17,6 +17,7 @@
     </div>
     </div>
 
+    <div class="details-and-transcripts-note">
     <div id="gene-summary" class="details-page-summary">
           <div class="details-label">Gene standard name</div>
           <div><span class="gene-name">{{geneDetails.name || ''}}</span></div>
@@ -66,6 +67,12 @@
               {{nameDesc}}<span *ngIf="i < geneDetails.name_descriptions.length - 1">,<br/></span>
             </span>
           </div>
+    </div>
+
+    <div class="gene-transcripts-note" *ngIf="geneDetails.transcripts.length > 1">
+      Note: this gene has {{geneDetails.transcripts.length}} transcripts
+      <a pageScroll href="#transcript_view">[details]</a>
+    </div>
     </div>
 
     <div id="gene-details-menu">

@@ -60,7 +60,7 @@ export class GeneDetailsComponent implements OnInit {
              ) { }
 
   getCDSDisplayLocation(): string|undefined {
-    if (this.geneDetails.transcripts && this.geneDetails.transcripts.length > 0) {
+    if (this.geneDetails.transcripts.length > 0) {
       const transcript = this.geneDetails.transcripts[0];
 
       const cds_location = transcript.cds_location;

@@ -71,9 +71,9 @@ a, a:not([href]):not([tabindex]) {
   border: 0;
   border-top: 1px solid #bbb;
   padding: 0.5em 0;
-  border-bottom: 1px solid #bbb;
   display: inline-block;
   max-width: 1400px;
+  margin-bottom: 1em;
 }
 
 .details-page-summary .details-label {

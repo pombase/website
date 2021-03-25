@@ -19,6 +19,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { CookieLawModule } from 'angular2-cookie-law';
 import { ToastrModule } from 'ngx-toastr';
 
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { SharedModule } from './shared/shared.module';
@@ -231,6 +234,8 @@ export function windowFactory() {
       enableHtml: true,
       positionClass: 'toast-top-center',
     }),
+    NgxPageScrollCoreModule.forRoot({duration: 0}),
+    NgxPageScrollModule,
     SharedModule,
     Angulartics2Module.forRoot(),
     CookieLawModule,

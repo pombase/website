@@ -138,3 +138,13 @@
   font-size: 110%;
   text-align: center;
 }
+
+.details-and-transcripts-note {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.gene-transcripts-note {
+  font-size: 120%;
+}
