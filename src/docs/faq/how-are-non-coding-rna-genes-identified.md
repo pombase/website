@@ -13,5 +13,5 @@ Transcriptome Viewer, which is linked from most gene pages, e.g.
 [SPNCRNA.200](http://www.bahlerlab.info/cgi-bin/pombetv/pombetv?condition=13&genename=SPNCRNA.200&action=display).
 Unfortunately some genes, such as SPNCRNA.1115, post-date the viewer and
 therefore do not have entries, but you can look at transcription in this
-region by accessing a neighboring gene.
+region by finding a neighboring gene.
 
