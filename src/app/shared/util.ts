@@ -45,16 +45,19 @@ export class Util {
 
   static displayNameLong(genotypeDetails: GenotypeDetails|GenotypeShort): string {
     if (genotypeDetails) {
-      return genotypeDetails.expressed_alleles
-        .map((expressedAllele) => {
-          const alleleDisplayName = this.alleleDisplayName(expressedAllele.allele);
-          if (expressedAllele.expression &&
-              expressedAllele.allele.allele_type !== 'deletion' &&
-              expressedAllele.expression !== 'Not assayed') {
-            return `${alleleDisplayName}[${expressedAllele.expression}]`;
-          } else {
-            return alleleDisplayName;
-          }
+      return genotypeDetails.loci
+        .map(locus => {
+          return locus.expressed_alleles.map(expressedAllele => {
+            const alleleDisplayName = this.alleleDisplayName(expressedAllele.allele);
+            if (expressedAllele.expression &&
+                expressedAllele.allele.allele_type !== 'deletion' &&
+                expressedAllele.expression !== 'Not assayed') {
+              return `${alleleDisplayName}[${expressedAllele.expression}]`;
+            } else {
+              return alleleDisplayName;
+            }
+          })
+          .join(' / ');
         })
         .join(' ');
     } else {

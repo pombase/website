@@ -92,7 +92,7 @@ export class TermDetailsComponent implements OnInit {
     let singleAlleleGenotypeGenes: { [key: string]: boolean } = {};
 
     for (let genotype of this.termDetails.single_allele_genotypes) {
-      let gene = genotype.expressed_alleles[0].allele.gene;
+      let gene = genotype.loci[0].expressed_alleles[0].allele.gene;
       if (gene) {
         singleAlleleGenotypeGenes[gene.uniquename] = true;
       }

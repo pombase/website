@@ -45,7 +45,7 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
         let genes: { [key: string]: GeneShort } = {};
 
         for (let genotype of this.termDetails.single_allele_genotypes) {
-          let gene = genotype.expressed_alleles[0].allele.gene;
+          let gene = genotype.loci[0].expressed_alleles[0].allele.gene;
           if (gene) {
             genes[gene.uniquename] = gene;
           }

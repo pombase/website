@@ -79,12 +79,16 @@ export interface AlleleMap {
   [uniquename: string]: AlleleShort;
 }
 
+export interface GenotypeLocus {
+  expressed_alleles: Array<ExpressedAllele>;
+}
+
 export interface GenotypeShort {
   display_uniquename: string;
   name: string;
   displayNameLong: string;
   background: string;
-  expressed_alleles: Array<ExpressedAllele>;
+  loci: Array<GenotypeLocus>;
 }
 
 export interface GenotypeMap {
@@ -456,7 +460,7 @@ export class GenotypeDetails {
   display_uniquename: string;
   name: string;
   background: string;
-  expressed_alleles: Array<ExpressedAllele>;
+  loci: Array<GenotypeLocus>;
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;
   annotation_details: AnnotationDetailMap;
@@ -611,12 +615,14 @@ export class PombaseAPIService {
         if (genotypesByUniquename && annotation.genotype) {
           annotation.genotype = genotypesByUniquename[annotation.genotype as any as string];
           if (annotation.genotype) {
-            annotation.genotype.expressed_alleles.map((expressed_allele) => {
-              expressed_allele.allele = allelesByUniquename[expressed_allele.allele_uniquename];
-              if (expressed_allele.allele.gene_uniquename) {
-                expressed_allele.allele.gene =
-                  genesByUniquename[expressed_allele.allele.gene_uniquename];
-              }
+            annotation.genotype.loci.map(locus => {
+              locus.expressed_alleles.map((expressed_allele) => {
+                expressed_allele.allele = allelesByUniquename[expressed_allele.allele_uniquename];
+                if (expressed_allele.allele.gene_uniquename) {
+                  expressed_allele.allele.gene =
+                    genesByUniquename[expressed_allele.allele.gene_uniquename];
+                }
+              });
             });
             annotation.genotype.displayNameLong = Util.displayNameLong(annotation.genotype);
           }
@@ -687,7 +693,7 @@ export class PombaseAPIService {
           row.genotypes =
             row.genotype_uniquenames.map(genotypeUniquename => {
               let genotype = genotypesByUniquename[genotypeUniquename];
-              this.processExpressedAlleles(allelesByUniquename, genesByUniquename, genotype.expressed_alleles);
+              this.processLoci(allelesByUniquename, genesByUniquename, genotype.loci);
               genotype.displayNameLong = Util.displayNameLong(genotype);
               return genotype;
             });
@@ -740,7 +746,7 @@ export class PombaseAPIService {
       }
       if (annotation.genotype_uniquename) {
         annotation.genotype = genotypesByUniquename[annotation.genotype_uniquename];
-        this.processExpressedAlleles(allelesByUniquename, genesByUniquename, annotation.genotype.expressed_alleles);
+        this.processLoci(allelesByUniquename, genesByUniquename, annotation.genotype.loci);
         annotation.genotype.displayNameLong = Util.displayNameLong(annotation.genotype);
       }
       if (annotation.reference_uniquename) {
@@ -865,6 +871,13 @@ export class PombaseAPIService {
     });
   }
 
+  processLoci(allelesByUniquename: any, genesByUniquename: any,
+    loci: Array<GenotypeLocus>): void {
+    loci.map(locus => {
+      this.processExpressedAlleles(allelesByUniquename, genesByUniquename, locus.expressed_alleles);
+    });
+  }
+
   processGenotypeResponse(json: any): GenotypeDetails {
     let genesByUniquename = json.genes_by_uniquename;
     let genotypesByUniquename = json.genotypes_by_uniquename;
@@ -874,7 +887,7 @@ export class PombaseAPIService {
     let annotationDetailsMap = json.annotation_details;
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
-    this.processExpressedAlleles(allelesByUniquename, genesByUniquename, json.expressed_alleles);
+    this.processLoci(allelesByUniquename, genesByUniquename, json.loci);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
