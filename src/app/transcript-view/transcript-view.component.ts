@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { TranscriptDetails, GeneDetails, FeatureShort, ChromosomeLocation } from '../pombase-api.service';
 import { AppConfig, getAppConfig } from '../config';
+import { Util } from '../shared/util';
 
 class DisplayTranscript {
   private _displayParts: Array<DisplayPart> = [];
@@ -133,6 +134,10 @@ class DisplayTranscript {
 
   public uniquename(): string {
     return this.transcript.uniquename;
+  }
+
+  public productSizeString(): string {
+    return Util.productStringOfTranscript(this.transcript);
   }
 }
 

@@ -29,8 +29,10 @@
           <div>{{displayFeatureType}}</div>
           <div class="details-label">Systematic ID</div>
           <div>{{geneDetails.uniquename}}</div>
-          <div *ngIf="productSize.length != 0" class="details-label">Product size</div>
-          <div *ngIf="productSize.length != 0">{{productSize}}</div>
+          <div *ngIf="productSizeOfTranscript1.length != 0" class="details-label">Product size
+            <span *ngIf="transcriptCount > 1">(of transcript 1)</span>
+          </div>
+          <div *ngIf="productSizeOfTranscript1.length != 0">{{productSizeOfTranscript1}}</div>
           <div class="details-label" *ngIf="!isConfiguredOrganism">Organism</div>
           <div *ngIf="!isConfiguredOrganism">{{organismLongName}}</div>
           <div *ngIf="displayLocation" class="details-label">Genomic location</div>
@@ -71,7 +73,8 @@
 
     <div class="gene-transcripts-note" *ngIf="geneDetails.transcripts.length > 1">
       Note: this gene has {{geneDetails.transcripts.length}} transcripts
-      <a pageScroll href="#transcript_view">[details]</a>
+      (<a pageScroll href="#transcript_view">see details</a>)
+      <span *ngIf="proteinCount > 0">with {{proteinCount}} translations</span>
     </div>
     </div>
 

@@ -9,6 +9,7 @@ import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.s
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AppConfig, ConfigOrganism } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
+import { Util } from '../shared/util';
 
 @Component({
   selector: 'app-gene-details',
@@ -27,7 +28,11 @@ export class GeneDetailsComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();
   apiError: any = null;
   showProteinFeatures = false;
-  productSize = '';
+  productSizeOfTranscript1 = '';
+  productSizeStrings: Array<string> = [];
+  transcriptCount = 0;
+  // number of translated transcripts:
+  proteinCount = 0;
   organism?: ConfigOrganism;
   organismLongName?: string;
   isConfiguredOrganism: boolean;
@@ -230,22 +235,22 @@ export class GeneDetailsComponent implements OnInit {
     this.window.scrollTo(0, 0);
   }
 
-  setProductSize(): void {
+  setProducts(): void {
     const transcripts = this.geneDetails.transcripts;
-    if (!transcripts || transcripts.length === 0) {
+    if (transcripts.length === 0) {
       return;
     }
 
-    const transcript = transcripts[0];
-    const protein = transcript.protein;
+    transcripts.map(transcript => {
+      this.productSizeOfTranscript1 = Util.productStringOfTranscript(transcript);
 
-    if (protein) {
-      const proteinSequenceLength = protein.number_of_residues;
-      const weight = Math.round(protein.molecular_weight * 100) / 100.0;
-      this.productSize = proteinSequenceLength + ' aa, ' + weight + ' kDa';
-    } else {
-      this.productSize = transcript.sequence.length + ' nt';
-    }
+      this.proteinCount = 0;
+      this.geneDetails.transcripts.map(transcript => {
+        if (transcript.protein) {
+          this.proteinCount++;
+        }
+      });
+    });
   }
 
   setJBrowseLink(): void {
@@ -324,10 +329,11 @@ export class GeneDetailsComponent implements OnInit {
                 });
               this.setPageTitle();
               this.scrollToPageTop();
-              this.setProductSize();
+              this.setProducts();
+              this.transcriptCount = this.geneDetails.transcripts.length;
               this.setJBrowseLink();
               this.showProteinFeatures =
-                this.geneDetails.transcripts && this.geneDetails.transcripts.length > 0 &&
+                this.geneDetails.transcripts.length > 0 &&
                 !!this.geneDetails.transcripts[0].protein ||
                 this.geneDetails.interpro_matches.length > 0 ||
                 !!this.geneDetails.cv_annotations['PomBase family or domain'];

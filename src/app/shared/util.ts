@@ -1,5 +1,5 @@
 import { GenotypeDetails, GenotypeShort, GeneShort,
-         AlleleShort } from '../pombase-api.service';
+         AlleleShort, TranscriptDetails} from '../pombase-api.service';
 
 export class Util {
 
@@ -159,5 +159,17 @@ export class Util {
 
   static randElement<T>(arr: Array<T>): T {
     return arr[Util.randInt(arr.length)];
+  }
+
+  static productStringOfTranscript(transcript: TranscriptDetails): string {
+    const protein = transcript.protein;
+
+    if (protein) {
+      const proteinSequenceLength = protein.number_of_residues;
+      const weight = Math.round(protein.molecular_weight * 100) / 100.0;
+      return proteinSequenceLength + ' aa, ' + weight + ' kDa';
+    } else {
+      return transcript.sequence.length + ' nt';
+    }
   }
 }
