@@ -29,9 +29,9 @@ datasets originally sent to pombelist ([Broad](documentation/Broad_dataset_email
 
 
 Transcript start and end coordinates from all sources will be available
-as individual data tracks in the Ensembl genome browser in the near
+as individual data tracks in the genome browser in the near
 future, which will allow you to view and evaluate them. PomBase will
 also curate splice and transcript variants as data become available.
 
-<!-- remove this when ticket #350 done -->
-Note: exon and CDS coordinates are temporarily unavailable on PomBase gene pages.
+Note: exon and CDS coordinates are available in the Transcript section
+on PomBase gene pages.
