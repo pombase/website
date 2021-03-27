@@ -57,7 +57,7 @@ export class Util {
               return alleleDisplayName;
             }
           })
-          .join(' / ');
+          .join('/');
         })
         .join(' ');
     } else {
