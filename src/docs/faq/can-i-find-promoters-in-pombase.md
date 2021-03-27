@@ -8,11 +8,11 @@ suggest that you use Artemis. Follow the instructions in
 [this FAQ](/faq/there-equivalent-artemis-java-applet-pombase), 
 and search for features with "Key" = "promoter".
 
-Computationally identified matches to the [DNA binding sites](https://www.pombase.org/browse-curation/dna-binding-sites)
-
-found in *S. pombe* are avaliable as a data track in PomBase
-JBrowse. To launch JBrowse with the track loaded, use
-[this link][prom].
+Computationally identified matches to the [DNA binding
+sites](https://www.pombase.org/browse-curation/dna-binding-sites)
+found in *S. pombe* are available as a data track in PomBase
+JBrowse. To launch JBrowse with the track loaded, use [this
+link][prom].
 
 The genome browser also includes transcription start site datasets,
 such as the CAGE-defined [transcription start sites][tss] across 5

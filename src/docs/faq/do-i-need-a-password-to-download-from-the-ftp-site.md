@@ -1,6 +1,10 @@
 # Do I need a password to download from the FTP site?
 <!-- pombase_categories: Finding data,Genome statistics and lists,Tools and resources -->
 
+Note: Links from PomBase web pages use HTTPS for downloads, but if you
+have a link containing "ftp", and your browser supports FTP, this
+information is relevant:
+
 You do not need a password to download anything from the PomBase FTP
 site. In some web browsers, clicking a link to an FTP directory takes
 you to a page listing the contents, and clicking a file link produces

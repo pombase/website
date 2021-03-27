@@ -9,12 +9,11 @@ were found on in genome sequencing. In most cases, ORF IDs that end with
 a digit indicate that the ORF is on the forward (Watson) strand, and an
 ORF with an ID that ends with 'c' is on the reverse (Crick) stand. There
 are a few exceptions, however, because some cosmids were moved and their
-orientation reversed late in the sequence assembly procedure
+orientation reversed late in the sequence assembly procedure.
 
-IDs with '.1' appended are transcript IDs; the dot-and-digit IDs follow
-Ensembl's standard. At present, PomBase has only one transcript
-annotated for any given feature, but in the future when alternative
-transcripts are annotated the digit will be incremented (.2, .3, etc.).
+IDs with '.1' appended are transcript IDs; the dot-and-digit IDs
+follow Ensembl's standard. If any given feature has alternative
+transcripts annotated, the digit will be incremented (.2, .3, etc.).
 
 **Systematic ID patterns**
 
