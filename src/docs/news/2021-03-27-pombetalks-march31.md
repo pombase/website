@@ -1,13 +1,14 @@
-### PombeTalks March 17th - new time!
+### PombeTalks March 31st
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The new season of online PombeTalks for 2021 will begin on Wednesday
-**3rd March** 2021, at a different time: 9:00 [Central European
-Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/) / 17:00 [Japan & Korea](https://greenwichmeantime.com/time-zone/gmt-plus-9/). Speakers:
+The next online PombeTalks will take place on Wednesday **31st March**
+2021, at 17:00 [Central European
+Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/):
 
-- **Yasuto Murayama**, National Institute of Genetics, Shizuoka: *Biochemical analysis of the fission yeast structural maintenance of chromosomes complex*
+- **Udo Onwubiko**, Das lab, University of Tennessee: *Cdc42 prevents early Rho1 activation during cytokinesis*
 
-- **Ken Ishikawa**, Kurume University, Kurume: *dCas9-mediated CRISPRi for S. pombe*
+- **Chunmin Shan**, Jia lab, Columbia University: *The INO80 complex regulates epigenetic inheritance of heterochromatin*
 
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
