@@ -12,10 +12,13 @@
     <div class="protein-feature-title">
       Graphical view
     </div>
+    <div *ngIf="proteinDetails" class="track-view">
+      <app-track-view [protein]="proteinDetails" [trackViewData]="trackViewData">
+      </app-track-view>
+    </div>
     <div class="ensembl-peptide-view">
     <div class="ensembl-image">
       <a href="{{ensemblBrowserUrl}}">
-        <img src="{{ensemblImageUrl}}" />
         <div class="ensembl-link-label">
           View in Ensembl browser ...
         </div>

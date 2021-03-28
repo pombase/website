@@ -1,0 +1,28 @@
+<div class="track-view">
+<svg style="background-color: white" [attr.viewBox]="viewBox()">
+  <style>
+  </style>
+  <svg:g *ngFor="let displayTrack of displayTracks; let trackIdx = index">
+    <svg:text class="track-label"
+              *ngIf="displayTrack.label"
+              dominant-baseline="hanging"
+              attr.transform="translate(3 {{trackIdx * (featureHeight()+featureLabelHeight())+3}})">
+      {{displayTrack.label}}
+    </svg:text>
+    <svg:rect *ngFor="let part of displayTrack.feature.parts; let partIdx = index"
+              class="track-feature"
+              [attr.fill]="trackColors[displayTrack.dbName] || '#345'"
+              [attr.width]="part.size() * widthScaleFactor()"
+              [attr.height]="featureHeight()"
+              [attr.x]="trackLabelWidth() + (part.start-1) * widthScaleFactor()"
+              [attr.y]="(featureHeight()+featureLabelHeight()) * trackIdx">
+    </svg:rect>
+    <svg:text class="feature-label"
+              dominant-baseline="hanging"
+              font-size="12px"
+              attr.transform="translate({{trackLabelWidth() + (displayTrack.feature.parts[0].start-1)*widthScaleFactor()}} {{trackIdx * (featureHeight()+featureLabelHeight())+featureHeight()+3}})">
+      {{displayTrack.feature.label}}
+    </svg:text>
+  </svg:g>
+</svg>
+</div>

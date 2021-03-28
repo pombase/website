@@ -119,6 +119,7 @@ import { IdentifierMapperComponent } from './identifier-mapper/identifier-mapper
 import { TermLinkComponent } from './term-link/term-link.component';
 import { IdentifierMapperResultsComponent } from './identifier-mapper-results/identifier-mapper-results.component';
 import { JbrowseTrackOrderByPipe } from './jbrowse-track-order-by.pipe';
+import { TrackViewComponent } from './track-view/track-view.component';
 
 export function documentFactory() {
     return document;
@@ -212,6 +213,7 @@ export function windowFactory() {
     TermLinkComponent,
     IdentifierMapperResultsComponent,
     JbrowseTrackOrderByPipe,
+    TrackViewComponent,
   ],
   imports: [
     BrowserModule,

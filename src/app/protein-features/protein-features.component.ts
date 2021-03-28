@@ -4,6 +4,8 @@ import { GeneDetails, ProteinDetails, TranscriptDetails, TermAnnotation } from '
 
 import { getAppConfig } from '../config';
 
+import { TrackViewFeature, TrackViewFeaturePart, TrackViewTrack } from '../track-view-track';
+
 @Component({
   selector: 'app-protein-features',
   templateUrl: './protein-features.component.html',
@@ -21,11 +23,33 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   proteinDetails?: ProteinDetails;
   proteinFeaturesTable?: Array<TermAnnotation>;
   soAnnotationTable?: Array<TermAnnotation>;
+  trackViewData: Array<TrackViewTrack> = [];
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  makeTrackViewData(): Array<TrackViewTrack> {
+    let featuresByDbname: {[dbname: string]: Array<TrackViewFeature>;} = {}
+
+    this.geneDetails.interpro_matches
+      .map(match => {
+        const parts = match.locations
+          .map(loc => new TrackViewFeaturePart(loc.start, loc.end));
+        const feature = new TrackViewFeature(match.id, match.interpro_name || match.name, parts);
+        if (!featuresByDbname[match.dbname]) {
+          featuresByDbname[match.dbname] = [];
+        }
+        featuresByDbname[match.dbname].push(feature);
+      });
+
+    return Object.keys(featuresByDbname)
+      .map(dbname => {
+        const features = featuresByDbname[dbname];
+        return new TrackViewTrack(dbname, dbname, features);
+      });
+   }
 
   ngOnChanges() {
     if (this.geneDetails.transcripts.length > 0) {
@@ -60,5 +84,7 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       this.ensemblImageUrl = undefined;
       this.ensemblBrowserUrl = undefined;
     }
+
+    this.trackViewData = this.makeTrackViewData();
   }
 }

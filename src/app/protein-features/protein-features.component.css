@@ -38,3 +38,8 @@
   padding: 0.5em 0 0.5em 0;
   width: 60%;
 }
+
+.track-view {
+  display: inline-block;
+  width: 700px;
+}
