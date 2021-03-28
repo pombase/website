@@ -16,7 +16,9 @@ Protein families and domains
         <th>Count</th>
       </tr>
     </thead>
-    <tr *ngFor="let match of displayMatches">
+    <tr [class.highlighted]="match.id == highlightedId"
+        (mouseenter)="highlightMatch(match.id)"
+        *ngFor="let match of displayMatches">
       <td>
         <span *ngIf="!match.dbEntryUrl">{{match.id}}</span>
         <a *ngIf="match.dbEntryUrl" title="View {{match.id}} at {{match.dbDisplayName}}"

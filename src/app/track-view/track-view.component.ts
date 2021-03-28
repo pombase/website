@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 
 import { TrackViewFeature, TrackViewTrack } from '../track-view-track';
 import { ProteinDetails } from '../pombase-api.service';
@@ -20,14 +20,14 @@ class DisplayTrack {
 export class TrackViewComponent implements OnInit, OnChanges {
   @Input() trackViewData: Array<TrackViewTrack>;
   @Input() protein: ProteinDetails;
+  @Input() highlightedId: string;
+  @Output() highlightedIdChange = new EventEmitter<string>();
 
   appConfig = getAppConfig();
   featureFeaturesConfig = this.appConfig.proteinFeatures;
   trackColors: { [dbName: string]: string } = {};
 
   displayTracks: Array<DisplayTrack> = [];
-
-  highlightedId: string = null;
 
   totalHeight = 0;
 
@@ -59,6 +59,7 @@ export class TrackViewComponent implements OnInit, OnChanges {
 
   setHighlighted(id: string) {
     this.highlightedId = id;
+    this.highlightedIdChange.emit(id);
   }
 
   ngOnInit(): void {

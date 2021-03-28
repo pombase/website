@@ -25,6 +25,8 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   soAnnotationTable?: Array<TermAnnotation>;
   trackViewData: Array<TrackViewTrack> = [];
 
+  highlightedId: string = null;
+
   constructor() { }
 
   ngOnInit() {

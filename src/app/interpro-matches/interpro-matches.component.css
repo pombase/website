@@ -14,3 +14,7 @@
 .interpro-matches table th {
   font-weight: bold;
 }
+
+.highlighted {
+  background-color: #fefefe;
+}

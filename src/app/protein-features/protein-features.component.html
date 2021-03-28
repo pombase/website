@@ -13,7 +13,8 @@
       Graphical view
     </div>
     <div *ngIf="proteinDetails" class="track-view">
-      <app-track-view [protein]="proteinDetails" [trackViewData]="trackViewData">
+      <app-track-view [protein]="proteinDetails" [trackViewData]="trackViewData"
+                      [(highlightedId)]="highlightedId">
       </app-track-view>
     </div>
     <div class="ensembl-peptide-view">
@@ -30,7 +31,8 @@
   <app-interpro-matches *ngIf="geneDetails.interpro_matches.length > 0 && geneDetails.uniprot_identifier"
                         [geneDisplayName]="geneDetails.name || geneDetails.uniquename"
                         [uniprotIdentifier]="geneDetails.uniprot_identifier"
-                        [matches]="geneDetails.interpro_matches">
+                        [matches]="geneDetails.interpro_matches"
+                        [(highlightedId)]="highlightedId">
   </app-interpro-matches>
 
   <div *ngIf="geneDetails.uniprot_identifier" class="pfam-structure">
