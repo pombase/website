@@ -915,6 +915,12 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     displayName : 'SUPERFAMILY',
     urlSyntax : 'http://supfam.org/SUPERFAMILY/cgi-bin/scop.cgi?ipid=[example_id]',
     website : 'http://supfam.org/'
+  },
+  'InterProUniProtId' : {
+    description : 'InterPro protein summary',
+    displayName : 'InterPro',
+    urlSyntax : 'https://www.ebi.ac.uk/interpro/protein/reviewed/[example_id]',
+    website : 'https://www.ebi.ac.uk/interpro/',
  },
 };
 
@@ -956,6 +962,10 @@ function getXrfConfig(): { [key: string]: XrfConfig } {
   }
 
   return xrfConfig;
+}
+
+export function getXrfConfigByName(name: string): XrfConfig|undefined {
+  return getXrfConfig()[name];
 }
 
 export function getXrfWithPrefix(prefix: string, id: string): XrfDetails|undefined {

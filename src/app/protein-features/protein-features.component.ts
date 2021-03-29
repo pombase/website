@@ -2,7 +2,7 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { GeneDetails, ProteinDetails, TranscriptDetails, TermAnnotation } from '../pombase-api.service';
 
-import { getAppConfig } from '../config';
+import { getAppConfig, getXrfConfigByName, getXrfWithPrefix } from '../config';
 
 import { TrackViewFeature, TrackViewFeaturePart, TrackViewTrack } from '../track-view-track';
 
@@ -17,7 +17,6 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   appConfig = getAppConfig();
   siteName = this.appConfig.site_name;
 
-  ensemblImageUrl?: string;
   ensemblBrowserUrl?: string;
   transcriptDetails?: TranscriptDetails;
   proteinDetails?: ProteinDetails;
@@ -61,8 +60,26 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
     return Object.keys(featuresByDbname)
       .map(dbname => {
         const features = featuresByDbname[dbname];
-        return new TrackViewTrack(dbname, dbname, features);
+        const xrfConfig = getXrfConfigByName(dbname);
+        let label;
+        if (xrfConfig) {
+          label = xrfConfig.displayName;
+        } else {
+          label = dbname;
+        }
+        return new TrackViewTrack(label, dbname, features);
       });
+   }
+
+   getInterProUrl(): string {
+     if (this.geneDetails.uniprot_identifier) {
+       const xrfDetails = getXrfWithPrefix('InterProUniProtId', this.geneDetails.uniprot_identifier);
+       if (xrfDetails) {
+        return xrfDetails.url;
+       }
+     }
+
+     return 'https://www.ebi.ac.uk/interpro/';
    }
 
   ngOnChanges() {
@@ -89,13 +106,10 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
     }
 
     if (this.geneDetails.feature_type !== 'pseudogene' &&
-        this.transcriptDetails && this.transcriptDetails.uniquename &&
-        this.appConfig.missingBrowserImages.indexOf(this.geneDetails.uniquename) === -1) {
-      this.ensemblImageUrl = `/browser_images/${this.transcriptDetails.uniquename}_pep.png`;
+        this.transcriptDetails && this.transcriptDetails.uniquename) {
       this.ensemblBrowserUrl =
         `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptDetails.uniquename}`;
     } else {
-      this.ensemblImageUrl = undefined;
       this.ensemblBrowserUrl = undefined;
     }
 

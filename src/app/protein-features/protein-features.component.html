@@ -8,7 +8,7 @@
   </legend>
 
 <div class="annotation-table-container">
-  <div *ngIf="ensemblImageUrl">
+  <div>
     <div class="protein-feature-title">
       Graphical view
     </div>
@@ -17,14 +17,15 @@
                       [(highlightedId)]="highlightedId">
       </app-track-view>
     </div>
+    <div class="interpro-link" *ngIf="geneDetails.uniprot_identifier">
+      <a href="{{getInterProUrl()}}">View at InterPro ...</a>
+    </div>
     <div class="ensembl-peptide-view">
-    <div class="ensembl-image">
       <a href="{{ensemblBrowserUrl}}">
         <div class="ensembl-link-label">
-          View protein features is Ensembl browser ...
+          View protein features in Ensembl browser ...
         </div>
       </a>
-    </div>
     </div>
   </div>
 
