@@ -17,7 +17,6 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   appConfig = getAppConfig();
   siteName = this.appConfig.site_name;
 
-  ensemblBrowserUrl?: string;
   transcriptDetails?: TranscriptDetails;
   proteinDetails?: ProteinDetails;
   proteinFeaturesTable?: Array<TermAnnotation>;
@@ -103,14 +102,6 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
         this.geneDetails.cv_annotations['sequence'];
     } else {
       this.soAnnotationTable = undefined;
-    }
-
-    if (this.geneDetails.feature_type !== 'pseudogene' &&
-        this.transcriptDetails && this.transcriptDetails.uniquename) {
-      this.ensemblBrowserUrl =
-        `http://fungi.ensembl.org/Schizosaccharomyces_pombe/Transcript/ProteinSummary?;t=${this.transcriptDetails.uniquename}`;
-    } else {
-      this.ensemblBrowserUrl = undefined;
     }
 
     this.trackViewData = this.makeTrackViewData();
