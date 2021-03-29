@@ -29,6 +29,14 @@ export interface ExternalLinks {
   [name: string]: string;
 }
 
+export interface ProteinFeatureTrack {
+  colour: string;
+}
+
+export interface ProteinFeatures {
+  track_config: { [trackLabel: string]: ProteinFeatureTrack; };
+}
+
 export interface ChromosomeConfig {
   long_display_name: string;
   short_display_name: string;
@@ -218,6 +226,7 @@ export interface AppConfig {
   externalGeneReferences: Array<ExternalGeneReference>;
   externalTermReferences: Array<ExternalTermReference>;
   miscExternalLinks: ExternalLinks;
+  proteinFeatures: ProteinFeatures;
   slims: { [slimName: string]: SlimConfig };
   chromosomes: {
     [identifier: string]: ChromosomeConfig;
@@ -705,6 +714,7 @@ let _appConfig: AppConfig = {
   externalGeneReferences: pombaseConfig.external_gene_references,
   externalTermReferences: pombaseConfig.external_term_references,
   miscExternalLinks: pombaseConfig.misc_external_links,
+  proteinFeatures: pombaseConfig.protein_features,
   chromosomes: pombaseConfig.chromosomes,
   documentation: docConfig,
 
@@ -905,6 +915,18 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     displayName : 'SUPERFAMILY',
     urlSyntax : 'http://supfam.org/SUPERFAMILY/cgi-bin/scop.cgi?ipid=[example_id]',
     website : 'http://supfam.org/'
+  },
+  'Profile' : {
+     'description' : 'Prosite database of protein families and domains',
+     'displayName' : 'Prosite profile',
+     'urlSyntax' : 'https://prosite.expasy.org/[example_id]',
+     'website' : 'https://prosite.expasy.org/'
+  },
+  'InterProUniProtId' : {
+    description : 'InterPro protein summary',
+    displayName : 'InterPro',
+    urlSyntax : 'https://www.ebi.ac.uk/interpro/protein/reviewed/[example_id]',
+    website : 'https://www.ebi.ac.uk/interpro/',
  },
 };
 
@@ -946,6 +968,10 @@ function getXrfConfig(): { [key: string]: XrfConfig } {
   }
 
   return xrfConfig;
+}
+
+export function getXrfConfigByName(name: string): XrfConfig|undefined {
+  return getXrfConfig()[name];
 }
 
 export function getXrfWithPrefix(prefix: string, id: string): XrfDetails|undefined {

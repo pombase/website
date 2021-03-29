@@ -1,6 +1,6 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, EventEmitter, Output } from '@angular/core';
 
-import { PombaseAPIService, InterProMatch, APIError, InterProMatchLocation } from '../pombase-api.service';
+import { PombaseAPIService, InterProMatch, APIError, InterProMatchLocation, GeneSubsets } from '../pombase-api.service';
 import { getXrfWithPrefix, XrfDetails } from '../config';
 
 interface DisplayMatch extends InterProMatch {
@@ -18,11 +18,20 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
   @Input() geneDisplayName: string;
   @Input() uniprotIdentifier: string;
   @Input() matches: Array<InterProMatch>;
+  @Input() highlightedId?: string;
+  @Output() highlightedIdChange = new EventEmitter<string>();
 
   displayMatches: Array<DisplayMatch> = [];
   apiError?: APIError;
 
+  geneSubsets?: GeneSubsets;
+
   constructor(private pombaseApiService: PombaseAPIService) { }
+
+  highlightMatch(id: string) {
+    this.highlightedId = id;
+    this.highlightedIdChange.emit(id);
+  }
 
   ngOnInit() {
   }
@@ -66,25 +75,28 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
 
     this.displayMatches = displayMatches;
 
-    this.pombaseApiService.getGeneSubsets()
-      .then(subsets => {
-        for (let match of displayMatches) {
-          match.geneCount = 0;
-          match.countLinkTitle = '';
-          match.countLinkUrl = '';
-          if (match.interpro_id) {
-            let subsetId = 'interpro:' + match.interpro_id;
-            let subset = subsets[subsetId];
+    const processMatches =
+      () => {
+      for (let match of displayMatches) {
+        match.geneCount = 0;
+        match.countLinkTitle = '';
+        match.countLinkUrl = '';
+        if (match.interpro_id) {
+          let subsetId = 'interpro:' + match.interpro_id;
+          if (this.geneSubsets) {
+            let subset = this.geneSubsets[subsetId];
             if (subset) {
               match.geneCount = subset.elements.length;
               match.countLinkTitle = `View all ${match.interpro_id} (${match.interpro_name}) genes`;
               match.countLinkUrl = `/gene_subset/${subsetId}`;
             }
-          } else {
-            let subsetId = 'interpro:' + match.dbname + ':' + match.id;
-            let subset = subsets[subsetId];
+          }
+        } else {
+          let subsetId = 'interpro:' + match.dbname + ':' + match.id;
+          if (this.geneSubsets) {
+            let subset = this.geneSubsets[subsetId];
             if (subset) {
-              match.geneCount = subset.elements.length;
+              match['geneCount'] = subset.elements.length;
               if (match.id === match.name) {
                 match['countLinkTitle'] = `View all ${match.id} genes`;
               } else {
@@ -94,11 +106,22 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
             }
           }
         }
+      }
 
-        this.displayMatches.sort((a, b) => (a.geneCount || 0) - (b.geneCount || 0));
-      })
-      .catch(error => {
-        this.apiError = error;
-      });
+      this.displayMatches.sort((a, b) => (a.geneCount || 0) - (b.geneCount || 0));
+    }
+
+    if (this.geneSubsets) {
+      processMatches();
+    } else {
+      this.pombaseApiService.getGeneSubsets()
+        .then(subsets => {
+          this.geneSubsets = subsets;
+          processMatches();
+        })
+        .catch(error => {
+          this.apiError = error;
+        });
+      }
   }
 }

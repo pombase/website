@@ -1,0 +1,57 @@
+<div class="track-view">
+<svg style="background-color: white" [attr.viewBox]="viewBox()">
+  <style>
+    .highlighted-feature {
+      stroke: #444444;
+      stroke-width: 2px;
+      fill-opacity: 0.7;
+    }
+  </style>
+  <svg:g *ngFor="let displayTrack of displayTracks; let trackIdx = index">
+    <svg:text class="track-label"
+              *ngIf="displayTrack.label"
+              dominant-baseline="hanging"
+              font-size="13px"
+              attr.transform="translate(3 {{trackIdx * (featureHeight()+featureLabelHeight())+3}})">
+      {{displayTrack.label}}
+    </svg:text>
+    <svg:rect *ngFor="let part of displayTrack.feature.parts; let partIdx = index"
+              class="track-feature"
+              [class.highlighted-feature]="!part.padding && displayTrack.feature.id == highlightedId"
+              (mouseenter)="setHighlighted(displayTrack.feature.id)"
+              [attr.fill]="(trackColors[displayTrack.dbName] || '#345') + (part.padding ? '99' : '')"
+              [attr.width]="part.size() * widthScaleFactor()"
+              [attr.height]="part.padding ? 1.6 : featureHeight()"
+              [attr.x]="trackLabelWidth() + (part.start-1) * widthScaleFactor()"
+              [attr.y]="(featureHeight()+featureLabelHeight()) * trackIdx + (part.padding ? featureHeight()/2.0-1 : 0)">
+    </svg:rect>
+    <svg:text class="feature-label"
+              dominant-baseline="hanging"
+              font-size="11px"
+              attr.transform="translate({{trackLabelWidth() + (displayTrack.feature.parts[0].start-1)*widthScaleFactor()}} {{trackIdx * (featureHeight()+featureLabelHeight())+featureHeight()+3}})">
+      {{displayTrack.feature.label}}
+    </svg:text>
+  </svg:g>
+  <svg:g class="track-scale">
+    <svg:rect fill="#222"
+              [attr.width]="trackWidth()"
+              [attr.height]="2"
+              [attr.x]="trackLabelWidth()"
+              [attr.y]="scaleBarY()">
+    </svg:rect>
+    <svg:rect *ngFor="let pos of scaleMarkPositions"
+              fill="#222"
+              [attr.width]="1.5"
+              [attr.height]="8"
+              [attr.x]="trackLabelWidth() + pos*widthScaleFactor()"
+              [attr.y]="scaleBarY() + 1.5">
+    </svg:rect>
+    <svg:text *ngFor="let pos of scaleMarkPositions"
+              dominant-baseline="hanging"
+              font-size="11px"
+              attr.transform="translate({{trackLabelWidth() + pos*widthScaleFactor()-4}} {{scaleBarY() + 11}})">
+      {{pos}}
+    </svg:text>
+  </svg:g>
+</svg>
+</div>

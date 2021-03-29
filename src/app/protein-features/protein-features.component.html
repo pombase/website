@@ -8,26 +8,22 @@
   </legend>
 
 <div class="annotation-table-container">
-  <div *ngIf="ensemblImageUrl">
+  <div *ngIf="trackViewData.length > 0">
     <div class="protein-feature-title">
       Graphical view
     </div>
-    <div class="ensembl-peptide-view">
-    <div class="ensembl-image">
-      <a href="{{ensemblBrowserUrl}}">
-        <img src="{{ensemblImageUrl}}" />
-        <div class="ensembl-link-label">
-          View in Ensembl browser ...
-        </div>
-      </a>
-    </div>
+    <div *ngIf="proteinDetails" class="track-view">
+      <app-track-view [protein]="proteinDetails" [trackViewData]="trackViewData"
+                      [(highlightedId)]="highlightedId">
+      </app-track-view>
     </div>
   </div>
 
   <app-interpro-matches *ngIf="geneDetails.interpro_matches.length > 0 && geneDetails.uniprot_identifier"
                         [geneDisplayName]="geneDetails.name || geneDetails.uniquename"
                         [uniprotIdentifier]="geneDetails.uniprot_identifier"
-                        [matches]="geneDetails.interpro_matches">
+                        [matches]="geneDetails.interpro_matches"
+                        [(highlightedId)]="highlightedId">
   </app-interpro-matches>
 
   <div *ngIf="geneDetails.uniprot_identifier" class="pfam-structure">
