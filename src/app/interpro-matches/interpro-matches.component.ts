@@ -18,13 +18,13 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
   @Input() geneDisplayName: string;
   @Input() uniprotIdentifier: string;
   @Input() matches: Array<InterProMatch>;
-  @Input() highlightedId: string;
+  @Input() highlightedId?: string;
   @Output() highlightedIdChange = new EventEmitter<string>();
 
   displayMatches: Array<DisplayMatch> = [];
   apiError?: APIError;
 
-  geneSubsets: GeneSubsets = null;
+  geneSubsets?: GeneSubsets;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
@@ -78,28 +78,32 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
     const processMatches =
       () => {
       for (let match of displayMatches) {
-        match.geneCount = null;
+        match.geneCount = 0;
         match.countLinkTitle = '';
         match.countLinkUrl = '';
         if (match.interpro_id) {
           let subsetId = 'interpro:' + match.interpro_id;
-          let subset = this.geneSubsets[subsetId];
-          if (subset) {
-            match.geneCount = subset.elements.length;
-            match.countLinkTitle = `View all ${match.interpro_id} (${match.interpro_name}) genes`;
-            match.countLinkUrl = `/gene_subset/${subsetId}`;
+          if (this.geneSubsets) {
+            let subset = this.geneSubsets[subsetId];
+            if (subset) {
+              match.geneCount = subset.elements.length;
+              match.countLinkTitle = `View all ${match.interpro_id} (${match.interpro_name}) genes`;
+              match.countLinkUrl = `/gene_subset/${subsetId}`;
+            }
           }
         } else {
           let subsetId = 'interpro:' + match.dbname + ':' + match.id;
-          let subset = this.geneSubsets[subsetId];
-          if (subset) {
-            match['geneCount'] = subset.elements.length;
-            if (match.id === match.name) {
-              match['countLinkTitle'] = `View all ${match.id} genes`;
-            } else {
-              match['countLinkTitle'] = `View all ${match.id} (${match.name}) genes`;
+          if (this.geneSubsets) {
+            let subset = this.geneSubsets[subsetId];
+            if (subset) {
+              match['geneCount'] = subset.elements.length;
+              if (match.id === match.name) {
+                match['countLinkTitle'] = `View all ${match.id} genes`;
+              } else {
+                match['countLinkTitle'] = `View all ${match.id} (${match.name}) genes`;
+              }
+              match['countLinkUrl'] = `/gene_subset/${subsetId}`;
             }
-            match['countLinkUrl'] = `/gene_subset/${subsetId}`;
           }
         }
       }

@@ -20,7 +20,7 @@ class DisplayTrack {
 export class TrackViewComponent implements OnInit, OnChanges {
   @Input() trackViewData: Array<TrackViewTrack>;
   @Input() protein: ProteinDetails;
-  @Input() highlightedId: string;
+  @Input() highlightedId?: string;
   @Output() highlightedIdChange = new EventEmitter<string>();
 
   appConfig = getAppConfig();
@@ -67,7 +67,7 @@ export class TrackViewComponent implements OnInit, OnChanges {
       .map(dbName => {
         const trackConfig = this.featureFeaturesConfig.track_config[dbName];
         if (trackConfig) {
-          this.trackColors[dbName] = trackConfig.colour || null;
+          this.trackColors[dbName] = trackConfig.colour;
         }
       });
   }
