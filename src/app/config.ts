@@ -5,7 +5,6 @@ import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
 import docConfig from './config/doc-config.json';
 import pombaseConfig from '../../pombase_v2_config.json';
 import jbrowseTracks from '../../minimal_jbrowse_track_list.json';
-import { ProteinFeaturesComponent } from './protein-features/protein-features.component';
 
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
