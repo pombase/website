@@ -916,6 +916,12 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     urlSyntax : 'http://supfam.org/SUPERFAMILY/cgi-bin/scop.cgi?ipid=[example_id]',
     website : 'http://supfam.org/'
   },
+  'Profile' : {
+     'description' : 'Prosite database of protein families and domains',
+     'displayName' : 'Prosite profile',
+     'urlSyntax' : 'https://prosite.expasy.org/[example_id]',
+     'website' : 'https://prosite.expasy.org/'
+  },
   'InterProUniProtId' : {
     description : 'InterPro protein summary',
     displayName : 'InterPro',
