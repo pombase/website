@@ -61,7 +61,7 @@ export class TrackViewComponent implements OnInit, OnChanges {
   }
 
   viewBox(): string {
-    return `-5 -5 ${this.trackWidth()+this.trackLabelWidth()+80} ${this.totalHeight+60}`;
+    return `-5 -5 ${this.trackWidth()+this.trackLabelWidth()+100} ${this.totalHeight+60}`;
   }
 
   setHighlighted(id: string) {
