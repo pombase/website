@@ -1,7 +1,12 @@
-.genotype-allele-summary th, .genotype-allele-summary td {
-  padding-right: 20px;
-}
-
 .genotype-allele-summary th {
   padding-bottom: 0.35em;
+}
+
+table.diploid tbody:nth-child(odd){
+  background-color: #f2f2f2;
+}
+
+table.genotype-allele-summary th, table.genotype-allele-summary td {
+  border: 1px solid #ededed;
+  padding: 0.2em 2em 0.2em 0.2em;
 }

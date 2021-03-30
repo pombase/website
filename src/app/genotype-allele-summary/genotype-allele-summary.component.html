@@ -1,14 +1,17 @@
-<table class="genotype-allele-summary">
+<table class="genotype-allele-summary" [ngClass]="{'diploid': isDiploid}">
   <thead>
-    <th>Gene</th>
+    <th *ngIf="!isDiploid">Gene</th>
+    <th *ngIf="isDiploid">Locus</th>
     <th>Allele name</th>
     <th>Description</th>
     <th>Type</th>
     <th>Expression</th>
   </thead>
   <tbody *ngFor="let locus of genotype.loci">
-    <tr *ngFor="let expressedAllele of locus.expressed_alleles">
-      <td><app-gene-link class="app-link" [long]="false" [gene]="expressedAllele.allele.gene"></app-gene-link></td>
+    <tr *ngFor="let expressedAllele of locus.expressed_alleles ; let i = index">
+      <td>
+        <app-gene-link *ngIf="i == 0" class="app-link" [long]="false" [gene]="expressedAllele.allele.gene"></app-gene-link>
+      </td>
       <td>
         <span [innerHTML]="tidyAlleleName(expressedAllele.allele)"></span>
       </td>

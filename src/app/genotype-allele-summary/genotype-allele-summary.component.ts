@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { Util } from '../shared/util';
 import { GenotypeDetails, GenotypeShort, AlleleShort } from '../pombase-api.service';
@@ -8,8 +8,10 @@ import { GenotypeDetails, GenotypeShort, AlleleShort } from '../pombase-api.serv
   templateUrl: './genotype-allele-summary.component.html',
   styleUrls: ['./genotype-allele-summary.component.css']
 })
-export class GenotypeAlleleSummaryComponent implements OnInit {
+export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
   @Input() genotype: GenotypeDetails|GenotypeShort;
+
+  isDiploid = false;
 
   constructor() { }
 
@@ -27,5 +29,15 @@ export class GenotypeAlleleSummaryComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.isDiploid = false;
+    for (let locus of this.genotype.loci) {
+      if (locus.expressed_alleles.length > 1) {
+        this.isDiploid = true;
+        break;
+      }
+    }
   }
 }
