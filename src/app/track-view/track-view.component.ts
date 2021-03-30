@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 
-import { TrackViewFeature, TrackViewTrack } from '../track-view-track';
+import { TrackViewFeature, TrackViewFeaturePart, TrackViewTrack } from '../track-view-track';
 import { ProteinDetails } from '../pombase-api.service';
 import { getAppConfig } from '../config';
 
 class DisplayTrack {
-  constructor(public label: string|null,
+  constructor(public dbFirstRowLabel: string|null,
+              public dbLabel: string,
               public dbName: string,
               public feature: TrackViewFeature) {
 
@@ -28,6 +29,9 @@ export class TrackViewComponent implements OnInit, OnChanges {
   trackColors: { [dbName: string]: string } = {};
 
   displayTracks: Array<DisplayTrack> = [];
+
+  currentDisplayTrack?: DisplayTrack;
+  currentFeaturePart?: TrackViewFeaturePart;
 
   totalHeight = 0;
 
@@ -64,9 +68,16 @@ export class TrackViewComponent implements OnInit, OnChanges {
     return `-5 -5 ${this.trackWidth()+this.trackLabelWidth()+100} ${this.totalHeight+60}`;
   }
 
-  setHighlighted(id: string) {
+  mouseEnter(currentDisplayTrack: DisplayTrack,
+             currentFeaturePart: TrackViewFeaturePart) {
+    this.currentDisplayTrack = currentDisplayTrack;
+    this.currentFeaturePart = currentFeaturePart;
+    const id = currentDisplayTrack.feature.id;
     this.highlightedId = id;
     this.highlightedIdChange.emit(id);
+  }
+
+  mouseLeave(_: string) {
   }
 
   ngOnInit(): void {
@@ -87,12 +98,13 @@ export class TrackViewComponent implements OnInit, OnChanges {
         track.features.length * (this.featureHeight() + this.featureLabelHeight());
 
       for (let i = 0; i < track.features.length; i++) {
-        let label = null;
+        let dbFirstRowLabel = null;
         if (i == 0) {
-          label = track.label;
+          dbFirstRowLabel = track.label;
         }
         const feature = track.features[i];
-        const displayTrack = new DisplayTrack(label, track.dbName, feature);
+        const displayTrack =
+          new DisplayTrack(dbFirstRowLabel, track.label, track.dbName, feature);
         this.displayTracks.push(displayTrack);
       }
     }
