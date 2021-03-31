@@ -24,6 +24,7 @@ export class GenotypeDetailsComponent implements OnInit {
   displayNameForTitle = '';
   apiError?: APIError;
   appConfig: AppConfig = getAppConfig();
+  isDiploid = false;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -63,6 +64,13 @@ export class GenotypeDetailsComponent implements OnInit {
             this.annotationTypeNames = this.config.annotationTypeOrder;
             this.setPageTitle();
             this.apiError = undefined;
+            this.isDiploid = false;
+            for (let locus of genotypeDetails.loci) {
+              if (locus.expressed_alleles.length > 1) {
+                this.isDiploid = true;
+                break;
+              }
+            }
           })
           .catch(error => {
             this.apiError = error;
