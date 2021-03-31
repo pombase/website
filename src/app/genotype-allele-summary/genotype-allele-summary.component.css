@@ -9,4 +9,5 @@ table.diploid tbody:nth-child(odd){
 table.genotype-allele-summary th, table.genotype-allele-summary td {
   border: 1px solid #ededed;
   padding: 0.2em 2em 0.2em 0.2em;
+  vertical-align: top;
 }
