@@ -70,6 +70,15 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       });
    }
 
+   makeTransMembraneTrack(): TrackViewTrack {
+     const parts = this.geneDetails.tm_domain_coords
+       .map(coord => new TrackViewFeaturePart(coord[0], coord[1], false));
+     const label = 'predicted trans-membrane domains';
+     const feature = new TrackViewFeature(label, label, parts);
+
+     return new TrackViewTrack('TM domains', 'TMHMM', [feature]);
+    }
+
    getInterProUrl(): string {
      if (this.geneDetails.uniprot_identifier) {
        const xrfDetails = getXrfWithPrefix('InterProUniProtId', this.geneDetails.uniprot_identifier);
@@ -105,5 +114,6 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
     }
 
     this.trackViewData = this.makeTrackViewData();
+    this.trackViewData.push(this.makeTransMembraneTrack())
   }
 }
