@@ -66,6 +66,7 @@ FYPO term pages have a few distinctive features:
 Ontology term pages are available for [GO](http://geneontology.org/),
 [FYPO](/browse-curation/fission-yeast-phenotype-ontology),
 [SO](http://sequenceontology.org/),
-[PSI-MOD](http://obofoundry.org/ontology/mod.html), the internal PBO description
-collection, and PECO, the internal ontology we use for phenotype
-experimental conditions.
+[PSI-MOD](http://obofoundry.org/ontology/mod.html), and PomBase
+internal ontologies including the PBO description collection, the
+PomGeneEx descriptions for qualitative gene expression, and PECO for
+phenotype experimental conditions.
