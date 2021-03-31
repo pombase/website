@@ -9,8 +9,8 @@
   </thead>
   <tbody *ngFor="let locus of genotype.loci">
     <tr *ngFor="let expressedAllele of locus.expressed_alleles ; let i = index">
-      <td>
-        <app-gene-link *ngIf="i == 0" class="app-link" [long]="false" [gene]="expressedAllele.allele.gene"></app-gene-link>
+      <td *ngIf="i == 0" [attr.rowspan]="isDiploid ? 2 : 1">
+        <app-gene-link class="app-link" [long]="false" [gene]="expressedAllele.allele.gene"></app-gene-link>
       </td>
       <td>
         <span [innerHTML]="tidyAlleleName(expressedAllele.allele)"></span>
