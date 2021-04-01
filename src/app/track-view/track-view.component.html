@@ -28,16 +28,17 @@
     </svg:text>
 
 
+   <svg:g #feature="bs-popover"
+          style="pointer-events: bounding-box;"
+          [popover]="detailsPopup"
+          triggers="mouseenter:mouseleave"
+          placement="bottom"
+          container="body">
     <svg:g *ngFor="let part of displayTrack.feature.parts; let partIdx = index">
       <svg:rect class="track-feature"
                 [attr.id]="displayTrack.feature.id"
                 [class.highlighted-feature]="!part.padding && displayTrack.feature.id == highlightedId"
                 (mouseenter)="mouseEnter(displayTrack, part)"
-                #feature="bs-popover"
-                [popover]="detailsPopup"
-                triggers="mouseenter:mouseleave"
-                placement="bottom"
-                container="body"
                 [attr.fill]="(trackColors[displayTrack.dbName] || '#345') + (part.padding ? '99' : '')"
                 [attr.width]="part.size() * widthScaleFactor()"
                 [attr.height]="part.padding ? 1.6 : featureHeight()"
@@ -48,14 +49,10 @@
     <svg:text class="feature-label"
               dominant-baseline="hanging"
               font-size="11px"
-              #feature="bs-popover"
-              [popover]="detailsPopup"
-              triggers="mouseenter:mouseleave"
-              placement="bottom"
-              container="body"
               attr.transform="translate({{trackLabelWidth() + (displayTrack.feature.parts[0].start-1)*widthScaleFactor()}} {{trackIdx * (featureHeight()+featureLabelHeight())+featureHeight()+3}})">
       {{displayTrack.feature.label}}
     </svg:text>
+   </svg:g>
   </svg:g>
   <svg:g class="track-scale">
     <svg:rect fill="#222"
