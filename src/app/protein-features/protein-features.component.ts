@@ -70,14 +70,18 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       });
    }
 
-   makeTransMembraneTrack(): TrackViewTrack {
-     const parts = this.geneDetails.tm_domain_coords
-       .map(coord => new TrackViewFeaturePart(coord[0], coord[1], false));
-     const label = 'predicted trans-membrane domains';
-     const feature = new TrackViewFeature(label, label, parts);
+   makeTransMembraneTrack(): TrackViewTrack|undefined {
+     if (this.geneDetails.tm_domain_coords.length > 1) {
+       const parts = this.geneDetails.tm_domain_coords
+         .map(coord => new TrackViewFeaturePart(coord[0], coord[1], false));
+       const label = 'predicted trans-membrane domains';
+       const feature = new TrackViewFeature(label, label, parts);
 
-     return new TrackViewTrack('TM domains', 'TMHMM', [feature]);
-    }
+       return new TrackViewTrack('TM domains', 'TMHMM', [feature]);
+     } else {
+       return undefined;
+     }
+   }
 
    getInterProUrl(): string {
      if (this.geneDetails.uniprot_identifier) {
@@ -114,6 +118,9 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
     }
 
     this.trackViewData = this.makeTrackViewData();
-    this.trackViewData.push(this.makeTransMembraneTrack())
+    const tmTrack = this.makeTransMembraneTrack();
+    if (tmTrack) {
+      this.trackViewData.push(tmTrack);
+    }
   }
 }
