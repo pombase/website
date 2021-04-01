@@ -1,7 +1,7 @@
 <div class="track-view">
   <ng-template #detailsPopup>
     <div *ngIf="currentDisplayTrack">
-      <div>{{currentDisplayTrack.dbLabel}} {{currentDisplayTrack.feature.id}}</div>
+      <div>{{currentDisplayTrack.dbLabel}}: {{currentDisplayTrack.feature.id}}</div>
       <div *ngIf="currentDisplayTrack.feature.id != currentDisplayTrack.feature.label">{{currentDisplayTrack.feature.label}}</div>
     </div>
     <div *ngIf="currentFeaturePart">
