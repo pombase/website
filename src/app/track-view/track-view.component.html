@@ -33,7 +33,8 @@
           [popover]="detailsPopup"
           triggers="mouseenter:mouseleave"
           placement="bottom"
-          container="body">
+          container="body"
+          (mouseenter)="mouseEnter(displayTrack, undefined)">
     <svg:g *ngFor="let part of displayTrack.feature.parts; let partIdx = index">
       <svg:rect class="track-feature"
                 [attr.id]="displayTrack.feature.id"

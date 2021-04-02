@@ -69,7 +69,7 @@ export class TrackViewComponent implements OnInit, OnChanges {
   }
 
   mouseEnter(currentDisplayTrack: DisplayTrack,
-             currentFeaturePart: TrackViewFeaturePart) {
+             currentFeaturePart?: TrackViewFeaturePart) {
     this.currentDisplayTrack = currentDisplayTrack;
     this.currentFeaturePart = currentFeaturePart;
     const id = currentDisplayTrack.feature.id;
