@@ -68,20 +68,24 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
         }
         return new TrackViewTrack(label, dbname, features);
       });
-   }
+  }
 
-   makeTransMembraneTrack(): TrackViewTrack|undefined {
-     if (this.geneDetails.tm_domain_coords.length > 1) {
-       const parts = this.geneDetails.tm_domain_coords
-         .map(coord => new TrackViewFeaturePart(coord[0], coord[1], false));
-       const label = 'predicted trans-membrane domains';
-       const feature = new TrackViewFeature(label, label, parts);
+  makeTrackFromCoords(trackLabel: string, dbName: string,
+    partLabel: string, coords: Array<Array<number>>):
+    TrackViewTrack | undefined {
+    if (coords && coords.length > 0) {
+      if (coords.length > 1) {
+        partLabel += 's';
+      }
+      const parts = coords
+        .map(coord => new TrackViewFeaturePart(coord[0], coord[1], false));
+      const feature = new TrackViewFeature(partLabel, partLabel, parts);
 
-       return new TrackViewTrack('TM domains', 'TMHMM', [feature]);
-     } else {
-       return undefined;
-     }
-   }
+      return new TrackViewTrack(trackLabel, dbName, [feature]);
+    } else {
+      return undefined;
+    }
+  }
 
    getInterProUrl(): string {
      if (this.geneDetails.uniprot_identifier) {
@@ -118,9 +122,23 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
     }
 
     this.trackViewData = this.makeTrackViewData();
-    const tmTrack = this.makeTransMembraneTrack();
+    const tmTrack =
+      this.makeTrackFromCoords('TM domains', 'TMHMM', 'predicted trans-membrane domain',
+        this.geneDetails.tm_domain_coords);
     if (tmTrack) {
       this.trackViewData.push(tmTrack);
+    }
+
+    const disorderedTrack = this.makeTrackFromCoords('Low complexity', 'Pfam',
+      'disordered/low-complexity region', this.geneDetails.disordered_region_coords);
+    if (disorderedTrack) {
+      this.trackViewData.push(disorderedTrack);
+    }
+
+    const coiledCoilTrack = this.makeTrackFromCoords('Coiled-coils', 'ncoil',
+      'coiled-coil region', this.geneDetails.coiled_coil_coords);
+    if (coiledCoilTrack) {
+      this.trackViewData.push(coiledCoilTrack);
     }
   }
 }

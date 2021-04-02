@@ -441,6 +441,8 @@ export class GeneDetails {
   biogrid_interactor_id?: string;
   interpro_matches: Array<InterProMatch>;
   tm_domain_coords: Array<Array<number>>;
+  disordered_region_coords: Array<Array<number>>;
+  coiled_coil_coords: Array<Array<number>>;
   orfeome_identifier: string;
   characterisation_status: string;
   location: ChromosomeLocation;
