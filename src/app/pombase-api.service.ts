@@ -813,6 +813,18 @@ export class PombaseAPIService {
       }
     }
 
+    if (!json.tm_domain_coords) {
+      json.tm_domain_coords = [];
+    }
+
+    if (!json.disordered_region_coords) {
+      json.disordered_region_coords = [];
+    }
+
+    if (!json.coiled_coil_coords) {
+      json.coiled_coil_coords = [];
+    }
+
     let genesByUniquename = json.genes_by_uniquename;
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
