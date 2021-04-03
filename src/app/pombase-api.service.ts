@@ -441,6 +441,7 @@ export class GeneDetails {
   biogrid_interactor_id?: string;
   interpro_matches: Array<InterProMatch>;
   tm_domain_coords: Array<Array<number>>;
+  low_complexity_region_coords: Array<Array<number>>;
   disordered_region_coords: Array<Array<number>>;
   coiled_coil_coords: Array<Array<number>>;
   orfeome_identifier: string;
@@ -817,6 +818,10 @@ export class PombaseAPIService {
 
     if (!json.tm_domain_coords) {
       json.tm_domain_coords = [];
+    }
+
+    if (!json.low_complexity_region_coords) {
+      json.low_complexity_region_coords = [];
     }
 
     if (!json.disordered_region_coords) {

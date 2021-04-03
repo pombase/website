@@ -129,10 +129,16 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       this.trackViewData.push(tmTrack);
     }
 
-    const disorderedTrack = this.makeTrackFromCoords('Low complexity', 'Pfam',
-      'disordered/low-complexity region', this.geneDetails.disordered_region_coords);
+    const disorderedTrack = this.makeTrackFromCoords('Disordered', 'Pfam',
+      'disordered region', this.geneDetails.disordered_region_coords);
     if (disorderedTrack) {
       this.trackViewData.push(disorderedTrack);
+    }
+
+    const lowComplexityTrack = this.makeTrackFromCoords('Low complexity', 'Pfam',
+      'low complexity region ', this.geneDetails.low_complexity_region_coords);
+    if (lowComplexityTrack) {
+      this.trackViewData.push(lowComplexityTrack);
     }
 
     const coiledCoilTrack = this.makeTrackFromCoords('Coiled-coils', 'ncoil',
