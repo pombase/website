@@ -129,22 +129,23 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       this.trackViewData.push(tmTrack);
     }
 
-    const disorderedTrack = this.makeTrackFromCoords('Disordered', 'Pfam',
+    const coiledCoilTrack = this.makeTrackFromCoords('Coiled-coils', 'ncoils',
+      'coiled-coil region', this.geneDetails.coiled_coil_coords);
+    if (coiledCoilTrack) {
+      this.trackViewData.push(coiledCoilTrack);
+    }
+
+    const disorderedTrack = this.makeTrackFromCoords('Disordered', 'Pfam-disordered',
       'disordered region', this.geneDetails.disordered_region_coords);
     if (disorderedTrack) {
       this.trackViewData.push(disorderedTrack);
     }
 
-    const lowComplexityTrack = this.makeTrackFromCoords('Low complexity', 'Pfam',
+    const lowComplexityTrack =
+      this.makeTrackFromCoords('Low complexity', 'Pfam-low-complexity',
       'low complexity region', this.geneDetails.low_complexity_region_coords);
     if (lowComplexityTrack) {
       this.trackViewData.push(lowComplexityTrack);
-    }
-
-    const coiledCoilTrack = this.makeTrackFromCoords('Coiled-coils', 'ncoil',
-      'coiled-coil region', this.geneDetails.coiled_coil_coords);
-    if (coiledCoilTrack) {
-      this.trackViewData.push(coiledCoilTrack);
     }
   }
 }
