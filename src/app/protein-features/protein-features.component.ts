@@ -136,7 +136,7 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
     }
 
     const lowComplexityTrack = this.makeTrackFromCoords('Low complexity', 'Pfam',
-      'low complexity region ', this.geneDetails.low_complexity_region_coords);
+      'low complexity region', this.geneDetails.low_complexity_region_coords);
     if (lowComplexityTrack) {
       this.trackViewData.push(lowComplexityTrack);
     }
