@@ -485,8 +485,8 @@ export class TermDetails {
   is_obsolete: false;
   definition_xrefs: Array<string>;
   cv_annotations: CvAnnotations;
-  single_allele_genotype_uniquenames: Array<string>;
-  single_allele_genotypes: Array<GenotypeShort>;
+  single_locus_genotype_uniquenames: Array<string>;
+  single_locus_genotypes: Array<GenotypeShort>;
   genes_annotated_with: Array<string>;
   annotation_details: AnnotationDetailMap;
   references_by_uniquename: { [referenceUniquename: string]: ReferenceShort };
@@ -945,7 +945,7 @@ export class PombaseAPIService {
     for (let fieldName of ['interesting_parent_ids', 'subsets',
                            'synonyms', 'genes_annotated_with',
                            'direct_ancestors',
-                           'single_allele_genotype_uniquenames']) {
+                           'single_locus_genotype_uniquenames']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = [];
       }
@@ -959,10 +959,10 @@ export class PombaseAPIService {
                                   referencesByUniquename, termsByTermId);
     }
 
-    json.single_allele_genotypes = [];
+    json.single_locus_genotypes = [];
 
-    for (let genotypeUniquename of json.single_allele_genotype_uniquenames) {
-      json.single_allele_genotypes.push(genotypesByUniquename[genotypeUniquename]);
+    for (let genotypeUniquename of json.single_locus_genotype_uniquenames) {
+      json.single_locus_genotypes.push(genotypesByUniquename[genotypeUniquename]);
     }
 
     json.genes = Object.keys(genesByUniquename).map((key) => genesByUniquename[key]);

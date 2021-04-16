@@ -106,7 +106,8 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   smallOntologyChange(): void {
     if (this.selectedTerm) {
       let part = new TermNode(undefined, this.selectedTerm.termid, this.selectedTerm.name,
-                              this.selectedTerm.definition, undefined, undefined, [], []);
+                              this.selectedTerm.definition, undefined, undefined,
+                              undefined, [], []);
       this.emitNodeEvent(part);
     }
   }

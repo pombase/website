@@ -2,6 +2,8 @@ import { Util } from './shared/util';
 import { GeneShort } from './pombase-api.service';
 import { QueryOutputOptions, DisplayResultRow } from './query.service';
 
+export type Ploidiness = 'haploid'|'diploid'|'any';
+
 export class TermAndName {
   termid: string;
   name: string;
@@ -309,13 +311,14 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
               private termid: string,
               private termName: string,
               private definition: string|undefined,
-              private single_or_multi_allele: string|undefined,
+              private single_or_multi_locus: string|undefined,
+              private ploidiness: Ploidiness|undefined,
               private expression: string|undefined,
               private conditions: Array<TermAndName>,
               private excludedConditions: Array<TermAndName>) {
     super(nodeName);
 
-    if (single_or_multi_allele !== 'single') {
+    if (single_or_multi_locus !== 'single' || ploidiness !== 'haploid') {
       this.expression = undefined;
     }
 
@@ -329,7 +332,8 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
   equals(obj: GeneQueryNode): boolean {
     if (obj instanceof TermNode) {
       return this.termid === obj.termid &&
-        this.single_or_multi_allele === obj.single_or_multi_allele &&
+        this.single_or_multi_locus === obj.single_or_multi_locus &&
+        this.ploidiness === obj.ploidiness &&
         this.expression === obj.expression &&
         conditionsEqual(this.conditions, obj.conditions) &&
         conditionsEqual(this.excludedConditions, obj.excludedConditions);
@@ -346,12 +350,16 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
   }
 
   getSingleOrMulti(): string|undefined {
-    return this.single_or_multi_allele;
+    return this.single_or_multi_locus;
+  }
+
+  getPloidiness(): Ploidiness|undefined {
+    return this.ploidiness;
   }
 
   private singleOrMultiString(): string|undefined {
-    if (this.single_or_multi_allele) {
-      const alleleValue = this.single_or_multi_allele.valueOf();
+    if (this.single_or_multi_locus) {
+      const alleleValue = this.single_or_multi_locus.valueOf();
       if (alleleValue === 'both') {
         return 'single and multi';
       } else {
@@ -373,7 +381,7 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
     return undefined;
   }
 
-  private singleOrMultiAlleleForObject(): string|undefined {
+  private singleOrMultiLocusForObject(): string|undefined {
     const valAsString = this.singleOrMultiString();
     if (valAsString) {
       if (valAsString === 'single and multi') {
@@ -397,16 +405,17 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
 
   toObject(): Object {
     const expression =
-      this.single_or_multi_allele === 'single' ?
+      this.single_or_multi_locus === 'single' && this.ploidiness === 'haploid' ?
       this.expression :
       null;
-    const singleOrMultiAllele = this.singleOrMultiAlleleForObject();
+    const singleOrMultiLocus = this.singleOrMultiLocusForObject();
     return {
       node_name: this.getNodeName(),
       term: {
         termid: this.termid,
         name: this.termName,
-        single_or_multi_allele: singleOrMultiAllele,
+        single_or_multi_locus: singleOrMultiLocus,
+        ploidiness: this.ploidiness,
         expression: expression,
         conditions: this.conditions,
         excluded_conditions: this.excludedConditions,
@@ -423,14 +432,19 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
 
     if (singleOrMultiString || expressionString || conditionsString) {
       ret += ' [';
-      if (this.single_or_multi_allele === 'single' && expressionString) {
+      if (this.single_or_multi_locus === 'single' && expressionString) {
         ret += expressionString;
         if (singleOrMultiString) {
           ret += ' - ';
         }
       }
       if (singleOrMultiString) {
-        ret += singleOrMultiString + ' allele genotypes';
+        ret += singleOrMultiString;
+        if (this.ploidiness === 'any') {
+          ret += ' locus genotypes';
+        } else {
+          ret += ` locus ${this.ploidiness} genotypes`;
+        }
       }
       if (conditionsString) {
         if (ret.length > 2) {
@@ -691,12 +705,14 @@ export class GeneQuery {
     switch (nodeType) {
 
     case 'term':
-      let singleOrMulti = val['single_or_multi_allele'];
+      let singleOrMulti = val['single_or_multi_allele'] || val['single_or_multi_locus'];
       if (singleOrMulti === null) {
         singleOrMulti = undefined;   // normalise older saved queries
       }
+      const ploidiness = val['ploidiness'];
       return new TermNode(nodeName, val['termid'], val['name'],
-                          val['definition'], singleOrMulti, val.expression,
+                          val['definition'], singleOrMulti, ploidiness,
+                          val.expression,
                           val['conditions'], val['excluded_conditions']);
 
     case 'or':

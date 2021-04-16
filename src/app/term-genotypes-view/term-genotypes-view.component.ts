@@ -24,7 +24,7 @@ export class TermGenotypesViewComponent implements OnInit {
     let title = this.appConfig.site_name;
     let displayName;
     if (this.termDetails) {
-      displayName = 'Single-allele genotypes annotated with ' +
+      displayName = 'Single locus genotypes annotated with ' +
         this.termDetails.termid + ' - ' + this.termDetails.name;
     } else {
       displayName = 'UNKNOWN';

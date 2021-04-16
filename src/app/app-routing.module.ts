@@ -49,7 +49,7 @@ const routes: Routes = [
     data: {
     }
   },
-  { path: 'term_single_allele_genotype_genes/:termid', component: TermSingleGeneGenotypesViewComponent,
+  { path: 'term_single_locus_genotype_genes/:termid', component: TermSingleGeneGenotypesViewComponent,
     data: {
     }
   },

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
-import { TermShort, TermNode, TermAndName } from '../pombase-query';
+import { TermShort, TermNode, TermAndName, Ploidiness } from '../pombase-query';
 import { QueryNodeConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
@@ -16,8 +16,11 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
 
   selectedTerm?: TermShort;
   isPhenotypeNode = false;
-  singleAllele = true;
-  multiAllele = false;
+  singleLocus = true;
+  multiLocus = false;
+  haploid = true;
+  diploid = false;
+
   expression?: string;
   phenotypeConditionNamespace?: string;
   phenotypeConditions: Array<TermAndName> = [];
@@ -27,15 +30,28 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
 
   constructor(public deployConfigService: DeployConfigService) { }
 
-  singleMultiChange(buttonType: string) {
-    if (buttonType === 'single' && !this.multiAllele) {
-      this.multiAllele = true;
+  singleMultiChange(buttonType: 'single'|'multi') {
+    if (buttonType === 'single' && !this.multiLocus) {
+      this.multiLocus = true;
     }
-    if (buttonType === 'multi' && !this.singleAllele) {
-      this.singleAllele = true;
+    if (buttonType === 'multi' && !this.singleLocus) {
+      this.singleLocus = true;
     }
 
-    if (this.multiAllele) {
+    if (this.multiLocus) {
+      this.expression = 'any';
+    }
+  }
+
+  ploidinessChange(buttonType: 'haploid'|'diploid') {
+    if (buttonType === 'haploid' && !this.diploid) {
+      this.diploid = true;
+    }
+    if (buttonType === 'diploid' && !this.haploid) {
+      this.haploid = true;
+    }
+
+    if (this.diploid) {
       this.expression = 'any';
     }
   }
@@ -78,13 +94,35 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
 
   submit() {
     if (this.selectedTerm) {
-      let singleOrMulti =
-        this.isPhenotypeNode ?
-        (this.singleAllele ? (this.multiAllele ? 'both' : 'single') : 'multi') :
-      undefined;
+      let singleOrMulti;
+      let ploidiness: Ploidiness|undefined;
+
+      if (this.isPhenotypeNode) {
+        if (this.singleLocus) {
+          if (this.multiLocus) {
+            singleOrMulti = 'both';
+          } else {
+            singleOrMulti = 'single';
+          }
+        } else {
+          singleOrMulti = 'multi';
+        }
+
+        if (this.haploid) {
+          if (this.diploid) {
+            ploidiness = 'any';
+          } else {
+            ploidiness = 'haploid';
+          }
+        } else {
+          ploidiness = 'diploid';
+        }
+      }
+
 
       this.newTermNode.emit(new TermNode(undefined, this.selectedTerm.termid, this.selectedTerm.name,
                                          this.selectedTerm.definition, singleOrMulti,
+                                         ploidiness,
                                          this.expression, this.phenotypeConditions,
                                          this.phenotypeExcludeConditions));
     }
@@ -95,8 +133,8 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.selectedTerm = undefined;
-    this.singleAllele = true;
-    this.multiAllele = false;
+    this.singleLocus = true;
+    this.multiLocus = false;
     this.isPhenotypeNode =
       !!this.termNodeConfig.annotationFeatureType &&
       this.termNodeConfig.annotationFeatureType === 'genotype';

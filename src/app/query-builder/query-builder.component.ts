@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { GeneQuery, GeneQueryNode, TermNode, SubsetNode } from '../pombase-query';
+import { GeneQuery, GeneQueryNode, TermNode, SubsetNode, Ploidiness } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { ToastrService } from 'ngx-toastr';
 import { getAppConfig, QueryNodeConfig } from '../config';
@@ -66,15 +66,17 @@ export class QueryBuilderComponent implements OnInit {
 
     if (fromType === 'term_subset') {
       let singleOrMulti = undefined;
+      let ploidiness: Ploidiness|undefined = undefined;
       const matches = termId.match(/^([^:]+):/);
       if (matches && getAppConfig().phenotypeIdPrefixes.indexOf(matches[1]) !== -1) {
-        // only set singleOrMulti if the termid is from a phenotype CV
+        // only set if the termid is from a phenotype CV
         singleOrMulti = 'single';
+        ploidiness = 'haploid';
       }
       const termName = decodeURIComponent(encodedTermName);
       const constraints =
         new TermNode(undefined, termId, termName, undefined,
-                     singleOrMulti, undefined, [], []);
+                     singleOrMulti, ploidiness, undefined, [], []);
       newQuery = new GeneQuery(constraints);
     }
 

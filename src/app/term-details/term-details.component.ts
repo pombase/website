@@ -24,8 +24,8 @@ export class TermDetailsComponent implements OnInit {
   apiError?: APIError;
   visibleSections: Array<string> = [];
   annotatedGeneCount = 0;
-  singleAlleleGenotypeGeneCount = 0;
-  singleAlleleGenotypeCount = 0;
+  singleLocusGenotypeGeneCount = 0;
+  singleLocusGenotypeCount = 0;
   appConfig: AppConfig = getAppConfig();
 
   subsets: TermSubsets = {};
@@ -87,18 +87,18 @@ export class TermDetailsComponent implements OnInit {
   }
 
   setCounts(): void {
-    this.singleAlleleGenotypeCount = this.termDetails.single_allele_genotypes.length;
+    this.singleLocusGenotypeCount = this.termDetails.single_locus_genotypes.length;
 
-    let singleAlleleGenotypeGenes: { [key: string]: boolean } = {};
+    let singleLocusGenotypeGenes: { [key: string]: boolean } = {};
 
-    for (let genotype of this.termDetails.single_allele_genotypes) {
+    for (let genotype of this.termDetails.single_locus_genotypes) {
       let gene = genotype.loci[0].expressed_alleles[0].allele.gene;
       if (gene) {
-        singleAlleleGenotypeGenes[gene.uniquename] = true;
+        singleLocusGenotypeGenes[gene.uniquename] = true;
       }
     }
 
-    this.singleAlleleGenotypeGeneCount = Object.keys(singleAlleleGenotypeGenes).length;
+    this.singleLocusGenotypeGeneCount = Object.keys(singleLocusGenotypeGenes).length;
 
     this.annotatedGeneCount = this.termDetails.genes_annotated_with.length;
 

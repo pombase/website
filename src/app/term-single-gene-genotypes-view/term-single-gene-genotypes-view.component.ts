@@ -16,7 +16,7 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
 
   appConfig: AppConfig = getAppConfig();
 
-  singleAlleleGenotypeGenes: Array<GeneShort> = [];
+  singleLocusGenotypeGenes: Array<GeneShort> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -27,7 +27,7 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
     let title = this.appConfig.site_name;
     let displayName;
     if (this.termDetails) {
-      displayName = 'Genes from single allele genotypes annotated with ' +
+      displayName = 'Genes from single locus genotypes annotated with ' +
         this.termDetails.termid + ' - ' + this.termDetails.name;
     } else {
       displayName = 'UNKNOWN';
@@ -40,11 +40,11 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
   setGenes(): void {
     this.pombaseApiService.getGeneSummaryMapPromise()
       .then(geneSummaryMap => {
-        this.singleAlleleGenotypeGenes = [];
+        this.singleLocusGenotypeGenes = [];
 
         let genes: { [key: string]: GeneShort } = {};
 
-        for (let genotype of this.termDetails.single_allele_genotypes) {
+        for (let genotype of this.termDetails.single_locus_genotypes) {
           let gene = genotype.loci[0].expressed_alleles[0].allele.gene;
           if (gene) {
             genes[gene.uniquename] = gene;
@@ -52,7 +52,7 @@ export class TermSingleGeneGenotypesViewComponent implements OnInit {
         }
 
         for (let geneUniquename of Object.keys(genes)) {
-          this.singleAlleleGenotypeGenes.push(geneSummaryMap[geneUniquename]);
+          this.singleLocusGenotypeGenes.push(geneSummaryMap[geneUniquename]);
         }
       })
   }
