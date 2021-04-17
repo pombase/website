@@ -1,0 +1,13 @@
+.query-name {
+  font-size: 110%;
+}
+
+.and-not {
+  padding: 0.5em;
+  font-weight: bold;
+}
+
+.change-dir {
+  margin: 1em;
+  float: right;
+}
