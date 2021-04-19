@@ -439,11 +439,19 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
         }
       }
       if (singleOrMultiString) {
-        ret += singleOrMultiString;
-        if (this.ploidiness === 'any') {
-          ret += ' locus genotypes';
+        if (singleOrMultiString === 'single') {
+          ret += 'single ';
         } else {
-          ret += ` locus ${this.ploidiness} genotypes`;
+          if (singleOrMultiString === 'multi') {
+            ret += 'multi-';
+          } else {
+            ret += 'single or multi-';
+          }
+        }
+        if (this.ploidiness === 'any') {
+          ret += 'locus genotypes';
+        } else {
+          ret += `locus ${this.ploidiness} genotypes`;
         }
       }
       if (conditionsString) {
