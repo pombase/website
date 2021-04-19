@@ -1,5 +1,4 @@
 ### 11th Pombe meeting postponed to 2022
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombe2022-32px.png -->
 
 Due to the ongoing Covid-19 pandemic, the [11th International Fission

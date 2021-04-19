@@ -1,5 +1,4 @@
 ### First S. pombe microPublication goes live
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: micropubs32px.png -->
 
 The first fission yeast microPublication has now been published:
