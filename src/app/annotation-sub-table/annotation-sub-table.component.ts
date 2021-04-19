@@ -2,8 +2,7 @@ import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angu
 import { TermAnnotation, ReferenceShort } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
-         FilterConfig, SplitByParentsConfig, AnnotationExternalLinkConfig,
-         getAppConfig,
+         FilterConfig, AnnotationExternalLinkConfig, getAppConfig,
          AppConfig} from '../config';
 import { AnnotationTable } from '../pombase-api.service';
 import { TableViewState } from '../pombase-types';
@@ -21,7 +20,6 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() featureInFirstColumn = false;
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() scope: string;
-  @Input() splitByConfig: SplitByParentsConfig|undefined = undefined;
   @Output() tableViewChangeEmitter = new EventEmitter<TableViewState>();
 
   // copy to the component for use in template
