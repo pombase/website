@@ -16,3 +16,7 @@
   font-size: 90%;
   opacity: 0.8;
 }
+
+.diploid-genotype-name a {
+  font-weight: bold;
+}

@@ -22,6 +22,15 @@ export class GenotypeLinkComponent implements OnInit {
 
   constructor() { }
 
+  isDiploid(): boolean {
+    for (const locus of this.genotype.loci) {
+      if (locus.expressed_alleles.length > 1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   ngOnInit() {
     this.displayName = this.displayNameLong();
 
