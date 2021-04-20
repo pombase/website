@@ -13,3 +13,7 @@
   display: inline-block;
   user-select: none;
 }
+
+.violin-plot {
+  padding: 1em 0 0.5em 0;
+}

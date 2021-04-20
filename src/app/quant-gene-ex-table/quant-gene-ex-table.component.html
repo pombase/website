@@ -88,4 +88,15 @@
   <span class="no-annotations" *ngIf="filteredTable.length == 0">
     (No annotations after filtering)
   </span>
+
+
+  <div class="violin-plot" *ngIf="geneDetails">
+    <a *ngIf="!plotVisible" (click)="showPlot()">
+      <img src="/assets/violin_plot_icon.png"/>
+
+      View this gene in gene expression violin plot
+
+    </a>
+    <img *ngIf="plotVisible" src="/api/v1/dataset/latest/gene_ex_violin_plot/{{geneDetails.uniquename}}"/>
+  </div>
 </fieldset>

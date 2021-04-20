@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 
-import { TermAnnotation, AnnotationTable } from '../pombase-api.service';
+import { TermAnnotation, AnnotationTable, GeneDetails } from '../pombase-api.service';
 import { TableViewState } from '../pombase-types';
 import { AnnotationTableConfig, getAnnotationTableConfig, AnnotationType, FilterConfig } from '../config';
 import { Filter } from '../filtering';
@@ -14,6 +14,7 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() hideColumns: Array<string>;
   @Input() scope: string;
+  @Input() geneDetails: GeneDetails|undefined = undefined;
   @Output() tableViewChangeEmitter = new EventEmitter<TableViewState>();
 
   showDetails = false;
@@ -33,6 +34,8 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
 
   filterConfig?: Array<FilterConfig>;
   filteredTable: AnnotationTable = [];
+
+  plotVisible = false;
 
   trackByTermId(index: number, item: any) {
     return item.term.termid;
@@ -64,6 +67,10 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
     this.currentViewState = TableViewState.Summary;
     this.updateCurrentFilter(undefined);
     this.tableViewChangeEmitter.emit(this.currentViewState);
+  }
+
+  showPlot(): void {
+    this.plotVisible = true;
   }
 
   ngOnInit() {
