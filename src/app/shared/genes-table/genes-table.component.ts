@@ -266,9 +266,14 @@ export class GenesTableComponent implements OnInit {
     this.selectedCountCache = -1;
   }
 
-  showVisualisation(): void {
+  showQuilt(): void {
     const query = this.makeGeneListQuery();
     this.queryRouterSerive.gotoResults(query, 'vis');
+  }
+
+  showGeneEx(): void {
+    const query = this.makeGeneListQuery();
+    this.queryRouterSerive.gotoResults(query, 'gene-ex');
   }
 
   showResults(): void {
@@ -286,11 +291,24 @@ export class GenesTableComponent implements OnInit {
   }
 
   showingVisualisation(): boolean {
+    return this.showingQuilt() || this.showingGeneEx();
+  }
+
+  showingQuilt(): boolean {
     return this.mode === 'vis';
+  }
+
+  showingGeneEx(): boolean {
+    return this.mode === 'gene-ex';
   }
 
   showingSlim(): boolean {
     return this.mode.startsWith('slim');
+  }
+
+  geneExImgSrc(): string {
+    return '/api/v1/dataset/latest/gene_ex_violin_plot/large/' +
+      this.genes.map(g => g.uniquename).join(',');
   }
 
   ngOnInit() {

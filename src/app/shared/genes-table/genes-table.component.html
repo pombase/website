@@ -38,10 +38,27 @@
       </button>
     </div>
 
-  <div class="action">
-    <button class="btn btn-primary"
-            title="Show gene visualisation"
-            (click)="showVisualisation()">Visualise</button>
+  <div class="btn-group" dropdown *ngIf="slimNames.length != 0">
+    <button id="slim-button" dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+      Visualise:
+    </button>
+
+    <ul id="vis-dropdown" *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <a class="dropdown-item" title="Show gene visualisation" (click)="showQuilt()">
+          QuiLT
+        </a>
+      </li>
+      <li>
+        <a *ngIf="genes.length <= 100" class="dropdown-item" title="Show gene visualisation" (click)="showGeneEx()">
+          Gene expression
+        </a>
+        <a *ngIf="genes.length > 100" class="dropdown-item disabled-menu-item"
+              title="Gene expression visualisation disabled due to too many (>100) genes">
+          Gene expression (disabled)
+        </a>
+      </li>
+    </ul>
   </div>
 
   <div class="btn-group" dropdown *ngIf="slimNames.length != 0">
@@ -86,8 +103,11 @@
 
   <div class="content">
   <div *ngIf="showingVisualisation()">
-    <app-gene-results-vis [genes]="genes" [geneListDescription]="queryResultDisplayName(queryResult)">
+    <app-gene-results-vis *ngIf="showingQuilt()" [genes]="genes" [geneListDescription]="queryResultDisplayName(queryResult)">
     </app-gene-results-vis>
+    <div *ngIf="showingGeneEx()" class="gene-expression-vis">
+      <img alt="Gene expression view loading ..." [src]="geneExImgSrc()"/>
+    </div>
   </div>
 
   <div *ngIf="showingSlim()">

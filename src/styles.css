@@ -506,3 +506,7 @@ button.dropdown-item.active > div.term-definition {
   white-space: normal;
   overflow-y: hidden;
 }
+
+a.disabled-menu-item.dropdown-item {
+   color: grey;
+}

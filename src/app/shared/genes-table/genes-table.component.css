@@ -38,3 +38,7 @@ th {
   min-height: 1em;
   display: inline-block;
 }
+
+.gene-expression-vis img {
+  width: 95%;
+}
