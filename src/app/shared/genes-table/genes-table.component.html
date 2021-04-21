@@ -50,11 +50,11 @@
         </a>
       </li>
       <li>
-        <a *ngIf="genes.length <= 100" class="dropdown-item" title="Show gene visualisation" (click)="showGeneEx()">
+        <a *ngIf="genes.length <= 150" class="dropdown-item" title="Show gene visualisation" (click)="showGeneEx()">
           Gene expression
         </a>
-        <a *ngIf="genes.length > 100" class="dropdown-item disabled-menu-item"
-              title="Gene expression visualisation disabled due to too many (>100) genes">
+        <a *ngIf="genes.length > 150" class="dropdown-item disabled-menu-item"
+              title="Gene expression visualisation disabled due to too many (>150) genes">
           Gene expression (disabled)
         </a>
       </li>
