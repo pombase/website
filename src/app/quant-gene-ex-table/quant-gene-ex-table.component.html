@@ -97,6 +97,6 @@
       View this gene in gene expression violin plot
 
     </a>
-    <img *ngIf="plotVisible" src="/api/v1/dataset/latest/gene_ex_violin_plot/small/{{geneDetails.uniquename}}"/>
+    <img class="violin-plot-image" *ngIf="plotVisible" src="/api/v1/dataset/latest/gene_ex_violin_plot/small/{{geneDetails.uniquename}}"/>
   </div>
 </fieldset>

@@ -17,3 +17,7 @@
 .violin-plot {
   padding: 1em 0 0.5em 0;
 }
+
+.violin-plot-image {
+  max-width: 95%;
+}
