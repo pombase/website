@@ -138,7 +138,7 @@
                              [background]="annotation.genotype_background">
           </app-genotype-link>
           <div class="genotype-background" *ngIf="annotation.genotype_background">
-            background: <span>{{annotation.genotype_background}}</span>
+            <span>background:</span> {{annotation.genotype_background}}
           </div>
         </td>
         <td *ngIf="showColumn['genotype_background']">
