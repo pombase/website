@@ -30,9 +30,9 @@
         <tr *ngFor="let genotype of genotypes | genotypeOrderBy: orderByField">
           <td><app-genotype-link class="app-link" [genotype]="genotype"></app-genotype-link></td>
           <td>
-            <app-gene-link class="app-link" [gene]="genotype.expressed_alleles[0].allele.gene"></app-gene-link>
+            <app-gene-link class="app-link" [gene]="genotype.loci[0].expressed_alleles[0].allele.gene"></app-gene-link>
           </td>
-          <td>{{genotype.expressed_alleles[0].allele.gene.product}}</td>
+          <td>{{genotype.loci[0].expressed_alleles[0].allele.gene.product}}</td>
         </tr>
       </tbody>
     </table>
