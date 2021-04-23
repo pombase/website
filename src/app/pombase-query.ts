@@ -713,10 +713,7 @@ export class GeneQuery {
     switch (nodeType) {
 
     case 'term':
-      let singleOrMulti = val['single_or_multi_allele'] || val['single_or_multi_locus'];
-      if (singleOrMulti === null) {
-        singleOrMulti = undefined;   // normalise older saved queries
-      }
+      const singleOrMulti = val['single_or_multi_allele'] || val['single_or_multi_locus'] || 'both';
       const ploidiness = val['ploidiness'] || 'any';
       return new TermNode(nodeName, val['termid'], val['name'],
                           val['definition'], singleOrMulti, ploidiness,
