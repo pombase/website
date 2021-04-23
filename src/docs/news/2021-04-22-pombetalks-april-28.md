@@ -1,13 +1,16 @@
-### PombeTalks April 14th
+### PombeTalks April 28th
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The next online PombeTalks will take place on Wednesday **14th April**
-2021, at 17:00 [Central European
-Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/):
+The next online PombeTalks will take place on Wednesday **28th April**
+2021, at 9:00 [Central European
+Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/)
+/ 17:00 [Japan &
+Korea](https://greenwichmeantime.com/time-zone/gmt-plus-9/). Speakers:
 
- - **Pabitra Parua**,�Fisher�lab,�Icahn School of Medicine at Mount Sinai: *Control of the RNA polymerase II transcription cycle by CDK-phosphatase switches*
+ - **Tomoyuki Fukuda**, Niigata University Graduate School of Medical and Dental Sciences: *Atg43 serves as a selective autophagy receptor to promote mitophagy*
 
-- **Ye Dee Tay**, Sawin Lab,�University of�Edinburgh: *Gef1: the first aider of Cdc42 polarity module during stress*
+ - **Xiao-Ran Zhang**, NIBS, Beijing, China: *An improved auxin-inducible degron system for fission yeast*
 
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
@@ -17,10 +20,11 @@ see PombeSlack for Q&A after the talks, and for recordings of previous
 sessions.
 
 PombeTalks will continue with its fortnightly schedule, and every
-third session will take place at the new Asia-friendly time. Watch
+third session will take place at the Asia-friendly time. Watch
 this space, pombelist, or PombeSlack for updates, and please fill out
 [this form](https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform)
 if you're interested in speaking.
 
 Thanks to the PombeTalks team for organizing. See you online!
+
 
