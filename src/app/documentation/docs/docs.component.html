@@ -5883,20 +5883,22 @@ PomBase using the Ensembl viewer.</p>
 <ol type="1">
 <li>Qualitative descriptions are drawn from a small internal controlled vocabulary, with supporting extensions. Each description links to a list of all genes annotated to the same term.
 <ul>
-<li>a) What was measured, i.e. RNA or protein.</li>
-<li>b) A qualitative description of the expression level (one of: present, absent, increased, decreased, unchanged, constant, fluctuates).</li>
-<li>c) An optional extension indicating that expression is observed during a particular process or phase (using GO terms) or in the presence of a particular chemical (using ChEBI terms).</li>
-<li>d) A brief descriptor for the type of evidence that supports the annotation. The evidence categories come from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</li>
+<li>a) The unique ID and name for the expression description.</li>
+<li>b) An optional extension indicating that expression is observed during a particular process or phase (using GO terms) or in the presence of a particular chemical (using ChEBI terms).</li>
+<li>c) A brief descriptor for the type of evidence that supports the annotation. The evidence categories come from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</li>
+<li>d) The display can be filtered to show subsets of the total set of annotations. Choose a cell cycle phase from the “During” pulldown, or throughput from the second pulldown (options that match no annotations are greyed out).</li>
 <li>e) The paper from which the annotation comes.</li>
+<li>f) The number of genes annotated to the description (not including extensions), linked to a list of the genes.</li>
 </ul></li>
 <li>Quantitative data include the number of RNA or protein molecules measured per cell, and may optionally include a copy number range. Quantitative expression annotations also indicate whether the experiment measures expression in a population or a single cell, and usually include a brief description of experimental conditions, drawn from a small ontology maintained by PomBase curators.
 <ul>
-<li>f) Molecules per cell (RNA or protein, as indicated in the sub-header). For population-scale experiment types this is an average, whereas for single-cell scale experiments it is an absolute number.</li>
-<li>g) The life cycle stage or cell cycle phase in which expression was measured.</li>
-<li>h) Information about experimental conditions, such as temperature, type of medium used, etc. Descriptions come from a small ontology maintained by PomBase curators.</li>
-<li>i) Whether the experiment was done at the level of a single cell or a population of cells.</li>
-<li>j) A brief descriptor for the type of evidence that supports the annotation. The evidence categories come from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). If a more specific description is not available, the general term “experimental evidence” is shown.</li>
-<li>k) The paper from which the annotation comes.</li>
+<li>g)What was measured, i.e. RNA or protein.</li>
+<li>h) Molecules per cell (RNA or protein, as indicated in the sub-header). For population-scale experiment types this is an average, whereas for single-cell scale experiments it is an absolute number.</li>
+<li>i) The life cycle stage or cell cycle phase in which expression was measured.</li>
+<li>j) Information about experimental conditions, such as temperature, type of medium used, etc. Descriptions come from a small ontology maintained by PomBase curators.</li>
+<li>k) Whether the experiment was done at the level of a single cell or a population of cells.</li>
+<li>l) A brief descriptor for the type of evidence that supports the annotation. The evidence categories come from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). If a more specific description is not available, the general term “experimental evidence” is shown.</li>
+<li>m) The paper from which the annotation comes.</li>
 </ul></li>
 </ol>
 <p><strong>Important:</strong> Note that the condition descriptions are rather broad, and therefore do not necessarily capture all details of every aspect that may affect gene expression. We are also unable to capture strain details at present. We therefore recommend consulting the papers cited for the data before comparing or combining data from different publications.</p>
@@ -6059,7 +6061,7 @@ PomBase using the Ensembl viewer.</p>
 <img src="assets/gene_page_protein_features.png" width="800" alt="" /><figcaption>gene page protein features</figcaption>
 </figure>
 <ol type="1">
-<li>The graphical view is a static graphic from the Ensembl genome browser for <em>S. pombe</em>, and shows the positions of domains and other features. Below the graphic is a link to the Ensembl browser’s protein view.</li>
+<li>The graphical view is interactive, and shows the positions of domains and other features. Mouse over any feature to highlight its entry in the table, and to see a pop-up with the feature ID, name, nad position.</li>
 <li>The table of protein families and domains is described in more detail below.</li>
 <li>This section provides manual curation that ensures that large protein families (e.g. the WD family) include all known members. These manual annotations are provided because many families in protein family databases are rebuilt during the release cycle to include new sequences, and as a result gene products are sometimes lost or gained from protein families, and false negatives are common. This section is also used to capture published subfamily members which may be collected into a single family in protein family databases.</li>
 <li>Any motifs or features annotated using <a href="http://sequenceontology.org/">Sequence Ontology</a> (SO) terms.</li>
@@ -6632,7 +6634,7 @@ Search documentation, news archive and FAQ:
 <li>Annotated genotypes (rather than genes) are listed for each term.</li>
 <li>In the detailed view, evidence filtering is available as described in the <a routerLink="/documentation/gene-page-phenotypes">gene page documentation</a>.</li>
 </ol>
-<p>Ontology term pages are available for <a href="http://geneontology.org/">GO</a>, <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO</a>, <a href="http://sequenceontology.org/">SO</a>, <a href="http://obofoundry.org/ontology/mod.html">PSI-MOD</a>, the internal PBO description collection, and PECO, the internal ontology we use for phenotype experimental conditions.</p>
+<p>Ontology term pages are available for <a href="http://geneontology.org/">GO</a>, <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO</a>, <a href="http://sequenceontology.org/">SO</a>, <a href="http://obofoundry.org/ontology/mod.html">PSI-MOD</a>, and PomBase internal ontologies including the PBO description collection, the PomGeneEx descriptions for qualitative gene expression, and PECO for phenotype experimental conditions.</p>
 
   </div>
   <div *ngIf="pageName == 'orthologs'">
@@ -7934,8 +7936,7 @@ Search documentation, news archive and FAQ:
 <h3 id="can-i-find-promoters-pombase">Can I find promoters in PomBase?</h3>
 <!-- pombase_categories: Finding data -->
 <p>There are very few manually curated promoters in PomBase; they are included in the forward and reverse strand feature tracks, which are enabled by default. To search the manually curated promoters, we suggest that you use Artemis. Follow the instructions in <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">this FAQ</a>, and search for features with “Key” = “promoter”.</p>
-<p>Computationally identified matches to the <a href="https://www.pombase.org/browse-curation/dna-binding-sites">DNA binding sites</a></p>
-<p>found in <em>S. pombe</em> are avaliable as a data track in PomBase JBrowse. To launch JBrowse with the track loaded, use <a href="https://www.pombase.org/jbrowse/?loc=III%3A725762..736349&amp;tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&amp;highlight=">this link</a>.</p>
+<p>Computationally identified matches to the <a href="https://www.pombase.org/browse-curation/dna-binding-sites">DNA binding sites</a> found in <em>S. pombe</em> are available as a data track in PomBase JBrowse. To launch JBrowse with the track loaded, use <a href="https://www.pombase.org/jbrowse/?loc=III%3A725762..736349&amp;tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&amp;highlight=">this link</a>.</p>
 <p>The genome browser also includes transcription start site datasets, such as the CAGE-defined <a href="https://www.pombase.org/jbrowse/?loc=II%3A27586..65254&amp;tracks=DNA%20sequence%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20transcription%20start%20sites%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20heat%20shock%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20heat%20shock%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20nitrogen%20starvation%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20nitrogen%20starvation%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20oxidative%20stress%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20during%20oxidative%20stress%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20in%20YES%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20in%20YES%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20in%20glucose%20minimal%20medium%20(forward%20strand)%20-%20Thodberg%20et%20al.%20(2018)%2CTranscription%20start%20sites%20in%20glucose%20minimal%20medium%20(reverse%20strand)%20-%20Thodberg%20et%20al.%20(2018)&amp;highlight=">transcription start sites</a> across 5 different conditions from <a href="https://www.biorxiv.org/content/early/2018/03/13/281642">Thodberg <em>et al.</em> (2018)</a>.</p>
 <p>We will also soon add the dataset from Li <em>et al.</em> (2015) Genome-wide analysis of core promoter structures in <em>Schizosaccharomyces pombe</em> with DeepCAGE. RNA Biol. 12:525-37 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25747261">PMID:25747261</a>), which was available in the previous version of the PomBase genome browser.</p>
 <p>We will also add any new promoter data sets that are submitted to us.</p>
@@ -8032,7 +8033,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="faq_navigate($event, '/faq/can-i-provide-list-genes-search-on', 'Can I provide a list of genes to search on?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-provide-list-genes-search-on' || pageName == 'all-faqs'">
 <h3 id="can-i-provide-list-genes-search-on">Can I provide a list of genes to search on?</h3>
 <!-- pombase_categories: Finding data -->
-<p>Yes, you can type or paste systematic IDs into the “Gene filter” query in the <a routerLink="/query">advanced search</a>. IDs can be separated by spaces, commas, or newlines. Click “Lookup” to retrieve the results. At present you can use the list in the query history to combine with other queries, or download a fixed set of details (systematic ID, gene name (if any), feature type, coordinates, and strand). We plan to offer more flexible options in the near future, and to allow you to upload a file with your gene list.</p>
+<p>Yes, you can type or paste a list, or upload a file, into the “Gene names and IDs” query in the <a routerLink="/query">advanced search</a>. Note that usisg systematic IDs is the best way to avoid ambiguity. Names or IDs can be separated by spaces, commas, or newlines. Click “Lookup” to retrieve the results. You can use the list in the query history to combine with other queries, or download selected details for the genes. See the <a routerLink="/documentation/advanced-search">documentation</a> to learn more.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes', 'Can I retrieve annotations to metabolic databases such as EC, MetaCyc, Reactome, or Rhea for S. pombe genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes' || pageName == 'all-faqs'">
@@ -8201,6 +8202,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <div (click)="faq_navigate($event, '/faq/do-i-need-password-download-ftp-site', 'Do I need a password to download from the FTP site?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'tools-and-resources' || pageName == 'do-i-need-password-download-ftp-site' || pageName == 'all-faqs'">
 <h3 id="do-i-need-password-download-ftp-site">Do I need a password to download from the FTP site?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Tools and resources -->
+<p>Note: Links from PomBase web pages use HTTPS for downloads, but if you have a link containing “ftp”, and your browser supports FTP, this information is relevant:</p>
 <p>You do not need a password to download anything from the PomBase FTP site. In some web browsers, clicking a link to an FTP directory takes you to a page listing the contents, and clicking a file link produces a dialog box asking whether to open or save the file. Other browsers require a separate connection step:</p>
 <ul>
 <li><p>If your browser asks “Do you want to allow this page to …?”, answer “yes” or “allow”.</p></li>
@@ -8246,15 +8248,15 @@ For example, the Genetic Interactions header for cdc2 links to
 <div (click)="faq_navigate($event, '/faq/how-are-non-coding-rna-genes-identified', 'How are non-coding RNA genes identified?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'how-are-non-coding-rna-genes-identified' || pageName == 'all-faqs'">
 <h3 id="how-are-non-coding-rna-genes-identified">How are non-coding RNA genes identified?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
-<p>Most non-coding RNAs in PomBase are based on transcriptome data, either from Jürg Bähler’s lab (Solexa/deep sequencing; <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18488015">PMID:18488015</a>) or Nick Rhind’s lab (RNA sequencing; <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>). For any ncRNA, the source should be linked as a publication in the “Literature” section at the bottom of the PomBase gene page. To get an idea of the transcription in a region, you can look at the Bähler Lab Transcriptome Viewer, which is linked from most gene pages, e.g. <a href="http://www.bahlerlab.info/cgi-bin/pombetv/pombetv?condition=13&genename=SPNCRNA.200&action=display">SPNCRNA.200</a>. Unfortunately some genes, such as SPNCRNA.1115, post-date the viewer and therefore do not have entries, but you can look at transcription in this region by accessing a neighboring gene.</p>
+<p>Most non-coding RNAs in PomBase are based on transcriptome data, either from Jürg Bähler’s lab (Solexa/deep sequencing; <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18488015">PMID:18488015</a>) or Nick Rhind’s lab (RNA sequencing; <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>). For any ncRNA, the source should be linked as a publication in the “Literature” section at the bottom of the PomBase gene page. To get an idea of the transcription in a region, you can look at the Bähler Lab Transcriptome Viewer, which is linked from most gene pages, e.g. <a href="http://www.bahlerlab.info/cgi-bin/pombetv/pombetv?condition=13&genename=SPNCRNA.200&action=display">SPNCRNA.200</a>. Unfortunately some genes, such as SPNCRNA.1115, post-date the viewer and therefore do not have entries, but you can look at transcription in this region by finding a neighboring gene.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-are-pombase-systematic-ids-determined', 'How are PomBase systematic IDs determined?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'how-are-pombase-systematic-ids-determined' || pageName == 'all-faqs'">
 <h3 id="how-are-pombase-systematic-ids-determined">How are PomBase systematic IDs determined?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
 <p>Systematic IDs follow patterns based on the feature type, and in some cases the chromosome, as shown in the table below.</p>
-<p>Open reading frame (ORF) IDs also indicate which cosmid or plasmid they were found on in genome sequencing. In most cases, ORF IDs that end with a digit indicate that the ORF is on the forward (Watson) strand, and an ORF with an ID that ends with ‘c’ is on the reverse (Crick) stand. There are a few exceptions, however, because some cosmids were moved and their orientation reversed late in the sequence assembly procedure</p>
-<p>IDs with ‘.1’ appended are transcript IDs; the dot-and-digit IDs follow Ensembl’s standard. At present, PomBase has only one transcript annotated for any given feature, but in the future when alternative transcripts are annotated the digit will be incremented (.2, .3, etc.).</p>
+<p>Open reading frame (ORF) IDs also indicate which cosmid or plasmid they were found on in genome sequencing. In most cases, ORF IDs that end with a digit indicate that the ORF is on the forward (Watson) strand, and an ORF with an ID that ends with ‘c’ is on the reverse (Crick) stand. There are a few exceptions, however, because some cosmids were moved and their orientation reversed late in the sequence assembly procedure.</p>
+<p>IDs with ‘.1’ appended are transcript IDs; the dot-and-digit IDs follow Ensembl’s standard. If any given feature has alternative transcripts annotated, the digit will be incremented (.2, .3, etc.).</p>
 <p><strong>Systematic ID patterns</strong></p>
 <table>
 <thead>
@@ -8885,6 +8887,15 @@ Example queries:
 <p>For further information on using the generic <em>S. pombe</em> slim, or on creating your own GO slim, please see the <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">Fission Yeast GO slimming tips</a> page.</p>
 
 </div>
+<div (click)="faq_navigate($event, '/faq/how-do-i-change-track-scale-jbrowse', 'How do I change the track scale in JBrowse?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'how-do-i-change-track-scale-jbrowse' || pageName == 'all-faqs'">
+<h3 id="how-do-i-change-track-scale-jbrowse">How do I change the track scale in JBrowse?</h3>
+<!-- pombase_categories: Genome browser -->
+<p>Click the downarrow to the right of the track label and click on ‘edit config’. Define a max_score and/or a min score by typing e.g.</p>
+<p>“max_score”: “200”,</p>
+<p>within the curly brackets.</p>
+<p>More wiggle track configuration option in the official <a href="http://gmod.org/wiki/JBrowse_Configuration_Guide#Wiggle_track_configuration_options">JBrowse documentation</a></p>
+
+</div>
 <div (click)="faq_navigate($event, '/faq/how-do-i-cite-data-pombase-how-do-i-cite-genome-sequence-comparison-data-etc.', 'How do I cite data from PomBase? How do I cite the genome sequence, comparison data, etc.?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'how-do-i-cite-data-pombase-how-do-i-cite-genome-sequence-comparison-data-etc.' || pageName == 'all-faqs'">
 <h3 id="how-do-i-cite-data-pombase-how-do-i-cite-genome-sequence-comparison-data-etc.">How do I cite data from PomBase? How do I cite the genome sequence, comparison data, etc.?</h3>
 <!-- pombase_categories: Tools and resources -->
@@ -8908,9 +8919,8 @@ Example queries:
 <li>For genes not covered by (1), (2) or (3), we use data from Wilhelm <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/18488015">PMID:18488015</a>).</li>
 </ol>
 <p>More information is available in the descriptions of two HTP datasets originally sent to pombelist (<a routerLink="/documentation/Broad_dataset_email">Broad</a> and <a routerLink="/documentation/Lanterman_Dutrow_dataset_email">Lanterman/Dutrow</a>.</p>
-<p>Transcript start and end coordinates from all sources will be available as individual data tracks in the Ensembl genome browser in the near future, which will allow you to view and evaluate them. PomBase will also curate splice and transcript variants as data become available.</p>
-<!-- remove this when ticket #350 done -->
-<p>Note: exon and CDS coordinates are temporarily unavailable on PomBase gene pages.</p>
+<p>Transcript start and end coordinates from all sources will be available as individual data tracks in the genome browser in the near future, which will allow you to view and evaluate them. PomBase will also curate splice and transcript variants as data become available.</p>
+<p>Note: exon and CDS coordinates are available in the Transcript section on PomBase gene pages.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-many-conserved-unstudied-proteins-are-there-how-list-generated', 'How many conserved unstudied proteins are there? How is the list generated?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'how-many-conserved-unstudied-proteins-are-there-how-list-generated' || pageName == 'all-faqs'">
@@ -9288,6 +9298,13 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-april-th">PombeTalks April 28th</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 85.0</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-april-th">PombeTalks April 14th</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#new-genome-browser-data-gc-content">New genome browser data: GC content</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#qualitative-gene-expression-annotation-canto">Qualitative gene expression annotation in Canto</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#new-protein-feature-display">New protein feature display</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-march-st">PombeTalks March 31st</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-march-th-new-time">PombeTalks March 17th - new time!</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-return-march-rd">PombeTalks return March 3rd</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-identifier-mapper-now-available">PomBase identifier mapper now available</a></div>
@@ -10760,7 +10777,6 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == '11th-pombe-conference-postponed'">
 <h3 id="th-pombe-meeting-postponed-to-2022">11th Pombe meeting postponed to 2022</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombe2022-32px.png -->
 <p>Due to the ongoing Covid-19 pandemic, the <a href="http://www.fission-yeast2022.org/">11th International Fission Yeast Meeting</a>, due to take place in Hiroshima, Japan, has been postponed.</p>
 <p>The new dates will be <strong>12th (Sun -17th (Fri) June, 2022</strong>.</p>
@@ -10932,7 +10948,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'first-fission-yeast-micropublication-live'">
 <h3 id="first-s.-pombe-micropublication-goes-live">First S. pombe microPublication goes live</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: micropubs32px.png -->
 <p>The first fission yeast microPublication has now been published:</p>
 <p>Nafees Ahamad, Simmi Anjum, Shakil Ahmed\ <a href="https://www.micropublication.org/journals/biology/micropub-biology-000348/">Pyrogallol induces oxidative stress defects in the fission yeast <em>S. pombe</em>.</a></p>
@@ -10941,7 +10956,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'interpro-v83'">
 <h3 id="pombase-now-uses-interpro-version-83.0">PomBase now uses InterPro Version 83.0</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 <p>PomBase now uses InterPro Version 83.0, which integrates:</p>
 <ul>
@@ -10975,7 +10989,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'pombetalks-march17'">
 <h3 id="pombetalks-march-17th---new-time">PombeTalks March 17th - new time!</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The new season of online PombeTalks for 2021 will begin on Wednesday <strong>3rd March</strong> 2021, at a different time: 9:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
 <ul>
@@ -10987,9 +11000,154 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-march31'">
+<h3 id="pombetalks-march-31st">PombeTalks March 31st</h3>
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online PombeTalks will take place on Wednesday <strong>31st March</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
+<ul>
+<li><p><strong>Udo Onwubiko</strong>, Das lab, University of Tennessee: <em>Cdc42 prevents early Rho1 activation during cytokinesis</em></p></li>
+<li><p><strong>Chunmin Shan</strong>, Jia lab, Columbia University: <em>The INO80 complex regulates epigenetic inheritance of heterochromatin</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the new Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+
+  </div>
+  <div *ngIf="pageName == 'new-protein-feature-graphic'">
+<h3 id="new-protein-feature-display">New protein feature display</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombelist.png -->
+<p>PomBase has released a new, interactive display for protein features on gene pages. The new view is clearer, with details for each feature available via mouseover as well as in the accompanying table.</p>
+<p>In addition, PomBase now uses InterPro Version 84.0, which includes 205 new entries and integrates 252 new methods from the Pfam, PANTHER, and CDD databases. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
+
+  </div>
+  <div *ngIf="pageName == 'GC-content-jbrowse'">
+<h3 id="new-genome-browser-data-gc-content">New genome browser data: GC content</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: browser.png -->
+<p>A data track showing the fraction of G/C bases in a region is now available in PomBase JBrowse, listed under “Base composition”. The track is generated using the <a href="https://github.com/elsiklab/gccontent">gccontent</a> plugin, and uses a default window of 100 bp.</p>
+
+  </div>
+  <div *ngIf="pageName == 'canto-qualitative-gene-expression'">
+<h3 id="qualitative-gene-expression-annotation-in-canto">Qualitative gene expression annotation in Canto</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: canto.png -->
+<p>Canto, PomBase’s online curation tool, now supports qualitative gene expression annotation. Two new annotation types are available to represent observations about the levels of RNA or protein observed in wild-type cells, and how they change over the cell cycle or in response to a stimulus. See the <a href="https://curation.pombase.org/pombe/docs/gene_expression">Canto documentation</a> for more information. We have also updated the display of qualitative gene expression on PomBase gene and publication pages.</p>
+
+  </div>
+  <div *ngIf="pageName == 'pombetalks-april14'">
+<h3 id="pombetalks-april-14th">PombeTalks April 14th</h3>
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online PombeTalks will take place on Wednesday <strong>14th April</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
+<ul>
+<li><p><strong>Pabitra Parua</strong>,�Fisher�lab,�Icahn School of Medicine at Mount Sinai: <em>Control of the RNA polymerase II transcription cycle by CDK-phosphatase switches</em></p></li>
+<li><p><strong>Ye Dee Tay</strong>, Sawin Lab,�University of�Edinburgh: <em>Gef1: the first aider of Cdc42 polarity module during stress</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the new Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+
+  </div>
+  <div *ngIf="pageName == 'interpro-v85'">
+<h3 id="pombase-now-uses-interpro-version-85.0">PomBase now uses InterPro Version 85.0</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: interpro_32px.png -->
+<p>PomBase now uses InterPro Version 53.0, which integrates:</p>
+<ul>
+<li>157 new InterPro entries</li>
+<li>An update to CATH-Gene3D [4.3.0]</li>
+<li>333 new methods from the Pfam (3), SUPERFAMILY (11), CATH-Gene3D (168), PANTHER (88), CDD (62), SFLD (1) databases</li>
+</ul>
+<p>InterPro cites 51539 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
+
+  </div>
+  <div *ngIf="pageName == 'pombetalks-april-28'">
+<h3 id="pombetalks-april-28th">PombeTalks April 28th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online PombeTalks will take place on Wednesday <strong>28th April</strong> 2021, at 9:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
+<ul>
+<li><p><strong>Tomoyuki Fukuda</strong>, Niigata University Graduate School of Medical and Dental Sciences: <em>Atg43 serves as a selective autophagy receptor to promote mitophagy</em></p></li>
+<li><p><strong>Xiao-Ran Zhang</strong>, NIBS, Beijing, China: <em>An improved auxin-inducible degron system for fission yeast</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2021-04-22-pombetalks-april-28" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-april-th">PombeTalks April 28th</h3>
+<p><em>2021-04-22</em></p>
+<p>The next online PombeTalks will take place on Wednesday <strong>28th April</strong> 2021, at 9:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
+<ul>
+<li><p><strong>Tomoyuki Fukuda</strong>, Niigata University Graduate School of Medical and Dental Sciences: <em>Atg43 serves as a selective autophagy receptor to promote mitophagy</em></p></li>
+<li><p><strong>Xiao-Ran Zhang</strong>, NIBS, Beijing, China: <em>An improved auxin-inducible degron system for fission yeast</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+</div>
+<div id="2021-04-15-interpro-v85" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 85.0</h3>
+<p><em>2021-04-15</em></p>
+<p>PomBase now uses InterPro Version 53.0, which integrates:</p>
+<ul>
+<li>157 new InterPro entries</li>
+<li>An update to CATH-Gene3D [4.3.0]</li>
+<li>333 new methods from the Pfam (3), SUPERFAMILY (11), CATH-Gene3D (168), PANTHER (88), CDD (62), SFLD (1) databases</li>
+</ul>
+<p>InterPro cites 51539 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
+</div>
+<div id="2021-04-08-pombetalks-april14" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-april-th">PombeTalks April 14th</h3>
+<p><em>2021-04-08</em></p>
+<p>The next online PombeTalks will take place on Wednesday <strong>14th April</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
+<ul>
+<li><p><strong>Pabitra Parua</strong>,�Fisher�lab,�Icahn School of Medicine at Mount Sinai: <em>Control of the RNA polymerase II transcription cycle by CDK-phosphatase switches</em></p></li>
+<li><p><strong>Ye Dee Tay</strong>, Sawin Lab,�University of�Edinburgh: <em>Gef1: the first aider of Cdc42 polarity module during stress</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the new Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+</div>
+<div id="2021-03-31-GC-content-jbrowse" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<h3 id="new-genome-browser-data-gc-content">New genome browser data: GC content</h3>
+<p><em>2021-03-31</em></p>
+<p>A data track showing the fraction of G/C bases in a region is now available in PomBase JBrowse, listed under “Base composition”. The track is generated using the <a href="https://github.com/elsiklab/gccontent">gccontent</a> plugin, and uses a default window of 100 bp.</p>
+</div>
+<div id="2021-03-31-canto-qualitative-gene-expression" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
+<h3 id="qualitative-gene-expression-annotation-canto">Qualitative gene expression annotation in Canto</h3>
+<p><em>2021-03-31</em></p>
+<p>Canto, PomBase’s online curation tool, now supports qualitative gene expression annotation. Two new annotation types are available to represent observations about the levels of RNA or protein observed in wild-type cells, and how they change over the cell cycle or in response to a stimulus. See the <a href="https://curation.pombase.org/pombe/docs/gene_expression">Canto documentation</a> for more information. We have also updated the display of qualitative gene expression on PomBase gene and publication pages.</p>
+</div>
+<div id="2021-03-30-new-protein-feature-graphic" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
+<h3 id="new-protein-feature-display">New protein feature display</h3>
+<p><em>2021-03-30</em></p>
+<p>PomBase has released a new, interactive display for protein features on gene pages. The new view is clearer, with details for each feature available via mouseover as well as in the accompanying table.</p>
+<p>In addition, PomBase now uses InterPro Version 84.0, which includes 205 new entries and integrates 252 new methods from the Pfam, PANTHER, and CDD databases. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
+</div>
+<div id="2021-03-27-pombetalks-march31" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-march-st">PombeTalks March 31st</h3>
+<p><em>2021-03-27</em></p>
+<p>The next online PombeTalks will take place on Wednesday <strong>31st March</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
+<ul>
+<li><p><strong>Udo Onwubiko</strong>, Das lab, University of Tennessee: <em>Cdc42 prevents early Rho1 activation during cytokinesis</em></p></li>
+<li><p><strong>Chunmin Shan</strong>, Jia lab, Columbia University: <em>The INO80 complex regulates epigenetic inheritance of heterochromatin</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the new Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+</div>
 <div id="2021-03-10-pombetalks-march17" class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-march-th-new-time">PombeTalks March 17th - new time!</h3>
