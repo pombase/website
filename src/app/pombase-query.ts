@@ -333,7 +333,7 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
     if (obj instanceof TermNode) {
       return this.termid === obj.termid &&
         this.single_or_multi_locus === obj.single_or_multi_locus &&
-        this.ploidiness === obj.ploidiness &&
+        (!this.ploidiness && !obj.ploidiness || this.ploidiness === obj.ploidiness) &&
         this.expression === obj.expression &&
         conditionsEqual(this.conditions, obj.conditions) &&
         conditionsEqual(this.excludedConditions, obj.excludedConditions);
