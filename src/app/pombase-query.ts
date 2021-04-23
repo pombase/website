@@ -717,7 +717,7 @@ export class GeneQuery {
       if (singleOrMulti === null) {
         singleOrMulti = undefined;   // normalise older saved queries
       }
-      const ploidiness = val['ploidiness'] || 'any';
+      const ploidiness = val['ploidiness'];
       return new TermNode(nodeName, val['termid'], val['name'],
                           val['definition'], singleOrMulti, ploidiness,
                           val.expression,
