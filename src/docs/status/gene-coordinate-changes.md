@@ -2,6 +2,7 @@
 
 | Systematic ID | Standard name | Comments | Reference | Date |
 |---------------|---------------|----------|-----------|------|
+| [SPAC22A12.08c](gene/SPAC22A12.08c) | crd1 | Coordinates changed from complement(join(1170196..1170461,1170504..1171270,1171362..1171856,1171900..1171956,1171999..1172126)) to complement(join(1169939..1170029,1170169..1170260,1170307..1170461,1170504..1170724,1170801..1171270,1171362..1171856,1171900..1171956,1171999..1172126)) and complement(join(1169939..1170029,1170169..1170260,1170307..1170461,1170504..1171270,1171362..1171856,1171900..1171956,1171999..1172126)). Splicing of all introns produces only a mitochondrial hydrolase; retention of intron IV produces a tandem fusion with cardiolipin. | PMID:29958934 | 2021-04-23 |
 | SPAC2E12.05 | wtf1 | pseudo-\>coding; coordinates changed from 5064305..5066231 to join(5064781..5064919,5065087..5065332,5065380..5065610,5065652..5065705,5065760..5065836) | PMID:28631610 | 2020-05-01 |
 | SPBC1706.02c | wtf2 | Coordinates changed from complement(join(593188..593261,593311..593368,593437..593575) to complement(join(593185..593261,593393..593368,593437..593575) | PMID:28631610, PMID:30991417 | 2020-05-01 |
 | SPCC548.02c | wtf3 | Coordinates changed from complement(join(219185..219261,219294..219368,219409..219684,219734..219979,220148..220283) to complement(join(219185..219261,219315..219368,219409..219684,219734..219979,220148..220286) | PMID:28631610, PMID:30991417 | 2020-05-01 |
