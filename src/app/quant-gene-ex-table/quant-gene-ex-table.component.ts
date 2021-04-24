@@ -36,6 +36,7 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
   filteredTable: AnnotationTable = [];
 
   plotVisible = false;
+  plotLoaded = false;
 
   trackByTermId(index: number, item: any) {
     return item.term.termid;

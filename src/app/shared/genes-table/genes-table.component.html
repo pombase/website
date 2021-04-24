@@ -106,6 +106,8 @@
     <app-gene-results-vis *ngIf="showingQuilt()" [genes]="genes" [geneListDescription]="queryResultDisplayName(queryResult)">
     </app-gene-results-vis>
     <div *ngIf="showingGeneEx()" class="gene-expression-vis">
+      These are "violin plots" of the available gene expression datasets
+      with the expressions levels of the genes shown as a red points:
       <img alt="Gene expression view loading ..." [src]="geneExImgSrc()"/>
     </div>
   </div>

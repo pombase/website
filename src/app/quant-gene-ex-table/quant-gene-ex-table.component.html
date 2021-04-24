@@ -94,9 +94,21 @@
     <a *ngIf="!plotVisible" (click)="showPlot()">
       <img src="/assets/violin_plot_icon.png"/>
 
-      View this gene in gene expression violin plot
+      View gene expression plots
 
     </a>
-    <img class="violin-plot-image" *ngIf="plotVisible" src="/api/v1/dataset/latest/gene_ex_violin_plot/small/{{geneDetails.uniquename}}"/>
+    <div *ngIf="plotVisible">
+      <span *ngIf="!plotLoaded">
+        Loading ...
+      </span>
+      <span *ngIf="plotLoaded">
+        These are "violin plots" of the available gene expression datasets
+        <span *ngIf="geneDetails">
+          with the expression level of {{geneDetails.displayName}} (if
+          available) shown as a red point:
+        </span>
+      </span>
+      <img (load)="plotLoaded=true" class="violin-plot-image" src="/api/v1/dataset/latest/gene_ex_violin_plot/small/{{geneDetails.uniquename}}"/>
+    </div>
   </div>
 </fieldset>
