@@ -1,6 +1,12 @@
 <div>
   <span *ngIf="scopeFilterConfig.length > 0" class="filters-header">Filters:</span>
   <span class="filter-control" *ngFor="let config of scopeFilterConfig">
+    <app-annotation-table-ploidiness-filter *ngIf="config.filter_name == 'ploidiness'"
+                                      [config]="config"
+                                      [annotationTable]="annotationTable"
+                                      (filterChange)="filterChanged('ploidiness', $event)">
+    </app-annotation-table-ploidiness-filter>
+
     <app-annotation-table-term-filter *ngIf="config.filter_name == 'term'"
                                       [config]="config"
                                       [annotationTable]="annotationTable"
