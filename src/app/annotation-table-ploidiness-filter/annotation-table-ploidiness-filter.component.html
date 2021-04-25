@@ -1,14 +1,15 @@
 <span class="annotation-table-filter">
-  {{config.display_name}}
-
   <select [(ngModel)]="selectedCategory" (ngModelChange)="setCategory($event)">
-    <option [ngValue]="anySelectData">Any</option>
+    <option *ngIf="hasHaplods && hasDiploids"
+            [ngValue]="anySelectData">Haploid or Diploid</option>
 
-    <option [ngValue]="haploidSelectData" [disabled]="!haploidSelectData.active">
+    <option [title]="haploidSelectData.active ? 'Haploid genotypes' : 'There are no haploid genotypes'"
+            [ngValue]="haploidSelectData" [disabled]="!haploidSelectData.active">
       Haploid
     </option>
 
-    <option [ngValue]="diploidSelectData" [disabled]="!diploidSelectData.active">
+    <option [title]="diploidSelectData.active ? 'Diploid genotypes' : 'There are no diploid genotypes'"
+            [ngValue]="diploidSelectData" [disabled]="!diploidSelectData.active">
       Diploid
     </option>
   </select>

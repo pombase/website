@@ -25,6 +25,9 @@ export class AnnotationTablePloidinessFilterComponent implements OnInit, OnChang
   anySelectData = new SelectData('any', 'Any (default)', true);
   selectedCategory: SelectData = this.anySelectData;
 
+  hasHaplods = false;
+  hasDiploids = false;
+
   haploidSelectData = new SelectData('haploid', 'Haploid', false);
   diploidSelectData = new SelectData('diploid', 'Diploid', false);
 
@@ -46,9 +49,7 @@ export class AnnotationTablePloidinessFilterComponent implements OnInit, OnChang
   ngOnInit(): void {
   }
 
-  ngOnChanges() {
-    this.selectedCategory = this.anySelectData;
-
+  private checkPloidiness(): [boolean, boolean] {
     let seenHaploid = false;
     let seenDiploid = false;
 
@@ -68,7 +69,23 @@ export class AnnotationTablePloidinessFilterComponent implements OnInit, OnChang
       }
     }
 
-    this.haploidSelectData.active = seenHaploid;
-    this.diploidSelectData.active = seenDiploid;
+    return [seenHaploid, seenDiploid];
+  }
+
+  ngOnChanges() {
+    this.selectedCategory = this.anySelectData;
+
+    [this.hasHaplods, this.hasDiploids] = this.checkPloidiness();
+
+    this.haploidSelectData.active = this.hasHaplods;
+    this.diploidSelectData.active = this.hasDiploids;
+
+    if (this.hasHaplods && !this.hasDiploids) {
+      this.selectedCategory = this.haploidSelectData;
+    } else {
+      if (!this.hasHaplods && this.hasDiploids) {
+        this.selectedCategory = this.diploidSelectData;
+      }
+    }
   }
 }
