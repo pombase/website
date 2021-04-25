@@ -1,6 +1,7 @@
 <span [class.diploid-genotype-name]="isDiploid()" [class.short-genotype-link]="isShortDisplayName">
   <ng-template #allelesPopover>
-    <span *ngIf="background">Background: <span class="genotype-background">{{background}}</span></span>
+    <div *ngIf="isDiploid()">Diploid genotype</div>
+    <div *ngIf="background">Background: <span class="genotype-background">{{background}}</span></div>
     <app-genotype-allele-summary class="link-allele-summary" [genotype]="genotype">
     </app-genotype-allele-summary>
 
