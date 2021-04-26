@@ -36,8 +36,13 @@ export class AnnotationPloidinessFilter implements Filter<AnnotationTable> {
             summaryRow.genotypes.filter(g => {
               return this.genotypePloidiness(g) == this.filterPloidiness;
             });
-          retAnnotation.summary.push(newRow);
+          if (newRow.genotypes.length > 0) {
+            newRow.genotype_uniquenames =
+              newRow.genotypes.map(g => g.display_uniquename);
+            retAnnotation.summary.push(newRow);
+          }
         });
+
       }
 
       retAnnotation.annotations = [];
