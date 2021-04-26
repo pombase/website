@@ -143,7 +143,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
     const selection = this.window.getSelection();
     if (selection) {
-      if (selection.getRangeAt && selection.rangeCount && selection.rangeCount > 0) {
+      if (selection.rangeCount && selection.rangeCount > 0) {
         const range = selection.getRangeAt(0);
         if (range) {
           const startContainer = range.startContainer;
