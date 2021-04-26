@@ -22,10 +22,10 @@
   </div>
 
   <div *ngIf="tableIsFiltered" class="filter-count">
-    <span *ngIf="filteredTable.length == annotationTable.length">
+    <span *ngIf="filteredAnnotationCount == annotationCount">
       Showing all annotations
     </span>
-    <span *ngIf="filteredTable.length != annotationTable.length">
+    <span *ngIf="filteredAnnotationCount != annotationCount">
       Showing {{filteredAnnotationCount}} of {{annotationCount}} annotations
     </span>
   </div>
