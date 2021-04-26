@@ -3,12 +3,12 @@
     <option *ngIf="hasHaplods && hasDiploids"
             [ngValue]="anySelectData">Haploid or Diploid</option>
 
-    <option [title]="haploidSelectData.active ? 'Haploid genotypes' : 'There are no haploid genotypes'"
+    <option [title]="haploidSelectData.active ? 'Haploid genotypes' : 'There are no haploid genotypes in this section'"
             [ngValue]="haploidSelectData" [disabled]="!haploidSelectData.active">
       Haploid
     </option>
 
-    <option [title]="diploidSelectData.active ? 'Diploid genotypes' : 'There are no diploid genotypes'"
+    <option [title]="diploidSelectData.active ? 'Diploid genotypes' : 'There are no diploid genotypes in this section'"
             [ngValue]="diploidSelectData" [disabled]="!diploidSelectData.active">
       Diploid
     </option>
