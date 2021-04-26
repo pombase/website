@@ -27,7 +27,7 @@ export class AnnotationPloidinessFilter implements Filter<AnnotationTable> {
       annotationCount += termAnnotation.annotations.length;
       let retAnnotation = Object.assign({}, termAnnotation);
 
-      if (this.filterPloidiness !== 'any') {
+      if (this.filterPloidiness !== 'any' && retAnnotation.summary) {
         const origSummary = retAnnotation.summary;
         retAnnotation.summary = [];
         origSummary.map(summaryRow => {
