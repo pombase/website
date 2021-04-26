@@ -190,6 +190,19 @@ export interface DetailsPageLinkConfig {
   text: string;
 }
 
+export interface GeneExpressionDatasetConfig {
+  plot_display_name: string;
+  first_author: string;
+  pubmed_id: string;
+  level_type: string;
+  during: string;
+  during_termid: string;
+}
+
+export interface GeneExpressionConfig {
+  datasets: Array<GeneExpressionDatasetConfig>;
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -231,6 +244,9 @@ export interface AppConfig {
   chromosomes: {
     [identifier: string]: ChromosomeConfig;
   };
+
+  geneExpression: GeneExpressionConfig;
+
   documentation: DocumentationConfig;
 
   queryBuilder: QueryBuilderConfig;
@@ -716,6 +732,9 @@ let _appConfig: AppConfig = {
   miscExternalLinks: pombaseConfig.misc_external_links,
   proteinFeatures: pombaseConfig.protein_features,
   chromosomes: pombaseConfig.chromosomes,
+
+  geneExpression: pombaseConfig.gene_expression,
+
   documentation: docConfig,
 
   // query builder node configuration:
