@@ -89,6 +89,7 @@ export interface ConfigOrganism {
   alternative_names: Array<string>;
   assembly_version: string;
   example_gene_identifiers: Array<string>;
+  database_id_prefix?: string;
 }
 
 export interface PanelConfig {
@@ -270,6 +271,7 @@ export interface AppConfig {
   getPredefinedQuery(queryName: string): PredefinedQueryConfig;
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
+  getOrganismByGenusAndSpecies(genus: string, species: string): ConfigOrganism|undefined;
 
   getExternalTermLink(dbName: string, termId: string): { url: string, displayName: string } | undefined;
 
@@ -772,6 +774,15 @@ let _appConfig: AppConfig = {
     return _organismMap[taxonid];
   },
 
+  getOrganismByGenusAndSpecies(genus: string, species: string): ConfigOrganism|undefined {
+    for (const orgConfig of this.organisms) {
+      if (orgConfig.genus === genus && orgConfig.species === species) {
+        return orgConfig;
+      }
+    }
+    return undefined;
+  },
+
   getPredefinedQuery(queryId: string): PredefinedQueryConfig {
     return getAppConfig().predefinedQueries[queryId];
   },
@@ -1022,14 +1033,22 @@ export function getXrf(idWithPrefix: string): XrfDetails|undefined {
   }
 }
 
-let organismPrefix: { [key: string]: string } = {
-  'Homo_sapiens': 'HGNC',
-  'Saccharomyces_cerevisiae': 'SGD',
-};
 
 export function getOrganismExternalLink(organismGenus: string, organismSpecies: string,
                                         uniquename: string, name?: string): string|undefined {
-  let xrfOrgConfig = getXrfConfig()[organismPrefix[organismGenus + '_' + organismSpecies]];
+  const organismConfig = getAppConfig().getOrganismByGenusAndSpecies(organismGenus, organismSpecies);
+
+  if (!organismConfig) {
+    return undefined;
+  }
+
+  const organismPrefix = organismConfig.database_id_prefix;
+
+  if (!organismPrefix) {
+    return undefined;
+  }
+
+  let xrfOrgConfig = getXrfConfig()[organismPrefix];
 
   if (xrfOrgConfig) {
     let linkTemplate = xrfOrgConfig.urlSyntax;
