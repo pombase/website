@@ -21,9 +21,11 @@ export class GAFOptions {
   constructor(public aspects: Array<string>) { }
 }
 
+type OutputFlag = 'include_gene_subsets';
+
 export class QueryOutputOptions {
   constructor(public field_names: Array<string>,
-              public flags: Array<string>,
+              public flags: Array<OutputFlag>,
               private sequence?: SequenceOptions,
               private gaf_options?: GAFOptions) {
     if (!this.sequence) {
