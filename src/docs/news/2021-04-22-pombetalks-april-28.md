@@ -3,7 +3,7 @@
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next online PombeTalks will take place on Wednesday **28th April**
-2021, at 9:00 [Central European
+2021, at 10:00 [Central European
 Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/)
 / 17:00 [Japan &
 Korea](https://greenwichmeantime.com/time-zone/gmt-plus-9/). Speakers:
