@@ -1,5 +1,4 @@
 ### New protein feature display
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombelist.png -->
 
 PomBase has released a new, interactive display for protein features
