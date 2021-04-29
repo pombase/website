@@ -26,4 +26,11 @@ genotype.
 
 3.  Phenotypes annotated to the genotype are displayed as described in
     the [gene page documentation](documentation/gene-page-phenotypes).
+4.  For diploid genotypes, the table of details includes both alleles
+    of each locus:
 
+![diploid genotype details](assets/diploid_genotype_table.png){width="600"}
+
+The Locus column contains the gene name, linked to its gene page, and
+spans two rows, one for each allele at the locus. Allele details are
+as described for haploid genotypes.
