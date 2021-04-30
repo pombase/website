@@ -1,7 +1,8 @@
 # pombase
-pombase_v2_config.json
 minimal_jbrowse_track_list.json
 src/browser_images
+
+main_config.json
 
 # compiled output
 dist

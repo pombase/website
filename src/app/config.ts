@@ -3,7 +3,7 @@ import { TermAndName } from './pombase-query';
 
 import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
 import docConfig from './config/doc-config.json';
-import pombaseConfig from '../../pombase_v2_config.json';
+import pombaseConfig from '../../main_config.json';
 import jbrowseTracks from '../../minimal_jbrowse_track_list.json';
 
 export interface TermPageConfig {
