@@ -25,7 +25,6 @@ jobs:
            sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl pandoc libyaml-perl
            (curl -L http://cpanmin.us | sudo perl - --self-upgrade) && sudo cpanm --notest Pandoc Text::CSV
            curl -OL http://current.geneontology.org/metadata/GO.xrf_abbs
-           curl -L https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json > main_config.json
            curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
            curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_jbrowse_track_metadata.csv
            curl -OL https://raw.githubusercontent.com/pombase/pombase-chado/master/etc/create_jbrowse_track_list.pl && chmod a+x create_jbrowse_track_list.pl
@@ -35,5 +34,6 @@ jobs:
       - name: Test
         run: |
            ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json
+           curl -L https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json > main_config.json
            ./etc/update_generated_files.sh main_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
 
