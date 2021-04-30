@@ -65,6 +65,8 @@ export class GenesTableComponent implements OnInit {
 
   loading = true;
 
+  maxGeneExpressionPlotGenes = 150;
+
   constructor(private modalService: BsModalService,
               private sanitizer: DomSanitizer,
               private queryService: QueryService,
