@@ -78,8 +78,11 @@ browser "back" button)
 
 3. Select columns to display
 
-4. Send the gene list to [QuiLT](documentation/quick-little-tool) for
-visualisation
+4. Select from the pulldown to send the gene list to
+[QuiLT](documentation/quick-little-tool) for visualisation, or, for
+lists of up to 150 genes, see the genes highlighted in [violin
+plots](https://en.wikipedia.org/wiki/Violin_plot) of quantitative
+expression datasets.
 
 5. Show [GO slim](documentation/pombase-go-slim-documentation)
 annotations for genes in the list. Click "Slim with" to reveal a
