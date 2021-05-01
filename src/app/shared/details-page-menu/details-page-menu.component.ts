@@ -23,6 +23,7 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
 
   appConfig: AppConfig = getAppConfig();
   siteName = this.appConfig.site_name;
+  smallLogoFileName = getAppConfig().small_logo_file_name;
 
   menuPositionFixed = false;
 

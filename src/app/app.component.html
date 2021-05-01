@@ -1,11 +1,11 @@
 <div id="app-component">
-  <div id="header">
+  <div id="header" [style]="'background-image: url(../assets/' + headerBackgroundFileName + ');'">
     <div id="header-main">
       <div id="logo-and-slogan">
         <a id="header-anchor"></a>
         <div id="logo">
           <a routerLink="/" routerLinkActive="active" title="{{siteName}} home">
-            <img src="assets/pombase-logo.png" alt="{{siteName}} home" />
+            <img src="assets/{{logoFileName}}" alt="{{siteName}} home" />
           </a>
         </div>
       </div>

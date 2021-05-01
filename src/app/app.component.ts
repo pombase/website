@@ -16,6 +16,8 @@ import { getAppConfig } from './config';
 export class AppComponent implements OnInit, AfterViewInit {
   siteName = getAppConfig().site_name;
   defaultDescription = getAppConfig().site_description;
+  logoFileName = getAppConfig().logo_file_name;
+  headerBackgroundFileName = getAppConfig().header_background_file_name;
 
   constructor(
     private router: Router,

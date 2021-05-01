@@ -208,6 +208,10 @@ export interface AppConfig {
   site_name: string;
   site_description: string;
   load_organism_taxonid: number;
+  logo_file_name: string;
+  small_logo_file_name: string;
+  tiny_logo_file_name: string;
+  header_background_file_name: string;
   helpdesk_address: string;
   gene_systematic_identifier_re: string;
   transcript_systematic_identifier_re: string;
@@ -684,6 +688,10 @@ let _appConfig: AppConfig = {
   site_name: pombaseConfig.site_name,
   site_description: pombaseConfig.site_description,
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
+  logo_file_name: pombaseConfig.logo_file_name,
+  small_logo_file_name: pombaseConfig.small_logo_file_name,
+  tiny_logo_file_name: pombaseConfig.tiny_logo_file_name,
+  header_background_file_name: pombaseConfig.header_background_file_name,
   helpdesk_address: pombaseConfig.helpdesk_address,
   gene_systematic_identifier_re: pombaseConfig.gene_systematic_identifier_re,
   transcript_systematic_identifier_re: pombaseConfig.transcript_systematic_identifier_re,

@@ -2,7 +2,7 @@
      [ngClass]="{'menu-pos-fixed': menuPositionFixed, 'menu-pos-absolute': !menuPositionFixed}">
   <a [ngClass]="{'small-logo-visible': menuPositionFixed, 'small-logo-hidden': !menuPositionFixed}"
      routerLink="/" title="{{siteName}} home">
-    <img src="assets/pombase-logo-small.png" alt="{{siteName}} home" />
+    <img src="assets/{{smallLogoFileName}}" alt="{{siteName}} home" />
   </a>
   <div class="left-menu-part left-menu-header">
     <a (click)="scrollToPageTop()">{{title}}</a>

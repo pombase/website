@@ -1,5 +1,8 @@
 #header {
   position: relative;
+  background-color: #bbc3de;
+  background-position: right;
+  background-repeat: no-repeat;
   flex-shrink: 0;
 }
 
@@ -10,12 +13,24 @@
 
 #logo {
   white-space: nowrap;
-  margin: 0.8em 0.8em 0.8em 1.5em;
+  padding: 0.8em 0.8em 0.8em 1.5em;
+}
+
+@media (max-width: 1000px) {
+  #header {
+    background-size: cover;
+  }
+  #header-main {
+    background-color: #fff6;
+    background-size: cover;
+  }
 }
 
 @media (max-width: 800px) {
   #header-main {
     height: 160px;
+    background-color: #fff9;
+    background-size: cover;
   }
 
   #header-search-box {
@@ -26,20 +41,6 @@
   #header-content, #content {
     padding: 0.3em;
     padding-left: 0.7em;
-  }
-}
-
-@media (max-width: 1000px) {
-  #header {
-    background: #bbc3de url(../assets/header-background-mobile.jpg) right no-repeat;
-    background-size: cover;
-  }
-}
-
-
-@media (min-width: 1000px) {
-  #header {
-    background: #bbc3de url(../assets/header-background.jpg) right no-repeat;
   }
 }
 
