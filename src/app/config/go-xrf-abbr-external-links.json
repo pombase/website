@@ -143,6 +143,12 @@
       "url_syntax" : "http://pfam.xfam.org/family/[example_id]",
       "website" : "http://pfam.xfam.org"
    },
+   "PomBase" : {
+      "description" : "PomBase",
+      "name" : "PomBase",
+      "url_syntax" : "https://www.pombase.org/gene/[example_id]",
+      "website" : "https://www.pombase.org/"
+   },
    "Prosite" : {
       "description" : "Prosite database of protein families and domains",
       "name" : "Prosite",
