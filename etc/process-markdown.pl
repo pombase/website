@@ -3,11 +3,11 @@
 # generate component HTML from Markdown file and config
 
 # run as:
-#  (cd frontend/src/docs; etc/process-markdown.pl \
+#  etc/process-markdown.pl \
 #     --markdown-docs src/docs \
 #     --recent-news-component src/app/recent-news/recent-news.component.html \
 #     --docs-component src/app/docs/docs.component.html \
-#     --front-panel-content-component src/app/front-panel-content.html)
+#     --front-panel-content-component src/app/front-panel-content.html
 
 use strict;
 use warnings;
