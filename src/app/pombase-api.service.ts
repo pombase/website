@@ -372,6 +372,7 @@ export interface SynonymDetails {
 export interface ProteinDetails {
   uniquename: string;
   sequence: string;
+  product?: string;
   molecular_weight: number;
   number_of_residues: number;
   average_residue_weight: number;

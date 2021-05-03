@@ -53,6 +53,8 @@ export class GeneDetailsComponent implements OnInit {
     }
   ];
 
+  product? = '';
+
   miscAnnotationTypeNames = ['cat_act', 'ex_tools', 'genome_org', 'misc', 'm_f_g'];
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -236,6 +238,7 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   setProducts(): void {
+    this.product = undefined;
     const transcripts = this.geneDetails.transcripts;
     if (transcripts.length === 0) {
       return;
@@ -248,9 +251,17 @@ export class GeneDetailsComponent implements OnInit {
       this.geneDetails.transcripts.map(transcript => {
         if (transcript.protein) {
           this.proteinCount++;
+          if (!this.product) {
+            this.product = transcript.protein.product;
+          }
         }
       });
     });
+
+    if (!this.product) {
+      // fail-back if no transcript has a protein with a product
+      this.product = this.geneDetails.product;
+    }
   }
 
   setJBrowseLink(): void {
