@@ -34,7 +34,7 @@ Boston, MA, USA
     Hinxton, UK - abstracts (file)
 
 ## Other documents
--   [2019 PomBase user survey results](https://www.pombase.org/data/pombe/documents/2019_pombase_survey_summary_no_freetext_responses.pdf) (PDF)
+-   [2019 PomBase user survey results](https://www.pombase.org/data/documents/2019_pombase_survey_summary_no_freetext_responses.pdf) (PDF)
 
 -   [2017 PomBase infographic](https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf) (PDF)
 
