@@ -65,6 +65,7 @@ export class GenesTableComponent implements OnInit {
 
   loading = true;
 
+  showGeneExpressionLink = getAppConfig().geneExpression.datasets.length > 0;
   maxGeneExpressionPlotGenes = 150;
 
   constructor(private modalService: BsModalService,

@@ -49,7 +49,7 @@
           QuiLT
         </a>
       </li>
-      <li>
+      <li *ngIf="showGeneExpressionLink">
         <a *ngIf="genes.length <= maxGeneExpressionPlotGenes" class="dropdown-item" title="Show gene visualisation" (click)="showGeneEx()">
           Gene expression (up to {{maxGeneExpressionPlotGenes}} genes)
         </a>
