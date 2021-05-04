@@ -11,6 +11,7 @@ export class MainNavBarComponent implements OnInit {
 
   siteName = getAppConfig().site_name;
   ensemblBlastURL = getAppConfig().ensembl_blast_url;
+  cantoURL = getAppConfig().canto_url;
 
   constructor() { }
 

@@ -225,6 +225,7 @@ export interface AppConfig {
   has_disease_annotation: boolean;
   news_on_front_page: boolean;
   ensembl_blast_url: string;
+  canto_url: string;
   welcome_message: string;
   canto_data_config: CantaDataConfig;
   organisms: Array<ConfigOrganism>;
@@ -711,6 +712,7 @@ let _appConfig: AppConfig = {
   has_disease_annotation: pombaseConfig.has_disease_annotation,
   news_on_front_page: pombaseConfig.news_on_front_page,
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,
+  canto_url: pombaseConfig.canto_url,
   welcome_message: pombaseConfig.welcome_message,
   canto_data_config: pombaseConfig.canto_data_config,
   organisms: pombaseConfig.organisms,
