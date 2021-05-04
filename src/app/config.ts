@@ -216,6 +216,15 @@ export interface AppConfig {
   gene_systematic_identifier_re: string;
   transcript_systematic_identifier_re: string;
   details_popup_delay: number;
+  example_pages: {
+    gene: string;
+    term: string;
+    reference: string;
+  },
+  social_media: boolean;
+  has_disease_annotation: boolean;
+  news_on_front_page: boolean;
+  welcome_message: string;
   canto_data_config: CantaDataConfig;
   organisms: Array<ConfigOrganism>;
   ortholog_taxonids: Array<number>;
@@ -696,6 +705,11 @@ let _appConfig: AppConfig = {
   gene_systematic_identifier_re: pombaseConfig.gene_systematic_identifier_re,
   transcript_systematic_identifier_re: pombaseConfig.transcript_systematic_identifier_re,
   details_popup_delay: pombaseConfig.details_popup_delay,
+  example_pages: pombaseConfig.example_pages,
+  social_media: pombaseConfig.social_media,
+  has_disease_annotation: pombaseConfig.has_disease_annotation,
+  news_on_front_page: pombaseConfig.news_on_front_page,
+  welcome_message: pombaseConfig.welcome_message,
   canto_data_config: pombaseConfig.canto_data_config,
   organisms: pombaseConfig.organisms,
   ortholog_taxonids: pombaseConfig.ortholog_taxonids,

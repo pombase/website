@@ -1,13 +1,10 @@
 <div class="front-container">
-<app-social-contact></app-social-contact>
+<app-social-contact *ngIf="showSocialMediaLinks"></app-social-contact>
 
 <h2 class="welcome-title">Welcome to {{siteName}}</h2>
 <div class="welcome">
   <div class="sect-content welcome-content">
-PomBase is a comprehensive database for the fission yeast
-<i>Schizosaccharomyces pombe</i>, providing structural and functional
-annotation, literature curation and access to large-scale data
-sets
+    <span [innerHTML]="welcomeMessage"></span>
   </div>
   <app-stats-ribbon class="stats-ribbon"></app-stats-ribbon>
 </div>
@@ -25,7 +22,7 @@ sets
     </span>
   </span>
 
-  <span class="quick-links-group">
+  <span *ngIf="hasDiseaseAnnotation" class="quick-links-group">
     <span>
       <a routerLink="/browse-curation/disease-slim">Disease association overview</a>
     </span>
@@ -48,11 +45,11 @@ sets
 
   <span class="quick-links-group">
     <span>Example pages: </span>
-    <span><a routerLink="/gene/SPCC18B5.03">Gene</a></span>
+    <span><a routerLink="/gene/{{examplePages.gene}}">Gene</a></span>
     &#x25CF;
-    <span><a routerLink="/term/GO:0000070">Term</a></span>
+    <span><a routerLink="/term/{{examplePages.term}}">Term</a></span>
     &#x25CF;
-    <span><a routerLink="/reference/PMID:25908789">Publication</a></span>
+    <span><a routerLink="/reference/{{examplePages.reference}}">Publication</a></span>
   </span>
 </div>
 
@@ -84,12 +81,12 @@ sets
     </div>
   </div>
 
-<div class="front-news-feed">
+<div *ngIf="showNewsItems" class="front-news-feed">
   <h2 class="front-page-list-title">Recent news</h2>
   <app-recent-news></app-recent-news>
 </div>
 
-<div class="front-twitter-feed">
+<div *ngIf="showSocialMediaLinks" class="front-twitter-feed">
 <a class="twitter-timeline" data-tweet-limit="6" href="https://twitter.com/PomBase">
    Tweets by PomBase
 </a>
