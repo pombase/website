@@ -1,15 +1,14 @@
-### PombeTalks April 28th
+### PombeTalks May 12th
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The next online PombeTalks will take place on Wednesday **28th April**
-2021, at 10:00 [Central European
-Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/)
-/ 17:00 [Japan &
-Korea](https://greenwichmeantime.com/time-zone/gmt-plus-9/). Speakers:
+The next online PombeTalks will take place on Wednesday **12th May**
+2021, at 17:00 [Central European
+Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/). Speakers:
 
- - **Tomoyuki Fukuda**, Niigata University Graduate School of Medical and Dental Sciences: *Atg43 serves as a selective autophagy receptor to promote mitophagy*
+ - **Sierra Cullati**, Gould lab, Vanderbilt University: *Autophosphorylation of the CK1 Kinase Domain Regulates Enzyme Activity and Substrate Specificity*
 
- - **Xiao-Ran Zhang**, NIBS, Beijing, China: *An improved auxin-inducible degron system for fission yeast*
+ - **Stephen Huisman**, Brunner Lab, University of Zurich: *Vip1, a temperature-dependent filament forming protein involved in cell length regulation*
 
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
