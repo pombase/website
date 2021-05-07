@@ -103,4 +103,4 @@ We plan to add specific documentation about comparative genomics using
 ### More information ... ###
 
 For help with anything in PomBase not covered here, you can
-[contact the curators](helpdesk@pombase.org).
+[contact the curators](mailto:helpdesk@pombase.org).
