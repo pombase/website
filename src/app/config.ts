@@ -207,6 +207,7 @@ export interface GeneExpressionConfig {
 export interface AppConfig {
   site_name: string;
   site_description: string;
+  database_long_name: string;
   load_organism_taxonid: number;
   logo_file_name: string;
   small_logo_file_name: string;
@@ -698,6 +699,7 @@ let _organismMap: { [taxonid: number]: ConfigOrganism }|null = null;
 let _appConfig: AppConfig = {
   site_name: pombaseConfig.site_name,
   site_description: pombaseConfig.site_description,
+  database_long_name: pombaseConfig.database_long_name,
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
   logo_file_name: pombaseConfig.logo_file_name,
   small_logo_file_name: pombaseConfig.small_logo_file_name,

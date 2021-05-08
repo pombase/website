@@ -19,6 +19,7 @@ import { IdentifierMapperComponent } from './identifier-mapper/identifier-mapper
 import { GeneResultsPageComponent } from './gene-results-page/gene-results-page.component';
 import { InternalDetailsComponent } from './internal-details/internal-details.component';
 import { IdentifierMapperResultsComponent } from './identifier-mapper-results/identifier-mapper-results.component';
+import { getAppConfig } from './config';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -167,7 +168,7 @@ const routes: Routes = [
   {
     path: '', component: FrontComponent,
     data: {
-      defaultTitleDetail: 'The Schizosaccharomyces pombe genome database'
+      defaultTitleDetail: getAppConfig().database_long_name,
     }
   },
   {
