@@ -5,6 +5,7 @@ import { saveAs } from 'file-saver';
 import { GeneDetails, ProteinDetails, PombaseAPIService, Strand } from '../pombase-api.service';
 import { Util } from '../shared/util';
 import { DisplaySequence, DisplaySequenceLinePart, ResidueRange } from '../display-sequence';
+import { getAppConfig } from '../config';
 
 const lineLength = 60;
 
@@ -51,6 +52,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   selectedResidueRange?: ResidueRange;
 
   protein?: ProteinDetails;
+
+  ensemblBlastUrl = getAppConfig().ensembl_blast_url;
 
   constructor(private apiService: PombaseAPIService,
               @Inject('Window') private window: Window) { }
