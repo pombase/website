@@ -1,0 +1,28 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left"> Choose a query direction</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="cancel()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="query-name">
+      {{firstQueryDisplayName}}
+    </div>
+    <div class="and-not">
+      AND NOT:
+    </div>
+    <div class="query-name">
+      {{secondQueryDisplayName}}
+    </div>
+
+    <button type="button" (click)="changeDirection()"
+      class="btn btn-primary btn-sm pull-right change-dir">Change direction</button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+    <button type="button" class="btn btn-primary"
+      (click)="query()">Submit</button>
+  </div>
+</div>

@@ -121,6 +121,7 @@ import { TermLinkComponent } from './term-link/term-link.component';
 import { IdentifierMapperResultsComponent } from './identifier-mapper-results/identifier-mapper-results.component';
 import { JbrowseTrackOrderByPipe } from './jbrowse-track-order-by.pipe';
 import { TrackViewComponent } from './track-view/track-view.component';
+import { NotDirectionSelectDialogComponent } from './not-direction-select-dialog/not-direction-select-dialog.component';
 
 export function documentFactory() {
     return document;
@@ -216,6 +217,7 @@ export function windowFactory() {
     IdentifierMapperResultsComponent,
     JbrowseTrackOrderByPipe,
     TrackViewComponent,
+    NotDirectionSelectDialogComponent,
   ],
   imports: [
     BrowserModule,
