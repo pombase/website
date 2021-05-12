@@ -5,11 +5,12 @@
     <app-social-contact [subject]="'Comment or problem report for ' + displayNameLong()"></app-social-contact>
     <div class="details-page-name-and-id">
     <div class="gene-details-name-id">
+      <span class="details-page-name-and-id-prefix">Gene:</span>
     <span class="gene-name" *ngIf="!isConfiguredOrganism && organism">
       <span class="name-id">{{organism.common_name}}</span>
     </span>
     <span *ngIf="geneDetails.name">
-      <span class="name-id"><span class="name-id-highlight">{{geneDetails.name}}</span> / {{geneDetails.uniquename}} details</span>
+      <span class="name-id"><span class="name-id-highlight">{{geneDetails.name}}</span> / {{geneDetails.uniquename}}</span>
     </span>
     <span class="gene-name" *ngIf="!geneDetails.name">
       <span class="name-id">{{geneDetails.uniquename}}</span>

@@ -40,6 +40,10 @@ a, a:not([href]):not([tabindex]) {
   max-width: 1400px;
 }
 
+.details-page-name-and-id-prefix {
+  color: #666;
+}
+
 @media (min-width: 1000px) {
   .details-page-name-and-id {
     font-size: 200%;

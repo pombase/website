@@ -4,11 +4,13 @@
   <div id="genotype-details" *ngIf="genotypeDetails && !apiError">
     <app-social-contact></app-social-contact>
     <div class="details-page-name-and-id">
-      <div *ngIf="genotypeDetails.name">
-        <span class="name-id-highlight" [innerHTML]="genotypeDetails.name"></span>
-      </div>
-
+      <span class="details-page-name-and-id-prefix">Genotype:</span>
       <span class="name-id-highlight" [innerHTML]="displayName"></span>
+    </div>
+
+    <div *ngIf="genotypeDetails.name" class="genotype-name">
+      <span class="details-page-name-and-id-prefix">Name:</span>
+      <span [innerHTML]="genotypeDetails.name"></span>
     </div>
 
     <div id="genotype-summary" class="details-page-summary genotype-details-page-summary">

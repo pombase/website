@@ -3,6 +3,11 @@
   border-bottom: 1px solid #bbb;
 }
 
+.genotype-name {
+  font-size: 120%;
+  padding-bottom: 1em;
+}
+
 .expressed-alleles {
   font-size: 120%;
 }

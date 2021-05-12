@@ -6,6 +6,8 @@
   <app-social-contact></app-social-contact>
 
   <div class="details-page-name-and-id">
+    <span *ngIf="isPubMedRef" class="details-page-name-and-id-prefix">Publication:</span>
+    <span *ngIf="!isPubMedRef" class="details-page-name-and-id-prefix">Reference:</span>
     <span class="reference-title name-id-highlight" *ngIf="refDetails.title">
       {{refDetails.title}}
     </span>
