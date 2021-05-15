@@ -1,5 +1,5 @@
 # Can I share my search results?
-<!-- pombase_categories: Finding data -->
+<!-- pombase_categories: Finding data, Community -->
 
 Yes. In the advanced search, each results page has a stable, unique
 URL that you can bookmark, copy/paste, and share. Anyone who follows a

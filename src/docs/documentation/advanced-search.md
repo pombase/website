@@ -37,10 +37,16 @@ Results are added to the history list:
 
 ![advanced search page with new query](assets/advanced_search_combination_result.png){width="400"}
 
-At present, there is only an awkward kludge to specify the order for a
-query using the Subtract/NOT operator. It always places the more
-recently run query first (newer NOT/Subtract older), but you can move
-any query to the top of the history list by clicking its "Results" link.
+Queries using the NOT operator default place the more
+recently run query first (newer NOT/Subtract older):
+
+![advanced search page with new query](assets/advanced_search_not_direction.png){width="300"}
+
+Click "Change direction" to switch the order. Click "Submit" to run
+the query.
+
+You can also move any query to the top of the history list by clicking
+its "Results" link.
 
 Query results can remain available in the history list for several
 days. If changes in annotation cause results to change since a query
