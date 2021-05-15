@@ -7,7 +7,16 @@
     </app-help-link>
   </legend>
 
-  <div class="interaction-source"><span>Source:</span> Interactions curated by <a href="https://thebiogrid.org/">BioGRID</a> and {{siteName}}.</div>
+  <div class="interaction-source">
+    <span class="interaction-source-label">Source:</span>
+    Interactions curated by
+    <span *ngIf="interactionSources.length != 0">
+      <span *ngFor="let source of interactionSources; let i = index">
+         <a href="{{source.url}}">{{source.name}}</a>
+         <span *ngIf="i != interactionSources.length - 1">, </span>
+      </span> and
+    </span>
+    {{siteName}}</div>
 
   <a *ngIf="biogridUrl" class="biogrid-link" href="{{biogridUrl}}">
     View interactions for {{currentGene.displayName}} at BioGRID ...

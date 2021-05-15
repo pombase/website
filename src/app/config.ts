@@ -217,6 +217,12 @@ export interface AppConfig {
   gene_systematic_identifier_re: string;
   transcript_systematic_identifier_re: string;
   details_popup_delay: number;
+  data_sources: {
+    interactions:  Array<{
+      name: string;
+      url: string;
+    }>;
+  };
   example_pages: {
     gene: string;
     term: string;
@@ -709,6 +715,7 @@ let _appConfig: AppConfig = {
   gene_systematic_identifier_re: pombaseConfig.gene_systematic_identifier_re,
   transcript_systematic_identifier_re: pombaseConfig.transcript_systematic_identifier_re,
   details_popup_delay: pombaseConfig.details_popup_delay,
+  data_sources: pombaseConfig.data_sources,
   example_pages: pombaseConfig.example_pages,
   social_media: pombaseConfig.social_media,
   has_disease_annotation: pombaseConfig.has_disease_annotation,

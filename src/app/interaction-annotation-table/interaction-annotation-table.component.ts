@@ -46,6 +46,8 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   filters?: Array<FilterConfig>;
   interactionNoteRef: any;
 
+  interactionSources = this.appConfig.data_sources.interactions;
+
   constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
