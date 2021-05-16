@@ -25,10 +25,15 @@
         </div>
 
         <div class="curation-status curation-status-text">
-          <div class="ref-curated-by" *ngIf="cantoCommunityCuratorName">
-            Community curation provided by {{cantoCommunityCuratorName}}
+          <div *ngIf="cantoCuratorName">
+            <div class="ref-curated-by" *ngIf="!isStaffCurator">
+              Community curation provided by {{cantoCuratorName}}
+            </div>
+            <div class="ref-curated-by" *ngIf="isStaffCurator">
+              Curation by {{cantoCuratorName}}
+            </div>
           </div>
-          <div class="ref-curated-by" *ngIf="!cantoCommunityCuratorName">
+          <div class="ref-curated-by" *ngIf="!cantoCuratorName">
             Curated by {{siteName}} staff
           </div>
           <div *ngIf="hasApprovedSession()">

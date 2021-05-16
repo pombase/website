@@ -214,6 +214,7 @@ export interface AppConfig {
   tiny_logo_file_name: string;
   header_background_file_name: string;
   helpdesk_address: string;
+  show_names_of_staff_curators: boolean;
   gene_systematic_identifier_re: string;
   transcript_systematic_identifier_re: string;
   details_popup_delay: number;
@@ -712,6 +713,7 @@ let _appConfig: AppConfig = {
   tiny_logo_file_name: pombaseConfig.tiny_logo_file_name,
   header_background_file_name: pombaseConfig.header_background_file_name,
   helpdesk_address: pombaseConfig.helpdesk_address,
+  show_names_of_staff_curators: pombaseConfig.show_names_of_staff_curators,
   gene_systematic_identifier_re: pombaseConfig.gene_systematic_identifier_re,
   transcript_systematic_identifier_re: pombaseConfig.transcript_systematic_identifier_re,
   details_popup_delay: pombaseConfig.details_popup_delay,

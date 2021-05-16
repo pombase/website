@@ -25,7 +25,8 @@ export class ReferenceDetailsComponent implements OnInit {
   isPubMedRef = false;
   pubMedId?: string;
   apiError?: APIError;
-  cantoCommunityCuratorName?: string;
+  cantoCuratorName?: string;
+  isStaffCurator = false;
   cantoTriageStatus = 'UNKNOWN';
 
   multiOrgMode = getAppConfig().isMultiOrganismMode();
@@ -55,12 +56,15 @@ export class ReferenceDetailsComponent implements OnInit {
   }
 
   setCantoFields(): void {
-    this.cantoCommunityCuratorName = undefined;
-    if (this.refDetails.canto_curator_role &&
-        this.refDetails.canto_curator_role === 'community' &&
-        this.refDetails.canto_curator_name) {
-      this.cantoCommunityCuratorName = this.refDetails.canto_curator_name;
+    this.cantoCuratorName = undefined;
+    this.isStaffCurator =
+      !this.refDetails.canto_curator_role ||
+      this.refDetails.canto_curator_role !== 'community';
+
+    if (!this.isStaffCurator || this.appConfig.show_names_of_staff_curators) {
+      this.cantoCuratorName = this.refDetails.canto_curator_name;
     }
+
     this.cantoTriageStatus = this.refDetails.canto_triage_status;
   }
 
