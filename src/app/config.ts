@@ -38,6 +38,7 @@ export interface ProteinFeatures {
 }
 
 export interface ChromosomeConfig {
+  name: string;
   long_display_name: string;
   short_display_name: string;
   export_id: string;
@@ -265,9 +266,7 @@ export interface AppConfig {
   miscExternalLinks: ExternalLinks;
   proteinFeatures: ProteinFeatures;
   slims: { [slimName: string]: SlimConfig };
-  chromosomes: {
-    [identifier: string]: ChromosomeConfig;
-  };
+  chromosomes: Array<ChromosomeConfig>;
 
   geneExpression: GeneExpressionConfig;
 
@@ -295,6 +294,8 @@ export interface AppConfig {
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
   getOrganismByGenusAndSpecies(genus: string, species: string): ConfigOrganism|undefined;
+
+  getChromosomeConfigByName(name: string): ChromosomeConfig|undefined;
 
   getExternalTermLink(dbName: string, termId: string): { url: string, displayName: string } | undefined;
 
@@ -815,6 +816,15 @@ let _appConfig: AppConfig = {
     for (const orgConfig of this.organisms) {
       if (orgConfig.genus === genus && orgConfig.species === species) {
         return orgConfig;
+      }
+    }
+    return undefined;
+  },
+
+  getChromosomeConfigByName(chrName: string): ChromosomeConfig|undefined {
+    for (const chrConfig of this.chromosomes) {
+      if (chrConfig.name == chrName) {
+        return chrConfig;
       }
     }
     return undefined;

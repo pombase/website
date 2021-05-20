@@ -94,9 +94,14 @@ export class GeneDetailsComponent implements OnInit {
       return undefined;
     }
     const chromosomeName = location.chromosome_name;
-    const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
+    const chromosomeConfig = this.appConfig.getChromosomeConfigByName(chromosomeName);
 
-    const chrDisplayName = chromosomeConfig.short_display_name || chromosomeName;
+    let chrDisplayName;
+    if (chromosomeConfig) {
+      chrDisplayName = chromosomeConfig.short_display_name || chromosomeName;
+    } else {
+      chrDisplayName = chromosomeName;
+    }
 
     let genomicLocation;
     if (location.strand === 'reverse') {
@@ -289,11 +294,19 @@ export class GeneDetailsComponent implements OnInit {
             jbEnd = chrLength;
           }
 
-          const chrDisplayName = this.appConfig.chromosomes[chrName].export_id;
+
+          const chrConfig = this.appConfig.getChromosomeConfigByName(chrName);
+
+          let chrExportId;
+          if (chrConfig) {
+            chrExportId = chrConfig.export_id;
+          } else {
+            chrExportId = chrName;
+          }
 
           const tracks = 'Forward%20strand%20features%2CReverse%20strand%20features%2CDNA%20sequence';
           this.jbrowseLinkUrl =
-            `jbrowse/?loc=${chrDisplayName}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
+            `jbrowse/?loc=${chrExportId}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
 
           this.sanitizedJBrowseURL =
             this.sanitizer.bypassSecurityTrustResourceUrl(this.jbrowseLinkUrl + '&tracklist=0&nav=0&overview=0');

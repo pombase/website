@@ -33,13 +33,15 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   rangeEnd?: number;
   chromosomeName?: string;
 
+  appConfig = getAppConfig();
+
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
     this.cannedQueryDetails =
-      getAppConfig().cannedQueryIds.map(id => {
+      this.appConfig.cannedQueryIds.map(id => {
         const queryId = 'canned_query:' + id;
-        const query = GeneQuery.fromJSONString(getAppConfig().getPredefinedQuery(queryId));
+        const query = GeneQuery.fromJSONString(this.appConfig.getPredefinedQuery(queryId));
         return {
           name: query.getQueryName() || '[canned query name not configured]',
           queryId: queryId,
@@ -174,7 +176,7 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   }
 
   selectPredefinedQuery(predefinedQueryId: string): void {
-    const queryJson = getAppConfig().getPredefinedQuery(predefinedQueryId);
+    const queryJson = this.appConfig.getPredefinedQuery(predefinedQueryId);
     const query = GeneQuery.fromJSONString(queryJson);
     this.emitNodeEvent(query.getTopNode());
   }

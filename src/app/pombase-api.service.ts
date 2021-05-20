@@ -294,7 +294,7 @@ export class GeneSummary implements GeneShort {
       'end_pos': g => g.location ? String(g.location.end_pos) : '',
       'chromosome_name': g => {
         const chrName = g.location ? g.location.chromosome_name : '';
-        const chromosomeConfig = getAppConfig().chromosomes[chrName];
+        const chromosomeConfig = getAppConfig().getChromosomeConfigByName(chrName);
         if (chromosomeConfig && chromosomeConfig.short_display_name) {
           return chromosomeConfig.short_display_name;
         }

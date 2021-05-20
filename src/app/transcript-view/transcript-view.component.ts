@@ -286,10 +286,14 @@ export class TranscriptViewComponent implements OnInit, OnChanges {
   updateDisplayStrings() {
     const geneLocation = this.geneDetails.location;
     const chromosomeName = geneLocation.chromosome_name;
-    const chromosomeConfig = this.appConfig.chromosomes[chromosomeName];
+    const chromosomeConfig = this.appConfig.getChromosomeConfigByName(chromosomeName);
     this.displayTranscripts = [];
 
-    this.chromosomeDisplayName = chromosomeConfig.short_display_name || chromosomeName;
+    if (chromosomeConfig) {
+      this.chromosomeDisplayName = chromosomeConfig.short_display_name || chromosomeName;
+    } else {
+      this.chromosomeDisplayName = chromosomeName;
+    }
 
     for (const transcript of this.transcripts) {
       const displayTranscript = new DisplayTranscript(geneLocation, transcript);

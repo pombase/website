@@ -105,16 +105,15 @@
 
       <div *ngIf="activeConf.id == 'genome_range'">
         <div class="node-section">
-          <span *ngIf="!chromosomeSummaries">[loading ...]</span>
-          <span *ngIf="chromosomeSummaries">
+
             <select [(ngModel)]="chromosomeName">
               <option [ngValue]="undefined">Choose a chromosome</option>
-              <option *ngFor = "let chromosomeSummary of chromosomeSummaries"
-                      [ngValue]="chromosomeSummary.name">
-                {{chromosomeSummary.name}}
+              <option *ngFor = "let chrDetails of appConfig.chromosomes"
+                      [ngValue]="chrDetails.name">
+                {{chrDetails.long_display_name}}
               </option>
             </select>
-          </span>
+
         </div>
         <div class="node-section">
           Restrict to region:
