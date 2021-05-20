@@ -1,13 +1,14 @@
-### PombeTalks May 12th
+### PombeTalks May 26th
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The next online PombeTalks will take place on Wednesday **12th May**
+The next online PombeTalks will take place on Wednesday **26th May**
 2021, at 17:00 [Central European
 Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/). Speakers:
 
- - **Sierra Cullati**, Gould lab, Vanderbilt University: *Autophosphorylation of the CK1 Kinase Domain Regulates Enzyme Activity and Substrate Specificity*
+ - **Mélina Vaurs** (Vincent Géli & Stéphane Coulon labs - Cancer Research Center, Marseille): *Shelterin-dependent telomerase regulation differs between quiescent and vegetative cells*
 
- - **Stephen Huisman**, Brunner Lab, University of Zurich: *Vip1, a temperature-dependent filament forming protein involved in cell length regulation*
+ - **Arthur Molines** (Fred Chang lab – UCSF): *Physical properties of the cytoplasm modulate microtubule dynamics*
 
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
