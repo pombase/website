@@ -192,6 +192,7 @@ export interface DetailsPageLinkConfig {
 }
 
 export interface GeneExpressionDatasetConfig {
+  name: string;
   plot_display_name: string;
   first_author: string;
   pubmed_id: string;
@@ -905,6 +906,17 @@ for (const fieldName of Object.keys(geneResults.field_config)) {
   }
 }
 
+// add a result column configuration for each gene ex dataset
+for (const geneExDatasetConfig of _appConfig.geneExpression.datasets) {
+  const geneExConfName = 'gene_ex_avg_copies_per_cell:' + geneExDatasetConfig.name;
+  geneResults.field_config[geneExConfName] =
+    {
+      name: geneExConfName,
+      display_name: geneExDatasetConfig.name,
+      column_type: 'gene_ex',
+    } as GeneResultsFieldConfig;
+  geneResults.gene_table_field_names.push(geneExConfName);
+}
 
 const fieldFinder = (fieldName: string) => {
   const fieldConfig = geneResults.field_config[fieldName];

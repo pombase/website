@@ -348,6 +348,14 @@ export class QueryService {
     const geneSummaryMap = await this.pombaseApiService.getGeneSummaryMapPromise();
 
     const rowProcessor = (geneUniquename: GeneUniquename, serverRow?: ResultRow) => {
+      if (serverRow?.gene_expression) {
+        const geneEx = serverRow?.gene_expression;
+        delete serverRow?.gene_expression;
+        geneEx.map(geneExValue => {
+          serverRow['gene_ex_avg_copies_per_cell:' + geneExValue.dataset_name] = geneExValue.value;
+        });
+      }
+
       const geneSummary = geneSummaryMap[geneUniquename];
       const displayRow: any = {};
 
