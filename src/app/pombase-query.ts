@@ -1,6 +1,7 @@
 import { Util } from './shared/util';
 import { GeneShort } from './pombase-api.service';
 import { QueryOutputOptions, DisplayResultRow } from './query.service';
+import { getAppConfig } from './config';
 
 export type Ploidiness = 'haploid'|'diploid'|'any';
 
@@ -603,18 +604,25 @@ export class GenomeRangeNode extends GeneQueryBase implements GeneQueryNode {
 
   private setDetailsString(): void {
     let ret = '';
+    const chrConfig = getAppConfig().getChromosomeConfigByName(this.chromosomeName);
+    let chrDisplayName;
+    if (chrConfig) {
+      chrDisplayName = chrConfig.long_display_name;
+    } else {
+      chrDisplayName = this.chromosomeName;
+    }
     if (this.start || this.end) {
       if (!this.start) {
-        ret = `genome_range: <= ${this.end} of ${this.chromosomeName}`;
+        ret = `genome range: <= ${this.end} of ${chrDisplayName}`;
       } else {
         if (!this.end) {
-          ret = `genome_range: >= ${this.start} of ${this.chromosomeName}`;
+          ret = `genome range: >= ${this.start} of ${chrDisplayName}`;
         } else {
-          ret = `genome_range: ${this.start}..${this.end} of ${this.chromosomeName}`;
+          ret = `genome range: ${this.start}..${this.end} of ${chrDisplayName}`;
         }
       }
     } else {
-      ret = `all_genes_from_chromosome: ${this.chromosomeName}`;
+      ret = `all genes from: ${chrDisplayName}`;
     }
 
     this._detailsString = ret;
