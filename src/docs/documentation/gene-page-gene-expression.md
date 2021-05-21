@@ -29,7 +29,13 @@ default:
         measured.
 3.  Click to see the gene highlighted in [violin
     plots](https://en.wikipedia.org/wiki/Violin_plot) of quantitative
-    expression datasets that include it.
+    expression datasets that include it. (At present data from
+    [Marguerat S *et al.*
+    (2012)](https://www.pombase.org/reference/PMID:23101633) and
+    [Carpy A *et al.*
+    (2014)](https://www.pombase.org/reference/PMID:24763107) are
+    included.)
+
 
 Click "Show details" to reveal additional information:
 

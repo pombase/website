@@ -88,7 +88,10 @@ browser "back" button)
 [QuiLT](documentation/quick-little-tool) for visualisation, or, for
 lists of up to 150 genes, see the genes highlighted in [violin
 plots](https://en.wikipedia.org/wiki/Violin_plot) of quantitative
-expression datasets.
+expression datasets. (At present data from [Marguerat S *et
+al.* (2012)](https://www.pombase.org/reference/PMID:23101633) and
+[Carpy A *et al.* (2014)](https://www.pombase.org/reference/PMID:24763107) 
+are included.)
 
 5. Show [GO slim](documentation/pombase-go-slim-documentation)
 annotations for genes in the list. Click "Slim with" to reveal a
