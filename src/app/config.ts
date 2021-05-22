@@ -1005,6 +1005,12 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     urlSyntax : 'https://www.ebi.ac.uk/interpro/protein/reviewed/[example_id]',
     website : 'https://www.ebi.ac.uk/interpro/',
  },
+  'UniRule': {
+    description: 'Annotation based on expertly curated rules',
+    displayName: 'UniRule',
+    urlSyntax: 'https://www.uniprot.org/unirule/[example_id]',
+    website: 'https://www.uniprot.org/unirule/',
+  },
 };
 
 export interface XrfDetails {
