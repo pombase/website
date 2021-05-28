@@ -29,7 +29,8 @@
     "strict": true,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "fullTemplateTypeCheck": true
   },
   "files": [
     "main.ts",
