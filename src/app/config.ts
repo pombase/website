@@ -133,8 +133,9 @@ export interface GeneResultsFieldConfig {
   name: string;
   display_name: string;
   column_type: string;
-  attr_values: Array<VisColumnAttrValueConfig>;
-  attrValuesMap: Map<string, VisColumnAttrValueConfig>;
+  column_group: 'default'|'extra';
+  attr_values: Array<VisColumnAttrValueConfig>|undefined;
+  attrValuesMap: Map<string, VisColumnAttrValueConfig>|undefined;
 };
 
 export interface GeneResultsConfig {
@@ -702,6 +703,19 @@ function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
   return ret;
 }
 
+function processGeneResults(geneResults: GeneResultsConfig): GeneResultsConfig {
+  Object.keys(geneResults.field_config)
+    .map(confName => {
+      let conf = geneResults.field_config[confName];
+      conf.name = confName;
+      if (!conf.column_group) {
+        conf.column_group = 'default';
+      }
+    });
+
+  return geneResults;
+}
+
 let _organismMap: { [taxonid: number]: ConfigOrganism }|null = null;
 
 let _appConfig: AppConfig = {
@@ -784,7 +798,7 @@ let _appConfig: AppConfig = {
 
   allowedQueryFieldName: pombaseConfig.gene_results.allowed_query_field_names,
 
-  _geneResults: pombaseConfig.gene_results,
+  _geneResults: processGeneResults(pombaseConfig.gene_results),
 
   getGeneResultsConfig(): GeneResultsConfig {
     return this._geneResults;
@@ -914,7 +928,10 @@ for (const geneExDatasetConfig of _appConfig.geneExpression.datasets) {
       name: geneExConfName,
       display_name: geneExDatasetConfig.name,
       column_type: 'gene_ex',
-    } as GeneResultsFieldConfig;
+      column_group: 'extra',
+      attr_values: [],
+      attrValuesMap: new Map(),
+    };
   geneResults.gene_table_field_names.push(geneExConfName);
 }
 
