@@ -10,12 +10,18 @@ export class TermAndName {
   name: string;
 }
 
+export interface GeneExValue {
+  dataset_name: string;
+  value: string;
+}
+
 export interface ResultRow {
   gene_uniquename: string;
   sequence?: string;
   gaf_lines?: Array<string>;
   subsets?: Array<TermId>;
-  [other_attribute: string]: string | { term: TermAndName } | Array<TermId> | Array<string> | undefined;
+  gene_expression?: Array<GeneExValue>;
+  [other_attribute: string]: string | { term: TermAndName } | Array<GeneExValue> | Array<TermId> | Array<string> | undefined;
 }
 
 export class QueryResult {

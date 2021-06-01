@@ -11,14 +11,23 @@ import { DeployConfigService } from '../deploy-config.service';
 })
 export class GenesTableConfigComponent implements OnInit {
 
-  fields: Array<GeneResultsFieldConfig> = [];
+  allFields: Array<GeneResultsFieldConfig> = [];
+  visibleFields: Array<GeneResultsFieldConfig> = [];
 
   selectedFieldNames: { [key: string]: boolean } = {};
 
   constructor(public bsModalRef: BsModalRef,
               private settingsService: SettingsService,
               public deployConfigService: DeployConfigService) {
-    this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
+    getAppConfig().getGeneResultsConfig().geneTableFields
+      .map(field => {
+        if (field.column_group === 'default') {
+          this.visibleFields.push(field);
+        }
+      });
+
+    this.allFields = getAppConfig().getGeneResultsConfig().geneTableFields;
+
     settingsService.visibleGenesTableFieldNames
       .map(fieldName => this.selectedFieldNames[fieldName] = true);
   }
@@ -28,6 +37,14 @@ export class GenesTableConfigComponent implements OnInit {
     this.bsModalRef.hide()
   }
 
+  allFieldsAreVisible(): boolean {
+    return this.visibleFields.length === this.allFields.length;
+  }
+
+  showAllFields(): void {
+    this.visibleFields = this.allFields;
+  }
+
   fieldChange(fieldName: string): void {
     if (this.getSelectedFieldNames().length === 0) {
       if (fieldName === 'uniquename') {
@@ -35,6 +52,13 @@ export class GenesTableConfigComponent implements OnInit {
       } else {
         this.selectedFieldNames['uniquename'] = true;
       }
+    }
+  }
+
+  fieldContainerStyle(): any {
+    const numRows = Math.trunc((this.allFields.length + 5) / 2);
+    return {
+      'grid-template-rows': 'repeat(' + numRows + ', auto)',
     }
   }
 

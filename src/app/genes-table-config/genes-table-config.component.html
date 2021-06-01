@@ -6,13 +6,16 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="field-container">
-    <div *ngFor="let field of fields">
+    <div class="field-container" [ngStyle]="fieldContainerStyle()">
+    <div *ngFor="let field of visibleFields">
       <input id="name-{{field.name}}" type="checkbox" [(ngModel)]="selectedFieldNames[field.name]"
              (ngModelChange)="fieldChange(field.name)"/>
       <label for="name-{{field.name}}">{{field.display_name}}</label>
     </div>
-    <div class="reset-selection">
+    <div class="actions" *ngIf="!allFieldsAreVisible()">
+      <a (click)="showAllFields()">Show gene expression columns</a>
+    </div>
+    <div class="actions">
       <a (click)="resetSelection()">Reset selection</a>
     </div>
     </div>

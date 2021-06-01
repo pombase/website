@@ -133,9 +133,10 @@ export interface DocumentationConfig {
 export interface GeneResultsFieldConfig {
   name: string;
   display_name: string;
-  column_type: 'value'|'number'|'list'|'gene_list'|'orthologs'|'ontology_term'|'value_bins';
-  attr_values: Array<VisColumnAttrValueConfig>;
-  attrValuesMap: Map<string, VisColumnAttrValueConfig>;
+  column_type: 'value'|'number'|'list'|'gene_list'|'orthologs'|'ontology_term'|'value_bins'|'gene_ex';
+  column_group: 'default'|'extra';
+  attr_values: Array<VisColumnAttrValueConfig>|undefined;
+  attrValuesMap: Map<string, VisColumnAttrValueConfig>|undefined;
 };
 
 export interface GeneResultsConfig {
@@ -193,6 +194,7 @@ export interface DetailsPageLinkConfig {
 }
 
 export interface GeneExpressionDatasetConfig {
+  name: string;
   plot_display_name: string;
   first_author: string;
   pubmed_id: string;
@@ -702,6 +704,19 @@ function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
   return ret;
 }
 
+function processGeneResults(geneResults: GeneResultsConfig): GeneResultsConfig {
+  Object.keys(geneResults.field_config)
+    .map(confName => {
+      let conf = geneResults.field_config[confName];
+      conf.name = confName;
+      if (!conf.column_group) {
+        conf.column_group = 'default';
+      }
+    });
+
+  return geneResults;
+}
+
 let _organismMap: { [taxonid: number]: ConfigOrganism }|null = null;
 
 let _appConfig: AppConfig = {
@@ -784,7 +799,7 @@ let _appConfig: AppConfig = {
 
   allowedQueryFieldName: pombaseConfig.gene_results.allowed_query_field_names,
 
-  _geneResults: pombaseConfig.gene_results,
+  _geneResults: processGeneResults(pombaseConfig.gene_results),
 
   getGeneResultsConfig(): GeneResultsConfig {
     return this._geneResults;
@@ -915,6 +930,20 @@ for (const fieldName of Object.keys(geneResults.field_config)) {
   }
 }
 
+// add a result column configuration for each gene ex dataset
+for (const geneExDatasetConfig of _appConfig.geneExpression.datasets) {
+  const geneExConfName = 'gene_ex_avg_copies_per_cell:' + geneExDatasetConfig.name;
+  geneResults.field_config[geneExConfName] =
+    {
+      name: geneExConfName,
+      display_name: geneExDatasetConfig.name,
+      column_type: 'gene_ex',
+      column_group: 'extra',
+      attr_values: [],
+      attrValuesMap: new Map(),
+    };
+  geneResults.gene_table_field_names.push(geneExConfName);
+}
 
 const fieldFinder = (fieldName: string) => {
   const fieldConfig = geneResults.field_config[fieldName];

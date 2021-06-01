@@ -31,8 +31,9 @@ export class GenesDownloadDialogComponent implements OnInit {
   public upstreamBases = 0;
   public downstreamBases = 0;
 
-  fields: Array<GeneResultsFieldConfig> = [];
-  fieldNames: Array<string> = [];
+  allFields: Array<GeneResultsFieldConfig> = [];
+  defaultFields: Array<GeneResultsFieldConfig> = [];
+  visibleFields: Array<GeneResultsFieldConfig> = [];
 
   fieldConfigByName: { [fieldName: string]: GeneResultsFieldConfig } = {};
 
@@ -43,14 +44,41 @@ export class GenesDownloadDialogComponent implements OnInit {
   constructor(private queryService: QueryService,
               private settingsService: SettingsService,
               public bsModalRef: BsModalRef) {
-    this.fields = getAppConfig().getGeneResultsConfig().geneTableFields;
-    this.fieldNames = this.fields.map(conf => conf.name);
-    this.fields.map(fieldConfig => {
+    this.allFields = getAppConfig().getGeneResultsConfig().geneTableFields;
+
+    this.allFields.map(field => {
+      if (field.column_group === 'default') {
+        this.defaultFields.push(field);
+      }
+    });
+
+    this.visibleFields = this.defaultFields;
+
+    this.allFields.map(fieldConfig => {
       this.fieldConfigByName[fieldConfig.name] = fieldConfig;
     });
 
     for (const aspect of this.appConfig.goAspects) {
       this.selectedAspects[aspect] = true;
+    }
+  }
+
+  getVisibleFieldNames(): Array<string> {
+    return this.visibleFields.map(conf => conf.name);
+  }
+
+  allFieldsAreVisible(): boolean {
+    return this.visibleFields.length === this.allFields.length;
+  }
+
+  showAllFields(): void {
+    this.visibleFields = this.allFields;
+  }
+
+  fieldContainerStyle(): any {
+    const numRows = Math.trunc((this.allFields.length + 5) / 2);
+    return {
+      'grid-template-rows': 'repeat(' + numRows + ', auto)',
     }
   }
 
@@ -78,7 +106,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   selectAll() {
-    this.fieldNames.map(name => this.selectedFields[name] = true);
+    this.getVisibleFieldNames().map(name => this.selectedFields[name] = true);
   }
 
   resetSelection() {
@@ -136,7 +164,7 @@ export class GenesDownloadDialogComponent implements OnInit {
         }
       }
     } else {
-      for (let fieldName of this.fieldNames) {
+      for (let fieldName of this.getVisibleFieldNames()) {
         if (this.selectedFields[fieldName]) {
           return true;
         }
@@ -159,7 +187,7 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   private selectedFieldNames(): Array<string> {
-    return this.fieldNames.filter(fieldName => this.selectedFields[fieldName]);
+    return this.getVisibleFieldNames().filter(fieldName => this.selectedFields[fieldName]);
   }
 
   private downloadDelimited() {

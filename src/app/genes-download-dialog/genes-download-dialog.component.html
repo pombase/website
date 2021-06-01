@@ -8,19 +8,25 @@
   <div class="modal-body">
     <tabset #downloadTabs>
       <tab heading="Tab delimited">
-        <div class="field-container">
+        <div class="field-container" [ngStyle]="fieldContainerStyle()">
 
-        <div class="field-input" *ngFor="let fieldName of fieldNames">
+        <div class="field-input" *ngFor="let fieldName of getVisibleFieldNames()">
           <input  id="name-{{fieldName}}" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                   (ngModelChange)="fieldChange(fieldName)"/>
           <label for="name-{{fieldName}}">{{fieldConfigByName[fieldName].display_name}}</label>
         </div>
 
-        <div class="select-all-action">
+        <div></div>
+
+        <div class="actions" *ngIf="!allFieldsAreVisible()">
+          <a (click)="showAllFields()">Show gene expression columns</a>
+        </div>
+
+        <div class="actions select-all-action">
           <a (click)="selectAll()">Select all</a>
         </div>
 
-        <div>
+        <div class="actions">
           <a (click)="resetSelection()">Reset selection</a>
         </div>
 
@@ -79,13 +85,19 @@
         </div>
         <div class="field-column">
            <div>Include in headers:</div>
-           <div class="field-container">
-           <div class="field-input" *ngFor="let fieldName of fieldNames">
+           <div class="field-container" [ngStyle]="fieldContainerStyle()">
+           <div class="field-input" *ngFor="let fieldName of getVisibleFieldNames()">
              <input id="name-{{fieldName}}" type="checkbox" [(ngModel)]="selectedFields[fieldName]"
                     [disabled]="fieldName === 'Systematic ID'"
                     (ngModelChange)="fieldChange(fieldName)"/>
              <label for="name-{{fieldName}}">{{fieldConfigByName[fieldName].display_name}}</label>
            </div>
+
+           <div></div>
+
+           <div class="actions" *ngIf="!allFieldsAreVisible()">
+            <a (click)="showAllFields()">Show gene expression columns</a>
+          </div>
 
            <div class="select-all-action">
              <a (click)="selectAll()">Select all</a>
