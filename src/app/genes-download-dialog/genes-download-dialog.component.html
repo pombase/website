@@ -18,7 +18,7 @@
 
         <div></div>
 
-        <div class="actions" *ngIf="!allFieldsAreVisible()">
+        <div class="actions" *ngIf="!deployConfigService.productionMode() && !allFieldsAreVisible()">
           <a (click)="showAllFields()">Show gene expression columns</a>
         </div>
 
@@ -95,7 +95,7 @@
 
            <div></div>
 
-           <div class="actions" *ngIf="!allFieldsAreVisible()">
+           <div class="actions" *ngIf="!deployConfigService.productionMode() && !allFieldsAreVisible()">
             <a (click)="showAllFields()">Show gene expression columns</a>
           </div>
 

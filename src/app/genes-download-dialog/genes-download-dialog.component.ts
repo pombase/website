@@ -10,6 +10,7 @@ import { AppConfig, getAppConfig, GeneResultsFieldConfig } from '../config';
 
 import { GeneShort } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-genes-download-dialog',
@@ -43,7 +44,8 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   constructor(private queryService: QueryService,
               private settingsService: SettingsService,
-              public bsModalRef: BsModalRef) {
+              public bsModalRef: BsModalRef,
+              public deployConfigService: DeployConfigService) {
     this.allFields = getAppConfig().getGeneResultsConfig().geneTableFields;
 
     this.allFields.map(field => {

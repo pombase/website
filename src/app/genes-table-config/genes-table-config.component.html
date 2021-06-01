@@ -12,7 +12,7 @@
              (ngModelChange)="fieldChange(field.name)"/>
       <label for="name-{{field.name}}">{{field.display_name}}</label>
     </div>
-    <div class="actions" *ngIf="!allFieldsAreVisible()">
+    <div class="actions" *ngIf="!deployConfigService.productionMode() && !allFieldsAreVisible()">
       <a (click)="showAllFields()">Show gene expression columns</a>
     </div>
     <div class="actions">
