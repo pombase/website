@@ -133,7 +133,7 @@ export interface DocumentationConfig {
 export interface GeneResultsFieldConfig {
   name: string;
   display_name: string;
-  column_type: 'value'|'number'|'list'|'gene_list'|'orthologs'|'ontology_term'|'value_bins';
+  column_type: 'string'|'number'|'attribute'|'bins'|'list'|'gene_list'|'orthologs'|'ontology_term';
   column_group: 'default'|'extra';
   attr_values: Array<VisColumnAttrValueConfig>|undefined;
   attrValuesMap: Map<string, VisColumnAttrValueConfig>|undefined;
