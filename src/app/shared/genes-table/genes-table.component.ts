@@ -15,6 +15,7 @@ import { SettingsService } from '../../settings.service';
 import { Subscription } from 'rxjs';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { QueryRouterService } from '../../query-router.service';
+import { Util } from '../util';
 
 @Component({
   selector: 'app-genes-table',
@@ -38,12 +39,12 @@ export class GenesTableComponent implements OnInit {
   faCog = faCog;
 
   orderByFieldName = 'product';
+  orderByFieldIsNumeric = false;
   downloadModalRef: BsModalRef;
   selectedCountCache = -1;
 
   slimName?: string;
 
-  sortableColumns = getAppConfig().getGeneResultsConfig().sortable_columns;
   visibleFieldNames: Array<string> = [];
   visibleFields: Array<GeneResultsFieldConfig> = [];
 
@@ -63,6 +64,8 @@ export class GenesTableComponent implements OnInit {
 
   displayGenes: Array<DisplayResultRow> = [];
 
+  sanitizedDisplayGenes: Array<DisplayResultRow> = [];
+
   loading = true;
 
   showGeneExpressionLink = getAppConfig().geneExpression.datasets.length > 0;
@@ -81,27 +84,56 @@ export class GenesTableComponent implements OnInit {
     this.visibleFieldNames = this.settingsService.visibleGenesTableFieldNames;
   }
 
-  private cleanResult(result: Array<DisplayResultRow>) {
-    for (let row of result) {
+  sanitizeDisplayGenes(): void {
+    this.sanitizedDisplayGenes = [];
+
+    for (let displayGene of this.displayGenes) {
+      const cleanDisplayGene = Object.assign({}, displayGene);
       for (const fieldName of this.visibleFieldNames) {
-        if (!this.sortableField(fieldName)) {
-          const rawValue = row[fieldName];
-          if (typeof (rawValue) === 'string' && rawValue.indexOf(',') !== -1) {
+        if (fieldName !== 'name' && fieldName !== 'uniquename' &&
+            fieldName !== 'product') {
+          const rawValue = displayGene[fieldName];
+          if (typeof (rawValue) === 'string' && rawValue.length >= 25 &&
+              rawValue.indexOf(',') !== -1) {
             const htmlValue = rawValue.replace(/,/g, ',&#8203;');
-            row[fieldName] = this.sanitizer.bypassSecurityTrustHtml(htmlValue);
+            cleanDisplayGene[fieldName] = this.sanitizer.bypassSecurityTrustHtml(htmlValue);
           }
         }
       }
+      this.sanitizedDisplayGenes.push(cleanDisplayGene);
     }
   }
 
+  sortDisplayGenes(): void {
+    if (this.orderByFieldName === 'name' || this.orderByFieldName === '+name') {
+      this.displayGenes.sort(Util.geneCompare);
+    } else {
+      if (this.orderByFieldName === 'uniquename' || this.orderByFieldName === '+uniquename') {
+        this.displayGenes.sort((gene1, gene2) => {
+          return gene1.uniquename.localeCompare(gene2.uniquename);
+        })
+      } else {
+        this.displayGenes.sort((gene1, gene2) => {
+          const fieldValue1 = (gene1 as any)[this.orderByFieldName];
+          const fieldValue2 = (gene2 as any)[this.orderByFieldName];
+
+          return Util.safeCompare(fieldValue1,
+            fieldValue2,
+            { numeric: this.orderByFieldIsNumeric });
+        });
+      }
+    }
+
+    this.sanitizeDisplayGenes();
+  }
+
   updateDisplayGenes(): void {
-    this.loading = true;
     if (this.genes) {
+      this.loading = true;
       this.queryService.queryGenesWithFields(this.genes.map(gene => gene.uniquename), this.visibleFieldNames)
         .then(result => {
-          this.cleanResult(result);
           this.displayGenes = result;
+          this.sortDisplayGenes();
           this.loading = false;
         })
         .catch(err => {
@@ -139,18 +171,29 @@ export class GenesTableComponent implements OnInit {
 
   setOrderBy(fieldName: string) {
     this.orderByFieldName = fieldName;
-  }
+    this.orderByFieldIsNumeric = false;
 
-  sortableField(fieldName: string): boolean {
-    return this.sortableColumns.indexOf(fieldName) > -1;
+    for (const fieldConfig of this.visibleFields) {
+      if (fieldConfig.name == fieldName) {
+        if (fieldConfig.column_type === 'number' ||
+            fieldConfig.column_type === 'bins') {
+          this.orderByFieldIsNumeric = true;
+        }
+
+        break;
+      }
+    }
+
+    this.sortDisplayGenes();
   }
 
   download() {
+    const geneUniquenames = this.displayGenes.map(displayGene => displayGene.uniquename);
     const config = {
       animated: false,
       initialState: {
         initialFields: this.visibleFieldNames,
-        genes: this.genes,
+        geneUniquenames,
       },
       class: 'modal-lg',
     };
@@ -320,20 +363,22 @@ export class GenesTableComponent implements OnInit {
         .subscribe(visbleFieldnames => {
           this.visibleFieldNames = visbleFieldnames;
 
-          if (this.visibleFieldNames.includes('product')) {
-            this.setOrderBy('product');
-          } else {
-            if (this.visibleFieldNames.includes('name')) {
-              this.setOrderBy('name');
+          if (!this.visibleFieldNames.includes(this.orderByFieldName)) {
+            if (this.visibleFieldNames.includes('product')) {
+              this.setOrderBy('product');
             } else {
-              if (this.visibleFieldNames.includes('uniquename')) {
-                this.setOrderBy('uniquename');
+              if (this.visibleFieldNames.includes('name')) {
+                this.setOrderBy('name');
               } else {
-                if (this.visibleFieldNames.length > 0) {
-                  this.setOrderBy(this.visibleFieldNames[0]);
-                } else {
-                  this.visibleFieldNames.push('uniquename');
+                if (this.visibleFieldNames.includes('uniquename')) {
                   this.setOrderBy('uniquename');
+                } else {
+                  if (this.visibleFieldNames.length > 0) {
+                    this.setOrderBy(this.visibleFieldNames[0]);
+                  } else {
+                    this.visibleFieldNames.push('uniquename');
+                    this.setOrderBy('uniquename');
+                  }
                 }
               }
             }

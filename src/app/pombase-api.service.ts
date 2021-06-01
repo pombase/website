@@ -312,7 +312,9 @@ export class GeneSummary implements GeneShort {
           displayFieldGenerators[fieldName] =
             (summary) =>
               summary.orthologs.filter(orth => orth.taxonid === orthTaxonId)
-                .map(orth => orth.name || orth.identifier).join(',');
+                .map(orth => orth.name || orth.identifier)
+                .sort()
+                .join(',');
         } else {
           console.error('field config type is "' + fieldName +
             '" but field name doesn\'t start with "orthologs:" for name: "' + fieldName + '"');

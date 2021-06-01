@@ -130,19 +130,14 @@
           &nbsp;
         </th>
         <th *ngFor="let fieldConfig of visibleFields">
-          <div *ngIf="sortableField(fieldConfig.name)">
             <a *ngIf="orderByFieldName != fieldConfig.name" (click)="setOrderBy(fieldConfig.name)"
                title="Click to sort">{{fieldConfig.display_name}}<img src="assets/sort_both.svg"/></a>
             <span *ngIf="orderByFieldName == fieldConfig.name">{{fieldConfig.display_name}}<img title="Sorted by: {{fieldConfig.display_name}}" src="assets/sort_up.svg"/></span>
-          </div>
-          <div *ngIf="!sortableField(fieldConfig.name)">
-            {{fieldConfig.display_name}}
-          </div>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let gene of displayGenes | geneShortOrderBy: orderByFieldName">
+      <tr *ngFor="let gene of sanitizedDisplayGenes">
         <td *ngIf="selectionInProgress()">
           <input type="checkbox"
                  [name]="gene.uniquename"
@@ -156,11 +151,7 @@
           <a *ngIf="fieldName == 'name' && gene.name" routerLink="/gene/{{gene['uniquename']}}">
               {{gene['name']}}
           </a>
-          <ng-container *ngIf="fieldName == 'product' && gene['product']">
-              {{gene['product']}}
-          </ng-container>
-          <span class="td-content"
-                *ngIf="!sortableField(fieldName)">
+          <span *ngIf="fieldName != 'uniquename' && fieldName != 'name'" class="td-content">
              <span *ngIf="gene[fieldName]"
                    [innerHtml]="gene[fieldName]">
              </span>

@@ -19,17 +19,22 @@ export class GenesTableConfigComponent implements OnInit {
   constructor(public bsModalRef: BsModalRef,
               private settingsService: SettingsService,
               public deployConfigService: DeployConfigService) {
-    getAppConfig().getGeneResultsConfig().geneTableFields
-      .map(field => {
-        if (field.column_group === 'default') {
-          this.visibleFields.push(field);
-        }
-      });
 
     this.allFields = getAppConfig().getGeneResultsConfig().geneTableFields;
 
     settingsService.visibleGenesTableFieldNames
       .map(fieldName => this.selectedFieldNames[fieldName] = true);
+
+    for (const fieldConfig of this.allFields) {
+      if (fieldConfig.column_group === 'extra') {
+        if (this.selectedFieldNames[fieldConfig.name]) {
+          this.visibleFields = this.allFields;
+          break;
+        }
+      } else {
+        this.visibleFields.push(fieldConfig);
+      }
+    }
   }
 
   apply(): void {

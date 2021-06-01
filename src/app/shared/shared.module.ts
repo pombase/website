@@ -18,7 +18,6 @@ import { GeneResultsComponent } from './gene-results/gene-results.component';
 import { GeneResultsVisComponent } from './gene-results-vis/gene-results-vis.component';
 import { GenesTableComponent } from './genes-table/genes-table.component';
 import { QueryDescriptionDisplayComponent } from './query-description-display/query-description-display.component';
-import { GeneShortOrderByPipe } from './gene-short-order-by.pipe';
 import { GeneLinkComponent } from './gene-link/gene-link.component';
 import { PageContentsMenuComponent } from './page-contents-menu/page-contents-menu.component';
 import { CvVersionComponent } from './cv-version/cv-version.component';
@@ -59,7 +58,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GeneResultsComponent,
     GeneResultsVisComponent,
     GenesTableComponent,
-    GeneShortOrderByPipe,
     GeneLinkComponent,
     PageContentsMenuComponent,
     CvVersionComponent,
@@ -82,7 +80,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GeneResultsComponent,
     GeneResultsVisComponent,
     GenesTableComponent,
-    GeneShortOrderByPipe,
     GeneLinkComponent,
     PageContentsMenuComponent,
     CvVersionComponent,

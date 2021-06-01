@@ -6,15 +6,15 @@ import { Util } from './shared/util';
   name: 'genotypeOrderBy'
 })
 export class GenotypeOrderByPipe implements PipeTransform {
-  transform(genotypes: Array<GenotypeShort>, field: string): any {
+  transform(genotypes: Array<GenotypeShort>, fieldName: string): any {
     genotypes.sort(function(g1, g2) {
-      if (field === 'gene') {
+      if (fieldName === 'gene') {
         return Util.geneCompare(g1.loci[0].expressed_alleles[0].allele.gene!,
                                 g2.loci[0].expressed_alleles[0].allele.gene!);
       } else {
-        if (field === 'product') {
-          return Util.geneProductCompare(g1.loci[0].expressed_alleles[0].allele.gene!,
-                                         g2.loci[0].expressed_alleles[0].allele.gene!);
+        if (fieldName === 'product') {
+          return Util.safeCompare(g1.loci[0].expressed_alleles[0].allele.gene![fieldName],
+                                  g2.loci[0].expressed_alleles[0].allele.gene![fieldName]);
         } else {
           return Util.genotypeCompare(g1, g2);
         }

@@ -23,18 +23,22 @@ export class Util {
     }
   }
 
-  static geneProductCompare(gene1: GeneShort, gene2: GeneShort) {
-    if (gene1.product) {
-      if (gene2.product) {
-        return gene1.product.localeCompare(gene2.product);
+  static safeCompare(str1?: string|number, str2?: string|number, options?: any) {
+    if (str1) {
+      if (str2) {
+        if (typeof(str1) === 'number' && typeof(str1) === 'number') {
+          return (str1 as number) - (str2 as number);
+        } else {
+          return str1.localeCompare(str2 as string, undefined, options);
+        }
       } else {
         return -1;
       }
     } else {
-      if (gene2.product) {
+      if (str2) {
         return 1;
       } else {
-        return Util.geneCompare(gene1, gene2);
+        return 0;
       }
     }
   }

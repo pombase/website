@@ -140,7 +140,6 @@ export interface GeneResultsFieldConfig {
 };
 
 export interface GeneResultsConfig {
-  sortable_columns: Array<string>;
   field_config: { [name: string]: GeneResultsFieldConfig };
   gene_summary_field_names: Array<string>;
   geneSummaryFieldNames: Array<string>;

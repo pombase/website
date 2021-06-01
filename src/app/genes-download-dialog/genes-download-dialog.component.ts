@@ -4,11 +4,10 @@ import { saveAs } from 'file-saver';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 
-import { FormatUtils, FormatTypes, GeneQuery} from '../pombase-query';
+import { FormatUtils, FormatTypes, GeneQuery, GeneUniquename} from '../pombase-query';
 import { QueryService, QueryOutputOptions, GAFOptions } from '../query.service';
 import { AppConfig, getAppConfig, GeneResultsFieldConfig } from '../config';
 
-import { GeneShort } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
 import { DeployConfigService } from '../deploy-config.service';
 
@@ -22,7 +21,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   appConfig: AppConfig = getAppConfig();
 
-  public genes: Array<GeneShort>;
+  public geneUniquenames: Array<GeneUniquename>;
   public seqType = 'protein';
   public includeIntrons = false;
   public includeExons = true;
@@ -194,8 +193,8 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   private downloadDelimited() {
     const selectedFieldNames = this.selectedFieldNames();
-    const geneUniquenames = this.genes.map(gene => gene.uniquename);
-    this.queryService.queryGenesWithFields(geneUniquenames, selectedFieldNames)
+
+    this.queryService.queryGenesWithFields(this.geneUniquenames, selectedFieldNames)
       .then(result => {
         let headerRow =
           selectedFieldNames.map(fieldName => this.fieldConfigByName[fieldName].display_name);
@@ -228,9 +227,9 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   private downloadSequence() {
     const selectedFieldNames = this.selectedFieldNames();
-    const geneUniquenames = this.genes.map(gene => gene.uniquename)
+
     let seqOptions = this.seqDownloadOptions();
-    this.queryService.queryGenesWithFields(geneUniquenames, selectedFieldNames, seqOptions)
+    this.queryService.queryGenesWithFields(this.geneUniquenames, selectedFieldNames, seqOptions)
       .then(results => {
         const fileName = 'sequence.fasta';
         let descriptions: { [geneUniquename: string]: string } = {};
@@ -252,7 +251,6 @@ export class GenesDownloadDialogComponent implements OnInit {
   }
 
   downloadGAF(): void {
-    const geneUniquenames = this.genes.map(gene => gene.uniquename)
     let selectedAspects = [];
     for (const aspect of Object.keys(this.selectedAspects)) {
       if (this.selectedAspects[aspect]) {
@@ -260,7 +258,7 @@ export class GenesDownloadDialogComponent implements OnInit {
       }
     }
     const options = new QueryOutputOptions([], [], 'none', new GAFOptions(selectedAspects));
-    const query = GeneQuery.fromGeneUniquenames('GAF download', geneUniquenames);
+    const query = GeneQuery.fromGeneUniquenames('GAF download', this.geneUniquenames);
     this.queryService.postQuery(query, options)
       .then(results => {
         const fileName = 'gene_results.gaf.tsv';
@@ -293,6 +291,13 @@ export class GenesDownloadDialogComponent implements OnInit {
   ngOnInit() {
     this.selectedFields = {};
     this.settingsService.visibleGenesTableFieldNames
-      .map(fieldName => this.selectedFields[fieldName] = true)
+      .map(fieldName => {
+        this.selectedFields[fieldName] = true;
+        const fieldConfig = this.fieldConfigByName[fieldName];
+
+        if (fieldConfig.column_group === 'extra') {
+          this.visibleFields = this.allFields;
+        }
+      });
   }
 }
