@@ -43,6 +43,7 @@ th {
   width: 95%;
 }
 
-.na-field {
+.na-field::after {
+  content: "NA";
   color: #ccc;
 }
