@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
 import { SettingsService } from '../settings.service';
 import { getAppConfig, GeneResultsFieldConfig } from '../config';
-import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-genes-table-config',
@@ -17,8 +16,7 @@ export class GenesTableConfigComponent implements OnInit {
   selectedFieldNames: { [key: string]: boolean } = {};
 
   constructor(public bsModalRef: BsModalRef,
-              private settingsService: SettingsService,
-              public deployConfigService: DeployConfigService) {
+              private settingsService: SettingsService) {
 
     this.allFields = getAppConfig().getGeneResultsConfig().geneTableFields;
 
