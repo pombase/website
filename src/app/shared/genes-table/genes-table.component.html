@@ -151,6 +151,8 @@
           <a *ngIf="fieldName == 'name' && gene.name" routerLink="/gene/{{gene['uniquename']}}">
               {{gene['name']}}
           </a>
+          <span class="na-field" *ngIf="fieldName == 'name' && !gene.name">
+          </span>
           <span *ngIf="fieldName != 'uniquename' && fieldName != 'name'" class="td-content">
              <span *ngIf="gene[fieldName]"
                    [innerHtml]="gene[fieldName]">
