@@ -44,6 +44,6 @@ th {
 }
 
 .na-field::after {
-  content: "NA";
+  content: "ND";
   color: #ccc;
 }
