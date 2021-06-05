@@ -31,6 +31,7 @@ import { PredefinedQueryResultsComponent } from './predefined-query-results/pred
 import { SocialContactComponent } from './social-contact/social-contact.component';
 import { GeneResultsSlimTableComponent } from './gene-results-slim-table/gene-results-slim-table.component';
 import { FacetedSearchComponent } from './faceted-search/faceted-search.component';
+import { ChromosomeOverviewComponent } from './chromosome-overview/chromosome-overview.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -67,6 +68,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SocialContactComponent,
     GeneResultsSlimTableComponent,
     FacetedSearchComponent,
+    ChromosomeOverviewComponent,
   ],
   declarations: [
     SlimTableComponent,
@@ -90,6 +92,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GeneResultsSlimTableComponent,
     QueryDescriptionDisplayComponent,
     FacetedSearchComponent,
+    ChromosomeOverviewComponent,
   ],
 })
 export class SharedModule { }

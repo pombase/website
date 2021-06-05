@@ -1,0 +1,38 @@
+<div *ngIf="displayChromosomes.length != 0" class="chr-overview">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Gene count
+        </th>
+        <th>
+          ENA/GenBank ID
+        </th>
+        <th>
+          Length
+        </th>
+      </tr>
+    </thead>
+    <tr *ngFor="let chr of displayChromosomes">
+      <td>
+        {{chr.short_display_name}}
+      </td>
+      <td>
+        <a routerLink="{{makeGenesLink(chr)}}">{{chr.geneCount}}</a>
+      </td>
+      <td>
+        {{chr.enaId}}
+      </td>
+      <td>
+        {{chr.length}}
+      </td>
+      <td>
+        <div class="chr-bar" [style.width.px]="chrBarWidth(chr)">
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

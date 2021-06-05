@@ -1,0 +1,13 @@
+.chr-overview table {
+  margin: 2em 0;
+}
+
+.chr-overview th, .chr-overview td {
+  padding: 0.4em 0.8em;
+}
+
+.chr-bar {
+  background-color: #116;
+  border-radius: 2px;
+  height: 20px;
+}

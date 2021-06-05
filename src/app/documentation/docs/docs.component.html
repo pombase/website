@@ -12848,6 +12848,11 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <p>Centromere map from: The genome sequence of <em>Schizosaccharomyces pombe</em>. Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam</p>
 
   </div>
+  <div *ngIf="pageName == 'chromosome-summary'">
+<h2 id="chromosome-summary">Chromosome summary</h2>
+<p><app-chromosome-overview></app-chromosome-overview></p>
+
+  </div>
   <div *ngIf="pageName == 'gene-characterisation'">
 <h3 id="protein-coding-gene-characterisation-status">Protein-coding gene characterisation status</h3>
 <p><app-characterisation-status-table></app-characterisation-status-table></p>
