@@ -4,12 +4,16 @@ import { GeneQuery, GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRange
          GenomeRangeNode, GeneQueryNode, TermShort } from '../pombase-query';
 import { GeneSummary, ChromosomeShort } from '../pombase-api.service';
 
-import { getAppConfig, QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
+import { ChromosomeConfig, getAppConfig, QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
 
 interface NodeEventDetails {
   node?: GeneQueryNode;
   nodeConf?: QueryNodeConfig;
+}
+
+interface DisplayChromosome extends ChromosomeConfig {
+  geneCount: number;
 }
 
 @Component({
@@ -33,6 +37,8 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   rangeEnd?: number;
   chromosomeName?: string;
 
+  displayChromosomes: Array<DisplayChromosome> = [];
+
   appConfig = getAppConfig();
 
   constructor(private pombaseApiService: PombaseAPIService) { }
@@ -48,9 +54,19 @@ export class QueryNodeComponent implements OnInit, OnChanges {
         };
       });
 
-    this.pombaseApiService.getChromosomeSummariesPromise()
-      .then(chrSummaries => {
-        this.chromosomeSummaries = chrSummaries;
+    this.displayChromosomes = [];
+
+    this.pombaseApiService.getChromosomeSummaryMapPromise()
+      .then(chrSummaryMap => {
+        this.appConfig.chromosomes.map(chrConfig => {
+          if (chrSummaryMap[chrConfig.name] &&
+              chrSummaryMap[chrConfig.name].gene_count > 0) {
+            const displayConfig =
+              Object.assign({ geneCount: chrSummaryMap[chrConfig.name].gene_count},
+                            chrConfig);
+            this.displayChromosomes.push(displayConfig);
+          }
+        });
       });
   }
 

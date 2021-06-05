@@ -223,6 +223,7 @@ export interface ChromosomeShort {
   name: string;
   length: number;
   ena_identifier: string;
+  gene_count: number;
 }
 
 export interface ChromosomeLocation {
