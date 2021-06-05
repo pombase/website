@@ -21,7 +21,8 @@
         {{chr.short_display_name}}
       </td>
       <td>
-        <a routerLink="{{makeGenesLink(chr)}}">{{chr.geneCount}}</a>
+        <a *ngIf="chr.geneCount != 0" routerLink="{{makeGenesLink(chr)}}">{{chr.geneCount}}</a>
+        <span *ngIf="chr.geneCount == 0">0</span>
       </td>
       <td>
         {{chr.enaId}}
@@ -30,7 +31,7 @@
         {{chr.length}}
       </td>
       <td>
-        <div class="chr-bar" [style.width.px]="chrBarWidth(chr)">
+        <div class="chr-bar" [style.width.vw]="chrBarWidth(chr)">
         </div>
       </td>
     </tr>

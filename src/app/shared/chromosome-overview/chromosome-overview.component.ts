@@ -23,7 +23,7 @@ export class ChromosomeOverviewComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   chrBarWidth(chr: DisplayChromosome): number {
-    return 500 * chr.length / this.longestChrLength;
+    return Math.trunc(200 * chr.length / this.longestChrLength + 1.0) / 10;
   }
 
   makeGenesLink(chr: DisplayChromosome): string {
