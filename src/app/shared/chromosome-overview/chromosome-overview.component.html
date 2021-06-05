@@ -21,7 +21,9 @@
         {{chr.short_display_name}}
       </td>
       <td>
-        <a *ngIf="chr.geneCount != 0" routerLink="{{makeGenesLink(chr)}}">{{chr.geneCount}}</a>
+        <a *ngIf="chr.geneCount != 0"
+           title="Click to view genes from {{chr.long_display_name}}"
+           routerLink="{{makeGenesLink(chr)}}">{{chr.geneCount}}</a>
         <span *ngIf="chr.geneCount == 0">0</span>
       </td>
       <td>
