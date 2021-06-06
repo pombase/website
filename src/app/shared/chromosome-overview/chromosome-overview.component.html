@@ -33,7 +33,8 @@
         {{chr.length}}
       </td>
       <td>
-        <div class="chr-bar" [style.width.vw]="chrBarWidth(chr)">
+        <div class="chr-bar" routerLink="{{makeGenesLink(chr)}}"
+             [style.width.vw]="chrBarWidth(chr)">
         </div>
       </td>
     </tr>
