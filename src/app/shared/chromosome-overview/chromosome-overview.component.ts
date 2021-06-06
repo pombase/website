@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ChromosomeConfig, getAppConfig } from '../../config';
+import { ChromosomeConfig, getXrfWithPrefix, getAppConfig } from '../../config';
 import { PombaseAPIService } from '../../pombase-api.service';
 
 interface DisplayChromosome extends ChromosomeConfig {
   geneCount: number;
   length: number;
   enaId: string;
+  enaUrl: string|undefined;
 }
 
 @Component({
@@ -50,13 +51,21 @@ export class ChromosomeOverviewComponent implements OnInit {
               this.longestChrLength = length;
             }
 
+            let enaUrl = undefined;
+            let enaXrfConfig = getXrfWithPrefix('ENA', enaId);
+
+            if (enaXrfConfig) {
+              enaUrl = enaXrfConfig.url;
+            }
+
             const displayConfig =
               Object.assign(
                 {
                   geneCount,
                   length,
                   enaId,
-                },
+                  enaUrl,
+              },
                 chrConfig);
             this.displayChromosomes.push(displayConfig);
           }

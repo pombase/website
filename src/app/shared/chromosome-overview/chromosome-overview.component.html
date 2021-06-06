@@ -27,7 +27,8 @@
         <span *ngIf="chr.geneCount == 0">0</span>
       </td>
       <td>
-        {{chr.enaId}}
+        <a *ngIf="chr.enaUrl" href="{{chr.enaUrl}}">{{chr.enaId}}</a>
+        <span *ngIf="!chr.enaUrl">{{chr.enaId}}</span>
       </td>
       <td>
         {{chr.length}}
