@@ -82,7 +82,9 @@ browser "back" button)
 
 2. Click on a header to sort by the column
 
-3. Select columns to display
+3. Select columns to display. A set of gene expression data sets are
+hidden by default; click "Show gene expression columns" to reveal the
+additional options.
 
 4. Select from the pulldown to send the gene list to
 [QuiLT](documentation/quick-little-tool) for visualisation, or, for
@@ -103,8 +105,9 @@ the query as a gene list. This is harmless.
 
 7. Download selected data for genes in the list. The popup offers
 three sets of options:
-    - The default "Tab delimited" view offers a set of details that can
-      be included in a downloaded text file.
+    - The default "Tab delimited" view offers a set of details that
+      can be included in a downloaded text file. Click "Show gene
+      expression columns" to reveal additional options.
     - Use the "Sequence" tab to retrieve amino acid or nucleotide
       sequences in FASTA format. Use the checkboxes to select which
       items are included in the headers. When "Nucleotide" is
