@@ -9,7 +9,6 @@ import { QueryService, QueryOutputOptions, GAFOptions } from '../query.service';
 import { AppConfig, getAppConfig, GeneResultsFieldConfig } from '../config';
 
 import { SettingsService } from '../settings.service';
-import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-genes-download-dialog',
@@ -43,8 +42,7 @@ export class GenesDownloadDialogComponent implements OnInit {
 
   constructor(private queryService: QueryService,
               private settingsService: SettingsService,
-              public bsModalRef: BsModalRef,
-              public deployConfigService: DeployConfigService) {
+              public bsModalRef: BsModalRef) {
     this.allFields = getAppConfig().getGeneResultsConfig().geneTableFields;
 
     this.allFields.map(field => {
