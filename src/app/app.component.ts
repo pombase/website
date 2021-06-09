@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 
 import { Router, ActivatedRoute, NavigationEnd, Data } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -19,11 +19,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   logoFileName = getAppConfig().logo_file_name;
   headerBackgroundFileName = getAppConfig().header_background_file_name;
 
+  isElixirNode = getAppConfig().footer.is_elixir_node;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     private meta: Meta,
+    private sanitizer: DomSanitizer,
     @Inject('Window') private window: any) { }
 
   ngOnInit() {
@@ -47,6 +50,10 @@ export class AppComponent implements OnInit, AfterViewInit {
       }
       this.window.scrollTo(0, 0);
     });
+  }
+
+  getFundersHtml(): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(getAppConfig().footer.funders);
   }
 
   ngAfterViewInit(): void {

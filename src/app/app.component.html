@@ -24,15 +24,9 @@
 </div>
 
 <div id="footer">
-  <span class="footer-line">
-  {{siteName}} is funded by
-  the <a href="http://www.wellcome.ac.uk/">Wellcome Trust</a>,
-  run by a consortium comprising
-  the <a href="http://www.cam.ac.uk/">University of Cambridge</a>,
-  <a href="http://www.ucl.ac.uk/">University College London</a>,
-  and hosted by the <a href="http://www.babraham.ac.uk">Babraham Institute</a>.
+  <span class="footer-line" [innerHTML]="getFundersHtml()">
   </span>
-  <span class="footer-line">
+  <span *ngIf="isElixirNode" class="footer-line">
     {{siteName}} is an <a href="https://elixiruknode.org/node-services/">ELIXIR-UK Node Service</a>
   </span>
 </div>
@@ -54,7 +48,7 @@
     <img height="64px"
          src="assets/ucl_logo-64px.png" alt="University College London"/>
   </a>
-  <a href="https://elixir-europe.org/">
+  <a *ngIf="isElixirNode" href="https://elixir-europe.org/">
     <img height="64px" src="assets/elixir-logo-64px.png" alt="ELIXIR"/>
   </a>
 </div>
