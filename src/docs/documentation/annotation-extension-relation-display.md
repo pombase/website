@@ -88,6 +88,8 @@ HyperOx | hyperoxidized
 InitMet- | initiator methionine removed
 Ip | prenylated
 Me | methylated
+Me2 | dimethylated
+Me3 | trimethylated
 MonoUbiq | monoubiquitinated
 Ox+ | oxidized form
 Phos | phosphorylated (specified residue)
