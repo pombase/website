@@ -1,5 +1,4 @@
 ### New genome browser data: GC content
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: browser.png -->
 
 A data track showing the fraction of G/C bases in a region is now

@@ -1,5 +1,4 @@
 ### Qualitative gene expression annotation in Canto
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: canto.png -->
 
 Canto, PomBase's online curation tool, now supports qualitative gene
