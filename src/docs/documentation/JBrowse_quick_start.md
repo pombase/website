@@ -6,6 +6,8 @@ The PomBase genome browser can be accessed in multiple ways:
   select "Genome browser"
 - From a gene page, click the "View region in JBrowse ..." link just
   above the map image
+- On the publication page for any paper with associated datasets,
+  select tracks from the list and click the "Load in JBrowse" button
 - Go directly to https://www.pombase.org/jbrowse/
 
 ### DNA sequence, forward features and reverse features
@@ -17,6 +19,12 @@ default.
 To show the track containing the reference DNA sequence, use the
 "Genome sequence and features" filter and enable the "DNA sequence"
 track as described below.
+
+See [this FAQ](/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser)
+to display a sequence region using coordinates.
+
+To download sequence, see the "Exporting data" section below (it works
+the same way as for any other track).
 
 ### Enabling data tracks
 To show data tracks:
@@ -118,7 +126,6 @@ on the right hand side:
 
     ![JBrowse track selector with metadata headers highlighted](assets/jbrowse_track_selection_top.png){width="750"}
 
-
 2. In the browser, hover over a track label to display a down
 arrow:
 
@@ -214,9 +221,10 @@ Click the arrow, then click "Save track data" in the dropdown menu:
 
 ![JBrowse track dropdown menu save data](assets/jbrowse_track_menu_save.png){width="400"}
 
-In the popup, choose a data format. GFF3 is available for most
-tracks; other options depend on the data type. You can also edit
-the name of the file where the data will be saved.
+In the popup, choose a data format. DNA sequence is provided in FASTA
+format. GFF3 is available for most tracks; other options depend on the
+data type. You can also edit the name of the file where the data will
+be saved.
 
 
 ![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){width="400"}
