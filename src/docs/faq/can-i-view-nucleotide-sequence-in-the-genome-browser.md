@@ -11,3 +11,7 @@ legible sequence.
 
 At any zoom level, use the arrows to scroll along the sequence.
 
+See [this FAQ](/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser)
+to display a sequence region using coordinates. For more information on downloading sequence,
+see the [PomBase JBrowse guide](/documentation/JBrowse_quick_start).
+
