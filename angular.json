@@ -43,16 +43,14 @@
               "budgets": [
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "900kb"
                 }
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "vendorChunk": true,
               "buildOptimizer": true,
               "fileReplacements": [
                 {
@@ -60,17 +58,27 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "aot": false
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "pombase-www-new:build"
-          },
+          "defaultConfiguration": "development",
           "configurations": {
             "production": {
               "browserTarget": "pombase-www-new:build:production"
+            },
+            "development": {
+              "browserTarget": "pombase-www-new:build:development"
             }
           }
         },
@@ -108,13 +116,6 @@
                 "output": "/favicon.ico"
               }
             ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [],
-            "exclude": []
           }
         }
       }
