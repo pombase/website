@@ -380,6 +380,7 @@ export interface AnnotationType {
   // if true, don't automatically show a gene page section for this type
   no_gene_details_section?: boolean;
   hide_term_details?: boolean;
+  hide_term_id_prefix?: boolean;
   filters?: Array<FilterConfig>;
   external_db_link_keys?: Array<string>;
   external_link_config?: Array<AnnotationExternalLinkConfig>;

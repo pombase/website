@@ -75,9 +75,15 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   constructor() { }
 
   getCountPopoverContext(term: TermShort): { [key: string]: number|string } {
+    let termId: string;
+    if (this.typeConfig.hide_term_id_prefix) {
+      termId = term.termid.replace(/^.*?:/, '');
+    } else {
+      termId = term.termid;
+    }
     return {
       geneCount: term.gene_count,
-      termId: term.termid,
+      termId,
     };
   }
 
@@ -185,6 +191,14 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     return ret;
+  }
+
+  getDisplayTermId(termAnnotation: TermAnnotation) {
+    if (this.typeConfig.hide_term_id_prefix) {
+      return termAnnotation.term.termid.replace(/^.*?:/, '');
+    } else {
+      return termAnnotation.term.termid;
+    }
   }
 
   hasQualifiers(): boolean {

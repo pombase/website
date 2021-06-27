@@ -2,7 +2,7 @@
   <div class="term-popover">
     <div>
       <span *ngIf="term.name" class="term-name">{{term.name}}</span>
-      <span class="term-id">({{term.termid}})</span>
+      <span class="term-id">({{getDisplayTermId()}})</span>
     </div>
     <div *ngIf="termSummary" class="term-definition">{{termSummary.definition}}</div>
     <div *ngIf="termSummary" class="term-cv">From the <span>{{cvDisplayName}}</span> ontology</div>

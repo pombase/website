@@ -7,14 +7,14 @@
 
     <div id="term-details-menu">
       <app-details-page-menu *ngIf="termDetails"
-                             [title]="termDetails.termid"
+                             [title]="displayTermId"
                              [visibleSections]="visibleSections"></app-details-page-menu>
     </div>
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
     <div class="no-annotations" *ngIf="!hasAnnotations()">
-      No annotations for {{termDetails.termid}}
+      No annotations for {{displayTermId}}
     </div>
     <div *ngIf="hasAnnotations()">
 

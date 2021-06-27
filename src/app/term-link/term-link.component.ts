@@ -13,6 +13,7 @@ import { PopoverDirective } from 'ngx-bootstrap/popover';
 })
 export class TermLinkComponent implements OnInit {
   @Input() term: TermShort;
+  @Input() hideTermIdPrefix = false;
 
   @ViewChild('link', {static: false}) link: PopoverDirective;
 
@@ -56,6 +57,14 @@ export class TermLinkComponent implements OnInit {
           this.cvDisplayName = typeConfig.display_name;
         }
       });
+  }
+
+  getDisplayTermId(): string {
+    if (this.hideTermIdPrefix) {
+      return this.term.termid.replace(/^.*?:/, '');
+    } else {
+      return this.term.termid;
+    }
   }
 
   ngOnInit() {

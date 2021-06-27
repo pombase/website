@@ -30,6 +30,8 @@ export class TermDetailsComponent implements OnInit {
 
   subsets: TermSubsets = {};
 
+  displayTermId = '';
+
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
@@ -104,6 +106,14 @@ export class TermDetailsComponent implements OnInit {
 
   }
 
+  setDisplayTermId() {
+    if (this.typeConfig.hide_term_id_prefix) {
+        this.displayTermId = this.termDetails.termid.replace(/^.*?:/, '');
+    } else {
+      this.displayTermId = this.termDetails.termid;
+    }
+  }
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['termid'] !== undefined) {
@@ -123,6 +133,7 @@ export class TermDetailsComponent implements OnInit {
                 this.scrollToPageTop();
                 this.apiError = undefined;
                 this.setCounts();
+                this.setDisplayTermId();
               })
               .catch(error => {
                 this.apiError = error;
