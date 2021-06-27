@@ -174,7 +174,7 @@
         <td *ngIf="showColumn['term-xref']">
           <div *ngFor="let xrefKV of termAnnotation.term.xrefs | keyvalue">
             <div *ngIf="showXRef(xrefSource(xrefKV), annotation.reference)">
-              <a href="{{getTermXrefLink(xrefSource(xrefKV), xrefId(xrefKV))}}">{{xrefKV.key}}</a>
+              <a href="{{getTermXrefLink(xrefSource(xrefKV), xrefId(xrefKV), annotation.genes[0]?.uniquename)}}">{{xrefKV.key}}</a>
             </div>
           </div>
           <div *ngFor="let sourceName of otherSources(annotation.reference)">

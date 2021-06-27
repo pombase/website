@@ -308,7 +308,7 @@ export interface AppConfig {
                       organismTaxonId: number,
                       geneDetails: GeneDetails): Array<string>|undefined;
 
-  getMiscExternalLink(configKey: string, id: string): LinkDisplay|undefined;
+  getMiscExternalLink(configKey: string, id: string, geneUniquename?: string): LinkDisplay|undefined;
 }
 
 export interface LinkDisplay {
@@ -367,7 +367,7 @@ export interface SourceConfig {
   condition?: string;
   // the Chado cvtermprop type name for the ID used for linking
   // if this is set we know that this source can be linked to
-  id_prop?: string;
+  id_source?: string;
 }
 
 export interface AnnotationType {
@@ -899,11 +899,15 @@ let _appConfig: AppConfig = {
   },
 
   // get a URL from the misc_external_links configuration and substitute the given ID
-  getMiscExternalLink(configKey: string, id: string): LinkDisplay|undefined {
+  getMiscExternalLink(configKey: string, id: string, geneUniquename?: string): LinkDisplay|undefined {
     let configUrl = this.miscExternalLinks[configKey];
 
     if (configUrl) {
-      return { url: configUrl.replace('<<IDENTIFIER>>', id),
+      let url = configUrl.replace('<<IDENTIFIER>>', id);
+      if (geneUniquename) {
+        url = url.replace('<<GENE_UNIQUENAME>>', geneUniquename);
+      }
+      return { url,
                displayName: configKey };
     }
 

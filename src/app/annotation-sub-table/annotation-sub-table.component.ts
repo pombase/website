@@ -123,9 +123,9 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     return item.term.termid;
   }
 
-  getTermXrefLink(sourceName: string, id: string): string {
+  getTermXrefLink(sourceName: string, id: string, geneUniquename?: string): string {
     if (sourceName && id) {
-      const linkConf = this.appConfig.getMiscExternalLink(sourceName, id);
+      const linkConf = this.appConfig.getMiscExternalLink(sourceName, id, geneUniquename);
       if (linkConf) {
         return linkConf.url;
       } else {
@@ -179,7 +179,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
     for (const sourceName of Object.keys(sourceConfig)) {
       const conf = sourceConfig[sourceName];
-      if (this.checkCondition(conf.condition, reference) && !conf.id_prop) {
+      if (this.checkCondition(conf.condition, reference) && !conf.id_source) {
         ret.push(sourceName);
       }
     }
