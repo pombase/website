@@ -1,7 +1,7 @@
 <div *ngIf="termDetails">
   <div class="details-page-name-and-id">
-    <span class="details-page-name-and-id-prefix">Ontology term:</span>
-    <span class="name-id-highlight">{{termDetails.name}}</span> ({{termDetails.termid}})
+    <span class="details-page-name-and-id-prefix">{{nameAndIdPrefix}}:</span>
+    <span class="name-id-highlight">{{termDetails.name}}</span> ({{displayTermId}})
   </div>
 
   <div id="term-summary" class="details-page-summary">

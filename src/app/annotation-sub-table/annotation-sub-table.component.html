@@ -36,8 +36,10 @@
         <th>&nbsp;</th>
         <th *ngIf="showColumn['gene'] && featureInFirstColumn">Gene</th>
         <th *ngIf="showColumn['genotype'] && featureInFirstColumn">Genotype</th>
-        <th>Term ID</th>
-        <th>Term name</th>
+        <th *ngIf="!typeConfig.is_a_fake_ontology">Term ID</th>
+        <th *ngIf="typeConfig.is_a_fake_ontology">ID</th>
+        <th *ngIf="!typeConfig.is_a_fake_ontology">Term name</th>
+        <th *ngIf="typeConfig.is_a_fake_ontology">Name</th>
         <th *ngIf="showColumn['gene'] && !featureInFirstColumn">Gene</th>
         <th *ngIf="showColumn['genotype'] && !featureInFirstColumn">Genotype</th>
         <th *ngIf="showColumn['genotype_background'] && !featureInFirstColumn">Background</th>

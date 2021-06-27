@@ -381,6 +381,9 @@ export interface AnnotationType {
   no_gene_details_section?: boolean;
   hide_term_details?: boolean;
   hide_term_id_prefix?: boolean;
+  // True for cases like the fake KEGG ontology.  If true we don't say
+  // "ontology" and "term" everywhere
+  is_a_fake_ontology?: boolean;
   filters?: Array<FilterConfig>;
   external_db_link_keys?: Array<string>;
   external_link_config?: Array<AnnotationExternalLinkConfig>;

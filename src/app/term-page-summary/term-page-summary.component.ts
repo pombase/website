@@ -22,11 +22,14 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
 
   filteredAncestors: Array<TermAndRelation> = [];
   subsets: TermSubsets = {};
-  typeConfig?: AnnotationType;
+  typeConfig: AnnotationType;
   slimConfig = getAppConfig().slims;
   slimConfigNames = Object.keys(this.slimConfig);
   config: AnnotationTableConfig = getAnnotationTableConfig();
   defXrefs: Array<XrefDetails> = [];
+
+  displayTermId = '';
+  nameAndIdPrefix = 'Ontology term';
 
   constructor(private router: Router,
               private pombaseApiService: PombaseAPIService) { }
@@ -66,6 +69,16 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
     this.filterAncestors();
     this.typeConfig =
       getAnnotationTableConfig().getAnnotationType(this.termDetails.cv_name);
+    if (this.typeConfig.hide_term_id_prefix) {
+      this.displayTermId = this.termDetails.termid.replace(/^.*?:/, '');
+    } else {
+      this.displayTermId = this.termDetails.termid;
+    }
+    if (this.typeConfig.is_a_fake_ontology) {
+      this.nameAndIdPrefix = this.typeConfig.display_name;
+    } else {
+      this.nameAndIdPrefix = 'Ontology term';
+    }
     this.defXrefs = [];
     if (this.termDetails.definition_xrefs) {
       this.termDetails.definition_xrefs

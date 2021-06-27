@@ -11,6 +11,8 @@ export class TermExternalLinksComponent implements OnInit, OnChanges {
   @Input() termId: string;
   linkConfigKeys: Array<string> = [];
 
+  termIdForLink = '';
+
   constructor() { }
 
   ngOnInit() {
@@ -21,6 +23,12 @@ export class TermExternalLinksComponent implements OnInit, OnChanges {
     let externDbLinkKeys = typeConf.external_db_link_keys;
     if (externDbLinkKeys) {
       this.linkConfigKeys = externDbLinkKeys;
+    }
+
+    if (this.typeConfig.is_a_fake_ontology) {
+      this.termIdForLink = this.termId.replace(/^.*?:/, '');
+    } else {
+      this.termIdForLink = this.termId;
     }
   }
 }

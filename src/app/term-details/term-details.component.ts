@@ -43,7 +43,7 @@ export class TermDetailsComponent implements OnInit {
   setPageTitle(): void {
     let title = this.appConfig.site_name + ' - Ontology term - ';
     if (this.termDetails) {
-      title += this.termDetails.termid + ' - ' + this.termDetails.name;
+      title += this.displayTermId + ' - ' + this.termDetails.name;
     } else {
       title += 'UNKNOWN';
     }
@@ -80,7 +80,7 @@ export class TermDetailsComponent implements OnInit {
         relTypeDisplayName + ' ' + this.termDetails.name;
     } else {
       return this.config.annotationTypes[annotationTypeName].display_name +
-        ' annotations for ' + this.termDetails.termid + ' and its descendants';
+        ' annotations for ' + this.displayTermId + ' and its descendants';
     }
   }
 
