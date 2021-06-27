@@ -990,12 +990,23 @@ export class PombaseAPIService {
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
 
+    const refMap: { [refUniquename: string]: {
+      uniquename: string,
+      gene_count: number,
+      genotype_count: number;
+    }} = {};
+
+    refMap[json.uniquename] = {
+      uniquename: json.uniquename,
+      gene_count: json.gene_count || 0,
+      genotype_count: json.genotype_count || 0,
+    };
+
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap,
-                                  null, termsByTermId);
+                                  refMap, termsByTermId);
     }
-
 
     this.processInteractions(json.physical_interactions, genesByUniquename);
     this.processInteractions(json.genetic_interactions, genesByUniquename);
