@@ -862,14 +862,19 @@ let _appConfig: AppConfig = {
 
     for (let conf of confs) {
       if (conf.name === configKey) {
-        let matches = termId.match(/^([^:]+):(.*)/);
+        if (conf.url) {
+          let matches = termId.match(/^([^:]+):(.*)/);
 
-        if (matches && conf.url) {
-          let url =
-            replaceExampleId(conf.url.replace('[conf_db_prefix]', matches[1]), termId);
-          return { url: url, displayName: configKey };
-        } else {
-          return undefined;
+          if (matches) {
+            let url =
+              replaceExampleId(conf.url.replace('[conf_db_prefix]', matches[1]), termId);
+            return { url: url, displayName: configKey };
+          } else {
+            return {
+              url: replaceExampleId(conf.url, termId),
+              displayName: configKey,
+            };
+          }
         }
       }
     }
