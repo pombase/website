@@ -131,14 +131,24 @@ export interface GeneExProps {
   scale: string;
 }
 
+export interface WithFromValue {
+  gene?: GeneShort;
+  term?: TermShort;
+  identifier?: string;
+  identifier_and_name?: {
+    identifier: string;
+    name: string;
+  };
+}
+
 export interface Annotation {
   descDist: number;
   descRelName: string;
   reference: ReferenceShort;
   evidence?: string;
   conditions: Array<TermShort>;
-  withs: Array<any>;
-  froms: Array<any>;
+  withs: Array<WithFromValue>;
+  froms: Array<WithFromValue>;
   residue?: string;
   qualifiers: Array<TermShort>;
   gene_ex_props?: GeneExProps;

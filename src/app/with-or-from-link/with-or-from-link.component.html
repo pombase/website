@@ -6,7 +6,7 @@
      routerLink="/term/{{term.termid}}" routerLinkActive="active">{{term.name}}</a>
 
   <span *ngIf="identifier">
-    <a title="{{withOrFrom.identifier}}" class="with-from-id" *ngIf="link" href="{{link}}">{{displayIdOf(withOrFrom.identifier)}}</a>
-    <span title="{{withOrFrom.identifier}}" class="with-from-id" *ngIf="!link">{{displayIdOf(withOrFrom.identifier)}}</span>
+    <a title="{{displayIdentifier}}" class="with-from-id" *ngIf="link" href="{{link}}">{{displayIdentifier}}</a>
+    <span title="{{displayIdentifier}}" class="with-from-id" *ngIf="!link">{{displayIdentifier}}</span>
   </span>
 </span>

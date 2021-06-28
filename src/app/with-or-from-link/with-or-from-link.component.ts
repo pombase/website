@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { getXrf } from '../config';
+import { GeneShort, WithFromValue } from '../pombase-api.service';
+import { TermShort } from '../pombase-query';
 
 @Component({
   selector: 'app-with-or-from-link',
@@ -8,16 +10,19 @@ import { getXrf } from '../config';
   styleUrls: ['./with-or-from-link.component.css']
 })
 export class WithOrFromLinkComponent implements OnInit {
-  @Input() withOrFrom: any;
+  @Input() withOrFrom: WithFromValue;
 
-  gene: any = null;
-  term: any = null;
+  gene?: GeneShort;
+  term?: TermShort;
   identifier?: string;
+  name?: string;
   link?: string;
+
+  displayIdentifier = '';
 
   constructor() { }
 
-  displayIdOf(idWithPrefix: string): string {
+  private displayIdentifierOf(idWithPrefix: string): string {
     return idWithPrefix.replace(/^[^:]+:/, '');
   }
 
@@ -27,7 +32,15 @@ export class WithOrFromLinkComponent implements OnInit {
 
     if (this.withOrFrom.identifier) {
       this.identifier = this.withOrFrom.identifier;
-      const xrfDetails = getXrf(this.withOrFrom.identifier);
+      this.displayIdentifier = this.displayIdentifierOf(this.identifier);
+    }
+    if (this.withOrFrom.identifier_and_name) {
+      this.identifier = this.withOrFrom.identifier_and_name.identifier;
+      this.name = this.withOrFrom.identifier_and_name.name;
+      this.displayIdentifier = `${this.name} (${this.displayIdentifierOf(this.identifier)})`;
+    }
+    if (this.identifier) {
+      const xrfDetails = getXrf(this.identifier);
       if (xrfDetails) {
         this.link = xrfDetails.url;
       } else {
