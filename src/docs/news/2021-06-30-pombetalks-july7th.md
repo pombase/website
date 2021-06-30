@@ -1,13 +1,15 @@
-### PombeTalks June 23rd
+### PombeTalks July 7th
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The next online PombeTalks will take place on Wednesday **23rd June**
+The next online PombeTalks will take place on Wednesday **7th July**
 2021, at 17:00 [Central European
 Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/). Speakers:
 
- - **Yi Wei**, Grewal lab, NCI CCR, Bethesda: *TOR targets an RNA processing network to regulate cell proliferation and sexual development*
+ - **Debatrayee Sinha**, Qian Chen lab, University of Toledo: *Fission yeast polycystin Pkd2p promotes resumption of cell growth after cytokinesis*
 
- - **Nicholas Ader**, LusKing Lab, Yale School of Medicine: *I open at the close(d mitosis): Investigating post-mitotic nuclear envelope sealing in fission yeast*
+ - **Joël Lemière**, Fred Chang Lab, UCSF: *The role of osmotic forces in nuclear size control*
+
 
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
 will be circulated via
