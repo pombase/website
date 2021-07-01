@@ -146,7 +146,7 @@
    "Pfam" : {
       "description" : "Pfam database of protein families",
       "name" : "Pfam",
-      "url_syntax" : "http://pfam.xfam.org/family/[example_id]",
+      "url_syntax" : "https://pfam.xfam.org/family/[example_id]",
       "website" : "http://pfam.xfam.org"
    },
    "PomBase" : {
