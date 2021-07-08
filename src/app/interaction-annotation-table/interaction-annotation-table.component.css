@@ -1,6 +1,12 @@
-@media (min-width: 1000px) {
-  .interaction-directional-label, .interaction-reference, .interaction-evidence {
+@media (min-width: 1200px) {
+  .interaction-reference {
     white-space: nowrap;
+  }
+}
+
+@media (max-width: 1000px) {
+  .annotation-table-container th {
+    white-space: normal;
   }
 }
 
@@ -26,6 +32,14 @@
   user-select: none;
 }
 
+.interaction-evidence {
+  min-width: 10vw;
+}
+
+.interaction-directional-label {
+  min-width: 14vw;
+}
+
 .interaction-source {
   padding: 0 0 0.6em 0;
   display: inline-block;
@@ -33,6 +47,11 @@
 
 .interaction-note {
   font-size: 90%;
+}
+
+.interaction-product {
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 .biogrid-link {
