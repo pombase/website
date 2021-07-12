@@ -238,6 +238,7 @@ export interface AppConfig {
   social_media: boolean;
   has_disease_annotation: boolean;
   news_on_front_page: boolean;
+  has_admin_curation: boolean;
   ensembl_blast_url: string;
   canto_url: string;
   welcome_message: string;
@@ -746,6 +747,7 @@ let _appConfig: AppConfig = {
   social_media: pombaseConfig.social_media,
   has_disease_annotation: pombaseConfig.has_disease_annotation,
   news_on_front_page: pombaseConfig.news_on_front_page,
+  has_admin_curation: pombaseConfig.has_admin_curation,
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,
   canto_url: pombaseConfig.canto_url,
   welcome_message: pombaseConfig.welcome_message,

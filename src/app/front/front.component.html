@@ -74,7 +74,7 @@
     <div class="archive-link-container">
       <a routerLink="/reference_list/community">All community curation ...</a>
     </div>
-    <div class="archive-link-container">
+    <div *ngIf="hasAdminCuration" class="archive-link-container">
       <a routerLink="/reference_list/admin">{{siteName}} staff curated publications ...</a>
     </div>
   </div>

@@ -21,6 +21,7 @@ export class ReferenceDetailListComponent implements OnInit, OnChanges {
 
   groups: Array<RefGroup> = [];
   siteName = getAppConfig().site_name;
+  hasAdminCuration = getAppConfig().has_admin_curation;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

@@ -40,6 +40,7 @@ export class FrontComponent implements OnInit {
   hasDiseaseAnnotation = getAppConfig().has_disease_annotation;
   showNewsItems = getAppConfig().news_on_front_page;
   welcomeMessage = getAppConfig().welcome_message;
+  hasAdminCuration = getAppConfig().has_admin_curation;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 

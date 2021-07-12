@@ -4,7 +4,7 @@
   </h2>
 
   <div class="other-ref-page">
-    <a *ngIf="constraint == 'community'" routerLink="/reference_list/admin">View {{siteName}} curated publications ...</a>
+    <a *ngIf="constraint == 'community' && hasAdminCuration" routerLink="/reference_list/admin">View {{siteName}} curated publications ...</a>
     <a *ngIf="constraint == 'admin'" routerLink="/reference_list/community">View community curated publications ...</a>
   </div>
 
