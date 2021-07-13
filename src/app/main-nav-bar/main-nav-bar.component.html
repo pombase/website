@@ -108,7 +108,7 @@
       <li role="menuitem">
         <a routerLink="/reference_list/community" class="dropdown-item">Community curated publications</a>
       </li>
-      <li role="menuitem">
+      <li *ngIf="hasAdminCuration" role="menuitem">
         <a routerLink="/reference_list/admin" class="dropdown-item">{{siteName}} curated publications</a>
       </li>
     </ul>

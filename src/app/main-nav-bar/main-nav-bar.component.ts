@@ -13,6 +13,7 @@ export class MainNavBarComponent implements OnInit {
   ensemblBlastURL = getAppConfig().ensembl_blast_url;
   cantoURL = getAppConfig().canto_url;
   hasDiseaseAnnotation = getAppConfig().has_disease_annotation;
+  hasAdminCuration = getAppConfig().has_admin_curation;
 
   constructor() { }
 
