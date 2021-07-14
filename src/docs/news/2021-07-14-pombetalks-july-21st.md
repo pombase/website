@@ -1,13 +1,16 @@
-### PombeTalks July 7th
+### PombeTalks July 21st
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The next online PombeTalks will take place on Wednesday **7th July**
-2021, at 17:00 [Central European
-Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/). Speakers:
+The next online PombeTalks will take place on Wednesday **21st July**
+2021, at 10:00 [Central European
+Time](https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/)
+/ 17:00 [Japan &
+Korea](https://greenwichmeantime.com/time-zone/gmt-plus-9/). Speakers:
 
- - **Debatrayee Sinha**, Qian Chen lab, University of Toledo: *Fission yeast polycystin Pkd2p promotes resumption of cell growth after cytokinesis*
+ - **Yoko Otsubo**, Yamashita lab, National Institute for Basic Biology: *Novel links between TORC1 and traditional non-coding RNA, tRNA*
 
- - **Joël Lemière**, Fred Chang Lab, UCSF: *The role of osmotic forces in nuclear size control*
+ - **Jie Su**, Nakagawa lab, Osaka University: *Rad8-dependent PCNA ubiquitination at lysine 107 causes gross chromosomal rearrangements*
 
 
 Talks will be streamed live via [Zoom](https://zoom.us/). The link
