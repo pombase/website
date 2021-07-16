@@ -7,6 +7,6 @@
 |Snezhana Oliferenko|The Francis Crick Institute & Kings College London|
 |Takashi Toda|Hiroshima University|
 |Nancy Walworth|Robert Wood Johnson Medical School, Rutgers University, NJ|
-|Yoshinori Watanabe|Laboratory of Chromosome Dynamics, Institute of Molecular and Cellular Biosciences, University of Tokyo|
+|Yoshinori Watanabe|Jiangnan University, China|
 |Valerie Wood|PomBase, University of Cambridge|
 |Paul Young|Queens University at Kingston, Ontario|
