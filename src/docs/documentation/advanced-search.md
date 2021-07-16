@@ -144,6 +144,12 @@ including the prefix (e.g. GO:0005634, FYPO:0002059), or simply start
 typing to search for a term name. Choose a term from the list of
 options offered by the autocomplete, and click "Submit".
 
+Note: Only terms that are used in annotations (direct or inferred by
+transitivity) will appear as autocomplete suggestions. This is to
+avoid having irrelevant terms, such as "chloroplast" or "echolocation"
+appearing. Any term without annotations can be found by searching by
+its ID, and will appear in the query history with "0" results.
+
 #### Commonly used queries
 
 This item offers convenient links to perform frequently used queries
