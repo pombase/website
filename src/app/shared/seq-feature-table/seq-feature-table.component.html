@@ -5,6 +5,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Type</th>
+        <th></th>
         <th>Chromosome</th>
         <th>Start position</th>
         <th>End position</th>
@@ -15,10 +16,10 @@
         <td>{{feat.uniquename}}</td>
         <td>{{feat.name}}</td>
         <td>{{feat.feature_type}}</td>
+        <td><a href="{{feat.jBrowseURL}}">View in browser ...</a></td>
         <td>{{feat.chromosomeDisplayId}}</td>
         <td>{{feat.location.start_pos}}</td>
         <td>{{feat.location.end_pos}}</td>
-        <td><a href="{{feat.jBrowseURL}}">View in browser ...</a></td>
       </tr>
     </tbody>
   </table>
