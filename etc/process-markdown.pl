@@ -14,7 +14,7 @@ use warnings;
 use Carp;
 use Getopt::Long qw(GetOptions);
 
-my $web_config = '';
+my $web_config_file_name = '';
 my $doc_config_file_name = '';
 my $json_docs_file_name = '';
 my $markdown_docs = '';
@@ -23,7 +23,7 @@ my $docs_component = '';
 my $front_page_content_component = '';
 
 GetOptions(
-  'web-config=s' => \$web_config,
+  'web-config=s' => \$web_config_file_name,
   'doc-config=s' => \$doc_config_file_name,
   'json-docs=s' => \$json_docs_file_name,
   'markdown-docs=s' => \$markdown_docs,
@@ -31,7 +31,7 @@ GetOptions(
   'docs-component=s' => \$docs_component,
   'front-panel-content-component=s' => \$front_page_content_component);
 
-if (!$web_config || !$doc_config_file_name || !$markdown_docs || !$recent_news_component ||
+if (!$web_config_file_name || !$doc_config_file_name || !$markdown_docs || !$recent_news_component ||
     !$docs_component || !$front_page_content_component) {
   die "missing arg";
 }
@@ -39,9 +39,26 @@ if (!$web_config || !$doc_config_file_name || !$markdown_docs || !$recent_news_c
 use JSON -support_by_pp;
 use Pandoc;
 
+
+open my $config_fh, '<', $web_config_file_name
+  or die "can't open $web_config_file_name";
+my $config_contents;
+{
+  local $/ = undef;
+  $config_contents = <$config_fh>;
+}
+close $config_fh;
+
+my $config = from_json $config_contents;
+
+
+my $database_name = $config->{database_name};
+
+
 process_front_panels();
 
 our $date_re = qr|\d+-\d+-\d+|;
+
 
 open my $recent_news_fh, '>', $recent_news_component
   or die "can't open $recent_news_component for writing\n";
@@ -204,16 +221,7 @@ print $doc_config_fh to_json({ pages => \%section_titles }, { canonical => 1, pr
 
 close $doc_config_fh;
 
-
 sub process_front_panels {
-  open my $config_fh, '<', $web_config
-    or die "can't open $web_config";
-  local $/ = undef;
-  my $config_contents = <$config_fh>;
-  close $config_fh;
-
-  my $config = from_json $config_contents;
-
   my $panel_conf = $config->{front_page_panels};
 
   open my $panel_contents_comp_fh, '>', $front_page_content_component

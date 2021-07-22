@@ -1,0 +1,17 @@
+<tabset #downloadTabs>
+  <tab *ngFor="let subNode of nodeConfig.subNodes">
+    <div *ngIf="nodeConfig.nodeType == 'subset-input'">
+      <app-query-subset-input>
+      </app-query-subset-input>
+    </div>
+  </tab>
+
+  <tab heading="Domain ID">
+  </tab>
+  <tab heading="Protein feature">
+  </tab>
+  <tab heading="Number of TM domains">
+  </tab>
+  <tab heading="Number of disordered regions">
+  </tab>
+</tabset>

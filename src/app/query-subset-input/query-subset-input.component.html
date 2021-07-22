@@ -1,0 +1,5 @@
+<input type="text" [(ngModel)]="subsetName" size="30"
+       [placeholder]="nodeConfig.placeholder || ''" />
+<button type="button" class="btn btn-primary"
+        [disabled]="!subsetName || subsetName.trim().length == 0"
+        (click)="subsetInputSearch()">Search</button>
