@@ -5210,6 +5210,7 @@ PomBase using the Ensembl viewer.</p>
 <p>The “Visualise” and “Slim” options also generate stable, unique, sharable URLs.</p>
 <h3 id="query-types">Query types</h3>
 <p>Ontology queries (GO, phenotype, protein modification, and protein sequence feature) retrieve genes that are annotated to the selected term(s), and to their descendants via specified relations (see the GO documentation on <a href="http://geneontology.org/docs/ontology-relations/">Ontology Structure and Ontology Relations</a> for more information on relationships between terms in ontologies, and see the descriptions below of specific ontology filters for lists of which relations are followed to retrieve annotations). Ontologies can be searched by ID or term name. Type or paste a complete ontology ID, including the prefix (e.g. GO:0005634, FYPO:0002059), or simply start typing to search for a term name. Choose a term from the list of options offered by the autocomplete, and click “Submit”.</p>
+<p>Note: Only terms that are used in annotations (direct or inferred by transitivity) will appear as autocomplete suggestions. This is to avoid having irrelevant terms, such as “chloroplast” or “echolocation” appearing. Any term without annotations can be found by searching by its ID, and will appear in the query history with “0” results.</p>
 <h4 id="commonly-used-queries">Commonly used queries</h4>
 <p>This item offers convenient links to perform frequently used queries easily. Click on the query description to add the results to the query history.</p>
 <p>Please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a> if you would like any queries added to the selection.</p>
@@ -9365,6 +9366,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-july-st">PombeTalks July 21st</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#kegg-pathway-links">KEGG pathway links</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 86.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-july-th">PombeTalks July 7th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-june-rd">PombeTalks June 23rd</a></div>
@@ -11227,7 +11230,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'pombetalks-july7th'">
 <h3 id="pombetalks-july-7th">PombeTalks July 7th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next online PombeTalks will take place on Wednesday <strong>7th July</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
 <ul>
@@ -11239,9 +11241,49 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 
   </div>
+  <div *ngIf="pageName == 'kegg-pathway-links'">
+<h3 id="kegg-pathway-links">KEGG pathway links</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: kegg3.png -->
+<p>PomBase gene pages now have links to pathway entries in the Kyoto Encyclopedia of Genes and Genomes (KEGG) database, as well as links to gene lists for each linked pathway (example: <a href="https://www.pombase.org/term/KEGG_PW:spo01210">2-Oxocarboxylic acid metabolism</a>). The KEGG pathway links are the first entry in a new gene page section, “Molecular pathway”, dedicated to connecting genes in PomBase to depictions of biochemical and signaling pathways.</p>
+
+  </div>
+  <div *ngIf="pageName == 'pombetalks-july-21st'">
+<h3 id="pombetalks-july-21st">PombeTalks July 21st</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online PombeTalks will take place on Wednesday <strong>21st July</strong> 2021, at 10:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
+<ul>
+<li><p><strong>Yoko Otsubo</strong>, Yamashita lab, National Institute for Basic Biology: <em>Novel links between TORC1 and traditional non-coding RNA, tRNA</em></p></li>
+<li><p><strong>Jie Su</strong>, Nakagawa lab, Osaka University: <em>Rad8-dependent PCNA ubiquitination at lysine 107 causes gross chromosomal rearrangements</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2021-07-14-pombetalks-july-21st" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-july-st">PombeTalks July 21st</h3>
+<p><em>2021-07-14</em></p>
+<p>The next online PombeTalks will take place on Wednesday <strong>21st July</strong> 2021, at 10:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
+<ul>
+<li><p><strong>Yoko Otsubo</strong>, Yamashita lab, National Institute for Basic Biology: <em>Novel links between TORC1 and traditional non-coding RNA, tRNA</em></p></li>
+<li><p><strong>Jie Su</strong>, Nakagawa lab, Osaka University: <em>Rad8-dependent PCNA ubiquitination at lysine 107 causes gross chromosomal rearrangements</em></p></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
+<p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
+<p>Thanks to the PombeTalks team for organizing. See you online!</p>
+</div>
+<div id="2021-07-06-kegg-pathway-links" class="news-item">
+<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/kegg3.png"/></p>
+<h3 id="kegg-pathway-links">KEGG pathway links</h3>
+<p><em>2021-07-06</em></p>
+<p>PomBase gene pages now have links to pathway entries in the Kyoto Encyclopedia of Genes and Genomes (KEGG) database, as well as links to gene lists for each linked pathway (example: <a href="https://www.pombase.org/term/KEGG_PW:spo01210">2-Oxocarboxylic acid metabolism</a>). The KEGG pathway links are the first entry in a new gene page section, “Molecular pathway”, dedicated to connecting genes in PomBase to depictions of biochemical and signaling pathways.</p>
+</div>
 <div id="2021-06-30-interpro-v86" class="news-item">
 <p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 86.0</h3>
@@ -20118,36 +20160,28 @@ Joined contigs p4C9 and c977</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Steve Aves</td>
-<td>School of Biological Sciences, University of Exeter</td>
-</tr>
-<tr class="even">
 <td>Susan Forsburg</td>
 <td>Molecular and Computational Biology Section, University of Southern California</td>
 </tr>
-<tr class="odd">
-<td>Olaf Nielsen</td>
-<td>Department of Genetics, University of Copenhagen</td>
-</tr>
 <tr class="even">
-<td>Osami Niwa</td>
-<td>Kazusa DNA Research Institute, Kisarazu, Chiba, Japan</td>
+<td>Olaf Nielsen</td>
+<td>Department of Biology, University of Copenhagen</td>
 </tr>
 <tr class="odd">
-<td>Matthias Sipiczki</td>
-<td>Department of Genetics, University of Debrecen</td>
+<td>Snezhana Oliferenko</td>
+<td>The Francis Crick Institute &amp; Kings College London</td>
 </tr>
 <tr class="even">
 <td>Takashi Toda</td>
-<td>The Francis Crick Institute, London</td>
+<td>Hiroshima University</td>
 </tr>
 <tr class="odd">
 <td>Nancy Walworth</td>
-<td>Robert Wood Johnson Medical School, NJ</td>
+<td>Robert Wood Johnson Medical School, Rutgers University, NJ</td>
 </tr>
 <tr class="even">
 <td>Yoshinori Watanabe</td>
-<td>Laboratory of Chromosome Dynamics, Institute of Molecular and Cellular Biosciences, University of Tokyo</td>
+<td>Jiangnan University, China</td>
 </tr>
 <tr class="odd">
 <td>Valerie Wood</td>

@@ -79,7 +79,17 @@ for my $path (readdir $dir) {
     opendir my $path_dir, "$markdown_docs/$path";
     for my $file_name (readdir $path_dir) {
       if (my ($name) = $file_name =~ m|(.*)\.md$|) {
-        $sections{$path}->{$name} = "$path/$file_name";
+        # remove ".PomBase" from "news.PomBase"
+        my $no_db_path = $path;
+        if ($path =~ /\.(\w+)/) {
+          if ($1 eq $database_name) {
+            $no_db_path = $path =~ s/\.\w+//r;
+          } else {
+            # skip if this item is for a different DB
+            next;
+          }
+        }
+        $sections{$no_db_path}->{$name} = "$path/$file_name";
       }
     }
     close $path_dir;
@@ -430,7 +440,9 @@ sub process_line {
 
 sub all_news_items {
   my @items = ();
-  opendir my $dh, "$markdown_docs/news";
+  my $news_dir_name = "$markdown_docs/news.$database_name";
+  opendir my $dh, $news_dir_name
+    or die "can't open directory $news_dir_name for reading: $!";
  ITEM:
   while (my $dir_file_name = readdir($dh)) {
     if ($dir_file_name =~ /^(($date_re)-.*)\.md$/) {
@@ -441,7 +453,7 @@ sub all_news_items {
       my $contents = '';
       my %flags = ();
       my $thumbnail = undef;
-      open my $this_file, '<', "$markdown_docs/news/$dir_file_name" or die "can't open $dir_file_name";
+      open my $this_file, '<', "$news_dir_name/$dir_file_name" or die "can't open $dir_file_name";
       while (defined (my $line = <$this_file>)) {
         if (!defined $title && $line =~ /^#+\s*(.*?)\s*$/) {
           $title = $1;
