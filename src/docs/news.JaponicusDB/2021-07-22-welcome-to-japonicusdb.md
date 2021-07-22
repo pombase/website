@@ -1,4 +1,5 @@
 ### JaponicusDB: A database for *Schizosaccharomyces japonicus*
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: japonicusdb-32x32.png -->
 
 Welcome to the prototype of **JaponicusDB**, a new model organism
