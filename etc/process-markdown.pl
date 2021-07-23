@@ -562,7 +562,8 @@ sub contents_for_template {
       if (ref $details) {
         # add faq menu here
       } else {
-      open my $file, '<', "$markdown_docs/$details" or die "can't open $details: $!";
+      my $details_file_name = "$markdown_docs/$details";
+      open my $file, '<', $details_file_name or die "can't open $details: $!";
 
       my $in_raw_html_block = 0;
 
@@ -575,8 +576,21 @@ sub contents_for_template {
           if ($line =~ /^\%\%\s*(if|end) db=\s*(.*?)$/) {
             if ($1 eq 'if') {
               $current_db_block = $2;
+              $current_db_block_start_line = $.;
             } else {
-              $current_db_block = undef;
+              if (defined $current_db_block) {
+                if ($current_db_block eq $2) {
+                  $current_db_block = undef;
+                  $current_db_block_start_line = undef;
+                } else {
+                  die qq|"$line" at $details_file_name line $.\n| .
+                    qq|does not match directive "%%if db=$current_db_block" | .
+                    "at line $current_db_block_start_line\n";
+                }
+              } else {
+                die qq|"$line" does not match a start directive at | .
+                  "$details_file_name line $.\n";
+              }
             }
             next;
           } else {
