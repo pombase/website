@@ -1,14 +1,5 @@
 ## Genome sequence and features
 
-<div style="color: red">
-**Warning:** *S. pombe* files are no longer available from the old
-  "pombase" FTP site within the EBI domain. If you have a link that
-  contains **ftp.ebi.ac.uk**, please check these pages for a link
-  using **https://www.pombase.org/**. Please [contact the PomBase
-  curators](mailto:helpdesk@pombase.org) if you need help finding a
-  file or directory.
-</div>
-
 Note that most of the datasets available here are compressed (.gz), and
 can be uncompressed by utilities available in all common operating
 systems. Your browser may prompt you to open or download files.

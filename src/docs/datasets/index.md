@@ -1,14 +1,5 @@
 ## Datasets
 
-<div style="color: red">
-**Warning:** *S. pombe* files are no longer available from the old
-  "pombase" FTP site within the EBI domain. If you have a link that
-  contains **ftp.ebi.ac.uk**, please check these pages for a link
-  using **https://www.pombase.org/**. Please [contact the PomBase
-  curators](mailto:helpdesk@pombase.org) if you need help finding a
-  file or directory.
-</div>
-
 Note that some of the links below go to pages listing subdirectories
 that are organised slightly differently from the links on this
 page. Your browser may prompt you to open or download files.
@@ -67,3 +58,12 @@ Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://w
 
 -   [DNA binding sites](/browse-curation/dna-binding-sites.md)
 -   [Drug targets](/browse-curation/drugs-known-pombe-targets.md)
+
+-------
+
+  **Note:** *S. pombe* files are no longer available from the old
+  "pombase" FTP site within the EBI domain. If you have a link that
+  contains **ftp.ebi.ac.uk**, please check these pages for a link
+  using **https://www.pombase.org/**. Please [contact the PomBase
+  curators](mailto:helpdesk@pombase.org) if you need help finding a
+  file or directory.

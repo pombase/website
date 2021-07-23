@@ -1,14 +1,5 @@
 ### Protein datasets
 
-<div style="color: red">
-**Warning:** *S. pombe* files are no longer available from the old
-  "pombase" FTP site within the EBI domain. If you have a link that
-  contains **ftp.ebi.ac.uk**, please check these pages for a link
-  using **https://www.pombase.org/**. Please [contact the PomBase
-  curators](mailto:helpdesk@pombase.org) if you need help finding a
-  file or directory.
-</div>
-
 The full [protein dataset](https://www.pombase.org/data/genome_sequence_and_features/feature_sequences/peptide.fa.gz)
 is available in FASTA format (link downloads gzipped file from PomBase).
 
