@@ -176,6 +176,7 @@ export class GenesTableComponent implements OnInit {
     for (const fieldConfig of this.visibleFields) {
       if (fieldConfig.name == fieldName) {
         if (fieldConfig.column_type === 'number' ||
+            fieldConfig.column_type === 'expression_level' ||
             fieldConfig.column_type === 'bins') {
           this.orderByFieldIsNumeric = true;
         }

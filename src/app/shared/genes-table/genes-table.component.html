@@ -144,20 +144,18 @@
                  (ngModelChange)="selectionChanged()"
                  [(ngModel)]="selectedGenes![gene.uniquename]"/>
         </td>
-        <td *ngFor="let fieldName of visibleFieldNames">
-          <a *ngIf="fieldName == 'uniquename'" routerLink="/gene/{{gene['uniquename']}}">
+        <td *ngFor="let fieldConfig of visibleFields">
+          <a *ngIf="fieldConfig.name == 'uniquename'" routerLink="/gene/{{gene['uniquename']}}">
               {{gene['uniquename']}}
           </a>
-          <a *ngIf="fieldName == 'name' && gene.name" routerLink="/gene/{{gene['uniquename']}}">
+          <a *ngIf="fieldConfig.name == 'name' && gene.name" routerLink="/gene/{{gene['uniquename']}}">
               {{gene['name']}}
           </a>
-          <span class="na-field" *ngIf="fieldName == 'name' && !gene.name">
-          </span>
-          <span *ngIf="fieldName != 'uniquename' && fieldName != 'name'" class="td-content">
-             <span *ngIf="gene[fieldName]"
-                   [innerHtml]="gene[fieldName]">
+          <span *ngIf="fieldConfig.name != 'uniquename' && fieldConfig.name != 'name'" class="td-content">
+             <span *ngIf="gene[fieldConfig.name]"
+                   [innerHtml]="gene[fieldConfig.name]">
              </span>
-             <span class="na-field" *ngIf="!gene[fieldName]">
+             <span class="na-field" *ngIf="!gene[fieldConfig.name] && fieldConfig.column_type === 'expression_level'">
              </span>
           </span>
         </td>

@@ -133,7 +133,7 @@ export interface DocumentationConfig {
 export interface GeneResultsFieldConfig {
   name: string;
   display_name: string;
-  column_type: 'string'|'number'|'attribute'|'bins'|'list'|'gene_list'|'orthologs'|'ontology_term';
+  column_type: 'string'|'number'|'attribute'|'bins'|'list'|'gene_list'|'orthologs'|'ontology_term'|'expression_level';
   column_group: 'default'|'extra';
   attr_values: Array<VisColumnAttrValueConfig>|undefined;
   attrValuesMap: Map<string, VisColumnAttrValueConfig>|undefined;
@@ -956,7 +956,7 @@ for (const geneExDatasetConfig of _appConfig.geneExpression.datasets) {
     {
       name: geneExConfName,
       display_name: geneExDatasetConfig.name,
-      column_type: 'number',
+      column_type: 'expression_level',
       column_group: 'extra',
       attr_values: [],
       attrValuesMap: new Map(),
