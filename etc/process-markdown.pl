@@ -75,7 +75,7 @@ my %var_substitutions = (
   genus => $load_organism->{genus},
   species => $load_organism->{species},
   genus_and_species => $load_organism->{genus} . ' ' . $load_organism->{species},
-  common_name => $load_organism->{common_name},
+  species_abbrev => $load_organism->{common_name},
 );
 
 
