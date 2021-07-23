@@ -549,7 +549,28 @@ sub contents_for_template {
 
       my $in_raw_html_block = 0;
 
+      my $current_db_block = undef;
+
       while (my $line = <$file>) {
+        if ($line =~ /^%%/) {
+          chomp $line;
+          $line =~ s/\s+$//;
+          if ($line =~ /^\%\%\s*(if|end) db=\s*(.*?)$/) {
+            if ($1 eq 'if') {
+              $current_db_block = $2;
+            } else {
+              $current_db_block = undef;
+            }
+            next;
+          } else {
+            die "mangled %%if directive: $line\n";
+          }
+        }
+
+        if (defined $current_db_block && $current_db_block ne $database_name) {
+          next;
+        }
+
         if ($line eq "\`\`\`{=html}\n") {
           $in_raw_html_block = 1;
         } else {
