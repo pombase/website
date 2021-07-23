@@ -588,6 +588,7 @@ sub contents_for_template {
       my $in_raw_html_block = 0;
 
       my $current_db_block = undef;
+      my $current_db_block_start_line = undef;
 
       while (my $line = <$file>) {
         if ($line =~ /^%%/) {
