@@ -100,20 +100,31 @@ opendir my $dir, $markdown_docs
 
 for my $path (readdir $dir) {
   if ($path =~ /\w+/ && -d "$markdown_docs/$path") {
+    # remove ".PomBase" from "news.PomBase/" etc.
+    my $no_db_path = $path;
+    if ($path =~ /\.(\w+)/) {
+      if ($1 eq $database_name) {
+        $no_db_path = $path =~ s/\.\w+//r;
+      } else {
+        # skip if this item is for a different DB
+        next;
+      }
+    }
+
     opendir my $path_dir, "$markdown_docs/$path";
     for my $file_name (readdir $path_dir) {
-      if (my ($name) = $file_name =~ m|(.*)\.md$|) {
-        # remove ".PomBase" from "news.PomBase"
-        my $no_db_path = $path;
-        if ($path =~ /\.(\w+)/) {
-          if ($1 eq $database_name) {
-            $no_db_path = $path =~ s/\.\w+//r;
-          } else {
+      if ($file_name =~ m|^(.*?)(?:\.(\w+))?\.md$|) {
+        my $name = $1;
+        # remove ".PomBase" from MD file name
+        my $no_db_name = $name;
+        if (defined $2) {
+          if ($2 ne $database_name) {
             # skip if this item is for a different DB
             next;
           }
         }
-        $sections{$no_db_path}->{$name} = "$path/$file_name";
+
+        $sections{$no_db_path}->{$no_db_name} = "$path/$file_name";
       }
     }
     close $path_dir;
