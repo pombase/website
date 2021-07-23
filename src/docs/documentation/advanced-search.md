@@ -4,8 +4,8 @@
   the [helpdesk](mailto:helpdesk@pombase.org) if you have any
   questions.**
 
-The PomBase advanced search allows you to construct complex queries
-for *S. pombe* genes. At present all advanced search results are lists
+The ${database_name} advanced search allows you to construct complex queries
+for *${common_name}* genes. At present all advanced search results are lists
 of genes that match the query specifications. Hints for specific
 searches are available in the [PomBase FAQ](/faq), and linked
 [below](#search-tips).

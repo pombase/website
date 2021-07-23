@@ -54,8 +54,28 @@ my $config = from_json $config_contents;
 
 my $database_name = $config->{database_name};
 
+my $load_organism_taxonid = $config->{load_organism_taxonid};
+my $load_organism = undef;
+
+for my $organism_config (@{$config->{organisms}}) {
+  if ($organism_config->{taxonid} == $load_organism_taxonid) {
+    $load_organism = $organism_config;
+    last;
+  }
+}
+
+if (!defined $load_organism) {
+  die "can't find organism configuration for taxon ID $load_organism_taxonid " .
+    "in $$web_config_file_name";
+}
+
+
 my %var_substitutions = (
   database_name => $database_name,
+  genus => $load_organism->{genus},
+  species => $load_organism->{species},
+  genus_and_species => $load_organism->{genus} . ' ' . $load_organism->{species},
+  common_name => $load_organism->{common_name},
 );
 
 
