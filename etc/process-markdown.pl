@@ -54,6 +54,10 @@ my $config = from_json $config_contents;
 
 my $database_name = $config->{database_name};
 
+my %var_substitutions = (
+  database_name => $database_name,
+);
+
 
 process_front_panels();
 
@@ -426,9 +430,22 @@ sub angular_link {
   }
 }
 
+sub substitute_vars {
+  my $var_name = shift;
+  my $line_ref = shift;
+
+  if (exists $var_substitutions{$var_name}) {
+    return $var_substitutions{$var_name};
+  } else {
+    die qq|unknown variable "$var_name" in line: |, $$line_ref, "\n";
+  }
+}
+
 sub process_line {
   my $line_ref = shift;
   my $quote_angular_elements = !shift;
+
+  $$line_ref =~ s/\$\{(\w+)\}/substitute_vars($1, $line_ref)/ge;
 
   $$line_ref =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
   if ($$line_ref !~ /<!--.*-->/) {
