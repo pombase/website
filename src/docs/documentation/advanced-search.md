@@ -5,7 +5,7 @@
   questions.**
 
 The ${database_name} advanced search allows you to construct complex queries
-for *${common_name}* genes. At present all advanced search results are lists
+for *${species_abbrev}* genes. At present all advanced search results are lists
 of genes that match the query specifications. Hints for specific
 searches are available in the [PomBase FAQ](/faq), and linked
 [below](#search-tips).
