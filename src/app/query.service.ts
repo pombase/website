@@ -122,7 +122,7 @@ export class QueryService {
           try {
             const entry = this.entryFromJsonObject(o);
             this.history.push(entry);
-          } catch (e) {
+          } catch (e: any) {
             console.log('failed to deserialise: ' + JSON.stringify(o) + ' - ' + e.message);
           }
         };
@@ -134,7 +134,7 @@ export class QueryService {
         });
 
       }
-    } catch (e) {
+    } catch (e: any) {
       console.log('failed to deserialise history: ' + e.message);
     }
     this.subject = new BehaviorSubject(this.history);
@@ -170,7 +170,7 @@ export class QueryService {
       } else {
         return 'import failed: text isn\'t an exported query list';
       }
-    } catch (e) {
+    } catch (e: any) {
       return 'failed to parse imported queries: ' + e.toString();
     }
     return undefined; // no error
