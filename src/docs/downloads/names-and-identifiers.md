@@ -1,14 +1,5 @@
 ### PomBase name and identifier mappings
 
-<div style="color: red">
-**Warning:** *S. pombe* files are no longer available from the old
-  "pombase" FTP site within the EBI domain. If you have a link that
-  contains **ftp.ebi.ac.uk**, please check these pages for a link
-  using **https://www.pombase.org/**. Please [contact the PomBase
-  curators](mailto:helpdesk@pombase.org) if you need help finding a
-  file or directory.
-</div>
-
 These files are available in the [names and IDs directory](https://www.pombase.org/data/names_and_identifiers/)
 
 #### Systematic ID to UniProt accession number

@@ -1,14 +1,5 @@
 ### Introns
 
-<div style="color: red">
-**Warning:** *S. pombe* files are no longer available from the old
-  "pombase" FTP site within the EBI domain. If you have a link that
-  contains **ftp.ebi.ac.uk**, please check these pages for a link
-  using **https://www.pombase.org/**. Please [contact the PomBase
-  curators](mailto:helpdesk@pombase.org) if you need help finding a
-  file or directory.
-</div>
-
 Downloadable intron datasets are [available in FASTA format](https://www.pombase.org/data/genome_sequence_and_features/feature_sequences/)
 
 
