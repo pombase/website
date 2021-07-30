@@ -4,6 +4,7 @@ import { ChromosomeConfig, getXrfWithPrefix, getAppConfig } from '../../config';
 import { PombaseAPIService } from '../../pombase-api.service';
 
 interface DisplayChromosome extends ChromosomeConfig {
+  displayName: string;
   geneCount: number;
   length: number;
   enaId: string;
@@ -43,9 +44,11 @@ export class ChromosomeOverviewComponent implements OnInit {
       .then(chrSummaryMap => {
         this.appConfig.chromosomes.map(chrConfig => {
           if (chrSummaryMap[chrConfig.name]) {
-            const geneCount = chrSummaryMap[chrConfig.name].gene_count;
-            const length = chrSummaryMap[chrConfig.name].length;
-            const enaId = chrSummaryMap[chrConfig.name].ena_identifier;
+            const chr = chrSummaryMap[chrConfig.name];
+            const name = chr.name;
+            const geneCount = chr.gene_count;
+            const length = chr.length;
+            const enaId = chr.ena_identifier;
 
             if (length > this.longestChrLength) {
               this.longestChrLength = length;
@@ -58,15 +61,26 @@ export class ChromosomeOverviewComponent implements OnInit {
               enaUrl = enaXrfConfig.url;
             }
 
+            let displayName;
+
+            if (chrConfig.short_display_name.toLocaleLowerCase() === name.toLocaleLowerCase() ||
+                this.appConfig.site_name === 'PomBase') {
+              displayName = chrConfig.short_display_name;
+            } else {
+              displayName = `${chrConfig.short_display_name} (${name})`;
+            }
+
             const displayConfig =
               Object.assign(
                 {
+                  displayName,
                   geneCount,
                   length,
                   enaId,
                   enaUrl,
-              },
+                },
                 chrConfig);
+
             this.displayChromosomes.push(displayConfig);
           }
         });
