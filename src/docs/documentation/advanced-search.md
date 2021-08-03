@@ -8,13 +8,13 @@ The ${database_name} advanced search allows you to construct complex queries
 for *${species_abbrev}* genes. At present all advanced search results are lists
 of genes that match the query specifications. Hints for specific
 searches are available in the [PomBase FAQ](/faq), and linked
-[below](#search-tips).
+below (scroll down to Search tips).
 
 ### Overview
 
 In the Search menu, choose Advanced (or bookmark http://www.pombase.org/query).
 
-In the Query panel (top), click one of the links in the list on the left to choose a [query type](query-types).  For each query, the interface guides your input.
+In the Query panel (top), click one of the links in the list on the left to choose a query type (described below).  For each query, the interface guides your input.
 
 ![advanced search page with new query](assets/advanced_search_main.png){width="682"}
 

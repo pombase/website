@@ -4,10 +4,6 @@ The Gene Naming Committee was initiated by Amar Klar, Paul Nurse and
 Mitsuhiro Yanagida to unify fission yeast gene names for newly defined
 genes, and resolve gene name conflicts.
 
-<!--
-### [Gene name reservation form](registration-form)g
--->
-
 ### Gene name reservation
 
 The **gene name registration form** will return soon. To reserve a

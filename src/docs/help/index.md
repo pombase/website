@@ -4,4 +4,4 @@
 
 ### [PomBase Documentation](documentation)
 
-### [Contact Curators](about/contacts)
+### [Contact Curators](about)

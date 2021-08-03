@@ -8,7 +8,7 @@ Note: Please use this format only for data that you want to appear in
 the "Qualitative gene expression" section of PomBase gene pages. If
 you have gene expression data that should be included as a data track
 in the PomBase genome browser (microarray, RNASeq, etc.), please use
-the [data submission form for HTP sequence-linked data](submit-data/data-submission-form-for-HTP-sequence-linked-data).
+the [data submission form for HTP sequence-linked data](documentation/data-submission-form-for-HTP-sequence-linked-data).
 
 Include a header line that labels the columns -- use the entry in the
 Contents column below as the column header text.

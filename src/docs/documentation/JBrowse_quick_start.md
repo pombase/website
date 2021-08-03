@@ -203,7 +203,7 @@ To zoom:
      Click and drag to highlight a region, then click within the
      highlighted region to zoom so the region fills the browser window:
 
-    ![JBrowse zoom in on selected region](assets//jbrowse_region_zoom.png){width="500"}
+    ![JBrowse zoom in on selected region](assets/jbrowse_region_zoom.png){width="500"}
 
 To see the DNA sequence, zoom in until it appears, first as
 color-coded blocks, and then labeled with letters.
