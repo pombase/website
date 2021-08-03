@@ -32,24 +32,9 @@
 </div>
 
 <div id="footer-logos">
-  <a href="https://wellcome.ac.uk/">
-    <img style="background-color: black" height="64px"
-         src="assets/wellcome-logo.svg" alt="Wellcome Trust"/>
-  </a>
-  <a href="https://www.sysbiol.cam.ac.uk/">
-    <img height="64px" src="assets/sysbiol_logo-64px.png"
-         alt="Cambridge Systems Biology Centre"/>
-  </a>
-  <a href="https://www.cam.ac.uk/">
-    <img height="64px"
-         src="assets/cambridge-logo-64px.png" alt="University of Cambridge"/>
-  </a>
-  <a href="https://www.ucl.ac.uk/">
-    <img height="64px"
-         src="assets/ucl_logo-64px.png" alt="University College London"/>
-  </a>
-  <a *ngIf="isElixirNode" href="https://elixir-europe.org/">
-    <img height="64px" src="assets/elixir-logo-64px.png" alt="ELIXIR"/>
+  <a *ngFor="let conf of getLogoConfig()"
+     href="{{conf.url}}">
+    <img src="assets/{{conf.image}}" alt="{{conf.alt_text}}"/>
   </a>
 </div>
 

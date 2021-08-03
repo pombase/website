@@ -6,7 +6,7 @@ import { Title } from '@angular/platform-browser';
 
 import { filter, map, mergeMap } from 'rxjs/operators';
 
-import { getAppConfig } from './config';
+import { FooterLogoConfig, getAppConfig } from './config';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +18,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   defaultDescription = getAppConfig().site_description;
   logoFileName = getAppConfig().logo_file_name;
   headerBackgroundFileName = getAppConfig().header_background_file_name;
-
-  isElixirNode = getAppConfig().footer.is_elixir_node;
 
   constructor(
     private router: Router,
@@ -54,6 +52,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   getFundersHtml(): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(getAppConfig().footer.funders);
+  }
+
+  getLogoConfig(): Array<FooterLogoConfig> {
+    return getAppConfig().footer.logos;
   }
 
   ngAfterViewInit(): void {

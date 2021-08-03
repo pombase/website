@@ -206,6 +206,12 @@ export interface GeneExpressionConfig {
   datasets: Array<GeneExpressionDatasetConfig>;
 }
 
+export interface FooterLogoConfig {
+  url: string;
+  image: string;
+  alt_text: string;
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -218,6 +224,7 @@ export interface AppConfig {
   footer: {
     funders: string;
     is_elixir_node: boolean;
+    logos: Array<FooterLogoConfig>;
   };
   helpdesk_address: string;
   show_names_of_staff_curators: boolean;
