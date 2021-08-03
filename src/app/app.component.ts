@@ -19,6 +19,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   logoFileName = getAppConfig().logo_file_name;
   headerBackgroundFileName = getAppConfig().header_background_file_name;
 
+  isElixirNode = getAppConfig().footer.is_elixir_node;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
