@@ -20,6 +20,28 @@ use File::Find;
 
 my %valid_paths = ();
 
+
+sub make_id_from_page_name {
+  my $heading = shift;
+
+  if (!$heading) {
+    croak "no heading";
+  }
+
+  $heading =~ s/^#+\s*//;
+
+  (my $id = lc $heading) =~ s/[^A-Za-z\._]+/-/g;
+
+  $id =~ s/-(with|the|at|from|to|the|of|that|is|for|an|a|in)-/-/g for 1..5;
+  $id =~ s/^(are|is)-//;
+
+  $id =~ s/-+$//;
+  $id =~ s/^-+//;
+
+  return $id;
+}
+
+
 my @files_to_scan = ();
 
 find(\&wanted_docs, $docs_dir);
@@ -27,18 +49,37 @@ find(\&wanted_docs, $docs_dir);
 sub wanted_docs {
   return if /^\.\.?$/;
 
+  my $local_file_name = $_;
   my $current = $File::Find::name;
 
   $current =~ s|$docs_dir/||;
 
-  if ($current =~ m|^([^\.]+)\.md$| ||
-      $current =~ m|^([^\.]+)\.$database_name\.md$|) {
+  if ($current =~ m|^(.+)/(.+)\.$database_name\.md$| ||
+      $current =~ m|^(.+)/(.+)\.md$|) {
+
+    my $section = $1;
+    my $page_name = $2;
+
     push @files_to_scan, "$docs_dir/$current";
-    $valid_paths{$1} = 1;
+
+    if ($section eq 'faq') {
+      open my $f, '<', "../$current" or
+        die "can't open $current: $!\n";
+
+      my $first_line = <$f>;
+      my $id = make_id_from_page_name($first_line);
+      $valid_paths{"$section/$id"} = 1;
+      close $f;
+    } else {
+
+      my $id = make_id_from_page_name($page_name);
+
+      $valid_paths{"$section/$id"} = 1;
+    }
   }
 
   if (-d $current) {
-    $valid_paths{$current =~ s|\./||r} = 1;
+    $valid_paths{$current} = 1;
   }
 }
 
@@ -81,11 +122,17 @@ for my $file_to_scan (@files_to_scan) {
         next;
       }
 
-      if ($link =~ m@^(spombe/result|gene|reference)/|query$@) {
+      if ($link =~ m@^(spombe/result|results|gene|reference|archive)/|query$@) {
         next;
       }
 
       $link =~ s/#.*//;
+
+      my @link_parts = split "/", $link;
+
+      if (@link_parts == 2 && $link !~ /\.(png|jpe?g|gif)$/) {
+        $link = $link_parts[0] . '/' . make_id_from_page_name($link_parts[1]);
+      }
 
       if (!$valid_paths{$link}) {
         print "$file_to_scan:$.:  $link\n   $line\n";

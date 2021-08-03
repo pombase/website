@@ -161,6 +161,8 @@ sub make_id_from_heading {
     croak "no heading";
   }
 
+  $heading =~ s/^#+\s*//;
+
   (my $id = lc $heading) =~ s/[^A-Za-z\._]+/-/g;
 
   $id =~ s/-(with|the|at|from|to|the|of|that|is|for|an|a|in)-/-/g for 1..5;
