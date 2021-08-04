@@ -67,10 +67,14 @@ export class SearchBoxComponent implements OnInit {
 
   searchSummaries: Array<SearchSummary> = [];
 
-  cvNamesForTermComplete = '(' + getAppConfig().searchBoxCvNames.join(' OR ') + ')';
+  appConfig = getAppConfig();
 
-  sysGeneIdRe = new RegExp(getAppConfig().gene_systematic_identifier_re);
-  sysTranscriptIdRe = new RegExp(getAppConfig().transcript_systematic_identifier_re);
+  configuredTaxonIds = this.appConfig.organisms.map(org => org.taxonid);
+
+  cvNamesForTermComplete = '(' + this.appConfig.searchBoxCvNames.join(' OR ') + ')';
+
+  sysGeneIdRe = new RegExp(this.appConfig.gene_systematic_identifier_re);
+  sysTranscriptIdRe = new RegExp(this.appConfig.transcript_systematic_identifier_re);
 
   constructor(private completeService: CompleteService,
               private pombaseApiService: PombaseAPIService,
@@ -197,6 +201,9 @@ export class SearchBoxComponent implements OnInit {
 
     if (exactness === 'exact') {
       for (const orth of geneSumm.orthologs) {
+        if (!this.configuredTaxonIds.includes(orth.taxonid)) {
+          continue;
+        }
         if (orth.name && orth.name.toLowerCase() === value) {
           matchingOrthologs.push({ matchingFieldValue: orth.name, orth });
         } else {
@@ -212,6 +219,9 @@ export class SearchBoxComponent implements OnInit {
       }
     } else {
       for (const orth of geneSumm.orthologs) {
+        if (!this.configuredTaxonIds.includes(orth.taxonid)) {
+          continue;
+        }
         if (orth.name && orth.name.toLowerCase().indexOf(value) !== -1) {
           matchingOrthologs.push({ matchingFieldValue: orth.name, orth });
           break;
@@ -222,7 +232,7 @@ export class SearchBoxComponent implements OnInit {
     if (matchingOrthologs.length > 0) {
       const details =
         matchingOrthologs.map(({ matchingFieldValue, orth })  => {
-          const orgDetails = getAppConfig().getOrganismByTaxonid(orth.taxonid);
+          const orgDetails = this.appConfig.getOrganismByTaxonid(orth.taxonid);
           const commonNameSpan = `<span class="search-box-organism">(${orgDetails.common_name})</span>`;
           return `ortholog: ${this.highlightMatch(0, matchingFieldValue)} ${commonNameSpan}`;
         });
@@ -295,7 +305,7 @@ export class SearchBoxComponent implements OnInit {
         }
         if (filteredSummaries.length < 20) {
           let valueNoSuffixes = value;
-          const suffixesToTrim = getAppConfig().searchBoxConfig.suffixes_to_trim;
+          const suffixesToTrim = this.appConfig.searchBoxConfig.suffixes_to_trim;
           if (suffixesToTrim) {
             suffixesToTrim.map(suff => {
               valueNoSuffixes = valueNoSuffixes.replace(new RegExp(suff + '$'), '');
