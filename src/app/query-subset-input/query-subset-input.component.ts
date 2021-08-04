@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { QueryNodeConfig } from '../config';
-import { GeneQueryNode, SubsetNode } from '../pombase-query';
+import { GeneQueryNode, NodeEventDetails, SubsetNode } from '../pombase-query';
 
 @Component({
   selector: 'app-query-subset-input',
@@ -9,13 +9,13 @@ import { GeneQueryNode, SubsetNode } from '../pombase-query';
 })
 export class QuerySubsetInputComponent implements OnInit {
   @Input() nodeConfig: QueryNodeConfig;
-  @Output() nodeEvent = new EventEmitter();
+  @Output() nodeEvent = new EventEmitter<NodeEventDetails>();
 
   subsetName = '';
 
   constructor() { }
 
-  emitNodeEvent(node?: GeneQueryNode): void {
+  emitNodeEvent(node: GeneQueryNode): void {
     this.nodeEvent.emit({ node, nodeConf: this.nodeConfig });
   }
 

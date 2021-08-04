@@ -68,6 +68,7 @@ export interface QueryNodeConfig {
   topDescription: Array<QueryNodeTopDescriptionPart>;
   displayName: string;
   nodeType: string;
+  subNodes?: Array<QueryNodeConfig>;
   ontologyName?: string;
   annotationFeatureType?: string;
   subsetPrefix?: string;

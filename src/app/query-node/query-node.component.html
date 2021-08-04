@@ -12,6 +12,7 @@
 
     </div>
   </div>
+
   <div class="node-components">
     <div class="node-top" *ngIf="!activeConf">
       <div class="node-top-description">
@@ -27,108 +28,9 @@
     </div>
 
     <div *ngIf="activeConf">
-      <div class="node-top-description" *ngIf="activeConf.topDescription">
-        <span *ngFor="let part of activeConf.topDescription"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.link" routerLink="{{part.link.route}}">{{part.link.link_text}}</a></span>:
-      </div>
-
-      <div *ngIf="activeConf.nodeType == 'ontology'">
-        <app-query-term-node [termNodeConfig]="activeConf"
-                             [placeholder]="activeConf.placeholder ? activeConf.placeholder :'Start typing a ' + activeConf.displayName + ' term name or ID ...'"
-                             (newTermNode)="newTermNode($event)"></app-query-term-node>
-      </div>
-
-      <div *ngIf="activeConf.id == 'gene_list'">
-        <app-gene-list-lookup [lookupFieldType]="'id-and-name'" (genesFound)="genesFound($event)"></app-gene-list-lookup>
-      </div>
-
-      <div *ngIf="activeConf.id == 'uniprot_id_list'">
-        <span>For bulk lookup of UniProt accessions use the</span>
-        <a routerLink="/identifier-mapper/">Identifier Mapper</a>
-      </div>
-
-      <div *ngIf="activeConf.nodeType == 'small-ontology'">
-        <select [(ngModel)]="selectedTerm"
-                (ngModelChange)="smallOntologyChange()">
-          <option [ngValue]="undefined">Choose ...</option>
-          <option *ngFor = "let term of activeConf.terms" [ngValue]="term">
-            {{term.name}}
-          </option>
-        </select>
-      </div>
-
-      <div *ngIf="activeConf.nodeType == 'subset-select'">
-        <select [(ngModel)]="selectedSubset"
-                (ngModelChange)="subsetChange()">
-          <option [ngValue]="undefined">Choose ...</option>
-          <option *ngFor = "let subset of activeConf.subsets" [ngValue]="subset">
-            {{removePrefix(subset.displayName)}}
-          </option>
-        </select>
-      </div>
-
-      <div *ngIf="activeConf.nodeType == 'canned-queries'">
-        <div *ngFor="let cannedQueryDetail of cannedQueryDetails">
-          <a (click)="selectPredefinedQuery(cannedQueryDetail.queryId)"
-             [innerHTML]="cannedQueryDetail.name"></a>
-        </div>
-      </div>
-
-      <div *ngIf="activeConf.nodeType == 'subset-input'">
-        <input type="text" [(ngModel)]="subsetName" size="30"
-               [placeholder]="activeConf.placeholder || ''" />
-        <button type="button" class="btn btn-primary"
-                [disabled]="!subsetName || subsetName.trim().length == 0"
-                (click)="subsetInputSearch()">Search</button>
-      </div>
-
-      <div *ngIf="activeConf.nodeType == 'float-range'"
-           class="range float-range">
-        <input type="number" [(ngModel)]="rangeStart" min="0" step="0.01"
-               placeholder="min ..."/>
-        <input type="number" [(ngModel)]="rangeEnd" min="0" step="0.01"
-               placeholder="max ..."/>
-        <button type="button" class="btn btn-primary"
-                [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'"
-                [disabled]="!validRange()" (click)="floatRangeSearch()">Search</button>
-      </div>
-
-      <div *ngIf="activeConf.nodeType == 'int-range'"
-           class="range coord-range">
-        <input type="number" [(ngModel)]="rangeStart" min="1" step="1"
-               placeholder="min ..."/>
-        <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
-               placeholder="max ..."/>
-        <button type="button" class="btn btn-primary"
-                [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'"
-                [disabled]="!validRange()" (click)="intRangeSearch()">Search</button>
-      </div>
-
-      <div *ngIf="activeConf.id == 'genome_range'">
-        <div class="node-section">
-
-            <select [(ngModel)]="chromosomeName">
-              <option [ngValue]="undefined">Choose a chromosome</option>
-              <option *ngFor = "let chrDetails of displayChromosomes"
-                      [ngValue]="chrDetails.name">
-                {{chrDetails.long_display_name}}
-              </option>
-            </select>
-
-        </div>
-        <div class="node-section">
-          Restrict to region:
-          <input type="number" [(ngModel)]="rangeStart" min="1" step="1"
-                 placeholder="start base (optional) ..."/>
-          <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
-                 placeholder="end base (optional) ..."/>
-          <div style="color: red" *ngIf="(rangeStart || rangeEnd) &&!validRange()">
-            Start position must be less the end position
-          </div>
-        </div>
-        <button type="button" class="btn btn-primary"
-                [attr.title]="genomeRangeButtonTitle()"
-                [disabled]="(rangeStart || rangeEnd) && !validRange() || !chromosomeName" (click)="genomeRangeSearch()">Search</button>
-      </div>
+      <app-query-node-display [nodeConfig]="activeConf"
+                              (nodeEvent)="emitEvent($event)">
+      </app-query-node-display>
     </div>
   </div>
 </div>

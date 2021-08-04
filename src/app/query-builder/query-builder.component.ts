@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { GeneQuery, GeneQueryNode, TermNode, SubsetNode, Ploidiness } from '../pombase-query';
+import { GeneQuery, TermNode, SubsetNode, Ploidiness, NodeEventDetails } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { ToastrService } from 'ngx-toastr';
-import { getAppConfig, QueryNodeConfig } from '../config';
+import { getAppConfig } from '../config';
 import { Title } from '@angular/platform-browser';
 import { SettingsService } from '../settings.service';
 import { QueryRouterService } from '../query-router.service';
@@ -93,15 +93,15 @@ export class QueryBuilderComponent implements OnInit {
     this.queryService.runAndSaveToHistory(query);
   }
 
-  nodeEvent({ node, nodeConf }: {node?: GeneQueryNode, nodeConf?: QueryNodeConfig}) {
-    if (node) {
-      const query = new GeneQuery(node);
+  nodeEvent(nodeEventDetails?: NodeEventDetails) {
+    if (nodeEventDetails) {
+      const query = new GeneQuery(nodeEventDetails.node);
       this.saveQuery(query);
 
       this.toastr.success('Query results added to history below');
 
-      if (nodeConf!.extraResultTableColumns) {
-        this.settingsService.addVisibleGenesTableFields(nodeConf!.extraResultTableColumns);
+      if (nodeEventDetails.nodeConf!.extraResultTableColumns) {
+        this.settingsService.addVisibleGenesTableFields(nodeEventDetails.nodeConf!.extraResultTableColumns);
       }
     }
   }

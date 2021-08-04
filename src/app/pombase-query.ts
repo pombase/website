@@ -1,7 +1,7 @@
 import { Util } from './shared/util';
 import { GeneShort } from './pombase-api.service';
 import { QueryOutputOptions, DisplayResultRow } from './query.service';
-import { getAppConfig } from './config';
+import { getAppConfig, QueryNodeConfig } from './config';
 
 export type Ploidiness = 'haploid'|'diploid'|'any';
 
@@ -840,4 +840,9 @@ export class GeneQuery {
     }
     return this.stringQuery;
   }
+}
+
+export interface NodeEventDetails {
+  node: GeneQueryNode;
+  nodeConf: QueryNodeConfig;
 }

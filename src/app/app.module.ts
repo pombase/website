@@ -122,6 +122,9 @@ import { IdentifierMapperResultsComponent } from './identifier-mapper-results/id
 import { JbrowseTrackOrderByPipe } from './jbrowse-track-order-by.pipe';
 import { TrackViewComponent } from './track-view/track-view.component';
 import { NotDirectionSelectDialogComponent } from './not-direction-select-dialog/not-direction-select-dialog.component';
+import { QuerySubsetInputComponent } from './query-subset-input/query-subset-input.component';
+import { QuerySubNodesComponent } from './query-sub-nodes/query-sub-nodes.component';
+import { QueryNodeDisplayComponent } from './query-node-display/query-node-display.component';
 
 export function documentFactory() {
     return document;
@@ -218,6 +221,9 @@ export function windowFactory() {
     JbrowseTrackOrderByPipe,
     TrackViewComponent,
     NotDirectionSelectDialogComponent,
+    QuerySubsetInputComponent,
+    QuerySubNodesComponent,
+    QueryNodeDisplayComponent,
   ],
   imports: [
     BrowserModule,
