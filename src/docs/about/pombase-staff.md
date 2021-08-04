@@ -18,9 +18,12 @@ United Kingdom
 -   Val Wood (Curator & co-PI)
 -   Midori Harris (Curator)
 -   Kim Rutherford (Programmer)
--   Steve Oliver (PI)
 
 #### [University College London](http://www.ucl.ac.uk/)
 
-<! ---   Antonia Lock (Curator) -->
 -   Jürg Bähler (co-PI)
+
+#### PomBase Alumni
+
+-   Antonia Lock (Curator, UCL)
+-   Steve Oliver (PI, Cambridge)

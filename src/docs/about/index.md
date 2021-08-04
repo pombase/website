@@ -15,15 +15,7 @@ documentation and mailing lists.
 
 Email: [helpdesk@pombase.org](mailto:helpdesk@pombase.org)
 
-Post:
-
-PomBase\
-Department of Biochemistry\
-University of Cambridge\
-80 Tennis Court Road\
-Cambridge\
-CB2 1GA\
-United Kingdom
+For more information, see the [PomBase Staff](about/pombase-staff) page.
 
 ### Submit Data
 
@@ -59,17 +51,7 @@ Complete list of [papers published by PomBase](about/published-by-pombase).
 
 ### PomBase staff
 
-#### [University of Cambridge](http://www.cam.ac.uk/)
-
--   Val Wood (Curator & co-PI)
--   Midori Harris (Curator)
--   Kim Rutherford (Programmer)
--   Steve Oliver (PI)
-
-#### [University College London](http://www.ucl.ac.uk/)
-
--   Antonia Lock (Curator)
--   Jürg Bähler (co-PI)
+Current and past [PomBase Staff](about/pombase-staff)
 
 ------------------------------------
 
