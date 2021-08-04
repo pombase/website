@@ -29,7 +29,7 @@ data from annotated papers widely visible.
 
 **Progress and attribution**:
   [Curation statistics](https://curation.pombase.org/pombe/stats/annotation)
-  track S. pombe papers curated in Canto by PomBase and community
+  track *S. pombe* papers curated in Canto by PomBase and community
   curators, and the annotations obtained. Canto will soon allow
   contributors to register [ORCID](http://orcid.org/) identifiers in
   the system, which will support more formalised attribution of

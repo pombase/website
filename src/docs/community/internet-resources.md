@@ -1,11 +1,9 @@
 ## *S. pombe* Community Websites
 
--   [PombeWeb](http://www-bcf.usc.edu/~forsburg/pombeweb.html) maintained by Susan Forsburg
-    -   [Fission yeast researchers](http://www-bcf.usc.edu/~forsburg/pombeweb.html#people) at PombeWeb
-
--   [PombeNet](http://www-bcf.usc.edu/~forsburg/main.html) maintained by Susan Forsburg
-    -   [About pombe](http://www-bcf.usc.edu/~forsburg/main.html) at PombeNet
-    -   [Working with pombe](http://www-bcf.usc.edu/~forsburg/plasmids.html) at PombeNet
+-   [PombeNet](https://dornsife.usc.edu/pombenet/) maintained by Susan Forsburg
+    -   [PombeWeb](https://dornsife.usc.edu/pombenet/pombeweb/) maintained by Susan Forsburg; includes a list of fission yeast researchers]
+    -   [About pombe](https://dornsife.usc.edu/pombenet/about-pombe/) at PombeNet
+    -   [Working with pombe](https://dornsife.usc.edu/pombenet/working-with-pombe/) at PombeNet
 
 -   [PubMed RSS Feed](http://eutils.ncbi.nlm.nih.gov/entrez/eutils/erss.cgi?rss_guid=1ToPSyjDNLLW2R_UIOHFTxnRdlJouyMeQX4YfwMFXtO8d87M4r)
     Feed for current *S. pombe* related publications.
@@ -17,13 +15,11 @@
 -   The [QuickGO](http://www.ebi.ac.uk/quickgo/) browser at EBI
 -   [SGD GO documentation](https://sites.google.com/view/yeastgenome-help/function-help/gene-ontology-go)
     to help SGD users become familiar with GO
--   [Onto-Express](http://vortex.cs.wayne.edu/projects.htm#Onto-Express)
-    find significant GO terms in lists of genes
 -   [GOTermFinder](http://go.princeton.edu/cgi-bin/GOTermFinder)
     find significant GO terms in lists of genes
 -   [AnGeLi: Analysis of Gene Lists](http://bahlerweb.cs.ucl.ac.uk/cgi-bin/GLA/GLA_input) (UCL)
     uses GO, phenotypes, interactions, etc.
--   [Sequence Ontology](http://www.sequenceontology.org/)
+-   [Sequence Ontology](https://github.com/The-Sequence-Ontology/SO-Ontologies) <!-- (http://www.sequenceontology.org/) -->
 
 ### Interactions, Pathways and Networks
 
@@ -47,7 +43,7 @@
 -->
 -   [Artemis](http://www.sanger.ac.uk/science/tools/artemis) Sequence
     viewer and analysis tool (Note: for *S. pombe* we recommend using [Artemis Version 16](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/). 
--   [Map viewer](http://www.ncbi.nlm.nih.gov/mapview/map_search.cgi?chr=spombe.inf)
+-   [Genome Data Viewer](https://www.ncbi.nlm.nih.gov/genome/gdv/?org=schizosaccharomyces-pombe&group=ascomycota)
     at the NCBI
 -   [Mitochondrial Genome Information](http://megasun.bch.umontreal.ca/People/lang/species/spo/spombe.html)
 
@@ -65,7 +61,7 @@
     Nuclear localization signal prediction
 -   [YOGY](http://www.bahlerlab.info/YOGY/) A resource for
     retrieving orthologous proteins
--   [EPD](http://epd.vital-it.ch/S_pombe/S_pombe_database.php)
+-   [EPD](https://epd.epfl.ch//S_pombe/S_pombe_database.php)
     Eukaryotic Promoter Database, *S. pombe* section
 
 ### Gene Expression
@@ -77,7 +73,7 @@
 
 ### Experimental tools
 
--   [PRIMED](http://www.massgeneral.org/cancer/research/motamediresources.aspx)
+-   [PRIMED](https://www.massgeneral.org/cancer-center/clinical-trials-and-research/center-for-cancer-research/investigators/motamedi-lab)
     Primers for deleting and tagging yeast genes (*S. pombe* and *S. cerevisiae*; scroll to bottom of page for downloadable spreadsheets)
 
 ### Strains and Constructs
