@@ -59,7 +59,9 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.displayTable =
-      this.annotationTable.map(row => {
+      this.annotationTable
+        .filter(row => !!row.ortholog_organism)
+        .map(row => {
         let shortProduct;
 
         if (row.ortholog.product) {
