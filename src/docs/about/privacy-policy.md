@@ -31,7 +31,7 @@ may collect and process the following data about you:
   you access.
 - Cookies and analytics information that make our site easier to use
   and allow us to continue to improve our website. (Read our [Cookie
-  policy](about/cookie-policy).
+  policy](about/cookie-policy)).
 
 We may also access information from other sources when you interact
 with PomBase online:
@@ -128,7 +128,7 @@ important rights free of charge. In summary, those include rights to:
 
 For further information on each of those rights, including the
 circumstances in which they apply, see the Guidance from the UK
-[Information Commissioner's Office[(https://ico.org.uk/) (ICO) on
+[Information Commissioner's Office](https://ico.org.uk/) (ICO) on
 individuals' rights under the General Data Protection Regulation.
 
 If you would like to exercise any of those rights, please contact us
