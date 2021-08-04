@@ -9,7 +9,7 @@ features of the fission yeast slim terms and annotations.
     not additive, because many gene products are annotated to multiple
     terms.
 2.  It not possible to create a slim with no overlaps between terms.
-    Although the *S. pombe* slim has been defined to include biologically
+    Although the *S. pombe* slims have been defined to include biologically
     informative terms, and minimise overlaps between terms, large
     overlaps cannot be entirely avoided. For example, most of the gene
     products annotated to *signal transduction* are also annotated other
@@ -25,8 +25,8 @@ features of the fission yeast slim terms and annotations.
     very few annotations), or very high level terms which are not
     particularly biologically informative (e.g. cellular
     process). Because we have opted not to include such terms, some
-    gene products are annotated to process terms but do not appear in
-    the slim annotation set.
+    gene products are annotated to terms but do not appear in
+    the slim annotation set for each ontology (especially biological process).
 5.  Bear in mind that both proteins and RNAs can be annotated to GO
     terms. If you are working only with proteins you will need to make
     adjustments for this. For example, many tRNAs and rRNAs are
@@ -39,7 +39,7 @@ features of the fission yeast slim terms and annotations.
     making comparisons with other organisms, remember that it is
     possible that not all gene products have been assessed and that the
     "unknown" set is underestimated.
-7.  The default S. pombe slim includes all evidence codes for fission
+7.  The default *S. pombe* slims include all evidence codes for fission
     yeast. The evidence code **IEA** (inferred from electronic
     annotation) is often considered to be less accurate than other
     evidence codes, but it is very useful for increasing the coverage of
@@ -94,7 +94,7 @@ features of the fission yeast slim terms and annotations.
     distinction to be available in future versions of slimming
     software.
 
-<!-- restore commented-out version when ticket 1521 done
+<!-- restore commented-out version when ticket 1521 (or a successor) done
 5.  Most current implementations of software to create "GO slims"
     include the *regulates* relationship by default, so that (for
     example) genes involved in *regulation of cytokinesis* will be

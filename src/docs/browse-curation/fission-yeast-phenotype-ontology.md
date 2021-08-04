@@ -27,7 +27,7 @@ both of which allow searching and browsing.
   [FYPO terms](http://bioportal.bioontology.org/ontologies/FYPO/?p=classes)
   (the term display supports tree-viewer browsing, text searches, and
   a graphical display)
-- [OLS FYPO browser](http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=FYPO)
+- [OLS FYPO browser](https://www.ebi.ac.uk/ols/ontologies/fypo)
 
 We hope to deploy a browser at PomBase in the not-too-distant future
 that will include annotations as well as terms.
@@ -38,7 +38,7 @@ FYPO terms are displayed on PomBase gene pages, along with supporting
 evidence and allele and expression details, as described in the
 PomBase gene page documentation.
 
-The PomBase advanced search can use either term names or IDs to search
+The PomBase [advanced search](/query) can use either term names or IDs to search
 FYPO, and returns a list of genes that have alleles annotated to the
 specified term or any of its descendants.  For example, see the
 [FAQ on finding essential genes](/faq/can-i-get-list-essential-pombe-genes).
@@ -47,7 +47,7 @@ specified term or any of its descendants.  For example, see the
 
 The PomBase online curation tool,
 [Canto](http://curation.pombase.org/pombe), uses FYPO terms for
-annotation of S. pombe phenotypes.
+annotation of *S. pombe* phenotypes.
 [Phenotype curation documentation](http://curation.pombase.org/pombe/docs/fypo_annotation)
 is available via Canto.
 
