@@ -185,19 +185,19 @@
   mRNA (protein\_coding)   11      29.39            1,393.00
   tRNA                     25      38.75            74.52
 
-\
+
 ### Telomeric located contig transcript breakdown
 
   Feature type             Count   GC content (%)   Mean length (bp)
   ------------------------ ------- ---------------- ------------------
   mRNA (protein\_coding)   5       38.46            1,428.00
 
-\
+
 ### Mating type region
 
   Feature type             Count   GC content (%)   Mean length (bp)
   ------------------------ ------- ---------------- ------------------
   mRNA (protein\_coding)   4       35.94            395.75
 
-\
+
 #### **Release Version:** 30th Jan 2017

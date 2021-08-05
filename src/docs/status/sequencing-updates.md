@@ -6,15 +6,15 @@
 
 The reference sequence appears to contain an extra 'G' at position
 4410193 PMID:17035632, also confirmed by Broad sequence; Pers. comm. Aki
-Hayashi Reported 05/16/07
+Hayashi. Reported 2007-05-16
 
 #### Aug 29 2008 Chromosome 1 cosmid c767 affecting SPAC767.01c/Vps1
 
 **PENDING 2007-08-23**
 
 At 1999191 in Vps1 TGTGACC\[C-&gt;G\]TACGAC PMID:18088324, also
-confirmed by Broad sequence; Pers. comm. Isabelle Jourdain Reported
-06/15/05
+confirmed by Broad sequence; Pers. comm. Isabelle Jourdain. Reported
+2005-06-15
 
 #### Aug 29 2008 Chromosome 2 cosmid c21D10 affecting SPBC21D10.06c/Map4
 
@@ -23,7 +23,7 @@ confirmed by Broad sequence; Pers. comm. Isabelle Jourdain Reported
 Map4 in the reference genome contains an array of 5 repeats. In
 PMID:168571979 repeats are reported. This number is the correct number
 of repeats and will be updated via an insertion into the contig sequence
-shortly. Pers. comm. Henar Valdivieso Reported 06/15/05
+shortly. Pers. comm. Henar Valdivieso. Reported 2005-06-15
 
 
 #### Aug 29 2008 Chromosome 1 cosmid c27D7 misassembly causing duplication of SPAC27D7.09c (SPAC27D7.10c)
@@ -34,7 +34,7 @@ An apparent repeat region on chromosome 1 coordinates 4526059..4529095
 (cosmid c27D7) is caused by a missassembly and will be removed from the
 genomic sequence shortly. The CDS feature SPAC27D7.10c within this
 region is an exact duplication of SPAC27D7.09c and will be merged with
-this CDS. Pers. comm. Klavs Hansen. Reported 09/01/04
+this CDS. Pers. comm. Klavs Hansen. Reported 2004-09-01
 
 #### Jun 2008 GATC in overlap c1450 and c1442 affects SPCC1442.04c
 
@@ -42,7 +42,7 @@ this CDS. Pers. comm. Klavs Hansen. Reported 09/01/04
 
 There are 4 bases missing from the sequence AACATCTTCCAAGTTCTCAT GATC
 CTTTAAAGATTCCTCAAGGT, which will change the C-terminal region slightly.
-This will be fixed in the next round of corrections
+This will be fixed in the next round of corrections.
 
 
 #### Jun 2008 197 potential sequence discrepancies from the Broad Institute

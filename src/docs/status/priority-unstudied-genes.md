@@ -2,13 +2,12 @@
 
 Fission yeast genes are classed as "unknown" if there is no information
 about the broad cellular role (biological process) in which it
-participates (corresponding to any of the [high level GO biological process slim classes](/browse-curation/fission-yeast-bp-go-slim-terms)). For these, we
-have been unable to identify a broad biological role based on
-experimental data in fission yeast or any other organism. Note that, as
-all genes in fission yeast have been curated, these genes are documented
+participates (corresponding to any of the [high level GO biological process slim classes](/browse-curation/fission-yeast-bp-go-slim-terms)). For these, we have been unable to identify a broad biological role based on
+experimental data in *S. pombe* or any other organism. Note that, as
+all genes in *S. pombe* have been curated, these genes are documented
 as "unknown" (they are not "unannotated").
 
-In fission yeast the "unknown" inventory is 
+In *S. pombe* the "unknown" inventory is 
 <app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:unknown_genes'"></app-query-link> entries, many of
 which are apparently found only in the fission yeast clade. However, a large number
 (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown'"></app-query-link>) are conserved, and a significant

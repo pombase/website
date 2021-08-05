@@ -2,7 +2,7 @@
 
 At present, each centromere is annotated as a single sequence
 feature in PomBase, which can be viewed in and downloaded from the
-Ensembl genome browser.
+genome browser.
 
 Chromosome coordinates (links to JBrowse):
 
@@ -31,8 +31,8 @@ constructs.
 
 ![Centromere map](assets/centromeremapping.gif){width="779" height="540"}
 
-Centromere map from: The genome sequence of *Schizosaccharomyces pombe*.
-Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam
+Centromere map from: Wood *et al.* 2002 The genome sequence of *Schizosaccharomyces pombe*.
+Nature 415(6874):871-80 ([PMID:11859360](http://www.ncbi.nlm.nih.gov/pubmed/11859360)). Created by Rhian Gwilliam.
 
 [cen1]: https://www.pombase.org/jbrowse/?loc=I%3A3753680..3789414&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
 [cen2]: https://www.pombase.org/jbrowse/?loc=II%3A1602261..1644744&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=

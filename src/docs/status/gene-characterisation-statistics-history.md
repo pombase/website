@@ -101,8 +101,7 @@
  </tbody>
 </table>
 
-#### History of characterisation status using previous status
-descriptions: ####
+#### History of characterisation status using previous status descriptions: ####
 
 <table>
  <thead>
