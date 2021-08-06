@@ -243,6 +243,7 @@ export interface AppConfig {
     reference: string;
   },
   social_media: boolean;
+  twitter_account?: string;
   has_disease_annotation: boolean;
   news_on_front_page: boolean;
   has_admin_curation: boolean;
@@ -752,6 +753,7 @@ let _appConfig: AppConfig = {
   data_sources: pombaseConfig.data_sources,
   example_pages: pombaseConfig.example_pages,
   social_media: pombaseConfig.social_media,
+  twitter_account: pombaseConfig.twitter_account,
   has_disease_annotation: pombaseConfig.has_disease_annotation,
   news_on_front_page: pombaseConfig.news_on_front_page,
   has_admin_curation: pombaseConfig.has_admin_curation,

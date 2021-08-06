@@ -36,7 +36,7 @@ export class FrontComponent implements OnInit {
   siteName = getAppConfig().site_name;
 
   examplePages = getAppConfig().example_pages;
-  showTwitter = getAppConfig().social_media;
+  twitterAccount = getAppConfig().twitter_account;
   hasDiseaseAnnotation = getAppConfig().has_disease_annotation;
   showNewsItems = getAppConfig().news_on_front_page;
   welcomeMessage = getAppConfig().welcome_message;

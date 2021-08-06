@@ -90,9 +90,9 @@
   <app-recent-news></app-recent-news>
 </div>
 
-<div *ngIf="showTwitter" class="front-twitter-feed">
-<a class="twitter-timeline" data-tweet-limit="6" href="https://twitter.com/PomBase">
-   Tweets by PomBase
+<div *ngIf="twitterAccount" class="front-twitter-feed">
+<a class="twitter-timeline" data-tweet-limit="6" href="https://twitter.com/{{twitterAccount}}">
+   Tweets by @{{twitterAccount}}
 </a>
 </div>
 </div>
