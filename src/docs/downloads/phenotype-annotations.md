@@ -65,7 +65,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 
 1.  The database that produced the file -- included to facilitate data
     sharing with other databases. Obviously always PomBase for this
-    file.
+    file. (Also note that PHAF files submitted for loading can omit this column.)
 2.  The systematic ID for each gene.
 3.  To use the FYPO IDs, see the [FYPO summary page](/browse-curation/fission-yeast-phenotype-ontology) 
     and the

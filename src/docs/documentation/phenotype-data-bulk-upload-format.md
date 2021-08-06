@@ -63,14 +63,12 @@ blank in the rest of the rows.
     background strain.
 7.  The Genotype description column is for alleles in the background,
     such as selectable markers; these details are optional. To avoid
-    redundancy, do not repeat the allele of interest (from column 3 or
-    9) in the genotype column.
+    redundancy, do not repeat the allele of interest (from column 3 or 9) in the genotype column.
 8.  Gene names are optional. If you include them, use standard names
     in column 8 (see gene pages or the file of All Gene Names from the
     dataset download page).
 9.  Allele names are optional. If you include them, use column 9 for
-    the preferred allele name, and put any alternative names in column
-    10.
+    the preferred allele name, and put any alternative names in column 10.
 10. See note 9 above. Separate multiple entries with pipes (|).
 11. Allowed allele types, example descriptions, etc. are shown in the
     table below.
