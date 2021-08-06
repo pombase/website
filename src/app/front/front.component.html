@@ -90,7 +90,8 @@
   <app-recent-news></app-recent-news>
 </div>
 
-<div *ngIf="twitterAccount" class="front-twitter-feed">
+<div *ngIf="twitterAccount"
+     [ngClass]="{'front-twitter-feed': twitterAccount == 'PomBase', 'front-twitter-feed-small': twitterAccount != 'PomBase'}">
 <a class="twitter-timeline" data-tweet-limit="6" href="https://twitter.com/{{twitterAccount}}">
    Tweets by @{{twitterAccount}}
 </a>

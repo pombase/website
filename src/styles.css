@@ -364,11 +364,11 @@ select option:disabled {
 
 /* very dodgy hack to detect IE 10 and 11 */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .info-panel, .front-twitter-feed {
+  .info-panel, .front-twitter-feed, .front-twitter-feed-small {
     width: 300px;
   }
 
-  .info-panel, .front-twitter-feed, .front-news-feed {
+  .info-panel, .front-twitter-feed, .front-twitter-feed-small, .front-news-feed {
     display: inline-block;
     margin: 0.2em;
     min-height: 32em;
@@ -394,7 +394,7 @@ select option:disabled {
   margin-bottom: 0.6em;
 }
 
-.info-panel, .front-twitter-feed {
+.info-panel, .front-twitter-feed, .front-twitter-feed-small {
   box-shadow: 0px 0px 18px rgba(120,120,120,.80);
   vertical-align: top;
   max-width: 300px;
