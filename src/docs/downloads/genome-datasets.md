@@ -24,7 +24,7 @@ These files contain coordinates, but no sequence data:
 
 -   [Chromosome contigs](https://www.pombase.org/data/genome_sequence_and_features/artemis_files/)
     in enriched EMBL-based format for loading into
-    Artemis (see the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase) 
+    Artemis (see the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase)) 
 -   Older files in [EMBL format](https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/embl/)
     and [GenBank format](https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/genbank/)
     are available, and reflect the current genome sequence, with feature annotations from January 2017.
@@ -40,7 +40,7 @@ These files contain coordinates, but no sequence data:
 -   Coding sequences (CDS)
 -   CDS + introns
 -   CDS + introns + UTRs
-<!-- -   Introns -->
+-   Introns within coding sequences
 -   5' and 3' UTRs
 -   Peptide sequences
 <!-- -   Non-coding RNA genes -->

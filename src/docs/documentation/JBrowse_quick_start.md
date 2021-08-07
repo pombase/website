@@ -8,7 +8,7 @@ The PomBase genome browser can be accessed in multiple ways:
   above the map image
 - On the publication page for any paper with associated datasets,
   select tracks from the list and click the "Load in JBrowse" button
-- Go directly to https://www.pombase.org/jbrowse/
+- Go directly to [https://www.pombase.org/jbrowse/](https://www.pombase.org/jbrowse/)
 
 ### DNA sequence, forward features and reverse features
 
