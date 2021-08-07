@@ -342,7 +342,7 @@ sub make_news_thumbnail
 {
   my $item = shift;
 
-  return qq|<img class="newsfeed-thumbnail" src="/assets/newsfeed/$item->{thumbnail}"/>|;
+  return qq|<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/$item->{thumbnail}"/>|;
 }
 
 sub process_path {
