@@ -34,7 +34,7 @@
 <div id="footer-logos">
   <a *ngFor="let conf of getLogoConfig()"
      href="{{conf.url}}">
-    <img src="assets/{{conf.image}}" alt="{{conf.alt_text}}"/>
+    <img loading="lazy" src="assets/{{conf.image}}" alt="{{conf.alt_text}}"/>
   </a>
 </div>
 
