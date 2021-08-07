@@ -2,9 +2,9 @@
   <div class="head-img">
     <div *ngIf="headImage">
       <a *ngIf="headImageLink" href="{{headImageLink}}">
-        <img width="300" height="185" src="{{headImage}}" />
+        <img loading="lazy" width="300" height="185" src="{{headImage}}" />
       </a>
-      <img *ngIf="!headImageLink" width="300" height="185" src="{{headImage}}" />
+      <img *ngIf="!headImageLink" loading="lazy" width="300" height="185" src="{{headImage}}" />
     </div>
   <video *ngIf="headVideo" width="300" autoplay>
     <source src="{{headVideo}}" type="video/mp4">
