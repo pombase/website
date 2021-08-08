@@ -3,18 +3,18 @@
 
   <div class="content">
     <span class="op-buttons">
-    <span *ngIf="getSelectedEntries().length < 2">
+    <span [style.display]="getSelectedEntries().length < 2 ? 'inherit' : 'none'">
       <button class="btn btn-primary" disabled title="Select two or more queries to union">Union / or <img class="bool-op-image" src="assets/disabled_operator_or.png"/></button>
       <button class="btn btn-primary" disabled title="Select two or more queries to intersect">Intersect / and <img class="bool-op-image" src="assets/disabled_operator_and.png"/></button>
     </span>
-    <span *ngIf="getSelectedEntries().length >= 2">
+    <span [style.display]="getSelectedEntries().length >= 2 ? 'inherit' : 'none'">
       <button class="btn btn-primary" (click)="action('or')">Union / or <img class="bool-op-image" src="assets/operator_or.png"/></button>
       <button class="btn btn-primary" (click)="action('and')">Intersect / and <img class="bool-op-image" src="assets/operator_and.png"/></button>
     </span>
-    <span *ngIf="getSelectedEntries().length != 2">
+    <span [style.display]="getSelectedEntries().length != 2 ? 'inherit' : 'none'">
       <button class="btn btn-primary" disabled title="Select two query for subtract">Subtract / not <img class="bool-op-image" src="assets/disabled_operator_not.png"/></button>
     </span>
-    <span *ngIf="getSelectedEntries().length == 2">
+    <span [style.display]="getSelectedEntries().length == 2 ? 'inherit' : 'none'">
       <button class="btn btn-primary" (click)="action('not')">Subtract / not <img class="bool-op-image" src="assets/operator_not.png"/></button>
     </span>
     </span>
