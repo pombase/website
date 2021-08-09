@@ -1068,6 +1068,13 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     urlSyntax: 'https://www.uniprot.org/unirule/[example_id]',
     website: 'https://www.uniprot.org/unirule/',
   },
+  JaponicusDB : {
+    "description" : "The Schizosaccharomyces japonicus genome database",
+    displayName : "JaponicusDB",
+    "urlSyntax" : "https://www.japonicusdb.org/gene/[example_id]",
+    "website" : "https://www.japonicusdb.org/"
+  },
+
 };
 
 export interface XrfDetails {
