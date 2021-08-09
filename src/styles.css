@@ -223,8 +223,8 @@ select option:disabled {
     width: 85%;
     padding: 0.5em;
   }
-  .small-logo-visible img {
-    width: 24vw;
+  .small-logo-visible {
+    display: none;
   }
 }
 
@@ -232,7 +232,6 @@ select option:disabled {
   margin-top: 5px;
   margin-bottom: 5px;
   background-color: #eeebdd;
-  padding: 2px 3px 2px 3px;
 }
 
 .left-menu-header {
@@ -242,7 +241,6 @@ select option:disabled {
   border-left: 4px solid #556;
 }
 .left-menu-item {
-  font-size: 88%;
   margin-left: 6px;
   border-left: 3px solid #667;
 }
@@ -255,6 +253,51 @@ select option:disabled {
   margin-left: 18px;
   font-size: 73%;
   border-left: 1.7px solid #889;
+}
+
+@media (min-height: 730px) or (max-width: 800px) {
+  .left-menu-item {
+    font-size: 88%;
+  }
+  .left-menu-part {
+    padding: 2px 3px 2px 3px;
+  }
+}
+@media (min-height: 675px) and (max-height: 730px) and (min-width: 800px) {
+  .left-menu-item {
+    font-size: 80%;
+  }
+  .left-menu-part {
+    padding: 2px 3px 2px 3px;
+  }
+}
+@media (min-height: 610px) and (max-height: 675px) and (min-width: 800px) {
+  .left-menu-item {
+    font-size: 77%;
+  }
+  .left-menu-part {
+    padding: 2px 3px 1px 3px;
+  }
+}
+@media (min-height: 580px) and (max-height: 610px) and (min-width: 800px) {
+  .left-menu-item {
+    font-size: 70%;
+  }
+  .left-menu-part {
+    padding: 2px 3px 1px 3px;
+  }
+}
+
+@media (max-height: 580px) and (min-width: 800px) {
+  .left-menu-item {
+    font-size: 68%;
+  }
+  .left-menu-part {
+    padding: 1px 3px 1px 3px;
+  }
+  .small-logo-visible {
+    display: none;
+  }
 }
 
 .left-menu-part a:not([href]):not([tabindex]) {
