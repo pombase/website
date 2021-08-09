@@ -84,8 +84,8 @@ for my $xref (@$xrefs) {
 my @missing_dbs = sort keys %db_ids;
 
 if (@missing_dbs) {
-  warn "warning: some databases could not be found in $file_name:",
-    " @missing_dbs\n";
+  warn "warning: some databases could not be found in db-xrefs.yaml:\n",
+    "@missing_dbs\n\n";
 }
 
 print to_json( \%result, { canonical => 1, pretty => 1 } );
