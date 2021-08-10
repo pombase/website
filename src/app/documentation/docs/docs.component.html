@@ -7,6 +7,7 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/about/published-by-pombase">PomBase Publications</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/terms-of-use">Terms of Use</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-sab">SAB</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-staff">Staff</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/privacy-policy">Privacy Policy</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/help">Help</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/resource-metrics">Resource metrics</a></div>
@@ -232,14 +233,7 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 <hr />
 <h3 id="contact-pombase-staff">Contact PomBase staff</h3>
 <p>Email: <a href="mailto:helpdesk@pombase.org">helpdesk@pombase.org</a></p>
-<p>Post:</p>
-<p>PomBase<br />
-Department of Biochemistry<br />
-University of Cambridge<br />
-80 Tennis Court Road<br />
-Cambridge<br />
-CB2 1GA<br />
-United Kingdom</p>
+<p>For more information, see the <a routerLink="/about/pombase-staff">PomBase Staff</a> page.</p>
 <h3 id="submit-data">Submit Data</h3>
 <p>See the <a routerLink="/submit-data">Submit data</a> page</p>
 <h3 id="data-sources">Data sources</h3>
@@ -256,18 +250,7 @@ United Kingdom</p>
 <p><a routerLink="/about/pombase-sab">Scientific Advisory Board members</a></p>
 <hr />
 <h3 id="pombase-staff">PomBase staff</h3>
-<h4 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h4>
-<ul>
-<li>Val Wood (Curator &amp; co-PI)</li>
-<li>Midori Harris (Curator)</li>
-<li>Kim Rutherford (Programmer)</li>
-<li>Steve Oliver (PI)</li>
-</ul>
-<h4 id="university-college-london"><a href="http://www.ucl.ac.uk/">University College London</a></h4>
-<ul>
-<li>Antonia Lock (Curator)</li>
-<li>Jürg Bähler (co-PI)</li>
-</ul>
+<p>Current and past <a routerLink="/about/pombase-staff">PomBase Staff</a></p>
 <hr />
 <h3 id="data-versions">Data versions</h3>
 <p>Versions of internal and external data loaded into current and past PomBase releases.</p>
@@ -332,10 +315,17 @@ United Kingdom</p>
 <li>Val Wood (Curator &amp; co-PI)</li>
 <li>Midori Harris (Curator)</li>
 <li>Kim Rutherford (Programmer)</li>
-<li>Steve Oliver (PI)</li>
+<li>Juan Mata (PI)</li>
 </ul>
 <h4 id="university-college-london"><a href="http://www.ucl.ac.uk/">University College London</a></h4>
-<p>&lt;! — Antonia Lock (Curator) –&gt; - Jürg Bähler (co-PI)</p>
+<ul>
+<li>Jürg Bähler (co-PI)</li>
+</ul>
+<h4 id="pombase-alumni">PomBase Alumni</h4>
+<ul>
+<li>Antonia Lock (Curator, UCL)</li>
+<li>Steve Oliver (PI, Cambridge)</li>
+</ul>
 
   </div>
   <div *ngIf="pageName == 'privacy-policy'">
@@ -350,7 +340,7 @@ United Kingdom</p>
 <li>If you contact us, we may keep a record of that correspondence.</li>
 <li>We may also ask you to complete surveys to help us improve our services, although you do not have to respond to them.</li>
 <li>When you browse the website, we collect details of your visits to our site including, but not limited to, traffic data, location data, weblogs and other communication data, as well as the resources that you access.</li>
-<li>Cookies and analytics information that make our site easier to use and allow us to continue to improve our website. (Read our <a href="about/cookie-policy">Cookie policy</a>.</li>
+<li>Cookies and analytics information that make our site easier to use and allow us to continue to improve our website. (Read our <a href="about/cookie-policy">Cookie policy</a>).</li>
 </ul>
 <p>We may also access information from other sources when you interact with PomBase online:</p>
 <ul>
@@ -390,7 +380,7 @@ United Kingdom</p>
 <li>object in certain other situations to our continued processing of your personal information</li>
 <li>otherwise restrict our processing of your personal information in certain circumstances</li>
 </ul>
-<p>For further information on each of those rights, including the circumstances in which they apply, see the Guidance from the UK [Information Commissioner’s Office[(https://ico.org.uk/) (ICO) on individuals’ rights under the General Data Protection Regulation.</p>
+<p>For further information on each of those rights, including the circumstances in which they apply, see the Guidance from the UK <a href="https://ico.org.uk/">Information Commissioner’s Office</a> (ICO) on individuals’ rights under the General Data Protection Regulation.</p>
 <p>If you would like to exercise any of those rights, please contact us (see below).</p>
 <h3 id="challenging-our-use-of-personal-data">Challenging our use of personal data</h3>
 <p>We hope that we can resolve any query or concern you raise about our use of your information.</p>
@@ -2254,12 +2244,12 @@ the total annotated genes.
 <p>These points will help you understand GO slims, and highlight some features of the fission yeast slim terms and annotations.</p>
 <ol type="1">
 <li>Note that the counts in the “Genes” column of the GO slim tables are not additive, because many gene products are annotated to multiple terms.</li>
-<li>It not possible to create a slim with no overlaps between terms. Although the <em>S. pombe</em> slim has been defined to include biologically informative terms, and minimise overlaps between terms, large overlaps cannot be entirely avoided. For example, most of the gene products annotated to <em>signal transduction</em> are also annotated other terms in the slim.</li>
+<li>It not possible to create a slim with no overlaps between terms. Although the <em>S. pombe</em> slims have been defined to include biologically informative terms, and minimise overlaps between terms, large overlaps cannot be entirely avoided. For example, most of the gene products annotated to <em>signal transduction</em> are also annotated other terms in the slim.</li>
 <li>As a consequence of points 1 and 2, GO slim annotation summaries should not be presented using pie charts. Although a pie chart could show the fraction of total annotations for any slim term, it can too easily be mistaken for the fraction of total annotated gene products, which is not the same.</li>
-<li>It is difficult to define a slim which includes all annotated gene products without including terms with very small numbers of annotations (for example, the peroxisome organization branch has very few annotations), or very high level terms which are not particularly biologically informative (e.g. cellular process). Because we have opted not to include such terms, some gene products are annotated to process terms but do not appear in the slim annotation set.</li>
+<li>It is difficult to define a slim which includes all annotated gene products without including terms with very small numbers of annotations (for example, the peroxisome organization branch has very few annotations), or very high level terms which are not particularly biologically informative (e.g. cellular process). Because we have opted not to include such terms, some gene products are annotated to terms but do not appear in the slim annotation set for each ontology (especially biological process).</li>
 <li>Bear in mind that both proteins and RNAs can be annotated to GO terms. If you are working only with proteins you will need to make adjustments for this. For example, many tRNAs and rRNAs are annotated to cytoplasmic translation, and are therefore included in the slim set.</li>
 <li>There is a difference between “unknown” and “unannotated”. All fission yeast and budding yeast gene products have been assessed and are classed as “unknown” for biological process if no biological process information is found (experimental or inferred). If you are making comparisons with other organisms, remember that it is possible that not all gene products have been assessed and that the “unknown” set is underestimated.</li>
-<li>The default S. pombe slim includes all evidence codes for fission yeast. The evidence code <strong>IEA</strong> (inferred from electronic annotation) is often considered to be less accurate than other evidence codes, but it is very useful for increasing the coverage of some of the high level GO terms. Accurate annotation counts for some terms currently depends on including this evidence code (for example, there are 16 gene products annotated to transmembrane transport with IEA evidence, which are not yet covered by a manual annotation). For fission yeast, the IEA annotations improve slim coverage, but only represent a small number of annotations (519 biological process annotations as of May 2020), and have a low rate of false positives. We therefore recommend that you include them.</li>
+<li>The default <em>S. pombe</em> slims include all evidence codes for fission yeast. The evidence code <strong>IEA</strong> (inferred from electronic annotation) is often considered to be less accurate than other evidence codes, but it is very useful for increasing the coverage of some of the high level GO terms. Accurate annotation counts for some terms currently depends on including this evidence code (for example, there are 16 gene products annotated to transmembrane transport with IEA evidence, which are not yet covered by a manual annotation). For fission yeast, the IEA annotations improve slim coverage, but only represent a small number of annotations (519 biological process annotations as of May 2020), and have a low rate of false positives. We therefore recommend that you include them.</li>
 </ol>
 <h4 id="creating-a-user-defined-slim">Creating a user-defined slim</h4>
 <ol type="1">
@@ -2269,7 +2259,7 @@ the total annotated genes.
 <li>On a related note, if you are using your slim for data analysis (e.g. to summarize an enrichment), you should ensure that the terms are specific enough to demonstrate their relevance to the biological topic of interest. For example, lumping all genes involved in transport my mask overrepresentation of transmembrane transport vs. underrepresentation of vesicle-mediated transport in your results set, so you need to ensure that the slim has categories to represent your results effectively.</li>
 <li>Most current implementations of software to create “GO slims” include the <em>regulates</em> relationship by default, so that (for example) genes involved in <em>regulation of cytokinesis</em> will be included with the set of genes annotated to <em>cytokinesis</em>. See the <a href="http://geneontology.org/docs/ontology-relations/">GO Ontology Relations documentation</a> for further information about relationships in GO. The annotation totals presented for the <a href="browse-curation/fission-yeast-bp-go-slim-terms">PomBase default <em>S. pombe</em> process slim</a>, by contrast, are calculated explicitly including the genes which are involved in a process via regulation only. We expect the distinction to be available in future versions of slimming software.</li>
 </ol>
-<!-- restore commented-out version when ticket 1521 done
+<!-- restore commented-out version when ticket 1521 (or a successor) done
 5.  Most current implementations of software to create "GO slims"
     include the *regulates* relationship by default, so that (for
     example) genes involved in *regulation of cytokinesis* will be
@@ -2302,14 +2292,14 @@ the total annotated genes.
 <ul>
 <li>BioPortal <a href="http://bioportal.bioontology.org/ontologies/FYPO">FYPO summary page</a></li>
 <li>BioPortal <a href="http://bioportal.bioontology.org/ontologies/FYPO/?p=classes">FYPO terms</a> (the term display supports tree-viewer browsing, text searches, and a graphical display)</li>
-<li><a href="http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=FYPO">OLS FYPO browser</a></li>
+<li><a href="https://www.ebi.ac.uk/ols/ontologies/fypo">OLS FYPO browser</a></li>
 </ul>
 <p>We hope to deploy a browser at PomBase in the not-too-distant future that will include annotations as well as terms.</p>
 <h3 id="finding-fypo-terms-and-annotations-in-pombase">Finding FYPO terms and annotations in PomBase</h3>
 <p>FYPO terms are displayed on PomBase gene pages, along with supporting evidence and allele and expression details, as described in the PomBase gene page documentation.</p>
-<p>The PomBase advanced search can use either term names or IDs to search FYPO, and returns a list of genes that have alleles annotated to the specified term or any of its descendants. For example, see the <a routerLink="/faq/can-i-get-list-essential-pombe-genes">FAQ on finding essential genes</a>.</p>
+<p>The PomBase <a routerLink="/query">advanced search</a> can use either term names or IDs to search FYPO, and returns a list of genes that have alleles annotated to the specified term or any of its descendants. For example, see the <a routerLink="/faq/can-i-get-list-essential-pombe-genes">FAQ on finding essential genes</a>.</p>
 <h3 id="curating-phenotypes-with-fypo">Curating phenotypes with FYPO</h3>
-<p>The PomBase online curation tool, <a href="http://curation.pombase.org/pombe">Canto</a>, uses FYPO terms for annotation of S. pombe phenotypes. <a href="http://curation.pombase.org/pombe/docs/fypo_annotation">Phenotype curation documentation</a> is available via Canto.</p>
+<p>The PomBase online curation tool, <a href="http://curation.pombase.org/pombe">Canto</a>, uses FYPO terms for annotation of <em>S. pombe</em> phenotypes. <a href="http://curation.pombase.org/pombe/docs/fypo_annotation">Phenotype curation documentation</a> is available via Canto.</p>
 <h3 id="submitting-bulk-data">Submitting Bulk Data</h3>
 <p>If you have a large set of phenotype data to submit, you may want to do a bulk submission. See the documentation on the <a href="http://www.pombase.org/submit-data/phenotype-data-bulk-upload-format">recommended file format</a>, and use the Phenotype Data Submission Form.</p>
 
@@ -3902,7 +3892,7 @@ the total annotated genes.
 <p>Comprehensive manual curation of the <em>S. pombe</em> literature is a primary goal of the PomBase project, and among the most important activities of the curation staff. Increasing numbers of new publications, and a large backlog of older papers, however, mean that complete literature curation will require input from the research community as well as the efforts of dedicated professional curators.</p>
 <p>The PomBase Community Curation system enables researchers to contribute annotations directly to PomBase based on their publications using Canto, a web-based tool that allows both curators and researchers to create annotations. Canto supports GO, phenotype, interaction, and modification annotations, and can be configured for use with other ontologies as the need arises. Annotations made in the community curation system will be prioritized for inclusion in PomBase and will therefore also be more rapidly disseminated to other databases (e.g. GenBank/ENA/DDBJ, UniProtKB, BioGRID and GO), making data from annotated papers widely visible.</p>
 <p><strong>How to contribute</strong>: For newly published papers, PomBase curators email authors inviting them to participate, with specific instructions and links. Lab members are also welcome to evaluate existing annotations and create new annotations from past publications — use the PubMed ID search on the <a href="https://curation.pombase.org/pombe">main PomBase Canto page</a>. Anyone can also try the <a href="https://curation.pombase.org/demo">demo version of Canto</a>.</p>
-<p><strong>Progress and attribution</strong>: <a href="https://curation.pombase.org/pombe/stats/annotation">Curation statistics</a> track S. pombe papers curated in Canto by PomBase and community curators, and the annotations obtained. Canto will soon allow contributors to register <a href="http://orcid.org/">ORCID</a> identifiers in the system, which will support more formalised attribution of community contributions to PomBase, and thereby enable researchers to cite community curation in institutional reports, funding applications, etc. To supplement the existing permanent publication-centred links in Canto, we are currently investigating possible ways to link to external resources such as ORCID or OpenRIF via ORCID IDs.</p>
+<p><strong>Progress and attribution</strong>: <a href="https://curation.pombase.org/pombe/stats/annotation">Curation statistics</a> track <em>S. pombe</em> papers curated in Canto by PomBase and community curators, and the annotations obtained. Canto will soon allow contributors to register <a href="http://orcid.org/">ORCID</a> identifiers in the system, which will support more formalised attribution of community contributions to PomBase, and thereby enable researchers to cite community curation in institutional reports, funding applications, etc. To supplement the existing permanent publication-centred links in Canto, we are currently investigating possible ways to link to external resources such as ORCID or OpenRIF via ORCID IDs.</p>
 <p><strong>Further reading:</strong> For an in-depth analysis of our approach, and the status of community curation as of early 2019, see our publication:</p>
 <p>Lock A, Harris MA, Rutherford K, Hayles J, Wood V.<br />
 Community curation in PomBase: enabling fission yeast experts to provide detailed, standardized, sharable annotation from research publications. <em>Database (Oxford)</em> 2020 Jan 1;2020. pii: baaa028.<br />
@@ -3922,14 +3912,11 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
   <div *ngIf="pageName == 'internet-resources'">
 <h2 id="s.-pombe-community-websites"><em>S. pombe</em> Community Websites</h2>
 <ul>
-<li><a href="http://www-bcf.usc.edu/~forsburg/pombeweb.html">PombeWeb</a> maintained by Susan Forsburg
+<li><a href="https://dornsife.usc.edu/pombenet/">PombeNet</a> maintained by Susan Forsburg
 <ul>
-<li><a href="http://www-bcf.usc.edu/~forsburg/pombeweb.html#people">Fission yeast researchers</a> at PombeWeb</li>
-</ul></li>
-<li><a href="http://www-bcf.usc.edu/~forsburg/main.html">PombeNet</a> maintained by Susan Forsburg
-<ul>
-<li><a href="http://www-bcf.usc.edu/~forsburg/main.html">About pombe</a> at PombeNet</li>
-<li><a href="http://www-bcf.usc.edu/~forsburg/plasmids.html">Working with pombe</a> at PombeNet</li>
+<li><a href="https://dornsife.usc.edu/pombenet/pombeweb/">PombeWeb</a> maintained by Susan Forsburg; includes a list of fission yeast researchers]</li>
+<li><a href="https://dornsife.usc.edu/pombenet/about-pombe/">About pombe</a> at PombeNet</li>
+<li><a href="https://dornsife.usc.edu/pombenet/working-with-pombe/">Working with pombe</a> at PombeNet</li>
 </ul></li>
 <li><a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/erss.cgi?rss_guid=1ToPSyjDNLLW2R_UIOHFTxnRdlJouyMeQX4YfwMFXtO8d87M4r">PubMed RSS Feed</a> Feed for current <em>S. pombe</em> related publications.</li>
 </ul>
@@ -3939,10 +3926,9 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <li><a href="http://amigo.geneontology.org/">AmiGO</a> Search and browse GO annotation</li>
 <li>The <a href="http://www.ebi.ac.uk/quickgo/">QuickGO</a> browser at EBI</li>
 <li><a href="https://sites.google.com/view/yeastgenome-help/function-help/gene-ontology-go">SGD GO documentation</a> to help SGD users become familiar with GO</li>
-<li><a href="http://vortex.cs.wayne.edu/projects.htm#Onto-Express">Onto-Express</a> find significant GO terms in lists of genes</li>
 <li><a href="http://go.princeton.edu/cgi-bin/GOTermFinder">GOTermFinder</a> find significant GO terms in lists of genes</li>
 <li><a href="http://bahlerweb.cs.ucl.ac.uk/cgi-bin/GLA/GLA_input">AnGeLi: Analysis of Gene Lists</a> (UCL) uses GO, phenotypes, interactions, etc.</li>
-<li><a href="http://www.sequenceontology.org/">Sequence Ontology</a></li>
+<li><a href="https://github.com/The-Sequence-Ontology/SO-Ontologies">Sequence Ontology</a> <!-- (http://www.sequenceontology.org/) --></li>
 </ul>
 <h3 id="interactions-pathways-and-networks">Interactions, Pathways and Networks</h3>
 <ul>
@@ -3960,7 +3946,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 -->
 <ul>
 <li><a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis</a> Sequence viewer and analysis tool (Note: for <em>S. pombe</em> we recommend using <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/">Artemis Version 16</a>.</li>
-<li><a href="http://www.ncbi.nlm.nih.gov/mapview/map_search.cgi?chr=spombe.inf">Map viewer</a> at the NCBI</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/genome/gdv/?org=schizosaccharomyces-pombe&group=ascomycota">Genome Data Viewer</a> at the NCBI</li>
 <li><a href="http://megasun.bch.umontreal.ca/People/lang/species/spo/spombe.html">Mitochondrial Genome Information</a></li>
 </ul>
 <h4 id="sequence-features-protein-families-orthologues">Sequence Features, Protein Families, Orthologues</h4>
@@ -3972,7 +3958,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <li><a href="http://supfam.org/SUPERFAMILY/cgi-bin/gen_list.cgi?genome=iz">SCOP</a> Superfamily assignments</li>
 <li><a href="https://rostlab.org/owiki/index.php/PredictNLS">PredictNLS</a> Nuclear localization signal prediction</li>
 <li><a href="http://www.bahlerlab.info/YOGY/">YOGY</a> A resource for retrieving orthologous proteins</li>
-<li><a href="http://epd.vital-it.ch/S_pombe/S_pombe_database.php">EPD</a> Eukaryotic Promoter Database, <em>S. pombe</em> section</li>
+<li><a href="https://epd.epfl.ch//S_pombe/S_pombe_database.php">EPD</a> Eukaryotic Promoter Database, <em>S. pombe</em> section</li>
 </ul>
 <h3 id="gene-expression">Gene Expression</h3>
 <ul>
@@ -3981,7 +3967,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 </ul>
 <h3 id="experimental-tools">Experimental tools</h3>
 <ul>
-<li><a href="http://www.massgeneral.org/cancer/research/motamediresources.aspx">PRIMED</a> Primers for deleting and tagging yeast genes (<em>S. pombe</em> and <em>S. cerevisiae</em>; scroll to bottom of page for downloadable spreadsheets)</li>
+<li><a href="https://www.massgeneral.org/cancer-center/clinical-trials-and-research/center-for-cancer-research/investigators/motamedi-lab">PRIMED</a> Primers for deleting and tagging yeast genes (<em>S. pombe</em> and <em>S. cerevisiae</em>; scroll to bottom of page for downloadable spreadsheets)</li>
 </ul>
 <h3 id="strains-and-constructs">Strains and Constructs</h3>
 <ul>
@@ -4963,7 +4949,7 @@ feedback on the GeneDB web page.</p>
 <li>On any PomBase page, click the “Search” tab in the header menu, and select “Genome browser”</li>
 <li>From a gene page, click the “View region in JBrowse …” link just above the map image</li>
 <li>On the publication page for any paper with associated datasets, select tracks from the list and click the “Load in JBrowse” button</li>
-<li>Go directly to https://www.pombase.org/jbrowse/</li>
+<li>Go directly to <a href="https://www.pombase.org/jbrowse/">https://www.pombase.org/jbrowse/</a></li>
 </ul>
 <h3 id="dna-sequence-forward-features-and-reverse-features">DNA sequence, forward features and reverse features</h3>
 <p>Tracks for annotated sequence features — genes, repeats, etc. — on the forward and reverse strands are displayed by default.</p>
@@ -5867,7 +5853,7 @@ PomBase using the Ensembl viewer.</p>
 <img src="assets/basic_info_gene_page.png" title="Gene page basic information" width="800" alt="" /><figcaption>top of gene page</figcaption>
 </figure>
 <ol type="1">
-<li>See the <a routerLink="/submit-data/gene-name-registry">Gene Name Registry</a> for more information about <em>S. pombe</em> gene names. Synonyms include all names other than the standard name that have been published for a gene, and thus are not guaranteed to be unique.</li>
+<li>See the <a routerLink="/submit-data/gene-names">Gene Name Registry</a> for more information about <em>S. pombe</em> gene names. Synonyms include all names other than the standard name that have been published for a gene, and thus are not guaranteed to be unique.</li>
 <li>Free text description of the gene product</li>
 <li>Chromosome coordinates for the gene. For protein-coding genes, the “coding start to stop” numbers give the start, end, and length excluding UTRs but including introns (other than introns located entirely within UTRs). The second set of numbers indicate the gene start, end, and length including the default UTRs chosen by PomBase curators (see <a routerLink="/faq/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s">this FAQ</a> for more information).</li>
 <li>What the three-letter acronym stands for; where available, name descriptions are provided for synonyms as well as primary names.</li>
@@ -6840,15 +6826,9 @@ Search documentation, news archive and FAQ:
 <li>In the Expression column, use one of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions should always have ‘null’ expression.</li>
 <li>The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but you can use “unknown” if you don’t know the original background.</li>
 <li>Use the Strain name (background) column for a lab’s in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain.</li>
-<li>The Genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, do not repeat the allele of interest (from column 3 or
-<ol start="9" type="1">
-<li>in the genotype column.</li>
-</ol></li>
+<li>The Genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, do not repeat the allele of interest (from column 3 or 9) in the genotype column.</li>
 <li>Gene names are optional. If you include them, use standard names in column 8 (see gene pages or the file of All Gene Names from the dataset download page).</li>
-<li>Allele names are optional. If you include them, use column 9 for the preferred allele name, and put any alternative names in column
-<ol start="10" type="1">
-<li></li>
-</ol></li>
+<li>Allele names are optional. If you include them, use column 9 for the preferred allele name, and put any alternative names in column 10.</li>
 <li>See note 9 above. Separate multiple entries with pipes (|).</li>
 <li>Allowed allele types, example descriptions, etc. are shown in the table below.</li>
 <li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). You are welcome to enquire with us in advance to find out which ECO terms/IDs fit your experiments, but we can accept files with brief descriptions (such as those in the Canto phenotype evidence option list), which curators will convert to ECO IDs.</li>
@@ -7472,7 +7452,7 @@ Search documentation, news archive and FAQ:
 </ul>
 <h4 id="feature-coordinates-and-sequence-data">Feature coordinates and sequence data</h4>
 <ul>
-<li><a href="https://www.pombase.org/data/genome_sequence_and_features/artemis_files/">Chromosome contigs</a> in enriched EMBL-based format for loading into Artemis (see the <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">Artemis FAQ</a></li>
+<li><a href="https://www.pombase.org/data/genome_sequence_and_features/artemis_files/">Chromosome contigs</a> in enriched EMBL-based format for loading into Artemis (see the <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">Artemis FAQ</a>)</li>
 <li>Older files in <a href="https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/embl/">EMBL format</a> and <a href="https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/genbank/">GenBank format</a> are available, and reflect the current genome sequence, with feature annotations from January 2017.</li>
 </ul>
 <!-- put this between the two existing lines above:
@@ -7483,7 +7463,8 @@ Search documentation, news archive and FAQ:
 <ul>
 <li>Coding sequences (CDS)</li>
 <li>CDS + introns</li>
-<li>CDS + introns + UTRs <!-- -   Introns --></li>
+<li>CDS + introns + UTRs</li>
+<li>Introns within coding sequences</li>
 <li>5’ and 3’ UTRs</li>
 <li>Peptide sequences <!-- -   Non-coding RNA genes --></li>
 </ul>
@@ -7741,7 +7722,7 @@ Search documentation, news archive and FAQ:
 </table>
 <p><strong>Notes:</strong></p>
 <ol type="1">
-<li>The database that produced the file – included to facilitate data sharing with other databases. Obviously always PomBase for this file.</li>
+<li>The database that produced the file – included to facilitate data sharing with other databases. Obviously always PomBase for this file. (Also note that PHAF files submitted for loading can omit this column.)</li>
 <li>The systematic ID for each gene.</li>
 <li>To use the FYPO IDs, see the <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the <a routerLink="/faq/how-can-i-browse-phenotype-ontology-fypo">FAQ on browsing FYPO</a>.</li>
 <li>The allele description specifically describes the change; see the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> for details on allele types and descriptions.</li>
@@ -9343,6 +9324,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#improved-gene-disease-curation-over-s.-pombe-genes">Improved gene-disease curation: over 1400 S. pombe genes</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-august-th">PombeTalks August 4th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#alphafold-links">AlphaFold links</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-july-st">PombeTalks July 21st</a></div>
@@ -11259,11 +11241,24 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>After these talks, PombeTalks will take a break for the rest of the summer, so watch this space, pombelist, or PombeSlack for updates. In the meantime, you can fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> at any time if you’re interested in speaking.</p>
 
   </div>
+  <div *ngIf="pageName == 'increased-disease-annotation-coverage'">
+<h3 id="improved-gene-disease-curation-over-1400-s.-pombe-genes">Improved gene-disease curation: over 1400 S. pombe genes</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: human disease.png -->
+<p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have added new gene–disease term connections, to bring the total to 1401 <em>S. pombe</em> genes. Disease associations now cover 27.3% of all fission yeast protein-coding genes, and almost 40% with human orthologs.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2021-08-06-increased-disease-annotation-coverage" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<h3 id="improved-gene-disease-curation-over-s.-pombe-genes">Improved gene-disease curation: over 1400 S. pombe genes</h3>
+<p><em>2021-08-06</em></p>
+<p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have added new gene–disease term connections, to bring the total to 1401 <em>S. pombe</em> genes. Disease associations now cover 27.3% of all fission yeast protein-coding genes, and almost 40% with human orthologs.</p>
+</div>
 <div id="2021-07-28-pombetalks-aug4th" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-august-th">PombeTalks August 4th</h3>
 <p><em>2021-07-28</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>4th August</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
@@ -11275,13 +11270,13 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>After these talks, PombeTalks will take a break for the rest of the summer, so watch this space, pombelist, or PombeSlack for updates. In the meantime, you can fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> at any time if you’re interested in speaking.</p>
 </div>
 <div id="2021-07-28-alphafold-links" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/Ofd2_structure_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/Ofd2_structure_32px.png"/></p>
 <h3 id="alphafold-links">AlphaFold links</h3>
 <p><em>2021-07-28</em></p>
 <p>PomBase gene pages now have links to the AlphaFold Protein Structure Database, the collection of structures predicted by AI developed by DeepMind, hosted at EBI. Look in the “External references” section of your favorite gene page, or check out <a href="https://alphafold.ebi.ac.uk/entry/Q01663">this example (pap1)</a>, or read more at the <a href="https://alphafold.ebi.ac.uk/">EBI AlphaFold home</a>.</p>
 </div>
 <div id="2021-07-14-pombetalks-july-21st" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-july-st">PombeTalks July 21st</h3>
 <p><em>2021-07-14</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>21st July</strong> 2021, at 10:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
@@ -11294,13 +11289,13 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-07-06-kegg-pathway-links" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/kegg3.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/kegg3.png"/></p>
 <h3 id="kegg-pathway-links">KEGG pathway links</h3>
 <p><em>2021-07-06</em></p>
 <p>PomBase gene pages now have links to pathway entries in the Kyoto Encyclopedia of Genes and Genomes (KEGG) database, as well as links to gene lists for each linked pathway (example: <a href="https://www.pombase.org/term/KEGG_PW:spo01210">2-Oxocarboxylic acid metabolism</a>). The KEGG pathway links are the first entry in a new gene page section, “Molecular pathway”, dedicated to connecting genes in PomBase to depictions of biochemical and signaling pathways.</p>
 </div>
 <div id="2021-06-30-interpro-v86" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 86.0</h3>
 <p><em>2021-06-30</em></p>
 <p>PomBase now uses InterPro Version 86.0, which integrates:</p>
@@ -11312,7 +11307,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>InterPro cites 52235 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
 </div>
 <div id="2021-06-30-pombetalks-july7th" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-july-th">PombeTalks July 7th</h3>
 <p><em>2021-06-30</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>7th July</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
@@ -11325,7 +11320,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-06-17-pombetalks-june-23rd" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-june-rd">PombeTalks June 23rd</h3>
 <p><em>2021-06-17</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>23rd June</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
@@ -11338,7 +11333,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-06-15-gene-expression-violin-plots" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="violin-plots-gene-expression">Violin plots for gene expression</h3>
 <p><em>2021-06-15</em></p>
 <p>The “Quantitative gene expression” section of PomBase gene pages now offers a display of <a href="https://en.wikipedia.org/wiki/Violin_plot">violin plots</a> to visualize where the gene appears in available expression datasets.</p>
@@ -11346,7 +11341,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>At present data from <a href="https://www.pombase.org/reference/PMID:23101633">Marguerat S <em>et al.</em> (2012)</a> and <a href="https://www.pombase.org/reference/PMID:24763107">Carpy A <em>et al.</em> (2014)</a> are included.</p>
 </div>
 <div id="2021-06-02-pombetalks-june-9" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-june-th">PombeTalks June 9th</h3>
 <p><em>2021-06-02</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>9th June</strong> 2021, at 10:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
@@ -11359,7 +11354,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-05-20-pombetalks-may-26" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-may-th">PombeTalks May 26th</h3>
 <p><em>2021-05-20</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>26th May</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
@@ -11372,7 +11367,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-05-05-pombetalks-may-12" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-may-th">PombeTalks May 12th</h3>
 <p><em>2021-05-05</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>12th May</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
@@ -11385,13 +11380,13 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-04-29-diploid-genotypes-phenotypes" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
 <h3 id="new-diploid-genotype-phenotype-display">New diploid genotype &amp; phenotype display</h3>
 <p><em>2021-04-29</em></p>
 <p>PomBase now includes pages for curated diploid genotypes, and displays phenotypes annotated to them on gene and publication pages. For more details see the documentation for <a href="documentation/gene-page-phenotypes">phenotype annotations</a> and <a href="documentation/genotype-page">genotype pages</a>.</p>
 </div>
 <div id="2021-04-22-pombetalks-april-28" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-april-th">PombeTalks April 28th</h3>
 <p><em>2021-04-22</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>28th April</strong> 2021, at 10:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
@@ -11404,7 +11399,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-04-15-interpro-v85" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 85.0</h3>
 <p><em>2021-04-15</em></p>
 <p>PomBase now uses InterPro Version 85.0, which integrates:</p>
@@ -11416,7 +11411,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>InterPro cites 51539 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
 </div>
 <div id="2021-04-08-pombetalks-april14" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-april-th">PombeTalks April 14th</h3>
 <p><em>2021-04-08</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>14th April</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11429,26 +11424,26 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-03-31-GC-content-jbrowse" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="new-genome-browser-data-gc-content">New genome browser data: GC content</h3>
 <p><em>2021-03-31</em></p>
 <p>A data track showing the fraction of G/C bases in a region is now available in PomBase JBrowse, listed under “Base composition”. The track is generated using the <a href="https://github.com/elsiklab/gccontent">gccontent</a> plugin, and uses a default window of 100 bp.</p>
 </div>
 <div id="2021-03-31-canto-qualitative-gene-expression" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
 <h3 id="qualitative-gene-expression-annotation-canto">Qualitative gene expression annotation in Canto</h3>
 <p><em>2021-03-31</em></p>
 <p>Canto, PomBase’s online curation tool, now supports qualitative gene expression annotation. Two new annotation types are available to represent observations about the levels of RNA or protein observed in wild-type cells, and how they change over the cell cycle or in response to a stimulus. See the <a href="https://curation.pombase.org/pombe/docs/gene_expression">Canto documentation</a> for more information. We have also updated the display of qualitative gene expression on PomBase gene and publication pages.</p>
 </div>
 <div id="2021-03-30-new-protein-feature-graphic" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
 <h3 id="new-protein-feature-display">New protein feature display</h3>
 <p><em>2021-03-30</em></p>
 <p>PomBase has released a new, interactive display for protein features on gene pages. The new view is clearer, with details for each feature available via mouseover as well as in the accompanying table.</p>
 <p>In addition, PomBase now uses InterPro Version 84.0, which includes 205 new entries and integrates 252 new methods from the Pfam, PANTHER, and CDD databases. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
 </div>
 <div id="2021-03-27-pombetalks-march31" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-march-st">PombeTalks March 31st</h3>
 <p><em>2021-03-27</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>31st March</strong> 2021, at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11461,7 +11456,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-03-10-pombetalks-march17" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-march-th-new-time">PombeTalks March 17th - new time!</h3>
 <p><em>2021-03-10</em></p>
 <p>The new season of online PombeTalks for 2021 will begin on Wednesday <strong>3rd March</strong> 2021, at a different time: 9:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a> / 17:00 <a href="https://greenwichmeantime.com/time-zone/gmt-plus-9/">Japan &amp; Korea</a>. Speakers:</p>
@@ -11474,7 +11469,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-02-24-pombetalks-march-3" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-return-march-rd">PombeTalks return March 3rd</h3>
 <p><em>2021-02-24</em></p>
 <p>The new season of online PombeTalks for 2021 will begin on Wednesday <strong>3rd March</strong> 2021 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11487,14 +11482,14 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2021-02-04-id-mapper" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="pombase-identifier-mapper-now-available">PomBase identifier mapper now available</h3>
 <p><em>2021-02-04</em></p>
 <p>We have developed an identifier mapper that retrieves <em>S. pombe</em> gene systematic IDs and standard names for a selection of different input ID types. You can now find <em>S. pombe</em> genes using UniProt accessions, and retrieve manually curated orthologs for <em>S. cerevisiae</em> using standard gene names or ORF names, and for human using standard gene names or HGNC identifiers.</p>
 <p>Try the <a routerLink="/identifier-mapper">identifier mapper</a> or check out the <a routerLink="/documentation/id-mapper">documentation</a>.</p>
 </div>
 <div id="2021-01-25-interpro-v83" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 83.0</h3>
 <p><em>2021-01-25</em></p>
 <p>PomBase now uses InterPro Version 83.0, which integrates:</p>
@@ -11506,7 +11501,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>InterPro cites 50487 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
 </div>
 <div id="2021-01-07-first-fission-yeast-micropublication-live" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/micropubs32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/micropubs32px.png"/></p>
 <h3 id="first-s.-pombe-micropublication-goes-live">First S. pombe microPublication goes live</h3>
 <p><em>2021-01-07</em></p>
 <p>The first fission yeast microPublication has now been published:</p>
@@ -11514,7 +11509,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Congratulations to the authors, and thanks to the microPublication team!</p>
 </div>
 <div id="2020-11-18-pombetalks-nov-25" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-november-th">PombeTalks November 25th</h3>
 <p><em>2020-11-18</em></p>
 <p>The last online PombeTalks for 2020 will take place on Wednesday <strong>25th November</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11527,7 +11522,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-11-04-pombetalks-nov-11" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-november-th">PombeTalks November 11th</h3>
 <p><em>2020-11-04</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>11th November</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11540,13 +11535,13 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-11-01-PAINT-annotations" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/go-logo-icon.mini.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/go-logo-icon.mini.png"/></p>
 <h3 id="go-annotations-paint">GO annotations from PAINT</h3>
 <p><em>2020-11-01</em></p>
 <p>PomBase now includes over 3000 GO annotations made using Phylogenetic Annotation and INference Tool (PAINT), developed by the GO Consortium to infer protein function in a phylogenetic context, supporting precise assertions as to when functions were gained and lost during evolution. PAINT annotations use the evidence code <a href="http://wiki.geneontology.org/index.php/Inferred_from_Biological_aspect_of_Ancestor_(IBA)">“inferred from biological aspect of ancestor” (IBA)</a>. PAINT curation is described in more detail in <a href="https://pubmed.ncbi.nlm.nih.gov/21873635/">Gaudet <em>et al.</em> 2011</a>.</p>
 </div>
 <div id="2020-10-24-pombetalks-oct-28" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-october-th">PombeTalks October 28th</h3>
 <p><em>2020-10-24</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>28th October</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11559,7 +11554,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-10-08-pombetalks-oct-14" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-october-th">PombeTalks October 14th</h3>
 <p><em>2020-10-08</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>14th October</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11572,7 +11567,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-09-23-pombetalks-sept-30" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-september-th">PombeTalks September 30th</h3>
 <p><em>2020-09-23</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>16th September</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11585,7 +11580,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-09-17-new-jbrowse-datasets" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="new-genome-browser-datasets">New genome browser datasets</h3>
 <p><em>2020-09-17</em></p>
 <p>Two new datasets in are now available in PomBase JBrowse (links go to PomBase publication pages, which in turn link to the browser with the tracks enabled):</p>
@@ -11605,7 +11600,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>More datasets are always welcome, so check out our <a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">instructions for submission</a>.</p>
 </div>
 <div id="2020-09-14-pombetalks-sept-16" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-september-th">PombeTalks September 16th</h3>
 <p><em>2020-09-14</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>16th September</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11618,20 +11613,20 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-09-11-hermes-transposon-data-long" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/transposon.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/transposon.png"/></p>
 <h3 id="hermes-transposon-insertions-pombase">Hermes transposon insertions in PomBase</h3>
 <p><em>2020-09-11</em></p>
 <p>PomBase now hosts transposon integration data from <a routerLink="/reference/PMID:32101745">Lee et al. 2020</a>. Henry Levin explains the background and significance of the work:</p>
 <p>“Transposon Integration Sequencing is a genome wide method of mapping sequences that contribute to growth. High throughput sequencing of transposon integration sites in haploid cells with single insertions reveals which genes are dispensable. Once propagated, cultures exhibit a pronounced lack of insertions in genes necessary for growth. This method, originally developed to study bacteria is now used to characterize the genomes of several yeasts including <em>S. pombe</em>. In earlier work we used the transposon Hermes to identify genes of <em>S. pombe</em> required for growth (<a routerLink="/reference/PMID:23893486">Guo et al., 2013, Genetics, PMID:23893486</a>). We have now applied Hermes and Transposon Integration Sequencing to identify genes important for the formation of heterochromatin (<a routerLink="/reference/PMID:32101745">Lee et al., 2020, Cell Reports, PMID:32101745</a>). Insertion sites from eight independent cultures can be visualized from PomBase as custom tracks on Jbrowse. Four cultures were of cells with ura4 silenced by cen1 heterochromatin. The other four cultures were of a strain without ura4. By passaging the cultures in 5-FOA we selected against cells with defects in heterochromatin. Genes that contributed to the formation of heterochromatin exhibited fewer insertions in cells with the cen1 copy of ura4 relative to the strain lacking ura4. To distinguish genes critical for heterochromatin from genes that contribute to a lesser extent we passaged cultures in 5-FOA for 5 generations and for 80 generations. While viewing these integration sites can indicate whether genes of interest contribute to heterochromatin formation you can also examine insertions in the cultures lacking ura4 to gage whether specific genes or noncoding sequences make significant contributions to growth.”</p>
 </div>
 <div id="2020-09-11-hermes-transposon-data" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/transposon.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/transposon.png"/></p>
 <h3 id="hermes-transposon-insertions-pombase">Hermes transposon insertions in PomBase</h3>
 <p><em>2020-09-11</em></p>
 <p><a routerLink="/news/2020-09-11-hermes-transposon-data-long">Read more</a> about the new data in PomBase from Henry Levin’s lab: <a href="/reference/PMID:32101745">Lee et al. 2020</a> applied Hermes and Transposon Integration Sequencing to identify genes important for the formation of heterochromatin. Insertion sites from eight independent cultures can be visualized from PomBase as custom tracks on Jbrowse, and additional data are visible on the <a href="/reference/PMID:32101745">publication page</a> and gene pages. The lab has also provided a <a routerLink="/news/2020-09-11-hermes-transposon-data-long">summary</a> of the work.</p>
 </div>
 <div id="2020-09-08-new-jbrowse-datasets" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="new-genome-browser-datasets">New genome browser datasets</h3>
 <p><em>2020-09-08</em></p>
 <p>Three new datasets in are now available in PomBase JBrowse (links go to PomBase publication pages, which in turn link to the browser with the tracks enabled):</p>
@@ -11651,20 +11646,20 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 </ul>
 </div>
 <div id="2020-09-08-jbrowse-data-submission" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="submit-your-genome-browser-data">Submit your genome browser data</h3>
 <p><em>2020-09-08</em></p>
 <p>We have updated our HTP data submission procedure to make it easier for you to contribute your datasets for PomBase JBrowse:</p>
 <p>We now provide spreadsheet templates in Excel and Open Document formats that gather the metadata we need to load and display your data. You can download a template from the <a href="https://www.pombase.org/documentation/data-submission-form-for-HTP-sequence-linked-data">documentation page on HTP data submission</a>. Send completed spreadsheets to the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a>.</p>
 </div>
 <div id="2020-09-02-GO-term-matrix-publication" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/go-term-matrix.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/go-term-matrix.png"/></p>
 <h3 id="published-go-term-matrix-annotation-qc">Published: GO Term Matrix for annotation QC</h3>
 <p><em>2020-09-02</em></p>
 <p>In collaboration with the GO Consortium, the PomBase team has published a report on the <strong>Term Matrix</strong> approach to GO annotation quality control. The article, out this week in <a href="https://royalsocietypublishing.org/doi/10.1098/rsob.200149">Open Biology</a>, describes biological processes that do, or don’t, share annotated gene products, and how we use co-annotation patterns to build rules to detect, correct, and prevent errors.</p>
 </div>
 <div id="2020-09-01-pombetalks-sept-2" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-september-nd">PombeTalks September 2nd</h3>
 <p><em>2020-09-01</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>2nd September</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11677,7 +11672,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-08-19-11th-pombe-conference-postponed" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombe2022-32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombe2022-32px.png"/></p>
 <h3 id="th-pombe-meeting-postponed">11th Pombe meeting postponed to 2022</h3>
 <p><em>2020-08-19</em></p>
 <p>Due to the ongoing Covid-19 pandemic, the <a href="http://www.fission-yeast2022.org/">11th International Fission Yeast Meeting</a>, due to take place in Hiroshima, Japan, has been postponed.</p>
@@ -11685,7 +11680,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Please see the <a href="http://www.fission-yeast2022.org/">conference website</a> and pombelist for further announcements.</p>
 </div>
 <div id="2020-08-12-pombetalks-aug-19" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-august-th">PombeTalks August 19th</h3>
 <p><em>2020-08-12</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>19th August</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11698,7 +11693,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-07-31-pombetalks-aug-5" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-august-th">PombeTalks August 5th</h3>
 <p><em>2020-07-31</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>5th August</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11711,14 +11706,14 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-07-22-fission-yeast-micropublications" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/micropubs32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/micropubs32px.png"/></p>
 <h3 id="fission-yeast-micropublications">Fission yeast microPublications</h3>
 <p><em>2020-07-22</em></p>
 <p>PomBase has recently joined <a href="https://www.micropublication.org/">microPublication.org</a>, which “publishes brief, novel findings, negative and/or reproduced results, and results which may lack a broader scientific narrative”, as a Partner Database. Fission yeast researchers can thus now make any results available to the community, even those that don’t fit neatly into traditional publications.</p>
 <p>Visit the <a href="https://www.micropublication.org/">microPublications website</a> to learn more, to <a href="https://www.micropublication.org/submit-new-article/">register</a> and submit your data, or sign up to review. Send questions to the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a>.</p>
 </div>
 <div id="2020-07-21-pombetalks-july-22" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-july-nd">PombeTalks July 22nd</h3>
 <p><em>2020-07-21</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>22nd July</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11732,7 +11727,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-07-02-pombetalks-july-8" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-july-th">PombeTalks July 8th</h3>
 <p><em>2020-07-02</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>8th July</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11745,7 +11740,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-06-19-pombetalks-june-24" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-june-th">PombeTalks June 24th</h3>
 <p><em>2020-06-19</em></p>
 <p>The next online PombeTalks will take place on Wednesday <strong>24th June</strong> 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>:</p>
@@ -11758,13 +11753,13 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-06-11-name-queries" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="editable-pombase-query-names">Editable PomBase query names</h3>
 <p><em>2020-06-11</em></p>
 <p>Entries in the <a routerLink="/query">PomBase advanced search</a> query history now show brief, user-editable query descriptions, and a toggle to show or hide additional details.</p>
 </div>
 <div id="2020-06-05-pombetalks-june-10" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-postponed-june-th">PombeTalks POSTPONED to June 17th</h3>
 <p><em>2020-06-05</em></p>
 <p>Please note that the next online PombeTalks will take place one week later than originally planned, to support the <a href="https://www.shutdownstem.com/">STEM Strike for Black Lives</a> on 10th June.</p>
@@ -11778,7 +11773,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-05-21-pombetalks-may-27" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-may-th">PombeTalks May 27th</h3>
 <p><em>2020-05-21</em></p>
 <p>The next online PombeTalks will take place on Wednesday 27 May 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. This time, in addition to the usual pair of research talks, our own Val Wood will show a few of PomBase’s lesser-known features.</p>
@@ -11791,39 +11786,39 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-05-20-new-fission-yeast-go-slims" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/dropdown_menu.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/dropdown_menu.png"/></p>
 <h3 id="new-fission-yeast-go-slims">New fission yeast GO slims</h3>
 <p><em>2020-05-20</em></p>
 <p>To complement the overview provided by the <a href="/browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO biological process slim</a>, we have created GO slims for the <a href="/browse-curation/fission-yeast-mf-go-slim-terms">molecular function</a> and <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">cellular component</a> branches of GO. Each slim page provides links to ontology term pages, annotated genes, and to download files containing the slim terms and IDs.</p>
 </div>
 <div id="2020-05-20-advanced-search-slim-options" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/dropdown_menu.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/dropdown_menu.png"/></p>
 <h3 id="new-ontology-slimming-options-advanced-search-results">New ontology slimming options for advanced search results</h3>
 <p><em>2020-05-20</em></p>
 <p>The PomBase <a routerLink="/query">advanced search</a> results panel now allows you to retrieve annotations to any of the fission yeast <a href="documentation/pombase-go-slim-documentation">GO slims</a> or the <a href="https://www.pombase.org/browse-curation/disease-slim">Mondo disease slim</a> for genes in the results list. For example, you can query for all genes involved in a process and slim the resulting list by molecular function or disease association.</p>
 </div>
 <div id="2020-05-18-pombase-uses-mondo" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
 <h3 id="pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</h3>
 <p><em>2020-05-18</em></p>
 <p>PomBase has switched from the <a href="https://disease-ontology.org/">Disease Ontology</a> (DO) to the Monarch Initiative’s <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) for disease gene curation. Mondo covers the same set of disease descriptions as DO, but has a richer hierarchical structure that classifies more specific descriptions into broad categories (e.g. anemia, cancer, kidney disease) suitable for a disease “slim” term set.</p>
 <p>PomBase curators are collaborating with Mondo to improve its disease classification, especially in areas that will support inferences that improve fission yeast disease annotation coverage in the new <a href="https://www.pombase.org/browse-curation/disease-slim">PomBase Mondo slim</a>. The new disease slim is a work in progress, so if there is a particular disease grouping that you would find useful, please <a href="mailto:helpdesk@pombase.org">let us know</a>.</p>
 </div>
 <div id="2020-05-18-increased-disease-annotation-coverage" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
 <h3 id="improved-gene-disease-curation">Improved gene-disease curation</h3>
 <p><em>2020-05-18</em></p>
 <p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have now increased coverage by adding new gene–disease term connections, with 3954 individual annotations to 1195 genes (up from 2588 and 905 respectively in January 2019). Disease associations now cover 24.5% of all fission yeast protein-coding genes, and over one third of those with human orthologs.</p>
 </div>
 <div id="2020-05-11-community-curation-publication" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
 <h3 id="published-community-curation-pombase">Published: Community curation in PomBase</h3>
 <p><em>2020-05-11</em></p>
 <p>The PomBase team has published an overview of our experience with community curation for fission yeast. In the article, out this week in <a href="https://academic.oup.com/database/article/doi/10.1093/database/baaa028/5827230">Database</a>, we reflect on the factors that have made our community’s remarkable, standard-setting achievements possible, and on the benefits we and PomBase users derive from this effort. We highlight the collaboration between authors and professional curators that arises via community curation, and how annotation quality improves as a result.</p>
 <p>Watch for invitations to curate your new papers, or see our <a href="https://www.pombase.org/community/fission-yeast-community-curation-project">community curation page</a> for more information.</p>
 </div>
 <div id="2020-05-07-pombetalks-may-13" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-may-th">PombeTalks May 13th</h3>
 <p><em>2020-05-07</em></p>
 <p>The next online PombeTalks will take place on Wednesday 13 May 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
@@ -11835,7 +11830,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-05-07-chromatin-silencing" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/nucleosome.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/nucleosome.png"/></p>
 <h3 id="chromatin-silencing-ontology-amp-annotation-overhaul">Chromatin silencing ontology &amp; annotation overhaul</h3>
 <p><em>2020-05-07</em></p>
 <p>PomBase curators have collaborated with the GO Consortium to improve the representation of chromatin silencing and the underlying heterochromatin organization processes in the GO biological process ontology and annotations.</p>
@@ -11843,7 +11838,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Annotations using the GO chromatin silencing terms were reviewed, and either removed or reannotated based on what could be inferred from the phenotypes, resulting in a substantially revised set of <a href="https://www.pombase.org/term/GO:0031507">heterochromatin assembly annotations</a>. Further work is required, so please <a href="mailto:helpdesk@pombase.org">send us</a> any corrections.</p>
 </div>
 <div id="2020-05-05-interpro-v79" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 79.0</h3>
 <p><em>2020-05-05</em></p>
 <p>PomBase now uses InterPro Version 79.0, which integrates:</p>
@@ -11855,20 +11850,20 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>InterPro cites 48466 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
 </div>
 <div id="2020-05-01-mitochondrial-genome-update" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/mitogenome.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/mitogenome.png"/></p>
 <h3 id="mitochondrial-genome-update">Mitochondrial genome update</h3>
 <p><em>2020-05-01</em></p>
 <p>The mitochondrial genome sequence in PomBase has been updated to reflect corrections made in <a href="https://www.ncbi.nlm.nih.gov/pubmed/31364709">Tao et al. (2019) “Intraspecific Diversity of Fission Yeast Mitochondrial Genomes”</a>.</p>
 </div>
 <div id="2020-04-28-midori-biocuration-career-award" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/isb_logo_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/isb_logo_32px.png"/></p>
 <h3 id="midori-harris-receives-biocuration-career-award">Midori Harris receives 2020 Biocuration Career Award</h3>
 <p><em>2020-04-28</em></p>
 <p>Midori Harris, ontology developer and curator at PomBase, has been awarded the <a href="https://www.biocuration.org/midori-harris-recipient-of-the-2020-biocuration-award/">2020 Biocuration Career Award</a>.</p>
 <p>Congratulations to Midori and a huge thanks for all that you do for PomBase.</p>
 </div>
 <div id="2020-04-22-pombetalks" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-start-on-april-th">PombeTalks start on April 29th</h3>
 <p><em>2020-04-22</em></p>
 <p>The first in the new series of online PombeTalks will take place on Wednesday 29 April 2020 at 17:00 <a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">Central European Time</a>. Speakers:</p>
@@ -11880,14 +11875,14 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 </div>
 <div id="2020-03-23-angeli" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/angeli.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/angeli.png"/></p>
 <h3 id="angeli-update">AnGeLi update</h3>
 <p><em>2020-03-23</em></p>
 <p>AnGeLi (developed by Danny Bitton) is a tool that allows you to perform enrichments over gene lists.</p>
 <p>AnGeLi has recently been updated to provide 9320 lists, including ontology-based annotations from PomBase (as of 2020-03-04) as well as many additional datasets from the Bähler laboratory.</p>
 </div>
 <div id="2020-03-23-new-search-result-download-options" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="new-search-result-download-options">New search result download options</h3>
 <p><em>2020-03-23</em></p>
 <p>The PomBase <a routerLink="/query">Advanced search</a> has added new options to the data you can download for your query results:</p>
@@ -11898,19 +11893,19 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 </ul>
 </div>
 <div id="2020-03-01-interpro-v77" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 77.0</h3>
 <p><em>2020-03-01</em></p>
 <p>PomBase now uses InterPro Version 77.0, which integrates 145 new methods from the CATH-Gene3D (134), and SUPERFAMILY (11) databases. InterPro cites 59894 publications in PubMed. See the InterPro <a href="https://www.ebi.ac.uk/interpro/release_notes/">release notes</a> for further information.</p>
 </div>
 <div id="2020-02-28-50_percent" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
 <h3 id="community-curation-response-rate-reaches">Community curation response rate reaches 50%</h3>
 <p><em>2020-02-28</em></p>
 <p>789/1587 publications assigned to community members for curation are finished. A big thank you to everyone who has participated so far. For more details, and all our curation metrics, see https://curation.pombase.org/pombe/stats/annotation</p>
 </div>
 <div id="2020-02-20-quarter_million" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/quarter_mill.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/quarter_mill.png"/></p>
 <h3 id="a-quarter-million-annotations">A quarter of a million annotations</h3>
 <p><em>2020-02-20</em></p>
 <p>PomBase recently reached 250,000 annotations to controlled vocabularies and ontologies. The majority (over 90%) are assigned manually from fission yeast experimental data derived from 3776 publications, most of which report low-throughput, hypothesis-driven experiments.</p>
@@ -11918,14 +11913,14 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Thank you to everyone who contributed to this significant achievement through community curation.</p>
 </div>
 <div id="2020-02-05-advanced-search-phenotype-conditions" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="query-phenotypes-conditions">Query phenotypes for conditions</h3>
 <p><em>2020-02-05</em></p>
 <p>The PomBase advanced search <a routerLink="/query">Advanced search</a> now supports using experimental conditions as search criteria for phenotype annotations. For example, you can now query for genes that show abnormal chromosome segregation mutant phenotypes specifically at high or low temperatures. The search uses the same condition descriptors as Canto and the PomBase web pages.</p>
 <p>Note that phenotype queries that have condition constraints can be combined, but pay careful attention to the annotations for the results. Future work will add support for querying for multiple conditions on the same annotation, and for specifying conditions to exclude from results.</p>
 </div>
 <div id="2020-02-04-lmo14-strasbourg" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/poster_LMO14_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/poster_LMO14_32px.png"/></p>
 <h3 id="levures-mod-les-et-outils-th-international-conference">Levures, Modèles et Outils 14th International Conference</h3>
 <p><em>2020-02-04</em></p>
 <p>The 14th edition of the <a href="https://lmo-14-2020.sciencesconf.org/">“Levures, Modèles et Outils” meeting (LMO14)</a> will be held in July 9-11, 2020, at the University of Strasbourg in France. Registration is open February 3rd to June 30th, and abstracts can be submitted from February 3rd to April 10th. Authors will be notified in early May and the final program will be available in early June.</p>
@@ -11942,13 +11937,13 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 </ol>
 </div>
 <div id="2020-01-17-pombase-elixir-node-service" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/elixir_uk_thumb.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/elixir_uk_thumb.png"/></p>
 <h3 id="pombase-now-elixir-node-service">PomBase is now an ELIXIR Node Service</h3>
 <p><em>2020-01-17</em></p>
 <p>PomBase has been awarded Node Service status by the <a href="https://elixiruknode.org/">UK node</a> of <a href="https://elixir-europe.org/">ELIXIR</a>. ELIXIR-UK Node Services support the bioinformatics and broader biological research communities by providing training and resources that help researchers to find and share data, exchange expertise, and agree on best practices at national, European and international levels. The review panel describes PomBase as a “mature, leading model organism database which is popular, unique, well used, and has a strong user community.”</p>
 </div>
 <div id="2020-01-07-new-stable-integration-vectors" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/stable_pAde6_vector.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/stable_pAde6_vector.png"/></p>
 <h3 id="new-vectors-simple-reliable-s.-pombe-molecular-biology">New vectors for simple, reliable <em>S. pombe</em> molecular biology</h3>
 <p><em>2020-01-07</em></p>
 <p>To enable fission yeast researchers to manipulate <em>S. pombe</em> molecular biology reproducibly and easily, Aleks Vještica and Magdalena Marek in Sophie Martin’s lab have designed and constructed a series of simple, fully characterized plasmids.</p>
@@ -11956,7 +11951,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>The work is published in the <a href="https://jcs.biologists.org/content/early/2019/11/29/jcs.240754.long">Journal of Cell Science</a>, and a PomBase <a href="https://www.pombase.org/reference/PMID:31801797">publication page</a> is available.</p>
 </div>
 <div id="2019-11-28-shareable-result-links" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="unique-permanent-urls-search-results">Unique permanent URLs for search results</h3>
 <p><em>2019-11-28</em></p>
 <p>All result pages from the <a routerLink="/query">Advanced search</a> now have a unique permanent URL that can be bookmarked and shared with your colleagues.</p>
@@ -11969,25 +11964,25 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 </ul>
 </div>
 <div id="2019-10-16-JBrowse-tracks-loadable-from-publication-pages" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/new_tracks.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/new_tracks.png"/></p>
 <h3 id="browser-tracks-now-loadable-publication-pages">Browser tracks now loadable from publication pages</h3>
 <p><em>2019-10-16</em></p>
 <p>Data tracks from datasets hosted in the PomBase genome browser can now be browsed and loaded from their respective publication pages. For an example, see <a href="https://www.pombase.org/reference/PMID:29914874">Atkinson et al. (2018)</a>. Data tracks are now also downloadable from the publication pages.</p>
 </div>
 <div id="2019-10-07-new-wt-pombase-funding" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="new-pombase-funding-wellcome-trust">New PomBase funding from the Wellcome Trust</h3>
 <p><em>2019-10-07</em></p>
 <p>We are pleased to announce that the recent PomBase application for continued Wellcome Trust funding was successful. Although the grant was not fully funded, we are confident that we can cover the shortfall by small grants for stand-alone projects and collaborations. We would like to thank the pombe community for their support with the application, and the Wellcome Trust for their continued funding. We look forward to supporting your research until 2025 (and beyond).</p>
 </div>
 <div id="2019-10-06-interpro-v76-loaded" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-.">PomBase now uses InterPro Version 76.0</h3>
 <p><em>2019-10-06</em></p>
 <p>PomBase now uses InterPro Version 76.0, which integrates 277 new methods from the CATH-Gene3D (1), PANTHER (178) and CDD (98) databases. InterPro cites 59846 publications in PubMed. See the InterPro <a href="https://www.ebi.ac.uk/interpro/release_notes/">release notes</a> for further information.</p>
 </div>
 <div id="2019-08-30-replication-origin-tracks-loaded" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="replication-origin-data-loaded-into-jbrowse">Replication origin data loaded into JBrowse</h3>
 <p><em>2019-08-30</em></p>
 <p>We have loaded data from: <a href="https://www.pombase.org/reference/PMID:14566325">Segurado et al. (2003) “A+T-rich islands”</a>, <a href="https://www.pombase.org/reference/PMID:17304213">Hayashi et al. (2007) “Pre-replicative complex localization; early and late firing origins”</a>, and <a href="https://www.pombase.org/reference/PMID:18093330">Mickle et al. (2007) “Replication origins with functional classification”</a>.</p>
@@ -11995,7 +11990,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
 </div>
 <div id="2019-07-19-join-the-conversations-on-slack" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/slack_icon-32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/slack_icon-32px.png"/></p>
 <h3 id="join-conversations-on-slack">Join the conversations on Slack</h3>
 <p><em>2019-07-19</em></p>
 <p>The vibrant fission yeast community now has a Slack channel. Slack provides a forum for the research community. Follow conversations you care about, message colleagues privately, or in groups, ask questions, post responses. All archived and searchable.</p>
@@ -12006,7 +12001,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
  - <a href="https://bit.ly/2XYkcEi">Join PombeSlack</a> -->
 </div>
 <div id="2019-07-11-Fitness_Landscape_of_the_Fission_Yeast_Genome-data-loaded" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse">“Fitness Landscape of the Fission Yeast Genome” dataset loaded into JBrowse</h3>
 <p><em>2019-07-11</em></p>
 <p>We have loaded the <a href="https://www.pombase.org/reference/PMID:31077324">Grech et al. (2019) “Fitness Landscape of the Fission Yeast Genome”</a> dataset into JBrowse. In this study, transposon mutagenesis libraries were created to map transposon insertion sites in the S. pombe genome. From this data, functional elements of the genome were inferred. The tracks from this study can be loaded by a single click from the linked publication page above</p>
@@ -12014,7 +12009,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>For anyone new to JBrowse we have a <a href="https://www.pombase.org/documentation/JBrowse_quick_start">quick start guide</a>.</p>
 </div>
 <div id="2019-05-19-tRNA_metabolism_update" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/rna_metabolism_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/rna_metabolism_32px.png"/></p>
 <h3 id="trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</h3>
 <p><em>2019-05-19</em></p>
 <p>The process of tRNA metabolism, and the associated molecular functions have recently been reviewed.</p>
@@ -12025,13 +12020,13 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Please let us know if the annotation can be further improved.</p>
 </div>
 <div id="2019-04-18-customisable-fasta" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
 <h3 id="customisable-fasta-download">Customisable FASTA download</h3>
 <p><em>2019-04-18</em></p>
 <p>You can now download nucleotide or peptide sequences for genes in Advanced search results in FASTA format, and customise what is included in the FASTA headers (e.g. gene names, product descriptions, sequence coordinates, or various IDs can be included).</p>
 </div>
 <div id="2019-04-18-prediction-links" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/tree_for_news.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/tree_for_news.png"/></p>
 <h3 id="new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</h3>
 <p><em>2019-04-18</em></p>
 <p>We have added new external links to PomBase gene pages for structure and ortholog predictions:</p>
@@ -12042,41 +12037,41 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 </ul>
 </div>
 <div id="2019-04-17-pombase-interpro-update" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-interpro-update">PomBase InterPro Update</h3>
 <p><em>2019-04-17</em></p>
 <p>PomBase now uses InterPro Version 73.0, which integrates 1,531 new methods from the CATH-Gene3D (122), CDD (330), PANTHER (1075), Pfam (2), PROSITE profiles (1) and TIGRFAMs (1) databases, and covers 81.2% of UniProt Knowledgebase release 2019_02.</p>
 <p>See <a href="https://www.ebi.ac.uk/about/news/service-news/InterPro-73.0">the news item at InterPro</a> for additional information, including release notes.</p>
 </div>
 <div id="2019-04-16-pombe-gene-info-extension" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/gix_icon.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/gix_icon.png"/></p>
 <h3 id="s.-pombe-included-gene-info-browser-extension"><em>S. pombe</em> included in Gene Info browser extension</h3>
 <p><em>2019-04-16</em></p>
 <p><em>S. pombe</em> gene information is now included in the <a href="https://gene-info.org/">Gene Info</a> extension (GIX) for the Chrome and Firefox web browsers. GIX allows you to retrieve information about a gene product directly on any webpage simply by double clicking an official gene name, synonym or supported accession. Searching or double-clicking on text terms retrieves gene function annotation, GO terms, external database links, and interaction data drawn from BioGRID and IntAct. Retrieved gene names are automatically hyperlinked for rapid recursive searches.</p>
 <p>GeneInfo is fully open source, available online at <a href="https://github.com/knightjdr/gene-info/">GitHub</a>. Tutorial videos, a step-by-step guide, and download links for Firefox Add-ons and the Chrome web storeare available <a href="https://gene-info.org/">online</a>. GeneInfo was developed by James Knight in the <a href="https://gingraslab.lunenfeld.ca/">Gingras Lab</a> at the <a href="http://www.lunenfeld.ca/">Lunenfeld-Tanenbaum Research Institute</a> in Toronto, Canada.</p>
 </div>
 <div id="2019-03-19-motif-search-integrated" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/motif_search_cropped.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/motif_search_cropped.png"/></p>
 <h3 id="integrated-motif-search">Integrated motif search</h3>
 <p><em>2019-03-19</em></p>
 <p>The PomBase <a routerLink="/motif_search">motif search</a> has been fully integrated into the website, and allows users to find protein motifs and send them directly to the PomBase <a routerLink="/query">advanced search</a>.</p>
 </div>
 <div id="2019-03-13-icygmb2019" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/icygmb_tiny.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/icygmb_tiny.png"/></p>
 <h3 id="icygmb-registration-open">ICYGMB 2019 - registration open</h3>
 <p><em>2019-03-13</em></p>
 <p>Registration is now open for the <a href="https://yeast2019.org">29th International Conference on Yeast Genetics and Molecular Biology (ICYGMB)</a>, which returns to Gothenburg, Sweden, August 18-22, 2019.</p>
 <p>Yeast2019 is the meeting of the international yeast research community where the latest, and even unpublished results are exchanged, and new projects, alliances, and collaborations are founded. Featuring 55 confirmed speakers including keynote lectures by Susan Gasser, Roger Kornberg and Frederick Roth, this conference will contain important news and information for all yeast researchers. A do-not-miss-event.</p>
 </div>
 <div id="2019-03-05-list-go-slim-tool" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/slim_tiny.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/slim_tiny.png"/></p>
 <h3 id="go-slim-any-s.-pombe-gene-list">GO slim for any <em>S. pombe</em> gene list</h3>
 <p><em>2019-03-05</em></p>
 <p>PomBase’s advanced search now allows you to retrieve <a href="documentation/pombase-go-slim-documentation">GO slim</a> annotations for any set of search results. To find GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene names and IDs” option, and then use the “Slim” button on the search results page.</p>
 <p>See the <a href="browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO slim page</a> and the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
 </div>
 <div id="2019-03-04-serym2019" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/serym2019tiny.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/serym2019tiny.png"/></p>
 <h3 id="south-eastern-regional-yeast-meeting-serym-registration-open">South Eastern Regional Yeast Meeting (SERYM) - registration open</h3>
 <p><em>2019-03-04</em></p>
 <p>Registration is now open for the <a href="https://petitinstitute.gatech.edu/serym-2019">26th annual South Eastern Regional Yeast Meeting (SERYM)</a>, which will be held April 12-14, 2019, in Atlanta, GA, USA.</p>
@@ -12084,7 +12079,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Icon: SERYM 2019</p>
 </div>
 <div id="2019-02-27-trieste-cell-cycle-meeting" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/chantal_roubinet_tiny.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/chantal_roubinet_tiny.png"/></p>
 <h3 id="international-cell-cycle-meeting-registration-open">International Cell Cycle meeting - registration open</h3>
 <p><em>2019-02-27</em></p>
 <p>Registration is now open for the <a href="https://www.ucl.ac.uk/lmcb/cell-cycle-meeting-2019">Inaugural Trieste Cell Cycle Meeting</a>, which will be held June 3-6, 2019, in Trieste, Italy.</p>
@@ -12093,26 +12088,26 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Icon derived from meeting image; credit: Chantal Roubinet, Baum lab</p>
 </div>
 <div id="2019-02-20-conserved-unknowns-open-biol" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/unknowns.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/unknowns.png"/></p>
 <h3 id="published-hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Published: Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
 <p><em>2019-02-20</em></p>
 <p>Our analysis of conserved unknown proteins has now been published in <a href="https://royalsocietypublishing.org/doi/10.1098/rsob.180241">Open Biology</a>. In it, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. We develop metrics to define unknown lists, provide unknown inventories for human and yeast, and classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, all with a view to drawing attention to the unknowns to alleviate their neglect.</p>
 </div>
 <div id="2019-02-15-pombe-2019-registration-open" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombe2019tiny.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombe2019tiny.png"/></p>
 <h3 id="pombe-registration-open">Pombe 2019 - registration open</h3>
 <p><em>2019-02-15</em></p>
 <p>Registration for the <a href="http://www.pombe2019.com">10th International Fission Yeast Meeting</a> is now open!</p>
 <p>The conference will take place July 14-19, 2019, in Barcelona, Spain. Early registration closes on April 15th — or when capacity is reached. Please see the <a href="http://www.pombe2019.com">conference website</a> for more information, including registration final deadline and costs (some travel grants are available), abstract submission, programme, accommodation, and logistics.</p>
 </div>
 <div id="2019-02-12-wood-isb-award" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/isb_logo_32px.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/isb_logo_32px.png"/></p>
 <h3 id="val-wood-wins-biocuration-society-award">Val Wood wins Biocuration society award</h3>
 <p><em>2019-02-12</em></p>
 <p>Congratulations to PomBase project leader Val Wood, who has received the 2019 Exceptional Contributions to Biocuration Award from the International Society for Biocuration. Read more at the <a href="https://www.biocuration.org/anne-morgat-and-val-wood-recipients-of-the-2019-biocuration-awards/">ISB site</a></p>
 </div>
 <div id="2019-01-09-improved-disease-association-dataset-released" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
 <h3 id="improved-disease-association-dataset-released">Improved disease association dataset released</h3>
 <p><em>2019-01-09</em></p>
 <p>We are pleased to announce the release of our improved human disease mappings dataset. This dataset connects human disease causing genes to their <em>S. pombe</em> orthologs.</p>
@@ -12120,7 +12115,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Many thanks to DO and Malacards for help in improving this annotation set. Icon courtesy of <a href="https://pixabay.com/en/users/mcmurryjulie-2375405/">Julie McMurry</a>.</p>
 </div>
 <div id="2018-12-17-mitochondrial-protein-review" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/mito_news.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/mito_news.png"/></p>
 <h3 id="mitochondrial-go-annotation-update">Mitochondrial GO annotation update</h3>
 <p><em>2018-12-17</em></p>
 <p>Responding to increasing interest in mitochondrial biology, especially relating to ageing, neurogenerative diseases, and processes at the ER-mitochondrion interface, we have reviewed <em>S. pombe</em> mitochondrial GO annotations. Although there is still relatively little fission yeast-derived experimental data in this area, we have refined many inferred annotations for mitochondrial complexes and sub-components as well as some for processes.</p>
@@ -12128,7 +12123,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Icon courtesy of Reactome.</p>
 </div>
 <div id="2018-12-03-new-nucleosome-occupancy-browser-maps-loaded" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="new-nucleosome-occupancy-maps-loaded">New nucleosome occupancy maps loaded</h3>
 <p><em>2018-12-03</em></p>
 <p>We have loaded the nucleosome occupancy maps as described in González et al. (2016) <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=27662899">PMID: 27662899</a>. This dataset was generated using the paired-end sequencing protocol of Illumina and thus those maps are of higher resolution than those made with single-end (SE) sequencing hosted in the browser since before.</p>
@@ -12136,7 +12131,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Many thanks to Paco Antequera for sending us the bigwig files! If you would like us to load any datasets then please get in touch.</p>
 </div>
 <div id="2018-11-21-quick-little-tool" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/QLT.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/QLT.png"/></p>
 <h3 id="see-your-genes-quilt">See your genes in a QuiLT</h3>
 <p><em>2018-11-21</em></p>
 <p>PomBase now offers a new way to display gene lists graphically based on multiple orthogonal annotation types — the Quick Little Tool (QuiLT) for visualisation.</p>
@@ -12153,70 +12148,70 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Many thanks to our star (and only) programmer, Kim Rutherford, for developing QuiLT.</p>
 </div>
 <div id="2018-11-20-tm-transport-overhaul" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/antiporter.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/antiporter.png"/></p>
 <h3 id="fission-yeast-transmembrane-transport-overhaul">Fission yeast transmembrane transport overhaul</h3>
 <p><em>2018-11-20</em></p>
 <p>The Gene Ontology “<a href="https://www.pombase.org/term_genes/GO:0055085">transmembrane transport</a>” branch has recently been substantially revised. In line with these revisions, PomBase has standardised gene product descriptions for transporters, and overhauled GO annotations to be as complete and comprehensive as possible based on current knowledge.</p>
 <p>Icon courtesy of <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=29077811">Reactome</a>.</p>
 </div>
 <div id="2018-11-17-conserved-unknowns-pub" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/unknowns.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/unknowns.png"/></p>
 <h3 id="hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</h3>
 <p><em>2018-11-17</em></p>
 <p>In a new publication, PomBase curators consider the challenges and opportunities that conserved, but persistently unstudied, proteins pose for diverse areas of basic and applied biology. To draw attention to these proteins, we develop metrics to define unknown lists, provide unknown inventories for human and yeast, classify <em>S. pombe</em> unknowns by numerous orthogonal attributes, and speculate about reasons for their neglect.</p>
 <p>A <a href="https://www.biorxiv.org/content/early/2018/11/16/469569">pre-publication manuscript</a> is available at bioRxiv.</p>
 </div>
 <div id="2018-11-14-S.-pombe-in-your-pocket" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/mobile_thumb.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/mobile_thumb.png"/></p>
 <h3 id="pombase-your-pocket">PomBase in your pocket</h3>
 <p><em>2018-11-14</em></p>
 <p>Our usage statistics informed us that over 20% of devices accessing PomBase are smartphones or tablets. We therefore spent some time optimizing the display for small screens. We hope that you will continue to enjoy PomBase on the go!</p>
 </div>
 <div id="2018-11-08-20-years-GO" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/go-logo-icon.mini.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/go-logo-icon.mini.png"/></p>
 <h3 id="celebrating-years-go">Celebrating 20 years of GO</h3>
 <p><em>2018-11-08</em></p>
 <p>PomBase curators are major contributors to the <a href="http://geneontology.org/">Gene Ontology</a> (GO) project — ontology content, annotations, and QC procedures — and co-authors on the new <a href="https://doi.org/10.1093/nar/gky1055">GO NAR Database Issue paper</a>.</p>
 <p>We recommend citing the GO and PomBase NAR papers when you use GO data in your analyses.</p>
 </div>
 <div id="2018-11-06-rna-central" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/rna_central_icon.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/rna_central_icon.png"/></p>
 <h3 id="rna-central-and-pombase">RNA central and PomBase</h3>
 <p><em>2018-11-06</em></p>
 <p>RNAcentral is a comprehensive database of non-coding RNA sequences. PomBase is an RNAcentral Consortium member, and all of the curated non-coding RNAs from PomBase will be available in RNAcentral soon. For more information, see their recent <a href="https://doi.org/10.1093/nar/gky1034">NAR Database Issue paper</a>, as well as current <a href="https://rnacentral.org/search?q=pombe">search results for <em>S. pombe</em> RNAs</a>.</p>
 </div>
 <div id="2018-10-23-jbrowse-graphics-gene-page" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="new-pombase-genomic-region-graphics">New PomBase genomic region graphics</h3>
 <p><em>2018-10-23</em></p>
 <p>PomBase gene pages now use interactive graphics from PomBase JBrowse to depict the genomic region around the gene. Drag to scroll left and right, double-click to zoom in, shift-double-click to zoom out, and click a feature to see details in a popup. The “Full-screen view” link in the corner opens the fully functional JBrowse in a new tab or window. Reloading a gene page restores the display to the default location and zoom level.</p>
 </div>
 <div id="2018-10-15-nar-database-issue" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/NAR_paper.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/NAR_paper.png"/></p>
 <h3 id="pombase-nar-database-issue">PomBase NAR Database Issue</h3>
 <p><em>2018-10-15</em></p>
 <p>Our NAR database update “PomBase 2018: user-driven reimplementation of the fission yeast database provides rapid and intuitive access to diverse, interconnected information” is <a href="https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gky961/5128936">now available</a>. We have updated the <a routerLink="/about/citing-pombase">Citing PomBase</a> to recommend citing this new paper. Thank you all for guiding the development of the new, improved PomBase, and for your continued usage, curation contributions, and suggestions!</p>
 </div>
 <div id="2018-10-10-2019-fungal-pathogen-genomics-course-registration-open" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/WT_course.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/WT_course.png"/></p>
 <h3 id="fungal-pathogen-genomics-course-registration-open">Fungal Pathogen Genomics Course 2019 - registration open</h3>
 <p><em>2018-10-10</em></p>
 <p>Registration for the <a href="https://coursesandconferences.wellcomegenomecampus.org/our-events/fungal-pathogen-genomics-2019/">2019 Fungal Pathogen Genomics Course</a> is now open. The course is hosted by Wellcome Genome Advanced Courses and Scientific Conferences, and will take place May 7-12, 2019, at the Wellcome Genome Campus, Hinxton, UK. Course content provides hands-on training on how to: - Take advantage of unique tools offered by FungiDB, EnsemblFungi, PomBase, SGD/CGD, and MycoCosm/JGI; - Develop testable hypotheses; - Investigate transcriptomics, proteomics and genomics datasets across multiple databases and different user interfaces. Please see the <a href="https://coursesandconferences.wellcomegenomecampus.org/our-events/fungal-pathogen-genomics-2019/">course website</a> for more information, including how to apply, costs (limited bursaries are available), programme, and logistics.</p>
 </div>
 <div id="2018-10-06-transcript-tracks-from-Atkinson-et-al-(2018)-loaded" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/Atkinson.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/Atkinson.png"/></p>
 <h3 id="transcript-tracks-atkinson-et-al.-loaded">Transcript tracks from Atkinson et al. (2018) loaded</h3>
 <p><em>2018-10-06</em></p>
 <p>We are very pleased to announce that we have loaded the transcript tracks from <a href="https://www.ncbi.nlm.nih.gov/pubmed/29914874">Atkinson et al. (2018)</a> into the PomBase JBrowse genome browser. For a brief introduction to getting started with PomBase JBrowse, please see our <a href="https://www.pombase.org/documentation/JBrowse_quick_start">documentation page</a>. If you have published data that you would like to see hosted, please get in touch.</p>
 </div>
 <div id="2018-08-31-mailing-list-move-to-cam" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
 <h3 id="pombelist-changes">pombelist changes</h3>
 <p><em>2018-08-31</em></p>
 <p>The pombe community mailing list, “pombelist”, is now hosted by the University of Cambridge. The new address for posting messages is <a href="mailto:pombelist@pombase.org" class="email">pombelist@pombase.org</a>. The link to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">subscribe</a> has also changed.</p>
 </div>
 <div id="2018-05-28-new-browse-tracks" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/new_tracks.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/new_tracks.png"/></p>
 <h3 id="new-genome-browser-tracks">New genome browser tracks</h3>
 <p><em>2018-05-28</em></p>
 <p>We are very pleased to announce that we have loaded a number of new datasets into the PomBase [JBrowse genome browser (https://www.pombase.org/jbrowse/). These include:</p>
@@ -12229,13 +12224,13 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>For anyone wanting a quick introduction to our genome browser, Antonia Lock has written <a routerLink="/documentation/JBrowse_quick_start">“Getting started with PomBase JBrowse”</a>, a basic guide that covers loading tracks, navigating the browser, what metadata we provide, and more.</p>
 </div>
 <div id="2018-05-22-book-chapter" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/book_chapter.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/book_chapter.png"/></p>
 <h3 id="new-book-chapter-about-pombase">New book chapter about PomBase</h3>
 <p><em>2018-05-22</em></p>
 <p>PomBase has a <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">new book chapter</a> in <a href="https://link.springer.com/book/10.1007/978-1-4939-7737-6"><em>Eukaryotic Genomic Databases</em> (Methods and Protocols)</a>. This chapter provides insight into the curation philosophy and data organization at PomBase, and provides a guide to using PomBase tailored for infrequent visitors and anyone considering extending their research to include <em>S. pombe</em>. The chapter is <a href="https://link.springer.com/protocol/10.1007/978-1-4939-7737-6_4">free to download</a> courtesy of the <a href="https://wellcome.ac.uk/">Wellcome Trust</a>.</p>
 </div>
 <div id="2018-04-16-pombase-deploys-jbrowse" class="news-item">
-<p><img class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/browser.png"/></p>
 <h3 id="pombase-releases-jbrowse">PomBase releases JBrowse</h3>
 <p><em>2018-04-16</em></p>
 <p>PomBase has now implemented <a href="https://www.pombase.org/jbrowse/?loc=II%3A564641..602220&amp;tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20%20reverse%20strand%20features&amp;highlight=">JBrowse</a>, from the <a href="http://gmod.org/wiki/Main_Page">GMOD</a> project, as its genome browser. The new browser offers a number of improvements over the old:</p>
@@ -12996,7 +12991,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   <div class="docs-content">
   <div *ngIf="pageName == 'centromeres'">
 <h2 id="centromeres">Centromeres</h2>
-<p>At present, each centromere is annotated as a single sequence feature in PomBase, which can be viewed in and downloaded from the Ensembl genome browser.</p>
+<p>At present, each centromere is annotated as a single sequence feature in PomBase, which can be viewed in and downloaded from the genome browser.</p>
 <p>Chromosome coordinates (links to JBrowse):</p>
 <ul>
 <li>CEN 1: <a href="https://www.pombase.org/jbrowse/?loc=I%3A3753680..3789414&amp;tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&amp;highlight=">I:3753687-3789421</a></li>
@@ -13010,7 +13005,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <figure>
 <img src="assets/centromeremapping.gif" width="779" height="540" alt="" /><figcaption>Centromere map</figcaption>
 </figure>
-<p>Centromere map from: The genome sequence of <em>Schizosaccharomyces pombe</em>. Nature 2002 Feb 21;415(6874):871-80. created by Rhian Gwilliam</p>
+<p>Centromere map from: Wood <em>et al.</em> 2002 The genome sequence of <em>Schizosaccharomyces pombe</em>. Nature 415(6874):871-80 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/11859360">PMID:11859360</a>). Created by Rhian Gwilliam.</p>
 
   </div>
   <div *ngIf="pageName == 'chromosome-summary'">
@@ -13133,8 +13128,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
  </tr>
  </tbody>
 </table>
-<h4 id="history-of-characterisation-status-using-previous-status">History of characterisation status using previous status</h4>
-<p>descriptions: ####</p>
+<h4 id="history-of-characterisation-status-using-previous-status-descriptions">History of characterisation status using previous status descriptions:</h4>
 <table>
  <thead>
   <tr>
@@ -16717,8 +16711,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'priority-unstudied-genes'">
 <h3 id="priority-unstudied-genes">Priority unstudied genes</h3>
-<p>Fission yeast genes are classed as “unknown” if there is no information about the broad cellular role (biological process) in which it participates (corresponding to any of the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">high level GO biological process slim classes</a>). For these, we have been unable to identify a broad biological role based on experimental data in fission yeast or any other organism. Note that, as all genes in fission yeast have been curated, these genes are documented as “unknown” (they are not “unannotated”).</p>
-<p>In fission yeast the “unknown” inventory is <app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:unknown_genes'"></app-query-link> entries, many of which are apparently found only in the fission yeast clade. However, a large number (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown'"></app-query-link>) are conserved, and a significant number of these (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-query-link>) have orthologs in vertebrates. These genes are listed below.</p>
+<p>Fission yeast genes are classed as “unknown” if there is no information about the broad cellular role (biological process) in which it participates (corresponding to any of the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">high level GO biological process slim classes</a>). For these, we have been unable to identify a broad biological role based on experimental data in <em>S. pombe</em> or any other organism. Note that, as all genes in <em>S. pombe</em> have been curated, these genes are documented as “unknown” (they are not “unannotated”).</p>
+<p>In <em>S. pombe</em> the “unknown” inventory is <app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:unknown_genes'"></app-query-link> entries, many of which are apparently found only in the fission yeast clade. However, a large number (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown'"></app-query-link>) are conserved, and a significant number of these (<app-query-link [goToResults]="true" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-query-link>) have orthologs in vertebrates. These genes are listed below.</p>
 <p>You can recreate this query, or variations of it, using the Advanced Search. See the <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">relevant FAQ</a> and the <a routerLink="/query">Advanced Search</a> documentation for details. You can also send this list directly to the advanced search (For example to mine for phenotypes or locations of interest).</p>
 <p><app-predefined-query-results [description]="'Unstudied genes'" [predefinedQueryId]="'priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates'"></app-predefined-query-results></p>
 
@@ -18969,19 +18963,19 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <h3 id="s.-pombe-sequence-updates-since-july-2003"><em>S. pombe</em> Sequence updates since July 2003</h3>
 <h4 id="aug-29-2008-chromosome-1-cosmid-c30-or-c29e6-affecting-spac29e6.04cnnf1">Aug 29 2008 Chromosome 1 cosmid C30 OR c29E6 affecting SPAC29E6.04c/Nnf1</h4>
 <p><strong>PENDING 2008-08-29</strong></p>
-<p>The reference sequence appears to contain an extra ‘G’ at position 4410193 PMID:17035632, also confirmed by Broad sequence; Pers. comm. Aki Hayashi Reported 05/16/07</p>
+<p>The reference sequence appears to contain an extra ‘G’ at position 4410193 PMID:17035632, also confirmed by Broad sequence; Pers. comm. Aki Hayashi. Reported 2007-05-16</p>
 <h4 id="aug-29-2008-chromosome-1-cosmid-c767-affecting-spac767.01cvps1">Aug 29 2008 Chromosome 1 cosmid c767 affecting SPAC767.01c/Vps1</h4>
 <p><strong>PENDING 2007-08-23</strong></p>
-<p>At 1999191 in Vps1 TGTGACC[C-&gt;G]TACGAC PMID:18088324, also confirmed by Broad sequence; Pers. comm. Isabelle Jourdain Reported 06/15/05</p>
+<p>At 1999191 in Vps1 TGTGACC[C-&gt;G]TACGAC PMID:18088324, also confirmed by Broad sequence; Pers. comm. Isabelle Jourdain. Reported 2005-06-15</p>
 <h4 id="aug-29-2008-chromosome-2-cosmid-c21d10-affecting-spbc21d10.06cmap4">Aug 29 2008 Chromosome 2 cosmid c21D10 affecting SPBC21D10.06c/Map4</h4>
 <p><strong>PENDING 2008-08-29</strong></p>
-<p>Map4 in the reference genome contains an array of 5 repeats. In PMID:168571979 repeats are reported. This number is the correct number of repeats and will be updated via an insertion into the contig sequence shortly. Pers. comm. Henar Valdivieso Reported 06/15/05</p>
+<p>Map4 in the reference genome contains an array of 5 repeats. In PMID:168571979 repeats are reported. This number is the correct number of repeats and will be updated via an insertion into the contig sequence shortly. Pers. comm. Henar Valdivieso. Reported 2005-06-15</p>
 <h4 id="aug-29-2008-chromosome-1-cosmid-c27d7-misassembly-causing-duplication-of-spac27d7.09c-spac27d7.10c">Aug 29 2008 Chromosome 1 cosmid c27D7 misassembly causing duplication of SPAC27D7.09c (SPAC27D7.10c)</h4>
 <p><strong>PENDING 2008-08-29</strong></p>
-<p>An apparent repeat region on chromosome 1 coordinates 4526059..4529095 (cosmid c27D7) is caused by a missassembly and will be removed from the genomic sequence shortly. The CDS feature SPAC27D7.10c within this region is an exact duplication of SPAC27D7.09c and will be merged with this CDS. Pers. comm. Klavs Hansen. Reported 09/01/04</p>
+<p>An apparent repeat region on chromosome 1 coordinates 4526059..4529095 (cosmid c27D7) is caused by a missassembly and will be removed from the genomic sequence shortly. The CDS feature SPAC27D7.10c within this region is an exact duplication of SPAC27D7.09c and will be merged with this CDS. Pers. comm. Klavs Hansen. Reported 2004-09-01</p>
 <h4 id="jun-2008-gatc-in-overlap-c1450-and-c1442-affects-spcc1442.04c">Jun 2008 GATC in overlap c1450 and c1442 affects SPCC1442.04c</h4>
 <p><strong>PENDING 2008-08-26</strong></p>
-<p>There are 4 bases missing from the sequence AACATCTTCCAAGTTCTCAT GATC CTTTAAAGATTCCTCAAGGT, which will change the C-terminal region slightly. This will be fixed in the next round of corrections</p>
+<p>There are 4 bases missing from the sequence AACATCTTCCAAGTTCTCAT GATC CTTTAAAGATTCCTCAAGGT, which will change the C-terminal region slightly. This will be fixed in the next round of corrections.</p>
 <h4 id="jun-2008-197-potential-sequence-discrepancies-from-the-broad-institute">Jun 2008 197 potential sequence discrepancies from the Broad Institute</h4>
 <p><strong>PENDING 2008-08-26</strong></p>
 <p>Generated as part of a technology development project, using Illumina (Solexa) technology the Broad Institute generated &gt;200-fold sequence coverage of the genome of <em>S. pombe</em> strain 972. These data identified 197 potential discrepancies. The discrepancy rate is about 1 in 100,000, which is close to the estimated error rate in published reference sequence. Further information and data <a routerLink="/status/sequence-updates-pending">here</a></p>
@@ -19248,8 +19242,7 @@ Joined contigs p4C9 and c977</p>
 </tr>
 </tbody>
 </table>
-<p><br />
-### Telomeric located contig transcript breakdown</p>
+<h3 id="telomeric-located-contig-transcript-breakdown">Telomeric located contig transcript breakdown</h3>
 <table>
 <thead>
 <tr class="header">
@@ -19268,8 +19261,7 @@ Joined contigs p4C9 and c977</p>
 </tr>
 </tbody>
 </table>
-<p><br />
-### Mating type region</p>
+<h3 id="mating-type-region">Mating type region</h3>
 <table>
 <thead>
 <tr class="header">
@@ -19288,8 +19280,7 @@ Joined contigs p4C9 and c977</p>
 </tr>
 </tbody>
 </table>
-<p><br />
-#### <strong>Release Version:</strong> 30th Jan 2017</p>
+<h4 id="release-version-30th-jan-2017"><strong>Release Version:</strong> 30th Jan 2017</h4>
 
   </div>
   <div *ngIf="pageName == 'telomeres'">
