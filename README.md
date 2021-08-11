@@ -4,7 +4,7 @@ See https://github.com/pombase/website/tree/master/
 
 ### Build and test status
 
-![Tests](https://github.com/pombase/website/workflows/Tests/badge.svg)
+[![Test status](https://github.com/pombase/website/actions/workflows/test-website.yml/badge.svg)](https://github.com/pombase/website/actions/workflows/test-website.yml)
 
 ### Deploying
 
