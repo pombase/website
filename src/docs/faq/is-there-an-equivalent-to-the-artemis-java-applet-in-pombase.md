@@ -1,8 +1,8 @@
 # Is there an equivalent to the Artemis java applet in PomBase?
 <!-- pombase_categories: Finding data,Tools and resources -->
 
-No; at present only the JBrowse and links to the Ensembl genome
-browser are available via the PomBase web site. (In the future we may
+No; at present only JBrowse and links to the Ensembl genome browser
+are available via the PomBase web site. (In the future we may
 investigate the possibility of adding an Artemis applet to PomBase,
 and will update this FAQ accordingly when it becomes available.)
 

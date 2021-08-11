@@ -14,7 +14,7 @@ For assistance, see the "User Interface" part of the [BioPortal Help](http://bio
 
 EBI's Ontology Lookup Service (OLS) - search on the 
 [OLS home page](http://www.ebi.ac.uk/ontology-lookup/) or go to the
-[FYPO page](http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=FYPO).
+[FYPO page](https://www.ebi.ac.uk/ols/ontologies/fypo).
 Help is provided on each page.
 
 
