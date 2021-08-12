@@ -19,6 +19,6 @@ to make up a custom slim. GO Term Mapper's interface and documentation
 should make the rest straightforward, but let PomBase staff know if
 you have any problems.
 
-For further information on using the generic *S. pombe* slim, or on
+For further information on using the generic *S. pombe* slims, or on
 creating your own GO slim, please see the [Fission Yeast GO slimming tips](/browse-curation/fission-yeast-go-slimming-tips) page.
 

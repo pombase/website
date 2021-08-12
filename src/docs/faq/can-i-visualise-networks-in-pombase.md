@@ -21,7 +21,7 @@ esyN in the table headers of the Interactions sections:
     on the gene and curated in BioGRID
 -   The Physical interactions section has links to two datasets:
     -   All physical interactions curated in BioGRID for the gene
-    -   Interactions for the gene in the PomBase [High Confidence         Physical Interaction Network         (HCPIN)](/documentation/high-confidence-physical-interaction-network) 
+    -   Interactions for the gene in the PomBase [High Confidence Physical Interaction Network (HCPIN)](/documentation/high-confidence-physical-interaction-network) 
 
 For example, the Genetic Interactions header for cdc2 links to
 <http://www.esyn.org/builder.php?type=Graph&query=SPBC11B10.09&organism=4896&interactionType=genetic&source=biogrid>

@@ -5,7 +5,7 @@ No, but this can be done within Artemis.
 
 Install Artemis (available from
 <http://www.sanger.ac.uk/science/tools/artemis>; for *S. pombe* we recommend using [Artemis Version 16](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/).
-g
+
 You can then read in the EMBL format chromosome contig files of
 sequence and annotation (available from the 
 [Genome datasets](/downloads/genome-datasets) page). To

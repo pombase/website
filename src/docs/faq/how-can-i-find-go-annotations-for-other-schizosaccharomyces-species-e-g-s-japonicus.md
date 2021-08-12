@@ -26,7 +26,6 @@ for hints.
 
 One feasible approach to improve annotation coverage is to download the
 *S. pombe* GO annotations (see the [GO Annotations download](/downloads/go-annotations) 
-
 page), and then substitute the *S. pombe* IDs with the IDs of
 orthologous genes from the other *Schizosaccharomyces* species of
 interest. For ortholog IDs, see the 
