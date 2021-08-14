@@ -7,7 +7,7 @@ set -o pipefail
 
 web_config=$1
 
-database_name=$(jq '."database_name"' ~/pombase-www-new/main_config.json | perl -pne 's/"(.+?)"/$1/g')
+database_name=$(jq '."database_name"' $web_config | perl -pne 's/"(.+?)"/$1/g')
 
 echo Generating documentation for: $database_name
 echo
