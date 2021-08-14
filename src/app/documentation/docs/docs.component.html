@@ -7828,7 +7828,7 @@ Search documentation, news archive and FAQ:
 <p>PomBase does not have an API at present.</p>
 <p>The Ensembl API can be used to query <em>S. pombe</em> data. Note, however, that EG is updated much less frequently than PomBase, so EG data will rarely be as up-to-date as the PomBase web site. Documentation is available:</p>
 <ol type="1">
-<li><a href="http://ensemblgenomes.org/info/access/eg_api">Ensembl Genomes Perl API installation and basic use instructions</a> (with links to additional Ensembl API documentation)</li>
+<li><a href="http://www.ensembl.org/info/docs/api/index.html">Ensembl Genomes Perl API installation and basic use instructions</a> (with links to additional Ensembl API documentation)</li>
 <li><a href="http://www.ensembl.org/info/docs/api/core/core_tutorial.html">Tutorial for using the API with the core database</a> - Includes examples about connecting to the database, retrieving chromosomes, genes, transcript and translations along with the corresponding xrefs.</li>
 </ol>
 
@@ -7837,7 +7837,7 @@ Search documentation, news archive and FAQ:
 <h3 id="can-i-access-pombase-via-sql">Can I access PomBase via SQL?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>PomBase does not have a publicly accessible SQL query server, but <a routerLink="/downloads/chado-database-dumps">Chado database dumps</a> (PostgresQL) are available to download and query locally.</p>
-<p>The <a href="http://ensemblgenomes.org/info/access/mysql">Ensembl Genomes (EG) MySQL database</a> server does provide access to query <em>S. pombe</em> data. Note, however, that EG is updated much less frequently than PomBase, so EG data will rarely be as up-to-date as the PomBase web site.</p>
+<p>The <a href="https://fungi.ensembl.org/info/data/mysql.html">Ensembl Fungi MySQL database</a> server does provide access to query <em>S. pombe</em> data. Note, however, that Ensembl Genomes (EG) is updated much less frequently than PomBase, so EG data will rarely be as up-to-date as the PomBase web site.</p>
 <p>MySQL dumps of EG data, including <em>Schizosaccharomyces</em> species, are available from <a href="ftp://ftp.ensemblgenomes.org/pub/current/fungi/mysql/">EG’s FTP site</a>.</p>
 
 </div>
@@ -7850,8 +7850,7 @@ Search documentation, news archive and FAQ:
 <div (click)="faq_navigate($event, '/faq/can-i-convert-file-gtf-gff', 'Can I convert a file from GTF to GFF3?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-convert-file-gtf-gff' || pageName == 'all-faqs'">
 <h3 id="can-i-convert-file-gtf-gff">Can I convert a file from GTF to GFF3?</h3>
 <!-- pombase_categories: Tools and resources -->
-<p>PomBase does not offer a converter. The</p>
-<p><a href="http://www.sequenceontology.org/">Sequence Ontology</a> project offers a conversion tool available for download or usage via web form from their <a href="https://github.com/The-Sequence-Ontology/GTF-TO-GFF3-Converter">GitHub site</a></p>
+<p>PomBase does not offer a converter. The <a href="http://www.sequenceontology.org/">Sequence Ontology</a> project offers a conversion tool available for download or usage via web form from their <a href="https://github.com/The-Sequence-Ontology/GTF-TO-GFF3-Converter">GitHub site</a></p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-convert-ids-other-databases-or-pombase-ids', 'Can I convert IDs from other databases to or from PomBase IDs?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-convert-ids-other-databases-or-pombase-ids' || pageName == 'all-faqs'">
@@ -7860,9 +7859,11 @@ Search documentation, news archive and FAQ:
 <p>PomBase has an identifier mapper that retrieves <em>S. pombe</em> gene systematic IDs and standard names for a selection of different input ID types:</p>
 <ul>
 <li>Find <em>S. pombe</em> genes using UniProt accessions</li>
-<li>Retrieve manually curated orthologs for</li>
+<li>Retrieve manually curated orthologs for
+<ul>
 <li><em>S. cerevisiae</em>: Use standard gene names (CDC28, ACT1, etc.), ORF names (YPR121W, YPL258C, etc.), or SGD IDs (SGD:S000004494, SGD:S000004635, etc.)</li>
 <li>Human: use standard gene names (CDK1, BRCA2, etc.) or HGNC identifiers (e.g. HGNC:1722)</li>
+</ul></li>
 </ul>
 <p>For UniProt IDs, we also provide a static mapping file of PomBase systematic IDs and UniProtKB accessions, available on the <a href="/downloads/names-and-identifiers">Data Mapping</a> page and by FTP from <a href="https://www.pombase.org/data/names_and_identifiers/PomBase2UniProt.tsv" class="uri">https://www.pombase.org/data/names_and_identifiers/PomBase2UniProt.tsv</a>.</p>
 <p>For IDs not included in the PomBase mapper, we suggest you try the EBI’s PICR web service (<a href="http://www.ebi.ac.uk/Tools/picr/" class="uri">http://www.ebi.ac.uk/Tools/picr/</a>), which can convert between UniProtKB, RefSeq, Ensembl Genomes (including <em>S. pombe</em> systematic IDs), and many other common database IDs.</p>
@@ -7904,7 +7905,7 @@ Search documentation, news archive and FAQ:
 <div (click)="faq_navigate($event, '/faq/can-i-download-sequence-whole-chromosome', 'Can I download the sequence for a whole chromosome?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-download-sequence-whole-chromosome' || pageName == 'all-faqs'">
 <h3 id="can-i-download-sequence-whole-chromosome">Can I download the sequence for a whole chromosome?</h3>
 <!-- pombase_categories: Finding data -->
-<p>Yes, sequence and feature annotations data files are available for each chromosome on the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page (FTP download).</p>
+<p>Yes, sequence and feature annotations data files are available for each chromosome on the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-download-sequences-many-genes-once-including-flanking-regions', 'Can I download sequences for many genes at once, including flanking regions? ')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-download-sequences-many-genes-once-including-flanking-regions' || pageName == 'all-faqs'">
@@ -7969,7 +7970,8 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <h3 id="can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase">Can I generate a comprehensive restriction enzyme map of the genome in PomBase?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>No, but this can be done within Artemis.</p>
-<p>Install Artemis (available from <a href="http://www.sanger.ac.uk/science/tools/artemis" class="uri">http://www.sanger.ac.uk/science/tools/artemis</a>; for <em>S. pombe</em> we recommend using <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/">Artemis Version 16</a>. g You can then read in the EMBL format chromosome contig files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page). To generate a restriction map:</p>
+<p>Install Artemis (available from <a href="http://www.sanger.ac.uk/science/tools/artemis" class="uri">http://www.sanger.ac.uk/science/tools/artemis</a>; for <em>S. pombe</em> we recommend using <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/">Artemis Version 16</a>.</p>
+<p>You can then read in the EMBL format chromosome contig files of sequence and annotation (available from the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page). To generate a restriction map:</p>
 <ol type="1">
 <li>Create a new entry using the “Create” menu item “New Entry”</li>
 <li>Toggle off the main annotation by un-checking the chromsome contig file (this will make your new file “no name” the active entry).</li>
@@ -8174,7 +8176,7 @@ esyN in the table headers of the Interactions sections:
     on the gene and curated in BioGRID
 -   The Physical interactions section has links to two datasets:
     -   All physical interactions curated in BioGRID for the gene
-    -   Interactions for the gene in the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence         Physical Interaction Network         (HCPIN)</a> 
+    -   Interactions for the gene in the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a> 
 
 For example, the Genetic Interactions header for cdc2 links to
 <http://www.esyn.org/builder.php?type=Graph&query=SPBC11B10.09&organism=4896&interactionType=genetic&source=biogrid>
@@ -8390,7 +8392,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>In the future, we plan to make Fission Yeast Phenotype Ontology (FYPO) terms and annotations available in a browser analogous to AmiGO or QuickGO. Until such a browser becomes available, FYPO is accessible in these external resources:</p>
 <p>NCBO BioPortal - search on the <a href="http://bioportal.bioontology.org/">BioPortal home page</a>, go to the <a href="http://bioportal.bioontology.org/ontologies/FYPO">FYPO summary page</a>, or go to the <a href="http://bioportal.bioontology.org/ontologies/FYPO/?p=classes&conceptid=root">FYPO terms page</a>. For assistance, see the “User Interface” part of the <a href="http://bioportal.bioontology.org/help">BioPortal Help</a>.</p>
-<p>EBI’s Ontology Lookup Service (OLS) - search on the <a href="http://www.ebi.ac.uk/ontology-lookup/">OLS home page</a> or go to the <a href="http://www.ebi.ac.uk/ontology-lookup/browse.do?ontName=FYPO">FYPO page</a>. Help is provided on each page.</p>
+<p>EBI’s Ontology Lookup Service (OLS) - search on the <a href="http://www.ebi.ac.uk/ontology-lookup/">OLS home page</a> or go to the <a href="https://www.ebi.ac.uk/ols/ontologies/fypo">FYPO page</a>. Help is provided on each page.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser', 'How can I display a sequence region using sequence coordinates in the genome browser?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser' || pageName == 'all-faqs'">
@@ -8465,8 +8467,7 @@ For example, the Genetic Interactions header for cdc2 links to
 </ul>
 <p>Because these automated annotations are inferred only from experimentally-derived <em>S. pombe</em> annotations, coverage will not be complete.</p>
 <p>Note that the GAF downloaded from QuickGO uses UniProtKB accessions in the gene product ID column (column 2). To use the GAF in any further analysis, such as term enrichment, you will have to convert the accessions to systematic IDs. See the <a routerLink="/faq/can-i-convert-ids-other-databases-or-pombase-ids">FAQ on ID mapping</a> for hints.</p>
-<p>One feasible approach to improve annotation coverage is to download the <em>S. pombe</em> GO annotations (see the <a routerLink="/downloads/go-annotations">GO Annotations download</a></p>
-<p>page), and then substitute the <em>S. pombe</em> IDs with the IDs of orthologous genes from the other <em>Schizosaccharomyces</em> species of interest. For ortholog IDs, see the <a routerLink="/faq/how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species">FAQ on <em>Schizosaccharomyces</em> orthologs</a>, and use the indicated table from Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>).</p>
+<p>One feasible approach to improve annotation coverage is to download the <em>S. pombe</em> GO annotations (see the <a routerLink="/downloads/go-annotations">GO Annotations download</a> page), and then substitute the <em>S. pombe</em> IDs with the IDs of orthologous genes from the other <em>Schizosaccharomyces</em> species of interest. For ortholog IDs, see the <a routerLink="/faq/how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species">FAQ on <em>Schizosaccharomyces</em> orthologs</a>, and use the indicated table from Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>).</p>
 <p>Note that some genes are present in <em>S. japonicus</em>, <em>S. octosporus</em> or <em>S. cryophilus</em> but absent from <em>S. pombe</em>. For some of these gene products, GO annotations can be transferred from other species. If you wish to include annotations for these genes in your analysis you will need to use this option, and extend your GAF with the relevant annotation lines (contact the <a href="mailto:helpdesk@pombase.org">Helpdesk</a> if you need assistance). Combining all approaches gives the best coverage possible at present. You can use a “GO Slim” tool such as Princeton’s GO Term Mapper to see if there are any gaps in coverage, as described in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list">FAQ on enrichment in <em>S. pombe</em></a>. Also see the FAQs on GO term enrichment in <a routerLink="/faq/can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus">other <em>Schizosaccharomyces</em> species</a>.</p>
 
 </div>
@@ -8891,7 +8892,7 @@ Example queries:
 <p>The <a routerLink="/documentation/pombase-go-slim-documentation">Fission Yeast GO slim pages</a> provide generic GO slims for <em>S. pombe</em>, and show total genes annotated to each term directly or to any of its descendants.</p>
 <p>If you want GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene names and IDs” option, and then use the “Slim” button on the search results page. See the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
 <p>If you want to use a different slim, we recommend using the <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GO Term Mapper</a> at Princeton. Upload your list of genes, and select “Schizosaccharomyces pombe (PomBase)” in the Organism pulldown. For the slim, select one of the radio buttons, or scroll down to Advanced Options to choose GO terms to make up a custom slim. GO Term Mapper’s interface and documentation should make the rest straightforward, but let PomBase staff know if you have any problems.</p>
-<p>For further information on using the generic <em>S. pombe</em> slim, or on creating your own GO slim, please see the <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">Fission Yeast GO slimming tips</a> page.</p>
+<p>For further information on using the generic <em>S. pombe</em> slims, or on creating your own GO slim, please see the <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">Fission Yeast GO slimming tips</a> page.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-do-i-change-track-scale-jbrowse', 'How do I change the track scale in JBrowse?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'how-do-i-change-track-scale-jbrowse' || pageName == 'all-faqs'">
@@ -9008,7 +9009,7 @@ Example queries:
 <div (click)="faq_navigate($event, '/faq/there-equivalent-artemis-java-applet-pombase', 'Is there an equivalent to the Artemis java applet in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'there-equivalent-artemis-java-applet-pombase' || pageName == 'all-faqs'">
 <h3 id="there-equivalent-artemis-java-applet-pombase">Is there an equivalent to the Artemis java applet in PomBase?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
-<p>No; at present only the JBrowse and links to the Ensembl genome browser are available via the PomBase web site. (In the future we may investigate the possibility of adding an Artemis applet to PomBase, and will update this FAQ accordingly when it becomes available.)</p>
+<p>No; at present only JBrowse and links to the Ensembl genome browser are available via the PomBase web site. (In the future we may investigate the possibility of adding an Artemis applet to PomBase, and will update this FAQ accordingly when it becomes available.)</p>
 <p>If you want to browse the <em>S. pombe</em> genome in the Artemis environment, it is fairly easy to download and run locally:</p>
 <ul>
 <li><p><em>Important:</em> For <em>S. pombe</em> we recommend using <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/">Artemis Version 16</a>, not the most recent version available from the <a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis home page</a>. Newer versions of Artemis may be incompatible with the default Java installed on some computers, especially Macs.</p></li>
