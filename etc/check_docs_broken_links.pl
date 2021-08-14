@@ -55,7 +55,7 @@ sub wanted_docs {
   $current =~ s|$docs_dir/||;
 
   if ($current =~ m|^(.+)/(.+)\.$database_name\.md$| ||
-      $current =~ m|^(.+)/(.+)\.md$|) {
+      $current =~ m|^(.+)/([^\.]+)\.md$|) {
 
     my $section = $1;
     my $page_name = $2;
