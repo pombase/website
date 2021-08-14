@@ -1,4 +1,3 @@
-
 ## Publications authored by PomBase staff
 
 Please see the [Citing PomBase](/about/citing-pombase) page, which
