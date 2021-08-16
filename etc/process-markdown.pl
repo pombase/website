@@ -13,6 +13,7 @@ use strict;
 use warnings;
 use Carp;
 use Getopt::Long qw(GetOptions);
+use File::Temp qw(tempfile);
 
 my $web_config_file_name = '';
 my $doc_config_file_name = '';
@@ -37,7 +38,6 @@ if (!$web_config_file_name || !$doc_config_file_name || !$markdown_docs || !$rec
 }
 
 use JSON -support_by_pp;
-use Pandoc;
 
 
 open my $config_fh, '<', $web_config_file_name
@@ -285,7 +285,8 @@ sub process_front_panels {
     my $content = $this_conf->{content};
     for my $content_line (split /\n/, $content) {
       process_line(\$content_line);
-      print $panel_contents_comp_fh markdown($content_line), "\n";
+      print $panel_contents_comp_fh markdown($content_line, "front_panel:" . $this_conf,
+                                             'html'), "\n";
     }
     print $panel_contents_comp_fh "</div>\n";
   }
@@ -333,7 +334,7 @@ sub get_all_faq_parts {
     $fixed_heading =~ s/"/&quot;/g;
 
     $ret .= qq|<div (click)="faq_navigate(\$event, '/faq/$sect_id', '$fixed_heading')" *ngIf="$categories_condition">\n|;
-    $ret .= markdown($contents) . "\n";
+    $ret .= markdown($contents, $path, 'html') . "\n";
     $ret .= "</div>\n";
   }
 
@@ -373,7 +374,7 @@ sub process_path {
       my $category_id = $page_name;
       # faq:
       my $category_name = $faq_category_names{$category_id};
-      print $docs_component_fh markdown("## $category_name"), "\n";;
+      print $docs_component_fh markdown("## $category_name", "$path/$page_name", 'html'), "\n";
     } else {
       my $contents = contents_for_template("$path/$page_name", $data->{$page_name});
 
@@ -390,7 +391,7 @@ sub process_path {
         die;
       }
 
-      print $docs_component_fh markdown($contents), "\n";
+      print $docs_component_fh markdown($contents, "$path/$page_name", 'html' ), "\n";
     }
     print $docs_component_fh qq|  </div>\n|;
   }
@@ -424,7 +425,7 @@ sub process_path {
       $md .= '#### **' . $item->{title} . "**\n\n";
       $md .= '*' . $item->{date} . "*\n";
       $md .= $item->{contents} . "\n";
-      print $recent_news_fh markdown($md), "\n";
+      print $recent_news_fh markdown($md, "news:" . $item->{title}, 'html'), "\n";
       print $recent_news_fh qq|</div>\n|;
     }
     print $recent_news_fh qq|
@@ -435,12 +436,39 @@ sub process_path {
 
 sub markdown {
   my $md = shift;
+  my $id_for_debugging = shift;
   my $output_type = shift // 'html';
 
-  my $html = "";
+  local $/ = undef;
 
-  pandoc '--columns' => 1000, -f => 'markdown-markdown_in_html_blocks+link_attributes+auto_identifiers+implicit_header_references+header_attributes',
-    -t => $output_type, { in => \$md, out => \$html };
+  my ($temp_fh, $temp_filename) = tempfile('process-markdown-XXXXXXXXXX', UNLINK => 1);
+
+  print $temp_fh $md;
+
+  close $temp_fh;
+
+  my $pandoc_command =
+    "pandoc --columns 1000 -f markdown-markdown_in_html_blocks+link_attributes+auto_identifiers+implicit_header_references+header_attributes " .
+    "-t $output_type $temp_filename";
+
+  open my $pandoc_pipe, "$pandoc_command 2> /tmp/$temp_filename.err|"
+    or die "Couldn't open a pipe from pandoc: $!";
+
+  my $html = <$pandoc_pipe>;
+
+  close $pandoc_pipe;
+
+  open my $err_fh, '<', "/tmp/$temp_filename.err" or
+    die "can't open error output from pandoc: $!\n";
+
+  my $errors = <$err_fh>;
+
+  warn "warning when processing ", ($id_for_debugging ? "$id_for_debugging " : ''),
+    "with pandoc:\n", $errors if $errors;
+
+  close $err_fh;
+
+  unlink "/tmp/$temp_filename.err";
 
   return $html;
 }
@@ -668,6 +696,7 @@ my @sorted_json_solr_contents =
 sub markdown_to_plain
 {
   my $content = shift;
+  my $title_for_debugging = shift;
 
   # remove Angular elements
   $content =~ s!<(app-[\w\-]+).*?>(.*?)</\1>!$2!gs;
@@ -678,7 +707,7 @@ sub markdown_to_plain
     # shortcut for headings with no Markdown
     $plain_text = $content;
   } else {
-    $plain_text = markdown($content, 'plain');
+    $plain_text = markdown($content, $title_for_debugging, 'plain');
   }
 
   # remove some noise
@@ -692,9 +721,9 @@ sub markdown_to_plain
 }
 
 map {
-  my $plain_heading = markdown_to_plain($_->{heading});
+  my $plain_heading = markdown_to_plain($_->{heading}, $_->{heading});
   $_->{heading} = $plain_heading;
-  $_->{content} = markdown_to_plain($_->{content});
+  $_->{content} = markdown_to_plain($_->{content}, $_->{heading});
   # remove heading
   $_->{content} =~ s/\Q$plain_heading//g;
 } @sorted_json_solr_contents;
