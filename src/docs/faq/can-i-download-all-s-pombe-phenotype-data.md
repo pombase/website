@@ -1,4 +1,4 @@
-# Can I download all *S. pombe* phenotype data?
+# Can I download all *${species_abbrev}* phenotype data?
 <!-- pombase_categories: Finding data,Using ontologies -->
 
 Yes, the [Phenotype annotations](/downloads/phenotype-annotations) page

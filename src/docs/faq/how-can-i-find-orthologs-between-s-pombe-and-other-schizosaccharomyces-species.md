@@ -1,4 +1,4 @@
-# How can I find orthologs between *S. pombe* and other *Schizosaccharomyces* species?
+# How can I find orthologs between *${species_abbrev}* and other *Schizosaccharomyces* species?
 <!-- pombase_categories: Orthology,Finding data -->
 
 On a gene-by-gene basis, you can use the Ensembl genome browser link

@@ -1,4 +1,4 @@
-# How can I obtain the list of human and *S. pombe* orthologs?
+# How can I obtain the list of human and *${species_abbrev}* orthologs?
 <!-- pombase_categories: Finding data,Genome statistics and lists,Orthology -->
 
 The current version of the manually curated list of orthologs and

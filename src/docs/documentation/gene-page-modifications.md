@@ -18,7 +18,7 @@ The detailed view shows more information for each annotation, and may display ad
 
 1.  Name and ID of the ontology term
 2.  Modification annotations may have extensions (see below) to capture
-    any of several types of additional detail. *S. pombe* genes link to
+    any of several types of additional detail. *${species_abbrev}* genes link to
     ${database_name} gene pages, and GO term names link to ${database_name} ontology term
     summary pages.
 3.  The summary view is filtered, using the ontology structure, so

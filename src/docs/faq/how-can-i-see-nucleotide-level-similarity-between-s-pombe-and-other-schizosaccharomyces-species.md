@@ -1,4 +1,4 @@
-# How can I see nucleotide-level similarity between *S. pombe* and other *Schizosaccharomyces* species?
+# How can I see nucleotide-level similarity between *${species_abbrev}* and other *Schizosaccharomyces* species?
 <!-- pombase_categories: Orthology,Finding data,Tools and resources -->
 
 At present there are two ways to view nucleotide-level similarity between *S.

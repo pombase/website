@@ -1,6 +1,6 @@
 ### GO annotations
 
-*S. pombe* GO annotations are available from [PomBase](https://www.pombase.org/data/annotations/Gene_ontology/gene_association.pombase.gz)
+*${species_abbrev}* GO annotations are available from [PomBase](https://www.pombase.org/data/annotations/Gene_ontology/gene_association.pombase.gz)
 or from the [GO repository](http://current.geneontology.org/annotations/pombase.gaf.gz)
 (either link downloads a gzipped file). They include annotations
 made by manual literature curation, annotations inferred from keyword

@@ -17,7 +17,7 @@ and include:
  -  PubMed ID (if available) for the paper in which the name is first published
  -  Any other information
 
-### [*S. pombe* gene naming guidelines](submit-data/gene-naming-guidelines)
+### [*${species_abbrev}* gene naming guidelines](submit-data/gene-naming-guidelines)
 
 How to choose and reserve a gene name; name conflict resolution
 

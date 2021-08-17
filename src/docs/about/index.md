@@ -30,7 +30,7 @@ Source publications for external data used in ${database_name} pages and genome 
 ### Citing ${database_name}
 
 The [Citing ${database_name}](/about/citing-${lc_database_name}) page lists papers to cite
-for ${database_name}, the *S. pombe* genome sequence, annotation data, and
+for ${database_name}, the *${species_abbrev}* genome sequence, annotation data, and
 other resources.
 
 ### Terms of Use

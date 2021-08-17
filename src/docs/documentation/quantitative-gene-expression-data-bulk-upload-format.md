@@ -58,7 +58,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 10. The Reference column has the publication's PubMed ID (PMID).
 11. The taxon will usually be 4896 (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although if you have an NCBI taxon ID
-    for a specific *S. pombe* strain you are welcome to use it
+    for a specific *${species_abbrev}* strain you are welcome to use it
 12. The date is the date on which the annotations are created; you may
     use the paper publication date or the date on which you prepare
     your data file. Format: YYYY-MM-DD

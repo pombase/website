@@ -11,7 +11,7 @@ Use the GO annotation dataset and your gene list for enrichment.
 OR
 
 2. In your gene list of interest, substitute the *Schizosaccharomyces*
-species gene IDs with the IDs of orthologous *S. pombe* genes. For
+species gene IDs with the IDs of orthologous *${species_abbrev}* genes. For
 ortholog IDs, see the
 [FAQ on *Schizosaccharomyces* orthologs](/faq/how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species),
 and use the indicated table from Rhind *et al.* Comparative functional
@@ -19,7 +19,7 @@ genomics of the fission yeasts
 ([PMID:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).
 
 In either case, you can then proceed as described in the 
-[FAQ on *S. pombe* GO enrichment](/faq/how-can-i-find-significant-shared-go-annotations-genes-list).
+[FAQ on *${species_abbrev}* GO enrichment](/faq/how-can-i-find-significant-shared-go-annotations-genes-list).
 For the first option, use the Princeton GO Term Finder or another
 enrichment tool that allows you to use your own GAF, and include the GO
 Slim analysis using GO Term Mapper as recommended in the 

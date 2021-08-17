@@ -44,7 +44,7 @@ extension(s) is shown once:
 2.  [GO Slim](documentation/pombase-go-slim-documentation) terms
     applicable to the gene.
 3.  GO annotations may have [extensions](#annotation-extensions) to capture any of
-    several types of additional detail. *S. pombe* genes link to ${database_name}
+    several types of additional detail. *${species_abbrev}* genes link to ${database_name}
     gene pages, and ontology term names link to ontology term pages.
 
 The detailed view shows annotations to all GO terms, and includes more
@@ -78,7 +78,7 @@ than one paper), and annotations to terms hidden in the summary view:
     applicable to the gene.
 8.  GO annotations may have extensions(see "Annotation extensions"
     below) to capture any of several types of additional
-    detail. *S. pombe* genes link to ${database_name} gene pages. [Protein
+    detail. *${species_abbrev}* genes link to ${database_name} gene pages. [Protein
     Ontology](https://proconsortium.org/pro.shtml) (PRO) terms, which
     identify specific processed or modified forms of a protein, can be
     used in extensions or to indicate which form is active; both are
@@ -170,7 +170,7 @@ and in publications from [2014](https://www.ncbi.nlm.nih.gov/pubmed/?term=248858
 ${database_name} converts many extension names to more human-friendly text, as
 described [here](/documentation/annotation-extension-relation-display).
 
-If an extension mentions another *S. pombe* gene, the extension data
+If an extension mentions another *${species_abbrev}* gene, the extension data
 will also be displayed as an annotation in the "[Target of](/documentation/gene-page-target)" 
 section of the page for that gene.
 
@@ -185,13 +185,13 @@ documentation](/documentation/annotation-extension-relation-display).
 
 #### Finding other genes annotated to a specific GO term ####
 
-From a gene page, all *S. pombe* genes annotated to a term (or its
+From a gene page, all *${species_abbrev}* genes annotated to a term (or its
 children) can be found by clicking on a term name or ID to reach the
 ontology term page.
 
 Additionally, the [advanced search](/query) can be used to search for
 all genes annotated to a particular GO term (see the [advanced search documentation](/documentation/advanced-search) 
 for more information). To find annotations to specific GO terms in organisms
-other than *S. pombe* we recommend using
+other than *${species_abbrev}* we recommend using
 [AmiGO](http://amigo.geneontology.org) or
 [QuickGO](http://www.ebi.ac.uk/QuickGO).

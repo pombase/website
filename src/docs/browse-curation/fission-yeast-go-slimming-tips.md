@@ -9,7 +9,7 @@ features of the fission yeast slim terms and annotations.
     not additive, because many gene products are annotated to multiple
     terms.
 2.  It not possible to create a slim with no overlaps between terms.
-    Although the *S. pombe* slims have been defined to include biologically
+    Although the *${species_abbrev}* slims have been defined to include biologically
     informative terms, and minimise overlaps between terms, large
     overlaps cannot be entirely avoided. For example, most of the gene
     products annotated to *signal transduction* are also annotated other
@@ -39,7 +39,7 @@ features of the fission yeast slim terms and annotations.
     making comparisons with other organisms, remember that it is
     possible that not all gene products have been assessed and that the
     "unknown" set is underestimated.
-7.  The default *S. pombe* slims include all evidence codes for fission
+7.  The default *${species_abbrev}* slims include all evidence codes for fission
     yeast. The evidence code **IEA** (inferred from electronic
     annotation) is often considered to be less accurate than other
     evidence codes, but it is very useful for increasing the coverage of
@@ -87,7 +87,7 @@ features of the fission yeast slim terms and annotations.
     [GO Ontology Relations
     documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
-    totals presented for the [${database_name} default *S. pombe* process
+    totals presented for the [${database_name} default *${species_abbrev}* process
     slim](browse-curation/fission-yeast-bp-go-slim-terms), by contrast,
     are calculated explicitly including the genes which are
     involved in a process via regulation only. We expect the
@@ -102,7 +102,7 @@ features of the fission yeast slim terms and annotations.
     [GO Ontology Relations
     documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
-    totals presented for the [${database_name} default *S. pombe* process slim](browse-curation/fission-yeast-bp-go-slim-terms), by contrast,
+    totals presented for the [${database_name} default *${species_abbrev}* process slim](browse-curation/fission-yeast-bp-go-slim-terms), by contrast,
     are calculated both explicitly including or excluding the genes
     which are involved in a process via regulation only. We expect this
     distinction to be available in future versions of slimming software.

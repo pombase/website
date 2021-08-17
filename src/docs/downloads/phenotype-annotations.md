@@ -2,7 +2,7 @@
 
 [Phenotype annotations](https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz)
 (link downloads gzipped file from ${database_name}) for alleles of
-*S. pombe* genes are manually curated from the literature using
+*${species_abbrev}* genes are manually curated from the literature using
 Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file
 contains annotations for single allele phenotypes (single mutants)
 only.
@@ -125,5 +125,5 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 18. The Reference column has the publication's PubMed ID (PMID).
 19. The taxon will usually be 4896 (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although an NCBI taxon ID for a
-    specific *S. pombe* strain would be allowed.
+    specific *${species_abbrev}* strain would be allowed.
 20. The date is the date on which the annotations are created. Format: YYYY-MM-DD

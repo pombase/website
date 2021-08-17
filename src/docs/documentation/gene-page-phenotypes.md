@@ -51,7 +51,7 @@ single-allele phenotypes, the display includes:
     (proportion of a population that shows the phenotype) or severity
     (previously designated "expressivity"), or to document which gene
     or protein used in an assay for level, localisation,
-    etc. *S. pombe* genes link to ${database_name} gene pages. Severity and
+    etc. *${species_abbrev}* genes link to ${database_name} gene pages. Severity and
     penetrance use the relations *has\_severity* and *has\_penetrance*
     respectively, and can have values such as "high", "medium", or
     "low". Penetrance can also use numerical values. A gene or gene
@@ -135,7 +135,7 @@ annotations to terms hidden in the summary view:
     (proportion of a population that shows the phenotype) or severity
     (previously designated "expressivity"), or to document which gene
     or protein used in an assay for level, localisation,
-    etc. *S. pombe* genes link to ${database_name} gene pages. Severity and
+    etc. *${species_abbrev}* genes link to ${database_name} gene pages. Severity and
     penetrance use the relations *has\_severity* and *has\_penetrance*
     respectively, and can have values such as "high", "medium", or
     "low".  Penetrance can also use numerical values. A gene or gene

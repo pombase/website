@@ -1,4 +1,4 @@
-# Can I use BLAST to find *S. pombe* sequences similar to my query sequence?
+# Can I use BLAST to find *${species_abbrev}* sequences similar to my query sequence?
 <!-- pombase_categories: Tools and resources -->
 
 ${database_name} does not maintain a BLAST server, but the BLAST tools
@@ -11,8 +11,8 @@ purposes, especially for proteins:
 
  - If you have a short peptide sequence, our
    [peptide motif search](/motif_search)
-   finds matches in *S. pombe* proteins quickly.
- - If you are specifically looking for *S. pombe* orthologs of a
+   finds matches in *${species_abbrev}* proteins quickly.
+ - If you are specifically looking for *${species_abbrev}* orthologs of a
    protein-coding gene, simple BLAST results can be
    misleading. Instead, you can look up manually curated orthologs in
    ${database_name} for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and

@@ -10,7 +10,7 @@ reserved gene name, but the naming committee will actively discourage
 alternative usage. If we become aware of a nomenclature conflict, we
 will attempt to notify all parties.
 
-### Guidelines for naming *S. pombe* genes
+### Guidelines for naming *${species_abbrev}* genes
 
 1.  The gene name should consist of three italicized lower case letters
     (the gene symbol) followed by an integer (e.g. rad26). This
@@ -37,7 +37,7 @@ will attempt to notify all parties.
 4.  Please include your gene name(s) in the abstracts of any relevant
     papers. This simplifies the task of identifying yeast gene names
     that are already in use.
-5.  At the time of registration, the *S. pombe* curator will check
+5.  At the time of registration, the *${species_abbrev}* curator will check
     PubMed, GenBank/EMBL/DDBJ and the Gene Name Registry to ensure the
     gene name is unique. If your chosen gene name is not unique, you
     will be contacted and asked to select a new name.

@@ -1,4 +1,4 @@
-# Is there a list of protein complexes in *S. pombe*, and their subunits?
+# Is there a list of protein complexes in *${species_abbrev}*, and their subunits?
 <!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
 
 Yes, there is a file that lists GO macromolecular complex assignments

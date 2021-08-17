@@ -20,4 +20,4 @@ Example query:
 </app-query-link>
 
 There is also an ontology term page for each modification term used to
-annotate *S. pombe* proteins, e.g. [MOD:00696](/term/MOD:00696).
+annotate *${species_abbrev}* proteins, e.g. [MOD:00696](/term/MOD:00696).

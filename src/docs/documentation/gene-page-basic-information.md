@@ -6,7 +6,7 @@ gene:
 ![top of gene page](assets/basic_info_gene_page.png  "Gene page basic information"){width="800"}
 
 1.  See the [Gene Name Registry](/submit-data/gene-names) for more
-    information about *S. pombe* gene names. Synonyms include all
+    information about *${species_abbrev}* gene names. Synonyms include all
     names other than the standard name that have been published for a
     gene, and thus are not guaranteed to be unique.
 2.  Free text description of the gene product

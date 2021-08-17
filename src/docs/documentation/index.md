@@ -89,7 +89,7 @@ and further details linked there.
     [http://www.pombase.org/gene/SPBC11B10.09](/gene/SPBC11B10.09)
     links to the gene page for [cdc2](spombe/result/SPBC11B10.09).
 -   Linking from ${database_name} to external resources: We can provide links
-    from ${database_name} gene pages to gene- or gene product-specific *S. pombe*
+    from ${database_name} gene pages to gene- or gene product-specific *${species_abbrev}*
     data for any resource that uses URLs with ${database_name} systematic IDs .
     Please contact the ${database_name} Curators for more information.
 
@@ -97,7 +97,7 @@ and further details linked there.
 ### Comparative Genomics ###
 
 We plan to add specific documentation about comparative genomics using
-*S. pombe* here. In the meantime, you can look at the documentation for
+*${species_abbrev}* here. In the meantime, you can look at the documentation for
 [Ensembl Compara](http://www.ensembl.org/info/genome/compara/index.html).
 
 ### More information ... ###

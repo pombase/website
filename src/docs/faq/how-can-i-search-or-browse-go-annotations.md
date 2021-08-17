@@ -10,7 +10,7 @@ example, a search for "cytokinesis" will include genes annotated to
 Ontology Relations](http://geneontology.org/docs/ontology-relations/)
 for more information.)
 
-*S. pombe* GO annotations are also available in browsers that use the GO
+*${species_abbrev}* GO annotations are also available in browsers that use the GO
 repository, notably [AmiGO](http://amigo.geneontology.org/) and
 [QuickGO](http://www.ebi.ac.uk/QuickGO/). Both browsers have extensive
 documentation available:
@@ -18,7 +18,7 @@ documentation available:
 -   [AmiGO Manual](http://wiki.geneontology.org/index.php/AmiGO_2_Manual:_Overview) 
 -   [QuickGO Help page](http://www.ebi.ac.uk/QuickGO/help) 
 
-Hint: to find *S. pombe* annotations, use Organism:
+Hint: to find *${species_abbrev}* annotations, use Organism:
 Schizosaccharomyces pombe, Taxon: 4896 (*Schizosaccharomyces pombe*)
 or Source: ${database_name}. You can download the results in GAF format.
 

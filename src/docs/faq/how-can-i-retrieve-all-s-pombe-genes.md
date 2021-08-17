@@ -1,4 +1,4 @@
-# How can I retrieve all *S. pombe* genes?
+# How can I retrieve all *${species_abbrev}* genes?
 <!-- pombase_categories: Genome statistics and lists,Finding data -->
 
 The [Names and identifiers page](/downloads/names-and-identifiers)

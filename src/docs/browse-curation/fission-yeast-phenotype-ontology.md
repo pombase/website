@@ -47,7 +47,7 @@ specified term or any of its descendants.  For example, see the
 
 The ${database_name} online curation tool,
 [Canto](http://curation.pombase.org/pombe), uses FYPO terms for
-annotation of *S. pombe* phenotypes.
+annotation of *${species_abbrev}* phenotypes.
 [Phenotype curation documentation](http://curation.pombase.org/pombe/docs/fypo_annotation)
 is available via Canto.
 

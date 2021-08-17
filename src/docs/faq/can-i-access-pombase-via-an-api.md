@@ -3,7 +3,7 @@
 
 ${database_name} does not have an API at present.
 
-The Ensembl API can be used to query *S. pombe* data. Note, however,
+The Ensembl API can be used to query *${species_abbrev}* data. Note, however,
 that EG is updated much less frequently than ${database_name}, so EG data will
 rarely be as up-to-date as the ${database_name} web site. Documentation is
 available:

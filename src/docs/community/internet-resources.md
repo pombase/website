@@ -49,8 +49,8 @@
 
 #### Sequence Features, Protein Families, Orthologues
 
--   Todd Lowe's *S. pombe* genomic [tRNA analysis](http://gtrnadb.ucsc.edu/GtRNAdb2/genomes/eukaryota/Schi_pomb_972h/)
--   [*S. pombe* membrane protein library](http://wardlab.cbs.umn.edu/pombe/)
+-   Todd Lowe's *${species_abbrev}* genomic [tRNA analysis](http://gtrnadb.ucsc.edu/GtRNAdb2/genomes/eukaryota/Schi_pomb_972h/)
+-   [*${species_abbrev}* membrane protein library](http://wardlab.cbs.umn.edu/pombe/)
 -   [RSAT](http://www.rsat.eu/) Regulatory sequence analysis tools
     (includes [Fungi](http://rsat-tagc.univ-mrs.fr/rsat/) server)
 -   [Pfam](http://pfam.xfam.org/) protein families (search or

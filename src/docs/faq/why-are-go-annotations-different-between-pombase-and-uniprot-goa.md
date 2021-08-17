@@ -9,7 +9,7 @@ reasons:
 1.  RNA - ${database_name} provides GO annotations for functional RNAs (e.g.
     rRNA, tRNA, snRNA), but at present the UniProt GOA dataset only
     includes annotations for protein-coding genes.
-2.  Time lag - *S. pombe* GO data are updated at the same time on the
+2.  Time lag - *${species_abbrev}* GO data are updated at the same time on the
     ${database_name} and GO Consortium sites, but the UniProt GOA site may be up
     to a few weeks behind.
 3.  Filtering - ${database_name} does not include automated annotations that are

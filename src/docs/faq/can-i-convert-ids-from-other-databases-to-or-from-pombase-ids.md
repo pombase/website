@@ -1,11 +1,11 @@
 # Can I convert IDs from other databases to or from ${database_name} IDs?
 <!-- pombase_categories: Tools and resources -->
 
-${database_name} has an identifier mapper that retrieves *S. pombe* gene
+${database_name} has an identifier mapper that retrieves *${species_abbrev}* gene
 systematic IDs and standard names for a selection of different input
 ID types:
 
--   Find *S. pombe* genes using UniProt accessions
+-   Find *${species_abbrev}* genes using UniProt accessions
 -   Retrieve manually curated orthologs for
     -    *S. cerevisiae*: Use standard gene names (CDC28, ACT1, etc.), ORF names (YPR121W, YPL258C, etc.), or SGD IDs (SGD:S000004494, SGD:S000004635, etc.)
     -    Human: use standard gene names (CDK1, BRCA2, etc.) or HGNC identifiers (e.g. HGNC:1722)

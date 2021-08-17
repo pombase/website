@@ -4,7 +4,7 @@
 Orphan genes are generally defined as genes without homologs in other
 organisms. In PomBase, protein-coding genes conserved in the
 *Schizosaccharomyces* genus are distinguished from genes conserved
-only in *S. pombe*.
+only in *${species_abbrev}*.
 
 To retrieve either set of genes, use the "Taxonomic conservation"
 query in the [Advanced Search](/query). Choose "Schizosaccharomyces

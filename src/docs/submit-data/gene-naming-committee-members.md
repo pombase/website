@@ -1,4 +1,4 @@
-## *S. pombe* Gene Naming Committee members
+## *${species_abbrev}* Gene Naming Committee members
 
 |Member|Affiliation|
 |------|-----------|

@@ -20,7 +20,7 @@ to capture two types of "target" data (where available):
 
 -   Annotations to GO:0000976 (or a descendant) may have extensions that
     capture DNA binding specificity using [Sequence Ontology](http://sequenceontology.org)
-    (SO) terms. A list of DNA binding sites identified in *S. pombe* is
+    (SO) terms. A list of DNA binding sites identified in *${species_abbrev}* is
     available on the [DNA Binding Sites](/browse-curation/dna-binding-sites) page.
 -   Annotations to GO:0003700 (or a descendant) may have extensions
     identifying target genes.
@@ -46,7 +46,7 @@ annotation dataset. For the latter:
 4.  Contact the [Helpdesk](mailto:helpdesk@pombase.org) if you have any
     problems or questions.
 
-Finally, note that not all *S. pombe* transcription factors have been
+Finally, note that not all *${species_abbrev}* transcription factors have been
 extensively characterised with respect to target genes, and for those
 that have, target curation in ${database_name} may be incomplete. You may
 therefore wish to query for transcription factors that have been have

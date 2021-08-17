@@ -1,7 +1,7 @@
 ## Peptide motif search
 
 The peptide motif search finds short peptide sequence matches in the
-predicted amino acid sequences of *S. pombe* proteins.
+predicted amino acid sequences of *${species_abbrev}* proteins.
 
 Type or paste a motif using the single-letter amino acid code. As you
 type, matches will appear. The results table shows each matching

@@ -208,7 +208,7 @@ To zoom:
 To see the DNA sequence, zoom in until it appears, first as
 color-coded blocks, and then labeled with letters.
 
-More *S. pombe*-specific information can be found in the [Genome
+More *${species_abbrev}*-specific information can be found in the [Genome
 browser FAQ list](https://www.pombase.org/faq/genome-browser).
 
 ### Exporting data
