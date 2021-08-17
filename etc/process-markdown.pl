@@ -442,7 +442,7 @@ sub markdown {
 
   local $/ = undef;
 
-  my ($temp_fh, $temp_filename) = tempfile('process-markdown-XXXXXXXXXX', UNLINK => 1);
+  my ($temp_fh, $temp_filename) = tempfile('/tmp/process-markdown-XXXXXXXXXX');
 
   print $temp_fh $md;
 
@@ -452,14 +452,14 @@ sub markdown {
     "pandoc --columns 1000 -f markdown-markdown_in_html_blocks+link_attributes+auto_identifiers+implicit_header_references+header_attributes " .
     "-t $output_type $temp_filename";
 
-  open my $pandoc_pipe, "$pandoc_command 2> /tmp/$temp_filename.err|"
+  open my $pandoc_pipe, "$pandoc_command 2> $temp_filename.err|"
     or die "Couldn't open a pipe from pandoc: $!";
 
   my $html = <$pandoc_pipe>;
 
   close $pandoc_pipe;
 
-  open my $err_fh, '<', "/tmp/$temp_filename.err" or
+  open my $err_fh, '<', "$temp_filename.err" or
     die "can't open error output from pandoc: $!\n";
 
   my $errors = <$err_fh>;
@@ -469,7 +469,8 @@ sub markdown {
 
   close $err_fh;
 
-  unlink "/tmp/$temp_filename.err";
+  unlink "$temp_filename";
+  unlink "$temp_filename.err";
 
   return $html;
 }
