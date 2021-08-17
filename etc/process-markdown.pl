@@ -72,6 +72,7 @@ if (!defined $load_organism) {
 
 my %var_substitutions = (
   database_name => $database_name,
+  lc_database_name => lc $database_name,
   genus => $load_organism->{genus},
   species => $load_organism->{species},
   genus_and_species => $load_organism->{genus} . ' ' . $load_organism->{species},
