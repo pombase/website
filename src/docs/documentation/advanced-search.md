@@ -12,7 +12,7 @@ below (scroll down to Search tips).
 
 ### Overview
 
-In the Search menu, choose Advanced (or bookmark [http://{base_url}/query](/query)).
+In the Search menu, choose Advanced (or bookmark [http://${base_url}/query](/query)).
 
 In the Query panel (top), click one of the links in the list on the left to choose a query type (described below).  For each query, the interface guides your input.
 
