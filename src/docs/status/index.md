@@ -16,6 +16,6 @@
 Note: Many older *S. pombe* sequence submissions to the DNA databases
 (International Nucleotide Sequence Database Collaboration databases,
 i.e. ENA, GenBank, DDBJ) contain one or more errors, and we do not have
-the resources to maintain past sequences or flag every error in PomBase.
+the resources to maintain past sequences or flag every error in ${database_name}.
 
 

@@ -1,14 +1,14 @@
-# Is there any programmatic access to PomBase data?
+# Is there any programmatic access to ${database_name} data?
 <!-- pombase_categories: Tools and resources -->
 
 The Ensembl Genomes REST API Endpoints page provides a REST-ful
 interface allows language-independent programmatic access to all
 genomes accessible through Ensembl Genomes, including the same
 Schizosaccharomyces pombe genome sequence data available in
-PomBase. (Note that, while the sequence has not changed recently,
-annotation data are likely to be out of date relative to the PomBase
+${database_name}. (Note that, while the sequence has not changed recently,
+annotation data are likely to be out of date relative to the ${database_name}
 web site Ensembl Genomes is updated much less frequently than
-PomBase.) The REST interface provides data in a variety of formats
+${database_name}.) The REST interface provides data in a variety of formats
 including GFF3, FASTA and JSON. Data types accessible via this
 interface include:
 

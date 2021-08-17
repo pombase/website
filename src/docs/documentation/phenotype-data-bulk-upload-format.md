@@ -1,10 +1,10 @@
 ## Phenotype data bulk upload format
 
-PomBase welcomes submissions of published large-scale phenotype data
+${database_name} welcomes submissions of published large-scale phenotype data
 sets. We have devised a tab-delimited text file format for bulk
 phenotype data. A similar format is used for the downloadable file of
 single-allele phenotype data (with one more column at the start of
-each line to identify PomBase as the source; note that, because
+each line to identify ${database_name} as the source; note that, because
 Database is column 1 in the downloadable file, column numbers differ
 by 1 between the download and upload formats).
 
@@ -116,7 +116,7 @@ blank in the rest of the rows.
 **Details for allele types and descriptions:**
 
 General note: Nucleotide and amino acid positions should reflect the
-current sequence data in PomBase. Please refer to the [Gene Coordinate Changes](status/gene-coordinate-changes) 
+current sequence data in ${database_name}. Please refer to the [Gene Coordinate Changes](status/gene-coordinate-changes) 
 page to ensure that your residue position entries are up to date.
 
 For protein-coding genes, number nucleotide residues from 1 starting
@@ -138,7 +138,7 @@ partial nucleotide deletion | 500-800 | indicate deleted residues; use comma-sep
 unknown | unknown | an allele name is required if the type and description are unknown
 wild type | wild type | use with altered expression (overexpression or knockdown) for single-allele phenotypes
 
-Please [contact the PomBase curators](mailto:helpdesk@pombase.org) if
+Please [contact the ${database_name} curators](mailto:helpdesk@pombase.org) if
 you have any questions about what to use for Evidence, Conditions,
 etc., or anything else you need to represent your data in this format.
 

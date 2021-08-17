@@ -15,7 +15,7 @@ There are various ways you can find protein family members or domains.
     for keywords in the [InterPro](http://www.ebi.ac.uk/interpro/)
     database, which combines signatures from a number of member
     databases, including Pfam. Record the accession number(s) of the
-    family, and use them in the PomBase advanced search as described
+    family, and use them in the ${database_name} advanced search as described
     in item 1 above. (If necessary, you can use the query history to
     combine the results of several queries.)
 

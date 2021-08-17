@@ -1,7 +1,7 @@
 ## Centromeres
 
 At present, each centromere is annotated as a single sequence
-feature in PomBase, which can be viewed in and downloaded from the
+feature in ${database_name}, which can be viewed in and downloaded from the
 genome browser.
 
 Chromosome coordinates (links to JBrowse):
@@ -11,7 +11,7 @@ Chromosome coordinates (links to JBrowse):
 -   CEN 3: [III:1070904-1137003][cen3]
 
 Note that specific repeats within centromeres cannot yet be viewed or
-searched as features on PomBase pages, but they are included in the
+searched as features on ${database_name} pages, but they are included in the
 forward and reverse strand feature tracks in the genome browser, which
 are enabled by default.
 

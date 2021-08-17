@@ -1,6 +1,6 @@
 ## HTP sequence-linked data submission instructions
 
-PomBase welcomes submissions of published HTP sequence-linked data,
+${database_name} welcomes submissions of published HTP sequence-linked data,
 suitable for viewing in a genome browser. We require JBrowse compliant
 data files and associated metadata descriptions. Please see the [FAQ
 on file formats](/faq/what-file-formats-can-i-use-submit-high-throughput-data)
@@ -77,4 +77,4 @@ Examples:
 
 ### Submit
 
-To submit the files, or if you have any questions, please [contact the PomBase curators](mailto:helpdesk@pombase.org).
+To submit the files, or if you have any questions, please [contact the ${database_name} curators](mailto:helpdesk@pombase.org).

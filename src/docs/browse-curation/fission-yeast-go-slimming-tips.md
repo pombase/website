@@ -1,4 +1,4 @@
-### PomBase GO Slim Usage Tips
+### ${database_name} GO Slim Usage Tips
 
 #### General GO Slim hints ####
 
@@ -60,7 +60,7 @@ features of the fission yeast slim terms and annotations.
     [GOTermMapper](http://go.princeton.edu/cgi-bin/GOTermMapper) at
     Princeton or [QuickGO Explore
     Biology](https://www.ebi.ac.uk/QuickGO/slimming) at EBI (note that
-    QuickGO requires UniProtKB accessions; PomBase IDs will not work).
+    QuickGO requires UniProtKB accessions; ${database_name} IDs will not work).
 2.  When creating a slim for the entire genome, you should try to ensure
     that it covers as many annotated genes in your set as possible (see
     \#3 in the list above). You should be aware of how many genes are
@@ -87,7 +87,7 @@ features of the fission yeast slim terms and annotations.
     [GO Ontology Relations
     documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
-    totals presented for the [PomBase default *S. pombe* process
+    totals presented for the [${database_name} default *S. pombe* process
     slim](browse-curation/fission-yeast-bp-go-slim-terms), by contrast,
     are calculated explicitly including the genes which are
     involved in a process via regulation only. We expect the
@@ -102,7 +102,7 @@ features of the fission yeast slim terms and annotations.
     [GO Ontology Relations
     documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
-    totals presented for the [PomBase default *S. pombe* process slim](browse-curation/fission-yeast-bp-go-slim-terms), by contrast,
+    totals presented for the [${database_name} default *S. pombe* process slim](browse-curation/fission-yeast-bp-go-slim-terms), by contrast,
     are calculated both explicitly including or excluding the genes
     which are involved in a process via regulation only. We expect this
     distinction to be available in future versions of slimming software.

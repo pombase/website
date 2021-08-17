@@ -4,7 +4,7 @@
 The [advanced search](/query) GO query retrieves gene products
 annotated to a GO term and to any of its child terms, following the
 *is_a*, *part_of*, and *regulates* relationships in the ontology (also
-see the [PomBase GO documentation](/documentation/gene-page-gene-ontology). 
+see the [${database_name} GO documentation](/documentation/gene-page-gene-ontology). 
 GO search results for Biological Process terms therefore include genes
 involved in the process and its regulation.
 

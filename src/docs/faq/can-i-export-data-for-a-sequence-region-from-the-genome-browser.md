@@ -18,5 +18,5 @@ name if desired, and click "Save".
 Most track data are available in GFF3 format; other options will
 depend on the data type (e.g. BED, Wiggle, etc.).
 
-See the [PomBase JBrowse guide](/documentation/JBrowse_quick_start)
+See the [${database_name} JBrowse guide](/documentation/JBrowse_quick_start)
 for more information.

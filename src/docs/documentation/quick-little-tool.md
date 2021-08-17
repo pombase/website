@@ -1,6 +1,6 @@
 ## Quick Little Tool
 
-PomBase's Quick Little Tool (QuiLT) allows you to view multiple types
+${database_name}'s Quick Little Tool (QuiLT) allows you to view multiple types
 of annotation for genes in a list in a single graphical display.
 
 ![Quick Little Tool display](assets/quilt_display.png){width="600"}

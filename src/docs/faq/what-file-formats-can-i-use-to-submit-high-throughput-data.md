@@ -1,7 +1,7 @@
 # What file formats can I use to submit high-throughput data?
 <!-- pombase_categories: Data submission and formats -->
 
-At present, PomBase can host any types of data that can be connected
+At present, ${database_name} can host any types of data that can be connected
 with sequence features or coordinates, and can display the data as
 tracks in the genome browser. We accept data in any of several
 formats. To choose a file format for your data, consult the table
@@ -27,8 +27,8 @@ File format | Recommended for
 <!-- [PSL](/faq/what-psl-format) | sequence alignments -->
 
 We can also accept batch submissions of certain types of data that
-appear on PomBase gene pages. For these data types, we use dedicated
-PomBase-specific formats as shown in the table:
+appear on ${database_name} gene pages. For these data types, we use dedicated
+${database_name}-specific formats as shown in the table:
 
 Data type | File format description
 ----------|------------------------
@@ -38,5 +38,5 @@ Qualitative gene expression | [qualitative gene expression file format](/documen
 Quantitative gene expression | [quantitative gene expression file format](/documentation/quantitative-data-gene-expression-bulk-upload-format) 
 
 We may be able to accept data in other text formats. Please enquire via
-the PomBase [helpdesk](mailto:helpdesk@pombase.org) if you have any questions about your data format.
+the ${database_name} [helpdesk](mailto:helpdesk@pombase.org) if you have any questions about your data format.
 

@@ -30,8 +30,8 @@ Available options:
     Select the desired feature type(s) from the output file of stable
     IDs (bear in mind that Ensembl idiosyncratically uses "biotype" to
     mean feature type). Note, however, that EG is updated much less
-    frequently than PomBase, so EG data will rarely be as up-to-date
-    as the PomBase web site. Documentation is available:
+    frequently than ${database_name}, so EG data will rarely be as up-to-date
+    as the ${database_name} web site. Documentation is available:
 
 
 Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'" [predefinedQueryId]="'snorna_genes'">

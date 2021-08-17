@@ -1,7 +1,7 @@
 # How can I find genes with a specific activity?
 <!-- pombase_categories: Finding data,Using ontologies -->
 
-PomBase uses Gene Ontology (GO) molecular function terms to capture
+${database_name} uses Gene Ontology (GO) molecular function terms to capture
 the activities -- including enzymatic activities, binding,
 transporters, etc. -- of gene products. You can therefore use the GO
 term query in the [advanced search](/query) to retrieve genes whose

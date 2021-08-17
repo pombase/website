@@ -3,7 +3,7 @@
 The Interactions section of a gene page displays genetic and physical
 interactions for a gene (or its product), in
 [BioGRID](http://thebiogrid.org/) format. All interactions are curated
-manually by PomBase or BioGRID curators.
+manually by ${database_name} or BioGRID curators.
 
 Each table has five columns:
 

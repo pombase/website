@@ -1,11 +1,11 @@
-# Can I access PomBase via an API?
+# Can I access ${database_name} via an API?
 <!-- pombase_categories: Tools and resources -->
 
-PomBase does not have an API at present.
+${database_name} does not have an API at present.
 
 The Ensembl API can be used to query *S. pombe* data. Note, however,
-that EG is updated much less frequently than PomBase, so EG data will
-rarely be as up-to-date as the PomBase web site. Documentation is
+that EG is updated much less frequently than ${database_name}, so EG data will
+rarely be as up-to-date as the ${database_name} web site. Documentation is
 available:
 
 1.  [Ensembl Genomes Perl API installation and basic use instructions](http://www.ensembl.org/info/docs/api/index.html) (with links to additional Ensembl API documentation)

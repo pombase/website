@@ -37,7 +37,7 @@ Annotation type|Description
 -------
 
 ### [Gene names and IDs](downloads/names-and-identifiers) ###
-Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers
+Mappings between ${database_name} systematic IDs, gene names, product descriptions, and UniProt accession numbers
 
 -------
 
@@ -64,6 +64,6 @@ Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://w
   **Note:** *S. pombe* files are no longer available from the old
   "pombase" FTP site within the EBI domain. If you have a link that
   contains **ftp.ebi.ac.uk**, please check these pages for a link
-  using **https://www.pombase.org/**. Please [contact the PomBase
+  using **https://www.pombase.org/**. Please [contact the ${database_name}
   curators](mailto:helpdesk@pombase.org) if you need help finding a
   file or directory.

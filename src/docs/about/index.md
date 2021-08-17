@@ -1,21 +1,21 @@
-## About PomBase
+## About ${database_name}
 
-PomBase is a model organism database that provides organization of
+${database_name} is a model organism database that provides organization of
 and access to scientific data for the fission yeast
-*Schizosaccharomyces pombe*. PomBase supports genomic sequence and
+*Schizosaccharomyces pombe*. ${database_name} supports genomic sequence and
 features, genome-wide datasets and manual literature curation.
 
-PomBase also provides a community hub for researchers, providing
+${database_name} also provides a community hub for researchers, providing
 genome statistics, a community curation interface, news, events,
 documentation and mailing lists.
 
 ------------------------------------
 
-### Contact PomBase staff
+### Contact ${database_name} staff
 
 Email: [helpdesk@pombase.org](mailto:helpdesk@pombase.org)
 
-For more information, see the [PomBase Staff](about/pombase-staff) page.
+For more information, see the [${database_name} Staff](about/pombase-staff) page.
 
 ### Submit Data
 
@@ -23,23 +23,23 @@ See the [Submit data](submit-data) page
 
 ### Data sources
 
-Source publications for external data used in PomBase pages and genome browser.
+Source publications for external data used in ${database_name} pages and genome browser.
 
 [Data sources](about/data-sources)
 
-### Citing PomBase
+### Citing ${database_name}
 
-The [Citing PomBase](/about/citing-pombase) page lists papers to cite
-for PomBase, the *S. pombe* genome sequence, annotation data, and
+The [Citing ${database_name}](/about/citing-${lc_database_name}) page lists papers to cite
+for ${database_name}, the *S. pombe* genome sequence, annotation data, and
 other resources.
 
 ### Terms of Use
 
-[Terms of Use](about/terms-of-use) for PomBase data and Canto.
+[Terms of Use](about/terms-of-use) for ${database_name} data and Canto.
 
-### PomBase Publications
+### ${database_name} Publications
 
-Complete list of [papers published by PomBase](about/published-by-pombase).
+Complete list of [papers published by ${database_name}](about/published-by-${lc_database_name}).
 
 ------------------------------------
 
@@ -71,7 +71,7 @@ annotation and data updates
 
 ### Privacy
 
-See the PomBase [privacy policy](about/privacy-policy) and [cookie policy](about/cookie-policy).
+See the ${database_name} [privacy policy](about/privacy-policy) and [cookie policy](about/cookie-policy).
 
 ### Project funding
 

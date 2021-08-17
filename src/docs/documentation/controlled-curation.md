@@ -1,4 +1,4 @@
-## PomBase controlled curation
+## ${database_name} controlled curation
 
 Gene and publication pages include manually curated annotations of
 several types that cannot be represented using available ontologies.

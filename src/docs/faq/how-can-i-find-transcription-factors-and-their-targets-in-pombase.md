@@ -1,4 +1,4 @@
-# How can I find transcription factors and their targets in PomBase?
+# How can I find transcription factors and their targets in ${database_name}?
 <!-- pombase_categories: Finding data -->
 
 All sequence-specific DNA-binding transcription factors should be
@@ -7,11 +7,11 @@ or by transitivity (i.e. annotated to a more specific "descendant" term
 linked to one of these terms):
 
 -   GO:0000976 transcription regulatory region sequence-specific DNA
-    binding (view in [PomBase](/term/GO:0000976),
+    binding (view in [${database_name}](/term/GO:0000976),
     [QuickGO](http://www.ebi.ac.uk/QuickGO/GTerm?id=GO:0000976) or
     [AmiGO](http://amigo.geneontology.org/amigo/term/GO:0000976))
 -   GO:0003700 sequence-specific DNA binding transcription factor
-    activity (view in [PomBase](/term/GO:0003700),
+    activity (view in [${database_name}](/term/GO:0003700),
     [QuickGO](http://www.ebi.ac.uk/QuickGO/GTerm?id=GO:0003700) or
     [AmiGO](http://amigo.geneontology.org/amigo/term/GO:0003700))
 
@@ -26,7 +26,7 @@ to capture two types of "target" data (where available):
     identifying target genes.
 
 Because it is not yet possible to query annotation extensions in the
-PomBase advanced search, to identify target genes you must either
+${database_name} advanced search, to identify target genes you must either
 inspect transcription factor gene pages manually, or search the GO
 annotation dataset. For the latter:
 
@@ -48,7 +48,7 @@ annotation dataset. For the latter:
 
 Finally, note that not all *S. pombe* transcription factors have been
 extensively characterised with respect to target genes, and for those
-that have, target curation in PomBase may be incomplete. You may
+that have, target curation in ${database_name} may be incomplete. You may
 therefore wish to query for transcription factors that have been have
 been experimentally characterised, and therefore might have targets
 which are not yet curated. To do so, use the Advanced Search to find

@@ -7,7 +7,7 @@
 The ${database_name} advanced search allows you to construct complex queries
 for *${species_abbrev}* genes. At present all advanced search results are lists
 of genes that match the query specifications. Hints for specific
-searches are available in the [PomBase FAQ](/faq), and linked
+searches are available in the [${database_name} FAQ](/faq), and linked
 below (scroll down to Search tips).
 
 ### Overview
@@ -209,7 +209,7 @@ allele.
 **Conditions:** The "Constrain condition" option restricts the results
 to include only genes that have phenotype annotations including the
 specified condition. The search uses the same condition descriptors as
-Canto and the PomBase web pages. Start typing, then choose from the
+Canto and the ${database_name} web pages. Start typing, then choose from the
 autocomplete options.
 
 Note that the results will include any gene that has phenotype
@@ -320,7 +320,7 @@ page sections.
  -  [How can I find protein localization data?](/faq/how-can-i-find-protein-localization-data)
  -  [How can I identify all of the genes that affect a process?](/faq/how-can-i-identify-all-genes-affect-process) (also relevant to phenotype searches)
  -  [Can I retrieve functional annotations for genes in a list?](/faq/can-i-retrieve-functional-annotations-genes-list)
- -  [How can I find transcription factors and their targets in PomBase?](/faq/how-can-i-find-transcription-factors-and-their-targets-pombase)
+ -  [How can I find transcription factors and their targets in ${database_name}?](/faq/how-can-i-find-transcription-factors-and-their-targets-pombase)
 
 #### Protein searches
 

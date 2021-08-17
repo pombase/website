@@ -1,7 +1,7 @@
 # How can I locate centromeres?
 <!-- pombase_categories: Genome browser,Finding data -->
 
-Centromeres can be retrieved in the PomBase genome browser; the
+Centromeres can be retrieved in the ${database_name} genome browser; the
 coordinates are:
 
 Chromosome I:

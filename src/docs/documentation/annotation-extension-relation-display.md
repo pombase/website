@@ -3,10 +3,10 @@
 Annotation extensions are used to provide additional specificity for
 annotations to GO, FYPO, and protein modification annotations. Each
 extension consists of a relation and another "entity", which may be a
-gene in PomBase or another database, or another ontology term. (The
+gene in ${database_name} or another database, or another ontology term. (The
 [GO Consortium wiki page on annotation extensions](http://wiki.geneontology.org/index.php/Annotation_Extension)
 contains useful information on relations.) Because some relations have
-unwieldy names, the PomBase gene page display substitutes more
+unwieldy names, the ${database_name} gene page display substitutes more
 readable text.
 
 This table shows the underlying relation name and corresponding
@@ -72,7 +72,7 @@ GO:0051179 localization | localizes | localized by
 GO:0005488 binding | binds | binds
 (anything not listed above) | has input | input for
 
-PomBase displays also use human-friendly names for [Protein
+${database_name} displays also use human-friendly names for [Protein
 Ontology](https://proconsortium.org/pro.shtml) (PRO) terms used in
 extensions (inculding "active form"). The display names include
 modification positions denoted with these abbreviations:

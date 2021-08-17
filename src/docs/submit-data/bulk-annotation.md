@@ -1,7 +1,7 @@
 ## Annotation dataset submission
 
-PomBase accepts batch submissions of certain types of data that appear
-on PomBase gene pages. 
+${database_name} accepts batch submissions of certain types of data that appear
+on ${database_name} gene pages. 
 
 To submit any of these data types, please prepare a file in the format
 indicated, and send it to the helpdesk:

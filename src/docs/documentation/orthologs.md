@@ -33,7 +33,7 @@ submitted to the [Pfam](http://pfam.xfam.org/) protein family
 database. Other ortholog predictions come from experimental data
 demonstrating functional correspondence or involving membership of
 corresponding complexes. These predictions are also aligned and
-submitted to Pfam before inclusion. PomBase's approach ensures that
+submitted to Pfam before inclusion. ${database_name}'s approach ensures that
 the breadth of coverage is greater than any individual prediction
 method, and includes many ortholog calls which are not detected by any
 automated method.  Gradually, we will add and display supporting

@@ -4,14 +4,14 @@
 Downloadable intron datasets are available in FASTA format from the
 [Intron Data](/downloads/intron-data) page.
 
-You can also find genes with introns using the PomBase [advanced search](/query).
+You can also find genes with introns using the ${database_name} [advanced search](/query).
 To find all genes with introns, search for genes with a specified number
 of exons, and use the range 2 (i.e. at least one intron) to 20 (more
 than the maximum known, 16 introns). You can also restrict the search to
-protein-coding genes. Note that the PomBase count includes introns in
+protein-coding genes. Note that the ${database_name} count includes introns in
 UTRs.
 
-Instructions for searching PomBase
+Instructions for searching ${database_name}
 
 1.  Go to the [advanced search](/query).
 2.  Select the "Coding exons" query.

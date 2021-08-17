@@ -1,4 +1,4 @@
-## PomBase Data Sources
+## ${database_name} Data Sources
 
 Also see the [Terms of Use](about/terms-of-use).
 
@@ -10,7 +10,7 @@ and links therein.
 ### Genome browser data tracks
 
 These publications describe datasets displayed as genome browser
-tracks. Each PubMed ID links to the PomBase [publication page](documentation/publication-page)
+tracks. Each PubMed ID links to the ${database_name} [publication page](documentation/publication-page)
 for the paper, which in turn links to PubMed and EuropePMC. Full text
 and repository database links will be available via PubMed and
 EuropePMC where relevant.

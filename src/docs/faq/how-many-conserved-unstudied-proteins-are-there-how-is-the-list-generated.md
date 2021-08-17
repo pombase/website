@@ -5,7 +5,7 @@ As genes are annotated, each is assigned a status, as described on the
 [Gene characterisation status](status/gene-characterisation) page. Taxonomic
 conservation of a gene is assigned manually on a case-by-case basis,
 taking into account multiple criteria. Additional information is
-available from PomBase curators upon request.
+available from ${database_name} curators upon request.
 
 Genes listed on the [Priority unstudied genes](status/priority-unstudied-genes) page are those that have
 "conserved unknown" characterisation status and the "conserved in

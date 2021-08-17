@@ -15,7 +15,7 @@ gene:
     excluding UTRs but including introns (other than introns located
     entirely within UTRs).  The second set of numbers indicate the
     gene start, end, and length including the default UTRs chosen by
-    PomBase curators (see [this FAQ](/faq/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s)
+    ${database_name} curators (see [this FAQ](/faq/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s)
     for more information).
 4.  What the three-letter acronym stands for; where available, name
     descriptions are provided for synonyms as well as primary names.
@@ -26,7 +26,7 @@ gene:
 7.  The size of the mature gene product. For protein-coding genes, the
     length (number of amino acid residues) and molecular weight are
     shown.
-8.  Interactive graphic from PomBase JBrowse, centred on the location
+8.  Interactive graphic from ${database_name} JBrowse, centred on the location
     of the gene. Drag to scroll left and right, double-click to zoom
     in, shift-double-click to zoom out, and click a feature to see
     details in a popup. The "Full-screen view" link in the corner

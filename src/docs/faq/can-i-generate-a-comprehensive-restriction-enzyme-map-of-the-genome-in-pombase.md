@@ -1,4 +1,4 @@
-# Can I generate a comprehensive restriction enzyme map of the genome in PomBase?
+# Can I generate a comprehensive restriction enzyme map of the genome in ${database_name}?
 <!-- pombase_categories: Tools and resources -->
 
 No, but this can be done within Artemis.

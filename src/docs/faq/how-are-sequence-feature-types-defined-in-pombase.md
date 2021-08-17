@@ -1,4 +1,4 @@
-# How are sequence feature types defined in PomBase?
+# How are sequence feature types defined in ${database_name}?
 <!-- pombase_categories: Finding data,Genome statistics and lists -->
 
 S. pombe genome features were originally annotated using

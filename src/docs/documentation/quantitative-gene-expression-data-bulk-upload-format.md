@@ -1,13 +1,13 @@
 ## Quantitative gene expression bulk upload file format
 
-PomBase welcomes submissions of published large-scale gene expression
+${database_name} welcomes submissions of published large-scale gene expression
 data sets. We have devised a tab-delimited text file format for bulk
 data representing representing protein or RNA copy number per cell.
 
 Note: Please use this format only for data that you want to appear in
-the "Quantitative gene expression" section of PomBase gene pages. If
+the "Quantitative gene expression" section of ${database_name} gene pages. If
 you have gene expression data that should be included as a data track
-in the PomBase genome browser (microarray, RNASeq, etc.), please use
+in the ${database_name} genome browser (microarray, RNASeq, etc.), please use
 the [data submission form for HTP sequence-linked data](documentation/data-submission-form-for-HTP-sequence-linked-data).
 
 Include a header line that labels the columns -- use the entry in the

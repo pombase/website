@@ -1,6 +1,6 @@
 ## Ontology term pages
 
-For each ontology term loaded into PomBase, a page summarizes
+For each ontology term loaded into ${database_name}, a page summarizes
 essential details about the term, and shows any annotations to it or
 its descendants via *is\_a*, *part\_of*, and the *regulates* relations
 (the GO documentation on [Ontology Structure and Ontology Relations](http://geneontology.org/docs/ontology-relations/)
@@ -66,7 +66,7 @@ FYPO term pages have a few distinctive features:
 Ontology term pages are available for [GO](http://geneontology.org/),
 [FYPO](/browse-curation/fission-yeast-phenotype-ontology),
 [SO](http://sequenceontology.org/),
-[PSI-MOD](http://obofoundry.org/ontology/mod.html), and PomBase
+[PSI-MOD](http://obofoundry.org/ontology/mod.html), and ${database_name}
 internal ontologies including the PBO description collection, the
 PomGeneEx descriptions for qualitative gene expression, and PECO for
 phenotype experimental conditions.

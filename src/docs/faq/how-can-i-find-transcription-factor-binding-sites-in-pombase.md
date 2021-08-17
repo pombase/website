@@ -1,4 +1,4 @@
-# How can I find transcription factor binding sites in PomBase?
+# How can I find transcription factor binding sites in ${database_name}?
 <!-- pombase_categories: Finding data -->
 
 There is a data track available for transcription factor binding sites

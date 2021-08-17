@@ -1,6 +1,6 @@
 ## Fission Yeast Phenotype Ontology
 
-PomBase curators develop and use the Fission Yeast Phenotype Ontology
+${database_name} curators develop and use the Fission Yeast Phenotype Ontology
 (FYPO) to annotate phenotypes of mutant alleles and of over- or
 under-expressing wild type genes. 
 
@@ -32,20 +32,20 @@ both of which allow searching and browsing.
 We hope to deploy a browser at PomBase in the not-too-distant future
 that will include annotations as well as terms.
 
-### Finding FYPO terms and annotations in PomBase
+### Finding FYPO terms and annotations in ${database_name}
 
-FYPO terms are displayed on PomBase gene pages, along with supporting
+FYPO terms are displayed on ${database_name} gene pages, along with supporting
 evidence and allele and expression details, as described in the
-PomBase gene page documentation.
+${database_name} gene page documentation.
 
-The PomBase [advanced search](/query) can use either term names or IDs to search
+The ${database_name} [advanced search](/query) can use either term names or IDs to search
 FYPO, and returns a list of genes that have alleles annotated to the
 specified term or any of its descendants.  For example, see the
 [FAQ on finding essential genes](/faq/can-i-get-list-essential-pombe-genes).
 
 ### Curating phenotypes with FYPO
 
-The PomBase online curation tool,
+The ${database_name} online curation tool,
 [Canto](http://curation.pombase.org/pombe), uses FYPO terms for
 annotation of *S. pombe* phenotypes.
 [Phenotype curation documentation](http://curation.pombase.org/pombe/docs/fypo_annotation)

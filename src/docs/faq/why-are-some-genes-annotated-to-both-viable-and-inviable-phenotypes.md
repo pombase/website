@@ -16,7 +16,7 @@ One gene can be correctly annotated to both a "viable" term and an
     annotated as inviable, but can acquire suppressor mutations at a
     high enough frequency for populations to appear viable.
 
-At present, alleles cannot be queried directly in the PomBase advanced
+At present, alleles cannot be queried directly in the ${database_name} advanced
 search, but the FYPO phenotype filters do allow you to retrieve
 annotations for all alleles, or to restrict to null expression
 (deletions etc.) or overexpression of the wild-type allele. Comparing

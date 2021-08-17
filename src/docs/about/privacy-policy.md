@@ -1,6 +1,6 @@
-## PomBase Privacy Policy
+## ${database_name} Privacy Policy
 
-PomBase (**we** or **us**) is committed to protecting and respecting
+${database_name} (**we** or **us**) is committed to protecting and respecting
 your privacy.
  
 This policy (together with our Cookie Policy, Terms of Use and any
@@ -10,9 +10,9 @@ by us. Please read the following carefully to understand our views and
 practices regarding your personal data and how we will treat it.
 
 For the purpose of the General Data Protection Regulation (GDPR),
-PomBase is the data controller. To contact us, email
+${database_name} is the data controller. To contact us, email
 [helpdesk@pombase.org](mailto:helpdesk@pombase.org) or see the [About
-PomBase](/about) page for address details.
+${database_name}](/about) page for address details.
 
 ### Information we may collect from you
 Through our website ([www.pombase.org](https://www.pombase.org/)), we
@@ -21,7 +21,7 @@ may collect and process the following data about you:
 - Information that you provide by filling in forms on our
   website. This includes information provided when submitting data,
   including Canto curation, or when reporting a problem or contacting
-  PomBase staff for any other purpose.
+  ${database_name} staff for any other purpose.
 - If you contact us, we may keep a record of that correspondence.
 - We may also ask you to complete surveys to help us improve our
   services, although you do not have to respond to them.
@@ -34,7 +34,7 @@ may collect and process the following data about you:
   policy](about/cookie-policy)).
 
 We may also access information from other sources when you interact
-with PomBase online:
+with ${database_name} online:
 
 - We can collect information about your interests and browsing
   behaviour from Google Analytics.
@@ -55,7 +55,7 @@ We use information held about you in the following ways:
 - To send you updates, information and newsletters if you request them
 
 ### Collecting and using personal data
-you are consenting to PomBase storing and using it for the purposes
+you are consenting to ${database_name} storing and using it for the purposes
 for which it was provided. We will not use your personal information
 to contact you unless you have specifically requested to receive
 information from us.
@@ -72,11 +72,11 @@ purposes of our legitimate interests, except where our interests are
 overridden by your privacy interests.
 
 Our legitimate interests are maintaining our data resources, providing
-data and services to our users, and raising awareness of PomBase and
+data and services to our users, and raising awareness of ${database_name} and
 fission yeast research online, in print, and in person.
 
 ### Disclosure of your information
-We may disclose your personal information to the PomBase
+We may disclose your personal information to the ${database_name}
 collaboration's member institutions ([University of
 Cambridge](http://www.cam.ac.uk/), [University College
 London](http://www.ucl.ac.uk/), the [Babraham
@@ -157,7 +157,7 @@ version.
 
 ### Contact us
 
-For any further enquiries about the PomBase's Privacy Policy, or if
+For any further enquiries about the ${database_name}'s Privacy Policy, or if
 you have concerns about how your data is being processed or would like
 to report a possible data breach, please contact
 [helpdesk@pombase.org](mailto:helpdesk@pombase.org).

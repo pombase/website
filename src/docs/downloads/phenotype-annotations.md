@@ -1,15 +1,15 @@
 ### Phenotype annotations
 
 [Phenotype annotations](https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz)
-(link downloads gzipped file from PomBase) for alleles of
+(link downloads gzipped file from ${database_name}) for alleles of
 *S. pombe* genes are manually curated from the literature using
 Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file
 contains annotations for single allele phenotypes (single mutants)
 only.
 
-The file is in a version of the PomBase phenotype data bulk annotation
+The file is in a version of the ${database_name} phenotype data bulk annotation
 format (PHAF), detailed below. This format in nearly identical to the
-one that can be used to submit phenotype annotations to PomBase in bulk,
+one that can be used to submit phenotype annotations to ${database_name} in bulk,
 as described on the [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
 page, with the addition of the Database column. Note that, because
 Database is column 1 in the downloadable file, column numbers differ
@@ -20,7 +20,7 @@ direct annotations to FYPO terms. It does not include annotations that
 can be inferred by propagating between terms within the ontology. To
 make full use of the FYPO annotation data, we strongly recommend also
 using the ontology structure and inferred annotations. Please contact
-the [PomBase helpdesk](mailto:helpdesk@pombase.org) if you need
+the [${database_name} helpdesk](mailto:helpdesk@pombase.org) if you need
 assistance.
 
 ### Viability summary
@@ -31,7 +31,7 @@ a downloadable file. The file has two columns: the gene systematic ID
 and one of three values: "viable", "inviable" or "condition-dependent".
 
 To cite the fission yeast phenotype data (complete or viability
-summary), please see [Citing PomBase](/about/citing-pombase).
+summary), please see [Citing ${database_name}](/about/citing-pombase).
 
 ### PHAF download format
 
@@ -40,7 +40,7 @@ columns may be empty.
 
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
-1 | Database | PomBase | Yes | No
+1 | Database | ${database_name} | Yes | No
 2 | Gene systematic ID | SPBC11B10.09 | Yes | No
 3 | FYPO ID | FYPO:0000001 | Yes | No
 4 | Allele description | G146D | Yes | No
@@ -64,7 +64,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 **Notes:**
 
 1.  The database that produced the file -- included to facilitate data
-    sharing with other databases. Obviously always PomBase for this
+    sharing with other databases. Obviously always ${database_name} for this
     file. (Also note that PHAF files submitted for loading can omit this column.)
 2.  The systematic ID for each gene.
 3.  To use the FYPO IDs, see the [FYPO summary page](/browse-curation/fission-yeast-phenotype-ontology) 
@@ -103,7 +103,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
     the [Helpdesk](mailto:helpdesk@pombase.org) if you need assistance
     using these IDs
 14. Similarly, Conditions use a small ontology maintained in-house by
-    PomBase curators, and we can help you interpret the IDs. Multiple
+    ${database_name} curators, and we can help you interpret the IDs. Multiple
     entries are shown in cases where more than one condition detail
     applies at the same time (e.g. high temperature, minimal medium),
     and are separated with commas (,).

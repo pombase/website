@@ -1,7 +1,7 @@
 ### Protein datasets
 
 The full [protein dataset](https://www.pombase.org/data/genome_sequence_and_features/feature_sequences/peptide.fa.gz)
-is available in FASTA format (link downloads gzipped file from PomBase).
+is available in FASTA format (link downloads gzipped file from ${database_name}).
 
 The [protein data directory](https://www.pombase.org/data/Protein_data/) 
 contains assorted data (see the README for file formats):

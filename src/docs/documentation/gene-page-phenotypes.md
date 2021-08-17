@@ -1,16 +1,16 @@
 ## Gene page: Phenotypes
 
-PomBase defines a phenotype as an observable characteristic, or set of
+${database_name} defines a phenotype as an observable characteristic, or set of
 characteristics, of an organism that results from the interaction of
-its genotype with a given environment. In PomBase, phenotypes are
+its genotype with a given environment. In ${database_name}, phenotypes are
 annotated using terms from the Fission Yeast Phenotype Ontology
 (FYPO). FYPO uses several existing ontologies from the 
 [Open Biological and Biomedical Ontologies](http://obofoundry.org/) (OBO)
 collection to construct formal definitions. Basic documentation for
 FYPO is available at the [OBO Foundry](http://obofoundry.org/ontology/fypo.html), and further
-information is available on the [PomBase wiki](http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology).
+information is available on the [${database_name} wiki](http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology).
 
-In the phenotype annotation display on PomBase gene pages, the first
+In the phenotype annotation display on ${database_name} gene pages, the first
 item shown is a brief summary indicating whether cells with a null
 (deletion) allele of the gene are viable or inviable, or either
 depending on experimental conditions. Next, single-locus phenotypes
@@ -46,16 +46,16 @@ single-allele phenotypes, the display includes:
     whether partial deletions or altered residues refer to amino acids
     or nucleotides, and expression level. If you can provide a
     description for any allele shown as "unknown", please [contact the
-    PomBase curators](mailto:helpdesk@pombase.org).
+    ${database_name} curators](mailto:helpdesk@pombase.org).
 3.  Phenotype annotations may have extensions to capture penetrance
     (proportion of a population that shows the phenotype) or severity
     (previously designated "expressivity"), or to document which gene
     or protein used in an assay for level, localisation,
-    etc. *S. pombe* genes link to PomBase gene pages. Severity and
+    etc. *S. pombe* genes link to ${database_name} gene pages. Severity and
     penetrance use the relations *has\_severity* and *has\_penetrance*
     respectively, and can have values such as "high", "medium", or
     "low". Penetrance can also use numerical values. A gene or gene
-    product used in an assay is stored using the appropriate PomBase
+    product used in an assay is stored using the appropriate ${database_name}
     systematic ID and the relation *assayed\_using*; the relation is
     converted to *affecting* in the gene page display. If a mutation
     affects an activity that modifies another gene product, extensions
@@ -105,7 +105,7 @@ annotations to terms hidden in the summary view:
     full details (type, description, and expression) for its
     allele(s), links to gene pages, and a list of all phenotype
     annotations for the genotype. If you can provide a description for
-    any allele shown as "unknown", please [contact the PomBase
+    any allele shown as "unknown", please [contact the ${database_name}
     curators](mailto:helpdesk@pombase.org).
 3.  Mouse over the allele name to show the allele type, which
     indicates whether partial deletions or altered residues refer to
@@ -129,17 +129,17 @@ annotations to terms hidden in the summary view:
     annotation. The evidence categories come from the [Evidence Ontology](http://www.evidenceontology.org/) (ECO).
 6.  Information about experimental conditions, such as temperature, type
     of medium used, etc. Descriptions come from a small ontology
-    maintained by PomBase curators.
+    maintained by ${database_name} curators.
 7.  The paper from which the annotation comes.
 8.  Phenotype annotations may have extensions to capture penetrance
     (proportion of a population that shows the phenotype) or severity
     (previously designated "expressivity"), or to document which gene
     or protein used in an assay for level, localisation,
-    etc. *S. pombe* genes link to PomBase gene pages. Severity and
+    etc. *S. pombe* genes link to ${database_name} gene pages. Severity and
     penetrance use the relations *has\_severity* and *has\_penetrance*
     respectively, and can have values such as "high", "medium", or
     "low".  Penetrance can also use numerical values. A gene or gene
-    product used in an assay is stored using the appropriate PomBase
+    product used in an assay is stored using the appropriate ${database_name}
     systematic ID and the relation *assayed\_using*; the relation is
     converted to *affecting* in the gene page display.  If a mutation
     affects an activity that modifies another gene product, extensions

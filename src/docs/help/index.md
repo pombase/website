@@ -2,6 +2,6 @@
 
 ### [Frequently Asked Questions (FAQ)](faq)
 
-### [PomBase Documentation](documentation)
+### [${database_name} Documentation](documentation)
 
 ### [Contact Curators](about)

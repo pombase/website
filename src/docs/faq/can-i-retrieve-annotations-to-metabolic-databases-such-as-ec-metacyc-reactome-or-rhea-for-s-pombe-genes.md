@@ -2,7 +2,7 @@
 <!-- pombase_categories: Finding data,Using ontologies -->
 
 The best way to find metabolism-related annotations for *S. pombe* genes
-is to use the GO annotation data available from PomBase in combination
+is to use the GO annotation data available from ${database_name} in combination
 with mappings between GO terms and entries in the various
 metabolism-oriented databases.
 

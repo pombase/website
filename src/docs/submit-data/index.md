@@ -1,4 +1,4 @@
-## PomBase Data Submission
+## ${database_name} Data Submission
 
 ### [Gene names](submit-data/gene-names)
 
@@ -17,5 +17,5 @@ to be displayed as a track in the genome browser.
 ### Gene-specific data
 
 To submit information on individual genes, use the Contact Curators
-link provided on the relevant [PomBase](http://www.pombase.org/) gene
+link provided on the relevant [${database_name}](http://www.pombase.org/) gene
 page

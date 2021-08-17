@@ -30,7 +30,7 @@ will attempt to notify all parties.
     should have a related phenotype, gene product or gene function. If a
     3-letter symbol is already in use, it should not be used to describe
     a different class of genes. Before choosing your gene name, search
-    PomBase for any gene name beginning with the
+    ${database_name} for any gene name beginning with the
     3-letter symbol, by entering the 3-letter name followed by an
     asterisk, e.g. "cdc\*". Also check the usage of the 3-letter
     code in *S. cerevisiae* at [SGD](http://www.yeastgenome.org/).
@@ -55,7 +55,7 @@ will attempt to notify all parties.
     unless you published the name first (see "Resolution of gene name
     conflicts" below).
 9.  If no conflicts arise, your gene name will become the standard
-    name, and will appear on the gene page and elsewhere in PomBase.
+    name, and will appear on the gene page and elsewhere in ${database_name}.
 
 <!-- restore when form back
 2.  Gene names may be reserved using the [Gene Name Registration

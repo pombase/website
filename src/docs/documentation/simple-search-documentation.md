@@ -1,7 +1,7 @@
 ## Simple search
 
 The simple search is available via the search box in the header on every
-PomBase page:
+${database_name} page:
 
 ![Simple search mouseover help](assets/simple_search_mouseover_help.png){width="600"}
 

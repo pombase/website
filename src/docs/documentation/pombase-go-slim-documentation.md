@@ -3,12 +3,12 @@
 "GO slims" are subsets of the Gene Ontology (GO) that provide a broad
 overview of annotation distribution. Slims can offer a useful overview
 of a genome or the results of a large-scale experiment. For more
-information on GO slims, please see PomBase [GO Slimming
+information on GO slims, please see ${database_name} [GO Slimming
 Tips](/browse-curation/fission-yeast-go-slimming-tips) and the [GO
 Subset Guide](http://geneontology.org/docs/go-subset-guide/) at the
 Gene Ontology website.
 
-PomBase provides a GO slim term set for each major branch of GO:
+${database_name} provides a GO slim term set for each major branch of GO:
 
 - [GO molecular function slim term set](/browse-curation/fission-yeast-mf-go-slim-terms)
 - [GO biological process slim term set](/browse-curation/fission-yeast-bp-go-slim-terms)
@@ -40,7 +40,7 @@ of protein-coding gene products not covered by the slim, either
 because they are not annotated to any term in the GO branch, or
 because they have annotations to terms not covered by the slim.
 
-Current GO slim IDs and term names can be downloaded from the PomBase ftp site:
+Current GO slim IDs and term names can be downloaded from the ${database_name} ftp site:
 
 - [GO molecular function slim](https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv)
 - [GO biological process slim](https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv)

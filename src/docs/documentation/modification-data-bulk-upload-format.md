@@ -1,6 +1,6 @@
 ## Modification data bulk upload format
 
-PomBase welcomes submissions of published large-scale modification
+${database_name} welcomes submissions of published large-scale modification
 data sets. We have devised a tab-delimited text file format for bulk
 modification data.
 
@@ -52,7 +52,7 @@ File columns:
     are allowed, but only for cases where two or more of the same
     modification are known to be present at the same time. Separate
     entries with commas (e.g. S72,T85). Position numbering should
-    reflect the current sequence data in PomBase. Please refer to the
+    reflect the current sequence data in ${database_name}. Please refer to the
     [Gene Coordinate Changes](status/gene-coordinate-changes) page to
     ensure that your residue position entries are up to date. Also
     note that histones are conventionally numbered assuming the
@@ -96,7 +96,7 @@ required_for | indicates that a modification is required for a GO function or pr
 occupancy | percent representing what proportion of copies of the protein have the modification | occupancy(51.5%)
 level_fluctuates_during | identifies a biological process (e.g. the cell cycle or one or more of its phases) during which the modification site occupancy is observed to vary | level_fluctuates_during(GO:0000278)
 
-Please [contact the PomBase curators](mailto:helpdesk@pombase.org) if
+Please [contact the ${database_name} curators](mailto:helpdesk@pombase.org) if
 you have any questions about what to use for modification IDs,
 Evidence, annotation extensions, or anything else you need to
 represent your data in this format.

@@ -1,4 +1,4 @@
-# Can I search PomBase for protein features?
+# Can I search ${database_name} for protein features?
 <!-- pombase_categories: Finding data,Using ontologies -->
 
 A selection of protein sequence motifs and features have been manually

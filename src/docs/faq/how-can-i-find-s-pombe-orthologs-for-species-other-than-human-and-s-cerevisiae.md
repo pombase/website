@@ -1,7 +1,7 @@
 # How can I find *S. pombe* orthologs for species other than human and *S. cerevisiae*?
 <!-- pombase_categories: Orthology,Finding data,Tools and resources -->
 
-For orthologs that are not manually curated by PomBase, we suggest a few
+For orthologs that are not manually curated by ${database_name}, we suggest a few
 approaches:
 
 **DIOPT**

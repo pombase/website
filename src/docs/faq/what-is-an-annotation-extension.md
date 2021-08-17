@@ -15,7 +15,7 @@ The GO Consortium provides further information on annotation
 extensions in its [file format guide](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/),
 on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension),
 and in publications from [2014](https://www.ncbi.nlm.nih.gov/pubmed/?term=24885854) and [2017](https://www.ncbi.nlm.nih.gov/pubmed/?term=27812947).
-PomBase converts many extension names to more human-friendly text, as
+${database_name} converts many extension names to more human-friendly text, as
 described [here](/documentation/annotation-extension-relation-display).
 
 Phenotype annotations using FYPO may have extensions that capture

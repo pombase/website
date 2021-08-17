@@ -1,8 +1,8 @@
-## Getting started with PomBase JBrowse
+## Getting started with ${database_name} JBrowse
 
-The PomBase genome browser can be accessed in multiple ways:
+The ${database_name} genome browser can be accessed in multiple ways:
 
-- On any PomBase page, click the "Search" tab in the header menu, and
+- On any ${database_name} page, click the "Search" tab in the header menu, and
   select "Genome browser"
 - From a gene page, click the "View region in JBrowse ..." link just
   above the map image
@@ -174,7 +174,7 @@ There are several ways to navigate the genome.
          - rDNA (link to one complete repeat)
             - III:5542..13722
      - For more information on the chromosome selection options, see
-       PomBase documentation on [genome sequencing status](status/sequencing-status),
+       ${database_name} documentation on [genome sequencing status](status/sequencing-status),
        the [mating type region](status/mating-type-region), and
        [rDNA](faq/there-any-rdna-repeat-sequences-pombase).
 

@@ -1,7 +1,7 @@
 # How can I search or browse GO annotations?
 <!-- pombase_categories: Finding data,Using ontologies -->
 
-You can search for GO terms by name or ID in the PomBase [advanced
+You can search for GO terms by name or ID in the ${database_name} [advanced
 search](/query), and retrieve a list of all genes annotated to the
 term and its descendants via the relations *is\_a*, *part\_of*,
 *regulates*, *positively\_regulates,* and *negatively\_regulates*. For
@@ -20,9 +20,9 @@ documentation available:
 
 Hint: to find *S. pombe* annotations, use Organism:
 Schizosaccharomyces pombe, Taxon: 4896 (*Schizosaccharomyces pombe*)
-or Source: PomBase. You can download the results in GAF format.
+or Source: ${database_name}. You can download the results in GAF format.
 
-In PomBase, GO term names and IDs on gene pages link to ontology term
+In ${database_name}, GO term names and IDs on gene pages link to ontology term
 pages for GO terms, which in turn offer links to AmiGO, QuickGO and
 BioPortal.
 

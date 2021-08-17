@@ -1,4 +1,4 @@
-## PomBase Cookie Policy
+## ${database_name} Cookie Policy
 
 ### What are cookies?
 
@@ -41,13 +41,13 @@ used to improve services for you, for example, by:
 
 ### The cookies we use
 
-This website contains links to and from third-party sites. This policy only covers use of cookies on this site. You should consult privacy and cookie policies on third-party sites before you submit any personal data. PomBase is not responsible for any cookies that may be set by third-party websites that are linked to from pages on www.pombase.org.
+This website contains links to and from third-party sites. This policy only covers use of cookies on this site. You should consult privacy and cookie policies on third-party sites before you submit any personal data. ${database_name} is not responsible for any cookies that may be set by third-party websites that are linked to from pages on www.pombase.org.
 
 Table of cookies we use on our site:
 
 |Name|Description|More information|
 |----|-----------|----------------|
-|Canto_pombe__session|Cookie set by Canto|[PomBase privacy policy](about/privacy-policy)|
+|Canto_pombe__session|Cookie set by Canto|[${database_name} privacy policy](about/privacy-policy)|
 |_ga<br>_gali<br>_gid<br>_gat<br>_gat_jbrowseTracker<br>__utma<br>__utmb<br>__utmc<br>__utmt<br>__utmz|Cookies used by Google Analytics, which we use to measure website usage|[Google's privacy policy](http://www.google.com/policies/privacy/) and [Google Analytics Cookie descriptions](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage)|
 
 #### Strictly Necessary Cookies

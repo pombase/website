@@ -1,6 +1,6 @@
 ## Publication pages
 
-For each publication loaded into PomBase, a page summarizes essential
+For each publication loaded into ${database_name}, a page summarizes essential
 details about paper, and shows any annotations that cite it.
 
 ![publication page top details](assets/publication_page_top.png){width="800"}

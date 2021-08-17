@@ -12,4 +12,4 @@ numbers specifying position in the location box.
 
 To see the DNA sequence, see [this FAQ](faq/can-i-view-nucleotide-sequence-genome-browser). 
 For more information on downloading sequence, see the 
-[PomBase JBrowse guide](/documentation/JBrowse_quick_start).
+[${database_name} JBrowse guide](/documentation/JBrowse_quick_start).

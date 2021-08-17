@@ -1,7 +1,7 @@
 # Why are some genes with an abnormal phenotype annotated to the corresponding GO process while others are not?
 <!-- pombase_categories: Using ontologies -->
 
-PomBase curators use GO Biological Process annotations to indicate that
+${database_name} curators use GO Biological Process annotations to indicate that
 a gene product is directly involved in a process or its regulation. FYPO
 annotations indicate when a mutation in a gene causes a change in a
 process, but do not say whether the effect is direct or indirect.

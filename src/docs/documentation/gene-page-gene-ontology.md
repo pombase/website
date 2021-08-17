@@ -1,6 +1,6 @@
 ## Gene page: Gene Ontology
 
-PomBase uses the [Gene Ontology](http://www.geneontology.org/) (GO) to
+${database_name} uses the [Gene Ontology](http://www.geneontology.org/) (GO) to
 describe the biological context of genes.
 
 GO consists of three distinct
@@ -25,7 +25,7 @@ activity (BPs), and is found locations including the replication fork
 and the pre-replicative complex (CC).
 
 Each table includes ontology term details and supporting data. The GO
-annotation display on PomBase gene pages includes ontology term
+annotation display on ${database_name} gene pages includes ontology term
 details and supporting data. The summary view shows just the
 essentials: The list of terms is filtered, using the ontology
 structure, so that it shows only the most specific terms used to
@@ -37,14 +37,14 @@ extension(s) is shown once:
 1.  The GO term name, which links to a page with additional
     information, including the term definition, any synonyms,
     relationships to other GO terms, and annotations to the
-    term or its descendants. (See the PomBase [ontology term page documentation](/documentation/ontology-term-page) and the GO
+    term or its descendants. (See the ${database_name} [ontology term page documentation](/documentation/ontology-term-page) and the GO
     documentation on the [GO graph](http://geneontology.org/docs/ontology-documentation/) and
     [Relations in GO](http://geneontology.org/docs/ontology-relations/) for
     more information.)
 2.  [GO Slim](documentation/pombase-go-slim-documentation) terms
     applicable to the gene.
 3.  GO annotations may have [extensions](#annotation-extensions) to capture any of
-    several types of additional detail. *S. pombe* genes link to PomBase
+    several types of additional detail. *S. pombe* genes link to ${database_name}
     gene pages, and ontology term names link to ontology term pages.
 
 The detailed view shows annotations to all GO terms, and includes more
@@ -70,7 +70,7 @@ than one paper), and annotations to terms hidden in the summary view:
 4.  An optional qualifier that modifies the connection between the
     gene product and the GO term. Entries come from the set of allowed qualifiers described in
     [GO's annotation overview](http://geneontology.org/docs/go-annotations/)
-    or internal PomBase usage.
+    or internal ${database_name} usage.
 5.  The paper from which the annotation comes.
 6.  The number of genes annotated to the term, linked to an ontology
     term page as described above.
@@ -78,7 +78,7 @@ than one paper), and annotations to terms hidden in the summary view:
     applicable to the gene.
 8.  GO annotations may have extensions(see "Annotation extensions"
     below) to capture any of several types of additional
-    detail. *S. pombe* genes link to PomBase gene pages. [Protein
+    detail. *S. pombe* genes link to ${database_name} gene pages. [Protein
     Ontology](https://proconsortium.org/pro.shtml) (PRO) terms, which
     identify specific processed or modified forms of a protein, can be
     used in extensions or to indicate which form is active; both are
@@ -118,7 +118,7 @@ documentation.
 
 #### Evidence codes ####
 
-In PomBase, every annotation is supported by a reference that states
+In ${database_name}, every annotation is supported by a reference that states
 where the annotation comes from, and an evidence code that describes
 the type of data that supports the annotation. An annotation may be
 inferred from experimental ‘wet lab’ data, backed by a literature
@@ -140,7 +140,7 @@ used, for instance
 <a href="http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Orthology_(ISO)">ISO</a>
 (Inferred from Sequence Orthology) or
 <a href="http://wiki.geneontology.org/index.php/Inferred_from_Sequence_Model_(ISM)">ISM</a>
-(Inferred from Sequence Model). PomBase uses ISO to cross-reference to
+(Inferred from Sequence Model). ${database_name} uses ISO to cross-reference to
 the roles of known *S. cerevisiae* genes, and uses ISM when domains
 present in a gene product can give clues to its biological role.
 
@@ -167,7 +167,7 @@ The GO Consortium provides further information on annotation
 extensions in its [file format guide](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/),
 on a [wiki page](http://wiki.geneontology.org/index.php/Annotation_Extension),
 and in publications from [2014](https://www.ncbi.nlm.nih.gov/pubmed/?term=24885854) and [2017](https://www.ncbi.nlm.nih.gov/pubmed/?term=27812947).
-PomBase converts many extension names to more human-friendly text, as
+${database_name} converts many extension names to more human-friendly text, as
 described [here](/documentation/annotation-extension-relation-display).
 
 If an extension mentions another *S. pombe* gene, the extension data
@@ -177,7 +177,7 @@ section of the page for that gene.
 PRO terms can be used in extensions, and PRO terms that are used to
 associate a GO annotation with a specific modified or processed form
 are also listed with annotation extensions. In both cases, PRO IDs
-link to Protein Ontology web pages. Note that PomBase uses
+link to Protein Ontology web pages. Note that ${database_name} uses
 human-friendly display names that differ from the full names on the
 PRO pages; abbreviations used in the display names are included in the
 [extension display

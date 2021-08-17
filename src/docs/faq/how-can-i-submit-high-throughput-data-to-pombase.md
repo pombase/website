@@ -1,7 +1,7 @@
-# How can I submit high-throughput data to PomBase?
+# How can I submit high-throughput data to ${database_name}?
 <!-- pombase_categories: Data submission and formats,Genome browser -->
 
-PomBase welcomes large sets of published data. The recommended
+${database_name} welcomes large sets of published data. The recommended
 submission route depends on the data type:
 
 - For any data that can be associated with genome sequence coordinates
@@ -10,7 +10,7 @@ submission route depends on the data type:
     submission page](/documentation/data-submission-form-for-HTP-sequence-linked-data)
     for instructions and submission templates.
 - Several types of data associated with genes can be displayed on gene
-    pages. PomBase has developed bulk upload formats for phenotype,
+    pages. ${database_name} has developed bulk upload formats for phenotype,
     modification, and gene expression data -- see the [Annotation data
     submission page](/submit-data/bulk-annotation) and the [FAQ on file
     formats](/faq/what-file-formats-can-i-use-submit-high-throughput-data)

@@ -1,4 +1,4 @@
-# PomBase Web Site Help & Documentation
+# ${database_name} Web Site Help & Documentation
 
 
 ```{=html}
@@ -38,7 +38,7 @@ Search documentation, news archive and FAQ:
 
 ### JBrowse Genome Browser
 
--   [Getting started with PomBase JBrowse](documentation/JBrowse_quick_start) - 
+-   [Getting started with ${database_name} JBrowse](documentation/JBrowse_quick_start) - 
     an introductory guide to browser navigation, track loading,
     metadata, etc. (by Antonia Lock)
 -   Also see the General entry in the JBrowse Help menu
@@ -48,7 +48,7 @@ Search documentation, news archive and FAQ:
 
 -   [Documentation](documentation/quick-little-tool) for the Quick Little Tool for gene list visualisation
 
-### Other PomBase Pages ###
+### Other ${database_name} Pages ###
 
 -   GO Slim
     [Documentation](documentation/pombase-go-slim-documentation)
@@ -60,15 +60,15 @@ Search documentation, news archive and FAQ:
 -   [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
 -   [Data versions](about/version-history)
 
-### How to Cite PomBase ###
+### How to Cite ${database_name} ###
 
--   See the [Citing PomBase](about/citing-pombase) page
+-   See the [Citing ${database_name}](about/citing-pombase) page
 
 ### File Formats for Data Submission ###
 
-PomBase accepts batch submissions of certain types of data that appear
-on PomBase gene pages. For these data types, we use dedicated
-PomBase-specific formats:
+${database_name} accepts batch submissions of certain types of data that appear
+on ${database_name} gene pages. For these data types, we use dedicated
+${database_name}-specific formats:
 
 -   [Phenotypes](documentation/phenotype-data-bulk-upload-format)
 -   [Modifications](documentation/modification-data-bulk-upload-format)
@@ -81,17 +81,17 @@ and displayed as tracks in the genome browser, see the [data format
 FAQ](faq/what-file-formats-can-i-use-submit-high-throughput-data)
 and further details linked there.
 
-### Linking to and from PomBase ###
+### Linking to and from ${database_name} ###
 
--   Linking to PomBase: To link to any PomBase gene page, use the
+-   Linking to ${database_name}: To link to any ${database_name} gene page, use the
     systematic ID for the gene in a URL with the syntax
     http://www.pombase.org/gene/\[systematic ID\]. For example,
     [http://www.pombase.org/gene/SPBC11B10.09](/gene/SPBC11B10.09)
     links to the gene page for [cdc2](spombe/result/SPBC11B10.09).
--   Linking from PomBase to external resources: We can provide links
-    from PomBase gene pages to gene- or gene product-specific *S. pombe*
-    data for any resource that uses URLs with PomBase systematic IDs .
-    Please contact the PomBase Curators for more information.
+-   Linking from ${database_name} to external resources: We can provide links
+    from ${database_name} gene pages to gene- or gene product-specific *S. pombe*
+    data for any resource that uses URLs with ${database_name} systematic IDs .
+    Please contact the ${database_name} Curators for more information.
 
 
 ### Comparative Genomics ###
@@ -102,5 +102,5 @@ We plan to add specific documentation about comparative genomics using
 
 ### More information ... ###
 
-For help with anything in PomBase not covered here, you can
+For help with anything in ${database_name} not covered here, you can
 [contact the curators](mailto:helpdesk@pombase.org).

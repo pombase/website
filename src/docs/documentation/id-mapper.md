@@ -33,7 +33,7 @@ any of into three categories:
 - many-to-one
 
 4. All result lists show two columns: the entered ID(s) and the
-matching *S. pombe* gene(s). Links go to PomBase gene pages. If there
+matching *S. pombe* gene(s). Links go to ${database_name} gene pages. If there
 is a single result in the one-one or one-many section, it is displayed
 by default. Longer lists, and many-to-one matches, are hidden by
 default. Use the "Show matches/Hide matches" links to toggle the
