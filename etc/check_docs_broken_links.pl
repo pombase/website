@@ -12,14 +12,74 @@ use Carp;
 my $docs_dir = shift;
 my $assets_dir = shift;
 
-my $database_name = shift;
+my $web_config_file_name = shift;
 
-die "$0: exiting: needs three arguments\n" unless $database_name;
+die "$0: exiting: needs three arguments\n" unless $web_config_file_name;
 
 use File::Find;
 
 my %valid_paths = ();
 
+use JSON -support_by_pp;
+
+
+open my $config_fh, '<', $web_config_file_name
+  or die "can't open $web_config_file_name";
+my $config_contents;
+{
+  local $/ = undef;
+  $config_contents = <$config_fh>;
+}
+close $config_fh;
+
+my $config = from_json $config_contents;
+
+my $database_name = $config->{database_name};
+
+my $load_organism_taxonid = $config->{load_organism_taxonid};
+my $load_organism = undef;
+
+for my $organism_config (@{$config->{organisms}}) {
+  if ($organism_config->{taxonid} == $load_organism_taxonid) {
+    $load_organism = $organism_config;
+    last;
+  }
+}
+
+if (!defined $load_organism) {
+  die "can't find organism configuration for taxon ID $load_organism_taxonid " .
+    "in $$web_config_file_name";
+}
+
+
+my %var_substitutions = (
+  database_name => $database_name,
+  lc_database_name => lc $database_name,
+  genus => $load_organism->{genus},
+  species => $load_organism->{species},
+  genus_and_species => $load_organism->{genus} . ' ' . $load_organism->{species},
+  species_abbrev => $load_organism->{common_name},
+  ncbi_taxon_id => $load_organism->{taxonid},
+  base_url => $config->{base_url},
+  helpdesk_address => $config->{helpdesk_address},
+);
+
+
+
+sub substitute_vars {
+  my $var_name = shift;
+  my $line_ref = shift;
+
+  if (exists $var_substitutions{$var_name}) {
+    return $var_substitutions{$var_name};
+  }
+}
+
+sub process_line {
+  my $line_ref = shift;
+
+  $$line_ref =~ s/\$\{(\w+)\}/substitute_vars($1, $line_ref)/ge;
+}
 
 sub make_id_from_page_name {
   my $heading = shift;
@@ -67,6 +127,7 @@ sub wanted_docs {
         die "can't open $current: $!\n";
 
       my $first_line = <$f>;
+      process_line(\$first_line);
       my $id = make_id_from_page_name($first_line);
       $valid_paths{"$section/$id"} = 1;
       close $f;
@@ -125,6 +186,8 @@ for my $file_to_scan (@files_to_scan) {
       if ($link =~ m@^(spombe/result|results|gene|reference|archive)/|query$@) {
         next;
       }
+
+      process_line(\$link);
 
       $link =~ s/#.*//;
 
