@@ -3,7 +3,7 @@
 ### Purpose of Reserving Gene Names
 
 To avoid gene naming conflicts, the
-*S. pombe*[Gene Naming Committee](submit-data/gene-naming-committee-members)
+*${species_abbrev}*[Gene Naming Committee](submit-data/gene-naming-committee-members)
 accepts reservations for gene names that will be published
 imminently. This does not guarantee that no one else will use your
 reserved gene name, but the naming committee will actively discourage
