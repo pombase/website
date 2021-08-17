@@ -9,8 +9,8 @@ only in *${species_abbrev}*.
 To retrieve either set of genes, use the "Taxonomic conservation"
 query in the [Advanced Search](/query). Choose "Schizosaccharomyces
 specific" for genes found in more than one *Schizosaccharomyces*
-species, or "Schizosaccharomyces pombe specific" for genes found only
-in *S. pombe.* See the
+species, or "Schizosaccharomyces ${species} specific" for genes found only
+in *${species_abbrev}.* See the
 [Advanced Search documentation](/documentation/advanced-search)
 for help with performing searches.
 

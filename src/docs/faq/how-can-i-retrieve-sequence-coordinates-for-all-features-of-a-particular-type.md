@@ -26,7 +26,7 @@ Available options:
 
 3.  The bioinformatically inclined can also use the Ensembl Genomes REST
     API to retrieve transcript feature coordinates, as described in the
-    [FAQ on pombe transcriptome sequences](/faq/s.-pombe-transcriptome-available-fasta-format).
+    [FAQ on ${species} transcriptome sequences](/faq/s.-pombe-transcriptome-available-fasta-format).
     Select the desired feature type(s) from the output file of stable
     IDs (bear in mind that Ensembl idiosyncratically uses "biotype" to
     mean feature type). Note, however, that EG is updated much less

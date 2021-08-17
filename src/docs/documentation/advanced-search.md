@@ -308,7 +308,7 @@ page sections.
 
 #### Phenotype searches
 
- -  [Can I get a list of essential pombe genes?](/faq/can-i-get-list-essential-pombe-genes)
+ -  [Can I get a list of essential ${species} genes?](/faq/can-i-get-list-essential-pombe-genes)
  -  [How can I find all of the genes that have a given mutant phenotype?](/faq/how-can-i-find-all-genes-have-given-mutant-phenotype)
  -  [Why are some genes annotated to both viable and inviable phenotypes?](/faq/why-are-some-genes-annotated-both-viable-and-inviable-phenotypes)
  -  [How can I browse the phenotype ontology (FYPO)?](/faq/how-can-i-browse-phenotype-ontology-fypo)
@@ -325,24 +325,24 @@ page sections.
 #### Protein searches
 
  -  [How can I find modifications for my protein of interest?](/faq/how-can-i-find-modifications-my-protein-interest)
- -  [How can I find all S. pombe proteins in a particular protein family?](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family)
+ -  [How can I find all S. ${species} proteins in a particular protein family?](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family)
  -  [How can I find proteins that have transmembrane domains?](/faq/how-can-i-find-proteins-have-transmembrane-domains)
 
 #### Taxonomic conservation
 
- -  [How can I find S. pombe genes associated with human disease?](/faq/how-can-i-find-s.-pombe-genes-associated-human-disease)
- -  [How can I find all S. pombe genes that are conserved in human?](/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human)
+ -  [How can I find S. ${species} genes associated with human disease?](/faq/how-can-i-find-s.-pombe-genes-associated-human-disease)
+ -  [How can I find all S. ${species} genes that are conserved in human?](/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human)
  -  [Can I search for genes based on conservation in different taxa?](/faq/can-i-search-genes-based-on-conservation-different-taxa)
  -  [Can I find all of the unconserved (orphan) genes in fission yeast?](/faq/can-i-find-all-unconserved-orphan-genes-fission-yeast)
 
 #### Gene and genome searches
 
- -  [How can I retrieve all S. pombe genes?](/faq/how-can-i-retrieve-all-s.-pombe-genes)
- -  [How can I retrieve all S. pombe protein-coding genes?](/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes)
+ -  [How can I retrieve all S. ${species} genes?](/faq/how-can-i-retrieve-all-s.-pombe-genes)
+ -  [How can I retrieve all S. ${species} protein-coding genes?](/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes)
  -  [Can I provide a list of genes to search on?](/faq/can-i-provide-list-genes-search-on)
  -  [Can I search for a gene list and retrieve results in the same order as in the input list?](/faq/can-i-search-gene-list-and-retrieve-results-same-order-as-input-list) (answer: no)
  -  [How can I find snoRNA genes?](/faq/how-can-i-find-snorna-genes)
- -  [How can I find transposons in the S. pombe genome?](/faq/how-can-i-find-transposons-s.-pombe-genome)
+ -  [How can I find transposons in the S. ${species} genome?](/faq/how-can-i-find-transposons-s.-pombe-genome)
  -  [How can I find genes in a region using chromosome coordinates?](/faq/how-can-i-find-genes-region-using-chromosome-coordinates)
  -  [How can I retrieve intron coordinates or sequences?](/faq/how-can-i-retrieve-intron-coordinates-or-sequences)
  -  [How can I find all sequence features in a region using chromosome coordinates?](/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates)

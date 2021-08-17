@@ -1,4 +1,4 @@
-# Can I get a list of essential pombe genes?
+# Can I get a list of essential ${species} genes?
 <!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
 
 If an essential gene is deleted, the cell cannot survive under normal

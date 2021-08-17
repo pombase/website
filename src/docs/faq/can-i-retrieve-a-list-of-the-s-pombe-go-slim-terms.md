@@ -1,4 +1,4 @@
-# Can I retrieve a list of the S. pombe GO slim terms?
+# Can I retrieve a list of the ${species_abbrev} GO slim terms?
 <!-- pombase_categories: Genome statistics and lists,Using ontologies -->
 
 Yes, you can download the term names and IDs for the each of the
