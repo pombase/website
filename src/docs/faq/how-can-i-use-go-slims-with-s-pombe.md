@@ -12,7 +12,7 @@ documentation](documentation/advanced-search) for more information.
 
 If you want to use a different slim, we recommend using the [GO Term
 Mapper](http://go.princeton.edu/cgi-bin/GOTermMapper) at Princeton.
-Upload your list of genes, and select "Schizosaccharomyces pombe
+Upload your list of genes, and select "${genus_and_species}
 (${database_name})" in the Organism pulldown. For the slim, select one of the
 radio buttons, or scroll down to Advanced Options to choose GO terms
 to make up a custom slim. GO Term Mapper's interface and documentation
