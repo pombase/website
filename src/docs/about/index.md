@@ -18,7 +18,7 @@ contributes literature curation and maintains JaponicusDB. The
 JaponicusDB collaboration is led by researchers at the [Francis Crick
 Institute](https://www.crick.ac.uk/) and [King's College
 London](https://www.kcl.ac.uk/).
-%%if db=JaponicusDB
+%%end db=JaponicusDB
 
 ------------------------------------
 
@@ -88,7 +88,7 @@ annotation and data updates
 %%if db=JaponicusDB
 Subscribe to [japonicus-list](https://mailman.kcl.ac.uk/mailman/listinfo/japonicus-list) to receive
 annotation and data updates
-%%if db=JaponicusDB
+%%end db=JaponicusDB
 
 
 ------------------------------------
@@ -105,5 +105,5 @@ PomBase is funded by the [Wellcome Trust](https://wellcome.ac.uk/) \[104967/Z/14
 
 %%if db=JaponicusDB
 JaponicusDB received initial funding from the [Wellcome Trust](https://wellcome.ac.uk/) \[103741/Z/14/Z\].
-%%if db=JaponicusDB
+%%end db=JaponicusDB
 

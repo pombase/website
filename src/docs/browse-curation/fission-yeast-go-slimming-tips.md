@@ -58,7 +58,7 @@ features of the fission yeast slim terms and annotations.
     coverage, but only represent a small number of annotations, and
     have a low rate of false positives. We therefore recommend that
     you include them.
-%%if db=JaponicusDB
+%%end db=JaponicusDB
 
 #### Creating a user-defined slim ####
 
@@ -82,7 +82,7 @@ features of the fission yeast slim terms and annotations.
 %%end db=PomBase
 %%if db=JaponicusDB
     process (2931 annotations), cellular process (4149 annotations)) are
-%%if db=JaponicusDB
+%%end db=JaponicusDB
     too general for the purpose of most slim-based analyses.
 4.  On a related note, if you are using your slim for data analysis
     (e.g. to summarize an enrichment), you should ensure that the terms

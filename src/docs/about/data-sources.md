@@ -17,7 +17,7 @@ EuropePMC where relevant.
 
 %%if db=JaponicusDB
 Data tracks and associated publications forthcoming.
-%%if db=JaponicusDB
+%%end db=JaponicusDB
 
 %%if db=PomBase
   - Bitton DA, Rallis C, Jeffares DC, Smith GC, Chen YY, Codlin S, Marguerat S, Bähler J.\
