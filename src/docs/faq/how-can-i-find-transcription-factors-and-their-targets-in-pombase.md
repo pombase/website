@@ -43,7 +43,7 @@ annotation dataset. For the latter:
 3.  Find annotations to the GO IDs of interest (GO ID is column 5; gene
     ID column 2), and then look at the annotation extensions (column
     16).
-4.  Contact the [Helpdesk](mailto:helpdesk@pombase.org) if you have any
+4.  Contact the [Helpdesk](mailto:${helpdesk_address}) if you have any
     problems or questions.
 
 Finally, note that not all *${species_abbrev}* transcription factors have been

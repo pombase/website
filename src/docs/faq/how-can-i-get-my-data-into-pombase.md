@@ -38,5 +38,5 @@ single publication, if it reports both large- and small-scale
 experimental results.
 
 For any data types not listed above, or if you have any questions,
-please contact the [${database_name} helpdesk](mailto:helpdesk@pombase.org).
+please contact the [${database_name} helpdesk](mailto:${helpdesk_address}).
 

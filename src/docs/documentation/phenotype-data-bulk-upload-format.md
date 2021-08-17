@@ -46,7 +46,7 @@ blank in the rest of the rows.
     phenotypes, see the [FYPO summary page](browse-curation/fission-yeast-phenotype-ontology) and the
     [FAQ on browsing FYPO](/faq/how-can-i-browse-phenotype-ontology-fypo). If you can't
     find a term you need, email the
-    [helpdesk](mailto:helpdesk@pombase.org) for assistance; we can add
+    [helpdesk](mailto:${helpdesk_address}) for assistance; we can add
     new FYPO terms as needed.
 3.  The allele description specifically describes the change; see
     table below.
@@ -138,7 +138,7 @@ partial nucleotide deletion | 500-800 | indicate deleted residues; use comma-sep
 unknown | unknown | an allele name is required if the type and description are unknown
 wild type | wild type | use with altered expression (overexpression or knockdown) for single-allele phenotypes
 
-Please [contact the ${database_name} curators](mailto:helpdesk@pombase.org) if
+Please [contact the ${database_name} curators](mailto:${helpdesk_address}) if
 you have any questions about what to use for Evidence, Conditions,
 etc., or anything else you need to represent your data in this format.
 

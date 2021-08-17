@@ -1,7 +1,7 @@
 ## Advanced search
 
 **Note: This documentation is still a work in progress. Please contact
-  the [helpdesk](mailto:helpdesk@pombase.org) if you have any
+  the [helpdesk](mailto:${helpdesk_address}) if you have any
   questions.**
 
 The ${database_name} advanced search allows you to construct complex queries
@@ -156,7 +156,7 @@ This item offers convenient links to perform frequently used queries
 easily. Click on the query description to add the results to the query
 history.
 
-Please contact the [helpdesk](mailto:helpdesk@pombase.org) if you
+Please contact the [helpdesk](mailto:${helpdesk_address}) if you
 would like any queries added to the selection.
 
 #### Gene names and IDs

@@ -40,7 +40,7 @@ File columns:
 3.  For help finding suitable ontology (PSI-MOD) terms to describe
     your phenotypes, see the [Canto protein modification documentation](https://curation.pombase.org/pombe/docs/modification_annotation). If
     you can't find a term you need, email the
-    [helpdesk](mailto:helpdesk@pombase.org) for assistance; we can
+    [helpdesk](mailto:${helpdesk_address}) for assistance; we can
     advise you, and request new terms as needed.
 4.  For the Evidence column, we use a small selection from the
     [Evidence Ontology](http://www.evidenceontology.org/) (ECO). You
@@ -96,7 +96,7 @@ required_for | indicates that a modification is required for a GO function or pr
 occupancy | percent representing what proportion of copies of the protein have the modification | occupancy(51.5%)
 level_fluctuates_during | identifies a biological process (e.g. the cell cycle or one or more of its phases) during which the modification site occupancy is observed to vary | level_fluctuates_during(GO:0000278)
 
-Please [contact the ${database_name} curators](mailto:helpdesk@pombase.org) if
+Please [contact the ${database_name} curators](mailto:${helpdesk_address}) if
 you have any questions about what to use for modification IDs,
 Evidence, annotation extensions, or anything else you need to
 represent your data in this format.

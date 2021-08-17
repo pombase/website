@@ -5,7 +5,7 @@ that are organised slightly differently from the links on this
 page. Your browser may prompt you to open or download files.
 
 If you have trouble finding anything, please ask the
-[helpdesk](mailto:helpdesk@pombase.org).
+[helpdesk](mailto:${helpdesk_address}).
 
 -------
 
@@ -65,5 +65,5 @@ Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://w
   "pombase" FTP site within the EBI domain. If you have a link that
   contains **ftp.ebi.ac.uk**, please check these pages for a link
   using **https://www.pombase.org/**. Please [contact the ${database_name}
-  curators](mailto:helpdesk@pombase.org) if you need help finding a
+  curators](mailto:${helpdesk_address}) if you need help finding a
   file or directory.

@@ -18,7 +18,7 @@ submission route depends on the data type:
 
 If you have any other type of large-scale data -- or if you have
 problems or questions regarding the available submission forms -- please
-contact the [helpdesk](mailto:helpdesk@pombase.org).
+contact the [helpdesk](mailto:${helpdesk_address}).
 
 
 <!-- use the [data submission form for HTP sequence-linked data](/submit-data/data-submission-form). -->

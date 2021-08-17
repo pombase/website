@@ -13,7 +13,7 @@ documentation and mailing lists.
 
 ### Contact ${database_name} staff
 
-Email: [helpdesk@pombase.org](mailto:helpdesk@pombase.org)
+Email: [${helpdesk_address}](mailto:${helpdesk_address})
 
 For more information, see the [${database_name} Staff](about/pombase-staff) page.
 

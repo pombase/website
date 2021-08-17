@@ -8,7 +8,7 @@ genes, and resolve gene name conflicts.
 
 The **gene name registration form** will return soon. To reserve a
 gene name in the meantime, please 
-[email the helpdesk](mailto:helpdesk@pombase.org?subject=gene name reservation)
+[email the helpdesk](mailto:${helpdesk_address}?subject=gene name reservation)
 and include:
 
  -  Systematic ID

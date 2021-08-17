@@ -13,6 +13,6 @@ You can download a list of current
 from the ${database_name} FTP site.
 
 If you would like to have any terms added to the ${database_name} Mondo slim set, please
-contact the [helpdesk](mailto:helpdesk@pombase.org).
+contact the [helpdesk](mailto:${helpdesk_address}).
 
 <app-slim-table [slimName]="'pombe_mondo_slim'"></app-slim-table>

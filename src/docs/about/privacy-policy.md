@@ -11,7 +11,7 @@ practices regarding your personal data and how we will treat it.
 
 For the purpose of the General Data Protection Regulation (GDPR),
 ${database_name} is the data controller. To contact us, email
-[helpdesk@pombase.org](mailto:helpdesk@pombase.org) or see the [About
+[${helpdesk_address}](mailto:${helpdesk_address}) or see the [About
 ${database_name}](/about) page for address details.
 
 ### Information we may collect from you
@@ -160,4 +160,4 @@ version.
 For any further enquiries about the ${database_name}'s Privacy Policy, or if
 you have concerns about how your data is being processed or would like
 to report a possible data breach, please contact
-[helpdesk@pombase.org](mailto:helpdesk@pombase.org).
+[${helpdesk_address}](mailto:${helpdesk_address}).

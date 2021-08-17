@@ -53,5 +53,5 @@ i.  Transmembrane domain coordinates, where applicable
 
 Note that some of the listed features (e.g. transmembrane domains from
 TMHMM) are predictions. Consult the contributing databases for further
-information, or [contact the ${database_name} curators](mailto:helpdesk@pombase.org) if you notice
+information, or [contact the ${database_name} curators](mailto:${helpdesk_address}) if you notice
 any problems with annotated or predicted features.

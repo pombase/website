@@ -30,7 +30,7 @@ If, however, the allele and condition details are identical, annotation
 to both viable and inviable terms is probably an error (either one of
 the terms is wrong, or there are missing or incorrect details for the
 alleles and/or conditions). Please let us know via the
-[helpdesk](mailto:helpdesk@pombase.org) if you notice any potential
+[helpdesk](mailto:${helpdesk_address}) if you notice any potential
 errors.
 
 

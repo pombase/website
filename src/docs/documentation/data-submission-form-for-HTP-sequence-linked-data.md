@@ -77,4 +77,4 @@ Examples:
 
 ### Submit
 
-To submit the files, or if you have any questions, please [contact the ${database_name} curators](mailto:helpdesk@pombase.org).
+To submit the files, or if you have any questions, please [contact the ${database_name} curators](mailto:${helpdesk_address}).

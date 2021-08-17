@@ -20,7 +20,7 @@ direct annotations to FYPO terms. It does not include annotations that
 can be inferred by propagating between terms within the ontology. To
 make full use of the FYPO annotation data, we strongly recommend also
 using the ontology structure and inferred annotations. Please contact
-the [${database_name} helpdesk](mailto:helpdesk@pombase.org) if you need
+the [${database_name} helpdesk](mailto:${helpdesk_address}) if you need
 assistance.
 
 ### Viability summary
@@ -100,7 +100,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
     page.
 13. For the Evidence column, we use a small selection from the [Evidence
     Ontology](http://www.evidenceontology.org/) (ECO). Please contact
-    the [Helpdesk](mailto:helpdesk@pombase.org) if you need assistance
+    the [Helpdesk](mailto:${helpdesk_address}) if you need assistance
     using these IDs
 14. Similarly, Conditions use a small ontology maintained in-house by
     ${database_name} curators, and we can help you interpret the IDs. Multiple

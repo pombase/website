@@ -21,5 +21,5 @@ You should then be able to connect and download files (note: we have
 observed that this step can be sensitive to slow network connections).
 
 If these steps don't work, please let us know via the
-[Helpdesk](mailto:helpdesk@pombase.org), and we will try to assist
+[Helpdesk](mailto:${helpdesk_address}), and we will try to assist
 you.

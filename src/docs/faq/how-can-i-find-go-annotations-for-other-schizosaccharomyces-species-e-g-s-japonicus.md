@@ -38,7 +38,7 @@ Note that some genes are present in *S. japonicus*, *S. octosporus* or
 products, GO annotations can be transferred from other species. If you
 wish to include annotations for these genes in your analysis you will
 need to use this option, and extend your GAF with the relevant
-annotation lines (contact the [Helpdesk](mailto:helpdesk@pombase.org)
+annotation lines (contact the [Helpdesk](mailto:${helpdesk_address})
 if you need assistance). Combining all approaches gives the best
 coverage possible at present. You can use a "GO Slim" tool such as
 Princeton's GO Term Mapper to see if there are any gaps in coverage,

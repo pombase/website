@@ -14,7 +14,7 @@ reasons:
     to a few weeks behind.
 3.  Filtering - ${database_name} does not include automated annotations that are
     redundant with manual annotations (contact the
-    [helpdesk](mailto:helpdesk@pombase.org) for further details). The GO
+    [helpdesk](mailto:${helpdesk_address}) for further details). The GO
     Consortium site uses the same filtered annotation dataset as
     ${database_name}, whereas the UniProt GOA site includes the automated
     annotations.

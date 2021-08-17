@@ -10,7 +10,7 @@ below and the linked FAQs.
 Also please see the [HTP data submission
 page](/documentation/data-submission-form-for-HTP-sequence-linked-data)
 for instructions and submission templates, and [consult the
-helpdesk](mailto:helpdesk@pombase.org) to submit a file or if you need
+helpdesk](mailto:${helpdesk_address}) to submit a file or if you need
 further assistance.
 
 <!-- [accept data](/submit-data/data-submission-form) in any of several formats. -->
@@ -38,5 +38,5 @@ Qualitative gene expression | [qualitative gene expression file format](/documen
 Quantitative gene expression | [quantitative gene expression file format](/documentation/quantitative-data-gene-expression-bulk-upload-format) 
 
 We may be able to accept data in other text formats. Please enquire via
-the ${database_name} [helpdesk](mailto:helpdesk@pombase.org) if you have any questions about your data format.
+the ${database_name} [helpdesk](mailto:${helpdesk_address}) if you have any questions about your data format.
 

@@ -46,7 +46,7 @@ single-allele phenotypes, the display includes:
     whether partial deletions or altered residues refer to amino acids
     or nucleotides, and expression level. If you can provide a
     description for any allele shown as "unknown", please [contact the
-    ${database_name} curators](mailto:helpdesk@pombase.org).
+    ${database_name} curators](mailto:${helpdesk_address}).
 3.  Phenotype annotations may have extensions to capture penetrance
     (proportion of a population that shows the phenotype) or severity
     (previously designated "expressivity"), or to document which gene
@@ -106,7 +106,7 @@ annotations to terms hidden in the summary view:
     allele(s), links to gene pages, and a list of all phenotype
     annotations for the genotype. If you can provide a description for
     any allele shown as "unknown", please [contact the ${database_name}
-    curators](mailto:helpdesk@pombase.org).
+    curators](mailto:${helpdesk_address}).
 3.  Mouse over the allele name to show the allele type, which
     indicates whether partial deletions or altered residues refer to
     amino acids or nucleotides, and expression level.

@@ -12,5 +12,5 @@ and January 2017. For these dumps, the file names include release
 numbers that correspond to the "Annotation Version" numbers in the
 [Data version history](/about/version-history) table.
 
-Please [contact the curators](mailto:helpdesk@pombase.org)
+Please [contact the curators](mailto:${helpdesk_address})
 if you need any data not available at the links above.

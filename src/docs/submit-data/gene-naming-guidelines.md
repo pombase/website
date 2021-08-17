@@ -19,7 +19,7 @@ will attempt to notify all parties.
     grandfathered into the database, but all new standard gene names
     must conform to the three-letters-plus-integer pattern.)
 2.  The gene name registration form will return soon. To reserve a
-    gene name in the meantime, please [email the helpdesk](mailto:helpdesk@pombase.org?subject=gene name
+    gene name in the meantime, please [email the helpdesk](mailto:${helpdesk_address}?subject=gene name
     reservation) and include the gene systematic ID, proposed gene
     name, name description, the relevant PubMed ID (if available), and
     any other information.

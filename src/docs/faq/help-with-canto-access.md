@@ -22,4 +22,4 @@ have some suggestions relayed from affected colleagues:
 
 If none of these solve your problems, or if you have any other
 suggestions, please contact the [${database_name}
-helpdesk](mailto:helpdesk@pombase.org).
+helpdesk](mailto:${helpdesk_address}).
