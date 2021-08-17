@@ -4,7 +4,7 @@
 The Ensembl Genomes REST API Endpoints page provides a REST-ful
 interface allows language-independent programmatic access to all
 genomes accessible through Ensembl Genomes, including the same
-Schizosaccharomyces pombe genome sequence data available in
+${genus_and_species} genome sequence data available in
 ${database_name}. (Note that, while the sequence has not changed recently,
 annotation data are likely to be out of date relative to the ${database_name}
 web site Ensembl Genomes is updated much less frequently than

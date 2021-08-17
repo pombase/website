@@ -25,7 +25,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 8 | Scale | single_cell | Yes | No
 9 | Condition | minimal medium, high temperature | Yes | Yes
 10 | Reference | PMID:23101633 | Yes | No
-11 | Taxon | 4896 | Yes | No
+11 | Taxon | ${ncbi_taxon_id} | Yes | No
 12 | Date | 2014-05-01 | Yes | No
 
 1.  Include the systematic ID for each gene. You can look up
@@ -56,7 +56,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
     curators, and we can either advise you about which terms/IDs to
     use, or convert from text to IDs when we receive your file.
 10. The Reference column has the publication's PubMed ID (PMID).
-11. The taxon will usually be 4896 (the NCBI taxon ID for
+11. The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although if you have an NCBI taxon ID
     for a specific *${species_abbrev}* strain you are welcome to use it
 12. The date is the date on which the annotations are created; you may

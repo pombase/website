@@ -19,7 +19,7 @@ documentation available:
 -   [QuickGO Help page](http://www.ebi.ac.uk/QuickGO/help) 
 
 Hint: to find *${species_abbrev}* annotations, use Organism:
-Schizosaccharomyces pombe, Taxon: 4896 (*Schizosaccharomyces pombe*)
+${genus_and_species}, Taxon: ${ncbi_taxon_id} (*Schizosaccharomyces pombe*)
 or Source: ${database_name}. You can download the results in GAF format.
 
 In ${database_name}, GO term names and IDs on gene pages link to ontology term

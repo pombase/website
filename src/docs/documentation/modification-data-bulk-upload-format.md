@@ -16,7 +16,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 5 | Residue | S72 | No | Yes
 6 | Extension | added_by(PomBase:SPBC11B10.09) | No | Yes
 7 | Reference | PMID:24763107 | Yes | No
-8 | Taxon | 4896 | Yes | No
+8 | Taxon | ${ncbi_taxon_id} | Yes | No
 9 | Date | 2014-05-01 | Yes | No
 
 **Notes:**
@@ -66,7 +66,7 @@ File columns:
     independent. You can also use separate rows for annotations with
     independent extensions.
 7.  The Reference column has the publication's PubMed ID (PMID).
-8.  The taxon will usually be 4896 (the NCBI taxon ID for
+8.  The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although if you have an NCBI taxon ID
     for a specific *${species_abbrev}* strain you are welcome to use it
 9.  The date is the date on which the annotations are created; you may

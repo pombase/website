@@ -30,7 +30,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 15 | Severity | medium | No | No
 16 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
 17 | Reference | PMID:23697806 | Yes | No
-18 | taxon | taxon:4896 | Yes | No
+18 | taxon | taxon:${ncbi_taxon_id} | Yes | No
 19 | Date | 2012-01-01 | Yes | No
 
 **Notes:**
@@ -106,7 +106,7 @@ blank in the rest of the rows.
     independent. Most phenotype extensions will be independent and
     pipe-separated.
 17. The Reference column has the publication's PubMed ID (PMID).
-18. The taxon will usually be 4896 (the NCBI taxon ID for
+18. The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although if you have an NCBI taxon ID
     for a specific *${species_abbrev}* strain you are welcome to use it
 19. The date is the date on which the annotations are created; you may

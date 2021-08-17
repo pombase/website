@@ -58,7 +58,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 16 | Severity | medium | No | No
 17 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
 18 | Reference | PMID:23697806 | Yes | No
-19 | taxon | taxon:4896 | Yes | No
+19 | taxon | taxon:${ncbi_taxon_id} | Yes | No
 20 | Date | 2012-01-01 | Yes | No
 
 **Notes:**
@@ -123,7 +123,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
     extensions if they combine to form a "compound" extension (e.g. two
     or more genes assayed together).
 18. The Reference column has the publication's PubMed ID (PMID).
-19. The taxon will usually be 4896 (the NCBI taxon ID for
+19. The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although an NCBI taxon ID for a
     specific *${species_abbrev}* strain would be allowed.
 20. The date is the date on which the annotations are created. Format: YYYY-MM-DD

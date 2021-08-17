@@ -25,7 +25,7 @@
 
 -   [BioGRID](http://www.thebiogrid.org/) Genetic and physical
     interactions
--   [Interactions (IntAct)](http://www.ebi.ac.uk/intact/pages/interactions/interactions.xhtml?query=species:4896)
+-   [Interactions (IntAct)](http://www.ebi.ac.uk/intact/pages/interactions/interactions.xhtml?query=species:${ncbi_taxon_id})
     Known interactions for *S. pombe* from the IntAct database
 -   [Reactome pathway data](http://reactome.org/PathwayBrowser/#/SPECIES=68324)
     *S. pombe* entry point.

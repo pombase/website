@@ -22,7 +22,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 5 | Qualifier | increased | Yes | No
 6 | Extension | during(GO:0000084) | Yes | Yes
 7 | Reference | PMID:18203864 | Yes | No
-8 | Taxon | 4896 | Yes | No
+8 | Taxon | ${ncbi_taxon_id} | Yes | No
 9 | Date | 2014-05-01 | Yes | No
 
 1.  Include the systematic ID for each gene. You can look up
@@ -48,7 +48,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
     specific chemical substance is present; "occurs_in(GO:0005634)"
     when the level is observed in part, rather than all, of a cell.
 7.  The Reference column has the publication's PubMed ID (PMID).
-8.  The taxon will usually be 4896 (the NCBI taxon ID for
+8.  The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although if you have an NCBI taxon ID
     for a specific *${species_abbrev}* strain you are welcome to use it
 9.  The date is the date on which the annotations are created; you may
