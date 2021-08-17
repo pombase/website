@@ -86,7 +86,7 @@ annotation and data updates
 %%end db=PomBase
 
 %%if db=JaponicusDB
-Subscribe to [japonicus-list](japonicus-list@kcl.ac.uk) to receive
+Subscribe to [japonicus-list](https://mailman.kcl.ac.uk/mailman/listinfo/japonicus-list) to receive
 annotation and data updates
 %%if db=JaponicusDB
 
