@@ -2,12 +2,23 @@
 
 ${database_name} is a model organism database that provides organization of
 and access to scientific data for the fission yeast
-*Schizosaccharomyces pombe*. ${database_name} supports genomic sequence and
+*${genus_and_species}*. ${database_name} supports genomic sequence and
 features, genome-wide datasets and manual literature curation.
 
 ${database_name} also provides a community hub for researchers, providing
 genome statistics, a community curation interface, news, events,
 documentation and mailing lists.
+
+%%if db=JaponicusDB
+JaponicusDB was established with support from the [Wellcome
+Trust](https://wellcome.org/), and has been deployed using code
+originally developed at the University of Cambridge for
+[PomBase](https://www.pombase.org/). The *S. japonicus* community
+contributes literature curation and maintains JaponicusDB. The
+JaponicusDB collaboration is led by researchers at the [Francis Crick
+Institute](https://www.crick.ac.uk/) and [King's College
+London](https://www.kcl.ac.uk/).
+%%if db=JaponicusDB
 
 ------------------------------------
 
@@ -15,7 +26,9 @@ documentation and mailing lists.
 
 Email: [${helpdesk_address}](mailto:${helpdesk_address})
 
+%%if db=PomBase
 For more information, see the [${database_name} Staff](about/pombase-staff) page.
+%%end db=PomBase
 
 ### Submit Data
 
@@ -27,6 +40,7 @@ Source publications for external data used in ${database_name} pages and genome 
 
 [Data sources](about/data-sources)
 
+------------------------------------
 ### Citing ${database_name}
 
 The [Citing ${database_name}](/about/citing-${lc_database_name}) page lists papers to cite
@@ -42,6 +56,7 @@ other resources.
 Complete list of [papers published by ${database_name}](about/published-by-${lc_database_name}).
 
 ------------------------------------
+%%if db=PomBase
 
 ### PomBase SAB
 
@@ -61,19 +76,34 @@ Versions of internal and external data loaded into current and past
 PomBase releases.
 
 [Version history](about/version-history)
+%%end db=PomBase
 
 ### Receive project updates
 
+%%if db=PomBase
 Subscribe to [Pombelist](https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist) to receive
 annotation and data updates
+%%end db=PomBase
+
+%%if db=JaponicusDB
+Subscribe to [japonicus-list](japonicus-list@kcl.ac.uk) to receive
+annotation and data updates
+%%if db=JaponicusDB
+
 
 ------------------------------------
 
 ### Privacy
 
 See the ${database_name} [privacy policy](about/privacy-policy) and [cookie policy](about/cookie-policy).
+------------------------------------
 
 ### Project funding
-
+%%if db=PomBase
 PomBase is funded by the [Wellcome Trust](https://wellcome.ac.uk/) \[104967/Z/14/Z\].
+%%end db=PomBase
+
+%%if db=JaponicusDB
+JaponicusDB received initial funding from the [Wellcome Trust](https://wellcome.ac.uk/) \[103741/Z/14/Z\].
+%%if db=JaponicusDB
 
