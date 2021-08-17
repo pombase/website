@@ -37,4 +37,4 @@ jobs:
            ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json
            curl -L https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json > main_config.json
            ./etc/update_generated_files.sh main_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
-           ./etc/check_docs_broken_links.pl src/docs src/assets PomBase
+           ./etc/check_docs_broken_links.pl src/docs src/assets main_config.json
