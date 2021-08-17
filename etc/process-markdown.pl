@@ -203,6 +203,7 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
   my @categories = ($all_questions_category);
   my $contents = "";
   while (defined (my $line = <$fh>)) {
+    $line =~ s/\$\{(\w+)\}/substitute_vars($1, \$line)/ge;
     $contents .= $line;
     if (!$heading && $line =~ /^#\s*(.*)/) {
       $heading = $1;
