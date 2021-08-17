@@ -77,6 +77,7 @@ my %var_substitutions = (
   species => $load_organism->{species},
   genus_and_species => $load_organism->{genus} . ' ' . $load_organism->{species},
   species_abbrev => $load_organism->{common_name},
+  ncbi_taxon_id => $load_organism->{taxonid},
   base_url => $config->{base_url},
   helpdesk_address => $config->{helpdesk_address},
 );
