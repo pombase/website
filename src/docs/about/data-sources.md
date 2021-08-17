@@ -15,6 +15,11 @@ for the paper, which in turn links to PubMed and EuropePMC. Full text
 and repository database links will be available via PubMed and
 EuropePMC where relevant.
 
+%%if db=JaponicusDB
+Data tracks and associated publications forthcoming.
+%%if db=JaponicusDB
+
+%%if db=PomBase
   - Bitton DA, Rallis C, Jeffares DC, Smith GC, Chen YY, Codlin S, Marguerat S, Bähler J.\
     *Genome Res.* 2014 Jul;24(7):1169-79.\
     [PMID:24709818](reference/PMID:24709818)
@@ -42,6 +47,7 @@ EuropePMC where relevant.
   - Xu J, Yanagisawa Y, Tsankov AM, Hart C, Aoki K, Kommajosyula N, Steinmann KE, Bochicchio J, Russ C, Regev A, Rando OJ, Nusbaum C, Niki H, Milos P, Weng Z, Rhind N.\
     *Genome Biol.* 2012 Apr 24;13(4):R27\
     [PMID:22531001](reference/PMID:22531001)
+%%end db=PomBase
 
 ### Ontology versions
 
