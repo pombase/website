@@ -9,7 +9,7 @@ features of the fission yeast slim terms and annotations.
     not additive, because many gene products are annotated to multiple
     terms.
 2.  It not possible to create a slim with no overlaps between terms.
-    Although the *${species_abbrev}* slims have been defined to include biologically
+    Although the fission yeast slims have been defined to include biologically
     informative terms, and minimise overlaps between terms, large
     overlaps cannot be entirely avoided. For example, most of the gene
     products annotated to *signal transduction* are also annotated other
@@ -39,7 +39,7 @@ features of the fission yeast slim terms and annotations.
     making comparisons with other organisms, remember that it is
     possible that not all gene products have been assessed and that the
     "unknown" set is underestimated.
-7.  The default *${species_abbrev}* slims include all evidence codes for fission
+7.  The default fission yeast slim lists include all evidence codes for fission
     yeast. The evidence code **IEA** (inferred from electronic
     annotation) is often considered to be less accurate than other
     evidence codes, but it is very useful for increasing the coverage of
@@ -47,11 +47,18 @@ features of the fission yeast slim terms and annotations.
     terms currently depends on including this evidence code (for
     example, there are 16 gene products annotated to transmembrane
     transport with IEA evidence, which are not yet covered by a manual
-    annotation). For fission yeast, the IEA annotations improve slim
+    annotation). For ${species_abbrev}*, the IEA annotations improve slim
+%%if db=PomBase
     coverage, but only represent a small number of annotations (519
     biological process annotations as of May 2020), and have a low
     rate of false positives. We therefore recommend that you include
     them.
+%%end db=PomBase
+%%if db=JaponicusDB
+    coverage, but only represent a small number of annotations, and
+    have a low rate of false positives. We therefore recommend that
+    you include them.
+%%if db=JaponicusDB
 
 #### Creating a user-defined slim ####
 
@@ -70,7 +77,12 @@ features of the fission yeast slim terms and annotations.
     small as possible to convey your results. However, you should ensure
     that the terms you include are specific enough to capture
     biologically relevant information. Many terms (e.g. metabolic
+%%if db=PomBase
     process (3229 annotations), cellular process (4581 annotations)) are
+%%end db=PomBase
+%%if db=JaponicusDB
+    process (2931 annotations), cellular process (4149 annotations)) are
+%%if db=JaponicusDB
     too general for the purpose of most slim-based analyses.
 4.  On a related note, if you are using your slim for data analysis
     (e.g. to summarize an enrichment), you should ensure that the terms
@@ -87,8 +99,8 @@ features of the fission yeast slim terms and annotations.
     [GO Ontology Relations
     documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
-    totals presented for the [${database_name} default *${species_abbrev}* process
-    slim](browse-curation/fission-yeast-bp-go-slim-terms), by contrast,
+    totals presented for the [default *${species_abbrev}* process
+    slim](browse-curation/fission-yeast-bp-go-slim-terms) in ${database_name}, by contrast,
     are calculated explicitly including the genes which are
     involved in a process via regulation only. We expect the
     distinction to be available in future versions of slimming
@@ -102,7 +114,7 @@ features of the fission yeast slim terms and annotations.
     [GO Ontology Relations
     documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
-    totals presented for the [${database_name} default *${species_abbrev}* process slim](browse-curation/fission-yeast-bp-go-slim-terms), by contrast,
+    totals presented for the [default *${species_abbrev}* process slim](browse-curation/fission-yeast-bp-go-slim-terms) in ${database_name}, by contrast,
     are calculated both explicitly including or excluding the genes
     which are involved in a process via regulation only. We expect this
     distinction to be available in future versions of slimming software.
