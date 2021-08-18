@@ -159,7 +159,7 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 <h4 id="performance-cookies">Performance Cookies</h4>
 <p>These cookies collect information about how you use our website, for instance, which pages you visit most often and if you get any error messages from those pages. Google Analytics sets cookies to help us accurately estimate the number of visitors to the website and volumes of usage. This is to ensure that we provide a fast service that is available when you want it.</p>
 <h4 id="social-media-cookies">Social media cookies</h4>
-<p>PomBase has accounts or pages with external resources including Twitter (<span class="citation" data-cites="PomBase">@PomBase</span>), Facebook (www.facebook.com/pombase), LinkedIn (www.linkedin.com/groups/5122686), and GithHub (github.com/pombase). All use cookie technology, and maintain their own privacy policies.</p>
+<p>PomBase has accounts or pages with external resources including Twitter (<span class="citation" data-cites="PomBase">@PomBase</span>), Facebook (www.facebook.com/pombase), LinkedIn (www.linkedin.com/groups/5122686), and GitHub (github.com/pombase). All use cookie technology, and maintain their own privacy policies.</p>
 <h4 id="what-if-i-see-an-unlisted-cookie">What if I see an unlisted cookie?</h4>
 <p>If you notice a cookie that slips past us or have a question about cookies then please contact us.</p>
 <h3 id="how-can-i-disable-or-block-cookies">How can I disable or block cookies?</h3>
@@ -239,13 +239,31 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 <h3 id="data-sources">Data sources</h3>
 <p>Source publications for external data used in PomBase pages and genome browser.</p>
 <p><a routerLink="/about/data-sources">Data sources</a></p>
-<h3 id="citing-pombase">Citing PomBase</h3>
-<p>The <a routerLink="/about/citing-pombase">Citing PomBase</a> page lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, annotation data, and other resources.</p>
-<h3 id="terms-of-use">Terms of Use</h3>
-<p><a routerLink="/about/terms-of-use">Terms of Use</a> for PomBase data and Canto.</p>
-<h3 id="pombase-publications">PomBase Publications</h3>
-<p>Complete list of <a routerLink="/about/published-by-pombase">papers published by PomBase</a>.</p>
-<hr />
+<table style="width:4%;">
+<colgroup>
+<col style="width: 3%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">### Citing PomBase</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The <a routerLink="/about/citing-pombase">Citing PomBase</a> page lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, annotation data, and other resources.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">### Terms of Use</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a routerLink="/about/terms-of-use">Terms of Use</a> for PomBase data and Canto.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">### PomBase Publications</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Complete list of <a routerLink="/about/published-by-pombase">papers published by PomBase</a>.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="pombase-sab">PomBase SAB</h3>
 <p><a routerLink="/about/pombase-sab">Scientific Advisory Board members</a></p>
 <hr />
@@ -259,7 +277,7 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 <p>Subscribe to <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">Pombelist</a> to receive annotation and data updates</p>
 <hr />
 <h3 id="privacy">Privacy</h3>
-<p>See the PomBase <a routerLink="/about/privacy-policy">privacy policy</a> and <a routerLink="/about/cookie-policy">cookie policy</a>.</p>
+<h2 id="see-the-pombase-privacy-policy-and-cookie-policy.">See the PomBase <a routerLink="/about/privacy-policy">privacy policy</a> and <a routerLink="/about/cookie-policy">cookie policy</a>.</h2>
 <h3 id="project-funding">Project funding</h3>
 <p>PomBase is funded by the <a href="https://wellcome.ac.uk/">Wellcome Trust</a> [104967/Z/14/Z].</p>
 
@@ -2244,12 +2262,12 @@ the total annotated genes.
 <p>These points will help you understand GO slims, and highlight some features of the fission yeast slim terms and annotations.</p>
 <ol type="1">
 <li>Note that the counts in the “Genes” column of the GO slim tables are not additive, because many gene products are annotated to multiple terms.</li>
-<li>It not possible to create a slim with no overlaps between terms. Although the <em>S. pombe</em> slims have been defined to include biologically informative terms, and minimise overlaps between terms, large overlaps cannot be entirely avoided. For example, most of the gene products annotated to <em>signal transduction</em> are also annotated other terms in the slim.</li>
+<li>It not possible to create a slim with no overlaps between terms. Although the fission yeast slims have been defined to include biologically informative terms, and minimise overlaps between terms, large overlaps cannot be entirely avoided. For example, most of the gene products annotated to <em>signal transduction</em> are also annotated other terms in the slim.</li>
 <li>As a consequence of points 1 and 2, GO slim annotation summaries should not be presented using pie charts. Although a pie chart could show the fraction of total annotations for any slim term, it can too easily be mistaken for the fraction of total annotated gene products, which is not the same.</li>
 <li>It is difficult to define a slim which includes all annotated gene products without including terms with very small numbers of annotations (for example, the peroxisome organization branch has very few annotations), or very high level terms which are not particularly biologically informative (e.g. cellular process). Because we have opted not to include such terms, some gene products are annotated to terms but do not appear in the slim annotation set for each ontology (especially biological process).</li>
 <li>Bear in mind that both proteins and RNAs can be annotated to GO terms. If you are working only with proteins you will need to make adjustments for this. For example, many tRNAs and rRNAs are annotated to cytoplasmic translation, and are therefore included in the slim set.</li>
 <li>There is a difference between “unknown” and “unannotated”. All fission yeast and budding yeast gene products have been assessed and are classed as “unknown” for biological process if no biological process information is found (experimental or inferred). If you are making comparisons with other organisms, remember that it is possible that not all gene products have been assessed and that the “unknown” set is underestimated.</li>
-<li>The default <em>S. pombe</em> slims include all evidence codes for fission yeast. The evidence code <strong>IEA</strong> (inferred from electronic annotation) is often considered to be less accurate than other evidence codes, but it is very useful for increasing the coverage of some of the high level GO terms. Accurate annotation counts for some terms currently depends on including this evidence code (for example, there are 16 gene products annotated to transmembrane transport with IEA evidence, which are not yet covered by a manual annotation). For fission yeast, the IEA annotations improve slim coverage, but only represent a small number of annotations (519 biological process annotations as of May 2020), and have a low rate of false positives. We therefore recommend that you include them.</li>
+<li>The default fission yeast slim lists include all evidence codes for fission yeast. The evidence code <strong>IEA</strong> (inferred from electronic annotation) is often considered to be less accurate than other evidence codes, but it is very useful for increasing the coverage of some of the high level GO terms. Accurate annotation counts for some terms currently depends on including this evidence code (for example, there are 16 gene products annotated to transmembrane transport with IEA evidence, which are not yet covered by a manual annotation). For S. pombe*, the IEA annotations improve slim coverage, but only represent a small number of annotations (519 biological process annotations as of May 2020), and have a low rate of false positives. We therefore recommend that you include them.</li>
 </ol>
 <h4 id="creating-a-user-defined-slim">Creating a user-defined slim</h4>
 <ol type="1">
@@ -2257,7 +2275,7 @@ the total annotated genes.
 <li>When creating a slim for the entire genome, you should try to ensure that it covers as many annotated genes in your set as possible (see #3 in the list above). You should be aware of how many genes are annotated but not in your slim, and how many are “unknown” (i.e., annotated only to the root node; see #5 above).</li>
 <li>For display purposes you usually want to keep the number of terms as small as possible to convey your results. However, you should ensure that the terms you include are specific enough to capture biologically relevant information. Many terms (e.g. metabolic process (3229 annotations), cellular process (4581 annotations)) are too general for the purpose of most slim-based analyses.</li>
 <li>On a related note, if you are using your slim for data analysis (e.g. to summarize an enrichment), you should ensure that the terms are specific enough to demonstrate their relevance to the biological topic of interest. For example, lumping all genes involved in transport my mask overrepresentation of transmembrane transport vs. underrepresentation of vesicle-mediated transport in your results set, so you need to ensure that the slim has categories to represent your results effectively.</li>
-<li>Most current implementations of software to create “GO slims” include the <em>regulates</em> relationship by default, so that (for example) genes involved in <em>regulation of cytokinesis</em> will be included with the set of genes annotated to <em>cytokinesis</em>. See the <a href="http://geneontology.org/docs/ontology-relations/">GO Ontology Relations documentation</a> for further information about relationships in GO. The annotation totals presented for the <a href="browse-curation/fission-yeast-bp-go-slim-terms">PomBase default <em>S. pombe</em> process slim</a>, by contrast, are calculated explicitly including the genes which are involved in a process via regulation only. We expect the distinction to be available in future versions of slimming software.</li>
+<li>Most current implementations of software to create “GO slims” include the <em>regulates</em> relationship by default, so that (for example) genes involved in <em>regulation of cytokinesis</em> will be included with the set of genes annotated to <em>cytokinesis</em>. See the <a href="http://geneontology.org/docs/ontology-relations/">GO Ontology Relations documentation</a> for further information about relationships in GO. The annotation totals presented for the <a href="browse-curation/fission-yeast-bp-go-slim-terms">default <em>S. pombe</em> process slim</a> in PomBase, by contrast, are calculated explicitly including the genes which are involved in a process via regulation only. We expect the distinction to be available in future versions of slimming software.</li>
 </ol>
 <!-- restore commented-out version when ticket 1521 (or a successor) done
 5.  Most current implementations of software to create "GO slims"
@@ -2267,7 +2285,7 @@ the total annotated genes.
     [GO Ontology Relations
     documentation](http://geneontology.org/docs/ontology-relations/)
     for further information about relationships in GO. The annotation
-    totals presented for the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">PomBase default *S. pombe* process slim</a>, by contrast,
+    totals presented for the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">default *S. pombe* process slim</a> in PomBase, by contrast,
     are calculated both explicitly including or excluding the genes
     which are involved in a process via regulation only. We expect this
     distinction to be available in future versions of slimming software.
@@ -3903,7 +3921,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
   <div *ngIf="pageName == 'index'">
 <h1 id="fission-yeast-community">Fission Yeast Community</h1>
 <ul>
-<li><a routerLink="/community/fission-yeast-community-curation-project">Community curation project</a>, including the old <a routerLink="/community/fission-yeast-community-curation-pilot-project">pilot project</a></li>
+<li><a routerLink="/community/fission-yeast-community-curation-project">Community curation project</a>, including the old <em>S. pombe</em> <a routerLink="/community/fission-yeast-community-curation-pilot-project">pilot project</a></li>
 <li><a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">Mailing list</a></li>
 <li><a routerLink="/community/internet-resources">External resources</a></li>
 </ul>
@@ -3928,7 +3946,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <li><a href="https://sites.google.com/view/yeastgenome-help/function-help/gene-ontology-go">SGD GO documentation</a> to help SGD users become familiar with GO</li>
 <li><a href="http://go.princeton.edu/cgi-bin/GOTermFinder">GOTermFinder</a> find significant GO terms in lists of genes</li>
 <li><a href="http://bahlerweb.cs.ucl.ac.uk/cgi-bin/GLA/GLA_input">AnGeLi: Analysis of Gene Lists</a> (UCL) uses GO, phenotypes, interactions, etc.</li>
-<li><a href="https://github.com/The-Sequence-Ontology/SO-Ontologies">Sequence Ontology</a> <!-- (http://www.sequenceontology.org/) --></li>
+<li><a href="http://www.sequenceontology.org/">Sequence Ontology</a></li>
 </ul>
 <h3 id="interactions-pathways-and-networks">Interactions, Pathways and Networks</h3>
 <ul>
@@ -5141,7 +5159,7 @@ PomBase using the Ensembl viewer.</p>
 <p><strong>Note: This documentation is still a work in progress. Please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a> if you have any questions.</strong></p>
 <p>The PomBase advanced search allows you to construct complex queries for <em>S. pombe</em> genes. At present all advanced search results are lists of genes that match the query specifications. Hints for specific searches are available in the <a routerLink="/faq">PomBase FAQ</a>, and linked below (scroll down to Search tips).</p>
 <h3 id="overview">Overview</h3>
-<p>In the Search menu, choose Advanced (or bookmark http://www.pombase.org/query).</p>
+<p>In the Search menu, choose Advanced (or bookmark <a routerLink="/query">http://https://www.pombase.org/query</a>).</p>
 <p>In the Query panel (top), click one of the links in the list on the left to choose a query type (described below). For each query, the interface guides your input.</p>
 <figure>
 <img src="assets/advanced_search_main.png" width="682" alt="" /><figcaption>advanced search page with new query</figcaption>
@@ -8553,10 +8571,9 @@ complementation data curated. The most general term, "complementation"
 annotation.
 
 Example queries:
-
--   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:2000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Genes with any complementation annotation     (PBO:2000000)</a> 
--   <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0011087%22%7D%7D,%22filter_count%22:%221%22%7D%5D">functionally complements S. cerevisiae URA1     (PBO:0011087)</a> 
 -->
+<!--  -  <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:2000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D">Genes with any complementation annotation     (PBO:2000000)</a> -->
+<!--  -  <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0011087%22%7D%7D,%22filter_count%22:%221%22%7D%5D">functionally complements S. cerevisiae URA1     (PBO:0011087)</a> -->
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene', 'How can I find S. pombe ortholog(s) of a human gene?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-s.-pombe-ortholog-s-human-gene' || pageName == 'all-faqs'">
@@ -8687,9 +8704,7 @@ Example queries:
 <p>The best route depends on the amount and type of data you have.</p>
 <ul>
 <li>If you have a published paper with “small-scale” data (a few genes, several different data types, etc.), you can curate it in <a href="http://curation.pombase.org/pombe">Canto</a>, PomBase’s online <a routerLink="/community/fission-yeast-community-curation-project">community curation</a> tool. The <a href="http://curation.pombase.org/pombe/docs/index/">Canto documentation</a> describes the supported data types (Gene Ontology, phenotypes, interactions, modifications) and how to use the curation interface.</li>
-<li>If you have data from large-scale experiments that is associated with sequence coordinates, it can be displayed as a track in PomBase JBrowse. See the <a routerLink="/submit-data">data submission page</a> for instructions. <!-- Use the <a routerLink="/submit-data/data-submission-form">HTP data submission form</a>
-    to send details.
---></li>
+<li>If you have data from large-scale experiments that is associated with sequence coordinates, it can be displayed as a track in PomBase JBrowse. See the <a routerLink="/submit-data">data submission page</a> for instructions. <!-- Use the <a routerLink="/submit-data/data-submission-form">HTP data submission form</a> to send details. --></li>
 <li>If you have a large set of phenotype data (e.g. from a screen of the deletion collection), especially if there are many annotations to one or a few <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO</a> term(s), you can send them to the helpdesk in the <a routerLink="/documentation/phenotype-data-bulk-upload-format">phenotype annotation spreadsheet format</a>.</li>
 <li>Similarly, we can accept sets of GO, modification, or gene expression data as described on the <a href="/submit-data/bulk-annotation">dataset submission page</a>.</li>
 <li>For large sets of genetic or physical interaction data, we recommend that you prepare a spreadsheet using the <a href="http://wiki.thebiogrid.org/doku.php/contribute">template provided by BioGRID</a> (see “Step 1. Send Us Your Interaction Data”). You are welcome to send the spreadsheet either to BioGRID or to PomBase (via the helpdesk); PomBase and BioGRID exchange data regularly so all interactions will appear in both databases.</li>
