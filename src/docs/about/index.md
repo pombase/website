@@ -41,6 +41,7 @@ Source publications for external data used in ${database_name} pages and genome 
 [Data sources](about/data-sources)
 
 ------------------------------------
+
 ### Citing ${database_name}
 
 The [Citing ${database_name}](/about/citing-${lc_database_name}) page lists papers to cite
@@ -56,8 +57,8 @@ other resources.
 Complete list of [papers published by ${database_name}](about/published-by-${lc_database_name}).
 
 ------------------------------------
-%%if db=PomBase
 
+%%if db=PomBase
 ### PomBase SAB
 
 [Scientific Advisory Board members](about/pombase-sab)
@@ -96,6 +97,7 @@ annotation and data updates
 ### Privacy
 
 See the ${database_name} [privacy policy](about/privacy-policy) and [cookie policy](about/cookie-policy).
+
 ------------------------------------
 
 ### Project funding
