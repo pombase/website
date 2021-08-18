@@ -175,6 +175,11 @@ sub make_id_from_heading {
   $id =~ s/-+$//;
   $id =~ s/^-+//;
 
+  if ($id =~ /^\d/) {
+    # IDs can't start with a digit
+    $id = "id-$id";
+  }
+
   return $id;
 }
 
