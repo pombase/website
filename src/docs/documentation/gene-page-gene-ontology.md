@@ -74,7 +74,7 @@ than one paper), and annotations to terms hidden in the summary view:
 5.  The paper from which the annotation comes.
 6.  The number of genes annotated to the term, linked to an ontology
     term page as described above.
-7.  [GO Slim](/browse-curation/fission-yeast-go-slim-terms) terms
+7.  [GO Slim](documentation/pombase-go-slim-documentation) terms
     applicable to the gene.
 8.  GO annotations may have extensions(see "Annotation extensions"
     below) to capture any of several types of additional

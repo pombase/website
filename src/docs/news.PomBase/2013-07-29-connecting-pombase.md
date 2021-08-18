@@ -1,6 +1,6 @@
 ### Connecting With PomBase
 
-To complement the [mailing list](/community/mailing-lists) and twitter
+To complement the [mailing list](https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist) and twitter
 ([@PomBase](http://twitter.com/PomBase)) it is now possible to follow
 the activities of PomBase and interact with other members of the pombe
 community via the new [LinkedIn
