@@ -1,4 +1,4 @@
-### Hermes transposon insertions in PomBase
+### New dataset: Hermes transposon insertions
 <!-- newsfeed_thumbnail: transposon.png -->
 
 PomBase now hosts transposon integration data from
