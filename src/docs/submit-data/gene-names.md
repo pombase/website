@@ -25,6 +25,8 @@ How to choose and reserve a gene name; name conflict resolution
 
 -----
 
+%%if db=PomBase
 Historical note: Inventories of reserved gene names and 
 [gene name conflicts](submit-data/gene-name-conflicts) were maintained
 in the past, but have not been updated for several years.
+%%end db=PomBase

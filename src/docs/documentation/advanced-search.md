@@ -12,7 +12,7 @@ below (scroll down to Search tips).
 
 ### Overview
 
-In the Search menu, choose Advanced (or bookmark http://www.pombase.org/query).
+In the Search menu, choose Advanced (or bookmark [http://${base_url}/query](/query)).
 
 In the Query panel (top), click one of the links in the list on the left to choose a query type (described below).  For each query, the interface guides your input.
 
@@ -86,6 +86,7 @@ browser "back" button)
 hidden by default; click "Show gene expression columns" to reveal the
 additional options.
 
+%%if db=PomBase
 4. Select from the pulldown to send the gene list to
 [QuiLT](documentation/quick-little-tool) for visualisation, or, for
 lists of up to 150 genes, see the genes highlighted in [violin
@@ -94,6 +95,12 @@ expression datasets. (At present data from [Marguerat S *et
 al.* (2012)](https://www.pombase.org/reference/PMID:23101633) and
 [Carpy A *et al.* (2014)](https://www.pombase.org/reference/PMID:24763107) 
 are included.)
+%%end db=PomBase
+
+%%if db=JaponicusDB
+4. Click to send the gene list to
+[QuiLT](documentation/quick-little-tool) for visualisation.
+%%end db=JaponicusDB
 
 5. Show [GO slim](documentation/pombase-go-slim-documentation)
 annotations for genes in the list. Click "Slim with" to reveal a
@@ -175,10 +182,13 @@ relationships in the ontology. You may also find it helpful to search
 or browse in [QuickGO](http://www.ebi.ac.uk/QuickGO/) or
 [AmiGO](http://amigo.geneontology.org/) to find GO terms of
 interest. If one search does not seem to retrieve as many results as
-you expect, try again using a less specific term. Note: prior to the
-November 2014 PomBase release, the *regulates* relations were not
-followed, and PomBase GO search results therefore did not match those
-in AmiGO.
+you expect, try again using a less specific term.
+%%if db=PomBase
+Note: prior to the November 2014 PomBase release, the *regulates*
+relations were not followed, and PomBase GO search results therefore
+did not match those in AmiGO.
+%%end db=PomBase
+
 
 #### Phenotype
 
@@ -258,6 +268,7 @@ Find protein-coding genes with products in a specified mass
 range. Enter the desired minimum and maximum mass in kiloDaltons (kDa)
 and click "Search".
 
+%%if db=PomBase
 #### Disease
 
 Search the Monarch Disease Ontology to find *S. pombe* genes whose human
@@ -265,6 +276,7 @@ orthologs have been implicated in disease. Start typing 'disease' or
 the name of a specific disease, and choose from the autocomplete
 options. To retrieve all disease-associated genes, type or paste
 "MONDO:0000001".
+%%end db=PomBase
 
 #### Number of TM domains
 
@@ -293,6 +305,7 @@ with two or more have one or more alternative transcripts in addition
 to the primary transcript. Enter the desired minimum and maximum
 number and click "Search".
 
+%%if db=PomBase
 #### Taxonomic conservation
 
 Choose one of the descriptions from the pulldown menu. See the [gene page documentation](documentation/taxonomic-conservation) for more information.
@@ -305,6 +318,7 @@ Choose one of the descriptions from the pulldown menu. See the [gene characteris
 [FAQ](/faq) entries relevant to using the advanced search are
 organised here by topic. Several of the topics also correspond to gene
 page sections.
+%%end db=PomBase
 
 #### Phenotype searches
 
