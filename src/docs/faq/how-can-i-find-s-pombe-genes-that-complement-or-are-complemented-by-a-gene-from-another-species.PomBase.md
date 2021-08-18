@@ -20,7 +20,9 @@ complementation data curated. The most general term, "complementation"
 annotation.
 
 Example queries:
-
--   [Genes with any complementation annotation     (PBO:2000000)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:2000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
--   [functionally complements S. cerevisiae URA1     (PBO:0011087)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0011087%22%7D%7D,%22filter_count%22:%221%22%7D%5D) 
 -->
+
+<!--  -  [Genes with any complementation annotation     (PBO:2000000)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:2000000%22%7D%7D,%22filter_count%22:%221%22%7D%5D) -->
+
+<!--  -  [functionally complements S. cerevisiae URA1     (PBO:0011087)](/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0011087%22%7D%7D,%22filter_count%22:%221%22%7D%5D) -->
+
