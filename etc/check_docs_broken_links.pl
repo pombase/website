@@ -79,6 +79,8 @@ sub process_line {
   my $line_ref = shift;
 
   $$line_ref =~ s/\$\{(\w+)\}/substitute_vars($1, $line_ref)/ge;
+
+  $$line_ref =~ s/\.md$//;
 }
 
 sub make_id_from_page_name {
@@ -130,6 +132,17 @@ sub wanted_docs {
       process_line(\$first_line);
       my $id = make_id_from_page_name($first_line);
       $valid_paths{"$section/$id"} = 1;
+      my $second_line = <$f>;
+      if ($second_line =~ /<!-- pombase_categories:\s*(.*?)\s*-->/) {
+        for my $category (map {
+          s/^\s+//;
+          s/\s+$//;
+          $_;
+        } split /,/, $1) {
+          my $category_as_id = make_id_from_page_name($category);
+          $valid_paths{"faq/$category_as_id"} = 1;
+        }
+      }
       close $f;
     } else {
 
@@ -161,7 +174,7 @@ sub wanted_assets {
 }
 
 
-my $invalid_path = 0;
+my $invalid_paths = 0;
 
 
 my @links = ();
@@ -176,14 +189,14 @@ for my $file_to_scan (@files_to_scan) {
       next;
     }
 
-    if ($line =~ /\[.+?\]\(([a-zA-Z][^\)\s]*)(:?\s+.*)?\)/) {
+    if ($line =~ m!\[.+?\]\(/?([a-zA-Z][^\)\s]*)(:?\s+.*)?\)!) {
       my $link = $1;
 
       if ($link =~ m@^(https?|ftp)://|^mailto:@) {
         next;
       }
 
-      if ($link =~ m@^(spombe/result|results|gene|reference|archive)/|query$@) {
+      if ($link =~ m@^(spombe/(result|query)|results|gene|genotype|term|reference|archive|slim:\w+|vis|internal-details)/|(query|motif_search)$@) {
         next;
       }
 
@@ -199,7 +212,7 @@ for my $file_to_scan (@files_to_scan) {
 
       if (!$valid_paths{$link}) {
         print "$file_to_scan:$.:  $link\n   $line\n";
-        $invalid_path = 1;
+        $invalid_paths++;
       }
     }
   }
@@ -207,5 +220,7 @@ for my $file_to_scan (@files_to_scan) {
   close $file;
 }
 
-
-exit $invalid_path;
+if ($invalid_paths > 0) {
+  warn "problems found: $invalid_paths\n";
+  exit 1;
+}
