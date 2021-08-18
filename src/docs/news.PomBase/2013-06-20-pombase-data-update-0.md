@@ -1,4 +1,4 @@
-### PomBase data update
+### PomBase data update 2013-06-20
 
 PomBase data now includes manual curation through June 9, 2013, and
 represents complete annotation for 664 publications (as well as partial

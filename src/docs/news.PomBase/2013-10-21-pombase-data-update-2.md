@@ -1,4 +1,4 @@
-### PomBase data update
+### PomBase data update 2013-10-21
 
 The PomBase web site has been updated and now includes manually curated
 data through October 6, 2013. The number of community-curated papers

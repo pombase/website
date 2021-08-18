@@ -1,4 +1,4 @@
-### New genome browser datasets
+### New genome browser datasets 2020-09-08
 <!-- newsfeed_thumbnail: browser.png -->
 
 Three new datasets in are now available in PomBase JBrowse (links go

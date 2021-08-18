@@ -1,4 +1,4 @@
-### PomBase data update
+### PomBase data update 2014-05-15
 
 We have updated the data available on the PomBase web site. The data now
 includes manual curation through April 28, 2014. Transcriptome data from

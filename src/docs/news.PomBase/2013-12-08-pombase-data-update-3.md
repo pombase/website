@@ -1,4 +1,4 @@
-### PomBase data update
+### PomBase data update 2013-12-08
 
 We have updated the data available on the PomBase web site to include
 manual curation through November 11, 2013. We now have future meetings

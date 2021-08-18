@@ -1,4 +1,4 @@
-### PomBase data update
+### PomBase data update 2014-08-18
 
 We have updated the data available on the PomBase web site to include
 manual curation through August 8, 2014. Community curation now covers

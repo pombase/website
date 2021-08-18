@@ -1,4 +1,4 @@
-### PomBase data update
+### PomBase data update 2014-03-20
 
 Data on the PomBase web site now includes manual curation through
 February 24, 2014. Human orthologs that went missing from gene pages
