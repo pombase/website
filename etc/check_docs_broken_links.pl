@@ -167,8 +167,8 @@ sub wanted_assets {
 
   $current =~ s|$assets_dir/||;
 
-  if ($current =~ m@^([^\.]+)\.(png|jpe?g|gif)$@ ||
-      $current =~ m@^([^\.]+)\.$database_name\.(png|jpe?g|gif)$@) {
+  if ($current =~ m@^([^\.]+)\.(png|jpe?g|gif|pdf)$@ ||
+      $current =~ m@^([^\.]+)\.$database_name\.(png|jpe?g|gif|pdf)$@) {
     $valid_paths{"assets/$1.$2"} = 1;
   }
 }
@@ -196,7 +196,7 @@ for my $file_to_scan (@files_to_scan) {
         next;
       }
 
-      if ($link =~ m@^(spombe/(result|query)|results|gene|genotype|term|reference|archive|slim:\w+|vis|internal-details)/|(query|motif_search)$@) {
+      if ($link =~ m@^(spombe/(result|query)|results|gene|genotype|term|reference|archive|slim:\w+|vis)/|(query|motif_search|identifier-mapper|internal-details)$@) {
         next;
       }
 
