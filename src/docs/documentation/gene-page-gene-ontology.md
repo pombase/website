@@ -17,8 +17,13 @@ GO consists of three distinct
 
 A gene product may be
 [annotated](http://www.geneontology.org/docs/go-annotations/) to several GO
+%%if db=PomBase
 terms from each of the three ontologies; [mcm3](/gene/SPCC1682.02c),
-for instance, is annotated to ATP-dependent DNA helicase activity, ATP
+%%end db=PomBase
+%%if db=JaponicusDB
+terms from each of the three ontologies; [mcm3](/gene/SJAG_01762),
+%%end db=JaponicusDB
+for instance, is annotated to single-stranded DNA helicase activity, ATP
 binding, and DNA replication origin binding (MFs), it acts in mitotic
 DNA replication initiation and negatively regulates the MCM helicase
 activity (BPs), and is found locations including the replication fork
@@ -157,7 +162,7 @@ term name. The extensions provide additional specificity to the
 annotation by linking the term to another ontology term or a gene
 product via a relationship. Examples include specifying substrates of
 molecular functions or specifying the cellular localization during a
-process (for instance, [pka1](/gene/SPBC106.10) has protein
+process (for instance, *S. pombe* [pka1](/gene/SPBC106.10) has protein
 serine/threonine kinase activity and has the substrates
 [mei3](/gene/SPBC119.04) and [rst2](/gene/SPAC6F12.02). It is a
 cellular component of the nucleus during nitrogen starvation, but

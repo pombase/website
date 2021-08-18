@@ -3,7 +3,7 @@
 The "Target of" section describes genes that affect the gene of
 interest. Genes listed under "Target of" may include upstream
 regulators or enzymes that modify the product of the gene of
-interest. For example, the "Target of" annotations for
+interest. For example, the "Target of" annotations for *S. pombe*
 [cdc2](/gene/SPBC11B10.09) indicate that it is a substrate of, and
 regulated by, the kinase Wee1 and the phosphatase Cdc25 (among
 others).

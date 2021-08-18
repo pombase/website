@@ -11,8 +11,8 @@ by 1 between the download and upload formats).
 Include a header line that labels the columns -- use the entry in the
 Contents column below as the column header text.
 
-Column | Contents | Example | Mandatory? | Multiple entries allowed?
--------|----------|---------|------------|--------------------------
+Column | Contents | Example (from *S. pombe*) | Mandatory? | Multiple entries allowed?
+-------|----------|---------------------------|------------|--------------------------
 1 | Gene systematic ID | SPBC11B10.09 | Yes | No
 2 | FYPO ID | FYPO:0000001 | Yes | No
 3 | Allele description | G146D | Yes | No

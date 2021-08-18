@@ -23,8 +23,10 @@ Search documentation, news archive and FAQ:
 -   [Interactions](documentation/genetic-and-physical-interactions)
 -   [Orthologs](documentation/orthologs) and paralogs
 -   [Sequence](documentation/gene-page-sequence)
+%%if db=PomBase
 -   [Taxonomic conservation](documentation/taxonomic-conservation)
 -   [Disease association](documentation/disease-association)
+%%end db=PomBase
 -   [Controlled curation](documentation/controlled-curation)
 -   [External references](documentation/gene-page-external-references)
 -   [Literature](documentation/gene-page-literature)
@@ -57,7 +59,9 @@ Search documentation, news archive and FAQ:
 -   [Publication pages](documentation/publication-page)
 -   [Genotype pages](documentation/genotype-page)
 -   [Fission Yeast Phenotype Ontology (FYPO) page](browse-curation/fission-yeast-phenotype-ontology)
+%%if db=PomBase
 -   [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
+%%end db=PomBase
 -   [Data versions](about/version-history)
 
 ### How to Cite ${database_name} ###
@@ -85,12 +89,19 @@ and further details linked there.
 
 -   Linking to ${database_name}: To link to any ${database_name} gene page, use the
     systematic ID for the gene in a URL with the syntax
-    http://www.pombase.org/gene/\[systematic ID\]. For example,
-    [http://www.pombase.org/gene/SPBC11B10.09](/gene/SPBC11B10.09)
-    links to the gene page for [cdc2](spombe/result/SPBC11B10.09).
+    http://${base_url}/gene/\[systematic ID\]. For example,
+%%if db=PomBase
+    [http://${base_url}/gene/SPBC11B10.09](/gene/SPBC11B10.09)
+    links to the gene page for [cdc2](/gene/SPBC11B10.09).
+%%end db=PomBase
+%%if db=JaponicusDB
+    [http://${base_url}/gene/SJAG_03048](/gene/SJAG_03048)
+    links to the gene page for [cdc2](/gene/SJAG_03048)
+%%end db=JaponicusDB
+
 -   Linking from ${database_name} to external resources: We can provide links
     from ${database_name} gene pages to gene- or gene product-specific *${species_abbrev}*
-    data for any resource that uses URLs with ${database_name} systematic IDs .
+    data for any resource that uses URLs with ${database_name} systematic IDs.
     Please contact the ${database_name} Curators for more information.
 
 

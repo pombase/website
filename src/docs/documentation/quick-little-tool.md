@@ -43,14 +43,22 @@ query history.
 
 At present, QuiLT includes:
 
+%%if db=PomBase
 - Deletion viability
+%%end db=PomBase
+%%if db=JaponicusDB
+- Presence or absence of *S. pombe* orthologs
+%%end db=JaponicusDB
 - Presence or absence of budding yeast orthologs
 - Presence or absence of human orthologs
+- Presence or absence of transmembrane domains
 - GO biological process
 - GO cellular component
 - GO molecular function
+%%if db=PomBase
 - [Characterization status](/status/gene-characterisation) for protein-coding genes
 - [Taxonomic distribution](/documentation/taxonomic-conservation)
+%%end db=PomBase
 - Protein length
 
 #### GO annotation precedence

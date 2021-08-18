@@ -15,7 +15,12 @@ Contents column below as the column header text.
 
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
+%%if db=PomBase
 1 | Gene systematic ID | SPBC11B10.09 | Yes | No
+%%end db=PomBase
+%%if db=JaponicusDB
+1 | Gene systematic ID | SJAG_03048 | Yes | No
+%%end db=JaponicusDB
 2 | Gene name | cdc2 | No | No
 3 | Type | protein | Yes | No
 4 | Extension | during(GO:0051329) | No | No

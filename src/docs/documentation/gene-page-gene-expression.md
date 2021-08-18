@@ -27,6 +27,7 @@ default:
         single-cell scale experiments it is an absolute number.
     -   j\) The life cycle stage or cell cycle phase in which expression was
         measured.
+%%if db=PomBase
 3.  Click to see the gene highlighted in [violin
     plots](https://en.wikipedia.org/wiki/Violin_plot) of quantitative
     expression datasets that include it. (At present data from
@@ -35,6 +36,7 @@ default:
     [Carpy A *et al.*
     (2014)](https://www.pombase.org/reference/PMID:24763107) are
     included.)
+%%end db=PomBase
 
 
 Click "Show details" to reveal additional information:

@@ -9,15 +9,26 @@ Contents column below as the column header text.
 
 Column | Contents | Example | Mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
+%%if db=PomBase
 1 | Gene systematic ID | SPBC11B10.09 | Yes | No
+%%end db=PomBase
+%%if db=JaponicusDB
+1 | Gene systematic ID | SJAG_03048 | Yes | No
+%%end db=JaponicusDB
 2 | Gene name | cdc2 | No | No
 3 | Ontology ID | MOD:0000001 | Yes | No
 4 | Evidence | ECO:0000006 | Yes | No
 5 | Residue | S72 | No | Yes
+%%if db=PomBase
 6 | Extension | added_by(PomBase:SPBC11B10.09) | No | Yes
+%%end db=PomBase
+%%if db=JaponicusDB
+6 | Extension | added_by(PomBase:SJAG_03048) | No | Yes
+%%end db=JaponicusDB
 7 | Reference | PMID:24763107 | Yes | No
 8 | Taxon | ${ncbi_taxon_id} | Yes | No
 9 | Date | 2014-05-01 | Yes | No
+
 
 **Notes:**
 
@@ -85,9 +96,16 @@ either an identifier or a number.
 
 Extension relation | Meaning | Example
 -------------------|---------|--------
+%%if db=PomBase
 added_by | identifies a gene product that adds the modification | added_by(PomBase:SPBC11B10.09)
 affected_by | identifies a gene product that has some influence on the modification, but has not been conclusively shown to add or remove it | affected_by(PomBase:SPBC11B10.09)
 removed_by | identifies a gene product that removes the modification | added_by(PomBase:SPAC24H6.05)
+%%end db=PomBase
+%%if db=JaponicusDB
+added_by | identifies a gene product that adds the modification | added_by(JaponicusDB:SJAG_03048)
+affected_by | identifies a gene product that has some influence on the modification, but has not been conclusively shown to add or remove it | affected_by(JaponicusDB:SJAG_03048)
+removed_by | identifies a gene product that removes the modification | added_by(JaponicusDB:SJAG_04332)
+%%end db=JaponicusDB
 added_during | identifies a biological process or cell cycle phase during which the modification is actively added | added_by(GO:0000085)
 removed_during | identifies a biological process or cell cycle phase during which the modification is removed | removed_by(GO:0000087)
 present_during | identifies a biological process or cell cycle phase during which the modification is observed (note that the modification may have been added during this process -- if this is known use the added_during relation -- or during a preceding process) | present_during(GO:0000085)

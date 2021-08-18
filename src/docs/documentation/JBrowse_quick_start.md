@@ -8,7 +8,11 @@ The ${database_name} genome browser can be accessed in multiple ways:
   above the map image
 - On the publication page for any paper with associated datasets,
   select tracks from the list and click the "Load in JBrowse" button
-- Go directly to [https://www.pombase.org/jbrowse/](https://www.pombase.org/jbrowse/)
+- Go directly to [https://${base_url}/jbrowse/](https://${base_url}/jbrowse/)
+
+%%if db=JaponicusDB
+Note: The illustrations below use PomBase JBrowse. The JaponicusDB browser works exactly the same way.
+%%end db=JaponicusDB
 
 ### DNA sequence, forward features and reverse features
 
@@ -209,7 +213,7 @@ To see the DNA sequence, zoom in until it appears, first as
 color-coded blocks, and then labeled with letters.
 
 More *${species_abbrev}*-specific information can be found in the [Genome
-browser FAQ list](https://www.pombase.org/faq/genome-browser).
+browser FAQ list](/faq/genome-browser).
 
 ### Exporting data
 To export the data for any track, hover over the track label to
