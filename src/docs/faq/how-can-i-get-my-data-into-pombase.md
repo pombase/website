@@ -14,9 +14,7 @@ The best route depends on the amount and type of data you have.
     with sequence coordinates, it can be displayed as a track in
     ${database_name} JBrowse. See the [data submission page](/submit-data) for
     instructions.
-<!-- Use the [HTP data submission form](/submit-data/data-submission-form)
-    to send details.
--->
+<!-- Use the [HTP data submission form](/submit-data/data-submission-form) to send details. -->
 -   If you have a large set of phenotype data (e.g. from a screen of the
     deletion collection), especially if there are many annotations to
     one or a few
