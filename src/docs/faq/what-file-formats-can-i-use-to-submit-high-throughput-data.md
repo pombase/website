@@ -21,7 +21,7 @@ File format | Recommended for
 [BED](/faq/what-bed-format) | sequence features with coordinates
 [bigBed](/faq/what-bigbed-format) | sequence features with coordinates
 [bigWig](/faq/what-bigwig-format) | values attached to genome locations/regions
-[GFF3](/faq/what-gff) | sequence features with coordinates
+[GFF3](/faq/what-gff3) | sequence features with coordinates
 [VCF](/faq/what-vcf) | structural variations, such as SNPs, insertions, deletions, or copy number variants
 [WIG](/faq/what-wig-format) | values attached to genome locations/regions
 <!-- [PSL](/faq/what-psl-format) | sequence alignments -->
@@ -34,8 +34,8 @@ Data type | File format description
 ----------|------------------------
 Phenotypes | [phenotype file format](/documentation/phenotype-data-bulk-upload-format) 
 Modifications | [modification file format](/documentation/modification-data-bulk-upload-format) 
-Qualitative gene expression | [qualitative gene expression file format](/documentation/qualitative-data-gene-expression-bulk-upload-format) 
-Quantitative gene expression | [quantitative gene expression file format](/documentation/quantitative-data-gene-expression-bulk-upload-format) 
+Qualitative gene expression | [qualitative gene expression file format](/faq/how-can-i-submit-high-throughput-data-pombase) 
+Quantitative gene expression | [quantitative gene expression file format](/faq/how-can-i-submit-high-throughput-data-pombase) 
 
 We may be able to accept data in other text formats. Please enquire via
 the ${database_name} [helpdesk](mailto:${helpdesk_address}) if you have any questions about your data format.
