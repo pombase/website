@@ -15,7 +15,7 @@ To search for these features, use the "Protein feature" query in the
 searching).
 
 Also see the FAQs on [transmembrane domains](/faq/how-can-i-find-proteins-have-transmembrane-domains) and
-[protein families](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family),
+[protein families](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain),
 and the section of the search documentation on protein feature and protein domain queries.
 
 Example query:  <app-query-link [goToResults]="true" [linkText]="'nuclear localization signal (SO:0001528)'" [predefinedQueryId]="'SO_1528'">

@@ -339,7 +339,7 @@ page sections.
 #### Protein searches
 
  -  [How can I find modifications for my protein of interest?](/faq/how-can-i-find-modifications-my-protein-interest)
- -  [How can I find all S. ${species} proteins in a particular protein family?](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family)
+ -  [How can I find all S. ${species} proteins in a particular protein family?](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain)
  -  [How can I find proteins that have transmembrane domains?](/faq/how-can-i-find-proteins-have-transmembrane-domains)
 
 #### Taxonomic conservation

@@ -15,7 +15,7 @@ gene:
     excluding UTRs but including introns (other than introns located
     entirely within UTRs).  The second set of numbers indicate the
     gene start, end, and length including the default UTRs chosen by
-    ${database_name} curators (see [this FAQ](/faq/how-do-you-determine-genes-full-length-transcript-utr-coordinates-transcription-start-and-end-s)
+    ${database_name} curators (see [this FAQ](/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites)
     for more information).
 4.  What the three-letter acronym stands for; where available, name
     descriptions are provided for synonyms as well as primary names.
