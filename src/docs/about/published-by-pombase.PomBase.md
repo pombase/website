@@ -30,16 +30,6 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <div class="clear-float"></div>
 [PMID:32353878](http://www.ncbi.nlm.nih.gov/pubmed/32353878) [DOI:10.1093/database/baaa028](https://doi.org/10.1093/database/baaa028)
 
-<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/femsyr/foz014"></div>
-
-<div class="pub-citation">
-Dikicioglu D, Nightingale DJH, Wood V, Lilley KS, Oliver SG.\
-Transcriptional regulation of the genes involved in protein metabolism and processing in *Saccharomyces cerevisiae*.\
-* FEMS Yeast Res.* 2019 Mar 1;19(2):foz014.\
-</div>
-<div class="clear-float"></div>
-[PMID:30753445](http://www.ncbi.nlm.nih.gov/pubmed/30753445) [DOI:10.1093/femsyr/foz014](https://doi.org/10.1093/femsyr/foz014)
-
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1098/rsob.180241"></div>
 
 <div class="pub-citation">
@@ -209,6 +199,16 @@ RNAcentral: a hub of information for non-coding RNA sequences.\
 <div class="clear-float"></div>
 [PMID:30395267](http://www.ncbi.nlm.nih.gov/pubmed/30395267) [DOI:10.1093/nar/gky1034](http://dx.doi.org/10.1093/nar/gky1034)
 (Correction in [DOI:10.1093/nar/gky1206](http://dx.doi.org/10.1093/nar/gky1206))
+
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/femsyr/foz014"></div>
+
+<div class="pub-citation">
+Dikicioglu D, Nightingale DJH, Wood V, Lilley KS, Oliver SG.\
+Transcriptional regulation of the genes involved in protein metabolism and processing in *Saccharomyces cerevisiae*.\
+* FEMS Yeast Res.* 2019 Mar 1;19(2):foz014.\
+</div>
+<div class="clear-float"></div>
+[PMID:30753445](http://www.ncbi.nlm.nih.gov/pubmed/30753445) [DOI:10.1093/femsyr/foz014](https://doi.org/10.1093/femsyr/foz014)
 
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkw1089"></div>
 
