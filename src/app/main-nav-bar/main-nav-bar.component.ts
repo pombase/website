@@ -10,6 +10,7 @@ import { getAppConfig } from '../config';
 export class MainNavBarComponent implements OnInit {
 
   siteName = getAppConfig().site_name;
+  cantoCurationStatisticsLink = getAppConfig().canto_url + '/stats/annotation';
   ensemblBlastURL = getAppConfig().ensembl_blast_url;
   cantoURL = getAppConfig().canto_url;
   hasDiseaseAnnotation = getAppConfig().has_disease_annotation;
