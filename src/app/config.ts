@@ -249,6 +249,7 @@ export interface AppConfig {
   has_admin_curation: boolean;
   ensembl_blast_url: string;
   canto_url: string;
+  community_mailing_list: string;
   welcome_message: string;
   canto_data_config: CantaDataConfig;
   organisms: Array<ConfigOrganism>;
@@ -759,6 +760,7 @@ let _appConfig: AppConfig = {
   has_admin_curation: pombaseConfig.has_admin_curation,
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,
   canto_url: pombaseConfig.canto_url,
+  community_mailing_list: pombaseConfig.community_mailing_list,
   welcome_message: pombaseConfig.welcome_message,
   canto_data_config: pombaseConfig.canto_data_config,
   organisms: pombaseConfig.organisms,
