@@ -511,6 +511,38 @@ export class SubsetNode extends GeneQueryBase implements GeneQueryNode {
   }
 }
 
+export class HasOrthologNode extends GeneQueryBase implements GeneQueryNode {
+  constructor(nodeName: string|undefined, public taxonid: number) {
+    super(nodeName);
+    if (!nodeName) {
+      this.setNodeName(this.detailsString());
+    }
+  };
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof HasOrthologNode) {
+      return this.taxonid === obj.taxonid;
+    }
+    return false;
+  }
+
+  toObject(): Object {
+    return {
+      node_name: this.getNodeName(),
+      has_ortholog: { taxonid: this.taxonid },
+    };
+  }
+
+  detailsString(): string {
+    let organismName = 'UNKNOWN';
+    const configOrganism = getAppConfig().getOrganismByTaxonid(this.taxonid);
+    if (configOrganism) {
+      organismName = configOrganism.common_name;
+    }
+    return 'has ortholog: ' + organismName;
+  }
+}
+
 function rangeToString(rangeNode: RangeNode) {
   let returnVal = rangeNode.rangeType;
   if (!rangeNode.rangeEnd) {
@@ -756,6 +788,9 @@ export class GeneQuery {
 
     case 'subset':
       return new SubsetNode(nodeName, val['subset_name']);
+
+    case 'has_ortholog':
+      return new HasOrthologNode(nodeName, val['taxonid']);
 
     case 'int_range':
       return new IntRangeNode(nodeName, val['range_type'], val['start'], val['end']);

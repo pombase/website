@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 
 import { GeneQuery, GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
-         GenomeRangeNode, GeneQueryNode, TermShort, NodeEventDetails } from '../pombase-query';
+         GenomeRangeNode, GeneQueryNode, TermShort, NodeEventDetails, HasOrthologNode } from '../pombase-query';
 import { GeneSummary, ChromosomeShort } from '../pombase-api.service';
 
-import { ChromosomeConfig, getAppConfig, QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
+import { ChromosomeConfig, ConfigOrganism, getAppConfig, QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
 
 interface DisplayChromosome extends ChromosomeConfig {
@@ -22,18 +22,28 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
 
   cannedQueryDetails?: Array<{ name: string; queryId: string; }>;
   chromosomeSummaries?: Array<ChromosomeShort>;
+  orthologOrganisms: Array<ConfigOrganism> = [];
 
   selectedTerm?: TermShort;
   selectedSubset?: QueryNodeSubsetConfig;
   rangeStart?: number;
   rangeEnd?: number;
   chromosomeName?: string;
+  selectedOrthologOrganism?: ConfigOrganism;
 
   displayChromosomes: Array<DisplayChromosome> = [];
 
   appConfig = getAppConfig();
 
-  constructor(private pombaseApiService: PombaseAPIService) { }
+  constructor(private pombaseApiService: PombaseAPIService) {
+    getAppConfig().ortholog_taxonids.map((taxonid) => {
+      for (const configOrganism of getAppConfig().organisms) {
+        if (configOrganism.taxonid == taxonid) {
+          this.orthologOrganisms.push(configOrganism);
+        }
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.cannedQueryDetails =
@@ -68,6 +78,7 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
     this.rangeStart = undefined;
     this.rangeEnd = undefined;
     this.chromosomeName = undefined;
+    this.selectedOrthologOrganism = undefined;
   }
 
   removePrefix(s: string): string {
@@ -95,6 +106,14 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
   genesFound(param: { genes: Array<GeneSummary>, listName: string }): void {
     let part = new GeneListNode(param.listName, param.genes);
     this.emitNodeEvent(part);
+  }
+
+  selectedOrthologChange(): void {
+    if (this.selectedOrthologOrganism) {
+      const nodeName = 'has ortholog with: ' + this.selectedOrthologOrganism.common_name;
+      const part = new HasOrthologNode(nodeName, this.selectedOrthologOrganism.taxonid);
+      this.emitNodeEvent(part);
+    }
   }
 
   smallOntologyChange(): void {

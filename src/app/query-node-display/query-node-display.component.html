@@ -18,6 +18,16 @@
     <a routerLink="/identifier-mapper/">Identifier Mapper</a>
   </div>
 
+  <div *ngIf="nodeConfig.nodeType == 'has-ortholog'">
+    <select [(ngModel)]="selectedOrthologOrganism"
+            (ngModelChange)="selectedOrthologChange()">
+      <option [ngValue]="undefined">Pick a species ...</option>
+      <option *ngFor="let org of orthologOrganisms" [ngValue]="org">
+        {{org.common_name}}
+      </option>
+    </select>
+  </div>
+
   <div *ngIf="nodeConfig.nodeType == 'small-ontology'">
     <select [(ngModel)]="selectedTerm"
             (ngModelChange)="smallOntologyChange()">

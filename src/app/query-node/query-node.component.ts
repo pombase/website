@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from "@angular/core";
 
 import { getAppConfig, QueryNodeConfig } from "../config";
+import { DeployConfigService } from "../deploy-config.service";
 import { NodeEventDetails } from "../pombase-query";
 
 @Component({
@@ -18,7 +19,11 @@ export class QueryNodeComponent implements OnInit, OnChanges {
 
   appConfig = getAppConfig();
 
-  constructor() { }
+  constructor(deployConfigService: DeployConfigService) {
+    if (deployConfigService.productionMode()) {
+      this.nodeTypes = this.nodeTypes.filter(nodeConfig => !nodeConfig.development_mode_only);
+    }
+  }
 
   ngOnInit() {
   }
