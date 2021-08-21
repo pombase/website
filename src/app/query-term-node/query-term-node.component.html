@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <div *ngIf="!deployConfigService.productionMode() && phenotypeConditionNamespace"
+  <div *ngIf="phenotypeConditionNamespace"
        class="phenotype-condition-selector phenotype-filter">
     <input id="show-cond-select" type="checkbox" [(ngModel)]="showConditionSelector"
            (change)="conditionSelectorChanged()"
