@@ -4,7 +4,7 @@ A "GO slim" is a subset of the Gene Ontology terms selected for a
 specific purpose in interpreting large-scale data, such as functional
 annotation of a genome or high-throughput experimental
 results. ${database_name} uses GO slims to provide a simple summary of
-*S. pombe's* biological capabilities by grouping gene products using
+*${species_abbrev}'s* biological capabilities by grouping gene products using
 broad classifiers.
 
 The table below shows terms in the current fission yeast cellular

@@ -30,9 +30,11 @@ following the *is\_a*, *part\_of*, *regulates*,
 and link to gene lists. (Note: the cellular component ontology does
 not contain any "regulates" links.) 
 
+%%if db=PomBase
 The GO biological process slim table also includes links to
 visualisations in [esyN](http://www.esyn.org/) for the physical
 interaction network of genes annotated to each term.
+%%end db=PomBase
 
 The bottom of each GO slim page lists some simple statistics: the
 total number of gene products annotated to slim terms, and the number

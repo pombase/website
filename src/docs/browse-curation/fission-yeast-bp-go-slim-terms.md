@@ -4,17 +4,20 @@ A "GO slim" is a subset of the Gene Ontology terms selected for a
 specific purpose in interpreting large-scale data, such as functional
 annotation of a genome or high-throughput experimental
 results. ${database_name} uses a GO slim to provide a simple summary of
-*S. pombe's* biological capabilities by grouping gene products using
+*${species_abbrev}'s* biological capabilities by grouping gene products using
 broad classifiers.
 
 The table below shows terms in the current fission yeast biological
 process GO slim, and the number of annotations to each term. GO IDs
 link to ${database_name} [ontology term pages](/documentation/ontology-term-page).
+%%if db=PomBase
 Icons beside each GO term link to [esyN](http://www.esyn.org/), which
 provides a graphical view of interactions for the genes from the
 ${database_name} [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
 dataset. Only the subset of genes linked into the interaction network
-will be displayed in the esyN network view. The annotation totals link
+will be displayed in the esyN network view. 
+%%end db=PomBase
+The annotation totals link
 to pages with information about the term and a list of annotated
 genes.
 
@@ -35,4 +38,5 @@ the total annotated genes.
 -->
 
 <app-slim-table [slimName]="'bp_goslim_pombe'"></app-slim-table>
+
 
