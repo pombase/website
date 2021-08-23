@@ -6,10 +6,18 @@
   width: 35%;
 }
 
+.details-page-summary {
+  border-bottom: 1px solid #bbb;
+}
+
+.esyn-link {
+  margin-left: 1.5em;
+}
+
 .external-links {
   padding-bottom: 0.5em;
 }
 
-.details-page-summary {
-  border-bottom: 1px solid #bbb;
+.external-links div {
+  padding-bottom: 0.5em;
 }

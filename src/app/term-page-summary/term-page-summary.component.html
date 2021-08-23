@@ -37,23 +37,22 @@
   </div>
 
   <div class="external-links">
-    <div *ngFor="let slimName of slimConfigNames">
-      <span *ngIf="isInSubset(slimName)">
+    <ng-container *ngFor="let slimName of slimConfigNames">
+      <div *ngIf="isInSubset(slimName)">
         This term is part of the
         <a (click)="goToFullSlim(slimName)">{{slimConfig[slimName].slim_display_name}}</a>
 
-        <span *ngIf="slimName == 'bp_goslim_pombe'">
-          &ndash;
+        <span class="esyn-link" *ngIf="slimName == 'bp_goslim_pombe'">
          <app-external-link [identifier]="termDetails.termid"
                             [linkText]="'View the esyN network'"
                             [linkConfigKey]="'esyn'"
                             [iconImage]="'esyn_icon.png'">
          </app-external-link>
         </span>
-      </span>
-    </div>
+      </div>
+    </ng-container>
 
-    <div *ngIf="typeConfig" class="external-links">
+    <div *ngIf="typeConfig">
       <app-term-external-links [typeConfig]="typeConfig" [termId]="termDetails.termid">
       </app-term-external-links>
     </div>
