@@ -59,7 +59,14 @@
     <thead>
       <tr>
         <th></th>
-        <th><span (dblclick)="setAllCounts()">Results</span></th>
+        <th><span (dblclick)="setAllCounts()">Results</span>
+          <a [popover]="resultsHelpPopover"
+             class="help-link"
+             triggers="mouseenter:mouseleave" placement="bottom"
+             container="body"><img src="/assets/info_icon.svg">
+           <ng-content></ng-content>
+         </a>
+        </th>
         <th (click)="changeSortOrder()">Query history
           <img *ngIf="sortColumn != 'queryName'" title="Sort by query name" src="assets/sort_both.svg" />
           <img *ngIf="sortColumn == 'queryName'" src="assets/sort_up.svg" />
@@ -136,3 +143,9 @@
   </span>
 </span>
 </div>
+
+<ng-template #resultsHelpPopover>
+  <div class="help-popover">
+    Number of matching genes. Click on count to go to the gene list.
+  </div>
+</ng-template>

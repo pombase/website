@@ -559,3 +559,8 @@ button.dropdown-item.active > div.term-definition {
 a.disabled-menu-item.dropdown-item {
    color: grey;
 }
+
+.help-link img {
+  height: 1.2em;
+  margin: 0.1em 0.2em 0.2em 0.5em;
+}
