@@ -1,7 +1,7 @@
 # How are sequence feature types defined in ${database_name}?
 <!-- pombase_categories: Finding data,Genome statistics and lists -->
 
-S. pombe genome features were originally annotated using
+${species_abbrev} genome features were originally annotated using
 [Artemis](http://www.sanger.ac.uk/science/tools/artemis). As noted
 in the manual
 (ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf - see
