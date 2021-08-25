@@ -10,7 +10,7 @@ If you have trouble finding anything, please ask the
 -------
 
 ### Data download site ###
-[Main directory for *S. pombe* data](https://www.pombase.org/data/)
+[Main directory for *${species_abbrev}* data](https://www.pombase.org/data/)
 
 -------
 
@@ -30,7 +30,9 @@ Annotation type|Description
 [GO annotations](downloads/go-annotations)|Gene Ontology annotation files
 [Macromolecular complexes](https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
 [Phenotype annotations](downloads/phenotype-annotations)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
+%%if db=PomBase
 [HCPIN datasets](https://www.pombase.org/data/high_confidence_physical_interactions/)|Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets; also see [documentation](/documentation/high-confidence-physical-interaction-network)
+%%end db=PomBase
 [Modifications](https://www.pombase.org/data/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future)
 [Orthologs](https://www.pombase.org/data/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
 
@@ -52,6 +54,7 @@ Current GO slim IDs and term names
 ### Mondo slim
 Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv)
 
+%%if db=PomBase
 -------
 
 ### Curated inventories
@@ -60,10 +63,10 @@ Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://w
 -   [Drug targets](/browse-curation/drugs-known-pombe-targets.md)
 
 -------
-
   **Note:** *S. pombe* files are no longer available from the old
   "pombase" FTP site within the EBI domain. If you have a link that
   contains **ftp.ebi.ac.uk**, please check these pages for a link
   using **https://www.pombase.org/**. Please [contact the ${database_name}
   curators](mailto:${helpdesk_address}) if you need help finding a
   file or directory.
+%%end db=PomBase
