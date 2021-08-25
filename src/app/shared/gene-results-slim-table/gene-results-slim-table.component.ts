@@ -119,19 +119,19 @@ export class GeneResultsSlimTableComponent implements OnInit {
     return resultTable.sort(sortRows);
   }
 
-  gotoGenesOfTerm(termId: TermId): void {
+  gotoGenesOfTerm(termName: string, termId: TermId): void {
     const genes = this.termGeneUniquenames[termId];
     if (!genes) {
       return;
     }
 
-    this.gotoGenes(termId, genes);
+    this.gotoGenes(termName, termId, genes);
   }
 
-  private gotoGenes(termId: string|undefined, genes: string[]) {
+  private gotoGenes(termName: string|undefined, termId: string|undefined, genes: string[]) {
     let slimDisplayName = this.slimConfig.slim_display_name.toLowerCase();
     if (termId) {
-      slimDisplayName = `genes from ${termId} in ${slimDisplayName}`;
+      slimDisplayName = `genes annotated with "${termName}" (${termId}) in ${slimDisplayName}`;
     } else {
       slimDisplayName = `unslimmed genes from ${slimDisplayName}`;
     }
@@ -147,7 +147,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
   }
 
   gotoUnslimmedGenes(): void {
-    this.gotoGenes(undefined, Array.from(this.unslimmedGenes));
+    this.gotoGenes(undefined, undefined, Array.from(this.unslimmedGenes));
   }
 
   ngOnInit() {

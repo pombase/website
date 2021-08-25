@@ -21,7 +21,7 @@
               <a routerLink="/term/{{row.termId}}">{{row.termId}}</a>
             </td>
             <td class="count">
-              <a *ngIf="row.geneUniquenames.length != 0" (click)="gotoGenesOfTerm(row.termId)">{{row.geneUniquenames.length}}</a>
+              <a *ngIf="row.geneUniquenames.length != 0" (click)="gotoGenesOfTerm(row.termName, row.termId)">{{row.geneUniquenames.length}}</a>
               <span *ngIf="row.geneUniquenames.length == 0">0</span>
             </td>
           </tr>
