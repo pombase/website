@@ -1,5 +1,8 @@
-# How can I find GO annotations for other *Schizosaccharomyces* species (e.g. *S. japonicus*)?
+# How can I find GO annotations for other *Schizosaccharomyces* species?
 <!-- pombase_categories: Finding data,Using ontologies -->
+
+[JaponicusDB](https://www.japonicusdb.org/datasets) provides GO annotations for *S. japonicus*.
+[PomBase](https://www.pombase.org/datasets) provides GO annotations for *S. pombe*.
 
 For the sequenced strains of *S. japonicus*, *S. octosporus* and *S. cryophilus*,
 the Ensembl group has generated GO annotation data sets for
@@ -43,5 +46,5 @@ if you need assistance). Combining all approaches gives the best
 coverage possible at present. You can use a "GO Slim" tool such as
 Princeton's GO Term Mapper to see if there are any gaps in coverage,
 as described in the [FAQ on enrichment in *${species_abbrev}*](/faq/how-can-i-find-significant-shared-go-annotations-genes-list).
-Also see the FAQs on GO term enrichment in [other *Schizosaccharomyces* species](/faq/can-i-do-go-term-enrichment-other-schizosaccharomyces-species-e.g.-s.-japonicus).
+Also see the FAQs on GO term enrichment in [other *Schizosaccharomyces* species](/faq/can-i-do-go-term-enrichment-other-schizosaccharomyces-species).
 

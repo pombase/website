@@ -1,12 +1,12 @@
-# Can I do GO term enrichment for other *Schizosaccharomyces* species (e.g. *S. octosporus*)?
+# Can I do GO term enrichment for other *Schizosaccharomyces* species?
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 
 There are two possible approaches:
 
 1. Retrieve a set of GO annotations in GAF format for 
 *S. octosporus* or *S. cryophilus*, as described in the 
-[relevant FAQ](/faq/how-can-i-find-go-annotations-other-schizosaccharomyces-species-e.g.-s.-japonicus).
-*S. pombe* GO annotations are available from PomBase, and *S. japonicus* GO annotations are available from JaponicusDB. See the Downloads page at each database.
+[relevant FAQ](/faq/how-can-i-find-go-annotations-other-schizosaccharomyces-species).
+*S. pombe* GO annotations are available from [PomBase](https://www.pombase.org/datasets), and *S. japonicus* GO annotations are available from [JaponicusDB](https://www.japonicusdb.org/datasets).
 Use the GO annotation dataset and your gene list for enrichment.
 
 OR
