@@ -11,8 +11,9 @@ documentation and mailing lists.
 
 %%if db=JaponicusDB
 JaponicusDB was established with support from the [Wellcome
-Trust](https://wellcome.org/), and has been deployed using code
-originally developed at the University of Cambridge for
+Trust](https://wellcome.org/) (Senior Investigator Award
+[103741/Z/14/Z] to Snezhana Oliferenko), and has been deployed using
+code originally developed at the University of Cambridge for
 [PomBase](https://www.pombase.org/). The *S. japonicus* community
 contributes literature curation and maintains JaponicusDB. The
 JaponicusDB collaboration is led by researchers at the [Francis Crick
