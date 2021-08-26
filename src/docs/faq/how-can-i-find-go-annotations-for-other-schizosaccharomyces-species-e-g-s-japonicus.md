@@ -36,15 +36,18 @@ interest. For ortholog IDs, see the
 and use the indicated table from Rhind *et al.* Comparative functional
 genomics of the fission yeasts ([PMID:21511999](http://www.ncbi.nlm.nih.gov/pubmed?term=21511999)).
 
-Note that some genes are present in *S. japonicus*, *S. octosporus* or
-*S. cryophilus* but absent from *${species_abbrev}*. For some of these gene
-products, GO annotations can be transferred from other species. If you
-wish to include annotations for these genes in your analysis you will
-need to use this option, and extend your GAF with the relevant
-annotation lines (contact the [Helpdesk](mailto:${helpdesk_address})
-if you need assistance). Combining all approaches gives the best
-coverage possible at present. You can use a "GO Slim" tool such as
-Princeton's GO Term Mapper to see if there are any gaps in coverage,
-as described in the [FAQ on enrichment in *${species_abbrev}*](/faq/how-can-i-find-significant-shared-go-annotations-genes-list).
-Also see the FAQs on GO term enrichment in [other *Schizosaccharomyces* species](/faq/can-i-do-go-term-enrichment-other-schizosaccharomyces-species).
+Note that some genes are present in some *Schizosaccharomyces* species
+but absent from *${species_abbrev}*. For some of these gene products,
+GO annotations can be transferred from other species. If you wish to
+include annotations for these genes in your analysis you will need to
+use this option, and extend your GAF with the relevant annotation
+lines (contact the [Helpdesk](mailto:${helpdesk_address}) if you need
+assistance). Combining all approaches gives the best coverage possible
+at present. You can use a "GO Slim" tool such as Princeton's GO Term
+Mapper to see if there are any gaps in coverage, as described in the
+[FAQ on enrichment in
+*${species_abbrev}*](/faq/how-can-i-find-significant-shared-go-annotations-genes-list).
+Also see the FAQs on GO term enrichment in [other
+*Schizosaccharomyces*
+species](/faq/can-i-do-go-term-enrichment-other-schizosaccharomyces-species).
 

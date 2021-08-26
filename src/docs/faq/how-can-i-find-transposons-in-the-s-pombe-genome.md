@@ -4,8 +4,10 @@
 In the [advanced search](/query), click "Characterisation status",
 then select "transposon" from the pulldown.
 
+%%if db=PomBase
 At present, there are 11 full-length transposons annotated, and two
 frameshifted copies.
+%%end db=PomBase
 
 Query link: <app-query-link [goToResults]="true" [linkText]="'Transposons'" [predefinedQueryId]="'transposons'"></app-query-link>
 
