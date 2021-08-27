@@ -384,6 +384,13 @@ export class GeneResultsVisComponent implements OnInit {
       return res;
     }
   }
+  getGeneWidth(): number {
+    if (this.lineHeight < 0.9) {
+      return 5;
+    } else {
+      return this.geneWidth;
+    }
+  }
 
   sortGeneUniquenames(): void {
     this.sortedGeneUniquenames.sort((a, b) => {
@@ -392,11 +399,24 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   changeLineHeight(delta: number): void {
-    if (delta < 0 && this.lineHeight < 2) {
-      return;
+    if (this.lineHeight < 1.1) {
+      if (delta < 0) {
+        if (this.lineHeight * this.getGeneDisplayData().length > 10) {
+          this.lineHeight = this.lineHeight / 1.5;
+        }
+      } else {
+        if (this.lineHeight > 0.9) {
+          this.lineHeight = 2;
+        } else {
+          this.lineHeight = this.lineHeight * 1.5;
+        }
+      }
+    } else {
+      this.lineHeight = Math.ceil(this.lineHeight);
+      if (this.lineHeight < 10 || delta < 0) {
+        this.lineHeight += delta;
+      }
     }
-
-    this.lineHeight += delta;
   }
 
   processColumnResults(): void {
@@ -530,9 +550,13 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   getScaleIndexes(): Array<number> {
+    let step = 10;
+    if (this.lineHeight <= 1) {
+      step = Math.ceil(Math.ceil(2.0 / this.lineHeight) * 10);
+    }
     let ret = [];
-    for (let i = 1; i < this.geneDisplayData.length / 10; i++) {
-      ret.push(i * 10);
+    for (let i = 1; i < this.geneDisplayData.length / step; i++) {
+      ret.push(i * step);
     }
     return ret;
   }

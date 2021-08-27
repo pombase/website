@@ -16,6 +16,12 @@
     <div class="svg-download" *ngIf="showResults()">
       <a (click)="saveAsSVG()">Download image ...</a>
     </div>
+
+    <div class="feature-size" *ngIf="showResults()">
+      Scale image: <a (click)="changeLineHeight(-1)">[-]</a>
+      <a *ngIf="lineHeight < 10" (click)="changeLineHeight(1)">[+]</a>
+      <span *ngIf="lineHeight >= 10" >[+]</span>
+    </div>
   </div>
 
   <ng-template #genePopover>
@@ -106,7 +112,7 @@
                     attr.transform="translate({{leftMargin-3}} {{lineHeight * idx + colLabelHeight + 2}})">
             {{idx}}
           </svg:text>
-          <svg:g style="pointer-events: all;">
+          <svg:g *ngIf="lineHeight >= 1" style="pointer-events: all;">
             <svg:rect *ngFor="let geneData of getGeneDisplayData()"
                       class="vis-gene"
                   (click)="geneclick($event)"
@@ -114,7 +120,7 @@
                   (mouseleave)="geneLeave($event)"
                   [ngClass]="{'vis-gene-selected': selectedGenes[geneData.geneUniquename]}"
                   [attr.id]="geneData.id" [attr.height]="lineHeight"
-                  [attr.width]="geneWidth + activeColumnNames.length * (columnWidth + columnGap)"
+                  [attr.width]="getGeneWidth() + activeColumnNames.length * (columnWidth + columnGap)"
                   [attr.x]="leftMargin"
                   [attr.y]="5 + colLabelHeight + geneData.geneIndex * lineHeight"
                   [popover]="genePopover"
@@ -124,9 +130,10 @@
                   style="pointer-events: inherit;">
             </svg:rect>
           </svg:g>
+
           <svg:g *ngFor="let columnName of activeColumnNames; let columnIndex = index">
             <svg:text class="col-label"
-                      attr.transform="translate({{leftMargin + colLabelXOffset + geneWidth + columnIndex * (columnWidth + columnGap) + columnGap}} {{colLabelHeight}}) rotate(-60)">
+                      attr.transform="translate({{leftMargin + colLabelXOffset + getGeneWidth() + columnIndex * (columnWidth + columnGap) + columnGap}} {{colLabelHeight}}) rotate(-60)">
               {{visColumnConfigMap[columnName].display_name}}
             </svg:text>
             <svg:rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
@@ -136,7 +143,7 @@
                   (mouseleave)="dataLeave($event)"
                   [attr.height]="lineHeight * (columnData.endIndex - columnData.startIndex + 1)"
                   [attr.width]="columnWidth"
-                  [attr.x]="leftMargin + geneWidth + columnIndex * (columnWidth + columnGap) + columnGap"
+                  [attr.x]="leftMargin + getGeneWidth() + columnIndex * (columnWidth + columnGap) + columnGap"
                   [attr.y]="5 + colLabelHeight + lineHeight * columnData.startIndex"
                   [attr.fill]="columnData.color"
                   [popover]="colPopover"
