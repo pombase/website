@@ -56,7 +56,7 @@ td.result-count {
 }
 
 .results-out-of-date {
-  color: red;
+  color: #d22;
 }
 
 .new-hist-item {
