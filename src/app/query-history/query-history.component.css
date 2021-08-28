@@ -117,3 +117,7 @@ a.show-details-button:hover {
 .bool-op-image {
   min-width: 42px;
 }
+
+.results-header {
+  white-space: nowrap;
+}
