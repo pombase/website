@@ -68,12 +68,8 @@ export class HistoryEntry {
     return !this.query.getQueryName() || this.query.getQueryName() !== this.query.toString();
   }
 
-  getResultCount(): number|undefined {
-    if (this.resultCount === undefined || this.resultCount === null) {
-      return undefined;
-    } else {
-      return this.resultCount;
-    }
+  getResultCount(): number {
+    return this.resultCount;
   }
 
   toObject(): Object {
@@ -441,6 +437,7 @@ export class QueryService {
           this.postQueryCount(query)
             .then((res) => {
               histEntry.setUpdatedCount(res.getRowCount());
+              this.subject.next(this.history);
               subscription.unsubscribe();
             });
         });

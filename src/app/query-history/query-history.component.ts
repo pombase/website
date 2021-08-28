@@ -38,6 +38,8 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   faUpload = faUpload;
   importingFromFile: boolean;
 
+  hasUpdatedCounts = false;
+
   sortColumn: 'default'|'queryName' = 'default';
 
   constructor(private modalService: BsModalService,
@@ -171,6 +173,16 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.queryService.setAllCounts();
   }
 
+  outOfDateCountTitle(histEntry: HistoryEntry): string {
+    let s = '';
+    const updatedCount = histEntry.getUpdatedCount();
+    if (updatedCount != 1) {
+      s = 's';
+    }
+
+    return `This query now has ${updatedCount} result${s}, click to view`;
+  }
+
   exportAll(): void {
     let fileName = 'all_queries.json';
     let blob = new Blob([this.queryService.historyAsJson(2)], { type: 'application/json' });
@@ -209,6 +221,15 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.sortedHistoryEntries.map(e => e.checked = false);
   }
 
+  checkUpdatedCounts(): void {
+    this.hasUpdatedCounts = false;
+    for (const histEntry of this.historyEntries) {
+      if (histEntry.getUpdatedCount()) {
+        this.hasUpdatedCounts = true;
+      }
+    }
+  }
+
   ngOnInit() {
     this.histSubscription =
       this.queryService.getHistoryChanges()
@@ -216,6 +237,7 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
           this.sortColumn = 'default';
           this.historyEntries = newHistory;
           this.sortedHistoryEntries = newHistory;
+          this.checkUpdatedCounts();
         });
   }
 

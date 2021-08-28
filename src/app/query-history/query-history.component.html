@@ -67,6 +67,15 @@
            <ng-content></ng-content>
          </a>
         </th>
+        <th *ngIf="hasUpdatedCounts">
+          Previous
+          <a [popover]="previousHelpPopover"
+             class="help-link"
+             triggers="mouseenter:mouseleave" placement="bottom"
+             container="body"><img src="/assets/info_icon.svg">
+            <ng-content></ng-content>
+          </a>
+        </th>
         <th (click)="changeSortOrder()">Query history
           <img *ngIf="sortColumn != 'queryName'" title="Sort by query name" src="assets/sort_both.svg" />
           <img *ngIf="sortColumn == 'queryName'" src="assets/sort_up.svg" />
@@ -79,19 +88,22 @@
         <input [(ngModel)]="histEntry.checked" type="checkbox"/>
       </td>
       <td [ngClass]="{'new-hist-item': histEntry.isNewEntry()}" class="result-count">
-        <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() !== undefined">
+        <a (click)="queryClick(histEntry)">
           <span *ngIf="histEntry.getUpdatedCount() == undefined"
                 title="Click to view results">
             {{histEntry.getResultCount()}}
           </span>
-          <span *ngIf="histEntry.getUpdatedCount() != undefined" class="results-out-of-date"
-                title="Click to re-run this query">
-            [out of date] {{histEntry.getResultCount()}}
+          <span *ngIf="histEntry.getUpdatedCount() != undefined"
+                title="{{outOfDateCountTitle(histEntry)}}">
+            {{histEntry.getUpdatedCount()}}
           </span>
         </a>
-        <a (click)="queryClick(histEntry)" *ngIf="histEntry.getResultCount() === undefined">
-          [Results]
-        </a>
+      </td>
+      <td *ngIf="hasUpdatedCounts" class="result-count">
+        <span *ngIf="histEntry.getUpdatedCount() != undefined"
+              class="results-out-of-date">
+          {{histEntry.getResultCount()}}
+        </span>
       </td>
       <td [ngClass]="{'new-hist-item': histEntry.isNewEntry()}">
         <div class="edit-icon" *ngIf="!nameEditId() || nameEditId() != histEntry.getEntryId()">
@@ -146,6 +158,12 @@
 
 <ng-template #resultsHelpPopover>
   <div class="help-popover">
-    Number of matching genes. Click on count to go to the gene list.
+    Number of matching genes. Click on count to go to the gene lis.
+  </div>
+</ng-template>
+
+<ng-template #previousHelpPopover>
+  <div class="help-popover">
+    Number of matching genes from the previous run of this query, if different
   </div>
 </ng-template>
