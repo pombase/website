@@ -94,7 +94,7 @@ export enum QueryNodeOperator {
 export type GeneUniquename = string;
 export type TermId = string;
 
-export class GeneQueryBase {
+export abstract class GeneQueryBase implements GeneQueryNode {
   constructor(private nodeName: string|undefined) {
   }
 
@@ -105,6 +105,12 @@ export class GeneQueryBase {
   public setNodeName(nodename: string|undefined): void {
     this.nodeName = nodename;
   }
+
+  public abstract detailsString(): string;
+
+  public abstract toObject(): Object;
+
+  public abstract equals(obj: GeneQueryNode): boolean;
 }
 
 export interface GeneQueryNode {
@@ -115,7 +121,7 @@ export interface GeneQueryNode {
   detailsString(): string;
 }
 
-export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
+export class GeneBoolNode extends GeneQueryBase {
   private operator: QueryNodeOperator;
   private _detailsString: string;
 
@@ -192,7 +198,7 @@ export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
     return this.operator;
   }
 
-  getParts(): GeneQueryNode[] {
+  public getParts(): GeneQueryNode[] {
     return this.parts;
   }
 
@@ -204,7 +210,7 @@ export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
     return ret;
   }
 
-  opString(): string {
+  public opString(): string {
     if (this.operator === QueryNodeOperator.And) {
       return 'AND';
     } else {
@@ -221,7 +227,7 @@ export class GeneBoolNode extends GeneQueryBase implements GeneQueryNode {
   }
 }
 
-export class GeneListNode extends GeneQueryBase implements GeneQueryNode {
+export class GeneListNode extends GeneQueryBase {
   genes: Array<GeneShort>;
   private _detailsString: string;
 
@@ -311,7 +317,7 @@ function conditionsEqual(conditions1: Array<TermAndName>, conditions2: Array<Ter
   return [...Array.from(set1)].every(el1 => set2.has(el1));
 }
 
-export class TermNode extends GeneQueryBase implements GeneQueryNode {
+export class TermNode extends GeneQueryBase {
   private _detailsString: string;
 
   constructor(nodeName: string|undefined,
@@ -484,7 +490,7 @@ export class TermNode extends GeneQueryBase implements GeneQueryNode {
   }
 }
 
-export class SubsetNode extends GeneQueryBase implements GeneQueryNode {
+export class SubsetNode extends GeneQueryBase {
   constructor(nodeName: string|undefined, public subsetName: string) {
     super(nodeName);
     if (!nodeName) {
@@ -511,7 +517,7 @@ export class SubsetNode extends GeneQueryBase implements GeneQueryNode {
   }
 }
 
-export class HasOrthologNode extends GeneQueryBase implements GeneQueryNode {
+export class HasOrthologNode extends GeneQueryBase {
   constructor(nodeName: string|undefined, public taxonid: number) {
     super(nodeName);
     if (!nodeName) {
@@ -581,7 +587,7 @@ export abstract class RangeNode extends GeneQueryBase {
   public abstract detailsString(): string;
 }
 
-export class InteractorsNode extends GeneQueryBase implements GeneQueryNode {
+export class InteractorsNode extends GeneQueryBase {
   constructor(nodeName: string, public geneUniquename: string, public interactionType: string) {
     super(nodeName);
     if (!nodeName) {
@@ -610,7 +616,7 @@ export class InteractorsNode extends GeneQueryBase implements GeneQueryNode {
   }
 }
 
-export class GenomeRangeNode extends GeneQueryBase implements GeneQueryNode {
+export class GenomeRangeNode extends GeneQueryBase {
   private _detailsString: string;
 
   constructor(nodeName: string|undefined,
@@ -705,7 +711,7 @@ export class FloatRangeNode extends RangeNode {
   }
 }
 
-export class QueryIdNode extends GeneQueryBase implements GeneQueryNode {
+export class QueryIdNode extends GeneQueryBase {
   constructor(nodeName: string|undefined, private id: string) {
     super(nodeName);
     if (!nodeName) {
