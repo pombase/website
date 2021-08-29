@@ -125,6 +125,7 @@ import { NotDirectionSelectDialogComponent } from './not-direction-select-dialog
 import { QuerySubsetInputComponent } from './query-subset-input/query-subset-input.component';
 import { QuerySubNodesComponent } from './query-sub-nodes/query-sub-nodes.component';
 import { QueryNodeDisplayComponent } from './query-node-display/query-node-display.component';
+import { GeneQueryStructureComponent } from './gene-query-structure/gene-query-structure.component';
 
 export function documentFactory() {
     return document;
@@ -224,6 +225,7 @@ export function windowFactory() {
     QuerySubsetInputComponent,
     QuerySubNodesComponent,
     QueryNodeDisplayComponent,
+    GeneQueryStructureComponent,
   ],
   imports: [
     BrowserModule,

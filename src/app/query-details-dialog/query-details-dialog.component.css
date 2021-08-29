@@ -1,3 +1,8 @@
 .query-name {
   font-weight: bold;
+  padding-bottom: 1em;
+}
+
+.query-structure {
+  padding-top: 2em;
 }

@@ -1,0 +1,14 @@
+<div class="node-boolean" *ngIf="isBooleanNode()">
+
+  <div *ngFor="let part of nodeAsBooleanNode().getParts(); let idx = index">
+    <app-gene-query-structure [node]="part"></app-gene-query-structure>
+    <div class="boolean-operator" *ngIf="idx != nodeAsBooleanNode().getParts().length - 1">
+      {{nodeAsBooleanNode().opString()}}
+    </div>
+  </div>
+
+</div>
+
+<div class="node-details" *ngIf="!isBooleanNode()">
+  {{node.detailsString()}}
+</div>

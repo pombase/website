@@ -1,0 +1,10 @@
+.node-boolean {
+  margin-left: 1em;
+  border-left: darkblue solid 2px;
+  padding-left: 0.7em;
+  border-radius: 0.7em;
+}
+
+.boolean-operator {
+  padding: 0.4em 0;
+}

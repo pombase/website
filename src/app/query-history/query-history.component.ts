@@ -165,7 +165,7 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
   }
 
   showQueryDetails(histEntry: HistoryEntry) {
-    this.detailsModalRef = this.modalService.show(QueryDetailsDialogComponent);
+    this.detailsModalRef = this.modalService.show(QueryDetailsDialogComponent, {class: 'modal-lg'});
     this.detailsModalRef.content.query = histEntry.getQuery();
   }
 
