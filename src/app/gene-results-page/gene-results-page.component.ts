@@ -33,8 +33,12 @@ export class GeneResultsPageComponent implements OnInit, OnDestroy {
       const id: string = params['id'];
       if (id !== undefined) {
         const trimmedId = id.replace(/[\.\s]+$/,'');
-        const resultPromise = this.queryService.execById(trimmedId);
-        this.handleResults(resultPromise);
+        if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(trimmedId)) {
+           const resultPromise = this.queryService.execById(trimmedId);
+           this.handleResults(resultPromise);
+        } else {
+          this.err = `can't find query for ID ${trimmedId}`
+        }
         return;
       };
 
