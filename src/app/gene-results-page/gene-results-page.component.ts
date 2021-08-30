@@ -61,7 +61,7 @@ export class GeneResultsPageComponent implements OnInit, OnDestroy {
     this.handleResults(resultPromise);
   }
 
-  private handleResults(resultPromise: Promise<QueryResult>) {
+  private handleResults(resultPromise: Promise<QueryResult|string>) {
     this.showLoading = false;
     const timer$ = timer(400);
     if (this.timerSubscription) {
@@ -73,7 +73,11 @@ export class GeneResultsPageComponent implements OnInit, OnDestroy {
     this.err = undefined;
     resultPromise
       .then(results => {
-        this.results = results;
+        if (results instanceof QueryResult) {
+          this.results = results;
+        } else {
+          this.err = results;
+        }
         if (this.timerSubscription) {
           this.timerSubscription.unsubscribe();
           this.timerSubscription = undefined;

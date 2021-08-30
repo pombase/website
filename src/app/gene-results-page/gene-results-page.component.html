@@ -8,7 +8,8 @@
     (click)="gotoAdvancedSearch()">&lt;- Advanced search</button>
 
   <div *ngIf="err" class="query-error">
-     Error showing results: {{err}}
+     <div class="header">Error showing results:</div>
+     {{err}}
   </div>
   <app-gene-results *ngIf="!err" [mode]="mode" [results]="results"></app-gene-results>
 </div>

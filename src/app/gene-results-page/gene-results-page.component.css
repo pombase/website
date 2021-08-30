@@ -6,3 +6,7 @@
   padding-top: 2em;
   font-size: 120%;
 }
+
+.query-error .header {
+  font-weight: bold;
+}

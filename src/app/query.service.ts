@@ -295,7 +295,7 @@ export class QueryService {
     this.queryCache.push(queryResult);
   }
 
-  execById(id: string, outputOptions?: QueryOutputOptions): Promise<QueryResult> {
+  execById(id: string, outputOptions?: QueryOutputOptions): Promise<QueryResult|string> {
     const cachedQueryResult = this.getFromCache(id);
     if (cachedQueryResult) {
       this.saveResultsToHistory(cachedQueryResult);
@@ -312,6 +312,13 @@ export class QueryService {
       .then((result: QueryResult) => {
         this.saveResultsToHistory(result);
         return result;
+      })
+      .catch((reason: any) => {
+        if (typeof(reason) === 'string') {
+          return reason;
+        } else {
+          return `can't find query for ID ${id}`;
+        }
       });
   }
 
