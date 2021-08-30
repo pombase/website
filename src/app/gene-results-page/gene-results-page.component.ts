@@ -32,7 +32,8 @@ export class GeneResultsPageComponent implements OnInit, OnDestroy {
 
       const id: string = params['id'];
       if (id !== undefined) {
-        const resultPromise = this.queryService.execById(id);
+        const trimmedId = id.replace(/[\.\s]+$/,'');
+        const resultPromise = this.queryService.execById(trimmedId);
         this.handleResults(resultPromise);
         return;
       };
