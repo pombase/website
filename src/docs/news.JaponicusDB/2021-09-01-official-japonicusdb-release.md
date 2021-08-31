@@ -3,7 +3,7 @@
 <!-- newsfeed_thumbnail: japonicusdb-32x32.png -->
 
 We are delighted to announce the official release of
-[JaponicusDB](www.japonicusdb.org) a new, curated model organism
+[JaponicusDB](https://www.japonicusdb.org) a new, curated model organism
 database for the fission yeast *Schizosaccharomyces
 japonicus*. Highlights include revised gene structures, distant
 ortholog detection, improved GO annotation, and community literature

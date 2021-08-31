@@ -3,7 +3,7 @@
 <!-- newsfeed_thumbnail: japonicusdb-32x32.png -->
 
 We are delighted to announce the official release of PomBase's new
-sister: [JaponicusDB](www.japonicusdb.org) is a new, curated model
+sister: [JaponicusDB](https://www.japonicusdb.org) is a new, curated model
 organism database for the fission yeast *Schizosaccharomyces
 japonicus*. JaponicusDB highlights include revised gene structures,
 distant ortholog detection, improved GO annotation, community
