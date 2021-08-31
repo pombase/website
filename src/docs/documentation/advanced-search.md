@@ -356,7 +356,7 @@ page sections.
  -  [Can I provide a list of genes to search on?](/faq/can-i-provide-list-genes-search-on)
  -  [Can I search for a gene list and retrieve results in the same order as in the input list?](/faq/can-i-search-gene-list-and-retrieve-results-same-order-as-input-list) (answer: no)
  -  [How can I find snoRNA genes?](/faq/how-can-i-find-snorna-genes)
- -  [How can I find transposons in the S. ${species} genome?](/faq/how-can-i-find-transposons-s.-pombe-genome)
+ -  [How can I find transposons in the S. ${species} genome?](/faq/how-can-i-find-transposons-genome)
  -  [How can I find genes in a region using chromosome coordinates?](/faq/how-can-i-find-genes-region-using-chromosome-coordinates)
  -  [How can I retrieve intron coordinates or sequences?](/faq/how-can-i-retrieve-intron-coordinates-or-sequences)
  -  [How can I find all sequence features in a region using chromosome coordinates?](/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates)
