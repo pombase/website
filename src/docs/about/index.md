@@ -107,6 +107,7 @@ PomBase is funded by the [Wellcome Trust](https://wellcome.ac.uk/) \[104967/Z/14
 %%end db=PomBase
 
 %%if db=JaponicusDB
-JaponicusDB received initial funding from the [Wellcome Trust](https://wellcome.ac.uk/) \[103741/Z/14/Z\].
+JaponicusDB is funded by the [Wellcome Trust](https://wellcome.org/)
+(Senior Investigator Award \[103741/Z/14/Z\] to Snezhana Oliferenko)
 %%end db=JaponicusDB
 
