@@ -1,4 +1,4 @@
-# Why are pombelist messages delayed? Why don't I get pomeblist emails promptly?
+# Why are pombelist messages delayed? Why don't I get pombelist emails promptly?
 <!-- pombase_categories: Community -->
 
 One way this can happen is if you have "digest" mode enabled -- this

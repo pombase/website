@@ -1,7 +1,7 @@
 # How can I retrieve the sequence of a region using sequence coordinates?
 <!-- pombase_categories: Genome browser,Finding data -->
 
-Go to the [genome browser](https://www.pombase.org/jbrowse/), and make
+Go to the [genome browser](https://${base_url}/jbrowse/), and make
 sure the DNA sequence track is enabled (see the [FAQ on showing tracks](/faq/how-can-i-show-or-hide-tracks-genome-browser)
 if necessary). Enter region coordinates (as described in [this
 FAQ](https://www.pombase.org/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser)).

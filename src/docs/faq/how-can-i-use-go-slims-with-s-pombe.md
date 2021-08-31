@@ -1,4 +1,4 @@
-# How can I use GO slims with S. pombe?
+# How can I use GO slims with *${species_abbrev}*?
 <!-- pombase_categories: Genome statistics and lists,Tools and resources,Using ontologies -->
 
 The [Fission Yeast GO slim pages](documentation/pombase-go-slim-documentation)

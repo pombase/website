@@ -1,8 +1,10 @@
 # How can I retrieve sequences for non-protein-coding genes?
 <!-- pombase_categories: Finding data -->
 
+%%if db=PomBase
 A file of all non-coding RNA gene sequences is available on the 
 [Genome sequences page](/downloads/genome-datasets).
+%%end db=PomBase
 
 If you need sequences for all genes of a single type (tRNAs, rRNAs,
 other ncRNAs, etc.) we recommend using the [advanced search](/query)

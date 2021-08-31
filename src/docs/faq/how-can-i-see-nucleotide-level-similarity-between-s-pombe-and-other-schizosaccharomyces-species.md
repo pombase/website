@@ -1,11 +1,12 @@
 # How can I see nucleotide-level similarity between *${species_abbrev}* and other *Schizosaccharomyces* species?
 <!-- pombase_categories: Orthology,Finding data,Tools and resources -->
 
-At present there are two ways to view nucleotide-level similarity between *S.
-pombe* and *S. japonicus*, *S. octosporus*, or *S. cryophilus*. Both use
-the Ensembl genome browser.
+At present there are two ways to view nucleotide-level similarity
+between any pair of *Schizosaccharomyces* species *S. pombe*,
+*S. japonicus*, *S. octosporus*, *S. cryophilus*). Both use the
+genome browser at the Ensembl Fungi site.
 
-1.  To view nucleotide similarity data tracks in the browser, Go to
+1.  To view nucleotide similarity data tracks in the browser, go to
     your region of interest in the browser (e.g. follow the link from
     the External references section of a gene page). Click "Configure
     this page" button in the left-hand bar. A popup box will

@@ -1,4 +1,4 @@
-# How can I find transposons in the *${species_abbrev}* genome?
+# How can I find transposons in the genome?
 <!-- pombase_categories: Finding data,Tools and resources -->
 
 In the [advanced search](/query), click "Characterisation status",
