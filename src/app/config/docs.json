@@ -380,8 +380,8 @@
       "id" : "downloads/go-annotations"
    },
    {
-      "content" : "Downloads \n-  Datasets: Genome sequence and features, annotations, etc.\n-  Documents: Conference materials, manuals, reports, etc.\n-  Chado database dumps: Dumps of curated data stored in the PomBase Chado database.\n",
-      "heading" : "Downloads  ",
+      "content" : "Downloads\n\n-  Datasets: Genome sequence and features, annotations, etc.\n-  Documents: Conference materials, manuals, reports, etc.\n-  Chado database dumps: Dumps of curated data stored in the PomBase Chado database.\n",
+      "heading" : "Downloads \n",
       "id" : "downloads/index"
    },
    {

@@ -1,4 +1,4 @@
-## Downloads {#downloads .title .block-title}
+## Downloads
 
  - [Datasets](datasets): Genome sequence and features, annotations, etc.
 %%if db=PomBase
