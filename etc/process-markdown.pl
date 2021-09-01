@@ -206,7 +206,62 @@ sub lines_from_file
 
   open my $fh, '<', $file_name or die "can't open $file_name";
 
+  my $in_raw_html_block = 0;
+
+  my $current_db_block = undef;
+  my $current_db_block_start_line = undef;
+
   while (defined (my $line = <$fh>)) {
+    $line =~ s/\$\{(\w+)\}/substitute_vars($1, \$line)/ge;
+
+    if ($. == 1 && $line =~ /^#/) {
+      chomp $line;
+      (my $sect_id = $line) =~ s/^#+\s*(.*?)\??$/make_id_from_heading($1)/e;
+
+      $line .= " {#$sect_id}\n";
+    }
+
+    if ($line =~ /^%%/) {
+      chomp $line;
+      $line =~ s/\s+$//;
+      if ($line =~ /^\%\%\s*(if|end) db=\s*(.*?)$/) {
+        if ($1 eq 'if') {
+          $current_db_block = $2;
+          $current_db_block_start_line = $.;
+        } else {
+          if (defined $current_db_block) {
+            if ($current_db_block eq $2) {
+              $current_db_block = undef;
+              $current_db_block_start_line = undef;
+            } else {
+              die qq|"$line" at $file_name line $.\n| .
+                qq|does not match directive "%%if db=$current_db_block" | .
+                "at line $current_db_block_start_line\n";
+            }
+          } else {
+            die qq|"$line" does not match a start directive at | .
+              "$file_name line $.\n";
+          }
+        }
+        next;
+      } else {
+        die "mangled directive: $line\n";
+      }
+    }
+
+    if (defined $current_db_block && $current_db_block ne $database_name) {
+      next;
+    }
+
+    if ($line eq "\`\`\`{=html}\n") {
+      $in_raw_html_block = 1;
+    } else {
+      if ($in_raw_html_block && $line eq "```\n") {
+        $in_raw_html_block = 0;
+      }
+    }
+    process_line(\$line, $in_raw_html_block);
+
     push @lines, $line;
   }
 
@@ -223,6 +278,8 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
   }
 
   my $heading = undef;
+  my $id = undef;
+
   my @categories = ($all_questions_category);
   my $contents = "";
 
@@ -230,10 +287,10 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
 
   map {
     my $line = $_;
-    $line =~ s/\$\{(\w+)\}/substitute_vars($1, \$line)/ge;
     $contents .= $line;
-    if (!$heading && $line =~ /^#\s*(.*)/) {
+    if (!$heading && $line =~ /^#\s*(.*?)\s*\{#(.*)\}\s*$/) {
       $heading = $1;
+      $id = $2;
     } else {
       if ($line =~ /<!-- pombase_categories:\s*(.*?)\s*-->/) {
         push @categories, map {
@@ -249,7 +306,6 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
     croak "no heading in $file_name";
   }
 
-  my $id = make_id_from_heading($heading);
   for my $category_name (@categories) {
     my $category_id = make_id_from_heading($category_name);
     $faq_category_names{$category_id} = $category_name;
@@ -345,22 +401,10 @@ sub get_all_faq_parts {
 
     $categories_condition .= q( || pageName == 'all-faqs');
 
-    my @split_contents = split /\n/, $contents;
-    (my $sect_id = $split_contents[0]) =~ s/^#+\s*(.*?)\??$/make_id_from_heading($1)/e;
-
-    chomp $split_contents[0];
-    $split_contents[0] .= " {#$sect_id}\n";
-
-    $contents = join "\n", map {
-      my $line = $_;
-      process_line(\$line);
-      $line;
-    } @split_contents;
-
     (my $fixed_heading = $heading) =~ s/[\'\*]//g;
     $fixed_heading =~ s/"/&quot;/g;
 
-    $ret .= qq|<div (click)="faq_navigate(\$event, '/faq/$sect_id', '$fixed_heading')" *ngIf="$categories_condition">\n|;
+    $ret .= qq|<div (click)="faq_navigate(\$event, '/faq/$id', '$fixed_heading')" *ngIf="$categories_condition">\n|;
     $ret .= markdown($contents, $path, 'html') . "\n";
     $ret .= "</div>\n";
   }
@@ -653,59 +697,11 @@ sub contents_for_template {
       if (ref $details) {
         # add faq menu here
       } else {
-      my $details_file_name = "$markdown_docs/$details";
-      open my $file, '<', $details_file_name or die "can't open $details: $!";
+        my $details_file_name = "$markdown_docs/$details";
 
-      my $in_raw_html_block = 0;
+        my @lines = lines_from_file($details_file_name);
 
-      my $current_db_block = undef;
-      my $current_db_block_start_line = undef;
-
-      while (my $line = <$file>) {
-        if ($line =~ /^%%/) {
-          chomp $line;
-          $line =~ s/\s+$//;
-          if ($line =~ /^\%\%\s*(if|end) db=\s*(.*?)$/) {
-            if ($1 eq 'if') {
-              $current_db_block = $2;
-              $current_db_block_start_line = $.;
-            } else {
-              if (defined $current_db_block) {
-                if ($current_db_block eq $2) {
-                  $current_db_block = undef;
-                  $current_db_block_start_line = undef;
-                } else {
-                  die qq|"$line" at $details_file_name line $.\n| .
-                    qq|does not match directive "%%if db=$current_db_block" | .
-                    "at line $current_db_block_start_line\n";
-                }
-              } else {
-                die qq|"$line" does not match a start directive at | .
-                  "$details_file_name line $.\n";
-              }
-            }
-            next;
-          } else {
-            die "mangled %%if directive: $line\n";
-          }
-        }
-
-        if (defined $current_db_block && $current_db_block ne $database_name) {
-          next;
-        }
-
-        if ($line eq "\`\`\`{=html}\n") {
-          $in_raw_html_block = 1;
-        } else {
-          if ($in_raw_html_block && $line eq '```') {
-            $in_raw_html_block = 0;
-          }
-        }
-        process_line(\$line, $in_raw_html_block);
-        $ret .= $line;
-      }
-
-      close $file;
+        $ret .= join '', @lines;
       }
     }
   }
