@@ -197,6 +197,24 @@ sub add_to_json {
   };
 }
 
+
+sub lines_from_file
+{
+  my $file_name = shift;
+
+  my @lines = ();
+
+  open my $fh, '<', $file_name or die "can't open $file_name";
+
+  while (defined (my $line = <$fh>)) {
+    push @lines, $line;
+  }
+
+  close $fh;
+
+  return @lines;
+}
+
 my $all_questions_category = 'All Frequently Asked Questions';
 
 while (my ($id, $file_name) = each %{$sections{faq}}) {
@@ -204,11 +222,14 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
     next;
   }
 
-  open my $fh, '<', "$markdown_docs/$file_name" or die "can't open $file_name";
   my $heading = undef;
   my @categories = ($all_questions_category);
   my $contents = "";
-  while (defined (my $line = <$fh>)) {
+
+  my @lines = lines_from_file("$markdown_docs/$file_name");
+
+  map {
+    my $line = $_;
     $line =~ s/\$\{(\w+)\}/substitute_vars($1, \$line)/ge;
     $contents .= $line;
     if (!$heading && $line =~ /^#\s*(.*)/) {
@@ -222,7 +243,7 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
         } split /,/, $1;
       }
     }
-  }
+  } @lines;
 
   if (!$heading) {
     croak "no heading in $file_name";
@@ -244,8 +265,6 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
   my $path = "faq/$id";
 
   add_to_json($path, $heading, $contents);
-
-  close $fh;
 }
 
 while (my ($category_name, $questions) = each %faq_data) {
