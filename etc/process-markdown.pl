@@ -449,7 +449,7 @@ sub process_path {
     } else {
       my $contents = contents_for_template("$path/$page_name", $data->{$page_name});
 
-      if ($contents =~ /^#+\s*(.*)$/m) {
+      if ($contents =~ /^#+\s*(.*?)\s*(:?\{#(.*)\}\s*)?$/m) {
         my $page_title = $1;
         $page_title =~ s/\*//g;
         $section_titles{"$path/$page_name"} = $page_title;
@@ -459,7 +459,7 @@ sub process_path {
 
         add_to_json("$path/$page_name", $page_title, $contents);
       } else {
-        die;
+        die "can't find header in: $contents\n";;
       }
 
       print $docs_component_fh markdown($contents, "$path/$page_name", 'html' ), "\n";
