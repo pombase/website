@@ -2,7 +2,7 @@
 <!-- pombase_categories: Genome browser,Finding data -->
 
 To download track data from the [genome
-browser](https://${base_url}/jbrowse/) (or follow a link from a
+browser](${base_url}/jbrowse/) (or follow a link from a
 gene page), first, make sure the you have enabled the track(s) of
 interest (see the [FAQ on showing
 tracks](/faq/how-can-i-show-or-hide-tracks-genome-browser) if

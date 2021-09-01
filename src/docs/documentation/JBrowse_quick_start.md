@@ -8,7 +8,7 @@ The ${database_name} genome browser can be accessed in multiple ways:
   above the map image
 - On the publication page for any paper with associated datasets,
   select tracks from the list and click the "Load in JBrowse" button
-- Go directly to [https://${base_url}/jbrowse/](https://${base_url}/jbrowse/)
+- Go directly to [${base_url}/jbrowse/](${base_url}/jbrowse/)
 
 %%if db=JaponicusDB
 Note: The illustrations below use PomBase JBrowse. The JaponicusDB browser works exactly the same way.

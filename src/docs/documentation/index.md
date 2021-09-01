@@ -89,13 +89,13 @@ and further details linked there.
 
 -   Linking to ${database_name}: To link to any ${database_name} gene page, use the
     systematic ID for the gene in a URL with the syntax
-    http://${base_url}/gene/\[systematic ID\]. For example,
+    "${base_url}/gene/\[systematic ID\]". For example,
 %%if db=PomBase
-    [http://${base_url}/gene/SPBC11B10.09](/gene/SPBC11B10.09)
+    [${base_url}/gene/SPBC11B10.09](/gene/SPBC11B10.09)
     links to the gene page for [cdc2](/gene/SPBC11B10.09).
 %%end db=PomBase
 %%if db=JaponicusDB
-    [http://${base_url}/gene/SJAG_03048](/gene/SJAG_03048)
+    [${base_url}/gene/SJAG_03048](/gene/SJAG_03048)
     links to the gene page for [cdc2](/gene/SJAG_03048)
 %%end db=JaponicusDB
 
