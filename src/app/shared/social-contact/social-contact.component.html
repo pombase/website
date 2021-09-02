@@ -1,12 +1,14 @@
 <div class="pombase-social-contacts">
 
-<span *ngIf="showSocialMediaLinks" class="social">
-  <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist"><img title="PomBase mailing list" src="assets/pombe_email_icon.png"/></a>
-  <a href="https://spombe.slack.com/"><img title="PombeSlack" src="assets/slack_icon.png"/></a>
-  <a href="https://twitter.com/PomBase"><img title="@PomBase on Twitter" src="assets/twitter_icon.png"/></a>
-  <a href="https://www.facebook.com/pombase"><img title="@PomBase on Facebook" src="assets/facebook_icon.png"/></a>
-  <a href="https://github.com/pombase"><img title="PomBase on GitHub" src="assets/github_icon.png"/></a>
-  <a href="https://www.linkedin.com/groups/5122686"><img title="PomBase on LinkedIn" src="assets/linkedin_icon.png"/></a>
+<span class="social">
+  <a *ngIf="communityMailingListConfig" href="{{communityMailingListConfig.url}">
+    <img title="{{communityMailingListConfig.title}}" src="assets/{{communityMailingListConfig.icon}}"/>
+  </a>
+  <a *ngIf="socialMediaLinks.slack" href="{{socialMediaLinks.slack}}"><img title="{{siteName}} on Slack" src="assets/slack_icon.png"/></a>
+  <a *ngIf="socialMediaLinks.twitter" href="https://twitter.com/{{socialMediaLinks.twitter}}"><img title="@{{socialMediaLinks.twitter}} on Twitter" src="assets/twitter_icon.png"/></a>
+  <a *ngIf="socialMediaLinks.facebook" href="https://www.facebook.com/{{socialMediaLinks.facebook}}"><img title="{{siteName}} on Facebook" src="assets/facebook_icon.png"/></a>
+  <a *ngIf="socialMediaLinks.github" href="https://github.com/{{socialMediaLinks.github}}"><img title="{{siteName}} on GitHub" src="assets/github_icon.png"/></a>
+  <a *ngIf="socialMediaLinks.linkedin" href="{{socialMediaLinks.linkedin}}"><img title="{{siteName}} on LinkedIn" src="assets/linkedin_icon.png"/></a>
 </span>
 
 <app-contact-email class="contact-email" [linkName]="'Contact curators ...'"

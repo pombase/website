@@ -11,7 +11,8 @@ export class SocialContactComponent implements OnInit {
   @Input() subject = 'Comment or problem report for ' + getAppConfig().site_name;
 
   siteName = getAppConfig().site_name;
-  showSocialMediaLinks = getAppConfig().social_media;
+  communityMailingListConfig = getAppConfig().community_mailing_list;
+  socialMediaLinks = getAppConfig().social_media;
 
   constructor() {}
 

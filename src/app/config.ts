@@ -244,14 +244,24 @@ export interface AppConfig {
     term: string;
     reference: string;
   },
-  social_media: boolean;
+  social_media: {
+    twitter?: string;
+    github?: string;
+    slack?: string;
+    facebook?: string;
+    linkedin?: string;
+  };
   twitter_account?: string;
   has_disease_annotation: boolean;
   news_on_front_page: boolean;
   has_admin_curation: boolean;
   ensembl_blast_url: string;
   canto_url: string;
-  community_mailing_list: string;
+  community_mailing_list?: {
+    url: string;
+    icon: string;
+    title: string;
+  };
   welcome_message: string;
   canto_data_config: CantaDataConfig;
   organisms: Array<ConfigOrganism>;
