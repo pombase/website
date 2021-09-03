@@ -5,7 +5,7 @@ ${database_name} curators develop and use the Fission Yeast Phenotype Ontology
 under-expressing wild type genes. 
 
 The contents and structure of FYPO are described on the
-[FYPO page of the PomBase wiki](http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology)
+[FYPO page of the PomBase wiki](https://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology)
 and in the publication:
 
 Harris MA, Lock A, Bähler J, Oliver SG, Wood V. FYPO: The Fission
@@ -46,9 +46,9 @@ specified term or any of its descendants.  For example, see the
 ### Curating phenotypes with FYPO
 
 The ${database_name} online curation tool,
-[Canto](http://curation.pombase.org/pombe), uses FYPO terms for
+[Canto](https://curation.pombase.org/${species}), uses FYPO terms for
 annotation of *${species_abbrev}* phenotypes.
-[Phenotype curation documentation](http://curation.pombase.org/pombe/docs/fypo_annotation)
+[Phenotype curation documentation](https://curation.pombase.org/${species}/docs/fypo_annotation)
 is available via Canto.
 
 ### Submitting Bulk Data
@@ -57,3 +57,4 @@ If you have a large set of phenotype data to submit, you may want to
 do a bulk submission.  See the documentation on the
 [recommended file format](http://www.pombase.org/submit-data/phenotype-data-bulk-upload-format),
 and use the Phenotype Data Submission Form.
+

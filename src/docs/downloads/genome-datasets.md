@@ -15,7 +15,7 @@ chromosome.
 
 These files contain coordinates, but no sequence data:
 
--   [GFF3 format](https://www.pombase.org/data/genome_sequence_and_features/gff3/)
+-   [GFF3 format](${base_url}/data/genome_sequence_and_features/gff3/)
     files contain coordinates for features of all types.
 -   [CDS coordinates](https://www.pombase.org/data/genome_sequence_and_features/CDS_Coordinates/) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
 -   [Exon coordinates](https://www.pombase.org/data/genome_sequence_and_features/Exon_Coordinates/) are in the same tab-delimited file format as CDS coordinates.
@@ -25,9 +25,11 @@ These files contain coordinates, but no sequence data:
 -   [Chromosome contigs](https://www.pombase.org/data/genome_sequence_and_features/artemis_files/)
     in enriched EMBL-based format for loading into
     Artemis (see the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase)) 
+%%if db=PomBase
 -   Older files in [EMBL format](https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/embl/)
     and [GenBank format](https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/genbank/)
     are available, and reflect the current genome sequence, with feature annotations from January 2017.
+%%end db=PomBase
 
 <!-- put this between the two existing lines above:
 -   [Manually curated LTRs]() in GFF3 format
@@ -35,7 +37,7 @@ These files contain coordinates, but no sequence data:
 
 #### Feature sequences
 
-[Sequences in FASTA format](https://www.pombase.org/data/genome_sequence_and_features/feature_sequences/) for:
+[Sequences in FASTA format](${base_url}/data/genome_sequence_and_features/feature_sequences/) for:
 
 -   Coding sequences (CDS)
 -   CDS + introns
@@ -56,6 +58,8 @@ Region|Description
 #### Other data
 
 -   Additional information and historical data are available for [introns](downloads/intron-data)
+%%if db=PomBase
 -   [Cosmid sequences](https://www.pombase.org/data/archive/Cosmid_sequences/) and [Chromosome tiling paths from genome sequence assembly](https://www.pombase.org/data/archive/Cosmid_assembly_data/)
+%%end db=PomBase
 -   You can also browse the files available from the [Ensembl Genomes FTP
 site](ftp://ftp.ensemblgenomes.org/pub/current/fungi/).
