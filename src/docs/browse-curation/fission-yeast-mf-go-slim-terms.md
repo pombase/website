@@ -18,7 +18,7 @@ Further information is available from the [${database_name} GO slim
 documentation](documentation/pombase-go-slim-documentation) and
 additional pages linked there. You can also download a list of current
 [GO function slim IDs and term
-names](https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv)
+names](${base_url}/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv)
 from the ${database_name} FTP site.
 
 

@@ -5,7 +5,7 @@ suitable for viewing in a genome browser. We require JBrowse compliant
 data files and associated metadata descriptions. Please see the [FAQ
 on file formats](/faq/what-file-formats-can-i-use-submit-high-throughput-data)
 for links to the file format descriptions, and other entries in the
-[data submission FAQ category](https://www.pombase.org/faq/data-submission-and-formats) 
+[data submission FAQ category](${base_url}/faq/data-submission-and-formats) 
 for more information.
 
 ### Data files
@@ -23,9 +23,9 @@ All features in data files need to use these chromosome IDs:
     
 We have devised a file format for the metadata we need, with
 downloadable spreadsheet templates available in
-[Excel](https://www.pombase.org/data/documents/HTP_submission_template.xlt)
+[Excel](${base_url}/data/documents/HTP_submission_template.xlt)
 and [Open Document
-Format](https://www.pombase.org/data/documents/HTP_submission_template.ots)
+Format](${base_url}/data/documents/HTP_submission_template.ots)
 (links may download files, depending on your browser). Letters in the
 table below refer to spreadsheet columns.
 

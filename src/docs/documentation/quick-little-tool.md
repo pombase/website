@@ -63,9 +63,9 @@ At present, QuiLT includes:
 
 #### GO annotation precedence
 
-In each branch of GO, only one term can be included for display. If a
-gene is annotated to more than one GO term, one is selected for the
-QuiLT display according to a set order of precedence:
+In each branch of GO, only one term per gene can be included for
+display. If a gene is annotated to more than one GO term, one is
+selected for the QuiLT display according to a set order of precedence:
 
  * GO biological process
      - signaling (GO:0023052)

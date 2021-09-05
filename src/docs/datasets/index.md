@@ -10,7 +10,7 @@ If you have trouble finding anything, please ask the
 -------
 
 ### Data download site ###
-[Main directory for *${species_abbrev}* data](https://www.pombase.org/data/)
+[Main directory for *${species_abbrev}* data](${base_url}/data/)
 
 -------
 
@@ -28,13 +28,13 @@ Annotation type|Description
 ---------------|-----------
 [Protein datasets](/downloads/protein-datasets)|Protein sequence FASTA database, peptide features, properties, etc.
 [GO annotations](downloads/go-annotations)|Gene Ontology annotation files
-[Macromolecular complexes](https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
+[Macromolecular complexes](${base_url}/data/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
 [Phenotype annotations](downloads/phenotype-annotations)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
 %%if db=PomBase
 [HCPIN datasets](https://www.pombase.org/data/high_confidence_physical_interactions/)|Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets; also see [documentation](/documentation/high-confidence-physical-interaction-network)
 %%end db=PomBase
-[Modifications](https://www.pombase.org/data/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future)
-[Orthologs](https://www.pombase.org/data/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
+[Modifications](${base_url}/data/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future)
+[Orthologs](${base_url}/data/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
 
 -------
 
