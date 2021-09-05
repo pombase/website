@@ -58,12 +58,6 @@
   border-radius: 0.4em;
 }
 
-.sect-content li {
-}
-
-.sect-content {
-}
-
 .rotating-image img {
   width: 95%;
   height: auto;
@@ -72,9 +66,6 @@
 
 #top-row {
   clear: both;
-}
-
-.recent-news {
 }
 
 .recent-news > div {
