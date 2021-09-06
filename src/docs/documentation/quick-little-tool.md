@@ -70,7 +70,7 @@ selected for the QuiLT display according to a set order of precedence:
  * GO biological process
      - signaling (GO:0023052)
      - gene expression (GO:0010467)
-     - chromatin remodeling (GO:0006338)
+     - chromatin organization (GO:0006325)
      - protein folding (GO:0006457)
      - cellular component biogenesis (GO:0044085)
      - DNA metabolic process (GO:0006259)
@@ -102,7 +102,8 @@ selected for the QuiLT display according to a set order of precedence:
      - ligase activity (GO:0016874)
      - cyclase activity (GO:0009975)
      - lyase activity (GO:0016829)
-     - unknown catalytic activity (GO:0003824)
+     - other catalytic activity (any other descendant of GO:0003824)
+     - molecular adaptor activity (GO:0060090)
      - enzyme regulator activity (GO:0030234)
      - DNA binding (GO:0003677)
      - transcription regulator activity (GO:0140110)
