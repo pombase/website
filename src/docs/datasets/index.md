@@ -49,12 +49,13 @@ Current GO slim IDs and term names
  [GO molecular function slim](https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv)
  [GO cellular component slim](https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv)
 
+
+%%if db=PomBase
 -------
 
 ### Mondo slim
 Current [fission yeast Mondo Disease Ontology slim IDs and term names](https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv)
 
-%%if db=PomBase
 -------
 
 ### Curated inventories
