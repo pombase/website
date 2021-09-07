@@ -50,8 +50,8 @@ its "Results" link.
 
 Query results can remain available in the history list for several
 days. If changes in annotation cause results to change since a query
-was last run, the entry in the history list will be labeled "out of
-date":
+was last run, an additional "Previous" column will be displayed in the
+history list, showing the out-of-date result count:
 
 ![advanced search page with out-of-date query](assets/advanced_search_out-of-date_result.png){width="400"}
 

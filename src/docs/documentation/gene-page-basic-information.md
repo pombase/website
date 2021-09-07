@@ -19,8 +19,10 @@ gene:
     for more information).
 4.  What the three-letter acronym stands for; where available, name
     descriptions are provided for synonyms as well as primary names.
-5.  Category describing how well-studied a gene is; see the 
-    [Gene Characterisation](/status/gene-characterisation) page for details
+5.  Category describing how well-studied a gene is; see the [Gene
+    Characterisation](/status/gene-characterisation) page for
+    details. Note: at present this is used in PomBase for *S. pombe*,
+    but not in JaponicusDB.
 6.  Indicates whether a gene encodes protein, specifies a non-coding
     RNA, or is a pseudogene
 7.  The size of the mature gene product. For protein-coding genes, the
