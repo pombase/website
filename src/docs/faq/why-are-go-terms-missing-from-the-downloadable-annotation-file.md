@@ -13,7 +13,7 @@ and searches, but are not included in the GAF file. More information
 on ontology structure and annotation inference is available in
 documentation at [${database_name}](/documentation/gene-page-gene-ontology) and
 GO ([ontology](http://geneontology.org/docs/ontology-documentation/)
-and [annotation](http://geneontology.org/docs/go-annotations/).
+and [annotation](http://geneontology.org/docs/go-annotations/)).
 
 When you use GO annotations in any analysis, we strongly recommend
 using tools that take ontology structure and transitive inference of

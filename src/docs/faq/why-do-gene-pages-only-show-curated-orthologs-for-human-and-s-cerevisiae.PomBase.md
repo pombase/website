@@ -9,4 +9,3 @@ of orthologs in other species please see the [relevant FAQ](/faq/how-can-i-find-
 
 In the future we will add a tree view of consensus orthologs in key
 species to the gene pages.
-

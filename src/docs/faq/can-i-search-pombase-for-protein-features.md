@@ -1,6 +1,16 @@
 # Can I search ${database_name} for protein features?
 <!-- pombase_categories: Finding data,Using ontologies -->
 
+%%if db=JaponicusDB
+Protein sequence motifs and features can be manually curated using
+terms from the [Sequence Ontology](http://sequenceontology.org/) (SO),
+but none have been curated yet in JaponicusDB.
+
+When curated protein features do become available, they will be
+searchable in the advanced search.
+%%end db=JaponicusDB
+
+%%if db=PomBase
 A selection of protein sequence motifs and features have been manually
 curated using terms from the [Sequence Ontology](http://sequenceontology.org/)
 (SO). For example, [Rad54](/gene/SPAC15A10.03c) has a KEN box (a motif
@@ -13,6 +23,7 @@ To search for these features, use the "Protein feature" query in the
 [advanced search](/query) (enter a SO ID or description; see the
 [documentation](/documentation/advanced-search) for help with
 searching).
+%%end db=PomBase
 
 Also see the FAQs on [transmembrane domains](/faq/how-can-i-find-proteins-have-transmembrane-domains) and
 [protein families](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain),

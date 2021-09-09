@@ -8,9 +8,19 @@ population" ([FYPO:0002061](/term/FYPO:0002061)) would therefore identify essent
 yeast genes. Similarly, deletion alleles annotated to "viable vegetative
 cell population" ([FYPO:0002060](/term/FYPO:0002177)) represent non-essential genes.
 
+%%if db=PomBase
 Note that viability/inviability annotations are fairly complete for
 protein-coding genes, but very few non-coding RNA genes have been
 tested.
+%%end db=PomBase
+
+%%if db=JaponicusDB
+Note that phenotype coverage is not yet very complete for
+*S. japonicus*, so many genes will have neither "viable" nor
+"inviable" annotations for any alleles. The queries described below
+will work to retrieve any "viable" nor "inviable" phenotypes that have
+been curated.
+%%end db=JaponicusDB
 
 **Downloadable summary**
 
