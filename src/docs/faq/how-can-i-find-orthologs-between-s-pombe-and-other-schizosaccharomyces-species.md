@@ -1,6 +1,15 @@
 # How can I find orthologs between *${species_abbrev}* and other *Schizosaccharomyces* species?
 <!-- pombase_categories: Orthology,Finding data -->
 
+%%if db=PomBase
+In the advanced search, you can use the "Proteins with S. japonicus orthologs" item under "Commonly used queries"
+%%end db=PomBase
+%%if db=JaponicusDB
+In the advanced search, you can use the "Proteins with S. pombe orthologs" item under "Commonly used queries"
+%%end db=JaponicusDB
+
+For any other *Schizosaccharomyces* species, we suggest:
+
 On a gene-by-gene basis, you can use the Ensembl genome browser link
 to reach Fungal Compara as described in the 
 [FAQ on orthologs in other species](/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae).

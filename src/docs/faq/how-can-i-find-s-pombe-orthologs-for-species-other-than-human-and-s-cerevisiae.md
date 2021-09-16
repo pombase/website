@@ -4,6 +4,7 @@
 For orthologs that are not manually curated by ${database_name}, we suggest a few
 approaches:
 
+%%if db=PomBase
 **DIOPT**
 
 From any gene page, follow the link to DIOPT (in the Orthologs section
@@ -14,7 +15,7 @@ The [Drosophila RNAi Screening Center Integrative Ortholog Prediction Tool](http
 prediction tools to identify orthologous proteins for nine species
 (*Caenorhabditis elegans, Danio rerio, Drosophila melanogaster, Homo
 sapiens, Mus musculus, Rattus norvegicus, Saccharomyces cerevisiae,
-Schizosaccharomyces pombe, and Xenopus tropicalis*).
+Schizosaccharomyces pombe*, and *Xenopus tropicalis*).
 
 **PANTHER**
 
@@ -28,7 +29,7 @@ section and under External References). The linked page includes a
 list of orthologs, and links to phylogenetic tree views that can also
 display alignments. [Help](http://www.pantherdb.org/help/PANTHERhelp.jsp)
 is available.
-
+%%end db=PomBase
 
 **Compara**
 

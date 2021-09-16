@@ -4,14 +4,18 @@
 Yes, there is a file that lists GO macromolecular complex assignments
 for fission yeast gene products in the GO annotations directory:
 
-https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/
+${base_url}/data/annotations/Gene_ontology/GO_complexes/
 
+%%if db=PomBase
 Note that the complex inventory includes the RNA subunits of
-ribonucleoprotein complexes. There is some redundancy in the list,
-because some gene products are annotated to both complexes and
-subcomplexes. For example, subunits of the DASH complex ([GO:0042729](/term/GO:0042729)) are
-annotated to 'condensed chromosome outer kinetochore' ([GO:0000940](/term/GO:0000940)) as
-well as GO:0042729. Additional notes are available in a README file:
+ribonucleoprotein complexes. 
+%%end db=PomBase
+There is some redundancy in the list, because some gene products are
+annotated to both complexes and subcomplexes. For example, three *mcm*
+genes are annotated to 'MCM core complex'
+([GO:0097373](/term/GO:0097373)) as well as 'MCM complex'
+([GO:0042555](/term/GO:0042555)). Additional notes are available in a
+README file:
 https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/README
 
 Also see the [FAQ on localization](/faq/how-can-i-find-protein-localization-data).

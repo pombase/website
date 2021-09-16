@@ -4,7 +4,7 @@
 Yes: From the [${database_name} name and identifier mappings](/downloads/names-and-identifiers) 
 page, retrieve this file:
 
-https://www.pombase.org/data/names_and_identifiers/sysID2product.tsv
+${base_url}/data/names_and_identifiers/sysID2product.tsv
 
 Also consider other files listed on the page.
 
