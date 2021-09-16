@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { getAppConfig } from '../config';
+import { getAppConfig, NavBarEntry } from '../config';
 
 @Component({
   selector: 'app-main-nav-bar',
@@ -10,7 +10,9 @@ import { getAppConfig } from '../config';
 export class MainNavBarComponent implements OnInit {
 
   siteName = getAppConfig().site_name;
-  cantoCurationStatisticsLink = getAppConfig().canto_url + '/stats/annotation';
+
+  navBarMenus = getAppConfig().navBar.nav_bar_menus;
+
   communityMailingList = getAppConfig().community_mailing_list;
   ensemblBlastURL = getAppConfig().ensembl_blast_url;
   cantoURL = getAppConfig().canto_url;
@@ -18,6 +20,10 @@ export class MainNavBarComponent implements OnInit {
   hasAdminCuration = getAppConfig().has_admin_curation;
 
   constructor() { }
+
+  entryIsRoute(menuEntry: NavBarEntry): boolean {
+    return menuEntry.url.startsWith('/');
+  }
 
   ngOnInit() {
   }

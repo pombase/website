@@ -63,55 +63,21 @@
     </ul>
   </span>
 -->
-  <span class="dropdown btn-group" dropdown>
+
+  <span *ngFor="let menu of navBarMenus" class="dropdown btn-group" dropdown>
+
     <button dropdownToggle class="btn dropdown-toggle">
-      Genome status <span class="caret"></span>
+      {{menu.header}} <span class="caret"></span>
     </button>
 
-    <ul *dropdownMenu class="dropdown-menu" role="menu">
-      <li role="menuitem">
-        <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms" class="dropdown-item">GO molecular function overview</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms" class="dropdown-item">GO biological process overview</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms" class="dropdown-item">GO cellular component overview</a>
-      </li>
-      <li *ngIf="hasDiseaseAnnotation" role="menuitem">
-        <a routerLink="/browse-curation/disease-slim" class="dropdown-item">Disease association overview</a>
-      </li>
-      <li role="menuitem">
-        <a href="{{cantoCurationStatisticsLink}}" class="dropdown-item">Curation statistics</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/status/sequencing-status" class="dropdown-item">Genome sequence status</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/status/sequencing-updates" class="dropdown-item">Genome updates</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/status/statistics" class="dropdown-item">Genome feature overview</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/status/gene-coordinate-changes" class="dropdown-item">Gene coordinate changes</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/status/new-and-removed-genes" class="dropdown-item">New and removed genes</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/status/gene-characterisation" class="dropdown-item">Gene characterization status</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/status/priority-unstudied-genes" class="dropdown-item">Priority unstudied genes</a>
-      </li>
-      <li role="menuitem">
-        <a routerLink="/reference_list/community" class="dropdown-item">Community curated publications</a>
-      </li>
-      <li *ngIf="hasAdminCuration" role="menuitem">
-        <a routerLink="/reference_list/admin" class="dropdown-item">{{siteName}} curated publications</a>
-      </li>
-    </ul>
+
+      <ul *dropdownMenu class="dropdown-menu" role="menu">
+        <li *ngFor="let menuEntry of menu.entries" role="menuitem">
+          <a *ngIf="entryIsRoute(menuEntry)" routerLink="{{menuEntry.url}}" class="dropdown-item">{{menuEntry.title}}</a>
+          <a *ngIf="!entryIsRoute(menuEntry)" href="{{menuEntry.url}}" class="dropdown-item">{{menuEntry.title}}</a>
+        </li>
+      </ul>
+
   </span>
 
   <span class="dropdown btn-group" dropdown>

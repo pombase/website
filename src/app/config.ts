@@ -132,6 +132,19 @@ export interface DocumentationConfig {
   pages: DocPagesConfig;
 }
 
+export interface NavBarMenu {
+  header: string;
+  entries: Array<NavBarEntry>;
+}
+export interface NavBarEntry {
+  title: string;
+  url: string;
+}
+
+export interface NavBarConfig {
+  nav_bar_menus: Array<NavBarMenu>;
+}
+
 export interface GeneResultsFieldConfig {
   name: string;
   display_name: string;
@@ -298,6 +311,7 @@ export interface AppConfig {
   geneExpression: GeneExpressionConfig;
 
   documentation: DocumentationConfig;
+  navBar: NavBarConfig;
 
   queryBuilder: QueryBuilderConfig;
 
@@ -824,6 +838,7 @@ let _appConfig: AppConfig = {
   geneExpression: pombaseConfig.gene_expression,
 
   documentation: docConfig,
+  navBar: pombaseConfig.nav_bar_config,
 
   // query builder node configuration:
   queryBuilder: pombaseConfig.query_builder,
