@@ -31,16 +31,16 @@ You can select queries in the list to combine or delete them. To
 combine queries, you must select two or more from the list, and then
 click one of the operator buttons:
 
-![advanced search page with new query](assets/advanced_search_combination.png){width="400"}
+![advanced search Boolean operator buttons](assets/advanced_search_combination.png){width="500"}
 
 Results are added to the history list:
 
-![advanced search page with new query](assets/advanced_search_combination_result.png){width="400"}
+![advanced search query history list](assets/advanced_search_combination_result.png){width="600"}
 
 Queries using the NOT operator default place the more
 recently run query first (newer NOT/Subtract older):
 
-![advanced search page with new query](assets/advanced_search_not_direction.png){width="300"}
+![advanced search page NOT operator dialog](assets/advanced_search_not_direction.png){width="300"}
 
 Click "Change direction" to switch the order. Click "Submit" to run
 the query.
@@ -53,7 +53,7 @@ days. If changes in annotation cause results to change since a query
 was last run, an additional "Previous" column will be displayed in the
 history list, showing the out-of-date result count:
 
-![advanced search page with out-of-date query](assets/advanced_search_out-of-date_result.png){width="400"}
+![advanced search page with out-of-date query](assets/advanced_search_out-of-date_result.png){width="600"}
 
 Click on the "Results" link to re-run the query and retrieve the
 up-to-date result.
@@ -65,7 +65,7 @@ appear. You can also edit the name that appears in the history list
 is used in any combined query (which can, in turn, be given a new
 name).
 
-![advanced search query name and details](assets/query_name_details.png){width="400"}
+![advanced search query name and details](assets/query_name_details.png){width="600"}
 
 
 
