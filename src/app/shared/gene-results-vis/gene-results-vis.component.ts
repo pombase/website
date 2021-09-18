@@ -641,12 +641,14 @@ export class GeneResultsVisComponent implements OnInit {
       this.visColumnConfigs.push(colConfig);
       this.visColumnConfigMap[colConfig.name] = colConfig;
 
-      let nameMatch = nameRE.exec(colConfig.name);
+      if (colConfig.column_type !== 'user_vis_term') {
+        let nameMatch = nameRE.exec(colConfig.name);
 
-      if (nameMatch) {
-        this.queryColumnNames.add(nameMatch[1]);
-      } else {
-        this.queryColumnNames.add(colConfig.name);
+        if (nameMatch) {
+          this.queryColumnNames.add(nameMatch[1]);
+        } else {
+          this.queryColumnNames.add(colConfig.name);
+        }
       }
 
       this.activeColumns[colConfig.name] = true;
