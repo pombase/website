@@ -166,6 +166,7 @@ export class GeneResultsVisComponent implements OnInit {
 
   extraColumns: Array<TermShort> = [];
   columnsSubscription: Subscription;
+  loading: boolean;
 
   constructor(public deployConfigService: DeployConfigService,
               private settingsService: SettingsService,
@@ -502,6 +503,7 @@ export class GeneResultsVisComponent implements OnInit {
                                                                ancestorTerms, 'none');
     this.queryService.postQuery(geneListQuery, outputOptions)
       .then(results => {
+        this.loading = false;
         this.geneDataMap = this.makeGeneDataMap(results);
         this.sortGeneUniquenames();
         this.updateDisplayData();
@@ -624,6 +626,8 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   private initialise() {
+    this.loading = true;
+
     const colConfigs = this.getColumnConfigs();
 
     this.visColumnConfigMap = {};
