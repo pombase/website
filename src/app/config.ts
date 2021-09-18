@@ -148,7 +148,7 @@ export interface NavBarConfig {
 export interface GeneResultsFieldConfig {
   name: string;
   display_name: string;
-  column_type: 'string'|'number'|'attribute'|'bins'|'list'|'gene_list'|'orthologs'|'ontology_term'|'expression_level';
+  column_type: 'string'|'number'|'attribute'|'bins'|'list'|'gene_list'|'orthologs'|'ontology_term'|'user_vis_term'|'expression_level';
   column_group: 'default'|'extra';
   attr_values: Array<VisColumnAttrValueConfig>|undefined;
   attrValuesMap: Map<string, VisColumnAttrValueConfig>|undefined;
@@ -158,6 +158,7 @@ export interface GeneResultsConfig {
   field_config: { [name: string]: GeneResultsFieldConfig };
   gene_summary_field_names: Array<string>;
   geneSummaryFieldNames: Array<string>;
+  visualisation_extra_column_cv_names: Array<string>;
   visualisation_field_names: Array<string>;
   gene_table_field_names: Array<string>;
   geneSummaryFields: Array<GeneResultsFieldConfig>;

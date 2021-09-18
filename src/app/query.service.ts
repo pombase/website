@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, BehaviorSubject, timer } from 'rxjs';
-import { GeneQuery, QueryResult, QueryIdNode, GeneUniquename, ResultRow, TermAndName } from './pombase-query';
+import { GeneQuery, QueryResult, QueryIdNode, GeneUniquename, ResultRow, TermAndName, TermId } from './pombase-query';
 import { getAppConfig } from './config';
 import { PombaseAPIService } from './pombase-api.service';
 
@@ -26,8 +26,12 @@ type OutputFlag = 'include_gene_subsets';
 export class QueryOutputOptions {
   constructor(public field_names: Array<string>,
               public flags: Array<OutputFlag>,
+              private ancestor_terms?: Array<TermId>,
               private sequence?: SequenceOptions,
               private gaf_options?: GAFOptions) {
+    if (!this.ancestor_terms) {
+      this.ancestor_terms = [];
+    }
     if (!this.sequence) {
       this.sequence = 'none';
     }
@@ -185,11 +189,11 @@ export class QueryService {
       });
   }
 
-  postQuery(query: GeneQuery, outputOptions: QueryOutputOptions = new QueryOutputOptions([], [], 'none')): Promise<QueryResult> {
+  postQuery(query: GeneQuery, outputOptions: QueryOutputOptions = new QueryOutputOptions([], [], [], 'none')): Promise<QueryResult> {
     return this.postRaw(query, outputOptions);
   }
   postQueryCount(query: GeneQuery): Promise<QueryResult> {
-    const outputOptions = new QueryOutputOptions([], []);
+    const outputOptions = new QueryOutputOptions([], [], []);
     return this.postRaw(query, outputOptions);
   }
 
@@ -341,7 +345,7 @@ export class QueryService {
       queryPromise = Promise.resolve(undefined);
     } else {
       const query = GeneQuery.fromGeneUniquenames(undefined, geneUniquenames);
-      const options = new QueryOutputOptions(['gene_uniquename', ...fieldsForServer], [],
+      const options = new QueryOutputOptions(['gene_uniquename', ...fieldsForServer], [], [],
                                              sequenceOptions || 'none');
       queryPromise = this.execNoSave(query, options);
     }

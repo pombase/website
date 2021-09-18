@@ -3,10 +3,20 @@
     <div *ngFor="let colConfig of visColumnConfigs">
       {{colConfig.display_name}}:
       <input type="checkbox"
+             title="Click to {{activeColumns[colConfig.name] ? 'hide' : 'show'}} this column"
              (change)="confSelectionChanged()"
              [(ngModel)]="activeColumns[colConfig.name]"/>
+      <a *ngIf="colConfig.column_type == 'user_vis_term'"
+         (click)="removeUserColumn(colConfig.name)"
+         class="delete-user-link" title="Click to remove this column">
+        <img src="/assets/delete_icon.svg"/>
+      </a>
       <a *ngIf="showResults() && activeColumns[colConfig.name]"
          (click)="setSortBy(colConfig.name)">[sort]</a>
+    </div>
+
+    <div *ngIf="!deployConfigService.productionMode()" class="extra-column-control">
+      <a (click)="configureExtraColumns()">Add column ...</a>
     </div>
 
     <div class="documentation-link">

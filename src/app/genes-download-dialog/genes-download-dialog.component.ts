@@ -255,7 +255,7 @@ export class GenesDownloadDialogComponent implements OnInit {
         selectedAspects.push(aspect);
       }
     }
-    const options = new QueryOutputOptions([], [], 'none', new GAFOptions(selectedAspects));
+    const options = new QueryOutputOptions([], [], [], 'none', new GAFOptions(selectedAspects));
     const query = GeneQuery.fromGeneUniquenames('GAF download', this.geneUniquenames);
     this.queryService.postQuery(query, options)
       .then(results => {

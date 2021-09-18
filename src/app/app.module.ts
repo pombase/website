@@ -126,6 +126,7 @@ import { QuerySubsetInputComponent } from './query-subset-input/query-subset-inp
 import { QuerySubNodesComponent } from './query-sub-nodes/query-sub-nodes.component';
 import { QueryNodeDisplayComponent } from './query-node-display/query-node-display.component';
 import { GeneQueryStructureComponent } from './gene-query-structure/gene-query-structure.component';
+import { GeneVisSettingsComponent } from './gene-vis-settings/gene-vis-settings.component';
 
 export function documentFactory() {
     return document;
@@ -226,6 +227,7 @@ export function windowFactory() {
     QuerySubNodesComponent,
     QueryNodeDisplayComponent,
     GeneQueryStructureComponent,
+    GeneVisSettingsComponent,
   ],
   imports: [
     BrowserModule,

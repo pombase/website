@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   viewBox="0 0 62 62"
+   width="62"
+   height="62"
+   version="1.1"
+   id="svg28">
+  <metadata
+     id="metadata32">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs19">
+    <linearGradient
+       id="fieldGradient"
+       gradientUnits="userSpaceOnUse"
+       x1="42.986301"
+       y1="7.0127001"
+       x2="22.0144"
+       y2="51.987099"
+       xlink:href="#edgeGradient">
+      <stop
+         offset="0.0"
+         stop-color="#BCD6FE"
+         id="stop2" />
+      <stop
+         offset="1.0"
+         stop-color="#6787D3"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="edgeGradient"
+       gradientUnits="userSpaceOnUse"
+       x1="55.454102"
+       y1="42.752899"
+       x2="9.5471001"
+       y2="16.248501"
+       spreadMethod="pad">
+      <stop
+         offset="0.0"
+         stop-color="#3057A7"
+         id="stop7" />
+      <stop
+         offset="1.0"
+         stop-color="#5A7AC6"
+         id="stop9" />
+    </linearGradient>
+    <radialGradient
+       id="shadowGradient"
+       gradientUnits="userSpaceOnUse"
+       cx="32.5"
+       cy="29.5"
+       fx="32.5"
+       fy="29.5"
+       r="26.5"
+       gradientTransform="matrix(1.1565012,0,0,1.1738722,-7.2195677,-3.6443354)"
+       fr="0"
+       spreadMethod="pad">
+      <stop
+         offset="0.0"
+         stop-color="#C0C0C0"
+         id="stop12" />
+      <stop
+         offset="0.88"
+         stop-color="#C0C0C0"
+         id="stop14" />
+      <stop
+         offset="1.0"
+         stop-color="#C0C0C0"
+         stop-opacity="0.0"
+         id="stop16" />
+    </radialGradient>
+  </defs>
+  <ellipse
+     id="shadow"
+     cx="30.905495"
+     cy="31.109226"
+     style="fill:#ffffff;fill-opacity:0;stroke-width:1.17768574"
+     rx="31.35183"
+     ry="31.06617" />
+  <ellipse
+     id="field"
+     cx="30.875797"
+     cy="31.165646"
+     style="fill:#fffff2;fill-opacity:0.80578512;stroke:#b50000;stroke-width:4.77732283;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     transform="rotate(2.4089812e-4)"
+     rx="26.354969"
+     ry="26.727964" />
+  <rect
+     style="opacity:1;fill:#ff5555;fill-opacity:0.333333;stroke:#b50000;stroke-width:4.77732;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect954"
+     width="37.193565"
+     height="2.6169977"
+     x="25.673969"
+     y="-1.3191592"
+     transform="rotate(45.098989)" />
+  <rect
+     style="opacity:1;fill:#ff5555;fill-opacity:0.333333;stroke:#b50000;stroke-width:4.77732;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect956"
+     width="37.193565"
+     height="2.6169977"
+     x="-18.707531"
+     y="42.962116"
+     transform="rotate(-45.05814)" />
+</svg>

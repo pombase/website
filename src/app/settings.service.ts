@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 import { getAppConfig } from './config';
+import { TermShort } from './pombase-query';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,50 @@ export class SettingsService {
     });
     if (changed) {
       this.visibleGenesTableFieldNames = visible;
+    }
+  }
+
+  private readonly _extraGeneVisColumns =
+    new BehaviorSubject<Array<TermShort>>([]);
+
+  readonly extraGeneVisColumns$ = this._extraGeneVisColumns.asObservable();
+
+  get extraGeneVisColumns(): Array<TermShort> {
+    return this._extraGeneVisColumns.getValue();
+  }
+
+  set extraGeneVisColumns(newExtraGeneVisColumns: Array<TermShort>) {
+    this._extraGeneVisColumns.next(newExtraGeneVisColumns);
+  }
+
+  resetExtraGeneVisColumns() {
+    this.extraGeneVisColumns = [];
+  }
+
+  addExtraGeneVisColumns(terms: Array<TermShort>): void {
+    let newColumns = this.extraGeneVisColumns;
+    let changed = false;
+    terms.map(term => {
+      if (newColumns.filter(currentTerm => {
+        return term.termid == currentTerm.termid;
+      }).length == 0) {
+        newColumns.push(term);
+        changed = true;
+      }
+    });
+    if (changed) {
+      this.extraGeneVisColumns = newColumns;
+    }
+  }
+
+  removeExtraGeneVisColumn(termid: string) {
+    let newColumns =
+      this.extraGeneVisColumns.filter(term => {
+        return term.termid !== termid;
+      });
+
+    if (newColumns.length != this.extraGeneVisColumns.length) {
+      this.extraGeneVisColumns = newColumns;
     }
   }
 

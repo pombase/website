@@ -1,10 +1,15 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { GeneShort } from '../../pombase-api.service';
 import { getAppConfig, GeneResultsFieldConfig } from '../../config';
 import { QueryService, HistoryEntry, QueryOutputOptions } from '../../query.service';
-import { GeneListNode, GeneQuery, QueryResult, ResultRow } from '../../pombase-query';
+import { GeneListNode, GeneQuery, QueryResult, ResultRow, TermShort } from '../../pombase-query';
 import { Util } from '../util';
+import { GeneVisSettingsComponent } from '../../gene-vis-settings/gene-vis-settings.component';
+import { DeployConfigService } from '../../deploy-config.service';
+import { SettingsService } from '../../settings.service';
 
 class GeneDisplayData {
   constructor(public id: string, public geneIndex: number, public geneUniquename: string) {};
@@ -68,6 +73,16 @@ class GeneData {
         cleanRow[config.name] = attrValue;
       }
     }
+
+    this.visColumnConfigs.map(conf => {
+      if (conf.column_type == 'user_vis_term') {
+        if (row.subsets && row.subsets.includes(conf.name)) {
+          cleanRow[conf.name] = 'annotated';
+        } else {
+          cleanRow[conf.name] = 'not_annotated';
+        }
+      }
+    });
 
     return cleanRow;
   }
@@ -147,34 +162,16 @@ export class GeneResultsVisComponent implements OnInit {
 
   attrValueCounts: { [columnName: string]: { [attrName: string]: number } } = {};
 
-  constructor(private queryService: QueryService,
-              private router: Router) {
-    const colConfigs = getAppConfig().getGeneResultsConfig().visualisationFields;
-    this.visColumnConfigMap = {};
-    this.visColumnConfigs = [];
-    this.visColumnNames = [];
+  downloadModalRef: BsModalRef;
 
-    const nameRE = /(.*):(.*)/;
+  extraColumns: Array<TermShort> = [];
+  columnsSubscription: Subscription;
 
-    colConfigs.map(colConfig => {
-      this.visColumnNames.push(colConfig.name);
-      this.visColumnConfigs.push(colConfig);
-      this.visColumnConfigMap[colConfig.name] = colConfig;
-
-      let nameMatch = nameRE.exec(colConfig.name);
-
-      if (nameMatch) {
-        this.queryColumnNames.add(nameMatch[1]);
-      } else {
-        this.queryColumnNames.add(colConfig.name);
-      }
-
-      this.activeColumns[colConfig.name] = true;
-
-      this.sortByFields.push(colConfig.name);
-    });
-
-    this.sortByFields.push('gene-name');
+  constructor(public deployConfigService: DeployConfigService,
+              private settingsService: SettingsService,
+              private queryService: QueryService,
+              private router: Router,
+              private modalService: BsModalService) {
   }
 
   saveAsSVG() {
@@ -384,6 +381,15 @@ export class GeneResultsVisComponent implements OnInit {
       return res;
     }
   }
+
+  removeUserColumn(colName: string) {
+    const sortIndex = this.sortByFields.indexOf(colName);
+    if (sortIndex != -1) {
+      this.sortByFields.splice(sortIndex, 1);
+    }
+    this.settingsService.removeExtraGeneVisColumn(colName);
+  }
+
   getGeneWidth(): number {
     if (this.lineHeight < 0.9) {
       return 5;
@@ -489,8 +495,11 @@ export class GeneResultsVisComponent implements OnInit {
     const geneListNode = new GeneListNode(undefined, this.genes);
     const geneListQuery = new GeneQuery(geneListNode);
 
+    const ancestorTerms = this.extraColumns.map(term => term.termid);
+
     const outputOptions =
-      new QueryOutputOptions(['gene_uniquename', ...Array.from(this.queryColumnNames)], [], 'none');
+      new QueryOutputOptions(['gene_uniquename', ...Array.from(this.queryColumnNames)], [],
+                                                               ancestorTerms, 'none');
     this.queryService.postQuery(geneListQuery, outputOptions)
       .then(results => {
         this.geneDataMap = this.makeGeneDataMap(results);
@@ -501,6 +510,13 @@ export class GeneResultsVisComponent implements OnInit {
 
   updateDisplayData(): void {
     if (Object.keys(this.geneDataMap).length > 0) {
+      this.activeColumnNames = [];
+      for (const visConfigName of this.visColumnNames) {
+        if (this.activeColumns[visConfigName]) {
+          this.activeColumnNames.push(visConfigName);
+        }
+      }
+
       this.makeGeneData();
       this.processColumnResults()
     }
@@ -527,14 +543,13 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   confSelectionChanged(): void {
-    this.activeColumnNames = [];
-    for (const visConfigName of this.visColumnNames) {
-      if (this.activeColumns[visConfigName]) {
-        this.activeColumnNames.push(visConfigName);
-      }
-    }
+    this.recalculateAll(false);
+  }
 
-    if (Object.keys(this.geneDataMap).length === 0) {
+  recalculateAll(forceReRunQuery: boolean): void {
+    this.activeColumnNames = [];
+
+    if (Object.keys(this.geneDataMap).length === 0 || forceReRunQuery) {
       this.runQuery();
     } else {
       this.updateDisplayData();
@@ -598,9 +613,101 @@ export class GeneResultsVisComponent implements OnInit {
     return offsetFromPrev + this.colLabelHeight + this.keyHeaderHeight;
   }
 
-  ngOnInit() {
+  configureExtraColumns(): void {
+    const config = {
+      animated: false,
+      initialState: {
+      },
+      //class: 'modal-lg',
+    };
+    this.downloadModalRef = this.modalService.show(GeneVisSettingsComponent, config);
+  }
+
+  private initialise() {
+    const colConfigs = this.getColumnConfigs();
+
+    this.visColumnConfigMap = {};
+    this.visColumnConfigs = [];
+    this.visColumnNames = [];
+
+    const nameRE = /(.*):(.*)/;
+
+    colConfigs.map(colConfig => {
+      this.visColumnNames.push(colConfig.name);
+      this.visColumnConfigs.push(colConfig);
+      this.visColumnConfigMap[colConfig.name] = colConfig;
+
+      let nameMatch = nameRE.exec(colConfig.name);
+
+      if (nameMatch) {
+        this.queryColumnNames.add(nameMatch[1]);
+      } else {
+        this.queryColumnNames.add(colConfig.name);
+      }
+
+      this.activeColumns[colConfig.name] = true;
+
+      this.sortByFields.push(colConfig.name);
+    });
+
+    this.sortByFields.push('gene-name');
+
     this.sortedGeneUniquenames = this.genes.map(geneShort => geneShort.uniquename);
 
-    this.confSelectionChanged();
+    this.recalculateAll(true);
+  }
+
+  makeExtraColConfig(): Array<GeneResultsFieldConfig> {
+    const annotationConf = {
+      "display_name": "annotated",
+      "name": "annotated",
+      "color": "#3c2",
+      'sort_priority': 0,
+    };
+    const notAnnotatedConf = {
+      "display_name": "not_annotated",
+      "name": "not_annotated",
+      "color": "#c32",
+      'sort_priority': 1,
+    };
+    return this.extraColumns.map(term => {
+      const attrValuesMap = new Map();
+      attrValuesMap.set("annotated", annotationConf);
+      attrValuesMap.set("not_annotated", notAnnotatedConf);
+      return {
+        display_name: term.name,
+        name: term.termid,
+        column_type: 'user_vis_term',
+        column_group: 'extra',
+        attrValuesMap,
+        attr_values: [
+          annotationConf,
+          notAnnotatedConf
+        ],
+      };
+    });
+  }
+
+  private getColumnConfigs(): Array<GeneResultsFieldConfig> {
+    let retValues = [...getAppConfig().getGeneResultsConfig().visualisationFields];
+    retValues.push(...this.makeExtraColConfig());
+    return retValues;
+  }
+
+  ngOnInit() {
+    this.initialise();
+
+    this.columnsSubscription =
+      this.settingsService.extraGeneVisColumns$
+        .subscribe(extraColumns => {
+          this.extraColumns = extraColumns;
+
+          this.initialise();
+        });
+  }
+
+
+  ngOnDestroy(): void {
+    this.columnsSubscription.unsubscribe();
   }
 }

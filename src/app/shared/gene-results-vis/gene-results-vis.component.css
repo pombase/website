@@ -106,7 +106,16 @@ rect.vis-column:hover {
   vertical-align: text-top;
 }
 
+.delete-user-link img {
+  height: 1em;
+  vertical-align: text-top;
+}
+
 .loading {
   font-size: 150%;
   padding: 2em;
+}
+
+.extra-column-control {
+  padding: 1em 0;
 }
