@@ -105,8 +105,8 @@
     </button>
 
     <ul *dropdownMenu class="dropdown-menu" role="menu">
-      <li role="menuitem">
-        <a href="{{communityMailingList}}" class="dropdown-item">Mailing list</a>
+      <li *ngIf="communityMailingList" role="menuitem">
+        <a href="{{communityMailingList.url}}" class="dropdown-item">Mailing list</a>
       </li>
       <li role="menuitem">
         <a routerLink="/community/fission-yeast-community-curation-project" class="dropdown-item">Community curation project</a>
