@@ -96,16 +96,6 @@ rect.vis-column:hover {
   opacity: 0.8;
 }
 
-.documentation-link {
-  margin: 1em 1em 1em 0;
-}
-
-.documentation-link img {
-  height: 1.0em;
-  margin-right: 0.2em;
-  vertical-align: text-top;
-}
-
 .delete-user-link img {
   height: 1em;
   vertical-align: text-top;

@@ -4,9 +4,20 @@
     {{legend}}
   </legend>
 
-  <app-query-description-display *ngIf="description || descriptionParts.length != 0" class="description"
-                                 [description]="description" [descriptionParts]="descriptionParts">
-  </app-query-description-display>
+  <div class="description">
+    <span class="description-prefix" *ngIf="showingVisualisation()">QuiLT visualisation of: </span>
+    <span class="description-prefix" *ngIf="!showingVisualisation()">Query:</span>
+    <app-query-description-display *ngIf="description || descriptionParts.length != 0"
+                                   [description]="description" [descriptionParts]="descriptionParts">
+    </app-query-description-display>
+
+
+  <div class="documentation-link">
+    <a *ngIf="showingVisualisation()" routerLink="/documentation/quick-little-tool"><img src="/assets/info_icon.svg">Documentation</a>
+  </div>
+
+
+  </div>
 
   <div class="action-row">
     <div *ngIf="!showingVisualisation() && !showingSlim()">

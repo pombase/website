@@ -19,7 +19,11 @@
 .description {
   float: left;
   padding-bottom: 1em;
+}
+
+.description-prefix {
   font-weight: bold;
+  padding-right: 0.2em;
 }
 
 .links-title {
@@ -46,4 +50,14 @@ th {
 .na-field::after {
   content: "ND";
   color: #ccc;
+}
+
+.documentation-link {
+  margin: 1em 1em 1em 0;
+}
+
+.documentation-link img {
+  height: 1.0em;
+  margin-right: 0.2em;
+  vertical-align: text-top;
 }
