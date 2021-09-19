@@ -1,8 +1,10 @@
 <div class="vis-main">
   <div class="vis-column-select">
-    <div *ngFor="let colConfig of visColumnConfigs">
-      {{colConfig.display_name}}:
-      <input type="checkbox"
+    <div *ngFor="let colConfig of visColumnConfigs" class="vis-column-select-line">
+      <span class="column-display-name" title="{{getColumnTitle(colConfig)}}  ">
+        {{colConfig.display_name}}
+      </span>
+      <input type="checkbox" class="active-checkbox"
              title="Click to {{activeColumns[colConfig.name] ? 'hide' : 'show'}} this column"
              (change)="confSelectionChanged()"
              [(ngModel)]="activeColumns[colConfig.name]"/>
@@ -11,8 +13,15 @@
          class="delete-user-link" title="Click to remove this column">
         <img src="/assets/delete_icon.svg"/>
       </a>
-      <a *ngIf="showResults() && activeColumns[colConfig.name]"
-         (click)="setSortBy(colConfig.name)">[sort]</a>
+      <span *ngIf="showResults() && activeColumns[colConfig.name]">
+        <a *ngIf="isCurrentSortField(colConfig.name)"
+           title="Click to sort genes by this column"
+           (click)="setSortBy(colConfig.name)">[sort]</a>
+        <span *ngIf="!isCurrentSortField(colConfig.name)"
+              title="Genes are currently sorted by {{colConfig.display_name}}" class="disabled-sort">
+          [sort]
+        </span>
+      </span>
     </div>
 
     <div *ngIf="!deployConfigService.productionMode()" class="extra-column-control">

@@ -119,3 +119,23 @@ rect.vis-column:hover {
 .extra-column-control {
   padding: 1em 0;
 }
+
+.vis-column-select-line {
+  margin: 0.15em 0;
+}
+
+.column-display-name {
+  max-width: 18em;
+  display: inline-block;
+  overflow-x: clip;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.active-checkbox {
+  margin: 0.05em 0.2em;
+}
+
+.disabled-sort {
+  color: #ccc;
+}

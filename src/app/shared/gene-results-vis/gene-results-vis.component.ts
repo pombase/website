@@ -383,12 +383,24 @@ export class GeneResultsVisComponent implements OnInit {
     }
   }
 
+  isCurrentSortField(colName: string) {
+    return this.sortByFields.length > 0 && this.sortByFields[0] !== colName;
+  }
+
   removeUserColumn(colName: string) {
     const sortIndex = this.sortByFields.indexOf(colName);
     if (sortIndex != -1) {
       this.sortByFields.splice(sortIndex, 1);
     }
     this.settingsService.removeExtraGeneVisColumn(colName);
+  }
+
+  getColumnTitle(colConfig: GeneResultsFieldConfig): string {
+    if (colConfig.column_type == 'user_vis_term') {
+      return `${colConfig.name}: ${colConfig.display_name}`;
+    } else {
+      return '';
+    }
   }
 
   getGeneWidth(): number {
