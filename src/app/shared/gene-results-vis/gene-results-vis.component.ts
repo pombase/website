@@ -667,7 +667,7 @@ export class GeneResultsVisComponent implements OnInit {
     const annotationConf = {
       "display_name": "annotated",
       "name": "annotated",
-      "color": "#3c2",
+      "color": "#3d3",
       'sort_priority': 0,
     };
     const notAnnotatedConf = {
