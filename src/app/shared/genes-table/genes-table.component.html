@@ -5,15 +5,16 @@
   </legend>
 
   <div class="description">
-    <span class="description-prefix" *ngIf="showingVisualisation()">QuiLT visualisation of: </span>
-    <span class="description-prefix" *ngIf="!showingVisualisation()">Query:</span>
+    <span class="description-prefix" *ngIf="showingQuilt()">QuiLT visualisation of: </span>
+    <span class="description-prefix" *ngIf="showingGeneEx()">Gene expression of: </span>
+    <span class="description-prefix" *ngIf="!showingQuilt() && !showingGeneEx()">Query:</span>
     <app-query-description-display *ngIf="description || descriptionParts.length != 0"
                                    [description]="description" [descriptionParts]="descriptionParts">
     </app-query-description-display>
 
 
   <div class="documentation-link">
-    <a *ngIf="showingVisualisation()" routerLink="/documentation/quick-little-tool"><img src="/assets/info_icon.svg">Documentation</a>
+    <a *ngIf="showingQuilt()" routerLink="/documentation/quick-little-tool"><img src="/assets/info_icon.svg">Documentation</a>
   </div>
 
 
