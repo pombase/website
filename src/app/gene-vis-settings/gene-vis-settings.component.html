@@ -5,7 +5,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">
+  <div *ngIf="!selectedTerm" class="modal-body">
     Select a term from one of these ontologies to add to QuiLT:
     <div class="cv-name-list">
       <div *ngFor="let cvName of visCvNames">
@@ -16,6 +16,17 @@
       [cvName]="cvNamesForTermComplete" [placeholder]="'starting typing to choose a term ...'"
       (termMatched)="termMatched($event)">
     </app-term-name-complete>
+  </div>
+  <div *ngIf="selectedTerm" class="modal-body">
+    <div class="found-header">
+      Selected term:
+    </div>
+    <div class="found-term">
+      <span class="found-termid">{{selectedTerm.termid}}</span> {{selectedTerm.name}}
+    </div>
+    <div class="selection-clear">
+      <a (click)="clearSelection()" title="Find a different term">[clear]</a>
+    </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>

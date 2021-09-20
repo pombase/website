@@ -1,3 +1,15 @@
 .cv-name-list {
   padding: 0.5em 1em 1em 1em;
 }
+
+.found-header, .found-term {
+  font-size: 1.2rem;
+}
+
+.found-termid {
+  font-weight: bold;
+}
+
+.selection-clear {
+  font-size: 1.1rem;
+}

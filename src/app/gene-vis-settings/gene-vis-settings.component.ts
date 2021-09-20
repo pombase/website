@@ -29,6 +29,10 @@ export class GeneVisSettingsComponent implements OnInit {
     this.selectedTerm = term;
   }
 
+  clearSelection() {
+    this.selectedTerm = undefined;
+  }
+
   apply() {
     if (this.selectedTerm) {
       this.settingsService.addExtraGeneVisColumns([this.selectedTerm]);
