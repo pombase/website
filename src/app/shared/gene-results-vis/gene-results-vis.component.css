@@ -122,6 +122,10 @@ rect.vis-column:hover {
   text-overflow: ellipsis;
 }
 
+.user-column-display-name {
+  user-select: text;
+}
+
 .active-checkbox {
   margin: 0.05em 0.2em;
 }

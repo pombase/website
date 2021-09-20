@@ -1,14 +1,19 @@
 <div class="vis-main">
   <div class="vis-column-select">
     <div *ngFor="let colConfig of visColumnConfigs" class="vis-column-select-line">
-      <span class="column-display-name" title="{{getColumnTitle(colConfig)}}  ">
-        {{colConfig.display_name}}
+      <span class="column-display-name" title="{{getColumnTitle(colConfig)}}">
+        <span *ngIf="isUserColumn(colConfig)" class="user-column-display-name">
+          {{colConfig.display_name}}
+        </span>
+        <span *ngIf="!isUserColumn(colConfig)">
+          {{colConfig.display_name}}
+        </span>
       </span>
       <input type="checkbox" class="active-checkbox"
              title="Click to {{activeColumns[colConfig.name] ? 'hide' : 'show'}} this column"
              (change)="confSelectionChanged()"
              [(ngModel)]="activeColumns[colConfig.name]"/>
-      <a *ngIf="colConfig.column_type == 'user_vis_term'"
+      <a *ngIf="isUserColumn(colConfig)"
          (click)="removeUserColumn(colConfig.name)"
          class="delete-user-link" title="Click to remove this column">
         <img src="/assets/delete_icon.svg"/>

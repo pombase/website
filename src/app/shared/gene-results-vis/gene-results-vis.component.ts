@@ -387,6 +387,10 @@ export class GeneResultsVisComponent implements OnInit {
     return this.sortByFields.length > 0 && this.sortByFields[0] !== colName;
   }
 
+  isUserColumn(colConfig: GeneResultsFieldConfig): boolean {
+    return colConfig.column_type == 'user_vis_term'
+  }
+
   removeUserColumn(colName: string) {
     const sortIndex = this.sortByFields.indexOf(colName);
     if (sortIndex != -1) {
