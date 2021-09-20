@@ -129,3 +129,7 @@ rect.vis-column:hover {
 .disabled-sort {
   color: #ccc;
 }
+
+.col-label:hover {
+  text-decoration: underline;
+}

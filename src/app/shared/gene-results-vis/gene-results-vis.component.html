@@ -147,10 +147,16 @@
           </svg:g>
 
           <svg:g *ngFor="let columnName of activeColumnNames; let columnIndex = index">
+            <svg:g>
+              <title>
+                Click to sort gene by this column
+              </title>
             <svg:text class="col-label"
+                      (click)="setSortBy(columnName)"
                       attr.transform="translate({{leftMargin + colLabelXOffset + getGeneWidth() + columnIndex * (columnWidth + columnGap) + columnGap}} {{colLabelHeight}}) rotate(-60)">
               {{visColumnConfigMap[columnName].display_name}}
             </svg:text>
+            </svg:g>
             <svg:rect *ngFor="let columnData of getColumnDisplayDataMap()[columnName]"
                   class="vis-column"
                   (click)="dataClick($event, columnData)"
