@@ -33,6 +33,18 @@ export class GeneVisSettingsComponent implements OnInit {
     this.selectedTerm = undefined;
   }
 
+  isValid() {
+    return !!this.selectedTerm;
+  }
+
+  applyButtonTitle() {
+    if (this.selectedTerm) {
+      return 'Click to add a column for ' + this.selectedTerm.termid;
+    } else {
+      return 'Select an ontology term to continue';
+    }
+  }
+
   apply() {
     if (this.selectedTerm) {
       this.settingsService.addExtraGeneVisColumns([this.selectedTerm]);

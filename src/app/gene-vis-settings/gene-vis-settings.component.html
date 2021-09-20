@@ -30,6 +30,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="apply()">Apply</button>
+    <button type="button" class="btn btn-primary" [disabled]="!isValid()"
+            title="{{applyButtonTitle()}}" (click)="apply()">Apply</button>
   </div>
 </div>
