@@ -8,8 +8,8 @@
   <div *ngIf="!selectedTerm" class="modal-body">
     Select a term from one of these ontologies to add to QuiLT:
     <div class="cv-name-list">
-      <div *ngFor="let cvName of visCvNames">
-        {{cvName}}
+      <div *ngFor="let cvDisplayName of visCvDisplayNames">
+        {{cvDisplayName}}
       </div>
     </div>
     <app-term-name-complete

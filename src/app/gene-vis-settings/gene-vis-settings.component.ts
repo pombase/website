@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
-import { getAppConfig } from '../config';
+import { getAnnotationTableConfig, getAppConfig } from '../config';
 import { TermShort } from '../pombase-query';
 import { SettingsService } from '../settings.service';
 
@@ -17,6 +17,10 @@ export class GeneVisSettingsComponent implements OnInit {
   visCvNames =
     this.appConfig.getGeneResultsConfig().visualisation_extra_column_cv_names;
 
+  visCvDisplayNames =
+    this.visCvNames.map(cvName => {
+      return getAnnotationTableConfig().getAnnotationType(cvName).display_name;
+    });
 
   cvNamesForTermComplete = '(' + this.visCvNames.join(' OR ') + ')';
 
