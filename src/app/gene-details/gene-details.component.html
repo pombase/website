@@ -21,7 +21,14 @@
     <div class="details-and-transcripts-note">
     <div id="gene-summary" class="details-page-summary">
           <div class="details-label">Gene standard name</div>
-          <div><span class="gene-name">{{geneDetails.name || ''}}</span></div>
+          <div>
+            <span *ngIf="geneDetails.name" class="gene-name">{{geneDetails.name}}</span>
+            <span *ngIf="!geneDetails.name" class="no-gene-name">(none)
+              <app-help-link [route]="'/submit-data/gene-names'"
+                [title]="'No official gene name assigned, click to submit one'">
+              </app-help-link>
+            </span>
+          </div>
           <div class="details-label"><span *ngIf="isConfiguredOrganism && hasCharacterisationStatus">Characterisation status</span></div>
           <div><span *ngIf="isConfiguredOrganism && hasCharacterisationStatus">{{geneDetails.characterisation_status}}</span></div>
           <div class="details-label">Product</div>
