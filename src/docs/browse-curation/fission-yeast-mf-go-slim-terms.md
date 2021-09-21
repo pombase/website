@@ -22,5 +22,5 @@ names](${base_url}/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv)
 from the ${database_name} FTP site.
 
 
-<app-slim-table [slimName]="'mf_goslim_pombe'"></app-slim-table>
+<app-slim-table [slimName]="'mf_goslim_${species}'"></app-slim-table>
 

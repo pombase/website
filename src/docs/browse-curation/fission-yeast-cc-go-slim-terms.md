@@ -21,5 +21,5 @@ additional pages linked there. You can also download a list of current
 from the ${database_name} FTP site.
 
 
-<app-slim-table [slimName]="'cc_goslim_pombe'"></app-slim-table>
+<app-slim-table [slimName]="'cc_goslim_${species}'"></app-slim-table>
 
