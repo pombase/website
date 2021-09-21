@@ -17,7 +17,7 @@ genes.
 Further information is available from the [${database_name} GO slim
 documentation](documentation/pombase-go-slim-documentation) and
 additional pages linked there. You can also download a list of current
-[GO component slim IDs and term names](${base_url}/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv)
+[GO component slim IDs and term names](${base_url}/data/releases/latest/misc/cc_goslim_${species}_ids_and_names.tsv)
 from the ${database_name} FTP site.
 
 
