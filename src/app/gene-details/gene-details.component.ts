@@ -26,6 +26,7 @@ export class GeneDetailsComponent implements OnInit {
   visibleSections: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
+  noGeneNameRoute = this.appConfig.no_gene_name_route;
   apiError: any = null;
   showProteinFeatures = false;
   productSizeOfTranscript1 = '';

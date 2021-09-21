@@ -270,6 +270,7 @@ export interface AppConfig {
   has_characterisation_status: boolean;
   news_on_front_page: boolean;
   has_admin_curation: boolean;
+  no_gene_name_route?: string;
   ensembl_blast_url: string;
   canto_url: string;
   community_mailing_list?: {
@@ -787,6 +788,7 @@ let _appConfig: AppConfig = {
   has_characterisation_status: pombaseConfig.has_characterisation_status,
   news_on_front_page: pombaseConfig.news_on_front_page,
   has_admin_curation: pombaseConfig.has_admin_curation,
+  no_gene_name_route: pombaseConfig.no_gene_name_route,
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,
   canto_url: pombaseConfig.canto_url,
   community_mailing_list: pombaseConfig.community_mailing_list,
