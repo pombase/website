@@ -717,8 +717,6 @@ export class GeneResultsVisComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initialise();
-
     this.columnsSubscription =
       this.settingsService.extraGeneVisColumns$
         .subscribe(extraColumns => {
