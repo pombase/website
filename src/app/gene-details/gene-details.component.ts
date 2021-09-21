@@ -36,6 +36,7 @@ export class GeneDetailsComponent implements OnInit {
   organism?: ConfigOrganism;
   organismLongName?: string;
   isConfiguredOrganism: boolean;
+  hasCharacterisationStatus = this.appConfig.has_characterisation_status;
   jbrowseLinkUrl?: string;
   sanitizedJBrowseURL?: SafeResourceUrl;
   extraMenuSections = [

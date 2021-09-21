@@ -267,6 +267,7 @@ export interface AppConfig {
   };
   twitter_account?: string;
   has_disease_annotation: boolean;
+  has_characterisation_status: boolean;
   news_on_front_page: boolean;
   has_admin_curation: boolean;
   ensembl_blast_url: string;
@@ -783,6 +784,7 @@ let _appConfig: AppConfig = {
   social_media: pombaseConfig.social_media,
   twitter_account: pombaseConfig.twitter_account,
   has_disease_annotation: pombaseConfig.has_disease_annotation,
+  has_characterisation_status: pombaseConfig.has_characterisation_status,
   news_on_front_page: pombaseConfig.news_on_front_page,
   has_admin_curation: pombaseConfig.has_admin_curation,
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,

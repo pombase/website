@@ -22,8 +22,8 @@
     <div id="gene-summary" class="details-page-summary">
           <div class="details-label">Gene standard name</div>
           <div><span class="gene-name">{{geneDetails.name || ''}}</span></div>
-          <div *ngIf="isConfiguredOrganism" class="details-label">Characterisation status</div>
-          <div *ngIf="isConfiguredOrganism">{{geneDetails.characterisation_status}}</div>
+          <div class="details-label"><span *ngIf="isConfiguredOrganism && hasCharacterisationStatus">Characterisation status</span></div>
+          <div><span *ngIf="isConfiguredOrganism && hasCharacterisationStatus">{{geneDetails.characterisation_status}}</span></div>
           <div class="details-label">Product</div>
           <div>{{product}}</div>
           <div class="details-label">Feature type</div>
