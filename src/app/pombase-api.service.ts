@@ -73,6 +73,7 @@ export interface AlleleShort {
   name: string;
   allele_type: string;
   description: string;
+  synonyms: Array<SynonymDetails>;
 }
 
 export interface AlleleMap {

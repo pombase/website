@@ -3,6 +3,9 @@
     <th *ngIf="!isDiploid">Gene</th>
     <th *ngIf="isDiploid">Locus</th>
     <th>Allele name</th>
+    <th *ngIf="hasSynonyms">
+      Synonyms
+    </th>
     <th>Description</th>
     <th>Type</th>
     <th>Expression</th>
@@ -14,6 +17,11 @@
       </td>
       <td>
         <span [innerHTML]="tidyAlleleName(expressedAllele.allele)"></span>
+      </td>
+      <td *ngIf="hasSynonyms">
+        <ng-container>
+          {{getSynonymString(expressedAllele)}}
+        </ng-container>
       </td>
       <td>
         <span [innerHTML]="alleleDisplayDescription(expressedAllele.allele)"></span>
