@@ -52,7 +52,8 @@ th {
   color: #ccc;
 }
 
-.documentation-link {
+.documentation-link div {
+  display: inline-block;
   margin: 1em 1em 1em 0;
 }
 

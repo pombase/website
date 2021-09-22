@@ -13,8 +13,13 @@
     </app-query-description-display>
 
 
-  <div class="documentation-link">
-    <a *ngIf="showingQuilt()" routerLink="/documentation/quick-little-tool"><img src="/assets/info_icon.svg">Documentation</a>
+  <div *ngIf="showingQuilt()" class="documentation-link">
+    <div>
+      A graphical summary of the genes in your result set
+    </div>
+    <div>
+      <a routerLink="/documentation/quick-little-tool"><img src="/assets/info_icon.svg">Documentation</a>
+    </div>
   </div>
 
 
