@@ -114,8 +114,10 @@
         </div>
         <div class="query-hist-name-and-button" *ngIf="(!nameEditId() || nameEditId() != histEntry.getEntryId()) && histEntry.queryName()">
           <span class="query-hist-name">{{removeTags(histEntry.queryName()!)}}</span>
-          <span *ngIf="needsDetailsButton(histEntry) && !showDetails(histEntry)">
-            <a (click)="toggleDetails(histEntry)" class="show-details-button">[details]</a>
+          <span>
+            <a *ngIf="showDetailsLink(histEntry)" (click)="showDetails(histEntry)" class="show-details-button">[details]</a>
+            <span *ngIf="!showDetailsLink(histEntry)" class="disabled-show-details-button"
+                  title="No more details to show">[details]</span>
           </span>
         </div>
 
@@ -128,15 +130,9 @@
           <button class="btn btn-sm" (click)="cancelNameEdit()">Cancel</button>
           </span>
         </div>
-        <div *ngIf="showDetails(histEntry)" class="query-hist-details">
-          <div>{{getQueryDisplayString(histEntry)}}</div>
-          <a (click)="toggleDetails(histEntry)"
-             *ngIf="histEntry.queryName() && !nameEditId()">[hide details] </a>
-        </div>
-
       </td>
       <td class="row-actions">
-        <a *ngIf="histEntry.getResultCount() !== undefined" (click)="showQueryDetails(histEntry)">...</a>
+        <a *ngIf="histEntry.getResultCount() !== undefined" (click)="showInternalDetails(histEntry)">...</a>
       </td>
     </tr>
     </tbody>

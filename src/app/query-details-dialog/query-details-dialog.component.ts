@@ -10,6 +10,7 @@ import { GeneQuery } from '../pombase-query';
 })
 export class QueryDetailsDialogComponent implements OnInit {
   public query: GeneQuery;
+  public showInternalDetails: boolean;
 
   constructor(public bsModalRef: BsModalRef) { }
 

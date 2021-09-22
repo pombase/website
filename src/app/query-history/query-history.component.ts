@@ -134,18 +134,6 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.queryNameForEdit = undefined;
   }
 
-  toggleDetails(histEntry: HistoryEntry): void {
-    this.showDetailMap[histEntry.getEntryId()] = !this.showDetailMap[histEntry.getEntryId()];
-  }
-
-  showDetails(histEntry: HistoryEntry): boolean {
-    return !histEntry.getQuery().getQueryName() || this.showDetailMap[histEntry.getEntryId()];
-  }
-
-  needsDetailsButton(histEntry: HistoryEntry): boolean {
-    return histEntry.hasEditedName();
-  }
-
   removeTags(input: string): string {
     // remove <i>...</i> from organism names
     return input.replace(/<([^>]+)>([^<]*)<\/\1>/g, '$2');
@@ -164,9 +152,29 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.gotoResults.emit(histEntry.getQuery());
   }
 
-  showQueryDetails(histEntry: HistoryEntry) {
-    this.detailsModalRef = this.modalService.show(QueryDetailsDialogComponent, {class: 'modal-lg'});
-    this.detailsModalRef.content.query = histEntry.getQuery();
+  showDetailsLink(histEntry: HistoryEntry): boolean {
+    const query = histEntry.getQuery();
+    return !query.hasDefaultName() || query.getTopNode() instanceof GeneBoolNode;
+  }
+
+  showDetails(histEntry: HistoryEntry): void {
+    this.showDetailImpl(histEntry, false);
+  }
+
+  showInternalDetails(histEntry: HistoryEntry) {
+    this.showDetailImpl(histEntry, true);
+  }
+
+  private showDetailImpl(histEntry: HistoryEntry, showInternalDetails: boolean) {
+    const initialState = {
+      showInternalDetails: showInternalDetails,
+      query: histEntry.getQuery(),
+    }
+    this.detailsModalRef = this.modalService.show(QueryDetailsDialogComponent,
+                                                  {
+                                                    class: 'modal-lg',
+                                                    initialState,
+                                                   });
   }
 
   setAllCounts() {

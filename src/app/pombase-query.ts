@@ -846,6 +846,10 @@ export class GeneQuery {
     return this.getTopNode().getNodeName();
   }
 
+  public hasDefaultName(): boolean {
+    return this.getQueryName() == this.stringQuery;
+  }
+
   public setQueryName(newName: string) {
     this.getTopNode().setNodeName(newName);
   }

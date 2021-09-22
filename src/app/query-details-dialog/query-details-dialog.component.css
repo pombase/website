@@ -4,5 +4,9 @@
 }
 
 .query-structure {
-  padding-top: 2em;
+  font-size: 1rem;
+}
+
+.detail-div {
+  padding-left: 1em;
 }

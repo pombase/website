@@ -1,17 +1,29 @@
 <div class="modal-content">
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Internal query details</h4>
+    <h4 *ngIf="showInternalDetails" class="modal-title pull-left">Internal query details</h4>
+    <h4 *ngIf="!showInternalDetails" class="modal-title pull-left">Query details</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div *ngIf="query" class="modal-body">
-    <div class="query-name" *ngIf="query.getQueryName()">{{query.getQueryName()}}</div>
-    <div>
-      {{query.toPostJSON()}}
+    <div class="query-name" *ngIf="query.getQueryName()">
+      <h5>Name:</h5>
+      <div class="detail-div">
+        {{query.getQueryName()}}
+      </div>
     </div>
-    <div class="query-structure">
-      <app-gene-query-structure [node]="query.getTopNode()"></app-gene-query-structure>
+    <div *ngIf="showInternalDetails">
+      <h5>Internal JSON representation:</h5>
+      <div class="detail-div">
+        {{query.toPostJSON()}}
+      </div>
+    </div>
+    <div *ngIf="!showInternalDetails" class="query-structure">
+      <h5>Structure:</h5>
+      <div class="detail-div">
+        <app-gene-query-structure [node]="query.getTopNode()"></app-gene-query-structure>
+      </div>
     </div>
   </div>
   <div class="modal-footer">

@@ -91,7 +91,11 @@ td.result-count {
 }
 
 a.show-details-button {
-  opacity: 0.6;
+  opacity: 0.8;
+}
+
+.disabled-show-details-button {
+  color: #666;
 }
 
 a.show-details-button:hover {
