@@ -1,17 +1,8 @@
-<tabset #downloadTabs>
-  <tab *ngFor="let subNode of nodeConfig.subNodes">
-    <div *ngIf="nodeConfig.nodeType == 'subset-input'">
-      <app-query-subset-input>
-      </app-query-subset-input>
+<tabset #subNodeTabs class="tab-container">
+  <tab *ngFor="let subNode of nodeConfig.subNodes" class="sub-node-tab" heading="{{nodeHeading(subNode)}}">
+    <div class="sub-node-content">
+      <app-query-node-display [nodeConfig]="subNode" (nodeEvent)="emitEvent($event)">
+      </app-query-node-display>
     </div>
-  </tab>
-
-  <tab heading="Domain ID">
-  </tab>
-  <tab heading="Protein feature">
-  </tab>
-  <tab heading="Number of TM domains">
-  </tab>
-  <tab heading="Number of disordered regions">
   </tab>
 </tabset>

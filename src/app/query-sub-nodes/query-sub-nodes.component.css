@@ -1,0 +1,13 @@
+app-query-sub-nodes .tab-container .nav-link.active {
+  background-color: #f8f8f8;
+}
+
+app-query-sub-nodes .sub-node-content {
+  padding: 1em 0.5em;
+  background-color: #f8f8f8;
+  min-height: 15em;
+}
+
+app-query-sub-nodes .nav-tabs {
+  /*border-bottom: 1px solid #666;*/
+}
