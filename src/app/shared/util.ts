@@ -69,8 +69,8 @@ export class Util {
     }
   }
 
-  static tidyAlleleName(allele: AlleleShort): string {
-    let name = allele.name || 'unnamed';
+  static tidyAlleleName(alleleName?: string): string {
+    let name = alleleName || 'unnamed';
     name = name.replace(/delta/, 'Δ');
     return name;
   }
@@ -99,7 +99,7 @@ export class Util {
   }
 
   static alleleDisplayName(allele: AlleleShort): string {
-    let name = Util.tidyAlleleName(allele);
+    let name = Util.tidyAlleleName(allele.name);
     let description = allele.description || '';
     let alleleType = allele.allele_type || 'unknown';
 

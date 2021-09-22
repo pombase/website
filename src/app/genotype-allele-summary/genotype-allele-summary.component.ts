@@ -16,8 +16,8 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  tidyAlleleName(allele: AlleleShort): string {
-    return Util.tidyAlleleName(allele);
+  tidyAlleleName(alleleName?: string): string {
+    return Util.tidyAlleleName(alleleName);
   }
 
   alleleDisplayDescription(allele: AlleleShort): string {
@@ -32,7 +32,7 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
   getSynonymString(expressedAllele: ExpressedAllele): string {
     const synonyms = expressedAllele.allele.synonyms;
     if (synonyms) {
-      return synonyms.map(synonym => synonym.name).join(', ');
+      return synonyms.map(synonym => this.tidyAlleleName(synonym.name)).join(', ');
     } else {
       return '';
     }
