@@ -4,12 +4,14 @@ Note that most of the datasets available here are compressed (.gz), and
 can be uncompressed by utilities available in all common operating
 systems. Your browser may prompt you to open or download files.
 
+%%if db=PomBase
 ### Genome sequence
 
-The current [genome sequence](https://www.pombase.org/data/genome_sequence_and_features/genome_sequence/)
+The current [genome sequence]((${base_url}/data/genome_sequence_and_features/genome_sequence/)
 is available in FASTA format. The linked directory contains a file for
 the whole genome sequence as well as separate files for each
 chromosome.
+%%end db=PomBase
 
 #### Feature coordinates only
 
@@ -17,8 +19,10 @@ These files contain coordinates, but no sequence data:
 
 -   [GFF3 format](${base_url}/data/genome_sequence_and_features/gff3/)
     files contain coordinates for features of all types.
--   [CDS coordinates](https://www.pombase.org/data/genome_sequence_and_features/CDS_Coordinates/) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
--   [Exon coordinates](https://www.pombase.org/data/genome_sequence_and_features/Exon_Coordinates/) are in the same tab-delimited file format as CDS coordinates.
+%%if db=PomBase
+-   [CDS coordinates](${base_url}/data/genome_sequence_and_features/CDS_Coordinates/) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
+-   [Exon coordinates](${base_url}/data/genome_sequence_and_features/Exon_Coordinates/) are in the same tab-delimited file format as CDS coordinates.
+%%end db=PomBase
 
 #### Feature coordinates and sequence data
 
