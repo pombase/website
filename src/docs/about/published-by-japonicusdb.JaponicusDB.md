@@ -6,6 +6,6 @@ Coming soon ...
 
 ### Preprints 
 
-Harris MA, Rutherford KM, Hayles J, Lock A, Bähler J, Oliver SG, Mata J, Wood V.\
-Fission stories: Using PomBase to understand *Schizosaccharomyces pombe* biology.\
-[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2021.09.07.459264v1.full) available at bioRxiv.\
+Rutherford KM, Harris MA, Oliferenko S, Wood V.\
+JaponicusDB: Rapid deployment of a model organism database for an emerging model species.\
+[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2021.09.23.461587v1) available at bioRxiv.\

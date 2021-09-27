@@ -143,6 +143,9 @@ Posters and slides from conferences and workshops are available on the [Document
 
 ## Collaborative publications including PomBase authors
 
+Rutherford KM, Harris MA, Oliferenko S, Wood V.\
+JaponicusDB: Rapid deployment of a model organism database for an emerging model species.\
+[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2021.09.23.461587v1) available at bioRxiv.\
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkaa1113"></div>
 
 <div class="pub-citation">
