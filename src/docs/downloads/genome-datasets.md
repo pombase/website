@@ -7,7 +7,7 @@ systems. Your browser may prompt you to open or download files.
 %%if db=PomBase
 ### Genome sequence
 
-The current [genome sequence]((${base_url}/data/genome_sequence_and_features/genome_sequence/)
+The current [genome sequence](${base_url}/data/genome_sequence_and_features/genome_sequence/)
 is available in FASTA format. The linked directory contains a file for
 the whole genome sequence as well as separate files for each
 chromosome.
