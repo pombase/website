@@ -140,14 +140,14 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
        this.rangeStart <= this.rangeEnd);
   }
 
-  intRangeSearch(): void {
-    let part = new IntRangeNode(undefined, this.nodeConfig!.id,
+  intRangeSearch(nodeConfig: QueryNodeConfig): void {
+    let part = new IntRangeNode(undefined, nodeConfig.id,
                                 this.rangeStart!, this.rangeEnd!);
     this.emitNodeEvent(part);
   }
 
-  floatRangeSearch(): void {
-    let part = new FloatRangeNode(undefined, this.nodeConfig!.id,
+  floatRangeSearch(nodeConfig: QueryNodeConfig): void {
+    let part = new FloatRangeNode(undefined, nodeConfig.id,
                                   this.rangeStart!, this.rangeEnd!);
     this.emitNodeEvent(part);
   }

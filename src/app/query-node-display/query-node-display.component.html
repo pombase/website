@@ -69,7 +69,7 @@
            placeholder="max ..."/>
     <button type="button" class="btn btn-primary"
             [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'"
-            [disabled]="!validRange()" (click)="floatRangeSearch()">Search</button>
+            [disabled]="!validRange()" (click)="floatRangeSearch(nodeConfig)">Search</button>
   </div>
 
   <div *ngIf="nodeConfig.nodeType == 'int-range'"
@@ -80,7 +80,7 @@
            placeholder="max ..."/>
     <button type="button" class="btn btn-primary"
             [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'"
-            [disabled]="!validRange()" (click)="intRangeSearch()">Search</button>
+            [disabled]="!validRange()" (click)="intRangeSearch(nodeConfig)">Search</button>
   </div>
 
   <div *ngIf="nodeConfig.id == 'genome_range'">
