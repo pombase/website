@@ -1,5 +1,11 @@
+.query-history {
+  font-size: 110%;
+}
+
 .query-history .title {
   font-weight: bold;
+  padding: 0 0 0.6em 0.25em;
+  font-size: 120%;
 }
 
 .query-history .buttons {

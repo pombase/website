@@ -3,10 +3,19 @@ app-query-sub-nodes .tab-container .nav-link.active {
 }
 
 app-query-sub-nodes .sub-node-content {
-  padding: 1em 0.5em;
+  padding: 1em 0.75em;
   background-color: #f8f8f8;
   min-height: 15em;
 }
+
+app-query-sub-nodes .tab-container .nav-link {
+  padding: .3rem 0.7rem;
+}
+
+app-query-sub-nodes .tab-container .nav-link span {
+  font-size: 0.9rem;
+}
+
 
 app-query-sub-nodes .nav-tabs {
   /*border-bottom: 1px solid #666;*/

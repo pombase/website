@@ -1,37 +1,25 @@
-#identifier-mapper {
-  font-size: 140%;
-}
-
-#identifier-mapper .id-mapper-main {
-  padding: 1em 0.5em 1em 1em;
+.id-mapper-main {
+  font-size: 130%;
 }
 
 #identifier-mapper textarea {
-  width: 70vw;
   height: auto;
 }
 
+@media (max-width: 1200px) {
+  #identifier-mapper textarea {
+    width: 95%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tool-heading-section, .help-message, #identifier-mapper textarea {
+    width: 70vw;
+  }
+}
+
 .help-message {
-  width: 70vw;
   margin: 0 0 1em 0;
-}
-
-#id-heading-container {
-  width: 70vw;
-}
-
-#id-heading-help-link {
-  float: right;
-  font-size: 95%;
-}
-
-#id-heading-help-link img {
-  height: 1.3em;
-}
-
-#id-heading {
-  margin: 0.6em 0 0 0;
-  font-weight: bold;
 }
 
 .id-select {

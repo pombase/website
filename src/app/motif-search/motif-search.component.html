@@ -1,5 +1,11 @@
-<div *ngIf="geneSummaries">
-  <h2>Search for a motif <span *ngIf="organismCommonName">in all {{organismCommonName}} protein sequences</span></h2>
+<div *ngIf="geneSummaries" id="motif-search-container" class="tool-container">
+  <div id="motif-search-heading-section" class="tool-heading-section">
+    <app-help-link class="tool-heading-help-link"  [route]="'/documentation/motif-search'">
+      Documentation
+    </app-help-link>
+
+    <h3 class="tool-heading-title">Search for a motif <span *ngIf="organismCommonName">in all {{organismCommonName}} protein sequences</span></h3>
+  </div>
 
   <div class="input-and-doc-link">
   <div class="input-area">
@@ -8,8 +14,8 @@
   </div>
 
   <div class="motif-docs-link">
-    <app-help-link [route]="'/documentation/motif-search'" [title]="'Documentation ...'">
-      Documentation page ...
+    <app-help-link [route]="'/documentation/motif-search'">
+      Motif search documentation
     </app-help-link>
   </div>
   </div>

@@ -1,10 +1,13 @@
-<div>
-  <app-social-contact></app-social-contact>
+<div class="tool-container">
+  <div id="query-build-heading" class="tool-heading-section">
+    <a class="tool-heading-help-link" routerLink="/documentation/advanced-search">
+      <img src="/assets/info_icon.svg"> Documentation
+    </a>
 
-  <div class="query-node-add">
-    <div>
-      <span class="query-title">Advanced search</span>
-    </div>
+    <h3 class="tool-heading-title">Advanced search</h3>
+  </div>
+  <div class="query-node-add tool-content">
+
     <app-query-node (nodeEvent)="nodeEvent($event)"
                     [startNodeType]="startNodeType"></app-query-node>
   </div>

@@ -7,6 +7,10 @@ table thead td.end-pos {
   padding-left: 1em;
 }
 
+#motif-search-heading-section {
+  max-width: 1000px;
+}
+
 .input-and-doc-link {
   display: inline-block;
 }

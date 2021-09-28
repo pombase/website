@@ -1,5 +1,4 @@
 .query-node {
-  margin: 1em;
   display: flex;
 }
 
@@ -9,7 +8,6 @@
 
 .node-buttons {
   background-color: #ececfc;
-  width: 12em;
   left: 0;
   top: 0;
   display: inline-flex;
@@ -22,9 +20,7 @@
   min-height: 1.55em;
   cursor: pointer;
   white-space: nowrap;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  font-size: 90%;
+  padding: 0.05em 0.3em;
   border-right: 1px solid #bbc;
   flex-grow: 0.01;
 }
@@ -51,7 +47,7 @@
 .node-components {
   width: 100%;
   min-height: 16em;
-  padding: 0.6em;
+  padding: 0.8em 0.6em 0.6em 1em;
   display: inline-block;
   vertical-align: top;
   border-right: 1px solid #aac;
@@ -72,8 +68,14 @@
 .node-top-description {
   font-weight: bold;
   margin: 0 0 0.6em 0;
+  font-size: 110%;
 }
 
 .node-top-help, .node-top-id-mapper {
   margin: 1em 0;
+}
+
+.node-top-help img {
+  height: 1em;
+  vertical-align: baseline;
 }

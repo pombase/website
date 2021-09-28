@@ -564,3 +564,26 @@ a.disabled-menu-item.dropdown-item {
   height: 1.2em;
   margin: 0.1em 0.2em 0.2em 0.5em;
 }
+
+.tool-container {
+  padding: 0 0.5em;
+}
+
+.tool-content {
+  padding: 1em 0 1em 1em;
+}
+
+.tool-heading-help-link {
+  padding-top: 0.4em;
+  font-size: 110%;
+  float: right;
+}
+
+.tool-heading-help-link img {
+  height: 1.3em;
+}
+
+.tool-heading-title {
+  margin: 0.4em 0 0.2em 0;
+  font-weight: bold;
+}
