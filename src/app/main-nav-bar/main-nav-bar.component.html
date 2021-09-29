@@ -51,21 +51,7 @@
     </ul>
   </span>
 
-<!--
-  <span class="dropdown btn-group" dropdown>
-    <button dropdownToggle class="btn dropdown-toggle">
-      Download <span class="caret"></span>
-    </button>
-    <ul *dropdownMenu class="dropdown-menu" role="menu">
-      <li role="menuitem">
-        <a routerLink="/"
-        class="dropdown-item">[To do]</a></li>
-    </ul>
-  </span>
--->
-
   <span *ngFor="let menu of navBarMenus; let idx = index" class="dropdown btn-group" dropdown>
-
     <button dropdownToggle class="btn dropdown-toggle">
       {{menu.header}} <span class="caret"></span>
     </button>
