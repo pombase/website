@@ -1108,7 +1108,12 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     "urlSyntax" : "https://www.japonicusdb.org/gene/[example_id]",
     "website" : "https://www.japonicusdb.org/"
   },
-
+  IntactInteractionNetwork: {
+    "description" : "IntAct interaction networks",
+    displayName: "IntAct interaction networks",
+    urlSyntax: "https://www.ebi.ac.uk/intact/search?query=[example_id]&interactionTypesFilter=direct%20interaction,physical%20association",
+    website: "https://www.ebi.ac.uk/intact/",
+  },
 };
 
 export interface XrfDetails {
