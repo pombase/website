@@ -54,3 +54,9 @@ button.dropdown-item {
     padding: 0.4em;
   }
 }
+
+/* See: https://github.com/valor-software/ngx-bootstrap/issues/4226 */
+.dropdown-menu-right {
+  right: 0 !important;
+  left: auto !important;
+}

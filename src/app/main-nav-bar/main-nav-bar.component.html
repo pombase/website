@@ -64,14 +64,14 @@
   </span>
 -->
 
-  <span *ngFor="let menu of navBarMenus" class="dropdown btn-group" dropdown>
+  <span *ngFor="let menu of navBarMenus; let idx = index" class="dropdown btn-group" dropdown>
 
     <button dropdownToggle class="btn dropdown-toggle">
       {{menu.header}} <span class="caret"></span>
     </button>
 
-
-      <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <ul *dropdownMenu role="menu"
+          [ngClass]="idx + 1 >= navBarMenus.length ? 'dropdown-menu dropdown-menu-right' : 'dropdown-menu'">
         <li *ngFor="let menuEntry of menu.entries" role="menuitem">
           <a *ngIf="entryIsRoute(menuEntry)" routerLink="{{menuEntry.url}}" class="dropdown-item">{{menuEntry.title}}</a>
           <a *ngIf="!entryIsRoute(menuEntry)" href="{{menuEntry.url}}" class="dropdown-item">{{menuEntry.title}}</a>
