@@ -1111,7 +1111,7 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
   IntactInteractionNetwork: {
     "description" : "IntAct interaction networks",
     displayName: "IntAct interaction networks",
-    urlSyntax: "https://www.ebi.ac.uk/intact/search?query=[example_id]&interactionTypesFilter=direct%20interaction,physical%20association",
+    urlSyntax: "https://www.ebi.ac.uk/intact/search?query=[example_id]",
     website: "https://www.ebi.ac.uk/intact/",
   },
 };
