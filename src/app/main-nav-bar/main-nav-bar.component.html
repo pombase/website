@@ -57,7 +57,7 @@
     </button>
 
       <ul *dropdownMenu role="menu"
-          [ngClass]="idx + 1 >= navBarMenus.length ? 'dropdown-menu dropdown-menu-right' : 'dropdown-menu'">
+          [ngClass]="idx + 1 >= navBarMenus.length ? 'dropdown-menu nav-bar-dropdown-menu-right' : 'dropdown-menu'">
         <li *ngFor="let menuEntry of menu.entries" role="menuitem">
           <a *ngIf="entryIsRoute(menuEntry)" routerLink="{{menuEntry.url}}" class="dropdown-item">{{menuEntry.title}}</a>
           <a *ngIf="!entryIsRoute(menuEntry)" href="{{menuEntry.url}}" class="dropdown-item">{{menuEntry.title}}</a>
@@ -71,7 +71,7 @@
       Help <span class="caret"></span>
     </button>
 
-    <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+    <ul *dropdownMenu class="dropdown-menu nav-bar-dropdown-menu-right" role="menu">
       <li role="menuitem">
         <a routerLink="/documentation" class="dropdown-item">Documentation</a>
       </li>
