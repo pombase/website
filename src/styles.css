@@ -587,3 +587,8 @@ a.disabled-menu-item.dropdown-item {
   margin: 0.4em 0 0.2em 0;
   font-weight: bold;
 }
+
+.completion-match-detail em {
+  font-style: normal;
+  font-weight: bold;
+}

@@ -51,6 +51,7 @@ export interface SolrTermSummary {
   name: string;
   cv_name: string;
   definition: string;
+  highlighting: { [fieldName: string]: string };
 }
 
 type CantoAnnotationStatus =
@@ -72,6 +73,7 @@ export interface SolrRefSummary {
   canto_annotation_status: CantoAnnotationStatus;
   canto_curator_name: string;
   canto_curator_role: string;
+  highlighting: { [fieldName: string]: string };
 }
 
 const retryOptions: RetryOptions = new RetryOptions('json', 600, 4, 3500);
@@ -106,7 +108,7 @@ export class CompleteService {
 
         const terms = parsedRes['matches'];
 
-        const resultTerms = terms.map((term: any) => {
+        const resultTerms: Array<SolrTermSummary> = terms.map((term: any) => {
           let synonymMatch = null;
           if (queryText.length >= 2 && term['close_synonyms']) {
             const nameScore = compareTwoStrings(term.name, queryText);
@@ -123,7 +125,8 @@ export class CompleteService {
             isSynonymMatch: synonymMatch !== null,
             termid: term['id'],
             name: term['name'],
-            definition: term['definition']
+            definition: term['definition'],
+            highlighting: term['highlighting'],
           };
         });
 

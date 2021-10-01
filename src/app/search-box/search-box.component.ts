@@ -114,13 +114,30 @@ export class SearchBoxComponent implements OnInit {
   }
 
   private makeTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
+    let details = termResult.highlighting['definition'];
+    if (!details) {
+      details = termResult.definition;
+    }
     return new DisplayModel('Matching terms:', termResult.termid, termResult.name,
-                            [termResult.definition]);
+                            [details]);
   }
 
   private makeRefDisplayModel(refResult: SolrRefSummary): DisplayModel {
+    let authorsAbbrev = refResult.highlighting['authors_abbrev'];
+    if (!authorsAbbrev) {
+      authorsAbbrev = refResult.authors_abbrev;
+    }
+
+    let citation = refResult.highlighting['citation'];
+    if (!citation) {
+      citation = refResult.citation;
+    }
+
+    const authorAndCitation =
+      [authorsAbbrev, citation].filter(v => !!v).join(' ');
+
     return new DisplayModel('Matching publications:', refResult.pubmedid, refResult.title,
-                            [refResult.author_and_citation]);
+                            [authorAndCitation]);
   }
 
   private nameExactMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {

@@ -4,7 +4,7 @@
   <span *ngIf="!model.name"><strong>{{model.uniquename}}</strong></span>
     <div *ngIf="model.otherDetails" class="match-extra">
       <div *ngFor="let detail of model.otherDetails">
-        <span [innerHTML]="detail"></span>
+        <span class="completion-match-detail" [innerHTML]="detail"></span>
       </div>
     </div>
   </div>
