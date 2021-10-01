@@ -23,6 +23,7 @@
   padding: 0.05em 0.3em;
   border-right: 1px solid #bbc;
   flex-grow: 0.01;
+  display: inline-flex;
 }
 
 .node-selected-button {
@@ -41,6 +42,10 @@
 
 .button-filler {
   border-right: 1px solid #aac;
+  flex-grow: 1;
+}
+
+.indicator-filler {
   flex-grow: 1;
 }
 
@@ -78,4 +83,8 @@
 .node-top-help img {
   height: 1em;
   vertical-align: baseline;
+}
+
+.sub-nodes-indicator {
+  padding-left: 0.4em;
 }

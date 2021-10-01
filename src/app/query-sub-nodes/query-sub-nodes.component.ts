@@ -13,7 +13,13 @@ export class QuerySubNodesComponent implements OnInit {
   @Input() nodeConfig: QueryNodeConfig;
   @Output() subNodeEvent = new EventEmitter();
 
+  currentTabNodeConfig?: QueryNodeConfig;
+
   constructor() { }
+
+  changeTab(nodeConfig: QueryNodeConfig) {
+    this.currentTabNodeConfig = nodeConfig;
+  }
 
   nodeHeading(nodeConfig: QueryNodeConfig): string {
     return Util.capitalize(nodeConfig.displayName);
@@ -24,5 +30,6 @@ export class QuerySubNodesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentTabNodeConfig = this.nodeConfig.subNodes![0];
   }
 }

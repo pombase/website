@@ -1,0 +1,16 @@
+
+.range button {
+  margin-top: 1.5em;
+}
+
+.range-section {
+  padding: 0.2em;
+}
+
+.range-min-max {
+  padding: 0.2em 1em;
+}
+
+.range-label {
+  user-select: none;
+}

@@ -551,14 +551,18 @@ export class HasOrthologNode extends GeneQueryBase {
 
 function rangeToString(rangeNode: RangeNode) {
   let returnVal = rangeNode.rangeType;
-  if (!rangeNode.rangeEnd) {
+  if (rangeNode.rangeEnd === undefined) {
     returnVal += '(\u2265' + rangeNode.rangeStart + ')';
   } else {
-    if (!rangeNode.rangeStart) {
+    if (rangeNode.rangeStart === undefined) {
       returnVal += '(\u2264' + rangeNode.rangeEnd + ')';
     } else {
       if (rangeNode.rangeStart === rangeNode.rangeEnd) {
-        returnVal += '(' + rangeNode.rangeStart + ')';
+        if (rangeNode.rangeStart === 0) {
+          returnVal += '(none)';
+        } else {
+          returnVal += '(=' + rangeNode.rangeStart + ')';
+        }
       } else {
         returnVal += '(' + rangeNode.rangeStart + '..' + rangeNode.rangeEnd + ')';
       }
@@ -570,7 +574,7 @@ function rangeToString(rangeNode: RangeNode) {
 
 export abstract class RangeNode extends GeneQueryBase {
   constructor(nodeName: string|undefined, public rangeType: string,
-              public rangeStart: number, public rangeEnd: number) {
+              public rangeStart: number|undefined, public rangeEnd: number|undefined) {
     super(nodeName);
     if (!nodeName) {
       this.setNodeName(this.detailsString());

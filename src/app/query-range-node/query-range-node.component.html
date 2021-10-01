@@ -1,0 +1,50 @@
+<div class="range">
+  <div *ngIf="nodeConfig.range_any_and_none" class="range-section">
+    <input type="radio" id="range-any" [(ngModel)]="enabledRangeSection" value="any"/>
+    <label for="range-any" class="range-label">Proteins with any {{nodeConfig.displayName}}</label>
+  </div>
+  <div *ngIf="nodeConfig.range_any_and_none" class="range-section">
+    <input type="radio" id="range-none" [(ngModel)]="enabledRangeSection" value="none"/>
+    <label for="range-none" class="range-label">Proteins with no {{nodeConfig.displayName}}</label>
+  </div>
+
+  <div class="range-section">
+    <div *ngIf="nodeConfig.range_any_and_none">
+      <input *ngIf="this.nodeConfig.range_any_and_none" type="radio"
+             id="range-range" [(ngModel)]="enabledRangeSection" value="range"/>
+      <label for="range-range" class="range-label">
+        Number of {{nodeConfig.displayName}} per protein:
+      </label>
+    </div>
+
+    <div class="range-min-max">
+      <input [disabled]="enabledRangeSection != 'range'"
+             id="range-min"
+             (change)="rangeMinToggled()"
+             [(ngModel)]="rangeConstrainMin" type="checkbox"/>
+      <label for="range-min" class="range-label">Minimum:</label>
+      <input [disabled]="enabledRangeSection != 'range' || !rangeConstrainMin"
+             (change)="rangeStartChanged()"
+             type="number" [(ngModel)]="rangeStart" min="{{rangeMin}}"
+             step="{{nodeConfig.nodeType == 'int-range' ? 1 : ''}}"
+             placeholder="minimum ..."/>
+    </div>
+    <div class="range-min-max">
+      <input [disabled]="enabledRangeSection != 'range'"
+             id="range-max"
+             (change)="rangeMaxToggled()"
+             [(ngModel)]="rangeConstrainMax" type="checkbox"/>
+      <label for="range-max" class="range-label">Maximum:</label>
+      <input [disabled]="enabledRangeSection != 'range' || !rangeConstrainMax"
+             (change)="rangeEndChanged()"
+             type="number" [(ngModel)]="rangeEnd" min="{{rangeMin}}"
+             step="{{nodeConfig.nodeType == 'int-range' ? 1 : ''}}"
+             placeholder="maximum ..."/>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary"
+          title="Click to search"
+          (click)="rangeSearch(nodeConfig)">Search</button>
+
+</div>

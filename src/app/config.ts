@@ -70,6 +70,8 @@ export interface QueryNodeConfig {
   displayName: string;
   nodeType: 'canned-queries'|'int-range'|'float-range'|'gene-list'|'genome-range'|'has-ortholog'|'ontology'|'small-ontology'|'subset-input'|'subset-select'|'sub-nodes';
   development_mode_only?: boolean;
+  range_minimum?: number;
+  range_any_and_none?: boolean;
   subNodes?: Array<QueryNodeConfig>;
   ontologyName?: string;
   annotationFeatureType?: string;

@@ -6,7 +6,9 @@
     </div>
     <div [ngClass]="{'node-selected-button': activeConf && conf.id == activeConf.id}"
          (click)="setNodeType(conf.id)" class="node-button" *ngFor="let conf of nodeTypes">
-      {{upperCaseIntial(conf.displayName)}}
+      <span>{{upperCaseIntial(conf.displayName)}}</span>
+      <span class="indicator-filler"></span>
+      <span *ngIf="conf.nodeType == 'sub-nodes'" class="sub-nodes-indicator">&#62;</span>
     </div>
     <div class="button-filler">
 

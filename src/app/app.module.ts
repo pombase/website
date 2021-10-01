@@ -127,6 +127,7 @@ import { QuerySubNodesComponent } from './query-sub-nodes/query-sub-nodes.compon
 import { QueryNodeDisplayComponent } from './query-node-display/query-node-display.component';
 import { GeneQueryStructureComponent } from './gene-query-structure/gene-query-structure.component';
 import { GeneVisSettingsComponent } from './gene-vis-settings/gene-vis-settings.component';
+import { QueryRangeNodeComponent } from './query-range-node/query-range-node.component';
 
 export function documentFactory() {
     return document;
@@ -228,6 +229,7 @@ export function windowFactory() {
     QueryNodeDisplayComponent,
     GeneQueryStructureComponent,
     GeneVisSettingsComponent,
+    QueryRangeNodeComponent,
   ],
   imports: [
     BrowserModule,

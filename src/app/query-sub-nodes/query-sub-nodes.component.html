@@ -1,6 +1,6 @@
 <tabset #subNodeTabs class="tab-container">
-  <tab *ngFor="let subNode of nodeConfig.subNodes" class="sub-node-tab" heading="{{nodeHeading(subNode)}}">
-    <div class="sub-node-content">
+  <tab *ngFor="let subNode of nodeConfig.subNodes" (selectTab)="changeTab(subNode)" class="sub-node-tab" heading="{{nodeHeading(subNode)}}">
+    <div class="sub-node-content" *ngIf="currentTabNodeConfig && currentTabNodeConfig.id == subNode.id">
       <app-query-node-display [nodeConfig]="subNode" (nodeEvent)="emitEvent($event)">
       </app-query-node-display>
     </div>

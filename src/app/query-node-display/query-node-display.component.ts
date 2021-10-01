@@ -1,10 +1,12 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 
-import { GeneQuery, GeneListNode, TermNode, SubsetNode, IntRangeNode, FloatRangeNode,
-         GenomeRangeNode, GeneQueryNode, TermShort, NodeEventDetails, HasOrthologNode } from '../pombase-query';
+import { GeneQuery, GeneListNode, TermNode, SubsetNode,
+         GenomeRangeNode, GeneQueryNode, TermShort,
+         NodeEventDetails, HasOrthologNode } from '../pombase-query';
 import { GeneSummary, ChromosomeShort } from '../pombase-api.service';
 
-import { ChromosomeConfig, ConfigOrganism, getAppConfig, QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
+import { ChromosomeConfig, ConfigOrganism, getAppConfig,
+         QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
 
 interface DisplayChromosome extends ChromosomeConfig {
@@ -75,8 +77,6 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
     this.selectedTerm = undefined;
     this.selectedSubset = undefined;
-    this.rangeStart = undefined;
-    this.rangeEnd = undefined;
     this.chromosomeName = undefined;
     this.selectedOrthologOrganism = undefined;
   }
@@ -138,19 +138,6 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
       (this.rangeStart === undefined ||
        this.rangeEnd === undefined ||
        this.rangeStart <= this.rangeEnd);
-  }
-
-  rangeSearch(nodeConfig: QueryNodeConfig): void {
-    let part;
-
-    if (nodeConfig.nodeType == 'int-range') {
-      part = new IntRangeNode(undefined, nodeConfig.id,
-                              this.rangeStart!, this.rangeEnd!);
-    } else {
-      part = new FloatRangeNode(undefined, nodeConfig.id,
-                                this.rangeStart!, this.rangeEnd!);
-    }
-    this.emitNodeEvent(part);
   }
 
   genomeRangeSearch(): void {

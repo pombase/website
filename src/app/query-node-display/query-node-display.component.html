@@ -63,16 +63,12 @@
 
   <div *ngIf="nodeConfig.nodeType == 'int-range' || nodeConfig.nodeType == 'float-range'"
        class="range">
-    <input type="number" [(ngModel)]="rangeStart" min="1" step="1"
-           placeholder="min ..."/>
-    <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
-           placeholder="max ..."/>
-    <button type="button" class="btn btn-primary"
-            [attr.title]="validRange() ? 'Click to search' : 'min must be less than or equal to max'"
-            [disabled]="!validRange()" (click)="rangeSearch(nodeConfig)">Search</button>
+    <app-query-range-node [nodeConfig]="nodeConfig"
+                          (nodeEvent)="subNodeEvent($event)">
+    </app-query-range-node>
   </div>
 
-  <div *ngIf="nodeConfig.id == 'genome_range'">
+  <div class="genome-range" *ngIf="nodeConfig.id == 'genome_range'">
     <div class="node-section">
 
       <select [(ngModel)]="chromosomeName">
