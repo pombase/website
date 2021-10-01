@@ -38,3 +38,7 @@ div.phenotype-condition-selector {
 .single-or-multi-locus {
   padding: 0.5em 0.8em;
 }
+
+.node-bottom-description {
+  padding: 1em 0;
+}

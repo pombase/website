@@ -82,6 +82,10 @@
   </div>
 </div>
 
+<div class="node-bottom-description" *ngIf="termNodeConfig.extraDescription">
+  <span [innerHtml]="termNodeConfig.extraDescription"></span>
+</div>
+
 <div class="buttons">
   <button [disabled]="!isValid()" [attr.title]="submitTitle()"
           class="btn btn-primary" (click)="submit()">Submit</button>

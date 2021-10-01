@@ -66,6 +66,7 @@ export interface QueryNodeTopDescriptionPart {
 export interface QueryNodeConfig {
   id: string;
   topDescription: Array<QueryNodeTopDescriptionPart>;
+  extraDescription?: string;
   displayName: string;
   nodeType: 'canned-queries'|'int-range'|'float-range'|'gene-list'|'genome-range'|'has-ortholog'|'ontology'|'small-ontology'|'subset-input'|'subset-select'|'sub-nodes';
   development_mode_only?: boolean;
