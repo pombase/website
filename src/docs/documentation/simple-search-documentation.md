@@ -20,4 +20,6 @@ matching gene page.
 
 ![Simple search autocomplete matches](assets/simple_search_dropdown.png){width="170"}
 
-For publications or ontology terms, type or paste an ID as directed.
+For publications or ontology terms, type or paste an ID as
+directed. Note that for these IDs, autocomplete suggestions are not
+provided. Enter the ID and hit return to execute the search.
