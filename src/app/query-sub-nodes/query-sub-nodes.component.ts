@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, OnChanges } from '@angular/core';
 import { QueryNodeConfig } from '../config';
 import { NodeEventDetails } from '../pombase-query';
 import { Util } from '../shared/util';
@@ -9,7 +9,7 @@ import { Util } from '../shared/util';
   styleUrls: ['./query-sub-nodes.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class QuerySubNodesComponent implements OnInit {
+export class QuerySubNodesComponent implements OnInit, OnChanges {
   @Input() nodeConfig: QueryNodeConfig;
   @Output() subNodeEvent = new EventEmitter();
 
@@ -30,6 +30,9 @@ export class QuerySubNodesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(): void {
     this.currentTabNodeConfig = this.nodeConfig.subNodes![0];
   }
 }

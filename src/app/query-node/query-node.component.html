@@ -2,13 +2,23 @@
   <div class="node-buttons">
     <div [ngClass]="{'node-selected-button': !activeConf}"
          (click)="clearQuery()" class="node-button">
-      New query
+      <div class="non-heading-button button-level-0">
+        New query
+      </div>
     </div>
     <div [ngClass]="{'node-selected-button': activeConf && conf.id == activeConf.id}"
-         (click)="setNodeType(conf.id)" class="node-button" *ngFor="let conf of nodeTypes">
-      <span>{{upperCaseIntial(conf.displayName)}}</span>
-      <span class="indicator-filler"></span>
-      <span *ngIf="conf.nodeType == 'sub-nodes'" class="sub-nodes-indicator">&#62;</span>
+         class="node-button"
+         *ngFor="let conf of nodeTypes">
+      <div *ngIf="conf.nodeType === 'heading'" class="heading-button button-level-{{conf.level}}">
+        <span>{{upperCaseIntial(conf.displayName)}}:</span>
+      </div>
+      <div *ngIf="conf.nodeType !== 'heading'"
+           (click)="setNodeType(conf.id)"
+           class="non-heading-button button-level-{{conf.level}}">
+        <span>{{upperCaseIntial(conf.displayName)}}</span>
+        <span class="indicator-filler"></span>
+        <span *ngIf="conf.nodeType == 'sub-nodes'" class="sub-nodes-indicator">&#62;</span>
+      </div>
     </div>
     <div class="button-filler">
 

@@ -13,15 +13,29 @@ export class QueryNodeComponent implements OnInit, OnChanges {
   @Input() startNodeType?: string;
   @Output() nodeEvent = new EventEmitter<NodeEventDetails>();
 
-  nodeTypes = getAppConfig().queryBuilder.node_types;
+  nodeTypes: Array<QueryNodeConfig> = [];
 
   activeConf?: QueryNodeConfig;
 
   appConfig = getAppConfig();
 
   constructor(deployConfigService: DeployConfigService) {
+    this.processNodeConfigs(getAppConfig().queryBuilder.node_types);
+
     if (deployConfigService.productionMode()) {
       this.nodeTypes = this.nodeTypes.filter(nodeConfig => !nodeConfig.development_mode_only);
+    }
+  }
+
+  processNodeConfigs(nodeConfigs: Array<QueryNodeConfig>, level = 0) {
+    for (const nodeConfig of nodeConfigs) {
+      nodeConfig.level = level;
+      this.nodeTypes.push(nodeConfig);
+      if (nodeConfig.nodeType === 'heading') {
+        if (nodeConfig.subNodes) {
+          this.processNodeConfigs(nodeConfig.subNodes, level + 1);
+        }
+      }
     }
   }
 

@@ -16,14 +16,18 @@
 }
 
 .node-button {
-  color: #22b;
   min-height: 1.55em;
-  cursor: pointer;
   white-space: nowrap;
   padding: 0.05em 0.3em;
   border-right: 1px solid #bbc;
   flex-grow: 0.01;
+}
+
+.non-heading-button {
+  cursor: pointer;
+  color: #22b;
   display: inline-flex;
+  width: 100%;
 }
 
 .node-selected-button {
@@ -36,7 +40,12 @@
   border-bottom-left-radius: 2px;
 }
 
-.node-button:hover {
+.button-level-1 {
+  padding-left: 1em;
+  font-size: 95%;
+}
+
+.non-heading-button:hover {
   text-decoration: underline;
 }
 
@@ -87,4 +96,8 @@
 
 .sub-nodes-indicator {
   padding-left: 0.4em;
+}
+
+.heading-button {
+  user-select: none;
 }

@@ -68,7 +68,8 @@ export interface QueryNodeConfig {
   topDescription: Array<QueryNodeTopDescriptionPart>;
   extraDescription?: string;
   displayName: string;
-  nodeType: 'canned-queries'|'int-range'|'float-range'|'gene-list'|'genome-range'|'has-ortholog'|'ontology'|'small-ontology'|'subset-input'|'subset-select'|'sub-nodes';
+  nodeType: 'heading'|'canned-queries'|'int-range'|'float-range'|'gene-list'|'genome-range'|'has-ortholog'|'ontology'|'small-ontology'|'subset-input'|'subset-select'|'sub-nodes';
+  level?: number;
   development_mode_only?: boolean;
   range_minimum?: number;
   range_any_and_none?: boolean;
