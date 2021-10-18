@@ -226,7 +226,7 @@ the query to null alleles (covers deletions and any other sequence
 changes, such as most disruptions, that completely abolish expression
 of the gene) or overexpression of the wild type allele.
 
-![phenotype condition search option](assets/fypo_condition_search.png){width="651"}
+![phenotype condition search option](assets/fypo_condition_query.png){width="651"}
 
 The "Constrain condition" option restricts the results to include only
 genes that have phenotype annotations including the specified
