@@ -1,5 +1,4 @@
 ### Improved gene-disease curation: over 1400 S. pombe genes
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: human disease.png -->
 
 PomBase disease gene curation associates disease descriptors with

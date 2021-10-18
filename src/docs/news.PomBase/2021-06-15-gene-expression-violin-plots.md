@@ -1,5 +1,4 @@
 ### Violin plots for gene expression
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: advanced_search.png -->
 
 The "Quantitative gene expression" section of PomBase gene pages now
