@@ -91,3 +91,7 @@ ul.conditions li {
 .term-name {
   font-weight: 600;
 }
+
+.genotype-column .genotype-background {
+  font-size: 95%;
+}
