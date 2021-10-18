@@ -14,7 +14,7 @@ below (scroll down to Search tips).
 
 In the Search menu, choose Advanced (or bookmark [${base_url}/query](/query)).
 
-In the Query panel (top), click one of the links in the list on the left to choose a query type (described below).  For each query, the interface guides your input.
+In the Query panel (top), click one of the links in the list on the left to choose a query type (described below). Arrowheads indicate list entries that expand to offer two or more query types, organized in tabs. For each query, the interface guides your input.
 
 ![advanced search page with new query](assets/advanced_search_main.png){width="682"}
 
@@ -46,7 +46,7 @@ Click "Change direction" to switch the order. Click "Submit" to run
 the query.
 
 You can also move any query to the top of the history list by clicking
-its "Results" link.
+its "Results" link, and then clicking the "<- Advanced search" button.
 
 Query results can remain available in the history list for several
 days. If changes in annotation cause results to change since a query
@@ -108,7 +108,8 @@ dropdown, and choose a slim. Note: when you return to the main
 Advanced search page, the query history will include an entry showing
 the query as a gene list. This is harmless.
 
-6. Narrow the list: click the button to reveal checkboxes
+6. Narrow the list: click the button to reveal checkboxes. Available
+for lists of up to 1000 genes.
 
 7. Download selected data for genes in the list. The popup offers
 three sets of options:
@@ -173,6 +174,10 @@ or click the "Browse" button to select a file to upload. Click
 "Lookup" to add the gene list to the history (useful for combining the
 list with other queries).
 
+#### UniProt accessions
+
+Links to the [Identifier Mapper](/identifier-mapper).
+
 #### GO
 
 The Gene Ontology (GO) query retrieves gene products annotated to a GO
@@ -195,31 +200,38 @@ did not match those in AmiGO.
 The phenotype (Fission Yeast Phenotype Ontology) query retrieves genes
 annotated to a FYPO term and to any of its child terms, following the
 *is_a*, *part_of*, *output_of*, *has_output*, and *has_part*
-relationships in the ontology. This query also offers three additional
-sets of options:
+relationships in the ontology. This query also offers additional
+context-dependent options. By default, the phenotype search retrieves
+genes from single-allele haploid and diploid genotypes annotated to
+the searched FYPO term:
 
-![phenotype search options](assets/fypo_search_options.png){width="651"}
+![phenotype default search options](assets/fypo_default_search_options.png){width="651"}
 
-**Alleles:** By default, the phenotype search retrieves genes from
-single-allele genotypes annotated to the searched FYPO term. You can
-alter the selected options to add genes from multi-allele
-genotypes. See the [gene page phenotype
+You can alter the selected options to add genes from multi-allele
+genotypes, and/or to search specifically for haploids or diploids.
+See the [gene page phenotype
 documentation](documentation/gene-page-phenotypes) and the [genotype
 page documentation](documentation/genotype-page) for more information.
 
-**Expression:** Different alleles of one gene may have different
-phenotypes, and one allele may give rise to different phenotypes under
-different experimental conditions. At present, you can retrieve
-annotations for all alleles of a gene, or use the "Expression level"
-options restrict the query to null alleles (covers deletions and any
-other sequence changes, such as most disruptions, that completely
-abolish expression of the gene) or overexpression of the wild type
-allele.
+If you select single-locus haploids, expression level options are also
+available:
 
-**Conditions:** The "Constrain condition" option restricts the results
-to include only genes that have phenotype annotations including the
-specified condition. The search uses the same condition descriptors as
-Canto and the ${database_name} web pages. Start typing, then choose from the
+![phenotype search options for single-locus haploids](assets/fypo_haploid_search_options.png){width="651"}
+
+Different alleles of one gene may have different phenotypes, and one
+allele may give rise to different phenotypes under different
+experimental conditions. At present, you can retrieve annotations for
+all alleles of a gene, or use the "Expression level" options restrict
+the query to null alleles (covers deletions and any other sequence
+changes, such as most disruptions, that completely abolish expression
+of the gene) or overexpression of the wild type allele.
+
+![phenotype condition search option](assets/fypo_condition_search.png){width="651"}
+
+The "Constrain condition" option restricts the results to include only
+genes that have phenotype annotations including the specified
+condition. The search uses the same condition descriptors as Canto and
+the ${database_name} web pages. Start typing, then choose from the
 autocomplete options.
 
 Note that the results will include any gene that has phenotype
@@ -234,40 +246,6 @@ The search does not yet support querying for multiple conditions on
 the same annotation, nor for queries that *exclude* a given condition;
 both are planned for future development.
 
-#### Product type
-
-Choose a gene product type (e.g. protein coding, tRNA, etc.) from the
-pulldown menu.
-
-#### Protein modification
-
-Search for terms or IDs in the [PSI-MOD](http://obofoundry.org/ontology/mod.html)
-ontology.
-
-#### Protein domain
-
-Search for an ID from Pfam, PRINTs, PROFILE, ProSite, or
-InterPro. Type or paste an accession and click "Submit".
-
-#### Protein feature
-
-This query searches for terms or IDs in the
-[Sequence Ontology](http://sequenceontology.org/)
-and retrieves protein-coding genes where the protein has the feature
-represented by the SO term (e.g. [KEN box SO:0001807](/term/SO:0001807) ).
-
-#### Protein length
-
-Find protein-coding genes with products in a specified length
-range. Enter the desired minimum and maximum length and click
-"Search".
-
-#### Protein mol. weight
-
-Find protein-coding genes with products in a specified mass
-range. Enter the desired minimum and maximum mass in kiloDaltons (kDa)
-and click "Search".
-
 %%if db=PomBase
 #### Disease
 
@@ -278,10 +256,75 @@ options. To retrieve all disease-associated genes, type or paste
 "MONDO:0000001".
 %%end db=PomBase
 
-#### Number of TM domains
+#### Product type
+
+Choose a gene product type (e.g. protein coding, tRNA, etc.) from the
+pulldown menu.
+
+#### Protein modification
+
+Search for terms or IDs in the [PSI-MOD](http://obofoundry.org/ontology/mod.html)
+ontology.
+
+#### Domain, features and motifs
+
+Queries for proteins that have a specified domain, sequence feature,
+or structural feature
+
+##### Domain ID
+
+Search for a protein domain using an ID from Pfam, PRINTs, PROFILE,
+ProSite, or InterPro. Type or paste an accession and click "Submit".
+
+##### Protein motifs
+
+This query searches for terms or IDs in the
+[Sequence Ontology](http://sequenceontology.org/)
+and retrieves protein-coding genes where the protein has the feature
+represented by the SO term (e.g. [KEN box SO:0001807](/term/SO:0001807)).
+
+##### TM domains
 
 Find protein-coding genes with products that have a specified number
-of transmembrane domains. Enter the desired minimum and maximum number
+of transmembrane domains. Use the appropriate button for any TM
+domains or none, or enter the desired minimum and maximum number and
+click "Search".
+
+##### Coiled-coil regions
+
+Find protein-coding genes with products that have a specified number
+of coiled-coil regions. Use the appropriate button for any coiled-coil
+regions or none, or enter the desired minimum and maximum number and
+click "Search".
+
+##### Disordered regions
+
+Find protein-coding genes with products that have a specified number
+of disordered regions. Use the appropriate button for any disordered
+regions or none, or enter the desired minimum and maximum number and
+click "Search".
+
+##### Low-complexity regions
+
+Find protein-coding genes with products that have a specified number
+of low-complexity regions. Use the appropriate button for any
+low-complexity regions or none, or enter the desired minimum and
+maximum number and click "Search".
+
+#### Protein properties
+
+Physical properties of protein gene products:
+
+##### Protein length
+
+Find protein-coding genes with products in a specified length
+range. Enter the desired minimum and maximum length and click
+"Search".
+
+##### Protein mol. weight
+
+Find protein-coding genes with products in a specified mass
+range. Enter the desired minimum and maximum mass in kiloDaltons (kDa)
 and click "Search".
 
 #### Genome location
@@ -305,20 +348,37 @@ with two or more have one or more alternative transcripts in addition
 to the primary transcript. Enter the desired minimum and maximum
 number and click "Search".
 
-%%if db=PomBase
-#### Taxonomic conservation
+%%if db=JaponicusDB
+#### Protein with orthologs
+Choose a species from the pulldown menu to retrieve all *S. japonicus*
+genes with a curated ortholog in the selected species.
+%%end db=JaponicusDB
 
-Choose one of the descriptions from the pulldown menu. See the [gene page documentation](documentation/taxonomic-conservation) for more information.
+%%if db=PomBase
+#### Orthologs and conservation
+
+##### Taxonomic conservation
+
+Choose one of the descriptions from the pulldown menu. See the [gene
+page documentation](documentation/taxonomic-conservation) for more
+information.
+
+##### Protein with orthologs
+
+Choose a species from the pulldown menu to retrieve all *S. pombe*
+genes with a curated ortholog in the selected species.
 
 #### Characterisation status
 
-Choose one of the descriptions from the pulldown menu. See the [gene characterisation page](status/gene-characterisation) for more information.
+Choose one of the descriptions from the pulldown menu. See the [gene
+characterisation page](status/gene-characterisation) for more
+information.
+%%end db=PomBase
 
 ### Search tips
 [FAQ](/faq) entries relevant to using the advanced search are
 organised here by topic. Several of the topics also correspond to gene
 page sections.
-%%end db=PomBase
 
 #### Phenotype searches
 
@@ -342,12 +402,14 @@ page sections.
  -  [How can I find all S. ${species} proteins in a particular protein family?](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain)
  -  [How can I find proteins that have transmembrane domains?](/faq/how-can-i-find-proteins-have-transmembrane-domains)
 
+%%if db=PomBase
 #### Taxonomic conservation
 
  -  [How can I find S. ${species} genes associated with human disease?](/faq/how-can-i-find-s.-pombe-genes-associated-human-disease)
  -  [How can I find all S. ${species} genes that are conserved in human?](/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human)
  -  [Can I search for genes based on conservation in different taxa?](/faq/can-i-search-genes-based-on-conservation-different-taxa)
  -  [Can I find all of the unconserved (orphan) genes in fission yeast?](/faq/can-i-find-all-unconserved-orphan-genes-fission-yeast)
+%%end db=PomBase
 
 #### Gene and genome searches
 
