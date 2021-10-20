@@ -264,7 +264,9 @@ export class GenesDownloadDialogComponent implements OnInit {
         let gafString = '';
         for (const resultRow of results.getRows()) {
           const gafLines = resultRow.gaf_lines;
-          gafString += gafLines;
+          if (gafLines) {
+            gafString += gafLines;
+          }
         }
 
         const blob = new Blob([gafString], { type: 'text' });
