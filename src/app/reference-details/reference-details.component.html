@@ -54,10 +54,7 @@
       <div>
         <a class="pub-link" href="http://europepmc.org/abstract/MED/{{pubMedId}}">Europe PMC</a>
           |
-        <a *ngIf="!hasAnnotations()"
-           class="pub-link" href="http://www.ncbi.nlm.nih.gov/pubmed?term={{pubMedId}}">PubMed</a>
-        <a *ngIf="hasAnnotations()"
-           class="pub-link" href="https://www.ncbi.nlm.nih.gov/pubmed?holding=pombase&term={{pubMedId}}">PubMed</a>
+        <a class="pub-link" href="https://www.ncbi.nlm.nih.gov/pubmed?term={{pubMedId}}">PubMed</a>
         <span class="ref-doi" *ngIf="refDetails.doi">| DOI: <a href="{{doiUrl}}">{{refDetails.doi}}</a></span>
       </div>
     </ng-container>
