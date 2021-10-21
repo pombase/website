@@ -54,6 +54,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   protein?: ProteinDetails;
 
   ensemblBlastUrl = getAppConfig().ensembl_blast_url;
+  jackhmmerSearchUrl = getAppConfig().jackhmmer_search_url;
+  fastaSearchUrl = getAppConfig().fasta_search_url;
 
   constructor(private apiService: PombaseAPIService,
               @Inject('Window') private window: Window) { }

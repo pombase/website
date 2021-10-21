@@ -146,6 +146,16 @@
                   <input class="btn btn-primary" type="submit" value="Ensembl Protein BLAST" />
                 </form>
               </span>
+
+              <span class="sequence-action">
+                <form id="jackhmmersearch" name="JackhmmerSearch" #jackhmmersearch
+                      (ngSubmit)="jackhmmersearch.submit();"
+                      target="_blank"
+                      action="{{jackhmmerSearchUrl}}" method="GET">
+                  <input value="{{'>' + proteinSequenceHeader + '\n' + wrappedProteinSequence}}" name="seq" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="JackHMMER Search" />
+                </form>
+              </span>
             </div>
           </div>
         </div>
