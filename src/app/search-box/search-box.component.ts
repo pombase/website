@@ -114,23 +114,26 @@ export class SearchBoxComponent implements OnInit {
   }
 
   private makeTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
-    let details = termResult.highlighting['definition'];
-    if (!details) {
-      details = termResult.definition;
+    let details = termResult.definition;
+
+    if (termResult.highlighting && termResult.highlighting['definition']) {
+      details = termResult.highlighting['definition'];
     }
     return new DisplayModel('Matching terms:', termResult.termid, termResult.name,
                             [details]);
   }
 
   private makeRefDisplayModel(refResult: SolrRefSummary): DisplayModel {
-    let authorsAbbrev = refResult.highlighting['authors_abbrev'];
-    if (!authorsAbbrev) {
-      authorsAbbrev = refResult.authors_abbrev;
-    }
+    let authorsAbbrev = refResult.authors_abbrev;
+    let citation = refResult.citation;
 
-    let citation = refResult.highlighting['citation'];
-    if (!citation) {
-      citation = refResult.citation;
+    if (refResult.highlighting) {
+      if (refResult.highlighting['authors_abbrev']) {
+        authorsAbbrev = refResult.highlighting['authors_abbrev']
+      }
+      if (refResult.highlighting['citation']) {
+        citation = refResult.highlighting['citation'];
+      }
     }
 
     const authorAndCitation =
