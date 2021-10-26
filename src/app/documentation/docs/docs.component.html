@@ -604,6 +604,10 @@ In Kollar M (ed) <em>Eukaryotic Genomic Databases. Methods in Molecular Biology<
 <h3 id="more">More</h3>
 <p>Posters and slides from conferences and workshops are available on the <a routerLink="/documents">Documents</a> page.</p>
 <h2 id="collaborative-publications-including-pombase-authors">Collaborative publications including PomBase authors</h2>
+<p>Rutherford KM, Harris MA, Oliferenko S, Wood V.<br />
+JaponicusDB: Rapid deployment of a model organism database for an emerging model species.<br />
+<a href="https://www.biorxiv.org/content/10.1101/2021.09.23.461587v1">Pre-publication manuscript</a> available at bioRxiv.<br />
+</p>
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1093/nar/gkaa1113">
 
 </div>
@@ -5205,7 +5209,7 @@ PomBase using the Ensembl viewer.</p>
 <p>The PomBase advanced search allows you to construct complex queries for <em>S. pombe</em> genes. At present all advanced search results are lists of genes that match the query specifications. Hints for specific searches are available in the <a routerLink="/faq">PomBase FAQ</a>, and linked below (scroll down to Search tips).</p>
 <h3 id="overview">Overview</h3>
 <p>In the Search menu, choose Advanced (or bookmark <a routerLink="/query">https://www.pombase.org/query</a>).</p>
-<p>In the Query panel (top), click one of the links in the list on the left to choose a query type (described below). For each query, the interface guides your input.</p>
+<p>In the Query panel (top), click one of the links in the list on the left to choose a query type (described below). Arrowheads indicate list entries that expand to offer two or more query types, organized in tabs. For each query, the interface guides your input.</p>
 <figure>
 <img src="assets/advanced_search_main.png" width="682" alt="" /><figcaption>advanced search page with new query</figcaption>
 </figure>
@@ -5223,7 +5227,7 @@ PomBase using the Ensembl viewer.</p>
 <img src="assets/advanced_search_not_direction.png" width="300" alt="" /><figcaption>advanced search page NOT operator dialog</figcaption>
 </figure>
 <p>Click “Change direction” to switch the order. Click “Submit” to run the query.</p>
-<p>You can also move any query to the top of the history list by clicking its “Results” link.</p>
+<p>You can also move any query to the top of the history list by clicking its “Results” link, and then clicking the “&lt;- Advanced search” button.</p>
 <p>Query results can remain available in the history list for several days. If changes in annotation cause results to change since a query was last run, an additional “Previous” column will be displayed in the history list, showing the out-of-date result count:</p>
 <figure>
 <img src="assets/advanced_search_out-of-date_result.png" width="600" alt="" /><figcaption>advanced search page with out-of-date query</figcaption>
@@ -5244,7 +5248,7 @@ PomBase using the Ensembl viewer.</p>
 <li><p>Select columns to display. A set of gene expression data sets are hidden by default; click “Show gene expression columns” to reveal the additional options.</p></li>
 <li><p>Select from the pulldown to send the gene list to <a routerLink="/documentation/quick-little-tool">QuiLT</a> for visualisation, or, for lists of up to 150 genes, see the genes highlighted in <a href="https://en.wikipedia.org/wiki/Violin_plot">violin plots</a> of quantitative expression datasets. (At present data from <a href="https://www.pombase.org/reference/PMID:23101633">Marguerat S <em>et al.</em> (2012)</a> and <a href="https://www.pombase.org/reference/PMID:24763107">Carpy A <em>et al.</em> (2014)</a> are included.)</p></li>
 <li><p>Show <a routerLink="/documentation/pombase-go-slim-documentation">GO slim</a> annotations for genes in the list. Click “Slim with” to reveal a dropdown, and choose a slim. Note: when you return to the main Advanced search page, the query history will include an entry showing the query as a gene list. This is harmless.</p></li>
-<li><p>Narrow the list: click the button to reveal checkboxes</p></li>
+<li><p>Narrow the list: click the button to reveal checkboxes. Available for lists of up to 1000 genes.</p></li>
 <li><p>Download selected data for genes in the list. The popup offers three sets of options:</p>
 <ul>
 <li>The default “Tab delimited” view offers a set of details that can be included in a downloaded text file. Click “Show gene expression columns” to reveal additional options.</li>
@@ -5263,44 +5267,66 @@ PomBase using the Ensembl viewer.</p>
 <p>Please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a> if you would like any queries added to the selection.</p>
 <h4 id="gene-names-and-ids">Gene names and IDs</h4>
 <p>Type or paste a list of gene names or systematic IDs (or a mixture), or click the “Browse” button to select a file to upload. Click “Lookup” to add the gene list to the history (useful for combining the list with other queries).</p>
+<h4 id="uniprot-accessions">UniProt accessions</h4>
+<p>Links to the <a routerLink="/identifier-mapper">Identifier Mapper</a>.</p>
 <h4 id="go">GO</h4>
 <p>The Gene Ontology (GO) query retrieves gene products annotated to a GO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>regulates</em>, <em>positively_regulates</em>,and <em>negatively_regulates</em> relationships in the ontology. You may also find it helpful to search or browse in <a href="http://www.ebi.ac.uk/QuickGO/">QuickGO</a> or <a href="http://amigo.geneontology.org/">AmiGO</a> to find GO terms of interest. If one search does not seem to retrieve as many results as you expect, try again using a less specific term. Note: prior to the November 2014 PomBase release, the <em>regulates</em> relations were not followed, and PomBase GO search results therefore did not match those in AmiGO.</p>
 <h4 id="phenotype">Phenotype</h4>
-<p>The phenotype (Fission Yeast Phenotype Ontology) query retrieves genes annotated to a FYPO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>output_of</em>, <em>has_output</em>, and <em>has_part</em> relationships in the ontology. This query also offers three additional sets of options:</p>
+<p>The phenotype (Fission Yeast Phenotype Ontology) query retrieves genes annotated to a FYPO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, <em>output_of</em>, <em>has_output</em>, and <em>has_part</em> relationships in the ontology. This query also offers additional context-dependent options. By default, the phenotype search retrieves genes from single-allele haploid and diploid genotypes annotated to the searched FYPO term:</p>
 <figure>
-<img src="assets/fypo_search_options.png" width="651" alt="" /><figcaption>phenotype search options</figcaption>
+<img src="assets/fypo_default_search_options.png" width="651" alt="" /><figcaption>phenotype default search options</figcaption>
 </figure>
-<p><strong>Alleles:</strong> By default, the phenotype search retrieves genes from single-allele genotypes annotated to the searched FYPO term. You can alter the selected options to add genes from multi-allele genotypes. See the <a href="documentation/gene-page-phenotypes">gene page phenotype documentation</a> and the <a href="documentation/genotype-page">genotype page documentation</a> for more information.</p>
-<p><strong>Expression:</strong> Different alleles of one gene may have different phenotypes, and one allele may give rise to different phenotypes under different experimental conditions. At present, you can retrieve annotations for all alleles of a gene, or use the “Expression level” options restrict the query to null alleles (covers deletions and any other sequence changes, such as most disruptions, that completely abolish expression of the gene) or overexpression of the wild type allele.</p>
-<p><strong>Conditions:</strong> The “Constrain condition” option restricts the results to include only genes that have phenotype annotations including the specified condition. The search uses the same condition descriptors as Canto and the PomBase web pages. Start typing, then choose from the autocomplete options.</p>
+<p>You can alter the selected options to add genes from multi-allele genotypes, and/or to search specifically for haploids or diploids. See the <a href="documentation/gene-page-phenotypes">gene page phenotype documentation</a> and the <a href="documentation/genotype-page">genotype page documentation</a> for more information.</p>
+<p>If you select single-locus haploids, expression level options are also available:</p>
+<figure>
+<img src="assets/fypo_haploid_search_options.png" width="651" alt="" /><figcaption>phenotype search options for single-locus haploids</figcaption>
+</figure>
+<p>Different alleles of one gene may have different phenotypes, and one allele may give rise to different phenotypes under different experimental conditions. At present, you can retrieve annotations for all alleles of a gene, or use the “Expression level” options restrict the query to null alleles (covers deletions and any other sequence changes, such as most disruptions, that completely abolish expression of the gene) or overexpression of the wild type allele.</p>
+<figure>
+<img src="assets/fypo_condition_query.png" width="651" alt="" /><figcaption>phenotype condition search option</figcaption>
+</figure>
+<p>The “Constrain condition” option restricts the results to include only genes that have phenotype annotations including the specified condition. The search uses the same condition descriptors as Canto and the PomBase web pages. Start typing, then choose from the autocomplete options.</p>
 <p>Note that the results will include any gene that has phenotype annotations including the specified condition <em>for any allele</em>. Queries that include conditions can be combined using the AND, NOT, or OR operators like any other, but the result of any combination of phenotype queries will likely include annotations for different alleles. There may not be any individual annotation in which both/all of multiple conditions co-occur.</p>
 <p>The search does not yet support querying for multiple conditions on the same annotation, nor for queries that <em>exclude</em> a given condition; both are planned for future development.</p>
+<h4 id="disease">Disease</h4>
+<p>Search the Monarch Disease Ontology to find <em>S. pombe</em> genes whose human orthologs have been implicated in disease. Start typing ‘disease’ or the name of a specific disease, and choose from the autocomplete options. To retrieve all disease-associated genes, type or paste “MONDO:0000001”.</p>
 <h4 id="product-type">Product type</h4>
 <p>Choose a gene product type (e.g. protein coding, tRNA, etc.) from the pulldown menu.</p>
 <h4 id="protein-modification">Protein modification</h4>
 <p>Search for terms or IDs in the <a href="http://obofoundry.org/ontology/mod.html">PSI-MOD</a> ontology.</p>
-<h4 id="protein-domain">Protein domain</h4>
-<p>Search for an ID from Pfam, PRINTs, PROFILE, ProSite, or InterPro. Type or paste an accession and click “Submit”.</p>
-<h4 id="protein-feature">Protein feature</h4>
-<p>This query searches for terms or IDs in the <a href="http://sequenceontology.org/">Sequence Ontology</a> and retrieves protein-coding genes where the protein has the feature represented by the SO term (e.g. <a routerLink="/term/SO:0001807">KEN box SO:0001807</a> ).</p>
-<h4 id="protein-length">Protein length</h4>
+<h4 id="domain-features-and-motifs">Domain, features and motifs</h4>
+<p>Queries for proteins that have a specified domain, sequence feature, or structural feature</p>
+<h5 id="domain-id">Domain ID</h5>
+<p>Search for a protein domain using an ID from Pfam, PRINTs, PROFILE, ProSite, or InterPro. Type or paste an accession and click “Submit”.</p>
+<h5 id="protein-motifs">Protein motifs</h5>
+<p>This query searches for terms or IDs in the <a href="http://sequenceontology.org/">Sequence Ontology</a> and retrieves protein-coding genes where the protein has the feature represented by the SO term (e.g. <a routerLink="/term/SO:0001807">KEN box SO:0001807</a>).</p>
+<h5 id="tm-domains">TM domains</h5>
+<p>Find protein-coding genes with products that have a specified number of transmembrane domains. Use the appropriate button for any TM domains or none, or enter the desired minimum and maximum number and click “Search”.</p>
+<h5 id="coiled-coil-regions">Coiled-coil regions</h5>
+<p>Find protein-coding genes with products that have a specified number of coiled-coil regions. Use the appropriate button for any coiled-coil regions or none, or enter the desired minimum and maximum number and click “Search”.</p>
+<h5 id="disordered-regions">Disordered regions</h5>
+<p>Find protein-coding genes with products that have a specified number of disordered regions. Use the appropriate button for any disordered regions or none, or enter the desired minimum and maximum number and click “Search”.</p>
+<h5 id="low-complexity-regions">Low-complexity regions</h5>
+<p>Find protein-coding genes with products that have a specified number of low-complexity regions. Use the appropriate button for any low-complexity regions or none, or enter the desired minimum and maximum number and click “Search”.</p>
+<h4 id="protein-properties">Protein properties</h4>
+<p>Physical properties of protein gene products:</p>
+<h5 id="protein-length">Protein length</h5>
 <p>Find protein-coding genes with products in a specified length range. Enter the desired minimum and maximum length and click “Search”.</p>
-<h4 id="protein-mol.-weight">Protein mol. weight</h4>
+<h5 id="protein-mol.-weight">Protein mol. weight</h5>
 <p>Find protein-coding genes with products in a specified mass range. Enter the desired minimum and maximum mass in kiloDaltons (kDa) and click “Search”.</p>
-<h4 id="disease">Disease</h4>
-<p>Search the Monarch Disease Ontology to find <em>S. pombe</em> genes whose human orthologs have been implicated in disease. Start typing ‘disease’ or the name of a specific disease, and choose from the autocomplete options. To retrieve all disease-associated genes, type or paste “MONDO:0000001”.</p>
-<h4 id="number-of-tm-domains">Number of TM domains</h4>
-<p>Find protein-coding genes with products that have a specified number of transmembrane domains. Enter the desired minimum and maximum number and click “Search”.</p>
 <h4 id="genome-location">Genome location</h4>
 <p>Find genes in a specified region of a chromosome. Select a chromosome from the pulldown, and click “Search” to retrieve all genes on the chromosome. Optional: enter start and end coordinates in the boxes to retrieve only genes in the indicated region.</p>
 <h4 id="number-of-exons">Number of exons</h4>
 <p>Find genes with a specified number of coding exons in the primary transcript (note: at present this query does not consider any annotated alternative transcripts). Enter the desired minimum and maximum number and click “Search”.</p>
 <h4 id="number-of-transcripts">Number of transcripts</h4>
 <p>Find genes with a specified number of annotated transcripts; genes with two or more have one or more alternative transcripts in addition to the primary transcript. Enter the desired minimum and maximum number and click “Search”.</p>
-<h4 id="taxonomic-conservation">Taxonomic conservation</h4>
-<p>Choose one of the descriptions from the pulldown menu. See the <a routerLink="/documentation/taxonomic-conservation">gene page documentation</a> for more information.</p>
+<h4 id="orthologs-and-conservation">Orthologs and conservation</h4>
+<h5 id="taxonomic-conservation">Taxonomic conservation</h5>
+<p>Choose one of the descriptions from the pulldown menu. See the <a href="documentation/taxonomic-conservation">gene page documentation</a> for more information.</p>
+<h5 id="protein-with-orthologs">Protein with orthologs</h5>
+<p>Choose a species from the pulldown menu to retrieve all <em>S. pombe</em> genes with a curated ortholog in the selected species.</p>
 <h4 id="characterisation-status">Characterisation status</h4>
-<p>Choose one of the descriptions from the pulldown menu. See the <a routerLink="/status/gene-characterisation">gene characterisation page</a> for more information.</p>
+<p>Choose one of the descriptions from the pulldown menu. See the <a href="status/gene-characterisation">gene characterisation page</a> for more information.</p>
 <h3 id="search-tips">Search tips</h3>
 <p><a routerLink="/faq">FAQ</a> entries relevant to using the advanced search are organised here by topic. Several of the topics also correspond to gene page sections.</p>
 <h4 id="phenotype-searches">Phenotype searches</h4>
@@ -7332,7 +7358,7 @@ Search documentation, news archive and FAQ:
 <figure>
 <img src="assets/simple_search_dropdown.png" width="170" alt="" /><figcaption>Simple search autocomplete matches</figcaption>
 </figure>
-<p>For publications or ontology terms, type or paste an ID as directed.</p>
+<p>For publications or ontology terms, type or paste an ID as directed. Note that for these IDs, autocomplete suggestions are not provided. Enter the ID and hit return to execute the search.</p>
 
   </div>
   <div *ngIf="pageName == 'taxonomic-conservation'">
@@ -7508,7 +7534,7 @@ Search documentation, news archive and FAQ:
 <h2 id="genome-sequence-and-features">Genome sequence and features</h2>
 <p>Note that most of the datasets available here are compressed (.gz), and can be uncompressed by utilities available in all common operating systems. Your browser may prompt you to open or download files.</p>
 <h3 id="genome-sequence">Genome sequence</h3>
-<p>The current <a routerLink="/(https://www.pombase.org/data/genome_sequence_and_features/genome_sequence/">genome sequence</a> is available in FASTA format. The linked directory contains a file for the whole genome sequence as well as separate files for each chromosome.</p>
+<p>The current <a href="https://www.pombase.org/data/genome_sequence_and_features/genome_sequence/">genome sequence</a> is available in FASTA format. The linked directory contains a file for the whole genome sequence as well as separate files for each chromosome.</p>
 <h4 id="feature-coordinates-only">Feature coordinates only</h4>
 <p>These files contain coordinates, but no sequence data:</p>
 <ul>
@@ -9362,6 +9388,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#coils-disorder-and-more-new-protein-feature-queries">Coils, disorder, and more: new protein feature queries</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-japonicusdb-preprints">PomBase & JaponicusDB preprints</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#japonicusdb-new-fission-yeast-database">JaponicusDB: a new fission yeast database</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#improved-gene-disease-curation-over-1400-s.-pombe-genes">Improved gene-disease curation: over 1400 S. pombe genes</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-august-4th">PombeTalks August 4th</a></div>
@@ -11189,7 +11217,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'gene-expression-violin-plots'">
 <h3 id="violin-plots-gene-expression">Violin plots for gene expression</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: advanced_search.png -->
 <p>The “Quantitative gene expression” section of PomBase gene pages now offers a display of <a href="https://en.wikipedia.org/wiki/Violin_plot">violin plots</a> to visualize where the gene appears in available expression datasets.</p>
 <p>Violin plots are also available to visualize sets of up to 150 genes in the advanced search results.</p>
@@ -11276,7 +11303,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'increased-disease-annotation-coverage'">
 <h3 id="improved-gene-disease-curation-over-1400-s.-pombe-genes">Improved gene-disease curation: over 1400 S. pombe genes</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: human disease.png -->
 <p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have added new gene–disease term connections, to bring the total to 1401 <em>S. pombe</em> genes. Disease associations now cover 27.3% of all fission yeast protein-coding genes, and almost 40% with human orthologs.</p>
 
@@ -11289,9 +11315,37 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>The <em>S. japonicus</em> community will maintain JaponicusDB from now on. Join the <a href="https://mailman.kcl.ac.uk/mailman/listinfo/japonicus-list">new mailing list</a>, and follow <span class="citation" data-cites="japonicusdb">@japonicusdb</span> on Twitter.</p>
 
   </div>
+  <div *ngIf="pageName == 'Genetics-database-pubs'">
+<h3 id="pombase-japonicusdb-preprints">PomBase &amp; JaponicusDB preprints</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombelist.png -->
+<p>Papers describing PomBase and JaponicusDB will appear in an issue of <a href="https://academic.oup.com/genetics/">GENETICS</a> devoted to model organism database (MOD) reports. The MOD papers will highlight the journal’s new section on Computational Resources, Software &amp; Databases.</p>
+<p>Follow the links to the <a href="https://www.biorxiv.org/content/10.1101/2021.09.07.459264v1.full">PomBase preprint</a> and <a href="https://www.biorxiv.org/content/10.1101/2021.09.23.461587v1">JaponicusDB preprint</a>, and watch for the full-fledged publications to appear in March 2022.</p>
+
+  </div>
+  <div *ngIf="pageName == 'new-protein-feature-searches'">
+<h3 id="coils-disorder-and-more-new-protein-feature-queries">Coils, disorder, and more: new protein feature queries</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: advanced_search.png -->
+<p>The PomBase <a routerLink="/query">advanced search</a> now allows you to find proteins that have coiled-coil regions, disordered regions, and low-complexity regions. The query-building interface also now organises query options more sensibly, and the documentation has been updated.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2021-10-18-new-protein-feature-searches" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
+<h3 id="coils-disorder-and-more-new-protein-feature-queries">Coils, disorder, and more: new protein feature queries</h3>
+<p><em>2021-10-18</em></p>
+<p>The PomBase <a routerLink="/query">advanced search</a> now allows you to find proteins that have coiled-coil regions, disordered regions, and low-complexity regions. The query-building interface also now organises query options more sensibly, and the documentation has been updated.</p>
+</div>
+<div id="2021-09-27-Genetics-database-pubs" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
+<h3 id="pombase-japonicusdb-preprints">PomBase &amp; JaponicusDB preprints</h3>
+<p><em>2021-09-27</em></p>
+<p>Papers describing PomBase and JaponicusDB will appear in an issue of <a href="https://academic.oup.com/genetics/">GENETICS</a> devoted to model organism database (MOD) reports. The MOD papers will highlight the journal’s new section on Computational Resources, Software &amp; Databases.</p>
+<p>Follow the links to the <a href="https://www.biorxiv.org/content/10.1101/2021.09.07.459264v1.full">PomBase preprint</a> and <a href="https://www.biorxiv.org/content/10.1101/2021.09.23.461587v1">JaponicusDB preprint</a>, and watch for the full-fledged publications to appear in March 2022.</p>
+</div>
 <div id="2021-09-01-japonicusdb-release" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/></p>
 <h3 id="japonicusdb-new-fission-yeast-database">JaponicusDB: a new fission yeast database</h3>
