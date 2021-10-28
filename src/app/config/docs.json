@@ -2065,6 +2065,11 @@
       "id" : "status/gene-coordinate-changes"
    },
    {
+      "content" : "\n\nChromosomes\n\n``\n",
+      "heading" : "Genome overview",
+      "id" : "status/genome-overview"
+   },
+   {
       "content" : "\n\n- -\n Chromosome summary  Graphic and basic information about each chromosome\n Sequencing status  Contig size, gap status and progress, including centromeres and telomeres\n Sequence updates  Changes to the genome sequence since July 2003\n Sequence updates pending  Pending changes, mainly from the Broad Institute, some supported by data from other sources\n Gene coordinate changes  Changes to coordinates of individual genes since publication\n New and removed genes  Genes identified or removed since publication\n Gene characterisation  Current counts of protein coding gene status, as published in small scale experiments\n Historical gene characterisation  Changes in gene characterisation statistics over time\n Genome statistics  Information on the status of the genome (Note: Last updated January 2017)\n Priority unstudied genes  Unstudied nuclear-encoded protein-coding genes conserved 1:1 in human\n Unmapped genes  List of genes identified genetically but not cloned or physically mapped\n - -\n\nNote: Many older S. pombe sequence submissions to the DNA databases (International Nucleotide Sequence Database Collaboration databases, i.e. ENA, GenBank, DDBJ) contain one or more errors, and we do not have the resources to maintain past sequences or flag every error in PomBase.\n",
       "heading" : "Genome Status",
       "id" : "status/index"

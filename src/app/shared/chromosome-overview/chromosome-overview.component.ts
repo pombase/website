@@ -6,6 +6,7 @@ import { PombaseAPIService } from '../../pombase-api.service';
 interface DisplayChromosome extends ChromosomeConfig {
   displayName: string;
   geneCount: number;
+  codingGeneCount: number;
   length: number;
   enaId: string;
   enaUrl: string|undefined;
@@ -22,6 +23,10 @@ export class ChromosomeOverviewComponent implements OnInit {
   displayChromosomes: Array<DisplayChromosome> = [];
   longestChrLength = 0;
 
+  totalLength = 0;
+  totalGeneCount = 0;
+  totalCodingGeneCount = 0;
+
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   chrBarWidth(chr: DisplayChromosome): number {
@@ -37,6 +42,18 @@ export class ChromosomeOverviewComponent implements OnInit {
     return `/results/from/json/${json}`;
   }
 
+  makeCodingGenesLink(chr: DisplayChromosome): string {
+    const json = `
+{"constraints":{"node_name":"coding genes from: ${chr.long_display_name}",
+"and":[{"node_name":"all genes from: ${chr.long_display_name}",
+"genome_range":{"chromosome_name":"${chr.name}"}},
+{"node_name":"subset: feature_type_mRNA_gene",
+"subset":{"subset_name":"feature_type_mRNA_gene"}}]},
+"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}
+`;
+    return `/results/from/json/${json}`;
+  }
+
   ngOnInit(): void {
     this.displayChromosomes = [];
 
@@ -47,8 +64,13 @@ export class ChromosomeOverviewComponent implements OnInit {
             const chr = chrSummaryMap[chrConfig.name];
             const name = chr.name;
             const geneCount = chr.gene_count;
+            const codingGeneCount = chr.coding_gene_count;
             const length = chr.length;
             const enaId = chr.ena_identifier;
+
+            this.totalLength += length;
+            this.totalGeneCount += geneCount;
+            this.totalCodingGeneCount += codingGeneCount;
 
             if (length > this.longestChrLength) {
               this.longestChrLength = length;
@@ -75,6 +97,7 @@ export class ChromosomeOverviewComponent implements OnInit {
                 {
                   displayName,
                   geneCount,
+                  codingGeneCount,
                   length,
                   enaId,
                   enaUrl,

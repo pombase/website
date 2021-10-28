@@ -9,6 +9,9 @@
           Gene count
         </th>
         <th>
+          Coding genes
+        </th>
+        <th>
           ENA/GenBank ID
         </th>
         <th>
@@ -27,6 +30,12 @@
         <span *ngIf="chr.geneCount == 0">0</span>
       </td>
       <td>
+        <a *ngIf="chr.codingGeneCount != 0"
+           title="Click to view coding genes from {{chr.long_display_name}}"
+           routerLink="{{makeCodingGenesLink(chr)}}">{{chr.codingGeneCount}}</a>
+        <span *ngIf="chr.codingGeneCount == 0">0</span>
+      </td>
+      <td>
         <a *ngIf="chr.enaUrl" href="{{chr.enaUrl}}">{{chr.enaId}}</a>
         <span *ngIf="!chr.enaUrl">{{chr.enaId}}</span>
       </td>
@@ -39,5 +48,22 @@
         </div>
       </td>
     </tr>
+    <tfoot>
+      <tr>
+        <td>
+          Totals
+        </td>
+
+        <td>
+          {{totalGeneCount}}
+        </td>
+        <td colspan="2">
+          {{totalCodingGeneCount}}
+        </td>
+        <td>
+          {{totalLength}}
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </div>

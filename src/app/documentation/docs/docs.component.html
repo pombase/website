@@ -13101,11 +13101,6 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <p>Centromere map from: Wood <em>et al.</em> 2002 The genome sequence of <em>Schizosaccharomyces pombe</em>. Nature 415(6874):871-80 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/11859360">PMID:11859360</a>). Created by Rhian Gwilliam.</p>
 
   </div>
-  <div *ngIf="pageName == 'chromosome-summary'">
-<h2 id="chromosome-summary">Chromosome summary</h2>
-<p><app-chromosome-overview></app-chromosome-overview></p>
-
-  </div>
   <div *ngIf="pageName == 'gene-characterisation'">
 <h3 id="protein-coding-gene-characterisation-status">Protein-coding gene characterisation status</h3>
 <p><app-characterisation-status-table></app-characterisation-status-table></p>
@@ -15601,6 +15596,12 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 </tr>
 </tbody>
 </table>
+
+  </div>
+  <div *ngIf="pageName == 'genome-overview'">
+<h2 id="genome-overview">Genome overview</h2>
+<h3 id="chromosomes">Chromosomes</h3>
+<p><app-chromosome-overview></app-chromosome-overview></p>
 
   </div>
   <div *ngIf="pageName == 'index'">

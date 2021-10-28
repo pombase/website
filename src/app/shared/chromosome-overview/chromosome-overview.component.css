@@ -11,3 +11,7 @@
   border-radius: 2px;
   height: 20px;
 }
+
+.chr-overview tfoot td {
+  font-weight: bold;
+}

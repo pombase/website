@@ -235,6 +235,7 @@ export interface ChromosomeShort {
   length: number;
   ena_identifier: string;
   gene_count: number;
+  coding_gene_count: number;
 }
 
 export interface ChromosomeLocation {
@@ -1160,10 +1161,6 @@ export class PombaseAPIService {
         });
     }
     return this.promiseCache['getChromosomeSummaryMapPromise'];
-  }
-
-  getChromosomeSummaryMap(): ChromosomeShortMap {
-    return this.resultCache['getChromosomeSummaryMap'];
   }
 
   getTermSubsets(): Promise<TermSubsets> {
