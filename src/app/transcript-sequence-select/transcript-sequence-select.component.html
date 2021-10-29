@@ -9,7 +9,7 @@
 
   <div *ngIf="geneDetails.transcripts.length > 1" class="transcript-select">
     Select a transcript:
-    <select [(ngModel)]="transcriptIndex" (change)="transcriptChanged()">
+    <select title="Select transcript" [(ngModel)]="transcriptIndex" (change)="transcriptChanged()">
       <option *ngFor = "let transcript of geneDetails.transcripts; let idx = index"
               [ngValue]="idx">
         {{transcript.uniquename}}
@@ -32,7 +32,7 @@
             </div>
 
             <div class="flanking-bases">
-              <input id="upstream-bases" type="number" min="0"
+              <input title="Upstream bases" id="upstream-bases" type="number" min="0"
                      [(ngModel)]="upstreamBases" (ngModelChange)="updateSequence()"/>
               bases upstream
               <span *ngIf="featureHasProtein() && include5PrimeUtr">of UTR</span>
@@ -85,7 +85,7 @@
             </div>
             </div>
             <div class="flanking-bases">
-              <input id="downstream-bases" type="number" min="0"
+              <input title="Downstream bases" id="downstream-bases" type="number" min="0"
                      [(ngModel)]="downstreamBases" (ngModelChange)="updateSequence()"/>
               bases downstream
               <span *ngIf="featureHasProtein() && include3PrimeUtr">of UTR</span>
