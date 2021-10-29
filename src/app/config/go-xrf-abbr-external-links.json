@@ -95,6 +95,12 @@
       "url_syntax" : "http://www.ebi.ac.uk/interpro/entry/[example_id]",
       "website" : "http://www.ebi.ac.uk/interpro/"
    },
+   "JaponicusDB" : {
+      "description" : "JaponicusDB",
+      "name" : "JaponicusDB",
+      "url_syntax" : "https://www.japonicusdb.org/gene/[example_id]",
+      "website" : "https://www.japonicusdb.org/"
+   },
    "MGI" : {
       "description" : "Mouse Genome Informatics",
       "name" : "MGI",
