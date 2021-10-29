@@ -277,7 +277,7 @@ export interface AppConfig {
   no_gene_name_route?: string;
   ensembl_blast_url: string;
   jackhmmer_search_url: string;
-  fasta_search_url: string;
+  ebi_tools_url: string;
   canto_url: string;
   community_mailing_list?: {
     url: string;
@@ -797,7 +797,7 @@ let _appConfig: AppConfig = {
   no_gene_name_route: pombaseConfig.no_gene_name_route,
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,
   jackhmmer_search_url: pombaseConfig.jackhmmer_search_url,
-  fasta_search_url: pombaseConfig.fasta_search_url,
+  ebi_tools_url: pombaseConfig.ebi_tools_url,
   canto_url: pombaseConfig.canto_url,
   community_mailing_list: pombaseConfig.community_mailing_list,
   welcome_message: pombaseConfig.welcome_message,

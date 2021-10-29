@@ -55,7 +55,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   ensemblBlastUrl = getAppConfig().ensembl_blast_url;
   jackhmmerSearchUrl = getAppConfig().jackhmmer_search_url;
-  fastaSearchUrl = getAppConfig().fasta_search_url;
+  ebiToolsUrl = getAppConfig().ebi_tools_url;
 
   constructor(private apiService: PombaseAPIService,
               @Inject('Window') private window: Window) { }

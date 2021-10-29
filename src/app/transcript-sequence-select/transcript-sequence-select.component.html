@@ -156,6 +156,18 @@
                   <input class="btn btn-primary" type="submit" value="JackHMMER Search" />
                 </form>
               </span>
+
+              <span class="sequence-action">
+                <form id="fastasearch" name="FastaSearch" #fastasearch
+                      (ngSubmit)="fastasearch.submit();"
+                      target="_blank"
+                      action="{{ebiToolsUrl}}" method="GET">
+                  <input value="fasta" name="tool" type="hidden">
+                  <input value="protein" name="context" type="hidden">
+                  <input value="{{'>' + proteinSequenceHeader + '\n' + wrappedProteinSequence}}" name="sequence" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="FASTA Search" />
+                </form>
+              </span>
             </div>
           </div>
         </div>
