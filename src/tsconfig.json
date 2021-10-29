@@ -23,6 +23,7 @@
     "strictPropertyInitialization": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "removeComments": true,
     "typeRoots": [
       "../node_modules/@types"
     ]
