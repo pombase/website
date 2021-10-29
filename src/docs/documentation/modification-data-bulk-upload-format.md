@@ -110,6 +110,8 @@ added_during | identifies a biological process or cell cycle phase during which 
 removed_during | identifies a biological process or cell cycle phase during which the modification is removed | removed_by(GO:0000087)
 present_during | identifies a biological process or cell cycle phase during which the modification is observed (note that the modification may have been added during this process -- if this is known use the added_during relation -- or during a preceding process) | present_during(GO:0000085)
 absent_during | identifies a biological process or cell cycle phase during which the modification is not observed (note that the modification may have been removed during this process -- if this is known use the removed_during relation -- or during a preceding process) | absent_during(GO:0000087)
+decreased_in_presence_of | use when the modification is observed at a lower level in the presence than in the absence of an extraneous substance | decreased_in_presence_of(CHEBI:84327)
+increased_in_presence_of | use when the modification is observed at a higher level in the presence than in the absence of an extraneous substance | increased_in_presence_of(CHEBI:84327)
 required_for | indicates that a modification is required for a GO function or process | required_for(GO:0000086)
 occupancy | percent representing what proportion of copies of the protein have the modification | occupancy(51.5%)
 level_fluctuates_during | identifies a biological process (e.g. the cell cycle or one or more of its phases) during which the modification site occupancy is observed to vary | level_fluctuates_during(GO:0000278)
