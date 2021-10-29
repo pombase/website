@@ -6,7 +6,7 @@ Note: Because *S. japonicus* curation has begun so recently, many of these pages
 
 | | |
 |-|-|
-| [Chromosome summary](status/chromosome-summary) | Graphic and basic information about each chromosome |
+| [Genome overview](status/genome-overview) | Graphic and basic information about each chromosome |
 | [Sequencing status](status/sequencing-status) | Contig size, gap status and progress, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
 | [Sequence updates](status/sequencing-updates) | Changes to the genome sequence since July 2003 |
 | [Sequence updates pending](status/sequence-updates-pending) | Pending changes, mainly from the Broad Institute, some supported by data from other sources |
