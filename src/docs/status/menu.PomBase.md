@@ -1,4 +1,4 @@
-<div class="left-menu-part left-menu-item"><a routerLink="/status/statistics">Statistics</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/status/genome-overview">Statistics</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/sequencing-status">Sequencing status</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/status/centromeres">Centromeres</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/status/mating-type-region">Mating type region</a></div>

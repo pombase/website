@@ -6562,6 +6562,16 @@ Search documentation, news archive and FAQ:
 <td>absent_during(GO:0000087)</td>
 </tr>
 <tr class="even">
+<td>decreased_in_presence_of</td>
+<td>use when the modification is observed at a lower level in the presence than in the absence of an extraneous substance</td>
+<td>decreased_in_presence_of(CHEBI:84327)</td>
+</tr>
+<tr class="odd">
+<td>increased_in_presence_of</td>
+<td>use when the modification is observed at a higher level in the presence than in the absence of an extraneous substance</td>
+<td>increased_in_presence_of(CHEBI:84327)</td>
+</tr>
+<tr class="even">
 <td>required_for</td>
 <td>indicates that a modification is required for a GO function or process</td>
 <td>required_for(GO:0000086)</td>
@@ -7358,7 +7368,7 @@ Search documentation, news archive and FAQ:
 <figure>
 <img src="assets/simple_search_dropdown.png" width="170" alt="" /><figcaption>Simple search autocomplete matches</figcaption>
 </figure>
-<p>For publications or ontology terms, type or paste an ID as directed. Note that for these IDs, autocomplete suggestions are not provided. Enter the ID and hit return to execute the search.</p>
+<p>For publications or ontology terms, type or paste an ID as directed. If no autocomplete suggestions appear, enter the ID and hit return to execute the search.</p>
 
   </div>
   <div *ngIf="pageName == 'taxonomic-conservation'">
@@ -9295,7 +9305,7 @@ Example queries:
 <div (click)="faq_navigate($event, '/faq/where-can-i-find-basic-statistics-on-s.-pombe-genome-such-as-genome-size-total-number-genes-mean-intergenic-distance-etc.', 'Where can I find basic statistics on the S. pombe genome, such as genome size, total number of genes, mean intergenic distance, etc.?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'where-can-i-find-basic-statistics-on-s.-pombe-genome-such-as-genome-size-total-number-genes-mean-intergenic-distance-etc.' || pageName == 'all-faqs'">
 <h3 id="where-can-i-find-basic-statistics-on-s.-pombe-genome-such-as-genome-size-total-number-genes-mean-intergenic-distance-etc.">Where can I find basic statistics on the <em>S. pombe</em> genome, such as genome size, total number of genes, mean intergenic distance, etc.?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
-<p>A <a routerLink="/status/statistics">page of statistics</a> is available, but note that it was last updated in January 2017.</p>
+<p>A <a routerLink="/status/genome-overview">page of statistics</a> is available, but note that it was last updated in January 2017.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/where-can-i-find-information-about-pombase-data-versions', 'Where can I find information about PomBase data versions?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'where-can-i-find-information-about-pombase-data-versions' || pageName == 'all-faqs'">
@@ -13067,7 +13077,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <div *ngIf="section == 'status'">
 <app-page-contents-menu title="Status" titleRoute="/status">
 
-<div class="left-menu-part left-menu-item"><a routerLink="/status/statistics">Statistics</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/status/genome-overview">Statistics</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/sequencing-status">Sequencing status</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/status/centromeres">Centromeres</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/status/mating-type-region">Mating type region</a></div>
