@@ -54,7 +54,7 @@
     </thead>
 
     <tbody *ngFor="let termAnnotation of filteredTable; trackBy:trackByTermId">
-      <tr *ngIf="detailsView[termAnnotation.term.termid] && !compactFirstRows[termAnnotation.term.termid]" class="term-annotation-top">
+      <tr *ngIf="detailsView[termAnnotation.term.termid] && (!compactFirstRows[termAnnotation.term.termid] || tableIsFiltered)" class="term-annotation-top">
         <td style="width: 2em" [attr.rowspan]="termAnnotation.annotations.length + 1">
           <a *ngIf="!detailsOnly" (click)="toggleDetails(termAnnotation.term.termid)">
             <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
@@ -96,7 +96,7 @@
 
       <tr class="term-annotation"
           *ngFor="let annotation of detailsView[termAnnotation.term.termid] ? termAnnotation.annotations : [] ; let i = index">
-        <td  *ngIf="i == 0 && compactFirstRows[termAnnotation.term.termid]" style="width: 2em"
+        <td  *ngIf="i == 0 && !tableIsFiltered && compactFirstRows[termAnnotation.term.termid]" style="width: 2em"
              [attr.rowspan]="termAnnotation.annotations.length">
           <a *ngIf= "!detailsOnly" (click)="toggleDetails(termAnnotation.term.termid)">
             <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
@@ -115,7 +115,7 @@
             <span>background:</span> {{annotation.genotype_background}}
           </div>
         </td>
-        <td *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0"
+        <td *ngIf="!tableIsFiltered && compactFirstRows[termAnnotation.term.termid] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
           <span class="rel-and-termid">
             <span *ngIf="termAnnotation.rel_names && termAnnotation.rel_names.length > 0">
@@ -130,7 +130,7 @@
           <div *ngIf="showColumn['extension'] && annotation.extension" class="extension">
             <app-extension-display [extension]="annotation.extension"></app-extension-display>
           </div>
-          <div *ngIf="compactFirstRows[termAnnotation.term.termid] && i == 0">
+          <div *ngIf="!tableIsFiltered && compactFirstRows[termAnnotation.term.termid] && i == 0">
             <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
             <app-term-link [term]="termAnnotation.term" [hideTermIdPrefix]="!!typeConfig.hide_term_id_prefix">
               <span class="term-name">{{termAnnotation.term.name}}</span>
@@ -191,7 +191,7 @@
           <app-reference-short *ngIf="annotation.reference"
                                [reference]="annotation.reference"></app-reference-short>
         </td>
-        <td *ngIf="compactFirstRows[termAnnotation.term.termid] && showColumn['count'] && i == 0"
+        <td *ngIf="!tableIsFiltered && compactFirstRows[termAnnotation.term.termid] && showColumn['count'] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
           <a *ngIf="typeConfig.feature_type == 'gene'"
              routerLink="/term/{{termAnnotation.term.termid}}"

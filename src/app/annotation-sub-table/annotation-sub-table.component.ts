@@ -118,6 +118,9 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   }
 
   allSummaryView() {
+    // disable filtering because some details-only filters don't make sense in the summary
+    this.updateCurrentFilter(undefined);
+
     this.currentViewState = TableViewState.Summary;
     for (let termAnnotation of this.annotationTable) {
       this.detailsView[termAnnotation.term.termid] = false;
