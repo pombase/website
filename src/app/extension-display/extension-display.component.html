@@ -15,6 +15,10 @@
         <app-gene-link class="app-link" [long]="false" [gene]="range.gene"></app-gene-link>
       </span>
 
+      <span *ngIf="range.transcript">
+        <a routerLink="/gene/{{range.transcript.gene_uniquename}}">{{range.transcript.uniquename}}</a>
+      </span>
+
       <span *ngIf="range.promoter">
         <span *ngIf="range.promoter.gene">
           promoter of <app-gene-link class="app-link" [long]="false" [gene]="range.promoter.gene"></app-gene-link>

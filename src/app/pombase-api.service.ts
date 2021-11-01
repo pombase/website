@@ -80,6 +80,10 @@ export interface AlleleMap {
   [uniquename: string]: AlleleShort;
 }
 
+export interface TranscriptMap {
+  [uniquename: string]: TranscriptDetails;
+}
+
 export interface GenotypeLocus {
   expressed_alleles: Array<ExpressedAllele>;
 }
@@ -109,6 +113,8 @@ export interface ExtRange {
   promoter?: () => { gene: GeneShort };
   summary_gene_uniquenames?: Array<Array<string>>;
   summaryGenes?: Array<Array<GeneShort>>;
+  transcript_uniquename?: string;
+  transcript?: TranscriptDetails;
   termid?: string;
   term?: TermShort
   summary_termids?: Array<string>;
@@ -610,6 +616,7 @@ export class PombaseAPIService {
   processTermAnnotations(termAnnotations: Array<TermAnnotation>,
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                          allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
+                         transcriptsByUniquename: TranscriptMap,
                          referencesByUniquename: any, termsByTermId: TermIdTermMap) {
     for (let termAnnotation of termAnnotations) {
       termAnnotation.annotations =
@@ -629,7 +636,7 @@ export class PombaseAPIService {
         }
 
         if (annotation.extension) {
-          processExtension(annotation, termsByTermId, genesByUniquename);
+          processExtension(annotation, termsByTermId, transcriptsByUniquename, genesByUniquename);
         }
         if (genotypesByUniquename && annotation.genotype) {
           annotation.genotype = genotypesByUniquename[annotation.genotype as any as string];
@@ -801,7 +808,9 @@ export class PombaseAPIService {
     json.displayName = json.name || json.uniquename;
 
     if (json.transcripts) {
-      for (let transcript of json.transcripts) {
+      const transcriptDetails = [];
+      for (let transcriptUniquename of json.transcripts) {
+        let transcript = json.transcripts_by_uniquename[transcriptUniquename];
         transcript.sequence = '';
         for (let part of transcript.parts) {
           if (part.feature_type === 'exon') {
@@ -818,7 +827,9 @@ export class PombaseAPIService {
 
           transcript.protein.number_of_residues = proteinSequenceLength;
         }
+        transcriptDetails.push(transcript);
       }
+      json.transcripts = transcriptDetails;
     } else {
       json.transcripts = [];
     }
@@ -852,6 +863,7 @@ export class PombaseAPIService {
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
+    let transcriptsByUniquename = json.transcripts_by_uniquename;
     let termsByTermId = json.terms_by_termid;
     let annotationDetailsMap = json.annotation_details;
 
@@ -859,7 +871,7 @@ export class PombaseAPIService {
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
-                                  allelesByUniquename, annotationDetailsMap,
+                                  allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   referencesByUniquename, termsByTermId);
     }
 
@@ -918,6 +930,7 @@ export class PombaseAPIService {
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
+    let transcriptsByUniquename = json.transcripts_by_uniquename;
     let termsByTermId = json.terms_by_termid;
     let annotationDetailsMap = json.annotation_details;
 
@@ -926,7 +939,7 @@ export class PombaseAPIService {
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
-                                  allelesByUniquename, annotationDetailsMap,
+                                  allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   referencesByUniquename, termsByTermId);
     }
 
@@ -954,6 +967,7 @@ export class PombaseAPIService {
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
+    let transcriptsByUniquename = json.transcripts_by_uniquename;
     let termsByTermId = json.terms_by_termid;
     let annotationDetailsMap = json.annotation_details;
 
@@ -971,7 +985,7 @@ export class PombaseAPIService {
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
-                                  allelesByUniquename, annotationDetailsMap,
+                                  allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   referencesByUniquename, termsByTermId);
     }
 
@@ -997,6 +1011,7 @@ export class PombaseAPIService {
     let genesByUniquename = json.genes_by_uniquename;
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
+    let transcriptsByUniquename = json.transcripts_by_uniquename;
     let termsByTermId = json.terms_by_termid;
     let annotationDetailsMap = json.annotation_details;
 
@@ -1016,7 +1031,7 @@ export class PombaseAPIService {
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
-                                  allelesByUniquename, annotationDetailsMap,
+                                  allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   refMap, termsByTermId);
     }
 
@@ -1300,7 +1315,8 @@ export class PombaseAPIService {
   }
 }
 
-function processExtension(annotation: Annotation, termsByTermId: TermIdTermMap, genesByUniquename: GeneMap) {
+function processExtension(annotation: Annotation, termsByTermId: TermIdTermMap,
+                          transcriptsByUniquename: TranscriptMap, genesByUniquename: GeneMap) {
   annotation.extension.map((extPart) => {
     if (extPart.ext_range.termid) {
       extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
@@ -1319,6 +1335,11 @@ function processExtension(annotation: Annotation, termsByTermId: TermIdTermMap, 
               extPart.ext_range.term = termsByTermId[productTermId];
               const geneUniquename = extPart.ext_range.gene_and_gene_product.gene_uniquename;
               extPart.ext_range.gene_and_gene_product.gene = genesByUniquename[geneUniquename];
+            } else {
+              if (extPart.ext_range.transcript_uniquename) {
+                extPart.ext_range.transcript =
+                  transcriptsByUniquename[extPart.ext_range.transcript_uniquename];
+              }
             }
           }
         }
