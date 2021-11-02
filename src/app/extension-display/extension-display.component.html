@@ -18,7 +18,7 @@
       <span *ngIf="range.transcript">
         <span *ngIf="range.transcript.gene">
           {{range.transcript.uniquename}}
-          (<app-gene-link  class="app-link" [long]="false" [gene]="tr.gene"></app-gene-link>)
+          (<app-gene-link  class="app-link" [long]="false" [gene]="range.transcript.gene"></app-gene-link>)
         </span>
         <a *ngIf="!range.transcript.gene" routerLink="/gene/{{range.transcript.gene_uniquename}}">{{range.transcript.uniquename}}</a>
       </span>

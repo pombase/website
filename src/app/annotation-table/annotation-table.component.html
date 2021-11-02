@@ -43,7 +43,7 @@
   </div>
 
   <app-protein-properties *ngIf="geneDetails && geneDetails.transcripts[0]?.protein && annotationTypeName == 'PomBase family or domain'"
-                          [proteinDetails]="geneDetails.transcripts[0].protein!">
+                          [geneDetails]="geneDetails">
   </app-protein-properties>
   </div>
 
