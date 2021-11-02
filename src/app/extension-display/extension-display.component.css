@@ -2,14 +2,11 @@
   font-size: 95%;
 }
 
-.extension-part {
-}
-
 .extension-rel-name {
   font-weight: bold;
 }
 
-.summary-gene-and-comma {
+.summary-gene-and-comma, .summary-transcript-and-comma {
   white-space: nowrap;
 }
 

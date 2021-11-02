@@ -1,10 +1,11 @@
 <ng-template #genePopover>
   <div class="gene-name-and-id">{{nameAndId}}</div>
   <div class="gene-product">{{product}}</div>
-  <div class="link-hint">(Click to view gene details)</div>
+  <div *ngIf="!isCurrentGene" class="link-hint">(Click to view gene details)</div>
 </ng-template>
 
 <a #link="bs-popover"
+   *ngIf="!isCurrentGene"
    routerLink="/gene/{{gene.uniquename}}"
    [popover]="genePopover"
    triggers=""
@@ -13,3 +14,14 @@
    placement="bottom" container="body">
   <span class="gene-link">{{displayString}}</span>
 </a>
+
+<span
+   #link="bs-popover"
+   *ngIf="isCurrentGene"
+   [popover]="genePopover"
+   triggers=""
+   (mouseenter)="mouseEnter()"
+   (mouseleave)="mouseLeave()"
+   placement="bottom" container="body">
+  <span class="gene-link">{{displayString}}</span>
+</span>

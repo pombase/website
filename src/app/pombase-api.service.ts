@@ -115,6 +115,8 @@ export interface ExtRange {
   summaryGenes?: Array<Array<GeneShort>>;
   transcript_uniquename?: string;
   transcript?: TranscriptDetails;
+  summary_transcript_uniquenames?: Array<Array<string>>;
+  summaryTranscripts: Array<Array<TranscriptDetails>>;
   termid?: string;
   term?: TermShort
   summary_termids?: Array<string>;
@@ -417,6 +419,8 @@ export interface TranscriptDetails {
   transcript_type: string;
   protein?: ProteinDetails;
   cds_location?: ChromosomeLocation;
+  gene_uniquename: string;
+  gene?: GeneShort;
 }
 
 export interface InterProMatchLocation {
@@ -613,6 +617,15 @@ export class PombaseAPIService {
     }
   }
 
+  processTranscriptMap(transcriptsByUniquename: TranscriptMap, genesByUniquename: GeneMap) {
+    for (let transcriptUniquename of Object.keys(transcriptsByUniquename)) {
+      let transcript = transcriptsByUniquename[transcriptUniquename];
+      if (transcript.gene_uniquename) {
+        transcript.gene = genesByUniquename[transcript.gene_uniquename];
+      }
+    }
+  }
+
   processTermAnnotations(termAnnotations: Array<TermAnnotation>,
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                          allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
@@ -704,6 +717,16 @@ export class PombaseAPIService {
                           const productTermId = extPart.ext_range.gene_and_gene_product.product;
                           if (productTermId) {
                             extPart.ext_range.term = termsByTermId[productTermId];
+                          }
+                        } else {
+                          if (extPart.ext_range.summary_transcript_uniquenames) {
+                            extPart.ext_range.summaryTranscripts =
+                              extPart.ext_range.summary_transcript_uniquenames
+                              .map(part => {
+                                return part.map((transcriptUniquename: string) => {
+                                  return transcriptsByUniquename[transcriptUniquename];
+                                });
+                              });
                           }
                         }
                       }
@@ -864,6 +887,9 @@ export class PombaseAPIService {
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
     let transcriptsByUniquename = json.transcripts_by_uniquename;
+
+    this.processTranscriptMap(transcriptsByUniquename, genesByUniquename);
+
     let termsByTermId = json.terms_by_termid;
     let annotationDetailsMap = json.annotation_details;
 
@@ -931,6 +957,9 @@ export class PombaseAPIService {
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
     let transcriptsByUniquename = json.transcripts_by_uniquename;
+
+    this.processTranscriptMap(transcriptsByUniquename, genesByUniquename);
+
     let termsByTermId = json.terms_by_termid;
     let annotationDetailsMap = json.annotation_details;
 
@@ -968,6 +997,9 @@ export class PombaseAPIService {
     let allelesByUniquename = json.alleles_by_uniquename;
     let referencesByUniquename = json.references_by_uniquename;
     let transcriptsByUniquename = json.transcripts_by_uniquename;
+
+    this.processTranscriptMap(transcriptsByUniquename, genesByUniquename);
+
     let termsByTermId = json.terms_by_termid;
     let annotationDetailsMap = json.annotation_details;
 
@@ -1012,6 +1044,9 @@ export class PombaseAPIService {
     let genotypesByUniquename = json.genotypes_by_uniquename;
     let allelesByUniquename = json.alleles_by_uniquename;
     let transcriptsByUniquename = json.transcripts_by_uniquename;
+
+    this.processTranscriptMap(transcriptsByUniquename, genesByUniquename);
+
     let termsByTermId = json.terms_by_termid;
     let annotationDetailsMap = json.annotation_details;
 

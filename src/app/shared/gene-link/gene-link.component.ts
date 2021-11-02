@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 import { getAppConfig } from '../../config';
 
@@ -10,18 +11,20 @@ import { getAppConfig } from '../../config';
 export class GeneLinkComponent implements OnInit {
   @Input() gene: /* GeneShort */ any;
   @Input() long = true;
+  @Input() displayString: string | undefined = undefined;
 
   @ViewChild('link', {static: false}) link: PopoverDirective;
 
   mouseIn = false;
 
-  displayString = '';
   nameAndId = '';
   product = '';
 
   appConfig = getAppConfig();
 
-  constructor() { }
+  isCurrentGene = false;
+
+  constructor(private route: ActivatedRoute) { }
 
   mouseEnter(): void {
     this.mouseIn = true;
@@ -44,16 +47,25 @@ export class GeneLinkComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.url.subscribe((url: UrlSegment[])=> {
+      this.isCurrentGene = url[1].path == this.gene.uniquename;
+      console.log("current gene: " + url[1].path);
+    });
+
     if (this.gene.name) {
       this.nameAndId = this.gene.name + ' (' + this.gene.uniquename + ')';
 
-      if (this.long) {
-        this.displayString = this.nameAndId;
-      } else {
-        this.displayString = this.gene.name;
+      if (this.displayString === undefined) {
+        if (this.long) {
+          this.displayString = this.nameAndId;
+        } else {
+          this.displayString = this.gene.name;
+        }
       }
     } else {
-      this.displayString = this.gene.uniquename;
+      if (this.displayString === undefined) {
+        this.displayString = this.gene.uniquename;
+      }
       this.nameAndId = this.gene.uniquename;
     }
 
