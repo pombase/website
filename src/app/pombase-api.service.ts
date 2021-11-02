@@ -618,6 +618,9 @@ export class PombaseAPIService {
   }
 
   processTranscriptMap(transcriptsByUniquename: TranscriptMap, genesByUniquename: GeneMap) {
+    if (!transcriptsByUniquename) {
+      return;
+    }
     for (let transcriptUniquename of Object.keys(transcriptsByUniquename)) {
       let transcript = transcriptsByUniquename[transcriptUniquename];
       if (transcript.gene_uniquename) {
