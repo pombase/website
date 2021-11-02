@@ -1,11 +1,12 @@
 .prop-name {
   font-weight: bold;
+  min-width: 13em;
+}
+
+td.prop-value {
+  min-width: 10em;
 }
 
 table.protein-properties {
   width: auto;
-}
-
-.protein-properties {
-  border-top: 2px solid #ddd;
 }

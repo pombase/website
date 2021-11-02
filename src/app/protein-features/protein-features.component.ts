@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { GeneDetails, ProteinDetails, TranscriptDetails, TermAnnotation } from '../pombase-api.service';
+import { GeneDetails, TranscriptDetails, TermAnnotation } from '../pombase-api.service';
 
 import { getAppConfig, getXrfConfigByName, getXrfWithPrefix } from '../config';
 
@@ -18,7 +18,7 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   siteName = this.appConfig.site_name;
 
   transcriptDetails?: TranscriptDetails;
-  proteinDetails?: ProteinDetails;
+
   proteinFeaturesTable?: Array<TermAnnotation>;
   soAnnotationTable?: Array<TermAnnotation>;
   trackViewData: Array<TrackViewTrack> = [];
@@ -101,10 +101,8 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   ngOnChanges() {
     if (this.geneDetails.transcripts.length > 0) {
       this.transcriptDetails = this.geneDetails.transcripts[0];
-      this.proteinDetails = this.transcriptDetails.protein;
     } else {
       this.transcriptDetails = undefined;
-      this.proteinDetails = undefined;
     }
 
     if (this.geneDetails.cv_annotations['PomBase family or domain']) {

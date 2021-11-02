@@ -1,7 +1,16 @@
 <table class="protein-properties">
+  <thead *ngIf="proteinDisplayDetails.length > 1">
+    <th>
+    </th>
+    <th *ngFor="let proteinDetails of proteinDisplayDetails">
+      {{proteinDetails.transcript_uniquename}}
+    </th>
+  </thead>
   <tr *ngFor="let propName of propNames">
     <td class="prop-name">{{getPropDisplayName(propName)}}</td>
-    <td>{{getProteinDisplayDetails(propName)}}</td>
+    <td class="prop-value" *ngFor="let proteinDetails of proteinDisplayDetails">
+      {{getProteinDisplayDetails(proteinDetails, propName)}}
+    </td>
   </tr>
 </table>
 
