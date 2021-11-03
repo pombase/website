@@ -103,7 +103,7 @@
             </div>
 
              <div *ngIf="wrappedSequence" class="blast-actions">
-             <span class="sequence-action">
+             <span *ngIf="showNucSequence" class="sequence-action">
                 <form id="ncbi-blast-gene-dna" name="NCBIBLASTDNA" #ncbidnaform
                       (ngSubmit)="ncbidnaform.submit()"
                       target="_blank"
@@ -115,7 +115,7 @@
                 </form>
               </span>
 
-              <span class="sequence-action">
+              <span *ngIf="showNucSequence" class="sequence-action">
                 <form id="ens-blast-gene-dna" name="BLASTGenomicSequenceDNA" #ensdnaform
                       (ngSubmit)="ensdnaform.submit();"
                       target="_blank"
@@ -125,7 +125,7 @@
                 </form>
               </span>
 
-              <span *ngIf="geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
+              <span *ngIf="!showNucSequence && geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
                 <form id="ncbi-blast-gene-prot" name="NCBIBLASTPROT" #ncbiprotform
                       (ngSubmit)="ncbiprotform.submit()"
                       target="_blank"
@@ -137,7 +137,7 @@
                 </form>
               </span>
 
-              <span *ngIf="geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
+              <span *ngIf="!showNucSequence && geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
                 <form id="ens-blast-gene-prot" name="BLASTGenomicSequenceProt" #ensprotform
                       (ngSubmit)="ensprotform.submit();"
                       target="_blank"
@@ -147,7 +147,7 @@
                 </form>
               </span>
 
-              <span class="sequence-action">
+              <span *ngIf="!showNucSequence && geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
                 <form id="jackhmmersearch" name="JackhmmerSearch" #jackhmmersearch
                       (ngSubmit)="jackhmmersearch.submit();"
                       target="_blank"
@@ -157,7 +157,7 @@
                 </form>
               </span>
 
-              <span class="sequence-action">
+              <span *ngIf="!showNucSequence && geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
                 <form id="fastasearch" name="FastaSearch" #fastasearch
                       (ngSubmit)="fastasearch.submit();"
                       target="_blank"
