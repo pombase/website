@@ -115,6 +115,7 @@ increased_in_presence_of | use when the modification is observed at a higher lev
 required_for | indicates that a modification is required for a GO function or process | required_for(GO:0000086)
 occupancy | percent representing what proportion of copies of the protein have the modification | occupancy(51.5%)
 level_fluctuates_during | identifies a biological process (e.g. the cell cycle or one or more of its phases) during which the modification site occupancy is observed to vary | level_fluctuates_during(GO:0000278)
+multiplicity | number of modified sites detected within the same peptide fragment (relevant to mass spec. methods) | multiplicity(2)
 
 Please [contact the ${database_name} curators](mailto:${helpdesk_address}) if
 you have any questions about what to use for modification IDs,
