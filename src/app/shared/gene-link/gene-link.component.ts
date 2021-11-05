@@ -48,7 +48,7 @@ export class GeneLinkComponent implements OnInit {
 
   ngOnInit() {
     this.route.url.subscribe((url: UrlSegment[])=> {
-      this.isCurrentGene = url[1].path == this.gene.uniquename;
+      this.isCurrentGene = url[1] && url[1].path == this.gene.uniquename;
     });
 
     if (this.gene.name) {
