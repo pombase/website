@@ -8,6 +8,7 @@ import { getAppConfig, ConfigOrganism } from './config';
 
 import { HttpRetryService, RetryOptions } from './http-retry.service';
 import { SolrTermSummary } from './complete.service';
+import { firstValueFrom } from 'rxjs';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
@@ -1333,8 +1334,7 @@ export class PombaseAPIService {
     if (!termid || !termid.includes(':')) {
       return Promise.resolve(undefined);
     }
-    return this.httpRetry.getWithRetry(this.apiUrl + '/summary/term/' + termid)
-      .toPromise()
+    return firstValueFrom(this.httpRetry.getWithRetry(this.apiUrl + '/summary/term/' + termid))
       .then((response: HttpResponse<any>) => {
         const parsedRes = response as any;
         if (parsedRes['status'] !== 'Ok') {

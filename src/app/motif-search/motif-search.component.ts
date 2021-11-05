@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Subject } from 'rxjs';
+import { firstValueFrom, Subject } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
@@ -105,7 +105,7 @@ export class MotifSearchComponent implements OnInit {
   }
 
   morePeptideMatches(geneUniquename: string): void {
-    this.motifService.motifSearch(geneUniquename, this.trimmedMotif).toPromise()
+    firstValueFrom(this.motifService.motifSearch(geneUniquename, this.trimmedMotif))
       .then(results => {
         if (results.gene_matches.length === 1) {
           const fullGeneMatch = results.gene_matches[0];
