@@ -144,6 +144,7 @@ export interface GeneExProps {
 export interface WithFromValue {
   gene?: GeneShort;
   term?: TermShort;
+  transcript?: TranscriptDetails;
   identifier?: string;
   identifier_and_name?: {
     identifier: string;
@@ -657,6 +658,15 @@ export class PombaseAPIService {
         if (annotation.conditions) {
           annotation.conditions =
             annotation.conditions.map((termid: any) => termsByTermId[termid] as TermShort);
+        }
+
+        if (annotation.withs) {
+          for (let withVal of annotation.withs) {
+            if (withVal.transcript) {
+              // hacky :-(
+              withVal.transcript = transcriptsByUniquename[withVal.transcript as unknown as string];
+            }
+          }
         }
 
         if (annotation.extension) {

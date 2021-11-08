@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { getXrf } from '../config';
-import { GeneShort, WithFromValue } from '../pombase-api.service';
+import { GeneShort, TranscriptDetails, WithFromValue } from '../pombase-api.service';
 import { TermShort } from '../pombase-query';
 
 @Component({
@@ -14,6 +14,7 @@ export class WithOrFromLinkComponent implements OnInit {
 
   gene?: GeneShort;
   term?: TermShort;
+  transcript?: TranscriptDetails;
   identifier?: string;
   name?: string;
   link?: string;
@@ -29,6 +30,7 @@ export class WithOrFromLinkComponent implements OnInit {
   ngOnInit() {
     this.gene = this.withOrFrom.gene;
     this.term = this.withOrFrom.term;
+    this.transcript = this.withOrFrom.transcript;
 
     if (this.withOrFrom.identifier) {
       this.identifier = this.withOrFrom.identifier;
