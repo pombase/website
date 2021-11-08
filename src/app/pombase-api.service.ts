@@ -152,8 +152,11 @@ export interface WithFromValue {
 }
 
 export interface Annotation {
+  id: string;
   descDist: number;
   descRelName: string;
+  transcript_uniquenames?: Array<string>;
+  transcripts: Array<TranscriptDetails>;
   reference: ReferenceShort;
   evidence?: string;
   conditions: Array<TermShort>;
@@ -270,6 +273,7 @@ export interface GeneShort {
   uniquename: string;
   name?: string;
   product?: string;
+  transcript_count?: number;
 }
 
 // The function is used to trim a GeneSummary to a GeneShort
@@ -643,6 +647,9 @@ export class PombaseAPIService {
       termAnnotation.term = termsByTermId[termId];
       for (let annotation of termAnnotation.annotations as Array<Annotation>) {
         annotation.genes = genesOfAnnotation(annotation, genesByUniquename) as Array<GeneShort>;
+
+        annotation.transcripts = transcriptsOfAnnotation(annotation, transcriptsByUniquename);
+
         if (referencesByUniquename) {
           annotation.reference = referencesByUniquename[annotation.reference as any as string];
         }
@@ -1404,3 +1411,13 @@ function genesOfAnnotation(annotation: Annotation, genesByUniquename: GeneMap): 
   }) as Array<GeneShort>;
 }
 
+function transcriptsOfAnnotation(annotation: Annotation, transcriptsByUniquename: TranscriptMap): TranscriptDetails[] {
+  if (annotation.transcript_uniquenames) {
+    return annotation.transcript_uniquenames
+      .map(transcriptUniquename => {
+        return transcriptsByUniquename[transcriptUniquename];
+      });
+  } else {
+    return [];
+  }
+}

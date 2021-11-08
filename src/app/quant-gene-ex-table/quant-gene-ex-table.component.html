@@ -92,7 +92,7 @@
 
   <div class="violin-plot" *ngIf="geneDetails">
     <a *ngIf="!plotVisible" (click)="showPlot()">
-      <img src="/assets/violin_plot_icon.png"/>
+      <img alt="Violin plot icon" src="/assets/violin_plot_icon.png"/>
 
       View gene expression plots
 
@@ -108,7 +108,9 @@
           available) shown as a red point:
         </span>
       </span>
-      <img (load)="plotLoaded=true" class="violin-plot-image" src="/api/v1/dataset/latest/gene_ex_violin_plot/small/{{geneDetails.uniquename}}"/>
+      <img (load)="plotLoaded=true" class="violin-plot-image"
+           alt="Violin plot for {{geneDetails.name || geneDetails.uniquename}}"
+           src="/api/v1/dataset/latest/gene_ex_violin_plot/small/{{geneDetails.uniquename}}"/>
     </div>
   </div>
 </fieldset>

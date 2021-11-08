@@ -43,6 +43,7 @@
         <th *ngIf="showColumn['gene'] && !featureInFirstColumn">Gene</th>
         <th *ngIf="showColumn['genotype'] && !featureInFirstColumn">Genotype</th>
         <th *ngIf="showColumn['genotype_background'] && !featureInFirstColumn">Background</th>
+        <th *ngIf="showColumn['transcripts']">Transcript ID</th>
         <th *ngIf="showColumn['evidence']">Evidence</th>
         <th *ngIf="showColumn['conditions']">Conditions</th>
         <th *ngIf="showColumn['qualifiers']">Qualifiers</th>
@@ -150,6 +151,9 @@
           <span class="genotype-background">
             {{annotation.genotype_background}}
           </span>
+        </td>
+        <td *ngIf="showColumn['transcripts']">
+          {{transcriptDisplay(annotation)}}
         </td>
         <td class="with" *ngIf="showColumn['evidence']">
           <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
