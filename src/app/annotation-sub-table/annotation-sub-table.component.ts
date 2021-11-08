@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
-import { TermAnnotation, ReferenceShort } from '../pombase-api.service';
+import { TermAnnotation, ReferenceShort, Annotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          FilterConfig, AnnotationExternalLinkConfig, getAppConfig,
@@ -216,6 +216,20 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     return false;
   }
 
+  transcriptDisplay(annotation: Annotation): string {
+    if (annotation.transcripts && annotation.transcripts.length > 0) {
+      const gene = annotation.transcripts[0].gene!;
+      const transcriptCount = gene.transcript_count || 1;
+      if (annotation.transcripts.length == transcriptCount) {
+        return 'All';
+      } else {
+        return annotation.transcripts.map(transcriptDetails => transcriptDetails.uniquename).join(', ');
+      }
+    } else {
+      return '';
+    }
+  }
+
   init() {
     let typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
@@ -233,6 +247,21 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
     if (!this.hasQualifiers()) {
       this.showColumn['qualifiers'] = false;
+    }
+
+    this.showColumn['transcripts'] = false;
+
+    if (this.annotationTable && this.annotationTable.length > 0 &&
+        typeConfig.feature_type == 'gene') {
+      const firstTermAnnotation = this.annotationTable[0];
+      const firstAnnotation = firstTermAnnotation.annotations[0];
+
+      if (firstAnnotation.genes.length > 0) {
+        const firstGene = firstAnnotation.genes[0];
+        if (firstGene.transcript_count && firstGene.transcript_count > 1) {
+          this.showColumn['transcripts'] = true;
+        }
+      }
     }
 
     for (let columnName of Object.keys(this.showColumn)) {
