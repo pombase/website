@@ -69,30 +69,9 @@
   </div>
 
   <div class="genome-range" *ngIf="nodeConfig.id == 'genome_range'">
-    <div class="node-section">
-
-      <select [(ngModel)]="chromosomeName">
-        <option [ngValue]="undefined">Choose a chromosome</option>
-        <option *ngFor = "let chrDetails of displayChromosomes"
-                [ngValue]="chrDetails.name">
-          {{chrDetails.long_display_name}}
-        </option>
-      </select>
-
-    </div>
-    <div class="node-section">
-      Restrict to region:
-      <input type="number" [(ngModel)]="rangeStart" min="1" step="1"
-             placeholder="start base (optional) ..."/>
-      <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
-             placeholder="end base (optional) ..."/>
-      <div style="color: red" *ngIf="(rangeStart || rangeEnd) &&!validRange()">
-        Start position must be less the end position
-      </div>
-    </div>
-    <button type="button" class="btn btn-primary"
-            [attr.title]="genomeRangeButtonTitle()"
-            [disabled]="(rangeStart || rangeEnd) && !validRange() || !chromosomeName" (click)="genomeRangeSearch()">Search</button>
+    <app-query-genome-range-node [nodeConfig]="nodeConfig"
+                                 (nodeEvent)="subNodeEvent($event)">
+    </app-query-genome-range-node>
   </div>
 
   <div *ngIf="nodeConfig.nodeType == 'sub-nodes'">

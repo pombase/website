@@ -1,17 +1,12 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
 
 import { GeneQuery, GeneListNode, TermNode, SubsetNode,
-         GenomeRangeNode, GeneQueryNode, TermShort,
+         GeneQueryNode, TermShort,
          NodeEventDetails, HasOrthologNode } from '../pombase-query';
 import { GeneSummary, ChromosomeShort } from '../pombase-api.service';
 
-import { ChromosomeConfig, ConfigOrganism, getAppConfig,
+import { ConfigOrganism, getAppConfig,
          QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
-import { PombaseAPIService } from '../pombase-api.service';
-
-interface DisplayChromosome extends ChromosomeConfig {
-  geneCount: number;
-}
 
 @Component({
   selector: 'app-query-node-display',
@@ -28,16 +23,12 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
 
   selectedTerm?: TermShort;
   selectedSubset?: QueryNodeSubsetConfig;
-  rangeStart?: number;
-  rangeEnd?: number;
-  chromosomeName?: string;
-  selectedOrthologOrganism?: ConfigOrganism;
 
-  displayChromosomes: Array<DisplayChromosome> = [];
+  selectedOrthologOrganism?: ConfigOrganism;
 
   appConfig = getAppConfig();
 
-  constructor(private pombaseApiService: PombaseAPIService) {
+  constructor() {
     getAppConfig().ortholog_taxonids.map((taxonid) => {
       for (const configOrganism of getAppConfig().organisms) {
         if (configOrganism.taxonid == taxonid) {
@@ -57,27 +48,12 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
           queryId: queryId,
         };
       });
-
-    this.displayChromosomes = [];
-
-    this.pombaseApiService.getChromosomeSummaryMapPromise()
-      .then(chrSummaryMap => {
-        this.appConfig.chromosomes.map(chrConfig => {
-          if (chrSummaryMap[chrConfig.name] &&
-              chrSummaryMap[chrConfig.name].gene_count > 0) {
-            const displayConfig =
-              Object.assign({ geneCount: chrSummaryMap[chrConfig.name].gene_count},
-                            chrConfig);
-            this.displayChromosomes.push(displayConfig);
-          }
-        });
-      });
   }
 
   ngOnChanges(): void {
     this.selectedTerm = undefined;
     this.selectedSubset = undefined;
-    this.chromosomeName = undefined;
+
     this.selectedOrthologOrganism = undefined;
   }
 
@@ -129,34 +105,6 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
     if (this.selectedSubset) {
       let part = new SubsetNode(undefined, this.selectedSubset.name);
       this.emitNodeEvent(part);
-    }
-  }
-
-  validRange(): boolean {
-    return (this.rangeStart !== null ||
-            this.rangeEnd !== null) &&
-      (this.rangeStart === undefined ||
-       this.rangeEnd === undefined ||
-       this.rangeStart <= this.rangeEnd);
-  }
-
-  genomeRangeSearch(): void {
-    if (this.chromosomeName) {
-      const part = new GenomeRangeNode(undefined, this.rangeStart!, this.rangeEnd!,
-                                       this.chromosomeName);
-      this.emitNodeEvent(part);
-    }
-  }
-
-  genomeRangeButtonTitle(): string {
-    if (this.chromosomeName) {
-      if ((!this.rangeStart && !this.rangeEnd) || this.validRange()) {
-        return 'Click to search';
-      } else {
-        return 'Start and end are optional but start must be less than end';
-      }
-    } else {
-      return 'Select a chromosome';
     }
   }
 
