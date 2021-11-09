@@ -5,6 +5,7 @@ import { PombaseAPIService } from '../pombase-api.service';
 
 interface DisplayChromosome extends ChromosomeConfig {
   geneCount: number;
+  length: number;
 }
 
 @Component({
@@ -16,9 +17,13 @@ export class QueryGenomeRangeNodeComponent implements OnInit, OnChanges {
   @Input() nodeConfig: QueryNodeConfig;
   @Output() nodeEvent = new EventEmitter<NodeEventDetails>();
 
-  rangeStart?: number;
-  rangeEnd?: number;
+  rangeStart: number;
+  rangeEnd: number;
   chromosomeName?: string;
+
+  rangeRadio = 'all';
+
+  rangeMax = 1;
 
   displayChromosomes: Array<DisplayChromosome> = [];
 
@@ -26,42 +31,60 @@ export class QueryGenomeRangeNodeComponent implements OnInit, OnChanges {
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
-  validRange(): boolean {
-    return (this.rangeStart !== null ||
-            this.rangeEnd !== null) &&
-      (this.rangeStart === undefined ||
-       this.rangeEnd === undefined ||
-       this.rangeStart <= this.rangeEnd);
+  genomeRangeSearch(): void {
+    const part = new GenomeRangeNode(undefined, this.rangeStart!, this.rangeEnd!,
+                                     this.chromosomeName!);
+    this.emitNodeEvent(part);
   }
 
-  genomeRangeSearch(): void {
-    if (this.chromosomeName) {
-      const part = new GenomeRangeNode(undefined, this.rangeStart!, this.rangeEnd!,
-                                       this.chromosomeName);
-      this.emitNodeEvent(part);
+  startChanged(): void {
+    if (this.rangeStart < 1) {
+      this.rangeStart = 1;
     }
+    if (this.rangeStart > this.rangeMax) {
+      this.rangeStart = this.rangeMax;
+    }
+    if (this.rangeEnd < this.rangeStart) {
+      this.rangeEnd = this.rangeStart;
+    }
+  }
+
+  endChanged(): void {
+    if (this.rangeEnd < 1) {
+      this.rangeEnd = 1;
+    }
+    if (this.rangeEnd > this.rangeMax) {
+      this.rangeEnd = this.rangeMax;
+    }
+    if (this.rangeEnd < this.rangeStart) {
+      this.rangeStart = this.rangeEnd;
+    }
+  }
+
+  setRanges(): void {
+    for (const displayChromosome of this.displayChromosomes) {
+      if (displayChromosome.name === this.chromosomeName) {
+        this.rangeMax = displayChromosome.length;
+
+        this.rangeStart = 1;
+        this.rangeEnd = this.rangeMax;
+
+        return;
+      }
+    }
+  }
+
+  chromosomeChanged(): void {
+    this.setRanges();
   }
 
   emitNodeEvent(node: GeneQueryNode): void {
     this.nodeEvent.emit({ node, nodeConf: this.nodeConfig });
   }
 
-  genomeRangeButtonTitle(): string {
-    if (this.chromosomeName) {
-      if ((!this.rangeStart && !this.rangeEnd) || this.validRange()) {
-        return 'Click to search';
-      } else {
-        return 'Start and end are optional but start must be less than end';
-      }
-    } else {
-      return 'Select a chromosome';
-    }
-  }
-
   ngOnChanges(): void {
     this.chromosomeName = undefined;
   }
-
 
   ngOnInit(): void {
     this.displayChromosomes = [];
@@ -69,15 +92,23 @@ export class QueryGenomeRangeNodeComponent implements OnInit, OnChanges {
     this.pombaseApiService.getChromosomeSummaryMapPromise()
       .then(chrSummaryMap => {
         this.appConfig.chromosomes.map(chrConfig => {
-          if (chrSummaryMap[chrConfig.name] &&
-              chrSummaryMap[chrConfig.name].gene_count > 0) {
+          const chrSummary = chrSummaryMap[chrConfig.name];
+          if (chrSummary &&
+              chrSummary.gene_count > 0) {
             const displayConfig =
-              Object.assign({ geneCount: chrSummaryMap[chrConfig.name].gene_count},
-                            chrConfig);
+              Object.assign({
+                 geneCount: chrSummary.gene_count,
+                 length: chrSummary.length,
+              },
+              chrConfig);
             this.displayChromosomes.push(displayConfig);
           }
         });
+
+        // default to chromosome 1
+        this.chromosomeName = this.displayChromosomes[0].name;
+
+        this.setRanges();
       });
   }
-
 }

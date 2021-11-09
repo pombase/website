@@ -1,7 +1,7 @@
 <div class="node-section">
-
-  <select [(ngModel)]="chromosomeName">
-    <option [ngValue]="undefined">Choose a chromosome</option>
+  Choose a chromosome:
+  <select title="Select a chromosome" [(ngModel)]="chromosomeName"
+          (change)="chromosomeChanged()">
     <option *ngFor = "let chrDetails of displayChromosomes"
             [ngValue]="chrDetails.name">
       {{chrDetails.long_display_name}}
@@ -10,15 +10,31 @@
 
 </div>
 <div class="node-section">
-  Restrict to region:
-  <input type="number" [(ngModel)]="rangeStart" min="1" step="1"
-         placeholder="start base (optional) ..."/>
-  <input type="number" [(ngModel)]="rangeEnd" min="1" step="1"
-         placeholder="end base (optional) ..."/>
-  <div style="color: red" *ngIf="(rangeStart || rangeEnd) &&!validRange()">
-    Start position must be less the end position
+  <input type="radio" [(ngModel)]="rangeRadio" value="all" id="range-all">
+  <label for="range-all" class="range-label">All genes from selected chromosome</label>
+</div>
+  
+<div class="node-section">
+  <input type="radio" [(ngModel)]="rangeRadio" value="some" id="range-some">
+  <label for="range-some" class="range-label">Genes overlapping range</label>
+
+  <div class="start-end">
+    <label for="range-start" class="range-label">Start:</label>
+    <input type="number" [(ngModel)]="rangeStart" id="range-start"
+           min="1" max="{{rangeMax}}" step="1"
+           (change)="startChanged()"
+           [disabled]="rangeRadio != 'some'"
+           placeholder="start base (optional) ..."/>
+  </div>
+  <div class="start-end">
+    <label for="range-end" class="range-label">End:</label>
+    <input type="number" [(ngModel)]="rangeEnd" id="range-end"
+           min="1" max="{{rangeMax}}" step="1"
+           (change)="endChanged()"
+           [disabled]="rangeRadio != 'some'"
+           placeholder="end base (optional) ..."/>
   </div>
 </div>
-<button type="button" class="btn btn-primary"
-        [attr.title]="genomeRangeButtonTitle()"
-        [disabled]="(rangeStart || rangeEnd) && !validRange() || !chromosomeName" (click)="genomeRangeSearch()">Search</button>
+
+<button type="button" class="btn btn-primary" title="Click to search"
+        (click)="genomeRangeSearch()">Search</button>
