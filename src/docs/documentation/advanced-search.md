@@ -331,8 +331,10 @@ and click "Search".
 
 Find genes in a specified region of a chromosome. Select a chromosome
 from the pulldown, and click "Search" to retrieve all genes on the
-chromosome. Optional: enter start and end coordinates in the boxes to
-retrieve only genes in the indicated region.
+chromosome. Or click the radio button to switch to "Genes overlapping
+range", and enter start and end coordinates in the boxes to retrieve
+only genes in the specified region. Note that genes that partly
+overlap the entered coordinates will be included.
 
 #### Number of exons
 
