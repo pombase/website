@@ -18,8 +18,8 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
         for (let filterTermId of this.rangeTermIds) {
           if (annotation.extension) {
             for (let extPart of annotation.extension) {
-              if (extPart.ext_range['term']) {
-                const rangeTerm = extPart.ext_range.term;
+              const rangeTerm = extPart.ext_range.term;
+              if (rangeTerm) {
                 if (filterTermId === rangeTerm.termid) {
                   retTermAnnotation.annotations.push(annotation);
                   continue ANNOTATION;
@@ -36,6 +36,31 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
             }
           }
         }
+      }
+
+      if (retTermAnnotation.summary) {
+        retTermAnnotation.summary = retTermAnnotation.summary
+          .filter(summaryRow => {
+            if (summaryRow.extension) {
+              for (const extPart of summaryRow.extension) {
+                if (extPart.ext_range.summaryTerms) {
+                  for (const rangeSummaryTerm of extPart.ext_range.summaryTerms) {
+
+                    if (this.rangeTermIds.includes(rangeSummaryTerm.termid)) {
+                      return true;
+                    }
+
+                    for (const rangeTermInterestingParentId of rangeSummaryTerm.interesting_parent_ids) {
+                      if (this.rangeTermIds.includes(rangeTermInterestingParentId)) {
+                        return true;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            return false;
+          });
       }
 
       if (retTermAnnotation.annotations.length > 0) {
