@@ -103,7 +103,7 @@ See the ${database_name} [privacy policy](about/privacy-policy) and [cookie poli
 
 ### Project funding
 %%if db=PomBase
-PomBase is funded by the [Wellcome Trust](https://wellcome.ac.uk/) \[104967/Z/14/Z\].
+PomBase is funded by the [Wellcome Trust](https://wellcome.ac.uk/) \[218236/Z/19/Z\].
 %%end db=PomBase
 
 %%if db=JaponicusDB
