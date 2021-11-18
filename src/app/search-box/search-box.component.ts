@@ -150,6 +150,14 @@ export class SearchBoxComponent implements OnInit {
     return undefined;
   }
 
+  private identifierExactMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
+    if (geneSumm.uniquenameLowerCase === value) {
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
+    } else {
+      return undefined;
+    }
+  }
+
   private nameMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     if (geneSumm.nameLowerCase && geneSumm.nameLowerCase.indexOf(value) !== -1 &&
         (geneSumm.name!.indexOf('-antisense-') === -1 ||
@@ -313,6 +321,9 @@ export class SearchBoxComponent implements OnInit {
 
         for (let geneSumm of this.searchSummaries) {
           maybeAdd(this.nameExactMatch(geneSumm, value));
+        }
+        for (let geneSumm of this.searchSummaries) {
+          maybeAdd(this.identifierExactMatch(geneSumm, value));
         }
         for (let geneSumm of this.searchSummaries) {
           maybeAdd(this.synonymExactMatch(geneSumm, value));
