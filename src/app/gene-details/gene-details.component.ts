@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Meta, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -17,7 +17,7 @@ import { Util } from '../shared/util';
   styleUrls: ['./gene-details.component.css']
 })
 export class GeneDetailsComponent implements OnInit {
-  @Input() geneDetails: GeneDetails;
+  geneDetails: GeneDetails;
 
   synonymsDisplay = '';
   displayFeatureType = '';
