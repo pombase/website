@@ -9403,6 +9403,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-87.0">PomBase now uses InterPro Version 87.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#coils-disorder-and-more-new-protein-feature-queries">Coils, disorder, and more: new protein feature queries</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-japonicusdb-preprints">PomBase & JaponicusDB preprints</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#japonicusdb-new-fission-yeast-database">JaponicusDB: a new fission yeast database</a></div>
@@ -11345,9 +11346,32 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>The PomBase <a routerLink="/query">advanced search</a> now allows you to find proteins that have coiled-coil regions, disordered regions, and low-complexity regions. The query-building interface also now organises query options more sensibly, and the documentation has been updated.</p>
 
   </div>
+  <div *ngIf="pageName == 'interpro-v87'">
+<h3 id="pombase-now-uses-interpro-version-87.0">PomBase now uses InterPro Version 87.0</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: interpro_32px.png -->
+<p>PomBase now uses InterPro Version 87.0, which integrates:</p>
+<ul>
+<li>1,155 new InterPro entries</li>
+<li>Update to Pfam 34.0</li>
+<li>1,256 new methods</li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2021-11-23-interpro-v87" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-now-uses-interpro-version-87.0">PomBase now uses InterPro Version 87.0</h3>
+<p><em>2021-11-23</em></p>
+<p>PomBase now uses InterPro Version 87.0, which integrates:</p>
+<ul>
+<li>1,155 new InterPro entries</li>
+<li>Update to Pfam 34.0</li>
+<li>1,256 new methods</li>
+</ul>
+</div>
 <div id="2021-10-18-new-protein-feature-searches" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="coils-disorder-and-more-new-protein-feature-queries">Coils, disorder, and more: new protein feature queries</h3>
