@@ -458,6 +458,10 @@ export interface AnnotationDetailMap {
   [id: number]: Annotation;
 }
 
+export interface GenotypeShortByUniquename {
+  [genotype_uniquename: string]: GenotypeShort;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
@@ -489,6 +493,7 @@ export class GeneDetails {
   references: Array<ReferenceShort>;
   annotation_details: AnnotationDetailMap;
   feature_publications: Array<ReferenceShort>;
+  genotypes_by_uniquename: GenotypeShortByUniquename;
 }
 
 export class GenotypeDetails {

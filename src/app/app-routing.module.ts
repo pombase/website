@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, NoPreloading } from '@angular/router';
 
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
+import { GeneAlleleListComponent } from './gene-allele-list/gene-allele-list.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
@@ -23,6 +24,10 @@ import { getAppConfig } from './config';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
+    data: {
+    }
+  },
+  { path: 'gene_alleles/:uniquename', component: GeneAlleleListComponent,
     data: {
     }
   },

@@ -129,6 +129,7 @@ import { GeneQueryStructureComponent } from './gene-query-structure/gene-query-s
 import { GeneVisSettingsComponent } from './gene-vis-settings/gene-vis-settings.component';
 import { QueryRangeNodeComponent } from './query-range-node/query-range-node.component';
 import { QueryGenomeRangeNodeComponent } from './query-genome-range-node/query-genome-range-node.component';
+import { GeneAlleleListComponent } from './gene-allele-list/gene-allele-list.component';
 
 export function documentFactory() {
     return document;
@@ -232,6 +233,7 @@ export function windowFactory() {
     GeneVisSettingsComponent,
     QueryRangeNodeComponent,
     QueryGenomeRangeNodeComponent,
+    GeneAlleleListComponent,
   ],
   imports: [
     BrowserModule,

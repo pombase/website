@@ -1,0 +1,61 @@
+<div *ngIf="geneDetails" class="gene-alleles-page">
+
+  <div class="details-page-name-and-id">
+    <div class="gene-alleles-name-id">
+      <span class="details-page-name-and-id-prefix">Alleles of:</span>
+      <a routerLink="/gene/{{geneDetails.uniquename}}">
+        <span *ngIf="geneDetails.name">{{geneDetails.name}} ({{geneDetails.uniquename}})</span>
+        <span *ngIf="!geneDetails.name">{{geneDetails.uniquename}}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="gene-alleles-controls">
+    Show genotypes:
+    <a (click)="showAllGenotypes()">All</a>
+    <a (click)="hideAllGenotypes()">None</a>
+  </div>
+
+  <table class="gene-alleles-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th *ngIf="anyVisibleGenotypes()">Expression</th>
+        <th *ngIf="anyVisibleGenotypes()">Genotype</th>
+      </tr>
+    </thead>
+    <ng-container *ngFor="let allele of alleleTable">
+      <ng-container *ngFor="let expressedAllele of allele.expressedAlleles; let expressedAlleleIndex = index">
+        <tr *ngFor="let genotype of expressedAllele.genotypes; let genotypeIndex = index">
+          <ng-container *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0">
+            <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
+              {{allele.alleleName}}
+            </td>
+            <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
+              {{allele.alleleDescription}}
+            </td>
+            <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
+              {{allele.alleleType}}
+            </td>
+            <td *ngIf="!genotypesVisible(allele) && anyVisibleGenotypes()">
+
+            </td>
+            <td *ngIf="!genotypesVisible(allele)">
+              <a (click)="showGenotypes(allele)">Show genotypes..</a>
+            </td>
+          </ng-container>
+
+          <td *ngIf="genotypesVisible(allele) && genotypeIndex == 0" [attr.rowspan]="expressedAllele.genotypes.length">
+            {{expressedAllele.expression}}
+          </td>
+          <td *ngIf="genotypesVisible(allele)">
+            <app-genotype-link [genotype]="genotype"></app-genotype-link>
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </table>
+
+</div>

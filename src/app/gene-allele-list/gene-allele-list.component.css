@@ -1,0 +1,18 @@
+
+table.gene-alleles-table {
+  font-size: 120%;
+}
+
+table.gene-alleles-table td, table.gene-alleles-table th {
+  vertical-align: top;
+  padding: 0.1em 0.6em;
+}
+
+.gene-alleles-controls {
+  font-size: 110%;
+  padding: 1em;
+}
+
+.gene-alleles-name-id {
+  font-size: 110%;
+}
