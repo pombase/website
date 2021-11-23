@@ -16,3 +16,21 @@ table.gene-alleles-table td, table.gene-alleles-table th {
 .gene-alleles-name-id {
   font-size: 110%;
 }
+
+table.gene-alleles-table td.expression-cell {
+  padding-bottom: 0.5em;
+}
+
+tr {
+  height: 1px
+}
+
+td {
+  height: inherit;
+}
+
+.expression-decoration {
+  padding-right: 0.5em;
+  border-right: 2px solid black;
+  height: 100%;;
+}
