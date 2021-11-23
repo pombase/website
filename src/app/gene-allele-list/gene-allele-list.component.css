@@ -22,7 +22,8 @@ table.gene-alleles-table td.expression-cell {
 }
 
 tr {
-  height: 1px
+  /* see: https://stackoverflow.com/a/34781198/25108 */
+  height: 0;
 }
 
 td {
