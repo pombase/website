@@ -144,6 +144,10 @@ export class GeneAlleleListComponent implements OnInit {
         expressedAlleleSections.push(new ExpressedAlleleSection(expression, genotypes));
       }
 
+      expressedAlleleSections.sort((a, b) =>
+        a.expression.localeCompare(b.expression)
+      );
+
       const alleleName = alleleMap[alleleUniquename].name;
       const alleleDescription = alleleMap[alleleUniquename].description;
       const alleleType = alleleMap[alleleUniquename].allele_type;
