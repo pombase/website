@@ -147,7 +147,7 @@
                                       [currentGene]="geneDetails"
                                       [annotationTable]="geneDetails.genetic_interactions"></app-interaction-annotation-table>
 
-      <app-ortholog-annotation-table *ngIf="annotationTypeName == 'orthologs'"
+      <app-ortholog-annotation-table *ngIf="annotationTypeName == 'orthologs' && showOrthologsSection()"
                                      id="{{annotationTypeName}}"
                                      [currentGene]="geneDetails"
                                      [annotationTable]="geneDetails.ortholog_annotations"></app-ortholog-annotation-table>

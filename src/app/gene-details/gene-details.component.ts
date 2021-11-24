@@ -179,6 +179,12 @@ export class GeneDetailsComponent implements OnInit {
     return false;
   }
 
+  showOrthologsSection(): boolean {
+    return this.geneDetails.ortholog_annotations.length > 0 ||
+      this.geneDetails.feature_type === 'mRNA gene' ||
+      this.geneDetails.feature_type === 'pseudogene';
+  }
+
   setVisibleSections(): void {
     this.visibleSections = [];
 
@@ -213,8 +219,7 @@ export class GeneDetailsComponent implements OnInit {
       }
 
       if (annotationTypeName === 'orthologs' &&
-          (this.geneDetails.feature_type === 'mRNA gene' ||
-           this.geneDetails.feature_type === 'pseudogene')) {
+          this.showOrthologsSection()) {
         this.visibleSections.push(annotationTypeName);
       }
 

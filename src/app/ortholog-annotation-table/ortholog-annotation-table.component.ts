@@ -48,6 +48,12 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
     this.fullProductRef.content.message = fullProduct;
   }
 
+  displayOrthologPredictionResources(): boolean {
+    return this.currentGene && this.appConfig.isConfigOrganism(this.currentGene.taxonid) &&
+      (this.currentGene.feature_type === 'mRNA gene' ||
+       this.currentGene.feature_type === 'pseudogene');
+  }
+
   ngOnInit() {
     let typeConfig = this.config.annotationTypes['orthologs'];
     this.annotationTypeDisplayName = typeConfig.display_name;
