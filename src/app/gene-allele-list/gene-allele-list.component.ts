@@ -6,6 +6,7 @@ import { GeneDetails, PombaseAPIService, GenotypeShort,
 
 
          AlleleShort } from '../pombase-api.service';
+import { Util } from '../shared/util';
 
 class AlleleSection {
   public nameAndDescription: string;
@@ -15,11 +16,7 @@ class AlleleSection {
               public alleleDescription: string,
               public alleleType: string,
               public expressedAlleles: Array<ExpressedAlleleSection>) {
-    let name = this.alleleName;
-    if (!name) {
-      name = 'unknown';
-      this.alleleName = name;
-    }
+    this.alleleName = Util.tidyAlleleName(alleleName);
 
     let description = this.alleleDescription;
 
