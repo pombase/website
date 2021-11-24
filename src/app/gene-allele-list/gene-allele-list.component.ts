@@ -18,12 +18,14 @@ class AlleleSection {
     let name = this.alleleName;
     if (!name) {
       name = 'unknown';
+      this.alleleName = name;
     }
 
     let description = this.alleleDescription;
 
     if (!description) {
       description = 'unknown';
+      this.alleleDescription = '';
     }
 
     this.nameAndDescription = name + '(' + description + ')';
@@ -62,6 +64,7 @@ export class GeneAlleleListComponent implements OnInit {
   @Input() geneDetails: GeneDetails;
 
   alleleTable: Array<AlleleSection>;
+  sortByColumnName: string = 'type';
 
   genotypeVisible: { [key: string ]: boolean } = {};
 
@@ -95,6 +98,54 @@ export class GeneAlleleListComponent implements OnInit {
       return allele.genotypeCount();
     } else {
       return 1;
+    }
+  }
+
+  sortBy(columnName: 'name'|'description'|'type'): void {
+    this.sortByColumnName = columnName;
+
+    this.sortTable();
+  }
+
+  sortTable(): void {
+    if (this.sortByColumnName == 'type') {
+      this.alleleTable.sort((a, b) => {
+        if (a.alleleType === b.alleleType) {
+          return a.nameAndDescription.localeCompare(b.nameAndDescription);
+        } else {
+          return a.alleleType.localeCompare(b.alleleType);
+        }
+      });
+    } else {
+      this.alleleTable.sort((a, b) => {
+        let result;
+
+        if (this.sortByColumnName === 'name') {
+          result = a.alleleName.localeCompare(b.alleleName);
+        } else {
+          if (a.alleleDescription.length == 0 && b.alleleDescription.length == 0) {
+            result = 0;
+          } else {
+            if (a.alleleDescription.length == 0) {
+              // missing / blank description sort last
+              result = 1;
+            } else {
+              if (b.alleleDescription.length == 0) {
+                return -1
+              } else {
+                result = a.alleleDescription.localeCompare(b.alleleDescription);
+              }
+            }
+          }
+        }
+
+        if (result === 0) {
+          result = a.alleleType.localeCompare(b.alleleType);
+        }
+
+        return result;
+      })
+
     }
   }
 
@@ -136,8 +187,6 @@ export class GeneAlleleListComponent implements OnInit {
       }
     }
 
-
-
     for (const [alleleUniquename, expressedAlleleMap] of Object.entries(alleleExpressionGenotypeMap)) {
       const expressedAlleleSections = [];
       for (const [expression, genotypes] of Object.entries(expressedAlleleMap)) {
@@ -158,13 +207,7 @@ export class GeneAlleleListComponent implements OnInit {
       this.alleleTable.push(alleleSection);
     }
 
-    this.alleleTable.sort((a, b) => {
-      if (a.alleleType === b.alleleType) {
-        return a.nameAndDescription.localeCompare(b.nameAndDescription);
-      } else {
-        return a.alleleType.localeCompare(b.alleleType);
-      }
-    })
+    this.sortTable();
   }
 
   ngOnInit(): void {

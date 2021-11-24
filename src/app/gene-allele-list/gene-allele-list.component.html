@@ -19,9 +19,31 @@
   <table class="gene-alleles-table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
+        <th>
+          <a *ngIf="sortByColumnName != 'name'" (click)="sortBy('name')" title="Click to sort by name" >
+            Name <img title="Click to sort by name" src="assets/sort_both.svg">
+          </a>
+          <span *ngIf="sortByColumnName == 'name'" title="Sorted by name">
+            Name <img title="Sorted by name" src="assets/sort_up.svg">
+          </span>
+        </th>
+        <th>
+          <a *ngIf="sortByColumnName != 'description'" (click)="sortBy('description')"title="Click to sort by description">
+            Description <img title="Click to sort by description" src="assets/sort_both.svg">
+          </a>
+          <span *ngIf="sortByColumnName == 'description'" title="Sorted by description">
+            Description <img title="Sorted by description" src="assets/sort_up.svg">
+          </span>
+        </th>
+
+        <th>
+          <a *ngIf="sortByColumnName != 'type'" (click)="sortBy('type')" title="Click to sort by type">
+            Type <img title="Click to sort by type" src="assets/sort_both.svg">
+          </a>
+          <span *ngIf="sortByColumnName == 'type'" title="Sorted by type">
+            Type <img title="Sorted by type" src="assets/sort_up.svg">
+          </span>
+        </th>
         <th *ngIf="anyVisibleGenotypes()">Expression</th>
         <th *ngIf="anyVisibleGenotypes()">Genotype</th>
       </tr>
