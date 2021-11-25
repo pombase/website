@@ -5,26 +5,26 @@ ${database_name} curators develop and use the Fission Yeast Phenotype Ontology
 under-expressing wild type genes. 
 
 The contents and structure of FYPO are described on the
-[FYPO page of the PomBase wiki](https://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology)
+[FYPO wiki](https://github.com/pombase/fypo/wiki/Fission-Yeast-Phenotype-Ontology-(FYPO)) at GitHub
 and in the publication:
 
 Harris MA, Lock A, Bähler J, Oliver SG, Wood V. FYPO: The Fission
 Yeast Phenotype Ontology. Bioinformatics. 2013 July 1;29(13):
 1671–1678.
-[PubMed abstract (PMID:23658422)](http://www.ncbi.nlm.nih.gov/pubmed/23658422) or
-[Full text at Bioinformatics](http://bioinformatics.oxfordjournals.org/content/29/13/1671.long)
+[PubMed abstract (PMID:23658422)](https://www.ncbi.nlm.nih.gov/pubmed/23658422) or
+[Full text at Bioinformatics](https://bioinformatics.oxfordjournals.org/content/29/13/1671.long)
 
 ### Browsing FYPO terms
 
 At present, FYPO is included collections such as the National Center
 for Biomedical Ontology's
-[BioPortal](http://bioportal.bioontology.org/) and EBI's
-[Ontology Lookup Service (OLS)](http://www.ebi.ac.uk/ontology-lookup/),
+[BioPortal](https://bioportal.bioontology.org/) and EBI's
+[Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ontology-lookup/),
 both of which allow searching and browsing.
 
-- BioPortal [FYPO summary page](http://bioportal.bioontology.org/ontologies/FYPO)
+- BioPortal [FYPO summary page](https://bioportal.bioontology.org/ontologies/FYPO)
 - BioPortal
-  [FYPO terms](http://bioportal.bioontology.org/ontologies/FYPO/?p=classes)
+  [FYPO terms](https://bioportal.bioontology.org/ontologies/FYPO/?p=classes)
   (the term display supports tree-viewer browsing, text searches, and
   a graphical display)
 - [OLS FYPO browser](https://www.ebi.ac.uk/ols/ontologies/fypo)
@@ -54,7 +54,7 @@ is available via Canto.
 ### Submitting Bulk Data
 
 If you have a large set of phenotype data to submit, you may want to
-do a bulk submission.  See the documentation on the
-[recommended file format](http://www.pombase.org/submit-data/phenotype-data-bulk-upload-format),
+do a bulk submission. See the documentation on the
+[recommended file format](https://www.pombase.org/submit-data/phenotype-data-bulk-upload-format),
 and use the Phenotype Data Submission Form.
 

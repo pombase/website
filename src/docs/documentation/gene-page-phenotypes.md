@@ -8,7 +8,7 @@ annotated using terms from the Fission Yeast Phenotype Ontology
 [Open Biological and Biomedical Ontologies](http://obofoundry.org/) (OBO)
 collection to construct formal definitions. Basic documentation for
 FYPO is available at the [OBO Foundry](http://obofoundry.org/ontology/fypo.html), and further
-information is available on the [${database_name} wiki](http://curation.pombase.org/pombase-trac/wiki/FissionYeastPhenotypeOntology).
+information is available on the [FYPO wiki](https://github.com/pombase/fypo/wiki/Fission-Yeast-Phenotype-Ontology-(FYPO)).
 
 In the phenotype annotation display on ${database_name} gene pages, the first
 item shown is a brief summary indicating whether cells with a null
@@ -18,7 +18,7 @@ are shown in two tables. The first table lists phenotypes observed at
 the population level, such as viability in culture, and the second
 shows cell-level phenotypes. Note that the viable/inviable population
 terms describe whether a gene is essential or not, and see the wiki
-[FYPO Content and Structure](http://curation.pombase.org/pombase-trac/wiki/FYPOContentStructure)
+[FYPO Content and Structure](https://github.com/pombase/fypo/wiki/FYPO-Content-and-Structure)
 documentation for more information on cell and population phenotypes.
 Finally, two more tables list population-level and cell-level
 multi-locus phenotypes, i.e. phenotypes associated with double
