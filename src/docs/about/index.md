@@ -83,7 +83,7 @@ PomBase releases.
 ### Receive project updates
 
 %%if db=PomBase
-Subscribe to [Pombelist](https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist) to receive
+Subscribe to [Pombelist](https://lists.cam.ac.uk/sympa/info/ucam-pombelist) to receive
 annotation and data updates
 %%end db=PomBase
 
@@ -91,7 +91,6 @@ annotation and data updates
 Subscribe to [japonicus-list](https://mailman.kcl.ac.uk/mailman/listinfo/japonicus-list) to receive
 annotation and data updates
 %%end db=JaponicusDB
-
 
 ------------------------------------
 
