@@ -3,17 +3,14 @@
 
 To join or leave pombelist, go to the list management page:
 
-https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist
+https://lists.cam.ac.uk/sympa/info/ucam-pombelist
 
-To join, follow the instructions under the "Subscribing to
-Ucam-pombelist" header.
+To join, click "Subscribe" in the left-hand menu, and follow the
+instructions on the page.
 
-To unsubscribe, go to the bottom of the page, enter your email address
-and click the "Unsubscribe or edit options" button. On the next page,
-you can unsubscribe, or log in to see additional options.
+An "Unsubscribe" link is also available in the left-hand menu.
 
-If you want to change the email address you use for pombelist, you can
-do so under the "Changing your Ucam-pombelist membership information "
-header. It will also work to subscribe using the new address and
-unsubscribe the old address (in either order).
-
+If you want to change the email address you use for pombelist, go to
+the upper right corner to log in, and then (still in the upper right
+corner), hover over your name to reveal a menu. Select "My
+preferences" to see options including a field for a new email address.

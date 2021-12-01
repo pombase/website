@@ -10,8 +10,9 @@ once a day.
 To disable digest mode, or just check whether you have it on, go to
 the list management page:
 
-https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist
+https://lists.cam.ac.uk/sympa/info/ucam-pombelist
 
-At the bottom of the page, enter your email address and click the
-"Unsubscribe or edit options" button. Log in if necessary, then find
-the "Set Digest Mode" option, and set it to "Off".
+Log in (upper right corner), then go to "Subscriber Options" in the
+left-hand menu. In the "Receiving mode" pulldown. Choose "standard
+(direct reception)". Click the "Apply modifications" button (below the
+next pulldown), and you can then log out.
