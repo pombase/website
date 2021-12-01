@@ -390,7 +390,7 @@ export interface FilterConfig {
   scope: Array<string>;
   term_categories?: Array<TermFilterCategory>;
   evidence_categories?: Array<EvidenceFilterCategory>;
-  extension_rel_type_name?: string;
+  extension_rel_type_names?: Array<string>;
   extension_categories?: Array<ExtensionFilterCategory>;
   throughput_categories?: Array<ThroughputFilterCategory>;
 }

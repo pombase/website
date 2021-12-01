@@ -2,7 +2,8 @@ import { AnnotationTable } from '../pombase-api.service';
 import { Filter } from '../filtering';
 
 export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
-  constructor(private rangeTermIds: Array<string>) { }
+  constructor(private extensionRelNames: Array<string>,
+              private rangeTermIds: Array<string>) { }
 
   filter(annotationTable: AnnotationTable): [AnnotationTable, number, number] {
     let retTable = [] as AnnotationTable;
@@ -19,7 +20,7 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
           if (annotation.extension) {
             for (let extPart of annotation.extension) {
               const rangeTerm = extPart.ext_range.term;
-              if (rangeTerm) {
+              if (this.extensionRelNames.includes(extPart.rel_type_name) && rangeTerm) {
                 if (filterTermId === rangeTerm.termid) {
                   retTermAnnotation.annotations.push(annotation);
                   continue ANNOTATION;
@@ -45,6 +46,10 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
               for (const extPart of summaryRow.extension) {
                 if (extPart.ext_range.summaryTerms) {
                   for (const rangeSummaryTerm of extPart.ext_range.summaryTerms) {
+
+                    if (!this.extensionRelNames.includes(extPart.rel_type_name)) {
+                      return false;
+                    }
 
                     if (this.rangeTermIds.includes(rangeSummaryTerm.termid)) {
                       return true;

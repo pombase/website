@@ -34,8 +34,8 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
   }
 
   setCategory(event: SelectData|undefined): void {
-    if (event) {
-      this.filterChange.emit(new AnnotationExtensionFilter(event.ancestors));
+    if (event && this.config.extension_rel_type_names) {
+      this.filterChange.emit(new AnnotationExtensionFilter(this.config.extension_rel_type_names, event.ancestors));
     } else {
       this.filterChange.emit(undefined);
     }
@@ -57,14 +57,17 @@ export class AnnotationTableExtensionFilterComponent implements OnInit, OnChange
       for (let annotation of termAnnotation.annotations) {
         const extension = annotation.extension;
         if (extension) {
-          for (let extPart of extension) {
-            const rangeTerm = extPart.ext_range.term;
-            if (rangeTerm) {
-              seenCategories[rangeTerm.termid] = true;
-              const interestingParentIds = rangeTerm.interesting_parent_ids;
-              if (interestingParentIds) {
-                for (let ancestor of interestingParentIds) {
-                  seenCategories[ancestor] = true;
+          for (const extPart of extension) {
+            if (this.config.extension_rel_type_names &&
+                this.config.extension_rel_type_names.includes(extPart.rel_type_name)) {
+              const rangeTerm = extPart.ext_range.term;
+              if (rangeTerm) {
+                seenCategories[rangeTerm.termid] = true;
+                const interestingParentIds = rangeTerm.interesting_parent_ids;
+                if (interestingParentIds) {
+                  for (let ancestor of interestingParentIds) {
+                    seenCategories[ancestor] = true;
+                  }
                 }
               }
             }
