@@ -287,7 +287,7 @@ sub read_table
     }
   }
 
-  my $csv = Text::CSV->new({ sep_char => $sep, allow_loose_quotes => 1 });
+  my $csv = Text::CSV->new({ sep_char => $sep, allow_loose_quotes => 1, binary => 1 });
 
   $csv->header ($fh, { sep_set => [ $sep ], });
 
@@ -295,6 +295,12 @@ sub read_table
 
   while (my $row = $csv->getline($fh)) {
     push @rows, $row;
+  }
+
+  if (!$csv->eof()) {
+    my ($cde, $str) = $csv->error_diag ();
+
+    die "failed to parse $file_name line $.: $str\n";
   }
 
   return ([$csv->column_names()], \@rows);
@@ -628,6 +634,8 @@ sub markdown {
   local $/ = undef;
 
   my ($temp_fh, $temp_filename) = tempfile('/tmp/process-markdown-XXXXXXXXXX');
+
+  binmode($temp_fh, 'encoding(UTF-8)');
 
   print $temp_fh $md;
 
