@@ -14,8 +14,11 @@ use warnings;
 use Carp;
 use Getopt::Long qw(GetOptions);
 use File::Temp qw(tempfile);
+use Text::CSV;
+use Text::Trim qw(trim);
 
 my $web_config_file_name = '';
+my $data_files_dir = '';
 my $doc_config_file_name = '';
 my $json_docs_file_name = '';
 my $markdown_docs = '';
@@ -25,6 +28,7 @@ my $front_page_content_component = '';
 
 GetOptions(
   'web-config=s' => \$web_config_file_name,
+  'data-files-dir=s' => \$data_files_dir,
   'doc-config=s' => \$doc_config_file_name,
   'json-docs=s' => \$json_docs_file_name,
   'markdown-docs=s' => \$markdown_docs,
@@ -32,7 +36,8 @@ GetOptions(
   'docs-component=s' => \$docs_component,
   'front-panel-content-component=s' => \$front_page_content_component);
 
-if (!$web_config_file_name || !$doc_config_file_name || !$markdown_docs || !$recent_news_component ||
+if (!$web_config_file_name || !$data_files_dir || !$doc_config_file_name ||
+    !$markdown_docs || !$recent_news_component ||
     !$docs_component || !$front_page_content_component) {
   die "missing arg";
 }
@@ -198,6 +203,105 @@ sub add_to_json {
 }
 
 
+sub table_to_html
+{
+  my $column_names_ref = shift;
+  my @column_names = @$column_names_ref;
+  my $rows_ref = shift;
+  my @rows = @$rows_ref;
+
+  my @res = ();
+
+  my $gene_column = undef;
+  my $ref_column = undef;
+
+  for (my $i = 0; $i < @column_names; $i++) {
+    my $lc_col_name = lc $column_names[$i];
+    if ($lc_col_name eq 'gene' || $lc_col_name =~ /^systematic.id$/) {
+      $gene_column = $i;
+    } else {
+      if ($lc_col_name eq 'reference') {
+        $ref_column = $i;
+      }
+    }
+  }
+
+  push @res, '<table><thead><tr>';
+
+  push @res, (join '', map { '<th>' . ucfirst $_ . '</th>' } @column_names);
+  push @res, '</thead>';
+
+  for my $row (@rows) {
+    my $line = '<tr>';
+
+    for (my $i = 0; $i < @column_names; $i++) {
+      my $col_entry = $row->[$i];
+
+      if (defined $col_entry) {
+        $line .= '<td>';
+        if (defined $gene_column && $i == $gene_column) {
+          $line .= "<a routerLink='/gene/$col_entry'>$col_entry</a>";
+        } else {
+          if (defined $ref_column && $i == $ref_column) {
+            $line .=
+              $col_entry =~ s|PMID:(\d+)|<a href='http://www.ncbi.nlm.nih.gov/pubmed?term=$1'>PMID:$1</a>|gr;
+          } else {
+            if (length $col_entry > 20) {
+              $col_entry =~ s/(,|\.\.)/$1<wbr>/g;
+            }
+
+            $line .= $col_entry;
+          }
+        }
+        $line .= '</td>';
+      }
+    }
+
+    $line .= '</tr>';
+
+    push @res, $line;
+  }
+
+  push @res, '</table>';
+
+  return @res;
+}
+
+
+sub read_table
+{
+  my $file_name = shift;
+
+  my $full_file_name = "$data_files_dir/$file_name";
+
+  open my $fh, '<', $full_file_name or die "can't open $full_file_name";
+
+  my $sep = undef;
+
+  if ($file_name =~ /\.csv$/) {
+    $sep = ',';
+  } else {
+    if ($file_name =~ /\.tsv$/) {
+      $sep = "\t";
+    } else {
+      die "unknown file type for $file_name";
+    }
+  }
+
+  my $csv = Text::CSV->new({ sep_char => $sep, allow_loose_quotes => 1 });
+
+  $csv->header ($fh, { sep_set => [ $sep ], });
+
+  my @rows = ();
+
+  while (my $row = $csv->getline($fh)) {
+    push @rows, $row;
+  }
+
+  return ([$csv->column_names()], \@rows);
+}
+
+
 sub lines_from_file
 {
   my $file_name = shift;
@@ -245,7 +349,19 @@ sub lines_from_file
         }
         next;
       } else {
-        die "mangled directive: $line\n";
+        if ($line =~ /^\%\%table file=(\S+)/) {
+          my ($column_names, $rows) = read_table($1);
+
+          my @html_lines = table_to_html($column_names, $rows);
+
+          for my $line (@html_lines) {
+            push @lines, "$line\n";
+          }
+
+          next;
+      } else {
+          die "mangled directive: $line\n";
+        }
       }
     }
 

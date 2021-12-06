@@ -6,6 +6,7 @@ set -eu
 set -o pipefail
 
 web_config=$1
+data_files_dir=$2
 
 database_name=$(jq '."database_name"' $web_config | perl -pne 's/"(.+?)"/$1/g')
 
@@ -25,6 +26,7 @@ echo -n 'Using Pandoc version: '
 pandoc --version
 
 ./etc/process-markdown.pl --web-config $web_config \
+   --data-files-dir $data_files_dir \
    --doc-config src/app/config/doc-config.json \
    --json-docs src/app/config/docs.json \
    --markdown-docs src/docs \
