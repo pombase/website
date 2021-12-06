@@ -15,7 +15,6 @@ use Carp;
 use Getopt::Long qw(GetOptions);
 use File::Temp qw(tempfile);
 use Text::CSV;
-use Text::Trim qw(trim);
 
 my $web_config_file_name = '';
 my $data_files_dir = '';
