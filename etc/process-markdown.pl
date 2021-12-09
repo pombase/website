@@ -48,6 +48,7 @@ open my $config_fh, '<', $web_config_file_name
   or die "can't open $web_config_file_name";
 my $config_contents;
 {
+  binmode($config_fh, 'encoding(UTF-8)');
   local $/ = undef;
   $config_contents = <$config_fh>;
 }
