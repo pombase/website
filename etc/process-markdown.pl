@@ -16,6 +16,8 @@ use Getopt::Long qw(GetOptions);
 use File::Temp qw(tempfile);
 use Text::CSV;
 
+use open ':encoding(utf8)';
+
 my $web_config_file_name = '';
 my $data_files_dir = '';
 my $doc_config_file_name = '';
@@ -96,8 +98,12 @@ our $date_re = qr|\d+-\d+-\d+|;
 open my $recent_news_fh, '>', $recent_news_component
   or die "can't open $recent_news_component for writing\n";
 
-open my $docs_component_fh, '>', $docs_component
+binmode($recent_news_fh, ":utf8");
+
+open my $docs_component_fh, '>',$docs_component
   or die "can't open $docs_component for writing\n";
+
+binmode($docs_component_fh, ":utf8");
 
 warn "writing to docs component: $docs_component\n";
 
@@ -470,6 +476,8 @@ close $docs_component_fh;
 open my $doc_config_fh, '>', $doc_config_file_name
   or die "can't open $doc_config_file_name: $!\n";
 
+binmode($doc_config_fh, ":utf8");
+
 warn "writing to config JSON file: $doc_config_file_name\n";
 print $doc_config_fh to_json({ pages => \%section_titles }, { canonical => 1, pretty => 1 } );
 
@@ -480,6 +488,9 @@ sub process_front_panels {
 
   open my $panel_contents_comp_fh, '>', $front_page_content_component
     or die "can't open $front_page_content_component";
+
+  binmode($panel_contents_comp_fh, ":utf8");
+
   warn "writing to panel component: $front_page_content_component\n";
 
   for (my $i = 0; $i < @{$panel_conf}; $i++) {
