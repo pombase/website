@@ -24,6 +24,7 @@ jobs:
            sudo apt-get update
            sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl pandoc libyaml-perl
            (curl -L http://cpanmin.us | sudo perl - --self-upgrade) && sudo cpanm --notest Pandoc Text::CSV
+           git clone git@github.com:pombase/curation.git pombase-curation
            curl -OL http://current.geneontology.org/metadata/GO.xrf_abbs
            curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
            curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_jbrowse_track_metadata.csv
@@ -36,5 +37,5 @@ jobs:
            cp src/pombase/index.html src/index.html   # usually copied by pombase-chado/etc/build_container.sh
            ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json
            curl -L https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json > main_config.json
-           ./etc/update_generated_files.sh main_config.json && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
+           ./etc/update_generated_files.sh main_config.json pombase-curation/data_files/ && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress
            ./etc/check_docs_broken_links.pl src/docs src/assets main_config.json
