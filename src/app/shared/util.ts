@@ -71,7 +71,7 @@ export class Util {
 
   static tidyAlleleName(alleleName?: string): string {
     let name = alleleName || 'unnamed';
-    name = name.replace(/delta/, 'Δ');
+    name = name.replace(/delta/g, 'Δ');
     return name;
   }
 
