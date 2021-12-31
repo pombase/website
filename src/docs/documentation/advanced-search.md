@@ -345,10 +345,11 @@ maximum number and click "Search".
 
 #### Number of transcripts
 
-Find genes with a specified number of annotated transcripts; genes
-with two or more have one or more alternative transcripts in addition
-to the primary transcript. Enter the desired minimum and maximum
-number and click "Search".
+Find genes with a specified number of annotated transcript isoforms;
+Enter the desired minimum and maximum number and click “Search”.
+(Note: alternative transcripts are only explicitly annotated if
+functional differences between isoforms are identified- see the
+browser datasets for the full extent of known transcript variation)
 
 %%if db=JaponicusDB
 #### Protein with orthologs
