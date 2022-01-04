@@ -2,16 +2,12 @@
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
-We have migrated the Gene Ontology annotation filter for "during" a
-specific cell cycle phase from the "Summary" view to the "Details"
-view to make it more visible. We have also added additional phases to
-cover all annotation, and added some useful grouping terms. This
-filter is "ontology aware" (so a search on interphase will also
-display G1/S/G2 phase annotation). This filter is very useful on pages
-like cdc2 that display increasing volume of phase-specific curation.
-The revised phase filter options are also available in the gene
-expression section.
+The Gene Ontology annotation filter for “during” specific cell cycle phases is now included on the “Summary” 
+view in addition to the “Details” view. Available phases have been extended to cover all phases used, and to provide  
+useful grouping terms. This filter is “ontology aware” (i.e. a search on interphase will also display G1/S/G2 
+phase annotation). The phase filter is most useful on pages that display increasing volume of 
+phase-specific curation (such as cdc2). The revised phase filter options are also available in the gene expression section.
 
-The filters can be found at the top right of GO annotation sections:
+The  phase filters are located at the top right of GO and gene expression annotation sections:
 
 ![During filter](assets/newsfeed/during-filter.png){style="padding-left:5em"}\
