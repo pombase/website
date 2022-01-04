@@ -1,4 +1,4 @@
-### Biocurator position as PomBase
+### Biocurator position at PomBase
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
