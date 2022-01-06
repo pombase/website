@@ -18,6 +18,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() hideColumns: Array<string>;
   @Input() featureInFirstColumn = false;
+  @Input() detailsOnly = false;
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() scope: string;
   @Output() tableViewChangeEmitter = new EventEmitter<TableViewState>();
@@ -40,7 +41,6 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   tableIsFiltered = false;
   filteredAnnotationCount = 0;
   annotationCount = 0;
-  detailsOnly = false;
 
   externalLinksConfig: Array<AnnotationExternalLinkConfig> = [];
   allTermIds: Array<string> = [];
@@ -301,9 +301,11 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
     if (typeConfig.details_only) {
       this.detailsOnly = true;
+    }
+
+    if (this.detailsOnly) {
       this.allDetailsView();
     } else {
-      this.detailsOnly = false;
       this.allSummaryView();
     }
 
