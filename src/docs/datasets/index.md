@@ -44,10 +44,12 @@ Mappings between ${database_name} systematic IDs, gene names, product descriptio
 -------
 
 ### GO slim
-Current GO slim IDs and term names
-  - [GO biological process slim](https://www.pombase.org/data/releases/latest/misc/bp_goslim_${species}_ids_and_names.tsv)
-  - [GO molecular function slim](https://www.pombase.org/data/releases/latest/misc/mf_goslim_${species}_ids_and_names.tsv)
-  - [GO cellular component slim](https://www.pombase.org/data/releases/latest/misc/cc_goslim_${species}_ids_and_names.tsv)
+
+Current GO slim IDs and term names:
+
+ - [GO biological process slim](https://www.pombase.org/data/releases/latest/misc/bp_goslim_${species}_ids_and_names.tsv)
+ - [GO molecular function slim](https://www.pombase.org/data/releases/latest/misc/mf_goslim_${species}_ids_and_names.tsv)
+ - [GO cellular component slim](https://www.pombase.org/data/releases/latest/misc/cc_goslim_${species}_ids_and_names.tsv)
 
 
 %%if db=PomBase
