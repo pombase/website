@@ -179,6 +179,12 @@
       "url_syntax" : "https://rgd.mcw.edu/rgdweb/search/search.html?term=[example_id]",
       "website" : "https://rgd.mcw.edu/"
    },
+   "RHEA" : {
+      "description" : "Rhea, the Annotated Reactions Database",
+      "name" : "RHEA",
+      "url_syntax" : "https://www.rhea-db.org/rhea/[example_id]",
+      "website" : "https://www.rhea-db.org"
+   },
    "SGD" : {
       "description" : "Saccharomyces Genome Database",
       "name" : "SGD",

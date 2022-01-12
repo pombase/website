@@ -4897,10 +4897,15 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <p>Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers</p>
 <hr />
 <h3 id="go-slim">GO slim</h3>
-<p>Current GO slim IDs and term names <a href="https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv">GO biological process slim</a> <a href="https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv">GO molecular function slim</a> <a href="https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv">GO cellular component slim</a></p>
+<p>Current GO slim IDs and term names:</p>
+<ul>
+<li><a href="https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv">GO biological process slim</a></li>
+<li><a href="https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv">GO molecular function slim</a></li>
+<li><a href="https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv">GO cellular component slim</a></li>
+</ul>
 <hr />
 <h3 id="mondo-slim">Mondo slim</h3>
-<p>Current <a href="https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv">fission yeast Mondo Disease Ontology slim IDs and term names</a></p>
+<p><a href="https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv">Current fission yeast Mondo Disease Ontology slim IDs and term names</a></p>
 <hr />
 <h3 id="curated-inventories">Curated inventories</h3>
 <ul>
@@ -5319,7 +5324,7 @@ PomBase using the Ensembl viewer.</p>
 <h4 id="number-of-exons">Number of exons</h4>
 <p>Find genes with a specified number of coding exons in the primary transcript (note: at present this query does not consider any annotated alternative transcripts). Enter the desired minimum and maximum number and click “Search”.</p>
 <h4 id="number-of-transcripts">Number of transcripts</h4>
-<p>Find genes with a specified number of annotated transcripts; genes with two or more have one or more alternative transcripts in addition to the primary transcript. Enter the desired minimum and maximum number and click “Search”.</p>
+<p>Find genes with a specified number of annotated transcript isoforms; Enter the desired minimum and maximum number and click “Search”. (Note: alternative transcripts are only explicitly annotated if functional differences between isoforms are identified- see the browser datasets for the full extent of known transcript variation)</p>
 <h4 id="orthologs-and-conservation">Orthologs and conservation</h4>
 <h5 id="taxonomic-conservation">Taxonomic conservation</h5>
 <p>Choose one of the descriptions from the pulldown menu. See the <a href="documentation/taxonomic-conservation">gene page documentation</a> for more information.</p>
@@ -9403,7 +9408,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
-<div class="left-menu-part left-menu-item"><a pageScroll href="#biocurator-position-as-pombase">Biocurator position as PomBase</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#biocurator-position-pombase">Biocurator position at PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#improved-options-filtering-annotations-by-cell-cycle-phase">Improved options for filtering annotations by cell cycle phase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-87.0">PomBase now uses InterPro Version 87.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#coils-disorder-and-more-new-protein-feature-queries">Coils, disorder, and more: new protein feature queries</a></div>
@@ -11256,7 +11261,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'interpro-v86'">
 <h3 id="pombase-now-uses-interpro-version-86.0">PomBase now uses InterPro Version 86.0</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 <p>PomBase now uses InterPro Version 86.0, which integrates:</p>
 <ul>
@@ -11364,14 +11368,15 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <h3 id="improved-options-filtering-annotations-by-cell-cycle-phase">Improved options for filtering annotations by cell cycle phase</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
-<p>We have migrated the Gene Ontology annotation filter for “during” a specific cell cycle phase from the “Summary” view to the “Details” view to make it more visible. We have also added additional phases to cover all annotation, and added some useful grouping terms. This filter is “ontology aware” (so a search on interphase will also display G1/S/G2 phase annotation). This filter is very useful on pages like cdc2 that display increasing volume of phase-specific curation. The revised phase filter options are also available in the gene expression section.</p>
-<p>The filters can be found at the top right of GO annotation sections:</p>
+<p>The Gene Ontology annotation filter for “during” specific cell cycle phases is now included on the “Summary” view in addition to the “Details” view. Available phases have been extended to cover all phases used, and to provide<br />
+useful grouping terms. This filter is “ontology aware” (i.e. a search on interphase will also display G1/S/G2 phase annotation). The phase filter is most useful on pages that display increasing volume of phase-specific curation (such as cdc2). The revised phase filter options are also available in the gene expression section.</p>
+<p>The phase filters are located at the top right of GO and gene expression annotation sections:</p>
 <p><img src="assets/newsfeed/during-filter.png" style="padding-left:5em" alt="During filter" /><br />
 </p>
 
   </div>
   <div *ngIf="pageName == 'pombase-curator-position'">
-<h3 id="biocurator-position-as-pombase">Biocurator position as PomBase</h3>
+<h3 id="biocurator-position-pombase">Biocurator position at PomBase</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>Applications are invited for a Research Fellow - Biocurator to join PomBase, the model organism database for the fission yeast, Schizosaccharomyces pombe, maintained in collaboration with the Bähler laboratory. The project’s aims are to manually curate and integrate molecular, genetic, biochemical and sequence data for fission yeast.</p>
@@ -11384,7 +11389,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <div class="news-archive">
 <div id="2021-12-20-pombase-curator-position" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
-<h3 id="biocurator-position-as-pombase">Biocurator position as PomBase</h3>
+<h3 id="biocurator-position-pombase">Biocurator position at PomBase</h3>
 <p><em>2021-12-20</em></p>
 <p>Applications are invited for a Research Fellow - Biocurator to join PomBase, the model organism database for the fission yeast, Schizosaccharomyces pombe, maintained in collaboration with the Bähler laboratory. The project’s aims are to manually curate and integrate molecular, genetic, biochemical and sequence data for fission yeast.</p>
 <p>The post is funded for 2 years in the first instance, with possibilities for extension. Part-time work considered.</p>
@@ -11394,8 +11399,9 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="improved-options-filtering-annotations-by-cell-cycle-phase">Improved options for filtering annotations by cell cycle phase</h3>
 <p><em>2021-12-19</em></p>
-<p>We have migrated the Gene Ontology annotation filter for “during” a specific cell cycle phase from the “Summary” view to the “Details” view to make it more visible. We have also added additional phases to cover all annotation, and added some useful grouping terms. This filter is “ontology aware” (so a search on interphase will also display G1/S/G2 phase annotation). This filter is very useful on pages like cdc2 that display increasing volume of phase-specific curation. The revised phase filter options are also available in the gene expression section.</p>
-<p>The filters can be found at the top right of GO annotation sections:</p>
+<p>The Gene Ontology annotation filter for “during” specific cell cycle phases is now included on the “Summary” view in addition to the “Details” view. Available phases have been extended to cover all phases used, and to provide<br />
+useful grouping terms. This filter is “ontology aware” (i.e. a search on interphase will also display G1/S/G2 phase annotation). The phase filter is most useful on pages that display increasing volume of phase-specific curation (such as cdc2). The revised phase filter options are also available in the gene expression section.</p>
+<p>The phase filters are located at the top right of GO and gene expression annotation sections:</p>
 <p><img src="assets/newsfeed/during-filter.png" style="padding-left:5em" alt="During filter" /><br />
 </p>
 </div>
