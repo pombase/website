@@ -51,29 +51,36 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     return this.sortedHistoryEntries.filter(e => e.checked);
   }
 
+  sortEntries(): void {
+    if (this.sortColumn === 'default') {
+      this.sortedHistoryEntries = this.historyEntries;
+    } else {
+      this.sortedHistoryEntries = this.historyEntries.slice()
+      .sort((histEntryA, histEntryB) => {
+        if (!histEntryA.queryName() && !histEntryB.queryName()) {
+          return this.getQueryDisplayString(histEntryA)
+            .localeCompare(this.getQueryDisplayString(histEntryB));
+        }
+        const histEntryAQueryName = histEntryA.queryName();
+        if (!histEntryAQueryName) {
+          return 1;
+        }
+        const histEntryBQueryName = histEntryB.queryName();
+        if (!histEntryBQueryName) {
+          return -1;
+        }
+        return histEntryAQueryName.localeCompare(histEntryBQueryName);
+      });
+    }
+  }
+
   changeSortOrder(): void {
     if (this.sortColumn === 'default') {
       this.sortColumn = 'queryName';
-      this.sortedHistoryEntries = this.historyEntries.slice()
-        .sort((histEntryA, histEntryB) => {
-          if (!histEntryA.queryName() && !histEntryB.queryName()) {
-            return this.getQueryDisplayString(histEntryA)
-              .localeCompare(this.getQueryDisplayString(histEntryB));
-          }
-          const histEntryAQueryName = histEntryA.queryName();
-          if (!histEntryAQueryName) {
-            return 1;
-          }
-          const histEntryBQueryName = histEntryB.queryName();
-          if (!histEntryBQueryName) {
-            return -1;
-          }
-          return histEntryAQueryName.localeCompare(histEntryBQueryName);
-        });
     } else {
       this.sortColumn = 'default';
-      this.sortedHistoryEntries = this.historyEntries;
     }
+    this.sortEntries();
   }
 
   private actionHelper(selectedQueryNodes: GeneQueryNode[], op: string) {
@@ -242,9 +249,8 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.histSubscription =
       this.queryService.getHistoryChanges()
         .subscribe((newHistory) => {
-          this.sortColumn = 'default';
           this.historyEntries = newHistory;
-          this.sortedHistoryEntries = newHistory;
+          this.sortEntries();
           this.checkUpdatedCounts();
         });
   }
