@@ -66,7 +66,7 @@ td.result-count {
 }
 
 .new-hist-item {
-  animation-duration: 20s;
+  animation-duration: 40s;
   animation-name: highlightRow;
 }
 
