@@ -14,10 +14,12 @@
   </div>
 
   <div id="reference-summary" class="details-page-summary">
-    <ng-container *ngIf="isPubMedRef">
-
+    <ng-container *ngIf="refDetails.authors">
       <div class="details-label">Authors</div>
       <div>{{refDetails.authors}}</div>
+    </ng-container>
+
+    <ng-container *ngIf="isPubMedRef">
 
       <ng-container *ngIf="!multiOrgMode && hasApprovedSession()">
         <div class="curation-status details-label">
