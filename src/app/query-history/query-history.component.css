@@ -35,6 +35,7 @@
 .history-table th {
   text-align: left;
   background-color: #f0f0f0;
+  -webkit-user-select: none;  /* for Safari */
   user-select: none;
 }
 
