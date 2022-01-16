@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-
-import { getXrf } from '../config';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { PopoverDirective } from 'ngx-bootstrap/popover';
+import { getAppConfig, getXrf } from '../config';
 import { GeneShort, TranscriptDetails, WithFromValue } from '../pombase-api.service';
 import { TermShort } from '../pombase-query';
 
@@ -12,19 +12,46 @@ import { TermShort } from '../pombase-query';
 export class WithOrFromLinkComponent implements OnInit {
   @Input() withOrFrom: WithFromValue;
 
+  @ViewChild('link', {static: false}) link: PopoverDirective;
+
   gene?: GeneShort;
   term?: TermShort;
   transcript?: TranscriptDetails;
   identifier?: string;
   name?: string;
-  link?: string;
+  linkUrl?: string;
 
+  appConfig = getAppConfig();
   displayIdentifier = '';
+  popoverIdentifier = '';
+  identifierSourceDescription = '';
+  mouseIn = false;
 
   constructor() { }
 
   private displayIdentifierOf(idWithPrefix: string): string {
     return idWithPrefix.replace(/^[^:]+:/, '');
+  }
+
+  mouseEnter(): void {
+    this.mouseIn = true;
+    setTimeout(() => {
+      if (this.mouseIn && this.link) {
+        this.link.show();
+      }
+    }, this.appConfig.details_popup_delay);
+  }
+
+  mouseLeave(): void {
+    this.mouseIn = false;
+    this.link.hide();
+  }
+
+  ngOnDestroy(): void {
+    if (this.link) {
+      this.link.hide();
+    }
+    this.mouseIn = false;
   }
 
   ngOnInit() {
@@ -35,6 +62,7 @@ export class WithOrFromLinkComponent implements OnInit {
     if (this.withOrFrom.identifier) {
       this.identifier = this.withOrFrom.identifier;
       this.displayIdentifier = this.displayIdentifierOf(this.identifier);
+      this.popoverIdentifier = this.withOrFrom.identifier;
     }
     if (this.withOrFrom.identifier_and_name) {
       this.identifier = this.withOrFrom.identifier_and_name.identifier;
@@ -44,9 +72,14 @@ export class WithOrFromLinkComponent implements OnInit {
     if (this.identifier) {
       const xrfDetails = getXrf(this.identifier);
       if (xrfDetails) {
-        this.link = xrfDetails.url;
+        this.linkUrl = xrfDetails.url;
+        if (xrfDetails.description) {
+          this.identifierSourceDescription = xrfDetails.description
+        } else {
+          this.identifierSourceDescription = '';
+        }
       } else {
-        this.link = undefined;
+        this.linkUrl = undefined;
       }
     }
   }

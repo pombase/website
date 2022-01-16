@@ -1,3 +1,9 @@
+<ng-template #identifierPopover>
+  <div class="popover-identifier">{{popoverIdentifier}}</div>
+  <div *ngIf="identifierSourceDescription">Click for details at: {{identifierSourceDescription}}</div>
+</ng-template>
+
+
 <span>
   <app-gene-link class="app-link" *ngIf="gene" [long]="false" [gene]="gene">
   </app-gene-link>
@@ -15,8 +21,15 @@
   <a *ngIf="term"
      routerLink="/term/{{term.termid}}" routerLinkActive="active">{{term.name}}</a>
 
-  <span *ngIf="identifier">
-    <a title="{{displayIdentifier}}" class="with-from-id" *ngIf="link" href="{{link}}">{{displayIdentifier}}</a>
-    <span title="{{displayIdentifier}}" class="with-from-id" *ngIf="!link">{{displayIdentifier}}</span>
+  <span
+     *ngIf="identifier"
+     #link="bs-popover"
+     [popover]="identifierPopover"
+     triggers=""
+     (mouseenter)="mouseEnter()"
+     (mouseleave)="mouseLeave()"
+     placement="bottom" container="body">
+    <a class="with-from-id" *ngIf="linkUrl" href="{{linkUrl}}">{{displayIdentifier}}</a>
+    <span class="with-from-id" *ngIf="!linkUrl">{{displayIdentifier}}</span>
   </span>
 </span>
