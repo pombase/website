@@ -580,6 +580,10 @@ let _config: AnnotationTableConfig = {
       bait: 'affinity captures',
       prey: 'affinity captured by',
     },
+    'Proximity Label-MS': {
+      bait: 'affinity captures',
+      prey: 'affinity captured by',
+    },
     'Biochemical Activity': {
       bait: 'modifies',
       prey: 'modified by',
