@@ -153,9 +153,7 @@
 
           <svg:g *ngFor="let columnName of activeColumnNames; let columnIndex = index">
             <svg:g>
-              <title>
-                Click to sort gene by this column
-              </title>
+              <title>Click to sort genes by this column</title>
             <svg:text class="col-label"
                       (click)="setSortBy(columnName)"
                       attr.transform="translate({{leftMargin + colLabelXOffset + getGeneWidth() + columnIndex * (columnWidth + columnGap) + columnGap}} {{colLabelHeight}}) rotate(-60)">
