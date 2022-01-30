@@ -15,8 +15,8 @@
              [(ngModel)]="activeColumns[colConfig.name]"/>
       <a *ngIf="isUserColumn(colConfig)"
          (click)="removeUserColumn(colConfig.name)"
-         class="delete-user-link" title="Click to remove this column">
-        <img src="/assets/delete_icon.svg"/>
+         class="delete-user-link">
+        <img title="Click to remove this column" src="/assets/delete_icon.svg"/>
       </a>
       <span *ngIf="showResults() && activeColumns[colConfig.name]">
         <a *ngIf="isCurrentSortField(colConfig.name)"
