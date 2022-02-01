@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal/';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { SettingsService } from '../settings.service';
 import { getAppConfig, GeneResultsFieldConfig } from '../config';
 

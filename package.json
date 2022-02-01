@@ -34,7 +34,7 @@
     "blob": "0.1.0",
     "bootstrap": "^4",
     "file-saver": "^2.0.2",
-    "ngx-bootstrap": "^6.2",
+    "ngx-bootstrap": "^8",
     "ngx-page-scroll": "^7.0.3",
     "ngx-page-scroll-core": "^7.0.3",
     "ngx-toastr": "^14",

@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 
 import { saveAs } from 'file-saver';
-import { BsModalRef } from 'ngx-bootstrap/modal/';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 
 import { FormatUtils, FormatTypes, GeneQuery, GeneUniquename} from '../pombase-query';

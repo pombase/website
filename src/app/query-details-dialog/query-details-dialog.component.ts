@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BsModalRef } from 'ngx-bootstrap/modal/';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { GeneQuery } from '../pombase-query';
 
 @Component({
