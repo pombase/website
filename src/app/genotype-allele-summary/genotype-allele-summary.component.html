@@ -2,6 +2,7 @@
   <thead>
     <th *ngIf="!isDiploid">Gene</th>
     <th *ngIf="isDiploid">Locus</th>
+    <th *ngIf="showProduct">Product</th>
     <th>Allele name</th>
     <th *ngIf="hasSynonyms">
       Synonyms
@@ -14,6 +15,9 @@
     <tr *ngFor="let expressedAllele of locus.expressed_alleles ; let i = index">
       <td *ngIf="i == 0" [attr.rowspan]="isDiploid ? 2 : 1">
         <app-gene-link class="app-link" [long]="false" [gene]="expressedAllele.allele.gene"></app-gene-link>
+      </td>
+      <td *ngIf="showProduct && i == 0" [attr.rowspan]="isDiploid ? 2 : 1">
+        {{expressedAllele.allele.gene?.product}}  
       </td>
       <td>
         <span [innerHTML]="tidyAlleleName(expressedAllele.allele.name)"></span>

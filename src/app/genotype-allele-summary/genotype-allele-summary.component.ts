@@ -10,6 +10,7 @@ import { GenotypeDetails, GenotypeShort, AlleleShort, ExpressedAllele } from '..
 })
 export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
   @Input() genotype: GenotypeDetails|GenotypeShort;
+  @Input() showProduct = false;
 
   isDiploid = false;
   hasSynonyms = false;
