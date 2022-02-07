@@ -64,8 +64,7 @@
     <ng-container *ngIf="refDetails.abstract">
       <div class="details-label">Abstract</div>
       <div class="abstract">
-        <ng-container *ngIf="!showBigGraphicalAbstract">
-
+        <ng-container *ngIf="graphicalAbstractImagePath && !showBigGraphicalAbstract">
         <div *ngIf="bigGraphicalAbstractImagePath" class="small-graphical-abstract">
           <a (click)="displayBigGraphicalAbstract()">
             <img title="Click to view larger graphical abstract" src="{{graphicalAbstractImagePath}}"/>
@@ -74,11 +73,12 @@
         <div *ngIf="!bigGraphicalAbstractImagePath">
           <img title="Graphical abstract" src="{{graphicalAbstractImagePath}}" class="small-graphical-abstract"/>
         </div>
+        </ng-container>
+
         <video *ngIf="videoPath" width="300" loop autoplay class="small-graphical-abstract">
           <source src="{{videoPath}}" type="video/mp4">
         </video>
 
-        </ng-container>
 
         {{refDetails.abstract}}
       </div>
