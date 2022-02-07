@@ -1,7 +1,7 @@
 <span class="annotation-table-filter">
   {{config.display_name}}
 
-  <select [(ngModel)]="selectedCategory" (ngModelChange)="setCategory($event)">
+  <select [(ngModel)]="selectedCategory" (ngModelChange)="setCategory($event)" title="Select a term">
     <option [ngValue]="null">No filter</option>
     <option *ngFor = "let category of choiceData"
             [disabled]="!category.active" [ngValue]="category">
