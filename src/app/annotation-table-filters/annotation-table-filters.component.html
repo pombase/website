@@ -9,6 +9,7 @@
 
     <app-annotation-table-term-filter *ngIf="config.filter_name == 'term'"
                                       [config]="config"
+                                      [tableViewState]="currentViewState"
                                       [annotationTable]="annotationTable"
                                       (filterChange)="filterChanged('term', $event)">
     </app-annotation-table-term-filter>

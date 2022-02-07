@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange } from '@angular/core';
 
 import { TermAnnotation, AnnotationTable, PombaseAPIService, TermSubsets } from '../pombase-api.service';
 import { FilterConfig, TermFilterCategory } from '../config';
 import { AnnotationTermFilter } from '../filtering/annotation-term-filter';
 import { Filter } from '../filtering';
+import { TableViewState } from '../pombase-types';
 
 class SelectData {
   constructor(public displayName: string,
@@ -21,6 +22,7 @@ class SelectData {
 export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() config: FilterConfig;
+  @Input() tableViewState: TableViewState
   @Output() filterChange = new EventEmitter<Filter<AnnotationTable>>();
 
   subsetPromise: Promise<TermSubsets>;
@@ -122,16 +124,22 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnChanges() {
-    this.selectedCategory = null;
+  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
+    // reset unless the only change is moving the annotation table to
+    // Details mode
+    if (Object.keys(changes).length != 1 ||
+       !changes['tableViewState'] ||
+       changes['tableViewState'].currentValue == TableViewState.Summary) {
+      this.selectedCategory = null;
 
-    this.choiceData = [];
+      this.choiceData = [];
 
-    if (this.config.term_categories) {
-      this.processChanges(this.config.term_categories);
-    } else {
-      if (this.config.slim_name) {
-        this.processChangesForSlim();
+      if (this.config.term_categories) {
+        this.processChanges(this.config.term_categories);
+      } else {
+        if (this.config.slim_name) {
+          this.processChangesForSlim();
+        }
       }
     }
   }
