@@ -5,6 +5,8 @@ import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
 import docConfig from './config/doc-config.json';
 import pombaseConfig from '../../main_config.json';
 import jbrowseTracks from '../../minimal_jbrowse_track_list.json';
+import graphicalAbstractFileNames from './config/graphical_abstract_files.json';
+
 
 export interface TermPageConfig {
   ancestorRelNames: Array<string>;
@@ -313,6 +315,7 @@ export interface AppConfig {
   externalGeneReferences: Array<ExternalGeneReference>;
   externalTermReferences: Array<ExternalTermReference>;
   miscExternalLinks: ExternalLinks;
+  graphicalAbstractFileNames: Set<string>;
   proteinFeatures: ProteinFeatures;
   slims: { [slimName: string]: SlimConfig };
   chromosomes: Array<ChromosomeConfig>;
@@ -850,6 +853,7 @@ let _appConfig: AppConfig = {
   externalGeneReferences: pombaseConfig.external_gene_references,
   externalTermReferences: pombaseConfig.external_term_references,
   miscExternalLinks: pombaseConfig.misc_external_links,
+  graphicalAbstractFileNames: new Set(graphicalAbstractFileNames as Array<string>),
   proteinFeatures: pombaseConfig.protein_features,
   chromosomes: pombaseConfig.chromosomes,
 

@@ -31,6 +31,8 @@ export class ReferenceDetailsComponent implements OnInit {
 
   multiOrgMode = getAppConfig().isMultiOrganismMode();
   graphicalAbstractImagePath?: string;
+  showBigGraphicalAbstract = false;
+  bigGraphicalAbstractImagePath?: string;
   videoPath?: string;
   doiUrl?: string;
 
@@ -149,17 +151,39 @@ export class ReferenceDetailsComponent implements OnInit {
     return this.hasCantoSession() && this.refDetails.canto_curator_role.toLowerCase() !== 'community';
   }
 
+  displayBigGraphicalAbstract(): void {
+    this.showBigGraphicalAbstract = true;
+  }
+
   setGraphicalAbstract(): void {
     this.graphicalAbstractImagePath = undefined;
     this.videoPath = undefined;
+    let selectedPath = null;
     for (const panelConf of this.appConfig.frontPagePanels) {
       if (panelConf.panel_type === 'spotlight' && panelConf.head_image &&
           panelConf.reference_id && panelConf.reference_id === this.refDetails.uniquename) {
-        const selectedPath = Util.randElement(panelConf.head_image);
+        selectedPath = Util.randElement(panelConf.head_image);
         if (selectedPath.endsWith('.mp4')) {
           this.videoPath = selectedPath;
         } else {
           this.graphicalAbstractImagePath = 'assets/' + selectedPath;
+        }
+        break;
+      }
+    }
+
+    this.bigGraphicalAbstractImagePath = undefined;
+
+    if (selectedPath) {
+      const match = /^spotlight\/(.*)\.png$/.exec(selectedPath);
+      if (match) {
+        const imageBaseName = match[1];
+        if (this.appConfig.graphicalAbstractFileNames.has(imageBaseName + '.png')) {
+          this.bigGraphicalAbstractImagePath = 'assets/graphical_abstract/' + imageBaseName + '.png';
+        } else {
+          if (this.appConfig.graphicalAbstractFileNames.has(imageBaseName + '.jpg')) {
+            this.bigGraphicalAbstractImagePath = 'assets/graphical_abstract/' + imageBaseName + '.jpg';
+          }
         }
       }
     }

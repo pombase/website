@@ -20,12 +20,17 @@
   margin: 0.2em 3em 0.2em 0;
 }
 
-#graphical-abstract {
+.small-graphical-abstract, .big-graphical-abstract {
   margin: 0 0 0.5em 1em !important;
   padding: 0;
   border: 1px solid #ccc;
   box-shadow: 0px 0px 18px rgba(120,120,120,.80);
+}
+.small-graphical-abstract {
   width: 300px;
+}
+.big-graphical-abstract {
+  max-width: 75vw;
 }
 
 @supports (display: grid) {
@@ -51,7 +56,7 @@
       grid-column: 2/5;
     }
 
-    #graphical-abstract {
+    .small-graphical-abstract {
       float: right;
     }
 
