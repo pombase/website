@@ -33,3 +33,7 @@ pandoc --version
    --recent-news-component src/app/recent-news/recent-news.component.html \
    --docs-component src/app/documentation/docs/docs.component.html \
    --front-panel-content-component src/app/front-panel-content/front-panel-content.component.html
+
+(cd src/assets/graphical_abstract/
+ echo *.{png,jpg} | perl -e '$_ = <>; chomp $_; @a = split /\s+/, $_; $j = join ",", map { qq|"$_"| } @a; print "[$j]\n"'
+ ) > src/app/config/graphical_abstract_files.json
