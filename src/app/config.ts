@@ -389,6 +389,7 @@ export interface FilterConfig {
   detailed_view_only: boolean;
   scope: Array<string>;
   term_categories?: Array<TermFilterCategory>;
+  slim_name?: string;
   evidence_categories?: Array<EvidenceFilterCategory>;
   extension_rel_type_names?: Array<string>;
   extension_categories?: Array<ExtensionFilterCategory>;

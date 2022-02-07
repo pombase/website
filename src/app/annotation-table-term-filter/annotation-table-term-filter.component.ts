@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
-import { TermAnnotation, AnnotationTable } from '../pombase-api.service';
-import { FilterConfig } from '../config';
+import { TermAnnotation, AnnotationTable, PombaseAPIService, TermSubsets } from '../pombase-api.service';
+import { FilterConfig, TermFilterCategory } from '../config';
 import { AnnotationTermFilter } from '../filtering/annotation-term-filter';
 import { Filter } from '../filtering';
 
@@ -23,6 +23,8 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
   @Input() config: FilterConfig;
   @Output() filterChange = new EventEmitter<Filter<AnnotationTable>>();
 
+  subsetPromise: Promise<TermSubsets>;
+
   selectedCategory: any = null;
 
   choiceData: Array<SelectData> = [];
@@ -40,19 +42,15 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
     }
   }
 
-  constructor() { }
+  constructor(pombaseApiService: PombaseAPIService) {
+    this.subsetPromise = pombaseApiService.getTermSubsets();
+  }
 
   ngOnInit() {
   }
 
-  ngOnChanges() {
-    this.selectedCategory = null;
-
+  processChanges(termCategories: Array<TermFilterCategory>): void {
     this.choiceData = [];
-
-    if (!this.config.term_categories) {
-      return;
-    }
 
     let seenAncestors: { [key: string]: boolean } = {};
 
@@ -64,7 +62,7 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
       }
     }
 
-    for (let category of this.config.term_categories) {
+    for (let category of termCategories) {
       let active = false;
 
       for (let ancestor of category.ancestors) {
@@ -82,5 +80,59 @@ export class AnnotationTableTermFilterComponent implements OnInit, OnChanges {
     this.choiceData.sort((a, b) => {
       return a.displayName.localeCompare(b.displayName);
     });
+  }
+
+  getAllAncestors(): Set<string> {
+    let ret = new Set<string>();
+    for (let term_annotations of this.annotationTable) {
+      let term = term_annotations.term;
+
+      if (term_annotations.is_not) {
+        continue;
+      }
+
+      ret.add(term.termid);
+
+      if (term.interesting_parent_ids) {
+        for (let ancestor of term.interesting_parent_ids) {
+          ret.add(ancestor);
+        }
+      }
+    }
+
+    return ret;
+  }
+
+  processChangesForSlim(): void {
+    this.subsetPromise.then((subsets) => {
+      let termCategories = [];
+      let allAncestors = this.getAllAncestors();
+      const subset = subsets[this.config.slim_name!];
+      for (const termid of Object.keys(subset.elements)) {
+        if (allAncestors.has(termid)) {
+          const element = subset.elements[termid];
+          const termCategory = {
+            display_name: element.name,
+            ancestors: [termid],
+          };
+          termCategories.push(termCategory);
+        }
+      }
+      this.processChanges(termCategories);
+    });
+  }
+
+  ngOnChanges() {
+    this.selectedCategory = null;
+
+    this.choiceData = [];
+
+    if (this.config.term_categories) {
+      this.processChanges(this.config.term_categories);
+    } else {
+      if (this.config.slim_name) {
+        this.processChangesForSlim();
+      }
+    }
   }
 }

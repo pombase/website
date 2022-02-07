@@ -1,4 +1,4 @@
-<span class="annotation-table-filter">
+<span *ngIf="choiceData.length != 0" class="annotation-table-filter">
   {{config.display_name}}
 
   <select [(ngModel)]="selectedCategory" (ngModelChange)="setCategory($event)" title="Select a term">
