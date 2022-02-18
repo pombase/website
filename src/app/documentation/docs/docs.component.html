@@ -2371,6 +2371,12 @@ the total annotated genes.
 <p>If you have a large set of phenotype data to submit, you may want to do a bulk submission. See the documentation on the <a href="https://www.pombase.org/submit-data/phenotype-data-bulk-upload-format">recommended file format</a>, and use the Phenotype Data Submission Form.</p>
 
   </div>
+  <div *ngIf="pageName == 'fypo-slim'">
+<h2 id="fission-yeast-phenotype-ontology-slim">Fission Yeast Phenotype Ontology slim</h2>
+<p>A “slim” is a high-level subset of terms from an ontology, used to analyze sets of annotated genes. The table below shows a slim set of grouping terms that we have selected from the <a routerLink="/documentation/gene-page-phenotypes">Fission Yeast Phenotype Ontology</a> (FYPO) and the number of annotations to each term. FYPO IDs link to PomBase ontology term pages. The annotation totals link to pages with information about the term and a list of annotated genes. A gene may be included in the annotation sets for more than one slim term.</p>
+<p><app-slim-table [slimName]="'fypo_slim'"></app-slim-table></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="browse-curation">Browse curation</h2>
 <ul>
