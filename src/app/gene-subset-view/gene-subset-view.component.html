@@ -7,8 +7,11 @@
     <div class="details-page-name-and-id">
       <div *ngIf="subset.name.startsWith('non_slim_')">
         {{subset.display_name}}, not covered
-        by the {{siteName}}
-        <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GOslim</a>
+        by the
+        <span *ngIf="isGOSubset()">{{siteName}}
+          <a routerLink="/browse-curation/fission-yeast-go-slim-terms">GOslim</a>
+        </span>
+        <span *ngIf="!isGOSubset()">slim</span>
         categories: {{subset.elements.length}}
       </div>
       <div *ngIf="subsetDisplayName">

@@ -32,6 +32,14 @@ export class GeneSubsetViewComponent implements OnInit {
     }
   }
 
+  isGOSubset(): boolean {
+    if (this.subset.name.match(/non_slim_.*_(molecular_function|biological_process|cellular_component)/)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   ngOnInit() {
     this.pombaseApiService.getGeneSubsets()
       .then(subsets => {
