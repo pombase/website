@@ -56,9 +56,16 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
               if (!this.splitDataList[splitByConfig.config_name]) {
                 this.splitDataList[splitByConfig.config_name] = [];
               }
-              if (!seenTerms[termAnnotation.term.termid]) {
+              let seenTermsKey;
+              if (termAnnotation.is_not) {
+                // confusing! - this is_not is different from the NOT in the config
+                seenTermsKey = 'not-' + termAnnotation.term.termid;
+              } else {
+                seenTermsKey = termAnnotation.term.termid;
+              }
+              if (!seenTerms[seenTermsKey]) {
                 this.splitDataList[splitByConfig.config_name].push(termAnnotation);
-                seenTerms[termAnnotation.term.termid] = true;
+                seenTerms[seenTermsKey] = true;
               }
             }
           }
