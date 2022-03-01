@@ -8,6 +8,31 @@ Canto, FYPO, annotations and Compara.
 ### Journal articles
 
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyab222"></div>
+
+<div class="pub-citation">
+Harris MA, Rutherford KM, Hayles J, Lock A, Bähler J, Oliver S, Mata J, Wood V \
+Fission stories: Using PomBase to understand _Schizosaccharomyces pombe_ biology \
+*Genetics*, 2021; iyab222 \
+</div>
+[PMID:35100366](http://www.ncbi.nlm.nih.gov/pubmed/35100366) [10.1093/genetics/iyab222](https://doi.org/10.1093/genetics/iyab222)
+
+<div class="clear-float"></div>
+
+
+
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyab223"></div>
+<div class="pub-citation">
+Rutherford KM, Harris MA, Oliferenko S, Wood V \
+JaponicusDB: rapid deployment of a model organism database for an emerging model species \
+*Genetics*, 2021; iyab223 \
+</div>
+[10.1093/genetics/iyab223](https://doi.org/10.1093/genetics/iyab223)
+
+<div class="clear-float"></div>
+
+
+
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1098/rsob.200149"></div>
 
 <div class="pub-citation">
@@ -143,9 +168,18 @@ Posters and slides from conferences and workshops are available on the [Document
 
 ## Collaborative publications including PomBase authors
 
-Rutherford KM, Harris MA, Oliferenko S, Wood V.\
-JaponicusDB: Rapid deployment of a model organism database for an emerging model species.\
-[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2021.09.23.461587v1) available at bioRxiv.\
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkab1037"></div>
+
+<div class="pub-citation">
+Urban M, Cuzick A, Seager J, Wood V, Rutherford K, Venkatesh SY, Sahu J, Vijaylakshmi Iyer S, Khamari L, De Silva N, Martinez MC, Pedro H, Yates AD, Hammond-Kosack KE \
+PHI-base in 2022: a multi-species phenotype database for Pathogen–Host Interactions \
+*NAR*, Volume 50, Issue D1, 7 January 2022, Pages D837–D847 \
+</div>
+[PMID:34788826](http://www.ncbi.nlm.nih.gov/pubmed/34788826) [10.1093/nar/gkab1037](https://doi.org/10.1093/nar/gkab1037)
+
+<div class="clear-float"></div>
+
+
 
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkaa1113"></div>
 

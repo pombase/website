@@ -12,15 +12,18 @@ To cite anything from PomBase, including
 
 please use:
 
-<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gky961"></div>
+
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyab222"></div>
 
 <div class="pub-citation">
-Lock A, Rutherford K, Harris MA, Hayles J, Oliver SG, Bähler J; Wood V.\
-PomBase 2018: user-driven reimplementation of the fission yeast database provides rapid and intuitive access to diverse, interconnected information.\
-*Nucleic Acids Res.* 2018 (Database issue): gky961 Epub 2018 Oct 13.\
+Harris MA, Rutherford KM, Hayles J, Lock A, Bähler J, Oliver S, Mata J, Wood V \
+Fission stories: Using PomBase to understand _Schizosaccharomyces pombe_ biology \
+*Genetics*, 2021; iyab222 \
 </div>
+[PMID:35100366](http://www.ncbi.nlm.nih.gov/pubmed/35100366) [10.1093/genetics/iyab222](https://doi.org/10.1093/genetics/iyab222)
+
 <div class="clear-float"></div>
-[PMID:30321395](http://www.ncbi.nlm.nih.gov/pubmed/30321395) - [DOI:10.1093/nar/gky961](https://doi.org/10.1093/nar/gky961)
+
 
 ### Genome Sequence
 
