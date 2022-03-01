@@ -1,4 +1,4 @@
-## Publications authored by PomBase staff
+## PomBase Publications
 
 Please see the [Citing PomBase](/about/citing-pombase) page, which
 lists papers to cite for PomBase, the *S. pombe* genome sequence,
