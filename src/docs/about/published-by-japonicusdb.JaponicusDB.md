@@ -1,11 +1,13 @@
-## Publications authored by JaponicusDB staff
+## JaponicusDB Publications
 
 ### Journal articles
 
-Coming soon ...
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyab223"></div>
+<div class="pub-citation">
+Rutherford KM, Harris MA, Oliferenko S, Wood V \
+JaponicusDB: rapid deployment of a model organism database for an emerging model species \
+*Genetics*, 2021; iyab223 \
+</div>
+[10.1093/genetics/iyab223](https://doi.org/10.1093/genetics/iyab223)
 
-### Preprints 
-
-Rutherford KM, Harris MA, Oliferenko S, Wood V.\
-JaponicusDB: Rapid deployment of a model organism database for an emerging model species.\
-[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2021.09.23.461587v1) available at bioRxiv.\
+<div class="clear-float"></div>
