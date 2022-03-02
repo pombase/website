@@ -50,8 +50,8 @@ pMLC12 where the blunt end (SmaI end) ligated to the
 telomeric sequences. "Internal" means that an *S. pombe*
 sequence intervenes between the telomere and vector sequences.
 
-[tel1l]: https://www.pombase.org/jbrowse/?loc=I%3A1..29664&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
-[tel1r]: https://www.pombase.org/jbrowse/?loc=I%3A5554843..5579133&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
-[tel2l]: https://www.pombase.org/jbrowse/?loc=II%3A1..39181&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
-[tel2r]: https://www.pombase.org/jbrowse/?loc=II%3A4500628..4539804&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
-[telgap]: https://www.pombase.org/jbrowse/?loc=chr_II_telomeric_gap%3A2002..18001&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+[tel1l]: https://www.pombase.org/jbrowse/?loc=I%3A1..29664&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
+[tel1r]: https://www.pombase.org/jbrowse/?loc=I%3A5554843..5579133&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
+[tel2l]: https://www.pombase.org/jbrowse/?loc=II%3A1..39181&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
+[tel2r]: https://www.pombase.org/jbrowse/?loc=II%3A4500628..4539804&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
+[telgap]: https://www.pombase.org/jbrowse/?loc=chr_II_telomeric_gap%3A2002..18001&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=

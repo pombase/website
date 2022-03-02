@@ -24,4 +24,4 @@ choose "-1" in the location settings.
 
 Also see the FAQ on [finding rRNA genes](/faq/how-can-i-find-rrna-genes).
 
-[rdna]: https://www.pombase.org/jbrowse/?loc=III%3A5540..13720&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+[rdna]: https://www.pombase.org/jbrowse/?loc=III%3A5540..13720&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=

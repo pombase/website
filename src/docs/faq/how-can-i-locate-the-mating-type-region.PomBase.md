@@ -8,4 +8,4 @@ and see the [Mating type region](/status/mating-type-region) page.
 The mating type region will soon be annotated as a feature, and refer to
 a Sequence Ontology term.
 
-[mat]: https://www.pombase.org/jbrowse/?loc=II%3A2129210..2137123&tracks=DNA%2CPomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features&highlight=
+[mat]: https://www.pombase.org/jbrowse/?loc=II%3A2129210..2137123&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=

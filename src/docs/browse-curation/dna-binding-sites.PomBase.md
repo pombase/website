@@ -2,7 +2,7 @@
 
 Also see [PomBase JBrowse with binding site track enabled][prom].
 
-[prom]: https://www.pombase.org/jbrowse/?loc=III%3A725762..736349&tracks=PomBase%20forward%20strand%20features%2CPomBase%20reverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&highlight=
+[prom]: https://www.pombase.org/jbrowse/?loc=III%3A725762..736349&tracks=Forward%20strand%20features%2CReverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&highlight=
 
 
 #### Transcription factor binding sites
