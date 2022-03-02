@@ -4,7 +4,7 @@ This table lists drugs that affect *S. pombe*, and summarizes what is
 known about their targets or mechanisms of action.
 
 
-Drug | Target gene(s) | Cellular target | Process target | Other | Reference
+Drug | Target gene(s) | Cellular target | Process target | Other/notes | Reference
 -----|----------------|-----------------|----------------|-------|----------
 [1,3-dicyclohexylcarbodiimide](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:53090) (N,N'-dicyclohexylcarbodiimide ; DCCD) | | inhibits proton pumps | | | [PMID:33400299](/reference/PMID:33400299)
 [1,10-phenanthroline](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:44975) | | RNA polymerases II and III | | | [PMID:27518095](/reference/PMID:27518095)
@@ -15,6 +15,7 @@ Drug | Target gene(s) | Cellular target | Process target | Other | Reference
 [alverine citrate](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:53785) | | | proteasome/lipid synthesis? | |
 [amiloride](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:2639) | [bsu1](/gene/SPAC17A2.01) | plasma membrane importer | [glucose metabolism](/term/GO:0006006) | |[PMID:15701794](/reference/PMID:15701794), [PMID:8431459](/reference/PMID:8431459)
 [amphotericin B](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:2682) | | ergosterol binding | [sterol biosynthesis](/term/GO:0016126) | forms membrane pores |
+[anidulafungin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:55346) | [bgs4](/gene/SPCC1840.02c), [bgs1](/gene/SPBC19G7.05c) and/or [bgs3](/gene/SPAC19B12.03) | 1,6 branched 1,3-beta-glucan synthase | [cell wall synthesis](/term/GO:0009272) | cytokinesis is blocked; see also [echinocandin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57248) | [PMID:34959732](/reference/PMID:34959732)
 [anisomycin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:338412) | | | [translation](/term/GO:0002181) | |
 antifungal azoles | | | [sterol biosynthesis](/term/GO:0016126) | |
 [antimycin A](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:2762) | | inhibits [mitochondrial complex III](/term/GO:0005750) | [respiratory electron transport](/term/GO:0022904) | | [PMID:33400299](/reference/PMID:33400299) |
@@ -36,7 +37,6 @@ arborcandin C | | 1,3-beta-glucan synthase | | |
 dehydroxestoquinone |  [myo2](/gene/SPCC645.05c), [myp2](/gene/SPAC4A8.05c) | myosin II | | inhibits skeletal muscle myosin II | [PMID:23770677](/reference/PMID:23770677)
 [dihydromotuporamine C](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:82642) | | proteasome? | lipid synthesis? | |
 [diuron](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:116509) | | inhibits [mitochondrial complex III](/term/GO:0005750) | [respiratory electron transport](/term/GO:0022904) | | [PMID:33400299](/reference/PMID:33400299) |
-[echinocandin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:57248) ([anidulafungin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:55346)) | [bgs4](/gene/SPCC1840.02c), [bgs1](/gene/SPBC19G7.05c) and/or [bgs3](/gene/SPAC19B12.03) | 1,6 branched 1,3-beta-glucan synthase | [cell wall synthesis](/term/GO:0009272) | cytokinesis is blocked | [PMID:34959732](/reference/PMID:34959732)
 [enfumafungin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:61749) | [bgs4](/gene/SPCC1840.02c) | 1,6 branched 1,3-beta-glucan synthase | [cell wall synthesis](/term/GO:0009272) | Bgs1 and Bgs3 are unaffected | [PMID:21115488](/reference/PMID:21115488)
 [fenpropimorph](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:50145) | | proteasome? | lipid synthesis? | |
 [hydroxyurea](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:44423) | [suc22](/gene/SPBC25D12.04) | ribonucleotide reductase small subunit | slows DNA synthesis | causes replication fork stalling | [PMID:27869662](https://pubmed.ncbi.nlm.nih.gov/27869662/) (PubMed link)
