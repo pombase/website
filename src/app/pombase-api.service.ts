@@ -524,7 +524,7 @@ export class TermDetails {
   cv_annotations: CvAnnotations;
   single_locus_genotype_uniquenames: Array<string>;
   single_locus_genotypes: Array<GenotypeShort>;
-  genes_annotated_with: Array<string>;
+  annotated_genes: Array<string>;
   annotation_details: AnnotationDetailMap;
   references_by_uniquename: { [referenceUniquename: string]: ReferenceShort };
 }
@@ -1031,7 +1031,7 @@ export class PombaseAPIService {
 
 
     for (let fieldName of ['interesting_parent_ids', 'subsets',
-                           'synonyms', 'genes_annotated_with',
+                           'synonyms', 'annotated_genes',
                            'direct_ancestors',
                            'single_locus_genotype_uniquenames']) {
       if (typeof(json[fieldName]) === 'undefined') {

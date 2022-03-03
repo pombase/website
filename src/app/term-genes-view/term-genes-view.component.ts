@@ -62,7 +62,7 @@ export class TermGenesViewComponent implements OnInit {
     this.pombaseApiService.getGeneSummaryMapPromise()
       .then(geneSummaries => {
         this.genes =
-          this.termDetails.genes_annotated_with
+          this.termDetails.annotated_genes
           .map(geneUniquename => geneSummaries[geneUniquename]);
         this.genes.sort(Util.geneCompare);
       });

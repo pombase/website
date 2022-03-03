@@ -85,7 +85,7 @@ export class TermDetailsComponent implements OnInit {
   }
 
   hasAnnotations(): boolean {
-    return this.termDetails.genes_annotated_with.length > 0;
+    return this.termDetails.annotated_genes.length > 0;
   }
 
   setCounts(): void {
@@ -102,7 +102,7 @@ export class TermDetailsComponent implements OnInit {
 
     this.singleLocusGenotypeGeneCount = Object.keys(singleLocusGenotypeGenes).length;
 
-    this.annotatedGeneCount = this.termDetails.genes_annotated_with.length;
+    this.annotatedGeneCount = this.termDetails.annotated_genes.length;
 
   }
 
