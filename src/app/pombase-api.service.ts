@@ -525,6 +525,8 @@ export class TermDetails {
   single_locus_genotype_uniquenames: Array<string>;
   single_locus_genotypes: Array<GenotypeShort>;
   annotated_genes: Array<string>;
+  single_locus_annotated_genes: Array<string>;
+  multi_locus_annotated_genes: Array<string>;
   annotation_details: AnnotationDetailMap;
   references_by_uniquename: { [referenceUniquename: string]: ReferenceShort };
 }
@@ -556,6 +558,7 @@ export class ReferenceDetails {
 export interface TermSubsetElement {
   name: string;
   gene_count: number;
+  single_locus_gene_count: number;
 }
 
 export interface TermSubsetDetails {
@@ -1032,11 +1035,17 @@ export class PombaseAPIService {
 
     for (let fieldName of ['interesting_parent_ids', 'subsets',
                            'synonyms', 'annotated_genes',
+                           'single_locus_annotated_genes', 'multi_locus_annotated_genes',
                            'direct_ancestors',
                            'single_locus_genotype_uniquenames']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = [];
       }
+    }
+
+    if (json.annotated_genes.length == 0) {
+      json.annotated_genes =
+        [...new Set([...json.single_locus_annotated_genes, ...json.multi_locus_annotated_genes])]
     }
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);

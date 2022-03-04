@@ -17,7 +17,8 @@
           <a routerLink="/term/{{element.termid}}" routerLinkActive="active">{{element.termid}}</a>
         </td>
         <td>
-          <a routerLink="/term_genes/{{element.termid}}" routerLinkActive="active">{{element.gene_count}}</a>
+          <a *ngIf="cvConfig.feature_type == 'gene'" routerLink="/term_genes/{{element.termid}}" routerLinkActive="active">{{element.gene_count}}</a>
+          <a *ngIf="cvConfig.feature_type != 'gene'" routerLink="/term_single_locus_genotype_genes/{{element.termid}}" routerLinkActive="active">{{element.single_multi_gene_count}}</a>
         </td>
         <td *ngIf="slimConfig.external_link_config">
           <app-external-link [identifier]="element.termid"
