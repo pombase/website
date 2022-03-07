@@ -87,14 +87,32 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     };
   }
 
-  toggleDetails(termid: string) {
-    this.detailsView[termid] = !this.detailsView[termid];
+  detailsViewVisible(termAnnotation: TermAnnotation): boolean {
+    let key;
+    if (termAnnotation.is_not) {
+      key = 'NOT:' + termAnnotation.term.termid;
+    } else {
+      key = termAnnotation.term.termid;
+    }
+
+    return this.detailsView[key] || false;
+  }
+
+  toggleDetails(termAnnotation: TermAnnotation) {
+    let key;
+    if (termAnnotation.is_not) {
+      key = 'NOT:' + termAnnotation.term.termid;
+    } else {
+      key = termAnnotation.term.termid;
+    }
+
+    this.detailsView[key] = !this.detailsView[key];
 
     let seenSummarised = false;
 
     for (let termAnnotation of this.annotationTable) {
       if (termAnnotation.summary) {
-        if (!this.detailsView[termAnnotation.term.termid]) {
+        if (!this.detailsViewVisible(termAnnotation)) {
           seenSummarised = true;
         }
       }
@@ -113,6 +131,9 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     this.currentViewState = TableViewState.Details;
     for (let termAnnotation of this.annotationTable) {
       this.detailsView[termAnnotation.term.termid] = true;
+      if (termAnnotation.is_not) {
+        this.detailsView['NOT:' + termAnnotation.term.termid] = true;
+      }
     }
     this.tableViewChangeEmitter.emit(this.currentViewState);
   }
@@ -124,6 +145,9 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     this.currentViewState = TableViewState.Summary;
     for (let termAnnotation of this.annotationTable) {
       this.detailsView[termAnnotation.term.termid] = false;
+      if (termAnnotation.is_not) {
+        this.detailsView['NOT:' + termAnnotation.term.termid] = false;
+      }
     }
     this.tableViewChangeEmitter.emit(this.currentViewState);
   }

@@ -55,11 +55,11 @@
     </thead>
 
     <tbody *ngFor="let termAnnotation of filteredTable; trackBy:trackByTermId">
-      <tr *ngIf="detailsView[termAnnotation.term.termid] && (!compactFirstRows[termAnnotation.term.termid] || tableIsFiltered)" class="term-annotation-top">
+      <tr *ngIf="detailsViewVisible(termAnnotation) && (!compactFirstRows[termAnnotation.term.termid] || tableIsFiltered)" class="term-annotation-top">
         <td style="width: 2em" [attr.rowspan]="termAnnotation.annotations.length + 1">
-          <a *ngIf="!detailsOnly" (click)="toggleDetails(termAnnotation.term.termid)">
-            <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
-            <span class="collapse-icon" *ngIf="!detailsView[termAnnotation.term.termid]">+</span>
+          <a *ngIf="!detailsOnly" (click)="toggleDetails(termAnnotation)">
+            <span class="collapse-icon" *ngIf="detailsViewVisible(termAnnotation)">-</span>
+            <span class="collapse-icon" *ngIf="!detailsViewVisible(termAnnotation)">+</span>
           </a>
         </td>
         <td *ngIf="featureInFirstColumn">
@@ -96,12 +96,12 @@
       </tr>
 
       <tr class="term-annotation"
-          *ngFor="let annotation of detailsView[termAnnotation.term.termid] ? termAnnotation.annotations : [] ; let i = index">
+          *ngFor="let annotation of detailsViewVisible(termAnnotation) ? termAnnotation.annotations : [] ; let i = index">
         <td  *ngIf="i == 0 && !tableIsFiltered && compactFirstRows[termAnnotation.term.termid]" style="width: 2em"
              [attr.rowspan]="termAnnotation.annotations.length">
-          <a *ngIf= "!detailsOnly" (click)="toggleDetails(termAnnotation.term.termid)">
-            <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
-            <span class="collapse-icon" *ngIf="!detailsView[termAnnotation.term.termid]">+</span>
+          <a *ngIf= "!detailsOnly" (click)="toggleDetails(termAnnotation)">
+            <span class="collapse-icon" *ngIf="detailsViewVisible(termAnnotation)">-</span>
+            <span class="collapse-icon" *ngIf="!detailsViewVisible(termAnnotation)">+</span>
           </a>
         </td>
         <td *ngIf="showColumn['gene'] && featureInFirstColumn">
@@ -208,11 +208,11 @@
         </td>
       </tr>
 
-      <tr *ngIf="!detailsView[termAnnotation.term.termid] && termAnnotation.summary" class="term-annotation-top">
+      <tr *ngIf="!detailsViewVisible(termAnnotation) && termAnnotation.summary" class="term-annotation-top">
         <td style="width: 2em">
-          <a (click)="toggleDetails(termAnnotation.term.termid)">
-            <span class="collapse-icon" *ngIf="detailsView[termAnnotation.term.termid]">-</span>
-            <span class="collapse-icon" *ngIf="!detailsView[termAnnotation.term.termid]">+</span>
+          <a (click)="toggleDetails(termAnnotation)">
+            <span class="collapse-icon" *ngIf="detailsViewVisible(termAnnotation)">-</span>
+            <span class="collapse-icon" *ngIf="!detailsViewVisible(termAnnotation)">+</span>
           </a>
         </td>
 
@@ -226,7 +226,7 @@
         </td>
       </tr>
 
-      <tr class="summary-row" *ngFor="let row of detailsView[termAnnotation.term.termid] || !termAnnotation.summary ? [] : termAnnotation.summary">
+      <tr class="summary-row" *ngFor="let row of detailsViewVisible(termAnnotation) || !termAnnotation.summary ? [] : termAnnotation.summary">
         <td>
         </td>
         <td class="summary-feature" [attr.colspan]="termNameColSpan">
