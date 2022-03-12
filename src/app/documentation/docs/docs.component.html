@@ -9488,6 +9488,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-88.0">PomBase now uses InterPro Version 88.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#tor-and-nutritional-phosphoproteome-dataset-loaded">TOR and nutritional phosphoproteome dataset loaded</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#an-additional-5775-novel-curated-lncrnas-atkinson-et-al-.">An additional 5775 novel curated lncRNAs from Atkinson *et al*.</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-japonicusdb-publications-genetics-mod-reports-special-issue">PomBase & JaponicusDB publications in the GENETICS MOD reports special issue</a></div>
@@ -11473,6 +11474,7 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>We have added an additional 5775 novel curated lncRNAs from <a href="https://www.pombase.org/reference/PMID:29914874">Atkinson <em>et al</em>.</a> to PomBase. We will refine the descriptions of these gene products to align with Sequence Ontology (SO) terms describing RNA features in the coming months.</p>
+<p>Thanks to María Rodríguez-López for preparing the files.</p>
 <p><a href="https://www.pombase.org/reference/PMID:29914874">Publication page for PMID:29914874</a></p>
 
   </div>
@@ -11484,9 +11486,32 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p><a href="https://www.pombase.org/reference/PMID:33823663">Publication page for PMID:33823663</a></p>
 
   </div>
+  <div *ngIf="pageName == 'interprop-v88'">
+<h3 id="pombase-now-uses-interpro-version-88.0">PomBase now uses InterPro Version 88.0</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: interpro_32px.png -->
+<p>PomBase now uses InterPro Version 88.0.</p>
+<p>Features include:</p>
+<ul>
+<li>The addition of 39 InterPro entries (40,071 total entries)</li>
+<li>Integration of 45 new methods from the PRINTS (1), SMART (1), Pfam (2), SUPERFAMILY (7), CATH-Gene3D (14), PANTHER (13), CDD (7) databases</li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2022-03-12-interprop-v88" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-now-uses-interpro-version-88.0">PomBase now uses InterPro Version 88.0</h3>
+<p><em>2022-03-12</em></p>
+<p>PomBase now uses InterPro Version 88.0.</p>
+<p>Features include:</p>
+<ul>
+<li>The addition of 39 InterPro entries (40,071 total entries)</li>
+<li>Integration of 45 new methods from the PRINTS (1), SMART (1), Pfam (2), SUPERFAMILY (7), CATH-Gene3D (14), PANTHER (13), CDD (7) databases</li>
+</ul>
+</div>
 <div id="2022-03-11-tor-nutritional-phosphoproteome-dataset" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="tor-and-nutritional-phosphoproteome-dataset-loaded">TOR and nutritional phosphoproteome dataset loaded</h3>
@@ -11499,6 +11524,7 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <h3 id="an-additional-5775-novel-curated-lncrnas-atkinson-et-al-.">An additional 5775 novel curated lncRNAs from Atkinson <em>et al</em>.</h3>
 <p><em>2022-03-10</em></p>
 <p>We have added an additional 5775 novel curated lncRNAs from <a href="https://www.pombase.org/reference/PMID:29914874">Atkinson <em>et al</em>.</a> to PomBase. We will refine the descriptions of these gene products to align with Sequence Ontology (SO) terms describing RNA features in the coming months.</p>
+<p>Thanks to María Rodríguez-López for preparing the files.</p>
 <p><a href="https://www.pombase.org/reference/PMID:29914874">Publication page for PMID:29914874</a></p>
 </div>
 <div id="2022-02-02-pombase-and-japonicusdb-papers" class="news-item">
