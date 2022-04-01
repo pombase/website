@@ -500,6 +500,7 @@ export class GenotypeDetails {
   display_uniquename: string;
   name: string;
   background: string;
+  comment: string;
   loci: Array<GenotypeLocus>;
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;

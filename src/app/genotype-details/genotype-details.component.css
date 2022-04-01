@@ -4,6 +4,11 @@
 }
 
 .genotype-name {
+  font-size: 130%;
+  padding-bottom: 1em;
+}
+
+.genotype-comment {
   font-size: 120%;
   padding-bottom: 1em;
 }

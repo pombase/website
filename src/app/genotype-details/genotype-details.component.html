@@ -13,6 +13,11 @@
       <span [innerHTML]="genotypeDetails.name"></span>
     </div>
 
+    <div *ngIf="genotypeDetails.comment" class="genotype-comment">
+      <span class="details-page-name-and-id-prefix">Comment:</span>
+      <span [innerHTML]="genotypeDetails.comment"></span>
+    </div>
+
     <div id="genotype-summary" class="details-page-summary genotype-details-page-summary">
       <span *ngIf="genotypeDetails.background">
         <span class="details-label">Background</span>
