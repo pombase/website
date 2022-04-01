@@ -4,7 +4,7 @@
 
 We would like to extend a huge "thank you" to the fission yeast
 community for curation contributions. The community have now curated
-1008 publications providing 70,000 independent annotations, representing
+1008 publications providing 19,156 independent annotations, representing
 25% of the curation from small-scale publications. In addition, another
 80,000 annotations have been provided via the submission of HTP
 datasets.
