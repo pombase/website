@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig, getJBrowseTracksByPMID, getXrfWithPrefix } from '../config';
+         getAppConfig, AppConfig, getJBrowseTracksByPMID, getXrfWithPrefix, DetailsPageLinkConfig } from '../config';
 import { Util } from '../shared/util';
 
 import { ReferenceDetails, PombaseAPIService, APIError } from '../pombase-api.service';
@@ -35,6 +35,8 @@ export class ReferenceDetailsComponent implements OnInit {
   bigGraphicalAbstractImagePath?: string;
   videoPath?: string;
   doiUrl?: string;
+
+  externalLinks?: Array<DetailsPageLinkConfig>;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -197,6 +199,7 @@ export class ReferenceDetailsComponent implements OnInit {
           .then(refDetails => {
             this.apiError = undefined;
             this.refDetails = refDetails;
+            this.externalLinks = this.appConfig.refPageExtraLinks[this.refDetails.uniquename];
             this.annotationTypeNames = this.config.annotationTypeOrder;
             let re = /(PMID):(\d+)/i;
             let matches = refDetails.uniquename.match(re);

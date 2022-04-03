@@ -593,3 +593,15 @@ a.disabled-menu-item.dropdown-item {
   font-style: normal;
   font-weight: bold;
 }
+
+.annotations-section-header, .details-page-external-links {
+  margin: 0.6em 0;
+}
+
+.annotations-section-header {
+  font-size: 150%;
+}
+
+.details-page-external-links {
+  font-size: 140%;
+}

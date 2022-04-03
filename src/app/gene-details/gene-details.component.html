@@ -93,6 +93,15 @@
                              [visibleSections]="visibleSections"></app-details-page-menu>
     </div>
 
+    <div *ngFor="let externalLink of externalLinks"
+         class="details-page-external-links">
+      <div>
+        <a href="{{externalLink.link}}">
+          {{externalLink.text}}
+        </a>
+      </div>
+    </div>
+
     <div class="chromosome-region-view" *ngIf="isConfiguredOrganism">
       <div class="jbrowse-container" *ngIf="getJBrowseIFrameURL()">
         <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">

@@ -294,8 +294,9 @@ export interface AppConfig {
   frontPagePanels: Array<PanelConfig>;
   docPageAliases: { [old: string]: string };
   defaultJBrowseTracks: Array<JBrowseTrackInfo>;
-  refPageExtraLinks: { [key: string]: DetailsPageLinkConfig };
+  refPageExtraLinks: { [key: string]: Array<DetailsPageLinkConfig> };
   refPageJBrowseColumns: Array<JBrowseColumnConfig>;
+  genePageExtraLinks: { [key: string]: Array<DetailsPageLinkConfig> };
   apiSeqChunkSizes: {
     all: Array<number>;
     smallest: number;
@@ -816,8 +817,9 @@ let _appConfig: AppConfig = {
   frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
   docPageAliases: pombaseConfig.doc_page_aliases,
   defaultJBrowseTracks: pombaseConfig.default_jbrowse_tracks,
-  refPageExtraLinks: pombaseConfig.reference_page_extra_links,
+  refPageExtraLinks: pombaseConfig.reference_page_extra_links || [],
   refPageJBrowseColumns: pombaseConfig.reference_page_jbrowse_columns,
+  genePageExtraLinks: pombaseConfig.gene_page_extra_links || [],
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
     smallest: Math.min(...pombaseConfig.api_seq_chunk_sizes),

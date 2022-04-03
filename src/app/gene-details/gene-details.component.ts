@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig, ConfigOrganism } from '../config';
+         getAppConfig, AppConfig, ConfigOrganism, DetailsPageLinkConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 import { Util } from '../shared/util';
 
@@ -56,6 +56,8 @@ export class GeneDetailsComponent implements OnInit {
   ];
 
   product? = '';
+
+  externalLinks: Array<DetailsPageLinkConfig>;
 
   miscAnnotationTypeNames = ['cat_act', 'ex_tools', 'genome_org', 'misc', 'm_f_g'];
 
@@ -340,6 +342,7 @@ export class GeneDetailsComponent implements OnInit {
           this.pombaseApiService.getGene(uniquename)
             .then(geneDetails => {
               this.geneDetails = geneDetails;
+              this.externalLinks = this.appConfig.genePageExtraLinks[this.geneDetails.uniquename];
               this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
               this.displayLocation = this.makeDisplayLocation();
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);

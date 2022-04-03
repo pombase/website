@@ -2,11 +2,6 @@
   font-size: 95%;
 }
 
-.annotations-section-header, .external-links {
-  margin: 0.6em 0;
-  font-size: 150%;
-}
-
 .approved-date {
   white-space: nowrap;
 }

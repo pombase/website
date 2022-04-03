@@ -95,11 +95,13 @@
                            [visibleSections]="visibleSections"></app-details-page-menu>
   </div>
 
-  <div *ngIf="appConfig.refPageExtraLinks[refDetails.uniquename]"
-       class="external-links">
-    <a href="{{appConfig.refPageExtraLinks[refDetails.uniquename].link}}">
-      {{appConfig.refPageExtraLinks[refDetails.uniquename].text}}
-    </a>
+  <div *ngFor="let externalLink of externalLinks"
+       class="details-page-external-links">
+    <div>
+      <a href="{{externalLink.link}}">
+        {{externalLink.text}}
+      </a>
+    </div>
   </div>
 
   <app-jbrowse-track-picker [refUniquename]="refDetails.uniquename">
