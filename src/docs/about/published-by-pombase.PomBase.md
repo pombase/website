@@ -24,7 +24,7 @@ Making biological knowledge useful for humans and machines \
 <div class="pub-citation">
 Harris MA, Rutherford KM, Hayles J, Lock A, Bähler J, Oliver S, Mata J, Wood V \
 Fission stories: Using PomBase to understand _Schizosaccharomyces pombe_ biology \
-*Genetics*, 2021; iyab222 \
+*Genetics*, Volume 220, Issue 4, April 2022, iyab222 \
 </div>
 [PMID:35100366](http://www.ncbi.nlm.nih.gov/pubmed/35100366) [10.1093/genetics/iyab222](https://doi.org/10.1093/genetics/iyab222)
 
@@ -36,9 +36,9 @@ Fission stories: Using PomBase to understand _Schizosaccharomyces pombe_ biology
 <div class="pub-citation">
 Rutherford KM, Harris MA, Oliferenko S, Wood V \
 JaponicusDB: rapid deployment of a model organism database for an emerging model species \
-*Genetics*, 2021; iyab223 \
+*Genetics*, Volume 220, Issue 4, April 2022, iyab223 \
 </div>
-[10.1093/genetics/iyab223](https://doi.org/10.1093/genetics/iyab223)
+[PMID:35380656](https://pubmed.ncbi.nlm.nih.gov/35380656/) [10.1093/genetics/iyab223](https://doi.org/10.1093/genetics/iyab223)
 
 <div class="clear-float"></div>
 
