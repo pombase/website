@@ -7,6 +7,17 @@ Canto, FYPO, annotations and Compara.
 
 ### Journal articles
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyac001"></div>
+
+<div class="pub-citation">
+Valerie Wood, Paul W Sternberg, Howard D Lipshitz   \
+Making biological knowledge useful for humans and machines \
+*Genetics*, Volume 220, Issue 4, April 2022, iyac001 \
+</div>
+[PMID:35380659](http://www.ncbi.nlm.nih.gov/pubmed/35380659) [10.1093/genetics/iyac001](https://doi.org/10.1093/genetics/iyac001)
+
+<div class="clear-float"></div>
+
 
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyab222"></div>
 
