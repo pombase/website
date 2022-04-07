@@ -455,13 +455,26 @@ United Kingdom</p>
 <h2 id="pombase-publications">PomBase Publications</h2>
 <p>Please see the <a routerLink="/about/citing-pombase">Citing PomBase</a> page, which lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, Canto, FYPO, annotations and Compara.</p>
 <h3 id="journal-articles">Journal articles</h3>
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1093/genetics/iyac001">
+
+</div>
+<div class="pub-citation">
+<p>Valerie Wood, Paul W Sternberg, Howard D Lipshitz<br />
+Making biological knowledge useful for humans and machines<br />
+<em>Genetics</em>, Volume 220, Issue 4, April 2022, iyac001<br />
+</p>
+</div>
+<p><a href="http://www.ncbi.nlm.nih.gov/pubmed/35380659">PMID:35380659</a> <a href="https://doi.org/10.1093/genetics/iyac001">10.1093/genetics/iyac001</a></p>
+<div class="clear-float">
+
+</div>
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1093/genetics/iyab222">
 
 </div>
 <div class="pub-citation">
 <p>Harris MA, Rutherford KM, Hayles J, Lock A, Bähler J, Oliver S, Mata J, Wood V<br />
 Fission stories: Using PomBase to understand <em>Schizosaccharomyces pombe</em> biology<br />
-<em>Genetics</em>, 2021; iyab222<br />
+<em>Genetics</em>, Volume 220, Issue 4, April 2022, iyab222<br />
 </p>
 </div>
 <p><a href="http://www.ncbi.nlm.nih.gov/pubmed/35100366">PMID:35100366</a> <a href="https://doi.org/10.1093/genetics/iyab222">10.1093/genetics/iyab222</a></p>
@@ -474,10 +487,10 @@ Fission stories: Using PomBase to understand <em>Schizosaccharomyces pombe</em> 
 <div class="pub-citation">
 <p>Rutherford KM, Harris MA, Oliferenko S, Wood V<br />
 JaponicusDB: rapid deployment of a model organism database for an emerging model species<br />
-<em>Genetics</em>, 2021; iyab223<br />
+<em>Genetics</em>, Volume 220, Issue 4, April 2022, iyab223<br />
 </p>
 </div>
-<p><a href="https://doi.org/10.1093/genetics/iyab223">10.1093/genetics/iyab223</a></p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/35380656/">PMID:35380656</a> <a href="https://doi.org/10.1093/genetics/iyab223">10.1093/genetics/iyab223</a></p>
 <div class="clear-float">
 
 </div>
@@ -9488,6 +9501,9 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#making-biological-knowledge-useful-humans-and-machines">Making biological knowledge useful for humans and machines</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#the-fission-yeast-community-have-now-curated-over-1000-publications">The fission yeast community have now curated over 1000 publications</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#new-human-orthologs-including-3-mrp-complex-subunits">New human orthologs including 3 MRP complex subunits</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-88.0">PomBase now uses InterPro Version 88.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#tor-and-nutritional-phosphoproteome-dataset-loaded">TOR and nutritional phosphoproteome dataset loaded</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#an-additional-5775-novel-curated-lncrnas-atkinson-et-al-.">An additional 5775 novel curated lncRNAs from Atkinson *et al*.</a></div>
@@ -11498,9 +11514,86 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'new-human-orthologs'">
+<h3 id="new-human-orthologs-including-3-mrp-complex-subunits">New human orthologs including 3 MRP complex subunits</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>We continue to identify distant human orthologs. Four new 1:1 human ortholog connections have been added to PomBase this week:</p>
+<ul>
+<li>RNase MRP subunit Rmp1 = human NEPRO (family submitted to Pfam)</li>
+<li>RNase P and RNase MRP subunit Pop23 = human RPP38 (members of the same Pfam clan)</li>
+<li>RNase P and RNase MRP subunit Pop8 = human RPP14 (family submitted to Pfam)</li>
+<li>glutamyl-tRNA amidotransferase complex subunit 3 (Gtf1) = human GATC</li>
+</ul>
+<p>Human NEPRO is a poorly characterised protein linked to the disease Anauxetic dysplasia 3, and GATC is the causal gene for “combined oxidative phosphorylation deficiency 42”</p>
+
+  </div>
+  <div *ngIf="pageName == '1000-community-curated-publications'">
+<h3 id="the-fission-yeast-community-have-now-curated-over-1000-publications">The fission yeast community have now curated over 1000 publications</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>We would like to extend a huge “thank you” to the fission yeast community for curation contributions. The community have now curated 1008 publications providing 19,156 independent annotations, representing 25% of the curation from small-scale publications. In addition, another 80,000 annotations have been provided via the submission of HTP datasets.</p>
+<p>Please contact us <a href="mailto:helpdesk@pombase.org?subject=New%20manuscript%20for%20curation">via the helpdesk</a> if you would like to provide curation for your manuscript but don’t know how.</p>
+<p>Links:</p>
+<ul>
+<li><a href="https://www.pombase.org/reference_list/community">All community curated publications</a></li>
+<li><a href="https://www.pombase.org/archive/spotlight">Spotlights</a></li>
+<li><a href="https://curation.pombase.org/pombe">Canto curation tool</a></li>
+<li><a href="https://www.pombase.org/submit-data">HTP data and browser track submission</a></li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'genetics-publications'">
+<h3 id="making-biological-knowledge-useful-humans-and-machines">Making biological knowledge useful for humans and machines</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>A <a href="https://academic.oup.com/genetics/issue/220/4">GENETICS special issue</a> featuring model organism database updates is published today. This issue features the recent PomBase and <a href="https://www.japonicusdb.org/">JaponicusDB</a> publications and is accompanied by an editorial <a href="https://academic.oup.com/genetics/article-abstract/220/4/iyac001/6563297">“Making biological knowledge useful for humans and machines”</a> co-authored by Val Wood, Paul Sternberg and Howard Lipshitz.</p>
+<ul>
+<li><a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyab222/6481557?login=false">Fission stories: using PomBase to understand Schizosaccharomyces pombe biology</a></li>
+<li><a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyab223/6481558?login=false">JaponicusDB: rapid deployment of a model organism database for an emerging model species</a></li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2022-04-04-genetics-publications" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="making-biological-knowledge-useful-humans-and-machines">Making biological knowledge useful for humans and machines</h3>
+<p><em>2022-04-04</em></p>
+<p>A <a href="https://academic.oup.com/genetics/issue/220/4">GENETICS special issue</a> featuring model organism database updates is published today. This issue features the recent PomBase and <a href="https://www.japonicusdb.org/">JaponicusDB</a> publications and is accompanied by an editorial <a href="https://academic.oup.com/genetics/article-abstract/220/4/iyac001/6563297">“Making biological knowledge useful for humans and machines”</a> co-authored by Val Wood, Paul Sternberg and Howard Lipshitz.</p>
+<ul>
+<li><a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyab222/6481557?login=false">Fission stories: using PomBase to understand Schizosaccharomyces pombe biology</a></li>
+<li><a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyab223/6481558?login=false">JaponicusDB: rapid deployment of a model organism database for an emerging model species</a></li>
+</ul>
+</div>
+<div id="2022-03-26-1000-community-curated-publications" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="the-fission-yeast-community-have-now-curated-over-1000-publications">The fission yeast community have now curated over 1000 publications</h3>
+<p><em>2022-03-26</em></p>
+<p>We would like to extend a huge “thank you” to the fission yeast community for curation contributions. The community have now curated 1008 publications providing 19,156 independent annotations, representing 25% of the curation from small-scale publications. In addition, another 80,000 annotations have been provided via the submission of HTP datasets.</p>
+<p>Please contact us <a href="mailto:helpdesk@pombase.org?subject=New%20manuscript%20for%20curation">via the helpdesk</a> if you would like to provide curation for your manuscript but don’t know how.</p>
+<p>Links:</p>
+<ul>
+<li><a href="https://www.pombase.org/reference_list/community">All community curated publications</a></li>
+<li><a href="https://www.pombase.org/archive/spotlight">Spotlights</a></li>
+<li><a href="https://curation.pombase.org/pombe">Canto curation tool</a></li>
+<li><a href="https://www.pombase.org/submit-data">HTP data and browser track submission</a></li>
+</ul>
+</div>
+<div id="2022-03-23-new-human-orthologs" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="new-human-orthologs-including-3-mrp-complex-subunits">New human orthologs including 3 MRP complex subunits</h3>
+<p><em>2022-03-23</em></p>
+<p>We continue to identify distant human orthologs. Four new 1:1 human ortholog connections have been added to PomBase this week:</p>
+<ul>
+<li>RNase MRP subunit Rmp1 = human NEPRO (family submitted to Pfam)</li>
+<li>RNase P and RNase MRP subunit Pop23 = human RPP38 (members of the same Pfam clan)</li>
+<li>RNase P and RNase MRP subunit Pop8 = human RPP14 (family submitted to Pfam)</li>
+<li>glutamyl-tRNA amidotransferase complex subunit 3 (Gtf1) = human GATC</li>
+</ul>
+<p>Human NEPRO is a poorly characterised protein linked to the disease Anauxetic dysplasia 3, and GATC is the causal gene for “combined oxidative phosphorylation deficiency 42”</p>
+</div>
 <div id="2022-03-12-interprop-v88" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-uses-interpro-version-88.0">PomBase now uses InterPro Version 88.0</h3>
@@ -13668,7 +13761,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink='/gene/SPAPB18E9.01'>SPAPB18E9.01</a></td><td>trm5</td><td>join(3974310..<wbr>3974485,<wbr>3974541..<wbr>3974629,<wbr>3974674..<wbr>3974775,<wbr>3974879..<wbr>3975132,<wbr>3975193..<wbr>3975429,<wbr>3975485..<wbr>3975832,<wbr>3975882..<wbr>3975962,<wbr>3976014..<wbr>3976079)</td><td>join(3974340..<wbr>3974485,<wbr>3974541..<wbr>3974629,<wbr>3974674..<wbr>3974775,<wbr>3974879..<wbr>3975132,<wbr>3975193..<wbr>3975429,<wbr>3975485..<wbr>3975832,<wbr>3975882..<wbr>3975962,<wbr>3976014..<wbr>3976079)</td><td></td><td></td><td>2021-11-05</td></tr>
 <tr><td><a routerLink='/gene/SPAC4H3.06'>SPAC4H3.06</a></td><td></td><td>join(3837431..<wbr>3837519,<wbr>3837568..<wbr>3837751,<wbr>3837811..<wbr>3837890,<wbr>3837940..<wbr>3838000)</td><td>join(3837449..<wbr>3837519,<wbr>3837568..<wbr>3837751,<wbr>3837811..<wbr>3837890,<wbr>3837940..<wbr>3838000)</td><td></td><td></td><td>2021-11-04</td></tr>
 <tr><td><a routerLink='/gene/SPAC1F12.09'>SPAC1F12.09</a></td><td>gpi17</td><td>join(3818668..<wbr>3818907,<wbr>3818954..<wbr>3819677,<wbr>3819720..<wbr>3820420)</td><td>join(3818803..<wbr>3818907,<wbr>3818954..<wbr>3819677,<wbr>3819720..<wbr>3820420)</td><td></td><td></td><td>2021-11-04</td></tr>
-<tr><td><a routerLink='/gene/SPAC1071.09'>SPAC1071.09</a></td><td></td><td>complement(3870660..<wbr>3871508)</td><td>complement(3870660..<wbr>3871427)</td><td></td><td></td><td>2021-11-04</td></tr>
+<tr><td><a routerLink='/gene/SPAC1071.09c'>SPAC1071.09c</a></td><td></td><td>complement(3870660..<wbr>3871508)</td><td>complement(3870660..<wbr>3871427)</td><td></td><td></td><td>2021-11-04</td></tr>
 <tr><td><a routerLink='/gene/SPAC17H9.04c'>SPAC17H9.04c</a></td><td>dri1</td><td>complement(2009905..<wbr>2011719)</td><td>complement(2009905..<wbr>2011695)</td><td>remove MSKLPSPT</td><td></td><td>2021-11-04</td></tr>
 <tr><td><a routerLink='/gene/SPAC589.02c'>SPAC589.02c</a></td><td>med13</td><td>complement(join(3095075..<wbr>3098590,<wbr>3098626..<wbr>3098781,<wbr>3098878..<wbr>3098883))</td><td>complement(join(3095075..<wbr>3098590,<wbr>3098626..<wbr>3098667))</td><td>truncated 40 AA</td><td></td><td>2021-11-03</td></tr>
 <tr><td><a routerLink='/gene/SPAC2F3.04c'>SPAC2F3.04c</a></td><td>rim1</td><td>join(3127647..<wbr>3127813,<wbr>3127862..<wbr>3128780)</td><td>join(3127689..<wbr>3127813,<wbr>3127862..<wbr>3128780)</td><td>truncated 14 AA</td><td></td><td>2021-11-03</td></tr>
