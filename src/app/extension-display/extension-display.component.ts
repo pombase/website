@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ExtPart } from '../pombase-api.service';
+import { ExtPart, GeneShort } from '../pombase-api.service';
 import { TermShort } from '../pombase-query';
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, LinkoutConfig, getXrf } from '../config';
@@ -51,8 +51,8 @@ export class ExtensionDisplayComponent implements OnInit {
 
         newRange = newRange.map(rangePart => {
           const termForProduct =
-            (id: string, term?: TermShort) => {
-              let displayName;
+            (gene: GeneShort|undefined, id: string, term?: TermShort) => {
+              let displayName: string;
               if (term) {
                 displayName = rangePart.term.name;
                 if (organismRE) {
@@ -60,6 +60,9 @@ export class ExtensionDisplayComponent implements OnInit {
                 }
               } else {
                 displayName = id;
+              }
+              if (gene && gene.name && displayName.startsWith(gene.name + '/')) {
+                displayName = displayName.substring(gene.name.length + 1);
               }
               return {
                 id: id,
@@ -70,7 +73,7 @@ export class ExtensionDisplayComponent implements OnInit {
 
           if (rangePart.gene_product) {
             return {
-              gene_product: termForProduct(rangePart.gene_product,
+              gene_product: termForProduct(undefined, rangePart.gene_product,
                                            rangePart.term),
             };
           } else {
@@ -78,7 +81,8 @@ export class ExtensionDisplayComponent implements OnInit {
               return {
                 gene_and_gene_product: {
                   gene: rangePart.gene_and_gene_product.gene,
-                  product: termForProduct(rangePart.gene_and_gene_product.product,
+                  product: termForProduct(rangePart.gene_and_gene_product.gene,
+                                          rangePart.gene_and_gene_product.product,
                                           rangePart.term)
                 }
               };
