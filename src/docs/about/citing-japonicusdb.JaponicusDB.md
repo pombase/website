@@ -15,6 +15,6 @@ Rutherford KM, Harris MA, Oliferenko S, Wood V \
 JaponicusDB: rapid deployment of a model organism database for an emerging model species \
 *Genetics*, 2021; iyab223 \
 </div>
-[10.1093/genetics/iyab223](https://doi.org/10.1093/genetics/iyab223)
+[PMID:35380656](https://pubmed.ncbi.nlm.nih.gov/35380656/) [10.1093/genetics/iyab223](https://doi.org/10.1093/genetics/iyab223)
 
 <div class="clear-float"></div>
