@@ -41,10 +41,9 @@ https://github.com/pombase/pombase-chado-json
 This is needed when the Markdown documentation changes or if the front
 page panel config changes.
 
-`./etc/update_generated_files.sh GO.xrf_abbs pombase_v2_config.json`
+`./etc/update_generated_files.sh pombase-website/main_config.json pombase-curation/data_files/`
 
 where:
 
- - `GO.xrf_abbs` is http://www.geneontology.org/doc/GO.xrf_abbs
- - `pombase_v2_config.json` is https://curation.pombase.org/dumps/latest_build/pombe-embl/website/pombase_v2_config.json
-
+ - `pombase-website` is a checkout of https://github.com/pombase/website
+ - `pombase-config` is a checkout of https://github.com/pombase/pombase-config
