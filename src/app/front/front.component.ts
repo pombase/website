@@ -16,8 +16,12 @@ export class FrontComponent implements OnInit {
 
   imageNames = ['Slide1.png', 'Slide2.png', 'Slide3.png'];
   rotatingImageName = this.imageNames[0];
+  appConfig = getAppConfig();
+
+  fypoSlim = this.appConfig.slims['fypo_slim'];
+
   spotlightPanelConfig =
-    getAppConfig().frontPagePanels.filter(conf =>
+    this.appConfig.frontPagePanels.filter(conf =>
       conf.panel_type === 'spotlight' && conf.show_on_front_page
     );
   communityPanelConfig =

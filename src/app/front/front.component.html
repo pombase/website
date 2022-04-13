@@ -22,14 +22,8 @@
     </span>
   </span>
 
-  <span *ngIf="hasDiseaseAnnotation" class="quick-links-group">
-    <span>
-      <a routerLink="/browse-curation/disease-slim">Disease association overview</a>
-    </span>
-  </span>
-
   <span class="quick-links-group">
-    GO Overviews:
+    Overviews:
     <span class="quick-links-line">
       <span>
         <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">Function</a>
@@ -42,6 +36,20 @@
       <span>
         <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">Component</a>
       </span>
+    </span>
+  </span>
+  
+  <span *ngIf="hasDiseaseAnnotation || fypoSlim" class="quick-links-group">
+    <span style="visibility: hidden">Overviews:</span>
+
+    <span *ngIf="hasDiseaseAnnotation">
+      <a routerLink="/browse-curation/disease-slim">Disease association</a>
+    </span>
+
+    <span *ngIf="hasDiseaseAnnotation && fypoSlim">&#x25CF;</span>
+
+    <span *ngIf="fypoSlim">
+      <a routerLink="{{fypoSlim.full_slim_path}}">Phenotype</a>
     </span>
   </span>
 
