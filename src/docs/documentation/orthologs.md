@@ -27,8 +27,7 @@ some cases the consensus ortholog from the major ortholog predictors
 ([Compara](http://www.ensembl.org/info/docs/compara/index.html),
 [Inparanoid](http://inparanoid.sbc.su.se/),
 [OrthoMCL](http://www.orthomcl.org/)) is used. Many distant orthologs
-have also been identified by [PSI-BLAST]{.st} matches that are
-uniformly one-to one across species; these alignments have been
+have also been identified by [PSI-BLAST]{.st} matches; these alignments have been
 submitted to the [Pfam](http://pfam.xfam.org/) protein family
 database. Other ortholog predictions come from experimental data
 demonstrating functional correspondence or involving membership of
