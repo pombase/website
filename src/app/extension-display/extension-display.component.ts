@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ExtPart, GeneShort } from '../pombase-api.service';
+import { ExtPart, ExtRange, GeneShort } from '../pombase-api.service';
 import { TermShort } from '../pombase-query';
 import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, LinkoutConfig, getXrf } from '../config';
@@ -42,19 +42,19 @@ export class ExtensionDisplayComponent implements OnInit {
 
     this.displayExtension =
       extensionCopy.map(ext => {
-        let newRange: Array<any> = [];
+        let origRange: Array<ExtRange> = [];
         if (ext.ext_range instanceof Array) {
-          newRange = ext.ext_range;
+          origRange = ext.ext_range;
         } else {
-          newRange = [ext.ext_range];
+          origRange = [ext.ext_range];
         }
 
-        newRange = newRange.map(rangePart => {
+        let newRange = origRange.map(rangePart => {
           const termForProduct =
             (gene: GeneShort|undefined, id: string, term?: TermShort) => {
               let displayName: string;
               if (term) {
-                displayName = rangePart.term.name;
+                displayName = term.name;
                 if (organismRE) {
                   displayName = displayName.replace(organismRE, '');
                 }

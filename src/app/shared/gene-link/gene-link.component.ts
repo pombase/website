@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 import { getAppConfig } from '../../config';
+import { GeneShort } from '../../pombase-api.service';
 
 @Component({
   selector: 'app-gene-link',
@@ -9,7 +10,7 @@ import { getAppConfig } from '../../config';
   styleUrls: ['./gene-link.component.css']
 })
 export class GeneLinkComponent implements OnInit {
-  @Input() gene: /* GeneShort */ any;
+  @Input() gene: GeneShort;
   @Input() long = true;
   @Input() displayString: string | undefined = undefined;
 

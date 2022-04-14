@@ -19,7 +19,7 @@ export class GenotypeDetailsComponent implements OnInit {
 
   annotationTypeNames: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
-  displayAlleles: Array<any> = [];
+
   displayName = '';
   displayNameForTitle = '';
   apiError?: APIError;
