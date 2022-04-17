@@ -1,6 +1,9 @@
 .ortholog-table {
-  max-width: 1200px;
   padding-bottom: 1.5em;
+}
+
+.ortholog-table table {
+  width: auto;
 }
 
 .title {
@@ -11,4 +14,8 @@
 .ref-table {
   max-width: 750px;
   font-size: 90%;
+}
+
+td {
+  padding: 0.2em 3em 0.2em 0;
 }

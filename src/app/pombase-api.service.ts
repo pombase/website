@@ -223,6 +223,7 @@ export interface OrthologAnnotation {
   ortholog_uniquename: string;
   ortholog_taxonid: number;
   ortholog_organism: ConfigOrganism;
+  qualifier?: string;
 }
 
 export interface ParalogAnnotation {

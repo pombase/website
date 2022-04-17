@@ -21,6 +21,7 @@
         <th>Ortholog species</th>
         <th>Ortholog gene</th>
         <th>Ortholog description</th>
+        <th *ngIf="!hideColumn['qualifier']">Qualifier</th>
         <th *ngIf="!hideColumn['reference']">Reference</th>
       </tr>
     </thead>
@@ -47,6 +48,9 @@
               more ...
             </a>
           </span>
+        </td>
+        <td class="ortholog-qualifier" *ngIf="!hideColumn['qualifier']">
+         {{annotation.qualifier || ''}}
         </td>
         <td class="ortholog-reference" *ngIf="!hideColumn['reference']">
           <span *ngIf="annotation.reference">

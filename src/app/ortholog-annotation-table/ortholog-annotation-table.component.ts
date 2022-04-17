@@ -20,6 +20,8 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
   annotationTypeDisplayName: string;
   hideColumn: { [key: string]: boolean } = {};
 
+  hasQualifier = false;
+
   extRefConfs: Array<ExternalGeneReference> = [];
 
   fullProductRef: BsModalRef;
@@ -31,7 +33,9 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
     orthologShortProduct?: string;
     orthologFullProduct?: string;
     reference: ReferenceShort;
+    qualifier?: string;
   }> = [];
+
 
   getLink(organism: ConfigOrganism, uniquename: string, name?: string): string {
     return getOrganismExternalLink(organism.genus, organism.species, uniquename, name) || '';
@@ -57,13 +61,14 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
   ngOnInit() {
     let typeConfig = this.config.annotationTypes['orthologs'];
     this.annotationTypeDisplayName = typeConfig.display_name;
-
-    this.hideColumns.map(col => {
-      this.hideColumn[col] = true;
-    });
   }
 
   ngOnChanges() {
+    this.hasQualifier = false;
+    this.hideColumns.map(col => {
+      this.hideColumn[col] = true;
+    });
+
     this.displayTable =
       this.annotationTable
         .filter(row => !!row.ortholog_organism)
@@ -80,6 +85,10 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
           }
         }
 
+        if (row.qualifier) {
+          this.hasQualifier = true;
+        }
+
         return {
           gene: row.gene,
           ortholog: row.ortholog,
@@ -87,7 +96,10 @@ export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
           orthologShortProduct: shortProduct,
           orthologFullProduct: row.ortholog.product,
           reference: row.reference,
+          qualifier: row.qualifier,
         };
       });
+
+    this.hideColumn['qualifier'] = !this.hasQualifier;
   }
 }
