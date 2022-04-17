@@ -6865,7 +6865,7 @@ Search documentation, news archive and FAQ:
 <p>The “Orthologs” section of a gene page includes two subsections.</p>
 <p>The first lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually, as described below, by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases. For more information, including how to search the curated orthologs, see the FAQs on <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">budding yeast</a> and <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> orthologs.</p>
 <p>The second subsection provides links to several resources that predict orthologs in all fungi or all species (PomBase cannot manually curate orthologs in species other than budding yeast and human). For further information, see the <a href="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in additional species</a>. (Note: these links also appear in the External references section.)</p>
-<p>Manual ortholog prediction methods: The human and budding yeast orthologs are manually predicted based on a variety of sources. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches that are uniformly one-to one across species; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase’s approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
+<p>Manual ortholog prediction methods: The human and budding yeast orthologs are manually predicted based on a variety of sources. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase’s approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
 <h2 id="paralogs">Paralogs</h2>
 <p>The Paralogs section lists any curated paralogous fission yeast genes.</p>
 
@@ -9501,6 +9501,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#new-phenotype-slimming-option-advanced-search-results">New phenotype slimming option for advanced search results</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#new-phenotype-slim">New phenotype slim</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#making-biological-knowledge-useful-humans-and-machines">Making biological knowledge useful for humans and machines</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#the-fission-yeast-community-have-now-curated-over-1000-publications">The fission yeast community have now curated over 1000 publications</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-human-orthologs-including-3-mrp-complex-subunits">New human orthologs including 3 MRP complex subunits</a></div>
@@ -11554,9 +11556,35 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'phenotype-slim'">
+<h3 id="new-phenotype-slim">New phenotype slim</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>We have added a <a routerLink="/browse-curation/fypo-slim">phenotype slim overview</a> to complement those provided for disease biological process, molecular function and cellular component annotation. The purpose of the phenotype slim is to provide subsets of commonly used ‘broad’ phenotypic classes or annotation subsets that can provide a useful starting point for accessing phenotype lists. The phenotype slim page provides links to ontology term pages, annotated genes, and to download files containing the slim terms and IDs.</p>
+
+  </div>
+  <div *ngIf="pageName == 'phenotype-slim-in-search-results'">
+<h3 id="new-phenotype-slimming-option-advanced-search-results">New phenotype slimming option for advanced search results</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>The <a routerLink="/browse-curation/fypo-slim">phenotype slim</a> has also been added to the PomBase <a routerLink="/query">advanced search</a> results panel “Slim with” menu. For example, you can query for all genes involved in a GO process, another phenotype, or any other list, and “slim” the results using the “Phenotype slim” option to view categories of phenotypes assigned to the list.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2022-04-14-phenotype-slim-in-search-results" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="new-phenotype-slimming-option-advanced-search-results">New phenotype slimming option for advanced search results</h3>
+<p><em>2022-04-14</em></p>
+<p>The <a routerLink="/browse-curation/fypo-slim">phenotype slim</a> has also been added to the PomBase <a routerLink="/query">advanced search</a> results panel “Slim with” menu. For example, you can query for all genes involved in a GO process, another phenotype, or any other list, and “slim” the results using the “Phenotype slim” option to view categories of phenotypes assigned to the list.</p>
+</div>
+<div id="2022-04-13-phenotype-slim" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="new-phenotype-slim">New phenotype slim</h3>
+<p><em>2022-04-13</em></p>
+<p>We have added a <a routerLink="/browse-curation/fypo-slim">phenotype slim overview</a> to complement those provided for disease biological process, molecular function and cellular component annotation. The purpose of the phenotype slim is to provide subsets of commonly used ‘broad’ phenotypic classes or annotation subsets that can provide a useful starting point for accessing phenotype lists. The phenotype slim page provides links to ontology term pages, annotated genes, and to download files containing the slim terms and IDs.</p>
+</div>
 <div id="2022-04-04-genetics-publications" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="making-biological-knowledge-useful-humans-and-machines">Making biological knowledge useful for humans and machines</h3>
