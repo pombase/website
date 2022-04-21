@@ -5,7 +5,7 @@
 We have added a [phenotype slim overview](/browse-curation/fypo-slim)
 to complement those provided
 for [disease association](/browse-curation/disease-slim),
-[biological process](/browse-curation/fission-yeast-go-slim-terms),
+[biological process](/browse-curation/fission-yeast-bp-go-slim-terms),
 [molecular function](/browse-curation/fission-yeast-mf-go-slim-terms)
 and [cellular component](/browse-curation/fission-yeast-cc-go-slim-terms) annotation.
 The purpose of the phenotype slim is to provide
