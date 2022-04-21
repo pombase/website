@@ -1,5 +1,4 @@
 ### Coils, disorder, and more: new protein feature queries
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: advanced_search.png -->
 
 The PomBase [advanced search](/query) now allows you to find proteins

@@ -1,5 +1,4 @@
 ### Improved options for filtering annotations by cell cycle phase
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 The Gene Ontology annotation filter for “during” specific cell cycle phases is now included on the “Summary” 

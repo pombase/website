@@ -1,5 +1,4 @@
 ### PomBase & JaponicusDB preprints
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombelist.png -->
 
 Papers describing PomBase and JaponicusDB will appear in an issue of

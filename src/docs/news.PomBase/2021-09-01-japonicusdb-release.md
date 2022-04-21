@@ -1,5 +1,4 @@
 ### JaponicusDB: a new fission yeast database
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: japonicusdb-32x32.png -->
 
 We are delighted to announce the official release of PomBase's new

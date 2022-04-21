@@ -1,5 +1,4 @@
 ### AlphaFold links
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: Ofd2_structure_32px.png -->
 
 PomBase gene pages now have links to the AlphaFold Protein Structure

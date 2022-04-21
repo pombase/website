@@ -1,5 +1,4 @@
 ### KEGG pathway links
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: kegg3.png -->
 
 PomBase gene pages now have links to pathway entries in the Kyoto
