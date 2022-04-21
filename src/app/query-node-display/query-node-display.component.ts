@@ -39,14 +39,19 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.cannedQueryDetails =
-      this.appConfig.cannedQueryIds.map(id => {
+    this.cannedQueryDetails = [];
+    this.appConfig.cannedQueryIds
+      .map(id => {
         const queryId = 'canned_query:' + id;
-        const query = GeneQuery.fromJSONString(this.appConfig.getPredefinedQuery(queryId));
-        return {
-          name: query.getQueryName() || '[canned query name not configured]',
-          queryId: queryId,
-        };
+        const predefinedQuery =
+          this.appConfig.getPredefinedQuery(queryId) || this.appConfig.getPredefinedQuery(id);
+        if (predefinedQuery) {
+          const query = GeneQuery.fromJSONString(predefinedQuery);
+          this.cannedQueryDetails!.push({
+            name: query.getQueryName() || '[canned query name not configured]',
+            queryId: queryId,
+          });
+        }
       });
   }
 
