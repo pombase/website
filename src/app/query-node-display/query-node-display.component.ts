@@ -42,9 +42,12 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
     this.cannedQueryDetails = [];
     this.appConfig.cannedQueryIds
       .map(id => {
-        const queryId = 'canned_query:' + id;
-        const predefinedQuery =
-          this.appConfig.getPredefinedQuery(queryId) || this.appConfig.getPredefinedQuery(id);
+        let queryId = 'canned_query:' + id;
+        let predefinedQuery = this.appConfig.getPredefinedQuery(queryId);
+        if (!predefinedQuery) {
+          queryId = id;
+          predefinedQuery = this.appConfig.getPredefinedQuery(id);
+        }
         if (predefinedQuery) {
           const query = GeneQuery.fromJSONString(predefinedQuery);
           this.cannedQueryDetails!.push({
