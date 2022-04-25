@@ -335,13 +335,20 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   getExternalLinks(): DetailsPageLinkConfig[] {
-    return this.appConfig.genePageExtraLinks[this.geneDetails.uniquename]
-      .map(linkDetails => {
-        return {
-          text: linkDetails.text,
-          link: linkDetails.link.replace(/ /g, '%20'),
-        }
-      });
+    const linkConfig =
+      this.appConfig.genePageExtraLinks[this.geneDetails.uniquename];
+
+    if (linkConfig) {
+      return linkConfig
+        .map(linkDetails => {
+          return {
+            text: linkDetails.text,
+            link: linkDetails.link.replace(/ /g, '%20'),
+          }
+        });
+    } else {
+      return [];
+    }
   }
 
   ngOnInit(): void {
