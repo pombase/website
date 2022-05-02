@@ -23,6 +23,18 @@
       "url_syntax" : "http://www.candidagenome.org/cgi-bin/locus.pl?dbid=[example_id]",
       "website" : "http://www.candidagenome.org/"
    },
+   "CHEBI" : {
+      "description" : "Chemical Entities of Biological Interest",
+      "name" : "CHEBI",
+      "url_syntax" : "http://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:[example_id]",
+      "website" : "http://www.ebi.ac.uk/chebi/"
+   },
+   "CL" : {
+      "description" : "Cell Type Ontology",
+      "name" : "CL",
+      "url_syntax" : "http://purl.obolibrary.org/obo/CL_[example_id]",
+      "website" : "http://cellontology.org"
+   },
    "DOI" : {
       "description" : "Digital Object Identifier",
       "name" : "DOI",

@@ -309,6 +309,7 @@ export interface AppConfig {
   termPageConfig: TermPageConfig;
   phenotypeIdPrefixes: Array<string>;
   linkoutConfig: LinkoutConfig;
+  externalTermLinkPrefixes: Array<string>;
   missingBrowserImages: Array<string>;
   searchBoxCvNames: Array<string>;
   searchBoxConfig: SearchBoxConfig;
@@ -844,6 +845,8 @@ let _appConfig: AppConfig = {
     pro: 'http://www.proconsortium.org/cgi-bin/pro/entry_pro?id=',
     pfam: 'http://pfam.xfam.org/family/',
   },
+
+  externalTermLinkPrefixes: pombaseConfig.external_term_link_prefixes || [],
 
   missingBrowserImages: pombaseConfig.missing_browser_images,
 

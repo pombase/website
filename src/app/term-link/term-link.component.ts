@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { SolrTermSummary } from '../complete.service';
-import { getAnnotationTableConfig } from '../config';
+import { getAnnotationTableConfig, getXrf } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
 import { getAppConfig } from '../config';
 import { TermShort } from '../pombase-query';
@@ -21,6 +21,8 @@ export class TermLinkComponent implements OnInit {
 
   config = getAnnotationTableConfig();
   appConfig = getAppConfig();
+
+  externalLink?: string;
 
   termSummary: SolrTermSummary|undefined = undefined;
   cvDisplayName = '';
@@ -68,5 +70,16 @@ export class TermLinkComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.externalLink = undefined;
+
+    for (const prefix of this.appConfig.externalTermLinkPrefixes) {
+      if (this.term.termid.startsWith(prefix + ':')) {
+        const xrfConfig = getXrf(this.term.termid);
+        if (xrfConfig) {
+          this.externalLink = xrfConfig.url;
+          break;
+        }
+      }
+    }
   }
 }

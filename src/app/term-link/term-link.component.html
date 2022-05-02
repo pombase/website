@@ -5,12 +5,13 @@
       <span class="term-id">({{getDisplayTermId()}})</span>
     </div>
     <div *ngIf="termSummary" class="term-definition">{{termSummary.definition}}</div>
-    <div *ngIf="termSummary" class="term-cv">From the <span>{{cvDisplayName}}</span> ontology</div>
-    <div class="link-hint">(Click to view term details and annotations)</div>
+    <div *ngIf="termSummary && cvDisplayName" class="term-cv">From the <span>{{cvDisplayName}}</span> ontology</div>
+    <div class="link-hint">(Click to view term details<span *ngIf="!externalLink"> and annotations</span>)</div>
   </div>
 </ng-template>
 
 <a #link="bs-popover"
+   *ngIf="!externalLink"
    routerLink="/term/{{term.termid}}"
    [popover]="termPopover"
    (onShown)="shown()"
@@ -19,4 +20,16 @@
    (mouseleave)="mouseLeave()"
    placement="bottom" container="body">
   <span class="term-link"><ng-content></ng-content></span>
+</a>
+
+<a #link="bs-popover"
+   *ngIf="externalLink"
+   href="{{externalLink}}"
+   [popover]="termPopover"
+   (onShown)="shown()"
+   triggers=""
+   (mouseenter)="mouseEnter()"
+   (mouseleave)="mouseLeave()"
+   placement="bottom" container="body">
+  <span class="term-link">{{term.name}}</span>
 </a>

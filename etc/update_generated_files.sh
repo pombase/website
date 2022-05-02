@@ -13,7 +13,7 @@ database_name=$(jq '."database_name"' $web_config | perl -pne 's/"(.+?)"/$1/g')
 echo Generating documentation for: $database_name
 echo
 
-ABBREVS="PomBase ENA AGI_LocusCode HGNC CDD DDJB DOI PUBMED PMID ISBN EC EMBL ENSEMBL:gene FB GEO GO:molecular_function HAMAP InterPro iPTMnet TIGRFAMS MGI:gene ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam:polypeptide_region ProDom Prosite QuickGO RGD SFLD SGD SMART SO:sequence_feature SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB:gene dictyBase Cyclebase ZFIN:gene CGD TAIR:gene AlphaFold JaponicusDB RHEA"
+ABBREVS="PomBase ENA AGI_LocusCode HGNC CDD DDJB DOI PUBMED PMID ISBN EC EMBL ENSEMBL:gene FB GEO GO:molecular_function HAMAP InterPro iPTMnet TIGRFAMS MGI:gene ModBase PANTHER PDB PIRSF PR PRINTS PRODOM Pfam:polypeptide_region ProDom Prosite QuickGO RGD SFLD SGD SMART SO:sequence_feature SUPERFAMILY UniPathway UniProtKB UniProtKB-KW UniProtKB-SubCell WB:gene dictyBase Cyclebase ZFIN:gene CGD TAIR:gene AlphaFold JaponicusDB RHEA CHEBI CL"
 
 DB_XREFS_FILE=/tmp/db-xrefs-$$.yaml
 
