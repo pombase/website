@@ -15,7 +15,7 @@ and [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene)
 orthologs.
 
 The second subsection provides links to several resources that predict
-orthologs in all fungi or all species (PomBase cannot manually curate
+orthologs in all fungi or all species (PomBase does not manually curate
 orthologs in species other than budding yeast and human). For further
 information, see the [FAQ on orthologs in additional
 species](/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae).
