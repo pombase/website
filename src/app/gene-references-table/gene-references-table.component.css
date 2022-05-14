@@ -33,3 +33,7 @@ a {
 .pubmed-search {
   padding: 0 0 0.4em 0;
 }
+
+.pub-authors, .pub-citation, .pub-uniquename {
+  margin-right: 0.5em;
+}

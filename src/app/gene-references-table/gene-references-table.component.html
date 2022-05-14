@@ -41,12 +41,12 @@
             <span class="pub-authors">
               {{reference.authors_abbrev}}
             </span>
-            <span *ngIf="!reference.journal">
-              <span class="pub-citation">
+            <span class="pub-citation" *ngIf="!reference.journal">
+              <span>
                 {{reference.citation}}
               </span>
             </span>
-            <span *ngIf="reference.journal">
+            <span class="pub-citation" *ngIf="reference.journal">
               <span class="pub-journal">
                 {{reference.journal}}
               </span>
@@ -54,6 +54,7 @@
                 {{reference.citation_date_pages}}
               </span>
             </span>
+            <span class="pub-uniquename">{{reference.uniquename}}</span>
             <app-reference-short [reference]="reference" [linkText]="'details ...'">
             </app-reference-short>
           </div>
