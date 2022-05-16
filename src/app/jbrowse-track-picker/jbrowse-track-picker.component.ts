@@ -3,7 +3,7 @@ import { DOCUMENT } from '@angular/common';
 
 import { ToastrService } from 'ngx-toastr';
 
-import { getJBrowseTracksByPMID, JBrowseTrackInfo, getAppConfig, JBrowseColumnConfig } from '../config';
+import { getJBrowseTracksByPMID, JBrowseTrackInfo, getAppConfig, JBrowseColumnConfig, getJBrowseTracksByGeneName } from '../config';
 
 const JBROWSE_URL_LIMIT = 1500;
 
@@ -13,7 +13,10 @@ const JBROWSE_URL_LIMIT = 1500;
   styleUrls: ['./jbrowse-track-picker.component.css']
 })
 export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
-  @Input() refUniquename: string;
+  @Input() identifier: string;
+  @Input() identifierType: 'gene'|'reference';
+
+  appConfig = getAppConfig();
 
   tracks: Array<JBrowseTrackInfo> = [];
   colConfig: Array<JBrowseColumnConfig> = [];
@@ -97,22 +100,26 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
   }
 
   loadInJBrowse() {
-    let labels = getAppConfig().defaultJBrowseTracks.map(track => track.label);
+    let labels = this.appConfig.defaultJBrowseTracks.map(track => track.label);
     this.tracks.filter(track => this.selectedTracks[track.label])
       .map(track => labels.push(track.label));
-    let path = encodeURI('/jbrowse/?tracks=' + labels.join(','));
+    let path = encodeURI(this.appConfig.jbrowseTrackPickerBaseUrl + labels.join(','));
     this.document.location.href = path;
   }
 
   setTracks() {
-    this.tracks = getJBrowseTracksByPMID(this.refUniquename);
+    if (this.identifierType == 'gene') {
+      this.tracks = getJBrowseTracksByGeneName(this.identifier);
+    } else {
+      this.tracks = getJBrowseTracksByPMID(this.identifier);
+    }
     this.tracks.map(track => {
       this.selectedTracks[track.label] = false;
     });
 
     this.colConfig = [];
 
-    getAppConfig().refPageJBrowseColumns.map(colConf => {
+    this.appConfig.refPageJBrowseColumns.map(colConf => {
       let isEmpty = true;
       for (let track of this.tracks) {
         if (!!(track as any)[colConf.name]) {

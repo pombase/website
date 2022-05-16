@@ -102,6 +102,15 @@
       </div>
     </div>
 
+    <div *ngIf="currentGeneBrowserTracks.length != 0">
+      <div class="track-picker-message" *ngIf="!trackPickerVisible">
+        <a (click)="showTrackPicker()">View browser tracks associated with {{geneDetails.name || geneDetails.uniquename}} ...</a>
+      </div>
+
+      <app-jbrowse-track-picker *ngIf="trackPickerVisible" [identifier]="geneDetails.name" [identifierType]="'gene'">
+      </app-jbrowse-track-picker>
+    </div>
+
     <div class="chromosome-region-view" *ngIf="isConfiguredOrganism">
       <div class="jbrowse-container" *ngIf="getJBrowseIFrameURL()">
         <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">

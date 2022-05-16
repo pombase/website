@@ -1,11 +1,20 @@
 <div id="jbrowse_tracks" *ngIf="hasTracks()">
   <div class="jbrowse-header">
-Genome browser tracks from this publication:
+Genome browser tracks
+  <span *ngIf="identifierType == 'gene'">associated with this gene:</span> 
+  <span *ngIf="identifierType == 'reference'">from this publication:</span>
   </div>
 <fieldset class="jbrowse-picker annotation-table">
   <legend>
-    <span *ngIf="tracks.length == 1">A dataset from this publication is available in the genome browser</span>
-    <span *ngIf="tracks.length != 1">{{tracks.length}} datasets from this publication are available in the genome browser</span>
+    <span *ngIf="tracks.length == 1">
+      A dataset
+      <span *ngIf="identifierType == 'gene'">associated with this {{identifier}}</span>
+      <span *ngIf="identifierType == 'reference'">from this publication</span>
+      is available in the genome browser</span>
+    <span *ngIf="tracks.length != 1">{{tracks.length}} datasets
+      <span *ngIf="identifierType == 'gene'">associated with this {{identifier}}</span>
+      <span *ngIf="identifierType == 'reference'">from this publication</span>
+      are available in the genome browser</span>
 
   </legend>
 

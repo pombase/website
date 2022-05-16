@@ -62,6 +62,8 @@ export class GeneDetailsComponent implements OnInit {
   miscAnnotationTypeNames = ['cat_act', 'ex_tools', 'genome_org', 'misc', 'm_f_g'];
   currentGeneBrowserTracks: Array<JBrowseTrackInfo>;
 
+  trackPickerVisible = false;
+
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
@@ -335,6 +337,10 @@ export class GeneDetailsComponent implements OnInit {
     return !this.config.getAnnotationType(typeName).no_gene_details_section;
   }
 
+  showTrackPicker(): void {
+    this.trackPickerVisible = true;
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -346,6 +352,7 @@ export class GeneDetailsComponent implements OnInit {
               this.externalLinks =
                 this.appConfig.getGenePageExternalLinks(this.geneDetails);
               this.currentGeneBrowserTracks = getJBrowseTracksByGeneName(geneDetails.name);
+              this.trackPickerVisible = false;
               this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
               this.displayLocation = this.makeDisplayLocation();
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);

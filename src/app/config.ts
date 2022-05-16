@@ -297,6 +297,7 @@ export interface AppConfig {
   refPageExtraLinks: { [key: string]: Array<DetailsPageLinkConfig> };
   refPageJBrowseColumns: Array<JBrowseColumnConfig>;
   genePageExtraLinks: { [key: string]: Array<DetailsPageLinkConfig> };
+  jbrowseTrackPickerBaseUrl: string;
   apiSeqChunkSizes: {
     all: Array<number>;
     smallest: number;
@@ -823,6 +824,7 @@ let _appConfig: AppConfig = {
   refPageExtraLinks: pombaseConfig.reference_page_extra_links || [],
   refPageJBrowseColumns: pombaseConfig.reference_page_jbrowse_columns,
   genePageExtraLinks: pombaseConfig.gene_page_extra_links || [],
+  jbrowseTrackPickerBaseUrl: pombaseConfig.jbrowse_track_picker_base_url,
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
     smallest: Math.min(...pombaseConfig.api_seq_chunk_sizes),
