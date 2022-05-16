@@ -334,23 +334,6 @@ export class GeneDetailsComponent implements OnInit {
     return !this.config.getAnnotationType(typeName).no_gene_details_section;
   }
 
-  getExternalLinks(): DetailsPageLinkConfig[] {
-    const linkConfig =
-      this.appConfig.genePageExtraLinks[this.geneDetails.uniquename];
-
-    if (linkConfig) {
-      return linkConfig
-        .map(linkDetails => {
-          return {
-            text: linkDetails.text,
-            link: linkDetails.link.replace(/ /g, '%20'),
-          }
-        });
-    } else {
-      return [];
-    }
-  }
-
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -359,7 +342,8 @@ export class GeneDetailsComponent implements OnInit {
           this.pombaseApiService.getGene(uniquename)
             .then(geneDetails => {
               this.geneDetails = geneDetails;
-              this.externalLinks = this.getExternalLinks();
+              this.externalLinks =
+                this.appConfig.getGenePageExternalLinks(this.geneDetails);
               this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
               this.displayLocation = this.makeDisplayLocation();
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);

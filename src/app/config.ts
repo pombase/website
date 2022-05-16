@@ -359,6 +359,8 @@ export interface AppConfig {
                       geneDetails: GeneDetails): Array<string>|undefined;
 
   getMiscExternalLink(configKey: string, id: string, geneUniquename?: string): LinkDisplay|undefined;
+
+  getGenePageExternalLinks(geneDetails: GeneDetails): DetailsPageLinkConfig[];
 }
 
 export interface LinkDisplay {
@@ -989,6 +991,24 @@ let _appConfig: AppConfig = {
 
     return undefined;
   },
+
+
+  getGenePageExternalLinks(geneDetails: GeneDetails): DetailsPageLinkConfig[] {
+    const linkConfig =
+      this.genePageExtraLinks[geneDetails.uniquename];
+
+    if (linkConfig) {
+      return linkConfig
+        .map(linkDetails => {
+          return {
+            text: linkDetails.text,
+            link: linkDetails.link.replace(/ /g, '%20'),
+          }
+        });
+    } else {
+      return [];
+    }
+  }
 };
 
 
