@@ -1263,15 +1263,63 @@ export function getOrganismExternalLink(organismGenus: string, organismSpecies: 
   return undefined;
 }
 
-export interface JBrowseTrackInfo {
+  export interface JBrowseTrackInfo {
   pmed_id: string;
   label:   string;
+  mutants:  string;
+  assayed_gene_product: string;
   [key: string]: string;
 }
 
 const _jbrowseTracks: Array<JBrowseTrackInfo> = jbrowseTracks;
+let _jbrowseTracksByPMID: { [pmid: string]: Array<JBrowseTrackInfo>; };
+let _jbrowseTracksByGeneName: { [geneName: string]: Array<JBrowseTrackInfo>; };
+
+function _makeJBrowseTrackMaps() {
+  _jbrowseTracksByGeneName = {};
+  _jbrowseTracksByPMID = {};
+  const cleanGene = (geneName: string) => {
+    const geneNames = geneName.split(/\s+and\s+|\s*,\s*/);
+    return geneNames.map(geneName => {
+      return geneName.replace(/delta\s*$/, '');
+    })
+  };
+  const addInfo = (trackMap: { [geneName: string]: Array<JBrowseTrackInfo>; },
+                   identifier: string, trackInfo: JBrowseTrackInfo) => {
+                    if (trackMap[identifier]) {
+                      trackMap[identifier].push(trackInfo);
+                    } else {
+                      trackMap[identifier] = [trackInfo];
+                    }
+                   };
+  for (const trackInfo of _jbrowseTracks) {
+     if (trackInfo.pmed_id) {
+       addInfo(_jbrowseTracksByPMID, trackInfo.pmed_id, trackInfo);
+     }
+     if (trackInfo.mutants) {
+       const geneNames = cleanGene(trackInfo.mutants);
+       geneNames.map(geneName => addInfo(_jbrowseTracksByGeneName, geneName, trackInfo))
+     }
+     if (trackInfo.assayed_gene_product) {
+      const geneNames = cleanGene(trackInfo.assayed_gene_product);
+      geneNames.map(geneName => addInfo(_jbrowseTracksByGeneName, geneName, trackInfo))
+    }
+  }
+}
 
 export function getJBrowseTracksByPMID(pmid: string): Array<JBrowseTrackInfo> {
+
+  if (!_jbrowseTracksByPMID) {
+    _makeJBrowseTrackMaps();
+  }
   pmid = pmid.replace(/^PMID:/, '');
-  return  _jbrowseTracks.filter(track => track.pmed_id === pmid);
+  return  _jbrowseTracksByPMID[pmid] || [];
+}
+
+export function getJBrowseTracksByGeneName(geneName: string): Array<JBrowseTrackInfo> {
+
+  if (!_jbrowseTracksByGeneName) {
+    _makeJBrowseTrackMaps();
+  }
+  return _jbrowseTracksByGeneName[geneName] || [];
 }

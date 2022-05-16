@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig, ConfigOrganism, DetailsPageLinkConfig } from '../config';
+         getAppConfig, AppConfig, ConfigOrganism, DetailsPageLinkConfig, getJBrowseTracksByGeneName, JBrowseTrackInfo } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 import { Util } from '../shared/util';
 
@@ -60,6 +60,7 @@ export class GeneDetailsComponent implements OnInit {
   externalLinks: Array<DetailsPageLinkConfig>;
 
   miscAnnotationTypeNames = ['cat_act', 'ex_tools', 'genome_org', 'misc', 'm_f_g'];
+  currentGeneBrowserTracks: Array<JBrowseTrackInfo>;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -344,6 +345,7 @@ export class GeneDetailsComponent implements OnInit {
               this.geneDetails = geneDetails;
               this.externalLinks =
                 this.appConfig.getGenePageExternalLinks(this.geneDetails);
+              this.currentGeneBrowserTracks = getJBrowseTracksByGeneName(geneDetails.name);
               this.synonymsDisplay = this.makeSynonymsDisplay(geneDetails.synonyms);
               this.displayLocation = this.makeDisplayLocation();
               this.displayFeatureType = this.makeDisplayFeatureType(geneDetails.feature_type);
