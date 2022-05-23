@@ -6864,8 +6864,8 @@ Search documentation, news archive and FAQ:
 <h2 id="ortholog-curation">Ortholog curation</h2>
 <p>The “Orthologs” section of a gene page includes two subsections.</p>
 <p>The first lists any orthologous genes in budding yeast (<em>Saccharomyces cerevisiae</em>) or human (<em>Homo sapiens</em>) that have been assessed and recorded manually, as described below, by curators. Budding yeast entries link to the <a href="http://www.yeastgenome.org/"><em>Saccharomyces</em> Genome Database</a> (SGD), and human genes link to <a href="http://www.genenames.org/">HGNC</a>; the text descriptions come from these databases. For more information, including how to search the curated orthologs, see the FAQs on <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">budding yeast</a> and <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> orthologs.</p>
-<p>The second subsection provides links to several resources that predict orthologs in all fungi or all species (PomBase cannot manually curate orthologs in species other than budding yeast and human). For further information, see the <a href="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in additional species</a>. (Note: these links also appear in the External references section.)</p>
-<p>Manual ortholog prediction methods: The human and budding yeast orthologs are manually predicted based on a variety of sources. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <span class="st">PSI-BLAST</span> matches; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase’s approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
+<p>The second subsection provides links to several resources that predict orthologs in all fungi or all species (PomBase does not manually curate orthologs in species other than budding yeast and human). For further information, see the <a href="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in additional species</a>. (Note: these links also appear in the External references section.)</p>
+<p>Manual ortholog prediction methods: The human and budding yeast orthologs are manually predicted based on a variety of sources. In some cases the consensus ortholog from the major ortholog predictors (<a href="http://www.ensembl.org/info/docs/compara/index.html">Compara</a>, <a href="http://inparanoid.sbc.su.se/">Inparanoid</a>, <a href="http://www.orthomcl.org/">OrthoMCL</a>) is used. Many distant orthologs have also been identified by <a href="https://www.ncbi.nlm.nih.gov/books/NBK2590/">PSI-BLAST</a> matches; these alignments have been submitted to the <a href="http://pfam.xfam.org/">Pfam</a> protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase’s approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls.</p>
 <h2 id="paralogs">Paralogs</h2>
 <p>The Paralogs section lists any curated paralogous fission yeast genes.</p>
 
@@ -9501,7 +9501,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
-<div class="left-menu-part left-menu-item"><a pageScroll href="#new-phenotype-slimming-option-advanced-search-results">New phenotype slimming option for advanced search results</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-may-18th">PombeTalks May 18th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-phenotype-slim">New phenotype slim</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#making-biological-knowledge-useful-humans-and-machines">Making biological knowledge useful for humans and machines</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#the-fission-yeast-community-have-now-curated-over-1000-publications">The fission yeast community have now curated over 1000 publications</a></div>
@@ -11295,7 +11295,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'diploid-genotypes-phenotypes'">
 <h3 id="new-diploid-genotype-phenotype-display">New diploid genotype &amp; phenotype display</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombelist.png -->
 <p>PomBase now includes pages for curated diploid genotypes, and displays phenotypes annotated to them on gene and publication pages. For more details see the documentation for <a href="documentation/gene-page-phenotypes">phenotype annotations</a> and <a href="documentation/genotype-page">genotype pages</a>.</p>
 
@@ -11387,7 +11386,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'kegg-pathway-links'">
 <h3 id="kegg-pathway-links">KEGG pathway links</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: kegg3.png -->
 <p>PomBase gene pages now have links to pathway entries in the Kyoto Encyclopedia of Genes and Genomes (KEGG) database, as well as links to gene lists for each linked pathway (example: <a href="https://www.pombase.org/term/KEGG_PW:spo01210">2-Oxocarboxylic acid metabolism</a>). The KEGG pathway links are the first entry in a new gene page section, “Molecular pathway”, dedicated to connecting genes in PomBase to depictions of biochemical and signaling pathways.</p>
 
@@ -11407,7 +11405,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'alphafold-links'">
 <h3 id="alphafold-links">AlphaFold links</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: Ofd2_structure_32px.png -->
 <p>PomBase gene pages now have links to the AlphaFold Protein Structure Database, the collection of structures predicted by AI developed by DeepMind, hosted at EBI. Look in the “External references” section of your favorite gene page, or check out <a href="https://alphafold.ebi.ac.uk/entry/Q01663">this example (pap1)</a>, or read more at the <a href="https://alphafold.ebi.ac.uk/">EBI AlphaFold home</a>.</p>
 
@@ -11432,7 +11429,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'japonicusdb-release'">
 <h3 id="japonicusdb-new-fission-yeast-database">JaponicusDB: a new fission yeast database</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: japonicusdb-32x32.png -->
 <p>We are delighted to announce the official release of PomBase’s new sister: <a href="https://www.japonicusdb.org">JaponicusDB</a> is a new, curated model organism database for the fission yeast <em>Schizosaccharomyces japonicus</em>. JaponicusDB highlights include revised gene structures, distant ortholog detection, improved GO annotation, community literature curation, and reciprocal gene page links with PomBase, providing a familiar environment for all fission yeast researchers.</p>
 <p>The <em>S. japonicus</em> community will maintain JaponicusDB from now on. Join the <a href="https://mailman.kcl.ac.uk/mailman/listinfo/japonicus-list">new mailing list</a>, and follow <span class="citation" data-cites="japonicusdb">@japonicusdb</span> on Twitter.</p>
@@ -11440,7 +11436,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'Genetics-database-pubs'">
 <h3 id="pombase-japonicusdb-preprints">PomBase &amp; JaponicusDB preprints</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombelist.png -->
 <p>Papers describing PomBase and JaponicusDB will appear in an issue of <a href="https://academic.oup.com/genetics/">GENETICS</a> devoted to model organism database (MOD) reports. The MOD papers will highlight the journal’s new section on Computational Resources, Software &amp; Databases.</p>
 <p>Follow the links to the <a href="https://www.biorxiv.org/content/10.1101/2021.09.07.459264v1.full">PomBase preprint</a> and <a href="https://www.biorxiv.org/content/10.1101/2021.09.23.461587v1">JaponicusDB preprint</a>, and watch for the full-fledged publications to appear in March 2022.</p>
@@ -11448,14 +11443,12 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'new-protein-feature-searches'">
 <h3 id="coils-disorder-and-more-new-protein-feature-queries">Coils, disorder, and more: new protein feature queries</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: advanced_search.png -->
 <p>The PomBase <a routerLink="/query">advanced search</a> now allows you to find proteins that have coiled-coil regions, disordered regions, and low-complexity regions. The query-building interface also now organises query options more sensibly, and the documentation has been updated.</p>
 
   </div>
   <div *ngIf="pageName == 'interpro-v87'">
 <h3 id="pombase-now-uses-interpro-version-87.0">PomBase now uses InterPro Version 87.0</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 <p>PomBase now uses InterPro Version 87.0, which integrates:</p>
 <ul>
@@ -11467,7 +11460,6 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'improve-go-filter'">
 <h3 id="improved-options-filtering-annotations-by-cell-cycle-phase">Improved options for filtering annotations by cell cycle phase</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>The Gene Ontology annotation filter for “during” specific cell cycle phases is now included on the “Summary” view in addition to the “Details” view. Available phases have been extended to cover all phases used, and to provide<br />
 useful grouping terms. This filter is “ontology aware” (i.e. a search on interphase will also display G1/S/G2 phase annotation). The phase filter is most useful on pages that display increasing volume of phase-specific curation (such as cdc2). The revised phase filter options are also available in the gene expression section.</p>
@@ -11560,30 +11552,46 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <h3 id="new-phenotype-slim">New phenotype slim</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
-<p>We have added a <a routerLink="/browse-curation/fypo-slim">phenotype slim overview</a> to complement those provided for disease biological process, molecular function and cellular component annotation. The purpose of the phenotype slim is to provide subsets of commonly used ‘broad’ phenotypic classes or annotation subsets that can provide a useful starting point for accessing phenotype lists. The phenotype slim page provides links to ontology term pages, annotated genes, and to download files containing the slim terms and IDs.</p>
+<p>We have added a <a routerLink="/browse-curation/fypo-slim">phenotype slim overview</a> to complement those provided for <a routerLink="/browse-curation/disease-slim">disease association</a>, <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">biological process</a>, <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">molecular function</a> and <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">cellular component</a> annotation. The purpose of the phenotype slim is to provide subsets of commonly used ‘broad’ phenotypic classes or annotation subsets that can provide a useful starting point for accessing phenotype lists. The phenotype slim page provides links to ontology term pages, annotated genes, and to download files containing the slim terms and IDs.</p>
+<p>The phenotype slim has also been added to the PomBase <a routerLink="/query">advanced search</a> results panel “Slim with” menu. For example, you can query for all genes involved in a GO process, another phenotype, or any other list, and “slim” the results using the “Phenotype slim” option to view categories of phenotypes assigned to the list.</p>
 
   </div>
-  <div *ngIf="pageName == 'phenotype-slim-in-search-results'">
-<h3 id="new-phenotype-slimming-option-advanced-search-results">New phenotype slimming option for advanced search results</h3>
+  <div *ngIf="pageName == 'pombetalks-may18-2022'">
+<h3 id="pombetalks-may-18th">PombeTalks May 18th</h3>
 <!-- pombase_flags: frontpage -->
-<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
-<p>The <a routerLink="/browse-curation/fypo-slim">phenotype slim</a> has also been added to the PomBase <a routerLink="/query">advanced search</a> results panel “Slim with” menu. For example, you can query for all genes involved in a GO process, another phenotype, or any other list, and “slim” the results using the “Phenotype slim” option to view categories of phenotypes assigned to the list.</p>
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online pombeTalks will take place on May 18th. These are virtual seminars by and for the fission yeast community and friends.</p>
+<p>08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo</p>
+<p>Talks this session:</p>
+<ul>
+<li><strong>Jennifer Porat</strong>, Bayfield Lab, York University: The methyl phosphate capping enzyme Bmc1/Bin3 is a stable component of the fission yeast telomerase holoenzyme</li>
+<li><strong>Ingrid Billault-Chaumartin</strong>, Martin Lab, UNIL: Fus1, the fusion focus formin</li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
-<div id="2022-04-14-phenotype-slim-in-search-results" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
-<h3 id="new-phenotype-slimming-option-advanced-search-results">New phenotype slimming option for advanced search results</h3>
-<p><em>2022-04-14</em></p>
-<p>The <a routerLink="/browse-curation/fypo-slim">phenotype slim</a> has also been added to the PomBase <a routerLink="/query">advanced search</a> results panel “Slim with” menu. For example, you can query for all genes involved in a GO process, another phenotype, or any other list, and “slim” the results using the “Phenotype slim” option to view categories of phenotypes assigned to the list.</p>
+<div id="2022-05-05-pombetalks-may18-2022" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-may-18th">PombeTalks May 18th</h3>
+<p><em>2022-05-05</em></p>
+<p>The next online pombeTalks will take place on May 18th. These are virtual seminars by and for the fission yeast community and friends.</p>
+<p>08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo</p>
+<p>Talks this session:</p>
+<ul>
+<li><strong>Jennifer Porat</strong>, Bayfield Lab, York University: The methyl phosphate capping enzyme Bmc1/Bin3 is a stable component of the fission yeast telomerase holoenzyme</li>
+<li><strong>Ingrid Billault-Chaumartin</strong>, Martin Lab, UNIL: Fus1, the fusion focus formin</li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
 </div>
 <div id="2022-04-13-phenotype-slim" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="new-phenotype-slim">New phenotype slim</h3>
 <p><em>2022-04-13</em></p>
-<p>We have added a <a routerLink="/browse-curation/fypo-slim">phenotype slim overview</a> to complement those provided for disease biological process, molecular function and cellular component annotation. The purpose of the phenotype slim is to provide subsets of commonly used ‘broad’ phenotypic classes or annotation subsets that can provide a useful starting point for accessing phenotype lists. The phenotype slim page provides links to ontology term pages, annotated genes, and to download files containing the slim terms and IDs.</p>
+<p>We have added a <a routerLink="/browse-curation/fypo-slim">phenotype slim overview</a> to complement those provided for <a routerLink="/browse-curation/disease-slim">disease association</a>, <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">biological process</a>, <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">molecular function</a> and <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">cellular component</a> annotation. The purpose of the phenotype slim is to provide subsets of commonly used ‘broad’ phenotypic classes or annotation subsets that can provide a useful starting point for accessing phenotype lists. The phenotype slim page provides links to ontology term pages, annotated genes, and to download files containing the slim terms and IDs.</p>
+<p>The phenotype slim has also been added to the PomBase <a routerLink="/query">advanced search</a> results panel “Slim with” menu. For example, you can query for all genes involved in a GO process, another phenotype, or any other list, and “slim” the results using the “Phenotype slim” option to view categories of phenotypes assigned to the list.</p>
 </div>
 <div id="2022-04-04-genetics-publications" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
