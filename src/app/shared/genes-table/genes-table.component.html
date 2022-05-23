@@ -97,11 +97,28 @@
               title="{{genes.length > 1000 ? tooManyGenesTitle : selectGenesTitle}}"
               class="btn btn-primary" (click)="startSelection()">Select subset</button>
   </div>
-  <div class="action">
+
+  <div class="action" *ngIf="!interMineButtonVisible()">
     <button class="btn btn-primary" (click)="download()">Download ...</button>
   </div>
-  <div *ngIf="interMineButtonVisible()" class="action">
-    <button class="btn btn-primary" (click)="sendToInterMine()">Send to {{intermineConfig!.mine_name}} ...</button>
+
+  <div *ngIf="interMineButtonVisible()" class="btn-group" dropdown>
+    <button id="slim-button" dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+      Export:
+    </button>
+
+    <ul id="export-dropdown" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+      <li role="menuitem">
+        <a class="dropdown-item" (click)="download()">
+          Download ...
+        </a>
+      </li>
+      <li role="menuitem">
+        <a class="dropdown-item" (click)="sendToInterMine()">
+          Send to {{intermineConfig!.mine_name}} ...
+        </a>
+      </li>
+    </ul>
   </div>
 
   </div>
