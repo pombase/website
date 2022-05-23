@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
@@ -31,6 +31,10 @@ export class GenesTableComponent implements OnInit {
   // which allows the the termids in a description to be linked to the term pages
   @Input() descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
   @Input() genesOrResults: Array<GeneShort>|QueryResult;
+
+  @ViewChild('interMineSendForm') interMineSendForm: ElementRef;
+  @ViewChild('interMineSendFormExtIds') interMineExtIDsInput: ElementRef;
+
   queryResult: QueryResult;
   genes: Array<GeneShort> = [];
 
@@ -55,8 +59,10 @@ export class GenesTableComponent implements OnInit {
 
   selectedGenes?: { [key: string]: boolean };
 
-  geneResultConfig = getAppConfig().getGeneResultsConfig();
-  slimConfig = getAppConfig().slims;
+  appConfig = getAppConfig();
+
+  geneResultConfig = this.appConfig.getGeneResultsConfig();
+  slimConfig = this.appConfig.slims;
   slimDescription?: string;
 
   slimNames: Array<string> = [];
@@ -70,6 +76,8 @@ export class GenesTableComponent implements OnInit {
 
   showGeneExpressionLink = getAppConfig().geneExpression.datasets.length > 0;
   maxGeneExpressionPlotGenes = 150;
+
+  intermineConfig = getAppConfig().intermine;
 
   constructor(private modalService: BsModalService,
               private sanitizer: DomSanitizer,
@@ -199,6 +207,23 @@ export class GenesTableComponent implements OnInit {
       class: 'modal-lg',
     };
     this.downloadModalRef = this.modalService.show(GenesDownloadDialogComponent, config);
+  }
+
+  interMineButtonVisible(): boolean {
+    return this.displayGenes.length > 0 && !!this.intermineConfig;
+  }
+
+  sendToInterMine(): void {
+    if (this.interMineButtonVisible()) {
+      const form = this.interMineSendForm;
+      const idsInput = this.interMineExtIDsInput;
+
+      const geneUniquenames = this.displayGenes.map(gene => gene.uniquename);
+
+      idsInput.nativeElement.value = geneUniquenames.join(',');
+
+      form.nativeElement.submit();
+    }
   }
 
   selectionInProgress() {
@@ -401,7 +426,7 @@ export class GenesTableComponent implements OnInit {
 
     if (this.mode.startsWith('slim:')) {
       this.slimName = this.mode.substr(5);
-      this.slimDescription = getAppConfig().slims[this.slimName].description;
+      this.slimDescription = this.appConfig.slims[this.slimName].description;
     } else {
       this.slimName = undefined;
       this.slimDescription = undefined;

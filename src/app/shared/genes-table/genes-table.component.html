@@ -100,6 +100,9 @@
   <div class="action">
     <button class="btn btn-primary" (click)="download()">Download ...</button>
   </div>
+  <div *ngIf="interMineButtonVisible()" class="action">
+    <button class="btn btn-primary" (click)="sendToInterMine()">Send to {{intermineConfig!.mine_name}} ...</button>
+  </div>
 
   </div>
 
@@ -183,5 +186,13 @@
   </div>
 </div>
 </fieldset>
+
+<form #interMineSendForm *ngIf="interMineButtonVisible()" ngNoForm
+      class="intermine-send-form" action="{{intermineConfig!.list_post_url}}"
+      method="post">
+  <input type="hidden" name="class" value="Gene">
+  <input #interMineSendFormExtIds type="hidden" name="externalids" value="">
+  <input type="submit" value="Submit">
+</form>
 
 </div>

@@ -62,3 +62,7 @@ th {
   margin-right: 0.2em;
   vertical-align: text-top;
 }
+
+.intermine-send-form {
+ display: none;
+}

@@ -281,6 +281,10 @@ export interface AppConfig {
   jackhmmer_search_url: string;
   ebi_tools_url: string;
   canto_url: string;
+  intermine?: {
+    list_post_url: string;
+    mine_name: string;
+  };
   community_mailing_list?: {
     url: string;
     icon: string;
@@ -812,6 +816,7 @@ let _appConfig: AppConfig = {
   jackhmmer_search_url: pombaseConfig.jackhmmer_search_url,
   ebi_tools_url: pombaseConfig.ebi_tools_url,
   canto_url: pombaseConfig.canto_url,
+  intermine: pombaseConfig.intermine,
   community_mailing_list: pombaseConfig.community_mailing_list,
   welcome_message: pombaseConfig.welcome_message,
   canto_data_config: pombaseConfig.canto_data_config,
