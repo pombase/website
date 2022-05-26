@@ -28,8 +28,8 @@
     </app-interaction-table-filters>
   </div>
 
-  <div class="query-link">
-    <a *ngIf="routerLinkUrl" routerLink="{{routerLinkUrl}}">Query using interacting genes ...</a>
+  <div *ngIf="queryLinkUrl"  class="query-link">
+    <a routerLink="{{queryLinkUrl}}">Query using interacting genes ...</a>
   </div>
 
   <div *ngIf="tableIsFiltered" class="filter-count">

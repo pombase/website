@@ -38,7 +38,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   displayTable: Array<DisplayAnnotation> = [];
   helpIconTitle = 'View documentation';
 
-  routerLinkUrl: string;
+  queryLinkUrl: string;
   biogridUrl: string;
   annotationCount: any;
   filteredAnnotationCount: any;
@@ -96,7 +96,7 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
       const json = `{"constraints":{"interactors":
        {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
         '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
-      this.routerLinkUrl = `/results/from/json/${json}`;
+      this.queryLinkUrl = `/results/from/json/${json}`;
 
       if (this.currentGene.biogrid_interactor_id) {
         const linkResult =
