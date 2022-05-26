@@ -96,10 +96,14 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.currentViewState = TableViewState.Summary;
+
     this.makeTables();
   }
 
   ngOnChanges() {
+    this.currentViewState = TableViewState.Summary;
+
     this.makeTables();
   }
 }
