@@ -9,3 +9,7 @@
     </option>
   </select>
 </span>
+
+<span *ngIf="choiceData.length == 0" class="annotation-table-filter term-filter-no-choices">
+  (No {{config.display_name.toLocaleLowerCase()}}s)
+</span>
