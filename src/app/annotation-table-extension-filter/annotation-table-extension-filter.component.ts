@@ -3,6 +3,7 @@ import { TermAnnotation, AnnotationTable } from '../pombase-api.service';
 import { FilterConfig } from '../config';
 import { AnnotationExtensionFilter } from '../filtering/annotation-extension-filter';
 import { Filter } from '../filtering';
+import { TableViewState } from '../pombase-types';
 
 class SelectData {
   constructor(public displayName: string,
@@ -19,6 +20,7 @@ class SelectData {
 })
 export class AnnotationTableExtensionFilterComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
+  @Input() tableViewState: TableViewState;  // this parameter is only used by ngOnChanges()
   @Input() config: FilterConfig;
   @Output() filterChange = new EventEmitter<Filter<AnnotationTable>>();
   @Output() availableChoiceChange = new EventEmitter<number>();

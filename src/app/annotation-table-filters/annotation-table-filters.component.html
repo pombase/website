@@ -29,6 +29,7 @@
 
     <app-annotation-table-extension-filter *ngIf="config.filter_name == 'extension'"
                                            [config]="config"
+                                           [tableViewState]="currentViewState"
                                            [annotationTable]="annotationTable"
                                            (filterChange)="filterChanged('extension' + config.display_name, $event)">
     </app-annotation-table-extension-filter>
