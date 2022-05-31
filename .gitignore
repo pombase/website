@@ -38,3 +38,5 @@ GO.xrf_abbs
 src/index.html
 
 /.angular/
+
+**/.DS_Store
