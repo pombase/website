@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { TermAnnotation, ReferenceShort, Annotation } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
@@ -21,7 +21,6 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() detailsOnly = false;
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() scope: string;
-  @Output() tableViewChangeEmitter = new EventEmitter<TableViewState>();
 
   // copy to the component for use in template
   TableViewState = TableViewState;
@@ -70,6 +69,10 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     this.tableIsFiltered = !!filter;
+  }
+
+  resetFilter(): void {
+    this.updateCurrentFilter(undefined);
   }
 
   constructor() { }
@@ -123,8 +126,6 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     } else {
       this.currentViewState = TableViewState.Details;
     }
-
-    this.tableViewChangeEmitter.emit(this.currentViewState);
   }
 
   allDetailsView() {
@@ -135,7 +136,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
         this.detailsView['NOT:' + termAnnotation.term.termid] = true;
       }
     }
-    this.tableViewChangeEmitter.emit(this.currentViewState);
+
+    this.resetFilter();
   }
 
   allSummaryView() {
@@ -146,7 +148,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
         this.detailsView['NOT:' + termAnnotation.term.termid] = false;
       }
     }
-    this.tableViewChangeEmitter.emit(this.currentViewState);
+
+    this.resetFilter();
   }
 
   trackByTermId(_: number, item: any) {
@@ -341,7 +344,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     // reset when gene changes
-    this.updateCurrentFilter(undefined);
+    this.resetFilter();
     this.init();
   }
 }
