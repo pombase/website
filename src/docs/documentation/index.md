@@ -50,6 +50,11 @@ Search documentation, news archive and FAQ:
 
 -   [Documentation](documentation/quick-little-tool) for the Quick Little Tool for gene list visualisation
 
+### Non-gene sequence features
+
+-   [Centromere clone information](status/centromeres)
+-   [Miscellaneous sequence feature table](documentation/misc-sequence-features)
+
 ### Other ${database_name} Pages ###
 
 -   GO Slim
