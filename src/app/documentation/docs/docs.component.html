@@ -7717,11 +7717,18 @@ Search documentation, news archive and FAQ:
   </div>
   <div *ngIf="pageName == 'go-annotations'">
 <h3 id="go-annotations">GO annotations</h3>
-<p><em>S. pombe</em> GO annotations are available from <a href="https://www.pombase.org/data/annotations/Gene_ontology/gene_association.pombase.gz">PomBase</a> or from the <a href="http://current.geneontology.org/annotations/pombase.gaf.gz">GO repository</a> (either link downloads a gzipped file). They include annotations made by manual literature curation, annotations inferred from keyword mappings based on curated descriptions, and annotations shared by the UniProt <a href="http://www.ebi.ac.uk/GOA">GOA</a> team. The file is tab-delimited text, so it can be opened in a spreadsheet application or parsed with a script. The default <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF 2.2 format</a> is described on the GO website.</p>
-<p>Files are also available in the <a href="https://www.pombase.org/data/annotations/Gene_ontology/">PomBase GO annotation directory</a> in the older <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/">GAF 2.1 format</a> and in a pair of companion formats currently under development at GO, <a href="http://geneontology.org/docs/gene-product-association-data-gpad-format/">GPAD</a> and <a href="http://geneontology.org/docs/gene-product-information-gpi-format/">GPI</a>.</p>
+<p><em>S. pombe</em> GO annotations are available as tab-delimited files in <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF 2.2 format</a>. The files include annotations made by manual literature curation, annotations inferred from keyword mappings based on curated descriptions, and annotations shared by the UniProt <a href="http://www.ebi.ac.uk/GOA">GOA</a> team.</p>
+<h4 id="annotation-files">Annotation files</h4>
+<ul>
+<li><a href="https://www.pombase.org/data/annotations/Gene_ontology/gene_association.pombase.gz">gene_association.pombase.gz</a> - All current <em>S. pombe</em> GO annotations in <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF 2.2 format</a>, updated nightly</li>
+<li><a href="https://www.pombase.org/data/annotations/Gene_ontology/gene_association_2-1.pombase.gz">gene_association_2-1.pombase.gz</a> - All annotations in the older <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/">GAF 2.1 format</a></li>
+<li><a href="https://www.pombase.org/data/annotations/Gene_ontology/pombase.gpad">pombase.gpad</a> and <a href="https://www.pombase.org/data/annotations/Gene_ontology/pombase.gpi">pombase.gpi</a> - Newer <a href="https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0">GPAD/GPI v2.0 format</a> annotation files, updated nightly</li>
+</ul>
+<h4 id="protein-complexes">Protein complexes</h4>
 <p>Also see the <a href="https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/">list of protein complexes</a>, which uses GO macromolecular complex terms and IDs.</p>
-<p>Note that the contents of the file downloadable from PomBase may differ from files available elsewhere (e.g. see <a href="why-are-go-annotations-different-between-pombase-and-uniprot-goa">this FAQ</a>, and will not include annotations inferred by transitivity (see <a href="/faq/why-are-go-terms-missing-from-the-downloadable-annotation-file">this FAQ</a>).</p>
-<p>Previous versions of the <em>S. pombe</em> GO annotation file can be retrieved from the <a href="https://www.pombase.org/data/annotations/Gene_ontology/OLD/">archived Chado database dumps</a>. Note that files produced before March 2021 are only available in GAF 2.1 format.</p>
+<h4 id="notes">Notes</h4>
+<p>The contents of the files downloadable from PomBase may differ from files available elsewhere (e.g. see <a href="why-are-go-annotations-different-between-pombase-and-uniprot-goa">this FAQ</a>), and will not include annotations inferred by transitivity (see <a href="/faq/why-are-go-terms-missing-from-the-downloadable-annotation-file">this FAQ</a>).</p>
+<p>Previous versions of the <em>S. pombe</em> GO annotation file can be retrieved from the <a href="https://www.pombase.org/data/annotations/Gene_ontology/OLD/">archive directory</a>. Note that files produced before March 2021 are only available in GAF 2.1 format.</p>
 <p>To cite the fission yeast GO data, please see <a routerLink="/about/citing-pombase">Citing PomBase</a>.</p>
 
   </div>
