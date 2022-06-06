@@ -183,9 +183,31 @@ for my $file_to_scan (@files_to_scan) {
   open my $file, '<', $file_to_scan or
     die "can't open $file_to_scan: $!\n";
 
+  my $db_section_name = undef;
+
   while (defined (my $line = <$file>)) {
     if ($line =~ /^\s*<!--.+-->\s*$/) {
       # comment
+      next;
+    }
+
+    if ($line =~ /%%if db=(\S+)/) {
+      $db_section_name = $1;
+      next;
+    }
+
+    if ($line =~ /%%end db=(\S+)/) {
+      if (defined $db_section_name) {
+        if ($1 ne $db_section_name) {
+          warn qq($file_to_scan:$.:  expected "\%\%end db="$db_section_name"\n);
+        }
+        $db_section_name = undef;
+      } else {
+        warn qq($file_to_scan:$.:  missing "\%\%if db="$1"\n);
+      }
+    }
+
+    if (defined $db_section_name && $db_section_name ne $database_name) {
       next;
     }
 
@@ -211,7 +233,7 @@ for my $file_to_scan (@files_to_scan) {
       }
 
       if (!$valid_paths{$link}) {
-        print "$file_to_scan:$.:  $link\n   $line\n";
+        warn "$file_to_scan:$.:  $link\n   $line\n";
         $invalid_paths++;
       }
     }
