@@ -1,52 +1,48 @@
 ### GO annotations
 
-*${species_abbrev}* GO annotations are available from 
-%%if db=PomBase
-[PomBase](https://www.pombase.org/data/annotations/Gene_ontology/gene_association.pombase.gz)
-or from the [GO repository](http://current.geneontology.org/annotations/pombase.gaf.gz)
-(either link downloads a gzipped file). 
-%%end db=PomBase
-%%if db=JaponicusDB
-*${species_abbrev}* GO annotations are available from
- [JaponicusDB](https://www.japonicusdb.org/data/annotations/Gene_ontology/gene_association_2-2.japonicusdb.gz)
- (downloads a gzipped file) and will soon be available from the GO
- repository.
-%%end db=JaponicusDB
-They include annotations made by manual literature curation,
-annotations inferred from keyword mappings based on curated
+*${species_abbrev}* GO annotations are available as tab-delimited files
+in [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/).
+The files include annotations made by manual literature
+curation, annotations inferred from keyword mappings based on curated
 descriptions, and annotations shared by the UniProt
-[GOA](http://www.ebi.ac.uk/GOA) team. The file is tab-delimited text,
-so it can be opened in a spreadsheet application or parsed with a
-script. The default [GAF 2.2
-format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
-is described on the GO website.
+[GOA](http://www.ebi.ac.uk/GOA) team.
 
-Files are also available in the [${database_name} GO annotation
-directory](${base_url}/data/annotations/Gene_ontology/) in
-the older [GAF 2.1
-format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)
-and in a pair of companion formats currently under development at GO,
-[GPAD](http://geneontology.org/docs/gene-product-association-data-gpad-format/)
-and
-[GPI](http://geneontology.org/docs/gene-product-information-gpi-format/).
+#### Annotation files
 
-Also see the [list of protein
-complexes](${base_url}/data/annotations/Gene_ontology/GO_complexes/),
+  - [gene_association.pombase.gz](https://www.pombase.org/data/annotations/Gene_ontology/gene_association.pombase.gz) -
+    All current *${species_abbrev}* GO annotations in [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/), updated nightly
+  - [gene_association_2-1.pombase.gz](https://www.pombase.org/data/annotations/Gene_ontology/gene_association_2-1.pombase.gz) -
+    All annotations in the older [GAF 2.1 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)
+  - [pombase.gpad](https://www.pombase.org/data/annotations/Gene_ontology/pombase.gpad)
+    and
+    [pombase.gpi](https://www.pombase.org/data/annotations/Gene_ontology/pombase.gpi) -
+    Newer [GPAD/GPI v2.0 format](https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md)
+    annotation files, updated nightly
+
+
+#### Protein complexes
+
+Also see the [list of protein complexes](${base_url}/data/annotations/Gene_ontology/GO_complexes/),
 which uses GO macromolecular complex terms and IDs.
 
-Note that the contents of the file downloadable from ${database_name} may
+#### Notes
+
+The contents of the files downloadable from ${database_name} may
 differ from files available elsewhere (e.g. see [this
-FAQ](why-are-go-annotations-different-between-pombase-and-uniprot-goa),
+FAQ](why-are-go-annotations-different-between-pombase-and-uniprot-goa)),
 and will not include annotations inferred by transitivity (see [this
 FAQ](/faq/why-are-go-terms-missing-from-the-downloadable-annotation-file)).
 
 %%if db=PomBase
 Previous versions of the *S. pombe* GO annotation file can be
-retrieved from the [archived Chado database
-dumps](https://www.pombase.org/data/annotations/Gene_ontology/OLD/). Note
-that files produced before March 2021 are only available in GAF 2.1
+retrieved from the [archive directory](https://www.pombase.org/data/annotations/Gene_ontology/OLD/).
+Note that files produced before March 2021 are only available in GAF 2.1
 format.
-%%end db=PomBase
 
 To cite the fission yeast GO data, please see [Citing ${database_name}](/about/citing-pombase).
 
+%%end db=PomBase
+
+%%if db=JaponicusDB
+To cite the fission yeast GO data, please see [Citing ${database_name}](/about/citing-japonicusdb).
+%%end db=JaponicusDB
