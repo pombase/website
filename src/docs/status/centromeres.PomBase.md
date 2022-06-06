@@ -6,6 +6,8 @@ and view them in Artemis. (See
 [this FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) for more
 information.)
 
+![Centromere map](assets/centromeremapping.gif){width="779" height="540"}
+
 **Note:** Recent work by Chad Ellermeier and Gerry Smith suggests that
 there are only 4 +/- 1 copies of the 6760 bp repeat missing from
 chromosome 3
@@ -13,8 +15,6 @@ chromosome 3
 Please note: This map is a schematic diagram. Distances and overlaps are
 approximate. Please refer to the sequence data to design experimental
 constructs.
-
-![Centromere map](assets/centromeremapping.gif){width="779" height="540"}
 
 Centromere map from: Wood *et al.* 2002 The genome sequence of *Schizosaccharomyces pombe*.
 Nature 415(6874):871-80 ([PMID:11859360](http://www.ncbi.nlm.nih.gov/pubmed/11859360)). Created by Rhian Gwilliam.
