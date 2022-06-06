@@ -1,20 +1,5 @@
 ## Centromeres
 
-At present, each centromere is annotated as a single sequence
-feature in ${database_name}, which can be viewed in and downloaded from the
-genome browser.
-
-Chromosome coordinates (links to JBrowse):
-
--   CEN 1: [I:3753687-3789421][cen1]
--   CEN 2: [II:1602264-1644747][cen2]
--   CEN 3: [III:1070904-1137003][cen3]
-
-Note that specific repeats within centromeres cannot yet be viewed or
-searched as features on ${database_name} pages, but they are included in the
-forward and reverse strand feature tracks in the genome browser, which
-are enabled by default.
-
 Repeats are also shown in the diagram below. To see the repeat
 sequences, download and unzip the [contiguated sequence files](https://www.pombase.org/data/genome_sequence_and_features/artemis_files/)
 and view them in Artemis. (See
