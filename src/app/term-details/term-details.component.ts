@@ -126,6 +126,7 @@ export class TermDetailsComponent implements OnInit {
                 if (this.typeConfig && this.typeConfig.hide_term_details) {
                   this.router.navigate(['/term_genes', termid]);
                 }
+                this.setDisplayTermId();
                 this.setPageTitle();
                 this.annotationFeatureType = termDetails.annotation_feature_type;
                 this.annotationTypeNames = this.config.annotationTypeOrder;
@@ -133,7 +134,6 @@ export class TermDetailsComponent implements OnInit {
                 this.scrollToPageTop();
                 this.apiError = undefined;
                 this.setCounts();
-                this.setDisplayTermId();
               })
               .catch(error => {
                 this.apiError = error;
