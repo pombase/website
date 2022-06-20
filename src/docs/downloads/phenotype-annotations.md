@@ -60,6 +60,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 18 | Reference | PMID:23697806 | Yes | No
 19 | taxon | taxon:${ncbi_taxon_id} | Yes | No
 20 | Date | 2012-01-01 | Yes | No
+21 | Ploidy | homozygous diploid | No | No
 
 **Notes:**
 
@@ -127,3 +128,6 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
     *Schizosaccharomyces pombe*), although an NCBI taxon ID for a
     specific *${species_abbrev}* strain would be allowed.
 20. The date is the date on which the annotations are created. Format: YYYY-MM-DD
+21. PHAF format is only suitable for haploid and homozygous diploid
+    phenotypes so the only possible values for this column are
+    "haploid" and "homozygous diploid".

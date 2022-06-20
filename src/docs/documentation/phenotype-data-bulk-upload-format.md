@@ -32,6 +32,7 @@ Column | Contents | Example (from *S. pombe*) | Mandatory? | Multiple entries al
 17 | Reference | PMID:23697806 | Yes | No
 18 | taxon | taxon:${ncbi_taxon_id} | Yes | No
 19 | Date | 2012-01-01 | Yes | No
+20 | Ploidy | homozygous diploid | No | No
 
 **Notes:**
 
@@ -112,6 +113,11 @@ blank in the rest of the rows.
 19. The date is the date on which the annotations are created; you may
     use the paper publication date or the date on which you prepare
     your data file. Format: YYYY-MM-DD
+20. We can currently capture only haploid and homozygous diploid
+    datasets via PHAF files.  Allowed values for this column are
+    "haploid" and "homozygous diploid".  If the column is empty the
+    dataset is assumed to be haploid.  If you have a phenotype dataset
+    for non-homozygous diploids please contact the [Helpdesk](mailto:${helpdesk_address})
 
 **Details for allele types and descriptions:**
 
