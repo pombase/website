@@ -27,7 +27,7 @@
     </div>
 
     <div>
-      <app-genes-table [description]="'genes annotated with ' + termDetails.termid + ' or its descendants'"
+      <app-genes-table [description]="'genes annotated with &quot;' + termDetails.name + '&quot; (' + termDetails.termid + ') or its descendants'"
                        [genesOrResults]="genes"></app-genes-table>
     </div>
   </div>

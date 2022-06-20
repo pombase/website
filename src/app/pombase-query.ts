@@ -437,7 +437,7 @@ export class TermNode extends GeneQueryBase {
   }
 
   private setDetailsString(): void {
-    let ret = this.termName + ' (' + this.termid + ')';
+    let ret = 'genes annotated with "' + this.termName + '"' + ' (' + this.termid + ')';
     const singleOrMultiString = this.singleOrMultiString();
     const expressionString = this.expressionString();
     const conditionsString = this.getConditionsString(this.conditions);
