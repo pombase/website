@@ -398,8 +398,6 @@ sub lines_from_file
   return @lines;
 }
 
-my $all_questions_category = 'All Frequently Asked Questions';
-
 while (my ($id, $file_name) = each %{$sections{faq}}) {
   if ($id eq 'index') {
     next;
@@ -408,7 +406,7 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
   my $heading = undef;
   my $id = undef;
 
-  my @categories = ($all_questions_category);
+  my @categories = ();
   my $contents = "";
 
   my @lines = lines_from_file("$markdown_docs/$file_name");
@@ -532,7 +530,7 @@ sub get_all_faq_parts {
         "pageName == '" . make_id_from_heading($_) . "'";
       } (@categories, $id);
 
-    $categories_condition .= q( || pageName == 'all-faqs');
+    $categories_condition .= q( || pageName == 'all-faqs' || section == 'faq' && pageName == 'index');
 
     (my $fixed_heading = $heading) =~ s/[\'\*]//g;
     $fixed_heading =~ s/"/&quot;/g;
@@ -809,19 +807,7 @@ sub contents_for_template {
     }
   } else {
     if ($path =~ m[^faq/menu]) {
-      my $all_questions_category_id = make_id_from_heading($all_questions_category);
-
-      my @categories = sort {
-        if ($a eq $all_questions_category_id) {
-          1;
-        } else {
-          if ($b eq $all_questions_category_id) {
-            -1;
-          } else {
-            $a cmp $b;
-          }
-        }
-      } keys %{$sections{faq}};
+      my @categories = sort keys %{$sections{faq}};
 
       for my $category_id (@categories) {
         next if $category_id eq 'index';
