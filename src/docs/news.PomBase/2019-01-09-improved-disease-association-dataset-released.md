@@ -1,6 +1,5 @@
 ### Improved disease association dataset released
-
-<!-- newsfeed_thumbnail: human disease.png -->
+<!-- newsfeed_thumbnail: human_disease.png -->
 
 We are pleased to announce the release of our improved human disease
 mappings dataset. This dataset connects human disease causing genes to

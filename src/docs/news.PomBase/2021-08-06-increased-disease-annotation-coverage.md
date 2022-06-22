@@ -1,5 +1,5 @@
 ### Improved gene-disease curation: over 1400 S. pombe genes
-<!-- newsfeed_thumbnail: human disease.png -->
+<!-- newsfeed_thumbnail: human_disease.png -->
 
 PomBase disease gene curation associates disease descriptors with
 fission yeast orthologs of human disease-causing genes. We have added

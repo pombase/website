@@ -1,5 +1,5 @@
 ### PomBase adopts MONDO for disease gene curation
-<!-- newsfeed_thumbnail: human disease.png -->
+<!-- newsfeed_thumbnail: human_disease.png -->
 
 PomBase has switched from the [Disease
 Ontology](https://disease-ontology.org/) (DO) to the Monarch
