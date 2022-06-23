@@ -7029,6 +7029,13 @@ Search documentation, news archive and FAQ:
 <td>Yes</td>
 <td>No</td>
 </tr>
+<tr class="even">
+<td>20</td>
+<td>Ploidy</td>
+<td>homozygous diploid</td>
+<td>No</td>
+<td>No</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Notes:</strong></p>
@@ -7053,6 +7060,7 @@ Search documentation, news archive and FAQ:
 <li>The Reference column has the publication’s PubMed ID (PMID).</li>
 <li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although if you have an NCBI taxon ID for a specific <em>S. pombe</em> strain you are welcome to use it</li>
 <li>The date is the date on which the annotations are created; you may use the paper publication date or the date on which you prepare your data file. Format: YYYY-MM-DD</li>
+<li>We can currently capture only haploid and homozygous diploid datasets via PHAF files. Allowed values for this column are “haploid” and “homozygous diploid”. If the column is empty the dataset is assumed to be haploid. If you have a phenotype dataset for non-homozygous diploids please contact the <a href="mailto:helpdesk@pombase.org">Helpdesk</a></li>
 </ol>
 <p><strong>Details for allele types and descriptions:</strong></p>
 <p>General note: Nucleotide and amino acid positions should reflect the current sequence data in PomBase. Please refer to the <a routerLink="/status/gene-coordinate-changes">Gene Coordinate Changes</a> page to ensure that your residue position entries are up to date.</p>
@@ -7941,6 +7949,13 @@ Search documentation, news archive and FAQ:
 <td>Yes</td>
 <td>No</td>
 </tr>
+<tr class="odd">
+<td>21</td>
+<td>Ploidy</td>
+<td>homozygous diploid</td>
+<td>No</td>
+<td>No</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Notes:</strong></p>
@@ -7965,6 +7980,7 @@ Search documentation, news archive and FAQ:
 <li>The Reference column has the publication’s PubMed ID (PMID).</li>
 <li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although an NCBI taxon ID for a specific <em>S. pombe</em> strain would be allowed.</li>
 <li>The date is the date on which the annotations are created. Format: YYYY-MM-DD</li>
+<li>PHAF format is only suitable for haploid and homozygous diploid phenotypes so the only possible values for this column are “haploid” and “homozygous diploid”.</li>
 </ol>
 
   </div>
@@ -7995,14 +8011,9 @@ Search documentation, news archive and FAQ:
 <div class="left-menu-part left-menu-item"><a routerLink="/faq/orthology">Orthology</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/faq/tools-and-resources">Tools and resources</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/faq/using-ontologies">Using ontologies</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/faq/all-frequently-asked-questions">All Frequently Asked Questions</a></div>
 
 </app-page-contents-menu>
   <div class="docs-content">
-  <div *ngIf="pageName == 'all-frequently-asked-questions'">
-<h2 id="all-frequently-asked-questions">All Frequently Asked Questions</h2>
-
-  </div>
   <div *ngIf="pageName == 'community'">
 <h2 id="community">Community</h2>
 
@@ -8030,7 +8041,7 @@ Search documentation, news archive and FAQ:
   <div *ngIf="pageName == 'index'">
 <h1 id="frequently-asked-questions">Frequently asked questions</h1>
 <p>Welcome to the PomBase FAQ. Choose a link in the left-hand menu to see the questions and answers in that category.</p>
-<p>If you can’t find the information you need here or in the PomBase documentation, please contact the helpdesk.</p>
+<p>If you can’t find the information you need here or in the PomBase documentation, please contact the <a href="mailto:helpdesk@pombase.org">Helpdesk</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'orthology'">
@@ -8045,7 +8056,7 @@ Search documentation, news archive and FAQ:
 <h2 id="using-ontologies">Using ontologies</h2>
 
   </div>
-<div (click)="faq_navigate($event, '/faq/can-i-access-pombase-via-api', 'Can I access PomBase via an API?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-api' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-access-pombase-via-api', 'Can I access PomBase via an API?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-api' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-access-pombase-via-api">Can I access PomBase via an API?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>PomBase does not have an API at present.</p>
@@ -8056,7 +8067,7 @@ Search documentation, news archive and FAQ:
 </ol>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-access-pombase-via-sql', 'Can I access PomBase via SQL?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-sql' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-access-pombase-via-sql', 'Can I access PomBase via SQL?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-sql' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-access-pombase-via-sql">Can I access PomBase via SQL?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>PomBase does not have a publicly accessible SQL query server, but <a routerLink="/downloads/chado-database-dumps">Chado database dumps</a> (PostgresQL) are available to download and query locally.</p>
@@ -8064,19 +8075,19 @@ Search documentation, news archive and FAQ:
 <p>MySQL dumps of EG data, including <em>Schizosaccharomyces</em> species, are available from <a href="ftp://ftp.ensemblgenomes.org/pub/current/fungi/mysql/">EG’s FTP site</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-convert-file-gff-gtf', 'Can I convert a file from GFF to GTF?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-convert-file-gff-gtf' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-convert-file-gff-gtf', 'Can I convert a file from GFF to GTF?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-convert-file-gff-gtf' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-convert-file-gff-gtf">Can I convert a file from GFF to GTF?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>PomBase does not offer a GFF-to-GTF converter. There is a perl script on SEQanswers, which uses the module Bio::Tools::GFF from the BioPerl library, available from <a href="http://seqanswers.com/forums/showpost.php?p=22529&amp;postcount=4" class="uri">http://seqanswers.com/forums/showpost.php?p=22529&amp;postcount=4</a></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-convert-file-gtf-gff3', 'Can I convert a file from GTF to GFF3?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-convert-file-gtf-gff3' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-convert-file-gtf-gff3', 'Can I convert a file from GTF to GFF3?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-convert-file-gtf-gff3' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-convert-file-gtf-gff3">Can I convert a file from GTF to GFF3?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>PomBase does not offer a converter. The <a href="http://www.sequenceontology.org/">Sequence Ontology</a> project offers a conversion tool available for download or usage via web form from their <a href="https://github.com/The-Sequence-Ontology/GTF-TO-GFF3-Converter">GitHub site</a></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-convert-ids-other-databases-or-pombase-ids', 'Can I convert IDs from other databases to or from PomBase IDs?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-convert-ids-other-databases-or-pombase-ids' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-convert-ids-other-databases-or-pombase-ids', 'Can I convert IDs from other databases to or from PomBase IDs?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-convert-ids-other-databases-or-pombase-ids' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-convert-ids-other-databases-or-pombase-ids">Can I convert IDs from other databases to or from PomBase IDs?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>PomBase has an identifier mapper that retrieves <em>S. pombe</em> gene systematic IDs and standard names for a selection of different input ID types:</p>
@@ -8094,38 +8105,38 @@ Search documentation, news archive and FAQ:
 <p>For other <em>Schizosaccharomyces</em> species (<em>S. japonicus</em>, <em>S. octosporus</em>, <em>S. cryophilus</em>), the PICR service converts between UniProtKB accessions and the identifiers used in Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>), but with one caveat: the IDs used by PICR, UniProtKB, and QuickGO contain underscores, whereas those in Rhind <em>et al.</em> do not (e.g. SJAG_00455 versus SJAG00455). The IDs with underscores are correct.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-do-enrichment-analysis-using-phenotypes', 'Can I do an enrichment analysis using phenotypes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-do-enrichment-analysis-using-phenotypes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-do-enrichment-analysis-using-phenotypes', 'Can I do an enrichment analysis using phenotypes?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-do-enrichment-analysis-using-phenotypes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-do-enrichment-analysis-using-phenotypes">Can I do an enrichment analysis using phenotypes?</h3>
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>A small number of enrichment tools use phenotype data. See the <a routerLink="/faq/how-can-i-find-significant-shared-fypo-annotations-genes-list">FAQ on FYPO term enrichment</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-download-all-s.-pombe-phenotype-data', 'Can I download all S. pombe phenotype data?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-download-all-s.-pombe-phenotype-data' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-download-all-s.-pombe-phenotype-data', 'Can I download all S. pombe phenotype data?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-download-all-s.-pombe-phenotype-data' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-download-all-s.-pombe-phenotype-data">Can I download all <em>S. pombe</em> phenotype data?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>Yes, the <a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a> page offers two options, a complete phenotype annotation file and a “viability summary” for deletion mutants. At present, the full file contains all manually curated single mutant phenotypes, and is in the same format as PomBase uses for bulk phenotype data submissions (see the <a routerLink="/faq/what-file-formats-can-i-use-submit-high-throughput-data">file formats FAQ</a>). Further information on the viability summary is available in the <a routerLink="/faq/can-i-get-list-essential-pombe-genes">essential genes FAQ</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-download-interaction-data-used-by-esyn', 'Can I download the interaction data used by esyN?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-download-interaction-data-used-by-esyn' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-download-interaction-data-used-by-esyn', 'Can I download the interaction data used by esyN?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-download-interaction-data-used-by-esyn' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-download-interaction-data-used-by-esyn">Can I download the interaction data used by esyN?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists -->
 <p>The <em>S. pombe</em> networks in <a href="http://www.esyn.org/">esyN</a> use the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network</a> (HCPIN) data. The data can be downloaded in tab-delimited format from the <a routerLink="/datasets">Download Datasets</a> page, which links to an FTP directory with two files. One contains physical interaction data, and the other contains GO substrate data. Each file lists two gene systematic IDs and a reference identifier (usually a PubMed ID).</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-download-sequence-whole-chromosome', 'Can I download the sequence for a whole chromosome?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-download-sequence-whole-chromosome' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-download-sequence-whole-chromosome', 'Can I download the sequence for a whole chromosome?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-download-sequence-whole-chromosome' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-download-sequence-whole-chromosome">Can I download the sequence for a whole chromosome?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Yes, sequence and feature annotations data files are available for each chromosome on the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-download-sequences-many-genes-once-including-flanking-regions', 'Can I download sequences for many genes at once, including flanking regions?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-download-sequences-many-genes-once-including-flanking-regions' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-download-sequences-many-genes-once-including-flanking-regions', 'Can I download sequences for many genes at once, including flanking regions?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-download-sequences-many-genes-once-including-flanking-regions' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-download-sequences-many-genes-once-including-flanking-regions">Can I download sequences for many genes at once, including flanking regions?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Yes; first use the <a routerLink="/query">advanced search</a> to find the set of genes you want (see the <a routerLink="/documentation/advanced-search">documentation</a> as needed).</p>
 <p>Click on a count in the query history to see the <a routerLink="/documentation/advanced-search">results</a>, with a button for “Download” options. In the popup, click on the Sequence tab, select Nucleotide, then tick boxes to add any of: 5’ UTR, introns, 3’ UTR. To include flanking sequences, type or use the arrow buttons to set the desired length of upstream and downstream sequence.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-export-data-sequence-region-genome-browser', 'Can I export data for a sequence region from the genome browser?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'can-i-export-data-sequence-region-genome-browser' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-export-data-sequence-region-genome-browser', 'Can I export data for a sequence region from the genome browser?')" *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'can-i-export-data-sequence-region-genome-browser' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-export-data-sequence-region-genome-browser">Can I export data for a sequence region from the genome browser?</h3>
 <!-- pombase_categories: Genome browser,Finding data -->
 <p>To download track data from the <a href="https://www.pombase.org/jbrowse/">genome browser</a> (or follow a link from a gene page), first, make sure the you have enabled the track(s) of interest (see the <a href="/faq/how-can-i-show-or-hide-tracks-genome-browser">FAQ on showing tracks</a> if necessary).</p>
@@ -8134,7 +8145,7 @@ Search documentation, news archive and FAQ:
 <p>See the <a routerLink="/documentation/JBrowse_quick_start">PomBase JBrowse guide</a> for more information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-find-all-unconserved-orphan-genes-fission-yeast', 'Can I find all of the unconserved (orphan) genes in fission yeast?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'can-i-find-all-unconserved-orphan-genes-fission-yeast' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-find-all-unconserved-orphan-genes-fission-yeast', 'Can I find all of the unconserved (orphan) genes in fission yeast?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'can-i-find-all-unconserved-orphan-genes-fission-yeast' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-find-all-unconserved-orphan-genes-fission-yeast">Can I find all of the unconserved (orphan) genes in fission yeast?</h3>
 <!-- pombase_categories: Genome statistics and lists,Finding data -->
 <p>Orphan genes are generally defined as genes without homologs in other organisms. In PomBase, protein-coding genes conserved in the <em>Schizosaccharomyces</em> genus are distinguished from genes conserved only in <em>S. pombe</em>.</p>
@@ -8142,7 +8153,7 @@ Search documentation, news archive and FAQ:
 <p>Historical note: Prior to August 2014, PomBase and its predecessor GeneDB referred to single-copy genes conserved within, but not outside, the <em>Schizosaccharomyces</em> genus as “sequence orphans”. See the <a routerLink="/status/gene-characterisation-statistics-history">Gene characterisation statistics history</a> page for more details (note that the gene characterisation classifications reflect whether a gene has been studied experimentally as well as the extent of its conservation).</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-find-promoters-pombase', 'Can I find promoters in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-find-promoters-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-find-promoters-pombase', 'Can I find promoters in PomBase?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-find-promoters-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-find-promoters-pombase">Can I find promoters in PomBase?</h3>
 <!-- pombase_categories: Finding data -->
 <p>There are very few manually curated promoters in PomBase; they are included in the forward and reverse strand feature tracks, which are enabled by default. To search the manually curated promoters, we suggest that you use Artemis. Follow the instructions in <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">this FAQ</a>, and search for features with “Key” = “promoter”.</p>
@@ -8158,7 +8169,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 -->
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-find-replication-origins-pombase', 'Can I find replication origins in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-find-replication-origins-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-find-replication-origins-pombase', 'Can I find replication origins in PomBase?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-find-replication-origins-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-find-replication-origins-pombase">Can I find replication origins in PomBase?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Replication origins cannot yet be viewed or searched as features on PomBase pages, but they can be displayed on tracks in the genome browser. Select one or more of the tracks with data type “Replication Origins” (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">browser track FAQ</a> if necessary).</p>
@@ -8169,14 +8180,14 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 </ul>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-find-unmapped-genes-pombase', 'Can I find unmapped genes in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-find-unmapped-genes-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-find-unmapped-genes-pombase', 'Can I find unmapped genes in PomBase?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-find-unmapped-genes-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-find-unmapped-genes-pombase">Can I find unmapped genes in PomBase?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists -->
 <p>PomBase maintains a <a routerLink="/status/unmapped_genes">list of genetic loci that have not been cloned or mapped</a>. The page lists the names published for the loci and the publications that use the names. In a few cases, unmapped loci have been shown to be allelic with each other.</p>
 <p>Note that some locus names coincidentally match the standard names of cloned genes. In these cases PomBase curators have determined that the unmapped locus is not the same as the named gene.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase', 'Can I generate a comprehensive restriction enzyme map of the genome in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase', 'Can I generate a comprehensive restriction enzyme map of the genome in PomBase?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase">Can I generate a comprehensive restriction enzyme map of the genome in PomBase?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>No, but this can be done within Artemis.</p>
@@ -8191,20 +8202,20 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 </ol>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-get-cdna-sequences-s.-pombe', 'Can I get cDNA sequences for S. pombe?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-get-cdna-sequences-s.-pombe' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-get-cdna-sequences-s.-pombe', 'Can I get cDNA sequences for S. pombe?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-get-cdna-sequences-s.-pombe' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-get-cdna-sequences-s.-pombe">Can I get cDNA sequences for <em>S. pombe</em>?</h3>
 <!-- pombase_categories: Finding data -->
 <p>A file of cDNA sequences in FASTA format is available on the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page, under the “Feature sequences” heading.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-get-file-specific-set-genome-features', 'Can I get a file with a specific set of genome features?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-get-file-specific-set-genome-features' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-get-file-specific-set-genome-features', 'Can I get a file with a specific set of genome features?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-get-file-specific-set-genome-features' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-get-file-specific-set-genome-features">Can I get a file with a specific set of genome features?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>The genomic GFF3 file available on the <a routerLink="/downloads/genome-datasets">Genome datasets</a> page includes all gene features, but not LTRs or other repeats. The files in EMBL and GenBank formats contain all annotated sequence features.</p>
 <p>Another option for extracting all annotated features (or if you need to specify which feature types to include) is to use the Ensembl API. See the FAQ “<a routerLink="/faq/can-i-access-pombase-via-api">Can I access PomBase via an API?</a>” for more information on using the API.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-get-list-essential-pombe-genes', 'Can I get a list of essential pombe genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'can-i-get-list-essential-pombe-genes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-get-list-essential-pombe-genes', 'Can I get a list of essential pombe genes?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'can-i-get-list-essential-pombe-genes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-get-list-essential-pombe-genes">Can I get a list of essential pombe genes?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
 <p>If an essential gene is deleted, the cell cannot survive under normal laboratory conditions. A search for deletion alleles annotated to the Fission Yeast Phenotype Ontology term “inviable vegetative cell population” (<a routerLink="/term/FYPO:0002061">FYPO:0002061</a>) would therefore identify essential fission yeast genes. Similarly, deletion alleles annotated to “viable vegetative cell population” (<a routerLink="/term/FYPO:0002177">FYPO:0002060</a>) represent non-essential genes.</p>
@@ -8227,7 +8238,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 </ul>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe', 'Can I get a list of systematic IDs, primary names, synonyms and gene products in S. pombe?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe', 'Can I get a list of systematic IDs, primary names, synonyms and gene products in S. pombe?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe">Can I get a list of systematic IDs, primary names, synonyms and gene products in <em>S. pombe</em>?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
 <p>Yes: From the <a routerLink="/downloads/names-and-identifiers">PomBase name and identifier mappings</a> page, retrieve this file:</p>
@@ -8235,19 +8246,19 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>Also consider other files listed on the page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-obtain-dump-all-curated-data-pombase', 'Can I obtain a dump of all curated data in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-obtain-dump-all-curated-data-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-obtain-dump-all-curated-data-pombase', 'Can I obtain a dump of all curated data in PomBase?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-obtain-dump-all-curated-data-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-obtain-dump-all-curated-data-pombase">Can I obtain a dump of all curated data in PomBase?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>Data that appear on gene pages – sequence feature annotations, ontology annotations, etc. – are stored in a database that uses the <a href="http://gmod.org/wiki/Chado">Chado</a> schema. Snapshots of the PomBase Chado database are available via the <a routerLink="/downloads">Downloads</a> page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-provide-list-genes-search-on', 'Can I provide a list of genes to search on?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-provide-list-genes-search-on' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-provide-list-genes-search-on', 'Can I provide a list of genes to search on?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-provide-list-genes-search-on' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-provide-list-genes-search-on">Can I provide a list of genes to search on?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Yes, you can type or paste a list, or upload a file, into the “Gene names and IDs” query in the <a routerLink="/query">advanced search</a>. Note that usisg systematic IDs is the best way to avoid ambiguity. Names or IDs can be separated by spaces, commas, or newlines. Click “Lookup” to retrieve the results. You can use the list in the query history to combine with other queries, or download selected details for the genes. See the <a routerLink="/documentation/advanced-search">documentation</a> to learn more.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes', 'Can I retrieve annotations to metabolic databases such as EC, MetaCyc, Reactome, or Rhea for S. pombe genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes', 'Can I retrieve annotations to metabolic databases such as EC, MetaCyc, Reactome, or Rhea for S. pombe genes?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-retrieve-annotations-metabolic-databases-such-as-ec-metacyc-reactome-or-rhea-s.-pombe-genes">Can I retrieve annotations to metabolic databases such as EC, MetaCyc, Reactome, or Rhea for <em>S. pombe</em> genes?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>The best way to find metabolism-related annotations for <em>S. pombe</em> genes is to use the GO annotation data available from PomBase in combination with mappings between GO terms and entries in the various metabolism-oriented databases.</p>
@@ -8255,7 +8266,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>A complete list, with descriptions and links, is available on the <a href="http://geneontology.org/docs/download-mappings/">GO Consortium’s Cross-References</a> page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-retrieve-functional-annotations-genes-list', 'Can I retrieve functional annotations for genes in a list?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-functional-annotations-genes-list' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-retrieve-functional-annotations-genes-list', 'Can I retrieve functional annotations for genes in a list?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-functional-annotations-genes-list' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-retrieve-functional-annotations-genes-list">Can I retrieve functional annotations for genes in a list?</h3>
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>You can find the GO annotations for your genes corresponding to functional roles and localizations. Our recommended approach depends on how many specific topics you are interested in:</p>
@@ -8267,7 +8278,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>Also see the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list">FAQ on GO term enrichment</a> and the <a routerLink="/documentation/pombase-go-slim-documentation">PomBase GO Slim documentation</a> page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-retrieve-list-s.-pombe-go-slim-terms', 'Can I retrieve a list of the S. pombe GO slim terms?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-list-s.-pombe-go-slim-terms' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-retrieve-list-s.-pombe-go-slim-terms', 'Can I retrieve a list of the S. pombe GO slim terms?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'can-i-retrieve-list-s.-pombe-go-slim-terms' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-retrieve-list-s.-pombe-go-slim-terms">Can I retrieve a list of the S. pombe GO slim terms?</h3>
 <!-- pombase_categories: Genome statistics and lists,Using ontologies -->
 <p>Yes, you can download the term names and IDs for the each of the fission yeast GO slims, and the Mondo Disease Ontology slim:</p>
@@ -8281,28 +8292,28 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>For further information on using the <em>S. pombe</em> slims, please see the PomBase GO slim pages (<a href="/browse-curation/fission-yeast-bp-go-slim-terms">biological process</a>, <a href="/browse-curation/fission-yeast-mf-go-slim-terms">molecular function</a>, <a href="/browse-curation/fission-yeast-cc-go-slim-terms">cellular component</a>), <a href="/browse-curation/fission-yeast-go-slimming-tips">GO slimming tips</a>, and <a routerLink="/documentation/pombase-go-slim-documentation">GO slim documentation</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence', 'Can I retrieve the sequence for any of the cosmids used to build the S. pombe genome sequence?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence', 'Can I retrieve the sequence for any of the cosmids used to build the S. pombe genome sequence?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence">Can I retrieve the sequence for any of the cosmids used to build the <em>S. pombe</em> genome sequence?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>Although old cosmid sequences used in the reference assembly are not available in PomBase directly, they are all stored in the International Nucleotide Sequence Database Collaboration database (ENA, GenBank, DDBJ) archives. For ease of searching, PomBase curators recommend finding the accession, e.g. AL137130, for a cosmid, and using GenBank to retrieve the sequence:</p>
 <p>Go to <a href="http://www.ncbi.nlm.nih.gov/nucleotide/" class="uri">http://www.ncbi.nlm.nih.gov/nucleotide/</a> (or choose “Nucleotide” in the search pull-down menu on any NCBI search page). Enter the accession. The resulting page will inform you that the sequence has been replaced by one of the whole-chromosome entries, but offers links to both the current chromosome entry and the obsolete contig entry.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-search-gene-list-and-retrieve-results-same-order-as-input-list', 'Can I search for a gene list and retrieve results in the same order as in the input list?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-search-gene-list-and-retrieve-results-same-order-as-input-list' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-search-gene-list-and-retrieve-results-same-order-as-input-list', 'Can I search for a gene list and retrieve results in the same order as in the input list?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-search-gene-list-and-retrieve-results-same-order-as-input-list' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-search-gene-list-and-retrieve-results-same-order-as-input-list">Can I search for a gene list and retrieve results in the same order as in the input list?</h3>
 <!-- pombase_categories: Finding data -->
 <p>At present this is not possible; all advanced search results are ordered alphabetically by gene name, or by systematic ID for unnamed genes, by default. Click the “Product” column header to sort alphabetically by product description. We plan to add an option to preserve input order soon.</p>
 <p>In the meantime, we suggest that you download the results using the “Details” link, and import them into a spreadsheet. You can then combine the results with other data in the spreadsheet, and use the spreadsheet software to sort on any column.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-search-genes-based-on-conservation-different-taxa', 'Can I search for genes based on conservation in different taxa?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'can-i-search-genes-based-on-conservation-different-taxa' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-search-genes-based-on-conservation-different-taxa', 'Can I search for genes based on conservation in different taxa?')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'can-i-search-genes-based-on-conservation-different-taxa' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-search-genes-based-on-conservation-different-taxa">Can I search for genes based on conservation in different taxa?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
 <p>Yes, use the “Taxonomic conservation” query in the <a routerLink="/query">advanced search</a>.</p>
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'" [predefinedQueryId]="'canned_query:conserved_in_vertebrates'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-search-pombase-protein-features', 'Can I search PomBase for protein features?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-search-pombase-protein-features' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-search-pombase-protein-features', 'Can I search PomBase for protein features?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'can-i-search-pombase-protein-features' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-search-pombase-protein-features">Can I search PomBase for protein features?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>A selection of protein sequence motifs and features have been manually curated using terms from the <a href="http://sequenceontology.org/">Sequence Ontology</a> (SO). For example, <a routerLink="/gene/SPAC15A10.03c">Rad54</a> has a KEN box (a motif recognized by the anaphase-promoting complex; <a routerLink="/term/SO:0001807">SO:0001807</a>), and <a routerLink="/gene/SPAC31A2.11c">Cuf1</a> and <a routerLink="/gene/SPAC1D4.10">Trz1</a> have nuclear localization signals (NLS; <a routerLink="/term/SO:0001528">SO:0001528</a>). These annotations are included in the Protein Features section of the gene page.</p>
@@ -8311,14 +8322,14 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'nuclear localization signal (SO:0001528)'" [predefinedQueryId]="'SO_1528'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-share-my-search-results', 'Can I share my search results?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'community' || pageName == 'can-i-share-my-search-results' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-share-my-search-results', 'Can I share my search results?')" *ngIf="pageName == 'finding-data' || pageName == 'community' || pageName == 'can-i-share-my-search-results' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-share-my-search-results">Can I share my search results?</h3>
 <!-- pombase_categories: Finding data, Community -->
 <p>Yes. In the advanced search, each results page has a stable, unique URL that you can bookmark, copy/paste, and share. Anyone who follows a shared link will see the same results page, and the query will be added to their query history.</p>
 <p>The “Visualise” and “Slim” options also generate stable, unique, sharable URLs, and QuiLT visualisations have the stable URLs no matter how you reach the QuiLT page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence', 'Can I use BLAST to find S. pombe sequences similar to my query sequence?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence', 'Can I use BLAST to find S. pombe sequences similar to my query sequence?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-use-blast-find-s.-pombe-sequences-similar-my-query-sequence">Can I use BLAST to find <em>S. pombe</em> sequences similar to my query sequence?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>PomBase does not maintain a BLAST server, but the BLAST tools available at <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI</a> and <a href="https://fungi.ensembl.org/Multi/Tools/Blast">Ensembl</a> allow a target species genome to be selected.</p>
@@ -8330,32 +8341,32 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>Also see other FAQs in the <a routerLink="/faq/orthology">Orthology</a> category and the <a routerLink="/documentation/orthologs">Ortholog curation</a> documentation.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-use-blast-search-short-sequences', 'Can I use BLAST to search for short sequences?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-search-short-sequences' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-use-blast-search-short-sequences', 'Can I use BLAST to search for short sequences?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-use-blast-search-short-sequences' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-use-blast-search-short-sequences">Can I use BLAST to search for short sequences?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>Yes, you can search for short nucleotide sequences, such as primers or other oligomers. We recommend NCBI BLAST, where you can search for short nucleotide sequences, such as primers or other oligomers (PomBase does not maintain its own BLAST server).</p>
 <p>For short peptide sequences, we recommend the PomBase <a routerLink="/motif_search">peptide motif search</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-use-wild-card-beginning-search-string', 'Can I use a wild card at the beginning of a search string?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'can-i-use-wild-card-beginning-search-string' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-use-wild-card-beginning-search-string', 'Can I use a wild card at the beginning of a search string?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-use-wild-card-beginning-search-string' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-use-wild-card-beginning-search-string">Can I use a wild card at the beginning of a search string?</h3>
 <!-- pombase_categories: Finding data -->
 <p>The simple search finds search strings anywhere in IDs, gene names, and product descriptions. It does not require any wildcard character, and shows autocomplete suggestions as you type.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-view-my-data-privately-genome-browser', 'Can I view my data privately in the genome browser?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'can-i-view-my-data-privately-genome-browser' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-view-my-data-privately-genome-browser', 'Can I view my data privately in the genome browser?')" *ngIf="pageName == 'genome-browser' || pageName == 'can-i-view-my-data-privately-genome-browser' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-view-my-data-privately-genome-browser">Can I view my data privately in the genome browser?</h3>
 <!-- pombase_categories: Genome browser -->
 <p>Yes, if you have locally stored data that you want to see in the context of the genome browser, you can add it as a custom track. In the Track menu, select “Open track file or URL”, and enter the location in the popup.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-view-my-protein-interest-multiple-alignment-related-proteins-other-species', 'Can I view my protein of interest in a multiple alignment with related proteins in other species?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'tools-and-resources' || pageName == 'can-i-view-my-protein-interest-multiple-alignment-related-proteins-other-species' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-view-my-protein-interest-multiple-alignment-related-proteins-other-species', 'Can I view my protein of interest in a multiple alignment with related proteins in other species?')" *ngIf="pageName == 'orthology' || pageName == 'tools-and-resources' || pageName == 'can-i-view-my-protein-interest-multiple-alignment-related-proteins-other-species' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-view-my-protein-interest-multiple-alignment-related-proteins-other-species">Can I view my protein of interest in a multiple alignment with related proteins in other species?</h3>
 <!-- pombase_categories: Orthology,Tools and resources -->
 <p>PomBase does not have its own alignment viewer. DIOPT, Compara, and PANTHER, three of the tools we recommend for finding orthologs, have alignment display options. See the <a href="faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">FAQ on orthologs in other species</a> for more information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-view-nucleotide-sequence-genome-browser', 'Can I view nucleotide sequence in the genome browser?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'tools-and-resources' || pageName == 'can-i-view-nucleotide-sequence-genome-browser' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-view-nucleotide-sequence-genome-browser', 'Can I view nucleotide sequence in the genome browser?')" *ngIf="pageName == 'genome-browser' || pageName == 'tools-and-resources' || pageName == 'can-i-view-nucleotide-sequence-genome-browser' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-view-nucleotide-sequence-genome-browser">Can I view nucleotide sequence in the genome browser?</h3>
 <!-- pombase_categories: Genome browser,Tools and resources -->
 <p>Yes. First, make sure the DNA sequence track is enabled (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">FAQ on showing tracks</a> if necessary).</p>
@@ -8364,7 +8375,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>See <a routerLink="/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">this FAQ</a> to display a sequence region using coordinates. For more information on downloading sequence, see the <a routerLink="/documentation/JBrowse_quick_start">PomBase JBrowse guide</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-view-variation-data-pombase', 'Can I view variation data in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-browser' || pageName == 'can-i-view-variation-data-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-view-variation-data-pombase', 'Can I view variation data in PomBase?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-browser' || pageName == 'can-i-view-variation-data-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-view-variation-data-pombase">Can I view variation data in PomBase?</h3>
 <!-- pombase_categories: Finding data,Genome browser -->
 <p>The PomBase genome browser includes variation data from natural <em>S. pombe</em> isolates, published in:</p>
@@ -8373,7 +8384,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>Clicking on any variation feature in either the track brings up a pop-up box with further details about the variation.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-visualise-networks-pombase', 'Can I visualise networks in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'can-i-visualise-networks-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/can-i-visualise-networks-pombase', 'Can I visualise networks in PomBase?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-visualise-networks-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-visualise-networks-pombase">Can I visualise networks in PomBase?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>This is an area of active development at PomBase. At present, PomBase links GO terms to the web-based network tool <a href="http://www.esyn.org/">esyN</a> <sup>1</sup>: on the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">GO biological process slim page</a> and on ontology term pages for GO biological process slim terms, each GO slim term links to the <a routerLink="/documentation/high-confidence-physical-interaction-network">HCPIN physical interaction network</a> in esyN. For example, the GO process slim page and the ontology term page for “regulation of mitotic cell cycle phase transition” (<a routerLink="/term/GO:1901990">GO:1901990</a>) link to <a href="http://www.esyn.org//builder.php?type=Graph&amp;term=GO:1901990&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false" class="uri">http://www.esyn.org//builder.php?type=Graph&amp;term=GO:1901990&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false</a>.</p>
@@ -8411,7 +8422,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p><sup>1</sup>esyN reference: Bean DM, Heimbach J, Ficorella L, Micklem G, Oliver SG, Favrin G. 2014. esyN: network building, sharing and publishing. <em>PLoS One</em>. 2014 Sep 2; <strong>9(9)</strong>:e106035. doi: <a href="http://dx.doi.org/10.1371/journal.pone.0106035">10.1371/journal.pone.0106035</a>. eCollection 2014. <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25181461">PMID:25181461</a></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/do-i-need-password-download-ftp-site', 'Do I need a password to download from the FTP site?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'tools-and-resources' || pageName == 'do-i-need-password-download-ftp-site' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/do-i-need-password-download-ftp-site', 'Do I need a password to download from the FTP site?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'tools-and-resources' || pageName == 'do-i-need-password-download-ftp-site' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="do-i-need-password-download-ftp-site">Do I need a password to download from the FTP site?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Tools and resources -->
 <p>Note: Links from PomBase web pages use HTTPS for downloads, but if you have a link containing “ftp”, and your browser supports FTP, this information is relevant:</p>
@@ -8424,14 +8435,14 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>If these steps don’t work, please let us know via the <a href="mailto:helpdesk@pombase.org">Helpdesk</a>, and we will try to assist you.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/do-you-have-polyadenylation-data-fission-yeast', 'Do you have polyadenylation data for fission yeast?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'do-you-have-polyadenylation-data-fission-yeast' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/do-you-have-polyadenylation-data-fission-yeast', 'Do you have polyadenylation data for fission yeast?')" *ngIf="pageName == 'finding-data' || pageName == 'do-you-have-polyadenylation-data-fission-yeast' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="do-you-have-polyadenylation-data-fission-yeast">Do you have polyadenylation data for fission yeast?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Fission yeast polyadenylation data are available in the genome browser. To display the data, enable one or more of the tracks with the data type “Poly(A) sites”.</p>
 <p><a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">Help with configuring browser tracks</a> is available.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/help-canto-isn-t-working-me.-do-you-have-any-suggestions', 'Help! Canto isnt working for me. Do you have any suggestions?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'tools-and-resources' || pageName == 'help-canto-isn-t-working-me.-do-you-have-any-suggestions' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/help-canto-isn-t-working-me.-do-you-have-any-suggestions', 'Help! Canto isnt working for me. Do you have any suggestions?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'tools-and-resources' || pageName == 'help-canto-isn-t-working-me.-do-you-have-any-suggestions' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="help-canto-isn-t-working-me.-do-you-have-any-suggestions">Help! Canto isn’t working for me. Do you have any suggestions?</h3>
 <!-- pombase_categories: Data submission and formats,Tools and resources -->
 <p>We have received occasional reports of problems with access to <a href="http://curation.pombase.org/pombe">Canto</a>, apparently due to firewall issues, especially from users in China. If you have any trouble, we have some suggestions relayed from affected colleagues:</p>
@@ -8444,7 +8455,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>If none of these solve your problems, or if you have any other suggestions, please contact the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-are-mating-type-specific-gene-pages-organized', 'How are the mating type specific gene pages organized?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'gene-page' || pageName == 'finding-data' || pageName == 'how-are-mating-type-specific-gene-pages-organized' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-are-mating-type-specific-gene-pages-organized', 'How are the mating type specific gene pages organized?')" *ngIf="pageName == 'gene-page' || pageName == 'finding-data' || pageName == 'how-are-mating-type-specific-gene-pages-organized' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-are-mating-type-specific-gene-pages-organized">How are the mating type specific gene pages organized?</h3>
 <!-- pombase_categories: Gene page, Finding data -->
 <p>As described in detail in this <a href="https://www1.bio.ku.dk/english/research/fg/cellecyklus_genomintegritet/mating/">online tutorial</a> (external link) provided by the Nielsen lab, <em>S. pombe</em> switch between the two mating types M and P.</p>
@@ -8457,13 +8468,13 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>For the M specific genes, functional annotation (GO, phenotypes…) is attached to the mat1-Mc and mat1-Mi genes. For the P specific genes, functional annotation is attached to mat2-Pc and mat2-Pi out of necessity (the reference strain is in the M configuration).</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-are-non-coding-rna-genes-identified', 'How are non-coding RNA genes identified?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'how-are-non-coding-rna-genes-identified' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-are-non-coding-rna-genes-identified', 'How are non-coding RNA genes identified?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'how-are-non-coding-rna-genes-identified' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-are-non-coding-rna-genes-identified">How are non-coding RNA genes identified?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
 <p>Most non-coding RNAs in PomBase are based on transcriptome data, either from Jürg Bähler’s lab (Solexa/deep sequencing; <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18488015">PMID:18488015</a>) or Nick Rhind’s lab (RNA sequencing; <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>). For any ncRNA, the source should be linked as a publication in the “Literature” section at the bottom of the PomBase gene page. To get an idea of the transcription in a region, you can look at the Bähler Lab Transcriptome Viewer, which is linked from most gene pages, e.g. <a href="http://www.bahlerlab.info/cgi-bin/pombetv/pombetv?condition=13&genename=SPNCRNA.200&action=display">SPNCRNA.200</a>. Unfortunately some genes, such as SPNCRNA.1115, post-date the viewer and therefore do not have entries, but you can look at transcription in this region by finding a neighboring gene.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-are-pombase-systematic-ids-determined', 'How are PomBase systematic IDs determined?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'how-are-pombase-systematic-ids-determined' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-are-pombase-systematic-ids-determined', 'How are PomBase systematic IDs determined?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'how-are-pombase-systematic-ids-determined' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-are-pombase-systematic-ids-determined">How are PomBase systematic IDs determined?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
 <p>Systematic IDs follow patterns based on the feature type, and in some cases the chromosome, as shown in the table below.</p>
@@ -8590,14 +8601,14 @@ For example, the Genetic Interactions header for cdc2 links to
 </table>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-are-sequence-feature-types-defined-pombase', 'How are sequence feature types defined in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'how-are-sequence-feature-types-defined-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-are-sequence-feature-types-defined-pombase', 'How are sequence feature types defined in PomBase?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'how-are-sequence-feature-types-defined-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-are-sequence-feature-types-defined-pombase">How are sequence feature types defined in PomBase?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists -->
 <p>S. pombe genome features were originally annotated using <a href="http://www.sanger.ac.uk/science/tools/artemis">Artemis</a>. As noted in the manual (ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf - see p. 9), Artemis draws from a list of feature keys that is documented at EBI: (<a href="ftp://ftp.ebi.ac.uk/pub/databases/embl/doc/FT\_current.html\#7.2\" class="uri">ftp://ftp.ebi.ac.uk/pub/databases/embl/doc/FT\_current.html\#7.2\</a>)</p>
 <p>In the genome sequence data files, features are defined using <a href="http://sequenceontology.org/">Sequence Ontology</a> terms. Gene pages use a selection of human-friendly text descriptions for feature types.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-browse-phenotype-ontology-fypo', 'How can I browse the phenotype ontology (FYPO)?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-browse-phenotype-ontology-fypo' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-browse-phenotype-ontology-fypo', 'How can I browse the phenotype ontology (FYPO)?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-browse-phenotype-ontology-fypo' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-browse-phenotype-ontology-fypo">How can I browse the phenotype ontology (FYPO)?</h3>
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>In the future, we plan to make Fission Yeast Phenotype Ontology (FYPO) terms and annotations available in a browser analogous to AmiGO or QuickGO. Until such a browser becomes available, FYPO is accessible in these external resources:</p>
@@ -8605,7 +8616,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>EBI’s Ontology Lookup Service (OLS) - search on the <a href="http://www.ebi.ac.uk/ontology-lookup/">OLS home page</a> or go to the <a href="https://www.ebi.ac.uk/ols/ontologies/fypo">FYPO page</a>. Help is provided on each page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser', 'How can I display a sequence region using sequence coordinates in the genome browser?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser', 'How can I display a sequence region using sequence coordinates in the genome browser?')" *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">How can I display a sequence region using sequence coordinates in the genome browser?</h3>
 <!-- pombase_categories: Genome browser,Finding data -->
 <p>Go to the <a href="https://www.pombase.org/jbrowse/">genome browser</a>, and enter coordinates in the location box. The format is ‘I:100000..200000’ (i.e. use Roman numerals to specify the chromosome, and don’t include the word “chromosome”; use ‘..’ between the start and end coordinates.)</p>
@@ -8613,7 +8624,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>To see the DNA sequence, see <a routerLink="/faq/can-i-view-nucleotide-sequence-genome-browser">this FAQ</a>. For more information on downloading sequence, see the <a routerLink="/documentation/JBrowse_quick_start">PomBase JBrowse guide</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-genes-have-given-mutant-phenotype', 'How can I find all of the genes that have a given mutant phenotype?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-all-genes-have-given-mutant-phenotype' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-genes-have-given-mutant-phenotype', 'How can I find all of the genes that have a given mutant phenotype?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-all-genes-have-given-mutant-phenotype' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-all-genes-have-given-mutant-phenotype">How can I find all of the genes that have a given mutant phenotype?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>You can search for genes annotated to a Fission Yeast Phenotype Ontology term in the <a routerLink="/query">advanced search</a>. In the “Phenotype” query, if you know the ID (for example, “inviable cell” is <a routerLink="/term/FYPO:0000049">FYPO:0000049</a>, and “elongated cell” is <a routerLink="/term/FYPO:0002177">FYPO:0000017</a>) you can type or paste the ID into the box. Otherwise, start typing a term name or description; the autocomplete feature will suggest phenotypes. Choose one to retrieve annotated genes.</p>
@@ -8622,7 +8633,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Also see the FAQ on <a routerLink="/faq/can-i-get-list-essential-pombe-genes">finding essential genes</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human', 'How can I find all S. pombe genes that are conserved in human?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'how-can-i-find-all-s.-pombe-genes-are-conserved-human' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human', 'How can I find all S. pombe genes that are conserved in human?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'how-can-i-find-all-s.-pombe-genes-are-conserved-human' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-all-s.-pombe-genes-are-conserved-human">How can I find all <em>S. pombe</em> genes that are conserved in human?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Orthology -->
 <p>Almost all genes that are conserved between fission yeast and human are also conserved in other vertebrates (there are two exceptions, both of which are genes encoding amino acid biosynthesis proteins that have become pseudogenes in human). To retreive these genes, go to the <a routerLink="/query">advanced search</a>, click the “Taxonomic conservation” query option, and choose the description “Conserved in vertebrates”.</p>
@@ -8630,7 +8641,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Query link: <app-query-link [goToResults]="true" [linkText]="'Genes conserved in vertebrates'" [predefinedQueryId]="'canned_query:conserved_in_vertebrates'"></app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain', 'How can I find all S. pombe proteins in a particular protein family, or that have a particular domain?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain', 'How can I find all S. pombe proteins in a particular protein family, or that have a particular domain?')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain">How can I find all <em>S. pombe</em> proteins in a particular protein family, or that have a particular domain?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
 <p>There are various ways you can find protein family members or domains.</p>
@@ -8642,7 +8653,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'Proteins matching &quot;ATPase, AAA-type, core&quot; (Pfam:PF00004)'" [predefinedQueryId]="'Pfam_PF00004'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates', 'How can I find all sequence features in a region using chromosome coordinates?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-sequence-features-region-using-chromosome-coordinates' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-all-sequence-features-region-using-chromosome-coordinates', 'How can I find all sequence features in a region using chromosome coordinates?')" *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-find-all-sequence-features-region-using-chromosome-coordinates' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-all-sequence-features-region-using-chromosome-coordinates">How can I find all sequence features in a region using chromosome coordinates?</h3>
 <!-- pombase_categories: Genome browser,Finding data -->
 <p>You can do this in the <a href="https://www.pombase.org/jbrowse/">genome browser</a> (or follow a link from a gene page). First <a routerLink="/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">enter the coordinates</a>.</p>
@@ -8650,7 +8661,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>You can also use the <a href="https://www.pombase.org/query">advanced search</a> to retrieve genes in a region, but at present other sequence feature types are not included. Use the “Genome location” query. First, select a chromosome in the pulldown. You can then either add start and end coordinates to specify a region, or leave the “Restrict to region” boxes blank to retrieve all genes on the chromosome.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-genes-region-using-chromosome-coordinates', 'How can I find genes in a region using chromosome coordinates?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-genes-region-using-chromosome-coordinates' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-genes-region-using-chromosome-coordinates', 'How can I find genes in a region using chromosome coordinates?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-genes-region-using-chromosome-coordinates' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-genes-region-using-chromosome-coordinates">How can I find genes in a region using chromosome coordinates?</h3>
 <!-- pombase_categories: Finding data -->
 <p>To retrieve genes in a region in the <a href="https://www.pombase.org/query">advanced search</a>, use the “Genome location” query. First, select a chromosome in the pulldown. You can then either add start and end coordinates to specify a region, or leave the “Restrict to region” boxes blank to retrieve all genes on the chromosome.</p>
@@ -8658,7 +8669,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'Genes between coordinates 1000000-2000000 on chromosome 2'" [predefinedQueryId]="'chr2_1000000-2000000'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-genes-specific-activity', 'How can I find genes with a specific activity?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-genes-specific-activity' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-genes-specific-activity', 'How can I find genes with a specific activity?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-genes-specific-activity' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-genes-specific-activity">How can I find genes with a specific activity?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>PomBase uses Gene Ontology (GO) molecular function terms to capture the activities – including enzymatic activities, binding, transporters, etc. – of gene products. You can therefore use the GO term query in the <a routerLink="/query">advanced search</a> to retrieve genes whose products have a given activity.</p>
@@ -8666,14 +8677,14 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'phosphoprotein phosphatase activity (GO:0004721)'" [predefinedQueryId]="'GO_4721'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-intron-branch-sites', 'How can I find intron branch sites?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-intron-branch-sites' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-intron-branch-sites', 'How can I find intron branch sites?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-intron-branch-sites' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-intron-branch-sites">How can I find intron branch sites?</h3>
 <!-- pombase_categories: Finding data -->
 <p>The PomBase genome browser includes a dataset of intron branch sites as a track. Follow <a href="https://www.pombase.org/jbrowse/?loc=I%3A704338..724338&tracks=Forward%20strand%20features%2CReverse%20strand%20features%2CDNA%20sequence%2CIntron%20Branch%20Points%20-%20Bitton%20et%20al.%20&#40;2014&#41;&tracklist=1&nav=1&overview=1&highlight=">this link</a> to view the data.</p>
 <p>The data were published in: Bitton DA et al. (2014), <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24709818">PMID:24709818</a>; <a href="http://dx.doi.org/10.1101/gr.166819.113">DOI:10.1101/gr.166819.113</a></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-modifications-my-protein-interest', 'How can I find modifications for my protein of interest?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-modifications-my-protein-interest' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-modifications-my-protein-interest', 'How can I find modifications for my protein of interest?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-modifications-my-protein-interest' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-modifications-my-protein-interest">How can I find modifications for my protein of interest?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>Protein modifications (where curated) are included in the Modifications section on gene pages. (We plan to include RNA modifications later.) The <a routerLink="/documentation/gene-page-modifications">gene page modifications documentation</a> describes the display.</p>
@@ -8682,7 +8693,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>There is also an ontology term page for each modification term used to annotate <em>S. pombe</em> proteins, e.g. <a routerLink="/term/MOD:00696">MOD:00696</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals', 'How can I find mutants with increased or decreased sensitivity to chemicals')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals', 'How can I find mutants with increased or decreased sensitivity to chemicals')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-mutants-increased-or-decreased-sensitivity-chemicals">How can I find mutants with increased or decreased sensitivity to chemicals</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>In FYPO, terms for increased chemical sensitivity are grouped under <a href="https://www.pombase.org/term/FYPO:0002683">increased sensitivity to chemical (FYPO:0002683)</a>. Similarly, decreased chemical sensitivity (increased resistance) terms are grouped under <a href="https://www.pombase.org/term/FYPO:0002682">increased resistance to chemical (FYPO:0002682)</a>.</p>
@@ -8691,7 +8702,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>You can also use the advanced search Phenotype query to search for <app-query-link [goToResults]="true" [linkText]="'FYPO:0002682'" [predefinedQueryId]="'single_allele_chemical_resistance'"></app-query-link>, <app-query-link [goToResults]="true" [linkText]="'FYPO:0002683'" [predefinedQueryId]="'single_allele_chemical_sensitivity'"></app-query-link> or any of the more specific terms. (Links go to results lists of single-allele genotypes annotated to each term.)</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species', 'How can I find orthologs between S. pombe and other Schizosaccharomyces species?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species', 'How can I find orthologs between S. pombe and other Schizosaccharomyces species?')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-orthologs-between-s.-pombe-and-other-schizosaccharomyces-species">How can I find orthologs between <em>S. pombe</em> and other <em>Schizosaccharomyces</em> species?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
 <p>In the advanced search, you can use the “Proteins with S. japonicus orthologs” item under “Commonly used queries”</p>
@@ -8700,7 +8711,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>For a full set of orthologous genes in <em>S. pombe</em>, <em>S. cryophilus</em>, <em>S.japonicus</em> and <em>S. octosporus</em>, see Table S12, columns AD-AG, in Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>).</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-protein-localization-data', 'How can I find protein localization data?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-protein-localization-data' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-protein-localization-data', 'How can I find protein localization data?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-protein-localization-data' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-protein-localization-data">How can I find protein localization data?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>Gene Ontology (GO) cellular component annotations capture the localizations of gene products to subcellular structures such as organelles or complexes. GO Cellular Component annotations are displayed on PomBase gene pages as described in the <a routerLink="/documentation/gene-page-gene-ontology">PomBase GO documentation</a>. The GO Consortium’ ontology <a href="http://geneontology.org/docs/ontology-documentation/">overview</a> describes what the Cellular Component ontology includes. To search for proteins (or functional RNAs) with a particular localization, use the GO query in the <a routerLink="/query">advanced search</a> to find genes annotated to the relevant GO Cellular Component term(s).</p>
@@ -8708,14 +8719,14 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'nucleus (GO:0005634)'" [predefinedQueryId]="'GO_5634'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-proteins-have-transmembrane-domains', 'How can I find proteins that have transmembrane domains?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-proteins-have-transmembrane-domains' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-proteins-have-transmembrane-domains', 'How can I find proteins that have transmembrane domains?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-proteins-have-transmembrane-domains' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-proteins-have-transmembrane-domains">How can I find proteins that have transmembrane domains?</h3>
 <!-- pombase_categories: Finding data -->
 <p>In the <a routerLink="/query">advanced search</a>, use the “Number of TM domains” query. Enter the minimum and maximum number of domains (use the same number as minimum and maximum to retrieve proteins with, e.g. exactly 7 transmembrane domains).</p>
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'Genes whose products have 7 transmembrane domains'" [predefinedQueryId]="'7TM'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-rrna-genes', 'How can I find rRNA genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-rrna-genes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-rrna-genes', 'How can I find rRNA genes?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-rrna-genes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-rrna-genes">How can I find rRNA genes?</h3>
 <!-- pombase_categories: Finding data -->
 <p>In the <a routerLink="/query">advanced search</a>, click “Product type”, then select “rRNA” from the pulldown.</p>
@@ -8723,7 +8734,7 @@ For example, the Genetic Interactions header for cdc2 links to
 <p>Query: <app-query-link [goToResults]="true" [linkText]="'rRNA genes'" [predefinedQueryId]="'rrna_genes'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-genes-associated-human-disease', 'How can I find S. pombe genes associated with human disease?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-s.-pombe-genes-associated-human-disease' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-genes-associated-human-disease', 'How can I find S. pombe genes associated with human disease?')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-s.-pombe-genes-associated-human-disease' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-s.-pombe-genes-associated-human-disease">How can I find <em>S. pombe</em> genes associated with human disease?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
 <p><em>S. pombe</em> genes whose human orthologs have been implicated in disease are annotated with terms from the <a href="https://mondo.monarchinitiative.org/">Monarch Disease Ontology</a>. To retrieve all of these genes, you can use the most general “disease” term in a query. In the <a routerLink="/query">advanced search</a>, select “Disease”, and copy or paste the ID “MONDO:0000001”.</p>
@@ -8735,7 +8746,7 @@ For example, the Genetic Interactions header for cdc2 links to
 </ul>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species', 'How can I find S. pombe genes that complement or are complemented by a gene from another species?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species', 'How can I find S. pombe genes that complement or are complemented by a gene from another species?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species">How can I find <em>S. pombe</em> genes that complement or are complemented by a gene from another species?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>If there is complementation data available for an <em>S. pombe</em> gene, it will be displayed in the Complementation section of the gene page. For example, <a routerLink="/spombe/result/SPAC57A10.12c"><em>ura3</em></a> can be complemented by <em>S. cerevisiae</em> <a href="http://www.yeastgenome.org/locus/S000001699/overview"><em>URA1</em></a>, and itself complements human <a href="http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=HGNC:2867">DHODH</a>.</p>
@@ -8755,7 +8766,7 @@ Example queries:
 <!--  -  <a routerLink="/spombe/query/builder?filter=37&value=%5B%7B%22param%22:%7B%22filter_1%22:%7B%22filter%22:%2223%22,%22query%22:%22PBO:0011087%22%7D%7D,%22filter_count%22:%221%22%7D%5D">functionally complements S. cerevisiae URA1     (PBO:0011087)</a> -->
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene', 'How can I find S. pombe ortholog(s) of a human gene?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-s.-pombe-ortholog-s-human-gene' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene', 'How can I find S. pombe ortholog(s) of a human gene?')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-find-s.-pombe-ortholog-s-human-gene' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-s.-pombe-ortholog-s-human-gene">How can I find <em>S. pombe</em> ortholog(s) of a human gene?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
 <p>In PomBase, human orthologs are curated for <em>S. pombe</em> genes as described in the <a routerLink="/documentation/orthologs">Orthologs documentation</a>.</p>
@@ -8763,7 +8774,7 @@ Example queries:
 <p>Also see the FAQs on on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">finding disease gene orthologs</a>, and on <a routerLink="/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs">downloading the full set of curated orthologs</a>. You may also find the FAQ on <a routerLink="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">orthologs in other species</a> useful.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae', 'How can I find S. pombe orthologs for species other than human and S. cerevisiae?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae', 'How can I find S. pombe orthologs for species other than human and S. cerevisiae?')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">How can I find <em>S. pombe</em> orthologs for species other than human and <em>S. cerevisiae</em>?</h3>
 <!-- pombase_categories: Orthology,Finding data,Tools and resources -->
 <p>For orthologs that are not manually curated by PomBase, we suggest a few approaches:</p>
@@ -8791,14 +8802,14 @@ Example queries:
 <p>To search for putative orthologs not fund in DIOPT or Compara, we recomment PSI-BLAST (Position-Specific Iterated BLAST) at <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE=Proteins&PROGRAM=blastp&RUN_PSIBLAST=on">NCBI</a> or <a href="https://www.ebi.ac.uk/Tools/sss/psiblast/">EBI</a>. As described in the <a href="https://www.ncbi.nlm.nih.gov/books/NBK2590/">NCBI tutorial</a>, PSI-BLAST derives a position-specific scoring matrix (PSSM) or profile from the multiple sequence alignment of sequences detected above a given score threshold using protein–protein BLAST.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-significant-shared-fypo-annotations-genes-list', 'How can I find significant shared FYPO annotations for genes in a list?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-significant-shared-fypo-annotations-genes-list' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-significant-shared-fypo-annotations-genes-list', 'How can I find significant shared FYPO annotations for genes in a list?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-significant-shared-fypo-annotations-genes-list' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-significant-shared-fypo-annotations-genes-list">How can I find significant shared FYPO annotations for genes in a list?</h3>
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>FYPO enrichment analysis is analogous to GO term enrichment, using phenotypes rather than GO annotations, i.e. analysing a gene list by finding FYPO terms that are significantly over- or under-represented among the annotations for the genes.</p>
 <p>At present, PomBase does not have its own FYPO enrichment tool, and very few ontology enrichment tools can use phenotype data. One that does is <a href="http://bahlerweb.cs.ucl.ac.uk/cgi-bin/GLA/GLA_input">AnGeLi</a>, produced by Jürg Bähler’s lab.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-significant-shared-go-annotations-genes-list', 'How can I find significant shared GO annotations for genes in a list?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-significant-shared-go-annotations-genes-list' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-significant-shared-go-annotations-genes-list', 'How can I find significant shared GO annotations for genes in a list?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-significant-shared-go-annotations-genes-list' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-significant-shared-go-annotations-genes-list">How can I find significant shared GO annotations for genes in a list?</h3>
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>GO term enrichment identifies GO terms that are significantly overrepresented (or underrepresented) among a set of genes.</p>
@@ -8813,7 +8824,7 @@ Example queries:
 <p>For any GO analysis, we strongly recommend that you describe your approach fully in methods, and include the release details (number and/or date) for PomBase and the GO terms and annotations you use.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-snorna-genes', 'How can I find snoRNA genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-snorna-genes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-snorna-genes', 'How can I find snoRNA genes?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-snorna-genes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-snorna-genes">How can I find snoRNA genes?</h3>
 <!-- pombase_categories: Finding data -->
 <p>In the <a routerLink="/query">advanced search</a>, click “Product type”, then select “snoRNA” from the pulldown.</p>
@@ -8821,7 +8832,7 @@ Example queries:
 <p>Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'" [predefinedQueryId]="'snorna_genes'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-transcription-factor-binding-sites-pombase', 'How can I find transcription factor binding sites in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-transcription-factor-binding-sites-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-transcription-factor-binding-sites-pombase', 'How can I find transcription factor binding sites in PomBase?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-transcription-factor-binding-sites-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-transcription-factor-binding-sites-pombase">How can I find transcription factor binding sites in PomBase?</h3>
 <!-- pombase_categories: Finding data -->
 <p>There is a data track available for transcription factor binding sites in the genome browser. To enable the track, follow the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">instructions for showing tracks</a>, and filter on the data type “Promoters”, or use this link:</p>
@@ -8829,7 +8840,7 @@ Example queries:
 <p>Also see the <a routerLink="/faq/how-can-i-find-transcription-factors-and-their-targets-pombase">FAQ on finding transcription factors</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-transcription-factors-and-their-targets-pombase', 'How can I find transcription factors and their targets in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-find-transcription-factors-and-their-targets-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-transcription-factors-and-their-targets-pombase', 'How can I find transcription factors and their targets in PomBase?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-find-transcription-factors-and-their-targets-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-transcription-factors-and-their-targets-pombase">How can I find transcription factors and their targets in PomBase?</h3>
 <!-- pombase_categories: Finding data -->
 <p>All sequence-specific DNA-binding transcription factors should be annotated to at least two GO Molecular Function terms, either directly or by transitivity (i.e. annotated to a more specific “descendant” term linked to one of these terms):</p>
@@ -8857,7 +8868,7 @@ Example queries:
 </ul>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-find-transposons-genome', 'How can I find transposons in the genome?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-find-transposons-genome' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-find-transposons-genome', 'How can I find transposons in the genome?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-find-transposons-genome' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-transposons-genome">How can I find transposons in the genome?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>In the <a routerLink="/query">advanced search</a>, click “Characterisation status”, then select “transposon” from the pulldown.</p>
@@ -8872,12 +8883,12 @@ Example queries:
 <p>See the <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">Artemis FAQ</a> and the <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf">Artemis manual</a> (pdf; Sanger site) for additional information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-get-cosmids-my-favorite-gene', 'How can I get cosmids for my favorite gene?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'how-can-i-get-cosmids-my-favorite-gene' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-get-cosmids-my-favorite-gene', 'How can I get cosmids for my favorite gene?')" *ngIf="pageName == 'how-can-i-get-cosmids-my-favorite-gene' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-get-cosmids-my-favorite-gene">How can I get cosmids for my favorite gene?</h3>
 <p>Please enquire with the Sanger Institute <a href="mailto:archives@sanger.ac.uk">archives@sanger.ac.uk</a> about clones included in the final genome sequence.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-get-my-data-into-pombase', 'How can I get my data into PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'genome-browser' || pageName == 'how-can-i-get-my-data-into-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-get-my-data-into-pombase', 'How can I get my data into PomBase?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'genome-browser' || pageName == 'how-can-i-get-my-data-into-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-get-my-data-into-pombase">How can I get my data into PomBase?</h3>
 <!-- pombase_categories: Data submission and formats,Genome browser -->
 <p>The best route depends on the amount and type of data you have.</p>
@@ -8892,7 +8903,7 @@ Example queries:
 <p>For any data types not listed above, or if you have any questions, please contact the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-identify-all-genes-affect-process', 'How can I identify all of the genes that affect a process?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-identify-all-genes-affect-process' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-identify-all-genes-affect-process', 'How can I identify all of the genes that affect a process?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-identify-all-genes-affect-process' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-identify-all-genes-affect-process">How can I identify all of the genes that affect a process?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>The best way to find genes that have any effect on a process, we recommend searching for both GO and FYPO terms relevant to the process.</p>
@@ -8901,13 +8912,13 @@ Example queries:
 <p>Example query: <app-query-link [goToResults]="true" [linkText]="'genes annotated to &quot;abnormal cellular respiration&quot; (FYPO:0000078) or &quot;cellular respiration&quot; (GO:0045333)'" [predefinedQueryId]="'FYPO_78_or_GO_45333'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-join-pombeslack', 'How can I join pombeSlack?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'community' || pageName == 'how-can-i-join-pombeslack' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-join-pombeslack', 'How can I join pombeSlack?')" *ngIf="pageName == 'community' || pageName == 'how-can-i-join-pombeslack' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-join-pombeslack">How can I join pombeSlack?</h3>
 <!-- pombase_categories: Community -->
 <p>The <a href="https://spombe.slack.com/">pombe Slack account</a> is separate from PomBase and pombelist, and not run by PomBase staff. To join, email one of the pombe Slack admins (<a href="https://www.embl.de/research/units/cbb/dey/members/index.php?s_personId=CP-60034206">Gautam Dey, EMBL</a>, <a href="https://physics.ncsu.edu/eltinglab/team/mary-elting/">Mary Elting, NCSU</a>, <a href="https://bcmb.utk.edu/people/faculty/maitreyi-das/">Maitreyi Das, University of Tennessee</a>).</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-locate-centromeres', 'How can I locate centromeres?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-locate-centromeres' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-locate-centromeres', 'How can I locate centromeres?')" *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-locate-centromeres' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-locate-centromeres">How can I locate centromeres?</h3>
 <!-- pombase_categories: Genome browser,Finding data -->
 <p>Centromeres can be retrieved in the PomBase genome browser; the coordinates are:</p>
@@ -8915,26 +8926,26 @@ Example queries:
 <p>Sequence features within the centromeres, such as repeats, are annotated with Sequence Ontology terms. For more details, see the <a routerLink="/status/centromeres">Centromeres</a> page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-locate-mating-type-region', 'How can I locate the mating type region?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-locate-mating-type-region' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-locate-mating-type-region', 'How can I locate the mating type region?')" *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-locate-mating-type-region' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-locate-mating-type-region">How can I locate the mating type region?</h3>
 <!-- pombase_categories: Genome browser,Finding data -->
 <p>Browse for Chromosome <a href="https://www.pombase.org/jbrowse/?loc=II%3A2129210..2137123&amp;tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&amp;highlight=">II:2129208-2137121</a>, and see the <a routerLink="/status/mating-type-region">Mating type region</a> page.</p>
 <p>The mating type region will soon be annotated as a feature, and refer to a Sequence Ontology term.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-locate-telomeres-and-subtelomeric-regions', 'How can I locate telomeres and subtelomeric regions?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-locate-telomeres-and-subtelomeric-regions' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-locate-telomeres-and-subtelomeric-regions', 'How can I locate telomeres and subtelomeric regions?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-locate-telomeres-and-subtelomeric-regions' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-locate-telomeres-and-subtelomeric-regions">How can I locate telomeres and subtelomeric regions?</h3>
 <!-- pombase_categories: Finding data -->
 <p>The current <em>S. pombe</em> genome assembly does not include the complete telomeric regions or the telomeric short repeats. These omissions are beyond the control of PomBase curators. Subtelomeric repeats are also not explicitly defined at present, although we hope to provide this information in the future. Additional information about <em>S. pombe</em> telomeres is available at on the <a routerLink="/status/telomeres">Telomeres</a> page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs', 'How can I obtain the list of human and S. pombe orthologs?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'how-can-i-obtain-list-human-and-s.-pombe-orthologs' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs', 'How can I obtain the list of human and S. pombe orthologs?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'how-can-i-obtain-list-human-and-s.-pombe-orthologs' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-obtain-list-human-and-s.-pombe-orthologs">How can I obtain the list of human and <em>S. pombe</em> orthologs?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Orthology -->
 <p>The current version of the manually curated list of orthologs and orthologous groups identified between fission yeast and human is available for download from the <a href="https://www.pombase.org/data/orthologs/">orthologs</a> FTP directory (linked from the <a routerLink="/datasets">Datasets</a> page). Also see the FAQs on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">finding disease gene orthologs</a>, and <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">finding the ortholog of a specific gene</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-all-s.-pombe-genes', 'How can I retrieve all S. pombe genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-all-s.-pombe-genes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-all-s.-pombe-genes', 'How can I retrieve all S. pombe genes?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-all-s.-pombe-genes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-retrieve-all-s.-pombe-genes">How can I retrieve all <em>S. pombe</em> genes?</h3>
 <!-- pombase_categories: Genome statistics and lists,Finding data -->
 <p>The <a routerLink="/downloads/names-and-identifiers">Names and identifiers page</a> provides lists of all genes, including non-coding RNA genes. The gene_IDs_names.tsv file contains the systematic IDs and names for both protein-coding and non-coding RNA genes, whereas two separate files are available that also include product descriptions.</p>
@@ -8943,7 +8954,7 @@ Example queries:
 <p><app-query-link [goToResults]="true" [linkText]="'All genes'" [predefinedQueryId]="'canned_query:all_genes'"></app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes', 'How can I retrieve all S. pombe protein-coding genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'how-can-i-retrieve-all-s.-pombe-protein-coding-genes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes', 'How can I retrieve all S. pombe protein-coding genes?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'how-can-i-retrieve-all-s.-pombe-protein-coding-genes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-retrieve-all-s.-pombe-protein-coding-genes">How can I retrieve all <em>S. pombe</em> protein-coding genes?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists -->
 <p>The <a routerLink="/query">advanced search</a> includes a query that retrieves all protein-coding genes at once. Click “Canned queries”, then click “All protein coding genes (ex. dubious and transposon)”.</p>
@@ -8951,7 +8962,7 @@ Example queries:
 <p>Query link: <app-query-link [goToResults]="true" [linkText]="'Protein-coding genes (excluding &quot;dubious&quot; and &quot;transposon&quot; status)'" [predefinedQueryId]="'canned_query:all_protein_coding_ex_dubious_and_transposon'"></app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences', 'How can I retrieve a gene sequence, including upstream and downstream sequences?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'gene-page' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences', 'How can I retrieve a gene sequence, including upstream and downstream sequences?')" *ngIf="pageName == 'gene-page' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences">How can I retrieve a gene sequence, including upstream and downstream sequences?</h3>
 <!-- pombase_categories: Gene page,Genome browser,Finding data -->
 <p>You can retrieve sequences from a gene page or in the genome browser, although flanking sequences are only available from gene pages at present.</p>
@@ -8960,7 +8971,7 @@ Example queries:
 <p>To retrieve flanking regions for more than one gene at a time, see <a routerLink="/faq/can-i-download-sequences-many-genes-once-including-flanking-regions">this FAQ</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-intron-coordinates-or-sequences', 'How can I retrieve intron coordinates or sequences?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-intron-coordinates-or-sequences' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-intron-coordinates-or-sequences', 'How can I retrieve intron coordinates or sequences?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-retrieve-intron-coordinates-or-sequences' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-retrieve-intron-coordinates-or-sequences">How can I retrieve intron coordinates or sequences?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Downloadable intron datasets are available in FASTA format from the <a routerLink="/downloads/intron-data">Intron Data</a> page.</p>
@@ -8977,7 +8988,7 @@ Example queries:
 <p>Query link: <app-query-link [goToResults]="true" [linkText]="'protein-coding genes with 2-20 exons'" [predefinedQueryId]="'2-20_exons'"></app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequence-coordinates-all-features-particular-type', 'How can I retrieve sequence coordinates for all features of a particular type?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequence-coordinates-all-features-particular-type' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequence-coordinates-all-features-particular-type', 'How can I retrieve sequence coordinates for all features of a particular type?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequence-coordinates-all-features-particular-type' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-retrieve-sequence-coordinates-all-features-particular-type">How can I retrieve sequence coordinates for all features of a particular type?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Available options:</p>
@@ -8989,27 +9000,27 @@ Example queries:
 <p>Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'" [predefinedQueryId]="'snorna_genes'"> </app-query-link></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates', 'How can I retrieve the sequence of a region using sequence coordinates?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequence-region-using-sequence-coordinates' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequence-region-using-sequence-coordinates', 'How can I retrieve the sequence of a region using sequence coordinates?')" *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequence-region-using-sequence-coordinates' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-retrieve-sequence-region-using-sequence-coordinates">How can I retrieve the sequence of a region using sequence coordinates?</h3>
 <!-- pombase_categories: Genome browser,Finding data -->
 <p>Go to the <a href="https://www.pombase.org/jbrowse/">genome browser</a>, and make sure the DNA sequence track is enabled (see the <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">FAQ on showing tracks</a> if necessary). Enter region coordinates (as described in <a href="https://www.pombase.org/faq/how-can-i-display-sequence-region-using-sequence-coordinates-genome-browser">this FAQ</a>).</p>
 <p>In the “DNA sequence” track label, click on the small triangle at the right-hand end of the label box to reveal the popup menu, then select “Save track data”.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequences-fasta-file-custom-headers', 'How can I retrieve sequences in a FASTA file with custom headers?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequences-fasta-file-custom-headers' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequences-fasta-file-custom-headers', 'How can I retrieve sequences in a FASTA file with custom headers?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequences-fasta-file-custom-headers' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-retrieve-sequences-fasta-file-custom-headers">How can I retrieve sequences in a FASTA file with custom headers?</h3>
 <!-- pombase_categories: Finding data -->
 <p>You can customize the headers for FASTA files of downloaded results from the advanced search (i.e. for any list of genes). The Download dialog offers several options for items to include in the headers. See the <a routerLink="/documentation/advanced-search">advanced search documentation</a> for more information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequences-non-protein-coding-genes', 'How can I retrieve sequences for non-protein-coding genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequences-non-protein-coding-genes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-sequences-non-protein-coding-genes', 'How can I retrieve sequences for non-protein-coding genes?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-retrieve-sequences-non-protein-coding-genes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-retrieve-sequences-non-protein-coding-genes">How can I retrieve sequences for non-protein-coding genes?</h3>
 <!-- pombase_categories: Finding data -->
 <p>A file of all non-coding RNA gene sequences is available on the <a routerLink="/downloads/genome-datasets">Genome sequences page</a>.</p>
 <p>If you need sequences for all genes of a single type (tRNAs, rRNAs, other ncRNAs, etc.) we recommend using the <a routerLink="/query">advanced search</a> and results download as described in the <a routerLink="/faq/how-can-i-retrieve-sequence-coordinates-all-features-particular-type">FAQ on retrieving sequence coordinates for all features of a particular type</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-utr-sequences', 'How can I retrieve UTR sequences?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'how-can-i-retrieve-utr-sequences' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-retrieve-utr-sequences', 'How can I retrieve UTR sequences?')" *ngIf="pageName == 'finding-data' || pageName == 'how-can-i-retrieve-utr-sequences' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-retrieve-utr-sequences">How can I retrieve UTR sequences?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Transcript start and end coordinates from all sources will be available as individual data tracks in the genome browser in the near future, which will allow you to view, evaluate and download them. We also provide downloadable UTR data sets that are updated periodically, available on the <a routerLink="/downloads/genome-datasets">Genome sequence and features</a> page.</p>
@@ -9017,14 +9028,14 @@ Example queries:
 <p>To retrieve UTRs for a specified list of genes, see the FAQ on <a routerLink="/faq/can-i-download-sequences-many-genes-once-including-flanking-regions">downloading sequences for multiple genes</a> (choose 5’ UTR and/or 3’ UTR in the popup).</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-search-genes-involved-both-go-process-and-regulation-process', 'How can I search for genes involved in both a GO process and regulation of the process?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-search-genes-involved-both-go-process-and-regulation-process' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-search-genes-involved-both-go-process-and-regulation-process', 'How can I search for genes involved in both a GO process and regulation of the process?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-search-genes-involved-both-go-process-and-regulation-process' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-search-genes-involved-both-go-process-and-regulation-process">How can I search for genes involved in both a GO process and regulation of the process?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>The <a routerLink="/query">advanced search</a> GO query retrieves gene products annotated to a GO term and to any of its child terms, following the <em>is_a</em>, <em>part_of</em>, and <em>regulates</em> relationships in the ontology (also see the <a routerLink="/documentation/gene-page-gene-ontology">PomBase GO documentation</a>. GO search results for Biological Process terms therefore include genes involved in the process and its regulation.</p>
 <p>Genes annotated directly to the process can be distinguished from those annotated to regulation on the <a routerLink="/documentation/ontology-term-page">ontology term page</a> for the term.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-search-or-browse-go-annotations', 'How can I search or browse GO annotations?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-search-or-browse-go-annotations' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-search-or-browse-go-annotations', 'How can I search or browse GO annotations?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-search-or-browse-go-annotations' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-search-or-browse-go-annotations">How can I search or browse GO annotations?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>You can search for GO terms by name or ID in the PomBase <a href="/query">advanced search</a>, and retrieve a list of all genes annotated to the term and its descendants via the relations <em>is_a</em>, <em>part_of</em>, <em>regulates</em>, <em>positively_regulates,</em> and <em>negatively_regulates</em>. For example, a search for “cytokinesis” will include genes annotated to “regulation of cytokinesis”. (See the GO documentation on <a href="http://geneontology.org/docs/ontology-relations/">Ontology Structure and Ontology Relations</a> for more information.)</p>
@@ -9037,7 +9048,7 @@ Example queries:
 <p>In PomBase, GO term names and IDs on gene pages link to ontology term pages for GO terms, which in turn offer links to AmiGO, QuickGO and BioPortal.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene', 'How can I search for the S. cerevisiae ortholog(s)/homolog(s) of an S. pombe gene?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene', 'How can I search for the S. cerevisiae ortholog(s)/homolog(s) of an S. pombe gene?')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene">How can I search for the <em>S. cerevisiae</em> ortholog(s)/homolog(s) of an <em>S. pombe</em> gene?</h3>
 <!-- pombase_categories: Orthology,Finding data -->
 <p>In PomBase, <em>S. cerevisiae</em> orthologs are curated for <em>S. pombe</em> genes as described in the <a routerLink="/documentation/orthologs">Orthologs documentation</a>.</p>
@@ -9045,7 +9056,7 @@ Example queries:
 <p>Also see the <a routerLink="/faq/how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs">FAQ on downloading the full set of orthologs</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-see-nucleotide-level-similarity-between-s.-pombe-and-other-schizosaccharomyces-species', 'How can I see nucleotide-level similarity between S. pombe and other Schizosaccharomyces species?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'orthology' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-see-nucleotide-level-similarity-between-s.-pombe-and-other-schizosaccharomyces-species' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-see-nucleotide-level-similarity-between-s.-pombe-and-other-schizosaccharomyces-species', 'How can I see nucleotide-level similarity between S. pombe and other Schizosaccharomyces species?')" *ngIf="pageName == 'orthology' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'how-can-i-see-nucleotide-level-similarity-between-s.-pombe-and-other-schizosaccharomyces-species' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-see-nucleotide-level-similarity-between-s.-pombe-and-other-schizosaccharomyces-species">How can I see nucleotide-level similarity between <em>S. pombe</em> and other <em>Schizosaccharomyces</em> species?</h3>
 <!-- pombase_categories: Orthology,Finding data,Tools and resources -->
 <p>At present there are two ways to view nucleotide-level similarity between any pair of <em>Schizosaccharomyces</em> species <em>S. pombe</em>, <em>S. japonicus</em>, <em>S. octosporus</em>, <em>S. cryophilus</em>). Both use the genome browser at the Ensembl Fungi site.</p>
@@ -9062,13 +9073,13 @@ Example queries:
 </ol>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-show-or-hide-tracks-genome-browser', 'How can I show or hide tracks in the genome browser?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-browser' || pageName == 'how-can-i-show-or-hide-tracks-genome-browser' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-show-or-hide-tracks-genome-browser', 'How can I show or hide tracks in the genome browser?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-browser' || pageName == 'how-can-i-show-or-hide-tracks-genome-browser' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-show-or-hide-tracks-genome-browser">How can I show or hide tracks in the genome browser?</h3>
 <!-- pombase_categories: Finding data,Genome browser -->
 <p>In JBrowse, click the “Select tracks” box in the upper left corner to display the list of available tracks. The list can be filtered using the items in the left-hand column, or searched. Tick boxes to enable tracks, then click the “Back to browser” button.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-submit-high-throughput-data-pombase', 'How can I submit high-throughput data to PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'genome-browser' || pageName == 'how-can-i-submit-high-throughput-data-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-submit-high-throughput-data-pombase', 'How can I submit high-throughput data to PomBase?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'genome-browser' || pageName == 'how-can-i-submit-high-throughput-data-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-submit-high-throughput-data-pombase">How can I submit high-throughput data to PomBase?</h3>
 <!-- pombase_categories: Data submission and formats,Genome browser -->
 <p>PomBase welcomes large sets of published data. The recommended submission route depends on the data type:</p>
@@ -9080,7 +9091,7 @@ Example queries:
 <!-- use the <a routerLink="/submit-data/data-submission-form">data submission form for HTP sequence-linked data</a>. -->
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-can-i-use-go-slims-s.-pombe', 'How can I use GO slims with S. pombe?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-use-go-slims-s.-pombe' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-can-i-use-go-slims-s.-pombe', 'How can I use GO slims with S. pombe?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'how-can-i-use-go-slims-s.-pombe' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-use-go-slims-s.-pombe">How can I use GO slims with <em>S. pombe</em>?</h3>
 <!-- pombase_categories: Genome statistics and lists,Tools and resources,Using ontologies -->
 <p>The <a routerLink="/documentation/pombase-go-slim-documentation">Fission Yeast GO slim pages</a> provide generic GO slims for <em>S. pombe</em>, and show total genes annotated to each term directly or to any of its descendants.</p>
@@ -9089,7 +9100,7 @@ Example queries:
 <p>For further information on using the generic <em>S. pombe</em> slims, or on creating your own GO slim, please see the <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">Fission Yeast GO slimming tips</a> page.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-do-i-change-track-scale-jbrowse', 'How do I change the track scale in JBrowse?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'how-do-i-change-track-scale-jbrowse' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-do-i-change-track-scale-jbrowse', 'How do I change the track scale in JBrowse?')" *ngIf="pageName == 'genome-browser' || pageName == 'how-do-i-change-track-scale-jbrowse' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-do-i-change-track-scale-jbrowse">How do I change the track scale in JBrowse?</h3>
 <!-- pombase_categories: Genome browser -->
 <p>Click the downarrow to the right of the track label and click on ‘edit config’. Define a max_score and/or a min score by typing e.g.</p>
@@ -9098,13 +9109,13 @@ Example queries:
 <p>More wiggle track configuration option in the official <a href="http://gmod.org/wiki/JBrowse_Configuration_Guide#Wiggle_track_configuration_options">JBrowse documentation</a></p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-do-i-cite-data-pombase-how-do-i-cite-genome-sequence-comparison-data-etc.', 'How do I cite data from PomBase? How do I cite the genome sequence, comparison data, etc.?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'community' || pageName == 'how-do-i-cite-data-pombase-how-do-i-cite-genome-sequence-comparison-data-etc.' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-do-i-cite-data-pombase-how-do-i-cite-genome-sequence-comparison-data-etc.', 'How do I cite data from PomBase? How do I cite the genome sequence, comparison data, etc.?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'community' || pageName == 'how-do-i-cite-data-pombase-how-do-i-cite-genome-sequence-comparison-data-etc.' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-do-i-cite-data-pombase-how-do-i-cite-genome-sequence-comparison-data-etc.">How do I cite data from PomBase? How do I cite the genome sequence, comparison data, etc.?</h3>
 <!-- pombase_categories: Tools and resources, Community -->
 <p>See the <a routerLink="/about/citing-pombase">Citing PomBase</a> page, which lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, Canto, FYPO, annotations and Compara. Additional key papers may be added as needed.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-do-i-join-pombelist-can-you-unsubscribe-me-pombelist', 'How do I join pombelist? Can you unsubscribe me from pombelist?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'community' || pageName == 'how-do-i-join-pombelist-can-you-unsubscribe-me-pombelist' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-do-i-join-pombelist-can-you-unsubscribe-me-pombelist', 'How do I join pombelist? Can you unsubscribe me from pombelist?')" *ngIf="pageName == 'community' || pageName == 'how-do-i-join-pombelist-can-you-unsubscribe-me-pombelist' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-do-i-join-pombelist-can-you-unsubscribe-me-pombelist">How do I join pombelist? Can you unsubscribe me from pombelist?</h3>
 <!-- pombase_categories: Community -->
 <p>To join or leave pombelist, go to the list management page:</p>
@@ -9114,13 +9125,13 @@ Example queries:
 <p>If you want to change the email address you use for pombelist, go to the upper right corner to log in, and then (still in the upper right corner), hover over your name to reveal a menu. Select “My preferences” to see options including a field for a new email address.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs', 'How do I receive updates to the list of S. cerevisiae and S. pombe orthologs?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs', 'How do I receive updates to the list of S. cerevisiae and S. pombe orthologs?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs">How do I receive updates to the list of <em>S. cerevisiae</em> and <em>S. pombe</em> orthologs?</h3>
 <!-- pombase_categories: Genome statistics and lists,Orthology -->
 <p>The current version of the manually curated list of orthologs and orthologous groups identified between fission and budding yeast is available for download from the <a href="https://www.pombase.org/data/orthologs/">orthologs</a> FTP directory (linked from the <a routerLink="/datasets">Datasets</a> page).</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites', 'How do you determine a genes full-length transcript? / UTR coordinates? / transcription start and end sites?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites', 'How do you determine a genes full-length transcript? / UTR coordinates? / transcription start and end sites?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">How do you determine a gene’s full-length transcript? / UTR coordinates? / transcription start and end sites?</h3>
 <!-- pombase_categories: Genome statistics and lists,Finding data -->
 <p>PomBase curators have chosen default UTR features using three data sources and a set of precedence criteria:</p>
@@ -9135,7 +9146,7 @@ Example queries:
 <p>Note: exon and CDS coordinates are available in the Transcript section on PomBase gene pages.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-many-conserved-unstudied-proteins-are-there-how-list-generated', 'How many conserved unstudied proteins are there? How is the list generated?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'how-many-conserved-unstudied-proteins-are-there-how-list-generated' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/how-many-conserved-unstudied-proteins-are-there-how-list-generated', 'How many conserved unstudied proteins are there? How is the list generated?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'how-many-conserved-unstudied-proteins-are-there-how-list-generated' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-many-conserved-unstudied-proteins-are-there-how-list-generated">How many conserved unstudied proteins are there? How is the list generated?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
 <p>As genes are annotated, each is assigned a status, as described on the <a routerLink="/status/gene-characterisation">Gene characterisation status</a> page. Taxonomic conservation of a gene is assigned manually on a case-by-case basis, taking into account multiple criteria. Additional information is available from PomBase curators upon request.</p>
@@ -9143,14 +9154,14 @@ Example queries:
 <p>You can also use the <a routerLink="/query">advanced search</a> to find conserved unstudied genes as described in the FAQs on <a routerLink="/faq/what-does-characterisation-status-mean-gene">characterisation status</a> and <a routerLink="/faq/can-i-search-genes-based-on-conservation-different-taxa">taxonomic conservation</a>. Start by searching for Characterisation status “conserved unknown”, and refine the search by adding a Taxonomic conservation query if you wish.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do', 'I found a discrepancy between a GenBank (EMBL/ENA or DDBJ) entry and a sequence in PomBase. What should I do?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do', 'I found a discrepancy between a GenBank (EMBL/ENA or DDBJ) entry and a sequence in PomBase. What should I do?')" *ngIf="pageName == 'finding-data' || pageName == 'i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="i-found-discrepancy-between-genbank-embl-ena-or-ddbj-entry-and-sequence-pombase.-what-should-i-do">I found a discrepancy between a GenBank (EMBL/ENA or DDBJ) entry and a sequence in PomBase. What should I do?</h3>
 <!-- pombase_categories: Finding data -->
 <p>We recommend using only the genome sequence, either from PomBase <a routerLink="/downloads/genome-datasets">downloadable files</a> or from the <a routerLink="/faq/how-can-i-retrieve-gene-sequence-including-upstream-and-downstream-sequences">sequence retrieval tools</a> on the gene pages and in the genome browser. Although there are some sequence updates still pending, the genome sequence is more accurate than individual gene sequences that predate the genome.</p>
 <p>Many older <em>S. pombe</em> sequence submissions to the DNA databases (International Nucleotide Sequence Database Collaboration databases, i.e. ENA, GenBank, DDBJ) contain one or more errors (sometimes with an error rate as high as 20%), and we do not have the resources to maintain past sequences or flag every error in PomBase.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/s.-pombe-transcriptome-available-fasta-format', 'Is the S. pombe transcriptome available in FASTA format?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 's.-pombe-transcriptome-available-fasta-format' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/s.-pombe-transcriptome-available-fasta-format', 'Is the S. pombe transcriptome available in FASTA format?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 's.-pombe-transcriptome-available-fasta-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="s.-pombe-transcriptome-available-fasta-format">Is the <em>S. pombe</em> transcriptome available in FASTA format?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>There is no single transcriptome sequence file available from PomBase at present. Several transcriptomic data sets are available as <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">tracks</a> in the PomBase <a href="https://www.pombase.org/jbrowse/">genome browser</a>. The GFF3 genome feature files available from the <a routerLink="/downloads/genome-datasets">Genome Datasets</a> page include the coordinates of the <a routerLink="/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">annotated full-length transcript features</a>.</p>
@@ -9169,7 +9180,7 @@ Example queries:
 <p>The Broad Institute has <a href="http://www.broadinstitute.org/ftp/pub/annotation/fungi/schizosaccharomyces/">archived genomic data files</a> for the <em>Schizosaccharomyces</em> species, including transcript files.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/there-any-programmatic-access-pombase-data', 'Is there any programmatic access to PomBase data?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'tools-and-resources' || pageName == 'there-any-programmatic-access-pombase-data' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/there-any-programmatic-access-pombase-data', 'Is there any programmatic access to PomBase data?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'there-any-programmatic-access-pombase-data' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="there-any-programmatic-access-pombase-data">Is there any programmatic access to PomBase data?</h3>
 <!-- pombase_categories: Tools and resources -->
 <p>The Ensembl Genomes REST API Endpoints page provides a REST-ful interface allows language-independent programmatic access to all genomes accessible through Ensembl Genomes, including the same Schizosaccharomyces pombe genome sequence data available in PomBase. (Note that, while the sequence has not changed recently, annotation data are likely to be out of date relative to the PomBase web site Ensembl Genomes is updated much less frequently than PomBase.) The REST interface provides data in a variety of formats including GFF3, FASTA and JSON. Data types accessible via this interface include:</p>
@@ -9187,7 +9198,7 @@ Example queries:
 </ul>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/there-any-rdna-repeat-sequences-pombase', 'Are there any rDNA repeat sequences in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'there-any-rdna-repeat-sequences-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/there-any-rdna-repeat-sequences-pombase', 'Are there any rDNA repeat sequences in PomBase?')" *ngIf="pageName == 'genome-browser' || pageName == 'finding-data' || pageName == 'there-any-rdna-repeat-sequences-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="there-any-rdna-repeat-sequences-pombase">Are there any rDNA repeat sequences in PomBase?</h3>
 <!-- pombase_categories: Genome browser,Finding data -->
 <p>The reference genome sequence excludes most of the ribosomal DNA (rDNA) repeats, which are present in two tandem arrays on chromosome III. These arrays are estimated to be 1225 kb and 240 kb in size for the sequenced strain (972 h-). The reference sequence includes two partial and one complete representative rDNA repeats:</p>
@@ -9200,7 +9211,7 @@ Example queries:
 <p>Also see the FAQ on <a routerLink="/faq/how-can-i-find-rrna-genes">finding rRNA genes</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/there-equivalent-artemis-java-applet-pombase', 'Is there an equivalent to the Artemis java applet in PomBase?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'there-equivalent-artemis-java-applet-pombase' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/there-equivalent-artemis-java-applet-pombase', 'Is there an equivalent to the Artemis java applet in PomBase?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'there-equivalent-artemis-java-applet-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="there-equivalent-artemis-java-applet-pombase">Is there an equivalent to the Artemis java applet in PomBase?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
 <p>Unfortunately, the Java Applet technology has been <a href="http://openjdk.java.net/jeps/289">depricated</a> and is not supported by the major browsers.</p>
@@ -9220,14 +9231,14 @@ Example queries:
 </ul>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/there-list-drug-targets-s.-pombe', 'Is there a list of drug targets in S. pombe?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'there-list-drug-targets-s.-pombe' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/there-list-drug-targets-s.-pombe', 'Is there a list of drug targets in S. pombe?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'there-list-drug-targets-s.-pombe' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="there-list-drug-targets-s.-pombe">Is there a list of drug targets in <em>S. pombe</em>?</h3>
 <!-- pombase_categories: Genome statistics and lists,Finding data -->
 <p>The “<a routerLink="/browse-curation/drugs-known-pombe-targets">Drugs with knowns S. pombe targets</a>” page lists drugs that have been shown to affect <em>S. pombe</em>, with brief summaries of their targets.</p>
 <p>If you notice any errors or omissions on this page, or can provide any supporting references, please email the helpdesk.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/there-list-protein-complexes-s.-pombe-and-their-subunits', 'Is there a list of protein complexes in S. pombe, and their subunits?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'there-list-protein-complexes-s.-pombe-and-their-subunits' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/there-list-protein-complexes-s.-pombe-and-their-subunits', 'Is there a list of protein complexes in S. pombe, and their subunits?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'there-list-protein-complexes-s.-pombe-and-their-subunits' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="there-list-protein-complexes-s.-pombe-and-their-subunits">Is there a list of protein complexes in <em>S. pombe</em>, and their subunits?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
 <p>Yes, there is a file that lists GO macromolecular complex assignments for fission yeast gene products in the GO annotations directory:</p>
@@ -9236,7 +9247,7 @@ Example queries:
 <p>Also see the <a routerLink="/faq/how-can-i-find-protein-localization-data">FAQ on localization</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-annotation-extension', 'What is an annotation extension?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'using-ontologies' || pageName == 'what-annotation-extension' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-annotation-extension', 'What is an annotation extension?')" *ngIf="pageName == 'using-ontologies' || pageName == 'what-annotation-extension' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-annotation-extension">What is an annotation extension?</h3>
 <!-- pombase_categories: Using ontologies -->
 <p>Annotation extensions can be used with annotations to terms from various ontologies, such as GO, FYPO, modifications, etc. Extensions provide additional specificity to the annotation by linking the term to another ontology term or a gene product via a relationship.</p>
@@ -9245,7 +9256,7 @@ Example queries:
 <p>Phenotype annotations using FYPO may have extensions that capture severity or penetrance, or identify a gene or gene product used in an assay, as described in the <a routerLink="/documentation/gene-page-phenotypes">gene page phenotype documentation</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-bam-format', 'What is BAM format?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-bam-format' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-bam-format', 'What is BAM format?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-bam-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-bam-format">What is BAM format?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>BAM is a binary file format used for nucleotide sequence alignment data.</p>
@@ -9253,14 +9264,14 @@ Example queries:
 <p>The <a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format5.1">UCSC Genome Bioinformatics FAQ</a> and the <a href="http://www.broadinstitute.org/software/igv/BAM">Broad Institute file format guide</a> provide additional information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-bed-format', 'What is BED format?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-bed-format' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-bed-format', 'What is BED format?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-bed-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-bed-format">What is BED format?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>BED is a tab-delimited text format that defines a feature track for a genome browser.</p>
 <p>BED format is described in the <a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format1">UCSC Genome Bioinformatics FAQ</a>, and the <a href="http://www.broadinstitute.org/software/igv/BED">Broad Institute file format guide</a> provides additional information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-bedgraph-format', 'What is bedGraph format?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-bedgraph-format' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-bedgraph-format', 'What is bedGraph format?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-bedgraph-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-bedgraph-format">What is bedGraph format?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>BedGraph is a file format that allows display of continuous-valued data in a track in genome browsers that support the format.</p>
@@ -9268,21 +9279,21 @@ Example queries:
 <p>BedGraph format is described at the <a href="http://genome.ucsc.edu/goldenPath/help/bedgraph.html">UCSC Genome Bioinformatics web site</a>, and the <a href="http://www.broadinstitute.org/software/igv/bedgraph">Broad Institute file format guide</a> provides additional information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-bigbed-format', 'What is bigBed format?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-bigbed-format' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-bigbed-format', 'What is bigBed format?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-bigbed-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-bigbed-format">What is bigBed format?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>BigBed is a binary file format that is created by conversion from <a routerLink="/faq/what-bed-format">BED</a>, and thus stores similar types of data for display in a genome browser track.</p>
 <p>BigBed format is described at the <a href="http://genome.ucsc.edu/goldenPath/help/bigBed.html">UCSC Genome Bioinformatics web site</a>, and the <a href="http://www.broadinstitute.org/software/igv/bigbed">Broad Institute file format guide</a> provides additional information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-bigwig-format', 'What is bigWig format?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-bigwig-format' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-bigwig-format', 'What is bigWig format?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-bigwig-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-bigwig-format">What is bigWig format?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>BigWig is a file format for display of dense, continuous data in a genome browser track, created by conversion from Wiggle (<a routerLink="/faq/what-wig-format">WIG</a>) format.</p>
 <p>BigWig format is described at the <a href="http://genome.ucsc.edu/goldenPath/help/bigWig.html">UCSC Genome Bioinformatics web site</a>, and the <a href="http://www.broadinstitute.org/software/igv/bigwig">Broad Institute file format guide</a> provides additional information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-does-characterisation-status-mean-gene', 'What does the &quot;characterisation status&quot; mean for a gene?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'what-does-characterisation-status-mean-gene' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-does-characterisation-status-mean-gene', 'What does the &quot;characterisation status&quot; mean for a gene?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'what-does-characterisation-status-mean-gene' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-does-characterisation-status-mean-gene">What does the “characterisation status” mean for a gene?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
 <p>Each gene is assigned exactly one characterisation status that reflects how much is known about the gene, whether it is conserved, etc. Specific status descriptions:</p>
@@ -9299,7 +9310,7 @@ Example queries:
 <p>You can also retrieve current lists of genes with each characterisation status using the <a routerLink="/query">advanced search</a>. Select the Characterisation status query, then choose a status from the pulldown menu, and submit.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-file-formats-can-i-use-submit-high-throughput-data', 'What file formats can I use to submit high-throughput data?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-file-formats-can-i-use-submit-high-throughput-data' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-file-formats-can-i-use-submit-high-throughput-data', 'What file formats can I use to submit high-throughput data?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-file-formats-can-i-use-submit-high-throughput-data' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-file-formats-can-i-use-submit-high-throughput-data">What file formats can I use to submit high-throughput data?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>At present, PomBase can host any types of data that can be connected with sequence features or coordinates, and can display the data as tracks in the genome browser. We accept data in any of several formats. To choose a file format for your data, consult the table below and the linked FAQs.</p>
@@ -9374,7 +9385,7 @@ Example queries:
 <p>We may be able to accept data in other text formats. Please enquire via the PomBase <a href="mailto:helpdesk@pombase.org">helpdesk</a> if you have any questions about your data format.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-gff3', 'What is GFF3?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-gff3' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-gff3', 'What is GFF3?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-gff3' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-gff3">What is GFF3?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>Generic Feature Format Version 3 (GFF3) is a tab-delimited text file format used to represent genomic sequence features.</p>
@@ -9382,21 +9393,21 @@ Example queries:
 <p>The <a href="https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3">file format specification</a> is available from the <a href="http://www.sequenceontology.org/">Sequence Ontology</a> GitHub site. Validation tools are available from various online providers.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-go-term-enrichment-how-can-i-do-it-my-genes', 'What is GO term enrichment? How can I do it for my genes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'what-go-term-enrichment-how-can-i-do-it-my-genes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-go-term-enrichment-how-can-i-do-it-my-genes', 'What is GO term enrichment? How can I do it for my genes?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'using-ontologies' || pageName == 'what-go-term-enrichment-how-can-i-do-it-my-genes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-go-term-enrichment-how-can-i-do-it-my-genes">What is GO term enrichment? How can I do it for my genes?</h3>
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>“GO term enrichment” refers to analysing a gene list by finding GO terms that are significantly over- or under-represented among the annotations for the genes. Finding GO terms that are shared by genes in your list can help you find out what they have in common biologically.</p>
 <p>PomBase does not have its own GO enrichment tool, but we recommend one, and provide a bit more information, in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list">FAQ on GO term enrichment</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-psl-format', 'What is PSL format?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-psl-format' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-psl-format', 'What is PSL format?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-psl-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-psl-format">What is PSL format?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>PSL is a tab-delimited text format that represents sequence alignments.</p>
 <p>PSL format is described in the <a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format2">UCSC Genome Bioinformatics FAQ</a>, and the <a href="http://www.broadinstitute.org/software/igv/node/171">Broad Institute file format guide</a> provides additional information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-vcf', 'What is VCF?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-vcf' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-vcf', 'What is VCF?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-vcf' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-vcf">What is VCF?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>Variant Call Format (VCF) is a text file format used to describe structural variations, such as SNPs, insertions, deletions, or copy number variants.</p>
@@ -9404,39 +9415,39 @@ Example queries:
 <p>The <a href="http://www.internationalgenome.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41">1000 Genomes site</a>, <a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format10.1">UCSC Genome Bioinformatics FAQ</a> and the <a href="http://www.broadinstitute.org/software/igv/VCF">Broad Institute file format guide</a> provide additional information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/what-wig-format', 'What is WIG format?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'data-submission-and-formats' || pageName == 'what-wig-format' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/what-wig-format', 'What is WIG format?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-wig-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-wig-format">What is WIG format?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>Wiggle (WIG) is a file format for display of continuous-value data in a genome browser track.</p>
 <p>BigWig format is described at the <a href="http://genome.ucsc.edu/goldenPath/help/wiggle.html">UCSC Genome Bioinformatics web site</a>, and the <a href="http://www.broadinstitute.org/software/igv/WIG">Broad Institute file format guide</a> provides additional information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/when-was-genomic-sequence-last-updated', 'When was the genomic sequence last updated?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'when-was-genomic-sequence-last-updated' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/when-was-genomic-sequence-last-updated', 'When was the genomic sequence last updated?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'when-was-genomic-sequence-last-updated' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="when-was-genomic-sequence-last-updated">When was the genomic sequence last updated?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
 <p>The reference sequence was last updated in January 2007; only feature coordinates and annotation have changed since then. See <a routerLink="/status/sequencing-updates">Sequence updates</a> and <a routerLink="/status/sequence-updates-pending">Pending sequence updates</a> for more information.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/where-can-i-download-genome-sequence', 'Where can I download the genome sequence?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'where-can-i-download-genome-sequence' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/where-can-i-download-genome-sequence', 'Where can I download the genome sequence?')" *ngIf="pageName == 'finding-data' || pageName == 'where-can-i-download-genome-sequence' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="where-can-i-download-genome-sequence">Where can I download the genome sequence?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Genome sequence files can be downloaded from the <a routerLink="/downloads/genome-datasets">Genome sequence and features</a> page in several different formats.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/where-can-i-find-basic-statistics-on-s.-pombe-genome-such-as-genome-size-total-number-genes-mean-intergenic-distance-etc.', 'Where can I find basic statistics on the S. pombe genome, such as genome size, total number of genes, mean intergenic distance, etc.?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'where-can-i-find-basic-statistics-on-s.-pombe-genome-such-as-genome-size-total-number-genes-mean-intergenic-distance-etc.' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/where-can-i-find-basic-statistics-on-s.-pombe-genome-such-as-genome-size-total-number-genes-mean-intergenic-distance-etc.', 'Where can I find basic statistics on the S. pombe genome, such as genome size, total number of genes, mean intergenic distance, etc.?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'where-can-i-find-basic-statistics-on-s.-pombe-genome-such-as-genome-size-total-number-genes-mean-intergenic-distance-etc.' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="where-can-i-find-basic-statistics-on-s.-pombe-genome-such-as-genome-size-total-number-genes-mean-intergenic-distance-etc.">Where can I find basic statistics on the <em>S. pombe</em> genome, such as genome size, total number of genes, mean intergenic distance, etc.?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
 <p>A <a routerLink="/status/genome-overview">page of statistics</a> is available, but note that it was last updated in January 2017.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/where-can-i-find-information-about-pombase-data-versions', 'Where can I find information about PomBase data versions?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'genome-statistics-and-lists' || pageName == 'where-can-i-find-information-about-pombase-data-versions' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/where-can-i-find-information-about-pombase-data-versions', 'Where can I find information about PomBase data versions?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'where-can-i-find-information-about-pombase-data-versions' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="where-can-i-find-information-about-pombase-data-versions">Where can I find information about PomBase data versions?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
 <p>PomBase annotations are updated each time the daily upload to the preview site (behind the scenes) succeeds, with snapshots archived on a monthly basis. To refer to PomBase in your publications, we recommend citing the date on which you view or download data. If you download an archived snapshot, cite its date.</p>
 <p>Prior to the September 2017 PomBase upgrade, periodic data releases were flagged with version numbers and release dates. Each legacy version number has two parts, of which the first is the Ensembl Genomes (EG) version and the second is the version of curated PomBase annotations (sequence features, ontology annotations, etc.). For example, PomBase version 20_39 used EG version 20 and PomBase annotation data version 39. The <a routerLink="/about/version-history">Data version history</a> page shows additional information about the versions of various data and software portions of the legacy PomBase releases.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/why-are-go-annotations-different-between-pombase-and-uniprot-goa', 'Why are GO annotations different between PomBase and UniProt/GOA?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'why-are-go-annotations-different-between-pombase-and-uniprot-goa' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/why-are-go-annotations-different-between-pombase-and-uniprot-goa', 'Why are GO annotations different between PomBase and UniProt/GOA?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'why-are-go-annotations-different-between-pombase-and-uniprot-goa' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="why-are-go-annotations-different-between-pombase-and-uniprot-goa">Why are GO annotations different between PomBase and UniProt/GOA?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>The GO annotations available from PomBase (gene pages, advanced search, etc.) and the GO Consortium site (AmiGO; GO downloads) differ from those available from the UniProt GOA site (including QuickGO) for three main reasons:</p>
@@ -9447,7 +9458,7 @@ Example queries:
 </ol>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/why-are-go-terms-missing-downloadable-annotation-file', 'Why are GO terms missing from the downloadable annotation file?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'why-are-go-terms-missing-downloadable-annotation-file' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/why-are-go-terms-missing-downloadable-annotation-file', 'Why are GO terms missing from the downloadable annotation file?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'why-are-go-terms-missing-downloadable-annotation-file' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="why-are-go-terms-missing-downloadable-annotation-file">Why are GO terms missing from the downloadable annotation file?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
 <p>The downloadable file of <a href="/downloads/go-annotations">PomBase GO annotations</a> is in the GO Consortium’s <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF format</a>, and only includes “direct” annotations, i.e. the actual term-gene product connections made by manual curation or computational transfer. When an annotation is made to a term, the gene product is automatically inferred to be annotated to all the “ancestor” terms in the ontology. These inferred annotations are used in PomBase web pages and searches, but are not included in the GAF file. More information on ontology structure and annotation inference is available in documentation at <a routerLink="/documentation/gene-page-gene-ontology">PomBase</a> and GO (<a href="http://geneontology.org/docs/ontology-documentation/">ontology</a> and <a href="http://geneontology.org/docs/go-annotations/">annotation</a>).</p>
@@ -9455,7 +9466,7 @@ Example queries:
 <p>GO annotations downloadable for search results are also in GAF format, so the same considerations apply.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/why-are-pombelist-messages-delayed-why-don-t-i-get-pombelist-emails-promptly', 'Why are pombelist messages delayed? Why dont I get pombelist emails promptly?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'community' || pageName == 'why-are-pombelist-messages-delayed-why-don-t-i-get-pombelist-emails-promptly' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/why-are-pombelist-messages-delayed-why-don-t-i-get-pombelist-emails-promptly', 'Why are pombelist messages delayed? Why dont I get pombelist emails promptly?')" *ngIf="pageName == 'community' || pageName == 'why-are-pombelist-messages-delayed-why-don-t-i-get-pombelist-emails-promptly' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="why-are-pombelist-messages-delayed-why-don-t-i-get-pombelist-emails-promptly">Why are pombelist messages delayed? Why don’t I get pombelist emails promptly?</h3>
 <!-- pombase_categories: Community -->
 <p>One way this can happen is if you have “digest” mode enabled – this setting groups messages together and only sends them when a certain number have accumulated or a certain amount of time has elapsed. Typically members using digest mode receive messages about once a day.</p>
@@ -9464,7 +9475,7 @@ Example queries:
 <p>Log in (upper right corner), then go to “Subscriber Options” in the left-hand menu. In the “Receiving mode” pulldown. Choose “standard (direct reception)”. Click the “Apply modifications” button (below the next pulldown), and you can then log out.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/why-are-some-genes-abnormal-phenotype-annotated-corresponding-go-process-while-others-are-not', 'Why are some genes with an abnormal phenotype annotated to the corresponding GO process while others are not?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'using-ontologies' || pageName == 'why-are-some-genes-abnormal-phenotype-annotated-corresponding-go-process-while-others-are-not' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/why-are-some-genes-abnormal-phenotype-annotated-corresponding-go-process-while-others-are-not', 'Why are some genes with an abnormal phenotype annotated to the corresponding GO process while others are not?')" *ngIf="pageName == 'using-ontologies' || pageName == 'why-are-some-genes-abnormal-phenotype-annotated-corresponding-go-process-while-others-are-not' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="why-are-some-genes-abnormal-phenotype-annotated-corresponding-go-process-while-others-are-not">Why are some genes with an abnormal phenotype annotated to the corresponding GO process while others are not?</h3>
 <!-- pombase_categories: Using ontologies -->
 <p>PomBase curators use GO Biological Process annotations to indicate that a gene product is directly involved in a process or its regulation. FYPO annotations indicate when a mutation in a gene causes a change in a process, but do not say whether the effect is direct or indirect.</p>
@@ -9474,7 +9485,7 @@ Example queries:
 <p>Also see the <a routerLink="/faq/how-can-i-identify-all-genes-affect-process">FAQ on finding genes that affect a process</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/why-are-some-genes-annotated-both-viable-and-inviable-phenotypes', 'Why are some genes annotated to both viable and inviable phenotypes?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'gene-page' || pageName == 'using-ontologies' || pageName == 'why-are-some-genes-annotated-both-viable-and-inviable-phenotypes' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/why-are-some-genes-annotated-both-viable-and-inviable-phenotypes', 'Why are some genes annotated to both viable and inviable phenotypes?')" *ngIf="pageName == 'gene-page' || pageName == 'using-ontologies' || pageName == 'why-are-some-genes-annotated-both-viable-and-inviable-phenotypes' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="why-are-some-genes-annotated-both-viable-and-inviable-phenotypes">Why are some genes annotated to both viable and inviable phenotypes?</h3>
 <!-- pombase_categories: Gene page,Using ontologies -->
 <p>One gene can be correctly annotated to both a “viable” term and an “inviable” term from FYPO, under certain circumstances:</p>
@@ -9489,7 +9500,7 @@ Example queries:
 <p>If, however, the allele and condition details are identical, annotation to both viable and inviable terms is probably an error (either one of the terms is wrong, or there are missing or incorrect details for the alleles and/or conditions). Please let us know via the <a href="mailto:helpdesk@pombase.org">helpdesk</a> if you notice any potential errors.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/why-do-gene-pages-only-show-curated-orthologs-human-and-s.-cerevisiae', 'Why do gene pages only show curated orthologs for human and S. cerevisiae?')" *ngIf="pageName == 'all-frequently-asked-questions' || pageName == 'gene-page' || pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'why-do-gene-pages-only-show-curated-orthologs-human-and-s.-cerevisiae' || pageName == 'all-faqs'">
+<div (click)="faq_navigate($event, '/faq/why-do-gene-pages-only-show-curated-orthologs-human-and-s.-cerevisiae', 'Why do gene pages only show curated orthologs for human and S. cerevisiae?')" *ngIf="pageName == 'gene-page' || pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'why-do-gene-pages-only-show-curated-orthologs-human-and-s.-cerevisiae' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="why-do-gene-pages-only-show-curated-orthologs-human-and-s.-cerevisiae">Why do gene pages only show curated orthologs for human and <em>S. cerevisiae</em>?</h3>
 <!-- pombase_categories: Gene page,Genome statistics and lists,Orthology -->
 <p>In PomBase, human and <em>S. cerevisiae</em> orthologs are manually curated for <em>S. pombe</em> genes as described in the <a routerLink="/documentation/orthologs">Orthologs documentation</a>. Because manual ortholog curation is extremely time-consuming, it is not done for any species other than human and <em>S. cerevisiae</em>. For automated ortholog prediction of orthologs in other species please see the <a routerLink="/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae">relevant FAQ</a>.</p>
@@ -9519,6 +9530,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-wednesday-june-15th">PombeTalks Wednesday June 15th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-may-18th">PombeTalks May 18th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-phenotype-slim">New phenotype slim</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#making-biological-knowledge-useful-humans-and-machines">Making biological knowledge useful for humans and machines</a></div>
@@ -10590,7 +10602,7 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'improved-disease-association-dataset-released'">
 <h3 id="improved-disease-association-dataset-released">Improved disease association dataset released</h3>
-<!-- newsfeed_thumbnail: human disease.png -->
+<!-- newsfeed_thumbnail: human_disease.png -->
 <p>We are pleased to announce the release of our improved human disease mappings dataset. This dataset connects human disease causing genes to their <em>S. pombe</em> orthologs.</p>
 <p>Diseases are now mapped to the Disease Ontology (DO) and the dataset has been extended by data from Malacards. All disease associations can be accessed from the top level disease page. A disease slim has been created to facilitate browsing of disease categories. Currently, 907 S. pombe genes are associated with disease (up from 610 in the original dataset). This number is due to increase as mappings are still in progress.</p>
 <p>Many thanks to DO and Malacards for help in improving this annotation set. Icon courtesy of <a href="https://pixabay.com/en/users/mcmurryjulie-2375405/">Julie McMurry</a>.</p>
@@ -10894,13 +10906,13 @@ Please sign the letter to add your voice in support of the databases that help m
   </div>
   <div *ngIf="pageName == 'increased-disease-annotation-coverage'">
 <h3 id="improved-gene-disease-curation">Improved gene-disease curation</h3>
-<!-- newsfeed_thumbnail: human disease.png -->
+<!-- newsfeed_thumbnail: human_disease.png -->
 <p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have now increased coverage by adding new gene–disease term connections, with 3954 individual annotations to 1195 genes (up from 2588 and 905 respectively in January 2019). Disease associations now cover 24.5% of all fission yeast protein-coding genes, and over one third of those with human orthologs.</p>
 
   </div>
   <div *ngIf="pageName == 'pombase-uses-mondo'">
 <h3 id="pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</h3>
-<!-- newsfeed_thumbnail: human disease.png -->
+<!-- newsfeed_thumbnail: human_disease.png -->
 <p>PomBase has switched from the <a href="https://disease-ontology.org/">Disease Ontology</a> (DO) to the Monarch Initiative’s <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) for disease gene curation. Mondo covers the same set of disease descriptions as DO, but has a richer hierarchical structure that classifies more specific descriptions into broad categories (e.g. anemia, cancer, kidney disease) suitable for a disease “slim” term set.</p>
 <p>PomBase curators are collaborating with Mondo to improve its disease classification, especially in areas that will support inferences that improve fission yeast disease annotation coverage in the new <a href="https://www.pombase.org/browse-curation/disease-slim">PomBase Mondo slim</a>. The new disease slim is a work in progress, so if there is a particular disease grouping that you would find useful, please <a href="mailto:helpdesk@pombase.org">let us know</a>.</p>
 
@@ -11441,7 +11453,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
   </div>
   <div *ngIf="pageName == 'increased-disease-annotation-coverage'">
 <h3 id="improved-gene-disease-curation-over-1400-s.-pombe-genes">Improved gene-disease curation: over 1400 S. pombe genes</h3>
-<!-- newsfeed_thumbnail: human disease.png -->
+<!-- newsfeed_thumbnail: human_disease.png -->
 <p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have added new gene–disease term connections, to bring the total to 1401 <em>S. pombe</em> genes. Disease associations now cover 27.3% of all fission yeast protein-coding genes, and almost 40% with human orthologs.</p>
 
   </div>
@@ -11576,7 +11588,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
   </div>
   <div *ngIf="pageName == 'pombetalks-may18-2022'">
 <h3 id="pombetalks-may-18th">PombeTalks May 18th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next online pombeTalks will take place on May 18th. These are virtual seminars by and for the fission yeast community and friends.</p>
 <p>08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo</p>
@@ -11588,9 +11599,50 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-june15-2022'">
+<h3 id="pombetalks-wednesday-june-15th">PombeTalks Wednesday June 15th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online pombeTalks will take place on Wednesday June 15th. These are virtual seminars by and for the fission yeast community and friends.</p>
+<p>08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo</p>
+<p>Talks this session:</p>
+<ul>
+<li>Elliott Chapman, Bayne Lab, University of Edinburgh<br />
+<em>“Separable roles for RNAi in regulation of transposable elements and viability in the fission yeast Schizosaccharomyces japonicus”</em></li>
+<li>Fei Li, New York University<br />
+<em>“Phosphorylation-mediated Ccp1-Ndc80 switch at the N-terminus of CENP-T regulates kinetochore assembly in fission yeast”</em></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and <a href="http://spombe.slack.com">pombeSlack</a> one day in advance, so make sure you’ve signed up.</p>
+<p>As before, questions will be posted to <a href="https://spombe.slack.com/archives/C013C1NRY80">#pombetalks-qna</a> on <a href="http://spombe.slack.com">pombeSlack</a> channel and recordings uploaded.</p>
+
+  </div>
+  <div *ngIf="pageName == 'new-disease-associations'">
+<h3 id="id-77-new-disease-gene-associations">77 new disease-gene associations</h3>
+<!-- pombase_flags: frontpage -->
+<!-- pombase_flags: draft -->
+<!-- newsfeed_thumbnail: human_disease.png -->
+<p>We have added 77 new disease-gene associations for 71 fission yeast human gene orthologs. These were identified using “PombeMine” to identify the disease genes curated by OMIM not annotated with an existing MONDO mapping. The number of human disease gene associations is currently 1471. Disease genes can be browsed via the <a routerLink="/browse-curation/disease-slim">disease slim set</a> or from the <a routerLink="/term/MONDO:0000001">MONDO root node term</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2022-06-14-pombetalks-june15-2022" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-wednesday-june-15th">PombeTalks Wednesday June 15th</h3>
+<p><em>2022-06-14</em></p>
+<p>The next online pombeTalks will take place on Wednesday June 15th. These are virtual seminars by and for the fission yeast community and friends.</p>
+<p>08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo</p>
+<p>Talks this session:</p>
+<ul>
+<li>Elliott Chapman, Bayne Lab, University of Edinburgh<br />
+<em>“Separable roles for RNAi in regulation of transposable elements and viability in the fission yeast Schizosaccharomyces japonicus”</em></li>
+<li>Fei Li, New York University<br />
+<em>“Phosphorylation-mediated Ccp1-Ndc80 switch at the N-terminus of CENP-T regulates kinetochore assembly in fission yeast”</em></li>
+</ul>
+<p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and <a href="http://spombe.slack.com">pombeSlack</a> one day in advance, so make sure you’ve signed up.</p>
+<p>As before, questions will be posted to <a href="https://spombe.slack.com/archives/C013C1NRY80">#pombetalks-qna</a> on <a href="http://spombe.slack.com">pombeSlack</a> channel and recordings uploaded.</p>
+</div>
 <div id="2022-05-05-pombetalks-may18-2022" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-may-18th">PombeTalks May 18th</h3>
@@ -11726,7 +11778,7 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p>The <em>S. japonicus</em> community will maintain JaponicusDB from now on. Join the <a href="https://mailman.kcl.ac.uk/mailman/listinfo/japonicus-list">new mailing list</a>, and follow <span class="citation" data-cites="japonicusdb">@japonicusdb</span> on Twitter.</p>
 </div>
 <div id="2021-08-06-increased-disease-annotation-coverage" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
 <h3 id="improved-gene-disease-curation-over-1400-s.-pombe-genes">Improved gene-disease curation: over 1400 S. pombe genes</h3>
 <p><em>2021-08-06</em></p>
 <p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have added new gene–disease term connections, to bring the total to 1401 <em>S. pombe</em> genes. Disease associations now cover 27.3% of all fission yeast protein-coding genes, and almost 40% with human orthologs.</p>
@@ -12266,14 +12318,14 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>The PomBase <a routerLink="/query">advanced search</a> results panel now allows you to retrieve annotations to any of the fission yeast <a href="documentation/pombase-go-slim-documentation">GO slims</a> or the <a href="https://www.pombase.org/browse-curation/disease-slim">Mondo disease slim</a> for genes in the results list. For example, you can query for all genes involved in a process and slim the resulting list by molecular function or disease association.</p>
 </div>
 <div id="2020-05-18-pombase-uses-mondo" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
 <h3 id="pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</h3>
 <p><em>2020-05-18</em></p>
 <p>PomBase has switched from the <a href="https://disease-ontology.org/">Disease Ontology</a> (DO) to the Monarch Initiative’s <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) for disease gene curation. Mondo covers the same set of disease descriptions as DO, but has a richer hierarchical structure that classifies more specific descriptions into broad categories (e.g. anemia, cancer, kidney disease) suitable for a disease “slim” term set.</p>
 <p>PomBase curators are collaborating with Mondo to improve its disease classification, especially in areas that will support inferences that improve fission yeast disease annotation coverage in the new <a href="https://www.pombase.org/browse-curation/disease-slim">PomBase Mondo slim</a>. The new disease slim is a work in progress, so if there is a particular disease grouping that you would find useful, please <a href="mailto:helpdesk@pombase.org">let us know</a>.</p>
 </div>
 <div id="2020-05-18-increased-disease-annotation-coverage" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
 <h3 id="improved-gene-disease-curation">Improved gene-disease curation</h3>
 <p><em>2020-05-18</em></p>
 <p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have now increased coverage by adding new gene–disease term connections, with 3954 individual annotations to 1195 genes (up from 2588 and 905 respectively in January 2019). Disease associations now cover 24.5% of all fission yeast protein-coding genes, and over one third of those with human orthologs.</p>
@@ -12571,7 +12623,7 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Congratulations to PomBase project leader Val Wood, who has received the 2019 Exceptional Contributions to Biocuration Award from the International Society for Biocuration. Read more at the <a href="https://www.biocuration.org/anne-morgat-and-val-wood-recipients-of-the-2019-biocuration-awards/">ISB site</a></p>
 </div>
 <div id="2019-01-09-improved-disease-association-dataset-released" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human disease.png"/></p>
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
 <h3 id="improved-disease-association-dataset-released">Improved disease association dataset released</h3>
 <p><em>2019-01-09</em></p>
 <p>We are pleased to announce the release of our improved human disease mappings dataset. This dataset connects human disease causing genes to their <em>S. pombe</em> orthologs.</p>
