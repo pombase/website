@@ -130,6 +130,7 @@ import { GeneVisSettingsComponent } from './gene-vis-settings/gene-vis-settings.
 import { QueryRangeNodeComponent } from './query-range-node/query-range-node.component';
 import { QueryGenomeRangeNodeComponent } from './query-genome-range-node/query-genome-range-node.component';
 import { GeneAlleleListComponent } from './gene-allele-list/gene-allele-list.component';
+import { AlleleDetailsComponent } from './allele-details/allele-details.component';
 
 export function documentFactory() {
     return document;
@@ -234,6 +235,7 @@ export function windowFactory() {
     QueryRangeNodeComponent,
     QueryGenomeRangeNodeComponent,
     GeneAlleleListComponent,
+    AlleleDetailsComponent,
   ],
   imports: [
     BrowserModule,

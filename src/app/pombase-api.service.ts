@@ -81,6 +81,10 @@ export interface AlleleMap {
   [uniquename: string]: AlleleShort;
 }
 
+export interface AlleleDetails extends AlleleShort {
+  genotypes: Array<GenotypeShort>;
+}
+
 export interface TranscriptMap {
   [uniquename: string]: TranscriptDetails;
 }
@@ -1012,6 +1016,36 @@ export class PombaseAPIService {
       .then(response => this.processGenotypeResponse(response))
       .catch(this.handleError);
   }
+
+
+  processAlleleResponse(json: any): AlleleDetails {
+    if (!json.synonyms) {
+      json.synonyms = [];
+    }
+    if (!json.genotypes) {
+      json.genotypes = [];
+    }
+
+    let alleleDetails = json as AlleleDetails;
+
+    for (let genotype of alleleDetails.genotypes) {
+      for (let locus of genotype.loci) {
+        for (let expressedAllele of locus.expressed_alleles) {
+          expressedAllele.allele = json.alleles_by_uniquename[expressedAllele.allele_uniquename];
+        }
+      }
+    }
+
+    return alleleDetails;
+  }
+
+  getAllele(uniquename: string): Promise<AlleleDetails> {
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/allele/' + uniquename)
+    .toPromise()
+    .then(response => this.processAlleleResponse(response))
+    .catch(this.handleError);
+  }
+
 
   processTermResponse(json: any): TermDetails {
     for (let fieldName of ['cv_annotations',

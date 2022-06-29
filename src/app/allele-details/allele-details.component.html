@@ -1,0 +1,31 @@
+<div>
+    <app-loading-spinner *ngIf="!alleleDetails && !apiError"></app-loading-spinner>
+    <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
+    <div id="allele-details" *ngIf="alleleDetails && !apiError">
+      <app-social-contact></app-social-contact>
+      <div class="details-page-name-and-id">
+        <span class="details-page-name-and-id-prefix">Allele:</span>
+        <span class="name-id-highlight" [innerHTML]="displayName"></span>
+      </div>
+      <div id="allele-summary" class="details-page-summary">
+        <div class="details-label">Name</div>
+        <div>{{alleleDetails.name}}</div>
+        <div class="details-label">Description</div>
+        <div>{{alleleDetails.description}}</div>
+        <div class="details-label">Type</div>
+        <div>{{alleleDetails.allele_type}}</div>
+        <div *ngIf="hasSynonyms" class="details-label">Synonyms</div>
+        <div *ngIf="hasSynonyms">{{alleleDetails.synonyms}}</div>
+      </div>
+
+      <div class="allele-details-genotypes">
+        <h5>
+          Genotypes:
+        </h5>
+        <div *ngFor="let genotype of genotypes">
+          <a routerLink="/genotype/{{genotype.uniquename}}">{{genotype.displayName}}</a>
+        </div>
+      </div>
+   </div>
+</div>
+
