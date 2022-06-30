@@ -81,7 +81,13 @@ export interface AlleleMap {
   [uniquename: string]: AlleleShort;
 }
 
-export interface AlleleDetails extends AlleleShort {
+export interface AlleleDetails {
+  gene: GeneShort;
+  uniquename: string;
+  name: string;
+  allele_type: string;
+  description: string;
+  synonyms: Array<SynonymDetails>;
   genotypes: Array<GenotypeShort>;
 }
 

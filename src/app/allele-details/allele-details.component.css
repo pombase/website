@@ -15,4 +15,9 @@
 
 .allele-details-genotypes {
   margin-top: 2em;
+  font-size: 130%;
+}
+
+.all-alleles-link {
+  font-size: 120%;
 }

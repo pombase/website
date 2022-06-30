@@ -25,6 +25,7 @@ export class AlleleDetailsComponent implements OnInit {
   synonymString: string;
   singleLocusGenotypes: Array<DisplayGenotype> = [];
   multiLocusGenotypes: Array<DisplayGenotype> = [];
+  geneDisplayName = '';
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -94,6 +95,7 @@ export class AlleleDetailsComponent implements OnInit {
             this.synonymString = alleleDetails.synonyms.map(s => s.name).join(', ');
             this.makeGenotypes();
             this.apiError = undefined;
+            this.geneDisplayName = alleleDetails.gene.name || alleleDetails.gene.uniquename;
           })
           .catch(error => {
             this.apiError = error;
