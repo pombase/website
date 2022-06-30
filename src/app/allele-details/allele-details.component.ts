@@ -58,7 +58,7 @@ export class AlleleDetailsComponent implements OnInit {
   }
 
   genotypeDisplayName(genotype: GenotypeShort): string {
-    return Util.displayNameLong(genotype);
+    return Util.genotypeDisplayName(genotype);
   }
 
   displayNameLong(): string {

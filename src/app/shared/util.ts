@@ -47,7 +47,7 @@ export class Util {
     return genotype1.displayNameLong.localeCompare(genotype2.displayNameLong);
   }
 
-  static displayNameLong(genotypeDetails: GenotypeDetails|GenotypeShort): string {
+  static genotypeDisplayName(genotypeDetails: GenotypeDetails|GenotypeShort): string {
     if (genotypeDetails) {
       return genotypeDetails.loci
         .map(locus => {

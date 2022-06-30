@@ -704,7 +704,7 @@ export class PombaseAPIService {
                 }
               });
             });
-            annotation.genotype.displayNameLong = Util.displayNameLong(annotation.genotype);
+            annotation.genotype.displayNameLong = Util.genotypeDisplayName(annotation.genotype);
           }
         }
       }
@@ -784,7 +784,7 @@ export class PombaseAPIService {
             row.genotype_uniquenames.map(genotypeUniquename => {
               let genotype = genotypesByUniquename[genotypeUniquename];
               this.processLoci(allelesByUniquename, genesByUniquename, genotype.loci);
-              genotype.displayNameLong = Util.displayNameLong(genotype);
+              genotype.displayNameLong = Util.genotypeDisplayName(genotype);
               return genotype;
             });
         }
@@ -837,7 +837,7 @@ export class PombaseAPIService {
       if (annotation.genotype_uniquename) {
         annotation.genotype = genotypesByUniquename[annotation.genotype_uniquename];
         this.processLoci(allelesByUniquename, genesByUniquename, annotation.genotype.loci);
-        annotation.genotype.displayNameLong = Util.displayNameLong(annotation.genotype);
+        annotation.genotype.displayNameLong = Util.genotypeDisplayName(annotation.genotype);
       }
       if (annotation.reference_uniquename) {
         annotation.reference = referencesByUniquename[annotation.reference_uniquename];
@@ -1041,7 +1041,7 @@ export class PombaseAPIService {
         }
       }
 
-      genotype.displayNameLong = Util.displayNameLong(genotype);
+      genotype.displayNameLong = Util.genotypeDisplayName(genotype);
     }
 
     return alleleDetails;
