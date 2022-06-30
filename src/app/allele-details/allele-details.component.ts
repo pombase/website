@@ -17,7 +17,7 @@ export class AlleleDetailsComponent implements OnInit {
   displayNameForTitle = '';
   apiError?: APIError;
   appConfig: AppConfig = getAppConfig();
-  hasSynonyms = false;
+  synonymString: string;
   genotypes: Array<{ genotypeShort: GenotypeShort, displayName: string }> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -74,7 +74,7 @@ export class AlleleDetailsComponent implements OnInit {
             this.alleleDetails = alleleDetails;
             this.setDisplayName();
             this.setPageTitle();
-            this.hasSynonyms = alleleDetails.synonyms.length > 0;
+            this.synonymString = alleleDetails.synonyms.map(s => s.name).join(', ');
             this.makeGenotypes();
             this.apiError = undefined;
           })

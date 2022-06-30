@@ -14,8 +14,8 @@
         <div>{{alleleDetails.description}}</div>
         <div class="details-label">Type</div>
         <div>{{alleleDetails.allele_type}}</div>
-        <div *ngIf="hasSynonyms" class="details-label">Synonyms</div>
-        <div *ngIf="hasSynonyms">{{alleleDetails.synonyms}}</div>
+        <div *ngIf="synonymString" class="details-label">Synonyms</div>
+        <div *ngIf="synonymString">{{synonymString}}</div>
       </div>
 
       <div class="allele-details-genotypes">
