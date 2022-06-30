@@ -162,7 +162,7 @@ export class GeneAlleleListComponent implements OnInit {
           const allele = expressedAllele.allele;
 
           if (allele.gene_uniquename !== this.geneDetails.uniquename) {
-            continue GENOTYPE;
+            continue;
           }
 
           if (!alleleMap[allele.uniquename]) {
