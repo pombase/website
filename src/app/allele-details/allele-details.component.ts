@@ -18,7 +18,7 @@ export class AlleleDetailsComponent implements OnInit {
   apiError?: APIError;
   appConfig: AppConfig = getAppConfig();
   hasSynonyms = false;
-  genotypes: Array<{ uniquename: string, displayName: string }> = [];
+  genotypes: Array<{ genotypeShort: GenotypeShort, displayName: string }> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -29,7 +29,7 @@ export class AlleleDetailsComponent implements OnInit {
     this.genotypes =
       this.alleleDetails.genotypes.map(genotype => {
         return {
-          uniquename: genotype.display_uniquename,
+          genotypeShort: genotype,
           displayName: this.genotypeDisplayName(genotype),
         };
       });

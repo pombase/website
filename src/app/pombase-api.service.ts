@@ -1034,6 +1034,8 @@ export class PombaseAPIService {
           expressedAllele.allele = json.alleles_by_uniquename[expressedAllele.allele_uniquename];
         }
       }
+
+      genotype.displayNameLong = Util.displayNameLong(genotype);
     }
 
     return alleleDetails;

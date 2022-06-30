@@ -22,8 +22,8 @@
         <h5>
           Genotypes:
         </h5>
-        <div *ngFor="let genotype of genotypes">
-          <a routerLink="/genotype/{{genotype.uniquename}}">{{genotype.displayName}}</a>
+        <div *ngFor="let genotypeObj of genotypes">
+          <app-genotype-link [genotype]="genotypeObj.genotypeShort"></app-genotype-link>
         </div>
       </div>
    </div>
