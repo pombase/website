@@ -194,9 +194,11 @@ export class GeneAlleleListComponent implements OnInit {
         a.expression.localeCompare(b.expression)
       );
 
-      const alleleName = alleleMap[alleleUniquename].name;
-      const alleleDescription = alleleMap[alleleUniquename].description;
-      const alleleType = alleleMap[alleleUniquename].allele_type;
+      const alleleShort = alleleMap[alleleUniquename];
+
+      const alleleName = alleleShort.name;
+      const alleleDescription = alleleShort.description;
+      const alleleType = alleleShort.allele_type;
 
       const alleleSection =
         new AlleleSection(alleleUniquename, alleleName, alleleDescription, alleleType,
