@@ -10,8 +10,8 @@
       <div id="allele-summary" class="details-page-summary">
         <div class="details-label">Name</div>
         <div>{{alleleDetails.name}}</div>
-        <div class="details-label">Description</div>
-        <div>{{alleleDetails.description}}</div>
+        <div *ngIf="alleleDetails.description" class="details-label">Description</div>
+        <div *ngIf="alleleDetails.description">{{alleleDetails.description}}</div>
         <div class="details-label">Type</div>
         <div>{{alleleDetails.allele_type}}</div>
         <div *ngIf="synonymString" class="details-label">Synonyms</div>
