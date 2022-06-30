@@ -12,3 +12,7 @@
 #allele-summary div:nth-child(even) {
   margin: 0.2em 3em 0.2em 0;
 }
+
+.allele-details-genotypes {
+  margin-top: 2em;
+}

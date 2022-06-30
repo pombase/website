@@ -5,6 +5,11 @@ import { AppConfig, getAppConfig } from '../config';
 import { AlleleDetails, APIError, GenotypeShort, PombaseAPIService } from '../pombase-api.service';
 import { Util } from '../shared/util';
 
+interface DisplayGenotype {
+  genotypeShort: GenotypeShort;
+  displayName: string;
+ }
+
 @Component({
   selector: 'app-allele-details',
   templateUrl: './allele-details.component.html',
@@ -18,7 +23,8 @@ export class AlleleDetailsComponent implements OnInit {
   apiError?: APIError;
   appConfig: AppConfig = getAppConfig();
   synonymString: string;
-  genotypes: Array<{ genotypeShort: GenotypeShort, displayName: string }> = [];
+  singleLocusGenotypes: Array<DisplayGenotype> = [];
+  multiLocusGenotypes: Array<DisplayGenotype> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -26,17 +32,28 @@ export class AlleleDetailsComponent implements OnInit {
               private readonly meta: Meta) { }
 
   makeGenotypes() {
-    this.genotypes =
-      this.alleleDetails.genotypes.map(genotype => {
-        return {
-          genotypeShort: genotype,
-          displayName: this.genotypeDisplayName(genotype),
-        };
-      });
+    this.singleLocusGenotypes = [];
+    this.multiLocusGenotypes = [];
 
-    this.genotypes.sort((a, b) => {
+    for (const genotype of this.alleleDetails.genotypes) {
+      const displayGenotype = {
+        genotypeShort: genotype,
+        displayName: this.genotypeDisplayName(genotype),
+      };
+
+      if (genotype.loci.length == 1) {
+        this.singleLocusGenotypes.push(displayGenotype);
+      } else {
+        this.multiLocusGenotypes.push(displayGenotype);
+      }
+    }
+
+    const genotypeSorter = (a: DisplayGenotype, b: DisplayGenotype): number => {
       return a.displayName.localeCompare(b.displayName);
-    });
+    };
+
+    this.singleLocusGenotypes.sort(genotypeSorter);
+    this.multiLocusGenotypes.sort(genotypeSorter);
   }
 
   genotypeDisplayName(genotype: GenotypeShort): string {

@@ -18,12 +18,22 @@
         <div *ngIf="synonymString">{{synonymString}}</div>
       </div>
 
-      <div class="allele-details-genotypes">
-        <h5>
-          Genotypes:
-        </h5>
-        <div *ngFor="let genotypeObj of genotypes">
-          <app-genotype-link [genotype]="genotypeObj.genotypeShort"></app-genotype-link>
+      <div>
+        <div class="allele-details-genotypes" *ngIf="singleLocusGenotypes.length != 0">
+          <h5>
+            Single locus genotypes:
+          </h5>
+          <div *ngFor="let genotypeObj of singleLocusGenotypes">
+            <app-genotype-link [genotype]="genotypeObj.genotypeShort"></app-genotype-link>
+          </div>
+        </div>
+        <div class="allele-details-genotypes" *ngIf="multiLocusGenotypes.length != 0">
+          <h5>
+            Multi locus genotypes:
+          </h5>
+          <div *ngFor="let genotypeObj of singleLocusGenotypes">
+            <app-genotype-link [genotype]="genotypeObj.genotypeShort"></app-genotype-link>
+          </div>
         </div>
       </div>
    </div>
