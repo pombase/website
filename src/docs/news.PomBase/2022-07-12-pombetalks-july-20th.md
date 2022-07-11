@@ -1,4 +1,4 @@
-### Next PombeTalks: Wednesday, July 20th
+### Next pombeTalks: Wednesday, July 20th
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
