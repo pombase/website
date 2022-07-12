@@ -6,7 +6,7 @@ The next online pombeTalks will take place on Wednesday, July 20th.
 These talks are virtual seminars by and for the fission yeast
 community and friends.
 
-08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo
+0:00 San Francisco / 3:00 New York / 8:00 London / 9:00 Paris / 12:30 Delhi / 15:00 Beijing / 16:00 Tokyo.
 
 Talks this session:
 
