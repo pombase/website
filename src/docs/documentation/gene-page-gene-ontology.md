@@ -93,8 +93,17 @@ than one paper), and annotations to terms hidden in the summary view:
 
 Annotations are made to the definition of a term, not the term name
 itself, so we recommend that users always read the term
-definition. The definition of a term can be found on the ontology term
-page linked to the term name and ID.
+definition. The definition is critical because an ontology term name
+may change over time, but if the meaning of a definition changes the
+term must be obsoleted, and the associated genes must be reannotated
+to the correct definition. This procedure makes ontologies very robust
+to changes in biological knowledge, because if the definition is
+constant terms can be repositioned in the ontology (i.e. parents terms
+can be added or removed) without affecting the validity of the
+annotations that are attached to it.
+
+The definition of a term can be found on the ontology term page linked
+to the term name and ID.
 
 #### GO Structure ####
 
