@@ -240,14 +240,32 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     return false;
   }
 
-  transcriptDisplay(annotation: Annotation): string {
+  transcriptDisplay(annotation: Annotation, long: boolean): string {
     if (annotation.transcripts && annotation.transcripts.length > 0) {
       const gene = annotation.transcripts[0].gene!;
       const transcriptCount = gene.transcript_count || 1;
       if (annotation.transcripts.length == transcriptCount) {
-        return 'All';
+        if (long) {
+          if (transcriptCount == 2) {
+            return 'Both transcripts';
+          } else {
+            return 'All transcripts';
+          }
+        } else {
+          return 'All';
+        }
       } else {
-        return annotation.transcripts.map(transcriptDetails => transcriptDetails.uniquename).join(', ');
+        let transcriptIds =
+          annotation.transcripts.map(transcriptDetails => transcriptDetails.uniquename).join(', ');
+        if (long) {
+          if (annotation.transcripts.length == 1) {
+            return 'Transcript: ' + transcriptIds;
+          } else {
+            return 'Transcripts: ' + transcriptIds;
+          }
+        } else {
+          return transcriptIds;
+        }
       }
     } else {
       return '';
@@ -275,15 +293,20 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
     this.showColumn['transcripts'] = false;
 
-    if (this.annotationTable && this.annotationTable.length > 0 &&
-        typeConfig.feature_type == 'gene') {
-      const firstTermAnnotation = this.annotationTable[0];
-      const firstAnnotation = firstTermAnnotation.annotations[0];
-
-      if (firstAnnotation.genes.length > 0) {
-        const firstGene = firstAnnotation.genes[0];
-        if (firstGene.transcript_count && firstGene.transcript_count > 1) {
-          this.showColumn['transcripts'] = true;
+    if (this.annotationTable && typeConfig.feature_type == 'gene' && this.annotationTable.length < 10) {
+      for (const termAnnotation of this.annotationTable) {
+        if (termAnnotation.annotations.length > 50) {
+          // don't show the column when there are many annotations because it isn't useful
+          this.showColumn['transcripts'] = false;
+          break;
+        }
+        for (const annotation of termAnnotation.annotations) {
+          if (annotation.genes.length > 0) {
+            const firstGene = annotation.genes[0];
+            if (firstGene.transcript_count && firstGene.transcript_count > 1) {
+              this.showColumn['transcripts'] = true;
+            }
+          }
         }
       }
     }

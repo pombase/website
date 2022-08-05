@@ -108,6 +108,9 @@
           <span *ngFor="let gene of annotation.genes">
             <app-gene-link
               class="app-link" [long]="false" [gene]="gene"></app-gene-link>
+              <div *ngIf="!showColumn['transcripts']">
+                {{transcriptDisplay(annotation, true)}}
+              </div>
           </span>
         </td>
         <td class="genotype-column" *ngIf="showColumn['genotype'] && featureInFirstColumn">
@@ -153,7 +156,7 @@
           </span>
         </td>
         <td *ngIf="showColumn['transcripts']">
-          {{transcriptDisplay(annotation)}}
+          {{transcriptDisplay(annotation, false)}}
         </td>
         <td class="with" *ngIf="showColumn['evidence']">
           <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
