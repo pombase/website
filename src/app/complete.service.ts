@@ -132,7 +132,7 @@ export class CompleteService {
 
         return resultTerms;
       }),
-      catchError(e => throwError(e)));
+      catchError(e => throwError(() => e)));
   }
 
   completeRef(queryText: string): Observable<SolrRefSummary[]> {
