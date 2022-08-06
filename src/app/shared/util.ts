@@ -1,3 +1,4 @@
+import { SolrAlleleSummary } from '../complete.service';
 import { GenotypeDetails, GenotypeShort, GeneShort,
          AlleleShort, TranscriptDetails} from '../pombase-api.service';
 
@@ -75,12 +76,12 @@ export class Util {
     return name;
   }
 
-  static descriptionWithResidueType(allele: AlleleShort): string {
+  static descriptionWithResidueType(allele: AlleleShort|SolrAlleleSummary): string {
     let description = allele.description;
     const alleleType = allele.allele_type;
 
     if (!description || !alleleType) {
-      return description;
+      return 'unknown';
     }
 
     if (alleleType.match(/mutation$/)) {
@@ -98,7 +99,7 @@ export class Util {
     return description;
   }
 
-  static alleleDisplayName(allele: AlleleShort): string {
+  static alleleDisplayName(allele: AlleleShort|SolrAlleleSummary): string {
     let name = Util.tidyAlleleName(allele.name);
     let description = allele.description || '';
     let alleleType = allele.allele_type || 'unknown';

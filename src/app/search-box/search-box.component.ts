@@ -4,12 +4,14 @@ import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import { PombaseAPIService, GeneSummary, IdNameAndOrganism } from '../pombase-api.service';
-import { CompleteService, SolrTermSummary, SolrRefSummary } from '../complete.service';
+import { CompleteService, SolrTermSummary, SolrRefSummary, SolrAlleleSummary } from '../complete.service';
 import { getAppConfig, ConfigOrganism } from '../config';
 
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { switchMap } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
+import { DeployConfigService } from '../deploy-config.service';
+import { Util } from '../shared/util';
 
 class SearchSummary {
   constructor(
@@ -34,6 +36,7 @@ class DisplayModel {
               public uniquename: string,
               public name: string|undefined,
               public otherDetails: Array<string>,
+              public alleleGeneUniquename?: string,
               public organism?: ConfigOrganism) {
     if (this.name && this.name.length > 45) {
       this.name = this.name.slice(0, 42) + '...';
@@ -78,6 +81,7 @@ export class SearchBoxComponent implements OnInit {
 
   constructor(private completeService: CompleteService,
               private pombaseApiService: PombaseAPIService,
+              private deployConfigService: DeployConfigService,
               private router: Router) {
   }
 
@@ -94,7 +98,7 @@ export class SearchBoxComponent implements OnInit {
       otherDetails.unshift(orgDetails);
     }
 
-    return new DisplayModel('Matching genes:', uniquename, name, otherDetails, organism);
+    return new DisplayModel('Matching genes:', uniquename, name, otherDetails, undefined, organism);
   }
 
   private highlightMatch(pos: number, searchString: string, target?: string): string {
@@ -141,6 +145,29 @@ export class SearchBoxComponent implements OnInit {
 
     return new DisplayModel('Matching publications:', refResult.pubmedid, refResult.title,
                             [authorAndCitation]);
+  }
+
+  private makeAlleleDisplayModel(alleleResult: SolrAlleleSummary): DisplayModel {
+    let nameAndDescription = Util.alleleDisplayName(alleleResult);
+
+    let geneDisplayName = 'Gene: ';
+    if (alleleResult.gene_name) {
+      geneDisplayName += alleleResult.gene_name;
+    } else {
+      geneDisplayName += alleleResult.gene_uniquename;
+    }
+
+    let otherDetails = [geneDisplayName];
+
+    let fieldValue = this.fieldValue.trim().replace('Δ', 'delta').toLowerCase();
+
+    if (this.fieldValue && alleleResult.synonyms &&
+        alleleResult.synonyms.find(syn => syn.toLowerCase() === fieldValue)) {
+      otherDetails.push("Matching synonym: " + this.fieldValue);
+    }
+
+    return new DisplayModel('Matching alleles:', alleleResult.id, nameAndDescription,
+                            otherDetails, alleleResult.gene_uniquename);
   }
 
   private nameExactMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
@@ -400,6 +427,36 @@ export class SearchBoxComponent implements OnInit {
             }));
   }
 
+  getAlleleMatches(token: string): Observable<Array<DisplayModel>> {
+    token = token.replace('Δ', 'delta');
+    return this.completeService.completeAllele(token)
+      .pipe(
+        map((alleleResults: Array<SolrAlleleSummary>) => {
+          const trimToken = token.trim().toLowerCase();
+          const nameMatches =
+            alleleResults.filter(alleleSummary => {
+              if (alleleSummary.name &&
+                  alleleSummary.name.toLowerCase() === trimToken) {
+                    return true;
+              } else {
+                if (alleleSummary.synonyms &&
+                    alleleSummary.synonyms.find(syn => syn.toLowerCase() === trimToken)) {
+                  return true;
+                }
+              }
+              return false;
+            });
+          if (nameMatches.length > 0) {
+            alleleResults = nameMatches;
+          }
+          return alleleResults.map(alleleResult => this.makeAlleleDisplayModel(alleleResult));
+        }),
+        catchError(e => {
+          console.log('completion API call failed: ' + e.message);
+          return of([]);
+        }));
+  }
+
   observableFromToken(token: string): Observable<Array<DisplayModel>> {
     let observables = [];
     const geneSummaryObservable = of(this.summariesFromToken(token));
@@ -411,14 +468,20 @@ export class SearchBoxComponent implements OnInit {
       // for now we filter out systematic IDs because they cause Lucene problems
       const termResultsObservable = this.getTermMatches(token);
       const refResultsObservable = this.getRefMatches(token);
+
       observables.push(termResultsObservable);
       observables.push(refResultsObservable);
+
+      if (!this.deployConfigService.productionMode()) {
+        const alleleResultsObservable = this.getAlleleMatches(token);
+        observables.push(alleleResultsObservable);
+      }
     }
 
     const combined =
       combineLatest(observables)
         .pipe(
-          map(([geneRes, termRes, refRes]) => {
+          map(([geneRes, termRes, refRes, alleleRes]) => {
             const maxGenes = 8;
             const maxTerms = 6;
             const geneCount = geneRes.length;
@@ -429,15 +492,33 @@ export class SearchBoxComponent implements OnInit {
             if (!refRes) {
               refRes = [];
             }
+            if (!alleleRes) {
+              alleleRes = [];
+            }
 
             const termCount = termRes.length;
             let refCount = 5;
             if (geneCount + termCount < maxGenes + maxTerms) {
               refCount += (maxGenes + maxTerms) - (geneCount + termCount);
             }
+
+            let maxAlleles = 0;
+            if (geneCount == 0) {
+              maxAlleles = 5;
+            }
+
             this.waitingForServer = false;
-            return [...geneRes.slice(0, maxGenes), ...termRes.slice(0, maxTerms),
-            ...refRes.slice(0, refCount)];
+
+            if (this.deployConfigService.productionMode()) {
+              return [...geneRes.slice(0, maxGenes),
+                      ...termRes.slice(0, maxTerms),
+                      ...refRes.slice(0, refCount)];
+            } else {
+              return [...geneRes.slice(0, maxGenes),
+                      ...alleleRes.slice(0, maxAlleles),
+                      ...termRes.slice(0, maxTerms),
+                      ...refRes.slice(0, refCount)];
+             }
           }));
     return combined;
   }
@@ -522,13 +603,22 @@ export class SearchBoxComponent implements OnInit {
   }
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
-    if (e.item.matchType.toLowerCase().includes('gene')) {
-      this.router.navigate(['/gene', e.item.uniquename]);
+    const displayModel = e.item as DisplayModel;
+    if (displayModel.matchType.toLowerCase().includes('gene')) {
+      this.router.navigate(['/gene', displayModel.uniquename]);
     } else {
       if (e.item.matchType.toLowerCase().includes('term')) {
-        this.router.navigate(['/term', e.item.uniquename]);
+        this.router.navigate(['/term', displayModel.uniquename]);
       } else {
-        this.router.navigate(['/reference', e.item.uniquename]);
+        if (e.item.matchType.toLowerCase().includes('publication')) {
+          this.router.navigate(['/reference', displayModel.uniquename]);
+        } else {
+          if (this.deployConfigService.productionMode()) {
+            this.router.navigate(['/gene', displayModel.alleleGeneUniquename]);
+          } else {
+            this.router.navigate(['/allele', displayModel.uniquename]);
+          }
+        }
       }
     }
     this.clearBox();

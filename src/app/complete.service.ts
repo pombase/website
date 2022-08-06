@@ -76,6 +76,17 @@ export interface SolrRefSummary {
   highlighting: { [fieldName: string]: string };
 }
 
+export interface SolrAlleleSummary {
+  id: string;
+  name?: string;
+  allele_type: string;
+  description?: string;
+  gene_uniquename: string;
+  gene_name?: string;
+  synonyms?: Array<string>;
+  highlighting: { [fieldName: string]: string };
+}
+
 const retryOptions: RetryOptions = new RetryOptions('json', 600, 4, 3500);
 
 @Injectable()
@@ -168,6 +179,34 @@ export class CompleteService {
         });
 
         return resultRefs;
+      }));
+  }
+
+  completeAllele(queryText: string): Observable<SolrAlleleSummary[]> {
+    queryText = queryText.trim();
+    if (queryText.length === 0) {
+      return from([]);
+    }
+
+    queryText = queryText.replace(this.cleanRE, ' ');
+
+    const completeRefUrl = this.completeUrl + '/allele/' + queryText;
+
+    return this.httpRetry.getWithRetry(completeRefUrl, retryOptions)
+      .pipe(
+        map((body: HttpResponse<any>) => {
+        const parsedRes = body as any;
+        if (parsedRes['status'] !== 'Ok') {
+          return [];
+        }
+
+        const alleles = parsedRes['matches'];
+
+        const resultAlleles = alleles.map((allele: any) => {
+          return allele;
+        });
+
+        return resultAlleles;
       }));
   }
 }
