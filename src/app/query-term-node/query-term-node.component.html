@@ -57,15 +57,28 @@
 
   <div *ngIf="phenotypeConditionNamespace"
        class="phenotype-condition-selector phenotype-filter">
+
+       <div class="constraint-toggle">
     <input id="show-cond-select" type="checkbox" [(ngModel)]="showConditionSelector"
            (change)="conditionSelectorChanged()"
            title="Click to constrain results to genes that have the phenotype in a particular experimental condition"/>
     <label for="show-cond-select">Constrain condition<span *ngIf="showConditionSelector">:</span></label>
+       </div>
+      <div>
+        <div class="added-condition" *ngFor="let cond of phenotypeConditions">
+          {{cond.name}}
+          <a (click)="removePhenotypeCondition(cond)">
+            <img class="delete-cond" title="Remove this condition" src="/assets/delete_icon.svg"/>
+          </a>
+        </div>
     <app-term-name-complete *ngIf="showConditionSelector"
                             class="phenotype-condition-complete"
                             [cvName]="phenotypeConditionNamespace"
-                            [placeholder]="'Start typing a phenotype condition, eg. low temperature'"
+                            [placeholder]="termCompletePlaceholder(phenotypeConditions)"
+                            [clearWhenMatched]="true"
                             (termMatched)="phenotypeConditionMatched($event)"></app-term-name-complete>
+      </div>
+
   </div>
 
   <div *ngIf="!deployConfigService.productionMode() && phenotypeConditionNamespace"

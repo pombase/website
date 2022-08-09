@@ -42,3 +42,19 @@ div.phenotype-condition-selector {
 .node-bottom-description {
   padding: 1em 0;
 }
+
+.phenotype-condition-selector > div {
+  display: inline-block;
+}
+
+.constraint-toggle {
+  vertical-align: top;
+}
+
+.added-condition {
+  margin: 0.5em 1em 0.5em 1em;
+}
+
+.delete-cond {
+  height: 1em;
+}
