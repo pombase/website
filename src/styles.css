@@ -75,6 +75,7 @@ a, a:not([href]):not([tabindex]) {
   font-size: 110%;
   border: 0;
   border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
   padding: 0.5em 0;
   display: inline-block;
   max-width: 1400px;
