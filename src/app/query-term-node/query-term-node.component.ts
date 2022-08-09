@@ -60,8 +60,18 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
     this.selectedTerm = term;
   }
 
-  phenotypeConditionMatched(term: TermShort) {
-    this.phenotypeConditions = [term];
+  phenotypeConditionMatched(term: TermShort): void {
+    if (!this.phenotypeConditions.find(el => el.termid === term.termid)) {
+      this.phenotypeConditions.push(term);
+    }
+  }
+
+  removePhenotypeCondition(term: TermAndName): void {
+    const deleteIndex = this.phenotypeConditions.findIndex(el => el.termid === term.termid);
+
+    if (deleteIndex > -1) {
+      this.phenotypeConditions.splice(deleteIndex, 1);
+    }
   }
 
   phenotypeExcludeConditionMatched(term: TermShort) {
@@ -77,6 +87,14 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   excludeConditionSelectorChanged(): void {
     if (!this.showExcludeConditionSelector) {
       this.phenotypeExcludeConditions = [];
+    }
+  }
+
+  termCompletePlaceholder(conditions: Array<TermAndName>): string {
+    if (conditions.length == 0) {
+      return 'Start typing a phenotype condition, eg. low temperature';
+    } else {
+      return 'Add another phenotype condition';
     }
   }
 

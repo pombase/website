@@ -15,6 +15,7 @@ import { TermShort } from '../pombase-query';
 export class TermNameCompleteComponent implements OnInit, OnChanges {
   @Input() cvName: string;
   @Input() placeholder = 'start typing ...';
+  @Input() clearWhenMatched = false;
   @Output() termMatched = new EventEmitter();
   dataSource: Observable<TermShort[]>;
 
@@ -42,5 +43,9 @@ export class TermNameCompleteComponent implements OnInit, OnChanges {
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
     this.termMatched.emit(e.item);
+
+    if (this.clearWhenMatched) {
+      this.selectedTerm = '';
+    }
   }
 }
