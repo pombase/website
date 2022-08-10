@@ -13,9 +13,26 @@
   margin: 0.2em 3em 0.2em 0;
 }
 
-.allele-details-genotypes {
+.allele-details-genotypes > div, .allele-details-phenotypes > div {
   margin-top: 2em;
   font-size: 130%;
+}
+
+@media (min-width: 800px) {
+  .allele-flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 5%;
+  }
+
+  .allele-details-genotypes, .allele-details-phenotypes {
+    vertical-align: top;
+  }
+
+  .allele-details-genotypes {
+    min-width: 20em;
+  }
 }
 
 .all-alleles-link {

@@ -89,6 +89,7 @@ export interface AlleleDetails {
   description: string;
   synonyms: Array<SynonymDetails>;
   genotypes: Array<GenotypeShort>;
+  phenotypes: Array<TermShort>;
 }
 
 export interface TranscriptMap {

@@ -3,7 +3,7 @@ import { SolrTermSummary } from '../complete.service';
 import { getAnnotationTableConfig, getXrf } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
 import { getAppConfig } from '../config';
-import { TermShort } from '../pombase-query';
+import { TermAndName } from '../pombase-query';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
@@ -12,7 +12,7 @@ import { PopoverDirective } from 'ngx-bootstrap/popover';
   styleUrls: ['./term-link.component.css']
 })
 export class TermLinkComponent implements OnInit {
-  @Input() term: TermShort;
+  @Input() term: TermAndName;
   @Input() hideTermIdPrefix = false;
 
   @ViewChild('link', {static: false}) link: PopoverDirective;

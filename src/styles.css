@@ -67,7 +67,7 @@ a, a:not([href]):not([tabindex]) {
   }
 }
 
-.details-page-name-and-id .name-id-highlight {
+.name-id-highlight {
   font-weight: bold;
 }
 

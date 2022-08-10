@@ -24,8 +24,9 @@
         View <a routerLink="/gene_alleles/{{alleleDetails.gene.uniquename}}">all alleles of {{geneDisplayName}}</a>
       </div>
 
-      <div>
-        <div class="allele-details-genotypes" *ngIf="singleLocusGenotypes.length != 0">
+      <div class="allele-flex-container">
+      <div class="allele-details-genotypes">
+        <div *ngIf="singleLocusGenotypes.length != 0">
           <h5>
             Single locus genotypes:
           </h5>
@@ -33,7 +34,7 @@
             <app-genotype-link [genotype]="genotypeObj.genotypeShort"></app-genotype-link>
           </div>
         </div>
-        <div class="allele-details-genotypes" *ngIf="multiLocusGenotypes.length != 0">
+        <div *ngIf="multiLocusGenotypes.length != 0">
           <h5>
             Multi locus genotypes:
           </h5>
@@ -42,6 +43,18 @@
           </div>
         </div>
       </div>
+
+      <div class="allele-details-phenotypes">
+        <div *ngIf="alleleDetails.phenotypes">
+          <h5>Phenotypes of <span class="name-id-highlight" [innerHTML]="displayName"></span>:</h5>
+          <div *ngFor="let phenotype of alleleDetails.phenotypes">
+            <app-term-link [term]="phenotype">
+              {{phenotype.name}}
+            </app-term-link>
+          </div>
+        </div>
+      </div>
+    </div>
    </div>
 </div>
 
