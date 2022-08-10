@@ -2,3 +2,11 @@
   padding: 0 0 10px 0;
   font-size: 120%;
 }
+
+.gene-alleles-link {
+  font-size: 110%;
+}
+
+.annotation-table-slim, .gene-alleles-link {
+  margin-bottom: 0.8em;
+}

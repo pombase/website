@@ -18,6 +18,11 @@
       </app-slim-summary>
     </div>
 
+  <div class="gene-alleles-link"
+       *ngIf="geneDetails && !deployConfigService.productionMode() && typeConfig.feature_type && typeConfig.feature_type == 'genotype'">
+    <a routerLink="/gene_alleles/{{geneDetails.uniquename}}">View all alleles of <span class="name-id-highlight">{{geneDetails.displayName}}</span></a>
+  </div>
+
   <div *ngIf="split_by_parents.length == 0">
     <app-annotation-sub-table
        [annotationTypeName]="annotationTypeName"

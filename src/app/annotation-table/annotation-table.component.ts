@@ -3,6 +3,7 @@ import { TermAnnotation, GeneDetails } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          SplitByParentsConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-annotation-table',
@@ -26,7 +27,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   split_by_parents: Array<SplitByParentsConfig> = [];
   helpIconTitle = 'Click to view documention';
 
-  constructor() { }
+  constructor(public deployConfigService: DeployConfigService) { }
 
   maybeDoSplit() {
     if (this.annotationTable && this.typeConfig && this.typeConfig.split_by_parents) {
