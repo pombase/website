@@ -48,13 +48,6 @@ export class AlleleDetailsComponent implements OnInit {
         this.multiLocusGenotypes.push(displayGenotype);
       }
     }
-
-    const genotypeSorter = (a: DisplayGenotype, b: DisplayGenotype): number => {
-      return a.displayName.localeCompare(b.displayName);
-    };
-
-    this.singleLocusGenotypes.sort(genotypeSorter);
-    this.multiLocusGenotypes.sort(genotypeSorter);
   }
 
   genotypeDisplayName(genotype: GenotypeShort): string {
