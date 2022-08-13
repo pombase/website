@@ -544,6 +544,12 @@ export class TermDetails {
   references_by_uniquename: { [referenceUniquename: string]: ReferenceShort };
 }
 
+export class AnnotationCurator {
+  name: string;
+  community_curator: boolean;
+  annotation_count: number;
+}
+
 export class ReferenceDetails {
   uniquename: string;
   title: string;
@@ -557,6 +563,7 @@ export class ReferenceDetails {
   canto_curator_role: string;
   canto_curator_name: string;
   canto_approved_date: string;
+  annotation_curators: Array<AnnotationCurator>;
   approved_date: string;
   canto_session_submitted_date: string;
   publication_year: string;

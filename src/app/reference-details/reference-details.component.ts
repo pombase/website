@@ -6,7 +6,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
          getAppConfig, AppConfig, getJBrowseTracksByPMID, getXrfWithPrefix, DetailsPageLinkConfig } from '../config';
 import { Util } from '../shared/util';
 
-import { ReferenceDetails, PombaseAPIService, APIError } from '../pombase-api.service';
+import { ReferenceDetails, PombaseAPIService, APIError, AnnotationCurator } from '../pombase-api.service';
 
 @Component({
   selector: 'app-reference-details',
@@ -26,7 +26,7 @@ export class ReferenceDetailsComponent implements OnInit {
   pubMedId?: string;
   apiError?: APIError;
   cantoCuratorName?: string;
-  isStaffCurator = false;
+  hasStaffCurator = false;
   cantoTriageStatus = 'UNKNOWN';
 
   multiOrgMode = getAppConfig().isMultiOrganismMode();
@@ -35,6 +35,9 @@ export class ReferenceDetailsComponent implements OnInit {
   bigGraphicalAbstractImagePath?: string;
   videoPath?: string;
   doiUrl?: string;
+
+  communityCuratorNames?: string;
+  adminCuratorList: Array<AnnotationCurator> = [];
 
   externalLinks?: Array<DetailsPageLinkConfig>;
 
@@ -61,15 +64,35 @@ export class ReferenceDetailsComponent implements OnInit {
 
   setCantoFields(): void {
     this.cantoCuratorName = undefined;
-    this.isStaffCurator =
-      !this.refDetails.canto_curator_role ||
-      this.refDetails.canto_curator_role !== 'community';
-
-    if (!this.isStaffCurator || this.appConfig.show_names_of_staff_curators) {
-      this.cantoCuratorName = this.refDetails.canto_curator_name;
-    }
 
     this.cantoTriageStatus = this.refDetails.canto_triage_status;
+
+    this.hasStaffCurator = true;
+
+    this.communityCuratorNames = undefined;
+    this.adminCuratorList = [];
+
+    let communityCuratorList = [];
+
+    for (const curator of this.refDetails.annotation_curators) {
+      if (curator.community_curator) {
+        communityCuratorList.push(curator.name);
+        this.hasStaffCurator = false
+      } else {
+        if (this.appConfig.show_names_of_staff_curators) {
+          this.adminCuratorList.push(curator);
+        }
+      }
+    }
+
+    if (communityCuratorList.length == 1) {
+      this.communityCuratorNames = communityCuratorList[0];
+    } else {
+      if (communityCuratorList.length > 1) {
+        const lastName = communityCuratorList.pop();
+        this.communityCuratorNames = communityCuratorList.join(', ') + ' and ' + lastName;
+      }
+    }
   }
 
   hasApprovedSession(): boolean {
