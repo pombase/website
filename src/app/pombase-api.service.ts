@@ -81,6 +81,11 @@ export interface AlleleMap {
   [uniquename: string]: AlleleShort;
 }
 
+export interface CommentAndReference {
+  comment: string;
+  reference_uniquename?: string;
+}
+
 export interface AlleleDetails {
   gene: GeneShort;
   uniquename: string;
@@ -90,7 +95,7 @@ export interface AlleleDetails {
   synonyms: Array<SynonymDetails>;
   genotypes: Array<GenotypeShort>;
   phenotypes: Array<TermShort>;
-  comments: Array<string>;
+  comments: Array<CommentAndReference>;
 }
 
 export interface TranscriptMap {

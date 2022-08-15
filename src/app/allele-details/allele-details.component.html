@@ -16,8 +16,15 @@
         <div>{{alleleDetails.allele_type}}</div>
         <div *ngIf="synonymString" class="details-label">Synonyms</div>
         <div *ngIf="synonymString">{{synonymString}}</div>
-        <div *ngIf="joinedComments" class="details-label">Comment</div>
-        <div *ngIf="joinedComments">{{joinedComments}}</div>
+        <div *ngIf="alleleDetails.comments.length > 0" class="details-label">Comment</div>
+        <div *ngIf="alleleDetails.comments.length > 0">
+          <div *ngFor="let commentDetails of alleleDetails.comments">
+            {{commentDetails.comment}}
+            <span *ngIf="commentDetails.reference_uniquename">
+              (<a routerLink="/reference/{{commentDetails.reference_uniquename}}">{{commentDetails.reference_uniquename}}</a>)
+            </span>
+          </div>
+        </div>
         <div class="details-label">Gene</div>
         <div><a routerLink="/gene/{{alleleDetails.gene.uniquename}}">{{geneDisplayName}}</a></div>
       </div>
