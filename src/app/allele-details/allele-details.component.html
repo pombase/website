@@ -16,6 +16,8 @@
         <div>{{alleleDetails.allele_type}}</div>
         <div *ngIf="synonymString" class="details-label">Synonyms</div>
         <div *ngIf="synonymString">{{synonymString}}</div>
+        <div *ngIf="joinedComments" class="details-label">Comment</div>
+        <div *ngIf="joinedComments">{{joinedComments}}</div>
         <div class="details-label">Gene</div>
         <div><a routerLink="/gene/{{alleleDetails.gene.uniquename}}">{{geneDisplayName}}</a></div>
       </div>

@@ -90,6 +90,7 @@ export interface AlleleDetails {
   synonyms: Array<SynonymDetails>;
   genotypes: Array<GenotypeShort>;
   phenotypes: Array<TermShort>;
+  comments: Array<string>;
 }
 
 export interface TranscriptMap {
@@ -1033,11 +1034,10 @@ export class PombaseAPIService {
 
 
   processAlleleResponse(json: any): AlleleDetails {
-    if (!json.synonyms) {
-      json.synonyms = [];
-    }
-    if (!json.genotypes) {
-      json.genotypes = [];
+    for (let fieldName of ['comments', 'synonyms', 'genotypes', 'phenotypes']) {
+      if (typeof(json[fieldName]) === 'undefined') {
+        json[fieldName] = [];
+      }
     }
 
     let alleleDetails = json as AlleleDetails;

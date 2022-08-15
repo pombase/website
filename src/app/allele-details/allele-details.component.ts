@@ -26,6 +26,7 @@ export class AlleleDetailsComponent implements OnInit {
   singleLocusGenotypes: Array<DisplayGenotype> = [];
   multiLocusGenotypes: Array<DisplayGenotype> = [];
   geneDisplayName = '';
+  joinedComments?: string;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -89,6 +90,11 @@ export class AlleleDetailsComponent implements OnInit {
             this.makeGenotypes();
             this.apiError = undefined;
             this.geneDisplayName = alleleDetails.gene.name || alleleDetails.gene.uniquename;
+            if (alleleDetails.comments.length > 0) {
+              this.joinedComments = alleleDetails.comments.join(', ');
+            } else {
+              this.joinedComments = undefined;
+            }
           })
           .catch(error => {
             this.apiError = error;
