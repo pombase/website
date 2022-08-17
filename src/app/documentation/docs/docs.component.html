@@ -643,6 +643,19 @@ In Kollar M (ed) <em>Eukaryotic Genomic Databases. Methods in Molecular Biology<
 <h3 id="more">More</h3>
 <p>Posters and slides from conferences and workshops are available on the <a routerLink="/documents">Documents</a> page.</p>
 <h2 id="collaborative-publications-including-pombase-authors">Collaborative publications including PomBase authors</h2>
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1093/database/baac062">
+
+</div>
+<div class="pub-citation">
+<p>Valérie de Crécy-lagard <em>et al.</em> (including Val Wood)<br />
+A roadmap for the functional annotation of protein families: a community perspective<br />
+<em>DATABASE</em>, Volume 2022, 2022, baac062<br />
+</p>
+</div>
+<p><a href="http://www.ncbi.nlm.nih.gov/pubmed/35961013">PMID:35961013</a> <a href="https://doi.org/10.1093/database/baac062">10.1093/database/baac062</a></p>
+<div class="clear-float">
+
+</div>
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1093/nar/gkab1037">
 
 </div>
@@ -8060,11 +8073,26 @@ Search documentation, news archive and FAQ:
 <div (click)="faq_navigate($event, '/faq/can-i-access-pombase-via-api', 'Can I access PomBase via an API?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-api' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-access-pombase-via-api">Can I access PomBase via an API?</h3>
 <!-- pombase_categories: Tools and resources -->
-<p>PomBase does not have an API at present.</p>
-<p>The Ensembl API can be used to query <em>S. pombe</em> data. Note, however, that EG is updated much less frequently than PomBase, so EG data will rarely be as up-to-date as the PomBase web site. Documentation is available:</p>
+<p>There are two APIs for PomBase data:</p>
+<ul>
+<li>InterMine: more advanced and is updated regularly</li>
+<li>Ensembl: updated less often but is better known</li>
+</ul>
+<h5 id="intermine-api">InterMine API</h5>
+<p>The PomBase data can be accessed programmatically using the InterMine API. See the <a href="https://intermine.readthedocs.io/en/latest/web-services/">InterMine Documentation and examples</a> to find out more.</p>
+<p>Available data types include:</p>
+<ul>
+<li>gene and protein identifiers and other properties</li>
+<li>allele and genotypes</li>
+<li>annotation details (genes, genotypes, ontology terms, evidence codes and PubMed IDs)</li>
+</ul>
+<p>InterMine Client libraries are available in multiple languages.</p>
+<h5 id="ensembl-api">Ensembl API</h5>
+<p>This API can be used to query <em>S. pombe</em> data in Ensembl Genomes. Note that EG is updated much less frequently than PomBase, so EG data will rarely be as up-to-date as the PomBase web site.</p>
+<p>Documentation:</p>
 <ol type="1">
-<li><a href="http://www.ensembl.org/info/docs/api/index.html">Ensembl Genomes Perl API installation and basic use instructions</a> (with links to additional Ensembl API documentation)</li>
-<li><a href="http://www.ensembl.org/info/docs/api/core/core_tutorial.html">Tutorial for using the API with the core database</a> - Includes examples about connecting to the database, retrieving chromosomes, genes, transcript and translations along with the corresponding xrefs.</li>
+<li><a href="http://www.ensembl.org/info/docs/api/index.html">Ensembl Genomes Perl API installation and basic use instructions</a> - Includes links to additional Ensembl API documentation</li>
+<li><a href="http://www.ensembl.org/info/docs/api/core/core_tutorial.html">Tutorial for using the API with the core database</a> - Includes examples about connecting to the database, retrieving chromosomes, genes, transcript and translations along with the corresponding xrefs</li>
 </ol>
 
 </div>
@@ -9531,6 +9559,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-august-17th">Next pombeTalks: Wednesday, August 17th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-july-20th">Next pombeTalks: Wednesday, July 20th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-wednesday-june-15th">PombeTalks Wednesday June 15th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-may-18th">PombeTalks May 18th</a></div>
@@ -11627,7 +11656,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
   </div>
   <div *ngIf="pageName == 'pombetalks-july-20th'">
 <h3 id="next-pombetalks-wednesday-july-20th">Next pombeTalks: Wednesday, July 20th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next online pombeTalks will take place on Wednesday, July 20th. These talks are virtual seminars by and for the fission yeast community and friends.</p>
 <p>0:00 San Francisco / 3:00 New York / 8:00 London / 9:00 Paris / 12:30 Delhi / 15:00 Beijing / 16:00 Tokyo.</p>
@@ -11641,9 +11669,40 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and <a href="http://spombe.slack.com">pombeSlack</a> one day in advance, so make sure you’ve signed up.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-aug-13'">
+<h3 id="next-pombetalks-wednesday-august-17th">Next pombeTalks: Wednesday, August 17th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online pombeTalks will take place on <strong>Wednesday, August 17th</strong>. These talks are virtual seminars by and for the fission yeast community and friends.</p>
+<p>8:00 San Francisco / 11:00 NY / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / midnight Tokyo</p>
+<p>Talks this session:</p>
+<ul>
+<li><strong>Pranas Grigaitis</strong>, Vrije Universiteit Amsterdam<br />
+<em>“Prediction of metabolic strategies in Schizosaccharomyces pombe based on optimal resource allocation”</em></li>
+<li><strong>Abhishek Poddar</strong>, University of Toledo<br />
+<em>“Membrane stretching activates calcium-permeability of a putative channel Pkd2 during fission yeast cytokinesis”</em></li>
+</ul>
+<p>As always, connection details will be sent the day of the talk. For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the #pombetalks-qna channel.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2022-08-13-pombetalks-aug-13" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-august-17th">Next pombeTalks: Wednesday, August 17th</h3>
+<p><em>2022-08-13</em></p>
+<p>The next online pombeTalks will take place on <strong>Wednesday, August 17th</strong>. These talks are virtual seminars by and for the fission yeast community and friends.</p>
+<p>8:00 San Francisco / 11:00 NY / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / midnight Tokyo</p>
+<p>Talks this session:</p>
+<ul>
+<li><strong>Pranas Grigaitis</strong>, Vrije Universiteit Amsterdam<br />
+<em>“Prediction of metabolic strategies in Schizosaccharomyces pombe based on optimal resource allocation”</em></li>
+<li><strong>Abhishek Poddar</strong>, University of Toledo<br />
+<em>“Membrane stretching activates calcium-permeability of a putative channel Pkd2 during fission yeast cytokinesis”</em></li>
+</ul>
+<p>As always, connection details will be sent the day of the talk. For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the #pombetalks-qna channel.</p>
+</div>
 <div id="2022-07-12-pombetalks-july-20th" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-july-20th">Next pombeTalks: Wednesday, July 20th</h3>
