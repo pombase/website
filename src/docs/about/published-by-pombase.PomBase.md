@@ -179,6 +179,18 @@ Posters and slides from conferences and workshops are available on the [Document
 
 ## Collaborative publications including PomBase authors
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/database/baac062"></div>
+
+<div class="pub-citation">
+Valérie de Crécy-lagard *et al.* (including Val Wood) \
+A roadmap for the functional annotation of protein families: a community perspective \
+*DATABASE*, Volume 2022, 2022, baac062 \
+</div>
+[PMID:35961013](http://www.ncbi.nlm.nih.gov/pubmed/35961013) [10.1093/database/baac062](https://doi.org/10.1093/database/baac062)
+
+<div class="clear-float"></div>
+
+
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkab1037"></div>
 
 <div class="pub-citation">
