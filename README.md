@@ -41,9 +41,9 @@ https://github.com/pombase/pombase-chado-json
 This is needed when the Markdown documentation changes or if the front
 page panel config changes.
 
-`./etc/update_generated_files.sh pombase-website/main_config.json pombase-curation/data_files/`
+`./etc/update_generated_files.sh pombase-config/website/pombase_v2_config.json curation/data_files/`
 
 where:
 
- - `pombase-website` is a checkout of https://github.com/pombase/website
  - `pombase-config` is a checkout of https://github.com/pombase/pombase-config
+ - `curation` is a checkout of https://github.com/pombase/curation
