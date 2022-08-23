@@ -590,7 +590,7 @@ sub process_path {
 
         add_to_json("$path/$page_name", $page_title, $contents);
       } else {
-        die "can't find header in: $contents\n";;
+        die "can't find header in: $path/$page_name\n";;
       }
 
       print $docs_component_fh markdown($contents, "$path/$page_name", 'html' ), "\n";
