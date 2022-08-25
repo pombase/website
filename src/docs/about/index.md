@@ -1,13 +1,28 @@
 ## About ${database_name}
 
-${database_name} is a model organism database that provides organization of
-and access to scientific data for the fission yeast
-*${genus_and_species}*. ${database_name} supports genomic sequence and
-features, genome-wide datasets and manual literature curation.
+${database_name} is the comprehensive model organism knowledgebase or the fission yeast *${genus_and_species}*, which aims to standardise, integrate, display, and disseminate biological knowledge and datasets to the wider scientific community, making a wide range of data-types from large and small-scale publications [FAIR](https://pubmed.ncbi.nlm.nih.gov/26978244/).
 
-${database_name} also provides a community hub for researchers, providing
-genome statistics, a community curation interface, news, events,
-documentation and mailing lists.
+You can use ${database_name} to:
+
+- Access and query manually **curated literature** annotations:
+  - **Gene Ontology (GO)** annotations describing the normal (evolved) roles and locations of gene products.
+  - **Phenotype** annotations linked to the alleles and genotypes that cause them.
+  - **Genetic and Physical interactions** between genes.
+  - **Protein modifications,** the gene products that add/ remove them, when in the cell cycle they occur or under which environmental conditions, .
+  - **Phylogenetic** information and **gene complementation.**
+- **Browse the genome** of *${genus_and_species}*, and access **gene sequences and features** (UTRs, exons and introns, protein sequence features).
+- Download **genome-wide datasets**.
+
+${database_name} is also a community hub for researchers providing news, events, documentation, mailing lists, genome statistics, and a community curation interface. New to the fission yeast community? Visit our [getting started page](documentation/getting-started).
+
+%%if db=PomBase
+## More about ${database_name}:
+
+  - ${database_name} promotes **community curation**, involving authors in the curation of their published research. This increases curation quality, and allows researchers to become familiar with the data organisation and supported data types. We developed [<u>Canto</u>](https://github.com/pombase/canto), a web-based curation tool to support professional and community curation that is also used by [<u>FlyBase</u>](https://flybase.org/), [<u>PHI-Base</u>](http://www.phi-base.org/) and [<u>JaponicusDB</u>](https://www.japonicusdb.org/). [Read more](community/fission-yeast-community-curation-project) about community curation.
+  - We provide over **300.000 curated standardised annotations** and our 27.000 experimentally supported GO annotations support more than 687.000 species-wide annotations in other key model species. [<u>See our stats</u>](https://curation.pombase.org/pombe/stats/annotation)
+  - We actively participate in the **development of several ontologies** to extend and improve standards that represent the knowledge produced by researchers.
+  - See all of our [ongoing collaborations](/about/collaborations).
+%%end db=PomBase
 
 %%if db=JaponicusDB
 JaponicusDB was established with support from the [Wellcome
