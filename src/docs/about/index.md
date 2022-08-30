@@ -21,7 +21,7 @@ ${database_name} is also a community hub for researchers providing news, events,
   - ${database_name} promotes **community curation**, involving authors in the curation of their published research. This increases curation quality, and allows researchers to become familiar with the data organisation and supported data types. We developed [<u>Canto</u>](https://github.com/pombase/canto), a web-based curation tool to support professional and community curation that is also used by [<u>FlyBase</u>](https://flybase.org/), [<u>PHI-Base</u>](http://www.phi-base.org/) and [<u>JaponicusDB</u>](https://www.japonicusdb.org/). [Read more](community/fission-yeast-community-curation-project) about community curation.
   - We provide over **300.000 curated standardised annotations** and our 27.000 experimentally supported GO annotations support more than 687.000 species-wide annotations in other key model species. [<u>See our stats</u>](https://curation.pombase.org/pombe/stats/annotation)
   - We actively participate in the **development of several ontologies** to extend and improve standards that represent the knowledge produced by researchers.
-  - See all of our [ongoing collaborations](/about/collaborations).
+  - See all of our ongoing [collaborations](/about/collaborations) and [projects](/about/projects).
 %%end db=PomBase
 
 %%if db=JaponicusDB
