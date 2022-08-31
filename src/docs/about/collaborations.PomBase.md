@@ -15,6 +15,9 @@
   - The [**Term Matrix annotation QC**](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7536087/) project, a framework to develop rules to identify potentially incorrect GO annotations by identifying genes annotated to two biological processes unlikely to be co-annotated to the same gene products.
   - **Revision of the Gene Ontology terms of chromatin-related processes** to improve the GO representation of chromatin and epigenetics curation, since fission yeast is a major model species for this research field.
 
+<!--- Hacky space -->
+<div></div>
+
 - **[PHI-base](http://www.phi-base.org/)** is a pathogen-host interaction database. ${database_name} supports PHI-base by adapting Canto (our community curation tool) for their curation and advising on phenotype ontology and literature curation.
 
 - **[FlyBase](https://flybase.org/)** is a model organism for *Drosophila*. ${database_name} supports FlyBase by adapting Canto (our community curation tool) for their complex phenotype annotation.
