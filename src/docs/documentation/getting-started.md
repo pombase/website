@@ -39,7 +39,7 @@ ${database_name} is centred around **Gene Pages** so this is a good place to beg
 
 At the top of the page, you will find some basic information about the locus and gene product. Immediately below is a view of the genomic context of the gene in the JBrowse genome browser. (documentation to access browser data tracks is [here](/documentation/JBrowse_quick_start)):
 
-![Top of gene page](assets/gene_page_top_part.png "Top of the gene page"){width="700"}
+![Top of gene page](assets/gene_page_top_part.png){width="700"}
 
 <details>
 <summary>
