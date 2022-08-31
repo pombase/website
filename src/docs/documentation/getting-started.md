@@ -90,51 +90,53 @@ On the left side of the **Gene Page**, there is a menu listing the sections in t
 
 You can query ${database_name} annotations using a Graphical User Interface, the “Advanced search” ([https://www.pombase.org/query](https://www.pombase.org/query)). You can make lists of genes that satisfy a certain condition, and perform operations with these lists. Below some examples:
 
-* Disease-associated genes that give a cytoskeleton phenotype in *${genus_and_species}*:
-    <details>
-    <summary>Read how to make this query…</summary>
+Disease-associated genes that give a cytoskeleton phenotype in *${genus_and_species}*:
+
+<details>
+<summary>Read how to make this query…</summary>
 
   - Get the list of all disease-associated genes:
-    - Click on *Commonly used queries \> All disease associated genes.*
+      - Click on *Commonly used queries \> All disease associated genes.*
   - Get the list of all genes annotated with a cytoskeleton phenotype:
-    - Click on *Phenotype*
-    - Type “abnormal cytoskeleton” and select FYPO:0002397.
-    - Click on *Submit*
+      - Click on *Phenotype*
+      - Type “abnormal cytoskeleton” and select FYPO:0002397.
+      - Click on *Submit*
   - You should see two queries in the *Combine queries* table below named “genes annotated with "abnormal cytoskeleton" \[…\]” and ”All disease associated genes”. Select both by clicking on the tickbox on the left.
   - Then click on *intersect / and*. This will generate an intersection of both lists (genes present in both) with genes that satisfies both conditions.
   - The number in the “Results” column is the number of genes that satisfy those conditions. Click on it to see the lists of genes.
   - In that page, you can choose the columns to be displayed, and export your data for further usage.
+
 </details>
 
-* Genes that locate to the Golgi apparatus or the endoplasmic reticulum and cause an exocytosis or endocytosis phenotype.
+Genes that locate to the Golgi apparatus or the endoplasmic reticulum and cause an exocytosis or endocytosis phenotype.
 
-    <details>
-    <summary>Read how to make this query…</summary>
+<details>
+<summary>Read how to make this query…</summary>
 
   - Get the list of all genes that have annotations saying that one of their gene products locates to the Golgi apparatus (they are annotated to GO:0005794, “Golgi apparatus”):
-    - Click on *GO*
-    - Type “Golgi apparatus” and select GO:0005794.
-    - Click on Submit
+  - Click on *GO*
+  - Type “Golgi apparatus” and select GO:0005794.
+  - Click on Submit
   - Get the list of all genes that have annotations saying that one of their gene products locates to the endoplasmic reticulum (they are annotated to GO:0005783, "endoplasmic reticulum").
-    - Click on *GO*
-    - Type “endoplasmic reticulum” and select GO:0005783.
-    - Click on Submit
+  - Click on *GO*
+  - Type “endoplasmic reticulum” and select GO:0005783.
+  - Click on Submit
   - In the *Combine queries* table below, select both *genes annotated with "Golgi apparatus"* and *genes annotated with "endoplasmic reticulum"* by clicking on the tickbox on the left.
   - Then click on *Union / or*. This will generate a union of both lists (genes present in either of the lists) with genes that satisfy either condition.
   - Get the list of all genes annotated with an exocytosis phenotype:
-    - Click on *Phenotype*
-    - Type “abnormal exocytosis” and select FYPO:0007873
-    - Click on *Submit*
+  - Click on *Phenotype*
+  - Type “abnormal exocytosis” and select FYPO:0007873
+  - Click on *Submit*
   - Get the list of all genes annotated with an endocytosis phenotype:
-    - Click on *Phenotype*
-    - Type “abnormal endocytosis” and select FYPO:0003886
-    - Click on *Submit*
+  - Click on *Phenotype*
+  - Type “abnormal endocytosis” and select FYPO:0003886
+  - Click on *Submit*
   - Do a union of the phenotype lists, as for the GO terms.
   - Still in the *Combine queries* table, select both union lists, and click on *intersect / and*. This will generate an intersection of both lists (genes present in both) with genes that satisfies both conditions.
   - The number in the “Results” column is the number of genes that satisfy those conditions. Click on it to see the lists of genes.
   - In that page, you can choose the columns to be displayed, and export your data for further usage.
 
-  </details>
+</details>
 
 Full documentation of advanced search can be found [here](/documentation/advanced-search).
 
