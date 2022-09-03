@@ -14,7 +14,7 @@ my $web_config_file_name = shift;
 my $docs_dir = shift;
 my $assets_dir = shift;
 
-die "$0: exiting: needs three arguments\n" unless $web_config_file_name;
+die "$0: exiting: needs three arguments\n" unless $assets_dir;
 
 use File::Find;
 
