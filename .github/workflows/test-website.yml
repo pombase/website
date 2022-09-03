@@ -41,4 +41,4 @@ jobs:
            echo generating doc files: && \
            ./etc/update_generated_files.sh main_config.json pombase-curation/data_files/ && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress && \
            echo checking for broken links: && \
-           ./etc/check_docs_broken_links.pl src/docs src/assets main_config.json
+           ./etc/check_docs_broken_links.pl main_config.json src/docs src/assets

@@ -2,17 +2,17 @@
 
 # run this script in the main website directory to find broken internal links:
 #
-#   ./etc/check_docs_broken_links.pl src/docs src/assets PomBase
+#   ./etc/check_docs_broken_links.pl config.json src/docs src/assets
 
 
 use strict;
 use warnings;
 use Carp;
 
+my $web_config_file_name = shift;
+
 my $docs_dir = shift;
 my $assets_dir = shift;
-
-my $web_config_file_name = shift;
 
 die "$0: exiting: needs three arguments\n" unless $web_config_file_name;
 
