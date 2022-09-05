@@ -26,10 +26,6 @@
                         [(highlightedId)]="highlightedId">
   </app-interpro-matches>
 
-  <div *ngIf="geneDetails.uniprot_identifier" class="pfam-structure">
-    Domain organization at <a href="http://pfam.xfam.org/protein/{{geneDetails.uniprot_identifier}}">Pfam ...</a>
-  </div>
-
   <div class="tm-domains">
     <div *ngIf="geneDetails.tm_domain_coords.length == 0" class="protein-feature-title">
       No predicted trans-membrane domains
