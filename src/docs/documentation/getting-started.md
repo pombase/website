@@ -177,90 +177,91 @@ On the left side of the **Gene Page**, there is a menu listing the sections in t
 
 You can query ${database_name} annotations using a Graphical User Interface, the “Advanced search” ([https://www.pombase.org/query](https://www.pombase.org/query)). You can make lists of genes that satisfy a certain condition, and perform operations with these lists. Below some examples:
 
-<p>Disease-associated genes that give a cytoskeleton phenotype in
-<em>${genus_and_species}</em>:</p>
-<details>
-<summary>
-Read how to make this query…
-</summary>
-<ul>
-<li>Get the list of all disease-associated genes:
-<ul>
-<li>Click on <em>Commonly used queries &gt; All disease associated
-genes.</em></li>
-</ul></li>
-<li>Get the list of all genes annotated with a cytoskeleton phenotype:
-<ul>
-<li>Click on <em>Phenotype</em></li>
-<li>Type “abnormal cytoskeleton” and select FYPO:0002397.</li>
-<li>Click on <em>Submit</em></li>
-</ul></li>
-<li>You should see two queries in the <em>Combine queries</em> table
-below named “genes annotated with”abnormal cytoskeleton” […]” and ”All
-disease associated genes”. Select both by clicking on the tickbox on the
-left.</li>
-<li>Then click on <em>intersect / and</em>. This will generate an
-intersection of both lists (genes present in both) with genes that
-satisfies both conditions.</li>
-<li>The number in the “Results” column is the number of genes that
-satisfy those conditions. Click on it to see the lists of genes.</li>
-<li>In that page, you can choose the columns to be displayed, and export
-your data for further usage.</li>
-</ul>
-</details>
-<p>Genes that locate to the Golgi apparatus or the endoplasmic reticulum
-and cause an exocytosis or endocytosis phenotype.</p>
-<details>
-<summary>
-Read how to make this query…
-</summary>
-<ul>
-<li>Get the list of all genes that have annotations saying that one of
-their gene products locates to the Golgi apparatus (they are annotated
-to GO:0005794, “Golgi apparatus”):
-<ul>
-<li>Click on <em>GO</em></li>
-<li>Type “Golgi apparatus” and select GO:0005794.</li>
-<li>Click on Submit</li>
-</ul></li>
-<li>Get the list of all genes that have annotations saying that one of
-their gene products locates to the endoplasmic reticulum (they are
-annotated to GO:0005783, “endoplasmic reticulum”).
-<ul>
-<li>Click on <em>GO</em></li>
-<li>Type “endoplasmic reticulum” and select GO:0005783.</li>
-<li>Click on Submit</li>
-</ul></li>
-<li>In the <em>Combine queries</em> table below, select both <em>genes
-annotated with “Golgi apparatus”</em> and <em>genes annotated with
-“endoplasmic reticulum”</em> by clicking on the tickbox on the
-left.</li>
-<li>Then click on <em>Union / or</em>. This will generate a union of
-both lists (genes present in either of the lists) with genes that
-satisfy either condition.</li>
-<li>Get the list of all genes annotated with an exocytosis phenotype:
-<ul>
-<li>Click on <em>Phenotype</em></li>
-<li>Type “abnormal exocytosis” and select FYPO:0007873</li>
-<li>Click on <em>Submit</em></li>
-</ul></li>
-<li>Get the list of all genes annotated with an endocytosis phenotype:
-<ul>
-<li>Click on <em>Phenotype</em></li>
-<li>Type “abnormal endocytosis” and select FYPO:0003886</li>
-<li>Click on <em>Submit</em></li>
-</ul></li>
-<li>Do a union of the phenotype lists, as for the GO terms.</li>
-<li>Still in the <em>Combine queries</em> table, select both union
-lists, and click on <em>intersect / and</em>. This will generate an
-intersection of both lists (genes present in both) with genes that
-satisfies both conditions.</li>
-<li>The number in the “Results” column is the number of genes that
-satisfy those conditions. Click on it to see the lists of genes.</li>
-<li>In that page, you can choose the columns to be displayed, and export
-your data for further usage.</li>
-</ul>
-</details>
+* Disease-associated genes that give a cytoskeleton phenotype in
+<em>${genus_and_species}</em>:
+    <details>
+    <summary>
+    Read how to make this query…
+    </summary>
+    <ul>
+    <li>Get the list of all disease-associated genes:
+    <ul>
+    <li>Click on <em>Commonly used queries &gt; All disease associated
+    genes.</em></li>
+    </ul></li>
+    <li>Get the list of all genes annotated with a cytoskeleton phenotype:
+    <ul>
+    <li>Click on <em>Phenotype</em></li>
+    <li>Type “abnormal cytoskeleton” and select FYPO:0002397.</li>
+    <li>Click on <em>Submit</em></li>
+    </ul></li>
+    <li>You should see two queries in the <em>Combine queries</em> table
+    below named “genes annotated with”abnormal cytoskeleton” […]” and ”All
+    disease associated genes”. Select both by clicking on the tickbox on the
+    left.</li>
+    <li>Then click on <em>intersect / and</em>. This will generate an
+    intersection of both lists (genes present in both) with genes that
+    satisfies both conditions.</li>
+    <li>The number in the “Results” column is the number of genes that
+    satisfy those conditions. Click on it to see the lists of genes.</li>
+    <li>In that page, you can choose the columns to be displayed, and export
+    your data for further usage.</li>
+    </ul>
+    </details>
+
+* Genes that locate to the Golgi apparatus or the endoplasmic reticulum
+and cause an exocytosis or endocytosis phenotype.
+    <details>
+    <summary>
+    Read how to make this query…
+    </summary>
+    <ul>
+    <li>Get the list of all genes that have annotations saying that one of
+    their gene products locates to the Golgi apparatus (they are annotated
+    to GO:0005794, “Golgi apparatus”):
+    <ul>
+    <li>Click on <em>GO</em></li>
+    <li>Type “Golgi apparatus” and select GO:0005794.</li>
+    <li>Click on Submit</li>
+    </ul></li>
+    <li>Get the list of all genes that have annotations saying that one of
+    their gene products locates to the endoplasmic reticulum (they are
+    annotated to GO:0005783, “endoplasmic reticulum”).
+    <ul>
+    <li>Click on <em>GO</em></li>
+    <li>Type “endoplasmic reticulum” and select GO:0005783.</li>
+    <li>Click on Submit</li>
+    </ul></li>
+    <li>In the <em>Combine queries</em> table below, select both <em>genes
+    annotated with “Golgi apparatus”</em> and <em>genes annotated with
+    “endoplasmic reticulum”</em> by clicking on the tickbox on the
+    left.</li>
+    <li>Then click on <em>Union / or</em>. This will generate a union of
+    both lists (genes present in either of the lists) with genes that
+    satisfy either condition.</li>
+    <li>Get the list of all genes annotated with an exocytosis phenotype:
+    <ul>
+    <li>Click on <em>Phenotype</em></li>
+    <li>Type “abnormal exocytosis” and select FYPO:0007873</li>
+    <li>Click on <em>Submit</em></li>
+    </ul></li>
+    <li>Get the list of all genes annotated with an endocytosis phenotype:
+    <ul>
+    <li>Click on <em>Phenotype</em></li>
+    <li>Type “abnormal endocytosis” and select FYPO:0003886</li>
+    <li>Click on <em>Submit</em></li>
+    </ul></li>
+    <li>Do a union of the phenotype lists, as for the GO terms.</li>
+    <li>Still in the <em>Combine queries</em> table, select both union
+    lists, and click on <em>intersect / and</em>. This will generate an
+    intersection of both lists (genes present in both) with genes that
+    satisfies both conditions.</li>
+    <li>The number in the “Results” column is the number of genes that
+    satisfy those conditions. Click on it to see the lists of genes.</li>
+    <li>In that page, you can choose the columns to be displayed, and export
+    your data for further usage.</li>
+    </ul>
+    </details>
 
 Full documentation of advanced search can be found [here](/documentation/advanced-search).
 
