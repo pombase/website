@@ -606,3 +606,7 @@ a.disabled-menu-item.dropdown-item {
 .details-page-external-links {
   font-size: 140%;
 }
+
+details {
+  margin-bottom: 1em
+}
