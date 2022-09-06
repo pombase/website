@@ -1,5 +1,4 @@
 ### New human orthologs including 3 MRP complex subunits
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 We continue to identify distant human orthologs. Four new 1:1 human

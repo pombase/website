@@ -1,5 +1,4 @@
 ### PomBase & JaponicusDB publications in the GENETICS MOD reports special issue
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 Papers describing PomBase and JaponicusDB are now published (early

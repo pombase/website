@@ -1,5 +1,4 @@
 ### Next pombeTalks: Wednesday, August 17th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next online pombeTalks will take place on **Wednesday, August 17th**.

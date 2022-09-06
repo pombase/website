@@ -1,5 +1,4 @@
 ### An additional 5775 novel curated lncRNAs from Atkinson *et al*.
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 We have added an additional 5775 novel curated lncRNAs from

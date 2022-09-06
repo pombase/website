@@ -1,5 +1,4 @@
 ### TOR and nutritional phosphoproteome dataset loaded
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 We have loaded the TOR and nutritional phosphoproteome dataset
