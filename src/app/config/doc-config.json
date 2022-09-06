@@ -2,6 +2,7 @@
    "pages" : {
       "about" : "About PomBase",
       "about/citing-pombase" : "Citing PomBase",
+      "about/collaborations" : "Pombase Collaborations",
       "about/cookie-policy" : "PomBase Cookie Policy",
       "about/data-sources" : "PomBase Data Sources",
       "about/index" : "About PomBase",
@@ -58,6 +59,7 @@
       "documentation/gene-page-transcript" : "Gene page: Transcript",
       "documentation/genetic-and-physical-interactions" : "Genetic and physical interactions",
       "documentation/genotype-page" : "Genotype pages",
+      "documentation/getting-started" : "Getting started",
       "documentation/high-confidence-physical-interaction-network" : "High Confidence Physical Interaction Network (HCPIN)",
       "documentation/id-mapper" : "Identifier mapper",
       "documentation/index" : "PomBase Web Site Help & Documentation",

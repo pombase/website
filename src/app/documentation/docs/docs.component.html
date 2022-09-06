@@ -111,6 +111,11 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 <p><em>Altmetric badges link to data provided by <a href="https://www.altmetric.com/">Altmetric.com</a>, a research metrics company who track and collect the online conversations around millions of scholarly outputs. Read <a href="https://www.altmetric.com/about-altmetrics/">more about Altmetrics</a>.</em></p>
 
   </div>
+  <div *ngIf="pageName == 'collaborations'">
+<h1 id="pombase-collaborations">Pombase Collaborations</h1>
+<p>Coming soon.</p>
+
+  </div>
   <div *ngIf="pageName == 'cookie-policy'">
 <h2 id="pombase-cookie-policy">PomBase Cookie Policy</h2>
 <h3 id="what-are-cookies">What are cookies?</h3>
@@ -285,8 +290,28 @@ Analysis of stress-induced duplex destabilization (SIDD) properties of replicati
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="about-pombase">About PomBase</h2>
-<p>PomBase is a model organism database that provides organization of and access to scientific data for the fission yeast <em>Schizosaccharomyces pombe</em>. PomBase supports genomic sequence and features, genome-wide datasets and manual literature curation.</p>
-<p>PomBase also provides a community hub for researchers, providing genome statistics, a community curation interface, news, events, documentation and mailing lists.</p>
+<p>PomBase is the comprehensive model organism knowledgebase or the fission yeast <em>Schizosaccharomyces pombe</em>, which aims to standardise, integrate, display, and disseminate biological knowledge and datasets to the wider scientific community, making a wide range of data-types from large and small-scale publications <a href="https://pubmed.ncbi.nlm.nih.gov/26978244/">FAIR</a>.</p>
+<p>You can use PomBase to:</p>
+<ul>
+<li>Access and query manually <strong>curated literature</strong> annotations:
+<ul>
+<li><strong>Gene Ontology (GO)</strong> annotations describing the normal (evolved) roles and locations of gene products.</li>
+<li><strong>Phenotype</strong> annotations linked to the alleles and genotypes that cause them.</li>
+<li><strong>Genetic and Physical interactions</strong> between genes.</li>
+<li><strong>Protein modifications,</strong> the gene products that add/ remove them, when in the cell cycle they occur or under which environmental conditions, .</li>
+<li><strong>Phylogenetic</strong> information and <strong>gene complementation.</strong></li>
+</ul></li>
+<li><strong>Browse the genome</strong> of <em>Schizosaccharomyces pombe</em>, and access <strong>gene sequences and features</strong> (UTRs, exons and introns, protein sequence features).</li>
+<li>Download <strong>genome-wide datasets</strong>.</li>
+</ul>
+<p>PomBase is also a community hub for researchers providing news, events, documentation, mailing lists, genome statistics, and a community curation interface. New to the fission yeast community? Visit our <a routerLink="/documentation/getting-started">getting started page</a>.</p>
+<h2 id="more-about-pombase">More about PomBase:</h2>
+<ul>
+<li>PomBase promotes <strong>community curation</strong>, involving authors in the curation of their published research. This increases curation quality, and allows researchers to become familiar with the data organisation and supported data types. We developed <a href="https://github.com/pombase/canto"><u>Canto</u></a>, a web-based curation tool to support professional and community curation that is also used by <a href="https://flybase.org/"><u>FlyBase</u></a>, <a href="http://www.phi-base.org/"><u>PHI-Base</u></a> and <a href="https://www.japonicusdb.org/"><u>JaponicusDB</u></a>. <a routerLink="/community/fission-yeast-community-curation-project">Read more</a> about community curation.</li>
+<li>We provide over <strong>300.000 curated standardised annotations</strong> and our 27.000 experimentally supported GO annotations support more than 687.000 species-wide annotations in other key model species. <a href="https://curation.pombase.org/pombe/stats/annotation"><u>See our stats</u></a></li>
+<li>We actively participate in the <strong>development of several ontologies</strong> to extend and improve standards that represent the knowledge produced by researchers.</li>
+<li>See all of our <a routerLink="/about/collaborations">ongoing collaborations</a>.</li>
+</ul>
 <hr />
 <h3 id="contact-pombase-staff">Contact PomBase staff</h3>
 <p>Email: <a href="mailto:helpdesk@pombase.org">helpdesk@pombase.org</a></p>
@@ -6383,6 +6408,11 @@ PomBase using the Ensembl viewer.</p>
 <img src="assets/diploid_genotype_table.png" width="600" alt="" /><figcaption>diploid genotype details</figcaption>
 </figure>
 <p>The Locus column contains the gene name, linked to its gene page, and spans two rows, one for each allele at the locus. Allele details are as described for haploid genotypes.</p>
+
+  </div>
+  <div *ngIf="pageName == 'getting-started'">
+<h1 id="getting-started">Getting started</h1>
+<p>Coming soon.</p>
 
   </div>
   <div *ngIf="pageName == 'high-confidence-physical-interaction-network'">
@@ -13947,6 +13977,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <table><thead><tr>
 <th>Systematic id</th><th>Standard name</th><th>Old coordinates</th><th>New coordinates</th><th>Comments</th><th>Reference</th><th>Date</th>
 </thead>
+<tr><td><a routerLink='/gene/SPSNRNA.06'>SPSNRNA.06</a></td><td>snu6</td><td>complement(join(2562276..<wbr>2562323,<wbr>2562374..<wbr>2562427))</td><td>complement(join(2562276..<wbr>2562323,<wbr>2562374..<wbr>2562419))</td><td>Jennifer Porat flagged it</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=2909894'>PMID:2909894</a></td><td>2022-05-25</td></tr>
+<tr><td><a routerLink='/gene/SPSNRNA.04'>SPSNRNA.04</a></td><td>snu4</td><td>complement(467233..<wbr>467361)</td><td>complement(467489..<wbr>467615)</td><td>Jennifer Porat flagged it</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=2795654'>PMID:2795654</a></td><td>2022-05-25</td></tr>
 <tr><td><a routerLink='/gene/SPAC22F8.10c'>SPAC22F8.10c</a></td><td>sap145</td><td>complement(4804630..<wbr>4806435)</td><td>complement(4804630..<wbr>4806387)</td><td></td><td></td><td>2021-11-10</td></tr>
 <tr><td><a routerLink='/gene/SPAC637.09'>SPAC637.09</a></td><td>rex1</td><td>4555399..4557294</td><td>4555423..4557294</td><td></td><td></td><td>2021-11-10</td></tr>
 <tr><td><a routerLink='/gene/SPAC25B8.08'>SPAC25B8.08</a></td><td></td><td>4168212..4169984</td><td>4168263..4169984</td><td></td><td></td><td>2021-11-05</td></tr>
