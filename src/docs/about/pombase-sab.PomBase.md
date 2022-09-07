@@ -3,7 +3,7 @@
 The PomBase Scientific Advisory Board (SAB) will provide strategic
 scientific advice to the PomBase team covering current and future
 priorities related to curation, tools provided and outreach. They will
-advise how can we better align S. pombe knowledge to human genetics
+advise how can we better align *S. pombe* knowledge to human genetics
 and health. The SAB is an independent body, made up of leading experts
 in both fission yeast biology and Model Organism Databases from around
 the world.
@@ -16,7 +16,7 @@ National Institute of Biological Sciences, Beijing, China
 *Kathleen Gould*<br>
 Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA
 
-*Doug Howe*
+*Doug Howe*<br>
 The Zebrafish Information Network, University of Oregon, Eugene, OR, USA
 
 *Sabina Leonelli*<br>
