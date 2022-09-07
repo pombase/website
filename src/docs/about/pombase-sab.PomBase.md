@@ -1,5 +1,13 @@
 ## PomBase Scientific Advisory Board
 
+The PomBase Scientific Advisory Board (SAB) will provide strategic
+scientific advice to the PomBase team covering current and future
+priorities related to curation, tools provided and outreach. They will
+advise how can we better align S. pombe knowledge to human genetics
+and health. The SAB is an independent body, made up of leading experts
+in both fission yeast biology and Model Organism Databases from around
+the world.
+
 #### Current members
 
 *Li-Lin Du*<br>
@@ -11,9 +19,6 @@ Department of Cell and Developmental Biology, Vanderbilt University, Nashville, 
 *Doug Howe*
 The Zebrafish Information Network, University of Oregon, Eugene, OR, USA
 
-*Sue Jaspersen*<br>
-Stowers Institute for Medical Research, Kansas City, MO, USA &amp; Department of Molecular and Integrative Physiology, University of Kansas Medical Center, Kansas City, KS, USA
-
 *Sabina Leonelli*<br>
 Exeter Centre for the Study of the Life Sciences &amp; Department of Sociology, Philosophy and Anthropology, University of Exeter, Exeter, UK
 
@@ -22,8 +27,3 @@ MRC London Institute of Medical Sciences, London, UK &amp; Institute of Clinical
 
 *Sophie Martin*<br>
 Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland
-
-<!--
-#### Past members
-(uncomment when anyone rotates off)
--->
