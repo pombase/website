@@ -112,8 +112,32 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 
   </div>
   <div *ngIf="pageName == 'collaborations'">
-<h1 id="pombase-collaborations">Pombase Collaborations</h1>
-<p>Coming soon.</p>
+<h1 id="pombase-collaborations">PomBase collaborations</h1>
+<ul>
+<li><p><strong><a href="https://monarchinitiative.org/">Monarch</a></strong> is a platform that connects phenotypes to environmental factors and genotypes, integrating phenotypes from multiple species to make them queryable in a single portal, and use the combined knowledge to better understand human disease. We are currently in the process of integrating our phenotype data into Monarch.</p></li>
+<li><p><strong><a href="https://mondo.monarchinitiative.org/">Mondo</a></strong> is a disease ontology developed as part of the Monarch initiative. It aims to merge multiple disease ontologies and develop guidelines for disease logical definitions, which are computer-readable. We actively contribute to the development of this ontology, and <a routerLink="/documentation/disease-association">link fission yeast genes with Mondo terms</a>.</p></li>
+<li><p><strong><a href="https://obofoundry.org/ontology/upheno.html">uPheno</a></strong> is another component of the Monarch Initiative with the goal of integrating multiple phenotype ontologies into a unified cross-species phenotype ontology to make them interoperable. This interoperability is achieved by developing templates for phenotype logical definitions. We interact with uPheno developers to develop and implement standardised definition templates into FYPO .</p></li>
+<li><p><strong><a href="https://pfam.xfam.org/">Pfam</a></strong> and <strong><a href="https://www.ebi.ac.uk/interpro/">InterPro</a></strong> are protein family databases. We have been collaborating with the Pfam and InterPro teams at the EBI for almost two decades, submitting over 1000 protein families via Pfam and providing QC for InterPro to GO mapping assignments. Recently, to increase ortholog coverage, we collaborated with the Pfam team to identify distant orthologs using AlphaFold reciprocal best structure hits. See this <a href="https://doi.org/10.1101/2022.07.04.498216">preprint</a>.</p></li>
+<li><p><strong><a href="http://intermine.org/">Intermine</a></strong> is a data warehouse that integrates heterogeneous data from different model organisms. Users can simultaneously query data from <em>Schizosaccharomyces pombe</em> and other organisms through a website, a web API or client libraries in several programming languages. We have actively collaborated with InterMine to integrate data from PomBase into a ‘PombeMine’ and to improve PombeMine to better support our users. <a href="https://www.pombase.org/pombemine">Read more</a>.</p></li>
+<li><p>The <a href="http://geneontology.org/"><strong>Gene Ontology Consortium</strong></a> oversees the development of GO, to standardise the functional description of gene products. PomBase is a member of the GO consortium. PomBase Co-PI and project manager Valerie Wood is a member of the GO council, and funded to work on GO development as PI of a GO subcontract. Our curators actively contribute to GO development requesting changes and additions to the ontology. We also participate in other GO-related projects, for example:</p>
+<ul>
+<li>The <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7536087/"><strong>Term Matrix annotation QC</strong></a> project, a framework to develop rules to identify potentially incorrect GO annotations by identifying genes annotated to two biological processes unlikely to be co-annotated to the same gene products.</li>
+<li><strong>Revision of the Gene Ontology terms of chromatin-related processes</strong> to improve the GO representation of chromatin and epigenetics curation, since fission yeast is a major model species for this research field.</li>
+</ul></li>
+</ul>
+<!--- Hacky space -->
+<div>
+
+</div>
+<ul>
+<li><p><strong><a href="http://www.phi-base.org/">PHI-base</a></strong> is a pathogen-host interaction database. PomBase supports PHI-base by adapting Canto (our community curation tool) for their curation and advising on phenotype ontology and literature curation.</p></li>
+<li><p><strong><a href="https://flybase.org/">FlyBase</a></strong> is a model organism for <em>Drosophila</em>. PomBase supports FlyBase by adapting Canto (our community curation tool) for their complex phenotype annotation.</p></li>
+<li><p><a href="https://rnacentral.org/"><strong>RNAcentral</strong></a> is a non-coding RNA sequence database. As part of our data dissemination obligations, along with other model organism databases, we provide curated non-coding RNAs to RNA Central. We also collaborate to improve noncoding RNA classification.</p></li>
+<li><p><a href="https://thebiogrid.org/"><strong>BioGRID</strong></a> is a database for genetic and physical interactions. They curate interactions from publications that are integrated into PomBase, and vice-versa, to avoid duplication of curation effort. This is part of our data-dissemination obligations.</p></li>
+<li><p><a href="https://www.micropublication.org/"><strong>microPublication</strong></a> is a peer-reviewed journal that publishes one-figure papers with novel findings, negative or reproduced results, and results that may lack a broader scientific narrative. We are a partner database and provide curator input and promote articles on our website. This novel format incentivises reporting small and negative results, preventing research duplication and waste of research funding.</p></li>
+<li><p><a href="https://www.japonicusdb.org/"><strong>JaponicusDB</strong></a> is the model organism database for the fission yeast <em>Schizosaccharomyces japonicus</em>, an emerging model organism. JaponicusDB uses PomBase’s website code and its curation is entirely provided by the authors using Canto. This database was set up in a sprint of less than three months, and is a success story that shows that PomBase code and curation tools are reusable. <a href="https://academic.oup.com/genetics/article/220/4/iyab223/6481558">Read more</a>.</p></li>
+<li><p><a href="https://orcid.org/0000-0002-9955-3785"><strong>Valerie de Crecy-Lagard</strong></a> recently organised a workshop funded by NSF to devise a roadmap for the functional annotation of protein families. PomBase staff participated in the discussion (publication pending).</p></li>
+</ul>
 
   </div>
   <div *ngIf="pageName == 'cookie-policy'">
@@ -310,7 +334,7 @@ Analysis of stress-induced duplex destabilization (SIDD) properties of replicati
 <li>PomBase promotes <strong>community curation</strong>, involving authors in the curation of their published research. This increases curation quality, and allows researchers to become familiar with the data organisation and supported data types. We developed <a href="https://github.com/pombase/canto"><u>Canto</u></a>, a web-based curation tool to support professional and community curation that is also used by <a href="https://flybase.org/"><u>FlyBase</u></a>, <a href="http://www.phi-base.org/"><u>PHI-Base</u></a> and <a href="https://www.japonicusdb.org/"><u>JaponicusDB</u></a>. <a routerLink="/community/fission-yeast-community-curation-project">Read more</a> about community curation.</li>
 <li>We provide over <strong>300.000 curated standardised annotations</strong> and our 27.000 experimentally supported GO annotations support more than 687.000 species-wide annotations in other key model species. <a href="https://curation.pombase.org/pombe/stats/annotation"><u>See our stats</u></a></li>
 <li>We actively participate in the <strong>development of several ontologies</strong> to extend and improve standards that represent the knowledge produced by researchers.</li>
-<li>See all of our <a routerLink="/about/collaborations">ongoing collaborations</a>.</li>
+<li>See all of our ongoing <a routerLink="/about/collaborations">collaborations</a> and <a routerLink="/about/projects">projects</a>.</li>
 </ul>
 <hr />
 <h3 id="contact-pombase-staff">Contact PomBase staff</h3>
@@ -369,18 +393,14 @@ Analysis of stress-induced duplex destabilization (SIDD) properties of replicati
   </div>
   <div *ngIf="pageName == 'pombase-sab'">
 <h2 id="pombase-scientific-advisory-board">PomBase Scientific Advisory Board</h2>
+<p>The PomBase Scientific Advisory Board (SAB) will provide strategic scientific advice to the PomBase team covering current and future priorities related to curation, tools provided and outreach. They will advise how can we better align <em>S. pombe</em> knowledge to human genetics and health. The SAB is an independent body, made up of leading experts in both fission yeast biology and Model Organism Databases from around the world.</p>
 <h4 id="current-members">Current members</h4>
 <p><em>Li-Lin Du</em><br> National Institute of Biological Sciences, Beijing, China</p>
 <p><em>Kathleen Gould</em><br> Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA</p>
-<p><em>Doug Howe</em> The Zebrafish Information Network, University of Oregon, Eugene, OR, USA</p>
-<p><em>Sue Jaspersen</em><br> Stowers Institute for Medical Research, Kansas City, MO, USA &amp; Department of Molecular and Integrative Physiology, University of Kansas Medical Center, Kansas City, KS, USA</p>
+<p><em>Doug Howe</em><br> The Zebrafish Information Network, University of Oregon, Eugene, OR, USA</p>
 <p><em>Sabina Leonelli</em><br> Exeter Centre for the Study of the Life Sciences &amp; Department of Sociology, Philosophy and Anthropology, University of Exeter, Exeter, UK</p>
 <p><em>Samuel Marguerat</em><br> MRC London Institute of Medical Sciences, London, UK &amp; Institute of Clinical Sciences, Faculty of Medicine, Imperial College London, London, UK</p>
 <p><em>Sophie Martin</em><br> Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland</p>
-<!--
-#### Past members
-(uncomment when anyone rotates off)
--->
 
   </div>
   <div *ngIf="pageName == 'pombase-staff'">
@@ -474,6 +494,28 @@ United Kingdom</p>
 <p>We may change this privacy notice from time to time. You should check this policy occasionally to ensure you are aware of the most recent version.</p>
 <h3 id="contact-us">Contact us</h3>
 <p>For any further enquiries about the PomBase’s Privacy Policy, or if you have concerns about how your data is being processed or would like to report a possible data breach, please contact <a href="mailto:helpdesk@pombase.org">helpdesk@pombase.org</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == 'projects'">
+<h1 id="pombase-ongoing-projects">PomBase ongoing projects</h1>
+<p>In addition to adding value to data through the curation process, at PomBase we also contribute to the broader curation life cycle by working with other resources to develop, adopt and promote curation best practices. In this role, we contribute to the development of global standards, improve data dissemination, develop rigorous annotation quality control procedures, and share the tools and resources we have developed.</p>
+<ul>
+<li><p><strong>Database and website development:</strong> we develop the Open Source code for this website and the underlying database, constantly improving it so that researchers can quickly and intuitively interrogate our annotations. The code is modular, easily configurable and extendable to support other model organisms (see <a href="https://pubmed.ncbi.nlm.nih.gov/35380656/">PMID:35380656</a>). Visit our <a href="https://github.com/pombase/website">code repository</a> and publications <a href="https://pubmed.ncbi.nlm.nih.gov/30321395/">PMID:30321395</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/35100366/">PMID:35100366</a>.</p></li>
+<li><p><strong>High quality literature curation:</strong> we manually curate papers, request or create new ontology terms for new observations, and actively work to quality control and improve our existing annotations. We involve authors in this process to ensure curation quality. Curation is particularly important to “FAIRify” and maximise the impact of results coming from small-scale publications that address mechanistic details, as it integrates the new knowledge into a greater body of annotations that can be queried, reused and more easily discovered. We have more than 300.000 manually curated annotations. See our <a href="https://curation.pombase.org/pombe/stats/annotation">curation stats</a>.</p></li>
+<li><p><strong>Ontology development:</strong> we contribute to the development of several ontologies, to extend and improve standards that represent the knowledge produced by researchers. We are the sole developers of <a href="https://pubmed.ncbi.nlm.nih.gov/23658422/">FYPO</a>, the Fission Yeast Phenotype Ontology, but we are also major contributors to the Gene Ontology and contribute substantially to the Monarch disease ontology (MONDO). We contribute to the sequence ontology, Protein Ontology (PR) and CHEBI ontology as required for our annotation and ontology development work.</p></li>
+<li><p><strong>Development of Canto:</strong> Canto is an Open Source web-based curation tool that provides an intuitive interface for ontology-based literature curation, and a literature management system where publications are triaged by broad content type and classified by their curation stage. Canto is generic and extendable, and is used by other model organism databases (including FlyBase, PHI-base, japonicusDB) . Canto is actively developed and adapted to the needs of different resources and researchers. See “Community curation” below, our <a href="https://github.com/pombase/canto">code repository</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/24574118/">PMID:24574118</a>.</p></li>
+<li><p><strong>Community curation:</strong> PomBase involves authors in the curation of their papers, in a way that, without dedicated training, they can contribute detailed and structured annotations. Community curation is supported by our web-based curation tool, Canto, which allows for an iterative dialogue with authors that speeds up the curation process, improves annotation quality through expert approval, makes authors more familiar with the curation process and supported data-types and often leads to feedback from the authors about existing annotations. For more on community curation visit our <a href="https://curation.pombase.org/pombe/stats/annotation">curation stats</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/32353878/">PMID:32353878</a>.</p></li>
+<li><p><strong>Maintenance of the genome annotation:</strong> To allow accurate functional genomics and genomic interrogation in fission yeast we periodically incorporate new data to keep the genome annotation current. Updates can include revisions to existing protein coding gene structures, or more precise transcript boundaries, and new non-coding RNAs) sourced from user communications, gene specific publications or transcriptomics and proteomic datasets. Our updates are propagated to NCBI/ENA/Ensembl reference genomes, and UniPROT reference proteome.</p></li>
+<li><p><strong>Causal modelling of biological pathways:</strong> We have piloted a system to generate ‘causal’ networks (connecting genes and their activities into pathways using casual relationships) directly from Gene Ontology annotation data. To date almost 55% fission yeast proteins are included in at least one automated process network. We are currently using these networks to target literature curation gaps. During our current funding cycle, we will collaborate with GO to formalise these causal connections into <a href="http://geneontology.org/docs/gocam-overview/">GO-CAM</a> syntax and then to provide automated biological pathway visualisation based on curated data.</p></li>
+<li><p><strong>Human and budding yeast ortholog curation:</strong> We provide a manually refined inventory of consensus ortholog datasets (3991 <em>S. cerevisiae</em> and 3597 human orthologs) and actively work to extend it by targeting missing components of complexes involved in conserved eukaryotic biology. Distant orthologs are still being found even in heavily researched model organisms. Some recent examples using AlphaFold and Reciprocal Best Structure Hits (RBSH) can be found <a href="https://doi.org/10.1101/2022.07.04.498216">here</a>.</p></li>
+<li><p><strong>Priority unstudied genes:</strong> we have developed a method to generate inventories of proteins of unknown biological role based on GO process slims (<a href="https://pubmed.ncbi.nlm.nih.gov/30938578/">PMID:30938578</a>). In <em>pombe</em>, 133 genes that are conserved in vertebrates have unknown functions. We actively encourage PomBase researchers and the wider community users to investigate the unknown”ome”. See <a routerLink="/status/priority-unstudied-genes">the list</a>.</p></li>
+<li><p><strong>Disease gene annotation:</strong> identification of disease gene connections between yeast and humans increases the relevance of the study of yeast genes. We integrate with several databases of human disease genes (Malacards, Monarch, OMM) and use data from publications to connect disease ontology terms to fission yeast orthologs.</p></li>
+<li><p><strong>Fission yeast gene nomenclature:</strong> we approve requested gene names in consultation with the <a routerLink="/submit-data/gene-naming-committee-members">fission yeast Gene Naming committee</a>, and name certain unstudied genes based on orthology.</p></li>
+<li><p><strong>Fission yeast allele nomenclature:</strong> we are currently consulting the fission yeast community to develop nomenclature guidelines to standardise allele naming. They will cover new constructs that are becoming more common, such as chimeras.</p></li>
+<li><p><strong>Annotation quality control:</strong> Often an overlooked component of curation work, refining existing annotations is crucial to ensure accurate queries and knowledge representation. We revisit our existing annotations through small projects where we review a biological process, develop methods to automatically identify annotation errors (GO Term Matrix - <a href="https://pubmed.ncbi.nlm.nih.gov/32875947/">PMID:32875947</a>) and adapt to changes in annotation criteria, which generally become stricter.</p></li>
+<li><p><strong>Outreach and user support:</strong> we maintain <a routerLink="/documentation">documentation</a> pages for all features of PomBase. We communicate website updates in our <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombe mailing list</a>. In the next months, we plan to release curation tutorials for authors that curate their papers using Canto.</p></li>
+<li><p><strong>Non-experimental GO annotation:</strong> we actively review literature from other model organisms and make inferred annotations to GO terms for genes that are not studied in fission yeast. This ensures breadth of curation, for GO enrichment analysis and for identification of truly unstudied genes. We host 14723 GO annotations that do not come from fission yeast literature, of which 11200 are manually assigned.</p></li>
+</ul>
 
   </div>
   <div *ngIf="pageName == 'published-by-pombase'">
@@ -6412,7 +6454,89 @@ PomBase using the Ensembl viewer.</p>
   </div>
   <div *ngIf="pageName == 'getting-started'">
 <h1 id="getting-started">Getting started</h1>
-<p>Coming soon.</p>
+<h2 id="getting-started-in-the-schizosaccharomyces-pombe-community">Getting started in the <em>Schizosaccharomyces pombe</em> community</h2>
+<p>To get started as a new community member, you can:</p>
+<ul>
+<li><strong>Join the pombe mailing list</strong> with more than 1300 subscribers, where you can ask and answer questions about fission yeast generally, get notifications about PomBase updates and get invitations to the monthly online seminar PombeTalks. <a href="https://lists.cam.ac.uk/sympa/suboptions/ucam-pombelist">Join here</a>.</li>
+<li><strong>Join the pombe Slack channel,</strong> to get in touch with other fellow <em>Schizosaccharomyces pombe</em> researchers. See the instructions to join <a href="https://www.pombase.org/faq/how-can-i-join-pombeslack">here</a>. If this is your first time using Slack, you can get started with <a href="https://www.youtube.com/watch?v=RRxQQxiM7AA">this guide</a>.</li>
+<li>Read the basics about <em>Schizosaccharomyces pombe</em> biology and experimental methods in the <a href="https://dornsife.usc.edu/pombenet/about-pombe/">Forsburg Lab website</a>.</li>
+<li>Read about the history and importance of <em>Schizosaccharomyces pombe</em> as a model system <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4896181/">PMC4896181</a> and a primer introducing genetic and bioinformatic tools: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4596657/">PMC4596657</a></li>
+</ul>
+<p>For PomBase help you can read our <a routerLink="/faq">Frequently Asked Questions</a> or send us an email at <a href="mailto:helpdesk@pombase.org">helpdesk@pombase.org</a>.</p>
+<p>If you use Pombase for your research, please cite or acknowledge the resource in your publications. This is extremely important to indicate the importance of resources to funders. <a routerLink="/about/citing-pombase">How to cite PomBase</a>.</p>
+<h2 id="types-of-pages-in-pombase">Types of pages in PomBase</h2>
+<p>PomBase is centred around <strong>Gene Pages</strong> so this is a good place to begin to familiarise yourself with how data is organised. You should visit your favourite gene page, but for this example we are using pol1, the DNA polymerase alpha catalytic subunit. You can access the page by typing the gene name (i.e. pol1) into the search box at the top-right of the website, or at this <a href="https://www.pombase.org/gene/SPAC3H5.06c">link</a>.</p>
+<p>At the top of the page, you will find some basic information about the locus and gene product. Immediately below is a view of the genomic context of the gene in the JBrowse genome browser. (documentation to access browser data tracks is <a routerLink="/documentation/JBrowse_quick_start">here</a>):</p>
+<figure>
+<img src="assets/gene_page_top_part.png" width="700" alt="" /><figcaption>Top of gene page</figcaption>
+</figure>
+<details>
+<summary>
+Read more about the names of genes…
+</summary>
+<p>The same gene may be known by different names. In PomBase,
+we consider three types:</p>
+<ul>
+<li><strong>Systematic ID</strong>, a unique identifier that represents
+exclusively this gene in <em>Schizosaccharomyces pombe</em>.</li>
+<li><strong>Gene standard name,</strong> the most commonly used name of
+this gene, that may not be exclusive to pombe, and could even be used as
+a synonym of other fission yeast genes. This name will frequently be the
+same as the orthologous gene in <em>S. cerevisiae</em>, (the ortholog of
+pol1 in <em>S. cerevisiae</em> is also called pol1), but be aware there
+are many notable examples where the same name is used for different
+genes in other species. Some genes don’t yet have a standard name, but
+if you study them you can <a
+href="/submit-data/gene-naming-guidelines">name them</a>.</li>
+<li><strong>Synonyms,</strong> alternative names for this gene that have
+been used in the literature before. We encourage you to use the standard
+name in publications where possible.</li>
+</ul>
+</details>
+<p>On the left side of the <strong>Gene Page</strong>, there is a menu listing the sections in the page (GO molecular function, GO biological process, etc.). Each section contains different kinds of annotations. Go through them and click on the <img src="/assets/info_icon.svg" style="width: 1em"/> button to see what information is displayed in each section. Most sections show a “summary view” of the experimentally relevant information so that it is easier to consume the biological context. The “Show details” link uncollapses the section to show important associated information such as evidence and provenance, often presenting multiple sources supporting the same annotation. You also will notice that many of the displayed annotations are blue and link to other types of pages:</p>
+<ul>
+<li><p><strong>GO term pages</strong>: contain the <strong>definition</strong> of the GO term and lists all the <strong>genes annotated to a specific GO term</strong> and its “child” terms. <details> <summary> Read more… </summary> <ul> <li>GO annotations <strong>link</strong> <strong>a gene to a GO term</strong> that describes the molecular function(s) of its gene products, the process(es) they are involved in their localisation in the cell or their presence in macromolecular complexes.</li> <li>A term name may change over time, but if the <em>meaning</em> of a definition changes the term must be obsoleted, and the associated genes reannotated to the correct definition. This makes the term definition critical and curators must always ensure that the definition is appropriate for the annotation.</li> <li>A GO term can be linked to several parent terms through relationships. Let’s take the term <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0001055">GO:0001055</a> (RNA polymerase II activity), graph below. <ul> <li>RNA polymerase II activity is a GO molecular function.</li> <li>This activity is a specific type of <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0003899">GO:0003899</a> (DNA-directed 5’-3’ RNA polymerase activity), so <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0001055">GO:0001055</a> is linked to <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0003899">GO:0003899</a> through an <strong>is_a</strong> relationship.</li> <li>This activity is part of the GO biological process <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0006366">GO:0006366</a> (Transcription by RNA polymerase II), so <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0001055">GO:0001055</a> is linked to <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0006366">GO:0006366</a> through a <strong>part_of</strong> relationship.</li> <li>This activity occurs at the GO cellular component <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0000785">GO:0000785</a> (chromatin) so <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0001055">GO:0001055</a> is linked to <a
+  href="https://www.ebi.ac.uk/QuickGO/term/GO:0000785">GO:0000785</a> through a <strong>occurs_in</strong> relationship. <img
+  src="assets/getting_started_go_tree.png"
+  title="AmiGO ontology relationship tree for GO:0001055" width="500"
+  alt="AmiGO ontology relationship tree for GO:0001055" /></li> </ul></li> <li>In PomBase GO term pages, for simplicity we do not present inter-ontology links and only link to children and parent terms of the same ‘aspect’ (i.e molecular function, biological process, cellular component) these include terms related to each other by the relationships is_a, part_of and the 3 ‘regulates’ relationships. For instance, in the page of GO molecular function <a
+  href="https://www.pombase.org/term/GO:0003899">GO:0003899</a> (DNA-directed 5’-3’ RNA polymerase activity): <ul> <li>We include <a
+  href="https://www.pombase.org/term/GO:0001055">GO:0001055</a> (RNA polymerase II activity), which is also a GO molecular function, linked to GO:0003899 through an <strong>is_a</strong> relationship</li> <li>We do not include the cellular component <a
+  href="https://www.pombase.org/term/GO:0000428">GO:0000428</a>, linked to the molecular function GO:0003899 through a <strong>capable_of</strong> relationship.</li> <li>If you expand a term by clicking on the ‘+’ icon on its left, you can see the relationship to the term in the current page.</li> </ul></li> <li>Learn more about GO, its development and use in analyses in <a
+  href="https://www.youtube.com/watch?v=6Am2VMbyTm4">this webinar</a> by former PomBase curator Antonia Lock.</li> </ul> </details></p></li>
+<li><p><strong>Phenotype pages</strong> the Fission Yeast Phenotype Ontology (FYPO) term pages: provide the phenotype <strong>definition</strong> and list all the <strong>genotypes annotated to a FYPO term</strong> and its ‘child’ terms, as well as link to the parent terms. Read more… <details> <summary> Read more… </summary> <ul> <li>As for GO, the simplest relationship between FYPO terms is <strong>is_a</strong>, in which the child term describes a more specific phenotype than the parent. For example, <a
+  href="https://www.pombase.org/term/FYPO:0006885">FYPO:0006885</a> (decreased protein level at mitotic spindle) <strong>is_a</strong> <a
+  href="https://www.pombase.org/term/FYPO:0001324">FYPO:0001324</a> (decreased protein level during vegetative growth), which in turn <strong>is_a</strong> <a
+  href="https://www.pombase.org/term/FYPO:0001325">FYPO:0001325</a> (altered protein level during vegetative growth).</li> <li>Other relationships also exist, such as <strong>output_of</strong>, which links a given phenotype to another that causes it. For example, <a
+  href="https://www.pombase.org/term/FYPO:0000118">FYPO:0000118</a> (multiseptate vegetative cell) is <strong>output_of</strong> <a
+  href="https://www.pombase.org/term/FYPO:0000032">FYPO:0000032</a> (abnormal cytokinesis). Therefore, in the page of <a
+  href="https://www.pombase.org/term/FYPO:0000032">FYPO:0000032</a>, the annotations of <a
+  href="https://www.pombase.org/term/FYPO:0000118">FYPO:0000118</a> are also displayed.</li> <li>Read more about FYPO, our phenotype ontology here.</li> </ul> </details></p></li>
+<li><p><strong>Genotype pages:</strong> contain all the <strong>phenotypes associated with a genotype</strong> as well as the alleles that constitute that genotype. Example: <a href="https://www.pombase.org/genotype/mal3delta">mal3delta</a>.</p></li>
+<li><p><strong>Other ontology term pages</strong>. <a href="https://www.pombase.org/documentation/ontology-term-page">Read more</a></p></li>
+</ul>
+<h2 id="advanced-search-query-builder">Advanced search / query builder</h2>
+<p>You can query PomBase annotations using a Graphical User Interface, the “Advanced search” (<a href="https://www.pombase.org/query">https://www.pombase.org/query</a>). You can make lists of genes that satisfy a certain condition, and perform operations with these lists. Below some examples:</p>
+<ul>
+<li><p>Disease-associated genes that give a cytoskeleton phenotype in <em>Schizosaccharomyces pombe</em>: <details> <summary> Read how to make this query… </summary> <ul> <li>Get the list of all disease-associated genes: <ul> <li>Click on <em>Commonly used queries &gt; All disease associated genes.</em></li> </ul></li> <li>Get the list of all genes annotated with a cytoskeleton phenotype: <ul> <li>Click on <em>Phenotype</em></li> <li>Type “abnormal cytoskeleton” and select FYPO:0002397.</li> <li>Click on <em>Submit</em></li> </ul></li> <li>You should see two queries in the <em>Combine queries</em> table below named “genes annotated with”abnormal cytoskeleton” […]” and ”All disease associated genes”. Select both by clicking on the tickbox on the left.</li> <li>Then click on <em>intersect / and</em>. This will generate an intersection of both lists (genes present in both) with genes that satisfies both conditions.</li> <li>The number in the “Results” column is the number of genes that satisfy those conditions. Click on it to see the lists of genes.</li> <li>In that page, you can choose the columns to be displayed, and export your data for further usage.</li> </ul> </details></p></li>
+<li><p>Genes that locate to the Golgi apparatus or the endoplasmic reticulum and cause an exocytosis or endocytosis phenotype. <details> <summary> Read how to make this query… </summary> <ul> <li>Get the list of all genes that have annotations saying that one of their gene products locates to the Golgi apparatus (they are annotated to GO:0005794, “Golgi apparatus”): <ul> <li>Click on <em>GO</em></li> <li>Type “Golgi apparatus” and select GO:0005794.</li> <li>Click on Submit</li> </ul></li> <li>Get the list of all genes that have annotations saying that one of their gene products locates to the endoplasmic reticulum (they are annotated to GO:0005783, “endoplasmic reticulum”). <ul> <li>Click on <em>GO</em></li> <li>Type “endoplasmic reticulum” and select GO:0005783.</li> <li>Click on Submit</li> </ul></li> <li>In the <em>Combine queries</em> table below, select both <em>genes annotated with “Golgi apparatus”</em> and <em>genes annotated with “endoplasmic reticulum”</em> by clicking on the tickbox on the left.</li> <li>Then click on <em>Union / or</em>. This will generate a union of both lists (genes present in either of the lists) with genes that satisfy either condition.</li> <li>Get the list of all genes annotated with an exocytosis phenotype: <ul> <li>Click on <em>Phenotype</em></li> <li>Type “abnormal exocytosis” and select FYPO:0007873</li> <li>Click on <em>Submit</em></li> </ul></li> <li>Get the list of all genes annotated with an endocytosis phenotype: <ul> <li>Click on <em>Phenotype</em></li> <li>Type “abnormal endocytosis” and select FYPO:0003886</li> <li>Click on <em>Submit</em></li> </ul></li> <li>Do a union of the phenotype lists, as for the GO terms.</li> <li>Still in the <em>Combine queries</em> table, select both union lists, and click on <em>intersect / and</em>. This will generate an intersection of both lists (genes present in both) with genes that satisfies both conditions.</li> <li>The number in the “Results” column is the number of genes that satisfy those conditions. Click on it to see the lists of genes.</li> <li>In that page, you can choose the columns to be displayed, and export your data for further usage.</li> </ul> </details></p></li>
+</ul>
+<p>Full documentation of advanced search can be found <a routerLink="/documentation/advanced-search">here</a>.</p>
+<h2 id="other-useful-links">Other useful links</h2>
+<ul>
+<li><a routerLink="/documentation">Documentation page</a></li>
+<li><a routerLink="/datasets">Hosted datasets</a></li>
+<li><a routerLink="/faq">Frequently Asked Questions</a></li>
+</ul>
 
   </div>
   <div *ngIf="pageName == 'high-confidence-physical-interaction-network'">
@@ -9589,6 +9713,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#protein-sequence-changes">Protein sequence changes</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-august-17th">Next pombeTalks: Wednesday, August 17th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-july-20th">Next pombeTalks: Wednesday, July 20th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-wednesday-june-15th">PombeTalks Wednesday June 15th</a></div>
@@ -11561,7 +11686,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
   </div>
   <div *ngIf="pageName == 'pombase-and-japonicusdb-papers'">
 <h3 id="pombase-japonicusdb-publications-genetics-mod-reports-special-issue">PomBase &amp; JaponicusDB publications in the GENETICS MOD reports special issue</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>Papers describing PomBase and JaponicusDB are now published (early online). These articles are part of a special issue of GENETICS devoted to model organism database (MOD) reports. The MOD papers will highlight the journal’s new section on Computational Resources, Software &amp; Databases.</p>
 <ul>
@@ -11572,7 +11696,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
   </div>
   <div *ngIf="pageName == 'Atkinson-lncRNAs'">
 <h3 id="an-additional-5775-novel-curated-lncrnas-atkinson-et-al-.">An additional 5775 novel curated lncRNAs from Atkinson <em>et al</em>.</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>We have added an additional 5775 novel curated lncRNAs from <a href="https://www.pombase.org/reference/PMID:29914874">Atkinson <em>et al</em>.</a> to PomBase. We will refine the descriptions of these gene products to align with Sequence Ontology (SO) terms describing RNA features in the coming months.</p>
 <p>Thanks to María Rodríguez-López for preparing the files.</p>
@@ -11581,7 +11704,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
   </div>
   <div *ngIf="pageName == 'tor-nutritional-phosphoproteome-dataset'">
 <h3 id="tor-and-nutritional-phosphoproteome-dataset-loaded">TOR and nutritional phosphoproteome dataset loaded</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>We have loaded the TOR and nutritional phosphoproteome dataset described in <a href="https://www.pombase.org/reference/PMID:33823663">Halova <em>et al</em>.</a> (9424 annotations). Many thanks to Janni Petersen for preparing the files.</p>
 <p><a href="https://www.pombase.org/reference/PMID:33823663">Publication page for PMID:33823663</a></p>
@@ -11589,7 +11711,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
   </div>
   <div *ngIf="pageName == 'interprop-v88'">
 <h3 id="pombase-now-uses-interpro-version-88.0">PomBase now uses InterPro Version 88.0</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 <p>PomBase now uses InterPro Version 88.0.</p>
 <p>Features include:</p>
@@ -11601,7 +11722,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
   </div>
   <div *ngIf="pageName == 'new-human-orthologs'">
 <h3 id="new-human-orthologs-including-3-mrp-complex-subunits">New human orthologs including 3 MRP complex subunits</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>We continue to identify distant human orthologs. Four new 1:1 human ortholog connections have been added to PomBase this week:</p>
 <ul>
@@ -11701,7 +11821,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
   </div>
   <div *ngIf="pageName == 'pombetalks-aug-13'">
 <h3 id="next-pombetalks-wednesday-august-17th">Next pombeTalks: Wednesday, August 17th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next online pombeTalks will take place on <strong>Wednesday, August 17th</strong>. These talks are virtual seminars by and for the fission yeast community and friends.</p>
 <p>8:00 San Francisco / 11:00 NY / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / midnight Tokyo</p>
@@ -11715,9 +11834,22 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p>As always, connection details will be sent the day of the talk. For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the #pombetalks-qna channel.</p>
 
   </div>
+  <div *ngIf="pageName == 'protein-sequence-changes'">
+<h3 id="protein-sequence-changes">Protein sequence changes</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>78 protein have been shortened. This set includes 34 published proteins (Apl4, Brc1, Cdc48, Cdt1, Cho1, Cmb1, Cut2, Cut6, Cwf26, Dbr1, Dri1, Elo2, Eri1, Lsd2, Lys2, Med13, Naa38, Nup107, Nup82, Orc2, Pof10, Ppt1, Rec24, Rga2, Rmt3, Rns1, Rpn7, Sap145, Skb1, Snf5, Snt2, Spn3, Tpp2, Trm1, and Tup12).</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2022-09-06-protein-sequence-changes" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="protein-sequence-changes">Protein sequence changes</h3>
+<p><em>2022-09-06</em></p>
+<p>78 protein have been shortened. This set includes 34 published proteins (Apl4, Brc1, Cdc48, Cdt1, Cho1, Cmb1, Cut2, Cut6, Cwf26, Dbr1, Dri1, Elo2, Eri1, Lsd2, Lys2, Med13, Naa38, Nup107, Nup82, Orc2, Pof10, Ppt1, Rec24, Rga2, Rmt3, Rns1, Rpn7, Sap145, Skb1, Snf5, Snt2, Spn3, Tpp2, Trm1, and Tup12).</p>
+</div>
 <div id="2022-08-13-pombetalks-aug-13" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-august-17th">Next pombeTalks: Wednesday, August 17th</h3>
