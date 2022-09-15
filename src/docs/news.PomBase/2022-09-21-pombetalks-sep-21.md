@@ -16,6 +16,16 @@ Talks this session:
  - **Hannah Opalko**, Moseley lab, Dartmouth College
    *"Mechanisms of spatial patterning of cell cycle regulator Cdr2"*
 
+
+###### Zoom details
+
+Topic: PombeTalks S03E05 Zoom Meeting \
+Time: Sep 21, 2022 05:00 PM Paris \
+Meeting ID: 985 8572 1420 \
+Password: will be sent the day of the meeting
+
+###### Slack
+
 For more fission yeast related topics and recordings of the talks,
 join [pombeSlack](http://spombe.slack.com), where additional questions
 can also be posted on the `#pombetalks-qna` channel.
