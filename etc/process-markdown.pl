@@ -317,6 +317,7 @@ sub read_table
 sub lines_from_file
 {
   my $file_name = shift;
+  my $add_header_ids = shift // 0;
 
   my @lines = ();
 
@@ -334,7 +335,9 @@ sub lines_from_file
       chomp $line;
       (my $sect_id = $line) =~ s/^#+\s*(.*?)\??$/make_id_from_heading($1)/e;
 
-      $line .= " {#$sect_id}\n";
+      if ($add_header_ids) {
+        $line .= " {#$sect_id}\n";
+      }
     }
 
     if ($line =~ /^%%/) {
@@ -409,7 +412,7 @@ while (my ($id, $file_name) = each %{$sections{faq}}) {
   my @categories = ();
   my $contents = "";
 
-  my @lines = lines_from_file("$markdown_docs/$file_name");
+  my @lines = lines_from_file("$markdown_docs/$file_name", 1);
 
   map {
     my $line = $_;
@@ -738,8 +741,10 @@ sub all_news_items {
       my $contents = '';
       my %flags = ();
       my $thumbnail = undef;
-      open my $this_file, '<', "$news_dir_name/$dir_file_name" or die "can't open $dir_file_name";
-      while (defined (my $line = <$this_file>)) {
+
+      my @lines_from_file = lines_from_file("$news_dir_name/$dir_file_name", 0);
+
+      for my $line (@lines_from_file) {
         if (!defined $title && $line =~ /^#+\s*(.*?)\s*$/) {
           $title = $1;
           $id = make_id_from_heading($title);
@@ -751,13 +756,11 @@ sub all_news_items {
             if ($line =~ /^\s*<!-- newsfeed_thumbnail:\s*(.*?)\s*-->\s*$/) {
               $thumbnail = $1;
             } else {
-              process_line(\$line);
               $contents .= $line;
             }
           }
         }
       }
-      close $this_file;
 
       push @items, {
         title => $title,
@@ -820,7 +823,7 @@ sub contents_for_template {
       } else {
         my $details_file_name = "$markdown_docs/$details";
 
-        my @lines = lines_from_file($details_file_name);
+        my @lines = lines_from_file($details_file_name, 1);
 
         $ret .= join '', @lines;
       }
