@@ -9716,6 +9716,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#id-77-new-disease-gene-associations">77 new disease gene associations</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombemine-intermine-instance-s.-pombe">PombeMine: an InterMine instance for *S. pombe*</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-september-21st">Next pombeTalks: Wednesday, September  21st</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#protein-sequence-changes">Protein sequence changes</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-august-17th">Next pombeTalks: Wednesday, August 17th</a></div>
@@ -10946,12 +10948,6 @@ Please sign the letter to add your voice in support of the databases that help m
 <!-- newsfeed_thumbnail: advanced_search.png -->
 <p>All result pages from the <a routerLink="/query">Advanced search</a> now have a unique permanent URL that can be bookmarked and shared with your colleagues.</p>
 <p>The <a routerLink="/documentation/quick-little-tool">QuiLT</a> and <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">GO slim</a> pages also now have permanent URLs.</p>
-<p>Examples:</p>
-<ul>
-<li><a routerLink="/results/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">All disease associated genes</a></li>
-<li><a routerLink="/vis/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">QuiLT example for all disease associated genes</a></li>
-<li><a routerLink="/slim:bp_goslim_pombe/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">GO slim for disease associated genes</a></li>
-</ul>
 
   </div>
   <div *ngIf="pageName == 'new-stable-integration-vectors'">
@@ -11800,14 +11796,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p>As before, questions will be posted to <a href="https://spombe.slack.com/archives/C013C1NRY80">#pombetalks-qna</a> on <a href="http://spombe.slack.com">pombeSlack</a> channel and recordings uploaded.</p>
 
   </div>
-  <div *ngIf="pageName == 'new-disease-associations'">
-<h3 id="id-77-new-disease-gene-associations">77 new disease-gene associations</h3>
-<!-- pombase_flags: frontpage -->
-<!-- pombase_flags: draft -->
-<!-- newsfeed_thumbnail: human_disease.png -->
-<p>We have added 77 new disease-gene associations for 71 fission yeast human gene orthologs. These were identified using “PombeMine” to identify the disease genes curated by OMIM not annotated with an existing MONDO mapping. The number of human disease gene associations is currently 1471. Disease genes can be browsed via the <a routerLink="/browse-curation/disease-slim">disease slim set</a> or from the <a routerLink="/term/MONDO:0000001">MONDO root node term</a>.</p>
-
-  </div>
   <div *ngIf="pageName == 'pombetalks-july-20th'">
 <h3 id="next-pombetalks-wednesday-july-20th">Next pombeTalks: Wednesday, July 20th</h3>
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
@@ -11856,16 +11844,48 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <li><p><strong>Manuel Lera Ramirez</strong>, Pombase / Tran Lab, Institute Curie <em>“Microtubule rescue at midzone edges promotes overlap stability and prevents spindle collapse during anaphase B”</em></p></li>
 <li><p><strong>Hannah Opalko</strong>, Moseley lab, Dartmouth College <em>“Mechanisms of spatial patterning of cell cycle regulator Cdr2”</em></p></li>
 </ul>
+<h6 id="zoom-details">Zoom details</h6>
+<p>Topic: PombeTalks S03E05 Zoom Meeting<br />
+Time: Sep 21, 2022 05:00 PM Paris<br />
+Meeting ID: 985 8572 1420<br />
+Password: will be sent the day of the meeting</p>
+<h6 id="slack">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
+
+  </div>
+  <div *ngIf="pageName == 'new-disease-associations'">
+<h3 id="id-77-new-disease-gene-associations">77 new disease gene associations</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: human_disease.png -->
+<p>We have added 77 new disease-gene associations for 71 fission yeast human gene orthologs. These were identified using “PombeMine” to identify the disease genes curated by OMIM not annotated with an existing MONDO mapping. The number of human disease gene associations is currently 1471. Disease genes can be browsed via the <a routerLink="/browse-curation/disease-slim">disease slim set</a> or from the <a routerLink="/term/MONDO:0000001">MONDO root node term</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == 'pombemine'">
+<h3 id="pombemine-intermine-instance-s.-pombe">PombeMine: an InterMine instance for <em>S. pombe</em></h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: intermine.png -->
+<p>As part of an Elixir funded collaboration with the <a href="http://intermine.org/">InterMine team</a> we have created <a href="https://www.pombase.org/im/pombemine">PombeMine</a>. Gene lists can be sent directly from PomBase query results pages directly to Intermine (under the “export” tab), providing direct (2 click) access to GO and phenotype enrichment tools.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
-<div id="2022-09-21-pombetalks-sep-21" class="news-item">
+<div id="2022-09-16-new-disease-associations" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
+<h3 id="id-77-new-disease-gene-associations">77 new disease gene associations</h3>
+<p><em>2022-09-16</em></p>
+<p>We have added 77 new disease-gene associations for 71 fission yeast human gene orthologs. These were identified using “PombeMine” to identify the disease genes curated by OMIM not annotated with an existing MONDO mapping. The number of human disease gene associations is currently 1471. Disease genes can be browsed via the <a routerLink="/browse-curation/disease-slim">disease slim set</a> or from the <a routerLink="/term/MONDO:0000001">MONDO root node term</a>.</p>
+</div>
+<div id="2022-09-16-pombemine" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/intermine.png"/></p>
+<h3 id="pombemine-intermine-instance-s.-pombe">PombeMine: an InterMine instance for <em>S. pombe</em></h3>
+<p><em>2022-09-16</em></p>
+<p>As part of an Elixir funded collaboration with the <a href="http://intermine.org/">InterMine team</a> we have created <a href="https://www.pombase.org/im/pombemine">PombeMine</a>. Gene lists can be sent directly from PomBase query results pages directly to Intermine (under the “export” tab), providing direct (2 click) access to GO and phenotype enrichment tools.</p>
+</div>
+<div id="2022-09-15-pombetalks-sep-21" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-september-21st">Next pombeTalks: Wednesday, September 21st</h3>
-<p><em>2022-09-21</em></p>
+<p><em>2022-09-15</em></p>
 <p>The next online pombeTalks will take place on <strong>Wednesday, September 21st</strong>. These talks are virtual seminars by and for the fission yeast community and friends.</p>
 <p>8:00 San Francisco / 11:00 NY / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / midnight Tokyo</p>
 <p>Talks this session:</p>
@@ -11873,6 +11893,12 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <li><p><strong>Manuel Lera Ramirez</strong>, Pombase / Tran Lab, Institute Curie <em>“Microtubule rescue at midzone edges promotes overlap stability and prevents spindle collapse during anaphase B”</em></p></li>
 <li><p><strong>Hannah Opalko</strong>, Moseley lab, Dartmouth College <em>“Mechanisms of spatial patterning of cell cycle regulator Cdr2”</em></p></li>
 </ul>
+<h6 id="zoom-details">Zoom details</h6>
+<p>Topic: PombeTalks S03E05 Zoom Meeting<br />
+Time: Sep 21, 2022 05:00 PM Paris<br />
+Meeting ID: 985 8572 1420<br />
+Password: will be sent the day of the meeting</p>
+<h6 id="slack">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-09-06-protein-sequence-changes" class="news-item">
@@ -12760,8 +12786,6 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p><em>2019-11-28</em></p>
 <p>All result pages from the <a routerLink="/query">Advanced search</a> now have a unique permanent URL that can be bookmarked and shared with your colleagues.</p>
 <p>The <a routerLink="/documentation/quick-little-tool">QuiLT</a> and <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">GO slim</a> pages also now have permanent URLs.</p>
-<p>Examples:</p>
-<p>%%if db=PomBase - <a routerLink="/results/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">All disease associated genes</a> - <a routerLink="/vis/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">QuiLT example for all disease associated genes</a> - <a routerLink="/slim:bp_goslim_pombe/from/id/7474e390-ddc0-4f70-8c2e-d6a69d471a50">GO slim for disease associated genes</a> %%end db=PomBase %%if db=JaponicusDB - <a routerLink="/results/from/id/780009cd-c8b6-4669-b3b1-8d3500e3aef7">Proteins with human orthologs</a> - <a routerLink="/vis/from/id/780009cd-c8b6-4669-b3b1-8d3500e3aef7">QuiLT view of proteins with human orthologs</a> - <a routerLink="/slim:bp_goslim_japonicus/from/id/780009cd-c8b6-4669-b3b1-8d3500e3aef7">GO process slim for proteins with human orthologs</a> %%end db=JaponicusDB</p>
 </div>
 <div id="2019-10-16-JBrowse-tracks-loadable-from-publication-pages" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/new_tracks.png"/></p>
