@@ -7,8 +7,16 @@
   <div class="left-menu-part left-menu-header">
     <a (click)="scrollToPageTop()">{{title}}</a>
   </div>
-  <div class="left-menu-part left-menu-item"
-       *ngFor="let menuItem of menuItems">
-    <a pageScroll href="#{{menuItem.id}}">{{menuItem.displayName}}</a>
+  <div *ngFor="let menuItem of menuItems">
+    <div id="menu-item-{{menuItem.id}}" class="left-menu-part left-menu-item"
+         (click)="clicked(menuItem)">
+      <a pageScroll href="#{{menuItem.id}}">{{menuItem.displayName}}</a>
+    </div>
+
+    <div *ngIf="menuItem.subItems && menuItem.subItemsVisible">
+      <div class="left-menu-part left-sub-menu-item" *ngFor="let subMenuItem of menuItem.subItems">
+        <a pageScroll href="#{{subMenuItem.id}}">{{subMenuItem.displayName}}</a>
+      </div>
+    </div>
   </div>
 </div>

@@ -6,6 +6,8 @@ import { getAnnotationTableConfig, AnnotationTableConfig, getAppConfig, AppConfi
 interface MenuItem {
   id: string;
   displayName: string;
+  subItems?: Array<MenuItem>;
+  subItemsVisible?: boolean;
 }
 
 @Component({
@@ -49,6 +51,14 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
     }
   }
 
+  clicked(menuItem: MenuItem): void {
+    const currentItemValue = menuItem.subItemsVisible;
+    this.menuItems.map(item => {
+      item.subItemsVisible = false;
+    });
+    menuItem.subItemsVisible = !currentItemValue;
+  }
+
   ngOnInit() {
   }
 
@@ -64,12 +74,26 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
             return {
               id: typeName,
               displayName: 'JBrowse tracks',
+              subItemsVisible: false,
             };
           }
           let typeConfig = this.config.getAnnotationType(typeName);
+          let subItems: Array<MenuItem>|undefined;
+
+          if (typeConfig.split_by_parents) {
+            subItems = typeConfig.split_by_parents.map(splitByConf => {
+              return {
+                id: typeName + '-' + splitByConf.config_name,
+                displayName: splitByConf.display_name,
+                subItems: undefined,
+              };
+            });
+          }
+
           return {
             id: typeName,
             displayName: typeConfig.display_name || this.upperCaseIntial(typeName),
+            subItems,
           };
         });
       this.menuItems.push(...this.extraSections);

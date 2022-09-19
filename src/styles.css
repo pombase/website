@@ -243,15 +243,21 @@ select option:disabled {
   border-left: 4px solid #556;
 }
 .left-menu-item {
+  -webkit-user-select: none;
+  user-select: none;
   margin-left: 6px;
   border-left: 3px solid #667;
 }
 .left-sub-menu-item {
+  -webkit-user-select: none;
+  user-select: none;
   margin-left: 12px;
   font-size: 76%;
   border-left: 2px solid #778;
 }
 .left-sub-sub-menu-item {
+  -webkit-user-select: none;
+  user-select: none;
   margin-left: 18px;
   font-size: 73%;
   border-left: 1.7px solid #889;
