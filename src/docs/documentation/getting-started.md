@@ -6,7 +6,7 @@
 %%if db=PomBase
 To get started as a new community member, you can:
 
-- **Join the pombe mailing list** with more than 1300 subscribers, where you can ask and answer questions about fission yeast generally, get notifications about ${database_name} updates and get invitations to the monthly online seminar PombeTalks. [Join here](https://lists.cam.ac.uk/sympa/suboptions/ucam-pombelist).
+- **Join the pombe mailing list** with more than 1300 subscribers, where you can ask and answer questions about fission yeast generally, get notifications about ${database_name} updates and get invitations to the monthly online seminar PombeTalks. [Join here](https://lists.cam.ac.uk/sympa/subscribe/ucam-pombelist).
 - **Join the pombe Slack channel,** to get in touch with other fellow *${genus_and_species}* researchers. See the instructions to join [here](https://www.pombase.org/faq/how-can-i-join-pombeslack). If this is your first time using Slack, you can get started with [this guide](https://www.youtube.com/watch?v=RRxQQxiM7AA).
 - Read the basics about *${genus_and_species}* biology and experimental methods in the [Forsburg Lab website](https://dornsife.usc.edu/pombenet/about-pombe/).
 - Read about the history and importance of *${genus_and_species}* as a model system [PMC4896181](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4896181/) and a primer introducing genetic and bioinformatic tools: [PMC4596657](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4596657/)
