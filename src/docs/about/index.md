@@ -1,6 +1,6 @@
 ## About ${database_name}
 
-${database_name} is the comprehensive model organism knowledgebase or the fission yeast *${genus_and_species}*, which aims to standardise, integrate, display, and disseminate biological knowledge and datasets to the wider scientific community, making a wide range of data-types from large and small-scale publications [FAIR](https://pubmed.ncbi.nlm.nih.gov/26978244/).
+${database_name} is the comprehensive model organism knowledgebase for the fission yeast *${genus_and_species}*, which aims to standardise, integrate, display, and disseminate biological knowledge and datasets to the wider scientific community, making a wide range of data-types from large and small-scale publications [FAIR](https://pubmed.ncbi.nlm.nih.gov/26978244/).
 
 You can use ${database_name} to:
 
