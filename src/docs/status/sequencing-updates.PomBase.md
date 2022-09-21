@@ -1,5 +1,9 @@
 ### *S. pombe* Sequence updates since July 2003
 
+#### Pending sequence updates
+
+We have a separate page discribing [pending sequence updates](status/sequence-updates-pending).
+
 #### Aug 29 2008 Chromosome 1 cosmid C30 OR c29E6 affecting SPAC29E6.04c/Nnf1
 
 **PENDING 2008-08-29**
