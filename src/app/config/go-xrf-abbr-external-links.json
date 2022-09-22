@@ -170,8 +170,8 @@
    "Pfam" : {
       "description" : "Pfam database of protein families",
       "name" : "Pfam",
-      "url_syntax" : "https://pfam.xfam.org/family/[example_id]",
-      "website" : "http://pfam.xfam.org"
+      "url_syntax" : "https://www.ebi.ac.uk/interpro/entry/pfam/[example_id]",
+      "website" : "https://www.ebi.ac.uk/interpro/entry/pfam"
    },
    "PomBase" : {
       "description" : "PomBase",
