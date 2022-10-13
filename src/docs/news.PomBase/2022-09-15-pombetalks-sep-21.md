@@ -9,7 +9,7 @@ community and friends.
 
 Talks this session:
 
- - **Manuel Lera Ramirez**, Pombase / Tran Lab, Institute Curie
+ - **Manuel Lera Ramirez**, PomBase / Tran Lab, Institute Curie
    *"Microtubule rescue at midzone edges promotes overlap stability and prevents spindle collapse during anaphase B"*
 
  - **Hannah Opalko**, Moseley lab, Dartmouth College
