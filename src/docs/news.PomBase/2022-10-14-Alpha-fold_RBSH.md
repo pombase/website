@@ -1,8 +1,6 @@
-
 ### Reciprocal Best Structure Hits: Using AlphaFold models to discover distant homologues
-
 <!-- pombase_flags: frontpage -->
-
+<!-- newsfeed_thumbnail: protein-structure.png -->
 
 We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold 
 reciprocal best structure hits to identify potential distant orthologs. The RBSH approach provided 
