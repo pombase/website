@@ -1,4 +1,4 @@
-### Reciprocal Best Structure Hits: Using AlphaFold models to discover distant homologues
+### Reciprocal Best Structure Hits: Using AlphaFold models to discover distant human and budding yeast homologues
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: protein-structure.png -->
 
