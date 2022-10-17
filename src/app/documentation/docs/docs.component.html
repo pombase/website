@@ -9011,13 +9011,14 @@ Example queries:
 <h3 id="how-can-i-find-significant-shared-go-annotations-genes-list">How can I find significant shared GO annotations for genes in a list?</h3>
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>GO term enrichment identifies GO terms that are significantly overrepresented (or underrepresented) among a set of genes.</p>
-<p>At present PomBase does not have its own GO enrichment tool. We recommend using the <a href="http://go.princeton.edu/cgi-bin/GOTermFinder">Generic GO Term Finder at Princeton</a>, because it offers a simple interface and up-to-date ontology and annotation data, including the current PomBase GO annotation dataset (you can upload your own backgound set, GO annotation file, or both). You can also use the GO Term Finder to retrieve all annotations for your gene list by setting the p-value to 1.</p>
-<p>Before you perform an enrichment analysis, we recommend that you do a GO slim analysis of your gene list, for a broad overview of the annotation set (for more information, see the <a href="/documentation/pombase-go-slim-documentation">Fission Yeast GO slim documentation</a> page and <a routerLink="/faq/how-can-i-use-go-slims-s.-pombe">FAQ</a>). You can use Princeton’s GO slimming tool, <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GO Term Mapper</a>, which is especially useful if you use your own GAF for the enrichment, because it will show:</p>
-<ul>
-<li>IDs in your gene list that are missing from the annotation set (the annotations in GO Term Mapper’s database or your uploaded GAF)</li>
-<li>Genes in your list that have annotations but do not map to the slim</li>
-<li>Genes in your list that have no annotations</li>
-</ul>
+<p>At present PomBase does not have its own GO enrichment tool. We recommend using the <a href="http://go.princeton.edu/cgi-bin/GOTermFinder">Generic GO Term Finder at Princeton</a>, because it offers a simple interface and up-to-date ontology and annotation data, including the current PomBase GO annotation dataset (you can upload your own background set, GO annotation file, or both). The results are provided in an tabular format. You can also use the GO Term Finder to retrieve all annotations for your gene list by setting the p-value to 1.</p>
+<p>Before you perform an enrichment analysis, we recommend that you do a GO slim analysis of your gene list, for a broad overview of the annotation set (for more information, see the <a routerLink="/documentation/pombase-go-slim-documentation">Fission Yeast GO slim documentation</a> page and <a routerLink="/faq/how-can-i-use-go-slims-s.-pombe">FAQ</a>). This will enable you to focus on. the most important terms in your enrichment.</p>
+<p>You can slim your gene lists for any GO aspect (MF, BP or CC) using the PomBase “Advanced search”:</p>
+<ol type="1">
+<li>Upload your list</li>
+<li>Click on the number of results in column 1 to access the complete list</li>
+<li>Use the “slim with” option in the menu to slim your gene set</li>
+</ol>
 <p>A few other enrichment tools are described on the GO Consortium’s <a href="https://geneontology.github.io/docs/go-enrichment-analysis/">GO Enrichment Analysis</a> page. If you choose one of these, we recommend that you only use an enrichment tool that allows you to upload a background set representing the genes used in your experiment. Even if you regard the whole genome as the relevant background, it is important to specify the background gene set explicitly to obtain meaningful results, especially if you have data only for protein-coding genes. For example, annotated tRNA genes can obscure enrichment of protein-coding genes annotated to translation.</p>
 <p>For any GO analysis, we strongly recommend that you describe your approach fully in methods, and include the release details (number and/or date) for PomBase and the GO terms and annotations you use.</p>
 
@@ -9728,6 +9729,9 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#reciprocal-best-structure-hits-using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Reciprocal Best Structure Hits: Using AlphaFold models to discover distant human and budding yeast homologues</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-october-19th">Next pombeTalks: Wednesday, October 19th</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#new-fission-yeast-check-out-our-quick-start-guide-new-users">New to fission yeast? check out our quick start guide for new users</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#id-77-new-disease-gene-associations">77 new disease gene associations</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombemine-intermine-instance-s.-pombe">PombeMine: an InterMine instance for *S. pombe*</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-september-21st">Next pombeTalks: Wednesday, September  21st</a></div>
@@ -11847,13 +11851,12 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
   </div>
   <div *ngIf="pageName == 'pombetalks-sep-21'">
 <h3 id="next-pombetalks-wednesday-september-21st">Next pombeTalks: Wednesday, September 21st</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next online pombeTalks will take place on <strong>Wednesday, September 21st</strong>. These talks are virtual seminars by and for the fission yeast community and friends.</p>
 <p>8:00 San Francisco / 11:00 NY / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / midnight Tokyo</p>
 <p>Talks this session:</p>
 <ul>
-<li><p><strong>Manuel Lera Ramirez</strong>, Pombase / Tran Lab, Institute Curie <em>“Microtubule rescue at midzone edges promotes overlap stability and prevents spindle collapse during anaphase B”</em></p></li>
+<li><p><strong>Manuel Lera Ramirez</strong>, PomBase / Tran Lab, Institute Curie <em>“Microtubule rescue at midzone edges promotes overlap stability and prevents spindle collapse during anaphase B”</em></p></li>
 <li><p><strong>Hannah Opalko</strong>, Moseley lab, Dartmouth College <em>“Mechanisms of spatial patterning of cell cycle regulator Cdr2”</em></p></li>
 </ul>
 <h6 id="zoom-details">Zoom details</h6>
@@ -11879,9 +11882,82 @@ Password: will be sent the day of the meeting</p>
 <p>As part of an Elixir funded collaboration with the <a href="http://intermine.org/">InterMine team</a> we have created <a href="https://www.pombase.org/im/pombemine">PombeMine</a>. Gene lists can be sent directly from PomBase query results pages directly to Intermine (under the “export” tab), providing direct (2 click) access to GO and phenotype enrichment tools.</p>
 
   </div>
+  <div *ngIf="pageName == 'new-to-pombase'">
+<h3 id="new-fission-yeast-check-out-our-quick-start-guide-new-users">New to fission yeast? check out our quick start guide for new users</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>We have added a new page providing useful information for new fission yeast researchers:<br />
+<a routerLink="/documentation/getting-started">Getting started with <em>S.pombe</em> and PomBase</a></p>
+<p>Includes how to join the community mailing list and the Slack channel, links to useful tools and resources, information about fission yeast as a model organism, an overview of PomBase and more.</p>
+
+  </div>
+  <div *ngIf="pageName == 'pombetalks-oct-19th'">
+<h3 id="next-pombetalks-wednesday-october-19th">Next pombeTalks: Wednesday, October 19th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next online pombeTalks will take place on <strong>Wednesday, October 19th</strong>. These talks are virtual seminars by and for the fission yeast community and friends.</p>
+<p>8:00 San Francisco / 11:00 NY / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / midnight Tokyo</p>
+<p>Talks this session:</p>
+<ul>
+<li><p><strong>Cecilia D’Alessio</strong>, University of Buenos Aires and CONICET<br />
+“N-Glycosylation and glycoprotein folding in fission yeasts, a model to study human congenital disorders of glycosylation”</p></li>
+<li><p><strong>Jason Tanny</strong>, McGill University, Montreal<br />
+“A novel transcriptional mechanism regulating the cellular response to replication stress”</p></li>
+</ul>
+<h6 id="zoom-details">Zoom details</h6>
+<p>Topic: PombeTalks S03E06 Zoom Meeting<br />
+Time: Oct 19, 2022 05:00 PM Paris<br />
+Meeting ID: 933 7072 6178<br />
+Password: will be sent the day of the meeting</p>
+<h6 id="slack">Slack</h6>
+<p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
+
+  </div>
+  <div *ngIf="pageName == 'Alpha-fold_RBSH'">
+<h3 id="reciprocal-best-structure-hits-using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Reciprocal Best Structure Hits: Using AlphaFold models to discover distant human and budding yeast homologues</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: protein-structure.png -->
+<p>We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold reciprocal best structure hits to identify potential distant orthologs. The RBSH approach provided 11 novel human homologues, including <strong>Pho86 -&gt; NAT8</strong> (ER acetyltransferase), <strong>Mug174 -&gt; COIL</strong> (Coilin), <strong>Ach1 -&gt; OXCT1</strong> (succinyl-CoA:3-ketoacid coenzyme A transferase), <strong>SPAC1952.08c -&gt; CREG1</strong>, <strong>imt1 -&gt; A4GALT</strong> (Lactosylceramide 4-alpha-galactosyltransferase), <strong>Rtc5 -&gt; MEAK7</strong> (MTOR associated protein). A further 41 novel orthologs were predicted between <em>S. pombe</em> and <em>S. cerevisiae</em> which had fallen under the radar for all other methods used at PomBase. Most of the novel connections provided additional functional information, or supported existing knowledge for poorly characterised proteins. See supporting data tables S4 and S5 for the complete list of predictions included in PomBase. <a href="https://academic.oup.com/bioinformaticsadvances/advance-article/doi/10.1093/bioadv/vbac072/6749558">Article</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2022-10-14-Alpha-fold_RBSH" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/protein-structure.png"/></p>
+<h3 id="reciprocal-best-structure-hits-using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Reciprocal Best Structure Hits: Using AlphaFold models to discover distant human and budding yeast homologues</h3>
+<p><em>2022-10-14</em></p>
+<p>We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold reciprocal best structure hits to identify potential distant orthologs. The RBSH approach provided 11 novel human homologues, including <strong>Pho86 -&gt; NAT8</strong> (ER acetyltransferase), <strong>Mug174 -&gt; COIL</strong> (Coilin), <strong>Ach1 -&gt; OXCT1</strong> (succinyl-CoA:3-ketoacid coenzyme A transferase), <strong>SPAC1952.08c -&gt; CREG1</strong>, <strong>imt1 -&gt; A4GALT</strong> (Lactosylceramide 4-alpha-galactosyltransferase), <strong>Rtc5 -&gt; MEAK7</strong> (MTOR associated protein). A further 41 novel orthologs were predicted between <em>S. pombe</em> and <em>S. cerevisiae</em> which had fallen under the radar for all other methods used at PomBase. Most of the novel connections provided additional functional information, or supported existing knowledge for poorly characterised proteins. See supporting data tables S4 and S5 for the complete list of predictions included in PomBase. <a href="https://academic.oup.com/bioinformaticsadvances/advance-article/doi/10.1093/bioadv/vbac072/6749558">Article</a>.</p>
+</div>
+<div id="2022-10-13-pombetalks-oct-19th" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-october-19th">Next pombeTalks: Wednesday, October 19th</h3>
+<p><em>2022-10-13</em></p>
+<p>The next online pombeTalks will take place on <strong>Wednesday, October 19th</strong>. These talks are virtual seminars by and for the fission yeast community and friends.</p>
+<p>8:00 San Francisco / 11:00 NY / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / midnight Tokyo</p>
+<p>Talks this session:</p>
+<ul>
+<li><p><strong>Cecilia D’Alessio</strong>, University of Buenos Aires and CONICET<br />
+“N-Glycosylation and glycoprotein folding in fission yeasts, a model to study human congenital disorders of glycosylation”</p></li>
+<li><p><strong>Jason Tanny</strong>, McGill University, Montreal<br />
+“A novel transcriptional mechanism regulating the cellular response to replication stress”</p></li>
+</ul>
+<h6 id="zoom-details">Zoom details</h6>
+<p>Topic: PombeTalks S03E06 Zoom Meeting<br />
+Time: Oct 19, 2022 05:00 PM Paris<br />
+Meeting ID: 933 7072 6178<br />
+Password: will be sent the day of the meeting</p>
+<h6 id="slack">Slack</h6>
+<p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
+</div>
+<div id="2022-10-13-new-to-pombase" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="new-fission-yeast-check-out-our-quick-start-guide-new-users">New to fission yeast? check out our quick start guide for new users</h3>
+<p><em>2022-10-13</em></p>
+<p>We have added a new page providing useful information for new fission yeast researchers:<br />
+<a routerLink="/documentation/getting-started">Getting started with <em>S.pombe</em> and PomBase</a></p>
+<p>Includes how to join the community mailing list and the Slack channel, links to useful tools and resources, information about fission yeast as a model organism, an overview of PomBase and more.</p>
+</div>
 <div id="2022-09-16-new-disease-associations" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
 <h3 id="id-77-new-disease-gene-associations">77 new disease gene associations</h3>
@@ -11902,15 +11978,15 @@ Password: will be sent the day of the meeting</p>
 <p>8:00 San Francisco / 11:00 NY / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / midnight Tokyo</p>
 <p>Talks this session:</p>
 <ul>
-<li><p><strong>Manuel Lera Ramirez</strong>, Pombase / Tran Lab, Institute Curie <em>“Microtubule rescue at midzone edges promotes overlap stability and prevents spindle collapse during anaphase B”</em></p></li>
+<li><p><strong>Manuel Lera Ramirez</strong>, PomBase / Tran Lab, Institute Curie <em>“Microtubule rescue at midzone edges promotes overlap stability and prevents spindle collapse during anaphase B”</em></p></li>
 <li><p><strong>Hannah Opalko</strong>, Moseley lab, Dartmouth College <em>“Mechanisms of spatial patterning of cell cycle regulator Cdr2”</em></p></li>
 </ul>
-<h6 id="zoom-details">Zoom details</h6>
+<h6 id="zoom-details-1">Zoom details</h6>
 <p>Topic: PombeTalks S03E05 Zoom Meeting<br />
 Time: Sep 21, 2022 05:00 PM Paris<br />
 Meeting ID: 985 8572 1420<br />
 Password: will be sent the day of the meeting</p>
-<h6 id="slack">Slack</h6>
+<h6 id="slack-1">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-09-06-protein-sequence-changes" class="news-item">
