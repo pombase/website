@@ -1,4 +1,4 @@
-## PomBase Publications
+## PomBase and collaborative publications
 
 Please see the [Citing PomBase](/about/citing-pombase) page, which
 lists papers to cite for PomBase, the *S. pombe* genome sequence,
@@ -6,6 +6,19 @@ Canto, FYPO, annotations and Compara.
 
 
 ### Journal articles
+
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/bioadv/vbac072"></div>
+
+<div class="pub-citation">
+Vivian Monzon, Typhaine Paysan-Lafosse, Valerie Wood, Alex Bateman \
+Reciprocal Best Structure Hits: Using AlphaFold models to discover
+distant homologues \
+*Bioinformatics Advances*, vbac072 \
+</div>
+[10.1093/bioadv/vbac072](https://doi.org/10.1093/bioadv/vbac072)
+
+<div class="clear-float"></div>
+
 
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/database/baac062"></div>
 
