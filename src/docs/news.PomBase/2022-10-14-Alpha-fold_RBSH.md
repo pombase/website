@@ -1,9 +1,10 @@
-### Reciprocal Best Structure Hits: Using AlphaFold models to discover distant human and budding yeast homologues
+### Using AlphaFold models to discover distant human and budding yeast homologues
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: protein-structure.png -->
 
 We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold 
-reciprocal best structure hits to identify potential distant orthologs. The RBSH approach provided 
+reciprocal best structure hits to identify potential distant
+orthologs. The Reciprocal Best Structure Hits (RBSH) approach provided 
 11 novel human homologues, including **Pho86 -> NAT8** (ER acetyltransferase), **Mug174 -> COIL** (Coilin), 
 **Ach1 -> OXCT1** (succinyl-CoA:3-ketoacid coenzyme A transferase), **SPAC1952.08c -> CREG1**, **imt1 -> A4GALT** 
 (Lactosylceramide 4-alpha-galactosyltransferase), **Rtc5 -> MEAK7** (MTOR associated protein). 
