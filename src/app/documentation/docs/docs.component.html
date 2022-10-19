@@ -522,9 +522,22 @@ United Kingdom</p>
 
   </div>
   <div *ngIf="pageName == 'published-by-pombase'">
-<h2 id="pombase-publications">PomBase Publications</h2>
+<h2 id="pombase-and-collaborative-publications">PomBase and collaborative publications</h2>
 <p>Please see the <a routerLink="/about/citing-pombase">Citing PomBase</a> page, which lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, Canto, FYPO, annotations and Compara.</p>
 <h3 id="journal-articles">Journal articles</h3>
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1093/bioadv/vbac072">
+
+</div>
+<div class="pub-citation">
+<p>Vivian Monzon, Typhaine Paysan-Lafosse, Valerie Wood, Alex Bateman<br />
+Reciprocal Best Structure Hits: Using AlphaFold models to discover distant homologues<br />
+<em>Bioinformatics Advances</em>, vbac072<br />
+</p>
+</div>
+<p><a href="https://doi.org/10.1093/bioadv/vbac072">10.1093/bioadv/vbac072</a></p>
+<div class="clear-float">
+
+</div>
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1093/database/baac062">
 
 </div>
@@ -9314,6 +9327,14 @@ Example queries:
 <p>See the <a routerLink="/about/citing-pombase">Citing PomBase</a> page, which lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, Canto, FYPO, annotations and Compara. Additional key papers may be added as needed.</p>
 
 </div>
+<div (click)="faq_navigate($event, '/faq/how-do-i-download-table-all-modifications', 'How do I download a table of all modifications?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-do-i-download-table-all-modifications' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
+<h3 id="how-do-i-download-table-all-modifications">How do I download a table of all modifications?</h3>
+<!-- pombase_categories: Finding data,Using ontologies -->
+<p>Specific modified residues is not a download option from the query builder. If you want build a table of all residues with a specific modification, download the table in the <a routerLink="/data/annotations/modifications/">modifications data directory</a>, and filter for your modification of interest. The column descriptions are in the README.</p>
+<p>This dataset includes all high throughput and low throughput curated data. Note that some older datasets have no residue information.</p>
+<p>See also: <a routerLink="/faq/how-can-i-find-modifications-my-protein-interest">How can I find modifications for my protein of interest?</a></p>
+
+</div>
 <div (click)="faq_navigate($event, '/faq/how-do-i-join-pombelist-can-you-unsubscribe-me-pombelist', 'How do I join pombelist? Can you unsubscribe me from pombelist?')" *ngIf="pageName == 'community' || pageName == 'how-do-i-join-pombelist-can-you-unsubscribe-me-pombelist' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-do-i-join-pombelist-can-you-unsubscribe-me-pombelist">How do I join pombelist? Can you unsubscribe me from pombelist?</h3>
 <!-- pombase_categories: Community -->
@@ -9729,7 +9750,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
-<div class="left-menu-part left-menu-item"><a pageScroll href="#reciprocal-best-structure-hits-using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Reciprocal Best Structure Hits: Using AlphaFold models to discover distant human and budding yeast homologues</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Using AlphaFold models to discover distant human and budding yeast homologues</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-october-19th">Next pombeTalks: Wednesday, October 19th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-fission-yeast-check-out-our-quick-start-guide-new-users">New to fission yeast? check out our quick start guide for new users</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#id-77-new-disease-gene-associations">77 new disease gene associations</a></div>
@@ -11888,7 +11909,7 @@ Password: will be sent the day of the meeting</p>
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>We have added a new page providing useful information for new fission yeast researchers:<br />
 <a routerLink="/documentation/getting-started">Getting started with <em>S.pombe</em> and PomBase</a></p>
-<p>Includes how to join the community mailing list and the Slack channel, links to useful tools and resources, information about fission yeast as a model organism, an overview of PomBase and more.</p>
+<p>Includes details of how to join the community mailing list and the Slack channel, links to useful tools and resources, information about fission yeast as a model organism, an overview of PomBase and more.</p>
 
   </div>
   <div *ngIf="pageName == 'pombetalks-oct-19th'">
@@ -11914,10 +11935,10 @@ Password: will be sent the day of the meeting</p>
 
   </div>
   <div *ngIf="pageName == 'Alpha-fold_RBSH'">
-<h3 id="reciprocal-best-structure-hits-using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Reciprocal Best Structure Hits: Using AlphaFold models to discover distant human and budding yeast homologues</h3>
+<h3 id="using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Using AlphaFold models to discover distant human and budding yeast homologues</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: protein-structure.png -->
-<p>We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold reciprocal best structure hits to identify potential distant orthologs. The RBSH approach provided 11 novel human homologues, including <strong>Pho86 -&gt; NAT8</strong> (ER acetyltransferase), <strong>Mug174 -&gt; COIL</strong> (Coilin), <strong>Ach1 -&gt; OXCT1</strong> (succinyl-CoA:3-ketoacid coenzyme A transferase), <strong>SPAC1952.08c -&gt; CREG1</strong>, <strong>imt1 -&gt; A4GALT</strong> (Lactosylceramide 4-alpha-galactosyltransferase), <strong>Rtc5 -&gt; MEAK7</strong> (MTOR associated protein). A further 41 novel orthologs were predicted between <em>S. pombe</em> and <em>S. cerevisiae</em> which had fallen under the radar for all other methods used at PomBase. Most of the novel connections provided additional functional information, or supported existing knowledge for poorly characterised proteins. See supporting data tables S4 and S5 for the complete list of predictions included in PomBase. <a href="https://academic.oup.com/bioinformaticsadvances/advance-article/doi/10.1093/bioadv/vbac072/6749558">Article</a>.</p>
+<p>We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold reciprocal best structure hits to identify potential distant orthologs. The Reciprocal Best Structure Hits (RBSH) approach provided 11 novel human homologues, including <strong>Pho86 -&gt; NAT8</strong> (ER acetyltransferase), <strong>Mug174 -&gt; COIL</strong> (Coilin), <strong>Ach1 -&gt; OXCT1</strong> (succinyl-CoA:3-ketoacid coenzyme A transferase), <strong>SPAC1952.08c -&gt; CREG1</strong>, <strong>imt1 -&gt; A4GALT</strong> (Lactosylceramide 4-alpha-galactosyltransferase), <strong>Rtc5 -&gt; MEAK7</strong> (MTOR associated protein). A further 41 novel orthologs were predicted between <em>S. pombe</em> and <em>S. cerevisiae</em> which had fallen under the radar for all other methods used at PomBase. Most of the novel connections provided additional functional information, or supported existing knowledge for poorly characterised proteins. See supporting data tables S4 and S5 for the complete list of predictions included in PomBase. <a href="https://academic.oup.com/bioinformaticsadvances/advance-article/doi/10.1093/bioadv/vbac072/6749558">Article</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
@@ -11925,9 +11946,9 @@ Password: will be sent the day of the meeting</p>
 <div class="news-archive">
 <div id="2022-10-14-Alpha-fold_RBSH" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/protein-structure.png"/></p>
-<h3 id="reciprocal-best-structure-hits-using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Reciprocal Best Structure Hits: Using AlphaFold models to discover distant human and budding yeast homologues</h3>
+<h3 id="using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Using AlphaFold models to discover distant human and budding yeast homologues</h3>
 <p><em>2022-10-14</em></p>
-<p>We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold reciprocal best structure hits to identify potential distant orthologs. The RBSH approach provided 11 novel human homologues, including <strong>Pho86 -&gt; NAT8</strong> (ER acetyltransferase), <strong>Mug174 -&gt; COIL</strong> (Coilin), <strong>Ach1 -&gt; OXCT1</strong> (succinyl-CoA:3-ketoacid coenzyme A transferase), <strong>SPAC1952.08c -&gt; CREG1</strong>, <strong>imt1 -&gt; A4GALT</strong> (Lactosylceramide 4-alpha-galactosyltransferase), <strong>Rtc5 -&gt; MEAK7</strong> (MTOR associated protein). A further 41 novel orthologs were predicted between <em>S. pombe</em> and <em>S. cerevisiae</em> which had fallen under the radar for all other methods used at PomBase. Most of the novel connections provided additional functional information, or supported existing knowledge for poorly characterised proteins. See supporting data tables S4 and S5 for the complete list of predictions included in PomBase. <a href="https://academic.oup.com/bioinformaticsadvances/advance-article/doi/10.1093/bioadv/vbac072/6749558">Article</a>.</p>
+<p>We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold reciprocal best structure hits to identify potential distant orthologs. The Reciprocal Best Structure Hits (RBSH) approach provided 11 novel human homologues, including <strong>Pho86 -&gt; NAT8</strong> (ER acetyltransferase), <strong>Mug174 -&gt; COIL</strong> (Coilin), <strong>Ach1 -&gt; OXCT1</strong> (succinyl-CoA:3-ketoacid coenzyme A transferase), <strong>SPAC1952.08c -&gt; CREG1</strong>, <strong>imt1 -&gt; A4GALT</strong> (Lactosylceramide 4-alpha-galactosyltransferase), <strong>Rtc5 -&gt; MEAK7</strong> (MTOR associated protein). A further 41 novel orthologs were predicted between <em>S. pombe</em> and <em>S. cerevisiae</em> which had fallen under the radar for all other methods used at PomBase. Most of the novel connections provided additional functional information, or supported existing knowledge for poorly characterised proteins. See supporting data tables S4 and S5 for the complete list of predictions included in PomBase. <a href="https://academic.oup.com/bioinformaticsadvances/advance-article/doi/10.1093/bioadv/vbac072/6749558">Article</a>.</p>
 </div>
 <div id="2022-10-13-pombetalks-oct-19th" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
@@ -11956,7 +11977,7 @@ Password: will be sent the day of the meeting</p>
 <p><em>2022-10-13</em></p>
 <p>We have added a new page providing useful information for new fission yeast researchers:<br />
 <a routerLink="/documentation/getting-started">Getting started with <em>S.pombe</em> and PomBase</a></p>
-<p>Includes how to join the community mailing list and the Slack channel, links to useful tools and resources, information about fission yeast as a model organism, an overview of PomBase and more.</p>
+<p>Includes details of how to join the community mailing list and the Slack channel, links to useful tools and resources, information about fission yeast as a model organism, an overview of PomBase and more.</p>
 </div>
 <div id="2022-09-16-new-disease-associations" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
