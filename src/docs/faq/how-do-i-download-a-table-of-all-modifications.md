@@ -4,7 +4,7 @@
 Specific modified residues is not a download option from the query
 builder.  If you want build a table of all residues with a specific
 modification, download the table in the
-[modifications data directory](/data/annotations/modifications/), and filter
+[modifications data directory](https://www.pombase.org/data/annotations/modifications/), and filter
 for your modification of interest.  The column descriptions are in the
 README.
 
