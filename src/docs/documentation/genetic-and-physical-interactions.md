@@ -24,3 +24,20 @@ Evidence Codes](http://wiki.thebiogrid.org/doku.php/experimental_systems)
 documentation page.
 
 **Reference:** The paper cited to support the interaction
+
+### More on Genetic Interactions
+
+The definitions of all genetic interactions can be found in [the BioGRID wiki](https://wiki.thebiogrid.org/doku.php/experimental_systems#genetic_interactions). **It is worth reading these definitions, as the language often used in publications does not match the naming of genetic interactions**. For example, in publications we can find "double deletion of gene X and Y rescues the defects cellular morphology caused by deletion of gene Y". However, for BioGRID this is a phenotypic suppression not a rescue, since rescue is reserved for lethality or growth defect. The genetic interactions that are used in low throughput curation in PomBase are:
+
+* **Dosage Growth Defect**: Overexpression/increased dosage of one gene causes a growth defect in a strain that is mutated/deleted for another.
+* **Dosage Lethality**: Overexpression/increased dosage of one gene causes lethality in a strain that is mutated/deleted for another gene.
+* **Dosage Rescue**: Overexpression/increased dosage of one gene rescues the lethality or growth defect of a strain mutated/deleted for another gene.
+* **Phenotypic Enhancement**: Mutation/deletion/overexpression of one genes results in enhancement of any phenotype (other than lethality/growth defect) associated with mutation/deletion/overexpression of another gene.
+* **Phenotypic Suppression**: Mutation/deletion/overexpression of one gene results in suppression of any phenotype (other than lethality/growth defect) associated with mutation/deletion/overexpression of another gene.
+* **Synthetic Growth Defect**:  Mutations/deletions in separate genes, each of which alone causes a minimal phenotype, but when combined in the same cell results in a significant growth defect under a given condition.
+* **Synthetic Lethality**: Mutations/deletions in separate genes, each of which alone causes a minimal phenotype, but when combined in the same cell results in lethality under a given condition.
+* **Synthetic Rescue**: Mutation/deletion of one gene rescues the lethality or growth defect of a strain mutated/deleted for another gene.
+
+Below is a decission making tree to determine the type of genetic interaction from the phenotypes of the single and double mutant. "Interacting allele" refers to the allele that is not present in the single mutant:
+
+![Decission making for genetic interactions](assets/genetic-and-physical-interactions.svg){width="500"}
