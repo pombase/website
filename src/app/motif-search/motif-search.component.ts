@@ -75,14 +75,11 @@ export class MotifSearchComponent implements OnInit {
       switchMap(motif => this.motifService.motifSearch('all', motif)))
       .subscribe(results => {
         if (results.status === 'OK') {
-          this.peptideResults = results.gene_matches;
-          this.peptideResults.map(res => {
-            res.gene_id = res.gene_id.replace(/\.\d+$/, '');
-          });
+          this.peptideResults = results.peptide_matches;
           if (this.peptideResults.length > 0) {
             this.peptideResultsWithDetails = this.cleanResults(results);
             this.geneMatchesWithNoDetails =
-               results.gene_matches.length - this.peptideResultsWithDetails.length;
+               results.peptide_matches.length - this.peptideResultsWithDetails.length;
             this.searchState = SearchState.SomeResults;
           } else {
             this.searchState = SearchState.NoResults;
@@ -99,7 +96,7 @@ export class MotifSearchComponent implements OnInit {
   }
 
   cleanResults(results: MotifSearchResults): Array<MotifPeptideResult> {
-    return results.gene_matches.filter((geneDetails: MotifPeptideResult) => {
+    return results.peptide_matches.filter((geneDetails: MotifPeptideResult) => {
       return geneDetails.matches;
     })
   }
@@ -107,19 +104,24 @@ export class MotifSearchComponent implements OnInit {
   morePeptideMatches(geneUniquename: string): void {
     firstValueFrom(this.motifService.motifSearch(geneUniquename, this.trimmedMotif))
       .then(results => {
-        if (results.gene_matches.length === 1) {
-          const fullGeneMatch = results.gene_matches[0];
+        if (results.peptide_matches.length === 1) {
+          const fullGeneMatch = results.peptide_matches[0];
           const existingGeneIndex =
             this.peptideResultsWithDetails.findIndex(existingGeneMatch => {
-              return existingGeneMatch.gene_id === fullGeneMatch.gene_id;
+              return existingGeneMatch.peptide_id === fullGeneMatch.peptide_id;
             });
           this.peptideResultsWithDetails[existingGeneIndex] = fullGeneMatch;
         }
       });
   }
 
+  geneIdOf(peptideResult: MotifPeptideResult): string {
+    return peptideResult.peptide_id.replace(/\.\d+$/, '');
+  }
+
   sendToQueryBuilder(): void {
-    const geneUniquenames = this.peptideResults.map(res => res.gene_id);
+    const geneUniquenames =
+       this.peptideResults.map(res => this.geneIdOf(res));
     const part = new GeneListNode('peptides matching motif "' + this.trimmedMotif + '"', geneUniquenames);
     const geneQuery = new GeneQuery(part);
     this.queryRouterService.gotoResults(geneQuery);

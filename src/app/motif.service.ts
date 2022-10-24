@@ -14,14 +14,14 @@ export interface MotifPeptideMatch {
 }
 
 export interface MotifPeptideResult {
-  gene_id: string;
+  peptide_id: string;
   matches: Array<MotifPeptideMatch>;
   match_count: number;
 }
 
 export interface MotifSearchResults {
   status: string;
-  gene_matches: Array<MotifPeptideResult>;
+  peptide_matches: Array<MotifPeptideResult>;
 }
 
 @Injectable({

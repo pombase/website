@@ -59,9 +59,9 @@
       <tbody *ngFor="let peptideResult of peptideResultsWithDetails">
         <tr class="match-line" *ngFor="let peptideMatch of peptideResult.matches ; let i = index">
           <td class="peptide-id" *ngIf="i==0" [attr.rowspan]="peptideResult.matches.length">
-            <app-gene-link [gene]="geneSummaries[peptideResult.gene_id]" [long]="false"></app-gene-link>
+            <app-gene-link [gene]="geneSummaries[geneIdOf(peptideResult)]" [long]="false"></app-gene-link>
           </td>
-          <td class="product" *ngIf="i==0" [attr.rowspan]="peptideResult.matches.length">{{geneSummaries[peptideResult.gene_id].product || ''}}</td>
+          <td class="product" *ngIf="i==0" [attr.rowspan]="peptideResult.matches.length">{{geneSummaries[geneIdOf(peptideResult)].product || ''}}</td>
           <td class="start-pos">{{peptideMatch.start}}</td>
           <td class="before-peptides">{{peptideMatch.before}}</td>
           <td class="matching-peptides">{{peptideMatch.match}}</td>
@@ -69,7 +69,7 @@
           <td class="end-pos">{{peptideMatch.end}}</td>
         </tr>
         <tr *ngIf="peptideResult.match_count > peptideResult.matches.length">
-          <td></td><td></td><td colspan="5">Showing first {{peptideResult.matches.length}} matches.  <a (click)="morePeptideMatches(peptideResult.gene_id)">Show all ...</a></td>
+          <td></td><td></td><td colspan="5">Showing first {{peptideResult.matches.length}} matches.  <a (click)="morePeptideMatches(peptideResult.peptide_id)">Show all ...</a></td>
         </tr>
         <tr *ngIf="peptideResult.match_count == peptideResult.matches.length && peptideResult.match_count > 20">
           <td></td><td></td><td colspan="5">Showing all {{peptideResult.matches.length}} matches</td>
