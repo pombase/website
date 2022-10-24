@@ -136,7 +136,7 @@
           </div>
 
           <div *ngIf="!hasCantoSession()">
-            This paper has partial curation that predates PomBase and Canto.
+            This paper has partial curation that predates {{siteName}} and Canto.
             Please
             <app-contact-email [linkName]="'contact the curators'"
                                [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
