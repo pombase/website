@@ -167,8 +167,8 @@ sub wanted_assets {
 
   $current =~ s|$assets_dir/||;
 
-  if ($current =~ m@^([^\.]+)\.(png|jpe?g|gif|pdf)$@ ||
-      $current =~ m@^([^\.]+)\.$database_name\.(png|jpe?g|gif|pdf)$@) {
+  if ($current =~ m@^([^\.]+)\.(png|jpe?g|gif|pdf|svg)$@ ||
+      $current =~ m@^([^\.]+)\.$database_name\.(png|jpe?g|gif|pdf|svg)$@) {
     $valid_paths{"assets/$1.$2"} = 1;
   }
 }
