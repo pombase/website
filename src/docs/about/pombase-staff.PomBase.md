@@ -16,15 +16,16 @@ United Kingdom
 #### [University of Cambridge](http://www.cam.ac.uk/)
 
 -   Val Wood (Curator & co-PI)
--   Midori Harris (Curator)
 -   Kim Rutherford (Programmer)
 -   Juan Mata (PI)
 
 #### [University College London](http://www.ucl.ac.uk/)
 
+-   Manuel Lera Ramírez (Curator)
 -   Jürg Bähler (co-PI)
 
 #### PomBase Alumni
 
 -   Antonia Lock (Curator, UCL)
+-   Midori Harris (Curator, Cambridge)
 -   Steve Oliver (PI, Cambridge)
