@@ -2,7 +2,7 @@
 
 
 ```{=html}
-<div *ngIf="!deployConfigService.productionMode()"  class="doc-search">
+<div class="doc-search">
 <div class="doc-search-title">
 Search documentation, news archive and FAQ:
 </div>
