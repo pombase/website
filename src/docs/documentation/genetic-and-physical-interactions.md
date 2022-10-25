@@ -38,6 +38,6 @@ The definitions of all genetic interactions can be found in [the BioGRID wiki](h
 * **Synthetic Lethality**: Mutations/deletions in separate genes, each of which alone causes a minimal phenotype, but when combined in the same cell results in lethality under a given condition.
 * **Synthetic Rescue**: Mutation/deletion of one gene rescues the lethality or growth defect of a strain mutated/deleted for another gene.
 
-Below is a decission making tree to determine the type of genetic interaction from the phenotypes of the single and double mutant. "Interacting allele" refers to the allele that is not present in the single mutant:
+Below is a decision making tree to determine the type of genetic interaction from the phenotypes of the single and double mutant. "Interacting allele" refers to the allele that is not present in the single mutant:
 
-![Decission making for genetic interactions](assets/genetic-and-physical-interactions.svg){width="500"}
+![Decision making for genetic interactions](assets/gi_constrains_website.svg){width="75%"}
