@@ -810,6 +810,14 @@ export class PombaseAPIService {
   processInteractions(interactions: Array<InteractionAnnotation>,
                       genesByUniquename: GeneMap, referencesByUniquename?: any) {
     for (let annotation of interactions) {
+      let annotationAsAny = annotation as any;
+      if (annotationAsAny.gene_a_uniquename) {
+        // temp hack to handle genotype interactions
+        annotation.gene_uniquename = annotationAsAny.gene_a_uniquename;
+        annotation.interactor_uniquename = annotationAsAny.gene_b_uniquename;
+        annotation.evidence = annotationAsAny.interaction_type;
+      }
+
       annotation.gene = genesByUniquename[annotation.gene_uniquename];
       annotation.interactor = genesByUniquename[annotation.interactor_uniquename];
       if (referencesByUniquename) {
