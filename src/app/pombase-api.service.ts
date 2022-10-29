@@ -817,6 +817,10 @@ export class PombaseAPIService {
   processInteractions(interactions: Array<InteractionAnnotation>,
                       genesByUniquename: GeneMap,
                       referencesByUniquename?: ReferenceDetailsMap) {
+    let seenInteractions: { [key: string]: boolean } = {};
+
+    let nonDuplicates = [];
+
     for (let annotation of interactions) {
       let annotationAsAny = annotation as any;
       if (annotationAsAny.gene_a_uniquename) {
@@ -826,13 +830,42 @@ export class PombaseAPIService {
         annotation.evidence = annotationAsAny.interaction_type;
       }
 
+      let firstGeneForKey;
+      let secondGeneForKey;
+
+      if (annotationAsAny.gene_uniquename < annotationAsAny.interactor_uniquename) {
+        firstGeneForKey = annotationAsAny.gene_uniquename;
+        secondGeneForKey = annotationAsAny.interactor_uniquename;
+      } else {
+        firstGeneForKey = annotationAsAny.interactor_uniquename;
+        secondGeneForKey = annotationAsAny.gene_uniquename;
+      }
+
+      let key = firstGeneForKey + '-:-' +
+        annotationAsAny.evidence + '-:-' +
+        secondGeneForKey;
+
+      if (annotation.reference_uniquename) {
+        key += '-:-' + annotation.reference_uniquename;
+      }
+
+      if (seenInteractions[key]) {
+        continue;
+      } else {
+        seenInteractions[key] = true;
+      }
+
       annotation.gene = genesByUniquename[annotation.gene_uniquename];
       annotation.interactor = genesByUniquename[annotation.interactor_uniquename];
       if (referencesByUniquename) {
         annotation.reference = referencesByUniquename[annotation.reference_uniquename];
       }
 
+      nonDuplicates.push(annotation);
     }
+
+    interactions.length = 0;
+    interactions.push(...nonDuplicates);
   }
 
   processOrthologs(orthologs: Array<OrthologAnnotation>,
