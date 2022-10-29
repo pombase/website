@@ -420,17 +420,18 @@ United Kingdom</p>
 <h4 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h4>
 <ul>
 <li>Val Wood (Curator &amp; co-PI)</li>
-<li>Midori Harris (Curator)</li>
 <li>Kim Rutherford (Programmer)</li>
 <li>Juan Mata (PI)</li>
 </ul>
 <h4 id="university-college-london"><a href="http://www.ucl.ac.uk/">University College London</a></h4>
 <ul>
+<li>Manuel Lera Ramírez (Curator)</li>
 <li>Jürg Bähler (co-PI)</li>
 </ul>
 <h4 id="pombase-alumni">PomBase Alumni</h4>
 <ul>
 <li>Antonia Lock (Curator, UCL)</li>
+<li>Midori Harris (Curator, Cambridge)</li>
 <li>Steve Oliver (PI, Cambridge)</li>
 </ul>
 
@@ -6454,6 +6455,22 @@ PomBase using the Ensembl viewer.</p>
 <p><strong>Interacting product:</strong> The description of the interacting gene’s product, from its gene page</p>
 <p><strong>Evidence:</strong> The type of genetic interaction observed, or the type of experiment performed to detect a physical interaction. The evidence categories come from BioGRID, and are described on their <a href="http://wiki.thebiogrid.org/doku.php/experimental_systems">Experimental Evidence Codes</a> documentation page.</p>
 <p><strong>Reference:</strong> The paper cited to support the interaction</p>
+<h3 id="more-on-genetic-interactions">More on Genetic Interactions</h3>
+<p>The definitions of all genetic interactions can be found in <a href="https://wiki.thebiogrid.org/doku.php/experimental_systems#genetic_interactions">the BioGRID wiki</a>. <strong>It is worth reading these definitions, as the language often used in publications does not match the naming of genetic interactions</strong>. For example, in publications we can find “double deletion of gene X and Y rescues the defects cellular morphology caused by deletion of gene Y”. However, for BioGRID this is a phenotypic suppression not a rescue, since rescue is reserved for lethality or growth defect. The genetic interactions that are used in low throughput curation in PomBase are:</p>
+<ul>
+<li><strong>Dosage Growth Defect</strong>: Overexpression/increased dosage of one gene causes a growth defect in a strain that is mutated/deleted for another.</li>
+<li><strong>Dosage Lethality</strong>: Overexpression/increased dosage of one gene causes lethality in a strain that is mutated/deleted for another gene.</li>
+<li><strong>Dosage Rescue</strong>: Overexpression/increased dosage of one gene rescues the lethality or growth defect of a strain mutated/deleted for another gene.</li>
+<li><strong>Phenotypic Enhancement</strong>: Mutation/deletion/overexpression of one genes results in enhancement of any phenotype (other than lethality/growth defect) associated with mutation/deletion/overexpression of another gene.</li>
+<li><strong>Phenotypic Suppression</strong>: Mutation/deletion/overexpression of one gene results in suppression of any phenotype (other than lethality/growth defect) associated with mutation/deletion/overexpression of another gene.</li>
+<li><strong>Synthetic Growth Defect</strong>: Mutations/deletions in separate genes, each of which alone causes a minimal phenotype, but when combined in the same cell results in a significant growth defect under a given condition.</li>
+<li><strong>Synthetic Lethality</strong>: Mutations/deletions in separate genes, each of which alone causes a minimal phenotype, but when combined in the same cell results in lethality under a given condition.</li>
+<li><strong>Synthetic Rescue</strong>: Mutation/deletion of one gene rescues the lethality or growth defect of a strain mutated/deleted for another gene.</li>
+</ul>
+<p>Below is a decision making tree to determine the type of genetic interaction from the phenotypes of the single and double mutant. “Interacting allele” refers to the allele that is not present in the single mutant:</p>
+<figure>
+<img src="assets/gi_constrains_website.svg" style="width:75.0%" alt="" /><figcaption>Decision making for genetic interactions</figcaption>
+</figure>
 
   </div>
   <div *ngIf="pageName == 'genotype-page'">
@@ -6617,7 +6634,7 @@ name in publications where possible.</li>
   </div>
   <div *ngIf="pageName == 'index'">
 <h1 id="pombase-web-site-help-documentation">PomBase Web Site Help &amp; Documentation</h1>
-<div *ngIf="!deployConfigService.productionMode()"  class="doc-search">
+<div class="doc-search">
 <div class="doc-search-title">
 Search documentation, news archive and FAQ:
 </div>
@@ -9330,7 +9347,7 @@ Example queries:
 <div (click)="faq_navigate($event, '/faq/how-do-i-download-table-all-modifications', 'How do I download a table of all modifications?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-do-i-download-table-all-modifications' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-do-i-download-table-all-modifications">How do I download a table of all modifications?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
-<p>Specific modified residues is not a download option from the query builder. If you want build a table of all residues with a specific modification, download the table in the <a routerLink="/data/annotations/modifications/">modifications data directory</a>, and filter for your modification of interest. The column descriptions are in the README.</p>
+<p>Specific modified residues is not a download option from the query builder. If you want build a table of all residues with a specific modification, download the table in the <a href="https://www.pombase.org/data/annotations/modifications/">modifications data directory</a>, and filter for your modification of interest. The column descriptions are in the README.</p>
 <p>This dataset includes all high throughput and low throughput curated data. Note that some older datasets have no residue information.</p>
 <p>See also: <a routerLink="/faq/how-can-i-find-modifications-my-protein-interest">How can I find modifications for my protein of interest?</a></p>
 
