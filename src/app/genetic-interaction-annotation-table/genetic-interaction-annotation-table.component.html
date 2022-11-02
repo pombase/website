@@ -47,11 +47,11 @@
         <th></th>
         <th>Interacting gene</th>
         <th>Interacting product</th>
-        <th>Evidence</th>
+        <th>Interaction type</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let annotation of displayTable">
+    <tbody *ngFor="let annotation of displayTable">
+      <tr>
         <td *ngIf="!currentGene">
           <app-gene-link class="app-link" [long]="false" [gene]="annotation.gene_a"></app-gene-link>
         </td>
@@ -62,7 +62,58 @@
         </td>
         <td class="interaction-product">{{annotation.gene_b.product}}</td>
         <td class="interaction-evidence">{{annotation.interaction_type}}</td>
-
+      </tr>
+      <tr>
+        <td></td>
+        <td [attr.colspan]="!!currentGene ? 3 : 5">
+          <table class="genetic-interaction-detail">
+            <thead>
+              <tr>
+                <th *ngIf="tableHasReferences">
+                  Reference
+                </th>
+                <th *ngIf="annotation.showColumn.has('double_mutant_genotype')">
+                  Double mutant
+                </th>
+                <th *ngIf="annotation.showColumn.has('double_mutant_phenotype')">
+                  Phenotype
+                </th>
+                <th *ngIf="annotation.showColumn.has('rescued_phenotype')">
+                  Single allele phenotype
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detail of annotation.details">
+                <td *ngIf="tableHasReferences">
+                  <span *ngIf="detail.reference">
+                    <app-reference-short [reference]="detail.reference"></app-reference-short>
+                  </span>
+                </td>
+                <td>
+                  <span *ngIf="annotation.showColumn.has('double_mutant_genotype') && detail.double_mutant_genotype">
+                    <app-genotype-link [genotype]="detail.double_mutant_genotype">
+                    </app-genotype-link>
+                  </span>
+                </td>
+                <td>
+                  <span *ngIf="annotation.showColumn.has('double_mutant_phenotype') && detail.double_mutant_phenotype">
+                    <app-term-link [term]="detail.double_mutant_phenotype">
+                      {{detail.double_mutant_phenotype.name}}
+                   </app-term-link>
+                 </span>
+                </td>
+                <td>
+                  <span *ngIf="annotation.showColumn.has('rescued_phenotype') && detail.rescued_phenotype">
+                    <app-term-link [term]="detail.rescued_phenotype">
+                      {{detail.rescued_phenotype.name}}
+                    </app-term-link>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
       </tr>
     </tbody>
   </table>

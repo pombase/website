@@ -29,6 +29,7 @@
 .filter-controls {
   margin-bottom: 0.5em;
   display: inline-block;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -66,4 +67,11 @@
 
 .interaction-source-label {
   font-weight: bold;
+}
+
+.genetic-interaction-detail {
+  border: 1px solid grey;
+  background-color: white;
+  width: 75%;
+  margin-left: 4em;
 }

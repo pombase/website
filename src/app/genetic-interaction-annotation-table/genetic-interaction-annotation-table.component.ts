@@ -1,15 +1,28 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { GeneticInteractionGroup, GeneShort, GeneDetails, GeneticInteractionDetail } from '../pombase-api.service';
+import { GeneticInteractionGroup, GeneShort, GeneDetails, ReferenceShort, GenotypeShort, ThroughputType } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfig, FilterConfig } from '../config';
 import { Util } from '../shared/util';
 import { GeneticInteractionFilter } from '../filtering';
+import { TermShort } from '../pombase-query';
+
+interface DisplayDetail {
+  reference: ReferenceShort;
+  genotype_a_uniquename?: string;
+  genotype_b_uniquename?: string;
+  double_mutant_phenotype?: TermShort;
+  double_mutant_genotype?: GenotypeShort;
+  rescued_phenotype?: TermShort;
+  throughput: ThroughputType;
+  interaction_note?: string;
+}
 
 interface DisplayAnnotation {
   gene_a: GeneShort;
   gene_b: GeneShort;
   interaction_type: string;
   displayLabel: string;
-  details: Array<GeneticInteractionDetail>;
+  details: Array<DisplayDetail>;
+  showColumn: Set<string>,
 }
 
 @Component({
@@ -43,6 +56,8 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
   filters?: Array<FilterConfig>;
   interactionNoteRef: any;
 
+  tableHasReferences = false;
+
   interactionSources = this.appConfig.data_sources.interactions;
 
   constructor() { }
@@ -62,6 +77,8 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
   }
 
   updateDisplayTable(): void {
+    this.tableHasReferences = false;
+
     this.hideColumns.map(col => {
       this.hideColumn[col] = true;
     });
@@ -105,6 +122,7 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
             interaction_type: interactionGroup.interaction_type,
             displayLabel: '',
             details: interactionGroup.details,
+            showColumn: new Set(),
           };
 
           let labelConfig = this.config.interactionConfig[interactionGroup.interaction_type];
@@ -112,6 +130,30 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
           if (!labelConfig) {
             return displayAnnotation;
           }
+
+          let displayDetails: Array<DisplayDetail> = [];
+
+          interactionGroup.details.map(detail => {
+            if (detail.reference) {
+              this.tableHasReferences = true;
+            }
+
+            const newDetail: DisplayDetail = Object.assign({}, detail);
+
+            if (newDetail.double_mutant_phenotype) {
+              displayAnnotation.showColumn.add('double_mutant_phenotype');
+            }
+            if (newDetail.double_mutant_genotype) {
+              displayAnnotation.showColumn.add('double_mutant_genotype');
+            }
+            if (newDetail.rescued_phenotype) {
+              displayAnnotation.showColumn.add('rescued_phenotype');
+            }
+
+            displayDetails.push(newDetail);
+          });
+
+          displayAnnotation.details = displayDetails;
 
           displayAnnotation.displayLabel = labelConfig.baitLabel;
 
