@@ -224,14 +224,33 @@ export interface InteractionAnnotation {
   interactor: GeneShort;
   interactor_uniquename: string;
   throughput: ThroughputType;
-  interaction_note: string;
+  interaction_note?: string;
 }
 
 export type InteractionTable = Array<InteractionAnnotation>;
 
-export interface InteractionAnnotations {
-  [type_name: string]: Array<InteractionAnnotation>;
+
+export interface GeneticInteractionGroup {
+  interaction_type: string;
+  gene_a_uniquename: string;
+  gene_a: GeneShort;
+  gene_b_uniquename: string;
+  gene_b: GeneShort;
+  details: Array<GeneticInteractionDetail>;
 }
+
+export interface GeneticInteractionDetail {
+  reference: ReferenceShort;
+  reference_uniquename: string;
+  genotype_a_uniquename?: string;
+  genotype_b_uniquename?: string;
+  double_mutant_genotype?: GenotypeShort;
+  double_mutant_genotype_display_name?: string;
+  rescued_phenotype_termid?: string;
+  throughput: ThroughputType;
+  interaction_note?: string;
+}
+
 
 export interface OrthologAnnotation {
   gene: GeneShort;
@@ -507,6 +526,7 @@ export class GeneDetails {
   cv_annotations: CvAnnotations;
   physical_interactions: Array<InteractionAnnotation>;
   genetic_interactions: Array<InteractionAnnotation>;
+//  genetic_interactions: Array<GeneticInteractionGroup>;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
   target_of_annotations: Array<TargetOfAnnotation>;
@@ -814,58 +834,57 @@ export class PombaseAPIService {
     }
   }
 
-  processInteractions(interactions: Array<InteractionAnnotation>,
-                      genesByUniquename: GeneMap,
-                      referencesByUniquename?: ReferenceDetailsMap) {
-    let seenInteractions: { [key: string]: boolean } = {};
 
-    let nonDuplicates = [];
-
+  processPhysicalInteractions(interactions: Array<InteractionAnnotation>,
+                              genesByUniquename: GeneMap, referencesByUniquename?: any) {
     for (let annotation of interactions) {
-      let annotationAsAny = annotation as any;
-      if (annotationAsAny.gene_a_uniquename) {
-        // temp hack to handle genotype interactions
-        annotation.gene_uniquename = annotationAsAny.gene_a_uniquename;
-        annotation.interactor_uniquename = annotationAsAny.gene_b_uniquename;
-        annotation.evidence = annotationAsAny.interaction_type;
-      }
-
-      let firstGeneForKey;
-      let secondGeneForKey;
-
-      if (annotationAsAny.gene_uniquename < annotationAsAny.interactor_uniquename) {
-        firstGeneForKey = annotationAsAny.gene_uniquename;
-        secondGeneForKey = annotationAsAny.interactor_uniquename;
-      } else {
-        firstGeneForKey = annotationAsAny.interactor_uniquename;
-        secondGeneForKey = annotationAsAny.gene_uniquename;
-      }
-
-      let key = firstGeneForKey + '-:-' +
-        annotationAsAny.evidence + '-:-' +
-        secondGeneForKey;
-
-      if (annotation.reference_uniquename) {
-        key += '-:-' + annotation.reference_uniquename;
-      }
-
-      if (seenInteractions[key]) {
-        continue;
-      } else {
-        seenInteractions[key] = true;
-      }
-
       annotation.gene = genesByUniquename[annotation.gene_uniquename];
       annotation.interactor = genesByUniquename[annotation.interactor_uniquename];
       if (referencesByUniquename) {
         annotation.reference = referencesByUniquename[annotation.reference_uniquename];
       }
+    }
+  }
 
-      nonDuplicates.push(annotation);
+  processGeneticInteractions(interactions: Array<InteractionAnnotation>,
+                             genesByUniquename: GeneMap,
+                             referencesByUniquename?: ReferenceDetailsMap) {
+    let returnInteractions = [];
+
+    for (let annotation of interactions) {
+      let annotationAsAny = annotation as any;
+      let interactionGroup = annotationAsAny[0] as GeneticInteractionGroup;
+      let interactionDetails = annotationAsAny[1] as Array<GeneticInteractionDetail>;
+
+      interactionGroup.details = interactionDetails;
+
+      let legacyInteraction = Object.assign({}, interactionGroup) as any as InteractionAnnotation;
+
+      if (interactionGroup.gene_a_uniquename) {
+        // temp hack to handle genotype interactions
+        legacyInteraction.gene_uniquename = interactionGroup.gene_a_uniquename;
+        legacyInteraction.interactor_uniquename = interactionGroup.gene_b_uniquename;
+        legacyInteraction.evidence = interactionGroup.interaction_type;
+      }
+
+      legacyInteraction.gene = genesByUniquename[legacyInteraction.gene_uniquename];
+      legacyInteraction.interactor = genesByUniquename[legacyInteraction.interactor_uniquename];
+
+      for (let detail of interactionDetails) {
+        let legacyInteractionCopy = Object.assign({}, legacyInteraction);
+        legacyInteractionCopy.reference_uniquename = detail.reference_uniquename;
+        if (referencesByUniquename) {
+          legacyInteractionCopy.reference = referencesByUniquename[detail.reference_uniquename];
+        }
+        legacyInteractionCopy.throughput = detail.throughput;
+        legacyInteractionCopy.interaction_note = detail.interaction_note;
+
+        returnInteractions.push(legacyInteractionCopy);
+      }
     }
 
     interactions.length = 0;
-    interactions.push(...nonDuplicates);
+    interactions.push(...returnInteractions);
   }
 
   processOrthologs(orthologs: Array<OrthologAnnotation>,
@@ -1018,8 +1037,8 @@ export class PombaseAPIService {
       }
     }
 
-    this.processInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
-    this.processInteractions(json.genetic_interactions, genesByUniquename, referencesByUniquename);
+    this.processPhysicalInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
+    this.processGeneticInteractions(json.genetic_interactions, genesByUniquename, referencesByUniquename);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename, referencesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename, referencesByUniquename);
     this.processTargetOf(json.target_of_annotations, genesByUniquename, genotypesByUniquename,
@@ -1211,8 +1230,8 @@ export class PombaseAPIService {
                                   refMap, termsByTermId);
     }
 
-    this.processInteractions(json.physical_interactions, genesByUniquename);
-    this.processInteractions(json.genetic_interactions, genesByUniquename);
+    this.processPhysicalInteractions(json.physical_interactions, genesByUniquename);
+    this.processGeneticInteractions(json.genetic_interactions, genesByUniquename);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename);
 
