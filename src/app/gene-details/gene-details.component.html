@@ -159,11 +159,14 @@
                                       [annotationTypeName]="annotationTypeName"
                                       [currentGene]="geneDetails"
                                       [annotationTable]="geneDetails.physical_interactions"></app-interaction-annotation-table>
-      <app-interaction-annotation-table *ngIf="annotationTypeName == 'genetic_interactions'"
-                                        id="{{annotationTypeName}}"
-                                      [annotationTypeName]="annotationTypeName"
-                                      [currentGene]="geneDetails"
-                                      [annotationTable]="geneDetails.genetic_interactions"></app-interaction-annotation-table>
+
+      <app-genetic-interaction-annotation-table
+          *ngIf="annotationTypeName == 'genetic_interactions'"
+          id="{{annotationTypeName}}"
+          [annotationTypeName]="annotationTypeName"
+          [currentGene]="geneDetails"
+          [annotationTable]="geneDetails.genetic_interactions">
+      </app-genetic-interaction-annotation-table>
 
       <app-ortholog-annotation-table *ngIf="annotationTypeName == 'orthologs' && showOrthologsSection()"
                                      id="{{annotationTypeName}}"

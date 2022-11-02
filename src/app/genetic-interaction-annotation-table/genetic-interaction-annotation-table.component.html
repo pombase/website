@@ -1,0 +1,70 @@
+<fieldset *ngIf="displayTable && displayTable.length > 0" class="annotation-table">
+  <legend>
+    {{annotationTypeDisplayName}}
+
+    <app-help-link [route]="'/documentation/genetic-and-physical-interactions'"
+                   [title]="helpIconTitle">
+    </app-help-link>
+  </legend>
+
+  <div *ngIf="interactionSources.length != 0" class="interaction-source">
+    <span class="interaction-source-label">Source:</span>
+    Interactions curated by
+    <span *ngFor="let source of interactionSources; let i = index">
+       <a href="{{source.url}}">{{source.name}}</a>
+       <span *ngIf="i != interactionSources.length - 1">, </span>
+    </span> and
+    {{siteName}}
+  </div>
+
+  <a *ngIf="biogridUrl" class="biogrid-link" href="{{biogridUrl}}">
+    View interactions for {{currentGene.displayName}} at BioGRID ...
+  </a>
+
+  <div class="filter-controls" *ngIf="filters">
+    <app-genetic-interaction-table-filters
+        [interactionTable]="annotationTable"
+        [filters]="filters"
+        (filterChange)="updateCurrentFilter($event)">
+    </app-genetic-interaction-table-filters>
+  </div>
+
+  <div *ngIf="tableIsFiltered" class="filter-count">
+    <span *ngIf="filteredTable.length == annotationTable.length">
+      Showing all annotations
+    </span>
+    <span *ngIf="filteredTable.length != annotationTable.length">
+      Showing {{filteredAnnotationCount}} of {{annotationCount}} annotations
+    </span>
+  </div>
+
+  <div class="annotation-table-container">
+  <table>
+    <thead>
+      <tr>
+        <th *ngIf="!currentGene">Gene</th>
+        <th *ngIf="!currentGene">Product</th>
+        <th></th>
+        <th>Interacting gene</th>
+        <th>Interacting product</th>
+        <th>Evidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let annotation of displayTable">
+        <td *ngIf="!currentGene">
+          <app-gene-link class="app-link" [long]="false" [gene]="annotation.gene_a"></app-gene-link>
+        </td>
+        <td *ngIf="!currentGene">{{annotation.gene_a.product}}</td>
+        <td class="interaction-directional-label">{{annotation.displayLabel}}</td>
+        <td>
+          <app-gene-link class="app-link" [long]="false" [gene]="annotation.gene_b"></app-gene-link>
+        </td>
+        <td class="interaction-product">{{annotation.gene_b.product}}</td>
+        <td class="interaction-evidence">{{annotation.interaction_type}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</fieldset>

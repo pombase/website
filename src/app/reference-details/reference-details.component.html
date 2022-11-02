@@ -218,9 +218,9 @@
                                       [annotationTable]="refDetails.physical_interactions"></app-interaction-annotation-table>
   </div>
   <div *ngIf="refDetails.genetic_interactions.length != 0">
-    <app-interaction-annotation-table [annotationTypeName]="'genetic_interactions'"
+    <app-genetic-interaction-annotation-table [annotationTypeName]="'genetic_interactions'"
                                       [hideColumns]="['reference']"
-                                      [annotationTable]="refDetails.genetic_interactions"></app-interaction-annotation-table>
+                                      [annotationTable]="refDetails.genetic_interactions"></app-genetic-interaction-annotation-table>
   </div>
   <div *ngIf="refDetails.ortholog_annotations.length != 0">
     <app-ortholog-annotation-table [hideColumns]="['reference']"

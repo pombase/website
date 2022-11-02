@@ -228,6 +228,7 @@ export interface InteractionAnnotation {
 }
 
 export type InteractionTable = Array<InteractionAnnotation>;
+export type GeneticInteractionTable = Array<GeneticInteractionGroup>;
 
 
 export interface GeneticInteractionGroup {
@@ -525,8 +526,7 @@ export class GeneDetails {
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;
   physical_interactions: Array<InteractionAnnotation>;
-  genetic_interactions: Array<InteractionAnnotation>;
-//  genetic_interactions: Array<GeneticInteractionGroup>;
+  genetic_interactions: Array<GeneticInteractionGroup>;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
   target_of_annotations: Array<TargetOfAnnotation>;
@@ -846,41 +846,31 @@ export class PombaseAPIService {
     }
   }
 
-  processGeneticInteractions(interactions: Array<InteractionAnnotation>,
+  processGeneticInteractions(interactions: Array<GeneticInteractionGroup>,
                              genesByUniquename: GeneMap,
                              referencesByUniquename?: ReferenceDetailsMap) {
     let returnInteractions = [];
 
     for (let annotation of interactions) {
       let annotationAsAny = annotation as any;
+
       let interactionGroup = annotationAsAny[0] as GeneticInteractionGroup;
       let interactionDetails = annotationAsAny[1] as Array<GeneticInteractionDetail>;
 
       interactionGroup.details = interactionDetails;
 
-      let legacyInteraction = Object.assign({}, interactionGroup) as any as InteractionAnnotation;
-
-      if (interactionGroup.gene_a_uniquename) {
-        // temp hack to handle genotype interactions
-        legacyInteraction.gene_uniquename = interactionGroup.gene_a_uniquename;
-        legacyInteraction.interactor_uniquename = interactionGroup.gene_b_uniquename;
-        legacyInteraction.evidence = interactionGroup.interaction_type;
-      }
-
-      legacyInteraction.gene = genesByUniquename[legacyInteraction.gene_uniquename];
-      legacyInteraction.interactor = genesByUniquename[legacyInteraction.interactor_uniquename];
+      interactionGroup.gene_a = genesByUniquename[interactionGroup.gene_a_uniquename];
+      interactionGroup.gene_b = genesByUniquename[interactionGroup.gene_b_uniquename];
 
       for (let detail of interactionDetails) {
-        let legacyInteractionCopy = Object.assign({}, legacyInteraction);
-        legacyInteractionCopy.reference_uniquename = detail.reference_uniquename;
         if (referencesByUniquename) {
-          legacyInteractionCopy.reference = referencesByUniquename[detail.reference_uniquename];
+          detail.reference = referencesByUniquename[detail.reference_uniquename];
         }
-        legacyInteractionCopy.throughput = detail.throughput;
-        legacyInteractionCopy.interaction_note = detail.interaction_note;
-
-        returnInteractions.push(legacyInteractionCopy);
+        detail.throughput = detail.throughput;
+        detail.interaction_note = detail.interaction_note;
       }
+
+      returnInteractions.push(interactionGroup);
     }
 
     interactions.length = 0;
