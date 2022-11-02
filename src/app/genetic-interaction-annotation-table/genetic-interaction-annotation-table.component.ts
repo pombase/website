@@ -56,8 +56,6 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
   filters?: Array<FilterConfig>;
   interactionNoteRef: any;
 
-  tableHasReferences = false;
-
   interactionSources = this.appConfig.data_sources.interactions;
 
   constructor() { }
@@ -77,8 +75,6 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
   }
 
   updateDisplayTable(): void {
-    this.tableHasReferences = false;
-
     this.hideColumns.map(col => {
       this.hideColumn[col] = true;
     });
@@ -134,11 +130,11 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
           let displayDetails: Array<DisplayDetail> = [];
 
           interactionGroup.details.map(detail => {
-            if (detail.reference) {
-              this.tableHasReferences = true;
-            }
-
             const newDetail: DisplayDetail = Object.assign({}, detail);
+
+            if (newDetail.reference) {
+              displayAnnotation.showColumn.add('reference');
+            }
 
             if (newDetail.double_mutant_phenotype) {
               displayAnnotation.showColumn.add('double_mutant_phenotype');
@@ -188,6 +184,10 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
         return geneComp;
       }
     });
+  }
+
+  showDetailsOf(displayAnnotation: DisplayAnnotation): boolean {
+    return displayAnnotation.showColumn.size > 0;
   }
 
   ngOnChanges() {

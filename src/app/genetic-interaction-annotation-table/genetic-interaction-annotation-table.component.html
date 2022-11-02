@@ -63,13 +63,13 @@
         <td class="interaction-product">{{annotation.gene_b.product}}</td>
         <td class="interaction-evidence">{{annotation.interaction_type}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="showDetailsOf(annotation)">
         <td></td>
         <td [attr.colspan]="!!currentGene ? 3 : 5">
           <table class="genetic-interaction-detail">
             <thead>
               <tr>
-                <th *ngIf="tableHasReferences">
+                <th *ngIf="annotation.showColumn.has('reference')">
                   Reference
                 </th>
                 <th *ngIf="annotation.showColumn.has('double_mutant_genotype')">
@@ -85,7 +85,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let detail of annotation.details">
-                <td *ngIf="tableHasReferences">
+                <td *ngIf="annotation.showColumn.has('reference')">
                   <span *ngIf="detail.reference">
                     <app-reference-short [reference]="detail.reference"></app-reference-short>
                   </span>
