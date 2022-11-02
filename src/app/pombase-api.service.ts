@@ -245,9 +245,12 @@ export interface GeneticInteractionDetail {
   reference_uniquename: string;
   genotype_a_uniquename?: string;
   genotype_b_uniquename?: string;
+  double_mutant_phenotype_termid?: string;
+  double_mutant_phenotype?: TermShort;
   double_mutant_genotype?: GenotypeShort;
   double_mutant_genotype_display_name?: string;
   rescued_phenotype_termid?: string;
+  rescued_phenotype?: TermShort;
   throughput: ThroughputType;
   interaction_note?: string;
 }
@@ -848,6 +851,8 @@ export class PombaseAPIService {
 
   processGeneticInteractions(interactions: Array<GeneticInteractionGroup>,
                              genesByUniquename: GeneMap,
+                             genotypesByUniquename: GenotypeMap,
+                             termsByTermId: TermIdTermMap,
                              referencesByUniquename?: ReferenceDetailsMap) {
     let returnInteractions = [];
 
@@ -865,6 +870,16 @@ export class PombaseAPIService {
       for (let detail of interactionDetails) {
         if (referencesByUniquename) {
           detail.reference = referencesByUniquename[detail.reference_uniquename];
+        }
+        if (detail.double_mutant_genotype_display_name) {
+          detail.double_mutant_genotype =
+            genotypesByUniquename[detail.double_mutant_genotype_display_name];
+        }
+        if (detail.double_mutant_phenotype_termid) {
+          detail.double_mutant_phenotype = termsByTermId[detail.double_mutant_phenotype_termid];
+        }
+        if (detail.rescued_phenotype_termid) {
+          detail.rescued_phenotype = termsByTermId[detail.rescued_phenotype_termid];
         }
         detail.throughput = detail.throughput;
         detail.interaction_note = detail.interaction_note;
@@ -1028,7 +1043,8 @@ export class PombaseAPIService {
     }
 
     this.processPhysicalInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
-    this.processGeneticInteractions(json.genetic_interactions, genesByUniquename, referencesByUniquename);
+    this.processGeneticInteractions(json.genetic_interactions, genesByUniquename, genotypesByUniquename,
+                                    termsByTermId, referencesByUniquename);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename, referencesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename, referencesByUniquename);
     this.processTargetOf(json.target_of_annotations, genesByUniquename, genotypesByUniquename,
@@ -1221,7 +1237,8 @@ export class PombaseAPIService {
     }
 
     this.processPhysicalInteractions(json.physical_interactions, genesByUniquename);
-    this.processGeneticInteractions(json.genetic_interactions, genesByUniquename);
+    this.processGeneticInteractions(json.genetic_interactions, genesByUniquename,
+                                    genotypesByUniquename, termsByTermId);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename);
 
