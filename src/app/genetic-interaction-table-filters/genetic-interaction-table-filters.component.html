@@ -1,11 +1,11 @@
 <div>
    <span class="filters-header">Filters:</span>
    <span class="filter-control" *ngFor="let config of filters">
-     <app-interaction-table-throughput-filter
+     <app-genetic-interaction-table-throughput-filter
        *ngIf="config.filter_name == 'throughput'"
        [config]="config"
        [interactionTable]="interactionTable"
        (filterChange)="filterChanged('throughput', $event)">
-     </app-interaction-table-throughput-filter>
+     </app-genetic-interaction-table-throughput-filter>
    </span>
  </div>

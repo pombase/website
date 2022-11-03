@@ -105,8 +105,11 @@ import { RouterNotFoundHandlerComponent } from './router-not-found-handler/route
 import { StatisticsComponent } from './statistics/statistics.component';
 import { MotifSearchComponent } from './motif-search/motif-search.component';
 import { InteractionTableFiltersComponent } from './interaction-table-filters/interaction-table-filters.component';
+import { GeneticInteractionTableFiltersComponent } from './genetic-interaction-table-filters/genetic-interaction-table-filters.component';
 import { InteractionTableThroughputFilterComponent }
    from './interaction-table-throughput-filter/interaction-table-throughput-filter.component';
+import { GeneticInteractionTableThroughputFilterComponent }
+   from './genetic-interaction-table-throughput-filter/genetic-interaction-table-throughput-filter.component';
 import { GenesTableConfigComponent } from './genes-table-config/genes-table-config.component';
 import { ExternalRefsTableComponent } from './external-refs-table/external-refs-table.component';
 import { AnnotationTableThroughputFilterComponent }
@@ -132,7 +135,6 @@ import { QueryGenomeRangeNodeComponent } from './query-genome-range-node/query-g
 import { GeneAlleleListComponent } from './gene-allele-list/gene-allele-list.component';
 import { AlleleDetailsComponent } from './allele-details/allele-details.component';
 import { GeneticInteractionAnnotationTableComponent } from './genetic-interaction-annotation-table/genetic-interaction-annotation-table.component';
-import { GeneticInteractionTableFiltersComponent } from './genetic-interaction-table-filters/genetic-interaction-table-filters.component';
 
 export function documentFactory() {
     return document;
@@ -214,6 +216,7 @@ export function windowFactory() {
     MotifSearchComponent,
     InteractionTableFiltersComponent,
     InteractionTableThroughputFilterComponent,
+    GeneticInteractionTableThroughputFilterComponent,
     GenesTableConfigComponent,
     ExternalRefsTableComponent,
     AnnotationTableThroughputFilterComponent,
