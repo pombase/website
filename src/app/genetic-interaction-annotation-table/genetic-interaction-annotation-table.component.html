@@ -101,6 +101,9 @@
                     <app-term-link [term]="detail.double_mutant_phenotype">
                       {{detail.double_mutant_phenotype.name}}
                    </app-term-link>
+                   <span *ngIf="detail.double_mutant_extension">
+                     <app-extension-display [extension]="detail.double_mutant_extension"></app-extension-display>
+                   </span>
                  </span>
                 </td>
                 <td>

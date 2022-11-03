@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { GeneticInteractionGroup, GeneShort, GeneDetails, ReferenceShort, GenotypeShort, ThroughputType } from '../pombase-api.service';
+import { GeneticInteractionGroup, GeneShort, GeneDetails, ReferenceShort, GenotypeShort, ThroughputType, ExtPart } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfig, FilterConfig } from '../config';
 import { Util } from '../shared/util';
 import { GeneticInteractionFilter } from '../filtering';
@@ -10,6 +10,7 @@ interface DisplayDetail {
   genotype_a_uniquename?: string;
   genotype_b_uniquename?: string;
   double_mutant_phenotype?: TermShort;
+  double_mutant_extension?: Array<ExtPart>;
   double_mutant_genotype?: GenotypeShort;
   rescued_phenotype?: TermShort;
   throughput: ThroughputType;
