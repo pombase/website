@@ -182,6 +182,7 @@ ul {
   padding-right: 0.2em;
   font-family: mono;
   text-decoration: none;
+  user-select: none;
 }
 
 select[selected], option {

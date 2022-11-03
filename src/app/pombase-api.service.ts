@@ -232,6 +232,7 @@ export type GeneticInteractionTable = Array<GeneticInteractionGroup>;
 
 
 export interface GeneticInteractionGroup {
+  id: string;
   interaction_type: string;
   gene_a_uniquename: string;
   gene_a: GeneShort;
@@ -868,6 +869,10 @@ export class PombaseAPIService {
 
       interactionGroup.gene_a = genesByUniquename[interactionGroup.gene_a_uniquename];
       interactionGroup.gene_b = genesByUniquename[interactionGroup.gene_b_uniquename];
+
+      interactionGroup.id = interactionGroup.gene_a_uniquename + '-' +
+        interactionGroup.interaction_type + '-' +
+        interactionGroup.gene_b_uniquename;
 
       for (let detail of interactionDetails) {
         if (referencesByUniquename) {

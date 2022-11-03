@@ -4,6 +4,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfi
 import { Util } from '../shared/util';
 import { GeneticInteractionFilter } from '../filtering';
 import { TermShort } from '../pombase-query';
+import { TableViewState } from '../pombase-types';
 
 interface DisplayDetail {
   reference: ReferenceShort;
@@ -18,6 +19,7 @@ interface DisplayDetail {
 }
 
 interface DisplayAnnotation {
+  id: string;
   gene_a: GeneShort;
   gene_b: GeneShort;
   interaction_type: string;
@@ -36,6 +38,9 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
   @Input() currentGene: GeneDetails;
   @Input() hideColumns: Array<string> = [];
   @Input() annotationTable: Array<GeneticInteractionGroup>;
+
+  // copy to the component for use in template
+  TableViewState = TableViewState;
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
@@ -56,6 +61,8 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
   tableIsFiltered: boolean;
   filters?: Array<FilterConfig>;
   interactionNoteRef: any;
+  detailsView: { [key: string]: boolean } = {};
+  currentViewState = TableViewState.Summary;
 
   interactionSources = this.appConfig.data_sources.interactions;
 
@@ -73,6 +80,56 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
       this.annotationTypeDisplayName = this.annotationTypeName;
       this.helpIconTitle = 'Click to view documentation';
     }
+  }
+
+  detailsViewVisible(interaction: DisplayAnnotation): boolean {
+    return this.detailsView[interaction.id] || false;
+  }
+
+  toggleDetails(interaction: DisplayAnnotation) {
+    if (!this.hasSomeDetails(interaction)) {
+      return;
+    }
+
+    this.detailsView[interaction.id] = !this.detailsView[interaction.id];
+
+    let seenSummarised = false;
+
+    for (let annotation of this.displayTable) {
+      if (!this.detailsViewVisible(annotation)) {
+        seenSummarised = true;
+      }
+    }
+
+    if (seenSummarised) {
+      this.currentViewState = TableViewState.Summary;
+    } else {
+      this.currentViewState = TableViewState.Details;
+    }
+  }
+
+  allDetailsView() {
+    this.resetFilter();
+
+    this.currentViewState = TableViewState.Details;
+    for (let interaction of this.displayTable) {
+      if (this.hasSomeDetails(interaction)) {
+        this.detailsView[interaction.id] = true;
+      }
+    }
+  }
+
+  allSummaryView() {
+    this.resetFilter();
+
+    this.currentViewState = TableViewState.Summary;
+    for (let interaction of this.annotationTable) {
+      this.detailsView[interaction.id] = false;
+    }
+  }
+
+  resetFilter(): void {
+    this.updateCurrentFilter(undefined);
   }
 
   updateDisplayTable(): void {
@@ -114,6 +171,7 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
       this.filteredTable.map(
         (interactionGroup) => {
           let displayAnnotation: DisplayAnnotation = {
+            id: interactionGroup.id,
             gene_a: interactionGroup.gene_a,
             gene_b: interactionGroup.gene_b,
             interaction_type: interactionGroup.interaction_type,
@@ -187,7 +245,7 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
     });
   }
 
-  showDetailsOf(displayAnnotation: DisplayAnnotation): boolean {
+  hasSomeDetails(displayAnnotation: DisplayAnnotation): boolean {
     return displayAnnotation.showColumn.size > 0;
   }
 

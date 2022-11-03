@@ -21,12 +21,23 @@
     View interactions for {{currentGene.displayName}} at BioGRID ...
   </a>
 
+  <div>
+    <div class="view-controls">
+      <a *ngIf="currentViewState != TableViewState.Details" (click)="allDetailsView()">
+        Show details ...
+      </a>
+      <a *ngIf="currentViewState == TableViewState.Details" (click)="allSummaryView()">
+        Show summary ...
+      </a>
+    </div>
+
   <div class="filter-controls" *ngIf="filters">
     <app-genetic-interaction-table-filters
         [interactionTable]="annotationTable"
         [filters]="filters"
         (filterChange)="updateCurrentFilter($event)">
     </app-genetic-interaction-table-filters>
+  </div>
   </div>
 
   <div *ngIf="tableIsFiltered" class="filter-count">
@@ -42,6 +53,7 @@
   <table>
     <thead>
       <tr>
+        <th></th>
         <th *ngIf="!currentGene">Gene</th>
         <th *ngIf="!currentGene">Product</th>
         <th></th>
@@ -52,6 +64,12 @@
     </thead>
     <tbody *ngFor="let annotation of displayTable">
       <tr>
+        <td style="width: 2em">
+          <a *ngIf="hasSomeDetails(annotation)" (click)="toggleDetails(annotation)">
+            <span class="collapse-icon" *ngIf="detailsViewVisible(annotation)">-</span>
+            <span class="collapse-icon" *ngIf="!detailsViewVisible(annotation)">+</span>
+          </a>
+        </td>
         <td *ngIf="!currentGene">
           <app-gene-link class="app-link" [long]="false" [gene]="annotation.gene_a"></app-gene-link>
         </td>
@@ -63,7 +81,7 @@
         <td class="interaction-product">{{annotation.gene_b.product}}</td>
         <td class="interaction-evidence">{{annotation.interaction_type}}</td>
       </tr>
-      <tr *ngIf="showDetailsOf(annotation)">
+      <tr *ngIf="detailsViewVisible(annotation)">
         <td></td>
         <td [attr.colspan]="!!currentGene ? 3 : 5">
           <table class="genetic-interaction-detail">

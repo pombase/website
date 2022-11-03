@@ -75,3 +75,9 @@
   width: 75%;
   margin-left: 4em;
 }
+
+.view-controls, .filter-controls {
+  margin-bottom: 0.5em;
+  display: inline-block;
+  user-select: none;
+}
