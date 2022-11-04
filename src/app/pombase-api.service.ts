@@ -1002,6 +1002,8 @@ export class PombaseAPIService {
     let annotationDetailsMap = json.annotation_details;
 
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
+    this.processGenotypeMap(genotypesByUniquename, genesByUniquename,
+                            allelesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
@@ -1050,6 +1052,14 @@ export class PombaseAPIService {
           genesByUniquename[expressed_allele.allele.gene_uniquename];
       }
     });
+  }
+
+  processGenotypeMap(genotypesByUniquename: GenotypeMap, genesByUniquename: GeneMap,
+                     allelesByUniquename: AlleleMap): void {
+    for (let genotypeUniquename of Object.keys(genotypesByUniquename)) {
+      let genotype = genotypesByUniquename[genotypeUniquename];
+      this.processLoci(allelesByUniquename, genesByUniquename, genotype.loci);
+    }
   }
 
   processLoci(allelesByUniquename: AlleleMap, genesByUniquename: GeneMap,
