@@ -12,7 +12,7 @@ export class GeneReferencesTableComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
   @Input() references: Array<ReferenceShort>;
 
-  orderByField = '+authors_abbrev';
+  orderByField = '+gene_count';
 
   pubmedSearchUrl?: string;
   pubmedSearchGeneLabel?: string;
