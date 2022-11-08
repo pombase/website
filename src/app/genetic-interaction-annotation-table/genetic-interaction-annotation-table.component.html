@@ -87,14 +87,20 @@
           <table class="genetic-interaction-detail">
             <thead>
               <tr>
-                <th *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-double-genotype">
-                  Double mutant
+                <th class="detail-double-genotype">
+                  <span *ngIf="annotation.showColumn.has('double_mutant_genotype')">
+                    Double mutant
+                  </span>
                 </th>
-                <th *ngIf="annotation.showColumn.has('double_mutant_phenotype')" class="detail-double-phenotype">
-                  Phenotype
+                <th class="detail-double-phenotype">
+                  <span *ngIf="annotation.showColumn.has('double_mutant_phenotype')">
+                    Phenotype
+                  </span>
                 </th>
-                <th *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-single-phenotype">
-                  Single allele phenotype
+                <th class="detail-single-phenotype">
+                  <span *ngIf="annotation.showColumn.has('rescued_phenotype')">
+                    Single allele phenotype
+                  </span>
                 </th>
                 <th *ngIf="annotation.showColumn.has('reference')" class="detail-reference">
                   Reference
@@ -103,13 +109,13 @@
             </thead>
             <tbody>
               <tr *ngFor="let detail of annotation.details">
-                <td *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-double-genotype">
+                <td class="detail-double-genotype">
                   <span *ngIf="detail.double_mutant_genotype">
                     <app-genotype-link [genotype]="detail.double_mutant_genotype">
                     </app-genotype-link>
                   </span>
                 </td>
-                <td *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-double-phenotype">
+                <td class="detail-double-phenotype">
                   <span *ngIf="detail.double_mutant_phenotype">
                     <app-term-link [term]="detail.double_mutant_phenotype">
                       {{detail.double_mutant_phenotype.name}}
@@ -119,7 +125,7 @@
                    </div>
                  </span>
                 </td>
-                <td *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-single-phenotype">
+                <td class="detail-single-phenotype">
                   <span *ngIf="detail.rescued_phenotype">
                     <app-term-link [term]="detail.rescued_phenotype">
                       {{detail.rescued_phenotype.name}}
