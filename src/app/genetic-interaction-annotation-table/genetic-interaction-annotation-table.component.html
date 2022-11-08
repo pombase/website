@@ -64,7 +64,7 @@
     </thead>
     <tbody *ngFor="let annotation of displayTable">
       <tr>
-        <td style="width: 2em">
+        <td class="details-button">
           <a *ngIf="hasSomeDetails(annotation)" (click)="toggleDetails(annotation)">
             <span class="collapse-icon" *ngIf="detailsViewVisible(annotation)">-</span>
             <span class="collapse-icon" *ngIf="!detailsViewVisible(annotation)">+</span>
@@ -83,7 +83,7 @@
       </tr>
       <tr *ngIf="detailsViewVisible(annotation)">
         <td></td>
-        <td [attr.colspan]="!!currentGene ? 3 : 5">
+        <td [attr.colspan]="!!currentGene ? 4 : 6">
           <table class="genetic-interaction-detail">
             <thead>
               <tr>
@@ -129,6 +129,9 @@
                     <app-term-link [term]="detail.rescued_phenotype">
                       {{detail.rescued_phenotype.name}}
                     </app-term-link>
+                    <span *ngIf="detail.rescued_phenotype_extension">
+                      <app-extension-display [extension]="detail.rescued_phenotype_extension"></app-extension-display>
+                    </span>
                   </span>
                 </td>
               </tr>

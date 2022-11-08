@@ -253,6 +253,7 @@ export interface GeneticInteractionDetail {
   double_mutant_genotype_display_name?: string;
   rescued_phenotype_termid?: string;
   rescued_phenotype?: TermShort;
+  rescued_phenotype_extension?: Array<ExtPart>;
   throughput: ThroughputType;
   interaction_note?: string;
 }
@@ -602,7 +603,7 @@ export class ReferenceDetails {
   publication_year: string;
   cv_annotations: CvAnnotations;
   physical_interactions: Array<InteractionAnnotation>;
-  genetic_interactions: Array<InteractionAnnotation>;
+  genetic_interactions: Array<GeneticInteractionGroup>;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
   annotation_details: AnnotationDetailMap;
@@ -890,6 +891,10 @@ export class PombaseAPIService {
         }
         if (detail.rescued_phenotype_termid) {
           detail.rescued_phenotype = termsByTermId[detail.rescued_phenotype_termid];
+        }
+        if (detail.rescued_phenotype_extension) {
+          processExtension(detail.rescued_phenotype_extension, termsByTermId, transcriptsByUniquename,
+                           genesByUniquename);
         }
         detail.throughput = detail.throughput;
         detail.interaction_note = detail.interaction_note;

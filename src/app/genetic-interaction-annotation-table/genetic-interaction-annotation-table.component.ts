@@ -14,6 +14,7 @@ interface DisplayDetail {
   double_mutant_extension?: Array<ExtPart>;
   double_mutant_genotype?: GenotypeShort;
   rescued_phenotype?: TermShort;
+  rescued_phenotype_extension?: Array<ExtPart>;
   throughput: ThroughputType;
   interaction_note?: string;
 }

@@ -69,15 +69,24 @@
   font-weight: bold;
 }
 
+.details-button {
+  width: 2em;
+}
+
 .genetic-interaction-detail {
   border: 1px solid grey;
   background-color: white;
-  width: 75%;
-  margin-left: 4em;
+  width: 85%;
+  margin: 0.1em 0em 0.3em 3em;
+}
+
+.genetic-interaction-detail td, .genetic-interaction-detail th {
+  padding: 0.1em 1.2em 0.1em 0.3em;
 }
 
 .view-controls, .filter-controls {
   margin-bottom: 0.5em;
   display: inline-block;
+  -webkit-user-select: none;
   user-select: none;
 }
