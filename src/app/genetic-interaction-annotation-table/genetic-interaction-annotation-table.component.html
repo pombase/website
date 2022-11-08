@@ -54,7 +54,7 @@
     <thead>
       <tr>
         <th></th>
-        <th *ngIf="!currentGene">Gene</th>
+        <th>Gene</th>
         <th *ngIf="!currentGene">Product</th>
         <th></th>
         <th>Interacting gene</th>
@@ -70,7 +70,7 @@
             <span class="collapse-icon" *ngIf="!detailsViewVisible(annotation)">+</span>
           </a>
         </td>
-        <td *ngIf="!currentGene">
+        <td>
           <app-gene-link class="app-link" [long]="false" [gene]="annotation.gene_a"></app-gene-link>
         </td>
         <td *ngIf="!currentGene">{{annotation.gene_a.product}}</td>
@@ -87,51 +87,51 @@
           <table class="genetic-interaction-detail">
             <thead>
               <tr>
-                <th *ngIf="annotation.showColumn.has('reference')">
-                  Reference
-                </th>
-                <th *ngIf="annotation.showColumn.has('double_mutant_genotype')">
+                <th *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-double-genotype">
                   Double mutant
                 </th>
-                <th *ngIf="annotation.showColumn.has('double_mutant_phenotype')">
+                <th *ngIf="annotation.showColumn.has('double_mutant_phenotype')" class="detail-double-phenotype">
                   Phenotype
                 </th>
-                <th *ngIf="annotation.showColumn.has('rescued_phenotype')">
+                <th *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-single-phenotype">
                   Single allele phenotype
+                </th>
+                <th *ngIf="annotation.showColumn.has('reference')" class="detail-reference">
+                  Reference
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let detail of annotation.details">
-                <td *ngIf="annotation.showColumn.has('reference')">
-                  <span *ngIf="detail.reference">
-                    <app-reference-short [reference]="detail.reference"></app-reference-short>
-                  </span>
-                </td>
-                <td>
-                  <span *ngIf="annotation.showColumn.has('double_mutant_genotype') && detail.double_mutant_genotype">
+                <td *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-double-genotype">
+                  <span *ngIf="detail.double_mutant_genotype">
                     <app-genotype-link [genotype]="detail.double_mutant_genotype">
                     </app-genotype-link>
                   </span>
                 </td>
-                <td>
-                  <span *ngIf="annotation.showColumn.has('double_mutant_phenotype') && detail.double_mutant_phenotype">
+                <td *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-double-phenotype">
+                  <span *ngIf="detail.double_mutant_phenotype">
                     <app-term-link [term]="detail.double_mutant_phenotype">
                       {{detail.double_mutant_phenotype.name}}
                    </app-term-link>
-                   <span *ngIf="detail.double_mutant_extension">
+                   <div *ngIf="detail.double_mutant_extension">
                      <app-extension-display [extension]="detail.double_mutant_extension"></app-extension-display>
-                   </span>
+                   </div>
                  </span>
                 </td>
-                <td>
-                  <span *ngIf="annotation.showColumn.has('rescued_phenotype') && detail.rescued_phenotype">
+                <td *ngIf="annotation.showColumn.has('double_mutant_genotype')" class="detail-single-phenotype">
+                  <span *ngIf="detail.rescued_phenotype">
                     <app-term-link [term]="detail.rescued_phenotype">
                       {{detail.rescued_phenotype.name}}
                     </app-term-link>
-                    <span *ngIf="detail.rescued_phenotype_extension">
+                    <div *ngIf="detail.rescued_phenotype_extension">
                       <app-extension-display [extension]="detail.rescued_phenotype_extension"></app-extension-display>
-                    </span>
+                    </div>
+                  </span>
+                </td>
+                <td *ngIf="annotation.showColumn.has('reference')" class="detail-reference">
+                  <span *ngIf="detail.reference">
+                    <app-reference-short [reference]="detail.reference"></app-reference-short>
                   </span>
                 </td>
               </tr>
