@@ -224,14 +224,40 @@ export interface InteractionAnnotation {
   interactor: GeneShort;
   interactor_uniquename: string;
   throughput: ThroughputType;
-  interaction_note: string;
+  interaction_note?: string;
 }
 
 export type InteractionTable = Array<InteractionAnnotation>;
+export type GeneticInteractionTable = Array<GeneticInteractionGroup>;
 
-export interface InteractionAnnotations {
-  [type_name: string]: Array<InteractionAnnotation>;
+
+export interface GeneticInteractionGroup {
+  id: string;
+  interaction_type: string;
+  gene_a_uniquename: string;
+  gene_a: GeneShort;
+  gene_b_uniquename: string;
+  gene_b: GeneShort;
+  details: Array<GeneticInteractionDetail>;
 }
+
+export interface GeneticInteractionDetail {
+  reference: ReferenceShort;
+  reference_uniquename: string;
+  genotype_a_uniquename?: string;
+  genotype_b_uniquename?: string;
+  double_mutant_phenotype_termid?: string;
+  double_mutant_phenotype?: TermShort;
+  double_mutant_extension?: Array<ExtPart>;
+  double_mutant_genotype?: GenotypeShort;
+  double_mutant_genotype_display_name?: string;
+  rescued_phenotype_termid?: string;
+  rescued_phenotype?: TermShort;
+  rescued_phenotype_extension?: Array<ExtPart>;
+  throughput: ThroughputType;
+  interaction_note?: string;
+}
+
 
 export interface OrthologAnnotation {
   gene: GeneShort;
@@ -506,7 +532,7 @@ export class GeneDetails {
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;
   physical_interactions: Array<InteractionAnnotation>;
-  genetic_interactions: Array<InteractionAnnotation>;
+  genetic_interactions: Array<GeneticInteractionGroup>;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
   target_of_annotations: Array<TargetOfAnnotation>;
@@ -577,7 +603,7 @@ export class ReferenceDetails {
   publication_year: string;
   cv_annotations: CvAnnotations;
   physical_interactions: Array<InteractionAnnotation>;
-  genetic_interactions: Array<InteractionAnnotation>;
+  genetic_interactions: Array<GeneticInteractionGroup>;
   ortholog_annotations: Array<OrthologAnnotation>;
   paralog_annotations: Array<ParalogAnnotation>;
   annotation_details: AnnotationDetailMap;
@@ -709,7 +735,7 @@ export class PombaseAPIService {
         }
 
         if (annotation.extension) {
-          processExtension(annotation, termsByTermId, transcriptsByUniquename, genesByUniquename);
+          processExtension(annotation.extension, termsByTermId, transcriptsByUniquename, genesByUniquename);
         }
         if (genotypesByUniquename && annotation.genotype) {
           annotation.genotype = genotypesByUniquename[annotation.genotype as any as string];
@@ -814,58 +840,71 @@ export class PombaseAPIService {
     }
   }
 
-  processInteractions(interactions: Array<InteractionAnnotation>,
-                      genesByUniquename: GeneMap,
-                      referencesByUniquename?: ReferenceDetailsMap) {
-    let seenInteractions: { [key: string]: boolean } = {};
 
-    let nonDuplicates = [];
-
+  processPhysicalInteractions(interactions: Array<InteractionAnnotation>,
+                              genesByUniquename: GeneMap, referencesByUniquename?: any) {
     for (let annotation of interactions) {
-      let annotationAsAny = annotation as any;
-      if (annotationAsAny.gene_a_uniquename) {
-        // temp hack to handle genotype interactions
-        annotation.gene_uniquename = annotationAsAny.gene_a_uniquename;
-        annotation.interactor_uniquename = annotationAsAny.gene_b_uniquename;
-        annotation.evidence = annotationAsAny.interaction_type;
-      }
-
-      let firstGeneForKey;
-      let secondGeneForKey;
-
-      if (annotationAsAny.gene_uniquename < annotationAsAny.interactor_uniquename) {
-        firstGeneForKey = annotationAsAny.gene_uniquename;
-        secondGeneForKey = annotationAsAny.interactor_uniquename;
-      } else {
-        firstGeneForKey = annotationAsAny.interactor_uniquename;
-        secondGeneForKey = annotationAsAny.gene_uniquename;
-      }
-
-      let key = firstGeneForKey + '-:-' +
-        annotationAsAny.evidence + '-:-' +
-        secondGeneForKey;
-
-      if (annotation.reference_uniquename) {
-        key += '-:-' + annotation.reference_uniquename;
-      }
-
-      if (seenInteractions[key]) {
-        continue;
-      } else {
-        seenInteractions[key] = true;
-      }
-
       annotation.gene = genesByUniquename[annotation.gene_uniquename];
       annotation.interactor = genesByUniquename[annotation.interactor_uniquename];
       if (referencesByUniquename) {
         annotation.reference = referencesByUniquename[annotation.reference_uniquename];
       }
+    }
+  }
 
-      nonDuplicates.push(annotation);
+  processGeneticInteractions(interactions: Array<GeneticInteractionGroup>,
+                             genesByUniquename: GeneMap,
+                             genotypesByUniquename: GenotypeMap,
+                             transcriptsByUniquename: TranscriptMap,
+                             termsByTermId: TermIdTermMap,
+                             referencesByUniquename?: ReferenceDetailsMap) {
+    let returnInteractions = [];
+
+    for (let annotation of interactions) {
+      let annotationAsAny = annotation as any;
+
+      let interactionGroup = annotationAsAny[0] as GeneticInteractionGroup;
+      let interactionDetails = annotationAsAny[1] as Array<GeneticInteractionDetail>;
+
+      interactionGroup.details = interactionDetails;
+
+      interactionGroup.gene_a = genesByUniquename[interactionGroup.gene_a_uniquename];
+      interactionGroup.gene_b = genesByUniquename[interactionGroup.gene_b_uniquename];
+
+      interactionGroup.id = interactionGroup.gene_a_uniquename + '-' +
+        interactionGroup.interaction_type + '-' +
+        interactionGroup.gene_b_uniquename;
+
+      for (let detail of interactionDetails) {
+        if (referencesByUniquename) {
+          detail.reference = referencesByUniquename[detail.reference_uniquename];
+        }
+        if (detail.double_mutant_genotype_display_name) {
+          detail.double_mutant_genotype =
+            genotypesByUniquename[detail.double_mutant_genotype_display_name];
+        }
+        if (detail.double_mutant_phenotype_termid) {
+          detail.double_mutant_phenotype = termsByTermId[detail.double_mutant_phenotype_termid];
+        }
+        if (detail.double_mutant_extension) {
+          processExtension(detail.double_mutant_extension, termsByTermId, transcriptsByUniquename, genesByUniquename);
+        }
+        if (detail.rescued_phenotype_termid) {
+          detail.rescued_phenotype = termsByTermId[detail.rescued_phenotype_termid];
+        }
+        if (detail.rescued_phenotype_extension) {
+          processExtension(detail.rescued_phenotype_extension, termsByTermId, transcriptsByUniquename,
+                           genesByUniquename);
+        }
+        detail.throughput = detail.throughput;
+        detail.interaction_note = detail.interaction_note;
+      }
+
+      returnInteractions.push(interactionGroup);
     }
 
     interactions.length = 0;
-    interactions.push(...nonDuplicates);
+    interactions.push(...returnInteractions);
   }
 
   processOrthologs(orthologs: Array<OrthologAnnotation>,
@@ -1020,8 +1059,9 @@ export class PombaseAPIService {
       }
     }
 
-    this.processInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
-    this.processInteractions(json.genetic_interactions, genesByUniquename, referencesByUniquename);
+    this.processPhysicalInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
+    this.processGeneticInteractions(json.genetic_interactions, genesByUniquename, genotypesByUniquename,
+                                    transcriptsByUniquename, termsByTermId, referencesByUniquename);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename, referencesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename, referencesByUniquename);
     this.processTargetOf(json.target_of_annotations, genesByUniquename, genotypesByUniquename,
@@ -1221,8 +1261,10 @@ export class PombaseAPIService {
                                   refMap, termsByTermId);
     }
 
-    this.processInteractions(json.physical_interactions, genesByUniquename);
-    this.processInteractions(json.genetic_interactions, genesByUniquename);
+    this.processPhysicalInteractions(json.physical_interactions, genesByUniquename);
+    this.processGeneticInteractions(json.genetic_interactions, genesByUniquename,
+                                    genotypesByUniquename, transcriptsByUniquename,
+                                    termsByTermId);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename);
 
@@ -1500,9 +1542,9 @@ export class PombaseAPIService {
   }
 }
 
-function processExtension(annotation: Annotation, termsByTermId: TermIdTermMap,
+function processExtension(extension: Array<ExtPart>, termsByTermId: TermIdTermMap,
                           transcriptsByUniquename: TranscriptMap, genesByUniquename: GeneMap) {
-  annotation.extension.map((extPart) => {
+  extension.map((extPart) => {
     if (extPart.ext_range.termid) {
       extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
     } else {

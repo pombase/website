@@ -1,4 +1,4 @@
-import { AnnotationTable, InteractionTable } from './pombase-api.service';
+import { AnnotationTable, GeneticInteractionTable, InteractionTable } from './pombase-api.service';
 
 export interface Filter<T> {
   filter(table: T): [T, number, number];
@@ -6,6 +6,7 @@ export interface Filter<T> {
 
 export type AnnotationFilter = Filter<AnnotationTable>;
 export type InteractionFilter = Filter<InteractionTable>;
+export type GeneticInteractionFilter = Filter<GeneticInteractionTable>;
 
 export class FilterCombiner<T> implements Filter<T> {
   constructor(private filters: Array<Filter<T>>) { }

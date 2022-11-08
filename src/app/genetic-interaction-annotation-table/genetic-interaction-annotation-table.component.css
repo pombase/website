@@ -1,0 +1,92 @@
+@media (min-width: 1200px) {
+  .interaction-reference {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1000px) {
+  .annotation-table-container th {
+    white-space: normal;
+  }
+}
+
+.annotation-table-container {
+  clear: both;
+}
+
+.filter-controls {
+  float: right;
+  clear: right;
+  font-size: 90%;
+  margin-top: 1em;
+}
+
+.filter-count {
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+
+.filter-controls {
+  margin-bottom: 0.5em;
+  display: inline-block;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.interaction-evidence {
+  min-width: 10vw;
+}
+
+.interaction-directional-label {
+  min-width: 14vw;
+}
+
+.interaction-source {
+  padding: 0 0 0.6em 0;
+  display: inline-block;
+}
+
+.interaction-note {
+  font-size: 90%;
+}
+
+.interaction-product {
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.biogrid-link {
+  padding-left: 5em;
+  float: right;
+}
+
+.query-link {
+  display: block;
+  padding-bottom: 0.5em;
+}
+
+.interaction-source-label {
+  font-weight: bold;
+}
+
+.details-button {
+  width: 2em;
+}
+
+.genetic-interaction-detail {
+  border: 1px solid grey;
+  background-color: white;
+  width: 85%;
+  margin: 0.1em 0em 0.3em 3em;
+}
+
+.genetic-interaction-detail td, .genetic-interaction-detail th {
+  padding: 0.1em 1.2em 0.1em 0.3em;
+}
+
+.view-controls, .filter-controls {
+  margin-bottom: 0.5em;
+  display: inline-block;
+  -webkit-user-select: none;
+  user-select: none;
+}

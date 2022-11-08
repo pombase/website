@@ -12,7 +12,7 @@ interface DisplayAnnotation {
   reference: ReferenceShort;
   evidence: string;
   displayLabel: string;
-  interactionNote: string;
+  interactionNote?: string;
 }
 
 @Component({
