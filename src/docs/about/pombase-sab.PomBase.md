@@ -28,7 +28,7 @@ The Zebrafish Information Network, University of Oregon, Eugene, OR, USA
 Exeter Centre for the Study of the Life Sciences &amp; Department of Sociology, Philosophy and Anthropology, University of Exeter, Exeter, UK
 
 *Samuel Marguerat*<br>
-MRC London Institute of Medical Sciences, London, UK &amp; Institute of Clinical Sciences, Faculty of Medicine, Imperial College London, London, UK
+UCL Cancer Institute, London, UK
 
 *Sophie Martin*<br>
 Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland
