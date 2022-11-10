@@ -34,7 +34,9 @@ Annotation type|Description
 [HCPIN datasets](https://www.pombase.org/data/high_confidence_physical_interactions/)|Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets; also see [documentation](/documentation/high-confidence-physical-interaction-network)
 %%end db=PomBase
 [Modifications](${base_url}/data/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future)
+%%if db=PomBase
 [Orthologs](${base_url}/data/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
+%%end db=PomBase
 %%if db=JaponicusDB
 [Orthologs](${base_url}/data/orthologs/)|Ortholog sets for human, cerevisiae and *S. pombe*
 %%end db=JaponicusDB
