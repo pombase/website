@@ -202,6 +202,17 @@ Annotation of gene product function from high-throughput studies using the Gene 
 [PMID:30715275](http://www.ncbi.nlm.nih.gov/pubmed/30715275) [DOI:10.1093/database/baz007](https://doi.org/10.1093/database/baz007)
 
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.17863/CAM.36799"></div>
+
+<div class="pub-citation">
+Wood, V., Harris, M., Lock, A., & Rutherford, K. \
+New PomBase Website 2017, Group Leader Survey Summary. \
+*PomBase* 2017-12-01 \
+</div>
+<div class="clear-float"></div>
+[10.17863/CAM.36799](https://doi.org/10.17863/CAM.36799)
+
+
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkw1089"></div>
 
 <div class="pub-citation">
