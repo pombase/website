@@ -6,11 +6,13 @@ priorities related to curation, tools provided and outreach. They will
 advise how can we better align *S. pombe* knowledge to human genetics
 and health. The SAB is an independent body, made up of leading experts
 in both fission yeast biology and Model Organism Databases from around
-the world.
+the world. The SAB meets annually, but are also the first point of
+contact for intermittent feedback on resource reallocation that may
+affect the wider community.
 
-#### SAB Meetings and reports
+#### SAB Meeting reports
 
- - October 2022: [report](/assets/meeting_reports/PomBase_SAB_report_14-Oct-2022.pdf)
+ - [October 2022 SAB meeting report](/assets/meeting_reports/PomBase_SAB_report_14-Oct-2022.pdf)
 
 
 #### Current members
