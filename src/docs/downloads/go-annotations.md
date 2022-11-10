@@ -9,13 +9,13 @@ descriptions, and annotations shared by the UniProt
 
 #### Annotation files
 
-  - [gene_association.pombase.gz](https://www.pombase.org/data/annotations/Gene_ontology/gene_association.pombase.gz) -
+  - [gene_association.pombase.gz](${base_url}/data/annotations/Gene_ontology/gene_association.pombase.gz) -
     All current *${species_abbrev}* GO annotations in [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/), updated nightly
-  - [gene_association_2-1.pombase.gz](https://www.pombase.org/data/annotations/Gene_ontology/gene_association_2-1.pombase.gz) -
+  - [gene_association_2-1.pombase.gz](${base_url}/data/annotations/Gene_ontology/gene_association_2-1.pombase.gz) -
     All annotations in the older [GAF 2.1 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)
-  - [pombase.gpad](https://www.pombase.org/data/annotations/Gene_ontology/pombase.gpad)
+  - [pombase.gpad](${base_url}/data/annotations/Gene_ontology/pombase.gpad)
     and
-    [pombase.gpi](https://www.pombase.org/data/annotations/Gene_ontology/pombase.gpi) -
+    [pombase.gpi](${base_url}/data/annotations/Gene_ontology/pombase.gpi) -
     Newer [GPAD/GPI v2.0 format](https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md)
     annotation files, updated nightly
 
