@@ -37,7 +37,7 @@ Annotation type|Description
 %%end db=PomBase
 [Orthologs](${base_url}/data/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
 %%if db=JaponicusDB
-[Orthologs](${base_url}/data/orthologs/)|Ortholog sets for human and *S. pombe*
+[Orthologs](${base_url}/data/orthologs/)|Ortholog sets for human, cerevisiae and *S. pombe*
 %%end db=JaponicusDB
 -------
 
