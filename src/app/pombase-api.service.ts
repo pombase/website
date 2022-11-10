@@ -1053,7 +1053,7 @@ export class PombaseAPIService {
     for (let fieldName of ['physical_interactions', 'genetic_interactions',
                            'ortholog_annotations', 'paralog_annotations',
                            'target_of_annotations', 'synonyms', 'name_descriptions',
-                           'interpro_matches']) {
+                           'interpro_matches', 'genetic_interactions']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = [];
       }
@@ -1254,6 +1254,12 @@ export class PombaseAPIService {
       gene_count: json.gene_count || 0,
       genotype_count: json.genotype_count || 0,
     };
+
+    for (let fieldName of ['genetic_interactions']) {
+      if (typeof (json[fieldName]) === 'undefined') {
+        json[fieldName] = [];
+      }
+    }
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
