@@ -8,9 +8,9 @@ and health. The SAB is an independent body, made up of leading experts
 in both fission yeast biology and Model Organism Databases from around
 the world.
 
-The SAB  will  meet annually, but are also the first point of contact for
-intermittent feedback on resource reallocation that may affect the wider
-community.
+#### SAB Meetings and reports
+
+ - October 2022: [report](/assets/meeting_reports/PomBase_SAB_report_14-Oct-2022.pdf)
 
 
 #### Current members
@@ -32,6 +32,7 @@ UCL Cancer Institute, London, UK
 
 *Sophie Martin*<br>
 Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland
+
 
 
 #### Related pages
