@@ -1,45 +1,15 @@
 import { FeatureShort, ProteinDetails } from './pombase-api.service';
 
-interface PartWithId extends FeatureShort {
-  partId: number;
-}
-
 export class ResidueRange {
   constructor(readonly start: number, readonly end: number) { }
 }
 
-export class DisplaySequenceLinePart {
+export class DisplaySequencePart {
   constructor(readonly uniquename: string,
               readonly partType: string,
               readonly residues: string,
               readonly exonIndex: number | null,
               readonly partId: number) { }
-}
-
-export class DisplaySequenceLine {
-  constructor(readonly lineParts: Array<DisplaySequenceLinePart>) { }
-
-  add(linePart: DisplaySequenceLinePart): void {
-    this.lineParts.push(linePart);
-  }
-
-  length(): number {
-    return this.residues().length;
-  }
-
-  residues(): string {
-    let res = '';
-
-    this.lineParts.map(part => {
-      res += part.residues;
-    });
-
-    return res;
-  }
-
-  getParts(): Array<DisplaySequenceLinePart> {
-    return this.lineParts;
-  }
 }
 
 let partIdCounter = 0;
@@ -51,15 +21,14 @@ class RawSequencePart {
 }
 
 export class DisplaySequence {
-  private lines: Array<DisplaySequenceLine> = [new DisplaySequenceLine([])];
+  private parts: Array<DisplaySequencePart> = [];
 
-  static newFromProtein(lineLength: number, protein: ProteinDetails): DisplaySequence {
+  static newFromProtein(protein: ProteinDetails): DisplaySequence {
     const seqPart = new RawSequencePart('protein', protein.sequence, protein.uniquename);
-    return new DisplaySequence(lineLength, [seqPart]);
+    return new DisplaySequence([seqPart]);
   }
 
-  static newFromTranscriptParts(lineLength: number,
-                                upstreamSequence: string,
+  static newFromTranscriptParts(upstreamSequence: string,
                                 parts: Array<FeatureShort>,
                                 downstreamSequence: string) {
     const upstreamPart = new RawSequencePart('upstream', upstreamSequence,
@@ -70,75 +39,39 @@ export class DisplaySequence {
       return new RawSequencePart(part.feature_type, part.residues, part.uniquename);
     });
     const displayParts = [upstreamPart, ...seqParts, downstreamPart];
-    return new DisplaySequence(lineLength, displayParts);
+    return new DisplaySequence(displayParts);
   }
 
-  private constructor(private readonly lineLength: number,
-                      public readonly displayParts: Array<RawSequencePart>) {
+  private constructor(public readonly displayParts: Array<RawSequencePart>) {
     let exonIndex = 1;
     displayParts.map(part => {
       if (part.partType === 'exon') {
-        this.addToLines(part, exonIndex);
+        this.addPart(part, exonIndex);
         exonIndex++;
       } else {
-        this.addToLines(part, null);
+        this.addPart(part, null);
       }
     });
   }
 
-  private addToLines(part: RawSequencePart, exonIndex: number | null): void {
-    if (part.residues.length === 0) {
+  private addPart(rawPart: RawSequencePart, exonIndex: number | null) {
+    if (rawPart.residues.length === 0) {
       return;
     }
 
-    let currentLine = this.lines[this.lines.length - 1];
-
-    let partCopy = {
-      feature_type: part.partType,
-      residues: part.residues,
-      uniquename: part.uniquename,
-    } as PartWithId;
-
-    while (true) {
-      if (currentLine.length() + partCopy.residues.length <= this.lineLength) {
-        const linePart = new DisplaySequenceLinePart(partCopy.uniquename,
-                                                     partCopy.feature_type, partCopy.residues,
-                                                     exonIndex, partIdCounter++);
-        currentLine.add(linePart);
-
-        if (currentLine.length() === this.lineLength) {
-          this.lines.push(new DisplaySequenceLine([]));
-        }
-
-        return;
-      } else {
-        const sliceLength = this.lineLength - currentLine.length();
-        const sliceResidues = partCopy.residues.slice(0, sliceLength);
-
-        const linePart = new DisplaySequenceLinePart(partCopy.uniquename,
-                                                     partCopy.feature_type, sliceResidues,
-                                                     exonIndex, partIdCounter++);
-        currentLine.add(linePart);
-
-        const remainingResidues = partCopy.residues.slice(sliceLength);
-
-        partCopy.residues = remainingResidues;
-
-        if (currentLine.length() === this.lineLength) {
-          currentLine = new DisplaySequenceLine([]);
-          this.lines.push(currentLine);
-        }
-      }
-    }
+    const part = new DisplaySequencePart(rawPart.uniquename,
+                                         rawPart.partType, rawPart.residues,
+                                         exonIndex, partIdCounter++);
+    this.parts.push(part);
   }
 
-  getLines(): Array<DisplaySequenceLine> {
-    return this.lines;
+  getParts(): Array<DisplaySequencePart> {
+    return this.parts;
   }
 
   residues(): string {
     let res = '';
-    this.lines.map(line => res += line.residues());
+    this.parts.map(part => res += part.residues);
     return res;
   }
 
@@ -147,10 +80,9 @@ export class DisplaySequence {
     let residuesSoFar = 0;
     let startPos = -1;
 
-    for (let lineIndex = 0; lineIndex < this.lines.length; ++lineIndex) {
-      const parts = this.lines[lineIndex].getParts();
-      for (let partIndex = 0; partIndex < parts.length; ++partIndex) {
-        const part = parts[partIndex];
+    for (let lineIndex = 0; lineIndex < this.parts.length; ++lineIndex) {
+
+      const part = this.parts[lineIndex];
         if (part.partId === startPartId) {
           startPos = residuesSoFar + startPartOffset;
         }
@@ -166,7 +98,7 @@ export class DisplaySequence {
 
         residuesSoFar += part.residues.length;
       }
-    }
+
 
     return undefined;
   }

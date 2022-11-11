@@ -184,15 +184,11 @@
           <div class="header">
 &gt;{{getSequenceHeader()}}
           </div>
-          <div class="residues">
-          <div class="residue-line" *ngFor="let line of getDisplaySequence()!.getLines()">
-            <span title="{{partTitle(part)}}" class="{{partClass(part)}}"
-                  #partSpan
+          <div class="residues"><span class="residue-part" *ngFor="let part of getDisplaySequence()!.getParts()"
+                   title="{{partTitle(part)}}" class="{{partClass(part)}}"
+                   #partSpan
                  (mouseenter)="mouseenter(part)" (mouseleave)="mouseleave()"
-                 [attr.data-part-id]="part.partId"
-                  *ngFor="let part of line.getParts()">{{part.residues}}</span>
-          </div>
-          </div>
+                 [attr.data-part-id]="part.partId">{{part.residues}}</span></div>
           </div>
           <div *ngIf="!wrappedSequence">
             (No sequence to display)

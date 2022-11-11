@@ -4,10 +4,8 @@ import { saveAs } from 'file-saver';
 
 import { GeneDetails, ProteinDetails, PombaseAPIService, Strand } from '../pombase-api.service';
 import { Util } from '../shared/util';
-import { DisplaySequence, DisplaySequenceLinePart, ResidueRange } from '../display-sequence';
+import { DisplaySequence, DisplaySequencePart, ResidueRange } from '../display-sequence';
 import { getAppConfig } from '../config';
-
-const lineLength = 60;
 
 @Component({
   selector: 'app-transcript-sequence-select',
@@ -47,7 +45,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
 
   linksInNewWindow = true;
 
-  hoverPart?: DisplaySequenceLinePart;
+  hoverPart?: DisplaySequencePart;
 
   selectedResidueRange?: ResidueRange;
 
@@ -92,7 +90,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       (this.downstreamBases > 0 ? ' downstream:' + this.downstreamBases : '');
   }
 
-  partTitle(part: DisplaySequenceLinePart): string {
+  partTitle(part: DisplaySequencePart): string {
     if (part.partType === 'exon') {
       return 'CDS ' + part.partType + ' ' + part.exonIndex;
     }
@@ -120,7 +118,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     return part.partType;
   }
 
-  partClass(part: DisplaySequenceLinePart): string {
+  partClass(part: DisplaySequencePart): string {
     let retVal = 'part-' + part.partType;
 
     if (this.hoverPart && this.hoverPart.partType === part.partType) {
@@ -133,7 +131,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     return retVal;
   }
 
-  mouseenter(part: DisplaySequenceLinePart): void {
+  mouseenter(part: DisplaySequencePart): void {
     if (this.showNucSequence) {
       this.hoverPart = part;
     }
@@ -269,7 +267,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
           const downstreamSequence = values[1];
 
           this.displaySequence =
-            DisplaySequence.newFromTranscriptParts(lineLength, upstreamSequence,
+            DisplaySequence.newFromTranscriptParts(upstreamSequence,
                                                    includedParts, downstreamSequence);
 
           if (this.displaySequence) {
@@ -364,7 +362,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
           (transcript.uniquename || this.geneDetails.uniquename) + ' length:' +
           this.protein.number_of_residues;
         this.proteinDisplaySequence =
-          DisplaySequence.newFromProtein(lineLength, this.protein);
+          DisplaySequence.newFromProtein(this.protein);
         this.wrappedProteinSequence = Util.splitSequenceString(this.protein.sequence);
       }
 

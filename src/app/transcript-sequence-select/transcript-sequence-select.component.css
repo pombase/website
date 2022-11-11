@@ -46,18 +46,14 @@
 }
 
 .residues {
-  min-width: 65ch;
   color: #111;
-}
-
-.residue-line {
-  white-space: nowrap;
-  line-height: 1em;
-}
-
-.residue-line span {
+  max-width: 60.1ch;
   display: inline-block;
-  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.residue-part {
+  line-height: 1em;
 }
 
 .hovering {
