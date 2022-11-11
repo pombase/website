@@ -2,12 +2,14 @@
 
 These files are available in the [names and IDs directory](${base_url}/data/names_and_identifiers/)
 
+%%if db=PomBase
 #### Systematic ID to UniProt accession number
 
 -   [PomBase2UniProt.tsv](https://www.pombase.org/data/names_and_identifiers/PomBase2UniProt.tsv)
     tab-delimited file with the PomBase systematic identifier for each
     protein-coding gene mapped to the corresponding UniProt accession
     number
+%%end db=PomBase
 
 #### Gene names
 

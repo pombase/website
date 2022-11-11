@@ -3,9 +3,11 @@
 <div class="left-menu-part left-menu-item">Annotation datasets</div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
+%%if db=PomBase
 <div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/high_confidence_physical_interactions/">HCPIN datasets</a></div>
-<div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></div>
+%%end db=PomBase
+<div class="left-menu-part left-sub-sub-menu-item"><a href="${base_url}/data/orthologs/">Orthologs</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/protein-datasets">Protein datasets</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documents">Documents</a></div>
