@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { getAppConfig } from '../config';
 
 import { GeneSummaryMap, PombaseAPIService, GeneSummary } from '../pombase-api.service';
 
@@ -13,6 +14,8 @@ export class GeneListLookupComponent implements OnInit {
 
   inputText = '';
   listName?: string;
+
+  appConfig = getAppConfig();
 
   unknownIds: Array<string> = [];
   geneSummaryMapPromise: Promise<GeneSummaryMap>;

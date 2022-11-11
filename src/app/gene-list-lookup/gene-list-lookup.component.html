@@ -1,8 +1,17 @@
 <div class="gene-list-lookup">
   <div>
     <textarea rows="7" [(ngModel)]="inputText" (ngModelChange)="checkIds()"></textarea>
-    <div *ngIf="unknownIds.length > 0" class="unknown-identifiers">
+    <div *ngIf="unknownIds.length > 0">
+     <div class="unknown-identifiers">
       Unknown identifiers: <span>{{unknownIds.join(" ").substring(0, 1000)}}</span>
+     </div>
+     <div class="unknown-identifiers-help">
+Only the current unique systematic identifier OR the primary symbol for a gene is recognised by the list upload.
+Troubleshooting: Occasionally systematic IDs may be changed to synonyms when features are merged. Gene names may be
+relegated to synonyms if name ambiguities exist. To locate the current ID or gene symbol use the "simple search" in the
+header. Occasionally identifiers are removed from the gene set if they are no longer considered to be coding
+      <span *ngIf="appConfig.site_name == 'PomBase'">(check the <a routerLink="/status/new-and-removed-genes">new and removed gene list</a>)</span>
+     </div>
     </div>
   <div class="read-from-file">
   Read from file: <input type="file" (change)="readFile($event)">
