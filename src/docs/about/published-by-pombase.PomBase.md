@@ -542,6 +542,7 @@ The Gene Ontology in 2010: extensions and refinements.\
 Harris MA, Rutherford KM, Hayles J, Lock A, Bähler J, Oliver SG, Mata J, Wood V.\
 Fission stories: Using PomBase to understand *Schizosaccharomyces pombe* biology.\
 [Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2021.09.07.459264v1.full) available at bioRxiv.\
+Published &mdash; see above.
 
 Wood V, Carbon S, Harris MA, Lock A, Engel SR, Hill DP, Van Auken K, Attrill H, Feuermann M, Gaudet P, Lovering RC, Poux S, Rutherford KM, Mungall CJ.\
 Term Matrix: A novel Gene Ontology annotation quality control system based on ontology term co-annotation patterns.\
