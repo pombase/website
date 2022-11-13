@@ -13,7 +13,7 @@ Canto, FYPO, annotations and Compara.
 Vivian Monzon, Typhaine Paysan-Lafosse, Valerie Wood, Alex Bateman \
 Reciprocal Best Structure Hits: Using AlphaFold models to discover
 distant homologues \
-*Bioinformatics Advances*, vbac072 \
+*Bioinformatics Advances*, October 2022, vbac072 \
 </div>
 [10.1093/bioadv/vbac072](https://doi.org/10.1093/bioadv/vbac072)
 
@@ -25,7 +25,7 @@ distant homologues \
 <div class="pub-citation">
 Valérie de Crécy-lagard *et al.* (including Val Wood) \
 A roadmap for the functional annotation of protein families: a community perspective \
-*DATABASE*, Volume 2022, 2022, baac062 \
+*DATABASE*, Volume 2022, August 2022, baac062 \
 </div>
 [PMID:35961013](http://www.ncbi.nlm.nih.gov/pubmed/35961013) [10.1093/database/baac062](https://doi.org/10.1093/database/baac062)
 
@@ -200,17 +200,6 @@ Annotation of gene product function from high-throughput studies using the Gene 
 </div>
 <div class="clear-float"></div>
 [PMID:30715275](http://www.ncbi.nlm.nih.gov/pubmed/30715275) [DOI:10.1093/database/baz007](https://doi.org/10.1093/database/baz007)
-
-
-<div data-badge-type="donut" class='altmetric-embed' data-doi="10.17863/CAM.36799"></div>
-
-<div class="pub-citation">
-Wood, V., Harris, M., Lock, A., & Rutherford, K. \
-New PomBase Website 2017, Group Leader Survey Summary. \
-*PomBase* 2017-12-01 \
-</div>
-<div class="clear-float"></div>
-[10.17863/CAM.36799](https://doi.org/10.17863/CAM.36799)
 
 
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/nar/gkw1089"></div>
@@ -568,9 +557,24 @@ In Kollar M (ed) *Eukaryotic Genomic Databases. Methods in Molecular Biology*, v
 <div class="clear-float"></div>
 [DOI:10.1007/978-1-4939-7737-6_4](http://dx.doi.org/DOI:10.1007/978-1-4939-7737-6_4)
 
+
+### Other documents
+
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.17863/CAM.36799"></div>
+
+<div class="pub-citation">
+Wood, V., Harris, M., Lock, A., & Rutherford, K. \
+New PomBase Website 2017, Group Leader Survey Summary. \
+*PomBase* 2017-12-01 \
+</div>
+<div class="clear-float"></div>
+[10.17863/CAM.36799](https://doi.org/10.17863/CAM.36799)
+
+
 ### Infographics
 
 [2017 PomBase infographic](https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf) (PDF; file at FTP site)
+
 
 ### More
 
