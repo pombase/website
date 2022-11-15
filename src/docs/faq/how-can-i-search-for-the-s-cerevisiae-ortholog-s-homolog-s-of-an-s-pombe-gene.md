@@ -15,5 +15,7 @@ unrelated genes coincidentally have the same name in *${species_abbrev}* and
 *S. cerevisiae*. To find systematic names of *S. cerevisiae* genes,
 you can search [SGD](https://www.yeastgenome.org/).
 
+%%if db=PomBase
 Also see the [FAQ on downloading the full set of orthologs](/faq/how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs).
+%%end db=PomBase
 

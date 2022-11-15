@@ -20,5 +20,7 @@ retrieved in a search for FYPO:0000025. See the
 Example query: <app-query-link [goToResults]="true" [linkText]="'Genes annotated to &quot;elongated cell&quot; (FYPO:0000017), all alleles, any expression level'" [predefinedQueryId]="'FYPO_17_all'">
 </app-query-link>
 
-Also see the FAQ on [finding essential genes](/faq/can-i-get-list-essential-pombe-genes).
 
+%%if db=PomBase
+Also see the FAQ on [finding essential genes](/faq/can-i-get-list-essential-pombe-genes).
+%%end db=PomBase

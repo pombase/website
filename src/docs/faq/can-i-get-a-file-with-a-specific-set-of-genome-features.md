@@ -8,7 +8,11 @@ formats contain all annotated sequence features.
 
 Another option for extracting all annotated features (or if you need
 to specify which feature types to include) is to use the Ensembl
-API. See the FAQ
+API.
+
+%%if db=PomBase
+See the FAQ
 "[Can I access ${database_name} via an API?](/faq/can-i-access-pombase-via-api)"
 for more information on using the API.
+%%end db=PomBase
 

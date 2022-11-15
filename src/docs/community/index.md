@@ -1,7 +1,7 @@
 # Fission Yeast Community
 
-- [Community curation project](community/fission-yeast-community-curation-project), including the old *S. pombe* [pilot project](community/fission-yeast-community-curation-pilot-project)
 %%if db=PomBase
+- [Community curation project](community/fission-yeast-community-curation-project), including the old *S. pombe* [pilot project](community/fission-yeast-community-curation-pilot-project)
 - [Mailing list](https://lists.cam.ac.uk/sympa/info/ucam-pombelist)
 %%end db=PomBase
 %%if db=JaponicusDB

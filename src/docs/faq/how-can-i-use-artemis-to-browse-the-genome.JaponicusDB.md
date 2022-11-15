@@ -19,7 +19,7 @@ e.g.:
 -   Find features by name or ID
 -   Find all features of a given type (e.g. see the "[can I find transposons](/faq/how-can-i-find-transposons-genome)" FAQ)
 -   Find matches to a specific nucleotide sequence (e.g. see the 
-    "[restriction enzyme map](/faq/can-i-generate-comprehensive-restriction-enzyme-map-genome-pombase)" FAQ)
+    "[restriction enzyme map](/faq/can-i-generate-a-comprehensive-restriction-enzyme-map-of-the-genome-in-JaponicusDB)" FAQ)
 -   View the nucleotide or amino acid sequence of a region or feature
 -   Export selected sequences
 

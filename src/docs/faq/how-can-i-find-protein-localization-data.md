@@ -19,10 +19,10 @@ ${database_name} GO Cellular Component annotations include data from the
 whole-genome localization study (Matsuyama et al. 2006) as well as
 manually curated data from papers on small-scale experiments, and
 inferences from ortholog annotations. 
-%%end db=PomBase
 Macromolecular complex
 annotations are also available in a file (see
 [FAQ](faq/there-list-protein-complexes-s.-pombe-and-their-subunits)).
 
 Example query: <app-query-link [goToResults]="true" [linkText]="'nucleus (GO:0005634)'" [predefinedQueryId]="'GO_5634'">
 </app-query-link>
+%%end db=PomBase
