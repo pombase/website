@@ -31,6 +31,7 @@ The contents of the files downloadable from ${database_name} may
 differ from files available elsewhere (e.g. see [this FAQ](/faq/why-are-go-annotations-different-between-${lc_database_name}-and-uniprot-goa)),
 and will not include annotations inferred by transitivity (see [this FAQ](/faq/why-are-go-terms-missing-downloadable-annotation-file)).
 %%if db=PomBase
+
 Previous versions of the *S. pombe* GO annotation file can be
 retrieved from the [archive directory](https://www.pombase.org/data/annotations/Gene_ontology/OLD/).
 Note that files produced before March 2021 are only available in GAF 2.1
