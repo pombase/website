@@ -29,6 +29,7 @@ jobs:
            curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
            curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_jbrowse_track_metadata.csv
            curl -OL https://raw.githubusercontent.com/pombase/pombase-chado/master/etc/create_jbrowse_track_list.pl && chmod a+x create_jbrowse_track_list.pl
+           curl -OL https://raw.githubusercontent.com/japonicusdb/japonicus-config/main/japonicus_site_config.json
            (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/2.8/pandoc-2.8-1-amd64.deb; sudo dpkg -i pandoc-2.8-1-amd64.deb)
            yarn
 
@@ -40,6 +41,8 @@ jobs:
            curl -L https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json > main_config.json && \
            echo generating doc files: && \
            ./etc/update_generated_files.sh main_config.json pombase-curation/data_files/ && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress && \
-           echo checking for broken links: && \
+           echo checking for broken links in PomBase docs: && \
            ./etc/check_docs_broken_links.pl main_config.json src/docs src/assets && \
+           echo checking for broken links in JaponicusDB docs: && \
+           ./etc/check_docs_broken_links.pl japonicus_site_config.json src/docs src/assets && \
            echo all checks passed
