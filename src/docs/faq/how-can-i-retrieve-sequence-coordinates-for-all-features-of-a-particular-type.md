@@ -24,6 +24,7 @@ Available options:
     the results, with a button for "Download" options including
     coordinates and sequence.
 
+%%if db=PomBase
 3.  The bioinformatically inclined can also use the Ensembl Genomes REST
     API to retrieve transcript feature coordinates, as described in the
     [FAQ on ${species} transcriptome sequences](/faq/s.-pombe-transcriptome-available-fasta-format).
@@ -32,7 +33,7 @@ Available options:
     mean feature type). Note, however, that EG is updated much less
     frequently than ${database_name}, so EG data will rarely be as up-to-date
     as the ${database_name} web site. Documentation is available:
-
+%%end db=PomBase
 
 Query: <app-query-link [goToResults]="true" [linkText]="'snoRNA genes'" [predefinedQueryId]="'snorna_genes'">
 </app-query-link>

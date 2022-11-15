@@ -34,8 +34,10 @@ Data type | File format description
 ----------|------------------------
 Phenotypes | [phenotype file format](/documentation/phenotype-data-bulk-upload-format) 
 Modifications | [modification file format](/documentation/modification-data-bulk-upload-format) 
+%%if db=PomBase
 Qualitative gene expression | [qualitative gene expression file format](/faq/how-can-i-submit-high-throughput-data-pombase) 
 Quantitative gene expression | [quantitative gene expression file format](/faq/how-can-i-submit-high-throughput-data-pombase) 
+%%end db=PomBase
 
 We may be able to accept data in other text formats. Please enquire via
 the ${database_name} [helpdesk](mailto:${helpdesk_address}) if you have any questions about your data format.

@@ -20,8 +20,11 @@ to capture two types of "target" data (where available):
 
 -   Annotations to GO:0000976 (or a descendant) may have extensions that
     capture DNA binding specificity using [Sequence Ontology](http://sequenceontology.org)
-    (SO) terms. A list of DNA binding sites identified in *${species_abbrev}* is
+    (SO) terms.
+%%if db=PomBase
+    A list of DNA binding sites identified in *S. pombe* is
     available on the [DNA Binding Sites](/browse-curation/dna-binding-sites) page.
+%%end db=PomBase
 -   Annotations to GO:0003700 (or a descendant) may have extensions
     identifying target genes.
 

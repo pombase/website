@@ -40,8 +40,11 @@ ${database_name} gene page documentation.
 
 The ${database_name} [advanced search](/query) can use either term names or IDs to search
 FYPO, and returns a list of genes that have alleles annotated to the
-specified term or any of its descendants.  For example, see the
+specified term or any of its descendants.
+%%if db=PomBase
+For example, see the
 [FAQ on finding essential genes](/faq/can-i-get-list-essential-pombe-genes).
+%%end db=PomBase
 
 ### Curating phenotypes with FYPO
 

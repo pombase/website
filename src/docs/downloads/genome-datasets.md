@@ -59,8 +59,8 @@ Region|Description
 
 #### Other data
 
--   Additional information and historical data are available for [introns](downloads/intron-data)
 %%if db=PomBase
+-   Additional information and historical data are available for [introns](downloads/intron-data)
 -   [Cosmid sequences](https://www.pombase.org/data/archive/Cosmid_sequences/) and [Chromosome tiling paths from genome sequence assembly](https://www.pombase.org/data/archive/Cosmid_assembly_data/)
 %%end db=PomBase
 -   You can also browse the files available from the [Ensembl Genomes FTP

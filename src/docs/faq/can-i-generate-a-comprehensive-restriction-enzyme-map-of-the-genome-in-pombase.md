@@ -19,7 +19,14 @@ generate a restriction map:
     for any restriction patterns of interest and save them into your
     file.
 5.  You can add "color" labels to distinguish the different restriction
-    sites. See the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase) and the
+    sites. See the
+%%if db=PomBase
+    [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase)
+%%end db=PomBase
+%%if db=JaponicusDB
+    [Artemis FAQ](/faq/how-can-i-use-artemis-browse-genome)
+%%end db=JaponicusDB
+    and the
     [Artemis manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf) (pdf;
     Sanger site) for additional information.
 

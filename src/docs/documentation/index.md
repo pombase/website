@@ -66,12 +66,12 @@ Search documentation, news archive and FAQ:
 -   [Fission Yeast Phenotype Ontology (FYPO) page](browse-curation/fission-yeast-phenotype-ontology)
 %%if db=PomBase
 -   [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
-%%end db=PomBase
 -   [Data versions](about/version-history)
+%%end db=PomBase
 
 ### How to Cite ${database_name} ###
 
--   See the [Citing ${database_name}](about/citing-pombase) page
+-   See the [Citing ${database_name}](about/citing-${lc_database_name}) page
 
 ### File Formats for Data Submission ###
 

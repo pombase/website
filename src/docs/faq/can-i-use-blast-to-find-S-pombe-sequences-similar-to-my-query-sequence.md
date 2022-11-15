@@ -15,10 +15,10 @@ purposes, especially for proteins:
  - If you are specifically looking for *${species_abbrev}* orthologs of a
    protein-coding gene, simple BLAST results can be
    misleading. Instead, you can look up manually curated orthologs in
-   ${database_name} for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and
-   [budding yeast](/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene),
+   ${database_name} for [human](/faq/how-can-i-find-s.-${species}-ortholog-s-human-gene) and
+   [budding yeast](/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-${species}-gene),
    or use the methods described in the FAQ on
-   [finding orthologs in other species](/faq/how-can-i-find-s.-pombe-orthologs-species-other-than-human-and-s.-cerevisiae).
+   [finding orthologs in other species](/faq/how-can-i-find-s.-${species}-orthologs-species-other-than-human-and-s.-cerevisiae).
 
 Also see other FAQs in the [Orthology](/faq/orthology) category and
 the [Ortholog curation](/documentation/orthologs) documentation.

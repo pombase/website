@@ -168,6 +168,7 @@ There are several ways to navigate the genome.
           chromosomes.
      - Click the "Go" button or hit return to go to the gene or
        region.
+%%if db=PomBase
      - Coordinates for some regions of interest: 
          - Centromeres
              - I:3753687..3789421
@@ -181,6 +182,7 @@ There are several ways to navigate the genome.
        ${database_name} documentation on [genome sequencing status](status/sequencing-status),
        the [mating type region](status/mating-type-region), and
        [rDNA](faq/there-any-rdna-repeat-sequences-pombase).
+%%end db=PomBase
 
 - In the uppermost bar, a red box indicates the size and position of
   the currently displayed region, in the context of the whole

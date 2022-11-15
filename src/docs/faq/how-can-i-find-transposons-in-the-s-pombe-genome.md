@@ -25,7 +25,14 @@ annotation (available from the [Genome sequences](/downloads/genome-datasets) pa
 1.  In the Select menu, choose "By Key".
 2.  In the pulldown that pops up, choose "LTR".
 
-See the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase) and the 
+See the
+%%if db=PomBase
+[Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase)
+%%end db=PomBase
+%%if db=JaponicusDB
+[Artemis FAQ](/faq/how-can-i-use-artemis-browse-genome)
+%%end db=JaponicusDB
+and the
 [Artemis manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf) (pdf;
 Sanger site) for additional information.
 

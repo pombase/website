@@ -31,7 +31,7 @@ a downloadable file. The file has two columns: the gene systematic ID
 and one of three values: "viable", "inviable" or "condition-dependent".
 
 To cite the fission yeast phenotype data (complete or viability
-summary), please see [Citing ${database_name}](/about/citing-pombase).
+summary), please see [Citing ${database_name}](/about/citing-${lc_database_name}).
 
 ### PHAF download format
 

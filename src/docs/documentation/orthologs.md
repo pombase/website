@@ -10,8 +10,8 @@ entries link to the [*Saccharomyces* Genome Database](http://www.yeastgenome.org
 (SGD), and human genes link to [HGNC](http://www.genenames.org/); the
 text descriptions come from these databases. For more information,
 including how to search the curated orthologs, see the FAQs on
-[budding yeast](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene)
-and [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene)
+[budding yeast](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-${species}-gene)
+and [human](/faq/how-can-i-find-s.-${species}-ortholog-s-human-gene)
 orthologs.
 
 The second subsection provides links to several resources that predict

@@ -6,7 +6,13 @@ The best route depends on the amount and type of data you have.
 -   If you have a published paper with "small-scale" data (a few genes,
     several different data types, etc.), you can curate it in
     [Canto](http://curation.pombase.org/pombe), ${database_name}'s online
-    [community curation](/community/fission-yeast-community-curation-project) tool.
+%%if db=PomBase
+    [community curation](/community/fission-yeast-community-curation-project)
+%%end db=PomBase
+%%if db=JaponicusDB
+    [community curation](https://curation.pombase.org/)
+%%end db=JaponicusDB
+    tool.
     The [Canto documentation](http://curation.pombase.org/pombe/docs/index/) describes
     the supported data types (Gene Ontology, phenotypes, interactions,
     modifications) and how to use the curation interface.

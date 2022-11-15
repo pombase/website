@@ -7,9 +7,11 @@ Note: Because *S. japonicus* curation has begun so recently, many of these pages
 | | |
 |-|-|
 | [Genome overview](status/genome-overview) | Graphic and basic information about each chromosome |
+%%if db=PomBase
 | [Sequencing status](status/sequencing-status) | Contig size, gap status and progress, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
 | [Sequence updates](status/sequencing-updates) | Changes to the genome sequence since July 2003 |
 | [Sequence updates pending](status/sequence-updates-pending) | Pending changes, mainly from the Broad Institute, some supported by data from other sources |
+%%end db=PomBase
 | [Gene coordinate changes](status/gene-coordinate-changes) | Changes to coordinates of individual genes since publication |
 | [New and removed genes](status/new-and-removed-genes) | Genes identified or removed since publication |
 %%if db=PomBase

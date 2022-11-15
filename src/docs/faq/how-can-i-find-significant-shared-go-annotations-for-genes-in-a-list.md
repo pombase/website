@@ -19,7 +19,7 @@ GO slim analysis of your gene list, for a broad overview of the
 annotation set (for more information, see the
 [Fission Yeast GO slim documentation](documentation/pombase-go-slim-documentation)
 page and
-[FAQ](faq/how-can-i-use-go-slims-s.-pombe)).
+[FAQ](faq/how-can-i-use-go-slims-s.-${species})).
 This will enable you to focus on. the most important terms in your
 enrichment.
 

@@ -1,8 +1,10 @@
 # How can I retrieve intron coordinates or sequences?
 <!-- pombase_categories: Finding data -->
 
+%%if db=PomBase
 Downloadable intron datasets are available in FASTA format from the
 [Intron Data](/downloads/intron-data) page.
+%%end db=PomBase
 
 You can also find genes with introns using the ${database_name} [advanced search](/query).
 To find all genes with introns, search for genes with a specified number

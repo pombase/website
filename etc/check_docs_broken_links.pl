@@ -122,6 +122,10 @@ sub wanted_docs {
     my $section = $1;
     my $page_name = $2;
 
+    if ($section =~ /^news\.(.*)/ && $1 ne $database_name) {
+      return;
+    }
+
     push @files_to_scan, "$docs_dir/$current";
 
     if ($section eq 'faq') {

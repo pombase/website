@@ -13,10 +13,13 @@ gene:
 3.  Chromosome coordinates for the gene. For protein-coding genes, the
     "coding start to stop" numbers give the start, end, and length
     excluding UTRs but including introns (other than introns located
-    entirely within UTRs).  The second set of numbers indicate the
+    entirely within UTRs).
+%%if db=PomBase
+    The second set of numbers indicate the
     gene start, end, and length including the default UTRs chosen by
-    ${database_name} curators (see [this FAQ](/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites)
+    PomBase curators (see [this FAQ](/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites)
     for more information).
+%%end db=PomBase
 4.  What the three-letter acronym stands for; where available, name
     descriptions are provided for synonyms as well as primary names.
 5.  Category describing how well-studied a gene is; see the [Gene

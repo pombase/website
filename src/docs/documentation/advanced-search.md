@@ -385,7 +385,9 @@ page sections.
 
 #### Phenotype searches
 
+%%if db=PomBase
  -  [Can I get a list of essential ${species} genes?](/faq/can-i-get-list-essential-pombe-genes)
+%%end db=PomBase
  -  [How can I find all of the genes that have a given mutant phenotype?](/faq/how-can-i-find-all-genes-have-given-mutant-phenotype)
  -  [Why are some genes annotated to both viable and inviable phenotypes?](/faq/why-are-some-genes-annotated-both-viable-and-inviable-phenotypes)
  -  [How can I browse the phenotype ontology (FYPO)?](/faq/how-can-i-browse-phenotype-ontology-fypo)
@@ -397,12 +399,16 @@ page sections.
  -  [How can I find protein localization data?](/faq/how-can-i-find-protein-localization-data)
  -  [How can I identify all of the genes that affect a process?](/faq/how-can-i-identify-all-genes-affect-process) (also relevant to phenotype searches)
  -  [Can I retrieve functional annotations for genes in a list?](/faq/can-i-retrieve-functional-annotations-genes-list)
+%%if db=PomBase
  -  [How can I find transcription factors and their targets in ${database_name}?](/faq/how-can-i-find-transcription-factors-and-their-targets-pombase)
+%%end db=PomBase
 
 #### Protein searches
 
  -  [How can I find modifications for my protein of interest?](/faq/how-can-i-find-modifications-my-protein-interest)
+%%if db=PomBase
  -  [How can I find all S. ${species} proteins in a particular protein family?](/faq/how-can-i-find-all-s.-pombe-proteins-particular-protein-family-or-have-particular-domain)
+%%end db=PomBase
  -  [How can I find proteins that have transmembrane domains?](/faq/how-can-i-find-proteins-have-transmembrane-domains)
 
 %%if db=PomBase
@@ -416,8 +422,8 @@ page sections.
 
 #### Gene and genome searches
 
- -  [How can I retrieve all S. ${species} genes?](/faq/how-can-i-retrieve-all-s.-pombe-genes)
- -  [How can I retrieve all S. ${species} protein-coding genes?](/faq/how-can-i-retrieve-all-s.-pombe-protein-coding-genes)
+ -  [How can I retrieve all S. ${species} genes?](/faq/how-can-i-retrieve-all-s.-${species}-genes)
+ -  [How can I retrieve all S. ${species} protein-coding genes?](/faq/how-can-i-retrieve-all-s.-${species}-protein-coding-genes)
  -  [Can I provide a list of genes to search on?](/faq/can-i-provide-list-genes-search-on)
  -  [Can I search for a gene list and retrieve results in the same order as in the input list?](/faq/can-i-search-gene-list-and-retrieve-results-same-order-as-input-list) (answer: no)
  -  [How can I find snoRNA genes?](/faq/how-can-i-find-snorna-genes)
