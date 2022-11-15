@@ -18,5 +18,9 @@
   "/user": {
     "target": "http://localhost:8400",
     "secure": false
+  },
+  "/simple": {
+    "target": "http://localhost:8400",
+    "secure": false
   }
 }
