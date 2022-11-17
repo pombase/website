@@ -250,7 +250,7 @@ export interface GeneticInteractionDetail {
   double_mutant_phenotype?: TermShort;
   double_mutant_extension?: Array<ExtPart>;
   double_mutant_genotype?: GenotypeShort;
-  double_mutant_genotype_display_name?: string;
+  double_mutant_genotype_display_uniquename?: string;
   rescued_phenotype_termid?: string;
   rescued_phenotype?: TermShort;
   rescued_phenotype_extension?: Array<ExtPart>;
@@ -879,9 +879,9 @@ export class PombaseAPIService {
         if (referencesByUniquename) {
           detail.reference = referencesByUniquename[detail.reference_uniquename];
         }
-        if (detail.double_mutant_genotype_display_name) {
+        if (detail.double_mutant_genotype_display_uniquename) {
           detail.double_mutant_genotype =
-            genotypesByUniquename[detail.double_mutant_genotype_display_name];
+            genotypesByUniquename[detail.double_mutant_genotype_display_uniquename];
         }
         if (detail.double_mutant_phenotype_termid) {
           detail.double_mutant_phenotype = termsByTermId[detail.double_mutant_phenotype_termid];
