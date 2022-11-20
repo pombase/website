@@ -29,7 +29,7 @@ arborcandin C | | 1,3-beta-glucan synthase | | |
 [camptothecin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:27656) | [Top1](/gene/SPBC1703.14c) | topoisomerase 1 | | |
 [canavanine](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:609827) | | | | toxic arginine analog | 
 [cerulenin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:171741) | | β-keto-acyl ACP synthase, HMG-CoA synthase | | | [PMID:30003614](/reference/PMID:30003614)
-[chloramphenicol](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17698) | | | [translation](/term/GO:0002181) | |
+[chloramphenicol](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:17698) | | | [mitochondrial translation](/term/GO:0032543) | | [PMID:20876130](https://pubmed.ncbi.nlm.nih.gov/20876130/)
 [chlorpropham](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:34630) (isopropyl N-3-chlorophenyl carbamate) | spindle | | | spindle poison | 
 [Cutin-1](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:133750) | [fas1](/gene/SPAC926.09c) | fatty acid synthase | nuclear envelope expansion during mitosis | | [PMID:26869222](/reference/PMID:26869222)
 [cycloheximideg](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:27641) | | 60S ribosomal subunit | [translation](/term/GO:0002181) | prevents release of deacetylated tRNA from the E site |
