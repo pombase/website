@@ -200,10 +200,20 @@ export class CompleteService {
           return [];
         }
 
-        const alleles = parsedRes['matches'];
+        const alleles = parsedRes['matches'] as Array<SolrAlleleSummary>;
 
-        const resultAlleles = alleles.map((allele: any) => {
-          return allele;
+        const resultAlleles = alleles.filter((allele: SolrAlleleSummary) => {
+          if (allele.name && allele.name == queryText) {
+            return true;
+          }
+          if (allele.synonyms) {
+            for (const synonym of allele.synonyms) {
+              if (synonym == queryText) {
+                return true;
+              }
+            }
+          }
+          return false;
         });
 
         return resultAlleles;
