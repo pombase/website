@@ -121,7 +121,7 @@
                       {{detail.double_mutant_phenotype.name}}
                    </app-term-link>
                    <div *ngIf="detail.double_mutant_extension">
-                     <app-extension-display [extension]="detail.double_mutant_extension"></app-extension-display>
+                     <app-extension-display [extension]="detail.double_mutant_extension" [highlightRelations]="false"></app-extension-display>
                    </div>
                  </span>
                 </td>
@@ -131,7 +131,7 @@
                       {{detail.rescued_phenotype.name}}
                     </app-term-link>
                     <div *ngIf="detail.rescued_phenotype_extension">
-                      <app-extension-display [extension]="detail.rescued_phenotype_extension"></app-extension-display>
+                      <app-extension-display [extension]="detail.rescued_phenotype_extension" [highlightRelations]="false"></app-extension-display>
                     </div>
                   </span>
                 </td>

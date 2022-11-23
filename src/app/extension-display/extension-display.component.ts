@@ -12,6 +12,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
 })
 export class ExtensionDisplayComponent implements OnInit {
   @Input() extension: Array<ExtPart> = [];
+  @Input() highlightRelations = true;
 
   displayExtension: { relTypeName: string; extRange: any; }[] = [];
   linkoutConfig: LinkoutConfig = {};

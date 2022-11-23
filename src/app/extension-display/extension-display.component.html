@@ -1,6 +1,6 @@
 <span class="extension-display">
   <span class="extension-part" *ngFor="let extPart of displayExtension">
-    <span class="extension-rel-name">{{extPart.relTypeName}}</span>
+    <span [class.extension-rel-name]="highlightRelations">{{extPart.relTypeName}}</span>
     <span *ngFor="let range of extPart.extRange; let i = index">
 
       <span *ngIf="range.term">
