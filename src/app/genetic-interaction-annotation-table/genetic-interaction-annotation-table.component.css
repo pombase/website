@@ -73,6 +73,19 @@
   width: 2em;
 }
 
+.genetic-interaction-detail-legacy-ref .help-link {
+  font-size: 80%;
+}
+
+.genetic-interaction-detail-legacy-ref .help-link img {
+  display: none;
+}
+
+.genetic-interaction-detail-legacy-ref:hover .help-link img {
+  display: inline;
+  opacity: 0.6;
+}
+
 .genetic-interaction-detail {
   width: 90%;
   margin: 0.1em 0em 0.3em 1em;

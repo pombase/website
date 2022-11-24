@@ -84,7 +84,8 @@
       <tr *ngIf="detailsViewVisible(annotation)">
         <td></td>
         <td [attr.colspan]="!!currentGene ? 5 : 6">
-          <div *ngIf="annotationHasOnlyReference(annotation)" class="genetic-interaction-detail">
+          <div *ngIf="annotationHasOnlyReference(annotation)"
+                class="genetic-interaction-detail genetic-interaction-detail-legacy-ref">
             Reference:
             <span *ngFor="let detail of annotation.details; let lastDetail = last">
               <span *ngIf="detail.reference">
@@ -92,6 +93,10 @@
                 <span *ngIf="!lastDetail" class="reference-separator">|</span>
               </span>
             </span>
+            <a [popover]="legacyRefHelp" class="help-link" triggers="mouseenter:mouseleave" placement="bottom"
+               container="body"><img src="/assets/info_icon.svg">
+               <ng-content></ng-content>
+            </a>
           </div>
           <table *ngIf="!annotationHasOnlyReference(annotation)" class="genetic-interaction-detail">
             <thead>
@@ -158,3 +163,9 @@
   </table>
   </div>
 </fieldset>
+
+<ng-template #legacyRefHelp>
+  <div class="help-popover">
+    <div>This is a legacy interaction</div>
+  </div>
+</ng-template>
