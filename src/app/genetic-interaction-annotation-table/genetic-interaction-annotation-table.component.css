@@ -62,7 +62,7 @@
 
 .query-link {
   display: block;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.3em;
 }
 
 .interaction-source-label {
@@ -77,6 +77,10 @@
   width: 90%;
   margin: 0.1em 0em 0.3em 1em;
   font-size: 95%;
+}
+
+div.genetic-interaction-detail {
+  padding: 0.5em;
 }
 
 .genetic-interaction-detail th {
@@ -95,6 +99,14 @@
   background-color: #eeebdd;
 }
 
+table.main-interaction-table {
+  border-collapse: collapse;
+}
+/* from: https: //stackoverflow.com/questions/20917222/padding-on-tbody */
+table.main-interaction-table tbody {
+  border-bottom: 0.3em solid transparent;
+}
+
 .detail-double-genotype, .detail-single-phenotype {
   width: 25%;
 }
@@ -105,6 +117,11 @@
 
 .detail-reference {
   width: 20%;
+}
+
+.reference-separator {
+  font-weight: bold;
+  padding: 0 0.em;
 }
 
 .genetic-interaction-detail td, .genetic-interaction-detail th {

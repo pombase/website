@@ -83,6 +83,12 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
     }
   }
 
+  annotationHasOnlyReference(annotation: DisplayAnnotation): boolean {
+    return !annotation.showColumn.has('double_mutant_genotype') &&
+      !annotation.showColumn.has('double_mutant_phenotype') &&
+      !annotation.showColumn.has('rescued_phenotype');
+  }
+
   detailsViewVisible(interaction: DisplayAnnotation): boolean {
     return this.detailsView[interaction.id] || false;
   }
@@ -252,6 +258,7 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
 
   ngOnChanges() {
     this.updateCurrentFilter(undefined);
+    this.allSummaryView();
   }
 
   updateCurrentFilter(filter?: GeneticInteractionFilter) {

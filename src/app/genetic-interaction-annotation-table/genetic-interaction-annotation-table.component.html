@@ -84,7 +84,16 @@
       <tr *ngIf="detailsViewVisible(annotation)">
         <td></td>
         <td [attr.colspan]="!!currentGene ? 5 : 6">
-          <table class="genetic-interaction-detail">
+          <div *ngIf="annotationHasOnlyReference(annotation)" class="genetic-interaction-detail">
+            Reference:
+            <span *ngFor="let detail of annotation.details; let lastDetail = last">
+              <span *ngIf="detail.reference">
+                <app-reference-short [reference]="detail.reference"></app-reference-short>
+                <span *ngIf="!lastDetail" class="reference-separator">|</span>
+              </span>
+            </span>
+          </div>
+          <table *ngIf="!annotationHasOnlyReference(annotation)" class="genetic-interaction-detail">
             <thead>
               <tr>
                 <th class="detail-double-genotype">
