@@ -1,0 +1,64 @@
+#gene-details .chromosome-region-view {
+  padding-top: 1em;
+}
+
+@media (max-width: 800px) {
+  .chromosome-region-view {
+    width: 100%;
+  }
+
+  .embedded-jbrowse {
+    width: 94vw;
+  }
+
+  .jbrowse-container {
+    height: 320px;
+  }
+}
+
+.jbrowse-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .jbrowse-container {
+    height: 350px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .jbrowse-container {
+    height: 300px;
+  }
+}
+
+@media (min-width: 800px) {
+  .chromosome-region-view {
+    width: auto;
+    max-width: 1000px;
+  }
+
+  #gene-inline-browser-image {
+    overflow: auto;
+  }
+}
+
+.jbrowse-container {
+  position: relative;
+  width: 100%;
+}
+
+.embedded-jbrowse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 1200px) {
+  .chromosome-region-view {
+    margin: 0 2em;
+  }
+}

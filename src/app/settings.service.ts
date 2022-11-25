@@ -4,6 +4,8 @@ import { BehaviorSubject } from 'rxjs';
 import { getAppConfig } from './config';
 import { TermShort } from './pombase-query';
 
+export type GenePageWidget = 'none' | 'genome_browser';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +18,8 @@ export class SettingsService {
     new BehaviorSubject<Array<string>>(this._defaultVisibleFieldNames);
 
   readonly visibleGenesTableFieldNames$ = this._visibleGenesTableFieldNames.asObservable();
+
+  private _genePageMainWidget: GenePageWidget = 'genome_browser';
 
   get visibleGenesTableFieldNames(): Array<string> {
     return this._visibleGenesTableFieldNames.getValue();
@@ -102,5 +106,13 @@ export class SettingsService {
 
   set currentSearchText(text: string) {
     this.searchText = text;
+  }
+
+  get genePageMainWidget(): 'none'|'genome_browser' {
+    return this._genePageMainWidget;
+  }
+
+  set genePageMainWidget(widgetType: GenePageWidget) {
+    this._genePageMainWidget = widgetType;
   }
 }

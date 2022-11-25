@@ -6,73 +6,6 @@
   color: #666;
 }
 
-#gene-details .chromosome-region-view {
-  padding-top: 1em;
-}
-
-@media (max-width: 800px) {
-  #gene-details .chromosome-region-view {
-    width: 100%;
-  }
-  #gene-inline-browser-image img {
-    width: 94vw;
-  }
-  .embedded-jbrowse {
-    width: 94vw;
-  }
-  .jbrowse-container {
-    height: 320px;
-  }
-}
-
-.jbrowse-container {
-  max-width: 800px;
-  margin: auto;
-}
-
-@media (min-width: 800px) and (max-width: 1000px) {
-  .jbrowse-container {
-    height: 350px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .jbrowse-container {
-    height: 300px;
-  }
-}
-
-@media (min-width: 800px) {
-  #gene-details .chromosome-region-view {
-    width: auto;
-    max-width: 1000px;
-  }
-  #gene-inline-browser-image {
-    overflow: auto;
-  }
-}
-
-.jbrowse-container {
-  position: relative;
-  width: 100%;
-}
-.embedded-jbrowse {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-@media (min-width: 1200px) {
-  .chromosome-region-view {
-    margin: 0 2em;
-  }
-  #gene-inline-browser-image {
-    margin: 0 6em;
-  }
-}
-
 .gene-details-name-id {
   font-size: 110%;
 }
@@ -132,19 +65,7 @@
   }
 }
 
-.jbrowse-link {
-  font-size: 120%;
-  text-align: center;
-  margin: 0.4em;
-}
-
-.ensembl-link-label {
-  font-size: 110%;
-  text-align: center;
-}
-
 .details-and-transcripts-note {
-  padding-bottom: 0.5em;
   margin-bottom: 1em;
 }
 
@@ -158,5 +79,5 @@
 
 .track-picker-message {
   font-size: 120%;
-  padding-bottom: 0.5em;
+  padding-bottom: 1em;
 }

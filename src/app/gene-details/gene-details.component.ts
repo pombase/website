@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Meta, SafeResourceUrl } from '@angular/platform-browser';
+import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { DomSanitizer } from '@angular/platform-browser';
 
 import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
@@ -38,8 +37,7 @@ export class GeneDetailsComponent implements OnInit {
   organismLongName?: string;
   isConfiguredOrganism: boolean;
   hasCharacterisationStatus = this.appConfig.has_characterisation_status;
-  jbrowseLinkUrl?: string;
-  sanitizedJBrowseURL?: SafeResourceUrl;
+
   extraMenuSections = [
     {
       id: 'transcript-sequence',
@@ -69,7 +67,6 @@ export class GeneDetailsComponent implements OnInit {
               private titleService: Title,
               private deployConfigService: DeployConfigService,
               private readonly meta: Meta,
-              private sanitizer: DomSanitizer,
               @Inject('Window') private window: any
              ) { }
 
@@ -281,58 +278,6 @@ export class GeneDetailsComponent implements OnInit {
     }
   }
 
-  setJBrowseLink(): void {
-    if (this.geneDetails && this.geneDetails.location) {
-      this.pombaseApiService.getChromosomeSummaryMapPromise()
-        .then(chromosomeSummaryMap => {
-          const loc = this.geneDetails.location;
-          const chrName = loc.chromosome_name;
-          const chr = chromosomeSummaryMap[chrName];
-          const chrLength = chr.length;
-
-          const lowerPos = Math.min(loc.start_pos, loc.end_pos);
-          const upperPos = Math.max(loc.start_pos, loc.end_pos);
-
-          const mid = Math.round((lowerPos + upperPos) / 2);
-
-          const jbHalfWidth = 10000;
-          let jbStart = mid - jbHalfWidth;
-          if (jbStart < 1) {
-            jbStart = 1;
-          }
-
-          let jbEnd = mid + jbHalfWidth;
-          if (jbEnd > chrLength) {
-            jbEnd = chrLength;
-          }
-
-
-          const chrConfig = this.appConfig.getChromosomeConfigByName(chrName);
-
-          let chrExportId;
-          if (chrConfig) {
-            chrExportId = chrConfig.export_id;
-          } else {
-            chrExportId = chrName;
-          }
-
-          const tracks = 'Forward%20strand%20features%2CReverse%20strand%20features%2CDNA%20sequence';
-          this.jbrowseLinkUrl =
-            `jbrowse/?loc=${chrExportId}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
-
-          this.sanitizedJBrowseURL =
-            this.sanitizer.bypassSecurityTrustResourceUrl(this.jbrowseLinkUrl + '&tracklist=0&nav=0&overview=0');
-      });
-    } else {
-      this.jbrowseLinkUrl = undefined;
-      this.sanitizedJBrowseURL = undefined;
-    }
-  }
-
-  getJBrowseIFrameURL(): SafeResourceUrl|undefined {
-    return this.sanitizedJBrowseURL;
-  }
-
   private showAsSection(typeName: string): boolean {
     return !this.config.getAnnotationType(typeName).no_gene_details_section;
   }
@@ -375,7 +320,7 @@ export class GeneDetailsComponent implements OnInit {
               this.scrollToPageTop();
               this.setProducts();
               this.transcriptCount = this.geneDetails.transcripts.length;
-              this.setJBrowseLink();
+
               this.showProteinFeatures =
                 this.geneDetails.transcripts.length > 0 &&
                 !!this.geneDetails.transcripts[0].protein ||

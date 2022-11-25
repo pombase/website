@@ -135,6 +135,7 @@ import { QueryGenomeRangeNodeComponent } from './query-genome-range-node/query-g
 import { GeneAlleleListComponent } from './gene-allele-list/gene-allele-list.component';
 import { AlleleDetailsComponent } from './allele-details/allele-details.component';
 import { GeneticInteractionAnnotationTableComponent } from './genetic-interaction-annotation-table/genetic-interaction-annotation-table.component';
+import { GenePageWidgetsComponent } from './gene-page-widgets/gene-page-widgets.component';
 
 export function documentFactory() {
     return document;
@@ -243,6 +244,7 @@ export function windowFactory() {
     AlleleDetailsComponent,
     GeneticInteractionAnnotationTableComponent,
     GeneticInteractionTableFiltersComponent,
+    GenePageWidgetsComponent,
   ],
   imports: [
     BrowserModule,

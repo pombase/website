@@ -1,0 +1,6 @@
+<div class="chromosome-region-view">
+  <div class="jbrowse-container" *ngIf="showJBrowse()">
+    <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
+    </iframe>
+  </div>
+</div>
