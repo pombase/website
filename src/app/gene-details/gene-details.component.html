@@ -111,9 +111,11 @@
       </app-jbrowse-track-picker>
     </div>
 
-    <app-gene-page-widgets *ngIf="isConfiguredOrganism"
-                           [geneDetails]="geneDetails">
-    </app-gene-page-widgets>
+    <div class="gene-page-widgets">
+      <app-gene-page-widgets *ngIf="isConfiguredOrganism"
+                             [geneDetails]="geneDetails">
+      </app-gene-page-widgets>
+    </div>
 
     <app-gene-neighbourhood [focusGeneUniquename]="geneDetails.uniquename"
                             [focusGeneName]="geneDetails.name"

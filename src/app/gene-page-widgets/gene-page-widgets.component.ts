@@ -1,6 +1,8 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
 
@@ -12,12 +14,16 @@ import { SettingsService } from '../settings.service';
 export class GenePageWidgetsComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
 
+  faCaretDown = faCaretDown;
+  faCaretRight = faCaretRight;
+
   appConfig: AppConfig = getAppConfig();
   jbrowseLinkUrl?: string;
   sanitizedJBrowseURL?: SafeResourceUrl;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private sanitizer: DomSanitizer,
+              public deployConfigService: DeployConfigService,
               public settingsService: SettingsService) { }
 
   setJBrowseLink(): void {
@@ -75,6 +81,14 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   getJBrowseIFrameURL(): SafeResourceUrl | undefined {
     return this.sanitizedJBrowseURL;
+  }
+
+  hideGenomeBrowser() {
+    this.settingsService.genePageMainWidget = 'none';
+  }
+
+  showGenomeBrowser() {
+    this.settingsService.genePageMainWidget = 'genome_browser';
   }
 
   ngOnInit(): void {

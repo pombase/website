@@ -1,5 +1,10 @@
-#gene-details .chromosome-region-view {
-  padding-top: 1em;
+
+.jbrowse-container-hide a, .jbrowse-container-show a {
+  color: black;
+}
+
+.jbrowse-container-show {
+  margin-bottom: 1.4em;
 }
 
 @media (max-width: 800px) {
@@ -16,7 +21,7 @@
   }
 }
 
-.jbrowse-container {
+.jbrowse-container, .jbrowse-container-hide {
   max-width: 800px;
   margin: auto;
 }

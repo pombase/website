@@ -63,10 +63,13 @@
   .genomic-location td {
     white-space: nowrap;
   }
+  .gene-page-widgets {
+    margin-bottom: 1em;
+  }
 }
 
 .details-and-transcripts-note {
-  margin-bottom: 1em;
+  margin-bottom: 0.2em;
 }
 
 .gene-transcripts-note {
