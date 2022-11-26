@@ -7,6 +7,10 @@
   margin-bottom: 1.4em;
 }
 
+.jbrowse-container-hide, .jbrowse-container-show {
+  user-select: none;
+}
+
 @media (max-width: 800px) {
   .chromosome-region-view {
     width: 100%;
