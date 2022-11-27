@@ -4,7 +4,7 @@
 }
 
 .jbrowse-container-show {
-  margin-bottom: 1.4em;
+  margin: 0 0 1em 0.5em;
 }
 
 .jbrowse-container-hide, .jbrowse-container-show {
@@ -26,7 +26,7 @@
 }
 
 .jbrowse-container, .jbrowse-container-hide {
-  max-width: 800px;
+  max-width: 980px;
   margin: auto;
 }
 
@@ -68,7 +68,7 @@
 
 @media (min-width: 1200px) {
   .chromosome-region-view {
-    margin: 0 2em;
+    margin: 0 0.5em;
   }
 }
 
