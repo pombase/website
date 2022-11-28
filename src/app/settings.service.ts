@@ -6,10 +6,27 @@ import { TermShort } from './pombase-query';
 
 export type GenePageWidget = 'none' | 'genome_browser';
 
+const localStorageKey = 'pombase-settings-v1';
+
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
+  constructor() {
+    const settingsJson = localStorage.getItem(localStorageKey);
+
+    if (settingsJson) {
+       try {
+         const savedSettings = JSON.parse(settingsJson);
+         if (savedSettings.genePageMainWidget) {
+           this._genePageMainWidget = savedSettings.genePageMainWidget;
+         }
+       } catch (e: any) {
+         console.log('failed to deserialise settings: ' + e.message);
+       }
+    }
+  }
+
   private readonly _defaultVisibleFieldNames = ['uniquename', 'name', 'product'];
 
   private searchText = '';
@@ -112,7 +129,14 @@ export class SettingsService {
     return this._genePageMainWidget;
   }
 
+  private settingsAsJson(): string {
+    return JSON.stringify({
+      genePageMainWidget: this._genePageMainWidget,
+    });
+  }
+
   set genePageMainWidget(widgetType: GenePageWidget) {
     this._genePageMainWidget = widgetType;
+    localStorage.setItem(localStorageKey, this.settingsAsJson());
   }
 }
