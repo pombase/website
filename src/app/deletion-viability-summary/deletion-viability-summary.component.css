@@ -1,9 +1,13 @@
 .deletion-viability-status {
-  position: relative;
-  padding: 5px;
+  margin: 0 0 1em 0;
+  display: inline-block;
+}
+
+.deletion-viability-status span {
+  display: inline-block;
+  padding: 0.5em 0.4em 0.4em 0.5em;
   border: 1px solid #bbb;
-  border-radius: 2px;
-  margin-bottom: 1em;
+  border-radius: 3px;
 }
 
 .inviable {

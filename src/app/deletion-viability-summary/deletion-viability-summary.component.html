@@ -4,11 +4,11 @@ Details of individual viability phenotypes and conditions are in the "population
   </div>
 </ng-template>
 
-<div [className]="getViabilityClass()">
-  <div class="deletion-viability-status">
+<span class="deletion-viability-status">
+  <span [className]="getViabilityClass()">
     <strong>Gene Deletion Viability:</strong> {{getDisplayViability()}}
     <a [popover]="viaibilityHelpPopover" class="help-link" triggers="mouseenter:mouseleave" placement="bottom" container="body">
       <img src="/assets/info_icon.svg">
     </a>
-  </div>
-</div>
+  </span>
+</span>
