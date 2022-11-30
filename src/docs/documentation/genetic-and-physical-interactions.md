@@ -25,6 +25,12 @@ documentation page.
 
 **Reference:** The paper cited to support the interaction
 
+### Additional fields for Genetic Interactions
+
+Since November 2022, new or updated Genetic Interaction annotations are linked to phenotype annotations and alleles. We continue to display interactions in the old format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.
+
+![During filter](assets/newsfeed/gi-update-2.png)
+
 ### More on Genetic Interactions
 
 The definitions of all genetic interactions can be found in [the BioGRID wiki](https://wiki.thebiogrid.org/doku.php/experimental_systems#genetic_interactions). **It is worth reading these definitions, as the language often used in publications does not match the naming of genetic interactions**. For example, in publications we can find "double deletion of gene X and Y rescues the defects cellular morphology caused by deletion of gene Y". However, for BioGRID this is a phenotypic suppression not a rescue, since rescue is reserved for lethality or growth defect. The genetic interactions that are used in low throughput curation in PomBase are:
