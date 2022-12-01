@@ -1,5 +1,4 @@
 <div class="chromosome-region-view">
-  <div *ngIf="!deployConfigService.productionMode()">
   <div *ngIf="settingsService.genePageMainWidget == 'genome_browser'"
        class="jbrowse-container-hide">
     <a (click)="hideGenomeBrowser()">
@@ -11,7 +10,6 @@
     <a (click)="showGenomeBrowser()">
       <fa-icon [icon]="faCaretRight"></fa-icon>Show genome browser
     </a>
-  </div>
   </div>
   <div *ngIf="showJBrowse()"
        class="jbrowse-container">

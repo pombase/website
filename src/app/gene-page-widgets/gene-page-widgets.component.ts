@@ -2,7 +2,6 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
-import { DeployConfigService } from '../deploy-config.service';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
 
@@ -23,7 +22,6 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   constructor(private pombaseApiService: PombaseAPIService,
               private sanitizer: DomSanitizer,
-              public deployConfigService: DeployConfigService,
               public settingsService: SettingsService) { }
 
   setJBrowseLink(): void {
