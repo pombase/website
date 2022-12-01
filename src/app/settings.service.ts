@@ -38,6 +38,16 @@ export class SettingsService {
 
   private _genePageMainWidget: GenePageWidget = 'genome_browser';
 
+  private settingsAsJson(): string {
+    return JSON.stringify({
+      genePageMainWidget: this._genePageMainWidget,
+    });
+  }
+
+  private saveSettings() {
+    localStorage.setItem(localStorageKey, this.settingsAsJson());
+  }
+
   get visibleGenesTableFieldNames(): Array<string> {
     return this._visibleGenesTableFieldNames.getValue();
   }
@@ -129,14 +139,8 @@ export class SettingsService {
     return this._genePageMainWidget;
   }
 
-  private settingsAsJson(): string {
-    return JSON.stringify({
-      genePageMainWidget: this._genePageMainWidget,
-    });
-  }
-
   set genePageMainWidget(widgetType: GenePageWidget) {
     this._genePageMainWidget = widgetType;
-    localStorage.setItem(localStorageKey, this.settingsAsJson());
+    this.saveSettings();
   }
 }
