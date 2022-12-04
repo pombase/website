@@ -85,7 +85,9 @@
     <tbody>
     <tr *ngFor="let histEntry of sortedHistoryEntries">
       <td>
-        <input [(ngModel)]="histEntry.checked" type="checkbox"/>
+        <label>
+          <input [(ngModel)]="histEntry.checked" type="checkbox"/>
+        </label>
       </td>
       <td [ngClass]="{'new-hist-item': histEntry.isNewEntry()}" class="result-count">
         <a (click)="queryClick(histEntry)">

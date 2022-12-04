@@ -28,9 +28,16 @@
 }
 
 .history-table th, .history-table td {
-  padding: 0.2em 0.3em 0.2em 0.3em;
   border: 1px solid #bbb;
   vertical-align: top;
+}
+.history-table th,
+.history-table td:not(:first-child) {
+    padding: 0.2em 0.3em 0.2em 0.3em;
+}
+.history-table td label {
+  padding: 0.2em;
+  margin-bottom: 0;
 }
 .history-table th {
   text-align: left;
