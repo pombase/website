@@ -24,6 +24,7 @@ export enum Strand {
 
 export interface Metadata {
   db_creation_datetime: string;
+  date_version: string;
   export_prog_name: string;
   export_prog_version: string;
   gene_count: number;

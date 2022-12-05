@@ -26,7 +26,12 @@ export class StatsRibbonComponent implements OnInit {
     this.pombaseApiService.getMetadata()
       .then(metadata => {
         this.metadata = metadata;
-        this.dbCreationDate = metadata.db_creation_datetime.split(' ')[0];
+        const dateVersionMatch = this.metadata.date_version.match(/^\d\d\d\d-\d\d-\d\d/g);
+        if (dateVersionMatch) {
+          this.dbCreationDate = dateVersionMatch[0];
+        } else {
+          this.dbCreationDate = metadata.db_creation_datetime.split(' ')[0];
+        }
       });
 
     this.pombaseApiService.getStatistics()
