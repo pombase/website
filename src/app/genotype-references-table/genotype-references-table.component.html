@@ -1,0 +1,59 @@
+<fieldset *ngIf="references && references.length > 0" class="annotation-table references">
+  <legend>
+    Literature
+  </legend>
+
+  <div class="sort-buttons">
+    Sort by:
+    <span *ngIf="orderByField == '+authors_abbrev'">Authors</span>
+    <a *ngIf="orderByField != '+authors_abbrev'" (click)="setOrderBy('+authors_abbrev')">Authors</a> |
+    Year:
+    <span *ngIf="orderByField == '+publication_year'">Ascending</span>
+    <a *ngIf="orderByField != '+publication_year'" (click)="setOrderBy('+publication_year')">Ascending</a> /
+    <span *ngIf="orderByField == '-publication_year'">Descending</span>
+    <a *ngIf="orderByField != '-publication_year'" (click)="setOrderBy('-publication_year')">Descending</a>
+  </div>
+  <div class="annotation-table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Details</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reference of references | referenceOrderBy: orderByField">
+        <td>
+          <div class="pub-title">
+            {{reference.title}}
+          </div>
+          <div>
+            <span class="pub-authors">
+              {{reference.authors_abbrev}}
+            </span>
+            <span class="pub-citation" *ngIf="!reference.journal">
+              <span>
+                {{reference.citation}}
+              </span>
+            </span>
+            <span class="pub-citation" *ngIf="reference.journal">
+              <span class="pub-journal">
+                {{reference.journal}}
+              </span>
+              <span class="pub-citation-date-pages">
+                {{reference.citation_date_pages}}
+              </span>
+            </span>
+            <span class="pub-uniquename">{{reference.uniquename}}</span>
+            <app-reference-short [reference]="reference" [linkText]="'details ...'">
+            </app-reference-short>
+          </div>
+        </td>
+        <td>
+          {{reference.publication_year}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</fieldset>

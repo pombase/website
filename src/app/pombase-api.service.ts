@@ -246,6 +246,7 @@ export interface GeneticInteractionDetail {
   reference: ReferenceShort;
   reference_uniquename: string;
   genotype_a_uniquename?: string;
+  genotype_a?: GenotypeShort;
   genotype_b_uniquename?: string;
   double_mutant_phenotype_termid?: string;
   double_mutant_phenotype?: TermShort;
@@ -545,12 +546,16 @@ export class GeneDetails {
 
 export class GenotypeDetails {
   display_uniquename: string;
+  display_name: string;
   name: string;
   background: string;
   comment: string;
   loci: Array<GenotypeLocus>;
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;
+  double_mutant_genetic_interactions: Array<GeneticInteractionGroup>;
+  rescue_genetic_interactions: Array<GeneticInteractionGroup>;
+  references: Array<ReferenceShort>;
   annotation_details: AnnotationDetailMap;
 }
 
@@ -897,6 +902,9 @@ export class PombaseAPIService {
           processExtension(detail.rescued_phenotype_extension, termsByTermId, transcriptsByUniquename,
                            genesByUniquename);
         }
+        if (detail.genotype_a_uniquename) {
+          detail.genotype_a = genotypesByUniquename[detail.genotype_a_uniquename];
+        }
         detail.throughput = detail.throughput;
         detail.interaction_note = detail.interaction_note;
       }
@@ -1125,11 +1133,35 @@ export class PombaseAPIService {
     this.processAlleleMap(allelesByUniquename, genesByUniquename);
     this.processLoci(allelesByUniquename, genesByUniquename, json.loci);
 
+    for (let fieldName of ['double_mutant_genetic_interactions', 'rescue_genetic_interactions']) {
+      if (typeof (json[fieldName]) === 'undefined') {
+        json[fieldName] = [];
+      }
+    }
+
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   referencesByUniquename, termsByTermId);
     }
+
+    for (let genotypeUniquename of Object.keys(genotypesByUniquename)) {
+      let genotypeShort = genotypesByUniquename[genotypeUniquename];
+      this.processLoci(allelesByUniquename, genesByUniquename, genotypeShort.loci);
+      genotypeShort.displayNameLong = Util.genotypeDisplayName(genotypeShort);
+    }
+
+    this.processGeneticInteractions(json.double_mutant_genetic_interactions,
+                                    genesByUniquename, genotypesByUniquename,
+                                    transcriptsByUniquename, termsByTermId, referencesByUniquename);
+
+    this.processGeneticInteractions(json.rescue_genetic_interactions,
+                                    genesByUniquename, genotypesByUniquename,
+                                    transcriptsByUniquename, termsByTermId, referencesByUniquename);
+
+
+    // for displaying the references section
+    json.references = this.processGeneReferences(referencesByUniquename);
 
     return json as GenotypeDetails;
   }

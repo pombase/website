@@ -26,6 +26,15 @@ export class GenotypeDetailsComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();
   isDiploid = false;
 
+  visibleSections: Array<string> = [];
+
+  extraMenuSections = [
+    {
+      id: 'literature',
+      displayName: 'Literature',
+    }
+  ];
+
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
@@ -53,6 +62,30 @@ export class GenotypeDetailsComponent implements OnInit {
     this.meta.updateTag({property: 'description', content: title});
   }
 
+  setVisibleSections(): void {
+    this.visibleSections = [];
+
+    for (let annotationTypeName of this.annotationTypeNames) {
+      if (this.genotypeDetails.cv_annotations[annotationTypeName] &&
+        this.genotypeDetails.cv_annotations[annotationTypeName].length > 0) {
+        this.visibleSections.push(annotationTypeName);
+      }
+
+      if (annotationTypeName === 'genetic_interactions') {
+        if (this.genotypeDetails.double_mutant_genetic_interactions &&
+          this.genotypeDetails.double_mutant_genetic_interactions.length > 0) {
+          this.visibleSections.push(annotationTypeName);
+        } else {
+          if (this.genotypeDetails.rescue_genetic_interactions &&
+            this.genotypeDetails.rescue_genetic_interactions.length > 0) {
+            this.visibleSections.push(annotationTypeName);
+          }
+        }
+      }
+    }
+  }
+
+
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -65,6 +98,7 @@ export class GenotypeDetailsComponent implements OnInit {
             this.setPageTitle();
             this.apiError = undefined;
             this.isDiploid = false;
+            this.setVisibleSections();
             for (let locus of genotypeDetails.loci) {
               if (locus.expressed_alleles.length > 1) {
                 this.isDiploid = true;

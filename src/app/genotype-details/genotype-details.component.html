@@ -1,7 +1,7 @@
 <div>
   <app-loading-spinner *ngIf="!genotypeDetails && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
-  <div id="genotype-details" *ngIf="genotypeDetails && !apiError">
+  <div id="genotype-details" class="details-page" *ngIf="genotypeDetails && !apiError">
     <app-social-contact></app-social-contact>
     <div class="details-page-name-and-id">
       <span class="details-page-name-and-id-prefix">Genotype:</span>
@@ -31,14 +31,40 @@
 
     </div>
 
+    <div id="genotype-details-menu">
+      <app-details-page-menu *ngIf="genotypeDetails"
+                             [title]="'Genotype summary'"
+                             [extraSections]="extraMenuSections"
+                             [visibleSections]="visibleSections"></app-details-page-menu>
+    </div>
+
     <div *ngFor="let annotationTypeName of annotationTypeNames">
       <div *ngIf="genotypeDetails.cv_annotations[annotationTypeName]">
         <app-annotation-table [annotationTypeName]="annotationTypeName"
                               [scope]="'genotype'"
-                              [tableDisplayName]="'Annotations for this genotype'"
                               [hideColumns]="['genotype', 'desc-rel']"
                               [annotationTable]="genotypeDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
       </div>
+
+      <div *ngIf="annotationTypeName == 'genetic_interactions'">
+        <app-genetic-interaction-annotation-table
+            *ngIf="genotypeDetails.double_mutant_genetic_interactions.length > 0"
+            id="{{annotationTypeName}}" [annotationTypeName]="annotationTypeName"
+            [annotationTable]="genotypeDetails.double_mutant_genetic_interactions">
+        </app-genetic-interaction-annotation-table>
+        <app-genetic-interaction-annotation-table
+          *ngIf="genotypeDetails.rescue_genetic_interactions.length > 0"
+          id="{{annotationTypeName}}" [annotationTypeName]="annotationTypeName"
+          [annotationTable]="genotypeDetails.rescue_genetic_interactions">
+        </app-genetic-interaction-annotation-table>
+      </div>
     </div>
+
+
+
+    <app-genotype-references-table id="literature"
+                                   [genotypeDetails]="genotypeDetails"
+                                   [references]="genotypeDetails.references">
+    </app-genotype-references-table>
   </div>
 </div>
