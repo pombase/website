@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 import { SolrSearchService, SolrSearchResults } from '../../solr-search.service';
 import { PombaseAPIService, GeneSummaryMap } from '../../pombase-api.service';
@@ -22,6 +22,10 @@ enum SearchState {
 })
 export class FacetedSearchComponent implements OnInit {
   @Input() scope: string;
+  @Input() focusSearchBox: boolean;
+
+  @ViewChild('searchBox') searchBoxElement: ElementRef;
+
   geneSummaries?: GeneSummaryMap;
   query = '';
   SearchState = SearchState;
@@ -113,6 +117,12 @@ export class FacetedSearchComponent implements OnInit {
   ngOnInit() {
     this.query = this.settingsService.currentSearchText;
     this.queryChange(this.query);
+
+    if (this.focusSearchBox) {
+      setTimeout(() => { // this will make the execution after the above boolean has changed
+        this.searchBoxElement.nativeElement.focus();
+      }, 100);
+    }
   }
 
   ngOnDestroy(): void {

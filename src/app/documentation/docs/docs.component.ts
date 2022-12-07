@@ -22,6 +22,7 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   itemId: string;
   subscription: Subscription;
   appConfig: AppConfig = getAppConfig();
+  highlightDocSearchBox = false;
 
   constructor(private router: Router,
               private titleService: Title,
@@ -71,6 +72,11 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
       } else {
         this.pageName = 'index';
       }
+    }
+
+    if (this.pageName === 'docsearch') {
+      this.pageName = 'index';
+      this.highlightDocSearchBox = true;
     }
 
     let configKey = this.section;

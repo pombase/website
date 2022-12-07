@@ -1,7 +1,7 @@
 <div id="faceted-search" *ngIf="geneSummaries">
 
   <div class="input-area">
-    <input type="text" [(ngModel)]="query" placeholder="Search ..."
+    <input #searchBox type="text" [(ngModel)]="query" placeholder="Search ..."
            (ngModelChange)="queryChange($event)" />
     <a class="input-reset" (click)="resetSearch()">clear</a>
 

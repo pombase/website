@@ -44,6 +44,10 @@
   padding: 1em 0 1em 1em;
 }
 
+.doc-search-highlight {
+  background-color: #bcf;
+}
+
 @media (min-width: 1200px) {
   .doc-search {
     float: right;

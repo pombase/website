@@ -2,11 +2,11 @@
 
 
 ```{=html}
-<div class="doc-search">
+<div class="doc-search" [class.doc-search-highlight]="highlightDocSearchBox">
 <div class="doc-search-title">
 Search documentation, news archive and FAQ:
 </div>
-<app-faceted-search [scope]="'doc'"></app-faceted-search>
+<app-faceted-search [scope]="'doc'" [focusSearchBox]="highlightDocSearchBox"></app-faceted-search>
 </div>
 ```
 
