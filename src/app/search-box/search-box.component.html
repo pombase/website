@@ -27,7 +27,7 @@
 </span>
 
 <input #searchBox
-       *ngIf="searchSummaries.length != 0"
+       [hidden]="searchSummaries.length == 0"
        placeholder="search ..."
        [(ngModel)]="fieldValue"
        (keyup.enter)="enterPressed()"

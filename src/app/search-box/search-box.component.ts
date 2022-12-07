@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -78,6 +78,8 @@ export class SearchBoxComponent implements OnInit {
 
   sysGeneIdRe = new RegExp(this.appConfig.gene_systematic_identifier_re);
   sysTranscriptIdRe = new RegExp(this.appConfig.transcript_systematic_identifier_re);
+
+  @ViewChild('searchBox') searchBoxElement: ElementRef;
 
   constructor(private completeService: CompleteService,
               private pombaseApiService: PombaseAPIService,
@@ -566,6 +568,10 @@ export class SearchBoxComponent implements OnInit {
           };
 
         this.searchSummaries.sort(summaryCmp);
+
+        setTimeout(() => { // this will make the execution after the above boolean has changed
+          this.searchBoxElement.nativeElement.focus();
+        }, 100);
       })
       .catch(reason => this.geneSummariesFailed = true);
   }
