@@ -44,7 +44,7 @@
   padding: 1em 0 1em 1em;
 }
 
-.doc-search-highlight {
+.doc-search-highlight, .doc-search:has(input:focus) {
   background-color: #bcf;
 }
 
