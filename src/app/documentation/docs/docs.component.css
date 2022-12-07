@@ -43,8 +43,11 @@
 .doc-search {
   padding: 1em 0 1em 1em;
 }
+.doc-search-highlight {
+  background-color: #bcf;
+}
 
-.doc-search-highlight, .doc-search:has(input:focus) {
+.doc-search:has(input:focus) {
   background-color: #bcf;
 }
 
