@@ -121,7 +121,7 @@ export class FacetedSearchComponent implements OnInit {
     if (this.focusSearchBox) {
       setTimeout(() => { // this will make the execution after the above boolean has changed
         this.searchBoxElement.nativeElement.focus();
-      }, 100);
+      }, 400);
     }
   }
 
