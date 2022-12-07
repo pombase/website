@@ -1,26 +1,26 @@
 <div class="recent-news">
 <div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/>
-<h4 id="next-pombetalks-wednesday-november-16th"><strong>Next pombeTalks: Wednesday, November 16th</strong></h4>
-<p><em>2022-11-11</em></p>
-<p>The next online pombeTalks will take place on <strong>Wednesday, November 16th</strong>. These talks are virtual seminars by and for the fission yeast community and friends.</p>
-<p>Note that this session will happen earlier at:<br />
-midnight San Francisco; 03:00 NY; 08:00 London; 09:00 Paris; 13:30 Delhi, 16:00 Beijing; 17:00 Tokyo</p>
-<p>Talks this session:</p>
-<ul>
-<li><p><strong>Wenfan Wei</strong>, University of Science and Technology of China<br />
-“The Cdc42 GAP Rga6 promotes monopolar outgrowth of spores”</p></li>
-<li><p><strong>Gaowen Liu</strong>, Shenzhen Institute of Synthetic Biology<br />
-“Fusion eciency evolution to the deletion of an essential mating gene Prm1”</p></li>
-</ul>
-<h6 id="zoom-details">Zoom details</h6>
-<p>Topic: PombeTalks S03E07 Zoom Meeting<br />
-Date: Nov 16, 2022<br />
-Time: midnight San Francisco; 03:00 NY; 08:00 London; 09:00 Paris; 13:30 Delhi, 16:00 Beijing; 17:00 Tokyo<br />
-Meeting ID: 932 8857 4852<br />
-Password: will be sent the day of the meeting</p>
-<h6 id="slack">Slack</h6>
-<p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
+<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/>
+<h4 id="genetic-interaction-annotation-model-updated"><strong>Genetic Interaction annotation model updated</strong></h4>
+<p><em>2022-11-29</em></p>
+<p>We have recently implemented an improved way to <strong>annotate and display genetic interactions so they are linked to phenotype annotations and alleles</strong>.</p>
+<p>Previously, our Genetic Interaction annotations only mentioned the interacting genes and the type of genetic interaction. For example, if a strain with genotype <code>asp1-H397A</code> has the phenotype <code>decreased acid phosphatase activity affecting activity of pho1</code>, but this phenotype is suppressed when <code>rhn1</code> is deleted in that strain, we would annotate that the genes <code>asp1</code> and <code>rhn1</code> are part of a <code>Phenotypic Suppression</code> interaction.</p>
+<figure>
+<img src="assets/newsfeed/gi-update-1.png" style="width:100.0%" alt="GI old format" />
+<figcaption aria-hidden="true">GI old format</figcaption>
+</figure>
+<p>We continue to display interactions in this format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.</p>
+<figure>
+<img src="assets/newsfeed/gi-update-2.png" style="width:100.0%" alt="GI new format" />
+<figcaption aria-hidden="true">GI new format</figcaption>
+</figure>
+<p>In the revised Canto interface, you can only annotate a genetic interaction from the double mutant phenotype annotation (by clicking on <code>add..</code>, as shown below).</p>
+<figure>
+<img src="assets/newsfeed/gi-update-3.png" style="width:100.0%" alt="GI annotation in Canto" />
+<figcaption aria-hidden="true">GI annotation in Canto</figcaption>
+</figure>
+<p>Of course, genetic interactions predating this update are not linked to phenotypes or genotypes, but we are hoping to auto-annotate several of those. We will also prioritise for update any interactions where community curators have provided these details in an annotation comment. Finally, <strong>a big shoutout to Ana Sanchez and Angad Garg from the Shuman lab</strong>, for testing the new interface in numerous recently curated publications. The examples provided here are from <a routerLink="/reference/PMID:31276588">Sanchez et al. 2019</a>. Go read it and see the annotations in PomBase.</p>
+<p>Best, The PomBase team</p>
 
 </div>
 <div class="news-item">

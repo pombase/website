@@ -6520,6 +6520,12 @@ is shown as <em>affecting substrate</em>.</li>
 <p><strong>Interacting product:</strong> The description of the interacting gene’s product, from its gene page</p>
 <p><strong>Evidence:</strong> The type of genetic interaction observed, or the type of experiment performed to detect a physical interaction. The evidence categories come from BioGRID, and are described on their <a href="http://wiki.thebiogrid.org/doku.php/experimental_systems">Experimental Evidence Codes</a> documentation page.</p>
 <p><strong>Reference:</strong> The paper cited to support the interaction</p>
+<h3 id="additional-fields-for-genetic-interactions">Additional fields for Genetic Interactions</h3>
+<p>Since November 2022, new or updated Genetic Interaction annotations are linked to phenotype annotations and alleles. We continue to display interactions in the old format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.</p>
+<figure>
+<img src="assets/newsfeed/gi-update-2.png" alt="During filter" />
+<figcaption aria-hidden="true">During filter</figcaption>
+</figure>
 <h3 id="more-on-genetic-interactions">More on Genetic Interactions</h3>
 <p>The definitions of all genetic interactions can be found in <a href="https://wiki.thebiogrid.org/doku.php/experimental_systems#genetic_interactions">the BioGRID wiki</a>. <strong>It is worth reading these definitions, as the language often used in publications does not match the naming of genetic interactions</strong>. For example, in publications we can find “double deletion of gene X and Y rescues the defects cellular morphology caused by deletion of gene Y”. However, for BioGRID this is a phenotypic suppression not a rescue, since rescue is reserved for lethality or growth defect. The genetic interactions that are used in low throughput curation in PomBase are:</p>
 <ul>
@@ -6708,11 +6714,11 @@ satisfy those conditions. Click on it to see the lists of genes.</li> <li>In tha
   </div>
   <div *ngIf="pageName == 'index'">
 <h1 id="pombase-web-site-help-documentation">PomBase Web Site Help &amp; Documentation</h1>
-<div class="doc-search">
+<div class="doc-search" [class.doc-search-highlight]="highlightDocSearchBox">
 <div class="doc-search-title">
 Search documentation, news archive and FAQ:
 </div>
-<app-faceted-search [scope]="'doc'"></app-faceted-search>
+<app-faceted-search [scope]="'doc'" [focusSearchBox]="highlightDocSearchBox"></app-faceted-search>
 </div>
 <h3 id="gene-pages">Gene Pages</h3>
 <ul>
@@ -9854,6 +9860,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#genetic-interaction-annotation-model-updated">Genetic Interaction annotation model updated</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-november-16th">Next pombeTalks: Wednesday, November 16th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">Using AlphaFold models to discover distant human and budding yeast homologues</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-october-19th">Next pombeTalks: Wednesday, October 19th</a></div>
@@ -12052,7 +12059,6 @@ complete list of predictions included in PomBase. <a href="https://academic.oup.
   </div>
   <div *ngIf="pageName == 'pombetalks-16th-nov'">
 <h3 id="next-pombetalks-wednesday-november-16th">Next pombeTalks: Wednesday, November 16th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next online pombeTalks will take place on <strong>Wednesday, November 16th</strong>. These talks are virtual seminars by and for the fission yeast community and friends.</p>
 <p>Note that this session will happen earlier at:<br />
@@ -12074,9 +12080,56 @@ Password: will be sent the day of the meeting</p>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 
   </div>
+  <div *ngIf="pageName == 'new-gi-announcement'">
+<h3 id="genetic-interaction-annotation-model-updated">Genetic Interaction annotation model updated</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>We have recently implemented an improved way to <strong>annotate and display genetic interactions so they are linked to phenotype annotations and alleles</strong>.</p>
+<p>Previously, our Genetic Interaction annotations only mentioned the interacting genes and the type of genetic interaction. For example, if a strain with genotype <code>asp1-H397A</code> has the phenotype <code>decreased acid phosphatase activity affecting activity of pho1</code>, but this phenotype is suppressed when <code>rhn1</code> is deleted in that strain, we would annotate that the genes <code>asp1</code> and <code>rhn1</code> are part of a <code>Phenotypic Suppression</code> interaction.</p>
+<figure>
+<img src="assets/newsfeed/gi-update-1.png" style="width:100.0%" alt="GI old format" />
+<figcaption aria-hidden="true">GI old format</figcaption>
+</figure>
+<p>We continue to display interactions in this format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.</p>
+<figure>
+<img src="assets/newsfeed/gi-update-2.png" style="width:100.0%" alt="GI new format" />
+<figcaption aria-hidden="true">GI new format</figcaption>
+</figure>
+<p>In the revised Canto interface, you can only annotate a genetic interaction from the double mutant phenotype annotation (by clicking on <code>add..</code>, as shown below).</p>
+<figure>
+<img src="assets/newsfeed/gi-update-3.png" style="width:100.0%" alt="GI annotation in Canto" />
+<figcaption aria-hidden="true">GI annotation in Canto</figcaption>
+</figure>
+<p>Of course, genetic interactions predating this update are not linked to phenotypes or genotypes, but we are hoping to auto-annotate several of those. We will also prioritise for update any interactions where community curators have provided these details in an annotation comment. Finally, <strong>a big shoutout to Ana Sanchez and Angad Garg from the Shuman lab</strong>, for testing the new interface in numerous recently curated publications. The examples provided here are from <a routerLink="/reference/PMID:31276588">Sanchez et al. 2019</a>. Go read it and see the annotations in PomBase.</p>
+<p>Best, The PomBase team</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2022-11-29-new-gi-announcement" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="genetic-interaction-annotation-model-updated">Genetic Interaction annotation model updated</h3>
+<p><em>2022-11-29</em></p>
+<p>We have recently implemented an improved way to <strong>annotate and display genetic interactions so they are linked to phenotype annotations and alleles</strong>.</p>
+<p>Previously, our Genetic Interaction annotations only mentioned the interacting genes and the type of genetic interaction. For example, if a strain with genotype <code>asp1-H397A</code> has the phenotype <code>decreased acid phosphatase activity affecting activity of pho1</code>, but this phenotype is suppressed when <code>rhn1</code> is deleted in that strain, we would annotate that the genes <code>asp1</code> and <code>rhn1</code> are part of a <code>Phenotypic Suppression</code> interaction.</p>
+<figure>
+<img src="assets/newsfeed/gi-update-1.png" style="width:100.0%" alt="GI old format" />
+<figcaption aria-hidden="true">GI old format</figcaption>
+</figure>
+<p>We continue to display interactions in this format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.</p>
+<figure>
+<img src="assets/newsfeed/gi-update-2.png" style="width:100.0%" alt="GI new format" />
+<figcaption aria-hidden="true">GI new format</figcaption>
+</figure>
+<p>In the revised Canto interface, you can only annotate a genetic interaction from the double mutant phenotype annotation (by clicking on <code>add..</code>, as shown below).</p>
+<figure>
+<img src="assets/newsfeed/gi-update-3.png" style="width:100.0%" alt="GI annotation in Canto" />
+<figcaption aria-hidden="true">GI annotation in Canto</figcaption>
+</figure>
+<p>Of course, genetic interactions predating this update are not linked to phenotypes or genotypes, but we are hoping to auto-annotate several of those. We will also prioritise for update any interactions where community curators have provided these details in an annotation comment. Finally, <strong>a big shoutout to Ana Sanchez and Angad Garg from the Shuman lab</strong>, for testing the new interface in numerous recently curated publications. The examples provided here are from <a routerLink="/reference/PMID:31276588">Sanchez et al. 2019</a>. Go read it and see the annotations in PomBase.</p>
+<p>Best, The PomBase team</p>
+</div>
 <div id="2022-11-11-pombetalks-16th-nov" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-november-16th">Next pombeTalks: Wednesday, November 16th</h3>
