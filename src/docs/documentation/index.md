@@ -10,6 +10,10 @@ Search documentation, news archive and FAQ:
 </div>
 ```
 
+### General ###
+
+-   [Getting started](documentation/getting-started)
+
 ### Gene Pages ###
 
 -   [Basic information](documentation/gene-page-basic-information)
