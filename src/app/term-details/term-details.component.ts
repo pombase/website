@@ -64,6 +64,18 @@ export class TermDetailsComponent implements OnInit {
           this.termDetails.cv_annotations[annotationTypeName].length > 0) {
         this.visibleSections.push(annotationTypeName);
       }
+
+      if (annotationTypeName === 'double_mutant_genetic_interactions' &&
+          this.termDetails.double_mutant_genetic_interactions &&
+          this.termDetails.double_mutant_genetic_interactions.length > 0) {
+          this.visibleSections.push(annotationTypeName);
+      }
+
+      if (annotationTypeName === 'single_allele_genetic_interactions' &&
+          this.termDetails.single_allele_genetic_interactions &&
+          this.termDetails.single_allele_genetic_interactions.length > 0) {
+          this.visibleSections.push(annotationTypeName);
+      }
     }
   }
 

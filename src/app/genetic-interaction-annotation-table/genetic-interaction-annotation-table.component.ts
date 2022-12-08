@@ -37,6 +37,7 @@ interface DisplayAnnotation {
 export class GeneticInteractionAnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;
   @Input() currentGene: GeneDetails;
+  @Input() tableHeader = 'Genetic interaction';
   @Input() hideColumns: Array<string> = [];
   @Input() annotationTable: Array<GeneticInteractionGroup>;
 

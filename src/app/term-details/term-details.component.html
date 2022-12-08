@@ -49,6 +49,24 @@
 
 
       </div>
+
+      <div *ngIf="annotationTypeName == 'double_mutant_genetic_interactions'">
+        <app-genetic-interaction-annotation-table
+          *ngIf="termDetails.double_mutant_genetic_interactions.length > 0"
+          id="{{annotationTypeName}}" [annotationTypeName]="annotationTypeName"
+          [tableHeader]="'Genetic interactions where ' + termDetails.termid + ' is the double allele phenotype'"
+          [annotationTable]="termDetails.double_mutant_genetic_interactions">
+        </app-genetic-interaction-annotation-table>
+      </div>
+
+      <div *ngIf="annotationTypeName == 'single_allele_genetic_interactions'">
+        <app-genetic-interaction-annotation-table
+          *ngIf="termDetails.single_allele_genetic_interactions.length > 0"
+          id="{{annotationTypeName}}" [annotationTypeName]="annotationTypeName"
+          [tableHeader]="'Genetic interactions where ' + termDetails.termid + ' is the single mutant phenotype'"
+          [annotationTable]="termDetails.single_allele_genetic_interactions">
+        </app-genetic-interaction-annotation-table>
+      </div>
     </div>
   </div>
 </div>

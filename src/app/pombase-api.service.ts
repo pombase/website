@@ -248,6 +248,7 @@ export interface GeneticInteractionDetail {
   genotype_a_uniquename?: string;
   genotype_a?: GenotypeShort;
   genotype_b_uniquename?: string;
+  genotype_b?: GenotypeShort;
   double_mutant_phenotype_termid?: string;
   double_mutant_phenotype?: TermShort;
   double_mutant_extension?: Array<ExtPart>;
@@ -581,6 +582,8 @@ export class TermDetails {
   single_locus_annotated_genes: Array<string>;
   multi_locus_annotated_genes: Array<string>;
   annotation_details: AnnotationDetailMap;
+  double_mutant_genetic_interactions: Array<GeneticInteractionGroup>;
+  single_allele_genetic_interactions: Array<GeneticInteractionGroup>;
   references_by_uniquename: { [referenceUniquename: string]: ReferenceShort };
 }
 
@@ -705,6 +708,27 @@ export class PombaseAPIService {
     }
   }
 
+  genotypeFromUniquename(genotypeUniquename: string,
+                         genesByUniquename: GeneMap,
+                         genotypesByUniquename: GenotypeMap,
+                         allelesByUniquename: AlleleMap,): GenotypeShort {
+    const genotype = genotypesByUniquename[genotypeUniquename]!;
+
+    genotype.loci.map(locus => {
+      locus.expressed_alleles.map((expressed_allele) => {
+        expressed_allele.allele = allelesByUniquename[expressed_allele.allele_uniquename];
+        if (expressed_allele.allele.gene_uniquename) {
+          expressed_allele.allele.gene =
+            genesByUniquename[expressed_allele.allele.gene_uniquename];
+        }
+      });
+    });
+
+    genotype.displayNameLong = Util.genotypeDisplayName(genotype);
+
+    return genotype;
+  }
+
   processTermAnnotations(termAnnotations: Array<TermAnnotation>,
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                          allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
@@ -744,19 +768,11 @@ export class PombaseAPIService {
           processExtension(annotation.extension, termsByTermId, transcriptsByUniquename, genesByUniquename);
         }
         if (genotypesByUniquename && annotation.genotype) {
-          annotation.genotype = genotypesByUniquename[annotation.genotype as any as string];
-          if (annotation.genotype) {
-            annotation.genotype.loci.map(locus => {
-              locus.expressed_alleles.map((expressed_allele) => {
-                expressed_allele.allele = allelesByUniquename[expressed_allele.allele_uniquename];
-                if (expressed_allele.allele.gene_uniquename) {
-                  expressed_allele.allele.gene =
-                    genesByUniquename[expressed_allele.allele.gene_uniquename];
-                }
-              });
-            });
-            annotation.genotype.displayNameLong = Util.genotypeDisplayName(annotation.genotype);
-          }
+          const genotypeUniquename = annotation.genotype as any as string;
+          const genotype = this.genotypeFromUniquename(genotypeUniquename,
+                                                       genesByUniquename, genotypesByUniquename,
+                                                       allelesByUniquename);
+          annotation.genotype = genotype;
         }
       }
 
@@ -861,6 +877,7 @@ export class PombaseAPIService {
   processGeneticInteractions(interactions: Array<GeneticInteractionGroup>,
                              genesByUniquename: GeneMap,
                              genotypesByUniquename: GenotypeMap,
+                             allelesByUniquename: AlleleMap,
                              transcriptsByUniquename: TranscriptMap,
                              termsByTermId: TermIdTermMap,
                              referencesByUniquename?: ReferenceDetailsMap) {
@@ -887,7 +904,9 @@ export class PombaseAPIService {
         }
         if (detail.double_mutant_genotype_display_uniquename) {
           detail.double_mutant_genotype =
-            genotypesByUniquename[detail.double_mutant_genotype_display_uniquename];
+            this.genotypeFromUniquename(detail.double_mutant_genotype_display_uniquename,
+                                        genesByUniquename, genotypesByUniquename,
+                                        allelesByUniquename);
         }
         if (detail.double_mutant_phenotype_termid) {
           detail.double_mutant_phenotype = termsByTermId[detail.double_mutant_phenotype_termid];
@@ -904,6 +923,9 @@ export class PombaseAPIService {
         }
         if (detail.genotype_a_uniquename) {
           detail.genotype_a = genotypesByUniquename[detail.genotype_a_uniquename];
+        }
+        if (detail.genotype_b_uniquename) {
+          detail.genotype_b = genotypesByUniquename[detail.genotype_b_uniquename];
         }
         detail.throughput = detail.throughput;
         detail.interaction_note = detail.interaction_note;
@@ -1070,6 +1092,7 @@ export class PombaseAPIService {
 
     this.processPhysicalInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
     this.processGeneticInteractions(json.genetic_interactions, genesByUniquename, genotypesByUniquename,
+                                    allelesByUniquename,
                                     transcriptsByUniquename, termsByTermId, referencesByUniquename);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename, referencesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename, referencesByUniquename);
@@ -1153,12 +1176,13 @@ export class PombaseAPIService {
 
     this.processGeneticInteractions(json.double_mutant_genetic_interactions,
                                     genesByUniquename, genotypesByUniquename,
+                                    allelesByUniquename,
                                     transcriptsByUniquename, termsByTermId, referencesByUniquename);
 
     this.processGeneticInteractions(json.rescue_genetic_interactions,
                                     genesByUniquename, genotypesByUniquename,
+                                    allelesByUniquename,
                                     transcriptsByUniquename, termsByTermId, referencesByUniquename);
-
 
     // for displaying the references section
     json.references = this.processGeneReferences(referencesByUniquename);
@@ -1229,6 +1253,7 @@ export class PombaseAPIService {
     for (let fieldName of ['interesting_parent_ids', 'subsets',
                            'synonyms', 'annotated_genes',
                            'single_locus_annotated_genes', 'multi_locus_annotated_genes',
+                           'double_mutant_genetic_interactions', 'single_allele_genetic_interactions',
                            'direct_ancestors',
                            'single_locus_genotype_uniquenames']) {
       if (typeof(json[fieldName]) === 'undefined') {
@@ -1254,6 +1279,16 @@ export class PombaseAPIService {
     for (let genotypeUniquename of json.single_locus_genotype_uniquenames) {
       json.single_locus_genotypes.push(genotypesByUniquename[genotypeUniquename]);
     }
+
+    this.processGeneticInteractions(json.double_mutant_genetic_interactions,
+                                    genesByUniquename, genotypesByUniquename, allelesByUniquename,
+                                    transcriptsByUniquename, termsByTermId, referencesByUniquename);
+
+    this.processGeneticInteractions(json.single_allele_genetic_interactions,
+                                    genesByUniquename, genotypesByUniquename, allelesByUniquename,
+                                    transcriptsByUniquename, termsByTermId, referencesByUniquename);
+
+
 
     json.genes = Object.keys(genesByUniquename).map((key) => genesByUniquename[key]);
 
@@ -1302,7 +1337,7 @@ export class PombaseAPIService {
 
     this.processPhysicalInteractions(json.physical_interactions, genesByUniquename);
     this.processGeneticInteractions(json.genetic_interactions, genesByUniquename,
-                                    genotypesByUniquename, transcriptsByUniquename,
+                                    genotypesByUniquename, allelesByUniquename, transcriptsByUniquename,
                                     termsByTermId);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename);
