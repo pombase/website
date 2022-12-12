@@ -34,4 +34,13 @@
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">HTP data for browser tracks</a></div>
-
+<div class="left-menu-part left-menu-item">Frequently Asked Questions (FAQ)</div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/community">Community</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/data-submission-and-formats">Data submission and formats</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/finding-data">Finding data</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/gene-page">Gene page</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/genome-browser">Genome browser</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/genome-statistics-and-lists">Genome statistics and lists</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/orthology">Orthology</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/tools-and-resources">Tools and resources</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/using-ontologies">Using ontologies</a></div>
