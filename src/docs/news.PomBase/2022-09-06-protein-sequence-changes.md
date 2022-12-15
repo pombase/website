@@ -1,5 +1,4 @@
 ### Protein sequence changes
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 78 protein have been shortened (at the N-term). This set includes 34

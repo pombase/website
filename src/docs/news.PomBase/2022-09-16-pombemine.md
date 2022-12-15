@@ -1,5 +1,4 @@
 ### PombeMine: an InterMine instance for *S. pombe*
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: intermine.png -->
 
 As part of an Elixir funded collaboration with the

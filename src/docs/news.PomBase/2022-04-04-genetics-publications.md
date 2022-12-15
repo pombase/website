@@ -1,5 +1,4 @@
 ### Making biological knowledge useful for humans and machines
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 A [GENETICS special issue](https://academic.oup.com/genetics/issue/220/4)

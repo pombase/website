@@ -1,5 +1,4 @@
 ### New to fission yeast? check out our quick start guide for new users
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 We have added a new page providing useful information for new fission

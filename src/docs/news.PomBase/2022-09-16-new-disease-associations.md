@@ -1,5 +1,4 @@
 ### 77 new disease gene associations
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: human_disease.png -->
 
 We have added 77 new disease-gene associations for 71 fission yeast

@@ -1,5 +1,4 @@
 ### New phenotype slim
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 We have added a [phenotype slim overview](/browse-curation/fypo-slim)

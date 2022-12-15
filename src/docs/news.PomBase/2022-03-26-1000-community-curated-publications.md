@@ -1,5 +1,4 @@
 ### The fission yeast community have now curated over 1000 publications
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 We would like to extend a huge "thank you" to the fission yeast
