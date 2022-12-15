@@ -245,7 +245,7 @@ export interface AppConfig {
   header_background_file_name: string;
   footer: {
     funders: string;
-    is_elixir_node: boolean;
+    show_elixir_and_gbc_message: boolean;
     logos: Array<FooterLogoConfig>;
   };
   helpdesk_address: string;

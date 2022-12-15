@@ -46,6 +46,8 @@ export class FrontComponent implements OnInit {
   welcomeMessage = getAppConfig().welcome_message;
   hasAdminCuration = getAppConfig().has_admin_curation;
 
+  showElixirAndGbcMessage = getAppConfig().footer.show_elixir_and_gbc_message;
+
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {

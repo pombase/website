@@ -166,3 +166,14 @@
 .stats-ribbon {
   font-weight: bold;
 }
+
+.gcbr-message {
+  white-space: nowrap;
+  margin-top: -0.7em;
+}
+
+.gcbr-message img {
+  vertical-align: bottom;
+  margin-left: 0.65em;
+  height: 36px;
+}

@@ -6,6 +6,10 @@
   <div class="sect-content welcome-content">
     <span [innerHTML]="welcomeMessage"></span>
   </div>
+  <div *ngIf="showElixirAndGbcMessage" class="sect-content welcome-content gcbr-message">
+{{siteName}} is a <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources/">Global Core Biodata Resource
+<img src="assets/GCBR-Logo-RGB.svg"></a>
+  </div>
   <app-stats-ribbon class="stats-ribbon"></app-stats-ribbon>
 </div>
 
