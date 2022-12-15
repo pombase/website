@@ -20,4 +20,4 @@ who contribute regularly to our content, and our
 support.
 
 For more information about the [Global Biodata Coalition](https://globalbiodata.org/)
-and PomBase's new status, see [the full press release](https://globalbiodata.org/scientific-activities/gcbr-selection/).
+and PomBase's new status, see [the full press release](https://globalbiodata.org/global-biodata-coalition-announces-the-first-set-of-global-core-biodata-resources/).
