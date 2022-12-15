@@ -1,6 +1,6 @@
 ### Querying by RNA length in the Advanced Search tool
 <!-- pombase_flags: frontpage -->
-<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<!-- newsfeed_thumbnail: japonicusdb-32x32.png -->
 
 You can now query the RNA length of genes (spliced or unspliced)
 under the "Transcripts and exons" query grouping in the
