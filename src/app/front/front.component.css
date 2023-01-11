@@ -168,11 +168,10 @@
 }
 
 .gcbr-message {
-  white-space: nowrap;
   margin-top: -0.7em;
 }
 
-.gcbr-message img {
+.gcbr-name-and-logo img {
   vertical-align: bottom;
   margin-left: 0.65em;
   height: 36px;
