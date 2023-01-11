@@ -28,7 +28,7 @@
   </span>
 
   <span class="quick-links-group">
-    Overviews:
+    <span class="quick-links-group-visible-title">Overviews:</span>
     <span class="quick-links-line">
       <span>
         <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">Function</a>
@@ -45,7 +45,7 @@
   </span>
 
   <span *ngIf="hasDiseaseAnnotation || fypoSlim" class="quick-links-group">
-    <span style="visibility: hidden">Overviews:</span>
+    <span class="quick-links-group-hidden-title">Overviews:</span>
 
     <span *ngIf="hasDiseaseAnnotation">
       <a routerLink="/browse-curation/disease-slim">Disease association</a>
