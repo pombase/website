@@ -3,6 +3,8 @@ import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
+import { faWarning } from '@fortawesome/free-solid-svg-icons';
+
 import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
@@ -37,6 +39,8 @@ export class GeneDetailsComponent implements OnInit {
   organismLongName?: string;
   isConfiguredOrganism: boolean;
   hasCharacterisationStatus = this.appConfig.has_characterisation_status;
+  faWarning = faWarning;
+  locationWarning?: string;
 
   extraMenuSections = [
     {
@@ -331,6 +335,14 @@ export class GeneDetailsComponent implements OnInit {
               this.organismLongName = this.organism.genus + ' ' + this.organism.species;
               this.isConfiguredOrganism = this.appConfig.isConfigOrganism(this.organism.taxonid);
               this.apiError = null;
+              for (const locationWarningConf of this.appConfig.featureLocationWarnings) {
+                for (const confFeatureType of locationWarningConf.feature_types) {
+                  if (confFeatureType == this.geneDetails.feature_type ||
+                     confFeatureType + ' gene' == this.geneDetails.feature_type) {
+                    this.locationWarning = locationWarningConf.warning;
+                  }
+                }
+              }
             })
             .catch((error: any) => {
               this.apiError = error;

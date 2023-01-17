@@ -51,6 +51,9 @@
                   {{displayLocation[0]}},
                 </td>
                 <td>{{displayLocation[1]}}
+                  <span class="location-warning" *ngIf="locationWarning" [attr.title]="locationWarning">
+                    <fa-icon [icon]="faWarning"></fa-icon>
+                  </span>
                   <span *ngIf="geneDetails.feature_publications.length == 1">
                     <app-reference-short
                       [reference]="geneDetails.feature_publications[0]"

@@ -84,3 +84,7 @@
   font-size: 120%;
   padding-bottom: 1em;
 }
+
+.location-warning {
+  color: darkred;
+}

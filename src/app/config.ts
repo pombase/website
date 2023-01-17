@@ -214,6 +214,11 @@ export interface DetailsPageLinkConfig {
   text: string;
 }
 
+export interface FeatureLocationWarning {
+  feature_types: Array<string>,
+  warning: string,
+}
+
 export interface GeneExpressionDatasetConfig {
   name: string;
   plot_display_name: string;
@@ -301,6 +306,7 @@ export interface AppConfig {
   refPageExtraLinks: { [key: string]: Array<DetailsPageLinkConfig> };
   refPageJBrowseColumns: Array<JBrowseColumnConfig>;
   genePageExtraLinks: { [key: string]: Array<DetailsPageLinkConfig> };
+  featureLocationWarnings: Array<FeatureLocationWarning>;
   jbrowseTrackPickerBaseUrl: string;
   apiSeqChunkSizes: {
     all: Array<number>;
@@ -717,6 +723,7 @@ let _appConfig: AppConfig = {
   refPageExtraLinks: pombaseConfig.reference_page_extra_links || [],
   refPageJBrowseColumns: pombaseConfig.reference_page_jbrowse_columns,
   genePageExtraLinks: pombaseConfig.gene_page_extra_links || [],
+  featureLocationWarnings: pombaseConfig.feature_location_warnings || [],
   jbrowseTrackPickerBaseUrl: pombaseConfig.jbrowse_track_picker_base_url,
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
