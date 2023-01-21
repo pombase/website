@@ -13,7 +13,41 @@ body {
 
 h1,h2,h3,h4,h5,h6,h7 {
   color: #222;
+}
+
+h1 {
   margin-bottom: 0.7rem;
+  margin-top: 0.7rem;
+}
+
+h2 {
+  margin-bottom: 0.65rem;
+  margin-top: 0.65rem;
+}
+
+h3 {
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+h4 {
+  margin-bottom: 0.55rem;
+  margin-top: 0.55rem;
+}
+
+h5 {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+h6 {
+  margin-bottom: 0.45rem;
+  margin-top: 0.45rem;
+}
+
+h7 {
+  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
 }
 
 @media (max-width: 600px) {
