@@ -22,5 +22,9 @@
   "/simple": {
     "target": "http://localhost:8400",
     "secure": false
+  },
+  "/structure_view": {
+    "target": "http://localhost:8400",
+    "secure": false
   }
 }
