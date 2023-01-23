@@ -45,7 +45,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
           const mid = Math.round((lowerPos + upperPos) / 2);
 
-          const jbHalfWidth = 10000;
+          const jbHalfWidth = 8000;
           let jbStart = mid - jbHalfWidth;
           if (jbStart < 1) {
             jbStart = 1;
