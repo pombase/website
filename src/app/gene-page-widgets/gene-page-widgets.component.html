@@ -53,7 +53,8 @@
 
   <div class="alphafold-container">
     <div class="alphafold-iframe-container">
-    <iframe (load)="alphaFoldFinishedLoading()" [src]="getAlphaFoldIFrameURL()" scrolling="no" class="embedded-alphafold">
+    <iframe (load)="alphaFoldFinishedLoading()" [src]="getAlphaFoldIFrameURL()" scrolling="no"
+            #alphafoldiframe class="embedded-alphafold">
     </iframe>
     </div>
 

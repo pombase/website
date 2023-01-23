@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
@@ -13,6 +13,8 @@ import { DeployConfigService } from '../deploy-config.service';
 })
 export class GenePageWidgetsComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
+
+  @ViewChild('alphafoldiframe') alphafoldiframe: ElementRef;
 
   faCaretDown = faCaretDown;
   faCaretRight = faCaretRight;
@@ -100,7 +102,16 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   }
 
   alphaFoldFinishedLoading() {
-    this.alphaFoldStatus = 'loaded';
+    if (this.alphafoldiframe?.nativeElement.contentDocument?.body) {
+      // This hack is needed because in Chrome the onload event is fired twice,
+      // once when the iframe is added to the dom and then later when the
+      // iframe is actually loaded
+      //
+      // See:
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=578812
+      // https://itecnote.com/tecnote/javascript-dynamically-created-iframe-triggers-onload-event-twice/
+      this.alphaFoldStatus = 'loaded';
+    }
   }
 
   getJBrowseIFrameURL(): SafeResourceUrl | undefined {
@@ -126,7 +137,11 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
     this.setJBrowseLink();
 
-    this.setWidget('structure_viewer');
+    if (this.settingsService.genePageMainWidget == 'structure_viewer') {
+      this.alphaFoldStatus = 'loading';
+    } else {
+      this.alphaFoldStatus = 'hidden';
+    }
 
     if (this.geneDetails.uniprot_identifier) {
       this.sanitizedAlphaFoldURL =
