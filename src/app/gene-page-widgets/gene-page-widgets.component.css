@@ -1,5 +1,5 @@
 
-@media (max-width: 800px) {
+@media (max-width: 799px) {
   .embedded-jbrowse {
     width: 94vw;
   }
@@ -9,7 +9,7 @@
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 900px) {
   .widgets {
     display: flex;
     flex-flow: row nowrap;
@@ -19,11 +19,9 @@
     width: 100%;
     flex-grow: 1;
   }
+}
 
-  .widgets-picker {
-    white-space: nowrap;
-  }
-
+@media (min-width: 800px) {
   .jbrowse-container {
     height: 300px;
   }
@@ -51,11 +49,11 @@
   height: 100%;
 }
 
-@media (min-width: 1200px) {
-  .chromosome-region-view, .alphafold-view {
-    margin: 0 0.5em;
-  }
+
+.chromosome-region-view, .alphafold-view {
+  margin: 0 0.5em;
 }
+
 
 .chromosome-region-view fa-icon {
   font-size: 130%;
@@ -73,6 +71,40 @@
   vertical-align: top;
 }
 
+.widgets-picker {
+  white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+  .active-widget-button {
+    border-left: 3px solid grey;
+  }
+
+  .widgets-picker-container {
+    display: inline-block;
+  }
+
+  .non-active-widget-button, .active-widget-button {
+    margin-bottom: 16px;
+    padding-left: 4px;
+  }
+}
+
+@media (max-width: 899px) {
+  .widgets-picker {
+    display: flex;
+  }
+
+  .active-widget-button {
+    border-top: 2px solid grey;
+  }
+
+  .non-active-widget-button, .active-widget-button {
+    margin: 8px 24px 10px 2px;
+  }
+
+}
+
 img.widget-button {
   display: block;
   margin: 2px 0 5px 10px;
@@ -80,15 +112,6 @@ img.widget-button {
 
 .non-active-widget-button img {
   opacity: 80%;
-}
-
-.active-widget-button {
-  border-left: 2px solid grey;
-}
-
-.non-active-widget-button, .active-widget-button {
-  margin-bottom: 16px;
-  padding-left: 4px;
 }
 
 @media (min-width: 1300px) {

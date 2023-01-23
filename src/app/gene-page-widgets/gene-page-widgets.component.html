@@ -1,4 +1,5 @@
 <div class="widgets">
+  <div class="widgets-picker-container">
   <div class="widgets-picker">
     <div *ngIf="currentWidget() != 'structure_viewer'" class="non-active-widget-button">
       <a (click)="setWidget('structure_viewer')">
@@ -31,6 +32,7 @@
       Hide all
     </div>
 
+  </div>
   </div>
 
   <div class="widgets-container">
