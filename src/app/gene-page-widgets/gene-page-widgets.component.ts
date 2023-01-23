@@ -122,13 +122,6 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     return this.sanitizedAlphaFoldURL;
   }
 
-  hideGenomeBrowser() {
-    this.settingsService.genePageMainWidget = 'none';
-  }
-
-  showGenomeBrowser() {
-    this.settingsService.genePageMainWidget = 'genome_browser';
-  }
 
   ngOnInit(): void {
 
