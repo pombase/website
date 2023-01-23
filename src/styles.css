@@ -127,7 +127,7 @@ a, a:not([href]):not([tabindex]) {
 
 @media (min-width: 1300px) {
   .details-page-summary {
-    min-width: 1000px;
+    min-width: 1150px;
   }
 }
 
