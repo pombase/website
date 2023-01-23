@@ -4,6 +4,7 @@ import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 import { SettingsService } from '../settings.service';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-gene-page-widgets',
@@ -19,9 +20,11 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   appConfig: AppConfig = getAppConfig();
   jbrowseLinkUrl?: string;
   sanitizedJBrowseURL?: SafeResourceUrl;
+  sanitizedAlphaFoldURL?: SafeResourceUrl;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private sanitizer: DomSanitizer,
+              public deployConfigService: DeployConfigService,
               public settingsService: SettingsService) { }
 
   setJBrowseLink(): void {
@@ -81,6 +84,10 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     return this.sanitizedJBrowseURL;
   }
 
+  getAlphaFoldIFrameURL(): SafeResourceUrl | undefined {
+    return this.sanitizedAlphaFoldURL;
+  }
+
   hideGenomeBrowser() {
     this.settingsService.genePageMainWidget = 'none';
   }
@@ -95,5 +102,12 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.setJBrowseLink();
+
+    if (this.geneDetails.uniprot_identifier) {
+      this.sanitizedAlphaFoldURL =
+        this.sanitizer.bypassSecurityTrustResourceUrl('structure_view/' + this.geneDetails.uniprot_identifier);
+    } else {
+      this.sanitizedAlphaFoldURL = undefined;
+    }
   }
 }

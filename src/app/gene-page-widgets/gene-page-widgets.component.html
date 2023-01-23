@@ -17,3 +17,17 @@
     </iframe>
   </div>
 </div>
+
+<div *ngIf="!deployConfigService.productionMode()" class="alphafold-view">
+  <div class="alphafold-text">
+    <div>
+      <a href="https://alphafold.ebi.ac.uk/entry/{{geneDetails.uniprot_identifier}}">
+        View full {{geneDetails.uniprot_identifier}} Alphafold page
+      </a>
+    </div>
+  </div>
+  <div *ngIf="getAlphaFoldIFrameURL()" class="alphafold-container">
+    <iframe [src]="getAlphaFoldIFrameURL()" scrolling="no" class="embedded-alphafold">
+    </iframe>
+  </div>
+</div>
