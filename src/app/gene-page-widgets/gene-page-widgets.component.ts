@@ -22,6 +22,8 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   sanitizedJBrowseURL?: SafeResourceUrl;
   sanitizedAlphaFoldURL?: SafeResourceUrl;
 
+  alphaFoldStatus: 'loading' | 'loaded' | 'hidden' = 'hidden';
+
   constructor(private pombaseApiService: PombaseAPIService,
               private sanitizer: DomSanitizer,
               public deployConfigService: DeployConfigService,
@@ -85,6 +87,20 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   setWidget(widget: GenePageWidget) {
     this.settingsService.genePageMainWidget = widget;
+
+    if (widget == 'structure_viewer') {
+      this.alphaFoldStatus = 'loading';
+    } else {
+      this.alphaFoldStatus = 'hidden';
+    }
+  }
+
+  alphaFoldLoading() {
+    return this.alphaFoldStatus == 'loading';
+  }
+
+  alphaFoldFinishedLoading() {
+    this.alphaFoldStatus = 'loaded';
   }
 
   getJBrowseIFrameURL(): SafeResourceUrl | undefined {
@@ -109,6 +125,8 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.setJBrowseLink();
+
+    this.setWidget('structure_viewer');
 
     if (this.geneDetails.uniprot_identifier) {
       this.sanitizedAlphaFoldURL =

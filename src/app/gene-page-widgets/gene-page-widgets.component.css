@@ -68,7 +68,7 @@
   border: 0;
 }
 
-.alphafold-container, .alphafold-text {
+.alphafold-iframe-container, .alphafold-text {
   display: inline-block;
   vertical-align: top;
 }
@@ -89,4 +89,28 @@ img.widget-button {
 .non-active-widget-button, .active-widget-button {
   margin-bottom: 16px;
   padding-left: 4px;
+}
+
+@media (min-width: 1300px) {
+  .alphafold-view {
+    position: relative;
+    height: 400px;
+  }
+
+  .alphafold-container, .alphafold-loading-message {
+    position: absolute;
+  }
+}
+
+@media (min-width: 1200px) {
+  .alphafold-view {
+    width: 1000px
+  }
+}
+
+.alphafold-loading-message {
+  color: gray;
+  font-size: 120%;
+  padding: 1.2em;
+  z-index: 999;
 }
