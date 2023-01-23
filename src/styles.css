@@ -257,7 +257,7 @@ select option:disabled {
 @media (max-width: 799px) {
   .details-page-menu, .page-content-menu, .docs-menu {
     position: inherit;
-    width: 85%;
+    width: 20em;
     padding: 0.5em;
   }
   .small-logo-visible {
