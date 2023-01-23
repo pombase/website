@@ -29,19 +29,11 @@
   margin: auto;
 }
 
-@media (min-width: 800px) and (max-width: 1000px) {
-  .jbrowse-container {
-    height: 350px;
-  }
-}
-
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
   .jbrowse-container {
     height: 300px;
   }
-}
 
-@media (min-width: 800px) {
   .chromosome-region-view {
     width: auto;
     max-width: 1000px;
