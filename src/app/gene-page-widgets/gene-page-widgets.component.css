@@ -26,7 +26,6 @@
 }
 
 .jbrowse-container, .jbrowse-container-hide {
-  max-width: 980px;
   margin: auto;
 }
 
@@ -67,7 +66,7 @@
 }
 
 @media (min-width: 1200px) {
-  .chromosome-region-view {
+  .chromosome-region-view, .alphafold-view {
     margin: 0 0.5em;
   }
 }
@@ -79,6 +78,6 @@
 
 .embedded-alphafold {
   width: 630px;
-  height: 430px;
+  height: 400px;
   border: 0;
 }
