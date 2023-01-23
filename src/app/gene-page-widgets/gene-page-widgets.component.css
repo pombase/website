@@ -1,15 +1,3 @@
-.widgets {
-  display: flex;
-  flex-flow: row nowrap;
-}
-.widgets-container {
-  width: 100%;
-  flex-grow: 1;
-}
-
-.widgets-picker {
-  white-space: nowrap;
-}
 
 @media (max-width: 800px) {
   .embedded-jbrowse {
@@ -22,6 +10,20 @@
 }
 
 @media (min-width: 800px) {
+  .widgets {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .widgets-container {
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  .widgets-picker {
+    white-space: nowrap;
+  }
+
   .jbrowse-container {
     height: 300px;
   }
@@ -69,4 +71,22 @@
 .alphafold-container, .alphafold-text {
   display: inline-block;
   vertical-align: top;
+}
+
+img.widget-button {
+  display: block;
+  margin: 2px 0 5px 10px;
+}
+
+.non-active-widget-button img {
+  opacity: 80%;
+}
+
+.active-widget-button {
+  border-left: 2px solid grey;
+}
+
+.non-active-widget-button, .active-widget-button {
+  margin-bottom: 16px;
+  padding-left: 4px;
 }
