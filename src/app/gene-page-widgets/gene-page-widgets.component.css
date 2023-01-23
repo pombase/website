@@ -1,21 +1,17 @@
-
-.jbrowse-container-hide a, .jbrowse-container-show a {
-  color: black;
+.widgets {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.widgets-container {
+  width: 100%;
+  flex-grow: 1;
 }
 
-.jbrowse-container-show {
-  margin: 0 0 1em 0.5em;
-}
-
-.jbrowse-container-hide, .jbrowse-container-show {
-  user-select: none;
+.widgets-picker {
+  white-space: nowrap;
 }
 
 @media (max-width: 800px) {
-  .chromosome-region-view {
-    width: 100%;
-  }
-
   .embedded-jbrowse {
     width: 94vw;
   }
@@ -23,10 +19,6 @@
   .jbrowse-container {
     height: 320px;
   }
-}
-
-.jbrowse-container, .jbrowse-container-hide {
-  margin: auto;
 }
 
 @media (min-width: 800px) {
@@ -72,4 +64,9 @@
   width: 630px;
   height: 400px;
   border: 0;
+}
+
+.alphafold-container, .alphafold-text {
+  display: inline-block;
+  vertical-align: top;
 }

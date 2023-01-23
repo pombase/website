@@ -1,24 +1,46 @@
+<div class="widgets">
+  <div class="widgets-picker">
+    <div *ngIf="currentWidget() != 'none'">
+      <a (click)="hideAllWidgets()">
+        Hide all
+      </a>
+    </div>
+    <div *ngIf="currentWidget() == 'none'">
+      Hide all
+    </div>
+    <div *ngIf="currentWidget() != 'genome_browser'">
+      <a (click)="setWidget('genome_browser')">
+        Genome browser
+      </a>
+    </div>
+    <div *ngIf="currentWidget() == 'genome_browser'">
+      Genome browser
+    </div>
+    <div *ngIf="currentWidget() != 'structure_viewer'">
+      <a (click)="setWidget('structure_viewer')">
+        Structure viewer
+      </a>
+    </div>
+    <div *ngIf="currentWidget() == 'structure_viewer'">
+      Structure viewer
+    </div>
+  </div>
+
+  <div class="widgets-container">
 <div class="chromosome-region-view">
-  <div *ngIf="settingsService.genePageMainWidget == 'genome_browser'"
-       class="jbrowse-container-hide">
-    <a (click)="hideGenomeBrowser()">
-      <fa-icon [icon]="faCaretDown"></fa-icon>Hide genome browser
-    </a>
-  </div>
-  <div *ngIf="settingsService.genePageMainWidget == 'none'"
-       class="jbrowse-container-show">
-    <a (click)="showGenomeBrowser()">
-      <fa-icon [icon]="faCaretRight"></fa-icon>Show genome browser
-    </a>
-  </div>
-  <div *ngIf="showJBrowse()"
-       class="jbrowse-container">
+
+  <div *ngIf="currentWidget() == 'genome_browser'" class="jbrowse-container">
     <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
     </iframe>
   </div>
 </div>
 
-<div *ngIf="!deployConfigService.productionMode()" class="alphafold-view">
+<div *ngIf="currentWidget() == 'structure_viewer'" class="alphafold-view">
+
+  <div *ngIf="getAlphaFoldIFrameURL()" class="alphafold-container">
+    <iframe [src]="getAlphaFoldIFrameURL()" scrolling="no" class="embedded-alphafold">
+    </iframe>
+  </div>
   <div class="alphafold-text">
     <div>
       <a href="https://alphafold.ebi.ac.uk/entry/{{geneDetails.uniprot_identifier}}">
@@ -26,8 +48,6 @@
       </a>
     </div>
   </div>
-  <div *ngIf="getAlphaFoldIFrameURL()" class="alphafold-container">
-    <iframe [src]="getAlphaFoldIFrameURL()" scrolling="no" class="embedded-alphafold">
-    </iframe>
-  </div>
+</div>
+</div>
 </div>

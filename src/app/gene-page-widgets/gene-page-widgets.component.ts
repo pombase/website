@@ -3,7 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
-import { SettingsService } from '../settings.service';
+import { GenePageWidget, SettingsService } from '../settings.service';
 import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
@@ -75,9 +75,16 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     }
   }
 
-  showJBrowse(): boolean {
-    return !!this.getJBrowseIFrameURL() &&
-      this.settingsService.genePageMainWidget == 'genome_browser';
+  currentWidget(): GenePageWidget {
+    return this.settingsService.genePageMainWidget;
+  }
+
+  hideAllWidgets() {
+    this.settingsService.genePageMainWidget = 'none';
+  }
+
+  setWidget(widget: GenePageWidget) {
+    this.settingsService.genePageMainWidget = widget;
   }
 
   getJBrowseIFrameURL(): SafeResourceUrl | undefined {
