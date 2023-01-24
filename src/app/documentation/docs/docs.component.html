@@ -6190,7 +6190,7 @@ PomBase using the Ensembl viewer.</p>
 <ol type="1">
 <li>See the <a routerLink="/submit-data/gene-names">Gene Name Registry</a> for more information about <em>S. pombe</em> gene names. Synonyms include all names other than the standard name that have been published for a gene, and thus are not guaranteed to be unique.</li>
 <li>Free text description of the gene product</li>
-<li>Chromosome coordinates for the gene. For protein-coding genes, the “coding start to stop” numbers give the start, end, and length excluding UTRs but including introns (other than introns located entirely within UTRs). The second set of numbers indicate the gene start, end, and length including the default UTRs chosen by PomBase curators (see <a routerLink="/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">this FAQ</a> for more information).</li>
+<li>Chromosome coordinates for the gene. For protein-coding genes, the “coding start to stop” numbers give the start, end, and length excluding UTRs but including introns (other than introns located entirely within UTRs). The second set of numbers indicate the gene start, end, and length including the default UTRs chosen by PomBase curators (see <a routerLink="/faq/how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">this FAQ</a> for more information).</li>
 <li>What the three-letter acronym stands for; where available, name descriptions are provided for synonyms as well as primary names.</li>
 <li>Category describing how well-studied a gene is; see the <a href="/status/gene-characterisation">Gene Characterisation</a> page for details. Note: at present this is used in PomBase for <em>S. pombe</em>, but not in JaponicusDB.</li>
 <li>Indicates whether a gene encodes protein, specifies a non-coding RNA, or is a pseudogene</li>
@@ -9360,7 +9360,7 @@ Example queries:
 <h3 id="how-can-i-retrieve-utr-sequences">How can I retrieve UTR sequences?</h3>
 <!-- pombase_categories: Finding data -->
 <p>Transcript start and end coordinates from all sources will be available as individual data tracks in the genome browser in the near future, which will allow you to view, evaluate and download them. We also provide downloadable UTR data sets that are updated periodically, available on the <a routerLink="/downloads/genome-datasets">Genome sequence and features</a> page.</p>
-<p>Also see the <a routerLink="/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">precedence criteria</a> used to choose default UTR features to display on gene pages.</p>
+<p>Also see the <a routerLink="/faq/how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">precedence criteria</a> used to choose default UTR features to display on gene pages.</p>
 <p>To retrieve UTRs for a specified list of genes, see the FAQ on <a routerLink="/faq/can-i-download-sequences-many-genes-once-including-flanking-regions">downloading sequences for multiple genes</a> (choose 5’ UTR and/or 3’ UTR in the popup).</p>
 
 </div>
@@ -9475,17 +9475,18 @@ Example queries:
 <p>The current version of the manually curated list of orthologs and orthologous groups identified between fission and budding yeast is available for download from the <a href="https://www.pombase.org/data/orthologs/">orthologs</a> FTP directory (linked from the <a routerLink="/datasets">Datasets</a> page).</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites', 'How do you determine a genes full-length transcript? / UTR coordinates? / transcription start and end sites?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
-<h3 id="how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">How do you determine a gene’s full-length transcript? / UTR coordinates? / transcription start and end sites?</h3>
+<div (click)="faq_navigate($event, '/faq/how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites', 'How does PomBase determine a gene’s full-length transcript? / UTR coordinates? / transcription start and end sites?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
+<h3 id="how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">How does PomBase determine a gene’s full-length transcript? / UTR coordinates? / transcription start and end sites?</h3>
 <!-- pombase_categories: Genome statistics and lists,Finding data -->
-<p>PomBase curators have chosen default UTR features using three data sources and a set of precedence criteria:</p>
+<p>5’UTRs were created using Transcription Start Sites (TSS) data (in vegetative growth / minimal media) from the Deep CAGE data provided by <a routerLink="/reference/PMID:30566651">Thodberg <em>et al</em>.</a>. Transcription start sites are heterogeneous, we selected the major peak, and in cases of multiple potential start sites, the major cluster from the major TSS peak to create canonical 5’UTR features. Therefore, with the exception of a small number of curated isoforms only genes expressed during vegetative growth will currently have 5’UTRs. To inspect meiotic 5’UTRs please refer to the extensive RNA-seq or TSS datasets hosted in the <a href="https://www.pombase.org/jbrowse/">genome browser</a>.</p>
+<p>3’ UTR features use four data sources and a set of precedence criteria:</p>
 <ol type="1">
 <li>Highest priority is given to data from low-throughput “conventional” experiments performed on individual mRNAs and reported in publications or submitted to EMBL. Where low-throughput data are not available, one of three high-throughput datasets is used.</li>
 <li>The Broad data published in 2011 by Rhind <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>) is given precedence because it is the most recent, is higher resolution and detected splicing within the UTRs. <strong>Note</strong>: This study used a “greedy” algorithm to determine the longest possible transcript from transcriptome reads, which may result in the prediction of longer UTRs than are actually present. Use these data with caution, and refer to the transcript profiling data in the genome browser for genes of interest.</li>
 <li>For genes not covered by (1) or (2), start/end data from Lantermann <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=20118936">PMID:20118936</a>) based on transcriptome data from Dutrow <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18641648">PMID:18641648</a>) are used where available.</li>
 <li>For genes not covered by (1), (2) or (3), we use data from Wilhelm <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/18488015">PMID:18488015</a>).</li>
 </ol>
-<p>More information is available in the descriptions of two HTP datasets originally sent to pombelist (<a routerLink="/documentation/Broad_dataset_email">Broad</a> and <a routerLink="/documentation/Lanterman_Dutrow_dataset_email">Lanterman/Dutrow</a>.</p>
+<p>More information is available in the descriptions of two HTP datasets originally sent to pombelist: - <a routerLink="/documentation/Broad_dataset_email">Broad email</a> - <a routerLink="/documentation/Lanterman_Dutrow_dataset_email">Lanterman/Dutrow email</a></p>
 <p>Transcript start and end coordinates from all sources will be available as individual data tracks in the genome browser in the near future, which will allow you to view and evaluate them. PomBase will also curate splice and transcript variants as data become available.</p>
 <p>Note: exon and CDS coordinates are available in the Transcript section on PomBase gene pages.</p>
 
@@ -9508,7 +9509,7 @@ Example queries:
 <div (click)="faq_navigate($event, '/faq/s.-pombe-transcriptome-available-fasta-format', 'Is the S. pombe transcriptome available in FASTA format?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 's.-pombe-transcriptome-available-fasta-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="s.-pombe-transcriptome-available-fasta-format">Is the <em>S. pombe</em> transcriptome available in FASTA format?</h3>
 <!-- pombase_categories: Finding data,Tools and resources -->
-<p>There is no single transcriptome sequence file available from PomBase at present. Several transcriptomic data sets are available as <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">tracks</a> in the PomBase <a href="https://www.pombase.org/jbrowse/">genome browser</a>. The GFF3 genome feature files available from the <a routerLink="/downloads/genome-datasets">Genome Datasets</a> page include the coordinates of the <a routerLink="/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">annotated full-length transcript features</a>.</p>
+<p>There is no single transcriptome sequence file available from PomBase at present. Several transcriptomic data sets are available as <a routerLink="/faq/how-can-i-show-or-hide-tracks-genome-browser">tracks</a> in the PomBase <a href="https://www.pombase.org/jbrowse/">genome browser</a>. The GFF3 genome feature files available from the <a routerLink="/downloads/genome-datasets">Genome Datasets</a> page include the coordinates of the <a routerLink="/faq/how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">annotated full-length transcript features</a>.</p>
 <p>The bioinformatically inclined can also use the Ensembl Genomes REST API to retrieve transcript feature coordinates. (Note that, while the sequence has not changed recently, annotation data are likely to be out of date relative to the PomBase web site Ensembl Genomes is updated much less frequently than PomBase.) The <a routerLink="/faq/there-any-programmatic-access-pombase-data">FAQ on programmatic access to PomBase</a> provides an introduction to using the API, some pombe-specific examples, and links to additional documentation.</p>
 <ul>
 <li>For transcript coordinates, first retrieve all stable IDs using this URL:
@@ -9874,6 +9875,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#revised-canonical-5-utrs">Revised canonical 5' UTRs</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#global-core-biodata-resource-status-pombase">Global Core Biodata Resource status for PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-december-14th">Next PombeTalks: Wednesday, December 14th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#querying-by-rna-length-advanced-search-tool">Querying by RNA length in the Advanced Search tool</a></div>
@@ -12154,19 +12156,32 @@ Password: will be sent the day of the meeting</p>
 <!-- newsfeed_thumbnail: gbc-news-icon.png -->
 <p>We are very pleased to announce that PomBase has been selected as one of the first <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources">Global Core Biodata Resource (GCBR)</a> — a collection of 37 resources whose long term funding and sustainability is critical to life science and biomedical research worldwide. This accreditation recognizes PomBase as a primary knowledge base (adding value to data through expert curation) and as a crucial component of the research ecosystem. The candidate biodata resources were assessed against a series of rigorous criteria that included their scientific focus, the size and reach of their user communities, their quality of service, their governance, and their impact on global research.</p>
 <p>Thank you to the entire community, especially the community curators who contribute regularly to our content, and our <a routerLink="/about/pombase-sab">Scientific Advisory Board</a> for their help and support.</p>
-<p>For more information about the <a href="https://globalbiodata.org/">Global Biodata Coalition</a> and PomBase’s new status, see <a href="https://globalbiodata.org/scientific-activities/gcbr-selection/">the full press release</a>.</p>
+<p>For more information about the <a href="https://globalbiodata.org/">Global Biodata Coalition</a> and PomBase’s new status, see <a href="https://globalbiodata.org/global-biodata-coalition-announces-the-first-set-of-global-core-biodata-resources/">the full press release</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == 'new-utrs-from-tss'">
+<h3 id="revised-canonical-5-utrs">Revised canonical 5’ UTRs</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>We have revised the curated 5’UTRs using Transcription Start Sites (TSS) data (in vegetative growth/ minimal media) from the Cap Analysis of Gene Expression (CAGE) data provided by <a routerLink="/reference/PMID:30566651">Thodberg et al</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2023-01-24-new-utrs-from-tss" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="revised-canonical-5-utrs">Revised canonical 5’ UTRs</h3>
+<p><em>2023-01-24</em></p>
+<p>We have revised the curated 5’UTRs using Transcription Start Sites (TSS) data (in vegetative growth/ minimal media) from the Cap Analysis of Gene Expression (CAGE) data provided by <a routerLink="/reference/PMID:30566651">Thodberg et al</a>.</p>
+</div>
 <div id="2022-12-15-gcbr-announce" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/gbc-news-icon.png"/></p>
 <h3 id="global-core-biodata-resource-status-pombase">Global Core Biodata Resource status for PomBase</h3>
 <p><em>2022-12-15</em></p>
 <p>We are very pleased to announce that PomBase has been selected as one of the first <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources">Global Core Biodata Resource (GCBR)</a> — a collection of 37 resources whose long term funding and sustainability is critical to life science and biomedical research worldwide. This accreditation recognizes PomBase as a primary knowledge base (adding value to data through expert curation) and as a crucial component of the research ecosystem. The candidate biodata resources were assessed against a series of rigorous criteria that included their scientific focus, the size and reach of their user communities, their quality of service, their governance, and their impact on global research.</p>
 <p>Thank you to the entire community, especially the community curators who contribute regularly to our content, and our <a routerLink="/about/pombase-sab">Scientific Advisory Board</a> for their help and support.</p>
-<p>For more information about the <a href="https://globalbiodata.org/">Global Biodata Coalition</a> and PomBase’s new status, see <a href="https://globalbiodata.org/scientific-activities/gcbr-selection/">the full press release</a>.</p>
+<p>For more information about the <a href="https://globalbiodata.org/">Global Biodata Coalition</a> and PomBase’s new status, see <a href="https://globalbiodata.org/global-biodata-coalition-announces-the-first-set-of-global-core-biodata-resources/">the full press release</a>.</p>
 </div>
 <div id="2022-12-08-pombetalks-14th-dec" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
@@ -14279,6 +14294,17 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </tr>
  </thead>
  <tbody>
+  <tr>
+   <td>2022-12-31</td>
+   <td>2477</td>
+   <td>1931</td>
+   <td>385</td>
+   <td>155</td>
+   <td>103</td>
+   <td>69</td>
+   <td>13</td>
+   <td>5133</td>
+  </tr>
   <tr>
    <td>2021-08-31</td>
    <td>2441</td>
