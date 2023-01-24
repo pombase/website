@@ -10,7 +10,7 @@ peak to create canonical 5’UTR features.  Therefore, with the
 exception of a small number of curated isoforms only genes expressed
 during vegetative growth will currently have 5'UTRs.  To inspect
 meiotic 5'UTRs please refer to the extensive RNA-seq or TSS datasets
-hosted in the [genome browser](/jbrowse/).
+hosted in the [genome browser](https://www.pombase.org/jbrowse/).
 
 3’ UTR features use four data sources and a set of precedence criteria:
 

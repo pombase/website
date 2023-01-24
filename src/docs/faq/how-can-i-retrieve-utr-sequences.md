@@ -8,7 +8,7 @@ also provide downloadable UTR data sets that are updated periodically,
 available on the [Genome sequence and features](/downloads/genome-datasets) page.
 
 %%if db=PomBase
-Also see the [precedence criteria](/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites)
+Also see the [precedence criteria](/faq/how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites)
 used to choose default UTR features to display on gene pages.
 %%end db=PomBase
 

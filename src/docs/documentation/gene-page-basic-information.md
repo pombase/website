@@ -17,7 +17,7 @@ gene:
 %%if db=PomBase
     The second set of numbers indicate the
     gene start, end, and length including the default UTRs chosen by
-    PomBase curators (see [this FAQ](/faq/how-do-you-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites)
+    PomBase curators (see [this FAQ](/faq/how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites)
     for more information).
 %%end db=PomBase
 4.  What the three-letter acronym stands for; where available, name
