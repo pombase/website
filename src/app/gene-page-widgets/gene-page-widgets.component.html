@@ -49,11 +49,17 @@
 
 <div *ngIf="currentWidget() == 'structure_viewer'" class="alphafold-view">
 
-    <div *ngIf="alphaFoldLoading()" class="alphafold-loading-message">
+    <div *ngIf="proteinTooLong()" class="alphafold-too-long-message">
+      This protein has no Alphafold predicted structure because it is longer than
+      {{appConfig.alphafoldMaxProteinLength}} residues.  See the
+      <a href="https://alphafold.ebi.ac.uk/faq">Alphafold FAQ</a> for more details.
+    </div>
+
+    <div *ngIf="!proteinTooLong() && alphaFoldLoading()" class="alphafold-loading-message">
       Structure view loading ...
     </div>
 
-  <div class="alphafold-container">
+  <div *ngIf="!proteinTooLong()" class="alphafold-container">
     <div class="alphafold-iframe-container">
     <iframe (load)="alphaFoldFinishedLoading()" [src]="getAlphaFoldIFrameURL()" scrolling="no"
             #alphafoldiframe class="embedded-alphafold">

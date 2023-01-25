@@ -120,8 +120,9 @@ img.widget-button {
     height: 400px;
   }
 
-  .alphafold-container, .alphafold-loading-message {
+  .alphafold-container, .alphafold-loading-message, .alphafold-too-long-message {
     position: absolute;
+    z-index: 999;
   }
 }
 
@@ -131,9 +132,9 @@ img.widget-button {
   }
 }
 
-.alphafold-loading-message {
+.alphafold-loading-message, .alphafold-too-long-message {
   color: gray;
   font-size: 120%;
-  padding: 1.2em;
-  z-index: 999;
+  padding: 1.5em;
+  max-width: 36em;
 }

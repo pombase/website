@@ -122,6 +122,11 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     return this.alphaFoldStatus == 'loading';
   }
 
+  proteinTooLong(): boolean {
+    const protLength = this.geneDetails.transcripts[0].protein?.sequence.length;
+    return !!protLength && protLength > this.appConfig.alphafoldMaxProteinLength;
+  }
+
   alphaFoldFinishedLoading() {
     if (this.alphafoldiframe?.nativeElement.contentDocument?.body) {
       // This hack is needed because in Chrome the onload event is fired twice,

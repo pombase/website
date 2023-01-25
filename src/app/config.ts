@@ -307,6 +307,7 @@ export interface AppConfig {
   refPageJBrowseColumns: Array<JBrowseColumnConfig>;
   genePageExtraLinks: { [key: string]: Array<DetailsPageLinkConfig> };
   featureLocationWarnings: Array<FeatureLocationWarning>;
+  alphafoldMaxProteinLength: number;
   jbrowseTrackPickerBaseUrl: string;
   apiSeqChunkSizes: {
     all: Array<number>;
@@ -724,6 +725,7 @@ let _appConfig: AppConfig = {
   refPageJBrowseColumns: pombaseConfig.reference_page_jbrowse_columns,
   genePageExtraLinks: pombaseConfig.gene_page_extra_links || [],
   featureLocationWarnings: pombaseConfig.feature_location_warnings || [],
+  alphafoldMaxProteinLength: pombaseConfig.alphafold_max_protein_length || 1280,
   jbrowseTrackPickerBaseUrl: pombaseConfig.jbrowse_track_picker_base_url,
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
