@@ -71,6 +71,10 @@
   vertical-align: top;
 }
 
+.alphafold-text div {
+  margin-bottom: 1em;
+}
+
 .widgets-picker {
   white-space: nowrap;
 }

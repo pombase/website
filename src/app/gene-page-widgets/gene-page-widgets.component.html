@@ -68,8 +68,13 @@
 
     <div *ngIf="!alphaFoldLoading()" class="alphafold-text">
     <div>
-      <a href="https://alphafold.ebi.ac.uk/entry/{{geneDetails.uniprot_identifier}}">
-        View full {{geneDetails.uniprot_identifier}} Alphafold page
+      <a href="https://alphafold.ebi.ac.uk/entry/{{geneDetails.uniprot_identifier}}" target="_blank">
+        View full Alphafold page
+      </a>
+    </div>
+    <div>
+      <a href="https://molstar.org/viewer-docs/#mouse-controls" target="_blank">
+        Viewer control documentation
       </a>
     </div>
   </div>
