@@ -335,6 +335,7 @@ export class GeneDetailsComponent implements OnInit {
               this.organismLongName = this.organism.genus + ' ' + this.organism.species;
               this.isConfiguredOrganism = this.appConfig.isConfigOrganism(this.organism.taxonid);
               this.apiError = null;
+              this.locationWarning = undefined;
               for (const locationWarningConf of this.appConfig.featureLocationWarnings) {
                 for (const confFeatureType of locationWarningConf.feature_types) {
                   if (confFeatureType == this.geneDetails.feature_type ||
