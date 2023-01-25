@@ -2,30 +2,40 @@
   <div class="widgets-picker-container">
   <div class="widgets-picker">
     <div *ngIf="showAlphafold()">
-    <div *ngIf="currentWidget() != 'structure_viewer'" class="non-active-widget-button">
+    <div *ngIf="currentWidget() != 'structure_viewer'"
+         class="non-active-widget-button"
+         title="Click to view protein structure">
       <a (click)="setWidget('structure_viewer')">
         <div>Structure viewer</div>
-        <img class="widget-button" src="assets/structure-widget-icon.png" />
+        <img *ngIf="currentWidget() != 'none'"
+             class="widget-button" src="assets/structure-widget-icon.png" />
       </a>
     </div>
     <div *ngIf="currentWidget() == 'structure_viewer'" class="active-widget-button">
       <div>Structure viewer</div>
-      <img class="widget-button" src="assets/structure-widget-icon.png" />
+      <img *ngIf="currentWidget() != 'none'"
+           class="widget-button" src="assets/structure-widget-icon.png" />
     </div>
     </div>
 
-    <div *ngIf="currentWidget() != 'genome_browser'" class="non-active-widget-button">
+    <div *ngIf="currentWidget() != 'genome_browser'"
+         class="non-active-widget-button"
+         title="Click to view gene in genome browser">
       <a (click)="setWidget('genome_browser')">
         <div>Genome browser</div>
-        <img class="widget-button" src="assets/jbrowse-widget-icon.png"/>
+        <img *ngIf="currentWidget() != 'none'"
+             class="widget-button" src="assets/jbrowse-widget-icon.png"/>
       </a>
     </div>
     <div *ngIf="currentWidget() == 'genome_browser'" class="active-widget-button">
       <div>Genome browser</div>
-      <img class="widget-button" src="assets/jbrowse-widget-icon.png" />
+      <img *ngIf="currentWidget() != 'none'"
+           class="widget-button" src="assets/jbrowse-widget-icon.png" />
     </div>
 
-    <div *ngIf="currentWidget() != 'none'" class="non-active-widget-button">
+    <div *ngIf="currentWidget() != 'none'"
+         class="non-active-widget-button"
+         title="Click to hide all widgets">
       <a (click)="hideAllWidgets()">
         Hide all
       </a>
