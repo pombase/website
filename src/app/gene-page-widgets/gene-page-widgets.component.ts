@@ -80,11 +80,32 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   }
 
   currentWidget(): GenePageWidget {
-    return this.settingsService.genePageMainWidget;
+    if (this.showAlphafold()) {
+      return this.settingsService.genePageMainWidget;
+    } else {
+      if (this.settingsService.genePageMainWidget == 'structure_viewer') {
+        return 'genome_browser';
+      } else {
+        return this.settingsService.genePageMainWidget;
+      }
+    }
   }
 
   hideAllWidgets() {
     this.settingsService.genePageMainWidget = 'none';
+  }
+
+  showAlphafold(): boolean {
+    if (this.geneDetails.transcripts.length == 0) {
+      return false;
+    }
+
+    const seq = this.geneDetails.transcripts[0].protein?.sequence;
+    if (seq) {
+      return seq.length > 0;
+    } else {
+      return false;
+    }
   }
 
   setWidget(widget: GenePageWidget) {
@@ -130,15 +151,17 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
     this.setJBrowseLink();
 
-    if (this.settingsService.genePageMainWidget == 'structure_viewer') {
+    if (this.settingsService.genePageMainWidget == 'structure_viewer' &&
+        this.showAlphafold()) {
       this.alphaFoldStatus = 'loading';
     } else {
       this.alphaFoldStatus = 'hidden';
     }
 
     if (this.geneDetails.uniprot_identifier) {
+      const rawUrl = 'structure_view/' + this.geneDetails.uniprot_identifier;
       this.sanitizedAlphaFoldURL =
-        this.sanitizer.bypassSecurityTrustResourceUrl('structure_view/' + this.geneDetails.uniprot_identifier);
+        this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
     } else {
       this.sanitizedAlphaFoldURL = undefined;
     }
