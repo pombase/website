@@ -1,14 +1,17 @@
 <div class="widgets">
   <div class="widgets-picker-container">
-  <div class="widgets-picker">
-    <div *ngIf="showAlphafold()">
+  <div class="widgets-picker"
+       [ngClass]="{'widget-buttons-horizontal': currentWidget() == 'none', 'widget-buttons-vertical': currentWidget() != 'none'}">
+    <span *ngIf="currentWidget() == 'none'" class="widgets-available">
+      Available widgets:
+    </span>
+    <ng-container *ngIf="showAlphafold()">
     <div *ngIf="currentWidget() != 'structure_viewer'"
          class="non-active-widget-button"
          title="Click to view protein structure">
       <a (click)="setWidget('structure_viewer')">
         <div>Structure viewer</div>
-        <img *ngIf="currentWidget() != 'none'"
-             class="widget-button" src="assets/structure-widget-icon.png" />
+        <img class="widget-button" src="assets/structure-widget-icon.png" />
       </a>
     </div>
     <div *ngIf="currentWidget() == 'structure_viewer'" class="active-widget-button">
@@ -16,7 +19,7 @@
       <img *ngIf="currentWidget() != 'none'"
            class="widget-button" src="assets/structure-widget-icon.png" />
     </div>
-    </div>
+    </ng-container>
 
     <div *ngIf="currentWidget() != 'genome_browser'"
          class="non-active-widget-button"
@@ -29,18 +32,17 @@
     </div>
     <div *ngIf="currentWidget() == 'genome_browser'" class="active-widget-button">
       <div>Genome browser</div>
-      <img *ngIf="currentWidget() != 'none'"
-           class="widget-button" src="assets/jbrowse-widget-icon.png" />
+      <img class="widget-button" src="assets/jbrowse-widget-icon.png" />
     </div>
 
     <div *ngIf="currentWidget() != 'none'"
-         class="non-active-widget-button"
+         class="non-active-widget-button widget-button-hide-all"
          title="Click to hide all widgets">
       <a (click)="hideAllWidgets()">
         Hide all
       </a>
     </div>
-    <div *ngIf="currentWidget() == 'none'" class="active-widget-button">
+    <div *ngIf="currentWidget() == 'none'" class="active-widget-button widget-button-hide-all">
       Hide all
     </div>
 

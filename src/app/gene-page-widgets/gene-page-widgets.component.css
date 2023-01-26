@@ -80,7 +80,7 @@
 }
 
 @media (min-width: 900px) {
-  .active-widget-button {
+  .widget-buttons-vertical .active-widget-button {
     border-left: 3px solid grey;
   }
 
@@ -91,6 +91,20 @@
   .non-active-widget-button, .active-widget-button {
     margin-bottom: 16px;
     padding-left: 4px;
+  }
+
+  .widget-buttons-horizontal .non-active-widget-button,
+  .widget-buttons-horizontal .active-widget-button {
+    display: inline-block;
+    padding-right: 1em;
+  }
+
+  .widgets-available {
+    padding-right: 1em;
+  }
+
+  .widget-buttons-horizontal .active-widget-button.widget-button-hide-all {
+    display: none;
   }
 }
 
@@ -105,8 +119,12 @@
 
   .non-active-widget-button, .active-widget-button {
     margin: 8px 24px 10px 2px;
+    min-height: 2em;
   }
 
+  .widgets-available {
+    display: none;
+  }
 }
 
 img.widget-button {
