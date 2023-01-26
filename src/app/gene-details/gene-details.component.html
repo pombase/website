@@ -51,7 +51,13 @@
                   {{displayLocation[0]}},
                 </td>
                 <td>{{displayLocation[1]}}
-                  <span class="location-warning" *ngIf="locationWarning" [attr.title]="locationWarning">
+                  <ng-template #rnaLocationWarning>
+                    {{locationWarning}}
+                  </ng-template>
+
+                  <span class="location-warning" *ngIf="locationWarning"
+                        triggers="mouseenter:mouseleave" placement="bottom" container="body"
+                        [popover]="rnaLocationWarning">
                     <fa-icon [icon]="faWarning"></fa-icon>
                   </span>
                   <span *ngIf="geneDetails.feature_publications.length == 1">
