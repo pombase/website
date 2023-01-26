@@ -96,7 +96,15 @@
   .widget-buttons-horizontal .non-active-widget-button,
   .widget-buttons-horizontal .active-widget-button {
     display: inline-block;
-    padding-right: 1em;
+    padding-right: 2em;
+  }
+
+  .widget-buttons-horizontal div, .widget-buttons-horizontal img {
+    display: inline-block;
+  }
+
+  .widget-buttons-horizontal img {
+    width: 2em;
   }
 
   .widgets-available {

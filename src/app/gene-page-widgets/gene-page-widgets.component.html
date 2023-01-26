@@ -11,8 +11,7 @@
          title="Click to view protein structure">
       <a (click)="setWidget('structure_viewer')">
         <div>Structure viewer</div>
-        <img *ngIf="currentWidget() != 'none'"
-             class="widget-button" src="assets/structure-widget-icon.png" />
+        <img class="widget-button" src="assets/structure-widget-icon.png" />
       </a>
     </div>
     <div *ngIf="currentWidget() == 'structure_viewer'" class="active-widget-button">
@@ -26,8 +25,7 @@
          title="Click to view gene in genome browser">
       <a (click)="setWidget('genome_browser')">
         <div>Genome browser</div>
-        <img *ngIf="currentWidget() != 'none'"
-             class="widget-button" src="assets/jbrowse-widget-icon.png"/>
+        <img class="widget-button" src="assets/jbrowse-widget-icon.png"/>
       </a>
     </div>
     <div *ngIf="currentWidget() == 'genome_browser'" class="active-widget-button">
