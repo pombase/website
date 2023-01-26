@@ -1,21 +1,5 @@
 
-.jbrowse-container-hide a, .jbrowse-container-show a {
-  color: black;
-}
-
-.jbrowse-container-show {
-  margin: 0 0 1em 0.5em;
-}
-
-.jbrowse-container-hide, .jbrowse-container-show {
-  user-select: none;
-}
-
-@media (max-width: 800px) {
-  .chromosome-region-view {
-    width: 100%;
-  }
-
+@media (max-width: 799px) {
   .embedded-jbrowse {
     width: 94vw;
   }
@@ -25,13 +9,21 @@
   }
 }
 
-.jbrowse-container, .jbrowse-container-hide {
-  margin: auto;
+@media (min-width: 900px) {
+  .widgets {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .widgets-container {
+    width: 100%;
+    flex-grow: 1;
+  }
 }
 
 @media (min-width: 800px) {
   .jbrowse-container {
-    height: 300px;
+    height: 400px;
   }
 
   .chromosome-region-view {
@@ -57,11 +49,11 @@
   height: 100%;
 }
 
-@media (min-width: 1200px) {
-  .chromosome-region-view, .alphafold-view {
-    margin: 0 0.5em;
-  }
+
+.chromosome-region-view, .alphafold-view {
+  margin: 0 0.5em;
 }
+
 
 .chromosome-region-view fa-icon {
   font-size: 130%;
@@ -72,4 +64,107 @@
   width: 630px;
   height: 400px;
   border: 0;
+}
+
+.alphafold-iframe-container, .alphafold-text {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.alphafold-text div {
+  margin-bottom: 1em;
+}
+
+.widgets-picker {
+  white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+  .widget-buttons-vertical .active-widget-button {
+    border-left: 3px solid grey;
+  }
+
+  .widgets-picker-container {
+    display: inline-block;
+  }
+
+  .non-active-widget-button, .active-widget-button {
+    margin-bottom: 16px;
+    padding-left: 4px;
+  }
+
+  .widget-buttons-horizontal .non-active-widget-button,
+  .widget-buttons-horizontal .active-widget-button {
+    display: inline-block;
+    padding-right: 2em;
+  }
+
+  .widget-buttons-horizontal div, .widget-buttons-horizontal img {
+    display: inline-block;
+  }
+
+  .widget-buttons-horizontal img {
+    width: 2em;
+  }
+
+  .widgets-available {
+    padding-right: 1em;
+  }
+
+  .widget-buttons-horizontal .active-widget-button.widget-button-hide-all {
+    display: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .widgets-picker {
+    display: flex;
+  }
+
+  .active-widget-button {
+    border-top: 2px solid grey;
+  }
+
+  .non-active-widget-button, .active-widget-button {
+    margin: 8px 24px 10px 2px;
+    min-height: 2em;
+  }
+
+  .widgets-available {
+    display: none;
+  }
+}
+
+img.widget-button {
+  display: block;
+  margin: 2px 0 5px 10px;
+}
+
+.non-active-widget-button img {
+  opacity: 80%;
+}
+
+@media (min-width: 1300px) {
+  .alphafold-view {
+    position: relative;
+    height: 400px;
+  }
+
+  .alphafold-container, .alphafold-loading-message, .alphafold-too-long-message {
+    position: absolute;
+    z-index: 999;
+  }
+}
+
+@media (min-width: 1200px) {
+  .alphafold-view {
+    width: 1000px
+  }
+}
+
+.alphafold-loading-message, .alphafold-too-long-message {
+  color: gray;
+  font-size: 120%;
+  padding: 1.5em;
+  max-width: 36em;
 }

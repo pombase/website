@@ -1,33 +1,94 @@
-<div class="chromosome-region-view">
-  <div *ngIf="settingsService.genePageMainWidget == 'genome_browser'"
-       class="jbrowse-container-hide">
-    <a (click)="hideGenomeBrowser()">
-      <fa-icon [icon]="faCaretDown"></fa-icon>Hide genome browser
-    </a>
+<div class="widgets">
+  <div class="widgets-picker-container">
+  <div class="widgets-picker"
+       [ngClass]="{'widget-buttons-horizontal': currentWidget() == 'none', 'widget-buttons-vertical': currentWidget() != 'none'}">
+    <span *ngIf="currentWidget() == 'none'" class="widgets-available">
+      Available widgets:
+    </span>
+    <ng-container *ngIf="showAlphafold()">
+    <div *ngIf="currentWidget() != 'structure_viewer'"
+         class="non-active-widget-button"
+         title="Click to view protein structure">
+      <a (click)="setWidget('structure_viewer')">
+        <div>Structure viewer</div>
+        <img class="widget-button" src="assets/structure-widget-icon.png" />
+      </a>
+    </div>
+    <div *ngIf="currentWidget() == 'structure_viewer'" class="active-widget-button">
+      <div>Structure viewer</div>
+      <img class="widget-button" src="assets/structure-widget-icon.png" />
+    </div>
+    </ng-container>
+
+    <div *ngIf="currentWidget() != 'genome_browser'"
+         class="non-active-widget-button"
+         title="Click to view gene in genome browser">
+      <a (click)="setWidget('genome_browser')">
+        <div>Genome browser</div>
+        <img class="widget-button" src="assets/jbrowse-widget-icon.png"/>
+      </a>
+    </div>
+    <div *ngIf="currentWidget() == 'genome_browser'" class="active-widget-button">
+      <div>Genome browser</div>
+      <img class="widget-button" src="assets/jbrowse-widget-icon.png" />
+    </div>
+
+    <div *ngIf="currentWidget() != 'none'"
+         class="non-active-widget-button widget-button-hide-all"
+         title="Click to hide all widgets">
+      <a (click)="hideAllWidgets()">
+        Hide all
+      </a>
+    </div>
+    <div *ngIf="currentWidget() == 'none'" class="active-widget-button widget-button-hide-all">
+      Hide all
+    </div>
+
   </div>
-  <div *ngIf="settingsService.genePageMainWidget == 'none'"
-       class="jbrowse-container-show">
-    <a (click)="showGenomeBrowser()">
-      <fa-icon [icon]="faCaretRight"></fa-icon>Show genome browser
-    </a>
   </div>
-  <div *ngIf="showJBrowse()"
-       class="jbrowse-container">
+
+  <div class="widgets-container">
+
+<div *ngIf="currentWidget() == 'genome_browser'" class="chromosome-region-view">
+
+  <div class="jbrowse-container">
     <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
     </iframe>
   </div>
 </div>
 
-<div *ngIf="!deployConfigService.productionMode()" class="alphafold-view">
-  <div class="alphafold-text">
+<div *ngIf="currentWidget() == 'structure_viewer'" class="alphafold-view">
+
+    <div *ngIf="proteinTooLong()" class="alphafold-too-long-message">
+      This protein has no Alphafold predicted structure because it is longer than
+      {{appConfig.alphafoldMaxProteinLength}} residues.  See the
+      <a href="https://alphafold.ebi.ac.uk/faq">Alphafold FAQ</a> for more details.
+    </div>
+
+    <div *ngIf="!proteinTooLong() && alphaFoldLoading()" class="alphafold-loading-message">
+      Structure view loading ...
+    </div>
+
+  <div *ngIf="!proteinTooLong()" class="alphafold-container">
+    <div class="alphafold-iframe-container">
+    <iframe (load)="alphaFoldFinishedLoading()" [src]="getAlphaFoldIFrameURL()" scrolling="no"
+            #alphafoldiframe class="embedded-alphafold">
+    </iframe>
+    </div>
+
+    <div *ngIf="!alphaFoldLoading()" class="alphafold-text">
     <div>
-      <a href="https://alphafold.ebi.ac.uk/entry/{{geneDetails.uniprot_identifier}}">
-        View full {{geneDetails.uniprot_identifier}} Alphafold page
+      <a href="https://alphafold.ebi.ac.uk/entry/{{geneDetails.uniprot_identifier}}" target="_blank">
+        View full Alphafold page
+      </a>
+    </div>
+    <div>
+      <a href="https://molstar.org/viewer-docs/#mouse-controls" target="_blank">
+        Viewer control documentation
       </a>
     </div>
   </div>
-  <div *ngIf="getAlphaFoldIFrameURL()" class="alphafold-container">
-    <iframe [src]="getAlphaFoldIFrameURL()" scrolling="no" class="embedded-alphafold">
-    </iframe>
   </div>
+</div>
+</div>
 </div>

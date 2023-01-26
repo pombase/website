@@ -4,9 +4,9 @@ import { BehaviorSubject } from 'rxjs';
 import { getAppConfig } from './config';
 import { TermShort } from './pombase-query';
 
-export type GenePageWidget = 'none' | 'genome_browser';
+export type GenePageWidget = 'none' | 'genome_browser' | 'structure_viewer';
 
-const localStorageKey = 'pombase-settings-v1';
+const localStorageKey = 'pombase-settings-v2';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class SettingsService {
 
   readonly visibleGenesTableFieldNames$ = this._visibleGenesTableFieldNames.asObservable();
 
-  private _genePageMainWidget: GenePageWidget = 'genome_browser';
+  private _genePageMainWidget: GenePageWidget = 'structure_viewer';
 
   private settingsAsJson(): string {
     return JSON.stringify({
@@ -135,7 +135,7 @@ export class SettingsService {
     this.searchText = text;
   }
 
-  get genePageMainWidget(): 'none'|'genome_browser' {
+  get genePageMainWidget(): GenePageWidget {
     return this._genePageMainWidget;
   }
 

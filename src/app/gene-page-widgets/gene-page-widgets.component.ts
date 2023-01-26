@@ -1,9 +1,9 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
-import { SettingsService } from '../settings.service';
+import { GenePageWidget, SettingsService } from '../settings.service';
 import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
@@ -14,6 +14,8 @@ import { DeployConfigService } from '../deploy-config.service';
 export class GenePageWidgetsComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;
 
+  @ViewChild('alphafoldiframe') alphafoldiframe: ElementRef;
+
   faCaretDown = faCaretDown;
   faCaretRight = faCaretRight;
 
@@ -21,6 +23,8 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   jbrowseLinkUrl?: string;
   sanitizedJBrowseURL?: SafeResourceUrl;
   sanitizedAlphaFoldURL?: SafeResourceUrl;
+
+  alphaFoldStatus: 'loading' | 'loaded' | 'hidden' = 'hidden';
 
   constructor(private pombaseApiService: PombaseAPIService,
               private sanitizer: DomSanitizer,
@@ -41,7 +45,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
           const mid = Math.round((lowerPos + upperPos) / 2);
 
-          const jbHalfWidth = 10000;
+          const jbHalfWidth = 8000;
           let jbStart = mid - jbHalfWidth;
           if (jbStart < 1) {
             jbStart = 1;
@@ -75,9 +79,65 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     }
   }
 
-  showJBrowse(): boolean {
-    return !!this.getJBrowseIFrameURL() &&
-      this.settingsService.genePageMainWidget == 'genome_browser';
+  currentWidget(): GenePageWidget {
+    if (this.showAlphafold()) {
+      return this.settingsService.genePageMainWidget;
+    } else {
+      if (this.settingsService.genePageMainWidget == 'structure_viewer') {
+        return 'genome_browser';
+      } else {
+        return this.settingsService.genePageMainWidget;
+      }
+    }
+  }
+
+  hideAllWidgets() {
+    this.settingsService.genePageMainWidget = 'none';
+  }
+
+  showAlphafold(): boolean {
+    if (this.geneDetails.transcripts.length == 0) {
+      return false;
+    }
+
+    const seq = this.geneDetails.transcripts[0].protein?.sequence;
+    if (seq) {
+      return seq.length > 0;
+    } else {
+      return false;
+    }
+  }
+
+  setWidget(widget: GenePageWidget) {
+    this.settingsService.genePageMainWidget = widget;
+
+    if (widget == 'structure_viewer') {
+      this.alphaFoldStatus = 'loading';
+    } else {
+      this.alphaFoldStatus = 'hidden';
+    }
+  }
+
+  alphaFoldLoading() {
+    return this.alphaFoldStatus == 'loading';
+  }
+
+  proteinTooLong(): boolean {
+    const protLength = this.geneDetails.transcripts[0].protein?.sequence.length;
+    return !!protLength && protLength > this.appConfig.alphafoldMaxProteinLength;
+  }
+
+  alphaFoldFinishedLoading() {
+    if (this.alphafoldiframe?.nativeElement.contentDocument?.body) {
+      // This hack is needed because in Chrome the onload event is fired twice,
+      // once when the iframe is added to the dom and then later when the
+      // iframe is actually loaded
+      //
+      // See:
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=578812
+      // https://itecnote.com/tecnote/javascript-dynamically-created-iframe-triggers-onload-event-twice/
+      this.alphaFoldStatus = 'loaded';
+    }
   }
 
   getJBrowseIFrameURL(): SafeResourceUrl | undefined {
@@ -88,13 +148,6 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     return this.sanitizedAlphaFoldURL;
   }
 
-  hideGenomeBrowser() {
-    this.settingsService.genePageMainWidget = 'none';
-  }
-
-  showGenomeBrowser() {
-    this.settingsService.genePageMainWidget = 'genome_browser';
-  }
 
   ngOnInit(): void {
 
@@ -103,9 +156,17 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
     this.setJBrowseLink();
 
+    if (this.settingsService.genePageMainWidget == 'structure_viewer' &&
+        this.showAlphafold()) {
+      this.alphaFoldStatus = 'loading';
+    } else {
+      this.alphaFoldStatus = 'hidden';
+    }
+
     if (this.geneDetails.uniprot_identifier) {
+      const rawUrl = 'structure_view/' + this.geneDetails.uniprot_identifier;
       this.sanitizedAlphaFoldURL =
-        this.sanitizer.bypassSecurityTrustResourceUrl('structure_view/' + this.geneDetails.uniprot_identifier);
+        this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
     } else {
       this.sanitizedAlphaFoldURL = undefined;
     }

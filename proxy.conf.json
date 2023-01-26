@@ -1,6 +1,6 @@
 {
   "/jbrowse": {
-    "target": "http://localhost/",
+    "target": "http://localhost:8502/",
     "secure": false
   },
   "/media": {
