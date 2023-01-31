@@ -71,7 +71,7 @@
   vertical-align: top;
 }
 
-.alphafold-text div {
+.alphafold-text > div {
   margin-bottom: 1em;
 }
 
@@ -167,4 +167,24 @@ img.widget-button {
   font-size: 120%;
   padding: 1.5em;
   max-width: 36em;
+}
+
+.structure-confidence-help {
+  font-size: 95%;
+}
+
+.structure-confidence-help > div {
+  margin-bottom: 0.5em;
+}
+
+.structure-confidence-help-item {
+  font-size: 93%;
+}
+
+.structure-confidence-help-colour {
+  height: 1em;
+  width: 1em;
+  margin-right: 0.2em;
+  display: inline-block;
+  vertical-align: middle;
 }
