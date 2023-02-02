@@ -1,0 +1,43 @@
+<fieldset class="annotation-table">
+  <legend>
+    Gene history
+  </legend>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Date
+        </th>
+        <th>
+          Previous gene structure
+        </th>
+        <th>
+          Reference
+        </th>
+        <th>
+          Comment
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let entry of geneDetails.gene_history">
+        <td>
+          {{entry.date}}
+        </td>
+        <td>
+          {{entry.previous_coords}}
+        </td>
+        <td>
+          <span *ngFor="let reference of entry.references">
+            {{reference}}
+          </span>
+        </td>
+        <td>
+          <span *ngIf="entry.comment">{{entry.comment}}</span>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</fieldset>

@@ -511,6 +511,13 @@ export interface GenotypeShortByUniquename {
   [genotype_uniquename: string]: GenotypeShort;
 }
 
+export interface GeneHistoryEntry {
+  date: string;
+  previous_coords: string;
+  references: Array<string>;
+  comment?: string;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
@@ -543,6 +550,7 @@ export class GeneDetails {
   annotation_details: AnnotationDetailMap;
   feature_publications: Array<ReferenceShort>;
   genotypes_by_uniquename: GenotypeShortByUniquename;
+  gene_history: Array<GeneHistoryEntry>;
 }
 
 export class GenotypeDetails {
@@ -1058,6 +1066,10 @@ export class PombaseAPIService {
 
     if (!json.coiled_coil_coords) {
       json.coiled_coil_coords = [];
+    }
+
+    if (!json.gene_history) {
+      json.gene_history = [];
     }
 
     let genesByUniquename = json.genes_by_uniquename as GeneMap;

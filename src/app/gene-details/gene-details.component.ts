@@ -69,7 +69,7 @@ export class GeneDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
-              private deployConfigService: DeployConfigService,
+              public deployConfigService: DeployConfigService,
               private readonly meta: Meta,
               @Inject('Window') private window: any
              ) { }

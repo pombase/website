@@ -137,6 +137,7 @@ import { AlleleDetailsComponent } from './allele-details/allele-details.componen
 import { GeneticInteractionAnnotationTableComponent } from './genetic-interaction-annotation-table/genetic-interaction-annotation-table.component';
 import { GenePageWidgetsComponent } from './gene-page-widgets/gene-page-widgets.component';
 import { GenotypeReferencesTableComponent } from './genotype-references-table/genotype-references-table.component';
+import { GeneHistoryTableComponent } from './gene-history-table/gene-history-table.component';
 
 export function documentFactory() {
     return document;
@@ -247,6 +248,7 @@ export function windowFactory() {
     GeneticInteractionTableFiltersComponent,
     GenePageWidgetsComponent,
     GenotypeReferencesTableComponent,
+    GeneHistoryTableComponent,
   ],
   imports: [
     BrowserModule,
