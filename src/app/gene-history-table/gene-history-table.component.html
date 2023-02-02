@@ -21,7 +21,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let entry of geneDetails.gene_history">
+      <tr *ngFor="let entry of processedHistory">
         <td>
           {{entry.date}}
         </td>
@@ -29,8 +29,15 @@
           {{entry.previous_coords}}
         </td>
         <td>
-          <span *ngFor="let reference of entry.references">
-            {{reference}}
+          <span *ngFor="let referenceParts of entry.processedReferences">
+            <span *ngFor="let ref of referenceParts">
+              <span *ngIf="ref.text">
+                {{ref.text}}
+              </span>
+              <span *ngIf="ref.referenceUniquename">
+                <a routerLink="/reference/{{ref.referenceUniquename}}">{{ref.referenceUniquename}}</a>
+              </span>
+            </span>
           </span>
         </td>
         <td>
