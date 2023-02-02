@@ -515,7 +515,7 @@ export interface GeneHistoryEntry {
   date: string;
   previous_coords: string;
   references: Array<string>;
-  comment?: string;
+  comments?: string;
 }
 
 export class GeneDetails {
