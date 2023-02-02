@@ -10,12 +10,12 @@
          class="non-active-widget-button"
          title="Click to view protein structure">
       <a (click)="setWidget('structure_viewer')">
-        <div>Structure viewer</div>
+        <div>Predicted structure</div>
         <img class="widget-button" src="assets/structure-widget-icon.png" />
       </a>
     </div>
     <div *ngIf="currentWidget() == 'structure_viewer'" class="active-widget-button">
-      <div>Structure viewer</div>
+      <div>Predicted structure</div>
       <img class="widget-button" src="assets/structure-widget-icon.png" />
     </div>
     </ng-container>
