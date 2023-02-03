@@ -84,6 +84,14 @@
     border-left: 3px solid grey;
   }
 
+  .widget-buttons-vertical .non-active-widget-button:hover {
+    border-left: 3px solid #eee;
+  }
+
+  .widget-buttons-vertical .non-active-widget-button:not(:hover) {
+    border-left: 3px solid #fff;
+  }
+
   .widgets-picker-container {
     display: inline-block;
   }
@@ -125,6 +133,14 @@
     border-top: 2px solid grey;
   }
 
+  .non-active-widget-button:hover {
+    border-top: 3px solid #eee;
+  }
+
+  .non-active-widget-button:not(:hover) {
+    border-top: 3px solid #fff;
+  }
+
   .non-active-widget-button, .active-widget-button {
     margin: 8px 24px 10px 2px;
     min-height: 2em;
@@ -140,7 +156,7 @@ img.widget-button {
   margin: 2px 0 5px 10px;
 }
 
-.non-active-widget-button img {
+.non-active-widget-button:not(:hover) img {
   opacity: 80%;
 }
 
