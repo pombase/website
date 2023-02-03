@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { getAppConfig } from './config';
 import { TermShort } from './pombase-query';
 
-export type GenePageWidget = 'none' | 'genome_browser' | 'structure_viewer';
+export type GenePageWidget = 'none' | 'genome_browser' | 'alphafold_viewer' | 'pdb_viewer';
 
 const localStorageKey = 'pombase-settings-v2';
 
@@ -36,7 +36,7 @@ export class SettingsService {
 
   readonly visibleGenesTableFieldNames$ = this._visibleGenesTableFieldNames.asObservable();
 
-  private _genePageMainWidget: GenePageWidget = 'structure_viewer';
+  private _genePageMainWidget: GenePageWidget = 'alphafold_viewer';
 
   private settingsAsJson(): string {
     return JSON.stringify({
