@@ -76,9 +76,14 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   currentWidget(): GenePageWidget {
     if (this.showStructure()) {
+      if (this.geneDetails.pdb_identifiers.length == 0 &&
+          this.settingsService.genePageMainWidget == 'pdb_viewer') {
+        return 'alphafold_viewer';
+      }
       return this.settingsService.genePageMainWidget;
     } else {
-      if (this.settingsService.genePageMainWidget == 'alphafold_viewer') {
+      if (this.settingsService.genePageMainWidget == 'alphafold_viewer' ||
+          this.settingsService.genePageMainWidget == 'pdb_viewer') {
         return 'genome_browser';
       } else {
         return this.settingsService.genePageMainWidget;
@@ -105,6 +110,10 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     } else {
       return false;
     }
+  }
+
+  showPDBStructure(): boolean {
+    return this.geneDetails.pdb_identifiers.length > 0 && this.showStructure();
   }
 
   setWidget(widget: GenePageWidget) {

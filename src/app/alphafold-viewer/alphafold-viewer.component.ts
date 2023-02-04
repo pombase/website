@@ -51,7 +51,7 @@ export class AlphafoldViewerComponent implements OnInit {
   ngOnChanges(): void {
 
     if (this.geneDetails.uniprot_identifier) {
-      const rawUrl = 'structure_view/' + this.geneDetails.uniprot_identifier;
+      const rawUrl = 'structure_view/alphafold/' + this.geneDetails.uniprot_identifier;
       this.sanitizedAlphaFoldURL =
         this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
     } else {
