@@ -20,6 +20,20 @@
     </div>
     </ng-container>
 
+    <ng-container *ngIf="!deployConfigService.productionMode() && showPDBStructure()">
+      <div *ngIf="currentWidget() != 'pdb_viewer'" class="non-active-widget-button"
+        title="Click to view protein structures from PDB">
+        <a (click)="setWidget('pdb_viewer')">
+          <div>PDB structures</div>
+          <img class="widget-button" src="assets/pdb-structure-widget-icon.png" />
+        </a>
+      </div>
+      <div *ngIf="currentWidget() == 'pdb_viewer'" class="active-widget-button">
+        <div>PDB structures</div>
+        <img class="widget-button" src="assets/pdb-structure-widget-icon.png" />
+      </div>
+    </ng-container>
+
     <div *ngIf="currentWidget() != 'genome_browser'"
          class="non-active-widget-button"
          title="Click to view gene in genome browser">
@@ -60,6 +74,11 @@
 <div *ngIf="currentWidget() == 'alphafold_viewer'" class="alphafold-view">
   <app-alphafold-viewer [geneDetails]="geneDetails">
   </app-alphafold-viewer>
+</div>
+
+<div *ngIf="!deployConfigService.productionMode() && currentWidget() == 'pdb_viewer'" class="pdb-structure-view">
+  <app-pdb-structure-viewer [geneDetails]="geneDetails">
+  </app-pdb-structure-viewer>
 </div>
 </div>
 </div>
