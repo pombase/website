@@ -16,8 +16,8 @@ export class GenotypeLinkComponent implements OnInit {
 
   displayNameLong(): string {
     return this.genotype.displayNameLong
-      .replace(/,/g, ',&#8201;')
-      .replace(/\(/g, '&#8201\(');
+      .replace(/,/g, ',<wbr>')
+      .replace(/\(/g, '<wbr>\(');
   }
 
   constructor() { }

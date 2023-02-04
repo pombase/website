@@ -47,7 +47,7 @@ export class GenotypeDetailsComponent implements OnInit {
   setDisplayName(): void {
     const displayName = this.displayNameLong();
     this.displayNameForTitle = displayName;
-    this.displayName = displayName.replace(/,/g, ',&thinsp;');
+    this.displayName = displayName.replace(/,/g, ',<wbr>');
 
     if (this.displayNameForTitle.length > 105) {
       this.displayNameForTitle = this.displayNameForTitle.substr(0, 100) + ' ...';

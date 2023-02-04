@@ -18,13 +18,13 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
   constructor() { }
 
   tidyAlleleName(alleleName?: string): string {
-    return Util.tidyAlleleName(alleleName);
+    return Util.tidyAlleleName(alleleName).replace(/,/g, ',<wbr>');
   }
 
   alleleDisplayDescription(allele: AlleleShort): string {
     let description = Util.descriptionWithResidueType(allele);
     if (description) {
-      return description.replace(/,/g, ',&#8201;');
+      return description.replace(/,/g, ',<wbr>');
     } else {
       return '';
     }
