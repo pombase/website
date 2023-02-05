@@ -124,7 +124,8 @@
 
           <div *ngIf="hasCantoSession() && !hasApprovedSession()">
             <div *ngIf="isAdminSession()">
-              This paper has partial curation that predates {{siteName}} and Canto.
+              This paper has partial curation that predates {{siteName}} and Canto,
+              or is imported from a third party database.
               Please
               <app-contact-email [linkName]="'contact the curators'"
                                  [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
@@ -136,7 +137,8 @@
           </div>
 
           <div *ngIf="!hasCantoSession()">
-            This paper has partial curation that predates {{siteName}} and Canto.
+            This paper has partial curation that predates {{siteName}} and Canto,
+            or is imported from a third party database.
             Please
             <app-contact-email [linkName]="'contact the curators'"
                                [subject]="'Request to contribute annotations for ' + refDetails.uniquename"></app-contact-email>
