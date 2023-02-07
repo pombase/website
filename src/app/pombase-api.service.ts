@@ -518,6 +518,12 @@ export interface GeneHistoryEntry {
   comments?: string;
 }
 
+export interface PDBEntry {
+  pdb_id: string;
+  experimental_method: string;
+  resolution?: string;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
@@ -537,7 +543,7 @@ export class GeneDetails {
   disordered_region_coords: Array<Array<number>>;
   coiled_coil_coords: Array<Array<number>>;
   orfeome_identifier: string;
-  pdb_identifiers: Array<string>;
+  pdb_entries: Array<PDBEntry>;
   characterisation_status: string;
   location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
@@ -1097,7 +1103,7 @@ export class PombaseAPIService {
     for (let fieldName of ['physical_interactions', 'genetic_interactions',
                            'ortholog_annotations', 'paralog_annotations',
                            'target_of_annotations', 'synonyms', 'name_descriptions',
-                           'pdb_identifiers',
+                           'pdb_entries',
                            'interpro_matches', 'genetic_interactions']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = [];

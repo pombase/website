@@ -79,6 +79,7 @@
 
   .widgets-picker-container {
     display: inline-block;
+    min-width: 9.5em;
   }
 
   .non-active-widget-button, .active-widget-button {

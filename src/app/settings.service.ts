@@ -6,7 +6,7 @@ import { TermShort } from './pombase-query';
 
 export type GenePageWidget = 'none' | 'genome_browser' | 'alphafold_viewer' | 'pdb_viewer';
 
-const localStorageKey = 'pombase-settings-v2';
+const localStorageKey = 'pombase-settings-v3';
 
 @Injectable({
   providedIn: 'root'

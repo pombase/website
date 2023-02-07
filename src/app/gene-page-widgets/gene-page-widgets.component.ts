@@ -76,7 +76,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   currentWidget(): GenePageWidget {
     if (this.showStructure()) {
-      if (this.geneDetails.pdb_identifiers.length == 0 &&
+      if (this.geneDetails.pdb_entries.length == 0 &&
           this.settingsService.genePageMainWidget == 'pdb_viewer') {
         return 'alphafold_viewer';
       }
@@ -113,7 +113,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   }
 
   showPDBStructure(): boolean {
-    return this.geneDetails.pdb_identifiers.length > 0 && this.showStructure();
+    return this.geneDetails.pdb_entries.length > 0 && this.showStructure();
   }
 
   setWidget(widget: GenePageWidget) {

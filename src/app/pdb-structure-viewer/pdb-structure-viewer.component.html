@@ -1,4 +1,48 @@
+<div *ngIf="structureLoading()" class="loading-message">
+  Structure view loading ...
+</div>
+
 <div class="pdb-structure-view">
-  <iframe [src]="sanitizedURL" scrolling="no" #pdbiframe class="embedded-pdb">
-  </iframe>
+  <div class="pdb-iframe-container">
+    <iframe (load)="finishedLoading()" [src]="sanitizedURL" scrolling="no" #pdbiframe class="embedded-pdb">
+    </iframe>
+  </div>
+
+  <div *ngIf="!structureLoading()" class="pdb-text">
+    <div class="pdb-main-text">
+      Structures from PDB for {{geneDetails.displayName}}:
+    </div>
+
+    <div class="pdb-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>PDB ID</th>
+            <th>Method</th>
+            <th>Resolution (Å)</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pdbEntry of geneDetails.pdb_entries"
+              [ngClass]="{'selected-entry': currentEntry && currentEntry.pdb_id == pdbEntry.pdb_id }"
+              (click)="selectEntry(pdbEntry)" title="Click to show structure {{pdbEntry.pdb_id}}">
+            <td>
+              {{pdbEntry.pdb_id}}
+            </td>
+            <td>
+              {{pdbEntry.experimental_method}}
+            </td>
+            <td>
+              {{displayResolution(pdbEntry)}}
+            </td>
+            <td>
+              <a [attr.href]="appConfig.pdbe_entry_url + '/' + pdbEntry.pdb_id"
+                 [title]="'Visit the PDBe page for ' + pdbEntry.pdb_id">PDBe</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

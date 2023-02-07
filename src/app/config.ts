@@ -285,6 +285,7 @@ export interface AppConfig {
   ensembl_blast_url: string;
   jackhmmer_search_url: string;
   ebi_tools_url: string;
+  pdbe_entry_url: string;
   canto_url: string;
   intermine?: {
     list_post_url: string;
@@ -710,6 +711,7 @@ let _appConfig: AppConfig = {
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,
   jackhmmer_search_url: pombaseConfig.jackhmmer_search_url,
   ebi_tools_url: pombaseConfig.ebi_tools_url,
+  pdbe_entry_url: pombaseConfig.pdbe_entry_url,
   canto_url: pombaseConfig.canto_url,
   intermine: pombaseConfig.intermine,
   community_mailing_list: pombaseConfig.community_mailing_list,
