@@ -1,5 +1,5 @@
 .embedded-pdb {
-  width: 630px;
+  width: 600px;
   height: 400px;
   border: 0;
 }
@@ -20,7 +20,7 @@
 }
 
 table {
-  margin-right: 2em;
+  margin-right: 0.5em;
 }
 
 @media (max-width: 1299px) {
@@ -53,7 +53,7 @@ table {
 }
 
 td, th {
-  padding: 0.2em 0.8em;
+  padding: 0.3em 0.6em;
   white-space: nowrap;
 }
 
