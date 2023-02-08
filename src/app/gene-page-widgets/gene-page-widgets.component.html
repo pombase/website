@@ -61,7 +61,7 @@
   </div>
   </div>
 
-  <div class="widgets-container">
+  <div *ngIf="currentWidget() != 'none'" class="widgets-container">
 
 <div *ngIf="currentWidget() == 'genome_browser'" class="chromosome-region-view">
 
