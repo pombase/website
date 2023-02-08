@@ -16,7 +16,11 @@
 }
 
 .pdb-table-container {
-  overflow: scroll;
+  overflow-y: auto;
+}
+
+table {
+  margin-right: 2em;
 }
 
 @media (max-width: 1299px) {
@@ -49,7 +53,8 @@
 }
 
 td, th {
-  padding: 0.2em 0.6em;
+  padding: 0.2em 0.8em;
+  white-space: nowrap;
 }
 
 th {
