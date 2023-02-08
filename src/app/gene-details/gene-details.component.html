@@ -126,10 +126,6 @@
       </app-gene-page-widgets>
     </div>
 
-    <app-gene-neighbourhood [focusGeneUniquename]="geneDetails.uniquename"
-                            [focusGeneName]="geneDetails.name"
-                            [neighbourhood]="geneDetails.gene_neighbourhood"></app-gene-neighbourhood>
-
     <div *ngFor="let annotationTypeName of annotationTypeNames">
 
       <div *ngIf="geneDetails.cv_annotations[annotationTypeName]">
