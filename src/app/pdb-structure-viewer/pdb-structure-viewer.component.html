@@ -20,6 +20,8 @@
             <th>PDB ID</th>
             <th>Method</th>
             <th>Res (Å)</th>
+            <th>Chain</th>
+            <th>Position</th>
             <th></th>
           </tr>
         </thead>
@@ -35,6 +37,12 @@
             </td>
             <td>
               {{displayResolution(pdbEntry)}}
+            </td>
+            <td>
+              {{pdbEntry.chain}}
+            </td>
+            <td>
+              {{pdbEntry.position}}
             </td>
             <td>
               <a [attr.href]="appConfig.pdbe_entry_url + '/' + pdbEntry.pdb_id"

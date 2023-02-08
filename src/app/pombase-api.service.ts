@@ -522,6 +522,8 @@ export interface PDBEntry {
   pdb_id: string;
   experimental_method: string;
   resolution?: string;
+  chain: string;
+  position: string;
 }
 
 export class GeneDetails {
