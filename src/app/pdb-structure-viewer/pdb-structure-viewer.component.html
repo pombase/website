@@ -27,8 +27,11 @@
         </thead>
         <tbody>
           <tr *ngFor="let pdbEntry of geneDetails.pdb_entries"
+              [popover]="entryPopover" [delay]="500"
+              [popoverContext]="popoverContext(pdbEntry)" [adaptivePosition]="false"
+              container="body" placement="bottom" triggers="mouseenter:mouseleave"
               [ngClass]="{'selected-entry': currentEntry && currentEntry.pdb_id == pdbEntry.pdb_id }"
-              (click)="selectEntry(pdbEntry)" title="Click to show structure {{pdbEntry.pdb_id}}">
+              (click)="selectEntry(pdbEntry)">
             <td>
               {{pdbEntry.pdb_id}}
             </td>
@@ -54,3 +57,13 @@
     </div>
   </div>
 </div>
+
+<ng-template #entryPopover let-title="title" let-authors="authors" let-pdbId="pdbId">
+  <div class="entry-popover-title">{{title}}</div>
+  <div class="entry-popover-authors">{{authors}}</div>
+  <div>(Click to view this structure)</div>
+
+  <div class="entry-popover-image">
+    <img src="{{popoverImageUrl(pdbId)}}"/>
+  </div>
+</ng-template>

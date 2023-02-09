@@ -3,6 +3,12 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
 import { GeneDetails, PDBEntry } from '../pombase-api.service';
 
+interface PDBContext {
+  pdbId: string;
+  title: string;
+  authors: string;
+}
+
 @Component({
   selector: 'app-pdb-structure-viewer',
   templateUrl: './pdb-structure-viewer.component.html',
@@ -54,6 +60,18 @@ export class PdbStructureViewerComponent implements OnInit {
     this.setURL();
   }
 
+  popoverContext(pdbEntry: PDBEntry): PDBContext {
+    let pdbId = pdbEntry.pdb_id;
+    let title = pdbEntry.title;
+    let authors = pdbEntry.entry_authors_abbrev;
+
+    return {
+      pdbId,
+      title,
+      authors,
+    };
+  }
+
   displayResolution(pdbEntry: PDBEntry): string {
     if (pdbEntry.resolution) {
       const parsedRes = Number.parseFloat(pdbEntry.resolution);
@@ -66,6 +84,10 @@ export class PdbStructureViewerComponent implements OnInit {
     } else {
       return '';
     }
+  }
+
+  popoverImageUrl(pdbId: string): string {
+    return this.appConfig.pdbe_image_url.replace('<<PDB_ID>>', pdbId);
   }
 
   ngOnChanges(): void {

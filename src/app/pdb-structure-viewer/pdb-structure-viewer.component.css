@@ -20,7 +20,7 @@
 }
 
 table {
-  margin-right: 0.5em;
+  margin-right: 1.1em;
 }
 
 @media (max-width: 1299px) {
@@ -85,4 +85,12 @@ tbody tr.selected-entry {
 
 tbody tr:hover {
   border-left: 3px solid lightgray;
+}
+
+.entry-popover-title {
+  font-style: italic;
+}
+
+.entry-popover-image img {
+  width: 100px;
 }

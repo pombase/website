@@ -520,6 +520,9 @@ export interface GeneHistoryEntry {
 
 export interface PDBEntry {
   pdb_id: string;
+  title: string;
+  entry_authors: string;
+  entry_authors_abbrev: string;
   experimental_method: string;
   resolution?: string;
   chain: string;
