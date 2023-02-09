@@ -19,7 +19,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   singleLocus = true;
   multiLocus = false;
   haploid = true;
-  diploid = false;
+  diploid = true;
 
   expression?: string;
   phenotypeConditionNamespace?: string;
