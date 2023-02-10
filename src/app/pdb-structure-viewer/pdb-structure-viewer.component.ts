@@ -1,12 +1,22 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
-import { GeneDetails, PDBEntry } from '../pombase-api.service';
+import { PDBEntry, PDBGeneChain } from '../pombase-api.service';
 
 interface PDBContext {
   pdbId: string;
   title: string;
   authors: string;
+}
+
+interface DisplayEntry {
+  pdb_id: string;
+  title: string;
+  entry_authors_abbrev: string;
+  experimental_method: string;
+  resolution?: string;
+  chain?: string;
+  position?: string;
 }
 
 @Component({
@@ -15,16 +25,19 @@ interface PDBContext {
   styleUrls: ['./pdb-structure-viewer.component.css']
 })
 export class PdbStructureViewerComponent implements OnInit {
-  @Input() geneDetails: GeneDetails;
+  @Input() displayName?: string;
+  @Input() pdbEntries: Array<PDBEntry>;
+  @Input() pageType: 'gene' | 'reference';
 
   @ViewChild('pdbiframe') pdbiframe: ElementRef;
 
   appConfig: AppConfig = getAppConfig();
 
   sanitizedURL?: SafeResourceUrl;
-  currentEntry?: PDBEntry = undefined;
+  currentEntry?: DisplayEntry = undefined;
 
   status: 'loading' | 'loaded' = 'loading';
+  displayEntries: Array<DisplayEntry>;
 
   constructor(private sanitizer: DomSanitizer) { }
 
@@ -55,15 +68,15 @@ export class PdbStructureViewerComponent implements OnInit {
     }
   }
 
-  selectEntry(pdbEntry: PDBEntry) {
-    this.currentEntry = pdbEntry;
+  selectEntry(displayEntry: DisplayEntry) {
+    this.currentEntry = displayEntry;
     this.setURL();
   }
 
-  popoverContext(pdbEntry: PDBEntry): PDBContext {
-    let pdbId = pdbEntry.pdb_id;
-    let title = pdbEntry.title;
-    let authors = pdbEntry.entry_authors_abbrev;
+  popoverContext(displayEntry: DisplayEntry): PDBContext {
+    let pdbId = displayEntry.pdb_id;
+    let title = displayEntry.title;
+    let authors = displayEntry.entry_authors_abbrev;
 
     return {
       pdbId,
@@ -72,9 +85,9 @@ export class PdbStructureViewerComponent implements OnInit {
     };
   }
 
-  displayResolution(pdbEntry: PDBEntry): string {
-    if (pdbEntry.resolution) {
-      const parsedRes = Number.parseFloat(pdbEntry.resolution);
+  displayResolution(displayEntry: DisplayEntry): string {
+    if (displayEntry.resolution) {
+      const parsedRes = Number.parseFloat(displayEntry.resolution);
 
       if (Number.isNaN(parsedRes)) {
         return '';
@@ -91,8 +104,42 @@ export class PdbStructureViewerComponent implements OnInit {
   }
 
   ngOnChanges(): void {
-    this.currentEntry = this.geneDetails.pdb_entries[0];
+    this.makeDisplayEntries();
+    this.currentEntry = this.pdbEntries[0];
     this.setURL();
+  }
+
+  makeDisplayEntry(pdbEntry: PDBEntry, geneChain?: PDBGeneChain): DisplayEntry {
+    let ret = {
+      pdb_id: pdbEntry.pdb_id,
+      title: pdbEntry.title,
+      entry_authors_abbrev: pdbEntry.entry_authors_abbrev,
+      experimental_method: pdbEntry.experimental_method,
+      resolution: pdbEntry.resolution,
+    } as DisplayEntry;
+
+    if (geneChain) {
+      ret.chain = geneChain.chain;
+      ret.position = geneChain.position;
+    }
+
+    return ret;
+  }
+
+  makeDisplayEntries() {
+    this.displayEntries = [];
+
+    for (const entry of this.pdbEntries) {
+      if (this.pageType == 'gene') {
+        for (const geneChain of entry.gene_chains) {
+          let displayEntry = this.makeDisplayEntry(entry, geneChain);
+          this.displayEntries.push(displayEntry);
+        }
+      } else {
+        let displayEntry = this.makeDisplayEntry(entry);
+        this.displayEntries.push(displayEntry);
+      }
+    }
   }
 
   ngOnInit(): void {

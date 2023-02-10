@@ -10,7 +10,7 @@
 
   <div *ngIf="!structureLoading()" class="pdb-text">
     <div class="pdb-main-text">
-      Structures from PDB for {{geneDetails.displayName}}:
+      Structures from PDB<span *ngIf="displayName"> for {{displayName}}</span>:
     </div>
 
     <div class="pdb-table-container">
@@ -20,13 +20,13 @@
             <th>PDB ID</th>
             <th>Method</th>
             <th>Res (Å)</th>
-            <th>Chain</th>
-            <th>Position</th>
+            <th *ngIf="pageType == 'gene'">Chain</th>
+            <th *ngIf="pageType == 'gene'">Position</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let pdbEntry of geneDetails.pdb_entries"
+          <tr *ngFor="let pdbEntry of displayEntries"
               [popover]="entryPopover" [delay]="500"
               [popoverContext]="popoverContext(pdbEntry)" [adaptivePosition]="false"
               container="body" placement="bottom" triggers="mouseenter:mouseleave"
@@ -41,10 +41,10 @@
             <td>
               {{displayResolution(pdbEntry)}}
             </td>
-            <td>
+            <td *ngIf="pageType == 'gene'">
               {{pdbEntry.chain}}
             </td>
-            <td>
+            <td *ngIf="pageType == 'gene'">
               {{pdbEntry.position}}
             </td>
             <td>
@@ -59,8 +59,11 @@
 </div>
 
 <ng-template #entryPopover let-title="title" let-authors="authors" let-pdbId="pdbId">
-  <div class="entry-popover-title">{{title}}</div>
-  <div class="entry-popover-authors">{{authors}}</div>
+  <div *ngIf="pageType == 'gene'">
+    <div class="entry-popover-title">{{title}}</div>
+    <div class="entry-popover-authors">{{authors}}</div>
+  </div>
+
   <div>(Click to view this structure)</div>
 
   <div class="entry-popover-image">

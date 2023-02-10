@@ -81,7 +81,9 @@
 </div>
 
 <div *ngIf="!deployConfigService.productionMode() && currentWidget() == 'pdb_viewer'" class="pdb-structure-view">
-  <app-pdb-structure-viewer [geneDetails]="geneDetails">
+  <app-pdb-structure-viewer
+      [displayName]="geneDetails.displayName" [pageType]="'gene'"
+      [pdbEntries]="geneDetails.pdb_entries">
   </app-pdb-structure-viewer>
 </div>
 </div>

@@ -518,15 +518,20 @@ export interface GeneHistoryEntry {
   comments?: string;
 }
 
+export interface PDBGeneChain {
+  gene_uniquename: string;
+  chain: string;
+  position: string;
+}
+
 export interface PDBEntry {
   pdb_id: string;
+  gene_chains: Array<PDBGeneChain>;
   title: string;
   entry_authors: string;
   entry_authors_abbrev: string;
   experimental_method: string;
   resolution?: string;
-  chain: string;
-  position: string;
 }
 
 export class GeneDetails {
@@ -638,6 +643,7 @@ export class ReferenceDetails {
   annotation_details: AnnotationDetailMap;
   gene_count: number;
   genotype_count: number;
+  pdb_entries: Array<PDBEntry>;
 }
 
 export interface TermSubsetElement {
@@ -1348,7 +1354,7 @@ export class PombaseAPIService {
       genotype_count: json.genotype_count || 0,
     };
 
-    for (let fieldName of ['genetic_interactions']) {
+    for (let fieldName of ['genetic_interactions', 'pdb_entries']) {
       if (typeof (json[fieldName]) === 'undefined') {
         json[fieldName] = [];
       }
