@@ -86,6 +86,13 @@
     </ng-container>
   </div>
 
+<div *ngIf="!deployConfigService.productionMode() && refDetails.pdb_entries.length > 0"
+     class="pdb-structure-view">
+  <app-pdb-structure-viewer
+    [pdbEntries]="refDetails.pdb_entries" [pageType]="'reference'">
+  </app-pdb-structure-viewer>
+</div>
+
   <div *ngIf="showBigGraphicalAbstract">
     <img class="big-graphical-abstract" src="{{bigGraphicalAbstractImagePath}}"/>
   </div>

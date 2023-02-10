@@ -7,6 +7,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
 import { Util } from '../shared/util';
 
 import { ReferenceDetails, PombaseAPIService, APIError, AnnotationCurator } from '../pombase-api.service';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-reference-details',
@@ -44,6 +45,7 @@ export class ReferenceDetailsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
+              public deployConfigService: DeployConfigService,
               private readonly meta: Meta,
              ) { }
 
