@@ -80,7 +80,7 @@
   </app-alphafold-viewer>
 </div>
 
-<div *ngIf="!deployConfigService.productionMode() && currentWidget() == 'pdb_viewer'" class="pdb-structure-view">
+<div *ngIf="currentWidget() == 'pdb_viewer'" class="pdb-structure-view">
   <app-pdb-structure-viewer
       [displayName]="geneDetails.displayName" [pageType]="'gene'"
       [pdbEntries]="geneDetails.pdb_entries">
