@@ -24,12 +24,19 @@ export class Util {
     }
   }
 
-  static safeCompare(str1?: string|number, str2?: string|number, options?: any) {
+  static safeCompare(str1?: string|number|Array<string>,
+                     str2?: string|number|Array<string>, options?: any) {
     if (str1) {
       if (str2) {
         if (typeof(str1) === 'number' && typeof(str1) === 'number') {
           return (str1 as number) - (str2 as number);
         } else {
+          if (str1 instanceof Array) {
+            str1 = str1.join(',');
+          }
+          if (str2 instanceof Array) {
+            str2 = str2.join(',');
+          }
           return str1.localeCompare(str2 as string, undefined, options);
         }
       } else {
