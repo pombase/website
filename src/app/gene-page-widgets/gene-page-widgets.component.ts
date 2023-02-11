@@ -4,7 +4,6 @@ import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 import { GenePageWidget, SettingsService } from '../settings.service';
-import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-gene-page-widgets',
@@ -23,7 +22,6 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   constructor(private pombaseApiService: PombaseAPIService,
               private sanitizer: DomSanitizer,
-              public deployConfigService: DeployConfigService,
               public settingsService: SettingsService) { }
 
   setJBrowseLink(): void {

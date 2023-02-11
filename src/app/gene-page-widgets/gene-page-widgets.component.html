@@ -20,7 +20,7 @@
     </div>
     </ng-container>
 
-    <ng-container *ngIf="!deployConfigService.productionMode() && showPDBStructure()">
+    <ng-container *ngIf="showPDBStructure()">
       <div *ngIf="currentWidget() != 'pdb_viewer'" class="non-active-widget-button"
         title="Click to view protein structures from PDB">
         <a (click)="setWidget('pdb_viewer')">
