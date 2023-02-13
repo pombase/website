@@ -60,7 +60,7 @@
       <div *ngIf="pageType == 'gene' && currentEntry && currentEntry.reference">
         <app-reference-short
           [reference]="currentEntry.reference"
-          [linkText]="'View publication for this structure: ' + currentEntry.reference.title"></app-reference-short>
+          [linkText]="'View publication for this structure: ' + currentEntry.reference.authors_abbrev"></app-reference-short>
       </div>
       <div *ngIf="pageType == 'reference' && currentEntry">
         Proteins in this structure:
