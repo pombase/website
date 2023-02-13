@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 
 import { ReferenceShort } from '../pombase-api.service';
 import { getXrf, getAppConfig } from '../config';
@@ -9,7 +9,7 @@ import { PopoverDirective } from 'ngx-bootstrap/popover';
   templateUrl: './reference-short.component.html',
   styleUrls: ['./reference-short.component.css']
 })
-export class ReferenceShortComponent implements OnInit {
+export class ReferenceShortComponent implements OnInit, OnChanges {
   @Input() reference: ReferenceShort;
   @Input() showRefTitle = false;
   @Input() linkText?: string;
@@ -48,7 +48,7 @@ export class ReferenceShortComponent implements OnInit {
     this.mouseIn = false;
   }
 
-  ngOnInit() {
+  ngOnChanges(): void {
     if (this.reference.gene_count && this.reference.gene_count > 0 ||
       this.reference.genotype_count && this.reference.genotype_count > 0) {
       this.hasAnnotation = true;
@@ -78,7 +78,7 @@ export class ReferenceShortComponent implements OnInit {
         if (m) {
           this.refTitle = m[0];
           if (this.refTitle !== this.reference.title) {
-              this.refTitle += ' ...';
+            this.refTitle += ' ...';
           }
         } else {
           this.refTitle = this.reference.title;
@@ -98,5 +98,8 @@ export class ReferenceShortComponent implements OnInit {
     if (this.linkText) {
       this.displayString = this.linkText;
     }
+  }
+
+  ngOnInit() {
   }
 }
