@@ -7,8 +7,10 @@ import { faWarning } from '@fortawesome/free-solid-svg-icons';
 
 import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
 
-import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig, ConfigOrganism, DetailsPageLinkConfig, getJBrowseTracksByGeneName, JBrowseTrackInfo } from '../config';
+import {
+  getAnnotationTableConfig, AnnotationTableConfig,
+  getAppConfig, AppConfig, ConfigOrganism, DetailsPageLinkConfig, getJBrowseTracksByGeneName, JBrowseTrackInfo
+} from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 import { Util } from '../shared/util';
 
@@ -262,18 +264,16 @@ export class GeneDetailsComponent implements OnInit {
       return;
     }
 
-    transcripts.map(transcript => {
-      this.productSizeOfTranscript1 = Util.productStringOfTranscript(transcript);
+    this.productSizeOfTranscript1 = Util.productStringOfTranscript(transcripts[0]);
 
-      this.proteinCount = 0;
-      this.geneDetails.transcripts.map(transcript => {
-        if (transcript.protein) {
-          this.proteinCount++;
-          if (!this.product) {
-            this.product = transcript.protein.product;
-          }
+    this.proteinCount = 0;
+    this.geneDetails.transcripts.map(transcript => {
+      if (transcript.protein) {
+        this.proteinCount++;
+        if (!this.product) {
+          this.product = transcript.protein.product;
         }
-      });
+      }
     });
 
     if (!this.product) {
