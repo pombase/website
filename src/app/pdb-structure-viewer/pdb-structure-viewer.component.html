@@ -65,7 +65,7 @@
       <div *ngIf="pageType == 'reference' && currentEntry">
         Proteins in this structure:
         <span *ngFor="let geneChain of currentEntry.gene_chains" class="gene-chain-gene">
-          <app-gene-link [gene]="geneChain.gene" [displayString]="geneChainDisplayName(geneChain)"></app-gene-link>
+          <app-gene-link [gene]="geneChain.gene"></app-gene-link>
         </span>
       </div>
     </div>

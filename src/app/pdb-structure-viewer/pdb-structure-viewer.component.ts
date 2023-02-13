@@ -101,11 +101,6 @@ export class PdbStructureViewerComponent implements OnInit {
     }
   }
 
-  geneChainDisplayName(geneChain: PDBGeneChain): string {
-    return geneChain.gene.name || geneChain.gene.uniquename + ' ' +
-      geneChain.chain + '=' + geneChain.position;
-  }
-
   popoverImageUrl(pdbId: string): string {
     return this.appConfig.pdbe_image_url.replace('<<PDB_ID>>', pdbId);
   }
