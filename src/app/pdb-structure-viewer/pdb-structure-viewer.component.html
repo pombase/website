@@ -13,7 +13,7 @@
       Protein structures from PDB<span *ngIf="displayName"> for {{displayName}}</span>:
     </div>
 
-    <div class="pdb-table-container">
+    <div class="pdb-table-container pdb-table-container-{{pageType}}">
       <table>
         <thead>
           <tr>
@@ -32,28 +32,42 @@
               container="body" placement="bottom" triggers="mouseenter:mouseleave"
               [ngClass]="{'selected-entry': currentEntry && currentEntry.pdb_id == pdbEntry.pdb_id }"
               (click)="selectEntry(pdbEntry)">
-            <td>
+            <td class="pdb-entry-detail">
               {{pdbEntry.pdb_id}}
             </td>
-            <td>
+            <td class="pdb-entry-detail">
               {{pdbEntry.experimental_method}}
             </td>
-            <td>
+            <td class="pdb-entry-detail">
               {{displayResolution(pdbEntry)}}
             </td>
-            <td *ngIf="pageType == 'gene'">
+            <td *ngIf="pageType == 'gene'" class="pdb-entry-detail">
               {{pdbEntry.chain}}
             </td>
-            <td *ngIf="pageType == 'gene'">
+            <td *ngIf="pageType == 'gene'" class="pdb-entry-detail">
               {{pdbEntry.position}}
             </td>
-            <td>
+            <td class="pdb-entry-detail">
               <a [attr.href]="appConfig.pdbe_entry_url + '/' + pdbEntry.pdb_id"
                  [title]="'Visit the PDBe page for ' + pdbEntry.pdb_id">PDBe</a>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="pdb-current-entry-details">
+      <div *ngIf="pageType == 'gene' && currentEntry && currentEntry.reference">
+        <app-reference-short
+          [reference]="currentEntry.reference"
+          [linkText]="'View publication for this structure: ' + currentEntry.reference.title"></app-reference-short>
+      </div>
+      <div *ngIf="pageType == 'reference' && currentEntry">
+        Proteins in this structure:
+        <span *ngFor="let geneChain of currentEntry.gene_chains" class="gene-chain-gene">
+          <app-gene-link [gene]="geneChain.gene" [displayString]="geneChainDisplayName(geneChain)"></app-gene-link>
+        </span>
+      </div>
     </div>
   </div>
 </div>

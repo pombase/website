@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
-import { PDBEntry, PDBGeneChain } from '../pombase-api.service';
+import { PDBEntry, PDBGeneChain, ReferenceShort } from '../pombase-api.service';
 
 interface PDBContext {
   pdbId: string;
@@ -12,8 +12,10 @@ interface PDBContext {
 interface DisplayEntry {
   pdb_id: string;
   title: string;
+  reference: ReferenceShort;
   entry_authors_abbrev: string;
   experimental_method: string;
+  gene_chains?: Array<PDBGeneChain>;
   resolution?: string;
   chain?: string;
   position?: string;
@@ -99,13 +101,18 @@ export class PdbStructureViewerComponent implements OnInit {
     }
   }
 
+  geneChainDisplayName(geneChain: PDBGeneChain): string {
+    return geneChain.gene.name || geneChain.gene.uniquename + ' ' +
+      geneChain.chain + '=' + geneChain.position;
+  }
+
   popoverImageUrl(pdbId: string): string {
     return this.appConfig.pdbe_image_url.replace('<<PDB_ID>>', pdbId);
   }
 
   ngOnChanges(): void {
     this.makeDisplayEntries();
-    this.currentEntry = this.pdbEntries[0];
+    this.currentEntry = this.displayEntries[0];
     this.setURL();
   }
 
@@ -113,9 +120,11 @@ export class PdbStructureViewerComponent implements OnInit {
     let ret = {
       pdb_id: pdbEntry.pdb_id,
       title: pdbEntry.title,
+      reference: pdbEntry.reference,
       entry_authors_abbrev: pdbEntry.entry_authors_abbrev,
       experimental_method: pdbEntry.experimental_method,
       resolution: pdbEntry.resolution,
+      gene_chains: pdbEntry.gene_chains,
     } as DisplayEntry;
 
     if (geneChain) {

@@ -519,7 +519,7 @@ export interface GeneHistoryEntry {
 }
 
 export interface PDBGeneChain {
-  gene_uniquename: string;
+  gene: GeneShort;
   chain: string;
   position: string;
 }
@@ -528,6 +528,8 @@ export interface PDBEntry {
   pdb_id: string;
   gene_chains: Array<PDBGeneChain>;
   title: string;
+  reference_uniquename: string;
+  reference?: ReferenceShort;
   entry_authors: string;
   entry_authors_abbrev: string;
   experimental_method: string;
@@ -1121,6 +1123,8 @@ export class PombaseAPIService {
       }
     }
 
+    this.processPDBEntries(json.pdb_entries, genesByUniquename, referencesByUniquename);
+
     this.processPhysicalInteractions(json.physical_interactions, genesByUniquename, referencesByUniquename);
     this.processGeneticInteractions(json.genetic_interactions, genesByUniquename, genotypesByUniquename,
                                     allelesByUniquename,
@@ -1333,6 +1337,16 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
+  processPDBEntries(pdbEntries: Array<PDBEntry>, genesByUniquename: GeneMap,
+                    referencesByUniquename: ReferenceDetailsMap): void {
+    for (let entry of pdbEntries) {
+      for (let geneChain of entry.gene_chains) {
+        geneChain.gene = genesByUniquename[(geneChain as any)['gene_uniquename']];
+      }
+      entry.reference = referencesByUniquename[entry.reference_uniquename];
+    }
+  }
+
   processReferenceResponse(json: any): ReferenceDetails {
     let genesByUniquename = json.genes_by_uniquename as GeneMap;
     let genotypesByUniquename = json.genotypes_by_uniquename as GenotypeMap;
@@ -1359,6 +1373,8 @@ export class PombaseAPIService {
         json[fieldName] = [];
       }
     }
+
+    this.processPDBEntries(json.pdb_entries, genesByUniquename, {});
 
     for (let cvName of Object.keys(json.cv_annotations)) {
       this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,

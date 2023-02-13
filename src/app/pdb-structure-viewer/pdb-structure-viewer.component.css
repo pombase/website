@@ -41,7 +41,15 @@ table {
   }
 
   .pdb-table-container {
-    height: 300px;
+    width: fit-content;
+  }
+
+  .pdb-table-container-gene {
+    max-height: 260px;
+  }
+
+  .pdb-table-container-reference {
+    max-height: 215px;
   }
 }
 
@@ -54,6 +62,13 @@ table {
 
 td, th {
   padding: 0.3em 0.6em;
+}
+
+th {
+    white-space: nowrap;
+}
+
+td.pdb-entry-detail {
   white-space: nowrap;
 }
 
@@ -93,4 +108,17 @@ tbody tr:hover {
 
 .entry-popover-image img {
   width: 100px;
+}
+
+.entry-gene-chains {
+  max-width: 30em;
+}
+
+.gene-chain-gene {
+  display: inline;
+}
+
+.pdb-current-entry-details {
+  width: 500px;
+  margin-top: 1.5em;
 }
