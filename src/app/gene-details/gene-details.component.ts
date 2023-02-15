@@ -44,24 +44,7 @@ export class GeneDetailsComponent implements OnInit {
   faWarning = faWarning;
   locationWarning?: string;
 
-  extraMenuSections = [
-    {
-      id: 'transcript-sequence',
-      displayName: 'Sequence',
-    },
-    {
-      id: 'gene-history',
-      displayName: 'Gene history'
-    },
-    {
-      id: 'external-refs',
-      displayName: 'External references',
-    },
-    {
-      id: 'literature',
-      displayName: 'Literature',
-    }
-  ];
+  extraMenuSections: Array<{ id: string; displayName: string; }> = [];
 
   product? = '';
 
@@ -286,6 +269,32 @@ export class GeneDetailsComponent implements OnInit {
     }
   }
 
+  private setMenuSections() {
+    this.extraMenuSections = [];
+
+    this.extraMenuSections.push({
+      id: 'transcript-sequence',
+      displayName: 'Sequence',
+    });
+
+    if (this.geneDetails.gene_history.length > 0) {
+      this.extraMenuSections.push({
+        id: 'gene-history',
+        displayName: 'Gene history'
+      });
+    }
+
+    this.extraMenuSections.push({
+      id: 'external-refs',
+      displayName: 'External references',
+    });
+
+    this.extraMenuSections.push({
+      id: 'literature',
+      displayName: 'Literature',
+    });
+  }
+
   private showAsSection(typeName: string): boolean {
     return !this.config.getAnnotationType(typeName).no_gene_details_section;
   }
@@ -327,6 +336,7 @@ export class GeneDetailsComponent implements OnInit {
               this.setPageTitle();
               this.scrollToPageTop();
               this.setProducts();
+              this.setMenuSections();
               this.transcriptCount = this.geneDetails.transcripts.length;
 
               this.showProteinFeatures =
