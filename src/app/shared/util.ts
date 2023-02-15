@@ -200,6 +200,10 @@ export class Util {
       ret += 'complement(';
     }
 
+    if (transcript.parts.length > 1) {
+      ret += 'join(';
+    }
+
     const partCoords = transcript.parts
       .filter(part => part.feature_type == 'exon')
       .map((part) => {
@@ -207,6 +211,10 @@ export class Util {
       });
 
     ret += partCoords.join(',');
+
+    if (transcript.parts.length > 1) {
+      ret += ')';
+    }
 
     if (transcriptLoc.strand == 'reverse') {
       ret += ')';
