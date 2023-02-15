@@ -3,7 +3,6 @@ import { GenotypeDetails, GenotypeShort, GeneShort,
          AlleleShort, TranscriptDetails} from '../pombase-api.service';
 
 export class Util {
-
   static geneCompare(gene1: GeneShort, gene2: GeneShort): number {
     if (gene1.name) {
       if (gene2.name) {
@@ -190,6 +189,29 @@ export class Util {
 
   static capitalize(input: string): string {
     return input.charAt(0).toUpperCase() + input.slice(1);
-}
+  }
 
+  static transcriptStructureAsString(transcript: TranscriptDetails): string {
+    let ret = '';
+
+    const transcriptLoc = transcript.location;
+
+    if (transcriptLoc.strand == 'reverse') {
+      ret += 'complement(';
+    }
+
+    const partCoords = transcript.parts
+      .filter(part => part.feature_type == 'cds_intron')
+      .map((part) => {
+        return part.location.start_pos + '..' + part.location.end_pos;
+      });
+
+    ret += partCoords.join(',');
+
+    if (transcriptLoc.strand == 'reverse') {
+      ret += ')';
+    }
+
+    return ret;
+  }
 }

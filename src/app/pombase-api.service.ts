@@ -300,11 +300,13 @@ export interface ChromosomeShort {
   coding_gene_count: number;
 }
 
+export type ChromosomeLocStrand = 'forward' | 'reverse' | 'unstranded';
+
 export interface ChromosomeLocation {
   chromosome_name: string;
   start_pos: number;
   end_pos: number;
-  strand: string;
+  strand: ChromosomeLocStrand;
 }
 
 export interface IdAndOrganism {
@@ -458,8 +460,19 @@ export interface ProteinDetails {
   isoelectric_point: number;
 }
 
+export type FeatureType =
+  'five_prime_utr' | 'five_prime_utr_intron' | 'exon' | 'cds_intron' | 'three_prime_utr' |
+  'three_prime_utr_intron' | 'dg_repeat' | 'dh_repeat' | 'gap' | 'gene_group' |
+  'long_terminal_repeat' | 'low_complexity_region' | 'LTR_retrotransposon' |
+  'mating_type_region' | 'nuclear_mt_pseudogene' | 'origin_of_replication' |
+  'polyA_signal_sequence' | 'polyA_site' | 'promoter' | 'region' | 'regional_centromere' |
+  'centrosome' | 'centromere central core' |
+  'regional_centromere_central_core' | 'regional_centromere_inner_repeat_region' |
+  'repeat_region' | 'TR_box' | 'antisense_RNA' | 'sncRNA' | 'lncRNA' | 'guide_RNA' | 'snp' |
+  'padding';
+
 export interface FeatureShort {
-  feature_type: string;
+  feature_type: FeatureType;
   uniquename: string;
   name: string;
   location: ChromosomeLocation;
@@ -1116,7 +1129,7 @@ export class PombaseAPIService {
     for (let fieldName of ['physical_interactions', 'genetic_interactions',
                            'ortholog_annotations', 'paralog_annotations',
                            'target_of_annotations', 'synonyms', 'name_descriptions',
-                           'pdb_entries',
+                           'pdb_entries', 'transcripts',
                            'interpro_matches', 'genetic_interactions']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = [];

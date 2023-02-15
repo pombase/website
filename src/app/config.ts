@@ -1,4 +1,4 @@
-import { GeneDetails, ThroughputType } from './pombase-api.service';
+import { FeatureType, GeneDetails, ThroughputType } from './pombase-api.service';
 import { TermAndName } from './pombase-query';
 
 import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
@@ -343,7 +343,7 @@ export interface AppConfig {
 
   queryBuilder: QueryBuilderConfig;
 
-  termDisplayNames: { [termName: string]: string };
+  termDisplayNames: { [termName in FeatureType]: FeatureType };
 
   _geneResults: GeneResultsConfig;
 

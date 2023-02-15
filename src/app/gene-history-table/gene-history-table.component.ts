@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { GeneDetails, GeneHistoryEntry } from '../pombase-api.service';
+import { Util } from '../shared/util';
 
 type RefOrText = {
   text?: string;
@@ -23,6 +24,14 @@ export class GeneHistoryTableComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  currentStructure(): string {
+    if (this.geneDetails.transcripts.length == 0) {
+      return '';
+    } else {
+      return Util.transcriptStructureAsString(this.geneDetails.transcripts[0]);
+    }
   }
 
   ngOnChanges(): void {
