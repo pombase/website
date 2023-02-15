@@ -541,7 +541,7 @@ export interface PDBEntry {
   pdb_id: string;
   gene_chains: Array<PDBGeneChain>;
   title: string;
-  reference_uniquename: string;
+  reference_uniquename?: string;
   reference?: ReferenceShort;
   entry_authors: string;
   entry_authors_abbrev: string;
@@ -1356,7 +1356,9 @@ export class PombaseAPIService {
       for (let geneChain of entry.gene_chains) {
         geneChain.gene = genesByUniquename[(geneChain as any)['gene_uniquename']];
       }
-      entry.reference = referencesByUniquename[entry.reference_uniquename];
+      if (entry.reference_uniquename) {
+        entry.reference = referencesByUniquename[entry.reference_uniquename];
+      }
     }
   }
 
