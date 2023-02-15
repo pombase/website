@@ -201,7 +201,7 @@ export class Util {
     }
 
     const partCoords = transcript.parts
-      .filter(part => part.feature_type == 'cds_intron')
+      .filter(part => part.feature_type == 'exon')
       .map((part) => {
         return part.location.start_pos + '..' + part.location.end_pos;
       });
