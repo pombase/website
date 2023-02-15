@@ -187,8 +187,8 @@
     <app-transcript-sequence-select *ngIf="isConfiguredOrganism" id="transcript-sequence"
                                     [geneDetails]="geneDetails"></app-transcript-sequence-select>
 
-    <app-gene-history-table id="gene-history-table"
-        *ngIf="!deployConfigService.productionMode() && geneDetails.gene_history.length"
+    <app-gene-history-table id="gene-history"
+        *ngIf="geneDetails.gene_history.length"
         [geneDetails]="geneDetails">
     </app-gene-history-table>
 

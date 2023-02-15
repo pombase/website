@@ -50,6 +50,10 @@ export class GeneDetailsComponent implements OnInit {
       displayName: 'Sequence',
     },
     {
+      id: 'gene-history',
+      displayName: 'Gene history'
+    },
+    {
       id: 'external-refs',
       displayName: 'External references',
     },
