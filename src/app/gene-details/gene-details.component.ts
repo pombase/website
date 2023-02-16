@@ -280,7 +280,7 @@ export class GeneDetailsComponent implements OnInit {
     if (this.geneDetails.gene_history.length > 0) {
       this.extraMenuSections.push({
         id: 'gene-history',
-        displayName: 'Gene history'
+        displayName: 'Gene structure history'
       });
     }
 
