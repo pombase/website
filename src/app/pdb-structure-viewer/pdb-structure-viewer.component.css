@@ -37,7 +37,7 @@ table {
   }
 
   .pdb-text {
-    height: 400px;
+    max-height: 400px;
   }
 
   .pdb-table-container {
