@@ -25,7 +25,7 @@ table {
 
 @media (max-width: 1299px) {
   .pdb-table-container {
-    height: 175px;
+    max-height: 175px;
   }
 }
 
