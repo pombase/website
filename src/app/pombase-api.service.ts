@@ -642,6 +642,7 @@ export class ReferenceDetails {
   authors_abbrev: string;
   pubmed_publication_date: string;
   doi: string;
+  canto_session_key: string;
   canto_triage_status: string;
   canto_curator_role: string;
   canto_curator_name: string;

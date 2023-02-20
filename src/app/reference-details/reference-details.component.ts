@@ -171,7 +171,7 @@ export class ReferenceDetailsComponent implements OnInit {
   }
 
   hasCantoSession(): boolean {
-    return !!this.refDetails.canto_curator_name;
+    return !!this.refDetails.canto_session_key;
   }
 
   isAdminSession(): boolean {
