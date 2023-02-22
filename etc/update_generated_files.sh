@@ -34,6 +34,10 @@ pandoc --version
    --docs-component src/app/documentation/docs/docs.component.html \
    --front-panel-content-component src/app/front-panel-content/front-panel-content.component.html
 
+graphical_abstract_filename=src/app/config/graphical_abstract_files.json
+
 (cd src/assets/graphical_abstract/
  echo *.{png,jpg} | perl -e '$_ = <>; chomp $_; @a = split /\s+/, $_; $j = join ",", map { qq|"$_"| } @a; print "[$j]\n"'
- ) > src/app/config/graphical_abstract_files.json
+ ) > $graphical_abstract_filename.tmp
+
+mv $graphical_abstract_filename.tmp $graphical_abstract_filename

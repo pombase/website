@@ -95,13 +95,13 @@ process_front_panels();
 our $date_re = qr|\d+-\d+-\d+|;
 
 
-open my $recent_news_fh, '>', $recent_news_component
-  or die "can't open $recent_news_component for writing\n";
+open my $recent_news_fh, '>', "$recent_news_component.tmp"
+  or die "can't open $recent_news_component.tmp for writing\n";
 
 binmode($recent_news_fh, ":utf8");
 
-open my $docs_component_fh, '>',$docs_component
-  or die "can't open $docs_component for writing\n";
+open my $docs_component_fh, '>', "$docs_component.tmp"
+  or die "can't open $docs_component.tmp for writing\n";
 
 binmode($docs_component_fh, ":utf8");
 
@@ -474,8 +474,8 @@ print $docs_component_fh "</div>\n";
 close $recent_news_fh;
 close $docs_component_fh;
 
-open my $doc_config_fh, '>', $doc_config_file_name
-  or die "can't open $doc_config_file_name: $!\n";
+open my $doc_config_fh, '>', "$doc_config_file_name.tmp"
+  or die "can't open $doc_config_file_name.tmp: $!\n";
 
 binmode($doc_config_fh, ":utf8");
 
@@ -487,8 +487,8 @@ close $doc_config_fh;
 sub process_front_panels {
   my $panel_conf = $config->{front_page_panels};
 
-  open my $panel_contents_comp_fh, '>', $front_page_content_component
-    or die "can't open $front_page_content_component";
+  open my $panel_contents_comp_fh, '>', "$front_page_content_component.tmp"
+    or die "can't open $front_page_content_component.tmp";
 
   binmode($panel_contents_comp_fh, ":utf8");
 
@@ -833,8 +833,8 @@ sub contents_for_template {
   return $ret;
 }
 
-open my $json_docs_fh, '>', $json_docs_file_name
-  or die "can't open $json_docs_file_name for writing\n";
+open my $json_docs_fh, '>', "$json_docs_file_name.tmp"
+  or die "can't open $json_docs_file_name.tmp for writing\n";
 
 my @sorted_json_solr_contents =
   sort {
@@ -886,3 +886,11 @@ print $json_docs_fh to_json(\@sorted_json_solr_contents, { canonical => 1, prett
 
 close $json_docs_fh or die;
 
+
+my @out_files =
+  ($recent_news_component, $docs_component, $doc_config_file_name,
+   $front_page_content_component, $json_docs_file_name);
+
+for my $out_file (@out_files) {
+  rename "$out_file.tmp", $out_file;
+}
