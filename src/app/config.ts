@@ -477,6 +477,7 @@ export interface ExternalGeneReference {
   name: string;
   description: string;
   field_name: string;
+  constraint?: string;  // a field that has to exist and not be empty
   go_xrf_abbrev?: string;
   url?: string;
   show_in_sections?: Array<string>;
@@ -485,6 +486,24 @@ export interface ExternalGeneReference {
 export function makeGeneExternalUrl(geneDetails: GeneDetails,
                                     organismTaxonId: number,
                                     extRefConf: ExternalGeneReference): Array<string> {
+  if (extRefConf.constraint) {
+    const geneAsAny = geneDetails as any;
+    const fieldValue = geneAsAny[extRefConf.constraint];
+    if (fieldValue === undefined) {
+      return [];
+    } else {
+      if (fieldValue instanceof Array) {
+        if (fieldValue.length == 0) {
+          return [];
+        }
+      } else {
+        if (!fieldValue) {
+          return [];
+        }
+      }
+    }
+  }
+
   let getAllIds = (details: GeneDetails): Array<string> => {
     let ret = [details.uniquename];
     if (details.name) {
