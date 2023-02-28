@@ -273,6 +273,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   }
 
   init() {
+    this.termNameColSpan = -1;
+
     let typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
     if (typeConfig.columns_to_show) {
