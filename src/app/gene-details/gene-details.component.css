@@ -44,11 +44,11 @@
 
 #gene-summary div:nth-child(even) {
   margin: 0.2em 3em 0.2em 0;
-  max-width: 40em;
+  max-width: 38em;
 }
 
 #gene-summary div:nth-child(4n) {
-  white-space: nowrap;
+  min-width: 10em;
 }
 
 .genomic-location {
