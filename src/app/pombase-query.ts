@@ -765,6 +765,14 @@ export class GeneQuery {
     if (val.expression === null) {
       val.expression = undefined;  // normalise older saved queries
     }
+    if (nodeType === 'int_range' || nodeType === 'float_range') {
+      if (val['start'] === null) {
+        val['start'] = undefined;
+      }
+      if (val['end'] === null) {
+        val['end'] = undefined;
+      }
+    }
 
     switch (nodeType) {
 
