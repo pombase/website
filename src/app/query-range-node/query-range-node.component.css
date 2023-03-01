@@ -14,3 +14,13 @@
 .range-label {
   user-select: none;
 }
+
+.node-options-title {
+  font-weight: bold;
+  padding: 1em 0 0.3em 0;
+}
+
+.node-option {
+  font-weight: 90%;
+  padding: 0 0 0 2em;
+}

@@ -550,7 +550,20 @@ export class HasOrthologNode extends GeneQueryBase {
 }
 
 function rangeToString(rangeNode: RangeNode) {
-  let returnVal = rangeNode.rangeType;
+  let returnVal = rangeNode.rangeType;;
+
+  if (rangeNode.options && rangeNode.options.length > 0) {
+    const rangeSubType = rangeNode.options[0];
+    if (rangeSubType == 'five-prime-utr-exons') {
+      returnVal = 'five_prime_utr_' + returnVal;
+    } else {
+      if (rangeSubType == 'three-prime-utr-exons') {
+        returnVal = 'three_prime_utr_' + returnVal;
+      } else {
+        // the default is coding-exons
+      }
+    }
+  }
   if (rangeNode.rangeEnd === undefined) {
     returnVal += '(\u2265' + rangeNode.rangeStart + ')';
   } else {
@@ -574,7 +587,8 @@ function rangeToString(rangeNode: RangeNode) {
 
 export abstract class RangeNode extends GeneQueryBase {
   constructor(nodeName: string|undefined, public rangeType: string,
-              public rangeStart: number|undefined, public rangeEnd: number|undefined) {
+              public rangeStart: number|undefined, public rangeEnd: number|undefined,
+              public options?: Array<string>) {
     super(nodeName);
     if (!nodeName) {
       this.setNodeName(this.detailsString());
@@ -682,13 +696,28 @@ export class GenomeRangeNode extends GeneQueryBase {
 }
 
 export class IntRangeNode extends RangeNode implements GeneQueryNode {
+  constructor(nodeName: string | undefined, public rangeType: string,
+    public rangeStart: number | undefined, public rangeEnd: number | undefined,
+    public options?: Array<string>) {
+    if (options && options.length == 1 && options[0] == 'coding-exons') {
+      // this is the default, so we set no options for backwards compatibilty
+      options = undefined;
+    }
+    super(nodeName, rangeType, rangeStart, rangeEnd, options);
+  };
+
   toObject(): Object {
+    let options = undefined;
+    if (this.options) {
+      options = this.options;
+    }
     return {
       node_name: this.getNodeName(),
       int_range: {
         range_type: this.rangeType,
         start: this.rangeStart != null ? Math.floor(this.rangeStart) : null,
         end: this.rangeEnd != null ? Math.floor(this.rangeEnd) : null,
+        options,
       }
     };
   }
@@ -700,12 +729,17 @@ export class IntRangeNode extends RangeNode implements GeneQueryNode {
 
 export class FloatRangeNode extends RangeNode {
   toObject(): Object {
+    let options = undefined;
+    if (this.options) {
+      options = this.options;
+    }
     return {
       node_name: this.getNodeName(),
       float_range: {
         range_type: this.rangeType,
         start: this.rangeStart,
         end: this.rangeEnd,
+        options,
       }
     };
   }
@@ -811,10 +845,10 @@ export class GeneQuery {
       return new HasOrthologNode(nodeName, val['taxonid']);
 
     case 'int_range':
-      return new IntRangeNode(nodeName, val['range_type'], val['start'], val['end']);
+      return new IntRangeNode(nodeName, val['range_type'], val['start'], val['end'], val['options']);
 
     case 'float_range':
-      return new FloatRangeNode(nodeName, val['range_type'], val['start'], val['end']);
+      return new FloatRangeNode(nodeName, val['range_type'], val['start'], val['end'], val['options']);
 
     case 'gene_list':
       return new GeneListNode(nodeName, val['genes'] || val['ids']);

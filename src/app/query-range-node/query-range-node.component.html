@@ -43,6 +43,17 @@
     </div>
   </div>
 
+  <div *ngIf="nodeConfig.node_options" class="options-section">
+    <div class="node-options-title">
+      {{nodeConfig.node_options_title!}}:
+    </div>
+    <div class="node-option" *ngFor="let opt of nodeConfig.node_options">
+      <input type="radio" id="range-{{opt.id}}" [(ngModel)]="rangeOption"
+             value="{{opt.id}}" />
+      <label for="range-{{opt.id}}" class="range-label">{{opt.display_name}}</label>
+    </div>
+  </div>
+
   <button type="button" class="btn btn-primary"
           title="Click to search"
           (click)="rangeSearch(nodeConfig)">Search</button>

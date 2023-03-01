@@ -65,6 +65,11 @@ export interface QueryNodeTopDescriptionPart {
   };
 }
 
+export interface QueryNodeConfigOption {
+  display_name: string,
+  id: string,
+}
+
 export interface QueryNodeConfig {
   id: string;
   topDescription: Array<QueryNodeTopDescriptionPart>;
@@ -75,6 +80,8 @@ export interface QueryNodeConfig {
   development_mode_only?: boolean;
   range_minimum?: number;
   range_any_and_none?: boolean;
+  node_options_title?: string;
+  node_options?: Array<QueryNodeConfigOption>;
   subNodes?: Array<QueryNodeConfig>;
   ontologyName?: string;
   annotationFeatureType?: string;

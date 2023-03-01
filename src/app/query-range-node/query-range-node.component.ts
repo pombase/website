@@ -18,8 +18,9 @@ export class QueryRangeNodeComponent implements OnInit, OnChanges {
   rangeStart = 0;
   rangeEnd = 0;
 
-  constructor() { }
+  rangeOption?: string;
 
+  constructor() { }
 
   initRange() {
     if (this.nodeConfig.nodeType == 'int-range' || this.nodeConfig.nodeType == 'float-range') {
@@ -35,6 +36,10 @@ export class QueryRangeNodeComponent implements OnInit, OnChanges {
       if (!this.nodeConfig.range_any_and_none) {
         this.enabledRangeSection = 'range';
       }
+    }
+
+    if (this.nodeConfig.node_options) {
+      this.rangeOption = this.nodeConfig.node_options[0].id;
     }
   }
 
@@ -98,12 +103,18 @@ export class QueryRangeNodeComponent implements OnInit, OnChanges {
       }
     }
 
+    let options: Array<string> = [];
+
+    if (this.rangeOption) {
+      options = [this.rangeOption];
+    }
+
     if (nodeConfig.nodeType == 'int-range') {
       part = new IntRangeNode(undefined, nodeConfig.id,
-                              newRangeStart, newRangeEnd);
+                              newRangeStart, newRangeEnd, options);
     } else {
       part = new FloatRangeNode(undefined, nodeConfig.id,
-                                newRangeStart, newRangeEnd);
+                                newRangeStart, newRangeEnd, options);
     }
     this.emitNodeEvent(part);
   }
