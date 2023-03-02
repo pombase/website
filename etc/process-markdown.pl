@@ -249,14 +249,19 @@ sub table_to_html
           $line .= "<a routerLink='/gene/$col_entry'>$col_entry</a>";
         } else {
           if (defined $ref_column && $i == $ref_column) {
-            $line .=
-              $col_entry =~ s|PMID:(\d+)|<a href='http://www.ncbi.nlm.nih.gov/pubmed?term=$1'>PMID:$1</a>|gr;
-          } else {
-            if (length $col_entry > 20) {
-              $col_entry =~ s/(,|\.\.)/$1<wbr>/g;
-            }
-
+            $col_entry =~ s/,/,<wbr>/g;
+            $col_entry =~ s|PMID:(\d+)|<a href='http://www.ncbi.nlm.nih.gov/pubmed?term=$1'>PMID:$1</a>|g;
             $line .= $col_entry;
+          } else {
+            if ($col_entry =~ /^\s*(\d\d\d\d-\d\d-\d\d)\s*$/) {
+              $line .= qq|<span class="docs-content-date">$1</span>|;
+            } else {
+              if (length $col_entry > 20) {
+                $col_entry =~ s/(,|\.\.)/$1<wbr>/g;
+              }
+
+              $line .= $col_entry;
+            }
           }
         }
         $line .= '</td>';

@@ -62,3 +62,7 @@
   padding-bottom: 0.5em;
   font-size: 110%;
 }
+
+.docs-content .docs-content-date {
+  white-space: nowrap;
+}
