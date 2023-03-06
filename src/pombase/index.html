@@ -14,6 +14,16 @@
  <link rel="preload" crossorigin="anonymous" href="/api/v1/dataset/latest/data/gene_summaries" as="fetch">
 -->
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<<GOOGLE_TAG_MANAGER_ID>>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '<<GOOGLE_TAG_MANAGER_ID>>');
+  </script>
+
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   <meta name="google-site-verification" content="H8vhCdG7XsSbh-8f20VSipvu2PnZ22YSGZm81jE0-Pk" />
