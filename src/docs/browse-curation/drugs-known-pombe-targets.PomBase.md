@@ -53,7 +53,8 @@ dehydroxestoquinone |  [myo2](/gene/SPCC645.05c), [myp2](/gene/SPAC4A8.05c) | my
 [monensin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:27617) | | Golgi transmembrane Na+/H+ antiporter | [ion transport](/term/GO:0034220) | |
 [mycophenolic acid](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:168396) | [gua1](/gene/SPBC2F12.14c) | IMP dehydrogenase | | limits cellular GTP pools | [PMID:11535588](https://pubmed.ncbi.nlm.nih.gov/11535588/) (PubMed link)
 [natamycin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:7488) | | ergosterol binding | | blocks fungal growth without permeabilizing the membrane |
-NSC624206 | [uba1](/gene/SPBC1604.21c) | Inhibits thioester bond formation between Ub and Uba1 without affecting adenylation activity | | [PMID:22274912](https://pubmed.ncbi.nlm.nih.gov/22274912/) (PubMed link)
+NSC624206 | [uba1](/gene/SPBC1604.21c) | Inhibits thioester bond formation between Ub and Uba1 without affecting adenylation activity | | | [PMID:22274912](https://pubmed.ncbi.nlm.nih.gov/22274912/) (PubMed link)
+[PYR-41](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:192973) | [uba1](/gene/SPBC1604.21c) | Inhibits thioester bond formation between Ub and Uba1 without affecting adenylation activity | | | [PMID:22274912](https://pubmed.ncbi.nlm.nih.gov/22274912/)
 [nystatin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:7660) | | ergosta-5,7,22,24,(28)-tetraenol binding | [ergosterol biosynthesis](/term/GO:0006696) | antifungal |
 [oligomycin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:) | | inhibits ATP synthase | | [PMID:33400299](/reference/PMID:33400299) |
 [orthovanadate](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:46442) (vanadate, sodium vanadate) | | H(+)-ATPase, kinesin ATPase, dynein ATPase (not myosin ATPase) | | | [PMID:8431459](/reference/PMID:8431459) (H(+)-ATPase, [PMID:23770677](/reference/PMID:23770677) (motor ATPases)
