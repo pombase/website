@@ -54,37 +54,34 @@ Below is a decision making tree to determine the type of genetic interaction fro
 
 ![Decision making for genetic interactions](assets/gi_constrains_website.svg){width="75%"}
 
-<div style="visibility: hidden;">
-
-Mermaid code for this graph. The svg can be generated in the website https://mermaid-js.github.io/mermaid-live-editor/
+<!-- Mermaid code for this graph. The svg can be generated in the website https://mermaid-js.github.io/mermaid-live-editor/
 
 You have to go to "Config" and change the theme to "light".
 
 ```mermaid
 flowchart TD;
     A[Is the double<br>mutant lethal?<br>];
-    A -->|Yes| C{{The single allele <br> must be viable}};
-    C --> C2[Is the interacting<br>allele overexpressed?];
-    C2 -->|Yes| C2.1((Dosage<br>Lethality));
-    C2 -->|No| C2.2((Synthetic<br>Lethality));
-    A -->|No| D[Is the single<br>mutant lethal?];
-    D -->|Yes| E{{The double mutant <br> must be viable.}};
-    E --> E2[Is the interacting<br>allele overexpressed?];
-    E2 -->|Yes| E2.1((Dosage<br>Rescue));
-    E2 -->|No| E2.2((Synthetic<br>Rescue));
-    D -->|No| G[Is one of the<br>phenotypes a cell<br> population growth<br>phenotype?];
-    G -->|Yes| H{{The other phenotype<br> should be a population <br> growth phenotype too}};
-    H -->H2[Is the interacting<br>allele overexpressed?];
-    H2 -->|Yes| H2.1[Double mutant is <br>worse than single?];
-        H2.1 -->|Yes| H2.1.1((Dosage<br>Growth<br>Defect));
-        H2.1 -->|No| H2.1.2((Dosage<br>Rescue));
-    H2 -->|No| H2.2[Double mutant is <br>worse than single?];
-        H2.2 -->|Yes| H2.2.1((Synthetic<br>Growth<br>Defect));
-        H2.2 -->|No| H2.2.2((Synthetic<br>Rescue));
-    G -->|No| GG[Do any of the<br> single alleles<br>have the phenotype?]
-    GG -->|Yes| I[Double mutant is <br>worse than single?];
-    I -->|Yes| J((Phenotypic<br>Enhancement));
-    I -->|No| K((Phenotypic<br>Suppression));
-    GG -->|No| L((Synthetic<br>Phenotype))
-```
-</div>
+    A ==>|Yes| C{{The single allele <br> must be viable}};
+    C ==> C2[Is the interacting<br>allele overexpressed?];
+    C2 ==>|Yes| C2.1((Dosage<br>Lethality));
+    C2 ==>|No| C2.2((Synthetic<br>Lethality));
+    A ==>|No| D[Is the single<br>mutant lethal?];
+    D ==>|Yes| E{{The double mutant <br> must be viable.}};
+    E ==> E2[Is the interacting<br>allele overexpressed?];
+    E2 ==>|Yes| E2.1((Dosage<br>Rescue));
+    E2 ==>|No| E2.2((Synthetic<br>Rescue));
+    D ==>|No| G[Is one of the<br>phenotypes a cell<br> population growth<br>phenotype?];
+    G ==>|Yes| H{{The other phenotype<br> should be a population <br> growth phenotype too}};
+    H ==>H2[Is the interacting<br>allele overexpressed?];
+    H2 ==>|Yes| H2.1[Double mutant is <br>worse than single?];
+        H2.1 ==>|Yes| H2.1.1((Dosage<br>Growth<br>Defect));
+        H2.1 ==>|No| H2.1.2((Dosage<br>Rescue));
+    H2 ==>|No| H2.2[Double mutant is <br>worse than single?];
+        H2.2 ==>|Yes| H2.2.1((Synthetic<br>Growth<br>Defect));
+        H2.2 ==>|No| H2.2.2((Synthetic<br>Rescue));
+    G ==>|No| GG[Do any of the<br> single alleles<br>have the phenotype?]
+    GG ==>|Yes| I[Double mutant is <br>worse than single?];
+    I ==>|Yes| J((Phenotypic<br>Enhancement));
+    I ==>|No| K((Phenotypic<br>Suppression));
+    GG ==>|No| L((Synthetic<br>Phenotype))
+``` -->
