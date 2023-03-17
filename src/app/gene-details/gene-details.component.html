@@ -29,8 +29,8 @@
               </app-help-link>
             </span>
           </div>
-          <div class="details-label"><span *ngIf="isConfiguredOrganism && hasCharacterisationStatus">Characterisation status</span></div>
-          <div><span *ngIf="isConfiguredOrganism && hasCharacterisationStatus">{{geneDetails.characterisation_status}}</span></div>
+          <div class="details-label"><span *ngIf="showCharacterisationStatus()">Characterisation status</span></div>
+          <div><span *ngIf="showCharacterisationStatus()">{{geneDetails.characterisation_status}}</span></div>
           <div class="details-label">Product</div>
           <div>{{product}}</div>
           <div class="details-label">Feature type</div>

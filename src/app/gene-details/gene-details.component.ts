@@ -303,6 +303,11 @@ export class GeneDetailsComponent implements OnInit {
     this.trackPickerVisible = true;
   }
 
+  showCharacterisationStatus(): boolean {
+    return this.isConfiguredOrganism && this.hasCharacterisationStatus &&
+      !!this.geneDetails.characterisation_status;
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
@@ -337,6 +342,11 @@ export class GeneDetailsComponent implements OnInit {
               this.scrollToPageTop();
               this.setProducts();
               this.setMenuSections();
+
+              this.hasCharacterisationStatus = this.appConfig.has_characterisation_status &&
+                (!this.geneDetails.feature_type.endsWith('RNA gene') ||
+                 !!this.geneDetails.characterisation_status);
+
               this.transcriptCount = this.geneDetails.transcripts.length;
 
               this.showProteinFeatures =
