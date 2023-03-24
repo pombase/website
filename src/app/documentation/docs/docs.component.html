@@ -6581,11 +6581,47 @@ is shown as <em>affecting substrate</em>.</li>
 <li><strong>Synthetic Lethality</strong>: Mutations/deletions in separate genes, each of which alone causes a minimal phenotype, but when combined in the same cell results in lethality under a given condition.</li>
 <li><strong>Synthetic Rescue</strong>: Mutation/deletion of one gene rescues the lethality or growth defect of a strain mutated/deleted for another gene.</li>
 </ul>
+<p>In addition, we curate the following types of genetic interaction not covered by BioGrid.</p>
+<ul>
+<li><strong>Synthetic Phenotype</strong>: Mutation/deletion/overexpression in separate genes produces a phenotype that is not present in either of the single mutations/deletions/overexpressions under a given condition.</li>
+</ul>
+<p>When exporting the data to BioGrid, “Synthetic Phenotype” genetic interactions are exported as “Phenotypic Enhancement”, see <a href="https://github.com/pombase/curation/issues/3295">this GitHub issue</a> for details.</p>
 <p>Below is a decision making tree to determine the type of genetic interaction from the phenotypes of the single and double mutant. “Interacting allele” refers to the allele that is not present in the single mutant:</p>
 <figure>
 <img src="assets/gi_constrains_website.svg" style="width:75.0%" alt="Decision making for genetic interactions" />
 <figcaption aria-hidden="true">Decision making for genetic interactions</figcaption>
 </figure>
+<!-- Mermaid code for this graph. The svg can be generated in the website https://mermaid-js.github.io/mermaid-live-editor/
+
+You have to go to "Config" and change the theme to "light".
+
+```mermaid
+flowchart TD;
+    A[Is the double<br>mutant lethal?<br>];
+    A ==>|Yes| C{{The single allele <br> must be viable}};
+    C ==> C2[Is the interacting<br>allele overexpressed?];
+    C2 ==>|Yes| C2.1((Dosage<br>Lethality));
+    C2 ==>|No| C2.2((Synthetic<br>Lethality));
+    A ==>|No| D[Is the single<br>mutant lethal?];
+    D ==>|Yes| E{{The double mutant <br> must be viable.}};
+    E ==> E2[Is the interacting<br>allele overexpressed?];
+    E2 ==>|Yes| E2.1((Dosage<br>Rescue));
+    E2 ==>|No| E2.2((Synthetic<br>Rescue));
+    D ==>|No| G[Is one of the<br>phenotypes a cell<br> population growth<br>phenotype?];
+    G ==>|Yes| H{{The other phenotype<br> should be a population <br> growth phenotype too}};
+    H ==>H2[Is the interacting<br>allele overexpressed?];
+    H2 ==>|Yes| H2.1[Double mutant is <br>worse than single?];
+        H2.1 ==>|Yes| H2.1.1((Dosage<br>Growth<br>Defect));
+        H2.1 ==>|No| H2.1.2((Dosage<br>Rescue));
+    H2 ==>|No| H2.2[Double mutant is <br>worse than single?];
+        H2.2 ==>|Yes| H2.2.1((Synthetic<br>Growth<br>Defect));
+        H2.2 ==>|No| H2.2.2((Synthetic<br>Rescue));
+    G ==>|No| GG[Do any of the<br> single alleles<br>have the phenotype?]
+    GG ==>|Yes| I[Double mutant is <br>worse than single?];
+    I ==>|Yes| J((Phenotypic<br>Enhancement));
+    I ==>|No| K((Phenotypic<br>Suppression));
+    GG ==>|No| L((Synthetic<br>Phenotype))
+``` -->
 
   </div>
   <div *ngIf="pageName == 'genotype-page'">
@@ -7604,7 +7640,13 @@ are not detected by any automated method. Gradually, we will add and display sup
 <li>Type: what was measured; use “RNA” or “protein”</li>
 <li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). You are welcome to enquire with us in advance to find out which ECO terms/IDs fit your experiments, but we can accept files with brief descriptions, which curators will convert to ECO IDs.</li>
 <li>The Qualifier column uses a small vocabulary to describe what is observed about the RNA or protein level. Use one of: present, absent, unchanged, increased, decreased, constant, fluctuates</li>
-<li>The Extension column documents circumstances under which the RNA or protein level is observed (or changes). Follow one of these patterns: “during (GO:0000084)” - when a specific biological process, such as a response to a stimulus, is taking place, or during a cell cycle phase; “in_presence_of(CHEBI:18420)” - when a specific chemical substance is present; “occurs_in(GO:0005634)” when the level is observed in part, rather than all, of a cell.</li>
+<li>The Extension column documents circumstances under which the RNA or protein level is observed (or changes). Follow one of these patterns:
+<ul>
+<li>“during(GO:0000084)” - when a specific biological process, such as a response to a stimulus, is taking place, or during a cell cycle phase</li>
+<li>“in_presence_of(CHEBI:18420)” - when a specific chemical substance is present</li>
+<li>“in_absence_of(CHEBI:18420)” - when a specific chemical substance is absent</li>
+<li>“occurs_in(GO:0005634)” - when the level is observed in part, rather than all, of a cell</li>
+</ul></li>
 <li>The Reference column has the publication’s PubMed ID (PMID).</li>
 <li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although if you have an NCBI taxon ID for a specific <em>S. pombe</em> strain you are welcome to use it</li>
 <li>The date is the date on which the annotations are created; you may use the paper publication date or the date on which you prepare your data file. Format: YYYY-MM-DD</li>
