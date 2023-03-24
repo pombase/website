@@ -35,7 +35,7 @@ export class GeneDetailsComponent implements OnInit {
   productSizeOfTranscript1 = '';
   productSizeStrings: Array<string> = [];
   transcriptCount = 0;
-  // number of translated transcripts:
+  // number of unique translations:
   proteinCount = 0;
   organism?: ConfigOrganism;
   organismLongName?: string;
@@ -254,11 +254,18 @@ export class GeneDetailsComponent implements OnInit {
     this.productSizeOfTranscript1 = Util.productStringOfTranscript(transcripts[0]);
 
     this.proteinCount = 0;
+
+    let seenTranslations = new Set();
+
     this.geneDetails.transcripts.map(transcript => {
-      if (transcript.protein) {
-        this.proteinCount++;
+      const protein = transcript.protein;
+      if (protein) {
+        if (!seenTranslations.has(protein.sequence)) {
+          seenTranslations.add(protein.sequence);
+          this.proteinCount++;
+        }
         if (!this.product) {
-          this.product = transcript.protein.product;
+          this.product = protein.product;
         }
       }
     });

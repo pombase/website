@@ -91,7 +91,8 @@
     <div class="gene-transcripts-note" *ngIf="geneDetails.transcripts.length > 1">
       Note: this gene has {{geneDetails.transcripts.length}} transcripts
       (<a pageScroll href="#transcript_view">see details</a>)
-      <span *ngIf="proteinCount > 0">with {{proteinCount}} translations</span>
+      <span *ngIf="proteinCount == 1">with 1 translation</span>
+      <span *ngIf="proteinCount > 1">with {{proteinCount}} translations</span>
     </div>
     </div>
 
