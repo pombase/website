@@ -47,11 +47,16 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
     absent, unchanged, increased, decreased, constant, fluctuates
 6.  The Extension column documents circumstances under which the RNA
     or protein level is observed (or changes). Follow one of these
-    patterns: "during (GO:0000084)" - when a specific biological
-    process, such as a response to a stimulus, is taking place, or
-    during a cell cycle phase; "in_presence_of(CHEBI:18420)" - when a
-    specific chemical substance is present; "occurs_in(GO:0005634)"
-    when the level is observed in part, rather than all, of a cell.
+    patterns:
+      - "during(GO:0000084)" - when a specific biological process,
+        such as a response to a stimulus, is taking place, or
+        during a cell cycle phase
+      - "in_presence_of(CHEBI:18420)" - when a specific chemical substance
+        is present
+      - "in_absence_of(CHEBI:18420)" - when a specific chemical substance
+        is absent
+      - "occurs_in(GO:0005634)" -  when the level is observed in part,
+        rather than all, of a cell
 7.  The Reference column has the publication's PubMed ID (PMID).
 8.  The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although if you have an NCBI taxon ID
