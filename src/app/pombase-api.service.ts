@@ -529,6 +529,7 @@ export interface GeneHistoryEntry {
   previous_coords: string;
   references: Array<string>;
   comments?: string;
+  genome_snapshot_link?: string;
 }
 
 export interface PDBGeneChain {
@@ -569,7 +570,7 @@ export class GeneDetails {
   coiled_coil_coords: Array<Array<number>>;
   orfeome_identifier: string;
   pdb_entries: Array<PDBEntry>;
-  characterisation_status: string;
+  characterisation_status?: string;
   location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
   cv_annotations: CvAnnotations;

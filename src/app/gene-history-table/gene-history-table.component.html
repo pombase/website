@@ -17,6 +17,9 @@
         <th>
           Comment
         </th>
+        <th>
+          Genome snapshot
+        </th>
       </tr>
     </thead>
 
@@ -42,6 +45,11 @@
         </td>
         <td>
           <span *ngIf="entry.comments">{{entry.comments}}</span>
+        </td>
+        <td>
+          <a *ngIf="entry.genome_snapshot_link"
+             title="The most recent data file before this change"
+             href="{{entry.genome_snapshot_link}}">{{genomeSnapshotLabel(entry)}}</a>
         </td>
       </tr>
       <tr>

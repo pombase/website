@@ -7,8 +7,12 @@ type RefOrText = {
   referenceUniquename?: string;
 }
 
+const ftpLinkRE = /\/(\d\d\d\d\d\d\d\d)\/?$/;
+const svnLinkRE = /\/trunk\?p=(\d+)$/;
+
 interface ProcessedHistoryEntry extends GeneHistoryEntry {
   processedReferences: Array<Array<RefOrText>>;
+  processedShapshotLabel?: string;
 }
 
 @Component({
@@ -32,6 +36,10 @@ export class GeneHistoryTableComponent implements OnInit, OnChanges {
     } else {
       return Util.transcriptStructureAsString(this.geneDetails.transcripts[0]);
     }
+  }
+
+  genomeSnapshotLabel(entry: ProcessedHistoryEntry): string {
+    return entry.processedShapshotLabel || 'File';
   }
 
   ngOnChanges(): void {
@@ -61,6 +69,20 @@ export class GeneHistoryTableComponent implements OnInit, OnChanges {
         }
 
         processedHistoryEntry.processedReferences.push(refParts);
+      }
+
+      const snapshotLink = historyEntry.genome_snapshot_link;
+
+      if (snapshotLink) {
+        const ftpMatch = ftpLinkRE.exec(snapshotLink)
+        if (ftpMatch) {
+          processedHistoryEntry.processedShapshotLabel = 'ftp:' + ftpMatch[1];
+        } else {
+          const svnMatch = svnLinkRE.exec(snapshotLink);
+          if (svnMatch) {
+            processedHistoryEntry.processedShapshotLabel = 'svn:' + svnMatch[1];
+          }
+        }
       }
 
       this.processedHistory.push(processedHistoryEntry);
