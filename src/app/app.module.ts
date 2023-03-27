@@ -16,7 +16,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
-import { CookieLawModule } from 'angular2-cookie-law';
 import { ToastrModule } from 'ngx-toastr';
 
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
@@ -96,7 +95,7 @@ import { ReferenceDetailListPageComponent } from './reference-detail-list-page/r
 import { GeneResultsPageComponent } from './gene-results-page/gene-results-page.component';
 
 import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 import { AnnotationTableExtLinksComponent } from './annotation-table-ext-links/annotation-table-ext-links.component';
 import { HelpLinkComponent } from './help-link/help-link.component';
 
@@ -279,7 +278,6 @@ export function windowFactory() {
     NgxPageScrollModule,
     SharedModule,
     Angulartics2Module.forRoot(),
-    CookieLawModule,
     FontAwesomeModule,
   ],
   entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,
