@@ -1,6 +1,6 @@
 ## Gene page: Gene structure history
 
-The Gene structure history section in the gene page shows all previous gene structures for the main feature of a gene (CDS for coding genes, and transcript for RNA genes). If available, the reasons for the change are indicated as comments or references to databases such as PubMed. In addition, a link to the annotated genome sequence prior to the change is provided.
+The "Gene structure history" section in the gene page shows all previous gene structures for the main feature of a gene (CDS for coding genes, and transcript for RNA genes). If available, the reasons for the change are indicated as comments or references to databases such as PubMed. In addition, a link to the annotated genome sequence before the structure was changed is provided.
 
 ### List of all gene structure changes
 
