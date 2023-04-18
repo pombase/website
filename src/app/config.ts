@@ -237,6 +237,7 @@ export interface GeneExpressionDatasetConfig {
 }
 
 export interface GeneExpressionConfig {
+  max_gene_ex_plot_genes: number;
   datasets: Array<GeneExpressionDatasetConfig>;
 }
 

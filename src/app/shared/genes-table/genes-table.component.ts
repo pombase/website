@@ -74,8 +74,10 @@ export class GenesTableComponent implements OnInit {
 
   loading = true;
 
-  showGeneExpressionLink = getAppConfig().geneExpression.datasets.length > 0;
-  maxGeneExpressionPlotGenes = 150;
+  geneExConfig = getAppConfig().geneExpression;
+
+  showGeneExpressionLink = this.geneExConfig.datasets.length > 0;
+  maxGeneExpressionPlotGenes = this.geneExConfig.max_gene_ex_plot_genes;
 
   intermineConfig = getAppConfig().intermine;
 
