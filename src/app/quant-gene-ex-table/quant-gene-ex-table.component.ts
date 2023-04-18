@@ -83,6 +83,9 @@ export class QuantGeneExTableComponent implements OnInit, OnChanges {
     this.showGene = this.hideColumns.indexOf('gene') === -1;
     this.showReference = this.hideColumns.indexOf('reference') === -1;
 
+    this.plotVisible = false;
+    this.plotLoaded = false;
+
     this.setSummaryView();
   }
 }
