@@ -205,7 +205,7 @@
       "id" : "documentation/gene-page-gene-ontology"
    },
    {
-      "content" : "\n\nThe Gene structure history section in the gene page shows all previous gene structures for the main feature of a gene (CDS for coding genes, and transcript for RNA genes). If available, the reasons for the change are indicated as comments or references to databases such as PubMed.\n\nBefore using these coordinates for analysis, take into account that they may refer to a previous genome sequence / assembly. You can find a list of the dates where the genome sequence has changed in this file. The relevant columns in the file are:\n\n-  date: date of the change.\n-  chromosome: chromosome affected.\n-  link: link to the file prior to the change.\n\nFor example, to extract the sequence of SPAPB15E9.01c before 2002-03-22, complement(3980427..3982657):\n\n-  Download the sequence of chromosome 1 prior to that change (the one where revision is 20011004). https://www.pombase.org/data/genome_sequence_and_features/artemis_files/OLD/20011004/chromosome1.contig\n-  Extract the feature from that genome sequence.\n",
+      "content" : "\n\nThe “Gene structure history” section in the gene page shows all previous gene structures for the main feature of a gene (CDS for coding genes, and transcript for RNA genes). If available, the reasons for the change are indicated as comments or references to databases such as PubMed. In addition, a link to the annotated genome sequence before the structure was changed is provided.\n\nList of all gene structure changes\n\nYou can find a list of all changes to all gene structures in this file. To download the file, right-click here and select “Save link as…”. Every pair of rows in the file corresponds to a change in the gene structure. The column Before / After indicates whether the coordinates refer to the gene structure before or after the change. In addition, if a reference was added or removed, it appears on the added or removed row, respectively. Comments associated with changes are also included.\n\nBefore using these coordinates for analysis, take into account that they may refer to a previous genome sequence / assembly (nucleotide sequence may have changed). You can find a list of the dates where the genome sequence has changed in this file. The relevant columns in the file are:\n\n-  date: date of the change.\n-  chromosome: chromosome affected.\n-  link: link to the file prior to the change.\n\nFor example, to extract the sequence of SPAPB15E9.01c before 2002-03-22, complement(3980427..3982657):\n\n-  Download the sequence of chromosome 1 prior to that change (the one where revision is 20011004). https://www.pombase.org/data/genome_sequence_and_features/artemis_files/OLD/20011004/chromosome1.contig\n-  Extract the feature from that genome sequence.\n",
       "heading" : "Gene page: Gene structure history",
       "id" : "documentation/gene-page-gene-structure-history"
    },
@@ -2255,8 +2255,8 @@
       "id" : "status/mating-type-region"
    },
    {
-      "content" : "\n\nNew genes since publication\n\nGenes removed since publication\n",
-      "heading" : "New and removed genes",
+      "content" : "\n\nNew genes\n\n-  New protein coding genes\n\n-  New RNA genes\n\nGenes removed\n\n-  Protein genes removed\n\n-  RNA genes removed\n",
+      "heading" : "New and removed genes since publication",
       "id" : "status/new-and-removed-genes"
    },
    {
