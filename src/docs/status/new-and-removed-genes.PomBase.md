@@ -1,9 +1,15 @@
-### New and removed genes
+### New and removed genes since publication
 
-#### New genes since publication
 
-%%table file=new-gene-data.tsv
 
-#### Genes removed since publication
+#### New genes
 
-%%table file=removed-gene-data.tsv
+- [New protein coding genes](status/new-protein-coding-genes)
+
+- [New RNA genes](status/new-RNA-genes)
+
+### Genes removed
+
+- [Protein genes removed](status/removed-protein-coding-genes)
+
+- [RNA genes removed](status/removed-RNA-genes)
