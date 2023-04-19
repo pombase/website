@@ -295,6 +295,7 @@ export interface AppConfig {
   ebi_tools_url: string;
   pdbe_entry_url: string;
   pdbe_image_url: string;
+  seq_and_features_download_url?: string;
   canto_url: string;
   intermine?: {
     list_post_url: string;
@@ -489,6 +490,14 @@ export interface ExternalGeneReference {
   go_xrf_abbrev?: string;
   url?: string;
   show_in_sections?: Array<string>;
+}
+
+export function replaceFieldsInUrl(url: string, replacements: {[key: string]: string}): string {
+  const keys = Object.keys(replacements);
+  for (const key of keys) {
+    url = url.replace('<<' + key + '>>', replacements[key])
+  }
+  return url;
 }
 
 export function makeGeneExternalUrl(geneDetails: GeneDetails,
@@ -741,6 +750,7 @@ let _appConfig: AppConfig = {
   ebi_tools_url: pombaseConfig.ebi_tools_url,
   pdbe_entry_url: pombaseConfig.pdbe_entry_url,
   pdbe_image_url: pombaseConfig.pdbe_image_url,
+  seq_and_features_download_url: pombaseConfig.seq_and_features_download_url,
   canto_url: pombaseConfig.canto_url,
   intermine: pombaseConfig.intermine,
   community_mailing_list: pombaseConfig.community_mailing_list,

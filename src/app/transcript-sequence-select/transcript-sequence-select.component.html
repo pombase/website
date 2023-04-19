@@ -100,7 +100,17 @@
                [class.translation-sequence-actions]="!showNucSequence">
             <div *ngIf="wrappedSequence || !showNucSequence" class="sequence-action download-action">
               <button class="btn btn-primary" (click)="download()"
-                      title="Download the sequence in FASTA format">Download sequence</button>
+                      title="Download the sequence in FASTA format">Download as FASTA</button>
+            </div>
+
+            <div *ngIf="wrappedSequence && downloadWithFeaturesURL" class="sequence-action download-action">
+              <a class="btn btn-primary" [href]="downloadWithFeaturesUrl('genbank')"
+                 title="Download sequence and gene features in GenBank format">Download as GenBank</a>
+            </div>
+
+            <div *ngIf="wrappedSequence && downloadWithFeaturesURL" class="sequence-action download-action">
+              <a class="btn btn-primary" [href]="downloadWithFeaturesUrl('embl')"
+                 title="Download sequence and gene features in EMBL format">Download as EMBL</a>
             </div>
 
              <div *ngIf="wrappedSequence" class="blast-actions">

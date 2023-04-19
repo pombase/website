@@ -5,7 +5,7 @@ import { saveAs } from 'file-saver';
 import { GeneDetails, ProteinDetails, PombaseAPIService, Strand } from '../pombase-api.service';
 import { Util } from '../shared/util';
 import { DisplaySequence, DisplaySequencePart, ResidueRange } from '../display-sequence';
-import { getAppConfig } from '../config';
+import { getAppConfig, replaceFieldsInUrl } from '../config';
 
 @Component({
   selector: 'app-transcript-sequence-select',
@@ -54,6 +54,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   ensemblBlastUrl = getAppConfig().ensembl_blast_url;
   jackhmmerSearchUrl = getAppConfig().jackhmmer_search_url;
   ebiToolsUrl = getAppConfig().ebi_tools_url;
+  downloadWithFeaturesURL = getAppConfig().seq_and_features_download_url;
 
   constructor(private apiService: PombaseAPIService,
               @Inject('Window') private window: Window) { }
@@ -311,6 +312,24 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
       saveAs(new Blob(['>' + this.sequenceHeader + '\n' + this.wrappedSequence],
                       { type: 'text' }), fileName);
     }
+  }
+
+  downloadWithFeaturesUrl(format: 'genbank'|'embl'): string {
+    let upstreamBases = '0';
+    let downstreamBases = '0';
+
+    if (this.showNucSequence) {
+      upstreamBases = this.upstreamBases.toString();
+      downstreamBases = this.downstreamBases.toString();
+    }
+
+    return replaceFieldsInUrl(this.downloadWithFeaturesURL!,
+                              {
+                                'IDENTIFIER': this.geneDetails.uniquename,
+                                'FORMAT': format,
+                                'UPSTREAM_BASES': upstreamBases,
+                                'DOWNSTREAM_BASES': downstreamBases,
+                              });
   }
 
   prefetch() {
