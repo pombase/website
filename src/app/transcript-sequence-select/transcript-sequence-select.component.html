@@ -99,7 +99,8 @@
           <div [class.sequence-actions]="showNucSequence"
                [class.translation-sequence-actions]="!showNucSequence">
             <div *ngIf="wrappedSequence || !showNucSequence" class="sequence-action download-action">
-              <button class="btn btn-primary" (click)="download()">Download sequence</button>
+              <button class="btn btn-primary" (click)="download()"
+                      title="Download the sequence in FASTA format">Download sequence</button>
             </div>
 
              <div *ngIf="wrappedSequence" class="blast-actions">
