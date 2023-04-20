@@ -170,3 +170,11 @@
 .translation-sequence-actions {
   margin-top: 0.8em;
 }
+
+#download-seq-menu {
+  margin: 1em 0;
+}
+
+.dropdown-item a {
+  text-decoration: none;
+}
