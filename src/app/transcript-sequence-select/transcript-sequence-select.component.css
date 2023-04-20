@@ -25,6 +25,11 @@
   border-radius: 2px;
 }
 
+.sequence-display .header {
+  max-width: 65ch;
+  white-space: nowrap;
+}
+
 .sequence-holder {
   padding-left: 1em;
 }
