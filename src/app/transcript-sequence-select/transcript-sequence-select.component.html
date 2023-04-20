@@ -98,7 +98,14 @@
 
           <div [class.sequence-actions]="showNucSequence"
                [class.translation-sequence-actions]="!showNucSequence">
-            <div id="download-seq-menu" class="btn-group" dropdown>
+
+            <div *ngIf="!downloadWithFeaturesURL && (wrappedSequence || !showNucSequence)" class="sequence-action download-action">
+              <button class="btn btn-primary" (click)="download()" title="Download the sequence in FASTA format">
+                Download as FASTA
+              </button>
+            </div>
+
+            <div *ngIf="downloadWithFeaturesURL" id="download-seq-menu" class="btn-group" dropdown>
                <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
                  Download sequence:
                </button>
@@ -109,12 +116,12 @@
                       title="Download the sequence in FASTA format">Displayed sequence as FASTA</a>
                  </li>
 
-                 <li class="dropdown-item" role="menuitem" *ngIf="wrappedSequence && downloadWithFeaturesURL">
+                 <li class="dropdown-item" role="menuitem" *ngIf="wrappedSequence">
                    <a [href]="downloadWithFeaturesUrl('genbank')"
                       title="Download sequence and gene features in GenBank format">Genome region as GenBank</a>
                  </li>
 
-                <li class="dropdown-item" role="menuitem" *ngIf="wrappedSequence && downloadWithFeaturesURL">
+                <li class="dropdown-item" role="menuitem" *ngIf="wrappedSequence">
                   <a [href]="downloadWithFeaturesUrl('embl')"
                      title="Download sequence and gene features in EMBL format">Genome region as EMBL</a>
                 </li>
