@@ -135,11 +135,10 @@ Allele type (col. 11) | Example allele description (col. 3) | Notes
 ----------------------|-------------------------------------|------
 amino acid mutation | S123A | use one-letter code; if more than one change, separate with comma(s)
 deletion | deletion | use this description for complete deletions
-nonsense mutation | K111->stop |  
 nucleotide mutation | C123A | if more than one change, separate with comma(s)
 disruption | pab1::ura4+ | expression will usually, but not always, be null
 other | RGTPI inserted after I254 | include a brief text description
-partial amino acid deletion | 1-100 | indicate deleted residues; use comma-separated ranges for discontinuous deleted segments
+partial amino acid deletion | 1-100 or A123* | indicate deleted residues; use comma-separated ranges for discontinuous deleted segments; use `*` for nonsense mutations.
 partial nucleotide deletion | 500-800 | indicate deleted residues; use comma-separated ranges for discontinuous deleted segments
 unknown | unknown | an allele name is required if the type and description are unknown
 wild type | wild type | use with altered expression (overexpression or knockdown) for single-allele phenotypes
