@@ -1,6 +1,6 @@
 #### Curation update - "nonsense mutation" merged into "partial amino acid deletion"
-
 <!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 We have decided to merge the allele type "nonsense mutation" into "partial amino acid deletion". This has mainly been driven by the fact that allele types that combine different variants require new types, such as "amino_acid_deletion_and_mutation", "amino_acid_insertion_and_deletion", etc. Otherwise, we would have ended up with many more types, and at the gene product level (which is what we describe in PomBase in phenotype interactions), both truncations are equivalent. In the next update, this allele type will not be available in Canto.
 
