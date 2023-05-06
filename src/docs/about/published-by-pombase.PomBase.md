@@ -7,6 +7,17 @@ Canto, FYPO, annotations and Compara.
 
 ### Journal articles
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyad031"></div>
+
+<div class="pub-citation">
+Gene Ontology Consortium.\
+The Gene Ontology knowledgebase in 2023 \
+*Genetics*, Volume 224, Issue 1, May 2023, iyad031 \
+</div>
+[10.1093/genetics/iyad031](https://doi.org/10.1093/genetics/iyad031)
+
+<div class="clear-float"></div>
+
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/bioadv/vbac072"></div>
 
 <div class="pub-citation">
