@@ -13,9 +13,19 @@ genes, the predicted amino acid sequence is displayed by default:
 
 2.  Toggle to show the amino acid sequence for protein-coding genes
     (not available for non-coding RNA genes, which always show
-    nucleotide sequenceâ).
+    nucleotide sequence).
 
-3.  Link to save the displayed sequence to a file.
+3.  Button to save the displayed sequence to a file, with the following
+    options:
+    * Displayed Sequence as FASTA
+    * Genome region as GenBank: This feature downloads the **genome region**,
+      in GenBank format. The file always includes the introns, exons and UTRs. You can include
+      extra upstream or downstream sequences, if the "Show nucleotide sequence"
+      is toggled but other settings are ignored. Files can be opened in
+      sequence viewers (Snapgene, Ape, Benchling...) and contain the sequence
+      feature annotations (CDS with labelled introns, translated sequence, UTRs,
+      etc.).
+    * Genome region as EMBL: Same as previous one, but in EMBL format.
 
 4.  Links to send the displayed sequence to BLAST at
     [NCBI](https://blast.ncbi.nlm.nih.gov/Blast.cgi) or
