@@ -21,8 +21,8 @@ genotype.
         description represents, e.g. amino acid mutation, deletion,
         other.
     d.  The expression level indicates the amount of gene product
-        present in the assayed cells, or "Not assayed" if the level
-        was not directly measured.
+        present in the assayed cells, or "Not assayed or wild type" if
+        the level was not directly measured.
 
 3.  Phenotypes annotated to the genotype are displayed as described in
     the [gene page documentation](documentation/gene-page-phenotypes).
