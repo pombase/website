@@ -78,6 +78,7 @@ export interface AlleleShort {
   allele_type: string;
   description: string;
   synonyms: Array<SynonymDetails>;
+  comments: Array<CommentAndReference>;
 }
 
 export interface AlleleMap {

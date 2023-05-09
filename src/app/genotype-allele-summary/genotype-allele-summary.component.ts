@@ -14,6 +14,7 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
 
   isDiploid = false;
   hasSynonyms = false;
+  hasComment = false;
 
   constructor() { }
 
@@ -39,12 +40,22 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
     }
   }
 
+  getCommentString(expressedAllele: ExpressedAllele): string {
+    const comments = expressedAllele.allele.comments;
+    if (comments) {
+      return comments.map(comment => comment.comment.replace(/,/g, ',<wbr>')).join(', ');
+    } else {
+      return '';
+    }
+  }
+
   ngOnInit() {
   }
 
   ngOnChanges() {
     this.isDiploid = false;
     this.hasSynonyms = false;
+    this.hasComment = false;
     for (let locus of this.genotype.loci) {
       if (locus.expressed_alleles.length > 1) {
         this.isDiploid = true;
@@ -53,6 +64,9 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
       locus.expressed_alleles.map(expressedAllele => {
         if (expressedAllele.allele.synonyms && expressedAllele.allele.synonyms.length > 0) {
           this.hasSynonyms = true;
+        }
+        if (expressedAllele.allele.comments && expressedAllele.allele.comments.length > 0) {
+          this.hasComment = true;
         }
       })
     }

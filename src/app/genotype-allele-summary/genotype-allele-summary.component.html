@@ -8,6 +8,9 @@
       Synonyms
     </th>
     <th>Description</th>
+    <th *ngIf="hasComment">
+      Comment
+    </th>
     <th>Type</th>
     <th>Expression</th>
   </thead>
@@ -28,6 +31,9 @@
       </td>
       <td>
         <span [innerHTML]="alleleDisplayDescription(expressedAllele.allele)"></span>
+      </td>
+      <td *ngIf="hasComment">
+        <span [innerHTML]="getCommentString(expressedAllele)"></span>
       </td>
       <td>{{expressedAllele.allele.allele_type}}</td>
       <td>{{expressedAllele.expression}}</td>
