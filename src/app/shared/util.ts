@@ -62,7 +62,7 @@ export class Util {
             const alleleDisplayName = this.alleleDisplayName(expressedAllele.allele);
             if (expressedAllele.expression &&
                 expressedAllele.allele.allele_type !== 'deletion' &&
-                expressedAllele.expression.startsWith('Not assayed')) {
+                !expressedAllele.expression.startsWith('Not assayed')) {
               return `${alleleDisplayName}[${expressedAllele.expression}]`;
             } else {
               return alleleDisplayName;
