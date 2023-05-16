@@ -1,7 +1,7 @@
 <div *ngIf="proteinTooLong()" class="alphafold-too-long-message">
-  This protein has no Alphafold predicted structure because it is longer than
+  This protein has no AlphaFold predicted structure because it is longer than
   {{appConfig.alphafoldMaxProteinLength}} residues. See the
-  <a href="https://alphafold.ebi.ac.uk/faq">Alphafold FAQ</a> for more details.
+  <a href="https://alphafold.ebi.ac.uk/faq">AlphaFold FAQ</a> for more details.
 </div>
 
 <div *ngIf="!proteinTooLong() && alphaFoldLoading()" class="alphafold-loading-message">
@@ -18,7 +18,7 @@
   <div *ngIf="!alphaFoldLoading()" class="alphafold-text">
     <div>
       <a href="https://alphafold.ebi.ac.uk/entry/{{geneDetails.uniprot_identifier}}" target="_blank">
-        View full Alphafold page
+        View full AlphaFold page
       </a>
     </div>
     <div>
