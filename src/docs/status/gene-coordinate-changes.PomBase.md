@@ -1,9 +1,4 @@
 ### Gene coordinate changes
 
-#### Protein coding genes
-
-%%table file=gene-coordinate-change-data-protein-coding.tsv
-
-#### RNA genes
-
-%%table file=gene-coordinate-change-data-RNA.tsv
+ - [Protein coding genes](/status/gene-coordinate-changes-protein-coding)
+ - [RNA genes](/status/gene-coordinate-changes-RNA)
