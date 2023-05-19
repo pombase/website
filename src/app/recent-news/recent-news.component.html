@@ -1,5 +1,14 @@
 <div class="recent-news">
 <div class="news-item">
+<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/>
+<h4 id="curation-update---nonsense-mutation-merged-into-partial-amino-acid-deletion"><strong>Curation update - “nonsense mutation” merged into “partial amino acid deletion”</strong></h4>
+<p><em>2023-04-26</em></p>
+<p>We have decided to merge the allele type “nonsense mutation” into “partial amino acid deletion”. This has mainly been driven by the fact that allele types that combine different variants require new types, such as “amino_acid_deletion_and_mutation”, “amino_acid_insertion_and_deletion”, etc. Otherwise, we would have ended up with many more types, and at the gene product level (which is what we describe in PomBase in phenotype interactions), both truncations are equivalent. In the next update, this allele type will not be available in Canto.</p>
+<p>In any case, even if two alleles produce the same truncation, such as ase1-D13* or ase1Δ(13-731), they would still have separate entries in PomBase, and they may have different phenotypes. We are only assigning them the same allele type.</p>
+<p>If for your analysis you need to make a distinction between the two using our allele dataset <a routerLink="/downloads/phenotype-annotations">allele dataset</a>, you can always check the “Allele description” field for the presence of the “*” character to tell whether an allele includes a nonsense mutation.</p>
+
+</div>
+<div class="news-item">
 <img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/protein-structure.png"/>
 <h4 id="experimental-structures-from-pdb-on-gene-pages"><strong>Experimental structures from PDB on gene pages</strong></h4>
 <p><em>2023-02-22</em></p>
