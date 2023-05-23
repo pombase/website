@@ -87,7 +87,7 @@ export interface AlleleMap {
 
 export interface CommentAndReference {
   comment: string;
-  reference_uniquename?: string;
+  reference?: string;
 }
 
 export interface AlleleDetails {
@@ -448,6 +448,7 @@ export interface GeneMap {
 export interface SynonymDetails {
   name: string;
   type: string;
+  reference?: string;
 }
 
 export interface ProteinDetails {
