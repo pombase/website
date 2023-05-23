@@ -21,7 +21,7 @@
           <div *ngFor="let commentDetails of alleleDetails.comments">
             {{commentDetails.comment}}
             <span *ngIf="commentDetails.reference">
-              (<a routerLink="/reference/{{commentDetails.reference}}">{{commentDetails.reference_uniquename}}</a>)
+              (<a routerLink="/reference/{{commentDetails.reference}}">{{commentDetails.reference}}</a>)
             </span>
           </div>
         </div>
