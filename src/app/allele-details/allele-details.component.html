@@ -20,8 +20,8 @@
         <div *ngIf="alleleDetails.comments.length > 0">
           <div *ngFor="let commentDetails of alleleDetails.comments">
             {{commentDetails.comment}}
-            <span *ngIf="commentDetails.reference_uniquename">
-              (<a routerLink="/reference/{{commentDetails.reference_uniquename}}">{{commentDetails.reference_uniquename}}</a>)
+            <span *ngIf="commentDetails.reference">
+              (<a routerLink="/reference/{{commentDetails.reference}}">{{commentDetails.reference_uniquename}}</a>)
             </span>
           </div>
         </div>
