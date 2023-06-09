@@ -1,5 +1,7 @@
 ### PomBase web site fully live
 
+**Note (2023-06-09): This is an archived news item about PomBase V1. See [the documentation page](/documentation/advanced-search) to learn new [Advanced search](/query) in PomBase V2. **
+
 We are pleased to announce that the PomBase web site,
 [www.pombase.org](http://www.pombase.org), is now fully live; the
 preview phase has ended. The site has been updated with an assortment of
