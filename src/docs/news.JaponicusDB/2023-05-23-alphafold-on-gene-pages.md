@@ -5,4 +5,4 @@
 AlphaFold protein structure are now embedded on the JaponicusDB gene
 pages.
 
-![Example from the pst2 gene page](assets/newsfeed/japonicus-pst2-page.png){ width=100% }
+![Alpha structure on the pst2 gene page](assets/newsfeed/japonicus-pst2-page.png){ width=100% }
