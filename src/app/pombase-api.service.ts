@@ -56,7 +56,7 @@ export interface ReferenceShort {
   citation: string;
   journal?: string;
   citation_date_pages?: string;
-  authors_abbrev: string;
+  authors_abbrev?: string;
   publication_year: string;
   approved_date: string;
   gene_count?: number;
