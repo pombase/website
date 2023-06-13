@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { Util } from '../shared/util';
-import { GenotypeDetails, GenotypeShort, AlleleShort, ExpressedAllele } from '../pombase-api.service';
+import { GenotypeDetails, GenotypeShort, AlleleShort, ReferenceShort } from '../pombase-api.service';
 
 @Component({
   selector: 'app-genotype-allele-summary',
@@ -31,21 +31,11 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
     }
   }
 
-  getSynonymString(expressedAllele: ExpressedAllele): string {
-    const synonyms = expressedAllele.allele.synonyms;
-    if (synonyms) {
-      return synonyms.map(synonym => this.tidyAlleleName(synonym.name)).join(', ');
+  getPopupHeaderText(reference: ReferenceShort, type: 'comment'|'synonym'): string {
+    if (reference && reference.authors_abbrev) {
+      return 'Reference for this comment, ' + reference.authors_abbrev;
     } else {
-      return '';
-    }
-  }
-
-  getCommentString(expressedAllele: ExpressedAllele): string {
-    const comments = expressedAllele.allele.comments;
-    if (comments) {
-      return comments.map(comment => comment.comment.replace(/,/g, ',<wbr>')).join(', ');
-    } else {
-      return '';
+      return 'Reference for this comment';
     }
   }
 

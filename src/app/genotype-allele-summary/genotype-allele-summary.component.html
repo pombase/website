@@ -21,19 +21,49 @@
                        [long]="false" [gene]="expressedAllele.allele.gene"></app-gene-link>
       </td>
       <td *ngIf="showProduct && i == 0" [attr.rowspan]="isDiploid ? 2 : 1">
-        {{expressedAllele.allele.gene?.product}}  
+        {{expressedAllele.allele.gene?.product}}
       </td>
       <td>
         <span [innerHTML]="tidyAlleleName(expressedAllele.allele.name)"></span>
       </td>
       <td *ngIf="hasSynonyms">
-        <span [innerHTML]="getSynonymString(expressedAllele)"></span>
+        <ul>
+          <li *ngFor="let synonymDetail of expressedAllele.allele.synonyms">
+            <span *ngIf="!synonymDetail.reference && !synonymDetail.reference_unquename">
+              {{synonymDetail.name}}
+            </span>
+            <span *ngIf="!synonymDetail.reference && synonymDetail.reference_unquename"
+                  [title]="synonymDetail.reference_unquename">
+              {{synonymDetail.name}}
+            </span>
+            <app-reference-short *ngIf="synonymDetail.reference"
+                                 [reference]="synonymDetail.reference"
+                                 [popupHeader]="getPopupHeaderText(synonymDetail.reference, 'synonym') + ':'"
+                                 [linkText]="synonymDetail.name">
+            </app-reference-short>
+          </li>
+        </ul>
       </td>
       <td>
         <span [innerHTML]="alleleDisplayDescription(expressedAllele.allele)"></span>
       </td>
       <td *ngIf="hasComment">
-        <span [innerHTML]="getCommentString(expressedAllele)"></span>
+        <ul>
+          <li *ngFor="let comment of expressedAllele.allele.comments">
+            <span *ngIf="comment.reference == undefined && !comment.reference_unquename">
+              {{comment.comment}}
+            </span>
+            <span *ngIf="comment.reference == undefined && comment.reference_unquename"
+                  [title]="comment.reference_unquename">
+              {{comment.comment}}
+            </span>
+            <app-reference-short *ngIf="comment.reference != undefined"
+                                 [reference]="comment.reference"
+                                 [popupHeader]="getPopupHeaderText(comment.reference, 'comment') + ':'"
+                                 [linkText]="comment.comment">
+            </app-reference-short>
+          </li>
+        </ul>
       </td>
       <td>{{expressedAllele.allele.allele_type}}</td>
       <td>{{expressedAllele.expression}}</td>

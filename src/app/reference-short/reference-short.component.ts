@@ -13,6 +13,7 @@ export class ReferenceShortComponent implements OnInit, OnChanges {
   @Input() reference: ReferenceShort;
   @Input() showRefTitle = false;
   @Input() linkText?: string;
+  @Input() popupHeader?: string;
 
   @ViewChild('link', {static: false}) link: PopoverDirective;
 
@@ -97,6 +98,10 @@ export class ReferenceShortComponent implements OnInit, OnChanges {
 
     if (this.linkText) {
       this.displayString = this.linkText;
+    }
+
+    if (this.popupHeader) {
+      this.popoverContents.unshift(this.popupHeader);
     }
   }
 
