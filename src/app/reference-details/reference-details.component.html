@@ -186,7 +186,7 @@
       </div>
     </div>
 
-    <div *ngIf="!isCuratable() && !hasAnnotations() && !hasBrowserTracks()">
+    <div *ngIf="isPublication() && !isCuratable() && !hasAnnotations() && !hasBrowserTracks()">
         <span>
           This publication has no
           annotations in {{siteName}} because

@@ -145,6 +145,11 @@ export class ReferenceDetailsComponent implements OnInit {
     }
   }
 
+  isPublication(): boolean {
+    return this.refDetails.uniquename.startsWith('PMID:') ||
+      this.refDetails.uniquename.toLocaleLowerCase().startsWith('doi:');
+  }
+
   isCuratable(): boolean {
     return !!this.cantoTriageStatus && (this.cantoTriageStatus === 'Curatable' ||
       this.hasPossibleBrowserTracks());
