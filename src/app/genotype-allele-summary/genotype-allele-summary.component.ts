@@ -33,9 +33,9 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
 
   getPopupHeaderText(reference: ReferenceShort, type: 'comment'|'synonym'): string {
     if (reference && reference.authors_abbrev) {
-      return 'Reference for this comment, ' + reference.authors_abbrev;
+      return `Reference for this ${type}, ${reference.authors_abbrev}`;
     } else {
-      return 'Reference for this comment';
+      return `Reference for this ${type}`;
     }
   }
 
