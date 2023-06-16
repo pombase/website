@@ -3,7 +3,6 @@ import { Meta } from '@angular/platform-browser';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-
 import { TermDetails, PombaseAPIService, TermSubsets, APIError } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,

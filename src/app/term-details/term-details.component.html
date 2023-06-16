@@ -13,6 +13,8 @@
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
+    <app-term-page-widgets [termDetails]="termDetails"></app-term-page-widgets>
+
     <div class="no-annotations" *ngIf="!hasAnnotations()">
       No annotations for {{displayTermId}}
     </div>

@@ -651,3 +651,23 @@ a.disabled-menu-item.dropdown-item {
 details {
   margin-bottom: 1em
 }
+
+
+.rhea-reactions rhea-reaction-block.and,
+.rhea-reactions rhea-reaction-block.none,
+.rhea-reactions rhea-reaction-block.forward,
+.rhea-reactions rhea-reaction-block.backward,
+.rhea-reactions rhea-reaction-block.bi,
+.rhea-reactions rhea-reaction-block.coefficient {
+  justify-content: center;
+  font-size: 2em;
+}
+
+.rhea-reactions rhea-reaction img {
+  width: 180px;
+  height: 200px;
+}
+
+.rhea-reactions rhea-reaction-block .name {
+  max-width: 24em;
+}

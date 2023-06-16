@@ -1575,6 +1575,11 @@
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz#96116f2a912e0c02817345b3c10751069920d553"
   integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
 
+"@swissprot/rhea-reaction-visualizer@^0.0.23":
+  version "0.0.23"
+  resolved "https://registry.yarnpkg.com/@swissprot/rhea-reaction-visualizer/-/rhea-reaction-visualizer-0.0.23.tgz#89509d2acba4141ae2435293171cc93e7718cb55"
+  integrity sha512-A0sy4sPjn9+EkPZydaOb5fEFA0feGMHfyom7+wlJ7IrdICfVSSBa3qktLx3rtxG14mCvT29Jyg1nn+V1Lcloxg==
+
 "@tootallnate/once@2":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"

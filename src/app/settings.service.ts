@@ -5,6 +5,7 @@ import { getAppConfig } from './config';
 import { TermShort } from './pombase-query';
 
 export type GenePageWidget = 'none' | 'genome_browser' | 'alphafold_viewer' | 'pdb_viewer';
+export type TermPageWidget = 'none' | 'rhea_reaction';
 
 const localStorageKey = 'pombase-settings-v3';
 
@@ -20,6 +21,9 @@ export class SettingsService {
          const savedSettings = JSON.parse(settingsJson);
          if (savedSettings.genePageMainWidget) {
            this._genePageMainWidget = savedSettings.genePageMainWidget;
+         }
+         if (savedSettings.termPageMainWidget) {
+           this._termPageMainWidget = savedSettings.termPageMainWidget;
          }
        } catch (e: any) {
          console.log('failed to deserialise settings: ' + e.message);
@@ -37,10 +41,12 @@ export class SettingsService {
   readonly visibleGenesTableFieldNames$ = this._visibleGenesTableFieldNames.asObservable();
 
   private _genePageMainWidget: GenePageWidget = 'alphafold_viewer';
+  private _termPageMainWidget: TermPageWidget = 'rhea_reaction';
 
   private settingsAsJson(): string {
     return JSON.stringify({
       genePageMainWidget: this._genePageMainWidget,
+      termPageMainWidget: this._termPageMainWidget,
     });
   }
 
@@ -141,6 +147,15 @@ export class SettingsService {
 
   set genePageMainWidget(widgetType: GenePageWidget) {
     this._genePageMainWidget = widgetType;
+    this.saveSettings();
+  }
+
+  get termPageMainWidget(): TermPageWidget {
+    return this._termPageMainWidget;
+  }
+
+  set termPageMainWidget(widgetType: TermPageWidget) {
+    this._termPageMainWidget = widgetType;
     this.saveSettings();
   }
 }

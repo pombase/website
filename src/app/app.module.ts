@@ -139,6 +139,7 @@ import { GenotypeReferencesTableComponent } from './genotype-references-table/ge
 import { GeneHistoryTableComponent } from './gene-history-table/gene-history-table.component';
 import { AlphafoldViewerComponent } from './alphafold-viewer/alphafold-viewer.component';
 import { PdbStructureViewerComponent } from './pdb-structure-viewer/pdb-structure-viewer.component';
+import { TermPageWidgetsComponent } from './term-page-widgets/term-page-widgets.component';
 
 export function documentFactory() {
     return document;
@@ -252,6 +253,7 @@ export function windowFactory() {
     GeneHistoryTableComponent,
     AlphafoldViewerComponent,
     PdbStructureViewerComponent,
+    TermPageWidgetsComponent,
   ],
   imports: [
     BrowserModule,
