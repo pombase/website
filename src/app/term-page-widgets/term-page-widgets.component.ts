@@ -42,18 +42,27 @@ export class TermPageWidgetsComponent {
   setRheaData() {
     this.rheaData = [];
 
-    if (this.termDetails.definition_xrefs) {
-      this.termDetails.definition_xrefs
-        .map((xref: string) => {
+    const process = (xrefs: Array<string>) => {
+      xrefs.map((xref: string) => {
         if (xref.startsWith('RHEA:')) {
           const rheaId = xref.substring(5);
 
-          let xrfDetails = getAppConfig().getExternalTermLink('RHEA', xref);
-          let link = xrfDetails?.url;
+          if (!this.rheaData.find((d) => d.rheaId == rheaId)) {
+            let xrfDetails = getAppConfig().getExternalTermLink('RHEA', xref);
+            let link = xrfDetails?.url;
 
-          this.rheaData.push({ rheaId, link });
+            this.rheaData.push({ rheaId, link });
+          }
         }
       });
+    }
+
+    if (this.termDetails.definition_xrefs) {
+      process(this.termDetails.definition_xrefs);
+    }
+
+    if (this.termDetails.secondary_identifiers) {
+      process(this.termDetails.secondary_identifiers);
     }
   }
 

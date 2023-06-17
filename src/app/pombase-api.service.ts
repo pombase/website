@@ -620,6 +620,7 @@ export class TermDetails {
   name: string;
   is_obsolete: false;
   definition_xrefs: Array<string>;
+  secondary_identifiers: Array<string>;
   cv_annotations: CvAnnotations;
   single_locus_genotype_uniquenames: Array<string>;
   single_locus_genotypes: Array<GenotypeShort>;
