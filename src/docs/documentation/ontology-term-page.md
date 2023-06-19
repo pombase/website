@@ -81,4 +81,8 @@ page.  For more details, follow the "Source: Rhea" link above the diagram.
 
 For example, this is [the GO:0003849 term page](https://pombase.org/term/GO:0003849):
 
-!![](assets/term-page-reaction-example.png){width="800"}
+![](assets/term-page-reaction-example.png){width="800"}
+
+The diagram can be hidden using the "hide" button beside the diagram:
+
+![](assets/term-page-reaction-hide.png){width="312"}
