@@ -71,3 +71,14 @@ ${database_name} internal ontologies including the PBO description
 collection, the PomGeneEx descriptions for qualitative gene
 expression, and FYECO (previously known as PECO) for phenotype
 experimental conditions.
+
+### Reaction diagrams
+
+For some [function GO terms](http://geneontology.org/docs/ontology-documentation/),
+details of the reaction are available from [Rhea](https://www.rhea-db.org/).
+In those cases a diagram of the reaction is shown at the top of the term
+page.  For more details, follow the "Source: Rhea" link above the diagram.
+
+For example, this is [the GO:0003849 term page](https://pombase.org/term/GO:0003849):
+
+!![](assets/term-page-reaction-example.png){width="800"}
