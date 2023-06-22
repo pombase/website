@@ -2255,16 +2255,6 @@
       "id" : "status/gene-coordinate-changes"
    },
    {
-      "content" : "\n\nProtein coding genes\n\nRNA genes\n",
-      "heading" : "Gene coordinate changes",
-      "id" : "status/gene-coordinate-changes-RNA"
-   },
-   {
-      "content" : "\n\nProtein coding genes\n\nRNA genes\n",
-      "heading" : "Gene coordinate changes",
-      "id" : "status/gene-coordinate-changes-protein-coding"
-   },
-   {
       "content" : "\n\nChromosomes\n\n``\n",
       "heading" : "Genome overview",
       "id" : "status/genome-overview"
