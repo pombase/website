@@ -18,6 +18,7 @@ export interface LinkoutConfig {
 
 export interface SearchBoxConfig {
   suffixes_to_trim: Array<string>;
+  ortholog_organisms_to_always_show: Array<number>;
 }
 
 export interface EvidenceConfig {

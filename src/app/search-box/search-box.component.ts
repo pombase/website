@@ -54,6 +54,11 @@ class DisplayModel {
   }
 }
 
+interface FieldAndOrth {
+  matchingFieldValue: string;
+  orth: IdNameAndOrganism;
+}
+
 @Component({
   selector: 'app-search-box',
   templateUrl: './search-box.component.html',
@@ -174,7 +179,16 @@ export class SearchBoxComponent implements OnInit {
 
   private nameExactMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
     if (geneSumm.nameLowerCase === value) {
-      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, [], geneSumm.organism);
+      const matchingOrthologs = this.findMatchingOrthologs(geneSumm, value, 'exact');
+
+      const orthOrgsToShow = this.appConfig.searchBoxConfig.ortholog_organisms_to_always_show;
+
+      const details: Array<string> =
+        matchingOrthologs.
+          filter(orthMatch => orthOrgsToShow.includes(orthMatch.orth.taxonid)).
+          map(({ matchingFieldValue, orth }) =>
+               this.formatOrthologDetails(orth, matchingFieldValue));
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name, details, geneSumm.organism);
     }
     return undefined;
   }
@@ -248,13 +262,10 @@ export class SearchBoxComponent implements OnInit {
     return undefined;
   }
 
-  private orthologMatch(geneSumm: SearchSummary, value: string, exactness: 'exact'|'sub-string'): DisplayModel|undefined {
-    interface FieldAndOrth {
-      matchingFieldValue: string;
-      orth: IdNameAndOrganism;
-    }
 
-    let matchingOrthologs: Array<FieldAndOrth> = [];
+  private findMatchingOrthologs(geneSumm: SearchSummary, value: string, exactness: 'exact' | 'sub-string'): Array<FieldAndOrth> {
+
+    let matchingOrthologs  = [];
 
     if (exactness === 'exact') {
       for (const orth of geneSumm.orthologs) {
@@ -268,7 +279,7 @@ export class SearchBoxComponent implements OnInit {
             matchingOrthologs.push({ matchingFieldValue: orth.identifier, orth });
           } else {
             if (orth.secondary_identifier &&
-                orth.secondary_identifier.toLowerCase() === value) {
+              orth.secondary_identifier.toLowerCase() === value) {
               matchingOrthologs.push({ matchingFieldValue: orth.secondary_identifier, orth });
             }
           }
@@ -286,18 +297,29 @@ export class SearchBoxComponent implements OnInit {
       }
     }
 
+    return matchingOrthologs;
+  }
+
+  private orthologMatch(geneSumm: SearchSummary, value: string, exactness: 'exact'|'sub-string'): DisplayModel|undefined {
+
+    let matchingOrthologs = this.findMatchingOrthologs(geneSumm, value, exactness);
+
     if (matchingOrthologs.length > 0) {
       const details =
         matchingOrthologs.map(({ matchingFieldValue, orth })  => {
-          const orgDetails = this.appConfig.getOrganismByTaxonid(orth.taxonid);
-          const commonNameSpan = `<span class="search-box-organism">(${orgDetails.common_name})</span>`;
-          return `ortholog: ${this.highlightMatch(0, matchingFieldValue)} ${commonNameSpan}`;
+          return this.formatOrthologDetails(orth, matchingFieldValue);
         });
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
         details, geneSumm.organism);
     }
 
     return undefined;
+  }
+
+  private formatOrthologDetails(orth: IdNameAndOrganism, matchingFieldValue: string) {
+    const orgDetails = this.appConfig.getOrganismByTaxonid(orth.taxonid);
+    const commonNameSpan = `<span class="search-box-organism">(${orgDetails.common_name})</span>`;
+    return `ortholog: ${this.highlightMatch(0, matchingFieldValue)} ${commonNameSpan}`;
   }
 
   private productMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
