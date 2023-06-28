@@ -611,7 +611,12 @@ export interface TermAndRelation {
   relation_name: string;
 }
 
-export class TermDetails {
+export interface TermIdRefs {
+  definition_xrefs: Array<string>;
+  secondary_identifiers: Array<string>;
+}
+
+export class TermDetails implements TermIdRefs {
   definition: string;
   termid: string;
   cv_name: string;

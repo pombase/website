@@ -9,7 +9,7 @@
   }
 
   .widgets-container {
-    width: 100%;
+    width: 85%;
     flex-grow: 1;
   }
 }
@@ -101,7 +101,6 @@ img.widget-button {
 }
 
 .rhea-reactions {
-  max-width: 1200px;
   margin: 1.5em 0 1.5em 2em;
   overflow: auto;
 }

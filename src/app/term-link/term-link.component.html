@@ -6,6 +6,9 @@
     </div>
     <div *ngIf="termSummary" class="term-definition">{{termSummary.definition}}</div>
     <div *ngIf="termSummary && cvDisplayName" class="term-cv">From the <span>{{cvDisplayName}}</span> ontology</div>
+    <div *ngIf="termSummary" class="term-reactions">
+      <app-reaction-view [termIdRefs]="termSummary" [miniView]="true"></app-reaction-view>
+    </div>
     <div class="link-hint">(Click to view term details<span *ngIf="!externalLink"> and annotations</span>)</div>
   </div>
 </ng-template>

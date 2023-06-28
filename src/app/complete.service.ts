@@ -7,6 +7,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { HttpRetryService, RetryOptions } from './http-retry.service';
 import { getAppConfig } from './config';
+import { TermIdRefs } from './pombase-api.service';
 
 // Code from: https://github.com/aceakash/string-similarity
 // Copyright (c) 2018 Akash Kurdekar
@@ -46,11 +47,13 @@ function compareTwoStrings(first: string, second: string) {
   return (2.0 * intersectionSize) / (first.length + second.length - 2);
 }
 
-export interface SolrTermSummary {
+export interface SolrTermSummary extends TermIdRefs  {
   termid: string;
   name: string;
   cv_name: string;
   definition: string;
+  definition_xrefs: Array<string>;
+  secondary_identifiers: Array<string>;
   highlighting: { [fieldName: string]: string };
 }
 

@@ -12,10 +12,16 @@
 }
 
 .term-popover {
-  width: 40em;
+  width: 42em;
 }
 
 .link-hint {
   font-size: 90%;
   margin-top: 0.4em;
+}
+
+.term-reactions {
+  max-width: 600px;
+  margin: 0.3em;
+  overflow: auto;
 }

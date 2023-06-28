@@ -140,6 +140,7 @@ import { GeneHistoryTableComponent } from './gene-history-table/gene-history-tab
 import { AlphafoldViewerComponent } from './alphafold-viewer/alphafold-viewer.component';
 import { PdbStructureViewerComponent } from './pdb-structure-viewer/pdb-structure-viewer.component';
 import { TermPageWidgetsComponent } from './term-page-widgets/term-page-widgets.component';
+import { ReactionViewComponent } from './reaction-view/reaction-view.component';
 
 export function documentFactory() {
     return document;
@@ -254,6 +255,7 @@ export function windowFactory() {
     AlphafoldViewerComponent,
     PdbStructureViewerComponent,
     TermPageWidgetsComponent,
+    ReactionViewComponent,
   ],
   imports: [
     BrowserModule,

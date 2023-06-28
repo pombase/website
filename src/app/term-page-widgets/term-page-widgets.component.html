@@ -1,4 +1,4 @@
-<div *ngIf="rheaData.length != 0" class="widgets">
+<div *ngIf="hasWidgetData()" class="widgets">
   <div class="widgets-picker-container">
     <div class="widgets-picker"
          [ngClass]="{'widget-buttons-horizontal': currentWidget() == 'none', 'widget-buttons-vertical': currentWidget() != 'none'}">
@@ -36,9 +36,7 @@
   <div *ngIf="currentWidget() != 'none'" class="widgets-container">
     <div *ngIf="currentWidget() == 'rhea_reaction'">
       <div class="rhea-reactions">
-        <div *ngFor="let rheaItem of rheaData">
-          <rhea-reaction rheaid="{{rheaItem.rheaId}}"></rhea-reaction>
-        </div>
+        <app-reaction-view [termIdRefs]="termIdRefs"></app-reaction-view>
       </div>
     </div>
   </div>

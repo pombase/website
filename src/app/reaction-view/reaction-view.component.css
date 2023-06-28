@@ -1,0 +1,44 @@
+.reaction-mini {
+  width: 600px;
+}
+
+.reaction-mini ::ng-deep .rhea-reaction-container .name {
+  display: none;
+}
+
+.reaction-mini ::ng-deep .rhea-reaction-container img {
+  width: 80px;
+  height: 100px;
+}
+
+.reaction-mini ::ng-deep rhea-reaction-block {
+  padding: 3px;
+}
+
+.reaction-full {
+  margin-bottom: 1em;
+}
+
+.reaction-full ::ng-deep rhea-reaction-block.and,
+.reaction-full ::ng-deep rhea-reaction-block.none,
+.reaction-full ::ng-deep rhea-reaction-block.forward,
+.reaction-full ::ng-deep rhea-reaction-block.backward,
+.reaction-full ::ng-deep rhea-reaction-block.bi,
+.reaction-full ::ng-deep rhea-reaction-block.coefficient {
+  justify-content: center;
+  font-size: 2em;
+}
+
+.reaction-full ::ng-deep rhea-reaction-block .name {
+  font-size: 1em;
+  max-width: 22em;
+}
+
+.reaction-full ::ng-deep rhea-reaction-block img {
+  width: 185px;
+  height: 200px;
+}
+
+::ng-deep rhea-reaction-block.participant  {
+  border: 1px solid #eee;
+}
