@@ -39,6 +39,10 @@
   height: 200px;
 }
 
-::ng-deep rhea-reaction-block.participant  {
-  border: 1px solid #eee;
+::ng-deep .rhea-reaction-container > rhea-reaction-block.participant  {
+  border: 1px dashed #aaa;
+}
+
+::ng-deep rhea-reaction .rhea-reaction-container rhea-reaction-block div.residues {
+  border: none;
 }
