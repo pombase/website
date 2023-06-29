@@ -638,7 +638,8 @@ export class GenomeRangeNode extends GeneQueryBase {
   private _detailsString: string;
 
   constructor(nodeName: string|undefined,
-              private start: number, private end: number, private chromosomeName: string) {
+              private start: number|undefined, private end: number|undefined,
+              private chromosomeName: string) {
     super(nodeName);
 
     this.setDetailsString();

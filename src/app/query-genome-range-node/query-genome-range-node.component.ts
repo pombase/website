@@ -17,11 +17,11 @@ export class QueryGenomeRangeNodeComponent implements OnInit, OnChanges {
   @Input() nodeConfig: QueryNodeConfig;
   @Output() nodeEvent = new EventEmitter<NodeEventDetails>();
 
-  rangeStart: number;
-  rangeEnd: number;
+  rangeStart?: number;
+  rangeEnd?: number;
   chromosomeName?: string;
 
-  rangeRadio = 'all';
+  rangeRadio: 'all'|'some' = 'all';
 
   rangeMax = 1;
 
@@ -32,31 +32,48 @@ export class QueryGenomeRangeNodeComponent implements OnInit, OnChanges {
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   genomeRangeSearch(): void {
-    const part = new GenomeRangeNode(undefined, this.rangeStart!, this.rangeEnd!,
+    let rangeStart = this.rangeStart;
+    let rangeEnd = this.rangeEnd;
+
+    if (this.rangeRadio === 'all') {
+      rangeStart = undefined;
+      rangeEnd = undefined;
+    }
+
+    const part = new GenomeRangeNode(undefined, rangeStart, rangeEnd,
                                      this.chromosomeName!);
     this.emitNodeEvent(part);
   }
 
   startChanged(): void {
+    if (this.rangeStart === undefined) {
+      this.rangeStart = 1;
+      return;
+    }
+
     if (this.rangeStart < 1) {
       this.rangeStart = 1;
     }
     if (this.rangeStart > this.rangeMax) {
       this.rangeStart = this.rangeMax;
     }
-    if (this.rangeEnd < this.rangeStart) {
+    if (this.rangeEnd === undefined || this.rangeEnd < this.rangeStart) {
       this.rangeEnd = this.rangeStart;
     }
   }
 
   endChanged(): void {
+    if (this.rangeEnd === undefined) {
+      this.rangeEnd = this.rangeMax;
+    }
+
     if (this.rangeEnd < 1) {
       this.rangeEnd = 1;
     }
     if (this.rangeEnd > this.rangeMax) {
       this.rangeEnd = this.rangeMax;
     }
-    if (this.rangeEnd < this.rangeStart) {
+    if (this.rangeStart === undefined || this.rangeEnd < this.rangeStart) {
       this.rangeStart = this.rangeEnd;
     }
   }
