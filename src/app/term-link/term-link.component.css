@@ -3,6 +3,7 @@
 }
 
 .term-definition, .term-cv {
+  max-width: 40em;
   font-size: 90%;
   padding: 0.2em 0 0.3em 0;
 }
@@ -11,17 +12,13 @@
   font-weight: bold;
 }
 
-.term-popover {
-  width: 42em;
-}
-
 .link-hint {
   font-size: 90%;
   margin-top: 0.4em;
 }
 
 .term-reactions {
-  max-width: 600px;
+  max-width: 46em;
   margin: 0.3em;
   overflow: auto;
 }

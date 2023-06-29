@@ -36,7 +36,30 @@ export class TermLinkComponent implements OnInit {
         this.link.show();
       }
     }, this.appConfig.details_popup_delay);
+  }
 
+  hasReactions(): boolean {
+    if (!this.termSummary) {
+      return false;
+    }
+
+    if (this.termSummary.definition_xrefs) {
+      for (const xref of this.termSummary.definition_xrefs) {
+        if (xref.startsWith("RHEA:")) {
+          return true;
+        }
+      }
+    }
+
+    if (this.termSummary.secondary_identifiers) {
+      for (const xref of this.termSummary.secondary_identifiers) {
+        if (xref.startsWith("RHEA:")) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 
   mouseLeave(): void {
