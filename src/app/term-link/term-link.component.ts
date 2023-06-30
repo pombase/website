@@ -27,6 +27,8 @@ export class TermLinkComponent implements OnInit {
   termSummary: SolrTermSummary|undefined = undefined;
   cvDisplayName = '';
 
+  hasReactions = false;
+
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   mouseEnter(): void {
@@ -38,15 +40,17 @@ export class TermLinkComponent implements OnInit {
     }, this.appConfig.details_popup_delay);
   }
 
-  hasReactions(): boolean {
+  setHasReactions() {
+    this.hasReactions = false;
     if (!this.termSummary) {
-      return false;
+      return;
     }
 
     if (this.termSummary.definition_xrefs) {
       for (const xref of this.termSummary.definition_xrefs) {
         if (xref.startsWith("RHEA:")) {
-          return true;
+          this.hasReactions = true;
+          return;
         }
       }
     }
@@ -54,12 +58,31 @@ export class TermLinkComponent implements OnInit {
     if (this.termSummary.secondary_identifiers) {
       for (const xref of this.termSummary.secondary_identifiers) {
         if (xref.startsWith("RHEA:")) {
-          return true;
+          this.hasReactions = true;
+          return
         }
       }
     }
 
-    return false;
+    return;
+  }
+
+  getLinkHint(): string {
+    let base = 'Click to view term details';
+    const rheaString = 'larger Rhea reaction diagram';
+    if (this.externalLink) {
+      if (this.hasReactions) {
+        return base + ' and ' + rheaString;
+      } else {
+        return base;
+      }
+    } else {
+      if (this.hasReactions) {
+        return base + ', annotations and ' + rheaString;
+      } else {
+        return base + ' and annotations';
+      }
+    }
   }
 
   mouseLeave(): void {
@@ -80,6 +103,8 @@ export class TermLinkComponent implements OnInit {
         if (termSummary) {
           let typeConfig = this.config.getAnnotationType(termSummary.cv_name);
           this.cvDisplayName = typeConfig.display_name;
+
+          this.setHasReactions();
         }
       });
   }

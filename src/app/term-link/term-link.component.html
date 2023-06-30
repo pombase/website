@@ -1,15 +1,17 @@
 <ng-template #termPopover>
   <div class="term-popover">
+    <div *ngIf="termSummary && cvDisplayName" class="term-cv"><span>{{cvDisplayName}}</span></div>
+
     <div>
       <span *ngIf="term.name" class="term-name">{{term.name}}</span>
       <span class="term-id">({{getDisplayTermId()}})</span>
     </div>
     <div *ngIf="termSummary" class="term-definition">{{termSummary.definition}}</div>
-    <div *ngIf="termSummary && cvDisplayName" class="term-cv">From the <span>{{cvDisplayName}}</span> ontology</div>
-    <div *ngIf="hasReactions()" class="term-reactions">
+
+    <div *ngIf="hasReactions" class="term-reactions">
       <app-reaction-view [termIdRefs]="termSummary!" [miniView]="true"></app-reaction-view>
     </div>
-    <div class="link-hint">(Click to view term details<span *ngIf="!externalLink"> and annotations</span>)</div>
+    <div class="link-hint">({{getLinkHint()}})</div>
   </div>
 </ng-template>
 
