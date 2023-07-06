@@ -201,7 +201,7 @@
         <div class="sequence-holder" *ngIf="getDisplaySequence()">
           <div class="selected-range">
           <div *ngIf="selectedResidueRange">
-            Selected residues: {{selectedResidueRange.start}}..{{selectedResidueRange.end}}
+            {{selectedResidueMessage()}}
           </div>
           <div *ngIf="!selectedResidueRange">&nbsp;</div>
           </div>

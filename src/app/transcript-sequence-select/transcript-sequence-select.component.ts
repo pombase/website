@@ -180,6 +180,8 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.wrappedSequence = undefined;
     this.displaySequence = undefined;
 
+    this.selectedResidueRange = undefined;
+
     let transcripts = this.geneDetails.transcripts;
     this.hasTranscripts = transcripts.length > 0;
 
@@ -422,6 +424,24 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.prefetch();
 
     this.updateSequence();
+  }
+
+  selectedResidueMessage(): string {
+    if (!this.selectedResidueRange) {
+      return '';
+    }
+
+    const selectedCount = this.selectedResidueRange.end - this.selectedResidueRange.start + 1;
+
+    let message = selectedCount + ' selected residue';
+
+    if (selectedCount == 1) {
+      message += ': ';
+    } else {
+      message += 's: ';
+    }
+
+    return message + this.selectedResidueRange.start + '..' + this.selectedResidueRange.end;
   }
 
   ngOnChanges() {
