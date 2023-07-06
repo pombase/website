@@ -26,5 +26,9 @@
   "/structure_view": {
     "target": "http://localhost:8400",
     "secure": false
+  },
+  "/protein_feature_view": {
+    "target": "http://localhost:8400",
+    "secure": false
   }
 }

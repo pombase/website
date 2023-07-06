@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { getAppConfig } from './config';
 import { TermShort } from './pombase-query';
 
-export type GenePageWidget = 'none' | 'genome_browser' | 'alphafold_viewer' | 'pdb_viewer';
+export type GenePageWidget = 'none' | 'protein_feature_viewer' | 'genome_browser' | 'alphafold_viewer' | 'pdb_viewer';
 export type TermPageWidget = 'none' | 'rhea_reaction';
 
 const localStorageKey = 'pombase-settings-v3';
