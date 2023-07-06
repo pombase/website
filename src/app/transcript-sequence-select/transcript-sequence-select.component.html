@@ -216,7 +216,7 @@
                  (mouseenter)="mouseenter(part)" (mouseleave)="mouseleave()"
                  [attr.data-part-id]="part.partId">{{part.residues}}</span></div>
           </div>
-          <div *ngIf="!wrappedSequence">
+          <div *ngIf="!wrappedSequence && showNucSequence">
             (No sequence to display)
           </div>
           <app-loading-spinner *ngIf="wrappedSequence == null"></app-loading-spinner>
