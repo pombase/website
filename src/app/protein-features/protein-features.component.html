@@ -8,7 +8,7 @@
   </legend>
 
 <div class="annotation-table-container">
-  <div *ngIf="trackViewData.length > 0 && geneDetails.transcripts[0].protein">
+  <div *ngIf="trackViewData.length > 0 && geneDetails.transcripts && geneDetails.transcripts.length > 0 && geneDetails.transcripts[0].protein">
     <div class="protein-feature-title">
       Graphical view
     </div>
@@ -61,7 +61,8 @@
     </app-annotation-sub-table>
   </div>
 
-  <div class="protein-properties" *ngIf="geneDetails.transcripts[0].protein">
+  <div class="protein-properties"
+       *ngIf="geneDetails.transcripts && geneDetails.transcripts.length > 0 && geneDetails.transcripts[0].protein">
     <div class="protein-feature-title">
       Protein properties
     </div>
