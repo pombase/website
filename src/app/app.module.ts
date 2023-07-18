@@ -142,6 +142,7 @@ import { PdbStructureViewerComponent } from './pdb-structure-viewer/pdb-structur
 import { TermPageWidgetsComponent } from './term-page-widgets/term-page-widgets.component';
 import { ReactionViewComponent } from './reaction-view/reaction-view.component';
 import { ProteinFeatureViewerComponent } from './protein-feature-viewer/protein-feature-viewer.component';
+import { GeneProteinFeaturesComponent } from './gene-protein-features/gene-protein-features.component';
 
 export function documentFactory() {
     return document;
@@ -258,6 +259,7 @@ export function windowFactory() {
     TermPageWidgetsComponent,
     ReactionViewComponent,
     ProteinFeatureViewerComponent,
+    GeneProteinFeaturesComponent,
   ],
   imports: [
     BrowserModule,

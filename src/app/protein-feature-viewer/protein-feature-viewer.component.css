@@ -1,5 +1,11 @@
 .embedded-protein-viewer {
-  width: 1050px;
+  width: 1260px;
   height: 400px;
   border: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
 }

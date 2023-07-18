@@ -1,2 +1,13 @@
-<iframe [src]="getIFrameURL()" class="embedded-protein-viewer" scrolling="no" #proteinfeaturesiframe>
-</iframe>
+<div>
+
+  <div class="header">
+    <div>
+    </div>
+    <div>
+      <a routerLink="/gene_protein_features/{{geneDetails.uniquename}}">View all protein features ...</a>
+    </div>
+  </div>
+
+  <iframe [src]="getIFrameURL()" class="embedded-protein-viewer" #proteinfeaturesiframe>
+  </iframe>
+</div>

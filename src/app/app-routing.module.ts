@@ -3,6 +3,7 @@ import { Routes, RouterModule, NoPreloading } from '@angular/router';
 
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { GeneAlleleListComponent } from './gene-allele-list/gene-allele-list.component';
+import { GeneProteinFeaturesComponent } from './gene-protein-features/gene-protein-features.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { AlleleDetailsComponent } from './allele-details/allele-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
@@ -33,6 +34,11 @@ const routes: Routes = [
     }
   },
   { path: 'gene_subset/:subsetName', component: GeneSubsetViewComponent,
+    data: {
+    }
+  },
+  {
+    path: 'gene_protein_features/:uniquename', component: GeneProteinFeaturesComponent,
     data: {
     }
   },
