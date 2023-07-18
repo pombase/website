@@ -12,6 +12,8 @@ export class ProteinFeatureViewerComponent {
 
   sanitizedURL?: SafeResourceUrl;
 
+  geneDisplayName?: string;
+
   constructor(private sanitizer: DomSanitizer) {
   }
 
@@ -20,6 +22,11 @@ export class ProteinFeatureViewerComponent {
   }
 
   ngOnChanges(): void {
+    if (this.geneDetails.name) {
+      this.geneDisplayName = this.geneDetails.name;
+    } else {
+      this.geneDisplayName = this.geneDetails.uniquename;
+    }
 
     if (this.geneDetails.uniprot_identifier) {
       const rawUrl = 'protein_feature_view/widget/' + this.geneDetails.uniquename;

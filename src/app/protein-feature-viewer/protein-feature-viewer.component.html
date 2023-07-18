@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="geneDetails.has_protein_features">
 
   <div class="header">
     <div>
@@ -10,4 +10,8 @@
 
   <iframe [src]="getIFrameURL()" class="embedded-protein-viewer" #proteinfeaturesiframe>
   </iframe>
+</div>
+
+<div *ngIf="!geneDetails.has_protein_features && geneDisplayName" class="no-features">
+No features available for {{geneDisplayName}}
 </div>

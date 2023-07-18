@@ -9,3 +9,8 @@
   justify-content: space-between;
   width: 1000px;
 }
+
+.no-features {
+  font-size: 110%;
+  padding: 1.3em;
+}

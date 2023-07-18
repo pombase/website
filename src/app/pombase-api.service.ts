@@ -572,6 +572,7 @@ export class GeneDetails {
   low_complexity_region_coords: Array<Array<number>>;
   disordered_region_coords: Array<Array<number>>;
   coiled_coil_coords: Array<Array<number>>;
+  has_protein_features: boolean;
   orfeome_identifier: string;
   pdb_entries: Array<PDBEntry>;
   characterisation_status?: string;
