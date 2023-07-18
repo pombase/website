@@ -1,10 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { ActivatedRoute, Params } from '@angular/router';
-
 import { GeneDetails, PombaseAPIService, GenotypeShort,
-
-
          AlleleShort } from '../pombase-api.service';
 import { Util } from '../shared/util';
 
