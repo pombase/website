@@ -1,7 +1,7 @@
-## Gene page: Protein features
+## Gene page: Protein domains and properties
 
 Gene pages for protein-coding genes have a section describing protein
-features. Also see the
+domains and properties.  Also see the
 [Modifications](/documentation/gene-page-modifications) documentation.
 
 ![gene page protein features](assets/gene_page_protein_features.png){width="800"}
