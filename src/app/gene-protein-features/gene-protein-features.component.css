@@ -1,5 +1,6 @@
 iframe.full-protein-viewer {
   width: 1160px;
-  height: 80vh;
+  height: 57vh;
   border: 0;
+  margin-left: 2em;
 }
