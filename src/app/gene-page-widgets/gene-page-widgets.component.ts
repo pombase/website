@@ -19,7 +19,6 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   appConfig: AppConfig = getAppConfig();
   jbrowseLinkUrl?: string;
-  sanitizedJBrowseURL?: SafeResourceUrl;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private sanitizer: DomSanitizer,
@@ -63,14 +62,10 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
           const tracks = 'Forward%20strand%20features%2CReverse%20strand%20features%2CDNA%20sequence';
           this.jbrowseLinkUrl =
-            `jbrowse/?loc=${chrExportId}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
-
-          this.sanitizedJBrowseURL =
-            this.sanitizer.bypassSecurityTrustResourceUrl(this.jbrowseLinkUrl + '&tracklist=0&nav=0&overview=0');
+            `jbrowse/?loc=${chrExportId}%3A${jbStart}..${jbEnd}&tracks=${tracks}&tracklist=0&nav=0&overview=0`;
         });
     } else {
       this.jbrowseLinkUrl = undefined;
-      this.sanitizedJBrowseURL = undefined;
     }
   }
 
@@ -120,8 +115,8 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     this.settingsService.genePageMainWidget = widget;
   }
 
-  getJBrowseIFrameURL(): SafeResourceUrl | undefined {
-    return this.sanitizedJBrowseURL;
+  getJBrowseIFrameURL(): string | undefined {
+    return this.jbrowseLinkUrl;
   }
 
 

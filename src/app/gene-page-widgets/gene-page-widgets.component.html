@@ -79,8 +79,8 @@
 
 <div *ngIf="currentWidget() == 'genome_browser'" class="chromosome-region-view">
 
-  <div class="jbrowse-container">
-    <iframe [src]="getJBrowseIFrameURL()" scrolling="no" class="embedded-jbrowse">
+  <div *ngIf="getJBrowseIFrameURL()" class="jbrowse-container">
+    <iframe [src]="getJBrowseIFrameURL()! | safeUrl" scrolling="no" class="embedded-jbrowse">
     </iframe>
   </div>
 
