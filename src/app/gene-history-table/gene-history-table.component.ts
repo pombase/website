@@ -8,7 +8,7 @@ type RefOrText = {
 }
 
 const ftpLinkRE = /\/(\d\d\d\d\d\d\d\d)\/?$/;
-const svnLinkRE = /\/trunk\?p=(\d+)$/;
+const svnLinkRE = /\/trunk\/?\?p=(\d+)$/;
 
 interface ProcessedHistoryEntry extends GeneHistoryEntry {
   processedReferences: Array<Array<RefOrText>>;
