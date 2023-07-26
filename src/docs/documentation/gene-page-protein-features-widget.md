@@ -10,8 +10,8 @@ description of the track.
 ### Available tracks
 
   - **Sequence** the amino acid sequence - zoom in to see individual residues
-  - **Mutant positions** positions where there are one or more amino acid substitutions
-  - **Mutants** curated amino acid substitution alleles (available only in the full view) 
+  - **AA substitution positions** positions where there are one or more amino acid substitutions
+  - **AA substitution alleles** curated amino acid substitution alleles (available only in the full view) 
   - **Partial deletions** curated alleles with partial amino acid deletions
   - **Modifications** curated modified residues
   - **Pfam families** Pfam protein familes from [InterPro](https://www.ebi.ac.uk/interpro/)
