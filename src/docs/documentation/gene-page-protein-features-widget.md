@@ -13,7 +13,7 @@ description of the track.
   - **Mutant positions** positions where there are one or more amino acid substitutions
   - **Mutants** curated amino acid substitution alleles (available only in the full view) 
   - **Partial deletions** curated alleles with partial amino acid deletions
-  - **Modifications** curated modified residues, coloured by modification type
+  - **Modifications** curated modified residues
   - **Pfam families** Pfam protein familes from [InterPro](https://www.ebi.ac.uk/interpro/)
   - **TM domains** Trans-membrane domains calculated with TMHMM (Krogh et al. 2001)
   - **Disordered regions** Disordered regions from Pfam version 34.0 (El-Gebali et al. 2019)
