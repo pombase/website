@@ -660,7 +660,7 @@ sub markdown {
   close $temp_fh;
 
   my $pandoc_command =
-    "pandoc --columns 1000 -f markdown-markdown_in_html_blocks+link_attributes+auto_identifiers+implicit_header_references+header_attributes " .
+    "pandoc --columns 1000 -f markdown-markdown_in_html_blocks-implicit_figures+link_attributes+auto_identifiers+implicit_header_references+header_attributes " .
     "-t $output_type $temp_filename";
 
   open my $pandoc_pipe, "$pandoc_command 2> $temp_filename.err|"
