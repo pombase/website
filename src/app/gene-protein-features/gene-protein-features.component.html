@@ -2,7 +2,8 @@
 
 <!--  <a routerLink="/gene/{{geneDetails.uniquename}}">&lt;- Back to gene page</a> -->
 
-  <div class="details-page-name-and-id">
+  <div class="header details-page-name-and-id">
+    <span>
     <span class="details-page-name-and-id-prefix">Protein features: </span>
 
     <a routerLink="/gene/{{geneDetails.uniquename}}">
@@ -13,6 +14,14 @@
         <span class="name-id">{{geneDetails.uniquename}}</span>
       </span>
     </a>
+    </span>
+
+    <span class="help-link">
+      <app-help-link [route]="'/documentation/gene-page-protein-features-widget'"
+                     [title]="'Click to view documentation for the protein feature viewer'">
+        Documentation ...
+      </app-help-link>
+    </span>
 
   </div>
 

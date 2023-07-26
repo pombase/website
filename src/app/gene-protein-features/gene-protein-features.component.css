@@ -4,3 +4,14 @@ iframe.full-protein-viewer {
   border: 0;
   margin-left: 2em;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 1180px;
+}
+
+.help-link {
+  font-size: 60%;
+  margin-top: 0.5em;
+}

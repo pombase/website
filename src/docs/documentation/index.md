@@ -17,6 +17,7 @@ Search documentation, news archive and FAQ:
 ### Gene Pages ###
 
 -   [Basic information](documentation/gene-page-basic-information)
+-   [Protein features widget](documentation/gene-page-protein-features-widget)
 -   [Gene Ontology](documentation/gene-page-gene-ontology)
 -   [Phenotypes](documentation/gene-page-phenotypes)
 -   [Target of](documentation/gene-page-target)

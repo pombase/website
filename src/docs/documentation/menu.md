@@ -3,6 +3,7 @@
 <div class="left-menu-part left-menu-item">Gene pages</div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-basic-information">Basic information</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-gene-ontology">Gene Ontology</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-protein-features-widget">Protein features widget</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-phenotypes">Phenotypes</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-target">Target of</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-protein-features">Protein features</a></div>

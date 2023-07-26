@@ -2,6 +2,10 @@
 
   <div class="header">
     <div>
+      <app-help-link [route]="'/documentation/gene-page-protein-features-widget'"
+        [title]="'Click to view documentation for the protein feature widget'">
+      </app-help-link>
+
       <a routerLink="/gene_protein_features/{{geneDetails.uniquename}}">View all protein features ...</a>
     </div>
     <div>
