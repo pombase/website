@@ -5,7 +5,7 @@ gene.  Hover over an allele, partial deletion, modification or Pfam
 domain to see more details.  Hover over the track name for a brief
 description of the track.
 
-![pap1 gene page protein features widget](assets/gene-pap1-protein-feature-viewer-widget-1.png){width=96%}
+![pap1 gene page protein features widget](assets/gene-pap1-protein-feature-viewer-widget-no-colour.png){width=96%}
 
 ### Available tracks
 
@@ -38,5 +38,5 @@ the dedicated protein features page that includes the details of the
 individual amino acid substitution allele changes and "Partial
 deletions" tracks:
 
-![pap1 protein features page](assets/gene-pap1-protein-feature-viewer-page-1.png){width=96%}
+![pap1 protein features page](assets/gene-pap1-protein-feature-viewer-page-no-colour.png){width=96%}
 
