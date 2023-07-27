@@ -34,7 +34,7 @@
       </div>
     </ng-container>
 
-  <div *ngIf="!deployConfigService.productionMode()">
+  <div>
     <div *ngIf="currentWidget() != 'protein_feature_viewer'" class="non-active-widget-button"
          title="Click to view protein features">
       <a (click)="setWidget('protein_feature_viewer')">
