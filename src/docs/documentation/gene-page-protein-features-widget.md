@@ -12,7 +12,7 @@ description of the track.
   - **Sequence** the amino acid sequence - zoom in to see individual residues
   - **AA substitution positions** positions where there are one or more amino acid substitutions
   - **AA substitution alleles** curated amino acid substitution alleles (available only in the full view) 
-  - **Partial deletions** curated alleles with partial amino acid deletions
+  - **Partial deletions** curated alleles with partial amino acid deletions (full view only)
   - **Modifications** curated modified residues
   - **Pfam families** Pfam protein familes from [InterPro](https://www.ebi.ac.uk/interpro/)
   - **TM domains** Trans-membrane domains calculated with TMHMM (Krogh et al. 2001)
@@ -40,3 +40,6 @@ deletions" tracks:
 
 ![pap1 protein features page](assets/gene-pap1-protein-feature-viewer-page-no-colour.png){width=96%}
 
+Thanks to the team at [RCSB PDB](https://www.rcsb.org/) for providing
+the [Open Source software](https://github.com/rcsb/rcsb-saguaro) used
+to implement this feature.
