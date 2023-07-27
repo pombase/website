@@ -29,7 +29,7 @@ documentation page.
 
 Since November 2022, new or updated Genetic Interaction annotations are linked to phenotype annotations and alleles. We continue to display interactions in the old format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.
 
-![During filter](assets/newsfeed/gi-update-2.png)
+![During filter](assets/newsfeed/gi-update-2.png){width=95%}
 
 ### More on Genetic Interactions
 
