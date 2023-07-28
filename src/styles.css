@@ -478,6 +478,14 @@ select option:disabled {
   padding-bottom: 1em;
 }
 
+.recent-news img {
+  box-shadow: 1px 3px 8px 1px #ddd;
+}
+
+.docs-content .news-archive img.newsfeed-thumbnail, .recent-news img.newsfeed-thumbnail {
+  box-shadow: none;
+}
+
 .news-archive .news-item h3 {
   margin-bottom: 0.6em;
 }
