@@ -143,11 +143,13 @@
 .front-twitter-feed {
   height: 80em;
   overflow-y: auto;
+  display: none;
 }
 
 .front-twitter-feed-small {
   height: 60em;
   overflow-y: auto;
+  display: none;
 }
 
 @media (min-width: 800px) {
