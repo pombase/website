@@ -151,6 +151,7 @@ There are several ways to navigate the genome.
 
 - Use the box at the top that displays the chromosomal coordinates to
   navigate to a specified location:
+
 ![JBrowse top of main display](assets/jbrowse_main_top_coords.png){ .screenshot width="600"}
 
     In the coordinates box,
