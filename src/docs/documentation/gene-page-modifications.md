@@ -10,11 +10,11 @@ future, when relevant data are curated.
 
 The summary view shows only the names of the most specific terms used to annotate the gene:
 
-![summary gene page modification ontology annotation](assets/gene_page_modification_summary.png "Protein modifications"){width="250"}
+![summary gene page modification ontology annotation](assets/gene_page_modification_summary.png "Protein modifications"){ .screenshot width="250"}
 
 The detailed view shows more information for each annotation, and may display additional terms:
 
-![full gene page modification ontology annotation](assets/gene_page_modification_full.png "Protein modifications"){width="800"}
+![full gene page modification ontology annotation](assets/gene_page_modification_full.png "Protein modifications"){ .screenshot width="800"}
 
 1.  Name and ID of the ontology term
 2.  Modification annotations may have extensions (see below) to capture

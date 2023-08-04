@@ -7,7 +7,7 @@ The summary view shows slim terms (see below) and the names of the most specific
 
 The detailed view shows more information for each annotation, and may display additional terms:
 
-![full gene page disease association annotation](assets/gene_page_disease_full.png "Disease associations"){width="800"}
+![full gene page disease association annotation](assets/gene_page_disease_full.png "Disease associations"){ .screenshot width="800"}
 
 1. [Mondo slim](browse-curation/disease-slim) terms applicable to the
    gene.

@@ -3,7 +3,7 @@
 At the top of each gene page is a set of basic information about the
 gene:
 
-![top of gene page](assets/basic_info_gene_page.png  "Gene page basic information"){width="800"}
+![top of gene page](assets/basic_info_gene_page.png  "Gene page basic information"){ .screenshot width="800"}
 
 1.  See the [Gene Name Registry](/submit-data/gene-names) for more
     information about *${species_abbrev}* gene names. Synonyms include all

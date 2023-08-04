@@ -9,4 +9,4 @@ phase-specific curation (such as cdc2). The revised phase filter options are als
 
 The  phase filters are located at the top right of GO and gene expression annotation sections:
 
-![During filter](assets/newsfeed/during-filter.png){style="padding-left:5em"}\
+![During filter](assets/newsfeed/during-filter.png){ .screenshot style="padding-left:5em"}\

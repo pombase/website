@@ -3,7 +3,7 @@
 For each publication loaded into ${database_name}, a page summarizes essential
 details about paper, and shows any annotations that cite it.
 
-![publication page top details](assets/publication_page_top.png){width="800"}
+![publication page top details](assets/publication_page_top.png){ .screenshot width="800"}
 
 1.  Publication details, including links to
     [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/) and
@@ -21,4 +21,4 @@ details about paper, and shows any annotations that cite it.
 Like gene pages, publication pages include annotations of all types,
 with summary and detailed views available for most types:
 
-![publication page](assets/publication_page_overview.png){width="800"}
+![publication page](assets/publication_page_overview.png){ .screenshot width="800"}

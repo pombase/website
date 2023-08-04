@@ -9,4 +9,4 @@ under the "Transcripts and exons" query grouping in the
 You can also add RNA sequence length as a field in tables downloaded
 from the query builder.
 
-![RNA length queries are available under the "Transcripts and exons" tab](assets/newsfeed/advanced-search-rna-length-query.png){ width=100% }
+![RNA length queries are available under the "Transcripts and exons" tab](assets/newsfeed/advanced-search-rna-length-query.png){ .screenshot  width=100% }

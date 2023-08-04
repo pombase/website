@@ -33,7 +33,7 @@ terms used to annotate a genotype, and each unique combination of
 gene, FYPO term, allele(s) and extension(s) is shown once. For
 single-allele phenotypes, the display includes:
 
-![single-locus FYPO summary on gene page](assets/single_fypo_gene_page_summary.png){width="800"}
+![single-locus FYPO summary on gene page](assets/single_fypo_gene_page_summary.png){ .screenshot width="800"}
 
 1.  The FYPO term name, which links to a page with additional
     information, including the term definition, any synonyms,
@@ -71,13 +71,13 @@ single-allele phenotypes, the display includes:
     lists several broad phenotypic categories derived from high-level
     FYPO terms:
 
-![FYPO annotation term filter](assets/fypo_term_filter_pulldown.png){width="160"}
+![FYPO annotation term filter](assets/fypo_term_filter_pulldown.png){ .screenshot width="160"}
 
 Choose one to restrict the annotation display to terms in the selected
 branch of FYPO. When term filtering is active, a message appears to
 indicate that not all annotations are shown:
 
-![filtered annotation display message](assets/fypo_showing_n_annotations.png){width="600"}
+![filtered annotation display message](assets/fypo_showing_n_annotations.png){ .screenshot width="600"}
 
 Change the selection back to "No filter" to see annotations to all
 terms.
@@ -89,7 +89,7 @@ gene/term/allele/extension combination (if supported by more than one
 line of evidence and/or reported in more than one paper), and
 annotations to terms hidden in the summary view:
 
-![Single-locus FYPO detailed view on gene page](assets/single_fypo_gene_page_full.png){width="800"}
+![Single-locus FYPO detailed view on gene page](assets/single_fypo_gene_page_full.png){ .screenshot width="800"}
 
 1.  The unique ID and name for a term in the phenotype ontology. The
     ID links to a page with additional information, including the term
@@ -154,7 +154,7 @@ phenotype displays.
 
 The multi-locus summary shows FYPO terms and genotype descriptions:
 
-![multi-locus FYPO summary view on gene page](assets/multi_fypo_gene_page_summary.png){width="800"}
+![multi-locus FYPO summary view on gene page](assets/multi_fypo_gene_page_summary.png){ .screenshot width="800"}
 
 1.  The FYPO term name, which links to the page for the term.
 2.  Genotype details, including a name (if one is used in the
@@ -169,7 +169,7 @@ The multi-locus summary shows FYPO terms and genotype descriptions:
 
 The detailed view includes:
 
-![multi-locus FYPO full view on gene page](assets/multi_fypo_gene_page_full.png){width="800"}
+![multi-locus FYPO full view on gene page](assets/multi_fypo_gene_page_full.png){ .screenshot width="800"}
 
 1.  The unique ID and name for a term in the phenotype ontology, with
     links to the FYPO term page.

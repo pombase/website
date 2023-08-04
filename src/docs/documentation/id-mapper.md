@@ -16,14 +16,14 @@ The identifier mapper retrieves *${species_abbrev}* gene systematic IDs and stan
 Select an input identifier type in the pulldown, and enter IDs by
 typing, pasting, or uploading a file:
 
-![identifier mapper input page](assets/id_mapper_input.png){width="500"}
+![identifier mapper input page](assets/id_mapper_input.png){ .screenshot width="500"}
 
 Click "Clear" to empty the input box or "Lookup" to retrieve results.
 
 For all query types, the number of matching *${species_abbrev}* genes is shown
 at the top. Any unmatched IDs are shown next.
 
-![identifier mapper results for S. cerevisiae orthologs](assets/id_mapper_results.png){width="500"}
+![identifier mapper results for S. cerevisiae orthologs](assets/id_mapper_results.png){ .screenshot width="500"}
 
 1. "Go back" returns to the start page, with the search settings and
 IDs you used filled in.

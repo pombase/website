@@ -10,7 +10,7 @@ has_part relation is also used.
 The main illustrations use a GO term page. Note that not all ontology
 terms have all of the depicted features.
 
-![ontology term page](assets/ontology_term_page_summary.png){width="800"}
+![ontology term page](assets/ontology_term_page_summary.png){ .screenshot width="800"}
 
 1.  Ontology term details. The term's name, ID, and definition are shown.
 2.  The term's immediate parent(s), linked to the corresponding
@@ -34,7 +34,7 @@ terms have all of the depicted features.
 As on gene pages, a [more detailed annotation display](documentation/gene-page-gene-ontology) 
 is available:
 
-![ontology term page](assets/ontology_term_page_detail.png){width="800"}
+![ontology term page](assets/ontology_term_page_detail.png){ .screenshot width="800"}
 
 1.  The detailed view shows one line per annotation, with separate
     entries for repeat determinations of a given gene/term/extension
@@ -54,7 +54,7 @@ is available:
 
 FYPO term pages have a few distinctive features:
 
-![ontology term page](assets/ontology_term_page_fypo.png){width="800"}
+![ontology term page](assets/ontology_term_page_fypo.png){ .screenshot width="800"}
 
 1.  Links near the top of the page go to lists of genes and genotypes.
 2.  The annotation display is split into single-allele and
@@ -81,8 +81,8 @@ page.  For more details, follow the "Source: Rhea" link above the diagram.
 
 For example, this is [the GO:0003849 term page](https://pombase.org/term/GO:0003849):
 
-![](assets/term-page-reaction-example.png){width="800"}
+![](assets/term-page-reaction-example.png){ .screenshot width="800"}
 
 The diagram can be hidden using the "hide" button beside the diagram:
 
-![](assets/term-page-reaction-hide.png){width="312"}
+![](assets/term-page-reaction-hide.png){ .screenshot width="312"}

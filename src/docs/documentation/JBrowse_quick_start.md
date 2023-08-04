@@ -35,7 +35,7 @@ To show data tracks:
 
 1. Click on the "Select tracks" button in the top left corner.
 
-    ![JBrowse top, with "select tracks" button highlighted](assets/jbrowse_main_top_track_button.png){width="700"}
+    ![JBrowse top, with "select tracks" button highlighted](assets/jbrowse_main_top_track_button.png){ .screenshot width="700"}
 
 2. Locate the track(s) of interest (see below), and then click the
 tickbox for any individual track to toggle it on/off, or use the
@@ -47,7 +47,7 @@ once.
 4. The tracks should now be displayed. For example, the sequence
 feature and DNA sequence tracks look like this:
 
-    ![JBrowse display of pombe sequence and features](assets/jbrowse_seq_feature_tracks.png){width="700"}
+    ![JBrowse display of pombe sequence and features](assets/jbrowse_seq_feature_tracks.png){ .screenshot width="700"}
 
 To hide a track, click the (X) button to the left of the track label,
 or go to the "Select tracks" page and clear its tickbox.
@@ -59,16 +59,15 @@ By default, the scale fits the range of the data being displayed in the current 
 
 Click the downarrow to the right of the track label, and click on edit config:
 
-![Jbrowse edit config](assets/jbrowse_track_label_config.png){width="700"}
+![Jbrowse edit config](assets/jbrowse_track_label_config.png){ .screenshot width="700"}
 
 Change the scale by defining a max_score and/or a min score:
 
-![JBrowse_max_score defined](assets/jbrowse_max_score.png){width="400"}
+![JBrowse_max_score defined](assets/jbrowse_max_score.png){ .screenshot width="400"}
 
 The scale can be made consistent across tracks: 
 
-![rescaled tracks](assets/jbrowse_rescaled.png){width="700"}
-jbrowse_rescaled.png
+![rescaled tracks](assets/jbrowse_rescaled.png){ .screenshot width="700"}
 
 More wiggle track configuration option in the official
 [JBrowse documentation](http://gmod.org/wiki/JBrowse_Configuration_Guide#Wiggle_track_configuration_options)
@@ -79,7 +78,7 @@ Each entry in the left-hand column can be used to filter the track
 list. Filter criteria fall into several categories, corresponding to
 some of the track metadata (see below):
 
-![JBrowse track selection interface](assets/jbrowse_track_selector.png){width="450"}
+![JBrowse track selection interface](assets/jbrowse_track_selector.png){ .screenshot width="450"}
 
 As you select filters, the screen will update to show only relevant
 criteria on the left, and matching tracks on the right.
@@ -128,20 +127,20 @@ The metadata can be viewed in two ways:
 1. In the track selector, tracks are listed with associated metadata
 on the right hand side:
 
-    ![JBrowse track selector with metadata headers highlighted](assets/jbrowse_track_selection_top.png){width="750"}
+    ![JBrowse track selector with metadata headers highlighted](assets/jbrowse_track_selection_top.png){ .screenshot width="750"}
 
 2. In the browser, hover over a track label to display a down
 arrow:
 
-    ![JBrowse track label](assets/jbrowse_track_label_hover.png){width="300"}
+    ![JBrowse track label](assets/jbrowse_track_label_hover.png){ .screenshot width="300"}
 
     Click the arrow, then click "About this track" in the dropdown menu:
 
-    ![JBrowse track dropdown menu](assets/jbrowse_track_menu_about.png){width="400"}
+    ![JBrowse track dropdown menu](assets/jbrowse_track_menu_about.png){ .screenshot width="400"}
 
     The metadata and stats are displayed:
 
-    ![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){width="400"}
+    ![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){ .screenshot width="400"}
 
     To dismiss the popup, click the 'X' in the upper right corner or
     the 'OK' button at the bottom.
@@ -152,7 +151,7 @@ There are several ways to navigate the genome.
 
 - Use the box at the top that displays the chromosomal coordinates to
   navigate to a specified location:
-![JBrowse top of main display](assets/jbrowse_main_top_coords.png){width="600"}
+![JBrowse top of main display](assets/jbrowse_main_top_coords.png){ .screenshot width="600"}
 
     In the coordinates box,
      - Type a gene name, or
@@ -188,7 +187,7 @@ There are several ways to navigate the genome.
   the currently displayed region, in the context of the whole
   chromosome. Click in the bar or drag the red box to change position.
 
-    ![JBrowse position bar](assets/jbrowse_position_bar.png){width="500"}
+    ![JBrowse position bar](assets/jbrowse_position_bar.png){ .screenshot width="500"}
 
 - Use the arrows next to the bar with the box for chromosomal
   coordinates to move right or left in increments.
@@ -204,12 +203,12 @@ To zoom:
   shift-double-click to zoom out, or
 - Use the narrow bar below the chromosomal coordinates:
 
-    ![JBrowse region selection bar](assets/jbrowse_region_selection_bar.png){width="300"}
+    ![JBrowse region selection bar](assets/jbrowse_region_selection_bar.png){ .screenshot width="300"}
 
      Click and drag to highlight a region, then click within the
      highlighted region to zoom so the region fills the browser window:
 
-    ![JBrowse zoom in on selected region](assets/jbrowse_region_zoom.png){width="500"}
+    ![JBrowse zoom in on selected region](assets/jbrowse_region_zoom.png){ .screenshot width="500"}
 
 To see the DNA sequence, zoom in until it appears, first as
 color-coded blocks, and then labeled with letters.
@@ -221,11 +220,11 @@ browser FAQ list](/faq/genome-browser).
 To export the data for any track, hover over the track label to
 display a down arrow:
 
-![JBrowse track label](assets/jbrowse_track_label_hover.png){width="300"}
+![JBrowse track label](assets/jbrowse_track_label_hover.png){ .screenshot width="300"}
 
 Click the arrow, then click "Save track data" in the dropdown menu:
 
-![JBrowse track dropdown menu save data](assets/jbrowse_track_menu_save.png){width="400"}
+![JBrowse track dropdown menu save data](assets/jbrowse_track_menu_save.png){ .screenshot width="400"}
 
 In the popup, choose a data format. DNA sequence is provided in FASTA
 format. GFF3 is available for most tracks; other options depend on the
@@ -233,7 +232,7 @@ data type. You can also edit the name of the file where the data will
 be saved.
 
 
-![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){width="400"}
+![JBrowse track metadata popup](assets/jbrowse_metadata_popup.png){ .screenshot width="400"}
 
 Click 'View' to see how the data will appear in the saved file. To
 download the data file click 'Save' (available in the original

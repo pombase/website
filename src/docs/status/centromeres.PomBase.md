@@ -6,7 +6,7 @@ and view them in Artemis. (See
 [this FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) for more
 information.)
 
-![Centromere map](assets/centromeremapping.gif){width="779" height="540"}
+![Centromere map](assets/centromeremapping.gif){ .screenshot width="779" height="540"}
 
 **Notes:**
 

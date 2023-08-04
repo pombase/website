@@ -5,7 +5,7 @@ sequences for any gene, and amino acid sequences for protein-coding
 genes, as well as links to send sequences to BLAST. For protein-coding
 genes, the predicted amino acid sequence is displayed by default:
 
-![peptide sequence section](assets/gene_page_sequence_aa.png){width="800"}
+![peptide sequence section](assets/gene_page_sequence_aa.png){ .screenshot width="800"}
 
 1.  If two or more transcripts are annotated for a gene, the primary
     transcript is shown by default. Use the selector to switch between
@@ -37,7 +37,7 @@ genes, the predicted amino acid sequence is displayed by default:
 For non-coding RNA genes, and for protein-coding genes with "Show
 nucleotide sequence" selected, more options are available:
 
-![DNA sequence section](assets/gene_page_sequence_nt.png){width="800"}
+![DNA sequence section](assets/gene_page_sequence_nt.png){ .screenshot width="800"}
 
 1.  Transcript selector (as above)
 
@@ -61,5 +61,5 @@ nucleotide sequence" selected, more options are available:
 When the "Show translation" option is selected, irrelevant controls
 are hidden and BLASTP links are shown:
 
-![sequence section showing translation](assets/gene_page_sequence_translated.png){width="800"}
+![sequence section showing translation](assets/gene_page_sequence_translated.png){ .screenshot width="800"}
 

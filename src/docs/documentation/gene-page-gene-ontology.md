@@ -37,7 +37,7 @@ structure, so that it shows only the most specific terms used to
 annotate a genotype, and each unique combination of gene, GO term, and
 extension(s) is shown once:
 
-![summary gene page GO annotations](assets/go_gene_page_summary.png){width="600"}
+![summary gene page GO annotations](assets/go_gene_page_summary.png){ .screenshot width="600"}
 
 1.  The GO term name, which links to a page with additional
     information, including the term definition, any synonyms,
@@ -59,7 +59,7 @@ supported by more than one line of evidence and/or reported in more
 than one paper), and annotations to terms hidden in the summary view:
 
 
-![full gene page GO annotations](assets/go_gene_page_full.png){width="800"}
+![full gene page GO annotations](assets/go_gene_page_full.png){ .screenshot width="800"}
 
 
 1.  The unique ID and name for a GO term, linked to an ontology

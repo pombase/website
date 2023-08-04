@@ -16,7 +16,7 @@ In the Search menu, choose Advanced (or bookmark [${base_url}/query](/query)).
 
 In the Query panel (top), click one of the links in the list on the left to choose a query type (described below). Arrowheads indicate list entries that expand to offer two or more query types, organized in tabs. For each query, the interface guides your input.
 
-![advanced search page with new query](assets/advanced_search_main.png){width="682"}
+![advanced search page with new query](assets/advanced_search_main.png){ .screenshot width="682"}
 
 In the History panel (bottom), queries are listed in reverse
 chronological order (most recently run first). Results are linked in
@@ -31,16 +31,16 @@ You can select queries in the list to combine or delete them. To
 combine queries, you must select two or more from the list, and then
 click one of the operator buttons:
 
-![advanced search Boolean operator buttons](assets/advanced_search_combination.png){width="500"}
+![advanced search Boolean operator buttons](assets/advanced_search_combination.png){ .screenshot width="500"}
 
 Results are added to the history list:
 
-![advanced search query history list](assets/advanced_search_combination_result.png){width="600"}
+![advanced search query history list](assets/advanced_search_combination_result.png){ .screenshot width="600"}
 
 Queries using the NOT operator default place the more
 recently run query first (newer NOT/Subtract older):
 
-![advanced search page NOT operator dialog](assets/advanced_search_not_direction.png){width="300"}
+![advanced search page NOT operator dialog](assets/advanced_search_not_direction.png){ .screenshot width="300"}
 
 Click "Change direction" to switch the order. Click "Submit" to run
 the query.
@@ -53,7 +53,7 @@ days. If changes in annotation cause results to change since a query
 was last run, an additional "Previous" column will be displayed in the
 history list, showing the out-of-date result count:
 
-![advanced search page with out-of-date query](assets/advanced_search_out-of-date_result.png){width="600"}
+![advanced search page with out-of-date query](assets/advanced_search_out-of-date_result.png){ .screenshot width="600"}
 
 Click on the "Results" link to re-run the query and retrieve the
 up-to-date result.
@@ -65,7 +65,7 @@ appear. You can also edit the name that appears in the history list
 is used in any combined query (which can, in turn, be given a new
 name).
 
-![advanced search query name and details](assets/query_name_details.png){width="600"}
+![advanced search query name and details](assets/query_name_details.png){ .screenshot width="600"}
 
 
 
@@ -75,7 +75,7 @@ Clicking on any up-to-date count in the "Results" column goes to a
 page that shows the count, query details, and a list of matching
 genes.
 
-![advanced search results page](assets/advanced_search_results.png){width="400"}
+![advanced search results page](assets/advanced_search_results.png){ .screenshot width="400"}
 
 1. Return to the main Advanced search page (you can also use the
 browser "back" button)
@@ -205,7 +205,7 @@ context-dependent options. By default, the phenotype search retrieves
 genes from single-allele haploid and diploid genotypes annotated to
 the searched FYPO term:
 
-![phenotype default search options](assets/fypo_default_search_options.png){width="651"}
+![phenotype default search options](assets/fypo_default_search_options.png){ .screenshot width="651"}
 
 You can alter the selected options to add genes from multi-allele
 genotypes, and/or to search specifically for haploids or diploids.
@@ -216,7 +216,7 @@ page documentation](documentation/genotype-page) for more information.
 If you select single-locus haploids, expression level options are also
 available:
 
-![phenotype search options for single-locus haploids](assets/fypo_haploid_search_options.png){width="651"}
+![phenotype search options for single-locus haploids](assets/fypo_haploid_search_options.png){ .screenshot width="651"}
 
 Different alleles of one gene may have different phenotypes, and one
 allele may give rise to different phenotypes under different
@@ -226,7 +226,7 @@ the query to null alleles (covers deletions and any other sequence
 changes, such as most disruptions, that completely abolish expression
 of the gene) or overexpression of the wild type allele.
 
-![phenotype condition search option](assets/fypo_condition_query.png){width="651"}
+![phenotype condition search option](assets/fypo_condition_query.png){ .screenshot width="651"}
 
 The "Constrain condition" option restricts the results to include only
 genes that have phenotype annotations including the specified

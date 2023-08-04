@@ -3,7 +3,7 @@
 ${database_name}'s Quick Little Tool (QuiLT) allows you to view multiple types
 of annotation for genes in a list in a single graphical display.
 
-![Quick Little Tool display](assets/quilt_display.png){width="600"}
+![Quick Little Tool display](assets/quilt_display.png){ .screenshot width="600"}
 
 ### Finding QuiLT
 

@@ -29,7 +29,7 @@ documentation page.
 
 Since November 2022, new or updated Genetic Interaction annotations are linked to phenotype annotations and alleles. We continue to display interactions in the old format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.
 
-![During filter](assets/newsfeed/gi-update-2.png){width=95%}
+![During filter](assets/newsfeed/gi-update-2.png){ .screenshot width=95%}
 
 ### More on Genetic Interactions
 
@@ -52,7 +52,7 @@ In addition, we curate the following types of genetic interaction not covered by
 
 Below is a decision making tree to determine the type of genetic interaction from the phenotypes of the single and double mutant. "Interacting allele" refers to the allele that is not present in the single mutant:
 
-![Decision making for genetic interactions](assets/gi_constrains_website.svg){width="75%"}
+![Decision making for genetic interactions](assets/gi_constrains_website.svg){ .screenshot width="75%"}
 
 <!-- Mermaid code for this graph. The svg can be generated in the website https://mermaid-js.github.io/mermaid-live-editor/
 

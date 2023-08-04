@@ -5,7 +5,7 @@ qualitative and quantitative information about the level and timing of
 the gene's expression. In each subsection, a simple summary appears by
 default:
 
-![gene page expression section, summary view](assets/gene_page_expression_summary.png "Gene Page: Gene Expression Summary"){width="800"}
+![gene page expression section, summary view](assets/gene_page_expression_summary.png "Gene Page: Gene Expression Summary"){ .screenshot width="800"}
 
 1.  Qualitative descriptions are drawn from a small internal controlled
     vocabulary, with supporting extensions. Each description links to a
@@ -41,7 +41,7 @@ default:
 
 Click "Show details" to reveal additional information:
 
-![gene page expression section, detail view](assets/gene_page_expression_details.png "Gene Page: Gene Expression Details"){width="800"}
+![gene page expression section, detail view](assets/gene_page_expression_details.png "Gene Page: Gene Expression Details"){ .screenshot width="800"}
 
 1.  Qualitative expression details:
     -   a, b\) The unique ID and name for the expression description.

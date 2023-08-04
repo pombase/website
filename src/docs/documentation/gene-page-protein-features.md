@@ -4,7 +4,7 @@ Gene pages for protein-coding genes have a section describing protein
 domains and properties.  Also see the
 [Modifications](/documentation/gene-page-modifications) documentation.
 
-![gene page protein features](assets/gene_page_protein_features.png){width="800"}
+![gene page protein features](assets/gene_page_protein_features.png){ .screenshot .screenshot width="800"}
 
 1.  The graphical view is interactive, and shows the positions of
     domains and other features. Mouse over any feature to highlight
@@ -27,7 +27,7 @@ domains and properties.  Also see the
 
 #### Protein Families and Domains ####
 
-![gene page protein domains](assets/gene_page_protein_domains.png){width="800"}
+![gene page protein domains](assets/gene_page_protein_domains.png){ .screenshot .screenshot width="800"}
 
 a.  Feature ID of this family or domain in the originating database.
     Where feasible, the ID links to the source database. Databases

@@ -3,13 +3,13 @@
 The Transcript section of a gene page shows the positions of introns
 and exons in each transcript. The default is a graphical view:
 
-![Transcript section (default)](assets/gene_page_transcript.png){width="800"}
+![Transcript section (default)](assets/gene_page_transcript.png){ .screenshot width="800"}
 
 The default view shows one diagram per annotated transcript, with
 intron and exon positions hidden. Click "Show exon/intron/UTR
 positions" to display a table under each transcript diagram:
 
-![Transcript section (expanded)](assets/gene_page_transcript_coord.png){width="800"}
+![Transcript section (expanded)](assets/gene_page_transcript_coord.png){ .screenshot width="800"}
 
 1. ID(s) and genomic location(s). The transcript systematic ID is the
    gene systematic ID with a suffix appended. The primary transcript
