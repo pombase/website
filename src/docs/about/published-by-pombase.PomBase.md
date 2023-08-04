@@ -574,7 +574,7 @@ Published &mdash; see above.
 <div class="pub-citation">
 Lock A, Rutherford K, Harris MA, Wood V. 2018.\
 PomBase: The Scientific Resource for Fission Yeast.\
-In Kollar M (ed) *Eukaryotic Genomic Databases. Methods in Molecular Biology*, vol 1757. Humana Press, New York, NY\
+In Kollmar M. (ed) *Eukaryotic Genomic Databases. Methods in Molecular Biology*, vol 1757. Humana Press, New York, NY\
 </div>
 <div class="clear-float"></div>
 [DOI:10.1007/978-1-4939-7737-6_4](http://dx.doi.org/DOI:10.1007/978-1-4939-7737-6_4)
