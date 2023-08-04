@@ -660,7 +660,7 @@ details {
   margin-bottom: 1em
 }
 
-.docs-content img {
+.docs-content img.screenshot {
   box-shadow: 1px 3px 12px 1px #ccc;
   margin: 1em 0.5em;
 }
