@@ -1,6 +1,6 @@
 #### Reaction diagrams on term pages
 <!-- pombase_flags: frontpage -->
-<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<!-- newsfeed_thumbnail: japonicusdb-32x32.png -->
 
 Where available, we now show the reaction diagram from
 [Rhea](https://www.rhea-db.org/) on GO function term pages.  This
