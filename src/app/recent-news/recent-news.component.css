@@ -5,3 +5,7 @@ h1 {
 .recent-news {
   padding: 0 0 2em 0;
 }
+
+#archive-link {
+  font-size: 120%;
+}
