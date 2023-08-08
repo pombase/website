@@ -296,6 +296,7 @@ export interface AppConfig {
   ebi_tools_url: string;
   pdbe_entry_url: string;
   pdbe_image_url: string;
+  rcsb_pdb_entry_url: string;
   seq_and_features_download_url?: string;
   canto_url: string;
   intermine?: {
@@ -751,6 +752,7 @@ let _appConfig: AppConfig = {
   ebi_tools_url: pombaseConfig.ebi_tools_url,
   pdbe_entry_url: pombaseConfig.pdbe_entry_url,
   pdbe_image_url: pombaseConfig.pdbe_image_url,
+  rcsb_pdb_entry_url: pombaseConfig.rcsb_pdb_entry_url,
   seq_and_features_download_url: pombaseConfig.seq_and_features_download_url,
   canto_url: pombaseConfig.canto_url,
   intermine: pombaseConfig.intermine,

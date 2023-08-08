@@ -49,7 +49,9 @@
             </td>
             <td class="pdb-entry-detail">
               <a [attr.href]="appConfig.pdbe_entry_url + '/' + pdbEntry.pdb_id"
-                 [title]="'Visit the PDBe page for ' + pdbEntry.pdb_id">PDBe</a>
+                 [title]="'Visit the PDBe page for ' + pdbEntry.pdb_id">PDBe</a> |
+              <a [attr.href]="appConfig.rcsb_pdb_entry_url + '/' + pdbEntry.pdb_id"
+                [title]="'Visit the RCSB PDB page for ' + pdbEntry.pdb_id">RCSB</a>
             </td>
           </tr>
         </tbody>
