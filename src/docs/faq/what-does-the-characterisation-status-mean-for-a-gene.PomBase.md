@@ -27,8 +27,7 @@ status descriptions:
 -   **Transposon**: Known or predicted transposable element
 -   **Dubious**: Unlikely to be protein coding
 
-A current summary of [gene characterisation status for the *S. pombe* genome](/status/gene-characterisation) is available, as well as a
-table of [historical characterisation status](/status/gene-characterisation-statistics-history) counts.
+A current summary of [gene characterisation status for the *S. pombe* genome](/status/gene-characterisation) is available.
 
 You can also retrieve current lists of genes with each characterisation
 status using the [advanced search](/query). Select the

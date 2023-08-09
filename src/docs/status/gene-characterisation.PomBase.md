@@ -1,5 +1,7 @@
 ### Protein-coding gene characterisation status
 
+[![Gene characterisation status](assets/gene_characterisation_status_figure.svg){.screenshot width=40em;}](assets/gene_characterisation_status_figure.svg)
+
 <app-characterisation-status-table></app-characterisation-status-table>
 
 
@@ -33,5 +35,4 @@ species); nothing known about biological role
 Note: You can retrieve current lists of genes with each
 characterisation status using the [advanced search](/query). Select
 the Characterisation status query, then choose a status from the
-pulldown menu, and submit. A set of [historical data](/status/gene-characterisation-statistics-history) 
-recorded at various intervals is available.
+pulldown menu, and submit.

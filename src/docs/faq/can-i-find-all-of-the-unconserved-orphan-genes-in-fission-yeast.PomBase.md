@@ -17,7 +17,7 @@ for help with performing searches.
 Historical note: Prior to August 2014, PomBase and its predecessor
 GeneDB referred to single-copy genes conserved within, but not outside,
 the *Schizosaccharomyces* genus as "sequence orphans". See the 
-[Gene characterisation statistics history](/status/gene-characterisation-statistics-history)
+[Gene characterisation statistics history](/status/gene-characterisation)
 page for more details (note that the gene characterisation
 classifications reflect whether a gene has been studied experimentally
 as well as the extent of its conservation).
