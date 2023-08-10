@@ -1,6 +1,10 @@
 ### Protein-coding gene characterisation status
 
+#### Changes over time
+
 [![Gene characterisation status](assets/gene_characterisation_status_figure.svg){.screenshot width=40em;}](assets/gene_characterisation_status_figure.svg)
+
+#### Current status
 
 <app-characterisation-status-table></app-characterisation-status-table>
 
