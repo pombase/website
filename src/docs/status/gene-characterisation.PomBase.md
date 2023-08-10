@@ -40,3 +40,6 @@ Note: You can retrieve current lists of genes with each
 characterisation status using the [advanced search](/query). Select
 the Characterisation status query, then choose a status from the
 pulldown menu, and submit.
+
+A list of ["Priority unstudied genes (vertebrate orthologs, unknown process, protein coding)"](/status/priority-unstudied-genes)
+is updated daily.
