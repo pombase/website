@@ -67,3 +67,7 @@
 .docs-content .docs-content-date {
   white-space: nowrap;
 }
+
+.news-archive .screenshot {
+  max-width: 1000px;
+}
