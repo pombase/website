@@ -6,4 +6,4 @@ AlphaFold protein structure are now embedded on the PomBase gene
 pages.  We hope to embed the experimental structures from PDB in the
 near future.
 
-[![Example from the mvp1 gene page](assets/newsfeed/alphafold-news-item-example-1.png){ width=100% }](assets/newsfeed/alphafold-news-item-example-1.png)
+[![Example from the mvp1 gene page](assets/newsfeed/alphafold-news-item-example-1.png){ .screenshot width=100% }](assets/newsfeed/alphafold-news-item-example-1.png)

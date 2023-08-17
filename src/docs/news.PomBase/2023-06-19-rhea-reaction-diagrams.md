@@ -8,4 +8,4 @@ feature is possible thanks to the great work of [Rhea](https://www.rhea-db.org/)
 
 See the [GO:0003849 term page](/term/GO:0003849) for an example.
 
-[![](assets/newsfeed/rhea-reaction-example.png){ width=100% }](assets/newsfeed/rhea-reaction-example.png)
+[![](assets/newsfeed/rhea-reaction-example.png){ .screenshot width=100% }](assets/newsfeed/rhea-reaction-example.png)

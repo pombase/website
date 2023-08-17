@@ -19,4 +19,4 @@ To help locate proteins with experimental protein structures (currently
 “[Advanced search](/query)", currently under “commonly used
 queries”: "[Proteins with PDB structures](/results/from/id/6e8401aa-bab8-48fc-bbb7-c85d13ea10a2)"
 
-[![PDB structures on the lsm7 gene page](assets/newsfeed/pdb_structures_lsm7_small.png){ width=100% }](assets/newsfeed/pdb_structures_lsm7_small.png)
+[![PDB structures on the lsm7 gene page](assets/newsfeed/pdb_structures_lsm7_small.png){ .screenshot width=100% }](assets/newsfeed/pdb_structures_lsm7_small.png)
