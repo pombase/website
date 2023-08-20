@@ -670,6 +670,7 @@ export class ReferenceDetails {
   paralog_annotations: Array<ParalogAnnotation>;
   annotation_details: AnnotationDetailMap;
   gene_count: number;
+  genes_by_uniquename: GeneMap;
   genotype_count: number;
   pdb_entries: Array<PDBEntry>;
 }

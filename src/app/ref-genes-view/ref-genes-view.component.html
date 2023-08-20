@@ -1,0 +1,37 @@
+<div>
+  <app-loading-spinner *ngIf="!refDetails && !apiError"></app-loading-spinner>
+  <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
+
+  <div id="ref-genes-view" *ngIf="refDetails && !apiError">
+    <app-social-contact></app-social-contact>
+
+    <div class="details-page-name-and-id">
+      <span *ngIf="isPubMedRef" class="details-page-name-and-id-prefix">Publication:</span>
+      <span *ngIf="!isPubMedRef" class="details-page-name-and-id-prefix">Reference:</span>
+      <span class="reference-title name-id-highlight" *ngIf="refDetails.title">
+        <a routerLink="/reference/{{refDetails.uniquename}}">{{refDetails.title}}</a>
+      </span>
+    </div>
+
+    <div *ngIf="genes.length > 0">
+      <div class="ref-actions">
+        <span class="title">Actions: </span>
+        <a routerLink="{{queryBuilderRouterLink}}">
+          Use these genes in query...
+        </a>
+      </div>
+
+      <hr style="clear: both" />
+
+      <div class="ref-page-view-change">
+        <a routerLink="/reference/{{refDetails.uniquename}}" routerLinkActive="active">View details of this reference ...</a>
+      </div>
+    </div>
+
+    <div *ngIf="genes.length == 0">No genes from {{refDetails.uniquename}}</div>
+    <div *ngIf="genes.length != 0">
+      <app-genes-table [description]="'genes from ' + refDetails.uniquename"
+                       [genesOrResults]="genes"></app-genes-table>
+    </div>
+  </div>
+</div>

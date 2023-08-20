@@ -97,6 +97,14 @@ export class ReferenceDetailsComponent implements OnInit {
     }
   }
 
+  hasGenes(): boolean {
+    return this.refDetails.gene_count > 0;
+  }
+
+  geneCount(): number {
+    return this.refDetails.gene_count;
+  }
+
   hasApprovedSession(): boolean {
     return !!this.refDetails.canto_approved_date;
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { GeneQuery, TermNode, SubsetNode, Ploidiness, NodeEventDetails } from '../pombase-query';
+import { GeneQuery, TermNode, SubsetNode, Ploidiness, NodeEventDetails, RefGenesNode } from '../pombase-query';
 import { QueryService } from '../query.service';
 import { ToastrService } from 'ngx-toastr';
 import { getAppConfig } from '../config';
@@ -33,10 +33,10 @@ export class QueryBuilderComponent implements OnInit {
       this.startNodeType = undefined;
 
       let fromType = params['type'];
-      let termId = params['id'];
-      let termName = params['name'];
-      if (fromType && termId && termName) {
-        this.processFromRoute(fromType, termId, termName);
+      let id = params['id'];
+      let description = params['name'];
+      if (fromType && id && description) {
+        this.processFromRoute(fromType, id, description);
         return;
       }
 
@@ -61,22 +61,28 @@ export class QueryBuilderComponent implements OnInit {
     this.saveQuery(query);
   }
 
-  processFromRoute(fromType: string, termId: string, encodedTermName: string) {
+  processFromRoute(fromType: string, id: string, encodedDescription: string) {
     let newQuery = null;
+    const decodedDescription = decodeURIComponent(encodedDescription);
 
     if (fromType === 'term_subset') {
       let singleOrMulti = undefined;
       let ploidiness: Ploidiness|undefined = undefined;
-      const matches = termId.match(/^([^:]+):/);
+      const matches = id.match(/^([^:]+):/);
       if (matches && getAppConfig().phenotypeIdPrefixes.indexOf(matches[1]) !== -1) {
         // only set if the termid is from a phenotype CV
         singleOrMulti = 'single';
         ploidiness = 'haploid';
       }
-      const termName = decodeURIComponent(encodedTermName);
+
       const constraints =
-        new TermNode(undefined, termId, termName, undefined,
+        new TermNode(undefined, id, decodedDescription, undefined,
                      singleOrMulti, ploidiness, undefined, [], []);
+      newQuery = new GeneQuery(constraints);
+    }
+    if (fromType === 'reference') {
+      const nodeName = 'genes from ' + id + ' "' + decodedDescription + '"';
+      const constraints = new RefGenesNode(nodeName, id);
       newQuery = new GeneQuery(constraints);
     }
 

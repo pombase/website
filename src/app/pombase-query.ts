@@ -490,6 +490,33 @@ export class TermNode extends GeneQueryBase {
   }
 }
 
+export class RefGenesNode extends GeneQueryBase {
+  constructor(nodeName: string | undefined, public referenceUniquename: string) {
+    super(nodeName);
+    if (!nodeName) {
+      this.setNodeName(this.detailsString());
+    }
+  };
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof RefGenesNode) {
+      return this.referenceUniquename === obj.referenceUniquename;
+    }
+    return false;
+  }
+
+  toObject(): Object {
+    return {
+      node_name: this.getNodeName(),
+      ref_genes: { reference_uniquename: this.referenceUniquename },
+    };
+  }
+
+  detailsString(): string {
+    return 'subset: ' + this.referenceUniquename;
+  }
+}
+
 export class SubsetNode extends GeneQueryBase {
   constructor(nodeName: string|undefined, public subsetName: string) {
     super(nodeName);
@@ -841,6 +868,9 @@ export class GeneQuery {
 
     case 'subset':
       return new SubsetNode(nodeName, val['subset_name']);
+
+    case 'ref_genes':
+        return new RefGenesNode(nodeName, val['reference_uniquename']);
 
     case 'has_ortholog':
       return new HasOrthologNode(nodeName, val['taxonid']);

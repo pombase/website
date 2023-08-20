@@ -153,6 +153,7 @@ export function windowFactory() {
 
 import { Pipe, PipeTransform } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
+import { RefGenesViewComponent } from './ref-genes-view/ref-genes-view.component';
 
 @Pipe({ name: 'safeUrl' })
 export class SafeUrlPipe implements PipeTransform {
@@ -272,6 +273,7 @@ export class SafeUrlPipe implements PipeTransform {
     ReactionViewComponent,
     ProteinFeatureViewerComponent,
     GeneProteinFeaturesComponent,
+    RefGenesViewComponent,
   ],
   imports: [
     BrowserModule,

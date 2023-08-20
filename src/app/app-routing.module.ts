@@ -23,6 +23,7 @@ import { GeneResultsPageComponent } from './gene-results-page/gene-results-page.
 import { InternalDetailsComponent } from './internal-details/internal-details.component';
 import { IdentifierMapperResultsComponent } from './identifier-mapper-results/identifier-mapper-results.component';
 import { getAppConfig } from './config';
+import { RefGenesViewComponent } from './ref-genes-view/ref-genes-view.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -71,6 +72,10 @@ const routes: Routes = [
     }
   },
   { path: 'reference/:uniquename', component: ReferenceDetailsComponent,
+    data: {
+    }
+  },
+  { path: 'ref_genes/:uniquename', component: RefGenesViewComponent,
     data: {
     }
   },
