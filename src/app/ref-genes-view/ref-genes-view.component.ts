@@ -59,8 +59,28 @@ export class RefGenesViewComponent implements OnInit {
               this.isPubMedRef = false;
             }
             this.setPageTitle();
+
+            let description = refDetails.title;
+
+            let descriptionPrefix = '';
+
+            if (refDetails.authors_abbrev) {
+              descriptionPrefix = refDetails.authors_abbrev;
+            }
+
+            if (refDetails.publication_year) {
+              if (descriptionPrefix !== '') {
+                descriptionPrefix += ' ';
+              }
+              descriptionPrefix += '(' + refDetails.publication_year + ')';
+            }
+
+            if (descriptionPrefix !== '') {
+              description = descriptionPrefix + ' "' + description + '"';
+            }
+
             this.queryBuilderRouterLink = '/query/save/from/reference/' +
-              refDetails.uniquename + '/' + encodeURIComponent(refDetails.title);
+              refDetails.uniquename + '/' + encodeURIComponent(description);
 
             this.genes = Object.values(refDetails.genes_by_uniquename);
           })

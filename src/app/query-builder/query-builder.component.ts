@@ -81,7 +81,7 @@ export class QueryBuilderComponent implements OnInit {
       newQuery = new GeneQuery(constraints);
     }
     if (fromType === 'reference') {
-      const nodeName = 'genes from ' + id + ' "' + decodedDescription + '"';
+      const nodeName = 'genes from ' + id + ' ' + decodedDescription + '';
       const constraints = new RefGenesNode(nodeName, id);
       newQuery = new GeneQuery(constraints);
     }
