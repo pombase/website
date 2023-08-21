@@ -55,15 +55,18 @@
               </span>
             </span>
             <span class="pub-uniquename">{{reference.uniquename}}</span>
+            <span class="details-link">
             <app-reference-short [reference]="reference" [linkText]="'details ...'">
             </app-reference-short>
+            </span>
           </div>
         </td>
         <td *ngIf="orderByField == '+publication_year' || orderByField == '-publication_year'">
           {{reference.publication_year}}
         </td>
         <td>
-          <a routerLink="/ref_genes/{{reference.uniquename}}">{{reference.gene_count}}</a>
+          <a title="Click to view the list of genes from this publication"
+             routerLink="/ref_genes/{{reference.uniquename}}">{{reference.gene_count}}</a>
         </td>
       </tr>
     </tbody>

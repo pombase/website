@@ -30,6 +30,10 @@ a {
   cursor: pointer;
 }
 
+.details-link {
+  font-size: 110%;
+}
+
 .pubmed-search {
   padding: 0 0 0.4em 0;
 }
