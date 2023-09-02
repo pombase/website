@@ -1,9 +1,9 @@
 <div class="recent-news">
 <div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/>
+<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/>
 <h4 id="protein-feature-viewer-added-to-gene-pages"><strong>Protein feature viewer added to gene pages</strong></h4>
 <p><em>2023-07-27</em></p>
-<p>JaponicusDB gene pages now include a protein feature widget. This tool shows protein features in the context of amino acid sequence. It includes:</p>
+<p>PomBase gene pages now include a protein feature widget. This tool shows protein features in the context of amino acid sequence. It includes:</p>
 <ul>
 <li>amino acid substitution positions</li>
 <li>Pfam domains</li>
@@ -11,143 +11,99 @@
 <li>protein properties: low complexity regions, disordered regions, coiled coil regions and predicted trans-membrane domains</li>
 </ul>
 <p>Hover over features for more information, such as allele descriptions and Pfam domain IDs.</p>
-<p><a href="assets/japonicus-gene-oar2-protein-feature-viewer-widget.png"><img src="assets/japonicus-gene-oar2-protein-feature-viewer-widget.png" title="Protein feature viewer widget - oar2 gene page" class="screenshot" style="width:100.0%" alt="Protein feature viewer widget - oar2 gene page" /></a></p>
+<p><a href="assets/gene-protein-feature-viewer-widget-cdc15.png"><img src="assets/gene-protein-feature-viewer-widget-cdc15.png" title="Protein feature viewer widget - cdc15 gene page" class="screenshot" style="width:100.0%" alt="Protein feature viewer widget - cdc15 gene page" /></a></p>
 <p>Follow the “View all protein features …” link for a detailed view on the dedicated protein features page that includes:</p>
 <ul>
 <li>details of the individual amino acid substitution allele changes</li>
 <li>partial amino acid deletions</li>
 </ul>
-<p><a href="assets/japonicus-gene-oar2-protein-feature-viewer-page.png"><img src="assets/japonicus-gene-oar2-protein-feature-viewer-page.png" title="Protein feature viewer details page for oar2" class="screenshot" style="width:100.0%" alt="Protein feature viewer details page for oar2" /></a></p>
+<p><a href="assets/gene-protein-feature-viewer-page-cdc15.png"><img src="assets/gene-protein-feature-viewer-page-cdc15.png" title="Protein feature viewer details page for cdc15" class="screenshot" style="width:100.0%" alt="Protein feature viewer details page for cdc15" /></a></p>
 <p>Thanks to the team at <a href="https://www.rcsb.org/">RCSB PDB</a> for providing the <a href="https://github.com/rcsb/rcsb-saguaro">Open Source software</a> used to implement this feature.</p>
 
 </div>
 <div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/>
+<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/>
 <h4 id="reaction-diagrams-on-term-pages"><strong>Reaction diagrams on term pages</strong></h4>
 <p><em>2023-06-19</em></p>
 <p>Where available, we now show the reaction diagram from <a href="https://www.rhea-db.org/">Rhea</a> on GO function term pages. This feature is possible thanks to the great work of <a href="https://www.rhea-db.org/">Rhea</a>.</p>
 <p>See the <a routerLink="/term/GO:0003849">GO:0003849 term page</a> for an example.</p>
-<p><img src="assets/newsfeed/rhea-reaction-example.png" class="screenshot" style="width:100.0%" /></p>
+<p><a href="assets/newsfeed/rhea-reaction-example.png"><img src="assets/newsfeed/rhea-reaction-example.png" class="screenshot" style="width:100.0%" /></a></p>
+
+</div>
+<div class="news-item">
+<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/>
+<h4 id="curation-update---nonsense-mutation-merged-into-partial-amino-acid-deletion"><strong>Curation update - “nonsense mutation” merged into “partial amino acid deletion”</strong></h4>
+<p><em>2023-04-26</em></p>
+<p>We have decided to merge the allele type “nonsense mutation” into “partial amino acid deletion”. This has mainly been driven by the fact that allele types that combine different variants require new types, such as “amino_acid_deletion_and_mutation”, “amino_acid_insertion_and_deletion”, etc. Otherwise, we would have ended up with many more types, and at the gene product level (which is what we describe in PomBase in phenotype interactions), both truncations are equivalent. In the next update, this allele type will not be available in Canto.</p>
+<p>In any case, even if two alleles produce the same truncation, such as ase1-D13* or ase1Δ(13-731), they would still have separate entries in PomBase, and they may have different phenotypes. We are only assigning them the same allele type.</p>
+<p>If for your analysis you need to make a distinction between the two using our allele dataset <a routerLink="/downloads/phenotype-annotations">allele dataset</a>, you can always check the “Allele description” field for the presence of the “*” character to tell whether an allele includes a nonsense mutation.</p>
 
 </div>
 <div class="news-item">
 <img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/protein-structure.png"/>
-<h4 id="experimental-protein-structures-from-pdb-on-gene-pages"><strong>Experimental protein structures from PDB on gene pages</strong></h4>
-<p><em>2023-05-23</em></p>
-<p>The experimental protein structures from <a href="https://www.ebi.ac.uk/pdbe/">PDB</a> are now embedded on the JaponicusDB gene pages and publication pages using <a href="https://molstar.org/">Mol*</a>.</p>
-<p>Currently there are three <em>S. japonicus</em> genes with structures in PDB: - <a routerLink="/gene/SJAG_03867">mis16/SJAG_03867 gene page</a> - <a routerLink="/gene/SJAG_03542">hhf2/SJAG_03542 gene page</a> - <a routerLink="/gene/SJAG_04265">tyw1/SJAG_04265 gene page</a></p>
-<p>This list is available from the “Commonly used queries” sub-menu in the <a routerLink="/query">Advanced search</a></p>
-<p>From two publications: - <a routerLink="/reference/PMID:26343758">Mis16 Independently Recognizes Histone H4 and the CENP-ACnp1-Specific Chaperone Scm3sp</a> - <a routerLink="/reference/PMID:35693892">Biochemical and structural characterization of the flavodoxin-like domain of the Schizosaccharomyces japonicus putative tRNA Phe 4-demethylwyosine synthase Tyw1 in complex with FMN</a></p>
-<p><img src="assets/newsfeed/japonicus-mis16-page-structure.png" class="screenshot" style="width:100.0%" alt="Structure from PDB on the mis16 gene page" /></p>
+<h4 id="experimental-structures-from-pdb-on-gene-pages"><strong>Experimental structures from PDB on gene pages</strong></h4>
+<p><em>2023-02-22</em></p>
+<p>The experimental protein structures from <a href="https://www.ebi.ac.uk/pdbe/">PDB</a> are now embedded on the PomBase gene pages using <a href="https://molstar.org/">Mol*</a>. For example: <a routerLink="/gene/SPCC285.12">lsm7/SPCC285.12 gene page</a></p>
+<p>If you select the “PDB structures” view on a gene page, experimental structures will set as your default. AlphaFold predictions will be shown for genes where an experimental structure are not available.</p>
+<p>We now also display the structures on the associated publication page. For example: <a routerLink="/reference/PMID:31010807">PMID:31010807 Garg <em>et al.</em></a></p>
+<p>To help locate proteins with experimental protein structures (currently 375), we have added a new query option to the “<a routerLink="/query">Advanced search</a>”, currently under “commonly used queries”: “<a routerLink="/results/from/id/6e8401aa-bab8-48fc-bbb7-c85d13ea10a2">Proteins with PDB structures</a>”</p>
+<p><a href="assets/newsfeed/pdb_structures_lsm7_small.png"><img src="assets/newsfeed/pdb_structures_lsm7_small.png" class="screenshot" style="width:100.0%" alt="PDB structures on the lsm7 gene page" /></a></p>
 
 </div>
 <div class="news-item">
 <img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/protein-structure.png"/>
 <h4 id="alphafold-protein-structure-on-gene-pages"><strong>AlphaFold protein structure on gene pages</strong></h4>
-<p><em>2023-05-23</em></p>
-<p>AlphaFold protein structure are now embedded on the JaponicusDB gene pages.</p>
-<p><img src="assets/newsfeed/japonicus-pst2-page.png" class="screenshot" style="width:100.0%" alt="Alpha structure on the pst2 gene page" /></p>
+<p><em>2023-02-02</em></p>
+<p>AlphaFold protein structure are now embedded on the PomBase gene pages. We hope to embed the experimental structures from PDB in the near future.</p>
+<p><a href="assets/newsfeed/alphafold-news-item-example-1.png"><img src="assets/newsfeed/alphafold-news-item-example-1.png" class="screenshot" style="width:100.0%" alt="Example from the mvp1 gene page" /></a></p>
 
 </div>
 <div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/>
+<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/>
+<h4 id="revised-canonical-5-utrs"><strong>Revised canonical 5’ UTRs</strong></h4>
+<p><em>2023-01-24</em></p>
+<p>We have revised the curated 5’UTRs using Transcription Start Sites (TSS) data (in vegetative growth/ minimal media) from the Cap Analysis of Gene Expression (CAGE) data provided by <a routerLink="/reference/PMID:30566651">Thodberg <em>et al</em></a>. All new gene structures were manually reviewed, around ~80 protein features had N-terminal coordinate revisions to align with TSS data.</p>
+
+</div>
+<div class="news-item">
+<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/gbc-news-icon.png"/>
+<h4 id="global-core-biodata-resource-status-for-pombase"><strong>Global Core Biodata Resource status for PomBase</strong></h4>
+<p><em>2022-12-15</em></p>
+<p>We are very pleased to announce that PomBase has been selected as one of the first <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources">Global Core Biodata Resource (GCBR)</a> — a collection of 37 resources whose long term funding and sustainability is critical to life science and biomedical research worldwide. This accreditation recognizes PomBase as a primary knowledge base (adding value to data through expert curation) and as a crucial component of the research ecosystem. The candidate biodata resources were assessed against a series of rigorous criteria that included their scientific focus, the size and reach of their user communities, their quality of service, their governance, and their impact on global research.</p>
+<p>Thank you to the entire community, especially the community curators who contribute regularly to our content, and our <a routerLink="/about/pombase-sab">Scientific Advisory Board</a> for their help and support.</p>
+<p>For more information about the <a href="https://globalbiodata.org/">Global Biodata Coalition</a> and PomBase’s new status, see <a href="https://globalbiodata.org/global-biodata-coalition-announces-the-first-set-of-global-core-biodata-resources/">the full press release</a>.</p>
+
+</div>
+<div class="news-item">
+<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/>
 <h4 id="querying-by-rna-length-in-the-advanced-search-tool"><strong>Querying by RNA length in the Advanced Search tool</strong></h4>
-<p><em>2022-12-09</em></p>
+<p><em>2022-12-07</em></p>
 <p>You can now query the RNA length of genes (spliced or unspliced) under the “Transcripts and exons” query grouping in the <a href="https://www.pombase.org/query">Advanced search</a>.</p>
 <p>You can also add RNA sequence length as a field in tables downloaded from the query builder.</p>
 <p><img src="assets/newsfeed/advanced-search-rna-length-query.png" class="screenshot" style="width:100.0%" alt="RNA length queries are available under the “Transcripts and exons” tab" /></p>
 
 </div>
 <div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/>
-<h4 id="making-biological-knowledge-useful-for-humans-and-machines"><strong>Making biological knowledge useful for humans and machines</strong></h4>
-<p><em>2022-04-04</em></p>
-<p>A <a href="https://academic.oup.com/genetics/issue/220/4">GENETICS special issue</a> featuring model organism database updates is published today. This issue features the recent JaponicusDB and <a href="https://www.pombase.org/">PomBase</a> publications and is accompanied by an editorial <a href="https://academic.oup.com/genetics/article-abstract/220/4/iyac001/6563297">“Making biological knowledge useful for humans and machines”</a> co-authored by Val Wood, Paul Sternberg and Howard Lipshitz.</p>
-<ul>
-<li><a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyab223/6481558?login=false">JaponicusDB: rapid deployment of a model organism database for an emerging model species</a></li>
-<li><a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyab222/6481557?login=false">Fission stories: using PomBase to understand Schizosaccharomyces pombe biology</a></li>
-</ul>
-
-</div>
-<div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/>
-<h4 id="japonicusdb-now-uses-interpro-version-88.0"><strong>JaponicusDB now uses InterPro Version 88.0</strong></h4>
-<p><em>2022-03-12</em></p>
-<p>JaponicusDB now uses InterPro Version 88.0.</p>
-<p>Features include:</p>
-<ul>
-<li>The addition of 39 InterPro entries (40,071 total entries)</li>
-<li>Integration of 45 new methods from the PRINTS (1), SMART (1), Pfam (2), SUPERFAMILY (7), CATH-Gene3D (14), PANTHER (13), CDD (7) databases</li>
-</ul>
-
-</div>
-<div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/go-logo-icon.mini.png"/>
-<h4 id="japonicusdb-disseminates-data-to-the-gene-ontology-database"><strong>JaponicusDB disseminates data to the Gene Ontology database</strong></h4>
-<p><em>2022-03-07</em></p>
-<p>The experimental annotations from S. japonicus community curated publications are now included in the GO database and visible in the AmiGO browser.</p>
-<p><a href="http://amigo.geneontology.org/amigo/reference/PMID:29191091">Example: PMID:29191091</a></p>
-
-</div>
-<div class="news-item">
 <img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/>
-<h4 id="pombase-japonicusdb-publications-in-the-genetics-mod-reports-special-issue"><strong>PomBase &amp; JaponicusDB publications in the GENETICS MOD reports special issue</strong></h4>
-<p><em>2022-02-02</em></p>
-<p>Papers describing PomBase and JaponicusDB are now published (early online). These articles are part of a special issue of GENETICS devoted to model organism database (MOD) reports. The MOD papers will highlight the journal’s new section on Computational Resources, Software &amp; Databases.</p>
-<ul>
-<li><a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyab222/6481557">Fission stories: using PomBase to understand <em>Schizosaccharomyces pombe</em> biology</a></li>
-<li><a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyab223/6481558">JaponicusDB: rapid deployment of a model organism database for an emerging model species</a></li>
-</ul>
+<h4 id="genetic-interaction-annotation-model-updated"><strong>Genetic Interaction annotation model updated</strong></h4>
+<p><em>2022-11-29</em></p>
+<p>We have recently implemented an improved way to <strong>annotate and display genetic interactions so they are linked to phenotype annotations and alleles</strong>.</p>
+<p>Previously, our Genetic Interaction annotations only mentioned the interacting genes and the type of genetic interaction. For example, if a strain with genotype <code>asp1-H397A</code> has the phenotype <code>decreased acid phosphatase activity affecting activity of pho1</code>, but this phenotype is suppressed when <code>rhn1</code> is deleted in that strain, we would annotate that the genes <code>asp1</code> and <code>rhn1</code> are part of a <code>Phenotypic Suppression</code> interaction.</p>
+<p><img src="assets/newsfeed/gi-update-1.png" class="screenshot" style="width:100.0%" alt="GI old format" /></p>
+<p>We continue to display interactions in this format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.</p>
+<p><img src="assets/newsfeed/gi-update-2.png" class="screenshot" style="width:100.0%" alt="GI new format" /></p>
+<p>In the revised Canto interface, you can only annotate a genetic interaction from the double mutant phenotype annotation (by clicking on <code>add..</code>, as shown below).</p>
+<p><img src="assets/newsfeed/gi-update-3.png" class="screenshot" style="width:100.0%" alt="GI annotation in Canto" /></p>
+<p>Of course, genetic interactions predating this update are not linked to phenotypes or genotypes, but we are hoping to auto-annotate several of those. We will also prioritise for update any interactions where community curators have provided these details in an annotation comment. Finally, <strong>a big shoutout to Ana Sanchez and Angad Garg from the Shuman lab</strong>, for testing the new interface in numerous recently curated publications. The examples provided here are from <a routerLink="/reference/PMID:31276588">Sanchez et al. 2019</a>. Go read it and see the annotations in PomBase.</p>
+<p>Best, The PomBase team</p>
 
 </div>
 <div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/>
-<h4 id="japonicusdb-now-uses-interpro-version-87.0"><strong>JaponicusDB now uses InterPro Version 87.0</strong></h4>
-<p><em>2021-11-23</em></p>
-<p>JaponicusDB now uses InterPro Version 87.0, which integrates:</p>
-<ul>
-<li>1,155 new InterPro entries</li>
-<li>Update to Pfam 34.0</li>
-<li>1,256 new methods</li>
-</ul>
-
-</div>
-<div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/>
-<h4 id="coils-disorder-and-more-new-protein-feature-queries"><strong>Coils, disorder, and more: new protein feature queries</strong></h4>
-<p><em>2021-10-18</em></p>
-<p>The JaponicusDB <a routerLink="/query">advanced search</a> now allows you to find proteins that have coiled-coil regions, disordered regions, and low-complexity regions. The query-building interface also now organises query options more sensibly, and the documentation has been updated.</p>
-
-</div>
-<div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/>
-<h4 id="japonicusdb-pombase-preprints"><strong>JaponicusDB &amp; PomBase preprints</strong></h4>
-<p><em>2021-09-27</em></p>
-<p>Papers describing JaponicusDB and PomBase will appear in an issue of <a href="https://academic.oup.com/genetics/">GENETICS</a> devoted to model organism database (MOD) reports. The MOD papers will highlight the journal’s new section on Computational Resources, Software &amp; Databases.</p>
-<p>Follow the links to the <a href="https://www.biorxiv.org/content/10.1101/2021.09.23.461587v1">JaponicusDB preprint</a> and <a href="https://www.biorxiv.org/content/10.1101/2021.09.07.459264v1.full">PomBase preprint</a>, and watch for the full-fledged publications to appear in March 2022.</p>
-
-</div>
-<div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/>
-<h4 id="official-japonicusdb-release"><strong>Official JaponicusDB release</strong></h4>
-<p><em>2021-09-01</em></p>
-<p>We are delighted to announce the official release of <a href="https://www.japonicusdb.org">JaponicusDB</a> a new, curated model organism database for the fission yeast <em>Schizosaccharomyces japonicus</em>. Highlights include revised gene structures, distant ortholog detection, improved GO annotation, and community literature curation. JaponicusDB features reciprocal gene page links with PomBase - and uses the same underlying code, to provide a familiar environment for all fission yeast researchers.</p>
-<p>The <em>S. japonicus</em> community will maintain JaponicusDB from now on. Join the <a href="https://mailman.kcl.ac.uk/mailman/listinfo/japonicus-list">new mailing list</a>, and follow <span class="citation" data-cites="japonicusdb">@japonicusdb</span> on Twitter.</p>
-
-</div>
-<div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/>
-<h4 id="updated-s.-japonicus-gene-set"><strong>Updated <em>S. japonicus</em> gene set</strong></h4>
-<p><em>2021-08-18</em></p>
-<p>A comprehensive review of <em>Schizosaccharomyces japonicus</em> genome annotation has identified 17 new protein-coding genes, revised 36 gene structures, and deleted 8 gene predictions. All protein-coding gene product descriptions have been updated, improved and standardized.</p>
-
-</div>
-<div class="news-item">
-<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/japonicusdb-32x32.png"/>
-<h4 id="japonicusdb-a-database-for-schizosaccharomyces-japonicus"><strong>JaponicusDB: A database for <em>Schizosaccharomyces japonicus</em></strong></h4>
-<p><em>2021-07-22</em></p>
-<p>Welcome to the prototype of <strong>JaponicusDB</strong>, a new model organism database for <em>Schizosaccharomyces japonicus</em>. Like <a href="https://www.pombase.org/">PomBase</a>, on which it is based, JaponicusDB will provide comprehensive structural and functional annotation, literature curation and access to large-scale data sets for <em>S. japonicus</em>.</p>
-<p>Documentation specific for JaponicusDB is under development. In the meantime, you can find lots of relevant information in the <a href="https://www.pombase.org/documentation">PomBase documentation</a>, especially the <a href="https://www.pombase.org/faq/all-frequently-asked-questions">FAQ</a> and the <a href="https://www.pombase.org/documentation/JBrowse_quick_start">“Quick start” guide to PomBase JBrowse</a>. We also recommend <a href="https://link.springer.com/protocol/10.1007%2F978-1-4939-7737-6_4">this guide to PomBase</a>, published as a Methods in Molecular Biology book chapter.</p>
+<img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/protein-structure.png"/>
+<h4 id="using-alphafold-models-to-discover-distant-human-and-budding-yeast-homologues"><strong>Using AlphaFold models to discover distant human and budding yeast homologues</strong></h4>
+<p><em>2022-10-14</em></p>
+<p>We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold reciprocal best structure hits to identify potential distant orthologs. The Reciprocal Best Structure Hits (RBSH) approach provided 11 novel human homologues, including <strong>Pho86 -&gt; NAT8</strong> (ER acetyltransferase), <strong>Mug174 -&gt; COIL</strong> (Coilin), <strong>Ach1 -&gt; OXCT1</strong> (succinyl-CoA:3-ketoacid coenzyme A transferase), <strong>SPAC1952.08c -&gt; CREG1</strong>, <strong>imt1 -&gt; A4GALT</strong> (Lactosylceramide 4-alpha-galactosyltransferase), <strong>Rtc5 -&gt; MEAK7</strong> (MTOR associated protein). A further 41 novel orthologs were predicted between <em>S. pombe</em> and <em>S. cerevisiae</em> which had fallen under the radar for all other methods used at PomBase. Most of the novel connections provided additional functional information, or supported existing knowledge for poorly characterised proteins. See supporting data tables S4 and S5 for the
+complete list of predictions included in PomBase. <a href="https://academic.oup.com/bioinformaticsadvances/advance-article/doi/10.1093/bioadv/vbac072/6749558">Article</a>.</p>
 
 </div>
 
