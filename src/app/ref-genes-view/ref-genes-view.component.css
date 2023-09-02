@@ -1,3 +1,19 @@
 .ref-actions .title {
   font-weight: bold;
 }
+
+.author-and-citation {
+  margin: 1em 0;
+  font-size: 120%;
+}
+
+.author-and-citation .citation {
+  font-style: italic;
+  display: inline;
+  margin-left: 0.7em;
+}
+
+.ref-page-view-change {
+  display: inline;
+  margin: 0 1em;
+}
