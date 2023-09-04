@@ -66,8 +66,13 @@
       <div class="abstract">
         <ng-container *ngIf="graphicalAbstractImagePath && !showBigGraphicalAbstract">
         <div *ngIf="bigGraphicalAbstractImagePath" class="small-graphical-abstract">
-          <a (click)="displayBigGraphicalAbstract()">
-            <img title="Click to view larger graphical abstract" src="{{graphicalAbstractImagePath}}"/>
+          <a (click)="displayBigGraphicalAbstract()"
+             [popover]="graphicalAbstractPopover"
+             triggers="mouseenter:mouseleave"
+             placement="top"
+             container="body">
+            <img src="{{graphicalAbstractImagePath}}"/>
+            <div class="small-graphical-abstract-text">View larger graphical abstract</div>
           </a>
         </div>
         <div *ngIf="!bigGraphicalAbstractImagePath">
@@ -247,3 +252,7 @@
 
 </div>
 </div>
+
+<ng-template #graphicalAbstractPopover>
+  Click to view larger graphical abstract
+</ng-template>
