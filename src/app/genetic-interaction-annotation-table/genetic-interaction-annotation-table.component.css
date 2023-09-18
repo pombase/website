@@ -147,3 +147,7 @@ table.main-interaction-table tbody {
   -webkit-user-select: none;
   user-select: none;
 }
+
+.phenotype-extension {
+  font-size: 90%;
+}

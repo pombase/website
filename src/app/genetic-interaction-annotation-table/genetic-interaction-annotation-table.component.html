@@ -134,8 +134,8 @@
                     <app-term-link [term]="detail.double_mutant_phenotype">
                       {{detail.double_mutant_phenotype.name}}
                    </app-term-link>
-                   <div *ngIf="detail.double_mutant_extension">
-                     <app-extension-display [extension]="detail.double_mutant_extension" [highlightRelations]="false"></app-extension-display>
+                   <div *ngIf="detail.double_mutant_extension" class="phenotype-extension">
+                     <app-extension-display [extension]="detail.double_mutant_extension" [highlightRelations]="true"></app-extension-display>
                    </div>
                  </span>
                 </td>
@@ -144,8 +144,8 @@
                     <app-term-link [term]="detail.rescued_phenotype">
                       {{detail.rescued_phenotype.name}}
                     </app-term-link>
-                    <div *ngIf="detail.rescued_phenotype_extension">
-                      <app-extension-display [extension]="detail.rescued_phenotype_extension" [highlightRelations]="false"></app-extension-display>
+                    <div *ngIf="detail.rescued_phenotype_extension" class="phenotype-extension">
+                      <app-extension-display [extension]="detail.rescued_phenotype_extension" [highlightRelations]="true"></app-extension-display>
                     </div>
                   </span>
                 </td>
