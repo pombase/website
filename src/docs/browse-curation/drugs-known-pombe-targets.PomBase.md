@@ -9,6 +9,7 @@ Drug | Target gene(s) | Cellular target | Process target | Other/notes | Referen
 [1,3-dicyclohexylcarbodiimide](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:53090) (N,N'-dicyclohexylcarbodiimide ; DCCD) | | inhibits proton pumps | | | [PMID:33400299](/reference/PMID:33400299)
 [1,10-phenanthroline](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:44975) | | RNA polymerases II and III | | | [PMID:27518095](/reference/PMID:27518095)
 2‐thenoyltrifluoroacetone (TTFA) | | inhibits [mitochondrial complex II](/term/GO:0005749) | [respiratory electron transport](/term/GO:0022904) | | [PMID:33400299](/reference/PMID:33400299) |
+6-azauracil | | | | inhibits IMP dehydrogenase | [PMID:1611672](https://pubmed.ncbi.nlm.nih.gov/1611672)
 [CT2108A](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:65678) | | fatty acid synthase | | |
 [CT2108B](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:65679) | | fatty acid synthase  | | |
 [α-amanitin](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:37415) | [rpb1](/gene/SPBC28F2.12) | RNA polymerase II | transcription [initiation](/term/GO:0006367) and [elongation](/term/GO:0006368) | interferes with a protein conformational change underlying the transcription mechanism | [PMID:11805306](https://pubmed.ncbi.nlm.nih.gov/11805306/) (PubMed link)
