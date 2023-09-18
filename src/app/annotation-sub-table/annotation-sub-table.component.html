@@ -159,7 +159,10 @@
           {{transcriptDisplay(annotation, false)}}
         </td>
         <td class="with" *ngIf="showColumn['evidence']">
-          <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
+          <app-evidence-link class="app-link" *ngIf="annotation.evidence"
+                            [evidence]="annotation.evidence" [assignedBy]="annotation.assigned_by"
+                            [assignedDate]="annotation.date">
+          </app-evidence-link>
           <span *ngIf="annotation.withs && annotation.withs.length > 0">with
             <span *ngFor="let withVal of annotation.withs; let lastWith = last">
               <app-with-or-from-link [withOrFrom]="withVal"></app-with-or-from-link><span *ngIf="!lastWith">, </span>

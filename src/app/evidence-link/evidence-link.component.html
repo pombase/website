@@ -1,6 +1,10 @@
 <ng-template #evidencePopover>
   <div>Evidence: {{title}}</div>
   <div class="link-hint" *ngIf="link">(click to view evidence code description)</div>
+  <div class="assigned-details" *ngIf="assignedBy || assignedDate">
+    <span class="assigned-by" *ngIf="assignedBy">Assigned by: {{assignedBy}}</span>
+    <span class="assigned-date" *ngIf="assignedDate">{{assignedDate}}</span>
+  </div>
 </ng-template>
 <span [popover]="evidencePopover"
       triggers="mouseenter:mouseleave"

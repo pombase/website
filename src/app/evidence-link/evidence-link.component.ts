@@ -8,6 +8,8 @@ import { getAppConfig, AppConfig, LinkoutConfig } from '../config';
 })
 export class EvidenceLinkComponent implements OnInit {
   @Input() evidence: string;
+  @Input() assignedBy?: string = undefined;
+  @Input() assignedDate?: string = undefined
 
   displayName = '[unknown]';
   title = '[unknown]';

@@ -183,6 +183,8 @@ export interface Annotation {
   reference: ReferenceShort;
   evidence?: string;
   conditions: Array<TermShort>;
+  assigned_by: string|undefined;
+  date: string|undefined;
   withs: Array<WithFromValue>;
   froms: Array<WithFromValue>;
   residue?: string;

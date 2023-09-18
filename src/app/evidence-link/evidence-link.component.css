@@ -2,3 +2,12 @@
   font-size: 90%;
   margin-top: 0.4em;
 }
+
+.assigned-details {
+  padding-top: 1em;
+  font-size: 90%;
+}
+
+.assigned-by {
+  padding-right: 0.5em;
+}
