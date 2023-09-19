@@ -14,7 +14,7 @@ export class ExtensionDisplayComponent implements OnInit {
   @Input() extension: Array<ExtPart> = [];
   @Input() highlightRelations = true;
 
-  displayExtension: { relTypeName: string; extRange: any; }[] = [];
+  displayExtension: { relTypeName: string; rawName: string; extRange: any; }[] = [];
   linkoutConfig: LinkoutConfig = {};
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
@@ -122,6 +122,7 @@ export class ExtensionDisplayComponent implements OnInit {
 
         return {
           relTypeName: ext.rel_type_display_name || ext.rel_type_name,
+          rawName: ext.rel_type_name,
           extRange: newRange,
         };
       });
