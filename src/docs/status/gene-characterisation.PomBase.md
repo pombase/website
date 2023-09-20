@@ -1,5 +1,9 @@
 ### Protein-coding gene characterisation status
 
+Each gene is assigned exactly one characterisation status that
+reflects how much is known about the gene, whether it is conserved,
+etc.
+
 #### Changes over time
 
 [![Gene characterisation status](assets/gene_characterisation_status_figure.svg){.screenshot width=40em;}](assets/gene_characterisation_status_figure.svg)
@@ -9,7 +13,7 @@
 <app-characterisation-status-table></app-characterisation-status-table>
 
 
-Protein-coding gene characterisation status descriptions
+#### Protein-coding gene characterisation status descriptions
 
 **Published:** Completely or partially characterised
 in a small scale experiment, with some published information about the
