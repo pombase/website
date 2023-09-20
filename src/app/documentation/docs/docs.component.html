@@ -12188,7 +12188,7 @@ Password: will be sent the day of the meeting</p>
 <h4 id="accessing-list-genes-paper">Accessing the list of genes from a paper</h4>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
-<p>It’s now possible to view the list of genes associated with a paper, using the new link on the publication pages:</p>
+<p>It’s now possible to view the list of genes associated with a paper, using a new link on the publication pages. The gene list can then optionally be sent to the Advanced Search.</p>
 <p><a href="assets/newsfeed/genes-list-from-ref-page.png"><img src="assets/newsfeed/genes-list-from-ref-page.png" title="Publication page, highlightling the new genes link" class="screenshot" style="width:100.0%" alt="Publication page, highlightling the new genes link" /></a></p>
 
   </div>
@@ -12199,7 +12199,7 @@ Password: will be sent the day of the meeting</p>
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="accessing-list-genes-paper">Accessing the list of genes from a paper</h3>
 <p><em>2023-09-20</em></p>
-<p>It’s now possible to view the list of genes associated with a paper, using the new link on the publication pages:</p>
+<p>It’s now possible to view the list of genes associated with a paper, using a new link on the publication pages. The gene list can then optionally be sent to the Advanced Search.</p>
 <p><a href="assets/newsfeed/genes-list-from-ref-page.png"><img src="assets/newsfeed/genes-list-from-ref-page.png" title="Publication page, highlightling the new genes link" class="screenshot" style="width:100.0%" alt="Publication page, highlightling the new genes link" /></a></p>
 </div>
 <div id="2023-07-27-protein-feature-viewer" class="news-item">
@@ -14336,11 +14336,12 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'gene-characterisation'">
 <h3 id="protein-coding-gene-characterisation-status">Protein-coding gene characterisation status</h3>
+<p>Each gene is assigned exactly one characterisation status that reflects how much is known about the gene, whether it is conserved, etc.</p>
 <h4 id="changes-over-time">Changes over time</h4>
 <p><a href="assets/gene_characterisation_status_figure.svg"><img src="assets/gene_characterisation_status_figure.svg" class="screenshot" alt="Gene characterisation status" /></a></p>
 <h4 id="current-status">Current status</h4>
 <p><app-characterisation-status-table></app-characterisation-status-table></p>
-<p>Protein-coding gene characterisation status descriptions</p>
+<h4 id="protein-coding-gene-characterisation-status-descriptions">Protein-coding gene characterisation status descriptions</h4>
 <p><strong>Published:</strong> Completely or partially characterised in a small scale experiment, with some published information about the biological role (corresponding to any of the <a href="browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO biological process slim</a> terms)</p>
 <p><strong>Biological role inferred:</strong> A biological role (as above, a <a href="browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO Process slim</a> term) is inferred from homology to an experimentally characterised gene product</p>
 <p><strong>Conserved protein (unknown biological role):</strong> Conserved outside the <i>Schizosaccharomyces</i>, but nothing known about the biological role in any organism</p>
