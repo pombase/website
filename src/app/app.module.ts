@@ -302,8 +302,6 @@ export class SafeUrlPipe implements PipeTransform {
     Angulartics2Module.forRoot(),
     FontAwesomeModule,
   ],
-  entryComponents: [GenesDownloadDialogComponent, QueryDetailsDialogComponent,
-                    GenesTableConfigComponent, MessageDialogComponent],
   providers: [PombaseAPIService,
               { provide: 'Window', useValue: window },
               { provide: 'Document', useFactory: documentFactory },
