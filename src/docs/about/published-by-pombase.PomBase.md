@@ -7,6 +7,17 @@ Canto, FYPO, annotations and Compara.
 
 ### Journal articles
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyad143"></div>
+
+<div class="pub-citation">
+Manuel Lera-Ramírez, Jürg Bähler, Juan Mata, Kim Rutherford, Charles S Hoffman, Sarah Lambert, Snezhana Oliferenko, Sophie G Martin, Kathleen L Gould, Li-Lin Du, Sarah A Sabatinos, Susan L Forsburg, Olaf Nielsen, Paul Nurse, Valerie Wood \
+Revised fission yeast gene and allele nomenclature guidelines for machine readability \
+*Genetics*, September 2023, iyad031 \
+</div>
+[10.1093/genetics/iyad143](https://doi.org/10.1093/genetics/iyad143)
+
+<div class="clear-float"></div>
+
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.7554/eLife.84658"></div>
 
 <div class="pub-citation">

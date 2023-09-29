@@ -34,27 +34,28 @@ will attempt to notify all parties.
     3-letter symbol, by entering the 3-letter name followed by an
     asterisk, e.g. "cdc\*". Also check the usage of the 3-letter
     code in *S. cerevisiae* at [SGD](http://www.yeastgenome.org/).
-4.  Please include your gene name(s) in the abstracts of any relevant
+4.  For non-coding RNA genes, follow [these rules](https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026#419163545) from [Lera-Ramirez et al. 2023](https://doi.org/10.1093/genetics/iyad143).
+5.  Please include your gene name(s) in the abstracts of any relevant
     papers. This simplifies the task of identifying yeast gene names
     that are already in use.
-5.  At the time of registration, the *${species_abbrev}* curator will check
+6.  At the time of registration, the *${species_abbrev}* curator will check
     PubMed, GenBank/EMBL/DDBJ and the Gene Name Registry to ensure the
     gene name is unique. If your chosen gene name is not unique, you
     will be contacted and asked to select a new name.
-6.  Please check that the reserved gene name is still unique, and that
+7.  Please check that the reserved gene name is still unique, and that
     the gene still has no other name used for it, before submitting a
     publication.
-7.  If it is discovered that your gene has been previously named, your
+8.  If it is discovered that your gene has been previously named, your
     gene name would instead become an alias (synonym) for the locus, and
     it and any associated references will remain searchable and linked
     to the standard locus name.
-8.  If you reserve a gene name prior to publication, and your reserved
+9.  If you reserve a gene name prior to publication, and your reserved
     name is published referring to a different gene before your name
     usage is published, a compromise specific to the situation will be
     made. In most cases, you will NOT retain the use of the gene name
     unless you published the name first (see "Resolution of gene name
     conflicts" below).
-9.  If no conflicts arise, your gene name will become the standard
+10. If no conflicts arise, your gene name will become the standard
     name, and will appear on the gene page and elsewhere in ${database_name}.
 
 <!-- restore when form back
