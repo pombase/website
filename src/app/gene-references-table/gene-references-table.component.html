@@ -12,23 +12,31 @@
   </div>
   <div class="sort-buttons">
     Sort by:
-    <span *ngIf="orderByField == '+gene_count'">Publication gene count</span>
-    <a *ngIf="orderByField != '+gene_count'" (click)="setOrderBy('+gene_count')">Publication gene count</a> |
-    <span *ngIf="orderByField == '+authors_abbrev'">Authors</span>
-    <a *ngIf="orderByField != '+authors_abbrev'" (click)="setOrderBy('+authors_abbrev')">Authors</a> |
+    <span *ngIf="orderByField == '+gene_count'"
+          title="Currently sorted by publication gene count">Publication gene count</span>
+    <a *ngIf="orderByField != '+gene_count'" (click)="setOrderBy('+gene_count')"
+       title="Click to sort list by publication gene count">Publication gene count</a> |
+    <span *ngIf="orderByField == '+authors_abbrev'"
+          title="Currently sorted alphabetically by first author">Authors</span>
+    <a *ngIf="orderByField != '+authors_abbrev'" (click)="setOrderBy('+authors_abbrev')"
+       title="Click to sort list alphabetically by first author">Authors</a> |
     Year:
-    <span *ngIf="orderByField == '+publication_year'">Ascending</span>
-    <a *ngIf="orderByField != '+publication_year'" (click)="setOrderBy('+publication_year')">Ascending</a> /
-    <span *ngIf="orderByField == '-publication_year'">Descending</span>
-    <a *ngIf="orderByField != '-publication_year'" (click)="setOrderBy('-publication_year')">Descending</a>
+    <span *ngIf="orderByField == '+publication_year'"
+          title="Currently sorted by publication year (oldest first)">Ascending</span>
+    <a *ngIf="orderByField != '+publication_year'" (click)="setOrderBy('+publication_year')"
+       title="Click to sort list by publication year (oldest first)">Ascending</a> /
+    <span *ngIf="orderByField == '-publication_year'"
+          title="Currently sorted by publication year (most recent first)">Descending</span>
+    <a *ngIf="orderByField != '-publication_year'" (click)="setOrderBy('-publication_year')"
+       title="Click to sort list by publication year (most recent first)">Descending</a>
   </div>
   <div class="annotation-table-container">
   <table>
     <thead>
       <tr>
         <th>Details</th>
-        <th *ngIf="orderByField == '+publication_year' || orderByField == '-publication_year'">Year</th>
-        <th>Genes</th>
+        <th *ngIf="orderByField == '+publication_year' || orderByField == '-publication_year'" title="Publication year">Year</th>
+        <th title="Publication gene count">Genes</th>
       </tr>
     </thead>
     <tbody>
