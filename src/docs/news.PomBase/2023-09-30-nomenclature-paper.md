@@ -2,10 +2,15 @@
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
-Revised fission yeast nomenclature for genes and alleles
-[now published in GENETICS](https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026).
-We provide new standards for ncRNA genes and for allele descriptions to
-enable machine readability.  Thanks to Manuel for driving this to completion.
+The improved nomenclature guidelines for fission yeast clade genes and alleles
+have been [published in Genetics GSA](https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026).
+This update introduces nomenclature guidelines for noncoding RNA gene
+a significant update to the allele and genotype nomenclature
+guidelines originally published in 1987.  We took several steps to
+improve machine readability that will benefit the artificial
+intelligence/machine learning communities, and our own community
+curation program.
+
 
 [Lera-Ramírez *et al.* 2023, Revised fission yeast gene and allele nomenclature guidelines for machine readability, Genetics, 2023;, iyad143](https://doi.org/10.1093/genetics/iyad143)
 
