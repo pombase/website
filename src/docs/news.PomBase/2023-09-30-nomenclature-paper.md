@@ -4,7 +4,7 @@
 
 The improved nomenclature guidelines for fission yeast clade genes and alleles
 have been [published in Genetics GSA](https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026).
-This update introduces nomenclature guidelines for noncoding RNA gene
+This update introduces nomenclature guidelines for noncoding RNA genes,
 a significant update to the allele and genotype nomenclature
 guidelines originally published in 1987.  We took several steps to
 improve machine readability that will benefit the artificial
