@@ -530,6 +530,19 @@ United Kingdom</p>
 <h2 id="pombase-and-collaborative-publications">PomBase and collaborative publications</h2>
 <p>Please see the <a routerLink="/about/citing-pombase">Citing PomBase</a> page, which lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, Canto, FYPO, annotations and Compara.</p>
 <h3 id="journal-articles">Journal articles</h3>
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1093/genetics/iyad143">
+
+</div>
+<div class="pub-citation">
+<p>Manuel Lera-Ramírez, Jürg Bähler, Juan Mata, Kim Rutherford, Charles S Hoffman, Sarah Lambert, Snezhana Oliferenko, Sophie G Martin, Kathleen L Gould, Li-Lin Du, Sarah A Sabatinos, Susan L Forsburg, Olaf Nielsen, Paul Nurse, Valerie Wood<br />
+Revised fission yeast gene and allele nomenclature guidelines for machine readability<br />
+<em>Genetics</em>, September 2023, iyad031<br />
+</p>
+</div>
+<p><a href="https://doi.org/10.1093/genetics/iyad143">10.1093/genetics/iyad143</a></p>
+<div class="clear-float">
+
+</div>
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.7554/eLife.84658">
 
 </div>
@@ -9709,6 +9722,13 @@ Example queries:
 <p>PomBase does not have its own GO enrichment tool, but we recommend one, and provide a bit more information, in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list">FAQ on GO term enrichment</a>.</p>
 
 </div>
+<div (click)="faq_navigate($event, '/faq/what-pombemine-service-url', 'What is the PombeMine service URL')" *ngIf="pageName == 'tools-and-resources' || pageName == 'what-pombemine-service-url' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
+<h3 id="what-pombemine-service-url">What is the PombeMine service URL</h3>
+<!-- pombase_categories: Tools and resources -->
+<p>The URL is: <code>https://www.pombase.org/pombemine/service</code></p>
+<p>This URL is needed in order to access the PombeMine API programmatically;. See the <a href="https://intermine.readthedocs.io/en/latest/web-services/">InterMine web service documentation</a> for details.</p>
+
+</div>
 <div (click)="faq_navigate($event, '/faq/what-psl-format', 'What is PSL format?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-psl-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="what-psl-format">What is PSL format?</h3>
 <!-- pombase_categories: Data submission and formats -->
@@ -9839,6 +9859,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#revised-fission-yeast-nomenclature-genes-and-alleles">Revised fission yeast nomenclature for genes and alleles</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#accessing-list-genes-paper">Accessing the list of genes from a paper</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#protein-feature-viewer-added-gene-pages">Protein feature viewer added to gene pages</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#reaction-diagrams-on-term-pages">Reaction diagrams on term pages</a></div>
@@ -12192,9 +12213,26 @@ Password: will be sent the day of the meeting</p>
 <p><a href="assets/newsfeed/genes-list-from-ref-page.png"><img src="assets/newsfeed/genes-list-from-ref-page.png" title="Publication page, highlightling the new genes link" class="screenshot" style="width:100.0%" alt="Publication page, highlightling the new genes link" /></a></p>
 
   </div>
+  <div *ngIf="pageName == 'nomenclature-paper'">
+<h4 id="revised-fission-yeast-nomenclature-genes-and-alleles">Revised fission yeast nomenclature for genes and alleles</h4>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>The improved nomenclature guidelines for fission yeast clade genes and alleles have been <a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026">published in Genetics GSA</a>. This update introduces nomenclature guidelines for noncoding RNA genes, a significant update to the allele and genotype nomenclature guidelines originally published in 1987. We took several steps to improve machine readability that will benefit the artificial intelligence/machine learning communities, and our own community curation program.</p>
+<p><a href="https://doi.org/10.1093/genetics/iyad143">Lera-Ramírez <em>et al.</em> 2023, Revised fission yeast gene and allele nomenclature guidelines for machine readability, Genetics, 2023;, iyad143</a></p>
+<p><a href="assets/newsfeed/nomenclature_paper_for_news_big.png"><img src="assets/newsfeed/nomenclature_paper_for_news.png" title="Revised fission yeast gene and allele nomenclature guidelines for machine readability" class="screenshot" style="width:100.0%" alt="“Revised fission yeast gene and allele nomenclature guidelines for machine readability”" /></a></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2023-09-30-nomenclature-paper" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="revised-fission-yeast-nomenclature-genes-and-alleles">Revised fission yeast nomenclature for genes and alleles</h3>
+<p><em>2023-09-30</em></p>
+<p>The improved nomenclature guidelines for fission yeast clade genes and alleles have been <a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026">published in Genetics GSA</a>. This update introduces nomenclature guidelines for noncoding RNA genes, a significant update to the allele and genotype nomenclature guidelines originally published in 1987. We took several steps to improve machine readability that will benefit the artificial intelligence/machine learning communities, and our own community curation program.</p>
+<p><a href="https://doi.org/10.1093/genetics/iyad143">Lera-Ramírez <em>et al.</em> 2023, Revised fission yeast gene and allele nomenclature guidelines for machine readability, Genetics, 2023;, iyad143</a></p>
+<p><a href="assets/newsfeed/nomenclature_paper_for_news_big.png"><img src="assets/newsfeed/nomenclature_paper_for_news.png" title="Revised fission yeast gene and allele nomenclature guidelines for machine readability" class="screenshot" style="width:100.0%" alt="“Revised fission yeast gene and allele nomenclature guidelines for machine readability”" /></a></p>
+</div>
 <div id="2023-09-20-list-of-publication-genes" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="accessing-list-genes-paper">Accessing the list of genes from a paper</h3>
@@ -14691,6 +14729,21 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'gene-coordinate-changes-RNA'">
 <h3 id="rna-gene-coordinate-changes">RNA gene coordinate changes</h3>
+<p>The table below contains all changes to sequence coordinates in RNA genes. Each pair of rows corresponds to a change, with columns corresponding to:</p>
+<ul>
+<li><strong>Date:</strong> date of the change.</li>
+<li><strong>Systematic id:</strong> systematic id of the gene affected.</li>
+<li><strong>Primary name:</strong> primary name of the gene affected, if it exists.</li>
+<li><strong>Before / after change:</strong> if the value is <code>before</code>, the value of <code>Coordinates</code> corresponds to coordinates of the CDS before the change. If the value is <code>after</code>, the value of <code>Coordinates</code> corresponds to coordinates of the CDS after the change.</li>
+<li><strong>Coordinates:</strong> see above.</li>
+<li><strong>Comment:</strong> a comment by PomBase curators might be associated with a change.</li>
+<li><strong>Reference:</strong> a reference (e.g. a PubMed ID) might be associated with a change.</li>
+</ul>
+<p>For a list of all changes in the genome (including protein coding genes) in a similar format see:</p>
+<ul>
+<li><a href="https://github.com/pombase/genome_changelog/blob/master/results/all_coordinate_changes_file_comments_no_type_change.tsv">https://github.com/pombase/genome_changelog/blob/master/results/all_coordinate_changes_file_comments_no_type_change.tsv</a> for changes after 23-08-2011.</li>
+<li><a href="https://github.com/pombase/genome_changelog/blob/master/results/pre_svn_coordinate_changes_file_comments_no_type_change.tsv">https://github.com/pombase/genome_changelog/blob/master/results/pre_svn_coordinate_changes_file_comments_no_type_change.tsv</a> for previous changes.</li>
+</ul>
 <table><thead><tr>
 <th>Date</th><th>Systematic id</th><th>Primary name</th><th>Before / after change</th><th>Coordinates</th><th>Comment</th><th>Reference</th>
 </thead>
@@ -14964,6 +15017,21 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'gene-coordinate-changes-protein-coding'">
 <h3 id="protein-coding-gene-coordinate-changes">Protein coding gene coordinate changes</h3>
+<p>The table below contains all changes to coding sequence (CDS) coordinates in protein coding genes. Each pair of rows corresponds to a change, with columns corresponding to:</p>
+<ul>
+<li><strong>Date:</strong> date of the change.</li>
+<li><strong>Systematic id:</strong> systematic id of the gene affected.</li>
+<li><strong>Primary name:</strong> primary name of the gene affected, if it exists.</li>
+<li><strong>Before / after change:</strong> if the value is <code>before</code>, the value of <code>Coordinates</code> corresponds to coordinates of the CDS before the change. If the value is <code>after</code>, the value of <code>Coordinates</code> corresponds to coordinates of the CDS after the change.</li>
+<li><strong>Coordinates:</strong> see above.</li>
+<li><strong>Comment:</strong> a comment by PomBase curators might be associated with a change.</li>
+<li><strong>Reference:</strong> a reference (e.g. a PubMed ID) might be associated with a change.</li>
+</ul>
+<p>For a list of all changes in the genome (including UTRs of coding genes and RNA genes) in a similar format see:</p>
+<ul>
+<li><a href="https://github.com/pombase/genome_changelog/blob/master/results/all_coordinate_changes_file_comments_no_type_change.tsv">https://github.com/pombase/genome_changelog/blob/master/results/all_coordinate_changes_file_comments_no_type_change.tsv</a> for changes after 23-08-2011.</li>
+<li><a href="https://github.com/pombase/genome_changelog/blob/master/results/pre_svn_coordinate_changes_file_comments_no_type_change.tsv">https://github.com/pombase/genome_changelog/blob/master/results/pre_svn_coordinate_changes_file_comments_no_type_change.tsv</a> for previous changes.</li>
+</ul>
 <table><thead><tr>
 <th>Date</th><th>Systematic id</th><th>Primary name</th><th>Before / after change</th><th>Coordinates</th><th>Comment</th><th>Reference</th>
 </thead>
@@ -28296,6 +28364,7 @@ Joined contigs p4C9 and c977</p>
 <li>The gene name should consist of three italicized lower case letters (the gene symbol) followed by an integer (e.g. rad26). This will not be italicized in the database. (Note that a few historical gene names with four letters, or without an integer, have been grandfathered into the database, but all new standard gene names must conform to the three-letters-plus-integer pattern.)</li>
 <li>The gene name registration form will return soon. To reserve a gene name in the meantime, please <a href="mailto:helpdesk@pombase.org?subject=gene%20name%20reservation">email the helpdesk</a> and include the gene systematic ID, proposed gene name, name description, the relevant PubMed ID (if available), and any other information.</li>
 <li>The 3-letter gene symbol should stand for a description of a phenotype, gene product or gene function. In addition, we strongly prefer that a given gene symbol have only one associated description, i.e., all genes which use a given 3 letter symbol should have a related phenotype, gene product or gene function. If a 3-letter symbol is already in use, it should not be used to describe a different class of genes. Before choosing your gene name, search PomBase for any gene name beginning with the 3-letter symbol, by entering the 3-letter name followed by an asterisk, e.g. “cdc*”. Also check the usage of the 3-letter code in <em>S. cerevisiae</em> at <a href="http://www.yeastgenome.org/">SGD</a>.</li>
+<li>For non-coding RNA genes, follow <a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026#419163545">these rules</a> from <a href="https://doi.org/10.1093/genetics/iyad143">Lera-Ramirez et al. 2023</a>.</li>
 <li>Please include your gene name(s) in the abstracts of any relevant papers. This simplifies the task of identifying yeast gene names that are already in use.</li>
 <li>At the time of registration, the <em>S. pombe</em> curator will check PubMed, GenBank/EMBL/DDBJ and the Gene Name Registry to ensure the gene name is unique. If your chosen gene name is not unique, you will be contacted and asked to select a new name.</li>
 <li>Please check that the reserved gene name is still unique, and that the gene still has no other name used for it, before submitting a publication.</li>
