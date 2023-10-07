@@ -679,6 +679,10 @@ function replaceExampleId(urlSyntax: string, idWithPrefix: string) {
   return urlSyntax.replace('[example_id]', idWithPrefix);
 }
 
+function replaceIdNoPrefix(urlSyntax: string, idNoPrefix: string) {
+  return urlSyntax.replace('[id_no_prefix]', idNoPrefix);
+}
+
 function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
   let ret = [];
 
@@ -722,6 +726,8 @@ function processGeneResults(geneResults: GeneResultsConfig): GeneResultsConfig {
 }
 
 let _organismMap: { [taxonid: number]: ConfigOrganism }|null = null;
+
+const confDbPrefixRE = /\[conf_db_prefix\]/g;
 
 let _appConfig: AppConfig = {
   site_name: pombaseConfig.site_name,
@@ -884,7 +890,8 @@ let _appConfig: AppConfig = {
 
           if (matches) {
             let url =
-              replaceExampleId(conf.url.replace('[conf_db_prefix]', matches[1]), termId);
+              replaceExampleId(conf.url.replace(confDbPrefixRE, matches[1]), termId);
+            url = replaceIdNoPrefix(url, matches[2]);
             return { url: url, displayName: configKey };
           } else {
             return {
