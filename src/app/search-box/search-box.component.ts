@@ -487,6 +487,7 @@ export class SearchBoxComponent implements OnInit {
     observables.push(geneSummaryObservable);
 
     token = token.replace(this.sysGeneIdRe, '').replace(this.sysTranscriptIdRe, '').trim();
+    token = token.replace(/^PMID: +/, 'PMID:'); // handle copy and paste from PubMed pages
 
     if (token.length > 0) {
       // for now we filter out systematic IDs because they cause Lucene problems
@@ -657,7 +658,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   matchesReference(value: string): boolean {
-    return value.match(/^\s*(?:(PMID|GO_REF):)?\d\d\d+\s*$/) != null;
+    return value.match(/^\s*(?:(PMID|GO_REF): *)?\d\d\d+\s*$/) != null;
   }
 
   matchesTerm(value: string): boolean {
@@ -671,7 +672,7 @@ export class SearchBoxComponent implements OnInit {
   enterPressed() {
     let trimmedValue = this.fieldValue;
     if (this.matchesReference(trimmedValue)) {
-      let pmid = trimmedValue;
+      let pmid = trimmedValue.replace(/^PMID: +/, 'PMID:');
       if (!pmid.startsWith('PMID:')) {
         pmid = 'PMID:' + pmid;
       }
