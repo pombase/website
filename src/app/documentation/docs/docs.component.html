@@ -9859,6 +9859,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-october-18th">Next pombeTalks: Wednesday, October 18th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#revised-fission-yeast-nomenclature-genes-and-alleles">Revised fission yeast nomenclature for genes and alleles</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#accessing-list-genes-paper">Accessing the list of genes from a paper</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#protein-feature-viewer-added-gene-pages">Protein feature viewer added to gene pages</a></div>
@@ -12222,9 +12223,44 @@ Password: will be sent the day of the meeting</p>
 <p><a href="assets/newsfeed/nomenclature_paper_for_news_big.png"><img src="assets/newsfeed/nomenclature_paper_for_news.png" title="Revised fission yeast gene and allele nomenclature guidelines for machine readability" class="screenshot" style="width:100.0%" alt="“Revised fission yeast gene and allele nomenclature guidelines for machine readability”" /></a></p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-oct-18th'">
+<h3 id="next-pombetalks-wednesday-october-18th">Next pombeTalks: Wednesday, October 18th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The first <a href="https://evonuclab.org/pombetalks">pombeTalks</a> session of season 4 will take place on <strong>Wednesday, October 18th</strong></p>
+<p>This session will start at 8:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo.</p>
+<p>Speakers:</p>
+<ul>
+<li><p><strong>Alaina Willet</strong>, Kathy Gould’s lab, Vanderbilt University, USA<br />
+“Membrane binding of endocytic myosin-1s is inhibited by a class of ankyrin repeat proteins”</p></li>
+<li><p><strong>Silke Hauf</strong>, Virgina Tech, USA<br />
+“Different rules for ultra-low gene expression noise?”</p></li>
+</ul>
+<p>The Zoom details will be shared on the week of the talk, through pombeList and pombeSlack.</p>
+<h6 id="slack">Slack</h6>
+<p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2023-10-10-pombetalks-oct-18th" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-october-18th">Next pombeTalks: Wednesday, October 18th</h3>
+<p><em>2023-10-10</em></p>
+<p>The first <a href="https://evonuclab.org/pombetalks">pombeTalks</a> session of season 4 will take place on <strong>Wednesday, October 18th</strong></p>
+<p>This session will start at 8:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo.</p>
+<p>Speakers:</p>
+<ul>
+<li><p><strong>Alaina Willet</strong>, Kathy Gould’s lab, Vanderbilt University, USA<br />
+“Membrane binding of endocytic myosin-1s is inhibited by a class of ankyrin repeat proteins”</p></li>
+<li><p><strong>Silke Hauf</strong>, Virgina Tech, USA<br />
+“Different rules for ultra-low gene expression noise?”</p></li>
+</ul>
+<p>The Zoom details will be shared on the week of the talk, through pombeList and pombeSlack.</p>
+<h6 id="slack">Slack</h6>
+<p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
+</div>
 <div id="2023-09-30-nomenclature-paper" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="revised-fission-yeast-nomenclature-genes-and-alleles">Revised fission yeast nomenclature for genes and alleles</h3>
@@ -12327,7 +12363,7 @@ Password: will be sent the day of the meeting</p>
 Date: Dec 14th<br />
 Meeting ID: 975 0331 6190<br />
 Password: will be sent the day of the meeting</p>
-<h6 id="slack">Slack</h6>
+<h6 id="slack-1">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-12-07-rna-length-advanced-search" class="news-item">
@@ -12372,7 +12408,7 @@ Date: Nov 16, 2022<br />
 Time: midnight San Francisco; 03:00 NY; 08:00 London; 09:00 Paris; 13:30 Delhi, 16:00 Beijing; 17:00 Tokyo<br />
 Meeting ID: 932 8857 4852<br />
 Password: will be sent the day of the meeting</p>
-<h6 id="slack-1">Slack</h6>
+<h6 id="slack-2">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-10-14-Alpha-fold_RBSH" class="news-item">
@@ -12400,7 +12436,7 @@ complete list of predictions included in PomBase. <a href="https://academic.oup.
 Time: Oct 19, 2022 05:00 PM Paris<br />
 Meeting ID: 933 7072 6178<br />
 Password: will be sent the day of the meeting</p>
-<h6 id="slack-2">Slack</h6>
+<h6 id="slack-3">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-10-13-new-to-pombase" class="news-item">
@@ -12439,7 +12475,7 @@ Password: will be sent the day of the meeting</p>
 Time: Sep 21, 2022 05:00 PM Paris<br />
 Meeting ID: 985 8572 1420<br />
 Password: will be sent the day of the meeting</p>
-<h6 id="slack-3">Slack</h6>
+<h6 id="slack-4">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-09-06-protein-sequence-changes" class="news-item">
