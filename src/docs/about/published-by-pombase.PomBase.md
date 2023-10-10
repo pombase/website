@@ -23,7 +23,7 @@ Revised fission yeast gene and allele nomenclature guidelines for machine readab
 <div class="pub-citation">
 Alayne Cuzick, James Seager, Valerie Wood, Martin Urban, Kim Rutherford, Kim E Hammond-Kosack \
 A framework for community curation of interspecies interactions literature \
-*eLife*, 12:e84658 \
+*eLife*, 12:e84658, Jul 2023 \
 </div>
 [10.7554/eLife.84658](https://doi.org/10.7554/eLife.84658)
 
