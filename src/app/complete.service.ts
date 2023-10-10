@@ -191,8 +191,6 @@ export class CompleteService {
       return from([]);
     }
 
-    queryText = queryText.replace(this.cleanRE, ' ');
-
     const completeRefUrl = this.completeUrl + '/allele/' + queryText;
 
     return this.httpRetry.getWithRetry(completeRefUrl, retryOptions)
