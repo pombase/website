@@ -549,7 +549,7 @@ Revised fission yeast gene and allele nomenclature guidelines for machine readab
 <div class="pub-citation">
 <p>Alayne Cuzick, James Seager, Valerie Wood, Martin Urban, Kim Rutherford, Kim E Hammond-Kosack<br />
 A framework for community curation of interspecies interactions literature<br />
-<em>eLife</em>, 12:e84658<br />
+<em>eLife</em>, 12:e84658, Jul 2023<br />
 </p>
 </div>
 <p><a href="https://doi.org/10.7554/eLife.84658">10.7554/eLife.84658</a></p>
@@ -9859,6 +9859,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#new-documentation-and-videos-canto">New documentation and videos for Canto</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-october-18th">Next pombeTalks: Wednesday, October 18th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#revised-fission-yeast-nomenclature-genes-and-alleles">Revised fission yeast nomenclature for genes and alleles</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#accessing-list-genes-paper">Accessing the list of genes from a paper</a></div>
@@ -12237,13 +12238,37 @@ Password: will be sent the day of the meeting</p>
 “Different rules for ultra-low gene expression noise?”</p></li>
 </ul>
 <p>The Zoom details will be shared on the week of the talk, through pombeList and pombeSlack.</p>
-<h6 id="slack">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
+
+  </div>
+  <div *ngIf="pageName == 'new-docs-and-video-site'">
+<h4 id="new-documentation-and-videos-canto">New documentation and videos for Canto</h4>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>We have published <a href="https://pombase.github.io/canto_tutorial/">a new website</a> with videos and documentation for <a href="https://curation.pombase.org/">Canto</a>, our community curation tool. The website includes short step-by-step text and video guides on how to make annotations in Canto.</p>
+<ul>
+<li><a href="https://pombase.github.io/canto_tutorial/">New Canto documentation front page</a></li>
+<li><a href="https://www.youtube.com/@PomBase">PomBase YouTube channel</a></li>
+</ul>
+<p>The work on this website was supported by the ELIXIR-UK: FAIR Data Stewardship training UKRI award (MR/V038966/1) to Manuel Lera Ramírez.</p>
+<p><a href="assets/newsfeed/new_canto_video_docs.png"><img src="assets/newsfeed/new_canto_video_docs.png" title="New Canto tutorials video list" class="screenshot" style="width:100.0%" alt="New Canto tutorials video list" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2023-10-11-new-docs-and-video-site" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="new-documentation-and-videos-canto">New documentation and videos for Canto</h3>
+<p><em>2023-10-11</em></p>
+<p>We have published <a href="https://pombase.github.io/canto_tutorial/">a new website</a> with videos and documentation for <a href="https://curation.pombase.org/">Canto</a>, our community curation tool. The website includes short step-by-step text and video guides on how to make annotations in Canto.</p>
+<ul>
+<li><a href="https://pombase.github.io/canto_tutorial/">New Canto documentation front page</a></li>
+<li><a href="https://www.youtube.com/@PomBase">PomBase YouTube channel</a></li>
+</ul>
+<p>The work on this website was supported by the ELIXIR-UK: FAIR Data Stewardship training UKRI award (MR/V038966/1) to Manuel Lera Ramírez.</p>
+<p><a href="assets/newsfeed/new_canto_video_docs.png"><img src="assets/newsfeed/new_canto_video_docs.png" title="New Canto tutorials video list" class="screenshot" style="width:100.0%" alt="New Canto tutorials video list" /></a></p>
+</div>
 <div id="2023-10-10-pombetalks-oct-18th" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-october-18th">Next pombeTalks: Wednesday, October 18th</h3>
@@ -12258,7 +12283,6 @@ Password: will be sent the day of the meeting</p>
 “Different rules for ultra-low gene expression noise?”</p></li>
 </ul>
 <p>The Zoom details will be shared on the week of the talk, through pombeList and pombeSlack.</p>
-<h6 id="slack">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2023-09-30-nomenclature-paper" class="news-item">
@@ -12363,7 +12387,7 @@ Password: will be sent the day of the meeting</p>
 Date: Dec 14th<br />
 Meeting ID: 975 0331 6190<br />
 Password: will be sent the day of the meeting</p>
-<h6 id="slack-1">Slack</h6>
+<h6 id="slack">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-12-07-rna-length-advanced-search" class="news-item">
@@ -12408,7 +12432,7 @@ Date: Nov 16, 2022<br />
 Time: midnight San Francisco; 03:00 NY; 08:00 London; 09:00 Paris; 13:30 Delhi, 16:00 Beijing; 17:00 Tokyo<br />
 Meeting ID: 932 8857 4852<br />
 Password: will be sent the day of the meeting</p>
-<h6 id="slack-2">Slack</h6>
+<h6 id="slack-1">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-10-14-Alpha-fold_RBSH" class="news-item">
@@ -12436,7 +12460,7 @@ complete list of predictions included in PomBase. <a href="https://academic.oup.
 Time: Oct 19, 2022 05:00 PM Paris<br />
 Meeting ID: 933 7072 6178<br />
 Password: will be sent the day of the meeting</p>
-<h6 id="slack-3">Slack</h6>
+<h6 id="slack-2">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-10-13-new-to-pombase" class="news-item">
@@ -12475,7 +12499,7 @@ Password: will be sent the day of the meeting</p>
 Time: Sep 21, 2022 05:00 PM Paris<br />
 Meeting ID: 985 8572 1420<br />
 Password: will be sent the day of the meeting</p>
-<h6 id="slack-4">Slack</h6>
+<h6 id="slack-3">Slack</h6>
 <p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
 </div>
 <div id="2022-09-06-protein-sequence-changes" class="news-item">
