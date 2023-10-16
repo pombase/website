@@ -83,8 +83,10 @@
 
     <ul *dropdownMenu class="dropdown-menu nav-bar-dropdown-menu-right" role="menu">
       <li role="menuitem">
-        <a routerLink="/documentation" class="dropdown-item">Documentation</a>
+        <a routerLink="/documentation" class="dropdown-item">{{siteName}} documentation</a>
       </li>
+      <li role="menuitem" *ngIf="cantoDocumentationURL">
+        <a href="{{cantoDocumentationURL}}" class="dropdown-item">Canto documentation</a></li>
       <li role="menuitem">
         <a routerLink="/faq" class="dropdown-item">Frequently Asked Questions (FAQ)</a>
       </li>

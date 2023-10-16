@@ -16,6 +16,7 @@ export class MainNavBarComponent implements OnInit {
   communityMailingList = getAppConfig().community_mailing_list;
   ensemblBlastURL = getAppConfig().ensembl_blast_url;
   cantoURL = getAppConfig().canto_url;
+  cantoDocumentationURL = getAppConfig().canto_documentation_url;
   hasDiseaseAnnotation = getAppConfig().has_disease_annotation;
   hasAdminCuration = getAppConfig().has_admin_curation;
 

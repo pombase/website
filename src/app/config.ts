@@ -298,7 +298,8 @@ export interface AppConfig {
   pdbe_image_url: string;
   rcsb_pdb_entry_url: string;
   seq_and_features_download_url?: string;
-  canto_url: string;
+  canto_url?: string;
+  canto_documentation_url?: string;
   intermine?: {
     list_post_url: string;
     mine_name: string;
@@ -761,6 +762,7 @@ let _appConfig: AppConfig = {
   rcsb_pdb_entry_url: pombaseConfig.rcsb_pdb_entry_url,
   seq_and_features_download_url: pombaseConfig.seq_and_features_download_url,
   canto_url: pombaseConfig.canto_url,
+  canto_documentation_url: pombaseConfig.canto_documentation_url,
   intermine: pombaseConfig.intermine,
   community_mailing_list: pombaseConfig.community_mailing_list,
   welcome_message: pombaseConfig.welcome_message,
