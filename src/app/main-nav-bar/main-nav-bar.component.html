@@ -56,7 +56,7 @@
         <a routerLink="/submit-data/gene-names" class="dropdown-item">Gene names</a></li>
       <li role="menuitem">
         <a routerLink="/submit-data" class="dropdown-item">Datasets</a></li>
-      <li role="menuitem">
+      <li role="menuitem" *ngIf="cantoURL">
         <a href="{{cantoURL}}" class="dropdown-item">Curate a paper</a></li>
     </ul>
   </span>
