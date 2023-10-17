@@ -662,6 +662,9 @@ export class ReferenceDetails {
   canto_curator_name: string;
   canto_approved_date: string;
   annotation_curators: Array<AnnotationCurator>;
+  file_curator_role: string;
+  file_curator_name: string;
+  annotation_file_curators: Array<AnnotationCurator>;
   approved_date: string;
   canto_session_submitted_date: string;
   publication_year: string;

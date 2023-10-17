@@ -27,7 +27,8 @@ export class ReferenceDetailsComponent implements OnInit {
   pubMedId?: string;
   apiError?: APIError;
   cantoCuratorName?: string;
-  hasStaffCurator = false;
+  onlyStaffCurator = false;
+  onlyStaffFileCurator = false;
   cantoTriageStatus = 'UNKNOWN';
 
   multiOrgMode = getAppConfig().isMultiOrganismMode();
@@ -38,7 +39,10 @@ export class ReferenceDetailsComponent implements OnInit {
   doiUrl?: string;
 
   communityCuratorNames?: string;
+  communityFileCuratorNames?: string;
+
   adminCuratorList: Array<AnnotationCurator> = [];
+  adminFileCuratorList: Array<AnnotationCurator> = [];
 
   externalLinks?: Array<DetailsPageLinkConfig>;
 
@@ -69,7 +73,7 @@ export class ReferenceDetailsComponent implements OnInit {
 
     this.cantoTriageStatus = this.refDetails.canto_triage_status;
 
-    this.hasStaffCurator = true;
+    this.onlyStaffCurator = true;
 
     this.communityCuratorNames = undefined;
     this.adminCuratorList = [];
@@ -79,7 +83,7 @@ export class ReferenceDetailsComponent implements OnInit {
     for (const curator of this.refDetails.annotation_curators) {
       if (curator.community_curator) {
         communityCuratorList.push(curator.name);
-        this.hasStaffCurator = false
+        this.onlyStaffCurator = false
       } else {
         if (this.appConfig.show_names_of_staff_curators) {
           this.adminCuratorList.push(curator);
@@ -93,6 +97,33 @@ export class ReferenceDetailsComponent implements OnInit {
       if (communityCuratorList.length > 1) {
         const lastName = communityCuratorList.pop();
         this.communityCuratorNames = communityCuratorList.join(', ') + ' and ' + lastName;
+      }
+    }
+
+    this.onlyStaffFileCurator = true;
+
+    this.communityFileCuratorNames = undefined;
+    this.adminFileCuratorList = [];
+
+    let communityFileCuratorList = [];
+
+    for (const curator of this.refDetails.annotation_file_curators) {
+      if (curator.community_curator) {
+        communityFileCuratorList.push(curator.name);
+        this.onlyStaffFileCurator = false
+      } else {
+        if (this.appConfig.show_names_of_staff_file_curators) {
+          this.adminFileCuratorList.push(curator);
+        }
+      }
+    }
+
+    if (communityFileCuratorList.length == 1) {
+      this.communityFileCuratorNames = communityFileCuratorList[0];
+    } else {
+      if (communityFileCuratorList.length > 1) {
+        const lastName = communityFileCuratorList.pop();
+        this.communityFileCuratorNames = communityFileCuratorList.join(', ') + ' and ' + lastName;
       }
     }
   }
