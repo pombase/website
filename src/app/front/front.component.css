@@ -141,9 +141,8 @@
 }
 
 .front-twitter-feed {
-  height: 80em;
+  height: 100em;
   overflow-y: auto;
-  display: none;
 }
 
 .front-twitter-feed-small {
