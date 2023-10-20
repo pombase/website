@@ -11,3 +11,7 @@ table.genotype-allele-summary th, table.genotype-allele-summary td {
   padding: 0.2em 2em 0.2em 0.2em;
   vertical-align: top;
 }
+
+td.allele-name {
+  min-width: 8.5em;
+}

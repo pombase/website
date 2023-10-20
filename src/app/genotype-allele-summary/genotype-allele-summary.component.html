@@ -23,7 +23,7 @@
       <td *ngIf="showProduct && i == 0" [attr.rowspan]="isDiploid ? 2 : 1">
         {{expressedAllele.allele.gene?.product}}
       </td>
-      <td>
+      <td class="allele-name">
         <span [innerHTML]="tidyAlleleName(expressedAllele.allele.name)"></span>
       </td>
       <td *ngIf="hasSynonyms">
