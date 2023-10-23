@@ -35,7 +35,7 @@
               Curation by {{curator.name}}
             </div>
           </div>
-          <div class="ref-curated-by" *ngIf="onlyStaffCurator && !this.appConfig.show_names_of_staff_curators">
+          <div class="ref-curated-by" *ngIf="!hasCommunityCurator() && hasAdminCurator() && !this.appConfig.show_names_of_staff_curators">
             Curated by {{siteName}} staff
           </div>
           <div class="ref-curated-by" *ngIf="communityFileCuratorNames">

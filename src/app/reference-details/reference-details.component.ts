@@ -27,8 +27,6 @@ export class ReferenceDetailsComponent implements OnInit {
   pubMedId?: string;
   apiError?: APIError;
   cantoCuratorName?: string;
-  onlyStaffCurator = false;
-  onlyStaffFileCurator = false;
   cantoTriageStatus = 'UNKNOWN';
 
   multiOrgMode = getAppConfig().isMultiOrganismMode();
@@ -42,7 +40,9 @@ export class ReferenceDetailsComponent implements OnInit {
   communityFileCuratorNames?: string;
 
   adminCuratorList: Array<AnnotationCurator> = [];
+  communityCuratorList: Array<AnnotationCurator> = [];
   adminFileCuratorList: Array<AnnotationCurator> = [];
+  communityFileCuratorList: Array<AnnotationCurator> = [];
 
   externalLinks?: Array<DetailsPageLinkConfig>;
 
@@ -68,22 +68,35 @@ export class ReferenceDetailsComponent implements OnInit {
     this.meta.updateTag({property: 'description', content: title});
   }
 
+  hasCommunityCurator(): boolean {
+    return this.communityCuratorList.length > 0;
+  }
+
+  hasAdminCurator(): boolean {
+    return this.adminCuratorList.length > 0;
+  }
+
+  hasFileCommunityCurator(): boolean {
+    return this.communityFileCuratorList.length > 0;
+  }
+
+  hasFileAdminCurator(): boolean {
+    return this.adminFileCuratorList.length > 0;
+  }
+
   setCantoFields(): void {
     this.cantoCuratorName = undefined;
 
     this.cantoTriageStatus = this.refDetails.canto_triage_status;
 
-    this.onlyStaffCurator = true;
-
     this.communityCuratorNames = undefined;
     this.adminCuratorList = [];
 
-    let communityCuratorList = [];
+    this.communityCuratorList = [];
 
     for (const curator of this.refDetails.annotation_curators) {
       if (curator.community_curator) {
-        communityCuratorList.push(curator.name);
-        this.onlyStaffCurator = false
+        this.communityCuratorList.push(curator);
       } else {
         if (this.appConfig.show_names_of_staff_curators) {
           this.adminCuratorList.push(curator);
@@ -91,26 +104,26 @@ export class ReferenceDetailsComponent implements OnInit {
       }
     }
 
-    if (communityCuratorList.length == 1) {
-      this.communityCuratorNames = communityCuratorList[0];
+    if (this.communityCuratorList.length == 1) {
+      this.communityCuratorNames = this.communityCuratorList[0].name;
     } else {
-      if (communityCuratorList.length > 1) {
-        const lastName = communityCuratorList.pop();
-        this.communityCuratorNames = communityCuratorList.join(', ') + ' and ' + lastName;
+      if (this.communityCuratorList && this.communityCuratorList.length > 1) {
+        const lastName = this.communityCuratorList.pop()!.name;
+        this.communityCuratorNames = this.communityCuratorList
+          .map(curator => curator.name)
+          .join(', ') + ' and ' + lastName;
       }
     }
-
-    this.onlyStaffFileCurator = true;
 
     this.communityFileCuratorNames = undefined;
     this.adminFileCuratorList = [];
 
-    let communityFileCuratorList = [];
+    this.communityFileCuratorList = [];
 
     for (const curator of this.refDetails.annotation_file_curators) {
       if (curator.community_curator) {
-        communityFileCuratorList.push(curator.name);
-        this.onlyStaffFileCurator = false
+        this.communityFileCuratorList.push(curator);
+
       } else {
         if (this.appConfig.show_names_of_staff_file_curators) {
           this.adminFileCuratorList.push(curator);
@@ -118,12 +131,14 @@ export class ReferenceDetailsComponent implements OnInit {
       }
     }
 
-    if (communityFileCuratorList.length == 1) {
-      this.communityFileCuratorNames = communityFileCuratorList[0];
+    if (this.communityFileCuratorList.length == 1) {
+      this.communityFileCuratorNames = this.communityFileCuratorList[0].name;
     } else {
-      if (communityFileCuratorList.length > 1) {
-        const lastName = communityFileCuratorList.pop();
-        this.communityFileCuratorNames = communityFileCuratorList.join(', ') + ' and ' + lastName;
+      if (this.communityFileCuratorList.length > 1) {
+        const lastName = this.communityFileCuratorList.pop()?.name;
+        this.communityFileCuratorNames = this.communityFileCuratorList
+          .map(curator => curator.name)
+          .join(', ') + ' and ' + lastName;
       }
     }
   }
