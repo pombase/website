@@ -1109,6 +1109,12 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     urlSyntax: "https://www.ebi.ac.uk/intact/search?query=[example_id]",
     website: "https://www.ebi.ac.uk/intact/",
   },
+  Monarch: {
+    description: "Human disease phenotypes",
+    displayName: "Human disease phenotypes",
+    urlSyntax: "https://monarchinitiative.org/PomBase:[example_id]",
+    website: "https://monarchinitiative.org/",
+  },
 };
 
 export interface XrfDetails {
