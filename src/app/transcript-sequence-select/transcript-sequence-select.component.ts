@@ -351,7 +351,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   }
 
   featureHasProtein() {
-    return this.protein !== null;
+    return !!this.protein;
   }
 
   transcriptChanged() {
