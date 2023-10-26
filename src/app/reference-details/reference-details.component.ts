@@ -122,8 +122,11 @@ export class ReferenceDetailsComponent implements OnInit {
 
     for (const curator of this.refDetails.annotation_file_curators) {
       if (curator.community_curator) {
-        this.communityFileCuratorList.push(curator);
-
+        if (this.communityFileCuratorList.filter(existingCurator => {
+            return existingCurator.name === curator.name;
+          }).length == 0) {
+           this.communityFileCuratorList.push(curator);
+          }
       } else {
         if (this.appConfig.show_names_of_staff_file_curators) {
           this.adminFileCuratorList.push(curator);
