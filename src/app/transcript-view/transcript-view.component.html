@@ -27,7 +27,12 @@
       </div>
 
       <div class="transcript-view-title">
-        {{transcript.type()}} {{transcript.uniquename()}}
+        <div class="transcript-view-type-and-id">
+          {{transcript.type()}} {{transcript.uniquename()}}
+        </div>
+        <div class="transcript-view-product">
+          {{transcript.product()}}
+        </div>
       </div>
       <div class="transcript-name-and-loc">
         Location: {{transcript.displayLocation()}},

@@ -136,6 +136,10 @@ class DisplayTranscript {
     return this.transcript.uniquename;
   }
 
+  public product(): string|undefined {
+    return this.transcript.protein?.product;
+  }
+
   public productSizeString(): string {
     return Util.productStringOfTranscript(this.transcript);
   }

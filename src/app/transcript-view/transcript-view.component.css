@@ -10,8 +10,17 @@
 }
 
 .transcript-view-title {
-  padding: 0.5em 0 0.4em 0;
+  padding: 0.5em 0 0.6em 0;
+}
+
+.transcript-view-type-and-id {
   font-weight: bold;
+  display: inline;
+}
+
+.transcript-view-product {
+  margin-left: 2em;
+  display: inline;
 }
 
 .transcript-graphic {
