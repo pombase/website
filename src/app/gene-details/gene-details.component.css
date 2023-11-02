@@ -39,7 +39,7 @@
 
 #gene-summary div:nth-child(odd) {
   margin: 0.2em 1.5em 0.2em 0;
-  min-width: 10em;
+  min-width: 9em;
 }
 
 #gene-summary div:nth-child(even) {
