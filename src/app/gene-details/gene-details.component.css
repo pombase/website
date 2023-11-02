@@ -89,3 +89,7 @@
   color: darkred;
   font-size: 110%;
 }
+
+.summary-product-list {
+  margin: 0;
+}

@@ -31,8 +31,12 @@
           </div>
           <div class="details-label"><span *ngIf="showCharacterisationStatus()">Characterisation status</span></div>
           <div><span *ngIf="showCharacterisationStatus()">{{geneDetails.characterisation_status}}</span></div>
-          <div class="details-label">Product</div>
-          <div>{{product}}</div>
+          <div class="details-label">
+            <span *ngIf="products.length > 1">Products</span>
+            <span *ngIf="products.length <= 1">Product</span>
+          </div>
+          <div *ngIf="products.length > 1"><ul class="summary-product-list"><li *ngFor="let product of products">{{product}}</li></ul></div>
+          <div *ngIf="products.length <= 1"><span *ngIf="products.length == 1">{{products[0]}}</span></div>
           <div class="details-label">Feature type</div>
           <div>{{displayFeatureType}}</div>
           <div class="details-label">Systematic ID</div>

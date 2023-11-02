@@ -46,7 +46,7 @@ export class GeneDetailsComponent implements OnInit {
 
   extraMenuSections: Array<{ id: string; displayName: string; }> = [];
 
-  product? = '';
+  products: Array<string> = [];
 
   externalLinks: Array<DetailsPageLinkConfig>;
 
@@ -245,7 +245,7 @@ export class GeneDetailsComponent implements OnInit {
   }
 
   setProducts(): void {
-    this.product = undefined;
+    this.products = [];
     const transcripts = this.geneDetails.transcripts;
     if (transcripts.length === 0) {
       return;
@@ -264,15 +264,15 @@ export class GeneDetailsComponent implements OnInit {
           seenTranslations.add(protein.sequence);
           this.proteinCount++;
         }
-        if (!this.product) {
-          this.product = protein.product;
+        if (protein.product && !this.products.includes(protein.product)) {
+          this.products.push(protein.product);
         }
       }
     });
 
-    if (!this.product) {
+    if (this.products.length == 0 && this.geneDetails.product) {
       // fail-back if no transcript has a protein with a product
-      this.product = this.geneDetails.product;
+      this.products.push(this.geneDetails.product);
     }
   }
 
