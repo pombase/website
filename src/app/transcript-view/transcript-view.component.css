@@ -16,11 +16,15 @@
 .transcript-view-type-and-id {
   font-weight: bold;
   display: inline;
+  margin-right: 2em;
 }
 
 .transcript-view-product {
-  margin-left: 2em;
-  display: inline;
+  display: inline-block;
+}
+
+.transcript-name-and-loc {
+  clear: both;
 }
 
 .transcript-graphic {
@@ -130,9 +134,10 @@
   background-color: #fffd;
   padding: 0.2em 0 0 0.4em;
   z-index: 100;
-  position: absolute;
+  float: right;
   right: 0;
   top: -1.4em;
+  margin: -1.3em 0 1em 1em;
 }
 
 #toggles-and-key label {
@@ -140,13 +145,13 @@
   white-space: nowrap;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   #toggles-and-key {
     margin-right: 10vw;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   #toggles-and-key {
     margin-right: 2vw;
   }
