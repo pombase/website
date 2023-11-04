@@ -24,6 +24,7 @@ import { InternalDetailsComponent } from './internal-details/internal-details.co
 import { IdentifierMapperResultsComponent } from './identifier-mapper-results/identifier-mapper-results.component';
 import { getAppConfig } from './config';
 import { RefGenesViewComponent } from './ref-genes-view/ref-genes-view.component';
+import { CurationStatsComponent } from './curation-stats/curation-stats.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -178,6 +179,11 @@ const routes: Routes = [
   { path: 'identifier-mapper', component: IdentifierMapperComponent,
     data: {
       defaultTitleDetail: 'Identifier mapper'
+    }
+  },
+  { path: 'curation_stats', component: CurationStatsComponent,
+    data: {
+      defaultTitleDetail: 'Curation statistics',
     }
   },
   { path: 'identifier-mapper-results', component: IdentifierMapperResultsComponent,
