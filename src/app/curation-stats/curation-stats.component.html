@@ -1,12 +1,38 @@
+<h3>Curation statistics</h3>
+
+<div id="container">
 <div>
-  <h2>Curation statistics</h2>
-  <div *ngIf="!plotLoaded">
+  <div *ngIf="!cumulativeByYearPlotLoaded">
     Loading ...
   </div>
-  <h3 *ngIf="plotLoaded">
-    Cumulative plot of curated papers and curatable papers:
-  </h3>
-  <img (load)="plotLoaded=true" class="plot-image"
+  <h4 *ngIf="cumulativeByYearPlotLoaded">
+    Curated and curatable papers (cumulative):
+  </h4>
+  <img (load)="cumulativeByYearPlotLoaded=true" class="plot-image"
        alt="Cumulative plot of curated papers versus curatable papers"
        src="/api/v1/dataset/latest/stats/cumulative_curated_by_year"/>
+</div>
+
+<div>
+  <div *ngIf="!curatedByYearPlotLoaded">
+    Loading ...
+  </div>
+  <h4 *ngIf="curatedByYearPlotLoaded">
+    Papers curated per year:
+  </h4>
+  <img (load)="curatedByYearPlotLoaded=true" class="plot-image"
+    alt="Curated papers"
+    src="/api/v1/dataset/latest/stats/curated_by_year" />
+</div>
+
+<div>
+  <div *ngIf="!curatableByYearPlotLoaded">
+    Loading ...
+  </div>
+  <h4 *ngIf="curatableByYearPlotLoaded">
+    Curatable papers by year published:
+  </h4>
+  <img (load)="curatableByYearPlotLoaded=true" class="plot-image" alt="Curatable papers"
+    src="/api/v1/dataset/latest/stats/curatable_by_year" />
+</div>
 </div>

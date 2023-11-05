@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./curation-stats.component.css']
 })
 export class CurationStatsComponent {
-    plotLoaded = false;
+  cumulativeByYearPlotLoaded = false;
+  curatedByYearPlotLoaded = false;
+  curatableByYearPlotLoaded = false;
 }
