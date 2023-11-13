@@ -183,6 +183,7 @@ export interface Annotation {
   reference: ReferenceShort;
   evidence?: string;
   conditions: Array<TermShort>;
+  condition_details: Array<[TermShort, String]>;
   assigned_by: string|undefined;
   date: string|undefined;
   withs: Array<WithFromValue>;
@@ -813,6 +814,13 @@ export class PombaseAPIService {
         if (annotation.conditions) {
           annotation.conditions =
             annotation.conditions.map((termid: any) => termsByTermId[termid] as TermShort);
+        }
+        if (annotation.condition_details) {
+          annotation.condition_details =
+            (annotation.condition_details)
+            .map(([termid, detail]: any) => {
+              return [termsByTermId[termid] as TermShort, detail];
+            });
         }
 
         if (annotation.withs) {

@@ -176,8 +176,9 @@
         </td>
         <td *ngIf="showColumn['conditions']">
           <ul class="conditions">
-          <li *ngFor="let condition of annotation.conditions">
-            <app-term-link [term]="condition">{{condition.name}}</app-term-link>
+          <li *ngFor="let conditionAndDetail of annotation.condition_details">
+            <app-term-link [term]="conditionAndDetail[0]">{{conditionAndDetail[0].name}}</app-term-link>
+            <span *ngIf="conditionAndDetail[1]">({{conditionAndDetail[1]}})</span>
           </li>
           </ul>
         </td>
