@@ -1,4 +1,5 @@
 ### Next pombeTalks: Wednesday, November 15th
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The second pombeTalks session of season 4 will take place on Zoom on
