@@ -95,3 +95,7 @@ ul.conditions li {
 .genotype-column .genotype-background {
   font-size: 95%;
 }
+
+.query-link {
+  margin-bottom: 0.8em;
+}

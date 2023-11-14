@@ -4,7 +4,8 @@ import { TermAnnotation, ReferenceShort, Annotation } from '../pombase-api.servi
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          FilterConfig, AnnotationExternalLinkConfig, getAppConfig,
          AppConfig} from '../config';
-import { AnnotationTable } from '../pombase-api.service';
+import { AnnotationTable, GeneDetails } from '../pombase-api.service';
+import { DeployConfigService } from '../deploy-config.service';
 import { TableViewState } from '../pombase-types';
 import { TermShort } from '../pombase-query';
 import { Filter } from '../filtering';
@@ -20,6 +21,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() featureInFirstColumn = false;
   @Input() detailsOnly = false;
   @Input() annotationTable: Array<TermAnnotation>;
+  @Input() geneDetails?: GeneDetails;
   @Input() scope: string;
 
   // copy to the component for use in template
@@ -41,6 +43,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   filteredAnnotationCount = 0;
   annotationCount = 0;
 
+  queryLinkUrl?: string;
+
   externalLinksConfig: Array<AnnotationExternalLinkConfig> = [];
   allTermIds: Array<string> = [];
 
@@ -60,6 +64,29 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
   }
 
+  updateQueryUrl() {
+    if (this.deployConfigService.productionMode()) {
+      return;
+    }
+
+    if (!this.typeConfig) {
+      return;
+    }
+
+    let queryLinkConfig = this.typeConfig.query_link_config;
+    this.queryLinkUrl = undefined;
+
+    if (queryLinkConfig) {
+      let queryTypeName = queryLinkConfig.type;
+      if (this.geneDetails) {
+        const json = `{"constraints":{"${queryTypeName}":
+              {"gene_uniquename": "${this.geneDetails.uniquename}"}},` +
+              '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
+        this.queryLinkUrl = `/results/from/json/${json}`;
+      }
+    }
+  }
+
   updateCurrentFilter(filter: Filter<AnnotationTable>|undefined) {
     if (filter) {
       [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
@@ -69,13 +96,15 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     this.tableIsFiltered = !!filter;
+
+    this.updateQueryUrl();
   }
 
   resetFilter(): void {
     this.updateCurrentFilter(undefined);
   }
 
-  constructor() { }
+  constructor(public deployConfigService: DeployConfigService) { }
 
   getCountPopoverContext(term: TermShort): { [key: string]: number|string } {
     let termId: string;
@@ -367,6 +396,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
     this.filterConfig = this.typeConfig.filters;
     this.externalLinksConfig = this.typeConfig.external_link_config || [];
+
+    this.updateQueryUrl();
   }
 
   ngOnChanges() {

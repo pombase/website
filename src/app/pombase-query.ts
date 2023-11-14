@@ -661,6 +661,33 @@ export class InteractorsNode extends GeneQueryBase {
   }
 }
 
+export class SubstratesNode extends GeneQueryBase {
+  constructor(nodeName: string, public geneUniquename: string) {
+    super(nodeName);
+    if (!nodeName) {
+      this.setNodeName(this.detailsString());
+    }
+  }
+
+  toObject(): Object {
+    return {
+      node_name: this.getNodeName(),
+      substrates: { 'gene_uniquename': this.geneUniquename, }
+    };
+  }
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof SubstratesNode) {
+      return this.geneUniquename === obj.geneUniquename
+    }
+    return false;
+  }
+
+  detailsString(): string {
+    return `substrates_of: ${this.geneUniquename}`;
+  }
+}
+
 export class GenomeRangeNode extends GeneQueryBase {
   private _detailsString: string;
 
@@ -886,6 +913,9 @@ export class GeneQuery {
 
     case 'interactors':
       return new InteractorsNode(nodeName, val['gene_uniquename'], val['interaction_type']);
+
+    case 'substrates':
+      return new SubstratesNode(nodeName, val['gene_uniquename']);
 
     case 'genome_range':
       return new GenomeRangeNode(nodeName, val['start'], val['end'], val['chromosome_name']);

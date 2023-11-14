@@ -21,6 +21,10 @@
     </app-annotation-table-filters>
   </div>
 
+  <div *ngIf="queryLinkUrl" class="query-link">
+    <a routerLink="{{queryLinkUrl}}">Query using substrate genes ...</a>
+  </div>
+
   <div *ngIf="tableIsFiltered" class="filter-count">
     <span *ngIf="filteredAnnotationCount == annotationCount">
       Showing all annotations
