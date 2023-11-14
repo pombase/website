@@ -488,6 +488,7 @@ export interface FeatureShort {
 
 export interface TranscriptDetails {
   uniquename: string;
+  name?: string;
   location: ChromosomeLocation;
   parts: Array<FeatureShort>;
   sequence: string;

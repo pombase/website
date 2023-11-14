@@ -256,7 +256,9 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
         }
       } else {
         let transcriptIds =
-          annotation.transcripts.map(transcriptDetails => transcriptDetails.uniquename).join(', ');
+            annotation.transcripts.map(transcriptDetails => {
+              return transcriptDetails.name || transcriptDetails.uniquename;
+            }).join(', ');
         if (long) {
           if (annotation.transcripts.length == 1) {
             return 'Transcript: ' + transcriptIds;
