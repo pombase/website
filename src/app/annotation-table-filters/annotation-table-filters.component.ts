@@ -30,8 +30,8 @@ export class AnnotationTableFiltersComponent implements OnInit, OnChanges {
 
     let eventsToEmit = [];
 
-    for (let filterName of Object.keys(this.currentFilters)) {
-      eventsToEmit.push(this.currentFilters[filterName]);
+    for (let filterType of Object.keys(this.currentFilters)) {
+      eventsToEmit.push(this.currentFilters[filterType]);
     }
 
     if (eventsToEmit.length === 0) {

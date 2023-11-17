@@ -1,33 +1,33 @@
 <div>
   <span *ngIf="scopeFilterConfig.length > 0" class="filters-header">Filters:</span>
   <span class="filter-control" *ngFor="let config of scopeFilterConfig">
-    <app-annotation-table-ploidiness-filter *ngIf="config.filter_name == 'ploidiness'"
+    <app-annotation-table-ploidiness-filter *ngIf="config.filter_type == 'ploidiness'"
                                       [config]="config"
                                       [annotationTable]="annotationTable"
                                       (filterChange)="filterChanged('ploidiness', $event)">
     </app-annotation-table-ploidiness-filter>
 
-    <app-annotation-table-term-filter *ngIf="config.filter_name == 'term'"
+    <app-annotation-table-term-filter *ngIf="config.filter_type == 'term'"
                                       [config]="config"
                                       [tableViewState]="currentViewState"
                                       [annotationTable]="annotationTable"
                                       (filterChange)="filterChanged('term', $event)">
     </app-annotation-table-term-filter>
 
-      <app-annotation-table-evidence-filter *ngIf="config.filter_name == 'evidence'"
+      <app-annotation-table-evidence-filter *ngIf="config.filter_type == 'evidence'"
                                             [config]="config"
                                             [annotationTable]="annotationTable"
                                             (filterChange)="filterChanged('evidence', $event)">
       </app-annotation-table-evidence-filter>
 
 
-    <app-annotation-table-throughput-filter *ngIf="config.filter_name == 'throughput'"
+    <app-annotation-table-throughput-filter *ngIf="config.filter_type == 'throughput'"
                                             [config]="config"
                                             [annotationTable]="annotationTable"
                                             (filterChange)="filterChanged('throughput', $event)">
     </app-annotation-table-throughput-filter>
 
-    <app-annotation-table-extension-filter *ngIf="config.filter_name == 'extension'"
+    <app-annotation-table-extension-filter *ngIf="config.filter_type == 'extension'"
                                            [config]="config"
                                            [tableViewState]="currentViewState"
                                            [annotationTable]="annotationTable"

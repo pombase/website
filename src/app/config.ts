@@ -418,7 +418,7 @@ export interface ThroughputFilterCategory {
 }
 
 export interface FilterConfig {
-  filter_name: string;
+  filter_type: string;
   display_name: string;
   detailed_view_only: boolean;
   scope: Array<string>;

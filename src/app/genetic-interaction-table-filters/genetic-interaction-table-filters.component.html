@@ -2,7 +2,7 @@
    <span class="filters-header">Filters:</span>
    <span class="filter-control" *ngFor="let config of filters">
      <app-genetic-interaction-table-throughput-filter
-       *ngIf="config.filter_name == 'throughput'"
+       *ngIf="config.filter_type == 'throughput'"
        [config]="config"
        [interactionTable]="interactionTable"
        (filterChange)="filterChanged('throughput', $event)">
