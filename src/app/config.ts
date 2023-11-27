@@ -349,6 +349,8 @@ export interface AppConfig {
   slims: { [slimName: string]: SlimConfig };
   chromosomes: Array<ChromosomeConfig>;
 
+  extensionCategories?: { [filterSubType: string]: Array<ExtensionFilterCategory> };
+
   geneExpression: GeneExpressionConfig;
 
   documentation: DocumentationConfig;
@@ -419,6 +421,7 @@ export interface ThroughputFilterCategory {
 
 export interface FilterConfig {
   filter_type: string;
+  filter_subtype?: string;
   display_name: string;
   detailed_view_only: boolean;
   scope: Array<string>;
@@ -632,6 +635,15 @@ for (let configName of Object.keys(_config.annotationTypes)) {
     Object.assign(newConfig, parentConfig, thisConfig);
     Object.assign(thisConfig, newConfig);
   }
+
+  if (thisConfig.filters) {
+    for (const filterConfig of thisConfig.filters) {
+      if (filterConfig.filter_subtype) {
+        filterConfig.extension_categories =
+          pombaseConfig.extension_categories[filterConfig.filter_subtype];
+      }
+    }
+  }
 }
 
 if (pombaseConfig.term_page_extensions_cv_names &&
@@ -805,6 +817,7 @@ let _appConfig: AppConfig = {
     'SO-protein': 'sequence',
   },
   slims: pombaseConfig.slims,
+  extensionCategories: pombaseConfig.extension_categories,
 
   linkoutConfig: {
     pro: 'http://www.proconsortium.org/cgi-bin/pro/entry_pro?id=',
