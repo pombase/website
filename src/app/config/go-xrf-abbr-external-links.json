@@ -152,7 +152,7 @@
    "PR" : {
       "description" : "Protein Ontology",
       "name" : "PR",
-      "url_syntax" : "https://proconsortium.org/app/entry/PR_[example_id]",
+      "url_syntax" : "https://purl.obolibrary.org/obo/PR_[example_id]",
       "website" : "https://proconsortium.org/"
    },
    "PRINTS" : {
@@ -200,7 +200,7 @@
    "SGD" : {
       "description" : "Saccharomyces Genome Database",
       "name" : "SGD",
-      "url_syntax" : "https://www.yeastgenome.org/locus/[example_id]",
+      "url_syntax" : "https://www.yeastgenome.org/search?q=[example_id]&is_quick=true",
       "website" : "http://www.yeastgenome.org/"
    },
    "SMART" : {
