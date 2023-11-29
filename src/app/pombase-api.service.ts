@@ -793,7 +793,8 @@ export class PombaseAPIService {
     return genotype;
   }
 
-  processTermAnnotations(termAnnotations: Array<TermAnnotation>,
+  processTermAnnotations(gene: GeneDetails|undefined,
+                         termAnnotations: Array<TermAnnotation>,
                          genesByUniquename: GeneMap, genotypesByUniquename: GenotypeMap,
                          allelesByUniquename: AlleleMap, annotationDetailsMap: AnnotationDetailMap,
                          transcriptsByUniquename: TranscriptMap,
@@ -910,7 +911,12 @@ export class PombaseAPIService {
                                 });
                               });
                           } else {
-                            if (ext_range.summary_residues) {
+                            // check if the summary has a gene that's a histone (for term, ref
+                            // and genotype pages) or if were on a gene page of a histone
+                            const isHistoneGene = annotationHasHistone(row) ||
+                              (gene && gene.flags?.includes("is_histone"));
+
+                            if (isHistoneGene && ext_range.summary_residues) {
                               ext_range.summary_residues =
                                 fixHistoneResidues(ext_range.summary_residues);
                             }
@@ -1085,6 +1091,8 @@ export class PombaseAPIService {
   }
 
   processGeneResponse(json: any): GeneDetails {
+    const geneDetails = json as GeneDetails;
+
     json.displayName = json.name || json.uniquename;
 
     if (json.transcripts) {
@@ -1159,7 +1167,7 @@ export class PombaseAPIService {
                             referencesByUniquename, allelesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(geneDetails, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   referencesByUniquename, termsByTermId);
     }
@@ -1191,7 +1199,7 @@ export class PombaseAPIService {
     json.feature_publications =
       (json.feature_publications || []).map((refUniquename: string) => referencesByUniquename[refUniquename]);
 
-    return json as GeneDetails;
+    return geneDetails;
   }
 
   getGene(uniquename: string): Promise<GeneDetails> {
@@ -1289,7 +1297,8 @@ export class PombaseAPIService {
     }
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(undefined,
+                                  json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   referencesByUniquename, termsByTermId);
     }
@@ -1409,7 +1418,8 @@ export class PombaseAPIService {
                             referencesByUniquename, allelesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(undefined,
+                                  json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   referencesByUniquename, termsByTermId);
     }
@@ -1487,7 +1497,8 @@ export class PombaseAPIService {
     this.processPDBEntries(json.pdb_entries, genesByUniquename, {});
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(undefined,
+                                  json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   refMap, termsByTermId);
     }
@@ -1788,15 +1799,25 @@ function fixHistoneResidues(residues: Array<string>): Array<string> {
   return newResidues;
 }
 
+function annotationHasHistone(annotation: Annotation|TermSummaryRow) {
+  if (annotation.genes) {
+    for (const gene of annotation.genes) {
+      if (gene.flags && gene.flags.includes("is_histone")) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
 function processExtension(annotation: Annotation|undefined,
                           extension: Array<ExtPart>, termsByTermId: TermIdTermMap,
                           transcriptsByUniquename: TranscriptMap, genesByUniquename: GeneMap) {
   let isHistone = false;
 
-  if (annotation && annotation.genes[0] &&
-      annotation.genes[0].flags && annotation.genes[0].flags.includes("is_histone"))
-  {
-    isHistone = true;
+  if (annotation) {
+    isHistone = annotationHasHistone(annotation);
   }
 
   extension.map((extPart) => {
