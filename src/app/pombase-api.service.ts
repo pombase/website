@@ -331,6 +331,7 @@ export interface GeneShort {
   name?: string;
   product?: string;
   transcript_count?: number;
+  flags?: Array<string>;  // only "is_histone" for now
 }
 
 // The function is used to trim a GeneSummary to a GeneShort
@@ -563,6 +564,7 @@ export class GeneDetails {
   name: string;
   displayName: string;
   feature_type: string;
+  flags?: Array<string>;  // only "is_histone" for now
   product?: string;
   name_descriptions: Array<string>;
   gene_neighbourhood: Array<GeneShort>;
@@ -834,7 +836,8 @@ export class PombaseAPIService {
         }
 
         if (annotation.extension) {
-          processExtension(annotation.extension, termsByTermId, transcriptsByUniquename, genesByUniquename);
+          processExtension(annotation, annotation.extension, termsByTermId,
+                           transcriptsByUniquename, genesByUniquename);
         }
         if (genotypesByUniquename && annotation.genotype) {
           const genotypeUniquename = annotation.genotype as any as string;
@@ -906,6 +909,11 @@ export class PombaseAPIService {
                                   return transcriptsByUniquename[transcriptUniquename];
                                 });
                               });
+                          } else {
+                            if (ext_range.summary_residues) {
+                              ext_range.summary_residues =
+                                fixHistoneResidues(ext_range.summary_residues);
+                            }
                           }
                         }
                       }
@@ -982,13 +990,13 @@ export class PombaseAPIService {
           detail.double_mutant_phenotype = termsByTermId[detail.double_mutant_phenotype_termid];
         }
         if (detail.double_mutant_extension) {
-          processExtension(detail.double_mutant_extension, termsByTermId, transcriptsByUniquename, genesByUniquename);
+          processExtension(undefined, detail.double_mutant_extension, termsByTermId, transcriptsByUniquename, genesByUniquename);
         }
         if (detail.rescued_phenotype_termid) {
           detail.rescued_phenotype = termsByTermId[detail.rescued_phenotype_termid];
         }
         if (detail.rescued_phenotype_extension) {
-          processExtension(detail.rescued_phenotype_extension, termsByTermId, transcriptsByUniquename,
+          processExtension(undefined, detail.rescued_phenotype_extension, termsByTermId, transcriptsByUniquename,
                            genesByUniquename);
         }
         if (detail.genotype_a_uniquename) {
@@ -1765,8 +1773,32 @@ export class PombaseAPIService {
   }
 }
 
-function processExtension(extension: Array<ExtPart>, termsByTermId: TermIdTermMap,
+function fixHistoneResidues(residues: Array<string>): Array<string> {
+  let newResidues = [];
+
+  for (let res of residues) {
+    const m = res.match(/^([A-Z])(\d+)$/);
+
+    if (m) {
+      const newRes = m[1] + (+m[2] - 1) + '(' + m[1] + m[2] + ')';
+      newResidues.push(newRes);
+    }
+  }
+
+  return newResidues;
+}
+
+function processExtension(annotation: Annotation|undefined,
+                          extension: Array<ExtPart>, termsByTermId: TermIdTermMap,
                           transcriptsByUniquename: TranscriptMap, genesByUniquename: GeneMap) {
+  let isHistone = false;
+
+  if (annotation && annotation.genes[0] &&
+      annotation.genes[0].flags && annotation.genes[0].flags.includes("is_histone"))
+  {
+    isHistone = true;
+  }
+
   extension.map((extPart) => {
     if (extPart.ext_range.termid) {
       extPart.ext_range.term = termsByTermId[extPart.ext_range.termid];
@@ -1789,6 +1821,14 @@ function processExtension(extension: Array<ExtPart>, termsByTermId: TermIdTermMa
               if (extPart.ext_range.transcript_uniquename) {
                 extPart.ext_range.transcript =
                   transcriptsByUniquename[extPart.ext_range.transcript_uniquename];
+              } else {
+                if (extPart.rel_type_name === "modified residue" &&
+                    isHistone) {
+                  if (extPart.ext_range.summary_residues) {
+                    extPart.ext_range.summary_residues =
+                      fixHistoneResidues(extPart.ext_range.summary_residues);
+                  }
+                }
               }
             }
           }
