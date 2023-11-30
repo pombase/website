@@ -32,9 +32,7 @@ The detailed view shows more information for each annotation, and may display ad
     [codes](http://geneontology.org/docs/guide-go-evidence-codes/)
     defined by the GO Consortium, plus a small subset of the 
     [Evidence Ontology](http://www.evidenceontology.org/) (ECO).
-5.  The residue(s) modified (where available). Note: for histones,
-    residue numbering assumes that the initiator methionine is
-    removed.
+5.  The residue(s) modified (where available).
 6.  The published source of the annotation (where available)
 7.  The total number of genes annotated to this term or any of its
     descendants, linked to a list of those genes. The gene list page
