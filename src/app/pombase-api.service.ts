@@ -918,7 +918,7 @@ export class PombaseAPIService {
 
                             if (isHistoneGene && ext_range.summary_residues) {
                               ext_range.summary_residues =
-                                fixHistoneResidues(ext_range.summary_residues);
+                                fixHistoneResidues(ext_range.summary_residues, false);
                             }
                           }
                         }
@@ -1784,14 +1784,17 @@ export class PombaseAPIService {
   }
 }
 
-function fixHistoneResidues(residues: Array<string>): Array<string> {
+function fixHistoneResidues(residues: Array<string>, long: boolean): Array<string> {
   let newResidues = [];
 
   for (let res of residues) {
     const m = res.match(/^([A-Z])(\d+)$/);
 
     if (m) {
-      const newRes = m[1] + (+m[2] - 1) + '(' + m[1] + m[2] + ')';
+      let newRes = m[1] + (+m[2] - 1) + '(' + m[1] + m[2] + ')';
+      if (long) {
+        newRes += ' processed(preprocessed)';
+      }
       newResidues.push(newRes);
     }
   }
@@ -1847,7 +1850,7 @@ function processExtension(annotation: Annotation|undefined,
                     isHistone) {
                   if (extPart.ext_range.summary_residues) {
                     extPart.ext_range.summary_residues =
-                      fixHistoneResidues(extPart.ext_range.summary_residues);
+                      fixHistoneResidues(extPart.ext_range.summary_residues, true);
                   }
                 }
               }
