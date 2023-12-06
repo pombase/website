@@ -450,6 +450,10 @@ export interface GeneMap {
   [uniquename: string]: GeneShort;
 }
 
+export interface TermMap {
+  [term_id: string]: TermShort;
+}
+
 export interface SynonymDetails {
   name: string;
   type: string;
@@ -680,7 +684,7 @@ export class ReferenceDetails {
   annotation_details: AnnotationDetailMap;
   gene_count: number;
   genes_by_uniquename: GeneMap;
-  genotype_count: number;
+  terms_by_termid: TermMap;
   pdb_entries: Array<PDBEntry>;
 }
 
