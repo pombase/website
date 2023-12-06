@@ -65,11 +65,12 @@ File columns:
     entries with commas (e.g. S72,T85). Position numbering should
     reflect the current sequence data in ${database_name}. Please refer to the
     [Gene Coordinate Changes](status/gene-coordinate-changes) page to
-    ensure that your residue position entries are up to date. Also
-    note that histones are conventionally numbered assuming the
-    initiator methionine is removed (i.e. every position in the mature
-    protein is numbered, and is 1 less than the apparent numbering
-    predicted by translating the ORF).
+    ensure that your residue position entries are up to date. Histones
+    should be represented using the unprocessed protein sequence
+    coordinates, not the processed coordinates conventionally used to
+    describe histones. Histone modifications will be represented on
+    the gene pages as K4(K5) processed(preprocessed), but our checking
+    pipeline will expect unmodified forms.
 6.  See the table below for allowed annotation extensions. Multiple
     extensions can be included for a modification. Separate extensions
     with a comma (,) if they combine to form a "compound" extension
