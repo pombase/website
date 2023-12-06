@@ -237,20 +237,21 @@
         </td>
       </tr>
 
-      <tr class="summary-row" *ngFor="let row of detailsViewVisible(termAnnotation) || !termAnnotation.summary ? [] : termAnnotation.summary">
+      <tr class="summary-row" *ngFor="let row of detailsViewVisible(termAnnotation) || !termAnnotation.summary ? [] : termAnnotation.summary; let idx = index">
         <td>
         </td>
         <td class="summary-feature" colspan="6">
           <span *ngIf="row.genes && row.genes.length > 0">
-            <span *ngFor="let gene of row.genes; let lastGene = last">
+            <span *ngFor="let gene of (allOfSummaryRowVisible(termAnnotation, idx) ? row.genes : row.genes.slice(0, 50)); let lastGene = last">
               <app-gene-link class="app-link" [long]="false" [gene]="gene"></app-gene-link><span *ngIf="!lastGene">, </span>
             </span>
           </span>
           <span *ngIf="row.genotypes && row.genotypes.length > 0">
-            <span *ngFor="let genotype of row.genotypes; let lastGenotype = last">
+            <span *ngFor="let genotype of (allOfSummaryRowVisible(termAnnotation, idx) ? row.genotypes : row.genotypes.slice(0, 50)); let lastGenotype = last">
               <app-genotype-link class="app-link" [genotype]="genotype"></app-genotype-link><span *ngIf="!lastGenotype">, &nbsp;</span>
             </span>
           </span>
+          <div *ngIf="!allOfSummaryRowVisible(termAnnotation, idx)"><a (click)="showAllOfSummaryRow(termAnnotation, idx)">Show all {{typeConfig.feature_type}} features ...</a></div>
           <app-extension-display *ngIf="row.extension" [extension]="row.extension"></app-extension-display>
         </td>
       </tr>

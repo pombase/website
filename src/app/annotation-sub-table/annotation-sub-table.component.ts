@@ -38,6 +38,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   termNameColSpan = -1;
   compactFirstRows: { [key: string]: boolean } = {};
   detailsView: {[key: string]: boolean} = {};
+  summaryRowAllVisible: {[key: string]: boolean} = {};
   currentViewState = TableViewState.Summary;
   tableIsFiltered = false;
   filteredAnnotationCount = 0;
@@ -128,6 +129,32 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     return this.detailsView[key] || false;
+  }
+
+  allOfSummaryRowVisible(termAnnotation: TermAnnotation, rowIndex: number): boolean {
+    let key;
+    if (termAnnotation.is_not) {
+      key = 'NOT:' + termAnnotation.term.termid;
+    } else {
+      key = termAnnotation.term.termid;
+    }
+
+    key += ' - ' + rowIndex;
+
+    return this.summaryRowAllVisible[key] || false;
+  }
+
+  showAllOfSummaryRow(termAnnotation: TermAnnotation, rowIndex: number) {
+    let key;
+    if (termAnnotation.is_not) {
+      key = 'NOT:' + termAnnotation.term.termid;
+    } else {
+      key = termAnnotation.term.termid;
+    }
+
+    key += ' - ' + rowIndex;
+
+    this.summaryRowAllVisible[key] = true;
   }
 
   toggleDetails(termAnnotation: TermAnnotation) {
