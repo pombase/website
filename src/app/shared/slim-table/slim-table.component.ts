@@ -29,7 +29,6 @@ export class SlimTableComponent implements OnInit {
   slimConfig: SlimConfig;
   nonSlimWithAnnotationName: string;
   nonSlimWithoutAnnotationName: string;
-  cvDisplayName: string;
 
   cvConfig: AnnotationType;
   constructor(private pombaseApiService: PombaseAPIService) { }
@@ -37,7 +36,6 @@ export class SlimTableComponent implements OnInit {
   ngOnInit() {
     this.slimConfig = this.appConfig.slims[this.slimName];
     this.cvConfig = getAnnotationTableConfig().getAnnotationType(this.slimConfig.cv_name);
-    this.cvDisplayName = this.cvConfig.display_name;
 
     this.pombaseApiService.getTermSubsets()
       .then(subsets => {
