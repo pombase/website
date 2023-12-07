@@ -8,11 +8,11 @@ Genome browser tracks
   <legend>
     <span *ngIf="tracks.length == 1">
       A dataset
-      <span *ngIf="identifierType == 'gene'">associated with this {{identifier}}</span>
+      <span *ngIf="identifierType == 'gene'">associated with {{identifier}}</span>
       <span *ngIf="identifierType == 'reference'">from this publication</span>
       is available in the genome browser</span>
     <span *ngIf="tracks.length != 1">{{tracks.length}} datasets
-      <span *ngIf="identifierType == 'gene'">associated with this {{identifier}}</span>
+      <span *ngIf="identifierType == 'gene'">associated with {{identifier}}</span>
       <span *ngIf="identifierType == 'reference'">from this publication</span>
       are available in the genome browser</span>
 

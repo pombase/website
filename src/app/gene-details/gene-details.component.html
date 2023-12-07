@@ -118,7 +118,7 @@
 
     <div *ngIf="currentGeneBrowserTracks.length != 0">
       <div class="track-picker-message" *ngIf="!trackPickerVisible">
-        <a (click)="showTrackPicker()">View genotype browser tracks associated with {{geneDetails.name || geneDetails.uniquename}} ...</a>
+        <a (click)="showTrackPicker()">View sequence-based datasets associated with {{geneDetails.name || geneDetails.uniquename}} in JBrowse ...</a>
       </div>
 
       <app-jbrowse-track-picker *ngIf="trackPickerVisible" [identifier]="geneDetails.name" [identifierType]="'gene'">
