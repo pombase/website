@@ -13,8 +13,9 @@ funders and users that PomBase satisfies the many criteria required to
 considered a key part of the European bioinformatics infrastructure.
 [ELIXIR](https://elixir-europe.org) is an intergovernmental
 organisation that brings together life science resources from across
-Europe. The goal of ELIXIR is to coordinate these resources so that
-they form a single infrastructure.  ELIXIR includes [22 member countries](https://elixir-europe.org/about-us/who-we-are),
-bringing together over 240 research organisations.
+Europe, it currently includes [22 member countries](https://elixir-europe.org/about-us/who-we-are),
+bringing together over 240 research organisations. The goal of ELIXIR
+is to coordinate these resources so that they form a single
+infrastructure.
 
 [![ELIXIR CDR announcement](assets/newsfeed/elixir_pombase_cdr_announcement.png "ELIXIR CDR announcement"){.screenshot width=100%}](assets/newsfeed/elixir_pombase_cdr_announcement.png)
