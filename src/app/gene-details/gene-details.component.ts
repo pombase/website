@@ -5,7 +5,8 @@ import { Title } from '@angular/platform-browser';
 
 import { faWarning } from '@fortawesome/free-solid-svg-icons';
 
-import { SynonymDetails, GeneDetails, PombaseAPIService } from '../pombase-api.service';
+import { SynonymDetails, GeneDetails, PombaseAPIService,
+         ReferenceShort } from '../pombase-api.service';
 
 import {
   getAnnotationTableConfig, AnnotationTableConfig,
@@ -54,6 +55,8 @@ export class GeneDetailsComponent implements OnInit {
   currentGeneBrowserTracks: Array<JBrowseTrackInfo>;
 
   trackPickerVisible = false;
+
+  sourcePublications: Array<ReferenceShort> = [];
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
@@ -306,6 +309,18 @@ export class GeneDetailsComponent implements OnInit {
     return !this.config.getAnnotationType(typeName).no_gene_details_section;
   }
 
+  private setSourcePublications() {
+    this.sourcePublications = [];
+
+    for (const featurePub of this.geneDetails.feature_publications) {
+      console.log(featurePub);
+
+      if (featurePub.source == "contig_file_dbxref") {
+        this.sourcePublications.push(featurePub.reference);
+      }
+    }
+  }
+
   showTrackPicker(): void {
     this.trackPickerVisible = true;
   }
@@ -375,6 +390,7 @@ export class GeneDetailsComponent implements OnInit {
                   }
                 }
               }
+              this.setSourcePublications();
             })
             .catch((error: any) => {
               this.apiError = error;

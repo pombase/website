@@ -64,15 +64,15 @@
                         [popover]="rnaLocationWarning">
                     <fa-icon [icon]="faWarning"></fa-icon>
                   </span>
-                  <span *ngIf="geneDetails.feature_publications.length == 1">
+                  <span *ngIf="sourcePublications.length == 1">
                     <app-reference-short
-                      [reference]="geneDetails.feature_publications[0]"
+                      [reference]="sourcePublications.length[0].reference"
                       [linkText]="'Source ...'"></app-reference-short>
                   </span>
-                  <span *ngIf="geneDetails.feature_publications.length > 1">
+                  <span *ngIf="sourcePublications.length > 1">
                     <app-reference-short
-                      *ngFor="let pub of geneDetails.feature_publications; let i = index"
-                      [reference]="pub"
+                      *ngFor="let refPub of sourcePublications; let i = index"
+                      [reference]="refPub"
                       [linkText]="'[Source ' + (i+1) + ']'"></app-reference-short>
                   </span>
                 </td>

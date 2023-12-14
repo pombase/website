@@ -563,6 +563,12 @@ export interface PDBEntry {
   resolution?: string;
 }
 
+export interface RefAndSource {
+  reference_uniquename: string;
+  reference: ReferenceShort;
+  source: string;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
@@ -596,7 +602,7 @@ export class GeneDetails {
   target_of_annotations: Array<TargetOfAnnotation>;
   references: Array<ReferenceShort>;
   annotation_details: AnnotationDetailMap;
-  feature_publications: Array<ReferenceShort>;
+  feature_publications: Array<RefAndSource>;
   genotypes_by_uniquename: GenotypeShortByUniquename;
   gene_history: Array<GeneHistoryEntry>;
 }
@@ -1200,8 +1206,14 @@ export class PombaseAPIService {
     // for displaying the references section on the gene page
     json.references = this.processGeneReferences(referencesByUniquename);
 
-    json.feature_publications =
-      (json.feature_publications || []).map((refUniquename: string) => referencesByUniquename[refUniquename]);
+    if (!json.feature_publications) {
+      json.feature_publications = [];
+    }
+
+    (json.feature_publications as Array<RefAndSource>)
+      .map((refAndSource: RefAndSource) => {
+        refAndSource.reference = referencesByUniquename[refAndSource.reference_uniquename];
+      });
 
     return geneDetails;
   }
