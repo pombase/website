@@ -34,7 +34,7 @@
       </div>
     </ng-container>
 
-  <div>
+    <ng-container *ngIf="showProteinFeatures()">
     <div *ngIf="currentWidget() != 'protein_feature_viewer'" class="non-active-widget-button"
          title="Click to view protein features">
       <a (click)="setWidget('protein_feature_viewer')">
@@ -46,7 +46,7 @@
       <div>Protein features</div>
       <img class="widget-button" src="assets/protein-feature-widget-icon.png" />
     </div>
-  </div>
+    </ng-container>
 
     <div *ngIf="currentWidget() != 'genome_browser'"
          class="non-active-widget-button"

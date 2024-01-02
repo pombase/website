@@ -76,7 +76,9 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
       return this.settingsService.genePageMainWidget;
     } else {
       if (this.settingsService.genePageMainWidget == 'alphafold_viewer' ||
-          this.settingsService.genePageMainWidget == 'pdb_viewer') {
+          this.settingsService.genePageMainWidget == 'pdb_viewer' ||
+          (!this.showProteinFeatures() &&
+           this.settingsService.genePageMainWidget == 'protein_feature_viewer')) {
         return 'genome_browser';
       } else {
         return this.settingsService.genePageMainWidget;
@@ -107,6 +109,10 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   showPDBStructure(): boolean {
     return this.geneDetails.pdb_entries.length > 0 && this.showStructure();
+  }
+
+  showProteinFeatures(): boolean {
+    return this.geneDetails.feature_type == "mRNA gene";
   }
 
   setWidget(widget: GenePageWidget) {
