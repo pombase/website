@@ -6325,7 +6325,7 @@ PomBase using the Ensembl viewer.</p>
 <li>Modification annotations may have extensions (see below) to capture any of several types of additional detail. <em>S. pombe</em> genes link to PomBase gene pages, and GO term names link to PomBase ontology term summary pages.</li>
 <li>The summary view is filtered, using the ontology structure, so that it shows only the most specific terms used to annotate a gene. Modification annotations curated for a gene using less specific terms (“superclasses” or “ancestors” in the ontology) appear only in the detailed view.</li>
 <li>An abbreviation (code) or brief description for the type of evidence that supports the annotation. Modification annotations use some of the <a href="http://geneontology.org/docs/guide-go-evidence-codes/">codes</a> defined by the GO Consortium, plus a small subset of the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</li>
-<li>The residue(s) modified (where available). Note: for histones, residue numbering assumes that the initiator methionine is removed.</li>
+<li>The residue(s) modified (where available).</li>
 <li>The published source of the annotation (where available)</li>
 <li>The total number of genes annotated to this term or any of its descendants, linked to a list of those genes. The gene list page includes basic information about the ontology term, and a link to send the gene list to the advanced search.</li>
 </ol>
@@ -6904,7 +6904,7 @@ Search documentation, news archive and FAQ:
 <li>Gene names are optional. If you include them, use standard names in column 2 (see gene pages or the file of all gene names from the dataset download page.</li>
 <li>For help finding suitable ontology (PSI-MOD) terms to describe your phenotypes, see the <a href="https://curation.pombase.org/pombe/docs/modification_annotation">Canto protein modification documentation</a>. If you can’t find a term you need, email the <a href="mailto:helpdesk@pombase.org">helpdesk</a> for assistance; we can advise you, and request new terms as needed.</li>
 <li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). You are welcome to enquire with us in advance to find out which ECO terms/IDs fit your experiments, but we can accept files with brief descriptions, which curators will convert to ECO IDs.</li>
-<li>The Residue column indicates the position modified. For protein modifications, use one-letter amino acid code. Multiple entries are allowed, but only for cases where two or more of the same modification are known to be present at the same time. Separate entries with commas (e.g. S72,T85). Position numbering should reflect the current sequence data in PomBase. Please refer to the <a routerLink="/status/gene-coordinate-changes">Gene Coordinate Changes</a> page to ensure that your residue position entries are up to date. Also note that histones are conventionally numbered assuming the initiator methionine is removed (i.e. every position in the mature protein is numbered, and is 1 less than the apparent numbering predicted by translating the ORF).</li>
+<li>The Residue column indicates the position modified. For protein modifications, use one-letter amino acid code. Multiple entries are allowed, but only for cases where two or more of the same modification are known to be present at the same time. Separate entries with commas (e.g. S72,T85). Position numbering should reflect the current sequence data in PomBase. Please refer to the <a routerLink="/status/gene-coordinate-changes">Gene Coordinate Changes</a> page to ensure that your residue position entries are up to date. Histones should be represented using the unprocessed protein sequence coordinates, not the processed coordinates conventionally used to describe histones. Histone modifications will be represented on the gene pages as K4(K5) processed(preprocessed), but our checking pipeline will expect unmodified forms.</li>
 <li>See the table below for allowed annotation extensions. Multiple extensions can be included for a modification. Separate extensions with a comma (,) if they combine to form a “compound” extension (all parts apply together), or with a pipe (|) if they are independent. You can also use separate rows for annotations with independent extensions.</li>
 <li>The Reference column has the publication’s PubMed ID (PMID).</li>
 <li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although if you have an NCBI taxon ID for a specific <em>S. pombe</em> strain you are welcome to use it</li>
@@ -9859,6 +9859,9 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-january-17th">Next pombeTalks: Wednesday, January 17th</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-joins-elixir-core-data-resources">PomBase joins ELIXIR Core Data Resources</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-december-13th">Next pombeTalks: Wednesday, December 13th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-updated-use-interpro-version-97.0">PomBase updated to use InterPro Version 97.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-november-15th">Next pombeTalks: Wednesday, November 15th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-documentation-and-videos-canto">New documentation and videos for Canto</a></div>
@@ -12257,7 +12260,6 @@ Password: will be sent the day of the meeting</p>
   </div>
   <div *ngIf="pageName == 'pombetalks-nov-15th'">
 <h3 id="next-pombetalks-wednesday-november-15th">Next pombeTalks: Wednesday, November 15th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The second pombeTalks session of season 4 will take place on Zoom on <strong>Wednesday, November 15th</strong></p>
 <p>Please note that this session will start at 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo.</p>
@@ -12285,9 +12287,97 @@ Password: will be sent the day of the meeting</p>
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-dec-13'">
+<h3 id="next-pombetalks-wednesday-december-13th">Next pombeTalks: Wednesday, December 13th</h3>
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next pombeTalks session of season 4 will take place on Zoom on <strong>Wednesday, December 13th</strong></p>
+<p>Please note that this session will start at midnight San Francisco / 3:00 New York / 08:00 London / 09:00 Paris / 13:30 Delhi / 16:00 Beijing / 17:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Xiao-Hui Lyo</strong>, Dr. Li-Lin Du’s Lab, National Institute of Biological Sciences, Beijing, China<br />
+“An improved tetracycline-inducible expression system for fission yeast”</p></li>
+<li><p><strong>Yuichi Morozumi</strong>, Watanabe lab, Nara Institute of Science and Technology, Nara, Japan<br />
+“Identification of mechanisms that restrict cell growth below temperatures detrimental to cellular physiology”</p></li>
+</ul>
+<p>The Zoom details will be shared on the week of the talk, through pombeList and pombeSlack.</p>
+<p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
+
+  </div>
+  <div *ngIf="pageName == 'ELIXIR-core-data-resource'">
+<h3 id="pombase-joins-elixir-core-data-resources">PomBase joins ELIXIR Core Data Resources</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: elixir_uk_thumb.png -->
+<p>PomBase is the first model organism database (MOD) to be selected as an <a href="https://elixir-europe.org">ELIXIR</a> <a href="https://elixir-europe.org/platforms/data/core-data-resources">Core data resource (CDR)</a>. We were evaluated across a long list of indicators including scientific focus and quality, governance, and quality of service. ELIXIR CDRs are European life science data resources that are important to biological and biomedical research and long-term preservation of biological data. This will provide assurance to our funders and users that PomBase satisfies the many criteria required to considered a key part of the European bioinformatics infrastructure. <a href="https://elixir-europe.org">ELIXIR</a> is an intergovernmental organisation that brings together life science resources from across Europe, it currently includes <a href="https://elixir-europe.org/about-us/who-we-are">22 member countries</a>, bringing together over 240 research organisations. The goal of
+ELIXIR is to coordinate these resources so that they form a single infrastructure.</p>
+<p><a href="assets/newsfeed/elixir_pombase_cdr_announcement.png"><img src="assets/newsfeed/elixir_pombase_cdr_announcement.png" title="ELIXIR CDR announcement" class="screenshot" style="width:100.0%" alt="ELIXIR CDR announcement" /></a></p>
+
+  </div>
+  <div *ngIf="pageName == 'pombetalks-jan-17'">
+<h3 id="next-pombetalks-wednesday-january-17th">Next pombeTalks: Wednesday, January 17th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next pombeTalks session will take place on Wednesday, January 17th.</p>
+<p>Please note that this session will start at: 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Melvin Berard</strong>, Sophie Martin’s Lab, University of Geneva, Geneva, Switzerland<br />
+“Phosphoproteomics analysis during mating reveals TORC1 re-activation upon pheromone signalling.”</p></li>
+<li><p><strong>Priyanka Sasmal</strong>, Phong Tran lab, Institut Curie, Paris, France<br />
+“Chimeric Kinesin-6 and Kinesin-14 reveal directional and functional control in fission yeast.”</p></li>
+</ul>
+<p>Zoom details:<br />
+pombeTalks S04E04 Zoom Meeting<br />
+Join <a href="https://unige.zoom.us/j/63207162782?pwd=eW1FMWJDSkErelZOMTk3VzNmenpWUT09">Zoom Meeting-Wednesday Jan 17th 2024-5pm CET</a><br />
+Meeting ID: 632 0716 2782<br />
+Passcode: will be given the day of the meeting (and already available on pombeSlack)</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-01-17-pombetalks-jan-17" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-january-17th">Next pombeTalks: Wednesday, January 17th</h3>
+<p><em>2024-01-17</em></p>
+<p>The next pombeTalks session will take place on Wednesday, January 17th.</p>
+<p>Please note that this session will start at: 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Melvin Berard</strong>, Sophie Martin’s Lab, University of Geneva, Geneva, Switzerland<br />
+“Phosphoproteomics analysis during mating reveals TORC1 re-activation upon pheromone signalling.”</p></li>
+<li><p><strong>Priyanka Sasmal</strong>, Phong Tran lab, Institut Curie, Paris, France<br />
+“Chimeric Kinesin-6 and Kinesin-14 reveal directional and functional control in fission yeast.”</p></li>
+</ul>
+<p>Zoom details:<br />
+pombeTalks S04E04 Zoom Meeting<br />
+Join <a href="https://unige.zoom.us/j/63207162782?pwd=eW1FMWJDSkErelZOMTk3VzNmenpWUT09">Zoom Meeting-Wednesday Jan 17th 2024-5pm CET</a><br />
+Meeting ID: 632 0716 2782<br />
+Passcode: will be given the day of the meeting (and already available on pombeSlack)</p>
+</div>
+<div id="2023-12-14-ELIXIR-core-data-resource" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/elixir_uk_thumb.png"/></p>
+<h3 id="pombase-joins-elixir-core-data-resources">PomBase joins ELIXIR Core Data Resources</h3>
+<p><em>2023-12-14</em></p>
+<p>PomBase is the first model organism database (MOD) to be selected as an <a href="https://elixir-europe.org">ELIXIR</a> <a href="https://elixir-europe.org/platforms/data/core-data-resources">Core data resource (CDR)</a>. We were evaluated across a long list of indicators including scientific focus and quality, governance, and quality of service. ELIXIR CDRs are European life science data resources that are important to biological and biomedical research and long-term preservation of biological data. This will provide assurance to our funders and users that PomBase satisfies the many criteria required to considered a key part of the European bioinformatics infrastructure. <a href="https://elixir-europe.org">ELIXIR</a> is an intergovernmental organisation that brings together life science resources from across Europe, it currently includes <a href="https://elixir-europe.org/about-us/who-we-are">22 member countries</a>, bringing together over 240 research organisations. The goal of
+ELIXIR is to coordinate these resources so that they form a single infrastructure.</p>
+<p><a href="assets/newsfeed/elixir_pombase_cdr_announcement.png"><img src="assets/newsfeed/elixir_pombase_cdr_announcement.png" title="ELIXIR CDR announcement" class="screenshot" style="width:100.0%" alt="ELIXIR CDR announcement" /></a></p>
+</div>
+<div id="2023-12-06-pombetalks-dec-13" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-december-13th">Next pombeTalks: Wednesday, December 13th</h3>
+<p><em>2023-12-06</em></p>
+<p>The next pombeTalks session of season 4 will take place on Zoom on <strong>Wednesday, December 13th</strong></p>
+<p>Please note that this session will start at midnight San Francisco / 3:00 New York / 08:00 London / 09:00 Paris / 13:30 Delhi / 16:00 Beijing / 17:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Xiao-Hui Lyo</strong>, Dr. Li-Lin Du’s Lab, National Institute of Biological Sciences, Beijing, China<br />
+“An improved tetracycline-inducible expression system for fission yeast”</p></li>
+<li><p><strong>Yuichi Morozumi</strong>, Watanabe lab, Nara Institute of Science and Technology, Nara, Japan<br />
+“Identification of mechanisms that restrict cell growth below temperatures detrimental to cellular physiology”</p></li>
+</ul>
+<p>The Zoom details will be shared on the week of the talk, through pombeList and pombeSlack.</p>
+<p>For more fission yeast related topics and recordings of the talks, join <a href="http://spombe.slack.com">pombeSlack</a>, where additional questions can also be posted on the <code>#pombetalks-qna</code> channel.</p>
+</div>
 <div id="2023-11-12-interpro-release-97" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-updated-use-interpro-version-97.0">PomBase updated to use InterPro Version 97.0</h3>
