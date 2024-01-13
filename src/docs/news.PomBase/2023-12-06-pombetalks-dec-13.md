@@ -1,5 +1,4 @@
 ### Next pombeTalks: Wednesday, December 13th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next pombeTalks session of season 4 will take place on Zoom on
