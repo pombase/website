@@ -200,7 +200,10 @@ export class Util {
       ret += 'complement(';
     }
 
-    if (transcript.parts.length > 1) {
+    const codingExonCount =
+          transcript.parts.filter(part => part.feature_type === 'exon').length;
+    
+    if (codingExonCount > 1) {
       ret += 'join(';
     }
 
@@ -212,7 +215,7 @@ export class Util {
 
     ret += partCoords.join(',');
 
-    if (transcript.parts.length > 1) {
+    if (codingExonCount > 1) {
       ret += ')';
     }
 
