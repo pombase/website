@@ -427,7 +427,7 @@ select option:disabled {
   .panel-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
-    grid-gap: 3.5em 2.5em;
+    grid-gap: 3.5em 3em;
     justify-content: center;
   }
 }

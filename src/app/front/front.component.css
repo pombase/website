@@ -153,6 +153,7 @@
 
 .panel-container {
   grid-template-rows: auto auto auto 1fr;
+  grid-gap: 4em 4.5em;
 }
 
 .front-news-feed {
