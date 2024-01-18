@@ -140,10 +140,6 @@
   padding: 0.1em;
 }
 
-.front-news-feed {
-  grid-column: 1 / span 2;
-}
-
 .front-twitter-feed {
   height: 100em;
   overflow-y: auto;
@@ -155,12 +151,25 @@
   display: none;
 }
 
+.panel-container {
+  grid-template-rows: auto auto auto 1fr;
+}
+
+.front-news-feed {
+  grid-column: 2 / 4;
+  grid-row: 1 / 5;
+}
+
+.front-panel-twitter {
+  grid-row: 4 / 5;
+}
+
 @media (min-width: 800px) {
   .front-container {
     padding: 0 1em;
   }
   .panel-container {
-    margin-top: 1.5em;
+    margin-top: 1.8em;
   }
 }
 
@@ -169,7 +178,7 @@
     padding: 0 0.3em;
   }
   .panel-container {
-    margin: 1.5em 0.5em;
+    margin: 1.4em 0.5em;
   }
 }
 

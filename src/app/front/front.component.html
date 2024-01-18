@@ -80,13 +80,20 @@
 </div>
 
 <div class="panel-container">
-  <div class="info-panel">
+
+  <div *ngIf="showNewsItems" class="front-news-feed">
+    <h3 class="front-page-list-title">Recent news</h3>
+    <app-recent-news></app-recent-news>
+  </div>
+
+  <div class="front-panel info-panel">
     <app-front-panel [conf]="spotlightConf"></app-front-panel>
     <div class="archive-link-container">
     <a routerLink="/archive/spotlight">Archive ...</a>
     </div>
   </div>
-  <div class="info-panel">
+
+  <div class="front-panel info-panel">
     <app-front-panel [conf]="communityConf"></app-front-panel>
     <div class="archive-link-container">
       <a routerLink="/reference_list/community">All community curation ...</a>
@@ -95,24 +102,20 @@
       <a routerLink="/reference_list/admin">{{siteName}} staff curated publications ...</a>
     </div>
   </div>
-  <div class="info-panel">
+  <div class="front-panel info-panel">
     <app-front-panel [conf]="exploreConf"></app-front-panel>
     <div class="archive-link-container">
       <a routerLink="/archive/explore">Archive ...</a>
     </div>
   </div>
 
-<div *ngIf="showNewsItems" class="front-news-feed">
-  <h2 class="front-page-list-title">Recent news</h2>
-  <app-recent-news></app-recent-news>
-</div>
-
-<div *ngIf="twitterAccount"
-     [ngClass]="{'front-twitter-feed': twitterAccount == 'PomBase', 'front-twitter-feed-small': twitterAccount != 'PomBase'}">
+  <div *ngIf="twitterAccount" class="front-panel-twitter">
+    <div [ngClass]="{'front-twitter-feed': twitterAccount == 'PomBase', 'front-twitter-feed-small': twitterAccount != 'PomBase'}">
 <a class="twitter-timeline" data-tweet-limit="6" href="https://twitter.com/{{twitterAccount}}">
    Tweets by @{{twitterAccount}}
 </a>
-</div>
+    </div>
+  </div>
 </div>
 </div>
 
