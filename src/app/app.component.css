@@ -16,10 +16,6 @@
   padding: 0.8em 0.8em 0.8em 1.5em;
 }
 
-#logo img {
-  clip-path: inset(0 0 22px 0);
-}
-
 @media (max-width: 1000px) {
   #header {
     background-size: cover;
