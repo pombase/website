@@ -1,3 +1,8 @@
 .stats-ribbon {
   height: 2.8em;
+  color: #444;
+}
+
+.stats-ribbon > span {
+  margin-right: 1em;
 }

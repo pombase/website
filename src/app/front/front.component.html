@@ -6,66 +6,67 @@
   <div class="welcome-content">
     <span [innerHTML]="welcomeMessage"></span>
   </div>
-  <div *ngIf="showElixirAndGbcMessage" class="welcome-content gcbr-message">
-{{siteName}} is a
-<span class="gcbr-name-and-logo"><a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources/">Global Core Biodata Resource
-<img src="assets/GCBR-Logo-RGB.svg"></a></span>
+  <div *ngIf="showElixirAndGbcLogos" class="welcome-logos">
+    <span class="gcbr-elixir-logo">
+      <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources/">
+        <img src="assets/GCBR-Logo-RGB.svg">
+      </a>
+    </span>
+    <span class="gcbr-elixir-logo">
+      <a href="https://elixir-europe.org/platforms/data/core-data-resources">
+        <img src="assets/elixir-core-data-resources-logo.png">
+      </a>
+    </span>
   </div>
   <app-stats-ribbon class="stats-ribbon"></app-stats-ribbon>
 </div>
 
 <div class="quick-links">
   <span class="quick-links-group">
-    <span>
+    <span class="quick-links-title">Tools:</span>
+    <span class="quick-links-label">
       <a routerLink="/query">Advanced search</a>
     </span>
-    &#x25CF;
-    <span>
+    <span class="quick-links-separator">&#x25CF;</span>
+    <span class="quick-links-label">
       <a href="/jbrowse/">
         Genome browser
       </a>
     </span>
   </span>
-
   <span class="quick-links-group">
-    <span class="quick-links-group-visible-title">Overviews:</span>
     <span class="quick-links-line">
-      <span>
+      <span class="quick-links-title">Example pages:</span>
+      <span class="quick-links-label"><a routerLink="/gene/{{examplePages.gene}}">Gene</a></span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label"><a routerLink="/term/{{examplePages.term}}">Term</a></span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label"><a routerLink="/reference/{{examplePages.reference}}">Publication</a></span>
+    </span>
+  </span>
+  <span class="quick-links-group">
+    <span class="quick-links-line">
+      <span class="quick-links-title">Overviews:</span>
+      <span class="quick-links-label">
         <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">Function</a>
       </span>
-      &#x25CF;
-      <span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label">
         <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">Process</a>
       </span>
-      &#x25CF;
-      <span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label">
         <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">Component</a>
       </span>
-    </span>
-  </span>
+      <span *ngIf="hasDiseaseAnnotation" class="quick-links-separator">&#x25CF;</span>
+      <span *ngIf="hasDiseaseAnnotation" class="quick-links-label">
+        <a routerLink="/browse-curation/disease-slim">Disease association</a>
+      </span>
 
-  <span *ngIf="hasDiseaseAnnotation || fypoSlim" class="quick-links-group">
-    <span class="quick-links-group-hidden-title">Overviews:</span>
-
-    <span *ngIf="hasDiseaseAnnotation">
-      <a routerLink="/browse-curation/disease-slim">Disease association</a>
-    </span>
-
-    <span *ngIf="hasDiseaseAnnotation && fypoSlim">&#x25CF;</span>
-
-    <span *ngIf="fypoSlim">
-      <a routerLink="{{fypoSlim.full_slim_path}}">Phenotype</a>
-    </span>
-  </span>
-
-  <span class="quick-links-group">
-    <span>Example pages: </span>
-    <span class="quick-links-line">
-      <span><a routerLink="/gene/{{examplePages.gene}}">Gene</a></span>
-      &#x25CF;
-      <span><a routerLink="/term/{{examplePages.term}}">Term</a></span>
-      &#x25CF;
-      <span><a routerLink="/reference/{{examplePages.reference}}">Publication</a></span>
+      <span *ngIf="fypoSlim" class="quick-links-separator">&#x25CF;</span>
+      <span *ngIf="fypoSlim" class="quick-links-label">
+        <a routerLink="{{fypoSlim.full_slim_path}}">Phenotype</a>
+      </span>
     </span>
   </span>
 </div>

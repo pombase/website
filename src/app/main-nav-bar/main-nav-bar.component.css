@@ -17,6 +17,7 @@ button.dropdown-item {
 #header-navbar {
   background-color: rgba(100, 110, 145, 0.7);
   padding: 0 0.8em 0 0.8em;
+  z-index: 999;
 }
 
 @media (min-width: 1000px) {

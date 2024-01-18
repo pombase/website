@@ -1,7 +1,7 @@
 <div class="stats-ribbon">
-  <div *ngIf="dbCreationDate">Last updated: {{dbCreationDate}}</div>
-  <div>
+  <span *ngIf="dbCreationDate">Last updated: {{dbCreationDate}}</span>
+  <span>
     <span *ngIf="organismStats">{{organismStats.annotations}} annotations</span>
     <span *ngIf="curatedPublicationsCount != 0"> &mdash; <span class="pub-count">{{curatedPublicationsCount}}</span> curated publications </span>
-  </div>
+  </span>
 </div>
