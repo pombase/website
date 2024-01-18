@@ -676,6 +676,7 @@ export class ReferenceDetails {
   canto_curator_name: string;
   canto_approved_date: string;
   annotation_curators: Array<AnnotationCurator>;
+  pubmed_keyword_genes: Array<GeneShort>;
   file_curator_role: string;
   file_curator_name: string;
   annotation_file_curators: Array<AnnotationCurator>;
@@ -1055,6 +1056,10 @@ export class PombaseAPIService {
         annotation.reference = referencesByUniquename[annotation.reference_uniquename];
       }
     }
+  }
+
+  processPubMedKeywordGenes(pubmedKeywordGenes: Array<any>, genesByUniquename: GeneMap) {
+    return pubmedKeywordGenes.map(keywordGeneUniquename => genesByUniquename[keywordGeneUniquename]);
   }
 
   processTargetOf(targetOfAnnotations: Array<TargetOfAnnotation>,
@@ -1504,7 +1509,7 @@ export class PombaseAPIService {
       genotype_count: json.genotype_count || 0,
     };
 
-    for (let fieldName of ['genetic_interactions', 'pdb_entries']) {
+    for (let fieldName of ['genetic_interactions', 'pdb_entries', 'pubmed_keyword_genes']) {
       if (typeof (json[fieldName]) === 'undefined') {
         json[fieldName] = [];
       }
@@ -1525,6 +1530,9 @@ export class PombaseAPIService {
                                     termsByTermId);
     this.processOrthologs(json.ortholog_annotations, genesByUniquename);
     this.processParalogs(json.paralog_annotations, genesByUniquename);
+
+    json.pubmed_keyword_genes =
+      this.processPubMedKeywordGenes(json.pubmed_keyword_genes, genesByUniquename);
 
     return json as ReferenceDetails;
   }

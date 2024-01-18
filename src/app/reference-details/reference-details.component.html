@@ -218,6 +218,19 @@
     </div>
   </div>
 
+<div class="pubmed-keyword-genes" *ngIf="refDetails.pubmed_keyword_genes.length > 0">
+  Genes from PubMed keywords:
+  <span *ngFor="let gene of refDetails.pubmed_keyword_genes">
+    <app-gene-link [long]="false" [gene]="gene"></app-gene-link>
+  </span>
+  <div *ngIf="false">
+    <app-genes-table [description]="'Gene from PubMed keywords'"
+                     [genesOrResults]="refDetails.pubmed_keyword_genes"></app-genes-table>
+  </div>
+</div>
+
+
+
   <div>
     <span *ngFor="let annotationTypeName of annotationTypeNames">
       <app-quant-gene-ex-table id="{{annotationTypeName}}" *ngIf="annotationTypeName == 'quantitative_gene_expression'"
