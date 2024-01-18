@@ -1,5 +1,4 @@
 ### Next pombeTalks: Wednesday, January 17th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next pombeTalks session will take place on Wednesday, January
