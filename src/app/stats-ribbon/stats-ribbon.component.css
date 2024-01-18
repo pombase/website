@@ -6,3 +6,15 @@
 .stats-ribbon > span {
   margin-right: 1em;
 }
+
+@media (max-width: 1375px) and (min-width: 1000px), (max-width: 600px) {
+  .publication-count {
+    display: none;
+  }
+}
+
+@media (max-width: 1240px) and (min-width: 1000px), (max-width: 380px) {
+  .annotation-count {
+    display: none;
+  }
+}

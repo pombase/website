@@ -42,6 +42,7 @@ export class FrontComponent implements OnInit {
   examplePages = getAppConfig().example_pages;
   twitterAccount = getAppConfig().social_media?.twitter;
   hasDiseaseAnnotation = getAppConfig().has_disease_annotation;
+  hasUnknownsList = getAppConfig().has_unknowns_list;
   showNewsItems = getAppConfig().news_on_front_page;
   welcomeMessage = getAppConfig().welcome_message;
   hasAdminCuration = getAppConfig().has_admin_curation;
