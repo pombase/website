@@ -313,8 +313,6 @@ export class GeneDetailsComponent implements OnInit {
     this.sourcePublications = [];
 
     for (const featurePub of this.geneDetails.feature_publications) {
-      console.log(featurePub);
-
       if (featurePub.source == "contig_file_dbxref") {
         this.sourcePublications.push(featurePub.reference);
       }
