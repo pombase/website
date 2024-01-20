@@ -1,5 +1,4 @@
 ### Using AlphaFold models to discover distant human and budding yeast homologues
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: protein-structure.png -->
 
 We collaborated with the Pfam group at the EBI to evaluate predictions generated from AlphaFold 

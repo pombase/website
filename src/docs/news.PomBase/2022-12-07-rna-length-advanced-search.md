@@ -1,5 +1,4 @@
 ### Querying by RNA length in the Advanced Search tool
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 You can now query the RNA length of genes (spliced or unspliced)

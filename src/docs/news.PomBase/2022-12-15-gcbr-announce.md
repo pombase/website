@@ -1,5 +1,4 @@
 ### Global Core Biodata Resource status for PomBase
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: gbc-news-icon.png -->
 
 We are very pleased to announce that PomBase has been selected as one of

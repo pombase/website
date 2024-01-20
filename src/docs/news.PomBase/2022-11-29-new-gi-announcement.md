@@ -1,5 +1,4 @@
 ### Genetic Interaction annotation model updated
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 We have recently implemented an improved way to **annotate and display genetic interactions so they are linked to phenotype annotations and alleles**.
