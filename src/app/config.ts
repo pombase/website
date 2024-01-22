@@ -281,6 +281,7 @@ export interface AppConfig {
   },
   social_media: {
     twitter?: string;
+    mastodon?: string;
     github?: string;
     slack?: string;
     facebook?: string;
