@@ -223,10 +223,6 @@
   <span *ngFor="let gene of refDetails.pubmed_keyword_genes">
     <app-gene-link [long]="false" [gene]="gene"></app-gene-link>
   </span>
-  <div *ngIf="false">
-    <app-genes-table [description]="'Gene from PubMed keywords'"
-                     [genesOrResults]="refDetails.pubmed_keyword_genes"></app-genes-table>
-  </div>
 </div>
 
 
