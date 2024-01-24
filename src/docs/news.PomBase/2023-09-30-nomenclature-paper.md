@@ -14,5 +14,5 @@ curation program.
 
 [Lera-Ramírez *et al.* 2023, Revised fission yeast gene and allele nomenclature guidelines for machine readability, Genetics, 2023;, iyad143](https://doi.org/10.1093/genetics/iyad143)
 
-[!["Revised fission yeast gene and allele nomenclature guidelines for machine readability"](assets/newsfeed/nomenclature_paper_for_news.png "Revised fission yeast gene and allele nomenclature guidelines for machine readability"){.screenshot width=100%}](assets/newsfeed/nomenclature_paper_for_news_big.png)
+[!["Revised fission yeast gene and allele nomenclature guidelines for machine readability"](assets/newsfeed/nomenclature_paper_for_news.png "Revised fission yeast gene and allele nomenclature guidelines for machine readability"){.screenshot loading="lazy" width=100%}](assets/newsfeed/nomenclature_paper_for_news_big.png)
 

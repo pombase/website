@@ -15,7 +15,7 @@ includes:
 Hover over features for more information, such as allele descriptions
 and Pfam domain IDs.
 
-[![Protein feature viewer widget - oar2 gene page](assets/japonicus-gene-oar2-protein-feature-viewer-widget.png "Protein feature viewer widget - oar2 gene page"){ .screenshot width=100%}](assets/japonicus-gene-oar2-protein-feature-viewer-widget.png)
+[![Protein feature viewer widget - oar2 gene page](assets/japonicus-gene-oar2-protein-feature-viewer-widget.png "Protein feature viewer widget - oar2 gene page"){ .screenshot loading="lazy" width=100%}](assets/japonicus-gene-oar2-protein-feature-viewer-widget.png)
 
 Follow the "View all protein features …" link for a detailed view
 on the dedicated protein features page that includes:

@@ -14,4 +14,4 @@ and video guides on how to make annotations in Canto.
 The work on this website was supported by the ELIXIR-UK: FAIR Data
 Stewardship training UKRI award (MR/V038966/1) to Manuel Lera Ramírez.
 
-[![New Canto tutorials video list](assets/newsfeed/new_canto_video_docs.png "New Canto tutorials video list"){.screenshot width=100%}](assets/newsfeed/new_canto_video_docs.png)
+[![New Canto tutorials video list](assets/newsfeed/new_canto_video_docs.png "New Canto tutorials video list"){.screenshot loading="lazy" width=100%}](assets/newsfeed/new_canto_video_docs.png)
