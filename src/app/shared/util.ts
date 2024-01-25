@@ -30,13 +30,25 @@ export class Util {
         if (typeof(str1) === 'number' && typeof(str1) === 'number') {
           return (str1 as number) - (str2 as number);
         } else {
-          if (str1 instanceof Array) {
-            str1 = str1.join(',');
+          if (options['numeric']) {
+            let num1 = Number(str1);
+            if (Number.isNaN(num1)) {
+              num1 = -1e99;
+            }
+            let num2 = Number(str2);
+            if (Number.isNaN(num2)) {
+              num2 = -1e99;
+            }
+            return num1 - num2;
+          } else {
+            if (str1 instanceof Array) {
+              str1 = str1.join(',');
+            }
+            if (str2 instanceof Array) {
+              str2 = str2.join(',');
+            }
+            return str1.localeCompare(str2 as string, undefined, options);
           }
-          if (str2 instanceof Array) {
-            str2 = str2.join(',');
-          }
-          return str1.localeCompare(str2 as string, undefined, options);
         }
       } else {
         return -1;
