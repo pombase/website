@@ -282,17 +282,17 @@ export class GeneDetailsComponent implements OnInit {
   private setMenuSections() {
     this.extraMenuSections = [];
 
-    this.extraMenuSections.push({
-      id: 'transcript-sequence',
-      displayName: 'Sequence',
-    });
-
     if (this.geneDetails.gene_history.length > 0) {
       this.extraMenuSections.push({
         id: 'gene-history',
         displayName: 'Gene structure history'
       });
     }
+
+    this.extraMenuSections.push({
+      id: 'transcript-sequence',
+      displayName: 'Sequence',
+    });
 
     this.extraMenuSections.push({
       id: 'external-refs',
