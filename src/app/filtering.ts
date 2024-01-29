@@ -25,4 +25,8 @@ export class FilterCombiner<T> implements Filter<T> {
 
     return [filteredTable, totalAnnotationCount, filteredAnnotationCount];
   }
+
+  getFilters(): Array<Filter<T>> {
+    return this.filters;
+  }
 }

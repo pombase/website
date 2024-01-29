@@ -16,7 +16,7 @@ export class AnnotationTableFiltersComponent implements OnInit, OnChanges {
   @Input() filterConfig: Array<FilterConfig>;
   @Input() currentViewState: TableViewState;
   @Input() scope: string; // "gene", "term", "reference" ...
-  @Output() filterChange = new EventEmitter<AnnotationFilter>();
+  @Output() filterChange = new EventEmitter<FilterCombiner<AnnotationTable>>();
 
   currentFilters: { [key: string]: AnnotationFilter } = {};
   scopeFilterConfig: Array<FilterConfig> = [];

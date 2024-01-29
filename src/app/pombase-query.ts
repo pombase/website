@@ -662,7 +662,8 @@ export class InteractorsNode extends GeneQueryBase {
 }
 
 export class SubstratesNode extends GeneQueryBase {
-  constructor(nodeName: string, public geneUniquename: string) {
+  constructor(nodeName: string, public geneUniquename: string,
+              public phaseTerm?: string) {
     super(nodeName);
     if (!nodeName) {
       this.setNodeName(this.detailsString());
@@ -672,19 +673,24 @@ export class SubstratesNode extends GeneQueryBase {
   toObject(): Object {
     return {
       node_name: this.getNodeName(),
-      substrates: { 'gene_uniquename': this.geneUniquename, }
+      substrates: { 'gene_uniquename': this.geneUniquename, 'phase_term': this.phaseTerm }
     };
   }
 
   equals(obj: GeneQueryNode): boolean {
     if (obj instanceof SubstratesNode) {
-      return this.geneUniquename === obj.geneUniquename
+      return this.geneUniquename === obj.geneUniquename &&
+        this.phaseTerm == obj.phaseTerm;
     }
     return false;
   }
 
   detailsString(): string {
-    return `substrates_of: ${this.geneUniquename}`;
+    if (this.phaseTerm) {
+      return `substrates_of: ${this.geneUniquename} during ${this.phaseTerm}`;
+    } else {
+      return `all_substrates_of: ${this.geneUniquename}`;
+    }
   }
 }
 

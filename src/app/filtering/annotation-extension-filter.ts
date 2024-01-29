@@ -3,7 +3,7 @@ import { Filter } from '../filtering';
 
 export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
   constructor(private extensionRelNames: Array<string>,
-              private rangeTermIds: Array<string>) { }
+              private filterTermIds: Array<string>) { }
 
   filter(annotationTable: AnnotationTable): [AnnotationTable, number, number] {
     let retTable = [] as AnnotationTable;
@@ -16,7 +16,7 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
       retTermAnnotation.annotations = [];
 
       ANNOTATION: for (let annotation of termAnnotation.annotations) {
-        for (let filterTermId of this.rangeTermIds) {
+        for (let filterTermId of this.filterTermIds) {
           if (annotation.extension) {
             for (let extPart of annotation.extension) {
               const rangeTerm = extPart.ext_range.term;
@@ -51,12 +51,12 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
                       return false;
                     }
 
-                    if (this.rangeTermIds.includes(rangeSummaryTerm.termid)) {
+                    if (this.filterTermIds.includes(rangeSummaryTerm.termid)) {
                       return true;
                     }
 
                     for (const rangeTermInterestingParentId of rangeSummaryTerm.interesting_parent_ids) {
-                      if (this.rangeTermIds.includes(rangeTermInterestingParentId)) {
+                      if (this.filterTermIds.includes(rangeTermInterestingParentId)) {
                         return true;
                       }
                     }
@@ -75,5 +75,9 @@ export class AnnotationExtensionFilter implements Filter<AnnotationTable> {
     }
 
     return [retTable, annotationCount, filteredAnnotationCount];
+  }
+
+  getFilterTermIds(): Array<string>{
+    return this.filterTermIds;
   }
 }
