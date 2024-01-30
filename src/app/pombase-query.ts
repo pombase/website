@@ -921,7 +921,7 @@ export class GeneQuery {
       return new InteractorsNode(nodeName, val['gene_uniquename'], val['interaction_type']);
 
     case 'substrates':
-      return new SubstratesNode(nodeName, val['gene_uniquename']);
+      return new SubstratesNode(nodeName, val['gene_uniquename'], val['phase_term']);
 
     case 'genome_range':
       return new GenomeRangeNode(nodeName, val['start'], val['end'], val['chromosome_name']);
