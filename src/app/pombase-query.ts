@@ -694,6 +694,35 @@ export class SubstratesNode extends GeneQueryBase {
   }
 }
 
+export class GenesTargetingNode extends GeneQueryBase {
+  constructor(nodeName: string, public geneUniquename: string,
+              public targetOfType: 'go'|'phenotype'|'all') {
+    super(nodeName);
+    if (!nodeName) {
+      this.setNodeName(this.detailsString());
+    }
+  }
+
+  toObject(): Object {
+    return {
+      node_name: this.getNodeName(),
+      genes_targeting: { 'gene_uniquename': this.geneUniquename, 'target_of_type': this.targetOfType }
+    };
+  }
+
+  equals(obj: GeneQueryNode): boolean {
+    if (obj instanceof GenesTargetingNode) {
+      return this.geneUniquename === obj.geneUniquename &&
+        this.targetOfType == obj.targetOfType;
+    }
+    return false;
+  }
+
+  detailsString(): string {
+    return `Genes targeting: ${this.geneUniquename}`;
+  }
+}
+
 export class GenomeRangeNode extends GeneQueryBase {
   private _detailsString: string;
 
@@ -922,6 +951,9 @@ export class GeneQuery {
 
     case 'substrates':
       return new SubstratesNode(nodeName, val['gene_uniquename'], val['phase_term']);
+
+    case 'genes_targeting':
+      return new GenesTargetingNode(nodeName, val['gene_uniquename'], val['target_of_type']);
 
     case 'genome_range':
       return new GenomeRangeNode(nodeName, val['start'], val['end'], val['chromosome_name']);

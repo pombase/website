@@ -12,6 +12,15 @@
     <a *ngIf="currentViewState == TableViewState.Details" (click)="showSummary()">Show summary ...</a>
   </div>
 
+  <div class="send-to-query-builder">
+    <div>
+      View causally upstream genes in Advanced Search:
+      <a (click)="sendToQueryBuilder('go')">Gene Ontology</a>
+      |
+      <a (click)="sendToQueryBuilder('phenotype')">Phenotype</a>
+    </div>
+  </div>
+
   <div class="annotation-table-container">
   <table>
     <thead>

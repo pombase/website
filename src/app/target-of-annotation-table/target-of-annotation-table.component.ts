@@ -1,8 +1,11 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
-import { TargetOfAnnotation, GeneShort, GenotypeShort, ReferenceShort } from '../pombase-api.service';
+import { TargetOfAnnotation, GeneShort, GenotypeShort, ReferenceShort, GeneDetails } from '../pombase-api.service';
 import { getAppConfig } from '../config';
 import { TableViewState } from '../pombase-types';
+import { GeneQuery, GenesTargetingNode } from '../pombase-query';
+import { HistoryEntry, QueryService } from '../query.service';
+import { Router } from '@angular/router';
 
 interface DisplayRow {
   showInSummary: boolean;
@@ -25,7 +28,7 @@ interface SummaryRow {
   styleUrls: ['./target-of-annotation-table.component.css']
 })
 export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
-
+  @Input() geneDetails: GeneDetails;
   @Input() annotationTable: Array<TargetOfAnnotation>;
 
   config = getAppConfig().targetOfConfig;
@@ -37,7 +40,8 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
 
   currentViewState = TableViewState.Summary;
 
-  constructor() {
+  constructor(private router: Router,
+              private queryService: QueryService) {
   }
 
   showDetails() {
@@ -93,6 +97,17 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
     } else {
       this.displayTable = [];
     }
+  }
+
+  sendToQueryBuilder(targetOfType: 'go'|'phenotype'|'all') {
+    let queryName = `Targets`;
+
+    const part = new GenesTargetingNode(queryName, this.geneDetails.uniquename, targetOfType);
+    const geneQuery = new GeneQuery(part);
+    const callback = (historyEntry: HistoryEntry) => {
+      this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
+    };
+    this.queryService.runAndSaveToHistory(geneQuery, callback);
   }
 
   ngOnInit() {
