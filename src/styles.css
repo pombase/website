@@ -660,3 +660,10 @@ details {
   box-shadow: 1px 3px 12px 1px #ccc;
   margin: 1em 0.5em;
 }
+
+.docs-colour-block {
+  width: 4em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: baseline;
+}
