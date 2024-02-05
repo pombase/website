@@ -4,28 +4,11 @@ import { TermAnnotation, ReferenceShort, Annotation } from '../pombase-api.servi
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          FilterConfig, AnnotationExternalLinkConfig, getAppConfig,
          AppConfig} from '../config';
-import { AnnotationTable, GeneDetails, GeneShort, GenotypeShort,
-         TermSummaryRow } from '../pombase-api.service';
+import { AnnotationTable, GeneDetails } from '../pombase-api.service';
 import { DeployConfigService } from '../deploy-config.service';
 import { TableViewState } from '../pombase-types';
 import { TermShort } from '../pombase-query';
 import { FilterCombiner } from '../filtering';
-
-const SUMMARY_ROW_TRUNCATED_LIMIT = 10;
-const LARGE_TABLE_ANNOTATION_LIMIT = 1000;
-
-function summaryRowFeatureCount(summaryRow: TermSummaryRow): number {
-  let featureCount = 0;
-
-  if (summaryRow.genes) {
-    featureCount += summaryRow.genes.length;
-  }
-  if (summaryRow.genotypes) {
-    featureCount += summaryRow.genotypes.length;
-  }
-
-  return featureCount;
-}
 
 @Component({
   selector: 'app-annotation-sub-table',
@@ -37,7 +20,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() hideColumns: Array<string>;
   @Input() featureInFirstColumn = false;
   @Input() detailsOnly = false;
-  @Input() annotationTable: AnnotationTable;
+  @Input() annotationTable: Array<TermAnnotation>;
   @Input() geneDetails?: GeneDetails;
   @Input() scope: string;
 
@@ -87,19 +70,9 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
         filters.filter(this.annotationTable);
     } else {
       this.filteredTable = this.annotationTable;
-
-      this.annotationCount = 0;
-
-      this.annotationTable.map(termAnnotation => {
-        this.annotationCount += termAnnotation.annotations.length;
-      });
     }
 
     this.tableIsFiltered = !!filters;
-  }
-
-  isLargeTable(): boolean {
-    return this.annotationCount > LARGE_TABLE_ANNOTATION_LIMIT;
   }
 
   resetFilter(): void {
@@ -130,70 +103,6 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     return this.detailsView[key] || false;
-  }
-
-  getSummaryRowGenes(termAnnotation: TermAnnotation, rowIndex: number): Array<GeneShort> {
-    const summaryRow = termAnnotation.summary[rowIndex];
-    if (this.allOfSummaryRowVisible(termAnnotation, rowIndex)) {
-      return summaryRow.genes;
-    } else {
-      return summaryRow.genes.slice(0, SUMMARY_ROW_TRUNCATED_LIMIT)
-    }
-  }
-
-  getSummaryRowGenotypes(termAnnotation: TermAnnotation, rowIndex: number): Array<GenotypeShort> {
-    const summaryRow = termAnnotation.summary[rowIndex];
-    if (this.allOfSummaryRowVisible(termAnnotation, rowIndex)) {
-      return summaryRow.genotypes;
-    } else {
-      return summaryRow.genotypes.slice(0, SUMMARY_ROW_TRUNCATED_LIMIT);
-    }
-  }
-
-  allOfSummaryRowVisible(termAnnotation: TermAnnotation, rowIndex: number): boolean {
-    if (!this.isLargeTable()) {
-      return true;
-    }
-
-    let key;
-    if (termAnnotation.is_not) {
-      key = 'NOT:' + termAnnotation.term.termid;
-    } else {
-      key = termAnnotation.term.termid;
-    }
-
-    key += ' - ' + rowIndex;
-
-    const summaryRow = termAnnotation.summary[rowIndex];
-
-    const featureCount = summaryRowFeatureCount(summaryRow);
-
-    if (featureCount <= SUMMARY_ROW_TRUNCATED_LIMIT) {
-      return true;
-    }
-
-    return this.summaryRowAllVisible[key] || false;
-  }
-
-  showAllSummaryRowLinkText(termAnnotation: TermAnnotation, rowIndex: number): string {
-    const summaryRow = termAnnotation.summary[rowIndex];
-
-    const featureCount = summaryRowFeatureCount(summaryRow);
-
-    return `Show all ${featureCount} ${this.typeConfig.feature_type} ...`;
-  }
-
-  showAllOfSummaryRow(termAnnotation: TermAnnotation, rowIndex: number) {
-    let key;
-    if (termAnnotation.is_not) {
-      key = 'NOT:' + termAnnotation.term.termid;
-    } else {
-      key = termAnnotation.term.termid;
-    }
-
-    key += ' - ' + rowIndex;
-
-    this.summaryRowAllVisible[key] = true;
   }
 
   toggleDetails(termAnnotation: TermAnnotation) {
@@ -480,8 +389,6 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     this.allTermIds = this.getAllTermIds();
-
-    this.resetFilter();
   }
 
   ngOnInit() {
@@ -492,6 +399,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     // reset when gene changes
+    this.resetFilter();
     this.init();
   }
 }
