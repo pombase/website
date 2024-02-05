@@ -182,6 +182,7 @@ export interface Annotation {
   transcripts: Array<TranscriptDetails>;
   reference: ReferenceShort;
   evidence?: string;
+  annotation_phenotype_score?: string;
   conditions: Array<TermShort>;
   condition_details: Array<[TermShort, String]>;
   assigned_by: string|undefined;

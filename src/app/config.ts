@@ -461,6 +461,7 @@ export interface AnnotationType {
   inherits_from?: string;
   split_by_parents?: Array<SplitByParentsConfig>;
   columns_to_show?: Array<string>;
+  columns_to_show_by_page_type?: { [column_name: string]: Array<string> };
   details_only?: boolean;
   // if true, don't automatically show a gene page section for this type
   no_gene_details_section?: boolean;

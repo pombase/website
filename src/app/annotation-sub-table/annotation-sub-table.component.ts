@@ -278,6 +278,18 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
   }
 
+  hasPhenotypeScores(): boolean {
+    for (const termAnnotation of this.annotationTable) {
+      for (const annotation of termAnnotation.annotations) {
+        if (annotation.annotation_phenotype_score) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
   init() {
     this.termNameColSpan = -1;
 
@@ -287,6 +299,18 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
       for (let columnName of typeConfig.columns_to_show) {
         this.showColumn[columnName] = true;
       }
+    }
+
+    if (typeConfig.columns_to_show_by_page_type &&
+        typeConfig.columns_to_show_by_page_type[this.scope]) {
+      for (let columnName of typeConfig.columns_to_show_by_page_type[this.scope]) {
+        this.showColumn[columnName] = true;
+      }
+    }
+
+    if (this.showColumn['annotation_phenotype_score'] && !this.hasPhenotypeScores()) {
+      // hide the column if there aren't any
+      this.showColumn['annotation_phenotype_score'] = false;
     }
 
     if (this.hideColumns) {

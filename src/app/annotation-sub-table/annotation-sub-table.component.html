@@ -53,6 +53,7 @@
         <th *ngIf="showColumn['genotype_background'] && !featureInFirstColumn">Background</th>
         <th *ngIf="showColumn['transcripts']">Transcript ID</th>
         <th *ngIf="showColumn['evidence']">Evidence</th>
+        <th *ngIf="showColumn['annotation_phenotype_score']">Phenotype score</th>
         <th *ngIf="showColumn['conditions']">Conditions</th>
         <th *ngIf="showColumn['qualifiers']">Qualifiers</th>
         <th *ngIf="showColumn['term-xref']">Source</th>
@@ -181,6 +182,11 @@
               <app-with-or-from-link [withOrFrom]="fromVal"></app-with-or-from-link><span *ngIf="!lastFrom">, </span>
             </span>
           </span>
+        </td>
+        <td *ngIf="showColumn['annotation_phenotype_score']">
+          <div *ngIf="annotation.annotation_phenotype_score">
+            {{annotation.annotation_phenotype_score}}
+          </div>
         </td>
         <td *ngIf="showColumn['conditions']">
           <ul class="conditions">
