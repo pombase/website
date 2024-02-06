@@ -691,6 +691,7 @@ export class ReferenceDetails {
   paralog_annotations: Array<ParalogAnnotation>;
   annotation_details: AnnotationDetailMap;
   gene_count: number;
+  genotype_count: number;
   genes_by_uniquename: GeneMap;
   terms_by_termid: TermMap;
   pdb_entries: Array<PDBEntry>;
@@ -1103,6 +1104,8 @@ export class PombaseAPIService {
 
     return Object.keys(referencesByUniquename)
       .filter((uniquename) => uniquename.match(/^PMID:/))
+      .filter((uniquename) => referencesByUniquename[uniquename].gene_count > 0 ||
+              referencesByUniquename[uniquename].genotype_count > 0)
       .map((key) => processOneReference(referencesByUniquename[key]));
   }
 
