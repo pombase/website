@@ -6420,11 +6420,7 @@ is shown as <em>affecting substrate</em>.</li>
 <p>The solid blue rectangles display the retained amino acids, dashed display the deleted regions.</p>
 <h3 id="fulldetailed-protein-feature-view">Full/detailed protein feature view</h3>
 <p>Follow the “View all protein features …” link for a detailed view on the dedicated protein features page that includes the details of the individual amino acid substitution allele changes and “Partial deletions” tracks:</p>
-<h4 id="screenshot-of-the-full-protein-feature-view-for-pap1">Screenshot of the full protein feature view for pap1</h4>
-<p><img src="assets/gene-pap1-protein-feature-viewer-page-colour.png" class="screenshot" style="width:96.0%" alt="pap1 protein features page" /></p>
-<h4 id="full-protein-feature-view-for-hht1">Full protein feature view for hht1</h4>
-<p><img src="assets/gene-hht1-protein-feature-viewer-page.png" class="screenshot" style="width:96.0%" alt="hht1 protein features page" /></p>
-<h3 id="acknowledgements">Acknowledgements</h3>
+<p><img src="assets/gene-pap1-protein-feature-viewer-page-colour.png" class="screenshot" style="width:96.0%" alt="pap1 protein features page" /> <img src="assets/gene-hht1-protein-feature-viewer-page.png" class="screenshot" style="width:96.0%" alt="hht1 protein features page" /></p>
 <p>Thanks to the team at <a href="https://www.rcsb.org/">RCSB PDB</a> for providing the <a href="https://github.com/rcsb/rcsb-saguaro">Open Source software</a> used to implement this feature.</p>
 
   </div>
@@ -9844,6 +9840,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#viewing-protein-modifications">Viewing protein modifications</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#access-target-genes-individual-gene-products">Access target genes of individual gene products</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-january-17th">Next pombeTalks: Wednesday, January 17th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-joins-elixir-core-data-resources">PomBase joins ELIXIR Core Data Resources</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-december-13th">Next pombeTalks: Wednesday, December 13th</a></div>
@@ -12312,9 +12310,45 @@ Meeting ID: 632 0716 2782<br />
 Passcode: will be given the day of the meeting (and already available on pombeSlack)</p>
 
   </div>
+  <div *ngIf="pageName == 'sent-substrates-to-advanced-search'">
+<h3 id="access-target-genes-individual-gene-products">Access target genes of individual gene products</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>It is now possible to send lists of annotated molecular function substrates to the advanced search from gene pages:</p>
+<p><a href="assets/newsfeed/cdc2-substrates-to-advanced-search.png"><img src="assets/newsfeed/cdc2-substrates-to-advanced-search.png" class="screenshot" loading="lazy" style="width:100.0%" alt="cdc2 - send target genes to the Advanced Search" /></a></p>
+<p>Lists of annotated molecular function substrates of individual genes (i.e protein kinase or transcription factor target genes) can now be sent directly to the Advanced Search. You can send complete lists, or pre-filtered by cell cycle phase.</p>
+
+  </div>
+  <div *ngIf="pageName == 'modification-colours'">
+<h3 id="viewing-protein-modifications">Viewing protein modifications</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene/SPAC1834.04">hht1 gene page</a> for an example.</p>
+<p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view for hht1" /></a></p>
+<p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view modification colour key" /></a></p>
+<p>Visit the <a routerLink="/documentation/gene-page-protein-features-widget">protein feature view documentation page</a> for more information.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-02-08-modification-colours" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="viewing-protein-modifications">Viewing protein modifications</h3>
+<p><em>2024-02-08</em></p>
+<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene/SPAC1834.04">hht1 gene page</a> for an example.</p>
+<p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view for hht1" /></a></p>
+<p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view modification colour key" /></a></p>
+<p>Visit the <a routerLink="/documentation/gene-page-protein-features-widget">protein feature view documentation page</a> for more information.</p>
+</div>
+<div id="2024-02-07-sent-substrates-to-advanced-search" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="access-target-genes-individual-gene-products">Access target genes of individual gene products</h3>
+<p><em>2024-02-07</em></p>
+<p>It is now possible to send lists of annotated molecular function substrates to the advanced search from gene pages:</p>
+<p><a href="assets/newsfeed/cdc2-substrates-to-advanced-search.png"><img src="assets/newsfeed/cdc2-substrates-to-advanced-search.png" class="screenshot" loading="lazy" style="width:100.0%" alt="cdc2 - send target genes to the Advanced Search" /></a></p>
+<p>Lists of annotated molecular function substrates of individual genes (i.e protein kinase or transcription factor target genes) can now be sent directly to the Advanced Search. You can send complete lists, or pre-filtered by cell cycle phase.</p>
+</div>
 <div id="2024-01-17-pombetalks-jan-17" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-january-17th">Next pombeTalks: Wednesday, January 17th</h3>
@@ -14563,7 +14597,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'gene-characterisation'">
 <h3 id="protein-coding-gene-characterisation-status">Protein-coding gene characterisation status</h3>
-<p>Each gene is assigned exactly one characterisation status that reflects how much is known about the gene, whether it is conserved, etc.</p>
+<p>Unknown proteins have become an area of increased concern, following observations that gene characterization rates have stagnated and a large proportion of proteins remain unstudied or understudied even in model organisms. PomBase maintains an unknown protein inventory, first described in <a href="https://doi.org/10.1098/rsob.180241">Wood <em>et al.</em> 2019</a>. We periodically review unknown proteins for available functional data from other species. There are multiple ways to classify whether a gene is functionally characterized, and the concept of “characterization” is clearly a continuum. However, as an initial step in defining “unknowns” we devised a simple binary classification, based on biological processes at the level of the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO slim set</a>.</p>
+<p>A list of <a routerLink="/status/priority-unstudied-genes">“Priority unstudied genes” (vertebrate orthologs, unknown process, protein coding)</a> is updated daily.</p>
 <h4 id="changes-over-time">Changes over time</h4>
 <p><a href="assets/gene_characterisation_status_figure.svg"><img src="assets/gene_characterisation_status_figure.svg" class="screenshot" alt="Gene characterisation status" /></a></p>
 <h4 id="current-status">Current status</h4>
@@ -14577,7 +14612,6 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <p><strong>Dubious:</strong> Unlikely to be protein coding</p>
 <p><strong>Transposon:</strong> A predicted or experimentally verified transposable element.</p>
 <p>Note: You can retrieve current lists of genes with each characterisation status using the <a routerLink="/query">advanced search</a>. Select the Characterisation status query, then choose a status from the pulldown menu, and submit.</p>
-<p>A list of <a routerLink="/status/priority-unstudied-genes">“Priority unstudied genes (vertebrate orthologs, unknown process, protein coding)”</a> is updated daily.</p>
 
   </div>
   <div *ngIf="pageName == 'gene-characterisation-statistics-history'">
