@@ -20,12 +20,6 @@
       Show details ...
     </span>
     <a *ngIf="currentViewState == TableViewState.Details" (click)="allSummaryView()">Show summary ...</a>
-
-    <span class="large-table-message" *ngIf="isLargeTable()">
-      This section has {{annotationCount}} annotations so page loading may be slow.
-      Because of this, we have truncated the inital list of {{this.typeConfig.feature_type}}s in some
-      cases and disabled the "Show details" link.
-    </span>
   </div>
 
   <div class="filter-controls">
@@ -36,6 +30,12 @@
                                   [currentViewState]="currentViewState"
                                   (filterChange)="updateCurrentFilter($event)">
     </app-annotation-table-filters>
+  </div>
+
+  <div class="large-table-message" *ngIf="isLargeTable()">
+    Note: This section has {{annotationCount}} annotations so page loading may be slow.
+    Long lists of {{this.typeConfig.feature_type}}s for some terms has been truncated and
+    the "Show details" link has been disabled.
   </div>
 
   <div *ngIf="geneDetails && typeConfig">

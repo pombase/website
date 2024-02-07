@@ -108,3 +108,9 @@ ul.conditions li {
   font-weight: bold;
   margin: 0.1em 0;
 }
+
+.large-table-message {
+  margin: 0.1em 0 0.5em 0;
+  max-width: 70%;
+  clear: both;
+}
