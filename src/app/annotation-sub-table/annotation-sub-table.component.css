@@ -99,3 +99,12 @@ ul.conditions li {
 .query-link {
   margin-bottom: 0.8em;
 }
+
+.show-details-disabled {
+  color: #aaa;
+}
+
+.show-all-summary-row {
+  font-weight: bold;
+  margin: 0.1em 0;
+}
