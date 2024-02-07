@@ -4,8 +4,10 @@
 </ng-template>
 
 <ng-template #showDetailsDisabled>
-  <div>All details can't be shown because there are too many annotations</div>
-  <div>Use the "+" buttons to view annotations for a term</div>
+  <div>All details for this publication cannot be displayed
+  simultaneously because of the large number of annotations.</div>
+  <div>You can use the "+" buttons to show details for individual
+  terms below.</div>
 </ng-template>
 
 <div class="sub-table">
@@ -34,8 +36,7 @@
 
   <div class="large-table-message" *ngIf="isLargeTable()">
     Note: This section has {{annotationCount}} annotations so page loading may be slow.
-    Long lists of {{this.typeConfig.feature_type}}s for some terms has been truncated and
-    the "Show details" link has been disabled.
+    The {{this.typeConfig.feature_type}} list has been truncated for some terms.
   </div>
 
   <div *ngIf="geneDetails && typeConfig">
