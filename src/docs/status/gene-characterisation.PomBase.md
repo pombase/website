@@ -1,8 +1,22 @@
 ### Protein-coding gene characterisation status
 
-Each gene is assigned exactly one characterisation status that
-reflects how much is known about the gene, whether it is conserved,
-etc.
+Unknown proteins have become an area of increased
+concern, following observations that gene characterization rates have
+stagnated and a large proportion of proteins remain unstudied or
+understudied even in model organisms.  PomBase maintains an unknown
+protein inventory, first described in [Wood *et al.* 2019](https://doi.org/10.1098/rsob.180241).
+We periodically review unknown proteins for available functional data
+from other species.
+There are multiple ways to classify whether a gene is functionally
+characterized, and the concept of “characterization” is clearly a
+continuum. However, as an initial step in defining “unknowns” we
+devised a simple binary classification, based on biological processes
+at the level of the [fission yeast GO slim set](/browse-curation/fission-yeast-bp-go-slim-terms).
+
+
+A list of ["Priority unstudied genes" (vertebrate orthologs, unknown process, protein coding)](/status/priority-unstudied-genes)
+is updated daily.
+
 
 #### Changes over time
 
@@ -44,6 +58,3 @@ Note: You can retrieve current lists of genes with each
 characterisation status using the [advanced search](/query). Select
 the Characterisation status query, then choose a status from the
 pulldown menu, and submit.
-
-A list of ["Priority unstudied genes (vertebrate orthologs, unknown process, protein coding)"](/status/priority-unstudied-genes)
-is updated daily.
