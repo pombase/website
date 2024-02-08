@@ -27,6 +27,7 @@ export interface Metadata {
   date_version: string;
   export_prog_name: string;
   export_prog_version: string;
+  data_source_versions: { [dataSourceName: string]: string };
   gene_count: number;
   term_count: number;
   cv_versions: { [cv_name: string]: string };

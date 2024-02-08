@@ -4,6 +4,15 @@
     <app-stats-ribbon class="stats-ribbon"></app-stats-ribbon>
   </div>
 
+  <h4>Data source versions</h4>
+  <div class="section-body">
+    <ul>
+      <li *ngFor="let nameVersion of dataSourceNameVersions">
+        {{nameVersion[0]}}: {{nameVersion[1]}}
+      </li>
+    </ul>
+  </div>
+
   <h4>CV versions</h4>
   <div class="section-body">
     <app-all-cv-versions></app-all-cv-versions>
