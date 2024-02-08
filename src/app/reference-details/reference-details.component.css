@@ -25,8 +25,9 @@ div.small-graphical-abstract-text {
   white-space: nowrap;
   margin: 0.5em 0em 0.5em 1.5em;
 }
-.small-graphical-abstract {
+.small-graphical-abstract img {
   width: 300px;
+  height: 185px;
 }
 .big-graphical-abstract {
   max-width: 75vw;
