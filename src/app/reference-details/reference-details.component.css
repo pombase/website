@@ -31,6 +31,7 @@ div.small-graphical-abstract-text {
 }
 .big-graphical-abstract {
   max-width: 75vw;
+  min-height: 185px;
 }
 
 @supports (display: grid) {
