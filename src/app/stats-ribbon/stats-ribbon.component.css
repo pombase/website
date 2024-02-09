@@ -8,13 +8,13 @@
 }
 
 @media (max-width: 1375px) and (min-width: 1000px), (max-width: 600px) {
-  .publication-count {
+  .horizontal.publication-count {
     display: none;
   }
 }
 
 @media (max-width: 1240px) and (min-width: 1000px), (max-width: 380px) {
-  .annotation-count {
+  .horizontal.annotation-count {
     display: none;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Metadata, DatabaseStatistics, StatCountsByTaxon,
          PombaseAPIService } from '../pombase-api.service';
@@ -10,6 +10,8 @@ import { getAppConfig, ConfigOrganism } from '../config';
   styleUrls: ['./stats-ribbon.component.css']
 })
 export class StatsRibbonComponent implements OnInit {
+  @Input() horizontalOrVertical: "horizontal"|"vertical" = "horizontal";
+
   metadata: Metadata|undefined = undefined;
   stats: DatabaseStatistics|undefined = undefined;
   organismStats: StatCountsByTaxon|undefined = undefined;
