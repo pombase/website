@@ -9,4 +9,5 @@ export class CurationStatsComponent {
   cumulativeByYearPlotLoaded = false;
   curatedByYearPlotLoaded = false;
   curatableByYearPlotLoaded = false;
+  communityResponseRates = false;
 }
