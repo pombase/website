@@ -30,9 +30,14 @@ The detailed view shows more information for each annotation, and may display ad
     evidence that supports the annotation. Modification annotations
     use some of the
     [codes](http://geneontology.org/docs/guide-go-evidence-codes/)
-    defined by the GO Consortium, plus a small subset of the 
+    defined by the GO Consortium, plus a small subset of the
     [Evidence Ontology](http://www.evidenceontology.org/) (ECO).
-5.  The residue(s) modified (where available).
+5.  The residue(s) modified (where available).  Note that the PomBase
+    reported residues may differ from the published residues in cases
+    where the gene structure coordinates have changed. In these cases
+    we remap the modification to the new residue number. If it is
+    possible that residue numbers have changed for a given protein
+    there is a warning at the top of the protein modification section.
 6.  The published source of the annotation (where available)
 7.  The total number of genes annotated to this term or any of its
     descendants, linked to a list of those genes. The gene list page
