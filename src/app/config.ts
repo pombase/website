@@ -473,6 +473,7 @@ export interface AnnotationType {
   filters?: Array<FilterConfig>;
   external_db_link_keys?: Array<string>;
   external_link_config?: Array<AnnotationExternalLinkConfig>;
+  gene_structure_change_message?: string;
   residue_as_extension_part?: boolean;
   slim_subset_name?: string;
   slim_description?: string;

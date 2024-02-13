@@ -382,6 +382,13 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     return false;
   }
 
+  showStructureChangedMessage(): boolean {
+    return !!this.typeConfig.gene_structure_change_message &&
+      !!this.geneDetails &&
+      !!this.geneDetails.gene_history &&
+      this.geneDetails.gene_history.length > 0;
+  }
+
   init() {
     this.termNameColSpan = -1;
 

@@ -39,6 +39,11 @@
     The {{this.typeConfig.feature_type}} list has been truncated for some terms.
   </div>
 
+  <div class="gene-structure-changed-message"
+       *ngIf="showStructureChangedMessage()">
+    {{typeConfig.gene_structure_change_message}}
+  </div>
+
   <div *ngIf="geneDetails && typeConfig">
     <app-annotation-table-widgets [annotationTable]="annotationTable"
                                   [typeConfig]="typeConfig"
