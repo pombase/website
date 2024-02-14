@@ -234,17 +234,44 @@ condition. The search uses the same condition descriptors as Canto and
 the ${database_name} web pages. Start typing, then choose from the
 autocomplete options.
 
-Note that the results will include any gene that has phenotype
-annotations including the specified condition *for any
+Note that the results will include any gene with phenotype annotations
+for the phenotype of interest, including the specified condition, *for any
 allele*. Queries that include conditions can be combined using the
 AND, NOT, or OR operators like any other, but the result of any
 combination of phenotype queries will likely include annotations for
 different alleles. There may not be any individual annotation in which
 both/all of multiple conditions co-occur.
 
-The search does not yet support querying for multiple conditions on
-the same annotation, nor for queries that *exclude* a given condition;
-both are planned for future development.
+Use case: Query FYPO phenotype (FYPO:0000001) (i.e. any phenotype) and condition + phloxine B" \
+to retrieve all genes with a phenotype assay using phloxine B as a condition.
+
+Use case: Query FYPO inviable vegetative cell population(FYPO:0002061) + high temperature (FYECO:0000004) \
+to retrieve all genes inviable at high temperature (the subtract all
+"viable vegetative cell population/FYPO:0002060 standard temperature
+(FYECO:0000005). If you want to restrict this output to likely
+temperature-sensitive alleles you could make a new query for all
+"viable vegetative cell population" (FYPO:0002060) standard
+temperature (FYECO:0000005), and subtract this query from the previous
+query.
+
+Note that for many sensitivity phenotypes, you do not need to constrain
+on condition, because the terms are precomposed i.e. `FYPO:0000089`
+"sensitive to methyl methanesulfonate".  In these cases the condition
+may not always be explicitly curated.
+
+The “Exclude condition” option restricts the results to exclude any
+gene with phenotype annotations to the phenotype term of interest
+including the specified condition, for any allele, but only where they
+are not present with another condition. This means, for example, if
+you exclude "high temperature" for a specific phenotype, the gene will
+remain in your output list if it has another annotation to the same
+term without a recorded condition, or "standard temperature". Start
+typing, then choose from the autocomplete options.
+
+Warning: Condition constraint and exclusion should be used with
+caution, and will be more successful for non-standard conditions like
+"high temperature" and "low temperature" "low glucose" because
+standard conditions and media are not always explicitly recorded.
 
 %%if db=PomBase
 #### Disease

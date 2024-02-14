@@ -18,12 +18,13 @@ export class StatsRibbonComponent implements OnInit {
   configOrganism: ConfigOrganism|undefined = undefined;
   curatedPublicationsCount = 0;
   dbCreationDate: string|undefined = undefined;
+  appConfig = getAppConfig();
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   ngOnInit() {
 
-    this.configOrganism = getAppConfig().getConfigOrganism();
+    this.configOrganism = this.appConfig.getConfigOrganism();
 
     this.pombaseApiService.getMetadata()
       .then(metadata => {

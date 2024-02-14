@@ -21,4 +21,9 @@
 
 .vertical {
   display: block;
+  padding-bottom: 0.1em;
+}
+
+.stats-ribbon li {
+  font-size: 90%;
 }
