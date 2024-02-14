@@ -61,17 +61,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   }
 
   phenotypeConditionMatched(term: TermShort): void {
-    if (!this.phenotypeConditions.find(el => el.termid === term.termid)) {
-      this.phenotypeConditions.push(term);
-    }
-  }
-
-  removePhenotypeCondition(term: TermAndName): void {
-    const deleteIndex = this.phenotypeConditions.findIndex(el => el.termid === term.termid);
-
-    if (deleteIndex > -1) {
-      this.phenotypeConditions.splice(deleteIndex, 1);
-    }
+    this.phenotypeConditions = [term];
   }
 
   phenotypeExcludeConditionMatched(term: TermShort) {
@@ -157,6 +147,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
       !!this.termNodeConfig.annotationFeatureType &&
       this.termNodeConfig.annotationFeatureType === 'genotype';
     this.phenotypeConditions = [];
+    this.phenotypeExcludeConditions = [];
     if (this.isPhenotypeNode) {
       this.expression = 'any';
       this.phenotypeConditionNamespace = this.termNodeConfig.phenotypeConditionNamespace;

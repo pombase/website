@@ -47,10 +47,6 @@ div.phenotype-condition-selector {
   display: inline-block;
 }
 
-.constraint-toggle {
-  vertical-align: top;
-}
-
 .added-condition {
   margin: 0.5em 1em 0.5em 1em;
 }
