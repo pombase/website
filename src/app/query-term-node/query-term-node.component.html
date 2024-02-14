@@ -69,7 +69,7 @@
                             (termMatched)="phenotypeConditionMatched($event)"></app-term-name-complete>
   </div>
 
-  <div *ngIf="!deployConfigService.productionMode() && phenotypeConditionNamespace"
+  <div *ngIf="phenotypeConditionNamespace"
        class="phenotype-condition-selector phenotype-filter">
 
     <input id="show-ex-cond-select" type="checkbox" [(ngModel)]="showExcludeConditionSelector"

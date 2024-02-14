@@ -2,7 +2,6 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angu
 
 import { TermShort, TermNode, TermAndName, Ploidiness } from '../pombase-query';
 import { QueryNodeConfig } from '../config';
-import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-query-term-node',
@@ -28,7 +27,7 @@ export class QueryTermNodeComponent implements OnInit, OnChanges {
   showConditionSelector = false;
   showExcludeConditionSelector = false;
 
-  constructor(public deployConfigService: DeployConfigService) { }
+  constructor() { }
 
   singleMultiChange(buttonType: 'single'|'multi') {
     if (buttonType === 'single' && !this.multiLocus) {
