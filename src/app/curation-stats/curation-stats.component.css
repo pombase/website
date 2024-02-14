@@ -18,3 +18,8 @@ h4 {
 .plot-image {
   width: 35em;
 }
+
+.stats-ribbon {
+  margin-bottom: 3em;
+  font-size: 120%;
+}
