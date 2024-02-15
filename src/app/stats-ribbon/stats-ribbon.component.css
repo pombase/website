@@ -8,22 +8,13 @@
 }
 
 @media (max-width: 1375px) and (min-width: 1000px), (max-width: 600px) {
-  .horizontal.publication-count {
+  .annotation-count {
     display: none;
   }
 }
 
 @media (max-width: 1240px) and (min-width: 1000px), (max-width: 380px) {
-  .horizontal.annotation-count {
+  .publication-count {
     display: none;
   }
-}
-
-.vertical {
-  display: block;
-  padding-bottom: 0.1em;
-}
-
-.stats-ribbon li {
-  font-size: 90%;
 }

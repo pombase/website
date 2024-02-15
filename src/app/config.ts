@@ -159,6 +159,15 @@ export interface NavBarConfig {
   nav_bar_menus: Array<NavBarMenu>;
 }
 
+export interface AnnotationTypeGroup {
+  display_name: string;
+  cv_names: Array<string>;
+}
+
+export interface StatsPageConfig {
+  annotation_type_groups: Array<AnnotationTypeGroup>;
+}
+
 export interface GeneResultsFieldConfig {
   name: string;
   display_name: string;
@@ -357,6 +366,8 @@ export interface AppConfig {
 
   documentation: DocumentationConfig;
   navBar: NavBarConfig;
+
+  stats: StatsPageConfig;
 
   queryBuilder: QueryBuilderConfig;
 
@@ -842,6 +853,8 @@ let _appConfig: AppConfig = {
 
   documentation: docConfig,
   navBar: pombaseConfig.nav_bar_config,
+
+  stats: pombaseConfig.stats,
 
   // query builder node configuration:
   queryBuilder: pombaseConfig.query_builder,

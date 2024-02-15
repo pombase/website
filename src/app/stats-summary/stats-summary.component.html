@@ -1,0 +1,24 @@
+<div class="stats-summary">
+  <div>
+    <div *ngIf="dbCreationDate" class="db-creation-date">Last updated: {{dbCreationDate}}</div>
+    <div *ngIf="curatedPublicationsCount != 0">
+      {{curatedPublicationsCount}} curated publications
+      <ul *ngIf="stats">
+        <li *ngIf="stats.community_pubs_count > 0">
+          Community: {{stats.community_pubs_count}}
+        </li>
+        <li *ngIf="stats.non_community_pubs_count > 0">
+          {{appConfig.site_name}}: {{stats.non_community_pubs_count}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div *ngIf="organismStats">
+    {{organismStats.annotations}} annotations
+    <ul>
+      <li *ngFor="let groupTotal of annotationGroupTotals">
+        {{groupTotal[0]}}: {{groupTotal[1]}}
+      </li>
+    </ul>
+  </div>
+</div>

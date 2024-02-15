@@ -1,0 +1,20 @@
+
+
+.vertical {
+  display: block;
+  padding-bottom: 0.1em;
+}
+
+.stats-summary li {
+  font-size: 90%;
+}
+
+.stats-summary > div {
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 2em;
+}
+
+.db-creation-date {
+  padding-bottom: 1em;
+}

@@ -33,9 +33,17 @@ export interface Metadata {
   cv_versions: { [cv_name: string]: string };
 }
 
+type StatsTableRow = [string, Array<number>];
+
+export interface StatsIntegerTable {
+  header: Array<string>;
+  data: Array<StatsTableRow>;
+}
+
 export interface StatCountsByTaxon {
   genes: number;
   annotations: number;
+  annotation_type_counts_by_year: StatsIntegerTable|undefined;
 }
 
 export interface DatabaseStatistics {

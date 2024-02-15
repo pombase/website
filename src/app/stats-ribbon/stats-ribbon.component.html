@@ -1,20 +1,9 @@
 <div class="stats-ribbon">
-  <span class="{{horizontalOrVertical}}"
-        *ngIf="dbCreationDate">Last updated: {{dbCreationDate}}</span>
-  <span class="{{horizontalOrVertical}}"
-        *ngIf="organismStats" class="annotation-count">
+  <span *ngIf="dbCreationDate">Last updated: {{dbCreationDate}}</span>
+  <span *ngIf="organismStats" class="annotation-count">
     {{organismStats.annotations}} annotations
   </span>
-  <span class="{{horizontalOrVertical}}"
-        *ngIf="curatedPublicationsCount != 0" class="publication-count">
+  <span *ngIf="curatedPublicationsCount != 0" class="publication-count">
     {{curatedPublicationsCount}} curated publications
-      <ul *ngIf="horizontalOrVertical == 'vertical' && stats">
-        <li *ngIf="stats.community_pubs_count > 0">
-          Community: {{stats.community_pubs_count}}
-        </li>
-        <li *ngIf="stats.non_community_pubs_count > 0">
-          {{appConfig.site_name}}: {{stats.non_community_pubs_count}}
-        </li>
-      </ul>
   </span>
 </div>
