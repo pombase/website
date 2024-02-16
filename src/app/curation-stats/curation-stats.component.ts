@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CurationStatsComponent {
   cumulativeByYearPlotLoaded = false;
+  cumulativeAnnotationByYearPlotLoaded = false;
   curatedByYearPlotLoaded = false;
   curatableByYearPlotLoaded = false;
   communityResponseRates = false;

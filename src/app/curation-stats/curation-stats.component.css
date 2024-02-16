@@ -7,6 +7,10 @@
   width: 38em;
 }
 
+#container > div.wide-graph {
+  width: 76em;
+}
+
 h3 {
   padding-bottom: 0.5em;
 }
@@ -17,6 +21,10 @@ h4 {
 
 .plot-image {
   width: 35em;
+}
+
+.wide-graph .plot-image {
+  width: 70em;
 }
 
 .stats-ribbon {

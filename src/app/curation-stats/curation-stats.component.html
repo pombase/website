@@ -8,6 +8,18 @@
     </div>
   </div>
 
+<div class="wide-graph">
+  <div *ngIf="!cumulativeAnnotationByYearPlotLoaded">
+    Loading ...
+  </div>
+  <h4 *ngIf="cumulativeAnnotationByYearPlotLoaded">
+    Cumulative annotation type count by year
+  </h4>
+  <img (load)="cumulativeAnnotationByYearPlotLoaded=true" class="plot-image"
+       alt="Cumulative annotation type count by year"
+       src="/api/v1/dataset/latest/stats/cumulative_annotation_type_counts_by_year"/>
+</div>
+
 <div>
   <div *ngIf="!cumulativeByYearPlotLoaded">
     Loading ...
