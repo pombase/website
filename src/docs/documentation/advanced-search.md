@@ -259,14 +259,15 @@ on condition, because the terms are precomposed i.e. `FYPO:0000089`
 "sensitive to methyl methanesulfonate".  In these cases the condition
 may not always be explicitly curated.
 
-The “Exclude condition” option restricts the results to exclude any
-gene with phenotype annotations to the phenotype term of interest
-including the specified condition, for any allele, but only where they
-are not present with another condition. This means, for example, if
+The “Exclude condition” option excludes from the results any
+annotations to the phenotype term of interest that include the
+specified condition (note: annotations to the same gene with a
+different condition, or no condition specified, will retained in the
+gene result list).  This means, for example, if
 you exclude "high temperature" for a specific phenotype, the gene will
 remain in your output list if it has another annotation to the same
-term without a recorded condition, or "standard temperature". Start
-typing, then choose from the autocomplete options.
+term without a recorded condition, or "standard temperature".  To find
+a condition, start typing, then choose from the autocomplete options.
 
 Warning: Condition constraint and exclusion should be used with
 caution, and will be more successful for non-standard conditions like
