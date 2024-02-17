@@ -12,7 +12,7 @@ import { TermShort } from '../pombase-query';
 import { FilterCombiner } from '../filtering';
 
 const SUMMARY_ROW_TRUNCATED_LIMIT = 80;
-const LARGE_TABLE_ANNOTATION_LIMIT = 6000;
+const LARGE_TABLE_ANNOTATION_LIMIT = 5000;
 
 function summaryRowFeatureCount(summaryRow: TermSummaryRow): number {
   let featureCount = 0;
