@@ -4,7 +4,13 @@
 
 # run as:
 #  etc/process-markdown.pl \
-#     --markdown-docs src/docs \
+#     --web-config config.json \
+#     --spotlight-config spotlights.json \
+#     --explore-config explore.json \
+#     --data-files-dir data_files/ \
+#     --doc-config src/app/config/doc-config.json \
+#     --json-docs src/app/config/docs.json \
+#     --markdown-docs src/docs/ \
 #     --recent-news-component src/app/recent-news/recent-news.component.html \
 #     --docs-component src/app/docs/docs.component.html \
 #     --front-panel-content-component src/app/front-panel-content.html
