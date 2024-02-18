@@ -18,9 +18,9 @@ will attempt to notify all parties.
     gene names with four letters, or without an integer, have been
     grandfathered into the database, but all new standard gene names
     must conform to the three-letters-plus-integer pattern.)
-2.  The gene name registration form will return soon. To reserve a
-    gene name in the meantime, please [email the helpdesk](mailto:${helpdesk_address}?subject=gene name
-    reservation) and include the gene systematic ID, proposed gene
+2.  To reserve a gene name, please
+    [email the helpdesk](mailto:${helpdesk_address}?subject=gene name reservation)
+    and include the gene systematic ID, proposed gene
     name, name description, the relevant PubMed ID (if available), and
     any other information.
 3.  The 3-letter gene symbol should stand for a description of a
@@ -35,9 +35,10 @@ will attempt to notify all parties.
     asterisk, e.g. "cdc\*". Also check the usage of the 3-letter
     code in *S. cerevisiae* at [SGD](http://www.yeastgenome.org/).
 4.  For non-coding RNA genes, follow [these rules](https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026#419163545) from [Lera-Ramirez et al. 2023](https://doi.org/10.1093/genetics/iyad143).
-5.  Please include your gene name(s) in the abstracts of any relevant
-    papers. This simplifies the task of identifying yeast gene names
-    that are already in use.
+5.  Please include your gene name(s) in the abstracts and/or of any
+    relevant papers. This simplifies the task of identifying yeast
+    gene names that are already in use, and we will be able to use
+    this data to preload the curation tool.
 6.  At the time of registration, the *${species_abbrev}* curator will check
     PubMed, GenBank/EMBL/DDBJ and the Gene Name Registry to ensure the
     gene name is unique. If your chosen gene name is not unique, you
