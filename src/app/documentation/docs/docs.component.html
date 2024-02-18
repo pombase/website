@@ -5485,8 +5485,14 @@ PomBase using the Ensembl viewer.</p>
 <p>Different alleles of one gene may have different phenotypes, and one allele may give rise to different phenotypes under different experimental conditions. At present, you can retrieve annotations for all alleles of a gene, or use the “Expression level” options restrict the query to null alleles (covers deletions and any other sequence changes, such as most disruptions, that completely abolish expression of the gene) or overexpression of the wild type allele.</p>
 <p><img src="assets/fypo_condition_query.png" class="screenshot" width="651" alt="phenotype condition search option" /></p>
 <p>The “Constrain condition” option restricts the results to include only genes that have phenotype annotations including the specified condition. The search uses the same condition descriptors as Canto and the PomBase web pages. Start typing, then choose from the autocomplete options.</p>
-<p>Note that the results will include any gene that has phenotype annotations including the specified condition <em>for any allele</em>. Queries that include conditions can be combined using the AND, NOT, or OR operators like any other, but the result of any combination of phenotype queries will likely include annotations for different alleles. There may not be any individual annotation in which both/all of multiple conditions co-occur.</p>
-<p>The search does not yet support querying for multiple conditions on the same annotation, nor for queries that <em>exclude</em> a given condition; both are planned for future development.</p>
+<p>Note that the results will include any gene with phenotype annotations for the phenotype of interest, including the specified condition, <em>for any allele</em>. Queries that include conditions can be combined using the AND, NOT, or OR operators like any other, but the result of any combination of phenotype queries will likely include annotations for different alleles. There may not be any individual annotation in which both/all of multiple conditions co-occur.</p>
+<p>Use case: Query FYPO phenotype (FYPO:0000001) (i.e. any phenotype) and condition + phloxine B”<br />
+to retrieve all genes with a phenotype assay using phloxine B as a condition.</p>
+<p>Use case: Query FYPO inviable vegetative cell population(FYPO:0002061) + high temperature (FYECO:0000004)<br />
+to retrieve all genes inviable at high temperature (the subtract all “viable vegetative cell population/FYPO:0002060 standard temperature (FYECO:0000005). If you want to restrict this output to likely temperature-sensitive alleles you could make a new query for all”viable vegetative cell population” (FYPO:0002060) standard temperature (FYECO:0000005), and subtract this query from the previous query.</p>
+<p>Note that for many sensitivity phenotypes, you do not need to constrain on condition, because the terms are precomposed i.e. <code>FYPO:0000089</code> “sensitive to methyl methanesulfonate”. In these cases the condition may not always be explicitly curated.</p>
+<p>The “Exclude condition” option excludes from the results any annotations to the phenotype term of interest that include the specified condition (note: annotations to the same gene with a different condition, or no condition specified, will retained in the gene result list). This means, for example, if you exclude “high temperature” for a specific phenotype, the gene will remain in your output list if it has another annotation to the same term without a recorded condition, or “standard temperature”. To find a condition, start typing, then choose from the autocomplete options.</p>
+<p>Warning: Condition constraint and exclusion should be used with caution, and will be more successful for non-standard conditions like “high temperature” and “low temperature” “low glucose” because standard conditions and media are not always explicitly recorded.</p>
 <h4 id="disease">Disease</h4>
 <p>Search the Monarch Disease Ontology to find <em>S. pombe</em> genes whose human orthologs have been implicated in disease. Start typing ‘disease’ or the name of a specific disease, and choose from the autocomplete options. To retrieve all disease-associated genes, type or paste “MONDO:0000001”.</p>
 <h4 id="product-type">Product type</h4>
@@ -6288,7 +6294,7 @@ PomBase using the Ensembl viewer.</p>
 <li>Modification annotations may have extensions (see below) to capture any of several types of additional detail. <em>S. pombe</em> genes link to PomBase gene pages, and GO term names link to PomBase ontology term summary pages.</li>
 <li>The summary view is filtered, using the ontology structure, so that it shows only the most specific terms used to annotate a gene. Modification annotations curated for a gene using less specific terms (“superclasses” or “ancestors” in the ontology) appear only in the detailed view.</li>
 <li>An abbreviation (code) or brief description for the type of evidence that supports the annotation. Modification annotations use some of the <a href="http://geneontology.org/docs/guide-go-evidence-codes/">codes</a> defined by the GO Consortium, plus a small subset of the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</li>
-<li>The residue(s) modified (where available).</li>
+<li>The residue(s) modified (where available). Note that the PomBase reported residues may differ from the published residues in cases where the gene structure coordinates have changed. In these cases we remap the modification to the new residue number. If it is possible that residue numbers have changed for a given protein there is a warning at the top of the protein modification section.</li>
 <li>The published source of the annotation (where available)</li>
 <li>The total number of genes annotated to this term or any of its descendants, linked to a list of those genes. The gene list page includes basic information about the ontology term, and a link to send the gene list to the advanced search.</li>
 </ol>
@@ -9433,6 +9439,12 @@ Example queries:
 <p>The current version of the manually curated list of orthologs and orthologous groups identified between fission and budding yeast is available for download from the <a href="https://www.pombase.org/data/orthologs/">orthologs</a> FTP directory (linked from the <a routerLink="/datasets">Datasets</a> page).</p>
 
 </div>
+<div (click)="faq_navigate($event, '/faq/how-do-i-reserve-gene-name', 'How do I reserve a gene name?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'how-do-i-reserve-gene-name' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
+<h3 id="how-do-i-reserve-gene-name">How do I reserve a gene name?</h3>
+<!-- pombase_categories: Genome statistics and lists,Finding data -->
+<p>To reserve a gene name please refer to our <a routerLink="/submit-data/gene-names">gene naming documentation</a></p>
+
+</div>
 <div (click)="faq_navigate($event, '/faq/how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites', 'How does PomBase determine a gene’s full-length transcript? / UTR coordinates? / transcription start and end sites?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'finding-data' || pageName == 'how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">How does PomBase determine a gene’s full-length transcript? / UTR coordinates? / transcription start and end sites?</h3>
 <!-- pombase_categories: Genome statistics and lists,Finding data -->
@@ -9840,6 +9852,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-february-21st">Next pombeTalks: Wednesday, February 21st</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#viewing-protein-modifications">Viewing protein modifications</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#access-target-genes-individual-gene-products">Access target genes of individual gene products</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-january-17th">Next pombeTalks: Wednesday, January 17th</a></div>
@@ -12329,9 +12342,44 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <p>Visit the <a routerLink="/documentation/gene-page-protein-features-widget">protein feature view documentation page</a> for more information.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-feb-21'">
+<h3 id="next-pombetalks-wednesday-february-21st">Next pombeTalks: Wednesday, February 21st</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> session S04E05 will take place on Wednesday, February 21st.</p>
+<p>The session will start at: 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Francisco Prieto Ruiz</strong><br />
+“Myosin II regulatory light chain phosphorylation and formin availability modulate cytokinesis upon changes in carbohydrate metabolism”</p></li>
+<li><p><strong>Haoran Liu</strong> “The cross-regulation between Set1, Clr4, and Lsd1/2 in fission yeast”</p></li>
+</ul>
+<p>Zoom details:<br />
+pombeTalks S04E05 Zoom Meeting<br />
+Zoom meeting ID: 944 9125 6052<br />
+Passcode: will be given the day of the meeting (and already available on pombeSlack)</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-02-15-pombetalks-feb-21" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-february-21st">Next pombeTalks: Wednesday, February 21st</h3>
+<p><em>2024-02-15</em></p>
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> session S04E05 will take place on Wednesday, February 21st.</p>
+<p>The session will start at: 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Francisco Prieto Ruiz</strong><br />
+“Myosin II regulatory light chain phosphorylation and formin availability modulate cytokinesis upon changes in carbohydrate metabolism”</p></li>
+<li><p><strong>Haoran Liu</strong> “The cross-regulation between Set1, Clr4, and Lsd1/2 in fission yeast”</p></li>
+</ul>
+<p>Zoom details:<br />
+pombeTalks S04E05 Zoom Meeting<br />
+Zoom meeting ID: 944 9125 6052<br />
+Passcode: will be given the day of the meeting (and already available on pombeSlack)</p>
+</div>
 <div id="2024-02-08-modification-colours" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="viewing-protein-modifications">Viewing protein modifications</h3>
@@ -28518,7 +28566,7 @@ Joined contigs p4C9 and c977</p>
 <h2 id="fission-yeast-gene-name-registry">Fission yeast gene name registry</h2>
 <p>The Gene Naming Committee was initiated by Amar Klar, Paul Nurse and Mitsuhiro Yanagida to unify fission yeast gene names for newly defined genes, and resolve gene name conflicts.</p>
 <h3 id="gene-name-reservation">Gene name reservation</h3>
-<p>The <strong>gene name registration form</strong> will return soon. To reserve a gene name in the meantime, please <a href="mailto:helpdesk@pombase.org?subject=gene%20name%20reservation">email the helpdesk</a> and include:</p>
+<p>To reserve a gene name, please <a href="mailto:helpdesk@pombase.org?subject=gene%20name%20reservation">email the helpdesk</a> and include:</p>
 <ul>
 <li>Systematic ID</li>
 <li>Gene name</li>
@@ -28526,11 +28574,14 @@ Joined contigs p4C9 and c977</p>
 <li>PubMed ID (if available) for the paper in which the name is first published</li>
 <li>Any other information</li>
 </ul>
-<h3 id="s.-pombe-gene-naming-guidelines"><a routerLink="/submit-data/gene-naming-guidelines"><em>S. pombe</em> gene naming guidelines</a></h3>
-<p>How to choose and reserve a gene name; name conflict resolution</p>
-<h3 id="gene-naming-committee-members"><a routerLink="/submit-data/gene-naming-committee-members">Gene Naming Committee members</a></h3>
-<hr />
-<p>Historical note: Inventories of reserved gene names and <a routerLink="/submit-data/gene-name-conflicts">gene name conflicts</a> were maintained in the past, but have not been updated for several years.</p>
+<h3 id="s.-pombe-gene-naming-guidelines"><em>S. pombe</em> gene naming guidelines</h3>
+<p><a routerLink="/submit-data/gene-naming-guidelines">How to choose and reserve a gene name; name conflict resolution</a></p>
+<h3 id="gene-naming-committee">Gene Naming Committee</h3>
+<p><a routerLink="/submit-data/gene-naming-committee-members">Current committee members</a></p>
+<h3 id="allele-naming-guidelines">Allele naming guidelines</h3>
+<p>Revised allele naming guidelines are published in <a href="https://doi.org/10.1093/genetics/iyad143">Lera-Ramirez <em>et al.</em> 2023</a></p>
+<h3 id="historical-note">Historical note</h3>
+<p>Inventories of reserved gene names and <a routerLink="/submit-data/gene-name-conflicts">gene name conflicts</a> were maintained in the past, but have not been updated for several years.</p>
 
   </div>
   <div *ngIf="pageName == 'gene-naming-committee-members'">
@@ -28586,10 +28637,10 @@ Joined contigs p4C9 and c977</p>
 <h3 id="guidelines-for-naming-s.-pombe-genes">Guidelines for naming <em>S. pombe</em> genes</h3>
 <ol type="1">
 <li>The gene name should consist of three italicized lower case letters (the gene symbol) followed by an integer (e.g. rad26). This will not be italicized in the database. (Note that a few historical gene names with four letters, or without an integer, have been grandfathered into the database, but all new standard gene names must conform to the three-letters-plus-integer pattern.)</li>
-<li>The gene name registration form will return soon. To reserve a gene name in the meantime, please <a href="mailto:helpdesk@pombase.org?subject=gene%20name%20reservation">email the helpdesk</a> and include the gene systematic ID, proposed gene name, name description, the relevant PubMed ID (if available), and any other information.</li>
+<li>To reserve a gene name, please <a href="mailto:helpdesk@pombase.org?subject=gene%20name%20reservation">email the helpdesk</a> and include the gene systematic ID, proposed gene name, name description, the relevant PubMed ID (if available), and any other information.</li>
 <li>The 3-letter gene symbol should stand for a description of a phenotype, gene product or gene function. In addition, we strongly prefer that a given gene symbol have only one associated description, i.e., all genes which use a given 3 letter symbol should have a related phenotype, gene product or gene function. If a 3-letter symbol is already in use, it should not be used to describe a different class of genes. Before choosing your gene name, search PomBase for any gene name beginning with the 3-letter symbol, by entering the 3-letter name followed by an asterisk, e.g. “cdc*”. Also check the usage of the 3-letter code in <em>S. cerevisiae</em> at <a href="http://www.yeastgenome.org/">SGD</a>.</li>
 <li>For non-coding RNA genes, follow <a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026#419163545">these rules</a> from <a href="https://doi.org/10.1093/genetics/iyad143">Lera-Ramirez et al. 2023</a>.</li>
-<li>Please include your gene name(s) in the abstracts of any relevant papers. This simplifies the task of identifying yeast gene names that are already in use.</li>
+<li>Please include your gene name(s) in the abstracts and/or of any relevant papers. This simplifies the task of identifying yeast gene names that are already in use, and we will be able to use this data to preload the curation tool.</li>
 <li>At the time of registration, the <em>S. pombe</em> curator will check PubMed, GenBank/EMBL/DDBJ and the Gene Name Registry to ensure the gene name is unique. If your chosen gene name is not unique, you will be contacted and asked to select a new name.</li>
 <li>Please check that the reserved gene name is still unique, and that the gene still has no other name used for it, before submitting a publication.</li>
 <li>If it is discovered that your gene has been previously named, your gene name would instead become an alias (synonym) for the locus, and it and any associated references will remain searchable and linked to the standard locus name.</li>
