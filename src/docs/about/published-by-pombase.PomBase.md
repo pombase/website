@@ -7,6 +7,18 @@ Canto, FYPO, annotations and Compara.
 
 ### Journal articles
 
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyae007"></div>
+
+<div class="pub-citation">
+Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood \
+PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability \
+*Genetics*, September 2023, iyad031 \
+</div>
+[10.1093/genetics/iyae007](https://doi.org/10.1093/genetics/iyae007)
+
+<div class="clear-float"></div>
+
+
 <div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyad143"></div>
 
 <div class="pub-citation">
