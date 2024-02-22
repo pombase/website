@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GeneDetails, PombaseAPIService, GenotypeShort,
          AlleleShort } from '../pombase-api.service';
+import { DeployConfigService } from '../deploy-config.service';
 import { Util } from '../shared/util';
 
 class AlleleSection {
@@ -63,7 +64,8 @@ export class GeneAlleleListComponent implements OnInit {
   genotypeVisible: { [key: string ]: boolean } = {};
 
   constructor(private pombaseApiService: PombaseAPIService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private deployConfigService: DeployConfigService) { }
 
   genotypesVisible(allele: AlleleSection): boolean {
     return !!this.genotypeVisible[allele.alleleUniquename];

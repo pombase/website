@@ -53,7 +53,8 @@
         <tr *ngFor="let genotype of expressedAllele.genotypes; let genotypeIndex = index">
           <ng-container *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0">
             <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
-              <a routerLink="/allele/{{allele.alleleUniquename}}">{{allele.alleleName}}</a>
+              <a *ngIf="!deployConfigService.productionMode()" routerLink="/allele/{{allele.alleleUniquename}}">{{allele.alleleName}}</a>
+              <span *ngIf="deployConfigService.productionMode()">{{allele.alleleName}}</span>
             </td>
             <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
               {{allele.alleleDescription}}
