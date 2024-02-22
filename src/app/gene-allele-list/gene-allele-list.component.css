@@ -30,8 +30,7 @@ td {
   height: inherit;
 }
 
-.expression-decoration {
-  padding-right: 0.5em;
-  border-right: 2px solid black;
-  height: 100%;;
+.genotype {
+  padding-left: 0.5em;
+  border-left: 2px solid black;
 }

@@ -71,9 +71,9 @@
 
           <td *ngIf="genotypesVisible(allele) && genotypeIndex == 0" [attr.rowspan]="expressedAllele.genotypes.length"
               class="expression-cell">
-            <div class="expression-decoration">{{expressedAllele.expression}}</div>
+            <div class="expression">{{expressedAllele.expression}}</div>
           </td>
-          <td *ngIf="genotypesVisible(allele)">
+          <td class="genotype" *ngIf="genotypesVisible(allele)">
             <app-genotype-link [genotype]="genotype"></app-genotype-link>
           </td>
         </tr>
