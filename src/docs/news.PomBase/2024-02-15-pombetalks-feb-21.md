@@ -1,5 +1,4 @@
 ### Next pombeTalks: Wednesday, February 21st
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next [pombeTalks](https://evonuclab.org/pombetalks) session S04E05 will take place on Wednesday, February 21st.
