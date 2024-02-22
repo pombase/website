@@ -65,7 +65,7 @@ export class GeneAlleleListComponent implements OnInit {
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
-              private deployConfigService: DeployConfigService) { }
+              public deployConfigService: DeployConfigService) { }
 
   genotypesVisible(allele: AlleleSection): boolean {
     return !!this.genotypeVisible[allele.alleleUniquename];
