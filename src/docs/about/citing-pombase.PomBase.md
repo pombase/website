@@ -13,14 +13,14 @@ To cite anything from PomBase, including
 please use:
 
 
-<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyab222"></div>
+<div data-badge-type="donut" class='altmetric-embed' data-doi="10.1093/genetics/iyae007"></div>
 
 <div class="pub-citation">
-Harris MA, Rutherford KM, Hayles J, Lock A, Bähler J, Oliver S, Mata J, Wood V \
-Fission stories: Using PomBase to understand _Schizosaccharomyces pombe_ biology \
-*Genetics*, 2021; iyab222 \
+Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood \
+PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability \
+*Genetics*, February 2024, iyae007 \
 </div>
-[PMID:35100366](http://www.ncbi.nlm.nih.gov/pubmed/35100366) [10.1093/genetics/iyab222](https://doi.org/10.1093/genetics/iyab222)
+[10.1093/genetics/iyae007](https://doi.org/10.1093/genetics/iyae007)
 
 <div class="clear-float"></div>
 
