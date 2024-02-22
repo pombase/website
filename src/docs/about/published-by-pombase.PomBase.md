@@ -12,7 +12,7 @@ Canto, FYPO, annotations and Compara.
 <div class="pub-citation">
 Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood \
 PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability \
-*Genetics*, September 2023, iyad031 \
+*Genetics*, February 2024, iyae007 \
 </div>
 [10.1093/genetics/iyae007](https://doi.org/10.1093/genetics/iyae007)
 
