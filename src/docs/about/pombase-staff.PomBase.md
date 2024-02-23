@@ -21,7 +21,6 @@ United Kingdom
 
 #### [University College London](http://www.ucl.ac.uk/)
 
--   Manuel Lera Ramírez (Curator)
 -   Jürg Bähler (co-PI)
 
 #### PomBase Alumni
@@ -29,3 +28,4 @@ United Kingdom
 -   Antonia Lock (Curator, UCL)
 -   Midori Harris (Curator, Cambridge)
 -   Steve Oliver (PI, Cambridge)
+-   Manuel Lera Ramírez (Curator)
