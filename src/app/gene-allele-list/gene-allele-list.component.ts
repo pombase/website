@@ -47,8 +47,26 @@ class ExpressedAlleleSection {
   }
 }
 
-type ExpressedAllelemap = { [expression: string]: Array<GenotypeShort> };
-type AlleleMap = { [alleleUniquename: string]: ExpressedAllelemap };
+type ExpressedAlleleMap = { [expression: string]: Array<GenotypeShort> };
+type AlleleMap = { [alleleUniquename: string]: ExpressedAlleleMap };
+
+function genotypeSorter(g1: GenotypeShort, g2: GenotypeShort) {
+  if (g1.loci.length < g2.loci.length) {
+    return -1;
+  }
+  if (g1.loci.length > g2.loci.length) {
+    return 1;
+  }
+
+  if (g1.loci[0].expressed_alleles.length < g2.loci[0].expressed_alleles.length) {
+    return -1;
+  }
+  if (g1.loci[0].expressed_alleles.length > g2.loci[0].expressed_alleles.length) {
+    return 1;
+  }
+
+  return g1.displayNameLong.localeCompare(g2.displayNameLong);
+}
 
 @Component({
   selector: 'app-gene-allele-list',
@@ -186,6 +204,7 @@ export class GeneAlleleListComponent implements OnInit {
     for (const [alleleUniquename, expressedAlleleMap] of Object.entries(alleleExpressionGenotypeMap)) {
       const expressedAlleleSections = [];
       for (const [expression, genotypes] of Object.entries(expressedAlleleMap)) {
+        genotypes.sort(genotypeSorter);
         expressedAlleleSections.push(new ExpressedAlleleSection(expression, genotypes));
       }
 
