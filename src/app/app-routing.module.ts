@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, NoPreloading } from '@angular/router';
 
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
-import { GeneAlleleListComponent } from './gene-allele-list/gene-allele-list.component';
 import { GeneProteinFeaturesComponent } from './gene-protein-features/gene-protein-features.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { AlleleDetailsComponent } from './allele-details/allele-details.component';
@@ -25,13 +24,14 @@ import { IdentifierMapperResultsComponent } from './identifier-mapper-results/id
 import { getAppConfig } from './config';
 import { RefGenesViewComponent } from './ref-genes-view/ref-genes-view.component';
 import { CurationStatsComponent } from './curation-stats/curation-stats.component';
+import { GeneAllelesPageComponent } from './gene-alleles-page/gene-alleles-page.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
     data: {
     }
   },
-  { path: 'gene_alleles/:uniquename', component: GeneAlleleListComponent,
+  { path: 'gene_alleles/:uniquename', component: GeneAllelesPageComponent,
     data: {
     }
   },
