@@ -110,6 +110,7 @@ export interface AlleleDetails {
   genotypes: Array<GenotypeShort>;
   phenotypes: Array<TermShort>;
   comments: Array<CommentAndReference>;
+  is_obsolete?: boolean;
 }
 
 export interface TranscriptMap {

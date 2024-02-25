@@ -29,6 +29,10 @@
         <div><a routerLink="/gene/{{alleleDetails.gene.uniquename}}">{{geneDisplayName}}</a></div>
       </div>
 
+      <div class="obsolete-warning" *ngIf="alleleDetails.is_obsolete">
+        Warning: this allele is not currently used in {{siteName}}
+      </div>
+
       <div class="all-alleles-link">
         View <a routerLink="/gene_alleles/{{alleleDetails.gene.uniquename}}">all alleles of {{geneDisplayName}}</a>
       </div>
@@ -54,7 +58,7 @@
       </div>
 
       <div class="allele-details-phenotypes">
-        <div *ngIf="alleleDetails.phenotypes">
+        <div *ngIf="alleleDetails.phenotypes && alleleDetails.phenotypes.length > 0">
           <h5>Phenotypes of <span class="name-id-highlight" [innerHTML]="displayName"></span>:</h5>
           <div *ngFor="let phenotype of alleleDetails.phenotypes">
             <app-term-link [term]="phenotype">

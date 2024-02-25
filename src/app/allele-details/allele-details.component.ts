@@ -26,7 +26,7 @@ export class AlleleDetailsComponent implements OnInit {
   singleLocusGenotypes: Array<DisplayGenotype> = [];
   multiLocusGenotypes: Array<DisplayGenotype> = [];
   geneDisplayName = '';
-
+  siteName = getAppConfig().site_name;
 
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
