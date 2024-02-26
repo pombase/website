@@ -30,18 +30,18 @@
     </thead>
     <tr *ngFor="let allele of alleles">
       <td>
-        <a routerLink="/allele/{{allele.uniquename}}">{{allele.name}}</a>
+        <a [popover]="'View details of ' + allele.name" triggers="mouseenter:mouseleave" container="body"
+           routerLink="/allele/{{allele.uniquename}}">{{allele.name}}</a>
       </td>
-
       <td>
         {{allele.description}}
       </td>
       <td>
         {{allele.allele_type}}
       </td>
-
       <td>
-        <a routerLink="/allele/{{allele.uniquename}}">View genotypes..</a>
+        <a [popover]="'View details of ' + allele.name" triggers="mouseenter:mouseleave" container="body"
+           routerLink="/allele/{{allele.uniquename}}">View genotypes..</a>
       </td>
     </tr>
   </table>
