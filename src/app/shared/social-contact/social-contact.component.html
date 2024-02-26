@@ -5,6 +5,7 @@
     <img title="{{communityMailingListConfig.title}}" src="assets/{{communityMailingListConfig.icon}}"/>
   </a>
   <a *ngIf="socialMediaLinks.slack" href="{{socialMediaLinks.slack}}"><img title="{{siteName}} on Slack" src="assets/slack_icon.png"/></a>
+  <a *ngIf="socialMediaLinks.bluesky" href="https://bsky.app/profile/{{socialMediaLinks.bluesky}}"><img title="@{{socialMediaLinks.bluesky}} on Twitter" src="assets/bluesky_icon.png"/></a>
   <a *ngIf="socialMediaLinks.twitter" href="https://twitter.com/{{socialMediaLinks.twitter}}"><img title="@{{socialMediaLinks.twitter}} on Twitter" src="assets/twitter_icon.png"/></a>
   <a *ngIf="socialMediaLinks.mastodon" href="{{socialMediaLinks.mastodon}}"><img title="{{siteName}} on Mastodon" src="assets/mastodon_icon.svg"/></a>
   <a *ngIf="socialMediaLinks.facebook" href="https://www.facebook.com/{{socialMediaLinks.facebook}}"><img title="{{siteName}} on Facebook" src="assets/facebook_icon.png"/></a>

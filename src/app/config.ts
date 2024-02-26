@@ -290,6 +290,7 @@ export interface AppConfig {
   },
   social_media: {
     twitter?: string;
+    bluesky?: string;
     mastodon?: string;
     github?: string;
     slack?: string;
