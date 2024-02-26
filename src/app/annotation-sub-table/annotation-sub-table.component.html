@@ -41,7 +41,7 @@
 
   <div class="gene-structure-changed-message"
        *ngIf="showStructureChangedMessage()">
-    {{typeConfig.gene_structure_change_message}}
+    <div *ngFor="let line of typeConfig.gene_structure_change_message">{{line}}</div>
   </div>
 
   <div *ngIf="geneDetails && typeConfig">
