@@ -2,6 +2,21 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { AlleleShort } from '../pombase-api.service';
 
+class DisplayAllele {
+  displayName: string;
+  constructor(public uniquename: string,
+              public name: string,
+              public description: string,
+              public alleleType: string) {
+    this.displayName = this.name.replace(/,/g, ',&#8203;');
+    this.description = this.description.replace(/,/g, ',&#8203;');
+  }
+
+  nameDescription(): string {
+    return (this.name || 'unknown') + '(' + (this.name || 'unknown') + ')';
+  }
+}
+
 @Component({
   selector: 'app-gene-allele-list',
   templateUrl: './gene-allele-list.component.html',
@@ -10,6 +25,8 @@ import { AlleleShort } from '../pombase-api.service';
 export class GeneAlleleListComponent implements OnChanges {
   @Input() alleles: Array<AlleleShort>;
 
+  displayAlleles: Array<DisplayAllele> = [];
+
   sortByColumnName: string = 'type';
 
   constructor() { }
@@ -17,21 +34,25 @@ export class GeneAlleleListComponent implements OnChanges {
   sortBy(columnName: 'name'|'description'|'type'): void {
     this.sortByColumnName = columnName;
 
-    this.sortTable();
+    this.makeTable();
   }
 
-  sortTable(): void {
-    const nameDesc = (a: AlleleShort) => (a.name || 'unknown') + '(' + (a.name || 'unknown') + ')';
+  makeTable(): void {
+    this.displayAlleles =
+      this.alleles.map(a => {
+        return new DisplayAllele(a.uniquename, a.name, a.description, a.allele_type);
+      });
+
     if (this.sortByColumnName == 'type') {
-      this.alleles.sort((a, b) => {
-        if (a.allele_type === b.allele_type) {
-          return nameDesc(a).localeCompare(nameDesc(b));
+      this.displayAlleles.sort((a, b) => {
+        if (a.alleleType === b.alleleType) {
+          return a.nameDescription().localeCompare(b.nameDescription());
         } else {
-          return a.allele_type.localeCompare(b.allele_type);
+          return a.alleleType.localeCompare(b.alleleType);
         }
       });
     } else {
-      this.alleles.sort((a, b) => {
+      this.displayAlleles.sort((a, b) => {
         let result;
 
         if (this.sortByColumnName === 'name') {
@@ -54,16 +75,15 @@ export class GeneAlleleListComponent implements OnChanges {
         }
 
         if (result === 0) {
-          result = a.allele_type.localeCompare(b.allele_type);
+          result = a.alleleType.localeCompare(b.alleleType);
         }
 
         return result;
       })
-
     }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.sortTable();
+    this.makeTable();
   }
 }

@@ -28,20 +28,20 @@
         </th>
       </tr>
     </thead>
-    <tr *ngFor="let allele of alleles">
+    <tr *ngFor="let allele of displayAlleles">
       <td>
         <a [popover]="'View details of ' + allele.name" triggers="mouseenter:mouseleave" container="body"
-           routerLink="/allele/{{allele.uniquename}}">{{allele.name}}</a>
+           routerLink="/allele/{{allele.uniquename}}"><span [innerHtml]="allele.displayName"></span></a>
       </td>
       <td>
-        {{allele.description}}
+        <span [innerHtml]="allele.description"></span>
       </td>
       <td>
-        {{allele.allele_type}}
+        {{allele.alleleType}}
       </td>
       <td>
         <a [popover]="'View details of ' + allele.name" triggers="mouseenter:mouseleave" container="body"
-           routerLink="/allele/{{allele.uniquename}}">View genotypes..</a>
+           class="view-genotype" routerLink="/allele/{{allele.uniquename}}">View genotypes..</a>
       </td>
     </tr>
   </table>
