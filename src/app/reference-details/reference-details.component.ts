@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -8,7 +8,8 @@ import { Util } from '../shared/util';
 
 import { ReferenceDetails, PombaseAPIService, APIError, AnnotationCurator } from '../pombase-api.service';
 import { DeployConfigService } from '../deploy-config.service';
-
+import { PageScrollService } from 'ngx-page-scroll-core';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-reference-details',
   templateUrl: './reference-details.component.html',
@@ -51,6 +52,8 @@ export class ReferenceDetailsComponent implements OnInit {
               private titleService: Title,
               public deployConfigService: DeployConfigService,
               private readonly meta: Meta,
+              private pageScrollService: PageScrollService,
+              @Inject(DOCUMENT) private document: any
              ) { }
 
   setPageTitle(): void {
@@ -243,6 +246,10 @@ export class ReferenceDetailsComponent implements OnInit {
 
   displayBigGraphicalAbstract(): void {
     this.showBigGraphicalAbstract = true;
+    this.pageScrollService.scroll({
+      document: this.document,
+      scrollTarget: '.abstract',
+    });
   }
 
   setGraphicalAbstract(): void {
