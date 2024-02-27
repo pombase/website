@@ -247,6 +247,7 @@ export class ReferenceDetailsComponent implements OnInit {
 
   setGraphicalAbstract(): void {
     this.graphicalAbstractImagePath = undefined;
+    this.showBigGraphicalAbstract = false;
     this.videoPath = undefined;
     let selectedPath = null;
     for (const panelConf of this.appConfig.frontPagePanels) {
@@ -264,17 +265,31 @@ export class ReferenceDetailsComponent implements OnInit {
 
     this.bigGraphicalAbstractImagePath = undefined;
 
+    const pmid = this.refDetails.uniquename;
+    const fileMap = this.appConfig.graphicalAbstractFileNames;
+
     if (selectedPath) {
-      const match = /^spotlight\/(.*)\.png$/.exec(selectedPath);
-      if (match) {
-        const imageBaseName = match[1];
-        if (this.appConfig.graphicalAbstractFileNames.has(imageBaseName + '.png')) {
-          this.bigGraphicalAbstractImagePath = 'assets/graphical_abstract/' + imageBaseName + '.png';
-        } else {
-          if (this.appConfig.graphicalAbstractFileNames.has(imageBaseName + '.jpg')) {
-            this.bigGraphicalAbstractImagePath = 'assets/graphical_abstract/' + imageBaseName + '.jpg';
+      // configured as a Spotlight
+      if (fileMap[pmid]) {
+        this.bigGraphicalAbstractImagePath = 'assets/graphical_abstract/' + fileMap[pmid];
+      } else {
+        const match = /^spotlight\/(.*)\.png$/.exec(selectedPath);
+        if (match) {
+          const imageBaseName = match[1];
+          if (fileMap[imageBaseName + '.png']) {
+            this.bigGraphicalAbstractImagePath = 'assets/graphical_abstract/' + imageBaseName + '.png';
+          } else {
+            if (fileMap[imageBaseName + '.jpg']) {
+              this.bigGraphicalAbstractImagePath = 'assets/graphical_abstract/' + imageBaseName + '.jpg';
+            }
           }
         }
+      }
+    } else {
+      // no Spotlight, just a graphical abstract
+      if (fileMap[pmid]) {
+        this.graphicalAbstractImagePath = 'assets/graphical_abstract/' + fileMap[pmid];
+        this.bigGraphicalAbstractImagePath = 'assets/graphical_abstract/' + fileMap[pmid];
       }
     }
   }

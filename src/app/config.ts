@@ -356,7 +356,7 @@ export interface AppConfig {
   externalGeneReferences: Array<ExternalGeneReference>;
   externalTermReferences: Array<ExternalTermReference>;
   miscExternalLinks: ExternalLinks;
-  graphicalAbstractFileNames: Set<string>;
+  graphicalAbstractFileNames: {[pmid: string]: string};
   proteinFeatures: ProteinFeatures;
   slims: { [slimName: string]: SlimConfig };
   chromosomes: Array<ChromosomeConfig>;
@@ -846,7 +846,7 @@ let _appConfig: AppConfig = {
   externalGeneReferences: pombaseConfig.external_gene_references,
   externalTermReferences: pombaseConfig.external_term_references,
   miscExternalLinks: pombaseConfig.misc_external_links,
-  graphicalAbstractFileNames: new Set(graphicalAbstractFileNames as Array<string>),
+  graphicalAbstractFileNames: graphicalAbstractFileNames,
   proteinFeatures: pombaseConfig.protein_features,
   chromosomes: pombaseConfig.chromosomes,
 

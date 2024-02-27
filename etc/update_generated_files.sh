@@ -37,7 +37,7 @@ pandoc --version
 graphical_abstract_filename=src/app/config/graphical_abstract_files.json
 
 (cd src/assets/graphical_abstract/
- echo *.{png,jpg} | perl -e '$_ = <>; chomp $_; @a = split /\s+/, $_; $j = join ",", map { qq|"$_"| } @a; print "[$j]\n"'
+ echo *.{png,jpg} | perl -e '$_ = <>; chomp $_; @a = split /\s+/, $_; $j = join ",", map { if (/(\d{8,})/) { qq|"PMID:$1":"$_"| } else { qq|"$_":"$_"| } } @a; print "{$j}\n"'
  ) > $graphical_abstract_filename.tmp
 
 mv $graphical_abstract_filename.tmp $graphical_abstract_filename
