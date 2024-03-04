@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { ExtPart, ExtRange, GeneShort } from '../pombase-api.service';
+import { GeneUniquename } from '../pombase-query';
 import { TermShort } from '../pombase-query';
-import { getAnnotationTableConfig, AnnotationTableConfig,
+import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          getAppConfig, LinkoutConfig, getXrf } from '../config';
 
 @Component({
@@ -12,11 +13,14 @@ import { getAnnotationTableConfig, AnnotationTableConfig,
 })
 export class ExtensionDisplayComponent implements OnInit {
   @Input() extension: Array<ExtPart> = [];
+  @Input() annotationTypeName: string;
   @Input() highlightRelations = true;
+  @Input() geneUniquename?: GeneUniquename = undefined;
 
   displayExtension: { relTypeName: string; rawName: string; extRange: any; }[] = [];
   linkoutConfig: LinkoutConfig = {};
   config: AnnotationTableConfig = getAnnotationTableConfig();
+  typeConfig: AnnotationType;
 
   constructor() { }
 
@@ -29,6 +33,29 @@ export class ExtensionDisplayComponent implements OnInit {
     }
   }
 
+  residueTitle(posAndResidue: string): string {
+    if (!this.geneUniquename) {
+      return '';
+    }
+
+    const modAbbrevConfig = this.typeConfig.modification_abbreviations;
+    if (!modAbbrevConfig) {
+      return '';
+    }
+
+    const modGeneConfig = modAbbrevConfig[this.geneUniquename];
+    if (!modGeneConfig) {
+      return '';
+    }
+
+    const newResidue = modGeneConfig[posAndResidue];
+    if (newResidue) {
+      return newResidue;
+    } else {
+      return '';
+    }
+  }
+
   ngOnInit() {
     let organismRE: RegExp;
     const loadOrganism = getAppConfig().getConfigOrganism();
@@ -36,6 +63,8 @@ export class ExtensionDisplayComponent implements OnInit {
       const loadOrganismFullName = loadOrganism.genus + ' ' + loadOrganism.species;
       organismRE = new RegExp(` *\\(${loadOrganismFullName}\\)`);
     }
+
+    this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
 
     this.linkoutConfig = getAppConfig().linkoutConfig;
 

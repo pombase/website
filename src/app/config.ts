@@ -491,6 +491,11 @@ export interface AnnotationType {
   slim_description?: string;
   slim_link?: string;
   slim_no_category_text?: string;
+  modification_abbreviations?: {
+    [geneUniquename: string]: {
+      [residueAbbreviation: string]: string;
+    }
+  };
   source_config?: { [source_name: string]: SourceConfig };
   help_route?: string;
   deploy_mode?: string; // display only in this mode, defaults to any mode
