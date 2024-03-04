@@ -111,7 +111,7 @@
   </div>
 
   <div *ngIf="twitterAccount" class="front-panel-twitter">
-    <div [ngClass]="{'front-twitter-feed': twitterAccount == 'PomBase', 'front-twitter-feed-small': twitterAccount != 'PomBase'}">
+    <div class="front-twitter-feed">
 <a class="twitter-timeline" data-tweet-limit="6" href="https://twitter.com/{{twitterAccount}}">
    Tweets by @{{twitterAccount}}
 </a>
