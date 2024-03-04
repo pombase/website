@@ -8,7 +8,7 @@ import { AnnotationTable, GeneDetails, GeneShort, GenotypeShort,
          TermSummaryRow } from '../pombase-api.service';
 import { DeployConfigService } from '../deploy-config.service';
 import { TableViewState } from '../pombase-types';
-import { TermShort } from '../pombase-query';
+import { TermShort, GeneUniquename } from '../pombase-query';
 import { FilterCombiner } from '../filtering';
 
 const SUMMARY_ROW_TRUNCATED_LIMIT = 80;
@@ -64,6 +64,8 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
   externalLinksConfig: Array<AnnotationExternalLinkConfig> = [];
   allTermIds: Array<string> = [];
+
+  geneUniquename?: GeneUniquename;
 
   getAllTermIds(): Array<string> {
     if (this.annotationTable) {
@@ -390,6 +392,12 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
   }
 
   init() {
+    if (this.geneDetails) {
+      this.geneUniquename = this.geneDetails.uniquename;
+    } else {
+      this.geneUniquename = undefined;
+    }
+
     this.termNameColSpan = -1;
 
     let typeConfig = this.config.getAnnotationType(this.annotationTypeName);

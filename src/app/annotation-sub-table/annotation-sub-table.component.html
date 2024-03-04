@@ -166,7 +166,7 @@
           <div *ngIf="showColumn['extension'] && annotation.extension" class="extension">
             <app-extension-display [extension]="annotation.extension" 
                                    [annotationTypeName]="annotationTypeName"
-                                   [geneUniquename]="geneDetails.uniquename"></app-extension-display>
+                                   [geneUniquename]="geneUniquename"></app-extension-display>
           </div>
           <div *ngIf="!tableIsFiltered && compactFirstRows[termAnnotation.term.termid] && i == 0">
             <span *ngIf="termAnnotation.is_not" class="not-annotation">NOT</span>
@@ -291,7 +291,7 @@
           </div>
           <app-extension-display *ngIf="row.extension" [extension]="row.extension"
                                  [annotationTypeName]="annotationTypeName"
-                                 [geneUniquename]="geneDetails.uniquename"></app-extension-display
+                                 [geneUniquename]="geneuniquename"></app-extension-display
 >
         </td>
       </tr>
