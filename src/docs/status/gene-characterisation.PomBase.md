@@ -12,7 +12,7 @@ characterized, and the concept of “characterization” is clearly a
 continuum. However, as an initial step in defining “unknowns” we
 devised a simple binary classification, based on biological processes
 at the level of the [fission yeast GO slim set](/browse-curation/fission-yeast-bp-go-slim-terms).
-The rationale for this process-focussed is described in more detail in
+The rationale for this process-focussed approach is described in more detail in
 [Rutherford *et al.* 2024](https://doi.org/10.1093/genetics/iyae007)
 
 A list of ["Priority unstudied genes" (vertebrate orthologs, unknown process, protein coding)](/status/priority-unstudied-genes)
