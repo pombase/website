@@ -41,3 +41,11 @@ a {
 .pub-authors, .pub-citation, .pub-uniquename {
   margin-right: 0.5em;
 }
+
+.curated-icon {
+  margin: 0 0.6em;
+}
+
+.curated-icon img {
+  max-height: 1ex;
+}

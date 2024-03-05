@@ -63,6 +63,9 @@
               </span>
             </span>
             <span class="pub-uniquename">{{reference.uniquename}}</span>
+            <span class="curated-icon" *ngIf="isCurated(reference)">
+              <img src="/assets/canto_icon.png" /> Curated
+            </span>
             <span class="details-link">
             <app-reference-short [reference]="reference" [linkText]="'details ...'">
             </app-reference-short>

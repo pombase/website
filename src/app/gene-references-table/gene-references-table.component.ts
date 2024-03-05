@@ -25,6 +25,10 @@ export class GeneReferencesTableComponent implements OnInit, OnChanges {
 
   constructor() { }
 
+  isCurated(reference: ReferenceShort): boolean {
+    return reference.approved_date !== undefined;
+  }
+
   ngOnInit() {
   }
 
