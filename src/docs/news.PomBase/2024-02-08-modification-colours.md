@@ -3,7 +3,7 @@
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 Modified amino acids in the protein feature viewer are now coloured by
-modification type.  See the [hht1 gene page](/gene/SPAC1834.04) for an example.
+modification type.  See the [histone H3.1 gene page](/gene/SPAC1834.04) for an example.
 
 [![Protein feature view for hht1](assets/newsfeed/gene-hht1-protein-feature-viewer-page.png){ .screenshot loading="lazy" width=100% }](assets/newsfeed/gene-hht1-protein-feature-viewer-page.png)
 
