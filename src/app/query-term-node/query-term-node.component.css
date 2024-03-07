@@ -54,3 +54,8 @@ div.phenotype-condition-selector {
 .delete-cond {
   height: 1em;
 }
+
+.constrain-condition-help img {
+  max-height: 1.2em;
+  padding-left: 1em;
+}

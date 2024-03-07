@@ -67,6 +67,10 @@
                             [cvName]="phenotypeConditionNamespace"
                             [placeholder]="'Start typing a phenotype condition, eg. low temperature'"
                             (termMatched)="phenotypeConditionMatched($event)"></app-term-name-complete>
+   <a class="constrain-condition-help" routerLink="/documentation/advanced-search"
+      [fragment]="'constraining-by-conditions'">
+      <img src="/assets/info_icon.svg">
+    </a>
   </div>
 
   <div *ngIf="phenotypeConditionNamespace"

@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, OnDestroy, Renderer2, AfterViewInit } from '
 import { Meta } from '@angular/platform-browser';
 import { Title } from '@angular/platform-browser';
 
-import { Router, NavigationStart } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { getAppConfig, AppConfig } from '../../config';
 import { DeployConfigService } from '../../deploy-config.service'
@@ -33,7 +33,7 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
               @Inject(DOCUMENT) private document: any
              ) {
     this.subscription = router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
+      if (event instanceof NavigationEnd) {
         this.setSectPage(event.url);
         this.addAltmetrics();
       }
@@ -55,6 +55,8 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   setSectPage(url: string) {
+    const urlParts = url.split('#');
+    url = urlParts[0];
     const realUrl = this.appConfig.docPageAliases[url];
     if (realUrl) {
       url = realUrl;

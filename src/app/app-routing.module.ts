@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, NoPreloading } from '@angular/router';
+import { Routes, RouterModule, NoPreloading, ExtraOptions } from '@angular/router';
 
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { GeneAlleleListComponent } from './gene-allele-list/gene-allele-list.component';
@@ -204,9 +204,13 @@ const routes: Routes = [
   }
 ];
 
+const routerModuleOptions: ExtraOptions = {
+  preloadingStrategy: NoPreloading,
+  anchorScrolling: 'enabled',
+  scrollPositionRestoration: 'enabled'
+};
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: NoPreloading,
-                                           scrollPositionRestoration: 'enabled' }),
+  imports: [RouterModule.forRoot(routes, routerModuleOptions),
   ],
   exports: [RouterModule],
   providers: []
