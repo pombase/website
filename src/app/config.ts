@@ -1,5 +1,5 @@
 import { FeatureType, GeneDetails, ThroughputType } from './pombase-api.service';
-import { TermAndName } from './pombase-query';
+import { TermAndName, TermId } from './pombase-query';
 
 import goXrfConfigMap from './config/go-xrf-abbr-external-links.json';
 import docConfig from './config/doc-config.json';
@@ -491,6 +491,8 @@ export interface AnnotationType {
   slim_description?: string;
   slim_link?: string;
   slim_no_category_text?: string;
+  downstream_query_title?: string;
+  downstream_relations?: Array<TermId>;
   modification_abbreviations?: {
     [geneUniquename: string]: {
       [residueAbbreviation: string]: string;

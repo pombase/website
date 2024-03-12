@@ -1,3 +1,6 @@
 <div *ngIf="showWidgets()" class="table-widgets">
-  <a (click)="sendToQueryBuilder()">{{sendSubstratesText()}}</a>
+  <a *ngIf="hasSubstrates" (click)="sendToQueryBuilder()">{{sendSubstratesText()}}</a>
+  <a *ngIf="hasDownstreamGenes" (click)="sendDownstreamGenesToQueryBuilder()">
+    {{typeConfig.downstream_query_title}}
+  </a>
 </div>

@@ -46,6 +46,7 @@
 
   <div *ngIf="geneDetails && typeConfig">
     <app-annotation-table-widgets [annotationTable]="annotationTable"
+                                  [annotationTypeName]="annotationTypeName"
                                   [typeConfig]="typeConfig"
                                   [geneDetails]="geneDetails"
                                   [filters]="filters">
@@ -164,7 +165,7 @@
         </td>
         <td>
           <div *ngIf="showColumn['extension'] && annotation.extension" class="extension">
-            <app-extension-display [extension]="annotation.extension" 
+            <app-extension-display [extension]="annotation.extension"
                                    [annotationTypeName]="annotationTypeName"
                                    [geneUniquename]="geneUniquename"></app-extension-display>
           </div>

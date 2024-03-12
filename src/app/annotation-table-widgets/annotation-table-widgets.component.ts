@@ -3,7 +3,7 @@ import { AnnotationTable, GeneDetails, PombaseAPIService } from '../pombase-api.
 import { AnnotationType } from '../config';
 import { FilterCombiner } from '../filtering';
 import { AnnotationExtensionFilter } from '../filtering/annotation-extension-filter';
-import { GeneQuery, SubstratesNode } from '../pombase-query';
+import { DownstreamGenesNode, GeneQuery, SubstratesNode } from '../pombase-query';
 import { HistoryEntry, QueryService } from '../query.service';
 import { Router } from '@angular/router';
 
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class AnnotationTableWidgetsComponent implements OnInit, OnChanges {
   @Input() annotationTable: AnnotationTable;
+  @Input() annotationTypeName: string;
   @Input() typeConfig: AnnotationType;
   @Input() geneDetails: GeneDetails;
   @Input() filters?: FilterCombiner<AnnotationTable>;
@@ -21,13 +22,14 @@ export class AnnotationTableWidgetsComponent implements OnInit, OnChanges {
   duringTermId?: string;
   duringTermName?: string;
   hasSubstrates = false;
+  hasDownstreamGenes = false;
 
   constructor(private router: Router,
               private pombaseApiService: PombaseAPIService,
               private queryService: QueryService) {}
 
   showWidgets(): boolean {
-    return this.hasSubstrates;
+    return this.hasSubstrates || this.hasDownstreamGenes;
   }
 
   sendToQueryBuilder(): void {
@@ -47,7 +49,25 @@ export class AnnotationTableWidgetsComponent implements OnInit, OnChanges {
     this.queryService.runAndSaveToHistory(geneQuery, callback);
   }
 
-  updateState() {
+  sendDownstreamGenesToQueryBuilder(): void {
+    if (!this.hasDownstreamGenes) {
+      return;
+    }
+    let queryName = `Genes downstream of (affected by) ${this.geneDetails.displayName}`
+
+    const part = new DownstreamGenesNode(queryName, this.geneDetails.uniquename,
+                                         this.annotationTypeName);
+    const geneQuery = new GeneQuery(part);
+    const callback = (historyEntry: HistoryEntry) => {
+      this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
+    };
+    this.queryService.runAndSaveToHistory(geneQuery, callback);
+  }
+
+  updateSubstratesState() {
+    if (this.annotationTypeName !== 'molecular_function') {
+      return;
+    }
     this.duringTermId = undefined;
     this.hasSubstrates = false;
 
@@ -100,6 +120,26 @@ export class AnnotationTableWidgetsComponent implements OnInit, OnChanges {
     }
   }
 
+  updateDownstreamGenesState() {
+    const downstreamRelations = this.typeConfig.downstream_relations;
+    if (!this.typeConfig.downstream_query_title || !downstreamRelations) {
+      return;
+    }
+    this.hasDownstreamGenes = false;
+
+    TERM_ANNOTATIONS:
+    for (const termAnnotation of this.annotationTable) {
+      for (const annotation of termAnnotation.annotations) {
+        for (const extPart of annotation.extension) {
+          if (downstreamRelations.includes(extPart.rel_type_name)) {
+            this.hasDownstreamGenes = true;
+            break TERM_ANNOTATIONS;
+          }
+        }
+      }
+    }
+  }
+
   findDuringTermName(duringTermId: string) {
     this.pombaseApiService.termSummaryById(duringTermId)
       .then(termSummary => {
@@ -116,10 +156,12 @@ export class AnnotationTableWidgetsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.updateState();
+    this.updateSubstratesState();
+    this.updateDownstreamGenesState();
   }
 
   ngOnInit() {
-    this.updateState();
+    this.updateSubstratesState();
+    this.updateDownstreamGenesState();
   }
 }
