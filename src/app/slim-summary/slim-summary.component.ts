@@ -78,6 +78,7 @@ export class SlimSummaryComponent implements OnInit, OnChanges {
             }
           }
         }
+        this.geneSlimTerms.sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
       });
   }
 }
