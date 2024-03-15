@@ -27,7 +27,6 @@ h4 {
   width: 70em;
 }
 
-.stats-ribbon {
-  margin-bottom: 3em;
+.stats-ribbon, .other-stats-body {
   font-size: 120%;
 }
