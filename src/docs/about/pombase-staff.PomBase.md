@@ -14,13 +14,13 @@ United Kingdom
 
 ### PomBase staff
 
-#### [University of Cambridge](http://www.cam.ac.uk/)
+#### Cambridge - [University of Cambridge](http://www.cam.ac.uk/)
 
 -   Val Wood (Curator & co-PI)
 -   Kim Rutherford (Programmer)
 -   Juan Mata (PI)
 
-#### [University College London](http://www.ucl.ac.uk/)
+#### London - [University College London](http://www.ucl.ac.uk/)
 
 -   Pascal Carme (Curator)
 -   Jürg Bähler (co-PI)
@@ -30,4 +30,4 @@ United Kingdom
 -   Antonia Lock (Curator, UCL)
 -   Midori Harris (Curator, Cambridge)
 -   Steve Oliver (PI, Cambridge)
--   Manuel Lera Ramírez (Curator)
+-   Manuel Lera Ramírez (Curator, UCL)
