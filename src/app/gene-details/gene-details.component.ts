@@ -373,7 +373,7 @@ export class GeneDetailsComponent implements OnInit {
                 this.geneDetails.transcripts.length > 0 &&
                 !!this.geneDetails.transcripts[0].protein ||
                 this.geneDetails.interpro_matches.length > 0 ||
-                !!this.geneDetails.cv_annotations['PomBase family or domain'];
+                !!this.geneDetails.cv_annotations['pombase_family_or_domain'];
               this.setVisibleSections();
               this.organism = this.appConfig.getOrganismByTaxonid(geneDetails.taxonid);
               this.organismLongName = this.organism.genus + ' ' + this.organism.species;

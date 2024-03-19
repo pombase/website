@@ -105,9 +105,9 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
       this.transcriptDetails = undefined;
     }
 
-    if (this.geneDetails.cv_annotations['PomBase family or domain']) {
+    if (this.geneDetails.cv_annotations['pombase_family_or_domain']) {
       this.proteinFeaturesTable =
-        this.geneDetails.cv_annotations['PomBase family or domain'];
+        this.geneDetails.cv_annotations['pombase_family_or_domain'];
     } else {
       this.proteinFeaturesTable = undefined;
     }
