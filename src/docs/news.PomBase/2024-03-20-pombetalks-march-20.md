@@ -11,7 +11,7 @@ The session will start at: 01:00 San Francisco / 04:00 New York /
 The speaker is:
 
  - **Ambre Noly** \
-   Helmlinger's lab, Centre National de la Recherche Scientifique (CNRS), Montpellier, France \\
+   Helmlinger's lab, Centre National de la Recherche Scientifique (CNRS), Montpellier, France \
    “Exploring the adaptation and ecological role of fission yeasts”
 
 Zoom details: \
