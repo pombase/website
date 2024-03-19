@@ -421,14 +421,16 @@ University of Cambridge<br />
 Cambridge<br />
 CB2 1GA<br />
 United Kingdom</p>
-<h4 id="university-of-cambridge"><a href="http://www.cam.ac.uk/">University of Cambridge</a></h4>
+<h3 id="pombase-staff">PomBase staff</h3>
+<h4 id="cambridge---university-of-cambridge">Cambridge - <a href="http://www.cam.ac.uk/">University of Cambridge</a></h4>
 <ul>
 <li>Val Wood (Curator &amp; co-PI)</li>
 <li>Kim Rutherford (Programmer)</li>
 <li>Juan Mata (PI)</li>
 </ul>
-<h4 id="university-college-london"><a href="http://www.ucl.ac.uk/">University College London</a></h4>
+<h4 id="london---university-college-london">London - <a href="http://www.ucl.ac.uk/">University College London</a></h4>
 <ul>
+<li>Pascal Carme (Curator)</li>
 <li>Jürg Bähler (co-PI)</li>
 </ul>
 <h4 id="pombase-alumni">PomBase Alumni</h4>
@@ -436,7 +438,7 @@ United Kingdom</p>
 <li>Antonia Lock (Curator, UCL)</li>
 <li>Midori Harris (Curator, Cambridge)</li>
 <li>Steve Oliver (PI, Cambridge)</li>
-<li>Manuel Lera Ramírez (Curator)</li>
+<li>Manuel Lera Ramírez (Curator, UCL)</li>
 </ul>
 
   </div>
@@ -5496,6 +5498,7 @@ PomBase using the Ensembl viewer.</p>
 <p>If you select single-locus haploids, expression level options are also available:</p>
 <p><img src="assets/fypo_haploid_search_options.png" class="screenshot" width="651" alt="phenotype search options for single-locus haploids" /></p>
 <p>Different alleles of one gene may have different phenotypes, and one allele may give rise to different phenotypes under different experimental conditions. At present, you can retrieve annotations for all alleles of a gene, or use the “Expression level” options restrict the query to null alleles (covers deletions and any other sequence changes, such as most disruptions, that completely abolish expression of the gene) or overexpression of the wild type allele.</p>
+<h5 id="constraining-by-conditions">Constraining by conditions</h5>
 <p><img src="assets/fypo_condition_query.png" class="screenshot" width="651" alt="phenotype condition search option" /></p>
 <p>The “Constrain condition” option restricts the results to include only genes that have phenotype annotations including the specified condition. The search uses the same condition descriptors as Canto and the PomBase web pages. Start typing, then choose from the autocomplete options.</p>
 <p>Note that the results will include any gene with phenotype annotations for the phenotype of interest, including the specified condition, <em>for any allele</em>. Queries that include conditions can be combined using the AND, NOT, or OR operators like any other, but the result of any combination of phenotype queries will likely include annotations for different alleles. There may not be any individual annotation in which both/all of multiple conditions co-occur.</p>
@@ -9864,6 +9867,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-march-20th">Next pombeTalks: March 20th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-database-update-publication-pombase">New database update publication from PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-february-21st">Next pombeTalks: Wednesday, February 21st</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#viewing-protein-modifications">Viewing protein modifications</a></div>
@@ -12349,7 +12353,7 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <h3 id="viewing-protein-modifications">Viewing protein modifications</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
-<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene/SPAC1834.04">hht1 gene page</a> for an example.</p>
+<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene/SPAC1834.04">histone H3.1 gene page</a> for an example.</p>
 <p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view for hht1" /></a></p>
 <p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view modification colour key" /></a></p>
 <p>Visit the <a routerLink="/documentation/gene-page-protein-features-widget">protein feature view documentation page</a> for more information.</p>
@@ -12382,9 +12386,44 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <p><a href="assets/newsfeed/genetics_2024_paper_fig_5.png"><img src="assets/newsfeed/genetics_2024_paper_fig_5.png" title="Data dissemination from PomBase to other resources" class="screenshot" loading="lazy" style="width:100.0%" alt="“Fig 5 Data dissemination from PomBase to other resources”" /></a></p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-march-20'">
+<h3 id="next-pombetalks-march-20th">Next pombeTalks: March 20th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> session S04E06 will take place on Wednesday, March 20th.</p>
+<p>The session will start at: 01:00 San Francisco / 04:00 New York / 08:00 London / 09:00 Paris / 13:30 Delhi / 16:00 Beijing / 17:00 Tokyo</p>
+<p>The speaker is:</p>
+<ul>
+<li><strong>Ambre Noly</strong><br />
+Helmlinger’s lab, Centre National de la Recherche Scientifique (CNRS), Montpellier, France<br />
+“Exploring the adaptation and ecological role of fission yeasts”</li>
+</ul>
+<p>Zoom details:<br />
+Topic: pombeTalks<br />
+Meeting ID: 646 1193 8690<br />
+Passcode: See pombelist</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-03-20-pombetalks-march-20" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-march-20th">Next pombeTalks: March 20th</h3>
+<p><em>2024-03-20</em></p>
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> session S04E06 will take place on Wednesday, March 20th.</p>
+<p>The session will start at: 01:00 San Francisco / 04:00 New York / 08:00 London / 09:00 Paris / 13:30 Delhi / 16:00 Beijing / 17:00 Tokyo</p>
+<p>The speaker is:</p>
+<ul>
+<li><strong>Ambre Noly</strong><br />
+Helmlinger’s lab, Centre National de la Recherche Scientifique (CNRS), Montpellier, France<br />
+“Exploring the adaptation and ecological role of fission yeasts”</li>
+</ul>
+<p>Zoom details:<br />
+Topic: pombeTalks<br />
+Meeting ID: 646 1193 8690<br />
+Passcode: See pombelist</p>
+</div>
 <div id="2024-02-22-new-pombase-genetics-publication" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="new-database-update-publication-pombase">New database update publication from PomBase</h3>
@@ -12415,7 +12454,7 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="viewing-protein-modifications">Viewing protein modifications</h3>
 <p><em>2024-02-08</em></p>
-<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene/SPAC1834.04">hht1 gene page</a> for an example.</p>
+<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene/SPAC1834.04">histone H3.1 gene page</a> for an example.</p>
 <p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view for hht1" /></a></p>
 <p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view modification colour key" /></a></p>
 <p>Visit the <a routerLink="/documentation/gene-page-protein-features-widget">protein feature view documentation page</a> for more information.</p>
@@ -14676,7 +14715,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'gene-characterisation'">
 <h3 id="protein-coding-gene-characterisation-status">Protein-coding gene characterisation status</h3>
-<p>Unknown proteins have become an area of increased concern, following observations that gene characterization rates have stagnated and a large proportion of proteins remain unstudied or understudied even in model organisms. PomBase maintains an unknown protein inventory, first described in <a href="https://doi.org/10.1098/rsob.180241">Wood <em>et al.</em> 2019</a>. We periodically review unknown proteins for available functional data from other species. There are multiple ways to classify whether a gene is functionally characterized, and the concept of “characterization” is clearly a continuum. However, as an initial step in defining “unknowns” we devised a simple binary classification, based on biological processes at the level of the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO slim set</a>.</p>
+<p>Unknown proteins have become an area of increased concern, following observations that gene characterization rates have stagnated and a large proportion of proteins remain unstudied or understudied even in model organisms. PomBase maintains an unknown protein inventory, first described in <a href="https://doi.org/10.1098/rsob.180241">Wood <em>et al.</em> 2019</a>. We periodically review unknown proteins for available functional data from other species. There are multiple ways to classify whether a gene is functionally characterized, and the concept of “characterization” is clearly a continuum. However, as an initial step in defining “unknowns” we devised a simple binary classification, based on biological processes at the level of the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO slim set</a>. The rationale for this process-focussed approach is described in more detail in <a href="https://doi.org/10.1093/genetics/iyae007">Rutherford <em>et al.</em>
+2024</a></p>
 <p>A list of <a routerLink="/status/priority-unstudied-genes">“Priority unstudied genes” (vertebrate orthologs, unknown process, protein coding)</a> is updated daily.</p>
 <h4 id="changes-over-time">Changes over time</h4>
 <p><a href="assets/gene_characterisation_status_figure.svg"><img src="assets/gene_characterisation_status_figure.svg" class="screenshot" alt="Gene characterisation status" /></a></p>
