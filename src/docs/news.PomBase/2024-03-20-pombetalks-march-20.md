@@ -1,5 +1,4 @@
 ### Next pombeTalks: March 20th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next [pombeTalks](https://evonuclab.org/pombetalks) session S04E06
