@@ -77,6 +77,8 @@ export interface ExpressedAllele {
   allele_uniquename: string;
   expression: string;
   gene: number;
+  promoter_gene?: GeneShort;
+  exogenous_promoter?: string;
 }
 
 export interface AlleleShort {
@@ -1286,7 +1288,19 @@ export class PombaseAPIService {
           synonymDetails.reference_unquename = refUniquename;
           synonymDetails.reference = referencesByUniquename[refUniquename];
         }
-      })
+      });
+
+      if (expressed_allele.promoter_gene && typeof(expressed_allele.promoter_gene) == 'string') {
+        let geneShort = genesByUniquename[expressed_allele.promoter_gene as any as string];
+
+        if (geneShort) {
+          expressed_allele.promoter_gene = geneShort;
+        } else {
+          expressed_allele.promoter_gene = {
+            uniquename: expressed_allele.promoter_gene as any as string,
+          };
+        }
+      }
     });
   }
 

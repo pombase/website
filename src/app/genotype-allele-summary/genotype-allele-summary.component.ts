@@ -15,6 +15,7 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
   isDiploid = false;
   hasSynonyms = false;
   hasComment = false;
+  hasPromoter = false;
 
   constructor() { }
 
@@ -57,6 +58,9 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
         }
         if (expressedAllele.allele.comments && expressedAllele.allele.comments.length > 0) {
           this.hasComment = true;
+        }
+        if (expressedAllele.promoter_gene || expressedAllele.exogenous_promoter) {
+          this.hasPromoter = true;
         }
       })
     }
