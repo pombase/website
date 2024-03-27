@@ -186,6 +186,19 @@ export interface WithFromValue {
   };
 }
 
+export interface Promoter {
+  promoter_gene?: GeneShort;
+  exogenous_promoter?: string;
+}
+
+export interface AnnotationPromoter {
+  allele_uniquename: string;
+  allele_display_name: string;
+  allele_expression?: string;
+  allele_gene: GeneShort;
+  promoter: Promoter;
+}
+
 export interface Annotation {
   id: string;
   descDist: number;
@@ -207,6 +220,7 @@ export interface Annotation {
   genes: Array<GeneShort>;
   genotype: GenotypeShort;
   genotype_background?: string;
+  allele_promoters: Array<AnnotationPromoter>
   extension: Array<ExtPart>;
   throughput?: ThroughputType;
 }
