@@ -152,7 +152,7 @@
           <div class="genotype-background" *ngIf="annotation.genotype_background">
             <span>background:</span> {{annotation.genotype_background}}
           </div>
-          <app-allele-promoter-list [annotation]="annotation"></app-allele-promoter-list>
+          <app-allele-promoter-list [annotation]="annotation" [long]="true"></app-allele-promoter-list>
         </td>
         <td *ngIf="!tableIsFiltered && compactFirstRows[termAnnotation.term.termid] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
@@ -194,7 +194,7 @@
         </td>
         <td *ngIf="showColumn['allele_promoters']">
           <span class="allele-promoters">
-            <app-allele-promoter-list [annotation]="annotation"></app-allele-promoter-list>
+            <app-allele-promoter-list [annotation]="annotation" [long]="false"></app-allele-promoter-list>
           </span>
         </td>
         <td *ngIf="showColumn['transcripts']">

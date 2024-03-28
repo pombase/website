@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Annotation } from '../pombase-api.service';
 
 @Component({
@@ -6,7 +6,16 @@ import { Annotation } from '../pombase-api.service';
   templateUrl: './allele-promoter-list.component.html',
   styleUrls: ['./allele-promoter-list.component.css']
 })
-export class AllelePromoterListComponent {
+export class AllelePromoterListComponent implements OnInit {
   @Input() annotation: Annotation;
+  @Input() long = true;
 
+  isMultiLocusGenotype = true;
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    this.isMultiLocusGenotype = this.annotation.genotype.loci.length > 1;
+  }
 }
