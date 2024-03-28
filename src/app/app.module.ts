@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Injectable, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -158,12 +158,37 @@ import { CurationStatsComponent } from './curation-stats/curation-stats.componen
 import { AnnotationTableWidgetsComponent } from './annotation-table-widgets/annotation-table-widgets.component';
 import { StatsSummaryComponent } from './stats-summary/stats-summary.component';
 import { AllelePromoterListComponent } from './allele-promoter-list/allele-promoter-list.component';
+import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
 
 @Pipe({ name: 'safeUrl' })
 export class SafeUrlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) { }
   transform(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+}
+
+
+/**
+ * A workaround for this issue: https://github.com/angular/angular/issues/50787
+ * From: https://github.com/angular/angular/issues/50787#issuecomment-1771251427
+ */
+@Injectable({ providedIn: 'root' })
+export class PomBaseUrlSerializer extends DefaultUrlSerializer {
+  parse(url: string): UrlTree {
+    return super.parse(this.removeParentheses(url));
+  }
+
+  private removeParentheses(url: string): string {
+    const regex = /(\(|\))/g;
+    const encodedString = url.replace(regex, (match) => {
+      if (match === '(') {
+        return '%28'; // URL-encoded version of "("
+      } else {
+        return '%29'; // URL-encoded version of ")"
+      }
+    });
+    return encodedString;
   }
 }
 
@@ -314,6 +339,10 @@ export class SafeUrlPipe implements PipeTransform {
               { provide: 'Window', useValue: window },
               { provide: 'Document', useFactory: documentFactory },
               { provide: 'Window', useFactory: windowFactory },
+              {
+                provide: UrlSerializer,
+                useClass: PomBaseUrlSerializer,
+              },
               QueryService,
               CompleteService,
               DeployConfigService,
