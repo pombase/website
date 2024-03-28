@@ -236,7 +236,7 @@
                              *ngIf="annotationTypeName != 'quantitative_gene_expression'"
                             [scope]="'reference'"
                             [annotationTypeName]="annotationTypeName"
-                            [hideColumns]="['reference', 'desc-rel', 'genotype_background']"
+                            [hideColumns]="['reference', 'desc-rel', 'genotype_background', 'allele_promoters']"
                             [featureInFirstColumn]="true"
                             [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
     </span>
