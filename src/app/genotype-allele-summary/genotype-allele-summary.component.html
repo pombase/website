@@ -13,7 +13,6 @@
     </th>
     <th>Type</th>
     <th>Expression</th>
-    <th *ngIf="hasPromoter">Promoter</th>
   </thead>
   <tbody *ngFor="let locus of genotype.loci">
     <tr *ngFor="let expressedAllele of locus.expressed_alleles ; let i = index">
@@ -68,12 +67,6 @@
       </td>
       <td>{{expressedAllele.allele.allele_type}}</td>
       <td>{{expressedAllele.expression}}</td>
-      <td *ngIf="hasPromoter">
-        <span *ngIf="expressedAllele.promoter_gene">
-          <app-gene-link [long]="false" [gene]="expressedAllele.promoter_gene"></app-gene-link>
-        </span>
-        <span *ngIf="expressedAllele.exogenous_promoter">{{expressedAllele.exogenous_promoter}}</span>
-      </td>
     </tr>
   </tbody>
 </table>
