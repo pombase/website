@@ -461,6 +461,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     let foundBackground = false;
+    let foundPromoter = false;
 
     if (this.annotationTable && this.annotationTable.length > 0) {
       for (let termAnnotation of this.annotationTable) {
@@ -475,6 +476,11 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
         for (let annotation of termAnnotation.annotations) {
           if (annotation.genotype_background) {
             foundBackground = true;
+          }
+          if (annotation.allele_promoters && annotation.allele_promoters.length > 0) {
+            foundPromoter = true;
+          }
+          if (foundBackground && foundPromoter) {
             break FOUND;
           }
         }
@@ -483,6 +489,10 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
 
     if (!foundBackground) {
       this.showColumn['genotype_background'] = false;
+    }
+
+    if (!foundPromoter) {
+      this.showColumn['allele_promoters'] = false;
     }
 
     if (typeConfig.details_only) {

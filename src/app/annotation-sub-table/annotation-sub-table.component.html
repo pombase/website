@@ -75,6 +75,7 @@
         <th *ngIf="showColumn['gene'] && !featureInFirstColumn">Gene</th>
         <th *ngIf="showColumn['genotype'] && !featureInFirstColumn">Genotype</th>
         <th *ngIf="showColumn['genotype_background'] && !featureInFirstColumn">Background</th>
+        <th *ngIf="showColumn['allele_promoters'] && !featureInFirstColumn">Promoter</th>
         <th *ngIf="showColumn['transcripts']">Transcript ID</th>
         <th *ngIf="showColumn['evidence']">Evidence</th>
         <th *ngIf="showColumn['annotation_phenotype_score']">Phenotype score</th>
@@ -151,14 +152,7 @@
           <div class="genotype-background" *ngIf="annotation.genotype_background">
             <span>background:</span> {{annotation.genotype_background}}
           </div>
-          <div class="allele-promoter" *ngFor="let allelePromoter of annotation.allele_promoters">
-            {{allelePromoter.allele_display_name}} promoter:
-            <app-gene-link *ngIf="allelePromoter.promoter.promoter_gene" [long]="false"
-                           [gene]="allelePromoter.promoter.promoter_gene"></app-gene-link>
-            <span *ngIf="allelePromoter.promoter.exogenous_promoter">
-              {{allelePromoter.promoter.exogenous_promoter}}
-            </span>
-          </div>
+          <app-allele-promoter-list [annotation]="annotation"></app-allele-promoter-list>
         </td>
         <td *ngIf="!tableIsFiltered && compactFirstRows[termAnnotation.term.termid] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
@@ -196,6 +190,11 @@
         <td *ngIf="showColumn['genotype_background']">
           <span class="genotype-background">
             {{annotation.genotype_background}}
+          </span>
+        </td>
+        <td *ngIf="showColumn['allele_promoters']">
+          <span class="allele-promoters">
+            <app-allele-promoter-list [annotation]="annotation"></app-allele-promoter-list>
           </span>
         </td>
         <td *ngIf="showColumn['transcripts']">

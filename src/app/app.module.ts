@@ -157,6 +157,7 @@ import { RefGenesViewComponent } from './ref-genes-view/ref-genes-view.component
 import { CurationStatsComponent } from './curation-stats/curation-stats.component';
 import { AnnotationTableWidgetsComponent } from './annotation-table-widgets/annotation-table-widgets.component';
 import { StatsSummaryComponent } from './stats-summary/stats-summary.component';
+import { AllelePromoterListComponent } from './allele-promoter-list/allele-promoter-list.component';
 
 @Pipe({ name: 'safeUrl' })
 export class SafeUrlPipe implements PipeTransform {
@@ -280,6 +281,7 @@ export class SafeUrlPipe implements PipeTransform {
     CurationStatsComponent,
     AnnotationTableWidgetsComponent,
     StatsSummaryComponent,
+    AllelePromoterListComponent,
   ],
   imports: [
     BrowserModule,
