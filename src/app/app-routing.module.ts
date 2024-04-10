@@ -181,9 +181,10 @@ const routes: Routes = [
       defaultTitleDetail: 'Identifier mapper'
     }
   },
-  { path: 'curation_stats', component: CurationStatsComponent,
+  {
+    path: 'metrics', component: CurationStatsComponent,
     data: {
-      defaultTitleDetail: 'Curation statistics',
+      defaultTitleDetail: 'Literature and curation metrics',
     }
   },
   { path: 'identifier-mapper-results', component: IdentifierMapperResultsComponent,
