@@ -1,4 +1,4 @@
-# The Fission Yeast Community Curation Project
+## The Fission Yeast Community Curation Project
 
 Comprehensive manual curation of the *S. pombe* literature is a primary
 goal of the PomBase project, and among the most important activities
@@ -18,7 +18,9 @@ and will therefore also be more rapidly disseminated to other
 databases (e.g. GenBank/ENA/DDBJ, UniProtKB, BioGRID and GO), making
 data from annotated papers widely visible.
 
-**How to contribute**: For newly published papers, PomBase curators
+### How to contribute
+
+  For newly published papers, PomBase curators
   email authors inviting them to participate, with specific
   instructions and links. Lab members are also welcome to evaluate
   existing annotations and create new annotations from past
@@ -27,10 +29,15 @@ data from annotated papers widely visible.
   can also try the
   [demo version of Canto](https://curation.pombase.org/demo).
 
-**Progress and attribution**:
-  [Curation statistics](https://curation.pombase.org/pombe/stats/annotation)
-  track *S. pombe* papers curated in Canto by PomBase and community
-  curators, and the annotations obtained. Canto will soon allow
+### Progress and attribution
+
+  We have two pages that track *S. pombe* papers curated in Canto by
+  PomBase and community curators, and the annotations obtained:
+
+  - [Literature and curation metrics](/metrics)
+  - [Community curation statistics](https://curation.pombase.org/pombe/stats/annotation)
+
+  Canto will soon allow
   contributors to register [ORCID](http://orcid.org/) identifiers in
   the system, which will support more formalised attribution of
   community contributions to PomBase, and thereby enable researchers
@@ -40,7 +47,8 @@ data from annotated papers widely visible.
   possible ways to link to external resources such as ORCID or OpenRIF
   via ORCID IDs.
 
-**Further reading:** For an in-depth analysis of our approach, and the
+### Further reading
+  For an in-depth analysis of our approach, and the
   status of community curation as of early 2019, see our publication:
 
 Lock A, Harris MA, Rutherford K, Hayles J, Wood V.\
