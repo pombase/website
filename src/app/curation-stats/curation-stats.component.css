@@ -30,3 +30,16 @@ h4 {
 .stats-ribbon, .other-stats-body {
   font-size: 120%;
 }
+
+.help-icon {
+  height: 0.95em;
+  padding-left: 0.5em;
+}
+
+.annotation-type-popover {
+  font-size: 110%;
+}
+
+.annotation-type-popover div:first-child {
+  margin-bottom: 0.5em;
+}

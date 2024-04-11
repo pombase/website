@@ -22,6 +22,11 @@
   </div>
   <h4 *ngIf="cumulativeAnnotationByYearPlotLoaded">
     Cumulative annotation type count by year
+
+    <span [popover]="annotationTypePopover" triggers="mouseenter:mouseleave" placement="bottom" container="body">
+       <img class="help-icon" src="/assets/info_icon.svg">
+       <ng-content></ng-content>
+   </span>
   </h4>
   <img (load)="cumulativeAnnotationByYearPlotLoaded=true" class="plot-image"
        alt="Cumulative annotation type count by year"
@@ -100,3 +105,15 @@
     src="/api/v1/dataset/latest/stats/htp_annotations_per_pub_per_year_range" />
 </div>
 </div>
+
+<ng-template #annotationTypePopover>
+  <div class="annotation-type-popover">
+    <div>This graph shows cumulative totals of manually curated annotations over time.</div>
+
+    <div>
+    Totals include annotations made by PomBase curators and fission yeast community but exclude annotations imported from
+    other sources, and GO annotations based on computational methods (IEA evidence).
+    All annotation types are described in the PomBase documentation.
+    </div>
+  </div>
+</ng-template>
