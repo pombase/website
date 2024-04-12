@@ -222,7 +222,7 @@ for my $file_to_scan (@files_to_scan) {
         next;
       }
 
-      if ($link =~ m@^(spombe/(result|query)|results|gene|genotype|term|reference|archive|slim:\w+|vis)/|(query|motif_search|identifier-mapper|internal-details)$@) {
+      if ($link =~ m@^(spombe/(result|query)|results|gene|genotype|term|reference|archive|slim:\w+|vis|metrics)/|(query|motif_search|identifier-mapper|internal-details)$@) {
         next;
       }
 
