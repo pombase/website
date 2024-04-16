@@ -5,10 +5,10 @@
       {{curatedPublicationsCount}} curated publications
       <ul *ngIf="stats">
         <li *ngIf="stats.community_pubs_count > 0">
-          Community: {{stats.community_pubs_count}}
+          Community: <a routerLink="/reference_list/community">{{stats.community_pubs_count}}</a>
         </li>
         <li *ngIf="stats.non_community_pubs_count > 0">
-          {{appConfig.site_name}}: {{stats.non_community_pubs_count}}
+          {{appConfig.site_name}}: <a routerLink="/reference_list/admin">{{stats.non_community_pubs_count}}</a>
         </li>
       </ul>
     </div>
