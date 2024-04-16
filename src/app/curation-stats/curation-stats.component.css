@@ -5,8 +5,12 @@
 
 #container > div {
   width: 38em;
+  padding: 1em;
 }
 
+#container>div.text-summary {
+  width: 28em;
+}
 
 #container > div.wide-graph {
   width: 76em;

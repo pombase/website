@@ -16,34 +16,6 @@
     </div>
   </div>
 
-<div class="wide-graph annotations-by-type">
-  <div *ngIf="!cumulativeAnnotationByYearPlotLoaded">
-    Loading ...
-  </div>
-  <h4 *ngIf="cumulativeAnnotationByYearPlotLoaded">
-    Cumulative annotation type count by year
-
-    <span [popover]="annotationTypePopover" triggers="mouseenter:mouseleave" placement="bottom" container="body">
-       <img class="help-icon" src="/assets/info_icon.svg">
-       <ng-content></ng-content>
-   </span>
-  </h4>
-  <div class="graph-content">
-  <div>
-    <img (load)="cumulativeAnnotationByYearPlotLoaded=true" class="plot-image"
-       alt="Cumulative annotation type count by year"
-       src="/api/v1/dataset/latest/stats/cumulative_annotation_type_counts_by_year"/>
-  </div>
-  <div class="stats-table" *ngIf="organismStats">
-    Total annotations: {{organismStats.annotations}}
-    <ul>
-      <li *ngFor="let groupTotal of annotationGroupTotals">
-        {{groupTotal[0]}}: {{groupTotal[1]}}
-      </li>
-    </ul>
-  </div>
-  </div>
-</div>
 
 <div>
   <div *ngIf="!cumulativeByYearPlotLoaded">
@@ -67,6 +39,35 @@
   <img (load)="communityResponseRates=true" class="plot-image"
     alt="Cumulative community curation response rate"
     src="/api/v1/dataset/latest/stats/community_response_rates" />
+</div>
+
+<div class="wide-graph annotations-by-type">
+  <div *ngIf="!cumulativeAnnotationByYearPlotLoaded">
+    Loading ...
+  </div>
+  <h4 *ngIf="cumulativeAnnotationByYearPlotLoaded">
+    Cumulative annotation type count by year
+
+    <span [popover]="annotationTypePopover" triggers="mouseenter:mouseleave" placement="bottom" container="body">
+      <img class="help-icon" src="/assets/info_icon.svg">
+      <ng-content></ng-content>
+    </span>
+  </h4>
+  <div class="graph-content">
+    <div>
+      <img (load)="cumulativeAnnotationByYearPlotLoaded=true" class="plot-image"
+        alt="Cumulative annotation type count by year"
+        src="/api/v1/dataset/latest/stats/cumulative_annotation_type_counts_by_year" />
+    </div>
+    <div class="stats-table" *ngIf="organismStats">
+      Total annotations: {{organismStats.annotations}}
+      <ul>
+        <li *ngFor="let groupTotal of annotationGroupTotals">
+          {{groupTotal[0]}}: {{groupTotal[1]}}
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div>
