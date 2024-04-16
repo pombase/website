@@ -13,12 +13,5 @@
       </ul>
     </div>
   </div>
-  <div *ngIf="organismStats">
-    {{organismStats.annotations}} annotations
-    <ul>
-      <li *ngFor="let groupTotal of annotationGroupTotals">
-        {{groupTotal[0]}}: {{groupTotal[1]}}
-      </li>
-    </ul>
-  </div>
+
 </div>

@@ -1,7 +1,7 @@
 <h3>Literature and curation metrics</h3>
 
 <div id="container">
-  <div>
+  <div class="text-summary">
     <h4>Summary</h4>
     <div class="section-body stats-ribbon">
       <app-stats-summary></app-stats-summary>
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-<div class="wide-graph">
+<div class="wide-graph annotations-by-type">
   <div *ngIf="!cumulativeAnnotationByYearPlotLoaded">
     Loading ...
   </div>
@@ -28,9 +28,21 @@
        <ng-content></ng-content>
    </span>
   </h4>
-  <img (load)="cumulativeAnnotationByYearPlotLoaded=true" class="plot-image"
+  <div class="graph-content">
+  <div>
+    <img (load)="cumulativeAnnotationByYearPlotLoaded=true" class="plot-image"
        alt="Cumulative annotation type count by year"
        src="/api/v1/dataset/latest/stats/cumulative_annotation_type_counts_by_year"/>
+  </div>
+  <div class="stats-table" *ngIf="organismStats">
+    Total annotations: {{organismStats.annotations}}
+    <ul>
+      <li *ngFor="let groupTotal of annotationGroupTotals">
+        {{groupTotal[0]}}: {{groupTotal[1]}}
+      </li>
+    </ul>
+  </div>
+  </div>
 </div>
 
 <div>

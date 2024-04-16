@@ -7,6 +7,7 @@
   width: 38em;
 }
 
+
 #container > div.wide-graph {
   width: 76em;
 }
@@ -24,7 +25,7 @@ h4 {
 }
 
 .wide-graph .plot-image {
-  width: 70em;
+  width: 50em;
 }
 
 .stats-ribbon, .other-stats-body {
@@ -42,4 +43,13 @@ h4 {
 
 .annotation-type-popover div:first-child {
   margin-bottom: 0.5em;
+}
+
+.annotations-by-type .stats-table {
+  padding: 0.5em 1em 1em 0.5em;
+}
+
+.annotations-by-type .graph-content {
+  display: flex;
+  flex-direction: row;
 }
