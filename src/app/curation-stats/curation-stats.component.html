@@ -30,6 +30,18 @@
 </div>
 
 <div>
+  <div *ngIf="!communityResponseRates">
+    Loading ...
+  </div>
+  <h4 *ngIf="cumulativeByYearPlotLoaded">
+    Community curation response rate:
+  </h4>
+  <img (load)="communityResponseRates=true" class="plot-image"
+    alt="Cumulative community curation response rate"
+    src="/api/v1/dataset/latest/stats/community_response_rates" />
+</div>
+
+<div>
   <h4>
     GO annotation evidence codes over time:
     <span [popover]="goEvidenceByDatePopover" triggers="mouseenter:mouseleave" placement="bottom" container="body">
@@ -42,18 +54,6 @@
     <img class="plot-image" alt="GO annotation evidence codes over time"
          src="/assets/pombase_history_go_ev_codes.svg" />
   </a>
-</div>
-
-<div>
-  <div *ngIf="!communityResponseRates">
-    Loading ...
-  </div>
-  <h4 *ngIf="cumulativeByYearPlotLoaded">
-    Community curation response rate:
-  </h4>
-  <img (load)="communityResponseRates=true" class="plot-image"
-    alt="Cumulative community curation response rate"
-    src="/api/v1/dataset/latest/stats/community_response_rates" />
 </div>
 
 <div class="wide-graph annotations-by-type">
