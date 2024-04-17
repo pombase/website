@@ -24,9 +24,12 @@
   <h4 *ngIf="cumulativeByYearPlotLoaded">
     Curated and curatable papers (cumulative):
   </h4>
+  <a href="/api/v1/dataset/latest/stats/cumulative_curated_by_year"
+     title="Cumulative plot of curated papers versus curatable papers">
   <img (load)="cumulativeByYearPlotLoaded=true" class="plot-image"
        alt="Cumulative plot of curated papers versus curatable papers"
        src="/api/v1/dataset/latest/stats/cumulative_curated_by_year"/>
+  </a>
 </div>
 
 <div>
@@ -36,9 +39,12 @@
   <h4 *ngIf="cumulativeByYearPlotLoaded">
     Community curation response rate:
   </h4>
+  <a href="/api/v1/dataset/latest/stats/community_response_rates"
+     title="Cumulative community curation response rate">
   <img (load)="communityResponseRates=true" class="plot-image"
     alt="Cumulative community curation response rate"
     src="/api/v1/dataset/latest/stats/community_response_rates" />
+  </a>
 </div>
 
 <div>
@@ -70,9 +76,12 @@
   </h4>
   <div class="graph-content">
     <div>
+      <a href="/api/v1/dataset/latest/stats/cumulative_annotation_type_counts_by_year"
+         title="Cumulative annotation type count by year">
       <img (load)="cumulativeAnnotationByYearPlotLoaded=true" class="plot-image"
         alt="Cumulative annotation type count by year"
         src="/api/v1/dataset/latest/stats/cumulative_annotation_type_counts_by_year" />
+      </a>
     </div>
     <div class="stats-table" *ngIf="organismStats">
       Total annotations: {{organismStats.annotations}}
@@ -92,9 +101,12 @@
   <h4 *ngIf="curatedByYearPlotLoaded">
     Papers curated per year:
   </h4>
+  <a href="/api/v1/dataset/latest/stats/curated_by_year"
+     title="Curated papers">
   <img (load)="curatedByYearPlotLoaded=true" class="plot-image"
     alt="Curated papers"
     src="/api/v1/dataset/latest/stats/curated_by_year" />
+  </a>
 </div>
 
 <div>
@@ -104,8 +116,11 @@
   <h4 *ngIf="curatableByYearPlotLoaded">
     Curatable papers by year published:
   </h4>
+  <a href="/api/v1/dataset/latest/stats/curatable_by_year"
+     title="Curatable papers">
   <img (load)="curatableByYearPlotLoaded=true" class="plot-image" alt="Curatable papers"
     src="/api/v1/dataset/latest/stats/curatable_by_year" />
+  </a>
 </div>
 
 <div>
@@ -113,24 +128,33 @@
   <h4>
     Average annotated genes per publications by year range (low throughput experiments only):
   </h4>
+  <a href="/api/v1/dataset/latest/stats/ltp_genes_per_pub_per_year_range"
+     title="Annotated genes per publications by year range">
   <img class="plot-image" alt="Annotated genes per publications by year range"
     src="/api/v1/dataset/latest/stats/ltp_genes_per_pub_per_year_range" />
+  </a>
 </div>
 <div>
 
   <h4>
     Average annotations per publication by year range (low throughput experiments only):
   </h4>
+  <a href="/api/v1/dataset/latest/stats/ltp_annotations_per_pub_per_year_range"
+     title="Low throughput Annotations per publication by year range">
   <img class="plot-image" alt="Low throughput Annotations per publication by year range"
     src="/api/v1/dataset/latest/stats/ltp_annotations_per_pub_per_year_range" />
+  </a>
 </div>
 <div>
 
   <h4>
     Average annotations per publication by year range (high throughput experiments only):
   </h4>
+  <a href="/api/v1/dataset/latest/stats/htp_annotations_per_pub_per_year_range"
+     title="Annotated genes per publications by year range">
   <img class="plot-image" alt="Annotated genes per publications by year range"
     src="/api/v1/dataset/latest/stats/htp_annotations_per_pub_per_year_range" />
+  </a>
 </div>
 </div>
 
