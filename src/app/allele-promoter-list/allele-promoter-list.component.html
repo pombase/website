@@ -1,9 +1,7 @@
 <div class="allele-promoter" *ngFor="let allelePromoter of annotation.allele_promoters">
   <span *ngIf="isMultiLocusGenotype">{{allelePromoter.allele_display_name}}</span>
-  <span *ngIf="allelePromoter.promoter.promoter_gene && (long || isMultiLocusGenotype)">promoter:</span>
-  <app-gene-link *ngIf="allelePromoter.promoter.promoter_gene" [long]="false"
-    [gene]="allelePromoter.promoter.promoter_gene"></app-gene-link>
-  <span *ngIf="allelePromoter.promoter.exogenous_promoter">
-    exogenous promoter: {{allelePromoter.promoter.exogenous_promoter}}
+  <span *ngIf="(long || isMultiLocusGenotype)">promoter:</span>
+  <span *ngIf="allelePromoter.promoter">
+   {{allelePromoter.promoter}}
   </span>
 </div>

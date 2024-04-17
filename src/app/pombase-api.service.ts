@@ -186,10 +186,7 @@ export interface WithFromValue {
   };
 }
 
-export interface Promoter {
-  promoter_gene?: GeneShort;
-  exogenous_promoter?: string;
-}
+type Promoter = string;
 
 export interface AnnotationPromoter {
   allele_uniquename: string;
