@@ -30,6 +30,21 @@
 </div>
 
 <div>
+  <h4>
+    GO annotation evidence codes over time:
+    <span [popover]="goEvidenceByDatePopover" triggers="mouseenter:mouseleave" placement="bottom" container="body">
+      <img class="help-icon" src="/assets/info_icon.svg">
+      <ng-content></ng-content>
+    </span>
+  </h4>
+  <a title="GO annotation evidence codes over time - click for larger view"
+     href="/assets/pombase_history_go_ev_codes.svg">
+    <img class="plot-image" alt="GO annotation evidence codes over time"
+         src="/assets/pombase_history_go_ev_codes.svg" />
+  </a>
+</div>
+
+<div>
   <div *ngIf="!communityResponseRates">
     Loading ...
   </div>
@@ -118,6 +133,25 @@
     src="/api/v1/dataset/latest/stats/htp_annotations_per_pub_per_year_range" />
 </div>
 </div>
+
+<ng-template #goEvidenceByDatePopover>
+  <div class="go-ev-by-date-popover">
+    <div>
+    PomBase filters redundant GO annotations from non-experimental sources
+    when experimental data is available, and GO annotation from electronic
+    sources when manual annotation is available. This graph shows the
+    "filtered" GO annotations over time. Non experimental manual
+    annotations not supported by a manual annotation are decreasing over
+    time. Electronic annotations not supported by any other source are
+    decreasing over time (&lt;1900).
+    </div>
+    <div>
+    The total number of prefiltered
+    electronic annotations now exceeds 38,000 (i.e. ~36,000 are covered by
+    experimental or manual annotation).
+    </div>
+  </div>
+</ng-template>
 
 <ng-template #annotationTypePopover>
   <div class="annotation-type-popover">
