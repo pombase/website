@@ -186,6 +186,7 @@
           <div class="genotype-background" *ngIf="annotation.genotype_background">
             <span>background:</span> {{annotation.genotype_background}}
           </div>
+          <app-allele-promoter-list [annotation]="annotation" [long]="true"></app-allele-promoter-list>
         </td>
         <td *ngIf="showColumn['genotype_background']">
           <span class="genotype-background">
