@@ -30,5 +30,9 @@
   "/protein_feature_view": {
     "target": "http://localhost:8400",
     "secure": false
+  },
+  "/gocam_viz": {
+    "target": "http://localhost:8400",
+    "secure": false
   }
 }
