@@ -1,5 +1,4 @@
 ### News pombeTalks: Wednesday April 17th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next pombeTalk, S04E07 will be on Wednesday, April 17th, at 08:00
