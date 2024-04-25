@@ -615,6 +615,7 @@ export class GeneDetails {
   has_protein_features: boolean;
   orfeome_identifier: string;
   pdb_entries: Array<PDBEntry>;
+  gocam_ids: Array<string>;
   characterisation_status?: string;
   location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
@@ -1167,7 +1168,7 @@ export class PombaseAPIService {
     for (let fieldName of ['cv_annotations',
                            'genes_by_uniquename', 'genotypes_by_uniquename',
                            'alleles_by_uniquename', 'references_by_uniquename',
-                           'terms_by_termid', 'annotation_details']) {
+                           'terms_by_termid', 'annotation_details', 'gocam_ids']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = {};
       }

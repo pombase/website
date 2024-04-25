@@ -1,0 +1,8 @@
+<div *ngIf="hasGoCam">
+  <iframe [src]="getIFrameURL()" class="embedded-go-cam-viewer" #gocamiframe>
+  </iframe>
+</div>
+
+<div *ngIf="!hasGoCam && geneDisplayName" class="no-go-cams">
+  No GO-CAM models available for {{geneDisplayName}}
+</div>

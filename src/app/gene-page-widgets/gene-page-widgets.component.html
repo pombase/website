@@ -34,6 +34,20 @@
       </div>
     </ng-container>
 
+    <ng-container *ngIf="showGoCams()">
+      <div *ngIf="currentWidget() != 'gocam_viewer'" class="non-active-widget-button"
+           title="Click to view GO-CAM models">
+        <a (click)="setWidget('gocam_viewer')">
+          <div>GO-CAM models</div>
+          <img class="widget-button" src="assets/go-cam-widget-icon.png" />
+        </a>
+      </div>
+      <div *ngIf="currentWidget() == 'gocam_viewer'" class="active-widget-button">
+        <div>GO-CAM models</div>
+        <img class="widget-button" src="assets/go-cam-widget-icon.png" />
+      </div>
+    </ng-container>
+
     <ng-container *ngIf="showProteinFeatures()">
     <div *ngIf="currentWidget() != 'protein_feature_viewer'" class="non-active-widget-button"
          title="Click to view protein features">
@@ -104,6 +118,11 @@
 <div *ngIf="currentWidget() == 'protein_feature_viewer'" class="protein-feature-view">
   <app-protein-feature-viewer [geneDetails]="geneDetails">
   </app-protein-feature-viewer>
+</div>
+
+<div *ngIf="currentWidget() == 'gocam_viewer'" class="go-cam-view">
+  <app-go-cam-viewer [geneDetails]="geneDetails">
+  </app-go-cam-viewer>
 </div>
 
 </div>

@@ -1,0 +1,21 @@
+.embedded-go-cam-viewer {
+  width: 1300px;
+  height: 430px;
+  border: 0;
+}
+
+.header {
+  margin-left: 210px;
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+.no-go-cams {
+  font-size: 110%;
+  padding: 1.3em;
+}
+
+.help-icon {
+  padding-right: 0.5em;
+}

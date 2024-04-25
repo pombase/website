@@ -68,20 +68,25 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   }
 
   currentWidget(): GenePageWidget {
+    let current = this.settingsService.genePageMainWidget;
+
+    if (current == 'gocam_viewer' &&
+        this.geneDetails.gocam_ids.length == 0) {
+      current = 'protein_feature_viewer';
+    }
+
     if (this.showStructure()) {
       if (this.geneDetails.pdb_entries.length == 0 &&
-          this.settingsService.genePageMainWidget == 'pdb_viewer') {
+        current == 'pdb_viewer') {
         return 'alphafold_viewer';
       }
-      return this.settingsService.genePageMainWidget;
+      return current;
     } else {
-      if (this.settingsService.genePageMainWidget == 'alphafold_viewer' ||
-          this.settingsService.genePageMainWidget == 'pdb_viewer' ||
-          (!this.showProteinFeatures() &&
-           this.settingsService.genePageMainWidget == 'protein_feature_viewer')) {
+      if (current == 'alphafold_viewer' || current == 'pdb_viewer' ||
+          (!this.showProteinFeatures() && current == 'protein_feature_viewer')) {
         return 'genome_browser';
       } else {
-        return this.settingsService.genePageMainWidget;
+        return current;
       }
     }
   }
@@ -113,6 +118,10 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   showProteinFeatures(): boolean {
     return this.geneDetails.feature_type == "mRNA gene";
+  }
+
+  showGoCams(): boolean {
+    return this.geneDetails.gocam_ids.length > 0 && !this.deployConfigService.productionMode();
   }
 
   setWidget(widget: GenePageWidget) {
