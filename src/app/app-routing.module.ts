@@ -25,6 +25,7 @@ import { IdentifierMapperResultsComponent } from './identifier-mapper-results/id
 import { getAppConfig } from './config';
 import { RefGenesViewComponent } from './ref-genes-view/ref-genes-view.component';
 import { CurationStatsComponent } from './curation-stats/curation-stats.component';
+import { GoCamViewPageComponent } from './go-cam-view-page/go-cam-view-page.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -88,6 +89,16 @@ const routes: Routes = [
   { path: 'archive/:archiveType', component: PanelArchiveComponent,
     data: {
       defaultTitleDetail: 'Panel archive'
+    }
+  },
+  {
+    path: 'gocam/:gocam_id/:gene_uniquename/:gene_name', component: GoCamViewPageComponent,
+    data: {
+    }
+  },
+  {
+    path: 'gocam/:gocam_id/:gene_uniquename', component: GoCamViewPageComponent,
+    data: {
     }
   },
   { path: 'community',

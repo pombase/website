@@ -1,4 +1,15 @@
 <div *ngIf="hasGoCam">
+  <div class="full-view-header">
+    GO-CAM model
+    <span *ngIf="goCamIds.length == 1">{{currentGoCamId}}</span>
+    <select *ngIf="goCamIds.length > 1" [(ngModel)]="currentGoCamId" (ngModelChange)="modelChange()">
+      <option *ngFor="let goCamId of goCamIds" [ngValue]="goCamId">
+        {{goCamId}}
+      </option>
+    </select>
+    - <a routerLink="{{largeViewPath}}">larger view ...</a>
+  </div>
+
   <iframe [src]="getIFrameURL()" class="embedded-go-cam-viewer" #gocamiframe>
   </iframe>
 </div>

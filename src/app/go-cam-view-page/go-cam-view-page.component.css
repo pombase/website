@@ -1,0 +1,13 @@
+.full-go-cam-view {
+  width: 95%;
+  height: 880px;
+}
+
+.return-to-gene-page {
+  font-size: 120%;
+  padding: 0.5em;
+}
+
+.return-to-gene-page div {
+  margin: 0.5em 0.1em;
+}

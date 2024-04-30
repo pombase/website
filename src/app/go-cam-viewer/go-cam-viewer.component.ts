@@ -13,7 +13,9 @@ export class GoCamViewerComponent {
   sanitizedURL?: SafeResourceUrl
 
   geneDisplayName?: string;
-
+  currentGoCamId?: string;
+  largeViewPath?: string;
+  goCamIds: Array<string> = [];
   hasGoCam = false;
 
   constructor(private sanitizer: DomSanitizer) {
@@ -23,6 +25,18 @@ export class GoCamViewerComponent {
     return this.sanitizedURL;
   }
 
+  modelChange() {
+    this.largeViewPath = '/gocam/' + this.currentGoCamId + '/' + this.geneDetails.uniquename;
+
+    if (this.geneDetails.name) {
+      this.largeViewPath += '/' + this.geneDetails.name;
+    }
+
+    const rawUrl = 'gocam_viz/widget/' + this.currentGoCamId;
+    this.sanitizedURL =
+      this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
+  }
+
   ngOnChanges(): void {
     if (this.geneDetails.name) {
       this.geneDisplayName = this.geneDetails.name;
@@ -30,17 +44,16 @@ export class GoCamViewerComponent {
       this.geneDisplayName = this.geneDetails.uniquename;
     }
 
-    this.hasGoCam = this.geneDetails.gocam_ids &&
-      this.geneDetails.gocam_ids.length > 0;
+    this.goCamIds = this.geneDetails.gocam_ids;
 
-    if (this.geneDetails.uniprot_identifier) {
-      const rawUrl = 'gocam_viz/widget/' + this.geneDetails.uniquename;
-      this.sanitizedURL =
-        this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
-    } else {
-      this.sanitizedURL = undefined;
+    this.hasGoCam = this.goCamIds.length > 0;
+
+    if (!this.hasGoCam) {
+      return;
     }
+
+    this.currentGoCamId = this.goCamIds[0];
+
+    this.modelChange();
   }
-
-
 }

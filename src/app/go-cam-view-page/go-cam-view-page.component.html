@@ -1,0 +1,13 @@
+<div *ngIf="getIFrameURL()">
+  <div class="return-to-gene-page">
+    <div>GO-CAM model {{gocamId}}</div>
+
+    <div>
+      Return to the <a routerLink="/gene/{{geneUniquename}}">{{geneName || geneUniquename}} gene page</a>
+    </div>
+  </div>
+
+  <iframe [src]="getIFrameURL()" class="full-go-cam-view" #gocamiframe>
+  </iframe>
+</div>
+

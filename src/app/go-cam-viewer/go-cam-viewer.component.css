@@ -19,3 +19,8 @@
 .help-icon {
   padding-right: 0.5em;
 }
+
+.full-view-header {
+  font-size: 110%;
+  padding: 0.1em 0.6em;
+}
