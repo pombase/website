@@ -433,6 +433,8 @@ export interface ThroughputFilterCategory {
   display_name: string,
 }
 
+export type InteractionTypeFilterCategory = string;
+
 export interface FilterConfig {
   filter_type: string;
   filter_subtype?: string;
@@ -445,6 +447,7 @@ export interface FilterConfig {
   extension_rel_type_names?: Array<string>;
   extension_categories?: Array<ExtensionFilterCategory>;
   throughput_categories?: Array<ThroughputFilterCategory>;
+  interaction_types?: Array<InteractionTypeFilterCategory>;
 }
 
 export interface SplitByParentsConfig {

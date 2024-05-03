@@ -7,5 +7,11 @@
        [interactionTable]="interactionTable"
        (filterChange)="filterChanged('throughput', $event)">
      </app-genetic-interaction-table-throughput-filter>
+     <app-genetic-interaction-table-type-filter
+       *ngIf="config.filter_type == 'interaction_type'"
+       [config]="config"
+       [interactionTable]="interactionTable"
+       (filterChange)="filterChanged('interaction_type', $event)">
+     </app-genetic-interaction-table-type-filter>
    </span>
  </div>
