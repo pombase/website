@@ -33,7 +33,24 @@
 
 @media (min-width: 800px) {
   .welcome-content {
-    width: 65%;
+    width: 55%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .welcome-logos {
+    position: relative;
+    top: -2em;
+  }
+
+  .genetics-journal-mod-issue-banner img {
+    width: 490px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .genetics-journal-mod-issue-banner img {
+    width: 370px;
   }
 }
 
@@ -52,7 +69,6 @@
 .welcome-logos {
   display: inline-block;
   vertical-align: top;
-  padding-top: 0.5em;
 }
 
 .front-page-box {
@@ -199,10 +215,14 @@
 }
 
 .gcbr-elixir-logo {
-  margin: 0 0 0 1.4em;
+  margin: 1em 0 0 1.4em;
   vertical-align: top;
 }
 
 .gcbr-elixir-logo img {
   height: 40px;
+}
+
+.gcbr-elixir-logo-row {
+  padding-top: 0.8em;
 }
