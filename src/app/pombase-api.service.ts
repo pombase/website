@@ -355,7 +355,7 @@ export interface GeneShort {
   name?: string;
   product?: string;
   transcript_count?: number;
-  flags?: Array<string>;  // only "is_histone" for now
+  flags?: Array<string>;  // only "is_histone" or "not_load_organism" for now
 }
 
 // The function is used to trim a GeneSummary to a GeneShort

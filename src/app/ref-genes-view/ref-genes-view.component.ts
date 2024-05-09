@@ -82,7 +82,8 @@ export class RefGenesViewComponent implements OnInit {
             this.queryBuilderRouterLink = '/query/save/from/reference/' +
               refDetails.uniquename + '/' + encodeURIComponent(description);
 
-            this.genes = Object.values(refDetails.genes_by_uniquename);
+            this.genes = Object.values(refDetails.genes_by_uniquename)
+              .filter(g => !g.flags || !g.flags.includes('not_load_organism'));
           })
           .catch(error => {
             this.apiError = error;
