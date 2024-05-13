@@ -6,21 +6,21 @@ Note: Your browser may prompt you to open or download the linked documents.
 
 #### International Fission Yeast Meeting series
 
-[pombe2017](documents/pombe2017)
-Banff, Alberta, Canada
-14-19 May 2017
+ - [pombe2017](documents/pombe2017) \
+    Banff, Alberta, Canada \
+    14-19 May 2017
 
-[pombe2015](documents/pombe2015)
-Kobe, Japan
-21-25 June 2015
+ - [pombe2015](documents/pombe2015) \
+   Kobe, Japan \
+   21-25 June 2015
 
-[pombe2013](documents/pombe2013)
-London, UK
-24-29 June 2013
+ - [pombe2013](documents/pombe2013) \
+   London, UK \
+   24-29 June 2013
 
-[pombe2011](documents/pombe2011)
-Boston, MA, USA
-25-30 June 2011
+ - [pombe2011](documents/pombe2011) \
+   Boston, MA, USA \
+   25-30 June 2011
 
 #### Other Conferences and Workshops
 
