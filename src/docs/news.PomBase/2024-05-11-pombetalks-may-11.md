@@ -1,8 +1,8 @@
-### Next pombeTalks: Wednesday, May 11th
+### Next pombeTalks: Wednesday, May 15th
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-The next [pombeTalks](https://evonuclab.org/pombetalks) session S04E08 will take place on Wednesday, May 11th.
+The next [pombeTalks](https://evonuclab.org/pombetalks) session S04E08 will take place on Wednesday, May 15th.
 
 The session will start at: 
 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo.
