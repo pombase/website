@@ -25,7 +25,7 @@ If you have trouble finding anything, please ask the
 ### Datasets displayed in the genome browser
 
 The data files used for the tracks in the [JBrowse genome browser](/documentation/JBrowse_quick_start)
-are available from the [`external_datasets` directory](/data/external_datasets/).
+are available from the [`external_datasets` directory](${base_url}/data/external_datasets/).
 The directory names are the either the publication details (PubMed ID) or the
 GEO/SRA dataset ID.
 

@@ -1,6 +1,6 @@
 ## Getting started with ${database_name} JBrowse
 
-The [${database_name} genome browser](/jbrowse/) can be accessed in multiple ways:
+The [${database_name} genome browser](${base_url}/jbrowse/) can be accessed in multiple ways:
 
 - On any ${database_name} page, click the "Search" tab in the header menu, and
   select "Genome browser"
