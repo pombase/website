@@ -22,6 +22,19 @@ If you have trouble finding anything, please ask the
 
 -------
 
+### Datasets displayed in the genome browser
+
+The data files used for the tracks in the [JBrowse genome browser](/documentation/JBrowse_quick_start)
+are available from the [`external_datasets` directory](/data/external_datasets/).
+The directory names are the either the publication details (PubMed ID) or the
+GEO/SRA dataset ID.
+
+For detailed information about each genome browser track, please set the [JBrowse configuration table](https://github.com/pombase/pombase-config/raw/master/website/jbrowse_track_metadata.csv).
+This file is a spreadsheet in comma separated value format.  The
+columns are described on [the dataset submission page](/documentation/data-submission-form-for-HTP-sequence-linked-data).
+
+-------
+
 ### Annotation datasets ###
 
 Annotation type|Description
