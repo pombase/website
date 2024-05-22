@@ -1531,6 +1531,9 @@ export class PombaseAPIService {
     let allelesByUniquename = json.alleles_by_uniquename as AlleleMap;
     let transcriptsByUniquename = json.transcripts_by_uniquename as TranscriptMap;
     let referencesByUniquename = json.references_by_uniquename as ReferenceDetailsMap;
+    if (referencesByUniquename == undefined) {
+      referencesByUniquename = {};
+    }
 
     this.processTranscriptMap(transcriptsByUniquename, genesByUniquename);
 
