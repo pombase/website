@@ -2,8 +2,11 @@
   <div class="return-to-gene-page">
     <div>GO-CAM model {{gocamId}}</div>
 
-    <div>
-      Return to the <a routerLink="/gene/{{geneUniquename}}">{{geneName || geneUniquename}} gene page</a>
+    <div *ngIf="sourcePageType == 'gene'">
+      <a routerLink="/gene/{{sourceId}}">Return to the {{sourceName || sourceId}} gene page</a>
+    </div>
+    <div *ngIf="sourcePageType == 'term'">
+      <a routerLink="/term/{{sourceId}}">Return to the term page for {{sourceName}} ({{sourceId}})</a>
     </div>
   </div>
 

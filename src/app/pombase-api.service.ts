@@ -678,6 +678,7 @@ export class TermDetails implements TermIdRefs {
   double_mutant_genetic_interactions: Array<GeneticInteractionGroup>;
   single_allele_genetic_interactions: Array<GeneticInteractionGroup>;
   references_by_uniquename: { [referenceUniquename: string]: ReferenceShort };
+  gocam_ids: Array<string>;
 }
 
 export class AnnotationCurator {
@@ -1134,8 +1135,6 @@ export class PombaseAPIService {
   }
 
   processGeneResponse(json: any): GeneDetails {
-    const geneDetails = json as GeneDetails;
-
     json.displayName = json.name || json.uniquename;
 
     if (json.transcripts) {
@@ -1210,7 +1209,7 @@ export class PombaseAPIService {
                             referencesByUniquename, allelesByUniquename);
 
     for (let cvName of Object.keys(json.cv_annotations)) {
-      this.processTermAnnotations(geneDetails, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
+      this.processTermAnnotations(json, json.cv_annotations[cvName], genesByUniquename, genotypesByUniquename,
                                   allelesByUniquename, annotationDetailsMap, transcriptsByUniquename,
                                   referencesByUniquename, termsByTermId);
     }
@@ -1248,7 +1247,7 @@ export class PombaseAPIService {
         refAndSource.reference = referencesByUniquename[refAndSource.reference_uniquename];
       });
 
-    return geneDetails;
+    return Object.assign(new GeneDetails(), json);
   }
 
   getGene(uniquename: string): Promise<GeneDetails> {
@@ -1463,7 +1462,7 @@ export class PombaseAPIService {
                            'single_locus_annotated_genes', 'multi_locus_annotated_genes',
                            'double_mutant_genetic_interactions', 'single_allele_genetic_interactions',
                            'direct_ancestors',
-                           'single_locus_genotype_uniquenames']) {
+                           'single_locus_genotype_uniquenames', 'gocam_ids']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = [];
       }
@@ -1503,7 +1502,7 @@ export class PombaseAPIService {
 
     json.genes = Object.keys(genesByUniquename).map((key) => genesByUniquename[key]);
 
-    return json as TermDetails;
+    return Object.assign(new TermDetails(), json);
   }
 
   getTerm(termid: string): Promise<TermDetails> {

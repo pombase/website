@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GeneDetails } from '../pombase-api.service';
+import { GeneDetails, TermDetails } from '../pombase-api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
@@ -8,11 +8,11 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./go-cam-viewer.component.css']
 })
 export class GoCamViewerComponent {
-  @Input() geneDetails: GeneDetails;
+  @Input() geneOrTermDetails: GeneDetails|TermDetails;
 
   sanitizedURL?: SafeResourceUrl
 
-  geneDisplayName?: string;
+  displayName?: string;
   currentGoCamId?: string;
   largeViewPath?: string;
   goCamIds: Array<string> = [];
@@ -25,11 +25,25 @@ export class GoCamViewerComponent {
     return this.sanitizedURL;
   }
 
-  modelChange() {
-    this.largeViewPath = '/gocam/' + this.currentGoCamId + '/' + this.geneDetails.uniquename;
+  isGenePage(): boolean {
+    return this.geneOrTermDetails instanceof GeneDetails;
+  }
 
-    if (this.geneDetails.name) {
-      this.largeViewPath += '/' + this.geneDetails.name;
+  modelChange() {
+    this.largeViewPath = '/gocam/';
+
+    const geneOrTermDetails = this.geneOrTermDetails;
+
+    if (geneOrTermDetails instanceof GeneDetails) {
+      this.largeViewPath += 'gene/' + this.currentGoCamId + '/' + geneOrTermDetails.uniquename;
+      if (this.geneOrTermDetails.name) {
+        this.largeViewPath += '/' + this.geneOrTermDetails.name;
+      }
+    } else {
+      if (geneOrTermDetails instanceof TermDetails) {
+        this.largeViewPath += 'term/' + this.currentGoCamId + '/' + geneOrTermDetails.termid + '/' +
+          geneOrTermDetails.name;
+      }
     }
 
     const rawUrl = 'gocam_viz/widget/' + this.currentGoCamId;
@@ -38,13 +52,20 @@ export class GoCamViewerComponent {
   }
 
   ngOnChanges(): void {
-    if (this.geneDetails.name) {
-      this.geneDisplayName = this.geneDetails.name;
+    const geneOrTermDetails = this.geneOrTermDetails;
+    if (geneOrTermDetails instanceof GeneDetails) {
+      if (geneOrTermDetails.name) {
+        this.displayName = geneOrTermDetails.name;
+      } else {
+        this.displayName = geneOrTermDetails.uniquename;
+      }
     } else {
-      this.geneDisplayName = this.geneDetails.uniquename;
+      if (geneOrTermDetails instanceof TermDetails) {
+        this.displayName = geneOrTermDetails.name + '(' + geneOrTermDetails.termid + ')';
+      }
     }
 
-    this.goCamIds = this.geneDetails.gocam_ids;
+    this.goCamIds = this.geneOrTermDetails.gocam_ids;
 
     this.hasGoCam = this.goCamIds.length > 0;
 

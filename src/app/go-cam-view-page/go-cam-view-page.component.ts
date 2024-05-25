@@ -13,8 +13,9 @@ export class GoCamViewPageComponent implements OnInit {
   sanitizedURL?: SafeResourceUrl;
 
   gocamId?: string;
-  geneUniquename?: string;
-  geneName?: string;
+  sourcePageType = 'gene';
+  sourceId?: string;
+  sourceName?: string;
 
   constructor(private sanitizer: DomSanitizer,
               private route: ActivatedRoute) { }
@@ -27,8 +28,9 @@ export class GoCamViewPageComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       if (params['gocam_id'] !== undefined) {
         this.gocamId = params['gocam_id'];
-        this.geneUniquename = params['gene_uniquename'];
-        this.geneName = params['gene_name'];
+        this.sourcePageType = params['source_page_type'];
+        this.sourceId = params['source_uniquename'];
+        this.sourceName = params['source_name'];
         const rawUrl = 'gocam_viz/full/' + this.gocamId;
         this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
       }

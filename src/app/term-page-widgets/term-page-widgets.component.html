@@ -5,7 +5,7 @@
       <span *ngIf="currentWidget() == 'none'" class="widgets-available">
         Available widgets:
       </span>
-      <ng-container>
+      <ng-container *ngIf="hasReactionData()">
         <div *ngIf="currentWidget() != 'rhea_reaction'"
              class="non-active-widget-button"
              title="Click to view reaction diagram from RHEA">
@@ -17,6 +17,20 @@
         <div *ngIf="currentWidget() == 'rhea_reaction'" class="active-widget-button">
           <div>Reaction</div>
           <img class="widget-button" src="assets/reaction-widget-icon.png" />
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="hasGoCams()">
+        <div *ngIf="currentWidget() != 'gocam_viewer'" class="non-active-widget-button"
+             title="Click to view GO-CAM models">
+          <a (click)="setWidget('gocam_viewer')">
+            <div>GO-CAM models</div>
+            <img class="widget-button" src="assets/go-cam-widget-icon.png" />
+          </a>
+        </div>
+        <div *ngIf="currentWidget() == 'gocam_viewer'" class="active-widget-button">
+          <div>GO-CAM models</div>
+          <img class="widget-button" src="assets/go-cam-widget-icon.png" />
         </div>
       </ng-container>
 
@@ -36,8 +50,12 @@
   <div *ngIf="currentWidget() != 'none'" class="widgets-container">
     <div *ngIf="currentWidget() == 'rhea_reaction'">
       <div class="rhea-reactions">
-        <app-reaction-view [termIdRefs]="termIdRefs"></app-reaction-view>
+        <app-reaction-view [termIdRefs]="termDetails"></app-reaction-view>
       </div>
+    </div>
+    <div *ngIf="currentWidget() == 'gocam_viewer'" class="gocam-viewier">
+      <app-go-cam-viewer [geneOrTermDetails]="termDetails">
+      </app-go-cam-viewer>
     </div>
   </div>
 </div>
