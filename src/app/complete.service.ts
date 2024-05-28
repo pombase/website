@@ -54,6 +54,7 @@ export interface SolrTermSummary extends TermIdRefs  {
   definition: string;
   definition_xrefs: Array<string>;
   secondary_identifiers: Array<string>;
+  gocam_ids: Array<string>;
   highlighting: { [fieldName: string]: string };
 }
 

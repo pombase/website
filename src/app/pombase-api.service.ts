@@ -656,6 +656,7 @@ export interface TermAndRelation {
 export interface TermIdRefs {
   definition_xrefs: Array<string>;
   secondary_identifiers: Array<string>;
+  gocam_ids: Array<string>;
 }
 
 export class TermDetails implements TermIdRefs {

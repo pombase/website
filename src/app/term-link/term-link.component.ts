@@ -28,6 +28,7 @@ export class TermLinkComponent implements OnInit {
   cvDisplayName = '';
 
   hasReactions = false;
+  gocamCount = 0;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
@@ -105,6 +106,8 @@ export class TermLinkComponent implements OnInit {
           this.cvDisplayName = typeConfig.display_name;
 
           this.setHasReactions();
+
+          this.gocamCount = termSummary.gocam_ids.length;
         }
       });
   }
