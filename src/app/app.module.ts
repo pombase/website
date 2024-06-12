@@ -162,6 +162,7 @@ import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
 import { GoCamViewerComponent } from './go-cam-viewer/go-cam-viewer.component';
 import { GoCamViewPageComponent } from './go-cam-view-page/go-cam-view-page.component';
 import { GeneticInteractionTableTypeFilterComponent } from './genetic-interaction-table-type-filter/genetic-interaction-table-type-filter.component';
+import { RnaStructureComponent } from './rna-structure/rna-structure.component';
 
 @Pipe({ name: 'safeUrl' })
 export class SafeUrlPipe implements PipeTransform {
@@ -313,6 +314,7 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
     GoCamViewerComponent,
     GoCamViewPageComponent,
     GeneticInteractionTableTypeFilterComponent,
+    RnaStructureComponent,
   ],
   imports: [
     BrowserModule,

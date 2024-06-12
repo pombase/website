@@ -607,6 +607,7 @@ export class GeneDetails {
   deletion_viability?: string;
   uniprot_identifier?: string;
   biogrid_interactor_id?: string;
+  rnacentral_urs_identifier?: string;
   interpro_matches: Array<InterProMatch>;
   tm_domain_coords: Array<Array<number>>;
   low_complexity_region_coords: Array<Array<number>>;
