@@ -1,5 +1,4 @@
 ### PomBase updated to use InterPro Version 99.0
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 
 PomBase now uses InterPro Version 99.0.
