@@ -1,4 +1,5 @@
 ### Next pombeTalks: Wednesday, June 19th
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The final session of this season of
