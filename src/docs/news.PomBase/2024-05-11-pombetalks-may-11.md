@@ -1,5 +1,4 @@
 ### Next pombeTalks: Wednesday, May 15th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next [pombeTalks](https://evonuclab.org/pombetalks) session S04E08 will take place on Wednesday, May 15th.
