@@ -42,3 +42,4 @@ src/index.html
 **/.DS_Store
 
 *.tmp
+data_files
