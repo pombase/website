@@ -17,7 +17,5 @@ complex interactions and pathways.
 At PomBase, we have begun representing biological pathways as GO-CAM
 models and displaying them on the relevant gene and process pages.
 
-Pathways with production GO-CAM models in GO-CAM.
-
 For further information see the
 [Gene Ontology GO-CAM overview](https://geneontology.org/docs/gocam-overview/).
