@@ -2,7 +2,8 @@
   width: 90%;
   clear: both;
   margin: 0 0 0 2em;
-  font-size: 105%;
+  font-size: 110%;
+  max-width: 90em;
 }
 
 .docs-content td {
