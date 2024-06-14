@@ -24,3 +24,11 @@
   font-size: 110%;
   padding: 0.1em 0.6em;
 }
+
+.help-link {
+  padding-left: 2em;
+}
+
+.help-link img {
+  height: 1em;
+}
