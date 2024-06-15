@@ -1,0 +1,14 @@
+<table>
+  <tr *ngFor="let gocam of gocams">
+    <td>
+      <a routerLink="/gocam/docs/{{gocam.gocam_id}}">{{gocam.gocam_id}}</a>
+    </td>
+    <td>
+      <ul>
+        <li *ngFor="let termDetails of gocam.terms">
+          <a routerLink="/term/{{termDetails.termid}}">{{termDetails.name}}</a>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>

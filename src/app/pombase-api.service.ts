@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
-import { TermShort } from './pombase-query';
+import { TermAndName, TermShort } from './pombase-query';
 import { Util } from './shared/util';
 import { Seq } from './seq';
 import { getAppConfig, ConfigOrganism } from './config';
@@ -748,6 +748,15 @@ export interface GeneSubsetDetails {
 
 export interface GeneSubsets {
   [subsetName: string]: GeneSubsetDetails;
+}
+
+type GeneUniquename = string;
+type GoCamId = string;
+
+export interface GoCamDetails {
+  gocam_id: GoCamId;
+  genes: Array<GeneUniquename>;
+  terms: Array<TermAndName>;
 }
 
 export interface APIError {
@@ -1848,6 +1857,13 @@ export class PombaseAPIService {
     return this.httpRetry.getWithRetry(this.apiUrl + `/data/seq_feature_page_features`)
       .toPromise()
       .then(body => body as unknown as Array<FeatureShort>)
+      .catch(this.handleError);
+  }
+
+  getAllGoCamDetails(): Promise<Array<GoCamDetails>> {
+    return this.httpRetry.getWithRetry(this.apiUrl + `/gocam_data/all`)
+      .toPromise()
+      .then(body => body as unknown as Array<GoCamDetails>)
       .catch(this.handleError);
   }
 }

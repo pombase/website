@@ -20,3 +20,7 @@ models and displaying them on the relevant gene and process pages.
 
 For further information see the
 [Gene Ontology GO-CAM overview](https://geneontology.org/docs/gocam-overview/).
+
+Available GO-CAM models:
+
+<app-go-cam-table></app-go-cam-table>
