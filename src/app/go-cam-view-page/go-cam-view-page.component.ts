@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Params } from '@angular/router';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-browser';
+import { AppConfig, getAppConfig } from '../config';
 
 @Component({
   selector: 'app-go-cam-view-page',
@@ -9,6 +10,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./go-cam-view-page.component.css']
 })
 export class GoCamViewPageComponent implements OnInit {
+  appConfig: AppConfig = getAppConfig();
 
   sanitizedURL?: SafeResourceUrl;
 
@@ -17,11 +19,25 @@ export class GoCamViewPageComponent implements OnInit {
   sourceId?: string;
   sourceName?: string;
 
-  constructor(private sanitizer: DomSanitizer,
+  constructor(private titleService: Title,
+              private sanitizer: DomSanitizer,
+              private readonly meta: Meta,
               private route: ActivatedRoute) { }
 
   getIFrameURL(): SafeResourceUrl | undefined {
     return this.sanitizedURL;
+  }
+
+  setPageTitle(): void {
+    let title;
+    if (this.gocamId) {
+      title = this.appConfig.site_name + ' - GO-CAM Model - ' + this.gocamId;
+    } else {
+      title = this.appConfig.site_name + ' - GO-CAM Model';
+    }
+    this.titleService.setTitle(title);
+    this.meta.updateTag({ property: 'og:title', content: title });
+    this.meta.updateTag({ property: 'description', content: title });
   }
 
   ngOnInit(): void {
@@ -33,6 +49,7 @@ export class GoCamViewPageComponent implements OnInit {
         this.sourceName = params['source_name'];
         const rawUrl = 'gocam_viz/full/' + this.gocamId;
         this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
+        this.setPageTitle();
       }
     });
   }
