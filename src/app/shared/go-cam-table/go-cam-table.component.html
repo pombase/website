@@ -1,4 +1,8 @@
 <table>
+  <tr>
+    <th>GO-CAM ID</th>
+    <th>Process</th>
+  </tr>
   <tr *ngFor="let gocam of gocams">
     <td>
       <a routerLink="/gocam/docs/{{gocam.gocam_id}}">{{gocam.gocam_id}}</a>

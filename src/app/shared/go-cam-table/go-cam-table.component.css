@@ -6,7 +6,7 @@ tr ul {
   margin: 0;
 }
 
-td {
+td, th {
   padding: 0.5em;
   vertical-align: top;
 }
