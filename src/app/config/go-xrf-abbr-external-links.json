@@ -35,6 +35,12 @@
       "url_syntax" : "http://purl.obolibrary.org/obo/CL_[example_id]",
       "website" : "http://cellontology.org"
    },
+   "ComplexPortal" : {
+      "description" : "Complex Portal database of macromolecular complexes",
+      "name" : "ComplexPortal",
+      "url_syntax" : "https://www.ebi.ac.uk/complexportal/complex/[example_id]",
+      "website" : "https://www.ebi.ac.uk/complexportal"
+   },
    "DOI" : {
       "description" : "Digital Object Identifier",
       "name" : "DOI",

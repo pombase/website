@@ -333,7 +333,7 @@ Analysis of stress-induced duplex destabilization (SIDD) properties of replicati
 <h2 id="more-about-pombase">More about PomBase:</h2>
 <ul>
 <li>PomBase promotes <strong>community curation</strong>, involving authors in the curation of their published research. This increases curation quality, and allows researchers to become familiar with the data organisation and supported data types. We developed <a href="https://github.com/pombase/canto"><u>Canto</u></a>, a web-based curation tool to support professional and community curation that is also used by <a href="https://flybase.org/"><u>FlyBase</u></a>, <a href="http://www.phi-base.org/"><u>PHI-Base</u></a> and <a href="https://www.japonicusdb.org/"><u>JaponicusDB</u></a>. <a routerLink="/community/fission-yeast-community-curation-project">Read more</a> about community curation.</li>
-<li>We provide over <strong>300.000 curated standardised annotations</strong> and our 27.000 experimentally supported GO annotations support more than 687.000 species-wide annotations in other key model species. <a href="https://curation.pombase.org/pombe/stats/annotation"><u>See our stats</u></a></li>
+<li>We provide over <strong>300.000 curated standardised annotations</strong> and our 27.000 experimentally supported GO annotations support more than 687.000 species-wide annotations in other key model species. See our <a routerLink="/metrics"><u>Literature and curation metrics page</u></a> for more.</li>
 <li>We actively participate in the <strong>development of several ontologies</strong> to extend and improve standards that represent the knowledge produced by researchers.</li>
 <li>See all of our ongoing <a routerLink="/about/collaborations">collaborations</a> and <a routerLink="/about/projects">projects</a>.</li>
 </ul>
@@ -511,7 +511,7 @@ United Kingdom</p>
 <p>In addition to adding value to data through the curation process, at PomBase we also contribute to the broader curation life cycle by working with other resources to develop, adopt and promote curation best practices. In this role, we contribute to the development of global standards, improve data dissemination, develop rigorous annotation quality control procedures, and share the tools and resources we have developed.</p>
 <ul>
 <li><p><strong>Database and website development:</strong> we develop the Open Source code for this website and the underlying database, constantly improving it so that researchers can quickly and intuitively interrogate our annotations. The code is modular, easily configurable and extendable to support other model organisms (see <a href="https://pubmed.ncbi.nlm.nih.gov/35380656/">PMID:35380656</a>). Visit our <a href="https://github.com/pombase/website">code repository</a> and publications <a href="https://pubmed.ncbi.nlm.nih.gov/30321395/">PMID:30321395</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/35100366/">PMID:35100366</a>.</p></li>
-<li><p><strong>High quality literature curation:</strong> we manually curate papers, request or create new ontology terms for new observations, and actively work to quality control and improve our existing annotations. We involve authors in this process to ensure curation quality. Curation is particularly important to “FAIRify” and maximise the impact of results coming from small-scale publications that address mechanistic details, as it integrates the new knowledge into a greater body of annotations that can be queried, reused and more easily discovered. We have more than 300.000 manually curated annotations. See our <a href="https://curation.pombase.org/pombe/stats/annotation">curation stats</a>.</p></li>
+<li><p><strong>High quality literature curation:</strong> we manually curate papers, request or create new ontology terms for new observations, and actively work to quality control and improve our existing annotations. We involve authors in this process to ensure curation quality. Curation is particularly important to “FAIRify” and maximise the impact of results coming from small-scale publications that address mechanistic details, as it integrates the new knowledge into a greater body of annotations that can be queried, reused and more easily discovered. We have more than 300.000 manually curated annotations. See our <a routerLink="/metrics">metrics page</a> and the <a href="https://curation.pombase.org/pombe/stats/annotation">community curation stats page</a>.</p></li>
 <li><p><strong>Ontology development:</strong> we contribute to the development of several ontologies, to extend and improve standards that represent the knowledge produced by researchers. We are the sole developers of <a href="https://pubmed.ncbi.nlm.nih.gov/23658422/">FYPO</a>, the Fission Yeast Phenotype Ontology, but we are also major contributors to the Gene Ontology and contribute substantially to the Monarch disease ontology (MONDO). We contribute to the sequence ontology, Protein Ontology (PR) and CHEBI ontology as required for our annotation and ontology development work.</p></li>
 <li><p><strong>Development of Canto:</strong> Canto is an Open Source web-based curation tool that provides an intuitive interface for ontology-based literature curation, and a literature management system where publications are triaged by broad content type and classified by their curation stage. Canto is generic and extendable, and is used by other model organism databases (including FlyBase, PHI-base, japonicusDB) . Canto is actively developed and adapted to the needs of different resources and researchers. See “Community curation” below, our <a href="https://github.com/pombase/canto">code repository</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/24574118/">PMID:24574118</a>.</p></li>
 <li><p><strong>Community curation:</strong> PomBase involves authors in the curation of their papers, in a way that, without dedicated training, they can contribute detailed and structured annotations. Community curation is supported by our web-based curation tool, Canto, which allows for an iterative dialogue with authors that speeds up the curation process, improves annotation quality through expert approval, makes authors more familiar with the curation process and supported data-types and often leads to feedback from the authors about existing annotations. For more on community curation visit our <a href="https://curation.pombase.org/pombe/stats/annotation">curation stats</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/32353878/">PMID:32353878</a>.</p></li>
@@ -1232,8 +1232,10 @@ New PomBase Website 2017, Group Leader Survey Summary.<br />
   </div>
   <div *ngIf="pageName == 'resource-metrics'">
 <h1 id="resource-metrics">Resource Metrics</h1>
+<h2 id="database-wide-metrics">Database-wide metrics</h2>
+<p>There is a graphical overview of PomBase annotation from all sources on the <a routerLink="/metrics">Literature and curation metrics</a> page.</p>
 <h2 id="curation">Curation</h2>
-<p>The <a href="https://curation.pombase.org/pombe/stats/annotation">Curation Statistics</a> page (currently part of PomBase Canto) provides a set of metrics reflecting the current state of literature curation in PomBase.</p>
+<p>The <a href="https://curation.pombase.org/pombe/stats/annotation">Curation Statistics</a> page (currently part of PomBase Canto) provides additional graphical details about the PomBase community curation project.</p>
 <h2 id="web-usage">Web usage</h2>
 <p>Statistics forthcoming</p>
 
@@ -4201,12 +4203,20 @@ the total annotated genes.
 
   </div>
   <div *ngIf="pageName == 'fission-yeast-community-curation-project'">
-<h1 id="the-fission-yeast-community-curation-project">The Fission Yeast Community Curation Project</h1>
+<h2 id="the-fission-yeast-community-curation-project">The Fission Yeast Community Curation Project</h2>
 <p>Comprehensive manual curation of the <em>S. pombe</em> literature is a primary goal of the PomBase project, and among the most important activities of the curation staff. Increasing numbers of new publications, and a large backlog of older papers, however, mean that complete literature curation will require input from the research community as well as the efforts of dedicated professional curators.</p>
 <p>The PomBase Community Curation system enables researchers to contribute annotations directly to PomBase based on their publications using Canto, a web-based tool that allows both curators and researchers to create annotations. Canto supports GO, phenotype, interaction, and modification annotations, and can be configured for use with other ontologies as the need arises. Annotations made in the community curation system will be prioritized for inclusion in PomBase and will therefore also be more rapidly disseminated to other databases (e.g. GenBank/ENA/DDBJ, UniProtKB, BioGRID and GO), making data from annotated papers widely visible.</p>
-<p><strong>How to contribute</strong>: For newly published papers, PomBase curators email authors inviting them to participate, with specific instructions and links. Lab members are also welcome to evaluate existing annotations and create new annotations from past publications — use the PubMed ID search on the <a href="https://curation.pombase.org/pombe">main PomBase Canto page</a>. Anyone can also try the <a href="https://curation.pombase.org/demo">demo version of Canto</a>.</p>
-<p><strong>Progress and attribution</strong>: <a href="https://curation.pombase.org/pombe/stats/annotation">Curation statistics</a> track <em>S. pombe</em> papers curated in Canto by PomBase and community curators, and the annotations obtained. Canto will soon allow contributors to register <a href="http://orcid.org/">ORCID</a> identifiers in the system, which will support more formalised attribution of community contributions to PomBase, and thereby enable researchers to cite community curation in institutional reports, funding applications, etc. To supplement the existing permanent publication-centred links in Canto, we are currently investigating possible ways to link to external resources such as ORCID or OpenRIF via ORCID IDs.</p>
-<p><strong>Further reading:</strong> For an in-depth analysis of our approach, and the status of community curation as of early 2019, see our publication:</p>
+<h3 id="how-to-contribute">How to contribute</h3>
+<p>For newly published papers, PomBase curators email authors inviting them to participate, with specific instructions and links. Lab members are also welcome to evaluate existing annotations and create new annotations from past publications — use the PubMed ID search on the <a href="https://curation.pombase.org/pombe">main PomBase Canto page</a>. Anyone can also try the <a href="https://curation.pombase.org/demo">demo version of Canto</a>.</p>
+<h3 id="progress-and-attribution">Progress and attribution</h3>
+<p>We have two pages that track <em>S. pombe</em> papers curated in Canto by PomBase and community curators, and the annotations obtained:</p>
+<ul>
+<li><a routerLink="/metrics">Literature and curation metrics</a></li>
+<li><a href="https://curation.pombase.org/pombe/stats/annotation">Community curation statistics</a></li>
+</ul>
+<p>Canto will soon allow contributors to register <a href="http://orcid.org/">ORCID</a> identifiers in the system, which will support more formalised attribution of community contributions to PomBase, and thereby enable researchers to cite community curation in institutional reports, funding applications, etc. To supplement the existing permanent publication-centred links in Canto, we are currently investigating possible ways to link to external resources such as ORCID or OpenRIF via ORCID IDs.</p>
+<h3 id="further-reading">Further reading</h3>
+<p>For an in-depth analysis of our approach, and the status of community curation as of early 2019, see our publication:</p>
 <p>Lock A, Harris MA, Rutherford K, Hayles J, Wood V.<br />
 Community curation in PomBase: enabling fission yeast experts to provide detailed, standardized, sharable annotation from research publications. <em>Database (Oxford)</em> 2020 Jan 1;2020. pii: baaa028.<br />
 <a href="http://www.ncbi.nlm.nih.gov/pubmed/32353878">PMID:32353878</a> <a href="https://doi.org/10.1093/database/baaa028">DOI:10.1093/database/baaa028</a></p>
@@ -5099,6 +5109,10 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <li>Genomic regions (centromeres, telomeres, mating type)</li>
 </ul>
 <hr />
+<h3 id="datasets-displayed-in-the-genome-browser">Datasets displayed in the genome browser</h3>
+<p>The data files used for the tracks in the <a routerLink="/documentation/JBrowse_quick_start">JBrowse genome browser</a> are available from the <a href="https://www.pombase.org/data/external_datasets/"><code>external_datasets</code> directory</a>. The directory names are the either the publication details (PubMed ID) or the GEO/SRA dataset ID.</p>
+<p>For detailed information about each genome browser track, please see the <a href="https://github.com/pombase/pombase-config/raw/master/website/jbrowse_track_metadata.csv">JBrowse configuration table</a>. This file is a spreadsheet in comma separated value format. The columns are described on <a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">the dataset submission page</a>.</p>
+<hr />
 <h3 id="annotation-datasets">Annotation datasets</h3>
 <table>
 <thead>
@@ -5273,7 +5287,7 @@ feedback on the GeneDB web page.</p>
   </div>
   <div *ngIf="pageName == 'JBrowse_quick_start'">
 <h2 id="getting-started-pombase-jbrowse">Getting started with PomBase JBrowse</h2>
-<p>The PomBase genome browser can be accessed in multiple ways:</p>
+<p>The <a href="https://www.pombase.org/jbrowse/">PomBase genome browser</a> can be accessed in multiple ways:</p>
 <ul>
 <li>On any PomBase page, click the “Search” tab in the header menu, and select “Genome browser”</li>
 <li>From a gene page, click the “View region in JBrowse …” link just above the map image</li>
@@ -6675,6 +6689,13 @@ satisfy those conditions. Click on it to see the lists of genes.</li> <li>In tha
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'go-cam-pathway-models'">
+<h2 id="go-cam-pathways">GO-CAM pathways</h2>
+<p>GO-CAMs, or Gene Ontology Causal Activity Models, are a framework within the Gene Ontology (GO) project that aims to represent complex biological processes in a structured, formal, and computable manner. GO-CAMs extend the traditional GO annotations by incorporating causal relationships between activities (e.g., molecular functions) and linking them to biological processes and cellular components. This approach allows for a detailed representation of how gene products interact and function within a biological context. GO-CAMs involve specifying entities such as genes and proteins, their activities, and the causal relationships between them. These models are represented as graphs, where nodes depict molecular activities and edges denote causal relationships. This graphical representation captures complex interactions and pathways, providing a comprehensive view of biological processes.</p>
+<p>At PomBase, we have begun representing biological pathways as GO-CAM models and displaying them on the relevant gene and process pages.</p>
+<p>For further information see the <a href="https://geneontology.org/docs/gocam-overview/">Gene Ontology GO-CAM overview</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'high-confidence-physical-interaction-network'">
 <h2 id="high-confidence-physical-interaction-network-hcpin">High Confidence Physical Interaction Network (HCPIN)</h2>
 <p>The PomBase High Confidence Physical Interaction Network (HCPIN) is a collection of physical interaction data based on three subsets of Gene Ontology (GO) annotations:</p>
@@ -7843,10 +7864,20 @@ are not detected by any automated method. Gradually, we will add and display sup
 <p>Note: Your browser may prompt you to open or download the linked documents.</p>
 <h3 id="conferences-and-workshops">Conferences and Workshops</h3>
 <h4 id="international-fission-yeast-meeting-series">International Fission Yeast Meeting series</h4>
-<p><a routerLink="/documents/pombe2017">pombe2017</a> Banff, Alberta, Canada 14-19 May 2017</p>
-<p><a routerLink="/documents/pombe2015">pombe2015</a> Kobe, Japan 21-25 June 2015</p>
-<p><a routerLink="/documents/pombe2013">pombe2013</a> London, UK 24-29 June 2013</p>
-<p><a routerLink="/documents/pombe2011">pombe2011</a> Boston, MA, USA 25-30 June 2011</p>
+<ul>
+<li><p><a routerLink="/documents/pombe2017">pombe2017</a><br />
+Banff, Alberta, Canada<br />
+14-19 May 2017</p></li>
+<li><p><a routerLink="/documents/pombe2015">pombe2015</a><br />
+Kobe, Japan<br />
+21-25 June 2015</p></li>
+<li><p><a routerLink="/documents/pombe2013">pombe2013</a><br />
+London, UK<br />
+24-29 June 2013</p></li>
+<li><p><a routerLink="/documents/pombe2011">pombe2011</a><br />
+Boston, MA, USA<br />
+25-30 June 2011</p></li>
+</ul>
 <h4 id="other-conferences-and-workshops">Other Conferences and Workshops</h4>
 <ul>
 <li><a href="https://www.pombase.org/data/archive/Presentations_workshops_and_meeting_abstracts/EMBO_workshop/">2009 EMBO Workshop</a>, Manchester, UK (directory)</li>
@@ -7856,9 +7887,11 @@ are not detected by any automated method. Gradually, we will add and display sup
 </ul>
 <h2 id="other-documents">Other documents</h2>
 <ul>
-<li><p><a href="https://www.pombase.org/data/documents/2019_pombase_survey_summary_no_freetext_responses.pdf">2019 PomBase user survey results</a> (PDF)</p></li>
-<li><p><a href="https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf">2017 PomBase infographic</a> (PDF)</p></li>
-<li><p><a href="https://www.pombase.org/data/documents/2013_pombase_survey_summary.pdf">2013 PomBase user survey results</a> (PDF)</p></li>
+<li><a href="https://www.pombase.org/data/documents/2019_pombase_survey_summary_no_freetext_responses.pdf">2019 PomBase user survey results</a> (PDF)</li>
+<li><a href="https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf">2017 PomBase infographic</a> (PDF)</li>
+<li><a href="https://www.pombase.org/data/documents/2013_pombase_survey_summary.pdf">2013 PomBase user survey results</a> (PDF)</li>
+<li><a href="https://www.pombase.org/data/documents/journal_count_with_year-2024.xls">Counts of pombe publications per journal per year</a> (Excel format)<br />
+(Includes only publications in PomBase)</li>
 </ul>
 
   </div>
@@ -9867,6 +9900,11 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-includes-data-interpro-v100.0">PomBase now includes data from InterPro v100.0</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-june-19th">Next pombeTalks: Wednesday, June 19th</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-may-15th">Next pombeTalks: Wednesday, May 15th</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-updated-use-interpro-version-99.0">PomBase updated to use InterPro Version 99.0</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#news-pombetalks-wednesday-april-17th">News pombeTalks: Wednesday April 17th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-march-20th">Next pombeTalks: March 20th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-database-update-publication-pombase">New database update publication from PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-february-21st">Next pombeTalks: Wednesday, February 21st</a></div>
@@ -9882,7 +9920,7 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll href="#revised-fission-yeast-nomenclature-genes-and-alleles">Revised fission yeast nomenclature for genes and alleles</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#accessing-list-genes-paper">Accessing the list of genes from a paper</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#protein-feature-viewer-added-gene-pages">Protein feature viewer added to gene pages</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll href="#reaction-diagrams-on-term-pages">Reaction diagrams on term pages</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#reaction-diagrams-on-go-molecular-function-term-pages">Reaction diagrams on GO molecular function term pages</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#curation-update-nonsense-mutation-merged-into-partial-amino-acid-deletion">Curation update - "nonsense mutation" merged into "partial amino acid deletion"</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#experimental-structures-pdb-on-gene-pages">Experimental structures from PDB on gene pages</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#alphafold-protein-structure-on-gene-pages">AlphaFold protein structure on gene pages</a></div>
@@ -9921,8 +9959,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll href="#alphafold-links">AlphaFold links</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-july-21st">PombeTalks July 21st</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#kegg-pathway-links">KEGG pathway links</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-86.0">PomBase now uses InterPro Version 86.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-july-7th">PombeTalks July 7th</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-86.0">PomBase now uses InterPro Version 86.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-june-23rd">PombeTalks June 23rd</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#violin-plots-gene-expression">Violin plots for gene expression</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-june-9th">PombeTalks June 9th</a></div>
@@ -9966,8 +10004,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-may-27th">PombeTalks May 27th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-fission-yeast-go-slims">New fission yeast GO slims</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-ontology-slimming-options-advanced-search-results">New ontology slimming options for advanced search results</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#improved-gene-disease-curation">Improved gene-disease curation</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#published-community-curation-pombase">Published: Community curation in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-may-13th">PombeTalks May 13th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#chromatin-silencing-ontology-amp-annotation-overhaul">Chromatin silencing ontology &amp; annotation overhaul</a></div>
@@ -9975,8 +10013,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll href="#mitochondrial-genome-update">Mitochondrial genome update</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#midori-harris-receives-2020-biocuration-career-award">Midori Harris receives 2020 Biocuration Career Award</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombetalks-start-on-april-29th">PombeTalks start on April 29th</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll href="#angeli-update">AnGeLi update</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-search-result-download-options">New search result download options</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#angeli-update">AnGeLi update</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-uses-interpro-version-77.0">PomBase now uses InterPro Version 77.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#community-curation-response-rate-reaches-50">Community curation response rate reaches 50%</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#a-quarter-million-annotations">A quarter of a million annotations</a></div>
@@ -9992,8 +10030,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll href="#join-conversations-on-slack">Join the conversations on Slack</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse">"Fitness Landscape of the Fission Yeast Genome" dataset loaded into JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll href="#customisable-fasta-download">Customisable FASTA download</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#customisable-fasta-download">Customisable FASTA download</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-interpro-update">PomBase InterPro Update</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#s.-pombe-included-gene-info-browser-extension">*S. pombe* included in Gene Info browser extension</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#integrated-motif-search">Integrated motif search</a></div>
@@ -10039,8 +10077,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-data-update-viability-summary-correction-alert">PomBase data update; viability summary correction alert</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-data-update-multi-allele-phenotypes">PomBase data update with multi-allele phenotypes</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-data-update-2015-06-16">PomBase data update 2015-06-16</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll href="#canto-downtime-new-version">Canto downtime & new version</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-data-update-2015-05-26">PomBase data update 2015-05-26</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll href="#canto-downtime-new-version">Canto downtime & new version</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombe-2015-travel-fellowships">Pombe 2015 travel fellowships</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-data-update-2015-04-19">PomBase data update 2015-04-19</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombe-2015-poster-abstract-deadline-extended">Pombe 2015 poster abstract deadline extended</a></div>
@@ -12191,11 +12229,11 @@ Password: will be sent the day of the meeting</p>
 
   </div>
   <div *ngIf="pageName == 'rhea-reaction-diagrams'">
-<h4 id="reaction-diagrams-on-term-pages">Reaction diagrams on term pages</h4>
+<h4 id="reaction-diagrams-on-go-molecular-function-term-pages">Reaction diagrams on GO molecular function term pages</h4>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
-<p>Where available, we now show the reaction diagram from <a href="https://www.rhea-db.org/">Rhea</a> on GO function term pages. This feature is possible thanks to the great work of <a href="https://www.rhea-db.org/">Rhea</a>.</p>
-<p>See the <a routerLink="/term/GO:0003849">GO:0003849 term page</a> for an example.</p>
+<p>Where available, we now show the reaction diagram from <a href="https://www.rhea-db.org/">Rhea</a> on GO molecular function term pages. This feature is possible thanks to the great work of <a href="https://www.rhea-db.org/">Rhea</a>.</p>
+<p>See the <a routerLink="/term/GO:0003849">3-deoxy-7-phosphoheptulonate synthase activity (GO:0003849) term page</a> for an example.</p>
 <p><a href="assets/newsfeed/rhea-reaction-example.png"><img src="assets/newsfeed/rhea-reaction-example.png" class="screenshot" loading="lazy" style="width:100.0%" /></a></p>
 
   </div>
@@ -12285,7 +12323,6 @@ Password: will be sent the day of the meeting</p>
   </div>
   <div *ngIf="pageName == 'interpro-release-97'">
 <h3 id="pombase-updated-use-interpro-version-97.0">PomBase updated to use InterPro Version 97.0</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: interpro_32px.png -->
 <p>PomBase now uses InterPro Version 97.0.</p>
 <p>Features include:</p>
@@ -12353,7 +12390,7 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <h3 id="viewing-protein-modifications">Viewing protein modifications</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
-<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene/SPAC1834.04">histone H3.1 gene page</a> for an example.</p>
+<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene_protein_features/SPAC1834.04">histone H3.1 gene page</a> for an example.</p>
 <p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view for hht1" /></a></p>
 <p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view modification colour key" /></a></p>
 <p>Visit the <a routerLink="/documentation/gene-page-protein-features-widget">protein feature view documentation page</a> for more information.</p>
@@ -12403,9 +12440,159 @@ Meeting ID: 646 1193 8690<br />
 Passcode: See pombelist</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-april-2024'">
+<h3 id="news-pombetalks-wednesday-april-17th">News pombeTalks: Wednesday April 17th</h3>
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next pombeTalk, S04E07 will be on Wednesday, April 17th, at 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo.</p>
+<p>The speakers are:</p>
+<ul>
+<li><p><strong>Yanze Jian</strong><br />
+Perelman school of Medicine, University of Pennsylvania, US<br />
+“Phosphorylation of Bub1 by Mph1 promotes Bub1 signaling at the kinetochore to ensure accurate chromosome segregation”</p></li>
+<li><p><strong>Ebru Aydin</strong><br />
+Justus Liebig University Giessen, Germany “DEAD-box ATPase Dbp2 – mediates a specific mRNP remodelling checkpoint at the 3’-end of genes”</p></li>
+</ul>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for Zoom meeting details.</p>
+
+  </div>
+  <div *ngIf="pageName == 'interpro-release-99'">
+<h3 id="pombase-updated-use-interpro-version-99.0">PomBase updated to use InterPro Version 99.0</h3>
+<!-- newsfeed_thumbnail: interpro_32px.png -->
+<p>PomBase now uses InterPro Version 99.0.</p>
+<p>Features include:</p>
+<ul>
+<li>The addition of 3,837 InterPro entries</li>
+<li>An update to NCBIfam (14.0)</li>
+<li>Integration of 3,831 new methods from the NCBIfam (432), Pfam (1), CATH-Gene3D (64), PANTHER (3,328), CDD (6) databases</li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'pombetalks-may-11'">
+<h3 id="next-pombetalks-wednesday-may-15th">Next pombeTalks: Wednesday, May 15th</h3>
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> session S04E08 will take place on Wednesday, May 15th.</p>
+<p>The session will start at: 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Shaimaa Hassan</strong><br />
+University College London, UK<br />
+“Genome regulation in dormant cells of fission yeast, turquoise killifish and human cancer”</p></li>
+<li><p><strong>Guillem Murciano-Julià</strong><br />
+Oxidative Stress and Cell Cycle, Universitat Pompeu Fabra, Barcelona, Spain<br />
+“Quantifying Cell Cycle Progression and Growth Rate at the Single-Cell Level in Fission Yeast”</p></li>
+</ul>
+<p>Zoom meeting ID: 982 4112 2806<br />
+See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> or <span class="citation" data-cites="pombeSlack">@pombeSlack</span> for more details. The passcode will be sent shortly before the talk for security reasons.</p>
+
+  </div>
+  <div *ngIf="pageName == 'interpro-release-100'">
+<h3 id="pombase-now-includes-data-interpro-v100.0">PomBase now includes data from InterPro v100.0</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: interpro_32px.png -->
+<p>PomBase now uses <a href="https://www.ebi.ac.uk/interpro/">InterPro</a> <a href="https://www.ebi.ac.uk/interpro/release_notes/">release 100.0</a>.</p>
+<p>Features include:</p>
+<ul>
+<li>The addition of 570 InterPro entries.</li>
+<li>An update to Pfam [37.0].</li>
+<li>Integration of 582 new methods from the NCBIfam (26), Pfam (545), PANTHER (3), CDD (8) databases.</li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'pombetalks-june-19th'">
+<h3 id="next-pombetalks-wednesday-june-19th">Next pombeTalks: Wednesday, June 19th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The final session of this season of <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, June 19th.</p>
+<p>The session will start at:<br />
+01:00 San Francisco / 04:00 New York / 09:00 London / 10:00 Paris / 13:30 Delhi / 16:00 Beijing / 17:00 Tokyo.<br />
+Please note the adjusted start time.</p>
+<p>The speaker is:</p>
+<ul>
+<li><strong>Manu Lera Ramírez</strong><br />
+Bähler Lab, University College London, UK<br />
+“ShareYourCloning: towards a FAIR standard for sequence provenance”</li>
+</ul>
+<p>Zoom meeting ID: 664 3811 8855<br />
+See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> or <span class="citation" data-cites="pombeSlack">@pombeSlack</span> for more details. The passcode will be sent shortly before the talk for security reasons.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-06-14-interpro-release-100" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-now-includes-data-interpro-v100.0">PomBase now includes data from InterPro v100.0</h3>
+<p><em>2024-06-14</em></p>
+<p>PomBase now uses <a href="https://www.ebi.ac.uk/interpro/">InterPro</a> <a href="https://www.ebi.ac.uk/interpro/release_notes/">release 100.0</a>.</p>
+<p>Features include:</p>
+<ul>
+<li>The addition of 570 InterPro entries.</li>
+<li>An update to Pfam [37.0].</li>
+<li>Integration of 582 new methods from the NCBIfam (26), Pfam (545), PANTHER (3), CDD (8) databases.</li>
+</ul>
+</div>
+<div id="2024-06-14-pombetalks-june-19th" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-june-19th">Next pombeTalks: Wednesday, June 19th</h3>
+<p><em>2024-06-14</em></p>
+<p>The final session of this season of <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, June 19th.</p>
+<p>The session will start at:<br />
+01:00 San Francisco / 04:00 New York / 09:00 London / 10:00 Paris / 13:30 Delhi / 16:00 Beijing / 17:00 Tokyo.<br />
+Please note the adjusted start time.</p>
+<p>The speaker is:</p>
+<ul>
+<li><strong>Manu Lera Ramírez</strong><br />
+Bähler Lab, University College London, UK<br />
+“ShareYourCloning: towards a FAIR standard for sequence provenance”</li>
+</ul>
+<p>Zoom meeting ID: 664 3811 8855<br />
+See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> or <span class="citation" data-cites="pombeSlack">@pombeSlack</span> for more details. The passcode will be sent shortly before the talk for security reasons.</p>
+</div>
+<div id="2024-05-11-pombetalks-may-11" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-may-15th">Next pombeTalks: Wednesday, May 15th</h3>
+<p><em>2024-05-11</em></p>
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> session S04E08 will take place on Wednesday, May 15th.</p>
+<p>The session will start at: 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Shaimaa Hassan</strong><br />
+University College London, UK<br />
+“Genome regulation in dormant cells of fission yeast, turquoise killifish and human cancer”</p></li>
+<li><p><strong>Guillem Murciano-Julià</strong><br />
+Oxidative Stress and Cell Cycle, Universitat Pompeu Fabra, Barcelona, Spain<br />
+“Quantifying Cell Cycle Progression and Growth Rate at the Single-Cell Level in Fission Yeast”</p></li>
+</ul>
+<p>Zoom meeting ID: 982 4112 2806<br />
+See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> or <span class="citation" data-cites="pombeSlack">@pombeSlack</span> for more details. The passcode will be sent shortly before the talk for security reasons.</p>
+</div>
+<div id="2024-05-04-interpro-release-99" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-updated-use-interpro-version-99.0">PomBase updated to use InterPro Version 99.0</h3>
+<p><em>2024-05-04</em></p>
+<p>PomBase now uses InterPro Version 99.0.</p>
+<p>Features include:</p>
+<ul>
+<li>The addition of 3,837 InterPro entries</li>
+<li>An update to NCBIfam (14.0)</li>
+<li>Integration of 3,831 new methods from the NCBIfam (432), Pfam (1), CATH-Gene3D (64), PANTHER (3,328), CDD (6) databases</li>
+</ul>
+</div>
+<div id="2024-04-11-pombetalks-april-2024" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="news-pombetalks-wednesday-april-17th">News pombeTalks: Wednesday April 17th</h3>
+<p><em>2024-04-11</em></p>
+<p>The next pombeTalk, S04E07 will be on Wednesday, April 17th, at 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo.</p>
+<p>The speakers are:</p>
+<ul>
+<li><p><strong>Yanze Jian</strong><br />
+Perelman school of Medicine, University of Pennsylvania, US<br />
+“Phosphorylation of Bub1 by Mph1 promotes Bub1 signaling at the kinetochore to ensure accurate chromosome segregation”</p></li>
+<li><p><strong>Ebru Aydin</strong><br />
+Justus Liebig University Giessen, Germany “DEAD-box ATPase Dbp2 – mediates a specific mRNP remodelling checkpoint at the 3’-end of genes”</p></li>
+</ul>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for Zoom meeting details.</p>
+</div>
 <div id="2024-03-20-pombetalks-march-20" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-march-20th">Next pombeTalks: March 20th</h3>
@@ -12453,7 +12640,7 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="viewing-protein-modifications">Viewing protein modifications</h3>
 <p><em>2024-02-08</em></p>
-<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene/SPAC1834.04">histone H3.1 gene page</a> for an example.</p>
+<p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene_protein_features/SPAC1834.04">histone H3.1 gene page</a> for an example.</p>
 <p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view for hht1" /></a></p>
 <p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view modification colour key" /></a></p>
 <p>Visit the <a routerLink="/documentation/gene-page-protein-features-widget">protein feature view documentation page</a> for more information.</p>
@@ -12603,10 +12790,10 @@ ELIXIR is to coordinate these resources so that they form a single infrastructur
 </div>
 <div id="2023-06-19-rhea-reaction-diagrams" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
-<h3 id="reaction-diagrams-on-term-pages">Reaction diagrams on term pages</h3>
+<h3 id="reaction-diagrams-on-go-molecular-function-term-pages">Reaction diagrams on GO molecular function term pages</h3>
 <p><em>2023-06-19</em></p>
-<p>Where available, we now show the reaction diagram from <a href="https://www.rhea-db.org/">Rhea</a> on GO function term pages. This feature is possible thanks to the great work of <a href="https://www.rhea-db.org/">Rhea</a>.</p>
-<p>See the <a routerLink="/term/GO:0003849">GO:0003849 term page</a> for an example.</p>
+<p>Where available, we now show the reaction diagram from <a href="https://www.rhea-db.org/">Rhea</a> on GO molecular function term pages. This feature is possible thanks to the great work of <a href="https://www.rhea-db.org/">Rhea</a>.</p>
+<p>See the <a routerLink="/term/GO:0003849">3-deoxy-7-phosphoheptulonate synthase activity (GO:0003849) term page</a> for an example.</p>
 <p><a href="assets/newsfeed/rhea-reaction-example.png"><img src="assets/newsfeed/rhea-reaction-example.png" class="screenshot" loading="lazy" style="width:100.0%" /></a></p>
 </div>
 <div id="2023-04-26-merging-nonsense-alleles" class="news-item">
@@ -13011,18 +13198,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p><em>2021-07-06</em></p>
 <p>PomBase gene pages now have links to pathway entries in the Kyoto Encyclopedia of Genes and Genomes (KEGG) database, as well as links to gene lists for each linked pathway (example: <a href="https://www.pombase.org/term/KEGG_PW:spo01210">2-Oxocarboxylic acid metabolism</a>). The KEGG pathway links are the first entry in a new gene page section, “Molecular pathway”, dedicated to connecting genes in PomBase to depictions of biochemical and signaling pathways.</p>
 </div>
-<div id="2021-06-30-interpro-v86" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
-<h3 id="pombase-now-uses-interpro-version-86.0">PomBase now uses InterPro Version 86.0</h3>
-<p><em>2021-06-30</em></p>
-<p>PomBase now uses InterPro Version 86.0, which integrates:</p>
-<ul>
-<li>299 new InterPro entries</li>
-<li>An update to PROSITE patterns [2021_01] and PROSITE profiles [2021_01]</li>
-<li>454 new methods from the PROSITE profiles (39), SMART (2), Pfam (7), SUPERFAMILY (3), CATH-Gene3D (80), PANTHER (295), CDD (27), SFLD (1) databases.</li>
-</ul>
-<p>InterPro cites 52235 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
-</div>
 <div id="2021-06-30-pombetalks-july7th" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-july-7th">PombeTalks July 7th</h3>
@@ -13035,6 +13210,18 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
 <p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
+</div>
+<div id="2021-06-30-interpro-v86" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-now-uses-interpro-version-86.0">PomBase now uses InterPro Version 86.0</h3>
+<p><em>2021-06-30</em></p>
+<p>PomBase now uses InterPro Version 86.0, which integrates:</p>
+<ul>
+<li>299 new InterPro entries</li>
+<li>An update to PROSITE patterns [2021_01] and PROSITE profiles [2021_01]</li>
+<li>454 new methods from the PROSITE profiles (39), SMART (2), Pfam (7), SUPERFAMILY (3), CATH-Gene3D (80), PANTHER (295), CDD (27), SFLD (1) databases.</li>
+</ul>
+<p>InterPro cites 52235 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
 </div>
 <div id="2021-06-17-pombetalks-june-23rd" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
@@ -13509,18 +13696,18 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p><em>2020-05-20</em></p>
 <p>The PomBase <a routerLink="/query">advanced search</a> results panel now allows you to retrieve annotations to any of the fission yeast <a href="documentation/pombase-go-slim-documentation">GO slims</a> or the <a href="https://www.pombase.org/browse-curation/disease-slim">Mondo disease slim</a> for genes in the results list. For example, you can query for all genes involved in a process and slim the resulting list by molecular function or disease association.</p>
 </div>
+<div id="2020-05-18-increased-disease-annotation-coverage" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
+<h3 id="improved-gene-disease-curation">Improved gene-disease curation</h3>
+<p><em>2020-05-18</em></p>
+<p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have now increased coverage by adding new gene–disease term connections, with 3954 individual annotations to 1195 genes (up from 2588 and 905 respectively in January 2019). Disease associations now cover 24.5% of all fission yeast protein-coding genes, and over one third of those with human orthologs.</p>
+</div>
 <div id="2020-05-18-pombase-uses-mondo" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
 <h3 id="pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</h3>
 <p><em>2020-05-18</em></p>
 <p>PomBase has switched from the <a href="https://disease-ontology.org/">Disease Ontology</a> (DO) to the Monarch Initiative’s <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) for disease gene curation. Mondo covers the same set of disease descriptions as DO, but has a richer hierarchical structure that classifies more specific descriptions into broad categories (e.g. anemia, cancer, kidney disease) suitable for a disease “slim” term set.</p>
 <p>PomBase curators are collaborating with Mondo to improve its disease classification, especially in areas that will support inferences that improve fission yeast disease annotation coverage in the new <a href="https://www.pombase.org/browse-curation/disease-slim">PomBase Mondo slim</a>. The new disease slim is a work in progress, so if there is a particular disease grouping that you would find useful, please <a href="mailto:helpdesk@pombase.org">let us know</a>.</p>
-</div>
-<div id="2020-05-18-increased-disease-annotation-coverage" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
-<h3 id="improved-gene-disease-curation">Improved gene-disease curation</h3>
-<p><em>2020-05-18</em></p>
-<p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have now increased coverage by adding new gene–disease term connections, with 3954 individual annotations to 1195 genes (up from 2588 and 905 respectively in January 2019). Disease associations now cover 24.5% of all fission yeast protein-coding genes, and over one third of those with human orthologs.</p>
 </div>
 <div id="2020-05-11-community-curation-publication" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
@@ -13586,13 +13773,6 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also mark your calendars for the next two sessions on <strong>May 13</strong> and <strong>May 27</strong>, and if you’re interested in speaking, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a>.</p>
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 </div>
-<div id="2020-03-23-angeli" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/angeli.png"/></p>
-<h3 id="angeli-update">AnGeLi update</h3>
-<p><em>2020-03-23</em></p>
-<p>AnGeLi (developed by Danny Bitton) is a tool that allows you to perform enrichments over gene lists.</p>
-<p>AnGeLi has recently been updated to provide 9320 lists, including ontology-based annotations from PomBase (as of 2020-03-04) as well as many additional datasets from the Bähler laboratory.</p>
-</div>
 <div id="2020-03-23-new-search-result-download-options" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="new-search-result-download-options">New search result download options</h3>
@@ -13603,6 +13783,13 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <li>Deletion viability</li>
 <li>Protein length</li>
 </ul>
+</div>
+<div id="2020-03-23-angeli" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/angeli.png"/></p>
+<h3 id="angeli-update">AnGeLi update</h3>
+<p><em>2020-03-23</em></p>
+<p>AnGeLi (developed by Danny Bitton) is a tool that allows you to perform enrichments over gene lists.</p>
+<p>AnGeLi has recently been updated to provide 9320 lists, including ontology-based annotations from PomBase (as of 2020-03-04) as well as many additional datasets from the Bähler laboratory.</p>
 </div>
 <div id="2020-03-01-interpro-v77" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
@@ -13725,12 +13912,6 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 </ul>
 <p>Please let us know if the annotation can be further improved.</p>
 </div>
-<div id="2019-04-18-customisable-fasta" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
-<h3 id="customisable-fasta-download">Customisable FASTA download</h3>
-<p><em>2019-04-18</em></p>
-<p>You can now download nucleotide or peptide sequences for genes in Advanced search results in FASTA format, and customise what is included in the FASTA headers (e.g. gene names, product descriptions, sequence coordinates, or various IDs can be included).</p>
-</div>
 <div id="2019-04-18-prediction-links" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/tree_for_news.png"/></p>
 <h3 id="new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</h3>
@@ -13741,6 +13922,12 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <li><p>Ensembl Fungi Compara and Ensembl Pan-taxonomic Compara links lead to orthology predictions from the Ensembl Compara pipeline for fungi and all species, respectively.</p></li>
 <li><p><a href="http://www.pantherdb.org/">PANTHER</a> links retrieve gene information, classification, and predicted orthologs.</p></li>
 </ul>
+</div>
+<div id="2019-04-18-customisable-fasta" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
+<h3 id="customisable-fasta-download">Customisable FASTA download</h3>
+<p><em>2019-04-18</em></p>
+<p>You can now download nucleotide or peptide sequences for genes in Advanced search results in FASTA format, and customise what is included in the FASTA headers (e.g. gene names, product descriptions, sequence coordinates, or various IDs can be included).</p>
 </div>
 <div id="2019-04-17-pombase-interpro-update" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
@@ -14103,6 +14290,11 @@ Li H, Hou J, Bai L, Hu C, Tong P, Kang Y, Zhao X, Shao Z. 2015. Genome-wide anal
 <p><em>2015-06-16</em></p>
 <p>We have updated the data available on the PomBase web site to include manual curation through May 26, 2015, including 270 community-curated publications. See you at Pombe 2015 in Kobe!</p>
 </div>
+<div id="2015-05-26-pombase-data-update-16" class="news-item">
+<h3 id="pombase-data-update-2015-05-26">PomBase data update 2015-05-26</h3>
+<p><em>2015-05-26</em></p>
+<p>We have updated the data available on the PomBase web site to include manual curation through May 8, 2015, including 265 community-curated publications.</p>
+</div>
 <div id="2015-05-26-canto-downtime-new-version" class="news-item">
 <h3 id="canto-downtime-new-version">Canto downtime &amp; new version</h3>
 <p><em>2015-05-26</em></p>
@@ -14111,11 +14303,6 @@ Li H, Hou J, Bai L, Hu C, Tong P, Kang Y, Zhao X, Shao Z. 2015. Genome-wide anal
 The upgraded Canto will feature an entirely new interface for annotating multi-allele phenotypes and the corresponding genotypes, as well as improved workflows for single-allele phenotypes, GO, etc. All existing annotations will be retained, and users can resume curation using the new and improved features in any unfinished sessions when Canto is back online.<br />
 <br />
 We will announce when the new version of Canto is released to the public.</p>
-</div>
-<div id="2015-05-26-pombase-data-update-16" class="news-item">
-<h3 id="pombase-data-update-2015-05-26">PomBase data update 2015-05-26</h3>
-<p><em>2015-05-26</em></p>
-<p>We have updated the data available on the PomBase web site to include manual curation through May 8, 2015, including 265 community-curated publications.</p>
 </div>
 <div id="2015-04-23-pombe-2015-travel-fellowships" class="news-item">
 <h3 id="pombe-2015-travel-fellowships">Pombe 2015 travel fellowships</h3>
