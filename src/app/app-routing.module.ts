@@ -101,6 +101,11 @@ const routes: Routes = [
     data: {
     }
   },
+  {
+    path: 'gocam/:source_page_type/:gocam_id', component: GoCamViewPageComponent,
+    data: {
+    }
+  },
   { path: 'community',
     loadChildren: () => import('./documentation/documentation.module').then(m => m.DocumentationModule),
   },

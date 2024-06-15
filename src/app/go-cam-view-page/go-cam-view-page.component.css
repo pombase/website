@@ -11,3 +11,11 @@
 .return-to-gene-page div {
   margin: 0.5em 0.1em;
 }
+
+.help-link {
+  padding-left: 3em;
+}
+
+.help-link img {
+  height: 1em;
+}

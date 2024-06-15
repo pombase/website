@@ -1,12 +1,20 @@
 <div *ngIf="getIFrameURL()">
   <div class="return-to-gene-page">
-    <div>GO-CAM model {{gocamId}}</div>
+    <div>GO-CAM model {{gocamId}}
+      <span *ngIf="sourcePageType != 'docs'" class="go-cam-view">
+        <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">Documentation <img class="help-icon"
+              src="/assets/info_icon.svg" /></a></span>
+      </span>
+    </div>
 
     <div *ngIf="sourcePageType == 'gene'">
       <a routerLink="/gene/{{sourceId}}">Return to the {{sourceName || sourceId}} gene page</a>
     </div>
     <div *ngIf="sourcePageType == 'term'">
       <a routerLink="/term/{{sourceId}}">Return to the term page for {{sourceName}} ({{sourceId}})</a>
+    </div>
+    <div *ngIf="sourcePageType == 'docs'">
+      <a routerLink="/documentation/go-cam-pathway-models">Return to the GO-CAM documentation page</a>
     </div>
   </div>
 
