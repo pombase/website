@@ -6,13 +6,14 @@ biological processes in a structured, formal, and computable
 manner. GO-CAMs extend the traditional GO annotations by incorporating
 causal relationships between activities (e.g., molecular functions)
 and linking them to biological processes and cellular components. This
-allows for the representation of how gene products interact and
-function in a biological context. This involves specifying the
-entities (genes, proteins, etc.), their activities, and the causal
-relationships between them. GO-CAMs are represented as graphs where
-nodes represent molecular activities and edges represent causal
-relationships. This graphical representation enables the capture of
-complex interactions and pathways.
+approach allows for a detailed representation of how gene products
+interact and function within a biological context.  GO-CAMs involve
+specifying entities such as genes and proteins, their activities, and
+the causal relationships between them. These models are represented as
+graphs, where nodes depict molecular activities and edges denote
+causal relationships. This graphical representation captures complex
+interactions and pathways, providing a comprehensive view of
+biological processes.
 
 At PomBase, we have begun representing biological pathways as GO-CAM
 models and displaying them on the relevant gene and process pages.
