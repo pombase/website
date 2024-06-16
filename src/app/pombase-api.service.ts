@@ -755,6 +755,7 @@ type GoCamId = string;
 
 export interface GoCamDetails {
   gocam_id: GoCamId;
+  title: string|undefined;
   genes: Array<GeneUniquename>;
   terms: Array<TermAndName>;
 }
@@ -1863,7 +1864,17 @@ export class PombaseAPIService {
   getAllGoCamDetails(): Promise<Array<GoCamDetails>> {
     return this.httpRetry.getWithRetry(this.apiUrl + `/data/gocam/all`)
       .toPromise()
-      .then(body => body as unknown as Array<GoCamDetails>)
+      .then(body => {
+          const details = body as unknown as Array<GoCamDetails>;
+          details.map(d => {
+            if (!d.genes) {
+              d.genes = [];
+            }
+            if (!d.terms) {
+              d.terms = [];
+            }
+          });
+      })
       .catch(this.handleError);
   }
 }
