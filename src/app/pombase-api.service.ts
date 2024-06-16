@@ -1861,7 +1861,7 @@ export class PombaseAPIService {
   }
 
   getAllGoCamDetails(): Promise<Array<GoCamDetails>> {
-    return this.httpRetry.getWithRetry(this.apiUrl + `/gocam_data/all`)
+    return this.httpRetry.getWithRetry(this.apiUrl + `/data/gocam/all`)
       .toPromise()
       .then(body => body as unknown as Array<GoCamDetails>)
       .catch(this.handleError);
