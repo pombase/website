@@ -616,7 +616,7 @@ export class GeneDetails {
   has_protein_features: boolean;
   orfeome_identifier: string;
   pdb_entries: Array<PDBEntry>;
-  gocam_ids: Array<string>;
+  gocams: Array<GoCamIdAndTitle>;
   characterisation_status?: string;
   location: ChromosomeLocation;
   synonyms: Array<SynonymDetails>;
@@ -657,7 +657,7 @@ export interface TermAndRelation {
 export interface TermIdRefs {
   definition_xrefs: Array<string>;
   secondary_identifiers: Array<string>;
-  gocam_ids: Array<string>;
+  gocams: Array<GoCamIdAndTitle>;
 }
 
 export class TermDetails implements TermIdRefs {
@@ -680,7 +680,7 @@ export class TermDetails implements TermIdRefs {
   double_mutant_genetic_interactions: Array<GeneticInteractionGroup>;
   single_allele_genetic_interactions: Array<GeneticInteractionGroup>;
   references_by_uniquename: { [referenceUniquename: string]: ReferenceShort };
-  gocam_ids: Array<string>;
+  gocams: Array<GoCamIdAndTitle>;
 }
 
 export class AnnotationCurator {
@@ -753,9 +753,14 @@ export interface GeneSubsets {
 type GeneUniquename = string;
 type GoCamId = string;
 
+export interface GoCamIdAndTitle {
+  gocam_id: string;
+  title?: string;
+}
+
 export interface GoCamDetails {
   gocam_id: GoCamId;
-  title: string|undefined;
+  title?: string;
   genes: Array<GeneUniquename>;
   terms: Array<TermAndName>;
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GeneDetails, TermDetails } from '../pombase-api.service';
+import { GeneDetails, GoCamIdAndTitle, TermDetails } from '../pombase-api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
@@ -15,7 +15,7 @@ export class GoCamViewerComponent {
   displayName?: string;
   currentGoCamId?: string;
   largeViewPath?: string;
-  goCamIds: Array<string> = [];
+  gocams: Array<GoCamIdAndTitle> = [];
   hasGoCam = false;
 
   constructor(private sanitizer: DomSanitizer) {
@@ -65,15 +65,15 @@ export class GoCamViewerComponent {
       }
     }
 
-    this.goCamIds = this.geneOrTermDetails.gocam_ids;
+    this.gocams = this.geneOrTermDetails.gocams;
 
-    this.hasGoCam = this.goCamIds.length > 0;
+    this.hasGoCam = this.gocams.length > 0;
 
     if (!this.hasGoCam) {
       return;
     }
 
-    this.currentGoCamId = this.goCamIds[0];
+    this.currentGoCamId = this.gocams[0].gocam_id;
 
     this.modelChange();
   }

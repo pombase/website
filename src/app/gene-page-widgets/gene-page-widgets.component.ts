@@ -71,7 +71,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     let current = this.settingsService.genePageMainWidget;
 
     if (current == 'gocam_viewer' &&
-        this.geneDetails.gocam_ids.length == 0) {
+        this.geneDetails.gocams.length == 0) {
       current = 'protein_feature_viewer';
     }
 
@@ -121,7 +121,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   }
 
   showGoCams(): boolean {
-    return this.geneDetails.gocam_ids.length > 0 && !this.deployConfigService.productionMode();
+    return this.geneDetails.gocams.length > 0 && !this.deployConfigService.productionMode();
   }
 
   setWidget(widget: GenePageWidget) {

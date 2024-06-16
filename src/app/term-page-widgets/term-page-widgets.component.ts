@@ -57,7 +57,7 @@ export class TermPageWidgetsComponent {
   }
 
   hasGoCams(): boolean {
-    return this.termDetails.gocam_ids.length > 0 && !this.deployConfigService.productionMode();
+    return this.termDetails.gocams.length > 0 && !this.deployConfigService.productionMode();
   }
 
   currentWidget(): TermPageWidget {
