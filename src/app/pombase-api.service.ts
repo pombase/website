@@ -1184,7 +1184,7 @@ export class PombaseAPIService {
     for (let fieldName of ['cv_annotations',
                            'genes_by_uniquename', 'genotypes_by_uniquename',
                            'alleles_by_uniquename', 'references_by_uniquename',
-                           'terms_by_termid', 'annotation_details', 'gocam_ids']) {
+                           'terms_by_termid', 'annotation_details', 'gocams']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = {};
       }
@@ -1479,7 +1479,7 @@ export class PombaseAPIService {
                            'single_locus_annotated_genes', 'multi_locus_annotated_genes',
                            'double_mutant_genetic_interactions', 'single_allele_genetic_interactions',
                            'direct_ancestors',
-                           'single_locus_genotype_uniquenames', 'gocam_ids']) {
+                           'single_locus_genotype_uniquenames', 'gocams']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = [];
       }
