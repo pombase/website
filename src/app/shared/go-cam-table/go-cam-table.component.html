@@ -1,18 +1,25 @@
 <table>
   <tr>
+    <th>Title</th>
     <th>GO-CAM ID</th>
     <th>Process</th>
   </tr>
   <tr *ngFor="let gocam of gocams">
     <td>
+      <a *ngIf="gocam.title" routerLink="/gocam/docs/{{gocam.gocam_id}}">{{gocam.title}}</a>
+    </td>
+    <td>
       <a routerLink="/gocam/docs/{{gocam.gocam_id}}">{{gocam.gocam_id}}</a>
     </td>
     <td>
-      <ul>
-        <li *ngFor="let termDetails of gocam.terms">
-          <a routerLink="/term/{{termDetails.termid}}">{{termDetails.name}}</a>
-        </li>
-      </ul>
+      <details>
+        <summary>View process terms ...</summary>
+        <ul>
+          <li *ngFor="let termDetails of gocam.terms">
+            <a routerLink="/term/{{termDetails.termid}}">{{termDetails.name}}</a>
+          </li>
+        </ul>
+      </details>
     </td>
   </tr>
 </table>

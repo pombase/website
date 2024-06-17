@@ -10,3 +10,7 @@ td, th {
   padding: 0.5em;
   vertical-align: top;
 }
+
+details summary {
+  white-space: nowrap;
+}
