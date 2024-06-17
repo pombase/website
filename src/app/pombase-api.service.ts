@@ -1879,6 +1879,7 @@ export class PombaseAPIService {
               d.terms = [];
             }
           });
+          return details;
       })
       .catch(this.handleError);
   }
