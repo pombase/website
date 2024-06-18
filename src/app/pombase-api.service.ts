@@ -1879,6 +1879,21 @@ export class PombaseAPIService {
               d.terms = [];
             }
           });
+          details.sort((a, b) => {
+            if (a.title) {
+              if (b.title) {
+                return a.title.localeCompare(b.title);
+              } else {
+                return -1;
+              }
+            } else {
+              if (b.title) {
+                return 1;
+              } else {
+                return 0;
+              }
+            }
+          });
           return details;
       })
       .catch(this.handleError);
