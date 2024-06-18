@@ -14,3 +14,8 @@ td, th {
 details summary {
   white-space: nowrap;
 }
+
+table {
+  margin: 0.5em 1em;
+  max-width: 1000px;
+}
