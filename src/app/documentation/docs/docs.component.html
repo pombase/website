@@ -9902,6 +9902,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll href="#human-disease-association-changes-monarch">Human disease association changes - Monarch</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#pombase-now-includes-data-interpro-v100.0">PomBase now includes data from InterPro v100.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-june-19th">Next pombeTalks: Wednesday, June 19th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll href="#next-pombetalks-wednesday-may-15th">Next pombeTalks: Wednesday, May 15th</a></div>
@@ -12502,7 +12503,6 @@ See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> or
   </div>
   <div *ngIf="pageName == 'pombetalks-june-19th'">
 <h3 id="next-pombetalks-wednesday-june-19th">Next pombeTalks: Wednesday, June 19th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The final session of this season of <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, June 19th.</p>
 <p>The session will start at:<br />
@@ -12518,9 +12518,48 @@ Bähler Lab, University College London, UK<br />
 See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> or <span class="citation" data-cites="pombeSlack">@pombeSlack</span> for more details. The passcode will be sent shortly before the talk for security reasons.</p>
 
   </div>
+  <div *ngIf="pageName == 'disease-monarch'">
+<h3 id="human-disease-association-changes-monarch">Human disease association changes - Monarch</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: human_disease.png -->
+<p>We have changed our major source of human disease associations from <a href="https://www.malacards.org/">Malacards</a> to <a href="https://monarchinitiative.org/">Monarch</a>.</p>
+<p>This change has:</p>
+<ol type="1">
+<li>Increased the number of fission yeast genes with disease associations from 1463 to 1551, made the associations more accurate and up to date</li>
+<li>Allowed us to automate the inclusion of new disease gene imports from Monarch based on our ortholog mappings</li>
+<li>Enabled us to add the qualifiers “causal” or “correlated with” (for multi-genic disorders) to the disease association (you can see this on the gene pages under “show details”)</li>
+</ol>
+<p>Disease associations in PomBase:</p>
+<ul>
+<li><a routerLink="/term/MONDO:0700096">Browse the new disease list</a></li>
+<li><a routerLink="/browse-curation/disease-slim">Overview of disease associations (disease slim)</a></li>
+</ul>
+<p>If you have knowledge of a specific disease class or notice any issues with the ontology you can <a href="https://github.com/monarch-initiative/mondo/issues/">report this to Monarch</a></p>
+<p>The Monarch initiative also host our fission yeast phenotype associations in their <a href="https://monarchinitiative.org/">knowledge graph</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-06-21-disease-monarch" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
+<h3 id="human-disease-association-changes-monarch">Human disease association changes - Monarch</h3>
+<p><em>2024-06-21</em></p>
+<p>We have changed our major source of human disease associations from <a href="https://www.malacards.org/">Malacards</a> to <a href="https://monarchinitiative.org/">Monarch</a>.</p>
+<p>This change has:</p>
+<ol type="1">
+<li>Increased the number of fission yeast genes with disease associations from 1463 to 1551, made the associations more accurate and up to date</li>
+<li>Allowed us to automate the inclusion of new disease gene imports from Monarch based on our ortholog mappings</li>
+<li>Enabled us to add the qualifiers “causal” or “correlated with” (for multi-genic disorders) to the disease association (you can see this on the gene pages under “show details”)</li>
+</ol>
+<p>Disease associations in PomBase:</p>
+<ul>
+<li><a routerLink="/term/MONDO:0700096">Browse the new disease list</a></li>
+<li><a routerLink="/browse-curation/disease-slim">Overview of disease associations (disease slim)</a></li>
+</ul>
+<p>If you have knowledge of a specific disease class or notice any issues with the ontology you can <a href="https://github.com/monarch-initiative/mondo/issues/">report this to Monarch</a></p>
+<p>The Monarch initiative also host our fission yeast phenotype associations in their <a href="https://monarchinitiative.org/">knowledge graph</a>.</p>
+</div>
 <div id="2024-06-14-interpro-release-100" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="pombase-now-includes-data-interpro-v100.0">PomBase now includes data from InterPro v100.0</h3>
