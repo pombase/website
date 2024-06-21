@@ -803,7 +803,7 @@ sub contents_for_template {
       for my $item (@all_news_items) {
         my $item_id = $item->{id};
         my $item_title = $item->{title};
-        $ret .= qq|<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#$item_id'" [pageScrollAdjustHash]="'true'" href="/news#$item_id">$item_title</a></div>\n|;
+        $ret .= qq|<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#$item_id'" [pageScrollAdjustHash]="true" href="/news#$item_id">$item_title</a></div>\n|;
       }
     } else {
       $ret .= "## News archive";
