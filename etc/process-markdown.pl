@@ -801,7 +801,9 @@ sub contents_for_template {
 
     if ($path eq 'news/menu') {
       for my $item (@all_news_items) {
-        $ret .= qq|<div class="left-menu-part left-menu-item"><a pageScroll href="#| . $item->{id} . '">' . $item->{title} . qq|</a></div>\n|;
+        my $item_id = $item->{id};
+        my $item_title = $item->{title};
+        $ret .= qq|<div class="left-menu-part left-menu-item"><a pageScroll pageScrollTarget="#$item_id" href="/news#$item_id">$item_title</a></div>\n|;
       }
     } else {
       $ret .= "## News archive";
