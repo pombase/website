@@ -12,6 +12,8 @@ includes:
   - protein properties: low complexity regions, disordered regions,
     coiled coil regions and predicted trans-membrane domains
 
+Visit the [cdc15 gene page](/gene/SPAC20G8.05c) to see an example.
+
 Hover over features for more information, such as allele descriptions
 and Pfam domain IDs.
 
