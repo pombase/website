@@ -6389,7 +6389,7 @@ is shown as <em>affecting substrate</em>.</li>
   <div *ngIf="pageName == 'gene-page-protein-features'">
 <h2 id="gene-page-protein-domains-and-properties">Gene page: Protein domains and properties</h2>
 <p>Gene pages for protein-coding genes have a section describing protein domains and properties. Also see the <a routerLink="/documentation/gene-page-modifications">Modifications</a> documentation.</p>
-<p><img src="assets/gene_page_protein_features.png" class="screenshot screenshot" width="800" alt="gene page protein features" /></p>
+<p><img src="assets/gene_page_protein_features.png" class="screenshot" width="800" alt="gene page protein features" /></p>
 <ol type="1">
 <li>The graphical view is interactive, and shows the positions of domains and other features. Mouse over any feature to highlight its entry in the table, and to see a pop-up with the feature ID, name, nad position.</li>
 <li>The table of protein families and domains is described in more detail below.</li>
@@ -6398,7 +6398,7 @@ is shown as <em>affecting substrate</em>.</li>
 <li>Table of the protein’s physical properties</li>
 </ol>
 <h4 id="protein-families-and-domains">Protein Families and Domains</h4>
-<p><img src="assets/gene_page_protein_domains.png" class="screenshot screenshot" width="800" alt="gene page protein domains" /></p>
+<p><img src="assets/gene_page_protein_domains.png" class="screenshot" width="800" alt="gene page protein domains" /></p>
 <ol type="a">
 <li>Feature ID of this family or domain in the originating database. Where feasible, the ID links to the source database. Databases include Pfam, SMART, Prosite, Gene3D, SUPERFAMILY, TMHMM and Panther.</li>
 <li>Source database name</li>
@@ -11905,7 +11905,7 @@ PMID:32152323 DOI: 10.1016/j.molcel.2013.01.008</li>
 <p>The Gene Ontology annotation filter for “during” specific cell cycle phases is now included on the “Summary” view in addition to the “Details” view. Available phases have been extended to cover all phases used, and to provide<br />
 useful grouping terms. This filter is “ontology aware” (i.e. a search on interphase will also display G1/S/G2 phase annotation). The phase filter is most useful on pages that display increasing volume of phase-specific curation (such as cdc2). The revised phase filter options are also available in the gene expression section.</p>
 <p>The phase filters are located at the top right of GO and gene expression annotation sections:</p>
-<p><img src="assets/newsfeed/during-filter.png" class="screenshot" loading="lazy" style="padding-left:5em" alt="During filter" /><br />
+<p><img src="assets/newsfeed/during-filter.png" class="screenshot" style="padding-left:5em" loading="lazy" alt="During filter" /><br />
 </p>
 
   </div>
@@ -12149,11 +12149,11 @@ Password: will be sent the day of the meeting</p>
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>We have recently implemented an improved way to <strong>annotate and display genetic interactions so they are linked to phenotype annotations and alleles</strong>.</p>
 <p>Previously, our Genetic Interaction annotations only mentioned the interacting genes and the type of genetic interaction. For example, if a strain with genotype <code>asp1-H397A</code> has the phenotype <code>decreased acid phosphatase activity affecting activity of pho1</code>, but this phenotype is suppressed when <code>rhn1</code> is deleted in that strain, we would annotate that the genes <code>asp1</code> and <code>rhn1</code> are part of a <code>Phenotypic Suppression</code> interaction.</p>
-<p><img src="assets/newsfeed/gi-update-1.png" class="screenshot" loading="lazy" style="width:100.0%" alt="GI old format" /></p>
+<p><img src="assets/newsfeed/gi-update-1.png" class="screenshot" style="width:100.0%" loading="lazy" alt="GI old format" /></p>
 <p>We continue to display interactions in this format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.</p>
-<p><img src="assets/newsfeed/gi-update-2.png" class="screenshot" loading="lazy" style="width:100.0%" alt="GI new format" /></p>
+<p><img src="assets/newsfeed/gi-update-2.png" class="screenshot" style="width:100.0%" loading="lazy" alt="GI new format" /></p>
 <p>In the revised Canto interface, you can only annotate a genetic interaction from the double mutant phenotype annotation (by clicking on <code>add..</code>, as shown below).</p>
-<p><img src="assets/newsfeed/gi-update-3.png" class="screenshot" loading="lazy" style="width:100.0%" alt="GI annotation in Canto" /></p>
+<p><img src="assets/newsfeed/gi-update-3.png" class="screenshot" style="width:100.0%" loading="lazy" alt="GI annotation in Canto" /></p>
 <p>Of course, genetic interactions predating this update are not linked to phenotypes or genotypes, but we are hoping to auto-annotate several of those. We will also prioritise for update any interactions where community curators have provided these details in an annotation comment. Finally, <strong>a big shoutout to Ana Sanchez and Angad Garg from the Shuman lab</strong>, for testing the new interface in numerous recently curated publications. The examples provided here are from <a routerLink="/reference/PMID:31276588">Sanchez et al. 2019</a>. Go read it and see the annotations in PomBase.</p>
 <p>Best, The PomBase team</p>
 
@@ -12163,7 +12163,7 @@ Password: will be sent the day of the meeting</p>
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>You can now query the RNA length of genes (spliced or unspliced) under the “Transcripts and exons” query grouping in the <a href="https://www.pombase.org/query">Advanced search</a>.</p>
 <p>You can also add RNA sequence length as a field in tables downloaded from the query builder.</p>
-<p><img src="assets/newsfeed/advanced-search-rna-length-query.png" class="screenshot" loading="lazy" style="width:100.0%" alt="RNA length queries are available under the “Transcripts and exons” tab" /></p>
+<p><img src="assets/newsfeed/advanced-search-rna-length-query.png" class="screenshot" style="width:100.0%" loading="lazy" alt="RNA length queries are available under the “Transcripts and exons” tab" /></p>
 
   </div>
   <div *ngIf="pageName == 'pombetalks-14th-dec'">
@@ -12208,7 +12208,7 @@ Password: will be sent the day of the meeting</p>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: protein-structure.png -->
 <p>AlphaFold protein structure are now embedded on the PomBase gene pages. We hope to embed the experimental structures from PDB in the near future.</p>
-<p><a href="assets/newsfeed/alphafold-news-item-example-1.png"><img src="assets/newsfeed/alphafold-news-item-example-1.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Example from the mvp1 gene page" /></a></p>
+<p><a href="assets/newsfeed/alphafold-news-item-example-1.png"><img src="assets/newsfeed/alphafold-news-item-example-1.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Example from the mvp1 gene page" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'pdb-structures-gene-pages'">
@@ -12219,7 +12219,7 @@ Password: will be sent the day of the meeting</p>
 <p>If you select the “PDB structures” view on a gene page, experimental structures will set as your default. AlphaFold predictions will be shown for genes where an experimental structure are not available.</p>
 <p>We now also display the structures on the associated publication page. For example: <a routerLink="/reference/PMID:31010807">PMID:31010807 Garg <em>et al.</em></a></p>
 <p>To help locate proteins with experimental protein structures (currently 375), we have added a new query option to the “<a routerLink="/query">Advanced search</a>”, currently under “commonly used queries”: “<a routerLink="/results/from/id/6e8401aa-bab8-48fc-bbb7-c85d13ea10a2">Proteins with PDB structures</a>”</p>
-<p><a href="assets/newsfeed/pdb_structures_lsm7_small.png"><img src="assets/newsfeed/pdb_structures_lsm7_small.png" class="screenshot" loading="lazy" style="width:100.0%" alt="PDB structures on the lsm7 gene page" /></a></p>
+<p><a href="assets/newsfeed/pdb_structures_lsm7_small.png"><img src="assets/newsfeed/pdb_structures_lsm7_small.png" class="screenshot" style="width:100.0%" loading="lazy" alt="PDB structures on the lsm7 gene page" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'merging-nonsense-alleles'">
@@ -12237,7 +12237,7 @@ Password: will be sent the day of the meeting</p>
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>Where available, we now show the reaction diagram from <a href="https://www.rhea-db.org/">Rhea</a> on GO molecular function term pages. This feature is possible thanks to the great work of <a href="https://www.rhea-db.org/">Rhea</a>.</p>
 <p>See the <a routerLink="/term/GO:0003849">3-deoxy-7-phosphoheptulonate synthase activity (GO:0003849) term page</a> for an example.</p>
-<p><a href="assets/newsfeed/rhea-reaction-example.png"><img src="assets/newsfeed/rhea-reaction-example.png" class="screenshot" loading="lazy" style="width:100.0%" /></a></p>
+<p><a href="assets/newsfeed/rhea-reaction-example.png"><img src="assets/newsfeed/rhea-reaction-example.png" class="screenshot" style="width:100.0%" loading="lazy" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'protein-feature-viewer'">
@@ -12268,7 +12268,7 @@ Password: will be sent the day of the meeting</p>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>It’s now possible to view the list of genes associated with a paper, using a new link on the publication pages. The gene list can then optionally be sent to the Advanced Search.</p>
-<p><a href="assets/newsfeed/genes-list-from-ref-page.png"><img src="assets/newsfeed/genes-list-from-ref-page.png" title="Publication page, highlightling the new genes link" class="screenshot" loading="lazy" style="width:100.0%" alt="Publication page, highlightling the new genes link" /></a></p>
+<p><a href="assets/newsfeed/genes-list-from-ref-page.png"><img src="assets/newsfeed/genes-list-from-ref-page.png" title="Publication page, highlightling the new genes link" class="screenshot" style="width:100.0%" loading="lazy" alt="Publication page, highlightling the new genes link" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'nomenclature-paper'">
@@ -12277,7 +12277,7 @@ Password: will be sent the day of the meeting</p>
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>The improved nomenclature guidelines for fission yeast clade genes and alleles have been <a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026">published in Genetics GSA</a>. This update introduces nomenclature guidelines for noncoding RNA genes, a significant update to the allele and genotype nomenclature guidelines originally published in 1987. We took several steps to improve machine readability that will benefit the artificial intelligence/machine learning communities, and our own community curation program.</p>
 <p><a href="https://doi.org/10.1093/genetics/iyad143">Lera-Ramírez <em>et al.</em> 2023, Revised fission yeast gene and allele nomenclature guidelines for machine readability, Genetics, 2023;, iyad143</a></p>
-<p><a href="assets/newsfeed/nomenclature_paper_for_news_big.png"><img src="assets/newsfeed/nomenclature_paper_for_news.png" title="Revised fission yeast gene and allele nomenclature guidelines for machine readability" class="screenshot" loading="lazy" style="width:100.0%" alt="“Revised fission yeast gene and allele nomenclature guidelines for machine readability”" /></a></p>
+<p><a href="assets/newsfeed/nomenclature_paper_for_news_big.png"><img src="assets/newsfeed/nomenclature_paper_for_news.png" title="Revised fission yeast gene and allele nomenclature guidelines for machine readability" class="screenshot" style="width:100.0%" loading="lazy" alt="“Revised fission yeast gene and allele nomenclature guidelines for machine readability”" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'pombetalks-oct-18th'">
@@ -12306,7 +12306,7 @@ Password: will be sent the day of the meeting</p>
 <li><a href="https://www.youtube.com/@PomBase">PomBase YouTube channel</a></li>
 </ul>
 <p>The work on this website was supported by the ELIXIR-UK: FAIR Data Stewardship training UKRI award (MR/V038966/1) to Manuel Lera Ramírez.</p>
-<p><a href="assets/newsfeed/new_canto_video_docs.png"><img src="assets/newsfeed/new_canto_video_docs.png" title="New Canto tutorials video list" class="screenshot" loading="lazy" style="width:100.0%" alt="New Canto tutorials video list" /></a></p>
+<p><a href="assets/newsfeed/new_canto_video_docs.png"><img src="assets/newsfeed/new_canto_video_docs.png" title="New Canto tutorials video list" class="screenshot" style="width:100.0%" loading="lazy" alt="New Canto tutorials video list" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'pombetalks-nov-15th'">
@@ -12359,7 +12359,7 @@ Password: will be sent the day of the meeting</p>
 <!-- newsfeed_thumbnail: elixir_uk_thumb.png -->
 <p>PomBase is the first model organism database (MOD) to be selected as an <a href="https://elixir-europe.org">ELIXIR</a> <a href="https://elixir-europe.org/platforms/data/core-data-resources">Core data resource (CDR)</a>. We were evaluated across a long list of indicators including scientific focus and quality, governance, and quality of service. ELIXIR CDRs are European life science data resources that are important to biological and biomedical research and long-term preservation of biological data. This will provide assurance to our funders and users that PomBase satisfies the many criteria required to considered a key part of the European bioinformatics infrastructure. <a href="https://elixir-europe.org">ELIXIR</a> is an intergovernmental organisation that brings together life science resources from across Europe, it currently includes <a href="https://elixir-europe.org/about-us/who-we-are">22 member countries</a>, bringing together over 240 research organisations. The goal of
 ELIXIR is to coordinate these resources so that they form a single infrastructure.</p>
-<p><a href="assets/newsfeed/elixir_pombase_cdr_announcement.png"><img src="assets/newsfeed/elixir_pombase_cdr_announcement.png" title="ELIXIR CDR announcement" class="screenshot" loading="lazy" style="width:100.0%" alt="ELIXIR CDR announcement" /></a></p>
+<p><a href="assets/newsfeed/elixir_pombase_cdr_announcement.png"><img src="assets/newsfeed/elixir_pombase_cdr_announcement.png" title="ELIXIR CDR announcement" class="screenshot" style="width:100.0%" loading="lazy" alt="ELIXIR CDR announcement" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'pombetalks-jan-17'">
@@ -12386,7 +12386,7 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>It is now possible to send lists of annotated molecular function substrates to the advanced search from gene pages:</p>
-<p><a href="assets/newsfeed/cdc2-substrates-to-advanced-search.png"><img src="assets/newsfeed/cdc2-substrates-to-advanced-search.png" class="screenshot" loading="lazy" style="width:100.0%" alt="cdc2 - send target genes to the Advanced Search" /></a></p>
+<p><a href="assets/newsfeed/cdc2-substrates-to-advanced-search.png"><img src="assets/newsfeed/cdc2-substrates-to-advanced-search.png" class="screenshot" style="width:100.0%" loading="lazy" alt="cdc2 - send target genes to the Advanced Search" /></a></p>
 <p>Lists of annotated molecular function substrates of individual genes (i.e protein kinase or transcription factor target genes) can now be sent directly to the Advanced Search. You can send complete lists, or pre-filtered by cell cycle phase.</p>
 
   </div>
@@ -12395,8 +12395,8 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene_protein_features/SPAC1834.04">histone H3.1 gene page</a> for an example.</p>
-<p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view for hht1" /></a></p>
-<p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view modification colour key" /></a></p>
+<p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Protein feature view for hht1" /></a></p>
+<p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Protein feature view modification colour key" /></a></p>
 <p>Visit the <a routerLink="/documentation/gene-page-protein-features-widget">protein feature view documentation page</a> for more information.</p>
 
   </div>
@@ -12424,7 +12424,7 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <p>The fission yeast 2024 database update “PomBase: a Global Core Biodata Resource—growth, collaboration, and sustainability” has been <a href="https://doi.org/10.1093/genetics/iyae007">published in <em>Genetics</em></a>. This update describes PomBase’s continuing growth and improvement over the past two years and showcases the depth of existing connections both within the biocuration ecosystem and between PomBase and its user community.</p>
 <p>We discuss ways to track knowledge coverage including the tracking of unknown proteins, and the use of slimsets. We describe how we provide value by data and software sharing and how we have reused software provided by others in our new views. We provide author-led curation updates, describe contributions to global standards, future plans to support machine learning with high quality curated data and more.</p>
 <p><a href="https://doi.org/10.1093/genetics/iyae007">Rutherford <em>et al.</em>, <em>Genetics</em>, iyae007</a></p>
-<p><a href="assets/newsfeed/genetics_2024_paper_fig_5.png"><img src="assets/newsfeed/genetics_2024_paper_fig_5.png" title="Data dissemination from PomBase to other resources" class="screenshot" loading="lazy" style="width:100.0%" alt="“Fig 5 Data dissemination from PomBase to other resources”" /></a></p>
+<p><a href="assets/newsfeed/genetics_2024_paper_fig_5.png"><img src="assets/newsfeed/genetics_2024_paper_fig_5.png" title="Data dissemination from PomBase to other resources" class="screenshot" style="width:100.0%" loading="lazy" alt="“Fig 5 Data dissemination from PomBase to other resources”" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'pombetalks-march-20'">
@@ -12659,7 +12659,7 @@ Passcode: See pombelist</p>
 <p>The fission yeast 2024 database update “PomBase: a Global Core Biodata Resource—growth, collaboration, and sustainability” has been <a href="https://doi.org/10.1093/genetics/iyae007">published in <em>Genetics</em></a>. This update describes PomBase’s continuing growth and improvement over the past two years and showcases the depth of existing connections both within the biocuration ecosystem and between PomBase and its user community.</p>
 <p>We discuss ways to track knowledge coverage including the tracking of unknown proteins, and the use of slimsets. We describe how we provide value by data and software sharing and how we have reused software provided by others in our new views. We provide author-led curation updates, describe contributions to global standards, future plans to support machine learning with high quality curated data and more.</p>
 <p><a href="https://doi.org/10.1093/genetics/iyae007">Rutherford <em>et al.</em>, <em>Genetics</em>, iyae007</a></p>
-<p><a href="assets/newsfeed/genetics_2024_paper_fig_5.png"><img src="assets/newsfeed/genetics_2024_paper_fig_5.png" title="Data dissemination from PomBase to other resources" class="screenshot" loading="lazy" style="width:100.0%" alt="“Fig 5 Data dissemination from PomBase to other resources”" /></a></p>
+<p><a href="assets/newsfeed/genetics_2024_paper_fig_5.png"><img src="assets/newsfeed/genetics_2024_paper_fig_5.png" title="Data dissemination from PomBase to other resources" class="screenshot" style="width:100.0%" loading="lazy" alt="“Fig 5 Data dissemination from PomBase to other resources”" /></a></p>
 </div>
 <div id="2024-02-15-pombetalks-feb-21" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
@@ -12683,8 +12683,8 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <h3 id="viewing-protein-modifications">Viewing protein modifications</h3>
 <p><em>2024-02-08</em></p>
 <p>Modified amino acids in the protein feature viewer are now coloured by modification type. See the <a routerLink="/gene_protein_features/SPAC1834.04">histone H3.1 gene page</a> for an example.</p>
-<p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view for hht1" /></a></p>
-<p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Protein feature view modification colour key" /></a></p>
+<p><a href="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png"><img src="assets/newsfeed/gene-hht1-protein-feature-viewer-page.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Protein feature view for hht1" /></a></p>
+<p><a href="assets/newsfeed/protein-feature-modification-key.png"><img src="assets/newsfeed/protein-feature-modification-key.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Protein feature view modification colour key" /></a></p>
 <p>Visit the <a routerLink="/documentation/gene-page-protein-features-widget">protein feature view documentation page</a> for more information.</p>
 </div>
 <div id="2024-02-07-sent-substrates-to-advanced-search" class="news-item">
@@ -12692,7 +12692,7 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <h3 id="access-target-genes-individual-gene-products">Access target genes of individual gene products</h3>
 <p><em>2024-02-07</em></p>
 <p>It is now possible to send lists of annotated molecular function substrates to the advanced search from gene pages:</p>
-<p><a href="assets/newsfeed/cdc2-substrates-to-advanced-search.png"><img src="assets/newsfeed/cdc2-substrates-to-advanced-search.png" class="screenshot" loading="lazy" style="width:100.0%" alt="cdc2 - send target genes to the Advanced Search" /></a></p>
+<p><a href="assets/newsfeed/cdc2-substrates-to-advanced-search.png"><img src="assets/newsfeed/cdc2-substrates-to-advanced-search.png" class="screenshot" style="width:100.0%" loading="lazy" alt="cdc2 - send target genes to the Advanced Search" /></a></p>
 <p>Lists of annotated molecular function substrates of individual genes (i.e protein kinase or transcription factor target genes) can now be sent directly to the Advanced Search. You can send complete lists, or pre-filtered by cell cycle phase.</p>
 </div>
 <div id="2024-01-17-pombetalks-jan-17" class="news-item">
@@ -12720,7 +12720,7 @@ Passcode: will be given the day of the meeting (and already available on pombeSl
 <p><em>2023-12-14</em></p>
 <p>PomBase is the first model organism database (MOD) to be selected as an <a href="https://elixir-europe.org">ELIXIR</a> <a href="https://elixir-europe.org/platforms/data/core-data-resources">Core data resource (CDR)</a>. We were evaluated across a long list of indicators including scientific focus and quality, governance, and quality of service. ELIXIR CDRs are European life science data resources that are important to biological and biomedical research and long-term preservation of biological data. This will provide assurance to our funders and users that PomBase satisfies the many criteria required to considered a key part of the European bioinformatics infrastructure. <a href="https://elixir-europe.org">ELIXIR</a> is an intergovernmental organisation that brings together life science resources from across Europe, it currently includes <a href="https://elixir-europe.org/about-us/who-we-are">22 member countries</a>, bringing together over 240 research organisations. The goal of
 ELIXIR is to coordinate these resources so that they form a single infrastructure.</p>
-<p><a href="assets/newsfeed/elixir_pombase_cdr_announcement.png"><img src="assets/newsfeed/elixir_pombase_cdr_announcement.png" title="ELIXIR CDR announcement" class="screenshot" loading="lazy" style="width:100.0%" alt="ELIXIR CDR announcement" /></a></p>
+<p><a href="assets/newsfeed/elixir_pombase_cdr_announcement.png"><img src="assets/newsfeed/elixir_pombase_cdr_announcement.png" title="ELIXIR CDR announcement" class="screenshot" style="width:100.0%" loading="lazy" alt="ELIXIR CDR announcement" /></a></p>
 </div>
 <div id="2023-12-06-pombetalks-dec-13" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
@@ -12776,7 +12776,7 @@ ELIXIR is to coordinate these resources so that they form a single infrastructur
 <li><a href="https://www.youtube.com/@PomBase">PomBase YouTube channel</a></li>
 </ul>
 <p>The work on this website was supported by the ELIXIR-UK: FAIR Data Stewardship training UKRI award (MR/V038966/1) to Manuel Lera Ramírez.</p>
-<p><a href="assets/newsfeed/new_canto_video_docs.png"><img src="assets/newsfeed/new_canto_video_docs.png" title="New Canto tutorials video list" class="screenshot" loading="lazy" style="width:100.0%" alt="New Canto tutorials video list" /></a></p>
+<p><a href="assets/newsfeed/new_canto_video_docs.png"><img src="assets/newsfeed/new_canto_video_docs.png" title="New Canto tutorials video list" class="screenshot" style="width:100.0%" loading="lazy" alt="New Canto tutorials video list" /></a></p>
 </div>
 <div id="2023-10-10-pombetalks-oct-18th" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
@@ -12800,14 +12800,14 @@ ELIXIR is to coordinate these resources so that they form a single infrastructur
 <p><em>2023-09-30</em></p>
 <p>The improved nomenclature guidelines for fission yeast clade genes and alleles have been <a href="https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026">published in Genetics GSA</a>. This update introduces nomenclature guidelines for noncoding RNA genes, a significant update to the allele and genotype nomenclature guidelines originally published in 1987. We took several steps to improve machine readability that will benefit the artificial intelligence/machine learning communities, and our own community curation program.</p>
 <p><a href="https://doi.org/10.1093/genetics/iyad143">Lera-Ramírez <em>et al.</em> 2023, Revised fission yeast gene and allele nomenclature guidelines for machine readability, Genetics, 2023;, iyad143</a></p>
-<p><a href="assets/newsfeed/nomenclature_paper_for_news_big.png"><img src="assets/newsfeed/nomenclature_paper_for_news.png" title="Revised fission yeast gene and allele nomenclature guidelines for machine readability" class="screenshot" loading="lazy" style="width:100.0%" alt="“Revised fission yeast gene and allele nomenclature guidelines for machine readability”" /></a></p>
+<p><a href="assets/newsfeed/nomenclature_paper_for_news_big.png"><img src="assets/newsfeed/nomenclature_paper_for_news.png" title="Revised fission yeast gene and allele nomenclature guidelines for machine readability" class="screenshot" style="width:100.0%" loading="lazy" alt="“Revised fission yeast gene and allele nomenclature guidelines for machine readability”" /></a></p>
 </div>
 <div id="2023-09-20-list-of-publication-genes" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="accessing-list-genes-paper">Accessing the list of genes from a paper</h3>
 <p><em>2023-09-20</em></p>
 <p>It’s now possible to view the list of genes associated with a paper, using a new link on the publication pages. The gene list can then optionally be sent to the Advanced Search.</p>
-<p><a href="assets/newsfeed/genes-list-from-ref-page.png"><img src="assets/newsfeed/genes-list-from-ref-page.png" title="Publication page, highlightling the new genes link" class="screenshot" loading="lazy" style="width:100.0%" alt="Publication page, highlightling the new genes link" /></a></p>
+<p><a href="assets/newsfeed/genes-list-from-ref-page.png"><img src="assets/newsfeed/genes-list-from-ref-page.png" title="Publication page, highlightling the new genes link" class="screenshot" style="width:100.0%" loading="lazy" alt="Publication page, highlightling the new genes link" /></a></p>
 </div>
 <div id="2023-07-27-protein-feature-viewer" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
@@ -12837,7 +12837,7 @@ ELIXIR is to coordinate these resources so that they form a single infrastructur
 <p><em>2023-06-19</em></p>
 <p>Where available, we now show the reaction diagram from <a href="https://www.rhea-db.org/">Rhea</a> on GO molecular function term pages. This feature is possible thanks to the great work of <a href="https://www.rhea-db.org/">Rhea</a>.</p>
 <p>See the <a routerLink="/term/GO:0003849">3-deoxy-7-phosphoheptulonate synthase activity (GO:0003849) term page</a> for an example.</p>
-<p><a href="assets/newsfeed/rhea-reaction-example.png"><img src="assets/newsfeed/rhea-reaction-example.png" class="screenshot" loading="lazy" style="width:100.0%" /></a></p>
+<p><a href="assets/newsfeed/rhea-reaction-example.png"><img src="assets/newsfeed/rhea-reaction-example.png" class="screenshot" style="width:100.0%" loading="lazy" /></a></p>
 </div>
 <div id="2023-04-26-merging-nonsense-alleles" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
@@ -12855,14 +12855,14 @@ ELIXIR is to coordinate these resources so that they form a single infrastructur
 <p>If you select the “PDB structures” view on a gene page, experimental structures will set as your default. AlphaFold predictions will be shown for genes where an experimental structure are not available.</p>
 <p>We now also display the structures on the associated publication page. For example: <a routerLink="/reference/PMID:31010807">PMID:31010807 Garg <em>et al.</em></a></p>
 <p>To help locate proteins with experimental protein structures (currently 375), we have added a new query option to the “<a routerLink="/query">Advanced search</a>”, currently under “commonly used queries”: “<a routerLink="/results/from/id/6e8401aa-bab8-48fc-bbb7-c85d13ea10a2">Proteins with PDB structures</a>”</p>
-<p><a href="assets/newsfeed/pdb_structures_lsm7_small.png"><img src="assets/newsfeed/pdb_structures_lsm7_small.png" class="screenshot" loading="lazy" style="width:100.0%" alt="PDB structures on the lsm7 gene page" /></a></p>
+<p><a href="assets/newsfeed/pdb_structures_lsm7_small.png"><img src="assets/newsfeed/pdb_structures_lsm7_small.png" class="screenshot" style="width:100.0%" loading="lazy" alt="PDB structures on the lsm7 gene page" /></a></p>
 </div>
 <div id="2023-02-02-alphafold-on-gene-pages" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/protein-structure.png"/></p>
 <h3 id="alphafold-protein-structure-on-gene-pages">AlphaFold protein structure on gene pages</h3>
 <p><em>2023-02-02</em></p>
 <p>AlphaFold protein structure are now embedded on the PomBase gene pages. We hope to embed the experimental structures from PDB in the near future.</p>
-<p><a href="assets/newsfeed/alphafold-news-item-example-1.png"><img src="assets/newsfeed/alphafold-news-item-example-1.png" class="screenshot" loading="lazy" style="width:100.0%" alt="Example from the mvp1 gene page" /></a></p>
+<p><a href="assets/newsfeed/alphafold-news-item-example-1.png"><img src="assets/newsfeed/alphafold-news-item-example-1.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Example from the mvp1 gene page" /></a></p>
 </div>
 <div id="2023-01-24-new-utrs-from-tss" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
@@ -12906,7 +12906,7 @@ Password: will be sent the day of the meeting</p>
 <p><em>2022-12-07</em></p>
 <p>You can now query the RNA length of genes (spliced or unspliced) under the “Transcripts and exons” query grouping in the <a href="https://www.pombase.org/query">Advanced search</a>.</p>
 <p>You can also add RNA sequence length as a field in tables downloaded from the query builder.</p>
-<p><img src="assets/newsfeed/advanced-search-rna-length-query.png" class="screenshot" loading="lazy" style="width:100.0%" alt="RNA length queries are available under the “Transcripts and exons” tab" /></p>
+<p><img src="assets/newsfeed/advanced-search-rna-length-query.png" class="screenshot" style="width:100.0%" loading="lazy" alt="RNA length queries are available under the “Transcripts and exons” tab" /></p>
 </div>
 <div id="2022-11-29-new-gi-announcement" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
@@ -12914,11 +12914,11 @@ Password: will be sent the day of the meeting</p>
 <p><em>2022-11-29</em></p>
 <p>We have recently implemented an improved way to <strong>annotate and display genetic interactions so they are linked to phenotype annotations and alleles</strong>.</p>
 <p>Previously, our Genetic Interaction annotations only mentioned the interacting genes and the type of genetic interaction. For example, if a strain with genotype <code>asp1-H397A</code> has the phenotype <code>decreased acid phosphatase activity affecting activity of pho1</code>, but this phenotype is suppressed when <code>rhn1</code> is deleted in that strain, we would annotate that the genes <code>asp1</code> and <code>rhn1</code> are part of a <code>Phenotypic Suppression</code> interaction.</p>
-<p><img src="assets/newsfeed/gi-update-1.png" class="screenshot" loading="lazy" style="width:100.0%" alt="GI old format" /></p>
+<p><img src="assets/newsfeed/gi-update-1.png" class="screenshot" style="width:100.0%" loading="lazy" alt="GI old format" /></p>
 <p>We continue to display interactions in this format by default (showing only genes and interaction type), but if you expand the annotation, you can view the associated genotypes and phenotypes.</p>
-<p><img src="assets/newsfeed/gi-update-2.png" class="screenshot" loading="lazy" style="width:100.0%" alt="GI new format" /></p>
+<p><img src="assets/newsfeed/gi-update-2.png" class="screenshot" style="width:100.0%" loading="lazy" alt="GI new format" /></p>
 <p>In the revised Canto interface, you can only annotate a genetic interaction from the double mutant phenotype annotation (by clicking on <code>add..</code>, as shown below).</p>
-<p><img src="assets/newsfeed/gi-update-3.png" class="screenshot" loading="lazy" style="width:100.0%" alt="GI annotation in Canto" /></p>
+<p><img src="assets/newsfeed/gi-update-3.png" class="screenshot" style="width:100.0%" loading="lazy" alt="GI annotation in Canto" /></p>
 <p>Of course, genetic interactions predating this update are not linked to phenotypes or genotypes, but we are hoping to auto-annotate several of those. We will also prioritise for update any interactions where community curators have provided these details in an annotation comment. Finally, <strong>a big shoutout to Ana Sanchez and Angad Garg from the Shuman lab</strong>, for testing the new interface in numerous recently curated publications. The examples provided here are from <a routerLink="/reference/PMID:31276588">Sanchez et al. 2019</a>. Go read it and see the annotations in PomBase.</p>
 <p>Best, The PomBase team</p>
 </div>
@@ -13164,7 +13164,7 @@ Password: will be sent the day of the meeting</p>
 <p>The Gene Ontology annotation filter for “during” specific cell cycle phases is now included on the “Summary” view in addition to the “Details” view. Available phases have been extended to cover all phases used, and to provide<br />
 useful grouping terms. This filter is “ontology aware” (i.e. a search on interphase will also display G1/S/G2 phase annotation). The phase filter is most useful on pages that display increasing volume of phase-specific curation (such as cdc2). The revised phase filter options are also available in the gene expression section.</p>
 <p>The phase filters are located at the top right of GO and gene expression annotation sections:</p>
-<p><img src="assets/newsfeed/during-filter.png" class="screenshot" loading="lazy" style="padding-left:5em" alt="During filter" /><br />
+<p><img src="assets/newsfeed/during-filter.png" class="screenshot" style="padding-left:5em" loading="lazy" alt="During filter" /><br />
 </p>
 </div>
 <div id="2021-11-23-interpro-v87" class="news-item">
