@@ -640,7 +640,12 @@ sub process_path {
       my $md = '';
       $md .= '#### **' . $item->{title} . "**\n\n";
       $md .= '*' . $item->{date} . "*\n";
-      $md .= $item->{contents} . "\n";
+      my $contents = $item->{contents};
+      my @bits = split /<!--\s*end-of-summary\s*-->/i, $contents;
+      if (@bits > 1) {
+        $contents = $bits[0] . "\n<a routerLink='/news' fragment='" . $item->{id}. "'>View full post ...</a>";
+      }
+      $md .= "$contents\n";
       print $recent_news_fh markdown($md, "news:" . $item->{title}, 'html'), "\n";
       print $recent_news_fh qq|</div>\n|;
     }
