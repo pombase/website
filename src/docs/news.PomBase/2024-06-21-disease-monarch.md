@@ -27,3 +27,4 @@ the ontology you can [report this to Monarch](https://github.com/monarch-initiat
 The Monarch initiative also host our fission yeast phenotype
 associations in their [knowledge graph](https://monarchinitiative.org/).
 
+Related items: [Monarch Initiative blog post](https://monarchinit.medium.com/pombase-chooses-monarch-as-source-of-human-disease-gene-associations-e53c6d218dce)
