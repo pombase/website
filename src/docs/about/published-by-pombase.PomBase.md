@@ -4,6 +4,15 @@ Please see the [Citing PomBase](/about/citing-pombase) page, which
 lists papers to cite for PomBase, the *S. pombe* genome sequence,
 Canto, FYPO, annotations and Compara.
 
+### Preprints 
+
+Vasilevsky NA, Matentzoglu NA, *et al.* (Val Wood co-author) \
+Mondo: Unifying diseases for the world, by the world \
+[Pre-publication manuscript at medRxiv](https://www.medrxiv.org/content/10.1101/2022.04.13.22273750v3)
+
+Sabrina Toro, Anna V Anagnostopoulos, *et al.* (Val Wood co-author) \
+Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligence (DRAGON-AI) \
+[Pre-publication manuscript at arXiv](https://arxiv.org/abs/2312.10904)
 
 ### Journal articles
 
@@ -568,25 +577,6 @@ The Gene Ontology in 2010: extensions and refinements.\
 <div class="clear-float"></div>
 [PMID:19920128](http://www.ncbi.nlm.nih.gov/pubmed/19920128) [DOI:10.1093/nar/gkp1018](http://dx.doi.org/10.1093/nar/gkp1018)
 
-
-
-
-### Preprints 
-
-Harris MA, Rutherford KM, Hayles J, Lock A, Bähler J, Oliver SG, Mata J, Wood V.\
-Fission stories: Using PomBase to understand *Schizosaccharomyces pombe* biology.\
-[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2021.09.07.459264v1.full) available at bioRxiv.\
-Published &mdash; see above.
-
-Wood V, Carbon S, Harris MA, Lock A, Engel SR, Hill DP, Van Auken K, Attrill H, Feuermann M, Gaudet P, Lovering RC, Poux S, Rutherford KM, Mungall CJ.\
-Term Matrix: A novel Gene Ontology annotation quality control system based on ontology term co-annotation patterns.\
-[Pre-publication manuscript](https://www.biorxiv.org/content/10.1101/2020.04.21.045195v1.full) available at bioRxiv.\
-Published &mdash; see above.
-
-Wood V, Lock A, Harris MA, Rutherford K, Bähler J, Oliver SG.\
-Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?\
-[Pre-publication manuscript](https://www.biorxiv.org/content/early/2018/11/16/469569) available at bioRxiv.\
-Published &mdash; see above.
 
 
 
