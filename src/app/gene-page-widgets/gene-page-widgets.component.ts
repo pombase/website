@@ -70,25 +70,27 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   currentWidget(): GenePageWidget {
     let current = this.settingsService.genePageMainWidget;
 
-    if (current == 'gocam_viewer' &&
-        this.geneDetails.gocams.length == 0) {
+    if (current == 'gocam_viewer' && this.geneDetails.gocams.length == 0) {
       current = 'protein_feature_viewer';
     }
 
-    if (this.hasStructure()) {
-      if (this.geneDetails.pdb_entries.length == 0 &&
-        current == 'pdb_viewer') {
-        return 'alphafold_viewer';
-      }
-      return current;
-    } else {
-      if (current == 'alphafold_viewer' || current == 'pdb_viewer' ||
-          (!this.showProteinFeatures() && current == 'protein_feature_viewer')) {
-        return 'genome_browser';
-      } else {
-        return current;
-      }
+    if (current == 'pdb_viewer' && !this.hasPDBStructure()) {
+      current = 'alphafold_viewer';
     }
+
+    if (current == 'alphafold_viewer' && !this.hasStructure()) {
+      current = 'protein_feature_viewer';
+    }
+
+    if (current == 'rna_2d_structure' && !this.hasRna2dStructure()) {
+      current = 'genome_browser';
+    }
+
+    if (current == 'protein_feature_viewer' && !this.showProteinFeatures()) {
+      current = 'genome_browser';
+    }
+
+    return current;
   }
 
   hideAllWidgets() {
@@ -113,7 +115,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   }
 
   hasPDBStructure(): boolean {
-    return this.geneDetails.pdb_entries.length > 0 && this.hasStructure();
+    return this.geneDetails.pdb_entries.length > 0;
   }
 
   hasRna2dStructure(): boolean {
