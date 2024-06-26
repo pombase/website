@@ -116,6 +116,12 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     return this.geneDetails.pdb_entries.length > 0 && this.showStructure();
   }
 
+  hasRna2dStructure(): boolean {
+    return !!this.geneDetails.rnacentral_urs_identifier &&
+      ['tRNA gene', 'snRNA gene', 'snoRNA gene', 'rRNA gene']
+        .includes(this.geneDetails.feature_type);
+  }
+
   showProteinFeatures(): boolean {
     return this.geneDetails.feature_type == "mRNA gene";
   }

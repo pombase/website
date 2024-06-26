@@ -34,6 +34,19 @@
       </div>
     </ng-container>
 
+    <ng-container *ngIf="hasRna2dStructure()">
+      <div *ngIf="currentWidget() != 'rna_2d_structure'" class="non-active-widget-button" title="Click to view RNA 2D structure">
+        <a (click)="setWidget('rna_2d_structure')">
+          <div>RNA 2D structure</div>
+          <img class="widget-button" src="assets/rna-2d-structure-widget-icon.png" />
+        </a>
+      </div>
+      <div *ngIf="currentWidget() == 'rna_2d_structure'" class="active-widget-button">
+        <div>RNA 2D structure</div>
+        <img class="widget-button" src="assets/rna-2d-structure-widget-icon.png" />
+      </div>
+    </ng-container>
+
     <ng-container *ngIf="showGoCams()">
       <div *ngIf="currentWidget() != 'gocam_viewer'" class="non-active-widget-button"
            title="Click to view GO-CAM models">
@@ -123,6 +136,10 @@
 <div *ngIf="currentWidget() == 'gocam_viewer'" class="go-cam-view">
   <app-go-cam-viewer [geneOrTermDetails]="geneDetails">
   </app-go-cam-viewer>
+</div>
+
+<div *ngIf="currentWidget() == 'rna_2d_structure'" class="rna-2d-sttructure-viewier">
+  <app-rna-structure [geneDetails]="geneDetails"></app-rna-structure>
 </div>
 
 </div>

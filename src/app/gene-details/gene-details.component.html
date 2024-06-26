@@ -131,10 +131,6 @@
       </app-gene-page-widgets>
     </div>
 
-    <div *ngIf="showRnaStructure()" class="gene-page-rna-structure">
-      <app-rna-structure [geneDetails]="geneDetails"></app-rna-structure>
-    </div>
-
     <div *ngFor="let annotationTypeName of annotationTypeNames">
 
       <div *ngIf="geneDetails.cv_annotations[annotationTypeName]">

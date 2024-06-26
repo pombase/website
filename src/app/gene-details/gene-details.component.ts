@@ -328,12 +328,6 @@ export class GeneDetailsComponent implements OnInit {
       !!this.geneDetails.characterisation_status;
   }
 
-  showRnaStructure(): boolean {
-    return !!this.geneDetails.rnacentral_urs_identifier &&
-      ['tRNA gene', 'snRNA gene', 'snoRNA gene', 'rRNA gene']
-        .includes(this.geneDetails.feature_type);
-  }
-
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['uniquename'] !== undefined) {
