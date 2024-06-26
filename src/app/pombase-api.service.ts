@@ -1184,7 +1184,7 @@ export class PombaseAPIService {
     for (let fieldName of ['cv_annotations',
                            'genes_by_uniquename', 'genotypes_by_uniquename',
                            'alleles_by_uniquename', 'references_by_uniquename',
-                           'terms_by_termid', 'annotation_details', 'gocams']) {
+                           'terms_by_termid', 'annotation_details']) {
       if (typeof(json[fieldName]) === 'undefined') {
         json[fieldName] = {};
       }
@@ -1208,6 +1208,10 @@ export class PombaseAPIService {
 
     if (!json.gene_history) {
       json.gene_history = [];
+    }
+
+    if (!json.gocams) {
+      json.gocams = [];
     }
 
     let genesByUniquename = json.genes_by_uniquename as GeneMap;
