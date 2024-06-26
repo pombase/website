@@ -63,23 +63,15 @@ export class TermPageWidgetsComponent {
   currentWidget(): TermPageWidget {
     let current = this.settingsService.termPageMainWidget;
 
-    if (current == 'none') {
-      return 'none';
+    if (current == 'gocam_viewer' && !this.hasGoCams()) {
+      current = 'rhea_reaction';
     }
 
-    if (current == 'gocam_viewer') {
+    if (current == 'rhea_reaction' && !this.hasReactionData()) {
       if (this.hasGoCams()) {
-        return 'gocam_viewer';
+        current = 'gocam_viewer';
       } else {
-        return 'rhea_reaction';
-      }
-    }
-
-    if (current == 'rhea_reaction') {
-      if (this.hasReactionData()) {
-        return 'rhea_reaction';
-      } else {
-        return 'gocam_viewer';
+        current = 'none';
       }
     }
 
