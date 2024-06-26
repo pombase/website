@@ -75,7 +75,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
       current = 'protein_feature_viewer';
     }
 
-    if (this.showStructure()) {
+    if (this.hasStructure()) {
       if (this.geneDetails.pdb_entries.length == 0 &&
         current == 'pdb_viewer') {
         return 'alphafold_viewer';
@@ -95,7 +95,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     this.settingsService.genePageMainWidget = 'none';
   }
 
-  showStructure(): boolean {
+  hasStructure(): boolean {
     if (!this.geneDetails.uniprot_identifier) {
       return false;
     }
@@ -112,8 +112,8 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
     }
   }
 
-  showPDBStructure(): boolean {
-    return this.geneDetails.pdb_entries.length > 0 && this.showStructure();
+  hasPDBStructure(): boolean {
+    return this.geneDetails.pdb_entries.length > 0 && this.hasStructure();
   }
 
   hasRna2dStructure(): boolean {

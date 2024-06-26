@@ -5,7 +5,7 @@
     <span *ngIf="currentWidget() == 'none'" class="widgets-available">
       Available widgets:
     </span>
-    <ng-container *ngIf="showStructure()">
+    <ng-container *ngIf="hasStructure()">
     <div *ngIf="currentWidget() != 'alphafold_viewer'"
          class="non-active-widget-button"
          title="Click to view predicted protein structure from AlphaFold">
@@ -20,7 +20,7 @@
     </div>
     </ng-container>
 
-    <ng-container *ngIf="showPDBStructure()">
+    <ng-container *ngIf="hasPDBStructure()">
       <div *ngIf="currentWidget() != 'pdb_viewer'" class="non-active-widget-button"
         title="Click to view protein structures from PDB">
         <a (click)="setWidget('pdb_viewer')">
