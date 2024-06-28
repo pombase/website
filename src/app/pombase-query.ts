@@ -868,6 +868,34 @@ export class FloatRangeNode extends RangeNode {
   }
 }
 
+export class GenePropertiesNode extends GeneQueryBase {
+  constructor(nodeName: string | undefined, private property_flags: Array<string>) {
+    super(nodeName);
+    if (!nodeName) {
+      this.setNodeName(this.detailsString());
+    }
+    property_flags.sort();
+  }
+  equals(obj: GenePropertiesNode): boolean {
+    if (obj instanceof GenePropertiesNode) {
+      return this.property_flags.length === obj.property_flags.length &&
+        this.property_flags.every((el, idx) => el === obj.property_flags[idx]);
+    }
+    return false;
+  }
+
+  toObject(): Object {
+    return {
+      node_name: this.getNodeName(),
+      gene_properties: { property_flags: this.property_flags },
+    };
+  }
+
+  detailsString(): string {
+    return 'gene properties: ' + this.property_flags.join(' and ');
+  }
+}
+
 export class QueryIdNode extends GeneQueryBase {
   constructor(nodeName: string|undefined, private id: string) {
     super(nodeName);
@@ -989,6 +1017,9 @@ export class GeneQuery {
 
     case 'genome_range':
       return new GenomeRangeNode(nodeName, val['start'], val['end'], val['chromosome_name']);
+
+    case 'gene_properties':
+      return new GenePropertiesNode(nodeName, val['property_flags']);
     }
 
     throw new Error('Unknown type: ' + nodeType);
