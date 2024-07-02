@@ -1,6 +1,9 @@
 <div *ngIf="getIFrameURL()">
   <div class="return-to-gene-page">
     <div>GO-CAM model {{gocamId}}
+      <span class="amigo-link">
+        <a href="https://amigo.geneontology.org/amigo/model/{{gocamId}}">View at geneontology.org</a>
+      </span>
       <span *ngIf="sourcePageType != 'docs'" class="go-cam-view">
         <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">Documentation <img class="help-icon"
               src="/assets/info_icon.svg" /></a></span>
