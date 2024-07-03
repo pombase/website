@@ -7,6 +7,7 @@ import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
 
 import { FooterLogoConfig, getAppConfig } from './config';
+import { DeployConfigService } from './deploy-config.service';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private titleService: Title,
     private meta: Meta,
     private sanitizer: DomSanitizer,
+    public deployConfigService: DeployConfigService,
     @Inject('Window') private window: any) { }
 
   ngOnInit() {

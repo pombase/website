@@ -112,3 +112,9 @@
   top: 85px;
   left: 25px;
 }
+
+.dev-mode-notice {
+  font-size: 170%;
+  color: red;
+  padding: 1em;
+}

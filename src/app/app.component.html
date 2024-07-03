@@ -7,6 +7,9 @@
           <a routerLink="/" routerLinkActive="active" title="{{siteName}} home">
             <img src="assets/{{logoFileName}}" alt="{{siteName}} home" />
           </a>
+          <span *ngIf="!deployConfigService.productionMode()" class="dev-mode-notice">
+            DEV/TEST SERVER
+          </span>
         </div>
       </div>
       <div id="header-search-box">
