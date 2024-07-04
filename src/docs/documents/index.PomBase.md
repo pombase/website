@@ -39,6 +39,6 @@ Note: Your browser may prompt you to open or download the linked documents.
 -   [2013 PomBase user survey results](https://www.pombase.org/data/documents/2013_pombase_survey_summary.pdf) (PDF)
 
 
-### Statistics
+### Publication metrics
 -   [Counts of pombe publications per journal per year](https://www.pombase.org/data/documents/journal_count_with_year-2024.xlsx) (Excel format) \
     (Includes only publications in PomBase)
