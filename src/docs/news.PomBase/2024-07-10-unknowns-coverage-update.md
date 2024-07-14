@@ -25,4 +25,9 @@ increased to 86.9% in 2024). The coverage is confirmed by the
 
 [![Rhee lab unknowns coverage](assets/newsfeed/Rhee_lab_unknowns_coverage.png "Rhee lab unknowns coverage"){.screenshot width=100%}](assets/newsfeed/Rhee_lab_unknowns_coverage.png)
 
-Citation: [Xue, B., & Rhee, S. Y. (2023). Status of genome function annotation in model organisms and crops. Plant Direct, 7(7), e499.](https://doi.org/10.1002/pld3.499)
+Image citation: [Xue, B., & Rhee, S. Y. (2023). Status of genome function annotation in model organisms and crops. Plant Direct, 7(7), e499.](https://doi.org/10.1002/pld3.499)
+
+Related links:
+
+ - [Rutherford et al 2024](https://doi.org/10.1093/genetics/iyae007) explains PomBase choice of metric for assessing knowledge breadth
+ - [Protein coding gene characterization status at PomBase](/status/gene-characterisation)
