@@ -7881,12 +7881,15 @@ Boston, MA, USA<br />
 <li><a href="https://www.pombase.org/data/archive/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/Fission_yeast_computing_workshop_man_Mar2006.ppt">2006 Fission yeast genome analysis workshop</a>, Hinxton, UK - course manual (file)</li>
 <li><a href="https://www.pombase.org/data/archive/Presentations_workshops_and_meeting_abstracts/Pombe_meeting_abstract_books/Wellcome_Euro_Yeast_27_2_06.pdf">2006 European fission yeast meeting</a>, Hinxton, UK - abstracts (file)</li>
 </ul>
-<h2 id="other-documents">Other documents</h2>
+<h3 id="other-documents">Other documents</h3>
 <ul>
 <li><a href="https://www.pombase.org/data/documents/2019_pombase_survey_summary_no_freetext_responses.pdf">2019 PomBase user survey results</a> (PDF)</li>
 <li><a href="https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf">2017 PomBase infographic</a> (PDF)</li>
 <li><a href="https://www.pombase.org/data/documents/2013_pombase_survey_summary.pdf">2013 PomBase user survey results</a> (PDF)</li>
-<li><a href="https://www.pombase.org/data/documents/journal_count_with_year-2024.xls">Counts of pombe publications per journal per year</a> (Excel format)<br />
+</ul>
+<h3 id="publication-metrics">Publication metrics</h3>
+<ul>
+<li><a href="https://www.pombase.org/data/documents/journal_count_with_year-2024.xlsx">Counts of pombe publications per journal per year</a> (Excel format)<br />
 (Includes only publications in PomBase)</li>
 </ul>
 
@@ -9896,6 +9899,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#unknowns-coverage-update'" [pageScrollAdjustHash]="true" href="/news#unknowns-coverage-update">"Unknowns" coverage update</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#rna-secondary-structure-predictions-on-gene-pages'" [pageScrollAdjustHash]="true" href="/news#rna-secondary-structure-predictions-on-gene-pages">RNA secondary structure predictions on gene pages</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#human-disease-association-changes-monarch'" [pageScrollAdjustHash]="true" href="/news#human-disease-association-changes-monarch">Human disease association changes - Monarch</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-now-includes-data-interpro-v100.0'" [pageScrollAdjustHash]="true" href="/news#pombase-now-includes-data-interpro-v100.0">PomBase now includes data from InterPro v100.0</a></div>
@@ -9957,8 +9961,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#alphafold-links'" [pageScrollAdjustHash]="true" href="/news#alphafold-links">AlphaFold links</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-july-21st'" [pageScrollAdjustHash]="true" href="/news#pombetalks-july-21st">PombeTalks July 21st</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#kegg-pathway-links'" [pageScrollAdjustHash]="true" href="/news#kegg-pathway-links">KEGG pathway links</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-july-7th'" [pageScrollAdjustHash]="true" href="/news#pombetalks-july-7th">PombeTalks July 7th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-now-uses-interpro-version-86.0'" [pageScrollAdjustHash]="true" href="/news#pombase-now-uses-interpro-version-86.0">PomBase now uses InterPro Version 86.0</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-july-7th'" [pageScrollAdjustHash]="true" href="/news#pombetalks-july-7th">PombeTalks July 7th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-june-23rd'" [pageScrollAdjustHash]="true" href="/news#pombetalks-june-23rd">PombeTalks June 23rd</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#violin-plots-gene-expression'" [pageScrollAdjustHash]="true" href="/news#violin-plots-gene-expression">Violin plots for gene expression</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-june-9th'" [pageScrollAdjustHash]="true" href="/news#pombetalks-june-9th">PombeTalks June 9th</a></div>
@@ -10002,8 +10006,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-may-27th'" [pageScrollAdjustHash]="true" href="/news#pombetalks-may-27th">PombeTalks May 27th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-fission-yeast-go-slims'" [pageScrollAdjustHash]="true" href="/news#new-fission-yeast-go-slims">New fission yeast GO slims</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-ontology-slimming-options-advanced-search-results'" [pageScrollAdjustHash]="true" href="/news#new-ontology-slimming-options-advanced-search-results">New ontology slimming options for advanced search results</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#improved-gene-disease-curation'" [pageScrollAdjustHash]="true" href="/news#improved-gene-disease-curation">Improved gene-disease curation</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-adopts-mondo-disease-gene-curation'" [pageScrollAdjustHash]="true" href="/news#pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#improved-gene-disease-curation'" [pageScrollAdjustHash]="true" href="/news#improved-gene-disease-curation">Improved gene-disease curation</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#published-community-curation-pombase'" [pageScrollAdjustHash]="true" href="/news#published-community-curation-pombase">Published: Community curation in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-may-13th'" [pageScrollAdjustHash]="true" href="/news#pombetalks-may-13th">PombeTalks May 13th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#chromatin-silencing-ontology-amp-annotation-overhaul'" [pageScrollAdjustHash]="true" href="/news#chromatin-silencing-ontology-amp-annotation-overhaul">Chromatin silencing ontology &amp; annotation overhaul</a></div>
@@ -10011,8 +10015,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#mitochondrial-genome-update'" [pageScrollAdjustHash]="true" href="/news#mitochondrial-genome-update">Mitochondrial genome update</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#midori-harris-receives-2020-biocuration-career-award'" [pageScrollAdjustHash]="true" href="/news#midori-harris-receives-2020-biocuration-career-award">Midori Harris receives 2020 Biocuration Career Award</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-start-on-april-29th'" [pageScrollAdjustHash]="true" href="/news#pombetalks-start-on-april-29th">PombeTalks start on April 29th</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-search-result-download-options'" [pageScrollAdjustHash]="true" href="/news#new-search-result-download-options">New search result download options</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#angeli-update'" [pageScrollAdjustHash]="true" href="/news#angeli-update">AnGeLi update</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-search-result-download-options'" [pageScrollAdjustHash]="true" href="/news#new-search-result-download-options">New search result download options</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-now-uses-interpro-version-77.0'" [pageScrollAdjustHash]="true" href="/news#pombase-now-uses-interpro-version-77.0">PomBase now uses InterPro Version 77.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#community-curation-response-rate-reaches-50'" [pageScrollAdjustHash]="true" href="/news#community-curation-response-rate-reaches-50">Community curation response rate reaches 50%</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#a-quarter-million-annotations'" [pageScrollAdjustHash]="true" href="/news#a-quarter-million-annotations">A quarter of a million annotations</a></div>
@@ -10028,8 +10032,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#join-conversations-on-slack'" [pageScrollAdjustHash]="true" href="/news#join-conversations-on-slack">Join the conversations on Slack</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse'" [pageScrollAdjustHash]="true" href="/news#fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse">"Fitness Landscape of the Fission Yeast Genome" dataset loaded into JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#trna-metabolism-go-annotation-update'" [pageScrollAdjustHash]="true" href="/news#trna-metabolism-go-annotation-update">tRNA metabolism GO annotation update</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-homology-modelling-and-ortholog-links-on-gene-pages'" [pageScrollAdjustHash]="true" href="/news#new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#customisable-fasta-download'" [pageScrollAdjustHash]="true" href="/news#customisable-fasta-download">Customisable FASTA download</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-homology-modelling-and-ortholog-links-on-gene-pages'" [pageScrollAdjustHash]="true" href="/news#new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-interpro-update'" [pageScrollAdjustHash]="true" href="/news#pombase-interpro-update">PomBase InterPro Update</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#s.-pombe-included-gene-info-browser-extension'" [pageScrollAdjustHash]="true" href="/news#s.-pombe-included-gene-info-browser-extension">*S. pombe* included in Gene Info browser extension</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#integrated-motif-search'" [pageScrollAdjustHash]="true" href="/news#integrated-motif-search">Integrated motif search</a></div>
@@ -10075,8 +10079,8 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-data-update-viability-summary-correction-alert'" [pageScrollAdjustHash]="true" href="/news#pombase-data-update-viability-summary-correction-alert">PomBase data update; viability summary correction alert</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-data-update-multi-allele-phenotypes'" [pageScrollAdjustHash]="true" href="/news#pombase-data-update-multi-allele-phenotypes">PomBase data update with multi-allele phenotypes</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-data-update-2015-06-16'" [pageScrollAdjustHash]="true" href="/news#pombase-data-update-2015-06-16">PomBase data update 2015-06-16</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-data-update-2015-05-26'" [pageScrollAdjustHash]="true" href="/news#pombase-data-update-2015-05-26">PomBase data update 2015-05-26</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#canto-downtime-new-version'" [pageScrollAdjustHash]="true" href="/news#canto-downtime-new-version">Canto downtime & new version</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-data-update-2015-05-26'" [pageScrollAdjustHash]="true" href="/news#pombase-data-update-2015-05-26">PomBase data update 2015-05-26</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombe-2015-travel-fellowships'" [pageScrollAdjustHash]="true" href="/news#pombe-2015-travel-fellowships">Pombe 2015 travel fellowships</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-data-update-2015-04-19'" [pageScrollAdjustHash]="true" href="/news#pombase-data-update-2015-04-19">PomBase data update 2015-04-19</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombe-2015-poster-abstract-deadline-extended'" [pageScrollAdjustHash]="true" href="/news#pombe-2015-poster-abstract-deadline-extended">Pombe 2015 poster abstract deadline extended</a></div>
@@ -12545,9 +12549,54 @@ See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> or
 <p>You can retrieve the list of all RNA genes with secondary structure predictions using the “Genes with RNA secondary structure predictions” query under “Commonly used queries” in the <a routerLink="/query">PomBase Advanced Search</a>.</p>
 
   </div>
+  <div *ngIf="pageName == 'unknowns-coverage-update'">
+<h3 id="unknowns-coverage-update">“Unknowns” coverage update</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>In our 2019 work, <a href="https://royalsocietypublishing.org/doi/10.1098/rsob.180241">“Hidden in plain sight: What Remains to be discovered in the eukaryotic proteome?”</a>, we demonstrated that <em>S. pombe</em> had a higher GO biological process (BP) annotation coverage (86.7%) than both <em>S. cerevisiae</em> (83.5%) and human (82.8%).</p>
+<p>Of the model eukaryotes S. pombe has:</p>
+<ol type="1">
+<li>The highest percentage known coverage</li>
+<li>The fewest phylum-specific proteins</li>
+<li>The smallest proteome (despite a higher number of genes conserved in metazoa than S. cerevisiae)</li>
+<li>Dedicated efforts to uncover unknown functions</li>
+</ol>
+<p>and is uniquely positioned to be the first eukaryote for which we know the process or pathway for every protein</p>
+<p>The trend we identified continues to hold (<em>S. pombe</em> “knowns” have increased to 86.9% in 2024). The coverage is confirmed by the <a href="https://genomeannotation.rheelab.org/#!/overview">Rhee lab GO overview</a>:</p>
+<p><a href="assets/newsfeed/Rhee_lab_unknowns_coverage.png"><img src="assets/newsfeed/Rhee_lab_unknowns_coverage.png" title="Rhee lab unknowns coverage" class="screenshot" style="width:100.0%" alt="Rhee lab unknowns coverage" /></a></p>
+<p>Image citation: <a href="https://doi.org/10.1002/pld3.499">Xue, B., &amp; Rhee, S. Y. (2023). Status of genome function annotation in model organisms and crops. Plant Direct, 7(7), e499.</a></p>
+<p>Related links:</p>
+<ul>
+<li><a href="https://doi.org/10.1093/genetics/iyae007">Rutherford et al 2024</a> explains PomBase choice of metric for assessing knowledge breadth</li>
+<li><a routerLink="/status/gene-characterisation">Protein coding gene characterization status at PomBase</a></li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-07-10-unknowns-coverage-update" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="unknowns-coverage-update">“Unknowns” coverage update</h3>
+<p><em>2024-07-10</em></p>
+<p>In our 2019 work, <a href="https://royalsocietypublishing.org/doi/10.1098/rsob.180241">“Hidden in plain sight: What Remains to be discovered in the eukaryotic proteome?”</a>, we demonstrated that <em>S. pombe</em> had a higher GO biological process (BP) annotation coverage (86.7%) than both <em>S. cerevisiae</em> (83.5%) and human (82.8%).</p>
+<p>Of the model eukaryotes S. pombe has:</p>
+<ol type="1">
+<li>The highest percentage known coverage</li>
+<li>The fewest phylum-specific proteins</li>
+<li>The smallest proteome (despite a higher number of genes conserved in metazoa than S. cerevisiae)</li>
+<li>Dedicated efforts to uncover unknown functions</li>
+</ol>
+<p>and is uniquely positioned to be the first eukaryote for which we know the process or pathway for every protein</p>
+<p>The trend we identified continues to hold (<em>S. pombe</em> “knowns” have increased to 86.9% in 2024). The coverage is confirmed by the <a href="https://genomeannotation.rheelab.org/#!/overview">Rhee lab GO overview</a>:</p>
+<p><a href="assets/newsfeed/Rhee_lab_unknowns_coverage.png"><img src="assets/newsfeed/Rhee_lab_unknowns_coverage.png" title="Rhee lab unknowns coverage" class="screenshot" style="width:100.0%" alt="Rhee lab unknowns coverage" /></a></p>
+<p>Image citation: <a href="https://doi.org/10.1002/pld3.499">Xue, B., &amp; Rhee, S. Y. (2023). Status of genome function annotation in model organisms and crops. Plant Direct, 7(7), e499.</a></p>
+<p>Related links:</p>
+<ul>
+<li><a href="https://doi.org/10.1093/genetics/iyae007">Rutherford et al 2024</a> explains PomBase choice of metric for assessing knowledge breadth</li>
+<li><a routerLink="/status/gene-characterisation">Protein coding gene characterization status at PomBase</a></li>
+</ul>
+</div>
 <div id="2024-07-03-rna-structures" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/rna_central_icon.png"/></p>
 <h3 id="rna-secondary-structure-predictions-on-gene-pages">RNA secondary structure predictions on gene pages</h3>
@@ -13257,6 +13306,18 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p><em>2021-07-06</em></p>
 <p>PomBase gene pages now have links to pathway entries in the Kyoto Encyclopedia of Genes and Genomes (KEGG) database, as well as links to gene lists for each linked pathway (example: <a href="https://www.pombase.org/term/KEGG_PW:spo01210">2-Oxocarboxylic acid metabolism</a>). The KEGG pathway links are the first entry in a new gene page section, “Molecular pathway”, dedicated to connecting genes in PomBase to depictions of biochemical and signaling pathways.</p>
 </div>
+<div id="2021-06-30-interpro-v86" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-now-uses-interpro-version-86.0">PomBase now uses InterPro Version 86.0</h3>
+<p><em>2021-06-30</em></p>
+<p>PomBase now uses InterPro Version 86.0, which integrates:</p>
+<ul>
+<li>299 new InterPro entries</li>
+<li>An update to PROSITE patterns [2021_01] and PROSITE profiles [2021_01]</li>
+<li>454 new methods from the PROSITE profiles (39), SMART (2), Pfam (7), SUPERFAMILY (3), CATH-Gene3D (80), PANTHER (295), CDD (27), SFLD (1) databases.</li>
+</ul>
+<p>InterPro cites 52235 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
+</div>
 <div id="2021-06-30-pombetalks-july7th" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-july-7th">PombeTalks July 7th</h3>
@@ -13269,18 +13330,6 @@ useful grouping terms. This filter is “ontology aware” (i.e. a search on in
 <p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also see PombeSlack for Q&amp;A after the talks, and for recordings of previous sessions.</p>
 <p>PombeTalks will continue with its fortnightly schedule, and every third session will take place at the Asia-friendly time. Watch this space, pombelist, or PombeSlack for updates, and please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a> if you’re interested in speaking.</p>
 <p>Thanks to the PombeTalks team for organizing. See you online!</p>
-</div>
-<div id="2021-06-30-interpro-v86" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
-<h3 id="pombase-now-uses-interpro-version-86.0">PomBase now uses InterPro Version 86.0</h3>
-<p><em>2021-06-30</em></p>
-<p>PomBase now uses InterPro Version 86.0, which integrates:</p>
-<ul>
-<li>299 new InterPro entries</li>
-<li>An update to PROSITE patterns [2021_01] and PROSITE profiles [2021_01]</li>
-<li>454 new methods from the PROSITE profiles (39), SMART (2), Pfam (7), SUPERFAMILY (3), CATH-Gene3D (80), PANTHER (295), CDD (27), SFLD (1) databases.</li>
-</ul>
-<p>InterPro cites 52235 publications in PubMed. See the <a href="https://www.ebi.ac.uk/interpro/release_notes/">InterPro release notes</a> for further information.</p>
 </div>
 <div id="2021-06-17-pombetalks-june-23rd" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
@@ -13755,18 +13804,18 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p><em>2020-05-20</em></p>
 <p>The PomBase <a routerLink="/query">advanced search</a> results panel now allows you to retrieve annotations to any of the fission yeast <a href="documentation/pombase-go-slim-documentation">GO slims</a> or the <a href="https://www.pombase.org/browse-curation/disease-slim">Mondo disease slim</a> for genes in the results list. For example, you can query for all genes involved in a process and slim the resulting list by molecular function or disease association.</p>
 </div>
-<div id="2020-05-18-increased-disease-annotation-coverage" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
-<h3 id="improved-gene-disease-curation">Improved gene-disease curation</h3>
-<p><em>2020-05-18</em></p>
-<p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have now increased coverage by adding new gene–disease term connections, with 3954 individual annotations to 1195 genes (up from 2588 and 905 respectively in January 2019). Disease associations now cover 24.5% of all fission yeast protein-coding genes, and over one third of those with human orthologs.</p>
-</div>
 <div id="2020-05-18-pombase-uses-mondo" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
 <h3 id="pombase-adopts-mondo-disease-gene-curation">PomBase adopts MONDO for disease gene curation</h3>
 <p><em>2020-05-18</em></p>
 <p>PomBase has switched from the <a href="https://disease-ontology.org/">Disease Ontology</a> (DO) to the Monarch Initiative’s <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) for disease gene curation. Mondo covers the same set of disease descriptions as DO, but has a richer hierarchical structure that classifies more specific descriptions into broad categories (e.g. anemia, cancer, kidney disease) suitable for a disease “slim” term set.</p>
 <p>PomBase curators are collaborating with Mondo to improve its disease classification, especially in areas that will support inferences that improve fission yeast disease annotation coverage in the new <a href="https://www.pombase.org/browse-curation/disease-slim">PomBase Mondo slim</a>. The new disease slim is a work in progress, so if there is a particular disease grouping that you would find useful, please <a href="mailto:helpdesk@pombase.org">let us know</a>.</p>
+</div>
+<div id="2020-05-18-increased-disease-annotation-coverage" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/human_disease.png"/></p>
+<h3 id="improved-gene-disease-curation">Improved gene-disease curation</h3>
+<p><em>2020-05-18</em></p>
+<p>PomBase disease gene curation associates disease descriptors with fission yeast orthologs of human disease-causing genes. We have now increased coverage by adding new gene–disease term connections, with 3954 individual annotations to 1195 genes (up from 2588 and 905 respectively in January 2019). Disease associations now cover 24.5% of all fission yeast protein-coding genes, and over one third of those with human orthologs.</p>
 </div>
 <div id="2020-05-11-community-curation-publication" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/canto.png"/></p>
@@ -13832,6 +13881,13 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <p>Talks will be streamed live via <a href="https://zoom.us/">Zoom</a>. The link will be circulated via <a href="https://lists.cam.ac.uk/mailman/listinfo/ucam-pombelist">pombelist</a> and PombeSlack one day in advance, so make sure you’ve signed up. Also mark your calendars for the next two sessions on <strong>May 13</strong> and <strong>May 27</strong>, and if you’re interested in speaking, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjnkJfadUwM2eKIBJBQXeLt3aOfzrQEb3D8lvNym1g93DIRQ/viewform">this form</a>.</p>
 <p>Thanks to Gautam Dey and the rest of the PombeTalks team for organizing. See you online!</p>
 </div>
+<div id="2020-03-23-angeli" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/angeli.png"/></p>
+<h3 id="angeli-update">AnGeLi update</h3>
+<p><em>2020-03-23</em></p>
+<p>AnGeLi (developed by Danny Bitton) is a tool that allows you to perform enrichments over gene lists.</p>
+<p>AnGeLi has recently been updated to provide 9320 lists, including ontology-based annotations from PomBase (as of 2020-03-04) as well as many additional datasets from the Bähler laboratory.</p>
+</div>
 <div id="2020-03-23-new-search-result-download-options" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/advanced_search.png"/></p>
 <h3 id="new-search-result-download-options">New search result download options</h3>
@@ -13842,13 +13898,6 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <li>Deletion viability</li>
 <li>Protein length</li>
 </ul>
-</div>
-<div id="2020-03-23-angeli" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/angeli.png"/></p>
-<h3 id="angeli-update">AnGeLi update</h3>
-<p><em>2020-03-23</em></p>
-<p>AnGeLi (developed by Danny Bitton) is a tool that allows you to perform enrichments over gene lists.</p>
-<p>AnGeLi has recently been updated to provide 9320 lists, including ontology-based annotations from PomBase (as of 2020-03-04) as well as many additional datasets from the Bähler laboratory.</p>
 </div>
 <div id="2020-03-01-interpro-v77" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
@@ -13971,6 +14020,12 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 </ul>
 <p>Please let us know if the annotation can be further improved.</p>
 </div>
+<div id="2019-04-18-customisable-fasta" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
+<h3 id="customisable-fasta-download">Customisable FASTA download</h3>
+<p><em>2019-04-18</em></p>
+<p>You can now download nucleotide or peptide sequences for genes in Advanced search results in FASTA format, and customise what is included in the FASTA headers (e.g. gene names, product descriptions, sequence coordinates, or various IDs can be included).</p>
+</div>
 <div id="2019-04-18-prediction-links" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/tree_for_news.png"/></p>
 <h3 id="new-homology-modelling-and-ortholog-links-on-gene-pages">New homology modelling and ortholog links on gene pages</h3>
@@ -13981,12 +14036,6 @@ PMID:32101745 DOI:10.1016/j.celrep.2020.01.094</p></li>
 <li><p>Ensembl Fungi Compara and Ensembl Pan-taxonomic Compara links lead to orthology predictions from the Ensembl Compara pipeline for fungi and all species, respectively.</p></li>
 <li><p><a href="http://www.pantherdb.org/">PANTHER</a> links retrieve gene information, classification, and predicted orthologs.</p></li>
 </ul>
-</div>
-<div id="2019-04-18-customisable-fasta" class="news-item">
-<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombelist.png"/></p>
-<h3 id="customisable-fasta-download">Customisable FASTA download</h3>
-<p><em>2019-04-18</em></p>
-<p>You can now download nucleotide or peptide sequences for genes in Advanced search results in FASTA format, and customise what is included in the FASTA headers (e.g. gene names, product descriptions, sequence coordinates, or various IDs can be included).</p>
 </div>
 <div id="2019-04-17-pombase-interpro-update" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
@@ -14349,11 +14398,6 @@ Li H, Hou J, Bai L, Hu C, Tong P, Kang Y, Zhao X, Shao Z. 2015. Genome-wide anal
 <p><em>2015-06-16</em></p>
 <p>We have updated the data available on the PomBase web site to include manual curation through May 26, 2015, including 270 community-curated publications. See you at Pombe 2015 in Kobe!</p>
 </div>
-<div id="2015-05-26-pombase-data-update-16" class="news-item">
-<h3 id="pombase-data-update-2015-05-26">PomBase data update 2015-05-26</h3>
-<p><em>2015-05-26</em></p>
-<p>We have updated the data available on the PomBase web site to include manual curation through May 8, 2015, including 265 community-curated publications.</p>
-</div>
 <div id="2015-05-26-canto-downtime-new-version" class="news-item">
 <h3 id="canto-downtime-new-version">Canto downtime &amp; new version</h3>
 <p><em>2015-05-26</em></p>
@@ -14362,6 +14406,11 @@ Li H, Hou J, Bai L, Hu C, Tong P, Kang Y, Zhao X, Shao Z. 2015. Genome-wide anal
 The upgraded Canto will feature an entirely new interface for annotating multi-allele phenotypes and the corresponding genotypes, as well as improved workflows for single-allele phenotypes, GO, etc. All existing annotations will be retained, and users can resume curation using the new and improved features in any unfinished sessions when Canto is back online.<br />
 <br />
 We will announce when the new version of Canto is released to the public.</p>
+</div>
+<div id="2015-05-26-pombase-data-update-16" class="news-item">
+<h3 id="pombase-data-update-2015-05-26">PomBase data update 2015-05-26</h3>
+<p><em>2015-05-26</em></p>
+<p>We have updated the data available on the PomBase web site to include manual curation through May 8, 2015, including 265 community-curated publications.</p>
 </div>
 <div id="2015-04-23-pombe-2015-travel-fellowships" class="news-item">
 <h3 id="pombe-2015-travel-fellowships">Pombe 2015 travel fellowships</h3>
