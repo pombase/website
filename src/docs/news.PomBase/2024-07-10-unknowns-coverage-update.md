@@ -29,5 +29,5 @@ Image citation: [Xue, B., & Rhee, S. Y. (2023). Status of genome function annota
 
 Related links:
 
- - [Rutherford et al 2024](https://doi.org/10.1093/genetics/iyae007) explains PomBase choice of metric for assessing knowledge breadth
+ - [Rutherford et al 2024](https://doi.org/10.1093/genetics/iyae007) explains PomBase's choice of metric for assessing knowledge breadth
  - [Protein coding gene characterization status at PomBase](/status/gene-characterisation)
