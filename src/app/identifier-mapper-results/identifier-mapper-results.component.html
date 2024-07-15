@@ -14,7 +14,16 @@
       Found {{allMatchesCount()}} {{organismCommonName}} {{geneOrGenes()}}.
     </div>
     <div class="send-genes">
-      Use the matching {{geneOrGenes()}} as a gene list in the Advanced Search:
+      Use the {{geneOrGenes()}} as a gene list in the Advanced Search:
+      <span *ngIf="showSubSetSelector()">
+        <select class="subset-selector" [(ngModel)]="subsetForQueryBuilder">
+          <option [ngValue]="'all'">All matches</option>
+          <option *ngIf="hasOneToOneMatches()" [ngValue]="'one-to-one'">One to one matches</option>
+          <option *ngIf="hasOneToManyMatches()" [ngValue]="'one-to-many'">One to many matches</option>
+          <option *ngIf="hasManyToOneMatches()" [ngValue]="'many-to-one'">Many to one matches</option>
+          <option *ngIf="hasManyToManyMatches()" [ngValue]="'many-to-many'">Many to many matches</option>
+        </select>
+      </span>
       <button class="btn btn-primary" (click)="sendToQueryBuilder()">Use {{geneOrGenes()}}</button>
     </div>
   </div>

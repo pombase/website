@@ -47,3 +47,10 @@ th, td {
 .many-to-many-section td {
   padding: 0.5em 0
 }
+
+.subset-selector {
+  max-width: 7em;
+  margin-left: 0.3em;
+  margin-right: 0.5em;
+  font-size: 90%;
+}

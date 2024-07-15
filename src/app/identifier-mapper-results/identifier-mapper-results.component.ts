@@ -189,11 +189,59 @@ export class IdentifierMapperResultsComponent implements OnInit {
     }
   }
 
+  private allMatches(): Array<GeneUniquename> {
+    return this.identifierMapperService.allMatches();
+  }
+
+  public showSubSetSelector(): boolean {
+    let count = 0;
+    if (this.hasOneToOneMatches()) {
+      count += 1;
+    }
+    if (this.hasOneToManyMatches()) {
+      count += 1;
+    }
+    if (this.hasManyToOneMatches()) {
+      count += 1;
+    }
+    if (this.hasManyToManyMatches()) {
+      count += 1;
+    }
+    return count > 1;
+  }
+
   public sendToQueryBuilder(): void {
     let genesToSend: Array<GeneUniquename> = [];
 
-    if (this.subsetForQueryBuilder == 'all') {
-      genesToSend = this.identifierMapperService.allMatches();
+    switch (this.subsetForQueryBuilder) {
+    case 'all':
+      genesToSend = this.allMatches();
+      break;
+    case 'one-to-one':
+      Object.values(this.oneToOneMatches())
+        .map((gene) => {
+          genesToSend.push(gene.uniquename);
+        })
+      break;
+    case 'one-to-many':
+      Object.keys(this.oneToManyMatches())
+        .map(key => {
+          const matches = this.oneToManyMatches()[key];
+          matches.map(geneSumm => genesToSend.push(geneSumm.uniquename));
+        });
+      break;
+    case 'many-to-one':
+      Object.keys(this.manyToOneMatches())
+        .map(geneUniquename => {
+          genesToSend.push(geneUniquename);
+        });
+      break;
+    case 'many-to-many':
+      const manyToManyMatches = this.identifierMapperService.manyToManyMatches();
+      for (const [_, matches] of manyToManyMatches) {
+        matches.forEach(geneSumm => genesToSend.push(geneSumm.uniquename));
+      }
+      break;
     }
 
     let queryName;

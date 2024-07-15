@@ -370,9 +370,9 @@ export class IdentifierMapperService {
   public allMatches(): Array<GeneUniquename> {
     const seen = new Set<GeneUniquename>();
 
-    Object.keys(this.oneToOneMatches())
-      .map((geneUniquename: GeneUniquename) => {
-        seen.add(geneUniquename);
+    Object.values(this.oneToOneMatches())
+      .map((gene) => {
+        seen.add(gene.uniquename);
       })
 
     Object.keys(this.oneToManyMatches())
