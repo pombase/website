@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { getAppConfig } from '../config';
 import { IdentifierMapperService } from '../identifier-mapper.service';
 import { GeneSummary, GeneSummaryMap, PombaseAPIService } from '../pombase-api.service';
-import { GeneListNode, GeneQuery } from '../pombase-query';
+import { GeneListNode, GeneQuery, GeneUniquename } from '../pombase-query';
 import { QueryRouterService } from '../query-router.service';
 
 @Component({
@@ -27,6 +27,8 @@ export class IdentifierMapperResultsComponent implements OnInit {
   private _showAllOneToMany: boolean = false;
   private _showAllManyToOne: boolean = false;
   private _showAllManyToMany: boolean = false;
+
+  subsetForQueryBuilder: 'all'|'one-to-one'|'one-to-many'|'many-to-one'|'many-to-many' = 'all';
 
   constructor(private router: Router,
               public identifierMapperService: IdentifierMapperService,
@@ -188,23 +190,26 @@ export class IdentifierMapperResultsComponent implements OnInit {
   }
 
   public sendToQueryBuilder(): void {
-    this.identifierMapperService.allMatches()
-      .then((genes: Array<GeneSummary>) => {
-        let queryName;
+    let genesToSend: Array<GeneUniquename> = [];
 
-        if (genes.length == 1) {
-          queryName = 'gene';
-        } else {
-          queryName = genes.length + ' genes';
-        }
+    if (this.subsetForQueryBuilder == 'all') {
+      genesToSend = this.identifierMapperService.allMatches();
+    }
 
-        queryName += ' from ' + this.identifierMapperService.mapperType.displayName +
-          ' identifier mapping';
+    let queryName;
 
-        const part = new GeneListNode(queryName, genes);
-        const geneQuery = new GeneQuery(part);
-        this.queryRouterService.gotoResults(geneQuery);
-      });
+    if (genesToSend.length == 1) {
+      queryName = 'gene';
+    } else {
+      queryName = genesToSend.length + ' genes';
+    }
+
+    queryName += ' from ' + this.identifierMapperService.mapperType.displayName +
+      ' identifier mapping';
+
+    const part = new GeneListNode(queryName, genesToSend);
+    const geneQuery = new GeneQuery(part);
+    this.queryRouterService.gotoResults(geneQuery);
   }
 
   ngOnInit(): void {

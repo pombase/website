@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AppConfig, getAppConfig } from './config';
 
 import { GeneSummary, GeneSummaryMap, PombaseAPIService } from './pombase-api.service';
+import { GeneUniquename } from './pombase-query';
 
 export interface MapperType {
   id: string;
@@ -366,41 +367,29 @@ export class IdentifierMapperService {
       this.manyToManyMatchesCount();
   }
 
-  public allMatches(): Promise<Array<GeneSummary>> {
-    return this.geneSummaryMapPromise.then((geneSummaryMap: GeneSummaryMap) => {
-      const seen = new Set();
+  public allMatches(): Array<GeneUniquename> {
+    const seen = new Set<GeneUniquename>();
 
-      let genes: Array<GeneSummary> = [];
+    Object.keys(this.oneToOneMatches())
+      .map((geneUniquename: GeneUniquename) => {
+        seen.add(geneUniquename);
+      })
 
-      const maybeAdd = (gene: GeneSummary) => {
-        if (!seen.has(gene.uniquename)) {
-          genes.push(gene);
-          seen.add(gene.uniquename);
-        }
-      };
+    Object.keys(this.oneToManyMatches())
+      .map(key => {
+        const matches = this.oneToManyMatches()[key];
+        matches.map(geneSumm => seen.add(geneSumm.uniquename));
+      });
 
-      Object.values(this.oneToOneMatches())
-        .map((gene: GeneSummary) => {
-          maybeAdd(gene);
-        })
+    Object.keys(this.manyToOneMatches())
+      .map(geneUniquename => {
+        seen.add(geneUniquename);
+      });
 
-      Object.keys(this.oneToManyMatches())
-        .map(key => {
-          const matches = this.oneToManyMatches()[key];
-          matches.map(geneSumm => maybeAdd(geneSumm));
-        });
+    for (const [_, matches] of this._manyToManyMatches) {
+      matches.forEach(geneSumm => seen.add(geneSumm.uniquename));
+    }
 
-      Object.keys(this.manyToOneMatches())
-        .map(geneUniquename => {
-          const gene = geneSummaryMap[geneUniquename];
-          maybeAdd(gene);
-        });
-
-      for (const [_, matches] of this._manyToManyMatches) {
-          matches.forEach(geneSumm => maybeAdd(geneSumm));
-      }
-
-      return genes;
-    });
+    return Array.from(seen);
   }
 }
