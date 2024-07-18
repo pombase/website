@@ -611,10 +611,6 @@ New PomBase Website 2017, Group Leader Survey Summary. \
 [2017 PomBase infographic](https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf) (PDF; file at FTP site)
 
 
-### More
-
-Posters and slides from conferences and workshops are available on the [Documents](/documents) page.
-
-
+-------------------------------
 
 *Altmetric badges link to data provided by [Altmetric.com](https://www.altmetric.com/), a research metrics company who track and collect the online conversations around millions of scholarly outputs. Read [more about Altmetrics](https://www.altmetric.com/about-altmetrics/).*
