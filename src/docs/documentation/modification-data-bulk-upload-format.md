@@ -2,12 +2,13 @@
 
 ${database_name} welcomes submissions of published large-scale modification
 data sets. We have devised a tab-delimited text file format for bulk
-modification data.
+modification data.  To create a file in this format from Excel, use
+*Save As* from the menu, then change *Save as type*: to "Text (Tab delimited) (*.txt)"
 
 Include a header line that labels the columns -- use the entry in the
 Contents column below as the column header text.
 
-Column | Contents | Example | Mandatory? | Multiple entries allowed?
+Column | Contents | Example | Value mandatory? | Multiple entries allowed?
 -------|----------|---------|------------|--------------------------
 %%if db=PomBase
 1 | Gene systematic ID | SPBC11B10.09 | Yes | No
@@ -29,7 +30,6 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 8 | Taxon | ${ncbi_taxon_id} | Yes | No
 9 | Date | 2014-05-01 | Yes | No
 
-
 **Notes:**
 
 At present we accept protein modification data, using PSI-MOD IDs in
@@ -37,20 +37,20 @@ the Ontology ID column. We plan to accept RNA modification data in the
 future. More information is available in the 
 [gene page modifications documentation](documentation/gene-page-modifications).
 
-Use one line per modified position (multiple entries are allowed only
-in the Extension column).
+Use one line per modified position.  Multiple values are allowed only
+in the Residue and Extension columns (separated by commas).
+
+For the Gene names, Residues and Extensions, the column is required
+but the values are optional.
 
 File columns:
 
-1.  Include the systematic ID for each gene. You can look up
-    systematic IDs on gene pages, or refer to the file of all gene
-    names from the dataset download page.
-2.  Gene names are optional. If you include them, use standard names
-    in column 2 (see gene pages or the file of all gene names from the
-    dataset download page.
+1.  Include the systematic ID for each gene
+2.  Gene names are optional
 3.  For help finding suitable ontology (PSI-MOD) terms to describe
-    your phenotypes, see the [Canto protein modification documentation](https://curation.pombase.org/pombe/docs/modification_annotation). If
-    you can't find a term you need, email the
+    your phenotypes, see the
+    [Canto protein modification documentation](https://curation.pombase.org/pombe/docs/modification_annotation).
+    If you can't find a term you need, email the
     [helpdesk](mailto:${helpdesk_address}) for assistance; we can
     advise you, and request new terms as needed.
 4.  For the Evidence column, we use a small selection from the
@@ -72,12 +72,10 @@ File columns:
     the gene pages as K4(K5) processed(preprocessed), but our checking
     pipeline will expect unmodified forms.
 6.  See the table below for allowed annotation extensions. Multiple
-    extensions can be included for a modification. Separate extensions
-    with a comma (,) if they combine to form a "compound" extension
-    (all parts apply together), or with a pipe (|) if they are
-    independent. You can also use separate rows for annotations with
-    independent extensions.
-7.  The Reference column has the publication's PubMed ID (PMID).
+    extensions can be included for a modification if they combine to
+    form a "compound" extension (all parts apply together) Separate
+    extensions with a comma (,)
+7.  Use PubMed IDs (e.g. "PMID:1234567") in the Reference column
 8.  The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although if you have an NCBI taxon ID
     for a specific *${species_abbrev}* strain you are welcome to use it
@@ -120,6 +118,8 @@ multiplicity | number of modified sites detected within the same peptide fragmen
 in_absence_of | This relation is used to indicate attenuation of the activity of a specific gene product (either by deletion or inactivation). This extension must be used with an additional extension describing the modification | in_absence_of(PomBase:SPBC11B10.09)
 decreased_during | identifies a biological process or cell cycle phase during which the modification is actively increased | decreased_during(GO:0034605)
 increased_during | identifies a biological process or cell cycle phase during which the modification is actively deceased | increased_during(GO:0034605)
+
+----------------------------
 
 Please [contact the ${database_name} curators](mailto:${helpdesk_address}) if
 you have any questions about what to use for modification IDs,
