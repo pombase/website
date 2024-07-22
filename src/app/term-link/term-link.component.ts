@@ -107,7 +107,11 @@ export class TermLinkComponent implements OnInit {
 
           this.setHasReactions();
 
-          this.gocamCount = termSummary.gocam_ids.length;
+          if (termSummary.gocam_ids) {
+            this.gocamCount = termSummary.gocam_ids.length;
+          } else {
+            this.gocamCount = 0;
+          }
         }
       });
   }
