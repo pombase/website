@@ -451,7 +451,7 @@ export class AnnotationSubTableComponent implements OnInit, OnChanges {
     }
 
     for (let columnName of Object.keys(this.showColumn)) {
-      if (this.showColumn[columnName]) {
+      if (columnName !== 'term_id' && this.showColumn[columnName]) {
         this.termNameColSpan++;
       }
     }
