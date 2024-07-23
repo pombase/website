@@ -124,10 +124,10 @@ export class MotifSearchComponent implements OnInit {
         if (results.peptide_matches.length === 1) {
           const fullGeneMatch = results.peptide_matches[0];
           const existingGeneIndex =
-            this.peptideResults.findIndex(existingGeneMatch => {
+            this.peptideResultsWithDetails.findIndex(existingGeneMatch => {
               return existingGeneMatch.peptide_id === fullGeneMatch.peptide_id;
             });
-          this.peptideResults[existingGeneIndex] = fullGeneMatch;
+          this.peptideResultsWithDetails[existingGeneIndex] = fullGeneMatch;
         }
       });
   }
