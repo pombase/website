@@ -19,3 +19,7 @@
 td {
   padding: 0.2em 3em 0.2em 0;
 }
+
+.ortholog-gene {
+  white-space: nowrap;
+}
