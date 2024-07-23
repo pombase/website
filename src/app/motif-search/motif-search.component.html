@@ -40,11 +40,11 @@
     <div class="results" *ngIf="searchState == SearchState.SomeResults">
       <div class="result-header">
 
-      <div *ngIf="peptideResultsWithDetails.length == 1" class="match-count">
+      <div *ngIf="peptideResults.length == 1" class="match-count">
         One matching peptide
       </div>
 
-      <div *ngIf="peptideResults.length == peptideResultsWithDetails.length" class="match-count">
+      <div *ngIf="peptideResults.length == peptideResultsWithDetails.length && peptideResults.length != 1" class="match-count">
         Showing all <span class="count">{{peptideResults.length}}</span> matching peptides
       </div>
 
@@ -55,7 +55,8 @@
       </div>
 
       <div class="send-genes">
-        <a (click)="sendToQueryBuilder()">Send gene list to advanced search</a>
+        <a (click)="sendToQueryBuilder()">Send gene
+          <span *ngIf="peptideResults.length > 1">list</span> to advanced search</a>
       </div>
     </div>
 
