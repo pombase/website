@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { debounceTime, map, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 import { getAppConfig, AppConfig } from '../config';
-import { MotifService, MotifPeptideResult, MotifSearchResults } from '../motif.service';
+import { MotifService, MotifPeptideResult } from '../motif.service';
 import { GeneListNode, GeneQuery } from '../pombase-query';
 import { QueryRouterService } from '../query-router.service';
 import { PombaseAPIService, GeneSummaryMap } from '../pombase-api.service';
@@ -34,7 +34,9 @@ export class MotifSearchComponent implements OnInit {
 
   peptideResults: Array<MotifPeptideResult> = [];
   peptideResultsWithDetails: Array<MotifPeptideResult> = [];
-  geneMatchesWithNoDetails = 0;
+
+  defaultGenesWithDetails = 500;
+  showAllGeneDetails = false;
 
   motifSub: Subscription;
   organismCommonName: string;
@@ -71,16 +73,34 @@ export class MotifSearchComponent implements OnInit {
         return trimmed;
       }),
       debounceTime(250),
-      distinctUntilChanged(),
-      switchMap(motif => this.motifService.motifSearch('all', motif)))
+      distinctUntilChanged((previous: string, current: string) => {
+        if (this.showAllGeneDetails) {
+          return false;
+        } else {
+          return previous === current;
+        }
+      }),
+      switchMap(motif => {
+        let genesWithDetails;
+        if (this.showAllGeneDetails) {
+          genesWithDetails = -1;
+        } else {
+          genesWithDetails = this.defaultGenesWithDetails;
+        }
+        return this.motifService.motifSearchAll('all', motif, genesWithDetails);
+      }))
       .subscribe({
         next: (results) => {
           if (results.status === 'OK') {
             this.peptideResults = results.peptide_matches;
             if (this.peptideResults.length > 0) {
-              this.peptideResultsWithDetails = this.cleanResults(results);
-              this.geneMatchesWithNoDetails =
-                results.peptide_matches.length - this.peptideResultsWithDetails.length;
+              if (this.showAllGeneDetails ||
+                  this.peptideResults.length <= this.defaultGenesWithDetails) {
+                this.peptideResultsWithDetails = this.peptideResults;
+              } else {
+                this.peptideResultsWithDetails =
+                  this.peptideResults.slice(0, this.defaultGenesWithDetails);
+              }
               this.searchState = SearchState.SomeResults;
             } else {
               this.searchState = SearchState.NoResults;
@@ -89,6 +109,7 @@ export class MotifSearchComponent implements OnInit {
             this.peptideResults = [];
             this.searchState = SearchState.NoResults;
           }
+          this.showAllGeneDetails = false;
         },
         error: err => {
           this.searchState = SearchState.ShowHelp;
@@ -97,24 +118,23 @@ export class MotifSearchComponent implements OnInit {
       });
   }
 
-  cleanResults(results: MotifSearchResults): Array<MotifPeptideResult> {
-    return results.peptide_matches.filter((geneDetails: MotifPeptideResult) => {
-      return geneDetails.matches;
-    })
-  }
-
   morePeptideMatches(geneUniquename: string): void {
-    firstValueFrom(this.motifService.motifSearch(geneUniquename, this.trimmedMotif))
+    firstValueFrom(this.motifService.motifSearchSingleGene(geneUniquename, this.trimmedMotif))
       .then(results => {
         if (results.peptide_matches.length === 1) {
           const fullGeneMatch = results.peptide_matches[0];
           const existingGeneIndex =
-            this.peptideResultsWithDetails.findIndex(existingGeneMatch => {
+            this.peptideResults.findIndex(existingGeneMatch => {
               return existingGeneMatch.peptide_id === fullGeneMatch.peptide_id;
             });
-          this.peptideResultsWithDetails[existingGeneIndex] = fullGeneMatch;
+          this.peptideResults[existingGeneIndex] = fullGeneMatch;
         }
       });
+  }
+
+  showAll(): void {
+    this.showAllGeneDetails = true;
+    this.motifChange(this.motif); // trigger the Observable
   }
 
   geneIdOf(peptideResult: MotifPeptideResult): string {

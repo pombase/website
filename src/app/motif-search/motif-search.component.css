@@ -71,9 +71,11 @@ table thead td.end-pos {
 .results .other-genes {
   font-size: 110%;
   font-weight: bold;
+  margin-bottom: 1em;
 }
 
 .match-count {
+  font-size: 110%;
   margin-right: 2em;
 }
 
@@ -91,7 +93,7 @@ table thead td.end-pos {
 }
 
 .send-genes {
-  margin-bottom: 1em;
+  margin: 0.5em 0 1em 0;
 }
 
 .input-reset {
@@ -121,4 +123,8 @@ table thead td.end-pos {
   vertical-align: top;
   padding-left: 4em;
   padding-top: 0.8em;
+}
+
+.show-all-link {
+  margin-left: 1em;
 }

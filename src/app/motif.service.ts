@@ -33,14 +33,27 @@ export class MotifService {
   constructor(private http: HttpClient) { }
 
   // scope: "all" or a gene systematic ID
-  motifSearch(scope: string, motif: string): Observable<MotifSearchResults> {
+  motifSearchAll(scope: string, motif: string, genesWithDetails: number): Observable<MotifSearchResults> {
     motif = motif.trim();
     if (motif.length === 0) {
       return from([]);
     }
 
-    return this.http.get(this.motifSearchUrl + '/' + scope + '/' + encodeURI(motif))
+    let genesWithDetailsParam = genesWithDetails.toString();
+
+    if (genesWithDetails == -1) {
+      genesWithDetailsParam = 'all';
+    }
+
+    const url = this.motifSearchUrl + '/' + scope + '/' + encodeURI(motif) +
+      '/' + genesWithDetailsParam;
+    return this.http.get(url)
      .pipe(map((body: any) => body as MotifSearchResults),
            catchError(_ => of({ status: 'ERROR', peptide_matches: []} as unknown as MotifSearchResults)));
+  }
+
+  motifSearchSingleGene(geneUniquename: string, motif: string): Observable<MotifSearchResults> {
+    // a bit hacky since the third argunment makes no sense for the single gene call
+    return this.motifSearchAll(geneUniquename, motif, -1);
   }
 }
