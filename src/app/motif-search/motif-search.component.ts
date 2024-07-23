@@ -73,25 +73,27 @@ export class MotifSearchComponent implements OnInit {
       debounceTime(250),
       distinctUntilChanged(),
       switchMap(motif => this.motifService.motifSearch('all', motif)))
-      .subscribe(results => {
-        if (results.status === 'OK') {
-          this.peptideResults = results.peptide_matches;
-          if (this.peptideResults.length > 0) {
-            this.peptideResultsWithDetails = this.cleanResults(results);
-            this.geneMatchesWithNoDetails =
-               results.peptide_matches.length - this.peptideResultsWithDetails.length;
-            this.searchState = SearchState.SomeResults;
+      .subscribe({
+        next: (results) => {
+          if (results.status === 'OK') {
+            this.peptideResults = results.peptide_matches;
+            if (this.peptideResults.length > 0) {
+              this.peptideResultsWithDetails = this.cleanResults(results);
+              this.geneMatchesWithNoDetails =
+                results.peptide_matches.length - this.peptideResultsWithDetails.length;
+              this.searchState = SearchState.SomeResults;
+            } else {
+              this.searchState = SearchState.NoResults;
+            }
           } else {
+            this.peptideResults = [];
             this.searchState = SearchState.NoResults;
           }
-        } else {
-          this.peptideResults = [];
-          this.searchState = SearchState.NoResults;
+        },
+        error: err => {
+          this.searchState = SearchState.ShowHelp;
+          console.error(err);
         }
-      },
-      err => {
-        this.searchState = SearchState.ShowHelp;
-        console.error(err);
       });
   }
 
