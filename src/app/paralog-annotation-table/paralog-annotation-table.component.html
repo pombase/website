@@ -7,15 +7,16 @@
   <table>
     <thead>
       <tr>
-        <th>Gene</th>
-        <th>Description</th>
+        <th>Paralogous gene</th>
+        <th>Product</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let annotation of annotationTable">
-        <td><a routerLink="/gene/{{annotation.paralog.uniquename}}"
-        routerLinkActive="active">{{annotation.paralog.name ? annotation.paralog.name + " (" + annotation.paralog.uniquename + ")" : annotation.paralog.uniquename }}</a></td>
-        <td></td>
+        <td><app-gene-link [gene]="annotation.paralog"></app-gene-link></td>
+        <td>
+          <span>{{annotation.paralog.product || ''}}</span>
+        </td>
       </tr>
     </tbody>
   </table>
