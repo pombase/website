@@ -138,6 +138,11 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 <li><p><a href="https://www.japonicusdb.org/"><strong>JaponicusDB</strong></a> is the model organism database for the fission yeast <em>Schizosaccharomyces japonicus</em>, an emerging model organism. JaponicusDB uses PomBase’s website code and its curation is entirely provided by the authors using Canto. This database was set up in a sprint of less than three months, and is a success story that shows that PomBase code and curation tools are reusable. <a href="https://academic.oup.com/genetics/article/220/4/iyab223/6481558">Read more</a>.</p></li>
 <li><p><a href="https://orcid.org/0000-0002-9955-3785"><strong>Valerie de Crecy-Lagard</strong></a> recently organised a workshop funded by NSF to devise a roadmap for the functional annotation of protein families. PomBase staff participated in the discussion (publication pending).</p></li>
 <li><p><a href="https://www.genestorian.org/"><strong>Genestorian</strong></a> is a project that aims to develop: (1) Open standards to document the generation of plasmids and strains in a machine-readable format, with an emphasis on interoperability, adhering to FAIR principles. (2) Easy to use web tools for experimental researchers to document strain and plasmid generation in their collections by leveraging those open standards.</p></li>
+<li><p><a href="https://www.apicuron.org/"><strong>APICURON</strong></a> collects and aggregates biocuration events from third party resources and generates achievements and leaderboards. We are a partner resource of APICURON to credit and acknowledge the work of PomBase biocurators.</p></li>
+<li><p><a href="https://www.ebi.ac.uk/complexportal/home"><strong>The Complex Portal</strong></a> is a manually curated, encyclopaedic resource of macromolecular complexes from a number of key model organisms. We are actively working with Sandra Orchard at the Compex Portal to curate the fission yeast complex compendium.</p></li>
+<li><p><a href="https://europepmc.org/"><strong>Europe PMC</strong></a>: We are working with ePMC to provide training data and biocurator input on automated data extraction.</p></li>
+<li><p><a href="https://www.genenames.org/"><strong>HGNC</strong></a> is the <a href="https://www.hugo-international.org/">HUGO</a> Gene Nomenclature Committee. We provide the HGNC with manually curated orthologs between fission yeast and humans (many distant orthologs not recorded elsewhere). We also informally collaborate with the HGNC on nomenclature standards and unified nomenclature.</p></li>
+<li><p><a href="https://bahlerlab.info/"><strong>The Bähler laboratory</strong></a> studies cellular quiescence, ageing and gene function using fission yeast and turquoise killifish as model systems. We collaborate with Jurg Bähler’s group to advise on aspects of interrogating the “UNKNOWNome” as part of their OFFBEAT project.</p></li>
 </ul>
 
   </div>
@@ -1219,8 +1224,7 @@ New PomBase Website 2017, Group Leader Survey Summary.<br />
 <p><a href="https://doi.org/10.17863/CAM.36799">10.17863/CAM.36799</a></p>
 <h3 id="infographics">Infographics</h3>
 <p><a href="https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf">2017 PomBase infographic</a> (PDF; file at FTP site)</p>
-<h3 id="more">More</h3>
-<p>Posters and slides from conferences and workshops are available on the <a routerLink="/documents">Documents</a> page.</p>
+<hr />
 <p><em>Altmetric badges link to data provided by <a href="https://www.altmetric.com/">Altmetric.com</a>, a research metrics company who track and collect the online conversations around millions of scholarly outputs. Read <a href="https://www.altmetric.com/about-altmetrics/">more about Altmetrics</a>.</em></p>
 
   </div>
@@ -6837,7 +6841,7 @@ Search documentation, news archive and FAQ:
   </div>
   <div *ngIf="pageName == 'modification-data-bulk-upload-format'">
 <h2 id="modification-data-bulk-upload-format">Modification data bulk upload format</h2>
-<p>PomBase welcomes submissions of published large-scale modification data sets. We have devised a tab-delimited text file format for bulk modification data.</p>
+<p>PomBase welcomes submissions of published large-scale modification data sets. We have devised a tab-delimited text file format for bulk modification data. To create a file in this format from Excel, use <em>Save As</em> from the menu, then change <em>Save as type</em>: to “Text (Tab delimited) (*.txt)”</p>
 <p>Include a header line that labels the columns – use the entry in the Contents column below as the column header text.</p>
 <table>
 <thead>
@@ -6845,7 +6849,7 @@ Search documentation, news archive and FAQ:
 <th>Column</th>
 <th>Contents</th>
 <th>Example</th>
-<th>Mandatory?</th>
+<th>Value mandatory?</th>
 <th>Multiple entries allowed?</th>
 </tr>
 </thead>
@@ -6917,16 +6921,17 @@ Search documentation, news archive and FAQ:
 </table>
 <p><strong>Notes:</strong></p>
 <p>At present we accept protein modification data, using PSI-MOD IDs in the Ontology ID column. We plan to accept RNA modification data in the future. More information is available in the <a routerLink="/documentation/gene-page-modifications">gene page modifications documentation</a>.</p>
-<p>Use one line per modified position (multiple entries are allowed only in the Extension column).</p>
+<p>Use one line per modified position. Multiple values are allowed only in the Residue and Extension columns (separated by commas).</p>
+<p>For the Gene names, Residues and Extensions, the column is required but the values are optional.</p>
 <p>File columns:</p>
 <ol type="1">
-<li>Include the systematic ID for each gene. You can look up systematic IDs on gene pages, or refer to the file of all gene names from the dataset download page.</li>
-<li>Gene names are optional. If you include them, use standard names in column 2 (see gene pages or the file of all gene names from the dataset download page.</li>
+<li>Include the systematic ID for each gene</li>
+<li>Gene names are optional</li>
 <li>For help finding suitable ontology (PSI-MOD) terms to describe your phenotypes, see the <a href="https://curation.pombase.org/pombe/docs/modification_annotation">Canto protein modification documentation</a>. If you can’t find a term you need, email the <a href="mailto:helpdesk@pombase.org">helpdesk</a> for assistance; we can advise you, and request new terms as needed.</li>
 <li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). You are welcome to enquire with us in advance to find out which ECO terms/IDs fit your experiments, but we can accept files with brief descriptions, which curators will convert to ECO IDs.</li>
 <li>The Residue column indicates the position modified. For protein modifications, use one-letter amino acid code. Multiple entries are allowed, but only for cases where two or more of the same modification are known to be present at the same time. Separate entries with commas (e.g. S72,T85). Position numbering should reflect the current sequence data in PomBase. Please refer to the <a routerLink="/status/gene-coordinate-changes">Gene Coordinate Changes</a> page to ensure that your residue position entries are up to date. Histones should be represented using the unprocessed protein sequence coordinates, not the processed coordinates conventionally used to describe histones. Histone modifications will be represented on the gene pages as K4(K5) processed(preprocessed), but our checking pipeline will expect unmodified forms.</li>
-<li>See the table below for allowed annotation extensions. Multiple extensions can be included for a modification. Separate extensions with a comma (,) if they combine to form a “compound” extension (all parts apply together), or with a pipe (|) if they are independent. You can also use separate rows for annotations with independent extensions.</li>
-<li>The Reference column has the publication’s PubMed ID (PMID).</li>
+<li>See the table below for allowed annotation extensions. Multiple extensions can be included for a modification if they combine to form a “compound” extension (all parts apply together) Separate extensions with a comma (,)</li>
+<li>Use PubMed IDs (e.g. “PMID:1234567”) in the Reference column</li>
 <li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although if you have an NCBI taxon ID for a specific <em>S. pombe</em> strain you are welcome to use it</li>
 <li>The date is the date on which the annotations are created; you may use the paper publication date or the date on which you prepare your data file. Format: YYYY-MM-DD</li>
 </ol>
@@ -7023,6 +7028,7 @@ Search documentation, news archive and FAQ:
 </tr>
 </tbody>
 </table>
+<hr />
 <p>Please <a href="mailto:helpdesk@pombase.org">contact the PomBase curators</a> if you have any questions about what to use for modification IDs, Evidence, annotation extensions, or anything else you need to represent your data in this format.</p>
 
   </div>
@@ -7845,126 +7851,6 @@ are not detected by any automated method. Gradually, we will add and display sup
   </div>
   </div>
 </div>
-<div *ngIf="section == 'documents'">
-<app-page-contents-menu title="Documents" titleRoute="/documents">
-
-<div class="left-menu-part left-menu-item"><a routerLink="/documents/pombe2017">pombe2017</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/documents/pombe2015">pombe2015</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/documents/pombe2013">pombe2013</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/documents/pombe2011">pombe2011</a></div>
-
-</app-page-contents-menu>
-  <div class="docs-content">
-  <div *ngIf="pageName == 'index'">
-<h2 id="downloadable-documents">Downloadable Documents</h2>
-<p>Note: Your browser may prompt you to open or download the linked documents.</p>
-<h3 id="conferences-and-workshops">Conferences and Workshops</h3>
-<h4 id="international-fission-yeast-meeting-series">International Fission Yeast Meeting series</h4>
-<ul>
-<li><p><a routerLink="/documents/pombe2017">pombe2017</a><br />
-Banff, Alberta, Canada<br />
-14-19 May 2017</p></li>
-<li><p><a routerLink="/documents/pombe2015">pombe2015</a><br />
-Kobe, Japan<br />
-21-25 June 2015</p></li>
-<li><p><a routerLink="/documents/pombe2013">pombe2013</a><br />
-London, UK<br />
-24-29 June 2013</p></li>
-<li><p><a routerLink="/documents/pombe2011">pombe2011</a><br />
-Boston, MA, USA<br />
-25-30 June 2011</p></li>
-</ul>
-<h4 id="other-conferences-and-workshops">Other Conferences and Workshops</h4>
-<ul>
-<li><a href="https://www.pombase.org/data/archive/Presentations_workshops_and_meeting_abstracts/EMBO_workshop/">2009 EMBO Workshop</a>, Manchester, UK (directory)</li>
-<li><a href="https://www.pombase.org/data/archive/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/">Computing workshops, 2006 &amp; 2007</a>, various dates and locations (directory)</li>
-<li><a href="https://www.pombase.org/data/archive/Presentations_workshops_and_meeting_abstracts/Computing_Workshop/Fission_yeast_computing_workshop_man_Mar2006.ppt">2006 Fission yeast genome analysis workshop</a>, Hinxton, UK - course manual (file)</li>
-<li><a href="https://www.pombase.org/data/archive/Presentations_workshops_and_meeting_abstracts/Pombe_meeting_abstract_books/Wellcome_Euro_Yeast_27_2_06.pdf">2006 European fission yeast meeting</a>, Hinxton, UK - abstracts (file)</li>
-</ul>
-<h3 id="other-documents">Other documents</h3>
-<ul>
-<li><a href="https://www.pombase.org/data/documents/2019_pombase_survey_summary_no_freetext_responses.pdf">2019 PomBase user survey results</a> (PDF)</li>
-<li><a href="https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf">2017 PomBase infographic</a> (PDF)</li>
-<li><a href="https://www.pombase.org/data/documents/2013_pombase_survey_summary.pdf">2013 PomBase user survey results</a> (PDF)</li>
-</ul>
-<h3 id="publication-metrics">Publication metrics</h3>
-<ul>
-<li><a href="https://www.pombase.org/data/documents/journal_count_with_year-2024.xlsx">Counts of pombe publications per journal per year</a> (Excel format)<br />
-(Includes only publications in PomBase)</li>
-</ul>
-
-  </div>
-  <div *ngIf="pageName == 'pombe2011'">
-<h2 id="pombe2011-6th-international-fission-yeast-meeting">pombe2011 - 6th International Fission Yeast Meeting</h2>
-<p>Boston, MA, USA, 25-30 June 2011</p>
-<h3 id="pombase-posters">PomBase Posters</h3>
-<ul>
-<li>P50: <a href="https://www.pombase.org/data/Conferences/pombe2011/phenotype_pombe2011.pdf">Phenotypes in PomBase and Beyond</a></li>
-<li>P96: <a href="https://www.pombase.org/data/Conferences/pombe2011/pombe2011_pombase.pdf">PomBase.org</a></li>
-<li>P159: <a href="https://www.pombase.org/data/Conferences/pombe2011/pombe2011_p159.pdf">PomBase Communty Curation: A fast track to capture expert knowledge</a></li>
-</ul>
-
-  </div>
-  <div *ngIf="pageName == 'pombe2013'">
-<h2 id="pombe2013-seventh-interational-fission-yeast-meeting">pombe2013 - Seventh Interational Fission Yeast Meeting</h2>
-<p>London, UK, 24-29 June 2013</p>
-<h3 id="abstracts">Abstracts</h3>
-<ul>
-<li><a href="https://www.pombase.org/data/Conferences/pombe2013/pombe2013_abstractbook-final2.pdf">Abstract book</a> (PDF)</li>
-</ul>
-<h3 id="pombase-presentations">PomBase presentations</h3>
-<h4 id="talks">Talks</h4>
-<ul>
-<li>Tuesday Lunchtime: Paper Curation - Midori Harris and Antonia Lock</li>
-<li>Thursday Lunchtime: PomBase Gene Pages and the Genome Browser - Val Wood and Mark McDowall</li>
-</ul>
-<h4 id="posters">Posters</h4>
-<ul>
-<li>219: <a href="https://www.pombase.org/data/Conferences/pombe2013/pombe2013_p219.pdf">A configurable tool for community literature curation</a></li>
-<li>220: <a href="https://www.pombase.org/data/Conferences/pombe2013/PomBase.org.pdf">PomBase.org</a></li>
-<li>221: <a href="https://www.pombase.org/data/Conferences/pombe2013/pombe2013_p221.pdf">Phenotype curation in PomBase</a></li>
-<li>222: Using Gene Ontology biological process co-annotation for ontology and annotation quality control</li>
-</ul>
-
-  </div>
-  <div *ngIf="pageName == 'pombe2015'">
-<h2 id="pombe2015-eighth-international-fission-yeast-meeting">pombe2015 - Eighth International Fission Yeast Meeting</h2>
-<p>Kobe, Japan, 21-26 June 2015</p>
-<h3 id="pombase-presentations">PomBase presentations</h3>
-<h4 id="talks">Talks</h4>
-<ul>
-<li>PomBase Workshop
-<ul>
-<li><a href="https://www.pombase.org/data/Conferences/pombe2015/workshop_pombase_tour_vw2015.pdf">How to get more from PomBase</a> - a brief tour of PomBase gene pages, curated data types, querying, tools, and external links</li>
-<li><a href="https://www.pombase.org/data/Conferences/pombe2015/pombe2015_UsingGenomeBrowser.pdf">Using the PomBase Ensembl Browser</a> - a demo of the PomBase genome browser features and functions (PDF; large file)</li>
-<li><a href="https://www.pombase.org/data/Conferences/pombe2015/pombe2015_curation_workshop.pdf">Community curation using Canto</a> - how to create, edit and submit annotations based on published experiments</li>
-</ul></li>
-<li>81: Hidden in plain sight: The eukaryotically conserved unstudied proteins and a framework for their classification and characterisation</li>
-<li>82: <a href="https://www.pombase.org/data/Conferences/pombe2015/multi-phenotype_pombe2015.pdf">Curating multi-allele phenotypes in PomBase</a> (PDF; poster version)</li>
-</ul>
-<h4 id="posters">Posters</h4>
-<ul>
-<li>33: <a href="https://www.pombase.org/data/Conferences/pombe2015/pombe2015_p33.pdf">Putting it all together with fission yeast: Data connections within and beyond PomBase</a></li>
-<li>73: <a href="https://www.pombase.org/data/Conferences/pombe2015/PomBaseGenomeBrowser.pdf">Using the PomBase Genome Browser</a> (PDF)</li>
-</ul>
-
-  </div>
-  <div *ngIf="pageName == 'pombe2017'">
-<h2 id="pombe2017-9th-international-fission-yeast-meeting">pombe2017 - 9th International Fission Yeast Meeting</h2>
-<p>Banff, Alberta, Canada, 14-19 May 2017</p>
-<h3 id="pombase-posters">PomBase Posters</h3>
-<ul>
-<li>132: <a href="https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf">Fission Yeast People, Papers and PomBase</a> (The PomBase Infographic; PDF)</li>
-<li>133: <a href="https://www.pombase.org/data/Conferences/pombe2017/pombe2017_p133.pdf">PomBase Community Literature Curation</a> (PDF)</li>
-<li>164: Using fission yeast QC methods to correct and improve GO annotation across eukaryotic species</li>
-</ul>
-<h3 id="talk">Talk</h3>
-<p>The new, improved PomBase</p>
-<p>External link to <a href="http://people.ucalgary.ca/~young/pombe2017_program.pdf">conference program</a></p>
-
-  </div>
-  </div>
-</div>
 <div *ngIf="section == 'downloads'">
 <app-page-contents-menu title="Downloads" titleRoute="/downloads">
 
@@ -8072,7 +7958,6 @@ Boston, MA, USA<br />
 <h2 id="downloads">Downloads</h2>
 <ul>
 <li><a routerLink="/datasets">Datasets</a>: Genome sequence and features, annotations, etc.</li>
-<li><a routerLink="/documents">Documents</a>: Conference materials, manuals, reports, etc.</li>
 <li><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a>: Dumps of curated data stored in the PomBase Chado database.</li>
 </ul>
 
