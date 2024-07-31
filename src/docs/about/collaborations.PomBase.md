@@ -33,3 +33,32 @@
 - [**Valerie de Crecy-Lagard**](https://orcid.org/0000-0002-9955-3785) recently organised a workshop funded by NSF to devise a roadmap for the functional annotation of protein families. ${database_name} staff participated in the discussion (publication pending).
 
 - [**Genestorian**](https://www.genestorian.org/) is a project that aims to develop: (1) Open standards to document the generation of plasmids and strains in a machine-readable format, with an emphasis on interoperability, adhering to FAIR principles. (2) Easy to use web tools for experimental researchers to document strain and plasmid generation in their collections by leveraging those open standards.
+
+- [**APICURON**](https://www.apicuron.org/) collects and aggregates
+  biocuration events from third party resources and generates
+  achievements and leaderboards.  We are a partner resource of
+  APICURON to credit and acknowledge the work of PomBase
+  biocurators.
+
+- [**The Complex Portal**](https://www.ebi.ac.uk/complexportal/home) is a
+  manually curated, encyclopaedic resource of macromolecular complexes
+  from a number of key model organisms.  We are actively working with
+  Sandra Orchard at the Compex Portal to curate the fission yeast
+  complex compendium.
+
+- [**Europe PMC**](https://europepmc.org/): We are working with ePMC to
+  provide training data and biocurator input for automated data
+  extraction.
+
+- [**HGNC**](https://www.genenames.org/) is the
+  [HUGO](https://www.hugo-international.org/) Gene Nomenclature
+  Committee.  We provide the HGNC with manually curated orthologs
+  between fission yeast and humans (many distant orthologs not
+  recorded elsewhere).  We also informally collaborate with the HGNC
+  on nomenclature standards and unified nomenclature.
+
+- [**The Bähler laboratory**](https://bahlerlab.info/) studies cellular
+  quiescence, ageing and gene function using fission yeast and
+  turquoise killifish as model systems.  We collaborate with Jurg
+  Bähler's group to advise on aspects of interrogating the
+  "UNKNOWNome" as part of their OFFBEAT project.
