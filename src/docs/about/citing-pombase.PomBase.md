@@ -1,7 +1,7 @@
 ## Citing PomBase
 
 Also see the [Terms of Use](about/terms-of-use) and the complete list
-of [papers published by PomBase](about/published-by-pombase).
+of [papers published by PomBase](about/pombase-and-collaborative-publications).
 
 To cite anything from PomBase, including
 

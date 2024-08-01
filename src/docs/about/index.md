@@ -70,7 +70,13 @@ other resources.
 
 ### ${database_name} Publications
 
-Complete list of [papers published by ${database_name}](about/published-by-${lc_database_name}).
+%%if db=PomBase
+Complete list of [papers published by ${database_name}](about/pombase-and-collaborative-publications).
+%%end db=PomBase
+
+%%if db=JaponicusDB
+Complete list of [papers published by ${database_name}](about/published-by-japonicusdb).
+%%end db=JaponicusDB
 
 ------------------------------------
 
