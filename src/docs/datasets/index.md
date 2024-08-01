@@ -45,6 +45,7 @@ Annotation type|Description
 [Macromolecular complexes](${base_url}/data/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
 [Phenotype annotations](downloads/phenotype-annotations)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
 %%if db=PomBase
+[Human disease associations](${base_url}/data/annotations/human_disease_annotation/)|Fission yeast orthologs of human disease associated genes with disease descriptions and [Mondo](https://mondo.monarchinitiative.org/) ontology terms
 [HCPIN datasets](https://www.pombase.org/data/high_confidence_physical_interactions/)|Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets; also see [documentation](/documentation/high-confidence-physical-interaction-network)
 %%end db=PomBase
 [Modifications](${base_url}/data/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future)
@@ -74,7 +75,7 @@ Current GO slim IDs and term names:
 -------
 
 ### Mondo slim
-[Current fission yeast Mondo Disease Ontology slim IDs and term names](https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv)
+[Current fission yeast Mondo Disease Ontology slim IDs and term names](${base_url}/data/annotations/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv.gz)
 
 -------
 
