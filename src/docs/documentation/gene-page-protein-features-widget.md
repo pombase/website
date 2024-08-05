@@ -34,8 +34,8 @@ description of the track.
     of an enzyme, imported from UniProt
   - **Binding sites** Binding site for any chemical group (co-enzyme,
     prosthetic group, etc.), imported from UniProt
-  - **Beta strands** Experimentally determined beta strands imported from UniProt
-  - **Helices** Experimentally determined helical regions imported from UniProt
+  - **Beta strands** Experimentally determined beta strands, imported from UniProt
+  - **Helices** Experimentally determined helical regions, imported from UniProt
 
 ### Mutant display
 
