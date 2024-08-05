@@ -27,6 +27,15 @@ description of the track.
   - **Disordered regions** Disordered regions from Pfam version 34.0 (El-Gebali et al. 2019)
   - **Low complexity** Low complexity regions from Pfam
   - **Coiled coils** Coiled coil regions from Pfam
+  - **Signal peptide** N-terminal signal peptide position, imported
+    from UniProt
+  - **Transit peptide** Transit peptide position, imported from UniProt
+  - **Active sites** Amino acid(s) directly involved in the activity
+    of an enzyme, imported from UniProt
+  - **Binding sites** Binding site for any chemical group (co-enzyme,
+    prosthetic group, etc.), imported from UniProt
+  - **Beta strands** Experimentally determined beta strands imported from UniProt
+  - **Helices** Experimentally determined helical regions imported from UniProt
 
 ### Mutant display
 
