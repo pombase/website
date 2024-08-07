@@ -48,13 +48,13 @@ To cite the *S. pombe* Gene Ontology annotation data, use two papers from the 20
 
 
 ::: { .publication-badges }
-<app-publication-badge [doi]="'10.1093/nar/gky1055'"></app-publication-badge>
+<app-publication-badge [doi]="'10.1093/genetics/iyad031'"></app-publication-badge>
 :::
 ::: { .pub-citation }
-The Gene Ontology Consortium.\
-The Gene Ontology Resource: 20 years and still GOing strong.\
-*Nucleic Acids Res.* 2018 (Database issue): gky1055 Epub 2018 Nov 5.\
-[PMID:30395331](http://www.ncbi.nlm.nih.gov/pubmed/30395331) - [DOI:10.1093/nar/gky1055](https://doi.org/10.1093/nar/gky1055)
+Gene Ontology Consortium.\
+The Gene Ontology knowledgebase in 2023 \
+*Genetics*, Volume 224, Issue 1, May 2023, iyad031 \
+[10.1093/genetics/iyad031](https://doi.org/10.1093/genetics/iyad031)
 :::
 
 (Note that GO annotation for *S. pombe* has also been previously
