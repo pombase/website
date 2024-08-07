@@ -6,20 +6,33 @@ Canto, FYPO, annotations and Compara.
 
 ### Preprints 
 
+::: { .publication-badges }
+<app-publication-badge [doi]="'10.1101/2022.04.13.22273750'"></app-publication-badge>
+:::
+::: { .pub-citation }
 Vasilevsky NA, Matentzoglu NA, *et al.* (Val Wood co-author) \
 Mondo: Unifying diseases for the world, by the world \
 [Pre-publication manuscript at medRxiv](https://www.medrxiv.org/content/10.1101/2022.04.13.22273750v3)
+:::
 
+<div class="clear-float"></div>
+
+::: { .publication-badges }
+<app-publication-badge [doi]="'10.48550/arXiv.2312.10904'"></app-publication-badge>
+:::
+::: { .pub-citation }
 Sabrina Toro, Anna V Anagnostopoulos, *et al.* (Val Wood co-author) \
 Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligence (DRAGON-AI) \
 [Pre-publication manuscript at arXiv](https://arxiv.org/abs/2312.10904)
+:::
+
 
 ### Journal articles
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/genetics/iyae007'"></app-publication-badge>
 :::
-:::: { .pub-citation }
+::: { .pub-citation }
 Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood \
 PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability \
 *Genetics*, February 2024, iyae007 \
