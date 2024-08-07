@@ -33,7 +33,7 @@ export class GeneListLookupComponent implements OnInit {
 
   filteredIds(): Array<string> {
     let seen: { [key: string]: boolean } = {};
-    return this.inputText.trim().split(/[,\s\u200B]+/)
+    return this.inputText.trim().split(/[,\s;\u200B]+/)
       .filter(id => {
         id = id.trim();
         if (id.length === 0) {
