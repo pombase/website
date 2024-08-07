@@ -2,8 +2,11 @@
   <div>
     <textarea rows="7" [(ngModel)]="inputText" (ngModelChange)="checkIds()"></textarea>
     <div *ngIf="unknownIds.length > 0">
+      <div class="unknowns-and-clear-button">
      <div class="unknown-identifiers">
       Unknown identifiers: <span>{{unknownIds.join(" ").substring(0, 1000)}}</span>
+     </div>
+     <a (click)="clear()">Clear</a>
      </div>
      <div class="unknown-identifiers-help">
 Only the current unique systematic identifier OR the primary symbol for a gene is recognised by the list upload.

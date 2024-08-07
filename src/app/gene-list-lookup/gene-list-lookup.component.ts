@@ -77,6 +77,11 @@ export class GeneListLookupComponent implements OnInit {
     this.checkIds();
   }
 
+  clear(): void {
+    this.inputText = '';
+    this.checkIds();
+  }
+
   private makeListName(genes: Array<GeneSummary>): string {
     if (this.listName) {
       return this.listName;

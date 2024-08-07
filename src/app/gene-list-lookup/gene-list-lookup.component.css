@@ -6,6 +6,19 @@
   padding: 1.5em 0 0.5em 0;
 }
 
+.unknowns-and-clear-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.unknowns-and-clear-button a {
+  display: block;
+  padding: 0.2em;
+  white-space: nowrap;
+  color: #0f0fd6;
+}
+
 .unknown-identifiers {
   color: red;
   padding: 0.2em 0;
