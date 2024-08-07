@@ -552,19 +552,6 @@ PomBase: a comprehensive online resource for fission yeast.\
 <div class="clear-float"></div>
 
 ::: { .publication-badges }
-<app-publication-badge [doi]="'10.1093/nar/gkr853'"></app-publication-badge>
-:::
-::: { .pub-citation }
-Wood V, Harris MA, McDowall MD, Rutherford K, Vaughan BW, Staines DM,
-Aslett M, Lock A, Bähler J, Kersey PJ, Oliver SG.\
-PomBase: a comprehensive online resource for fission yeast.\
-*Nucleic Acids Res.* 2012 Jan;40(Database issue):D695-9. Epub 2011 Oct 28.\
-[PMID:22039153](http://www.ncbi.nlm.nih.gov/pubmed/22039153) [DOI:10.1093/nar/gkr853](http://dx.doi.org/DOI:10.1093/nar/gkr853)
-:::
-
-<div class="clear-float"></div>
-
-::: { .publication-badges }
 <app-publication-badge [doi]="'10.1186/1471-2105-12-325'"></app-publication-badge>
 :::
 ::: { .pub-citation }
