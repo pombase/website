@@ -87,7 +87,7 @@ or
 
 ### Canto
 
-To cite the online curaton tool Canto, use:
+To cite the online curation tool Canto, use:
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/bioinformatics/btu103'"></app-publication-badge>
