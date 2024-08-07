@@ -2,7 +2,7 @@
   <div>
     <textarea rows="7" [(ngModel)]="inputText" (ngModelChange)="checkIds()"></textarea>
     <div *ngIf="unknownIds.length > 0">
-      <div class="unknowns-and-clear-button">
+      <div class="clear-button-container">
      <div class="unknown-identifiers">
       Unknown identifiers: <span>{{unknownIds.join(" ").substring(0, 1000)}}</span>
      </div>
@@ -16,8 +16,12 @@ header. Occasionally identifiers are removed from the gene set if they are no lo
       <span *ngIf="appConfig.site_name == 'PomBase'">(check the <a routerLink="/status/new-and-removed-genes">new and removed gene list</a>)</span>
      </div>
     </div>
+
+  <div class="clear-button-container">
   <div class="read-from-file">
   Read from file: <input type="file" (change)="readFile($event)">
+  </div>
+    <a *ngIf="unknownIds.length == 0 && hasValidIds()"(click)="clear()">Clear</a>
   </div>
 
   <div class="list-name">

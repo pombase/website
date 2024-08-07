@@ -18,6 +18,7 @@ export class GeneListLookupComponent implements OnInit {
   appConfig = getAppConfig();
 
   unknownIds: Array<string> = [];
+  validIdCount = 0;
   geneSummaryMapPromise: Promise<GeneSummaryMap>;
 
   constructor(private pombaseApiService: PombaseAPIService) {
@@ -54,13 +55,20 @@ export class GeneListLookupComponent implements OnInit {
     this.geneSummaryMapPromise.then((geneSummaryMap) => {
       let ids = this.filteredIds();
       this.unknownIds = [];
+      this.validIdCount = 0;
 
       for (let id of ids) {
-        if (!geneSummaryMap[id.toLowerCase()]) {
+        if (geneSummaryMap[id.toLowerCase()]) {
+          this.validIdCount++;
+        } else {
           this.unknownIds.push(id);
         }
       }
     });
+  }
+
+  hasValidIds(): boolean {
+    return this.validIdCount > 0;
   }
 
   readFile($event: Event): void {
