@@ -34,6 +34,8 @@ import { GeneResultsSlimTableComponent } from './gene-results-slim-table/gene-re
 import { FacetedSearchComponent } from './faceted-search/faceted-search.component';
 import { ChromosomeOverviewComponent } from './chromosome-overview/chromosome-overview.component';
 
+import { PublicationBadgeComponent } from './publication-badge/publication-badge.component';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -71,6 +73,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GeneResultsSlimTableComponent,
     FacetedSearchComponent,
     ChromosomeOverviewComponent,
+    PublicationBadgeComponent,
   ],
   declarations: [
     SlimTableComponent,
@@ -96,6 +99,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     QueryDescriptionDisplayComponent,
     FacetedSearchComponent,
     ChromosomeOverviewComponent,
+    PublicationBadgeComponent,
   ],
 })
 export class SharedModule { }

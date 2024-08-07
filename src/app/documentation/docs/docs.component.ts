@@ -36,6 +36,10 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
       if (event instanceof NavigationEnd) {
         this.setSectPage(event.url);
         this.addAltmetrics();
+        setTimeout(() => {
+          // need to wait until DOM is updated
+          this.window.__dimensions_embed.addBadges();
+        }, 100);
       }
     });
   }
@@ -120,6 +124,7 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
     this.scrollToPageTop();
     this.setSectPage(this.router.url);
     this.addAltmetrics();
+    this.addDimensionsBadges();
   }
 
   private addAltmetrics(): void {
@@ -145,6 +150,15 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
     altmetricScript.type = 'text/javascript';
     altmetricScript.src = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
     this.renderer2.appendChild(this.document.body, altmetricScript);
+  }
+
+  private addDimensionsBadges(): void {
+    const script = this.renderer2.createElement('script');
+    script.id = 'dimensions-js-script';
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://badge.dimensions.ai/badge.js';
+    this.renderer2.appendChild(this.document.body, script);
   }
 
   ngOnDestroy(): void {
