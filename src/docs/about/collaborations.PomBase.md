@@ -22,15 +22,19 @@
 
 - **[FlyBase](https://flybase.org/)** is a model organism for *Drosophila*. ${database_name} supports FlyBase by adapting Canto (our community curation tool) for their complex phenotype annotation.
 
-- [**RNAcentral**](https://rnacentral.org/) is a non-coding RNA sequence database. As part of our data dissemination obligations, along with other model organism databases, we provide curated non-coding RNAs to RNA Central. We also collaborate to improve noncoding RNA classification.
+- [**RNAcentral**](https://rnacentral.org/) is a non-coding RNA sequence database. As part of our data dissemination obligations, along with other model organism databases, we provide curated non-coding RNAs to RNA Central.
 
-- [**BioGRID**](https://thebiogrid.org/) is a database for genetic and physical interactions. They curate interactions from publications that are integrated into ${database_name}, and vice-versa, to avoid duplication of curation effort. This is part of our data-dissemination obligations.
+- [**BioGRID**](https://thebiogrid.org/) is a database for genetic and physical interactions. They curate interactions from publications that are integrated into ${database_name}, and vice-versa, to avoid duplication of curation effort.
 
 - [**microPublication**](https://www.micropublication.org/) is a peer-reviewed journal that publishes one-figure papers with novel findings, negative or reproduced results, and results that may lack a broader scientific narrative. We are a partner database and provide curator input and promote articles on our website. This novel format incentivises reporting small and negative results, preventing research duplication and waste of research funding.
 
 - [**JaponicusDB**](https://www.japonicusdb.org/) is the model organism database for the fission yeast *Schizosaccharomyces japonicus*, an emerging model organism. JaponicusDB uses ${database_name}'s website code and its curation is entirely provided by the authors using Canto. This database was set up in a sprint of less than three months, and is a success story that shows that ${database_name} code and curation tools are reusable. [Read more](https://academic.oup.com/genetics/article/220/4/iyab223/6481558).
 
-- [**Valerie de Crecy-Lagard**](https://orcid.org/0000-0002-9955-3785) recently organised a workshop funded by NSF to devise a roadmap for the functional annotation of protein families. ${database_name} staff participated in the discussion (publication pending).
+- [**Valerie de Crecy-Lagard**](https://orcid.org/0000-0002-9955-3785)
+  recently organised a workshop funded by NSF to devise a roadmap for
+  the functional annotation of protein families. ${database_name}
+  staff participated in the discussion.  The meeting report is
+  [now published in *Database*](https://pubmed.ncbi.nlm.nih.gov/35961013/).
 
 - [**Genestorian**](https://www.genestorian.org/) is a project that aims to develop: (1) Open standards to document the generation of plasmids and strains in a machine-readable format, with an emphasis on interoperability, adhering to FAIR principles. (2) Easy to use web tools for experimental researchers to document strain and plasmid generation in their collections by leveraging those open standards.
 
