@@ -32,8 +32,8 @@
 
 - [**Valerie de Crecy-Lagard**](https://orcid.org/0000-0002-9955-3785)
   recently organised a workshop funded by NSF to devise a roadmap for
-  the functional annotation of protein families. ${database_name}
-  staff participated in the discussion.  The meeting report is
+  the functional annotation of protein families.
+  The meeting report is
   [now published in *Database*](https://pubmed.ncbi.nlm.nih.gov/35961013/).
 
 - [**Genestorian**](https://www.genestorian.org/) is a project that aims to develop: (1) Open standards to document the generation of plasmids and strains in a machine-readable format, with an emphasis on interoperability, adhering to FAIR principles. (2) Easy to use web tools for experimental researchers to document strain and plasmid generation in their collections by leveraging those open standards.
