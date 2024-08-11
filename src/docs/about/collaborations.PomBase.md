@@ -2,7 +2,7 @@
 
 - **[Monarch](https://monarchinitiative.org/)** is a platform that connects phenotypes to environmental factors and genotypes, integrating phenotypes from multiple species to make them queryable in a single portal, and use the combined knowledge to better understand human disease. We are currently in the process of integrating our phenotype data into Monarch.
 
-- **[Mondo](https://mondo.monarchinitiative.org/)** is a disease ontology developed as part of the Monarch initiative. It aims to merge multiple disease ontologies and develop guidelines for disease logical definitions, which are computer-readable. We actively contribute to the development of this ontology, and [link fission yeast genes with Mondo terms](/documentation/disease-association).
+- **[Mondo](https://mondo.monarchinitiative.org/)** is a disease ontology developed as part of the Monarch initiative. It aims to merge multiple disease ontologies and develop guidelines for disease logical definitions, which are computer-readable. We actively contribute to the development of this ontology, and [link fission yeast genes with Mondo terms](${base_url}/news#human-disease-association-changes-monarch).
 
 - **[uPheno](https://obofoundry.org/ontology/upheno.html)** is another component of the Monarch Initiative with the goal of integrating multiple phenotype ontologies into a unified cross-species phenotype ontology to make them interoperable. This interoperability is achieved by developing templates for phenotype logical definitions. We interact with uPheno developers to develop and implement standardised definition templates into FYPO .
 
