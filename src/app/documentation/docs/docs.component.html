@@ -103,7 +103,7 @@ PomBase: a comprehensive online resource for fission yeast.<br />
 <h1 id="pombase-collaborations">PomBase collaborations</h1>
 <ul>
 <li><p><strong><a href="https://monarchinitiative.org/">Monarch</a></strong> is a platform that connects phenotypes to environmental factors and genotypes, integrating phenotypes from multiple species to make them queryable in a single portal, and use the combined knowledge to better understand human disease. We are currently in the process of integrating our phenotype data into Monarch.</p></li>
-<li><p><strong><a href="https://mondo.monarchinitiative.org/">Mondo</a></strong> is a disease ontology developed as part of the Monarch initiative. It aims to merge multiple disease ontologies and develop guidelines for disease logical definitions, which are computer-readable. We actively contribute to the development of this ontology, and <a routerLink="/documentation/disease-association">link fission yeast genes with Mondo terms</a>.</p></li>
+<li><p><strong><a href="https://mondo.monarchinitiative.org/">Mondo</a></strong> is a disease ontology developed as part of the Monarch initiative. It aims to merge multiple disease ontologies and develop guidelines for disease logical definitions, which are computer-readable. We actively contribute to the development of this ontology, and <a href="https://www.pombase.org/news#human-disease-association-changes-monarch">link fission yeast genes with Mondo terms</a>.</p></li>
 <li><p><strong><a href="https://obofoundry.org/ontology/upheno.html">uPheno</a></strong> is another component of the Monarch Initiative with the goal of integrating multiple phenotype ontologies into a unified cross-species phenotype ontology to make them interoperable. This interoperability is achieved by developing templates for phenotype logical definitions. We interact with uPheno developers to develop and implement standardised definition templates into FYPO .</p></li>
 <li><p><strong><a href="https://pfam.xfam.org/">Pfam</a></strong> and <strong><a href="https://www.ebi.ac.uk/interpro/">InterPro</a></strong> are protein family databases. We have been collaborating with the Pfam and InterPro teams at the EBI for almost two decades, submitting over 1000 protein families via Pfam and providing QC for InterPro to GO mapping assignments. Recently, to increase ortholog coverage, we collaborated with the Pfam team to identify distant orthologs using AlphaFold reciprocal best structure hits. See this <a href="https://doi.org/10.1101/2022.07.04.498216">preprint</a>.</p></li>
 <li><p><strong><a href="http://intermine.org/">Intermine</a></strong> is a data warehouse that integrates heterogeneous data from different model organisms. Users can simultaneously query data from <em>Schizosaccharomyces pombe</em> and other organisms through a website, a web API or client libraries in several programming languages. We have actively collaborated with InterMine to integrate data from PomBase into a ‘PombeMine’ and to improve PombeMine to better support our users. <a href="https://www.pombase.org/pombemine">Read more</a>.</p></li>
@@ -9723,6 +9723,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-human-and-s.-cerevisiae-orthologs'" [pageScrollAdjustHash]="true" href="/news#new-human-and-s.-cerevisiae-orthologs">New human and *S. cerevisiae* orthologs</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#unknowns-coverage-update'" [pageScrollAdjustHash]="true" href="/news#unknowns-coverage-update">"Unknowns" coverage update</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#rna-secondary-structure-predictions-on-gene-pages'" [pageScrollAdjustHash]="true" href="/news#rna-secondary-structure-predictions-on-gene-pages">RNA secondary structure predictions on gene pages</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#human-disease-association-changes-monarch'" [pageScrollAdjustHash]="true" href="/news#human-disease-association-changes-monarch">Human disease association changes - Monarch</a></div>
@@ -12396,9 +12397,32 @@ See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> or
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'new-human-and-cerevisiae-orthologs'">
+<h3 id="new-human-and-s.-cerevisiae-orthologs">New human and <em>S. cerevisiae</em> orthologs</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>We have recently assigned new orthologs utilising <a href="https://xfam.wordpress.com/2024/05/31/pfam-n-version-3-enhancing-pfam-coverage-of-uniprot-with-computer-vision-deep-learning-techniques/">Pfam-N</a> protein family extensions, <a href="https://www.ebi.ac.uk/Tools/hmmer/search/jackhmmer">JackHMMER</a> iterative searches, and <a href="https://search.foldseek.com/search">FoldSeek</a> structural alignments.</p>
+<p>New orthologs:<br />
+We have identified orthologs of human <a href="https://www.pombase.org/gene/SPAP27G11.08c">MEIOB</a>, <a href="https://www.pombase.org/gene/SPCC16C4.04">PEX26</a>, <a href="https://www.pombase.org/gene/SPBC19G7.18c">OCIAD1 and OCIAD2</a>, <a href="https://www.pombase.org/gene/SPAC2C4.10c">SIKE1 and FGFR1OP2</a>, <a href="https://www.pombase.org/gene/SPCC1393.11">NGRN</a>, <a href="https://www.pombase.org/gene/SPAC4G9.11c">TFAM</a>, <a href="https://www.pombase.org/gene/SPAC15A10.17">NDUFA3</a>, <a href="https://www.pombase.org/gene/SPCC16C4.04">PEX26 (Sc PEX15)</a>, <a href="https://www.pombase.org/gene/SPAC1805.10">CCZ1</a>.<br />
+Plus orthologs of <em>S. cerevisiae</em> <a href="https://www.pombase.org/gene/SPBC16A3.03c">MNE1</a>, <a href="https://www.pombase.org/gene/SPBC11C11.06c">OM14</a>, <a href="https://www.pombase.org/gene/SPAC57A7.15c">PEX22</a>, and <a href="https://www.pombase.org/gene/SPAC23H4.16c">CAF130</a>.</p>
+<p>We have also assigned other sequence orphans to known protein families. See <a href="https://lists.cam.ac.uk/sympa/arc/ucam-pombelist/2024-08/msg00000.html">this pombelist post</a> for details.</p>
+<p>These additions bring the number of proteins with human orthologs to <a href="https://www.pombase.org/results/from/id/d9920022-ee99-4a9e-be6c-5dc391a39a07">3641 (72%)</a>, and the number with S. cerevisiae orthologs to <a href="https://www.pombase.org/results/from/id/2a22121d-ecb2-431b-a9f6-6ee86c20443b">4006 (79%)</a>.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-08-13-new-human-and-cerevisiae-orthologs" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="new-human-and-s.-cerevisiae-orthologs">New human and <em>S. cerevisiae</em> orthologs</h3>
+<p><em>2024-08-13</em></p>
+<p>We have recently assigned new orthologs utilising <a href="https://xfam.wordpress.com/2024/05/31/pfam-n-version-3-enhancing-pfam-coverage-of-uniprot-with-computer-vision-deep-learning-techniques/">Pfam-N</a> protein family extensions, <a href="https://www.ebi.ac.uk/Tools/hmmer/search/jackhmmer">JackHMMER</a> iterative searches, and <a href="https://search.foldseek.com/search">FoldSeek</a> structural alignments.</p>
+<p>New orthologs:<br />
+We have identified orthologs of human <a href="https://www.pombase.org/gene/SPAP27G11.08c">MEIOB</a>, <a href="https://www.pombase.org/gene/SPCC16C4.04">PEX26</a>, <a href="https://www.pombase.org/gene/SPBC19G7.18c">OCIAD1 and OCIAD2</a>, <a href="https://www.pombase.org/gene/SPAC2C4.10c">SIKE1 and FGFR1OP2</a>, <a href="https://www.pombase.org/gene/SPCC1393.11">NGRN</a>, <a href="https://www.pombase.org/gene/SPAC4G9.11c">TFAM</a>, <a href="https://www.pombase.org/gene/SPAC15A10.17">NDUFA3</a>, <a href="https://www.pombase.org/gene/SPCC16C4.04">PEX26 (Sc PEX15)</a>, <a href="https://www.pombase.org/gene/SPAC1805.10">CCZ1</a>.<br />
+Plus orthologs of <em>S. cerevisiae</em> <a href="https://www.pombase.org/gene/SPBC16A3.03c">MNE1</a>, <a href="https://www.pombase.org/gene/SPBC11C11.06c">OM14</a>, <a href="https://www.pombase.org/gene/SPAC57A7.15c">PEX22</a>, and <a href="https://www.pombase.org/gene/SPAC23H4.16c">CAF130</a>.</p>
+<p>We have also assigned other sequence orphans to known protein families. See <a href="https://lists.cam.ac.uk/sympa/arc/ucam-pombelist/2024-08/msg00000.html">this pombelist post</a> for details.</p>
+<p>These additions bring the number of proteins with human orthologs to <a href="https://www.pombase.org/results/from/id/d9920022-ee99-4a9e-be6c-5dc391a39a07">3641 (72%)</a>, and the number with S. cerevisiae orthologs to <a href="https://www.pombase.org/results/from/id/2a22121d-ecb2-431b-a9f6-6ee86c20443b">4006 (79%)</a>.</p>
+</div>
 <div id="2024-07-10-unknowns-coverage-update" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="unknowns-coverage-update">“Unknowns” coverage update</h3>
