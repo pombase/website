@@ -239,24 +239,27 @@
                             [hideColumns]="['reference', 'desc-rel', 'genotype_background', 'allele_promoters']"
                             [featureInFirstColumn]="true"
                             [annotationTable]="refDetails.cv_annotations[annotationTypeName]"></app-annotation-table>
-    </span>
-  </div>
-  <div *ngIf="refDetails.physical_interactions.length != 0">
+
     <app-interaction-annotation-table [annotationTypeName]="'physical_interactions'"
-                                      [hideColumns]="['reference']"
-                                      [annotationTable]="refDetails.physical_interactions"></app-interaction-annotation-table>
-  </div>
-  <div *ngIf="refDetails.genetic_interactions.length != 0">
+      *ngIf="annotationTypeName == 'physical_interactions' && refDetails.physical_interactions.length != 0"
+      id="{{annotationTypeName}}" [hideColumns]="['reference']"
+      [annotationTable]="refDetails.physical_interactions"></app-interaction-annotation-table>
+
     <app-genetic-interaction-annotation-table [annotationTypeName]="'genetic_interactions'"
-                                      [hideColumns]="['reference']"
-                                      [annotationTable]="refDetails.genetic_interactions"></app-genetic-interaction-annotation-table>
-  </div>
-  <div *ngIf="refDetails.ortholog_annotations.length != 0">
+      *ngIf="annotationTypeName == 'genetic_interactions' && refDetails.genetic_interactions.length != 0"
+      id="{{annotationTypeName}}" [hideColumns]="['reference']"
+      [annotationTable]="refDetails.genetic_interactions"></app-genetic-interaction-annotation-table>
+
     <app-ortholog-annotation-table [hideColumns]="['reference']"
-                                   [annotationTable]="refDetails.ortholog_annotations"></app-ortholog-annotation-table>
-  </div>
-  <div>
-    <app-paralog-annotation-table [annotationTable]="refDetails.paralog_annotations"></app-paralog-annotation-table>
+      *ngIf="annotationTypeName == 'orthologs' && refDetails.ortholog_annotations.length != 0"
+      id="{{annotationTypeName}}"
+      [annotationTable]="refDetails.ortholog_annotations"></app-ortholog-annotation-table>
+
+    <app-paralog-annotation-table
+        *ngIf="annotationTypeName == 'paralogs' && refDetails.paralog_annotations.length != 0"
+        id="{{annotationTypeName}}"
+        [annotationTable]="refDetails.paralog_annotations"></app-paralog-annotation-table>
+    </span>
   </div>
 
 </div>
