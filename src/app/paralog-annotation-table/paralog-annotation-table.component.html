@@ -3,7 +3,7 @@
     {{annotationTypeDisplayName}}
   </legend>
 
-  <div class="annotation-table-container">
+  <div class="paralog-table annotation-table-container">
   <table>
     <thead>
       <tr>
@@ -13,7 +13,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let annotation of annotationTable">
-        <td><app-gene-link [gene]="annotation.paralog"></app-gene-link></td>
+        <td>
+          <span class="paralog-gene">
+            <app-gene-link [gene]="annotation.paralog"></app-gene-link>
+          </span>
+        </td>
         <td>
           <span>{{annotation.paralog.product || ''}}</span>
         </td>

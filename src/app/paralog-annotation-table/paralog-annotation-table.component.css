@@ -1,0 +1,11 @@
+.paralog-table table {
+  width: auto;
+}
+
+td {
+  padding: 0.2em 5em 0.2em 0;
+}
+
+.paralog-gene {
+  white-space: nowrap;
+}
