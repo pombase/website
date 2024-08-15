@@ -40,4 +40,11 @@ references for all orthology calls.
 
 ## Paralogs
 
-The Paralogs section lists any curated paralogous fission yeast genes.
+Paralogs are based on the common ancestor of fission yeast and budding
+yeast (this approximates to the fungal common ancestor). Paralog
+assignments are automated based on the manually curated orthoog
+assignments, so that where *S. pombe* gene A is orthologous to
+*S. cerevisiae* gene Y, and *S. pombe* gene B is orthologous to
+*S. cerevisiae* gene Y, then gene A and gene B are paralogs. The
+automated paralogs are supplemented by manually curated paralogs for
+*S. pombe* specific gene family duplications or larger expansions.
