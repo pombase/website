@@ -66,3 +66,7 @@
   turquoise killifish as model systems.  We collaborate with Jurg
   Bähler's group to advise on aspects of interrogating the
   "UNKNOWNome" as part of their OFFBEAT project.
+
+- [**Andrew Green**](https://www.ebi.ac.uk/people/person/andrew-green/)
+  (Arise Fellow, EMBL-EBI) is testing PomBase curated datasets for i)
+  literature classification and ii) gene summarisation.
