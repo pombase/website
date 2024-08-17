@@ -17,7 +17,7 @@ ABBREVS="PomBase ENA AGI_LocusCode HGNC CDD DDJB DOI PUBMED PMID ISBN EC EMBL EN
 
 DB_XREFS_FILE=/tmp/db-xrefs-$$.yaml
 
-curl http://current.geneontology.org/metadata/db-xrefs.yaml > $DB_XREFS_FILE
+curl -L http://current.geneontology.org/metadata/db-xrefs.yaml > $DB_XREFS_FILE
 
 # get link configuration from GO
 etc/make-link-js.pl $DB_XREFS_FILE $ABBREVS > src/app/config/go-xrf-abbr-external-links.json
