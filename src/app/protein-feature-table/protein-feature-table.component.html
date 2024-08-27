@@ -1,0 +1,29 @@
+<div>
+  <table>
+    <ng-container *ngFor="let track of displayTracks">
+      <thead>
+        <tr>
+          <th>
+            {{track.name}}
+          </th>
+          <th *ngIf="!track.isSingleRow">
+            Position
+          </th>
+          <td *ngIf="track.isSingleRow">
+            {{track.features[0].positions}}
+          </td>
+        </tr>
+      </thead>
+      <tbody *ngIf="!track.isSingleRow">
+        <tr *ngFor="let feature of track.features">
+          <td>
+            {{feature.name}}
+          </td>
+          <td>
+            {{feature.positions}}
+          </td>
+        </tr>
+      </tbody>
+    </ng-container>
+  </table>
+</div>

@@ -751,6 +751,26 @@ export interface GeneSubsets {
   [subsetName: string]: GeneSubsetDetails;
 }
 
+export interface ProteinViewTrack {
+  name: string;
+  display_type: string;
+  features: Array<ProteinViewFeature>;
+}
+
+export interface ProteinViewData {
+  sequence: string
+  tracks: Array<ProteinViewTrack>,
+}
+
+type ProteinViewFeaturePos = [string, number, number];
+
+export interface ProteinViewFeature {
+  id: string;
+  display_name?: string;
+  annotated_terms: Array<TermAndName>,
+  positions: Array<ProteinViewFeaturePos>,
+}
+
 type GeneUniquename = string;
 type GoCamId = string;
 
@@ -1903,6 +1923,13 @@ export class PombaseAPIService {
       })
       .catch(this.handleError);
   }
+
+  getProteinViewData(geneUniquename: string): Promise<ProteinViewData> {
+    return this.httpRetry.getWithRetry(this.apiUrl + '/protein_features/full/' +
+                                       geneUniquename)
+      .toPromise()
+      .catch(this.handleError);
+  }
 }
 
 function fixHistoneResidues(residues: Array<string>, long: boolean): Array<string> {
@@ -2011,3 +2038,4 @@ function transcriptsOfAnnotation(annotation: Annotation, transcriptsByUniquename
     return [];
   }
 }
+

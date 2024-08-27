@@ -29,4 +29,7 @@
     <iframe [src]="getIFrameURL()" class="full-protein-viewer" #proteinfeaturesiframe>
     </iframe>
   </div>
+
+  <app-protein-feature-table *ngIf="false" [geneDetails]="geneDetails">
+  </app-protein-feature-table>
 </div>
