@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { getAppConfig, AppConfig, LinkoutConfig } from '../config';
+import { getAppConfig, AppConfig } from '../config';
 
 @Component({
   selector: 'app-evidence-link',
@@ -15,7 +15,6 @@ export class EvidenceLinkComponent implements OnInit {
   title = '[unknown]';
   link: string;
   appConfig: AppConfig = getAppConfig();
-  linkoutConfig: LinkoutConfig = {};
 
   constructor() { }
 
@@ -36,7 +35,6 @@ export class EvidenceLinkComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.linkoutConfig = this.appConfig.linkoutConfig;
     this.initialise();
   }
 }

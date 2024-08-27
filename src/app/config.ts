@@ -12,10 +12,6 @@ export interface TermPageConfig {
   ancestorRelNames: Array<string>;
 }
 
-export interface LinkoutConfig {
-  [name: string]: string;
-}
-
 export interface SearchBoxConfig {
   suffixes_to_trim: Array<string>;
   ortholog_organisms_to_always_show: Array<number>;
@@ -347,7 +343,7 @@ export interface AppConfig {
   cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
   phenotypeIdPrefixes: Array<string>;
-  linkoutConfig: LinkoutConfig;
+
   externalTermLinkPrefixes: Array<string>;
 
   searchBoxCvNames: Array<string>;
@@ -840,11 +836,6 @@ let _appConfig: AppConfig = {
   },
   slims: pombaseConfig.slims,
   extensionCategories: pombaseConfig.extension_categories,
-
-  linkoutConfig: {
-    pro: 'http://www.proconsortium.org/cgi-bin/pro/entry_pro?id=',
-    pfam: 'http://pfam.xfam.org/family/',
-  },
 
   externalTermLinkPrefixes: pombaseConfig.external_term_link_prefixes || [],
 

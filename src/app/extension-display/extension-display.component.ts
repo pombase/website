@@ -4,7 +4,7 @@ import { ExtPart, ExtRange, GeneShort } from '../pombase-api.service';
 import { GeneUniquename } from '../pombase-query';
 import { TermShort } from '../pombase-query';
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
-         getAppConfig, LinkoutConfig, getXrf } from '../config';
+         getAppConfig, getXrf } from '../config';
 
 @Component({
   selector: 'app-extension-display',
@@ -18,7 +18,7 @@ export class ExtensionDisplayComponent implements OnInit {
   @Input() geneUniquename?: GeneUniquename = undefined;
 
   displayExtension: { relTypeName: string; rawName: string; extRange: any; }[] = [];
-  linkoutConfig: LinkoutConfig = {};
+
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;
 
@@ -65,8 +65,6 @@ export class ExtensionDisplayComponent implements OnInit {
     }
 
     this.typeConfig = this.config.getAnnotationType(this.annotationTypeName);
-
-    this.linkoutConfig = getAppConfig().linkoutConfig;
 
     let extensionCopy: Array<ExtPart> = this.extension.slice();
 
