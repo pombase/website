@@ -35,7 +35,7 @@
       <span *ngIf="range.summary_residues">
         <span *ngFor="let residue of range.summary_residues; let lastSumm = last">
           <span [popover]="residueTitle(residue)" triggers="mouseenter:mouseleave"
-                container="body">{{residue}}</span><span *ngIf="!lastSumm">, </span>
+                container="body">{{displayResidue(extPart.relTypeName, residue)}}</span><span *ngIf="!lastSumm">, </span>
         </span>
       </span>
 

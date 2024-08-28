@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { ExtPart, ExtRange, GeneShort } from '../pombase-api.service';
-import { GeneUniquename } from '../pombase-query';
 import { TermShort } from '../pombase-query';
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          getAppConfig, getXrf } from '../config';
@@ -15,7 +14,7 @@ export class ExtensionDisplayComponent implements OnInit {
   @Input() extension: Array<ExtPart> = [];
   @Input() annotationTypeName: string;
   @Input() highlightRelations = true;
-  @Input() geneUniquename?: GeneUniquename = undefined;
+  @Input() geneShort?: GeneShort = undefined;
 
   displayExtension: { relTypeName: string; rawName: string; extRange: any; }[] = [];
 
@@ -34,7 +33,7 @@ export class ExtensionDisplayComponent implements OnInit {
   }
 
   residueTitle(posAndResidue: string): string {
-    if (!this.geneUniquename) {
+    if (!this.geneShort) {
       return '';
     }
 
@@ -43,7 +42,7 @@ export class ExtensionDisplayComponent implements OnInit {
       return '';
     }
 
-    const modGeneConfig = modAbbrevConfig[this.geneUniquename];
+    const modGeneConfig = modAbbrevConfig[this.geneShort.uniquename];
     if (!modGeneConfig) {
       return '';
     }
@@ -54,6 +53,17 @@ export class ExtensionDisplayComponent implements OnInit {
     } else {
       return '';
     }
+  }
+
+  displayResidue(relTypeName: string, residue: string): string {
+    if (relTypeName == "binding site") {
+      if (this.geneShort) {
+        return (this.geneShort.name || this.geneShort.uniquename) + " residues " + residue;
+      } else {
+        return "residues " + residue;
+      }
+    }
+    return residue;
   }
 
   ngOnInit() {
