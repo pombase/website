@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-gene-protein-features',
@@ -14,9 +15,12 @@ export class GeneProteinFeaturesComponent implements OnInit {
 
   sanitizedURL?: SafeResourceUrl;
 
+  featureTableVisible = false;
+
   constructor(private sanitizer: DomSanitizer,
               private pombaseApiService: PombaseAPIService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public deployConfigService: DeployConfigService) {
   }
 
   getIFrameURL(): SafeResourceUrl | undefined {

@@ -25,11 +25,25 @@
 
   </div>
 
+  <div class="table-toggle" *ngIf="!deployConfigService.productionMode()">
+    <a *ngIf="!featureTableVisible" (click)="featureTableVisible = true">
+      Show as table
+    </a>
+    <a *ngIf="featureTableVisible" (click)="featureTableVisible = false">
+      Return to diagram
+    </a>
+  </div>
+
+  <div *ngIf="!featureTableVisible">
   <div *ngIf="getIFrameURL()">
     <iframe [src]="getIFrameURL()" class="full-protein-viewer" #proteinfeaturesiframe>
     </iframe>
   </div>
+  </div>
 
-  <app-protein-feature-table *ngIf="false" [geneDetails]="geneDetails">
-  </app-protein-feature-table>
+  <div class="feature-table"
+       *ngIf="featureTableVisible && !deployConfigService.productionMode()">
+    <app-protein-feature-table [geneDetails]="geneDetails">
+    </app-protein-feature-table>
+  </div>
 </div>
