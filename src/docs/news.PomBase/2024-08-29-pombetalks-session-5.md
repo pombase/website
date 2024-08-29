@@ -2,7 +2,8 @@
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
-Season 5 of pombeTalks will start in September.
+Season 5 of [pombeTalks](https://evonuclab.org/pombetalks)
+will start in September.
 
 Save the dates:
 
