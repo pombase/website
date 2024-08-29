@@ -9724,6 +9724,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-season-5-starting-september-18th'" [pageScrollAdjustHash]="true" href="/news#pombetalks-season-5-starting-september-18th">pombeTalks Season 5 starting September 18th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-human-and-s.-cerevisiae-orthologs'" [pageScrollAdjustHash]="true" href="/news#new-human-and-s.-cerevisiae-orthologs">New human and *S. cerevisiae* orthologs</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#unknowns-coverage-update'" [pageScrollAdjustHash]="true" href="/news#unknowns-coverage-update">"Unknowns" coverage update</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#rna-secondary-structure-predictions-on-gene-pages'" [pageScrollAdjustHash]="true" href="/news#rna-secondary-structure-predictions-on-gene-pages">RNA secondary structure predictions on gene pages</a></div>
@@ -12410,9 +12411,40 @@ Plus orthologs of <em>S. cerevisiae</em> <a routerLink="/gene/SPBC16A3.03c">MNE1
 <p>These additions bring the number of proteins with human orthologs to <a routerLink="/results/from/id/d9920022-ee99-4a9e-be6c-5dc391a39a07">3641 (72%)</a>, and the number with S. cerevisiae orthologs to <a routerLink="/results/from/id/2a22121d-ecb2-431b-a9f6-6ee86c20443b">4006 (79%)</a>.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-session-5'">
+<h3 id="pombetalks-season-5-starting-september-18th">pombeTalks Season 5 starting September 18th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>Season 5 of pombeTalks will start in September.</p>
+<p>Save the dates:</p>
+<ul>
+<li>September 18th 2024 5pm CET</li>
+<li>October 16th 2024 at 5pm CET</li>
+<li>November 20th 2024 at 9am CET</li>
+<li>December 18th 2024 at 5pm CET</li>
+<li>January 15th 2025 at 5pm CET</li>
+<li>February 19th 2025 at 9am CET</li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-08-29-pombetalks-session-5" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="pombetalks-season-5-starting-september-18th">pombeTalks Season 5 starting September 18th</h3>
+<p><em>2024-08-29</em></p>
+<p>Season 5 of pombeTalks will start in September.</p>
+<p>Save the dates:</p>
+<ul>
+<li>September 18th 2024 5pm CET</li>
+<li>October 16th 2024 at 5pm CET</li>
+<li>November 20th 2024 at 9am CET</li>
+<li>December 18th 2024 at 5pm CET</li>
+<li>January 15th 2025 at 5pm CET</li>
+<li>February 19th 2025 at 9am CET</li>
+</ul>
+</div>
 <div id="2024-08-13-new-human-and-cerevisiae-orthologs" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="new-human-and-s.-cerevisiae-orthologs">New human and <em>S. cerevisiae</em> orthologs</h3>
