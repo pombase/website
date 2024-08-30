@@ -22,12 +22,12 @@
     Loading ...
   </div>
   <h4 *ngIf="cumulativeByYearPlotLoaded">
-    Curated and curatable papers (cumulative):
+    Publication status (cumulative):
   </h4>
   <a href="/api/v1/dataset/latest/stats/cumulative_curated_by_year"
-     title="Cumulative plot of curated papers versus curatable papers">
+     title="Cumulative plot of publication status">
   <img (load)="cumulativeByYearPlotLoaded=true" class="plot-image"
-       alt="Cumulative plot of curated papers versus curatable papers"
+       alt="Cumulative plot of publication status"
        src="/api/v1/dataset/latest/stats/cumulative_curated_by_year"/>
   </a>
 </div>
