@@ -5008,7 +5008,6 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
 <div class="left-menu-part left-sub-menu-item"><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></div>
-<div class="left-menu-part left-sub-menu-item"><a href="https://www.pombase.org/data/high_confidence_physical_interactions/">HCPIN datasets</a></div>
 <div class="left-menu-part left-sub-menu-item"><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="//downloads/protein-datasets">Protein datasets</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
@@ -5071,14 +5070,10 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <td>Fission yeast orthologs of human disease associated genes with disease descriptions and <a href="https://mondo.monarchinitiative.org/">Mondo</a> ontology terms</td>
 </tr>
 <tr class="even">
-<td><a href="https://www.pombase.org/data/high_confidence_physical_interactions/">HCPIN datasets</a></td>
-<td>Physical interaction and GO substrate data that make up the High Confidence Physical Interaction Network datasets; also see <a routerLink="/documentation/high-confidence-physical-interaction-network">documentation</a></td>
-</tr>
-<tr class="odd">
 <td><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></td>
 <td>Protein modification data file (RNA modifications to be added in future)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></td>
 <td>Manually curated ortholog sets for <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> and <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene"><em>S. cerevisiae</em></a>; also see <a routerLink="/documentation/orthologs">documentation</a></td>
 </tr>
@@ -5445,7 +5440,7 @@ PomBase using the Ensembl viewer.</p>
 <p><img src="assets/fypo_haploid_search_options.png" class="screenshot" width="651" alt="phenotype search options for single-locus haploids" /></p>
 <p>Different alleles of one gene may have different phenotypes, and one allele may give rise to different phenotypes under different experimental conditions. At present, you can retrieve annotations for all alleles of a gene, or use the “Expression level” options restrict the query to null alleles (covers deletions and any other sequence changes, such as most disruptions, that completely abolish expression of the gene) or overexpression of the wild type allele.</p>
 <h5 id="constraining-by-conditions">Constraining by conditions</h5>
-<p><img src="assets/fypo_condition_query.png" class="screenshot" width="651" alt="phenotype condition search option" /></p>
+<p><img src="assets/fypo_condition_query.png" class="screenshot" width="588" alt="phenotype condition search option" /></p>
 <p>The “Constrain condition” option restricts the results to include only genes that have phenotype annotations including the specified condition. The search uses the same condition descriptors as Canto and the PomBase web pages. Start typing, then choose from the autocomplete options.</p>
 <p>Note that the results will include any gene with phenotype annotations for the phenotype of interest, including the specified condition, <em>for any allele</em>. Queries that include conditions can be combined using the AND, NOT, or OR operators like any other, but the result of any combination of phenotype queries will likely include annotations for different alleles. There may not be any individual annotation in which both/all of multiple conditions co-occur.</p>
 <p>Use case: Query FYPO phenotype (FYPO:0000001) (i.e. any phenotype) and condition + phloxine B”<br />
@@ -5453,6 +5448,8 @@ to retrieve all genes with a phenotype assay using phloxine B as a condition.</p
 <p>Use case: Query FYPO inviable vegetative cell population(FYPO:0002061) + high temperature (FYECO:0000004)<br />
 to retrieve all genes inviable at high temperature (the subtract all “viable vegetative cell population/FYPO:0002060 standard temperature (FYECO:0000005). If you want to restrict this output to likely temperature-sensitive alleles you could make a new query for all”viable vegetative cell population” (FYPO:0002060) standard temperature (FYECO:0000005), and subtract this query from the previous query.</p>
 <p>Note that for many sensitivity phenotypes, you do not need to constrain on condition, because the terms are precomposed i.e. <code>FYPO:0000089</code> “sensitive to methyl methanesulfonate”. In these cases the condition may not always be explicitly curated.</p>
+<h5 id="excluded-conditions">Excluded conditions</h5>
+<p><img src="assets/fypo_exclude_constraint.png" class="screenshot" width="588" alt="phenotype exclude_condition option" /></p>
 <p>The “Exclude condition” option excludes from the results any annotations to the phenotype term of interest that include the specified condition (note: annotations to the same gene with a different condition, or no condition specified, will retained in the gene result list). This means, for example, if you exclude “high temperature” for a specific phenotype, the gene will remain in your output list if it has another annotation to the same term without a recorded condition, or “standard temperature”. To find a condition, start typing, then choose from the autocomplete options.</p>
 <p>Warning: Condition constraint and exclusion should be used with caution, and will be more successful for non-standard conditions like “high temperature” and “low temperature” “low glucose” because standard conditions and media are not always explicitly recorded.</p>
 <h4 id="disease">Disease</h4>
@@ -7800,7 +7797,6 @@ are not detected by any automated method. Gradually, we will add and display sup
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></div>
-<div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/high_confidence_physical_interactions/">HCPIN datasets</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/protein-datasets">Protein datasets</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
@@ -12415,7 +12411,7 @@ Plus orthologs of <em>S. cerevisiae</em> <a routerLink="/gene/SPBC16A3.03c">MNE1
 <h3 id="pombetalks-season-5-starting-september-18th">pombeTalks Season 5 starting September 18th</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
-<p>Season 5 of pombeTalks will start in September.</p>
+<p>Season 5 of <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will start in September.</p>
 <p>Save the dates:</p>
 <ul>
 <li>September 18th 2024 5pm CET</li>
@@ -12434,7 +12430,7 @@ Plus orthologs of <em>S. cerevisiae</em> <a routerLink="/gene/SPBC16A3.03c">MNE1
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-season-5-starting-september-18th">pombeTalks Season 5 starting September 18th</h3>
 <p><em>2024-08-29</em></p>
-<p>Season 5 of pombeTalks will start in September.</p>
+<p>Season 5 of <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will start in September.</p>
 <p>Save the dates:</p>
 <ul>
 <li>September 18th 2024 5pm CET</li>
