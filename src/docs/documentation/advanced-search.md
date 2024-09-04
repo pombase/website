@@ -228,7 +228,7 @@ of the gene) or overexpression of the wild type allele.
 
 ##### Constraining by conditions
 
-![phenotype condition search option](assets/fypo_condition_query.png){ .screenshot width="651"}
+![phenotype condition search option](assets/fypo_condition_query.png){ .screenshot width="588"}
 
 The "Constrain condition" option restricts the results to include only
 genes that have phenotype annotations including the specified
@@ -260,6 +260,10 @@ Note that for many sensitivity phenotypes, you do not need to constrain
 on condition, because the terms are precomposed i.e. `FYPO:0000089`
 "sensitive to methyl methanesulfonate".  In these cases the condition
 may not always be explicitly curated.
+
+##### Excluded conditions
+
+![phenotype exclude_condition option](assets/fypo_exclude_constraint.png){ .screenshot width="588"}
 
 The “Exclude condition” option excludes from the results any
 annotations to the phenotype term of interest that include the

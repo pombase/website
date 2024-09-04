@@ -85,6 +85,10 @@
                             [cvName]="phenotypeConditionNamespace"
                             [placeholder]="'Start typing a phenotype condition, eg. low temperature'"
                             (termMatched)="phenotypeExcludeConditionMatched($event)"></app-term-name-complete>
+    <a class="constrain-condition-help" routerLink="/documentation/advanced-search"
+       [fragment]="'excluded-conditions'">
+      <img src="/assets/info_icon.svg">
+    </a>
   </div>
 </div>
 
