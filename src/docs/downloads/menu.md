@@ -5,7 +5,6 @@
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
 %%if db=PomBase
 <div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></div>
-<div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/high_confidence_physical_interactions/">HCPIN datasets</a></div>
 %%end db=PomBase
 <div class="left-menu-part left-sub-sub-menu-item"><a href="${base_url}/data/orthologs/">Orthologs</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/protein-datasets">Protein datasets</a></div>
