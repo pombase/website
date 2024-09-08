@@ -97,8 +97,7 @@ rect.vis-column:hover {
 }
 
 .delete-user-link img {
-  height: 1em;
-  vertical-align: text-top;
+  height: 0.9em;
 }
 
 .loading {
