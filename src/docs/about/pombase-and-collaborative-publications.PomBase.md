@@ -23,7 +23,7 @@ Mondo: Unifying diseases for the world, by the world \
 ::: { .pub-citation }
 Sabrina Toro, Anna V Anagnostopoulos, *et al.* (Val Wood co-author) \
 Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligence (DRAGON-AI) \
-[Pre-publication manuscript at arXiv](https://arxiv.org/abs/2312.10904)
+In press: [Pre-publication manuscript at arXiv](https://arxiv.org/abs/2312.10904)
 :::
 
 
