@@ -31,6 +31,6 @@ See [this pombelist post](https://lists.cam.ac.uk/sympa/arc/ucam-pombelist/2024-
 for details.
 
 These additions bring the number of proteins with human orthologs to
-[3641 (72%)](/results/from/id/d9920022-ee99-4a9e-be6c-5dc391a39a07),
+[3641 (72%)](/results/from/id/8335a7b3-5105-4414-9743-bb6422692858),
 and the number with S. cerevisiae orthologs to
-[4006 (79%)](/results/from/id/2a22121d-ecb2-431b-a9f6-6ee86c20443b).
+[4006 (79%)](/results/from/id/12a88b3a-9bab-4eae-a7e0-bb137b55d851).
