@@ -407,7 +407,7 @@ Mondo: Unifying diseases for the world, by the world<br />
 <div class="pub-citation">
 <p>Sabrina Toro, Anna V Anagnostopoulos, <em>et al.</em> (Val Wood co-author)<br />
 Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligence (DRAGON-AI)<br />
-<a href="https://arxiv.org/abs/2312.10904">Pre-publication manuscript at arXiv</a></p>
+In press: <a href="https://arxiv.org/abs/2312.10904">Pre-publication manuscript at arXiv</a></p>
 </div>
 <h3 id="journal-articles">Journal articles</h3>
 <div class="publication-badges">
@@ -9720,6 +9720,8 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-september-18th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-september-18th">Next pombeTalks: September 18th</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-updated-use-interpro-version-101.0'" [pageScrollAdjustHash]="true" href="/news#pombase-updated-use-interpro-version-101.0">PomBase updated to use InterPro Version 101.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombetalks-season-5-starting-september-18th'" [pageScrollAdjustHash]="true" href="/news#pombetalks-season-5-starting-september-18th">pombeTalks Season 5 starting September 18th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-human-and-s.-cerevisiae-orthologs'" [pageScrollAdjustHash]="true" href="/news#new-human-and-s.-cerevisiae-orthologs">New human and *S. cerevisiae* orthologs</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#unknowns-coverage-update'" [pageScrollAdjustHash]="true" href="/news#unknowns-coverage-update">"Unknowns" coverage update</a></div>
@@ -12404,7 +12406,7 @@ See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> or
 We have identified orthologs of human <a routerLink="/gene/SPAP27G11.08c">MEIOB</a>, <a routerLink="/gene/SPCC16C4.04">PEX26</a>, <a routerLink="/gene/SPBC19G7.18c">OCIAD1 and OCIAD2</a>, <a routerLink="/gene/SPAC2C4.10c">SIKE1 and FGFR1OP2</a>, <a routerLink="/gene/SPCC1393.11">NGRN</a>, <a routerLink="/gene/SPAC4G9.11c">TFAM</a>, <a routerLink="/gene/SPAC15A10.17">NDUFA3</a>, <a routerLink="/gene/SPCC16C4.04">PEX26 (Sc PEX15)</a>, <a routerLink="/gene/SPAC1805.10">CCZ1</a>.<br />
 Plus orthologs of <em>S. cerevisiae</em> <a routerLink="/gene/SPBC16A3.03c">MNE1</a>, <a routerLink="/gene/SPBC11C11.06c">OM14</a>, <a routerLink="/gene/SPAC57A7.15c">PEX22</a>, and <a routerLink="/gene/SPAC23H4.16c">CAF130</a>.</p>
 <p>We have also assigned other sequence orphans to known protein families. See <a href="https://lists.cam.ac.uk/sympa/arc/ucam-pombelist/2024-08/msg00000.html">this pombelist post</a> for details.</p>
-<p>These additions bring the number of proteins with human orthologs to <a routerLink="/results/from/id/d9920022-ee99-4a9e-be6c-5dc391a39a07">3641 (72%)</a>, and the number with S. cerevisiae orthologs to <a routerLink="/results/from/id/2a22121d-ecb2-431b-a9f6-6ee86c20443b">4006 (79%)</a>.</p>
+<p>These additions bring the number of proteins with human orthologs to <a routerLink="/results/from/id/8335a7b3-5105-4414-9743-bb6422692858">3641 (72%)</a>, and the number with S. cerevisiae orthologs to <a routerLink="/results/from/id/12a88b3a-9bab-4eae-a7e0-bb137b55d851">4006 (79%)</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'pombetalks-session-5'">
@@ -12423,9 +12425,70 @@ Plus orthologs of <em>S. cerevisiae</em> <a routerLink="/gene/SPBC16A3.03c">MNE1
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'interpro-release-101'">
+<h3 id="pombase-updated-use-interpro-version-101.0">PomBase updated to use InterPro Version 101.0</h3>
+<!-- newsfeed_thumbnail: interpro_32px.png -->
+<p>PomBase now uses InterPro Version 101.0</p>
+<p>Features include:</p>
+<ul>
+<li>The addition of 753 InterPro entries.</li>
+<li>An update to NCBIfam (15.0).</li>
+<li>Integration of 767 new methods from the NCBIfam (318), Pfam (446), PANTHER (2), CDD (1) databases.</li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'pombetalks-18th-sept'">
+<h3 id="next-pombetalks-september-18th">Next pombeTalks: September 18th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, September 18th, at <a href="https://everytimezone.com/s/4009cf69">08:00</a> San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Ying Gu</strong><br />
+Snezhana Oliferenko Lab, King’s College London<br />
+“Peroxisomal compartmentalization of amino acid biosynthesis reactions imposes an upper limit on compartment size”</p></li>
+<li><p><strong>Yannis Reignier</strong><br />
+Nicolas Minc lab, Institut Jacques Monod - CNRS, Paris<br />
+“Mechanism of mechanosensation and repair in fission yeast cell wall.”</p></li>
+</ul>
+<p><a href="https://unige.zoom.us/j/69436207207?pwd=MlAIMX1pq4Kl4liXVcopH4MxXOo8C2.1">Zoom Meeting</a><br />
+Meeting ID: 694 3620 7207</p>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the meeting passcode</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-09-11-pombetalks-18th-sept" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-september-18th">Next pombeTalks: September 18th</h3>
+<p><em>2024-09-11</em></p>
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, September 18th, at <a href="https://everytimezone.com/s/4009cf69">08:00</a> San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo.</p>
+<p>Speakers are:</p>
+<ul>
+<li><p><strong>Ying Gu</strong><br />
+Snezhana Oliferenko Lab, King’s College London<br />
+“Peroxisomal compartmentalization of amino acid biosynthesis reactions imposes an upper limit on compartment size”</p></li>
+<li><p><strong>Yannis Reignier</strong><br />
+Nicolas Minc lab, Institut Jacques Monod - CNRS, Paris<br />
+“Mechanism of mechanosensation and repair in fission yeast cell wall.”</p></li>
+</ul>
+<p><a href="https://unige.zoom.us/j/69436207207?pwd=MlAIMX1pq4Kl4liXVcopH4MxXOo8C2.1">Zoom Meeting</a><br />
+Meeting ID: 694 3620 7207</p>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the meeting passcode</p>
+</div>
+<div id="2024-09-03-interpro-release-101" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
+<h3 id="pombase-updated-use-interpro-version-101.0">PomBase updated to use InterPro Version 101.0</h3>
+<p><em>2024-09-03</em></p>
+<p>PomBase now uses InterPro Version 101.0</p>
+<p>Features include:</p>
+<ul>
+<li>The addition of 753 InterPro entries.</li>
+<li>An update to NCBIfam (15.0).</li>
+<li>Integration of 767 new methods from the NCBIfam (318), Pfam (446), PANTHER (2), CDD (1) databases.</li>
+</ul>
+</div>
 <div id="2024-08-29-pombetalks-session-5" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="pombetalks-season-5-starting-september-18th">pombeTalks Season 5 starting September 18th</h3>
@@ -12450,7 +12513,7 @@ Plus orthologs of <em>S. cerevisiae</em> <a routerLink="/gene/SPBC16A3.03c">MNE1
 We have identified orthologs of human <a routerLink="/gene/SPAP27G11.08c">MEIOB</a>, <a routerLink="/gene/SPCC16C4.04">PEX26</a>, <a routerLink="/gene/SPBC19G7.18c">OCIAD1 and OCIAD2</a>, <a routerLink="/gene/SPAC2C4.10c">SIKE1 and FGFR1OP2</a>, <a routerLink="/gene/SPCC1393.11">NGRN</a>, <a routerLink="/gene/SPAC4G9.11c">TFAM</a>, <a routerLink="/gene/SPAC15A10.17">NDUFA3</a>, <a routerLink="/gene/SPCC16C4.04">PEX26 (Sc PEX15)</a>, <a routerLink="/gene/SPAC1805.10">CCZ1</a>.<br />
 Plus orthologs of <em>S. cerevisiae</em> <a routerLink="/gene/SPBC16A3.03c">MNE1</a>, <a routerLink="/gene/SPBC11C11.06c">OM14</a>, <a routerLink="/gene/SPAC57A7.15c">PEX22</a>, and <a routerLink="/gene/SPAC23H4.16c">CAF130</a>.</p>
 <p>We have also assigned other sequence orphans to known protein families. See <a href="https://lists.cam.ac.uk/sympa/arc/ucam-pombelist/2024-08/msg00000.html">this pombelist post</a> for details.</p>
-<p>These additions bring the number of proteins with human orthologs to <a routerLink="/results/from/id/d9920022-ee99-4a9e-be6c-5dc391a39a07">3641 (72%)</a>, and the number with S. cerevisiae orthologs to <a routerLink="/results/from/id/2a22121d-ecb2-431b-a9f6-6ee86c20443b">4006 (79%)</a>.</p>
+<p>These additions bring the number of proteins with human orthologs to <a routerLink="/results/from/id/8335a7b3-5105-4414-9743-bb6422692858">3641 (72%)</a>, and the number with S. cerevisiae orthologs to <a routerLink="/results/from/id/12a88b3a-9bab-4eae-a7e0-bb137b55d851">4006 (79%)</a>.</p>
 </div>
 <div id="2024-07-10-unknowns-coverage-update" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
