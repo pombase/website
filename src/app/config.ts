@@ -72,11 +72,13 @@ export interface QueryNodeConfig {
   topDescription: Array<QueryNodeTopDescriptionPart>;
   extraDescription?: string;
   displayName: string;
+  percent_display_name?: string;
   nodeType: 'heading'|'canned-queries'|'int-range'|'float-range'|'gene-list'|'genome-range'|'has-ortholog'|'ontology'|'small-ontology'|'subset-input'|'subset-select'|'sub-nodes';
   level?: number;
   development_mode_only?: boolean;
   range_minimum?: number;
   range_any_and_none?: boolean;
+  percent_query_id?: string;
   node_options_title?: string;
   node_options?: Array<QueryNodeConfigOption>;
   subNodes?: Array<QueryNodeConfig>;

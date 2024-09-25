@@ -8,6 +8,45 @@
     <label for="range-none" class="range-label">Proteins with no {{nodeConfig.displayName}}</label>
   </div>
 
+<div *ngIf="showPercentRange" class="range-section">
+  <div *ngIf="nodeConfig.range_any_and_none">
+    <input type="radio" id="range-percent-range" [(ngModel)]="enabledRangeSection"
+      value="percent-range" />
+    <label for="range-percent-range" class="percent-range-label">
+      {{percentDisplayName}}:
+    </label>
+  </div>
+
+  <div class="range-min-max">
+    <input [disabled]="enabledRangeSection != 'percent-range'"
+           id="percent-range-min"
+           (change)="percentRangeMinToggled()"
+           [(ngModel)]="percentRangeConstrainMin" type="checkbox" />
+    <label for="percent-range-min" class="range-label">Minimum:</label>
+    <input [disabled]="enabledRangeSection != 'percent-range' || !percentRangeConstrainMin"
+           (change)="percentRangeStartChanged()"
+           type="number"
+           [(ngModel)]="percentRangeStart"
+           min="{{percentRangeMin}}"
+           step="1"
+      placeholder="minimum ..." />
+  </div>
+
+  <div class="range-min-max">
+    <input [disabled]="enabledRangeSection != 'percent-range'"
+           id="percent-range-max"
+           (change)="percentRangeMaxToggled()"
+           [(ngModel)]="percentRangeConstrainMax" type="checkbox" />
+    <label for="percent-range-max" class="range-label">Maximum:</label>
+    <input [disabled]="enabledRangeSection != 'percent-range' || !percentRangeConstrainMax"
+           (change)="percentRangeEndChanged()" type="number"
+           [(ngModel)]="percentRangeEnd"
+           min="{{percentRangeMin}}"
+           step="1"
+      placeholder="maximum ..." />
+  </div>
+</div>
+
   <div class="range-section">
     <div *ngIf="nodeConfig.range_any_and_none">
       <input *ngIf="this.nodeConfig.range_any_and_none" type="radio"
