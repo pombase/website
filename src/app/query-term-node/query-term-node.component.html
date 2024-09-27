@@ -92,8 +92,9 @@
   </div>
 </div>
 
-<div class="node-bottom-description" *ngIf="termNodeConfig.extraDescription">
-  <span [innerHtml]="termNodeConfig.extraDescription"></span>
+<div class="node-bottom-description">
+  <div *ngIf="termNodeConfig.extraDescription" [innerHtml]="termNodeConfig.extraDescription"></div>
+  <div *ngIf="termNodeConfig.extraDescription2" [innerHtml]="termNodeConfig.extraDescription2"></div>
 </div>
 
 <div class="buttons">

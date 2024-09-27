@@ -43,6 +43,10 @@ div.phenotype-condition-selector {
   padding: 1em 0;
 }
 
+.node-bottom-description div {
+  margin-bottom: 0.3em;
+}
+
 .phenotype-condition-selector > div {
   display: inline-block;
 }

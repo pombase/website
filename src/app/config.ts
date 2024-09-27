@@ -71,6 +71,7 @@ export interface QueryNodeConfig {
   id: string;
   topDescription: Array<QueryNodeTopDescriptionPart>;
   extraDescription?: string;
+  extraDescription2?: string;
   displayName: string;
   percent_display_name?: string;
   nodeType: 'heading'|'canned-queries'|'int-range'|'float-range'|'gene-list'|'genome-range'|'has-ortholog'|'ontology'|'small-ontology'|'subset-input'|'subset-select'|'sub-nodes';
