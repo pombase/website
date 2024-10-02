@@ -23,21 +23,23 @@ export class FrontPanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const randMedia = Util.randElement(this.conf.head_image);
+    if (this.conf.head_image.length > 0) {
+      const randMedia = Util.randElement(this.conf.head_image);
 
-    if (randMedia.match(/\.mp4$/)) {
-      this.headVideo = randMedia;
-    } else {
-      this.headImage = randMedia;
+      if (randMedia.match(/\.mp4$/)) {
+        this.headVideo = randMedia;
+      } else {
+        this.headImage = randMedia;
 
-      if (!this.headImage.match(/^assets\//) &&
-          !this.headImage.startsWith('/') &&
-          !this.headImage.startsWith('http')) {
-        this.headImage = 'assets/' + this.headImage;
+        if (!this.headImage.match(/^assets\//) &&
+            !this.headImage.startsWith('/') &&
+            !this.headImage.startsWith('http')) {
+          this.headImage = 'assets/' + this.headImage;
+        }
       }
-    }
 
-    this.headImageLink = this.conf.head_image_link;
+      this.headImageLink = this.conf.head_image_link;
+    }
 
     if (this.conf.panel_type === 'spotlight') {
       this.panelDescription = 'Research spotlight';

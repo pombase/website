@@ -102,26 +102,19 @@
   </div>
 
   <div class="front-panel info-panel">
-    <app-front-panel [conf]="communityConf"></app-front-panel>
-    <div class="archive-link-container">
-      <a routerLink="/reference_list/community">All community curation ...</a>
-    </div>
-    <div *ngIf="hasAdminCuration" class="archive-link-container">
-      <a routerLink="/reference_list/admin">{{siteName}} staff curated publications ...</a>
-    </div>
-  </div>
-  <div class="front-panel info-panel">
     <app-front-panel [conf]="exploreConf"></app-front-panel>
     <div class="archive-link-container">
       <a routerLink="/archive/explore">View more {{siteName}} features ...</a>
     </div>
   </div>
 
-  <div *ngIf="twitterAccount" class="front-panel-twitter">
-    <div class="front-twitter-feed">
-<a class="twitter-timeline" data-tweet-limit="6" href="https://twitter.com/{{twitterAccount}}">
-   Tweets by @{{twitterAccount}}
-</a>
+  <div class="front-panel info-panel">
+    <app-front-panel [conf]="communityConf"></app-front-panel>
+    <div class="archive-link-container">
+      <a routerLink="/reference_list/community">All community curation ...</a>
+    </div>
+    <div *ngIf="hasAdminCuration" class="archive-link-container">
+      <a routerLink="/reference_list/admin">{{siteName}} staff curated publications ...</a>
     </div>
   </div>
 </div>
