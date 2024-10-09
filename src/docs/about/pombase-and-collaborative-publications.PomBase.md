@@ -26,6 +26,17 @@ Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligen
 In press: [Pre-publication manuscript at arXiv](https://arxiv.org/abs/2312.10904)
 :::
 
+<div class="clear-float"></div>
+
+::: { .publication-badges }
+<app-publication-badge [doi]="'10.1101/2024.09.18.613276v1'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Nicolas Matentzoglu, Susan M Bello, *et al.* (Val Wood co-author) \
+The Unified Phenotype Ontology (uPheno): A framework for cross-species
+integrative phenomics \
+[Pre-publication manuscript at bioRxiv](https://www.biorxiv.org/content/10.1101/2024.09.18.613276v1)
+:::
 
 ### Journal articles
 
