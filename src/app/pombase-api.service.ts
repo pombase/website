@@ -593,6 +593,16 @@ export interface RefAndSource {
   source: string;
 }
 
+export interface PeptideRange {
+  start: number;
+  end: number;
+}
+
+export interface AssignedByPeptideRange {
+  range: PeptideRange;
+  assigned_by: string;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
@@ -610,10 +620,10 @@ export class GeneDetails {
   rnacentral_urs_identifier?: string;
   rnacentral_2d_structure_id?: string;
   interpro_matches: Array<InterProMatch>;
-  tm_domain_coords: Array<Array<number>>;
-  low_complexity_region_coords: Array<Array<number>>;
-  disordered_region_coords: Array<Array<number>>;
-  coiled_coil_coords: Array<Array<number>>;
+  tm_domain_coords: Array<AssignedByPeptideRange>;
+  low_complexity_region_coords: Array<AssignedByPeptideRange>;
+  disordered_region_coords: Array<AssignedByPeptideRange>;
+  coiled_coil_coords: Array<AssignedByPeptideRange>;
   has_protein_features: boolean;
   orfeome_identifier: string;
   pdb_entries: Array<PDBEntry>;

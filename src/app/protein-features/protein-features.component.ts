@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { GeneDetails, TranscriptDetails, TermAnnotation } from '../pombase-api.service';
+import { GeneDetails, TranscriptDetails, TermAnnotation, AssignedByPeptideRange } from '../pombase-api.service';
 
 import { getAppConfig, getXrfConfigByName, getXrfWithPrefix } from '../config';
 
@@ -71,14 +71,14 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   }
 
   makeTrackFromCoords(trackLabel: string, dbName: string,
-    partLabel: string, coords: Array<Array<number>>):
+    partLabel: string, coords: Array<AssignedByPeptideRange>):
     TrackViewTrack | undefined {
     if (coords && coords.length > 0) {
       if (coords.length > 1) {
         partLabel += 's';
       }
       const parts = coords
-        .map(coord => new TrackViewFeaturePart(coord[0], coord[1], false));
+        .map(coord => new TrackViewFeaturePart(coord.range.start, coord.range.end, false));
       const feature = new TrackViewFeature(partLabel, partLabel, parts);
 
       return new TrackViewTrack(trackLabel, dbName, [feature]);
