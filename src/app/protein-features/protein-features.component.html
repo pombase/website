@@ -32,8 +32,8 @@
     </div>
     <div *ngIf="geneDetails.tm_domain_coords.length > 0">
       <div class="protein-feature-title">Coordinates of predicted transmembrane domains: </div>
-      <span *ngFor="let coordPair of geneDetails.tm_domain_coords; let lastPair = last">
-        {{coordPair[0]}}..{{coordPair[1]}}<span *ngIf="!lastPair">,</span>
+      <span *ngFor="let coord of geneDetails.tm_domain_coords; let lastPair = last">
+        {{coord.range.start}}..{{coord.range.end}}<span *ngIf="!lastPair">,</span>
       </span>
     </div>
   </div>
