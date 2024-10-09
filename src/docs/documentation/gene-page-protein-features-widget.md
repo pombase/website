@@ -14,14 +14,14 @@ description of the track.
   - **AA substitution alleles** curated amino acid substitution alleles (available only in the full view) 
   - **Partial deletions** curated alleles with partial amino acid deletions (full view only)
   - **Modifications** curated modified residues coloured by modification type:
-    - <div style="background-color: #86a8f4;" class="docs-colour-block">&nbsp;</div> - N6-acylated L-lysine
+    - <div style="background-color: #2b8;" class="docs-colour-block">&nbsp;</div> - N6-acylated L-lysine
     - <div style="background-color: #d2d27e;" class="docs-colour-block">&nbsp;</div> - lipoconjugated residue
     - <div style="background-color: #f88;" class="docs-colour-block">&nbsp;</div> - N-acetylated residue
-    - <div style="background-color: #2b8;" class="docs-colour-block">&nbsp;</div> - phosphorylated residue
+    - <div style="background-color: #86a8f4;" class="docs-colour-block">&nbsp;</div> - phosphorylated residue
     - <div style="background-color: #c6f;" class="docs-colour-block">&nbsp;</div> - methylated residue
     - <div style="background-color: #d6009e;" class="docs-colour-block">&nbsp;</div> - glycoconjugated residue
     - <div style="background-color: #ff9943;" class="docs-colour-block">&nbsp;</div> - modified L-cysteine residue
-    - <div style="background-color: #666;" class="docs-colour-block">&nbsp;</div> - default
+    - <div style="background-color: #666;" class="docs-colour-block">&nbsp;</div> - other modifications
   - **Pfam families** Pfam protein familes from [InterPro](https://www.ebi.ac.uk/interpro/)
   - **TM domains** Trans-membrane domains calculated with TMHMM (Krogh et al. 2001)
   - **Disordered regions** Disordered regions from Pfam version 34.0 (El-Gebali et al. 2019)
