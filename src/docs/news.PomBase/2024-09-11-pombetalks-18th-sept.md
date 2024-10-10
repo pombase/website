@@ -1,7 +1,5 @@
 ### Next pombeTalks: September 18th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
-
 
 The next [pombeTalks](https://evonuclab.org/pombetalks) will take
 place on Wednesday, September 18th, at [08:00](https://everytimezone.com/s/4009cf69)
