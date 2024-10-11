@@ -22,8 +22,8 @@ and Pfam domain IDs.
 Follow the "View all protein features …" link for a detailed view
 on the dedicated protein features page that includes:
 
-  - details of the individual amino acid substitution allele changes
-  - partial amino acid deletions
+  - details of the manually curated amino acid substitution allele changes
+  - manually curated partial amino acid deletions
 
 [![Protein feature viewer details page for cdc15](assets/gene-protein-feature-viewer-page-cdc15.png "Protein feature viewer details page for cdc15"){.screenshot width=100%}](assets/gene-protein-feature-viewer-page-cdc15.png)
 
