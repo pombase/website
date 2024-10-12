@@ -6,7 +6,7 @@ PomBase gene pages now include a protein feature widget.  This tool
 shows protein features in the context of amino acid sequence.  It
 includes:
 
-  - amino acid substitution positions
+  - manually curated amino acid substitution positions
   - Pfam domains
   - protein modifications
   - protein properties: low complexity regions, disordered regions,
