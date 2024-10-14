@@ -38,7 +38,9 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
         this.addAltmetrics();
         setTimeout(() => {
           // need to wait until DOM is updated
-          this.window.__dimensions_embed.addBadges();
+          if (this.window.__dimensions_embed) {
+            this.window.__dimensions_embed.addBadges();
+          }
         }, 100);
       }
     });
