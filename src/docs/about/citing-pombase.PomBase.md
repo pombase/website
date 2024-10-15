@@ -41,11 +41,7 @@ The genome sequence of *Schizosaccharomyces pombe*.\
 
 ### GO Annotations
 
-To cite the *S. pombe* Gene Ontology annotation data, use two papers from the 2018 NAR Database Issue:
-
-1. The PomBase paper noted above
-2. The GO Consortium paper:
-
+To cite the *S. pombe* Gene Ontology annotation data, please use these two papers:
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/genetics/iyad031'"></app-publication-badge>
@@ -57,12 +53,15 @@ The Gene Ontology knowledgebase in 2023 \
 [10.1093/genetics/iyad031](https://doi.org/10.1093/genetics/iyad031)
 :::
 
-(Note that GO annotation for *S. pombe* has also been previously
-published, but we now recommend the 2018 NAR paper as it is more
-up-to-date. The older publication is Aslett M, Wood V. Gene Ontology
-annotation status of the fission yeast genome: preliminary coverage
-approaches 100%. *Yeast* 2006 Oct 15;23(13):913-9. Erratum in *Yeast*
-2007 May;24(5):457.  PMID:17072883)
+::: { .publication-badges }
+<app-publication-badge [doi]="'10.1093/genetics/iyae007'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood \
+PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability \
+*Genetics*, February 2024, iyae007 \
+[10.1093/genetics/iyae007](https://doi.org/10.1093/genetics/iyae007)
+:::
 
 ### Phenotype Ontology and Annotations
 
