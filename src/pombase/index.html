@@ -78,6 +78,20 @@ window.pombaseAppDeployConfig = '<<APP_DEPLOY_CONFIG>>';
   ga('create', '<<GOOGLE_ANALYTICS_ID>>', 'auto');
 </script>
 
+<script>
+  function resizeIframe(obj, minHeight, timeout) {
+    if (!obj || !obj.contentWindow || !obj.contentWindow.document || !obj.contentWindow.document.body) { return; }
+    if (!timeout) { timeout = 100; }
+    let height = obj.contentWindow.document.body.scrollHeight + 40;
+    if (height < minHeight) { height = minHeight; }
+    obj.style.height = height + 'px';
+    const nextTimeout = Math.round(timeout * 1.1);
+    if (nextTimeout < 5000) {
+      setTimeout(() => resizeIframe(obj, minHeight, nextTimeout), timeout);
+    }
+  }
+</script>
+
 <span style="display: none">
   <a rel="me" href="https://mstdn.science/@pombase">Mastodon</a>
 </span>
