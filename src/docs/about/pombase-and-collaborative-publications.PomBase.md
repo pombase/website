@@ -18,17 +18,6 @@ Mondo: Unifying diseases for the world, by the world \
 <div class="clear-float"></div>
 
 ::: { .publication-badges }
-<app-publication-badge [doi]="'10.48550/arXiv.2312.10904'"></app-publication-badge>
-:::
-::: { .pub-citation }
-Sabrina Toro, Anna V Anagnostopoulos, *et al.* (Val Wood co-author) \
-Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligence (DRAGON-AI) \
-In press: [Pre-publication manuscript at arXiv](https://arxiv.org/abs/2312.10904)
-:::
-
-<div class="clear-float"></div>
-
-::: { .publication-badges }
 <app-publication-badge [doi]="'10.1101/2024.09.18.613276v1'"></app-publication-badge>
 :::
 ::: { .pub-citation }
@@ -39,6 +28,17 @@ integrative phenomics \
 :::
 
 ### Journal articles
+
+::: { .publication-badges }
+<app-publication-badge [doi]="'10.1186/s13326-024-00320-3'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Sabrina Toro, Anna V Anagnostopoulos, *et al.* (Val Wood co-author) \
+Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligence (DRAGON-AI) \
+[10.1186/s13326-024-00320-3](https://doi.org/10.1186/s13326-024-00320-3)
+:::
+
+<div class="clear-float"></div>
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/genetics/iyae007'"></app-publication-badge>
