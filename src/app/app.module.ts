@@ -122,7 +122,6 @@ import { IdentifierMapperComponent } from './identifier-mapper/identifier-mapper
 import { TermLinkComponent } from './term-link/term-link.component';
 import { IdentifierMapperResultsComponent } from './identifier-mapper-results/identifier-mapper-results.component';
 import { JbrowseTrackOrderByPipe } from './jbrowse-track-order-by.pipe';
-import { TrackViewComponent } from './track-view/track-view.component';
 import { NotDirectionSelectDialogComponent } from './not-direction-select-dialog/not-direction-select-dialog.component';
 import { QuerySubsetInputComponent } from './query-subset-input/query-subset-input.component';
 import { QuerySubNodesComponent } from './query-sub-nodes/query-sub-nodes.component';
@@ -285,7 +284,6 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
     TermLinkComponent,
     IdentifierMapperResultsComponent,
     JbrowseTrackOrderByPipe,
-    TrackViewComponent,
     NotDirectionSelectDialogComponent,
     QuerySubsetInputComponent,
     QuerySubNodesComponent,

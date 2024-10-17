@@ -14,7 +14,10 @@
     </div>
   </div>
 
-  <iframe [src]="getIFrameURL()" class="embedded-protein-viewer" #proteinfeaturesiframe>
+  <iframe [src]="getIFrameURL()"
+          frameborder="0" scrolling="no" onload="resizeIframe(this, 240)"
+          id="protein-feature-viewer-widget"
+          class="embedded-protein-viewer" #proteinfeaturesiframe>
   </iframe>
 </div>
 

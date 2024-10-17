@@ -32,10 +32,6 @@ export interface ProteinFeatureTrack {
   colour: string;
 }
 
-export interface ProteinFeatures {
-  track_config: { [trackLabel: string]: ProteinFeatureTrack; };
-}
-
 export interface ChromosomeConfig {
   name: string;
   long_display_name: string;
@@ -356,7 +352,6 @@ export interface AppConfig {
   externalTermReferences: Array<ExternalTermReference>;
   miscExternalLinks: ExternalLinks;
   graphicalAbstractFileNames: {[pmid: string]: string};
-  proteinFeatures: ProteinFeatures;
   slims: { [slimName: string]: SlimConfig };
   chromosomes: Array<ChromosomeConfig>;
 
@@ -851,7 +846,6 @@ let _appConfig: AppConfig = {
   externalTermReferences: pombaseConfig.external_term_references,
   miscExternalLinks: pombaseConfig.misc_external_links,
   graphicalAbstractFileNames: graphicalAbstractFileNames,
-  proteinFeatures: pombaseConfig.protein_features,
   chromosomes: pombaseConfig.chromosomes,
 
   geneExpression: pombaseConfig.gene_expression,

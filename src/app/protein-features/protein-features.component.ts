@@ -1,10 +1,10 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { GeneDetails, TranscriptDetails, TermAnnotation, AssignedByPeptideRange } from '../pombase-api.service';
+import { GeneDetails, TranscriptDetails, TermAnnotation } from '../pombase-api.service';
 
-import { getAppConfig, getXrfConfigByName, getXrfWithPrefix } from '../config';
+import { getAppConfig, getXrfWithPrefix } from '../config';
 
-import { TrackViewFeature, TrackViewFeaturePart, TrackViewTrack } from '../track-view-track';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-protein-features',
@@ -21,70 +21,19 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
 
   proteinFeaturesTable?: Array<TermAnnotation>;
   soAnnotationTable?: Array<TermAnnotation>;
-  trackViewData: Array<TrackViewTrack> = [];
 
   highlightedId?: string;
 
-  constructor() { }
+  sanitizedURL?: SafeResourceUrl;
+  iframeHeight = 400;
+
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
-
-  makeTrackViewData(): Array<TrackViewTrack> {
-    let featuresByDbname: {[dbname: string]: Array<TrackViewFeature>;} = {}
-
-    this.geneDetails.interpro_matches
-      .map(match => {
-        const parts = [];
-        for (let i = 0; i < match.locations.length; i++) {
-          const loc = match.locations[i];
-          parts.push(new TrackViewFeaturePart(loc.start, loc.end, false));
-          if (i < match.locations.length - 1) {
-            const nextLoc = match.locations[i+1];
-            const paddStart = loc.end + 1;
-            const paddEnd = nextLoc.start - 1;
-            // cope with overlapping locations in the match
-            if (paddStart < paddEnd) {
-              parts.push(new TrackViewFeaturePart(paddStart, paddEnd, true));
-            }
-          }
-        }
-        const feature = new TrackViewFeature(match.id, match.interpro_name || match.name, parts);
-        if (!featuresByDbname[match.dbname]) {
-          featuresByDbname[match.dbname] = [];
-        }
-        featuresByDbname[match.dbname].push(feature);
-      });
-
-    return Object.keys(featuresByDbname)
-      .map(dbname => {
-        const features = featuresByDbname[dbname];
-        const xrfConfig = getXrfConfigByName(dbname);
-        let label;
-        if (xrfConfig) {
-          label = xrfConfig.displayName;
-        } else {
-          label = dbname;
-        }
-        return new TrackViewTrack(label, dbname, features);
-      });
-  }
-
-  makeTrackFromCoords(trackLabel: string, dbName: string,
-    partLabel: string, coords: Array<AssignedByPeptideRange>):
-    TrackViewTrack | undefined {
-    if (coords && coords.length > 0) {
-      if (coords.length > 1) {
-        partLabel += 's';
-      }
-      const parts = coords
-        .map(coord => new TrackViewFeaturePart(coord.range.start, coord.range.end, false));
-      const feature = new TrackViewFeature(partLabel, partLabel, parts);
-
-      return new TrackViewTrack(trackLabel, dbName, [feature]);
-    } else {
-      return undefined;
-    }
+  
+  getIFrameURL(): SafeResourceUrl | undefined {
+    return this.sanitizedURL;
   }
 
    getInterProUrl(): string {
@@ -118,32 +67,14 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
     } else {
       this.soAnnotationTable = undefined;
     }
+    
+    const rawUrl = 'protein_feature_view/domains_and_features/' + this.geneDetails.uniquename;
+    this.sanitizedURL =
+      this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
 
-    this.trackViewData = this.makeTrackViewData();
-    const tmTrack =
-      this.makeTrackFromCoords('TM domains', 'TMHMM', 'predicted trans-membrane domain',
-        this.geneDetails.tm_domain_coords);
-    if (tmTrack) {
-      this.trackViewData.push(tmTrack);
-    }
 
-    const coiledCoilTrack = this.makeTrackFromCoords('Coiled-coils', 'ncoils',
-      'coiled-coil region', this.geneDetails.coiled_coil_coords);
-    if (coiledCoilTrack) {
-      this.trackViewData.push(coiledCoilTrack);
-    }
-
-    const disorderedTrack = this.makeTrackFromCoords('Disordered', 'Pfam-disordered',
-      'disordered region', this.geneDetails.disordered_region_coords);
-    if (disorderedTrack) {
-      this.trackViewData.push(disorderedTrack);
-    }
-
-    const lowComplexityTrack =
-      this.makeTrackFromCoords('Low complexity', 'Pfam-low-complexity',
-      'low complexity region', this.geneDetails.low_complexity_region_coords);
-    if (lowComplexityTrack) {
-      this.trackViewData.push(lowComplexityTrack);
+    if (this.iframeHeight < 200) {
+      this.iframeHeight = 250;
     }
   }
 }

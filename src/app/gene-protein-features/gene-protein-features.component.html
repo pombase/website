@@ -36,7 +36,10 @@
 
   <div *ngIf="!featureTableVisible">
   <div *ngIf="getIFrameURL()">
-    <iframe [src]="getIFrameURL()" class="full-protein-viewer" #proteinfeaturesiframe>
+    <iframe [src]="getIFrameURL()"
+            frameborder="0" scrolling="no" onload="resizeIframe(this, 400)"
+            id="protein-feature-viewer-full"
+            class="full-protein-viewer" #proteinfeaturesiframe>
     </iframe>
   </div>
   </div>
