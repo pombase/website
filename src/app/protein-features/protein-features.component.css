@@ -20,24 +20,20 @@
   max-width: 75%;
 }
 
-.track-view {
-  display: block;
-}
-
-@media (max-width: 800px) {
-  .track-view {
-    width: 90vw;
-  }
-}
-
-@media (min-width: 800px) {
-  .track-view {
-    width: 70vw;
-    max-width: 1000px;
-    margin: auto;
-  }
-}
-
 .protein-properties {
   margin-top: 1.2em;
+}
+
+.embedded-protein-viewer {
+  width: 1050px;
+  border: 0;
+}
+
+.view-all-link {
+  margin-left: 13.5em;
+}
+
+.view-all-link .help-icon {
+  font-size: 90%;
+  opacity: 80%;
 }

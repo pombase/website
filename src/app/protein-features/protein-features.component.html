@@ -8,15 +8,27 @@
   </legend>
 
 <div class="annotation-table-container">
-  <div *ngIf="trackViewData.length > 0 && geneDetails.transcripts && geneDetails.transcripts.length > 0 && geneDetails.transcripts[0].protein">
+  <div *ngIf="geneDetails.transcripts && geneDetails.transcripts.length > 0 && geneDetails.transcripts[0].protein">
     <div class="protein-feature-title">
       Graphical view
     </div>
-    <div class="track-view">
-      <app-track-view [protein]="geneDetails.transcripts[0].protein" [trackViewData]="trackViewData"
-                      [(highlightedId)]="highlightedId">
-      </app-track-view>
+
+    <div class="view-all-link">
+      <span class="help-icon">
+        <app-help-link [route]="'/documentation/gene-page-protein-features'"
+          [title]="'Click to view documentation for the Protein domains and properties section'">
+        </app-help-link>
+      </span>
+      
+      <a routerLink="/gene_protein_features/{{geneDetails.uniquename}}">View all protein features ...</a>
     </div>
+
+    <iframe [src]="getIFrameURL()"
+            id="protein-feature-viewer-interpro"
+            frameborder="0" scrolling="no" onload="resizeIframe(this, 240)"
+            class="embedded-protein-viewer" #proteinfeaturesiframe>
+    </iframe>
+
   </div>
 
   <app-interpro-matches *ngIf="geneDetails.interpro_matches.length > 0 && geneDetails.uniprot_identifier"
