@@ -488,6 +488,7 @@ export interface AnnotationType {
   slim_description?: string;
   slim_link?: string;
   slim_no_category_text?: string;
+  protein_viewer_type?: string;
   downstream_query_title?: string;
   downstream_relations?: Array<TermId>;
   modification_abbreviations?: {

@@ -70,7 +70,7 @@ window.pombaseAppDeployConfig = '<<APP_DEPLOY_CONFIG>>';
   function resizeIframe(obj, minHeight, timeout) {
     if (!obj || !obj.contentWindow || !obj.contentWindow.document || !obj.contentWindow.document.body) { return; }
     if (!timeout) { timeout = 100; }
-    let height = obj.contentWindow.document.body.scrollHeight + 40;
+    let height = obj.contentWindow.document.body.scrollHeight + 25;
     if (height < minHeight) { height = minHeight; }
     obj.style.height = height + 'px';
     const nextTimeout = Math.round(timeout * 1.1);

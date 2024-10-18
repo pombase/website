@@ -23,6 +23,22 @@
     <a routerLink="/gene_alleles/{{geneDetails.uniquename}}">View all alleles of <span class="name-id-highlight">{{geneDetails.displayName}}</span></a>
   </div>
 
+  <div *ngIf="sanitizedFeatureViewURL">
+    <div class="view-all-link">
+      <span class="help-icon">
+        <app-help-link [route]="'/documentation/gene-page-protein-features'"
+          [title]="'Click to view documentation for this section'">
+        </app-help-link>
+      </span>
+
+      <a routerLink="/gene_protein_features/{{geneDetails!.uniquename}}">View all protein features ...</a>
+    </div>
+
+    <iframe [src]="getProteinViewerIFrameURL()" id="protein-feature-viewer-mods" frameborder="0" scrolling="no"
+            onload="resizeIframe(this, 100)" class="embedded-protein-viewer" #modsproteinfeaturesiframe>
+    </iframe>
+  </div>
+
   <div *ngIf="split_by_parents.length == 0">
     <app-annotation-sub-table
        [annotationTypeName]="annotationTypeName"

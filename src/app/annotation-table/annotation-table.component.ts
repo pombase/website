@@ -4,6 +4,7 @@ import { TermAnnotation, GeneDetails } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          SplitByParentsConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-annotation-table',
@@ -26,8 +27,10 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   splitSummaryList = {};
   split_by_parents: Array<SplitByParentsConfig> = [];
   helpIconTitle = 'Click to view documention';
+  sanitizedFeatureViewURL?: SafeResourceUrl;
 
-  constructor(public deployConfigService: DeployConfigService) { }
+  constructor(private sanitizer: DomSanitizer,
+              public deployConfigService: DeployConfigService) { }
 
   maybeDoSplit() {
     if (this.annotationTable && this.typeConfig && this.typeConfig.split_by_parents) {
@@ -75,6 +78,10 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
     }
   }
 
+  getProteinViewerIFrameURL(): SafeResourceUrl | undefined {
+    return this.sanitizedFeatureViewURL;
+  }
+
   ngOnInit() {
   }
 
@@ -94,6 +101,15 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
         ' section';
     } else {
       this.helpIconTitle = 'Click to view documentation';
+    }
+
+    if (this.geneDetails && this.typeConfig.protein_viewer_type) {
+      const rawUrl = 'protein_feature_view/' + this.typeConfig.protein_viewer_type + '/' +
+        this.geneDetails.uniquename;
+      this.sanitizedFeatureViewURL =
+        this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
+    } else {
+      this.sanitizedFeatureViewURL = undefined;
     }
 
     this.maybeDoSplit();
