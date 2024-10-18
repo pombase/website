@@ -10,3 +10,17 @@
 .annotation-table-slim, .gene-alleles-link {
   margin-bottom: 0.8em;
 }
+
+.view-all-link {
+  margin-left: 13.5em;
+}
+
+.view-all-link .help-icon {
+  font-size: 90%;
+  opacity: 80%;
+}
+
+.embedded-protein-viewer {
+  width: 1050px;
+  border: 0;
+}

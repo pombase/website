@@ -28,12 +28,8 @@ export class ProteinFeatureViewerComponent {
       this.geneDisplayName = this.geneDetails.uniquename;
     }
 
-    if (this.geneDetails.uniprot_identifier) {
-      const rawUrl = 'protein_feature_view/widget/' + this.geneDetails.uniquename;
-      this.sanitizedURL =
-        this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
-    } else {
-      this.sanitizedURL = undefined;
-    }
+    const rawUrl = 'protein_feature_view/widget/' + this.geneDetails.uniquename;
+    this.sanitizedURL =
+      this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
   }
 }
