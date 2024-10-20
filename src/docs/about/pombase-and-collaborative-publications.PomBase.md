@@ -35,7 +35,7 @@ integrative phenomics \
 ::: { .pub-citation }
 Sabrina Toro, Anna V Anagnostopoulos, *et al.* (Val Wood co-author) \
 Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligence (DRAGON-AI) \
-*J Biomed Semant*, 15, 19 (2024). \
+*J Biomed Semant*, 15, 19 (2024) \
 [10.1186/s13326-024-00320-3](https://doi.org/10.1186/s13326-024-00320-3)
 :::
 
