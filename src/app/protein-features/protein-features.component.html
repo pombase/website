@@ -19,11 +19,12 @@
           [title]="'Click to view documentation for the Protein domains and properties section'">
         </app-help-link>
       </span>
-      
+
       <a routerLink="/gene_protein_features/{{geneDetails.uniquename}}">View all protein features ...</a>
     </div>
 
     <iframe [src]="getIFrameURL()"
+            #proteinFeatureViewerInterpro
             id="protein-feature-viewer-interpro"
             frameborder="0" scrolling="no" onload="resizeIframe(this, 240)"
             class="embedded-protein-viewer" #proteinfeaturesiframe>
@@ -35,7 +36,8 @@
                         [geneDisplayName]="geneDetails.name || geneDetails.uniquename"
                         [uniprotIdentifier]="geneDetails.uniprot_identifier"
                         [matches]="geneDetails.interpro_matches"
-                        [(highlightedId)]="highlightedId">
+                        [highlightedId]="highlightedId"
+                        (highlightedIdChange)="highlightedIdChange($event)">
   </app-interpro-matches>
 
   <div class="tm-domains">

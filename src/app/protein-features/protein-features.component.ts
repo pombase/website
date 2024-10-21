@@ -1,10 +1,11 @@
-import { Component, OnInit, OnChanges, Input, HostListener } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, HostListener, ViewChild, ElementRef } from '@angular/core';
 
 import { GeneDetails, TranscriptDetails, TermAnnotation } from '../pombase-api.service';
 
 import { getAppConfig, getXrfWithPrefix } from '../config';
 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-protein-features',
@@ -27,6 +28,8 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   sanitizedURL?: SafeResourceUrl;
   iframeHeight = 400;
 
+  @ViewChild('proteinFeatureViewerInterpro') viewerIframe: ElementRef;
+
   constructor(private sanitizer: DomSanitizer) { }
 
   @HostListener('window:message', ['$event'])
@@ -37,6 +40,12 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+  }
+
+  highlightedIdChange(matchId: string|undefined) {
+    const nativeIframe = this.viewerIframe.nativeElement as HTMLIFrameElement;
+
+    nativeIframe.contentWindow?.postMessage({ selectedProteinFeatureId: matchId }, '*');
   }
 
   getIFrameURL(): SafeResourceUrl | undefined {
