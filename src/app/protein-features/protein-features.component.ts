@@ -33,7 +33,6 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   onMessage(event: any) {
     if (event.data?.selectedProteinFeatureId) {
       this.highlightedId = event.data.selectedProteinFeatureId;
-      console.log(this.highlightedId);
     }
   }
 
