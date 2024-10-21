@@ -38,7 +38,7 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
 
   ngOnInit() {
   }
-  
+
   getIFrameURL(): SafeResourceUrl | undefined {
     return this.sanitizedURL;
   }
@@ -74,7 +74,7 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
     } else {
       this.soAnnotationTable = undefined;
     }
-    
+
     const rawUrl = 'protein_feature_view/domains_and_features/' + this.geneDetails.uniquename;
     this.sanitizedURL =
       this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
