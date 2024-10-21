@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, HostListener } from '@angular/core';
 
 import { GeneDetails, TranscriptDetails, TermAnnotation } from '../pombase-api.service';
 
@@ -28,6 +28,14 @@ export class ProteinFeaturesComponent implements OnInit, OnChanges {
   iframeHeight = 400;
 
   constructor(private sanitizer: DomSanitizer) { }
+
+  @HostListener('window:message', ['$event'])
+  onMessage(event: any) {
+    if (event.data?.selectedProteinFeatureId) {
+      this.highlightedId = event.data.selectedProteinFeatureId;
+      console.log(this.highlightedId);
+    }
+  }
 
   ngOnInit() {
   }
