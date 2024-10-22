@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input, EventEmitter, Output } from '@angular/core';
 
 import { PombaseAPIService, InterProMatch, APIError, InterProMatchLocation, GeneSubsets } from '../pombase-api.service';
-import { getXrfWithPrefix, XrfDetails } from '../config';
+import { AppConfig, getAppConfig, getXrfWithPrefix, XrfDetails } from '../config';
 
 interface DisplayMatch extends InterProMatch {
   locations: Array<InterProMatchLocation>;
@@ -26,6 +26,8 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
 
   geneSubsets?: GeneSubsets;
 
+  appConfig: AppConfig = getAppConfig();
+
   constructor(private pombaseApiService: PombaseAPIService) { }
 
   highlightMatch(id: string) {
@@ -39,6 +41,7 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
   ngOnChanges() {
     let displayMatches =
       this.matches.map(match => {
+        const typeConfig = this.appConfig.proteinFeatureTable.feature_types[match.dbname];
         let newId = match.id;
         let interProEntryUrl = undefined;
         if (match.interpro_id) {
@@ -56,6 +59,16 @@ export class InterproMatchesComponent implements OnInit, OnChanges {
           xrfResult = getXrfWithPrefix(match.dbname, id);
         }
         let newMatch = Object.assign({}, match) as DisplayMatch;
+
+        if (typeConfig && typeConfig.min_max_only) {
+          // for PRINTS, just show the start and end in the table
+          const newLoc = {
+            start: match.match_start,
+            end: match.match_end,
+          } as InterProMatchLocation;;
+          newMatch.locations = [newLoc];
+        }
+
         newMatch.id = newId;
         if (interProEntryUrl) {
           newMatch.interProEntryUrl = interProEntryUrl;

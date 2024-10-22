@@ -550,6 +550,8 @@ export interface InterProMatch {
   interpro_id: string;
   interpro_name: string;
   interpro_type: string;
+  match_start: number;
+  match_end: number;
   locations: Array<InterProMatchLocation>;
 }
 

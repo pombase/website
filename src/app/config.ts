@@ -252,6 +252,14 @@ export interface FooterLogoConfig {
   alt_text: string;
 }
 
+export interface ProteinFeatureTypeConfig {
+  min_max_only: boolean;
+}
+
+export interface ProteinFeatureTableConfig {
+  feature_types: { [featureTypeName: string]: ProteinFeatureTypeConfig };
+}
+
 export interface AppConfig {
   site_name: string;
   site_description: string;
@@ -367,6 +375,8 @@ export interface AppConfig {
   queryBuilder: QueryBuilderConfig;
 
   termDisplayNames: { [termName in FeatureType]: FeatureType };
+
+  proteinFeatureTable: ProteinFeatureTableConfig;
 
   _geneResults: GeneResultsConfig;
 
@@ -860,6 +870,8 @@ let _appConfig: AppConfig = {
   queryBuilder: pombaseConfig.query_builder,
 
   termDisplayNames: pombaseConfig.term_display_names,
+
+  proteinFeatureTable: pombaseConfig.protein_feature_table,
 
   allowedQueryFieldName: pombaseConfig.gene_results.allowed_query_field_names,
 
