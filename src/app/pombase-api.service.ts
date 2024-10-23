@@ -545,10 +545,10 @@ export interface InterProMatch {
   interProEntryUrl: string;
   id: string;
   dbname: string;
-  name: string;
-  description: string;
+  name?: string;
+  description?: string;
   evidence: string;
-  interpro_id: string;
+  interpro_id?: string;
   interpro_name: string;
   interpro_type: string;
   match_start: number;
