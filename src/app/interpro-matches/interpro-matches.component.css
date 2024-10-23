@@ -27,3 +27,7 @@ tr.highlighted {
 table.interpro-matches-table th, table.interpro-matches-table td {
   padding: 0 0.6em 0.2em 0.4em;
 }
+
+.interpro-matches-table {
+  max-width: 1200px;
+}

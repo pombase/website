@@ -7,10 +7,9 @@ Protein families and domains
     <thead>
       <tr>
         <th>Match ID</th>
-        <th>DB name</th>
-        <th>Match name</th>
+        <th>Source</th>
+        <th>Name</th>
         <th>InterPro ID</th>
-        <th>InterPro name</th>
         <th>Start</th>
         <th>End</th>
         <th>Count</th>
@@ -28,15 +27,12 @@ Protein families and domains
         <span title="{{match.dbDescription}}">{{match.dbDisplayName}}</span>
       </td>
       <td>
-        {{match.name || match.description}}
+        {{match.interpro_name || match.name || match.description}}
       </td>
       <td>
         <span *ngIf="!match.interProEntryUrl">{{match.interpro_id}}</span>
         <a *ngIf="match.interProEntryUrl" title="View {{match.interpro_id}} at InterPro"
            href="{{match.interProEntryUrl}}">{{match.interpro_id}}</a>
-      </td>
-      <td>
-        {{match.interpro_name}}
       </td>
       <td>
         <div *ngFor="let loc of match.locations">
