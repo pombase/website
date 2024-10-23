@@ -16,12 +16,12 @@
 }
 
 tr {
-  border-left: 3px solid #0000;
+  border-left: 4px solid #0000;
 }
 
 tr.highlighted {
   background-color: #fff;
-  border-left: 3px solid #617bd1;
+  border-left: 4px solid #67d;
 }
 
 table.interpro-matches-table th, table.interpro-matches-table td {
