@@ -28,7 +28,7 @@ Protein families and domains
         <span title="{{match.dbDescription}}">{{match.dbDisplayName}}</span>
       </td>
       <td>
-        {{match.name}}
+        {{match.name || match.description}}
       </td>
       <td>
         <span *ngIf="!match.interProEntryUrl">{{match.interpro_id}}</span>

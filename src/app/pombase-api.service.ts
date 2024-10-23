@@ -546,6 +546,7 @@ export interface InterProMatch {
   id: string;
   dbname: string;
   name: string;
+  description: string;
   evidence: string;
   interpro_id: string;
   interpro_name: string;
