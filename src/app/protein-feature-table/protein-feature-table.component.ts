@@ -73,7 +73,7 @@ export class ProteinFeatureTableComponent {
 
   ngOnInit(): void {
     const promise =
-          this.pombaseApiService.getProteinViewData(this.geneDetails.uniquename);
+      this.pombaseApiService.getProteinViewData(this.geneDetails.uniquename, 'full');
     promise.then(data => {
       this.proteinViewData = data;
       this.displayTracks = this.makeDisplayTracks(data);

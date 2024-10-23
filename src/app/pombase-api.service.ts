@@ -1937,8 +1937,8 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
-  getProteinViewData(geneUniquename: string): Promise<ProteinViewData> {
-    return this.httpRetry.getWithRetry(this.apiUrl + '/protein_features/full/' +
+  getProteinViewData(geneUniquename: string, scope: string): Promise<ProteinViewData> {
+    return this.httpRetry.getWithRetry(this.apiUrl + '/protein_features/' + scope + '/' +
                                        geneUniquename)
       .toPromise()
       .catch(this.handleError);
