@@ -549,8 +549,8 @@ export interface InterProMatch {
   description?: string;
   evidence: string;
   interpro_id?: string;
-  interpro_name: string;
-  interpro_type: string;
+  interpro_name?: string;
+  interpro_description?: string;
   match_start: number;
   match_end: number;
   locations: Array<InterProMatchLocation>;
