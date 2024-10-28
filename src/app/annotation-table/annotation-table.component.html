@@ -26,7 +26,7 @@
   <div *ngIf="sanitizedFeatureViewURL">
     <div class="view-all-link">
       <span class="help-icon">
-        <app-help-link [route]="'/documentation/gene-page-protein-features'"
+        <app-help-link *ngIf="typeConfig && typeConfig.help_route" [route]="typeConfig.help_route"
           [title]="'Click to view documentation for this section'">
         </app-help-link>
       </span>
