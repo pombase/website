@@ -8,7 +8,6 @@ import { QueryService, HistoryEntry, QueryOutputOptions } from '../../query.serv
 import { GeneListNode, GeneQuery, QueryResult, ResultRow, TermShort } from '../../pombase-query';
 import { Util } from '../util';
 import { GeneVisSettingsComponent } from '../../gene-vis-settings/gene-vis-settings.component';
-import { DeployConfigService } from '../../deploy-config.service';
 import { SettingsService } from '../../settings.service';
 
 class GeneDisplayData {
@@ -168,8 +167,7 @@ export class GeneResultsVisComponent implements OnInit {
   columnsSubscription: Subscription;
   loading: boolean;
 
-  constructor(public deployConfigService: DeployConfigService,
-              private settingsService: SettingsService,
+  constructor(private settingsService: SettingsService,
               private queryService: QueryService,
               private router: Router,
               private modalService: BsModalService) {
