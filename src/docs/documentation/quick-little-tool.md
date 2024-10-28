@@ -3,7 +3,7 @@
 ${database_name}'s Quick Little Tool (QuiLT) allows you to view multiple types
 of annotation for genes in a list in a single graphical display.
 
-![Quick Little Tool display](assets/quilt_display.png){ .screenshot width="600"}
+[![Quick Little Tool display](assets/quilt_display.png){ .screenshot width="800"}](assets/quilt_display.png)
 
 ### Finding QuiLT
 
@@ -17,19 +17,33 @@ visualisation" button.
 In the QuiLT display, each row represents a single gene, and each
 column is an annotation type.
 
-Use the checkboxes (1) to toggle an annotation type on and off. When
-annotations are shown, a link appears to sort on that annotation
-type. You may want to try different combinations of which types are
+Use the checkboxes to toggle an annotation type on and off. When
+annotations are shown, a `[sort]` button appears to allow reordering
+the image using that annotation type.
+You may want to try different combinations of which types are
 shown, and which used to sort the list, until you get a display you
 like. You can download the graph (with key) in SVG format at any time
-(2). The key (4) shows only terms used to annotate genes in the list,
+using the "Download image ..." button on the left. The key
+shows only terms used to annotate genes in the list,
 so for small gene lists not all terms may appear.
 
 Click on a row to select a single gene, or click on a box in any
-column (3) to select all genes in it. In the displayed gene list, you
-can clear the selection (5) or use the "Filter" button (6) to create a
+column to select all genes in it. In the displayed gene list on the
+right, you
+can clear the selection or use the "Filter" button to create a
 new gene list from the selection (which you can then visualise in
 QuiLT).
+
+### Adding a new column
+
+If you would like to see which genes in the display are annotated with
+a particular GO or MONDO disease term, use the "Add column ..." button
+on the left.  You will be prompted for a term name from the Gene
+Ontology (eg. "developmental process" or "catalytic complex") or from
+the MONDO disease (eg. "mitochondrial disease" or "cancer").
+
+The diagram can be sorted based on the data in the new column with the
+`[sort]` buttons and can be removed with the `[x]`.
 
 ### Sharing results
 
