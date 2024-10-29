@@ -1,12 +1,25 @@
 # ${database_name} collaborations
 
-- **[Monarch](https://monarchinitiative.org/)** is a platform that connects phenotypes to environmental factors and genotypes, integrating phenotypes from multiple species to make them queryable in a single portal, and use the combined knowledge to better understand human disease. We are currently in the process of integrating our phenotype data into Monarch.
+- **[Monarch](https://monarchinitiative.org/)** is a platform that
+  connects phenotypes to environmental factors and genotypes,
+  integrating phenotypes from multiple species to make them queryable
+  in a single portal, and use the combined knowledge to better
+  understand human disease. We have worked with them to integrate our
+  phenotype data into Monarch.
 
 - **[Mondo](https://mondo.monarchinitiative.org/)** is a disease ontology developed as part of the Monarch initiative. It aims to merge multiple disease ontologies and develop guidelines for disease logical definitions, which are computer-readable. We actively contribute to the development of this ontology, and [link fission yeast genes with Mondo terms](${base_url}/news#human-disease-association-changes-monarch).
 
 - **[uPheno](https://obofoundry.org/ontology/upheno.html)** is another component of the Monarch Initiative with the goal of integrating multiple phenotype ontologies into a unified cross-species phenotype ontology to make them interoperable. This interoperability is achieved by developing templates for phenotype logical definitions. We interact with uPheno developers to develop and implement standardised definition templates into FYPO .
 
-- **[Pfam](https://pfam.xfam.org/)** and **[InterPro](https://www.ebi.ac.uk/interpro/)** are protein family databases. We have been collaborating with the Pfam and InterPro teams at the EBI for almost two decades, submitting over 1000 protein families via Pfam and providing QC for InterPro to GO mapping assignments. Recently, to increase ortholog coverage, we collaborated with the Pfam team to identify distant orthologs using AlphaFold reciprocal best structure hits. See this [preprint](https://doi.org/10.1101/2022.07.04.498216).
+- **[Pfam](https://pfam.xfam.org/)** and
+  **[InterPro](https://www.ebi.ac.uk/interpro/)** are protein family
+  databases. We have been collaborating with the Pfam and InterPro
+  teams at the EBI for almost two decades, submitting over 1000
+  protein families via Pfam and providing QC for InterPro to GO
+  mapping assignments. Recently, to increase ortholog coverage, we
+  collaborated with the Pfam team to identify distant orthologs using
+  AlphaFold reciprocal best structure hits. See this
+  [*Bioinformatics Advances* publication](https://doi.org/10.1093/bioadv/vbac072).
 
 - **[Intermine](http://intermine.org/)** is a data warehouse that integrates heterogeneous data from different model organisms. Users can simultaneously query data from *${genus_and_species}* and other organisms through a website, a web API or client libraries in several programming languages. We have actively collaborated with InterMine to integrate data from ${database_name} into a ‘PombeMine’ and to improve PombeMine to better support our users. [Read more](https://www.pombase.org/pombemine).
 
