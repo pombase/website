@@ -6259,23 +6259,35 @@ to retrieve all genes inviable at high temperature (the subtract all “viable v
   <div *ngIf="pageName == 'gene-page-modifications'">
 <h2 id="gene-page-modifications">Gene page: Modifications</h2>
 <p>The Modifications section lists protein modifications that have been manually curated, using terms from the <a href="http://obofoundry.org/ontology/mod.html">PSI-MOD</a> ontology, for protein-coding genes. PomBase will add RNA modifications to this section in the future, when relevant data are curated.</p>
+<h4 id="graphical-overview">Graphical overview</h4>
+<p>The overview show modifications where the residue position is known. More details are available by mouse-over of the displayed positions.</p>
+<p><a href="assets/gene_page_modification_overview.png"><img src="assets/gene_page_modification_overview.png" title="Protein modifications overview" class="screenshot" width="800" alt="overview gene page modification ontology annotation" /></a></p>
 <h4 id="ontology-annotations-for-protein-features">Ontology Annotations for Protein Features</h4>
-<p>The summary view shows only the names of the most specific terms used to annotate the gene:</p>
-<p><img src="assets/gene_page_modification_summary.png" title="Protein modifications" class="screenshot" width="250" alt="summary gene page modification ontology annotation" /></p>
-<p>The detailed view shows more information for each annotation, and may display additional terms:</p>
-<p><img src="assets/gene_page_modification_full.png" title="Protein modifications" class="screenshot" width="800" alt="full gene page modification ontology annotation" /></p>
+<p>The summary view (which is the default) shows the names of the most specific terms used to annotate the gene along with selected extensions:</p>
+<p><a href="assets/gene_page_modification_summary.png"><img src="assets/gene_page_modification_summary.png" title="Protein modifications summary view" class="screenshot" width="600" alt="summary gene page modification ontology annotation" /></a></p>
+<p>(This example is from the <a href="https://www.pombase.org/gene/SPBC11B10.09">cdc2 gene page</a>)</p>
+<p>The detailed view shows more information for each annotation, and may display additional (less specific) terms:</p>
+<p><a href="assets/gene_page_modification_full.png"><img src="assets/gene_page_modification_full.png" title="Protein modifications detailed view" class="screenshot" width="800" alt="full gene page modification ontology annotation" /></a></p>
 <ol type="1">
-<li>Name and ID of the ontology term</li>
-<li>Modification annotations may have extensions (see below) to capture any of several types of additional detail. <em>S. pombe</em> genes link to PomBase gene pages, and GO term names link to PomBase ontology term summary pages.</li>
+<li>Graphical overview</li>
+<li>ID and Name of the ontology term</li>
+<li>Modification annotations may have extensions (see below) to capture any of several types of additional detail.</li>
 <li>The summary view is filtered, using the ontology structure, so that it shows only the most specific terms used to annotate a gene. Modification annotations curated for a gene using less specific terms (“superclasses” or “ancestors” in the ontology) appear only in the detailed view.</li>
 <li>An abbreviation (code) or brief description for the type of evidence that supports the annotation. Modification annotations use some of the <a href="http://geneontology.org/docs/guide-go-evidence-codes/">codes</a> defined by the GO Consortium, plus a small subset of the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</li>
 <li>The residue(s) modified (where available). Note that the PomBase reported residues may differ from the published residues in cases where the gene structure coordinates have changed. In these cases we remap the modification to the new residue number. If it is possible that residue numbers have changed for a given protein there is a warning at the top of the protein modification section.</li>
 <li>The published source of the annotation (where available)</li>
-<li>The total number of genes annotated to this term or any of its descendants, linked to a list of those genes. The gene list page includes basic information about the ontology term, and a link to send the gene list to the advanced search.</li>
+<li>The total number of genes annotated to this term or any of its descendants, linked to a list of those genes.</li>
+<li>Use the annotation filter to show low throughput, high throughput, non-experimental, or all modifications.</li>
 </ol>
 <h4 id="ann_ext">Annotation extensions</h4>
-<p>Where available, annotation extensions are displayed underneath the ontology term name. The extensions provide additional specificity to the annotation, often by linking the term to another ontology term or a gene product via a relationship. Examples include specifying the gene product that adds or removes a modification, specifying modified residues, or specifying that the modification is observed during a phase or process. For example, in <em>S. pombe</em> Lys4 (shown above) is phosphorylated on a serine residue during M phase of the mitotic cell cycle. Likewise, <em>S. pombe</em> <a routerLink="/gene/SPBC11B10.09">Cdc2</a> is phosphorylated during G2, and phosphorylated on Tyrosine 15 by Wee1; it is phosphorylated during G2 but not M phase of the mitotic cell cycle; other extensions are also available for Cdc2.</p>
+<p>Where available, annotation extensions are displayed underneath the ontology term name. The extensions provide additional specificity to the annotation, often by linking the term to another ontology term or a gene product via a relationship. Example:</p>
+<p><strong>modified residue</strong> T167 <strong>increased during</strong> cellular response to nitrogen starvation <strong>in absence of</strong> cdc2</p>
+<p>Possible extensions include the gene product that adds or removes a modification, specifying modified residues, or specifying that the modification is observed during a phase or process.</p>
 <p>The annotation extension field can also be used to indicate modification site occupancy, for experiments that measure the proportion of copies of the protein (or RNA) that have the modification.</p>
+<h5 id="multiplicity">Multiplicity</h5>
+<p>Some modifications have a <strong>multiplicity</strong> extension which is number of modified sites detected within the same peptide fragment (relevant to mass spec. methods).</p>
+<p>Example from <a href="https://www.pombase.org/gene/SPCC70.05c">nnk1</a>:</p>
+<p><a href="assets/gene_page_modification_multiplicity.png"><img src="assets/gene_page_modification_multiplicity.png" title="Protein modifications multiplicity example" class="screenshot" width="800" alt="multiplicity gene page modification ontology annotation" /></a></p>
 
   </div>
   <div *ngIf="pageName == 'gene-page-phenotypes'">
