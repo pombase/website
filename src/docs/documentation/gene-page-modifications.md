@@ -62,8 +62,3 @@ are also available for Cdc2.
 The annotation extension field can also be used to indicate modification
 site occupancy, for experiments that measure the proportion of copies of
 the protein (or RNA) that have the modification.
-
-Note: unlike GO annotations, for modification annotations extensions
-are not considered for display filtering. Annotations to less specific
-terms are hidden in the summary view whether they have extensions or
-not.
