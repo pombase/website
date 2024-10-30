@@ -191,14 +191,16 @@
           <div *ngIf="selectedResidueRange">
             {{selectedResidueMessage()}}
           </div>
-          <div *ngIf="!selectedResidueRange">&nbsp;</div>
+          <div *ngIf="!selectedResidueRange" class="manual-selection">
+            <input [(ngModel)]="manualSelection" (change)="manualSelectionChanged()">
+          </div>
           </div>
           <div class="sequence-display">
           <div *ngIf="wrappedSequence || wrappedProteinSequence">
           <div class="header">
 &gt;{{getSequenceHeader()}}
           </div>
-          <div class="residues"><span class="residue-part" *ngFor="let part of getDisplaySequence()!.getParts()"
+          <div class="residues" #residues><span class="residue-part" *ngFor="let part of getDisplaySequence()!.getParts()"
                    title="{{partTitle(part)}}" class="{{partClass(part)}}"
                    #partSpan
                  (mouseenter)="mouseenter(part)" (mouseleave)="mouseleave()"

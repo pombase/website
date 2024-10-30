@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input, Inject } from '@angular/core';
+import { Component, OnChanges, Input, Inject, ElementRef, ViewChild } from '@angular/core';
 
 import { saveAs } from 'file-saver';
 
@@ -42,6 +42,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   include3PrimeUtr = false;
   upstreamBases = 0;
   downstreamBases = 0;
+
+  manualSelection?: string;
+
+  @ViewChild('residues') residuesElement: ElementRef;
 
   linksInNewWindow = true;
 
@@ -424,6 +428,38 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.prefetch();
 
     this.updateSequence();
+  }
+
+  manualSelectionChanged(): void {
+    const selection = this.window.getSelection();
+    if (selection) {
+      selection.removeAllRanges();
+    }
+
+    if (this.manualSelection && this.manualSelection.trim().length >= 0) {
+      const parts = /^(\d+)(?:(?:\.\.|--?)(\d+))/.exec(this.manualSelection);
+
+      if (parts) {
+        const start = parseInt(parts[1], 10);
+        let end = undefined;
+
+        const endMatch = parts[2];
+
+        if (endMatch) {
+          end = parseInt(endMatch, 10);
+        } else {
+          end = start;
+        }
+
+        if (start <= end && selection) {
+          const range = document.createRange();
+          const residues = this.residuesElement.nativeElement;
+          range.setStart(residues, start-1);
+          range.setEnd(residues, end);
+          selection.addRange(range);
+        }
+      }
+    }
   }
 
   selectedResidueMessage(): string {
