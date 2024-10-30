@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input, Inject } from '@angular/core';
+import { Component, OnChanges, Input, Inject, ElementRef, ViewChild } from '@angular/core';
 
 import { saveAs } from 'file-saver';
 
@@ -6,6 +6,7 @@ import { GeneDetails, ProteinDetails, PombaseAPIService, Strand } from '../pomba
 import { Util } from '../shared/util';
 import { DisplaySequence, DisplaySequencePart, ResidueRange } from '../display-sequence';
 import { getAppConfig, replaceFieldsInUrl } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-transcript-sequence-select',
@@ -43,6 +44,12 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   upstreamBases = 0;
   downstreamBases = 0;
 
+  manualSelection?: string;
+  manualSelectionErrorMessage?: string;
+  manualSelectionVisible = false;
+
+  @ViewChild('partSpan') partSpanElement: ElementRef;
+
   linksInNewWindow = true;
 
   hoverPart?: DisplaySequencePart;
@@ -57,6 +64,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   downloadWithFeaturesURL = getAppConfig().seq_and_features_download_url;
 
   constructor(private apiService: PombaseAPIService,
+              public deployConfigService: DeployConfigService,
               @Inject('Window') private window: Window) { }
 
   updateHeader(sequenceLength: number) {
@@ -132,6 +140,11 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     return retVal;
   }
 
+  clearManualSelection(): void {
+    this.manualSelection = undefined;
+    this.manualSelectionErrorMessage = undefined;
+  }
+
   mouseenter(part: DisplaySequencePart): void {
     if (this.showNucSequence) {
       this.hoverPart = part;
@@ -142,7 +155,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.hoverPart = undefined;
   }
 
-  mousemove(): void {
+  checkSelection(): void {
     this.selectedResidueRange = undefined;
 
     const selection = this.window.getSelection();
@@ -169,6 +182,10 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
               this.selectedResidueRange =
                 displaySequence.rangeFromParts(+startPartId, startOffset,
                   +endPartId, endOffset - 1);
+              if (this.selectedResidueRange) {
+                this.manualSelectionVisible = false;
+                this.manualSelection = undefined;
+              }
             }
           }
         }
@@ -424,6 +441,55 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.prefetch();
 
     this.updateSequence();
+  }
+
+  manualSelectionChanged(): void {
+    this.manualSelectionErrorMessage = undefined;
+    const selection = this.window.getSelection();
+    if (selection) {
+      selection.removeAllRanges();
+    }
+
+    if (this.manualSelection && this.manualSelection.trim().length >= 0) {
+      const parts = /^(\d+)(?:(?:\.\.|--?)(\d+))?$/.exec(this.manualSelection.trim());
+
+      if (parts) {
+        let start = parseInt(parts[1], 10);
+        let end = undefined;
+
+        const endMatch = parts[2];
+
+        if (endMatch) {
+          end = parseInt(endMatch, 10);
+          if (end < start) {
+            this.manualSelectionErrorMessage = 'end position < start';
+            return;
+          }
+        } else {
+          end = start;
+        }
+
+        if (start <= end && selection) {
+          const range = document.createRange();
+          const residuesText = this.partSpanElement.nativeElement.firstChild;
+          if (end >= residuesText.length) {
+            this.manualSelectionErrorMessage = 'end > sequence length';
+            return;
+          }
+          try {
+            range.setStart(residuesText, start-1);
+            range.setEnd(residuesText, end);
+            selection.addRange(range);
+            this.checkSelection();
+          }
+          catch (e) {
+            console.log(e);
+          }
+        }
+      } else {
+        this.manualSelectionErrorMessage = 'invalid range - example "10..20"';
+      }
+    }
   }
 
   selectedResidueMessage(): string {

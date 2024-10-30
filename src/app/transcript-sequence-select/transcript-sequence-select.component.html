@@ -17,7 +17,7 @@
     </select>
   </div>
 
-  <div (mousemove)="mousemove()">
+  <div (mousemove)="checkSelection()" (mouseup)="checkSelection()">
     <div *ngIf="hasTranscripts">
         <div class="controls">
           <div *ngIf="featureHasProtein()">
@@ -192,7 +192,17 @@
             {{selectedResidueMessage()}}
           </div>
           <div *ngIf="!selectedResidueRange">&nbsp;</div>
+          
+          <div *ngIf="!deployConfigService.productionMode()" class="manual-selection">
+            <a *ngIf="!selectedResidueRange && !manualSelectionVisible" (click)="manualSelectionVisible=true;">Manually select residues</a>
+            <div *ngIf="manualSelectionVisible && !selectedResidueRange && !showNucSequence">
+              Select range: <input [(ngModel)]="manualSelection" (change)="manualSelectionChanged()"
+                                   placeholder="Examples: 10..25 or 15-30 or 40">
+              <span class="manual-selection-error" *ngIf="manualSelectionErrorMessage">error: {{manualSelectionErrorMessage}}</span>
+            </div>
           </div>
+          </div>
+
           <div class="sequence-display">
           <div *ngIf="wrappedSequence || wrappedProteinSequence">
           <div class="header">
@@ -202,6 +212,7 @@
                    title="{{partTitle(part)}}" class="{{partClass(part)}}"
                    #partSpan
                  (mouseenter)="mouseenter(part)" (mouseleave)="mouseleave()"
+                 (mousedown)="clearManualSelection()"
                  [attr.data-part-id]="part.partId">{{part.residues}}</span></div>
           </div>
           <div *ngIf="!wrappedSequence && showNucSequence">
