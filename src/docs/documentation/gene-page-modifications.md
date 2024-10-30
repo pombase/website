@@ -11,7 +11,7 @@ future, when relevant data are curated.
 The overview show modifications where the residue position is known.
 More details are available by mouse-over of the displayed positions.
 
-[![summary gene page modification ontology annotation](assets/gene_page_modification_overview.png "Protein modifications overview"){ .screenshot width="800"}](assets/gene_page_modification_overview.png)
+[![overview gene page modification ontology annotation](assets/gene_page_modification_overview.png "Protein modifications overview"){ .screenshot width="800"}](assets/gene_page_modification_overview.png)
 
 #### Ontology Annotations for Protein Features ####
 
@@ -74,3 +74,13 @@ phase or process.
 The annotation extension field can also be used to indicate modification
 site occupancy, for experiments that measure the proportion of copies of
 the protein (or RNA) that have the modification.
+
+##### Multiplicity
+
+Some modifications have a **multiplicity** extension which is number of
+modified sites detected within the same peptide fragment (relevant to
+mass spec. methods).
+
+Example from [nnk1](https://www.pombase.org/gene/SPCC70.05c):
+
+[![multiplicity gene page modification ontology annotation](assets/gene_page_modification_multiplicity.png "Protein modifications multiplicity example"){ .screenshot width="800"}](assets/gene_page_modification_multiplicity.png)
