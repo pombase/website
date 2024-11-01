@@ -94,7 +94,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
       this.resultTable.sort(sortRows);
     } else {
       const sortRowsByCount =
-        (a: ProcessedRow, b: ProcessedRow) => a.geneUniquenames.length - b.geneUniquenames.length;
+        (a: ProcessedRow, b: ProcessedRow) => b.geneUniquenames.length - a.geneUniquenames.length;
       this.resultTable.sort(sortRowsByCount);
     }
   }

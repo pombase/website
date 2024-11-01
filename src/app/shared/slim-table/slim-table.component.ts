@@ -47,7 +47,7 @@ export class SlimTableComponent implements OnInit {
     if (this.sortColumnName == 'name') {
       this.slimSubsetElements.sort((a, b) => a.name.localeCompare(b.name));
     } else {
-      this.slimSubsetElements.sort((a, b) => a.gene_count - b.gene_count);
+      this.slimSubsetElements.sort((a, b) => b.gene_count - a.gene_count);
     }
   }
 
