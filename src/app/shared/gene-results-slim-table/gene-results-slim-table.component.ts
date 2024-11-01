@@ -11,6 +11,8 @@ class ProcessedRow {
   }
 }
 
+type SortableColumnNames = 'name' | 'gene_count';
+
 @Component({
   selector: 'app-gene-results-slim-table',
   templateUrl: './gene-results-slim-table.component.html',
@@ -23,6 +25,7 @@ export class GeneResultsSlimTableComponent implements OnInit {
   @Input() geneListDescription: string;
 
   subsetDetails: TermSubsetDetails;
+  queryResult?: QueryResult = undefined;
   resultTable: Array<ProcessedRow> = [];
   termGeneUniquenames: { [termId: string]: Array<GeneUniquename>} = {};
 
@@ -31,6 +34,8 @@ export class GeneResultsSlimTableComponent implements OnInit {
   unslimmedGenes: Set<GeneUniquename>;
   appConfig: AppConfig = getAppConfig();
   slimConfig: SlimConfig;
+
+  sortColumnName: SortableColumnNames = 'name';
 
   constructor(private pombaseApiService: PombaseAPIService,
               private queryService: QueryService,
@@ -44,8 +49,9 @@ export class GeneResultsSlimTableComponent implements OnInit {
     const outputOptions =
       new QueryOutputOptions(['gene_uniquename'], ['include_gene_subsets'], [], 'none');
     this.queryService.postQuery(geneListQuery, outputOptions)
-      .then(results => {
-        this.resultTable = this.makeResultTable(results);
+      .then(queryResult => {
+        this.queryResult = queryResult;
+        this.makeResultTable();
       });
   }
 
@@ -71,11 +77,38 @@ export class GeneResultsSlimTableComponent implements OnInit {
     this.countsReady = true;
   }
 
-  makeResultTable(results: QueryResult): Array<ProcessedRow> {
+  sortRows(): void {
+    const sortRows = function (rowA: ProcessedRow, rowB: ProcessedRow) {
+      if (rowA.geneUniquenames.length === 0 && rowB.geneUniquenames.length === 0 ||
+        rowA.geneUniquenames.length !== 0 && rowB.geneUniquenames.length !== 0) {
+        return rowA.termName.localeCompare(rowB.termName);
+      }
+      if (rowA.geneUniquenames.length === 0) {
+        return 1;
+      } else {
+        return -1;
+      }
+    };
+
+    if (this.sortColumnName == 'name') {
+      this.resultTable.sort(sortRows);
+    } else {
+      const sortRowsByCount =
+        (a: ProcessedRow, b: ProcessedRow) => a.geneUniquenames.length - b.geneUniquenames.length;
+      this.resultTable.sort(sortRowsByCount);
+    }
+  }
+
+  setSortColumn(col: SortableColumnNames): void {
+    this.sortColumnName = col;
+    this.makeResultTable();
+  }
+
+  makeResultTable() {
     this.countsReady = false;
 
     this.termGeneUniquenames = {};
-    for (const row of results.getRows()) {
+    for (const row of this.queryResult!.getRows()) {
       if (row.subsets) {
         for (const subsetTermId of row.subsets as Array<TermId>) {
           if (this.termGeneUniquenames[subsetTermId]) {
@@ -101,22 +134,12 @@ export class GeneResultsSlimTableComponent implements OnInit {
       resultTable.push(row);
     }
 
-    const sortRows = function(rowA: ProcessedRow, rowB: ProcessedRow) {
-      if (rowA.geneUniquenames.length === 0 && rowB.geneUniquenames.length === 0 ||
-          rowA.geneUniquenames.length !== 0 && rowB.geneUniquenames.length !== 0) {
-        return rowA.termName.localeCompare(rowB.termName);
-      }
-      if (rowA.geneUniquenames.length === 0) {
-        return 1;
-      } else {
-        return -1;
-      }
-    };
-
     this.pombaseApiService.getGeneSummaryMapPromise()
       .then(geneSummaryMap => this.calcGeneStats(geneSummaryMap, resultTable));
 
-    return resultTable.sort(sortRows);
+    this.resultTable = resultTable;
+
+    this.sortRows();
   }
 
   gotoGenesOfTerm(termName: string, termId: TermId): void {

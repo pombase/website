@@ -10,9 +10,23 @@
       <h4>Terms and genes</h4>
       <table class="subset-table">
         <thead>
-          <th>Name</th>
+          <th>
+            <a *ngIf="sortColumnName != 'name'" (click)="setSortColumn('name')" title="Click to sort by name">
+              Name <img title="Click to sort by name" src="assets/sort_both.svg">
+            </a>
+            <span *ngIf="sortColumnName == 'name'" title="Sorted by name">
+              Name <img title="Sorted by name" src="assets/sort_up.svg">
+            </span>
+          </th>
           <th>Term</th>
-          <th>Genes</th>
+          <th>
+            <a *ngIf="sortColumnName != 'gene_count'" (click)="setSortColumn('gene_count')" title="Click to sort by gene count">
+              Genes <img title="Click to sort by gene count" src="assets/sort_both.svg">
+            </a>
+            <span *ngIf="sortColumnName == 'gene_count'" title="Sorted by gene count">
+              Genes <img title="Sorted by gene count" src="assets/sort_up.svg">
+            </span>
+          </th>
         </thead>
         <tbody>
           <tr *ngFor="let row of resultTable">
