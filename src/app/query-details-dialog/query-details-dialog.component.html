@@ -22,7 +22,7 @@
     <div *ngIf="!showInternalDetails" class="query-structure">
       <h5>Structure:</h5>
       <div class="detail-div">
-        <app-gene-query-structure [node]="query.getTopNode()"></app-gene-query-structure>
+        <app-gene-query-structure [node]="query.getTopNode()" (gotoResults)="gotoResults($event)"></app-gene-query-structure>
       </div>
     </div>
   </div>
