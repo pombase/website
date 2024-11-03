@@ -192,12 +192,12 @@
             {{selectedResidueMessage()}}
           </div>
           <div *ngIf="!selectedResidueRange">&nbsp;</div>
-          
+
           <div *ngIf="!showNucSequence && !deployConfigService.productionMode()" class="manual-selection">
             <a *ngIf="!selectedResidueRange && !manualSelectionVisible" (click)="manualSelectionVisible=true;">Manually select residues</a>
             <div *ngIf="manualSelectionVisible && !selectedResidueRange">
               Select range: <input [(ngModel)]="manualSelection" (change)="manualSelectionChanged()"
-                                   placeholder="Examples: 10..25 or 15-30 or 40">
+                                   placeholder="Examples: 10..25 or 15-30 or 40" autofocus>
               <span class="manual-selection-error" *ngIf="manualSelectionErrorMessage">error: {{manualSelectionErrorMessage}}</span>
             </div>
           </div>
