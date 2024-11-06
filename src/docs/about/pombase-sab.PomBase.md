@@ -23,18 +23,20 @@ National Institute of Biological Sciences, Beijing, China
 *Kathleen Gould*<br>
 Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA
 
-*Doug Howe*<br>
-The Zebrafish Information Network, University of Oregon, Eugene, OR, USA
-
 *Sabina Leonelli*<br>
 Exeter Centre for the Study of the Life Sciences &amp; Department of Sociology, Philosophy and Anthropology, University of Exeter, Exeter, UK
-
-*Samuel Marguerat*<br>
-UCL Cancer Institute, London, UK
 
 *Sophie Martin*<br>
 Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland
 
+
+#### Past SAB members
+
+*Doug Howe*<br>
+The Zebrafish Information Network, University of Oregon, Eugene, OR, USA
+
+*Samuel Marguerat*<br>
+UCL Cancer Institute, London, UK
 
 
 #### Related pages
