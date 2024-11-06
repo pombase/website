@@ -14,6 +14,12 @@ If you have trouble finding anything, please ask the
 
 -------
 
+### Dataset and ontology versions
+
+The [versions page](/internal-details) is updated each night.
+
+-------
+
 ### [Genome sequence and features](/downloads/genome-datasets) ###
 
 -  Genome sequence (FASTA or enriched EMBL format for Artemis)
