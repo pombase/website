@@ -1,7 +1,7 @@
 ## Gene page: Literature
 
 The Literature section of a gene page lists the papers that have curated
-data for the gene or its product.
+data for the gene or its product, and papers which mention the gene in keywords.
 
 At the top of the section, there is a link to search PubMed for any
 papers on the gene. This may retrieve papers not on the gene page
