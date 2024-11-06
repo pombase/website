@@ -6,7 +6,6 @@ import { GeneDetails, ProteinDetails, PombaseAPIService, Strand } from '../pomba
 import { Util } from '../shared/util';
 import { DisplaySequence, DisplaySequencePart, ResidueRange } from '../display-sequence';
 import { getAppConfig, replaceFieldsInUrl } from '../config';
-import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-transcript-sequence-select',
@@ -64,7 +63,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   downloadWithFeaturesURL = getAppConfig().seq_and_features_download_url;
 
   constructor(private apiService: PombaseAPIService,
-              public deployConfigService: DeployConfigService,
               @Inject('Window') private window: Window) { }
 
   updateHeader(sequenceLength: number) {
