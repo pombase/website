@@ -145,6 +145,15 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     this.manualSelectionErrorMessage = undefined;
   }
 
+  clearSelection(): void {
+    this.clearManualSelection();
+    const selection = this.window.getSelection();
+    if (selection) {
+      selection.removeAllRanges();
+    }
+    this.selectedResidueRange = undefined;
+  }
+
   mouseenter(part: DisplaySequencePart): void {
     if (this.showNucSequence) {
       this.hoverPart = part;
@@ -451,7 +460,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
     }
 
     if (this.manualSelection && this.manualSelection.trim().length >= 0) {
-      const parts = /^(\d+)(?:(?:\.\.|--?)(\d+))?$/.exec(this.manualSelection.trim());
+      const parts = /^(\d+)(?:(?:\.+|-+)(\d+))?$/.exec(this.manualSelection.trim());
 
       if (parts) {
         let start = parseInt(parts[1], 10);

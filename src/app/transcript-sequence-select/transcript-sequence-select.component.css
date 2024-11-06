@@ -45,6 +45,11 @@
   display: flex;
 }
 
+.selected-range>div {
+  flex: 1;
+  white-space: nowrap;
+}
+
 .seq-title {
   padding-top: 1em;
   font-weight: bold;
@@ -185,9 +190,12 @@
   text-decoration: none;
 }
 
-.manual-selection {
-  margin-left: auto;
-  font-size: 90%
+.manual-selection, .clear-selection {
+  font-size: 90%;
+}
+
+.clear-and-manual-select {
+  text-align: right;
 }
 
 .manual-selection input {
