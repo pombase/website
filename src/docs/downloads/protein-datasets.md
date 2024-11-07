@@ -9,7 +9,7 @@ contains assorted data (see the README for file formats):
 -   [PeptideStats.tsv](${base_url}/data/Protein_data/PeptideStats.tsv) - 
     Predicted molecular weight (kDa), predicted pI, charge, length
     (residues), codon adaptation index (CAI)
--   [Protein_Features.tsv](${base_url}/data/Protein_data/protein_domains_and_features.tsv) - 
+-   [protein_domains_and_features.tsv](${base_url}/data/Protein_data/protein_domains_and_features.tsv) - 
     Protein features such as domains and family assignments
 -   [aa_composition.tsv](${base_url}/data/Protein_data/aa_composition.tsv) - 
     Amino acid composition
