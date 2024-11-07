@@ -7,6 +7,8 @@ import { TermDetails, PombaseAPIService, TermSubsets, APIError } from '../pombas
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
          AnnotationType, AppConfig, getAppConfig} from '../config';
+import { MenuItem } from '../types';
+import { Util } from '../shared/util';
 
 @Component({
   selector: 'app-term-details',
@@ -21,7 +23,7 @@ export class TermDetailsComponent implements OnInit {
   annotationTypeNames: Array<string> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   apiError?: APIError;
-  visibleSections: Array<string> = [];
+  menuItems: Array<MenuItem> = [];
   annotatedGeneCount = 0;
   singleLocusGenotypeGeneCount = 0;
   singleLocusGenotypeCount = 0;
@@ -56,26 +58,36 @@ export class TermDetailsComponent implements OnInit {
   }
 
   setVisibleSections(): void {
-    this.visibleSections = [];
+    let visibleSectionNames = [];
 
     for (let annotationTypeName of this.annotationTypeNames) {
       if (this.termDetails.cv_annotations[annotationTypeName] &&
           this.termDetails.cv_annotations[annotationTypeName].length > 0) {
-        this.visibleSections.push(annotationTypeName);
+        visibleSectionNames.push(annotationTypeName);
       }
 
       if (annotationTypeName === 'double_mutant_genetic_interactions' &&
           this.termDetails.double_mutant_genetic_interactions &&
           this.termDetails.double_mutant_genetic_interactions.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+        visibleSectionNames.push(annotationTypeName);
       }
 
       if (annotationTypeName === 'single_allele_genetic_interactions' &&
           this.termDetails.single_allele_genetic_interactions &&
           this.termDetails.single_allele_genetic_interactions.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+        visibleSectionNames.push(annotationTypeName);
       }
     }
+    this.menuItems =
+      visibleSectionNames.map(typeName => {
+
+        let typeConfig = this.config.getAnnotationType(typeName);
+
+        return {
+          id: typeName,
+          displayName: typeConfig.display_name || Util.capitalize(typeName),
+        };
+      });
   }
 
   makeTableDisplayName(annotationTypeName: string): string {

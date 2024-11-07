@@ -8,7 +8,7 @@
     <div id="term-details-menu">
       <app-details-page-menu *ngIf="termDetails"
                              [title]="displayTermId"
-                             [visibleSections]="visibleSections"></app-details-page-menu>
+                             [menuItems]="menuItems"></app-details-page-menu>
     </div>
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>

@@ -7,7 +7,7 @@
   <div class="left-menu-part left-menu-header">
     <a (click)="scrollToPageTop()">{{title}}</a>
   </div>
-  <div *ngFor="let menuItem of menuItems">
+  <div *ngFor="let menuItem of displayMenuItems">
     <div id="menu-item-{{menuItem.id}}" class="left-menu-part left-menu-item"
          (click)="clicked(menuItem)">
       <a pageScroll href="#{{menuItem.id}}">{{menuItem.displayName}}</a>

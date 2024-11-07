@@ -10,6 +10,7 @@ import { ReferenceDetails, PombaseAPIService, APIError, AnnotationCurator } from
 import { DeployConfigService } from '../deploy-config.service';
 import { PageScrollService } from 'ngx-page-scroll-core';
 import { DOCUMENT } from '@angular/common';
+import { MenuItem } from '../types';
 @Component({
   selector: 'app-reference-details',
   templateUrl: './reference-details.component.html',
@@ -22,7 +23,7 @@ export class ReferenceDetailsComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();
   siteName = this.appConfig.site_name;
 
-  visibleSections: Array<string> = [];
+  menuItems: Array<MenuItem> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   isPubMedRef = false;
   pubMedId?: string;
@@ -162,47 +163,61 @@ export class ReferenceDetailsComponent implements OnInit {
   }
 
   setVisibleSections(): void {
-    this.visibleSections = [];
+    let visibleSectionNames = [];
+
+    this.menuItems = [];
 
     if (getJBrowseTracksByPMID(this.refDetails.uniquename).length > 0) {
-      this.visibleSections.push('jbrowse_tracks');
+      this.menuItems.push( {
+              id: 'jbrowse_tracks',
+              displayName: 'JBrowse tracks',
+            });
     }
 
     for (let annotationTypeName of this.annotationTypeNames) {
       if (this.refDetails.cv_annotations[annotationTypeName] &&
           this.refDetails.cv_annotations[annotationTypeName].length > 0) {
-        this.visibleSections.push(annotationTypeName);
+        visibleSectionNames.push(annotationTypeName);
       }
 
 
       if (annotationTypeName === 'physical_interactions') {
         if (this.refDetails.physical_interactions &&
             this.refDetails.physical_interactions.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         }
       }
 
       if (annotationTypeName === 'genetic_interactions') {
         if (this.refDetails.genetic_interactions &&
             this.refDetails.genetic_interactions.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         }
       }
 
       if (annotationTypeName === 'orthologs') {
         if (this.refDetails.ortholog_annotations &&
             this.refDetails.ortholog_annotations.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         }
       }
 
       if (annotationTypeName === 'paralogs') {
         if (this.refDetails.paralog_annotations &&
             this.refDetails.paralog_annotations.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         }
       }
     }
+
+    visibleSectionNames.map(typeName => {
+        let typeConfig = this.config.getAnnotationType(typeName);
+
+        this.menuItems.push({
+          id: typeName,
+          displayName: typeConfig.display_name || Util.capitalize(typeName),
+        });
+      });
   }
 
   isPublication(): boolean {

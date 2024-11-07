@@ -14,6 +14,7 @@ import {
 } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 import { Util } from '../shared/util';
+import { MenuItem } from '../types';
 
 @Component({
   selector: 'app-gene-details',
@@ -27,7 +28,7 @@ export class GeneDetailsComponent implements OnInit {
   displayFeatureType = '';
   displayLocation?: Array<string>;
   annotationTypeNames: Array<string> = [];
-  visibleSections: Array<string> = [];
+  menuItems: Array<MenuItem> = [];
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
   noGeneNameRoute = this.appConfig.no_gene_name_route;
@@ -183,64 +184,110 @@ export class GeneDetailsComponent implements OnInit {
       this.geneDetails.feature_type === 'pseudogene';
   }
 
-  setVisibleSections(): void {
-    this.visibleSections = [];
+  setMenuItems(): void {
+
+    let visibleSectionNames = [];
 
     for (let annotationTypeName of this.annotationTypeNames) {
       if (this.geneDetails.cv_annotations[annotationTypeName] &&
           this.geneDetails.cv_annotations[annotationTypeName].length > 0) {
-        this.visibleSections.push(annotationTypeName);
+        visibleSectionNames.push(annotationTypeName);
       }
 
       if (annotationTypeName === 'protein_domains_and_properties' && this.showProteinFeatures &&
           this.geneDetails.feature_type === 'mRNA gene') {
-        this.visibleSections.push(annotationTypeName);
+        visibleSectionNames.push(annotationTypeName);
       }
       if (annotationTypeName === 'transcript_view' &&
         this.geneDetails && this.geneDetails.transcripts &&
         this.geneDetails.transcripts.length > 0) {
-        this.visibleSections.push(annotationTypeName);
+        visibleSectionNames.push(annotationTypeName);
       }
 
       if (annotationTypeName === 'physical_interactions') {
         if (this.geneDetails.physical_interactions &&
             this.geneDetails.physical_interactions.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         }
       }
 
       if (annotationTypeName === 'genetic_interactions') {
         if (this.geneDetails.genetic_interactions &&
             this.geneDetails.genetic_interactions.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         }
       }
 
       if (annotationTypeName === 'orthologs' &&
           this.showOrthologsSection()) {
-        this.visibleSections.push(annotationTypeName);
+        visibleSectionNames.push(annotationTypeName);
       }
 
       if (annotationTypeName === 'paralogs') {
         if (this.geneDetails.paralog_annotations &&
             this.geneDetails.paralog_annotations.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         }
       }
 
       if (annotationTypeName === 'target_of') {
         if (this.geneDetails.target_of_annotations &&
             this.geneDetails.target_of_annotations.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         }
       }
 
       if (annotationTypeName === 'miscellaneous') {
         if (this.hasMiscAnnotations()) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         }
       }
     }
+
+    this.menuItems =
+        visibleSectionNames.map(typeName => {
+
+          let typeConfig = this.config.getAnnotationType(typeName);
+          let subItems: Array<MenuItem> | undefined;
+
+          if (typeConfig.split_by_parents) {
+            subItems = typeConfig.split_by_parents.map(splitByConf => {
+              return {
+                id: typeName + '-' + splitByConf.config_name,
+                displayName: splitByConf.display_name,
+                subItems: undefined,
+              };
+            });
+          }
+
+          return {
+            id: typeName,
+            displayName: typeConfig.display_name || Util.capitalize(typeName),
+            subItems,
+          };
+        });
+
+    if (this.geneDetails.gene_history.length > 0) {
+      this.menuItems.push({
+        id: 'gene-history',
+        displayName: 'Gene structure history'
+      });
+    }
+
+    this.menuItems.push({
+      id: 'transcript-sequence',
+      displayName: 'Sequence',
+    });
+
+    this.menuItems.push({
+      id: 'external-refs',
+      displayName: 'External references',
+    });
+
+    this.menuItems.push({
+      id: 'literature',
+      displayName: 'Literature',
+    });
   }
 
   scrollToPageTop(): void {
@@ -277,32 +324,6 @@ export class GeneDetailsComponent implements OnInit {
       // fail-back if no transcript has a protein with a product
       this.products.push(this.geneDetails.product);
     }
-  }
-
-  private setMenuSections() {
-    this.extraMenuSections = [];
-
-    if (this.geneDetails.gene_history.length > 0) {
-      this.extraMenuSections.push({
-        id: 'gene-history',
-        displayName: 'Gene structure history'
-      });
-    }
-
-    this.extraMenuSections.push({
-      id: 'transcript-sequence',
-      displayName: 'Sequence',
-    });
-
-    this.extraMenuSections.push({
-      id: 'external-refs',
-      displayName: 'External references',
-    });
-
-    this.extraMenuSections.push({
-      id: 'literature',
-      displayName: 'Literature',
-    });
   }
 
   private showAsSection(typeName: string): boolean {
@@ -361,7 +382,6 @@ export class GeneDetailsComponent implements OnInit {
               this.setPageTitle();
               this.scrollToPageTop();
               this.setProducts();
-              this.setMenuSections();
 
               this.hasCharacterisationStatus = this.appConfig.has_characterisation_status &&
                 (!this.geneDetails.feature_type.endsWith('RNA gene') ||
@@ -374,7 +394,7 @@ export class GeneDetailsComponent implements OnInit {
                 !!this.geneDetails.transcripts[0].protein ||
                 this.geneDetails.interpro_matches.length > 0 ||
                 !!this.geneDetails.cv_annotations['pombase_family_or_domain'];
-              this.setVisibleSections();
+              this.setMenuItems();
               this.organism = this.appConfig.getOrganismByTaxonid(geneDetails.taxonid);
               this.organismLongName = this.organism.genus + ' ' + this.organism.species;
               this.isConfiguredOrganism = this.appConfig.isConfigOrganism(this.organism.taxonid);

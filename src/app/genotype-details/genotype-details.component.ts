@@ -7,6 +7,7 @@ import { Util } from '../shared/util';
 import { GenotypeDetails, PombaseAPIService, APIError } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfig } from '../config';
+import { MenuItem } from '../types';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class GenotypeDetailsComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();
   isDiploid = false;
 
-  visibleSections: Array<string> = [];
+  menuItems: Array<MenuItem> = [];
 
   extraMenuSections = [
     {
@@ -63,26 +64,36 @@ export class GenotypeDetailsComponent implements OnInit {
   }
 
   setVisibleSections(): void {
-    this.visibleSections = [];
+    let visibleSectionNames = [];
 
     for (let annotationTypeName of this.annotationTypeNames) {
       if (this.genotypeDetails.cv_annotations[annotationTypeName] &&
         this.genotypeDetails.cv_annotations[annotationTypeName].length > 0) {
-        this.visibleSections.push(annotationTypeName);
+        visibleSectionNames.push(annotationTypeName);
       }
 
       if (annotationTypeName === 'genetic_interactions') {
         if (this.genotypeDetails.double_mutant_genetic_interactions &&
           this.genotypeDetails.double_mutant_genetic_interactions.length > 0) {
-          this.visibleSections.push(annotationTypeName);
+          visibleSectionNames.push(annotationTypeName);
         } else {
           if (this.genotypeDetails.rescue_genetic_interactions &&
             this.genotypeDetails.rescue_genetic_interactions.length > 0) {
-            this.visibleSections.push(annotationTypeName);
+            visibleSectionNames.push(annotationTypeName);
           }
         }
       }
     }
+    this.menuItems =
+      visibleSectionNames.map(typeName => {
+
+        let typeConfig = this.config.getAnnotationType(typeName);
+
+        return {
+          id: typeName,
+          displayName: typeConfig.display_name || Util.capitalize(typeName),
+        };
+      });
   }
 
 

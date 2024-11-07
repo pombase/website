@@ -3,11 +3,10 @@ import { Component, OnInit, Input, OnChanges,
 
 import { getAnnotationTableConfig, AnnotationTableConfig, getAppConfig, AppConfig} from '../../config';
 
-interface MenuItem {
-  id: string;
-  displayName: string;
-  subItems?: Array<MenuItem>;
-  subItemsVisible?: boolean;
+import { MenuItem } from '../../types';
+
+interface DisplayMenuItem extends MenuItem {
+  subItemsVisible: boolean;
 }
 
 @Component({
@@ -17,10 +16,10 @@ interface MenuItem {
 })
 export class DetailsPageMenuComponent implements OnInit, OnChanges {
   @Input() title: string;
-  @Input() visibleSections: Array<string> = [];
-  @Input() extraSections: Array<{ displayName: string; id: string }> = [];
+  @Input() menuItems: Array<MenuItem> = [];
 
-  menuItems: Array<MenuItem> = [];
+  displayMenuItems: Array<DisplayMenuItem> = [];
+
   config: AnnotationTableConfig = getAnnotationTableConfig();
 
   appConfig: AppConfig = getAppConfig();
@@ -51,9 +50,9 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
     }
   }
 
-  clicked(menuItem: MenuItem): void {
+  clicked(menuItem: DisplayMenuItem): void {
     const currentItemValue = menuItem.subItemsVisible;
-    this.menuItems.map(item => {
+    this.displayMenuItems.map(item => {
       item.subItemsVisible = false;
     });
     menuItem.subItemsVisible = !currentItemValue;
@@ -62,43 +61,12 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  private upperCaseIntial(s: string): string {
-    return s.charAt(0).toUpperCase() + s.slice(1);
-  }
-
   ngOnChanges() {
-    if (this.visibleSections) {
-      this.menuItems =
-        this.visibleSections.map(typeName => {
-          if (typeName === 'jbrowse_tracks') {
-            return {
-              id: typeName,
-              displayName: 'JBrowse tracks',
-              subItemsVisible: false,
-            };
-          }
-          let typeConfig = this.config.getAnnotationType(typeName);
-          let subItems: Array<MenuItem>|undefined;
+    this.displayMenuItems =
+      this.menuItems.map(item => {
+        let displayItem = { ...item, subItemsVisible: false };
 
-          if (typeConfig.split_by_parents) {
-            subItems = typeConfig.split_by_parents.map(splitByConf => {
-              return {
-                id: typeName + '-' + splitByConf.config_name,
-                displayName: splitByConf.display_name,
-                subItems: undefined,
-              };
-            });
-          }
-
-          return {
-            id: typeName,
-            displayName: typeConfig.display_name || this.upperCaseIntial(typeName),
-            subItems,
-          };
-        });
-      this.menuItems.push(...this.extraSections);
-    } else {
-      this.menuItems = [];
-    }
+        return displayItem;
+      });
   }
 }
