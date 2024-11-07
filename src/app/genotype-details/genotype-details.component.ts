@@ -29,13 +29,6 @@ export class GenotypeDetailsComponent implements OnInit {
 
   menuItems: Array<MenuItem> = [];
 
-  extraMenuSections = [
-    {
-      id: 'literature',
-      displayName: 'Literature',
-    }
-  ];
-
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
@@ -94,8 +87,12 @@ export class GenotypeDetailsComponent implements OnInit {
           displayName: typeConfig.display_name || Util.capitalize(typeName),
         };
       });
-  }
 
+    this.menuItems.push({
+      id: 'literature',
+      displayName: 'Literature',
+    });
+  }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
