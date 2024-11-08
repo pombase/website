@@ -242,7 +242,9 @@ export class GeneDetailsComponent implements OnInit {
             return this.hasCvAnnotations(subTypeName);
           });
 
+        if (subTypesWithAnnotation.length > 0) {
           this.menuItems.push(makeMenuItem(typeOrderConfig, subTypesWithAnnotation));
+        }
       } else {
         if (this.hasCvAnnotations(typeOrderConfig.name)) {
           this.menuItems.push(makeMenuItem(typeOrderConfig));
