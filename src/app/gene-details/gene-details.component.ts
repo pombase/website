@@ -279,15 +279,20 @@ export class GeneDetailsComponent implements OnInit {
         }
       }
 
-      if (typeOrderConfig.name === 'orthologs' &&
-          this.showOrthologsSection()) {
-        this.menuItems.push(makeMenuItem(typeOrderConfig));
-      }
+      if (typeOrderConfig.name === 'homologs') {
+        let subTypes = [];
 
-      if (typeOrderConfig.name === 'paralogs') {
+        if (this.showOrthologsSection()) {
+          subTypes.push('orthologs');
+        }
+
         if (this.geneDetails.paralog_annotations &&
             this.geneDetails.paralog_annotations.length > 0) {
-          this.menuItems.push(makeMenuItem(typeOrderConfig));
+          subTypes.push('paralogs');
+        }
+
+        if (subTypes.length > 0) {
+          this.menuItems.push(makeMenuItem(typeOrderConfig, subTypes));
         }
       }
 
