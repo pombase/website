@@ -24,7 +24,6 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   typeConfig: AnnotationType;
   annotationTypeDisplayName: string;
   splitDataList: { [key: string]: Array<TermAnnotation> } = {};
-  splitSummaryList = {};
   split_by_parents: Array<SplitByParentsConfig> = [];
   helpIconTitle = 'Click to view documention';
   sanitizedFeatureViewURL?: SafeResourceUrl;
@@ -36,7 +35,6 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
     if (this.annotationTable && this.typeConfig && this.typeConfig.split_by_parents) {
       this.split_by_parents = this.typeConfig.split_by_parents;
       this.splitDataList = {};
-      this.splitSummaryList = {};
 
       for (let splitByConfig of this.split_by_parents) {
         let seenTerms: {[termid: string]: boolean} = {};
