@@ -240,11 +240,11 @@ select option:disabled {
 @media (min-width: 800px) {
   .details-page, .docs-content {
     right: 0;
-    padding-left: 190px;
+    padding-left: 200px;
     width: auto;
   }
   .details-page-menu, .page-content-menu {
-    width: 170px;
+    width: 180px;
     left: 10px;
   }
   .menu-pos-absolute {
@@ -272,7 +272,6 @@ select option:disabled {
 }
 
 .left-menu-header {
-  font-size: 92%;
   margin-left: 0px;
   font-weight: bold;
   border-left: 4px solid #556;
@@ -287,14 +286,14 @@ select option:disabled {
   -webkit-user-select: none;
   user-select: none;
   margin-left: 12px;
-  font-size: 76%;
+  font-size: 86%;
   border-left: 2px solid #778;
 }
 .left-sub-sub-menu-item {
   -webkit-user-select: none;
   user-select: none;
   margin-left: 18px;
-  font-size: 73%;
+  font-size: 80%;
   border-left: 1.7px solid #889;
 }
 
