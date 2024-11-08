@@ -196,34 +196,39 @@ export class GeneDetailsComponent implements OnInit {
     this.menuItems = [];
 
     const makeMenuItem = (typeOrderConfig: TypeOrderConfigItem,
-                          subTypesWithAnnotation?: Array<string>) => {
+                          subTypesWithAnnotation?: Array<string>) =>
+    {
       let typeConfig = this.config.getAnnotationType(typeOrderConfig.name);
-      let subItems: Array<MenuItem> | undefined;
+      let subItems: Array<MenuItem> = [];
 
       let id = typeOrderConfig.name;
 
-      if (typeConfig.split_by_parents) {
-        subItems = typeConfig.split_by_parents.map(splitByConf => {
-          return {
-            id: typeOrderConfig.name + '-' + splitByConf.config_name,
-            displayName: splitByConf.display_name,
-            subItems: undefined,
-          };
-        });
-      } else {
-        if (subTypesWithAnnotation && subTypesWithAnnotation.length > 0) {
-          subItems = subTypesWithAnnotation.map(typeName => {
-            let subTypeConfig = this.config.getAnnotationType(typeName);
-            return {
-              id: typeName,
-              displayName: subTypeConfig.menu_item_label ||
-                subTypeConfig.display_name || Util.capitalize(typeName),
-            }
-          });
+      if (subTypesWithAnnotation && subTypesWithAnnotation.length > 0) {
+        for (const subTypeName of subTypesWithAnnotation) {
+          let subTypeConfig = this.config.getAnnotationType(subTypeName);
 
-          // hack so that clicking on eg. "Expression" scrolls to first expression section
-          id = subTypesWithAnnotation[0];
+          if (subTypeConfig.split_by_parents) {
+            subTypeConfig.split_by_parents.map(splitByConf => {
+              const displayName =
+                    (subTypeConfig.menu_item_label || subTypeConfig.display_name ||
+                     subTypeName) +
+                    ' - ' + splitByConf.display_name
+              subItems.push({
+                id: subTypeName + '-' + splitByConf.config_name,
+                displayName: Util.capitalize(displayName),
+              });
+            });
+          } else {
+            subItems.push({
+              id: subTypeName,
+              displayName: subTypeConfig.menu_item_label ||
+                subTypeConfig.display_name || Util.capitalize(subTypeName),
+            });
+          }
         }
+
+        // hack so that clicking on eg. "Expression" scrolls to first expression section
+        id = subTypesWithAnnotation[0];
       }
 
       return {
@@ -236,29 +241,20 @@ export class GeneDetailsComponent implements OnInit {
     };
 
     for (let typeOrderConfig of this.annotationTypeOrder) {
-      if (typeOrderConfig.sub_types) {
-        const subTypesWithAnnotation =
-          typeOrderConfig.sub_types.filter(subTypeName => {
-            return this.hasCvAnnotations(subTypeName);
-          });
-
-        if (subTypesWithAnnotation.length > 0) {
-          this.menuItems.push(makeMenuItem(typeOrderConfig, subTypesWithAnnotation));
-        }
-      } else {
-        if (this.hasCvAnnotations(typeOrderConfig.name)) {
+      if (typeOrderConfig.name === 'protein_domains_and_properties') {
+        if (this.showProteinFeatures &&
+            this.geneDetails.feature_type === 'mRNA gene') {
           this.menuItems.push(makeMenuItem(typeOrderConfig));
         }
+        continue;
       }
 
-      if (typeOrderConfig.name === 'protein_domains_and_properties' && this.showProteinFeatures &&
-          this.geneDetails.feature_type === 'mRNA gene') {
-        this.menuItems.push(makeMenuItem(typeOrderConfig));
-      }
-      if (typeOrderConfig.name === 'transcript_view' &&
-        this.geneDetails && this.geneDetails.transcripts &&
-        this.geneDetails.transcripts.length > 0) {
-        this.menuItems.push(makeMenuItem(typeOrderConfig));
+      if (typeOrderConfig.name === 'transcript_view') {
+        if (this.geneDetails && this.geneDetails.transcripts &&
+            this.geneDetails.transcripts.length > 0) {
+          this.menuItems.push(makeMenuItem(typeOrderConfig))
+        }
+        continue;
       }
 
       if (typeOrderConfig.name === 'interactions') {
@@ -277,9 +273,10 @@ export class GeneDetailsComponent implements OnInit {
         if (subTypes.length > 0) {
           this.menuItems.push(makeMenuItem(typeOrderConfig, subTypes));
         }
+        continue;
       }
 
-      if (typeOrderConfig.name === 'homologs') {
+      if (typeOrderConfig.name === 'homologs and conservation') {
         let subTypes = [];
 
         if (this.showOrthologsSection()) {
@@ -291,9 +288,15 @@ export class GeneDetailsComponent implements OnInit {
           subTypes.push('paralogs');
         }
 
+        if (this.geneDetails.cv_annotations['species_dist'] &&
+            this.geneDetails.cv_annotations['species_dist'].length > 0) {
+          subTypes.push('species_dist');
+        }
+
         if (subTypes.length > 0) {
           this.menuItems.push(makeMenuItem(typeOrderConfig, subTypes));
         }
+        continue;
       }
 
       if (typeOrderConfig.name === 'target_of') {
@@ -301,10 +304,20 @@ export class GeneDetailsComponent implements OnInit {
             this.geneDetails.target_of_annotations.length > 0) {
           this.menuItems.push(makeMenuItem(typeOrderConfig));
         }
+        continue;
       }
 
-      if (typeOrderConfig.name === 'miscellaneous') {
-        if (this.hasMiscAnnotations()) {
+      if (typeOrderConfig.sub_types) {
+        const subTypesWithAnnotation =
+          typeOrderConfig.sub_types.filter(subTypeName => {
+            return this.hasCvAnnotations(subTypeName);
+          });
+
+        if (subTypesWithAnnotation.length > 0) {
+          this.menuItems.push(makeMenuItem(typeOrderConfig, subTypesWithAnnotation));
+        }
+      } else {
+        if (this.hasCvAnnotations(typeOrderConfig.name)) {
           this.menuItems.push(makeMenuItem(typeOrderConfig));
         }
       }
