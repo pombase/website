@@ -261,17 +261,21 @@ export class GeneDetailsComponent implements OnInit {
         this.menuItems.push(makeMenuItem(typeOrderConfig));
       }
 
-      if (typeOrderConfig.name === 'physical_interactions') {
+      if (typeOrderConfig.name === 'interactions') {
+        let subTypes = [];
+
         if (this.geneDetails.physical_interactions &&
             this.geneDetails.physical_interactions.length > 0) {
-          this.menuItems.push(makeMenuItem(typeOrderConfig));
+          subTypes.push('physical_interactions');
         }
-      }
 
-      if (typeOrderConfig.name === 'genetic_interactions') {
         if (this.geneDetails.genetic_interactions &&
             this.geneDetails.genetic_interactions.length > 0) {
-          this.menuItems.push(makeMenuItem(typeOrderConfig));
+          subTypes.push('genetic_interactions');
+        }
+
+        if (subTypes.length > 0) {
+          this.menuItems.push(makeMenuItem(typeOrderConfig, subTypes));
         }
       }
 
