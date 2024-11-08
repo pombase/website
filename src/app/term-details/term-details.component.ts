@@ -152,7 +152,15 @@ export class TermDetailsComponent implements OnInit {
                 this.setDisplayTermId();
                 this.setPageTitle();
                 this.annotationFeatureType = termDetails.annotation_feature_type;
-                this.annotationTypeNames = this.config.annotationTypeOrder;
+                this.annotationTypeNames = [];
+                for (const orderConf of this.config.annotationTypeOrder) {
+                  if (orderConf.sub_types) {
+                    orderConf.sub_types.map(subTypeName =>
+                      this.annotationTypeNames.push(subTypeName));
+                  } else {
+                    this.annotationTypeNames.push(orderConf.name);
+                  }
+                }
                 this.setVisibleSections();
                 this.scrollToPageTop();
                 this.apiError = undefined;

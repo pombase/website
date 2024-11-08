@@ -477,6 +477,7 @@ export interface SourceConfig {
 export interface AnnotationType {
   feature_type: string;
   display_name: string;
+  menu_item_label?: string;
   inherits_from?: string;
   split_by_parents?: Array<SplitByParentsConfig>;
   columns_to_show?: Array<string>;
@@ -620,8 +621,13 @@ export interface InteractionTypeConfig {
   isSymmetric: boolean;
 }
 
+export interface TypeOrderConfigItem {
+  name: string;
+  sub_types?: Array<string>;
+}
+
 export interface AnnotationTableConfig {
-  annotationTypeOrder: Array<string>;
+  annotationTypeOrder: Array<TypeOrderConfigItem>;
   extensions: ExtensionConfig;
   annotationTypes: AnnotationTypes;
   interactionConfig: {
@@ -634,9 +640,9 @@ const GO_ASPECTS = ['molecular_function', 'biological_process', 'cellular_compon
 
 let _config: AnnotationTableConfig = {
   annotationTypes: pombaseConfig.cv_config,
-  annotationTypeOrder: (pombaseConfig.annotation_type_order as Array<string>)
-    .filter(typeName => {
-      return typeName in pombaseConfig.cv_config;
+  annotationTypeOrder: (pombaseConfig.annotation_type_order as Array<TypeOrderConfigItem>)
+    .filter(typeConfig => {
+      return typeConfig.name in pombaseConfig.cv_config || typeConfig.sub_types != undefined;
     }),
   extensions: {
   },
@@ -701,8 +707,8 @@ if (pombaseConfig.term_page_extensions_cv_names &&
         'columns_to_show': ['desc-rel', 'genotype', 'evidence', 'qualifiers', 'reference', 'count', 'extension']
       };
 
-      _config.annotationTypeOrder.push(typeName + ':gene');
-      _config.annotationTypeOrder.push(typeName + ':genotype');
+      _config.annotationTypeOrder.push({ name: typeName + ':gene' });
+      _config.annotationTypeOrder.push({ name: typeName + ':genotype' });
     }
   }
 }

@@ -102,7 +102,15 @@ export class GenotypeDetailsComponent implements OnInit {
           .then(genotypeDetails => {
             this.genotypeDetails = genotypeDetails;
             this.setDisplayName();
-            this.annotationTypeNames = this.config.annotationTypeOrder;
+            this.annotationTypeNames = [];
+            for (const orderConf of this.config.annotationTypeOrder) {
+              if (orderConf.sub_types) {
+                orderConf.sub_types.map(subTypeName =>
+                  this.annotationTypeNames.push(subTypeName));
+              } else {
+                this.annotationTypeNames.push(orderConf.name);
+              }
+            }
             this.setPageTitle();
             this.apiError = undefined;
             this.isDiploid = false;

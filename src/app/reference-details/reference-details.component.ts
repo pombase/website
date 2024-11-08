@@ -325,7 +325,16 @@ export class ReferenceDetailsComponent implements OnInit {
             this.apiError = undefined;
             this.refDetails = refDetails;
             this.externalLinks = this.appConfig.refPageExtraLinks[this.refDetails.uniquename];
-            this.annotationTypeNames = this.config.annotationTypeOrder;
+            this.annotationTypeNames = [];
+            for (const orderConf of this.config.annotationTypeOrder) {
+              if (orderConf.sub_types) {
+                orderConf.sub_types.map(subTypeName =>
+                  this.annotationTypeNames.push(subTypeName));
+              } else {
+                this.annotationTypeNames.push(orderConf.name);
+              }
+            }
+
             let re = /(PMID):(\d+)/i;
             let matches = refDetails.uniquename.match(re);
             if (matches) {
