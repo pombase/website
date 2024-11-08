@@ -200,6 +200,8 @@ export class GeneDetailsComponent implements OnInit {
       let typeConfig = this.config.getAnnotationType(typeOrderConfig.name);
       let subItems: Array<MenuItem> | undefined;
 
+      let id = typeOrderConfig.name;
+
       if (typeConfig.split_by_parents) {
         subItems = typeConfig.split_by_parents.map(splitByConf => {
           return {
@@ -209,7 +211,7 @@ export class GeneDetailsComponent implements OnInit {
           };
         });
       } else {
-        if (subTypesWithAnnotation) {
+        if (subTypesWithAnnotation && subTypesWithAnnotation.length > 0) {
           subItems = subTypesWithAnnotation.map(typeName => {
             let subTypeConfig = this.config.getAnnotationType(typeName);
             return {
@@ -218,11 +220,14 @@ export class GeneDetailsComponent implements OnInit {
                 subTypeConfig.display_name || Util.capitalize(typeName),
             }
           });
+
+          // hack so that clicking on eg. "Expression" scrolls to first expression section
+          id = subTypesWithAnnotation[0];
         }
       }
 
       return {
-        id: typeOrderConfig.name,
+        id,
         displayName: typeConfig.menu_item_label ||
           typeConfig.display_name || Util.capitalize(typeOrderConfig.name),
         subItems,
