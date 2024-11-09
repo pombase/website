@@ -5,6 +5,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          SplitByParentsConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Util } from '../shared/util';
 
 @Component({
   selector: 'app-annotation-table',
@@ -78,6 +79,10 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
 
   getProteinViewerIFrameURL(): SafeResourceUrl | undefined {
     return this.sanitizedFeatureViewURL;
+  }
+
+  capitalize(s: string): string {
+    return Util.capitalize(s);
   }
 
   ngOnInit() {
