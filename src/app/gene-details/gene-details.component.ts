@@ -249,14 +249,6 @@ export class GeneDetailsComponent implements OnInit {
         continue;
       }
 
-      if (typeOrderConfig.name === 'transcript_view') {
-        if (this.geneDetails && this.geneDetails.transcripts &&
-            this.geneDetails.transcripts.length > 0) {
-          this.menuItems.push(makeMenuItem(typeOrderConfig))
-        }
-        continue;
-      }
-
       if (typeOrderConfig.name === 'interactions') {
         let subTypes = [];
 
@@ -330,9 +322,25 @@ export class GeneDetailsComponent implements OnInit {
       });
     }
 
-    this.menuItems.push({
+    let seqSubItems = [];
+
+    if (this.geneDetails && this.geneDetails.transcripts &&
+        this.geneDetails.transcripts.length > 0) {
+      seqSubItems.push({
+        id: 'transcript_view',
+        displayName: 'Transcript details',
+      });
+    }
+
+    seqSubItems.push({
       id: 'transcript-sequence',
       displayName: 'Sequence',
+    });
+
+    this.menuItems.push({
+      id: seqSubItems[0].id,
+      displayName: Util.capitalize('Sequence and transcripts'),
+      subItems: seqSubItems,
     });
 
     this.menuItems.push({

@@ -153,10 +153,6 @@
                                  [annotationTypeNames]="miscAnnotationTypeNames"
                                  [geneDetails]="geneDetails"></app-misc-annotation-table>
 
-      <app-transcript-view id="{{annotationTypeName}}"
-                           *ngIf="annotationTypeName == 'transcript_view' && geneDetails!.transcripts.length > 0"
-                           [geneDetails]="geneDetails"></app-transcript-view>
-
       <app-protein-features id="{{annotationTypeName}}"
                             *ngIf="annotationTypeName == 'protein_domains_and_properties' && showProteinFeatures"
                             [geneDetails]="geneDetails"></app-protein-features>
@@ -188,6 +184,10 @@
                                       [geneDetails]="geneDetails"
                                       [annotationTable]="geneDetails.target_of_annotations"></app-target-of-annotation-table>
     </div>
+
+    <app-transcript-view id="transcript_view"
+                         *ngIf="geneDetails!.transcripts.length > 0"
+                         [geneDetails]="geneDetails"></app-transcript-view>
 
     <app-transcript-sequence-select *ngIf="isConfiguredOrganism" id="transcript-sequence"
                                     [geneDetails]="geneDetails"></app-transcript-sequence-select>
