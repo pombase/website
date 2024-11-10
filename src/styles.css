@@ -244,7 +244,7 @@ select option:disabled {
     width: auto;
   }
   .details-page-menu, .page-content-menu {
-    width: 205px;
+    width: 210px;
     left: 10px;
   }
   .menu-pos-absolute {
@@ -284,27 +284,27 @@ select option:disabled {
   font-size: 120%;
   margin-left: 0px;
   font-weight: bold;
-  border-left: 4px solid #556;
+  border-left: 3px solid #556;
 }
 .left-menu-item {
   -webkit-user-select: none;
   user-select: none;
-  margin-left: 6px;
+  margin-left: 0px;
   font-size: 105%;
   border-left: 3px solid #667;
 }
 .left-sub-menu-item {
   -webkit-user-select: none;
   user-select: none;
-  margin-left: 12px;
-  font-size: 100%;
+  margin-left: 6px;
+  font-size: 95%;
   border-left: 2px solid #778;
 }
 .left-sub-sub-menu-item {
   -webkit-user-select: none;
   user-select: none;
-  margin-left: 18px;
-  font-size: 99%;
+  margin-left: 12px;
+  font-size: 95%;
   border-left: 1.7px solid #889;
 }
 
