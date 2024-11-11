@@ -45,7 +45,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
           if (splitByTermId.startsWith('NOT ')) {
             // handling splitting out some terms, eg. MF binding vs NOT binding
             notFlag = true;
-            splitByTermId = splitByTermId.substr(4);
+            splitByTermId = splitByTermId.substring(4);
           }
 
           for (let termAnnotation of this.annotationTable) {
