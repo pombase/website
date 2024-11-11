@@ -209,14 +209,22 @@ export class GeneDetailsComponent implements OnInit {
 
           if (subTypeConfig.split_by_parents) {
             subTypeConfig.split_by_parents.map(splitByConf => {
-              const displayName =
-                    (subTypeConfig.menu_item_label || subTypeConfig.display_name ||
-                     subTypeName) +
-                    ' - ' + splitByConf.display_name
-              subItems.push({
-                id: subTypeName + '-' + splitByConf.config_name,
-                displayName: Util.capitalize(displayName),
-              });
+              const groups = this.geneDetails.split_by_parent_groups;
+              if (groups) {
+                const thisCvGroup = groups[subTypeName];
+                if (thisCvGroup) {
+                  if (thisCvGroup[splitByConf.config_name]) {
+                    const displayName =
+                          (subTypeConfig.menu_item_label || subTypeConfig.display_name ||
+                           subTypeName) +
+                          ' - ' + splitByConf.display_name
+                    subItems.push({
+                      id: subTypeName + '-' + splitByConf.config_name,
+                      displayName: Util.capitalize(displayName),
+                    });
+                  }
+                }
+              }
             });
           } else {
             subItems.push({

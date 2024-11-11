@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
-import { TermAndName, TermShort } from './pombase-query';
+import { TermAndName, TermId, TermShort } from './pombase-query';
 import { Util } from './shared/util';
 import { Seq } from './seq';
 import { getAppConfig, ConfigOrganism } from './config';
@@ -572,6 +572,13 @@ export interface GeneHistoryEntry {
   genome_snapshot_link?: string;
 }
 
+export type OntName = string;
+export type OntSplitByGroups = {
+  [cvName: OntName ]: {
+    [splitGroupName: string]: Array<TermId>;
+  }
+}
+
 export interface PDBGeneChain {
   gene: GeneShort;
   chain: string;
@@ -645,6 +652,7 @@ export class GeneDetails {
   feature_publications: Array<RefAndSource>;
   genotypes_by_uniquename: GenotypeShortByUniquename;
   gene_history: Array<GeneHistoryEntry>;
+  split_by_parent_groups: OntSplitByGroups;
 }
 
 export class GenotypeDetails {
