@@ -4,6 +4,13 @@ import { ExtPart, ExtRange, GeneShort } from '../pombase-api.service';
 import { TermShort } from '../pombase-query';
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
          getAppConfig, getXrf } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
+
+interface DisplayExtension {
+  relTypeName: string;
+  rawName: string;
+  extRange: any;
+}
 
 @Component({
   selector: 'app-extension-display',
@@ -16,12 +23,12 @@ export class ExtensionDisplayComponent implements OnInit {
   @Input() highlightRelations = true;
   @Input() geneShort?: GeneShort = undefined;
 
-  displayExtension: { relTypeName: string; rawName: string; extRange: any; }[] = [];
+  displayExtension: Array<DisplayExtension> = [];
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;
 
-  constructor() { }
+  constructor(private deployConfigService: DeployConfigService) { }
 
   getLink(idWithPrefix: string): string|undefined {
     const linkConf = getXrf(idWithPrefix);
@@ -64,6 +71,14 @@ export class ExtensionDisplayComponent implements OnInit {
       }
     }
     return residue;
+  }
+
+  relTitle(extPart: DisplayExtension): string {
+    if (this.deployConfigService.productionMode()) {
+      return '';
+    } else {
+      return extPart.rawName;
+    }
   }
 
   ngOnInit() {
