@@ -482,12 +482,15 @@ export class SearchBoxComponent implements OnInit {
   }
 
   observableFromToken(token: string): Observable<Array<DisplayModel>> {
+    token = token.trim();
     let observables = [];
     const geneSummaryObservable = of(this.summariesFromToken(token));
     observables.push(geneSummaryObservable);
 
     token = token.replace(this.sysGeneIdRe, '').replace(this.sysTranscriptIdRe, '').trim();
-    token = token.replace(/^PMID: +/, 'PMID:'); // handle copy and paste from PubMed pages
+
+    // handle copy and paste from PubMed pages, and other weird things that happen to PMIDs
+    token = token.replace(/^(PMID|PubMed)[: _\-]*/i, 'PMID:');
 
     if (token.length > 0) {
       // for now we filter out systematic IDs because they cause Lucene problems
