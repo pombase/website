@@ -1048,10 +1048,11 @@ New PomBase Website 2017, Group Leader Survey Summary.<br />
 <h4 id="current-members">Current members</h4>
 <p><em>Li-Lin Du</em><br> National Institute of Biological Sciences, Beijing, China</p>
 <p><em>Kathleen Gould</em><br> Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA</p>
-<p><em>Doug Howe</em><br> The Zebrafish Information Network, University of Oregon, Eugene, OR, USA</p>
 <p><em>Sabina Leonelli</em><br> Exeter Centre for the Study of the Life Sciences &amp; Department of Sociology, Philosophy and Anthropology, University of Exeter, Exeter, UK</p>
-<p><em>Samuel Marguerat</em><br> UCL Cancer Institute, London, UK</p>
 <p><em>Sophie Martin</em><br> Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland</p>
+<h4 id="past-sab-members">Past SAB members</h4>
+<p><em>Doug Howe</em><br> The Zebrafish Information Network, University of Oregon, Eugene, OR, USA</p>
+<p><em>Samuel Marguerat</em><br> UCL Cancer Institute, London, UK</p>
 <h4 id="related-pages">Related pages</h4>
 <p><a routerLink="/submit-data/gene-naming-committee-members">Fission yeast gene naming committee</a></p>
 
@@ -5045,6 +5046,9 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <h3 id="data-download-site">Data download site</h3>
 <p><a href="https://www.pombase.org/data/">Main directory for <em>S. pombe</em> data</a></p>
 <hr />
+<h3 id="dataset-and-ontology-versions">Dataset and ontology versions</h3>
+<p>The <a routerLink="/internal-details">versions page</a> is updated each night.</p>
+<hr />
 <h3 id="genome-sequence-and-features"><a routerLink="/downloads/genome-datasets">Genome sequence and features</a></h3>
 <ul>
 <li>Genome sequence (FASTA or enriched EMBL format for Artemis)</li>
@@ -6250,7 +6254,7 @@ to retrieve all genes inviable at high temperature (the subtract all “viable v
   </div>
   <div *ngIf="pageName == 'gene-page-literature'">
 <h2 id="gene-page-literature">Gene page: Literature</h2>
-<p>The Literature section of a gene page lists the papers that have curated data for the gene or its product.</p>
+<p>The Literature section of a gene page lists the papers that have curated data for the gene or its product, and papers which mention the gene in keywords.</p>
 <p>At the top of the section, there is a link to search PubMed for any papers on the gene. This may retrieve papers not on the gene page Literature list, if there are papers not yet curated (or spurious matches to the search criteria).</p>
 <p>For each paper, the full citation and the number of genes curated from the paper are shown, and a “Details” link goes to the <a routerLink="/documentation/publication-page">publication page</a>.</p>
 <p>By default, the list is sorted alphabetically by first author. Use the “Sort by” links to change the order.</p>
@@ -8169,7 +8173,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <p>The <a href="https://www.pombase.org/data/Protein_data/">protein data directory</a> contains assorted data (see the README for file formats):</p>
 <ul>
 <li><a href="https://www.pombase.org/data/Protein_data/PeptideStats.tsv">PeptideStats.tsv</a> - Predicted molecular weight (kDa), predicted pI, charge, length (residues), codon adaptation index (CAI)</li>
-<li><a href="https://www.pombase.org/data/Protein_data/Protein_Features.tsv">Protein_Features.tsv</a> - Protein features such as domains and family assignments</li>
+<li><a href="https://www.pombase.org/data/Protein_data/protein_domains_and_features.tsv">protein_domains_and_features.tsv</a> - Protein features such as domains and family assignments</li>
 <li><a href="https://www.pombase.org/data/Protein_data/aa_composition.tsv">aa_composition.tsv</a> - Amino acid composition</li>
 <li><a href="https://www.pombase.org/data/Protein_data/transmembrane_domain_coords_and_seqs.tsv">transmembrane_domain_coords_and_seqs.tsv</a> - Sequences and coordinates for transmembrane domains</li>
 </ul>
