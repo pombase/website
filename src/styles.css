@@ -275,7 +275,7 @@ select option:disabled {
   background-color: #e8e8dfdd;
 }
 
-.left-menu-part a {
+.left-menu-part a, .left-menu-part span {
   display: block;
   padding: 3px 5px 3px 5px;
 }
