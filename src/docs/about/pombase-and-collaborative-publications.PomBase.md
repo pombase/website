@@ -30,6 +30,17 @@ integrative phenomics \
 ### Journal articles
 
 ::: { .publication-badges }
+<app-publication-badge [doi]="'10.1093/nar/gkae997'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Typhaine Paysan-Lafosse, Antonina Andreeva, *et al.* (Val Wood co-author) \
+The Pfam protein families database: embracing AI/ML \
+*Nucleic Acids Research*, gkae997 (2024) \
+[10.1093/nar/gkae997](https://doi.org/10.1093/nar/gkae997)
+:::
+
+
+::: { .publication-badges }
 <app-publication-badge [doi]="'10.1186/s13326-024-00320-3'"></app-publication-badge>
 :::
 ::: { .pub-citation }
