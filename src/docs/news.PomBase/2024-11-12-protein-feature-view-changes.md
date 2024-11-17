@@ -13,3 +13,6 @@ Ontology features in this view.
 
 [![Example full protein feature view for cpy1](assets/newsfeed/feature-full-view-cpy1.png){ .screenshot loading="lazy" width=100% }](assets/newsfeed/feature-full-view-cpy1-big.png)
 
+Thanks to the team at [RCSB PDB](https://www.rcsb.org/) for providing
+the [Open Source software](https://github.com/rcsb/rcsb-saguaro) used
+to implement the protein feature view in PomBase.
