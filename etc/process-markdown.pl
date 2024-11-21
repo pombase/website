@@ -702,6 +702,9 @@ sub angular_link {
   my $title = shift;
   my $path = shift;
 
+  # hack to undo escaping of "@" in HTML
+  $path =~ s/\{\{&quot;\@&quot;\}\}/@/g;
+
   $path =~ s/\.md$//;
 
   if ($path =~ /\.(?:png|gif|pdf|svg)($|\s)/ ||
@@ -732,9 +735,12 @@ sub process_line {
   my $line_ref = shift;
   my $quote_angular_elements = !shift;
 
+  $$line_ref =~ s/\@/{{&quot;\@&quot;}}/g;
+
   $$line_ref =~ s/\$\{(\w+)\}/substitute_vars($1, $line_ref)/ge;
 
   $$line_ref =~ s/\[([^\]]+)\]\(([^\)]+)\)/angular_link($1, $2)/ge;
+
   if ($$line_ref !~ /<!--.*-->/) {
     if ($quote_angular_elements) {
       $$line_ref =~ s|(<app-[^>]+>)|`$1`{=html}|g;
