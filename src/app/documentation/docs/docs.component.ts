@@ -12,9 +12,10 @@ import { DOCUMENT } from '@angular/common';
 const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
 
 @Component({
-  selector: 'app-docs',
-  templateUrl: './docs.component.html',
-  styleUrls: ['./docs.component.css']
+    selector: 'app-docs',
+    templateUrl: './docs.component.html',
+    styleUrls: ['./docs.component.css'],
+    standalone: false
 })
 export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   section: string;

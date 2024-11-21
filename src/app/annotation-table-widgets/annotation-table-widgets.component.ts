@@ -8,9 +8,10 @@ import { HistoryEntry, QueryService } from '../query.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-annotation-table-widgets',
-  templateUrl: './annotation-table-widgets.component.html',
-  styleUrls: ['./annotation-table-widgets.component.css']
+    selector: 'app-annotation-table-widgets',
+    templateUrl: './annotation-table-widgets.component.html',
+    styleUrls: ['./annotation-table-widgets.component.css'],
+    standalone: false
 })
 export class AnnotationTableWidgetsComponent implements OnInit, OnChanges {
   @Input() annotationTable: AnnotationTable;

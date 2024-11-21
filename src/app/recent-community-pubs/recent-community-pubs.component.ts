@@ -4,9 +4,10 @@ import { PombaseAPIService, ReferenceShort } from '../pombase-api.service';
 
 
 @Component({
-  selector: 'app-recent-community-pubs',
-  templateUrl: './recent-community-pubs.component.html',
-  styleUrls: ['./recent-community-pubs.component.css']
+    selector: 'app-recent-community-pubs',
+    templateUrl: './recent-community-pubs.component.html',
+    styleUrls: ['./recent-community-pubs.component.css'],
+    standalone: false
 })
 export class RecentCommunityPubsComponent implements OnInit {
   recentCommunityCurationPubs: Array<ReferenceShort>;

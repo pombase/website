@@ -5,9 +5,10 @@ import { getAppConfig } from '../../config';
 import { GeneShort } from '../../pombase-api.service';
 
 @Component({
-  selector: 'app-gene-link',
-  templateUrl: './gene-link.component.html',
-  styleUrls: ['./gene-link.component.css']
+    selector: 'app-gene-link',
+    templateUrl: './gene-link.component.html',
+    styleUrls: ['./gene-link.component.css'],
+    standalone: false
 })
 export class GeneLinkComponent implements OnInit {
   @Input() gene: GeneShort;

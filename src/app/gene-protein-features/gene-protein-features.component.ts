@@ -6,9 +6,10 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
-  selector: 'app-gene-protein-features',
-  templateUrl: './gene-protein-features.component.html',
-  styleUrls: ['./gene-protein-features.component.css']
+    selector: 'app-gene-protein-features',
+    templateUrl: './gene-protein-features.component.html',
+    styleUrls: ['./gene-protein-features.component.css'],
+    standalone: false
 })
 export class GeneProteinFeaturesComponent implements OnInit {
   @Input() geneDetails: GeneDetails;

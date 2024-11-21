@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PombaseAPIService, Metadata } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-internal-details',
-  templateUrl: './internal-details.component.html',
-  styleUrls: ['./internal-details.component.css']
+    selector: 'app-internal-details',
+    templateUrl: './internal-details.component.html',
+    styleUrls: ['./internal-details.component.css'],
+    standalone: false
 })
 export class InternalDetailsComponent implements OnInit {
   metadata: Metadata;

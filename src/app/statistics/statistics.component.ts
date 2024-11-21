@@ -3,9 +3,10 @@ import { PombaseAPIService, DatabaseStatistics } from '../pombase-api.service';
 import { getAppConfig, ConfigOrganism } from '../config';
 
 @Component({
-  selector: 'app-statistics',
-  templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.css']
+    selector: 'app-statistics',
+    templateUrl: './statistics.component.html',
+    styleUrls: ['./statistics.component.css'],
+    standalone: false
 })
 export class StatisticsComponent implements OnInit {
   statistics: DatabaseStatistics;

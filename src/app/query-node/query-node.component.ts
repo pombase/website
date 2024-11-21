@@ -5,9 +5,10 @@ import { DeployConfigService } from "../deploy-config.service";
 import { NodeEventDetails } from "../pombase-query";
 
 @Component({
-  selector: 'app-query-node',
-  templateUrl: './query-node.component.html',
-  styleUrls: ['./query-node.component.css']
+    selector: 'app-query-node',
+    templateUrl: './query-node.component.html',
+    styleUrls: ['./query-node.component.css'],
+    standalone: false
 })
 export class QueryNodeComponent implements OnInit, OnChanges {
   @Input() startNodeType?: string;

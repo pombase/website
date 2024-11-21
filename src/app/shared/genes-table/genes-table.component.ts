@@ -18,9 +18,10 @@ import { QueryRouterService } from '../../query-router.service';
 import { Util } from '../util';
 
 @Component({
-  selector: 'app-genes-table',
-  templateUrl: './genes-table.component.html',
-  styleUrls: ['./genes-table.component.css']
+    selector: 'app-genes-table',
+    templateUrl: './genes-table.component.html',
+    styleUrls: ['./genes-table.component.css'],
+    standalone: false
 })
 export class GenesTableComponent implements OnInit {
   @Input() mode = 'results';

@@ -3,9 +3,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { GeneDetails } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-deletion-viability-summary',
-  templateUrl: './deletion-viability-summary.component.html',
-  styleUrls: ['./deletion-viability-summary.component.css']
+    selector: 'app-deletion-viability-summary',
+    templateUrl: './deletion-viability-summary.component.html',
+    styleUrls: ['./deletion-viability-summary.component.css'],
+    standalone: false
 })
 export class DeletionViabilitySummaryComponent implements OnInit {
   @Input() geneDetails: GeneDetails;

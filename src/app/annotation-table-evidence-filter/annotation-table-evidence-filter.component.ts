@@ -14,9 +14,10 @@ class SelectData {
 }
 
 @Component({
-  selector: 'app-annotation-table-evidence-filter',
-  templateUrl: './annotation-table-evidence-filter.component.html',
-  styleUrls: ['./annotation-table-evidence-filter.component.css']
+    selector: 'app-annotation-table-evidence-filter',
+    templateUrl: './annotation-table-evidence-filter.component.html',
+    styleUrls: ['./annotation-table-evidence-filter.component.css'],
+    standalone: false
 })
 export class AnnotationTableEvidenceFilterComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;

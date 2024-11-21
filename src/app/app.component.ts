@@ -10,9 +10,10 @@ import { FooterLogoConfig, getAppConfig } from './config';
 import { DeployConfigService } from './deploy-config.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: false
 })
 export class AppComponent implements OnInit, AfterViewInit {
   siteName = getAppConfig().site_name;

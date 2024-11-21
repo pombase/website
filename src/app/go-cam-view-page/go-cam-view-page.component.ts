@@ -5,9 +5,10 @@ import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-br
 import { AppConfig, getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-go-cam-view-page',
-  templateUrl: './go-cam-view-page.component.html',
-  styleUrls: ['./go-cam-view-page.component.css']
+    selector: 'app-go-cam-view-page',
+    templateUrl: './go-cam-view-page.component.html',
+    styleUrls: ['./go-cam-view-page.component.css'],
+    standalone: false
 })
 export class GoCamViewPageComponent implements OnInit {
   appConfig: AppConfig = getAppConfig();

@@ -7,9 +7,10 @@ import { GeneQuery } from '../pombase-query';
 type Direction = 'forward'|'reverse'|'cancel';
 
 @Component({
-  selector: 'app-not-direction-select-dialog',
-  templateUrl: './not-direction-select-dialog.component.html',
-  styleUrls: ['./not-direction-select-dialog.component.css']
+    selector: 'app-not-direction-select-dialog',
+    templateUrl: './not-direction-select-dialog.component.html',
+    styleUrls: ['./not-direction-select-dialog.component.css'],
+    standalone: false
 })
 export class NotDirectionSelectDialogComponent implements OnInit {
 

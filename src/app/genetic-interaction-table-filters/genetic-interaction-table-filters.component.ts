@@ -5,9 +5,10 @@ import { FilterConfig } from '../config';
 import { FilterCombiner, GeneticInteractionFilter } from '../filtering';
 
 @Component({
-  selector: 'app-genetic-interaction-table-filters',
-  templateUrl: './genetic-interaction-table-filters.component.html',
-  styleUrls: ['./genetic-interaction-table-filters.component.css']
+    selector: 'app-genetic-interaction-table-filters',
+    templateUrl: './genetic-interaction-table-filters.component.html',
+    styleUrls: ['./genetic-interaction-table-filters.component.css'],
+    standalone: false
 })
 export class GeneticInteractionTableFiltersComponent implements OnInit {
   @Input() interactionTable: Array<GeneticInteractionGroup>;

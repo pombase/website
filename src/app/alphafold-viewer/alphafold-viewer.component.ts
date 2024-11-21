@@ -4,9 +4,10 @@ import { GeneDetails } from '../pombase-api.service';
 import { AppConfig, getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-alphafold-viewer',
-  templateUrl: './alphafold-viewer.component.html',
-  styleUrls: ['./alphafold-viewer.component.css']
+    selector: 'app-alphafold-viewer',
+    templateUrl: './alphafold-viewer.component.html',
+    styleUrls: ['./alphafold-viewer.component.css'],
+    standalone: false
 })
 export class AlphafoldViewerComponent implements OnInit {
   @Input() geneDetails: GeneDetails;

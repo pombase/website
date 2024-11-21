@@ -6,9 +6,10 @@ import { AnnotationTableConfig, getAnnotationTableConfig, AnnotationType, Filter
 import { Filter } from '../filtering';
 
 @Component({
-  selector: 'app-quant-gene-ex-table',
-  templateUrl: './quant-gene-ex-table.component.html',
-  styleUrls: ['./quant-gene-ex-table.component.css']
+    selector: 'app-quant-gene-ex-table',
+    templateUrl: './quant-gene-ex-table.component.html',
+    styleUrls: ['./quant-gene-ex-table.component.css'],
+    standalone: false
 })
 export class QuantGeneExTableComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;

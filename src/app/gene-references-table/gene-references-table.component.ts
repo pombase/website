@@ -4,9 +4,10 @@ import { ReferenceShort, GeneDetails } from '../pombase-api.service';
 import { getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-gene-references-table',
-  templateUrl: './gene-references-table.component.html',
-  styleUrls: ['./gene-references-table.component.css']
+    selector: 'app-gene-references-table',
+    templateUrl: './gene-references-table.component.html',
+    styleUrls: ['./gene-references-table.component.css'],
+    standalone: false
 })
 export class GeneReferencesTableComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;

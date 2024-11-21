@@ -13,9 +13,10 @@ interface DisplayExtension {
 }
 
 @Component({
-  selector: 'app-extension-display',
-  templateUrl: './extension-display.component.html',
-  styleUrls: ['./extension-display.component.css']
+    selector: 'app-extension-display',
+    templateUrl: './extension-display.component.html',
+    styleUrls: ['./extension-display.component.css'],
+    standalone: false
 })
 export class ExtensionDisplayComponent implements OnInit {
   @Input() extension: Array<ExtPart> = [];

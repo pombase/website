@@ -30,9 +30,10 @@ interface DisplayAnnotation {
 }
 
 @Component({
-  selector: 'app-genetic-interaction-annotation-table',
-  templateUrl: './genetic-interaction-annotation-table.component.html',
-  styleUrls: ['./genetic-interaction-annotation-table.component.css']
+    selector: 'app-genetic-interaction-annotation-table',
+    templateUrl: './genetic-interaction-annotation-table.component.html',
+    styleUrls: ['./genetic-interaction-annotation-table.component.css'],
+    standalone: false
 })
 export class GeneticInteractionAnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;

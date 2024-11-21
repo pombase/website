@@ -4,10 +4,11 @@ import { NodeEventDetails } from '../pombase-query';
 import { Util } from '../shared/util';
 
 @Component({
-  selector: 'app-query-sub-nodes',
-  templateUrl: './query-sub-nodes.component.html',
-  styleUrls: ['./query-sub-nodes.component.css'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-query-sub-nodes',
+    templateUrl: './query-sub-nodes.component.html',
+    styleUrls: ['./query-sub-nodes.component.css'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class QuerySubNodesComponent implements OnInit, OnChanges {
   @Input() nodeConfig: QueryNodeConfig;

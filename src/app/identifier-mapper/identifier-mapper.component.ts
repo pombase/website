@@ -5,9 +5,10 @@ import { AppConfig, getAppConfig } from '../config';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-identifier-mapper',
-  templateUrl: './identifier-mapper.component.html',
-  styleUrls: ['./identifier-mapper.component.css']
+    selector: 'app-identifier-mapper',
+    templateUrl: './identifier-mapper.component.html',
+    styleUrls: ['./identifier-mapper.component.css'],
+    standalone: false
 })
 export class IdentifierMapperComponent implements OnInit {
 

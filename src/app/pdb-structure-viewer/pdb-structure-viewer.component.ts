@@ -22,9 +22,10 @@ interface DisplayEntry {
 }
 
 @Component({
-  selector: 'app-pdb-structure-viewer',
-  templateUrl: './pdb-structure-viewer.component.html',
-  styleUrls: ['./pdb-structure-viewer.component.css']
+    selector: 'app-pdb-structure-viewer',
+    templateUrl: './pdb-structure-viewer.component.html',
+    styleUrls: ['./pdb-structure-viewer.component.css'],
+    standalone: false
 })
 export class PdbStructureViewerComponent implements OnInit {
   @Input() displayName?: string;

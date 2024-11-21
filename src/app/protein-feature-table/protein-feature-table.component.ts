@@ -15,9 +15,10 @@ interface DisplayTrack {
 }
 
 @Component({
-  selector: 'app-protein-feature-table',
-  templateUrl: './protein-feature-table.component.html',
-  styleUrls: ['./protein-feature-table.component.css']
+    selector: 'app-protein-feature-table',
+    templateUrl: './protein-feature-table.component.html',
+    styleUrls: ['./protein-feature-table.component.css'],
+    standalone: false
 })
 export class ProteinFeatureTableComponent {
   @Input() geneDetails: GeneDetails

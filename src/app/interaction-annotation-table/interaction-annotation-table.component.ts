@@ -16,9 +16,10 @@ interface DisplayAnnotation {
 }
 
 @Component({
-  selector: 'app-interaction-annotation-table',
-  templateUrl: './interaction-annotation-table.component.html',
-  styleUrls: ['./interaction-annotation-table.component.css']
+    selector: 'app-interaction-annotation-table',
+    templateUrl: './interaction-annotation-table.component.html',
+    styleUrls: ['./interaction-annotation-table.component.css'],
+    standalone: false
 })
 export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;

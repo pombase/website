@@ -8,9 +8,10 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Component({
-  selector: 'app-protein-features',
-  templateUrl: './protein-features.component.html',
-  styleUrls: ['./protein-features.component.css']
+    selector: 'app-protein-features',
+    templateUrl: './protein-features.component.html',
+    styleUrls: ['./protein-features.component.css'],
+    standalone: false
 })
 export class ProteinFeaturesComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;

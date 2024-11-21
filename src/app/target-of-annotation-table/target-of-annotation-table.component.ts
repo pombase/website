@@ -23,9 +23,10 @@ interface SummaryRow {
 }
 
 @Component({
-  selector: 'app-target-of-annotation-table',
-  templateUrl: './target-of-annotation-table.component.html',
-  styleUrls: ['./target-of-annotation-table.component.css']
+    selector: 'app-target-of-annotation-table',
+    templateUrl: './target-of-annotation-table.component.html',
+    styleUrls: ['./target-of-annotation-table.component.css'],
+    standalone: false
 })
 export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;

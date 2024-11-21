@@ -3,9 +3,10 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Metadata, PombaseAPIService } from '../../pombase-api.service';
 
 @Component({
-  selector: 'app-cv-version',
-  templateUrl: './cv-version.component.html',
-  styleUrls: ['./cv-version.component.css']
+    selector: 'app-cv-version',
+    templateUrl: './cv-version.component.html',
+    styleUrls: ['./cv-version.component.css'],
+    standalone: false
 })
 export class CvVersionComponent implements OnInit, OnChanges {
   @Input() cvName: string;

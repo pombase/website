@@ -15,9 +15,10 @@ class SelectData {
 
 
 @Component({
-  selector: 'app-genetic-interaction-table-throughput-filter',
-  templateUrl: './genetic-interaction-table-throughput-filter.component.html',
-  styleUrls: ['./genetic-interaction-table-throughput-filter.component.css']
+    selector: 'app-genetic-interaction-table-throughput-filter',
+    templateUrl: './genetic-interaction-table-throughput-filter.component.html',
+    styleUrls: ['./genetic-interaction-table-throughput-filter.component.css'],
+    standalone: false
 })
 export class GeneticInteractionTableThroughputFilterComponent implements OnInit, OnChanges {
   @Input() interactionTable: Array<GeneticInteractionGroup>;

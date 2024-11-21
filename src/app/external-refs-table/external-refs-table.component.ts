@@ -13,9 +13,10 @@ interface RefRow {
 }
 
 @Component({
-  selector: 'app-external-refs-table',
-  templateUrl: './external-refs-table.component.html',
-  styleUrls: ['./external-refs-table.component.css']
+    selector: 'app-external-refs-table',
+    templateUrl: './external-refs-table.component.html',
+    styleUrls: ['./external-refs-table.component.css'],
+    standalone: false
 })
 export class ExternalRefsTableComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;

@@ -5,9 +5,10 @@ import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType } from 
 import { GeneDetails } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-misc-annotation-table',
-  templateUrl: './misc-annotation-table.component.html',
-  styleUrls: ['./misc-annotation-table.component.css']
+    selector: 'app-misc-annotation-table',
+    templateUrl: './misc-annotation-table.component.html',
+    styleUrls: ['./misc-annotation-table.component.css'],
+    standalone: false
 })
 export class MiscAnnotationTableComponent implements OnInit {
   @Input() geneDetails: GeneDetails;

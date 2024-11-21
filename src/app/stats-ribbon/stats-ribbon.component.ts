@@ -5,9 +5,10 @@ import { Metadata, DatabaseStatistics, StatCountsByTaxon,
 import { getAppConfig, ConfigOrganism } from '../config';
 
 @Component({
-  selector: 'app-stats-ribbon',
-  templateUrl: './stats-ribbon.component.html',
-  styleUrls: ['./stats-ribbon.component.css']
+    selector: 'app-stats-ribbon',
+    templateUrl: './stats-ribbon.component.html',
+    styleUrls: ['./stats-ribbon.component.css'],
+    standalone: false
 })
 export class StatsRibbonComponent implements OnInit {
 

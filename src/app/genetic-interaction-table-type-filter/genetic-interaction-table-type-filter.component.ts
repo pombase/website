@@ -13,9 +13,10 @@ class SelectData {
 }
 
 @Component({
-  selector: 'app-genetic-interaction-table-type-filter',
-  templateUrl: './genetic-interaction-table-type-filter.component.html',
-  styleUrls: ['./genetic-interaction-table-type-filter.component.css']
+    selector: 'app-genetic-interaction-table-type-filter',
+    templateUrl: './genetic-interaction-table-type-filter.component.html',
+    styleUrls: ['./genetic-interaction-table-type-filter.component.css'],
+    standalone: false
 })
 export class GeneticInteractionTableTypeFilterComponent implements OnInit, OnChanges {
   @Input() interactionTable: Array<GeneticInteractionGroup>;

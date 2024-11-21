@@ -12,9 +12,10 @@ import { PageScrollService } from 'ngx-page-scroll-core';
 import { DOCUMENT } from '@angular/common';
 import { MenuItem } from '../types';
 @Component({
-  selector: 'app-reference-details',
-  templateUrl: './reference-details.component.html',
-  styleUrls: ['./reference-details.component.css']
+    selector: 'app-reference-details',
+    templateUrl: './reference-details.component.html',
+    styleUrls: ['./reference-details.component.css'],
+    standalone: false
 })
 export class ReferenceDetailsComponent implements OnInit {
   @Input() refDetails: ReferenceDetails;

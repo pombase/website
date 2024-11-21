@@ -14,9 +14,10 @@ class SelectData {
 }
 
 @Component({
-  selector: 'app-annotation-table-extension-filter',
-  templateUrl: './annotation-table-extension-filter.component.html',
-  styleUrls: ['./annotation-table-extension-filter.component.css']
+    selector: 'app-annotation-table-extension-filter',
+    templateUrl: './annotation-table-extension-filter.component.html',
+    styleUrls: ['./annotation-table-extension-filter.component.css'],
+    standalone: false
 })
 export class AnnotationTableExtensionFilterComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;

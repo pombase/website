@@ -8,9 +8,10 @@ import { switchMap, catchError } from 'rxjs/operators';
 import { TermShort } from '../pombase-query';
 
 @Component({
-  selector: 'app-term-name-complete',
-  templateUrl: './term-name-complete.component.html',
-  styleUrls: ['./term-name-complete.component.css']
+    selector: 'app-term-name-complete',
+    templateUrl: './term-name-complete.component.html',
+    styleUrls: ['./term-name-complete.component.css'],
+    standalone: false
 })
 export class TermNameCompleteComponent implements OnInit, OnChanges {
   @Input() cvName: string;

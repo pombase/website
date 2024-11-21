@@ -13,9 +13,10 @@ class SelectData {
 }
 
 @Component({
-  selector: 'app-annotation-table-ploidiness-filter',
-  templateUrl: './annotation-table-ploidiness-filter.component.html',
-  styleUrls: ['./annotation-table-ploidiness-filter.component.css']
+    selector: 'app-annotation-table-ploidiness-filter',
+    templateUrl: './annotation-table-ploidiness-filter.component.html',
+    styleUrls: ['./annotation-table-ploidiness-filter.component.css'],
+    standalone: false
 })
 export class AnnotationTablePloidinessFilterComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;

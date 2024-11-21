@@ -9,9 +9,10 @@ import { ConfigOrganism, getAppConfig,
          QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
 
 @Component({
-  selector: 'app-query-node-display',
-  templateUrl: './query-node-display.component.html',
-  styleUrls: ['./query-node-display.component.css']
+    selector: 'app-query-node-display',
+    templateUrl: './query-node-display.component.html',
+    styleUrls: ['./query-node-display.component.css'],
+    standalone: false
 })
 export class QueryNodeDisplayComponent implements OnInit, OnChanges {
   @Input() nodeConfig: QueryNodeConfig;

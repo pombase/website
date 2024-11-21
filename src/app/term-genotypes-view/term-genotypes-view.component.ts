@@ -6,9 +6,10 @@ import { TermDetails, PombaseAPIService } from '../pombase-api.service';
 import { AppConfig, getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-term-genotypes-view',
-  templateUrl: './term-genotypes-view.component.html',
-  styleUrls: ['./term-genotypes-view.component.css']
+    selector: 'app-term-genotypes-view',
+    templateUrl: './term-genotypes-view.component.html',
+    styleUrls: ['./term-genotypes-view.component.css'],
+    standalone: false
 })
 export class TermGenotypesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;

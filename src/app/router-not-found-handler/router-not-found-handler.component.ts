@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-router-not-found-handler',
-  templateUrl: './router-not-found-handler.component.html',
-  styleUrls: ['./router-not-found-handler.component.css']
+    selector: 'app-router-not-found-handler',
+    templateUrl: './router-not-found-handler.component.html',
+    styleUrls: ['./router-not-found-handler.component.css'],
+    standalone: false
 })
 export class RouterNotFoundHandlerComponent implements OnInit {
   path = '';

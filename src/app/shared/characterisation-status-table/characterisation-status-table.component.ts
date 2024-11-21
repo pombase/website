@@ -9,9 +9,10 @@ interface DisplaySubset {
 }
 
 @Component({
-  selector: 'app-characterisation-status-table',
-  templateUrl: './characterisation-status-table.component.html',
-  styleUrls: ['./characterisation-status-table.component.css']
+    selector: 'app-characterisation-status-table',
+    templateUrl: './characterisation-status-table.component.html',
+    styleUrls: ['./characterisation-status-table.component.css'],
+    standalone: false
 })
 export class CharacterisationStatusTableComponent implements OnInit {
   characterisationSubsets: Array<DisplaySubset>;

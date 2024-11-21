@@ -28,9 +28,10 @@ function summaryRowFeatureCount(summaryRow: TermSummaryRow): number {
 }
 
 @Component({
-  selector: 'app-annotation-sub-table',
-  templateUrl: './annotation-sub-table.component.html',
-  styleUrls: ['./annotation-sub-table.component.css']
+    selector: 'app-annotation-sub-table',
+    templateUrl: './annotation-sub-table.component.html',
+    styleUrls: ['./annotation-sub-table.component.css'],
+    standalone: false
 })
 export class AnnotationSubTableComponent implements OnInit, OnChanges {
   @Input() annotationTypeName: string;

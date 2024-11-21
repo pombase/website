@@ -4,9 +4,10 @@ import { Util } from '../shared/util';
 import { GenotypeDetails, GenotypeShort, AlleleShort, ReferenceShort } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-genotype-allele-summary',
-  templateUrl: './genotype-allele-summary.component.html',
-  styleUrls: ['./genotype-allele-summary.component.css']
+    selector: 'app-genotype-allele-summary',
+    templateUrl: './genotype-allele-summary.component.html',
+    styleUrls: ['./genotype-allele-summary.component.css'],
+    standalone: false
 })
 export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
   @Input() genotype: GenotypeDetails|GenotypeShort;

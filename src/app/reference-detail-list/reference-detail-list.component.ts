@@ -10,9 +10,10 @@ class RefGroup {
 }
 
 @Component({
-  selector: 'app-reference-detail-list',
-  templateUrl: './reference-detail-list.component.html',
-  styleUrls: ['./reference-detail-list.component.css']
+    selector: 'app-reference-detail-list',
+    templateUrl: './reference-detail-list.component.html',
+    styleUrls: ['./reference-detail-list.component.css'],
+    standalone: false
 })
 export class ReferenceDetailListComponent implements OnInit, OnChanges {
   @Input() constraint: string;

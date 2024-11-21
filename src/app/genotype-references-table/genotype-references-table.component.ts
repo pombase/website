@@ -4,9 +4,10 @@ import { ReferenceShort, GenotypeDetails } from '../pombase-api.service';
 import { getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-genotype-references-table',
-  templateUrl: './genotype-references-table.component.html',
-  styleUrls: ['./genotype-references-table.component.css']
+    selector: 'app-genotype-references-table',
+    templateUrl: './genotype-references-table.component.html',
+    styleUrls: ['./genotype-references-table.component.css'],
+    standalone: false
 })
 export class GenotypeReferencesTableComponent implements OnInit, OnChanges {
   @Input() genotypeDetails: GenotypeDetails;

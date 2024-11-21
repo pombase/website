@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GeneBoolNode, GeneQuery, GeneQueryNode } from '../pombase-query';
 
 @Component({
-  selector: 'app-gene-query-structure',
-  templateUrl: './gene-query-structure.component.html',
-  styleUrls: ['./gene-query-structure.component.css']
+    selector: 'app-gene-query-structure',
+    templateUrl: './gene-query-structure.component.html',
+    styleUrls: ['./gene-query-structure.component.css'],
+    standalone: false
 })
 export class GeneQueryStructureComponent implements OnInit {
   @Input() node: GeneQueryNode;

@@ -3,7 +3,8 @@ import { GenotypeShort } from './pombase-api.service';
 import { Util } from './shared/util';
 
 @Pipe({
-  name: 'genotypeOrderBy'
+    name: 'genotypeOrderBy',
+    standalone: false
 })
 export class GenotypeOrderByPipe implements PipeTransform {
   transform(genotypes: Array<GenotypeShort>, fieldName: string): any {

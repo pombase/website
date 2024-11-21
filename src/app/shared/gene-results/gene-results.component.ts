@@ -2,9 +2,10 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { QueryResult, TermAndName } from '../../pombase-query';
 
 @Component({
-  selector: 'app-gene-results',
-  templateUrl: './gene-results.component.html',
-  styleUrls: ['./gene-results.component.css']
+    selector: 'app-gene-results',
+    templateUrl: './gene-results.component.html',
+    styleUrls: ['./gene-results.component.css'],
+    standalone: false
 })
 export class GeneResultsComponent implements OnInit, OnChanges {
   @Input() mode: string;

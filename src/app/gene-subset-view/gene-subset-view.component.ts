@@ -6,9 +6,10 @@ import { GeneSubsetDetails, PombaseAPIService, APIError } from '../pombase-api.s
 import { AppConfig, getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-gene-subset-view',
-  templateUrl: './gene-subset-view.component.html',
-  styleUrls: ['./gene-subset-view.component.css']
+    selector: 'app-gene-subset-view',
+    templateUrl: './gene-subset-view.component.html',
+    styleUrls: ['./gene-subset-view.component.css'],
+    standalone: false
 })
 export class GeneSubsetViewComponent implements OnInit {
   subset: GeneSubsetDetails;

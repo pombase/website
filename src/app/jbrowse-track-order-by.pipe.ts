@@ -37,7 +37,8 @@ function trackCompare(trackA: JBrowseTrackInfo, trackB: JBrowseTrackInfo,
 
 
 @Pipe({
-  name: 'jbrowseTrackOrderBy'
+    name: 'jbrowseTrackOrderBy',
+    standalone: false
 })
 export class JbrowseTrackOrderByPipe implements PipeTransform {
 

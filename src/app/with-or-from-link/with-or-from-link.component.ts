@@ -5,9 +5,10 @@ import { GeneShort, TranscriptDetails, WithFromValue } from '../pombase-api.serv
 import { TermShort } from '../pombase-query';
 
 @Component({
-  selector: 'app-with-or-from-link',
-  templateUrl: './with-or-from-link.component.html',
-  styleUrls: ['./with-or-from-link.component.css']
+    selector: 'app-with-or-from-link',
+    templateUrl: './with-or-from-link.component.html',
+    styleUrls: ['./with-or-from-link.component.css'],
+    standalone: false
 })
 export class WithOrFromLinkComponent implements OnInit {
   @Input() withOrFrom: WithFromValue;

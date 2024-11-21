@@ -18,9 +18,10 @@ import { Util } from '../shared/util';
 import { MenuItem } from '../types';
 
 @Component({
-  selector: 'app-gene-details',
-  templateUrl: './gene-details.component.html',
-  styleUrls: ['./gene-details.component.css']
+    selector: 'app-gene-details',
+    templateUrl: './gene-details.component.html',
+    styleUrls: ['./gene-details.component.css'],
+    standalone: false
 })
 export class GeneDetailsComponent implements OnInit {
   geneDetails: GeneDetails;

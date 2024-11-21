@@ -8,9 +8,10 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Util } from '../shared/util';
 
 @Component({
-  selector: 'app-annotation-table',
-  templateUrl: './annotation-table.component.html',
-  styleUrls: ['./annotation-table.component.css']
+    selector: 'app-annotation-table',
+    templateUrl: './annotation-table.component.html',
+    styleUrls: ['./annotation-table.component.css'],
+    standalone: false
 })
 export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() tableDisplayName?: string;

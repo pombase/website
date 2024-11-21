@@ -14,9 +14,10 @@ class ProcessedRow {
 type SortableColumnNames = 'name' | 'gene_count';
 
 @Component({
-  selector: 'app-gene-results-slim-table',
-  templateUrl: './gene-results-slim-table.component.html',
-  styleUrls: ['./gene-results-slim-table.component.css']
+    selector: 'app-gene-results-slim-table',
+    templateUrl: './gene-results-slim-table.component.html',
+    styleUrls: ['./gene-results-slim-table.component.css'],
+    standalone: false
 })
 export class GeneResultsSlimTableComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];

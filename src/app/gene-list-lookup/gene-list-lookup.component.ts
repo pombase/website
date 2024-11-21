@@ -4,9 +4,10 @@ import { getAppConfig } from '../config';
 import { GeneSummaryMap, PombaseAPIService, GeneSummary } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-gene-list-lookup',
-  templateUrl: './gene-list-lookup.component.html',
-  styleUrls: ['./gene-list-lookup.component.css']
+    selector: 'app-gene-list-lookup',
+    templateUrl: './gene-list-lookup.component.html',
+    styleUrls: ['./gene-list-lookup.component.css'],
+    standalone: false
 })
 export class GeneListLookupComponent implements OnInit {
   @Input() lookupFieldType: 'id-and-name'|'uniprot-id';

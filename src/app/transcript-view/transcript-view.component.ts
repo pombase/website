@@ -268,9 +268,10 @@ class DisplayPart {
 }
 
 @Component({
-  selector: 'app-transcript-view',
-  templateUrl: './transcript-view.component.html',
-  styleUrls: ['./transcript-view.component.css']
+    selector: 'app-transcript-view',
+    templateUrl: './transcript-view.component.html',
+    styleUrls: ['./transcript-view.component.css'],
+    standalone: false
 })
 export class TranscriptViewComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;

@@ -5,9 +5,10 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2';
 import { PombaseAPIService } from '../../pombase-api.service';
 
 @Component({
-  selector: 'app-not-found',
-  templateUrl: './not-found.component.html',
-  styleUrls: ['./not-found.component.css']
+    selector: 'app-not-found',
+    templateUrl: './not-found.component.html',
+    styleUrls: ['./not-found.component.css'],
+    standalone: false
 })
 export class NotFoundComponent implements OnInit {
   @Input() path: string;

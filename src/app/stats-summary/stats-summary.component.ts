@@ -3,9 +3,10 @@ import { Metadata, DatabaseStatistics, PombaseAPIService} from '../pombase-api.s
 import { getAppConfig, ConfigOrganism } from '../config';
 
 @Component({
-  selector: 'app-stats-summary',
-  templateUrl: './stats-summary.component.html',
-  styleUrls: ['./stats-summary.component.css']
+    selector: 'app-stats-summary',
+    templateUrl: './stats-summary.component.html',
+    styleUrls: ['./stats-summary.component.css'],
+    standalone: false
 })
 export class StatsSummaryComponent {
 

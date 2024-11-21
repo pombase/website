@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'app-reference-detail-list-page',
-  templateUrl: './reference-detail-list-page.component.html',
-  styleUrls: ['./reference-detail-list-page.component.css']
+    selector: 'app-reference-detail-list-page',
+    templateUrl: './reference-detail-list-page.component.html',
+    styleUrls: ['./reference-detail-list-page.component.css'],
+    standalone: false
 })
 export class ReferenceDetailListPageComponent implements OnInit {
   constraint: string|undefined;

@@ -6,9 +6,10 @@ import { MessageDialogComponent } from '../message-dialog/message-dialog.compone
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'app-ortholog-annotation-table',
-  templateUrl: './ortholog-annotation-table.component.html',
-  styleUrls: ['./ortholog-annotation-table.component.css']
+    selector: 'app-ortholog-annotation-table',
+    templateUrl: './ortholog-annotation-table.component.html',
+    styleUrls: ['./ortholog-annotation-table.component.css'],
+    standalone: false
 })
 export class OrthologAnnotationTableComponent implements OnInit, OnChanges {
   @Input() currentGene: GeneDetails;

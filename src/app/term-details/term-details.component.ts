@@ -11,9 +11,10 @@ import { MenuItem } from '../types';
 import { Util } from '../shared/util';
 
 @Component({
-  selector: 'app-term-details',
-  templateUrl: './term-details.component.html',
-  styleUrls: ['./term-details.component.css']
+    selector: 'app-term-details',
+    templateUrl: './term-details.component.html',
+    styleUrls: ['./term-details.component.css'],
+    standalone: false
 })
 export class TermDetailsComponent implements OnInit {
   @Input() termDetails: TermDetails;

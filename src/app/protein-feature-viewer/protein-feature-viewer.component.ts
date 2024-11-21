@@ -3,9 +3,10 @@ import { GeneDetails } from '../pombase-api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-protein-feature-viewer',
-  templateUrl: './protein-feature-viewer.component.html',
-  styleUrls: ['./protein-feature-viewer.component.css']
+    selector: 'app-protein-feature-viewer',
+    templateUrl: './protein-feature-viewer.component.html',
+    styleUrls: ['./protein-feature-viewer.component.css'],
+    standalone: false
 })
 export class ProteinFeatureViewerComponent {
   @Input() geneDetails: GeneDetails;

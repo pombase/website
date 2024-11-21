@@ -13,9 +13,10 @@ class SelectData {
 }
 
 @Component({
-  selector: 'app-annotation-table-throughput-filter',
-  templateUrl: './annotation-table-throughput-filter.component.html',
-  styleUrls: ['./annotation-table-throughput-filter.component.css']
+    selector: 'app-annotation-table-throughput-filter',
+    templateUrl: './annotation-table-throughput-filter.component.html',
+    styleUrls: ['./annotation-table-throughput-filter.component.css'],
+    standalone: false
 })
 export class AnnotationTableThroughputFilterComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;

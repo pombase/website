@@ -3,9 +3,10 @@ import { QueryNodeConfig } from '../config';
 import { GeneQueryNode, NodeEventDetails, SubsetNode } from '../pombase-query';
 
 @Component({
-  selector: 'app-query-subset-input',
-  templateUrl: './query-subset-input.component.html',
-  styleUrls: ['./query-subset-input.component.css']
+    selector: 'app-query-subset-input',
+    templateUrl: './query-subset-input.component.html',
+    styleUrls: ['./query-subset-input.component.css'],
+    standalone: false
 })
 export class QuerySubsetInputComponent implements OnInit {
   @Input() nodeConfig: QueryNodeConfig;

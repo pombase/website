@@ -4,8 +4,9 @@ import { AnnotationTable } from './pombase-api.service';
 import { Filter } from './filtering';
 
 @Pipe({
-  name: 'annotationTableFilter',
-  pure: false
+    name: 'annotationTableFilter',
+    pure: false,
+    standalone: false
 })
 export class AnnotationTableFilterPipe implements PipeTransform {
   transform(annotationTable: AnnotationTable, filter?: Filter<AnnotationTable>): any {

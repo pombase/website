@@ -5,9 +5,10 @@ import { TermShort } from '../pombase-query';
 import { SettingsService } from '../settings.service';
 
 @Component({
-  selector: 'app-gene-vis-settings',
-  templateUrl: './gene-vis-settings.component.html',
-  styleUrls: ['./gene-vis-settings.component.css']
+    selector: 'app-gene-vis-settings',
+    templateUrl: './gene-vis-settings.component.html',
+    styleUrls: ['./gene-vis-settings.component.css'],
+    standalone: false
 })
 export class GeneVisSettingsComponent implements OnInit {
   appConfig = getAppConfig();

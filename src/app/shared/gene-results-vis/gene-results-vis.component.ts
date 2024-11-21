@@ -105,9 +105,10 @@ class AttrValueConf {
 }
 
 @Component({
-  selector: 'app-gene-results-vis',
-  templateUrl: './gene-results-vis.component.html',
-  styleUrls: ['./gene-results-vis.component.css']
+    selector: 'app-gene-results-vis',
+    templateUrl: './gene-results-vis.component.html',
+    styleUrls: ['./gene-results-vis.component.css'],
+    standalone: false
 })
 export class GeneResultsVisComponent implements OnInit {
   @Input() genes: Array<GeneShort> = [];

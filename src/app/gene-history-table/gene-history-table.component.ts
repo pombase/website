@@ -16,9 +16,10 @@ interface ProcessedHistoryEntry extends GeneHistoryEntry {
 }
 
 @Component({
-  selector: 'app-gene-history-table',
-  templateUrl: './gene-history-table.component.html',
-  styleUrls: ['./gene-history-table.component.css']
+    selector: 'app-gene-history-table',
+    templateUrl: './gene-history-table.component.html',
+    styleUrls: ['./gene-history-table.component.css'],
+    standalone: false
 })
 export class GeneHistoryTableComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;

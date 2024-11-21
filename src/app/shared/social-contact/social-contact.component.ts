@@ -3,9 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { getAppConfig } from '../../config';
 
 @Component({
-  selector: 'app-social-contact',
-  templateUrl: './social-contact.component.html',
-  styleUrls: ['./social-contact.component.css']
+    selector: 'app-social-contact',
+    templateUrl: './social-contact.component.html',
+    styleUrls: ['./social-contact.component.css'],
+    standalone: false
 })
 export class SocialContactComponent implements OnInit {
   @Input() subject = 'Comment or problem report for ' + getAppConfig().site_name;

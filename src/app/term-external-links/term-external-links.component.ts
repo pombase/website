@@ -2,9 +2,10 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { AnnotationType } from '../config';
 
 @Component({
-  selector: 'app-term-external-links',
-  templateUrl: './term-external-links.component.html',
-  styleUrls: ['./term-external-links.component.css']
+    selector: 'app-term-external-links',
+    templateUrl: './term-external-links.component.html',
+    styleUrls: ['./term-external-links.component.css'],
+    standalone: false
 })
 export class TermExternalLinksComponent implements OnInit, OnChanges {
   @Input() typeConfig: AnnotationType;

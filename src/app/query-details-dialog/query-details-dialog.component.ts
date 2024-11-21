@@ -5,9 +5,10 @@ import { GeneQuery } from '../pombase-query';
 import { QueryRouterService } from '../query-router.service';
 
 @Component({
-  selector: 'app-query-details-dialog',
-  templateUrl: './query-details-dialog.component.html',
-  styleUrls: ['./query-details-dialog.component.css']
+    selector: 'app-query-details-dialog',
+    templateUrl: './query-details-dialog.component.html',
+    styleUrls: ['./query-details-dialog.component.css'],
+    standalone: false
 })
 export class QueryDetailsDialogComponent implements OnInit {
   public query: GeneQuery;

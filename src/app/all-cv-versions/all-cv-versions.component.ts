@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PombaseAPIService, Metadata } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-all-cv-versions',
-  templateUrl: './all-cv-versions.component.html',
-  styleUrls: ['./all-cv-versions.component.css']
+    selector: 'app-all-cv-versions',
+    templateUrl: './all-cv-versions.component.html',
+    styleUrls: ['./all-cv-versions.component.css'],
+    standalone: false
 })
 export class AllCvVersionsComponent implements OnInit {
   metadata: Metadata;

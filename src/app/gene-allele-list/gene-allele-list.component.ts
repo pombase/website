@@ -69,9 +69,10 @@ function genotypeSorter(g1: GenotypeShort, g2: GenotypeShort) {
 }
 
 @Component({
-  selector: 'app-gene-allele-list',
-  templateUrl: './gene-allele-list.component.html',
-  styleUrls: ['./gene-allele-list.component.css']
+    selector: 'app-gene-allele-list',
+    templateUrl: './gene-allele-list.component.html',
+    styleUrls: ['./gene-allele-list.component.css'],
+    standalone: false
 })
 export class GeneAlleleListComponent implements OnInit {
   @Input() geneDetails: GeneDetails;

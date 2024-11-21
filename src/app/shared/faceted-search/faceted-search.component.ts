@@ -16,9 +16,10 @@ enum SearchState {
 }
 
 @Component({
-  selector: 'app-faceted-search',
-  templateUrl: './faceted-search.component.html',
-  styleUrls: ['./faceted-search.component.css']
+    selector: 'app-faceted-search',
+    templateUrl: './faceted-search.component.html',
+    styleUrls: ['./faceted-search.component.css'],
+    standalone: false
 })
 export class FacetedSearchComponent implements OnInit {
   @Input() scope: string;

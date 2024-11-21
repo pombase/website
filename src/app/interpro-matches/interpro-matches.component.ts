@@ -10,9 +10,10 @@ interface DisplayMatch extends InterProMatch {
 }
 
 @Component({
-  selector: 'app-interpro-matches',
-  templateUrl: './interpro-matches.component.html',
-  styleUrls: ['./interpro-matches.component.css']
+    selector: 'app-interpro-matches',
+    templateUrl: './interpro-matches.component.html',
+    styleUrls: ['./interpro-matches.component.css'],
+    standalone: false
 })
 export class InterproMatchesComponent implements OnInit, OnChanges {
   @Input() geneDisplayName: string;

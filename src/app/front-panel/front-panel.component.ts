@@ -4,9 +4,10 @@ import { PanelConfig, AppConfig, getAppConfig } from '../config';
 import { Util } from '../shared/util';
 
 @Component({
-  selector: 'app-front-panel',
-  templateUrl: './front-panel.component.html',
-  styleUrls: ['./front-panel.component.css']
+    selector: 'app-front-panel',
+    templateUrl: './front-panel.component.html',
+    styleUrls: ['./front-panel.component.css'],
+    standalone: false
 })
 export class FrontPanelComponent implements OnInit {
   @Input() conf: PanelConfig;

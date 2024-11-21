@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { getAppConfig, NavBarEntry } from '../config';
 
 @Component({
-  selector: 'app-main-nav-bar',
-  templateUrl: './main-nav-bar.component.html',
-  styleUrls: ['./main-nav-bar.component.css']
+    selector: 'app-main-nav-bar',
+    templateUrl: './main-nav-bar.component.html',
+    styleUrls: ['./main-nav-bar.component.css'],
+    standalone: false
 })
 export class MainNavBarComponent implements OnInit {
 

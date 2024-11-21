@@ -3,9 +3,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { getAppConfig } from '../../config';
 
 @Component({
-  selector: 'app-contact-email',
-  templateUrl: './contact-email.component.html',
-  styleUrls: ['./contact-email.component.css']
+    selector: 'app-contact-email',
+    templateUrl: './contact-email.component.html',
+    styleUrls: ['./contact-email.component.css'],
+    standalone: false
 })
 export class ContactEmailComponent implements OnInit {
   @Input() linkName = 'Contact';

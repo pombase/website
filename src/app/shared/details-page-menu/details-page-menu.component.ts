@@ -10,9 +10,10 @@ interface DisplayMenuItem extends MenuItem {
 }
 
 @Component({
-  selector: 'app-details-page-menu',
-  templateUrl: './details-page-menu.component.html',
-  styleUrls: ['./details-page-menu.component.css']
+    selector: 'app-details-page-menu',
+    templateUrl: './details-page-menu.component.html',
+    styleUrls: ['./details-page-menu.component.css'],
+    standalone: false
 })
 export class DetailsPageMenuComponent implements OnInit, OnChanges {
   @Input() title: string;

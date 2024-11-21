@@ -3,9 +3,10 @@ import { QueryNodeConfig } from '../config';
 import { FloatRangeNode, GeneQueryNode, IntRangeNode, NodeEventDetails } from '../pombase-query';
 
 @Component({
-  selector: 'app-query-range-node',
-  templateUrl: './query-range-node.component.html',
-  styleUrls: ['./query-range-node.component.css']
+    selector: 'app-query-range-node',
+    templateUrl: './query-range-node.component.html',
+    styleUrls: ['./query-range-node.component.css'],
+    standalone: false
 })
 export class QueryRangeNodeComponent implements OnInit, OnChanges {
   @Input() nodeConfig: QueryNodeConfig;

@@ -6,9 +6,10 @@ import { QueryResult, GeneQuery } from '../pombase-query';
 import { getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-gene-results-page',
-  templateUrl: './gene-results-page.component.html',
-  styleUrls: ['./gene-results-page.component.css']
+    selector: 'app-gene-results-page',
+    templateUrl: './gene-results-page.component.html',
+    styleUrls: ['./gene-results-page.component.css'],
+    standalone: false
 })
 export class GeneResultsPageComponent implements OnInit, OnDestroy {
   results: QueryResult;

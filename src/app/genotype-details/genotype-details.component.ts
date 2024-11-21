@@ -11,9 +11,10 @@ import { MenuItem } from '../types';
 
 
 @Component({
-  selector: 'app-genotype-details',
-  templateUrl: './genotype-details.component.html',
-  styleUrls: ['./genotype-details.component.css']
+    selector: 'app-genotype-details',
+    templateUrl: './genotype-details.component.html',
+    styleUrls: ['./genotype-details.component.css'],
+    standalone: false
 })
 export class GenotypeDetailsComponent implements OnInit {
   @Input() genotypeDetails: GenotypeDetails;

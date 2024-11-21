@@ -5,9 +5,10 @@ import { getXrf, getAppConfig } from '../config';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
-  selector: 'app-reference-short',
-  templateUrl: './reference-short.component.html',
-  styleUrls: ['./reference-short.component.css']
+    selector: 'app-reference-short',
+    templateUrl: './reference-short.component.html',
+    styleUrls: ['./reference-short.component.css'],
+    standalone: false
 })
 export class ReferenceShortComponent implements OnInit, OnChanges {
   @Input() reference: ReferenceShort;

@@ -4,9 +4,10 @@ import { SettingsService } from '../settings.service';
 import { getAppConfig, GeneResultsFieldConfig } from '../config';
 
 @Component({
-  selector: 'app-genes-table-config',
-  templateUrl: './genes-table-config.component.html',
-  styleUrls: ['./genes-table-config.component.css']
+    selector: 'app-genes-table-config',
+    templateUrl: './genes-table-config.component.html',
+    styleUrls: ['./genes-table-config.component.css'],
+    standalone: false
 })
 export class GenesTableConfigComponent implements OnInit {
 

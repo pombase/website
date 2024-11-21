@@ -11,9 +11,10 @@ import { AppConfig, getAppConfig, GeneResultsFieldConfig } from '../config';
 import { SettingsService } from '../settings.service';
 
 @Component({
-  selector: 'app-genes-download-dialog',
-  templateUrl: './genes-download-dialog.component.html',
-  styleUrls: ['./genes-download-dialog.component.css']
+    selector: 'app-genes-download-dialog',
+    templateUrl: './genes-download-dialog.component.html',
+    styleUrls: ['./genes-download-dialog.component.css'],
+    standalone: false
 })
 export class GenesDownloadDialogComponent implements OnInit {
   @ViewChild('downloadTabs') staticTabs: TabsetComponent;

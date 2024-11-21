@@ -5,9 +5,10 @@ import { QueryResult } from '../../pombase-query';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-predefined-query-results',
-  templateUrl: './predefined-query-results.component.html',
-  styleUrls: ['./predefined-query-results.component.css']
+    selector: 'app-predefined-query-results',
+    templateUrl: './predefined-query-results.component.html',
+    styleUrls: ['./predefined-query-results.component.css'],
+    standalone: false
 })
 export class PredefinedQueryResultsComponent implements OnInit {
   @Input() predefinedQueryId: string;

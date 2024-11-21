@@ -3,9 +3,10 @@ import { Component, OnInit, Input,
 import { getAppConfig, AppConfig } from '../../config';
 
 @Component({
-  selector: 'app-page-contents-menu',
-  templateUrl: './page-contents-menu.component.html',
-  styleUrls: ['./page-contents-menu.component.css']
+    selector: 'app-page-contents-menu',
+    templateUrl: './page-contents-menu.component.html',
+    styleUrls: ['./page-contents-menu.component.css'],
+    standalone: false
 })
 export class PageContentsMenuComponent implements OnInit {
   @Input() title: string;

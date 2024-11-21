@@ -7,9 +7,10 @@ import { TermAndName } from '../pombase-query';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
-  selector: 'app-term-link',
-  templateUrl: './term-link.component.html',
-  styleUrls: ['./term-link.component.css']
+    selector: 'app-term-link',
+    templateUrl: './term-link.component.html',
+    styleUrls: ['./term-link.component.css'],
+    standalone: false
 })
 export class TermLinkComponent implements OnInit {
   @Input() term: TermAndName;

@@ -11,9 +11,10 @@ interface DisplayGenotype {
  }
 
 @Component({
-  selector: 'app-allele-details',
-  templateUrl: './allele-details.component.html',
-  styleUrls: ['./allele-details.component.css']
+    selector: 'app-allele-details',
+    templateUrl: './allele-details.component.html',
+    styleUrls: ['./allele-details.component.css'],
+    standalone: false
 })
 export class AlleleDetailsComponent implements OnInit {
   alleleDetails: AlleleDetails;

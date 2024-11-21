@@ -3,9 +3,10 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { getAppConfig } from '../../config';
 
 @Component({
-  selector: 'app-external-link',
-  templateUrl: './external-link.component.html',
-  styleUrls: ['./external-link.component.css']
+    selector: 'app-external-link',
+    templateUrl: './external-link.component.html',
+    styleUrls: ['./external-link.component.css'],
+    standalone: false
 })
 export class ExternalLinkComponent implements OnInit, OnChanges {
   @Input() identifier: string;

@@ -4,9 +4,10 @@ import { QueryService } from '../../query.service';
 import { QueryRouterService } from '../../query-router.service';
 
 @Component({
-  selector: 'app-query-link',
-  templateUrl: './query-link.component.html',
-  styleUrls: ['./query-link.component.css']
+    selector: 'app-query-link',
+    templateUrl: './query-link.component.html',
+    styleUrls: ['./query-link.component.css'],
+    standalone: false
 })
 export class QueryLinkComponent implements OnInit {
   @Input() goToResults: boolean;

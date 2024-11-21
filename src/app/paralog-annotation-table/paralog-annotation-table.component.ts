@@ -5,9 +5,10 @@ import { ParalogAnnotation } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig } from '../config';
 
 @Component({
-  selector: 'app-paralog-annotation-table',
-  templateUrl: './paralog-annotation-table.component.html',
-  styleUrls: ['./paralog-annotation-table.component.css']
+    selector: 'app-paralog-annotation-table',
+    templateUrl: './paralog-annotation-table.component.html',
+    styleUrls: ['./paralog-annotation-table.component.css'],
+    standalone: false
 })
 export class ParalogAnnotationTableComponent implements OnInit {
 

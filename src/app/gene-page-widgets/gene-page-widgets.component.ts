@@ -6,9 +6,10 @@ import { GenePageWidget, SettingsService } from '../settings.service';
 import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
-  selector: 'app-gene-page-widgets',
-  templateUrl: './gene-page-widgets.component.html',
-  styleUrls: ['./gene-page-widgets.component.css']
+    selector: 'app-gene-page-widgets',
+    templateUrl: './gene-page-widgets.component.html',
+    styleUrls: ['./gene-page-widgets.component.css'],
+    standalone: false
 })
 export class GenePageWidgetsComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;

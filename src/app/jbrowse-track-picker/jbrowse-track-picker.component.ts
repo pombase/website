@@ -8,9 +8,10 @@ import { getJBrowseTracksByPMID, JBrowseTrackInfo, getAppConfig, JBrowseColumnCo
 const JBROWSE_URL_LIMIT = 1500;
 
 @Component({
-  selector: 'app-jbrowse-track-picker',
-  templateUrl: './jbrowse-track-picker.component.html',
-  styleUrls: ['./jbrowse-track-picker.component.css']
+    selector: 'app-jbrowse-track-picker',
+    templateUrl: './jbrowse-track-picker.component.html',
+    styleUrls: ['./jbrowse-track-picker.component.css'],
+    standalone: false
 })
 export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
   @Input() identifier: string;

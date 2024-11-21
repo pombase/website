@@ -7,9 +7,10 @@ import '../../../node_modules/@swissprot/rhea-reaction-visualizer';
 import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
-  selector: 'app-term-page-widgets',
-  templateUrl: './term-page-widgets.component.html',
-  styleUrls: ['./term-page-widgets.component.css']
+    selector: 'app-term-page-widgets',
+    templateUrl: './term-page-widgets.component.html',
+    styleUrls: ['./term-page-widgets.component.css'],
+    standalone: false
 })
 export class TermPageWidgetsComponent {
   @Input() termDetails: TermDetails;

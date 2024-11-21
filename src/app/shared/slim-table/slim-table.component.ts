@@ -13,9 +13,10 @@ class SlimSubsetElement {
 type SortableColumnNames = 'name' | 'gene_count';
 
 @Component({
-  selector: 'app-slim-table',
-  templateUrl: './slim-table.component.html',
-  styleUrls: ['./slim-table.component.css']
+    selector: 'app-slim-table',
+    templateUrl: './slim-table.component.html',
+    styleUrls: ['./slim-table.component.css'],
+    standalone: false
 })
 export class SlimTableComponent implements OnInit {
   @Input() slimName: string;

@@ -7,9 +7,10 @@ import { GeneListNode, GeneQuery, GeneUniquename } from '../pombase-query';
 import { QueryRouterService } from '../query-router.service';
 
 @Component({
-  selector: 'app-identifier-mapper-results',
-  templateUrl: './identifier-mapper-results.component.html',
-  styleUrls: ['./identifier-mapper-results.component.css']
+    selector: 'app-identifier-mapper-results',
+    templateUrl: './identifier-mapper-results.component.html',
+    styleUrls: ['./identifier-mapper-results.component.css'],
+    standalone: false
 })
 export class IdentifierMapperResultsComponent implements OnInit {
   INITIAL_NOT_FOUND = 10;

@@ -7,9 +7,10 @@ import { AnnotationFilter, FilterCombiner } from '../filtering';
 import { TableViewState } from '../pombase-types';
 
 @Component({
-  selector: 'app-annotation-table-filters',
-  templateUrl: './annotation-table-filters.component.html',
-  styleUrls: ['./annotation-table-filters.component.css']
+    selector: 'app-annotation-table-filters',
+    templateUrl: './annotation-table-filters.component.html',
+    styleUrls: ['./annotation-table-filters.component.css'],
+    standalone: false
 })
 export class AnnotationTableFiltersComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;

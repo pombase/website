@@ -3,9 +3,10 @@ import { GeneDetails } from '../pombase-api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-rna-structure',
-  templateUrl: './rna-structure.component.html',
-  styleUrls: ['./rna-structure.component.css']
+    selector: 'app-rna-structure',
+    templateUrl: './rna-structure.component.html',
+    styleUrls: ['./rna-structure.component.css'],
+    standalone: false
 })
 export class RnaStructureComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;

@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { getAppConfig, AppConfig } from '../config';
 
 @Component({
-  selector: 'app-evidence-link',
-  templateUrl: './evidence-link.component.html',
-  styleUrls: ['./evidence-link.component.css']
+    selector: 'app-evidence-link',
+    templateUrl: './evidence-link.component.html',
+    styleUrls: ['./evidence-link.component.css'],
+    standalone: false
 })
 export class EvidenceLinkComponent implements OnInit {
   @Input() evidence: string;

@@ -5,9 +5,10 @@ import { AppConfig, getAppConfig } from '../config';
 import { ReferenceDetails, APIError, PombaseAPIService, GeneShort } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-ref-genes-view',
-  templateUrl: './ref-genes-view.component.html',
-  styleUrls: ['./ref-genes-view.component.css']
+    selector: 'app-ref-genes-view',
+    templateUrl: './ref-genes-view.component.html',
+    styleUrls: ['./ref-genes-view.component.css'],
+    standalone: false
 })
 export class RefGenesViewComponent implements OnInit {
   @Input() refDetails: ReferenceDetails;

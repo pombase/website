@@ -5,9 +5,10 @@ import { FilterConfig } from '../config';
 import { InteractionFilter, FilterCombiner } from '../filtering';
 
 @Component({
-  selector: 'app-interaction-table-filters',
-  templateUrl: './interaction-table-filters.component.html',
-  styleUrls: ['./interaction-table-filters.component.css']
+    selector: 'app-interaction-table-filters',
+    templateUrl: './interaction-table-filters.component.html',
+    styleUrls: ['./interaction-table-filters.component.css'],
+    standalone: false
 })
 export class InteractionTableFiltersComponent implements OnInit {
   @Input() interactionTable: Array<InteractionAnnotation>;

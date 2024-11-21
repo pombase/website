@@ -9,9 +9,10 @@ interface ProteinDisplayDetails {
 }
 
 @Component({
-  selector: 'app-protein-properties',
-  templateUrl: './protein-properties.component.html',
-  styleUrls: ['./protein-properties.component.css']
+    selector: 'app-protein-properties',
+    templateUrl: './protein-properties.component.html',
+    styleUrls: ['./protein-properties.component.css'],
+    standalone: false
 })
 export class ProteinPropertiesComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;

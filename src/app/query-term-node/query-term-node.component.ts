@@ -4,9 +4,10 @@ import { TermShort, TermNode, TermAndName, Ploidiness } from '../pombase-query';
 import { QueryNodeConfig } from '../config';
 
 @Component({
-  selector: 'app-query-term-node',
-  templateUrl: './query-term-node.component.html',
-  styleUrls: ['./query-term-node.component.css']
+    selector: 'app-query-term-node',
+    templateUrl: './query-term-node.component.html',
+    styleUrls: ['./query-term-node.component.css'],
+    standalone: false
 })
 export class QueryTermNodeComponent implements OnInit, OnChanges {
   @Input() termNodeConfig: QueryNodeConfig;

@@ -19,9 +19,10 @@ enum SearchState {
 }
 
 @Component({
-  selector: 'app-motif-search',
-  templateUrl: './motif-search.component.html',
-  styleUrls: ['./motif-search.component.css']
+    selector: 'app-motif-search',
+    templateUrl: './motif-search.component.html',
+    styleUrls: ['./motif-search.component.css'],
+    standalone: false
 })
 export class MotifSearchComponent implements OnInit {
 

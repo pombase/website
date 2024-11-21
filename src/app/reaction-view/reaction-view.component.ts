@@ -3,9 +3,10 @@ import { TermIdRefs } from '../pombase-api.service';
 import { AppConfig, getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-reaction-view',
-  templateUrl: './reaction-view.component.html',
-  styleUrls: ['./reaction-view.component.css']
+    selector: 'app-reaction-view',
+    templateUrl: './reaction-view.component.html',
+    styleUrls: ['./reaction-view.component.css'],
+    standalone: false
 })
 export class ReactionViewComponent implements OnChanges {
   @Input() termIdRefs: TermIdRefs;

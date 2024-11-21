@@ -14,9 +14,10 @@ import { faEdit, faDownload, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { NotDirectionSelectDialogComponent } from '../not-direction-select-dialog/not-direction-select-dialog.component';
 
 @Component({
-  selector: 'app-query-history',
-  templateUrl: './query-history.component.html',
-  styleUrls: ['./query-history.component.css']
+    selector: 'app-query-history',
+    templateUrl: './query-history.component.html',
+    styleUrls: ['./query-history.component.css'],
+    standalone: false
 })
 export class QueryHistoryComponent implements OnInit, OnDestroy {
   @Output() gotoResults = new EventEmitter<GeneQuery>();

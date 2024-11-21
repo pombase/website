@@ -9,9 +9,10 @@ interface DisplayChromosome extends ChromosomeConfig {
 }
 
 @Component({
-  selector: 'app-query-genome-range-node',
-  templateUrl: './query-genome-range-node.component.html',
-  styleUrls: ['./query-genome-range-node.component.css']
+    selector: 'app-query-genome-range-node',
+    templateUrl: './query-genome-range-node.component.html',
+    styleUrls: ['./query-genome-range-node.component.css'],
+    standalone: false
 })
 export class QueryGenomeRangeNodeComponent implements OnInit, OnChanges {
   @Input() nodeConfig: QueryNodeConfig;

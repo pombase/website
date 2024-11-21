@@ -11,9 +11,10 @@ import { getAnnotationTableConfig, AnnotationType, AppConfig, getAppConfig } fro
 
 
 @Component({
-  selector: 'app-term-genes-view',
-  templateUrl: './term-genes-view.component.html',
-  styleUrls: ['./term-genes-view.component.css']
+    selector: 'app-term-genes-view',
+    templateUrl: './term-genes-view.component.html',
+    styleUrls: ['./term-genes-view.component.css'],
+    standalone: false
 })
 export class TermGenesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;

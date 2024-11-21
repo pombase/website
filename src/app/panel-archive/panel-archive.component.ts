@@ -5,9 +5,10 @@ import { getAppConfig, PanelConfig, AppConfig } from '../config';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-panel-archive',
-  templateUrl: './panel-archive.component.html',
-  styleUrls: ['./panel-archive.component.css']
+    selector: 'app-panel-archive',
+    templateUrl: './panel-archive.component.html',
+    styleUrls: ['./panel-archive.component.css'],
+    standalone: false
 })
 export class PanelArchiveComponent implements OnInit {
   panelType = '';

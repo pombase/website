@@ -3,9 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { GenotypeShort } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-genotype-link',
-  templateUrl: './genotype-link.component.html',
-  styleUrls: ['./genotype-link.component.css']
+    selector: 'app-genotype-link',
+    templateUrl: './genotype-link.component.html',
+    styleUrls: ['./genotype-link.component.css'],
+    standalone: false
 })
 export class GenotypeLinkComponent implements OnInit {
   @Input() genotype: GenotypeShort;

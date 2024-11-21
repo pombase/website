@@ -8,9 +8,10 @@ import { DisplaySequence, DisplaySequencePart, ResidueRange } from '../display-s
 import { getAppConfig, replaceFieldsInUrl } from '../config';
 
 @Component({
-  selector: 'app-transcript-sequence-select',
-  templateUrl: './transcript-sequence-select.component.html',
-  styleUrls: ['./transcript-sequence-select.component.css']
+    selector: 'app-transcript-sequence-select',
+    templateUrl: './transcript-sequence-select.component.html',
+    styleUrls: ['./transcript-sequence-select.component.css'],
+    standalone: false
 })
 export class TranscriptSequenceSelectComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;

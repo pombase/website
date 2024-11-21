@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { GenotypeShort } from '../pombase-api.service';
 
 @Component({
-  selector: 'app-genotypes-table',
-  templateUrl: './genotypes-table.component.html',
-  styleUrls: ['./genotypes-table.component.css']
+    selector: 'app-genotypes-table',
+    templateUrl: './genotypes-table.component.html',
+    styleUrls: ['./genotypes-table.component.css'],
+    standalone: false
 })
 export class GenotypesTableComponent implements OnInit {
   @Input() legend: string;

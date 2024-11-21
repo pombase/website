@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TermAndName } from '../../pombase-query';
 
 @Component({
-  selector: 'app-query-description-display',
-  templateUrl: './query-description-display.component.html',
-  styleUrls: ['./query-description-display.component.css']
+    selector: 'app-query-description-display',
+    templateUrl: './query-description-display.component.html',
+    styleUrls: ['./query-description-display.component.css'],
+    standalone: false
 })
 export class QueryDescriptionDisplayComponent implements OnInit {
   @Input() description: string;

@@ -3,9 +3,10 @@ import { GeneDetails, GoCamIdAndTitle, TermDetails } from '../pombase-api.servic
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-go-cam-viewer',
-  templateUrl: './go-cam-viewer.component.html',
-  styleUrls: ['./go-cam-viewer.component.css']
+    selector: 'app-go-cam-viewer',
+    templateUrl: './go-cam-viewer.component.html',
+    styleUrls: ['./go-cam-viewer.component.css'],
+    standalone: false
 })
 export class GoCamViewerComponent {
   @Input() geneOrTermDetails: GeneDetails|TermDetails;

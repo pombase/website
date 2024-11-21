@@ -7,9 +7,10 @@ import { Util } from '../shared/util';
 import { getAppConfig, PanelConfig } from '../config';
 
 @Component({
-  selector: 'app-front',
-  templateUrl: './front.component.html',
-  styleUrls: ['./front.component.css']
+    selector: 'app-front',
+    templateUrl: './front.component.html',
+    styleUrls: ['./front.component.css'],
+    standalone: false
 })
 export class FrontComponent implements OnInit {
   metadata: Metadata;

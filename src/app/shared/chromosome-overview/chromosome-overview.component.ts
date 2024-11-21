@@ -13,9 +13,10 @@ interface DisplayChromosome extends ChromosomeConfig {
 }
 
 @Component({
-  selector: 'app-chromosome-overview',
-  templateUrl: './chromosome-overview.component.html',
-  styleUrls: ['./chromosome-overview.component.css']
+    selector: 'app-chromosome-overview',
+    templateUrl: './chromosome-overview.component.html',
+    styleUrls: ['./chromosome-overview.component.css'],
+    standalone: false
 })
 export class ChromosomeOverviewComponent implements OnInit {
 

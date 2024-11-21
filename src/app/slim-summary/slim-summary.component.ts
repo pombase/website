@@ -15,9 +15,10 @@ class SlimSubsetElement implements TermShort {
 }
 
 @Component({
-  selector: 'app-slim-summary',
-  templateUrl: './slim-summary.component.html',
-  styleUrls: ['./slim-summary.component.css']
+    selector: 'app-slim-summary',
+    templateUrl: './slim-summary.component.html',
+    styleUrls: ['./slim-summary.component.css'],
+    standalone: false
 })
 export class SlimSummaryComponent implements OnInit, OnChanges {
   @Input() geneDetails: GeneDetails;

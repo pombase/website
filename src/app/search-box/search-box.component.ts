@@ -60,9 +60,10 @@ interface FieldAndOrth {
 }
 
 @Component({
-  selector: 'app-search-box',
-  templateUrl: './search-box.component.html',
-  styleUrls: ['./search-box.component.css']
+    selector: 'app-search-box',
+    templateUrl: './search-box.component.html',
+    styleUrls: ['./search-box.component.css'],
+    standalone: false
 })
 export class SearchBoxComponent implements OnInit {
   dataSource: Observable<Array<DisplayModel>>;

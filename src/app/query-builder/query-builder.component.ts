@@ -9,9 +9,10 @@ import { SettingsService } from '../settings.service';
 import { QueryRouterService } from '../query-router.service';
 
 @Component({
-  selector: 'app-query-builder',
-  templateUrl: './query-builder.component.html',
-  styleUrls: ['./query-builder.component.css']
+    selector: 'app-query-builder',
+    templateUrl: './query-builder.component.html',
+    styleUrls: ['./query-builder.component.css'],
+    standalone: false
 })
 export class QueryBuilderComponent implements OnInit {
   startNodeType?: string;

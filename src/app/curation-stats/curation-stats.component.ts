@@ -3,9 +3,10 @@ import { PombaseAPIService, StatCountsByTaxon, StatsIntegerTable } from '../pomb
 import { ConfigOrganism, getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-curation-stats',
-  templateUrl: './curation-stats.component.html',
-  styleUrls: ['./curation-stats.component.css']
+    selector: 'app-curation-stats',
+    templateUrl: './curation-stats.component.html',
+    styleUrls: ['./curation-stats.component.css'],
+    standalone: false
 })
 export class CurationStatsComponent implements OnInit {
   organismStats: StatCountsByTaxon | undefined = undefined;

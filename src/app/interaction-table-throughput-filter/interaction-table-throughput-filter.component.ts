@@ -15,9 +15,10 @@ class SelectData {
 
 
 @Component({
-  selector: 'app-interaction-table-throughput-filter',
-  templateUrl: './interaction-table-throughput-filter.component.html',
-  styleUrls: ['./interaction-table-throughput-filter.component.css']
+    selector: 'app-interaction-table-throughput-filter',
+    templateUrl: './interaction-table-throughput-filter.component.html',
+    styleUrls: ['./interaction-table-throughput-filter.component.css'],
+    standalone: false
 })
 export class InteractionTableThroughputFilterComponent implements OnInit, OnChanges {
   @Input() interactionTable: InteractionTable;

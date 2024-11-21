@@ -13,9 +13,10 @@ interface XrefDetails {
 }
 
 @Component({
-  selector: 'app-term-page-summary',
-  templateUrl: './term-page-summary.component.html',
-  styleUrls: ['./term-page-summary.component.css']
+    selector: 'app-term-page-summary',
+    templateUrl: './term-page-summary.component.html',
+    styleUrls: ['./term-page-summary.component.css'],
+    standalone: false
 })
 export class TermPageSummaryComponent implements OnInit, OnChanges {
   @Input() termDetails: TermDetails;

@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ReferenceShort } from './pombase-api.service';
 
 @Pipe({
-  name: 'referenceOrderBy'
+    name: 'referenceOrderBy',
+    standalone: false
 })
 export class ReferenceOrderByPipe implements PipeTransform {
   transform(references: Array<ReferenceShort>, field: string): any {

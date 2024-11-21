@@ -7,9 +7,10 @@ import { TermDetails, GeneShort, PombaseAPIService } from '../pombase-api.servic
 import { AppConfig, getAppConfig } from '../config';
 
 @Component({
-  selector: 'app-term-single-gene-genotypes-view',
-  templateUrl: './term-single-gene-genotypes-view.component.html',
-  styleUrls: ['./term-single-gene-genotypes-view.component.css']
+    selector: 'app-term-single-gene-genotypes-view',
+    templateUrl: './term-single-gene-genotypes-view.component.html',
+    styleUrls: ['./term-single-gene-genotypes-view.component.css'],
+    standalone: false
 })
 export class TermSingleGeneGenotypesViewComponent implements OnInit {
   @Input() termDetails: TermDetails;

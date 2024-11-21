@@ -9,9 +9,10 @@ interface DisplayFeatureShort extends FeatureShort {
 }
 
 @Component({
-  selector: 'app-seq-feature-table',
-  templateUrl: './seq-feature-table.component.html',
-  styleUrls: ['./seq-feature-table.component.css']
+    selector: 'app-seq-feature-table',
+    templateUrl: './seq-feature-table.component.html',
+    styleUrls: ['./seq-feature-table.component.css'],
+    standalone: false
 })
 export class SeqFeatureTableComponent implements OnInit {
 
