@@ -1,5 +1,4 @@
 ### Next pombeTalks: Wednesday November 20th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next [pombeTalks](https://evonuclab.org/pombetalks) will take
