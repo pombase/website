@@ -34,6 +34,7 @@ jobs:
            curl -OL https://raw.githubusercontent.com/japonicusdb/japonicus-config/main/japonicus_site_config.json
            (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/2.8/pandoc-2.8-1-amd64.deb; sudo dpkg -i pandoc-2.8-1-amd64.deb)
            yarn
+           ./node_modules/@angular/cli/bin/ng --version
 
       - name: Test
         run: |
