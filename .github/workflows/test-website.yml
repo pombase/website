@@ -22,17 +22,20 @@ jobs:
       - name: Prerequisites
         run: |
            sudo apt-get update
-           sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl pandoc libyaml-perl
+           sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl libyaml-perl
+           (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/3.1.13/pandoc-3.1.13-1-amd64.deb; sudo dpkg -i pandoc-3.1.13-1-amd64.deb)
            (curl -L http://cpanmin.us | sudo perl - --self-upgrade) && sudo cpanm --notest Pandoc Text::CSV
            git clone https://github.com/pombase/curation.git pombase-curation
            git clone https://github.com/pombase/genome_changelog.git genome_changelog
            cp -r genome_changelog/results/pombase_tables data_files
+           curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+           sudo apt-get update
+           sudo apt-get install nodejs -y
            curl -OL http://current.geneontology.org/metadata/GO.xrf_abbs
            curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/trackListTemplate.json
            curl -OL https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_jbrowse_track_metadata.csv
            curl -OL https://raw.githubusercontent.com/pombase/pombase-chado/master/etc/create_jbrowse_track_list.pl && chmod a+x create_jbrowse_track_list.pl
            curl -OL https://raw.githubusercontent.com/japonicusdb/japonicus-config/main/japonicus_site_config.json
-           (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/2.8/pandoc-2.8-1-amd64.deb; sudo dpkg -i pandoc-2.8-1-amd64.deb)
            yarn
 
       - name: Test
