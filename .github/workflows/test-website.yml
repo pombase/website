@@ -46,7 +46,7 @@ jobs:
            curl -L https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json > main_config.json && \
            echo generating doc files: && \
            node ./node_modules/@angular/cli/bin/ng --version && \
-           ./etc/update_generated_files.sh main_config.json data_files && node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --no-progress && \
+           ./etc/update_generated_files.sh main_config.json data_files && node ./node_modules/@angular/cli/bin/ng build --no-progress && \
            echo checking for broken links in PomBase docs: && \
            ./etc/check_docs_broken_links.pl main_config.json src/docs src/assets && \
            echo checking for broken links in JaponicusDB docs: && \
