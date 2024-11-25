@@ -11,8 +11,10 @@
     <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">Documentation <img class="help-icon" src="/assets/info_icon.svg"/></a></span>
   </div>
 
+  <div *ngFor="let o of [geneOrTermDetails]">
   <iframe [src]="getIFrameURL()" class="embedded-go-cam-viewer" #gocamiframe>
   </iframe>
+  </div>
 </div>
 
 <div *ngIf="!hasGoCam && displayName" class="no-go-cams">

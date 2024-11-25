@@ -106,9 +106,11 @@
 
 <div *ngIf="currentWidget() == 'genome_browser'" class="chromosome-region-view">
 
+  <div *ngFor="let gene of [geneDetails]">
   <div *ngIf="getJBrowseIFrameURL()" class="jbrowse-container">
     <iframe [src]="getJBrowseIFrameURL()! | safeUrl" scrolling="no" class="embedded-jbrowse">
     </iframe>
+  </div>
   </div>
 
   <app-gene-neighbourhood [focusGeneUniquename]="geneDetails.uniquename"

@@ -28,7 +28,7 @@ interface DisplayEntry {
     standalone: false
 })
 export class PdbStructureViewerComponent implements OnInit {
-  @Input() displayName?: string;
+  @Input() displayName: string;
   @Input() pdbEntries: Array<PDBEntry>;
   @Input() pageType: 'gene' | 'reference';
 

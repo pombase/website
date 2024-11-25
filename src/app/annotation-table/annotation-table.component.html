@@ -34,9 +34,11 @@
       <a routerLink="/gene_protein_features/{{geneDetails!.uniquename}}">View all protein features ...</a>
     </div>
 
+    <div *ngFor="let gene of [geneDetails]">
     <iframe [src]="getProteinViewerIFrameURL()" id="protein-feature-viewer-mods" frameborder="0" scrolling="no"
             onload="resizeIframe(this, 175)" class="embedded-protein-viewer" #modsproteinfeaturesiframe>
     </iframe>
+    </div>
   </div>
 
   <div *ngIf="split_by_parents.length == 0">

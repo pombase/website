@@ -9,9 +9,8 @@
 </div>
 
 <div *ngIf="!proteinTooLong()" class="alphafold-container">
-  <div class="alphafold-iframe-container">
-    <iframe (load)="alphaFoldFinishedLoading()" [src]="getAlphaFoldIFrameURL()" scrolling="no" #alphafoldiframe
-      class="embedded-alphafold">
+  <div *ngFor="let gene of [geneDetails]" class="alphafold-iframe-container">
+    <iframe (load)="alphaFoldFinishedLoading()" #alphafoldiframe scrolling="no" class="embedded-alphafold">
     </iframe>
   </div>
 

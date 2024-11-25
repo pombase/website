@@ -14,11 +14,13 @@
     </div>
   </div>
 
+<div *ngFor="let gene of [geneDetails]">
   <iframe [src]="getIFrameURL()"
           frameborder="0" scrolling="no" onload="resizeIframe(this, 240)"
           id="protein-feature-viewer-widget"
           class="embedded-protein-viewer" #proteinfeaturesiframe>
   </iframe>
+</div>
 </div>
 
 <div *ngIf="!geneDetails.has_protein_features && geneDisplayName" class="no-features">

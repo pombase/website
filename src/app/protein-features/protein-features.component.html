@@ -23,12 +23,14 @@
       <a routerLink="/gene_protein_features/{{geneDetails.uniquename}}">View all protein features ...</a>
     </div>
 
+    <div *ngFor="let gene of [geneDetails]">
     <iframe [src]="getIFrameURL()"
             #proteinFeatureViewerInterpro
             id="protein-feature-viewer-interpro"
             frameborder="0" scrolling="no" onload="resizeIframe(this, 240)"
             class="embedded-protein-viewer" #proteinfeaturesiframe>
     </iframe>
+    </div>
 
   </div>
 

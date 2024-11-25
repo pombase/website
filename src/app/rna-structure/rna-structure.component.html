@@ -1,4 +1,6 @@
 <div *ngIf="geneDetails.rnacentral_urs_identifier">
+<div *ngFor="let gene of [geneDetails]">
   <iframe [src]="getIFrameURL()" class="embedded-rna-structure" #rnastructureiframe>
   </iframe>
+</div>
 </div>

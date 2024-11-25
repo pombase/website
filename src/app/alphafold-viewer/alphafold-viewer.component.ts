@@ -1,5 +1,4 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { GeneDetails } from '../pombase-api.service';
 import { AppConfig, getAppConfig } from '../config';
 
@@ -16,12 +15,10 @@ export class AlphafoldViewerComponent implements OnInit {
 
   appConfig: AppConfig = getAppConfig();
 
-  sanitizedAlphaFoldURL?: SafeResourceUrl;
-
   alphaFoldStatus: 'loading' | 'loaded' = 'loading';
 
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor() { }
 
   proteinTooLong(): boolean {
     const protLength = this.geneDetails.transcripts[0].protein?.sequence.length;
@@ -45,19 +42,13 @@ export class AlphafoldViewerComponent implements OnInit {
     return this.alphaFoldStatus == 'loading';
   }
 
-  getAlphaFoldIFrameURL(): SafeResourceUrl | undefined {
-    return this.sanitizedAlphaFoldURL;
-  }
-
   ngOnChanges(): void {
-
-    if (this.geneDetails.uniprot_identifier) {
-      const rawUrl = 'structure_view/alphafold/' + this.geneDetails.uniprot_identifier;
-      this.sanitizedAlphaFoldURL =
-        this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
-    } else {
-      this.sanitizedAlphaFoldURL = undefined;
-    }
+    setTimeout(() => {
+      if (this.geneDetails.uniprot_identifier && this.alphafoldiframe) {
+        const rawUrl = 'structure_view/alphafold/' + this.geneDetails.uniprot_identifier;
+        this.alphafoldiframe.nativeElement.contentWindow.location.replace(rawUrl);
+      }
+    }, 100);
   }
 
   ngOnInit(): void {

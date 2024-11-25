@@ -3,7 +3,7 @@
 </div>
 
 <div class="pdb-structure-view">
-  <div class="pdb-iframe-container">
+  <div *ngFor="let dn of [displayName]" class="pdb-iframe-container">
     <iframe (load)="finishedLoading()" [src]="sanitizedURL" scrolling="no" #pdbiframe class="embedded-pdb">
     </iframe>
   </div>

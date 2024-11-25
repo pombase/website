@@ -99,7 +99,7 @@
   </div>
 
 <div *ngIf="refDetails.pdb_entries.length > 0" class="pdb-structure-view">
-  <app-pdb-structure-viewer [pdbEntries]="refDetails.pdb_entries" [pageType]="'reference'">
+  <app-pdb-structure-viewer [displayName]="refDetails.title" [pdbEntries]="refDetails.pdb_entries" [pageType]="'reference'">
   </app-pdb-structure-viewer>
 </div>
 
