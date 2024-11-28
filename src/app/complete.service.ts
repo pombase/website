@@ -125,9 +125,19 @@ export class CompleteService {
 
         const resultTerms: Array<SolrTermSummary> = terms.map((term: any) => {
           let synonymMatch = null;
-          if (queryText.length >= 2 && term['close_synonyms']) {
+          if (queryText.length >= 2 && term['exact_synonyms']) {
             const nameScore = compareTwoStrings(term.name, queryText);
-            for (const syn of term['close_synonyms'] as Array<string>) {
+            for (const syn of term['exact_synonyms'] as Array<string>) {
+              const synScore = compareTwoStrings(syn, queryText);
+              if (synScore > nameScore) {
+                synonymMatch = syn;
+                break;
+              }
+            }
+          }
+          if (!synonymMatch && queryText.length >= 2 && term['narrow_synonyms']) {
+            const nameScore = compareTwoStrings(term.name, queryText);
+            for (const syn of term['narrow_synonyms'] as Array<string>) {
               const synScore = compareTwoStrings(syn, queryText);
               if (synScore > nameScore) {
                 synonymMatch = syn;
