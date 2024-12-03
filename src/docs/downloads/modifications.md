@@ -52,14 +52,5 @@ For example, [taf12](https://www.pombase.org/gene/SPAC15A10.02):
 
 This extension system is also used for [GO and FYPO annotations](/faq/what-annotation-extension).
 
-Possible extensions include:
-
- - `added_by`
- - `removed_by`
- - `affected_by`
- - `added_during`
- - `present_during`
- - `increased_during`
- - `level_fluctuates_during`
- - `increased_in_presence_of`
- - `multiplicity`
+More details on the extension types are avaiable on the
+[modification upload format documentation page](/documentation/modification-data-bulk-upload-format).
