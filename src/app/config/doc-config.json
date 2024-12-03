@@ -86,6 +86,7 @@
       "downloads/go-annotations" : "GO annotations",
       "downloads/index" : "Downloads",
       "downloads/intron-data" : "Introns",
+      "downloads/modifications" : "Protein modifications",
       "downloads/names-and-identifiers" : "PomBase name and identifier mappings",
       "downloads/phenotype-annotations" : "Phenotype annotations",
       "downloads/protein-datasets" : "Protein datasets",

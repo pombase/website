@@ -5099,8 +5099,8 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <td>Fission yeast orthologs of human disease associated genes with disease descriptions and <a href="https://mondo.monarchinitiative.org/">Mondo</a> ontology terms</td>
 </tr>
 <tr class="even">
-<td><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></td>
-<td>Protein modification data file (RNA modifications to be added in future)</td>
+<td><a routerLink="/downloads/modifications">Modifications</a></td>
+<td>Protein modifications</td>
 </tr>
 <tr class="odd">
 <td><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></td>
@@ -5137,9 +5137,9 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <div *ngIf="section == 'documentation'">
 <app-page-contents-menu title="Documentation" titleRoute="/documentation">
 
-<div class="left-menu-part left-menu-item">General</div>
+<div class="left-menu-part left-menu-item"><span>General</span></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/getting-started">Getting started</a></div>
-<div class="left-menu-part left-menu-item">Gene pages</div>
+<div class="left-menu-part left-menu-item"><span>Gene pages</span></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-basic-information">Basic information</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-gene-ontology">Gene Ontology</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-phenotypes">Phenotypes</a></div>
@@ -5167,13 +5167,13 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/advanced-search">Advanced search</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/id-mapper">Identifier mapper</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/motif-search">Motif search</a></div>
-<div class="left-menu-part left-menu-item">Data submission file formats</div>
+<div class="left-menu-part left-menu-item"><span>Data submission file formats</span></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/modification-data-bulk-upload-format">Modification data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">HTP data for browser tracks</a></div>
-<div class="left-menu-part left-menu-item">Frequently Asked Questions (FAQ)</div>
+<div class="left-menu-part left-menu-item"><span>Frequently Asked Questions (FAQ)</span></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/community">Community</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/data-submission-and-formats">Data submission and formats</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/finding-data">Finding data</a></div>
@@ -6272,6 +6272,7 @@ to retrieve all genes inviable at high temperature (the subtract all “viable v
   <div *ngIf="pageName == 'gene-page-modifications'">
 <h2 id="gene-page-modifications">Gene page: Modifications</h2>
 <p>The Modifications section lists protein modifications that have been manually curated, using terms from the <a href="http://obofoundry.org/ontology/mod.html">PSI-MOD</a> ontology, for protein-coding genes. PomBase will add RNA modifications to this section in the future, when relevant data are curated.</p>
+<p>Modifications for all genes are available to downloads <a routerLink="/downloads/modifications">in a single file</a>.</p>
 <h4 id="graphical-overview">Graphical overview</h4>
 <p>The overview show modifications where the residue position is known. More details are available by mouse-over of the displayed positions.</p>
 <p><a href="assets/gene_page_modification_overview.png"><img src="assets/gene_page_modification_overview.png" title="Protein modifications overview" class="screenshot" width="800" alt="overview gene page modification ontology annotation" /></a></p>
@@ -7839,7 +7840,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <div class="left-menu-part left-sub-menu-item"><span>Annotation datasets</span></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
-<div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></div>
+<div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/modifications">Modifications</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="//downloads/protein-datasets">Protein datasets</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
@@ -7955,6 +7956,64 @@ are not detected by any automated method. Gradually, we will add and display sup
 <li>Donor frequency</li>
 <li>Branch frequency</li>
 <li>A README file is available with additional descriptions of file contents</li>
+</ul>
+
+  </div>
+  <div *ngIf="pageName == 'modifications'">
+<h3 id="protein-modifications">Protein modifications</h3>
+<p>All annotated <em>S. pombe</em> protein modifications are available to download in <a href="https://en.wikipedia.org/wiki/Tab-separated_values">TSV</a> format:</p>
+<ul>
+<li><a href="https://www.pombase.org/data/annotations/modifications/pombase-chado.modifications.gz">pombase-chado.modifications.gz</a></li>
+</ul>
+<h4 id="columns">Columns</h4>
+<ol type="1">
+<li><code>gene_systematic_id</code> - The PomBase systematic ID, example: “SPAC1002.02”</li>
+<li><code>gene_name</code> - Gene name, if any, example: pom34</li>
+<li><code>modification_term_id</code> - An ontology term from the <a href="https://www.psidev.info/protein-modifications">PSI-MOD protein modification ontology</a>, example: MOD:01148</li>
+<li><code>evidence</code> - Evidence code (see below), example: mass spectrometry evidence</li>
+<li><code>modification</code> - Modified amino acid with position, example: K186</li>
+<li><code>extension</code> - Extra annotation details (see below), example: “added_by(PomBase:SPCC24B10.07),added_during(GO:0006995),occupancy(10),removed_by(PomBase:SPAC227.07c)”</li>
+<li><code>reference</code> - Source of the annotation, example: PMID:37970674</li>
+<li><code>taxon_id</code> - <a href="https://www.ncbi.nlm.nih.gov/Taxonomy">NCBI taxonomy database ID</a>, example: <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=4896">4896 (<em>S. pombe</em>)</a></li>
+<li><code>date</code> - Annotation date, example: 2023-11-16</li>
+<li><code>assigned_by</code> - Database that created this annotation, example: PomBase</li>
+</ol>
+<h4 id="current-protein-modification-evidence-codes">Current protein modification evidence codes:</h4>
+<ul>
+<li>author statement without traceable support used in manual assertion</li>
+<li>combinatorial computational and experimental evidence used in manual assertion</li>
+<li>curator inference used in manual assertion</li>
+<li>differential hybridization evidence</li>
+<li>experimental evidence</li>
+<li>experimental evidence used in manual assertion</li>
+<li>high throughput evidence used in manual assertion</li>
+<li>Inferred from Direct Assay</li>
+<li>Inferred from Mutant Phenotype</li>
+<li>Inferred from Sequence Model</li>
+<li>Inferred from Sequence or Structural Similarity</li>
+<li>mass spectrometry evidence</li>
+<li>match to sequence model evidence used in manual assertion</li>
+<li>neural network method evidence used in manual assertion</li>
+<li>sequence similarity evidence used in manual assertion</li>
+<li>Traceable Author Statement</li>
+<li>tryptic phosphopeptide mapping assay evidence used in automatic assertion</li>
+</ul>
+<h4 id="annotation-extensions-for-modifications">Annotation extensions for modifications</h4>
+<p>The extension is used to record extra annotation details that are not captured in the other columns. The extensions details are also available in the <a href="">modifications section</a> of the gene pages.</p>
+<p>For example, <a href="https://www.pombase.org/gene/SPAC15A10.02">taf12</a>:</p>
+<p><img src="assets/modification-extension-example-taf12.png" class="screenshot" width="600" alt="taf12 modification extensions" /></p>
+<p>This extension system is also used for <a routerLink="/faq/what-annotation-extension">GO and FYPO annotations</a>.</p>
+<p>Possible extensions include:</p>
+<ul>
+<li><code>added_by</code></li>
+<li><code>removed_by</code></li>
+<li><code>affected_by</code></li>
+<li><code>added_during</code></li>
+<li><code>present_during</code></li>
+<li><code>increased_during</code></li>
+<li><code>level_fluctuates_during</code></li>
+<li><code>increased_in_presence_of</code></li>
+<li><code>multiplicity</code></li>
 </ul>
 
   </div>
@@ -8186,7 +8245,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <li><a href="https://www.pombase.org/data/Protein_data/aa_composition.tsv">aa_composition.tsv</a> - Amino acid composition</li>
 <li><a href="https://www.pombase.org/data/Protein_data/transmembrane_domain_coords_and_seqs.tsv">transmembrane_domain_coords_and_seqs.tsv</a> - Sequences and coordinates for transmembrane domains</li>
 </ul>
-<p>Also see the <a href="https://www.pombase.org/data/annotations/modifications/">protein modification annotations</a> directory.</p>
+<p>See also the <a routerLink="/downloads/modifications">PomBase protein modification annotations</a>.</p>
 
   </div>
   </div>
