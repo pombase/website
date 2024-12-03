@@ -17,4 +17,4 @@ contains assorted data (see the README for file formats):
     Sequences and coordinates for transmembrane domains
 
 
-See also the [${database_name} protein modification annotations](/downloads/modifications/).
+See also the [${database_name} protein modification annotations](downloads/modifications/).

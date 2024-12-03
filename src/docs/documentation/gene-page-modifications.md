@@ -6,7 +6,7 @@ manually curated, using terms from the
 genes. ${database_name} will add RNA modifications to this section in the
 future, when relevant data are curated.
 
-Modifications for all genes are available to downloads [in a single file](/downloads/modifications).
+Modifications for all genes are available to downloads [in a single file](downloads/modifications).
 
 #### Graphical overview
 
