@@ -53,7 +53,7 @@ Annotation type|Description
 %%if db=PomBase
 [Human disease associations](${base_url}/data/annotations/human_disease_annotation/)|Fission yeast orthologs of human disease associated genes with disease descriptions and [Mondo](https://mondo.monarchinitiative.org/) ontology terms
 %%end db=PomBase
-[Modifications](${base_url}/data/annotations/modifications/)|Protein modification data file (RNA modifications to be added in future)
+[Modifications](/downloads/modifications/)|Protein modifications
 %%if db=PomBase
 [Orthologs](${base_url}/data/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
 %%end db=PomBase
