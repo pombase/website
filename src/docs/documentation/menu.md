@@ -1,6 +1,6 @@
-<div class="left-menu-part left-menu-item">General</div>
+<div class="left-menu-part left-menu-item"><span>General</span></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/getting-started">Getting started</a></div>
-<div class="left-menu-part left-menu-item">Gene pages</div>
+<div class="left-menu-part left-menu-item"><span>Gene pages</span></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-basic-information">Basic information</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-gene-ontology">Gene Ontology</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-phenotypes">Phenotypes</a></div>
@@ -28,13 +28,13 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/advanced-search">Advanced search</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/id-mapper">Identifier mapper</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/motif-search">Motif search</a></div>
-<div class="left-menu-part left-menu-item">Data submission file formats</div>
+<div class="left-menu-part left-menu-item"><span>Data submission file formats</span></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/modification-data-bulk-upload-format">Modification data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/qualitative-gene-expression-data-bulk-upload-format">Qualitative gene expression data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/quantitative-gene-expression-data-bulk-upload-format">Quantitative gene expression data</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">HTP data for browser tracks</a></div>
-<div class="left-menu-part left-menu-item">Frequently Asked Questions (FAQ)</div>
+<div class="left-menu-part left-menu-item"><span>Frequently Asked Questions (FAQ)</span></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/community">Community</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/data-submission-and-formats">Data submission and formats</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/faq/finding-data">Finding data</a></div>
