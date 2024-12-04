@@ -4,7 +4,7 @@ All annotated *S. pombe* protein modifications are available to
 download in [TSV](https://en.wikipedia.org/wiki/Tab-separated_values)
 format:
 
- - [pombase_protein_modifications.gz](https://www.pombase.org/data/annotations/modifications/pombase_protein_modifications.gz)
+ - [pombase_protein_modifications.tsv.gz](https://www.pombase.org/data/annotations/modifications/pombase_protein_modifications.tsv.gz)
 
 #### Columns
 
