@@ -7963,7 +7963,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <h3 id="protein-modifications">Protein modifications</h3>
 <p>All annotated <em>S. pombe</em> protein modifications are available to download in <a href="https://en.wikipedia.org/wiki/Tab-separated_values">TSV</a> format:</p>
 <ul>
-<li><a href="https://www.pombase.org/data/annotations/modifications/pombase-chado.modifications.gz">pombase-chado.modifications.gz</a></li>
+<li><a href="https://www.pombase.org/data/annotations/modifications/pombase_protein_modifications.tsv.gz">pombase_protein_modifications.tsv.gz</a></li>
 </ul>
 <h4 id="columns">Columns</h4>
 <ol type="1">
@@ -8003,18 +8003,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <p>For example, <a href="https://www.pombase.org/gene/SPAC15A10.02">taf12</a>:</p>
 <p><img src="assets/modification-extension-example-taf12.png" class="screenshot" width="600" alt="taf12 modification extensions" /></p>
 <p>This extension system is also used for <a routerLink="/faq/what-annotation-extension">GO and FYPO annotations</a>.</p>
-<p>Possible extensions include:</p>
-<ul>
-<li><code>added_by</code></li>
-<li><code>removed_by</code></li>
-<li><code>affected_by</code></li>
-<li><code>added_during</code></li>
-<li><code>present_during</code></li>
-<li><code>increased_during</code></li>
-<li><code>level_fluctuates_during</code></li>
-<li><code>increased_in_presence_of</code></li>
-<li><code>multiplicity</code></li>
-</ul>
+<p>More details on the extension types are avaiable on the <a routerLink="/documentation/modification-data-bulk-upload-format">modification upload format documentation page</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'names-and-identifiers'">
@@ -9822,6 +9811,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-december-11th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-december-11th">Next pombeTalks: Wednesday December 11th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#discovery-new-s.-pombe-orthologs-human-and-s.-cerevisiae-proteins-using-pfam-n'" [pageScrollAdjustHash]="true" href="/news#discovery-new-s.-pombe-orthologs-human-and-s.-cerevisiae-proteins-using-pfam-n">Discovery of new S. pombe orthologs of human and S. cerevisiae proteins using Pfam-N</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-november-20th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-november-20th">Next pombeTalks: Wednesday November 20th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#mobidb-disorder-predictions'" [pageScrollAdjustHash]="true" href="/news#mobidb-disorder-predictions">MobiDB disorder predictions</a></div>
@@ -12626,9 +12616,36 @@ Shravan Kumar Mishra’s Lab, IISER Mohali, India<br />
 <p><img src="assets/newsfeed/pfam-nar-article-2024.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Pfam NAR article 2024" /></p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-december'">
+<h3 id="next-pombetalks-wednesday-december-11th">Next pombeTalks: Wednesday December 11th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, December 11th, at 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo.</p>
+<p>Speakers this month are:</p>
+<ul>
+<li><strong>Valentin Flury</strong><br />
+Max Planck Institute of Immunobiology and Epigenetics, Freiburg, Germany<br />
+“The fork protection complex promotes parental histone recycling and epigenetic memory”</li>
+</ul>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2024-12-04-pombetalks-december" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-december-11th">Next pombeTalks: Wednesday December 11th</h3>
+<p><em>2024-12-04</em></p>
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, December 11th, at 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo.</p>
+<p>Speakers this month are:</p>
+<ul>
+<li><strong>Valentin Flury</strong><br />
+Max Planck Institute of Immunobiology and Epigenetics, Freiburg, Germany<br />
+“The fork protection complex promotes parental histone recycling and epigenetic memory”</li>
+</ul>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
+</div>
 <div id="2024-11-22-new-pfam-paper" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="discovery-new-s.-pombe-orthologs-human-and-s.-cerevisiae-proteins-using-pfam-n">Discovery of new S. pombe orthologs of human and S. cerevisiae proteins using Pfam-N</h3>
