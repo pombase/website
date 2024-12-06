@@ -5,6 +5,12 @@
       "url_syntax" : "http://arabidopsis.org/servlets/TairObject?type=locus&name=[example_id]",
       "website" : "http://www.arabidopsis.org"
    },
+   "ARBA" : {
+      "description" : "ARBA machine learning models for automatic annotation of UniProtKB unreviewed entries",
+      "name" : "ARBA",
+      "url_syntax" : "https://www.uniprot.org/arba/[example_id]",
+      "website" : "https://www.uniprot.org/arba/"
+   },
    "AlphaFold" : {
       "description" : "AlphaFold Protein Structure Database",
       "name" : "AlphaFold",
@@ -263,11 +269,23 @@
       "url_syntax" : "http://www.uniprot.org/locations/[example_id]",
       "website" : "https://www.uniprot.org/locations/"
    },
+   "UniRule" : {
+      "description" : "Manually curated rules for automatic annotation of UniProtKB unreviewed entries",
+      "name" : "UniRule",
+      "url_syntax" : "https://www.uniprot.org/unirule/[example_id]",
+      "website" : "https://www.uniprot.org/unirule/"
+   },
    "WB" : {
       "description" : "WormBase database of nematode biology",
       "name" : "WB",
       "url_syntax" : "http://www.wormbase.org/get?name=[example_id]",
       "website" : "http://www.wormbase.org/"
+   },
+   "Xenbase" : {
+      "description" : "Xenbase",
+      "name" : "Xenbase",
+      "url_syntax" : "http://www.xenbase.org/entry/[example_id]",
+      "website" : "http://www.xenbase.org/"
    },
    "ZFIN" : {
       "description" : "Zebrafish Information Network",
