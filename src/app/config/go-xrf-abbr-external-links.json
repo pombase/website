@@ -47,6 +47,12 @@
       "url_syntax" : "https://www.ebi.ac.uk/complexportal/complex/[example_id]",
       "website" : "https://www.ebi.ac.uk/complexportal"
    },
+   "DDBJ" : {
+      "description" : "DNA Databank of Japan",
+      "name" : "DDBJ",
+      "url_syntax" : "http://getentry.ddbj.nig.ac.jp/getentry/na/[example_id]",
+      "website" : "https://www.ddbj.nig.ac.jp"
+   },
    "DOI" : {
       "description" : "Digital Object Identifier",
       "name" : "DOI",
