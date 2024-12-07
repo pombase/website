@@ -59,6 +59,12 @@
       "url_syntax" : "http://dx.doi.org/[example_id]",
       "website" : "http://dx.doi.org/"
    },
+   "DTU" : {
+      "description" : "DTU Health Tech Services",
+      "name" : "DTU",
+      "url_syntax" : null,
+      "website" : "http://www.cbs.dtu.dk/services"
+   },
    "EC" : {
       "description" : "Enzyme Commission",
       "name" : "EC",
