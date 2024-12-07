@@ -174,23 +174,13 @@
               </span>
 
               <span *ngIf="!showNucSequence && geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
-                <form id="jackhmmersearch" name="JackhmmerSearch" #jackhmmersearch
-                      (ngSubmit)="jackhmmersearch.submit();"
-                      target="_blank"
-                      action="{{jackhmmerSearchUrl}}" method="GET">
-                  <input value="{{'>' + proteinSequenceHeader + '\n' + wrappedProteinSequence}}" name="seq" type="hidden">
-                  <input class="btn btn-primary" type="submit" value="JackHMMER Search" />
-                </form>
-              </span>
-
-              <span *ngIf="!showNucSequence && geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
                 <form id="fastasearch" name="FastaSearch" #fastasearch
                       (ngSubmit)="fastasearch.submit();"
                       target="_blank"
                       action="{{ebiToolsUrl + '/fasta'}}" method="GET">
                   <input value="fasta" name="tool" type="hidden">
                   <input value="protein" name="context" type="hidden">
-                  <input value="{{'>' + proteinSequenceHeader + '\n' + protein!.sequence}}" name="wflSequence" type="hidden">
+                  <input value="{{protein!.sequence}}" name="wflSequence" type="hidden">
                   <input class="btn btn-primary" type="submit" value="FASTA Search" />
                 </form>
               </span>

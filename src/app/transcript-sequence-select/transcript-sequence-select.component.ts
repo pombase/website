@@ -59,7 +59,6 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
   protein?: ProteinDetails;
 
   ensemblBlastUrl = getAppConfig().ensembl_blast_url;
-  jackhmmerSearchUrl = getAppConfig().jackhmmer_search_url;
   ebiToolsUrl = getAppConfig().ebi_tools_url;
   downloadWithFeaturesURL = getAppConfig().seq_and_features_download_url;
 

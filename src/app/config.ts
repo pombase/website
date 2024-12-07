@@ -308,7 +308,6 @@ export interface AppConfig {
   has_admin_curation: boolean;
   no_gene_name_route?: string;
   ensembl_blast_url: string;
-  jackhmmer_search_url: string;
   ebi_tools_url: string;
   pdbe_entry_url: string;
   pdbe_image_url: string;
@@ -807,7 +806,6 @@ let _appConfig: AppConfig = {
   has_admin_curation: pombaseConfig.has_admin_curation,
   no_gene_name_route: pombaseConfig.no_gene_name_route,
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,
-  jackhmmer_search_url: pombaseConfig.jackhmmer_search_url,
   ebi_tools_url: pombaseConfig.ebi_tools_url,
   pdbe_entry_url: pombaseConfig.pdbe_entry_url,
   pdbe_image_url: pombaseConfig.pdbe_image_url,
