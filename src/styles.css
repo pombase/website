@@ -312,21 +312,33 @@ select option:disabled {
   .left-menu-item {
     font-size: 90%;
   }
+  .left-sub-menu-item {
+    font-size: 85%;
+  }
 }
 @media (min-height: 610px) and (max-height: 675px) and (min-width: 800px) {
   .left-menu-item {
     font-size: 85%;
+  }
+  .left-sub-menu-item {
+    font-size: 80%;
   }
 }
 @media (min-height: 580px) and (max-height: 610px) and (min-width: 800px) {
   .left-menu-item {
     font-size: 80%;
   }
+  .left-sub-menu-item {
+    font-size: 75%;
+  }
 }
 
 @media (max-height: 580px) and (min-width: 800px) {
   .left-menu-item {
     font-size: 68%;
+  }
+  .left-sub-menu-item {
+    font-size: 65%;
   }
   .small-logo-visible {
     display: none;
