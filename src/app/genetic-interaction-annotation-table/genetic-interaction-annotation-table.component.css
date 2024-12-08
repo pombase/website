@@ -62,7 +62,7 @@
 
 .query-link {
   display: block;
-  padding-bottom: 0.3em;
+  padding: 0.2em 0.5em 0.8em 0;
 }
 
 .interaction-source-label {
