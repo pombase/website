@@ -29,6 +29,8 @@ assignees: PCarme
 | 18 (R)   | Data file type (*Mandatory*: bigwig, bed)                                                   |           |
 | 19 (S)   | File name (*Mandatory*: Name given to submitted data file relevant to the track)            |           |
 
+* Format for track label “Assayed gene product” “Data type” “in mutant” “during Growth phase or response” “additional experimental detail of importance (Conditions, Strain background)” “; repeat” “(strand)” “- First author (Publication year)”
+
 
  *  URL for dataset
 
