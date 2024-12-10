@@ -10,12 +10,16 @@
   <div *ngFor="let menuItem of displayMenuItems">
     <div id="menu-item-{{menuItem.id}}" class="left-menu-part left-menu-item"
          (click)="clicked(menuItem)">
+      <span [ngClass]="{'is-on-screen': isOnScreen(menuItem, menuItem.subItemsVisible)}">
       <a pageScroll href="#{{menuItem.id}}">{{menuItem.displayName}}</a>
+      </span>
     </div>
 
     <div *ngIf="menuItem.subItems && menuItem.subItemsVisible">
       <div class="left-menu-part left-sub-menu-item" *ngFor="let subMenuItem of menuItem.subItems">
+        <span [ngClass]="{'is-on-screen': isOnScreen(subMenuItem, false)}">
         <a pageScroll href="#{{subMenuItem.id}}">{{subMenuItem.displayName}}</a>
+        </span>
       </div>
     </div>
   </div>

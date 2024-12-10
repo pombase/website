@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
 import { TermAnnotation, GeneDetails } from '../pombase-api.service';
 
 import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
@@ -6,6 +6,7 @@ import { getAnnotationTableConfig, AnnotationTableConfig, AnnotationType,
 import { DeployConfigService } from '../deploy-config.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Util } from '../shared/util';
+import { AnnotationTableIntersection } from '../annotation-table-intersection-event';
 
 @Component({
     selector: 'app-annotation-table',
@@ -21,6 +22,7 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   @Input() annotationTable: Array<TermAnnotation>;
   @Input() geneDetails?: GeneDetails;
   @Input() scope: string; // "gene", "term", "reference" ...
+  @Output() annotationTableIntersection = new EventEmitter<AnnotationTableIntersection>();
 
   config: AnnotationTableConfig = getAnnotationTableConfig();
   typeConfig: AnnotationType;
@@ -87,6 +89,10 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+  }
+
+  intersectHandler(subTableName: string, isIntersecting: boolean) {
+    this.annotationTableIntersection.emit(new AnnotationTableIntersection(subTableName, isIntersecting));
   }
 
   ngOnChanges() {

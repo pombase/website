@@ -17,6 +17,8 @@ import { DeployConfigService } from '../deploy-config.service';
 import { Util } from '../shared/util';
 import { MenuItem } from '../types';
 
+import { AnnotationTableIntersection } from '../annotation-table-intersection-event';
+
 @Component({
     selector: 'app-gene-details',
     templateUrl: './gene-details.component.html',
@@ -32,6 +34,7 @@ export class GeneDetailsComponent implements OnInit {
   annotationTypeOrder: Array<TypeOrderConfigItem> = [];
   annotationTypeOrderNames: Array<string> = [];
   menuItems: Array<MenuItem> = [];
+  onScreenItems: Set<string> = new Set();
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
   noGeneNameRoute = this.appConfig.no_gene_name_route;
@@ -421,6 +424,18 @@ export class GeneDetailsComponent implements OnInit {
   showCharacterisationStatus(): boolean {
     return this.isConfiguredOrganism && this.hasCharacterisationStatus &&
       !!this.geneDetails.characterisation_status;
+  }
+
+  intersect(annotationTypeName: string, isIntersecting: boolean): void {
+    if (isIntersecting) {
+      this.onScreenItems.add(annotationTypeName);
+    } else {
+      this.onScreenItems.delete(annotationTypeName);
+    }
+  }
+
+  subTableIntersect(event: AnnotationTableIntersection)  {
+    this.intersect(event.annotationTypeName, event.isIntersecting);
   }
 
   ngOnInit(): void {

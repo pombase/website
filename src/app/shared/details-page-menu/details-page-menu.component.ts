@@ -18,6 +18,7 @@ interface DisplayMenuItem extends MenuItem {
 export class DetailsPageMenuComponent implements OnInit, OnChanges {
   @Input() title: string;
   @Input() menuItems: Array<MenuItem> = [];
+  @Input() onScreenItems = new Set<string>();
 
   displayMenuItems: Array<DisplayMenuItem> = [];
 
@@ -52,11 +53,37 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
   }
 
   clicked(menuItem: DisplayMenuItem): void {
+    if (!menuItem.subItems) {
+      menuItem.subItemsVisible = false;
+      return;
+    }
     const currentItemValue = menuItem.subItemsVisible;
     this.displayMenuItems.map(item => {
       item.subItemsVisible = false;
     });
     menuItem.subItemsVisible = !currentItemValue;
+  }
+
+  isOnScreen(menuItem: MenuItem, subItemsVisible: boolean): boolean {
+    if (!this.menuPositionFixed) {
+      // don't highlight menu item before we've scrolled
+      return false;
+    }
+    if (subItemsVisible) {
+      return false;
+    }
+    if (this.onScreenItems.has(menuItem.id)) {
+      return true;
+    }
+    if (menuItem.subItems) {
+      for (const subMenuItem of menuItem.subItems) {
+        if (this.onScreenItems.has(subMenuItem.id)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 
   ngOnInit() {
@@ -66,7 +93,9 @@ export class DetailsPageMenuComponent implements OnInit, OnChanges {
     this.displayMenuItems =
       this.menuItems.map(item => {
         let displayItem = { ...item, subItemsVisible: false };
-
+        if (displayItem.subItems && displayItem.subItems.length == 0) {
+          displayItem.subItems = undefined;
+        }
         return displayItem;
       });
   }

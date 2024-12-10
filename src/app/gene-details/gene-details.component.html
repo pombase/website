@@ -103,6 +103,7 @@
     <div id="gene-details-menu">
       <app-details-page-menu *ngIf="geneDetails"
                              [title]="(geneDetails.name || geneDetails.uniquename) + ' summary'"
+                             [onScreenItems]="onScreenItems"
                              [menuItems]="menuItems"></app-details-page-menu>
     </div>
 
@@ -133,7 +134,10 @@
     <div *ngFor="let annotationTypeName of annotationTypeOrderNames">
 
       <div *ngIf="geneDetails.cv_annotations[annotationTypeName]">
-        <app-quant-gene-ex-table id="{{annotationTypeName}}" *ngIf="annotationTypeName == 'quantitative_gene_expression'"
+        <app-quant-gene-ex-table id="{{annotationTypeName}}"
+                                 intersectionObserver
+                                 (intersection)="intersect(annotationTypeName, $event.intersect)"
+                                 *ngIf="annotationTypeName == 'quantitative_gene_expression'"
                                  [scope]="'gene'"
                                  [geneDetails]="geneDetails"
                                  [hideColumns]="['gene']"
@@ -141,6 +145,9 @@
 
         <app-annotation-table id="{{annotationTypeName}}"
                               *ngIf="annotationTypeName != 'quantitative_gene_expression'"
+                              intersectionObserver
+                              (intersection)="intersect(annotationTypeName, $event.intersect)"
+                              (annotationTableIntersection)="subTableIntersect($event)"
                               [scope]="'gene'"
                               [annotationTypeName]="annotationTypeName"
                               [geneDetails]="geneDetails"
@@ -150,16 +157,22 @@
 
       <app-misc-annotation-table id="{{annotationTypeName}}"
                                  *ngIf="annotationTypeName == 'miscellaneous' && hasMiscAnnotations()"
+                                 intersectionObserver
+                                 (intersection)="intersect(annotationTypeName, $event.intersect)"
                                  [annotationTypeNames]="miscAnnotationTypeNames"
                                  [geneDetails]="geneDetails"></app-misc-annotation-table>
 
       <app-protein-features id="{{annotationTypeName}}"
                             *ngIf="annotationTypeName == 'protein_domains_and_properties' && showProteinFeatures"
+                            intersectionObserver
+                            (intersection)="intersect(annotationTypeName, $event.intersect)"
                             [geneDetails]="geneDetails"></app-protein-features>
 
 
       <app-interaction-annotation-table *ngIf="annotationTypeName == 'physical_interactions'"
                                         id="{{annotationTypeName}}"
+                                      intersectionObserver
+                                      (intersection)="intersect(annotationTypeName, $event.intersect)"
                                       [annotationTypeName]="annotationTypeName"
                                       [currentGene]="geneDetails"
                                       [annotationTable]="geneDetails.physical_interactions"></app-interaction-annotation-table>
@@ -167,6 +180,8 @@
       <app-genetic-interaction-annotation-table
           *ngIf="annotationTypeName == 'genetic_interactions'"
           id="{{annotationTypeName}}"
+          intersectionObserver
+          (intersection)="intersect(annotationTypeName, $event.intersect)"
           [annotationTypeName]="annotationTypeName"
           [currentGene]="geneDetails"
           [annotationTable]="geneDetails.genetic_interactions">
@@ -174,33 +189,49 @@
 
       <app-ortholog-annotation-table *ngIf="annotationTypeName == 'orthologs' && showOrthologsSection()"
                                      id="{{annotationTypeName}}"
+                                     intersectionObserver
+                                     (intersection)="intersect(annotationTypeName, $event.intersect)"
                                      [currentGene]="geneDetails"
                                      [annotationTable]="geneDetails.ortholog_annotations"></app-ortholog-annotation-table>
       <app-paralog-annotation-table *ngIf="annotationTypeName == 'paralogs'"
                                     id="{{annotationTypeName}}"
+                                    intersectionObserver
+                                    (intersection)="intersect(annotationTypeName, $event.intersect)"
                                     [annotationTable]="geneDetails.paralog_annotations"></app-paralog-annotation-table>
       <app-target-of-annotation-table *ngIf="annotationTypeName == 'target_of'"
                                       id="{{annotationTypeName}}"
+                                      intersectionObserver
+                                      (intersection)="intersect(annotationTypeName, $event.intersect)"
                                       [geneDetails]="geneDetails"
                                       [annotationTable]="geneDetails.target_of_annotations"></app-target-of-annotation-table>
     </div>
 
     <app-transcript-view id="transcript_view"
                          *ngIf="geneDetails!.transcripts.length > 0"
+                         intersectionObserver
+                         (intersection)="intersect('transcript_view', $event.intersect)"
                          [geneDetails]="geneDetails"></app-transcript-view>
 
     <app-transcript-sequence-select *ngIf="isConfiguredOrganism" id="transcript-sequence"
+                                    intersectionObserver
+                                    (intersection)="intersect('transcript-sequence', $event.intersect)"
                                     [geneDetails]="geneDetails"></app-transcript-sequence-select>
 
     <app-gene-history-table id="gene-history"
         *ngIf="geneDetails.gene_history.length"
+        intersectionObserver
+        (intersection)="intersect('gene-history', $event.intersect)"
         [geneDetails]="geneDetails">
     </app-gene-history-table>
 
     <app-gene-external-references *ngIf="isConfiguredOrganism" id="external-refs"
+                                  intersectionObserver
+                                  (intersection)="intersect('external-refs', $event.intersect)"
                                   [geneDetails]="geneDetails"></app-gene-external-references>
 
     <app-gene-references-table id="literature"
+                               intersectionObserver
+                               (intersection)="intersect('literature', $event.intersect)"
                                [geneDetails]="geneDetails"
                                [references]="geneDetails.references"></app-gene-references-table>
   </div>

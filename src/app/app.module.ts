@@ -164,6 +164,9 @@ import { GeneticInteractionTableTypeFilterComponent } from './genetic-interactio
 import { RnaStructureComponent } from './rna-structure/rna-structure.component';
 import { ProteinFeatureTableComponent } from './protein-feature-table/protein-feature-table.component';
 
+import { IntersectionObserverModule } from 'ngx-intersection-observer';
+import { IntersectionObserverConfig } from 'ngx-intersection-observer/lib/intersection-observer-config.model';
+
 @Pipe({
     name: 'safeUrl',
     standalone: false
@@ -319,7 +322,14 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         ProteinFeatureTableComponent,
     ],
     bootstrap: [AppComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA], imports: [BrowserModule,
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [
+        IntersectionObserverModule.forRoot({
+          debounce: 50,
+          threshold: 1,
+          autoRemove: true
+        } as IntersectionObserverConfig),
+        BrowserModule,
         CommonModule,
         BrowserAnimationsModule,
         FormsModule,

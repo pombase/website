@@ -5245,6 +5245,13 @@ ngx-bootstrap@^18:
   dependencies:
     tslib "^2.3.0"
 
+ngx-intersection-observer@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/ngx-intersection-observer/-/ngx-intersection-observer-1.0.13.tgz#da40026f79a5883d9845f19d3af5b54e40f7feef"
+  integrity sha512-QQsJInaH6OM/ANxiMBmKm9GJo8UfCo6VNf+5D1XTKV3x7ETwKIoQB+K11AV2LD/5GYPjoigl7TrtJKkR/GAkdg==
+  dependencies:
+    tslib "^2.3.0"
+
 ngx-page-scroll-core@^13:
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/ngx-page-scroll-core/-/ngx-page-scroll-core-13.0.0.tgz#d898bdbf4d0620998e04aa30c612a6a588b37064"

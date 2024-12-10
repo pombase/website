@@ -11,3 +11,8 @@
   opacity: 1;
   transition: opacity 0.2s;
 }
+
+.is-on-screen {
+  border-right: 3px solid #667;
+  background-color: #e8e8dfdd;
+}

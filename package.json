@@ -33,6 +33,7 @@
     "bootstrap": "^4",
     "file-saver": "^2.0.2",
     "ngx-bootstrap": "^18",
+    "ngx-intersection-observer": "^1.0.13",
     "ngx-page-scroll": "^13",
     "ngx-page-scroll-core": "^13",
     "ngx-toastr": "^19",
