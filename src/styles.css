@@ -266,8 +266,8 @@ select option:disabled {
 }
 
 .left-menu-part {
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 7px;
+  margin-bottom: 7px;
   background-color: #f0f0e3cc;
 }
 
@@ -277,7 +277,7 @@ select option:disabled {
 
 .left-menu-part a, .left-menu-part span {
   display: block;
-  padding: 3px 5px 3px 5px;
+  padding: 2.5px 4.5px;
 }
 
 .left-menu-header {
