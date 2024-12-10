@@ -12,7 +12,7 @@ assignees: PCarme
 | 1 (A)    | Data type (*Mandatory*): i.e. Transcripts, Chromatin binding, Nucleosome positioning, Poly(A) sites, Replication origins) |           |
 | 2 (B)    | Track label (*Mandatory*): See below for format and examples***                             |           |
 | 3 (C)    | Assayed gene product (Fkh2)                                                                 |           |
-| 4 (D)    | Strain background (*Mandatory*)  i.e. h- cdc25-22, leu1-1; Multiple entries allowed)              |           |
+| 4 (D)    | Strain background (*Mandatory*)  i.e. h- cdc25-22, leu1-1; (Multiple entries allowed)              |           |
 | 5 (E)    | WT or mutant (*Mandatory*):  (strains with only background mutations are considered WT)    |           |
 | 6 (F)    | Mutant alleles  i.e. clr4delta, dfp1-3A; (Multiple entries allowed)                               |           |
 | 7 (G)    | Conditions  i.e. YES, high temperature; glucose MM, standard temperature + HU                   |           |
