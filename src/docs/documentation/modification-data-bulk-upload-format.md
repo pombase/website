@@ -63,9 +63,13 @@ File columns:
     are allowed, but only for cases where two or more of the same
     modification are known to be present at the same time. Separate
     entries with commas (e.g. S72,T85). Position numbering should
-    reflect the current sequence data in ${database_name}. Please refer to the
-    [Gene Coordinate Changes](status/gene-coordinate-changes-protein-coding) page to
-    ensure that your residue position entries are up to date. Histones
+    reflect the current sequence data in ${database_name}.
+%%end db=PomBase
+    Please refer to the
+    [Gene Coordinate Changes](status/gene-coordinate-changes-protein-coding)
+    page to ensure that your residue position entries are up to date.
+%%if db=PomBase
+    Histones
     should be represented using the unprocessed protein sequence
     coordinates, not the processed coordinates conventionally used to
     describe histones. Histone modifications will be represented on
