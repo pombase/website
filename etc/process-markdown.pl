@@ -573,7 +573,11 @@ sub process_path {
 
   my $menu_title = (ucfirst $path) =~ s/-/ /gr;
   $menu_title = 'FAQ' if $menu_title =~ /faq/i;
-  print $docs_component_fh qq|<app-page-contents-menu title="$menu_title" titleRoute="/$path">\n|;
+  my $title_route = '';
+  if ($menu_title !~ /download/i) {
+     $title_route = qq|titleRoute="/$path"|;
+  }
+  print $docs_component_fh qq|<app-page-contents-menu title="$menu_title" $title_route>\n|;
 
   my $menu_content = contents_for_template("$path/menu", $data->{menu});
 
