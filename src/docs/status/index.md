@@ -11,8 +11,9 @@ Note: Because *S. japonicus* curation has begun so recently, many of these pages
 | [Sequencing status](status/sequencing-status) | Contig size, gap status and progress, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
 | [Sequence updates](status/sequencing-updates) | Changes to the genome sequence since July 2003 |
 | [Sequence updates pending](status/sequence-updates-pending) | Pending changes, mainly from the Broad Institute, some supported by data from other sources |
+| [Protein coding gene coordinate changes](status/gene-coordinate-changes-protein-coding) | Changes to coordinates of individual protein coding genes since publication |
+| [RNA gene coordinate changes](status/gene-coordinate-changes-RNA) | Changes to coordinates of RNA genes since publication |
 %%end db=PomBase
-| [Gene coordinate changes](status/gene-coordinate-changes) | Changes to coordinates of individual genes since publication |
 | [New and removed genes](status/new-and-removed-genes) | Genes identified or removed since publication |
 %%if db=PomBase
 | [Gene characterisation](status/gene-characterisation) | Current counts of protein coding gene status, as published in small scale experiments |

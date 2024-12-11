@@ -64,7 +64,7 @@ File columns:
     modification are known to be present at the same time. Separate
     entries with commas (e.g. S72,T85). Position numbering should
     reflect the current sequence data in ${database_name}. Please refer to the
-    [Gene Coordinate Changes](status/gene-coordinate-changes) page to
+    [Gene Coordinate Changes](status/gene-coordinate-changes-protein-coding) page to
     ensure that your residue position entries are up to date. Histones
     should be represented using the unprocessed protein sequence
     coordinates, not the processed coordinates conventionally used to

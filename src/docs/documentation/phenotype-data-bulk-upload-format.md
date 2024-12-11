@@ -122,7 +122,7 @@ blank in the rest of the rows.
 **Details for allele types and descriptions:**
 
 General note: Nucleotide and amino acid positions should reflect the
-current sequence data in ${database_name}. Please refer to the [Gene Coordinate Changes](status/gene-coordinate-changes) 
+current sequence data in ${database_name}. Please refer to the [Gene Coordinate Changes](status/gene-coordinate-changes-protein-coding) 
 page to ensure that your residue position entries are up to date.
 
 For protein-coding genes, number nucleotide residues from 1 starting
