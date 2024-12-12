@@ -74,8 +74,5 @@ export class AnnotationTableThroughputFilterComponent implements OnInit, OnChang
       }
     }
 
-    this.choiceData.sort((a, b) => {
-      return a.displayName.localeCompare(b.displayName);
-    });
   }
 }
