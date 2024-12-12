@@ -184,6 +184,28 @@
                   <input class="btn btn-primary" type="submit" value="FASTA Search" />
                 </form>
               </span>
+
+              <span *ngIf="!showNucSequence && geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
+                <form id="psisearch" name="PSISearch" #psisearch
+                      (ngSubmit)="psisearch.submit();"
+                      target="_blank"
+                      action="{{ebiToolsUrl + '/psisearch'}}" method="GET">
+                  <input value="protein" name="context" type="hidden">
+                  <input value="{{protein!.sequence}}" name="wflSequence" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="PSI-Search" />
+                </form>
+              </span>
+
+              <span *ngIf="!showNucSequence && geneDetails.feature_type == 'mRNA gene'" class="sequence-action">
+                <form id="psiblast" name="PSIBLAST" #psiblast
+                      (ngSubmit)="psiblast.submit();"
+                      target="_blank"
+                      action="{{ebiToolsUrl + '/psiblast'}}" method="GET">
+                  <input value="protein" name="context" type="hidden">
+                  <input value="{{protein!.sequence}}" name="wflSequence" type="hidden">
+                  <input class="btn btn-primary" type="submit" value="PSI-BLAST" />
+                </form>
+              </span>
             </div>
           </div>
         </div>
