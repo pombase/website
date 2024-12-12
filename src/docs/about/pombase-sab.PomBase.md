@@ -29,6 +29,9 @@ Exeter Centre for the Study of the Life Sciences &amp; Department of Sociology, 
 *Sophie Martin*<br>
 Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland
 
+*Alison Pidoux*<br>
+Allshire Lab, Centre for Cell Biology, University of Edinburgh, Edinburgh, UK
+
 
 #### Past SAB members
 
