@@ -16,7 +16,7 @@ export class AnnotationThroughputFilter implements Filter<AnnotationTable> {
 
       for (let annotation of termAnnotation.annotations) {
         if (annotation.throughput &&
-            this.throughputType === annotation.throughput) {
+            this.throughputType.split("|").includes(annotation.throughput)) {
           retAnnotation.annotations.push(annotation);
         }
       }

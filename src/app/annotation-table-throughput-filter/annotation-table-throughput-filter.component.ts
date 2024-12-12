@@ -57,7 +57,7 @@ export class AnnotationTableThroughputFilterComponent implements OnInit, OnChang
           let annotationThroughput = annotation.throughput;
           if (annotationThroughput) {
             for (let configCategory of this.config.throughput_categories) {
-              if (annotationThroughput === configCategory.throughput_type) {
+              if (configCategory.throughput_type.split("|").includes(annotationThroughput)) {
                 seenThroughput[configCategory.throughput_type] = true;
               }
             }
