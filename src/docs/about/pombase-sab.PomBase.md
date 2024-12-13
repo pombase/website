@@ -32,6 +32,9 @@ Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switze
 *Alison Pidoux*<br>
 Allshire Lab, Centre for Cell Biology, University of Edinburgh, Edinburgh, UK
 
+*Sigurd Braun*<br>
+Institute of Genetics, Justus-Liebig-University Giessen, Giessen, Germany
+
 
 #### Past SAB members
 
