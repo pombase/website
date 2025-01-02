@@ -326,7 +326,7 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
     imports: [
         IntersectionObserverModule.forRoot({
           debounce: 50,
-          threshold: 1,
+          threshold: 2,
           autoRemove: true
         } as IntersectionObserverConfig),
         BrowserModule,
