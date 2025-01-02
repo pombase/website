@@ -29,15 +29,31 @@ If you use Pombase for your research, please cite or acknowledge the resource in
 
 ## Types of pages in ${database_name}
 
-${database_name} is centred around **Gene Pages** so this is a good place to begin to familiarise yourself with how data is organised. You should visit your favourite gene page, but for this example we are using pol1, the DNA polymerase alpha catalytic subunit. You can access the page by typing the gene name (i.e. pol1) into the search box at the top-right of the website, or at this
+${database_name} is centred around **Gene Pages** so this is a good
+place to begin to familiarise yourself with how data is organised.  An
+example is the gene page for
 %%if db=PomBase
-[link](https://www.pombase.org/gene/SPAC3H5.06c).
+[pol1, the DNA polymerase alpha catalytic subunit](/gene/SPAC3H5.06c).
 %%end db=PomBase
 %%if db=JaponicusDB
-[link](https://www.japonicusdb.org/gene/SJAG_05239).
+[pol1, the DNA polymerase alpha catalytic subunit](/gene/SJAG_05239).
 %%end db=JaponicusDB
 
-At the top of the page, you will find some basic information about the locus and gene product. Immediately below is a view of the genomic context of the gene in the JBrowse genome browser. (documentation to access browser data tracks is [here](/documentation/JBrowse_quick_start)):
+To find other genes, use the search box at top right of every page.
+It's possible to search using the gene name ("pol1") or the systematic
+identifier
+%%if db=PomBase
+("SPAC3H5.06c").
+%%end db=PomBase
+%%if db=JaponicusDB
+("SJAG_05239").
+%%end db=JaponicusDB
+
+At the top of the page, you will find some basic information about the
+locus and gene product.  Immediately below is a view of the
+[predicted structure from AlphaFold](https://alphafold.ebi.ac.uk/entry/P28040).
+Other views are possible using the buttons beside the structure view
+("Protein features", "Genome browser", etc.)
 
 ![Top of gene page](assets/gene_page_top_part.png){ .screenshot width="700"}
 
