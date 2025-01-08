@@ -9822,6 +9822,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-january-15th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-january-15th">Next pombeTalks: Wednesday January 15th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-december-11th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-december-11th">Next pombeTalks: Wednesday December 11th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#discovery-new-s.-pombe-orthologs-human-and-s.-cerevisiae-proteins-using-pfam-n'" [pageScrollAdjustHash]="true" href="/news#discovery-new-s.-pombe-orthologs-human-and-s.-cerevisiae-proteins-using-pfam-n">Discovery of new S. pombe orthologs of human and S. cerevisiae proteins using Pfam-N</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-november-20th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-november-20th">Next pombeTalks: Wednesday November 20th</a></div>
@@ -12640,9 +12641,38 @@ Max Planck Institute of Immunobiology and Epigenetics, Freiburg, Germany<br />
 <p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-jan'">
+<h3 id="next-pombetalks-wednesday-january-15th">Next pombeTalks: Wednesday January 15th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, January 15th, at <a href="https://everytimezone.com/s/0d8dfbff">08:00</a> San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo.</p>
+<p>Speakers this month are:</p>
+<ul>
+<li><p><strong>Kaushik Ragunathan</strong><br />
+Department of Biology, Brandeis University</p></li>
+<li><p><strong>Ayokunle Oluwaseun Araoyinbo</strong><br />
+Vjestica Lab, University of Lausanne</p></li>
+</ul>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2025-01-09-pombetalks-jan" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-january-15th">Next pombeTalks: Wednesday January 15th</h3>
+<p><em>2025-01-09</em></p>
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, January 15th, at <a href="https://everytimezone.com/s/0d8dfbff">08:00</a> San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo.</p>
+<p>Speakers this month are:</p>
+<ul>
+<li><p><strong>Kaushik Ragunathan</strong><br />
+Department of Biology, Brandeis University</p></li>
+<li><p><strong>Ayokunle Oluwaseun Araoyinbo</strong><br />
+Vjestica Lab, University of Lausanne</p></li>
+</ul>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
+</div>
 <div id="2024-12-04-pombetalks-december" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-december-11th">Next pombeTalks: Wednesday December 11th</h3>
@@ -15581,6 +15611,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <table><thead><tr>
 <th>Date</th><th>Systematic id</th><th>Primary name</th><th>Before / after change</th><th>Coordinates</th><th>Comment</th><th>Reference</th>
 </thead>
+<tr><td><span class="docs-content-date">2024-06-26</span></td><td><a routerLink='/gene/SPSNORNA.18'>SPSNORNA.18</a></td><td>snoU24</td><td>after</td><td>I:complement(5369613..<wbr>5369691)</td><td></td><td></td></tr>
+<tr><td><span class="docs-content-date">2024-06-26</span></td><td><a routerLink='/gene/SPSNORNA.18'>SPSNORNA.18</a></td><td>snoU24</td><td>before</td><td>I:complement(5369640..<wbr>5369686)</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2022-12-21</span></td><td><a routerLink='/gene/SPNCRNA.105'>SPNCRNA.105</a></td><td></td><td>after</td><td>II:4071111..4071312</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2022-12-21</span></td><td><a routerLink='/gene/SPNCRNA.105'>SPNCRNA.105</a></td><td></td><td>before</td><td>II:4071111..4071304</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2022-12-20</span></td><td><a routerLink='/gene/SPNCRNA.1597'>SPNCRNA.1597</a></td><td></td><td>after</td><td>II:3391413..3393613</td><td></td><td></td></tr>
@@ -17043,8 +17075,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPBC2G2.09c'>SPBC2G2.09c</a></td><td>crs1</td><td>before</td><td>II:complement(join(3452584..<wbr>3452769,<wbr>3452822..<wbr>3452877,<wbr>3452918..<wbr>3453077,<wbr>3453119..<wbr>3453406))</td><td>added new C-terminal exon,<wbr> deleted exon 3452822..<wbr>3452877,<wbr> extended intron 2 by 4 nucleotides</td><td>pers. comm. Charley Chahwan</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC338.08'>SPCC338.08</a></td><td>ctp1</td><td>after</td><td>III:complement(join(1358891..<wbr>1359082,<wbr>1359127..<wbr>1359819))</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC338.08'>SPCC338.08</a></td><td>ctp1</td><td>before</td><td>III:complement(join(1358891..<wbr>1359082,<wbr>1359121..<wbr>1359819))</td><td></td><td></td></tr>
-<tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td>ast1</td><td>after</td><td>III:join(554521..<wbr>554744,<wbr>554865..<wbr>556200)</td><td>intron position moved</td><td>pers comm. M. O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td>ast1</td><td>after</td><td>III:join(554521..<wbr>554744,<wbr>554865..<wbr>556200)</td><td></td><td>pers. comm. Matthew O’Connell</td></tr>
+<tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td>ast1</td><td>after</td><td>III:join(554521..<wbr>554744,<wbr>554865..<wbr>556200)</td><td>intron position moved</td><td>pers comm. M. O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td></td><td>before</td><td>III:join(554521..<wbr>554722,<wbr>554792..<wbr>556200)</td><td>intron position moved</td><td>pers comm. M. O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td></td><td>before</td><td>III:join(554521..<wbr>554722,<wbr>554792..<wbr>556200)</td><td></td><td>pers. comm. Matthew O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-05-12</span></td><td><a routerLink='/gene/SPAC31G5.12c'>SPAC31G5.12c</a></td><td>maf1</td><td>after</td><td>I:complement(join(3008184..<wbr>3008795,<wbr>3008914..<wbr>3008957,<wbr>3009044..<wbr>3009089))</td><td></td><td></td></tr>
@@ -24832,7 +24864,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink='/gene/SPRRNA.40'>SPRRNA.40</a></td><td></td><td><span class="docs-content-date">2006-02-19</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.41'>SPRRNA.41</a></td><td></td><td><span class="docs-content-date">2006-02-19</span></td><td></td><td>EMBL:K00771</td></tr>
 <tr><td><a routerLink='/gene/SPNCRNA.136'>SPNCRNA.136</a></td><td></td><td><span class="docs-content-date">2006-02-19</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.39'>SPSNORNA.39</a></td><td>snR36</td><td><span class="docs-content-date">2006-02-19</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.39'>SPSNORNA.39</a></td><td>snR36</td><td><span class="docs-content-date">2006-02-19</span></td><td></td><td>EMBL:AJ632005,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPNCRNA.135'>SPNCRNA.135</a></td><td></td><td><span class="docs-content-date">2006-01-03</span></td><td></td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=29914874'>PMID:29914874</a></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.31'>SPRRNA.31</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPNCRNA.134'>SPNCRNA.134</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
@@ -24845,17 +24877,17 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink='/gene/SPRRNA.37'>SPRRNA.37</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.29'>SPRRNA.29</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.38'>SPRRNA.38</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.36'>SPSNORNA.36</a></td><td>snR5</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.36'>SPSNORNA.36</a></td><td>snR5</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td>EMBL:AJ632001,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.39'>SPRRNA.39</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.28'>SPRRNA.28</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.44'>SPSNORNA.44</a></td><td>snR92</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td>EMBL:AJ632010,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.43'>SPSNORNA.43</a></td><td>snR91</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td>EMBL:AJ632009,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.42'>SPSNORNA.42</a></td><td>snR90</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td>EMBL:AJ632008,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPNCRNA.133'>SPNCRNA.133</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.38'>SPSNORNA.38</a></td><td>snR33</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.38'>SPSNORNA.38</a></td><td>snR33</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td>EMBL:AJ632003,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.41'>SPSNORNA.41</a></td><td>snR46</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.35'>SPSNORNA.35</a></td><td>snR3</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.40'>SPSNORNA.40</a></td><td>snR42</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.35'>SPSNORNA.35</a></td><td>snR3</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td>EMBL:AJ632000,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.40'>SPSNORNA.40</a></td><td>snR42</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td>EMBL:AJ632006,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.52'>SPSNORNA.52</a></td><td>snR101</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td>EMBL:AJ632019,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.15'>SPRRNA.15</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.27'>SPRRNA.27</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
@@ -24872,7 +24904,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink='/gene/SPRRNA.06'>SPRRNA.06</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.04'>SPRRNA.04</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.10'>SPRRNA.10</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.37'>SPSNORNA.37</a></td><td>snR10</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.37'>SPSNORNA.37</a></td><td>snR10</td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td>EMBL:AJ632002,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.12'>SPRRNA.12</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.24'>SPRRNA.24</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPRRNA.13'>SPRRNA.13</a></td><td></td><td><span class="docs-content-date">2005-07-05</span></td><td></td><td></td></tr>
@@ -24895,29 +24927,29 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink='/gene/SPSNORNA.20'>SPSNORNA.20</a></td><td>snoU17</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.19'>SPSNORNA.19</a></td><td>snoR69</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.18'>SPSNORNA.18</a></td><td>snoU24</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.17'>SPSNORNA.17</a></td><td>snoR58</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.17'>SPSNORNA.17</a></td><td>snoR58</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ617312</td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.16'>SPSNORNA.16</a></td><td>snoR56</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.15'>SPSNORNA.15</a></td><td>snoR38</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.01'>SPSNORNA.01</a></td><td>snR40</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.14'>SPSNORNA.14</a></td><td>snoR54b</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.13'>SPSNORNA.13</a></td><td>snoR69b</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.02'>SPSNORNA.02</a></td><td>snoZ8</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.03'>SPSNORNA.03</a></td><td>snoZ7</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.04'>SPSNORNA.04</a></td><td>snoZ5</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.02'>SPSNORNA.02</a></td><td>snoZ8</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ251852</td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.03'>SPSNORNA.03</a></td><td>snoZ7</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ251853</td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.04'>SPSNORNA.04</a></td><td>snoZ5</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ251854</td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.12'>SPSNORNA.12</a></td><td>snoR02</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.11'>SPSNORNA.11</a></td><td>snoU24b</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.05'>SPSNORNA.05</a></td><td>snoZ4</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.06'>SPSNORNA.06</a></td><td>snoZ3</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.05'>SPSNORNA.05</a></td><td>snoZ4</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ251855</td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.06'>SPSNORNA.06</a></td><td>snoZ3</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ251856</td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.07'>SPSNORNA.07</a></td><td>snR41</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.08'>SPSNORNA.08</a></td><td>snR70</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.10'>SPSNORNA.10</a></td><td>snoZ16</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.10'>SPSNORNA.10</a></td><td>snoZ16</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ010685</td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.21'>SPSNORNA.21</a></td><td>snoU14</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.22'>SPSNORNA.22</a></td><td>snoR54</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.31'>SPSNORNA.31</a></td><td>snoR39a</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPNCRNA.96'>SPNCRNA.96</a></td><td></td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AU008985,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=29914874'>PMID:29914874</a></td></tr>
 <tr><td><a routerLink='/gene/SPNCRNA.98'>SPNCRNA.98</a></td><td>srp7</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:X15220,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=16453822'>PMID:16453822</a>,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=2837764'>PMID:2837764</a>,<wbr>Rfam:RF00017</td></tr>
 <tr><td><a routerLink='/gene/SPSNRNA.03'>SPSNRNA.03</a></td><td>snu3</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.34'>SPSNORNA.34</a></td><td>sno20</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.34'>SPSNORNA.34</a></td><td>sno20</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ577641,<wbr>EMBL:AJ632004,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.33'>SPSNORNA.33</a></td><td>sno16</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ577640,<wbr>EMBL:AJ632018,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.32'>SPSNORNA.32</a></td><td>sno12</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ577639,<wbr><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=15716270'>PMID:15716270</a></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.30'>SPSNORNA.30</a></td><td>snr62</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
@@ -24928,7 +24960,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink='/gene/SPSNORNA.29'>SPSNORNA.29</a></td><td>sno52</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.28'>SPSNORNA.28</a></td><td>snoR68</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.27'>SPSNORNA.27</a></td><td>snoR47</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
-<tr><td><a routerLink='/gene/SPSNORNA.26'>SPSNORNA.26</a></td><td>snoU18</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
+<tr><td><a routerLink='/gene/SPSNORNA.26'>SPSNORNA.26</a></td><td>snoU18</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ617355</td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.25'>SPSNORNA.25</a></td><td>snoZ30</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ007736</td></tr>
 <tr><td><a routerLink='/gene/SPSNORNA.23'>SPSNORNA.23</a></td><td>snoZ15</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td>EMBL:AJ223844</td></tr>
 <tr><td><a routerLink='/gene/SPSNRNA.07'>SPSNRNA.07</a></td><td>snu32</td><td><span class="docs-content-date">2004-09-15</span></td><td></td><td></td></tr>
