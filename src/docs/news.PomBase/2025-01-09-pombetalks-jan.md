@@ -15,5 +15,10 @@ Speakers this month are:
   - **Ayokunle Oluwaseun Araoyinbo** \
     Vjestica Lab, University of Lausanne
 
+  - **Pascal Carme** \
+    "Just one thing" - A quick demonstration of a PomBase feature. \
+    This week we will take a look at the PomBase "Advanced search"
+    function.
+
 See [pombelist](https://lists.cam.ac.uk/sympa/info/ucam-pombelist) for
 the Zoom details and password.
