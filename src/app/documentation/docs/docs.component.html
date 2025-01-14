@@ -8310,20 +8310,6 @@ are not detected by any automated method. Gradually, we will add and display sup
 <div (click)="faq_navigate($event, '/faq/can-i-access-pombase-via-api', 'Can I access PomBase via an API?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-access-pombase-via-api' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-access-pombase-via-api">Can I access PomBase via an API?</h3>
 <!-- pombase_categories: Tools and resources -->
-<p>There are two APIs for PomBase data:</p>
-<ul>
-<li>InterMine: more advanced and is updated regularly</li>
-<li>Ensembl: updated less often but is better known</li>
-</ul>
-<h5 id="intermine-api">InterMine API</h5>
-<p>The PomBase data can be accessed programmatically using the InterMine API. See the <a href="https://intermine.readthedocs.io/en/latest/web-services/">InterMine Documentation and examples</a> to find out more.</p>
-<p>Available data types include:</p>
-<ul>
-<li>gene and protein identifiers and other properties</li>
-<li>allele and genotypes</li>
-<li>annotation details (genes, genotypes, ontology terms, evidence codes and PubMed IDs)</li>
-</ul>
-<p>InterMine Client libraries are available in multiple languages.</p>
 <h5 id="ensembl-api">Ensembl API</h5>
 <p>This API can be used to query <em>S. pombe</em> data in Ensembl Genomes. Note that EG is updated much less frequently than PomBase, so EG data will rarely be as up-to-date as the PomBase web site.</p>
 <p>Documentation:</p>
@@ -9683,13 +9669,6 @@ Example queries:
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>“GO term enrichment” refers to analysing a gene list by finding GO terms that are significantly over- or under-represented among the annotations for the genes. Finding GO terms that are shared by genes in your list can help you find out what they have in common biologically.</p>
 <p>PomBase does not have its own GO enrichment tool, but we recommend one, and provide a bit more information, in the <a routerLink="/faq/how-can-i-find-significant-shared-go-annotations-genes-list">FAQ on GO term enrichment</a>.</p>
-
-</div>
-<div (click)="faq_navigate($event, '/faq/what-pombemine-service-url', 'What is the PombeMine service URL')" *ngIf="pageName == 'tools-and-resources' || pageName == 'what-pombemine-service-url' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
-<h3 id="what-pombemine-service-url">What is the PombeMine service URL</h3>
-<!-- pombase_categories: Tools and resources -->
-<p>The URL is: <code>https://www.pombase.org/pombemine/service</code></p>
-<p>This URL is needed in order to access the PombeMine API programmatically;. See the <a href="https://intermine.readthedocs.io/en/latest/web-services/">InterMine web service documentation</a> for details.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/what-psl-format', 'What is PSL format?')" *ngIf="pageName == 'data-submission-and-formats' || pageName == 'what-psl-format' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
@@ -12649,10 +12628,14 @@ Max Planck Institute of Immunobiology and Epigenetics, Freiburg, Germany<br />
 <p>Speakers this month are:</p>
 <ul>
 <li><p><strong>Kaushik Ragunathan</strong><br />
-Department of Biology, Brandeis University</p></li>
+Department of Biology, Brandeis University<br />
+“Don’t forget to remember: HP1 proteins and the persistence of an epigenetic imprint”</p></li>
 <li><p><strong>Ayokunle Oluwaseun Araoyinbo</strong><br />
-Vjestica Lab, University of Lausanne</p></li>
+Vjestica Lab, University of Lausanne “Fertilization triggers cytosolic functions and P-body recruitment of the RNA-binding protein Mei2 to drive fission yeast zygotic development”</p></li>
 </ul>
+<p>And new this month:<br />
+<strong>“Just one thing” - A quick demonstration of a PomBase feature.</strong></p>
+<p>At the end of the talks, we’ll feature a quick 10-minute demonstration showcasing a specific PomBase feature. This week, <strong>Pascal Carme</strong> will explore the Advanced Search function.</p>
 <p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
 
   </div>
@@ -12667,10 +12650,14 @@ Vjestica Lab, University of Lausanne</p></li>
 <p>Speakers this month are:</p>
 <ul>
 <li><p><strong>Kaushik Ragunathan</strong><br />
-Department of Biology, Brandeis University</p></li>
+Department of Biology, Brandeis University<br />
+“Don’t forget to remember: HP1 proteins and the persistence of an epigenetic imprint”</p></li>
 <li><p><strong>Ayokunle Oluwaseun Araoyinbo</strong><br />
-Vjestica Lab, University of Lausanne</p></li>
+Vjestica Lab, University of Lausanne “Fertilization triggers cytosolic functions and P-body recruitment of the RNA-binding protein Mei2 to drive fission yeast zygotic development”</p></li>
 </ul>
+<p>And new this month:<br />
+<strong>“Just one thing” - A quick demonstration of a PomBase feature.</strong></p>
+<p>At the end of the talks, we’ll feature a quick 10-minute demonstration showcasing a specific PomBase feature. This week, <strong>Pascal Carme</strong> will explore the Advanced Search function.</p>
 <p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
 </div>
 <div id="2024-12-04-pombetalks-december" class="news-item">
