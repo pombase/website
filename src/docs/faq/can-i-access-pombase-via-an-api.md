@@ -1,24 +1,6 @@
 # Can I access ${database_name} via an API?
 <!-- pombase_categories: Tools and resources -->
 
-There are two APIs for ${database_name} data:
-
- - InterMine: more advanced and is updated regularly
- - Ensembl: updated less often but is better known
-
-### InterMine API
-
-The ${database_name} data can be accessed programmatically using the InterMine API.
-See the [InterMine Documentation and examples](https://intermine.readthedocs.io/en/latest/web-services/) to find out more.
-
-Available data types include:
-
-  - gene and protein identifiers and other properties 
-  - allele and genotypes
-  - annotation details (genes, genotypes, ontology terms, evidence codes and PubMed IDs)
-
-InterMine Client libraries are available in multiple languages.
-
 ### Ensembl API
 This API can be used to query *${species_abbrev}* data in Ensembl Genomes.  Note
 that EG is updated much less frequently than ${database_name}, so EG data will
