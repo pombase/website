@@ -52,6 +52,16 @@ export class GoCamViewerComponent {
       this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
   }
 
+  currentGoCam(): GoCamIdAndTitle|undefined {
+    for (const goCam of this.gocams) {
+      if (goCam.gocam_id == this.currentGoCamId!) {
+        return goCam;
+      }
+    }
+
+    return undefined;
+  }
+
   ngOnChanges(): void {
     const geneOrTermDetails = this.geneOrTermDetails;
     if (geneOrTermDetails instanceof GeneDetails) {

@@ -4,11 +4,14 @@
   border: 0;
 }
 
-.header {
-  margin-left: 210px;
+.title-header {
   display: flex;
   justify-content: space-between;
-  width: 1000px;
+  width: 1200px;
+}
+
+.large-view, .help-link {
+  white-space: nowrap;
 }
 
 .no-go-cams {
@@ -25,14 +28,19 @@
   padding: 0.1em 0.6em;
 }
 
-.help-link {
-  padding-left: 2em;
-}
-
 .help-link img {
   height: 1em;
 }
 
 .go-cam-select {
   max-width: 25em;
+}
+
+.model-title {
+  font-weight: bold;
+  padding-right: 1em;
+}
+
+.model-select {
+  padding-top: 0.2em;
 }
