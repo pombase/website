@@ -1,21 +1,21 @@
 <div *ngIf="hasGoCam">
   <div class="full-view-header">
-    <div class="title-header">
+    <div>
       <span>GO-CAM model
-        <span class="model-title">{{currentGoCam()!.title || currentGoCamId}}</span>
-        <span class="large-view"><a routerLink="{{largeViewPath}}">larger view ...</a></span>
+        <span class="model-title" *ngIf="gocams.length == 1">{{currentGoCam()!.title || currentGoCamId}}</span>
+        <span classclass="model-select" *ngIf="gocams.length > 1 ">
+          <select [(ngModel)]="currentGoCamId" (ngModelChange)="modelChange()" class="go-cam-select">
+            <option *ngFor="let gocam of gocams" [ngValue]="gocam.gocam_id">
+              {{gocam.title || gocam.gocam_id}}
+            </option>
+          </select>
+        </span>
       </span>
-      <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">Documentation <img class="help-icon" src="/assets/info_icon.svg"/></a>
+      <span class="help-link">
+        <a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a>
       </span>
     </div>
-    <div class="model-select" *ngIf="gocams.length > 1">
-      Select model:
-    <select *ngIf="gocams.length > 1" [(ngModel)]="currentGoCamId" (ngModelChange)="modelChange()" class="go-cam-select">
-      <option *ngFor="let gocam of gocams" [ngValue]="gocam.gocam_id">
-        {{gocam.title || gocam.gocam_id}}
-      </option>
-    </select>
-    </div>
+    <div class="large-view"><a routerLink="{{largeViewPath}}">Show larger view ...</a></div>
   </div>
 
   <div *ngFor="let o of [geneOrTermDetails]">

@@ -19,3 +19,7 @@
 .help-link img {
   height: 1em;
 }
+
+.model-title-or-id {
+  font-weight: bold;
+}

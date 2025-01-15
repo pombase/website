@@ -5,13 +5,20 @@
 }
 
 .title-header {
-  display: flex;
-  justify-content: space-between;
-  width: 1200px;
+  width: 1150px;
 }
 
 .large-view, .help-link {
   white-space: nowrap;
+}
+
+.large-view {
+  font-size: 105%;
+  padding-top: 0.3em;
+}
+
+.help-link {
+  padding-left: 2em;
 }
 
 .no-go-cams {
@@ -33,7 +40,7 @@
 }
 
 .go-cam-select {
-  max-width: 25em;
+  max-width: 35em;
 }
 
 .model-title {

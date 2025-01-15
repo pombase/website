@@ -1,12 +1,8 @@
 <div *ngIf="getIFrameURL()">
   <div class="return-to-gene-page">
-    <div>GO-CAM model {{gocamId}}
-      <span class="amigo-link">
-        <a href="https://amigo.geneontology.org/amigo/model/{{gocamId}}">View at geneontology.org</a>
-      </span>
+    <div>GO-CAM pathway model <span class="model-title-or-id">{{getTitleOrId()}}</span>
       <span *ngIf="sourcePageType != 'docs'" class="go-cam-view">
-        <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">Documentation <img class="help-icon"
-              src="/assets/info_icon.svg" /></a></span>
+        <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a></span>
       </span>
     </div>
 
@@ -17,7 +13,7 @@
       <a routerLink="/term/{{sourceId}}">Return to the term page for {{sourceName}} ({{sourceId}})</a>
     </div>
     <div *ngIf="sourcePageType == 'docs'">
-      <a routerLink="/documentation/go-cam-pathway-models">Return to the GO-CAM documentation page</a>
+      <a routerLink="/documentation/go-cam-pathway-models">Return to the "All curated pathways" list</a>
     </div>
   </div>
 

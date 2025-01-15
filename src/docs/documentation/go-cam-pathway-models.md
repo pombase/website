@@ -1,4 +1,4 @@
-## GO-CAM pathways
+## GO-CAM curated biological pathways
 
 GO-CAMs, or Gene Ontology Causal Activity Models, are a framework
 within the Gene Ontology (GO) project that aims to represent complex
