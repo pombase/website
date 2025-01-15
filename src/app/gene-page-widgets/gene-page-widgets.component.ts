@@ -3,7 +3,6 @@ import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 import { GenePageWidget, SettingsService } from '../settings.service';
-import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
     selector: 'app-gene-page-widgets',
@@ -21,8 +20,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   jbrowseLinkUrl?: string;
 
   constructor(private pombaseApiService: PombaseAPIService,
-              public settingsService: SettingsService,
-              public deployConfigService: DeployConfigService) { }
+              public settingsService: SettingsService) { }
 
   setJBrowseLink(): void {
     if (this.geneDetails && this.geneDetails.location) {
@@ -130,7 +128,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   }
 
   showGoCams(): boolean {
-    return this.geneDetails.gocams.length > 0 && !this.deployConfigService.productionMode();
+    return this.geneDetails.gocams.length > 0;
   }
 
   setWidget(widget: GenePageWidget) {

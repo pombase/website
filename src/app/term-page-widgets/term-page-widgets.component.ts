@@ -4,7 +4,6 @@ import { TermDetails } from '../pombase-api.service';
 import { SettingsService, TermPageWidget } from '../settings.service';
 
 import '../../../node_modules/@swissprot/rhea-reaction-visualizer';
-import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
     selector: 'app-term-page-widgets',
@@ -18,8 +17,7 @@ export class TermPageWidgetsComponent {
   faCaretDown = faCaretDown;
   faCaretRight = faCaretRight;
 
-  constructor(public settingsService: SettingsService,
-              public deployConfigService: DeployConfigService) { }
+  constructor(public settingsService: SettingsService) { }
 
   hasWidgetData(): boolean {
     if (!this.termDetails) {
@@ -58,7 +56,7 @@ export class TermPageWidgetsComponent {
   }
 
   hasGoCams(): boolean {
-    return this.termDetails.gocams.length > 0 && !this.deployConfigService.productionMode();
+    return this.termDetails.gocams.length > 0;
   }
 
   currentWidget(): TermPageWidget {
