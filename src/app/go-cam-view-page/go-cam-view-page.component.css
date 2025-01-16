@@ -1,6 +1,22 @@
-.full-go-cam-view {
+.iframe-container {
   width: 95%;
-  height: 880px;
+  height: 900px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.genes-and-terms {
+  min-width: 8em;
+  flex: 0;
+}
+
+.go-cam-iframe {
+  flex: 1;
+}
+
+.full-go-cam-view {
+  width: 100%;
+  height: 100%;
 }
 
 .return-to-gene-page {

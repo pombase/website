@@ -17,7 +17,22 @@
     </div>
   </div>
 
-  <iframe [src]="getIFrameURL()" class="full-go-cam-view" #gocamiframe>
-  </iframe>
+  <div class="iframe-container">
+    <div *ngIf="false && gocamDetails" class="genes-and-terms">
+      <div>
+        Genes:
+        <ul>
+        </ul>
+      </div>
+      <div>
+        Terms:
+      </div>
+    </div>
+    
+    <div class="go-cam-iframe">
+      <iframe [src]="getIFrameURL()" class="full-go-cam-view" #gocamiframe>
+      </iframe>
+    </div>
+  </div>
 </div>
 
