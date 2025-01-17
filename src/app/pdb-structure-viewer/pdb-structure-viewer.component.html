@@ -10,7 +10,9 @@
 
   <div *ngIf="!structureLoading()" class="pdb-text">
     <div class="pdb-main-text">
-      Protein structures from PDB<span *ngIf="displayName"> for {{displayName}}</span>:
+      Protein structures from PDB
+      <span *ngIf="pageType == 'reference'">for this publication:</span>
+      <span *ngIf="pageType == 'gene'">for {{displayName}}:</span>
     </div>
 
     <div class="pdb-table-container pdb-table-container-{{pageType}}">
