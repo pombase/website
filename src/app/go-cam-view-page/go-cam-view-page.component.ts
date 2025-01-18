@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
-import { PombaseAPIService, GoCamDetails } from '../pombase-api.service';
+import { PombaseAPIService, GoCamDetails, GeneSummaryMap, GeneSummary } from '../pombase-api.service';
 
 @Component({
     selector: 'app-go-cam-view-page',
@@ -21,6 +21,8 @@ export class GoCamViewPageComponent implements OnInit {
   sourcePageType = 'gene';
   sourceId?: string;
   sourceName?: string;
+  modelGenes: Array<GeneSummary> = [];
+  geneSummaryMap?: GeneSummaryMap;
 
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
@@ -61,11 +63,23 @@ export class GoCamViewPageComponent implements OnInit {
       if (params['gocam_id'] !== undefined) {
         this.gocamId = params['gocam_id'];
 
-        this.pombaseApi.getGoCamDetailById(this.gocamId!)
-          .then((details) => {
+        const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
+
+
+        const gocamDetailPromise = this.pombaseApi.getGoCamDetailById(this.gocamId!);
+        gocamDetailPromise.then((details) => {
             this.gocamDetails = details;
             this.setPageTitle();
           });
+
+        Promise.all([summPromise, gocamDetailPromise])
+           .then(([geneSummMap, gocamDetails]) => {
+              for (const geneUniquename of gocamDetails.genes) {
+                 const geneSumm = geneSummMap[geneUniquename];
+                 this.modelGenes.push(geneSumm);
+              }
+              this.modelGenes.sort((a,b) => a.displayName().localeCompare(b.displayName()))
+           })
 
         this.sourcePageType = params['source_page_type'];
         this.sourceId = params['source_uniquename'];

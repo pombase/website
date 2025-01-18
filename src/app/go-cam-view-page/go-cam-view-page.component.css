@@ -6,7 +6,9 @@
 }
 
 .genes-and-terms {
-  min-width: 8em;
+  padding-top: 0.4em;
+  min-width: 11em;
+  font-size: 120%;
   flex: 0;
 }
 
