@@ -1,6 +1,7 @@
 <div *ngIf="getIFrameURL()">
+  <div class="header-section">
   <div class="return-to-gene-page">
-    <div>GO-CAM pathway model <span class="model-title-or-id">{{getTitleOrId()}}</span>
+    <div class="title">GO-CAM pathway model <span class="model-title-or-id">{{getTitleOrId()}}</span>
       <span *ngIf="sourcePageType != 'docs'" class="go-cam-view">
         <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a></span>
       </span>
@@ -15,6 +16,11 @@
     <div *ngIf="sourcePageType == 'docs'">
       <a routerLink="/documentation/go-cam-pathway-models">Return to the "All curated pathways" list</a>
     </div>
+  </div>
+
+  <div *ngIf="gocamDetails" class="attribution">
+    Curation by: {{contributors()}}
+  </div>
   </div>
 
   <div class="iframe-container">

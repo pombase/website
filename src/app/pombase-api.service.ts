@@ -800,11 +800,17 @@ export interface GoCamIdAndTitle {
   title?: string;
 }
 
+export interface GoCamContributor {
+  orcid: string;
+  name: string;
+}
+
 export interface GoCamDetails {
   gocam_id: GoCamId;
   title?: string;
   genes: Array<GeneUniquename>;
   terms: Array<TermAndName>;
+  contributors: Array<GoCamContributor>;
 }
 
 export interface APIError {

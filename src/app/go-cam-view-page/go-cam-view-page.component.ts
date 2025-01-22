@@ -46,6 +46,16 @@ export class GoCamViewPageComponent implements OnInit {
     }
   }
 
+  contributors(): string {
+    if (this.gocamDetails) {
+      return this.gocamDetails.contributors
+        .map(contributor => contributor.name)
+        .join(', ');
+    } else {
+      return '';
+    }
+  }
+
   setPageTitle(): void {
     let title;
     if (this.gocamId) {

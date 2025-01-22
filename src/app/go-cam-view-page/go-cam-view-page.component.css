@@ -8,7 +8,6 @@
 .genes-and-terms {
   padding-top: 0.4em;
   min-width: 11em;
-  font-size: 120%;
   flex: 0;
 }
 
@@ -21,13 +20,30 @@
   height: 100%;
 }
 
-.return-to-gene-page {
-  font-size: 120%;
-  padding: 0.5em;
+.header-section {
+  padding: 0.5em 0.5em 1em 0;
 }
 
-.return-to-gene-page div {
-  margin: 0.5em 0.1em;
+.return-to-gene-page {
+  font-size: 120%;
+/*  padding: 0.5em 4em 0.5em 0.5em;*/
+  display: inline-block;
+}
+
+.return-to-gene-page, .attribution {
+  margin: 0.2em 3em 0.3em 0em;
+}
+
+.attribution {
+  padding-top: 0.2em;
+  font-size: 115%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.title {
+  font-size: 120%;
+  padding-bottom: 0.2em;
 }
 
 .help-link, .amigo-link {
