@@ -118,7 +118,7 @@
         </td>
         <td *ngIf="showColumn['count']"
             [attr.rowspan]="termAnnotation.annotations.length + 1">
-          <a *ngIf="termAnnotation.term.genotype_count == 0"
+          <a *ngIf="termAnnotation.term.genotype_count == 0 && !termAnnotation.is_not"
              routerLink="/term/{{termAnnotation.term.termid}}"
              [popover]="termGeneCount"
              triggers="mouseenter:mouseleave"
@@ -252,7 +252,7 @@
         </td>
         <td *ngIf="!tableIsFiltered && compactFirstRows[termAnnotation.term.termid] && showColumn['count'] && i == 0"
             [attr.rowspan]="termAnnotation.annotations.length">
-          <a *ngIf="typeConfig.feature_type == 'gene'"
+          <a *ngIf="typeConfig.feature_type == 'gene' && !termAnnotation.is_not"
              routerLink="/term/{{termAnnotation.term.termid}}"
              [popover]="termGeneCount"
              triggers="mouseenter:mouseleave"
