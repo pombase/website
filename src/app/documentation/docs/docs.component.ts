@@ -67,6 +67,10 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
     const documentation = appConfig.documentation;
     const docPageAliases = appConfig.docPageAliases;
 
+    if (url.startsWith('/news#')) {
+      return true;
+    }
+
     if (url.startsWith('/')) {
       const path = url.substring(1);
       return !!documentation.pages[path] || !!docPageAliases[path];

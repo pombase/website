@@ -543,6 +543,10 @@ sub get_all_faq_parts {
     my $contents = $details->{contents};
     my @categories = @{$details->{categories}};
 
+    map {
+      $section_titles{'faq/' . make_id_from_heading($_)} ="Category: $_";
+    } @categories;
+
     my $path = "faq/$id";
 
     $section_titles{$path} = $heading;
