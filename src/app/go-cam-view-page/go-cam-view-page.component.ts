@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
 import { PombaseAPIService, GoCamDetails, GeneSummaryMap, GeneSummary } from '../pombase-api.service';
+import { TextOrTermId, Util } from '../shared/util';
 
 @Component({
     selector: 'app-go-cam-view-page',
@@ -23,6 +24,7 @@ export class GoCamViewPageComponent implements OnInit {
   sourceName?: string;
   modelGenes: Array<GeneSummary> = [];
   geneSummaryMap?: GeneSummaryMap;
+  titleParts: Array<TextOrTermId> = [];
 
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
@@ -68,13 +70,20 @@ export class GoCamViewPageComponent implements OnInit {
     this.meta.updateTag({ property: 'description', content: title });
   }
 
+  setTitleParts(): void {
+    if (this.gocamDetails && this.gocamDetails.title) {
+      this.titleParts = Util.splitDescription(this.gocamDetails.title, this.gocamDetails.title_terms ?? []);
+    } else {
+      this.titleParts = [];
+    }
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['gocam_id'] !== undefined) {
         this.gocamId = params['gocam_id'];
 
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
-
 
         const gocamDetailPromise = this.pombaseApi.getGoCamDetailById(this.gocamId!);
         gocamDetailPromise.then((details) => {
@@ -88,7 +97,8 @@ export class GoCamViewPageComponent implements OnInit {
                  const geneSumm = geneSummMap[geneUniquename];
                  this.modelGenes.push(geneSumm);
               }
-              this.modelGenes.sort((a,b) => a.displayName().localeCompare(b.displayName()))
+              this.modelGenes.sort((a,b) => a.displayName().localeCompare(b.displayName()));
+              this.setTitleParts();
            })
 
         this.sourcePageType = params['source_page_type'];

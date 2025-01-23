@@ -5,9 +5,9 @@
   <div *ngIf="results">
     <div *ngIf="results.getRowCount() == 0" class="description">
       <span class="description-prefix">No results for:</span>
-      <app-query-description-display *ngIf="description || descriptionParts.length != 0"
+      <app-description-display *ngIf="description || descriptionParts.length != 0"
                                      [description]="description" [descriptionParts]="descriptionParts">
-      </app-query-description-display>
+      </app-description-display>
     </div>
 
     <app-genes-table *ngIf="results.getRowCount() != 0"

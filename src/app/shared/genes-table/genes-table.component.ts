@@ -7,7 +7,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { PombaseAPIService, GeneSummaryMap, GeneShort } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 import { QueryService, HistoryEntry, DisplayResultRow } from '../../query.service';
-import { GeneQuery, GeneListNode, TermAndName, QueryResult } from '../../pombase-query';
+import { GeneQuery, GeneListNode, QueryResult } from '../../pombase-query';
 import { getAppConfig, GeneResultsFieldConfig } from '../../config';
 import { DeployConfigService } from '../../deploy-config.service';
 import { GenesTableConfigComponent } from '../../genes-table-config/genes-table-config.component';
@@ -15,7 +15,7 @@ import { SettingsService } from '../../settings.service';
 import { Subscription } from 'rxjs';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { QueryRouterService } from '../../query-router.service';
-import { Util } from '../util';
+import { TextOrTermId, Util } from '../util';
 
 @Component({
     selector: 'app-genes-table',
@@ -30,7 +30,7 @@ export class GenesTableComponent implements OnInit {
   // a decomposed version of the description as an Array of Objects
   // like: [{text: "abnormal cell ... ("}, {term: <a TermShort>}, {text: ")"}, ...]
   // which allows the the termids in a description to be linked to the term pages
-  @Input() descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
+  @Input() descriptionParts: Array<TextOrTermId> = [];
   @Input() genesOrResults: Array<GeneShort>|QueryResult;
 
   @ViewChild('interMineSendForm') interMineSendForm: ElementRef;

@@ -808,6 +808,7 @@ export interface GoCamContributor {
 export interface GoCamDetails {
   gocam_id: GoCamId;
   title?: string;
+  title_terms: Array<TermId>;
   genes: Array<GeneUniquename>;
   terms: Array<TermAndName>;
   contributors: Array<GoCamContributor>;
