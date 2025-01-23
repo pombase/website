@@ -25,7 +25,7 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   appConfig: AppConfig = getAppConfig();
   highlightDocSearchBox = false;
 
-  constructor(private router: Router,
+  constructor(public router: Router,
               private titleService: Title,
               public deployConfigService: DeployConfigService,
               private readonly meta: Meta,
