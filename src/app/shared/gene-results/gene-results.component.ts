@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { QueryResult, TermAndName } from '../../pombase-query';
+import { Util, TextOrTermId } from '../util';
 
 @Component({
     selector: 'app-gene-results',
@@ -13,7 +14,7 @@ export class GeneResultsComponent implements OnInit, OnChanges {
 
   description: string;
 
-  descriptionParts: Array<({ text?: string; term?: TermAndName; })> = [];
+  descriptionParts: Array<TextOrTermId> = [];
   termsInQuery: Array<TermAndName> = [];
 
   constructor() { }
@@ -30,22 +31,9 @@ export class GeneResultsComponent implements OnInit, OnChanges {
 
       this.termsInQuery = this.results.getQuery().referencedTerms();
       const termids = this.termsInQuery.map(term => term.termid);
-      const termidRe = new RegExp('(' + termids.join('|') + ')');
 
-      const descriptionBits = this.description.split(termidRe);
       this.descriptionParts =
-        descriptionBits.map(bit => {
-          const index = termids.indexOf(bit);
-          if (index === -1) {
-            return {
-              text: bit,
-            };
-          } else {
-            return {
-              term: this.termsInQuery[index],
-            };
-          }
-        });
-      }
+        Util.splitDescription(this.description, termids);
+    }
   }
 }
