@@ -323,7 +323,6 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
     ],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    exports: [],
     imports: [
         IntersectionObserverModule.forRoot({
           debounce: 50,

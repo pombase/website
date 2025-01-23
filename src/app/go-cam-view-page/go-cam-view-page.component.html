@@ -1,14 +1,7 @@
 <div *ngIf="getIFrameURL()">
   <div class="header-section">
   <div class="return-to-gene-page">
-    <div class="title">GO-CAM pathway model
-      <span class="model-title-or-id">
-       <app-description-display *ngIf="gocamDetails && gocamDetails.title"
-         [description]="gocamDetails!.title"
-         [descriptionParts]="titleParts">
-       </app-description-display>
-       <span *ngIf="(!gocamDetails || !gocamDetails.title) && gocamId">{{gocamId}}</span>
-      </span>
+    <div class="title">GO-CAM pathway model <span class="model-title-or-id">{{getTitleOrId()}}</span>
       <span *ngIf="sourcePageType != 'docs'" class="go-cam-view">
         <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a></span>
       </span>

@@ -1,12 +1,7 @@
 import { SolrAlleleSummary } from '../complete.service';
 import { GenotypeDetails, GenotypeShort, GeneShort,
          AlleleShort, TranscriptDetails} from '../pombase-api.service';
-import { TermId } from '../pombase-query';
 
-export type TextOrTermId = {
-  text?: string;
-  termid?: TermId;
-}
 export class Util {
   static geneCompare(gene1: GeneShort, gene2: GeneShort): number {
     if (gene1.name) {
@@ -241,28 +236,5 @@ export class Util {
     }
 
     return ret;
-  }
-
-  static splitDescription(description: string, termids: Array<TermId>): Array<TextOrTermId> {
-    if (termids.length == 0) {
-      return [{ text: description }];
-    }
-
-    const termidRe = new RegExp('(' + termids.join('|') + ')');
-
-    const descriptionBits = description.split(termidRe);
-
-    return descriptionBits.map(bit => {
-      const index = termids.indexOf(bit);
-      if (index === -1) {
-        return {
-          text: bit,
-        };
-      } else {
-        return {
-          termid: bit,
-        };
-      }
-    });
   }
 }

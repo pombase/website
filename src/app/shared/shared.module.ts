@@ -17,6 +17,7 @@ import { ExternalLinkComponent } from './external-link/external-link.component';
 import { GeneResultsComponent } from './gene-results/gene-results.component';
 import { GeneResultsVisComponent } from './gene-results-vis/gene-results-vis.component';
 import { GenesTableComponent } from './genes-table/genes-table.component';
+import { QueryDescriptionDisplayComponent } from './query-description-display/query-description-display.component';
 import { GeneLinkComponent } from './gene-link/gene-link.component';
 import { PageContentsMenuComponent } from './page-contents-menu/page-contents-menu.component';
 import { CvVersionComponent } from './cv-version/cv-version.component';
@@ -32,7 +33,6 @@ import { SocialContactComponent } from './social-contact/social-contact.componen
 import { GeneResultsSlimTableComponent } from './gene-results-slim-table/gene-results-slim-table.component';
 import { FacetedSearchComponent } from './faceted-search/faceted-search.component';
 import { ChromosomeOverviewComponent } from './chromosome-overview/chromosome-overview.component';
-import { DescriptionDisplayComponent } from './description-display/description-display.component';
 
 import { PublicationBadgeComponent } from './publication-badge/publication-badge.component';
 
@@ -74,7 +74,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FacetedSearchComponent,
     ChromosomeOverviewComponent,
     PublicationBadgeComponent,
-    DescriptionDisplayComponent,
   ],
   declarations: [
     SlimTableComponent,
@@ -97,7 +96,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GoCamTableComponent,
     SocialContactComponent,
     GeneResultsSlimTableComponent,
-    DescriptionDisplayComponent,
+    QueryDescriptionDisplayComponent,
     FacetedSearchComponent,
     ChromosomeOverviewComponent,
     PublicationBadgeComponent,
