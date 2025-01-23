@@ -24,6 +24,7 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   subscription: Subscription;
   appConfig: AppConfig = getAppConfig();
   highlightDocSearchBox = false;
+  missingDocPage = false;
 
   constructor(private router: Router,
               private titleService: Title,
@@ -61,7 +62,29 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
+  checkForDoc(url: string): boolean {
+    const appConfig = getAppConfig();
+    const documentation = appConfig.documentation;
+    const docPageAliases = appConfig.docPageAliases;
+
+    if (url.startsWith('/')) {
+      const path = url.substring(1);
+      return !!documentation.pages[path] || !!docPageAliases[path];
+    } else {
+      // the url should always start with "/" - this is a fall back
+      return true;
+    }
+  }
+
+
   setSectPage(url: string) {
+    if (!this.checkForDoc(url)) {
+      this.missingDocPage = true;
+      this.section = '404';
+      this.pageName = '404';
+      return;
+    }
+
     const urlParts = url.split('#');
     url = urlParts[0];
     const realUrl = this.appConfig.docPageAliases[url];

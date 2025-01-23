@@ -476,6 +476,14 @@ $sections{faq} = \%faq_data;
 
 print $docs_component_fh qq|<div class="docs">\n<app-social-contact></app-social-contact>\n|;
 
+print $docs_component_fh qq|
+<div class="docs-404" *ngIf="pageName == '404'">
+  <div>
+    <app-not-found></app-not-found>
+  </div>
+</div>
+|;
+
 for my $path (sort keys %sections) {
   process_path($path);
 }
