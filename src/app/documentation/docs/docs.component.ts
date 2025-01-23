@@ -24,7 +24,6 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   subscription: Subscription;
   appConfig: AppConfig = getAppConfig();
   highlightDocSearchBox = false;
-  missingDocPage = false;
 
   constructor(private router: Router,
               private titleService: Title,
@@ -83,7 +82,6 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   setSectPage(url: string) {
     if (!this.checkForDoc(url)) {
-      this.missingDocPage = true;
       this.section = '404';
       this.pageName = '404';
       return;
