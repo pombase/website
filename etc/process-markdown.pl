@@ -479,7 +479,7 @@ print $docs_component_fh qq|<div class="docs">\n<app-social-contact></app-social
 print $docs_component_fh qq|
 <div class="docs-404" *ngIf="pageName == '404'">
   <div>
-    <app-not-found></app-not-found>
+    <app-not-found [path]="router.url"></app-not-found>
   </div>
 </div>
 |;
