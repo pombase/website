@@ -70,6 +70,10 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
       return true;
     }
 
+    if (url.startsWith("/documentation/docsearch")) {
+      return true;
+    }
+
     if (url.startsWith('/')) {
       const path = url.substring(1);
       return !!documentation.pages[path] || !!docPageAliases[path];
