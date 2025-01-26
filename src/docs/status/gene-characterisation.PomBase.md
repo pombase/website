@@ -30,7 +30,7 @@ is updated daily.
 
 #### Protein-coding gene characterisation status descriptions
 
-**Published:** Completely or partially characterised
+**Biological role published:** Completely or partially characterised
 in a small scale experiment, with some published information about the
 biological role (corresponding to any of the [fission yeast GO
 biological process slim](browse-curation/fission-yeast-bp-go-slim-terms) terms)
