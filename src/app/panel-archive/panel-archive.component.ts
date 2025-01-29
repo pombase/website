@@ -36,16 +36,16 @@ export class PanelArchiveComponent implements OnInit {
         this.panelConfigs = [];
 
         if (this.panelType === 'explore') {
-          this.longTitle = 'Explore PomBase';
+          this.longTitle = 'Explore PomBase items';
         } else {
           if (this.panelType === 'spotlight') {
-            this.longTitle = 'Research spotlight'
+            this.longTitle = 'Community Curation Research Spotlights'
           } else {
             this.longTitle = this.panelType.charAt(0).toUpperCase() + this.panelType.slice(1);
           }
         }
 
-        this.longTitle = `Archive of "${this.longTitle}" items`;
+        this.longTitle = `Archive of ${this.longTitle}`;
 
         this.setPageTitle();
 
