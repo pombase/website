@@ -22,12 +22,12 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 1 | Gene systematic ID | SJAG_03048 | Yes | No
 %%end db=JaponicusDB
 2 | Gene name | cdc2 | No | No
-3 | Type | protein or RNA [1] | Yes | No
-4 | Evidence | ECO:0000006 [2] | Yes | No
-5 | Qualifier | increased [3] | Yes | No
-6 | Extension | during(GO:0000084) [4] | Yes | Yes
+3 | Type [1] | protein | Yes | No
+4 | Evidence [2] | ECO:0000006 | Yes | No
+5 | Qualifier [3] | increased | Yes | No
+6 | Extension [4] | during(GO:0000084) | Yes | Yes
 7 | Reference | PMID:18203864 | Yes | No
-8 | Taxon | ${ncbi_taxon_id} [5] | Yes | No
+8 | Taxon [5] | ${ncbi_taxon_id} | Yes | No
 9 | Date | 2014-05-01 | Yes | No
 
 [1] - Type: what was measured; use "RNA" or "protein"
