@@ -3,7 +3,7 @@
 # Create a JBrowse2 instance instead the website container and populate tracks
 
 jbrowse create jbrowse2
-jbrowse add-assembly /pombase/bgzip_chromosomes/Schizosaccharomyces_pombe_all_chromosomes.fa.gz --name pombe_v1 --load copy --type bgzipFasta --out jbrowse2
+jbrowse add-assembly https://www.pombase.org/internal_datasets/bgzip_chromosomes/Schizosaccharomyces_pombe_all_chromosomes.fa.gz --name pombe_v1 --type bgzipFasta --out jbrowse2
 
 cd jbrowse2
 
