@@ -38,12 +38,16 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 [2] - The Extension column documents circumstances under which the RNA
     or protein level is observed (or changes). Follow one of these
     patterns: 
+
 - "during (GO_term_id)" - if the level is observed during a specific biological
   process, such as a response to a stimulus or a specific cell cycle phase.
+
 - "in_presence_of(CHEBI_id)" - if the level is observed when a
   specific chemical substance is present.
+
 - "in_absence_of(CHEBI_id)" - if the level is observed when a
   specific chemical substance is absent.
+
 - "occurs_in(GO_term_id)" - if the level is observed in a
   specific part of the cell.
   
