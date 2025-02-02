@@ -223,7 +223,7 @@ PHI-base: the pathogen-host interactions database.\
 <div class="clear-float"></div>
 
 ::: { .publication-badges }
-<app-publication-badge [doi]="'10.1093/database/baaa028.'"></app-publication-badge>
+<app-publication-badge [doi]="'10.1093/database/baaa028'"></app-publication-badge>
 :::
 ::: { .pub-citation }
 Lock A, Harris MA, Rutherford K, Hayles J, Wood V.\
@@ -240,7 +240,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 ::: { .pub-citation }
 Dikicioglu D, Nightingale DJH, Wood V, Lilley KS, Oliver SG.\
 Transcriptional regulation of the genes involved in protein metabolism and processing in *Saccharomyces cerevisiae*.\
-* FEMS Yeast Res.* 2019 Mar 1;19(2):foz014.\
+*FEMS Yeast Res.* 2019 Mar 1;19(2):foz014.\
 [PMID:30753445](http://www.ncbi.nlm.nih.gov/pubmed/30753445) [DOI:10.1093/femsyr/foz014](https://doi.org/10.1093/femsyr/foz014)
 :::
 
