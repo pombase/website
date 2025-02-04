@@ -17,17 +17,17 @@ Column | Contents | Example | Value mandatory? | Multiple entries allowed?
 1 | Gene systematic ID | SJAG_03048 | Yes | No
 %%end db=JaponicusDB
 2 | Gene name | cdc2 | No | No
-3 | Ontology ID | MOD:0000001 | Yes | No
-4 | Evidence | ECO:0000006 | Yes | No
-5 | Residue | S72 | No | Yes
+3 | Ontology ID [1] | MOD:0000001 | Yes | No
+4 | Evidence [2] | ECO:0000006 | Yes | No
+5 | Residue [3] | S72 | No | Yes
 %%if db=PomBase
-6 | Extension | added_by(PomBase:SPBC11B10.09) | No | Yes
+6 | Extension [4] | added_by(PomBase:SPBC11B10.09) | No | Yes
 %%end db=PomBase
 %%if db=JaponicusDB
 6 | Extension | added_by(PomBase:SJAG_03048) | No | Yes
 %%end db=JaponicusDB
 7 | Reference | PMID:24763107 | Yes | No
-8 | Taxon | ${ncbi_taxon_id} | Yes | No
+8 | Taxon [5] | ${ncbi_taxon_id} | Yes | No
 9 | Date | 2014-05-01 | Yes | No
 
 **Notes:**
@@ -43,22 +43,21 @@ in the Residue and Extension columns (separated by commas).
 For the Gene names, Residues and Extensions, the column is required
 but the values are optional.
 
-File columns:
 
-1.  Include the systematic ID for each gene
-2.  Gene names are optional
-3.  For help finding suitable ontology (PSI-MOD) terms to describe
+[1] - For help finding suitable ontology (PSI-MOD) terms to describe
     your phenotypes, see the
     [Canto protein modification documentation](https://curation.pombase.org/pombe/docs/modification_annotation).
     If you can't find a term you need, email the
     [helpdesk](mailto:${helpdesk_address}) for assistance; we can
     advise you, and request new terms as needed.
-4.  For the Evidence column, we use a small selection from the
+    
+[2] - For the Evidence column, we use a small selection from the
     [Evidence Ontology](http://www.evidenceontology.org/) (ECO). You
     are welcome to enquire with us in advance to find out which ECO
     terms/IDs fit your experiments, but we can accept files with brief
     descriptions, which curators will convert to ECO IDs.
-5.  The Residue column indicates the position modified. For protein
+    
+[3] - The Residue column indicates the position modified. For protein
     modifications, use one-letter amino acid code. Multiple entries
     are allowed, but only for cases where two or more of the same
     modification are known to be present at the same time. Separate
@@ -75,18 +74,15 @@ File columns:
     describe histones. Histone modifications will be represented on
     the gene pages as K4(K5) processed(preprocessed), but our checking
     pipeline will expect unmodified forms.
-6.  See the table below for allowed annotation extensions. Multiple
+    
+[4] - See the table below for allowed annotation extensions. Multiple
     extensions can be included for a modification if they combine to
     form a "compound" extension (all parts apply together) Separate
     extensions with a comma (,)
-7.  Use PubMed IDs (e.g. "PMID:1234567") in the Reference column
-8.  The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
+    
+[5] - The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
     *Schizosaccharomyces pombe*), although if you have an NCBI taxon ID
     for a specific *${species_abbrev}* strain you are welcome to use it
-9.  The date is the date on which the annotations are created; you may
-    use the paper publication date or the date on which you prepare
-    your data file. Format: YYYY-MM-DD
-
 
 **Allowed annotation extensions:**
 
