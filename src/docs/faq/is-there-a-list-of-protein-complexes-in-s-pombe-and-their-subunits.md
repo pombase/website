@@ -2,20 +2,15 @@
 <!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
 
 Yes, there is a file that lists GO macromolecular complex assignments
-for fission yeast gene products in the GO annotations directory:
+for fission yeast gene products in the
+[GO annotation directory](${base_url}/data/annotations/Gene_ontology/GO_complexes/).
 
-${base_url}/data/annotations/Gene_ontology/GO_complexes/
+Note:
 
 %%if db=PomBase
-Note that the complex inventory includes the RNA subunits of
-ribonucleoprotein complexes. 
+ - the complex file includes both protein and RNA subunits
 %%end db=PomBase
-There is some redundancy in the list, because some gene products are
-annotated to both complexes and subcomplexes. For example, three *mcm*
-genes are annotated to 'MCM core complex'
-([GO:0097373](/term/GO:0097373)) as well as 'MCM complex'
-([GO:0042555](/term/GO:0042555)). Additional notes are available in a
-README file:
-https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/README
+ - there is some redundancy in the list, because some gene products are
+   annotated to both complexes and subcomplexes
 
 Also see the [FAQ on localization](/faq/how-can-i-find-protein-localization-data).
