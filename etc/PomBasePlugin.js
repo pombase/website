@@ -11,6 +11,8 @@
           return ['protein_coding_gene', characterisation_status];
         } else if (so_term_name.includes("RNA")) {
           return ['RNA', characterisation_status];
+        } else {
+          return [so_term_name, characterisation_status];
         }
       };
       const getBaseType = (feature) => {
