@@ -69,7 +69,6 @@
 
       pluginManager.jexl.addFunction('featureLabelFontSize', feature => {
         const [baseType, _] = getBaseType(feature);
-        console.log(baseType + ' ' + feature.get('type'));
         if (baseType === 'protein_coding_gene') {
           return 12;
         } else {
