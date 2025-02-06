@@ -74,6 +74,7 @@
       "documentation/orthologs" : "Ortholog curation",
       "documentation/phenotype-data-bulk-upload-format" : "Phenotype data bulk upload format",
       "documentation/pombase-go-slim-documentation" : "GO Slims - Gene Ontology subsets",
+      "documentation/pombase_references" : "PomBase References (PB_REFs)",
       "documentation/publication-page" : "Publication pages",
       "documentation/qualitative-gene-expression-data-bulk-upload-format" : "Qualitative gene expression bulk upload file format",
       "documentation/quantitative-gene-expression-data-bulk-upload-format" : "Quantitative gene expression bulk upload file format",

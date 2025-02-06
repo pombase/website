@@ -6865,28 +6865,28 @@ Search documentation, news archive and FAQ:
 </tr>
 <tr class="odd">
 <td>3</td>
-<td>Ontology ID</td>
+<td>Ontology ID [1]</td>
 <td>MOD:0000001</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td>Evidence</td>
+<td>Evidence [2]</td>
 <td>ECO:0000006</td>
 <td>Yes</td>
 <td>No</td>
 </tr>
 <tr class="odd">
 <td>5</td>
-<td>Residue</td>
+<td>Residue [3]</td>
 <td>S72</td>
 <td>No</td>
 <td>Yes</td>
 </tr>
 <tr class="even">
 <td>6</td>
-<td>Extension</td>
+<td>Extension [4]</td>
 <td>added_by(PomBase:SPBC11B10.09)</td>
 <td>No</td>
 <td>Yes</td>
@@ -6900,7 +6900,7 @@ Search documentation, news archive and FAQ:
 </tr>
 <tr class="even">
 <td>8</td>
-<td>Taxon</td>
+<td>Taxon [5]</td>
 <td>4896</td>
 <td>Yes</td>
 <td>No</td>
@@ -6918,18 +6918,11 @@ Search documentation, news archive and FAQ:
 <p>At present we accept protein modification data, using PSI-MOD IDs in the Ontology ID column. We plan to accept RNA modification data in the future. More information is available in the <a routerLink="/documentation/gene-page-modifications">gene page modifications documentation</a>.</p>
 <p>Use one line per modified position. Multiple values are allowed only in the Residue and Extension columns (separated by commas).</p>
 <p>For the Gene names, Residues and Extensions, the column is required but the values are optional.</p>
-<p>File columns:</p>
-<ol type="1">
-<li>Include the systematic ID for each gene</li>
-<li>Gene names are optional</li>
-<li>For help finding suitable ontology (PSI-MOD) terms to describe your phenotypes, see the <a href="https://curation.pombase.org/pombe/docs/modification_annotation">Canto protein modification documentation</a>. If you can’t find a term you need, email the <a href="mailto:helpdesk@pombase.org">helpdesk</a> for assistance; we can advise you, and request new terms as needed.</li>
-<li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). You are welcome to enquire with us in advance to find out which ECO terms/IDs fit your experiments, but we can accept files with brief descriptions, which curators will convert to ECO IDs.</li>
-<li>The Residue column indicates the position modified. For protein modifications, use one-letter amino acid code. Multiple entries are allowed, but only for cases where two or more of the same modification are known to be present at the same time. Separate entries with commas (e.g. S72,T85). Position numbering should reflect the current sequence data in PomBase. Please refer to the <a routerLink="/status/gene-coordinate-changes-protein-coding">Gene Coordinate Changes</a> page to ensure that your residue position entries are up to date. Histones should be represented using the unprocessed protein sequence coordinates, not the processed coordinates conventionally used to describe histones. Histone modifications will be represented on the gene pages as K4(K5) processed(preprocessed), but our checking pipeline will expect unmodified forms.</li>
-<li>See the table below for allowed annotation extensions. Multiple extensions can be included for a modification if they combine to form a “compound” extension (all parts apply together) Separate extensions with a comma (,)</li>
-<li>Use PubMed IDs (e.g. “PMID:1234567”) in the Reference column</li>
-<li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although if you have an NCBI taxon ID for a specific <em>S. pombe</em> strain you are welcome to use it</li>
-<li>The date is the date on which the annotations are created; you may use the paper publication date or the date on which you prepare your data file. Format: YYYY-MM-DD</li>
-</ol>
+<p>[1] - For help finding suitable ontology (PSI-MOD) terms to describe your phenotypes, see the <a href="https://curation.pombase.org/pombe/docs/modification_annotation">Canto protein modification documentation</a>. If you can’t find a term you need, email the <a href="mailto:helpdesk@pombase.org">helpdesk</a> for assistance; we can advise you, and request new terms as needed.</p>
+<p>[2] - For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). You are welcome to enquire with us in advance to find out which ECO terms/IDs fit your experiments, but we can accept files with brief descriptions, which curators will convert to ECO IDs.</p>
+<p>[3] - The Residue column indicates the position modified. For protein modifications, use one-letter amino acid code. Multiple entries are allowed, but only for cases where two or more of the same modification are known to be present at the same time. Separate entries with commas (e.g. S72,T85). Position numbering should reflect the current sequence data in PomBase. Please refer to the <a routerLink="/status/gene-coordinate-changes-protein-coding">Gene Coordinate Changes</a> page to ensure that your residue position entries are up to date. Histones should be represented using the unprocessed protein sequence coordinates, not the processed coordinates conventionally used to describe histones. Histone modifications will be represented on the gene pages as K4(K5) processed(preprocessed), but our checking pipeline will expect unmodified forms.</p>
+<p>[4] - See the table below for allowed annotation extensions. Multiple extensions can be included for a modification if they combine to form a “compound” extension (all parts apply together) Separate extensions with a comma (,)</p>
+<p>[5] - The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although if you have an NCBI taxon ID for a specific <em>S. pombe</em> strain you are welcome to use it</p>
 <p><strong>Allowed annotation extensions:</strong></p>
 <p>Annotation extensions can be used to provide additional information, such as a gene whose product adds or removes a modification, a process or cell cycle phase during which a modification is present, or modification site occupancy (see the <a routerLink="/documentation/gene-page-modifications">gene page modifications documentation</a> for more information). Each annotation extension consists of a relation and either an identifier or a number.</p>
 <table>
@@ -7468,6 +7461,53 @@ are not detected by any automated method. Gradually, we will add and display sup
 <li><a href="https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv">GO biological process slim</a></li>
 <li><a href="https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv">GO cellular component slim</a></li>
 </ul>
+
+  </div>
+  <div *ngIf="pageName == 'pombase_references'">
+<h2 id="pombase-references-pb_refs">PomBase References (PB_REFs)</h2>
+<p>PomBase references are a set of abstracts that can be cited to support annotations. It is modeled after the <a href="http://www.geneontology.org/doc/GO.references">GO reference collection</a>.</p>
+<p>PB_REFs usually describe the method or project used to generate a specific set of annotations when no publication reference is appropriate.</p>
+<h3 id="current-pombase-references">Current PomBase references:</h3>
+<h4>PB_REF:0000001</h4>
+<h5><i>Protein modification annotation by manual transfer of experimentally-verified annotation data to orthologs based on curator judgment of sequence features.</i></h5>
+<h6>PomBase curators (2015)</h6>
+<p>Method for transferring PSI-MOD protein modification annotations to a protein-coding gene based on a curator's judgment of its similarity to a putative ortholog that has annotations that are supported by experimental evidence. Annotations are created when a curator judges that the protein sequence contains a match to a sequence region or motif that is known to be a consensus site for the modification, and when an ortholog has been identified and experimentally determined to have the modification.</p>
+<h4>PB_REF:0000002</h4>
+<h5><i>Manual Ortholog Curation</i></h5>
+<h6>PomBase curators (2018)</h6>
+<p>PomBase derives manually curated orthologs from a variety of sources. In some cases the consensus ortholog from the major ortholog predictors (Compara, Inparanoid, OrthoMCL) is used. Many distant orthologs have also been identified by PSI-BLAST matches that are uniformly one-to one across species (described in detail in reference [1]); these alignments have been submitted to the Pfam protein family database. Other ortholog predictions come from experimental data demonstrating functional correspondence or involving membership of corresponding complexes. These predictions are also aligned and submitted to Pfam before inclusion. PomBase's approach ensures that the breadth of coverage is greater than any individual prediction method, and includes many ortholog calls which are not detected by any automated method. Gradually, we will add and display supporting references for all orthology calls. [1] V. Wood (2006), Schizosaccharomyces pombe comparative genomics; from sequence to systems. In: Comparative Genomics Using Fungi as Models (P. Sunnerhagen and J. Piskur, eds.), Topics in Current Genetics 15:233-285.</p>
+<h4>PB_REF:0000003</h4>
+<h5><i>Disease Association Curation</i></h5>
+<h6>PomBase curators (2018)</h6>
+<p>PomBase curators manually curate "disease association" annotations for S. pombe genes that have human orthologs, where the ortholog is implicated in disease. Disease descriptions are manually mapped to Monarch Disease Ontology (MONDO) terms via MONDO IDs.</p>
+<h4>PB_REF:0000004</h4>
+<h5><i>Allele Synonyms</i></h5>
+<h6>PomBase curators (2021)</h6>
+<p>PomBase curators record synonyms for alleles encountered in the literature, personal communications, or other resources.</p>
+<h4>PB_REF:0000005</h4>
+<h5><i>Allele Comments</i></h5>
+<h6>PomBase curators (2021)</h6>
+<p>PomBase curators record comments relevant to alleles, but not suitable for inclusion in allele names or descriptions, encountered in the literature, personal communications, or other resources.</p>
+<h4>PB_REF:0000006</h4>
+<h5><i>Disease associations from Monarch via human-pombe orthologs</i></h5>
+<h6>PomBase curators (2024)</h6>
+<p>Disease associations are created by taking human gene-disease causal and correlated associations created by Monarch (https://monarchinitiative.org) using the MONDO disease ontology (https://mondo.monarchinitiative.org/) and mapping to fission yeast orthologs (https://www.pombase.org/data/orthologs) using the manually maintained fission yeast/human ortholog table.</p>
+<h4>PB_REF:0000007</h4>
+<h5><i>Prediction of GPI-anchored proteins with pointer neural networks</i></h5>
+<h6>Magnús Halldór Gíslason, Henrik Nielsen, José Juan Almagro Armenteros, Alexander Rosenberg Johansen. (2024)</h6>
+<p>GPI-anchors constitute a very important post-translational modification, linking many proteins to the outer face of the plasma membrane in eukaryotic cells. Since experimental validation of GPI-anchoring signals is slow and costly, computatinal approaches for predicting them from amino acid sequences are needed. However, the most recent GPI predictor is more than a decade old and considerable progress has been made in machine learning since then. We present a new dataset and a novel method, NetGPI, for GPI signal prediction. NetGPI is based on recurrent neural networks, incorporating an attention mechanism that simultaneously detects GPI-anchoring signals and points out the location of their ω-sites. The performance of NetGPI is superior to existing methods with regards to discrimination between GPI-anchored proteins and other secretory proteins and approximate (±1 position) placement of the ω-site.</p>
+<h4>PB_REF:0000008</h4>
+<h5><i>Distant orthologs supported by Pfam-N</i></h5>
+<h6>PomBase curators (2024)</h6>
+<p>Ortholog predicted using Pfam-N (PMID: 35190689), and manually reviewed and manually reviewed for context (length, functional attributes and other features). See DOI: 10.1007/4735_97 for a description of our manual review process.</p>
+<h4>PB_REF:0000009</h4>
+<h5><i>Distant orthologs supported by JackHMMR</i></h5>
+<h6>PomBase curators (2024)</h6>
+<p>Ortholog predicted using jackHMMER iterative search (PMID:25943547), and manually reviewed for context (length, functional attributes and other features). See DOI: 10.1007/4735_97 for a description of our manual review process.</p>
+<h4>PB_REF:0000010</h4>
+<h5><i>GO-CAM Causal Activity Model Curation</i></h5>
+<h6>PomBase curators (2024)</h6>
+<p>GO CAMs (Causal Activity Models) are pathway models curated manually by combining standard GO annotations. GO-CAM models can connect different pieces of information about the function of a gene product (joining together different annotations for the same gene product), and/or connect different gene products together by specifying how the activity of one gene product can affect the activity of another gene product. All connections in a GO-CAM model are made using clearly defined semantic relations from the Relations Ontology (https://obofoundry.org/ontology/ro.html). For more details about GO-CAMs see PMID:31548717.</p>
 
   </div>
   <div *ngIf="pageName == 'publication-page'">
