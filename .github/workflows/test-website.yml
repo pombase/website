@@ -44,10 +44,10 @@ jobs:
            echo generating JBrowse JSON:
            ./create_jbrowse_track_list.pl trackListTemplate.json pombase_jbrowse_track_metadata.csv /dev/null /dev/null ./minimal_jbrowse_track_list.json && \
            curl -L https://raw.githubusercontent.com/pombase/pombase-config/master/website/pombase_v2_config.json > main_config.json && \
-           curl -L https://curation.pombase.org/dumps/latest_build/pombe-embl/supporting_files/go_references.txt > go_references.txt && \
+           curl -L https://curation.pombase.org/dumps/latest_build/pombe-embl/supporting_files/PB_references.txt > PB_references.txt && \
            echo generating doc files: && \
            node ./node_modules/@angular/cli/bin/ng --version && \
-           ./etc/update_generated_files.sh main_config.json data_files go_references.txt && \
+           ./etc/update_generated_files.sh main_config.json data_files PB_references.txt && \
            node ./node_modules/@angular/cli/bin/ng build --no-progress && \
            echo checking for broken links in PomBase docs: && \
            ./etc/check_docs_broken_links.pl main_config.json src/docs src/assets && \
