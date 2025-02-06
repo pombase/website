@@ -13,7 +13,8 @@
 #     --markdown-docs src/docs/ \
 #     --recent-news-component src/app/recent-news/recent-news.component.html \
 #     --docs-component src/app/docs/docs.component.html \
-#     --front-panel-content-component src/app/front-panel-content.html
+#     --front-panel-content-component src/app/front-panel-content.html \
+#     --pb-ref-file pombe-embl/supporting_files/PB_references.txt
 
 use strict;
 use warnings;
@@ -32,6 +33,7 @@ my $markdown_docs = '';
 my $recent_news_component = '';
 my $docs_component = '';
 my $front_page_content_component = '';
+my $pb_ref_file_name = '';
 
 GetOptions(
   'web-config=s' => \$web_config_file_name,
@@ -41,11 +43,12 @@ GetOptions(
   'markdown-docs=s' => \$markdown_docs,
   'recent-news-component=s' => \$recent_news_component,
   'docs-component=s' => \$docs_component,
-  'front-panel-content-component=s' => \$front_page_content_component);
+  'front-panel-content-component=s' => \$front_page_content_component,
+  'pb-ref-file=s' => \$pb_ref_file_name);
 
 if (!$web_config_file_name || !$data_files_dir || !$doc_config_file_name ||
     !$markdown_docs || !$recent_news_component ||
-    !$docs_component || !$front_page_content_component) {
+    !$docs_component || !$front_page_content_component || !$pb_ref_file_name) {
   die "missing arg";
 }
 
@@ -82,6 +85,32 @@ if (!defined $load_organism) {
     "in $$web_config_file_name";
 }
 
+my @pb_refs = ();
+
+open my $pb_ref_fh, '<', $pb_ref_file_name
+  or die "can't open $pb_ref_file_name: $!\n";
+
+my %current_pb_ref = ();
+
+while (defined (my $line = <$pb_ref_fh>)) {
+  next if $line =~ /^!/;
+
+  if ($line =~ /(\w+)\s*:\s*(.*)/) {
+    my $key = $1;
+    my $value = $2;
+
+    $current_pb_ref{$key} = $value;
+  } else {
+    if (keys %current_pb_ref > 0) {
+      push @pb_refs, {%current_pb_ref};
+      %current_pb_ref = ();
+    }
+  }
+}
+
+push @pb_refs, {%current_pb_ref};
+
+close $pb_ref_fh;
 
 my %var_substitutions = (
   database_name => $database_name,
@@ -284,6 +313,21 @@ sub table_to_html
   return @res;
 }
 
+sub pb_refs_as_html
+{
+  my @pb_refs = @_;
+
+  my @res = ();
+
+  for my $pb_ref (@pb_refs) {
+    push @res, "<h4>" . $pb_ref->{pb_ref_id} . "</h4>";
+    push @res, "<h5><i>" . $pb_ref->{title} . "</i></h5>";
+    push @res, "<h6>" . $pb_ref->{authors} . ' (' . $pb_ref->{year} . ")</h6>";
+    push @res, "<p>" . $pb_ref->{abstract} . "</p>";
+  }
+
+  return @res;
+}
 
 sub read_table
 {
@@ -385,8 +429,18 @@ sub lines_from_file
           }
 
           next;
-      } else {
-          die "mangled directive: $line\n";
+        } else {
+          if ($line =~ /^\%\%pb_ref_table\s*$/) {
+            my @html_lines = pb_refs_as_html(@pb_refs);
+
+            for my $line (@html_lines) {
+              push @lines, "$line\n";
+            }
+
+            next;
+          } else {
+            die "mangled directive: $line\n";
+          }
         }
       }
     }

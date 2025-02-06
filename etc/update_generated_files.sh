@@ -7,6 +7,7 @@ set -o pipefail
 
 web_config=$1
 data_files_dir=$2
+pb_references=$3
 
 database_name=$(jq '."database_name"' $web_config | perl -pne 's/"(.+?)"/$1/g')
 
@@ -32,7 +33,8 @@ pandoc --version
    --markdown-docs src/docs \
    --recent-news-component src/app/recent-news/recent-news.component.html \
    --docs-component src/app/documentation/docs/docs.component.html \
-   --front-panel-content-component src/app/front-panel-content/front-panel-content.component.html
+   --front-panel-content-component src/app/front-panel-content/front-panel-content.component.html \
+   --pb-ref-file $pb_references
 
 graphical_abstract_filename=src/app/config/graphical_abstract_files.json
 
