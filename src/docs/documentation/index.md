@@ -72,6 +72,7 @@ Search documentation, news archive and FAQ:
 -   [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
 -   [Data versions](about/version-history)
 %%end db=PomBase
+-   [PomBase references (PB_REFs)](documentation/pombase-references)
 
 ### How to Cite ${database_name} ###
 
