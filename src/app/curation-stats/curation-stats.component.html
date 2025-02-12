@@ -95,6 +95,21 @@
 </div>
 
 <div>
+  <div *ngIf="!cumulativeMicropublicationsPlotLoaded">
+    Loading ...
+  </div>
+  <h4 *ngIf="cumulativeMicropublicationsPlotLoaded">
+    Cumulative <i>S. pombe</i> microPublications per year:
+  </h4>
+  <a href="/api/v1/dataset/latest/stats/cumulative_micropublications_by_year"
+     title="Cumulative S. pombe microPublications per year">
+    <img (load)="cumulativeMicropublicationsPlotLoaded=true" class="plot-image"
+      alt="Cumulative S. pombe microPublications per year"
+      src="/api/v1/dataset/latest/stats/cumulative_micropublications_by_year" />
+  </a>
+</div>
+
+<div>
   <div *ngIf="!curatedByYearPlotLoaded">
     Loading ...
   </div>

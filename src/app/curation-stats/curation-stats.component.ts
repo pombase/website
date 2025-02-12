@@ -20,6 +20,7 @@ export class CurationStatsComponent implements OnInit {
   curatedByYearPlotLoaded = false;
   curatableByYearPlotLoaded = false;
   communityResponseRates = false;
+  cumulativeMicropublicationsPlotLoaded = false;
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
