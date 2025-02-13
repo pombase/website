@@ -1969,19 +1969,25 @@ export class PombaseAPIService {
   }
 }
 
+function fixHistoneResidue(residue: string, long: boolean): string {
+  const m = residue.match(/^([A-Z])(\d+)$/);
+
+  if (m) {
+    let newRes = m[1] + (+m[2] - 1) + '(' + m[1] + m[2] + ')';
+    if (long) {
+      newRes += ' processed(preprocessed)';
+    }
+    return newRes;
+  } else {
+    return residue;
+  }
+}
+
 function fixHistoneResidues(residues: Array<string>, long: boolean): Array<string> {
   let newResidues = [];
 
   for (let res of residues) {
-    const m = res.match(/^([A-Z])(\d+)$/);
-
-    if (m) {
-      let newRes = m[1] + (+m[2] - 1) + '(' + m[1] + m[2] + ')';
-      if (long) {
-        newRes += ' processed(preprocessed)';
-      }
-      newResidues.push(newRes);
-    }
+    newResidues.push(fixHistoneResidue(res, long));
   }
 
   return newResidues;
