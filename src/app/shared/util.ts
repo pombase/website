@@ -35,7 +35,7 @@ export class Util {
         if (typeof(str1) === 'number' && typeof(str1) === 'number') {
           return (str1 as number) - (str2 as number);
         } else {
-          if (options['numeric']) {
+          if (options && options['numeric']) {
             let num1 = Number(str1);
             if (Number.isNaN(num1)) {
               num1 = -1e99;
