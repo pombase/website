@@ -6797,6 +6797,7 @@ Search documentation, news archive and FAQ:
 <li><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology (FYPO) page</a></li>
 <li><a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a></li>
 <li><a routerLink="/about/version-history">Data versions</a></li>
+<li><a routerLink="/documentation/pombase-references">PomBase references (PB_REFs)</a></li>
 </ul>
 <h3 id="how-to-cite-pombase">How to Cite PomBase</h3>
 <ul>
@@ -7463,7 +7464,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 </ul>
 
   </div>
-  <div *ngIf="pageName == 'pombase_references'">
+  <div *ngIf="pageName == 'pombase-references'">
 <h2 id="pombase-references-pb_refs">PomBase References (PB_REFs)</h2>
 <p>PomBase references are a set of abstracts that can be cited to support annotations. It is modeled after the <a href="http://www.geneontology.org/doc/GO.references">GO reference collection</a>.</p>
 <p>PB_REFs usually describe the method or project used to generate a specific set of annotations when no publication reference is appropriate.</p>
@@ -7606,7 +7607,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 </tr>
 </tbody>
 </table>
-<p>[1] - Type: what was measured; use “RNA” or “protein”</p>
+<p>[1] - Type: what was measured; use “RNA”, “protein” or “ribosomal density”</p>
 <p>[2] - For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). You are welcome to enquire with us in advance to find out which ECO terms/IDs fit your experiments, but we can accept files with brief descriptions, which curators will convert to ECO IDs.</p>
 <p>[3] - The Qualifier column uses a small vocabulary to describe what is observed about the RNA or protein level. Use one of: present, absent, unchanged, increased, decreased, constant, fluctuates</p>
 <p>[4] - The Extension column documents circumstances under which the RNA or protein level is observed (or changes). Follow one of these patterns:</p>
@@ -9843,6 +9844,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-february-19th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-february-19th">Next pombeTalks: Wednesday February 19th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-curated-pathways-using-go-cam-pathway-modelling'" [pageScrollAdjustHash]="true" href="/news#new-curated-pathways-using-go-cam-pathway-modelling">NEW: Curated pathways using GO-CAM pathway modelling</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-january-15th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-january-15th">Next pombeTalks: Wednesday January 15th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-december-11th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-december-11th">Next pombeTalks: Wednesday December 11th</a></div>
@@ -12692,9 +12694,46 @@ Vjestica Lab, University of Lausanne “Fertilization triggers cytosolic functio
 <p>Visit the <a href="https://www.pombase.org/documentation/go-cam-pathway-models">GO-CAM pathways page</a> to see the list of curated pathways.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-feb'">
+<h3 id="next-pombetalks-wednesday-february-19th">Next pombeTalks: Wednesday February 19th</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, February 19th, at 00:00 San Francisco / 03:00 New York / 08:00 London / 09:00 Paris / 13:30 Delhi / 16:00 Beijing / 17:00 Tokyo</p>
+<p>Speakers this month are:</p>
+<ul>
+<li><p><strong>Ulysses Lam</strong><br />
+Chen Ee Sin’s Lab, National University of Singapore<br />
+“Set2 regulates Ccp1 and Swc2 to ensure centromeric stability by retargeting CENP-A”</p></li>
+<li><p><strong>Sucharita Sen</strong><br />
+Dr. Mridula Nambiar’s Lab, IISER Pune, India<br />
+“Centromere-proximal crossovers disrupt proper homologous chromosome disjunction during meiosis”</p></li>
+</ul>
+<p>Also join us for a session called <strong>“Just One Thing”: A brief demonstration of a PomBase feature</strong></p>
+<p>After the first talk, PomBase will present a quick 10-minute demo highlighting a specific PomBase feature. This week, the focus will be on <u>Advanced Visualization of query results</u>.</p>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2025-02-14-pombetalks-feb" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-february-19th">Next pombeTalks: Wednesday February 19th</h3>
+<p><em>2025-02-14</em></p>
+<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, February 19th, at 00:00 San Francisco / 03:00 New York / 08:00 London / 09:00 Paris / 13:30 Delhi / 16:00 Beijing / 17:00 Tokyo</p>
+<p>Speakers this month are:</p>
+<ul>
+<li><p><strong>Ulysses Lam</strong><br />
+Chen Ee Sin’s Lab, National University of Singapore<br />
+“Set2 regulates Ccp1 and Swc2 to ensure centromeric stability by retargeting CENP-A”</p></li>
+<li><p><strong>Sucharita Sen</strong><br />
+Dr. Mridula Nambiar’s Lab, IISER Pune, India<br />
+“Centromere-proximal crossovers disrupt proper homologous chromosome disjunction during meiosis”</p></li>
+</ul>
+<p>Also join us for a session called <strong>“Just One Thing”: A brief demonstration of a PomBase feature</strong></p>
+<p>After the first talk, PomBase will present a quick 10-minute demo highlighting a specific PomBase feature. This week, the focus will be on <u>Advanced Visualization of query results</u>.</p>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
+</div>
 <div id="2025-01-16-gocams-in-pombase" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="new-curated-pathways-using-go-cam-pathway-modelling">NEW: Curated pathways using GO-CAM pathway modelling</h3>
