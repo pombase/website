@@ -30,7 +30,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 8 | Taxon [5] | ${ncbi_taxon_id} | Yes | No
 9 | Date | 2014-05-01 | Yes | No
 
-[1] - Type: what was measured; use "RNA" or "protein"
+[1] - Type: what was measured; use "RNA", "protein" or "ribosomal density"
 
 [2] - For the Evidence column, we use a small selection from the
       [Evidence Ontology](http://www.evidenceontology.org/) (ECO). You
