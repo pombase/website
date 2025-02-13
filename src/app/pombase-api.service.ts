@@ -2031,8 +2031,7 @@ function processExtension(annotation: Annotation|undefined,
                 extPart.ext_range.transcript =
                   transcriptsByUniquename[extPart.ext_range.transcript_uniquename];
               } else {
-                if (extPart.rel_type_name === "modified residue" &&
-                    isHistone) {
+                if (extPart.rel_type_display_name === "modified residue" && isHistone) {
                   if (extPart.ext_range.summary_residues) {
                     extPart.ext_range.summary_residues =
                       fixHistoneResidues(extPart.ext_range.summary_residues, true);
