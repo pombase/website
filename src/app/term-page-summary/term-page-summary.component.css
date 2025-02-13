@@ -1,9 +1,13 @@
 .term-details table {
-  width: 55% !important;
+  width: 67% !important;
 }
 
 .term-parent-column {
-  width: 35%;
+  width: 30%;
+}
+
+.term-parent-column div {
+  padding-bottom: 0.5em;
 }
 
 .esyn-link {
@@ -16,4 +20,19 @@
 
 .external-links div {
   padding-bottom: 0.5em;
+}
+
+.ontology-graph-title {
+  font-weight: bold;
+  font-size: 80%;
+  padding-bottom: 0.5em;
+}
+
+.ontology-graph {
+  float: right;
+}
+
+.ontology-graph-loading {
+  font-size: 75%;
+  padding: 2em 0 0 2em
 }

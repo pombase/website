@@ -5,14 +5,21 @@
   </div>
 
   <div id="term-summary" class="details-page-summary">
+    <div class="ontology-graph" *ngIf="graphImageUrl">
+      <div class="ontology-graph-title">Ontology graph (click to expand):</div>
+      <a [hidden]="!ontologyGraphLoaded" href="{{graphImageUrl}}">
+        <img (load)="ontologyGraphLoaded = true" width="150" height="200" src="{{graphImageUrl}}">
+      </a>
+      <div class="ontology-graph-loading" *ngIf="!ontologyGraphLoaded">Loading ...</div>
+    </div>
+
     <table>
       <tr>
         <td *ngIf="termDetails.definition" class="details-label">Definition</td>
         <td *ngIf="filteredAncestors.length > 0" class="details-label">Parents</td>
       </tr>
-      <tr *ngFor="let parentDetails of filteredAncestors; let firstRow = first">
-        <td *ngIf="firstRow && termDetails.definition"
-            [attr.rowspan]="filteredAncestors.length + 1">
+      <tr>
+        <td *ngIf="termDetails.definition">
           {{termDetails.definition}}
           <span *ngIf="defXrefs.length > 0">
 [<span *ngFor="let xrefDetail of defXrefs ; let i = index"><a *ngIf="xrefDetail.refShort" title="Reference for this definition"
@@ -25,13 +32,12 @@
           </span>
         </td>
         <td class="term-parent-column">
+          <div *ngFor="let parentDetails of filteredAncestors">
           <span class="details-label term-parent-rel">{{parentDetails.relation_name}}</span>
           <a routerLink="/term/{{parentDetails.termid}}"
              routerLinkActive="active">{{parentDetails.term_name}}</a>
+          </div>
         </td>
-      </tr>
-      <tr *ngIf="filteredAncestors.length == 0">
-        <td *ngIf="termDetails.definition">{{termDetails.definition}}</td>
       </tr>
     </table>
   </div>

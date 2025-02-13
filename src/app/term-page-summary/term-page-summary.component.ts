@@ -29,6 +29,9 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
   config: AnnotationTableConfig = getAnnotationTableConfig();
   defXrefs: Array<XrefDetails> = [];
 
+  graphImageUrl?: string;
+  ontologyGraphLoaded = false;
+
   displayTermId = '';
   nameAndIdPrefix = 'Ontology term';
 
@@ -81,6 +84,14 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
       this.nameAndIdPrefix = 'Ontology term';
     }
     this.defXrefs = [];
+    this.ontologyGraphLoaded = false;
+
+    if (this.typeConfig.ontology_graph_url) {
+      this.graphImageUrl = this.typeConfig.ontology_graph_url + this.termDetails.termid;
+    } else {
+      this.graphImageUrl = undefined;
+    }
+
     if (this.termDetails.definition_xrefs) {
       this.termDetails.definition_xrefs
         .filter(xref => {
