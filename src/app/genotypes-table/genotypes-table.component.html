@@ -10,9 +10,9 @@
       <thead>
         <tr>
           <th>
-            <a *ngIf="orderByField != 'allele'" (click)="setOrderBy('allele')"
-               title="Click to sort">Allele</a>
-            <span *ngIf="orderByField == 'allele'">Allele</span>
+            <a *ngIf="orderByField != 'genotype'" (click)="setOrderBy('genotype')"
+               title="Click to sort">Genotype</a>
+            <span *ngIf="orderByField == 'genotype'">Genotype</span>
           </th>
           <th>
             <a *ngIf="orderByField != 'gene'" (click)="setOrderBy('gene')"
