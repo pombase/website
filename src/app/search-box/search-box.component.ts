@@ -662,7 +662,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   matchesReference(value: string): boolean {
-    return value.match(/^\s*(?:(PMID|GO_REF): *)?\d\d\d+\s*$/) != null;
+    return value.match(/^\s*(?:(?:pmid|pubmed|go_ref)(?:[:_]| +))?\d\d\d+\s*$/i) != null;
   }
 
   matchesTerm(value: string): boolean {
@@ -682,7 +682,7 @@ export class SearchBoxComponent implements OnInit {
         .replace(/\s+$/, '').replace(/^\s+/, '');
 
     if (this.matchesReference(trimmedValue)) {
-      let pmid = trimmedValue.replace(/^PMID: +/, 'PMID:');
+      let pmid = trimmedValue.replace(/^(?:pmid|pubmed)(?:[:_]| +)/i, 'PMID:');
       if (!pmid.startsWith('PMID:')) {
         pmid = 'PMID:' + pmid;
       }
