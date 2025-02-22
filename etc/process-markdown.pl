@@ -26,7 +26,7 @@ use Text::CSV;
 use open ':encoding(utf8)';
 
 my $web_config_file_name = '';
-my $data_files_dir = '';
+my $data_file_dirs = '';
 my $doc_config_file_name = '';
 my $json_docs_file_name = '';
 my $markdown_docs = '';
@@ -37,7 +37,7 @@ my $pb_ref_file_name = '';
 
 GetOptions(
   'web-config=s' => \$web_config_file_name,
-  'data-files-dir=s' => \$data_files_dir,
+  'data-files-dir=s' => \$data_file_dirs,
   'doc-config=s' => \$doc_config_file_name,
   'json-docs=s' => \$json_docs_file_name,
   'markdown-docs=s' => \$markdown_docs,
@@ -46,7 +46,7 @@ GetOptions(
   'front-panel-content-component=s' => \$front_page_content_component,
   'pb-ref-file=s' => \$pb_ref_file_name);
 
-if (!$web_config_file_name || !$data_files_dir || !$doc_config_file_name ||
+if (!$web_config_file_name || !$data_file_dirs || !$doc_config_file_name ||
     !$markdown_docs || !$recent_news_component ||
     !$docs_component || !$front_page_content_component || !$pb_ref_file_name) {
   die "missing arg";
@@ -267,9 +267,19 @@ sub table_to_html
     }
   }
 
+  my $make_column_label = sub {
+    my $label = ucfirst $_;
+
+    $label =~ s/_/ /g;
+
+    $label =~ s/\bid\b/ID/g;
+
+    $label;
+  };
+
   push @res, '<table><thead><tr>';
 
-  push @res, (join '', map { '<th>' . ucfirst $_ . '</th>' } @column_names);
+  push @res, (join '', map { '<th>' . $make_column_label->($_) . '</th>' } @column_names);
   push @res, '</thead>';
 
   for my $row (@rows) {
@@ -294,6 +304,9 @@ sub table_to_html
               if (length $col_entry > 20) {
                 $col_entry =~ s/(,|\.\.)/$1<wbr>/g;
               }
+
+              $col_entry =~ s|^gomodel:(.*)|<a routerLink='/gocam/docs/$1'>$1</a>|;
+              $col_entry =~ s|\b(GO:\d\d\d\d+)\b|<a routerLink='/term/$1'>$1</a>|;
 
               $line .= $col_entry;
             }
@@ -333,7 +346,15 @@ sub read_table
 {
   my $file_name = shift;
 
-  my $full_file_name = "$data_files_dir/$file_name";
+  my @data_file_dirs = split /,/, $data_file_dirs;
+
+  for my $data_files_dir (@data_file_dirs) {
+
+    my $full_file_name = "$data_files_dir/$file_name";
+
+    if (! -f $full_file_name) {
+      next;
+    }
 
   open my $fh, '<', $full_file_name or die "can't open $full_file_name";
 
@@ -366,6 +387,8 @@ sub read_table
   }
 
   return ([$csv->column_names()], \@rows);
+
+  }
 }
 
 
