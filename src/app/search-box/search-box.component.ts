@@ -669,12 +669,18 @@ export class SearchBoxComponent implements OnInit {
     return value.match(/^\s*[a-zA-Z_]+:\d\d\d+\s*$/) != null;
   }
 
+  matchesGoCamId(value: string): boolean {
+    return value.match(/^[0-9a-f]{16}$/) != null;
+  }
+
   clearBox(): void {
     this.fieldValue = '';
   }
 
   enterPressed() {
-    let trimmedValue = this.fieldValue;
+    let trimmedValue = this.fieldValue
+        .replace(/\s+$/, '').replace(/^\s+/, '');
+
     if (this.matchesReference(trimmedValue)) {
       let pmid = trimmedValue.replace(/^PMID: +/, 'PMID:');
       if (!pmid.startsWith('PMID:')) {
@@ -686,6 +692,14 @@ export class SearchBoxComponent implements OnInit {
       if (this.matchesTerm(trimmedValue)) {
         this.clearBox()
         this.router.navigate(['/term', trimmedValue]);
+      } else {
+        if (this.matchesGoCamId(trimmedValue)) {
+          const gocamDetailPromise = this.pombaseApiService.getGoCamDetailById(trimmedValue);
+          gocamDetailPromise.then((_) => {
+            this.clearBox();
+            this.router.navigate(['/gocam/docs/', trimmedValue]);
+          });
+        }
       }
     }
   }
