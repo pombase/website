@@ -78,3 +78,11 @@
 table {
   margin-bottom: 1em;
 }
+
+.docs-table td {
+  vertical-align: top;
+}
+
+tr:nth-child(odd) {
+  background-color: #f3f3fa;
+}
