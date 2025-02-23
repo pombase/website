@@ -28,7 +28,7 @@ jobs:
            git clone https://github.com/pombase/curation.git pombase-curation
            git clone https://github.com/pombase/genome_changelog.git genome_changelog
            cp -r genome_changelog/results/pombase_tables data_files
-           touch data_files/gocam_model_holes_table.tsv
+           curl -L https://curation.pombase.org/dumps/latest_build/misc/gocam_model_holes_table.tsv > data_files/gocam_model_holes_table.tsv
            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
            sudo apt-get update
            sudo apt-get install nodejs -y
