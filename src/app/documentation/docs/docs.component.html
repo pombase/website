@@ -9844,6 +9844,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-global-core-biodata-resource-week'" [pageScrollAdjustHash]="true" href="/news#pombase-global-core-biodata-resource-week">PomBase is Global Core BioData Resource of the week</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-february-19th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-february-19th">Next pombeTalks: Wednesday February 19th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-curated-pathways-using-go-cam-pathway-modelling'" [pageScrollAdjustHash]="true" href="/news#new-curated-pathways-using-go-cam-pathway-modelling">NEW: Curated pathways using GO-CAM pathway modelling</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-january-15th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-january-15th">Next pombeTalks: Wednesday January 15th</a></div>
@@ -12713,9 +12714,26 @@ Dr. Mridula Nambiar’s Lab, IISER Pune, India<br />
 <p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombase-gcbr-week'">
+<h3 id="pombase-global-core-biodata-resource-week">PomBase is Global Core BioData Resource of the week</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>PomBase is this weeks featured <a href="https://globalbiodata.org/">Global Biodata Coalition</a> “<a href="https://www.linkedin.com/pulse/pombase-global-biodata-coalition-yocme">Global Core BioData Resource of the week</a>”.</p>
+<p>The Global Biodata Coalition works for and with research funders to ensure sustained support for biodata resources.</p>
+<p><a href="https://www.linkedin.com/pulse/pombase-global-biodata-coalition-yocme">Global Core BioData Resource of the week - LinkedIn</a></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2025-02-17-pombase-gcbr-week" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="pombase-global-core-biodata-resource-week">PomBase is Global Core BioData Resource of the week</h3>
+<p><em>2025-02-17</em></p>
+<p>PomBase is this weeks featured <a href="https://globalbiodata.org/">Global Biodata Coalition</a> “<a href="https://www.linkedin.com/pulse/pombase-global-biodata-coalition-yocme">Global Core BioData Resource of the week</a>”.</p>
+<p>The Global Biodata Coalition works for and with research funders to ensure sustained support for biodata resources.</p>
+<p><a href="https://www.linkedin.com/pulse/pombase-global-biodata-coalition-yocme">Global Core BioData Resource of the week - LinkedIn</a></p>
+</div>
 <div id="2025-02-14-pombetalks-feb" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-february-19th">Next pombeTalks: Wednesday February 19th</h3>
@@ -15697,8 +15715,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <li><a href="https://github.com/pombase/genome_changelog/blob/master/results/all_coordinate_changes_file_comments_no_type_change.tsv">https://github.com/pombase/genome_changelog/blob/master/results/all_coordinate_changes_file_comments_no_type_change.tsv</a> for changes after 23-08-2011.</li>
 <li><a href="https://github.com/pombase/genome_changelog/blob/master/results/pre_svn_coordinate_changes_file_comments_no_type_change.tsv">https://github.com/pombase/genome_changelog/blob/master/results/pre_svn_coordinate_changes_file_comments_no_type_change.tsv</a> for previous changes.</li>
 </ul>
-<table><thead><tr>
-<th>Date</th><th>Systematic id</th><th>Primary name</th><th>Before / after change</th><th>Coordinates</th><th>Comment</th><th>Reference</th>
+<table class="docs-table"><thead><tr>
+<th>Date</th><th>Systematic ID</th><th>Primary name</th><th>Before / after change</th><th>Coordinates</th><th>Comment</th><th>Reference</th>
 </thead>
 <tr><td><span class="docs-content-date">2024-06-26</span></td><td><a routerLink='/gene/SPSNORNA.18'>SPSNORNA.18</a></td><td>snoU24</td><td>after</td><td>I:complement(5369613..<wbr>5369691)</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2024-06-26</span></td><td><a routerLink='/gene/SPSNORNA.18'>SPSNORNA.18</a></td><td>snoU24</td><td>before</td><td>I:complement(5369640..<wbr>5369686)</td><td></td><td></td></tr>
@@ -15987,8 +16005,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <li><a href="https://github.com/pombase/genome_changelog/blob/master/results/all_coordinate_changes_file_comments_no_type_change.tsv">https://github.com/pombase/genome_changelog/blob/master/results/all_coordinate_changes_file_comments_no_type_change.tsv</a> for changes after 23-08-2011.</li>
 <li><a href="https://github.com/pombase/genome_changelog/blob/master/results/pre_svn_coordinate_changes_file_comments_no_type_change.tsv">https://github.com/pombase/genome_changelog/blob/master/results/pre_svn_coordinate_changes_file_comments_no_type_change.tsv</a> for previous changes.</li>
 </ul>
-<table><thead><tr>
-<th>Date</th><th>Systematic id</th><th>Primary name</th><th>Before / after change</th><th>Coordinates</th><th>Comment</th><th>Reference</th>
+<table class="docs-table"><thead><tr>
+<th>Date</th><th>Systematic ID</th><th>Primary name</th><th>Before / after change</th><th>Coordinates</th><th>Comment</th><th>Reference</th>
 </thead>
 <tr><td><span class="docs-content-date">2025-01-17</span></td><td><a routerLink='/gene/SPAC144.11'>SPAC144.11</a></td><td>rps1102</td><td>after</td><td>I:complement(4674612..<wbr>4675070)</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2025-01-17</span></td><td><a routerLink='/gene/SPAC144.11'>SPAC144.11</a></td><td>rps1102</td><td>before</td><td>I:4674612..4675070</td><td></td><td></td></tr>
@@ -17725,10 +17743,28 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <p>For a detailed description of the <em>S. pombe</em> mating type region, please see the <a href="http://www1.bio.ku.dk/english/research/fg/cellecyklus_genomintegritet/mating/">online tutorial</a> provided by the Nielsen lab (external link).</p>
 
   </div>
+  <div *ngIf="pageName == 'missing-proteins'">
+<h3 id="missing">“The Missing”</h3>
+<p>A list of activities known or suspected to occur in fission yeast but not yet associated with a gene product. These “pathway holes” have been identified through GO-CAM causal model curation.</p>
+<table class="docs-table"><thead><tr>
+<th>Go-cam model</th><th>Missing activity</th><th>Process</th><th>Input / output</th><th>Occurs in</th>
+</thead>
+<tr><td><a routerLink='/gocam/docs/678073a900002086' title='Click to view model'>678073a900002086</a> <br/>L-methionine salvage from methylthioadenosine (<a routerLink='/term/GO:0019509' title='Click to view term'>GO:0019509</a>)</td><td>L-methionine:2-oxoglutarate aminotransferase activity (<a routerLink='/term/GO:0080099' title='Click to view term'>GO:0080099</a>)</td><td>L-methionine salvage from methylthioadenosine</td><td>4-methylthio-2-oxobutanoate / L-methionine</td><td>cytosol</td></tr>
+<tr><td><a routerLink='/gocam/docs/662af8fa00000408' title='Click to view model'>662af8fa00000408</a> <br/>ubiquinone metabolic process (<a routerLink='/term/GO:0006743' title='Click to view term'>GO:0006743</a> )</td><td>molecular_function (<a routerLink='/term/GO:0003674' title='Click to view term'>GO:0003674</a>)</td><td></td><td>? / 4-hydroxybenzoate</td><td></td></tr>
+<tr><td><a routerLink='/gocam/docs/662af8fa00000408' title='Click to view model'>662af8fa00000408</a> <br/>ubiquinone metabolic process (<a routerLink='/term/GO:0006743' title='Click to view term'>GO:0006743</a> )</td><td>monooxygenase activity (<a routerLink='/term/GO:0004497' title='Click to view term'>GO:0004497</a>)</td><td></td><td>2-decaprenyl-6-methoxy-3-methylhydroquinone / 2-methoxy-5-methyl-6-all-trans-polyprenylbenzoquinone</td><td></td></tr>
+<tr><td><a routerLink='/gocam/docs/67086be200002266' title='Click to view model'>67086be200002266</a> <br/>sphingolipid biosynthetic process (<a routerLink='/term/GO:0030148' title='Click to view term'>GO:0030148</a>)</td><td>N-acylsphingosine amidohydrolase activity (<a routerLink='/term/GO:0017040' title='Click to view term'>GO:0017040</a>)</td><td>sphingolipid biosynthetic process</td><td>N-acylsphingosine / sphingosine(1+)</td><td>endoplasmic reticulum</td></tr>
+<tr><td><a routerLink='/gocam/docs/665912ed00002626' title='Click to view model'>665912ed00002626</a> <br/>nitrogen cycle metabolic process (<a routerLink='/term/GO:0071941' title='Click to view term'>GO:0071941</a>)</td><td>allantoinase activity (<a routerLink='/term/GO:0004038' title='Click to view term'>GO:0004038</a>)</td><td>urea metabolic process</td><td>? / ?</td><td></td></tr>
+<tr><td><a routerLink='/gocam/docs/67ae98b500000055' title='Click to view model'>67ae98b500000055</a> <br/>iron import into cell (<a routerLink='/term/GO:0033212' title='Click to view term'>GO:0033212</a>) / siderophore biosynthetic process (GO:0019290)</td><td>ferrichrome transmembrane transporter activity (<a routerLink='/term/GO:0042929' title='Click to view term'>GO:0042929</a>)</td><td>siderophore-dependent iron import into cell</td><td>ferrichrome / ferrichrome</td><td>plasma membrane</td></tr>
+<tr><td><a routerLink='/gocam/docs/66a3e0bb00002988' title='Click to view model'>66a3e0bb00002988</a> <br/>pteridine-containing compound metabolic process (<a routerLink='/term/GO:0042558' title='Click to view term'>GO:0042558</a>)</td><td>6-pyruvoyltetrahydropterin synthase activity (<a routerLink='/term/GO:0003874' title='Click to view term'>GO:0003874</a>)</td><td>tetrahydrobiopterin biosynthetic process</td><td>? / ?</td><td></td></tr>
+<tr><td><a routerLink='/gocam/docs/6796b94c00004743' title='Click to view model'>6796b94c00004743</a> <br/>glycerol metabolic process (<a routerLink='/term/GO:0006071' title='Click to view term'>GO:0006071</a>)</td><td>glycerol-3-phosphatase activity (<a routerLink='/term/GO:0043136' title='Click to view term'>GO:0043136</a>)</td><td>glycerol biosynthetic process</td><td>sn-glycerol 3-phosphate / glycerol</td><td></td></tr>
+<tr><td><a routerLink='/gocam/docs/6796b94c00004743' title='Click to view model'>6796b94c00004743</a> <br/>glycerol metabolic process (<a routerLink='/term/GO:0006071' title='Click to view term'>GO:0006071</a>)</td><td>glycerol kinase activity (<a routerLink='/term/GO:0004370' title='Click to view term'>GO:0004370</a>)</td><td>glycerol metabolic process</td><td>glycerol / sn-glycerol 3-phosphate</td><td></td></tr>
+</table>
+
+  </div>
   <div *ngIf="pageName == 'new-RNA-genes'">
 <h3 id="new-rna-genes-since-publication">New RNA genes since publication</h3>
-<table><thead><tr>
-<th>Systematic id</th><th>Primary name</th><th>Date added</th><th>Comment</th><th>Reference</th>
+<table class="docs-table"><thead><tr>
+<th>Systematic ID</th><th>Primary name</th><th>Date added</th><th>Comment</th><th>Reference</th>
 </thead>
 <tr><td><a routerLink='/gene/SPNCRNA.1715'>SPNCRNA.1715</a></td><td>mamRNA</td><td><span class="docs-content-date">2023-03-17</span></td><td></td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=33536434'>PMID:33536434</a></td></tr>
 <tr><td><a routerLink='/gene/SPNCRNA.1714'>SPNCRNA.1714</a></td><td></td><td><span class="docs-content-date">2023-02-13</span></td><td></td><td></td></tr>
@@ -25320,8 +25356,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'new-protein-coding-genes'">
 <h3 id="new-protein-coding-genes-since-publication">New protein coding genes since publication</h3>
-<table><thead><tr>
-<th>Systematic id</th><th>Primary name</th><th>Date added</th><th>Comment</th><th>Reference</th>
+<table class="docs-table"><thead><tr>
+<th>Systematic ID</th><th>Primary name</th><th>Date added</th><th>Comment</th><th>Reference</th>
 </thead>
 <tr><td><a routerLink='/gene/SPAC144.19'>SPAC144.19</a></td><td>prl46</td><td><span class="docs-content-date">2020-09-09</span></td><td></td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=32594847'>PMID:32594847</a></td></tr>
 <tr><td><a routerLink='/gene/SPCC4G3.20'>SPCC4G3.20</a></td><td></td><td><span class="docs-content-date">2016-04-10</span></td><td></td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=24929437'>PMID:24929437</a></td></tr>
@@ -25544,8 +25580,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'removed-RNA-genes'">
 <h3 id="rna-genes-removed-since-publication">RNA genes removed since publication</h3>
-<table><thead><tr>
-<th>Systematic id</th><th>Primary name</th><th>Date removed</th><th>Coordinates when removed</th><th>Comment</th><th>Reference</th>
+<table class="docs-table"><thead><tr>
+<th>Systematic ID</th><th>Primary name</th><th>Date removed</th><th>Coordinates when removed</th><th>Comment</th><th>Reference</th>
 </thead>
 <tr><td><a routerLink='/gene/SPNCRNA.893'>SPNCRNA.893</a></td><td></td><td><span class="docs-content-date">2023-03-01</span></td><td>3177931..3178309</td><td>Merged into SPNCRNA.87</td><td>PomBase curators</td></tr>
 <tr><td><a routerLink='/gene/SPNCRNA.263'>SPNCRNA.263</a></td><td></td><td><span class="docs-content-date">2023-02-13</span></td><td>5317424..5317575</td><td></td><td>PomBase curators</td></tr>
@@ -25777,8 +25813,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'removed-protein-coding-genes'">
 <h3 id="protein-coding-genes-removed-since-publication">Protein coding genes removed since publication</h3>
-<table><thead><tr>
-<th>Systematic id</th><th>Primary name</th><th>Date removed</th><th>Coordinates when removed</th><th>Comment</th><th>Reference</th>
+<table class="docs-table"><thead><tr>
+<th>Systematic ID</th><th>Primary name</th><th>Date removed</th><th>Coordinates when removed</th><th>Comment</th><th>Reference</th>
 </thead>
 <tr><td><a routerLink='/gene/SPMTR.04'>SPMTR.04</a></td><td>mat3-Mc</td><td><span class="docs-content-date">2019-05-21</span></td><td>15856..16401</td><td></td><td>PomBase curators</td></tr>
 <tr><td><a routerLink='/gene/SPMTR.03'>SPMTR.03</a></td><td>mat3-Mi</td><td><span class="docs-content-date">2019-05-21</span></td><td>complement(15593..<wbr>15721)</td><td></td><td>PomBase curators</td></tr>
