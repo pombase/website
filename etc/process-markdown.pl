@@ -443,6 +443,10 @@ sub lines_from_file
         }
         next;
       } else {
+        if (defined $current_db_block && $current_db_block ne $database_name) {
+          next;
+        }
+
         if ($line =~ /^\%\%table file=(\S+)/) {
           my ($column_names, $rows) = read_table($1);
 
