@@ -307,7 +307,7 @@ sub table_to_html
 
               $col_entry =~ s|^gomodel:(\S+)\s+(\S.*)|<a routerLink='/gocam/docs/$1' title='Click to view model'>$1</a> <br/>$2|;
               $col_entry =~ s|^gomodel:(\S+)|<a routerLink='/gocam/docs/$1' title='Click to view model'>$1</a>|;
-              $col_entry =~ s|\b(GO:\d\d\d\d+)\b|<a routerLink='/term/$1' title='Click to view term'>$1</a>|;
+              $col_entry =~ s|\b(GO:\d\d\d\d+)\b|<a routerLink='/term/$1' title='Click to view term'>$1</a>|g;
 
               $line .= $col_entry;
             }
