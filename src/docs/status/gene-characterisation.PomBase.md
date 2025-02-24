@@ -15,9 +15,32 @@ at the level of the [fission yeast GO slim set](/browse-curation/fission-yeast-b
 The rationale for this process-focussed approach is described in more detail in
 [Rutherford *et al.* 2024](https://doi.org/10.1093/genetics/iyae007)
 
-A list of ["Priority unstudied genes" (vertebrate orthologs, unknown process, protein coding)](/status/priority-unstudied-genes)
-is updated daily.
+#### Related gene lists
 
+<table>
+<thead>
+  <tr>
+    <th>List</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tr>
+  <td style="white-space: nowrap;">[Priority unstudied genes](/status/priority-unstudied-genes)</td>
+  <td>
+    Genes are classed as “unknown” if there is no information about
+    the broad cellular role (biological process) in which it
+    participates.
+  </td>
+</tr>
+<tr>
+  <td style="white-space: nowrap;">[Pathway holes](/status/missing-gocam-proteins)</td>
+  <td>
+    A list of activities known or suspected to occur in fission
+    yeast but not yet associated with a gene product. These “pathway
+    holes” have been identified through GO-CAM causal model curation.
+  </td>
+</tr>
+</table>
 
 #### Changes over time
 
