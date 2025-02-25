@@ -20,6 +20,14 @@ models and displaying them on the relevant gene and process pages.
 For further information see the
 [Gene Ontology GO-CAM overview](https://geneontology.org/docs/gocam-overview/).
 
-Available GO-CAM models:
+### Pathway holes
+
+We maintain a list of activities known or suspected to occur in fission yeast but
+not yet associated with a gene product. These “pathway holes” have
+been identified through GO-CAM causal model curation.
+
+[*S. pombe* pathway holes](/status/missing-gocam-proteins)
+
+### Available GO-CAM models
 
 <app-go-cam-table></app-go-cam-table>
