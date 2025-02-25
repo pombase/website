@@ -8,7 +8,7 @@ covering 466 proteins.
 These pathways were curated using GO-Causal Activity Modeling
 (GO-CAM), which provides a system to represent biological processes as
 a causal network by connecting GO molecular function terms
-(activities), encoded by individual gene products.  
+(activities), encoded by individual gene products.
 
 GO-CAM model for [vitamin B6 metabolic process](/gocam/docs/66c7d41500001171):
 
