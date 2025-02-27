@@ -46,7 +46,7 @@ A compendium of human gene functions derived from evolutionary modelling \
 Typhaine Paysan-Lafosse, Antonina Andreeva, *et al.* (Val Wood co-author) \
 The Pfam protein families database: embracing AI/ML \
 *Nucleic Acids Research*, gkae997 (2024) \
-[10.1093/nar/gkae997](https://doi.org/10.1093/nar/gkae997)
+[PMID:39540428](https://pubmed.ncbi.nlm.nih.gov/39540428/) [10.1093/nar/gkae997](https://doi.org/10.1093/nar/gkae997)
 :::
 
 ::: { .publication-badges }
@@ -56,7 +56,7 @@ The Pfam protein families database: embracing AI/ML \
 Sabrina Toro, Anna V Anagnostopoulos, *et al.* (Val Wood co-author) \
 Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligence (DRAGON-AI) \
 *J Biomed Semant*, 15, 19 (2024) \
-[10.1186/s13326-024-00320-3](https://doi.org/10.1186/s13326-024-00320-3)
+[PMID:39415214](https://pubmed.ncbi.nlm.nih.gov/39415214/) [10.1186/s13326-024-00320-3](https://doi.org/10.1186/s13326-024-00320-3)
 :::
 
 <div class="clear-float"></div>
@@ -68,7 +68,7 @@ Dynamic Retrieval Augmented Generation of Ontologies using Artificial Intelligen
 Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood \
 PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability \
 *Genetics*, February 2024, iyae007 \
-[10.1093/genetics/iyae007](https://doi.org/10.1093/genetics/iyae007)
+[PMID:38376816](https://pubmed.ncbi.nlm.nih.gov/38376816/) [10.1093/genetics/iyae007](https://doi.org/10.1093/genetics/iyae007)
 :::
 
 <div class="clear-float"></div>
@@ -80,7 +80,7 @@ PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainab
 Manuel Lera-Ramírez, Jürg Bähler, Juan Mata, Kim Rutherford, Charles S Hoffman, Sarah Lambert, Snezhana Oliferenko, Sophie G Martin, Kathleen L Gould, Li-Lin Du, Sarah A Sabatinos, Susan L Forsburg, Olaf Nielsen, Paul Nurse, Valerie Wood \
 Revised fission yeast gene and allele nomenclature guidelines for machine readability \
 *Genetics*, September 2023, iyad031 \
-[10.1093/genetics/iyad143](https://doi.org/10.1093/genetics/iyad143)
+[PMID:37758508](https://pubmed.ncbi.nlm.nih.gov/37758508/) [10.1093/genetics/iyad143](https://doi.org/10.1093/genetics/iyad143)
 :::
 
 <div class="clear-float"></div>
@@ -92,7 +92,7 @@ Revised fission yeast gene and allele nomenclature guidelines for machine readab
 Alayne Cuzick, James Seager, Valerie Wood, Martin Urban, Kim Rutherford, Kim E Hammond-Kosack \
 A framework for community curation of interspecies interactions literature \
 *eLife*, 12:e84658, Jul 2023 \
-[10.7554/eLife.84658](https://doi.org/10.7554/eLife.84658)
+[PMID:37401199](https://pubmed.ncbi.nlm.nih.gov/37401199/) [10.7554/eLife.84658](https://doi.org/10.7554/eLife.84658)
 :::
 
 <div class="clear-float"></div>
@@ -104,7 +104,7 @@ A framework for community curation of interspecies interactions literature \
 Gene Ontology Consortium.\
 The Gene Ontology knowledgebase in 2023 \
 *Genetics*, Volume 224, Issue 1, May 2023, iyad031 \
-[10.1093/genetics/iyad031](https://doi.org/10.1093/genetics/iyad031)
+[PMID:36866529](https://pubmed.ncbi.nlm.nih.gov/36866529/) [10.1093/genetics/iyad031](https://doi.org/10.1093/genetics/iyad031)
 :::
 
 <div class="clear-float"></div>
@@ -117,7 +117,7 @@ Vivian Monzon, Typhaine Paysan-Lafosse, Valerie Wood, Alex Bateman \
 Reciprocal Best Structure Hits: Using AlphaFold models to discover
 distant homologues \
 *Bioinformatics Advances*, October 2022, vbac072 \
-[10.1093/bioadv/vbac072](https://doi.org/10.1093/bioadv/vbac072)
+[PMID:36408459](https://pubmed.ncbi.nlm.nih.gov/36408459/) [10.1093/bioadv/vbac072](https://doi.org/10.1093/bioadv/vbac072)
 :::
 
 <div class="clear-float"></div>
