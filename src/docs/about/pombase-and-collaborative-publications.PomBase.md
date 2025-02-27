@@ -30,6 +30,16 @@ integrative phenomics \
 ### Journal articles
 
 ::: { .publication-badges }
+<app-publication-badge [doi]="'10.1038/s41586-025-08592-0'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Feuermann M. *et al.*  (Val Wood, Manuel Lera-Ramírez and Kim Rutherford, consortium authors) \
+A compendium of human gene functions derived from evolutionary modelling \
+*Nature* (2024) \
+[10.1038/s41586-025-08592-0](https://doi.org/10.1038/s41586-025-08592-0)
+:::
+
+::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/nar/gkae997'"></app-publication-badge>
 :::
 ::: { .pub-citation }
@@ -38,7 +48,6 @@ The Pfam protein families database: embracing AI/ML \
 *Nucleic Acids Research*, gkae997 (2024) \
 [10.1093/nar/gkae997](https://doi.org/10.1093/nar/gkae997)
 :::
-
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1186/s13326-024-00320-3'"></app-publication-badge>
