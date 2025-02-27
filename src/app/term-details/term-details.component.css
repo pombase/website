@@ -11,6 +11,10 @@
   font-size: 120%;
 }
 
+.has-annotations {
+  margin: 0.2em 0 1.5em 0;
+}
+
 .details-page-summary table {
   width: 90%;
 }
