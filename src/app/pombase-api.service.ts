@@ -1920,7 +1920,7 @@ export class PombaseAPIService {
   }
 
   getGoCamDetailById(gocamId: string): Promise<GoCamDetails> {
-    const url = this.apiUrl + '/data/gocam/by_id/'  + gocamId;
+    const url = this.apiUrl + '/data/gocam/by_id/'  + gocamId.replace(/^gomodel:/, '');
     return this.httpRetry.getWithRetry(url)
       .toPromise()
       .then(body => {

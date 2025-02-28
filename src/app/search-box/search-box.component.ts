@@ -670,7 +670,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   matchesGoCamId(value: string): boolean {
-    return value.match(/^[0-9a-f]{16}$/) != null;
+    return value.match(/^(?:gomodel:)?[0-9a-f]{16}$/) != null;
   }
 
   clearBox(): void {
