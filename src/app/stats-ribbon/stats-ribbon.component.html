@@ -4,6 +4,6 @@
     {{organismStats.annotations}} annotations
   </span>
   <span *ngIf="curatedPublicationsCount != 0" class="publication-count">
-    {{curatedPublicationsCount}} curated publications
+    <a routerLink="/reference_list/community">{{curatedPublicationsCount}} curated publications</a>
   </span>
 </div>

@@ -18,3 +18,7 @@
     display: none;
   }
 }
+
+.publication-count a {
+  color: #444;
+}
