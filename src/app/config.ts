@@ -290,6 +290,7 @@ export interface AppConfig {
     gene: string;
     term: string;
     reference: string;
+    gocam: string;
   },
   social_media: {
     twitter?: string;
