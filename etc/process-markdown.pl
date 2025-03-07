@@ -305,9 +305,11 @@ sub table_to_html
                 $col_entry =~ s/(,|\.\.)/$1<wbr>/g;
               }
 
-              $col_entry =~ s|^gomodel:(\S+)\s+(\S.*)|<a routerLink='/gocam/docs/$1' title='Click to view model'>$1</a> <br/>$2|;
-              $col_entry =~ s|^gomodel:(\S+)|<a routerLink='/gocam/docs/$1' title='Click to view model'>$1</a>|;
-              $col_entry =~ s|\b(GO:\d\d\d\d+)\b|<a routerLink='/term/$1' title='Click to view term'>$1</a>|g;
+              if ($col_entry =~ m|^gomodel:(\S+)\s+(\S.*)|) {
+                $col_entry = qq|<a routerLink="/gocam/docs/$1" title="Click to view model $1">$2</a>|;
+              } else {
+                $col_entry =~ s|\b(GO:\d\d\d\d+)\b|<a routerLink='/term/$1' title='Click to view term'>$1</a>|g;
+              }
 
               $line .= $col_entry;
             }
