@@ -50,6 +50,8 @@ export class GenesTableComponent implements OnInit {
 
   slimName?: string;
 
+  subsetCountName?: string;
+
   visibleFieldNames: Array<string> = [];
   visibleFields: Array<GeneResultsFieldConfig> = [];
 
@@ -351,6 +353,11 @@ export class GenesTableComponent implements OnInit {
     this.queryRouterSerive.gotoResults(query, 'gene-ex');
   }
 
+  showPathwayCoverage(): void {
+    const query = this.makeGeneListQuery();
+    this.queryRouterSerive.gotoResults(query, 'subset-count:gomodel');
+  }
+
   showResults(): void {
     const query = this.makeGeneListQuery();
     this.queryRouterSerive.gotoResults(query, 'results');
@@ -375,6 +382,10 @@ export class GenesTableComponent implements OnInit {
 
   showingGeneEx(): boolean {
     return this.mode === 'gene-ex';
+  }
+
+  showingSubsetCounts(): boolean {
+    return this.mode.startsWith('subset-count:');
   }
 
   showingSlim(): boolean {
@@ -433,6 +444,10 @@ export class GenesTableComponent implements OnInit {
     } else {
       this.slimName = undefined;
       this.slimDescription = undefined;
+    }
+
+    if (this.mode.startsWith("subset-count:")) {
+      this.subsetCountName = this.mode.substring(13);
     }
 
     if (this.genesOrResults instanceof QueryResult) {

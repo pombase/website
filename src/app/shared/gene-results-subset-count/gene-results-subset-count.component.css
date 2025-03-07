@@ -1,0 +1,7 @@
+.subset-table {
+  max-width: 1000px;
+}
+
+th {
+  white-space: nowrap;
+}

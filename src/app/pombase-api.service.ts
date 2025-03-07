@@ -12,6 +12,7 @@ import { firstValueFrom } from 'rxjs';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
+export type GoCamMap = { [gocamid: GoCamId]: GoCamDetails };
 
 type ReferenceDetailsMap = { [referenceUniquename: string]: ReferenceDetails };
 
@@ -792,8 +793,8 @@ export interface ProteinViewFeature {
   positions: Array<ProteinViewFeaturePos>,
 }
 
-type GeneUniquename = string;
-type GoCamId = string;
+export type GeneUniquename = string;
+export type GoCamId = string;
 
 export interface GoCamIdAndTitle {
   gocam_id: string;
@@ -807,7 +808,7 @@ export interface GoCamContributor {
 
 export interface GoCamDetails {
   gocam_id: GoCamId;
-  title?: string;
+  title: string;
   title_terms: Array<TermId>;
   genes: Array<GeneUniquename>;
   terms: Array<TermAndName>;
@@ -1959,6 +1960,24 @@ export class PombaseAPIService {
           return details;
       })
       .catch(this.handleError);
+  }
+
+  getAllGoCamDetailsMap(): Promise<GoCamMap> {
+    if (!this.promiseCache['getAllGoCamDetailsMap']) {
+      this.promiseCache['getAllGoCamDetailsMap'] =
+        this.getAllGoCamDetails()
+          .then(gocamDetails => {
+            let retMap: { [gocamid: GoCamId]: GoCamDetails } = {};
+            for (let gocam of gocamDetails) {
+              if (gocam.gocam_id) {
+                retMap[gocam.gocam_id] = gocam;
+              }
+            }
+            this.resultCache['getAllGoCamDetailsMap'] = retMap;
+            return retMap;
+          });
+    }
+    return this.promiseCache['getAllGoCamDetailsMap'];
   }
 
   getProteinViewData(geneUniquename: string, scope: string): Promise<ProteinViewData> {

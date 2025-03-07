@@ -1,0 +1,43 @@
+<div>
+
+</div>
+
+<div>
+  <div class="loading" *ngIf="resultTable.length == 0">
+    Loading ...
+  </div>
+  <div *ngIf="resultTable.length != 0">
+
+    <div class="subset-table">
+
+      <table class="subset-table">
+        <thead>
+          <th>
+            Pathway title
+          </th>
+
+          <th>
+           Genes from list
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of resultTable">
+            <td class="gocam-title">
+              <a routerLink="/gocam/docs/{{row.gocamId}}"
+                 title="Click to view pathway {{row.gocamId}}">{{row.gocamTitle}}</a>
+            </td>
+
+            <td class="count">
+              <a *ngIf="row.geneUniquenames.length != 0"
+                (click)="gotoResultsInSubset(row.gocamTitle, row.gocamId)"
+                title="Number of genes from the results list in this pathwath - click to view gene list">{{row.geneUniquenames.length}}</a>
+              <span *ngIf="row.geneUniquenames.length == 0">0</span> <b>/</b>
+              <a (click)="gotoGenesInSubset(row.gocamTitle, row.gocamId)"
+                 title="Today number of genes in the pathway - click to view gene list">{{row.subsetTotalGenesCount}}</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

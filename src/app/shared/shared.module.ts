@@ -15,6 +15,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { ApiErrorDisplayComponent } from './api-error-display/api-error-display.component';
 import { ExternalLinkComponent } from './external-link/external-link.component';
 import { GeneResultsComponent } from './gene-results/gene-results.component';
+import { GeneResultsSubsetCountComponent } from './gene-results-subset-count/gene-results-subset-count.component';
 import { GeneResultsVisComponent } from './gene-results-vis/gene-results-vis.component';
 import { GenesTableComponent } from './genes-table/genes-table.component';
 import { GeneLinkComponent } from './gene-link/gene-link.component';
@@ -60,6 +61,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ApiErrorDisplayComponent,
     ExternalLinkComponent,
     GeneResultsComponent,
+    GeneResultsSubsetCountComponent,
     GeneResultsVisComponent,
     GenesTableComponent,
     GeneLinkComponent,
@@ -86,6 +88,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ApiErrorDisplayComponent,
     ExternalLinkComponent,
     GeneResultsComponent,
+    GeneResultsSubsetCountComponent,
     GeneResultsVisComponent,
     GenesTableComponent,
     GeneLinkComponent,

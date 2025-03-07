@@ -26,7 +26,7 @@
   </div>
 
   <div class="action-row">
-    <div *ngIf="!showingVisualisation() && !showingSlim()">
+    <div *ngIf="!showingVisualisation() && !showingSlim() && !showingSubsetCounts()">
       <div *ngIf="selectionInProgress()">
   <div class="action">
     <button class="btn btn-primary"
@@ -73,6 +73,11 @@
         <a *ngIf="genes.length > maxGeneExpressionPlotGenes" class="dropdown-item disabled-menu-item"
               title="Gene expression visualisation disabled due to too many (>{{maxGeneExpressionPlotGenes}}) genes">
           Gene expression (up to {{maxGeneExpressionPlotGenes}} genes)
+        </a>
+      </li>
+      <li *ngIf="!deployConfigService.productionMode()" role="menuitem">
+        <a class="dropdown-item" title="View pathway coverage" (click)="showPathwayCoverage()">
+          View pathway coverage
         </a>
       </li>
     </ul>
@@ -131,7 +136,7 @@
             (click)="showResults()">Finish visualisation</button>
   </div>
 
-  <div *ngIf="showingSlim()" class="action">
+  <div *ngIf="showingSlim() || showingSubsetCounts()" class="action">
     <button class="btn btn-primary"
             title="Return to gene list"
             (click)="showResults()">Back to results</button>
@@ -149,13 +154,19 @@
     </div>
   </div>
 
+  <div *ngIf="showingSubsetCounts() && subsetCountName">
+    <app-gene-results-subset-count [genes]="genes" [subsetType]="subsetCountName"
+                                   [geneListDescription]="queryResultDisplayName(queryResult)">
+    </app-gene-results-subset-count>
+  </div>
+
   <div *ngIf="showingSlim()">
     <app-gene-results-slim-table [genes]="genes" [slimName]="slimName!"
                                  [geneListDescription]="queryResultDisplayName(queryResult)">
     </app-gene-results-slim-table>
   </div>
 
-  <div *ngIf="!showingVisualisation() && !showingSlim()">
+  <div *ngIf="!showingVisualisation() && !showingSlim() && !showingSubsetCounts()">
   <form>
 
   <app-loading-spinner *ngIf="loading"></app-loading-spinner>
