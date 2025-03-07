@@ -1,15 +1,11 @@
 <table *ngIf="gocams.length > 0">
   <tr>
     <th>Title</th>
-    <th>GO-CAM ID</th>
     <th>Process</th>
   </tr>
   <tr *ngFor="let gocam of gocams">
     <td>
       <a *ngIf="gocam.title" routerLink="/gocam/docs/{{gocam.gocam_id}}">{{gocam.title}}</a>
-    </td>
-    <td>
-      <a routerLink="/gocam/docs/{{gocam.gocam_id}}">{{gocam.gocam_id}}</a>
     </td>
     <td>
       <details>
