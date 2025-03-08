@@ -5,3 +5,7 @@
 th {
   white-space: nowrap;
 }
+
+tr:nth-child(odd) {
+  background-color: #F5F5F5;
+}
