@@ -52,7 +52,7 @@ export class GeneResultsSubsetCountComponent implements OnInit {
       return;
     }
 
-    this.gotoGenes(gocamTitle, gocamId, true, genes);
+    this.gotoGenes(gocamTitle, gocamId, false, genes);
   }
 
   gotoGenesInSubset(gocamTitle: string, gocamId: GoCamId): void {
@@ -61,14 +61,16 @@ export class GeneResultsSubsetCountComponent implements OnInit {
       return;
     }
 
-    this.gotoGenes(gocamTitle, gocamId, false, genes);
+    this.gotoGenes(gocamTitle, gocamId, true, genes);
   }
 
   private gotoGenes(gocamTitle: string, gocamId: string, allGenes: boolean, genes: string[]) {
-    let displayName = `genes from GO-CAM pathway "${gocamTitle}"`;
+    let displayName = `GO-CAM pathway "${gocamTitle}"`;
 
-    if (allGenes && this.geneListDescription) {
-      displayName += ' in ' + this.geneListDescription;
+    if (allGenes) {
+      displayName = 'All genes from ' + displayName;
+    } else {
+      displayName = 'Genes from ' + this.geneListDescription + ' in ' + displayName;
     }
     const part = new GeneListNode(displayName, genes);
     const geneQuery = new GeneQuery(part);
