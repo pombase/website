@@ -30,7 +30,7 @@
             <td class="count">
               <a *ngIf="row.geneUniquenames.length != 0"
                 (click)="gotoResultsInSubset(row.gocamTitle, row.gocamId)"
-                title="Number of genes from the results list in this pathwath - click to view gene list">{{row.geneUniquenames.length}}</a>
+                title="Number of genes from the results list in this pathway - click to view gene list">{{row.geneUniquenames.length}}</a>
               <span *ngIf="row.geneUniquenames.length == 0">0</span> <b>/</b>
               <a (click)="gotoGenesInSubset(row.gocamTitle, row.gocamId)"
                  title="Today number of genes in the pathway - click to view gene list">{{row.subsetTotalGenesCount}}</a>
