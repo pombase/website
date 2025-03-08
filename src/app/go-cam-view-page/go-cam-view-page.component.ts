@@ -97,7 +97,11 @@ export class GoCamViewPageComponent implements OnInit {
                  const geneSumm = geneSummMap[geneUniquename];
                  this.modelGenes.push(geneSumm);
               }
-              this.modelGenes.sort((a,b) => a.displayName().localeCompare(b.displayName()));
+              this.modelGenes.sort((a, b) => {
+                if (a.displayName() > b.displayName()) return -1;
+                else if (a.displayName() === b.displayName()) return 0;
+                else return 1;
+              })
               this.setTitleParts();
            })
 
