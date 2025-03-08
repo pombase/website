@@ -115,7 +115,17 @@ export class GoCamViewPageComponent implements OnInit {
         this.sourcePageType = params['source_page_type'];
         this.sourceId = params['source_uniquename'];
         this.sourceName = params['source_name'];
-        const rawUrl = 'gocam_viz/full/' + this.gocamId;
+
+        const path = this.route.snapshot.url[0].path;
+
+        let rawUrl;
+
+        if (path.includes('gocam_view')) {
+          rawUrl = 'gocam_view/full/' + this.gocamId + '/' + params['highlight_gene_ids'];
+        } else {
+          rawUrl = 'gocam_viz/full/' + this.gocamId;
+        }
+
         this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
         this.setPageTitle();
       }

@@ -2,7 +2,7 @@
   max-width: 1000px;
 }
 
-th {
+th, td.count {
   white-space: nowrap;
 }
 

@@ -34,6 +34,10 @@
               <span *ngIf="row.geneUniquenames.length == 0">0</span> <b>/</b>
               <a (click)="gotoGenesInSubset(row.gocamTitle, row.gocamId)"
                  title="Today number of genes in the pathway - click to view gene list">{{row.subsetTotalGenesCount}}</a>
+              <b>-</b>
+              <a *ngIf="row.geneUniquenames.length != 0" routerLink="/gocam_view/full/{{row.gocamId}}/{{row.geneUniquenames.join(',')}}">
+                Highlight in pathway
+              </a>
             </td>
           </tr>
         </tbody>
