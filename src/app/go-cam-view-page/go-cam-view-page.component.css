@@ -57,3 +57,7 @@
 .model-title-or-id {
   font-weight: bold;
 }
+
+.highlighted-activities-desc span {
+  font-weight: bold;
+}

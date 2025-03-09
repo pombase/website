@@ -23,6 +23,9 @@
     <div *ngIf="sourcePageType == 'docs'">
       <a routerLink="/documentation/go-cam-pathway-models">Return to the "All curated pathways" list</a>
     </div>
+    <div class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
+      <span>Highlighted activities:</span> {{sourceName}}
+    </div>
   </div>
 
   <div *ngIf="gocamDetails" class="attribution">

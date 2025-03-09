@@ -36,7 +36,7 @@
                  title="Today number of genes in the pathway - click to view gene list">{{row.subsetTotalGenesCount}}</a>
               <span *ngIf="row.geneUniquenames.length != 0">
                 <b>-</b>
-                <a routerLink="/pombase_gocam_view/full/{{row.gocamId}}/{{row.geneUniquenames.join(',')}}">
+                <a routerLink="/pombase_gocam_view/subset-count/{{row.gocamId}}/{{row.geneUniquenames.join(',')}}/{{geneListDescription}}">
                   Highlight in pathway
                 </a>
               </span>
