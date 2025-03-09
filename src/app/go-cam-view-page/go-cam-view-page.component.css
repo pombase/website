@@ -30,8 +30,12 @@
   display: inline-block;
 }
 
-.return-to-gene-page, .attribution {
+.attribution {
   margin: 0.2em 3em 0.3em 0em;
+}
+
+.return-to-gene-page {
+  margin: 0.5em 3em 0.3em 0em;
 }
 
 .attribution {
@@ -46,8 +50,8 @@
   padding-bottom: 0.2em;
 }
 
-.help-link, .amigo-link {
-  padding-left: 3em;
+.help-link {
+  white-space: nowrap;
 }
 
 .help-link img {
@@ -56,6 +60,7 @@
 
 .model-title-or-id {
   font-weight: bold;
+  margin-right: 3em;
 }
 
 .highlighted-activities-desc span {

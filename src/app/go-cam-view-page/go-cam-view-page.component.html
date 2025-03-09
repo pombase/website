@@ -1,6 +1,6 @@
 <div *ngIf="getIFrameURL()">
   <div class="header-section">
-  <div class="return-to-gene-page">
+  <div>
     <div class="title">GO-CAM pathway model
       <span class="model-title-or-id">
        <app-description-display *ngIf="gocamDetails && gocamDetails.title"
@@ -14,6 +14,7 @@
       </span>
     </div>
 
+    <div class="return-to-gene-page">
     <div *ngIf="sourcePageType == 'gene'">
       <a routerLink="/gene/{{sourceId}}">Return to the {{sourceName || sourceId}} gene page</a>
     </div>
@@ -25,6 +26,7 @@
     </div>
     <div class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
       <span>Highlighted activities:</span> {{sourceName}}
+    </div>
     </div>
   </div>
 
