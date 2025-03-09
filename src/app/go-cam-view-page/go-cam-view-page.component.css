@@ -25,17 +25,13 @@
 }
 
 .return-to-gene-page {
-  font-size: 120%;
-/*  padding: 0.5em 4em 0.5em 0.5em;*/
+  font-size: 110%;
+  margin: 0.5em 3em 0.3em 0em;
   display: inline-block;
 }
 
 .attribution {
   margin: 0.2em 3em 0.3em 0em;
-}
-
-.return-to-gene-page {
-  margin: 0.5em 3em 0.3em 0em;
 }
 
 .attribution {
