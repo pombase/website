@@ -107,7 +107,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'gocam_view/:source_page_type/:gocam_id/:highlight_gene_ids', component: GoCamViewPageComponent,
+    path: 'pombase_gocam_view/:source_page_type/:gocam_id/:highlight_gene_ids', component: GoCamViewPageComponent,
     data: {
     }
   },
