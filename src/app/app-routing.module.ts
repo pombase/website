@@ -92,12 +92,12 @@ const routes: Routes = [
     }
   },
   {
-    path: 'gocam/:source_page_type/:gocam_id/:source_uniquename/:source_name', component: GoCamViewPageComponent,
+    path: 'gocam/:source_page_type/:gocam_id/:source/:source_name', component: GoCamViewPageComponent,
     data: {
     }
   },
   {
-    path: 'gocam/:source_page_type/:gocam_id/:source_uniquename', component: GoCamViewPageComponent,
+    path: 'gocam/:source_page_type/:gocam_id/:source', component: GoCamViewPageComponent,
     data: {
     }
   },
@@ -107,7 +107,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'pombase_gocam_view/:source_page_type/:gocam_id/:highlight_gene_ids/:source_name', component: GoCamViewPageComponent,
+    path: 'pombase_gocam_view/:source_page_type/:gocam_id/:source/:source_name', component: GoCamViewPageComponent,
     data: {
     }
   },

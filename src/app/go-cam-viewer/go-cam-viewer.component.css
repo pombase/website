@@ -8,13 +8,14 @@
   width: 1150px;
 }
 
-.large-view, .help-link {
+.large-view, pombase-view, .help-link {
   white-space: nowrap;
 }
 
-.large-view {
+.large-view, pombase-view {
   font-size: 105%;
   padding-top: 0.3em;
+  padding-right: 2em;
 }
 
 .help-link {

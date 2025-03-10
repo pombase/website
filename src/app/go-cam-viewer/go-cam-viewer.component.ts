@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { GeneDetails, GoCamIdAndTitle, TermDetails } from '../pombase-api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
     selector: 'app-go-cam-viewer',
@@ -16,10 +17,12 @@ export class GoCamViewerComponent {
   displayName?: string;
   currentGoCamId?: string;
   largeViewPath?: string;
+  pomBaseViewPath?: string;
   gocams: Array<GoCamIdAndTitle> = [];
   hasGoCam = false;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer,
+              public deployConfigService: DeployConfigService) {
   }
 
   getIFrameURL(): SafeResourceUrl | undefined {
@@ -32,20 +35,26 @@ export class GoCamViewerComponent {
 
   modelChange() {
     this.largeViewPath = '/gocam/';
+    this.pomBaseViewPath = '/pombase_gocam_view/';
 
     const geneOrTermDetails = this.geneOrTermDetails;
 
+    let restOfUrl = '';
+
     if (geneOrTermDetails instanceof GeneDetails) {
-      this.largeViewPath += 'gene/' + this.currentGoCamId + '/' + geneOrTermDetails.uniquename;
+      restOfUrl += 'gene/' + this.currentGoCamId + '/' + geneOrTermDetails.uniquename;
       if (this.geneOrTermDetails.name) {
-        this.largeViewPath += '/' + this.geneOrTermDetails.name;
+        restOfUrl += '/' + this.geneOrTermDetails.name;
       }
     } else {
       if (geneOrTermDetails instanceof TermDetails) {
-        this.largeViewPath += 'term/' + this.currentGoCamId + '/' + geneOrTermDetails.termid + '/' +
+        restOfUrl += 'term/' + this.currentGoCamId + '/' + geneOrTermDetails.termid + '/' +
           geneOrTermDetails.name;
       }
     }
+
+    this.largeViewPath += restOfUrl;
+    this.pomBaseViewPath += restOfUrl;
 
     const rawUrl = 'gocam_viz/widget/' + this.currentGoCamId;
     this.sanitizedURL =

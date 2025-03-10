@@ -20,7 +20,7 @@ export class GoCamViewPageComponent implements OnInit {
   gocamId?: string;
   gocamDetails?: GoCamDetails;
   sourcePageType = 'gene';
-  sourceId?: string;
+  source?: string;
   sourceName?: string;
   modelGenes: Array<GeneSummary> = [];
   geneSummaryMap?: GeneSummaryMap;
@@ -113,7 +113,7 @@ export class GoCamViewPageComponent implements OnInit {
            })
 
         this.sourcePageType = params['source_page_type'];
-        this.sourceId = params['source_uniquename'];
+        this.source = params['source'];
         this.sourceName = params['source_name'];
 
         const path = this.route.snapshot.url[0].path;
@@ -121,8 +121,8 @@ export class GoCamViewPageComponent implements OnInit {
         let rawUrl;
 
         if (path.includes('pombase_gocam_view')) {
-          if (params['highlight_gene_ids']) {
-            rawUrl = 'gocam_view/full/' + this.gocamId + '/' + params['highlight_gene_ids'];
+          if (this.source) {
+            rawUrl = 'gocam_view/full/' + this.gocamId + '/' + this.source;
           } else {
             rawUrl = 'gocam_view/full/' + this.gocamId;
           }

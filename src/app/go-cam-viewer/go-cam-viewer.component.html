@@ -15,7 +15,12 @@
         <a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a>
       </span>
     </div>
-    <div class="large-view"><a routerLink="{{largeViewPath}}">Show larger view ...</a></div>
+    <div>
+      <span class="large-view"><a routerLink="{{largeViewPath}}">Show larger view ...</a></span>
+      <span class="pombase-view" *ngIf="!deployConfigService.productionMode()">
+        <a routerLink="{{pomBaseViewPath}}">Show PomBase view ...</a>
+      </span>
+    </div>
   </div>
 
   <div *ngFor="let o of [geneOrTermDetails]">
