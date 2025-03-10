@@ -111,6 +111,11 @@ const routes: Routes = [
     data: {
     }
   },
+  {
+    path: 'pombase_gocam_view/:source_page_type/:gocam_id', component: GoCamViewPageComponent,
+    data: {
+    }
+  },
   { path: 'community',
     loadChildren: () => import('./documentation/documentation.module').then(m => m.DocumentationModule),
   },

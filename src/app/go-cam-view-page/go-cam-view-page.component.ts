@@ -121,7 +121,11 @@ export class GoCamViewPageComponent implements OnInit {
         let rawUrl;
 
         if (path.includes('pombase_gocam_view')) {
-          rawUrl = 'gocam_view/full/' + this.gocamId + '/' + params['highlight_gene_ids'];
+          if (params['highlight_gene_ids']) {
+            rawUrl = 'gocam_view/full/' + this.gocamId + '/' + params['highlight_gene_ids'];
+          } else {
+            rawUrl = 'gocam_view/full/' + this.gocamId;
+          }
         } else {
           rawUrl = 'gocam_viz/full/' + this.gocamId;
         }
