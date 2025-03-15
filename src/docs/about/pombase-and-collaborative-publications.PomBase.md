@@ -17,17 +17,19 @@ Mondo: Unifying diseases for the world, by the world \
 
 <div class="clear-float"></div>
 
+
+### Journal articles
+
 ::: { .publication-badges }
-<app-publication-badge [doi]="'10.1101/2024.09.18.613276v1'"></app-publication-badge>
+<app-publication-badge [doi]="'10.1093/genetics/iyaf027'"></app-publication-badge>
 :::
 ::: { .pub-citation }
 Nicolas Matentzoglu, Susan M Bello, *et al.* (Val Wood co-author) \
 The Unified Phenotype Ontology (uPheno): A framework for cross-species
 integrative phenomics \
-[Pre-publication manuscript at bioRxiv](https://www.biorxiv.org/content/10.1101/2024.09.18.613276v1)
+*Genetics*, March 2025, iyaf027 \
+[10.1093/genetics/iyaf027](https://pubmed.ncbi.nlm.nih.gov/40048704/)
 :::
-
-### Journal articles
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1038/s41586-025-08592-0'"></app-publication-badge>
