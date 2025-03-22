@@ -1,3 +1,7 @@
 .send-to-query-builder {
   margin: 0.6em 0;
 }
+
+.target-of-rel-name {
+  white-space: nowrap;
+}

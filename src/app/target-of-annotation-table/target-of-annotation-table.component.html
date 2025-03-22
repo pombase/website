@@ -35,7 +35,7 @@
     <tbody *ngIf="currentViewState == TableViewState.Details">
       <tr *ngFor="let annotation of displayTable">
         <td>{{annotation.ontologyLabel}}</td>
-        <td>{{annotation.ext_rel_display_name}}</td>
+        <td class="target-of-rel-name">{{annotation.ext_rel_display_name}}</td>
         <td>
           <span *ngIf="!annotation.genotype">
             <app-gene-link class="app-link"
