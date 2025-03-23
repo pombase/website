@@ -108,13 +108,16 @@
                            [menuItems]="menuItems"></app-details-page-menu>
   </div>
 
-  <div *ngFor="let externalLink of externalLinks"
+  <div *ngIf="externalLinks && externalLinks.length > 0"
        class="details-page-external-links">
-    <div>
+  <div>External link<span *ngIf="externalLinks.length > 1">s</span>:</div>
+  <ul>
+    <li *ngFor="let externalLink of externalLinks">
       <a href="{{externalLink.link}}">
         {{externalLink.text}}
       </a>
-    </div>
+    </li>
+  </ul>
   </div>
 
   <app-jbrowse-track-picker [identifier]="refDetails.uniquename" [identifierType]="'reference'">

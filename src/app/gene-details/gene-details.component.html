@@ -107,13 +107,16 @@
                              [menuItems]="menuItems"></app-details-page-menu>
     </div>
 
-    <div *ngFor="let externalLink of externalLinks"
+    <div *ngIf="externalLinks && externalLinks.length > 0"
          class="details-page-external-links">
-      <div>
-        <a href="{{externalLink.link}}">
-          {{externalLink.text}}
-        </a>
-      </div>
+      <div>External link<span *ngIf="externalLinks.length > 1">s</span>:</div>
+      <ul>
+        <li *ngFor="let externalLink of externalLinks">
+          <a href="{{externalLink.link}}">
+            {{externalLink.text}}
+          </a>
+        </li>
+      </ul>
     </div>
 
     <div *ngIf="currentGeneBrowserTracks.length != 0">
