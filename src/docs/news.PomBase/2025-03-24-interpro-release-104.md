@@ -4,7 +4,7 @@
 
 PomBase now uses InterPro Version 104.0
 
-Features include:
+New InterPro features in this release include:
 
  - The addition of 661 InterPro entries.
  - An update to Pfam [37.2], NCBIfam [17.0], CDD [3.21].
