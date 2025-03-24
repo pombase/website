@@ -168,13 +168,6 @@ export class ReferenceDetailsComponent implements OnInit {
 
     this.menuItems = [];
 
-    if (getJBrowseTracksByPMID(this.refDetails.uniquename).length > 0) {
-      this.menuItems.push( {
-              id: 'jbrowse_tracks',
-              displayName: 'JBrowse tracks',
-            });
-    }
-
     for (let annotationTypeName of this.annotationTypeNames) {
       if (this.refDetails.cv_annotations[annotationTypeName] &&
           this.refDetails.cv_annotations[annotationTypeName].length > 0) {
@@ -219,6 +212,13 @@ export class ReferenceDetailsComponent implements OnInit {
           displayName: typeConfig.display_name || Util.capitalize(typeName),
         });
       });
+
+    if (getJBrowseTracksByPMID(this.refDetails.uniquename).length > 0) {
+      this.menuItems.push( {
+              id: 'jbrowse_tracks',
+              displayName: 'JBrowse tracks',
+            });
+    }
   }
 
   isPublication(): boolean {

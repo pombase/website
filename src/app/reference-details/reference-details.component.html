@@ -120,9 +120,6 @@
   </ul>
   </div>
 
-  <app-jbrowse-track-picker [identifier]="refDetails.uniquename" [identifierType]="'reference'">
-  </app-jbrowse-track-picker>
-
   <div *ngIf="hasGenes()" class="ref-genes-link">
     <a routerLink="/ref_genes/{{refDetails.uniquename}}"
        routerLinkActive="active">View {{geneCount()}} gene{{geneCount()>1?'s':''}} from this publication as a gene results table ...</a>
@@ -264,6 +261,9 @@
         [annotationTable]="refDetails.paralog_annotations"></app-paralog-annotation-table>
     </span>
   </div>
+
+  <app-jbrowse-track-picker [identifier]="refDetails.uniquename" [identifierType]="'reference'">
+  </app-jbrowse-track-picker>
 
 </div>
 </div>
