@@ -637,6 +637,8 @@ export class GeneDetails {
   coiled_coil_coords: Array<AssignedByPeptideRange>;
   has_protein_features: boolean;
   orfeome_identifier: string;
+  tfexplorer_chipseq_identifier: string;
+  tfexplorer_ipms_identifier: string;
   pdb_entries: Array<PDBEntry>;
   gocams: Array<GoCamIdAndTitle>;
   characterisation_status?: string;
