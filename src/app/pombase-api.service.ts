@@ -320,6 +320,9 @@ export interface TargetOfAnnotation {
   gene: GeneShort|string;
   genotype: GenotypeShort;
   genotype_uniquename: string;
+  evidence?: string;
+  date?: string;
+  assigned_by?: string;
 }
 
 export interface ChromosomeShort {

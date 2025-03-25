@@ -14,6 +14,9 @@ interface DisplayRow {
   gene: GeneShort;
   genotype: GenotypeShort;
   reference: ReferenceShort;
+  evidence?: string;
+  date?: string;
+  assigned_by?: string;
 }
 
 interface SummaryRow {
@@ -70,6 +73,9 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
           gene: annotation.gene as GeneShort,
           genotype: annotation.genotype,
           reference: annotation.reference,
+          date: annotation.date,
+          evidence: annotation.evidence,
+          assigned_by: annotation.assigned_by,
         });
       }
 
