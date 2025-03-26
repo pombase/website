@@ -9857,6 +9857,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#the-transcription-factor-dataset-skribbe-soneson-stadler-et-al-.-now-available-pombase'" [pageScrollAdjustHash]="true" href="/news#the-transcription-factor-dataset-skribbe-soneson-stadler-et-al-.-now-available-pombase">The Transcription Factor Dataset from Skribbe, Soneson, Stadler *et al*. is now available in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#interpro-version-104.0'" [pageScrollAdjustHash]="true" href="/news#interpro-version-104.0">InterPro Version 104.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#the-human-functionome-paper-published'" [pageScrollAdjustHash]="true" href="/news#the-human-functionome-paper-published">The human functionome paper published</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-missing-protein-list-list-potential-pathway-holes'" [pageScrollAdjustHash]="true" href="/news#new-missing-protein-list-list-potential-pathway-holes">NEW: "The Missing protein list" - A list of potential "pathway holes"</a></div>
@@ -12777,9 +12778,42 @@ Beyond providing annotation, PomBase played a crucial role in reviewing annotati
 </ul>
 
   </div>
+  <div *ngIf="pageName == 'skribbe-transcription-factor-dataset'">
+<h3 id="the-transcription-factor-dataset-skribbe-soneson-stadler-et-al-.-now-available-pombase">The Transcription Factor Dataset from Skribbe, Soneson, Stadler <em>et al</em>. is now available in PomBase</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>This publication is an incredible resource to provide biological insights into known and previously unpublished transcription factors, and masterclass in making data <a href="https://www.go-fair.org/fair-principles/">FAIR compliant</a>.</p>
+<p><a routerLink="/reference/PMID:40015273">PomBase publication page PMID:40015273</a></p>
+<p>Provides:</p>
+<ul>
+<li>External links to the key resources associated with this project</li>
+<li>GO molecular function annotation for promoter binding (&gt;4000 annotations)</li>
+<li>Data from the small-scale studies related to ntu1/ntu2 curated in Canto</li>
+<li>Affinity capture mass spec data (&gt;300 annotations)</li>
+<li>A chooser for the data tracks hosted in <a routerLink="/jbrowse/">JBrowse</a> (&gt;300 data tracks)</li>
+</ul>
+<p><a href="/jbrowse/?loc=II%3A4442142..4454370&amp;tracks=Forward%20strand%20features%2CReverse%20strand%20features%2CPho7%20ChIP-seq%20%3B%20repeat%201%20-%20Skribbe%20et%20al.%20(2025)&amp;tracklist=1&amp;nav=1&amp;overview=1&amp;highlight"><img src="/assets/newsfeed/skribbe-pmid-40015273-jbrowse.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Skribbe Transcription Factor Dataset in JBrowse" /></a></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2025-03-26-skribbe-transcription-factor-dataset" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="the-transcription-factor-dataset-skribbe-soneson-stadler-et-al-.-now-available-pombase">The Transcription Factor Dataset from Skribbe, Soneson, Stadler <em>et al</em>. is now available in PomBase</h3>
+<p><em>2025-03-26</em></p>
+<p>This publication is an incredible resource to provide biological insights into known and previously unpublished transcription factors, and masterclass in making data <a href="https://www.go-fair.org/fair-principles/">FAIR compliant</a>.</p>
+<p><a routerLink="/reference/PMID:40015273">PomBase publication page PMID:40015273</a></p>
+<p>Provides:</p>
+<ul>
+<li>External links to the key resources associated with this project</li>
+<li>GO molecular function annotation for promoter binding (&gt;4000 annotations)</li>
+<li>Data from the small-scale studies related to ntu1/ntu2 curated in Canto</li>
+<li>Affinity capture mass spec data (&gt;300 annotations)</li>
+<li>A chooser for the data tracks hosted in <a routerLink="/jbrowse/">JBrowse</a> (&gt;300 data tracks)</li>
+</ul>
+<p><a href="/jbrowse/?loc=II%3A4442142..4454370&amp;tracks=Forward%20strand%20features%2CReverse%20strand%20features%2CPho7%20ChIP-seq%20%3B%20repeat%201%20-%20Skribbe%20et%20al.%20(2025)&amp;tracklist=1&amp;nav=1&amp;overview=1&amp;highlight"><img src="/assets/newsfeed/skribbe-pmid-40015273-jbrowse.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Skribbe Transcription Factor Dataset in JBrowse" /></a></p>
+</div>
 <div id="2025-03-24-interpro-release-104" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/interpro_32px.png"/></p>
 <h3 id="interpro-version-104.0">InterPro Version 104.0</h3>
@@ -17864,8 +17898,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <th>Go-cam model</th><th>Missing activity</th><th>Process</th><th>Input / output</th><th>Occurs in</th>
 </thead>
 <tr><td><a routerLink="/gocam/docs/6690711d00002904" title="Click to view model 6690711d00002904">L-histidine biosynthetic process (GO:0000105)</a></td><td>L-histidine transmembrane transporter activity (<a routerLink='/term/GO:0005290' title='Click to view term'>GO:0005290</a>)</td><td>L-histidine transmembrane transport (<a routerLink='/term/GO:0089709' title='Click to view term'>GO:0089709</a>)</td><td>L-histidine / L-histidine</td><td>mitochondrial membrane</td></tr>
-<tr><td><a routerLink="/gocam/docs/678073a900002086" title="Click to view model 678073a900002086">L-methionine salvage from methylthioadenosine (GO:0019509)</a></td><td>L-methionine:2-oxoglutarate aminotransferase activity (<a routerLink='/term/GO:0080099' title='Click to view term'>GO:0080099</a>)</td><td>L-methionine salvage from methylthioadenosine (<a routerLink='/term/GO:0019509' title='Click to view term'>GO:0019509</a>)</td><td>4-methylthio-2-oxobutanoate / L-methionine</td><td>cytosol</td></tr>
-<tr><td><a routerLink="/gocam/docs/678073a900003902" title="Click to view model 678073a900003902">L-proline biosynthetic process (GO:0055129),<wbr>  proline catabolic process to glutamate (GO:0010133)</a></td><td>L-proline transmembrane transporter activity (<a routerLink='/term/GO:0015193' title='Click to view term'>GO:0015193</a>)</td><td>L-proline transmembrane transport (<a routerLink='/term/GO:1904555' title='Click to view term'>GO:1904555</a>)</td><td>proline / proline</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/docs/678073a900002086" title="Click to view model 678073a900002086">L-methionine salvage (GO:0071267)</a></td><td>L-methionine:2-oxoglutarate aminotransferase activity (<a routerLink='/term/GO:0080099' title='Click to view term'>GO:0080099</a>)</td><td>L-methionine salvage from methylthioadenosine (<a routerLink='/term/GO:0019509' title='Click to view term'>GO:0019509</a>)</td><td>4-methylthio-2-oxobutanoate / L-methionine</td><td>cytosol</td></tr>
 <tr><td><a routerLink="/gocam/docs/67c10cc400002026" title="Click to view model 67c10cc400002026">biotin import across plasma membrane (GO:1905135),<wbr>  biotin biosynthetic process (GO:0009102),<wbr>  protein maturation (GO:0051604) - biotinylated proteins</a></td><td>dethiobiotin synthase activity (<a routerLink='/term/GO:0004141' title='Click to view term'>GO:0004141</a>)</td><td></td><td>dethiobiotin / (4R,<wbr>5S)-dethiobiotin(1-)</td><td></td></tr>
 <tr><td><a routerLink="/gocam/docs/67c10cc400002026" title="Click to view model 67c10cc400002026">biotin import across plasma membrane (GO:1905135),<wbr>  biotin biosynthetic process (GO:0009102),<wbr>  protein maturation (GO:0051604) - biotinylated proteins</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td></td><td>(4R,<wbr>5S)-dethiobiotin(1-) / (4R,<wbr>5S)-dethiobiotin(1-)</td><td>mitochondrial membrane</td></tr>
 <tr><td><a routerLink="/gocam/docs/671ae02600003478" title="Click to view model 671ae02600003478">cell integrity MAPK cascade (GO:0000196)</a></td><td>protein serine/threonine kinase activator activity (<a routerLink='/term/GO:0043539' title='Click to view term'>GO:0043539</a>)</td><td></td><td>? / ?</td><td></td></tr>
