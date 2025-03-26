@@ -29,7 +29,7 @@
         <th>Relationship</th>
         <th>Gene/genotype</th>
         <th>Product</th>
-        <!-- <th *ngIf="currentViewState == TableViewState.Details">Evidence</th> -->
+        <th *ngIf="currentViewState == TableViewState.Details">Evidence</th>
         <th *ngIf="currentViewState == TableViewState.Details">Reference</th>
       </tr>
     </thead>
@@ -51,13 +51,11 @@
             {{annotation.gene.product}}
           </span>
         </td>
-        <!--
         <td>
           <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"
             [assignedBy]="annotation.assigned_by" [assignedDate]="annotation.date">
           </app-evidence-link>
         </td>
-        -->
         <td>
           <app-reference-short *ngIf="annotation.reference"
                                [reference]="annotation.reference"></app-reference-short>
