@@ -112,6 +112,11 @@ const routes: Routes = [
     }
   },
   {
+    path: 'pombase_gocam_view/:source_page_type/:gocam_id/:source', component: GoCamViewPageComponent,
+    data: {
+    }
+  },
+  {
     path: 'pombase_gocam_view/:source_page_type/:gocam_id', component: GoCamViewPageComponent,
     data: {
     }
