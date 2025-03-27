@@ -1930,7 +1930,7 @@ export class PombaseAPIService {
     return this.httpRetry.getWithRetry(url)
       .toPromise()
       .then(body => {
-        return body as unknown as GoCamDetails;
+        return (body as unknown as Array<GoCamDetails>)[0];
       });
   }
 
