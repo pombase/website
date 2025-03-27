@@ -1,17 +1,32 @@
 <div *ngIf="getIFrameURL()">
   <div class="header-section">
   <div>
-    <div class="title">GO-CAM pathway model
-      <span class="model-title-or-id">
-       <app-description-display *ngIf="gocamDetails && gocamDetails.title"
-         [description]="gocamDetails!.title"
-         [descriptionParts]="titleParts">
-       </app-description-display>
-       <span *ngIf="(!gocamDetails || !gocamDetails.title) && gocamId">{{gocamId}}</span>
-      </span>
-      <span *ngIf="sourcePageType != 'docs'" class="go-cam-view">
-        <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a></span>
-      </span>
+    <div class="title">
+      <div *ngIf="gocamDetailsList.length == 0">
+        <span class="model-title-or-id">GO-CAM pathway model {{gocamIdParam}}</span>
+      </div>
+      <div *ngIf="gocamDetailsList.length == 1">
+        GO-CAM pathway model
+        <span class="model-title-or-id">
+          <app-description-display [description]="gocamDetailsList[0].title" [descriptionParts]="titleParts[0]">
+          </app-description-display>
+        </span>
+        <span *ngIf="sourcePageType != 'docs'">
+          <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a></span>
+        </span>
+      </div>
+
+      <div *ngIf="gocamDetailsList.length > 1" class="merged-model-list">
+        Merged GO-CAM pathway models:
+         <div class="model-title-or-id" *ngFor="let detail of gocamDetailsList; let idx = index">
+            <a *ngIf="source" routerLink="/pombase_gocam_view/docs/{{detail.gocam_id}}/{{source}}">{{detail.gocam_id}}</a>
+            <a *ngIf="!source" routerLink="/pombase_gocam_view/docs/{{detail.gocam_id}}">{{detail.gocam_id}}</a>
+            <app-description-display
+             [description]="detail.title"
+             [descriptionParts]="titleParts[idx]">
+            </app-description-display>
+         </div>
+      </div>
     </div>
 
     <div class="return-to-gene-page">
@@ -30,13 +45,13 @@
     </div>
   </div>
 
-  <div *ngIf="gocamDetails" class="attribution">
-    Curated by: {{contributors()}}
+  <div *ngIf="contributorNames" class="attribution">
+    Curated by: {{contributorNames}}
   </div>
   </div>
 
   <div class="iframe-container">
-    <div *ngIf="gocamDetails && modelGenes.length > 0" class="genes-and-terms">
+    <div *ngIf="modelGenes.length > 0" class="genes-and-terms">
       <div>
         Genes in this model:
         <ul>

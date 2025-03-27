@@ -17,14 +17,16 @@ export class GoCamViewPageComponent implements OnInit {
 
   sanitizedURL?: SafeResourceUrl;
 
-  gocamId?: string;
-  gocamDetails?: GoCamDetails;
+  gocamIdParam?: string;
+  gocamIds: Array<string> = [];
+  gocamDetailsList: Array<GoCamDetails> = [];
+  contributorNames?: string;
   sourcePageType = 'gene';
   source?: string;
   sourceName?: string;
   modelGenes: Array<GeneSummary> = [];
   geneSummaryMap?: GeneSummaryMap;
-  titleParts: Array<TextOrTermId> = [];
+  titleParts: Array<Array<TextOrTermId>> = [];
 
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
@@ -37,30 +39,35 @@ export class GoCamViewPageComponent implements OnInit {
   }
 
   getTitleOrId(): string|undefined {
-    if (this.gocamId) {
-      if (this.gocamDetails) {
-        return this.gocamDetails.title || this.gocamId;
+    if (this.gocamIdParam) {
+      if (this.gocamDetailsList.length > 0) {
+        return this.gocamDetailsList.map((details) => details.title).join(', ');
       } else {
-        return this.gocamId;
+        return this.gocamIdParam;
       }
     } else {
       return undefined;
     }
   }
 
-  contributors(): string {
-    if (this.gocamDetails) {
-      return this.gocamDetails.contributors
-        .map(contributor => contributor.name)
-        .join(', ');
-    } else {
-      return '';
+  setContributors() {
+    this.contributorNames = undefined;
+    if (this.gocamDetailsList.length > 0) {
+      let contributorNamesList: Array<String> = [];
+      for (const details of this.gocamDetailsList) {
+        for (const contributor of details.contributors) {
+          if (!contributorNamesList.includes(contributor.name)) {
+            contributorNamesList.push(contributor.name);
+          }
+        }
+      }
+      this.contributorNames = contributorNamesList.join(', ');
     }
   }
 
   setPageTitle(): void {
     let title;
-    if (this.gocamId) {
+    if (this.gocamIdParam) {
       title = this.appConfig.site_name + ' - GO-CAM Model - ' + this.getTitleOrId();
     } else {
       title = this.appConfig.site_name + ' - GO-CAM Model';
@@ -71,33 +78,47 @@ export class GoCamViewPageComponent implements OnInit {
   }
 
   setTitleParts(): void {
-    if (this.gocamDetails && this.gocamDetails.title) {
-      this.titleParts = Util.splitDescription(this.gocamDetails.title, this.gocamDetails.title_terms ?? []);
-    } else {
-      this.titleParts = [];
+    this.titleParts = [];
+    for (const detail of this.gocamDetailsList) {
+      const splitDesc = Util.splitDescription(detail.title, detail.title_terms ?? []);
+      this.titleParts.push(splitDesc);
     }
   }
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      if (params['gocam_id'] !== undefined) {
-        this.gocamId = params['gocam_id'];
-
+      this.gocamIds = [];
+      this.gocamDetailsList = [];
+      this.gocamIdParam = params['gocam_id'];
+      this.modelGenes = [];
+      if (this.gocamIdParam !== undefined) {
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
 
-        const gocamDetailPromise = this.pombaseApi.getGoCamDetailById(this.gocamId!);
+        this.gocamIds = this.gocamIdParam.split("+");
+
+        const gocamDetailPromise = this.pombaseApi.getGoCamDetailByIds(this.gocamIds.join(","));
         gocamDetailPromise.then((details) => {
-            this.gocamDetails = details;
+            this.gocamDetailsList = details;
             this.setPageTitle();
           });
 
         Promise.all([summPromise, gocamDetailPromise])
-           .then(([geneSummMap, gocamDetails]) => {
-              for (const geneUniquename of gocamDetails.genes) {
-                 const geneSumm = geneSummMap[geneUniquename];
-                 this.modelGenes.push(geneSumm);
+           .then(([geneSummMap, gocamDetailsList]) => {
+            const seenGenes = new Set();
+            for (const detail of gocamDetailsList) {
+              for (const geneUniquename of detail.genes) {
+                if (seenGenes.has(geneUniquename)) {
+                  continue;
+                }
+                seenGenes.add(geneUniquename);
+                const geneSumm = geneSummMap[geneUniquename];
+                this.modelGenes.push(geneSumm);
               }
-              this.modelGenes.sort((a, b) => {
+            }
+
+            this.setContributors();
+
+            this.modelGenes.sort((a, b) => {
                 if (!a.name && !b.name) {
                   return a.uniquename.localeCompare(b.uniquename);
                 }
@@ -122,12 +143,12 @@ export class GoCamViewPageComponent implements OnInit {
 
         if (path.includes('pombase_gocam_view')) {
           if (this.source) {
-            rawUrl = 'gocam_view/full/' + this.gocamId + '/' + this.source;
+            rawUrl = 'gocam_view/full/' + this.gocamIdParam + '/' + this.source;
           } else {
-            rawUrl = 'gocam_view/full/' + this.gocamId;
+            rawUrl = 'gocam_view/full/' + this.gocamIdParam;
           }
         } else {
-          rawUrl = 'gocam_viz/full/' + this.gocamId;
+          rawUrl = 'gocam_viz/full/' + this.gocamIdParam;
         }
 
         this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);

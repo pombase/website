@@ -1925,12 +1925,12 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
-  getGoCamDetailById(gocamId: string): Promise<GoCamDetails> {
+  getGoCamDetailByIds(gocamId: string): Promise<Array<GoCamDetails>> {
     const url = this.apiUrl + '/data/gocam/by_id/'  + gocamId.replace(/^gomodel:/, '');
     return this.httpRetry.getWithRetry(url)
       .toPromise()
       .then(body => {
-        return (body as unknown as Array<GoCamDetails>)[0];
+        return body as unknown as Array<GoCamDetails>;
       });
   }
 

@@ -62,3 +62,7 @@
 .highlighted-activities-desc span {
   font-weight: bold;
 }
+
+.merged-model-list .model-title-or-id {
+  padding-left: 1em;
+}

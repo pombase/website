@@ -694,7 +694,7 @@ export class SearchBoxComponent implements OnInit {
         this.router.navigate(['/term', trimmedValue]);
       } else {
         if (this.matchesGoCamId(trimmedValue)) {
-          const gocamDetailPromise = this.pombaseApiService.getGoCamDetailById(trimmedValue);
+          const gocamDetailPromise = this.pombaseApiService.getGoCamDetailByIds(trimmedValue);
           gocamDetailPromise.then((_) => {
             this.clearBox();
             this.router.navigate(['/gocam/docs/', trimmedValue]);
