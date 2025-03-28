@@ -6704,6 +6704,17 @@ satisfy those conditions. Click on it to see the lists of genes.</li> <li>In tha
 <p><app-go-cam-table></app-go-cam-table></p>
 
   </div>
+  <div *ngIf="pageName == 'gocam-overlaps'">
+<h2 id="go-cam-model-connections">GO-CAM model connections</h2>
+<h3 id="merged-models">Merged models</h3>
+<ul>
+<li><a routerLink="/pombase_gocam_view/docs/ALL_MERGED">all models</a></li>
+<li><a routerLink="/pombase_gocam_view/docs/ALL_CONNECTED">connected models</a></li>
+</ul>
+<h3 id="go-cam-overlapping-activities">GO-CAM overlapping activities</h3>
+<p><app-gocam-overlaps-table></app-gocam-overlaps-table></p>
+
+  </div>
   <div *ngIf="pageName == 'high-confidence-physical-interaction-network'">
 <h2 id="high-confidence-physical-interaction-network-hcpin">High Confidence Physical Interaction Network (HCPIN)</h2>
 <p>The PomBase High Confidence Physical Interaction Network (HCPIN) is a collection of physical interaction data based on three subsets of Gene Ontology (GO) annotations:</p>
@@ -12790,7 +12801,7 @@ Beyond providing annotation, PomBase played a crucial role in reviewing annotati
 <li>GO molecular function annotation for promoter binding (&gt;4000 annotations)</li>
 <li>Data from the small-scale studies related to ntu1/ntu2 curated in Canto</li>
 <li>Affinity capture mass spec data (&gt;300 annotations)</li>
-<li>A chooser for the data tracks hosted in <a routerLink="/jbrowse/">JBrowse</a> (&gt;300 data tracks)</li>
+<li>A chooser for the data tracks hosted in JBrowse (&gt;300 data tracks)</li>
 </ul>
 <p><a href="/jbrowse/?loc=II%3A4442142..4454370&amp;tracks=Forward%20strand%20features%2CReverse%20strand%20features%2CPho7%20ChIP-seq%20%3B%20repeat%201%20-%20Skribbe%20et%20al.%20(2025)&amp;tracklist=1&amp;nav=1&amp;overview=1&amp;highlight"><img src="/assets/newsfeed/skribbe-pmid-40015273-jbrowse.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Skribbe Transcription Factor Dataset in JBrowse" /></a></p>
 
@@ -12810,7 +12821,7 @@ Beyond providing annotation, PomBase played a crucial role in reviewing annotati
 <li>GO molecular function annotation for promoter binding (&gt;4000 annotations)</li>
 <li>Data from the small-scale studies related to ntu1/ntu2 curated in Canto</li>
 <li>Affinity capture mass spec data (&gt;300 annotations)</li>
-<li>A chooser for the data tracks hosted in <a routerLink="/jbrowse/">JBrowse</a> (&gt;300 data tracks)</li>
+<li>A chooser for the data tracks hosted in JBrowse (&gt;300 data tracks)</li>
 </ul>
 <p><a href="/jbrowse/?loc=II%3A4442142..4454370&amp;tracks=Forward%20strand%20features%2CReverse%20strand%20features%2CPho7%20ChIP-seq%20%3B%20repeat%201%20-%20Skribbe%20et%20al.%20(2025)&amp;tracklist=1&amp;nav=1&amp;overview=1&amp;highlight"><img src="/assets/newsfeed/skribbe-pmid-40015273-jbrowse.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Skribbe Transcription Factor Dataset in JBrowse" /></a></p>
 </div>
@@ -17906,6 +17917,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink="/gocam/docs/6796b94c00004743" title="Click to view model 6796b94c00004743">glycerol metabolic process (GO:0006071)</a></td><td>glycerol-3-phosphatase activity (<a routerLink='/term/GO:0043136' title='Click to view term'>GO:0043136</a>)</td><td>glycerol biosynthetic process (<a routerLink='/term/GO:0006114' title='Click to view term'>GO:0006114</a>)</td><td>sn-glycerol 3-phosphate / glycerol</td><td></td></tr>
 <tr><td><a routerLink="/gocam/docs/678073a900003175" title="Click to view model 678073a900003175">homoserine biosynthetic process (GO:0009090),<wbr> threonine biosynthetic process (GO:0009088)</a></td><td>L-threonine transmembrane transporter activity (<a routerLink='/term/GO:0015195' title='Click to view term'>GO:0015195</a>)</td><td>import into the mitochondrion (<a routerLink='/term/GO:0170036' title='Click to view term'>GO:0170036</a>)</td><td>L-threonine / L-threonine</td><td>mitochondrial membrane</td></tr>
 <tr><td><a routerLink="/gocam/docs/67ae98b500000055" title="Click to view model 67ae98b500000055">iron import into cell (GO:0033212) / siderophore biosynthetic process (GO:0019290)</a></td><td>ferrichrome transmembrane transporter activity (<a routerLink='/term/GO:0042929' title='Click to view term'>GO:0042929</a>)</td><td>siderophore-dependent iron import into cell (<a routerLink='/term/GO:0033214' title='Click to view term'>GO:0033214</a>)</td><td>ferrichrome / ferrichrome</td><td>plasma membrane</td></tr>
+<tr><td><a routerLink="/gocam/docs/662af8fa00000499" title="Click to view model 662af8fa00000499">isoprenoid biosynthetic process (GO:0008299)</a></td><td>transporter activity (<a routerLink='/term/GO:0005215' title='Click to view term'>GO:0005215</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial membrane</td></tr>
 <tr><td><a routerLink="/gocam/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">lysine biosynthetic process (GO:0009085)</a></td><td>2-aminoadipate transaminase activity (<a routerLink='/term/GO:0047536' title='Click to view term'>GO:0047536</a>)</td><td>lysine biosynthetic process via aminoadipic acid (<a routerLink='/term/GO:0019878' title='Click to view term'>GO:0019878</a>)</td><td>2-oxoadipate(2-) / L-2-aminoadipate(1-)</td><td></td></tr>
 <tr><td><a routerLink="/gocam/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">lysine biosynthetic process (GO:0009085)</a></td><td>L-lysine transmembrane transporter activity (<a routerLink='/term/GO:0015189' title='Click to view term'>GO:0015189</a>)</td><td></td><td>L-lysine / L-lysine</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">lysine biosynthetic process (GO:0009085)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>export from the mitochondrion (<a routerLink='/term/GO:0170037' title='Click to view term'>GO:0170037</a>)</td><td>L-2-aminoadipate(1-) / L-2-aminoadipate(1-)</td><td>mitochondrial membrane</td></tr>
