@@ -50,7 +50,7 @@ export class GocamOverlapsTableComponent implements OnInit {
 
           displayOverlap.modelIdTitles = [];
           for (let i = 0; i < overlap.model_ids.length; i++) {
-            const modelId = overlap.model_ids[i];
+            const modelId = overlap.model_ids[i].replace('gomodel:', '');
             const modelTitle = overlap.model_titles[i];
             displayOverlap.modelIdTitles.push([modelId, modelTitle]);
           }

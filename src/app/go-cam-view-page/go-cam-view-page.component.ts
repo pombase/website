@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
-import { PombaseAPIService, GoCamDetails, GeneSummaryMap, GeneSummary } from '../pombase-api.service';
+import { PombaseAPIService, GoCamDetails, GeneSummaryMap, GeneSummary, GeneShort } from '../pombase-api.service';
 import { TextOrTermId, Util } from '../shared/util';
 
 @Component({
@@ -20,6 +20,7 @@ export class GoCamViewPageComponent implements OnInit {
   gocamIdParam?: string;
   gocamIds: Array<string> = [];
   gocamDetailsList: Array<GoCamDetails> = [];
+  overlappingGene?: GeneShort;
   contributorNames?: string;
   sourcePageType = 'gene';
   source?: string;
@@ -89,8 +90,14 @@ export class GoCamViewPageComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       this.gocamIds = [];
       this.gocamDetailsList = [];
+      this.overlappingGene = undefined;
       this.gocamIdParam = params['gocam_id'];
       this.modelGenes = [];
+
+      this.sourcePageType = params['source_page_type'];
+      this.source = params['source'];
+      this.sourceName = params['source_name'];
+
       if (this.gocamIdParam !== undefined) {
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
 
@@ -131,11 +138,11 @@ export class GoCamViewPageComponent implements OnInit {
                 return a.name!.localeCompare(b.name!);
               })
               this.setTitleParts();
-           })
 
-        this.sourcePageType = params['source_page_type'];
-        this.source = params['source'];
-        this.sourceName = params['source_name'];
+              if (gocamDetailsList.length > 1 && this.source && this.sourceName) {
+                this.overlappingGene = { uniquename: this.source, name: this.sourceName } as GeneShort;
+              }
+           });
 
         const path = this.route.snapshot.url[0].path;
 
