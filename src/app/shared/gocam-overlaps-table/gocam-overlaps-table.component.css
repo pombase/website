@@ -1,0 +1,20 @@
+tr:nth-child(odd) {
+  background-color: #f3f3fa;
+}
+
+tr ul {
+  margin: 0;
+}
+
+td, th {
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+td div.merged-link {
+  white-space: nowrap;
+}
+
+table {
+  margin: 0.5em 1em;
+}

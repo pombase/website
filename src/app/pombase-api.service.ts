@@ -820,6 +820,45 @@ export interface GoCamDetails {
   contributors: Array<GoCamContributor>;
 }
 
+export interface GoCamGene {
+  id: string;
+  label: string;
+}
+
+export interface GoCamComponent {
+  id: string;
+  label: string;
+}
+
+export interface GoCamProcess {
+  id: string;
+  label: string;
+}
+
+export interface GoCamModifiedProtein {
+
+}
+
+export interface GoCamActivity {
+  gene?: GoCamGene;
+}
+
+export type GoCamNodeType = "unknown"|"chemical"|"unknown_mrna"|
+   GoCamGene|GoCamModifiedProtein|GoCamActivity;
+
+export interface GoCamNodeOverlap {
+  node_id: string;
+  node_label: string;
+  node_type: GoCamNodeType;
+  enabler_id?: string;
+  located_in?: GoCamComponent;
+  occurs_in?: { [componentType: string]: GoCamComponent };
+  part_of_process: GoCamProcess;
+  overlapping_individual_ids: Array<string>;
+  model_ids: Array<string>;
+  model_titles: Array<string>;
+}
+
 export interface APIError {
   status: number;
   message: string;
@@ -1983,6 +2022,19 @@ export class PombaseAPIService {
           });
     }
     return this.promiseCache['getAllGoCamDetailsMap'];
+  }
+
+  getGoCamOverlaps(): Promise<Array<GoCamNodeOverlap>> {
+    if (!this.promiseCache['getGoCamOverlapsPromise']) {
+      const promise = this.httpRetry.getWithRetry(this.apiUrl + '/data/gocam/overlaps')
+        .toPromise()
+        .then(body => {
+          const overlaps = body as unknown as Array<GoCamNodeOverlap>;
+          return overlaps;
+        });
+      this.promiseCache['getGoCamOverlapsPromise'] = promise;
+    }
+    return this.promiseCache['getGoCamOverlapsPromise'];
   }
 
   getProteinViewData(geneUniquename: string, scope: string): Promise<ProteinViewData> {
