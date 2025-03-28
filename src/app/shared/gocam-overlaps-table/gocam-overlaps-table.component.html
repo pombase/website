@@ -16,7 +16,7 @@
     </td>
     <td>
       <div class="merged-link" *ngIf="overlap.enabledByGene">
-        <a routerLink="/pombase_gocam_view/docs/{{overlap.mergedIds}}">
+        <a routerLink="/pombase_gocam_view/docs/{{overlap.mergedIds}}/{{overlap.enabledByGene.uniquename}}/{{overlap.enabledByGene.displayName()}}">
           View merged model
         </a>
       </div>
