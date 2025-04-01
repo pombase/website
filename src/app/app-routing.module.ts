@@ -26,6 +26,7 @@ import { getAppConfig } from './config';
 import { RefGenesViewComponent } from './ref-genes-view/ref-genes-view.component';
 import { CurationStatsComponent } from './curation-stats/curation-stats.component';
 import { GoCamViewPageComponent } from './go-cam-view-page/go-cam-view-page.component';
+import { GocamConnectionsComponent } from './gocam-connections/gocam-connections.component';
 
 const routes: Routes = [
   { path: 'gene/:uniquename', component: GeneDetailsComponent,
@@ -89,6 +90,11 @@ const routes: Routes = [
   { path: 'archive/:archiveType', component: PanelArchiveComponent,
     data: {
       defaultTitleDetail: 'Panel archive'
+    }
+  },
+  {
+    path: 'gocam/connections', component: GocamConnectionsComponent,
+    data: {
     }
   },
   {
