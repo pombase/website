@@ -855,8 +855,7 @@ export interface GoCamNodeOverlap {
   occurs_in?: { [componentType: string]: GoCamComponent };
   part_of_process: GoCamProcess;
   overlapping_individual_ids: Array<string>;
-  model_ids: Array<string>;
-  model_titles: Array<string>;
+  models: Array<[string,string]>;
 }
 
 export interface APIError {

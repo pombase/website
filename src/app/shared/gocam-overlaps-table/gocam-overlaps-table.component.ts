@@ -11,8 +11,7 @@ interface DisplayOverlap {
   occursInComponent?: GoCamComponent;
   part_of_process: GoCamProcess;
   overlapping_individual_ids: Array<string>;
-  model_ids: Array<string>;
-  model_titles: Array<string>;
+  models: Array<[string, string]>;
   modelIdTitles: Array<[string, string]>;
   mergedIds: string;
 }
@@ -49,13 +48,13 @@ export class GocamOverlapsTableComponent implements OnInit {
           displayOverlap.enabledByGene = geneSummMap[geneId];
 
           displayOverlap.modelIdTitles = [];
-          for (let i = 0; i < overlap.model_ids.length; i++) {
-            const modelId = overlap.model_ids[i].replace('gomodel:', '');
-            const modelTitle = overlap.model_titles[i];
-            displayOverlap.modelIdTitles.push([modelId, modelTitle]);
+          for (const [modelId, modelTitle] of overlap.models) {
+            const shortModelId = modelId.replace('gomodel:', '');
+
+            displayOverlap.modelIdTitles.push([shortModelId, modelTitle]);
           }
           displayOverlap.mergedIds =
-            overlap.model_ids.map(id => id.replace('gomodel:', '')).join('+');
+            overlap.models.map(([id, _]) => id.replace('gomodel:', '')).join('+');
           if (overlap.occurs_in) {
              displayOverlap.occursInComponent =
                overlap.occurs_in['other_component'] || overlap.occurs_in['complex_component'];
