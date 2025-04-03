@@ -270,7 +270,7 @@
       "id" : "documentation/go-cam-pathway-models"
    },
    {
-      "content" : "\n\nMerged models\n\n-  all models\n-  connected models\n\nGO-CAM overlapping activities\n\n``\n",
+      "content" : "\n\nMerged models\n\n-  all models\n-  connected models\n-  overview\n\nGO-CAM overlapping activities\n\n``\n",
       "heading" : "GO-CAM model connections",
       "id" : "documentation/gocam-overlaps"
    },
