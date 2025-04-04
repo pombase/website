@@ -31,6 +31,7 @@ export class GoCamViewPageComponent implements OnInit {
   titleParts: Array<Array<TextOrTermId>> = [];
   isPomBaseView = false;
   alternateViewRoute?: string;
+  noctuaLink?: string;
 
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
@@ -111,6 +112,7 @@ export class GoCamViewPageComponent implements OnInit {
 
       this.isPomBaseView = path.includes('pombase_gocam_view');
       this.alternateViewRoute = undefined;
+      this.noctuaLink = undefined;
 
       if (this.gocamIdParam !== undefined) {
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
@@ -174,6 +176,10 @@ export class GoCamViewPageComponent implements OnInit {
           this.alternateViewRoute = this.router.url.replace('/gocam/', '/pombase_gocam_view/');
         }
 
+        if (this.gocamIds.length == 1) {
+          this.noctuaLink = 'http://noctua.geneontology.org/workbench/noctua-visual-pathway-editor/?model_id=gomodel%3A' +
+            this.gocamIds[0];
+        }
 
         this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
         this.setPageTitle();

@@ -54,6 +54,10 @@
         <span *ngIf="!isPomBaseView">Go to PomBase view</span>
       </a>
     </div>
+
+    <div class="noctua-link" *ngIf="devMode() || isPomBaseView">
+      <a href="{{noctuaLink}}">View in Noctua</a>
+    </div>
   </div>
 
   <div *ngIf="contributorNames" class="attribution">
