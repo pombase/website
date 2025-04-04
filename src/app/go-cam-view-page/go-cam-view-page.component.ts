@@ -96,6 +96,13 @@ export class GoCamViewPageComponent implements OnInit {
     }
   }
 
+  isMergedModel(): boolean {
+    if (!this.gocamIds) {
+      return false;
+    }
+    return this.gocamIds.length > 1;
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       this.gocamIds = [];
@@ -176,7 +183,7 @@ export class GoCamViewPageComponent implements OnInit {
           this.alternateViewRoute = this.router.url.replace('/gocam/', '/pombase_gocam_view/');
         }
 
-        if (this.gocamIds.length == 1) {
+        if (!this.isMergedModel()) {
           this.noctuaLink = 'http://noctua.geneontology.org/workbench/noctua-visual-pathway-editor/?model_id=gomodel%3A' +
             this.gocamIds[0];
         }
