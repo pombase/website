@@ -48,7 +48,7 @@
     </span>
     </div>
 
-    <div class="alternate-view-link" *ngIf="devMode()">
+    <div class="alternate-view-link" *ngIf="devMode() || isPomBaseView">
       <a routerLink="{{alternateViewRoute}}">
         <span *ngIf="isPomBaseView">Go to standard view (gocam-viz)</span>
         <span *ngIf="!isPomBaseView">Go to PomBase view</span>
