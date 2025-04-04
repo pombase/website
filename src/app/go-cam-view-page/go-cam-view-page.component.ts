@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
 import { PombaseAPIService, GoCamDetails, GeneSummaryMap, GeneSummary, GeneShort } from '../pombase-api.service';
 import { TextOrTermId, Util } from '../shared/util';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
     selector: 'app-go-cam-view-page',
@@ -28,15 +29,23 @@ export class GoCamViewPageComponent implements OnInit {
   modelGenes: Array<GeneSummary> = [];
   geneSummaryMap?: GeneSummaryMap;
   titleParts: Array<Array<TextOrTermId>> = [];
+  isPomBaseView = false;
+  alternateViewRoute?: string;
 
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
               private readonly meta: Meta,
+              private deployConfig: DeployConfigService,
               private route: ActivatedRoute,
+              private router: Router,
               private pombaseApi: PombaseAPIService) { }
 
   getIFrameURL(): SafeResourceUrl | undefined {
     return this.sanitizedURL;
+  }
+
+  devMode(): boolean {
+    return this.deployConfig.devMode();
   }
 
   getTitleOrId(): string|undefined {
@@ -98,6 +107,11 @@ export class GoCamViewPageComponent implements OnInit {
       this.source = params['source'];
       this.sourceName = params['source_name'];
 
+      const path = this.route.snapshot.url[0].path;
+
+      this.isPomBaseView = path.includes('pombase_gocam_view');
+      this.alternateViewRoute = undefined;
+
       if (this.gocamIdParam !== undefined) {
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
 
@@ -144,19 +158,22 @@ export class GoCamViewPageComponent implements OnInit {
               }
            });
 
-        const path = this.route.snapshot.url[0].path;
-
         let rawUrl;
 
-        if (path.includes('pombase_gocam_view')) {
+        if (this.isPomBaseView) {
           if (this.source) {
             rawUrl = 'gocam_view/full/' + this.gocamIdParam + '/' + this.source;
           } else {
             rawUrl = 'gocam_view/full/' + this.gocamIdParam;
           }
+
+          this.alternateViewRoute = this.router.url.replace('/pombase_gocam_view/', '/gocam/');
         } else {
           rawUrl = 'gocam_viz/full/' + this.gocamIdParam;
+
+          this.alternateViewRoute = this.router.url.replace('/gocam/', '/pombase_gocam_view/');
         }
+
 
         this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
         this.setPageTitle();

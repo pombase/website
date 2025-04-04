@@ -34,18 +34,25 @@
     </div>
 
     <div class="return-to-gene-page">
-    <div *ngIf="sourcePageType == 'gene'">
+    <span *ngIf="sourcePageType == 'gene'">
       <a routerLink="/gene/{{source}}">Return to the {{sourceName || source}} gene page</a>
-    </div>
-    <div *ngIf="sourcePageType == 'term'">
+    </span>
+    <span *ngIf="sourcePageType == 'term'">
       <a routerLink="/term/{{source}}">Return to the term page for {{sourceName}} ({{source}})</a>
-    </div>
-    <div *ngIf="sourcePageType == 'docs'">
+    </span>
+    <span *ngIf="sourcePageType == 'docs'">
       <a routerLink="/documentation/go-cam-pathway-models">Return to the "All curated pathways" list</a>
-    </div>
-    <div class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
+    </span>
+    <span class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
       <span>Highlighted activities:</span> {{sourceName}}
+    </span>
     </div>
+
+    <div class="alternate-view-link" *ngIf="devMode()">
+      <a routerLink="{{alternateViewRoute}}">
+        <span *ngIf="isPomBaseView">Go to standard view (gocam-viz)</span>
+        <span *ngIf="!isPomBaseView">Go to PomBase view</span>
+      </a>
     </div>
   </div>
 
