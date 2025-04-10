@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PombaseAPIService, GoCamGene, GeneSummary, GoCamComponent, GoCamProcess } from '../../pombase-api.service';
+import { PombaseAPIService, GoCamGene, GeneSummary, GoCamComponent, GoCamProcess, GoCamChemical } from '../../pombase-api.service';
 
 interface DisplayOverlap {
   node_id: string;
   node_label: string;
   enabledByGene?: GeneSummary;
+  enabledByChemical?: GoCamChemical;
   located_in?: GoCamComponent;
   occurs_in?: { [componentType: string]: GoCamComponent };
   occursInComponent?: GoCamComponent;
@@ -34,18 +35,26 @@ export class GocamOverlapsTableComponent implements OnInit {
         this.displayOverlaps = overlaps.flatMap(overlap => {
           const nodeTypeAny = overlap.node_type as any;
           let enabledByGene;
+          let enabledByChemical;
           if (nodeTypeAny.activity) {
             if (nodeTypeAny.activity.gene) {
               enabledByGene = nodeTypeAny.activity.gene as GoCamGene;
+            } else if (nodeTypeAny.activity.chemical) {
+              enabledByChemical = nodeTypeAny.activity.chemical as GoCamChemical;
             }
           }
-          if (!enabledByGene) {
+          if (!enabledByGene && !enabledByChemical) {
             return [];
           }
           const displayOverlap =
             Object.assign(overlap, { modelIdTitles: [], mergedIds: '' }) as DisplayOverlap;
-          const geneId = enabledByGene.id.replace("PomBase:", "");
-          displayOverlap.enabledByGene = geneSummMap[geneId];
+          if (enabledByGene) {
+            const geneId = enabledByGene.id.replace("PomBase:", "");
+            displayOverlap.enabledByGene = geneSummMap[geneId];
+          }
+          if (enabledByChemical) {
+            displayOverlap.enabledByChemical = enabledByChemical;
+          }
 
           displayOverlap.modelIdTitles = [];
           for (const [modelId, modelTitle] of overlap.models) {

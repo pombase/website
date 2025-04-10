@@ -12,11 +12,21 @@
             {{modelIdTitle[0]}} - {{modelIdTitle[1]}}
           </a>
         </div>
+        <div *ngIf="overlap.enabledByChemical">
+          <a routerLink="/pombase_gocam_view/docs/{{modelIdTitle[0]}}">
+            {{modelIdTitle[0]}} - {{modelIdTitle[1]}}
+          </a>
+        </div>
       </div>
     </td>
     <td>
       <div class="merged-link" *ngIf="overlap.enabledByGene">
         <a routerLink="/pombase_gocam_view/docs/{{overlap.mergedIds}}/{{overlap.enabledByGene.uniquename}}/{{overlap.enabledByGene.displayName()}}">
+          View merged model
+        </a>
+      </div>
+      <div *ngIf="overlap.enabledByChemical">
+        <a routerLink="/pombase_gocam_view/docs/{{overlap.mergedIds}}">
           View merged model
         </a>
       </div>
@@ -28,6 +38,7 @@
         </a>
         enabled by
         <app-gene-link *ngIf="overlap.enabledByGene" [long]="false" [gene]="overlap.enabledByGene"></app-gene-link>
+        <span *ngIf="overlap.enabledByChemical">{{overlap.enabledByChemical.label}} ({{overlap.enabledByChemical.id}})</span>
       </div>
       <div *ngIf="overlap.occursInComponent">
         <div *ngIf="overlap.occursInComponent.id.startsWith('GO:')">
