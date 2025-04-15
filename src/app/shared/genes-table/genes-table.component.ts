@@ -397,6 +397,12 @@ export class GenesTableComponent implements OnInit {
       this.genes.map(g => g.uniquename).join(',');
   }
 
+  gotoMegaModel() {
+    const geneList = this.genes.map(gene => gene.uniquename).join(',');
+    this.router.navigate(['/pombase_gocam_view/subset-count/ALL_MERGED/',
+                          geneList, this.description]);
+  }
+
   ngOnInit() {
     this.columnsSubscription =
       this.settingsService.visibleGenesTableFieldNames$

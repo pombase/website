@@ -80,6 +80,11 @@
           View pathway coverage
         </a>
       </li>
+      <li *ngIf="!deployConfigService.productionMode() && genes && genes.length <= 2000" role="menuitem">
+        <a class="dropdown-item" title="View in mega-model" (click)="gotoMegaModel()">
+          View coverage in mega-model
+        </a>
+      </li>
     </ul>
   </div>
 
