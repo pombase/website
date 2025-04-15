@@ -169,6 +169,8 @@ export class GoCamViewPageComponent implements OnInit {
 
         let rawUrl;
 
+        const currentUrl = decodeURIComponent(this.router.url);
+
         if (this.isPomBaseView) {
           if (this.source) {
             rawUrl = 'gocam_view/full/' + this.gocamIdParam + '/' + this.source;
@@ -176,11 +178,11 @@ export class GoCamViewPageComponent implements OnInit {
             rawUrl = 'gocam_view/full/' + this.gocamIdParam;
           }
 
-          this.alternateViewRoute = this.router.url.replace('/pombase_gocam_view/', '/gocam/');
+          this.alternateViewRoute = currentUrl.replace('/pombase_gocam_view/', '/gocam/');
         } else {
           rawUrl = 'gocam_viz/full/' + this.gocamIdParam;
 
-          this.alternateViewRoute = this.router.url.replace('/gocam/', '/pombase_gocam_view/');
+          this.alternateViewRoute = currentUrl.replace('/gocam/', '/pombase_gocam_view/');
         }
 
         if (!this.isMergedModel()) {
