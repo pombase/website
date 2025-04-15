@@ -97,6 +97,12 @@ export class GoCamViewPageComponent implements OnInit {
   }
 
   isMergedModel(): boolean {
+    if (this.gocamIdParam &&
+        this.gocamIdParam.toUpperCase() == this.gocamIdParam) {
+      // ALL_MERGED or ALL_CONNECTED
+      return true;
+    }
+
     if (!this.gocamIds) {
       return false;
     }
