@@ -58,6 +58,11 @@
     <div class="noctua-link" *ngIf="(devMode() || isPomBaseView) && !isMergedModel()">
       <a href="{{noctuaLink}}">View in Noctua</a>
     </div>
+
+    <div class="chemical-toggle" *ngIf="(devMode() || isPomBaseView)">
+      <input id="include-chemicals" type="checkbox" [(ngModel)]="includeChemicals" (ngModelChange)="updateUrl()">
+      <label for="include-chemicals">Include chemicals</label>
+    </div>
   </div>
 
   <div *ngIf="contributorNames" class="attribution">

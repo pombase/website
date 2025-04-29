@@ -30,6 +30,7 @@ export class GoCamViewPageComponent implements OnInit {
   geneSummaryMap?: GeneSummaryMap;
   titleParts: Array<Array<TextOrTermId>> = [];
   isPomBaseView = false;
+  includeChemicals = true;
   alternateViewRoute?: string;
   noctuaLink?: string;
 
@@ -109,6 +110,35 @@ export class GoCamViewPageComponent implements OnInit {
     return this.gocamIds.length > 1;
   }
 
+  updateUrl(): void {
+    let rawUrl;
+
+    const currentUrl = decodeURIComponent(this.router.url);
+
+    if (this.isPomBaseView) {
+      let idForUrl = this.gocamIdParam;
+      if (this.includeChemicals) {
+        idForUrl += ':include_chemicals';
+      } else {
+        idForUrl += ':no_chemicals';
+      }
+
+      if (this.source) {
+        rawUrl = 'gocam_view/full/' + idForUrl + '/' + this.source;
+      } else {
+        rawUrl = 'gocam_view/full/' + idForUrl;
+      }
+
+      this.alternateViewRoute = currentUrl.replace('/pombase_gocam_view/', '/gocam/');
+    } else {
+      rawUrl = 'gocam_viz/full/' + this.gocamIdParam;
+
+      this.alternateViewRoute = currentUrl.replace('/gocam/', '/pombase_gocam_view/');
+    }
+
+    this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       this.gocamIds = [];
@@ -173,30 +203,13 @@ export class GoCamViewPageComponent implements OnInit {
               }
            });
 
-        let rawUrl;
-
-        const currentUrl = decodeURIComponent(this.router.url);
-
-        if (this.isPomBaseView) {
-          if (this.source) {
-            rawUrl = 'gocam_view/full/' + this.gocamIdParam + '/' + this.source;
-          } else {
-            rawUrl = 'gocam_view/full/' + this.gocamIdParam;
-          }
-
-          this.alternateViewRoute = currentUrl.replace('/pombase_gocam_view/', '/gocam/');
-        } else {
-          rawUrl = 'gocam_viz/full/' + this.gocamIdParam;
-
-          this.alternateViewRoute = currentUrl.replace('/gocam/', '/pombase_gocam_view/');
-        }
+        this.updateUrl();
 
         if (!this.isMergedModel()) {
           this.noctuaLink = 'http://noctua.geneontology.org/workbench/noctua-visual-pathway-editor/?model_id=gomodel%3A' +
             this.gocamIds[0];
         }
 
-        this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
         this.setPageTitle();
       }
     });
