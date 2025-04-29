@@ -17,8 +17,9 @@
 
       <span *ngIf="range.transcript">
         <span *ngIf="range.transcript.gene">
-          {{range.transcript.uniquename}}
-          (<app-gene-link  class="app-link" [long]="false" [gene]="range.transcript.gene"></app-gene-link>)
+          <app-gene-link class="app-link" [long]="false" [gene]="range.transcript.gene"
+                         [displayString]="range.transcript.name || range.transcript.uniquename"></app-gene-link>
+          <span *ngIf="range.transcript.protein">(mRNA)</span>
         </span>
         <a *ngIf="!range.transcript.gene" routerLink="/gene/{{range.transcript.gene_uniquename}}">{{range.transcript.uniquename}}</a>
       </span>
@@ -47,7 +48,9 @@
 
       <span *ngIf="range.summaryTranscripts">
         <span *ngFor="let summ of range.summaryTranscripts; let lastSumm = last">
-          <span class="summary-transcript-and-comma"><span *ngFor="let tr of summ; let lastTr = last"><span *ngIf="tr.gene">{{tr.uniquename}} (<app-gene-link class="app-link" [long]="false" [gene]="tr.gene"></app-gene-link>)</span><a *ngIf="!tr.gene" routerLink="/gene/{{tr.gene_uniquename}}">{{tr.uniquename}}</a><span *ngIf="!lastTr"> and </span></span><span *ngIf="!lastSumm">,</span></span>
+          <span class="summary-transcript-and-comma">
+            <span *ngFor="let tr of summ; let lastTr = last"><span *ngIf="tr.gene"><app-gene-link class="app-link" [long]="false" [gene]="tr.gene" [displayString]="tr.name || tr.uniquename"></app-gene-link><span *ngIf="tr.protein"> (mRNA)</span></span><span *ngIf="!tr.gene"><a routerLink="/gene/{{tr.gene_uniquename}}">{{tr.name || tr.uniquename}}</a><span *ngIf="tr.protein"> (mRNA)</span></span><span *ngIf="!lastTr"> and </span></span><span *ngIf="!lastSumm">,</span>
+          </span>
         </span>
       </span>
 
