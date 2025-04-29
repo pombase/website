@@ -30,7 +30,7 @@ export class GoCamViewPageComponent implements OnInit {
   geneSummaryMap?: GeneSummaryMap;
   titleParts: Array<Array<TextOrTermId>> = [];
   isPomBaseView = false;
-  includeChemicals = true;
+  includeChemicals = false;
   alternateViewRoute?: string;
   noctuaLink?: string;
 
