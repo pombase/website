@@ -67,6 +67,8 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
   detailsView: { [key: string]: boolean } = {};
   currentViewState = TableViewState.Summary;
 
+  currentFilter?: GeneticInteractionFilter;
+
   interactionSources = this.appConfig.data_sources.interactions;
 
   constructor() { }
@@ -264,6 +266,8 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
   }
 
   updateCurrentFilter(filter?: GeneticInteractionFilter) {
+    this.currentFilter = filter;
+
     if (filter) {
       [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
         filter.filter(this.annotationTable);
