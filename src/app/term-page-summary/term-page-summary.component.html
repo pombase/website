@@ -47,14 +47,6 @@
       <div *ngIf="isInSubset(slimName)">
         This term is part of the
         <a (click)="goToFullSlim(slimName)">{{slimConfig[slimName].slim_display_name}}</a>
-
-        <span class="esyn-link" *ngIf="slimName == 'bp_goslim_pombe'">
-         <app-external-link [identifier]="termDetails.termid"
-                            [linkText]="'View the esyN network'"
-                            [linkConfigKey]="'esyn'"
-                            [iconImage]="'esyn_icon.png'">
-         </app-external-link>
-        </span>
       </div>
     </ng-container>
 

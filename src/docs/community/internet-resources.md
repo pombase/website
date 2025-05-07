@@ -32,8 +32,6 @@
 %%if db=PomBase
 -   [Reactome pathway data](http://reactome.org/PathwayBrowser/#/SPECIES=68324)
     *S. pombe* entry point.
--   [esyN](http://www.esyn.org/index.php) Web-based tool for building,
-    sharing, and viewing network data
 %%end db=PomBase
 -   [STRING](http://string-db.org/) Protein–protein interaction network database
 

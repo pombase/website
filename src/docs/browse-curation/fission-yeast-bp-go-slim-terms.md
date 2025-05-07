@@ -10,13 +10,6 @@ broad classifiers.
 The table below shows terms in the current fission yeast biological
 process GO slim, and the number of annotations to each term. GO IDs
 link to ${database_name} [ontology term pages](/documentation/ontology-term-page).
-%%if db=PomBase
-Icons beside each GO term link to [esyN](http://www.esyn.org/), which
-provides a graphical view of interactions for the genes from the
-${database_name} [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
-dataset. Only the subset of genes linked into the interaction network
-will be displayed in the esyN network view. 
-%%end db=PomBase
 The annotation totals link
 to pages with information about the term and a list of annotated
 genes.
@@ -26,8 +19,6 @@ documentation](documentation/pombase-go-slim-documentation) and
 additional pages linked there. You can also download a list of current
 [GO process slim IDs and term names](${base_url}/data/releases/latest/misc/bp_goslim_${species}_ids_and_names.tsv)
 from the ${database_name} FTP site.
-
-<!-- [esyN documentation](http://www.esyn.org/tutorial.html) -->
 
 <!--
 Note that both proteins and RNAs can be annotated to GO terms, and the
