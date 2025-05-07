@@ -8431,12 +8431,6 @@ are not detected by any automated method. Gradually, we will add and display sup
 <p>Yes, the <a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a> page offers two options, a complete phenotype annotation file and a “viability summary” for deletion mutants. At present, the full file contains all manually curated single mutant phenotypes, and is in the same format as PomBase uses for bulk phenotype data submissions (see the <a routerLink="/faq/what-file-formats-can-i-use-submit-high-throughput-data">file formats FAQ</a>). Further information on the viability summary is available in the <a routerLink="/faq/can-i-get-list-essential-pombe-genes">essential genes FAQ</a>.</p>
 
 </div>
-<div (click)="faq_navigate($event, '/faq/can-i-download-interaction-data-used-by-esyn', 'Can I download the interaction data used by esyN?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'can-i-download-interaction-data-used-by-esyn' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
-<h3 id="can-i-download-interaction-data-used-by-esyn">Can I download the interaction data used by esyN?</h3>
-<!-- pombase_categories: Finding data,Genome statistics and lists -->
-<p>The <em>S. pombe</em> networks in <a href="http://www.esyn.org/">esyN</a> use the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network</a> (HCPIN) data. The data can be downloaded in tab-delimited format from the <a routerLink="/datasets">Download Datasets</a> page, which links to an FTP directory with two files. One contains physical interaction data, and the other contains GO substrate data. Each file lists two gene systematic IDs and a reference identifier (usually a PubMed ID).</p>
-
-</div>
 <div (click)="faq_navigate($event, '/faq/can-i-download-sequence-whole-chromosome', 'Can I download the sequence for a whole chromosome?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-download-sequence-whole-chromosome' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-download-sequence-whole-chromosome">Can I download the sequence for a whole chromosome?</h3>
 <!-- pombase_categories: Finding data -->
@@ -8703,39 +8697,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="faq_navigate($event, '/faq/can-i-visualise-networks-pombase', 'Can I visualise networks in PomBase?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-visualise-networks-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-visualise-networks-pombase">Can I visualise networks in PomBase?</h3>
 <!-- pombase_categories: Tools and resources -->
-<p>This is an area of active development at PomBase. At present, PomBase links GO terms to the web-based network tool <a href="http://www.esyn.org/">esyN</a> <sup>1</sup>: on the <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">GO biological process slim page</a> and on ontology term pages for GO biological process slim terms, each GO slim term links to the <a routerLink="/documentation/high-confidence-physical-interaction-network">HCPIN physical interaction network</a> in esyN. For example, the GO process slim page and the ontology term page for “regulation of mitotic cell cycle phase transition” (<a routerLink="/term/GO:1901990">GO:1901990</a>) link to <a href="http://www.esyn.org//builder.php?type=Graph&amp;term=GO:1901990&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false" class="uri">http://www.esyn.org//builder.php?type=Graph&amp;term=GO:1901990&amp;interactionType=physical&amp;source=pombase&amp;includeInteractors=false</a>.</p>
-<p>We plan to provide gene-centred network displays on gene pages in the near future.</p>
-<!--
-On gene pages, we have links to gene-specific interaction networks in
-esyN in the table headers of the Interactions sections:
-
--   The Genetic Interactions section links to all interactions centred
-    on the gene and curated in BioGRID
--   The Physical interactions section has links to two datasets:
-    -   All physical interactions curated in BioGRID for the gene
-    -   Interactions for the gene in the PomBase <a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a> 
-
-For example, the Genetic Interactions header for cdc2 links to
-<http://www.esyn.org/builder.php?type=Graph&query=SPBC11B10.09&organism=4896&interactionType=genetic&source=biogrid>
-
--->
-<p>Using the esyN network display:</p>
-<ul>
-<li>A brief simulation is used to position the nodes initially. This layout can often be improved by continuing the simulation: click “Layouts” in the left-hand panel, then click “Force-Directed (improve)”. Repeat until you like the network arrangement.</li>
-<li>You can extend any network in esyN:</li>
-</ul>
-<ol type="1">
-<li>Click on a node in the display.</li>
-<li>Click “Extend Network” in the right-hand bar.</li>
-<li>In the Advanced Tools box under the network display, first click “Get Interactions”.</li>
-<li>In the table that appears, click “Add” buttons to add individual interactions, or click “Add all”.</li>
-</ol>
-<p>You can also use EsyN to:</p>
-<p>Visualize interactions for a user-defined list of genes. To do this, visit <a href="http://www.esyn.org/builder.php?type=Graph" class="uri">http://www.esyn.org/builder.php?type=Graph</a>, click on the “Network from list” option in the left-hand panel, and follow the instructions in the pop-up.</p>
-<p>Build your own network – either an Interactome graph or a Petri net – from scratch (see the tutorial at <a href="http://www.esyn.org/tutorial.html" class="uri">http://www.esyn.org/tutorial.html</a>). In both cases you can use the Advanced Tools to retrieve the interactions for a number of model organisms from several databases (see <a href="http://www.esyn.org/builder.php?type=Graph#interactions" class="uri">http://www.esyn.org/builder.php?type=Graph#interactions</a>).</p>
-<p>Save and share your networks. By logging in via the “My esyN” link (at the top of every esyN page), any user can save, share privately with collaborators, or publish any network.</p>
-<p>Browse, view and modify, previously published, models (both graphs and Petri nets) at <a href="http://www.esyn.org/browse.php" class="uri">http://www.esyn.org/browse.php</a>. We describe these networks are “public” in the sense of the open source movement, so that they are not only free to be copied, modified and (when possible) re-published, but we also actively encourage any collaborative effort to build and improve these biological networks.</p>
-<p><sup>1</sup>esyN reference: Bean DM, Heimbach J, Ficorella L, Micklem G, Oliver SG, Favrin G. 2014. esyN: network building, sharing and publishing. <em>PLoS One</em>. 2014 Sep 2; <strong>9(9)</strong>:e106035. doi: <a href="http://dx.doi.org/10.1371/journal.pone.0106035">10.1371/journal.pone.0106035</a>. eCollection 2014. <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=25181461">PMID:25181461</a></p>
+<p>This is an area of active development at PomBase. The tool we previously used to visualize genetic and physical interaction networks (EsyN) is now deprecated. We are actively building causal pathways using <a routerLink="/documentation/go-cam-pathway-models">GO-CAMs</a>. Future work will include the ability to view all genetic and physical interactions in the context of the causal model, or independently.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/do-i-need-password-download-ftp-site', 'Do I need a password to download from the FTP site?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'tools-and-resources' || pageName == 'do-i-need-password-download-ftp-site' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
@@ -10641,7 +10603,7 @@ Graml V, Studera X, Lawson JL, Chessel A, Geymonat M, Bortfeld-Miller M, Walter 
   </div>
   <div *ngIf="pageName == 'esyn-network-visualizations-pombase'">
 <h3 id="esyn-network-visualizations-pombase">esyN network visualizations in PomBase</h3>
-<p>PomBase has implemented network visualisations for fission yeast in <a href="http://www.esyn.org/">esyN</a>, using data curated by BioGRID and PomBase. esyN is a web-based tool for building, sharing, and viewing network data developed by Dan Bean and Giorgio Favrin in the <a href="http://www.sysbiol.cam.ac.uk">Cambridge Systems Biology Centre</a>, University of Cambridge, UK.<br />
+<p>PomBase has implemented network visualisations for fission yeast in “esyN, using data curated by BioGRID and PomBase. esyN is a web-based tool for building, sharing, and viewing network data developed by Dan Bean and Giorgio Favrin in the <a href="http://www.sysbiol.cam.ac.uk">Cambridge Systems Biology Centre</a>, University of Cambridge, UK.<br />
 <br />
 On gene pages, we have links to gene-specific interaction networks in esyN in the table headers of the Interactions sections:</p>
 <ul>
@@ -10652,7 +10614,6 @@ On gene pages, we have links to gene-specific interaction networks in esyN in th
 <li>Interactions for the gene in the PomBase <a href="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a></li>
 </ul></li>
 </ul>
-<p>We also have esyN links on the <a href="/browse-curation/fission-yeast-bp-go-slim-terms">GO Slim page</a> and on ontology term pages for GO Slim biological process terms. Each GO Slim term links to the HCPIN physical interaction network in esyN (for example, see the “regulation of mitotic cell cycle” <a href="http://www.esyn.org//builder.php?type=Graph&term=GO:0007346&interactionType=physical&source=pombase&includeInteractors=false">network</a>).</p>
 
   </div>
   <div *ngIf="pageName == 'new-compact-go-annotation-display'">
@@ -14930,7 +14891,7 @@ In addition, the top of the Biological Process table now lists any GO slim terms
 <div id="2014-12-10-esyn-network-visualizations-pombase" class="news-item">
 <h3 id="esyn-network-visualizations-pombase">esyN network visualizations in PomBase</h3>
 <p><em>2014-12-10</em></p>
-<p>PomBase has implemented network visualisations for fission yeast in <a href="http://www.esyn.org/">esyN</a>, using data curated by BioGRID and PomBase. esyN is a web-based tool for building, sharing, and viewing network data developed by Dan Bean and Giorgio Favrin in the <a href="http://www.sysbiol.cam.ac.uk">Cambridge Systems Biology Centre</a>, University of Cambridge, UK.<br />
+<p>PomBase has implemented network visualisations for fission yeast in “esyN, using data curated by BioGRID and PomBase. esyN is a web-based tool for building, sharing, and viewing network data developed by Dan Bean and Giorgio Favrin in the <a href="http://www.sysbiol.cam.ac.uk">Cambridge Systems Biology Centre</a>, University of Cambridge, UK.<br />
 <br />
 On gene pages, we have links to gene-specific interaction networks in esyN in the table headers of the Interactions sections:</p>
 <ul>
@@ -14941,7 +14902,6 @@ On gene pages, we have links to gene-specific interaction networks in esyN in th
 <li>Interactions for the gene in the PomBase <a href="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a></li>
 </ul></li>
 </ul>
-<p>We also have esyN links on the <a href="/browse-curation/fission-yeast-bp-go-slim-terms">GO Slim page</a> and on ontology term pages for GO Slim biological process terms. Each GO Slim term links to the HCPIN physical interaction network in esyN (for example, see the “regulation of mitotic cell cycle” <a href="http://www.esyn.org//builder.php?type=Graph&term=GO:0007346&interactionType=physical&source=pombase&includeInteractors=false">network</a>).</p>
 </div>
 <div id="2014-11-12-pombase-data-update-11" class="news-item">
 <h3 id="pombase-data-update-2014-11-12">PomBase data update 2014-11-12</h3>
