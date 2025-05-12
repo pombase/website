@@ -93,7 +93,12 @@ const routes: Routes = [
     }
   },
   {
-    path: 'gocam/connections', component: GocamConnectionsComponent,
+    path: 'gocam/:pageType', component: GocamConnectionsComponent,
+    data: {
+    }
+  },
+  {
+    path: 'gocam', component: GocamConnectionsComponent,
     data: {
     }
   },

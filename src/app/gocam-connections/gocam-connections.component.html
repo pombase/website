@@ -1,4 +1,68 @@
-<div class="gocam-container">
-  <iframe src="/gocam_connections" class="gocam-iframe" #gocamiframe>
-  </iframe>
+<div class="gocam-container docs">
+  <app-page-contents-menu title="GO-CAM pathways" titleRoute="/gocam">
+
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/model-list">Model list</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/summary">Summary</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/connections">Connections</a></div>
+
+  </app-page-contents-menu>
+
+  <div class="docs-content">
+  <div *ngIf="pageType == 'summary'" class="gocam-page">
+    <h3>GO-CAM model summary</h3>
+    <iframe src="/gocam_connections" class="gocam-iframe" #gocamiframe>
+    </iframe>
+  </div>
+
+  <div *ngIf="pageType == 'connections'">
+
+    <h2>GO-CAM model connections
+      <span class="help-link">
+        <app-help-link [route]="'/documentation/go-cam-pathway-models'"
+                       [title]="'GO-CAM documentation'">
+          Documentation
+        </app-help-link>
+      </span>
+    </h2>
+
+    <h3>Merged models</h3>
+
+    <ul>
+      <li>
+        <a routerLink="/pombase_gocam_view/docs/ALL_MERGED">All models</a>
+      </li>
+      <li>
+        <a routerLink="/pombase_gocam_view/docs/ALL_CONNECTED">Connected models</a>
+      </li>
+      <li>
+        <a routerLink="/gocam/summary">Summary</a>
+      </li>
+    </ul>
+
+    <h3>GO-CAM overlapping activities</h3>
+
+    <app-gocam-overlaps-table></app-gocam-overlaps-table>
+
+  </div>
+
+  <div *ngIf="pageType == 'model-list'">
+    <h2>GO-CAM pathways
+      <span class="help-link">
+      <app-help-link [route]="'/documentation/go-cam-pathway-models'" [title]="'GO-CAM documentation'">
+        Documentation
+      </app-help-link>
+    </span></h2>
+    <h3>Pathway holes</h3>
+
+We maintain a list of activities known or suspected to occur in fission yeast but
+not yet associated with a gene product. These “pathway holes” have
+been identified through GO-CAM causal model curation.
+
+    <a routerLink="/status/missing-gocam-proteins"><span class="genus-species">S. pombe</span> pathway holes</a>
+
+    <h3>Available GO-CAM models</h3>
+
+    <app-go-cam-table></app-go-cam-table>
+  </div>
+  </div>
 </div>

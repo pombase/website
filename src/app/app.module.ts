@@ -163,6 +163,7 @@ import { GoCamViewPageComponent } from './go-cam-view-page/go-cam-view-page.comp
 import { GeneticInteractionTableTypeFilterComponent } from './genetic-interaction-table-type-filter/genetic-interaction-table-type-filter.component';
 import { RnaStructureComponent } from './rna-structure/rna-structure.component';
 import { ProteinFeatureTableComponent } from './protein-feature-table/protein-feature-table.component';
+import { GocamConnectionsComponent } from './gocam-connections/gocam-connections.component';
 
 import { IntersectionObserverModule } from 'ngx-intersection-observer';
 import { IntersectionObserverConfig } from 'ngx-intersection-observer/lib/intersection-observer-config.model';
@@ -320,6 +321,7 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         GeneticInteractionTableTypeFilterComponent,
         RnaStructureComponent,
         ProteinFeatureTableComponent,
+        GocamConnectionsComponent,
     ],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
