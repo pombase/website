@@ -143,6 +143,30 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
     this.updateCurrentFilter(undefined);
   }
 
+  makeQueryUrl(): string {
+    let interactionType;
+
+    if (this.annotationTypeName === 'physical_interactions') {
+      interactionType = 'physical';
+    } else {
+      interactionType = 'genetic';
+    }
+
+    const query = {
+      "constraints": {
+        "interactors": {
+          "gene_uniquename": this.currentGene.uniquename,
+          "interaction_type": interactionType
+        }
+      },
+      "output_options": {
+        "field_names":["gene_uniquename"],
+        "sequence":"none"
+      }};
+
+    return `/results/from/json/${JSON.stringify(query)}`;
+  }
+
   updateDisplayTable(): void {
     this.hideColumns.map(col => {
       this.hideColumn[col] = true;
@@ -154,19 +178,9 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
       this.filteredTable = this.annotationTable;
     }
 
-    let interactionType;
-
-    if (this.annotationTypeName === 'physical_interactions') {
-      interactionType = 'physical';
-    } else {
-      interactionType = 'genetic';
-    }
 
     if (this.currentGene) {
-      const json = `{"constraints":{"interactors":
-       {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
-        '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
-      this.queryLinkUrl = `/results/from/json/${json}`;
+      this.queryLinkUrl = this.makeQueryUrl();
 
       if (this.currentGene.biogrid_interactor_id) {
         const linkResult =
