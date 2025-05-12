@@ -28,4 +28,8 @@ export class GeneticInteractionThroughputFilter implements Filter<GeneticInterac
 
     return [retTable, count, retTable.length];
   }
+
+  getThroughput(): ThroughputType {
+    return this.throughputType;
+  }
 }

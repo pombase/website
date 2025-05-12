@@ -633,7 +633,10 @@ export abstract class RangeNode extends GeneQueryBase {
 }
 
 export class InteractorsNode extends GeneQueryBase {
-  constructor(nodeName: string, public geneUniquename: string, public interactionType: string) {
+  constructor(nodeName: string, public geneUniquename: string,
+              public interactionType: string,
+              public throughput: string,
+              public evidenceType: string) {
     super(nodeName);
     if (!nodeName) {
       this.setNodeName(this.detailsString());
@@ -644,20 +647,32 @@ export class InteractorsNode extends GeneQueryBase {
     return {
       node_name: this.getNodeName(),
       interactors: { 'gene_uniquename': this.geneUniquename,
-                     'interaction_type': this.interactionType }
+                     'interaction_type': this.interactionType,
+                     'throughput': this.throughput,
+                     'evidence_type': this.evidenceType }
     };
   }
 
   equals(obj: GeneQueryNode): boolean {
     if (obj instanceof InteractorsNode) {
       return this.geneUniquename === obj.geneUniquename &&
-        this.interactionType === obj.interactionType;
+        this.interactionType === obj.interactionType &&
+        this.throughput === obj.throughput &&
+        this.evidenceType === obj.evidenceType;
     }
     return false;
   }
 
   detailsString(): string {
-    return `${this.interactionType}_interactors_of: ${this.geneUniquename}`;
+    let ret = `${this.interactionType} interactors of: ${this.geneUniquename}`;
+    if (this.throughput) {
+      ret = `${this.throughput} throughput ` + ret;
+    }
+    if (this.evidenceType) {
+      ret = `${this.evidenceType} ` + ret;
+    }
+
+    return ret;
   }
 }
 
@@ -1004,7 +1019,8 @@ export class GeneQuery {
       return new GeneListNode(nodeName, val['genes'] || val['ids']);
 
     case 'interactors':
-      return new InteractorsNode(nodeName, val['gene_uniquename'], val['interaction_type']);
+      return new InteractorsNode(nodeName, val['gene_uniquename'], val['interaction_type'],
+                                 val['throughput'], val['evidence_type']);
 
     case 'substrates':
       return new SubstratesNode(nodeName, val['gene_uniquename'], val['phase_term']);

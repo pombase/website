@@ -2,9 +2,11 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { GeneticInteractionGroup, GeneShort, GeneDetails, ReferenceShort, GenotypeShort, ThroughputType, ExtPart } from '../pombase-api.service';
 import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfig, FilterConfig } from '../config';
 import { Util } from '../shared/util';
-import { GeneticInteractionFilter } from '../filtering';
+import { FilterCombiner, GeneticInteractionFilter } from '../filtering';
 import { TermShort } from '../pombase-query';
 import { TableViewState } from '../pombase-types';
+import { GeneticInteractionThroughputFilter } from '../filtering/genetic-interaction-throughput-filter';
+import { GeneticInteractionTypeFilter } from '../filtering/genetic-interaction-type-filter';
 
 interface DisplayDetail {
   reference: ReferenceShort;
@@ -152,11 +154,29 @@ export class GeneticInteractionAnnotationTableComponent implements OnInit, OnCha
       interactionType = 'genetic';
     }
 
+    let throughput = undefined;
+    let evidenceType = undefined;
+
+    if (this.currentFilter && this.currentFilter instanceof FilterCombiner) {
+      for (const filter of this.currentFilter.getFilters()) {
+        if (filter instanceof GeneticInteractionThroughputFilter) {
+          throughput = filter.getThroughput();
+          continue;
+        }
+        if (filter instanceof GeneticInteractionTypeFilter) {
+          evidenceType = filter.getInteractionType();
+          continue;
+        }
+      }
+    }
+
     const query = {
       "constraints": {
         "interactors": {
           "gene_uniquename": this.currentGene.uniquename,
-          "interaction_type": interactionType
+          "interaction_type": interactionType,
+          "throughput": throughput,
+          "evidence_type": evidenceType,
         }
       },
       "output_options": {

@@ -3,8 +3,10 @@ import { InteractionAnnotation, GeneShort, GeneDetails, ReferenceShort } from '.
 import { getAnnotationTableConfig, AnnotationTableConfig, AppConfig, getAppConfig, FilterConfig } from '../config';
 import { Util } from '../shared/util';
 import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
-import { InteractionFilter } from '../filtering';
+import { FilterCombiner, InteractionFilter } from '../filtering';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { InteractionThroughputFilter } from '../filtering/interaction-throughput-filter';
+import { InteractionTypeFilter } from '../filtering/interaction-type-filter';
 
 interface DisplayAnnotation {
   gene: GeneShort;
@@ -47,6 +49,8 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   filters?: Array<FilterConfig>;
   interactionNoteRef: any;
 
+  currentFilter?: InteractionFilter;
+
   interactionSources = this.appConfig.data_sources.interactions;
 
   constructor(private modalService: BsModalService) { }
@@ -74,6 +78,48 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
     this.interactionNoteRef.content.message = annotation.interactionNote;
   }
 
+  makeQueryUrl(): string {
+    let interactionType;
+
+    if (this.annotationTypeName === 'physical_interactions') {
+      interactionType = 'physical';
+    } else {
+      interactionType = 'genetic';
+    }
+
+    let throughput = undefined;
+    let evidenceType = undefined;
+
+    if (this.currentFilter && this.currentFilter instanceof FilterCombiner) {
+      for (const filter of this.currentFilter.getFilters()) {
+        if (filter instanceof InteractionThroughputFilter) {
+          throughput = filter.getThroughput();
+          continue;
+        }
+        if (filter instanceof InteractionTypeFilter) {
+          evidenceType = filter.getInteractionType();
+          continue;
+        }
+      }
+    }
+
+    const query = {
+      "constraints": {
+        "interactors": {
+          "gene_uniquename": this.currentGene.uniquename,
+          "interaction_type": interactionType,
+          "throughput": throughput,
+          "evidence_type": evidenceType,
+        }
+      },
+      "output_options": {
+        "field_names":["gene_uniquename"],
+        "sequence":"none"
+      }};
+
+    return `/results/from/json/${JSON.stringify(query)}`;
+  }
+
   updateDisplayTable(): void {
     this.hideColumns.map(col => {
       this.hideColumn[col] = true;
@@ -85,19 +131,9 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
       this.filteredTable = this.annotationTable;
     }
 
-    let interactionType;
-
-    if (this.annotationTypeName === 'physical_interactions') {
-      interactionType = 'physical';
-    } else {
-      interactionType = 'genetic';
-    }
 
     if (this.currentGene) {
-      const json = `{"constraints":{"interactors":
-       {"gene_uniquename": "${this.currentGene.uniquename}", "interaction_type": "${interactionType}"}},` +
-        '"output_options": {"field_names":["gene_uniquename"],"sequence":"none"}}';
-      this.queryLinkUrl = `/results/from/json/${json}`;
+      this.queryLinkUrl = this.makeQueryUrl();
 
       if (this.currentGene.biogrid_interactor_id) {
         const linkResult =
@@ -171,6 +207,8 @@ export class InteractionAnnotationTableComponent implements OnInit, OnChanges {
   }
 
   updateCurrentFilter(filter?: InteractionFilter) {
+    this.currentFilter = filter;
+
     if (filter) {
       [this.filteredTable, this.annotationCount, this.filteredAnnotationCount] =
         filter.filter(this.annotationTable);

@@ -1,17 +1,17 @@
-import { GeneticInteractionTable } from '../pombase-api.service';
+import { InteractionTable } from '../pombase-api.service';
 import { Filter } from '../filtering';
 import { InteractionTypeFilterCategory } from '../config';
 
-export class GeneticInteractionTypeFilter implements Filter <GeneticInteractionTable> {
+export class InteractionTypeFilter implements Filter <InteractionTable> {
   constructor(private interactionType: InteractionTypeFilterCategory) {}
 
 
-  filter(interactionTable: GeneticInteractionTable): [GeneticInteractionTable, number, number] {
-    let retTable = [];
+  filter(interactionTable: InteractionTable): [InteractionTable, number, number] {
+    let retTable: InteractionTable = [];
     let count = interactionTable.length;
 
     for (const interaction of interactionTable) {
-      if (this.interactionType == interaction.interaction_type) {
+      if (this.interactionType == interaction.evidence) {
         retTable.push(interaction);
       }
     }

@@ -16,4 +16,8 @@ export class InteractionThroughputFilter implements Filter<InteractionTable> {
 
     return [retTable, count, retTable.length];
   }
+
+  getThroughput(): ThroughputType {
+    return this.throughputType;
+  }
 }
