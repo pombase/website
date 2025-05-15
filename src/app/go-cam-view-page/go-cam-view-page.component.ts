@@ -160,10 +160,15 @@ export class GoCamViewPageComponent implements OnInit {
       if (this.gocamIdParam !== undefined) {
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
 
+        this.includeChemicals = false;
+
         if (this.gocamIdParam.endsWith(":include_chemicals")) {
           this.includeChemicals = true;
+          this.gocamIdParam = this.gocamIdParam.replace(":include_chemicals", "");
         } else {
-          this.includeChemicals = false;
+          if (this.gocamIdParam.endsWith(":no_chemicals")) {
+            this.gocamIdParam = this.gocamIdParam.replace(":no_chemicals", "");
+          }
         }
 
         this.gocamIds = this.gocamIdParam.split("+");
