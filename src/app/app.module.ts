@@ -160,6 +160,7 @@ import { AllelePromoterListComponent } from './allele-promoter-list/allele-promo
 import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
 import { GoCamViewerComponent } from './go-cam-viewer/go-cam-viewer.component';
 import { GoCamViewPageComponent } from './go-cam-view-page/go-cam-view-page.component';
+import { GocamConnectionsComponent } from './gocam-connections/gocam-connections.component';
 import { GeneticInteractionTableTypeFilterComponent } from './genetic-interaction-table-type-filter/genetic-interaction-table-type-filter.component';
 import { RnaStructureComponent } from './rna-structure/rna-structure.component';
 import { ProteinFeatureTableComponent } from './protein-feature-table/protein-feature-table.component';
@@ -317,6 +318,7 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         AllelePromoterListComponent,
         GoCamViewerComponent,
         GoCamViewPageComponent,
+        GocamConnectionsComponent,
         GeneticInteractionTableTypeFilterComponent,
         RnaStructureComponent,
         ProteinFeatureTableComponent,

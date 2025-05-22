@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
+import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
 
 @Component({
@@ -12,12 +14,23 @@ import { AppConfig, getAppConfig } from '../config';
 export class GocamConnectionsComponent {
   appConfig: AppConfig = getAppConfig();
 
+  summaryType: string = 'connected';
+  iframeUrl?: SafeResourceUrl;
+
   constructor(private titleService: Title,
-              private readonly meta: Meta) {
+              private sanitizer: DomSanitizer,
+              private readonly meta: Meta,
+              private route: ActivatedRoute) {
   }
 
   setPageTitle(): void {
-    const title = this.appConfig.site_name + ' - GO-CAM Connections';
+    let title = this.appConfig.site_name + ' - GO-CAM Summary';
+
+    if (this.summaryType == 'connected') {
+      title += ' - Connected models';
+    } else {
+      title += ' - All models';
+    }
 
     this.titleService.setTitle(title);
     this.meta.updateTag({ property: 'og:title', content: title });
@@ -25,6 +38,13 @@ export class GocamConnectionsComponent {
   }
 
   ngOnInit(): void {
-    this.setPageTitle();
+    this.route.params.forEach((params: Params) => {
+      this.summaryType = params['summaryType'] || 'connected';
+
+      const rawUrl = '/gocam_summary/' + this.summaryType;
+      this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
+
+      this.setPageTitle();
+    });
   }
 }

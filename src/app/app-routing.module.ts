@@ -98,6 +98,11 @@ const routes: Routes = [
     }
   },
   {
+    path: 'gocam/summary/:summaryType', component: GocamConnectionsComponent,
+    data: {
+    }
+  },
+  {
     path: 'gocam/:source_page_type/:gocam_id/:source/:source_name', component: GoCamViewPageComponent,
     data: {
     }

@@ -43,6 +43,10 @@
     "target": "http://localhost:8400",
     "secure": false
   },
+  "/gocam_summary": {
+    "target": "http://localhost:8400",
+    "secure": false
+  },
   "/gocam_connections": {
     "target": "http://localhost:8400",
     "secure": false

@@ -1,4 +1,4 @@
-<div class="gocam-container">
-  <iframe src="/gocam_connections" class="gocam-iframe" #gocamiframe>
+<div *ngIf="iframeUrl" class="gocam-container">
+  <iframe [src]="iframeUrl" class="gocam-iframe" #gocamiframe>
   </iframe>
 </div>
