@@ -56,6 +56,7 @@ Annotation type|Description
 [Modifications](downloads/modifications)|Protein modifications
 %%if db=PomBase
 [Orthologs](${base_url}/data/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
+[Expression](${base_url}/latest_release/gene_expression/)|Quantitative and qualitative protein and RNA expression data
 %%end db=PomBase
 %%if db=JaponicusDB
 [Orthologs](${base_url}/data/orthologs/)|Ortholog sets for human, cerevisiae and *S. pombe*
