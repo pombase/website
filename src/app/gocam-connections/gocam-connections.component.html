@@ -1,4 +1,89 @@
-<div *ngIf="iframeUrl" class="gocam-container">
-  <iframe [src]="iframeUrl" class="gocam-iframe" #gocamiframe>
-  </iframe>
+<div class="gocam-container docs">
+  <app-page-contents-menu title="GO-CAM pathways" titleRoute="/gocam">
+
+    <div class="left-menu-part left-menu-item"><a routerLink="/documentation/go-cam-pathway-models">GO-CAM documentation</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/model-list">Model list</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/summary/connected">Summary - Connected models</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/summary/all">Summary - All models</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/mega-model/connected">Mega-model - Connected models</a></div>
+    <div class="left-menu-part
+    left-menu-item"><a routerLink="/gocam/mega-model/all">Mega-model -
+    All models</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/connections">Overlapping activities</a></div>
+
+
+  </app-page-contents-menu>
+
+  <div class="docs-content">
+  <div *ngIf="pageType == 'model-list'" class="gocam-landing-page">
+    <h3>GO-CAM pathways
+      <span class="help-link">
+      <app-help-link [route]="'/documentation/go-cam-pathway-models'" [title]="'GO-CAM documentation'">
+        Documentation
+      </app-help-link>
+    </span></h3>
+
+    GO-CAMs, or Gene Ontology Causal Activity Models, are a framework
+    developed within the Gene Ontology (GO) project to represent
+    complex biological pathways in a structured, computable format.
+
+    <p>
+    For more information, visit the
+    <a href="/documentation/go-cam-pathway-models">PomBase GO-CAM documentation</a> or
+    the <a href="https://geneontology.org/docs/gocam-overview/">Gene Ontology project's GO-CAM overview</a>.
+
+    <h4>Pathway holes</h4>
+
+We maintain a list of activities known or suspected to occur in fission yeast but
+not yet associated with a gene product. These “pathway holes” have
+been identified through GO-CAM causal model curation.
+
+    <a routerLink="/status/missing-gocam-proteins"><span class="genus-species">S. pombe</span> pathway holes</a>
+
+    <h4>Available GO-CAM models</h4>
+
+    <app-go-cam-table></app-go-cam-table>
+  </div>
+
+  <div *ngIf="pageType == 'pathway-holes'">
+    <a routerLink="/status/missing-gocam-proteins"><span class="genus-species">S. pombe</span> pathway holes</a>
+  </div>
+
+  <div *ngIf="pageType && pageType == 'summary'" class="gocam-page">
+    <h4>GO-CAM Model Summary</h4>
+
+    <div *ngIf="iframeUrl" class="gocam-container">
+      <iframe [src]="iframeUrl" class="gocam-iframe" #gocamiframe>
+      </iframe>
+    </div>
+  </div>
+
+  <div *ngIf="pageType && pageType == 'mega-model'" class="gocam-page">
+    <h4>GO-CAM Mega Model</h4>
+
+    <div class="chemical-toggle">
+      <input id="include-chemicals" type="checkbox" [(ngModel)]="includeChemicals"
+             (ngModelChange)="updateMegaModelUrl()">
+      <label for="include-chemicals">Display chemicals</label>
+    </div>
+
+    <div *ngIf="iframeUrl" class="gocam-container">
+      <iframe [src]="iframeUrl" class="gocam-iframe" #gocamiframe>
+      </iframe>
+    </div>
+  </div>
+
+  <div *ngIf="pageType == 'connections'">
+
+    <h4>GO-CAM overlapping activities
+      <app-help-link [route]="'/documentation/go-cam-pathway-models'"
+                     [title]="'GO-CAM documentation'">
+        Documentation
+      </app-help-link>
+    </h4>
+
+    <app-gocam-overlaps-table></app-gocam-overlaps-table>
+
+  </div>
+  </div>
 </div>

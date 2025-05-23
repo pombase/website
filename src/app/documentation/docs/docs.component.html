@@ -5130,6 +5130,10 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <td><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></td>
 <td>Manually curated ortholog sets for <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> and <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene"><em>S. cerevisiae</em></a>; also see <a routerLink="/documentation/orthologs">documentation</a></td>
 </tr>
+<tr class="even">
+<td><a href="https://www.pombase.org/latest_release/gene_expression/">Expression</a></td>
+<td>Quantitative and qualitative protein and RNA expression data</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -6700,18 +6704,6 @@ satisfy those conditions. Click on it to see the lists of genes.</li> <li>In tha
 <p><a routerLink="/status/missing-gocam-proteins"><em>S. pombe</em> pathway holes</a></p>
 <h3 id="available-go-cam-models">Available GO-CAM models</h3>
 <p><app-go-cam-table></app-go-cam-table></p>
-
-  </div>
-  <div *ngIf="pageName == 'gocam-overlaps'">
-<h2 id="go-cam-model-connections">GO-CAM model connections</h2>
-<h3 id="merged-models">Merged models</h3>
-<ul>
-<li><a routerLink="/pombase_gocam_view/docs/ALL_MERGED">all models</a></li>
-<li><a routerLink="/pombase_gocam_view/docs/ALL_CONNECTED">connected models</a></li>
-<li><a routerLink="/gocam/connections">overview</a></li>
-</ul>
-<h3 id="go-cam-overlapping-activities">GO-CAM overlapping activities</h3>
-<p><app-gocam-overlaps-table></app-gocam-overlaps-table></p>
 
   </div>
   <div *ngIf="pageName == 'high-confidence-physical-interaction-network'">

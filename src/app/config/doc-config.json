@@ -64,7 +64,6 @@
       "documentation/genotype-page" : "Genotype pages",
       "documentation/getting-started" : "Getting started",
       "documentation/go-cam-pathway-models" : "GO-CAM curated biological pathways",
-      "documentation/gocam-overlaps" : "GO-CAM model connections",
       "documentation/high-confidence-physical-interaction-network" : "High Confidence Physical Interaction Network (HCPIN)",
       "documentation/id-mapper" : "Identifier mapper",
       "documentation/index" : "PomBase Web Site Help & Documentation",

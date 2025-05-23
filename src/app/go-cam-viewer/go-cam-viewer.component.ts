@@ -34,8 +34,8 @@ export class GoCamViewerComponent {
   }
 
   modelChange() {
-    this.largeViewPath = '/gocam/';
-    this.pomBaseViewPath = '/pombase_gocam_view/';
+    this.largeViewPath = '/gocam/view/';
+    this.pomBaseViewPath = '/gocam/pombase-view/';
 
     const geneOrTermDetails = this.geneOrTermDetails;
 

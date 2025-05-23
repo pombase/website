@@ -23,8 +23,8 @@
         </span>
         <span *ngIf="!overlappingGene">Merged GO-CAM pathway models:</span>
          <div class="model-title-or-id" *ngFor="let detail of gocamDetailsList; let idx = index">
-            <a *ngIf="source" routerLink="/pombase_gocam_view/docs/{{detail.gocam_id}}/{{source}}">{{detail.gocam_id}}</a>
-            <a *ngIf="!source" routerLink="/pombase_gocam_view/docs/{{detail.gocam_id}}">{{detail.gocam_id}}</a>
+            <a *ngIf="source" routerLink="/gocam/pombase-view/docs/{{detail.gocam_id}}/{{source}}">{{detail.gocam_id}}</a>
+            <a *ngIf="!source" routerLink="/gocam/pombase-view/docs/{{detail.gocam_id}}">{{detail.gocam_id}}</a>
             <app-description-display
              [description]="detail.title"
              [descriptionParts]="titleParts[idx]">

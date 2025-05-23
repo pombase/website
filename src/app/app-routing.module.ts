@@ -93,42 +93,47 @@ const routes: Routes = [
     }
   },
   {
-    path: 'gocam/connections', component: GocamConnectionsComponent,
+    path: 'gocam/view/:source_page_type/:gocam_id/:source/:source_name', component: GoCamViewPageComponent,
     data: {
     }
   },
   {
-    path: 'gocam/summary/:summaryType', component: GocamConnectionsComponent,
+    path: 'gocam/view/:source_page_type/:gocam_id/:source', component: GoCamViewPageComponent,
     data: {
     }
   },
   {
-    path: 'gocam/:source_page_type/:gocam_id/:source/:source_name', component: GoCamViewPageComponent,
+    path: 'gocam/view/:source_page_type/:gocam_id', component: GoCamViewPageComponent,
     data: {
     }
   },
   {
-    path: 'gocam/:source_page_type/:gocam_id/:source', component: GoCamViewPageComponent,
+    path: 'gocam/pombase-view/:source_page_type/:gocam_id/:source/:source_name', component: GoCamViewPageComponent,
     data: {
     }
   },
   {
-    path: 'gocam/:source_page_type/:gocam_id', component: GoCamViewPageComponent,
+    path: 'gocam/pombase-view/:source_page_type/:gocam_id/:source', component: GoCamViewPageComponent,
     data: {
     }
   },
   {
-    path: 'pombase_gocam_view/:source_page_type/:gocam_id/:source/:source_name', component: GoCamViewPageComponent,
+    path: 'gocam/pombase-view/:source_page_type/:gocam_id', component: GoCamViewPageComponent,
     data: {
     }
   },
   {
-    path: 'pombase_gocam_view/:source_page_type/:gocam_id/:source', component: GoCamViewPageComponent,
+    path: 'gocam/:pageType/:pageSubType', component: GocamConnectionsComponent,
     data: {
     }
   },
   {
-    path: 'pombase_gocam_view/:source_page_type/:gocam_id', component: GoCamViewPageComponent,
+    path: 'gocam/:pageType', component: GocamConnectionsComponent,
+    data: {
+    }
+  },
+  {
+    path: 'gocam', component: GocamConnectionsComponent,
     data: {
     }
   },

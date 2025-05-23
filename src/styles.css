@@ -65,7 +65,7 @@ a, a:not([href]):not([tabindex]) {
   color: #337ab7;
 }
 
-.citation {
+.citation, .genus-species {
   font-style: italic;
 }
 

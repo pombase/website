@@ -14,35 +14,69 @@ import { AppConfig, getAppConfig } from '../config';
 export class GocamConnectionsComponent {
   appConfig: AppConfig = getAppConfig();
 
-  summaryType: string = 'connected';
+  pagePath: 'model-list' | 'summary/all' | 'summary/connected' | 'mega-model/all' |
+            'mega-model/connected' | 'connections' = 'model-list';
+  pageType?: string;
+  pageSubType?: string;
+
   iframeUrl?: SafeResourceUrl;
+  includeChemicals = false;
 
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
-              private readonly meta: Meta,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private readonly meta: Meta) {
   }
 
   setPageTitle(): void {
-    let title = this.appConfig.site_name + ' - GO-CAM Summary';
+    let title = this.appConfig.site_name + ' - GO-CAM';
 
-    if (this.summaryType == 'connected') {
-      title += ' - Connected models';
-    } else {
-      title += ' - All models';
+    if (this.pagePath == 'summary/connected') {
+      title += ' - Summary: Connected models';
+    } else if (this.pagePath == 'summary/all') {
+      title += ' - Summary: All models';
     }
 
     this.titleService.setTitle(title);
+
     this.meta.updateTag({ property: 'og:title', content: title });
     this.meta.updateTag({ property: 'description', content: title });
   }
 
+  updateMegaModelUrl(): void {
+    let rawUrl = '/gocam_view/full/';
+    if (this.pageSubType == 'connected') {
+      rawUrl += 'ALL_CONNECTED';
+    } else {
+      rawUrl += 'ALL_MERGED';
+    }
+
+    if (this.includeChemicals) {
+      rawUrl += ':include_chemical';
+    } else {
+      rawUrl += ':no_chemicals';
+    }
+
+    this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      this.summaryType = params['summaryType'] || 'connected';
+      const pageType = params['pageType'] || 'model-list';
+      this.pageType = pageType;
+      this.pageSubType = params['pageSubType'];
+      this.pagePath = pageType;
 
-      const rawUrl = '/gocam_summary/' + this.summaryType;
-      this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
+      if (this.pageSubType) {
+        this.pagePath += '/' + this.pageSubType;
+      }
+
+      if (this.pagePath.startsWith('summary/')) {
+        const rawSummaryUrl = '/gocam_summary/' + params['pageSubType'];
+        this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawSummaryUrl);
+      } else if (this.pagePath.startsWith('mega-model/')) {
+        this.updateMegaModelUrl();
+      }
 
       this.setPageTitle();
     });

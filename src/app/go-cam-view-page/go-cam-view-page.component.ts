@@ -129,11 +129,11 @@ export class GoCamViewPageComponent implements OnInit {
         rawUrl = 'gocam_view/full/' + idForUrl;
       }
 
-      this.alternateViewRoute = currentUrl.replace('/pombase_gocam_view/', '/gocam/');
+      this.alternateViewRoute = currentUrl.replace('/gocam/pombase-view/', '/gocam/view/');
     } else {
       rawUrl = 'gocam_viz/full/' + this.gocamIdParam;
 
-      this.alternateViewRoute = currentUrl.replace('/gocam/', '/pombase_gocam_view/');
+      this.alternateViewRoute = currentUrl.replace('/gocam/view/', '/gocam/pombase-view/');
     }
 
     this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
@@ -151,9 +151,9 @@ export class GoCamViewPageComponent implements OnInit {
       this.source = params['source'];
       this.sourceName = params['source_name'];
 
-      const path = this.route.snapshot.url[0].path;
+      const pathSeg2 = this.route.snapshot.url[1].path;
 
-      this.isPomBaseView = path.includes('pombase_gocam_view');
+      this.isPomBaseView = pathSeg2.includes('pombase-view');
       this.alternateViewRoute = undefined;
       this.noctuaLink = undefined;
 
