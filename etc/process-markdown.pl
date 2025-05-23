@@ -306,7 +306,7 @@ sub table_to_html
               }
 
               if ($col_entry =~ m|^gomodel:(\S+)\s+(\S.*)|) {
-                $col_entry = qq|<a routerLink="/gocam/docs/$1" title="Click to view model $1">$2</a>|;
+                $col_entry = qq|<a routerLink="/gocam/view/docs/$1" title="Click to view model $1">$2</a>|;
               } else {
                 $col_entry =~ s|\b(GO:\d\d\d\d+)\b|<a routerLink='/term/$1' title='Click to view term'>$1</a>|g;
               }
