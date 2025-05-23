@@ -77,8 +77,11 @@
         <a routerLink="/status/gene-characterisation">Status/unknowns</a>
       </span>
       <span *ngIf="siteName == 'PomBase'" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="siteName == 'PomBase'">
+      <span *ngIf="siteName == 'PomBase' && deployConfigService.productionMode()">
         <a routerLink="/documentation/go-cam-pathway-models">GO-CAM pathways</a>
+      </span>
+      <span *ngIf="siteName == 'PomBase' && !deployConfigService.productionMode()">
+        <a routerLink="/gocam">GO-CAM pathways</a>
       </span>
     </span>
   </span>

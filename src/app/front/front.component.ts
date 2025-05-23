@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-
 import { Metadata, PombaseAPIService } from '../pombase-api.service';
 import { Util } from '../shared/util';
 
 import { getAppConfig, PanelConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
     selector: 'app-front',
@@ -49,7 +49,8 @@ export class FrontComponent implements OnInit {
 
   showElixirAndGbcLogos = getAppConfig().footer.show_elixir_and_gbc_message;
 
-  constructor(private pombaseApiService: PombaseAPIService) { }
+  constructor(private pombaseApiService: PombaseAPIService,
+              public deployConfigService: DeployConfigService) { }
 
   ngOnInit() {
     this.rotatingImageName = Util.randElement(this.imageNames);
