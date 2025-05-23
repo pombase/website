@@ -13,6 +13,7 @@ import { AppConfig, getAppConfig } from '../config';
 })
 export class GocamConnectionsComponent {
   appConfig: AppConfig = getAppConfig();
+  siteName = getAppConfig().site_name;
 
   pagePath: 'model-list' | 'summary/all' | 'summary/connected' | 'mega-model/all' |
             'mega-model/connected' | 'connections' = 'model-list';
