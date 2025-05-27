@@ -36,12 +36,28 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
               public deployConfigService: DeployConfigService) { }
 
   maybeDoSplit() {
+    const makeKey = (termAnnotation: TermAnnotation) => {
+      if (termAnnotation.is_not) {
+        // confusing! - this is_not is different from the NOT in the config
+        return 'not-' + termAnnotation.term.termid;
+      } else {
+        return termAnnotation.term.termid;
+      }
+    }
+
     if (this.annotationTable && this.typeConfig && this.typeConfig.split_by_parents) {
-      this.split_by_parents = this.typeConfig.split_by_parents;
+      this.split_by_parents = [...this.typeConfig.split_by_parents];
+      const defaultConfig = {
+        config_name: 'other',
+        termids: [],
+        display_name: 'Other',
+      };
+      this.split_by_parents.push(defaultConfig);
       this.splitDataList = {};
+      let seenTermsAnySplit: { [termid: string]: boolean } = {};
 
       for (let splitByConfig of this.split_by_parents) {
-        let seenTerms: {[termid: string]: boolean} = {};
+        let seenTermsThisSplit: {[termid: string]: boolean} = {};
         for (let splitByTermId of splitByConfig.termids) {
           let notFlag = false;
 
@@ -62,19 +78,27 @@ export class AnnotationTableComponent implements OnInit, OnChanges {
               if (!this.splitDataList[splitByConfig.config_name]) {
                 this.splitDataList[splitByConfig.config_name] = [];
               }
-              let seenTermsKey;
-              if (termAnnotation.is_not) {
-                // confusing! - this is_not is different from the NOT in the config
-                seenTermsKey = 'not-' + termAnnotation.term.termid;
-              } else {
-                seenTermsKey = termAnnotation.term.termid;
-              }
-              if (!seenTerms[seenTermsKey]) {
+
+              let seenTermsKey = makeKey(termAnnotation);
+
+              if (!seenTermsThisSplit[seenTermsKey]) {
                 this.splitDataList[splitByConfig.config_name].push(termAnnotation);
-                seenTerms[seenTermsKey] = true;
+                seenTermsThisSplit[seenTermsKey] = true;
+                seenTermsAnySplit[seenTermsKey] = true;
               }
             }
           }
+        }
+      }
+
+      for (let termAnnotation of this.annotationTable) {
+        let seenTermsKey = makeKey(termAnnotation);
+
+        if (!seenTermsAnySplit[seenTermsKey]) {
+          if (!this.splitDataList['other']) {
+            this.splitDataList['other'] = [];
+          }
+          this.splitDataList['other'].push(termAnnotation);
         }
       }
     }
