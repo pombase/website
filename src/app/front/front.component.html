@@ -34,6 +34,12 @@
         Genome browser
       </a>
     </span>
+    <span *ngIf="!deployConfigService.productionMode()" class="quick-links-separator">&#x25CF;</span>
+    <span class="quick-links-label">
+      <a href="/jbrowse2/">
+        JBrowse V2
+      </a>
+    </span>
   </span>
   <span class="quick-links-group">
     <span class="quick-links-line">
