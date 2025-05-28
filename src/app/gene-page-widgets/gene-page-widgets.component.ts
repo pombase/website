@@ -3,6 +3,7 @@ import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 import { GenePageWidget, SettingsService } from '../settings.service';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
     selector: 'app-gene-page-widgets',
@@ -18,11 +19,14 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   appConfig: AppConfig = getAppConfig();
   jbrowseLinkUrl?: string;
+  jbrowse2GeneUrl?: string;
 
   constructor(private pombaseApiService: PombaseAPIService,
+              private deployConfigService: DeployConfigService,
               public settingsService: SettingsService) { }
 
   setJBrowseLink(): void {
+    this.jbrowse2GeneUrl = undefined;
     if (this.geneDetails && this.geneDetails.location) {
       this.pombaseApiService.getChromosomeSummaryMapPromise()
         .then(chromosomeSummaryMap => {
@@ -60,6 +64,16 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
           const tracks = 'Forward%20strand%20features%2CReverse%20strand%20features%2CDNA%20sequence';
           this.jbrowseLinkUrl =
             `jbrowse/?loc=${chrExportId}%3A${jbStart}..${jbEnd}&tracks=${tracks}&tracklist=0&nav=0&overview=0`;
+
+          if (!this.deployConfigService.productionMode()) {
+            const jbrowseAssemblyName = getAppConfig().jbrowseAssemblyName;
+            const jbrowseDefaultTrackIds = getAppConfig().jbrowseDefaultTrackIds;
+            if (jbrowseAssemblyName && jbrowseDefaultTrackIds) {
+              const trackIds = jbrowseDefaultTrackIds.join(',');
+              this.jbrowse2GeneUrl =
+                `/jbrowse2?loc=${chrExportId}%3A${jbStart}-${jbEnd}&highlight=${chrExportId}:${lowerPos}-${upperPos}&assembly=${jbrowseAssemblyName}&tracks=${trackIds}`;
+            }
+          }
         });
     } else {
       this.jbrowseLinkUrl = undefined;

@@ -339,6 +339,8 @@ export interface AppConfig {
   featureLocationWarnings: Array<FeatureLocationWarning>;
   alphafoldMaxProteinLength: number;
   jbrowseTrackPickerBaseUrl: string;
+  jbrowseAssemblyName?: string;
+  jbrowseDefaultTrackIds?: Array<string>,
   apiSeqChunkSizes: {
     all: Array<number>;
     smallest: number;
@@ -831,6 +833,8 @@ let _appConfig: AppConfig = {
   featureLocationWarnings: pombaseConfig.feature_location_warnings || [],
   alphafoldMaxProteinLength: pombaseConfig.alphafold_max_protein_length || 1280,
   jbrowseTrackPickerBaseUrl: pombaseConfig.jbrowse_track_picker_base_url,
+  jbrowseAssemblyName: pombaseConfig.jbrowse_assembly_name,
+  jbrowseDefaultTrackIds: pombaseConfig.jbrowse_default_track_ids,
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,
     smallest: Math.min(...pombaseConfig.api_seq_chunk_sizes),

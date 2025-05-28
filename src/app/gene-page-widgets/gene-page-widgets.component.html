@@ -106,6 +106,10 @@
 
 <div *ngIf="currentWidget() == 'genome_browser'" class="chromosome-region-view">
 
+  <div *ngIf="jbrowse2GeneUrl">
+    <span>New: <a href="{{jbrowse2GeneUrl}}">view {{geneDetails.name || geneDetails.uniquename}} in JBrowse V2</a></span>
+  </div>
+
   <div *ngFor="let gene of [geneDetails]">
   <div *ngIf="getJBrowseIFrameURL()" class="jbrowse-container">
     <iframe [src]="getJBrowseIFrameURL()! | safeUrl" scrolling="no" class="embedded-jbrowse">
