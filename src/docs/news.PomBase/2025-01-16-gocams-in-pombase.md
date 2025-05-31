@@ -10,7 +10,7 @@ These pathways were curated using GO-Causal Activity Modeling
 a causal network by connecting GO molecular function terms
 (activities), encoded by individual gene products.
 
-GO-CAM model for [vitamin B6 metabolic process](/gocam/docs/66c7d41500001171):
+GO-CAM model for [vitamin B6 metabolic process](/gocam/view/docs/66c7d41500001171):
 
 [![Example GO-CAM model - vitamin B6 metabolic process](assets/newsfeed/go-cam_vitamin_B6_metabolic_process.png){ .screenshot loading="lazy" width=100% }](assets/newsfeed/go-cam_vitamin_B6_metabolic_process.png)
 
