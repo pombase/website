@@ -8,7 +8,7 @@
       <div *ngIf="gocamDetailsList.length == 1">
         GO-CAM pathway model
         <span class="model-title-or-id">
-          <app-description-display [description]="gocamDetailsList[0].title" [descriptionParts]="titleParts[0]">
+          <app-description-display [description]="gocamDetailsList[0].title" [descriptionParts]="titleParts[0] || []">
           </app-description-display>
         </span>
         <span *ngIf="sourcePageType != 'docs'">

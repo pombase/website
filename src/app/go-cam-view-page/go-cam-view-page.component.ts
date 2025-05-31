@@ -173,14 +173,29 @@ export class GoCamViewPageComponent implements OnInit {
 
         this.gocamIds = this.gocamIdParam.split("+");
 
+        if (/^[A-Z_]+$/.test(this.gocamIdParam)) {
+          // fake details for ALL_MERGED or ALL_CONNECTED
+          let title;
+          if (this.gocamIdParam == "ALL_MERGED") {
+            title = "All models merged";
+          } else {
+            if (this.gocamIdParam == "ALL_CONNECTED") {
+              title = "All connected models merged";
+            } else {
+              title = this.gocamIdParam;
+            }
+          }
+          this.gocamDetailsList = [
+            {
+              title,
+            } as GoCamDetails];
+        } else {
+
         const gocamDetailPromise = this.pombaseApi.getGoCamDetailByIds(this.gocamIds.join(","));
-        gocamDetailPromise.then((details) => {
-            this.gocamDetailsList = details;
-            this.setPageTitle();
-          });
 
         Promise.all([summPromise, gocamDetailPromise])
            .then(([geneSummMap, gocamDetailsList]) => {
+            this.gocamDetailsList = gocamDetailsList;
             const seenGenes = new Set();
             for (const detail of gocamDetailsList) {
               for (const geneUniquename of detail.genes) {
@@ -212,7 +227,10 @@ export class GoCamViewPageComponent implements OnInit {
               if (gocamDetailsList.length > 1 && this.source && this.sourceName) {
                 this.overlappingGene = { uniquename: this.source, name: this.sourceName } as GeneShort;
               }
+
+             this.setPageTitle();
            });
+        }
 
         this.updateUrl();
 
