@@ -61,10 +61,21 @@ been identified through GO-CAM causal model curation.
   <div *ngIf="pageType && pageType == 'mega-model'" class="gocam-page">
     <h4>GO-CAM Mega Model</h4>
 
-    <div class="chemical-toggle">
-      <input id="include-chemicals" type="checkbox" [(ngModel)]="includeChemicals"
-             (ngModelChange)="updateMegaModelUrl()">
-      <label for="include-chemicals">Display chemicals</label>
+    <div class="filter-group">
+      <div class="filter-select">
+        <input id="show-all" type="radio" [(ngModel)]="filterType" value="none" (ngModelChange)="updateMegaModelUrl()">
+        <label for="show-all">Show all</label>
+      </div>
+
+      <div class="filter-select">
+        <input id="hide-chemicals" type="radio" [(ngModel)]="filterType" value="chemical" (ngModelChange)="updateMegaModelUrl()">
+        <label for="hide-chemicals">Hide chemicals</label>
+      </div>
+
+      <div class="filter-select">
+        <input id="hide-all-inputs" type="radio" [(ngModel)]="filterType" value="all-inputs" (ngModelChange)="updateMegaModelUrl()">
+        <label for="hide-all-inputs">Hide all inputs/outputs</label>
+      </div>
     </div>
 
     <div *ngIf="iframeUrl" class="gocam-container">

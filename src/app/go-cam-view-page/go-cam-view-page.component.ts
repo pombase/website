@@ -30,7 +30,7 @@ export class GoCamViewPageComponent implements OnInit {
   geneSummaryMap?: GeneSummaryMap;
   titleParts: Array<Array<TextOrTermId>> = [];
   isPomBaseView = false;
-  includeChemicals = false;
+  filterType: 'none'|'chemical'|'all-inputs' = 'chemical';
   alternateViewRoute?: string;
   noctuaLink?: string;
 
@@ -117,12 +117,18 @@ export class GoCamViewPageComponent implements OnInit {
 
     if (this.isPomBaseView) {
       let idForUrl = this.gocamIdParam;
-      if (this.includeChemicals) {
-        idForUrl += ':include_chemicals';
+      let flags = [];
+      if (this.filterType == 'chemical') {
+        flags.push("no_chemicals");
       } else {
-        idForUrl += ':no_chemicals';
+        if (this.filterType == 'all-inputs') {
+          flags.push("no_inputs");
+        }
       }
 
+      if (flags.length > 0) {
+        idForUrl += ':' + flags.join(",")
+      }
       if (this.source) {
         rawUrl = 'gocam_view/full/' + idForUrl + '/' + this.source;
       } else {
@@ -160,15 +166,21 @@ export class GoCamViewPageComponent implements OnInit {
       if (this.gocamIdParam !== undefined) {
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
 
-        this.includeChemicals = false;
+        this.filterType = 'none';
 
-        if (this.gocamIdParam.endsWith(":include_chemicals")) {
-          this.includeChemicals = true;
-          this.gocamIdParam = this.gocamIdParam.replace(":include_chemicals", "");
-        } else {
-          if (this.gocamIdParam.endsWith(":no_chemicals")) {
-            this.gocamIdParam = this.gocamIdParam.replace(":no_chemicals", "");
+        if (this.gocamIdParam.includes(":")) {
+          const [gocamId, flagString] = this.gocamIdParam.split(":");
+          const flags = flagString.split(",");
+          if (flags.includes("no_chemicals")) {
+            this.filterType = 'chemical';
+          } else {
+            if (flags.includes("no_inputs")) {
+              this.filterType = 'all-inputs';
+            }
           }
+          this.gocamIdParam = gocamId
+        } else {
+          this.filterType = 'chemical';
         }
 
         this.gocamIds = this.gocamIdParam.split("+");
