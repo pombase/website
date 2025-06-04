@@ -172,3 +172,11 @@ img.widget-button {
     width: 1000px
   }
 }
+
+.jbrowse-links {
+  padding: 0 0 0.5em 0;
+}
+
+.jbrowse-links span {
+  padding: 0 0.5em;
+}

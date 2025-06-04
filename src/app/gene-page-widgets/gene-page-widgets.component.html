@@ -106,8 +106,21 @@
 
 <div *ngIf="currentWidget() == 'genome_browser'" class="chromosome-region-view">
 
-  <div *ngIf="jbrowse2GeneUrl">
-    <span>New: <a href="{{jbrowse2GeneUrl}}">view {{geneDetails.name || geneDetails.uniquename}} in JBrowse V2</a></span>
+  <div class="jbrowse-links" *ngIf="jbrowse2GeneUrl">
+    View {{geneDetails.name || geneDetails.uniquename}} in:
+    <span>
+      <a href="{{jbrowse2GeneUrl}}" target="_blank"
+        title="View {{geneDetails.name || geneDetails.uniquename}} in the JBrowse V2 genome browser">
+        New genome browser
+      </a>
+    </span>
+    or
+    <span>
+      <a href="{{jbrowse1GeneUrl}}" target="_blank"
+        title="View {{geneDetails.name || geneDetails.uniquename}} in the JBrowse V1 genome browser">
+        Old genome browser
+      </a>
+    </span>
   </div>
 
   <div *ngFor="let gene of [geneDetails]">

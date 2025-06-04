@@ -19,6 +19,8 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
 
   appConfig: AppConfig = getAppConfig();
   jbrowseLinkUrl?: string;
+
+  jbrowse1GeneUrl?: string;
   jbrowse2GeneUrl?: string;
 
   constructor(private pombaseApiService: PombaseAPIService,
@@ -62,8 +64,9 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
           }
 
           const tracks = 'Forward%20strand%20features%2CReverse%20strand%20features%2CDNA%20sequence';
-          this.jbrowseLinkUrl =
-            `jbrowse/?loc=${chrExportId}%3A${jbStart}..${jbEnd}&tracks=${tracks}&tracklist=0&nav=0&overview=0`;
+          const jbrowse1urlBase = `jbrowse/?loc=${chrExportId}%3A${jbStart}..${jbEnd}&tracks=${tracks}`;
+          this.jbrowseLinkUrl = jbrowse1urlBase + '&tracklist=0&nav=0&overview=';
+          this.jbrowse1GeneUrl = jbrowse1urlBase + '&tracklist=1&nav=1&overview=1&highlight=';
 
           if (!this.deployConfigService.productionMode()) {
             const jbrowseAssemblyName = getAppConfig().jbrowseAssemblyName;
