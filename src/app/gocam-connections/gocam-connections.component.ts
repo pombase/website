@@ -21,7 +21,7 @@ export class GocamConnectionsComponent {
   pageSubType?: string;
 
   iframeUrl?: SafeResourceUrl;
-  includeChemicals = false;
+  filterType: 'none' | 'chemical' | 'all-inputs' = 'all-inputs';
 
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
@@ -52,10 +52,17 @@ export class GocamConnectionsComponent {
       rawUrl += 'ALL_MERGED';
     }
 
-    if (this.includeChemicals) {
-      rawUrl += ':include_chemical';
+    let flags = [];
+    if (this.filterType == 'chemical') {
+      flags.push("no_chemicals");
     } else {
-      rawUrl += ':no_chemicals';
+      if (this.filterType == 'all-inputs') {
+        flags.push("no_inputs");
+      }
+    }
+
+    if (flags.length > 0) {
+      rawUrl += ':' + flags.join(",")
     }
 
     this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);

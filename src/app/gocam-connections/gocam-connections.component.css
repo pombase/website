@@ -10,3 +10,12 @@
 .gocam-landing-page {
   max-width: 80%;
 }
+
+.filter-select {
+  font-size: 110%;
+  margin: 0.5em 3em 0.3em 0em;
+  display: inline-block;
+}
+.filter-group {
+  display: inline-block;
+}

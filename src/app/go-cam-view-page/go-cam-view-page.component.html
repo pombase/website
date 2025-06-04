@@ -59,9 +59,21 @@
       <a href="{{noctuaLink}}">View in Noctua</a>
     </div>
 
-    <div class="chemical-toggle" *ngIf="(devMode() || isPomBaseView)">
-      <input id="include-chemicals" type="checkbox" [(ngModel)]="includeChemicals" (ngModelChange)="updateUrl()">
-      <label for="include-chemicals">Display chemicals</label>
+    <div class="filter-group" *ngIf="isPomBaseView">
+      <div class="filter-select">
+        <input id="show-all" type="radio" [(ngModel)]="filterType" value="none" (ngModelChange)="updateUrl()">
+        <label for="show-all">Show all</label>
+      </div>
+
+      <div class="filter-select">
+        <input id="hide-chemicals" type="radio" [(ngModel)]="filterType" value="chemical" (ngModelChange)="updateUrl()">
+        <label for="hide-chemicals">Hide chemicals</label>
+      </div>
+
+      <div class="filter-select">
+        <input id="hide-all-inputs" type="radio" [(ngModel)]="filterType" value="all-inputs" (ngModelChange)="updateUrl()">
+        <label for="hide-all-inputs">Hide all inputs/outputs</label>
+      </div>
     </div>
   </div>
 
