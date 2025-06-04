@@ -29,12 +29,7 @@
       <a routerLink="/query">Advanced search</a>
     </span>
     <span class="quick-links-separator">&#x25CF;</span>
-    <span *ngIf="deployConfigService.productionMode()"  class="quick-links-label">
-      <a href="/jbrowse/">
-        Genome browser
-      </a>
-    </span>
-    <span *ngIf="!deployConfigService.productionMode()" class="quick-links-label">
+    <span class="quick-links-label">
       Genome browser:
       <a href="/jbrowse2/" target="_blank" title="View genome wide datasets the JBrowse V2 genome browser">
         New

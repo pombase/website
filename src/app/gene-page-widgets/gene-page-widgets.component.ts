@@ -3,7 +3,6 @@ import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { AppConfig, getAppConfig } from '../config';
 import { GeneDetails, PombaseAPIService } from '../pombase-api.service';
 import { GenePageWidget, SettingsService } from '../settings.service';
-import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
     selector: 'app-gene-page-widgets',
@@ -24,7 +23,6 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   jbrowse2GeneUrl?: string;
 
   constructor(private pombaseApiService: PombaseAPIService,
-              private deployConfigService: DeployConfigService,
               public settingsService: SettingsService) { }
 
   setJBrowseLink(): void {
@@ -68,14 +66,12 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
           this.jbrowseLinkUrl = jbrowse1urlBase + '&tracklist=0&nav=0&overview=';
           this.jbrowse1GeneUrl = jbrowse1urlBase + '&tracklist=1&nav=1&overview=1&highlight=';
 
-          if (!this.deployConfigService.productionMode()) {
             const jbrowseAssemblyName = getAppConfig().jbrowseAssemblyName;
             const jbrowseDefaultTrackIds = getAppConfig().jbrowseDefaultTrackIds;
             if (jbrowseAssemblyName && jbrowseDefaultTrackIds) {
               const trackIds = jbrowseDefaultTrackIds.join(',');
               this.jbrowse2GeneUrl =
                 `/jbrowse2?loc=${chrExportId}%3A${jbStart}-${jbEnd}&highlight=${chrExportId}:${lowerPos}-${upperPos}&assembly=${jbrowseAssemblyName}&tracks=${trackIds}`;
-            }
           }
         });
     } else {
