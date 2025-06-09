@@ -71,7 +71,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
             if (jbrowseAssemblyName && jbrowseDefaultTrackIds) {
               const trackIds = jbrowseDefaultTrackIds.join(',');
               this.jbrowse2GeneUrl =
-                `/jbrowse2?loc=${chrExportId}%3A${jbStart}-${jbEnd}&highlight=${chrExportId}:${lowerPos}-${upperPos}&assembly=${jbrowseAssemblyName}&tracks=${trackIds}`;
+                `/jbrowse2?loc=${chrExportId}%3A${jbStart}-${jbEnd}&tracklist=true&highlight=${chrExportId}:${lowerPos}-${upperPos}&assembly=${jbrowseAssemblyName}&tracks=${trackIds}`;
           }
         });
     } else {
