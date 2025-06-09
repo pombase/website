@@ -11,17 +11,18 @@
   margin-left: 1em;
 }
 
-.select-tracks-help {
+.select-tracks {
   font-size: 120%;
   margin-bottom: 0.6em;
 }
 
-.select-tracks-help > div:first-child {
+.select-tracks > div {
   display: inline-block;
+  vertical-align: top;
 }
 
-.select-tracks-help div {
-  margin: 0.1em 0;
+.select-tracks div {
+  margin: 0.1em 2em 0.1em 0;
 }
 
 button.load-in-jbrowse {

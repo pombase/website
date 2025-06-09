@@ -23,6 +23,8 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
   colConfig: Array<JBrowseColumnConfig> = [];
   tracksVisible = true;
 
+  hasJBrowse2 = !!getAppConfig().jbrowse2DefaultTrackIds;
+
   selectedTracks: { [key: string]: boolean } = {};
   selectedTrackCount = 0;
   selectedLabelLength = 0;
@@ -100,11 +102,23 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
     return this.selectedLabelLength > JBROWSE_URL_LIMIT;
   }
 
-  loadInJBrowse() {
-    let labels = this.appConfig.defaultJBrowseTracks.map(track => track.label);
+  loadInJBrowse(jbrowseVersion: '1'|'2') {
+    let labels;
+    if (jbrowseVersion == '1') {
+      labels = this.appConfig.defaultJBrowseTracks.map(track => track.label);
+    } else {
+      labels = this.appConfig.jbrowse2DefaultTrackIds!;
+    }
     this.tracks.filter(track => this.selectedTracks[track.label])
       .map(track => labels.push(track.label));
-    let path = encodeURI(this.appConfig.jbrowseTrackPickerBaseUrl + labels.join(','));
+    let baseUrl;
+    if (jbrowseVersion == '1') {
+      baseUrl = this.appConfig.jbrowseTrackPickerBaseUrl;
+    } else {
+      const jbrowseAssemblyName = getAppConfig().jbrowseAssemblyName;
+      baseUrl = this.appConfig.jbrowse2TrackPickerBaseUrl + '&assembly=' + jbrowseAssemblyName;
+    }
+    let path = encodeURI(baseUrl + '&tracks=' + labels.join(','));
     this.document.location.href = path;
   }
 

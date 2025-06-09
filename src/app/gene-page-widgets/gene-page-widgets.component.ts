@@ -67,7 +67,7 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
           this.jbrowse1GeneUrl = jbrowse1urlBase + '&tracklist=1&nav=1&overview=1&highlight=';
 
             const jbrowseAssemblyName = getAppConfig().jbrowseAssemblyName;
-            const jbrowseDefaultTrackIds = getAppConfig().jbrowseDefaultTrackIds;
+            const jbrowseDefaultTrackIds = getAppConfig().jbrowse2DefaultTrackIds;
             if (jbrowseAssemblyName && jbrowseDefaultTrackIds) {
               const trackIds = jbrowseDefaultTrackIds.join(',');
               this.jbrowse2GeneUrl =

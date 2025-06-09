@@ -1,7 +1,7 @@
 <div id="jbrowse_tracks" *ngIf="hasTracks()">
   <div class="jbrowse-header">
 Genome browser tracks
-  <span *ngIf="identifierType == 'gene'">associated with this gene:</span> 
+  <span *ngIf="identifierType == 'gene'">associated with this gene:</span>
   <span *ngIf="identifierType == 'reference'">from this publication:</span>
   </div>
 <fieldset class="jbrowse-picker annotation-table">
@@ -19,7 +19,7 @@ Genome browser tracks
   </legend>
 
   <div *ngIf="tracksVisible">
-    <div class="select-tracks-help">
+    <div class="select-tracks">
       <div>
         <div>
           Choose tracks to view
@@ -29,10 +29,24 @@ Genome browser tracks
         </div>
       </div>
 
+      <div>
+        Load tracks in:
+
+        <button class="btn btn-primary load-in-jbrowse"
+          *ngIf="hasJBrowse2"
+          [attr.title]="selectedCount() == 0 ? 'Select some tracks from the list below' : 'View the selected tracks in JBrowse version 2'"
+          [disabled]="loadButtonDisabled()"
+          (click)="loadInJBrowse('2')">New genome browser</button>
+      </div>
+
       <button class="btn btn-primary load-in-jbrowse"
-              [attr.title]="selectedCount() == 0 ? 'Select some tracks from the list below' : 'View the selected tracks in JBrowse'"
-              [disabled]="loadButtonDisabled()"
-              (click)="loadInJBrowse()">Load in JBrowse</button>
+        [attr.title]="selectedCount() == 0 ? 'Select some tracks from the list below' : 'View the selected tracks in JBrowse version 1'"
+        [disabled]="loadButtonDisabled()"
+        (click)="loadInJBrowse('1')">
+          <span *ngIf="hasJBrowse2">Old genome browser</span>
+          <span *ngIf="!hasJBrowse2">Genome browser</span>
+          </button>
+
     </div>
 
     <table *ngIf="tracksVisible">
