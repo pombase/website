@@ -1277,7 +1277,8 @@ export function getOrganismExternalLink(organismGenus: string, organismSpecies: 
   return undefined;
 }
 
-  export interface JBrowseTrackInfo {
+export interface JBrowseTrackInfo {
+  track_id: string;
   pmed_id: string;
   label:   string;
   mutants:  string;

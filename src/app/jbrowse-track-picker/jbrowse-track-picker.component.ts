@@ -103,14 +103,20 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
   }
 
   loadInJBrowse(jbrowseVersion: '1'|'2') {
-    let labels;
+    let tracksForUrl;
     if (jbrowseVersion == '1') {
-      labels = this.appConfig.defaultJBrowseTracks.map(track => track.label);
+      tracksForUrl = this.appConfig.defaultJBrowseTracks.map(track => track.label);
     } else {
-      labels = this.appConfig.jbrowse2DefaultTrackIds!;
+      tracksForUrl = this.appConfig.jbrowse2DefaultTrackIds!;
     }
     this.tracks.filter(track => this.selectedTracks[track.label])
-      .map(track => labels.push(track.label));
+      .map(track => {
+        if (jbrowseVersion == '1') {
+          tracksForUrl.push(track.label);
+        } else {
+          tracksForUrl.push(track.track_id);
+        }
+      });
     let baseUrl;
     if (jbrowseVersion == '1') {
       baseUrl = this.appConfig.jbrowseTrackPickerBaseUrl;
@@ -118,7 +124,7 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
       const jbrowseAssemblyName = getAppConfig().jbrowseAssemblyName;
       baseUrl = this.appConfig.jbrowse2TrackPickerBaseUrl + '&assembly=' + jbrowseAssemblyName;
     }
-    let path = encodeURI(baseUrl + '&tracks=' + labels.join(','));
+    let path = encodeURI(baseUrl + '&tracks=' + tracksForUrl.join(','));
     this.document.location.href = path;
   }
 
