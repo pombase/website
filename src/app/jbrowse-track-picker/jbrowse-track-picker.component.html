@@ -37,7 +37,7 @@ Genome browser tracks
           [attr.title]="selectedCount() == 0 ? 'Select some tracks from the list below' : 'View the selected tracks in JBrowse version 2'"
           [disabled]="loadButtonDisabled()"
           (click)="loadInJBrowse('2')">New genome browser</button>
-      </div>
+
 
       <button class="btn btn-primary load-in-jbrowse"
         [attr.title]="selectedCount() == 0 ? 'Select some tracks from the list below' : 'View the selected tracks in JBrowse version 1'"
@@ -46,7 +46,7 @@ Genome browser tracks
           <span *ngIf="hasJBrowse2">Old genome browser</span>
           <span *ngIf="!hasJBrowse2">Genome browser</span>
           </button>
-
+      </div>
     </div>
 
     <table *ngIf="tracksVisible">
