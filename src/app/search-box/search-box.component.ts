@@ -361,6 +361,12 @@ export class SearchBoxComponent implements OnInit {
       value = value.replace(/\s+gene$/i, '');
       value = value.replace(/^gene\s+/i, '');
 
+      const databaseName = this.appConfig.database_name.toLowerCase();
+
+      if (value.startsWith(databaseName + ':')) {
+        value = value.substring(databaseName.length + 1);
+      }
+
       if (value.length > 0) {
         let filteredSummaries: Array<DisplayModel> = [];
 
