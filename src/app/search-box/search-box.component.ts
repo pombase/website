@@ -24,7 +24,8 @@ class SearchSummary {
     public uniprotIdentifier: string|undefined,
     public uniprotIdentifierLowerCase: string|undefined,
     public transcripts: Array<string>,
-    public lowerCaseTranscripts: Array<string>,
+    public lowerCaseTranscriptIds: Array<string>,
+    public lowerCaseTranscriptNames: Array<string>,
     public synonyms: Array<string>,
     public synonymsLowerCase: Array<string>,
     public orthologs: Array<IdNameAndOrganism>,
@@ -231,12 +232,19 @@ export class SearchBoxComponent implements OnInit {
   }
 
   private transcriptMatch(geneSumm: SearchSummary, value: string): DisplayModel|undefined {
-    const matchIndex = geneSumm.lowerCaseTranscripts.findIndex(id => id === value);
+    const matchIndex = geneSumm.lowerCaseTranscriptIds.findIndex(id => id === value);
     if (matchIndex !== -1) {
       const highlightedMatch = this.highlightMatch(0, geneSumm.transcripts[matchIndex]);
       return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
                                        ['transcript: ' + highlightedMatch],
                                        geneSumm.organism);
+    }
+    const nameMatchIndex = geneSumm.lowerCaseTranscriptNames.findIndex(name => name === value);
+    if (nameMatchIndex !== -1) {
+      const highlightedMatch = this.highlightMatch(0, geneSumm.transcripts[nameMatchIndex]);
+      return this.makeGeneDisplayModel(geneSumm.uniquename, geneSumm.name,
+        ['transcript: ' + highlightedMatch],
+        geneSumm.organism);
     }
     return undefined;
   }
@@ -621,14 +629,20 @@ export class SearchBoxComponent implements OnInit {
           geneSumm.uniprot_identifier ? geneSumm.uniprot_identifier.toLowerCase() : undefined;
 
         let transcripts = [];
-        let lowerCaseTranscripts = [];
+        let lowerCaseTranscriptIds = [];
+        let lowerCaseTranscriptNames = [];
 
         for (let transcriptNum = 1;
              transcriptNum <= geneSumm.getTranscriptCount();
              transcriptNum++) {
           const transcriptId = geneSumm.uniquename + '.' + transcriptNum;
           transcripts.push(transcriptId);
-          lowerCaseTranscripts.push(transcriptId.toLowerCase());
+          lowerCaseTranscriptIds.push(transcriptId.toLowerCase());
+
+          if (geneSumm.name) {
+            const transcriptName = geneSumm.name + '.' + transcriptNum;
+            lowerCaseTranscriptNames.push(transcriptName);
+          }
         }
 
         return new SearchSummary(geneSumm.uniquename,
@@ -636,7 +650,8 @@ export class SearchBoxComponent implements OnInit {
                                  geneSumm.name, nameLowerCase,
                                  geneSumm.product, productLowerCase,
                                  geneSumm.uniprot_identifier, uniprotIdentifierLowerCase,
-                                 transcripts, lowerCaseTranscripts,
+                                 transcripts, lowerCaseTranscriptIds,
+                                 lowerCaseTranscriptNames,
                                  geneSumm.synonyms, geneSumm.synonyms.map(syn => syn.toLowerCase()),
                                  geneSumm.orthologs, geneSumm.organism)
       });
