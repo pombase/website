@@ -361,12 +361,6 @@ export class SearchBoxComponent implements OnInit {
       value = value.replace(/\s+gene$/i, '');
       value = value.replace(/^gene\s+/i, '');
 
-      const databaseName = this.appConfig.database_name.toLowerCase();
-
-      if (value.startsWith(databaseName + ':')) {
-        value = value.substring(databaseName.length + 1);
-      }
-
       if (value.length > 0) {
         let filteredSummaries: Array<DisplayModel> = [];
 
@@ -490,6 +484,13 @@ export class SearchBoxComponent implements OnInit {
 
   observableFromToken(token: string): Observable<Array<DisplayModel>> {
     token = token.trim();
+
+    const databaseName = this.appConfig.database_name.toLowerCase();
+
+    if (token.toLowerCase().startsWith(databaseName + ':')) {
+      token = token.substring(databaseName.length + 1);
+    }
+
     let observables = [];
     const geneSummaryObservable = of(this.summariesFromToken(token));
     observables.push(geneSummaryObservable);
