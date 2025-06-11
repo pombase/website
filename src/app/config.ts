@@ -262,6 +262,7 @@ export interface ProteinFeatureTableConfig {
 
 export interface AppConfig {
   site_name: string;
+  database_name: string;
   site_description: string;
   database_long_name: string;
   load_organism_taxonid: number;
@@ -786,6 +787,7 @@ const confDbPrefixRE = /\[conf_db_prefix\]/g;
 
 let _appConfig: AppConfig = {
   site_name: pombaseConfig.site_name,
+  database_name: pombaseConfig.database_name,
   site_description: pombaseConfig.site_description,
   database_long_name: pombaseConfig.database_long_name,
   load_organism_taxonid: pombaseConfig.load_organism_taxonid,
