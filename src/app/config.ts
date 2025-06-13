@@ -341,7 +341,7 @@ export interface AppConfig {
   alphafoldMaxProteinLength: number;
   jbrowseTrackPickerBaseUrl: string;
   jbrowse2TrackPickerBaseUrl: string;
-  jbrowseAssemblyName?: string;
+  jbrowse2AssemblyName?: string;
   jbrowse2DefaultTrackIds?: Array<string>,
   apiSeqChunkSizes: {
     all: Array<number>;
@@ -839,7 +839,7 @@ let _appConfig: AppConfig = {
   jbrowse2TrackPickerBaseUrl:
     (pombaseConfig.jbrowse_track_picker_base_url as string)
        .replace('/jbrowse/', '/jbrowse2/') + '&tracklist=true',
-  jbrowseAssemblyName: pombaseConfig.jbrowse_assembly_name,
+  jbrowse2AssemblyName: pombaseConfig.jbrowse2_assembly_name,
   jbrowse2DefaultTrackIds: pombaseConfig.jbrowse2_default_track_ids,
   apiSeqChunkSizes: {
     all: pombaseConfig.api_seq_chunk_sizes,

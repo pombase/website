@@ -121,8 +121,8 @@ export class JbrowseTrackPickerComponent implements OnInit, OnChanges {
     if (jbrowseVersion == '1') {
       baseUrl = this.appConfig.jbrowseTrackPickerBaseUrl;
     } else {
-      const jbrowseAssemblyName = getAppConfig().jbrowseAssemblyName;
-      baseUrl = this.appConfig.jbrowse2TrackPickerBaseUrl + '&assembly=' + jbrowseAssemblyName;
+      const jbrowse2AssemblyName = getAppConfig().jbrowse2AssemblyName;
+      baseUrl = this.appConfig.jbrowse2TrackPickerBaseUrl + '&assembly=' + jbrowse2AssemblyName;
     }
     let path = encodeURI(baseUrl + '&tracks=' + tracksForUrl.join(','));
     this.document.location.href = path;

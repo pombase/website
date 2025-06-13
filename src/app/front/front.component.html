@@ -29,13 +29,21 @@
       <a routerLink="/query">Advanced search</a>
     </span>
     <span class="quick-links-separator">&#x25CF;</span>
-    <span class="quick-links-label">
+    <span *ngIf="!hasJBrowse2" class="quick-links-label">
+      <a href="/jbrowse/" target="_blank"
+         title="View genome-wide datasets the JBrowse genome browser">
+        Genome browser
+      </a>
+    </span>
+    <span *ngIf="hasJBrowse2" class="quick-links-label">
       Genome browser:
-      <a href="/jbrowse2/" target="_blank" title="View genome wide datasets the JBrowse V2 genome browser">
+      <a href="/jbrowse2/" target="_blank"
+         title="View genome-wide datasets in the JBrowse V2 genome browser">
         New
       </a>
       <span class="quick-links-separator">&#x25CF;</span>
-      <a href="/jbrowse/" target="_blank" title="View genome wide datasets the JBrowse V1 genome browser">
+      <a href="/jbrowse/" target="_blank"
+         title="View genome-wide datasets in the JBrowse V1 genome browser">
         Old
       </a>
     </span>

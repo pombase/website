@@ -49,6 +49,8 @@ export class FrontComponent implements OnInit {
 
   showElixirAndGbcLogos = getAppConfig().footer.show_elixir_and_gbc_message;
 
+  hasJBrowse2 = !!getAppConfig().jbrowse2AssemblyName;
+
   constructor(private pombaseApiService: PombaseAPIService,
               public deployConfigService: DeployConfigService) { }
 
