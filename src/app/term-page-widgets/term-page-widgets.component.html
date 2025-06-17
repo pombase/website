@@ -20,6 +20,20 @@
         </div>
       </ng-container>
 
+      <ng-container *ngIf="hasReactionData()">
+        <div *ngIf="currentWidget() != 'rhea_atommap'" class="non-active-widget-button"
+          title="Click to view atom map from RHEA">
+          <a (click)="setWidget('rhea_atommap')">
+            <div>Atom map</div>
+            <img class="widget-button" src="assets/atommap-widget-icon.png" />
+          </a>
+        </div>
+        <div *ngIf="currentWidget() == 'rhea_atommap'" class="active-widget-button">
+          <div>Atom map</div>
+          <img class="widget-button" src="assets/atommap-widget-icon.png" />
+        </div>
+      </ng-container>
+
       <ng-container *ngIf="hasGoCams()">
         <div *ngIf="currentWidget() != 'gocam_viewer'" class="non-active-widget-button"
              title="Click to view GO-CAM models">
@@ -50,7 +64,12 @@
   <div *ngIf="currentWidget() != 'none'" class="widgets-container">
     <div *ngIf="currentWidget() == 'rhea_reaction'">
       <div class="rhea-reactions">
-        <app-reaction-view [termIdRefs]="termDetails"></app-reaction-view>
+        <app-reaction-view [viewType]="'reaction'" [termIdRefs]="termDetails"></app-reaction-view>
+      </div>
+    </div>
+    <div *ngIf="currentWidget() == 'rhea_atommap'">
+      <div class="rhea-reactions">
+        <app-reaction-view [viewType]="'atommap'" [termIdRefs]="termDetails"></app-reaction-view>
       </div>
     </div>
     <div *ngIf="currentWidget() == 'gocam_viewer'" class="gocam-viewier">

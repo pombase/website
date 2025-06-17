@@ -5,7 +5,7 @@ import { getAppConfig } from './config';
 import { TermShort } from './pombase-query';
 
 export type GenePageWidget = 'none' | 'protein_feature_viewer' | 'gocam_viewer' | 'genome_browser' | 'alphafold_viewer' | 'pdb_viewer' | 'rna_2d_structure';
-export type TermPageWidget = 'none' | 'rhea_reaction' | 'gocam_viewer';
+export type TermPageWidget = 'none' | 'rhea_reaction' | 'rhea_atommap' | 'gocam_viewer';
 
 const localStorageKey = 'pombase-settings-v3';
 

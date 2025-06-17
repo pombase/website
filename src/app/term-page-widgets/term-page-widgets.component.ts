@@ -66,7 +66,8 @@ export class TermPageWidgetsComponent {
       current = 'rhea_reaction';
     }
 
-    if (current == 'rhea_reaction' && !this.hasReactionData()) {
+    if ((current == 'rhea_reaction' || current == 'rhea_atommap') &&
+        !this.hasReactionData()) {
       if (this.hasGoCams()) {
         current = 'gocam_viewer';
       } else {
