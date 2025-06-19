@@ -9,7 +9,7 @@
     <div *ngIf="termSummary" class="term-definition">{{termSummary.definition}}</div>
 
     <div *ngIf="hasReactions" class="term-reactions">
-      <app-reaction-view [termIdRefs]="termSummary!" [miniView]="true"></app-reaction-view>
+      <app-reaction-view [viewType]="'reaction'" [termIdRefs]="termSummary!" [miniView]="true"></app-reaction-view>
     </div>
 
     <div *ngIf="gocamCount == 1" class="term-gocams">
