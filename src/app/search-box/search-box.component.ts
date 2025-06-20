@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { PombaseAPIService, GeneSummary, IdNameAndOrganism } from '../pombase-api.service';
+import { PombaseAPIService, GeneSummary, IdNameAndOrganism, GoCamSummary } from '../pombase-api.service';
 import { CompleteService, SolrTermSummary, SolrRefSummary, SolrAlleleSummary } from '../complete.service';
 import { getAppConfig, ConfigOrganism } from '../config';
 
@@ -76,6 +76,7 @@ export class SearchBoxComponent implements OnInit {
   geneSummariesFailed = false;
 
   searchSummaries: Array<SearchSummary> = [];
+  gocamSummaries: Array<GoCamSummary> = [];
 
   appConfig = getAppConfig();
 
@@ -440,6 +441,17 @@ export class SearchBoxComponent implements OnInit {
     return [];
   }
 
+  getGoCamMatches(token: string): Observable<Array<DisplayModel>> {
+    let ret = [];
+    for (const gocam of this.gocamSummaries) {
+      if (gocam.gocam_id == token || gocam.title.includes(token)) {
+        ret.push(new DisplayModel('Matching GO-CAMs:', gocam.gocam_id, gocam.title, []))
+      }
+    }
+
+    return of(ret);
+  }
+
   getTermMatches(token: string): Observable<Array<DisplayModel>> {
     return this.completeService.completeTermName(this.cvNamesForTermComplete, token)
       .pipe(map((termResults: Array<SolrTermSummary>) =>
@@ -510,9 +522,13 @@ export class SearchBoxComponent implements OnInit {
 
     if (token.length > 0) {
       // for now we filter out systematic IDs because they cause Lucene problems
+
+      const gocamObservable = this.getGoCamMatches(token);
+
       const termResultsObservable = this.getTermMatches(token);
       const refResultsObservable = this.getRefMatches(token);
 
+      observables.push(gocamObservable);
       observables.push(termResultsObservable);
       observables.push(refResultsObservable);
 
@@ -525,8 +541,9 @@ export class SearchBoxComponent implements OnInit {
     const combined =
       combineLatest(observables)
         .pipe(
-          map(([geneRes, termRes, refRes, alleleRes]) => {
+          map(([geneRes, gocamRes, termRes, refRes, alleleRes]) => {
             const maxGenes = 8;
+            const maxGoCams = 4
             const maxTerms = 6;
             const geneCount = geneRes.length;
 
@@ -555,10 +572,12 @@ export class SearchBoxComponent implements OnInit {
 
             if (this.deployConfigService.productionMode()) {
               return [...geneRes.slice(0, maxGenes),
+                      ...gocamRes.slice(0, maxGoCams),
                       ...termRes.slice(0, maxTerms),
                       ...refRes.slice(0, refCount)];
             } else {
               return [...geneRes.slice(0, maxGenes),
+                      ...gocamRes.slice(0, maxGoCams),
                       ...alleleRes.slice(0, maxAlleles),
                       ...termRes.slice(0, maxTerms),
                       ...refRes.slice(0, refCount)];
@@ -616,6 +635,12 @@ export class SearchBoxComponent implements OnInit {
         }, 100);
       })
       .catch(reason => this.geneSummariesFailed = true);
+
+
+    this.pombaseApiService.getAllGoCamDetails()
+      .then(summaries => {
+        this.gocamSummaries = summaries;
+      })
   }
 
   makeSearchSummaries(summaries: Array<GeneSummary>): Array<SearchSummary> {
@@ -668,10 +693,14 @@ export class SearchBoxComponent implements OnInit {
         if (e.item.matchType.toLowerCase().includes('publication')) {
           this.router.navigate(['/reference', displayModel.uniquename]);
         } else {
-          if (this.deployConfigService.productionMode()) {
-            this.router.navigate(['/gene', displayModel.alleleGeneUniquename]);
+          if (e.item.matchType.toLowerCase().includes('go-cam')) {
+            this.router.navigate(['/gocam/view/docs', displayModel.uniquename]);
           } else {
-            this.router.navigate(['/allele', displayModel.uniquename]);
+            if (this.deployConfigService.productionMode()) {
+              this.router.navigate(['/gene', displayModel.alleleGeneUniquename]);
+            } else {
+              this.router.navigate(['/allele', displayModel.uniquename]);
+            }
           }
         }
       }
