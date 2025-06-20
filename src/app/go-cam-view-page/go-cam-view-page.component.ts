@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
-import { PombaseAPIService, GoCamDetails, GeneSummaryMap, GeneSummary, GeneShort } from '../pombase-api.service';
+import { PombaseAPIService, GoCamSummary, GeneSummaryMap, GeneSummary, GeneShort } from '../pombase-api.service';
 import { TextOrTermId, Util } from '../shared/util';
 import { DeployConfigService } from '../deploy-config.service';
 
@@ -20,7 +20,7 @@ export class GoCamViewPageComponent implements OnInit {
 
   gocamIdParam?: string;
   gocamIds: Array<string> = [];
-  gocamDetailsList: Array<GoCamDetails> = [];
+  gocamDetailsList: Array<GoCamSummary> = [];
   overlappingGene?: GeneShort;
   contributorNames?: string;
   sourcePageType = 'gene';
@@ -200,7 +200,7 @@ export class GoCamViewPageComponent implements OnInit {
           this.gocamDetailsList = [
             {
               title,
-            } as GoCamDetails];
+            } as GoCamSummary];
         } else {
 
         const gocamDetailPromise = this.pombaseApi.getGoCamDetailByIds(this.gocamIds.join(","));

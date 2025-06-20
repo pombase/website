@@ -12,7 +12,7 @@ import { firstValueFrom } from 'rxjs';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
-export type GoCamMap = { [gocamid: GoCamId]: GoCamDetails };
+export type GoCamMap = { [gocamid: GoCamId]: GoCamSummary };
 
 type ReferenceDetailsMap = { [referenceUniquename: string]: ReferenceDetails };
 
@@ -811,7 +811,7 @@ export interface GoCamContributor {
   name: string;
 }
 
-export interface GoCamDetails {
+export interface GoCamSummary {
   gocam_id: GoCamId;
   title: string;
   title_terms: Array<TermId>;
@@ -1968,20 +1968,20 @@ export class PombaseAPIService {
       .catch(this.handleError);
   }
 
-  getGoCamDetailByIds(gocamId: string): Promise<Array<GoCamDetails>> {
+  getGoCamDetailByIds(gocamId: string): Promise<Array<GoCamSummary>> {
     const url = this.apiUrl + '/data/gocam/by_id/'  + gocamId.replace(/^gomodel:/, '');
     return this.httpRetry.getWithRetry(url)
       .toPromise()
       .then(body => {
-        return body as unknown as Array<GoCamDetails>;
+        return body as unknown as Array<GoCamSummary>;
       });
   }
 
-  getAllGoCamDetails(): Promise<Array<GoCamDetails>> {
+  getAllGoCamDetails(): Promise<Array<GoCamSummary>> {
     return this.httpRetry.getWithRetry(this.apiUrl + `/data/gocam/all`)
       .toPromise()
       .then(body => {
-          const details = body as unknown as Array<GoCamDetails>;
+          const details = body as unknown as Array<GoCamSummary>;
           details.map(d => {
             if (!d.genes) {
               d.genes = [];
@@ -2015,7 +2015,7 @@ export class PombaseAPIService {
       this.promiseCache['getAllGoCamDetailsMap'] =
         this.getAllGoCamDetails()
           .then(gocamDetails => {
-            let retMap: { [gocamid: GoCamId]: GoCamDetails } = {};
+            let retMap: { [gocamid: GoCamId]: GoCamSummary } = {};
             for (let gocam of gocamDetails) {
               if (gocam.gocam_id) {
                 retMap[gocam.gocam_id] = gocam;

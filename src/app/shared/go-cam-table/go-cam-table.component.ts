@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GoCamDetails, PombaseAPIService } from '../../pombase-api.service';
+import { GoCamSummary, PombaseAPIService } from '../../pombase-api.service';
 
 @Component({
     selector: 'app-go-cam-table',
@@ -8,7 +8,7 @@ import { GoCamDetails, PombaseAPIService } from '../../pombase-api.service';
     standalone: false
 })
 export class GoCamTableComponent {
-  gocams: Array<GoCamDetails> = [];
+  gocams: Array<GoCamSummary> = [];
 
   constructor(private pombaseApiService: PombaseAPIService) {
     this.pombaseApiService.getAllGoCamDetails()
