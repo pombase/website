@@ -39,8 +39,8 @@ class DisplayModel {
               public otherDetails: Array<string>,
               public alleleGeneUniquename?: string,
               public organism?: ConfigOrganism) {
-    if (this.name && this.name.length > 45) {
-      this.name = this.name.slice(0, 42) + '...';
+    if (this.name && this.name.length > 55) {
+      this.name = this.name.slice(0, 52) + '...';
     }
     if (this.otherDetails) {
       this.otherDetails =
