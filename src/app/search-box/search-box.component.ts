@@ -443,8 +443,17 @@ export class SearchBoxComponent implements OnInit {
 
   getGoCamMatches(token: string): Observable<Array<DisplayModel>> {
     let ret = [];
+    const tokenSplit = token.split(/ +/);
+    const matchAll = (s: string) => {
+      for (const bit of tokenSplit) {
+        if (!s.includes(bit)) {
+          return false;
+        }
+      }
+      return true;
+    };
     for (const gocam of this.gocamSummaries) {
-      if (gocam.gocam_id == token || gocam.title.includes(token)) {
+      if (gocam.gocam_id == token || matchAll(gocam.title)) {
         ret.push(new DisplayModel('Matching GO-CAMs:', gocam.gocam_id, gocam.title, []))
       }
     }
@@ -524,7 +533,6 @@ export class SearchBoxComponent implements OnInit {
       // for now we filter out systematic IDs because they cause Lucene problems
 
       const gocamObservable = this.getGoCamMatches(token);
-
       const termResultsObservable = this.getTermMatches(token);
       const refResultsObservable = this.getRefMatches(token);
 
