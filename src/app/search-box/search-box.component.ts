@@ -553,6 +553,7 @@ export class SearchBoxComponent implements OnInit {
             const maxGenes = 8;
             const maxGoCams = 4
             const maxTerms = 6;
+            const maxAlleles = 1;
             const geneCount = geneRes.length;
 
             if (!gocamRes) {
@@ -572,11 +573,6 @@ export class SearchBoxComponent implements OnInit {
             let refCount = 5;
             if (geneCount + termCount < maxGenes + maxTerms) {
               refCount += (maxGenes + maxTerms) - (geneCount + termCount);
-            }
-
-            let maxAlleles = 0;
-            if (geneCount == 0) {
-              maxAlleles = 5;
             }
 
             this.waitingForServer = false;
