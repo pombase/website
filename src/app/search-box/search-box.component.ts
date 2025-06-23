@@ -555,6 +555,9 @@ export class SearchBoxComponent implements OnInit {
             const maxTerms = 6;
             const geneCount = geneRes.length;
 
+            if (!gocamRes) {
+              gocamRes = [];
+            }
             if (!termRes) {
               termRes = [];
             }
