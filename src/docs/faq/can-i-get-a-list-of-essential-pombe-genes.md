@@ -24,7 +24,7 @@ been curated.
 
 **Downloadable summary**
 
-A [set of "viability summary" data](https://www.pombase.org/data/annotations/Phenotype_annotations/FYPOviability.tsv),
+A [set of "viability summary" data](https://www.pombase.org/latest_release/phenotypes_and_genotypes/gene_viability.tsv),
 as shown at the top of the FYPO table on each gene page, is available as
 a downloadable file. The file has two columns: the gene systematic ID
 and one of three values: "viable", "inviable" or "condition-dependent".

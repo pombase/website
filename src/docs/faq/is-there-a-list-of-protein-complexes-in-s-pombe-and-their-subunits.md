@@ -3,7 +3,12 @@
 
 Yes, there is a file that lists GO macromolecular complex assignments
 for fission yeast gene products in the
+%%if db=PomBase
+[GO annotation directory](/latest_release/macromolecular_complexes/).
+%%end db=PomBase
+%%if db=JaponicusDB
 [GO annotation directory](${base_url}/data/annotations/Gene_ontology/GO_complexes/).
+%%end db=JaponicusDB
 
 Note:
 

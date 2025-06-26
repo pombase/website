@@ -1,15 +1,23 @@
 ### ${database_name} name and identifier mappings
 
-These files are available in the [names and IDs directory](${base_url}/data/names_and_identifiers/)
-
 %%if db=PomBase
-#### Systematic ID to UniProt accession number
+#### Identifier mapping file
+ - [gene_IDs_names_products.tsv](/latest_release/gene_names_and_identifiers/) - 
+   tab-delimited file of systematic ID, primary gene name (where
+   assigned), chromosome, product description, UniProtKB accession,
+   all synonyms, and product type (protein coding, ncRNA, etc.) for
+   each gene
 
--   [PomBase2UniProt.tsv](https://www.pombase.org/data/names_and_identifiers/PomBase2UniProt.tsv)
-    tab-delimited file with the PomBase systematic identifier for each
-    protein-coding gene mapped to the corresponding UniProt accession
-    number
+Note: A tab-delimited file of systematic identifiers mapped to EC
+numbers was previously maintained, but has not been updated since March
+2012. The most recent version of the
+[gp2EC.txt](https://www.pombase.org/data/names_and_identifiers/OLD/gp2EC.txt)
+file is available in the archive, but because it is out of date it
+may contain errors or omissions.
 %%end db=PomBase
+
+%%if db=JaponicusDB
+These files are available in the [names and IDs directory](${base_url}/data/names_and_identifiers/)
 
 #### Gene names
 
@@ -34,12 +42,4 @@ synonyms (where assigned), and gene product description
     non-coding RNA genes
 -   [pseudogeneIDs.tsv](https://www.pombase.org/data/names_and_identifiers/pseudogeneIDs.tsv)
     pseudogenes
-
-%%if db=PomBase
-Note: A tab-delimited file of systematic identifiers mapped to EC
-numbers was previously maintained, but has not been updated since March
-2012. The most recent version of the
-[gp2EC.txt](https://www.pombase.org/data/names_and_identifiers/OLD/gp2EC.txt)
-file is available in the archive, but because it is out of date it
-may contain errors or omissions.
-%%end db=PomBase
+%%end db=JaponicusDB

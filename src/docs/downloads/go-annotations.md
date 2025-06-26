@@ -9,6 +9,17 @@ descriptions, and annotations shared by the UniProt
 
 #### Annotation files
 
+%%if db=PomBase
+Files from the [latest monthly release](/latest_release/gene_ontology/):
+
+  - [gene_ontology_annotation.gaf.tsv](/latest_release/gene_ontology/gene_ontology_annotation.gaf.tsv) -
+    All current *S. pombe* GO annotations in [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
+  - Newer *S. pombe* [GPI](/latest_release/gene_ontology/gene_product_information_taxonid_4896.tsv) and
+    [GPAD](/latest_release/gene_ontology/gene_product_annotation_data_taxonid_4896.tsv)
+    format files.  See the [GPAD/GPI v2.0 format specification](https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md).
+%%end db=PomBase
+
+%%if db=JaponicusDB
   - [gene_association.${lc_database_name}.gz](${base_url}/data/annotations/Gene_ontology/gene_association.${lc_database_name}.gz) -
     All current *${species_abbrev}* GO annotations in [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/), updated nightly
   - [gene_association_2-1.${lc_database_name}.gz](${base_url}/data/annotations/Gene_ontology/gene_association_2-1.${lc_database_name}.gz) -
@@ -18,11 +29,12 @@ descriptions, and annotations shared by the UniProt
     [${lc_database_name}.gpi.gz](${base_url}/data/annotations/Gene_ontology/${lc_database_name}.gpi.gz) -
     Newer [GPAD/GPI v2.0 format](https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md)
     annotation files, updated nightly
+%%end db=JaponicusDB
 
 
 #### Protein complexes
 
-Also see the [list of protein complexes](${base_url}/data/annotations/Gene_ontology/GO_complexes/),
+Also see the [list of protein complexes](/latest_release/macromolecular_complexes/),
 which uses GO macromolecular complex terms and IDs.
 
 #### Notes

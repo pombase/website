@@ -8,9 +8,7 @@ ontology term pages. The annotation totals link to pages with
 information about the term and a list of annotated genes. A gene may
 be included in the annotation sets for more than one slim term.
 
-You can download a list of current
-[${database_name} Mondo slim IDs and term names](https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv)
-from the ${database_name} FTP site.
+[Current fission yeast Mondo Disease Ontology slim IDs and term names](/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv)
 
 If you would like to have any terms added to the ${database_name} Mondo slim set, please
 contact the [helpdesk](mailto:${helpdesk_address}).

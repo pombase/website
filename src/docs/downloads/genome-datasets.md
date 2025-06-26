@@ -6,30 +6,41 @@ systems. Your browser may prompt you to open or download files.
 
 ### Genome sequence
 
+%%if db=PomBase
+The current genome sequence is available in FASTA format from the
+[monthly release directory](/latest_release/genome_sequence_and_features/genome_sequence/).
+Separate file are available for each chromosome, as well as a combined
+FASTA file.
+%%end db=PomBase
+
+%%if db=JaponicusDB
 The current [genome sequence](${base_url}/data/genome_sequence_and_features/genome_sequence/)
 is available in FASTA format. The linked directory contains a file for
 the whole genome sequence as well as separate files for each
 chromosome.
+%%end db=JaponicusDB
 
 #### Feature coordinates only
 
 These files contain coordinates, but no sequence data:
 
--   [GFF3 format](${base_url}/data/genome_sequence_and_features/gff3/)
-    files contain coordinates for features of all types.
-%%if db=PomBase
--   [CDS coordinates](${base_url}/data/genome_sequence_and_features/CDS_Coordinates/) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
--   [Exon coordinates](${base_url}/data/genome_sequence_and_features/Exon_Coordinates/) are in the same tab-delimited file format as CDS coordinates.
-%%end db=PomBase
+%%if db=JaponicusDB
+ -  [GFF3 format](${base_url}/data/genome_sequence_and_features/gff3/)
+%%end db=JaponicusDB
 
 %%if db=PomBase
+ -  [GFF3 format](/latest_release/genome_sequence_and_features/gff_format)
+    files contain coordinates for features of all types.
+ -  [CDS coordinates](/latest_release/genome_sequence_and_features/feature_coordinates) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
+ -  [Exon coordinates](/latest_release/genome_sequence_and_features/feature_coordinates) are in the same tab-delimited file format as CDS coordinates.
+
 #### Feature coordinates and sequence data
 
--   [Chromosome contigs](https://www.pombase.org/data/genome_sequence_and_features/artemis_files/)
+-   [Chromosome contigs](/latest_release/genome_sequence_and_features/artemis_contigs/)
     in enriched EMBL-based format for loading into
     Artemis (see the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase)) 
--   Older files in [EMBL format](https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/embl/)
-    and [GenBank format](https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/genbank/)
+-   Older files in [EMBL format](/data/genome_sequence_and_features/OLD/20170906/embl/)
+    and [GenBank format](/data/genome_sequence_and_features/OLD/20170906/genbank/)
     are available, and reflect the current genome sequence, with feature annotations from January 2017.
 %%end db=PomBase
 
@@ -39,7 +50,13 @@ These files contain coordinates, but no sequence data:
 
 #### Feature sequences
 
+%%if db=PomBase
+[Sequences in FASTA format](/latest_release/genome_sequence_and_features/fasta_format/) for:
+%%end db=PomBase
+
+%%if db=JaponicusDB
 [Sequences in FASTA format](${base_url}/data/genome_sequence_and_features/feature_sequences/) for:
+%%end db=JaponicusDB
 
 -   Coding sequences (CDS)
 -   CDS + introns
