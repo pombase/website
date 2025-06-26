@@ -10,8 +10,9 @@ If you have trouble finding anything, please ask the
 -------
 
 %%if db=PomBase
-### Latest PomBase release
-The latest PomBase datasets are available from the [monthly release directory](/latest_release).
+### Latest PomBase data
+The most recent release of the PomBase datasets is available from the
+[monthly release directory](/latest_release).
 
 We also have an [archive of previous monthly releases](/monthly_releases/).
 
@@ -20,7 +21,6 @@ We also have an [archive of previous monthly releases](/monthly_releases/).
 ### Data download site
 [Main directory for *${species_abbrev}* data](${base_url}/data/)
 %%end db=JaponicusDB
-
 
 
 -------
@@ -33,11 +33,11 @@ The [versions page](/internal-details) is updated each night.
 
 ### Genome sequence and features
 
+Visit the [main genome dataset page](/downloads/genome-datasets) for:
+
 -  Genome sequence (FASTA or enriched EMBL format for Artemis)
 -  Feature coordinates (coding regions, introns, exons, UTRs, etc.)
 -  Genomic regions (centromeres, telomeres, mating type)
-
-[More details and links](/downloads/genome-datasets)
 
 -------
 
