@@ -1,4 +1,4 @@
-### Phenotype annotations
+## Phenotype annotations
 
 %%if db=PomBase
 Phenotype annotations
@@ -34,7 +34,7 @@ using the ontology structure and inferred annotations. Please contact
 the [${database_name} helpdesk](mailto:${helpdesk_address}) if you need
 assistance.
 
-### Viability summary
+## Viability summary
 
 %%if db=PomBase
 A [set of "viability summary" data](/latest_release/phenotypes_and_genotypes/gene_viability.tsv)
@@ -49,7 +49,7 @@ and one of three values: "viable", "inviable" or "condition-dependent".
 To cite the fission yeast phenotype data (complete or viability
 summary), please see [Citing ${database_name}](/about/citing-${lc_database_name}).
 
-### PHAF download format
+## PHAF download format
 
 A column marked "mandatory" will always have an entry; non-mandatory
 columns may be empty.
