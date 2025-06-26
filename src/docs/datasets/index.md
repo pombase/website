@@ -9,8 +9,19 @@ If you have trouble finding anything, please ask the
 
 -------
 
-### Data download site ###
+%%if db=PomBase
+### Latest PomBase release
+The latest PomBase datasets are available from the [monthly release directory](/latest_release).
+
+We also have an [archive of previous monthly releases](/monthly_releases/).
+
+%%end db=PomBase
+%%if db=JaponicusDB
+### Data download site
 [Main directory for *${species_abbrev}* data](${base_url}/data/)
+%%end db=JaponicusDB
+
+
 
 -------
 
@@ -20,11 +31,13 @@ The [versions page](/internal-details) is updated each night.
 
 -------
 
-### [Genome sequence and features](/downloads/genome-datasets) ###
+### Genome sequence and features
 
 -  Genome sequence (FASTA or enriched EMBL format for Artemis)
 -  Feature coordinates (coding regions, introns, exons, UTRs, etc.)
 -  Genomic regions (centromeres, telomeres, mating type)
+
+[More details and links](/downloads/genome-datasets)
 
 -------
 
@@ -46,21 +59,26 @@ columns are described on [the dataset submission page](/documentation/data-submi
 
 Annotation type|Description
 ---------------|-----------
-[Protein datasets](/downloads/protein-datasets)|Protein sequence FASTA database, peptide features, properties, etc.
-[GO annotations](downloads/go-annotations)|Gene Ontology annotation files
-[Macromolecular complexes](${base_url}/data/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
-[Phenotype annotations](downloads/phenotype-annotations)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
 %%if db=PomBase
-[Human disease associations](${base_url}/data/annotations/human_disease_annotation/)|Fission yeast orthologs of human disease associated genes with disease descriptions and [Mondo](https://mondo.monarchinitiative.org/) ontology terms
+[Protein datasets](/downloads/protein-datasets)|Protein sequence in FASTA format, peptide features, properties, etc.
+[GO annotations](/downloads/go-annotations/)|Gene Ontology annotation files
+[Macromolecular complexes](/latest_release/macromolecular_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
+[Phenotype annotations](/downloads/phenotype-annotations/)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
+[Human disease associations](/latest_release/human_disease_annotation/)|Fission yeast orthologs of human disease associated genes with disease descriptions and [Mondo](https://mondo.monarchinitiative.org/) ontology terms
+[Modifications](/downloads/modifications)|Protein modifications
+[Orthologs](/latest_release/curated_orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
+[Expression](/latest_release/gene_expression/)|Quantitative and qualitative protein and RNA expression data
 %%end db=PomBase
-[Modifications](downloads/modifications)|Protein modifications
-%%if db=PomBase
-[Orthologs](${base_url}/data/orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
-[Expression](${base_url}/latest_release/gene_expression/)|Quantitative and qualitative protein and RNA expression data
-%%end db=PomBase
+
 %%if db=JaponicusDB
-[Orthologs](${base_url}/data/orthologs/)|Ortholog sets for human, cerevisiae and *S. pombe*
+[Protein datasets](/downloads/protein-datasets)|Protein sequence FASTA database, peptide features, properties, etc.
+[GO annotations](/downloads/go-annotations)|Gene Ontology annotation files
+[Macromolecular complexes](/data/annotations/Gene_ontology/GO_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
+[Phenotype annotations](/downloads/phenotype-annotations)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
+[Modifications](/downloads/modifications)|Protein modifications
+[Orthologs](/data/orthologs/)|Ortholog sets for human, cerevisiae and *S. pombe*
 %%end db=JaponicusDB
+
 -------
 
 ### [Gene names and IDs](downloads/names-and-identifiers) ###
@@ -72,16 +90,23 @@ Mappings between ${database_name} systematic IDs, gene names, product descriptio
 
 Current GO slim IDs and term names:
 
+%%if db=PomBase
+ - [GO biological process slim](/latest_release/gene_ontology/bp_go_slim_terms.tsv)
+ - [GO molecular function slim](/latest_release/gene_ontology/mf_go_slim_terms.tsv)
+ - [GO cellular component slim](/latest_release/gene_ontology/cc_go_slim_terms.tsv)
+%%end db=PomBase
+%%if db=JaponicusDB
  - [GO biological process slim](${base_url}/data/releases/latest/misc/bp_goslim_${species}_ids_and_names.tsv)
  - [GO molecular function slim](${base_url}/data/releases/latest/misc/mf_goslim_${species}_ids_and_names.tsv)
  - [GO cellular component slim](${base_url}/data/releases/latest/misc/cc_goslim_${species}_ids_and_names.tsv)
+%%end db=JaponicusDB
 
 
 %%if db=PomBase
 -------
 
 ### Mondo slim
-[Current fission yeast Mondo Disease Ontology slim IDs and term names](${base_url}/data/annotations/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv.gz)
+[Current fission yeast Mondo Disease Ontology slim IDs and term names](/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv)
 
 -------
 

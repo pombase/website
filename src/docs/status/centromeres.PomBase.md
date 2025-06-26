@@ -1,7 +1,8 @@
 ## Centromeres
 
 Repeats are also shown in the diagram below. To see the repeat
-sequences, download and unzip the [contiguated sequence files](https://www.pombase.org/data/genome_sequence_and_features/artemis_files/)
+sequences, download the
+[contiguated sequence files](/latest_release/genome_sequence_and_features/artemis_contigs/)
 and view them in Artemis. (See
 [this FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) for more
 information.)
