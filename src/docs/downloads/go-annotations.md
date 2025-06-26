@@ -1,4 +1,4 @@
-### GO annotations
+## GO annotations
 
 *${species_abbrev}* GO annotations are available as tab-delimited files
 in [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/).
@@ -7,7 +7,7 @@ curation, annotations inferred from keyword mappings based on curated
 descriptions, and annotations shared by the UniProt
 [GOA](http://www.ebi.ac.uk/GOA) team.
 
-#### Annotation files
+### Annotation files
 
 %%if db=PomBase
 Files from the [latest monthly release](/latest_release/gene_ontology/):
@@ -32,12 +32,12 @@ Files from the [latest monthly release](/latest_release/gene_ontology/):
 %%end db=JaponicusDB
 
 
-#### Protein complexes
+### Protein complexes
 
 Also see the [list of protein complexes](/latest_release/macromolecular_complexes/),
 which uses GO macromolecular complex terms and IDs.
 
-#### Notes
+### Notes
 
 The contents of the files downloadable from ${database_name} may
 differ from files available elsewhere (e.g. see [this FAQ](/faq/why-are-go-annotations-different-between-${lc_database_name}-and-uniprot-goa)),

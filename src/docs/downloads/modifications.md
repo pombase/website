@@ -1,4 +1,4 @@
-### Protein modifications
+## Protein modifications
 
 All annotated *S. pombe* protein modifications are available to
 download in [TSV](https://en.wikipedia.org/wiki/Tab-separated_values)
@@ -6,7 +6,7 @@ format:
 
  - [protein_modifications.tsv](/latest_release/protein_features/protein_modifications.tsv)
 
-#### Columns
+### Columns
 
  1. `gene_systematic_id` - The PomBase systematic ID, example: "SPAC1002.02"
  2. `gene_name` - Gene name, if any,  example: pom34
@@ -20,7 +20,7 @@ format:
  9. `date` - Annotation date, example: 2023-11-16
  10. `assigned_by` - Database that created this annotation, example: PomBase
 
-#### Current protein modification evidence codes:
+### Current protein modification evidence codes:
 
  - author statement without traceable support used in manual assertion
  - combinatorial computational and experimental evidence used in manual assertion
@@ -40,7 +40,7 @@ format:
  - Traceable Author Statement
  - tryptic phosphopeptide mapping assay evidence used in automatic assertion
 
-#### Annotation extensions for modifications
+### Annotation extensions for modifications
 
 The extension is used to record extra annotation details that are not
 captured in the other columns.  The extensions details are also

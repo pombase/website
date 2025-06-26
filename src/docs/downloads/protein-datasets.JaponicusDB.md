@@ -1,4 +1,4 @@
-### Protein datasets
+## Protein datasets
 
 The full [protein dataset](${base_url}/data/genome_sequence_and_features/feature_sequences/peptide.fa.gz)
 is available in FASTA format (link downloads gzipped file from ${database_name}).

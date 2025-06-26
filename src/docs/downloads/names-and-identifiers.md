@@ -1,7 +1,7 @@
-### ${database_name} name and identifier mappings
+## ${database_name} name and identifier mappings
 
 %%if db=PomBase
-#### Identifier mapping file
+### Identifier mapping file
  - [gene_IDs_names_products.tsv](/latest_release/gene_names_and_identifiers/) - 
    tab-delimited file of systematic ID, primary gene name (where
    assigned), chromosome, product description, UniProtKB accession,
@@ -19,7 +19,7 @@ may contain errors or omissions.
 %%if db=JaponicusDB
 These files are available in the [names and IDs directory](${base_url}/data/names_and_identifiers/)
 
-#### Gene names
+### Gene names
 
 -   [gene_IDs_names.tsv](${base_url}/data/names_and_identifiers/gene_IDs_names.tsv)
     tab-delimited file of systematic ID, primary gene name (where
@@ -31,7 +31,7 @@ These files are available in the [names and IDs directory](${base_url}/data/name
     all synonyms, and product type (protein coding, ncRNA, etc.) for
     each gene
 
-#### Systematic ID to gene product
+### Systematic ID to gene product
 
 Files include systematic name, primary name (where assigned),
 synonyms (where assigned), and gene product description
