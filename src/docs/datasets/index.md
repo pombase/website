@@ -67,10 +67,12 @@ Annotation type|Description
 
 -------
 
-### [Gene names and IDs](downloads/names-and-identifiers) ###
-Mappings between ${database_name} systematic IDs, gene names, product descriptions, and UniProt accession numbers
+### Gene names and identifiers
 
--------
+Mappings between ${database_name} systematic IDs, gene names, product
+descriptions, and UniProt accession numbers:
+
+  - [Names and identifiers](downloads/names-and-identifiers)
 
 ### GO slim
 
