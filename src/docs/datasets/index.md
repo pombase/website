@@ -1,10 +1,16 @@
 ## Datasets
 
-Note that some of the links below go to pages listing subdirectories
+All of the datasets compiled by PomBase are accessible from this page.
+These include genome sequence and features, protein features,
+associations to ontology terms, browser data, manually curated
+orthologs and gene names and identifiers.
+
+
+Note that some of the links below go to pages listing sub-directories
 that are organised slightly differently from the links on this
 page. Your browser may prompt you to open or download files.
 
-If you have trouble finding anything, please ask the
+If you cannot locate a dataset of interest please contact the
 [helpdesk](mailto:${helpdesk_address}).
 
 -------
@@ -42,6 +48,13 @@ Visit the [main genome dataset page](/downloads/genome-datasets) for:
 -------
 
 ### Annotation datasets ###
+
+Annotations are all ontology-based, and extracted from the primary
+literature based on experimental data from both hypothesis-driven
+low-throughput experiments and large discovery screens (GO
+associations are supplemented by non-experimental annotations).  All
+annotations are fully provenanced, and supported by appropriate
+evidence codes.
 
 Annotation type|Description
 ---------------|-----------
