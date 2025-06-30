@@ -16,7 +16,7 @@ export class GocamConnectionsComponent {
   siteName = getAppConfig().site_name;
 
   pagePath: 'model-list' | 'summary/all' | 'summary/connected' | 'mega-model/all' |
-            'mega-model/connected' | 'connections' = 'model-list';
+            'mega-model/connected' | 'connections' | 'missing-proteins' = 'model-list';
   pageType?: string;
   pageSubType?: string;
 

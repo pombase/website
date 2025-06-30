@@ -676,3 +676,20 @@ details {
   display: inline-block;
   vertical-align: baseline;
 }
+
+table.data-table {
+  margin-bottom: 1em;
+}
+
+table.data-table thead {
+  border-bottom: 3px solid #ccc;
+}
+
+table.data-table td {
+  vertical-align: top;
+  padding: 0.3em 0.5em 0.3em 0;
+}
+
+table.data-table tr:nth-child(odd) {
+  background-color: #f3f3fa;
+}

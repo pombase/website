@@ -26,6 +26,7 @@ import { DetailsPageMenuComponent } from './details-page-menu/details-page-menu.
 import { SeqFeatureTableComponent } from './seq-feature-table/seq-feature-table.component';
 import { GoCamTableComponent } from './go-cam-table/go-cam-table.component';
 import { GocamOverlapsTableComponent } from './gocam-overlaps-table/gocam-overlaps-table.component';
+import { GoCamHolesTableComponent } from './gocam-holes-table/gocam-holes-table.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 
@@ -73,6 +74,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SeqFeatureTableComponent,
     GoCamTableComponent,
     GocamOverlapsTableComponent,
+    GoCamHolesTableComponent,
     SocialContactComponent,
     GeneResultsSlimTableComponent,
     FacetedSearchComponent,
@@ -101,6 +103,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SeqFeatureTableComponent,
     GoCamTableComponent,
     GocamOverlapsTableComponent,
+    GoCamHolesTableComponent,
     SocialContactComponent,
     GeneResultsSlimTableComponent,
     DescriptionDisplayComponent,

@@ -840,6 +840,16 @@ export interface GoCamProcess {
   label: string;
 }
 
+export interface GoCamInput {
+  id: string;
+  label: string;
+}
+
+export interface GoCamOutput {
+  id: string;
+  label: string;
+}
+
 export interface GoCamModifiedProtein {
 
 }
@@ -850,6 +860,17 @@ export interface GoCamActivity {
 
 export type GoCamNodeType = "unknown"|"chemical"|"unknown_mrna"|
    GoCamGene|GoCamModifiedProtein|GoCamActivity;
+
+export interface GoCamNode {
+  node_id: string;
+  label: string;
+  node_type: GoCamNodeType;
+  occurs_in: Array<{ [componentType: string]: GoCamComponent }>;
+  part_of_process?: GoCamProcess;
+  has_input: Array<GoCamInput>;
+  has_output: Array<GoCamOutput>;
+  models: Array<[string,string]>;
+}
 
 export interface GoCamNodeOverlap {
   node_id: string;
@@ -2039,6 +2060,31 @@ export class PombaseAPIService {
       this.promiseCache['getGoCamOverlapsPromise'] = promise;
     }
     return this.promiseCache['getGoCamOverlapsPromise'];
+  }
+
+  getGoCamHoles(): Promise<Array<GoCamNode>> {
+    if (!this.promiseCache['getGoCamHolesPromise']) {
+      const promise = this.httpRetry.getWithRetry(this.apiUrl + '/data/gocam/holes')
+        .toPromise()
+        .then(body => {
+          const holes = (body as unknown as Array<GoCamNode>)
+            .map(node => {
+              if (!node.occurs_in) {
+                node.occurs_in = [];
+              }
+              if (!node.has_input) {
+                node.has_input = [];
+              }
+              if (!node.has_output) {
+                node.has_output = [];
+              }
+              return node;
+            });
+          return holes;
+        });
+      this.promiseCache['getGoCamHolesPromise'] = promise;
+    }
+    return this.promiseCache['getGoCamHolesPromise'];
   }
 
   getProteinViewData(geneUniquename: string, scope: string): Promise<ProteinViewData> {

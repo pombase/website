@@ -1,0 +1,41 @@
+<div class="holes-table">
+<div class="description">
+A list of activities known or suspected to occur in fission yeast but
+not yet associated with a gene product.  These "pathway holes" have
+been identified through
+<a routerLink="/documentation/go-cam-pathway-models">GO-CAM causal model curation</a>.
+</div>
+
+  <table *ngIf="displayNodes.length > 0" class="data-table">
+    <thead>
+      <tr>
+        <th>Go-cam model</th>
+        <th>Missing activity</th>
+        <th>Process</th>
+        <th>Input / output</th>
+        <th>Occurs in</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let displayNode of displayNodes">
+      <td>
+        <a routerLink="/gocam/view/docs/{{displayNode.modelId}}">{{displayNode.modelTitle}}</a>
+      </td>
+      <td>
+        {{displayNode.label}} (<a routerLink="/term/{{displayNode.node_id}}">{{displayNode.node_id}}</a>)
+      </td>
+      <td>
+        <span *ngIf="displayNode.part_of_process">
+          {{displayNode.part_of_process.label}} (<a routerLink="/term/{{displayNode.part_of_process.id}}">{{displayNode.part_of_process.id}}</a>)
+        </span>
+      </td>
+      <td>
+        {{displayNode.has_input}}  / {{displayNode.has_output}}
+      </td>
+      <td>
+        <div *ngFor="let occurs_in of displayNode.occurs_in">
+          {{occurs_in.label}} (<a routerLink="/term/{{occurs_in.id}}">{{occurs_in.id}}</a>)
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

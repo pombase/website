@@ -10,6 +10,7 @@
     left-menu-item"><a routerLink="/gocam/mega-model/all">Mega-model -
     All models</a></div>
     <div class="left-menu-part left-menu-item"><a routerLink="/gocam/connections">Overlapping activities</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/missing-proteins">Missing proteins</a></div>
 
 
   </app-page-contents-menu>
@@ -94,6 +95,17 @@ been identified through GO-CAM causal model curation.
     </h4>
 
     <app-gocam-overlaps-table></app-gocam-overlaps-table>
+
+  </div>
+
+  <div *ngIf="pageType == 'missing-proteins'">
+    <h4>GO-CAM "holes"
+      <app-help-link [route]="'/documentation/go-cam-pathway-models'" [title]="'GO-CAM documentation'">
+        Documentation
+      </app-help-link>
+    </h4>
+
+    <app-gocam-holes-table></app-gocam-holes-table>
 
   </div>
   </div>
