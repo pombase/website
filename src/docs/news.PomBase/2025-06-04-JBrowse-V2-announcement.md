@@ -3,7 +3,7 @@
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 Version 2 of the JBrowse genome browser is now available on PomBase.  
-[PomBase JBrowse V2](https://www.pombase.org/jbrowse2/?session=local-JWpCwnCeYbRXMEjEe5pU7)
+[PomBase JBrowse V2](https://www.pombase.org/jbrowse2/)
 
 You can now browse the S. pombe genome, and visualize all of our hosted datasets, 
 in a new, nicer interface. JBrowse V2 possesses several new features, such as the possibility
