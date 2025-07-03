@@ -51,8 +51,15 @@ been identified through GO-CAM causal model curation.
   </div>
 
   <div *ngIf="pageType && pageType == 'summary'" class="gocam-page">
-    <h4 *ngIf="pageSubType == 'connected'">GO-CAM Connected Model Summary</h4>
-    <h4 *ngIf="pageSubType != 'connected'">GO-CAM All Model Summary</h4>
+    <h4>
+      <span *ngIf="pageSubType == 'connected'">GO-CAM Connected Model Summary</span>
+      <span *ngIf="pageSubType != 'connected'">GO-CAM All Model Summary</span>
+      <span class="help-link">
+        <app-help-link [route]="'/documentation/go-cam-pathway-models'" [title]="'GO-CAM documentation'">
+          Documentation
+        </app-help-link>
+      </span>
+    </h4>
 
     <div *ngIf="pageSubType == 'connected'" class="sub-heading">
       Unconnected models are hidden (<a routerLink="/gocam/summary/all">show</a>)
@@ -68,7 +75,14 @@ been identified through GO-CAM causal model curation.
   </div>
 
   <div *ngIf="pageType && pageType == 'mega-model'" class="gocam-page">
-    <h4>GO-CAM Mega Model</h4>
+    <h4>GO-CAM Mega Model
+      <span class="help-link">
+        <app-help-link [route]="'/documentation/go-cam-pathway-models'"
+                       [title]="'GO-CAM documentation'">
+          Documentation
+        </app-help-link>
+      </span>
+    </h4>
 
     <div class="filter-group">
       <div class="filter-select">
@@ -96,10 +110,12 @@ been identified through GO-CAM causal model curation.
   <div *ngIf="pageType == 'connections'">
 
     <h4>GO-CAM overlapping activities
+      <span class="help-link">
       <app-help-link [route]="'/documentation/go-cam-pathway-models'"
                      [title]="'GO-CAM documentation'">
         Documentation
       </app-help-link>
+      </span>
     </h4>
 
     <app-gocam-overlaps-table></app-gocam-overlaps-table>
@@ -108,9 +124,11 @@ been identified through GO-CAM causal model curation.
 
   <div *ngIf="pageType == 'missing-proteins'">
     <h4>GO-CAM "holes"
+      <span class="help-link">
       <app-help-link [route]="'/documentation/go-cam-pathway-models'" [title]="'GO-CAM documentation'">
         Documentation
       </app-help-link>
+      </span>
     </h4>
 
     <app-gocam-holes-table></app-gocam-holes-table>
