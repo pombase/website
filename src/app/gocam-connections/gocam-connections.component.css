@@ -23,3 +23,7 @@
 .filter-group {
   display: inline-block;
 }
+
+.sub-heading {
+  padding-bottom: 1em;
+}

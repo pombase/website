@@ -51,7 +51,15 @@ been identified through GO-CAM causal model curation.
   </div>
 
   <div *ngIf="pageType && pageType == 'summary'" class="gocam-page">
-    <h4>GO-CAM Model Summary</h4>
+    <h4 *ngIf="pageSubType == 'connected'">GO-CAM Connected Model Summary</h4>
+    <h4 *ngIf="pageSubType != 'connected'">GO-CAM All Model Summary</h4>
+
+    <div *ngIf="pageSubType == 'connected'" class="sub-heading">
+      Unconnected models are hidden (<a routerLink="/gocam/summary/all">show</a>)
+    </div>
+    <div *ngIf="pageSubType != 'connected'" class="sub-heading">
+      Unconnected models are shown (<a routerLink="/gocam/summary/connected">hide</a>)
+    </div>
 
     <div *ngIf="iframeUrl" class="gocam-container">
       <iframe [src]="iframeUrl" class="gocam-iframe" #gocamiframe>
