@@ -74,6 +74,11 @@
         <input id="hide-all-inputs" type="radio" [(ngModel)]="filterType" value="all-inputs" (ngModelChange)="updateUrl()">
         <label for="hide-all-inputs">Hide all inputs/outputs</label>
       </div>
+
+      <div class="filter-select">
+        <input id="show-models-boxes" type="checkbox" [(ngModel)]="showModelBoxes" value="true" (ngModelChange)="updateUrl()">
+        <label for="show-models-boxes">Show model boundaries</label>
+      </div>
     </div>
   </div>
 

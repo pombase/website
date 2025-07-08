@@ -31,6 +31,7 @@ export class GoCamViewPageComponent implements OnInit {
   titleParts: Array<Array<TextOrTermId>> = [];
   isPomBaseView = false;
   filterType: 'none'|'chemical'|'all-inputs' = 'chemical';
+  showModelBoxes = true;
   alternateViewRoute?: string;
   noctuaLink?: string;
 
@@ -124,6 +125,12 @@ export class GoCamViewPageComponent implements OnInit {
         if (this.filterType == 'all-inputs') {
           flags.push("no_inputs");
         }
+      }
+
+      if (this.showModelBoxes) {
+        flags.push("show_models");
+      } else {
+        flags.push("hide_models");
       }
 
       if (flags.length > 0) {

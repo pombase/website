@@ -101,6 +101,11 @@ been identified through GO-CAM causal model curation.
       </div>
     </div>
 
+    <div class="filter-select">
+      <input id="show-models-boxes" type="checkbox" [(ngModel)]="showModelBoxes" value="true" (ngModelChange)="updateMegaModelUrl()">
+      <label for="show-models-boxes">Show model boundaries</label>
+    </div>
+
     <div *ngIf="iframeUrl" class="gocam-container">
       <iframe [src]="iframeUrl" class="gocam-iframe" #gocamiframe>
       </iframe>
