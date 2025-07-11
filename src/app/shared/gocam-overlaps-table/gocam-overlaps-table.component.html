@@ -36,6 +36,8 @@
         <a *ngIf="overlap.node_id.startsWith('GO:')" routerLink="/term/{{overlap.node_id}}">
           {{overlap.node_label}}
         </a>
+     </div>
+     <div>
         enabled by
         <app-gene-link *ngIf="overlap.enabledByGene" [long]="false" [gene]="overlap.enabledByGene"></app-gene-link>
         <span *ngIf="overlap.enabledByChemical">{{overlap.enabledByChemical.label}} ({{overlap.enabledByChemical.id}})</span>
@@ -48,17 +50,19 @@
           </span>
         </span>
       </div>
-      <div *ngIf="overlap.occursInComponent">
-        <div *ngIf="overlap.occursInComponent.id.startsWith('GO:')">
-          occurs in: <a routerLink="/term/{{overlap.occursInComponent.id}}">{{overlap.occursInComponent.label}}</a>
+      <div *ngIf="overlap.occursInComponents">
+        <div *ngFor="let occursInComponent of overlap.occursInComponents">
+        <div *ngIf="occursInComponent.id.startsWith('GO:')">
+          occurs in <a routerLink="/term/{{occursInComponent.id}}">{{occursInComponent.label}}</a>
         </div>
-        <div *ngIf="!overlap.occursInComponent.id.startsWith('GO:')">
-          occurs in: {{overlap.occursInComponent.label}} ({{overlap.occursInComponent.id}})
+        <div *ngIf="!occursInComponent.id.startsWith('GO:')">
+          occurs in {{occursInComponent.label}} ({{occursInComponent.id}})
+        </div>
         </div>
       </div>
 
       <div *ngIf="overlap.part_of_process">
-        part of: <a routerLink="/term/{{overlap.part_of_process.id}}">{{overlap.part_of_process.label}}</a>
+        part of <a routerLink="/term/{{overlap.part_of_process.id}}">{{overlap.part_of_process.label}}</a>
       </div>
     </td>
   </tr>

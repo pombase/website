@@ -883,7 +883,7 @@ export interface GoCamNodeOverlap {
   node_type: GoCamNodeType;
   enabler_id?: string;
   located_in?: GoCamComponent;
-  occurs_in?: { [componentType: string]: GoCamComponent };
+  occurs_in?: Array<{ [componentType: string]: GoCamComponent }>;
   part_of_process: GoCamProcess;
   overlapping_individual_ids: Array<string>;
   models: Array<[string,string]>;

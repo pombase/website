@@ -10,7 +10,7 @@ interface DisplayOverlap {
   enabledByComplex?: GoCamComplex;
   located_in?: GoCamComponent;
   occurs_in?: { [componentType: string]: GoCamComponent };
-  occursInComponent?: GoCamComponent;
+  occursInComponents: Array<GoCamComponent>;
   part_of_process: GoCamProcess;
   overlapping_individual_ids: Array<string>;
   models: Array<[string, string]>;
@@ -51,7 +51,8 @@ export class GocamOverlapsTableComponent implements OnInit {
             return [];
           }
           const displayOverlap =
-            Object.assign(overlap, { modelIdTitles: [], mergedIds: '' }) as DisplayOverlap;
+            Object.assign(overlap,
+                          { occursInComponents: [], modelIdTitles: [], mergedIds: '' }) as DisplayOverlap;
           if (enabledByGene) {
             const geneId = enabledByGene.id.replace("PomBase:", "");
             displayOverlap.enabledByGene = geneSummMap[geneId];
@@ -73,8 +74,10 @@ export class GocamOverlapsTableComponent implements OnInit {
           displayOverlap.mergedIds =
             overlap.models.map(([id, _]) => id.replace('gomodel:', '')).join('+');
           if (overlap.occurs_in) {
-             displayOverlap.occursInComponent =
-               overlap.occurs_in['other_component'] || overlap.occurs_in['complex_component'];
+            overlap.occurs_in.map(occursIn => {
+              const occursInComp = occursIn['other_component'] || occursIn['complex_component'];
+              displayOverlap.occursInComponents.push(occursInComp);
+            });
           }
 
           return [displayOverlap];
