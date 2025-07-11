@@ -75,7 +75,7 @@
         <label for="hide-all-inputs">Hide all inputs/outputs</label>
       </div>
 
-      <div class="filter-select">
+      <div class="fitler-toggle" *ngIf="isMergedModel()">
         <input id="show-models-boxes" type="checkbox" [(ngModel)]="showModelBoxes" value="true" (ngModelChange)="updateUrl()">
         <label for="show-models-boxes">Show model boundaries</label>
       </div>
