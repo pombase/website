@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="return-to-gene-page">
+    <div class="return-to-gene-page" *ngIf="sourcePageType && sourcePageType != 'full'">
     <span *ngIf="sourcePageType == 'gene'">
       <a routerLink="/gene/{{source}}">Return to the {{sourceName || source}} gene page</a>
     </span>
@@ -48,7 +48,7 @@
     </span>
     </div>
 
-    <div class="alternate-view-link" *ngIf="devMode() || isPomBaseView">
+    <div class="alternate-view-link" *ngIf="(devMode() || isPomBaseView) && !isMergedModel()">
       <a routerLink="{{alternateViewRoute}}">
         <span *ngIf="isPomBaseView && !isMergedModel()">Go to standard view (gocam-viz)</span>
         <span *ngIf="!isPomBaseView">Go to PomBase view</span>
