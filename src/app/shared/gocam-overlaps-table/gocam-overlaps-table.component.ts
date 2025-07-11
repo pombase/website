@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PombaseAPIService, GoCamGene, GeneSummary, GoCamComponent, GoCamProcess, GoCamChemical } from '../../pombase-api.service';
+import { PombaseAPIService, GoCamGene, GeneSummary, GoCamComponent, GoCamProcess, GoCamChemical, GoCamComplex } from '../../pombase-api.service';
 
 interface DisplayOverlap {
   node_id: string;
   node_label: string;
   enabledByGene?: GeneSummary;
   enabledByChemical?: GoCamChemical;
+  enabledByComplex?: GoCamComplex;
   located_in?: GoCamComponent;
   occurs_in?: { [componentType: string]: GoCamComponent };
   occursInComponent?: GoCamComponent;
@@ -36,14 +37,17 @@ export class GocamOverlapsTableComponent implements OnInit {
           const nodeTypeAny = overlap.node_type as any;
           let enabledByGene;
           let enabledByChemical;
+          let enabledByComplex;
           if (nodeTypeAny.activity) {
             if (nodeTypeAny.activity.gene) {
               enabledByGene = nodeTypeAny.activity.gene as GoCamGene;
             } else if (nodeTypeAny.activity.chemical) {
               enabledByChemical = nodeTypeAny.activity.chemical as GoCamChemical;
+            } else if (nodeTypeAny.activity.complex) {
+              enabledByComplex = nodeTypeAny.activity.complex as GoCamComplex;
             }
           }
-          if (!enabledByGene && !enabledByChemical) {
+          if (!enabledByGene && !enabledByChemical && !enabledByComplex) {
             return [];
           }
           const displayOverlap =
@@ -54,6 +58,10 @@ export class GocamOverlapsTableComponent implements OnInit {
           }
           if (enabledByChemical) {
             displayOverlap.enabledByChemical = enabledByChemical;
+          }
+
+          if (enabledByComplex) {
+            displayOverlap.enabledByComplex = enabledByComplex;
           }
 
           displayOverlap.modelIdTitles = [];

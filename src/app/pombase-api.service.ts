@@ -830,6 +830,11 @@ export interface GoCamChemical {
   label: string;
 }
 
+export interface GoCamComplex {
+  id: string;
+  label: string;
+}
+
 export interface GoCamComponent {
   id: string;
   label: string;
