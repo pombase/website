@@ -12,7 +12,7 @@ import { firstValueFrom } from 'rxjs';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
-export type GoCamMap = { [gocamid: GoCamId]: GoCamSummary };
+export type GoCamMap = { [gocamid: GoCamModelId]: GoCamSummary };
 
 type ReferenceDetailsMap = { [referenceUniquename: string]: ReferenceDetails };
 
@@ -799,7 +799,9 @@ export interface ProteinViewFeature {
 }
 
 export type GeneUniquename = string;
-export type GoCamId = string;
+export type GoCamModelId = string;
+export type GoCamModelTitle = string;
+export type GoCamDirection = 'Incoming' |'IncomingConstitutivelyUpstream'|'Outgoing'|'None';
 
 export interface GoCamIdAndTitle {
   gocam_id: string;
@@ -812,7 +814,7 @@ export interface GoCamContributor {
 }
 
 export interface GoCamSummary {
-  gocam_id: GoCamId;
+  gocam_id: GoCamModelId;
   title: string;
   title_terms: Array<TermId>;
   genes: Array<GeneUniquename>;
@@ -886,7 +888,7 @@ export interface GoCamNodeOverlap {
   occurs_in?: Array<{ [componentType: string]: GoCamComponent }>;
   part_of_process: GoCamProcess;
   overlapping_individual_ids: Array<string>;
-  models: Array<[string,string]>;
+  models: Array<[GoCamModelId, GoCamModelTitle, GoCamDirection]>;
 }
 
 export interface APIError {
@@ -2041,7 +2043,7 @@ export class PombaseAPIService {
       this.promiseCache['getAllGoCamDetailsMap'] =
         this.getAllGoCamDetails()
           .then(gocamDetails => {
-            let retMap: { [gocamid: GoCamId]: GoCamSummary } = {};
+            let retMap: { [gocamid: GoCamModelId]: GoCamSummary } = {};
             for (let gocam of gocamDetails) {
               if (gocam.gocam_id) {
                 retMap[gocam.gocam_id] = gocam;

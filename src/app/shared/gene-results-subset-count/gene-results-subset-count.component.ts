@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GeneShort, GoCamId, GoCamMap, PombaseAPIService } from '../../pombase-api.service';
+import { GeneShort, GoCamModelId, GoCamMap, PombaseAPIService } from '../../pombase-api.service';
 import { HistoryEntry, QueryOutputOptions, QueryService } from '../../query.service';
 import { GeneListNode, GeneQuery, GeneUniquename, QueryResult } from '../../pombase-query';
 import { Router } from '@angular/router';
@@ -46,7 +46,7 @@ export class GeneResultsSubsetCountComponent implements OnInit {
   }
 
 
-  gotoResultsInSubset(gocamTitle: string, gocamId: GoCamId): void {
+  gotoResultsInSubset(gocamTitle: string, gocamId: GoCamModelId): void {
     const genes = this.subsetGeneUniquenames[gocamId];
     if (!genes) {
       return;
@@ -55,7 +55,7 @@ export class GeneResultsSubsetCountComponent implements OnInit {
     this.gotoGenes(gocamTitle, gocamId, false, genes);
   }
 
-  gotoGenesInSubset(gocamTitle: string, gocamId: GoCamId): void {
+  gotoGenesInSubset(gocamTitle: string, gocamId: GoCamModelId): void {
     const genes = this.gocamMap[gocamId].genes;
     if (!genes) {
       return;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PombaseAPIService, GoCamGene, GeneSummary, GoCamComponent, GoCamProcess, GoCamChemical, GoCamComplex } from '../../pombase-api.service';
+import { PombaseAPIService, GoCamGene, GeneSummary, GoCamComponent, GoCamProcess, GoCamChemical, GoCamComplex, GoCamModelId, GoCamModelTitle, GoCamDirection } from '../../pombase-api.service';
 
 interface DisplayOverlap {
   node_id: string;
@@ -13,7 +13,7 @@ interface DisplayOverlap {
   occursInComponents: Array<GoCamComponent>;
   part_of_process: GoCamProcess;
   overlapping_individual_ids: Array<string>;
-  models: Array<[string, string]>;
+  models: Array<[GoCamModelId, GoCamModelTitle, GoCamDirection]>;
   modelIdTitles: Array<[string, string]>;
   mergedIds: string;
 }
@@ -66,13 +66,40 @@ export class GocamOverlapsTableComponent implements OnInit {
           }
 
           displayOverlap.modelIdTitles = [];
-          for (const [modelId, modelTitle] of overlap.models) {
+
+          let overlapModels = overlap.models;
+
+          overlapModels.sort((a, b) => {
+            const aModelId = a[0];
+            let aDirection = a[2];
+            const bModelId = b[2];
+            let bDirection = b[2];
+
+            if (aDirection == 'IncomingConstitutivelyUpstream') {
+              aDirection = 'Incoming';
+            }
+            if (bDirection == 'IncomingConstitutivelyUpstream') {
+              bDirection = 'Incoming';
+            }
+            if (aDirection == bDirection) {
+              return aModelId.localeCompare(bModelId);
+            }
+            if (aDirection == 'Incoming' || bDirection == 'Outgoing') {
+              return -1;
+            }
+            if (aDirection == 'Outgoing' || bDirection == 'Incoming') {
+              return 1;
+            }
+            return 0;
+          });
+
+          for (const [modelId, modelTitle] of overlapModels) {
             const shortModelId = modelId.replace('gomodel:', '');
 
             displayOverlap.modelIdTitles.push([shortModelId, modelTitle]);
           }
           displayOverlap.mergedIds =
-            overlap.models.map(([id, _]) => id.replace('gomodel:', '')).join('+');
+            overlapModels.map(([id, _]) => id.replace('gomodel:', '')).join('+');
           if (overlap.occurs_in) {
             overlap.occurs_in.map(occursIn => {
               const occursInComp = occursIn['other_component'] || occursIn['complex_component'];
