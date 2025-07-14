@@ -20,6 +20,7 @@ export class GoCamViewPageComponent implements OnInit {
 
   gocamIdParam?: string;
   gocamIds: Array<string> = [];
+  paramFlags: Array<string> = [];
   gocamDetailsList: Array<GoCamSummary> = [];
   overlappingGene?: GeneShort;
   contributorNames?: string;
@@ -30,6 +31,7 @@ export class GoCamViewPageComponent implements OnInit {
   geneSummaryMap?: GeneSummaryMap;
   titleParts: Array<Array<TextOrTermId>> = [];
   isPomBaseView = false;
+  isMegaModel = false;
   filterType: 'none'|'chemical'|'all-inputs' = 'chemical';
   showModelBoxes = true;
   alternateViewRoute?: string;
@@ -118,7 +120,7 @@ export class GoCamViewPageComponent implements OnInit {
 
     if (this.isPomBaseView) {
       let idForUrl = this.gocamIdParam;
-      let flags = [];
+      let flags = [...this.paramFlags];
       if (this.filterType == 'chemical') {
         flags.push("no_chemicals");
       } else {
@@ -169,6 +171,7 @@ export class GoCamViewPageComponent implements OnInit {
       this.isPomBaseView = pathSeg2.includes('pombase-view');
       this.alternateViewRoute = undefined;
       this.noctuaLink = undefined;
+      this.isMegaModel = false;
 
       if (this.gocamIdParam !== undefined) {
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
@@ -177,11 +180,11 @@ export class GoCamViewPageComponent implements OnInit {
 
         if (this.gocamIdParam.includes(":")) {
           const [gocamId, flagString] = this.gocamIdParam.split(":");
-          const flags = flagString.split(",");
-          if (flags.includes("no_chemicals")) {
+          this.paramFlags = flagString.split(",");
+          if (this.paramFlags.includes("no_chemicals")) {
             this.filterType = 'chemical';
           } else {
-            if (flags.includes("no_inputs")) {
+            if (this.paramFlags.includes("no_inputs")) {
               this.filterType = 'all-inputs';
             }
           }
@@ -197,9 +200,11 @@ export class GoCamViewPageComponent implements OnInit {
           let title;
           if (this.gocamIdParam == "ALL_MERGED") {
             title = "All models merged";
+            this.isMegaModel = true;
           } else {
             if (this.gocamIdParam == "ALL_CONNECTED") {
               title = "All connected models merged";
+              this.isMegaModel = true;
             } else {
               title = this.gocamIdParam;
             }
