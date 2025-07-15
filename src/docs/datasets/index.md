@@ -1,14 +1,9 @@
 ## Datasets
 
-All of the datasets compiled by PomBase are accessible from this page.
+All of the datasets curated and compiled by PomBase are accessible from this page.
 These include genome sequence and features, protein features,
 associations to ontology terms, browser data, manually curated
 orthologs and gene names and identifiers.
-
-
-Note that some of the links below go to pages listing sub-directories
-that are organised slightly differently from the links on this
-page. Your browser may prompt you to open or download files.
 
 If you cannot locate a dataset of interest please contact the
 [helpdesk](mailto:${helpdesk_address}).
