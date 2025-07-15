@@ -60,7 +60,7 @@
     </div>
 
     <div class="filter-group" *ngIf="isPomBaseView">
-      <div *ngIf="!paramFlags.includes('retain_genes')">
+      <ng-container *ngIf="!paramFlags.includes('retain_genes')">
       <div class="filter-select">
         <input id="show-all" type="radio" [(ngModel)]="filterType" value="none" (ngModelChange)="updateUrl()">
         <label for="show-all">Show all</label>
@@ -75,7 +75,7 @@
         <input id="hide-all-inputs" type="radio" [(ngModel)]="filterType" value="all-inputs" (ngModelChange)="updateUrl()">
         <label for="hide-all-inputs">Hide all inputs/outputs</label>
       </div>
-      </div>
+      </ng-container>
 
       <div class="fitler-toggle" *ngIf="isMergedModel()">
         <input id="show-models-boxes" type="checkbox" [(ngModel)]="showModelBoxes" value="true" (ngModelChange)="updateUrl()">
