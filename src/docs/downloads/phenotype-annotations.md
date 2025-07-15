@@ -8,9 +8,7 @@ Phenotype annotations
 %%end db=JaponicusDB
 for alleles of
 *${species_abbrev}* genes are manually curated from the literature using
-Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file
-contains annotations for single allele phenotypes (single mutants)
-only.
+Fission Yeast Phenotype Ontology (FYPO) terms.
 
 %%if db=PomBase
 PHAF format phenotype data file from the latest monthly release:
@@ -18,11 +16,14 @@ PHAF format phenotype data file from the latest monthly release:
   - [pombase_phenotype_annotation.phaf.tsv](/latest_release/phenotypes_and_genotypes/pombase_phenotype_annotation.phaf.tsv)
 %%end db=PomBase
 
+Note that this file contains annotations for single allele phenotypes
+(single mutants) only.
+
 This file uses the the ${database_name} phenotype data bulk annotation
 format (PHAF), detailed below. This format is similar to the
 one that can be used to submit phenotype annotations to ${database_name} in bulk,
 as described on the [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
-page, with the addition of the Database column. Note that, because
+page, with the addition of the `Database` column. Note that, because
 Database is column 1 in the downloadable file, column numbers differ
 by 1 between the download and upload formats.
 
