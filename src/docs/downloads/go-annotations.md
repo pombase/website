@@ -7,16 +7,30 @@ curation, annotations inferred from keyword mappings based on curated
 descriptions, and annotations shared by the UniProt
 [GOA](http://www.ebi.ac.uk/GOA) team.
 
+%%if db=PomBase
+To cite the fission yeast GO data, please see [Citing PomBase](/about/citing-pombase).
+%%end db=PomBase
+
 ### Annotation files
 
 %%if db=PomBase
 Files from the [latest monthly release](/latest_release/gene_ontology/):
 
-  - [gene_ontology_annotation.gaf.tsv](/latest_release/gene_ontology/gene_ontology_annotation.gaf.tsv) -
-    All current *S. pombe* GO annotations in [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
-  - Newer *S. pombe* [GPI](/latest_release/gene_ontology/gene_product_information_taxonid_4896.tsv) and
-    [GPAD](/latest_release/gene_ontology/gene_product_annotation_data_taxonid_4896.tsv)
-    format files.  See the [GPAD/GPI v2.0 format specification](https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md).
+#### GO Association File (GAF)
+
+All current *S. pombe* GO annotations in tab-delimted
+[GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/):
+
+  - [gene_ontology_annotation.gaf.tsv](/latest_release/gene_ontology/gene_ontology_annotation.gaf.tsv)
+
+#### GPAD/GPI
+
+*S. pombe* GO annotation in [GPAD/GPI v2.0 format](https://github.com/geneontology/go-annotation/blob/master/specs/):
+
+  - [Gene Product Information (GPI)](/latest_release/gene_ontology/gene_product_information_taxonid_4896.tsv) -
+    details of *S. pombe* gene products
+  - [Gene Product Annotation Data (GPAD)](/latest_release/gene_ontology/gene_product_annotation_data_taxonid_4896.tsv) -
+    annotation for the genes in the GPI file
 %%end db=PomBase
 
 %%if db=JaponicusDB
@@ -48,8 +62,6 @@ Previous versions of the *S. pombe* GO annotation file can be
 retrieved from the [archive directory](https://www.pombase.org/data/annotations/Gene_ontology/OLD/).
 Note that files produced before March 2021 are only available in GAF 2.1
 format.
-
-To cite the fission yeast GO data, please see [Citing ${database_name}](/about/citing-pombase).
 
 %%end db=PomBase
 
