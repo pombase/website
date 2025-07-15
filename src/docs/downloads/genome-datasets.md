@@ -51,12 +51,24 @@ These files contain coordinates, but no sequence data:
 #### Feature sequences
 
 %%if db=PomBase
-[Sequences in FASTA format](/latest_release/genome_sequence_and_features/fasta_format/) for:
+
+These files are provided in FASTA format.  They contain RNA/DNA
+sequences except for the "Peptide sequences" file.
+
+ - [Coding sequences (CDS)](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds.fa)
+ - [CDS + introns](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns.fa)
+ - [CDS + introns + UTRs](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns+utrs.fa)
+ - [Introns within coding sequences](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/introns_within_cds.fa)
+ - [5' UTRs](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/five_prime_utrs.fa) and
+   [3' UTRs](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/three_prime_utrs.fa)
+ - [Peptide sequences](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/peptide.fa)
+
+Browse available files from the latest release: [feature sequence files](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/)
+
 %%end db=PomBase
 
 %%if db=JaponicusDB
 [Sequences in FASTA format](${base_url}/data/genome_sequence_and_features/feature_sequences/) for:
-%%end db=JaponicusDB
 
 -   Coding sequences (CDS)
 -   CDS + introns
@@ -64,6 +76,8 @@ These files contain coordinates, but no sequence data:
 -   Introns within coding sequences
 -   5' and 3' UTRs
 -   Peptide sequences
+%%end db=JaponicusDB
+
 <!-- -   Non-coding RNA genes -->
 
 #### Genomic regions
