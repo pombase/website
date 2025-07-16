@@ -1,10 +1,16 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/downloads/genome-datasets">Genome datasets</a></div>
 <div class="left-menu-part left-menu-item"><span>Annotation datasets</span></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/protein-datasets">Protein datasets</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
+%%if db=PomBase
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/macromolecular_complexes">Macromolecular complexes</a></div>
+%%end db=PomBase
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
 %%if db=PomBase
-<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/protein_features/protein_modifications.tsv">Modifications</a></div>
-<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/curated_orthologs/">Orthologs</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/human_disease_annotation">Human disease associations</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/downloads/modifications">Modifications</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/curated_orthologs">Orthologs</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_expression">Expression</a></div>
 %%end db=PomBase
 %%if db=JaponicusDB
 <div class="left-menu-part left-sub-menu-item"><a href="${base_url}/data/orthologs/">Orthologs</a></div>
