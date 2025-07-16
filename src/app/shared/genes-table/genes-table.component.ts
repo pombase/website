@@ -400,7 +400,13 @@ export class GenesTableComponent implements OnInit {
   gotoMegaModel() {
     const geneList = this.genes.map(gene => gene.uniquename).join(',');
     this.router.navigate(['/gocam/pombase-view/subset-count/ALL_MERGED/',
-                          geneList, this.description]);
+      geneList, this.description]);
+  }
+
+  gotoMegaModelTrimmed() {
+    const geneList = this.genes.map(gene => gene.uniquename).join(',');
+    this.router.navigate(['/gocam/pombase-view/subset-count/ALL_MERGED:trim_models/',
+      geneList, this.description]);
   }
 
   gotoFilteredMegaModel() {

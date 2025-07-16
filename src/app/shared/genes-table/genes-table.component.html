@@ -86,6 +86,10 @@
         </a>
       </li>
       <li *ngIf="!deployConfigService.productionMode() && genes && genes.length <= 2000" role="menuitem">
+        <a class="dropdown-item" title="View in mega-model" (click)="gotoMegaModelTrimmed()">
+          View coverage in mega-model (trimmed)
+        </a>
+      </li>      <li *ngIf="!deployConfigService.productionMode() && genes && genes.length <= 2000" role="menuitem">
         <a class="dropdown-item" title="View genes in mega-model" (click)="gotoFilteredMegaModel()">
           Filter mega-model with genes
         </a>
