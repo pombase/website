@@ -18,9 +18,9 @@
 <div class="left-menu-part left-sub-menu-item"><a href="${base_url}/data/releases/latest/misc/cc_goslim_${species}_ids_and_names.tsv">GO cellular component slim</a></div>
 %%end db=JaponicusDB
 %%if db=PomBase
-<div class="left-menu-part left-sub-menu-item"><a href="/gene_ontology/bp_go_slim_terms.tsv">GO molecular function slim</a></div>
-<div class="left-menu-part left-sub-menu-item"><a href="/gene_ontology/mf_go_slim_terms.tsv">GO biological process slim</a></div>
-<div class="left-menu-part left-sub-menu-item"><a href="/gene_ontology/cc_go_slim_terms.tsv">GO cellular component slim</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_ontology/bp_go_slim_terms.tsv">GO molecular function slim</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_ontology/mf_go_slim_terms.tsv">GO biological process slim</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_ontology/cc_go_slim_terms.tsv">GO cellular component slim</a></div>
 <div class="left-menu-part left-menu-item"><a href="/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv">Mondo Disease Ontology slim</a></div>
 %%end db=PomBase
 <div class="left-menu-part left-menu-item"><a routerLink="/documents">Documents</a></div>
