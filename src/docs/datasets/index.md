@@ -102,8 +102,8 @@ Current GO slim IDs and term names:
 ### Datasets displayed in the genome browser
 
 The data files used for the tracks in the [JBrowse genome browser](/documentation/JBrowse_quick_start)
-are available from the [`external_datasets` directory](${base_url}/data/external_datasets/).
-The directory names are the either the publication details (PubMed ID) or the
+are available from the [external datasets directory](${base_url}/data/external_datasets/).
+The directory names are either the publication details (PubMed ID) or the
 GEO/SRA dataset ID.
 
 For detailed information about each genome browser track, please see the
