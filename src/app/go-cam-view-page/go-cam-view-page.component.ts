@@ -215,6 +215,8 @@ export class GoCamViewPageComponent implements OnInit {
             } as GoCamSummary];
         } else {
 
+        this.showModelBoxes = this.isMergedModel() || this.paramFlags.includes('trim_models');
+
         const gocamDetailPromise = this.pombaseApi.getGoCamDetailByIds(this.gocamIds.join(","));
 
         Promise.all([summPromise, gocamDetailPromise])
