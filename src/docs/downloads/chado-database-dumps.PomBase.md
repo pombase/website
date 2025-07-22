@@ -1,16 +1,16 @@
 ## Chado database dumps
 
-The [nightly release](https://www.pombase.org/data/releases/latest/) of
-PomBase data includes a dump from the PomBase
-[Chado](http://gmod.org/wiki/Chado) database.
+${database_name} uses the [Chado database schema](http://gmod.org/wiki/Chado)
+for our main curation database.
 
-Archived Chado data dumps are also available for
-[download](http://curation.pombase.org/releases/). From January 2018
-onwards, monthly data snapshots are provided. Earlier archived dumps
-correspond to the intermittent PomBase releases made between July 2012
-and January 2017. For these dumps, the file names include release
-numbers that correspond to the "Annotation Version" numbers in the
-[Data version history](/about/version-history) table.
+We provide PostgreSQL database dumps in Chado format in our monthly
+data release in the ["chado_database" directory](/latest_release/chado_database).
+
+Archived Chado data dumps are also available from the "chado_database"
+directory of [the monthly release archive](/monthly_releases).
+
+Database dumps from before 2018 are available from our the
+[legacy download directory](http://curation.pombase.org/releases/).
 
 Please [contact the curators](mailto:${helpdesk_address})
 if you need any data not available at the links above.

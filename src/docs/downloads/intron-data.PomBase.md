@@ -1,13 +1,13 @@
-### Introns
+## Introns
 
-Downloadable intron datasets are [available in FASTA format](https://www.pombase.org/data/genome_sequence_and_features/feature_sequences/)
+Downloadable intron datasets are [available in FASTA format](/latest_release/genome_sequence_and_features/fasta_format)
 
 
 Note that you can also use the Advanced Search to find all genes
 containing introns, as described in the 
 [FAQ on introns](/faq/how-can-i-retrieve-intron-coordinates-or-sequences).
 
-##### Legacy intron data
+### Legacy intron data
 
 We also provide access to archived [intron data](https://www.pombase.org/data/archive/Intron_Data/OLD/).
 Please note that this set of intron data reflect the dataset at the

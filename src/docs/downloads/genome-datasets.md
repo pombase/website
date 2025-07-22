@@ -6,30 +6,41 @@ systems. Your browser may prompt you to open or download files.
 
 ### Genome sequence
 
+%%if db=PomBase
+The current genome sequence is available in FASTA format from the
+[monthly release directory](/latest_release/genome_sequence_and_features/genome_sequence/).
+Separate file are available for each chromosome, as well as a combined
+FASTA file.
+%%end db=PomBase
+
+%%if db=JaponicusDB
 The current [genome sequence](${base_url}/data/genome_sequence_and_features/genome_sequence/)
 is available in FASTA format. The linked directory contains a file for
 the whole genome sequence as well as separate files for each
 chromosome.
+%%end db=JaponicusDB
 
 #### Feature coordinates only
 
 These files contain coordinates, but no sequence data:
 
--   [GFF3 format](${base_url}/data/genome_sequence_and_features/gff3/)
-    files contain coordinates for features of all types.
-%%if db=PomBase
--   [CDS coordinates](${base_url}/data/genome_sequence_and_features/CDS_Coordinates/) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
--   [Exon coordinates](${base_url}/data/genome_sequence_and_features/Exon_Coordinates/) are in the same tab-delimited file format as CDS coordinates.
-%%end db=PomBase
+%%if db=JaponicusDB
+ -  [GFF3 format](${base_url}/data/genome_sequence_and_features/gff3/)
+%%end db=JaponicusDB
 
 %%if db=PomBase
+ -  [GFF3 format](/latest_release/genome_sequence_and_features/gff_format)
+    files contain coordinates for features of all types.
+ -  [CDS coordinates](/latest_release/genome_sequence_and_features/feature_coordinates) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
+ -  [Exon coordinates](/latest_release/genome_sequence_and_features/feature_coordinates) are in the same tab-delimited file format as CDS coordinates.
+
 #### Feature coordinates and sequence data
 
--   [Chromosome contigs](https://www.pombase.org/data/genome_sequence_and_features/artemis_files/)
+-   [Chromosome contigs](/latest_release/genome_sequence_and_features/artemis_contigs/)
     in enriched EMBL-based format for loading into
     Artemis (see the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase)) 
--   Older files in [EMBL format](https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/embl/)
-    and [GenBank format](https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/genbank/)
+-   Older files in [EMBL format](/data/genome_sequence_and_features/OLD/20170906/embl/)
+    and [GenBank format](/data/genome_sequence_and_features/OLD/20170906/genbank/)
     are available, and reflect the current genome sequence, with feature annotations from January 2017.
 %%end db=PomBase
 
@@ -39,6 +50,24 @@ These files contain coordinates, but no sequence data:
 
 #### Feature sequences
 
+%%if db=PomBase
+
+These files are provided in FASTA format.  They contain RNA/DNA
+sequences except for the "Peptide sequences" file.
+
+ - [Coding sequences (CDS)](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds.fa)
+ - [CDS + introns](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns.fa)
+ - [CDS + introns + UTRs](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns+utrs.fa)
+ - [Introns within coding sequences](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/introns_within_cds.fa)
+ - [5' UTRs](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/five_prime_utrs.fa) and
+   [3' UTRs](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/three_prime_utrs.fa)
+ - [Peptide sequences](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/peptide.fa)
+
+Browse available files from the latest release: [feature sequence files](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/)
+
+%%end db=PomBase
+
+%%if db=JaponicusDB
 [Sequences in FASTA format](${base_url}/data/genome_sequence_and_features/feature_sequences/) for:
 
 -   Coding sequences (CDS)
@@ -47,6 +76,8 @@ These files contain coordinates, but no sequence data:
 -   Introns within coding sequences
 -   5' and 3' UTRs
 -   Peptide sequences
+%%end db=JaponicusDB
+
 <!-- -   Non-coding RNA genes -->
 
 #### Genomic regions

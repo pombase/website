@@ -14,6 +14,10 @@ Search documentation, news archive and FAQ:
 
 -   [Getting started](documentation/getting-started)
 
+### Datasets and Download Links
+
+ - [Main datasets page](/datasets/)
+
 ### Gene Pages ###
 
 -   [Basic information](documentation/gene-page-basic-information)

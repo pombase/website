@@ -1,17 +1,29 @@
-### Phenotype annotations
+## Phenotype annotations
 
-[Phenotype annotations](https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz)
-(link downloads gzipped file from ${database_name}) for alleles of
+%%if db=PomBase
+Phenotype annotations
+%%end db=PomBase
+%%if db=JaponicusDB
+[Phenotype annotations](/data/annotations/Phenotype_annotations/phenotype_annotations.japonicusdb.phaf.gz)
+%%end db=JaponicusDB
+for alleles of
 *${species_abbrev}* genes are manually curated from the literature using
-Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file
-contains annotations for single allele phenotypes (single mutants)
-only.
+Fission Yeast Phenotype Ontology (FYPO) terms.
 
-The file is in a version of the ${database_name} phenotype data bulk annotation
-format (PHAF), detailed below. This format in nearly identical to the
+%%if db=PomBase
+PHAF format phenotype data file from the latest monthly release:
+
+  - [pombase_phenotype_annotation.phaf.tsv](/latest_release/phenotypes_and_genotypes/pombase_phenotype_annotation.phaf.tsv)
+%%end db=PomBase
+
+Note that this file contains annotations for single allele phenotypes
+(single mutants) only.
+
+This file uses the the ${database_name} phenotype data bulk annotation
+format (PHAF), detailed below. This format is similar to the
 one that can be used to submit phenotype annotations to ${database_name} in bulk,
 as described on the [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
-page, with the addition of the Database column. Note that, because
+page, with the addition of the `Database` column. Note that, because
 Database is column 1 in the downloadable file, column numbers differ
 by 1 between the download and upload formats.
 
@@ -23,9 +35,14 @@ using the ontology structure and inferred annotations. Please contact
 the [${database_name} helpdesk](mailto:${helpdesk_address}) if you need
 assistance.
 
-### Viability summary
+## Viability summary
 
+%%if db=PomBase
+A [set of "viability summary" data](/latest_release/phenotypes_and_genotypes/gene_viability.tsv)
+%%end db=PomBase
+%%if db=JaponicusDB
 A [set of "viability summary" data](https://www.pombase.org/data/annotations/Phenotype_annotations/FYPOviability.tsv)
+%%end db=JaponicusDB
 as shown at the top of the FYPO table on each gene page, is available as
 a downloadable file. The file has two columns: the gene systematic ID
 and one of three values: "viable", "inviable" or "condition-dependent".
@@ -33,7 +50,7 @@ and one of three values: "viable", "inviable" or "condition-dependent".
 To cite the fission yeast phenotype data (complete or viability
 summary), please see [Citing ${database_name}](/about/citing-${lc_database_name}).
 
-### PHAF download format
+## PHAF download format
 
 A column marked "mandatory" will always have an entry; non-mandatory
 columns may be empty.
