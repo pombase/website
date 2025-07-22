@@ -36,7 +36,7 @@ been identified through GO-CAM causal model curation.
 
 [Missing *S. pombe* activities](/gocam/missing-activities)
 
-#### GO-CAM overview
+#### GO-CAM Summary map
 
 The [GO-CAM overview](/gocam/summary/all) is a
 high-level graphical summary of the connections between GO-CAM models.

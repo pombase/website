@@ -2,7 +2,7 @@
   <app-page-contents-menu title="GO-CAM pathways" titleRoute="/gocam">
 
     <div class="left-menu-part left-menu-item"><a routerLink="/gocam/model-list">Model list</a></div>
-    <div class="left-menu-part left-menu-item"><span>GO-CAM overview</span></div>
+    <div class="left-menu-part left-menu-item"><span>Summary map</span></div>
     <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/all">All models</a></div>
     <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/connected">Connected models</a></div>
     <div class="left-menu-part left-menu-item"><span>Mega-model</span></div>
@@ -52,10 +52,10 @@ been identified through GO-CAM causal model curation.
   <div *ngIf="pageType && pageType == 'summary'" class="gocam-page">
     <h3>
       <span *ngIf="pageSubType == 'connected'">
-        GO-CAM overview - All Models
+        GO-CAM Summary Map - All Models
       </span>
       <span *ngIf="pageSubType != 'connected'">
-        GO-CAM overview - Connected Models Only
+        GO-CAM Summary Map - Connected Models Only
       </span>
       <span class="help-link">
         <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
@@ -161,7 +161,7 @@ been identified through GO-CAM causal model curation.
     <div class="description">
       This table shows the activities in common between models.  These
       shared activities are where models can be joined to give the
-      <a routerLink="/gocam/summary/all">GO-CAM overview</a>
+      <a routerLink="/gocam/summary/all">GO-CAM Summary Map</a>
       and the <a routerLink="/gocam/mega-model/connected">Mega-model</a>.
     </div>
 
