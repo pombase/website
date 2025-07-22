@@ -28,7 +28,6 @@
 <div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_ontology/cc_go_slim_terms.tsv">GO cellular component slim</a></div>
 <div class="left-menu-part left-menu-item"><a href="/data/external_datasets/">Genome browser datasets</a></div>
 <div class="left-menu-part left-menu-item"><a href="/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv">Mondo Disease Ontology slim</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/data/documents">Documents</a></div>
 %%end db=PomBase
 <div class="left-menu-part left-menu-item"><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a></div>
 %%if db=PomBase
