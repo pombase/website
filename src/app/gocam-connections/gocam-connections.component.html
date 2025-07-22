@@ -15,7 +15,8 @@
   </app-page-contents-menu>
 
   <div class="docs-content">
-  <div *ngIf="pageType == 'model-list'" class="gocam-landing-page">
+
+  <div *ngIf="pageType == 'front'" class="gocam-landing-page">
     <h3>{{siteName}} GO-CAM pathways
       <span class="help-link">
       <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
@@ -45,6 +46,24 @@ been identified through GO-CAM causal model curation.
     </div>
 
     <h4>Available GO-CAM models</h4>
+
+    <a routerLink="/gocam/model-list">All models</a>
+
+  </div>
+
+  <div *ngIf="pageType == 'model-list'" class="gocam-landing-page">
+    <h3>Available <i>S. pombe</i> GO-CAM models
+      <span class="help-link">
+      <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
+        Documentation
+      </app-help-link>
+    </span></h3>
+
+    <div class="description">
+    GO-CAMs, or Gene Ontology Causal Activity Models, are a framework
+    developed within the Gene Ontology (GO) project to represent
+    complex biological pathways in a structured, computable format.
+    </div>
 
     <app-go-cam-table></app-go-cam-table>
   </div>

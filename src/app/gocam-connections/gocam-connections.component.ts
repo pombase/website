@@ -15,8 +15,8 @@ export class GocamConnectionsComponent {
   appConfig: AppConfig = getAppConfig();
   siteName = getAppConfig().site_name;
 
-  pagePath: 'model-list' | 'summary/all' | 'summary/connected' | 'mega-model/all' |
-            'mega-model/connected' | 'connections' | 'missing-activities' = 'model-list';
+  pagePath: 'front' | 'model-list' | 'summary/all' | 'summary/connected' | 'mega-model/all' |
+            'mega-model/connected' | 'connections' | 'missing-activities' = 'front';
   pageType?: string;
   pageSubType?: string;
 
@@ -77,7 +77,7 @@ export class GocamConnectionsComponent {
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      const pageType = params['pageType'] || 'model-list';
+      const pageType = params['pageType'] || 'front';
       this.pageType = pageType;
       this.pageSubType = params['pageSubType'];
       this.pagePath = pageType;
