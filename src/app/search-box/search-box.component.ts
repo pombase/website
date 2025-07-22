@@ -701,7 +701,7 @@ export class SearchBoxComponent implements OnInit {
           this.router.navigate(['/reference', displayModel.uniquename]);
         } else {
           if (e.item.matchType.toLowerCase().includes('go-cam')) {
-            this.router.navigate(['/gocam/view/docs', displayModel.uniquename]);
+            this.router.navigate(['/gocam/pombase-view/docs', displayModel.uniquename]);
           } else {
             if (this.deployConfigService.productionMode()) {
               this.router.navigate(['/gene', displayModel.alleleGeneUniquename]);
@@ -755,7 +755,7 @@ export class SearchBoxComponent implements OnInit {
           const gocamDetailPromise = this.pombaseApiService.getGoCamDetailByIds(trimmedValue);
           gocamDetailPromise.then((_) => {
             this.clearBox();
-            this.router.navigate(['/gocam/view/docs/', trimmedValue]);
+            this.router.navigate(['/gocam/pombase-view/docs/', trimmedValue]);
           });
         }
       }

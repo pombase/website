@@ -48,14 +48,7 @@
     </span>
     </div>
 
-    <div class="alternate-view-link" *ngIf="(devMode() || isPomBaseView) && !isMergedModel()">
-      <a routerLink="{{alternateViewRoute}}">
-        <span *ngIf="isPomBaseView && !isMergedModel()">Go to standard view (gocam-viz)</span>
-        <span *ngIf="!isPomBaseView">Go to PomBase view</span>
-      </a>
-    </div>
-
-    <div class="noctua-link" *ngIf="(devMode() || isPomBaseView) && !isMergedModel()">
+    <div class="noctua-link" *ngIf="devMode() && !isMergedModel()">
       <a href="{{noctuaLink}}">View in Noctua</a>
     </div>
 
