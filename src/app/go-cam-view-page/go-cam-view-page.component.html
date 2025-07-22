@@ -12,7 +12,7 @@
           </app-description-display>
         </span>
         <span *ngIf="sourcePageType != 'docs'">
-          <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a></span>
+          <span class="help-link"><a routerLink="/gocam">All curated pathways</a></span>
         </span>
       </div>
 
@@ -41,7 +41,7 @@
       <a routerLink="/term/{{source}}">Return to the term page for {{sourceName}} ({{source}})</a>
     </span>
     <span *ngIf="sourcePageType == 'docs'">
-      <a routerLink="/documentation/go-cam-pathway-models">Return to the "All curated pathways" list</a>
+      <a routerLink="/gocam">Return to the main GO-CAM page</a>
     </span>
     <span class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
       <span>Highlighted activities:</span> {{sourceName}}

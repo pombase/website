@@ -24,6 +24,16 @@
   display: inline-block;
 }
 
-.sub-heading {
-  padding-bottom: 1em;
+.description {
+  font-size: 110%;
+}
+
+@media (min-width: 1000px) {
+  .description {
+    max-width: 80%
+  }
+}
+
+.description {
+  padding-bottom: 0.7em;
 }

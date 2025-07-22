@@ -20,13 +20,13 @@ models and displaying them on the relevant gene and process pages.
 For further information see the
 [Gene Ontology GO-CAM overview](https://geneontology.org/docs/gocam-overview/).
 
-### Pathway holes
+### Missing activities
 
 We maintain a list of activities known or suspected to occur in fission yeast but
 not yet associated with a gene product. These “pathway holes” have
 been identified through GO-CAM causal model curation.
 
-[*S. pombe* pathway holes](/status/missing-gocam-proteins)
+[Missing *S. pombe* activities](/gocam/missing-activities)
 
 ### Available GO-CAM models
 
