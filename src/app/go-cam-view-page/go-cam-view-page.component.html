@@ -54,19 +54,15 @@
 
     <div class="filter-group" *ngIf="isPomBaseView">
       <ng-container *ngIf="!paramFlags.includes('retain_genes')">
+
       <div class="filter-select">
-        <input id="show-all" type="radio" [(ngModel)]="filterType" value="none" (ngModelChange)="updateUrl()">
-        <label for="show-all">Show all</label>
+        <input id="show-chemicals" type="checkbox" [(ngModel)]="showChemicals" (ngModelChange)="updateUrl()">
+        <label for="show-chemicals">Show chemicals</label>
       </div>
 
       <div class="filter-select">
-        <input id="hide-chemicals" type="radio" [(ngModel)]="filterType" value="chemical" (ngModelChange)="updateUrl()">
-        <label for="hide-chemicals">Hide chemicals</label>
-      </div>
-
-      <div class="filter-select">
-        <input id="hide-all-inputs" type="radio" [(ngModel)]="filterType" value="all-inputs" (ngModelChange)="updateUrl()">
-        <label for="hide-all-inputs">Hide all inputs/outputs</label>
+        <input id="show-all-inputs" type="checkbox" [(ngModel)]="showTargets" (ngModelChange)="updateUrl()">
+        <label for="show-all-inputs">Show target genes/complexes</label>
       </div>
       </ng-container>
 

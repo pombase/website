@@ -21,7 +21,8 @@ export class GocamConnectionsComponent {
   pageSubType?: string;
 
   iframeUrl?: SafeResourceUrl;
-  filterType: 'none' | 'chemical' | 'all-inputs' = 'all-inputs';
+  showChemicals = false;
+  showTargets = false;
   showModelBoxes = true;
 
   constructor(private titleService: Title,
@@ -54,12 +55,11 @@ export class GocamConnectionsComponent {
     }
 
     let flags = [];
-    if (this.filterType == 'chemical') {
+    if (!this.showChemicals) {
       flags.push("no_chemicals");
-    } else {
-      if (this.filterType == 'all-inputs') {
-        flags.push("no_inputs");
-      }
+    }
+    if (!this.showTargets) {
+      flags.push("no_inputs");
     }
 
     if (this.showModelBoxes) {
