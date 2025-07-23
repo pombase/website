@@ -126,6 +126,7 @@ export class GoCamViewPageComponent implements OnInit {
       } else {
         if (this.filterType == 'all-inputs') {
           flags.push("no_inputs");
+          flags.push("no_chemicals");
         }
       }
 
