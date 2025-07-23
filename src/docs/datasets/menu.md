@@ -8,7 +8,7 @@
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
 %%if db=PomBase
 <div class="left-menu-part left-sub-menu-item"><a href="/latest_release/human_disease_annotation">Human disease associations</a></div>
-<div class="left-menu-part left-sub-menu-item"><a href="/downloads/modifications">Modifications</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/modifications">Modifications</a></div>
 <div class="left-menu-part left-sub-menu-item"><a href="/latest_release/curated_orthologs">Orthologs</a></div>
 <div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_expression">Expression</a></div>
 %%end db=PomBase
