@@ -25,7 +25,7 @@ All current *S. pombe* GO annotations in tab-delimted
 
 #### GPAD/GPI
 
-*S. pombe* GO annotation in [GPAD/GPI v2.0 format](https://github.com/geneontology/go-annotation/blob/master/specs/):
+*S. pombe* GO annotation in <a href="https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md">GPAD/GPI v2.0 format</a>:
 
   - [Gene Product Information (GPI)](/latest_release/gene_ontology/gene_product_information_taxonid_4896.tsv) -
     details of *S. pombe* gene products
@@ -41,7 +41,7 @@ All current *S. pombe* GO annotations in tab-delimted
   - [${lc_database_name}.gpad.gz](${base_url}/data/annotations/Gene_ontology/${lc_database_name}.gpad.gz)
     and
     [${lc_database_name}.gpi.gz](${base_url}/data/annotations/Gene_ontology/${lc_database_name}.gpi.gz) -
-    Newer [GPAD/GPI v2.0 format](https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md)
+    Newer <a href="https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md">GPAD/GPI v2.0 format</a>
     annotation files, updated nightly
 %%end db=JaponicusDB
 
