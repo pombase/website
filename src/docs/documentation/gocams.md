@@ -6,7 +6,6 @@ biological pathways in a structured, computable format.
 
 ![GO-CAM model](assets/gocam-docs-example-model.png){ .screenshot .docs-left-float loading="lazy" }
 
-
 They model how molecular activities, enabled by gene products or
 complexes, are causally linked to form larger biological
 processes. Creating a comprehensive GO-CAM representation of a
@@ -17,6 +16,8 @@ any inconsistencies.We welcome community input to help improve,
 expand, or correct the current models.
 
 Visit the [GO-CAM model list](/gocam/model-list).
+
+-------
 
 ### What Do GO-CAM Models Represent?
 
@@ -38,11 +39,15 @@ their associated evidence.
 For more information on the GO-CAM concept, visit the
 [Gene Ontology Consortium's GO-CAM overview](https://geneontology.org/docs/gocam-overview/).
 
+-------
+
 ### Overview of Available GO-CAM Models and Project Scope: Intended and Completed Work
 
 GO-CAMs, or Gene Ontology Causal Activity Models, are a framework
 developed within the Gene Ontology (GO) project to represent complex
 biological pathways in a structured, computable format.
+
+-------
 
 ### Summary Map
 
@@ -68,6 +73,8 @@ that are not yet causally linked to any other model
 
 [View the Summary Map](/gocam/summary/all)
 
+-------
+
 ### Mega Model
 
 ![Mega Model](assets/gocam-docs-mega-model.png){ .screenshot .docs-left-float loading="lazy" }
@@ -84,13 +91,13 @@ Displays all curated GO-CAM models in full detail:
 
 [View the All Models Mega-model](/gocam/mega-model/all).
 
-
 #### The "Connected Models Mega Model" { .clear-float }
 Displays only those GO-CAM models that have inter-model connections,
 omitting unlinked models.
 
 [View the Connected Models Mega-model](/gocam/mega-model/connected).
 
+-------
 
 ### Notes on Model Completeness
 Not all chemical intermediates are curated into models. However, for
@@ -101,6 +108,8 @@ excluded to simplify models.  Some known target genes are not yet
 included in models.  Many inter-model connections are still being
 identified.
 
+-------
+
 ### Missing activities
 We maintain a list of activities known or suspected to occur in
 fission yeast that are not yet associated with any specific gene
@@ -108,6 +117,8 @@ product. These pathway gaps were identified through GO-CAM curation
 and highlight areas for further research and annotation.
 
 [Missing *S. pombe* activities](/gocam/missing-activities)
+
+-------
 
 ### Model joining activities
 A curated list of models that share overlapping activities. This list
