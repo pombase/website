@@ -33,7 +33,7 @@
                 title="Number of genes from the results list in this pathway - click to view gene list">{{row.geneUniquenames.length}}</a>
               <span *ngIf="row.geneUniquenames.length == 0">0</span> <b>/</b>
               <a (click)="gotoGenesInSubset(row.gocamTitle, row.gocamId)"
-                 title="Today number of genes in the pathway - click to view gene list">{{row.subsetTotalGenesCount}}</a>
+                 title="Total number of genes in the pathway - click to view gene list">{{row.subsetTotalGenesCount}}</a>
               <span *ngIf="row.geneUniquenames.length != 0">
                 <b>-</b>
                 <a routerLink="/gocam/pombase-view/subset-count/{{row.gocamId}}/{{row.geneUniquenames.join(',')}}/{{geneListDescription}}">
