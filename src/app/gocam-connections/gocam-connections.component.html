@@ -35,7 +35,9 @@ eukaryotic cell is an ambitious and ongoing project.
     </div>
     <div class="description">
 We welcome community input to help improve, expand, or correct the
-current models.
+current models. If you have subject area knowledge on a specific
+pathway also please consider contacting us to provide feedback on
+accuracy and completeness.
     </div>
     <div class="description">
     For more information, visit the
@@ -43,20 +45,71 @@ current models.
     the <a href="https://geneontology.org/docs/gocam-overview/">Gene Ontology project's GO-CAM overview</a>.
     </div>
 
+    <h4>Summary Map</h4>
+<img src="assets/gocam-docs-summary-map.png" class="screenshot docs-left-float" loading="lazy"/>
+
+The summary map visually shows how individual GO-CAM models are
+causally connected, without showing the internal structure of
+particular models.
+
+    <h5 class="clear-float">The "Connected Summary Map"</h5>
+Displays curated causal connections between GO-CAM models (inter-model connections)
+<p>
+<a routerLink="/gocam/summary/connected">View Connected Summary Map</a>
+
+    <h5>The "All Models Summary Map"</h5>
+Displays a connected Summary Map, but also includes the set of models
+that are not yet causally linked to any other model
+<p>
+<a routerLink="/gocam/summary/all">View All Models Summary Map</a>
+
+   <h4>Mega Model</h4>
+<img src="assets/gocam-docs-mega-model.png" class="screenshot docs-left-float" loading="lazy"/>
+
+Note: To reduce visual complexity, chemical inputs/outputs and target
+genes are not shown initially.  They can be toggled on/off in both
+Mega Models.
+
+    <h5 class="clear-float">The "All Models Mega Model"</h5>
+Displays all curated GO-CAM models in full detail:
+<ul>
+  <li>Each model is enclosed by a boundary (by default)</li>
+  <li>All intra- and inter-model connections are shown</li>
+  <li>Unconnected models are also included</li>
+</ul>
+<p>
+<a routerLink="/gocam/mega-model/all">View All Models Mega-model</a>
+
+<h5>The "Connected Models Mega Model"</h5>
+
+Displays only those GO-CAM models that have inter-model connections,
+omitting unlinked models.
+<a routerLink="/gocam/mega-model/connected">View Connected Models Mega-model</a>
+
+
     <h4>Missing activities</h4>
     <div class="description">
-We maintain a list of activities known or suspected to occur in fission yeast but
-not yet associated with a gene product. These “pathway holes” have
-been identified through GO-CAM causal model curation.
+We maintain a list of activities known or suspected to occur in
+fission yeast that are not yet associated with any specific gene
+product. These pathway gaps were identified through GO-CAM curation
+and highlight areas for further research and annotation.
     </div>
+
     <div class="description">
     <a routerLink="/gocam/missing-activities">Missing <span class="genus-species">S. pombe</span> activities</a>
     </div>
 
-    <h4>Available GO-CAM models</h4>
+    <h4>Model joining activities</h4>
+A curated list of models that share overlapping activities. This list includes:
+    <ul>
+      <li>The specific activities used to link models</li>
+      <li>The joined pathways</li>
+      <li>Links to views of the joined pathways</li>
+    </ul>
 
-    <a routerLink="/gocam/model-list">All models</a>
-
+    <div class="description">
+      <a routerLink="/gocam/connections">View model joining activities</a>
+    </div>
   </div>
 
   <div *ngIf="pageType == 'model-list'" class="gocam-landing-page">

@@ -4,11 +4,13 @@ GO-CAMs (Gene Ontology Causal Activity Models) are a framework
 developed by the Gene Ontology (GO) project to represent complex
 biological pathways in a structured, computable format.
 
+![GO-CAM model](assets/gocam-docs-example-model.png){ .screenshot .docs-left-float loading="lazy" }
+
+
 They model how molecular activities, enabled by gene products or
 complexes, are causally linked to form larger biological
 processes. Creating a comprehensive GO-CAM representation of a
 eukaryotic cell is an ambitious and ongoing project.
-
 PomBase’s GO-CAM modelling project is a work in progress, and we
 encourage users to report missing activities, chemical reactions, or
 any inconsistencies.We welcome community input to help improve,
@@ -44,7 +46,7 @@ biological pathways in a structured, computable format.
 
 ### Summary Map
 
-![Summary Map](assets/gocam-docs-summary-map.png){ .screenshot .left-float loading="lazy" }
+![Summary Map](assets/gocam-docs-summary-map.png){ .screenshot .docs-left-float loading="lazy" }
 
 The summary map visually shows how individual GO-CAM models are
 causally connected, without showing the internal structure of
@@ -58,17 +60,21 @@ joined view of the models
 Displays curated causal connections between GO-CAM models (inter-model
 connections)
 
-[View Connected Summary Map](/gocam/summary/connected)
+[View the Connected Summary Map](/gocam/summary/connected)
 
 #### The "All Models Summary Map"
 Displays a connected Summary Map, but also includes the set of models
 that are not yet causally linked to any other model
 
-[View Summary Map](/gocam/summary/all)
+[View the Summary Map](/gocam/summary/all)
 
 ### Mega Model
 
-![Mega Model](assets/gocam-docs-mega-model.png){ .screenshot .left-float loading="lazy" }
+![Mega Model](assets/gocam-docs-mega-model.png){ .screenshot .docs-left-float loading="lazy" }
+
+Note: To reduce visual complexity, chemical inputs/outputs and target
+genes are not shown initially.  They can be toggled on/off in both
+Mega Models.
 
 #### The "All Models Mega Model"
 Displays all curated GO-CAM models in full detail:
@@ -76,18 +82,14 @@ Displays all curated GO-CAM models in full detail:
  - All intra- and inter-model connections are shown
  - Unconnected models are also included
 
-[View All Models Mega-model](/gocam/mega-model/all).
+[View the All Models Mega-model](/gocam/mega-model/all).
 
 
 #### The "Connected Models Mega Model" { .clear-float }
 Displays only those GO-CAM models that have inter-model connections,
 omitting unlinked models.
 
-To reduce visual complexity, chemical inputs/outputs and target genes
-are not shown initially.  They can be toggled on/off in both Mega
-Models.
-
-[View Connected Models Mega-model](/gocam/mega-model/connected).
+[View the Connected Models Mega-model](/gocam/mega-model/connected).
 
 
 ### Notes on Model Completeness

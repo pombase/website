@@ -693,3 +693,14 @@ table.data-table td {
 table.data-table tr:nth-child(odd) {
   background-color: #f3f3fa;
 }
+
+img.docs-left-float {
+  float: left;
+  width: 20%;
+  max-width: 150px;
+  margin: 0.5em 1.5em 1em 0 !important;
+}
+
+.clear-float {
+  clear: both;
+}
