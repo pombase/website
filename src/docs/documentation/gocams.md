@@ -15,6 +15,8 @@ encourage users to report missing activities, chemical reactions, or
 any inconsistencies.We welcome community input to help improve,
 expand, or correct the current models.
 
+Example model: [fatty acid biosynthetic process (GO:0006633)](/gocam/pombase-view/docs/678073a900002931)
+
 Visit the [GO-CAM model list](/gocam/model-list).
 
 -------
