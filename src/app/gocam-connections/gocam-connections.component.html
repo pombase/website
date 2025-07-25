@@ -145,10 +145,10 @@ for more.)
   <div *ngIf="pageType && pageType == 'summary'" class="gocam-page">
     <h3>
       <span *ngIf="pageSubType == 'connected'">
-        GO-CAM Summary Map - All Models
+        GO-CAM Summary Map - Connected Models Only
       </span>
       <span *ngIf="pageSubType != 'connected'">
-        GO-CAM Summary Map - Connected Models Only
+        GO-CAM Summary Map - All Models
       </span>
       <span class="help-link">
         <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
@@ -184,10 +184,10 @@ for more.)
   <div *ngIf="pageType && pageType == 'mega-model'" class="gocam-page">
     <h3>
       <span *ngIf="pageSubType == 'connected'">
-        GO-CAM Mega Model - All Models
+        GO-CAM Mega Model - Connected Models Only
       </span>
       <span *ngIf="pageSubType != 'connected'">
-        GO-CAM Mega Model - Connected Models Only
+        GO-CAM Mega Model - All Models
       </span>
 
       <span class="help-link">
