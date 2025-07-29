@@ -142,6 +142,7 @@ import { TermPageWidgetsComponent } from './term-page-widgets/term-page-widgets.
 import { ReactionViewComponent } from './reaction-view/reaction-view.component';
 import { ProteinFeatureViewerComponent } from './protein-feature-viewer/protein-feature-viewer.component';
 import { GeneProteinFeaturesComponent } from './gene-protein-features/gene-protein-features.component';
+import { GocamProjectScopeComponent } from './gocam-project-scope/gocam-project-scope.component';
 
 export function documentFactory() {
     return document;
@@ -319,6 +320,7 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         GoCamViewerComponent,
         GoCamViewPageComponent,
         GocamConnectionsComponent,
+        GocamProjectScopeComponent,
         GeneticInteractionTableTypeFilterComponent,
         RnaStructureComponent,
         ProteinFeatureTableComponent,
