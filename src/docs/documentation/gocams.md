@@ -4,8 +4,10 @@ GO-CAMs (Gene Ontology Causal Activity Models) are a framework
 developed by the Gene Ontology (GO) project to represent complex
 biological pathways in a structured, computable format.
 
+<div class="docs-image-flex">
 ![GO-CAM model](assets/gocam-docs-example-model.png){ .screenshot .docs-left-float loading="lazy" }
 
+<div>
 They model how molecular activities, enabled by gene products or
 complexes, are causally linked to form larger biological
 processes. Creating a comprehensive GO-CAM representation of a
@@ -18,6 +20,9 @@ expand, or correct the current models.
 Example model: [fatty acid biosynthetic process (GO:0006633)](/gocam/pombase-view/docs/678073a900002931)
 
 Visit the [GO-CAM model list](/gocam/model-list).
+
+</div>
+</div>
 
 -------
 
@@ -53,8 +58,10 @@ biological pathways in a structured, computable format.
 
 ### Summary Map
 
+<div class="docs-image-flex">
 ![Summary Map](assets/gocam-docs-summary-map.png){ .screenshot .docs-left-float loading="lazy" }
 
+<div>
 The summary map visually shows how individual GO-CAM models are
 causally connected, without showing the internal structure of
 particular models.
@@ -74,13 +81,17 @@ Displays a connected Summary Map, but also includes the set of models
 that are not yet causally linked to any other model
 
 [View the Summary Map](/gocam/summary/all)
+</div>
+</div>
 
 -------
 
 ### Mega Model
 
+<div class="docs-image-flex">
 ![Mega Model](assets/gocam-docs-mega-model.png){ .screenshot .docs-left-float loading="lazy" }
 
+<div>
 Note: To reduce visual complexity, chemical inputs/outputs and target
 genes are not shown initially.  They can be toggled on/off in both
 Mega Models.
@@ -98,6 +109,9 @@ Displays only those GO-CAM models that have inter-model connections,
 omitting unlinked models.
 
 [View the Connected Models Mega-model](/gocam/mega-model/connected).
+
+</div>
+</div>
 
 -------
 

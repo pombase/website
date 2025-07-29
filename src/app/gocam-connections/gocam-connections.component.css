@@ -35,11 +35,3 @@
 .project-scope {
   padding: 0.3em 0 0.1em 0;
 }
-
-.image-flex {
-  display: flex;
-}
-
-.image-flex img {
-  align-self: flex-start;
-}
