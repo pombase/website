@@ -644,7 +644,7 @@ export class SearchBoxComponent implements OnInit {
       .catch(reason => this.geneSummariesFailed = true);
 
 
-    this.pombaseApiService.getAllGoCamDetails()
+    this.pombaseApiService.getAllGoCamSummaries()
       .then(summaries => {
         this.gocamSummaries = summaries;
       })

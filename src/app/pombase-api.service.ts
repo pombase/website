@@ -2005,7 +2005,7 @@ export class PombaseAPIService {
       });
   }
 
-  getAllGoCamDetails(): Promise<Array<GoCamSummary>> {
+  getAllGoCamSummaries(): Promise<Array<GoCamSummary>> {
     return this.httpRetry.getWithRetry(this.apiUrl + `/data/gocam/all`)
       .toPromise()
       .then(body => {
@@ -2041,7 +2041,7 @@ export class PombaseAPIService {
   getAllGoCamDetailsMap(): Promise<GoCamMap> {
     if (!this.promiseCache['getAllGoCamDetailsMap']) {
       this.promiseCache['getAllGoCamDetailsMap'] =
-        this.getAllGoCamDetails()
+        this.getAllGoCamSummaries()
           .then(gocamDetails => {
             let retMap: { [gocamid: GoCamModelId]: GoCamSummary } = {};
             for (let gocam of gocamDetails) {
