@@ -1600,7 +1600,7 @@ United Kingdom</p>
   <div *ngIf="pageName == 'disease-slim'">
 <h2 id="monarch-disease-ontology-slim">Monarch Disease Ontology slim</h2>
 <p>A “slim” is a high-level subset of terms from an ontology, used to analyze sets of annotated genes. The table below shows a slim set of grouping terms that we have selected from the <a href="https://mondo.monarchinitiative.org/">Mondo Disease Ontology</a> (Mondo) and the number of annotations to each term. Mondo IDs link to PomBase ontology term pages. The annotation totals link to pages with information about the term and a list of annotated genes. A gene may be included in the annotation sets for more than one slim term.</p>
-<p>You can download a list of current <a href="https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv">PomBase Mondo slim IDs and term names</a> from the PomBase FTP site.</p>
+<p><a routerLink="/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv">Current fission yeast Mondo Disease Ontology slim IDs and term names</a></p>
 <p>If you would like to have any terms added to the PomBase Mondo slim set, please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
 <p><app-slim-table [slimName]="'pombe_mondo_slim'"></app-slim-table></p>
 
@@ -2508,7 +2508,7 @@ United Kingdom</p>
 <h2 id="fission-yeast-go-biological-process-slim">Fission yeast GO Biological Process slim</h2>
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses a GO slim to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast biological process GO slim, and the number of annotations to each term. GO IDs link to PomBase <a routerLink="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
-<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv">GO process slim IDs and term names</a> from the PomBase FTP site.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a routerLink="/latest_release/gene_ontology/bp_go_slim_terms.tsv">GO process slim IDs and term names</a>.</p>
 <!--
 Note that both proteins and RNAs can be annotated to GO terms, and the
 tables on this page include annotated RNAs. For some GO terms, notably
@@ -2522,7 +2522,7 @@ the total annotated genes.
 <h2 id="fission-yeast-go-cellular-component-slim">Fission yeast GO Cellular Component slim</h2>
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast cellular component GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
-<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv">GO component slim IDs and term names</a> from the PomBase FTP site.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a routerLink="/latest_release/gene_ontology/cc_go_slim_terms.tsv">GO component slim IDs and term names</a>.</p>
 <p><app-slim-table [slimName]="'cc_goslim_pombe'"></app-slim-table></p>
 
   </div>
@@ -2566,7 +2566,7 @@ the total annotated genes.
 <h2 id="fission-yeast-go-molecular-function-slim">Fission yeast GO Molecular Function slim</h2>
 <p>A “GO slim” is a subset of the Gene Ontology terms selected for a specific purpose in interpreting large-scale data, such as functional annotation of a genome or high-throughput experimental results. PomBase uses GO slims to provide a simple summary of <em>S. pombe’s</em> biological capabilities by grouping gene products using broad classifiers.</p>
 <p>The table below shows terms in the current fission yeast molecular function GO slim, and the number of annotations to each term. GO IDs link to PomBase <a href="/documentation/ontology-term-page">ontology term pages</a>. The annotation totals link to pages with information about the term and a list of annotated genes.</p>
-<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a href="https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv">GO function slim IDs and term names</a> from the PomBase FTP site.</p>
+<p>Further information is available from the <a href="documentation/pombase-go-slim-documentation">PomBase GO slim documentation</a> and additional pages linked there. You can also download a list of current <a routerLink="/latest_release/gene_ontology/mf_go_slim_terms.tsv">GO function slim IDs and term names</a>.</p>
 <p><app-slim-table [slimName]="'mf_goslim_pombe'"></app-slim-table></p>
 
   </div>
@@ -5055,45 +5055,50 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 
 <div class="left-menu-part left-menu-item"><a routerLink="/downloads/genome-datasets">Genome datasets</a></div>
 <div class="left-menu-part left-menu-item"><span>Annotation datasets</span></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/protein-datasets">Protein datasets</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/macromolecular_complexes">Macromolecular complexes</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
-<div class="left-menu-part left-sub-menu-item"><a href="https://www.pombase.org/data/annotations/modifications/">Modifications</a></div>
-<div class="left-menu-part left-sub-menu-item"><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/downloads/protein-datasets">Protein datasets</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/human_disease_annotation">Human disease associations</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/modifications">Modifications</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/curated_orthologs">Orthologs</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_expression">Expression</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
 <div class="left-menu-part left-menu-item"><span>GO slims</span></div>
-<div class="left-menu-part left-sub-menu-item"><a href="https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv">GO molecular function slim</a></div>
-<div class="left-menu-part left-sub-menu-item"><a href="https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv">GO biological process slim</a></div>
-<div class="left-menu-part left-sub-menu-item"><a href="https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv">GO cellular component slim</a></div>
-<div class="left-menu-part left-menu-item"><a href="https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv">Mondo Disease Ontology slim</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/documents">Documents</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_ontology/bp_go_slim_terms.tsv">GO molecular function slim</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_ontology/mf_go_slim_terms.tsv">GO biological process slim</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/latest_release/gene_ontology/cc_go_slim_terms.tsv">GO cellular component slim</a></div>
+<div class="left-menu-part left-menu-item"><a href="/data/external_datasets/">Genome browser datasets</a></div>
+<div class="left-menu-part left-menu-item"><a href="/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv">Mondo Disease Ontology slim</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a></div>
+<div class="left-menu-part left-menu-item"><span>Curated inventories</span></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/browse-curation/dna-binding-sites">DNA binding sites</a></div>
+<div class="left-menu-part left-sub-menu-item"><a href="/browse-curation/drugs-known-pombe-targets">Drug targets</a></div>
 
 </app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'index'">
 <h2 id="datasets">Datasets</h2>
-<p>Note that some of the links below go to pages listing subdirectories that are organised slightly differently from the links on this page. Your browser may prompt you to open or download files.</p>
-<p>If you have trouble finding anything, please ask the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
+<p>All of the datasets curated and compiled by PomBase are accessible from this page. These include genome sequence and features, protein features, associations to ontology terms, browser data, manually curated orthologs and gene names and identifiers.</p>
+<p>If you cannot locate a dataset of interest please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
 <hr />
-<h3 id="data-download-site">Data download site</h3>
-<p><a href="https://www.pombase.org/data/">Main directory for <em>S. pombe</em> data</a></p>
+<h3 id="latest-pombase-data">Latest PomBase data</h3>
+<p>The most recent release of the PomBase datasets is available from the <a routerLink="/latest_release">monthly release directory</a>.</p>
+<p>We also have an <a routerLink="/monthly_releases/">archive of previous monthly releases</a>.</p>
 <hr />
 <h3 id="dataset-and-ontology-versions">Dataset and ontology versions</h3>
 <p>The <a routerLink="/internal-details">versions page</a> is updated each night.</p>
 <hr />
-<h3 id="genome-sequence-and-features"><a routerLink="/downloads/genome-datasets">Genome sequence and features</a></h3>
+<h3 id="genome-sequence-and-features">Genome sequence and features</h3>
+<p>Visit the <a routerLink="/downloads/genome-datasets">main genome dataset page</a> for:</p>
 <ul>
 <li>Genome sequence (FASTA or enriched EMBL format for Artemis)</li>
 <li>Feature coordinates (coding regions, introns, exons, UTRs, etc.)</li>
 <li>Genomic regions (centromeres, telomeres, mating type)</li>
 </ul>
 <hr />
-<h3 id="datasets-displayed-in-the-genome-browser">Datasets displayed in the genome browser</h3>
-<p>The data files used for the tracks in the <a routerLink="/documentation/JBrowse_quick_start">JBrowse genome browser</a> are available from the <a href="https://www.pombase.org/data/external_datasets/"><code>external_datasets</code> directory</a>. The directory names are the either the publication details (PubMed ID) or the GEO/SRA dataset ID.</p>
-<p>For detailed information about each genome browser track, please see the <a href="https://github.com/pombase/pombase-config/raw/master/website/jbrowse_track_metadata.csv">JBrowse configuration table</a>. This file is a spreadsheet in comma separated value format. The columns are described on <a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">the dataset submission page</a>.</p>
-<hr />
 <h3 id="annotation-datasets">Annotation datasets</h3>
+<p>Annotations are all ontology-based, and extracted from the primary literature based on experimental data from both hypothesis-driven low-throughput experiments and large discovery screens (GO associations are supplemented by non-experimental annotations). All annotations are fully provenanced, and supported by appropriate evidence codes.</p>
 <table>
 <thead>
 <tr class="header">
@@ -5104,22 +5109,22 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <tbody>
 <tr class="odd">
 <td><a routerLink="/downloads/protein-datasets">Protein datasets</a></td>
-<td>Protein sequence FASTA database, peptide features, properties, etc.</td>
+<td>Protein sequence in FASTA format, peptide features, properties, etc.</td>
 </tr>
 <tr class="even">
-<td><a routerLink="/downloads/go-annotations">GO annotations</a></td>
+<td><a routerLink="/downloads/go-annotations/">GO annotations</a></td>
 <td>Gene Ontology annotation files</td>
 </tr>
 <tr class="odd">
-<td><a href="https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/">Macromolecular complexes</a></td>
+<td><a routerLink="/latest_release/macromolecular_complexes/">Macromolecular complexes</a></td>
 <td>Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)</td>
 </tr>
 <tr class="even">
-<td><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></td>
+<td><a routerLink="/downloads/phenotype-annotations/">Phenotype annotations</a></td>
 <td>FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary</td>
 </tr>
 <tr class="odd">
-<td><a href="https://www.pombase.org/data/annotations/human_disease_annotation/">Human disease associations</a></td>
+<td><a routerLink="/latest_release/human_disease_annotation/">Human disease associations</a></td>
 <td>Fission yeast orthologs of human disease associated genes with disease descriptions and <a href="https://mondo.monarchinitiative.org/">Mondo</a> ontology terms</td>
 </tr>
 <tr class="even">
@@ -5127,29 +5132,35 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <td>Protein modifications</td>
 </tr>
 <tr class="odd">
-<td><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></td>
+<td><a routerLink="/latest_release/curated_orthologs/">Orthologs</a></td>
 <td>Manually curated ortholog sets for <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">human</a> and <a routerLink="/faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene"><em>S. cerevisiae</em></a>; also see <a routerLink="/documentation/orthologs">documentation</a></td>
 </tr>
 <tr class="even">
-<td><a href="https://www.pombase.org/latest_release/gene_expression/">Expression</a></td>
+<td><a routerLink="/latest_release/gene_expression/">Expression</a></td>
 <td>Quantitative and qualitative protein and RNA expression data</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h3 id="gene-names-and-ids"><a routerLink="/downloads/names-and-identifiers">Gene names and IDs</a></h3>
-<p>Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers</p>
-<hr />
+<h3 id="gene-names-and-identifiers">Gene names and identifiers</h3>
+<p>Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers:</p>
+<ul>
+<li><a routerLink="/downloads/names-and-identifiers">Names and identifiers</a></li>
+</ul>
 <h3 id="go-slim">GO slim</h3>
 <p>Current GO slim IDs and term names:</p>
 <ul>
-<li><a href="https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv">GO biological process slim</a></li>
-<li><a href="https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv">GO molecular function slim</a></li>
-<li><a href="https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv">GO cellular component slim</a></li>
+<li><a routerLink="/latest_release/gene_ontology/bp_go_slim_terms.tsv">GO biological process slim</a></li>
+<li><a routerLink="/latest_release/gene_ontology/mf_go_slim_terms.tsv">GO molecular function slim</a></li>
+<li><a routerLink="/latest_release/gene_ontology/cc_go_slim_terms.tsv">GO cellular component slim</a></li>
 </ul>
 <hr />
+<h3 id="datasets-displayed-in-the-genome-browser">Datasets displayed in the genome browser</h3>
+<p>The data files used for the tracks in the <a routerLink="/documentation/JBrowse_quick_start">JBrowse genome browser</a> are available from the <a href="https://www.pombase.org/data/external_datasets/">external datasets directory</a>. The directory names are either the publication details (PubMed ID) or the GEO/SRA dataset ID.</p>
+<p>For detailed information about each genome browser track, please see the <a href="https://github.com/pombase/pombase-config/raw/master/website/jbrowse_track_metadata.csv">JBrowse configuration table</a>. This file is a spreadsheet in comma separated value format. The columns are described on <a routerLink="/documentation/data-submission-form-for-HTP-sequence-linked-data">the dataset submission page</a>.</p>
+<hr />
 <h3 id="mondo-slim">Mondo slim</h3>
-<p><a href="https://www.pombase.org/data/annotations/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv.gz">Current fission yeast Mondo Disease Ontology slim IDs and term names</a></p>
+<p><a routerLink="/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv">Current fission yeast Mondo Disease Ontology slim IDs and term names</a></p>
 <hr />
 <h3 id="curated-inventories">Curated inventories</h3>
 <ul>
@@ -5184,6 +5195,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/controlled-curation">Controlled curation</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-external-references">External references</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-literature">Literature</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/gocams">GO-CAM pathways</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/pombase-go-slim-documentation">GO Slim</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/JBrowse_quick_start">PomBase JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/quick-little-tool">QuiLT visualisation</a></div>
@@ -6699,11 +6711,73 @@ satisfy those conditions. Click on it to see the lists of genes.</li> <li>In tha
 <p>GO-CAMs, or Gene Ontology Causal Activity Models, are a framework developed within the Gene Ontology (GO) project to represent complex biological pathways in a structured, computable format. Unlike traditional GO annotations, GO-CAM curation incorporates causal relationships between molecular activities and connects them to biological processes and cellular components. This approach provides a more detailed depiction of how gene products interact and function within biological systems. GO-CAMs specify entities like genes and proteins, their associated activities, and the causal links between them. These models are visualized as graphs, with nodes representing molecular activities and edges illustrating causal relationships, enabling a comprehensive understanding of interactions and pathways in biological processes.</p>
 <p>At PomBase, we have begun representing biological pathways as GO-CAM models and displaying them on the relevant gene and process pages.</p>
 <p>For further information see the <a href="https://geneontology.org/docs/gocam-overview/">Gene Ontology GO-CAM overview</a>.</p>
-<h3 id="pathway-holes">Pathway holes</h3>
+<h3 id="missing-activities">Missing activities</h3>
 <p>We maintain a list of activities known or suspected to occur in fission yeast but not yet associated with a gene product. These “pathway holes” have been identified through GO-CAM causal model curation.</p>
-<p><a routerLink="/status/missing-gocam-proteins"><em>S. pombe</em> pathway holes</a></p>
+<p><a routerLink="/gocam/missing-activities">Missing <em>S. pombe</em> activities</a></p>
 <h3 id="available-go-cam-models">Available GO-CAM models</h3>
 <p><app-go-cam-table></app-go-cam-table></p>
+
+  </div>
+  <div *ngIf="pageName == 'gocams'">
+<h2 id="pombase-go-cam-pathways">PomBase GO-CAM pathways</h2>
+<p>GO-CAMs (Gene Ontology Causal Activity Models) are a framework developed by the Gene Ontology (GO) project to represent complex biological pathways in a structured, computable format. They model how molecular activities, enabled by gene products or complexes, are causally linked to form larger biological processes.</p>
+<div class="docs-image-flex">
+<p><img src="assets/gocam-docs-example-model.png" class="screenshot docs-left-float" loading="lazy" alt="GO-CAM model" /></p>
+<div>
+<p>Creating a comprehensive GO-CAM representation of a eukaryotic cell is an ambitious and ongoing project. We therefore welcome community input to help improve, expand, or correct the current models. If you have subject area knowledge on a specific pathway also please consider contacting us to provide feedback on accuracy and completeness.</p>
+<p>Example model: <a routerLink="/gocam/pombase-view/docs/678073a900002931">fatty acid biosynthetic process (GO:0006633)</a></p>
+<p>Visit the <a routerLink="/gocam/model-list">GO-CAM model list</a> or the <a routerLink="/gocam">main PomBase GO-CAM page</a>.</p>
+</div>
+</div>
+<hr />
+<h3 id="what-do-go-cam-models-represent">What Do GO-CAM Models Represent?</h3>
+<p>Each GO-CAM model provides a structured view of curated biological knowledge, where: Activities (GO Molecular Functions) performed by enablers (gene products or protein complexes) are connected causally through <a href="https://wiki.geneontology.org/Annotation_Relations#GO-CAM:_Causal_Relations">defined relationships</a>.</p>
+<p>Activities also have curated connections to: - The GO biological process or pathway they are “part of”. - The GO cellular component where the activity “occurs in”. - Chemical inputs and outputs (with associated locations), or target genes and complexes.</p>
+<p>All models are manually curated, and due to the extensive GO curation coverage at PomBase, most models use pre-existing GO annotations and their associated evidence.</p>
+<p>For more information on the GO-CAM concept, visit the <a href="https://geneontology.org/docs/gocam-overview/">Gene Ontology Consortium’s GO-CAM overview</a>.</p>
+<hr />
+<h3 id="overview-of-available-go-cam-models-and-project-scope-intended-and-completed-work">Overview of Available GO-CAM Models and Project Scope: Intended and Completed Work</h3>
+<p>GO-CAMs, or Gene Ontology Causal Activity Models, are a framework developed within the Gene Ontology (GO) project to represent complex biological pathways in a structured, computable format.</p>
+<hr />
+<h3 id="summary-map">Summary Map</h3>
+<div class="docs-image-flex">
+<p><img src="assets/gocam-docs-summary-map.png" class="screenshot docs-left-float" loading="lazy" alt="Summary Map" /></p>
+<div>
+<p>The summary map visually shows how individual GO-CAM models are causally connected, without showing the internal structure of particular models.</p>
+<p>Clicking on a model’s name will take you to its GO-CAM model view. Clicking on the arrow between two models will take you to a joined view of the models</p>
+<h4 id="the-all-models-summary-map">The “All Models Summary Map”</h4>
+<p>Displays a connected Summary Map, but also includes the set of models that are not yet causally linked to any other model</p>
+<p><a routerLink="/gocam/summary/all">View the Summary Map</a></p>
+<h4 class="clear-float" id="the-connected-summary-map">The “Connected Summary Map”</h4>
+<p>Displays curated causal connections between GO-CAM models (inter-model connections)</p>
+<p><a routerLink="/gocam/summary/connected">View the Connected Summary Map</a></p>
+</div>
+</div>
+<hr />
+<h3 id="mega-model">Mega Model</h3>
+<div class="docs-image-flex">
+<p><img src="assets/gocam-docs-mega-model.png" class="screenshot docs-left-float" loading="lazy" alt="Mega Model" /></p>
+<div>
+<p>Note: To reduce visual complexity, chemical inputs/outputs and target genes are not shown initially. They can be toggled on/off in both Mega Models.</p>
+<h4 id="the-all-models-mega-model">The “All Models Mega Model”</h4>
+<p>Displays all curated GO-CAM models in full detail: - Each model is enclosed by a boundary (by default) - All intra- and inter-model connections are shown - Unconnected models are also included</p>
+<p><a routerLink="/gocam/mega-model/all">View the All Models Mega-model</a>.</p>
+<h4 class="clear-float" id="the-connected-models-mega-model">The “Connected Models Mega Model”</h4>
+<p>Displays only those GO-CAM models that have inter-model connections, omitting unlinked models.</p>
+<p><a routerLink="/gocam/mega-model/connected">View the Connected Models Mega-model</a>.</p>
+</div>
+</div>
+<hr />
+<h3 id="notes-on-model-completeness">Notes on Model Completeness</h3>
+<p>Not all chemical intermediates are curated into models. However, for all catalytic steps, full reaction details can be found via links on the associated gene page, under the GO Molecular Function section (via Rhea reaction references). Currency metabolites (e.g., ATP, H₂O) are excluded to simplify models. Some known target genes are not yet included in models. Many inter-model connections are still being identified.</p>
+<hr />
+<h3 id="missing-activities">Missing activities</h3>
+<p>We maintain a list of activities known or suspected to occur in fission yeast that are not yet associated with any specific gene product. These pathway gaps were identified through GO-CAM curation and highlight areas for further research and annotation.</p>
+<p><a routerLink="/gocam/missing-activities">Missing <em>S. pombe</em> activities</a></p>
+<hr />
+<h3 id="model-joining-activities">Model joining activities</h3>
+<p>A curated list of models that share overlapping activities. This list includes: - The specific activities used to link models - The joined pathways - Links to views of the joined pathways</p>
+<p><a routerLink="/gocam/connections">View model joining activities</a></p>
 
   </div>
   <div *ngIf="pageName == 'high-confidence-physical-interaction-network'">
@@ -6761,6 +6835,10 @@ Search documentation, news archive and FAQ:
 <h3 id="general">General</h3>
 <ul>
 <li><a routerLink="/documentation/getting-started">Getting started</a></li>
+</ul>
+<h3 id="datasets-and-download-links">Datasets and Download Links</h3>
+<ul>
+<li><a routerLink="/datasets/">Main datasets page</a></li>
 </ul>
 <h3 id="gene-pages">Gene Pages</h3>
 <ul>
@@ -6843,7 +6921,7 @@ Search documentation, news archive and FAQ:
 <h2 id="miscellaneous-sequence-features">Miscellaneous sequence features</h2>
 <p><app-seq-feature-table></app-seq-feature-table></p>
 <h3 id="view-sequence-features-in-artemis">View sequence features in Artemis</h3>
-<p>Sequence features can also downloaded from <a href="https://www.pombase.org/data/genome_sequence_and_features/artemis_files/">data directory</a> and viewed in Artemis. See <a href="https://www.pombase.org/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase">this FAQ</a> for more information.</p>
+<p>Sequence features can also downloaded from the <a routerLink="/latest_release/genome_sequence_and_features/artemis_contigs/">data directory</a> and viewed in Artemis. See <a href="https://www.pombase.org/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase">this FAQ</a> for more information.</p>
 <h3 id="centromeres">Centromeres</h3>
 <ul>
 <li><a routerLink="/status/centromeres">Centromere clone information</a></li>
@@ -7472,9 +7550,9 @@ are not detected by any automated method. Gradually, we will add and display sup
 <p>The bottom of each GO slim page lists some simple statistics: the total number of gene products annotated to slim terms, and the number of protein-coding gene products not covered by the slim, either because they are not annotated to any term in the GO branch, or because they have annotations to terms not covered by the slim.</p>
 <p>Current GO slim IDs and term names can be downloaded from the PomBase ftp site:</p>
 <ul>
-<li><a href="https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv">GO molecular function slim</a></li>
-<li><a href="https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv">GO biological process slim</a></li>
-<li><a href="https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv">GO cellular component slim</a></li>
+<li><a routerLink="/latest_release/gene_ontology/bp_go_slim_terms.tsv">GO biological process slim</a></li>
+<li><a routerLink="/latest_release/gene_ontology/mf_go_slim_terms.tsv">GO molecular function slim</a></li>
+<li><a routerLink="/latest_release/gene_ontology/cc_go_slim_terms.tsv">GO cellular component slim</a></li>
 </ul>
 
   </div>
@@ -7906,7 +7984,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/go-annotations">GO annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/phenotype-annotations">Phenotype annotations</a></div>
 <div class="left-menu-part left-sub-sub-menu-item"><a routerLink="/downloads/modifications">Modifications</a></div>
-<div class="left-menu-part left-sub-sub-menu-item"><a href="https://www.pombase.org/data/orthologs/">Orthologs</a></div>
+<div class="left-menu-part left-sub-sub-menu-item"><a href="/latest_release/curated_orthologs/">Orthologs</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/protein-datasets">Protein datasets</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/downloads/names-and-identifiers">Names and IDs</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documents">Documents</a></div>
@@ -7916,8 +7994,10 @@ are not detected by any automated method. Gradually, we will add and display sup
   <div class="docs-content">
   <div *ngIf="pageName == 'chado-database-dumps'">
 <h2 id="chado-database-dumps">Chado database dumps</h2>
-<p>The <a href="https://www.pombase.org/data/releases/latest/">nightly release</a> of PomBase data includes a dump from the PomBase <a href="http://gmod.org/wiki/Chado">Chado</a> database.</p>
-<p>Archived Chado data dumps are also available for <a href="http://curation.pombase.org/releases/">download</a>. From January 2018 onwards, monthly data snapshots are provided. Earlier archived dumps correspond to the intermittent PomBase releases made between July 2012 and January 2017. For these dumps, the file names include release numbers that correspond to the “Annotation Version” numbers in the <a routerLink="/about/version-history">Data version history</a> table.</p>
+<p>PomBase uses the <a href="http://gmod.org/wiki/Chado">Chado database schema</a> for our main curation database.</p>
+<p>We provide PostgreSQL database dumps in Chado format in our monthly data release in the <a routerLink="/latest_release/chado_database">“chado_database” directory</a>.</p>
+<p>Archived Chado data dumps are also available from the “chado_database” directory of <a routerLink="/monthly_releases">the monthly release archive</a>.</p>
+<p>Database dumps from before 2018 are available from our the <a href="http://curation.pombase.org/releases/">legacy download directory</a>.</p>
 <p>Please <a href="mailto:helpdesk@pombase.org">contact the curators</a> if you need any data not available at the links above.</p>
 
   </div>
@@ -7925,32 +8005,34 @@ are not detected by any automated method. Gradually, we will add and display sup
 <h2 id="genome-sequence-and-features">Genome sequence and features</h2>
 <p>Note that most of the datasets available here are compressed (.gz), and can be uncompressed by utilities available in all common operating systems. Your browser may prompt you to open or download files.</p>
 <h3 id="genome-sequence">Genome sequence</h3>
-<p>The current <a href="https://www.pombase.org/data/genome_sequence_and_features/genome_sequence/">genome sequence</a> is available in FASTA format. The linked directory contains a file for the whole genome sequence as well as separate files for each chromosome.</p>
+<p>The current genome sequence is available in FASTA format from the <a routerLink="/latest_release/genome_sequence_and_features/genome_sequence/">monthly release directory</a>. Separate file are available for each chromosome, as well as a combined FASTA file.</p>
 <h4 id="feature-coordinates-only">Feature coordinates only</h4>
 <p>These files contain coordinates, but no sequence data:</p>
 <ul>
-<li><a href="https://www.pombase.org/data/genome_sequence_and_features/gff3/">GFF3 format</a> files contain coordinates for features of all types.</li>
-<li><a href="https://www.pombase.org/data/genome_sequence_and_features/CDS_Coordinates/">CDS coordinates</a> are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.</li>
-<li><a href="https://www.pombase.org/data/genome_sequence_and_features/Exon_Coordinates/">Exon coordinates</a> are in the same tab-delimited file format as CDS coordinates.</li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/gff_format">GFF3 format</a> files contain coordinates for features of all types.</li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/feature_coordinates">CDS coordinates</a> are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.</li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/feature_coordinates">Exon coordinates</a> are in the same tab-delimited file format as CDS coordinates.</li>
 </ul>
 <h4 id="feature-coordinates-and-sequence-data">Feature coordinates and sequence data</h4>
 <ul>
-<li><a href="https://www.pombase.org/data/genome_sequence_and_features/artemis_files/">Chromosome contigs</a> in enriched EMBL-based format for loading into Artemis (see the <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">Artemis FAQ</a>)</li>
-<li>Older files in <a href="https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/embl/">EMBL format</a> and <a href="https://www.pombase.org/data/genome_sequence_and_features/OLD/20170906/genbank/">GenBank format</a> are available, and reflect the current genome sequence, with feature annotations from January 2017.</li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/artemis_contigs/">Chromosome contigs</a> in enriched EMBL-based format for loading into Artemis (see the <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">Artemis FAQ</a>)</li>
+<li>Older files in <a routerLink="/data/genome_sequence_and_features/OLD/20170906/embl/">EMBL format</a> and <a routerLink="/data/genome_sequence_and_features/OLD/20170906/genbank/">GenBank format</a> are available, and reflect the current genome sequence, with feature annotations from January 2017.</li>
 </ul>
 <!-- put this between the two existing lines above:
 -   [Manually curated LTRs]() in GFF3 format
 -->
 <h4 id="feature-sequences">Feature sequences</h4>
-<p><a href="https://www.pombase.org/data/genome_sequence_and_features/feature_sequences/">Sequences in FASTA format</a> for:</p>
+<p>These files are provided in FASTA format. They contain RNA/DNA sequences except for the “Peptide sequences” file.</p>
 <ul>
-<li>Coding sequences (CDS)</li>
-<li>CDS + introns</li>
-<li>CDS + introns + UTRs</li>
-<li>Introns within coding sequences</li>
-<li>5’ and 3’ UTRs</li>
-<li>Peptide sequences <!-- -   Non-coding RNA genes --></li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds.fa">Coding sequences (CDS)</a></li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns.fa">CDS + introns</a></li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns+utrs.fa">CDS + introns + UTRs</a></li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/introns_within_cds.fa">Introns within coding sequences</a></li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/five_prime_utrs.fa">5’ UTRs</a> and <a routerLink="/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/three_prime_utrs.fa">3’ UTRs</a></li>
+<li><a routerLink="/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/peptide.fa">Peptide sequences</a></li>
 </ul>
+<p>Browse available files from the latest release: <a routerLink="/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/">feature sequence files</a></p>
+<!-- -   Non-coding RNA genes -->
 <h4 id="genomic-regions">Genomic regions</h4>
 <table>
 <thead>
@@ -7983,20 +8065,27 @@ are not detected by any automated method. Gradually, we will add and display sup
 
   </div>
   <div *ngIf="pageName == 'go-annotations'">
-<h3 id="go-annotations">GO annotations</h3>
+<h2 id="go-annotations">GO annotations</h2>
 <p><em>S. pombe</em> GO annotations are available as tab-delimited files in <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF 2.2 format</a>. The files include annotations made by manual literature curation, annotations inferred from keyword mappings based on curated descriptions, and annotations shared by the UniProt <a href="http://www.ebi.ac.uk/GOA">GOA</a> team.</p>
-<h4 id="annotation-files">Annotation files</h4>
+<p>To cite the fission yeast GO data, please see <a routerLink="/about/citing-pombase">Citing PomBase</a>.</p>
+<h3 id="annotation-files">Annotation files</h3>
+<p>Files from the <a routerLink="/latest_release/gene_ontology/">latest monthly release</a>:</p>
+<h4 id="go-association-file-gaf">GO Association File (GAF)</h4>
+<p>All current <em>S. pombe</em> GO annotations in tab-delimted <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF 2.2 format</a>:</p>
 <ul>
-<li><a href="https://www.pombase.org/data/annotations/Gene_ontology/gene_association.pombase.gz">gene_association.pombase.gz</a> - All current <em>S. pombe</em> GO annotations in <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF 2.2 format</a>, updated nightly</li>
-<li><a href="https://www.pombase.org/data/annotations/Gene_ontology/gene_association_2-1.pombase.gz">gene_association_2-1.pombase.gz</a> - All annotations in the older <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/">GAF 2.1 format</a></li>
-<li><a href="https://www.pombase.org/data/annotations/Gene_ontology/pombase.gpad.gz">pombase.gpad.gz</a> and <a href="https://www.pombase.org/data/annotations/Gene_ontology/pombase.gpi.gz">pombase.gpi.gz</a> - Newer <a href="https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0">GPAD/GPI v2.0 format</a> annotation files, updated nightly</li>
+<li><a routerLink="/latest_release/gene_ontology/gene_ontology_annotation.gaf.tsv">gene_ontology_annotation.gaf.tsv</a></li>
 </ul>
-<h4 id="protein-complexes">Protein complexes</h4>
-<p>Also see the <a href="https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/">list of protein complexes</a>, which uses GO macromolecular complex terms and IDs.</p>
-<h4 id="notes">Notes</h4>
+<h4 id="gpadgpi">GPAD/GPI</h4>
+<p><em>S. pombe</em> GO annotation in <a href="https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md">GPAD/GPI v2.0 format</a>:</p>
+<ul>
+<li><a routerLink="/latest_release/gene_ontology/gene_product_information_taxonid_4896.tsv">Gene Product Information (GPI)</a> - details of <em>S. pombe</em> gene products</li>
+<li><a routerLink="/latest_release/gene_ontology/gene_product_annotation_data_taxonid_4896.tsv">Gene Product Annotation Data (GPAD)</a> - annotation for the genes in the GPI file</li>
+</ul>
+<h3 id="protein-complexes">Protein complexes</h3>
+<p>Also see the <a routerLink="/latest_release/macromolecular_complexes/">list of protein complexes</a>, which uses GO macromolecular complex terms and IDs.</p>
+<h3 id="notes">Notes</h3>
 <p>The contents of the files downloadable from PomBase may differ from files available elsewhere (e.g. see <a routerLink="/faq/why-are-go-annotations-different-between-pombase-and-uniprot-goa">this FAQ</a>), and will not include annotations inferred by transitivity (see <a routerLink="/faq/why-are-go-terms-missing-downloadable-annotation-file">this FAQ</a>).</p>
 <p>Previous versions of the <em>S. pombe</em> GO annotation file can be retrieved from the <a href="https://www.pombase.org/data/annotations/Gene_ontology/OLD/">archive directory</a>. Note that files produced before March 2021 are only available in GAF 2.1 format.</p>
-<p>To cite the fission yeast GO data, please see <a routerLink="/about/citing-pombase">Citing PomBase</a>.</p>
 
   </div>
   <div *ngIf="pageName == 'index'">
@@ -8008,10 +8097,10 @@ are not detected by any automated method. Gradually, we will add and display sup
 
   </div>
   <div *ngIf="pageName == 'intron-data'">
-<h3 id="introns">Introns</h3>
-<p>Downloadable intron datasets are <a href="https://www.pombase.org/data/genome_sequence_and_features/feature_sequences/">available in FASTA format</a></p>
+<h2 id="introns">Introns</h2>
+<p>Downloadable intron datasets are <a routerLink="/latest_release/genome_sequence_and_features/fasta_format">available in FASTA format</a></p>
 <p>Note that you can also use the Advanced Search to find all genes containing introns, as described in the <a routerLink="/faq/how-can-i-retrieve-intron-coordinates-or-sequences">FAQ on introns</a>.</p>
-<h5 id="legacy-intron-data">Legacy intron data</h5>
+<h3 id="legacy-intron-data">Legacy intron data</h3>
 <p>We also provide access to archived <a href="https://www.pombase.org/data/archive/Intron_Data/OLD/">intron data</a>. Please note that this set of intron data reflect the dataset at the time of publication of the <em>S. pombe</em> genome sequence, and does not include any new introns, or changes to introns, since then. The intron data archive includes:</p>
 <ul>
 <li>List of all <em>S. pombe</em> intron-containing genes</li>
@@ -8025,12 +8114,12 @@ are not detected by any automated method. Gradually, we will add and display sup
 
   </div>
   <div *ngIf="pageName == 'modifications'">
-<h3 id="protein-modifications">Protein modifications</h3>
+<h2 id="protein-modifications">Protein modifications</h2>
 <p>All annotated <em>S. pombe</em> protein modifications are available to download in <a href="https://en.wikipedia.org/wiki/Tab-separated_values">TSV</a> format:</p>
 <ul>
-<li><a href="https://www.pombase.org/data/annotations/modifications/pombase_protein_modifications.tsv.gz">pombase_protein_modifications.tsv.gz</a></li>
+<li><a routerLink="/latest_release/protein_features/protein_modifications.tsv">protein_modifications.tsv</a></li>
 </ul>
-<h4 id="columns">Columns</h4>
+<h3 id="columns">Columns</h3>
 <ol type="1">
 <li><code>gene_systematic_id</code> - The PomBase systematic ID, example: “SPAC1002.02”</li>
 <li><code>gene_name</code> - Gene name, if any, example: pom34</li>
@@ -8043,7 +8132,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <li><code>date</code> - Annotation date, example: 2023-11-16</li>
 <li><code>assigned_by</code> - Database that created this annotation, example: PomBase</li>
 </ol>
-<h4 id="current-protein-modification-evidence-codes">Current protein modification evidence codes:</h4>
+<h3 id="current-protein-modification-evidence-codes">Current protein modification evidence codes:</h3>
 <ul>
 <li>author statement without traceable support used in manual assertion</li>
 <li>combinatorial computational and experimental evidence used in manual assertion</li>
@@ -8063,7 +8152,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <li>Traceable Author Statement</li>
 <li>tryptic phosphopeptide mapping assay evidence used in automatic assertion</li>
 </ul>
-<h4 id="annotation-extensions-for-modifications">Annotation extensions for modifications</h4>
+<h3 id="annotation-extensions-for-modifications">Annotation extensions for modifications</h3>
 <p>The extension is used to record extra annotation details that are not captured in the other columns. The extensions details are also available in the <a href="">modifications section</a> of the gene pages.</p>
 <p>For example, <a href="https://www.pombase.org/gene/SPAC15A10.02">taf12</a>:</p>
 <p><img src="assets/modification-extension-example-taf12.png" class="screenshot" width="600" alt="taf12 modification extensions" /></p>
@@ -8072,36 +8161,28 @@ are not detected by any automated method. Gradually, we will add and display sup
 
   </div>
   <div *ngIf="pageName == 'names-and-identifiers'">
-<h3 id="pombase-name-and-identifier-mappings">PomBase name and identifier mappings</h3>
-<p>These files are available in the <a href="https://www.pombase.org/data/names_and_identifiers/">names and IDs directory</a></p>
-<h4 id="systematic-id-to-uniprot-accession-number">Systematic ID to UniProt accession number</h4>
+<h2 id="pombase-name-and-identifier-mappings">PomBase name and identifier mappings</h2>
+<h3 id="identifier-mapping-file">Identifier mapping file</h3>
 <ul>
-<li><a href="https://www.pombase.org/data/names_and_identifiers/PomBase2UniProt.tsv">PomBase2UniProt.tsv</a> tab-delimited file with the PomBase systematic identifier for each protein-coding gene mapped to the corresponding UniProt accession number</li>
-</ul>
-<h4 id="gene-names">Gene names</h4>
-<ul>
-<li><p><a href="https://www.pombase.org/data/names_and_identifiers/gene_IDs_names.tsv">gene_IDs_names.tsv</a> tab-delimited file of systematic ID, primary gene name (where assigned), and all synonyms for each gene</p></li>
-<li><p><a href="https://www.pombase.org/data/names_and_identifiers/gene_IDs_names_products.tsv">gene_IDs_names_products.tsv</a> tab-delimited file of systematic ID, primary gene name (where assigned), chromosome, product description, UniProtKB accession, all synonyms, and product type (protein coding, ncRNA, etc.) for each gene</p></li>
-</ul>
-<h4 id="systematic-id-to-gene-product">Systematic ID to gene product</h4>
-<p>Files include systematic name, primary name (where assigned), synonyms (where assigned), and gene product description</p>
-<ul>
-<li><a href="https://www.pombase.org/data/names_and_identifiers/sysID2product.tsv">sysID2product.tsv</a> protein-coding genes</li>
-<li><a href="https://www.pombase.org/data/names_and_identifiers/sysID2product.rna.tsv">sysID2product.rna.tsv</a> non-coding RNA genes</li>
-<li><a href="https://www.pombase.org/data/names_and_identifiers/pseudogeneIDs.tsv">pseudogeneIDs.tsv</a> pseudogenes</li>
+<li><a routerLink="/latest_release/gene_names_and_identifiers/">gene_IDs_names_products.tsv</a> - tab-delimited file of systematic ID, primary gene name (where assigned), chromosome, product description, UniProtKB accession, all synonyms, and product type (protein coding, ncRNA, etc.) for each gene</li>
 </ul>
 <p>Note: A tab-delimited file of systematic identifiers mapped to EC numbers was previously maintained, but has not been updated since March 2012. The most recent version of the <a href="https://www.pombase.org/data/names_and_identifiers/OLD/gp2EC.txt">gp2EC.txt</a> file is available in the archive, but because it is out of date it may contain errors or omissions.</p>
 
   </div>
   <div *ngIf="pageName == 'phenotype-annotations'">
-<h3 id="phenotype-annotations">Phenotype annotations</h3>
-<p><a href="https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz">Phenotype annotations</a> (link downloads gzipped file from PomBase) for alleles of <em>S. pombe</em> genes are manually curated from the literature using Fission Yeast Phenotype Ontology (FYPO) terms. Note: this file contains annotations for single allele phenotypes (single mutants) only.</p>
-<p>The file is in a version of the PomBase phenotype data bulk annotation format (PHAF), detailed below. This format in nearly identical to the one that can be used to submit phenotype annotations to PomBase in bulk, as described on the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> page, with the addition of the Database column. Note that, because Database is column 1 in the downloadable file, column numbers differ by 1 between the download and upload formats.</p>
+<h2 id="phenotype-annotations">Phenotype annotations</h2>
+<p>Phenotype annotations for alleles of <em>S. pombe</em> genes are manually curated from the literature using Fission Yeast Phenotype Ontology (FYPO) terms.</p>
+<p>PHAF format phenotype data file from the latest monthly release:</p>
+<ul>
+<li><a routerLink="/latest_release/phenotypes_and_genotypes/pombase_phenotype_annotation.phaf.tsv">pombase_phenotype_annotation.phaf.tsv</a></li>
+</ul>
+<p>Note that this file contains annotations for single allele phenotypes (single mutants) only.</p>
+<p>This file uses the the PomBase phenotype data bulk annotation format (PHAF), detailed below. This format is similar to the one that can be used to submit phenotype annotations to PomBase in bulk, as described on the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> page, with the addition of the <code>Database</code> column. Note that, because Database is column 1 in the downloadable file, column numbers differ by 1 between the download and upload formats.</p>
 <p>Propagating phenotype annotations: Note that the file contains only direct annotations to FYPO terms. It does not include annotations that can be inferred by propagating between terms within the ontology. To make full use of the FYPO annotation data, we strongly recommend also using the ontology structure and inferred annotations. Please contact the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a> if you need assistance.</p>
-<h3 id="viability-summary">Viability summary</h3>
-<p>A <a href="https://www.pombase.org/data/annotations/Phenotype_annotations/FYPOviability.tsv">set of “viability summary” data</a> as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: “viable”, “inviable” or “condition-dependent”.</p>
+<h2 id="viability-summary">Viability summary</h2>
+<p>A <a routerLink="/latest_release/phenotypes_and_genotypes/gene_viability.tsv">set of “viability summary” data</a> as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: “viable”, “inviable” or “condition-dependent”.</p>
 <p>To cite the fission yeast phenotype data (complete or viability summary), please see <a routerLink="/about/citing-pombase">Citing PomBase</a>.</p>
-<h3 id="phaf-download-format">PHAF download format</h3>
+<h2 id="phaf-download-format">PHAF download format</h2>
 <p>A column marked “mandatory” will always have an entry; non-mandatory columns may be empty.</p>
 <table>
 <thead>
@@ -8290,14 +8371,13 @@ are not detected by any automated method. Gradually, we will add and display sup
 
   </div>
   <div *ngIf="pageName == 'protein-datasets'">
-<h3 id="protein-datasets">Protein datasets</h3>
-<p>The full <a href="https://www.pombase.org/data/genome_sequence_and_features/feature_sequences/peptide.fa.gz">protein dataset</a> is available in FASTA format (link downloads gzipped file from PomBase).</p>
-<p>The <a href="https://www.pombase.org/data/Protein_data/">protein data directory</a> contains assorted data (see the README for file formats):</p>
+<h2 id="protein-datasets">Protein datasets</h2>
+<p>The full protein dataset is available in FASTA format: <a routerLink="/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/peptide.fa">peptide.fa</a></p>
+<p>The <a routerLink="/latest_release/protein_features/">protein data directory</a> contains assorted datasets (see the <a routerLink="/latest_release/protein_features/README.txt">README</a> for file formats):</p>
 <ul>
-<li><a href="https://www.pombase.org/data/Protein_data/PeptideStats.tsv">PeptideStats.tsv</a> - Predicted molecular weight (kDa), predicted pI, charge, length (residues), codon adaptation index (CAI)</li>
-<li><a href="https://www.pombase.org/data/Protein_data/protein_domains_and_features.tsv">protein_domains_and_features.tsv</a> - Protein features such as domains and family assignments</li>
-<li><a href="https://www.pombase.org/data/Protein_data/aa_composition.tsv">aa_composition.tsv</a> - Amino acid composition</li>
-<li><a href="https://www.pombase.org/data/Protein_data/transmembrane_domain_coords_and_seqs.tsv">transmembrane_domain_coords_and_seqs.tsv</a> - Sequences and coordinates for transmembrane domains</li>
+<li><a routerLink="/latest_release/protein_features/peptide_stats.tsv">peptide_stats.tsv</a> - Predicted molecular weight (kDa), predicted pI, charge, length (residues), codon adaptation index (CAI)</li>
+<li><a routerLink="/latest_release/protein_features/protein_families_and_domains.tsv">protein_families_and_domains.tsv</a> - Protein features such as domains and family assignments</li>
+<li><a routerLink="/latest_release/protein_features/aa_composition.tsv">aa_composition.tsv</a> - Amino acid composition</li>
 </ul>
 <p>See also the <a routerLink="/downloads/modifications">PomBase protein modification annotations</a>.</p>
 
@@ -8406,7 +8486,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <li><em>S. japonicus</em>: use standard gene names (<em>cdc11</em>, <em>pka1</em>, etc.) or systematic IDs (e.g. SJAG_01188)</li>
 </ul></li>
 </ul>
-<p>For UniProt IDs, we also provide a static mapping file of PomBase systematic IDs and UniProtKB accessions, available on the <a href="/downloads/names-and-identifiers">Data Mapping</a> page and by FTP from <a href="https://www.pombase.org/data/names_and_identifiers/PomBase2UniProt.tsv" class="uri">https://www.pombase.org/data/names_and_identifiers/PomBase2UniProt.tsv</a>.</p>
+<p>For UniProt IDs, we also provide a static mapping file of PomBase systematic IDs and UniProtKB accessions, available on the <a href="/downloads/names-and-identifiers">Data Mapping</a> page and by FTP from the file <a routerLink="/latest_release/gene_names_and_identifiers">gene_IDs_names_products.tsv</a>.</p>
 <p>For IDs not included in the PomBase mapper, we suggest you try the EBI’s PICR web service (<a href="http://www.ebi.ac.uk/Tools/picr/" class="uri">http://www.ebi.ac.uk/Tools/picr/</a>), which can convert between UniProtKB, RefSeq, Ensembl Genomes (including <em>S. pombe</em> systematic IDs), and many other common database IDs.</p>
 <p>For other <em>Schizosaccharomyces</em> species (<em>S. japonicus</em>, <em>S. octosporus</em>, <em>S. cryophilus</em>), the PICR service converts between UniProtKB accessions and the identifiers used in Rhind <em>et al.</em> Comparative functional genomics of the fission yeasts (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=21511999">PMID:21511999</a>), but with one caveat: the IDs used by PICR, UniProtKB, and QuickGO contain underscores, whereas those in Rhind <em>et al.</em> do not (e.g. SJAG_00455 versus SJAG00455). The IDs with underscores are correct.</p>
 
@@ -8524,7 +8604,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <p>If an essential gene is deleted, the cell cannot survive under normal laboratory conditions. A search for deletion alleles annotated to the Fission Yeast Phenotype Ontology term “inviable vegetative cell population” (<a routerLink="/term/FYPO:0002061">FYPO:0002061</a>) would therefore identify essential fission yeast genes. Similarly, deletion alleles annotated to “viable vegetative cell population” (<a routerLink="/term/FYPO:0002177">FYPO:0002060</a>) represent non-essential genes.</p>
 <p>Note that viability/inviability annotations are fairly complete for protein-coding genes, but very few non-coding RNA genes have been tested.</p>
 <p><strong>Downloadable summary</strong></p>
-<p>A <a href="https://www.pombase.org/data/annotations/Phenotype_annotations/FYPOviability.tsv">set of “viability summary” data</a>, as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: “viable”, “inviable” or “condition-dependent”.</p>
+<p>A <a href="https://www.pombase.org/latest_release/phenotypes_and_genotypes/gene_viability.tsv">set of “viability summary” data</a>, as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: “viable”, “inviable” or “condition-dependent”.</p>
 <p><strong>Querying</strong></p>
 <ul>
 <li><p>To find genes annotated to “inviable vegetative cell population”, You can also set up the query manually: select the “phenotype” query and type or paste the ID, FYPO:0002061. Select the “Null” option for “Expresion level” and submit the query. The results include all genes that showed inviable phenotypes in the HTP deletion project as well some manually annotated genes. Similarly, there is a query for genes annotated to “viable vegetative cell population” (FYPO:0002060).</p></li>
@@ -8544,7 +8624,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="faq_navigate($event, '/faq/can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe', 'Can I get a list of systematic IDs, primary names, synonyms and gene products in S. pombe?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-get-list-systematic-ids-primary-names-synonyms-and-gene-products-s.-pombe">Can I get a list of systematic IDs, primary names, synonyms and gene products in <em>S. pombe</em>?</h3>
 <!-- pombase_categories: Genome statistics and lists -->
-<p>The list is available from this file: <a href="https://www.pombase.org/data/names_and_identifiers/sysID2product.tsv">sysID2product.tsv</a></p>
+<p>The list is available from in file: <a routerLink="/latest_release/gene_names_and_identifiers">gene_IDs_names_products.tsv</a></p>
 <p>See <a routerLink="/downloads/names-and-identifiers">PomBase name and identifier mappings</a> for more details and for information about other downloads.</p>
 
 </div>
@@ -8584,14 +8664,14 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <h3 id="can-i-retrieve-list-s.-pombe-go-slim-terms">Can I retrieve a list of the S. pombe GO slim terms?</h3>
 <!-- pombase_categories: Genome statistics and lists,Using ontologies -->
 <p>Yes, you can download the term names and IDs for the each of the fission yeast GO slims, and the Mondo Disease Ontology slim:</p>
-<p>Current GO slim IDs and term names</p>
+<p>Current GO slim IDs and term names:</p>
 <ul>
-<li><a href="https://www.pombase.org/data/releases/latest/misc/mf_goslim_pombe_ids_and_names.tsv">GO molecular function slim</a></li>
-<li><a href="https://www.pombase.org/data/releases/latest/misc/bp_goslim_pombe_ids_and_names.tsv">GO biological process slim</a></li>
-<li><a href="https://www.pombase.org/data/releases/latest/misc/cc_goslim_pombe_ids_and_names.tsv">GO cellular component slim</a></li>
+<li><a routerLink="/latest_release/gene_ontology/bp_go_slim_terms.tsv">GO biological process slim</a></li>
+<li><a routerLink="/latest_release/gene_ontology/mf_go_slim_terms.tsv">GO molecular function slim</a></li>
+<li><a routerLink="/latest_release/gene_ontology/cc_go_slim_terms.tsv">GO cellular component slim</a></li>
 </ul>
-<p>Current <a href="https://www.pombase.org/releases/latest/misc/pombe_mondo_slim_ids_and_names.tsv">fission yeast Mondo Disease Ontology slim IDs and term names</a></p>
-<p>For further information on using the <em>S. pombe</em> slims, please see the PomBase GO slim pages (<a href="/browse-curation/fission-yeast-bp-go-slim-terms">biological process</a>, <a href="/browse-curation/fission-yeast-mf-go-slim-terms">molecular function</a>, <a href="/browse-curation/fission-yeast-cc-go-slim-terms">cellular component</a>), <a href="/browse-curation/fission-yeast-go-slimming-tips">GO slimming tips</a>, and <a routerLink="/documentation/pombase-go-slim-documentation">GO slim documentation</a>.</p>
+<p>Current <a routerLink="/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv">fission yeast Mondo Disease Ontology slim IDs and term names</a></p>
+<p>For further information on using the <em>S. pombe</em> slims, please see the PomBase GO slim pages (<a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">biological process</a>, <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">molecular function</a>, <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">cellular component</a>), <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">GO slimming tips</a>, and <a routerLink="/documentation/pombase-go-slim-documentation">GO slim documentation</a>.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence', 'Can I retrieve the sequence for any of the cosmids used to build the S. pombe genome sequence?')" *ngIf="pageName == 'finding-data' || pageName == 'tools-and-resources' || pageName == 'can-i-retrieve-sequence-any-cosmids-used-build-s.-pombe-genome-sequence' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
@@ -8689,7 +8769,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="faq_navigate($event, '/faq/can-i-visualise-networks-pombase', 'Can I visualise networks in PomBase?')" *ngIf="pageName == 'tools-and-resources' || pageName == 'can-i-visualise-networks-pombase' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-visualise-networks-pombase">Can I visualise networks in PomBase?</h3>
 <!-- pombase_categories: Tools and resources -->
-<p>This is an area of active development at PomBase. The tool we previously used to visualize genetic and physical interaction networks (EsyN) is now deprecated. We are actively building causal pathways using <a routerLink="/documentation/go-cam-pathway-models">GO-CAMs</a>. Future work will include the ability to view all genetic and physical interactions in the context of the causal model, or independently.</p>
+<p>This is an area of active development at PomBase. The tool we previously used to visualize genetic and physical interaction networks (EsyN) is now deprecated. We are actively building causal pathways using <a routerLink="/gocam">GO-CAMs</a>. Future work will include the ability to view all genetic and physical interactions in the context of the causal model, or independently.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/do-i-need-password-download-ftp-site', 'Do I need a password to download from the FTP site?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'tools-and-resources' || pageName == 'do-i-need-password-download-ftp-site' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
@@ -9213,7 +9293,7 @@ Example queries:
 <div (click)="faq_navigate($event, '/faq/how-can-i-obtain-list-human-and-s.-pombe-orthologs', 'How can I obtain the list of human and S. pombe orthologs?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'how-can-i-obtain-list-human-and-s.-pombe-orthologs' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-obtain-list-human-and-s.-pombe-orthologs">How can I obtain the list of human and <em>S. pombe</em> orthologs?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Orthology -->
-<p>The current version of the manually curated list of orthologs and orthologous groups identified between fission yeast and human is available for download from the <a href="https://www.pombase.org/data/orthologs/">orthologs</a> FTP directory (linked from the <a routerLink="/datasets">Datasets</a> page).</p>
+<p>The current version of the manually curated list of orthologs and orthologous groups identified between fission yeast and human is available for download from the <a routerLink="/latest_release/curated_orthologs/">curated_orthologs directory</a> (linked from the <a routerLink="/datasets">Datasets</a> page).</p>
 <p>Also see the FAQs on <a routerLink="/faq/how-can-i-find-all-s.-pombe-genes-are-conserved-human">finding genes conserved in human</a>, <a routerLink="/faq/how-can-i-find-s.-pombe-genes-associated-human-disease">finding disease gene orthologs</a>, and <a routerLink="/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene">finding the ortholog of a specific gene</a>.</p>
 
 </div>
@@ -9390,7 +9470,7 @@ Example queries:
 <div (click)="faq_navigate($event, '/faq/how-do-i-download-table-all-modifications', 'How do I download a table of all modifications?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-do-i-download-table-all-modifications' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-do-i-download-table-all-modifications">How do I download a table of all modifications?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
-<p>Specific modified residues is not a download option from the query builder. If you want build a table of all residues with a specific modification, download the table in the <a href="https://www.pombase.org/data/annotations/modifications/">modifications data directory</a>, and filter for your modification of interest. The column descriptions are in the README.</p>
+<p>Specific modified residues is not a download option from the query builder. If you want build a table of all residues with a specific modification, download the table in the <a routerLink="/latest_release/protein_features/protein_modifications.tsv">modifications data directory</a>, and filter for your modification of interest. The column descriptions are in the README.</p>
 <p>This dataset includes all high throughput and low throughput curated data. Note that some older datasets have no residue information.</p>
 <p>See also: <a routerLink="/faq/how-can-i-find-modifications-my-protein-interest">How can I find modifications for my protein of interest?</a></p>
 
@@ -9408,7 +9488,7 @@ Example queries:
 <div (click)="faq_navigate($event, '/faq/how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs', 'How do I receive updates to the list of S. cerevisiae and S. pombe orthologs?')" *ngIf="pageName == 'genome-statistics-and-lists' || pageName == 'orthology' || pageName == 'how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-do-i-receive-updates-list-s.-cerevisiae-and-s.-pombe-orthologs">How do I receive updates to the list of <em>S. cerevisiae</em> and <em>S. pombe</em> orthologs?</h3>
 <!-- pombase_categories: Genome statistics and lists,Orthology -->
-<p>The current version of the manually curated list of orthologs and orthologous groups identified between fission and budding yeast is available for download from the <a href="https://www.pombase.org/data/orthologs/">orthologs</a> FTP directory (linked from the <a routerLink="/datasets">Datasets</a> page).</p>
+<p>The current version of the manually curated list of orthologs and orthologous groups identified between fission and budding yeast is available for download from <a routerLink="/latest_release/curated_orthologs/">the curated_orthologs</a> data directory (linked from the <a routerLink="/datasets">Datasets</a> page).</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/how-do-i-reserve-gene-name', 'How do I reserve a gene name?')" *ngIf="pageName == 'finding-data' || pageName == 'how-do-i-reserve-gene-name' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
@@ -9528,7 +9608,7 @@ Example queries:
 <div (click)="faq_navigate($event, '/faq/there-list-protein-complexes-s.-pombe-and-their-subunits', 'Is there a list of protein complexes in S. pombe, and their subunits?')" *ngIf="pageName == 'finding-data' || pageName == 'genome-statistics-and-lists' || pageName == 'using-ontologies' || pageName == 'there-list-protein-complexes-s.-pombe-and-their-subunits' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="there-list-protein-complexes-s.-pombe-and-their-subunits">Is there a list of protein complexes in <em>S. pombe</em>, and their subunits?</h3>
 <!-- pombase_categories: Finding data,Genome statistics and lists,Using ontologies -->
-<p>Yes, there is a file that lists GO macromolecular complex assignments for fission yeast gene products in the <a href="https://www.pombase.org/data/annotations/Gene_ontology/GO_complexes/">GO annotation directory</a>.</p>
+<p>Yes, there is a file that lists GO macromolecular complex assignments for fission yeast gene products in the <a routerLink="/latest_release/macromolecular_complexes/">GO annotation directory</a>.</p>
 <p>Note:</p>
 <ul>
 <li>the complex file includes both protein and RNA subunits</li>
@@ -9679,7 +9759,7 @@ Example queries:
 <h3 id="what-gff3">What is GFF3?</h3>
 <!-- pombase_categories: Data submission and formats -->
 <p>Generic Feature Format Version 3 (GFF3) is a tab-delimited text file format used to represent genomic sequence features.</p>
-<p>PomBase produces GFF3 <a href="https://www.pombase.org/data/genome_sequence_and_features/gff3/">files of <em>S. pombe</em> sequence features</a>, and accepts high-throughput data submissions in this format.</p>
+<p>PomBase produces GFF3 format <a routerLink="/latest_release/genome_sequence_and_features/gff_format/">files of <em>S. pombe</em> sequence features</a>, and accepts high-throughput data submissions in this format.</p>
 <p>The <a href="https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3">file format specification</a> is available from the <a href="http://www.sequenceontology.org/">Sequence Ontology</a> GitHub site. Validation tools are available from various online providers.</p>
 
 </div>
@@ -9825,7 +9905,7 @@ Example queries:
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#the-transcription-factor-dataset-skribbe-soneson-stadler-et-al-.-now-available-pombase'" [pageScrollAdjustHash]="true" href="/news#the-transcription-factor-dataset-skribbe-soneson-stadler-et-al-.-now-available-pombase">The Transcription Factor Dataset from Skribbe, Soneson, Stadler *et al*. is now available in PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#interpro-version-104.0'" [pageScrollAdjustHash]="true" href="/news#interpro-version-104.0">InterPro Version 104.0</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#the-human-functionome-paper-published'" [pageScrollAdjustHash]="true" href="/news#the-human-functionome-paper-published">The human functionome paper published</a></div>
-<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-missing-protein-list-list-potential-pathway-holes'" [pageScrollAdjustHash]="true" href="/news#new-missing-protein-list-list-potential-pathway-holes">NEW: "The Missing protein list" - A list of potential "pathway holes"</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-missing-activity-list-list-potential-pathway-holes'" [pageScrollAdjustHash]="true" href="/news#new-missing-activity-list-list-potential-pathway-holes">NEW: The Missing activity list - A list of potential "pathway holes"</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-global-core-biodata-resource-week'" [pageScrollAdjustHash]="true" href="/news#pombase-global-core-biodata-resource-week">PomBase is Global Core BioData Resource of the week</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-february-19th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-february-19th">Next pombeTalks: Wednesday February 19th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-curated-pathways-using-go-cam-pathway-modelling'" [pageScrollAdjustHash]="true" href="/news#new-curated-pathways-using-go-cam-pathway-modelling">NEW: Curated pathways using GO-CAM pathway modelling</a></div>
@@ -12669,11 +12749,11 @@ Vjestica Lab, University of Lausanne “Fertilization triggers cytosolic functio
 <h3 id="new-curated-pathways-using-go-cam-pathway-modelling">NEW: Curated pathways using GO-CAM pathway modelling</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
-<p>We have released the first <a routerLink="/documentation/go-cam-pathway-models">36 curated biological pathways</a>, covering 466 proteins.</p>
+<p>We have released the first <a routerLink="/gocam">36 curated biological pathways</a>, covering 466 proteins.</p>
 <p>These pathways were curated using GO-Causal Activity Modeling (GO-CAM), which provides a system to represent biological processes as a causal network by connecting GO molecular function terms (activities), encoded by individual gene products.</p>
-<p>GO-CAM model for <a routerLink="/gocam/view/docs/66c7d41500001171">vitamin B6 metabolic process</a>:</p>
+<p>GO-CAM model for <a routerLink="/gocam/pombase-view/docs/66c7d41500001171">vitamin B6 metabolic process</a>:</p>
 <p><a href="assets/newsfeed/go-cam_vitamin_B6_metabolic_process.png"><img src="assets/newsfeed/go-cam_vitamin_B6_metabolic_process.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Example GO-CAM model - vitamin B6 metabolic process" /></a></p>
-<p>Visit the <a href="https://www.pombase.org/documentation/go-cam-pathway-models">GO-CAM pathways page</a> to see the list of curated pathways.</p>
+<p>Visit the <a routerLink="/gocam">GO-CAM pathways page</a> to see the list of curated pathways.</p>
 
   </div>
   <div *ngIf="pageName == 'pombetalks-feb'">
@@ -12705,14 +12785,14 @@ Dr. Mridula Nambiar’s Lab, IISER Pune, India<br />
 
   </div>
   <div *ngIf="pageName == 'table-of-holes-in-pathways'">
-<h3 id="new-missing-protein-list-list-potential-pathway-holes">NEW: “The Missing protein list” - A list of potential “pathway holes”</h3>
+<h3 id="new-missing-activity-list-list-potential-pathway-holes">NEW: The Missing activity list - A list of potential “pathway holes”</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>During GO-CAM pathway curation, we have sometimes been unable to locate a specific annotated activity.</p>
-<p>We have generated a <a routerLink="/status/missing-gocam-proteins">list of these “pathway holes”</a> from the GO-CAM models.</p>
+<p>We have generated a <a routerLink="/status/missing-gocam-proteins">list of these missing activities</a> from the GO-CAM models.</p>
 <p>We expect this list to continue to grow as we curate more pathways. Please note that in some cases these may not be present, or a reaction may be spontaneous.</p>
-<p>The list is currently linked to from the <a routerLink="/status/gene-characterisation">gene characterisation page</a> and from the <a routerLink="/documentation/go-cam-pathway-models">GO-CAM pathway list</a>.</p>
-<p>Example of pathway with a missing gene / pathway hole: <a routerLink="/gocam/view/gene/665912ed00002626/SPAC1F7.09c/dal2">nitrogen cycle metabolic process (GO:0071941)</a></p>
+<p>The list is currently linked to from the <a routerLink="/status/gene-characterisation">gene characterisation page</a> and from the <a routerLink="/documentation/gocams">GO-CAM pathway list</a>.</p>
+<p>Example of pathway with a missing gene / pathway hole: <a routerLink="/gocam/pombase-view/gene/665912ed00002626/SPAC1F7.09c/dal2">nitrogen cycle metabolic process (GO:0071941)</a></p>
 <p><a href="assets/newsfeed/gocam_pathway_hole.png"><img src="/assets/newsfeed/gocam_pathway_hole.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Example GO-CAM pathway hole - nitrogen cycle metabolic process" /></a></p>
 
   </div>
@@ -12763,10 +12843,10 @@ Beyond providing annotation, PomBase played a crucial role in reviewing annotati
 <h3 id="pombase-expands-go-cam-pathway-models-fission-yeast">PomBase Expands GO-CAM Pathway Models for Fission Yeast</h3>
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
-<p>PomBase has more than doubled its curated <a routerLink="/documentation/go-cam-pathway-models">GO-Causal Activity Modelling</a> (GO-CAM) pathway models—from 36 to 74—now covering over <a routerLink="/results/from/id/f99d8133-3206-4941-b44e-9314e7cae3d2">1000 fission yeast proteins</a>. These causal models span key biological pathways, with a focus on mitochondrial processes through collaboration with FlyBase and UniProtKB. New tools for pathway visualization and interaction are in development and will be showcased at Pombe 2025.</p>
-<p>Explore the models and gaps on the <a routerLink="/documentation/go-cam-pathway-models">PomBase GO-CAM page</a>.</p>
+<p>PomBase has more than doubled its curated <a routerLink="/gocam">GO-Causal Activity Modelling</a> (GO-CAM) pathway models—from 36 to 74—now covering over <a routerLink="/results/from/id/f99d8133-3206-4941-b44e-9314e7cae3d2">1000 fission yeast proteins</a>. These causal models span key biological pathways, with a focus on mitochondrial processes through collaboration with FlyBase and UniProtKB. New tools for pathway visualization and interaction are in development and will be showcased at Pombe 2025.</p>
+<p>Explore the models and gaps on the <a routerLink="/gocam">PomBase GO-CAM page</a>.</p>
 <p>Example GO-CAM model:<br />
-<a routerLink="/gocam/view/docs/678073a900003902">L-proline biosynthetic process (GO:0055129), proline catabolic process to glutamate (GO:0010133), glutamine biosynthetic process (GO:0006542))</a></p>
+<a routerLink="/gocam/pombase-view/docs/678073a900003902">L-proline biosynthetic process (GO:0055129), proline catabolic process to glutamate (GO:0010133), glutamine biosynthetic process (GO:0006542))</a></p>
 <p><a href="assets/newsfeed/gocam-update-1000-genes.png"><img src="assets/newsfeed/gocam-update-1000-genes.png" class="screenshot" style="width:100.0%" loading="lazy" alt="L-proline biosynthetic process (GO:0055129), proline catabolic process to glutamate (GO:0010133), glutamine biosynthetic process (GO:0006542)" /></a></p>
 
   </div>
@@ -12775,7 +12855,7 @@ Beyond providing annotation, PomBase played a crucial role in reviewing annotati
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p>Version 2 of the JBrowse genome browser is now available on PomBase.<br />
-<a href="https://www.pombase.org/jbrowse2/?session=local-JWpCwnCeYbRXMEjEe5pU7">PomBase JBrowse V2</a></p>
+<a href="https://www.pombase.org/jbrowse2/">PomBase JBrowse V2</a></p>
 <p>You can now browse the S. pombe genome, and visualize all of our hosted datasets, in a new, nicer interface. JBrowse V2 possesses several new features, such as the possibility to show regions of different chromosomes in the same view, the ability to toggle on or off the display of the forward, reverse and translation sequences for the reference sequence track, and the support of Hi-C data. You can find the complete list of new features on <a href="https://jbrowse.org/jb2/features/">this page</a></p>
 <p>Both the old (V1) and the new versions of JBrowse are linked to from the PomBase front page and at the top of the Genome browser widget on the gene pages.</p>
 
@@ -12788,7 +12868,7 @@ Beyond providing annotation, PomBase played a crucial role in reviewing annotati
 <h3 id="jbrowse-version-2-now-available-on-pombase">JBrowse version 2 is now available on PomBase</h3>
 <p><em>2025-06-04</em></p>
 <p>Version 2 of the JBrowse genome browser is now available on PomBase.<br />
-<a href="https://www.pombase.org/jbrowse2/?session=local-JWpCwnCeYbRXMEjEe5pU7">PomBase JBrowse V2</a></p>
+<a href="https://www.pombase.org/jbrowse2/">PomBase JBrowse V2</a></p>
 <p>You can now browse the S. pombe genome, and visualize all of our hosted datasets, in a new, nicer interface. JBrowse V2 possesses several new features, such as the possibility to show regions of different chromosomes in the same view, the ability to toggle on or off the display of the forward, reverse and translation sequences for the reference sequence track, and the support of Hi-C data. You can find the complete list of new features on <a href="https://jbrowse.org/jb2/features/">this page</a></p>
 <p>Both the old (V1) and the new versions of JBrowse are linked to from the PomBase front page and at the top of the Genome browser widget on the gene pages.</p>
 </div>
@@ -12796,10 +12876,10 @@ Beyond providing annotation, PomBase played a crucial role in reviewing annotati
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="pombase-expands-go-cam-pathway-models-fission-yeast">PomBase Expands GO-CAM Pathway Models for Fission Yeast</h3>
 <p><em>2025-05-12</em></p>
-<p>PomBase has more than doubled its curated <a routerLink="/documentation/go-cam-pathway-models">GO-Causal Activity Modelling</a> (GO-CAM) pathway models—from 36 to 74—now covering over <a routerLink="/results/from/id/f99d8133-3206-4941-b44e-9314e7cae3d2">1000 fission yeast proteins</a>. These causal models span key biological pathways, with a focus on mitochondrial processes through collaboration with FlyBase and UniProtKB. New tools for pathway visualization and interaction are in development and will be showcased at Pombe 2025.</p>
-<p>Explore the models and gaps on the <a routerLink="/documentation/go-cam-pathway-models">PomBase GO-CAM page</a>.</p>
+<p>PomBase has more than doubled its curated <a routerLink="/gocam">GO-Causal Activity Modelling</a> (GO-CAM) pathway models—from 36 to 74—now covering over <a routerLink="/results/from/id/f99d8133-3206-4941-b44e-9314e7cae3d2">1000 fission yeast proteins</a>. These causal models span key biological pathways, with a focus on mitochondrial processes through collaboration with FlyBase and UniProtKB. New tools for pathway visualization and interaction are in development and will be showcased at Pombe 2025.</p>
+<p>Explore the models and gaps on the <a routerLink="/gocam">PomBase GO-CAM page</a>.</p>
 <p>Example GO-CAM model:<br />
-<a routerLink="/gocam/view/docs/678073a900003902">L-proline biosynthetic process (GO:0055129), proline catabolic process to glutamate (GO:0010133), glutamine biosynthetic process (GO:0006542))</a></p>
+<a routerLink="/gocam/pombase-view/docs/678073a900003902">L-proline biosynthetic process (GO:0055129), proline catabolic process to glutamate (GO:0010133), glutamine biosynthetic process (GO:0006542))</a></p>
 <p><a href="assets/newsfeed/gocam-update-1000-genes.png"><img src="assets/newsfeed/gocam-update-1000-genes.png" class="screenshot" style="width:100.0%" loading="lazy" alt="L-proline biosynthetic process (GO:0055129), proline catabolic process to glutamate (GO:0010133), glutamine biosynthetic process (GO:0006542)" /></a></p>
 </div>
 <div id="2025-03-26-skribbe-transcription-factor-dataset" class="news-item">
@@ -12844,13 +12924,13 @@ Beyond providing annotation, PomBase played a crucial role in reviewing annotati
 </div>
 <div id="2025-02-25-table-of-holes-in-pathways" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
-<h3 id="new-missing-protein-list-list-potential-pathway-holes">NEW: “The Missing protein list” - A list of potential “pathway holes”</h3>
+<h3 id="new-missing-activity-list-list-potential-pathway-holes">NEW: The Missing activity list - A list of potential “pathway holes”</h3>
 <p><em>2025-02-25</em></p>
 <p>During GO-CAM pathway curation, we have sometimes been unable to locate a specific annotated activity.</p>
-<p>We have generated a <a routerLink="/status/missing-gocam-proteins">list of these “pathway holes”</a> from the GO-CAM models.</p>
+<p>We have generated a <a routerLink="/status/missing-gocam-proteins">list of these missing activities</a> from the GO-CAM models.</p>
 <p>We expect this list to continue to grow as we curate more pathways. Please note that in some cases these may not be present, or a reaction may be spontaneous.</p>
-<p>The list is currently linked to from the <a routerLink="/status/gene-characterisation">gene characterisation page</a> and from the <a routerLink="/documentation/go-cam-pathway-models">GO-CAM pathway list</a>.</p>
-<p>Example of pathway with a missing gene / pathway hole: <a routerLink="/gocam/view/gene/665912ed00002626/SPAC1F7.09c/dal2">nitrogen cycle metabolic process (GO:0071941)</a></p>
+<p>The list is currently linked to from the <a routerLink="/status/gene-characterisation">gene characterisation page</a> and from the <a routerLink="/documentation/gocams">GO-CAM pathway list</a>.</p>
+<p>Example of pathway with a missing gene / pathway hole: <a routerLink="/gocam/pombase-view/gene/665912ed00002626/SPAC1F7.09c/dal2">nitrogen cycle metabolic process (GO:0071941)</a></p>
 <p><a href="assets/newsfeed/gocam_pathway_hole.png"><img src="/assets/newsfeed/gocam_pathway_hole.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Example GO-CAM pathway hole - nitrogen cycle metabolic process" /></a></p>
 </div>
 <div id="2025-02-17-pombase-gcbr-week" class="news-item">
@@ -12884,11 +12964,11 @@ Dr. Mridula Nambiar’s Lab, IISER Pune, India<br />
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="new-curated-pathways-using-go-cam-pathway-modelling">NEW: Curated pathways using GO-CAM pathway modelling</h3>
 <p><em>2025-01-16</em></p>
-<p>We have released the first <a routerLink="/documentation/go-cam-pathway-models">36 curated biological pathways</a>, covering 466 proteins.</p>
+<p>We have released the first <a routerLink="/gocam">36 curated biological pathways</a>, covering 466 proteins.</p>
 <p>These pathways were curated using GO-Causal Activity Modeling (GO-CAM), which provides a system to represent biological processes as a causal network by connecting GO molecular function terms (activities), encoded by individual gene products.</p>
-<p>GO-CAM model for <a routerLink="/gocam/view/docs/66c7d41500001171">vitamin B6 metabolic process</a>:</p>
+<p>GO-CAM model for <a routerLink="/gocam/pombase-view/docs/66c7d41500001171">vitamin B6 metabolic process</a>:</p>
 <p><a href="assets/newsfeed/go-cam_vitamin_B6_metabolic_process.png"><img src="assets/newsfeed/go-cam_vitamin_B6_metabolic_process.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Example GO-CAM model - vitamin B6 metabolic process" /></a></p>
-<p>Visit the <a href="https://www.pombase.org/documentation/go-cam-pathway-models">GO-CAM pathways page</a> to see the list of curated pathways.</p>
+<p>Visit the <a routerLink="/gocam">GO-CAM pathways page</a> to see the list of curated pathways.</p>
 </div>
 <div id="2025-01-09-pombetalks-jan" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
@@ -15459,7 +15539,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   <div class="docs-content">
   <div *ngIf="pageName == 'centromeres'">
 <h2 id="centromeres">Centromeres</h2>
-<p>Repeats are also shown in the diagram below. To see the repeat sequences, download and unzip the <a href="https://www.pombase.org/data/genome_sequence_and_features/artemis_files/">contiguated sequence files</a> and view them in Artemis. (See <a routerLink="/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase">this FAQ</a> for more information.)</p>
+<p>Repeats are also shown in the diagram below. To see the repeat sequences, download the <a routerLink="/latest_release/genome_sequence_and_features/artemis_contigs/">contiguated sequence files</a> and view them in Artemis. (See <a routerLink="/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase">this FAQ</a> for more information.)</p>
 <p><img src="assets/centromeremapping.gif" class="screenshot" width="779" height="540" alt="Centromere map" /></p>
 <p><strong>Notes:</strong></p>
 <ul>
@@ -15490,7 +15570,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </td>
 </tr>
 <tr>
-  <td style="white-space: nowrap;"><a routerLink="/status/missing-gocam-proteins">Pathway holes</a></td>
+  <td style="white-space: nowrap;"><a routerLink="/gocam/missing-activities">Missing activities</a></td>
   <td>
     A list of activities known or suspected to occur in fission
     yeast but not yet associated with a gene product. These “pathway
@@ -17901,41 +17981,42 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 
   </div>
   <div *ngIf="pageName == 'missing-gocam-proteins'">
-<h3 id="missing">“The Missing”</h3>
-<p>A list of activities known or suspected to occur in fission yeast but not yet associated with a gene product. These “pathway holes” have been identified through <a routerLink="/documentation/go-cam-pathway-models">GO-CAM causal model curation</a>.</p>
+<h3 id="missing-s.-pombe-activities">Missing <em>S. pombe</em> activities</h3>
+<p>A list of activities known or suspected to occur in fission yeast but not yet associated with a gene product. These “pathway holes” have been identified through <a routerLink="/gocam">GO-CAM causal model curation</a>.</p>
 <table class="docs-table"><thead><tr>
 <th>Go-cam model</th><th>Missing activity</th><th>Process</th><th>Input / output</th><th>Occurs in</th>
 </thead>
-<tr><td><a routerLink="/gocam/view/docs/6690711d00000916" title="Click to view model 6690711d00000916">L-arginine biosynthetic process (GO:0006526)</a></td><td>L-arginine transmembrane transporter activity (<a routerLink='/term/GO:0061459' title='Click to view term'>GO:0061459</a>)</td><td>L-arginine transmembrane transport (<a routerLink='/term/GO:1903826' title='Click to view term'>GO:1903826</a>)</td><td>L-argininium(1+) / L-argininium(1+)</td><td>mitochondrial matrix</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/6690711d00002904" title="Click to view model 6690711d00002904">L-histidine biosynthetic process (GO:0000105)</a></td><td>L-histidine transmembrane transporter activity (<a routerLink='/term/GO:0005290' title='Click to view term'>GO:0005290</a>)</td><td>L-histidine transmembrane transport (<a routerLink='/term/GO:0089709' title='Click to view term'>GO:0089709</a>)</td><td>L-histidine zwitterion / L-histidine zwitterion</td><td>mitochondrial membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/6690711d00002706" title="Click to view model 6690711d00002706">L-isoleucine biosynthetic process  (GO:1901705),<wbr> L-leucine biosynthetic process (GO:0009098)</a></td><td>L-leucine transmembrane transporter activity (<a routerLink='/term/GO:0015190' title='Click to view term'>GO:0015190</a>)</td><td>L-leucine transport (<a routerLink='/term/GO:0015820' title='Click to view term'>GO:0015820</a>)</td><td>L-leucine / L-leucine</td><td>mitochondrial inner membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/678073a900002086" title="Click to view model 678073a900002086">L-methionine salvage (GO:0071267)</a></td><td>L-methionine:2-oxoglutarate aminotransferase activity (<a routerLink='/term/GO:0080099' title='Click to view term'>GO:0080099</a>)</td><td>L-methionine salvage from methylthioadenosine (<a routerLink='/term/GO:0019509' title='Click to view term'>GO:0019509</a>)</td><td>4-methylthio-2-oxobutanoate / L-methionine zwitterion</td><td>cytosol</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/678073a900002086" title="Click to view model 678073a900002086">L-methionine salvage (GO:0071267)</a></td><td>methionine transmembrane transporter activity (<a routerLink='/term/GO:0043865' title='Click to view term'>GO:0043865</a>)</td><td>methionine transport (<a routerLink='/term/GO:0015821' title='Click to view term'>GO:0015821</a>)</td><td>L-methionine zwitterion / L-methionine zwitterion</td><td>mitochondrial inner membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/678073a900003902" title="Click to view model 678073a900003902">L-proline biosynthetic process (GO:0055129),<wbr>  proline catabolic process to glutamate (GO:0010133),<wbr> glutamine biosynthetic process (GO:0006542)</a></td><td>L-glutamine transmembrane transporter activity (<a routerLink='/term/GO:0015186' title='Click to view term'>GO:0015186</a>)</td><td>glutamine transport (<a routerLink='/term/GO:0006868' title='Click to view term'>GO:0006868</a>)</td><td>L-glutamine zwitterion / L-glutamine zwitterion</td><td>mitochondrial membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/678073a900003902" title="Click to view model 678073a900003902">L-proline biosynthetic process (GO:0055129),<wbr>  proline catabolic process to glutamate (GO:0010133),<wbr> glutamine biosynthetic process (GO:0006542)</a></td><td>L-proline transmembrane transporter activity (<a routerLink='/term/GO:0015193' title='Click to view term'>GO:0015193</a>)</td><td>proline transport (<a routerLink='/term/GO:0015824' title='Click to view term'>GO:0015824</a>)</td><td>L-proline / L-proline</td><td>mitochondrial membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/682fbcd000000353" title="Click to view model 682fbcd000000353">amino acid activation (GO:0043038) (for mitochondrial translation). mitochondrial tRNA modification (GO:0070900)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td></td><td>prenyl diphosphate(3-) / prenyl diphosphate(3-)</td><td></td></tr>
-<tr><td><a routerLink="/gocam/view/docs/67369e7600004623" title="Click to view model 67369e7600004623">aromatic amino acid biosynthetic process (GO:0009073)</a></td><td>L-tyrosine transmembrane transporter activity (<a routerLink='/term/GO:0005302' title='Click to view term'>GO:0005302</a>)</td><td>tyrosine transport (<a routerLink='/term/GO:0015828' title='Click to view term'>GO:0015828</a>)</td><td>L-tyrosine zwitterion / L-tyrosine zwitterion</td><td>mitochondrial inner membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/67369e7600004623" title="Click to view model 67369e7600004623">aromatic amino acid biosynthetic process (GO:0009073)</a></td><td>amino acid transmembrane transporter activity (<a routerLink='/term/GO:0015171' title='Click to view term'>GO:0015171</a>)</td><td>phenylalanine transport (<a routerLink='/term/GO:0015823' title='Click to view term'>GO:0015823</a>)</td><td>L-phenylalanine zwitterion / L-phenylalanine zwitterion</td><td>mitochondrial inner membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/67369e7600004623" title="Click to view model 67369e7600004623">aromatic amino acid biosynthetic process (GO:0009073)</a></td><td>aromatic amino acid transmembrane transporter activity (<a routerLink='/term/GO:0015173' title='Click to view term'>GO:0015173</a>)</td><td>L-tryptophan transmembrane transport (<a routerLink='/term/GO:1904556' title='Click to view term'>GO:1904556</a>)</td><td>L-tryptophan zwitterion / L-tryptophan zwitterion</td><td>mitochondrial inner membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/67c10cc400002026" title="Click to view model 67c10cc400002026">biotin import across plasma membrane (GO:1905135),<wbr>  biotin biosynthetic process (GO:0009102),<wbr>  protein maturation (GO:0051604) - biotinylated proteins</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td></td><td>(4R,<wbr>5S)-dethiobiotin(1-) / (4R,<wbr>5S)-dethiobiotin(1-)</td><td>mitochondrial membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/671ae02600003478" title="Click to view model 671ae02600003478">cell integrity MAPK cascade (GO:0000196)</a></td><td>protein serine/threonine kinase activator activity (<a routerLink='/term/GO:0043539' title='Click to view term'>GO:0043539</a>)</td><td></td><td>? / ?</td><td></td></tr>
-<tr><td><a routerLink="/gocam/view/docs/6796b94c00004743" title="Click to view model 6796b94c00004743">glycerol metabolic process (GO:0006071)</a></td><td>glycerol kinase activity (<a routerLink='/term/GO:0004370' title='Click to view term'>GO:0004370</a>)</td><td>glycerol metabolic process (<a routerLink='/term/GO:0006071' title='Click to view term'>GO:0006071</a>)</td><td>glycerol / sn-glycerol 3-phosphate(2-)</td><td>cytosol</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/6796b94c00004743" title="Click to view model 6796b94c00004743">glycerol metabolic process (GO:0006071)</a></td><td>sn-glycerol 3-phosphatase activity (<a routerLink='/term/GO:0043136' title='Click to view term'>GO:0043136</a>)</td><td>glycerol biosynthetic process (<a routerLink='/term/GO:0006114' title='Click to view term'>GO:0006114</a>)</td><td>sn-glycerol 3-phosphate(2-) / glycerol</td><td>cytosol</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/678073a900003175" title="Click to view model 678073a900003175">homoserine biosynthetic process (GO:0009090),<wbr> threonine biosynthetic process (GO:0009088),<wbr> glycine biosynthetic process (GO:0006545)</a></td><td>L-threonine transmembrane transporter activity (<a routerLink='/term/GO:0015195' title='Click to view term'>GO:0015195</a>)</td><td>import into the mitochondrion (<a routerLink='/term/GO:0170036' title='Click to view term'>GO:0170036</a>)</td><td>L-threonine / L-threonine</td><td>mitochondrial membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/67ae98b500000055" title="Click to view model 67ae98b500000055">iron import into cell (GO:0033212) / siderophore biosynthetic process (GO:0019290)</a></td><td>ferrichrome transmembrane transporter activity (<a routerLink='/term/GO:0042929' title='Click to view term'>GO:0042929</a>)</td><td>siderophore-iron import into cell (<a routerLink='/term/GO:0033214' title='Click to view term'>GO:0033214</a>)</td><td>ferrichrome / ferrichrome</td><td>plasma membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/662af8fa00000499" title="Click to view model 662af8fa00000499">isoprenoid biosynthetic process (GO:0008299)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">lysine biosynthetic process (GO:0009085)</a></td><td>2-aminoadipate transaminase activity (<a routerLink='/term/GO:0047536' title='Click to view term'>GO:0047536</a>)</td><td>lysine biosynthetic process via aminoadipic acid (<a routerLink='/term/GO:0019878' title='Click to view term'>GO:0019878</a>)</td><td>2-oxoadipate(2-) / L-2-aminoadipate(1-)</td><td></td></tr>
-<tr><td><a routerLink="/gocam/view/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">lysine biosynthetic process (GO:0009085)</a></td><td>L-lysine transmembrane transporter activity (<a routerLink='/term/GO:0015189' title='Click to view term'>GO:0015189</a>)</td><td></td><td>L-lysinium(1+) / L-lysinium(1+)</td><td>mitochondrial inner membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">lysine biosynthetic process (GO:0009085)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>export from the mitochondrion (<a routerLink='/term/GO:0170037' title='Click to view term'>GO:0170037</a>)</td><td>L-2-aminoadipate(1-) / L-2-aminoadipate(1-)</td><td>mitochondrial membrane</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/67c10cc400005826" title="Click to view model 67c10cc400005826">malate-aspartate shuttle (GO:0043490) Spom</a></td><td>L-malate dehydrogenase (NAD+) activity (<a routerLink='/term/GO:0030060' title='Click to view term'>GO:0030060</a>)</td><td>malate-aspartate shuttle (<a routerLink='/term/GO:0043490' title='Click to view term'>GO:0043490</a>)</td><td>oxaloacetate(2-),<wbr>NADH(2-) / (S)-malate(2-)</td><td>cytosol</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/6796b94c00002575" title="Click to view model 6796b94c00002575">mitochondrial transcription (GO:0006390),<wbr>  mitochondrial polycistronic RNA processing,<wbr> mitochondrial mRNA processing (GO:0090615) (GO:0140040)</a></td><td>molecular adaptor activity (<a routerLink='/term/GO:0060090' title='Click to view term'>GO:0060090</a>)</td><td>mitochondrial RNA processing (<a routerLink='/term/GO:0000963' title='Click to view term'>GO:0000963</a>)</td><td>? / ?</td><td>mitochondrial matrix</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/665912ed00002626" title="Click to view model 665912ed00002626">nitrogen cycle metabolic process (GO:0071941)</a></td><td>allantoinase activity (<a routerLink='/term/GO:0004038' title='Click to view term'>GO:0004038</a>)</td><td>urea metabolic process (<a routerLink='/term/GO:0019627' title='Click to view term'>GO:0019627</a>)</td><td>(S)-(+)-allantoin / allantoate</td><td>cytosol</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/66a3e0bb00002988" title="Click to view model 66a3e0bb00002988">pteridine-containing compound metabolic process (GO:0042558)</a></td><td>6-pyruvoyltetrahydropterin synthase activity (<a routerLink='/term/GO:0003874' title='Click to view term'>GO:0003874</a>)</td><td>tetrahydrobiopterin biosynthetic process (<a routerLink='/term/GO:0006729' title='Click to view term'>GO:0006729</a>)</td><td>7,<wbr>8-dihydroneopterin 3'-triphosphate / dyspropterin</td><td></td></tr>
-<tr><td><a routerLink="/gocam/view/docs/6796b94c00000731" title="Click to view model 6796b94c00000731">riboflavin biosynthetic process (GO:0009231),<wbr> FMN biosynthetic process (GO:0009398),<wbr>  FAD biosynthetic process (GO:0006747)</a></td><td>phosphatase activity (<a routerLink='/term/GO:0016791' title='Click to view term'>GO:0016791</a>)</td><td>riboflavin biosynthetic process (<a routerLink='/term/GO:0009231' title='Click to view term'>GO:0009231</a>)</td><td>5-amino-6-(5-phospho-D-ribosylamino)uracil(2-) / 5-amino-6-(D-ribitylamino)uracil</td><td>cytosol</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/67086be200002266" title="Click to view model 67086be200002266">sphingolipid biosynthetic process (GO:0030148)</a></td><td>N-acylsphingosine amidohydrolase activity (<a routerLink='/term/GO:0017040' title='Click to view term'>GO:0017040</a>)</td><td>sphingolipid biosynthetic process (<a routerLink='/term/GO:0030148' title='Click to view term'>GO:0030148</a>)</td><td>N-acylsphingosine / sphingosine(1+)</td><td>endoplasmic reticulum</td></tr>
-<tr><td><a routerLink="/gocam/view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>molecular_function (<a routerLink='/term/GO:0003674' title='Click to view term'>GO:0003674</a>)</td><td></td><td>? / 4-hydroxybenzoate</td><td></td></tr>
-<tr><td><a routerLink="/gocam/view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>monooxygenase activity (<a routerLink='/term/GO:0004497' title='Click to view term'>GO:0004497</a>)</td><td></td><td>2-decaprenyl-6-methoxy-3-methylhydroquinone / 2-methoxy-5-methyl-6-all-trans-polyprenylbenzoquinone</td><td></td></tr>
-<tr><td><a routerLink="/gocam/view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6690711d00000916" title="Click to view model 6690711d00000916">L-arginine biosynthetic process (GO:0006526)</a></td><td>L-arginine transmembrane transporter activity (<a routerLink='/term/GO:0061459' title='Click to view term'>GO:0061459</a>)</td><td>L-arginine transmembrane transport (<a routerLink='/term/GO:1903826' title='Click to view term'>GO:1903826</a>)</td><td>L-argininium(1+) / L-argininium(1+)</td><td>mitochondrial matrix</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6690711d00002904" title="Click to view model 6690711d00002904">L-histidine biosynthetic process (GO:0000105)</a></td><td>L-histidine transmembrane transporter activity (<a routerLink='/term/GO:0005290' title='Click to view term'>GO:0005290</a>)</td><td>L-histidine transmembrane transport (<a routerLink='/term/GO:0089709' title='Click to view term'>GO:0089709</a>)</td><td>L-histidine zwitterion / L-histidine zwitterion</td><td>mitochondrial membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6690711d00002706" title="Click to view model 6690711d00002706">L-isoleucine biosynthetic process  (GO:1901705),<wbr> L-leucine biosynthetic process (GO:0009098)</a></td><td>L-leucine transmembrane transporter activity (<a routerLink='/term/GO:0015190' title='Click to view term'>GO:0015190</a>)</td><td>L-leucine transport (<a routerLink='/term/GO:0015820' title='Click to view term'>GO:0015820</a>)</td><td>L-leucine / L-leucine</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/678073a900002086" title="Click to view model 678073a900002086">L-methionine salvage (GO:0071267)</a></td><td>L-methionine:2-oxoglutarate aminotransferase activity (<a routerLink='/term/GO:0080099' title='Click to view term'>GO:0080099</a>)</td><td>L-methionine salvage from methylthioadenosine (<a routerLink='/term/GO:0019509' title='Click to view term'>GO:0019509</a>)</td><td>4-methylthio-2-oxobutanoate,<wbr>L-glutamate(1-) / 2-oxoglutarate(2-),<wbr>L-methionine zwitterion</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/678073a900002086" title="Click to view model 678073a900002086">L-methionine salvage (GO:0071267)</a></td><td>methionine transmembrane transporter activity (<a routerLink='/term/GO:0043865' title='Click to view term'>GO:0043865</a>)</td><td>methionine transport (<a routerLink='/term/GO:0015821' title='Click to view term'>GO:0015821</a>)</td><td>L-methionine zwitterion / L-methionine zwitterion</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/678073a900003902" title="Click to view model 678073a900003902">L-proline biosynthetic process (GO:0055129),<wbr>  proline catabolic process to glutamate (GO:0010133),<wbr> glutamine biosynthetic process (GO:0006542)</a></td><td>L-glutamine transmembrane transporter activity (<a routerLink='/term/GO:0015186' title='Click to view term'>GO:0015186</a>)</td><td>glutamine transport (<a routerLink='/term/GO:0006868' title='Click to view term'>GO:0006868</a>)</td><td>L-glutamine zwitterion / L-glutamine zwitterion</td><td>mitochondrial membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/678073a900003902" title="Click to view model 678073a900003902">L-proline biosynthetic process (GO:0055129),<wbr>  proline catabolic process to glutamate (GO:0010133),<wbr> glutamine biosynthetic process (GO:0006542)</a></td><td>L-proline transmembrane transporter activity (<a routerLink='/term/GO:0015193' title='Click to view term'>GO:0015193</a>)</td><td>proline transport (<a routerLink='/term/GO:0015824' title='Click to view term'>GO:0015824</a>)</td><td>L-proline / L-proline</td><td>mitochondrial membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/682fbcd000000353" title="Click to view model 682fbcd000000353">amino acid activation (GO:0043038) (for mitochondrial translation). mitochondrial tRNA modification (GO:0070900)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td></td><td>prenyl diphosphate(3-) / prenyl diphosphate(3-)</td><td></td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/67369e7600004623" title="Click to view model 67369e7600004623">aromatic amino acid biosynthetic process (GO:0009073)</a></td><td>L-tyrosine transmembrane transporter activity (<a routerLink='/term/GO:0005302' title='Click to view term'>GO:0005302</a>)</td><td>tyrosine transport (<a routerLink='/term/GO:0015828' title='Click to view term'>GO:0015828</a>)</td><td>L-tyrosine zwitterion / L-tyrosine zwitterion</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/67369e7600004623" title="Click to view model 67369e7600004623">aromatic amino acid biosynthetic process (GO:0009073)</a></td><td>amino acid transmembrane transporter activity (<a routerLink='/term/GO:0015171' title='Click to view term'>GO:0015171</a>)</td><td>phenylalanine transport (<a routerLink='/term/GO:0015823' title='Click to view term'>GO:0015823</a>)</td><td>L-phenylalanine zwitterion / L-phenylalanine zwitterion</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/67369e7600004623" title="Click to view model 67369e7600004623">aromatic amino acid biosynthetic process (GO:0009073)</a></td><td>aromatic amino acid transmembrane transporter activity (<a routerLink='/term/GO:0015173' title='Click to view term'>GO:0015173</a>)</td><td>L-tryptophan transmembrane transport (<a routerLink='/term/GO:1904556' title='Click to view term'>GO:1904556</a>)</td><td>L-tryptophan zwitterion / L-tryptophan zwitterion</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/67c10cc400002026" title="Click to view model 67c10cc400002026">biotin import across plasma membrane (GO:1905135),<wbr>  biotin biosynthetic process (GO:0009102),<wbr>  protein maturation (GO:0051604) - biotinylated proteins</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td></td><td>(4R,<wbr>5S)-dethiobiotin(1-) / (4R,<wbr>5S)-dethiobiotin(1-)</td><td>mitochondrial membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/671ae02600003478" title="Click to view model 671ae02600003478">cell integrity MAPK cascade (GO:0000196)</a></td><td>protein serine/threonine kinase activator activity (<a routerLink='/term/GO:0043539' title='Click to view term'>GO:0043539</a>)</td><td></td><td>? / ?</td><td></td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6796b94c00004743" title="Click to view model 6796b94c00004743">glycerol metabolic process (GO:0006071)</a></td><td>glycerol kinase activity (<a routerLink='/term/GO:0004370' title='Click to view term'>GO:0004370</a>)</td><td>glycerol metabolic process (<a routerLink='/term/GO:0006071' title='Click to view term'>GO:0006071</a>)</td><td>glycerol / sn-glycerol 3-phosphate(2-)</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6796b94c00004743" title="Click to view model 6796b94c00004743">glycerol metabolic process (GO:0006071)</a></td><td>sn-glycerol 3-phosphatase activity (<a routerLink='/term/GO:0043136' title='Click to view term'>GO:0043136</a>)</td><td>glycerol biosynthetic process (<a routerLink='/term/GO:0006114' title='Click to view term'>GO:0006114</a>)</td><td>sn-glycerol 3-phosphate(2-) / glycerol</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/678073a900003175" title="Click to view model 678073a900003175">homoserine biosynthetic process (GO:0009090),<wbr> threonine biosynthetic process (GO:0009088),<wbr> glycine biosynthetic process (GO:0006545)</a></td><td>L-threonine transmembrane transporter activity (<a routerLink='/term/GO:0015195' title='Click to view term'>GO:0015195</a>)</td><td>import into the mitochondrion (<a routerLink='/term/GO:0170036' title='Click to view term'>GO:0170036</a>)</td><td>L-threonine / L-threonine</td><td>mitochondrial membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/67ae98b500000055" title="Click to view model 67ae98b500000055">iron import into cell (GO:0033212) / siderophore biosynthetic process (GO:0019290)</a></td><td>ferrichrome transmembrane transporter activity (<a routerLink='/term/GO:0042929' title='Click to view term'>GO:0042929</a>)</td><td>siderophore-iron import into cell (<a routerLink='/term/GO:0033214' title='Click to view term'>GO:0033214</a>)</td><td>ferrichrome / ferrichrome</td><td>plasma membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000499" title="Click to view model 662af8fa00000499">isoprenoid biosynthetic process (GO:0008299)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">lysine biosynthetic process (GO:0009085)</a></td><td>2-aminoadipate transaminase activity (<a routerLink='/term/GO:0047536' title='Click to view term'>GO:0047536</a>)</td><td>lysine biosynthetic process via aminoadipic acid (<a routerLink='/term/GO:0019878' title='Click to view term'>GO:0019878</a>)</td><td>2-oxoadipate(2-) / L-2-aminoadipate(1-)</td><td></td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">lysine biosynthetic process (GO:0009085)</a></td><td>L-lysine transmembrane transporter activity (<a routerLink='/term/GO:0015189' title='Click to view term'>GO:0015189</a>)</td><td></td><td>L-lysinium(1+) / L-lysinium(1+)</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">lysine biosynthetic process (GO:0009085)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>export from the mitochondrion (<a routerLink='/term/GO:0170037' title='Click to view term'>GO:0170037</a>)</td><td>L-2-aminoadipate(1-) / L-2-aminoadipate(1-)</td><td>mitochondrial membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/67c10cc400005826" title="Click to view model 67c10cc400005826">malate-aspartate shuttle (GO:0043490) Spom</a></td><td>L-malate dehydrogenase (NAD+) activity (<a routerLink='/term/GO:0030060' title='Click to view term'>GO:0030060</a>)</td><td>malate-aspartate shuttle (<a routerLink='/term/GO:0043490' title='Click to view term'>GO:0043490</a>)</td><td>oxaloacetate(2-),<wbr>NADH(2-) / (S)-malate(2-)</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6796b94c00002575" title="Click to view model 6796b94c00002575">mitochondrial transcription (GO:0006390),<wbr> mitochondrial polycistronic RNA processing,<wbr> mitochondrial mRNA processing (GO:0090615) (GO:0140040)</a></td><td>molecular adaptor activity (<a routerLink='/term/GO:0060090' title='Click to view term'>GO:0060090</a>)</td><td>mitochondrial tRNA processing (<a routerLink='/term/GO:0090646' title='Click to view term'>GO:0090646</a>)</td><td>? / ?</td><td>mitochondrial matrix</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/665912ed00002626" title="Click to view model 665912ed00002626">nitrogen cycle metabolic process (GO:0071941)</a></td><td>allantoinase activity (<a routerLink='/term/GO:0004038' title='Click to view term'>GO:0004038</a>)</td><td>urea metabolic process (<a routerLink='/term/GO:0019627' title='Click to view term'>GO:0019627</a>)</td><td>(S)-(+)-allantoin / allantoate</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6870555700003085" title="Click to view model 6870555700003085">pteridine-containing compound metabolic process (GO:0042558) - cytosolic</a></td><td>6-pyruvoyltetrahydropterin synthase activity (<a routerLink='/term/GO:0003874' title='Click to view term'>GO:0003874</a>)</td><td>tetrahydrobiopterin biosynthetic process (<a routerLink='/term/GO:0006729' title='Click to view term'>GO:0006729</a>)</td><td>7,<wbr>8-dihydroneopterin 3'-triphosphate(4-) / (R)-dyspropterin</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6870555700003085" title="Click to view model 6870555700003085">pteridine-containing compound metabolic process (GO:0042558) - cytosolic</a></td><td>glycine hydroxymethyltransferase activity (<a routerLink='/term/GO:0004372' title='Click to view term'>GO:0004372</a>)</td><td>tetrahydrofolate metabolic process (<a routerLink='/term/GO:0046653' title='Click to view term'>GO:0046653</a>)</td><td>L-serine zwitterion,<wbr>(6S)-5,<wbr>6,<wbr>7,<wbr>8-tetrahydrofolate(2-) / (6R)-5,<wbr>10-methylenetetrahydrofolate(2-),<wbr>glycine zwitterion</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6796b94c00000731" title="Click to view model 6796b94c00000731">riboflavin biosynthetic process (GO:0009231),<wbr> FMN biosynthetic process (GO:0009398),<wbr>  FAD biosynthetic process (GO:0006747)</a></td><td>phosphatase activity (<a routerLink='/term/GO:0016791' title='Click to view term'>GO:0016791</a>)</td><td>riboflavin biosynthetic process (<a routerLink='/term/GO:0009231' title='Click to view term'>GO:0009231</a>)</td><td>5-amino-6-(5-phospho-D-ribosylamino)uracil(2-) / 5-amino-6-(D-ribitylamino)uracil</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/67086be200002266" title="Click to view model 67086be200002266">sphingolipid biosynthetic process (GO:0030148)</a></td><td>N-acylsphingosine amidohydrolase activity (<a routerLink='/term/GO:0017040' title='Click to view term'>GO:0017040</a>)</td><td>sphingolipid biosynthetic process (<a routerLink='/term/GO:0030148' title='Click to view term'>GO:0030148</a>)</td><td>N-acylsphingosine / sphingosine(1+)</td><td>endoplasmic reticulum</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>molecular_function (<a routerLink='/term/GO:0003674' title='Click to view term'>GO:0003674</a>)</td><td></td><td>? / 4-hydroxybenzoate</td><td></td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>monooxygenase activity (<a routerLink='/term/GO:0004497' title='Click to view term'>GO:0004497</a>)</td><td></td><td>2-decaprenyl-6-methoxy-3-methylhydroquinone / 2-methoxy-5-methyl-6-all-trans-polyprenylbenzoquinone</td><td></td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
 </table>
 
   </div>
