@@ -1,71 +1,198 @@
 <div class="gocam-container docs">
   <app-page-contents-menu title="GO-CAM pathways" titleRoute="/gocam">
 
-    <div class="left-menu-part left-menu-item"><a routerLink="/documentation/gocams">Model list</a></div>
-    <div class="left-menu-part left-menu-item"><a routerLink="/documentation/go-cam-pathway-models">GO-CAM documentation</a></div>
-    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/summary/connected">Summary - Connected models</a></div>
-    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/summary/all">Summary - All models</a></div>
-    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/mega-model/connected">Mega-model - Connected models</a></div>
-    <div class="left-menu-part
-    left-menu-item"><a routerLink="/gocam/mega-model/all">Mega-model -
-    All models</a></div>
-    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/connections">Overlapping activities</a></div>
-    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/missing-proteins">Missing proteins</a></div>
-
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/model-list">Model list</a></div>
+    <div class="left-menu-part left-menu-item"><span>Summary map</span></div>
+    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/all">All models</a></div>
+    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/connected">Connected models</a></div>
+    <div class="left-menu-part left-menu-item"><span>Mega-model</span></div>
+    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/all">All models</a></div>
+    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/connected">Connected models</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/missing-activities">Missing activities</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/connections">Model joining activities</a></div>
 
   </app-page-contents-menu>
 
   <div class="docs-content">
-  <div *ngIf="pageType == 'model-list'" class="gocam-landing-page">
+
+  <div *ngIf="pageType == 'front'" class="gocam-landing-page">
     <h3>{{siteName}} GO-CAM pathways
       <span class="help-link">
-      <app-help-link [route]="'/documentation/go-cam-pathway-models'" [title]="'GO-CAM documentation'">
+      <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
+        Documentation
+      </app-help-link>
+    </span></h3>
+    <div class="description">
+GO-CAMs (Gene Ontology Causal Activity Models) are a framework
+developed by the Gene Ontology (GO) project to represent complex
+biological pathways in a structured, computable format.
+    </div>
+    <div class="description">
+They model how molecular activities, enabled by gene products or
+complexes, are causally linked to form larger biological
+processes. Creating a comprehensive GO-CAM representation of a
+eukaryotic cell is an ambitious and ongoing project.
+    </div>
+    <div class="description">
+We welcome community input to help improve, expand, or correct the
+current models. If you have subject area knowledge on a specific
+pathway also please consider contacting us to provide feedback on
+accuracy and completeness.
+    </div>
+    <div class="description">
+Visit the <a routerLink="/gocam/model-list">GO-CAM model list</a>.
+    </div>
+    <div class="description">
+    For more information, visit the
+    <a routerLink="/documentation/gocams">PomBase GO-CAM documentation</a> or
+    the <a href="https://geneontology.org/docs/gocam-overview/">Gene Ontology project's GO-CAM overview</a>.
+    </div>
+
+    <div class="project-scope">
+      <app-gocam-project-scope></app-gocam-project-scope>
+    </div>
+
+
+    <h4>Summary Map</h4>
+<div class="docs-image-flex">
+<img src="assets/gocam-docs-summary-map.png" class="screenshot docs-left-float" loading="lazy"/>
+
+<div style="display: inline-block">
+The summary map visually shows how individual GO-CAM models are
+causally connected, without showing the internal structure of
+particular models.
+
+    <h5>The "All Models Summary Map"</h5>
+Displays a connected Summary Map, but also includes the set of models
+that are not yet causally linked to any other model
+<p>
+<a routerLink="/gocam/summary/all">View All Models Summary Map</a>
+
+    <h5>The "Connected Summary Map"</h5>
+Displays curated causal connections between GO-CAM models (inter-model connections)
+<p>
+<a routerLink="/gocam/summary/connected">View Connected Summary Map</a>
+
+</div>
+</div>
+
+   <h4>Mega Model</h4>
+<div class="docs-image-flex">
+<img src="assets/gocam-docs-mega-model.png" class="screenshot docs-left-float" loading="lazy"/>
+
+<div>
+Note: To reduce visual complexity, chemical inputs/outputs and target
+genes are not shown initially.  They can be toggled on/off in both
+Mega Models.
+
+    <h5 class="clear-float">The "All Models Mega Model"</h5>
+Displays all curated GO-CAM models in full detail:
+<ul>
+  <li>Each model is enclosed by a boundary (by default)</li>
+  <li>All intra- and inter-model connections are shown</li>
+  <li>Unconnected models are also included</li>
+</ul>
+<p>
+<a routerLink="/gocam/mega-model/all">View All Models Mega-model</a>
+
+<h5>The "Connected Models Mega Model"</h5>
+
+Displays only those GO-CAM models that have inter-model connections,
+omitting unlinked models.
+<p>
+<a routerLink="/gocam/mega-model/connected">View Connected Models Mega-model</a>
+</div>
+</div>
+
+    <h4>Missing activities</h4>
+    <div class="description">
+We maintain a list of activities known or suspected to occur in
+fission yeast that are not yet associated with any specific gene
+product. These pathway gaps were identified through GO-CAM curation
+and highlight areas for further research and annotation.
+    </div>
+
+    <div class="description">
+    <a routerLink="/gocam/missing-activities">Missing <span class="genus-species">S. pombe</span> activities</a>
+    </div>
+
+    <h4>Model joining activities</h4>
+A curated list of models that share overlapping activities. This list includes:
+    <ul>
+      <li>The specific activities used to link models</li>
+      <li>The joined pathways</li>
+      <li>Links to views of the joined pathways</li>
+    </ul>
+
+    <div class="description">
+      <a routerLink="/gocam/connections">View model joining activities</a>
+    </div>
+  </div>
+
+  <div *ngIf="pageType == 'model-list'" class="gocam-landing-page">
+    <h3>Available <span class="genus-species">S. pombe</span> GO-CAM models
+      <span class="help-link">
+      <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
         Documentation
       </app-help-link>
     </span></h3>
 
-    GO-CAMs, or Gene Ontology Causal Activity Models, are a framework
-    developed within the Gene Ontology (GO) project to represent
-    complex biological pathways in a structured, computable format.
+    <div class="description">
+GO-CAMs (Gene Ontology Causal Activity Models) are a framework
+developed by the Gene Ontology (GO) project to represent complex
+biological pathways in a structured, computable format.
+    </div>
 
-    <p>
-    For more information, visit the
-    <a href="/documentation/go-cam-pathway-models">PomBase GO-CAM documentation</a> or
-    the <a href="https://geneontology.org/docs/gocam-overview/">Gene Ontology project's GO-CAM overview</a>.
+    <div class="description">
+Below is a list of current <span class="genus-species">S. pombe</span>
+GO-CAMs with links to the process or processes that they model.
+    </div>
 
-    <h4>Pathway holes</h4>
+    <div class="description">
+(Not all models are complete.  See the "Notes on Model Completeness"
+section of the
+<a routerLink="/documentation/gocams">PomBase GO-CAM documentation</a>
+for more.)
+    </div>
 
-We maintain a list of activities known or suspected to occur in fission yeast but
-not yet associated with a gene product. These “pathway holes” have
-been identified through GO-CAM causal model curation.
-
-    <a routerLink="/gocam/missing-proteins"><span class="genus-species">S. pombe</span> pathway holes</a>
-
-    <h4>Available GO-CAM models</h4>
+    <div class="project-scope">
+      <app-gocam-project-scope></app-gocam-project-scope>
+    </div>
 
     <app-go-cam-table></app-go-cam-table>
   </div>
 
-  <div *ngIf="pageType == 'pathway-holes'">
-    <a routerLink="/status/missing-gocam-proteins"><span class="genus-species">S. pombe</span> pathway holes</a>
-  </div>
-
   <div *ngIf="pageType && pageType == 'summary'" class="gocam-page">
-    <h4>
-      <span *ngIf="pageSubType == 'connected'">GO-CAM Connected Model Summary</span>
-      <span *ngIf="pageSubType != 'connected'">GO-CAM All Model Summary</span>
+    <h3>
+      <span *ngIf="pageSubType == 'connected'">
+        GO-CAM Summary Map - Connected Models Only
+      </span>
+      <span *ngIf="pageSubType != 'connected'">
+        GO-CAM Summary Map - All Models
+      </span>
       <span class="help-link">
-        <app-help-link [route]="'/documentation/go-cam-pathway-models'" [title]="'GO-CAM documentation'">
+        <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
           Documentation
         </app-help-link>
       </span>
-    </h4>
+    </h3>
 
-    <div *ngIf="pageSubType == 'connected'" class="sub-heading">
-      Unconnected models are hidden (<a routerLink="/gocam/summary/all">show</a>)
+    <div class="description">
+      A high-level graphical summary of the connections between GO-CAM
+      models.
     </div>
-    <div *ngIf="pageSubType != 'connected'" class="sub-heading">
-      Unconnected models are shown (<a routerLink="/gocam/summary/connected">hide</a>)
+
+    <div class="description">
+      Clicking on the name of a model will take you to the detailed GO-CAM view
+      of that model.  Clicking on an arrow between models will take
+      you to a view of connection bewtween the two models.
+    </div>
+
+    <div *ngIf="pageSubType == 'connected'" class="description">
+      Note: unconnected models are hidden (<a routerLink="/gocam/summary/all">show</a>)
+    </div>
+    <div *ngIf="pageSubType != 'connected'" class="description">
+      Note: unconnected models are shown (<a routerLink="/gocam/summary/connected">hide</a>)
     </div>
 
     <div *ngIf="iframeUrl" class="gocam-container">
@@ -75,29 +202,45 @@ been identified through GO-CAM causal model curation.
   </div>
 
   <div *ngIf="pageType && pageType == 'mega-model'" class="gocam-page">
-    <h4>GO-CAM Mega Model
+    <h3>
+      <span *ngIf="pageSubType == 'connected'">
+        GO-CAM Mega Model - Connected Models Only
+      </span>
+      <span *ngIf="pageSubType != 'connected'">
+        GO-CAM Mega Model - All Models
+      </span>
+
       <span class="help-link">
-        <app-help-link [route]="'/documentation/go-cam-pathway-models'"
+        <app-help-link [route]="'/documentation/gocams'"
                        [title]="'GO-CAM documentation'">
           Documentation
         </app-help-link>
       </span>
-    </h4>
+    </h3>
+
+    <div class="description">
+      This is a combined model created using the
+      <a routerLink="/gocam/connections">Model joining activities</a>.
+    </div>
+
+    <div class="description">
+      <span *ngIf="pageSubType == 'connected'">
+        Note: unconnected models are hidden (<a routerLink="/gocam/mega-model/all">show</a>)
+      </span>
+      <span *ngIf="pageSubType != 'connected'">
+        Note: unconnected models are shown (<a routerLink="/gocam/mega-model/connected">hide</a>)
+      </span>
+    </div>
 
     <div class="filter-group">
       <div class="filter-select">
-        <input id="show-all" type="radio" [(ngModel)]="filterType" value="none" (ngModelChange)="updateMegaModelUrl()">
-        <label for="show-all">Show all</label>
+        <input id="show-chemicals" type="checkbox" [(ngModel)]="showChemicals" (ngModelChange)="updateMegaModelUrl()">
+        <label for="show-chemicals">Show chemicals</label>
       </div>
 
       <div class="filter-select">
-        <input id="hide-chemicals" type="radio" [(ngModel)]="filterType" value="chemical" (ngModelChange)="updateMegaModelUrl()">
-        <label for="hide-chemicals">Hide chemicals</label>
-      </div>
-
-      <div class="filter-select">
-        <input id="hide-all-inputs" type="radio" [(ngModel)]="filterType" value="all-inputs" (ngModelChange)="updateMegaModelUrl()">
-        <label for="hide-all-inputs">Hide all inputs/outputs</label>
+        <input id="show-all-inputs" type="checkbox" [(ngModel)]="showTargets" (ngModelChange)="updateMegaModelUrl()">
+        <label for="show-all-inputs">Show target genes/complexes</label>
       </div>
     </div>
 
@@ -114,27 +257,41 @@ been identified through GO-CAM causal model curation.
 
   <div *ngIf="pageType == 'connections'">
 
-    <h4>GO-CAM overlapping activities
+    <h3>Model joining activities
       <span class="help-link">
-      <app-help-link [route]="'/documentation/go-cam-pathway-models'"
+      <app-help-link [route]="'/documentation/gocams'"
                      [title]="'GO-CAM documentation'">
         Documentation
       </app-help-link>
       </span>
-    </h4>
+    </h3>
+
+    <div class="description">
+      This table shows the activities in common between models.  These
+      shared activities are where models can be joined to give the
+      <a routerLink="/gocam/summary/all">GO-CAM Summary Map</a>
+      and the <a routerLink="/gocam/mega-model/connected">Mega-model</a>.
+    </div>
 
     <app-gocam-overlaps-table></app-gocam-overlaps-table>
 
   </div>
 
-  <div *ngIf="pageType == 'missing-proteins'">
-    <h4>GO-CAM "holes"
+  <div *ngIf="pageType == 'missing-activities'">
+    <h3>Missing activities
       <span class="help-link">
-      <app-help-link [route]="'/documentation/go-cam-pathway-models'" [title]="'GO-CAM documentation'">
+      <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
         Documentation
       </app-help-link>
       </span>
-    </h4>
+    </h3>
+
+    <div class="description">
+      A list of activities known or suspected to occur in fission
+      yeast but not yet associated with a gene product.  These
+      "pathway holes" have been identified through
+      <a routerLink="/gocam">GO-CAM causal model curation</a>.
+    </div>
 
     <app-gocam-holes-table></app-gocam-holes-table>
 

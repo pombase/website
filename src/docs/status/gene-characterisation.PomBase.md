@@ -33,7 +33,7 @@ The rationale for this process-focussed approach is described in more detail in
   </td>
 </tr>
 <tr>
-  <td style="white-space: nowrap;">[Pathway holes](/status/missing-gocam-proteins)</td>
+  <td style="white-space: nowrap;">[Missing activities](/gocam/missing-activities)</td>
   <td>
     A list of activities known or suspected to occur in fission
     yeast but not yet associated with a gene product. These “pathway

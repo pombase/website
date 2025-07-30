@@ -11,7 +11,7 @@ export class GoCamTableComponent {
   gocams: Array<GoCamSummary> = [];
 
   constructor(private pombaseApiService: PombaseAPIService) {
-    this.pombaseApiService.getAllGoCamDetails()
+    this.pombaseApiService.getAllGoCamSummaries()
       .then(results => this.gocams = results);
   }
 }

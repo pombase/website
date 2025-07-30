@@ -34,15 +34,17 @@ export class GoCamViewerComponent {
   }
 
   modelChange() {
-    this.largeViewPath = '/gocam/view/';
+    this.largeViewPath = '/gocam/pombase-view/';
     this.pomBaseViewPath = '/gocam/pombase-view/';
 
     const geneOrTermDetails = this.geneOrTermDetails;
 
     let restOfUrl = '';
+    let restOfWidgetUrl = '';
 
     if (geneOrTermDetails instanceof GeneDetails) {
       restOfUrl += 'gene/' + this.currentGoCamId + '/' + geneOrTermDetails.uniquename;
+      restOfWidgetUrl = '/' + geneOrTermDetails.uniquename
       if (this.geneOrTermDetails.name) {
         restOfUrl += '/' + this.geneOrTermDetails.name;
       }
@@ -56,7 +58,7 @@ export class GoCamViewerComponent {
     this.largeViewPath += restOfUrl;
     this.pomBaseViewPath += restOfUrl;
 
-    const rawUrl = 'gocam_viz/widget/' + this.currentGoCamId;
+    const rawUrl = 'gocam_view/widget/' + this.currentGoCamId + restOfWidgetUrl;
     this.sanitizedURL =
       this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
   }

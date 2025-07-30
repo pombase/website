@@ -17,6 +17,7 @@
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/controlled-curation">Controlled curation</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-external-references">External references</a></div>
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/gene-page-literature">Literature</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/gocams">GO-CAM pathways</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/pombase-go-slim-documentation">GO Slim</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/JBrowse_quick_start">${database_name} JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/quick-little-tool">QuiLT visualisation</a></div>

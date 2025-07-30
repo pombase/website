@@ -12,14 +12,11 @@
         </span>
       </span>
       <span class="help-link">
-        <a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a>
+        <span class="help-link"><a routerLink="/gocam">Main GO-CAM page</a></span>
       </span>
     </div>
     <div>
       <span class="large-view"><a routerLink="{{largeViewPath}}">Show larger view ...</a></span>
-      <span class="pombase-view" *ngIf="!deployConfigService.productionMode()">
-        <a routerLink="{{pomBaseViewPath}}">Show PomBase view ...</a>
-      </span>
     </div>
   </div>
 

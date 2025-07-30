@@ -662,12 +662,20 @@ a.disabled-menu-item.dropdown-item {
 }
 
 details {
-  margin-bottom: 1em
+  margin-bottom: 0.6em
 }
 
 .docs-content img.screenshot {
   box-shadow: 1px 3px 12px 1px #ccc;
   margin: 1em 0.5em;
+}
+
+.docs-image-flex {
+  display: flex;
+}
+
+.docs-image-flex img {
+  align-self: flex-start;
 }
 
 .docs-colour-block {
@@ -692,4 +700,8 @@ table.data-table td {
 
 table.data-table tr:nth-child(odd) {
   background-color: #f3f3fa;
+}
+
+.docs-image-flex img {
+  margin: 0.5em 2em 1em 0 !important;
 }

@@ -12,7 +12,7 @@
           </app-description-display>
         </span>
         <span *ngIf="sourcePageType != 'docs'">
-          <span class="help-link"><a routerLink="/documentation/go-cam-pathway-models">All curated pathways</a></span>
+          <span class="help-link"><a routerLink="/gocam">Main GO-CAM page</a></span>
         </span>
       </div>
 
@@ -41,39 +41,28 @@
       <a routerLink="/term/{{source}}">Return to the term page for {{sourceName}} ({{source}})</a>
     </span>
     <span *ngIf="sourcePageType == 'docs'">
-      <a routerLink="/documentation/go-cam-pathway-models">Return to the "All curated pathways" list</a>
+      <a routerLink="/gocam">Return to the main GO-CAM page</a>
     </span>
     <span class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
       <span>Highlighted activities:</span> {{sourceName}}
     </span>
     </div>
 
-    <div class="alternate-view-link" *ngIf="(devMode() || isPomBaseView) && !isMergedModel()">
-      <a routerLink="{{alternateViewRoute}}">
-        <span *ngIf="isPomBaseView && !isMergedModel()">Go to standard view (gocam-viz)</span>
-        <span *ngIf="!isPomBaseView">Go to PomBase view</span>
-      </a>
-    </div>
-
-    <div class="noctua-link" *ngIf="(devMode() || isPomBaseView) && !isMergedModel()">
+    <div class="noctua-link" *ngIf="devMode() && !isMergedModel()">
       <a href="{{noctuaLink}}">View in Noctua</a>
     </div>
 
     <div class="filter-group" *ngIf="isPomBaseView">
       <ng-container *ngIf="!paramFlags.includes('retain_genes')">
+
       <div class="filter-select">
-        <input id="show-all" type="radio" [(ngModel)]="filterType" value="none" (ngModelChange)="updateUrl()">
-        <label for="show-all">Show all</label>
+        <input id="show-chemicals" type="checkbox" [(ngModel)]="showChemicals" (ngModelChange)="updateUrl()">
+        <label for="show-chemicals">Show chemicals</label>
       </div>
 
       <div class="filter-select">
-        <input id="hide-chemicals" type="radio" [(ngModel)]="filterType" value="chemical" (ngModelChange)="updateUrl()">
-        <label for="hide-chemicals">Hide chemicals</label>
-      </div>
-
-      <div class="filter-select">
-        <input id="hide-all-inputs" type="radio" [(ngModel)]="filterType" value="all-inputs" (ngModelChange)="updateUrl()">
-        <label for="hide-all-inputs">Hide all inputs/outputs</label>
+        <input id="show-all-inputs" type="checkbox" [(ngModel)]="showTargets" (ngModelChange)="updateUrl()">
+        <label for="show-all-inputs">Show target genes/complexes</label>
       </div>
       </ng-container>
 
@@ -95,7 +84,9 @@
         Genes in this model:
         <ul>
           <li *ngFor="let geneSumm of modelGenes">
+            <span [ngClass]="{'highlighted-gene': sourcePageType == 'gene' && source == geneSumm.uniquename}">
             <app-gene-link [gene]="geneSumm" [long]="false"></app-gene-link>
+            </span>
           </li>
         </ul>
       </div>

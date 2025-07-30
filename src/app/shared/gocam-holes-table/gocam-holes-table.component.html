@@ -1,10 +1,4 @@
 <div class="holes-table">
-<div class="description">
-A list of activities known or suspected to occur in fission yeast but
-not yet associated with a gene product.  These "pathway holes" have
-been identified through
-<a routerLink="/documentation/go-cam-pathway-models">GO-CAM causal model curation</a>.
-</div>
 
   <table *ngIf="displayNodes.length > 0" class="data-table">
     <thead>
@@ -18,7 +12,7 @@ been identified through
     </thead>
     <tr *ngFor="let displayNode of displayNodes">
       <td>
-        <a routerLink="/gocam/view/docs/{{displayNode.modelId}}">{{displayNode.modelTitle}}</a>
+        <a routerLink="/gocam/pombase-view/docs/{{displayNode.modelId}}">{{displayNode.modelTitle}}</a>
       </td>
       <td>
         {{displayNode.label}} (<a routerLink="/term/{{displayNode.node_id}}">{{displayNode.node_id}}</a>)

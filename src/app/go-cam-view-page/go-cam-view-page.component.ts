@@ -32,7 +32,8 @@ export class GoCamViewPageComponent implements OnInit {
   titleParts: Array<Array<TextOrTermId>> = [];
   isPomBaseView = false;
   isMegaModel = false;
-  filterType: 'none'|'chemical'|'all-inputs' = 'chemical';
+  showChemicals = true;
+  showTargets = true;
   showModelBoxes = true;
   alternateViewRoute?: string;
   noctuaLink?: string;
@@ -121,13 +122,11 @@ export class GoCamViewPageComponent implements OnInit {
     if (this.isPomBaseView) {
       let idForUrl = this.gocamIdParam;
       let flags = [...this.paramFlags];
-      if (this.filterType == 'chemical') {
+      if (!this.showChemicals) {
         flags.push("no_chemicals");
-      } else {
-        if (this.filterType == 'all-inputs') {
+      }
+      if (!this.showTargets) {
           flags.push("no_inputs");
-          flags.push("no_chemicals");
-        }
       }
 
       if (this.showModelBoxes) {
@@ -177,21 +176,20 @@ export class GoCamViewPageComponent implements OnInit {
       if (this.gocamIdParam !== undefined) {
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
 
-        this.filterType = 'none';
+        this.showChemicals = true;
+        this.showTargets = true;
 
         if (this.gocamIdParam.includes(":")) {
           const [gocamId, flagString] = this.gocamIdParam.split(":");
           this.paramFlags = flagString.split(",");
           if (this.paramFlags.includes("no_chemicals")) {
-            this.filterType = 'chemical';
-          } else {
-            if (this.paramFlags.includes("no_inputs")) {
-              this.filterType = 'all-inputs';
-            }
+            this.showChemicals = false;
           }
+          if (this.paramFlags.includes("no_inputs")) {
+            this.showTargets = false;
+          }
+
           this.gocamIdParam = gocamId
-        } else {
-          this.filterType = 'chemical';
         }
 
         this.gocamIds = this.gocamIdParam.split("+");
@@ -209,6 +207,10 @@ export class GoCamViewPageComponent implements OnInit {
             } else {
               title = this.gocamIdParam;
             }
+          }
+          if (this.isMegaModel) {
+            this.showChemicals = false;
+            this.showTargets = false;
           }
           this.gocamDetailsList = [
             {

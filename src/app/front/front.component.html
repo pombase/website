@@ -58,7 +58,7 @@
       <span class="quick-links-label"><a routerLink="/reference/{{examplePages.reference}}">Publication</a></span>
       <span *ngIf="examplePages.gocam" class="quick-links-separator">&#x25CF;</span>
       <span *ngIf="examplePages.gocam" class="quick-links-label">
-        <a routerLink="/gocam/view/docs/{{examplePages.gocam}}">Pathway</a>
+        <a routerLink="/gocam/pombase-view/docs/{{examplePages.gocam}}">Pathway</a>
       </span>
     </span>
   </span>
@@ -90,10 +90,7 @@
         <a routerLink="/status/gene-characterisation">Status/unknowns</a>
       </span>
       <span *ngIf="siteName == 'PomBase'" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="siteName == 'PomBase' && deployConfigService.productionMode()">
-        <a routerLink="/documentation/go-cam-pathway-models">GO-CAM pathways</a>
-      </span>
-      <span *ngIf="siteName == 'PomBase' && !deployConfigService.productionMode()">
+      <span *ngIf="siteName == 'PomBase'">
         <a routerLink="/gocam">GO-CAM pathways</a>
       </span>
     </span>
