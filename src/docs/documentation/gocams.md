@@ -71,17 +71,18 @@ Clicking on a model's name will take you to its GO-CAM model
 view. Clicking on the arrow between two models will take you to a
 joined view of the models
 
+#### The "All Models Summary Map"
+Displays a connected Summary Map, but also includes the set of models
+that are not yet causally linked to any other model
+
+[View the Summary Map](/gocam/summary/all)
+
 #### The "Connected Summary Map" { .clear-float }
 Displays curated causal connections between GO-CAM models (inter-model
 connections)
 
 [View the Connected Summary Map](/gocam/summary/connected)
 
-#### The "All Models Summary Map"
-Displays a connected Summary Map, but also includes the set of models
-that are not yet causally linked to any other model
-
-[View the Summary Map](/gocam/summary/all)
 </div>
 </div>
 
