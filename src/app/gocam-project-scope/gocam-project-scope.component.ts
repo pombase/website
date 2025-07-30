@@ -3,7 +3,6 @@ import { PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-gocam-project-scope',
-  imports: [],
   templateUrl: './gocam-project-scope.component.html',
   styleUrl: './gocam-project-scope.component.css',
   standalone: false
