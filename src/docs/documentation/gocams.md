@@ -3,23 +3,24 @@
 GO-CAMs (Gene Ontology Causal Activity Models) are a framework
 developed by the Gene Ontology (GO) project to represent complex
 biological pathways in a structured, computable format.
+They model how molecular activities, enabled by gene products or
+complexes, are causally linked to form larger biological
+processes.
 
 <div class="docs-image-flex">
 ![GO-CAM model](assets/gocam-docs-example-model.png){ .screenshot .docs-left-float loading="lazy" }
 
 <div>
-They model how molecular activities, enabled by gene products or
-complexes, are causally linked to form larger biological
-processes. Creating a comprehensive GO-CAM representation of a
-eukaryotic cell is an ambitious and ongoing project.
-PomBase’s GO-CAM modelling project is a work in progress, and we
-encourage users to report missing activities, chemical reactions, or
-any inconsistencies.We welcome community input to help improve,
-expand, or correct the current models.
+Creating a comprehensive GO-CAM representation of a eukaryotic cell is
+an ambitious and ongoing project.  We therefore welcome community
+input to help improve, expand, or correct the current models. If you
+have subject area knowledge on a specific pathway also please consider
+contacting us to provide feedback on accuracy and completeness.
 
 Example model: [fatty acid biosynthetic process (GO:0006633)](/gocam/pombase-view/docs/678073a900002931)
 
-Visit the [GO-CAM model list](/gocam/model-list).
+Visit the [GO-CAM model list](/gocam/model-list) or the
+[main PomBase GO-CAM page](/gocam).
 
 </div>
 </div>
