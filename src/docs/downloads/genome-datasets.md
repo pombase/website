@@ -8,7 +8,7 @@ systems. Your browser may prompt you to open or download files.
 
 %%if db=PomBase
 The current genome sequence is available in FASTA format from the
-[monthly release directory](/latest_release/genome_sequence_and_features/genome_sequence/).
+[monthly release directory](${base_url}/latest_release/genome_sequence_and_features/genome_sequence/).
 Separate file are available for each chromosome, as well as a combined
 FASTA file.
 %%end db=PomBase
@@ -29,14 +29,14 @@ These files contain coordinates, but no sequence data:
 %%end db=JaponicusDB
 
 %%if db=PomBase
- -  [GFF3 format](/latest_release/genome_sequence_and_features/gff_format)
+ -  [GFF3 format](${base_url}/latest_release/genome_sequence_and_features/gff_format)
     files contain coordinates for features of all types.
- -  [CDS coordinates](/latest_release/genome_sequence_and_features/feature_coordinates) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
- -  [Exon coordinates](/latest_release/genome_sequence_and_features/feature_coordinates) are in the same tab-delimited file format as CDS coordinates.
+ -  [CDS coordinates](${base_url}/latest_release/genome_sequence_and_features/feature_coordinates) are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.
+ -  [Exon coordinates](${base_url}/latest_release/genome_sequence_and_features/feature_coordinates) are in the same tab-delimited file format as CDS coordinates.
 
 #### Feature coordinates and sequence data
 
--   [Chromosome contigs](/latest_release/genome_sequence_and_features/artemis_contigs/)
+-   [Chromosome contigs](${base_url}/latest_release/genome_sequence_and_features/artemis_contigs/)
     in enriched EMBL-based format for loading into
     Artemis (see the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase)) 
 -   Older files in [EMBL format](/data/genome_sequence_and_features/OLD/20170906/embl/)
@@ -55,15 +55,15 @@ These files contain coordinates, but no sequence data:
 These files are provided in FASTA format.  They contain RNA/DNA
 sequences except for the "Peptide sequences" file.
 
- - [Coding sequences (CDS)](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds.fa)
- - [CDS + introns](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns.fa)
- - [CDS + introns + UTRs](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns+utrs.fa)
- - [Introns within coding sequences](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/introns_within_cds.fa)
- - [5' UTRs](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/five_prime_utrs.fa) and
-   [3' UTRs](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/three_prime_utrs.fa)
- - [Peptide sequences](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/peptide.fa)
+ - [Coding sequences (CDS)](${base_url}/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds.fa)
+ - [CDS + introns](${base_url}/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns.fa)
+ - [CDS + introns + UTRs](${base_url}/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns+utrs.fa)
+ - [Introns within coding sequences](${base_url}/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/introns_within_cds.fa)
+ - [5' UTRs](${base_url}/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/five_prime_utrs.fa) and
+   [3' UTRs](${base_url}/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/three_prime_utrs.fa)
+ - [Peptide sequences](${base_url}/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/peptide.fa)
 
-Browse available files from the latest release: [feature sequence files](/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/)
+Browse available files from the latest release: [feature sequence files](${base_url}/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/)
 
 %%end db=PomBase
 

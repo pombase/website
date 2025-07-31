@@ -18,7 +18,7 @@ Further information is available from the [${database_name} GO slim
 documentation](documentation/pombase-go-slim-documentation) and
 additional pages linked there. You can also download a list of current
 %%if db=PomBase
-[GO process slim IDs and term names](/latest_release/gene_ontology/bp_go_slim_terms.tsv).
+[GO process slim IDs and term names](${base_url}/latest_release/gene_ontology/bp_go_slim_terms.tsv).
 %%end db=PomBase
 %%if db=JaponicusDB
 [GO process slim IDs and term names](${base_url}/data/releases/latest/misc/bp_goslim_${species}_ids_and_names.tsv).

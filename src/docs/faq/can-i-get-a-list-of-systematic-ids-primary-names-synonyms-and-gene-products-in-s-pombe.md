@@ -3,7 +3,7 @@
 
 The list is available from in file:
 %%if db=PomBase
-[gene_IDs_names_products.tsv](/latest_release/gene_names_and_identifiers)
+[gene_IDs_names_products.tsv](${base_url}/latest_release/gene_names_and_identifiers)
 %%end db=PomBase
 %%if db=JaponicusDB
 [sysID2product.tsv](${base_url}/data/names_and_identifiers/sysID2product.tsv)

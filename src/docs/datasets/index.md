@@ -13,9 +13,9 @@ If you cannot locate a dataset of interest please contact the
 %%if db=PomBase
 ### Latest PomBase data
 The most recent release of the PomBase datasets is available from the
-[monthly release directory](/latest_release).
+[monthly release directory](${base_url}/latest_release).
 
-We also have an [archive of previous monthly releases](/monthly_releases/).
+We also have an [archive of previous monthly releases](${base_url}/monthly_releases/).
 
 %%end db=PomBase
 %%if db=JaponicusDB
@@ -56,12 +56,12 @@ Annotation type|Description
 %%if db=PomBase
 [Protein datasets](/downloads/protein-datasets)|Protein sequence in FASTA format, peptide features, properties, etc.
 [GO annotations](/downloads/go-annotations/)|Gene Ontology annotation files
-[Macromolecular complexes](/latest_release/macromolecular_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
+[Macromolecular complexes](${base_url}/latest_release/macromolecular_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
 [Phenotype annotations](/downloads/phenotype-annotations/)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
-[Human disease associations](/latest_release/human_disease_annotation/)|Fission yeast orthologs of human disease associated genes with disease descriptions and [Mondo](https://mondo.monarchinitiative.org/) ontology terms
+[Human disease associations](${base_url}/latest_release/human_disease_annotation/)|Fission yeast orthologs of human disease associated genes with disease descriptions and [Mondo](https://mondo.monarchinitiative.org/) ontology terms
 [Modifications](/downloads/modifications)|Protein modifications
-[Orthologs](/latest_release/curated_orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
-[Expression](/latest_release/gene_expression/)|Quantitative and qualitative protein and RNA expression data
+[Orthologs](${base_url}/latest_release/curated_orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
+[Expression](${base_url}/latest_release/gene_expression/)|Quantitative and qualitative protein and RNA expression data
 %%end db=PomBase
 
 %%if db=JaponicusDB
@@ -87,9 +87,9 @@ descriptions, and UniProt accession numbers:
 Current GO slim IDs and term names:
 
 %%if db=PomBase
- - [GO biological process slim](/latest_release/gene_ontology/bp_go_slim_terms.tsv)
- - [GO molecular function slim](/latest_release/gene_ontology/mf_go_slim_terms.tsv)
- - [GO cellular component slim](/latest_release/gene_ontology/cc_go_slim_terms.tsv)
+ - [GO biological process slim](${base_url}/latest_release/gene_ontology/bp_go_slim_terms.tsv)
+ - [GO molecular function slim](${base_url}/latest_release/gene_ontology/mf_go_slim_terms.tsv)
+ - [GO cellular component slim](${base_url}/latest_release/gene_ontology/cc_go_slim_terms.tsv)
 %%end db=PomBase
 %%if db=JaponicusDB
  - [GO biological process slim](${base_url}/data/releases/latest/misc/bp_goslim_${species}_ids_and_names.tsv)
@@ -116,7 +116,7 @@ columns are described on [the dataset submission page](/documentation/data-submi
 -------
 
 ### Mondo slim
-[Current fission yeast Mondo Disease Ontology slim IDs and term names](/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv)
+[Current fission yeast Mondo Disease Ontology slim IDs and term names](${base_url}/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv)
 
 -------
 

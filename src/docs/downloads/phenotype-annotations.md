@@ -13,7 +13,7 @@ Fission Yeast Phenotype Ontology (FYPO) terms.
 %%if db=PomBase
 PHAF format phenotype data file from the latest monthly release:
 
-  - [pombase_phenotype_annotation.phaf.tsv](/latest_release/phenotypes_and_genotypes/pombase_phenotype_annotation.phaf.tsv)
+  - [pombase_phenotype_annotation.phaf.tsv](${base_url}/latest_release/phenotypes_and_genotypes/pombase_phenotype_annotation.phaf.tsv)
 %%end db=PomBase
 
 Note that this file contains annotations for single allele phenotypes
@@ -38,7 +38,7 @@ assistance.
 ## Viability summary
 
 %%if db=PomBase
-A [set of "viability summary" data](/latest_release/phenotypes_and_genotypes/gene_viability.tsv)
+A [set of "viability summary" data](${base_url}/latest_release/phenotypes_and_genotypes/gene_viability.tsv)
 %%end db=PomBase
 %%if db=JaponicusDB
 A [set of "viability summary" data](https://www.pombase.org/data/annotations/Phenotype_annotations/FYPOviability.tsv)

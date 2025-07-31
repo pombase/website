@@ -4,7 +4,7 @@
 Specific modified residues is not a download option from the query
 builder.  If you want build a table of all residues with a specific
 modification, download the table in the
-[modifications data directory](/latest_release/protein_features/protein_modifications.tsv), and filter
+[modifications data directory](${base_url}/latest_release/protein_features/protein_modifications.tsv), and filter
 for your modification of interest.  The column descriptions are in the
 README.
 

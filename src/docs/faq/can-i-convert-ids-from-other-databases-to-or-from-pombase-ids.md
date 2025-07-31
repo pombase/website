@@ -19,7 +19,7 @@ ID types:
 For UniProt IDs, we also provide a static mapping file of ${database_name}
 systematic IDs and UniProtKB accessions, available on the [Data
 Mapping](/downloads/names-and-identifiers) page and by FTP from the file
-[gene_IDs_names_products.tsv](/latest_release/gene_names_and_identifiers).
+[gene_IDs_names_products.tsv](${base_url}/latest_release/gene_names_and_identifiers).
 
 For IDs not included in the ${database_name} mapper, we suggest you try the
 EBI's PICR web service (<http://www.ebi.ac.uk/Tools/picr/>), which can

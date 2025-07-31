@@ -2,7 +2,7 @@
 
 %%if db=PomBase
 ### Identifier mapping file
- - [gene_IDs_names_products.tsv](/latest_release/gene_names_and_identifiers/) - 
+ - [gene_IDs_names_products.tsv](${base_url}/latest_release/gene_names_and_identifiers/) - 
    tab-delimited file of systematic ID, primary gene name (where
    assigned), chromosome, product description, UniProtKB accession,
    all synonyms, and product type (protein coding, ncRNA, etc.) for

@@ -38,6 +38,6 @@ because they have annotations to terms not covered by the slim.
 
 Current GO slim IDs and term names can be downloaded from the ${database_name} ftp site:
 
- - [GO biological process slim](/latest_release/gene_ontology/bp_go_slim_terms.tsv)
- - [GO molecular function slim](/latest_release/gene_ontology/mf_go_slim_terms.tsv)
- - [GO cellular component slim](/latest_release/gene_ontology/cc_go_slim_terms.tsv)
+ - [GO biological process slim](${base_url}/latest_release/gene_ontology/bp_go_slim_terms.tsv)
+ - [GO molecular function slim](${base_url}/latest_release/gene_ontology/mf_go_slim_terms.tsv)
+ - [GO cellular component slim](${base_url}/latest_release/gene_ontology/cc_go_slim_terms.tsv)

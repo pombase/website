@@ -1,6 +1,6 @@
 ## Introns
 
-Downloadable intron datasets are [available in FASTA format](/latest_release/genome_sequence_and_features/fasta_format)
+Downloadable intron datasets are [available in FASTA format](${base_url}/latest_release/genome_sequence_and_features/fasta_format)
 
 
 Note that you can also use the Advanced Search to find all genes

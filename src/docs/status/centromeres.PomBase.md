@@ -2,7 +2,7 @@
 
 Repeats are also shown in the diagram below. To see the repeat
 sequences, download the
-[contiguated sequence files](/latest_release/genome_sequence_and_features/artemis_contigs/)
+[contiguated sequence files](${base_url}/latest_release/genome_sequence_and_features/artemis_contigs/)
 and view them in Artemis. (See
 [this FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) for more
 information.)

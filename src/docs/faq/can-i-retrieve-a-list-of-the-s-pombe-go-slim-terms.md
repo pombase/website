@@ -7,9 +7,9 @@ fission yeast GO slims, and the Mondo Disease Ontology slim:
 Current GO slim IDs and term names:
 
 %%if db=PomBase
- - [GO biological process slim](/latest_release/gene_ontology/bp_go_slim_terms.tsv)
- - [GO molecular function slim](/latest_release/gene_ontology/mf_go_slim_terms.tsv)
- - [GO cellular component slim](/latest_release/gene_ontology/cc_go_slim_terms.tsv)
+ - [GO biological process slim](${base_url}/latest_release/gene_ontology/bp_go_slim_terms.tsv)
+ - [GO molecular function slim](${base_url}/latest_release/gene_ontology/mf_go_slim_terms.tsv)
+ - [GO cellular component slim](${base_url}/latest_release/gene_ontology/cc_go_slim_terms.tsv)
 %%end db=PomBase
 %%if db=JaponicusDB
  - [GO biological process slim](${base_url}/data/releases/latest/misc/bp_goslim_${species}_ids_and_names.tsv)
@@ -18,7 +18,7 @@ Current GO slim IDs and term names:
 %%end db=JaponicusDB
 
 
-Current [fission yeast Mondo Disease Ontology slim IDs and term names](/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv)
+Current [fission yeast Mondo Disease Ontology slim IDs and term names](${base_url}/latest_release/human_disease_annotation/pombe_mondo_disease_slim_terms.tsv)
 
 For further information on using the *${species_abbrev}* slims, please see the
 ${database_name} GO slim pages

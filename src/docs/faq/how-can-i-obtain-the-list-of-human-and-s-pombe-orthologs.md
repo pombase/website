@@ -5,7 +5,7 @@ The current version of the manually curated list of orthologs and
 orthologous groups identified between fission yeast and human is
 available for download from the
 %%if db=PomBase
-[curated_orthologs directory](/latest_release/curated_orthologs/)
+[curated_orthologs directory](${base_url}/latest_release/curated_orthologs/)
 %%end db=PomBase
 %%if db=JaponicusDB
 [orthologs FTP directory](/data/orthologs/)

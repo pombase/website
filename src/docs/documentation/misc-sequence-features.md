@@ -6,7 +6,7 @@
 
 %%if db=PomBase
 Sequence features can also downloaded from the
-[data directory](/latest_release/genome_sequence_and_features/artemis_contigs/)
+[data directory](${base_url}/latest_release/genome_sequence_and_features/artemis_contigs/)
 %%end db=PomBase
 %%if db=JaponicusDB
 [data directory](https://www.pombase.org/data/genome_sequence_and_features/artemis_files/)

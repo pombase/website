@@ -14,22 +14,22 @@ To cite the fission yeast GO data, please see [Citing PomBase](/about/citing-pom
 ### Annotation files
 
 %%if db=PomBase
-Files from the [latest monthly release](/latest_release/gene_ontology/):
+Files from the [latest monthly release](${base_url}/latest_release/gene_ontology/):
 
 #### GO Association File (GAF)
 
 All current *S. pombe* GO annotations in tab-delimted
 [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/):
 
-  - [gene_ontology_annotation.gaf.tsv](/latest_release/gene_ontology/gene_ontology_annotation.gaf.tsv)
+  - [gene_ontology_annotation.gaf.tsv](${base_url}/latest_release/gene_ontology/gene_ontology_annotation.gaf.tsv)
 
 #### GPAD/GPI
 
 *S. pombe* GO annotation in <a href="https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md">GPAD/GPI v2.0 format</a>:
 
-  - [Gene Product Information (GPI)](/latest_release/gene_ontology/gene_product_information_taxonid_4896.tsv) -
+  - [Gene Product Information (GPI)](${base_url}/latest_release/gene_ontology/gene_product_information_taxonid_4896.tsv) -
     details of *S. pombe* gene products
-  - [Gene Product Annotation Data (GPAD)](/latest_release/gene_ontology/gene_product_annotation_data_taxonid_4896.tsv) -
+  - [Gene Product Annotation Data (GPAD)](${base_url}/latest_release/gene_ontology/gene_product_annotation_data_taxonid_4896.tsv) -
     annotation for the genes in the GPI file
 %%end db=PomBase
 
@@ -48,7 +48,7 @@ All current *S. pombe* GO annotations in tab-delimted
 
 ### Protein complexes
 
-Also see the [list of protein complexes](/latest_release/macromolecular_complexes/),
+Also see the [list of protein complexes](${base_url}/latest_release/macromolecular_complexes/),
 which uses GO macromolecular complex terms and IDs.
 
 ### Notes
