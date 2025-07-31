@@ -75,12 +75,12 @@
           Gene expression (up to {{maxGeneExpressionPlotGenes}} genes)
         </a>
       </li>
-      <li *ngIf="!deployConfigService.productionMode()" role="menuitem">
+      <li role="menuitem">
         <a class="dropdown-item" title="View pathway coverage" (click)="showPathwayCoverage()">
           View pathway coverage
         </a>
       </li>
-      <li *ngIf="!deployConfigService.productionMode() && genes && genes.length <= 2000" role="menuitem">
+      <li *ngIf="genes && genes.length <= 2000" role="menuitem">
         <a class="dropdown-item" title="View in mega-model" (click)="gotoMegaModel()">
           View coverage in mega-model
         </a>
