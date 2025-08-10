@@ -5,7 +5,7 @@
     <div class="left-menu-part left-menu-item"><span>Summary map</span></div>
     <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/all">All models</a></div>
     <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/connected">Connected models</a></div>
-    <div class="left-menu-part left-menu-item"><span>Mega-model</span></div>
+    <div class="left-menu-part left-menu-item"><span>Mega Model</span></div>
     <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/all">All models</a></div>
     <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/connected">Connected models</a></div>
     <div class="left-menu-part left-menu-item"><a routerLink="/gocam/missing-activities">Missing activities</a></div>
@@ -55,9 +55,9 @@ Visit the <a routerLink="/gocam/model-list">GO-CAM model list</a>.
 <img src="assets/gocam-docs-summary-map.png" class="screenshot docs-left-float" loading="lazy"/>
 
 <div style="display: inline-block">
-The summary map visually shows how individual GO-CAM models are
-causally connected, without showing the internal structure of
-particular models.
+The <b>Summary Map</b> provides a high-level, visual overview of how
+individual GO-CAM models are causally connected, without showing the
+internal structure of particular models.
 
     <h5>The "All Models Summary Map"</h5>
 Displays a connected Summary Map, but also includes the set of models
@@ -70,6 +70,15 @@ Displays curated causal connections between GO-CAM models (inter-model connectio
 <p>
 <a routerLink="/gocam/summary/connected">View Connected Summary Map</a>
 
+<p>
+The maps are fully interactive:
+
+<ul>
+  <li>Click on a box to open the corresponding GO-CAM</li>
+  <li>Click on a relationship arrow to explore connections between models</li>
+  <li>Zoom, drag, and rearrange nodes to explore the layout</li>
+</ul>
+
 </div>
 </div>
 
@@ -78,9 +87,10 @@ Displays curated causal connections between GO-CAM models (inter-model connectio
 <img src="assets/gocam-docs-mega-model.png" class="screenshot docs-left-float" loading="lazy"/>
 
 <div>
-Note: To reduce visual complexity, chemical inputs/outputs and target
-genes are not shown initially.  They can be toggled on/off in both
-Mega Models.
+The <b>Mega Model</b> view displays GO-CAMs in full detail, showing all
+intra- and inter-model connections.  Initially, chemical
+inputs/outputs and target genes are hidden to reduce visual complexity
+— but you can toggle them on or off as needed.
 
     <h5 class="clear-float">The "All Models Mega Model"</h5>
 Displays all curated GO-CAM models in full detail:
@@ -90,14 +100,14 @@ Displays all curated GO-CAM models in full detail:
   <li>Unconnected models are also included</li>
 </ul>
 <p>
-<a routerLink="/gocam/mega-model/all">View All Models Mega-model</a>
+<a routerLink="/gocam/mega-model/all">View All Models Mega Model</a>
 
 <h5>The "Connected Models Mega Model"</h5>
 
 Displays only those GO-CAM models that have inter-model connections,
 omitting unlinked models.
 <p>
-<a routerLink="/gocam/mega-model/connected">View Connected Models Mega-model</a>
+<a routerLink="/gocam/mega-model/connected">View Connected Models Mega Model</a>
 </div>
 </div>
 
@@ -267,7 +277,7 @@ for more.)
       This table shows the activities in common between models.  These
       shared activities are where models can be joined to give the
       <a routerLink="/gocam/summary/all">GO-CAM Summary Map</a>
-      and the <a routerLink="/gocam/mega-model/connected">Mega-model</a>.
+      and the <a routerLink="/gocam/mega-model/connected">Mega Model</a>.
     </div>
 
     <app-gocam-overlaps-table></app-gocam-overlaps-table>

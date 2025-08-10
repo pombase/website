@@ -63,9 +63,9 @@ biological pathways in a structured, computable format.
 ![Summary Map](assets/gocam-docs-summary-map.png){ .screenshot .docs-left-float loading="lazy" }
 
 <div>
-The summary map visually shows how individual GO-CAM models are
-causally connected, without showing the internal structure of
-particular models.
+The **Summary Map** provides a high-level, visual overview of how
+individual GO-CAM models are causally connected, without showing the
+internal structure of particular models.
 
 Clicking on a model's name will take you to its GO-CAM model
 view. Clicking on the arrow between two models will take you to a
@@ -83,6 +83,12 @@ connections)
 
 [View the Connected Summary Map](/gocam/summary/connected)
 
+The maps are fully interactive:
+
+  - Click on a box to open the corresponding GO-CAM
+  - Click on a relationship arrow to explore connections between models
+  - Zoom, drag, and rearrange nodes to explore the layout
+
 </div>
 </div>
 
@@ -94,9 +100,11 @@ connections)
 ![Mega Model](assets/gocam-docs-mega-model.png){ .screenshot .docs-left-float loading="lazy" }
 
 <div>
-Note: To reduce visual complexity, chemical inputs/outputs and target
-genes are not shown initially.  They can be toggled on/off in both
-Mega Models.
+
+The **Mega Model** view displays GO-CAMs in full detail, showing all
+intra- and inter-model connections.  Initially, chemical
+inputs/outputs and target genes are hidden to reduce visual complexity
+— but you can toggle them on or off as needed.
 
 #### The "All Models Mega Model"
 Displays all curated GO-CAM models in full detail:
