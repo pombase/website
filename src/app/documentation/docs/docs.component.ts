@@ -5,7 +5,9 @@ import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 
 import { getAppConfig, AppConfig } from '../../config';
-import { DeployConfigService } from '../../deploy-config.service'
+import { DeployConfigService } from '../../deploy-config.service';
+import { PombaseAPIService } from '../../pombase-api.service';
+import { QueryService } from '../../query.service';
 import { Subscription } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 
@@ -25,9 +27,13 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   appConfig: AppConfig = getAppConfig();
   highlightDocSearchBox = false;
 
+  queryCountCache: {[key: string]: Promise<number>} = {};
+
   constructor(public router: Router,
               private titleService: Title,
               public deployConfigService: DeployConfigService,
+              private pombaseApi: PombaseAPIService,
+              private queryService: QueryService,
               private readonly meta: Meta,
               @Inject('Window') private window: any,
               private renderer2: Renderer2,
@@ -83,6 +89,23 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
+  getMissingActivityCount(): Promise<number> {
+    if (!this.queryCountCache['_getMissingActivityCount']) {
+      this.queryCountCache['_getMissingActivityCount'] =
+       this.pombaseApi.getGoCamHoles().then(holes => holes.length);
+    }
+    return this.queryCountCache['_getMissingActivityCount'];
+  }
+
+  getPredefinedQueryCount(predefinedQueryId: string): Promise<number> {
+    if (!this.queryCountCache[predefinedQueryId]) {
+      this.queryCountCache[predefinedQueryId] =
+        this.queryService.postPredefinedQueryCount(predefinedQueryId)
+        .then((results) => results.getRowCount());
+    }
+
+    return this.queryCountCache[predefinedQueryId];
+  }
 
   setSectPage(url: string) {
     if (!this.checkForDoc(url)) {

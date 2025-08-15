@@ -21,11 +21,17 @@ The rationale for this process-focussed approach is described in more detail in
 <thead>
   <tr>
     <th>List</th>
+    <th title="Number of genes in list">Count</th>
     <th>Description</th>
   </tr>
 </thead>
 <tr>
   <td style="white-space: nowrap;">[Priority unstudied genes](/status/priority-unstudied-genes)</td>
+  <td style="white-space: nowrap;">
+  <a routerLink="/status/priority-unstudied-genes">
+  {{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates') | async}}
+  </a>
+  </td>
   <td>
     Genes are classed as “unknown” if there is no information about
     the broad cellular role (biological process) in which it
@@ -34,6 +40,7 @@ The rationale for this process-focussed approach is described in more detail in
 </tr>
 <tr>
   <td style="white-space: nowrap;">[Missing activities](/gocam/missing-activities)</td>
+  <td style="white-space: nowrap;"><a routerLink="/gocam/missing-activities">{{getMissingActivityCount() | async}}</a></td>
   <td>
     A list of activities known or suspected to occur in fission
     yeast but not yet associated with a gene product. These “pathway
