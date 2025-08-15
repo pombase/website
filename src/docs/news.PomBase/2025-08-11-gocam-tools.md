@@ -3,7 +3,7 @@
 <!-- newsfeed_thumbnail: gocam-32px.png -->
 
 Introducing two new interactive views designed to support the
-exploration and use of GO-CAM (Gene Ontology Causal Activity Model)
+exploration and use of [GO-CAM](/gocam/) (Gene Ontology Causal Activity Model)
 data.
 
 ##### **Summary Map**
