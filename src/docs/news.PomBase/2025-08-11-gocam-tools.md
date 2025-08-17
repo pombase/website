@@ -15,7 +15,7 @@ individual GO-CAM models are causally connected—without displaying
 their internal structure. This allows you to quickly see relationships
 between pathways at a glance:
 
- - [View all models - connected band unconnected](/gocam/summary/all)
+ - [View all models - connected and unconnected](/gocam/summary/all)
  - [View only connected models](/gocam/summary/connected)
 
 The maps are fully interactive:
