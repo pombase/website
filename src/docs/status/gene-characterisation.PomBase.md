@@ -11,7 +11,8 @@ There are multiple ways to classify whether a gene is functionally
 characterized, and the concept of “characterization” is clearly a
 continuum. However, as an initial step in defining “unknowns” we
 devised a simple binary classification, based on biological processes
-at the level of the [fission yeast GO slim set](/browse-curation/fission-yeast-bp-go-slim-terms).
+at the level of the [fission yeast GO slim set](/browse-curation/fission-yeast-bp-go-slim-terms)
+representing the broad cellular role (biological process) in which it participates.
 The rationale for this process-focussed approach is described in more detail in
 [Rutherford *et al.* 2024](https://doi.org/10.1093/genetics/iyae007)
 
@@ -26,6 +27,25 @@ The rationale for this process-focussed approach is described in more detail in
   </tr>
 </thead>
 <tr>
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:protein_coding_genes_unknown_process')">Unknown genes</a></td>
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:protein_coding_genes_unknown_process')">
+  {{getPredefinedQueryCount('canned_query:protein_coding_genes_unknown_process') | async}}
+  </a>
+  </td>
+  <td>Protein coding genes, unknown process</td>
+</tr>
+<tr>
+  <td>[Conserved unknown](/gene_subset/characterisation_status_conserved_unknown)</td>
+  <td style="white-space: nowrap;">
+  <a routerLink="/gene_subset/characterisation_status_conserved_unknown">
+    {{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown') | async}}
+  </a>
+  </td>
+  <td>
+    Genes of unknown process, conserved outside the Schizosaccharomyces clade
+  </td>
+</tr>
+<tr>
   <td style="white-space: nowrap;">[Priority unstudied genes](/status/priority-unstudied-genes)</td>
   <td style="white-space: nowrap;">
   <a routerLink="/status/priority-unstudied-genes">
@@ -33,9 +53,10 @@ The rationale for this process-focussed approach is described in more detail in
   </a>
   </td>
   <td>
-    Genes are classed as “unknown” if there is no information about
-    the broad cellular role (biological process) in which it
-    participates.
+    Priority unknowns are the subset conserved to vertebrates (all
+    present in human), considered over at least ~1 billion years of
+    evolution. Some of these are universally conserved in bacteria and
+    archaea
   </td>
 </tr>
 <tr>
