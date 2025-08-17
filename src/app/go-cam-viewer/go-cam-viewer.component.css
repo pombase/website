@@ -14,12 +14,6 @@
 
 .large-view, pombase-view {
   font-size: 105%;
-  padding-top: 0.3em;
-  padding-right: 2em;
-}
-
-.help-link {
-  padding-left: 2em;
 }
 
 .no-go-cams {
@@ -31,9 +25,13 @@
   padding-right: 0.5em;
 }
 
+.full-view-header span {
+  margin-right: 1em;
+}
+
 .full-view-header {
   font-size: 110%;
-  padding: 0.1em 0.6em;
+  padding: 0.1em 0.6em 1em 0.5em;
 }
 
 .help-link img {
