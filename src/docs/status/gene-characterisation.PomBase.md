@@ -35,10 +35,10 @@ The rationale for this process-focussed approach is described in more detail in
   <td>Protein coding genes, unknown process</td>
 </tr>
 <tr>
-  <td>[Conserved unknown](/gene_subset/characterisation_status_conserved_unknown)</td>
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown')">Conserved unknown</a></td>
   <td style="white-space: nowrap;">
-  <a routerLink="/gene_subset/characterisation_status_conserved_unknown">
-    {{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown') | async}}
+  <a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown')">
+  {{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown') | async}}
   </a>
   </td>
   <td>
@@ -46,9 +46,9 @@ The rationale for this process-focussed approach is described in more detail in
   </td>
 </tr>
 <tr>
-  <td style="white-space: nowrap;">[Priority unstudied genes](/status/priority-unstudied-genes)</td>
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates')">Priority unstudied genes</a></td>
   <td style="white-space: nowrap;">
-  <a routerLink="/status/priority-unstudied-genes">
+  <a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates')">
   {{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates') | async}}
   </a>
   </td>
