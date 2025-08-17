@@ -10,6 +10,7 @@ import { PombaseAPIService } from '../../pombase-api.service';
 import { QueryService } from '../../query.service';
 import { Subscription } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
+import { QueryRouterService } from '../../query-router.service';
 
 const urlRe = new RegExp('/([^/]+)(?:/([^/]+))?');
 
@@ -34,6 +35,7 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
               public deployConfigService: DeployConfigService,
               private pombaseApi: PombaseAPIService,
               private queryService: QueryService,
+              private queryRouterService: QueryRouterService,
               private readonly meta: Meta,
               @Inject('Window') private window: any,
               private renderer2: Renderer2,
@@ -87,6 +89,10 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
       // the url should always start with "/" - this is a fall back
       return true;
     }
+  }
+
+  gotoPredefinedResults(predefinedQueryId: string): void {
+    this.queryRouterService.gotoPredefinedQueryResults(predefinedQueryId);
   }
 
   getMissingActivityCount(): Promise<number> {
