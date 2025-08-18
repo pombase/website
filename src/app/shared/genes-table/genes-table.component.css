@@ -66,3 +66,8 @@ th {
 .intermine-send-form {
  display: none;
 }
+
+.genes-not-in-gocams-link {
+  clear: both;
+  float: left;
+}

@@ -403,6 +403,35 @@ export class GenesTableComponent implements OnInit {
       geneList, this.description]);
   }
 
+  makeGenesNotInGocamsUrl(): string {
+    const geneList = this.genes.map(g => { return { uniquename: g.uniquename } });
+    const query = {
+      "constraints": {
+        "not": [
+          {
+            "node_name": this.description,
+            "gene_list" : {"genes": geneList }
+          },
+          {
+            "node_name": "Genes that enable activities in GO-CAM pathway models",
+            "int_range": {
+              "range_type": "gocam_activity_gene_count",
+              "start": 1,
+              "end": null
+            }
+          },
+        ]
+
+      },
+      "output_options": {
+        "field_names": ["gene_uniquename"],
+        "sequence": "none"
+      }
+    };
+
+    return `/results/from/json/${JSON.stringify(query)}`;
+  }
+
   ngOnInit() {
     this.columnsSubscription =
       this.settingsService.visibleGenesTableFieldNames$

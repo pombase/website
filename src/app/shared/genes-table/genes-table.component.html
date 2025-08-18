@@ -25,6 +25,11 @@
 
   </div>
 
+
+  <div class="genes-not-in-gocams-link" *ngIf="showingSubsetCounts() && subsetCountName">
+    <a routerLink="{{makeGenesNotInGocamsUrl()}}">View genes from query that are not in any GO-CAMs</a>
+  </div>
+
   <div class="action-row">
     <div *ngIf="!showingVisualisation() && !showingSlim() && !showingSubsetCounts()">
       <div *ngIf="selectionInProgress()">
