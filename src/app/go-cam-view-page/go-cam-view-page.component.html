@@ -44,7 +44,10 @@
       <a routerLink="/gocam">Return to the main GO-CAM page</a>
     </span>
     <span class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
-      <span>Highlighted activities:</span> {{sourceName}}
+      <span><span>Highlighted activities:</span> {{sourceName}}</span>
+      <div class="genes-not-in-gocams-link">
+        <a routerLink="{{makeGenesNotInGocamsUrl()}}">View genes from query that are not in any GO-CAMs</a>
+      </div>
     </span>
     </div>
 

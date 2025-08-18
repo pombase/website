@@ -154,6 +154,40 @@ export class GoCamViewPageComponent implements OnInit {
     this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
   }
 
+  makeGenesNotInGocamsUrl(): string|undefined {
+    if (this.source && this.sourceName) {
+      const genes = this.source.split(',');
+      const geneList = genes.map(g => { return { uniquename: g } });
+      const query = {
+        "constraints": {
+          "not": [
+            {
+              "node_name": this.sourceName,
+              "gene_list" : {"genes": geneList }
+            },
+            {
+              "node_name": "Genes that enable activities in GO-CAM pathway models",
+              "int_range": {
+                "range_type": "gocam_activity_gene_count",
+                "start": 1,
+                "end": null
+              }
+            },
+          ]
+
+        },
+        "output_options": {
+          "field_names": ["gene_uniquename"],
+          "sequence": "none"
+        }
+      };
+
+      return `/results/from/json/${JSON.stringify(query)}`;
+    } else {
+      return undefined;
+    }
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       this.gocamIds = [];
