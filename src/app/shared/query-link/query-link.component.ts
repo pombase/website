@@ -20,10 +20,15 @@ export class QueryLinkComponent implements OnInit {
               private queryRouterService: QueryRouterService) { }
 
   ngOnInit() {
-    if (!this.linkText) {
+    if (!this.linkText || this.linkText.includes('<<count>>')) {
       this.queryService.postPredefinedQueryCount(this.predefinedQueryId)
         .then((results) => {
-          this.linkText = String(results.getRowCount());
+          if (this.linkText && this.linkText.includes('<<count>>')) {
+            let count = results.getRowCount().toString();
+            this.linkText = this.linkText.replace('<<count>>', count);
+          } else {
+            this.linkText = String(results.getRowCount());
+          }
         });
     }
   }
