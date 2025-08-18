@@ -27,18 +27,15 @@ The rationale for this process-focussed approach is described in more detail in
   </tr>
 </thead>
 <tr>
-  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:protein_coding_genes_unknown_process')">Unknown genes</a></td>
   <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:protein_coding_genes_unknown_process')">
-  {{getPredefinedQueryCount('canned_query:protein_coding_genes_unknown_process') | async}}
+Unknown genes ({{getPredefinedQueryCount('canned_query:protein_coding_genes_unknown_process') | async}})
   </a>
   </td>
   <td>Protein coding genes, unknown process</td>
 </tr>
 <tr>
-  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown')">Conserved unknown</a></td>
-  <td style="white-space: nowrap;">
-  <a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown')">
-  {{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown') | async}}
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown')">
+Conserved unknown ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown') | async}})
   </a>
   </td>
   <td>
@@ -46,10 +43,8 @@ The rationale for this process-focussed approach is described in more detail in
   </td>
 </tr>
 <tr>
-  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates')">Priority unstudied genes</a></td>
-  <td style="white-space: nowrap;">
-  <a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates')">
-  {{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates') | async}}
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates')">
+Priority unstudied genes ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates') | async}})
   </a>
   </td>
   <td>
@@ -60,8 +55,7 @@ The rationale for this process-focussed approach is described in more detail in
   </td>
 </tr>
 <tr>
-  <td style="white-space: nowrap;">[Missing activities](/gocam/missing-activities)</td>
-  <td style="white-space: nowrap;"><a routerLink="/gocam/missing-activities">{{getMissingActivityCount() | async}}</a></td>
+  <td style="white-space: nowrap;">[Missing activities ({{getMissingActivityCount() | async}})](/gocam/missing-activities)</td>
   <td>
     A list of activities known or suspected to occur in fission
     yeast but not yet associated with a gene product. These “pathway
