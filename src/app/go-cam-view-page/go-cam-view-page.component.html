@@ -45,7 +45,7 @@
     </span>
     <span class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
       <span><span>Highlighted activities:</span> {{sourceName}}</span>
-      <div class="genes-not-in-gocams-link">
+      <div *ngIf="isMegaModel" class="genes-not-in-gocams-link">
         <a routerLink="{{makeGenesNotInGocamsUrl()}}">View genes not yet included in a GO-CAM pathway</a>
       </div>
     </span>
