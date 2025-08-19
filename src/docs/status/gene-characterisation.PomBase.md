@@ -22,7 +22,6 @@ The rationale for this process-focussed approach is described in more detail in
 <thead>
   <tr>
     <th>List</th>
-    <th title="Number of genes in list">Count</th>
     <th>Description</th>
   </tr>
 </thead>
