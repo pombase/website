@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
-import { PombaseAPIService, GoCamSummary, GeneSummaryMap, GeneSummary, GeneShort } from '../pombase-api.service';
+import { PombaseAPIService, GoCamSummary, GeneSummaryMap, GeneSummary, GeneShort, GeneUniquename } from '../pombase-api.service';
 import { TextOrTermId, Util } from '../shared/util';
 import { DeployConfigService } from '../deploy-config.service';
 
@@ -27,6 +27,7 @@ export class GoCamViewPageComponent implements OnInit {
   sourcePageType = 'gene';
   source?: string;
   sourceName?: string;
+  sourceGenes: Set<GeneUniquename> = new Set();
   modelGenes: Array<GeneSummary> = [];
   geneSummaryMap?: GeneSummaryMap;
   titleParts: Array<Array<TextOrTermId>> = [];
@@ -216,6 +217,12 @@ export class GoCamViewPageComponent implements OnInit {
       this.sourcePageType = params['source_page_type'];
       this.source = params['source'];
       this.sourceName = params['source_name'];
+
+      if (this.source) {
+        this.sourceGenes = new Set(this.source.split(','));
+      } else {
+        this.sourceGenes = new Set();
+      }
 
       const pathSeg2 = this.route.snapshot.url[1].path;
 

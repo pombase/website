@@ -90,7 +90,7 @@
         Genes in this model:
         <ul>
           <li *ngFor="let geneSumm of modelGenes">
-            <span [ngClass]="{'highlighted-gene': sourcePageType == 'gene' && source == geneSumm.uniquename}">
+            <span [ngClass]="{'highlighted-gene': sourceGenes.has(geneSumm.uniquename)}">
             <app-gene-link [gene]="geneSumm" [long]="false"></app-gene-link>
             </span>
           </li>
