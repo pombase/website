@@ -82,9 +82,11 @@ export class GeneResultsSubsetCountComponent implements OnInit {
 
   sortRows(): void {
     const sortRows = function (rowA: ProcessedRow, rowB: ProcessedRow) {
-      if (rowA.geneUniquenames.length == 0 && rowB.geneUniquenames.length == 0 ||
-        rowA.geneUniquenames.length != 0 && rowB.geneUniquenames.length != 0) {
+      if (rowA.geneUniquenames.length == 0 && rowB.geneUniquenames.length == 0) {
         return rowA.gocamTitle.localeCompare(rowB.gocamTitle);
+      }
+      if (rowA.geneUniquenames.length != 0 && rowB.geneUniquenames.length != 0) {
+        return rowB.geneUniquenames.length - rowA.geneUniquenames.length;
       }
       if (rowA.geneUniquenames.length === 0) {
         return 1;
