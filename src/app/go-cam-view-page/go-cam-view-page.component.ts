@@ -154,6 +154,23 @@ export class GoCamViewPageComponent implements OnInit {
     this.sanitizedURL = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
   }
 
+  makeGenesUrl(): string {
+    const geneList = this.modelGenes.map(g => { return { uniquename: g.uniquename } });
+    let desc = this.sourceName || this.getTitleOrId() || 'GO-CAM pathway model';
+    const query = {
+      "constraints": {
+        "node_name": "Genes from GO-CAM model: " + desc,
+        "gene_list" : {"genes": geneList }
+      },
+      "output_options": {
+        "field_names": ["gene_uniquename"],
+        "sequence": "none"
+      }
+    };
+
+    return `/results/from/json/${JSON.stringify(query)}`;
+  }
+
   makeGenesNotInGocamsUrl(): string|undefined {
     if (this.source && this.sourceName) {
       const genes = this.source.split(',');

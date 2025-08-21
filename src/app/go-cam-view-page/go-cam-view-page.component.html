@@ -83,6 +83,9 @@
 
   <div class="iframe-container">
     <div *ngIf="modelGenes.length > 0" class="genes-and-terms">
+      <div class="gene-list-query-link">
+        <a routerLink="{{makeGenesUrl()}}">Send gene list to the Advanced Search</a>
+      </div>
       <div>
         Genes in this model:
         <ul>
