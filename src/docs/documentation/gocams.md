@@ -137,13 +137,13 @@ omitting unlinked pathways.
 
 -------
 
-### Notes on Model Completeness
-Not all chemical intermediates are curated into models. However, for
+### Notes on Pathway Completeness
+Not all chemical intermediates are curated into pathways. However, for
 all catalytic steps, full reaction details can be found via links on
 the associated gene page, under the GO Molecular Function section (via
 Rhea reaction references).  Currency metabolites (e.g., ATP, H₂O) are
-excluded to simplify models.  Some known target genes are not yet
-included in models.  Many inter-model connections are still being
+excluded to simplify pathways.  Some known target genes are not yet
+included in pathways.  Many inter-pathway connections are still being
 identified.
 
 -------
