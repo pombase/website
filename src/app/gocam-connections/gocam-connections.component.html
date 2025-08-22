@@ -74,8 +74,19 @@ Displays curated causal connections between GO-CAM pathways (inter-model connect
 The maps are fully interactive:
 
 <ul>
-  <li>Click on a box to open the corresponding GO-CAM</li>
-  <li>Click on a relationship arrow to explore connections between models</li>
+  <li>Click on a pathway to view the title of the GO-CAM in the
+    right-hand panel</li>
+  <li>Click on the pathway title to open a new tab/window to visit
+    a detailed view</li>
+  <li>Multiple pathways can be selected by shift-clicking or shift-click and
+    drag in the map
+    <ul>
+      <li>
+        When multiple pathways are selected, click on "View
+        joined models" to see connections between the models in detail
+      </li>
+    </ul>
+  </li>
   <li>Zoom, drag, and rearrange nodes to explore the layout</li>
 </ul>
 
@@ -190,9 +201,15 @@ for more.)
     </div>
 
     <div class="description">
-      Clicking on the name of a model will take you to the detailed GO-CAM view
-      of that model.  Clicking on an arrow between models will take
-      you to a view of connection bewtween the two models.
+      Clicking on a pathway will display its title in the right-hand
+      panel.  Click the title to open a new tab/window to view the
+      pathway in detail.
+    </div>
+    <div class="description">
+      Multiple pathways can be selected by shift-clicking or
+      shift-click and drag in the map.  When multiple pathways are
+      selected, click on "View joined models" to see connections
+      between the models in detail.
     </div>
 
     <div *ngIf="pageSubType == 'connected'" class="description">

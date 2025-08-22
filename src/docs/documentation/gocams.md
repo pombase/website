@@ -68,9 +68,13 @@ The **Summary Map** provides a high-level, visual overview of how
 individual GO-CAM pathways are causally connected, without showing the
 internal structure of particular pathway.
 
-Clicking on a pathway's name will take you to its GO-CAM pathway
-view. Clicking on the arrow between two pathways will take you to a
-joined view of the pathways
+Clicking on a pathway will display its title in the right-hand panel.
+Click the title to open a new tab/window to view the pathway in
+detail.
+
+Multiple pathways can be selected by shift-clicking or shift-click and
+drag in the map.  When multiple pathways are selected, click on "View
+joined models" to see connections between the models in detail.
 
 #### The "All Pathways Summary Map"
 Displays a connected Summary Map, but also includes the set of pathway
