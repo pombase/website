@@ -36,14 +36,14 @@
 
       <ng-container *ngIf="hasGoCams()">
         <div *ngIf="currentWidget() != 'gocam_viewer'" class="non-active-widget-button"
-             title="Click to view GO-CAM models">
+             title="Click to view GO-CAM pathways">
           <a (click)="setWidget('gocam_viewer')">
-            <div>GO-CAM models</div>
+            <div>GO-CAM pathways</div>
             <img class="widget-button" src="assets/go-cam-widget-icon.png" />
           </a>
         </div>
         <div *ngIf="currentWidget() == 'gocam_viewer'" class="active-widget-button">
-          <div>GO-CAM models</div>
+          <div>GO-CAM pathways</div>
           <img class="widget-button" src="assets/go-cam-widget-icon.png" />
         </div>
       </ng-container>

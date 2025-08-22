@@ -87,7 +87,7 @@
         <a routerLink="{{makeGenesUrl()}}">Send gene list to the Advanced Search</a>
       </div>
       <div>
-        Genes in this model:
+        Genes in this pathway:
         <ul>
           <li *ngFor="let geneSumm of modelGenes">
             <span [ngClass]="{'highlighted-gene': sourceGenes.has(geneSumm.uniquename)}">

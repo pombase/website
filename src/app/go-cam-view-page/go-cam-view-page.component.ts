@@ -85,9 +85,9 @@ export class GoCamViewPageComponent implements OnInit {
   setPageTitle(): void {
     let title;
     if (this.gocamIdParam) {
-      title = this.appConfig.site_name + ' - GO-CAM Model - ' + this.getTitleOrId();
+      title = this.appConfig.site_name + ' - GO-CAM Pathway - ' + this.getTitleOrId();
     } else {
-      title = this.appConfig.site_name + ' - GO-CAM Model';
+      title = this.appConfig.site_name + ' - GO-CAM Pathway';
     }
     this.titleService.setTitle(title);
     this.meta.updateTag({ property: 'og:title', content: title });
@@ -160,7 +160,7 @@ export class GoCamViewPageComponent implements OnInit {
     let desc = this.sourceName || this.getTitleOrId() || 'GO-CAM pathway model';
     const query = {
       "constraints": {
-        "node_name": "Genes from GO-CAM model: " + desc,
+        "node_name": "Genes from GO-CAM pathway: " + desc,
         "gene_list" : {"genes": geneList }
       },
       "output_options": {

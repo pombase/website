@@ -1,15 +1,15 @@
 <div class="gocam-container docs">
   <app-page-contents-menu title="GO-CAM pathways" titleRoute="/gocam">
 
-    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/model-list">Model list</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/model-list">Pathway list</a></div>
     <div class="left-menu-part left-menu-item"><span>Summary map</span></div>
-    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/all">All models</a></div>
-    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/connected">Connected models</a></div>
+    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/all">All pathways</a></div>
+    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/summary/connected">Connected pathways</a></div>
     <div class="left-menu-part left-menu-item"><span>Mega Model</span></div>
-    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/all">All models</a></div>
-    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/connected">Connected models</a></div>
+    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/all">All pathways</a></div>
+    <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/connected">Connected pathways</a></div>
     <div class="left-menu-part left-menu-item"><a routerLink="/gocam/missing-activities">Missing activities</a></div>
-    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/connections">Model joining activities</a></div>
+    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/connections">Pathway joining activities</a></div>
 
   </app-page-contents-menu>
 
@@ -32,12 +32,12 @@ causally linked to form larger biological processes.
     <div class="description">
 Creating a comprehensive GO-CAM representation of a eukaryotic cell is
 an ambitious and ongoing project.  We therefore welcome community
-input to help improve, expand, or correct the current models. If you
+input to help improve, expand, or correct the current pathway models. If you
 have subject area knowledge on a specific pathway also please consider
 contacting us to provide feedback on accuracy and completeness.
     </div>
     <div class="description">
-Visit the <a routerLink="/gocam/model-list">GO-CAM model list</a>.
+Visit the <a routerLink="/gocam/model-list">GO-CAM pathway list</a>.
     </div>
     <div class="description">
     For more information, visit the
@@ -56,7 +56,7 @@ Visit the <a routerLink="/gocam/model-list">GO-CAM model list</a>.
 
 <div style="display: inline-block">
 The <b>Summary Map</b> provides a high-level, visual overview of how
-individual GO-CAM models are causally connected, without showing the
+individual GO-CAM pathways are causally connected, without showing the
 internal structure of particular models.
 
     <h5>The "All Models Summary Map"</h5>
@@ -66,7 +66,7 @@ that are not yet causally linked to any other model
 <a routerLink="/gocam/summary/all">View All Models Summary Map</a>
 
     <h5>The "Connected Summary Map"</h5>
-Displays curated causal connections between GO-CAM models (inter-model connections)
+Displays curated causal connections between GO-CAM pathways (inter-model connections)
 <p>
 <a routerLink="/gocam/summary/connected">View Connected Summary Map</a>
 
@@ -93,7 +93,7 @@ inputs/outputs and target genes are hidden to reduce visual complexity
 — but you can toggle them on or off as needed.
 
     <h5 class="clear-float">The "All Models Mega Model"</h5>
-Displays all curated GO-CAM models in full detail:
+Displays all curated GO-CAM pathways in full detail:
 <ul>
   <li>Each model is enclosed by a boundary (by default)</li>
   <li>All intra- and inter-model connections are shown</li>
@@ -104,7 +104,7 @@ Displays all curated GO-CAM models in full detail:
 
 <h5>The "Connected Models Mega Model"</h5>
 
-Displays only those GO-CAM models that have inter-model connections,
+Displays only those GO-CAM pathways that have inter-model connections,
 omitting unlinked models.
 <p>
 <a routerLink="/gocam/mega-model/connected">View Connected Models Mega Model</a>
@@ -123,10 +123,10 @@ and highlight areas for further research and annotation.
     <a routerLink="/gocam/missing-activities">Missing <span class="genus-species">S. pombe</span> activities</a>
     </div>
 
-    <h4>Model joining activities</h4>
-A curated list of models that share overlapping activities. This list includes:
+    <h4>Pathway joining activities</h4>
+A curated list of pathway models that share overlapping activities. This list includes:
     <ul>
-      <li>The specific activities used to link models</li>
+      <li>The specific activities used to link pathways</li>
       <li>The joined pathways</li>
       <li>Links to views of the joined pathways</li>
     </ul>
@@ -137,7 +137,7 @@ A curated list of models that share overlapping activities. This list includes:
   </div>
 
   <div *ngIf="pageType == 'model-list'" class="gocam-landing-page">
-    <h3>Available <span class="genus-species">S. pombe</span> GO-CAM models
+    <h3>Available <span class="genus-species">S. pombe</span> GO-CAM pathways
       <span class="help-link">
       <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
         Documentation
@@ -152,11 +152,11 @@ biological pathways in a structured, computable format.
 
     <div class="description">
 Below is a list of current <span class="genus-species">S. pombe</span>
-GO-CAMs with links to the process or processes that they model.
+GO-CAM pathways with links to the process or processes that they model.
     </div>
 
     <div class="description">
-(Not all models are complete.  See the "Notes on Model Completeness"
+(Not all pathway models are complete.  See the "Notes on Model Completeness"
 section of the
 <a routerLink="/documentation/gocams">PomBase GO-CAM documentation</a>
 for more.)

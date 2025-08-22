@@ -1,4 +1,4 @@
-### New Interactive Views for Exploring GO-CAM Models
+### New Interactive Views for Exploring GO-CAM Pathways
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: gocam-32px.png -->
 
@@ -11,7 +11,7 @@ data.
 [![Summary Map](assets/newsfeed/gocam-summary-map-trim.png){ .screenshot loading="lazy" width=100% }](assets/newsfeed/gocam-summary-map.png)
 
 The **Summary Map** provides a high-level, visual overview of how
-individual GO-CAM models are causally connected—without displaying
+individual GO-CAM pathways are causally connected—without displaying
 their internal structure. This allows you to quickly see relationships
 between pathways at a glance:
 

@@ -8,18 +8,18 @@ complexes, are causally linked to form larger biological
 processes.
 
 <div class="docs-image-flex">
-![GO-CAM model](assets/gocam-docs-example-model.png){ .screenshot .docs-left-float loading="lazy" }
+![GO-CAM pathway](assets/gocam-docs-example-model.png){ .screenshot .docs-left-float loading="lazy" }
 
 <div>
 Creating a comprehensive GO-CAM representation of a eukaryotic cell is
 an ambitious and ongoing project.  We therefore welcome community
-input to help improve, expand, or correct the current models. If you
+input to help improve, expand, or correct the current pathway models. If you
 have subject area knowledge on a specific pathway also please consider
 contacting us to provide feedback on accuracy and completeness.
 
-Example model: [fatty acid biosynthetic process (GO:0006633)](/gocam/pombase-view/docs/678073a900002931)
+Example pathway: [fatty acid biosynthetic process (GO:0006633)](/gocam/pombase-view/docs/678073a900002931)
 
-Visit the [GO-CAM model list](/gocam/model-list) or the
+Visit the [GO-CAM pathway list](/gocam/model-list) or the
 [main PomBase GO-CAM page](/gocam).
 
 </div>
@@ -27,21 +27,22 @@ Visit the [GO-CAM model list](/gocam/model-list) or the
 
 -------
 
-### What Do GO-CAM Models Represent?
+### What Do GO-CAM Pathways Represent?
 
-Each GO-CAM model provides a structured view of curated biological
+Each GO-CAM pathway provides a structured view of curated biological
 knowledge, where: Activities (GO Molecular Functions) performed by
 enablers (gene products or protein complexes) are connected causally
 through
 [defined relationships](https://wiki.geneontology.org/Annotation_Relations#GO-CAM:_Causal_Relations).
 
 Activities also have curated connections to:
+
  - The GO biological process or pathway they are "part of".
- - The GO  cellular component where the activity "occurs in".
+ - The GO cellular component where the activity "occurs in".
  - Chemical inputs and outputs (with associated locations), or target genes and complexes.
 
-All models are manually curated, and due to the extensive GO curation
-coverage at PomBase, most models use pre-existing GO annotations and
+All pathway models are manually curated, and due to the extensive GO curation
+coverage at PomBase, most use pre-existing GO annotations and
 their associated evidence.
 
 For more information on the GO-CAM concept, visit the
@@ -49,7 +50,7 @@ For more information on the GO-CAM concept, visit the
 
 -------
 
-### Overview of Available GO-CAM Models and Project Scope: Intended and Completed Work
+### Overview of Available GO-CAM Pathways and Project Scope: Intended and Completed Work
 
 GO-CAMs, or Gene Ontology Causal Activity Models, are a framework
 developed within the Gene Ontology (GO) project to represent complex
@@ -64,21 +65,21 @@ biological pathways in a structured, computable format.
 
 <div>
 The **Summary Map** provides a high-level, visual overview of how
-individual GO-CAM models are causally connected, without showing the
-internal structure of particular models.
+individual GO-CAM pathways are causally connected, without showing the
+internal structure of particular pathway.
 
-Clicking on a model's name will take you to its GO-CAM model
-view. Clicking on the arrow between two models will take you to a
-joined view of the models
+Clicking on a pathway's name will take you to its GO-CAM pathway
+view. Clicking on the arrow between two pathways will take you to a
+joined view of the pathways
 
-#### The "All Models Summary Map"
-Displays a connected Summary Map, but also includes the set of models
-that are not yet causally linked to any other model
+#### The "All Pathways Summary Map"
+Displays a connected Summary Map, but also includes the set of pathway
+models that are not yet causally linked to any other pathway.
 
 [View the Summary Map](/gocam/summary/all)
 
 #### The "Connected Summary Map" { .clear-float }
-Displays curated causal connections between GO-CAM models (inter-model
+Displays curated causal connections between GO-CAM pathways (inter-pathway
 connections)
 
 [View the Connected Summary Map](/gocam/summary/connected)
@@ -86,7 +87,7 @@ connections)
 The maps are fully interactive:
 
   - Click on a box to open the corresponding GO-CAM
-  - Click on a relationship arrow to explore connections between models
+  - Click on a relationship arrow to explore connections between pathways
   - Zoom, drag, and rearrange nodes to explore the layout
 
 </div>
@@ -102,23 +103,24 @@ The maps are fully interactive:
 <div>
 
 The **Mega Model** view displays GO-CAMs in full detail, showing all
-intra- and inter-model connections.  Initially, chemical
+intra- and inter-pathway connections.  Initially, chemical
 inputs/outputs and target genes are hidden to reduce visual complexity
 — but you can toggle them on or off as needed.
 
-#### The "All Models Mega Model"
-Displays all curated GO-CAM models in full detail:
- - Each model is enclosed by a boundary (by default)
- - All intra- and inter-model connections are shown
- - Unconnected models are also included
+#### The "All Pathways Mega Model"
+Displays all curated GO-CAM pathway models in full detail:
 
-[View the All Models Mega-model](/gocam/mega-model/all).
+ - Each pathway is enclosed by a boundary (by default)
+ - All intra- and inter-pathway connections are shown
+ - Unconnected pathways are also included
 
-#### The "Connected Models Mega Model" { .clear-float }
-Displays only those GO-CAM models that have inter-model connections,
-omitting unlinked models.
+[View the All Pathways Mega-model](/gocam/mega-model/all).
 
-[View the Connected Models Mega-model](/gocam/mega-model/connected).
+#### The "Connected Pathways Mega Model" { .clear-float }
+Displays only those GO-CAM pathway models that have inter-pathway connections,
+omitting unlinked pathways.
+
+[View the Connected Pathways Mega-model](/gocam/mega-model/connected).
 
 </div>
 </div>
@@ -146,11 +148,11 @@ and highlight areas for further research and annotation.
 
 -------
 
-### Model joining activities
-A curated list of models that share overlapping activities. This list
+### Pathway joining activities
+A curated list of pathway models that share overlapping activities. This list
 includes:
- - The specific activities used to link models
+ - The specific activities used to link pathways
  - The joined pathways
  - Links to views of the joined pathways
 
-[View model joining activities](/gocam/connections)
+[View pathway joining activities](/gocam/connections)

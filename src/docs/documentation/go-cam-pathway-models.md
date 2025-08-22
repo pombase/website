@@ -28,6 +28,6 @@ been identified through GO-CAM causal model curation.
 
 [Missing *S. pombe* activities](/gocam/missing-activities)
 
-### Available GO-CAM models
+### Available GO-CAM pathways
 
 <app-go-cam-table></app-go-cam-table>

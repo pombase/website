@@ -6,7 +6,7 @@ During GO-CAM pathway curation, we have sometimes been unable to locate
 a specific annotated activity.
 
 We have generated a [list of these missing activities](/status/missing-gocam-proteins)
-from the GO-CAM models.
+from the GO-CAM pathways.
 
 We expect this list to continue to grow as we curate more pathways.
 Please note that in some cases these may not be present, or a reaction
