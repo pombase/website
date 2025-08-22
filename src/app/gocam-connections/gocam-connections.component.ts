@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
+import { PombaseAPIService } from '../pombase-api.service';
 
 @Component({
   selector: 'app-gocam-connections',
@@ -25,10 +26,17 @@ export class GocamConnectionsComponent {
   showTargets = false;
   showModelBoxes = true;
 
+  modelCount = 0;
+
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
               private route: ActivatedRoute,
-              private readonly meta: Meta) {
+              private readonly meta: Meta,
+              pombaseApi: PombaseAPIService) {
+    pombaseApi.getAllGoCamDetailsMap()
+      .then(results => {
+        this.modelCount = Object.keys(results).length;
+      })
   }
 
   setPageTitle(): void {
