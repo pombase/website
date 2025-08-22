@@ -90,8 +90,14 @@ connections)
 
 The maps are fully interactive:
 
-  - Click on a box to open the corresponding GO-CAM
-  - Click on a relationship arrow to explore connections between pathways
+  - Click on a pathway to view the title of the GO-CAM in the
+    right-hand panel
+  - Click on the pathway title to open a new tab/window to visit
+    a detailed view
+  - Multiple pathways can be selected by shift-clicking or shift-click and
+    drag in the map
+      - When multiple pathways are selected, click on "View
+        joined models" to see connections between the models in detail
   - Zoom, drag, and rearrange nodes to explore the layout
 
 </div>
