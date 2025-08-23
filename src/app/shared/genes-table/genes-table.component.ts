@@ -84,6 +84,8 @@ export class GenesTableComponent implements OnInit {
 
   intermineConfig = getAppConfig().intermine;
 
+  gocamModelCount = 0;
+
   constructor(private modalService: BsModalService,
               private sanitizer: DomSanitizer,
               private queryService: QueryService,
@@ -95,6 +97,11 @@ export class GenesTableComponent implements OnInit {
     this.slimNames = this.geneResultConfig.slim_table_slim_names;
 
     this.visibleFieldNames = this.settingsService.visibleGenesTableFieldNames;
+
+    this.pombaseApiService.getAllGoCamDetailsMap()
+      .then(results => {
+        this.gocamModelCount = Object.keys(results).length;
+      })
   }
 
   sanitizeDisplayGenes(): void {

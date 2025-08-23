@@ -81,11 +81,11 @@
         </a>
       </li>
       <li role="menuitem">
-        <a class="dropdown-item" title="View pathway coverage" (click)="showPathwayCoverage()">
+        <a *ngIf="gocamModelCount > 0" class="dropdown-item" title="View pathway coverage" (click)="showPathwayCoverage()">
           View pathway coverage
         </a>
       </li>
-      <li *ngIf="genes && genes.length <= 2000" role="menuitem">
+      <li *ngIf="gocamModelCount > 0 && genes && genes.length <= 2000" role="menuitem">
         <a class="dropdown-item" title="View in mega-model" (click)="gotoMegaModel()">
           View coverage in mega-model
         </a>
