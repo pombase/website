@@ -83,13 +83,25 @@
 
   <div class="iframe-container">
     <div *ngIf="modelGenes.length > 0" class="genes-and-terms">
-      <div class="gene-list-query-link">
-        <a routerLink="{{makeGenesUrl()}}">Send gene list to the Advanced Search</a>
-      </div>
       <div>
-        Genes in this pathway:
+        <span title="Genes that enable activities in this pathway">
+          Pathway genes:
+        </span>
+        <div class="gene-list-query-link">
+          <a routerLink="{{makeGenesUrl()}}">(Send list to the Advanced Search)</a>
+        </div>
         <ul>
           <li *ngFor="let geneSumm of modelGenes">
+            <span [ngClass]="{'highlighted-gene': sourceGenes.has(geneSumm.uniquename)}">
+            <app-gene-link [gene]="geneSumm" [long]="false"></app-gene-link>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <span title="">Target genes</span>
+        <ul>
+          <li *ngFor="let geneSumm of targetGenes">
             <span [ngClass]="{'highlighted-gene': sourceGenes.has(geneSumm.uniquename)}">
             <app-gene-link [gene]="geneSumm" [long]="false"></app-gene-link>
             </span>

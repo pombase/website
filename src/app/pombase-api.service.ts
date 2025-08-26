@@ -817,7 +817,8 @@ export interface GoCamSummary {
   gocam_id: GoCamModelId;
   title: string;
   title_terms: Array<TermId>;
-  genes: Array<GeneUniquename>;
+  activity_enabling_genes: Array<GeneUniquename>;
+  target_genes: Array<GeneUniquename>;
   terms: Array<TermAndName>;
   contributors: Array<GoCamContributor>;
 }
@@ -2011,8 +2012,8 @@ export class PombaseAPIService {
       .then(body => {
           const details = body as unknown as Array<GoCamSummary>;
           details.map(d => {
-            if (!d.genes) {
-              d.genes = [];
+            if (!d.activity_enabling_genes) {
+              d.activity_enabling_genes = [];
             }
             if (!d.terms) {
               d.terms = [];

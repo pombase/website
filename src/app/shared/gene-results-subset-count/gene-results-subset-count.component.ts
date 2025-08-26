@@ -56,7 +56,7 @@ export class GeneResultsSubsetCountComponent implements OnInit {
   }
 
   gotoGenesInSubset(gocamTitle: string, gocamId: GoCamModelId): void {
-    const genes = this.gocamMap[gocamId].genes;
+    const genes = this.gocamMap[gocamId].activity_enabling_genes;
     if (!genes) {
       return;
     }
@@ -124,7 +124,7 @@ export class GeneResultsSubsetCountComponent implements OnInit {
       }
 
       const row = new ProcessedRow(gocamId, this.gocamMap[gocamId].title, geneUniquenames,
-                                   this.gocamMap[gocamId].genes.length);
+                                   this.gocamMap[gocamId].activity_enabling_genes.length);
       resultTable.push(row);
     }
 

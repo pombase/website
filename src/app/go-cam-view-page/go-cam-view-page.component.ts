@@ -29,6 +29,7 @@ export class GoCamViewPageComponent implements OnInit {
   sourceName?: string;
   sourceGenes: Set<GeneUniquename> = new Set();
   modelGenes: Array<GeneSummary> = [];
+  targetGenes: Array<GeneSummary> = [];
   geneSummaryMap?: GeneSummaryMap;
   titleParts: Array<Array<TextOrTermId>> = [];
   isPomBaseView = false;
@@ -211,6 +212,7 @@ export class GoCamViewPageComponent implements OnInit {
       this.overlappingGene = undefined;
       this.gocamIdParam = params['gocam_id'];
       this.modelGenes = [];
+      this.targetGenes = [];
 
       this.sourcePageType = params['source_page_type'];
       this.source = params['source'];
@@ -283,7 +285,7 @@ export class GoCamViewPageComponent implements OnInit {
             this.gocamDetailsList = gocamDetailsList;
             const seenGenes = new Set();
             for (const detail of gocamDetailsList) {
-              for (const geneUniquename of detail.genes) {
+              for (const geneUniquename of detail.activity_enabling_genes) {
                 if (seenGenes.has(geneUniquename)) {
                   continue;
                 }
@@ -293,20 +295,36 @@ export class GoCamViewPageComponent implements OnInit {
               }
             }
 
+            const seenTargetGenes = new Set();
+            for (const detail of gocamDetailsList) {
+              for (const geneUniquename of detail.target_genes) {
+                if (seenTargetGenes.has(geneUniquename)) {
+                  continue;
+                }
+                seenTargetGenes.add(geneUniquename);
+                const geneSumm = geneSummMap[geneUniquename];
+                this.targetGenes.push(geneSumm);
+              }
+            }
+
             this.setContributors();
 
-            this.modelGenes.sort((a, b) => {
-                if (!a.name && !b.name) {
-                  return a.uniquename.localeCompare(b.uniquename);
-                }
-                if (a.name && !b.name) {
-                  return -1;
-                }
-                if (!a.name && b.name) {
-                  return 1;
-                }
-                return a.name!.localeCompare(b.name!);
-              })
+            const sorter = (a: GeneSummary, b: GeneSummary) => {
+              if (!a.name && !b.name) {
+                return a.uniquename.localeCompare(b.uniquename);
+              }
+              if (a.name && !b.name) {
+                return -1;
+              }
+              if (!a.name && b.name) {
+                return 1;
+              }
+              return a.name!.localeCompare(b.name!);
+            };
+
+            this.modelGenes.sort(sorter);
+            this.targetGenes.sort(sorter);
+
               this.setTitleParts();
 
               if (gocamDetailsList.length > 1 && this.source && this.sourceName) {
