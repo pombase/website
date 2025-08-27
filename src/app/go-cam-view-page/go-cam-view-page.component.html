@@ -98,7 +98,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div *ngIf="targetGenes.length > 0">
         <span title="">Target genes</span>
         <ul>
           <li *ngFor="let geneSumm of targetGenes">
