@@ -17,9 +17,13 @@ slim set (i.e., whether its broad cellular role has been defined). A
 detailed justification for this process-focused approach is provided
 in <a href="https://doi.org/10.1093/genetics/iyae007">Rutherford <i>et al.</i> 2024</a>.
 It should be noted that
+<a (click)="gotoPredefinedResults('canned_query:coding_genes_with_mf_annotation')">
 {{getPredefinedQueryCount('canned_query:coding_genes_with_mf_annotation') | async}}
+</a>
 of the
+<a (click)="gotoPredefinedResults('canned_query:coding_genes_with_bp_annotation')">
 {{getPredefinedQueryCount('canned_query:coding_genes_with_bp_annotation') | async}}
+</a>
 proteins with a GO-slim biological process also have an assigned GO
 molecular function.
 <p>
