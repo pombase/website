@@ -1,20 +1,39 @@
 ### Protein-coding gene characterisation status
 
-Unknown proteins have become an area of increased
-concern, following observations that gene characterization rates have
-stagnated and a large proportion of proteins remain unstudied or
-understudied even in model organisms.  PomBase maintains an unknown
-protein inventory, first described in [Wood *et al.* 2019](https://doi.org/10.1098/rsob.180241).
-We periodically review unknown proteins for available functional data
-from other species.
-There are multiple ways to classify whether a gene is functionally
-characterized, and the concept of “characterization” is clearly a
-continuum. However, as an initial step in defining “unknowns” we
-devised a simple binary classification, based on biological processes
-at the level of the [fission yeast GO slim set](/browse-curation/fission-yeast-bp-go-slim-terms)
-representing the broad cellular role (biological process) in which it participates.
-The rationale for this process-focussed approach is described in more detail in
-[Rutherford *et al.* 2024](https://doi.org/10.1093/genetics/iyae007)
+Unknown proteins have become an increasing concern, as rates of gene
+characterisation have plateaued and a substantial proportion of
+proteins remain unstudied or understudied, even in the most
+intensively investigated model organisms. To monitor this issue,
+PomBase maintains an inventory of unknown proteins, originally
+described in [Wood *et al.* 2019](https://doi.org/10.1098/rsob.180241).
+
+```{=html}
+There are several ways to determine whether a gene is functionally
+characterised, and characterisation is best considered as a
+continuum. As a pragmatic first step, however, we applied a simple
+binary classification of "known" versus "unknown", based on whether
+the gene has a biological process annotation from the fission yeast GO
+slim set (i.e., whether its broad cellular role has been defined). A
+detailed justification for this process-focused approach is provided
+in <a href="https://doi.org/10.1093/genetics/iyae007">Rutherford <i>et al.</i> 2024</a>.
+It should be noted that
+{{getPredefinedQueryCount('canned_query:coding_genes_with_mf_annotation') | async}}
+of the
+{{getPredefinedQueryCount('canned_query:coding_genes_with_bp_annotation') | async}}
+proteins with a GO-slim biological process also have an assigned GO
+molecular function.
+<p>
+```
+
+We regularly review genes in the "unknown" category to determine
+whether new functional data are available from other species. A gene
+is classified as unknown when no broad biological role can be inferred
+from experimental data in S. pombe or from an experimentally
+characterised ortholog in any other organism. Importantly, we require
+robust supporting evidence to assign a GO biological process
+annotation. Finally, because every S. pombe gene has been reviewed for
+GO biological process, these genes are "known unknowns" rather than
+"unannotated".
 
 #### Related gene lists
 
@@ -57,8 +76,8 @@ Priority unstudied genes ({{getPredefinedQueryCount('priority-unstudied-genes:co
   <td style="white-space: nowrap;">[Missing activities ({{getMissingActivityCount() | async}})](/gocam/missing-activities)</td>
   <td>
     A list of activities known or suspected to occur in fission
-    yeast but not yet associated with a gene product. These “pathway
-    holes” have been identified through GO-CAM causal model curation.
+    yeast but not yet associated with a gene product. These "pathway
+    holes" have been identified through GO-CAM causal model curation.
   </td>
 </tr>
 </table>
