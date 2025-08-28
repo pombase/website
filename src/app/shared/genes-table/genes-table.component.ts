@@ -410,26 +410,34 @@ export class GenesTableComponent implements OnInit {
       geneList, this.description]);
   }
 
-  makeGenesNotInGocamsUrl(): string {
+  makeGenesInGocamsUrl(op: string): string {
     const geneList = this.genes.map(g => { return { uniquename: g.uniquename } });
-    const query = {
-      "constraints": {
-        "not": [
-          {
-            "node_name": this.description,
-            "gene_list" : {"genes": geneList }
-          },
-          {
-            "node_name": "Genes that enable activities in GO-CAM pathway models",
-            "int_range": {
-              "range_type": "gocam_activity_gene_count",
-              "start": 1,
-              "end": null
-            }
-          },
-        ]
 
+    const constraintBody = [
+      {
+        "node_name": this.description,
+        "gene_list" : {"genes": geneList }
       },
+      {
+        "node_name": "Genes that enable activities in GO-CAM pathway models",
+        "int_range": {
+          "range_type": "gocam_activity_gene_count",
+          "start": 1,
+          "end": null
+        }
+      },
+    ];
+
+    let constraints;
+
+    if (op == 'and') {
+      constraints = { and: constraintBody };
+    } else {
+      constraints = { not: constraintBody };
+    }
+
+    const query = {
+      "constraints": constraints,
       "output_options": {
         "field_names": ["gene_uniquename"],
         "sequence": "none"

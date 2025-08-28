@@ -45,8 +45,17 @@
     </span>
     <span class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
       <span><span>Highlighted activities:</span> {{sourceName}}</span>
-      <div *ngIf="isMegaModel" class="genes-not-in-gocams-link">
-        <a routerLink="{{makeGenesNotInGocamsUrl()}}">View genes not yet included in a GO-CAM pathway</a>
+      <div *ngIf="isMegaModel" class="genes-in-gocams-link">
+        <ul>
+          <li><a routerLink="{{makeGenesInGocamsUrl('and')}}"
+                 title='View genes from "{{sourceName || "query"}}" that are in one or more pathways'>
+              Genes in a pathway
+          </a></li>
+          <li><a routerLink="{{makeGenesInGocamsUrl('not')}}"
+                 title='View genes from "{{sourceName || "query"}}" not are yet included in a pathway'>
+              Genes not yet included in a pathway
+          </a></li>
+        </ul>
       </div>
     </span>
     </div>

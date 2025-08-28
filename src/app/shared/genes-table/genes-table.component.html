@@ -26,8 +26,21 @@
   </div>
 
 
-  <div class="genes-not-in-gocams-link" *ngIf="showingSubsetCounts() && subsetCountName">
-    <a routerLink="{{makeGenesNotInGocamsUrl()}}">View genes not yet included in a GO-CAM pathway</a>
+  <div class="genes-in-gocams-link" *ngIf="showingSubsetCounts() && subsetCountName">
+    <ul>
+      <li>
+        <a routerLink="{{makeGenesInGocamsUrl('and')}}"
+           title='View genes from "{{description || "query"}}" that are in one or more pathways'>
+          Genes in a pathway
+        </a>
+      </li>
+      <li>
+        <a routerLink="{{makeGenesInGocamsUrl('not')}}"
+           title='View genes from "{{description || "query"}}" not are yet included in a pathway'>
+          Genes not yet included in a pathway
+        </a>
+      </li>
+    </ul>
   </div>
 
   <div class="action-row">

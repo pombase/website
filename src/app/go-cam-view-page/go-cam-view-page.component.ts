@@ -171,28 +171,36 @@ export class GoCamViewPageComponent implements OnInit {
     return `/results/from/json/${JSON.stringify(query)}`;
   }
 
-  makeGenesNotInGocamsUrl(): string|undefined {
+  makeGenesInGocamsUrl(op: string): string|undefined {
     if (this.source && this.sourceName) {
       const genes = this.source.split(',');
       const geneList = genes.map(g => { return { uniquename: g } });
-      const query = {
-        "constraints": {
-          "not": [
-            {
-              "node_name": this.sourceName,
-              "gene_list" : {"genes": geneList }
-            },
-            {
-              "node_name": "Genes that enable activities in GO-CAM pathway models",
-              "int_range": {
-                "range_type": "gocam_activity_gene_count",
-                "start": 1,
-                "end": null
-              }
-            },
-          ]
 
+      const constraintBody = [
+        {
+          "node_name": this.sourceName,
+          "gene_list" : {"genes": geneList }
         },
+        {
+          "node_name": "Genes that enable activities in GO-CAM pathway models",
+          "int_range": {
+            "range_type": "gocam_activity_gene_count",
+            "start": 1,
+            "end": null
+          }
+        },
+      ];
+
+      let constraints;
+
+      if (op == 'and') {
+        constraints = { and: constraintBody };
+      } else {
+        constraints = { not: constraintBody };
+      }
+
+      const query = {
+        "constraints": constraints,
         "output_options": {
           "field_names": ["gene_uniquename"],
           "sequence": "none"
