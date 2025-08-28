@@ -29,15 +29,15 @@
   <div class="genes-in-gocams-link" *ngIf="showingSubsetCounts() && subsetCountName">
     <ul>
       <li>
-        <a routerLink="{{makeGenesInGocamsUrl('and')}}"
+        <a (click)="gotoGenesInGoCamQuery('and')"
            title='View genes from "{{description || "query"}}" that are in one or more pathways'>
-          Genes in a pathway
+          Genes in a pathway ({{getGenesInGoCamsQueryCount('and') | async}})
         </a>
       </li>
       <li>
-        <a routerLink="{{makeGenesInGocamsUrl('not')}}"
+        <a (click)="gotoGenesInGoCamQuery('not')"
            title='View genes from "{{description || "query"}}" that are not yet included in a pathway'>
-          Genes not yet included in a pathway
+          Genes not yet included in a pathway ({{getGenesInGoCamsQueryCount('not') | async}})
         </a>
       </li>
     </ul>

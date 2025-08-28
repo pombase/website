@@ -6,6 +6,8 @@ import { AppConfig, getAppConfig } from '../config';
 import { PombaseAPIService, GoCamSummary, GeneSummaryMap, GeneSummary, GeneShort, GeneUniquename } from '../pombase-api.service';
 import { TextOrTermId, Util } from '../shared/util';
 import { DeployConfigService } from '../deploy-config.service';
+import { GeneBoolNode, GeneListNode, GeneQuery, IntRangeNode } from '../pombase-query';
+import { HistoryEntry, QueryService } from '../query.service';
 
 @Component({
     selector: 'app-go-cam-view-page',
@@ -39,6 +41,7 @@ export class GoCamViewPageComponent implements OnInit {
   showModelBoxes = true;
   alternateViewRoute?: string;
   noctuaLink?: string;
+  queryResultCache: { [key:string]: Promise<string> } = {};
 
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
@@ -46,6 +49,7 @@ export class GoCamViewPageComponent implements OnInit {
               private deployConfig: DeployConfigService,
               private route: ActivatedRoute,
               private router: Router,
+              private queryService: QueryService,
               private pombaseApi: PombaseAPIService) { }
 
   getIFrameURL(): SafeResourceUrl | undefined {
@@ -171,46 +175,64 @@ export class GoCamViewPageComponent implements OnInit {
     return `/results/from/json/${JSON.stringify(query)}`;
   }
 
-  makeGenesInGocamsUrl(op: string): string|undefined {
+  makeGeneInGoCamsQuery(op: string): GeneQuery|undefined {
     if (this.source && this.sourceName) {
       const genes = this.source.split(',');
-      const geneList = genes.map(g => { return { uniquename: g } });
+      const rangeName = "Genes that enable activities in GO-CAM pathway models";
 
-      const constraintBody = [
-        {
-          "node_name": this.sourceName,
-          "gene_list" : {"genes": geneList }
-        },
-        {
-          "node_name": "Genes that enable activities in GO-CAM pathway models",
-          "int_range": {
-            "range_type": "gocam_activity_gene_count",
-            "start": 1,
-            "end": null
-          }
-        },
-      ];
+      const geneListNode = new GeneListNode(this.sourceName, genes);
+      const activityGenesNode =
+            new IntRangeNode(rangeName, "gocam_activity_gene_count", 1, undefined, []);
 
-      let constraints;
+      const parts = [geneListNode, activityGenesNode];
+
+      let booleanNode;
 
       if (op == 'and') {
-        constraints = { and: constraintBody };
+        booleanNode = new GeneBoolNode(this.sourceName + ' AND ' +
+                                       rangeName, op, parts);
       } else {
-        constraints = { not: constraintBody };
+        booleanNode = new GeneBoolNode(this.sourceName + ' NOT ' +
+                                       rangeName, op, parts);
       }
 
-      const query = {
-        "constraints": constraints,
-        "output_options": {
-          "field_names": ["gene_uniquename"],
-          "sequence": "none"
-        }
-      };
-
-      return `/results/from/json/${JSON.stringify(query)}`;
+      return new GeneQuery(booleanNode);
     } else {
       return undefined;
     }
+  }
+
+  async getQueryCount(query: GeneQuery): Promise<number> {
+    return this.queryService.postQueryCount(query).then(res => res.getRowCount());
+  }
+
+  getGenesInGoCamsQueryCount(op: string): Promise<string> {
+    const key = 'getGenesInGoCamsQueryCount--' + op;
+    if (key in this.queryResultCache) {
+      return this.queryResultCache[key];
+    }
+    const query = this.makeGeneInGoCamsQuery(op);
+    if (query === undefined) {
+      return new Promise(() => 'unknown');
+    } else {
+      const promise = this.getQueryCount(query).then(count => count.toString());
+
+      this.queryResultCache[key] = promise;
+
+      return promise;
+    }
+  }
+
+  gotoGenesInGoCamQuery(op: string): void {
+    const geneQuery = this.makeGeneInGoCamsQuery(op);
+    if (geneQuery === undefined) {
+      return;
+    }
+
+    const callback = (historyEntry: HistoryEntry) => {
+      this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
+    };
+    this.queryService.runAndSaveToHistory(geneQuery, callback);
   }
 
   ngOnInit(): void {
@@ -225,6 +247,8 @@ export class GoCamViewPageComponent implements OnInit {
       this.sourcePageType = params['source_page_type'];
       this.source = params['source'];
       this.sourceName = params['source_name'];
+
+      this.queryResultCache = {};
 
       if (this.source) {
         this.sourceGenes = new Set(this.source.split(','));

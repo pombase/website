@@ -47,13 +47,13 @@
       <span><span>Highlighted activities:</span> {{sourceName}}</span>
       <div *ngIf="isMegaModel" class="genes-in-gocams-link">
         <ul>
-          <li><a routerLink="{{makeGenesInGocamsUrl('and')}}"
+          <li><a (click)="gotoGenesInGoCamQuery('and')"
                  title='View genes from "{{sourceName || "query"}}" that are in one or more pathways'>
-              Genes in a pathway
+              Genes in a pathway ({{getGenesInGoCamsQueryCount('and') | async}})
           </a></li>
-          <li><a routerLink="{{makeGenesInGocamsUrl('not')}}"
+          <li><a (click)="gotoGenesInGoCamQuery('not')"
                  title='View genes from "{{sourceName || "query"}}" that are not yet included in a pathway'>
-              Genes not yet included in a pathway
+              Genes not yet included in a pathway ({{getGenesInGoCamsQueryCount('not') | async}})
           </a></li>
         </ul>
       </div>

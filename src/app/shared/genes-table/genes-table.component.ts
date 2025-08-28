@@ -7,7 +7,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { PombaseAPIService, GeneSummaryMap, GeneShort } from '../../pombase-api.service';
 import { GenesDownloadDialogComponent } from '../../genes-download-dialog/genes-download-dialog.component';
 import { QueryService, HistoryEntry, DisplayResultRow } from '../../query.service';
-import { GeneQuery, GeneListNode, QueryResult } from '../../pombase-query';
+import { GeneQuery, GeneListNode, QueryResult, GeneBoolNode, IntRangeNode } from '../../pombase-query';
 import { getAppConfig, GeneResultsFieldConfig } from '../../config';
 import { DeployConfigService } from '../../deploy-config.service';
 import { GenesTableConfigComponent } from '../../genes-table-config/genes-table-config.component';
@@ -85,6 +85,8 @@ export class GenesTableComponent implements OnInit {
   intermineConfig = getAppConfig().intermine;
 
   gocamModelCount = 0;
+
+  queryResultCache: { [key:string]: Promise<string> } = {};
 
   constructor(private modalService: BsModalService,
               private sanitizer: DomSanitizer,
@@ -410,41 +412,59 @@ export class GenesTableComponent implements OnInit {
       geneList, this.description]);
   }
 
-  makeGenesInGocamsUrl(op: string): string {
-    const geneList = this.genes.map(g => { return { uniquename: g.uniquename } });
+  makeGeneInGoCamsQuery(op: string): GeneQuery|undefined {
+    const rangeName = "Genes that enable activities in GO-CAM pathway models";
 
-    const constraintBody = [
-      {
-        "node_name": this.description,
-        "gene_list" : {"genes": geneList }
-      },
-      {
-        "node_name": "Genes that enable activities in GO-CAM pathway models",
-        "int_range": {
-          "range_type": "gocam_activity_gene_count",
-          "start": 1,
-          "end": null
-        }
-      },
-    ];
+    const geneListNode = new GeneListNode(this.description, this.genes);
+    const activityGenesNode =
+          new IntRangeNode(rangeName, "gocam_activity_gene_count", 1, undefined, []);
 
-    let constraints;
+    const parts = [geneListNode, activityGenesNode];
+
+    let booleanNode;
 
     if (op == 'and') {
-      constraints = { and: constraintBody };
+      booleanNode = new GeneBoolNode(this.description + ' AND ' +
+                                     rangeName, op, parts);
     } else {
-      constraints = { not: constraintBody };
+      booleanNode = new GeneBoolNode(this.description + ' NOT ' +
+                                     rangeName, op, parts);
     }
 
-    const query = {
-      "constraints": constraints,
-      "output_options": {
-        "field_names": ["gene_uniquename"],
-        "sequence": "none"
-      }
-    };
+    return new GeneQuery(booleanNode);
+  }
 
-    return `/results/from/json/${JSON.stringify(query)}`;
+  async getQueryCount(query: GeneQuery): Promise<number> {
+    return this.queryService.postQueryCount(query).then(res => res.getRowCount());
+  }
+
+  getGenesInGoCamsQueryCount(op: string): Promise<string> {
+    const key = 'getGenesInGoCamsQueryCount--' + op;
+    if (key in this.queryResultCache) {
+      return this.queryResultCache[key];
+    }
+    const query = this.makeGeneInGoCamsQuery(op);
+    if (query === undefined) {
+      return new Promise(() => 'unknown');
+    } else {
+      const promise = this.getQueryCount(query).then(count => count.toString());
+
+      this.queryResultCache[key] = promise;
+
+      return promise;
+    }
+  }
+
+  gotoGenesInGoCamQuery(op: string): void {
+    const geneQuery = this.makeGeneInGoCamsQuery(op);
+    if (geneQuery === undefined) {
+      return;
+    }
+
+    const callback = (historyEntry: HistoryEntry) => {
+      this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
+    };
+    this.queryService.runAndSaveToHistory(geneQuery, callback);
   }
 
   ngOnInit() {
