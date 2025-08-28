@@ -243,7 +243,7 @@ export class GoCamViewPageComponent implements OnInit {
         const summPromise = this.pombaseApi.getGeneSummaryMapPromise();
 
         this.showChemicals = true;
-        this.showTargets = true;
+        this.showTargets = false;
 
         if (this.gocamIdParam.includes(":")) {
           const [gocamId, flagString] = this.gocamIdParam.split(":");
