@@ -705,3 +705,9 @@ table.data-table tr:nth-child(odd) {
 .docs-image-flex img {
   margin: 0.5em 2em 1em 0 !important;
 }
+
+/* override Normalize CSS */
+a:not([href]):not([class]):hover {
+  text-decoration: underline !important;
+  color: #337ab7;
+}
