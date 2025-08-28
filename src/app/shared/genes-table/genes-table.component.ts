@@ -467,6 +467,10 @@ export class GenesTableComponent implements OnInit {
     this.queryService.runAndSaveToHistory(geneQuery, callback);
   }
 
+  gotoBPSlim() {
+    this.showSlim('bp_goslim_pombe');
+  }
+
   ngOnInit() {
     this.columnsSubscription =
       this.settingsService.visibleGenesTableFieldNames$

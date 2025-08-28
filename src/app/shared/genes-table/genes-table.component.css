@@ -71,3 +71,12 @@ th {
   clear: both;
   float: left;
 }
+
+.genes-in-gocams-link li {
+  margin-bottom: 0.5em;
+}
+
+.bp-slim-query {
+  margin-bottom: 1em;
+  margin-left: 0.8em;
+}
