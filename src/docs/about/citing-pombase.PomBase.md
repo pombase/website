@@ -22,6 +22,13 @@ PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainab
 [10.1093/genetics/iyae007](https://doi.org/10.1093/genetics/iyae007)
 :::
 
+#### Monthly data release
+
+When using a PomBase dataset in a publication we recommend including
+the date of dataset used in your analysis.  For example
+"pombase-2025-08-01" or include the full URL of the release.  Example:
+`https://www.pombase.org/monthly_releases/2025/pombase-2025-08-01`
+
 
 ### Genome Sequence
 
