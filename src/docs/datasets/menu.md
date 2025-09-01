@@ -34,4 +34,5 @@
 <div class="left-menu-part left-menu-item"><span>Curated inventories</span></div>
 <div class="left-menu-part left-sub-menu-item"><a href="/browse-curation/dna-binding-sites">DNA binding sites</a></div>
 <div class="left-menu-part left-sub-menu-item"><a href="/browse-curation/drugs-known-pombe-targets">Drug targets</a></div>
+<div class="left-menu-part left-menu-item"><a href="/data/documents/journal_count_with_year.xlsx">Journal statistics</a></div>
 %%end db=PomBase
