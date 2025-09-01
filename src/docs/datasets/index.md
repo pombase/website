@@ -131,7 +131,7 @@ columns are described on [the dataset submission page](/documentation/data-submi
 ### Miscellaneous files
 
  - [Counts of pombe publications per journal per year](https://www.pombase.org/data/documents/journal_count_with_year.xlsx)
-   (Excel format - includes only publications in PomBase) 
+   (Excel format - includes only publications in PomBase up to March 2025) 
 
 -------
   **Note:** *S. pombe* files are no longer available from the old
