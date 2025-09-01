@@ -1,4 +1,4 @@
-### Protein-coding gene characterisation status
+### Protein-coding gene characterisation status (known/unknown)
 
 Unknown proteins have become an increasing concern, as rates of gene
 characterisation have plateaued and a substantial proportion of
