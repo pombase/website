@@ -125,6 +125,14 @@ columns are described on [the dataset submission page](/documentation/data-submi
 -   [DNA binding sites](/browse-curation/dna-binding-sites.md)
 -   [Drug targets](/browse-curation/drugs-known-pombe-targets.md)
 
+
+-------
+
+### Miscellaneous files
+
+ - [Counts of pombe publications per journal per year](https://www.pombase.org/data/documents/journal_count_with_year.xlsx)
+   (Excel format - includes only publications in PomBase) 
+
 -------
   **Note:** *S. pombe* files are no longer available from the old
   "pombase" FTP site within the EBI domain. If you have a link that
@@ -133,3 +141,4 @@ columns are described on [the dataset submission page](/documentation/data-submi
   curators](mailto:${helpdesk_address}) if you need help finding a
   file or directory.
 %%end db=PomBase
+
