@@ -73,7 +73,6 @@ Search documentation, news archive and FAQ:
 -   [Genotype pages](documentation/genotype-page)
 -   [Fission Yeast Phenotype Ontology (FYPO) page](browse-curation/fission-yeast-phenotype-ontology)
 %%if db=PomBase
--   [High Confidence Physical Interaction Network (HCPIN)](documentation/high-confidence-physical-interaction-network)
 -   [Data versions](about/version-history)
 %%end db=PomBase
 -   [PomBase references (PB_REFs)](documentation/pombase-references)
