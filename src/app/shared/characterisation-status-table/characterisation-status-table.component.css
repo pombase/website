@@ -1,6 +1,28 @@
-.characterisation-status {
-  padding: 0.5em;
-  font-size: 110%;
+@media (min-width: 1000px) {
+  .characterisation-status {
+    padding: 0.5em;
+    font-size: 110%;
+    display: flex;
+    gap: 1em;
+  }
+
+  .status-graph, .status-table {
+    width: 0;
+  }
+
+  .status-graph {
+    flex: 1.3 1 10em;
+  }
+
+  .status-table {
+    flex: 1 1 0px;
+    font-size: 90%;
+    margin-top: 3.5em;
+  }
+
+  .status-graph img {
+    width: 95%;
+  }
 }
 
 .characterisation-status th, td {

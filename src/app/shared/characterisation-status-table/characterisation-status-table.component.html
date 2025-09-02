@@ -1,4 +1,11 @@
 <div class="characterisation-status">
+  <div class="status-graph">
+    <a href="/assets/gene_characterisation_status_figure.svg" title="Gene characterisation status">
+      <img src="/assets/gene_characterisation_status_figure.svg" />
+    </a>
+  </div>
+
+  <div class="status-table">
   <app-loading-spinner *ngIf="!characterisationSubsets && !apiError"></app-loading-spinner>
   <app-api-error-display *ngIf="apiError" [error]="apiError"></app-api-error-display>
 
@@ -22,4 +29,5 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>

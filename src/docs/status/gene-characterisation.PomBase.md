@@ -39,6 +39,16 @@ annotation. Finally, because every S. pombe gene has been reviewed for
 GO biological process, these genes are "known unknowns" rather than
 "unannotated".
 
+#### Changes over time and current status
+
+<app-characterisation-status-table></app-characterisation-status-table>
+
+
+Note: You can retrieve current lists of genes with each
+characterisation status using the [advanced search](/query). Select
+the Characterisation status query, then choose a status from the
+pulldown menu, and submit.
+
 #### Related gene lists
 
 <table>
@@ -86,16 +96,3 @@ Priority unstudied genes ({{getPredefinedQueryCount('priority-unstudied-genes:co
 </tr>
 </table>
 
-#### Changes over time
-
-[![Gene characterisation status](assets/gene_characterisation_status_figure.svg){.screenshot width=40em;}](assets/gene_characterisation_status_figure.svg)
-
-#### Current status
-
-<app-characterisation-status-table></app-characterisation-status-table>
-
-
-Note: You can retrieve current lists of genes with each
-characterisation status using the [advanced search](/query). Select
-the Characterisation status query, then choose a status from the
-pulldown menu, and submit.
