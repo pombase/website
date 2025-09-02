@@ -412,7 +412,7 @@ export class GenesTableComponent implements OnInit {
       geneList, this.description]);
   }
 
-  makeGeneInGoCamsQuery(op: string): GeneQuery|undefined {
+  makeGeneInGoCamsQuery(op: string): GeneQuery {
     const rangeName = "Genes that enable activities in GO-CAM pathway models";
 
     const geneListNode = new GeneListNode(this.description, this.genes);
@@ -465,6 +465,11 @@ export class GenesTableComponent implements OnInit {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
     };
     this.queryService.runAndSaveToHistory(geneQuery, callback);
+  }
+
+  gotoBPSlimGenesNotInPathway() {
+    const query = this.makeGeneInGoCamsQuery('not');
+    this.queryRouterSerive.gotoResults(query, 'slim:bp_goslim_pombe');
   }
 
   gotoBPSlim() {

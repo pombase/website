@@ -49,11 +49,11 @@
         <ul>
           <li><a (click)="gotoGenesInGoCamQuery('and')"
                  title='View genes from "{{sourceName || "query"}}" that are in one or more pathways'>
-              Genes in a pathway ({{getGenesInGoCamsQueryCount('and') | async}})
+              Genes from list in a curated GO-CAM pathway ({{getGenesInGoCamsQueryCount('and') | async}})
           </a></li>
           <li><a (click)="gotoGenesInGoCamQuery('not')"
                  title='View genes from "{{sourceName || "query"}}" that are not yet included in a pathway'>
-              Genes not yet included in a pathway ({{getGenesInGoCamsQueryCount('not') | async}})
+              Genes from list not yet in a curated GO-CAM pathway ({{getGenesInGoCamsQueryCount('not') | async}})
           </a></li>
         </ul>
         <div class="bp-slim-query">
