@@ -42,6 +42,7 @@
             'biological role inferred': '#e8ef00',
             'Schizosaccharomyces pombe specific protein, uncharacterized': '#98fb98',
             'conserved unknown': '#ffa500',
+            'meiotic driver': '#8a9',
             'Schizosaccharomyces specific protein, uncharacterized': '#ffc8c8',
             'pseudogene': '#aaaaaa',
           };
