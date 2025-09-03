@@ -12,20 +12,24 @@
   <table *ngIf="characterisationSubsets">
     <thead>
       <tr>
-        <th>Gene status overview</th>
-        <th>Annotated</th>
+        <th>&nbsp;</th>
+        <th class="content">Gene status overview</th>
+        <th class="content">Annotated</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let subset of characterisationSubsets">
-        <td title="{{subset.title || subset.displayName}}">{{subset.displayName}}</td>
-        <td>
-          <a routerLink="/gene_subset/{{subset.name}}">{{subset.geneCount}}</a>
+        <td [class]="'colour-patch ' + subset.elClass || '#0000'"></td>
+        <td class="content" title="{{subset.title || subset.displayName}}">{{subset.displayName}}</td>
+        <td class="content">
+          <span *ngIf="subset.name == 'sub total'">{{subset.geneCount}}</span>
+          <a *ngIf="subset.name != 'sub total'" routerLink="/gene_subset/{{subset.name}}">{{subset.geneCount}}</a>
         </td>
       </tr>
       <tr>
-        <td>Total</td>
-        <td>{{total}}</td>
+        <td>&nbsp;</td>
+        <td class="content">Total</td>
+        <td class="content">{{total}}</td>
       </tr>
     </tbody>
   </table>
