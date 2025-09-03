@@ -11,7 +11,6 @@ import { AppConfig, getAppConfig } from '../config';
 export class ReactionViewComponent implements OnChanges {
   @Input() termIdRefs: TermIdRefs;
   @Input() miniView = false;
-  @Input() viewType: 'reaction'|'atommap';
 
   rheaData: Array<{ rheaId: string, link?: string }> = [];
 

@@ -1,18 +1,8 @@
 <div *ngFor="let rheaItem of rheaData">
   <div *ngIf="miniView" class="reaction-mini">
-    <div *ngIf="viewType == 'reaction'">
-      <rhea-reaction rheaid="{{rheaItem.rheaId}}" nosource="true"></rhea-reaction>
-    </div>
-    <div *ngIf="viewType == 'atommap'">
-      <rhea-atommap rheaid="{{rheaItem.rheaId}}" nosource="true"></rhea-atommap>
-    </div>
+    <rhea-reaction rheaid="{{rheaItem.rheaId}}" nosource="true"></rhea-reaction>
   </div>
   <div *ngIf="!miniView" class="reaction-full">
-    <div *ngIf="viewType == 'reaction'">
-      <rhea-reaction rheaid="{{rheaItem.rheaId}}"></rhea-reaction>
-    </div>
-    <div *ngIf="viewType == 'atommap'">
-      <rhea-atommap rheaid="{{rheaItem.rheaId}}"></rhea-atommap>
-    </div>
+    <rhea-reaction rheaid="{{rheaItem.rheaId}}"></rhea-reaction>
   </div>
 </div>
