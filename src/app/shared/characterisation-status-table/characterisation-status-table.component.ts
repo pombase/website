@@ -36,7 +36,7 @@ const conf: { [key: string]: StatusConfig } = {
   },
   "characterisation_status_Schizosaccharomyces_pombe_specific_protein_uncharacterized": {
     displayName: "S. pombe specific, uncharacterized",
-    title: "Unknown found only in Schizosaccahromyces pombe; nothing known about biological role. May be single copy or a member of a multi-member family.",
+    title: "Unknown found only in Schizosaccharomyces pombe; nothing is known about the biological role. May be single copy or a member of a multi-member family",
     elClass: "fission-yeast-unknown"
   },
   "characterisation_status_dubious": {
