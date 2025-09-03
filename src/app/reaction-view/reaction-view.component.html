@@ -1,12 +1,18 @@
-<div *ngFor="let rheaItem of rheaData; trackBy: trackById">
+<div *ngFor="let rheaItem of rheaData">
   <div *ngIf="miniView" class="reaction-mini">
-    <iframe [src]="rheaItem.sanitizedURL" class="embedded-viewer"
-            sandbox="allow-scripts" #rheaiframe>
-    </iframe>
+    <div *ngIf="viewType == 'reaction'">
+      <rhea-reaction rheaid="{{rheaItem.rheaId}}" nosource="true"></rhea-reaction>
+    </div>
+    <div *ngIf="viewType == 'atommap'">
+      <rhea-atommap rheaid="{{rheaItem.rheaId}}" nosource="true"></rhea-atommap>
+    </div>
   </div>
   <div *ngIf="!miniView" class="reaction-full">
-    <iframe [src]="rheaItem.sanitizedURL" class="embedded-viewer"
-            sandbox="allow-scripts" #rheaiframe>
-    </iframe>
+    <div *ngIf="viewType == 'reaction'">
+      <rhea-reaction rheaid="{{rheaItem.rheaId}}"></rhea-reaction>
+    </div>
+    <div *ngIf="viewType == 'atommap'">
+      <rhea-atommap rheaid="{{rheaItem.rheaId}}"></rhea-atommap>
+    </div>
   </div>
 </div>

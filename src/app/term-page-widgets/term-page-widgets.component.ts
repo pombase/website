@@ -3,6 +3,8 @@ import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { TermDetails } from '../pombase-api.service';
 import { SettingsService, TermPageWidget } from '../settings.service';
 
+import '../../../node_modules/@swissprot/rhea-reaction-viz-test';
+
 @Component({
     selector: 'app-term-page-widgets',
     templateUrl: './term-page-widgets.component.html',
