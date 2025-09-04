@@ -58,7 +58,7 @@ export class GoCamViewerComponent {
     this.largeViewPath += restOfUrl;
     this.pomBaseViewPath += restOfUrl;
 
-    const rawUrl = 'gocam_view/widget/' + this.currentGoCamId + restOfWidgetUrl;
+    const rawUrl = 'gocam_view/widget/' + this.currentGoCamId + ':no_inputs' + restOfWidgetUrl;
     this.sanitizedURL =
       this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
   }
