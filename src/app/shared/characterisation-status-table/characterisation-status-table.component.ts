@@ -18,7 +18,7 @@ interface StatusConfig {
 
 const conf: { [key: string]: StatusConfig } = {
   "characterisation_status_biological_role_published": {
-    title: "Characterised in a small scale experiment, with some published information at the biological role (GO biological process slim level)",
+    title: "Characterised from a small scale experiment in S. pombe, with some published information at the biological role (GO biological process slim level)",
     elClass: "biological-role-published"
   },
   "characterisation_status_biological_role_inferred": {
