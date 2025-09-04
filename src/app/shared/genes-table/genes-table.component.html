@@ -106,8 +106,12 @@
         </a>
       </li>
       <li *ngIf="gocamModelCount > 0" role="menuitem">
-        <a class="dropdown-item" title="View in mega-model" (click)="gotoMegaModel()">
-          View coverage in mega-model
+        <a *ngIf="genes.length <= maxMegaModelCoverageGenes" class="dropdown-item" title="View in mega-model" (click)="gotoMegaModel()">
+          View coverage in mega-model (up to {{maxMegaModelCoverageGenes}} genes)
+        </a>
+        <a *ngIf="genes.length > maxMegaModelCoverageGenes" class="dropdown-item disabled-menu-item"
+              title="View coverage in mega-model disabled due to too many (>{{maxMegaModelCoverageGenes}}) genes">
+          View coverage in mega-model (up to {{maxMegaModelCoverageGenes}} genes)
         </a>
       </li>
     </ul>

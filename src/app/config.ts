@@ -93,6 +93,10 @@ export interface QueryBuilderConfig {
   node_types: Array<QueryNodeConfig>;
 }
 
+export interface GoCamConfig {
+  max_genes_mega_model_coverage: number,
+}
+
 export interface ConfigOrganism {
   taxonid: number;
   genus: string;
@@ -377,6 +381,8 @@ export interface AppConfig {
   stats: StatsPageConfig;
 
   queryBuilder: QueryBuilderConfig;
+
+  gocams: GoCamConfig;
 
   termDisplayNames: { [termName in FeatureType]: FeatureType };
 
@@ -884,6 +890,8 @@ let _appConfig: AppConfig = {
 
   // query builder node configuration:
   queryBuilder: pombaseConfig.query_builder,
+
+  gocams: pombaseConfig.gocams,
 
   termDisplayNames: pombaseConfig.term_display_names,
 

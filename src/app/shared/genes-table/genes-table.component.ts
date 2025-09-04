@@ -78,9 +78,11 @@ export class GenesTableComponent implements OnInit {
   loading = true;
 
   geneExConfig = getAppConfig().geneExpression;
+  gocamConfig = getAppConfig().gocams;
 
   showGeneExpressionLink = this.geneExConfig.datasets.length > 0;
   maxGeneExpressionPlotGenes = this.geneExConfig.max_gene_ex_plot_genes;
+  maxMegaModelCoverageGenes = this.gocamConfig.max_genes_mega_model_coverage;
 
   intermineConfig = getAppConfig().intermine;
 
