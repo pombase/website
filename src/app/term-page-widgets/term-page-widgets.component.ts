@@ -64,6 +64,12 @@ export class TermPageWidgetsComponent {
       current = 'rhea';
     }
 
+    if (current.startsWith('rhea')) {
+      // backwards compatibility: we might have "rhea_atommap" or
+      // "rhea_reaction" saved
+      current = 'rhea';
+    }
+
     if (current == 'rhea' && !this.hasReactionData()) {
       if (this.hasGoCams()) {
         current = 'gocam_viewer';
