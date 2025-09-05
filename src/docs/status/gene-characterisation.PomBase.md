@@ -39,17 +39,12 @@ annotation. Finally, because every S. pombe gene has been reviewed for
 GO biological process, these genes are "known unknowns" rather than
 "unannotated".
 
-#### Changes over time and current status
+#### Known/unknown protein status tracker
 
 <app-characterisation-status-table></app-characterisation-status-table>
 
 
-Note: You can retrieve current lists of genes with each
-characterisation status using the [advanced search](/query). Select
-the Characterisation status query, then choose a status from the
-pulldown menu, and submit.
-
-#### Related gene lists
+#### Unknown protein-related lists
 
 <table>
 <thead>
@@ -71,7 +66,16 @@ Conserved unknown ({{getPredefinedQueryCount('priority-unstudied-genes:conserved
   </a>
   </td>
   <td>
-    Genes of unknown process, conserved outside the Schizosaccharomyces clade
+    Proteins of unknown process, conserved outside the Schizosaccharomyces clade
+  </td>
+</tr>
+<tr>
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:proteins_of_unknown_molecular_function')">
+Proteins of unknown molecular function ({{getPredefinedQueryCount('canned_query:proteins_of_unknown_molecular_function') | async}})
+  </a>
+  </td>
+  <td>
+    Proteins of unknown molecular function
   </td>
 </tr>
 <tr>
@@ -80,10 +84,10 @@ Priority unstudied genes ({{getPredefinedQueryCount('priority-unstudied-genes:co
   </a>
   </td>
   <td>
-    Priority unknowns are the subset conserved to vertebrates (all
-    present in human), considered over at least ~1 billion years of
-    evolution. Some of these are universally conserved in bacteria and
-    archaea
+     The subset of the subset of proteins of unknown biological role
+     conserved to vertebrates (all present in human), considered over
+     at least ~1 billion years of evolution. Some are universally
+     conserved in bacteria and archaea.
   </td>
 </tr>
 <tr>
@@ -96,3 +100,7 @@ Priority unstudied genes ({{getPredefinedQueryCount('priority-unstudied-genes:co
 </tr>
 </table>
 
+Note: You can retrieve current lists of genes with each
+characterisation status using the [advanced search](/query). Select
+the Characterisation status query, then choose a status from the
+pulldown menu, and submit.
