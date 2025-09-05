@@ -55,52 +55,61 @@ GO biological process, these genes are "known unknowns" rather than
 </thead>
 <tr>
   <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:protein_coding_genes_unknown_process')">
-Unknown genes ({{getPredefinedQueryCount('canned_query:protein_coding_genes_unknown_process') | async}})
+Unknown role (GO-slim process) ({{getPredefinedQueryCount('canned_query:protein_coding_genes_unknown_process') | async}})
   </a>
   </td>
-  <td>Protein coding genes, unknown process</td>
+  <td>Equivalent to the "unknown" set in the tracker above</td>
 </tr>
 <tr>
   <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown')">
-Conserved unknown ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown') | async}})
+Unknown role, conserved ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown') | async}})
   </a>
   </td>
   <td>
-    Proteins of unknown process, conserved outside the Schizosaccharomyces clade
-  </td>
-</tr>
-<tr>
-  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:proteins_of_unknown_molecular_function')">
-Proteins of unknown molecular function ({{getPredefinedQueryCount('canned_query:proteins_of_unknown_molecular_function') | async}})
-  </a>
-  </td>
-  <td>
-    Proteins of unknown molecular function
+    Proteins of unknown GO-slim Biological Process, conserved outside the <i>Schizosaccharomyces</i> clade
   </td>
 </tr>
 <tr>
   <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates')">
-Priority unstudied genes ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates') | async}})
+Priority unknown role ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates') | async}})
   </a>
   </td>
   <td>
-     The subset of the subset of proteins of unknown biological role
-     conserved to vertebrates (all present in human), considered over
-     at least ~1 billion years of evolution. Some are universally
-     conserved in bacteria and archaea.
+The subset of proteins of unknown biological role
+conserved to vertebrates (all present in human), conserved over at
+least ~1 billion years of evolution. Some are universally conserved in
+bacteria and archaea.
+  </td>
+</tr>
+<tr>
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:proteins_of_unknown_molecular_function')">
+Unknown molecular function ({{getPredefinedQueryCount('canned_query:proteins_of_unknown_molecular_function') | async}})
+  </a>
+  </td>
+  <td>
+    Proteins of unknown GO Molecular Function
+  </td>
+</tr>
+<tr>
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:unknown_process_known_function')">
+Unknown process, known function ({{getPredefinedQueryCount('canned_query:unknown_process_known_function') | async}})
+  </a>
+  </td>
+  <td>
+    Genes which have a known molecular function, but an unknown physiological role
   </td>
 </tr>
 <tr>
   <td style="white-space: nowrap;">[Missing activities ({{getMissingActivityCount() | async}})](/gocam/missing-activities)</td>
   <td>
-    A list of activities known or suspected to occur in fission
-    yeast but not yet associated with a gene product. These "pathway
-    holes" have been identified through GO-CAM causal model curation.
+A list of activities known or suspected to occur in fission yeast but
+not yet associated with a gene product. These "pathway holes" have
+been identified through GO-CAM causal model curation.
   </td>
 </tr>
 </table>
 
-Note: You can retrieve current lists of genes with each
+Note: You can also retrieve current lists of genes with each
 characterisation status using the [advanced search](/query). Select
 the Characterisation status query, then choose a status from the
 pulldown menu, and submit.
