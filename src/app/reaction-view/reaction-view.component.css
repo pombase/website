@@ -46,3 +46,9 @@
 ::ng-deep rhea-reaction .rhea-reaction-container rhea-reaction-block div.residues {
   border: none;
 }
+
+.embedded-viewer {
+  width: 900px;
+  height: 450px;
+  border: 0;
+}

@@ -5,7 +5,7 @@ import { getAppConfig } from './config';
 import { TermShort } from './pombase-query';
 
 export type GenePageWidget = 'none' | 'protein_feature_viewer' | 'gocam_viewer' | 'genome_browser' | 'alphafold_viewer' | 'pdb_viewer' | 'rna_2d_structure';
-export type TermPageWidget = 'none' | 'rhea_reaction' | 'gocam_viewer';
+export type TermPageWidget = 'none' | 'rhea' | 'gocam_viewer';
 
 const localStorageKey = 'pombase-settings-v3';
 
@@ -41,7 +41,7 @@ export class SettingsService {
   readonly visibleGenesTableFieldNames$ = this._visibleGenesTableFieldNames.asObservable();
 
   private _genePageMainWidget: GenePageWidget = 'alphafold_viewer';
-  private _termPageMainWidget: TermPageWidget = 'rhea_reaction';
+  private _termPageMainWidget: TermPageWidget = 'rhea';
 
   private settingsAsJson(): string {
     return JSON.stringify({

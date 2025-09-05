@@ -1,8 +1,12 @@
-<div *ngFor="let rheaItem of rheaData">
+<div *ngFor="let rheaItem of rheaData; trackBy: trackById">
   <div *ngIf="miniView" class="reaction-mini">
-    <rhea-reaction rheaid="{{rheaItem.rheaId}}" nosource="true"></rhea-reaction>
+    <iframe [src]="rheaItem.sanitizedURL" class="embedded-viewer"
+            sandbox="allow-scripts allow-popups" #rheaiframe>
+    </iframe>
   </div>
   <div *ngIf="!miniView" class="reaction-full">
-    <rhea-reaction rheaid="{{rheaItem.rheaId}}"></rhea-reaction>
+    <iframe [src]="rheaItem.sanitizedURL" class="embedded-viewer"
+            sandbox="allow-scripts allow-popups" #rheaiframe>
+    </iframe>
   </div>
 </div>

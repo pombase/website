@@ -3,8 +3,6 @@ import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { TermDetails } from '../pombase-api.service';
 import { SettingsService, TermPageWidget } from '../settings.service';
 
-import '../../../node_modules/@swissprot/rhea-reaction-visualizer';
-
 @Component({
     selector: 'app-term-page-widgets',
     templateUrl: './term-page-widgets.component.html',
@@ -63,10 +61,10 @@ export class TermPageWidgetsComponent {
     let current = this.settingsService.termPageMainWidget;
 
     if (current == 'gocam_viewer' && !this.hasGoCams()) {
-      current = 'rhea_reaction';
+      current = 'rhea';
     }
 
-    if (current == 'rhea_reaction' && !this.hasReactionData()) {
+    if (current == 'rhea' && !this.hasReactionData()) {
       if (this.hasGoCams()) {
         current = 'gocam_viewer';
       } else {
@@ -77,8 +75,8 @@ export class TermPageWidgetsComponent {
     return current;
   }
 
-  showRheaReaction(): boolean {
-    return this.settingsService.termPageMainWidget === 'rhea_reaction';
+  showRhea(): boolean {
+    return this.settingsService.termPageMainWidget === 'rhea';
   }
 
   hideAllWidgets() {

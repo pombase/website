@@ -6,16 +6,16 @@
         Available widgets:
       </span>
       <ng-container *ngIf="hasReactionData()">
-        <div *ngIf="currentWidget() != 'rhea_reaction'"
+        <div *ngIf="currentWidget() != 'rhea'"
              class="non-active-widget-button"
-             title="Click to view reaction diagram from RHEA">
-          <a (click)="setWidget('rhea_reaction')">
-            <div>Reaction</div>
+             title="Click to view Rhea reaction diagram">
+          <a (click)="setWidget('rhea')">
+            <div>Rhea reaction</div>
             <img class="widget-button" src="assets/reaction-widget-icon.png" />
           </a>
         </div>
-        <div *ngIf="currentWidget() == 'rhea_reaction'" class="active-widget-button">
-          <div>Reaction</div>
+        <div *ngIf="currentWidget() == 'rhea'" class="active-widget-button">
+          <div>Rhea reaction</div>
           <img class="widget-button" src="assets/reaction-widget-icon.png" />
         </div>
       </ng-container>
@@ -48,8 +48,8 @@
   </div>
 
   <div *ngIf="currentWidget() != 'none'" class="widgets-container">
-    <div *ngIf="currentWidget() == 'rhea_reaction'">
-      <div class="rhea-reactions">
+    <div *ngIf="currentWidget() == 'rhea'">
+      <div class="rhea">
         <app-reaction-view [termIdRefs]="termDetails"></app-reaction-view>
       </div>
     </div>

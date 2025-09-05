@@ -50,5 +50,9 @@
   "/gocam_connections": {
     "target": "http://localhost:8400",
     "secure": false
+  },
+  "/rhea_widget": {
+    "target": "http://localhost:8400",
+    "secure": false
   }
 }
