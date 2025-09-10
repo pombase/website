@@ -1,12 +1,14 @@
 <div *ngFor="let rheaItem of rheaData; trackBy: trackById">
   <div *ngIf="miniView" class="reaction-mini">
     <iframe [src]="rheaItem.sanitizedURL" class="embedded-viewer"
-            sandbox="allow-scripts allow-popups" #rheaiframe>
+            onload="resizeIframe(this, 240)"
+            sandbox="allow-same-origin allow-scripts allow-popups" #rheaiframe>
     </iframe>
   </div>
   <div *ngIf="!miniView" class="reaction-full">
     <iframe [src]="rheaItem.sanitizedURL" class="embedded-viewer"
-            sandbox="allow-scripts allow-popups" #rheaiframe>
+            onload="resizeIframe(this, 240)"
+            sandbox="allow-same-origin allow-scripts allow-popups" #rheaiframe>
     </iframe>
   </div>
 </div>
