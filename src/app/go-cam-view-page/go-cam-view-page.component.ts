@@ -246,7 +246,7 @@ export class GoCamViewPageComponent implements OnInit {
 
       this.sourcePageType = params['source_page_type'];
       this.source = params['source'];
-      this.sourceName = params['source_name'];
+      this.sourceName = decodeURIComponent(params['source_name']);
 
       this.queryResultCache = {};
 
