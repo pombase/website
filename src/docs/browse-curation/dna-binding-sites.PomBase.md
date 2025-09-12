@@ -101,8 +101,11 @@ SO IDs link to [MISO](http://sequenceontology.org/browser/obob.cgi), the [Sequen
 
  -   R = purine (A or G)
  -   Y = pyrimidine (C or T)
- -   W = A or T
  -   M = A or C
+ -   W = A or T
+ -   S = G or C
  -   K = G or T
+ -   V = A, C or G
  -   H = A, C or T
-
+ -   D = A, G or T
+ -   B = C, G or T
