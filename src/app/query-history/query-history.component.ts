@@ -41,12 +41,16 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
 
   hasUpdatedCounts = false;
 
+  importExportVisible = false;
+
   sortColumn: 'default'|'queryName' = 'default';
 
   constructor(private modalService: BsModalService,
               private queryService: QueryService,
               private toastr: ToastrService,
-              public deployConfigService: DeployConfigService) { }
+              public deployConfigService: DeployConfigService) {
+    this.importExportVisible = !deployConfigService.productionMode();
+  }
 
   getSelectedEntries(): Array<HistoryEntry> {
     return this.sortedHistoryEntries.filter(e => e.checked);
@@ -197,6 +201,10 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     }
 
     return `This query now has ${updatedCount} result${s}, click to view`;
+  }
+
+  showImportExport(): void {
+    this.importExportVisible = true;
   }
 
   exportAll(): void {

@@ -25,7 +25,10 @@
               (click)="deleteQueries()">Delete <span class="fake-img"></span></button>
     </span>
 
-    <span class="import-export-buttons" *ngIf="!deployConfigService.productionMode()">
+    <span *ngIf="!importExportVisible" class="import-export-buttons prod-hidden">
+      <a (click)="showImportExport()">...</a>
+    </span>
+    <span *ngIf="importExportVisible" class="import-export-buttons">
       <span *ngIf="importingFromFile">
         <button class="btn btn-sm btn-primary" (click)="cancelImport()"
                 title="Cancel query import">
