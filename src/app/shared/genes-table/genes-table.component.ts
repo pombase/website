@@ -93,7 +93,7 @@ export class GenesTableComponent implements OnInit {
   constructor(private modalService: BsModalService,
               private sanitizer: DomSanitizer,
               private queryService: QueryService,
-              private queryRouterSerive: QueryRouterService,
+              private queryRouterSerice: QueryRouterService,
               private settingsService: SettingsService,
               private pombaseApiService: PombaseAPIService,
               public deployConfigService: DeployConfigService,
@@ -356,27 +356,27 @@ export class GenesTableComponent implements OnInit {
 
   showQuilt(): void {
     const query = this.makeGeneListQuery();
-    this.queryRouterSerive.gotoResults(query, 'vis');
+    this.queryRouterSerice.gotoResults(query, 'vis');
   }
 
   showGeneEx(): void {
     const query = this.makeGeneListQuery();
-    this.queryRouterSerive.gotoResults(query, 'gene-ex');
+    this.queryRouterSerice.gotoResults(query, 'gene-ex');
   }
 
   showPathwayCoverage(): void {
     const query = this.makeGeneListQuery();
-    this.queryRouterSerive.gotoResults(query, 'subset-count:gomodel');
+    this.queryRouterSerice.gotoResults(query, 'subset-count:gomodel');
   }
 
   showResults(): void {
     const query = this.makeGeneListQuery();
-    this.queryRouterSerive.gotoResults(query, 'results');
+    this.queryRouterSerice.gotoResults(query, 'results');
   }
 
   showSlim(subsetName: string): void {
     const query = this.makeGeneListQuery();
-    this.queryRouterSerive.gotoResults(query, 'slim:' + subsetName);
+    this.queryRouterSerice.gotoResults(query, 'slim:' + subsetName);
   }
 
   showingResults(): boolean {
@@ -471,7 +471,7 @@ export class GenesTableComponent implements OnInit {
 
   gotoBPSlimGenesNotInPathway() {
     const query = this.makeGeneInGoCamsQuery('not');
-    this.queryRouterSerive.gotoResults(query, 'slim:bp_goslim_pombe');
+    this.queryRouterSerice.gotoResults(query, 'slim:bp_goslim_pombe');
   }
 
   gotoBPSlim() {
