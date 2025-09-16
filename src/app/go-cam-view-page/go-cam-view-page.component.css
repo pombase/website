@@ -99,3 +99,7 @@
 .genes-in-gocams-link li, .bp-slim-query {
   padding: 0.25em 0;
 }
+
+.bp-slim-query {
+  margin-left: 0.5em;
+}

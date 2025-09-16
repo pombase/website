@@ -43,8 +43,8 @@
     <span *ngIf="sourcePageType == 'docs'">
       <a routerLink="/gocam">Return to the main GO-CAM page</a>
     </span>
-    <span class="highlighted-activities-desc" *ngIf="sourcePageType == 'subset-count'">
-      <span><span>Highlighted activities:</span> {{sourceName}}</span>
+    <span *ngIf="sourcePageType == 'subset-count'">
+      <span class="highlighted-activities-desc"><span>Highlighted activities:</span> {{sourceName}}</span>
       <div *ngIf="isMegaModel" class="genes-in-gocams-link">
         <ul>
           <li><a (click)="gotoGenesInGoCamQuery('and')"
@@ -54,11 +54,16 @@
           <li><a (click)="gotoGenesInGoCamQuery('not')"
                  title='View genes from "{{sourceName || "query"}}" that are not yet included in a pathway'>
               Genes from list not yet in a curated GO-CAM pathway ({{getGenesInGoCamsQueryCount('not') | async}})
-          </a></li>
+          </a>
+          <div class="bp-slim-query">
+            alternatively:
+            <a (click)="gotoBPSlimGenesNotInPathway()">
+              classify this list with the "Biological process slim"
+            </a>
+          </div>
+        </li>
         </ul>
-        <div class="bp-slim-query">
-          Also try slimming with "Biological process slim" to classify this list
-        </div>
+
       </div>
     </span>
     </div>

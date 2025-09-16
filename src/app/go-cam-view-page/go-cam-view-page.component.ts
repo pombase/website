@@ -8,6 +8,7 @@ import { TextOrTermId, Util } from '../shared/util';
 import { DeployConfigService } from '../deploy-config.service';
 import { GeneBoolNode, GeneListNode, GeneQuery, IntRangeNode } from '../pombase-query';
 import { HistoryEntry, QueryService } from '../query.service';
+import { QueryRouterService } from '../query-router.service';
 
 @Component({
     selector: 'app-go-cam-view-page',
@@ -50,6 +51,7 @@ export class GoCamViewPageComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private queryService: QueryService,
+              private queryRouterSerice: QueryRouterService,
               private pombaseApi: PombaseAPIService) { }
 
   getIFrameURL(): SafeResourceUrl | undefined {
@@ -233,6 +235,11 @@ export class GoCamViewPageComponent implements OnInit {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
     };
     this.queryService.runAndSaveToHistory(geneQuery, callback);
+  }
+
+  gotoBPSlimGenesNotInPathway(): void {
+    const query = this.makeGeneInGoCamsQuery('not')!;
+    this.queryRouterSerice.gotoResults(query, 'slim:bp_goslim_pombe');
   }
 
   ngOnInit(): void {
