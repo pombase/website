@@ -25,7 +25,7 @@ Column | Contents | Example (from *S. pombe*) | Mandatory? | Multiple entries al
 10 | Allele synonym | wee2-1 | No | Yes
 11 | Allele type | amino acid mutation | Yes | No
 12 | Evidence | ECO:0000336 | Yes | No
-13 | Condition | at high temperature | Yes | Yes
+13 | Condition | high temperature, low glucose MM | Yes | Yes
 14 | Penetrance | 85% | No | No
 15 | Severity | medium | No | No
 16 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes

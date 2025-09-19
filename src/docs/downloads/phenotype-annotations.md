@@ -70,7 +70,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 11 | Allele synonym | wee2-1 | No | Yes
 12 | Allele type | amino acid mutation | Yes | No
 13 | Evidence | ECO:0000336 | Yes | No
-14 | Condition | at high temperature | Yes | Yes
+14 | Condition | high temperature, low glucose MM | Yes | Yes
 15 | Penetrance | 85% | No | No
 16 | Severity | medium | No | No
 17 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
