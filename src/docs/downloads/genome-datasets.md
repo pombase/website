@@ -8,7 +8,7 @@ systems. Your browser may prompt you to open or download files.
 
 %%if db=PomBase
 The current genome sequence is available in FASTA format from the
-[monthly release directory](${base_url}/latest_release/genome_sequence_and_features/genome_sequence/).
+[monthly release directory](${base_url}/latest_release/genome_sequence_and_features/fasta_format/chromosomes/).
 Separate file are available for each chromosome, as well as a combined
 FASTA file.
 %%end db=PomBase
