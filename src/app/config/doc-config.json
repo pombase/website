@@ -1,8 +1,10 @@
 {
    "pages" : {
       "about" : "About PomBase",
+      "about/citing-pombase" : "Citing PomBase",
       "about/index" : "About PomBase",
       "browse-curation" : "Browse curation",
+      "browse-curation/dna-binding-sites" : "DNA binding site consensus sequences in S. pombe",
       "browse-curation/index" : "Browse curation",
       "community" : "Fission Yeast Community",
       "community/index" : "Fission Yeast Community",
@@ -13,6 +15,7 @@
       "documentation/gocams" : "PomBase GO-CAM pathways",
       "documentation/index" : "PomBase Web Site Help & Documentation",
       "downloads" : "Downloads",
+      "downloads/genome-datasets" : "Genome sequence and features",
       "downloads/go-annotations" : "GO annotations",
       "downloads/index" : "Downloads",
       "faq" : "Frequently asked questions",
@@ -31,7 +34,7 @@
       "news/2025-01-16-gocams-in-pombase" : "NEW: Curated pathways using GO-CAM pathway modelling",
       "news/index" : "News archive",
       "status" : "Genome Status",
-      "status/gene-characterisation" : "Protein-coding gene characterisation status",
+      "status/gene-characterisation" : "Protein-coding gene characterisation status (known/unknown)",
       "status/gene-characterisation-statistics-history" : "Protein-coding gene characterisation statistics history",
       "status/index" : "Genome Status",
       "status/priority-unstudied-genes" : "Priority unstudied genes",

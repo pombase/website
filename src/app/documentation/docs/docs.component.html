@@ -21,6 +21,96 @@
 
 </app-page-contents-menu>
   <div class="docs-content">
+  <div *ngIf="pageName == 'citing-pombase'">
+<h2 id="citing-pombase">Citing PomBase</h2>
+<p>Also see the <a routerLink="/about/terms-of-use">Terms of Use</a> and the complete list of <a routerLink="/about/pombase-and-collaborative-publications">papers published by PomBase</a>.</p>
+<p>To cite anything from PomBase, including</p>
+<ul>
+<li><em>S. pombe</em> genome sequence and feature annotation</li>
+<li>Curated data (GO, phenotypes, modifications, gene expression, etc.)</li>
+<li>GO or disease slim sets</li>
+<li>Tools (advanced search, motif search, QuiLT, etc.)</li>
+</ul>
+<p>please use this <em>Genetics</em> publication:</p>
+<div class="publication-badges">
+<p><app-publication-badge [doi]="'10.1093/genetics/iyae007'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood<br />
+PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability<br />
+<em>Genetics</em>, February 2024, iyae007<br />
+<a href="https://doi.org/10.1093/genetics/iyae007">10.1093/genetics/iyae007</a></p>
+</div>
+<h4 id="monthly-data-release">Monthly data release</h4>
+<p>When using a PomBase dataset in a publication we recommend including the date of dataset used in your analysis. For example “pombase-2025-08-01” or include the full URL of the release. Example: <code>https://www.pombase.org/monthly_releases/2025/pombase-2025-08-01</code></p>
+<h3 id="genome-sequence">Genome Sequence</h3>
+<p>To cite the <em>S. pombe</em> genome sequence, use:</p>
+<div class="publication-badges">
+<p><app-publication-badge [doi]="'10.1038/nature724'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Wood V, Gwilliam R, Rajandream MA, Lyne M, Lyne R, Stewart A, Sgouros J, Peat N, Hayles J, Baker S, <em>et al.</em><br />
+The genome sequence of <em>Schizosaccharomyces pombe</em>.<br />
+<em>Nature</em>. 2002 Feb 21;415(6874):871-80. Erratum in: Nature 2003 Jan 2;421(6918):94. Cerrutti L [corrected to Cerutti L]. <a href="http://www.ncbi.nlm.nih.gov/pubmed/11859360">PMID:11859360</a> - <a href="http://www.nature.com/nature/journal/v415/n6874/full/nature724.html">Full text at Nature</a></p>
+</div>
+<h3 id="go-annotations">GO Annotations</h3>
+<p>To cite the <em>S. pombe</em> Gene Ontology annotation data, please use these two papers:</p>
+<div class="publication-badges">
+<p><app-publication-badge [doi]="'10.1093/genetics/iyad031'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Gene Ontology Consortium.<br />
+The Gene Ontology knowledgebase in 2023<br />
+<em>Genetics</em>, Volume 224, Issue 1, May 2023, iyad031<br />
+<a href="https://doi.org/10.1093/genetics/iyad031">10.1093/genetics/iyad031</a></p>
+</div>
+<div class="publication-badges">
+<p><app-publication-badge [doi]="'10.1093/genetics/iyae007'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood<br />
+PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability<br />
+<em>Genetics</em>, February 2024, iyae007<br />
+<a href="https://doi.org/10.1093/genetics/iyae007">10.1093/genetics/iyae007</a></p>
+</div>
+<h3 id="phenotype-ontology-and-annotations">Phenotype Ontology and Annotations</h3>
+<p>To cite the Fission Yeast Phenotype Ontology (FYPO) and/or <em>S. pombe</em> FYPO annotation data, use:</p>
+<div class="publication-badges">
+<p><app-publication-badge [doi]="'10.1093/bioinformatics/btt266'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Harris MA, Lock A, Bähler J, Oliver SG, Wood V.<br />
+FYPO: The Fission Yeast Phenotype Ontology.<br />
+<em>Bioinformatics</em>. 2013 Jul 1;29(13):1671-8.<br />
+Epub 2013 May 8.<br />
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/23658422">PMID:23658422</a> - <a href="http://dx.doi.org/10.1093/bioinformatics/btt266">DOI:10.1093/bioinformatics/btt266</a>.</p>
+</div>
+<p>Full text at Bioinformatics: <a href="http://bioinformatics.oxfordjournals.org/content/29/13/1671.long">HTML</a> or <a href="http://bioinformatics.oxfordjournals.org/content/29/13/1671.full.pdf+html">PDF</a></p>
+<h3 id="canto">Canto</h3>
+<p>To cite the online curation tool Canto, use:</p>
+<div class="publication-badges">
+<p><app-publication-badge [doi]="'10.1093/bioinformatics/btu103'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Rutherford KM, Harris MA, Lock A, Oliver SG, Wood V.<br />
+Canto: An online tool for community literature curation.<br />
+<em>Bioinformatics</em>. 2014 Jun 15;30(12):1791-2. Epub 2014 Feb 25.<br />
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/24574118">PMID:24574118</a> - <a href="http://dx.doi.org/10.1093/bioinformatics/btu103">DOI: 10.1093/bioinformatics/btu103</a></p>
+</div>
+<h3 id="manually-curated-orthologs">Manually Curated Orthologs</h3>
+<p>To cite the manually curated <em>S. cerevisiae</em> or human orthologs (displayed on gene pages or downloaded), use the NAR database paper as noted above. Note that the manually curated orthologs use several data sources including Compara, but are distinct from the Compara results themselves.</p>
+<div class="publication-badges">
+<p><app-publication-badge [doi]="'10.1093/nar/gkr853'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Wood V, Harris MA, McDowall MD, Rutherford K, Vaughan BW, Staines DM, Aslett M, Lock A, Bähler J, Kersey PJ, Oliver SG.<br />
+PomBase: a comprehensive online resource for fission yeast.<br />
+<em>Nucleic Acids Res.</em> 2012 Jan;40(Database issue):D695-9. Epub 2011 Oct 28.<br />
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/22039153">PMID:22039153</a> - <a href="http://dx.doi.org/10.1093/nar/gkr853">DOI: 10.1093/nar/gkr853</a> - <a href="http://nar.oxfordjournals.org/content/40/D1/D695.long">Full text at NAR</a></p>
+</div>
+<p><em>Altmetric badges link to data provided by <a href="https://www.altmetric.com/">Altmetric.com</a>, a research metrics company who track and collect the online conversations around millions of scholarly outputs. Read <a href="https://www.altmetric.com/about-altmetrics/">more about Altmetrics</a>.</em></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="about-pombase">About PomBase</h2>
 <p>PomBase is the comprehensive model organism knowledgebase for the fission yeast <em>Schizosaccharomyces pombe</em>, which aims to standardise, integrate, display, and disseminate biological knowledge and datasets to the wider scientific community, making a wide range of data-types from large and small-scale publications <a href="https://pubmed.ncbi.nlm.nih.gov/26978244/">FAIR</a>.</p>
@@ -96,6 +186,613 @@
 
 </app-page-contents-menu>
   <div class="docs-content">
+  <div *ngIf="pageName == 'dna-binding-sites'">
+<h3 id="dna-binding-site-consensus-sequences-s.-pombe">DNA binding site consensus sequences in <em>S. pombe</em></h3>
+<p>Also see <a href="https://www.pombase.org/jbrowse/?loc=III%3A725762..736349&amp;tracks=Forward%20strand%20features%2CReverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&amp;highlight=">PomBase JBrowse with binding site track enabled</a>.</p>
+<h4 id="transcription-factor-binding-sites">Transcription factor binding sites</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Site Name</th>
+<th>Consensus Sequence</th>
+<th>bound by</th>
+<th>Sequence Ontology ID</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AACCCT box</td>
+<td>ATCA(C/A)AACCCTAACCCT</td>
+<td><a href="https://www.pombase.org/gene/SPCC290.04">Ams2</a>, <a href="https://www.pombase.org/gene/SPAC13G7.10">Teb1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001901">SO:0001901</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/17452352">PMID:17452352</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/4092687">PMID:4092687</a></td>
+</tr>
+<tr class="even">
+<td>Ace2 UAS</td>
+<td>CCAGCC</td>
+<td><a href="https://www.pombase.org/gene/SPAC6G10.12c">Ace2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001857">SO:0001857</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16678171">PMID:16678171</a></td>
+</tr>
+<tr class="odd">
+<td>Ace2 binding motif</td>
+<td>ACCAGCCAYNN</td>
+<td><a href="https://www.pombase.org/gene/SPAC6G10.12c">Ace2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Adn2 binding motif 1</td>
+<td>CTTCTCTTCCCTTCC</td>
+<td><a href="https://www.pombase.org/gene/SPBC1289.10c">Adn2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Adn2 binding motif 2</td>
+<td>AYCCGCGCR</td>
+<td><a href="https://www.pombase.org/gene/SPBC1289.10c">Adn2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Adn3 binding motif 1</td>
+<td>CTCTTCTCTTCYCT</td>
+<td><a href="https://www.pombase.org/gene/SPCC1494.10">Adn3</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Adn3 binding motif 2</td>
+<td>AGGGGATGAATG</td>
+<td><a href="https://www.pombase.org/gene/SPCC1494.10">Adn3</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Ams2 binding motif 1</td>
+<td>CCCCCACATAGK</td>
+<td><a href="https://www.pombase.org/gene/SPCC290.04">Ams2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Ams2 binding motif 2</td>
+<td>YTATCCCACTT</td>
+<td><a href="https://www.pombase.org/gene/SPCC290.04">Ams2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>AP 1 binding site</td>
+<td>TGACTCA</td>
+<td><a href="https://www.pombase.org/gene/SPAC1783.07c">Pap1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001842">SO:0001842</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/1899230">PMID:1899230</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/3034432">PMID:3034432</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/3125983">PMID:3125983</a></td>
+</tr>
+<tr class="odd">
+<td>Atf1 binding motif</td>
+<td>ATGAYGTCAKY</td>
+<td><a href="https://www.pombase.org/gene/SPBC29B5.01">Atf1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>calcineurin-dependent response element (CDRE motif)</td>
+<td>GNGGCKCA</td>
+<td><a href="https://www.pombase.org/gene/SPAC4G8.13c">Prz1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001865">SO:0001865</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16928959">PMID:16928959</a></td>
+</tr>
+<tr class="odd">
+<td>CCAAT motif</td>
+<td>CCAAT</td>
+<td><a href="https://www.pombase.org/gene/SPBC725.11c">Php2</a>, <a href="https://www.pombase.org/gene/SPAC23C11.08">Php3</a>, <a href="https://www.pombase.org/gene/SPBC16E9.01c">Php4</a>, <a href="https://www.pombase.org/gene/SPBC3B8.02">Php5</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001856">SO:0001856</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16963626">PMID:16963626</a></td>
+</tr>
+<tr class="even">
+<td>Cdc10 binding motif</td>
+<td>ACGCGACGCGACN</td>
+<td><a href="https://www.pombase.org/gene/SPBC336.12c">Cdc10</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>copper-response element (CuRE)</td>
+<td>HTHNNGCTGD</td>
+<td><a href="https://www.pombase.org/gene/SPAC31A2.11c">Cuf1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001844">SO:0001844</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/10593913">PMID:10593913</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/9188496">PMID:9188496</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/9211922">PMID:9211922</a></td>
+</tr>
+<tr class="even">
+<td>CSL response element</td>
+<td>GTGRGAA</td>
+<td><a href="https://www.pombase.org/gene/SPCC736.08">Cbf11</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001839">SO:0001839</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/19101542">PMID:19101542</a></td>
+</tr>
+<tr class="odd">
+<td>cyclic AMP response element (CRE)</td>
+<td>TGACGTCA</td>
+<td><a href="https://www.pombase.org/gene/SPBC29B5.01">Atf1</a>, <a href="https://www.pombase.org/gene/SPAC1783.07c">Pap1</a>, <a href="https://www.pombase.org/gene/SPAC21E11.03c">Pcr1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001843">SO:0001843</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11483355">PMID:11483355</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/11483993">PMID:11483993</a></td>
+</tr>
+<tr class="even">
+<td>Deb1 binding motif</td>
+<td>AATGTTACCTAT</td>
+<td><a href="https://www.pombase.org/gene/SPAC1B1.01">Deb1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>DNA damage response element (DRE)</td>
+<td>CGWGGWNGMM</td>
+<td><a href="https://www.pombase.org/gene/SPAC1B1.01">Deb1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001845">SO:0001845</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11073995">PMID:11073995</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/8668127">PMID:8668127</a></td>
+</tr>
+<tr class="even">
+<td>Esc1 binding motif</td>
+<td>ACCACGTGSSS</td>
+<td><a href="https://www.pombase.org/gene/SPAC56F8.16">Esc1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Fep1 binding motif</td>
+<td>TTATCWGATSAD</td>
+<td><a href="https://www.pombase.org/gene/SPAC23E2.01">Fep1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Fhl1 binding motif 1</td>
+<td>AAAARCAGTCACA</td>
+<td><a href="https://www.pombase.org/gene/SPAC1142.08">Fhl1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Fhl1 binding motif 2</td>
+<td>AACCCTACCCTAN</td>
+<td><a href="https://www.pombase.org/gene/SPAC1142.08">Fhl1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Fkh2 binding motif</td>
+<td>TGTAAACAAAYMAAT</td>
+<td><a href="https://www.pombase.org/gene/SPBC16G5.15c">Fkh2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>FLEX element</td>
+<td>GTAAACAAACAAAM</td>
+<td><a href="https://www.pombase.org/gene/SPBC16G5.15c">Fkh2</a>, <a href="https://www.pombase.org/gene/SPBC32H8.11">Mei4</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001846">SO:0001846</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/10747048">PMID:10747048</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/14871934">PMID:14871934</a></td>
+</tr>
+<tr class="even">
+<td>forkhead motif</td>
+<td>TTTRTTTACA</td>
+<td><a href="https://www.pombase.org/gene/SPBC4C3.12">Sep1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001847">SO:0001847</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/15195092">PMID:15195092</a></td>
+</tr>
+<tr class="odd">
+<td>GATA box</td>
+<td>WGATAR</td>
+<td><a href="https://www.pombase.org/gene/SPCC1902.01">Gaf1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001840">SO:0001840</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/8321208">PMID:8321208</a></td>
+</tr>
+<tr class="even">
+<td>heat shock element (HSE)</td>
+<td>NGAAN (at least 3 copies)</td>
+<td><a href="https://www.pombase.org/gene/SPAC2E12.02">Hsf1</a>, <a href="https://www.pombase.org/gene/SPAC8C9.14">Prr1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001850">SO:0001850</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/17347150">PMID:17347150</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/8689565">PMID:8689565</a></td>
+</tr>
+<tr class="odd">
+<td>homol D box</td>
+<td>CAGTCACA (or inverted form TGTGACTG)</td>
+<td><a href="https://www.pombase.org/gene/SPAC1142.08">Fhl1</a>, <a href="https://www.pombase.org/gene/SPBC336.09c">Rrn7</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001848">SO:0001848</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/21673110">PMID:21673110</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/7501449">PMID:7501449</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/8458332">PMID:8458332</a></td>
+</tr>
+<tr class="even">
+<td>homol E box</td>
+<td>ACCCTACCCT (or inverted form AGGGTAGGGT)</td>
+<td><a href="https://www.pombase.org/gene/SPAC1142.08">Fhl1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001849">SO:0001849</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/7501449">PMID:7501449</a></td>
+</tr>
+<tr class="odd">
+<td>Hsf1 binding motif</td>
+<td>ATCCTTCATGGACW</td>
+<td><a href="https://www.pombase.org/gene/SPAC2E12.02">Hsf1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Inr consensus initiator sequence</td>
+<td>PyPyPuN(A/C)(C/A)</td>
+<td></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000014">SO:0000014</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/25747261">PMID:25747261</a></td>
+</tr>
+<tr class="odd">
+<td>Inr immediate downstream motif</td>
+<td>CC(T/A)(T/C)(T/C/A)(A/G)CCA(A/T/C)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>iron repressed GATA element</td>
+<td>WGATAA</td>
+<td><a href="https://www.pombase.org/gene/SPBC29B5.01">Atf1</a>, <a href="https://www.pombase.org/gene/SPAC23E2.01">Fep1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001851">SO:0001851</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11956219">PMID:11956219</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/17211681">PMID:17211681</a></td>
+</tr>
+<tr class="odd">
+<td>Loz1 binding motif</td>
+<td>ARGATCGMCGAK</td>
+<td><a href="https://www.pombase.org/gene/SPAC25B8.19c">Loz1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>LOZ1 response element</td>
+<td>CGNMGATCNTY</td>
+<td><a href="https://www.pombase.org/gene/SPAC25B8.19c">Loz1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002225">SO:0002225</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/31515876">PMID:31515876</a></td>
+</tr>
+<tr class="odd">
+<td>mating type M-box</td>
+<td>ACAAT</td>
+<td><a href="https://www.pombase.org/gene/SPBC23G7.09">Mat1-Mc</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001852">SO:0001852</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/9233811">PMID:9233811</a></td>
+</tr>
+<tr class="even">
+<td>Mca1 binding motif</td>
+<td>CGGTGAAYTCG</td>
+<td><a href="https://www.pombase.org/gene/SPAPB1A11.04c">Mca1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>MluI cell cycle box (MCB)</td>
+<td>ACGCGT</td>
+<td><a href="https://www.pombase.org/gene/SPBC336.12c">Cdc10</a>, <a href="https://www.pombase.org/gene/SPBC725.16">Res1</a>, <a href="https://www.pombase.org/gene/SPAC22F3.09c">Res2</a>, <a href="https://www.pombase.org/gene/SPBC21B10.13c">Yox1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001855">SO:0001855</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16285853">PMID:16285853</a></td>
+</tr>
+<tr class="even">
+<td>Pcr1 binding motif</td>
+<td>ATGACGTCAT</td>
+<td><a href="https://www.pombase.org/gene/SPAC21E11.03c">Pcr1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Pho7 binding motif</td>
+<td>AACCRACTTNTH</td>
+<td><a href="https://www.pombase.org/gene/SPBC27B12.11c">Pho7</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Pho7 binding site</td>
+<td>[5’-TCG(G/C)(A/T)xxTTxAA]</td>
+<td><a href="https://www.pombase.org/gene/SPBC27B12.11c">Pho7</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002216">SO:0002216</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/28811350">PMID:28811350</a></td>
+</tr>
+<tr class="odd">
+<td>Php3 binding motif</td>
+<td>MRCCAATCA</td>
+<td><a href="https://www.pombase.org/gene/SPAC23C11.08">Php3</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>pombe cell cycle box (PCB)</td>
+<td>GNAACR</td>
+<td><a href="https://www.pombase.org/gene/SPBC4C3.12">Sep1</a>, <a href="https://www.pombase.org/gene/SPBC16G5.15c">Fkh2</a>, <a href="https://www.pombase.org/gene/SO:0001871">Mbx1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001871">SO:0001871</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/12411492">PMID:12411492</a></td>
+</tr>
+<tr class="odd">
+<td>Prr1 binding motif</td>
+<td>CTTCTAGAYCY</td>
+<td><a href="https://www.pombase.org/gene/SPAC8C9.14">Prr1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Prt1 binding motif</td>
+<td>CSGAGCCGA</td>
+<td><a href="https://www.pombase.org/gene/SPBC530.05">Prt1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Prz1 binding motif</td>
+<td>CTRMGCCWCN</td>
+<td><a href="https://www.pombase.org/gene/SPAC4G8.13c">Prz1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Reb1 binding motif</td>
+<td>RGKAAGGGTRGKGCA</td>
+<td><a href="https://www.pombase.org/gene/SPBC1198.11c">Reb1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Res1 binding motif</td>
+<td>ACGCGWCGCGACTNT</td>
+<td><a href="https://www.pombase.org/gene/SPBC725.16">Res1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Res2 binding motif</td>
+<td>ARACGCGACGCGACD</td>
+<td><a href="https://www.pombase.org/gene/SPAC22F3.09c">Res2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Rsv2 binding motif</td>
+<td>GGTGGCRAAAWKG</td>
+<td><a href="https://www.pombase.org/gene/SPBC1105.14">Rsv2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Sak1 binding motif 1</td>
+<td>SGTTGYYATGRCAA</td>
+<td><a href="https://www.pombase.org/gene/SPAC3G9.14">Sak1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Sak1 binding motif 2</td>
+<td>TGTAAAYAAACA</td>
+<td><a href="https://www.pombase.org/gene/SPAC3G9.14">Sak1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Sap1 recognition motif</td>
+<td>TARGCAGNTNYAACGMG</td>
+<td><a href="https://www.pombase.org/gene/SPCC1672.02c">Sap1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001864">SO:0001864</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16166653">PMID:16166653</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/7651412">PMID:7651412</a></td>
+</tr>
+<tr class="odd">
+<td>Sep1 binding motif 1</td>
+<td>AAACARAWAAATAWW</td>
+<td><a href="https://www.pombase.org/gene/SPBC4C3.12">Sep1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Sep1 binding motif 2</td>
+<td>ARATGGCGAGT</td>
+<td><a href="https://www.pombase.org/gene/SPBC4C3.12">Sep1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>SPAC11D3.17 binding motif</td>
+<td>GAGCTCCKCC</td>
+<td><a href="https://www.pombase.org/gene/SPAC11D3.17">SPAC11D3.17</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>SPAC3F10.12c binding motif</td>
+<td>RRTCACGTGMMNKN</td>
+<td><a href="https://www.pombase.org/gene/SPAC3F10.12c">SPAC3F10.12c</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>SPAC3H8.08c binding motif</td>
+<td>CCTCGGANWTKNMT</td>
+<td><a href="https://www.pombase.org/gene/SPAC3H8.08c">SPAC3H8.08c</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>SPBC16G5.17 binding motif</td>
+<td>CCKCGGAACYG</td>
+<td><a href="https://www.pombase.org/gene/SPBC16G5.17">SPBC16G5.17</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>SPBC56F2.05c binding motif</td>
+<td>ACCCCGCAATTMC</td>
+<td><a href="https://www.pombase.org/gene/SPBC56F2.05c">SPBC56F2.05c</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Ste11 binding motif</td>
+<td>AACAAAGAAAYNAN</td>
+<td><a href="https://www.pombase.org/gene/SPBC32C12.02">Ste11</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>sterol regulatory element</td>
+<td>ATCACCCCAC (and variants)</td>
+<td><a href="https://www.pombase.org/gene/SPBC19C2.09">Sre1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001861">SO:0001861</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11111080">PMID:11111080</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/16537923">PMID:16537923</a></td>
+</tr>
+<tr class="even">
+<td>STREP motif</td>
+<td>CCCCTC</td>
+<td><a href="https://www.pombase.org/gene/SPAC6F12.02">Rst2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001859">SO:0001859</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11739717">PMID:11739717</a></td>
+</tr>
+<tr class="odd">
+<td>TATA box</td>
+<td>TATA(A|T)A(A|T)</td>
+<td><a href="https://www.pombase.org/gene/SPBC13E7.10c">Brf1</a>, <a href="https://www.pombase.org/gene/SPAC29E6.08">Tbp1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000174">SO:0000174</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16858867">PMID:16858867</a></td>
+</tr>
+<tr class="even">
+<td>Teb1 binding motif</td>
+<td>AAACCCTAACCCTNN</td>
+<td><a href="https://www.pombase.org/gene/SPAC13G7.10">Teb1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Toe1 binding motif</td>
+<td>CCGCGGNWNTKCCGV</td>
+<td><a href="https://www.pombase.org/gene/SPAC1399.05c">Toe1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Toe2 binding motif</td>
+<td>CGGCCGANV</td>
+<td><a href="https://www.pombase.org/gene/SPAC139.03">Toe2</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Toe3 binding motif</td>
+<td>TCCGYGGAMWTYW</td>
+<td><a href="https://www.pombase.org/gene/SPAPB24D3.01">Toe3</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>TR box</td>
+<td>TTCTTTGTTY</td>
+<td><a href="https://www.pombase.org/gene/SPBC32C12.02">Ste11</a>, <a href="https://www.pombase.org/gene/SPBC23G7.09">Mat1-Mc</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001858">SO:0001858</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/1657709">PMID:1657709</a></td>
+</tr>
+<tr class="odd">
+<td>Zas1 binding motif 1</td>
+<td>NCCCCCACWTA</td>
+<td><a href="https://www.pombase.org/gene/SPBC1198.04c">Zas1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="even">
+<td>Zas1 binding motif 2</td>
+<td>AGTGGGATRARWA</td>
+<td><a href="https://www.pombase.org/gene/SPBC1198.04c">Zas1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+<tr class="odd">
+<td>Zas1 recognition motif</td>
+<td>(Y)CCCCAY</td>
+<td><a href="https://www.pombase.org/gene/SPBC1198.04c">Zas1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002215">SO:0002215</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/29735745">PMID:29735745</a></td>
+</tr>
+<tr class="even">
+<td>zinc repressed element</td>
+<td>GNMGATC</td>
+<td><a href="https://www.pombase.org/gene/SPAC25B8.19c">Loz1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002006">SO:0002006</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/24003116">PMID:24003116</a></td>
+</tr>
+<tr class="odd">
+<td>Zip1 binding motif</td>
+<td>AATTGCGCMATMRNT</td>
+<td><a href="https://www.pombase.org/gene/SPAC25G10.03">Zip1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="other-dna-binding-sites">Other DNA binding sites</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Site Name</th>
+<th>Consensus Sequence</th>
+<th>bound by</th>
+<th>Sequence Ontology ID</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ARS consensus sequence</td>
+<td>WTTTAYRTTTW</td>
+<td><a href="https://www.pombase.org/gene/SPBC1105.04c">Cbp1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002004">SO:0002004</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GT dinucleotide repeat</td>
+<td>(GT)n</td>
+<td><a href="https://www.pombase.org/gene/SPAC30.03c">Tsn1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001862">SO:0001862</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>GTT trinucleotide repeat</td>
+<td>(GTT)n</td>
+<td><a href="https://www.pombase.org/gene/SPAC30.03c">Tsn1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001863">SO:0001863</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/">PMID:</a></td>
+</tr>
+<tr class="even">
+<td>rDNA intergenic spacer element</td>
+<td>AGGTAAGGGTAATGCAC</td>
+<td><a href="https://www.pombase.org/gene/SPBC1198.11c">Reb1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001860">SO:0001860</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/9016645">PMID:9016645</a></td>
+</tr>
+<tr class="odd">
+<td>telomeric repeat</td>
+<td>TTAC(0-1)A(0-1)G(1-8)</td>
+<td><a href="https://www.pombase.org/gene/SPAC16A10.07c">Taz1</a></td>
+<td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001496">SO:0001496</a></td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/8720065">PMID:8720065</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="notes">Notes</h4>
+<p>SO IDs link to <a href="http://sequenceontology.org/browser/obob.cgi">MISO</a>, the <a href="http://sequenceontology.org/">Sequence Ontology</a> browser. Consensus sequences use the <a href="https://www.qmul.ac.uk/sbcs/iubmb/misc/naseq.html">IUBMB Nomenclature for Incompletely Specified Bases in Nucleic Acid Sequences</a>; briefly:</p>
+<ul>
+<li>R = purine (A or G)</li>
+<li>Y = pyrimidine (C or T)</li>
+<li>M = A or C</li>
+<li>W = A or T</li>
+<li>S = G or C</li>
+<li>K = G or T</li>
+<li>V = A, C or G</li>
+<li>H = A, C or T</li>
+<li>D = A, G or T</li>
+<li>B = C, G or T</li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="browse-curation">Browse curation</h2>
 <ul>
@@ -158,6 +855,7 @@
 <div class="left-menu-part left-menu-item"><span>Curated inventories</span></div>
 <div class="left-menu-part left-sub-menu-item"><a href="/browse-curation/dna-binding-sites">DNA binding sites</a></div>
 <div class="left-menu-part left-sub-menu-item"><a href="/browse-curation/drugs-known-pombe-targets">Drug targets</a></div>
+<div class="left-menu-part left-menu-item"><a href="/data/documents/journal_count_with_year.xlsx">Journal statistics</a></div>
 
 </app-page-contents-menu>
   <div class="docs-content">
@@ -250,6 +948,11 @@
 <ul>
 <li><a routerLink="/browse-curation/dna-binding-sites">DNA binding sites</a></li>
 <li><a routerLink="/browse-curation/drugs-known-pombe-targets">Drug targets</a></li>
+</ul>
+<hr />
+<h3 id="miscellaneous-files">Miscellaneous files</h3>
+<ul>
+<li><a href="https://www.pombase.org/data/documents/journal_count_with_year.xlsx">Counts of pombe publications per journal per year</a> (Excel format - includes only publications in PomBase up to March 2025)</li>
 </ul>
 <hr />
 <p><strong>Note:</strong> <em>S. pombe</em> files are no longer available from the old “pombase” FTP site within the EBI domain. If you have a link that contains <strong>ftp.ebi.ac.uk</strong>, please check these pages for a link using <strong>https://www.pombase.org/</strong>. Please <a href="mailto:helpdesk%7B%7B%22@%22%7D%7Dpombase.org">contact the PomBase curators</a> if you need help finding a file or directory.</p>
@@ -469,7 +1172,6 @@ Search documentation, news archive and FAQ:
 <li><a routerLink="/documentation/publication-page">Publication pages</a></li>
 <li><a routerLink="/documentation/genotype-page">Genotype pages</a></li>
 <li><a routerLink="/browse-curation/fission-yeast-phenotype-ontology">Fission Yeast Phenotype Ontology (FYPO) page</a></li>
-<li><a routerLink="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a></li>
 <li><a routerLink="/about/version-history">Data versions</a></li>
 <li><a routerLink="/documentation/pombase-references">PomBase references (PB_REFs)</a></li>
 </ul>
@@ -517,6 +1219,69 @@ Search documentation, news archive and FAQ:
 
 </app-page-contents-menu>
   <div class="docs-content">
+  <div *ngIf="pageName == 'genome-datasets'">
+<h2 id="genome-sequence-and-features">Genome sequence and features</h2>
+<p>Note that most of the datasets available here are compressed (.gz), and can be uncompressed by utilities available in all common operating systems. Your browser may prompt you to open or download files.</p>
+<h3 id="genome-sequence">Genome sequence</h3>
+<p>The current genome sequence is available in FASTA format from the <a href="https://www.pombase.org/latest_release/genome_sequence_and_features/fasta_format/chromosomes/">monthly release directory</a>. Separate file are available for each chromosome, as well as a combined FASTA file.</p>
+<h4 id="feature-coordinates-only">Feature coordinates only</h4>
+<p>These files contain coordinates, but no sequence data:</p>
+<ul>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/gff_format">GFF3 format</a> files contain coordinates for features of all types.</li>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/feature_coordinates">CDS coordinates</a> are in a tab-delimited file with columns for systematic ID, start coordinate, end coordinate, and strand.</li>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/feature_coordinates">Exon coordinates</a> are in the same tab-delimited file format as CDS coordinates.</li>
+</ul>
+<h4 id="feature-coordinates-and-sequence-data">Feature coordinates and sequence data</h4>
+<ul>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/artemis_contigs/">Chromosome contigs</a> in enriched EMBL-based format for loading into Artemis (see the <a routerLink="/faq/there-equivalent-artemis-java-applet-pombase">Artemis FAQ</a>)</li>
+<li>Older files in <a routerLink="/data/genome_sequence_and_features/OLD/20170906/embl/">EMBL format</a> and <a routerLink="/data/genome_sequence_and_features/OLD/20170906/genbank/">GenBank format</a> are available, and reflect the current genome sequence, with feature annotations from January 2017.</li>
+</ul>
+<!-- put this between the two existing lines above:
+-   [Manually curated LTRs]() in GFF3 format
+-->
+<h4 id="feature-sequences">Feature sequences</h4>
+<p>These files are provided in FASTA format. They contain RNA/DNA sequences except for the “Peptide sequences” file.</p>
+<ul>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds.fa">Coding sequences (CDS)</a></li>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns.fa">CDS + introns</a></li>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/cds+introns+utrs.fa">CDS + introns + UTRs</a></li>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/introns_within_cds.fa">Introns within coding sequences</a></li>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/five_prime_utrs.fa">5’ UTRs</a> and <a href="https://www.pombase.org/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/three_prime_utrs.fa">3’ UTRs</a></li>
+<li><a href="https://www.pombase.org/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/peptide.fa">Peptide sequences</a></li>
+</ul>
+<p>Browse available files from the latest release: <a href="https://www.pombase.org/latest_release/genome_sequence_and_features/fasta_format/feature_sequences/">feature sequence files</a></p>
+<!-- -   Non-coding RNA genes -->
+<h4 id="genomic-regions">Genomic regions</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Region</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a routerLink="/status/telomeres">Telomeres</a></td>
+<td>Telomeric sequence</td>
+</tr>
+<tr class="even">
+<td><a routerLink="/status/centromeres">Centromeres</a></td>
+<td>Centromeric sequence and maps</td>
+</tr>
+<tr class="odd">
+<td><a routerLink="/status/mating-type-region">Mating Type Region</a></td>
+<td>Links to genome browser for 972 h- (chromosome 2 coordinates) and h+ (mating region contig)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="other-data">Other data</h4>
+<ul>
+<li>Additional information and historical data are available for <a routerLink="/downloads/intron-data">introns</a></li>
+<li><a href="https://www.pombase.org/data/archive/Cosmid_sequences/">Cosmid sequences</a> and <a href="https://www.pombase.org/data/archive/Cosmid_assembly_data/">Chromosome tiling paths from genome sequence assembly</a></li>
+<li>You can also browse the files available from the <a href="ftp://ftp.ensemblgenomes.org/pub/current/fungi/">Ensembl Genomes FTP site</a>.</li>
+</ul>
+
+  </div>
   <div *ngIf="pageName == 'go-annotations'">
 <h2 id="go-annotations">GO annotations</h2>
 <p><em>S. pombe</em> GO annotations are available as tab-delimited files in <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF 2.2 format</a>. The files include annotations made by manual literature curation, annotations inferred from keyword mappings based on curated descriptions, and annotations shared by the UniProt <a href="http://www.ebi.ac.uk/GOA">GOA</a> team.</p>
@@ -3139,7 +3904,7 @@ On gene pages, we have links to gene-specific interaction networks in esyN in th
 <li>The Physical interactions section has links to two datasets:
 <ul>
 <li>All physical interactions curated in BioGRID for the gene</li>
-<li>Interactions for the gene in the PomBase <a href="/documentation/high-confidence-physical-interaction-network">High Confidence Physical Interaction Network (HCPIN)</a></li>
+<li>Interactions for the gene in the PomBase High Confidence Physical Interaction Network (HCPIN)</li>
 </ul></li>
 </ul>
 </div>
@@ -3658,13 +4423,13 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/status/gene-coordinate-changes-RNA">RNA genes</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/new-and-removed-genes">New and removed genes</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/gene-characterisation">Gene characterisation</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/status/priority-unstudied-genes">Priority unstudied genes</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/status/priority-unstudied-genes">Known/unknown protein roles</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/unmapped_genes">Unmapped genes</a></div>
 
 </app-page-contents-menu>
   <div class="docs-content">
   <div *ngIf="pageName == 'gene-characterisation'">
-<h3 id="protein-coding-gene-characterisation-status">Protein-coding gene characterisation status</h3>
+<h3 id="protein-coding-gene-characterisation-status-known-unknown">Protein-coding gene characterisation status (known/unknown)</h3>
 <p>Unknown proteins have become an increasing concern, as rates of gene characterisation have plateaued and a substantial proportion of proteins remain unstudied or understudied, even in the most intensively investigated model organisms. To monitor this issue, PomBase maintains an inventory of unknown proteins, originally described in <a href="https://doi.org/10.1098/rsob.180241">Wood <em>et al.</em> 2019</a>.</p>
 There are several ways to determine whether a gene is functionally
 characterised, and characterisation is best considered as a
@@ -3679,12 +4444,16 @@ It should be noted that
 {{getPredefinedQueryCount('canned_query:coding_genes_with_mf_annotation') | async}}
 </a>
 of the
+<a (click)="gotoPredefinedResults('canned_query:coding_genes_with_bp_annotation')">
 {{getPredefinedQueryCount('canned_query:coding_genes_with_bp_annotation') | async}}
+</a>
 proteins with a GO-slim biological process also have an assigned GO
 molecular function.
 <p>
 <p>We regularly review genes in the “unknown” category to determine whether new functional data are available from other species. A gene is classified as unknown when no broad biological role can be inferred from experimental data in S. pombe or from an experimentally characterised ortholog in any other organism. Importantly, we require robust supporting evidence to assign a GO biological process annotation. Finally, because every S. pombe gene has been reviewed for GO biological process, these genes are “known unknowns” rather than “unannotated”.</p>
-<h4 id="related-gene-lists">Related gene lists</h4>
+<h4 id="knownunknown-protein-status-tracker">Known/unknown protein status tracker</h4>
+<p><app-characterisation-status-table></app-characterisation-status-table></p>
+<h4 id="unknown-protein-related-lists">Unknown protein-related lists</h4>
 <table>
 <thead>
   <tr>
@@ -3694,54 +4463,60 @@ molecular function.
 </thead>
 <tr>
   <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:protein_coding_genes_unknown_process')">
-Unknown genes ({{getPredefinedQueryCount('canned_query:protein_coding_genes_unknown_process') | async}})
+Unknown role (GO-slim process) ({{getPredefinedQueryCount('canned_query:protein_coding_genes_unknown_process') | async}})
   </a>
   </td>
-  <td>Protein coding genes, unknown process</td>
+  <td>Equivalent to the "unknown" set in the tracker above</td>
 </tr>
 <tr>
   <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown')">
-Conserved unknown ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown') | async}})
+Unknown role, conserved ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown') | async}})
   </a>
   </td>
   <td>
-    Genes of unknown process, conserved outside the Schizosaccharomyces clade
+    Proteins of unknown GO-slim Biological Process, conserved outside the <i>Schizosaccharomyces</i> clade
   </td>
 </tr>
 <tr>
   <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates')">
-Priority unstudied genes ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates') | async}})
+Priority unknown role ({{getPredefinedQueryCount('priority-unstudied-genes:conserved_unknown_AND_conserved_in_vertebrates') | async}})
   </a>
   </td>
   <td>
-    Priority unknowns are the subset conserved to vertebrates (all
-    present in human), considered over at least ~1 billion years of
-    evolution. Some of these are universally conserved in bacteria and
-    archaea
+The subset of proteins of unknown biological role
+conserved to vertebrates (all present in human), conserved over at
+least ~1 billion years of evolution. Some are universally conserved in
+bacteria and archaea.
+  </td>
+</tr>
+<tr>
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:proteins_of_unknown_molecular_function')">
+Unknown molecular function ({{getPredefinedQueryCount('canned_query:proteins_of_unknown_molecular_function') | async}})
+  </a>
+  </td>
+  <td>
+    Proteins of unknown GO Molecular Function
+  </td>
+</tr>
+<tr>
+  <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('canned_query:unknown_process_known_function')">
+Unknown process, known function ({{getPredefinedQueryCount('canned_query:unknown_process_known_function') | async}})
+  </a>
+  </td>
+  <td>
+    Genes which have a known molecular function, but an unknown physiological role
   </td>
 </tr>
 <tr>
   <td style="white-space: nowrap;"><a routerLink="/gocam/missing-activities">Missing activities ({{getMissingActivityCount() | async}})</a></td>
   <td>
-    A list of activities known or suspected to occur in fission
-    yeast but not yet associated with a gene product. These "pathway
-    holes" have been identified through GO-CAM causal model curation.
+A list of activities known or suspected to occur in fission yeast but
+not yet associated with a gene product. These "pathway holes" have
+been identified through GO-CAM causal model curation.
   </td>
 </tr>
 </table>
-<h4 id="changes-over-time">Changes over time</h4>
-<p><a href="assets/gene_characterisation_status_figure.svg"><img src="assets/gene_characterisation_status_figure.svg" class="screenshot" alt="Gene characterisation status" /></a></p>
-<h4 id="current-status">Current status</h4>
-<p><app-characterisation-status-table></app-characterisation-status-table></p>
-<h4 id="protein-coding-gene-characterisation-status-descriptions">Protein-coding gene characterisation status descriptions</h4>
-<p><strong>Biological role published:</strong> Completely or partially characterised in a small scale experiment, with some published information about the biological role (corresponding to any of the <a href="browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO biological process slim</a> terms)</p>
-<p><strong>Biological role inferred:</strong> A biological role (as above, a <a href="browse-curation/fission-yeast-bp-go-slim-terms">fission yeast GO Process slim</a> term) is inferred from homology to an experimentally characterised gene product</p>
-<p><strong>Conserved protein (unknown biological role):</strong> Conserved outside the <i>Schizosaccharomyces</i>, but nothing known about the biological role in any organism</p>
-<p><strong><i>Schizosaccharomyces</i> specific protein, uncharacterized:</strong> Unpublished and found only in fission yeast (<i>S. pombe</i>, <i>S. octosporus</i>, <i>S. japonicus</i>, <i>S. cryophilus</i>); nothing known about biological role. May be single copy or a member of a multi-member family.</p>
-<p><strong><i>S. pombe</i> specific protein, uncharacterized:</strong> Unpublished and found only in <i>S. pombe</i> (not detected in other <i>Schizosaccharomyces</i> species); nothing known about biological role</p>
-<p><strong>Dubious:</strong> Unlikely to be protein coding</p>
-<p><strong>Transposon:</strong> A predicted or experimentally verified transposable element.</p>
-<p>Note: You can retrieve current lists of genes with each characterisation status using the <a routerLink="/query">advanced search</a>. Select the Characterisation status query, then choose a status from the pulldown menu, and submit.</p>
+<p>Note: You can also retrieve current lists of genes with each characterisation status using the <a routerLink="/query">advanced search</a>. Select the Characterisation status query, then choose a status from the pulldown menu, and submit.</p>
 
   </div>
   <div *ngIf="pageName == 'gene-characterisation-statistics-history'">
