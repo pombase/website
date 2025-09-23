@@ -13,7 +13,7 @@ Please note that in some cases these may not be present, or a reaction
 may be spontaneous.
 
 The list is currently linked to from the
-[gene characterisation page](/status/gene-characterisation)
+[gene characterisation page](/status/protein-status-tracker)
 and from the [GO-CAM pathway list](/documentation/gocams).
 
 Example of pathway with a missing gene / pathway hole:

@@ -16,7 +16,7 @@ Note: Because *S. japonicus* curation has begun so recently, many of these pages
 %%end db=PomBase
 | [New and removed genes](status/new-and-removed-genes) | Genes identified or removed since publication |
 %%if db=PomBase
-| [Gene characterisation](status/gene-characterisation) | Current counts of protein coding gene status, as published in small scale experiments |
+| [Gene characterisation](status/protein-status-tracker) | Current counts of protein coding gene status, as published in small scale experiments |
 | [Genome statistics](status/statistics) |  Information on the status of the genome (Note: Last updated January 2017) |
 | [Priority unstudied genes](status/priority-unstudied-genes) | Unstudied nuclear-encoded protein-coding genes conserved 1:1 in human |
 %%end db=PomBase

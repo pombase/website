@@ -408,7 +408,7 @@ genes with a curated ortholog in the selected species.
 #### Characterisation status
 
 Choose one of the descriptions from the pulldown menu. See the [gene
-characterisation page](status/gene-characterisation) for more
+characterisation page](status/protein-status-tracker) for more
 information.
 %%end db=PomBase
 

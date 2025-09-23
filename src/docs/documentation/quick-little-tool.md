@@ -70,7 +70,7 @@ At present, QuiLT includes:
 - GO cellular component
 - GO molecular function
 %%if db=PomBase
-- [Characterization status](/status/gene-characterisation) for protein-coding genes
+- [Characterization status](/status/protein-status-tracker) for protein-coding genes
 - [Taxonomic distribution](/documentation/taxonomic-conservation)
 %%end db=PomBase
 - Protein length
