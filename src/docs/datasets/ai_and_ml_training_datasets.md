@@ -53,5 +53,5 @@ or allele and an ontology term:
 
 | File | Description |
 | :---- | :---- |
-| canto\_go\_annotations\_with\_comments.tsv | Manual GO annotations with comments, TSV format |
-| canto\_fypo\_annotations\_with\_comments.tsv | Manual phenotype annotations with comments, TSV format |
+| [canto_go_annotations_with_comments.tsv](https://curation.pombase.org/dumps/latest_build/misc/canto_fypo_annotations_with_comments.tsv) | Manual GO annotations with comments, TSV format |
+| [canto_fypo_annotations_with_comments.tsv](https://curation.pombase.org/dumps/latest_build/misc/canto_go_annotations_with_comments.tsv) | Manual phenotype annotations with comments, TSV format |
