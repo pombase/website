@@ -43,13 +43,14 @@ or allele and an ontology term:
    well-known facts that are **already well-represented in the
    dataset**. For example, we wouldn't repeatedly curate that *cdc2*
    is part of the G2/M transition from every publication that confirms
-   it. While an AI prediction might not be wrong for adding such a
-   fact, our manual curation prioritises **non-redundancy** to
-   demonstrate reproducibility without creating duplicate entries.
+   it. While an AI prediction might not be wrong for adding such a fact,
+   our manual curation prioritises non-redundancy after reproducibility
+   is sufficiently captured for GO.  (We would, however, usually curate
+   the associated phenotypes  redundantly using the same or different
+   alleles, unless it is clearly stated to be confirmation of a commonly
+   reproduced experiment)
 
 
-
-(we need to decide are we exporting i) only annotations with comments or ii) all annotations from papers with some comments (I think 2 might be better so users can see that there are more annotations than the commented ones) \- 
 
 | File | Description |
 | :---- | :---- |
