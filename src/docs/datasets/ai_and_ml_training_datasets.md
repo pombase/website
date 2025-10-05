@@ -1,4 +1,4 @@
-# AI TRAINING DATASETS LANDING PAGE
+# AI TRAINING DATASETS 
 
 These datasets represent high-quality, manually reviewed datasets that
 are useful for training and benchmarking AI-based models and
@@ -6,7 +6,7 @@ workflows.
 
 [Latest release of training datasets](https://www.pombase.org/latest_release/training_data_for_ML_and_AI)
 
-## Comprehensive datasets for named entity datasets for grounding and normalisation
+## Datasets for named entity recognition grounding and normalisation
 
 | File | Description |
 | :---- | :---- |
