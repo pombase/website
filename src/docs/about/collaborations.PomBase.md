@@ -27,8 +27,6 @@
   AlphaFold reciprocal best structure hits. See this
   [*Bioinformatics Advances* publication](https://doi.org/10.1093/bioadv/vbac072).
 
-- **[Intermine](http://intermine.org/)** is a data warehouse that integrates heterogeneous data from different model organisms. Users can simultaneously query data from *${genus_and_species}* and other organisms through a website, a web API or client libraries in several programming languages. We have actively collaborated with InterMine to integrate data from ${database_name} into a ‘PombeMine’ and to improve PombeMine to better support our users. [Read more](https://www.pombase.org/pombemine).
-
 - The [**Gene Ontology Consortium**](http://geneontology.org/) oversees the development of GO, to standardise the functional description of gene products. ${database_name} is a member of the GO consortium. ${database_name} Co-PI and project manager Valerie Wood is a member of the GO council, and funded to work on GO development as PI of a GO subcontract. Our curators actively contribute to GO development requesting changes and additions to the ontology. We also participate in other GO-related projects, for example:
 
   - The [**Term Matrix annotation QC**](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7536087/) project, a framework to develop rules to identify potentially incorrect GO annotations by identifying genes annotated to two biological processes unlikely to be co-annotated to the same gene products.
