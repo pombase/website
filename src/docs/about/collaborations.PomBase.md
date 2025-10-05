@@ -11,6 +11,12 @@
 
 - **[uPheno](https://obofoundry.org/ontology/upheno.html)** is another component of the Monarch Initiative with the goal of integrating multiple phenotype ontologies into a unified cross-species phenotype ontology to make them interoperable. This interoperability is achieved by developing templates for phenotype logical definitions. We interact with uPheno developers to develop and implement standardised definition templates into FYPO .
 
+
+- **[Chris Mungall](https://biosciences.lbl.gov/profiles/chris-mungall/)** \
+  Head of the Biosystems Data Science, Lawrence Berkeley Lab
+  We work with Chris and his team on multiple AI-related projects related 
+  to ontologies and biocuration.
+
 - **[Pfam](https://pfam.xfam.org/)** and
   **[InterPro](https://www.ebi.ac.uk/interpro/)** are protein family
   databases. We have been collaborating with the Pfam and InterPro
