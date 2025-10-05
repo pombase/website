@@ -9,11 +9,11 @@
 
 - **[Mondo](https://mondo.monarchinitiative.org/)** is a disease ontology developed as part of the Monarch initiative. It aims to merge multiple disease ontologies and develop guidelines for disease logical definitions, which are computer-readable. We actively contribute to the development of this ontology, and [link fission yeast genes with Mondo terms](${base_url}/news#human-disease-association-changes-monarch).
 
-- **[uPheno](https://obofoundry.org/ontology/upheno.html)** is another component of the Monarch Initiative with the goal of integrating multiple phenotype ontologies into a unified cross-species phenotype ontology to make them interoperable. This interoperability is achieved by developing templates for phenotype logical definitions. We interact with uPheno developers to develop and implement standardised definition templates into FYPO .
+- **[uPheno](https://obofoundry.org/ontology/upheno.html)** is another component of the Monarch Initiative with the goal of integrating multiple phenotype ontologies into a unified cross-species phenotype ontology to make them interoperable. This interoperability is achieved by developing templates for phenotype logical definitions. We interact with uPheno developers to develop and implement standardised definition templates into [FYPO](http://dx.doi.org/10.1093/bioinformatics/btt266).
 
 
-- **[Chris Mungall](https://biosciences.lbl.gov/profiles/chris-mungall/)** \
-  Head of the Biosystems Data Science, Lawrence Berkeley Lab
+- **[Chris Mungall](https://biosciences.lbl.gov/profiles/chris-mungall/)** 
+  is head of the Biosystems Data Science, Lawrence Berkeley Lab.
   We work with Chris and his team on multiple AI-related projects related 
   to ontologies and biocuration.
 
