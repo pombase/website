@@ -38,6 +38,7 @@
       "community/pombase_2006_survey_summary" : "2006 survey for GeneDB S. pombe",
       "community/pombetalks" : "pombeTalks - Talks by and for the fission yeast community.",
       "datasets" : "Datasets",
+      "datasets/ai_and_ml_training_datasets" : "AI TRAINING DATASETS",
       "datasets/index" : "Datasets",
       "documentation" : "PomBase Web Site Help & Documentation",
       "documentation/Broad_dataset_email" : "Email: Import of the fission yeast revisions from the Broad Institute comparative genome paper into GeneDB",
