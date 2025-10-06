@@ -32,9 +32,7 @@ or allele and an ontology term:
    from high-throughput datasets**.   
 
  * For publications with comments, not every annotation has a “text
-   span” comment. In the future, we plan to use an **AI-supported
-   system** to backfill these comments by analysing reasoning
-   traces. We have included all annotations from any publication with
+   span” comment. We have included all annotations from any publication with
    any comments in these files.
   
   
@@ -45,10 +43,7 @@ or allele and an ontology term:
    is part of the G2/M transition from every publication that confirms
    it. While an AI prediction might not be wrong for adding such a fact,
    our manual curation prioritises non-redundancy after reproducibility
-   is sufficiently captured for GO (We would, however, usually curate
-   the associated phenotypes  redundantly using the same or different
-   alleles, unless it is clearly stated to be confirmation of a commonly
-   reproduced experiment).
+   is sufficiently captured for GO. 
 
 
 
