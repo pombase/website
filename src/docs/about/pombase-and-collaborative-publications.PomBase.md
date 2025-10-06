@@ -7,6 +7,15 @@ Canto, FYPO, annotations and Compara.
 ### Preprints 
 
 ::: { .publication-badges }
+<app-publication-badge [doi]="'10.1101/2025.09.19.677274'"></app-publication-badge>
+:::
+::: { .pub-citation }
+A.F. Green *et al.* \
+RNAcentral in 2026: Genes and literature integration \
+[Pre-publication manuscript on bioRxiv](https://doi.org/10.1101/2025.09.19.677274)
+:::
+
+::: { .publication-badges }
 <app-publication-badge [doi]="'10.1101/2022.04.13.22273750'"></app-publication-badge>
 :::
 ::: { .pub-citation }
