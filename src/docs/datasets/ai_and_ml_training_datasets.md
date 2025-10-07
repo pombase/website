@@ -1,4 +1,4 @@
-# AI TRAINING DATASETS 
+# AI Training Datasets
 
 These datasets represent high-quality, manually reviewed datasets that
 are useful for training and benchmarking AI-based models and
@@ -29,13 +29,12 @@ or allele and an ontology term:
 
  * The data only includes **manually curated associations** from
    small-scale, hypothesis-driven publications, and it **excludes data
-   from high-throughput datasets**.   
+   from high-throughput datasets**.
 
  * For publications with comments, not every annotation has a “text
    span” comment. We have included all annotations from any publication with
    any comments in these files.
-  
-  
+
  * **GO Annotation:**  Although we curate redundant annotations to
    demonstrate reproducibility, we do not typically re-curate
    well-known facts that are **already well-represented in the
@@ -43,11 +42,10 @@ or allele and an ontology term:
    is part of the G2/M transition from every publication that confirms
    it. While an AI prediction might not be wrong for adding such a fact,
    our manual curation prioritises non-redundancy after reproducibility
-   is sufficiently captured for GO. 
-
+   is sufficiently captured for GO.
 
 
 | File | Description |
 | :---- | :---- |
-| [canto_go_annotations_with_comments.tsv](https://curation.pombase.org/dumps/latest_build/misc/canto_fypo_annotations_with_comments.tsv) | Manual GO annotations with comments, TSV format |
-| [canto_fypo_annotations_with_comments.tsv](https://curation.pombase.org/dumps/latest_build/misc/canto_go_annotations_with_comments.tsv) | Manual phenotype annotations with comments, TSV format |
+| [canto_go_annotations_with_comments.tsv](https://curation.pombase.org/dumps/latest_build/misc/canto_fypo_annotations_with_comments.tsv) | Manual GO annotations with comments, [PHAF TSV format](/downloads/phenotype-annotations) with a "comments" column |
+| [canto_fypo_annotations_with_comments.tsv](https://curation.pombase.org/dumps/latest_build/misc/canto_go_annotations_with_comments.tsv) | Manual phenotype annotations with comments, [GAF 2.2 TSV format](/downloads/go-annotations) with a "comments" column |
