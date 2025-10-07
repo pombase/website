@@ -10,7 +10,7 @@ Canto, FYPO, annotations and Compara.
 <app-publication-badge [doi]="'10.1101/2025.09.19.677274'"></app-publication-badge>
 :::
 ::: { .pub-citation }
-A.F. Green *et al.* \
+A.F. Green *et al.* (Val Wood and Kim Rutherford, consortium authors) \
 RNAcentral in 2026: Genes and literature integration \
 [Pre-publication manuscript on bioRxiv](https://doi.org/10.1101/2025.09.19.677274)
 :::
