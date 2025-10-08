@@ -14,6 +14,7 @@ Upcoming talks will be announced on:
   - pombe mailing list ([subscribe](https://lists.cam.ac.uk/sympa/subscribe/ucam-pombelist?previous_action=info))
   - pombe Slack
   - Twitter using `#pombeTalks`
+  - the PomBase front page news feed
 
 Zoom details will be shared shortly before the talk by email and
 Slack.
