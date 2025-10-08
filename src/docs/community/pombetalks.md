@@ -22,7 +22,7 @@ Slack.
 Want to be notified by mail separately?  Fill in
 [this form](https://forms.gle/ZbirDDi6ZoWXFZia8)
 
-### Season six talk dates
+### Season 06 talk dates
 
 |Dates | Time Zone CET | Speaker 1 | Speaker 2 |
 | --- | ---: | --- | --- |
@@ -35,7 +35,7 @@ Want to be notified by mail separately?  Fill in
 |May 20 2026 | 17:00 | TBA | TBA |
 |June 17 2026 | 09:00 | TBA | TBA |
 
-### Meet the Season 06 Organizers
+### Meet the season 06 organizers
 
 ```{=html}
 <div class="inline-block">
