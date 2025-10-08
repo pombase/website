@@ -16,7 +16,7 @@ The list is currently linked to from the
 [gene characterisation page](/status/protein-status-tracker)
 and from the [GO-CAM pathway list](/documentation/gocams).
 
-Example of pathway with a missing gene / pathway hole:
-[nitrogen cycle metabolic process (GO:0071941)](/gocam/pombase-view/gene/665912ed00002626/SPAC1F7.09c/dal2)
+Example of pathway with a missing activities / pathway holes:
+[aromatic amino acid biosynthetic process (GO:0009073)](/gocam/pombase-view/docs/67369e7600004623)
 
-[![Example GO-CAM pathway hole - nitrogen cycle metabolic process](/assets/newsfeed/gocam_pathway_hole.png){ .screenshot loading="lazy" width=100% }](assets/newsfeed/gocam_pathway_hole.png)
+[![Example GO-CAM pathway hole - aromatic amino acid biosynthetic process](/assets/newsfeed/gocam_pathway_hole.png){ .screenshot loading="lazy" width=100% }](assets/newsfeed/gocam_pathway_hole.png)
