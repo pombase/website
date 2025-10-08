@@ -40,7 +40,7 @@ export class GocamConnectionsComponent {
   }
 
   setPageTitle(): void {
-    let title = this.appConfig.site_name + ' - GO-CAM';
+    let title = this.appConfig.site_name + ' - GO-CAM pathways';
 
     if (this.pagePath == 'summary/connected') {
       title += ' - Summary: Connected models';
