@@ -46,6 +46,10 @@ export class GocamConnectionsComponent {
       title += ' - Summary: Connected models';
     } else if (this.pagePath == 'summary/all') {
       title += ' - Summary: All models';
+    } else if (this.pagePath == 'summary/missing-activities') {
+      title += ' - Missing Activities';
+    } else if (this.pagePath == 'summary/connections') {
+      title += ' - Pathway Joining Activities';
     }
 
     this.titleService.setTitle(title);
