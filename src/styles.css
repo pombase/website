@@ -670,6 +670,14 @@ details {
   margin: 1em 0.5em;
 }
 
+.docs-content .inline-block {
+  display: inline-block;
+}
+
+.docs-content .centre {
+  text-align: center;
+}
+
 .docs-image-flex {
   display: flex;
 }
