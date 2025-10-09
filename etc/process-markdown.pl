@@ -807,7 +807,7 @@ sub angular_link {
 
   $path =~ s/\.md$//;
 
-  if ($path =~ /\.(?:png|gif|pdf|svg)($|\s)/ ||
+  if ($path =~ /\.(?:png|jpg|gif|pdf|svg)($|\s)/ ||
     $path =~ /^mailto:/) {
     return "[$title]($path)";
   }
