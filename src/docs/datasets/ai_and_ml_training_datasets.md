@@ -17,7 +17,7 @@ workflows.
 
 | File | Description |
 | :---- | :---- |
-| Curatable publications  | Publications likely to contain gene-specific data for curation, but not yet curated |
+| Curatable publications, not yet curated  | Publications likely to contain gene-specific data for curation, but not yet curated |
 | Canto Curated publications | Publications with gene-specific curation that have been curated in the Canto curation tool (post 2013), providing comprehensive GO and phenotype annotation. Other publications (pre-2013), may have some GO curation, but this will not be comprehensive and will exclude many phenotypes. In addition, many of the  publications curated in Canto have been curated by the author and reviewed and extended by professional curators, with additional re-review by the author making this dataset  exceptionally high quality. |
 | [canto_pub_classification.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_pub_classification.tsv) | Literature triage classifier labels |
 
