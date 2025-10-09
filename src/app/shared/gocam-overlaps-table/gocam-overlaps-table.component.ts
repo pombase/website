@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PombaseAPIService, GoCamGene, GeneSummary, GoCamComponent, GoCamProcess, GoCamChemical, GoCamComplex, GoCamModelId, GoCamModelTitle, GoCamDirection } from '../../pombase-api.service';
+import { PombaseAPIService, GoCamGene, GeneSummary, GoCamComponent, GoCamProcess, GoCamChemical, GoCamComplex, GoCamModelId, GoCamModelTitle, GoCamDirection, GoCamActivity } from '../../pombase-api.service';
 
 interface DisplayOverlap {
   node_id: string;
@@ -39,12 +39,15 @@ export class GocamOverlapsTableComponent implements OnInit {
           let enabledByChemical;
           let enabledByComplex;
           if (nodeTypeAny.activity) {
-            if (nodeTypeAny.activity.gene) {
-              enabledByGene = nodeTypeAny.activity.gene as GoCamGene;
-            } else if (nodeTypeAny.activity.chemical) {
-              enabledByChemical = nodeTypeAny.activity.chemical as GoCamChemical;
-            } else if (nodeTypeAny.activity.complex) {
-              enabledByComplex = nodeTypeAny.activity.complex as GoCamComplex;
+            let activity = nodeTypeAny.activity as GoCamActivity;
+            let enabler = activity.enabler;
+
+            if (enabler.gene) {
+              enabledByGene = enabler.gene as GoCamGene;
+            } else if (enabler.chemical) {
+              enabledByChemical = enabler.chemical as GoCamChemical;
+            } else if (enabler.complex) {
+              enabledByComplex = enabler.complex as GoCamComplex;
             }
           }
           if (!enabledByGene && !enabledByChemical && !enabledByComplex) {

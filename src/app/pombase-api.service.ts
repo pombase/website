@@ -862,8 +862,17 @@ export interface GoCamModifiedProtein {
 
 }
 
-export interface GoCamActivity {
+export interface GoCamEnabler {
   gene?: GoCamGene;
+  chemical?: GoCamChemical;
+  complex?: GoCamComplex;
+  modified_protein?: GoCamModifiedProtein;
+}
+
+export interface GoCamActivity {
+  enabler: GoCamEnabler;
+  inputs: Array<GoCamChemical>;
+  outputs: Array<GoCamChemical>;
 }
 
 export type GoCamNodeType = "unknown"|"chemical"|"unknown_mrna"|

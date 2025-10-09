@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GoCamComponent, GoCamNodeType,
+import { GoCamActivity, GoCamComponent, GoCamNodeType,
          GoCamProcess, PombaseAPIService } from '../../pombase-api.service';
 
 interface DisplayNode {
@@ -39,25 +39,27 @@ export class GoCamHolesTableComponent {
               node.occurs_in.map(o => o['other_component'] || o['complex_component']);
           }
 
-          let has_input;
-
-          if (node.has_input && node.has_input.length != 0) {
-            const labels = node.has_input.map((input) => input.label);
-            has_input = labels.join(',');
-          } else {
-            has_input = '?';
-          }
-
-          let has_output;
-
-          if (node.has_output && node.has_output.length != 0) {
-            const labels = node.has_output.map((output) => output.label);
-            has_output = labels.join(',');
-          } else {
-            has_output = '?';
-          }
-
           if (nodeTypeAny.activity) {
+            let activity = nodeTypeAny.activity as GoCamActivity;
+
+            let has_input;
+
+            if (activity.inputs && activity.inputs.length != 0) {
+              const labels = activity.inputs.map((input) => input.label);
+              has_input = labels.join(',');
+            } else {
+              has_input = '?';
+            }
+
+            let has_output;
+
+            if (activity.outputs && activity.outputs.length != 0) {
+              const labels = activity.outputs.map((output) => output.label);
+              has_output = labels.join(',');
+            } else {
+              has_output = '?';
+            }
+
             const displayNode = {
               node_id: node.node_id,
               label: node.label,
