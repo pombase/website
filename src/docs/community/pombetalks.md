@@ -26,7 +26,7 @@ Want to be notified by mail separately?  Fill in
 
 |Dates | Time Zone CET | Speaker 1 | Speaker 2 |
 | --- | ---: | --- | --- |
-|October 15 2025 | 17:00 | TBA | TBA |
+|October 15 2025 | 17:00 | Alfonso Fernández Álvarez | Ivan Surovtsev |
 |November 19 2025 | 09:00 | TBA | TBA |
 |January 21 2026 | 17:00 | TBA | TBA |
 |February 18 2026 | 17:00 | TBA | TBA |
