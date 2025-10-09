@@ -43,13 +43,19 @@ export class GocamConnectionsComponent {
     let title = this.appConfig.site_name + ' - GO-CAM pathways';
 
     if (this.pagePath == 'summary/connected') {
-      title += ' - Summary: Connected models';
+      title += ' - Summary Map: Connected pathways';
     } else if (this.pagePath == 'summary/all') {
-      title += ' - Summary: All models';
+      title += ' - Summary Map: All pathways';
+    } else if (this.pagePath == 'mega-model/connected') {
+      title += ' - Mega Model: Connected pathways';
+    } else if (this.pagePath == 'mega-model/all') {
+      title += ' - Mega Model: All pathways';
     } else if (this.pagePath == 'missing-activities') {
       title += ' - Missing Activities';
     } else if (this.pagePath == 'connections') {
       title += ' - Pathway Joining Activities';
+    } else if (this.pagePath == 'model-list') {
+      title += ' - Pathway list';
     }
 
     this.titleService.setTitle(title);
