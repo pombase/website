@@ -7,5 +7,6 @@
 %%if db=JaponicusDB
 - [Mailing list](https://mailman.kcl.ac.uk/mailman/listinfo/japonicus-list)
 %%end db=JaponicusDB
+- [pombeTalks](community/pombetalks) - Talks by and for the fission yeast community
 - [External resources](community/internet-resources)
 
