@@ -13,12 +13,11 @@ workflows.
 | [gene_IDs_names_products.tsv](https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_IDs_names_products.tsv)     | All PomBase systematic IDs, gene names, and synonyms for fission yeast,  linked to UniProt identifiers |
 | [alleles.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/alleles.tsv) | All PomBase curated alleles, including names, types and standardised descriptions |
 
-## Datasets for Literature Classification
+## Publication Datasets
 
 | File | Description |
 | :---- | :---- |
-| Curatable publications, not yet curated  | Publications likely to contain gene-specific data for curation, but not yet curated |
-| Canto Curated publications | Publications with gene-specific curation that have been curated in the Canto curation tool (curated post 2013), providing comprehensive annotation for GO, phenotypes, modifications, interactions and qualitative gene expression. Other publications (pre-2013), may have some GO curation, but this will not be comprehensive and will exclude most other datatypes. In addition, many of the  publications curated in Canto have been curated by the author and reviewed and extended by professional curators, with additional re-review by the author making this dataset  exceptionally high quality. |
+| Canto Curated publications | Publications that have been manually curated by PomBase. Some of these publications do not contain gene-specific data (for example browser datasets, or sequence features)
 | [canto_pub_classification.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_pub_classification.tsv) | Literature triage classifier labels |
 
 ## Datasets for Function Extraction
