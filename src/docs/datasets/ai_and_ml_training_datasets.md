@@ -30,9 +30,7 @@ or allele and an ontology term:
    small-scale, hypothesis-driven publications, and it **excludes data
    from high-throughput datasets**.
 
- * For publications with comments, not every annotation has a “text
-   span” comment. We have included all annotations from any publication with
-   any comments in these files.
+ * We have included all annotations from any publication in these files. We have not captured 'Text Span' or figure number for every single annotation. 
 
  * **GO Annotation:**  Although we curate redundant annotations to
    demonstrate reproducibility, we do not typically re-curate
