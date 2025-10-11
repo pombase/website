@@ -24,19 +24,20 @@ RNAcentral in 2026: Genes and literature integration \
 [Pre-publication manuscript on bioRxiv](https://doi.org/10.1101/2025.09.19.677274)
 :::
 
-::: { .publication-badges }
-<app-publication-badge [doi]="'10.1101/2022.04.13.22273750'"></app-publication-badge>
-:::
-::: { .pub-citation }
-Vasilevsky NA, Matentzoglu NA, *et al.* (Val Wood co-author) \
-Mondo: Unifying diseases for the world, by the world \
-[Pre-publication manuscript at medRxiv](https://www.medrxiv.org/content/10.1101/2022.04.13.22273750v3)
-:::
-
 <div class="clear-float"></div>
 
 
 ### Journal articles
+
+::: { .publication-badges }
+<app-publication-badge [doi]="'10.1093/genetics/iyaf215'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Vasilevsky NA, Matentzoglu NA, *et al.* (Val Wood co-author) \
+Mondo: Unifying diseases for the world, by the world \
+*Genetics*, October 2025, iyaf215
+[10.1093/genetics/iyaf215](https://doi.org/10.1093/genetics/iyaf215)
+:::
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/genetics/iyaf027'"></app-publication-badge>
