@@ -13,12 +13,11 @@ workflows.
 | [gene_IDs_names_products.tsv](https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_IDs_names_products.tsv)     | All PomBase systematic IDs, gene names, and synonyms for fission yeast,  linked to UniProt identifiers |
 | [alleles.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/alleles.tsv) | All PomBase curated alleles, including names, types and standardised descriptions |
 
-## Datasets for Literature Classification
+## Publication Datasets
 
 | File | Description |
 | :---- | :---- |
-| Curatable publications  | Publications likely to contain gene-specific data for curation |
-| Curated publications | Publications with gene-specific curation  |
+| Canto Curated publications | Publications that have been manually curated by PomBase. Some of these publications do not contain gene-specific data (for example browser datasets, or sequence features)
 | [canto_pub_classification.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_pub_classification.tsv) | Literature triage classifier labels |
 
 ## Datasets for Function Extraction
@@ -31,9 +30,7 @@ or allele and an ontology term:
    small-scale, hypothesis-driven publications, and it **excludes data
    from high-throughput datasets**.
 
- * For publications with comments, not every annotation has a “text
-   span” comment. We have included all annotations from any publication with
-   any comments in these files.
+ * We have included all annotations from any publication in these files. We have not captured 'Text Span' or figure number for every single annotation. 
 
  * **GO Annotation:**  Although we curate redundant annotations to
    demonstrate reproducibility, we do not typically re-curate
