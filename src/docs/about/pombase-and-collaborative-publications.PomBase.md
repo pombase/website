@@ -35,8 +35,8 @@ RNAcentral in 2026: Genes and literature integration \
 ::: { .pub-citation }
 Vasilevsky NA, Matentzoglu NA, *et al.* (Val Wood co-author) \
 Mondo: Unifying diseases for the world, by the world \
-*Genetics*, October 2025, iyaf215
-[10.1093/genetics/iyaf215](https://doi.org/10.1093/genetics/iyaf215)
+*Genetics*, October 2025, iyaf215 \
+[PMID:41052288](https://pubmed.ncbi.nlm.nih.gov/41052288/) [10.1093/genetics/iyaf215](https://doi.org/10.1093/genetics/iyaf215)
 :::
 
 ::: { .publication-badges }
