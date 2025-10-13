@@ -173,22 +173,8 @@
   padding-top: 0.3em;
 }
 
-.panel-container {
-  grid-template-rows: auto auto auto 0fr 1fr;
-  grid-gap: 4em 4.5em;
-}
-
-.front-news-feed {
-  grid-column: 2 / 4;
-  grid-row: 1 / 5;
-}
-
 .panel-title {
   margin: 0.2em;
-}
-
-.front-panel-twitter {
-  grid-row: 4 / 5;
 }
 
 @media (min-width: 800px) {
@@ -197,6 +183,23 @@
   }
   .panel-container {
     margin-top: 1.8em;
+    grid-template-rows: auto auto auto auto 1fr;
+    grid-gap: 4em 4.5em;
+  }
+
+  .front-news-feed {
+    grid-column: 2 / 4;
+    grid-row: 1 / 6;
+  }
+}
+
+@media (max-width: 799px) {
+  .panel-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .front-news-feed {
+    order: 99;
   }
 }
 
