@@ -86,3 +86,24 @@ table {
 tr:nth-child(odd) {
   background-color: #f3f3fa;
 }
+
+.talks-table th {
+  white-space: nowrap;
+}
+
+.talks-table td {
+  vertical-align: top;
+}
+
+.talks-table .talks-speaker, .talks-table .talks-topic {
+  font-weight: bold;
+}
+
+.talks-table ul {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.talks-table li {
+  padding-bottom: 0.3em;
+}

@@ -24,16 +24,121 @@ Want to be notified by mail separately?  Fill in
 
 ### Season 06 talk dates
 
-|Dates | Time Zone CET | Speaker 1 | Speaker 2 |
-| --- | ---: | --- | --- |
-|October 15 2025 | 17:00 | Alfonso Fernández Álvarez | Ivan Surovtsev |
-|November 19 2025 | 09:00 | TBA | TBA |
-|January 21 2026 | 17:00 | TBA | TBA |
-|February 18 2026 | 17:00 | TBA | TBA |
-|March 18 2026 | 09:00 | TBA | TBA |
-|April 15 2026 | 17:00 | TBA | TBA |
-|May 20 2026 | 17:00 | TBA | TBA |
-|June 17 2026 | 09:00 | TBA | TBA |
+```{=html}
+<table class="talks-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time (<a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">CET</a>)</th>
+      <th>Speakers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>October 15 2025</td>
+      <td><a href="https://everytimezone.com/s/b35565bf" title="Click to view in your time zone">17:00</a></td>
+      <td>
+        <ul>
+          <li>
+            <div class="talks-speaker">Alfonso Fernández Álvarez</div>
+            <div>
+              Institute of Functional Biology and Genomics (IBFG-CSIC) Salamanca, Spain
+            </div>
+            <div class="talks-topic">
+              The choreography of telomere bouquet formation begins at the centromeres
+            </div>
+          </li>
+          <li>
+            <div class="talks-speaker">Ivan Surovtsev</div>
+            <div>
+              Megan King and Patrick Lusk lab, Yale School of Medicine, United States
+            </div>
+            <div class="talks-topic">
+              Mechanical Communication Across the Nucleus: Chromatin-Mediated Long-Range Loci Dynamics Correlation
+            </div>
+          </li>
+        </ul>
+      </td>
+    <tr>
+      <td>
+        November 19 2025
+      </td>
+      <td>
+        09:00
+      </td>
+      <td>
+        TBA
+      </td>
+    </tr>
+    <tr>
+      <td>
+        January 21 2026
+      </td>
+      <td>
+        17:00
+      </td>
+      <td>
+        TBA
+      </td>
+    </tr>
+    <tr>
+      <td>
+        February 18 2026
+      </td>
+      <td>
+        17:00
+      </td>
+      <td>
+        TBA
+      </td>
+    </tr>
+    <tr>
+      <td>
+        March 18 2026
+      </td>
+      <td>
+        09:00
+      </td>
+      <td>
+        TBA
+      </td>
+    </tr>
+    <tr>
+      <td>
+        April 15 2026
+      </td>
+      <td>
+        17:00
+      </td>
+      <td>
+        TBA
+      </td>
+    </tr>
+    <tr>
+      <td>
+        May 20 2026
+      </td>
+      <td>
+        17:00
+      </td>
+      <td>
+        TBA
+      </td>
+    </tr>
+    <tr>
+      <td>
+        June 17 2026
+      </td>
+      <td>
+        09:00
+      </td>
+      <td>
+        TBA
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
 
 ### Meet the season 06 organizers
 
