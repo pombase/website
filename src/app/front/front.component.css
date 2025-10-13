@@ -174,13 +174,17 @@
 }
 
 .panel-container {
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: auto auto auto 0fr 1fr;
   grid-gap: 4em 4.5em;
 }
 
 .front-news-feed {
   grid-column: 2 / 4;
   grid-row: 1 / 5;
+}
+
+.panel-title {
+  margin: 0.2em;
 }
 
 .front-panel-twitter {
