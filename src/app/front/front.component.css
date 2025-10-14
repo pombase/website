@@ -211,7 +211,7 @@
   }
   .front-news-feed {
     grid-column: 2 / 5;
-    grid-row: 4 / 12;
+    grid-row: 45 / 12;
   }
 }
 @media (max-width: 799px) {
@@ -235,6 +235,7 @@
   }
   .front-news-feed {
     grid-column: span 2;
+    order: 99;
   }
 }
 
@@ -254,4 +255,9 @@
 
 .gcbr-elixir-logo img {
   height: 52px;
+}
+
+.overview-block {
+  display: inline-block;
+  vertical-align: top;
 }

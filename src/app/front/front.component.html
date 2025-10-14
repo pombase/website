@@ -13,15 +13,18 @@
   <span class="quick-links-group">
     <span class="quick-links-title">Downloads:</span>
     <span class="quick-links-label">
-      <a routerLink="/datasets">Datasets</a>
+      <a routerLink="/datasets"
+         title="Documentation and links for all datasets">Datasets</a>
     </span>
-    <span class="quick-links-separator">&#x25CF;</span>
-    <span class="quick-links-label">
-      <a href="/latest_release">Latest monthly release</a>
-    </span>
-    <span class="quick-links-separator">&#x25CF;</span>
-    <span class="quick-links-label">
-      <a href="/monthly_releases">Release archive</a>
+    <span *ngIf="siteName == 'PomBase'">
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label">
+        <a href="/latest_release" title="Direct link to the latest monthly data release">Latest monthly release</a>
+      </span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label">
+        <a href="/monthly_releases" title="Direct link to the archive of previous releases">Release archive</a>
+      </span>
     </span>
   </span>
   <span class="quick-links-group">
@@ -85,31 +88,43 @@
   </span>
   <span class="quick-links-group">
     <span class="quick-links-line">
+      <div class="overview-block">
       <span class="quick-links-title">Overviews:</span>
+      </div>
+      <div class="overview-block">
+        <div>
       <span class="quick-links-label">
-        <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">Function</a>
+        <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms"
+           title="Gene Ontology molecular function overview">Function</a>
       </span>
       <span class="quick-links-separator">&#x25CF;</span>
       <span class="quick-links-label">
-        <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">Process</a>
+        <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms"
+           title="Gene Ontology biological process overview">Process</a>
       </span>
       <span class="quick-links-separator">&#x25CF;</span>
       <span class="quick-links-label">
-        <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">Component</a>
+        <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms"
+           title="Gene Ontology cellular component overview">Component</a>
       </span>
-      <span *ngIf="hasDiseaseAnnotation" class="quick-links-separator">&#x25CF;</span>
+        </div>
+        <div>
       <span *ngIf="hasDiseaseAnnotation" class="quick-links-label">
-        <a routerLink="/browse-curation/disease-slim">Disease association</a>
+        <a routerLink="/browse-curation/disease-slim"
+           title="Disease (Mondo) association overview">Disease association</a>
       </span>
-
       <span *ngIf="fypoSlim" class="quick-links-separator">&#x25CF;</span>
       <span *ngIf="fypoSlim" class="quick-links-label">
-        <a routerLink="{{fypoSlim.full_slim_path}}">Phenotype</a>
+        <a routerLink="{{fypoSlim.full_slim_path}}"
+           title="Phenotype (FYPO) annotation overview">Phenotype</a>
       </span>
       <span *ngIf="hasUnknownsList" class="quick-links-separator">&#x25CF;</span>
       <span *ngIf="hasUnknownsList" class="quick-links-label">
-        <a routerLink="/status/protein-status-tracker">Unknown protein tracker</a>
+        <a routerLink="/status/protein-status-tracker"
+           title="Unknown protein tracker and protein-coding gene characterisation status information">Unknown protein tracker</a>
       </span>
+        </div>
+      </div>
     </span>
   </span>
 
