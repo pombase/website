@@ -1,7 +1,7 @@
 
 .front-container {
   margin: 0 auto;
-  max-width: 1150px;
+  max-width: 1500px;
 }
 
 .metadata {
@@ -27,37 +27,17 @@
 
 .welcome {
   clear: both;
-  display: block;
   margin-bottom: 0.8em;
-}
-
-@media (min-width: 800px) {
-  .welcome-content {
-    width: 55%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .welcome-logos {
-    position: relative;
-    top: -2em;
-  }
-
-  .genetics-journal-mod-issue-banner img {
-    width: 490px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .genetics-journal-mod-issue-banner img {
-    width: 370px;
-  }
 }
 
 .welcome-title {
   font-weight: bold;
   padding: 0.5em 0 0.1em 0;
   clear: both;
+}
+
+.testimonials h4, .mission-statement h4 {
+  font-weight: bold;
 }
 
 .welcome-content {
@@ -72,7 +52,6 @@
 }
 
 .front-page-box {
-/*  border: 1.5px solid #157; */
   background-color: #edffdf;
   display: inline-block;
   padding: 0.4em 0.8em 0.4em 0.8em;
@@ -119,24 +98,24 @@
   }
 }
 
-.quick-links-label {
-  white-space: nowrap;
-}
-
 .quick-links-group {
   display: inline-block;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1099px) {
   .quick-links-group {
-    margin: 0em 0.3em 0.3em 0.5em;
+    margin: 0em 0.3em 0.3em 0.2em;
   }
 }
 
 @media (min-width: 1100px) {
   .quick-links-group {
-    margin: 0em 1em 0.5em 1em;
+    margin: 0em 1em 0.8em 0;
   }
+}
+
+.quick-links-title {
+  font-weight: bold;
 }
 
 .front-callout {
@@ -177,59 +156,102 @@
   margin: 0.2em;
 }
 
-@media (min-width: 800px) {
-  .front-container {
-    padding: 0 1em;
-  }
-  .panel-container {
-    margin-top: 1.8em;
-    grid-template-rows: auto auto auto auto 1fr;
-    grid-gap: 4em 4.5em;
-  }
+.front-grid {
+  display: grid;
+  grid-template-rows: auto auto min-content min-content min-content;
+  grid-gap: 1em 1em;
+}
 
-  .front-news-feed {
+@media (min-width: 1300px) {
+  .front-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .welcome {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+  .quick-links {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+  }
+  .testimonials {
+    grid-row: 1 / 3;
+    grid-column: 3 / 5;
+  }
+  .welcome-logos {
+    grid-row: 3 / 4;
+    grid-column: 3 / 5;
+  }
+ .front-news-feed {
     grid-column: 2 / 4;
-    grid-row: 1 / 6;
+    grid-row: 4 / 12;
   }
 }
 
-@media (max-width: 799px) {
-  .panel-container {
-    display: flex;
-    flex-direction: column;
+@media (min-width: 800px) and (max-width: 1299px) {
+  .front-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .welcome {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+  .quick-links {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+  }
+  .testimonials {
+    grid-row: 1 / 3;
+    grid-column: 3 / 5;
+    min-width: 400px;
+  }
+  .welcome-logos {
+    grid-row: 3 / 4;
+    grid-column: 3 / 5;
   }
   .front-news-feed {
-    order: 99;
+    grid-column: 2 / 5;
+    grid-row: 4 / 12;
+  }
+}
+@media (max-width: 799px) {
+  .front-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .welcome {
+    grid-column: 1 / 3;
+  }
+  .quick-links {
+    grid-column: 1 / 3;
+  }
+  .testimonials {
+    grid-column: 1 / 3;
+  }
+  .welcome-logos {
+    grid-column: 1 / 3;
+  }
+  .front-panel {
+    grid-column: span 1;
+  }
+  .front-news-feed {
+    grid-column: span 2;
   }
 }
 
-@media (min-width: 400px) and (max-width: 800px) {
-  .front-container {
-    padding: 0 0.3em;
-  }
-  .panel-container {
-    margin: 1.4em 0.5em;
-  }
-}
-
-@media (max-width: 400px) {
-  .front-container {
-    padding: 0 0.1em;
-  }
-  .panel-container {
-    margin: 1.5em auto;
-  }
+.front-panel {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
 }
 
 .gcbr-elixir-logo {
-  margin: 1em 0.5em 0 1.4em;
-  vertical-align: top;
+  margin-left: 1.6em;
+}
+
+.gcbr-elixir-logo-row {
+  padding: 2em 1em;
 }
 
 .gcbr-elixir-logo img {
   height: 52px;
-}
-
-.gcbr-elixir-logo-row {
-  padding-top: 2.7em;
 }
