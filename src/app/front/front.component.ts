@@ -45,6 +45,7 @@ export class FrontComponent implements OnInit {
   hasUnknownsList = getAppConfig().has_unknowns_list;
   showNewsItems = getAppConfig().news_on_front_page;
   welcomeMessage = getAppConfig().welcome_message;
+  missionStatement = getAppConfig().mission_statement;
   hasAdminCuration = getAppConfig().has_admin_curation;
 
   showElixirAndGbcLogos = getAppConfig().footer.show_elixir_and_gbc_message;
