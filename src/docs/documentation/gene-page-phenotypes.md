@@ -42,7 +42,7 @@ single-allele phenotypes, the display includes:
 2.  Allele details, including a name (if one is used in the
     literature) and description (where known). Diploid genotypes
     specify both alleles for the locus, and are shown in bold. Mouse
-    over the allele name to show the allele type, which indicates
+    over the allele symbol to show the allele type, which indicates
     whether partial deletions or altered residues refer to amino acids
     or nucleotides, and expression level. If you can provide a
     description for any allele shown as "unknown", please [contact the
@@ -107,7 +107,7 @@ annotations to terms hidden in the summary view:
     annotations for the genotype. If you can provide a description for
     any allele shown as "unknown", please [contact the ${database_name}
     curators](mailto:${helpdesk_address}).
-3.  Mouse over the allele name to show the allele type, which
+3.  Mouse over the allele symbol to show the allele type, which
     indicates whether partial deletions or altered residues refer to
     amino acids or nucleotides, and expression level.
 4.  The phenotype display can be filtered to show subsets of the total
