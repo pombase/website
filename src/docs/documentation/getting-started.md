@@ -40,7 +40,7 @@ example is the gene page for
 %%end db=JaponicusDB
 
 To find other genes, use the search box at top right of every page.
-It's possible to search using the gene name ("pol1") or the systematic
+It's possible to search using the gene symbol ("pol1") or the systematic
 identifier
 %%if db=PomBase
 ("SPAC3H5.06c").

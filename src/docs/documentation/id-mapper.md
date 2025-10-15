@@ -4,13 +4,13 @@ The identifier mapper retrieves *${species_abbrev}* gene systematic IDs and stan
 
 - Find *${species_abbrev}* genes using UniProt accessions
 - Retrieve manually curated orthologs for
-   - *S. cerevisiae*: Use standard gene names (*CDC28*, *ACT1*, etc.), ORF names (YPR121W, YPL258C, etc.), or SGD IDs (SGD:S000004494, SGD:S000004635, etc.)
+   - *S. cerevisiae*: Use standard gene symbols (*CDC28*, *ACT1*, etc.), ORF names (YPR121W, YPL258C, etc.), or SGD IDs (SGD:S000004494, SGD:S000004635, etc.)
    - Human: use standard gene names (*CDK1*, *BRCA2*, etc.) or HGNC identifiers (e.g. HGNC:1722)
 %%if db=PomBase
-   - *S. japonicus*: use standard gene names (*cdc11*, *pka1*, etc.) or systematic IDs (e.g. SJAG_01188)
+   - *S. japonicus*: use standard gene symbols (*cdc11*, *pka1*, etc.) or systematic IDs (e.g. SJAG_01188)
 %%end db=PomBase
 %%if db=JaponicusDB
-  - *S. pombe*: use standard gene names (*cdc11*, *pka1*, etc.) or systematic IDs (e.g. SPCC1739.11c)
+  - *S. pombe*: use standard gene symbols (*cdc11*, *pka1*, etc.) or systematic IDs (e.g. SPCC1739.11c)
 %%end db=JaponicusDB
 
 Select an input identifier type in the pulldown, and enter IDs by
@@ -29,7 +29,7 @@ at the top. Any unmatched IDs are shown next.
 IDs you used filled in.
 
 2. You can use the list of matching *${species_abbrev}* genes in the Advanced
-Search "Gene names and IDs" query.
+Search "Gene symbols and IDs" query.
 
 3. For orthology ID searches, matching *${species_abbrev}* genes may fall into
 any of into three categories:

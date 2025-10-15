@@ -3,7 +3,7 @@
 %%if db=PomBase
 ### Identifier mapping file
  - [gene_IDs_names_products.tsv](${base_url}/latest_release/gene_names_and_identifiers/) - 
-   tab-delimited file of systematic ID, primary gene name (where
+   tab-delimited file of systematic ID, primary gene symbol (where
    assigned), chromosome, product description, UniProtKB accession,
    all synonyms, and product type (protein coding, ncRNA, etc.) for
    each gene
@@ -22,11 +22,11 @@ These files are available in the [names and IDs directory](${base_url}/data/name
 ### Gene names
 
 -   [gene_IDs_names.tsv](${base_url}/data/names_and_identifiers/gene_IDs_names.tsv)
-    tab-delimited file of systematic ID, primary gene name (where
+    tab-delimited file of systematic ID, primary gene symbol (where
     assigned), and all synonyms for each gene
 
 -   [gene_IDs_names_products.tsv](${base_url}/data/names_and_identifiers/gene_IDs_names_products.tsv)
-    tab-delimited file of systematic ID, primary gene name (where
+    tab-delimited file of systematic ID, primary gene symbol (where
     assigned), chromosome, product description, UniProtKB accession,
     all synonyms, and product type (protein coding, ncRNA, etc.) for
     each gene

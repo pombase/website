@@ -2,7 +2,7 @@
 <!-- pombase_categories: Finding data -->
 
 At present this is not possible; all advanced search results are
-ordered alphabetically by gene name, or by systematic ID for unnamed
+ordered alphabetically by gene symbol, or by systematic ID for unnamed
 genes, by default. Click the "Product" column header to sort
 alphabetically by product description. We plan to add an option to
 preserve input order soon.

@@ -20,7 +20,7 @@ In the Query panel (top), click one of the links in the list on the left to choo
 
 In the History panel (bottom), queries are listed in reverse
 chronological order (most recently run first). Results are linked in
-the Count column; the link goes to a page that displays the gene name,
+the Count column; the link goes to a page that displays the gene symbol,
 systematic ID, and product description for matching genes. The
 Download button offers additional options, including nucleotide and
 (where applicable) protein sequence. To return to the search page, use
@@ -167,9 +167,9 @@ history.
 Please contact the [helpdesk](mailto:${helpdesk_address}) if you
 would like any queries added to the selection.
 
-#### Gene names and IDs
+#### Gene symbols and IDs
 
-Type or paste a list of gene names or systematic IDs (or a mixture),
+Type or paste a list of gene symbols or systematic IDs (or a mixture),
 or click the "Browse" button to select a file to upload. Click
 "Lookup" to add the gene list to the history (useful for combining the
 list with other queries).

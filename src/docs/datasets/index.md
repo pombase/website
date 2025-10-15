@@ -3,7 +3,7 @@
 All of the datasets curated and compiled by PomBase are accessible from this page.
 These include genome sequence and features, protein features,
 associations to ontology terms, browser data, manually curated
-orthologs and gene names and identifiers.
+orthologs, gene symbols and identifiers.
 
 If you cannot locate a dataset of interest please contact the
 [helpdesk](mailto:${helpdesk_address}).
@@ -75,9 +75,9 @@ Annotation type|Description
 
 -------
 
-### Gene names and identifiers
+### Gene symbols and identifiers
 
-Mappings between ${database_name} systematic IDs, gene names, product
+Mappings between ${database_name} systematic IDs, gene symbols, product
 descriptions, and UniProt accession numbers:
 
   - [Names and identifiers](downloads/names-and-identifiers)

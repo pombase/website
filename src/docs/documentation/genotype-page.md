@@ -13,8 +13,8 @@ genotype.
     details for each allele of interest in the genotype. Any curated
     background details will be shown above the table of alleles.
 
-    a.  Gene name, linked to its gene page
-    b.  Allele name and description. For point mutations and partial
+    a.  Gene symbol, linked to its gene page
+    b.  Allele symbol and description. For point mutations and partial
         deletions, the description specifies the positions, and
         indicates altered residues for point mutations.
     c.  The allele type specifies what kind of change the allele
@@ -31,6 +31,6 @@ genotype.
 
 ![diploid genotype details](assets/diploid_genotype_table.png){ .screenshot width="600"}
 
-The Locus column contains the gene name, linked to its gene page, and
+The Locus column contains the gene symbols, linked to its gene page, and
 spans two rows, one for each allele at the locus. Allele details are
 as described for haploid genotypes.

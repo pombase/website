@@ -10,7 +10,7 @@ workflows.
 
 | File | Description |
 | :---- | :---- |
-| [gene_IDs_names_products.tsv](https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_IDs_names_products.tsv)     | All PomBase systematic IDs, gene names, and synonyms for fission yeast,  linked to UniProt identifiers |
+| [gene_IDs_names_products.tsv](https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_IDs_names_products.tsv)     | All PomBase systematic IDs, gene symbols, and synonyms for fission yeast,  linked to UniProt identifiers |
 | [alleles.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/alleles.tsv) | All PomBase curated alleles, including names, types and standardised descriptions |
 
 ## Publication Datasets
