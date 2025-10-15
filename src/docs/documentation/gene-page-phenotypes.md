@@ -39,7 +39,7 @@ single-allele phenotypes, the display includes:
     information, including the term definition, any synonyms,
     relationships to other FYPO terms, and annotations to the term or
     its descendants. (See the [ontology term page documentation](/documentation/ontology-term-page) for more.)
-2.  Allele details, including a name (if one is used in the
+2.  Allele details, including a symbol (if one is used in the
     literature) and description (where known). Diploid genotypes
     specify both alleles for the locus, and are shown in bold. Mouse
     over the allele symbol to show the allele type, which indicates
@@ -97,7 +97,7 @@ annotations to terms hidden in the summary view:
     annotations to the term or its descendants. (See the [ontology term page documentation](/documentation/ontology-term-page) for
     more.)
 
-2.  Allele details, including a name (if one is used in the
+2.  Allele details, including a symbol (if one is used in the
     literature) and description (where known). The column is headed
     "Genotypes" for consistency between the single- and multi-locus
     displays. Diploid genotypes specify both alleles for the locus,
