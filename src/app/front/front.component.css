@@ -36,7 +36,16 @@
   clear: both;
 }
 
-.testimonials h4, .mission-statement h4 {
+.mission-statement {
+  padding-bottom: 0.5em;
+}
+
+.mission-statement summary {
+  font-size: 130%;
+  list-style-position: outside;
+}
+
+.mission-statement summary, .testimonials h4 {
   font-weight: bold;
 }
 
@@ -174,7 +183,7 @@
     grid-column: 1 / 3;
     grid-row: 2 / 4;
   }
-  .testimonials {
+  .front-right {
     grid-row: 1 / 3;
     grid-column: 3 / 5;
   }
@@ -203,7 +212,7 @@
     grid-column: 1 / 3;
     grid-row: 2 / 4;
   }
-  .testimonials {
+  .front-right {
     grid-row: 1 / 3;
     grid-column: 3 / 5;
     min-width: 400px;
@@ -227,7 +236,7 @@
   .quick-links {
     grid-column: 1 / 3;
   }
-  .testimonials {
+  .front-right {
     grid-column: 1 / 3;
   }
   .welcome-logos {

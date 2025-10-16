@@ -47,6 +47,8 @@ export class FrontComponent implements OnInit {
   welcomeMessage = getAppConfig().welcome_message;
   missionStatement = getAppConfig().mission_statement;
   hasAdminCuration = getAppConfig().has_admin_curation;
+  testimonials = getAppConfig().testimonials || [];
+  randomTestimonials = Util.randNElements(this.testimonials, 2);
 
   showElixirAndGbcLogos = getAppConfig().footer.show_elixir_and_gbc_message;
 

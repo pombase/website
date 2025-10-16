@@ -43,7 +43,7 @@
     <span *ngIf="hasJBrowse2" class="quick-links-title">
       Genome browser:
     </span>
-    <span class="quick-links-label"> 
+    <span class="quick-links-label">
       <a href="/jbrowse2/" target="_blank"
          title="View genome-wide datasets in the JBrowse V2 genome browser">
         New
@@ -132,13 +132,28 @@
 
 </div>
 
-<div class="testimonials">
+<div *ngIf="missionStatement || testimonials.length > 0" class="front-right">
+<div *ngIf="missionStatement" class="mission-statement">
+  <details>
+    <summary>
+      Mission statement
+    </summary>
+    <ul>
+      <li>
+        <span [innerHTML]="missionStatement"></span>
+      </li>
+    </ul>
+  </details>
+</div>
+
+<div *ngIf="testimonials.length > 0" class="testimonials">
   <h4>Testimonials</h4>
   <ul>
-    <li>
-      My group uses Pombase a daily basis, both for interrogating individual genes/proteins and for downloading datasets. The community-led curation and functional analysis of proteins has been particularly important for our recent in-depth proteomics and phosphoproteomics work on cell signalling and intracellular organisation, while also providing historical perspective through links to the literature. Pombase is indispensable for our research.
+    <li *ngFor="let randomTestimonial of randomTestimonials">
+"{{randomTestimonial}}"
     </li>
   </ul>
+</div>
 </div>
 
 <div class="welcome-logos">
@@ -205,7 +220,7 @@
       </div>
     </a>
   </div>
-  
+
 </div>
 </div>
 
