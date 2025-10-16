@@ -10,6 +10,7 @@
 </div>
 
 <div class="quick-links">
+
   <span class="quick-links-group">
     <span class="quick-links-title">About:</span>
     <span class="quick-links-label">
@@ -25,23 +26,6 @@
     </span>
   </span>
 
-  <span class="quick-links-group">
-    <span class="quick-links-title">Downloads:</span>
-    <span class="quick-links-label">
-      <a routerLink="/datasets"
-         title="Documentation and links for all datasets">Datasets</a>
-    </span>
-    <span *ngIf="siteName == 'PomBase'">
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label">
-        <a href="/latest_release" title="Direct link to the latest monthly data release">Latest monthly release</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label">
-        <a href="/monthly_releases" title="Direct link to the archive of previous releases">Release archive</a>
-      </span>
-    </span>
-  </span>
   <span class="quick-links-group">
     <span class="quick-links-title">Tools:</span>
     <span class="quick-links-label">
@@ -72,36 +56,7 @@
       </a>
     </span>
   </span>
-  <span class="quick-links-group">
-    <span class="quick-links-line">
-      <span class="quick-links-title">Example pages:</span>
-      <span class="quick-links-label"><a routerLink="/gene/{{examplePages.gene}}">Gene</a></span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label"><a routerLink="/term/{{examplePages.term}}">Term</a></span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label"><a routerLink="/reference/{{examplePages.reference}}">Publication</a></span>
-      <span *ngIf="examplePages.gocam" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="examplePages.gocam" class="quick-links-label">
-        <a routerLink="/gocam/pombase-view/docs/{{examplePages.gocam}}">Pathway</a>
-      </span>
-    </span>
-  </span>
-  <span class="quick-links-group" *ngIf="siteName == 'PomBase'">
-    <span class="quick-links-line">
-      <span class="quick-links-title">GO-CAM pathways:</span>
-      <span>
-        <a routerLink="/gocam">Main page and pathway list</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span>
-        <a routerLink="/gocam/summary/all">Summary Map</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span>
-        <a routerLink="/gocam/mega-model/all">Mega Model</a>
-      </span>
-    </span>
-  </span>
+
   <span class="quick-links-group">
     <span class="quick-links-line">
       <div class="overview-block">
@@ -141,6 +96,55 @@
       </span>
         </div>
       </div>
+    </span>
+  </span>
+  <span class="quick-links-group" *ngIf="siteName == 'PomBase'">
+    <span class="quick-links-line">
+      <span class="quick-links-title">GO-CAM pathways:</span>
+      <span>
+        <a routerLink="/gocam">Main page and pathway list</a>
+      </span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span>
+        <a routerLink="/gocam/summary/all">Summary Map</a>
+      </span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span>
+        <a routerLink="/gocam/mega-model/all">Mega Model</a>
+      </span>
+    </span>
+  </span>
+
+  <span class="quick-links-group">
+    <span class="quick-links-line">
+      <span class="quick-links-title">Example pages:</span>
+      <span class="quick-links-label"><a routerLink="/gene/{{examplePages.gene}}">Gene</a></span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label"><a routerLink="/term/{{examplePages.term}}">Term</a></span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label"><a routerLink="/reference/{{examplePages.reference}}">Publication</a></span>
+      <span *ngIf="examplePages.gocam" class="quick-links-separator">&#x25CF;</span>
+      <span *ngIf="examplePages.gocam" class="quick-links-label">
+        <a routerLink="/gocam/pombase-view/docs/{{examplePages.gocam}}">Pathway</a>
+      </span>
+    </span>
+  </span>
+
+  <span class="quick-links-group">
+    <span class="quick-links-title">Downloads:</span>
+    <span class="quick-links-label">
+      <a routerLink="/datasets"
+         title="Documentation and links for all datasets">Datasets</a>
+    </span>
+    <span *ngIf="siteName == 'PomBase'">
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label">
+        <a href="/latest_release" title="Direct link to the latest monthly data release">Latest monthly release</a>
+      </span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label">
+        <a href="/monthly_releases" title="Direct link to the archive of previous releases">Release archive</a>
+      </span>
     </span>
   </span>
 
