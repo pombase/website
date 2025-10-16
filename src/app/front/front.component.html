@@ -147,20 +147,7 @@
 
 </div>
 
-<div *ngIf="missionStatement || testimonials.length > 0" class="front-right">
-<div *ngIf="missionStatement" class="mission-statement">
-  <details>
-    <summary>
-      Mission statement
-    </summary>
-    <ul>
-      <li>
-        <span [innerHTML]="missionStatement"></span>
-      </li>
-    </ul>
-  </details>
-</div>
-
+<div class="front-right">
 <div *ngIf="testimonials.length > 0" class="testimonials">
   <h4>Testimonials</h4>
   <ul>
