@@ -488,7 +488,7 @@ select option:disabled {
   margin-bottom: 0.6em;
 }
 
-.info-panel, .front-twitter-feed {
+.info-panel {
   box-shadow: 0px 0px 18px rgba(120,120,120,.80);
   vertical-align: top;
   max-width: 300px;
