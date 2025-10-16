@@ -82,6 +82,10 @@
   font-size: 80%;
 }
 
+.quick-links-line span {
+  white-space: nowrap;
+}
+
 .quick-links {
   display: block;
   margin-bottom: 0.7em;
