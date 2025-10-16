@@ -41,6 +41,8 @@ or allele and an ontology term:
    our manual curation prioritises non-redundancy after reproducibility
    is sufficiently captured for GO.
 
+ * **In Progress:** Additional files containing text spans for modification data, diploid phenotypes, multi-gene phenotypes, genetic and physical interactions, and qualitative expression will be made available in the coming months.   
+
 
 | File | Description |
 | :---- | :---- |
