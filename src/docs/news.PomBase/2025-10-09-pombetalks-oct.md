@@ -1,5 +1,4 @@
 ### Next pombeTalks: Wednesday October 15th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next [pombeTalks](/community/pombetalks) will take
