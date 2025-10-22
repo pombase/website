@@ -14,10 +14,20 @@ Fission Yeast Phenotype Ontology (FYPO) terms.
 PHAF format phenotype data file from the latest monthly release:
 
   - [pombase_phenotype_annotation.phaf.tsv](${base_url}/latest_release/phenotypes_and_genotypes/pombase_phenotype_annotation.phaf.tsv)
+
+This file contains phenotypes and genotype details for single locus
+haploid genotypes.
+
+The genotypes and phenotypes directory from the latest release
+contains other related files:
+
+  - [phenotypes_and_genotypes directory](${base_url}/latest_release/phenotypes_and_genotypes/)
+
+
 %%end db=PomBase
 
-Note that this file contains annotations for single allele phenotypes
-(single mutants) only.
+Note that PHAF format contains annotations for single locus, single allele
+phenotypes (single mutants) and homozygous diploids phenotypes only.
 
 This file uses the the ${database_name} phenotype data bulk annotation
 format (PHAF), detailed below. This format is similar to the
@@ -52,99 +62,57 @@ summary), please see [Citing ${database_name}](/about/citing-${lc_database_name}
 
 ## PHAF download format
 
-A column marked "mandatory" will always have an entry; non-mandatory
-columns may be empty.
+| Column | Contents | Description/Notes | Example | Cardinality |
+|--------|---------|------------|--------|------------|
+| 1 | Database |   | PomBase | 1 |
+| 2 | Gene systematic ID | See the [names and identifiers file](https://www.pombase.org/downloads/names-and-identifiers) for all | SPBC11B10.09 | 1 |
+| 3 | FYPO ID | From the [FYPO ontology](https://obofoundry.org/ontology/fypo.html) | FYPO:0000001 | 1 |
+| 4 | Allele description | Standardized description of the change <p> See [*Genetics* 10.1093/genetics/iyad143](https://doi.org/10.1093/genetics/iyad143) for syntax | G146D | mandatory/single |
+| 5 | Expression |  One of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression. | overexpression | 1 |
+| 6 | Parental strain | "unknown" is allowed | 975 h+ | 1 |
+| 7 | Background strain name |   | ura4-D18 leu1-32 ade6-M210 |  |
+| 8 | Background genotype description | Alleles that are present but considered unlikely to affect the phenotype of interest (i.e. selectable markers) | ura4-D18 leu1-32 ade6-M210 | |
+| 9 | Gene name (symbol) |   | cdc2 | 0,1 |
+| 10 | Allele name | Column 10 lists the preferred allele name, and any alternative names are in column 11. | cdc2-1w | optional/single |
+| 11 | Allele synonym | Alternative allele names (>1 pipe separated) | wee2-1 | 0 or more |
+| 12 | Allele type | Allowed: deletion, amino acid mutation, partial amino acid deletion, nucleotide mutation, partial nucleotide deletion, disruption, other, unknown, wild type  | amino acid mutation | 1 |
+| 13 | Evidence | We use a small selection from the [Evidence Ontology](http://www.evidenceontology.org/) (ECO) | ECO:0000336 | 1 |
+| 14 | Condition | Add a link to FYECO (we should put this on the ftp site somewhere accessible)   | high temperature, low glucose MM | mandatory/multiple |
+| 15 | Penetrance | A percentage, which can be prefixes with "<", ">" or "~" (approximately).  Alternatively entry from FYPO_EXT ontology: "high" (FYPO_EXT:0000001), "medium" (FYPO_EXT:0000002), "low" (FYPO_EXT:0000003) or "full" (FYPO_EXT:0000004) | 85, <20, ~30.4 or "high", etc. | 1 |
+| 16 | Severity | Uses the FYPO_EXT ontology described in note 15  | "medium"  | 1 |
+| 17 | Extension | Used when a mutation in one gene affects another gene/protein. e.g, if a mutation in gene A decreased phosphorylation of protein B, gene B’s ID is listed as an extension.  Allowed extension relations: assayed_using, assayed_enzyme, assayed_substrate, assayed_transcript, or is_bearer_of | assayed_using(PomBase:SPBC582.03) | 0,1 |
+| 18 | Reference | PubMed IDs only at present | PMID:23697806 | mandatory/single |
+| 19 | Taxon |   | taxon:4896 | mandatory/single |
+| 20 | Date |   | 2012-01-01 | mandatory/single |
 
-Column | Contents | Example | Mandatory? | Multiple entries allowed?
--------|----------|---------|------------|--------------------------
-1 | Database | ${database_name} | Yes | No
-2 | Gene systematic ID | SPBC11B10.09 | Yes | No
-3 | FYPO ID | FYPO:0000001 | Yes | No
-4 | Allele description | G146D | Yes | No
-5 | Expression | overexpression | Yes | No
-6 | Parental strain | 975 h+ | Yes | No
-7 | Background strain name | SP286 | No | No
-8 | Background genotype description | h+ ura4-D18 leu1-32 ade6-M210 | No | No
-9 | Gene name | cdc2 | No | No
-10 | Allele name | cdc2-1w | No | No
-11 | Allele synonym | wee2-1 | No | Yes
-12 | Allele type | amino acid mutation | Yes | No
-13 | Evidence | ECO:0000336 | Yes | No
-14 | Condition | high temperature, low glucose MM | Yes | Yes
-15 | Penetrance | 85% | No | No
-16 | Severity | medium | No | No
-17 | Extension | assayed\_using(PomBase:SPBC582.03) | No | Yes
-18 | Reference | PMID:23697806 | Yes | No
-19 | taxon | taxon:${ncbi_taxon_id} | Yes | No
-20 | Date | 2012-01-01 | Yes | No
-21 | Ploidy | homozygous diploid | No | No
+### Diploid PHAF file download format
 
-**Notes:**
+We also provide file of single locus diploid genotypes and phenotypes:
 
-1.  The database that produced the file -- included to facilitate data
-    sharing with other databases. Obviously always ${database_name} for this
-    file. (Also note that PHAF files submitted for loading can omit this column.)
-2.  The systematic ID for each gene.
-3.  To use the FYPO IDs, see the [FYPO summary page](/browse-curation/fission-yeast-phenotype-ontology) 
-    and the
-    [FAQ on browsing FYPO](/faq/how-can-i-browse-phenotype-ontology-fypo).
-4.  The allele description specifically describes the change; see the
-    [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
-    for details on allele types and descriptions.
-5.  The Expression column contains one of these values:
-    'overexpression', 'knockdown', 'endogenous', 'null', 'not
-    specified'. Deletions always have 'null' expression.
-6.  The Parental strain column is for the parental strain designation,
-    such as 972 h-, 975 h+, etc. This column must be filled in, but
-    "unknown" is allowed.
-7.  The Background strain name column is used for a lab's in-house
-    name/ID/designation for the background strain (i.e. the derivative
-    of the parental strain that has selectable marker alleles
-    etc.). The description in the Genotype column should match this
-    background strain.
-8.  The Background genotype description column is for alleles in the
-    background, such as selectable markers; these details are
-    optional. To avoid redundancy, it does not repeat the allele of
-    interest (from column 4 or 10) in the genotype column.
-9.  Gene names are optional for upload, but are included where available
-    in the download.
-10. Allele names are optional for upload, but are included where
-    available in the download. Column 10 lists the preferred allele
-    name, and any alternative names are in column 11.
-11. See note 10 above. Multiple entries are separated with pipes (|).
-12. Allowed allele types, example descriptions, etc. are shown in the
-    table at the bottom of the 
-    [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
-    page.
-13. For the Evidence column, we use a small selection from the [Evidence
-    Ontology](http://www.evidenceontology.org/) (ECO). Please contact
-    the [Helpdesk](mailto:${helpdesk_address}) if you need assistance
-    using these IDs
-14. Similarly, Conditions use a small ontology maintained in-house by
-    ${database_name} curators, and we can help you interpret the IDs. Multiple
-    entries are shown in cases where more than one condition detail
-    applies at the same time (e.g. high temperature, minimal medium),
-    and are separated with commas (,).
-15. Penetrance describes the proportion of a population that shows a
-    cell-level phenotype. Penetrance data are represented as percents or
-    entries from the in-house FYPO\_EXT ontology (FYPO\_EXT:0000001 =
-    high; FYPO\_EXT:0000002 = medium; FYPO\_EXT:0000003 = low;
-    FYPO\_EXT:0000004 = full).
-16. Severity (formerly designated "expressivity") uses
-    the FYPO\_EXT ontology described in note 15.
-17. The Extension column is used to record when a mutation in one gene
-    affects another gene or its product. For example, if a mutation in
-    gene A decreases its ability to phosphorylate protein B, the A
-    allele is annotated to the phenotype "decreased protein kinase
-    activity" with the ID for gene B in an extension. In the
-    downloadable file, an annotation can have multiple comma-separated
-    extensions if they combine to form a "compound" extension (e.g. two
-    or more genes assayed together).
-18. The Reference column has the publication's PubMed ID (PMID).
-19. The taxon will usually be ${ncbi_taxon_id} (the NCBI taxon ID for
-    *Schizosaccharomyces pombe*), although an NCBI taxon ID for a
-    specific *${species_abbrev}* strain would be allowed.
-20. The date is the date on which the annotations are created. Format: YYYY-MM-DD
-21. PHAF format is only suitable for haploid and homozygous diploid
-    phenotypes so the only possible values for this column are
-    "haploid" and "homozygous diploid".
+ - [single_locus_diploid_phenotype_annotations.tsv](https://curation.pombase.org/dumps/latest_build/misc/single_locus_diploid_phenotype_annotations.tsv)
+
+#### Diploid PHAF file format
+
+| Column | Contents | Description/Notes | Example | Cardinality |
+|--------|---------|------------|--------|------------|
+| 1 | Database |   | PomBase | 1 |
+| 2 | Gene systematic ID | See the [names and identifiers file](https://www.pombase.org/downloads/names-and-identifiers) for all | SPBC11B10.09 | 1 |
+| 3 | Gene name (symbol) |   | cdc2 | 0,1 |
+| 4 | FYPO ID | From the [FYPO ontology](https://obofoundry.org/ontology/fypo.html) | FYPO:0000001 | 1 |
+| 5 | FYPO term name | name of the term in colun 3 | normal meiosis | 1 |
+| 6 | Allele 1 name |  | cdc2-1w |  |
+| 7 | Allele 1 description | Standardized description of the change <p> See [*Genetics* 10.1093/genetics/iyad143](https://doi.org/10.1093/genetics/iyad143) for syntax | G146D | mandatory/single |
+| 8 | Allele 1 type | Allowed: deletion, amino acid mutation, partial amino acid deletion, nucleotide mutation, partial nucleotide deletion, disruption, other, unknown, wild type  | amino acid mutation | 1 |
+| 9 | Allele 1 expression |  One of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression. | overexpression | 1 |
+| 10 | Allele 2 name |  |  |  |
+| 11 | Allele 2 description |  | | mandatory/single |
+| 12 | Allele 2 type |   | | 1 |
+| 13 | Allele 2 expression |    |  | 1 |
+| 14 | Evidence | We use a small selection from the [Evidence Ontology](http://www.evidenceontology.org/) (ECO) | ECO:0000336 | 1 |
+| 15 | Condition | Add a link to FYECO (we should put this on the ftp site somewhere accessible)   | high temperature, low glucose MM | mandatory/multiple |
+| 16 | Penetrance | A percentage, which can be prefixes with "<", ">" or "~" (approximately).  Alternatively entry from FYPO_EXT ontology: "high" (FYPO_EXT:0000001), "medium" (FYPO_EXT:0000002), "low" (FYPO_EXT:0000003) or "full" (FYPO_EXT:0000004) | 85, <20, ~30.4 or "high", etc. | 1 |
+| 17 | Severity | Uses the FYPO_EXT ontology described in note 15  | "medium"  | 1 |
+| 18 | Extension | Used when a mutation in one gene affects another gene/protein. e.g, if a mutation in gene A decreased phosphorylation of protein B, gene B’s ID is listed as an extension.  Allowed extension relations: assayed_using, assayed_enzyme, assayed_substrate, assayed_transcript, or is_bearer_of | assayed_using(PomBase:SPBC582.03) | 0,1 |
+| 19 | Reference | PubMed IDs only at present | PMID:23697806 | mandatory/single |
+| 20 | Taxon |   | taxon:4896 | mandatory/single |
+| 21 | Date |   | 2012-01-01 | mandatory/single |
