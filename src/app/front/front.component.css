@@ -51,7 +51,7 @@
 
 .welcome-content {
   font-size: 125%;
-  margin-bottom: 1em;
+  margin-bottom: 0.2em;
   display: inline-block;
 }
 
@@ -271,4 +271,11 @@
 .overview-block {
   display: inline-block;
   vertical-align: top;
+}
+
+.testimonials li {
+  padding-bottom: 0.5em;
+}
+.testimonial-author {
+  font-weight: bold;
 }

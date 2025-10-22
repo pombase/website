@@ -264,6 +264,12 @@ export interface ProteinFeatureTableConfig {
   feature_types: { [featureTypeName: string]: ProteinFeatureTypeConfig };
 }
 
+export interface TestimonialConfig {
+  quote: string;
+  author: string;
+  show_on_front_page: boolean;
+}
+
 export interface AppConfig {
   site_name: string;
   database_name: string;
@@ -332,7 +338,7 @@ export interface AppConfig {
   };
   welcome_message: string;
   mission_statement: string;
-  testimonials: Array<String>;
+  testimonials: Array<TestimonialConfig>;
   canto_data_config: CantaDataConfig;
   organisms: Array<ConfigOrganism>;
   ortholog_taxonids: Array<number>;

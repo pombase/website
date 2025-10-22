@@ -156,7 +156,12 @@
   <h4>Testimonials</h4>
   <ul>
     <li *ngFor="let randomTestimonial of randomTestimonials">
-"{{randomTestimonial}}"
+<div class="testimonial-quote">
+{{randomTestimonial.quote}}
+</div>
+<div class="testimonial-author">
+{{randomTestimonial.author}}
+</div>
     </li>
   </ul>
 </div>
