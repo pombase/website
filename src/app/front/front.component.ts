@@ -45,7 +45,6 @@ export class FrontComponent implements OnInit {
   hasUnknownsList = getAppConfig().has_unknowns_list;
   showNewsItems = getAppConfig().news_on_front_page;
   welcomeMessage = getAppConfig().welcome_message;
-  missionStatement = getAppConfig().mission_statement;
   hasAdminCuration = getAppConfig().has_admin_curation;
   testimonials = getAppConfig().testimonials || [];
   randomTestimonials = Util.randNElements(this.testimonials.filter(t => t.show_on_front_page), 2);
