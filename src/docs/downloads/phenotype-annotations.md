@@ -70,16 +70,16 @@ summary), please see [Citing ${database_name}](/about/citing-${lc_database_name}
 | 4 | Allele description | Standardized description of the change <p> See [*Genetics* 10.1093/genetics/iyad143](https://doi.org/10.1093/genetics/iyad143) for syntax | G146D | mandatory/single |
 | 5 | Expression |  One of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression. | overexpression | 1 |
 | 6 | Parental strain | "unknown" is allowed | 975 h+ | 1 |
-| 7 | Background strain name |   | ura4-D18 leu1-32 ade6-M210 |  |
+| 7 | Background strain name | Deprecated | |  |
 | 8 | Background genotype description | Alleles that are present but considered unlikely to affect the phenotype of interest (i.e. selectable markers) | ura4-D18 leu1-32 ade6-M210 | |
-| 9 | Gene name (symbol) |   | cdc2 | 0,1 |
-| 10 | Allele name | Column 10 lists the preferred allele name, and any alternative names are in column 11. | cdc2-1w | optional/single |
+| 9 | Gene name (symbol) | The fission yeast Gene Naming Committee approved unique name | cdc2 | 0,1 |
+| 10 | Allele name | Preferred allele name, and any alternative names are in column 11. | cdc2-1w | optional/single |
 | 11 | Allele synonym | Alternative allele names (>1 pipe separated) | wee2-1 | 0 or more |
 | 12 | Allele type | Allowed: deletion, amino acid mutation, partial amino acid deletion, nucleotide mutation, partial nucleotide deletion, disruption, other, unknown, wild type  | amino acid mutation | 1 |
 | 13 | Evidence | We use a small selection from the [Evidence Ontology](http://www.evidenceontology.org/) (ECO) | ECO:0000336 | 1 |
-| 14 | Condition | Add a link to FYECO (we should put this on the ftp site somewhere accessible)   | high temperature, low glucose MM | mandatory/multiple |
+| 14 | Condition | A term ID or name from the [FYECO ontology](https://github.com/pombase/fypo/blob/master/fyeco.obo) | high temperature, low glucose MM | mandatory/multiple |
 | 15 | Penetrance | A percentage, which can be prefixes with "<", ">" or "~" (approximately).  Alternatively entry from FYPO_EXT ontology: "high" (FYPO_EXT:0000001), "medium" (FYPO_EXT:0000002), "low" (FYPO_EXT:0000003) or "full" (FYPO_EXT:0000004) | 85, <20, ~30.4 or "high", etc. | 1 |
-| 16 | Severity | Uses the FYPO_EXT ontology described in note 15  | "medium"  | 1 |
+| 16 | Severity | Uses the FYPO_EXT ontology described in the column 15 description | "medium"  | 1 |
 | 17 | Extension | Used when a mutation in one gene affects another gene/protein. e.g, if a mutation in gene A decreased phosphorylation of protein B, gene B’s ID is listed as an extension.  Allowed extension relations: assayed_using, assayed_enzyme, assayed_substrate, assayed_transcript, or is_bearer_of | assayed_using(PomBase:SPBC582.03) | 0,1 |
 | 18 | Reference | PubMed IDs only at present | PMID:23697806 | mandatory/single |
 | 19 | Taxon |   | taxon:4896 | mandatory/single |
@@ -109,7 +109,7 @@ We also provide file of single locus diploid genotypes and phenotypes:
 | 12 | Allele 2 type |   | | 1 |
 | 13 | Allele 2 expression |    |  | 1 |
 | 14 | Evidence | We use a small selection from the [Evidence Ontology](http://www.evidenceontology.org/) (ECO) | ECO:0000336 | 1 |
-| 15 | Condition | Add a link to FYECO (we should put this on the ftp site somewhere accessible)   | high temperature, low glucose MM | mandatory/multiple |
+| 15 | Condition | A term ID or name from the [FYECO ontology](https://github.com/pombase/fypo/blob/master/fyeco.obo)  | high temperature, low glucose MM | mandatory/multiple |
 | 16 | Penetrance | A percentage, which can be prefixes with "<", ">" or "~" (approximately).  Alternatively entry from FYPO_EXT ontology: "high" (FYPO_EXT:0000001), "medium" (FYPO_EXT:0000002), "low" (FYPO_EXT:0000003) or "full" (FYPO_EXT:0000004) | 85, <20, ~30.4 or "high", etc. | 1 |
 | 17 | Severity | Uses the FYPO_EXT ontology described in note 15  | "medium"  | 1 |
 | 18 | Extension | Used when a mutation in one gene affects another gene/protein. e.g, if a mutation in gene A decreased phosphorylation of protein B, gene B’s ID is listed as an extension.  Allowed extension relations: assayed_using, assayed_enzyme, assayed_substrate, assayed_transcript, or is_bearer_of | assayed_using(PomBase:SPBC582.03) | 0,1 |
