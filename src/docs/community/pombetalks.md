@@ -58,6 +58,7 @@ Want to be notified by mail separately?  Fill in
             </div>
           </li>
         </ul>
+        <div><a href="https://www.youtube.com/watch?v=u8oJ3NTt2eg">Recording (YouTube)</a></div>
       </td>
     <tr>
       <td>
