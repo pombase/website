@@ -38,6 +38,7 @@ import { ChromosomeOverviewComponent } from './chromosome-overview/chromosome-ov
 import { DescriptionDisplayComponent } from './description-display/description-display.component';
 
 import { PublicationBadgeComponent } from './publication-badge/publication-badge.component';
+import { TestimonialListComponent } from './testimonial-list/testimonial-list.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -81,6 +82,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ChromosomeOverviewComponent,
     PublicationBadgeComponent,
     DescriptionDisplayComponent,
+    TestimonialListComponent,
   ],
   declarations: [
     SlimTableComponent,
@@ -110,6 +112,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FacetedSearchComponent,
     ChromosomeOverviewComponent,
     PublicationBadgeComponent,
+    TestimonialListComponent,
   ],
 })
 export class SharedModule { }

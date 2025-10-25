@@ -719,3 +719,12 @@ a:not([href]):not([class]):hover {
   text-decoration: underline !important;
   color: #337ab7;
 }
+
+.testimonial-quote {
+  font-style: italic;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  text-align: right;
+}

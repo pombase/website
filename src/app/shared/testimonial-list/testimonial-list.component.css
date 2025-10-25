@@ -1,0 +1,25 @@
+.testimonials-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.testimonials-column {
+  display: flex;
+  flex-direction: column;
+  width: 50em;
+}
+
+.testimonial {
+  padding: 1.5em 0;
+  font-size: 120%;
+}
+
+.testimonial-bigquote {
+  float: left;
+}
+
+.testimonial-bigquote img {
+  width: 2em;
+}

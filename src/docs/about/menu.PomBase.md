@@ -1,4 +1,5 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/about/citing-pombase">Citing PomBase</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/about/testimonials">Testimonials</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-and-collaborative-publications">PomBase and collaborative publications</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/terms-of-use">Terms of Use</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-sab">SAB</a></div>

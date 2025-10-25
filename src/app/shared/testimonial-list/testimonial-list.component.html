@@ -1,0 +1,16 @@
+<div class="testimonials-wrapper">
+  <div class="testimonials-column">
+    <div class="testimonial"
+         *ngFor="let testimonial of testimonials">
+      <div class="testimonial-quote">
+        <div class="testimonial-bigquote">
+          <img src="assets/big_quote.svg"/>
+        </div>
+        {{testimonial.quote}}
+      </div>
+      <div class="testimonial-author">
+        {{testimonial.author}}
+      </div>
+    </div>
+  </div>
+</div>
