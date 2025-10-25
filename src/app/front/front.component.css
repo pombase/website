@@ -289,3 +289,7 @@
   padding-left: 2em;
   font-size: 1.3rem;
 }
+.testimonials li {
+  list-style-image: url("/assets/big_quote.svg");
+}
+
