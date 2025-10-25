@@ -278,3 +278,14 @@
   padding-bottom: 0.5em;
   font-size: 110%;
 }
+
+.testimonials-header-row {
+  padding-bottom: 0.5em;
+}
+.testimonials-header-row h4 {
+  display: inline;
+}
+.testimonials-all-link {
+  padding-left: 2em;
+  font-size: 1.3rem;
+}

@@ -725,6 +725,6 @@ a:not([href]):not([class]):hover {
 }
 
 .testimonial-author {
+  padding-top: 0.3em;
   font-weight: bold;
-  text-align: right;
 }

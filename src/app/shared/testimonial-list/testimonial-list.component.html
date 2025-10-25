@@ -6,7 +6,8 @@
         <div class="testimonial-bigquote">
           <img src="assets/big_quote.svg"/>
         </div>
-        {{testimonial.quote}}
+        <span [innerHTML]="testimonial.quote">
+        </span>
       </div>
       <div class="testimonial-author">
         {{testimonial.author}}

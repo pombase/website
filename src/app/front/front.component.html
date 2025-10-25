@@ -101,11 +101,15 @@
 
 <div class="front-right">
 <div *ngIf="testimonials.length > 0" class="testimonials">
-  <h4>Testimonials</h4>
+  <div class="testimonials-header-row">
+    <h4>Testimonials</h4>
+    <span class="testimonials-all-link">
+      <a routerLink="/about/testimonials">View all ...</a>
+    </span>
+  </div>
   <ul>
     <li *ngFor="let randomTestimonial of randomTestimonials">
-<div class="testimonial-quote">
-{{randomTestimonial.quote}}
+<div class="testimonial-quote" [innerHTML]="randomTestimonial.quote">
 </div>
 <div class="testimonial-author">
 {{randomTestimonial.author}}

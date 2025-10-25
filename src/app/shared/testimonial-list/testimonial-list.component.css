@@ -23,3 +23,7 @@
 .testimonial-bigquote img {
   width: 2em;
 }
+
+.testimonial-author {
+  text-align: right;
+}
