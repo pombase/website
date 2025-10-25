@@ -14,46 +14,11 @@
   <span class="quick-links-group">
     <span class="quick-links-title">About:</span>
     <span class="quick-links-label">
-      <a routerLink="/about">About PomBase</a>
+      <a routerLink="/about">About {{siteName}}</a>
     </span>
     <span class="quick-links-separator">&#x25CF;</span>
     <span class="quick-links-label">
-      <a>Citing PomBase</a>
-    </span>
-    <span class="quick-links-separator">&#x25CF;</span>
-    <span class="quick-links-label">
-      <a>Documentation</a>
-    </span>
-  </span>
-
-  <span class="quick-links-group">
-    <span class="quick-links-title">Tools:</span>
-    <span class="quick-links-label">
-      <a routerLink="/query"
-         title="Query genes with the Advanced Search tool">Advanced search</a>
-    </span>
-    <span class="quick-links-separator">&#x25CF;</span>
-    <span *ngIf="!hasJBrowse2">
-      <a href="/jbrowse/" target="_blank"
-         title="View genome-wide datasets the JBrowse genome browser">
-        Genome browser
-      </a>
-    </span>
-    <span *ngIf="hasJBrowse2">
-      Genome browser:
-    </span>
-    <span class="quick-links-label">
-      <a href="/jbrowse2/" target="_blank"
-         title="View genome-wide datasets in the JBrowse V2 genome browser">
-        New
-      </a>
-    </span>
-    <span class="quick-links-separator">&#x25CF;</span>
-    <span class="quick-links-label">
-      <a href="/jbrowse/" target="_blank"
-         title="View genome-wide datasets in the JBrowse V1 genome browser">
-        Old
-      </a>
+      <a routerLink="/documentation">Documentation</a>
     </span>
   </span>
 
@@ -84,7 +49,7 @@
         <a routerLink="/browse-curation/disease-slim"
            title="Disease (Mondo) association overview">Disease association</a>
       </span>
-      <span *ngIf="fypoSlim" class="quick-links-separator">&#x25CF;</span>
+      <span *ngIf="hasDiseaseAnnotation || fypoSlim" class="quick-links-separator">&#x25CF;</span>
       <span *ngIf="fypoSlim" class="quick-links-label">
         <a routerLink="{{fypoSlim.full_slim_path}}"
            title="Phenotype (FYPO) annotation overview">Phenotype</a>
@@ -98,20 +63,22 @@
       </div>
     </span>
   </span>
-  <span class="quick-links-group" *ngIf="siteName == 'PomBase'">
-    <span class="quick-links-line">
-      <span class="quick-links-title">GO-CAM pathways:</span>
-      <span>
-        <a routerLink="/gocam">Main page and pathway list</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span>
-        <a routerLink="/gocam/summary/all">Summary Map</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span>
-        <a routerLink="/gocam/mega-model/all">Mega Model</a>
-      </span>
+
+  <span class="quick-links-group">
+    <span class="quick-links-title">Tools:</span>
+    <span class="quick-links-label">
+      <a routerLink="/query"
+         title="Query genes with the Advanced Search tool">Advanced search</a>
+    </span>
+    <span class="quick-links-separator">&#x25CF;</span>
+    <span *ngIf="siteName != 'PomBase'">
+      <a href="/jbrowse/" target="_blank"
+         title="View genome-wide datasets the JBrowse genome browser">
+        Genome browser
+      </a>
+    </span>
+    <span *ngIf="siteName == 'PomBase'">
+      <a routerLink="/gocam">GO-CAM pathways</a>
     </span>
   </span>
 
@@ -129,25 +96,6 @@
       </span>
     </span>
   </span>
-
-  <span class="quick-links-group">
-    <span class="quick-links-title">Downloads:</span>
-    <span class="quick-links-label">
-      <a routerLink="/datasets"
-         title="Documentation and links for all datasets">Datasets</a>
-    </span>
-    <span *ngIf="siteName == 'PomBase'">
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label">
-        <a href="/latest_release" title="Direct link to the latest monthly data release">Latest monthly release</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label">
-        <a href="/monthly_releases" title="Direct link to the archive of previous releases">Release archive</a>
-      </span>
-    </span>
-  </span>
-
 
 </div>
 

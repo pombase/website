@@ -47,7 +47,8 @@ export class FrontComponent implements OnInit {
   welcomeMessage = getAppConfig().welcome_message;
   hasAdminCuration = getAppConfig().has_admin_curation;
   testimonials = getAppConfig().testimonials || [];
-  randomTestimonials = Util.randNElements(this.testimonials.filter(t => t.show_on_front_page), 2);
+  randomTestimonials =
+    [Util.randElement(this.testimonials.filter(t => t.show_on_front_page))];
 
   showElixirAndGbcLogos = getAppConfig().footer.show_elixir_and_gbc_message;
 

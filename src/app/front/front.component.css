@@ -276,7 +276,12 @@
 
 .testimonials li {
   padding-bottom: 0.5em;
+  font-size: 110%;
 }
+.testimonial-quote {
+  font-style: italic;
+}
+
 .testimonial-author {
   font-weight: bold;
 }
