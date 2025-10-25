@@ -199,6 +199,7 @@
   .front-news-feed {
     grid-column: 2 / 4;
     grid-row: 4 / 12;
+    padding-top: 2.5em;
   }
   .explore, .pombetalks {
     margin-left: auto;
