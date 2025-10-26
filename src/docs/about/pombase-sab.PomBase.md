@@ -17,32 +17,45 @@ affect the wider community.
 
 #### Current members
 
-*Li-Lin Du*<br>
-National Institute of Biological Sciences, Beijing, China
+**Professor Li-Lin Du** \
+Investigator and Deputy Director for Research and Education \
+*National Institute of Biological Sciences, Beijing, China*
 
-*Kathleen Gould*<br>
-Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA
+**Professor Kathleen Gould** \
+Louise B. McGavock Professor in the Department of Cell & Developmental
+Biology, Vanderbilt University School of Medicine and Senior Associate
+Dean for Biomedical Research, Education & Career Development in the
+School of Medicine \
+*Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA*
 
-*Sabina Leonelli*<br>
-Exeter Centre for the Study of the Life Sciences &amp; Department of Sociology, Philosophy and Anthropology, University of Exeter, Exeter, UK
+**Professor Sabina Leonelli** \
+Chair of Philosophy and History of Science and Technology.  Research Director of the
+Ethical Data Initiative and Co‐Director of the TUM Public Science Lab \
+*Technical University of Munich (TUM), Germany*
 
-*Sophie Martin*<br>
-Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland
+**Professor Sophie Martin** \
+Full Professor in the Department of Molecular and Cell Biology \
+*University of Geneva and Honorary Professor at the University of Lausanne*
 
-*Alison Pidoux*<br>
-Allshire Lab, Centre for Cell Biology, University of Edinburgh, Edinburgh, UK
+**Dr. Alison Pidoux** \
+Senior Research Associate \
+*School of Biological Sciences at the University of Edinburgh (Allshire lab)*
 
-*Sigurd Braun*<br>
-Institute of Genetics, Justus-Liebig-University Giessen, Giessen, Germany
+**Professor Sigurd Braun** \
+*Institute of Genetics, Justus-Liebig-University Giessen, Giessen, Germany*
 
+**Professor Snezhana Oliferenko** \
+Professor of Evolutionary Cell Biology \
+*Cell Motility and Cytoskeleton, Randall Centre of Cell and Molecular Biophysics, King's College London* \
+*ex officio*, through community oversight of JaponciusDB
 
 #### Past SAB members
 
-*Doug Howe*<br>
-The Zebrafish Information Network, University of Oregon, Eugene, OR, USA
+**Doug Howe** \
+*The Zebrafish Information Network, University of Oregon, Eugene, OR, USA*
 
-*Samuel Marguerat*<br>
-UCL Cancer Institute, London, UK
+**Samuel Marguerat** \
+*UCL Cancer Institute, London, UK*
 
 
 #### Related pages
