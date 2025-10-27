@@ -1,7 +1,7 @@
 ## ${database_name} Data Sources
 
 Also see the [Terms of Use](about/terms-of-use) and the
-[table of dataset versions](about/datasets-versions).
+[table of dataset versions](about/dataset-versions).
 
 ### Research spotlight images
 
