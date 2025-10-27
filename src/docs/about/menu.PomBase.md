@@ -3,7 +3,7 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/about/terms-of-use">Terms of Use</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/data-sources">Data sources</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/dataset-versions">Data versions</a></div>
-<div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-sab">SAB</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-sab">Scientific Advisory Board</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-staff">Staff</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/privacy-policy">Privacy Policy</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/help">Help</a></div>
