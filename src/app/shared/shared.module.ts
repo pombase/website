@@ -30,6 +30,7 @@ import { GoCamHolesTableComponent } from './gocam-holes-table/gocam-holes-table.
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 
+import { DatasetVersionsComponent } from './dataset-versions/dataset-versions.component';
 import { PredefinedQueryResultsComponent } from './predefined-query-results/predefined-query-results.component';
 import { SocialContactComponent } from './social-contact/social-contact.component';
 import { GeneResultsSlimTableComponent } from './gene-results-slim-table/gene-results-slim-table.component';
@@ -75,6 +76,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GoCamTableComponent,
     GocamOverlapsTableComponent,
     GoCamHolesTableComponent,
+    DatasetVersionsComponent,
     SocialContactComponent,
     GeneResultsSlimTableComponent,
     FacetedSearchComponent,
@@ -104,6 +106,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GoCamTableComponent,
     GocamOverlapsTableComponent,
     GoCamHolesTableComponent,
+    DatasetVersionsComponent,
     SocialContactComponent,
     GeneResultsSlimTableComponent,
     DescriptionDisplayComponent,

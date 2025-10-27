@@ -1,0 +1,33 @@
+<div class="versions">
+  <div>
+
+    <h4>Data source versions</h4>
+    <div class="section-body">
+      <ul>
+        <li *ngFor="let nameVersion of dataSourceNameVersions">
+          {{nameVersion[0]}}: {{nameVersion[1]}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <h4>CV versions</h4>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Version</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let cvDetail of cvDetails">
+          <td>{{cvDetail.cvName}}</td>
+          <td>{{cvDetail.description}}</td>
+          <td>{{cvDetail.version}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

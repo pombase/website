@@ -1,6 +1,7 @@
 ## ${database_name} Data Sources
 
-Also see the [Terms of Use](about/terms-of-use).
+Also see the [Terms of Use](about/terms-of-use) and the
+[table of dataset versions](about/datasets-versions).
 
 ### Research spotlight images
 
@@ -92,7 +93,7 @@ Data tracks and associated publications forthcoming.
   - Wilhelm BT, Marguerat S, Watt S, Schubert F, Wood V, Goodhead I, Penkett CJ, Rogers J, Bähler J.\
     Dynamic repertoire of a eukaryotic transcriptome surveyed at single-nucleotide resolution.\
     *Nature.* 2008 Jun 26;453(7199):1239-43. [PMID:18488015](/reference/PMID:18488015)
-  - Wood V *et al.\
+  - Wood V *et al*.\
     The genome sequence of Schizosaccharomyces pombe. Nature.\
     2002 Feb 21;415(6874):871-80. [PMID:11859360](/reference/PMID:11859360)
   - Woolcock KJ, Gaidatzis D, Punga T, Bühler M.\
@@ -103,7 +104,7 @@ Data tracks and associated publications forthcoming.
     [PMID:22531001](reference/PMID:22531001)
   - Yadav MP, Padmanabhan S, Tripathi VP, Mishra RK, Dubey DD.\
     Analysis of stress-induced duplex destabilization (SIDD) properties of replication origins, genes and intergenes in the fission yeast, Schizosaccharomyces pombe.\
-    *BMC Res. Notes. 2012 Nov 19;5:643. [PMID:23163955](/reference/PMID:23163955)
+    *BMC Res. Notes*. 2012 Nov 19;5:643. [PMID:23163955](/reference/PMID:23163955)
 %%end db=PomBase
 
 ### Ontology versions
@@ -112,4 +113,4 @@ Data tracks and associated publications forthcoming.
 - FYPO: <app-cv-version cvName="fission_yeast_phenotype"></app-cv-version>
 - PSI-MOD: <app-cv-version cvName="PSI-MOD"></app-cv-version>
 
-  [All ontologies and controlled vocabularies](/internal-details)
+  [All ontologies and controlled vocabularies](/about/dataset-versions)

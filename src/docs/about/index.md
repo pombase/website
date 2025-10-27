@@ -50,14 +50,6 @@ For more information, see the [${database_name} Staff](about/pombase-staff) page
 
 See the [Submit data](submit-data) page
 
-### Data sources
-
-Source publications for external data used in ${database_name} pages and genome browser.
-
-[Data sources](about/data-sources)
-
-------------------------------------
-
 ### Citing ${database_name}
 
 The [Citing ${database_name}](/about/citing-${lc_database_name}) page lists papers to cite
@@ -67,6 +59,14 @@ other resources.
 ### Terms of Use
 
 [Terms of Use](about/terms-of-use) for ${database_name} data and Canto.
+
+### Data sources
+
+Source publications for external data used in ${database_name} pages and genome browser.
+
+[Data sources](about/data-sources)
+
+------------------------------------
 
 ### ${database_name} Publications
 

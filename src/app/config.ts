@@ -163,6 +163,10 @@ export interface AnnotationTypeGroup {
   cv_names: Array<string>;
 }
 
+export interface DatasetVersionsConfig {
+  descriptions: { [cvName: string]: string };
+}
+
 export interface StatsPageConfig {
   annotation_type_groups: Array<AnnotationTypeGroup>;
 }
@@ -378,6 +382,7 @@ export interface AppConfig {
   documentation: DocumentationConfig;
   navBar: NavBarConfig;
 
+  datasetVersions: DatasetVersionsConfig;
   stats: StatsPageConfig;
 
   queryBuilder: QueryBuilderConfig;
@@ -886,6 +891,7 @@ let _appConfig: AppConfig = {
   documentation: docConfig,
   navBar: pombaseConfig.nav_bar_config,
 
+  datasetVersions: pombaseConfig.dataset_versions,
   stats: pombaseConfig.stats,
 
   // query builder node configuration:
