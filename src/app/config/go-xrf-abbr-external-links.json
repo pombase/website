@@ -153,7 +153,7 @@
       "description" : "Protein ANalysis THrough Evolutionary Relationships Classification System",
       "name" : "PANTHER",
       "url_syntax" : "https://www.pantherdb.org/panther/lookupId.jsp?id=[example_id]",
-      "website" : "http://www.pantherdb.org/"
+      "website" : "https://www.pantherdb.org/"
    },
    "PDB" : {
       "description" : "Protein Data Bank",
@@ -170,8 +170,8 @@
    "PMID" : {
       "description" : "PubMed",
       "name" : "PMID",
-      "url_syntax" : "http://www.ncbi.nlm.nih.gov/pubmed/[example_id]",
-      "website" : "https://www.ncbi.nlm.nih.gov/pubmed"
+      "url_syntax" : "https://pubmed.ncbi.nlm.nih.gov/[example_id]",
+      "website" : "https://pubmed.ncbi.nlm.nih.gov/"
    },
    "PR" : {
       "description" : "Protein Ontology",
@@ -188,8 +188,8 @@
    "PUBMED" : {
       "description" : "PubMed",
       "name" : "PUBMED",
-      "url_syntax" : "http://www.ncbi.nlm.nih.gov/pubmed/[example_id]",
-      "website" : "https://www.ncbi.nlm.nih.gov/pubmed"
+      "url_syntax" : "https://pubmed.ncbi.nlm.nih.gov/[example_id]",
+      "website" : "https://pubmed.ncbi.nlm.nih.gov/"
    },
    "Pfam" : {
       "description" : "Pfam database of protein families",
@@ -302,7 +302,7 @@
    "ZFIN" : {
       "description" : "Zebrafish Information Network",
       "name" : "ZFIN",
-      "url_syntax" : "http://zfin.org/[example_id]",
+      "url_syntax" : "https://zfin.org/[example_id]",
       "website" : "http://zfin.org/"
    },
    "dictyBase" : {

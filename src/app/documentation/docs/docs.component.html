@@ -12,6 +12,8 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/about/citing-pombase">Citing PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-and-collaborative-publications">PomBase and collaborative publications</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/terms-of-use">Terms of Use</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/about/data-sources">Data sources</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/about/dataset-versions">Data versions</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-sab">SAB</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/pombase-staff">Staff</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/about/privacy-policy">Privacy Policy</a></div>
@@ -219,7 +221,7 @@ PomBase: a comprehensive online resource for fission yeast.<br />
   </div>
   <div *ngIf="pageName == 'data-sources'">
 <h2 id="pombase-data-sources">PomBase Data Sources</h2>
-<p>Also see the <a routerLink="/about/terms-of-use">Terms of Use</a>.</p>
+<p>Also see the <a routerLink="/about/terms-of-use">Terms of Use</a> and the <a routerLink="/about/datasets-versions">table of dataset versions</a>.</p>
 <h3 id="research-spotlight-images">Research spotlight images</h3>
 <p>For images used on the home page, see the <a routerLink="/archive/spotlight">Research Spotlight archive</a> and links therein.</p>
 <h3 id="genome-browser-data-tracks">Genome browser data tracks</h3>
@@ -297,7 +299,7 @@ Time-lapse single-cell transcriptomics reveals modulation of histone H3 for dorm
 <li>Wilhelm BT, Marguerat S, Watt S, Schubert F, Wood V, Goodhead I, Penkett CJ, Rogers J, Bähler J.<br />
 Dynamic repertoire of a eukaryotic transcriptome surveyed at single-nucleotide resolution.<br />
 <em>Nature.</em> 2008 Jun 26;453(7199):1239-43. <a routerLink="/reference/PMID:18488015">PMID:18488015</a></li>
-<li>Wood V *et al.<br />
+<li>Wood V <em>et al</em>.<br />
 The genome sequence of Schizosaccharomyces pombe. Nature.<br />
 2002 Feb 21;415(6874):871-80. <a routerLink="/reference/PMID:11859360">PMID:11859360</a></li>
 <li>Woolcock KJ, Gaidatzis D, Punga T, Bühler M.<br />
@@ -308,15 +310,20 @@ The genome sequence of Schizosaccharomyces pombe. Nature.<br />
 <a routerLink="/reference/PMID:22531001">PMID:22531001</a></li>
 <li>Yadav MP, Padmanabhan S, Tripathi VP, Mishra RK, Dubey DD.<br />
 Analysis of stress-induced duplex destabilization (SIDD) properties of replication origins, genes and intergenes in the fission yeast, Schizosaccharomyces pombe.<br />
-*BMC Res. Notes. 2012 Nov 19;5:643. <a routerLink="/reference/PMID:23163955">PMID:23163955</a></li>
+<em>BMC Res. Notes</em>. 2012 Nov 19;5:643. <a routerLink="/reference/PMID:23163955">PMID:23163955</a></li>
 </ul>
 <h3 id="ontology-versions">Ontology versions</h3>
 <ul>
 <li><p>GO: <app-cv-version cvName="molecular_function"></app-cv-version></p></li>
 <li><p>FYPO: <app-cv-version cvName="fission_yeast_phenotype"></app-cv-version></p></li>
 <li><p>PSI-MOD: <app-cv-version cvName="PSI-MOD"></app-cv-version></p>
-<p><a routerLink="/internal-details">All ontologies and controlled vocabularies</a></p></li>
+<p><a routerLink="/about/dataset-versions">All ontologies and controlled vocabularies</a></p></li>
 </ul>
+
+  </div>
+  <div *ngIf="pageName == 'dataset-versions'">
+<h2 id="pombase-data-sources">PomBase Data Sources</h2>
+<p><app-dataset-versions></app-dataset-versions></p>
 
   </div>
   <div *ngIf="pageName == 'index'">
@@ -349,14 +356,14 @@ Analysis of stress-induced duplex destabilization (SIDD) properties of replicati
 <p>For more information, see the <a routerLink="/about/pombase-staff">PomBase Staff</a> page.</p>
 <h3 id="submit-data">Submit Data</h3>
 <p>See the <a routerLink="/submit-data">Submit data</a> page</p>
-<h3 id="data-sources">Data sources</h3>
-<p>Source publications for external data used in PomBase pages and genome browser.</p>
-<p><a routerLink="/about/data-sources">Data sources</a></p>
-<hr />
 <h3 id="citing-pombase">Citing PomBase</h3>
 <p>The <a routerLink="/about/citing-pombase">Citing PomBase</a> page lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, annotation data, and other resources.</p>
 <h3 id="terms-of-use">Terms of Use</h3>
 <p><a routerLink="/about/terms-of-use">Terms of Use</a> for PomBase data and Canto.</p>
+<h3 id="data-sources">Data sources</h3>
+<p>Source publications for external data used in PomBase pages and genome browser.</p>
+<p><a routerLink="/about/data-sources">Data sources</a></p>
+<hr />
 <h3 id="pombase-publications">PomBase Publications</h3>
 <p>Complete list of <a routerLink="/about/pombase-and-collaborative-publications">papers published by PomBase</a>.</p>
 <hr />
@@ -1088,17 +1095,35 @@ New PomBase Website 2017, Group Leader Survey Summary.<br />
 <h4 id="sab-meeting-reports">SAB Meeting reports</h4>
 <ul>
 <li><a href="/assets/meeting_reports/PomBase_SAB_report_14-Oct-2022.pdf">October 2022 SAB meeting report</a></li>
+<li><a href="/assets/meeting_reports/PomBase_SAB_feedback_Dec-2024.pdf">December 2024 SAB meeting feedback</a></li>
 </ul>
 <h4 id="current-members">Current members</h4>
-<p><em>Li-Lin Du</em><br> National Institute of Biological Sciences, Beijing, China</p>
-<p><em>Kathleen Gould</em><br> Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA</p>
-<p><em>Sabina Leonelli</em><br> Exeter Centre for the Study of the Life Sciences &amp; Department of Sociology, Philosophy and Anthropology, University of Exeter, Exeter, UK</p>
-<p><em>Sophie Martin</em><br> Department of Fundamental Microbiology, University of Lausanne, Lausanne, Switzerland</p>
-<p><em>Alison Pidoux</em><br> Allshire Lab, Centre for Cell Biology, University of Edinburgh, Edinburgh, UK</p>
-<p><em>Sigurd Braun</em><br> Institute of Genetics, Justus-Liebig-University Giessen, Giessen, Germany</p>
+<p><strong>Professor Li-Lin Du</strong><br />
+Investigator and Deputy Director for Research and Education<br />
+<em>National Institute of Biological Sciences, Beijing, China</em></p>
+<p><strong>Professor Kathleen Gould</strong><br />
+Louise B. McGavock Professor in the Department of Cell &amp; Developmental Biology, Vanderbilt University School of Medicine and Senior Associate Dean for Biomedical Research, Education &amp; Career Development in the School of Medicine<br />
+<em>Department of Cell and Developmental Biology, Vanderbilt University, Nashville, TN, USA</em></p>
+<p><strong>Professor Sabina Leonelli</strong><br />
+Chair of Philosophy and History of Science and Technology. Research Director of the Ethical Data Initiative and Co‐Director of the TUM Public Science Lab<br />
+<em>Technical University of Munich (TUM), Germany</em></p>
+<p><strong>Professor Sophie Martin</strong><br />
+Full Professor in the Department of Molecular and Cell Biology<br />
+<em>University of Geneva and Honorary Professor at the University of Lausanne</em></p>
+<p><strong>Dr. Alison Pidoux</strong><br />
+Senior Research Associate<br />
+<em>School of Biological Sciences at the University of Edinburgh (Allshire lab)</em></p>
+<p><strong>Professor Sigurd Braun</strong><br />
+<em>Institute of Genetics, Justus-Liebig-University Giessen, Giessen, Germany</em></p>
+<p><strong>Professor Snezhana Oliferenko</strong><br />
+Professor of Evolutionary Cell Biology<br />
+<em>Cell Motility and Cytoskeleton, Randall Centre of Cell and Molecular Biophysics, King’s College London</em><br />
+<em>ex officio</em>, through community oversight of JaponciusDB</p>
 <h4 id="past-sab-members">Past SAB members</h4>
-<p><em>Doug Howe</em><br> The Zebrafish Information Network, University of Oregon, Eugene, OR, USA</p>
-<p><em>Samuel Marguerat</em><br> UCL Cancer Institute, London, UK</p>
+<p><strong>Doug Howe</strong><br />
+<em>The Zebrafish Information Network, University of Oregon, Eugene, OR, USA</em></p>
+<p><strong>Samuel Marguerat</strong><br />
+<em>UCL Cancer Institute, London, UK</em></p>
 <h4 id="related-pages">Related pages</h4>
 <p><a routerLink="/submit-data/gene-naming-committee-members">Fission yeast gene naming committee</a></p>
 
@@ -5437,6 +5462,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
             </div>
           </li>
         </ul>
+        <div><a href="https://www.youtube.com/watch?v=u8oJ3NTt2eg">Recording (YouTube)</a></div>
       </td>
     <tr>
       <td>
@@ -5619,7 +5645,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><a href="https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_IDs_names_products.tsv">gene_IDs_names_products.tsv</a></td>
-<td style="text-align: left;">All PomBase systematic IDs, gene names, and synonyms for fission yeast, linked to UniProt identifiers</td>
+<td style="text-align: left;">All PomBase systematic IDs, gene symbols, and synonyms for fission yeast, linked to UniProt identifiers</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><a href="https://www.pombase.org/latest_release/training_data_for_ML_and_AI/alleles.tsv">alleles.tsv</a></td>
@@ -5641,7 +5667,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <td style="text-align: left;">Publications that have been manually curated by PomBase. Some of these publications do not contain gene-specific data (for example browser datasets, or sequence features)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_pub_classification.tsv">canto_pub_classification.tsv</a></td>
+<td style="text-align: left;"><a href="https://curation.pombase.org/dumps/latest_build/exports/canto_pub_classification.tsv">canto_pub_classification.tsv</a></td>
 <td style="text-align: left;">Literature triage classifier labels</td>
 </tr>
 </tbody>
@@ -5652,6 +5678,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <li><p>The data only includes <strong>manually curated associations</strong> from small-scale, hypothesis-driven publications, and it <strong>excludes data from high-throughput datasets</strong>.</p></li>
 <li><p>We have included all annotations from any publication in these files. We have not captured ‘Text Span’ or figure number for every single annotation.</p></li>
 <li><p><strong>GO Annotation:</strong> Although we curate redundant annotations to demonstrate reproducibility, we do not typically re-curate well-known facts that are <strong>already well-represented in the dataset</strong>. For example, we wouldn’t repeatedly curate that <em>cdc2</em> is part of the G2/M transition from every publication that confirms it. While an AI prediction might not be wrong for adding such a fact, our manual curation prioritises non-redundancy after reproducibility is sufficiently captured for GO.</p></li>
+<li><p><strong>In Progress:</strong> Additional files containing text spans for modification data, diploid phenotypes, multi-gene phenotypes, genetic and physical interactions, and qualitative expression will be made available in the coming months.</p></li>
 </ul>
 <table>
 <thead>
@@ -5662,12 +5689,12 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://curation.pombase.org/dumps/latest_build/misc/canto_fypo_annotations_with_comments.tsv">canto_go_annotations_with_comments.tsv</a></td>
-<td style="text-align: left;">Manual GO annotations with comments, <a routerLink="/downloads/phenotype-annotations">PHAF TSV format</a> with a “comments” column</td>
+<td style="text-align: left;"><a href="https://curation.pombase.org/dumps/latest_build/misc/canto_go_annotations_with_comments.tsv">canto_go_annotations_with_comments.tsv</a></td>
+<td style="text-align: left;">Manual GO annotations with comments, <a routerLink="/downloads/go-annotations">GAF 2.2 TSV format</a> with a “comments” column</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://curation.pombase.org/dumps/latest_build/misc/canto_go_annotations_with_comments.tsv">canto_fypo_annotations_with_comments.tsv</a></td>
-<td style="text-align: left;">Manual phenotype annotations with comments, <a routerLink="/downloads/go-annotations">GAF 2.2 TSV format</a> with a “comments” column</td>
+<td style="text-align: left;"><a href="https://curation.pombase.org/dumps/latest_build/misc/canto_fypo_annotations_with_comments.tsv">canto_fypo_annotations_with_comments.tsv</a></td>
+<td style="text-align: left;">Manual haploid phenotype annotations with comments, <a routerLink="/downloads/phenotype-annotations">PHAF TSV format</a> with a “comments” column</td>
 </tr>
 </tbody>
 </table>
@@ -5675,7 +5702,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="datasets">Datasets</h2>
-<p>All of the datasets curated and compiled by PomBase are accessible from this page. These include genome sequence and features, protein features, associations to ontology terms, browser data, manually curated orthologs and gene names and identifiers.</p>
+<p>All of the datasets curated and compiled by PomBase are accessible from this page. These include genome sequence and features, protein features, associations to ontology terms, browser data, manually curated orthologs, gene symbols and identifiers.</p>
 <p>If you cannot locate a dataset of interest please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a>.</p>
 <hr />
 <h3 id="latest-pombase-data">Latest PomBase data</h3>
@@ -5683,7 +5710,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 <p>We also have an <a href="https://www.pombase.org/monthly_releases/">archive of previous monthly releases</a>.</p>
 <hr />
 <h3 id="dataset-and-ontology-versions">Dataset and ontology versions</h3>
-<p>The <a routerLink="/internal-details">versions page</a> is updated each night.</p>
+<p>The <a routerLink="/about/dataset-versions">versions page</a> is updated each night.</p>
 <hr />
 <h3 id="genome-sequence-and-features">Genome sequence and features</h3>
 <p>Visit the <a routerLink="/downloads/genome-datasets">main genome dataset page</a> for:</p>
@@ -5738,8 +5765,8 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
 </tbody>
 </table>
 <hr />
-<h3 id="gene-names-and-identifiers">Gene names and identifiers</h3>
-<p>Mappings between PomBase systematic IDs, gene names, product descriptions, and UniProt accession numbers:</p>
+<h3 id="gene-symbols-and-identifiers">Gene symbols and identifiers</h3>
+<p>Mappings between PomBase systematic IDs, gene symbols, product descriptions, and UniProt accession numbers:</p>
 <ul>
 <li><a routerLink="/downloads/names-and-identifiers">Names and identifiers</a></li>
 </ul>
@@ -6056,7 +6083,7 @@ PomBase using the Ensembl viewer.</p>
 <p>In the Search menu, choose Advanced (or bookmark <a routerLink="/query">https://www.pombase.org/query</a>).</p>
 <p>In the Query panel (top), click one of the links in the list on the left to choose a query type (described below). Arrowheads indicate list entries that expand to offer two or more query types, organized in tabs. For each query, the interface guides your input.</p>
 <p><img src="assets/advanced_search_main.png" class="screenshot" width="682" alt="advanced search page with new query" /></p>
-<p>In the History panel (bottom), queries are listed in reverse chronological order (most recently run first). Results are linked in the Count column; the link goes to a page that displays the gene name, systematic ID, and product description for matching genes. The Download button offers additional options, including nucleotide and (where applicable) protein sequence. To return to the search page, use the blue “&lt;- Advanced search” button just above the result list, <strong>not</strong> your browser’s “Back” button.</p>
+<p>In the History panel (bottom), queries are listed in reverse chronological order (most recently run first). Results are linked in the Count column; the link goes to a page that displays the gene symbol, systematic ID, and product description for matching genes. The Download button offers additional options, including nucleotide and (where applicable) protein sequence. To return to the search page, use the blue “&lt;- Advanced search” button just above the result list, <strong>not</strong> your browser’s “Back” button.</p>
 <p>You can select queries in the list to combine or delete them. To combine queries, you must select two or more from the list, and then click one of the operator buttons:</p>
 <p><img src="assets/advanced_search_combination.png" class="screenshot" width="500" alt="advanced search Boolean operator buttons" /></p>
 <p>Results are added to the history list:</p>
@@ -6096,8 +6123,8 @@ PomBase using the Ensembl viewer.</p>
 <h4 id="commonly-used-queries">Commonly used queries</h4>
 <p>This item offers convenient links to perform frequently used queries easily. Click on the query description to add the results to the query history.</p>
 <p>Please contact the <a href="mailto:helpdesk@pombase.org">helpdesk</a> if you would like any queries added to the selection.</p>
-<h4 id="gene-names-and-ids">Gene names and IDs</h4>
-<p>Type or paste a list of gene names or systematic IDs (or a mixture), or click the “Browse” button to select a file to upload. Click “Lookup” to add the gene list to the history (useful for combining the list with other queries).</p>
+<h4 id="gene-symbols-and-ids">Gene symbols and IDs</h4>
+<p>Type or paste a list of gene symbols or systematic IDs (or a mixture), or click the “Browse” button to select a file to upload. Click “Lookup” to add the gene list to the history (useful for combining the list with other queries).</p>
 <h4 id="uniprot-accessions">UniProt accessions</h4>
 <p>Links to the <a routerLink="/identifier-mapper">Identifier Mapper</a>.</p>
 <h4 id="go">GO</h4>
@@ -6772,7 +6799,7 @@ to retrieve all genes inviable at high temperature (the subtract all “viable v
 <p>At the top of each gene page is a set of basic information about the gene:</p>
 <p><img src="assets/basic_info_gene_page.png" title="Gene page basic information" class="screenshot" width="800" alt="top of gene page" /></p>
 <ol type="1">
-<li>See the <a routerLink="/submit-data/gene-names">Gene Name Registry</a> for more information about <em>S. pombe</em> gene names. Synonyms include all names other than the standard name that have been published for a gene, and thus are not guaranteed to be unique.</li>
+<li>See the <a routerLink="/submit-data/gene-names">Gene Name Registry</a> for more information about <em>S. pombe</em> gene symbols. Synonyms include all names other than the standard name that have been published for a gene, and thus are not guaranteed to be unique.</li>
 <li>Free text description of the gene product</li>
 <li>Chromosome coordinates for the gene. For protein-coding genes, the “coding start to stop” numbers give the start, end, and length excluding UTRs but including introns (other than introns located entirely within UTRs). The second set of numbers indicate the gene start, end, and length including the default UTRs chosen by PomBase curators (see <a routerLink="/faq/how-does-pombase-determine-gene-s-full-length-transcript-utr-coordinates-transcription-start-and-end-sites">this FAQ</a> for more information).</li>
 <li>What the three-letter acronym stands for; where available, name descriptions are provided for synonyms as well as primary names.</li>
@@ -6953,7 +6980,7 @@ to retrieve all genes inviable at high temperature (the subtract all “viable v
 <p><img src="assets/single_fypo_gene_page_summary.png" class="screenshot" width="800" alt="single-locus FYPO summary on gene page" /></p>
 <ol type="1">
 <li>The FYPO term name, which links to a page with additional information, including the term definition, any synonyms, relationships to other FYPO terms, and annotations to the term or its descendants. (See the <a routerLink="/documentation/ontology-term-page">ontology term page documentation</a> for more.)</li>
-<li>Allele details, including a name (if one is used in the literature) and description (where known). Diploid genotypes specify both alleles for the locus, and are shown in bold. Mouse over the allele name to show the allele type, which indicates whether partial deletions or altered residues refer to amino acids or nucleotides, and expression level. If you can provide a description for any allele shown as “unknown”, please <a href="mailto:helpdesk%7B%7B%22@%22%7D%7Dpombase.org">contact the PomBase curators</a>.</li>
+<li>Allele details, including a symbol (if one is used in the literature) and description (where known). Diploid genotypes specify both alleles for the locus, and are shown in bold. Mouse over the allele symbol to show the allele type, which indicates whether partial deletions or altered residues refer to amino acids or nucleotides, and expression level. If you can provide a description for any allele shown as “unknown”, please <a href="mailto:helpdesk%7B%7B%22@%22%7D%7Dpombase.org">contact the PomBase curators</a>.</li>
 <li>Phenotype annotations may have extensions to capture penetrance (proportion of a population that shows the phenotype) or severity (previously designated “expressivity”), or to document which gene or protein used in an assay for level, localisation, etc. <em>S. pombe</em> genes link to PomBase gene pages. Severity and penetrance use the relations <em>has_severity</em> and <em>has_penetrance</em> respectively, and can have values such as “high”, “medium”, or “low”. Penetrance can also use numerical values. A gene or gene product used in an assay is stored using the appropriate PomBase systematic ID and the relation <em>assayed_using</em>; the relation is converted to <em>affecting</em> in the gene page display. If a mutation affects an activity that modifies another gene product, extensions may capture the affected enzyme, the affected substrate, or both. The relation <em>assayed_enzyme</em> is displayed as <em>affecting activity of</em> on gene pages, and <em>assayed_substrate</em>
 is shown as <em>affecting substrate</em>.</li>
 <li>The phenotype display can be filtered to show subsets of the total set of annotations. Two filters, for ploidy and ontology terms, are available in the summary or detailed view. If there are both haploid and diploid genotypes curated, the first filter defaults to “Haploid or Diploid” to show all genotypes. The term filter lists several broad phenotypic categories derived from high-level FYPO terms:</li>
@@ -6966,8 +6993,8 @@ is shown as <em>affecting substrate</em>.</li>
 <p><img src="assets/single_fypo_gene_page_full.png" class="screenshot" width="800" alt="Single-locus FYPO detailed view on gene page" /></p>
 <ol type="1">
 <li><p>The unique ID and name for a term in the phenotype ontology. The ID links to a page with additional information, including the term definition, any synonyms, relationships to other FYPO terms, and annotations to the term or its descendants. (See the <a routerLink="/documentation/ontology-term-page">ontology term page documentation</a> for more.)</p></li>
-<li><p>Allele details, including a name (if one is used in the literature) and description (where known). The column is headed “Genotypes” for consistency between the single- and multi-locus displays. Diploid genotypes specify both alleles for the locus, and are shown in bold. Each genotype name links to a page with full details (type, description, and expression) for its allele(s), links to gene pages, and a list of all phenotype annotations for the genotype. If you can provide a description for any allele shown as “unknown”, please <a href="mailto:helpdesk%7B%7B%22@%22%7D%7Dpombase.org">contact the PomBase curators</a>.</p></li>
-<li><p>Mouse over the allele name to show the allele type, which indicates whether partial deletions or altered residues refer to amino acids or nucleotides, and expression level.</p></li>
+<li><p>Allele details, including a symbol (if one is used in the literature) and description (where known). The column is headed “Genotypes” for consistency between the single- and multi-locus displays. Diploid genotypes specify both alleles for the locus, and are shown in bold. Each genotype name links to a page with full details (type, description, and expression) for its allele(s), links to gene pages, and a list of all phenotype annotations for the genotype. If you can provide a description for any allele shown as “unknown”, please <a href="mailto:helpdesk%7B%7B%22@%22%7D%7Dpombase.org">contact the PomBase curators</a>.</p></li>
+<li><p>Mouse over the allele symbol to show the allele type, which indicates whether partial deletions or altered residues refer to amino acids or nucleotides, and expression level.</p></li>
 <li><p>The phenotype display can be filtered to show subsets of the total set of annotations. The ploidy filter (not shown in this screenshot) selects haploid, diploid, or both genotypes where curated. The term filter, available in the summary or detailed view, lists several broad phenotypic categories derived from high-level FYPO terms. Choose one to restrict the annotation display to terms in the selected branch of FYPO. Change the selection back to “No filter” to see annotations to all terms. In the detailed view, annotations can also be filtered by evidence or throughput by choosing an descriptions from pulldown menus. Change the selection back to “No filter” to see annotations using any evidence type. Different filters, such as term and evidence, can be combined (note that some term/evidence combinations have no matching annotations). When any filtering is active, a message appears to indicate that not all annotations are shown.</p></li>
 <li><p>A brief descriptor for the type of evidence that supports the annotation. The evidence categories come from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO).</p></li>
 <li><p>Information about experimental conditions, such as temperature, type of medium used, etc. Descriptions come from a small ontology maintained by PomBase curators.</p></li>
@@ -7206,8 +7233,8 @@ flowchart TD;
 <li><p>The genotype name. A short and/or memorable name can be assigned, but otherwise the default name is constructed by concatenating the names of the alleles that make up the genotype.</p></li>
 <li><p>Each genotype in composed of one or more alleles. The table lists details for each allele of interest in the genotype. Any curated background details will be shown above the table of alleles.</p>
 <ol type="a">
-<li>Gene name, linked to its gene page</li>
-<li>Allele name and description. For point mutations and partial deletions, the description specifies the positions, and indicates altered residues for point mutations.</li>
+<li>Gene symbol, linked to its gene page</li>
+<li>Allele symbol and description. For point mutations and partial deletions, the description specifies the positions, and indicates altered residues for point mutations.</li>
 <li>The allele type specifies what kind of change the allele description represents, e.g. amino acid mutation, deletion, other.</li>
 <li>The expression level indicates the amount of gene product present in the assayed cells, or “Not assayed or wild type” if the level was not directly measured.</li>
 </ol></li>
@@ -7215,7 +7242,7 @@ flowchart TD;
 <li><p>For diploid genotypes, the table of details includes both alleles of each locus:</p></li>
 </ol>
 <p><img src="assets/diploid_genotype_table.png" class="screenshot" width="600" alt="diploid genotype details" /></p>
-<p>The Locus column contains the gene name, linked to its gene page, and spans two rows, one for each allele at the locus. Allele details are as described for haploid genotypes.</p>
+<p>The Locus column contains the gene symbols, linked to its gene page, and spans two rows, one for each allele at the locus. Allele details are as described for haploid genotypes.</p>
 
   </div>
   <div *ngIf="pageName == 'getting-started'">
@@ -7232,7 +7259,7 @@ flowchart TD;
 <p>If you use Pombase for your research, please cite or acknowledge the resource in your publications. This is extremely important to indicate the importance of resources to funders. <a routerLink="/about/citing-pombase">How to cite PomBase</a>.</p>
 <h2 id="types-of-pages-in-pombase">Types of pages in PomBase</h2>
 <p>PomBase is centred around <strong>Gene Pages</strong> so this is a good place to begin to familiarise yourself with how data is organised. An example is the gene page for <a routerLink="/gene/SPAC3H5.06c">pol1, the DNA polymerase alpha catalytic subunit</a>.</p>
-<p>To find other genes, use the search box at top right of every page. It’s possible to search using the gene name (“pol1”) or the systematic identifier (“SPAC3H5.06c”).</p>
+<p>To find other genes, use the search box at top right of every page. It’s possible to search using the gene symbol (“pol1”) or the systematic identifier (“SPAC3H5.06c”).</p>
 <p>At the top of the page, you will find some basic information about the locus and gene product. Immediately below is a view of the <a href="https://alphafold.ebi.ac.uk/entry/P28040">predicted structure from AlphaFold</a>. Other views are possible using the buttons beside the structure view (“Protein features”, “Genome browser”, etc.)</p>
 <p><img src="assets/gene_page_top_part.png" class="screenshot" width="700" alt="Top of gene page" /></p>
 <details>
@@ -7409,9 +7436,9 @@ satisfy those conditions. Click on it to see the lists of genes.</li> <li>In tha
 <li>Find <em>S. pombe</em> genes using UniProt accessions</li>
 <li>Retrieve manually curated orthologs for
 <ul>
-<li><em>S. cerevisiae</em>: Use standard gene names (<em>CDC28</em>, <em>ACT1</em>, etc.), ORF names (YPR121W, YPL258C, etc.), or SGD IDs (SGD:S000004494, SGD:S000004635, etc.)</li>
+<li><em>S. cerevisiae</em>: Use standard gene symbols (<em>CDC28</em>, <em>ACT1</em>, etc.), ORF names (YPR121W, YPL258C, etc.), or SGD IDs (SGD:S000004494, SGD:S000004635, etc.)</li>
 <li>Human: use standard gene names (<em>CDK1</em>, <em>BRCA2</em>, etc.) or HGNC identifiers (e.g. HGNC:1722)</li>
-<li><em>S. japonicus</em>: use standard gene names (<em>cdc11</em>, <em>pka1</em>, etc.) or systematic IDs (e.g. SJAG_01188)</li>
+<li><em>S. japonicus</em>: use standard gene symbols (<em>cdc11</em>, <em>pka1</em>, etc.) or systematic IDs (e.g. SJAG_01188)</li>
 </ul></li>
 </ul>
 <p>Select an input identifier type in the pulldown, and enter IDs by typing, pasting, or uploading a file:</p>
@@ -7421,7 +7448,7 @@ satisfy those conditions. Click on it to see the lists of genes.</li> <li>In tha
 <p><img src="assets/id_mapper_results.png" class="screenshot" width="500" alt="identifier mapper results for S. cerevisiae orthologs" /></p>
 <ol type="1">
 <li><p>“Go back” returns to the start page, with the search settings and IDs you used filled in.</p></li>
-<li><p>You can use the list of matching <em>S. pombe</em> genes in the Advanced Search “Gene names and IDs” query.</p></li>
+<li><p>You can use the list of matching <em>S. pombe</em> genes in the Advanced Search “Gene symbols and IDs” query.</p></li>
 <li><p>For orthology ID searches, matching <em>S. pombe</em> genes may fall into any of into three categories:</p></li>
 </ol>
 <ul>
@@ -8533,10 +8560,10 @@ are not detected by any automated method. Gradually, we will add and display sup
 <p><img src="assets/simple_search_mouseover_help.png" class="screenshot" width="600" alt="Simple search mouseover help" /></p>
 <p>The simple search works for:</p>
 <ul>
-<li>Fission yeast gene names, synonyms, and systematic IDs</li>
+<li>Fission yeast gene symbols, synonyms, and systematic IDs</li>
 <li>Fission yeast gene product descriptions</li>
 <li>Human orthologs of fission yeast genes — search by standard gene symbols</li>
-<li>Budding yeast orthologs of fission yeast genes — search by standard gene names, ORF names, or SGD IDs</li>
+<li>Budding yeast orthologs of fission yeast genes — search by standard gene symbols, ORF names, or SGD IDs</li>
 <li>Publications — search by PubMed ID</li>
 <li>Ontology terms — search by term ID</li>
 </ul>
@@ -8773,7 +8800,7 @@ are not detected by any automated method. Gradually, we will add and display sup
 <h2 id="pombase-name-and-identifier-mappings">PomBase name and identifier mappings</h2>
 <h3 id="identifier-mapping-file">Identifier mapping file</h3>
 <ul>
-<li><a href="https://www.pombase.org/latest_release/gene_names_and_identifiers/">gene_IDs_names_products.tsv</a> - tab-delimited file of systematic ID, primary gene name (where assigned), chromosome, product description, UniProtKB accession, all synonyms, and product type (protein coding, ncRNA, etc.) for each gene</li>
+<li><a href="https://www.pombase.org/latest_release/gene_names_and_identifiers/">gene_IDs_names_products.tsv</a> - tab-delimited file of systematic ID, primary gene symbol (where assigned), chromosome, product description, UniProtKB accession, all synonyms, and product type (protein coding, ncRNA, etc.) for each gene</li>
 </ul>
 <p>Note: A tab-delimited file of systematic identifiers mapped to EC numbers was previously maintained, but has not been updated since March 2012. The most recent version of the <a href="https://www.pombase.org/data/names_and_identifiers/OLD/gp2EC.txt">gp2EC.txt</a> file is available in the archive, but because it is out of date it may contain errors or omissions.</p>
 
@@ -8785,198 +8812,337 @@ are not detected by any automated method. Gradually, we will add and display sup
 <ul>
 <li><a href="https://www.pombase.org/latest_release/phenotypes_and_genotypes/pombase_phenotype_annotation.phaf.tsv">pombase_phenotype_annotation.phaf.tsv</a></li>
 </ul>
-<p>Note that this file contains annotations for single allele phenotypes (single mutants) only.</p>
+<p>This file contains phenotypes and genotype details for single locus haploid genotypes.</p>
+<p>The genotypes and phenotypes directory from the latest release contains other related files:</p>
+<ul>
+<li><a href="https://www.pombase.org/latest_release/phenotypes_and_genotypes/">phenotypes_and_genotypes directory</a></li>
+</ul>
+<p>Note that PHAF format contains annotations for single locus, single allele phenotypes (single mutants) and homozygous diploids phenotypes only.</p>
 <p>This file uses the the PomBase phenotype data bulk annotation format (PHAF), detailed below. This format is similar to the one that can be used to submit phenotype annotations to PomBase in bulk, as described on the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> page, with the addition of the <code>Database</code> column. Note that, because Database is column 1 in the downloadable file, column numbers differ by 1 between the download and upload formats.</p>
 <p>Propagating phenotype annotations: Note that the file contains only direct annotations to FYPO terms. It does not include annotations that can be inferred by propagating between terms within the ontology. To make full use of the FYPO annotation data, we strongly recommend also using the ontology structure and inferred annotations. Please contact the <a href="mailto:helpdesk@pombase.org">PomBase helpdesk</a> if you need assistance.</p>
 <h2 id="viability-summary">Viability summary</h2>
 <p>A <a href="https://www.pombase.org/latest_release/phenotypes_and_genotypes/gene_viability.tsv">set of “viability summary” data</a> as shown at the top of the FYPO table on each gene page, is available as a downloadable file. The file has two columns: the gene systematic ID and one of three values: “viable”, “inviable” or “condition-dependent”.</p>
 <p>To cite the fission yeast phenotype data (complete or viability summary), please see <a routerLink="/about/citing-pombase">Citing PomBase</a>.</p>
 <h2 id="phaf-download-format">PHAF download format</h2>
-<p>A column marked “mandatory” will always have an entry; non-mandatory columns may be empty.</p>
 <table>
 <thead>
 <tr class="header">
 <th>Column</th>
 <th>Contents</th>
+<th>Description/Notes</th>
 <th>Example</th>
-<th>Mandatory?</th>
-<th>Multiple entries allowed?</th>
+<th>Cardinality</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>1</td>
 <td>Database</td>
+<td></td>
 <td>PomBase</td>
-<td>Yes</td>
-<td>No</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td>2</td>
 <td>Gene systematic ID</td>
+<td>See the <a href="https://www.pombase.org/downloads/names-and-identifiers">names and identifiers file</a> for all</td>
 <td>SPBC11B10.09</td>
-<td>Yes</td>
-<td>No</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td>3</td>
 <td>FYPO ID</td>
+<td>From the <a href="https://obofoundry.org/ontology/fypo.html">FYPO ontology</a></td>
 <td>FYPO:0000001</td>
-<td>Yes</td>
-<td>No</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td>4</td>
 <td>Allele description</td>
+<td>Standardized description of the change <p> See <a href="https://doi.org/10.1093/genetics/iyad143"><em>Genetics</em> 10.1093/genetics/iyad143</a> for syntax</td>
 <td>G146D</td>
-<td>Yes</td>
-<td>No</td>
+<td>mandatory/single</td>
 </tr>
 <tr class="odd">
 <td>5</td>
 <td>Expression</td>
+<td>One of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression.</td>
 <td>overexpression</td>
-<td>Yes</td>
-<td>No</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td>6</td>
 <td>Parental strain</td>
+<td>“unknown” is allowed</td>
 <td>975 h+</td>
-<td>Yes</td>
-<td>No</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td>7</td>
 <td>Background strain name</td>
-<td>SP286</td>
-<td>No</td>
-<td>No</td>
+<td>Deprecated</td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>8</td>
 <td>Background genotype description</td>
-<td>h+ ura4-D18 leu1-32 ade6-M210</td>
-<td>No</td>
-<td>No</td>
+<td>Alleles that are present but considered unlikely to affect the phenotype of interest (i.e. selectable markers)</td>
+<td>ura4-D18 leu1-32 ade6-M210</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>9</td>
-<td>Gene name</td>
+<td>Gene name (symbol)</td>
+<td>The fission yeast Gene Naming Committee approved unique name</td>
 <td>cdc2</td>
-<td>No</td>
-<td>No</td>
+<td>0,1</td>
 </tr>
 <tr class="even">
 <td>10</td>
 <td>Allele name</td>
+<td>Preferred allele name, and any alternative names are in column 11.</td>
 <td>cdc2-1w</td>
-<td>No</td>
-<td>No</td>
+<td>optional/single</td>
 </tr>
 <tr class="odd">
 <td>11</td>
 <td>Allele synonym</td>
+<td>Alternative allele names (&gt;1 pipe separated)</td>
 <td>wee2-1</td>
-<td>No</td>
-<td>Yes</td>
+<td>0 or more</td>
 </tr>
 <tr class="even">
 <td>12</td>
 <td>Allele type</td>
+<td>Allowed: deletion, amino acid mutation, partial amino acid deletion, nucleotide mutation, partial nucleotide deletion, disruption, other, unknown, wild type</td>
 <td>amino acid mutation</td>
-<td>Yes</td>
-<td>No</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td>13</td>
 <td>Evidence</td>
+<td>We use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO)</td>
 <td>ECO:0000336</td>
-<td>Yes</td>
-<td>No</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td>14</td>
 <td>Condition</td>
+<td>A term ID or name from the <a href="https://github.com/pombase/fypo/blob/master/fyeco.obo">FYECO ontology</a></td>
 <td>high temperature, low glucose MM</td>
-<td>Yes</td>
-<td>Yes</td>
+<td>mandatory/multiple</td>
 </tr>
 <tr class="odd">
 <td>15</td>
 <td>Penetrance</td>
-<td>85%</td>
-<td>No</td>
-<td>No</td>
+<td>A percentage, which can be prefixes with “&lt;”, “&gt;” or “~” (approximately). Alternatively entry from FYPO_EXT ontology: “high” (FYPO_EXT:0000001), “medium” (FYPO_EXT:0000002), “low” (FYPO_EXT:0000003) or “full” (FYPO_EXT:0000004)</td>
+<td>85, &lt;20, ~30.4 or “high”, etc.</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td>16</td>
 <td>Severity</td>
-<td>medium</td>
-<td>No</td>
-<td>No</td>
+<td>Uses the FYPO_EXT ontology described in the column 15 description</td>
+<td>“medium”</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td>17</td>
 <td>Extension</td>
+<td>Used when a mutation in one gene affects another gene/protein. e.g, if a mutation in gene A decreased phosphorylation of protein B, gene B’s ID is listed as an extension. Allowed extension relations: assayed_using, assayed_enzyme, assayed_substrate, assayed_transcript, or is_bearer_of</td>
 <td>assayed_using(PomBase:SPBC582.03)</td>
-<td>No</td>
-<td>Yes</td>
+<td>0,1</td>
 </tr>
 <tr class="even">
 <td>18</td>
 <td>Reference</td>
+<td>PubMed IDs only at present</td>
 <td>PMID:23697806</td>
-<td>Yes</td>
-<td>No</td>
+<td>mandatory/single</td>
 </tr>
 <tr class="odd">
 <td>19</td>
-<td>taxon</td>
+<td>Taxon</td>
+<td></td>
 <td>taxon:4896</td>
-<td>Yes</td>
-<td>No</td>
+<td>mandatory/single</td>
 </tr>
 <tr class="even">
 <td>20</td>
 <td>Date</td>
+<td></td>
 <td>2012-01-01</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr class="odd">
-<td>21</td>
-<td>Ploidy</td>
-<td>homozygous diploid</td>
-<td>No</td>
-<td>No</td>
+<td>mandatory/single</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Notes:</strong></p>
-<ol type="1">
-<li>The database that produced the file – included to facilitate data sharing with other databases. Obviously always PomBase for this file. (Also note that PHAF files submitted for loading can omit this column.)</li>
-<li>The systematic ID for each gene.</li>
-<li>To use the FYPO IDs, see the <a routerLink="/browse-curation/fission-yeast-phenotype-ontology">FYPO summary page</a> and the <a routerLink="/faq/how-can-i-browse-phenotype-ontology-fypo">FAQ on browsing FYPO</a>.</li>
-<li>The allele description specifically describes the change; see the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> for details on allele types and descriptions.</li>
-<li>The Expression column contains one of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression.</li>
-<li>The Parental strain column is for the parental strain designation, such as 972 h-, 975 h+, etc. This column must be filled in, but “unknown” is allowed.</li>
-<li>The Background strain name column is used for a lab’s in-house name/ID/designation for the background strain (i.e. the derivative of the parental strain that has selectable marker alleles etc.). The description in the Genotype column should match this background strain.</li>
-<li>The Background genotype description column is for alleles in the background, such as selectable markers; these details are optional. To avoid redundancy, it does not repeat the allele of interest (from column 4 or 10) in the genotype column.</li>
-<li>Gene names are optional for upload, but are included where available in the download.</li>
-<li>Allele names are optional for upload, but are included where available in the download. Column 10 lists the preferred allele name, and any alternative names are in column 11.</li>
-<li>See note 10 above. Multiple entries are separated with pipes (|).</li>
-<li>Allowed allele types, example descriptions, etc. are shown in the table at the bottom of the <a routerLink="/documentation/phenotype-data-bulk-upload-format">Phenotype data bulk upload format</a> page.</li>
-<li>For the Evidence column, we use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO). Please contact the <a href="mailto:helpdesk@pombase.org">Helpdesk</a> if you need assistance using these IDs</li>
-<li>Similarly, Conditions use a small ontology maintained in-house by PomBase curators, and we can help you interpret the IDs. Multiple entries are shown in cases where more than one condition detail applies at the same time (e.g. high temperature, minimal medium), and are separated with commas (,).</li>
-<li>Penetrance describes the proportion of a population that shows a cell-level phenotype. Penetrance data are represented as percents or entries from the in-house FYPO_EXT ontology (FYPO_EXT:0000001 = high; FYPO_EXT:0000002 = medium; FYPO_EXT:0000003 = low; FYPO_EXT:0000004 = full).</li>
-<li>Severity (formerly designated “expressivity”) uses the FYPO_EXT ontology described in note 15.</li>
-<li>The Extension column is used to record when a mutation in one gene affects another gene or its product. For example, if a mutation in gene A decreases its ability to phosphorylate protein B, the A allele is annotated to the phenotype “decreased protein kinase activity” with the ID for gene B in an extension. In the downloadable file, an annotation can have multiple comma-separated extensions if they combine to form a “compound” extension (e.g. two or more genes assayed together).</li>
-<li>The Reference column has the publication’s PubMed ID (PMID).</li>
-<li>The taxon will usually be 4896 (the NCBI taxon ID for <em>Schizosaccharomyces pombe</em>), although an NCBI taxon ID for a specific <em>S. pombe</em> strain would be allowed.</li>
-<li>The date is the date on which the annotations are created. Format: YYYY-MM-DD</li>
-<li>PHAF format is only suitable for haploid and homozygous diploid phenotypes so the only possible values for this column are “haploid” and “homozygous diploid”.</li>
-</ol>
+<h3 id="diploid-phaf-file-download-format">Diploid PHAF file download format</h3>
+<p>We also provide file of single locus diploid genotypes and phenotypes:</p>
+<ul>
+<li><a href="https://curation.pombase.org/dumps/latest_build/misc/single_locus_diploid_phenotype_annotations.tsv">single_locus_diploid_phenotype_annotations.tsv</a></li>
+</ul>
+<h4 id="diploid-phaf-file-format">Diploid PHAF file format</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Contents</th>
+<th>Description/Notes</th>
+<th>Example</th>
+<th>Cardinality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Database</td>
+<td></td>
+<td>PomBase</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Gene systematic ID</td>
+<td>See the <a href="https://www.pombase.org/downloads/names-and-identifiers">names and identifiers file</a> for all</td>
+<td>SPBC11B10.09</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Gene name (symbol)</td>
+<td></td>
+<td>cdc2</td>
+<td>0,1</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>FYPO ID</td>
+<td>From the <a href="https://obofoundry.org/ontology/fypo.html">FYPO ontology</a></td>
+<td>FYPO:0000001</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>FYPO term name</td>
+<td>name of the term in colun 3</td>
+<td>normal meiosis</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Allele 1 name</td>
+<td></td>
+<td>cdc2-1w</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Allele 1 description</td>
+<td>Standardized description of the change <p> See <a href="https://doi.org/10.1093/genetics/iyad143"><em>Genetics</em> 10.1093/genetics/iyad143</a> for syntax</td>
+<td>G146D</td>
+<td>mandatory/single</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Allele 1 type</td>
+<td>Allowed: deletion, amino acid mutation, partial amino acid deletion, nucleotide mutation, partial nucleotide deletion, disruption, other, unknown, wild type</td>
+<td>amino acid mutation</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Allele 1 expression</td>
+<td>One of these values: ‘overexpression’, ‘knockdown’, ‘endogenous’, ‘null’, ‘not specified’. Deletions always have ‘null’ expression.</td>
+<td>overexpression</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Allele 2 name</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Allele 2 description</td>
+<td></td>
+<td></td>
+<td>mandatory/single</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Allele 2 type</td>
+<td></td>
+<td></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Allele 2 expression</td>
+<td></td>
+<td></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Evidence</td>
+<td>We use a small selection from the <a href="http://www.evidenceontology.org/">Evidence Ontology</a> (ECO)</td>
+<td>ECO:0000336</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Condition</td>
+<td>A term ID or name from the <a href="https://github.com/pombase/fypo/blob/master/fyeco.obo">FYECO ontology</a></td>
+<td>high temperature, low glucose MM</td>
+<td>mandatory/multiple</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Penetrance</td>
+<td>A percentage, which can be prefixes with “&lt;”, “&gt;” or “~” (approximately). Alternatively entry from FYPO_EXT ontology: “high” (FYPO_EXT:0000001), “medium” (FYPO_EXT:0000002), “low” (FYPO_EXT:0000003) or “full” (FYPO_EXT:0000004)</td>
+<td>85, &lt;20, ~30.4 or “high”, etc.</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Severity</td>
+<td>Uses the FYPO_EXT ontology described in note 15</td>
+<td>“medium”</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>Extension</td>
+<td>Used when a mutation in one gene affects another gene/protein. e.g, if a mutation in gene A decreased phosphorylation of protein B, gene B’s ID is listed as an extension. Allowed extension relations: assayed_using, assayed_enzyme, assayed_substrate, assayed_transcript, or is_bearer_of</td>
+<td>assayed_using(PomBase:SPBC582.03)</td>
+<td>0,1</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>Reference</td>
+<td>PubMed IDs only at present</td>
+<td>PMID:23697806</td>
+<td>mandatory/single</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>Taxon</td>
+<td></td>
+<td>taxon:4896</td>
+<td>mandatory/single</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>Date</td>
+<td></td>
+<td>2012-01-01</td>
+<td>mandatory/single</td>
+</tr>
+</tbody>
+</table>
 
   </div>
   <div *ngIf="pageName == 'protein-datasets'">
@@ -9090,9 +9256,9 @@ are not detected by any automated method. Gradually, we will add and display sup
 <li>Find <em>S. pombe</em> genes using UniProt accessions</li>
 <li>Retrieve manually curated orthologs for
 <ul>
-<li><em>S. cerevisiae</em>: Use standard gene names (CDC28, ACT1, etc.), ORF names (YPR121W, YPL258C, etc.), or SGD IDs (SGD:S000004494, SGD:S000004635, etc.)</li>
+<li><em>S. cerevisiae</em>: Use standard gene symbols (CDC28, ACT1, etc.), ORF names (YPR121W, YPL258C, etc.), or SGD IDs (SGD:S000004494, SGD:S000004635, etc.)</li>
 <li>Human: use standard gene names (CDK1, BRCA2, etc.) or HGNC identifiers (e.g. HGNC:1722)</li>
-<li><em>S. japonicus</em>: use standard gene names (<em>cdc11</em>, <em>pka1</em>, etc.) or systematic IDs (e.g. SJAG_01188)</li>
+<li><em>S. japonicus</em>: use standard gene symbols (<em>cdc11</em>, <em>pka1</em>, etc.) or systematic IDs (e.g. SJAG_01188)</li>
 </ul></li>
 </ul>
 <p>For UniProt IDs, we also provide a static mapping file of PomBase systematic IDs and UniProtKB accessions, available on the <a href="/downloads/names-and-identifiers">Data Mapping</a> page and by FTP from the file <a href="https://www.pombase.org/latest_release/gene_names_and_identifiers">gene_IDs_names_products.tsv</a>.</p>
@@ -9262,7 +9428,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <!-- pombase_categories: Finding data,Tools and resources,Using ontologies -->
 <p>You can find the GO annotations for your genes corresponding to functional roles and localizations. Our recommended approach depends on how many specific topics you are interested in:</p>
 <ul>
-<li><p>For a small number of specific GO terms (e.g. localization to the nucleus or cytoplasm, or a role in signaling or DNA metabolism), you can use the <a routerLink="/query">advanced search</a>. Paste your gene list into the “Gene names and IDs” query, and then combine it with a GO query for each term of interest (see the <a routerLink="/documentation/advanced-search">search documentation</a> for more information).</p></li>
+<li><p>For a small number of specific GO terms (e.g. localization to the nucleus or cytoplasm, or a role in signaling or DNA metabolism), you can use the <a routerLink="/query">advanced search</a>. Paste your gene list into the “Gene symbols and IDs” query, and then combine it with a GO query for each term of interest (see the <a routerLink="/documentation/advanced-search">search documentation</a> for more information).</p></li>
 <li><p>If you are interested in many GO terms, or if you do not know in advance which terms may be relevant, we recommend that you use a “GO term enrichment” tool. Such tools are typically used to find terms overrepresented for a gene list, but can be used to retrieve all GO annotations if the p-value threshold is set artificially high.</p></li>
 </ul>
 <p>Both the Advanced Search and term enrichment tools take advantage of the hierarchical structure of GO, such that annotations to specific terms are propagated to “ancestor” terms via <em>is_a</em> and <em>part_of</em> relations. See the <a routerLink="/documentation/gene-page-gene-ontology">PomBase GO documentation</a>, and the GO Consortium documentation linked there, for more information. (These approaches also make it easier to maintain and update your data than storing individual GO annotations locally.)</p>
@@ -9293,7 +9459,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="faq_navigate($event, '/faq/can-i-search-gene-list-and-retrieve-results-same-order-as-input-list', 'Can I search for a gene list and retrieve results in the same order as in the input list?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-search-gene-list-and-retrieve-results-same-order-as-input-list' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-search-gene-list-and-retrieve-results-same-order-as-input-list">Can I search for a gene list and retrieve results in the same order as in the input list?</h3>
 <!-- pombase_categories: Finding data -->
-<p>At present this is not possible; all advanced search results are ordered alphabetically by gene name, or by systematic ID for unnamed genes, by default. Click the “Product” column header to sort alphabetically by product description. We plan to add an option to preserve input order soon.</p>
+<p>At present this is not possible; all advanced search results are ordered alphabetically by gene symbol, or by systematic ID for unnamed genes, by default. Click the “Product” column header to sort alphabetically by product description. We plan to add an option to preserve input order soon.</p>
 <p>In the meantime, we suggest that you download the results using the “Details” link, and import them into a spreadsheet. You can then combine the results with other data in the spreadsheet, and use the spreadsheet software to sort on any column.</p>
 
 </div>
@@ -9342,7 +9508,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="faq_navigate($event, '/faq/can-i-use-wild-card-beginning-search-string', 'Can I use a wild card at the beginning of a search string?')" *ngIf="pageName == 'finding-data' || pageName == 'can-i-use-wild-card-beginning-search-string' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="can-i-use-wild-card-beginning-search-string">Can I use a wild card at the beginning of a search string?</h3>
 <!-- pombase_categories: Finding data -->
-<p>The simple search finds search strings anywhere in IDs, gene names, and product descriptions. It does not require any wildcard character, and shows autocomplete suggestions as you type.</p>
+<p>The simple search finds search strings anywhere in IDs, gene symbols, and product descriptions. It does not require any wildcard character, and shows autocomplete suggestions as you type.</p>
 
 </div>
 <div (click)="faq_navigate($event, '/faq/can-i-view-my-data-privately-genome-browser', 'Can I view my data privately in the genome browser?')" *ngIf="pageName == 'genome-browser' || pageName == 'can-i-view-my-data-privately-genome-browser' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
@@ -10056,7 +10222,7 @@ Example queries:
 <h3 id="how-can-i-use-go-slims-s.-pombe">How can I use GO slims with <em>S. pombe</em>?</h3>
 <!-- pombase_categories: Genome statistics and lists,Tools and resources,Using ontologies -->
 <p>The <a routerLink="/documentation/pombase-go-slim-documentation">Fission Yeast GO slim pages</a> provide generic GO slims for <em>S. pombe</em>, and show total genes annotated to each term directly or to any of its descendants.</p>
-<p>If you want GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene names and IDs” option, and then use the “Slim” button on the search results page. See the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
+<p>If you want GO slim annotations for your own list of <em>S. pombe</em> genes, use the advanced search “Gene symbols and IDs” option, and then use the “Slim” button on the search results page. See the <a href="documentation/advanced-search">advanced search documentation</a> for more information.</p>
 <p>If you want to use a different slim, we recommend using the <a href="http://go.princeton.edu/cgi-bin/GOTermMapper">GO Term Mapper</a> at Princeton. Upload your list of genes, and select “Schizosaccharomyces pombe (PomBase)” in the Organism pulldown. For the slim, select one of the radio buttons, or scroll down to Advanced Options to choose GO terms to make up a custom slim. GO Term Mapper’s interface and documentation should make the rest straightforward, but let PomBase staff know if you have any problems.</p>
 <p>For further information on using the generic <em>S. pombe</em> slims, or on creating your own GO slim, please see the <a routerLink="/browse-curation/fission-yeast-go-slimming-tips">Fission Yeast GO slimming tips</a> page.</p>
 
@@ -13505,9 +13671,8 @@ Beyond providing annotation, PomBase played a crucial role in reviewing annotati
   </div>
   <div *ngIf="pageName == 'pombetalks-oct'">
 <h3 id="next-pombetalks-wednesday-october-15th">Next pombeTalks: Wednesday October 15th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
-<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, October 15th, at <a href="https://everytimezone.com/s/b35565bf">08:00</a> San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo</p>
+<p>The next <a routerLink="/community/pombetalks">pombeTalks</a> will take place on Wednesday, October 15th, at <a href="https://everytimezone.com/s/b35565bf">08:00</a> San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo</p>
 <p>Speakers this month are:</p>
 <ul>
 <li><p><strong>Alfonso Fernández Álvarez</strong><br />
@@ -13528,7 +13693,7 @@ Topic: <strong>Mechanical Communication Across the Nucleus: Chromatin-Mediated L
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-october-15th">Next pombeTalks: Wednesday October 15th</h3>
 <p><em>2025-10-09</em></p>
-<p>The next <a href="https://evonuclab.org/pombetalks">pombeTalks</a> will take place on Wednesday, October 15th, at <a href="https://everytimezone.com/s/b35565bf">08:00</a> San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo</p>
+<p>The next <a routerLink="/community/pombetalks">pombeTalks</a> will take place on Wednesday, October 15th, at <a href="https://everytimezone.com/s/b35565bf">08:00</a> San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30 Delhi / 00:00 Beijing / 01:00 Tokyo</p>
 <p>Speakers this month are:</p>
 <ul>
 <li><p><strong>Alfonso Fernández Álvarez</strong><br />
