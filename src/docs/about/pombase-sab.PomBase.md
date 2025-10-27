@@ -13,7 +13,7 @@ affect the wider community.
 #### SAB Meeting reports
 
  - [October 2022 SAB meeting report](/assets/meeting_reports/PomBase_SAB_report_14-Oct-2022.pdf)
-
+ - [December 2024 SAB meeting feedback](/assets/meeting_reports/PomBase_SAB_feedback_Dec-2024.pdf)
 
 #### Current members
 
