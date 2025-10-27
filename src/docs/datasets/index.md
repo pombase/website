@@ -28,7 +28,7 @@ We also have an [archive of previous monthly releases](${base_url}/monthly_relea
 
 ### Dataset and ontology versions
 
-The [versions page](/internal-details) is updated each night.
+The [versions page](/about/dataset-versions) is updated each night.
 
 -------
 
