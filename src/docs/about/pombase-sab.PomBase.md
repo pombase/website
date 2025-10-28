@@ -42,12 +42,13 @@ Senior Research Associate \
 *School of Biological Sciences at the University of Edinburgh (Allshire lab)*
 
 **Professor Sigurd Braun** \
+Heisenberg Professor for Genetics \
 *Institute of Genetics, Justus-Liebig-University Giessen, Giessen, Germany*
 
 **Professor Snezhana Oliferenko** \
 Professor of Evolutionary Cell Biology \
 *Cell Motility and Cytoskeleton, Randall Centre of Cell and Molecular Biophysics, King's College London* \
-*ex officio*, through community oversight of JaponciusDB
+*ex officio*, through community oversight of JaponicusDB
 
 #### Past SAB members
 
