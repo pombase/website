@@ -268,6 +268,12 @@ export interface ProteinFeatureTableConfig {
   feature_types: { [featureTypeName: string]: ProteinFeatureTypeConfig };
 }
 
+export interface TestimonialConfig {
+  quote: string;
+  author: string;
+  show_on_front_page: boolean;
+}
+
 export interface AppConfig {
   site_name: string;
   database_name: string;
@@ -335,6 +341,7 @@ export interface AppConfig {
     title: string;
   };
   welcome_message: string;
+  testimonials: Array<TestimonialConfig>;
   canto_data_config: CantaDataConfig;
   organisms: Array<ConfigOrganism>;
   ortholog_taxonids: Array<number>;
@@ -834,6 +841,7 @@ let _appConfig: AppConfig = {
   intermine: pombaseConfig.intermine,
   community_mailing_list: pombaseConfig.community_mailing_list,
   welcome_message: pombaseConfig.welcome_message,
+  testimonials: pombaseConfig.testimonials || [],
   canto_data_config: pombaseConfig.canto_data_config,
   organisms: pombaseConfig.organisms,
   ortholog_taxonids: pombaseConfig.ortholog_taxonids,

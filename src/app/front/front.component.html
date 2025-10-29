@@ -2,11 +2,125 @@
 <app-social-contact></app-social-contact>
 
 <h2 class="welcome-title">Welcome to {{siteName}}</h2>
+<div class="front-grid">
 <div class="welcome">
   <div class="welcome-content">
     <span [innerHTML]="welcomeMessage"></span>
   </div>
-  <div *ngIf="showElixirAndGbcLogos" class="welcome-logos">
+</div>
+
+<div class="quick-links">
+
+  <span class="quick-links-group">
+    <span class="quick-links-title">About:</span>
+    <span class="quick-links-label">
+      <a routerLink="/about">About {{siteName}}</a>
+    </span>
+    <span class="quick-links-separator">&#x25CF;</span>
+    <span class="quick-links-label">
+      <a routerLink="/documentation">Documentation</a>
+    </span>
+  </span>
+
+  <span class="quick-links-group">
+    <span class="quick-links-line">
+      <div class="overview-block">
+      <span class="quick-links-title">Overviews:</span>
+      </div>
+      <div class="overview-block">
+        <div>
+      <span class="quick-links-label">
+        <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms"
+           title="Gene Ontology molecular function overview">Function</a>
+      </span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label">
+        <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms"
+           title="Gene Ontology biological process overview">Process</a>
+      </span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label">
+        <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms"
+           title="Gene Ontology cellular component overview">Component</a>
+      </span>
+        </div>
+        <div>
+      <span *ngIf="hasDiseaseAnnotation" class="quick-links-label">
+        <a routerLink="/browse-curation/disease-slim"
+           title="Disease (Mondo) association overview">Disease association</a>
+      </span>
+      <span *ngIf="hasDiseaseAnnotation || fypoSlim" class="quick-links-separator">&#x25CF;</span>
+      <span *ngIf="fypoSlim" class="quick-links-label">
+        <a routerLink="{{fypoSlim.full_slim_path}}"
+           title="Phenotype (FYPO) annotation overview">Phenotype</a>
+      </span>
+      <span *ngIf="hasUnknownsList" class="quick-links-separator">&#x25CF;</span>
+      <span *ngIf="hasUnknownsList" class="quick-links-label">
+        <a routerLink="/status/protein-status-tracker"
+           title="Unknown protein tracker and protein-coding gene characterisation status information">Unknown protein tracker</a>
+      </span>
+        </div>
+      </div>
+    </span>
+  </span>
+
+  <span class="quick-links-group">
+    <span class="quick-links-title">Tools:</span>
+    <span class="quick-links-label">
+      <a routerLink="/query"
+         title="Query genes with the Advanced Search tool">Advanced search</a>
+    </span>
+    <span class="quick-links-separator">&#x25CF;</span>
+    <span *ngIf="siteName != 'PomBase'">
+      <a href="/jbrowse/" target="_blank"
+         title="View genome-wide datasets the JBrowse genome browser">
+        Genome browser
+      </a>
+    </span>
+    <span *ngIf="siteName == 'PomBase'">
+      <a routerLink="/gocam">GO-CAM pathways</a>
+    </span>
+  </span>
+
+  <span class="quick-links-group">
+    <span class="quick-links-line">
+      <span class="quick-links-title">Example pages:</span>
+      <span class="quick-links-label"><a routerLink="/gene/{{examplePages.gene}}">Gene</a></span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label"><a routerLink="/term/{{examplePages.term}}">Term</a></span>
+      <span class="quick-links-separator">&#x25CF;</span>
+      <span class="quick-links-label"><a routerLink="/reference/{{examplePages.reference}}">Publication</a></span>
+      <span *ngIf="examplePages.gocam" class="quick-links-separator">&#x25CF;</span>
+      <span *ngIf="examplePages.gocam" class="quick-links-label">
+        <a routerLink="/gocam/pombase-view/docs/{{examplePages.gocam}}">Pathway</a>
+      </span>
+    </span>
+  </span>
+
+</div>
+
+<div class="front-right">
+<div *ngIf="testimonials.length > 0" class="testimonials">
+  <div class="testimonials-header-row">
+    <h4>Testimonials</h4>
+    <span class="testimonials-all-link">
+      <a routerLink="/about/testimonials">View all ...</a>
+    </span>
+  </div>
+  <ul>
+    <li *ngFor="let randomTestimonial of randomTestimonials">
+<div class="testimonial-quote" [innerHTML]="randomTestimonial.quote">
+</div>
+<div class="testimonial-author">
+{{randomTestimonial.author}}
+</div>
+    </li>
+  </ul>
+</div>
+</div>
+
+<div class="welcome-logos">
+  <div *ngIf="showElixirAndGbcLogos">
     <div class="gcbr-elixir-logo-row">
     <span class="gcbr-elixir-logo">
       <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources/">
@@ -22,87 +136,23 @@
   </div>
 </div>
 
-<div class="quick-links">
-  <span class="quick-links-group">
-    <span class="quick-links-title">Tools:</span>
-    <span class="quick-links-label">
-      <a routerLink="/query">Advanced search</a>
-    </span>
-    <span class="quick-links-separator">&#x25CF;</span>
-    <span *ngIf="!hasJBrowse2" class="quick-links-label">
-      <a href="/jbrowse/" target="_blank"
-         title="View genome-wide datasets the JBrowse genome browser">
-        Genome browser
-      </a>
-    </span>
-    <span *ngIf="hasJBrowse2" class="quick-links-label">
-      Genome browser:
-      <a href="/jbrowse2/" target="_blank"
-         title="View genome-wide datasets in the JBrowse V2 genome browser">
-        New
-      </a>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <a href="/jbrowse/" target="_blank"
-         title="View genome-wide datasets in the JBrowse V1 genome browser">
-        Old
-      </a>
-    </span>
-  </span>
-  <span class="quick-links-group">
-    <span class="quick-links-line">
-      <span class="quick-links-title">Example pages:</span>
-      <span class="quick-links-label"><a routerLink="/gene/{{examplePages.gene}}">Gene</a></span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label"><a routerLink="/term/{{examplePages.term}}">Term</a></span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label"><a routerLink="/reference/{{examplePages.reference}}">Publication</a></span>
-      <span *ngIf="examplePages.gocam" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="examplePages.gocam" class="quick-links-label">
-        <a routerLink="/gocam/pombase-view/docs/{{examplePages.gocam}}">Pathway</a>
-      </span>
-    </span>
-  </span>
-  <span class="quick-links-group">
-    <span class="quick-links-line">
-      <span class="quick-links-title">Overviews:</span>
-      <span class="quick-links-label">
-        <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms">Function</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label">
-        <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms">Process</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label">
-        <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms">Component</a>
-      </span>
-      <span *ngIf="hasDiseaseAnnotation" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="hasDiseaseAnnotation" class="quick-links-label">
-        <a routerLink="/browse-curation/disease-slim">Disease association</a>
-      </span>
-
-      <span *ngIf="fypoSlim" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="fypoSlim" class="quick-links-label">
-        <a routerLink="{{fypoSlim.full_slim_path}}">Phenotype</a>
-      </span>
-      <span *ngIf="hasUnknownsList" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="hasUnknownsList" class="quick-links-label">
-        <a routerLink="/status/protein-status-tracker">Unknown protein tracker</a>
-      </span>
-      <span *ngIf="siteName == 'PomBase'" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="siteName == 'PomBase'">
-        <a routerLink="/gocam">GO-CAM pathways</a>
-      </span>
-    </span>
-  </span>
-</div>
-
-<div style="clear: both"></div>
-
 <div class="front-callout bs-callout bs-callout-info">
+
 </div>
 
-<div class="panel-container">
+  <div class="front-panel info-panel spotlight">
+    <app-front-panel [conf]="spotlightConf"></app-front-panel>
+    <div class="archive-link-container">
+    <a routerLink="/archive/spotlight">View more Community Curation spotlights ...</a>
+    </div>
+  </div>
+
+  <div class="front-panel info-panel explore">
+    <app-front-panel [conf]="exploreConf"></app-front-panel>
+    <div class="archive-link-container">
+      <a routerLink="/archive/explore">View more {{siteName}} features ...</a>
+    </div>
+  </div>
 
   <div *ngIf="showNewsItems" class="front-news-feed">
     <div class="font-news-archive"><a routerLink="/news">News archive ...</a></div>
@@ -110,21 +160,7 @@
     <app-recent-news></app-recent-news>
   </div>
 
-  <div class="front-panel info-panel">
-    <app-front-panel [conf]="spotlightConf"></app-front-panel>
-    <div class="archive-link-container">
-    <a routerLink="/archive/spotlight">View more Community Curation spotlights ...</a>
-    </div>
-  </div>
-
-  <div class="front-panel info-panel">
-    <app-front-panel [conf]="exploreConf"></app-front-panel>
-    <div class="archive-link-container">
-      <a routerLink="/archive/explore">View more {{siteName}} features ...</a>
-    </div>
-  </div>
-
-  <div class="front-panel info-panel">
+  <div class="front-panel info-panel community">
     <app-front-panel [conf]="communityConf"></app-front-panel>
     <div class="archive-link-container">
       <a routerLink="/reference_list/community">All community curation ...</a>
@@ -134,7 +170,7 @@
     </div>
   </div>
 
-  <div class="front-panel info-panel">
+  <div class="front-panel info-panel pombetalks">
     <a routerLink="/community/pombetalks">
       <img src="assets/pombetalks-panel-image.png"/>
       <div class="panel-title">
@@ -147,7 +183,7 @@
       </div>
     </a>
   </div>
-  
+
 </div>
 </div>
 

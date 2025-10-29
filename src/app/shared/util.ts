@@ -192,6 +192,15 @@ export class Util {
     return arr[Util.randInt(arr.length)];
   }
 
+  static randNElements<T>(arr: Array<T>, count: number): Array<T> {
+    if (count > arr.length) {
+      return arr;
+    }
+    const wrapped = arr.concat(arr);
+    const pos = Util.randInt(arr.length);
+    return wrapped.slice(pos, pos+count);
+  }
+
   static productStringOfTranscript(transcript: TranscriptDetails): string {
     const protein = transcript.protein;
 
@@ -219,7 +228,7 @@ export class Util {
 
     const codingExonCount =
           transcript.parts.filter(part => part.feature_type === 'exon').length;
-    
+
     if (codingExonCount > 1) {
       ret += 'join(';
     }
